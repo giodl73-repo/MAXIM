@@ -8,18 +8,18 @@ or disease type because it reveals the replication strategy.
 
 ```
 ┌──────────────────────────────────────────────────────────────────┐
-│              BALTIMORE CLASSIFICATION — ALL 7 CLASSES             │
+│              BALTIMORE CLASSIFICATION — ALL 7 CLASSES            │
 │                                                                    │
-│  The Central Question:                                            │
+│  The Central Question:                                           │
 │  "How does the virus produce mRNA from its genome?"              │
 │                                                                    │
-│  Class I   dsDNA    → mRNA  (like host; use host or viral pol)  │
-│  Class II  ssDNA    → dsDNA → mRNA                              │
-│  Class III dsRNA    → mRNA  (viral RdRp required)               │
-│  Class IV  +ssRNA   = mRNA  (genome IS the mRNA)                │
+│  Class I   dsDNA    → mRNA  (like host; use host or viral pol)   │
+│  Class II  ssDNA    → dsDNA → mRNA                               │
+│  Class III dsRNA    → mRNA  (viral RdRp required)                │
+│  Class IV  +ssRNA   = mRNA  (genome IS the mRNA)                 │
 │  Class V   -ssRNA   → mRNA  (viral RdRp required for first step)│
-│  Class VI  ssRNA-RT → DNA   → mRNA  (reverse transcription)     │
-│  Class VII dsDNA-RT → mRNA  (with RT in replication cycle)      │
+│  Class VI  ssRNA-RT → DNA   → mRNA  (reverse transcription)      │
+│  Class VII dsDNA-RT → mRNA  (with RT in replication cycle)       │
 │                                                                    │
 │  KEY DIVISION: RNA vs DNA genome                                 │
 │  DNA viruses: generally lower mutation rate, larger genomes      │

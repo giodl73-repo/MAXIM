@@ -179,7 +179,7 @@ HYDROPONIC SYSTEMS TAXONOMY:
   │ NFT (Nutrient Film Technique)                                  │
   │ Thin film of nutrient solution flows continuously through      │
   │ shallow channels. Roots sit in channel; top half in air.       │
-  │ + Very low water/solution volume; O₂ abundant.                │
+  │ + Very low water/solution volume; O₂ abundant.                 │
   │ + Fast growth for leafy crops (lettuce, herbs, strawberry).    │
   │ - Power failure = immediate root drying and death.             │
   │ - Poor for fruiting crops (roots can't support heavy plant).   │
@@ -196,9 +196,9 @@ HYDROPONIC SYSTEMS TAXONOMY:
   └────────────────────────────────────────────────────────────────┘
 
   ┌────────────────────────────────────────────────────────────────┐
-  │ EBB-AND-FLOW (FLOOD-AND-DRAIN)                                │
+  │ EBB-AND-FLOW (FLOOD-AND-DRAIN)                                 │
   │ Tray flooded periodically; solution drains back to reservoir.  │
-  │ + Good O₂ delivery (drains fully between floods).             │
+  │ + Good O₂ delivery (drains fully between floods).              │
   │ + Flexible (many substrates possible).                         │
   │ - Higher capital; complex plumbing.                            │
   └────────────────────────────────────────────────────────────────┘
@@ -206,16 +206,16 @@ HYDROPONIC SYSTEMS TAXONOMY:
   ┌────────────────────────────────────────────────────────────────┐
   │ DRIP (Dutch bucket / substrate)                                │
   │ Nutrient solution dripped to individual plants in substrate    │
-  │ (rockwool, coco coir, perlite, clay pebbles).                 │
+  │ (rockwool, coco coir, perlite, clay pebbles).                  │
   │ + Good for tomato, cucumber, pepper (fruiting crops).          │
   │ + Easy to manage large individual plants.                      │
   │ - Waste if run-to-waste; recirculating requires management.    │
   └────────────────────────────────────────────────────────────────┘
 
   ┌────────────────────────────────────────────────────────────────┐
-  │ AEROPONICS                                                      │
+  │ AEROPONICS                                                     │
   │ Roots hang in air chamber; nutrient mist sprayed at intervals. │
-  │ + Maximum O₂; rapid growth; lowest water use.                 │
+  │ + Maximum O₂; rapid growth; lowest water use.                  │
   │ + Excellent for tissue culture acclimatization, R&D.           │
   │ - Very high capital and maintenance.                           │
   │ - Power/pump failure: roots dry in minutes.                    │

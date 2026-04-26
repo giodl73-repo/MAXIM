@@ -6,7 +6,7 @@ Information-theoretic approaches to generalization bounds use mutual information
 
 ```
 +──────────────────────────────────────────────────────────────────+
-|          INFORMATION-THEORETIC GENERALIZATION FRAMEWORK         |
+|          INFORMATION-THEORETIC GENERALIZATION FRAMEWORK          |
 |                                                                  |
 |  CORE INSIGHT                                                    |
 |  The generalization gap is bounded by how much information       |
@@ -14,18 +14,18 @@ Information-theoretic approaches to generalization bounds use mutual information
 |                                                                  |
 |   generalization gap ≤ f( I(W; S) )                              |
 |                                                                  |
-|  LOW MUTUAL INFORMATION → GOOD GENERALIZATION                   |
-|  (Algorithm "forgets" training data → can't have overfit it)    |
+|  LOW MUTUAL INFORMATION → GOOD GENERALIZATION                    |
+|  (Algorithm "forgets" training data → can't have overfit it)     |
 |                                                                  |
 |  THREE MAIN FRAMEWORKS                                           |
 |  ─────────────────────                                           |
-|  PAC-Bayes:        KL(Q || P) bounds generalization             |
+|  PAC-Bayes:        KL(Q || P) bounds generalization              |
 |                    Output distribution Q close to prior P        |
 |                                                                  |
-|  Mutual Information: I(W; S) bounds generalization              |
+|  Mutual Information: I(W; S) bounds generalization               |
 |                    Algorithm output W barely depends on S        |
 |                                                                  |
-|  CMI:              Conditional MI; tighter, handles dependence  |
+|  CMI:              Conditional MI; tighter, handles dependence   |
 |                    across the sample                             |
 +──────────────────────────────────────────────────────────────────+
 ```

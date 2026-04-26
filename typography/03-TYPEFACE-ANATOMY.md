@@ -98,7 +98,7 @@ PROPORTIONAL RELATIONSHIPS:
   Cap height:   650–730  │ H                     H      │
                          │                              │
                          │                              │
-  X-height:     400–550  │ x      x      x      x      │
+  X-height:     400–550  │ x      x      x      x       │
                          │                              │
   Baseline:         0    ├──────────────────────────────┤
                          │                              │
@@ -227,8 +227,8 @@ TERMINAL TYPES (how strokes end):
                │  Hairline (Didone): extremely thin, high contrast      │
                │  Slab (Egyptian):   thick rectangular, no bracket      │
                │  Bracketed:         curved transition from stem to foot │
-               │  Wedge:             triangular; Optima-like             │
-               │  Cupped:            slightly concave foot               │
+               │  Wedge:             triangular; Optima-like            │
+               │  Cupped:            slightly concave foot              │
                └────────────────────────────────────────────────────────┘
 
   Ball terminal   Circular blob at end of stroke
@@ -260,7 +260,7 @@ STROKE CONTRAST = ratio of thickest to thinnest stroke
   ┌──────────────────────────────────────────────────────────────────────┐
   │  Helvetica, Futura, Gill Sans, most sans-serif faces                 │
   │  O appears as: nearly uniform-weight oval                            │
-  │  Ratio ≈ 1.1–1.5:1                                                  │
+  │  Ratio ≈ 1.1–1.5:1                                                   │
   └──────────────────────────────────────────────────────────────────────┘
 
   Medium contrast:
@@ -284,20 +284,20 @@ STRESS AXIS = the angle at which a circle is "squeezed" to form the 'O'
 
   Diagonal stress (~30° from vertical) = Humanist origin:
   ┌──────────────────────────────────────────────────────────────────────┐
-  │  Letterform designed as calligraphy with broad-nib pen held at ~30° │
-  │  Thin strokes are at ~30° from vertical                             │
-  │  Garamond, Jenson, Palatino                                         │
-  │         ╱ ← thin                                                    │
+  │  Letterform designed as calligraphy with broad-nib pen held at ~30°  │
+  │  Thin strokes are at ~30° from vertical                              │
+  │  Garamond, Jenson, Palatino                                          │
+  │         ╱ ← thin                                                     │
   │        O                                                             │
-  │  thick ←                                                            │
+  │  thick ←                                                             │
   └──────────────────────────────────────────────────────────────────────┘
 
   Vertical stress (90° = truly vertical) = Rational/Modern origin:
   ┌──────────────────────────────────────────────────────────────────────┐
   │  Letterform designed geometrically, not calligraphically             │
-  │  Thin strokes at exactly 90° (horizontal — 3 o'clock and 9 o'clock) │
-  │  Bodoni, Didot, Helvetica, Futura                                   │
-  │  thin →  O  ← thin                                                  │
+  │  Thin strokes at exactly 90° (horizontal — 3 o'clock and 9 o'clock)  │
+  │  Bodoni, Didot, Helvetica, Futura                                    │
+  │  thin →  O  ← thin                                                   │
   │  thick at top and bottom                                             │
   └──────────────────────────────────────────────────────────────────────┘
 
@@ -337,7 +337,7 @@ WHAT "POINT SIZE" ACTUALLY MEANS:
   ┌──────────────────────────────────────────────────────────────────┐
   │  12pt type:                                                      │
   │                                                                  │
-  │  ┌──────────────────────────────────────────┐  ← ascender line  │
+  │  ┌──────────────────────────────────────────┐  ← ascender line   │
   │  │   b   d   h   l   f   k                  │                   │
   │  │                                          │  ← cap height     │
   │  │   H   K   M   N   O                      │                   │

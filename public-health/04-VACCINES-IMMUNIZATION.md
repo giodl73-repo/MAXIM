@@ -4,33 +4,33 @@
 
 ```
 ┌─────────────────────────────────────────────────────────────────────────────┐
-│                        VACCINE TECHNOLOGY SPECTRUM                           │
+│                        VACCINE TECHNOLOGY SPECTRUM                          │
 │                                                                               │
 │  PLATFORM          MECHANISM              EXAMPLES         THERMAL STABILITY │
-│  ──────────────────────────────────────────────────────────────────────────  │
+│  ────────────────────────────────────────────────────────────────────────── │
 │  Live attenuated   Weakened pathogen,     MMR, varicella,  +2–8°C (fragile) │
-│                    replicates in host,    OPV, yellow     Freeze-sensitive   │
-│                    broad immune response  fever, BCG                         │
+│                    replicates in host,    OPV, yellow     Freeze-sensitive  │
+│                    broad immune response  fever, BCG                        │
 │                                                                               │
 │  Inactivated/      Killed whole pathogen  IPV, Hep A,     +2–8°C            │
-│  whole pathogen    or toxoid             flu (IIV),       More stable        │
-│                                          rabies, typhoid                     │
+│  whole pathogen    or toxoid             flu (IIV),       More stable       │
+│                                          rabies, typhoid                    │
 │                                                                               │
 │  Subunit/protein   Purified antigen       Hep B, Tdap,    +2–8°C            │
 │                    component only         HPV, pertussis,  Adjuvant required │
-│                                          meningococcal                       │
+│                                          meningococcal                      │
 │                                                                               │
 │  Viral vector      Adenovirus carries     AstraZeneca      +2–8°C           │
 │                    antigen gene           (COVID), Ebola   (some ≤ −20°C)   │
 │                                          (rVSV), Johnson  Moderate stability │
 │                                                                               │
-│  mRNA              Lipid nanoparticle     Pfizer-BioNTech  Pfizer: ≤−60°C  │
+│  mRNA              Lipid nanoparticle     Pfizer-BioNTech  Pfizer: ≤−60°C   │
 │                    delivers mRNA →        (COVID),         Moderna: ≤−20°C  │
-│                    host cells make        Moderna (COVID)  Ultra-cold chain  │
+│                    host cells make        Moderna (COVID)  Ultra-cold chain │
 │                    antigen                                                    │
 │                                                                               │
 │  DNA plasmid       Plasmid DNA → mRNA     inovio (trials)  +2–8°C           │
-│                    → antigen expression   ZyCoV-D (India)  Stable            │
+│                    → antigen expression   ZyCoV-D (India)  Stable           │
 │                                                                               │
 └─────────────────────────────────────────────────────────────────────────────┘
 ```

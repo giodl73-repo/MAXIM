@@ -11,9 +11,9 @@
 ┌─────────────────────────────────────────────────────────────────────────────┐
 │                         AGENT TAXONOMY                                      │
 │                                                                             │
-│  COMPLEXITY ──────────────────────────────────────────────────────────►    │
+│  COMPLEXITY ──────────────────────────────────────────────────────────►     │
 │                                                                             │
-│  Single call      Chain          Agent          Multi-Agent System         │
+│  Single call      Chain          Agent          Multi-Agent System          │
 │  ┌──────────┐  ┌──────────┐  ┌──────────────┐  ┌─────────────────────┐   │
 │  │ prompt   │  │ prompt   │  │              │  │   Orchestrator      │   │
 │  │   │      │  │   │      │  │  ┌─────────┐ │  │   ┌───────────────┐ │   │
@@ -61,13 +61,13 @@ paper but now baked into every framework and the Anthropic/OpenAI APIs directly.
 │                  │                                                  │
 │                  ▼                                                  │
 │  ┌───────────────────────────────┐                                  │
-│  │  ACTION                       │  ← LLM emits tool_use block     │
+│  │  ACTION                       │  ← LLM emits tool_use block      │
 │  │  tool: search("X definition") │                                  │
 │  └───────────────┬───────────────┘                                  │
 │                  │                                                  │
 │                  ▼                                                  │
 │  ┌───────────────────────────────┐                                  │
-│  │  OBSERVATION                  │  ← tool result appended as      │
+│  │  OBSERVATION                  │  ← tool result appended as       │
 │  │  "X is defined as ..."        │    tool_result message           │
 │  └───────────────┬───────────────┘                                  │
 │                  │                                                  │
@@ -265,7 +265,7 @@ different tool, or tell the user it couldn't complete the task.
 │  MEMORY TAXONOMY                                                    │
 │                                                                     │
 │  IN-CONTEXT MEMORY                                                  │
-│  ┌──────────────────────────────────────────────────────────────┐  │
+│  ┌──────────────────────────────────────────────────────────────┐   │
 │  │  Everything in the current messages array                    │  │
 │  │  ← fastest, most reliable, limited by context window         │  │
 │  └──────────────────────────────────────────────────────────────┘  │
@@ -279,7 +279,7 @@ different tool, or tell the user it couldn't complete the task.
 │  SEMANTIC MEMORY                                                    │
 │  ┌──────────────────────────────────────────────────────────────┐  │
 │  │  Knowledge base: facts, documents, indexed and retrievable   │  │
-│  │  ← this is RAG (covered in 01-LLM-CONCEPTS.md)              │  │
+│  │  ← this is RAG (covered in 01-LLM-CONCEPTS.md)               │  │
 │  └──────────────────────────────────────────────────────────────┘  │
 │                                                                     │
 │  PROCEDURAL MEMORY                                                  │
@@ -428,7 +428,7 @@ The orchestrator delegates sub-tasks to specialized subagents:
 ```
 ┌────────────────────────────────────────────────────────────┐
 │  ORCHESTRATOR                                              │
-│  "Research AAPL earnings and write a 500-word analysis"   │
+│  "Research AAPL earnings and write a 500-word analysis"    │
 │        │                                                   │
 │   ┌────┴────────────────────────────────────┐              │
 │   │         TASK DECOMPOSITION              │              │
@@ -487,12 +487,12 @@ conditional transitions. Closer to XState (see 21-AUTOMATA.md) than to pipelines
 ┌─────────────────────────────────────────────────────────────────────┐
 │  LANGGRAPH PRIMITIVES                                               │
 │                                                                     │
-│  StateGraph    — the graph; typed state dict flows through nodes   │
-│  Node          — Python function: receives state, returns updates  │
-│  Edge          — unconditional transition between nodes            │
-│  ConditionalEdge — function inspects state → returns next node     │
-│  START / END   — entry and terminal nodes                          │
-│  Checkpointer  — persists state between turns (Redis, Postgres)    │
+│  StateGraph    — the graph; typed state dict flows through nodes    │
+│  Node          — Python function: receives state, returns updates   │
+│  Edge          — unconditional transition between nodes             │
+│  ConditionalEdge — function inspects state → returns next node      │
+│  START / END   — entry and terminal nodes                           │
+│  Checkpointer  — persists state between turns (Redis, Postgres)     │
 └─────────────────────────────────────────────────────────────────────┘
 ```
 
@@ -583,20 +583,20 @@ state is fully persisted — the agent can be paused for hours and resumed exact
 ┌─────────────────────────────────────────────────────────────────────┐
 │  MULTI-AGENT TOPOLOGIES                                             │
 │                                                                     │
-│  SUPERVISOR / WORKER               PEER (SWARM)                    │
+│  SUPERVISOR / WORKER               PEER (SWARM)                     │
 │  ┌──────────────┐                  ┌──────┐  ┌──────┐             │
 │  │  Supervisor  │◄─────────────────┤Agent │  │Agent │             │
 │  └──────┬───────┘                  └──┬───┘  └───┬──┘             │
 │         │ routes tasks                │ ◄────────► │               │
 │    ┌────┴────┐                        │ shared     │               │
 │   Worker   Worker                     │  state     │               │
-│                                                                     │
+│                                                                    │
 │  HIERARCHICAL                        PIPELINE                      │
 │  Supervisor                          A → B → C → D                 │
-│    ├── SubSupervisor A                                              │
+│    ├── SubSupervisor A                                             │
 │    │      ├── Worker A1              Deterministic order           │
 │    │      └── Worker A2              Each agent adds to output     │
-│    └── SubSupervisor B                                              │
+│    └── SubSupervisor B                                             │
 │           └── Worker B1                                            │
 └─────────────────────────────────────────────────────────────────────┘
 ```
@@ -806,7 +806,7 @@ what inputs, leading to what final state.
 ┌─────────────────────────────────────────────────────────────────────┐
 │  WHAT TO EVAL IN AGENTS                                             │
 │                                                                     │
-│  Final answer quality    — standard LLM eval (see 02-EVALS)        │
+│  Final answer quality    — standard LLM eval (see 02-EVALS)         │
 │  Tool selection          — did it call the right tools?             │
 │  Tool call arguments     — correct inputs to each tool?             │
 │  Trajectory efficiency   — unnecessary tool calls?                  │
@@ -930,7 +930,7 @@ assert result["passed"], "\n".join(result["failures"])
 │                    │  UI shows trace tree. Dataset builder pulls │
 │                    │  prod traces into eval set.                 │
 ├────────────────────┼─────────────────────────────────────────────┤
-│  Braintrust        │  Trajectory eval via Span API; log each    │
+│  Braintrust        │  Trajectory eval via Span API; log each     │
 │                    │  tool call as a child span; eval on full    │
 │                    │  trace or individual spans independently.   │
 ├────────────────────┼─────────────────────────────────────────────┤
@@ -981,7 +981,7 @@ New projects should use LangGraph.
 
 ```
 ┌─────────────────────────────────────────────────────────────────────┐
-│  TASK                          │  PATTERN                          │
+│  TASK                          │  PATTERN                           │
 ├────────────────────────────────┼───────────────────────────────────┤
 │  Fixed N steps, predictable    │  Prompt chain (not an agent)      │
 │  Unknown steps, tool use       │  Single ReAct agent               │

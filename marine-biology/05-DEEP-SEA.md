@@ -218,23 +218,23 @@ BIOLUMINESCENCE PREVALENCE BY DEPTH
 FUNCTIONS IN THE DEEP SEA:
   ┌────────────────────────────────────────────────────┐
   │ PREDATION:         Anglerfish esca lure            │
-  │                    Viperfish photophores attract    │
+  │                    Viperfish photophores attract   │
   │                    Siphonophores: longest organisms  │
-  │                    on Earth (~45 m); trailing       │
+  │                    on Earth (~45 m); trailing      │
   │                    bioluminescent tentacles          │
-  │                                                     │
-  │ COUNTERILLUMINATION: match downwelling light        │
-  │ (mesopelagic)        to erase shadow silhouette     │
-  │                      → predator avoidance           │
-  │                                                     │
-  │ SIGNALING:          Intraspecific mate finding      │
-  │                     (no light for visual cues)      │
+  │                                                    │
+  │ COUNTERILLUMINATION: match downwelling light       │
+  │ (mesopelagic)        to erase shadow silhouette    │
+  │                      → predator avoidance          │
+  │                                                    │
+  │ SIGNALING:          Intraspecific mate finding     │
+  │                     (no light for visual cues)     │
   │                     Species-specific flash patterns │
-  │                                                     │
-  │ PREDATOR DEFENSE:   Burglar alarm — flash when      │
-  │                     touched → illuminate predator   │
-  │                     → attracts predator's predator  │
-  │                     Squirts bioluminescent fluid    │
+  │                                                    │
+  │ PREDATOR DEFENSE:   Burglar alarm — flash when     │
+  │                     touched → illuminate predator  │
+  │                     → attracts predator's predator │
+  │                     Squirts bioluminescent fluid   │
   │                     (some squid: bioluminescent ink)│
   └────────────────────────────────────────────────────┘
 ```
@@ -271,12 +271,12 @@ PULSE EVENTS (episodic, large)
   │ Whale falls:                                      │
   │   A single whale carcass (~100 tonnes) supports   │
   │   30-year succession community                    │
-  │   Phase 1 (1-2 yr): mobile scavengers (sharks,   │
+  │   Phase 1 (1-2 yr): mobile scavengers (sharks,    │
   │     hagfish, sleeper sharks) strip lipids/flesh   │
-  │   Phase 2 (2-5 yr): enrichment opportunists —    │
+  │   Phase 2 (2-5 yr): enrichment opportunists —     │
   │     polychaete worms, crustaceans in soft tissue  │
   │   Phase 3 (decades): sulfophilic stage —          │
-  │     anaerobic bacteria reduce sulfate → H₂S →    │
+  │     anaerobic bacteria reduce sulfate → H₂S →     │
   │     chemoautotrophic bacteria → whole community   │
   │     (convergent with hydrothermal vents)          │
   └───────────────────────────────────────────────────┘

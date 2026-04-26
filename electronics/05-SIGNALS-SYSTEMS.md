@@ -287,21 +287,21 @@ SIGNALS & SYSTEMS LANDSCAPE
 
 ```
   ┌───────────────────────────────────────────────────────────────────┐
-  │  Series (cascade):  H = H₁ · H₂   (multiply transfer functions)  │
-  │                                                                    │
-  │  Parallel:  H = H₁ + H₂   (add transfer functions)               │
-  │                                                                    │
-  │  Feedback:                                                         │
+  │  Series (cascade):  H = H₁ · H₂   (multiply transfer functions)   │
+  │                                                                   │
+  │  Parallel:  H = H₁ + H₂   (add transfer functions)                │
+  │                                                                   │
+  │  Feedback:                                                        │
   │         E = X - Y·B                                               │
   │         Y = E·A                                                   │
-  │         Y = A·X/(1+AB)   (closed-loop TF)                        │
-  │                                                                    │
-  │  Control loop:                                                     │
-  │    R ──►(Σ)──►[C(s)]──►[G(s)]──► Y                               │
+  │         Y = A·X/(1+AB)   (closed-loop TF)                         │
+  │                                                                   │
+  │  Control loop:                                                    │
+  │    R ──►(Σ)──►[C(s)]──►[G(s)]──► Y                                │
   │          ↑─────────────────────┘                                  │
-  │                                                                    │
+  │                                                                   │
   │    Closed-loop: T = CG/(1+CG)                                     │
-  │    Sensitivity: S = 1/(1+CG)   (disturbance rejection)           │
+  │    Sensitivity: S = 1/(1+CG)   (disturbance rejection)            │
   └───────────────────────────────────────────────────────────────────┘
 ```
 

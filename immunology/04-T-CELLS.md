@@ -8,39 +8,39 @@ T CELLS: CELLULAR IMMUNITY COORDINATORS AND KILLERS
 
   TCR DIVERSITY (same combinatorial logic as BCR):
   ┌────────────────────────────────────────────────────────────────┐
-  │ α/β TCR (dominant, 95% of circulating T cells):               │
-  │   α chain: V (~50) × J (~61) = ~3,050                         │
+  │ α/β TCR (dominant, 95% of circulating T cells):                │
+  │   α chain: V (~50) × J (~61) = ~3,050                          │
   │   β chain: V (~54) × D (2) × J (~14) = ~1,512                │
   │   Combinatorial: ~4.6 million                                  │
-  │   + Junctional diversity: ~10¹⁸ total                         │
-  │                                                                 │
+  │   + Junctional diversity: ~10¹⁸ total                          │
+  │                                                                │
   │ γ/δ TCR (5%, mucosal surfaces, skin):                          │
   │   More limited diversity                                       │
   │   Recognize non-peptide antigens (lipids, stress molecules)    │
-  │   First responders at epithelial barriers                     │
+  │   First responders at epithelial barriers                      │
   └────────────────────────────────────────────────────────────────┘
 
   T CELL FUNCTIONAL MAP:
   ┌──────────────────────────────────────────────────────────────┐
-  │                                                               │
+  │                                                              │
   │  CD4+ T CELLS (helper/coordinator)                           │
   │  ─────────────────────────────────                           │
-  │  Recognize: peptide on MHC CLASS II (professional APCs)     │
-  │                                                               │
-  │  SUBSETS:                                                     │
+  │  Recognize: peptide on MHC CLASS II (professional APCs)      │
+  │                                                              │
+  │  SUBSETS:                                                    │
   │  Th1 ──► macrophage activation + IFN-γ (intracellular bact.) │
-  │  Th2 ──► B cell help + IL-4/5/13 (parasites + allergy)      │
+  │  Th2 ──► B cell help + IL-4/5/13 (parasites + allergy)       │
   │  Th17 ─► neutrophil recruitment + IL-17 (fungi, extrac. bact)│
   │  Tfh ──► germinal center B cell help + IL-21                 │
-  │  Treg ─► suppression + IL-10, TGF-β (tolerance)             │
-  │                                                               │
+  │  Treg ─► suppression + IL-10, TGF-β (tolerance)              │
+  │                                                              │
   │  CD8+ T CELLS (cytotoxic)                                    │
-  │  ──────────────────────────                                   │
-  │  Recognize: peptide on MHC CLASS I (all nucleated cells)    │
-  │  Kill: infected cells, tumor cells, allografts              │
-  │  Mechanism: Perforin + Granzyme B → target apoptosis        │
+  │  ──────────────────────────                                  │
+  │  Recognize: peptide on MHC CLASS I (all nucleated cells)     │
+  │  Kill: infected cells, tumor cells, allografts               │
+  │  Mechanism: Perforin + Granzyme B → target apoptosis         │
   │             FasL:Fas → target apoptosis                      │
-  │             Cytokine secretion: IFN-γ, TNF                  │
+  │             Cytokine secretion: IFN-γ, TNF                   │
   └──────────────────────────────────────────────────────────────┘
 ```
 
@@ -120,62 +120,62 @@ T CELLS: CELLULAR IMMUNITY COORDINATORS AND KILLERS
 
   TH1 — INTRACELLULAR PATHOGEN IMMUNITY:
   ┌────────────────────────────────────────────────────────────┐
-  │ Cytokines produced: IFN-γ (main), TNF, IL-2               │
-  │ Effector functions:                                         │
+  │ Cytokines produced: IFN-γ (main), TNF, IL-2                │
+  │ Effector functions:                                        │
   │   IFN-γ → macrophage "classical activation" (M1)           │
-  │   IFN-γ → upregulates MHC I on all cells                  │
-  │   IFN-γ → promotes CD8 T cell differentiation             │
+  │   IFN-γ → upregulates MHC I on all cells                   │
+  │   IFN-γ → promotes CD8 T cell differentiation              │
   │   IFN-γ → antiviral/antibacterial macrophage killing       │
   │ Pathogens targeted: Mycobacterium tuberculosis, Listeria,  │
   │                     viruses, Leishmania                    │
-  │ Disease: Excessive Th1 → autoimmunity (MS, Crohn's)       │
+  │ Disease: Excessive Th1 → autoimmunity (MS, Crohn's)        │
   └────────────────────────────────────────────────────────────┘
 
   TH2 — ALLERGIC AND ANTIPARASITIC IMMUNITY:
   ┌────────────────────────────────────────────────────────────┐
-  │ Cytokines: IL-4, IL-5, IL-13, IL-9                        │
-  │ IL-4: B cell class switching → IgE; promotes Th2          │
-  │ IL-5: Eosinophil activation and recruitment               │
+  │ Cytokines: IL-4, IL-5, IL-13, IL-9                         │
+  │ IL-4: B cell class switching → IgE; promotes Th2           │
+  │ IL-5: Eosinophil activation and recruitment                │
   │ IL-13: Mucus production, airway smooth muscle contraction  │
-  │ Functions: IgE production → mast cell arming              │
+  │ Functions: IgE production → mast cell arming               │
   │            Eosinophil activation → antiparasitic           │
-  │            Mucus → barrier to expel parasites             │
-  │ Pathogens: Helminths (worms)                              │
-  │ Disease: Asthma, atopic dermatitis, food allergy          │
-  │ Therapy target: Anti-IL-4 (dupilumab), anti-IL-5          │
-  │                 (mepolizumab), anti-IgE (omalizumab)      │
+  │            Mucus → barrier to expel parasites              │
+  │ Pathogens: Helminths (worms)                               │
+  │ Disease: Asthma, atopic dermatitis, food allergy           │
+  │ Therapy target: Anti-IL-4 (dupilumab), anti-IL-5           │
+  │                 (mepolizumab), anti-IgE (omalizumab)       │
   └────────────────────────────────────────────────────────────┘
 
   TH17 — MUCOSAL AND ANTIFUNGAL IMMUNITY:
   ┌────────────────────────────────────────────────────────────┐
-  │ Cytokines: IL-17A, IL-17F, IL-22, IL-21                   │
-  │ IL-17: Recruits neutrophils → antimicrobial defense       │
-  │ IL-22: Epithelial barrier maintenance + antimicrobial     │
-  │ Functions: Antifungal (Candida, Aspergillus defense)      │
-  │            Extracellular bacterial defense at barriers    │
-  │ Pathogens: Candida, Klebsiella, Staphylococcus            │
-  │ Disease: Psoriasis (excess IL-17); IBD; ankylosing spondy │
+  │ Cytokines: IL-17A, IL-17F, IL-22, IL-21                    │
+  │ IL-17: Recruits neutrophils → antimicrobial defense        │
+  │ IL-22: Epithelial barrier maintenance + antimicrobial      │
+  │ Functions: Antifungal (Candida, Aspergillus defense)       │
+  │            Extracellular bacterial defense at barriers     │
+  │ Pathogens: Candida, Klebsiella, Staphylococcus             │
+  │ Disease: Psoriasis (excess IL-17); IBD; ankylosing spondy  │
   │ Therapy: Anti-IL-17A (secukinumab → psoriasis, AS)       │
   │          Anti-IL-23 (guselkumab → blocks Th17 induction) │
   └────────────────────────────────────────────────────────────┘
 
   REGULATORY T CELLS (TREG):
   ┌────────────────────────────────────────────────────────────┐
-  │ Master TF: FoxP3 (mutations → IPEX syndrome: fatal        │
+  │ Master TF: FoxP3 (mutations → IPEX syndrome: fatal         │
   │   multi-organ autoimmunity)                                │
-  │ Mechanisms of suppression:                                  │
-  │   1. IL-10: anti-inflammatory cytokine                    │
+  │ Mechanisms of suppression:                                 │
+  │   1. IL-10: anti-inflammatory cytokine                     │
   │   2. TGF-β: suppresses effector T cells                  │
-  │   3. IL-35: suppressive (minor)                           │
+  │   3. IL-35: suppressive (minor)                            │
   │   4. CTLA-4 (high on Treg): outcompetes CD28 for B7      │
   │   5. IL-2 consumption: Treg expresses high CD25 (IL-2R)  │
   │      → depletes local IL-2 → starves effector cells      │
   │   6. Direct cytotoxicity: Kill effector T cells via Gzm  │
-  │                                                             │
+  │                                                            │
   │ TREG IMPORTANCE:                                           │
   │   Anti-tumor immunity: Tregs in tumor → poor prognosis   │
-  │   Transplant tolerance: Treg expansion → graft tolerance  │
-  │   Autoimmunity: Treg deficiency → autoimmune disease      │
+  │   Transplant tolerance: Treg expansion → graft tolerance   │
+  │   Autoimmunity: Treg deficiency → autoimmune disease       │
   └────────────────────────────────────────────────────────────┘
 ```
 
@@ -189,17 +189,17 @@ T CELLS: CELLULAR IMMUNITY COORDINATORS AND KILLERS
 
   KILLING MECHANISM 1: Perforin-Granzyme
   ┌────────────────────────────────────────────────────────────┐
-  │ CD8 T cell recognizes target via TCR:MHC I interaction    │
-  │ Forms immunological synapse with target cell              │
-  │                                                             │
-  │ Lytic granule exocytosis (polarized toward target):       │
-  │   Perforin: oligomerizes in membrane → pore formation     │
+  │ CD8 T cell recognizes target via TCR:MHC I interaction     │
+  │ Forms immunological synapse with target cell               │
+  │                                                            │
+  │ Lytic granule exocytosis (polarized toward target):        │
+  │   Perforin: oligomerizes in membrane → pore formation      │
   │   Granzyme A, B: enter via perforin pores + mannose-6-P  │
-  │                  receptor-mediated endocytosis            │
+  │                  receptor-mediated endocytosis             │
   │   Granzyme B: cleaves caspase-3 directly → apoptosis     │
-  │               cleaves BID → mitochondrial apoptosis       │
-  │   Granzyme A: single-strand DNA nicking → apoptosis       │
-  │                                                             │
+  │               cleaves BID → mitochondrial apoptosis        │
+  │   Granzyme A: single-strand DNA nicking → apoptosis        │
+  │                                                            │
   │ Killing: CD8 kills target in <5 minutes; then moves on   │
   │ Serial killing: One CD8 can kill multiple target cells   │
   └────────────────────────────────────────────────────────────┘
@@ -215,25 +215,25 @@ T CELLS: CELLULAR IMMUNITY COORDINATORS AND KILLERS
 
   CD8 T CELL DIFFERENTIATION STATES:
   ┌────────────────────────────────────────────────────────────┐
-  │ Naïve (CD62Lhi CD44lo):   Haven't seen antigen            │
-  │                                                             │
-  │ Effector (KLRG1hi CD127lo): Acute response                │
+  │ Naïve (CD62Lhi CD44lo):   Haven't seen antigen             │
+  │                                                            │
+  │ Effector (KLRG1hi CD127lo): Acute response                 │
   │   Short-lived; immediate killing capacity                  │
-  │   Most die as infection clears (contraction phase)        │
-  │                                                             │
+  │   Most die as infection clears (contraction phase)         │
+  │                                                            │
   │ Memory precursor (KLRG1lo CD127hi):                        │
   │   Long-lived; rapidly proliferate on re-exposure           │
-  │                                                             │
+  │                                                            │
   │ MEMORY SUBSETS:                                            │
-  │   TCM (central memory): Secondary lymph organs; fast resp │
+  │   TCM (central memory): Secondary lymph organs; fast resp  │
   │   TEM (effector memory): Peripheral tissue; immediate kill │
   │   TRM (tissue-resident): Stays in tissue; first local resp │
   │   TSCM (stem cell memory): Lymph; longest-lived; self-renew│
-  │                                                             │
-  │ EXHAUSTION: Chronic antigen (tumors, HIV):                │
-  │   Progressive loss of effector function                   │
+  │                                                            │
+  │ EXHAUSTION: Chronic antigen (tumors, HIV):                 │
+  │   Progressive loss of effector function                    │
   │   PD-1hi TOX+ BATF+ → exhausted state                    │
-  │   Anti-PD-1 (pembrolizumab) partially reinvigorates       │
+  │   Anti-PD-1 (pembrolizumab) partially reinvigorates        │
   └────────────────────────────────────────────────────────────┘
 ```
 

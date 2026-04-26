@@ -6,16 +6,16 @@
 +------------------------------------------------------------------+
 |           OXIDES AND SULFIDES: THE ORE MINERAL BACKBONE          |
 |                                                                  |
-|  OXIDES: metal cation + O²⁻                                     |
+|  OXIDES: metal cation + O²⁻                                      |
 |  Simple oxides: Fe₃O₄, Fe₂O₃, Al₂O₃, TiO₂                     |
-|  Spinel group: AB₂O₄ (wide range of metal combinations)         |
+|  Spinel group: AB₂O₄ (wide range of metal combinations)          |
 |                                                                  |
-|  SULFIDES: metal cation + S²⁻                                   |
+|  SULFIDES: metal cation + S²⁻                                    |
 |  Simple: PbS, ZnS, FeS₂, Cu₂S                                  |
 |  Complex: CuFeS₂ (chalcopyrite), Cu₃AsS₄ (enargite)            |
 |                                                                  |
-|  SULFOSALTS: metal + semi-metal + S                             |
-|  Arsenopyrite (FeAsS), tetrahedrite, proustite                  |
+|  SULFOSALTS: metal + semi-metal + S                              |
+|  Arsenopyrite (FeAsS), tetrahedrite, proustite                   |
 |                                                                  |
 |  NATIVE ELEMENTS: pure metal or metalloid                        |
 |  Gold, silver, copper, platinum group, diamond, graphite, sulfur |
@@ -35,31 +35,31 @@ Iron is the most abundant metal in Earth and the foundation of the steel economy
 ```
 IRON OXIDE MINERALS
 +------------------------------------------------------------------+
-|  HEMATITE: Fe₂O₃                                                |
-|  Iron(III) oxide — trigonal (corundum structure)                |
-|  Red-brown streak (the "hematite" test)                         |
-|  Major iron ore mineral: Banded Iron Formation (BIF) deposits   |
-|  World production: billions of tonnes/year for steel making     |
-|  Form: specular hematite (shiny metallic), oolitic, kidney ore  |
-|  Also: pigment Red Ochre (hematite + clay) since prehistory     |
+|  HEMATITE: Fe₂O₃                                                 |
+|  Iron(III) oxide — trigonal (corundum structure)                 |
+|  Red-brown streak (the "hematite" test)                          |
+|  Major iron ore mineral: Banded Iron Formation (BIF) deposits    |
+|  World production: billions of tonnes/year for steel making      |
+|  Form: specular hematite (shiny metallic), oolitic, kidney ore   |
+|  Also: pigment Red Ochre (hematite + clay) since prehistory      |
 |                                                                  |
 |  MAGNETITE: Fe₃O₄ (= FeO · Fe₂O₃, mixed Fe²⁺/Fe³⁺)           |
-|  Spinel structure (inverse spinel actually)                     |
-|  Strongly magnetic — the original "loadstone"                   |
+|  Spinel structure (inverse spinel actually)                      |
+|  Strongly magnetic — the original "loadstone"                    |
 |  Black, metallic luster, Mohs 5.5–6.5                          |
-|  Titaniferous magnetite (with ilmenite exsolution lamellae)     |
-|    → Paleomagnetic record of Earth's field reversals            |
-|  Magnetite formed by magnetotactic bacteria → biomagnetism      |
-|  Also: iron ore; in steel production as feedstock               |
+|  Titaniferous magnetite (with ilmenite exsolution lamellae)      |
+|    → Paleomagnetic record of Earth's field reversals             |
+|  Magnetite formed by magnetotactic bacteria → biomagnetism       |
+|  Also: iron ore; in steel production as feedstock                |
 |                                                                  |
-|  GOETHITE: FeO(OH)                                              |
-|  Hydrated iron oxide; yellow-brown; common weathering product   |
-|  "Limonite" = informal term for hydrated iron oxides (goethite- |
-|  dominated earthy masses)                                       |
+|  GOETHITE: FeO(OH)                                               |
+|  Hydrated iron oxide; yellow-brown; common weathering product    |
+|  "Limonite" = informal term for hydrated iron oxides (goethite-  |
+|  dominated earthy masses)                                        |
 |                                                                  |
-|  ILMENITE: FeTiO₃                                               |
+|  ILMENITE: FeTiO₃                                                |
 |  Main ore mineral for titanium (TiO₂ pigment, Ti metal)        |
-|  In beach sands; in mafic/ultramafic igneous rocks              |
+|  In beach sands; in mafic/ultramafic igneous rocks               |
 +------------------------------------------------------------------+
 ```
 
@@ -114,38 +114,38 @@ Sulfides form in reducing (low-oxygen) environments — hydrothermal systems, ma
 ```
 IRON SULFIDES
 +------------------------------------------------------------------+
-|  PYRITE: FeS₂ ("fool's gold")                                   |
+|  PYRITE: FeS₂ ("fool's gold")                                    |
 |  Cubic; brassy yellow; Mohs 6–6.5; brittle (harder than gold)  |
-|  Striated cube faces (diagnostic); conchoidal fracture          |
-|  NOT an iron ore (too low grade, too costly to smelt)           |
+|  Striated cube faces (diagnostic); conchoidal fracture           |
+|  NOT an iron ore (too low grade, too costly to smelt)            |
 |  IS a source of SO₂ in sulfuric acid production (pyrite roasting)|
 |  Pyrite oxidation → sulfuric acid → acid mine drainage (AMD)   |
-|  AMD = major environmental problem from metal mining            |
+|  AMD = major environmental problem from metal mining             |
 |                                                                  |
 |  PYRRHOTITE: Fe₁₋ₓS (variable S content; monoclinic or hex)   |
-|  Bronze-brown; weakly magnetic (Fe deficiency creates magnetic  |
-|    moments) → paleomagnetic indicator in some rocks             |
-|  Contains Ni as trace → often associated with Ni-Cu sulfide ore |
+|  Bronze-brown; weakly magnetic (Fe deficiency creates magnetic   |
+|    moments) → paleomagnetic indicator in some rocks              |
+|  Contains Ni as trace → often associated with Ni-Cu sulfide ore  |
 +------------------------------------------------------------------+
 
 LEAD-ZINC SULFIDES (Mississippi Valley Type deposits)
 +------------------------------------------------------------------+
 |  GALENA: PbS                                                     |
 |  Cubic; perfect cubic cleavage; very high density (SG 7.6)     |
-|  Lead-gray; metallic luster                                     |
-|  PRIMARY lead ore; also silver-bearing (Ag substitutes for Pb)  |
+|  Lead-gray; metallic luster                                      |
+|  PRIMARY lead ore; also silver-bearing (Ag substitutes for Pb)   |
 |  Historical uses: lead shot, pipes (Roman plumbing = plumbum)  |
-|  Modern: lead-acid batteries, radiation shielding               |
+|  Modern: lead-acid batteries, radiation shielding                |
 |                                                                  |
-|  SPHALERITE: ZnS                                                |
+|  SPHALERITE: ZnS                                                 |
 |  Cubic (zinc blende structure — reference structure in materials)|
 |  Variable: yellow, brown, black (Fe substitution → darker)     |
 |  Resinous luster; dodecahedral cleavage                        |
 |  Primary zinc ore (galvanizing, die casting, batteries)        |
 |  Also principal source of indium (In substitutes for Zn):      |
 |  → Indium Tin Oxide (ITO) = transparent conductor in all LCDs  |
-|    and touchscreens — sphalerite is the source of your phone's  |
-|    touchscreen material                                         |
+|    and touchscreens — sphalerite is the source of your phone's   |
+|    touchscreen material                                          |
 |  Also principal source of germanium (Ge) and gallium (Ga):     |
 |  Ge substitutes for Zn in sphalerite lattice (~50-300 ppm);   |
 |  recovered from Zn smelter flue dusts and residues.           |
@@ -161,33 +161,33 @@ LEAD-ZINC SULFIDES (Mississippi Valley Type deposits)
 
 COPPER SULFIDES
 +------------------------------------------------------------------+
-|  CHALCOPYRITE: CuFeS₂                                           |
-|  Tetragonal (not cubic despite appearance)                      |
+|  CHALCOPYRITE: CuFeS₂                                            |
+|  Tetragonal (not cubic despite appearance)                       |
 |  Brassy yellow, deeper than pyrite; often with tarnish iridescence|
-|  PRIMARY copper ore — most important Cu source worldwide        |
-|  Porphyry copper deposits: disseminated chalcopyrite in granite |
-|    → Bingham Canyon (Utah), Escondida (Chile): gigatonne scale  |
+|  PRIMARY copper ore — most important Cu source worldwide         |
+|  Porphyry copper deposits: disseminated chalcopyrite in granite  |
+|    → Bingham Canyon (Utah), Escondida (Chile): gigatonne scale   |
 |                                                                  |
 |  BORNITE: Cu₅FeS₄ ("peacock ore")                              |
 |  Iridescent blue-purple tarnish; important Cu ore              |
 |                                                                  |
-|  CHALCOCITE: Cu₂S                                               |
+|  CHALCOCITE: Cu₂S                                                |
 |  High Cu content (80%); forms by supergene enrichment          |
-|    (oxidizing weathering of chalcopyrite → solution → secondary |
-|    enrichment in reducing zone below water table)               |
+|    (oxidizing weathering of chalcopyrite → solution → secondary  |
+|    enrichment in reducing zone below water table)                |
 |                                                                  |
-|  COVELLITE: CuS                                                 |
+|  COVELLITE: CuS                                                  |
 |  Indigo blue; rare but striking; secondary copper mineral      |
 +------------------------------------------------------------------+
 
 NICKEL-COBALT SULFIDES
 +------------------------------------------------------------------+
-|  PENTLANDITE: (Fe,Ni)₉S₈                                        |
+|  PENTLANDITE: (Fe,Ni)₉S₈                                         |
 |  Primary nickel ore mineral; usually with pyrrhotite + pyrite  |
 |  Sudbury (Ontario): world's largest Ni-Cu-PGE deposit          |
 |  Pentlandite → nickel → stainless steel, EV battery cathodes   |
 |                                                                  |
-|  COBALTITE: CoAsS                                               |
+|  COBALTITE: CoAsS                                                |
 |  Primary cobalt ore (also arsenic!); silvery with pink tint    |
 |  Congo (DRC): ~70% of world's cobalt comes from here           |
 |  Cobalt → NMC battery cathodes (Li-NiMnCoO₂)                  |
@@ -196,8 +196,8 @@ NICKEL-COBALT SULFIDES
 
 MERCURY AND ARSENIC
 +------------------------------------------------------------------+
-|  CINNABAR: HgS — scarlet red; trigonal                          |
-|  Only significant mercury ore                                   |
+|  CINNABAR: HgS — scarlet red; trigonal                           |
+|  Only significant mercury ore                                    |
 |  Historically: vermilion pigment (highly toxic)                |
 |  Almadén (Spain), Idrija (Slovenia): historic mining centers   |
 |                                                                  |
@@ -223,12 +223,12 @@ NATIVE METALS
 |  Vein gold: in quartz veins in shear zones                    |
 |  Gold standard: 1 troy oz = 31.1 g; measured in fine ounces   |
 |                                                                  |
-|  SILVER: Ag                                                     |
+|  SILVER: Ag                                                      |
 |  Cubic, FCC; tarnishes (Ag₂S formation); Mohs 2.5–3           |
 |  Often with galena (Pb ore) or in Ag-specific veins            |
 |  Photography (AgBr, AgCl photosensitivity), electronics        |
 |                                                                  |
-|  COPPER: Cu                                                     |
+|  COPPER: Cu                                                      |
 |  Cubic, FCC; Mohs 2.5–3; dendritic, wiry forms               |
 |  Native copper → early metallurgy (no smelting needed)        |
 |  Upper Peninsula Michigan deposits: pre-Columbian copper use   |
@@ -255,25 +255,25 @@ NATIVE NON-METALS
 ```
 DEPOSIT TYPE → ORE MINERALS PRESENT
 +------------------------------------------------------------------+
-|  PORPHYRY Cu-Mo             Chalcopyrite, molybdenite, pyrite   |
-|  (e.g., Bingham, Grasberg)                                      |
+|  PORPHYRY Cu-Mo             Chalcopyrite, molybdenite, pyrite    |
+|  (e.g., Bingham, Grasberg)                                       |
 |                                                                  |
 |  Ni-Cu-PGE MAGMATIC         Pentlandite, chalcopyrite, pyrrhotite|
-|  (e.g., Sudbury, Norilsk)                                       |
+|  (e.g., Sudbury, Norilsk)                                        |
 |                                                                  |
-|  MISSISSIPPI VALLEY TYPE    Galena, sphalerite                  |
-|  Pb-Zn (e.g., Tri-State)                                        |
+|  MISSISSIPPI VALLEY TYPE    Galena, sphalerite                   |
+|  Pb-Zn (e.g., Tri-State)                                         |
 |                                                                  |
-|  VOLCANOGENIC MASSIVE SULFIDE Pyrite, chalcopyrite, sphalerite  |
-|  (VMS: Cu-Zn-Pb at mid-ocean ridge analogs)                     |
+|  VOLCANOGENIC MASSIVE SULFIDE Pyrite, chalcopyrite, sphalerite   |
+|  (VMS: Cu-Zn-Pb at mid-ocean ridge analogs)                      |
 |                                                                  |
-|  BANDED IRON FORMATION      Magnetite, hematite, chert          |
-|  (BIF: Precambrian; Pilbara, Hammersley, Mesabi Range)          |
+|  BANDED IRON FORMATION      Magnetite, hematite, chert           |
+|  (BIF: Precambrian; Pilbara, Hammersley, Mesabi Range)           |
 |                                                                  |
 |  PLACER                     Rutile, ilmenite, cassiterite, gold  |
-|  (beach sands, river beds)                                      |
+|  (beach sands, river beds)                                       |
 |                                                                  |
-|  PEGMATITE                  Columbite-tantalite, spodumene,     |
+|  PEGMATITE                  Columbite-tantalite, spodumene,      |
 |  (late-stage, coarse-grained) lepidolite, cassiterite, beryl   |
 +------------------------------------------------------------------+
 ```

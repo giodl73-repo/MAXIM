@@ -8,8 +8,8 @@ CONSTRUCTIVISM — CORE CLAIMS
 
   AGAINST BOTH REALISM AND LIBERALISM:
   ┌─────────────────────────────────────────────────────────┐
-  │  REALISM AND LIBERALISM SHARE:                         │
-  │  • States have fixed interests (security/power OR      │
+  │  REALISM AND LIBERALISM SHARE:                          │
+  │  • States have fixed interests (security/power OR       │
   │    prosperity/peace)                                    │
   │  • Anarchy has a given structure                        │
   │  • Material factors (capabilities, economic power)      │
@@ -20,7 +20,7 @@ CONSTRUCTIVISM — CORE CLAIMS
   ┌─────────────────────────────────────────────────────────┐
   │  • Identities and interests are CONSTRUCTED through     │
   │    social interaction, not given by nature or structure │
-  │  • Anarchy is what STATES MAKE OF IT                   │
+  │  • Anarchy is what STATES MAKE OF IT                    │
   │  • Ideas, norms, and culture matter materially          │
   │  • The same material distribution of power means        │
   │    different things to differently constituted actors   │
@@ -125,16 +125,16 @@ NORM LIFECYCLE — THREE STAGES
 
   STAGE 1: NORM EMERGENCE
   ┌──────────────────────────────────────────────────────────┐
-  │ Norm entrepreneurs + organizational platforms           │
+  │ Norm entrepreneurs + organizational platforms            │
   │                                                          │
-  │ Norm entrepreneurs: individuals or organizations        │
+  │ Norm entrepreneurs: individuals or organizations         │
   │ with strong notions of appropriate behavior who        │
-  │ seek to change existing standards.                      │
-  │ Examples: Henri Dunant (Red Cross/Geneva Convention),   │
-  │ Eleanor Roosevelt (UDHR), anti-slavery campaigners.     │
+  │ seek to change existing standards.                       │
+  │ Examples: Henri Dunant (Red Cross/Geneva Convention),    │
+  │ Eleanor Roosevelt (UDHR), anti-slavery campaigners.      │
   │                                                          │
-  │ They need platforms: international organizations,       │
-  │ treaty bodies, states, media.                           │
+  │ They need platforms: international organizations,        │
+  │ treaty bodies, states, media.                            │
   └──────────────────────────────────────────────────────────┘
              │
              ▼  Tipping point: critical mass of states adopts
@@ -143,25 +143,25 @@ NORM LIFECYCLE — THREE STAGES
   ┌──────────────────────────────────────────────────────────┐
   │ Rapid spread of norm adoption                            │
   │                                                          │
-  │ Mechanism: socialization, imitation, legitimation       │
+  │ Mechanism: socialization, imitation, legitimation        │
   │ States adopt norms to:                                   │
   │ • Maintain legitimacy and status in the community        │
-  │ • Avoid naming-and-shaming by norm entrepreneurs        │
-  │ • Sincere belief in the norm (internalization process)  │
+  │ • Avoid naming-and-shaming by norm entrepreneurs         │
+  │ • Sincere belief in the norm (internalization process)   │
   └──────────────────────────────────────────────────────────┘
              │
              ▼
 
   STAGE 3: INTERNALIZATION
   ┌──────────────────────────────────────────────────────────┐
-  │ Norm becomes taken-for-granted; no longer contested     │
+  │ Norm becomes taken-for-granted; no longer contested      │
   │                                                          │
-  │ Examples of internalized norms (post-cascade):          │
-  │ • Sovereignty (don't invade other states arbitrarily)   │
-  │ • No slavery                                            │
-  │ • No chemical/biological weapons use (mostly)           │
+  │ Examples of internalized norms (post-cascade):           │
+  │ • Sovereignty (don't invade other states arbitrarily)    │
+  │ • No slavery                                             │
+  │ • No chemical/biological weapons use (mostly)            │
   │ • Non-use of nuclear weapons since 1945                  │
-  │   (the "nuclear taboo" — Tannenwald)                    │
+  │   (the "nuclear taboo" — Tannenwald)                     │
   └──────────────────────────────────────────────────────────┘
 
   TIPPING POINT (Norm threshold):

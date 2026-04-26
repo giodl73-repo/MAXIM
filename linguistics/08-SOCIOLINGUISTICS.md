@@ -6,21 +6,21 @@ Sociolinguistics studies the relationship between language and social factors â€
 
 ```
 +------------------------------------------------------------------+
-|                    SOCIOLINGUISTICS LANDSCAPE                     |
+|                    SOCIOLINGUISTICS LANDSCAPE                    |
 |                                                                  |
-|  LANGUAGE VARIATION           LANGUAGE AND IDENTITY             |
-|  (dialect, sociolect,         (ethnicity, gender, age,          |
-|   register, style)            class signal through speech)      |
+|  LANGUAGE VARIATION           LANGUAGE AND IDENTITY              |
+|  (dialect, sociolect,         (ethnicity, gender, age,           |
+|   register, style)            class signal through speech)       |
 |                                                                  |
-|  QUANTITATIVE                 DIGLOSSIA AND                     |
-|  VARIATIONIST                 MULTILINGUALISM                   |
-|  SOCIOLINGUISTICS             (two-language communities,        |
-|  (Labov: correlate variants   code choice, language policy)     |
-|   with social variables)                                        |
+|  QUANTITATIVE                 DIGLOSSIA AND                      |
+|  VARIATIONIST                 MULTILINGUALISM                    |
+|  SOCIOLINGUISTICS             (two-language communities,         |
+|  (Labov: correlate variants   code choice, language policy)      |
+|   with social variables)                                         |
 |                                                                  |
-|  LANGUAGE CHANGE              ENDANGERMENT AND                  |
-|  (social factors drive        REVITALIZATION                    |
-|   spread/retraction)          (Welsh, Hawaiian, Hebrew)         |
+|  LANGUAGE CHANGE              ENDANGERMENT AND                   |
+|  (social factors drive        REVITALIZATION                     |
+|   spread/retraction)          (Welsh, Hawaiian, Hebrew)          |
 +------------------------------------------------------------------+
 ```
 
@@ -259,8 +259,8 @@ DIGLOSSIA:
   +-----------------------------+     +-----------------------------+
   | Formal, written, prestigious|     | Informal, spoken, everyday  |
   | Sermons, news, education    |     | Family, friends, market     |
-  | Learned in school           |     | Acquired naturally           |
-  | No native speakers          |     | Everyone speaks it           |
+  | Learned in school           |     | Acquired naturally          |
+  | No native speakers          |     | Everyone speaks it          |
   +-----------------------------+     +-----------------------------+
 
 CLASSIC EXAMPLES:

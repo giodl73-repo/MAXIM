@@ -11,17 +11,17 @@ x86-64 (also called AMD64 or Intel 64) is the dominant ISA for servers, desktops
 |  EXECUTION MODES:                                                     |
 |  Long Mode (64-bit)     Protected Mode (32-bit)     Real Mode (16-bit)|
 |  x86-64 programs        32-bit Windows apps         DOS / BIOS        |
-|  (what you care about)  (WoW64 compatibility layer) (legacy only)    |
+|  (what you care about)  (WoW64 compatibility layer) (legacy only)     |
 |                                                                       |
 |  REGISTER FILE (Long Mode):                                           |
 |  16 × 64-bit GP registers: RAX RBX RCX RDX RSI RDI RSP RBP R8–R15  |
 |  16 × 128-bit XMM (SSE): XMM0–XMM15                                 |
 |  16 × 256-bit YMM (AVX): YMM0–YMM15 (extend XMM)                   |
 |  32 × 512-bit ZMM (AVX-512): ZMM0–ZMM31                             |
-|  + RFLAGS (status flags) + RIP (instruction pointer)                 |
+|  + RFLAGS (status flags) + RIP (instruction pointer)                  |
 |                                                                       |
 |  MEMORY MODEL:                                                        |
-|  Flat 64-bit virtual address space (up to 128 TB in practice)        |
+|  Flat 64-bit virtual address space (up to 128 TB in practice)         |
 |  TSO (Total Store Order) — very strong consistency                    |
 |  Pages: 4 KB, 2 MB (huge), 1 GB (gigantic)                          |
 +-----------------------------------------------------------------------+

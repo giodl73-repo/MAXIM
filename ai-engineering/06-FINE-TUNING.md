@@ -205,13 +205,13 @@ The structural analog: LoRA is the Adapter pattern. The frozen base model is a s
        │  Format: ShareGPT (multi-turn) or Alpaca (single-turn)  │
        │  ShareGPT:                                              │
        │    {"conversations": [                                  │
-       │      {"from": "system", "value": "..."},               │
-       │      {"from": "human",  "value": "..."},               │
-       │      {"from": "gpt",    "value": "..."}                │
+       │      {"from": "system", "value": "..."},                │
+       │      {"from": "human",  "value": "..."},                │
+       │      {"from": "gpt",    "value": "..."}                 │
        │    ]}                                                   │
        │                                                         │
        │  Data quality >> quantity                               │
-       │  500 clean examples often beat 50k noisy ones          │
+       │  500 clean examples often beat 50k noisy ones           │
        └─────────────────────────────────────────────────────────┘
 
   2. Token masking

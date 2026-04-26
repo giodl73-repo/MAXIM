@@ -107,16 +107,16 @@ influential sociological account of religion. Key argument structure:
 +----------------------------------------------------------+
 |  DURKHEIM'S ARGUMENT                                     |
 |                                                          |
-|  Step 1: To find religion's essence, study the          |
+|  Step 1: To find religion's essence, study the           |
 |          simplest form available.                        |
 |          --> Australian Aboriginal (Arunta) totemism     |
 |                                                          |
-|  Step 2: Sacred/profane is the formal category that     |
+|  Step 2: Sacred/profane is the formal category that      |
 |          defines religion. NOT "belief in gods."         |
 |          Sacred = extraordinary, set apart, powerful     |
 |          Profane = ordinary, everyday, instrumental      |
 |                                                          |
-|  Step 3: The totem (clan emblem) is simultaneously:     |
+|  Step 3: The totem (clan emblem) is simultaneously:      |
 |          - symbol of the sacred force (mana)             |
 |          - symbol of the clan itself                     |
 |          Therefore: god = society                        |
@@ -248,9 +248,9 @@ Every taxonomy of religion has problems. The question is which problems you can 
 |  Panentheism (God           Orthoprax            Church              |
 |    contains world)          (correct action:     Sect                |
 |  Deism (no intervention)    Judaism, Hinduism)   Denomination        |
-|                             Orthodox             Cult / NRM           |
+|                             Orthodox             Cult / NRM          |
 |                             (correct belief:                         |
-|                             Catholicism)                              |
+|                             Catholicism)                             |
 +----------------------------------------------------------------------+
 ```
 
@@ -278,7 +278,7 @@ why religion is universal and why it takes the specific forms it does.
 
 ```
 +----------------------------------------------------------------------+
-|          COGNITIVE SCIENCE OF RELIGION (CSR)                        |
+|          COGNITIVE SCIENCE OF RELIGION (CSR)                         |
 |                                                                      |
 |  Question: Why does religion exist at all?                           |
 |  Answer: Byproduct of cognitive adaptations evolved for other        |
@@ -378,14 +378,14 @@ demographics. Pentecostalism is the fastest-growing form worldwide.
 +--------------------------------------------------------------+
 |              SECULARIZATION THESIS                           |
 |                                                              |
-|  Original thesis (Wilson, early Berger, Bruce, 1960s-80s):  |
+|  Original thesis (Wilson, early Berger, Bruce, 1960s-80s):   |
 |  Modernization -> differentiation of social spheres          |
 |  -> religion loses public role -> privatized -> withers      |
 |                                                              |
 |  Evidence FOR: European church attendance collapse.          |
 |  Elite secularity (scientists, academics, mostly secular).   |
 |  Institutional religion declining across Western Europe.     |
-|  State churches losing membership in Scandinavia.           |
+|  State churches losing membership in Scandinavia.            |
 |                                                              |
 |  Counter-evidence:                                           |
 |  - Global South explosion: Pentecostalism, Islam growing     |
@@ -397,7 +397,7 @@ demographics. Pentecostalism is the fastest-growing form worldwide.
 |  - New religious movements growing alongside decline         |
 |    of mainline denominations                                 |
 |                                                              |
-|  Peter Berger (original theorist) recanted ~2000:           |
+|  Peter Berger (original theorist) recanted ~2000:            |
 |  "The world is as furiously religious as ever."              |
 |  Revised view: Europe is the exception, not the rule.        |
 |  Even then: "believing without belonging" still counts.      |

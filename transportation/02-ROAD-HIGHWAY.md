@@ -25,7 +25,7 @@ Roads are the default transportation infrastructure of the 20th and 21st centuri
 |  | Flow-     |  | LWR       |  | Level of  |  | Capacity  |     |
 |  | Density   |  | Waves     |  | Service   |  | Analysis  |     |
 |  +-----------+  +-----------+  +-----------+  +-----------+     |
-|                                                                  |
+|                                                                 |
 |  INTELLIGENT TRANSPORTATION SYSTEMS                             |
 |  +-----------+  +-----------+  +-----------+  +-----------+     |
 |  | Signal    |  | Freeway   |  | Connected |  | Traffic   |     |
@@ -476,7 +476,7 @@ The Highway Capacity Manual (HCM) quantifies traffic operations quality as Level
   Modern:
   +------------------+     +------------------+
   | Bluetooth / WiFi |     | Probe vehicle    |
-  | MAC address       |     | data             |
+  | MAC address      |     | data             |
   | matching (privacy)| ... | Google/HERE/TomTom|
   +------------------+     | From smartphones |
                            | GPS tracks       |

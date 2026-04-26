@@ -4,28 +4,28 @@
 
 ```
 ┌──────────────────────────────────────────────────────────────────────────┐
-│              HODGKIN-HUXLEY MODEL LANDSCAPE                               │
+│              HODGKIN-HUXLEY MODEL LANDSCAPE                              │
 │                                                                            │
-│  BIOLOGICAL REALITY               MODEL ABSTRACTION                       │
-│  ──────────────────               ─────────────────                       │
+│  BIOLOGICAL REALITY               MODEL ABSTRACTION                      │
+│  ──────────────────               ─────────────────                      │
 │  Na⁺ channel: opens, then inact.  m³h: m=activation, h=inactivation      │
-│  K⁺ channel: opens slowly         n⁴: n=delayed rectifier gating          │
-│  Lipid bilayer                    Capacitor C_m                           │
-│  Ion pumps (Na/K-ATPase)          Not modeled (sets initial conditions)   │
+│  K⁺ channel: opens slowly         n⁴: n=delayed rectifier gating         │
+│  Lipid bilayer                    Capacitor C_m                          │
+│  Ion pumps (Na/K-ATPase)          Not modeled (sets initial conditions)  │
 │                                                                            │
 │  THE MODEL EQUATION:                                                       │
 │  C_m dV/dt = -g_Na m³h (V-E_Na) - g_K n⁴ (V-E_K) - g_L(V-E_L) + I_ext  │
 │                                                                            │
 │  BRIDGE TO COMPUTING:                                                      │
-│  Biological neuron: H-H model (1952)                                      │
+│  Biological neuron: H-H model (1952)                                     │
 │      ↓  abstraction                                                        │
-│  McCulloch-Pitts neuron (1943): threshold unit                            │
+│  McCulloch-Pitts neuron (1943): threshold unit                           │
 │      ↓  generalization                                                     │
-│  Perceptron (Rosenblatt, 1958): weighted sum + threshold                  │
+│  Perceptron (Rosenblatt, 1958): weighted sum + threshold                 │
 │      ↓  nonlinearity                                                       │
-│  Modern artificial neuron: weighted sum + activation function             │
-│  What was kept: firing threshold, weight sum, activation                  │
-│  What was discarded: time, ion channels, refractory period, cable theory  │
+│  Modern artificial neuron: weighted sum + activation function            │
+│  What was kept: firing threshold, weight sum, activation                 │
+│  What was discarded: time, ion channels, refractory period, cable theory │
 └──────────────────────────────────────────────────────────────────────────┘
 ```
 
@@ -344,8 +344,8 @@ Spiking neural networks attempt to re-incorporate the temporal dynamics:
 
 ```
   ┌────────────────────────────────────────────────────────────────────┐
-  │  MODEL            │  DETAIL │  TRACTABLE │  CAPTURES                │
-  │  ─────────────── │  ─────  │  ─────────  │  ──────────────────────  │
+  │  MODEL            │  DETAIL │  TRACTABLE │  CAPTURES               │
+  │  ─────────────── │  ─────  │  ─────────  │  ────────────────────── │
   │  H-H (4 var)      │  High   │  Moderate   │  AP shape, channel kinet.│
   │  FitzHugh-Nagumo  │  Low    │  High       │  Threshold, refractory   │
   │  (2 var)          │         │             │  excitable dynamics      │

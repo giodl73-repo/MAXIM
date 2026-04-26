@@ -6,7 +6,7 @@
 ┌─────────────────────────────────────────────────────────────────────┐
 │             CIRCUIT MODEL — BUILDING BLOCKS                         │
 │                                                                     │
-│  QUBIT MATH          GATES                MULTI-QUBIT              │
+│  QUBIT MATH          GATES                MULTI-QUBIT               │
 │  ┌────────────┐      ┌──────────────┐     ┌──────────────────┐    │
 │  │ ℂ² state   │      │ Single-qubit │     │ Tensor products  │    │
 │  │ Bloch sphere│─────►│ X,Y,Z,H,S,T │────►│ Entanglement     │    │
@@ -17,12 +17,12 @@
 │                      ├──────────────┤              │               │
 │                      │ Three-qubit  │              │               │
 │                      │ Toffoli,     │              ▼               │
-│                      │ Fredkin      │     ┌──────────────────┐    │
+│                      │ Fredkin      │     ┌──────────────────┐     │
 │                      └──────────────┘     │ CIRCUITS         │    │
 │                                           │ Width, depth,    │    │
 │  UNIVERSALITY          MEASUREMENT        │ T-count metrics  │    │
 │  ┌──────────────┐     ┌──────────────┐    └────────┬─────────┘    │
-│  │ {H,T,CNOT}   │     │ Projective   │             │               │
+│  │ {H,T,CNOT}   │     │ Projective   │             │              │
 │  │ Solovay-      │     │ Born rule    │             ▼               │
 │  │ Kitaev       │     │ Syndrome     │    ┌──────────────────┐    │
 │  │              │     │ (for QEC)    │    │ DENSITY MATRICES │    │

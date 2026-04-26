@@ -10,7 +10,7 @@ evidence of anything? How should we reason about God given limited evidence?
 
 ```
 +---------------------------------------------------------------------+
-|              PHILOSOPHY OF RELIGION — PROBLEM MAP                  |
+|              PHILOSOPHY OF RELIGION — PROBLEM MAP                   |
 |                                                                     |
 |  GOD'S EXISTENCE         GOD'S NATURE           RELIGIOUS BELIEF    |
 |  ---------------         -----------            ----------------    |

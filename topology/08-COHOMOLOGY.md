@@ -4,7 +4,7 @@
 
 ```
 +====================================================================+
-|        COHOMOLOGY — THE DUAL THEORY WITH RING STRUCTURE           |
+|        COHOMOLOGY — THE DUAL THEORY WITH RING STRUCTURE            |
 +====================================================================+
 |                                                                    |
 |  HOMOLOGY: chains (add up geometric pieces) → groups Hₙ(X).      |
@@ -369,7 +369,7 @@ SPECTRAL SEQUENCE DECISION TABLE:
 
 ```
 +------------------------------------------------------------------+
-| ASPECT          | SINGULAR H*(X;R)    | DE RHAM H*_dR(M;R)      |
+| ASPECT          | SINGULAR H*(X;R)    | DE RHAM H*_dR(M;R)       |
 +------------------------------------------------------------------+
 | Domain          | Any top. space      | Smooth manifolds only    |
 | Construction    | Dual of chains      | Differential forms       |

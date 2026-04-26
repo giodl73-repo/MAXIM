@@ -9,13 +9,13 @@ is fundamentally unchanged for 50+ years.
 
 ```
 +----------------------------------------------------------------------+
-|                    HVAC CONTROLS HIERARCHY                            |
+|                    HVAC CONTROLS HIERARCHY                           |
 |                                                                      |
 |  RESIDENTIAL                         COMMERCIAL                      |
 |  -----------                         ----------                      |
-|  Occupant comfort preference         Building management requirement  |
+|  Occupant comfort preference         Building management requirement |
 |         |                                      |                     |
-|  ┌──────┴──────┐                     ┌─────────┴──────────┐         |
+|  ┌──────┴──────┐                     ┌─────────┴──────────┐          |
 |  │ Thermostat  │                     │ BAS (Building       │         |
 |  │ (smart/prog)│                     │ Automation System)  │         |
 |  └──────┬──────┘                     └─────────┬──────────┘         |
@@ -80,7 +80,7 @@ connections between terminals.
   │ R  │ 24VAC power (hot from transformer)                         │
   │ Rh │ Heating transformer power (separate transformer systems)   │
   │ Rc │ Cooling transformer power (separate transformer systems)   │
-  │ C  │ Common — 24VAC return; needed by smart thermostats        │
+  │ C  │ Common — 24VAC return; needed by smart thermostats         │
   │    │ for continuous power; many old systems lack C wire         │
   ├────┼────────────────────────────────────────────────────────────┤
   │ G  │ Fan (air handler blower — runs fan without heating/cooling)│
@@ -242,7 +242,7 @@ The BAS three-layer hierarchy maps to network control plane architecture: superv
   ┌──────────────────────────────────────────────────────────────────┐
   │ SUPERVISORY LAYER (Server/cloud)                                 │
   │ Honeywell Niagara Framework; Siemens Desigo; JCI Metasys         │
-  │ Scheduling, reporting, alarming, energy analytics, maintenance    │
+  │ Scheduling, reporting, alarming, energy analytics, maintenance   │
   └──────────────────────────────────┬───────────────────────────────┘
                                      |
   ┌──────────────────────────────────┴───────────────────────────────┐
@@ -312,7 +312,7 @@ DATACENTER ECONOMIZER LOGIC:
   ┌──────────────────┬────────────────────────────────────────────────┐
   │ Dry-bulb         │ Open outdoor air damper when outdoor temp      │
   │ economizer       │ below setpoint (e.g., 65°F)                    │
-  │                  │ Simple; problem: may bring in humid air at low  │
+  │                  │ Simple; problem: may bring in humid air at low │
   │                  │ dry-bulb (enthalpy might be too high)          │
   ├──────────────────┼────────────────────────────────────────────────┤
   │ Enthalpy         │ Measures outdoor + indoor enthalpy (BTU/lb)    │

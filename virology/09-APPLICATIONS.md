@@ -8,7 +8,7 @@ make viruses powerful tools for medicine, research, and biotechnology.
 
 ```
 ┌──────────────────────────────────────────────────────────────────┐
-│                  VIRUSES AS TOOLS — LANDSCAPE                     │
+│                  VIRUSES AS TOOLS — LANDSCAPE                    │
 │                                                                    │
 │  GENE THERAPY VECTORS:       RESEARCH TOOLS:                     │
 │  ─────────────────────       ────────────────                    │

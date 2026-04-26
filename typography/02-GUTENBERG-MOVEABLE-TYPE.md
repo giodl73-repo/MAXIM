@@ -56,17 +56,17 @@ Chinese logography: ~50,000 characters needed for full text coverage
 
 A Latin type case:
   ┌──────────────────────────────────┐
-  │ a b c d e f g h i j k l m       │
-  │ n o p q r s t u v w x y z       │
-  │ A B C D E F G H I J K L M       │
-  │ N O P Q R S T U V W X Y Z       │
-  │ . , ; : ! ? - " ' ( ) & ...     │
+  │ a b c d e f g h i j k l m        │
+  │ n o p q r s t u v w x y z        │
+  │ A B C D E F G H I J K L M        │
+  │ N O P Q R S T U V W X Y Z        │
+  │ . , ; : ! ? - " ' ( ) & ...      │
   │ ≈ 100 physical sorts             │
   └──────────────────────────────────┘
 
 A Chinese type case:
   ┌──────────────────────────────────────────────────────────────────┐
-  │ 的 一 是 在 不 了 有 和 人 这 中 大 为 上 个 国 我 以 要 他 ...   │
+  │ 的 一 是 在 不 了 有 和 人 这 中 大 为 上 个 国 我 以 要 他 ...  │
   │ [50,000 MORE rows]                                               │
   │ ≈ 50,000 physical sorts for complete coverage                    │
   │ ≈ 3,500 minimum for any useful text                              │
@@ -120,7 +120,7 @@ THE FIVE GUTENBERG INNOVATIONS
                      │   TYPE   │  ← cast body
                      │  BODY    │
    adjustable ──→   │  ███ ███ │  ← type face (the printing surface)
-   width            │          │
+   width             │          │
                      └──────────┘
 
    The mold has two L-shaped parts that slide to adjust width:

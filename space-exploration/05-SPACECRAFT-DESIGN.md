@@ -6,7 +6,7 @@ A spacecraft is an integrated system of subsystems, each serving a specific func
 
 ```
 +------------------------------------------------------------------+
-|          SPACECRAFT SUBSYSTEM DEPENDENCY GRAPH                    |
+|          SPACECRAFT SUBSYSTEM DEPENDENCY GRAPH                   |
 +------------------------------------------------------------------+
 |                                                                  |
 |  MASS BUDGET (links everything — every kg costs Δv)              |

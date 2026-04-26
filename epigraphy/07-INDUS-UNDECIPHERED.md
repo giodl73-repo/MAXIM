@@ -7,18 +7,18 @@ UNDECIPHERED SCRIPTS: PROBLEM CLASSIFICATION
 ==============================================
 
 +------------------------------------------------------------------+
-|  SCRIPT          CORPUS   SIGN COUNT  BILINGUAL?  LANGUAGE?     |
-|  ------------    ------   ----------  ----------  ---------     |
-|  Proto-Elamite   ~1,000   ~1,000+     No          Unknown       |
+|  SCRIPT          CORPUS   SIGN COUNT  BILINGUAL?  LANGUAGE?      |
+|  ------------    ------   ----------  ----------  ---------      |
+|  Proto-Elamite   ~1,000   ~1,000+     No          Unknown        |
 |  (3300-2900 BCE)                                                 |
-|  Indus Valley    ~2,000   400-600     No          Unknown       |
-|  (2600-1900 BCE) short                            (debated)     |
-|  Linear A        ~1,500   ~60-80      No          Minoan        |
-|  (1800-1450 BCE) short                            (unknown)     |
-|  Rongorongo      25 texts  ~120       No          Rapanui?      |
-|  (pre-1864)      very                             (uncertain)   |
-|                  short                                          |
-|  Voynich         ~240 pgs  ~25 chars  No          Unknown       |
+|  Indus Valley    ~2,000   400-600     No          Unknown        |
+|  (2600-1900 BCE) short                            (debated)      |
+|  Linear A        ~1,500   ~60-80      No          Minoan         |
+|  (1800-1450 BCE) short                            (unknown)      |
+|  Rongorongo      25 texts  ~120       No          Rapanui?       |
+|  (pre-1864)      very                             (uncertain)    |
+|                  short                                           |
+|  Voynich         ~240 pgs  ~25 chars  No          Unknown        |
 |  (c.1404-1438)                                   (or cipher)   |
 +------------------------------------------------------------------+
 

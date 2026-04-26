@@ -6,13 +6,13 @@
 +------------------------------------------------------------------+
 |              PAPER SUSTAINABILITY LANDSCAPE                      |
 |                                                                  |
-|   RECYCLING          FOREST CERT.    CARBON            ALTS     |
-|   ─────────          ────────────    ──────            ────     |
-|   ~58% global        FSC (180M ha)   Biogenic C        Digital  |
-|   rate               PEFC (300M ha)  debate            Fungi    |
-|   Fiber quality       SFI (50M ha)   Recovery          Mycelium |
-|   degrades           Legal vs.       boiler GHG        Agri-res |
-|   each cycle         certified       Logistics         Textiles |
+|   RECYCLING          FOREST CERT.    CARBON            ALTS      |
+|   ─────────          ────────────    ──────            ────      |
+|   ~58% global        FSC (180M ha)   Biogenic C        Digital   |
+|   rate               PEFC (300M ha)  debate            Fungi     |
+|   Fiber quality       SFI (50M ha)   Recovery          Mycelium  |
+|   degrades           Legal vs.       boiler GHG        Agri-res  |
+|   each cycle         certified       Logistics         Textiles  |
 +------------------------------------------------------------------+
 ```
 

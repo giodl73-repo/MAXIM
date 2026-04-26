@@ -13,7 +13,7 @@
 │  Grains       Phase field         ms–s         N/A          Low-Med    │
 │  Components   FEA                 s–years      N/A          Low        │
 │                                                                        │
-│  ┌───────────┐    ┌──────────┐    ┌──────────┐    ┌────────────┐      │
+│  ┌───────────┐    ┌──────────┐    ┌──────────┐    ┌────────────┐       │
 │  │  DFT      │ ──►│   MD     │ ──►│  Phase   │ ──►│    FEA     │      │
 │  │ Kohn-Sham │    │ Newton   │    │  Field   │    │ Continuum  │      │
 │  │ electrons │    │ + force  │    │ diffuse  │    │ mechanics  │      │
@@ -49,19 +49,19 @@
 
 ```
 ┌─────────────────────────────────────────────────────────────────────┐
-│  Kohn-Sham (1965): replace interacting electrons with                │
-│  non-interacting electrons in an effective potential                 │
-│                                                                      │
+│  Kohn-Sham (1965): replace interacting electrons with               │
+│  non-interacting electrons in an effective potential                │
+│                                                                     │
 │  [-ℏ²/2m ∇² + V_eff(r)] φᵢ(r) = εᵢ φᵢ(r)                         │
-│                                                                      │
+│                                                                     │
 │  V_eff = V_ext + V_Hartree + V_xc                                   │
-│    V_ext:     external (nuclear) potential                           │
-│    V_Hartree: electron-electron Coulomb (mean field)                 │
-│    V_xc:      exchange-correlation correction                        │
-│                                                                      │
-│  ρ(r) = Σᵢ |φᵢ(r)|²   (sum over occupied orbitals)                 │
-│                                                                      │
-│  SELF-CONSISTENT FIELD (SCF) LOOP:                                   │
+│    V_ext:     external (nuclear) potential                          │
+│    V_Hartree: electron-electron Coulomb (mean field)                │
+│    V_xc:      exchange-correlation correction                       │
+│                                                                     │
+│  ρ(r) = Σᵢ |φᵢ(r)|²   (sum over occupied orbitals)                  │
+│                                                                     │
+│  SELF-CONSISTENT FIELD (SCF) LOOP:                                  │
 │    Guess ρ → compute V_eff → solve KS equations → new ρ → repeat    │
 └─────────────────────────────────────────────────────────────────────┘
 SCF convergence is a fixed-point iteration (rho -> F(rho) -> fixed point). Anderson mixing (also called DIIS — direct inversion in the iterative subspace) accelerates convergence by using the history of residuals to extrapolate toward the fixed point, analogous to Krylov subspace methods in linear algebra. Convergence is not guaranteed in general but is reliable for most materials with appropriate mixing parameters.
@@ -131,14 +131,14 @@ SCF convergence is a fixed-point iteration (rho -> F(rho) -> fixed point). Ander
 ```
 ┌─────────────────────────────────────────────────────────────────────┐
 │  NEWTON'S EQUATIONS: mᵢ r̈ᵢ = Fᵢ = -∂U/∂rᵢ                        │
-│                                                                      │
-│  Integrate: Verlet algorithm (symplectic, time-reversible)           │
+│                                                                     │
+│  Integrate: Verlet algorithm (symplectic, time-reversible)          │
 │    r(t+Δt) = 2r(t) - r(t-Δt) + Δt² F(t)/m   (2nd order)          │
-│    Velocity Verlet:                                                  │
+│    Velocity Verlet:                                                 │
 │      r(t+Δt) = r(t) + v(t)Δt + Δt² F(t)/2m                        │
 │      v(t+Δt) = v(t) + Δt[F(t) + F(t+Δt)]/2m                       │
-│                                                                      │
-│  Timestep: Δt ~ T_vib/20 → 1 fs (atomic), 2–4 fs with constraints  │
+│                                                                     │
+│  Timestep: Δt ~ T_vib/20 → 1 fs (atomic), 2–4 fs with constraints   │
 │  Trajectory length: MD can reach ns–μs (fast bond vibrations limit) │
 └─────────────────────────────────────────────────────────────────────┘
 ```
@@ -177,20 +177,20 @@ SCF convergence is a fixed-point iteration (rho -> F(rho) -> fixed point). Ander
   SOLUTIONS:
   ┌─────────────────────────────────────────────────────────────────┐
   │  Metadynamics:                                                  │
-  │  Add Gaussian bias V_bias(ξ) along collective variable ξ       │
-  │  Fills free energy minima — recovers F(ξ) as -V_bias           │
+  │  Add Gaussian bias V_bias(ξ) along collective variable ξ        │
+  │  Fills free energy minima — recovers F(ξ) as -V_bias            │
   │  Risk: overfilling — use well-tempered metadynamics             │
   │                                                                 │
   │  Umbrella Sampling:                                             │
   │  Restrain system near transition state with harmonic bias       │
-  │  Run many windows, combine with WHAM → F(ξ) profile            │
+  │  Run many windows, combine with WHAM → F(ξ) profile             │
   │                                                                 │
   │  Replica Exchange (REMD):                                       │
   │  N copies at different T; periodically swap coordinates         │
   │  High-T replicas escape barriers, low-T replicas sample well    │
   │                                                                 │
   │  Transition Path Sampling:                                      │
-  │  Sample only reactive trajectories (A → B)                     │
+  │  Sample only reactive trajectories (A → B)                      │
   │  No a priori reaction coordinate required                       │
   └─────────────────────────────────────────────────────────────────┘
 ```
@@ -204,16 +204,16 @@ SCF convergence is a fixed-point iteration (rho -> F(rho) -> fixed point). Ander
 ```
 ┌─────────────────────────────────────────────────────────────────────┐
 │  SHARP INTERFACE → DIFFUSE INTERFACE:                               │
-│                                                                      │
+│                                                                     │
 │  Sharp:  grain boundary = mathematical surface (hard to compute)    │
-│  Diffuse: order parameter φ(r) smoothly varies 0→1 across boundary │
-│                                                                      │
+│  Diffuse: order parameter φ(r) smoothly varies 0→1 across boundary  │
+│                                                                     │
 │  ORDER PARAMETER: φ = 0 (phase A), φ = 1 (phase B), 0<φ<1 (boundary)│
-│                                                                      │
+│                                                                     │
 │  FREE ENERGY FUNCTIONAL (Landau-Ginzburg):                          │
 │    F[φ] = ∫ [f(φ) + κ/2 |∇φ|²] d³r                               │
 │    f(φ) = bulk free energy (double-well shape for two-phase)        │
-│    κ/2 |∇φ|²: interfacial energy (penalizes sharp gradients)       │
+│    κ/2 |∇φ|²: interfacial energy (penalizes sharp gradients)        │
 └─────────────────────────────────────────────────────────────────────┘
 ```
 
@@ -261,21 +261,21 @@ SCF convergence is a fixed-point iteration (rho -> F(rho) -> fixed point). Ander
   ARCHITECTURE EVOLUTION:
   ┌─────────────────────────────────────────────────────────────────┐
   │  Behler-Parrinello NN (2007):                                   │
-  │  Atom-centered symmetry functions → NN → atomic energy Eᵢ      │
-  │  E_total = Σ Eᵢ  (additivity assumption)                       │
-  │  Trained on DFT energies, forces, stresses                     │
+  │  Atom-centered symmetry functions → NN → atomic energy Eᵢ       │
+  │  E_total = Σ Eᵢ  (additivity assumption)                        │
+  │  Trained on DFT energies, forces, stresses                      │
   │                                                                 │
   │  Message-Passing NN (SchNet, DimeNet, PaiNN):                   │
   │  Atoms = nodes, bonds = edges                                   │
   │  Aggregate: vᵢ ← Σⱼ f(vⱼ, vᵢ, rᵢⱼ)  (message passing)       │
-  │  Equivariant: NequIP, MACE (respect 3D rotational symmetry)    │
+  │  Equivariant: NequIP, MACE (respect 3D rotational symmetry)     │
   │  ~10× better data efficiency than symmetry functions            │
   │                                                                 │
   │  Foundation Models:                                             │
-  │  MACE-MP-0 (2023): trained on MPTrj (150k structures)          │
+  │  MACE-MP-0 (2023): trained on MPTrj (150k structures)           │
   │  M3GNet, CHGNet: properties + dynamics                          │
   │  Universal: no per-material training → instant deployment       │
-  │  GNoME (DeepMind, 2023): 2.2M stable crystal structures        │
+  │  GNoME (DeepMind, 2023): 2.2M stable crystal structures         │
   └─────────────────────────────────────────────────────────────────┘
 ```
 
@@ -311,23 +311,23 @@ SCF convergence is a fixed-point iteration (rho -> F(rho) -> fixed point). Ander
 ```
 ┌─────────────────────────────────────────────────────────────────────┐
 │  HIGH-THROUGHPUT SCREENING WORKFLOW:                                │
-│                                                                      │
+│                                                                     │
 │  1. Define search space (compositional, structural, dopants)        │
 │  2. Generate candidates (substitution, prototype enumeration)       │
 │  3. Fast screening: ML property prediction                          │
 │  4. DFT calculation on top candidates (~100–1000)                   │
 │  5. Experimental validation (~10)                                   │
 │  6. Iterate: add DFT results to training set                        │
-│                                                                      │
-│  ACTIVE LEARNING:                                                    │
-│  Uncertainty quantification (GP, ensemble) → query points where    │
-│  model is uncertain → targeted DFT → model improves                │
+│                                                                     │
+│  ACTIVE LEARNING:                                                   │
+│  Uncertainty quantification (GP, ensemble) → query points where     │
+│  model is uncertain → targeted DFT → model improves                 │
 │  Bayesian optimization: acquisition function (UCB, EI) guides       │
 │  search toward unexplored high-performance regions                  │
-│                                                                      │
-│  SUCCESS STORIES:                                                    │
+│                                                                     │
+│  SUCCESS STORIES:                                                   │
 │  - Lithium superionic conductors (Sendek, 2017): ML screening       │
-│    identified LiZnPS₄ from 12,000 candidates                       │
+│    identified LiZnPS₄ from 12,000 candidates                        │
 │  - GNoME (DeepMind, 2023): 2.2M stable crystals predicted           │
 │    vs. 48k known; 736 experimentally validated                      │
 │  - High-entropy alloys: ML predicts phase stability                 │
@@ -383,7 +383,7 @@ SCF convergence is a fixed-point iteration (rho -> F(rho) -> fixed point). Ander
 │  for multicomponent alloy        │                                    │
 ├──────────────────────────────────┼────────────────────────────────────┤
 │  Predict material property from  │  Graph NN (SchNet, DimeNet, CGCNN) │
-│  structure                       │  trained on Materials Project       │
+│  structure                       │  trained on Materials Project      │
 ├──────────────────────────────────┼────────────────────────────────────┤
 │  Screen 10k+ candidate materials │  ML surrogate + active learning    │
 │  for specific property target    │  + DFT validation on top candidates│

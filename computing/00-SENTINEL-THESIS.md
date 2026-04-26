@@ -21,7 +21,7 @@ THE SENTINEL'S DOMAIN
                     └──────────┬──────────┘
                                │
           ┌────────────────────┼────────────────────┐
-          │                    │                     │
+          │                    │                    │
           ▼                    ▼                     ▼
 ┌──────────────────┐ ┌──────────────────┐ ┌──────────────────────┐
 │  DISTRIBUTED     │ │  SECURITY        │ │  CLOUD               │
@@ -127,18 +127,18 @@ The three directories in this volume each instantiate the same principle at a di
 
 ```
 ┌─────────────────┬──────────────────────┬──────────────────────────┐
-│  DOMAIN         │  THE QUESTION        │  THE SENTINEL'S ANSWER  │
+│  DOMAIN         │  THE QUESTION        │  THE SENTINEL'S ANSWER   │
 ├─────────────────┼──────────────────────┼──────────────────────────┤
 │  Distributed     │  Who has the         │  Nobody. Consensus       │
 │  Systems         │  authoritative       │  protocols among         │
 │                  │  state?              │  quorums hold the        │
 │                  │                      │  truth collectively.     │
 ├─────────────────┼──────────────────────┼──────────────────────────┤
-│  Security       │  Who is allowed      │  Nobody by default.     │
-│  Engineering    │  to act?             │  Every request is       │
-│                 │                      │  authenticated,         │
-│                 │                      │  authorized, encrypted, │
-│                 │                      │  and audited.           │
+│  Security       │  Who is allowed      │  Nobody by default.      │
+│  Engineering    │  to act?             │  Every request is        │
+│                 │                      │  authenticated,          │
+│                 │                      │  authorized, encrypted,  │
+│                 │                      │  and audited.            │
 ├─────────────────┼──────────────────────┼──────────────────────────┤
 │  Cloud           │  Where does the      │  Nowhere permanently.    │
 │  Architecture    │  system run?         │  Cattle not pets.        │
@@ -172,7 +172,7 @@ The simplest example of this volume's principle is one you already lived through
 ```
 SOURCE DEPOT (centralized)              GIT (distributed)
 ┌────────────────────────┐              ┌────────────────────────┐
-│    CENTRAL SERVER       │              │    EVERY CLONE IS A    │
+│    CENTRAL SERVER      │              │    EVERY CLONE IS A    │
 │    holds THE truth      │              │    FULL REPLICA         │
 │                         │              │                         │
 │  ┌─────────────────┐   │              │  ┌───────┐ ┌───────┐   │
@@ -184,11 +184,11 @@ SOURCE DEPOT (centralized)              GIT (distributed)
 │    ▼         ▼          │              │           ▼            │
 │  client   client        │              │     merge/rebase       │
 │  (thin)   (thin)        │              │     (consensus)        │
-│                         │              │                         │
+│                         │              │                        │
 │  Single point of        │              │  No single point of    │
-│  failure.               │              │  failure. Any clone     │
+│  failure.               │              │  failure. Any clone    │
 │  Single point of        │              │  can reconstruct the   │
-│  trust.                 │              │  full history.          │
+│  trust.                 │              │  full history.         │
 └────────────────────────┘              └────────────────────────┘
 
 SENTINEL LENS:

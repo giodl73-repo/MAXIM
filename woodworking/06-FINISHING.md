@@ -23,8 +23,8 @@ PENETRATING FINISHES (absorbed into wood; no film on surface)
 FILM-BUILDING FINISHES (form a film on wood surface)
 +-------+----------------+-----------------------------+
 | Shell-| Evaporative     | Shellac (alcohol-dissolved) |
-| ac    | (re-dissolves   | NC lacquer (solvent-diss.)  |
-|       | in own solvent) | CAB-acrylic lacquer         |
+| ac    | (re-dissolves  | NC lacquer (solvent-diss.)  |
+|       | in own solvent) | CAB-acrylic lacquer        |
 +-------+                 +-----------------------------+
 |       | Reactive (cross-| Oil-based varnish           |
 |       | linked; does NOT| Polyurethane (varnish type) |

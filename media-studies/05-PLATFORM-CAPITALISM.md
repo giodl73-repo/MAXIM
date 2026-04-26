@@ -75,19 +75,19 @@ Srnicek analyzes platforms as a new business model that has emerged since the 20
 
 ```
 +------------------+------------------------------------------+---------------+
-| TYPE             | DESCRIPTION                              | EXAMPLES       |
+| TYPE             | DESCRIPTION                              | EXAMPLES      |
 +------------------+------------------------------------------+---------------+
 | ADVERTISING      | Free service to users; sell user          | Google, Meta,  |
 |                  | attention/data to advertisers            | YouTube, TikTok|
 +------------------+------------------------------------------+---------------+
-| CLOUD            | Sell computing resources and services    | AWS, Azure,    |
-|                  | to businesses; near-commodity pricing    | GCP            |
+| CLOUD            | Sell computing resources and services    | AWS, Azure,   |
+|                  | to businesses; near-commodity pricing    | GCP           |
 +------------------+------------------------------------------+---------------+
 | INDUSTRIAL       | Sensors + data analytics for             | GE Predix,     |
 |                  | manufacturers/infrastructure             | Siemens MindS. |
 +------------------+------------------------------------------+---------------+
 | PRODUCT          | Leverage platform position to sell       | Apple hardware,|
-|                  | products + ecosystem lock-in             | Amazon retail  |
+|                  | products + ecosystem lock-in             | Amazon retail |
 +------------------+------------------------------------------+---------------+
 | LEAN             | Outsource assets to providers;           | Uber, Airbnb,  |
 |                  | extract fee from transactions            | TaskRabbit     |

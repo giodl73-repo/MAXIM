@@ -106,17 +106,17 @@ HKDF-BASED KEY SCHEDULE (RFC 8446 §7.1):
 
   Secret derivation flow:
   ┌─────────────────────────────────────────────────────────────────────┐
-  │  Early Secret = HKDF-Extract(0, PSK or 0)                          │
-  │                    │                                               │
+  │  Early Secret = HKDF-Extract(0, PSK or 0)                           │
+  │                    │                                                │
   │  Handshake Secret = HKDF-Extract(Derive-Secret(Early, "derived"), │
   │                                  ECDHE shared secret Z)           │
-  │                    │                                               │
+  │                    │                                                │
   │  client_handshake_traffic_secret ← HKDF-Expand-Label(HS,"c hs traffic",H)│
   │  server_handshake_traffic_secret ← HKDF-Expand-Label(HS,"s hs traffic",H)│
-  │  client/server AEAD keys ← Expand from traffic secrets             │
-  │                    │                                               │
+  │  client/server AEAD keys ← Expand from traffic secrets              │
+  │                    │                                                │
   │  Master Secret = HKDF-Extract(Derive-Secret(HS, "derived"), 0)    │
-  │                    │                                               │
+  │                    │                                                │
   │  client_application_traffic_secret_0 ← Expand-Label(MS,"c ap traffic")  │
   │  server_application_traffic_secret_0 ← Expand-Label(MS,"s ap traffic")  │
   │  resumption_master_secret ← Expand-Label(MS,"res master", H(full handshake))│

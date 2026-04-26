@@ -16,10 +16,10 @@ THE LANDSCAPE
 
   k-FORMS IN ℝ³:
   ┌──────────┬─────────────────────────────────────────────────────────────┐
-  │ 0-form   │ scalar field f(x,y,z)                                      │
-  │ 1-form   │ covector field: α = P dx + Q dy + R dz                     │
+  │ 0-form   │ scalar field f(x,y,z)                                       │
+  │ 1-form   │ covector field: α = P dx + Q dy + R dz                      │
   │ 2-form   │ "flux form": ω = A dy∧dz + B dz∧dx + C dx∧dy             │
-  │ 3-form   │ "volume form": f dx∧dy∧dz                                  │
+  │ 3-form   │ "volume form": f dx∧dy∧dz                                   │
   └──────────┴─────────────────────────────────────────────────────────────┘
 
   PAYOFF: Maxwell's equations compress to:  dF = 0   and   d★F = J
@@ -49,14 +49,14 @@ An **n-dimensional manifold** M is a topological space that looks locally like �
 
   EXAMPLES:
   ┌──────────────────────────────────────────────────────────────────────┐
-  │  ℝⁿ          dim n  trivial (one chart covers everything)           │
+  │  ℝⁿ          dim n  trivial (one chart covers everything)            │
   │  S¹ (circle) dim 1  need ≥2 charts (no single chart covers all)    │
-  │  S² (sphere) dim 2  north/south hemisphere charts                   │
-  │  Torus T²    dim 2  product of two circles                          │
-  │  SO(3)       dim 3  rotation matrices (Lie group)                   │
+  │  S² (sphere) dim 2  north/south hemisphere charts                    │
+  │  Torus T²    dim 2  product of two circles                           │
+  │  SO(3)       dim 3  rotation matrices (Lie group)                    │
   │  SU(2)       dim 3  unitary 2×2 matrices, det=1 (≅ S³)             │
-  │  Spacetime   dim 4  Lorentzian manifold (pseudo-Riemannian)         │
-  │  Calabi-Yau  dim 6  compact complex 3-manifolds (string theory)     │
+  │  Spacetime   dim 4  Lorentzian manifold (pseudo-Riemannian)          │
+  │  Calabi-Yau  dim 6  compact complex 3-manifolds (string theory)      │
   └──────────────────────────────────────────────────────────────────────┘
 ```
 
@@ -297,8 +297,8 @@ An **n-dimensional manifold** M is a topological space that looks locally like �
   │                                                                     │
   │   ∫_M  dω  =  ∫_∂M  ω                                             │
   │                                                                     │
-  │   M = compact oriented manifold with boundary ∂M                   │
-  │   ω = smooth (k-1)-form on M                                       │
+  │   M = compact oriented manifold with boundary ∂M                    │
+  │   ω = smooth (k-1)-form on M                                        │
   └─────────────────────────────────────────────────────────────────────┘
 
   This single equation IS all the integral theorems:
@@ -454,7 +454,7 @@ An **n-dimensional manifold** M is a topological space that looks locally like �
   Many ML constraints define manifolds; optimization must stay on them.
 
   ┌─────────────────────────────────────────────────────────────────────┐
-  │  STIEFEL MANIFOLD St(n,k):                                         │
+  │  STIEFEL MANIFOLD St(n,k):                                          │
   │  St(n,k) = {X ∈ M_{n×k} | XᵀX = Iₖ}  (matrices with orth. cols) │
   │  Appears in: orthogonal weight matrices (orthogonal RNNs),          │
   │  constrained PCA, CCA (canonical correlation analysis).             │
@@ -464,7 +464,7 @@ An **n-dimensional manifold** M is a topological space that looks locally like �
   │  Appears in: subspace tracking, dimensionality reduction,           │
   │  multi-view learning (find common subspace between views).          │
   │                                                                     │
-  │  SPD MANIFOLD Sym⁺(n):                                             │
+  │  SPD MANIFOLD Sym⁺(n):                                              │
   │  {A ∈ M_{n×n} | A = Aᵀ, A ≻ 0}  (symmetric positive definite)   │
   │  Appears in: covariance matrices, diffusion tensors (DTI in MRI),   │
   │  metric learning, Gaussian processes.                               │
@@ -512,14 +512,14 @@ An **n-dimensional manifold** M is a topological space that looks locally like �
   CAUSAL STRUCTURE — the key new feature vs Riemannian geometry:
   For a vector v ∈ Tₚ M:
   ┌────────────────────────────────────────────────────────────────────┐
-  │  g(v,v) < 0:  TIMELIKE  — within the light cone, causal influence │
+  │  g(v,v) < 0:  TIMELIKE  — within the light cone, causal influence  │
   │  g(v,v) = 0:  NULL / LIGHTLIKE — on the light cone              │
-  │  g(v,v) > 0:  SPACELIKE — outside light cone, spacelike separated │
+  │  g(v,v) > 0:  SPACELIKE — outside light cone, spacelike separated  │
   │                                                                    │
   │         future                                                     │
   │           │                                                        │
   │    null   │   null                                                 │
-  │     ╲     │     ╱      light cone at p                            │
+  │     ╲     │     ╱      light cone at p                             │
   │  ────────────────── spacelike directions                           │
   │     ╱     │     ╲                                                  │
   │           │                                                        │
@@ -564,12 +564,12 @@ An **n-dimensional manifold** M is a topological space that looks locally like �
   │  GL(n,ℝ): n×n invertible real matrices (open subset of M_{n×n})  │
   │  SL(n,ℝ): det = 1 (n²-1 dimensional)                             │
   │  O(n): AᵀA = I, det = ±1  (orthogonal group, dim = n(n-1)/2)     │
-  │  SO(n): det = +1 (special orthogonal = rotations)                 │
-  │  U(n): A†A = I  (unitary group, dim = n² real)                    │
-  │  SU(n): det = 1 (special unitary, dim = n²-1)                     │
-  │  SU(2) ≅ S³: 3-sphere, double-covers SO(3)                        │
-  │  SU(3): gauge group of QCD (strong force, dim=8)                  │
-  │  U(1) ≅ S¹: gauge group of EM                                     │
+  │  SO(n): det = +1 (special orthogonal = rotations)                  │
+  │  U(n): A†A = I  (unitary group, dim = n² real)                     │
+  │  SU(n): det = 1 (special unitary, dim = n²-1)                      │
+  │  SU(2) ≅ S³: 3-sphere, double-covers SO(3)                         │
+  │  SU(3): gauge group of QCD (strong force, dim=8)                   │
+  │  U(1) ≅ S¹: gauge group of EM                                      │
   └────────────────────────────────────────────────────────────────────┘
 
   THE LIE ALGEBRA g = TeG (tangent space at the identity):

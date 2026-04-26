@@ -4,7 +4,7 @@
 
 ```
 +------------------------------------------------------------------+
-|              GUNPOWDER REVOLUTION: CASCADING EFFECTS            |
+|              GUNPOWDER REVOLUTION: CASCADING EFFECTS             |
 +------------------------------------------------------------------+
 |                                                                  |
 |  Gunpowder composition refined (~1300-1400 Europe)              |
@@ -141,7 +141,7 @@ Between approximately 1450-1530, Italian military engineers developed a complete
 
 ```
 +------------------------------------------------------------------+
-|              TRACE ITALIENNE: THE ANGLE BASTION SYSTEM          |
+|              TRACE ITALIENNE: THE ANGLE BASTION SYSTEM           |
 +------------------------------------------------------------------+
 |                                                                  |
 |                    /\                                            |
@@ -156,20 +156,20 @@ Between approximately 1450-1530, Italian military engineers developed a complete
 |          /  \               /  \                                 |
 |         /    \             /    \                                |
 |        +      +---WALL----+      +                              |
-|                                                                  |
-|  KEY FEATURES:                                                   |
+|                                                                 |
+|  KEY FEATURES:                                                  |
 |  1. LOW PROFILE: Wall height ~4-6m (not 15m) — smaller target   |
 |     for cannon. Much thicker: 5-10m of compacted earth.         |
 |     Earthwork absorbs cannonballs; stone shatters.              |
-|                                                                  |
+|                                                                 |
 |  2. ANGLE BASTIONS: Project at corners. No dead ground.         |
 |     From any bastion, defenders can fire along curtain wall.    |
-|     Any attacker at the base of the wall is under fire from      |
-|     TWO bastions simultaneously.                                 |
-|                                                                  |
-|  3. DITCH: Wide, deep ditch (sometimes wet). Makes mining        |
+|     Any attacker at the base of the wall is under fire from     |
+|     TWO bastions simultaneously.                                |
+|                                                                 |
+|  3. DITCH: Wide, deep ditch (sometimes wet). Makes mining       |
 |     harder. Escalade (ladder assault) much harder.              |
-|                                                                  |
+|                                                                 |
 |  4. ANGLED FACES: Cannon ball striking at oblique angle         |
 |     tends to deflect rather than penetrate.                     |
 +------------------------------------------------------------------+
@@ -336,7 +336,7 @@ The drill revolution was thus a driver of the modern state. States that could no
 
 ```
 +------------------------------------------------------------------+
-|           NAVAL COMBAT BEFORE AND AFTER CANNON                  |
+|           NAVAL COMBAT BEFORE AND AFTER CANNON                   |
 +------------------------------------------------------------------+
 |                                                                  |
 |  PRE-CANNON NAVAL (~1000-1400):                                 |

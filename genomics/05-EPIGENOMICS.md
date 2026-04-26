@@ -22,24 +22,24 @@ EPIGENOMICS: THE CHEMICAL LAYER ABOVE THE SEQUENCE
 
   EPIGENETIC MECHANISMS:
   ┌────────────────────────────────────────────────────────────────┐
-  │                                                                 │
-  │  DNA METHYLATION         5-methylcytosine (5mC) at CpG sites  │
+  │                                                                │
+  │  DNA METHYLATION         5-methylcytosine (5mC) at CpG sites   │
   │  ───────────────         Repressive in gene body/promoters     │
   │                          Measured by: bisulfite-seq, RRBS      │
-  │                          Inherited through cell division        │
-  │                                                                 │
-  │  HISTONE MODIFICATIONS   Chemical tags on histone tails         │
-  │  ──────────────────────  Acetylation (active), methylation      │
-  │                          (active or repressive, context-dep)    │
-  │                          Measured by: ChIP-seq                  │
-  │                                                                 │
-  │  CHROMATIN ACCESSIBILITY Nucleosome positioning/remodeling      │
-  │  ──────────────────────  Open = transcription factor access     │
-  │                          Measured by: ATAC-seq, DNase-seq       │
-  │                                                                 │
-  │  3D GENOME ORGANIZATION  Topologically Associating Domains      │
-  │  ─────────────────────── (TADs), enhancer-promoter loops        │
-  │                          Measured by: Hi-C, ChIA-PET            │
+  │                          Inherited through cell division       │
+  │                                                                │
+  │  HISTONE MODIFICATIONS   Chemical tags on histone tails        │
+  │  ──────────────────────  Acetylation (active), methylation     │
+  │                          (active or repressive, context-dep)   │
+  │                          Measured by: ChIP-seq                 │
+  │                                                                │
+  │  CHROMATIN ACCESSIBILITY Nucleosome positioning/remodeling     │
+  │  ──────────────────────  Open = transcription factor access    │
+  │                          Measured by: ATAC-seq, DNase-seq      │
+  │                                                                │
+  │  3D GENOME ORGANIZATION  Topologically Associating Domains     │
+  │  ─────────────────────── (TADs), enhancer-promoter loops       │
+  │                          Measured by: Hi-C, ChIA-PET           │
   └────────────────────────────────────────────────────────────────┘
 ```
 
@@ -71,17 +71,17 @@ EPIGENOMICS: THE CHEMICAL LAYER ABOVE THE SEQUENCE
   ┌──────────────────────────────────────────────────────────┐
   │ Gene silencing: Methylated promoter CpGs recruit         │
   │   MBD proteins → chromatin compaction → no transcription │
-  │                                                           │
+  │                                                          │
   │ X-chromosome inactivation: One X chromosome fully        │
   │   methylated in females → transcriptionally silent       │
-  │                                                           │
+  │                                                          │
   │ Genomic imprinting: Parental-origin-specific methylation │
-  │   e.g., IGF2 expressed only from paternal allele          │
-  │                                                           │
-  │ Transposon silencing: Repeat elements methylated to       │
-  │   prevent transposition                                   │
-  │                                                           │
-  │ Cancer: CpG island hypermethylation silences tumor        │
+  │   e.g., IGF2 expressed only from paternal allele         │
+  │                                                          │
+  │ Transposon silencing: Repeat elements methylated to      │
+  │   prevent transposition                                  │
+  │                                                          │
+  │ Cancer: CpG island hypermethylation silences tumor       │
   │   suppressor genes (e.g., CDKN2A in many cancers)        │
   └──────────────────────────────────────────────────────────┘
 
@@ -158,8 +158,8 @@ EPIGENOMICS: THE CHEMICAL LAYER ABOVE THE SEQUENCE
   │ H3K27me3  Polycomb repression (developmental silencing)         │
   │ H3K9me3   Heterochromatin (constitutive silencing, repeats)     │
   │ H3K9ac    Active promoters (acetylation)                        │
-  │                                                                  │
-  │ Bivalent domains: H3K4me3 + H3K27me3 simultaneously            │
+  │                                                                 │
+  │ Bivalent domains: H3K4me3 + H3K27me3 simultaneously             │
   │   Poised for expression in stem cells — resolves upon           │
   │   differentiation (one mark wins)                               │
   └─────────────────────────────────────────────────────────────────┘
@@ -179,19 +179,19 @@ EPIGENOMICS: THE CHEMICAL LAYER ABOVE THE SEQUENCE
   ┌──────────────────────────────────────────────────────┐
   │ 1. CROSSLINK: Add formaldehyde to living cells       │
   │    Proteins covalently linked to nearby DNA          │
-  │                                                       │
+  │                                                      │
   │ 2. SHEAR: Sonicate cells to fragment chromatin       │
   │    Target: ~200 bp fragments                         │
-  │                                                       │
+  │                                                      │
   │ 3. IMMUNOPRECIPITATE: Add antibody against target    │
   │    (e.g., anti-H3K27ac; or anti-CTCF; or anti-RNA-Pol2)│
   │    Antibody binds protein → protein pulls down DNA   │
-  │                                                       │
+  │                                                      │
   │ 4. REVERSE CROSSLINK: Heat to release DNA from protein│
-  │                                                       │
+  │                                                      │
   │ 5. SEQUENCE: Standard Illumina library prep          │
   │    Single-end 50 bp is usually sufficient            │
-  │                                                       │
+  │                                                      │
   │ 6. PEAK CALLING: MACS2/3 identifies regions enriched │
   │    vs. input control (unimmunoprecipitated DNA)      │
   └──────────────────────────────────────────────────────┘
@@ -223,13 +223,13 @@ EPIGENOMICS: THE CHEMICAL LAYER ABOVE THE SEQUENCE
 
   ┌─────────────────────────────────────────────────────────┐
   │  NUCLEOSOME-FREE REGION (NFR):                          │
-  │  ──────────────────────────────                          │
+  │  ──────────────────────────────                         │
   │  ...NNNNN[NFR: ~150 bp open]NNNNN...                    │
   │          ↑ TF binding here                              │
-  │          ↑ Tn5 cuts here → short fragments             │
-  │                                                          │
+  │          ↑ Tn5 cuts here → short fragments              │
+  │                                                         │
   │  NUCLEOSOME-OCCUPIED:                                   │
-  │  ───────────────────────                                 │
+  │  ───────────────────────                                │
   │  ...[NUC]...[NUC]...[NUC]...                            │
   │       ↑ 147 bp protected → longer fragments             │
   └─────────────────────────────────────────────────────────┘
@@ -280,19 +280,19 @@ EPIGENOMICS: THE CHEMICAL LAYER ABOVE THE SEQUENCE
   STRUCTURES REVEALED:
   ┌──────────────────────────────────────────────────────────────┐
   │ A/B COMPARTMENTS                                             │
-  │   A compartment: active, gene-rich, open chromatin          │
-  │   B compartment: inactive, gene-poor, compacted             │
-  │   Correlation with H3K27ac/H3K9me3                          │
+  │   A compartment: active, gene-rich, open chromatin           │
+  │   B compartment: inactive, gene-poor, compacted              │
+  │   Correlation with H3K27ac/H3K9me3                           │
   │                                                              │
-  │ TADs (Topologically Associating Domains)                    │
-  │   ~200 kb – 1 Mb self-interacting domains                   │
-  │   Boundary elements: CTCF + cohesin loop extrusion          │
-  │   Disrupted TAD boundaries → ectopic enhancer contact       │
-  │   → gene misexpression (linked to disease)                  │
+  │ TADs (Topologically Associating Domains)                     │
+  │   ~200 kb – 1 Mb self-interacting domains                    │
+  │   Boundary elements: CTCF + cohesin loop extrusion           │
+  │   Disrupted TAD boundaries → ectopic enhancer contact        │
+  │   → gene misexpression (linked to disease)                   │
   │                                                              │
   │ LOOPS                                                        │
-  │   Enhancer–promoter contacts (10 kb – 1 Mb)                 │
-  │   CTCF–CTCF convergent orientation forms insulating loops   │
+  │   Enhancer–promoter contacts (10 kb – 1 Mb)                  │
+  │   CTCF–CTCF convergent orientation forms insulating loops    │
   │   HiChIP/ChIA-PET: protein-centric loop identification       │
   └──────────────────────────────────────────────────────────────┘
 

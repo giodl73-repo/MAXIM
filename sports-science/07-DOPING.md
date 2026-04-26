@@ -10,28 +10,28 @@ DOPING LANDSCAPE:
   PROHIBITED SUBSTANCE/METHOD
   +-----------------------------------------------------------+
   |                                                           |
-  |  ANABOLIC AGENTS      PEPTIDE HORMONES    BLOOD DOPING   |
+  |  ANABOLIC AGENTS      PEPTIDE HORMONES    BLOOD DOPING    |
   |  (testosterone,       (EPO, GH, IGF-1,   (autologous    |
   |   SARMs, others)       LH, CG, GHRH,      RBC transfusion|
   |                         insulin)           or rhEPO)      |
   |                                                           |
-  |  BETA-2 AGONISTS      DIURETICS &         GENE DOPING    |
-  |  (high dose —         MASKING AGENTS      (AAV-delivered |
+  |  BETA-2 AGONISTS      DIURETICS &         GENE DOPING     |
+  |  (high dose —         MASKING AGENTS      (AAV-delivered  |
   |   anabolic effect)    (probenecid,         transgenes,    |
   |                        furosemide)         CRISPR)        |
   |                                                           |
-  |  STIMULANTS           NARCOTICS           CANNABINOIDS   |
+  |  STIMULANTS           NARCOTICS           CANNABINOIDS    |
   |  (amphetamines,       (in-competition     (in-competition|
-  |   cocaine, etc.)       only)               only)         |
+  |   cocaine, etc.)       only)               only)          |
   +-----------------------------------------------------------+
                   |
                   v
   DETECTION FRAMEWORK
   +-----------------------------------------------------------+
   |  DIRECT DETECTION: find the substance or its metabolites  |
-  |  INDIRECT DETECTION: biomarker profile changes           |
-  |  LONGITUDINAL MONITORING: biological passport            |
-  |  WHEREABOUTS: athlete must report location for testing   |
+  |  INDIRECT DETECTION: biomarker profile changes            |
+  |  LONGITUDINAL MONITORING: biological passport             |
+  |  WHEREABOUTS: athlete must report location for testing    |
   +-----------------------------------------------------------+
 
   KEY WADA DOCUMENTS:

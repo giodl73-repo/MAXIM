@@ -10,7 +10,7 @@ pollutants with ambient standards based on human health) and hazardous air pollu
   AIR QUALITY REGULATORY STRUCTURE
 
   ┌─────────────────────────────────────────────────────────────────┐
-  │                  CLEAN AIR ACT (CAA, 1970)                     │
+  │                  CLEAN AIR ACT (CAA, 1970)                      │
   ├───────────────────┬─────────────────────┬───────────────────────┤
   │  CRITERIA         │  HAZARDOUS AIR      │  GHG / CLIMATE        │
   │  POLLUTANTS       │  POLLUTANTS (HAPs)  │  EMISSIONS            │
@@ -29,11 +29,11 @@ pollutants with ambient standards based on human health) and hazardous air pollu
            ↓                    ↓                      ↓
   ┌──────────────────────────────────────────────────────────────────┐
   │              PERMITTING SYSTEM                                   │
-  │  Minor source permit: PTE < major thresholds                    │
+  │  Minor source permit: PTE < major thresholds                     │
   │  PSD (Prevention of Significant Deterioration): attainment areas │
   │    → BACT (best available control technology), increment analysis │
-  │  NSR (New Source Review): nonattainment areas                   │
-  │    → LAER (lowest achievable emission rate) + offsets           │
+  │  NSR (New Source Review): nonattainment areas                    │
+  │    → LAER (lowest achievable emission rate) + offsets            │
   │  Title V operating permit: major sources (≥100 tpy criteria,   │
   │    ≥10 tpy single HAP, ≥25 tpy total HAPs)                     │
   └──────────────────────────────────────────────────────────────────┘
@@ -57,7 +57,7 @@ NAAQS. Standards are reviewed every 5 years under the CAA.
   │          │            │ deep lung / cardiovascular effects;      │
   │          │            │ highest public health impact             │
   ├──────────┼────────────┼──────────────────────────────────────────┤
-  │ PM₁₀     │ 150 μg/m³  │ 24-hour; coarse particles — upper       │
+  │ PM₁₀     │ 150 μg/m³  │ 24-hour; coarse particles — upper        │
   │          │            │ respiratory effects                      │
   ├──────────┼────────────┼──────────────────────────────────────────┤
   │ O₃       │ 70 ppb     │ 8-hour (2015); secondary photochemical  │
@@ -65,13 +65,13 @@ NAAQS. Standards are reviewed every 5 years under the CAA.
   │          │            │ O₃; respiratory irritant; widespread    │
   │          │            │ nonattainment                            │
   ├──────────┼────────────┼──────────────────────────────────────────┤
-  │ NO₂      │ 100 ppb    │ 1-hour; 53 ppb annual; combustion       │
+  │ NO₂      │ 100 ppb    │ 1-hour; 53 ppb annual; combustion        │
   │          │            │ source; O₃ precursor; respiratory        │
   ├──────────┼────────────┼──────────────────────────────────────────┤
   │ SO₂      │ 75 ppb     │ 1-hour; coal combustion / smelting;     │
   │          │            │ acid rain precursor; respiratory         │
   ├──────────┼────────────┼──────────────────────────────────────────┤
-  │ CO       │ 35 ppm     │ 1-hour; 9 ppm 8-hour; incomplete        │
+  │ CO       │ 35 ppm     │ 1-hour; 9 ppm 8-hour; incomplete         │
   │          │            │ combustion; hemoglobin binding           │
   ├──────────┼────────────┼──────────────────────────────────────────┤
   │ Pb       │ 0.15 μg/m³ │ Rolling 3-month average; neurotoxin;   │
@@ -139,12 +139,12 @@ After emission, how does the pollutant spread? Gaussian plume modeling is the st
   │ A     │ Strong insolation, light wind — very unstable;        │
   │       │ large σ_y, σ_z → rapid dilution                       │
   ├───────┼────────────────────────────────────────────────────────┤
-  │ B-C   │ Moderate insolation — moderately unstable             │
+  │ B-C   │ Moderate insolation — moderately unstable              │
   ├───────┼────────────────────────────────────────────────────────┤
   │ D     │ Overcast / nighttime — neutral; most common class     │
   ├───────┼────────────────────────────────────────────────────────┤
-  │ E-F   │ Nighttime stable/calm — very stable; plume stays      │
-  │       │ tight; small σ_z → worst-case ground-level impact     │
+  │ E-F   │ Nighttime stable/calm — very stable; plume stays       │
+  │       │ tight; small σ_z → worst-case ground-level impact      │
   └───────┴────────────────────────────────────────────────────────┘
 ```
 

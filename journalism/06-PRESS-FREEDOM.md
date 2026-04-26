@@ -10,7 +10,7 @@ PRESS FREEDOM SPECTRUM
 
   FULL CONSTITUTIONAL PROTECTION (strong)
   ┌──────────────────────────────────────────────────────────────────┐
-  │  US (First Amendment): Near-absolute; prior restraint very hard │
+  │  US (First Amendment): Near-absolute; prior restraint very hard  │
   │  Key protections: Actual malice standard; no licensing         │
   └──────────────────────────────────────────────────────────────────┘
   │
@@ -293,8 +293,8 @@ HOW AUTHORITARIAN STATES SUPPRESS PRESS
   DIGITAL SUPPRESSION:
   ┌──────────────────────────────────────────────────────────────────┐
   │  Internet filtering (China Great Firewall)                     │
-  │  VPN restrictions                                               │
-  │  Social media bans                                              │
+  │  VPN restrictions                                                │
+  │  Social media bans                                               │
   │  Spyware (NSO Pegasus) on journalists' phones                 │
   └──────────────────────────────────────────────────────────────────┘
 ```
@@ -310,7 +310,7 @@ SAFETY IN THE FIELD
   CONFLICT ZONE REPORTING:
   ┌──────────────────────────────────────────────────────────────────┐
   │  Hostile environment training: First aid, body armor fitting,  │
-  │   mine awareness, kidnap/ransom protocols                       │
+  │   mine awareness, kidnap/ransom protocols                        │
   │  Check-in protocols: Daily contact with editor                 │
   │  Fixer/local journalist: Essential in unfamiliar territory     │
   │  Insurance: Hostile environment coverage; kidnap/ransom policy │
@@ -320,7 +320,7 @@ SAFETY IN THE FIELD
 
   DIGITAL SECURITY:
   ┌──────────────────────────────────────────────────────────────────┐
-  │  SecureDrop for receiving sensitive documents                   │
+  │  SecureDrop for receiving sensitive documents                    │
   │  Signal for source communications                              │
   │  Full disk encryption on all devices                           │
   │  Password manager + unique passwords per service               │

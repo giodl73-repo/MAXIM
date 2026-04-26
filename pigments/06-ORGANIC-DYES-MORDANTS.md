@@ -18,14 +18,14 @@
 |  | Direct dye      |  | (anthraquinones)|  | (flavonoids)    |  |
 |  | Vat process     |  | Mordant dye     |  | Mordant dye     |  |
 |  +-----------------+  +-----------------+  +-----------------+  |
-|                                                                  |
+|                                                                 |
 |  GREEN = blue (indigo) × yellow (weld) — "Lincoln green"        |
-|  ORANGE = yellow × red mordant variation                         |
-|  PURPLE = indigo × kermes/madder combinations                    |
-|                                                                  |
-|  MORDANT = the chemical key that bonds dye to fiber              |
-|  Without mordant: most dyes wash out                             |
-|  With mordant: dye fixed; mordant choice → color variation       |
+|  ORANGE = yellow × red mordant variation                        |
+|  PURPLE = indigo × kermes/madder combinations                   |
+|                                                                 |
+|  MORDANT = the chemical key that bonds dye to fiber             |
+|  Without mordant: most dyes wash out                            |
+|  With mordant: dye fixed; mordant choice → color variation      |
 +------------------------------------------------------------------+
 ```
 

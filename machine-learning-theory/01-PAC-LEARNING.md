@@ -10,10 +10,10 @@ PAC learning (Probably Approximately Correct, Valiant 1984) is the foundational 
 |                                                                  |
 |  INPUTS                                                          |
 |  ──────                                                          |
-|  • Unknown distribution D over instance space X                 |
-|  • Unknown target concept c* ∈ C (concept class C over X)       |
-|  • Error parameter ε ∈ (0, 1)                                   |
-|  • Confidence parameter δ ∈ (0, 1)                              |
+|  • Unknown distribution D over instance space X                  |
+|  • Unknown target concept c* ∈ C (concept class C over X)        |
+|  • Error parameter ε ∈ (0, 1)                                    |
+|  • Confidence parameter δ ∈ (0, 1)                               |
 |  • Training set S = {(x₁,y₁),...,(xₘ,yₘ)}, xᵢ ~ D, yᵢ = c*(xᵢ) |
 |                                                                  |
 |  OUTPUT                                                          |
@@ -22,7 +22,7 @@ PAC learning (Probably Approximately Correct, Valiant 1984) is the foundational 
 |                                                                  |
 |  SUCCESS CRITERION                                               |
 |  ─────────────────                                               |
-|  With probability ≥ 1-δ over choice of S:                       |
+|  With probability ≥ 1-δ over choice of S:                        |
 |    error(h) := Pr_{x~D}[h(x) ≠ c*(x)] ≤ ε                      |
 |                                                                  |
 |  "Probably" = with probability 1-δ                               |

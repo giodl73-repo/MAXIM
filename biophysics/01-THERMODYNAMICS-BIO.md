@@ -4,12 +4,12 @@
 
 ```
 ┌──────────────────────────────────────────────────────────────────────────┐
-│              BIOLOGICAL THERMODYNAMICS LANDSCAPE                          │
+│              BIOLOGICAL THERMODYNAMICS LANDSCAPE                         │
 │                                                                            │
-│  EQUILIBRIUM THERMO           NON-EQUILIBRIUM THERMO                      │
-│  ──────────────────           ─────────────────────                       │
+│  EQUILIBRIUM THERMO           NON-EQUILIBRIUM THERMO                     │
+│  ──────────────────           ─────────────────────                      │
 │  ΔG = ΔH - TΔS               Steady-state fluxes                         │
-│  Keq = exp(-ΔG°/RT)          Driving force: chemical potential gradient   │
+│  Keq = exp(-ΔG°/RT)          Driving force: chemical potential gradient  │
 │  Boltzmann distribution       Onsager reciprocal relations                 │
 │  Free energy minimization     NESS: non-equilibrium steady state           │
 │                                                                            │
@@ -22,15 +22,15 @@
 │  FREE ENERGY TRANSDUCTION CHAIN                                            │
 │  ─────────────────────────────                                             │
 │  Light / Food                                                              │
-│      ↓  oxidative phosphorylation / photosynthesis                        │
-│  Proton gradient (ΔμH⁺)                                                   │
+│      ↓  oxidative phosphorylation / photosynthesis                       │
+│  Proton gradient (ΔμH⁺)                                                  │
 │      ↓  ATP synthase                                                       │
 │  ATP                                                                       │
 │      ↓  hydrolysis by molecular machines                                   │
 │  Mechanical work / ion pumping / biosynthesis                              │
 │                                                                            │
 │  ENERGY SCALE ANCHOR: k_BT = 0.6 kcal/mol at 310 K                       │
-│  ATP hydrolysis ΔG_cell ≈ 20 k_BT — large premium over thermal noise      │
+│  ATP hydrolysis ΔG_cell ≈ 20 k_BT — large premium over thermal noise     │
 └──────────────────────────────────────────────────────────────────────────┘
 ```
 
@@ -69,18 +69,18 @@ This matters because ATP hydrolysis releases a proton — the pH dependence is b
 
 ```
 ┌──────────────────────────────────────────────────────────┐
-│                ΔG = ΔH - TΔS                              │
+│                ΔG = ΔH - TΔS                             │
 │                                                            │
-│  ΔH contributions (enthalpy):                             │
-│  ─────────────────────────────                            │
-│  Covalent bond formation/breaking    ±50-500 kcal/mol     │
-│  Hydrogen bonds                      ±1-5 kcal/mol        │
-│  van der Waals contacts              ±0.1-1 kcal/mol      │
-│  Electrostatic interactions          ±1-10 kcal/mol       │
-│  Hydrophobic effect (ΔH small!)      ≈0 kcal/mol          │
+│  ΔH contributions (enthalpy):                            │
+│  ─────────────────────────────                           │
+│  Covalent bond formation/breaking    ±50-500 kcal/mol    │
+│  Hydrogen bonds                      ±1-5 kcal/mol       │
+│  van der Waals contacts              ±0.1-1 kcal/mol     │
+│  Electrostatic interactions          ±1-10 kcal/mol      │
+│  Hydrophobic effect (ΔH small!)      ≈0 kcal/mol         │
 │                                                            │
-│  TΔS contributions (at 310 K):                            │
-│  ─────────────────────────────                            │
+│  TΔS contributions (at 310 K):                           │
+│  ─────────────────────────────                           │
 │  Hydrophobic burial (water ordering) -TΔS ≈ -3 kcal/mol  │
 │  Conformational restriction          -TΔS ≈ +2-10 kcal/mol│
 │  Translational/rotational entropy    -TΔS ≈ +5-15 kcal/mol│
@@ -164,12 +164,12 @@ reactions via a short-lived phosphorylated intermediate that never diffuses away
 
   ┌─────────────────────────────────────────────────────┐
   │  Pathway                     │  ATP (approx.)       │
-  │  ────────────────────────────│──────────────────── │
+  │  ────────────────────────────│────────────────────  │
   │  Glycolysis (substrate-lvl)  │  2 ATP               │
   │  Pyruvate → Acetyl-CoA       │  ~5 ATP (via NADH)   │
   │  Krebs cycle (substrate-lvl) │  2 GTP ≈ 2 ATP       │
-  │  Krebs NADH/FADH₂ → ETC     │  ~26 ATP             │
-  │  ────────────────────────────│──────────────────── │
+  │  Krebs NADH/FADH₂ → ETC     │  ~26 ATP              │
+  │  ────────────────────────────│────────────────────  │
   │  Total                       │  ~30-32 ATP          │
   └─────────────────────────────────────────────────────┘
 
@@ -337,17 +337,17 @@ solution). Chaperones and the crowded cellular environment shift this balance.
 
 ```
   ┌──────────────────────────────────────────────────────────┐
-  │  ITC: ligand titrated into protein solution at const T    │
-  │                                                           │
+  │  ITC: ligand titrated into protein solution at const T   │
+  │                                                          │
   │  Measures directly:  ΔH per injection (heat signal)      │
   │  From binding isotherm:  n (stoichiometry), Kd           │
   │  Calculates:         ΔG = -RT ln(Kd)                     │
   │                       TΔS = ΔH - ΔG                      │
-  │                                                           │
-  │  Complete thermodynamic profile in one experiment         │
-  │  Gold standard for binding characterization               │
+  │                                                          │
+  │  Complete thermodynamic profile in one experiment        │
+  │  Gold standard for binding characterization              │
   │  Limitation: requires high protein concentration (μM-mM) │
-  │    and large sample volumes (1-2 mg protein per run)      │
+  │    and large sample volumes (1-2 mg protein per run)     │
   └──────────────────────────────────────────────────────────┘
 ```
 

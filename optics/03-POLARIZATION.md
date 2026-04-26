@@ -6,15 +6,15 @@ Light is a transverse electromagnetic wave: the electric field oscillates perpen
 
 ```
 +------------------------------------------------------------------+
-|                    POLARIZATION LANDSCAPE                         |
+|                    POLARIZATION LANDSCAPE                        |
 |                                                                  |
 |  POLARIZATION STATES      JONES CALCULUS    STOKES/MUELLER       |
 |  ------------------       -------------     ------------         |
 |  Linear polarization      2x1 complex       4x1 real vector      |
-|  Circular polarization    Jones vector      Stokes vector         |
+|  Circular polarization    Jones vector      Stokes vector        |
 |  Elliptical polarization  2x2 Jones matrix  4x4 Mueller matrix   |
 |  Partial polarization                       handles depolarization|
-|  Unpolarized                                                      |
+|  Unpolarized                                                     |
 |                                                                  |
 |  PHYSICAL MECHANISMS      APPLICATIONS                           |
 |  ------------------       ------------                           |
@@ -137,30 +137,30 @@ For **fully polarized** light only. Works with complex amplitude, so it handles 
 |  ELEMENT                      JONES MATRIX                       |
 |  -------                      ------------                       |
 |                                                                  |
-|  Linear polarizer (horizontal)  [1 0]                           |
-|                                 [0 0]                           |
+|  Linear polarizer (horizontal)  [1 0]                            |
+|                                 [0 0]                            |
 |                                                                  |
-|  Linear polarizer (vertical)    [0 0]                           |
-|                                 [0 1]                           |
+|  Linear polarizer (vertical)    [0 0]                            |
+|                                 [0 1]                            |
 |                                                                  |
 |  Linear polarizer at angle theta:                                |
-|  [cos^2(theta)      sin(theta)cos(theta)]                       |
-|  [sin(theta)cos(theta)   sin^2(theta)  ]                        |
+|  [cos^2(theta)      sin(theta)cos(theta)]                        |
+|  [sin(theta)cos(theta)   sin^2(theta)  ]                         |
 |                                                                  |
 |  Half-wave plate (fast axis at 0):                               |
-|  [1  0]  (QWP: retardation = pi/2 between slow and fast axes)   |
+|  [1  0]  (QWP: retardation = pi/2 between slow and fast axes)    |
 |  [0 -1]                                                          |
 |                                                                  |
 |  Quarter-wave plate (fast axis at 0):                            |
-|  [1  0 ]  = [1    0  ]                                          |
-|  [0  i ]    [0  exp(i*pi/2)]                                    |
+|  [1  0 ]  = [1    0  ]                                           |
+|  [0  i ]    [0  exp(i*pi/2)]                                     |
 |                                                                  |
-|  Rotation matrix (rotate polarization by angle theta):          |
-|  [ cos(theta)  sin(theta)]                                      |
+|  Rotation matrix (rotate polarization by angle theta):           |
+|  [ cos(theta)  sin(theta)]                                       |
 |  [-sin(theta)  cos(theta)]                                       |
 |                                                                  |
-|  Faraday rotator (rotation by theta, nonreciprocal):            |
-|  [ cos(theta)  sin(theta)]  (same form but different physics)   |
+|  Faraday rotator (rotation by theta, nonreciprocal):             |
+|  [ cos(theta)  sin(theta)]  (same form but different physics)    |
 |  [-sin(theta)  cos(theta)]                                       |
 +------------------------------------------------------------------+
 ```
@@ -252,29 +252,29 @@ Visual representation of all polarization states:
 |  ELEMENT              MUELLER MATRIX                             |
 |  -------              -----                                      |
 |                                                                  |
-|  Linear polarizer     [1  1  0  0]                              |
-|  (horizontal) *1/2    [1  1  0  0]                              |
+|  Linear polarizer     [1  1  0  0]                               |
+|  (horizontal) *1/2    [1  1  0  0]                               |
 |                        [0  0  0  0]                              |
 |                        [0  0  0  0]                              |
 |                                                                  |
-|  Linear polarizer     [1  0  1  0]                              |
-|  (+45 deg) *1/2       [0  0  0  0]                              |
+|  Linear polarizer     [1  0  1  0]                               |
+|  (+45 deg) *1/2       [0  0  0  0]                               |
 |                        [1  0  1  0]                              |
 |                        [0  0  0  0]                              |
 |                                                                  |
-|  Quarter-wave plate   [1  0   0   0]                            |
-|  (fast axis horiz)    [0  1   0   0]                            |
+|  Quarter-wave plate   [1  0   0   0]                             |
+|  (fast axis horiz)    [0  1   0   0]                             |
 |                        [0  0   0  -1]                            |
 |                        [0  0   1   0]                            |
 |                                                                  |
-|  Half-wave plate      [1  0   0   0]                            |
-|  (fast axis horiz)    [0  1   0   0]                            |
+|  Half-wave plate      [1  0   0   0]                             |
+|  (fast axis horiz)    [0  1   0   0]                             |
 |                        [0  0  -1   0]                            |
 |                        [0  0   0  -1]                            |
 |                                                                  |
-|  Ideal mirror         [1  0   0   0]                            |
-|  (at normal           [0  1   0   0]                            |
-|   incidence)          [0  0  -1   0]   <- handedness reverses   |
+|  Ideal mirror         [1  0   0   0]                             |
+|  (at normal           [0  1   0   0]                             |
+|   incidence)          [0  0  -1   0]   <- handedness reverses    |
 |                        [0  0   0  -1]                            |
 +------------------------------------------------------------------+
 

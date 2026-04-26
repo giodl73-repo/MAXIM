@@ -13,8 +13,8 @@ HARMONIC FUNCTIONS — LANDSCAPE
   ┌─────────────────────────────────────────────────────────────────────┐
   │  COMPLEX ANALYSIS CONNECTION                                        │
   │  f = u + iv  holomorphic  ⟹  u harmonic,  v harmonic              │
-  │  Converse: given u harmonic on simply connected Ω,                 │
-  │            ∃ harmonic conjugate v: u + iv holomorphic on Ω         │
+  │  Converse: given u harmonic on simply connected Ω,                  │
+  │            ∃ harmonic conjugate v: u + iv holomorphic on Ω          │
   └─────────────────────────────────────────────────────────────────────┘
 
   KEY PROPERTIES (flow from Cauchy theory):

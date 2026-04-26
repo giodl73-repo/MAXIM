@@ -6,22 +6,22 @@ Irrigation enables agriculture where rainfall is insufficient or unreliable. It 
 
 ```
 +---------------------------------------------------------------+
-|              IRRIGATION SYSTEM OVERVIEW                        |
-|                                                                |
-|  WATER SOURCES:                                                |
+|              IRRIGATION SYSTEM OVERVIEW                       |
+|                                                               |
+|  WATER SOURCES:                                               |
 |  Surface: Rivers, canals, reservoirs, lakes                   |
 |  Groundwater: Wells pumping aquifers                          |
 |  Treated wastewater: Increasing (Israel, Singapore)           |
-|                                                                |
+|                                                               |
 |  DELIVERY METHODS    EFFICIENCY (applied/evapotranspired)     |
-|  ───────────────────  ─────────────────────────────────────  |
-|  Flood/surface       50-65%  (significant deep percolation)  |
-|  Sprinkler           70-80%  (wind drift + evaporation)      |
-|  Drip/micro          85-95%  (direct to root zone)           |
-|  Subsurface drip     90-95%  (below evaporation)             |
-|                                                                |
-|  WATER BUDGET: ET demand = crop water need                   |
-|  Effective rainfall + Irrigation = ET + leaching fraction    |
+|  ───────────────────  ─────────────────────────────────────   |
+|  Flood/surface       50-65%  (significant deep percolation)   |
+|  Sprinkler           70-80%  (wind drift + evaporation)       |
+|  Drip/micro          85-95%  (direct to root zone)            |
+|  Subsurface drip     90-95%  (below evaporation)              |
+|                                                               |
+|  WATER BUDGET: ET demand = crop water need                    |
+|  Effective rainfall + Irrigation = ET + leaching fraction     |
 +---------------------------------------------------------------+
 ```
 

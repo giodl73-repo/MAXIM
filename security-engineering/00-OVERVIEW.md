@@ -46,7 +46,7 @@ Security engineering is the discipline of designing, building, and operating sys
 SECURITY ENGINEERING LANDSCAPE
 +-----------------------------------------------------------------------+
 |                                                                       |
-|  PROACTIVE (prevent)              REACTIVE (detect and respond)      |
+|  PROACTIVE (prevent)              REACTIVE (detect and respond)       |
 |  +---------------------------+    +-------------------------------+   |
 |  | Threat Modeling           |    | Monitoring / SIEM             |   |
 |  | Secure Design Principles  |    | Incident Response             |   |
@@ -56,7 +56,7 @@ SECURITY ENGINEERING LANDSCAPE
 |  | Network Security          |    | Post-Incident Review          |   |
 |  +---------------------------+    +-------------------------------+   |
 |                                                                       |
-|  ORGANIZATIONAL                   REGULATORY                         |
+|  ORGANIZATIONAL                   REGULATORY                          |
 |  +---------------------------+    +-------------------------------+   |
 |  | Security Champions        |    | SOC 2                         |   |
 |  | Security Training         |    | ISO 27001                     |   |

@@ -96,45 +96,45 @@ CORE INSTITUTIONS OF MODERN SOCIETIES
 ┌──────────────────────────────────────────────────────────────┐
 │  FAMILY / KINSHIP                                            │
 │  Functions: reproduction, primary socialization, care        │
-│  Forms: nuclear, extended, single-parent, same-sex,         │
+│  Forms: nuclear, extended, single-parent, same-sex,          │
 │          polyamorous — all vary historically and globally    │
 │  Functionalist view: universal necessity                     │
-│  Conflict view: reproduces class position; site of          │
+│  Conflict view: reproduces class position; site of           │
 │                 gender inequality                            │
 └──────────────────────────────────────────────────────────────┘
 ┌──────────────────────────────────────────────────────────────┐
 │  EDUCATION                                                   │
-│  Manifest function: transmit knowledge and skills           │
-│  Latent functions: sorting / credentialing / socialization  │
+│  Manifest function: transmit knowledge and skills            │
+│  Latent functions: sorting / credentialing / socialization   │
 │                    into occupational hierarchy               │
-│  Conflict view: legitimizes inequality via "meritocracy";   │
+│  Conflict view: legitimizes inequality via "meritocracy";    │
 │                 cultural capital reproduction                │
-│  Key finding: Coleman Report (1966) — family background     │
+│  Key finding: Coleman Report (1966) — family background      │
 │               explains more of student achievement than      │
-│               school resources                              │
+│               school resources                               │
 └──────────────────────────────────────────────────────────────┘
 ┌──────────────────────────────────────────────────────────────┐
 │  ECONOMY                                                     │
-│  Capitalist institutions: private property, contract,       │
-│  market exchange, profit motivation, wage labor             │
-│  Embeddedness (Polanyi/Granovetter): economy is always      │
-│  embedded in social relations — "purely economic" actors    │
-│  is a fiction                                               │
+│  Capitalist institutions: private property, contract,        │
+│  market exchange, profit motivation, wage labor              │
+│  Embeddedness (Polanyi/Granovetter): economy is always       │
+│  embedded in social relations — "purely economic" actors     │
+│  is a fiction                                                │
 └──────────────────────────────────────────────────────────────┘
 ┌──────────────────────────────────────────────────────────────┐
 │  STATE / POLITY                                              │
 │  Weber: state = legitimate monopoly on violence              │
 │  Functions: rule of law, collective security, public goods   │
 │  Conflict view: state serves capitalist interests            │
-│  (Miliband: instrumentalism); or has structural bias        │
-│  toward capital (Poulantzas: structuralism)                 │
+│  (Miliband: instrumentalism); or has structural bias         │
+│  toward capital (Poulantzas: structuralism)                  │
 └──────────────────────────────────────────────────────────────┘
 ┌──────────────────────────────────────────────────────────────┐
 │  RELIGION                                                    │
 │  Durkheim: social cement — creates collective identity       │
 │  Weber: provides meaning and ethical guidelines              │
 │  Marx: "opium of the people" — masks class contradictions    │
-│  See 07-RELIGION-SECULARIZATION.md                          │
+│  See 07-RELIGION-SECULARIZATION.md                           │
 └──────────────────────────────────────────────────────────────┘
 ```
 

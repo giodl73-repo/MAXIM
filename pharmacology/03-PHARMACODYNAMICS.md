@@ -8,14 +8,14 @@ Pharmacodynamics (PD) describes the relationship between drug concentration and 
 +──────────────────────────────────────────────────────────────────+
 |                  PHARMACODYNAMICS FRAMEWORK                      |
 |                                                                  |
-|  EFFECT (%) │ ───────────────── Emax (ceiling)                  |
-|         100 │          ╭────────────────────────────────        |
-|          75 │        ╱                                          |
+|  EFFECT (%) │ ───────────────── Emax (ceiling)                   |
+|         100 │          ╭────────────────────────────────         |
+|          75 │        ╱                                           |
 |          50 │      ╱ ← EC50 (potency marker)                   |
-|          25 │    ╱                                              |
+|          25 │    ╱                                               |
 |           0 │──╱────────────────────────────────────           |
 |             └────────────────────────────────────────→         |
-|                  [Drug] (log scale)                             |
+|                  [Drug] (log scale)                              |
 |                                                                  |
 |  KEY PARAMETERS                                                  |
 |  EC50:   Concentration for 50% of Emax          → POTENCY      |

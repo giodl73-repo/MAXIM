@@ -6,14 +6,14 @@
 +----------------------------------------------------------------------+
 |               POLYMER CHAIN ARCHITECTURE                             |
 |                                                                      |
-|   MONOMER → POLYMERIZATION → CHAIN → BULK MATERIAL PROPERTIES       |
+|   MONOMER → POLYMERIZATION → CHAIN → BULK MATERIAL PROPERTIES        |
 |                                                                      |
 |   Monomer    Chain topology    Interactions     Observable           |
-|   -------    --------------   ------------     ----------           |
+|   -------    --------------   ------------     ----------            |
 |   Ethylene   Linear           van der Waals    Tg, Tm, E-modulus   |
-|   Propylene  Branched         H-bonding        tensile strength     |
-|   Styrene    Cross-linked     Pi stacking      creep, solubility    |
-|   MMA        Block/graft      dipole           barrier properties   |
+|   Propylene  Branched         H-bonding        tensile strength      |
+|   Styrene    Cross-linked     Pi stacking      creep, solubility     |
+|   MMA        Block/graft      dipole           barrier properties    |
 +----------------------------------------------------------------------+
 ```
 

@@ -6,7 +6,7 @@ We cannot drill to the core of any planet (except partially Earth). Everything w
 
 ```
 +------------------------------------------------------------------+
-|              PLANETARY INTERIOR INVESTIGATION                     |
+|              PLANETARY INTERIOR INVESTIGATION                    |
 +------------------------------------------------------------------+
 |                                                                  |
 |  PROBE METHOD          WHAT IT CONSTRAINS     MISSIONS           |

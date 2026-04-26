@@ -25,7 +25,7 @@
   AMERICAN ABOLITION (1831–1865):
   ┌──────────────────────────────────────────────────────────────┐
   │  1831: Garrison founds The Liberator (newspaper)             │
-  │         "I will not equivocate, and I will not excuse"        │
+  │         "I will not equivocate, and I will not excuse"       │
   │  1833: American Anti-Slavery Society founded                 │
   │  1845: Douglass publishes Narrative                          │
   │  1848: Seneca Falls; women's rights links to abolition       │

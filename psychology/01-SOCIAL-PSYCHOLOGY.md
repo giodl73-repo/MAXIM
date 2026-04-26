@@ -9,7 +9,7 @@ The core lesson: never underestimate context.
 
 ```
 +----------------------------------------------------------------------+
-|                    SOCIAL INFLUENCE LANDSCAPE                         |
+|                    SOCIAL INFLUENCE LANDSCAPE                        |
 |                                                                      |
 |  CONFORMITY              OBEDIENCE             ATTITUDE CHANGE       |
 |  (peer pressure)         (authority)           (persuasion)          |
@@ -45,7 +45,7 @@ The core lesson: never underestimate context.
   ┌────────────────────────────────────────────────────────────────┐
   │ INFORMATIONAL SOCIAL INFLUENCE (ISI):                          │
   │ Others' behavior is informative about reality                  │
-  │ "If everyone says C, maybe I'm wrong"                         │
+  │ "If everyone says C, maybe I'm wrong"                          │
   │ Stronger in: ambiguous situations, uncertainty, domain experts │
   │                                                                │
   │ NORMATIVE SOCIAL INFLUENCE (NSI):                              │
@@ -88,20 +88,20 @@ The core lesson: never underestimate context.
   │ 1. LEGITIMATE AUTHORITY: Yale University, experimenter in lab  │
   │    coat; institutional legitimacy makes authority seem justified│
   │                                                                │
-  │ 2. INCREMENTAL ESCALATION: Started at 15V; each step only 15V │
-  │    more; foot-in-the-door; commitment compounds               │
+  │ 2. INCREMENTAL ESCALATION: Started at 15V; each step only 15V  │
+  │    more; foot-in-the-door; commitment compounds                │
   │                                                                │
   │ 3. PROXIMITY TO AUTHORITY: Experimenter present → 65%        │
-  │    Experimenter by phone → ~20%                               │
+  │    Experimenter by phone → ~20%                                │
   │                                                                │
   │ 4. DISTANCE FROM VICTIM: Learner behind wall → 65%           │
-  │    Learner in same room → ~40%                                │
-  │    Physical contact required → ~30%                           │
+  │    Learner in same room → ~40%                                 │
+  │    Physical contact required → ~30%                            │
   │                                                                │
   │ 5. DIFFUSION OF RESPONSIBILITY:                                │
   │    "I'm just following orders"; experimenter takes moral burden│
   │                                                                │
-  │ 6. AGENTIC STATE: Shift from autonomous agent to executing    │
+  │ 6. AGENTIC STATE: Shift from autonomous agent to executing     │
   │    another's will; lower self-monitoring of moral implications │
   └────────────────────────────────────────────────────────────────┘
 
@@ -132,9 +132,9 @@ The core lesson: never underestimate context.
   TWO MECHANISMS:
   ┌────────────────────────────────────────────────────────────────┐
   │ PLURALISTIC IGNORANCE:                                         │
-  │ Each bystander looks to others for cues on how to react       │
-  │ Others also appear calm (masking their own uncertainty)       │
-  │ → Collective definition: "This must not be an emergency"      │
+  │ Each bystander looks to others for cues on how to react        │
+  │ Others also appear calm (masking their own uncertainty)        │
+  │ → Collective definition: "This must not be an emergency"       │
   │                                                                │
   │ DIFFUSION OF RESPONSIBILITY:                                   │
   │ With others present, individual responsibility decreases       │
@@ -196,7 +196,7 @@ The core lesson: never underestimate context.
   REDUCTION STRATEGIES:
   ┌────────────────────────────────────────────────────────────────┐
   │ 1. Change one cognition to be consistent with the other        │
-  │ 2. Add a new cognition that bridges the inconsistency         │
+  │ 2. Add a new cognition that bridges the inconsistency          │
   │ 3. Reduce the importance of one cognition                      │
   └────────────────────────────────────────────────────────────────┘
 
@@ -240,11 +240,11 @@ The core lesson: never underestimate context.
   │                                                                │
   │ 2. SOCIAL IDENTIFICATION                                       │
   │ We adopt the identity of groups we belong to                   │
-  │ Group's fate = our fate; group's prestige = our self-esteem   │
+  │ Group's fate = our fate; group's prestige = our self-esteem    │
   │                                                                │
   │ 3. SOCIAL COMPARISON                                           │
   │ We evaluate our group favorably relative to other groups       │
-  │ → In-group favoritism + out-group derogation                  │
+  │ → In-group favoritism + out-group derogation                   │
   │ → Serves self-esteem maintenance function                      │
   └────────────────────────────────────────────────────────────────┘
 

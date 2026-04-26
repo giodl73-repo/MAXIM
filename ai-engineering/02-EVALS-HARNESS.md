@@ -11,7 +11,7 @@
 ┌─────────────────────────────────────────────────────────────────────────────┐
 │                        LLM EVAL ECOSYSTEM                                   │
 │                                                                             │
-│  ┌─────────────────────────────────────────────────────────────────────┐   │
+│  ┌─────────────────────────────────────────────────────────────────────┐    │
 │  │  EVAL PIPELINE (mirrors your CI/CD pipeline)                        │   │
 │  │                                                                     │   │
 │  │  Dataset ──► Prompt Template ──► Model Call ──► Scoring ──► Report │   │
@@ -93,7 +93,7 @@ No string-match test can catch this correctly. You need *rubric-based* scoring.
 
 ```
 ┌─────────────────────────────────────────────────────────────┐
-│  FAILURE MODE         │  EXAMPLE                           │
+│  FAILURE MODE         │  EXAMPLE                            │
 ├───────────────────────┼─────────────────────────────────────┤
 │  Regression           │  prompt change → worse outputs     │
 │  Model drift          │  provider updates model silently   │
@@ -363,7 +363,7 @@ Better for complex eval logic in code, dataset versioning, A/B experiment tracki
 ┌─────────────────────────────────────────────────────────────┐
 │  BRAINTRUST PRIMITIVES                                      │
 │                                                             │
-│  Project      = namespace (one per product/feature)        │
+│  Project      = namespace (one per product/feature)         │
 │  Dataset      = versioned set of test cases                 │
 │  Experiment   = one eval run (prompt + model + date)        │
 │  Score        = numeric 0-1 per criterion per test case     │
@@ -444,14 +444,14 @@ specifically for evaluating RAG pipelines. Different problem than general LLM ev
 │  RAG PIPELINE                                                       │
 │                                                                     │
 │  Query ──► Retrieval ──► Augmented Prompt ──► Generation ──► Answer│
-│               │                                    │               │
+│               │                                    │                │
 │           RETRIEVAL                            GENERATION           │
 │           QUALITY                              QUALITY              │
 │                                                                     │
-│  Context Recall      ←── did we fetch the right docs?              │
-│  Context Precision   ←── did we fetch only relevant docs?          │
-│  Answer Faithfulness ←── does answer stick to retrieved context?   │
-│  Answer Relevancy    ←── does answer address the question?         │
+│  Context Recall      ←── did we fetch the right docs?               │
+│  Context Precision   ←── did we fetch only relevant docs?           │
+│  Answer Faithfulness ←── does answer stick to retrieved context?    │
+│  Answer Relevancy    ←── does answer address the question?          │
 └─────────────────────────────────────────────────────────────────────┘
 ```
 
@@ -506,7 +506,7 @@ print(result)
 
 ```
 ┌────────────────────────────────────────────────────────────────┐
-│  USE CASE                      │  TOOL                        │
+│  USE CASE                      │  TOOL                         │
 ├────────────────────────────────┼──────────────────────────────┤
 │  Simple LLM app, open source   │  PromptFoo                   │
 │  Multi-provider comparison     │  PromptFoo                   │
@@ -531,13 +531,13 @@ with the ability to push production traces back into eval datasets.
 ┌─────────────────────────────────────────────────────────────────────┐
 │  LANGSMITH FLYWHEEL                                                 │
 │                                                                     │
-│  Production ──► Traces ──► Interesting trace? ──► Add to dataset   │
+│  Production ──► Traces ──► Interesting trace? ──► Add to dataset    │
 │                                │                        │           │
-│                           stored in                  becomes a     │
-│                           LangSmith                  test case     │
-│                                                          │           │
-│                                       Eval suite ◄───────┘           │
-│                                           │                          │
+│                           stored in                  becomes a      │
+│                           LangSmith                  test case      │
+│                                                          │          │
+│                                       Eval suite ◄───────┘          │
+│                                           │                         │
 │                                    run on next                      │
 │                                    deployment                       │
 └─────────────────────────────────────────────────────────────────────┘
@@ -705,7 +705,7 @@ jobs:
 │  ✅ Gate hard:   LLM score drops > 5% from baseline                 │
 │  ⚠️  Warn only:  LLM score drops 1-5% (subjective judgment call)   │
 │  ✅ Gate hard:   red-team pass rate drops (security regression)     │
-│  ℹ️  Log only:   cost increase (alert but don't block)              │
+│  ℹ️  Log only:   cost increase (alert but don't block)               │
 └─────────────────────────────────────────────────────────────────────┘
 ```
 
@@ -727,21 +727,21 @@ dataset. Garbage test cases → green evals that miss real failures.
 ┌─────────────────────────────────────────────────────────────────────┐
 │  DATASET SOURCE HIERARCHY (most to least valuable)                  │
 │                                                                     │
-│  1. Real production inputs (sampled + de-identified)               │
-│     Catches distribution shift. Hardest to get.                    │
+│  1. Real production inputs (sampled + de-identified)                │
+│     Catches distribution shift. Hardest to get.                     │
 │                                                                     │
 │  2. Expert-curated golden set                                       │
-│     Hand-authored by domain experts. Covers known edge cases.      │
+│     Hand-authored by domain experts. Covers known edge cases.       │
 │                                                                     │
 │  3. Adversarial / red-team cases                                    │
-│     Injection attacks, edge case inputs, length extremes.          │
+│     Injection attacks, edge case inputs, length extremes.           │
 │                                                                     │
 │  4. Synthetic — LLM-generated                                       │
-│     Fast to create, cheap. Risk: generator bias.                   │
-│     Validate before promoting to golden set (see process below).   │
+│     Fast to create, cheap. Risk: generator bias.                    │
+│     Validate before promoting to golden set (see process below).    │
 │                                                                     │
-│  5. Parametric / property-based (see 19-TESTING-EVOLUTION.md)      │
-│     Generate from a distribution. Finds boundary failures.         │
+│  5. Parametric / property-based (see 19-TESTING-EVOLUTION.md)       │
+│     Generate from a distribution. Finds boundary failures.          │
 └─────────────────────────────────────────────────────────────────────┘
 ```
 
@@ -866,7 +866,7 @@ spots. Always seed with human-authored golden cases.
 
 ```
 ┌─────────────────────────────────────────────────────────────────────┐
-│  WHAT DO I NEED?              │  DO THIS                           │
+│  WHAT DO I NEED?              │  DO THIS                            │
 ├───────────────────────────────┼─────────────────────────────────────┤
 │  Quick eval, new feature      │  promptfoo init + 20 test cases    │
 │  Compare two models/prompts   │  promptfoo eval --providers A B     │

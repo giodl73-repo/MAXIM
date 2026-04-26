@@ -4,13 +4,13 @@
 
 ```
 ┌─────────────────────────────────────────────────────────────────────────────┐
-│                    GLOBAL NCD BURDEN (2019, pre-COVID)                       │
+│                    GLOBAL NCD BURDEN (2019, pre-COVID)                      │
 │                                                                               │
-│  All deaths globally: ~55 million/year                                       │
-│  NCD deaths: ~41 million (74%)                                               │
+│  All deaths globally: ~55 million/year                                      │
+│  NCD deaths: ~41 million (74%)                                              │
 │                                                                               │
-│  TOP NCD KILLERS (global deaths/year):                                       │
-│  ┌─────────────────────────────────────────────────────────────────────┐     │
+│  TOP NCD KILLERS (global deaths/year):                                      │
+│  ┌─────────────────────────────────────────────────────────────────────┐    │
 │  │  Cardiovascular disease         18.6M   ████████████████████████   │     │
 │  │  Cancers                         9.9M   █████████████             │     │
 │  │  Chronic respiratory disease     3.9M   █████                     │     │

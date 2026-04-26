@@ -300,7 +300,7 @@ AVIAN PHYLOGENY — MAJOR GROUPS
           +--------------+--------------+
           |                             |
     PALAEOGNATHAE                 NEOGNATHAE
-    (ratites + tinamous)               |
+    (ratites + tinamous)                |
     Ostriches, rheas,         +--------+--------+
     emus, kiwis, cassowaries  |                 |
     Tinamous (flying)   GALLOANSERAE        NEOAVES

@@ -6,16 +6,16 @@
 +------------------------------------------------------------------+
 |              COMPOSITE STRUCTURE — THREE LEVELS                  |
 |                                                                  |
-|   CONSTITUENT LEVEL         PLY LEVEL           LAMINATE LEVEL  |
-|   ──────────────────        ─────────           ──────────────  |
+|   CONSTITUENT LEVEL         PLY LEVEL           LAMINATE LEVEL   |
+|   ──────────────────        ─────────           ──────────────   |
 |   Fiber properties          Fiber orientation   Stacking sequence|
 |   Matrix properties         Vf (vol fraction)   Thickness        |
 |   Interface/interphase      UD or woven         Symmetry         |
-|                             thickness           Balance           |
+|                             thickness           Balance          |
 |                                                                  |
-|   ↓ Rule of Mixtures        ↓ Classical Laminate Theory (CLT)   |
+|   ↓ Rule of Mixtures        ↓ Classical Laminate Theory (CLT)    |
 |   Ply properties            Laminate properties                  |
-|   E1, E2, G12, ν12         [A][B][D] matrices                   |
+|   E1, E2, G12, ν12         [A][B][D] matrices                    |
 +------------------------------------------------------------------+
 ```
 

@@ -4,7 +4,7 @@
 
 ```
 +------------------------------------------------------------------+
-|                      FINANCIAL RISK LANDSCAPE                     |
+|                      FINANCIAL RISK LANDSCAPE                    |
 +------------------------------------------------------------------+
 |                                                                    |
 |  RISK TYPES                  MEASUREMENT               MANAGEMENT |

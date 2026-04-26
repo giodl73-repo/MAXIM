@@ -6,23 +6,23 @@ Agricultural mechanization is the story of substituting energy (animal, then fos
 
 ```
 +------------------------------------------------------------------+
-|              MECHANIZATION TIMELINE                               |
-|                                                                   |
-|  ~8000 BCE  Digging stick → stone hoe → animal-drawn plow       |
+|              MECHANIZATION TIMELINE                              |
+|                                                                  |
+|  ~8000 BCE  Digging stick → stone hoe → animal-drawn plow        |
 |  ~3500 BCE  Bronze plow; irrigation canals; oxen                 |
-|  ~1000 CE   Iron plow, horse collar (Europe); moldboard plow    |
+|  ~1000 CE   Iron plow, horse collar (Europe); moldboard plow     |
 |  1793       Cotton gin (Whitney) — fiber processing              |
 |  1831       McCormick reaper — grain harvesting                  |
 |  1868       Horse-drawn threshing machine                        |
 |  1892       First gasoline tractor (Froelich)                    |
 |  1917       Fordson tractor — first mass-produced                |
-|  1930s      All-crop combine harvester goes mainstream          |
-|  1940s–50s  Mechanical cotton picker, sugar beet harvester      |
+|  1930s      All-crop combine harvester goes mainstream           |
+|  1940s–50s  Mechanical cotton picker, sugar beet harvester       |
 |  1960s      Herbicides replace much hand-weeding                 |
-|  1990s      GPS guidance (first automated; tractor lightbars)   |
-|  2000s      RTK GPS, autosteer tractors, variable rate app      |
-|  2010s      UAVs, satellite imagery, yield mapping              |
-|  2020s      Autonomous tractors, robotic weeding, AI scouting   |
+|  1990s      GPS guidance (first automated; tractor lightbars)    |
+|  2000s      RTK GPS, autosteer tractors, variable rate app       |
+|  2010s      UAVs, satellite imagery, yield mapping               |
+|  2020s      Autonomous tractors, robotic weeding, AI scouting    |
 +------------------------------------------------------------------+
 ```
 

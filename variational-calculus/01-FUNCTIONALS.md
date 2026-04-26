@@ -6,19 +6,19 @@ A **functional** is a map from a space of functions to the real numbers.
 
 ```
 +-----------------------------------------------------------------------+
-|              FUNCTIONS vs. FUNCTIONALS                                 |
+|              FUNCTIONS vs. FUNCTIONALS                                |
 |                                                                       |
-|  FUNCTION:   f: R^n → R                                              |
+|  FUNCTION:   f: R^n → R                                               |
 |  Input:  a point x ∈ R^n (finite-dimensional vector)                  |
 |  Output: a number f(x) ∈ R                                            |
-|  Extremum condition:  ∇f(x) = 0   (gradient = 0)                     |
+|  Extremum condition:  ∇f(x) = 0   (gradient = 0)                      |
 |                                                                       |
 |  FUNCTIONAL:  J: V → R   (V = function space)                         |
-|  Input:  a FUNCTION u ∈ V  (infinite-dimensional "point")            |
+|  Input:  a FUNCTION u ∈ V  (infinite-dimensional "point")             |
 |  Output: a number J[u] ∈ R                                            |
-|  Extremum condition:  δJ/δu = 0   (variational derivative = 0)       |
+|  Extremum condition:  δJ/δu = 0   (variational derivative = 0)        |
 |                                                                       |
-|  KEY: infinite-dimensional optimization requires infinite-dimensional  |
+|  KEY: infinite-dimensional optimization requires infinite-dimensional |
 |  calculus — this is what variational calculus provides.               |
 |                                                                       |
 +-----------------------------------------------------------------------+
@@ -142,18 +142,18 @@ For functionals of the form J[u] = ∫ F(x,u,∇u) dx, define:
 
   EXAMPLES:
   ┌─────────────────────────────────────────────────────────────────┐
-  │ Dirichlet: J[u] = ½∫|∇u|² dx                                   │
+  │ Dirichlet: J[u] = ½∫|∇u|² dx                                    │
   │   δJ/δu = −∇²u   (the negative Laplacian)                     │
   │   δJ/δu = 0 → ∇²u = 0  (Laplace equation)                    │
   │                                                                 │
   │ Area: J[u] = ∫√(1+|∇u|²) dA                                   │
   │   δJ/δu = −∇·(∇u/√(1+|∇u|²))                                 │
-  │   = −(mean curvature H of the surface u)                       │
+  │   = −(mean curvature H of the surface u)                        │
   │   δJ/δu = 0 → H = 0  (minimal surface equation)               │
   │                                                                 │
-  │ Action: S[q] = ∫L(q,q̇)dt                                       │
+  │ Action: S[q] = ∫L(q,q̇)dt                                        │
   │   δS/δq = ∂L/∂q − d/dt(∂L/∂q̇)                                │
-  │   δS/δq = 0 → Euler-Lagrange equations of mechanics            │
+  │   δS/δq = 0 → Euler-Lagrange equations of mechanics             │
   └─────────────────────────────────────────────────────────────────┘
 ```
 

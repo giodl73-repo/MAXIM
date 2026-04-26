@@ -7,7 +7,7 @@
 |           WHY THESE TWO DOMINATE PRICE RANKINGS                  |
 |                                                                  |
 |  SAFFRON ($5,000–$10,000/kg)       VANILLA ($400–$600/kg)        |
-|  +---------------------------+     +---------------------------+  |
+|  +---------------------------+     +---------------------------+ |
 |  | Crocus sativus            |     | Vanilla planifolia        |  |
 |  | STERILE TRIPLOID          |     | REQUIRES HAND-POLLINATION |  |
 |  | Cannot reproduce by seed  |     | outside Mexico            |  |
@@ -15,13 +15,13 @@
 |  | 2-week harvest window     |     | 6-month curing process    |  |
 |  | Stigmas hand-picked dawn  |     | Only edible orchid fruit  |  |
 |  +---------------------------+     +---------------------------+  |
-|                                                                  |
-|  WHAT THEY SHARE:                                                |
-|  - Labor intensity (human hands, no mechanical substitute)       |
-|  - Biological constraints locking in high production cost        |
-|  - Extreme price volatility (weather, disease, geopolitics)      |
-|  - Massive synthetic substitute market (saffron → safflower;     |
-|    vanilla → vanillin from lignin/guaiacol)                      |
+|                                                                   |
+|  WHAT THEY SHARE:                                                 |
+|  - Labor intensity (human hands, no mechanical substitute)        |
+|  - Biological constraints locking in high production cost         |
+|  - Extreme price volatility (weather, disease, geopolitics)       |
+|  - Massive synthetic substitute market (saffron → safflower;      |
+|    vanilla → vanillin from lignin/guaiacol)                       |
 +------------------------------------------------------------------+
 ```
 

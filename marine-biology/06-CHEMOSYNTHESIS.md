@@ -92,7 +92,7 @@ MID-OCEAN RIDGE HYDROTHERMAL SYSTEM
   │   Seawater percolates down crack network              │
   │   Heated by magma chamber below                       │
   │   Chemical reactions with basalt:                     │
-  │     SO₄²⁻ removed, Mg²⁺ removed                      │
+  │     SO₄²⁻ removed, Mg²⁺ removed                       │
   │     H₂S, CH₄, CO₂, metals (Fe, Mn, Cu, Zn) added    │
   └──────────────────┬────────────────────────────────────┘
                      │ Hot acidic fluid rises
@@ -131,11 +131,11 @@ RIFTIA PACHYPTILA — ANATOMY AND SYMBIOSIS
 
   PLUME (red, feathery)  ← hemoglobin-rich; bright red
   ┌──────────────────────────────────────────────────┐
-  │  Absorbs: O₂ and H₂S simultaneously from water  │
-  │  Transport: simultaneous in blood (no mixture)    │
-  │  Hemoglobin binds H₂S at separate site from O₂  │
+  │  Absorbs: O₂ and H₂S simultaneously from water   │
+  │  Transport: simultaneous in blood (no mixture)   │
+  │  Hemoglobin binds H₂S at separate site from O₂   │
   │  (unique adaptation — H₂S is lethal to other     │
-  │   hemoglobin-carrying animals including humans)   │
+  │   hemoglobin-carrying animals including humans)  │
   └──────────────────────────────────────────────────┘
   WHITE TUBE (up to 2.4 m long)
   ┌──────────────────────────────────────────────────┐
@@ -148,13 +148,13 @@ RIFTIA PACHYPTILA — ANATOMY AND SYMBIOSIS
   TROPHOSOME
   ┌──────────────────────────────────────────────────┐
   │  Specialized organ: up to 50% of body mass       │
-  │  Packed with ENDOSYMBIOTIC BACTERIA               │
+  │  Packed with ENDOSYMBIOTIC BACTERIA              │
   │  ~10⁹ bacteria per gram of trophosome tissue     │
   │  Bacteria: Candidatus Endoriftia persephone      │
-  │            (Gammaproteobacteria)                  │
-  │  Reaction: H₂S + CO₂ + O₂ → organic C           │
-  │            (thioautotrophy)                       │
-  │  Host receives: organic carbon compounds          │
+  │            (Gammaproteobacteria)                 │
+  │  Reaction: H₂S + CO₂ + O₂ → organic C            │
+  │            (thioautotrophy)                      │
+  │  Host receives: organic carbon compounds         │
   │  Bacteria receive: H₂S, O₂, CO₂ delivered        │
   └──────────────────────────────────────────────────┘
 
@@ -196,17 +196,17 @@ CONTINENTAL MARGIN CROSS-SECTION
         ▼ Fluid seeps upward
   SEEP COMMUNITY:
   ┌───────────────────────────────────────────────────────┐
-  │  Surface mats: sulfide-oxidizing bacteria              │
-  │    (Beggiatoa, Thioploca) — white bacterial mats       │
+  │  Surface mats: sulfide-oxidizing bacteria             │
+  │    (Beggiatoa, Thioploca) — white bacterial mats      │
   │    visible from ROV — first sign of seep activity     │
-  │                                                        │
+  │                                                       │
   │  Carbonate rocks: precipitated from DIC produced      │
-  │    during methane oxidation — hard substrate for       │
+  │    during methane oxidation — hard substrate for      │
   │    chemosymbiotic bivalves (Bathymodiolus mussels,    │
   │    Calyptogena clams, vesicomyid clams)               │
-  │                                                        │
+  │                                                       │
   │  In sediment: ANME archaea consortia                  │
-  │    (Anaerobic Methane Oxidizers)                       │
+  │    (Anaerobic Methane Oxidizers)                      │
   └───────────────────────────────────────────────────────┘
 ```
 

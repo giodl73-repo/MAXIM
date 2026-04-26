@@ -6,18 +6,18 @@ TIME SERIES TAXONOMY
 
   ┌────────────────────────────────────────────────────────────────┐
   │  Univariate              Multivariate                          │
-  │  ─────────────           ──────────────────                   │
-  │  AR, MA, ARIMA           VAR, VECM, multivariate SSM          │
-  │  GARCH (variance)        DCC-GARCH                            │
+  │  ─────────────           ──────────────────                    │
+  │  AR, MA, ARIMA           VAR, VECM, multivariate SSM           │
+  │  GARCH (variance)        DCC-GARCH                             │
   │                                                                │
-  │  Stationary              Non-stationary                       │
-  │  ─────────────           ──────────────────                   │
-  │  ARMA                    ARIMA (difference to stationarity)   │
-  │  spectral analysis       VECM (cointegration)                 │
+  │  Stationary              Non-stationary                        │
+  │  ─────────────           ──────────────────                    │
+  │  ARMA                    ARIMA (difference to stationarity)    │
+  │  spectral analysis       VECM (cointegration)                  │
   │                                                                │
-  │  Linear                  Non-linear                           │
-  │  ─────────────           ──────────────────                   │
-  │  ARIMA, Kalman           GARCH, TAR, Prophet, NNs             │
+  │  Linear                  Non-linear                            │
+  │  ─────────────           ──────────────────                    │
+  │  ARIMA, Kalman           GARCH, TAR, Prophet, NNs              │
   └────────────────────────────────────────────────────────────────┘
 ```
 

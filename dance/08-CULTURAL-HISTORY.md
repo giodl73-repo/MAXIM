@@ -6,7 +6,7 @@ Dance has never been politically neutral. Who gets to dance, how, in what contex
 
 ```
 +----------------------------------------------------------------------+
-|           DANCE AS POLITICAL INDICATOR                                |
+|           DANCE AS POLITICAL INDICATOR                               |
 |                                                                      |
 |  POWER ASSERTS ITSELF      RESISTANCE USES DANCE                     |
 |  THROUGH DANCE             AGAINST POWER                             |

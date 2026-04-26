@@ -11,9 +11,9 @@ PDEs govern heat, fluid flow, waves, structural mechanics, electrostatics, and q
 |                                                                  |
 |  PDE CLASSIFICATION                                             |
 |  +-------------------------------------------------------------+ |
-|  | ELLIPTIC: -nabla^2 u = f  (steady state, e.g., Poisson)    | |
-|  | PARABOLIC: u_t = nabla^2 u  (diffusion, heat equation)     | |
-|  | HYPERBOLIC: u_tt = c^2 nabla^2 u  (waves, advection)       | |
+|  | ELLIPTIC: -nabla^2 u = f  (steady state, e.g., Poisson)     | |
+|  | PARABOLIC: u_t = nabla^2 u  (diffusion, heat equation)      | |
+|  | HYPERBOLIC: u_tt = c^2 nabla^2 u  (waves, advection)        | |
 |  +-------------------------------------------------------------+ |
 |                                                                  |
 |  DISCRETIZATION METHODS                                         |
@@ -164,7 +164,7 @@ Solve K u = F:                   Distributed sparse solve:
 FEM PIPELINE ON A CLUSTER (PETSc / FEniCS / DUNE):
 ┌──────────┐   ┌──────────────┐   ┌───────────────┐   ┌──────────┐
 │ Mesh     │──▶│ Local element │──▶│ Global assembly│──▶│ Distributed
-│ partition│   │ assembly     │   │ (MPI comm)    │   │ solve     │
+│ partition│   │ assembly     │   │ (MPI comm)    │   │ solve    │
 │ (METIS)  │   │ (no comm)    │   │               │   │ (PETSc KSP)
 └──────────┘   └──────────────┘   └───────────────┘   └──────────┘
   O(N/P)         O(N/P)             O(N^{2/3}/P)        O(N/P) per iter

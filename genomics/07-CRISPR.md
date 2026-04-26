@@ -17,10 +17,10 @@ CRISPR: PROGRAMMABLE GENOME EDITING
   │ PAM sequence       = anchor/constraint (NGG for SpCas9)          │
   │ Cas9 protein       = the search + cut engine                     │
   │ DNA double-strand  = target data      (3 billion character string)│
-  │                                                                   │
-  │ System finds the first 20-nt match to gRNA adjacent to PAM,     │
+  │                                                                  │
+  │ System finds the first 20-nt match to gRNA adjacent to PAM,      │
   │ then cuts both strands of DNA. DNA repair mechanisms do the rest.│
-  │                                                                   │
+  │                                                                  │
   │ Like regex search + cut on the human genome.                     │
   └──────────────────────────────────────────────────────────────────┘
 
@@ -64,7 +64,7 @@ CRISPR: PROGRAMMABLE GENOME EDITING
   ┌─────────────────────────────────────────────────────────────┐
   │  5'─ NNNNNNNNNNNNNNNNNNNNNGG ─3'  (genomic DNA, PAM strand) │
   │  3'─ NNNNNNNNNNNNNNNNNNNNN    ─5'  (non-PAM strand)         │
-  │                                                              │
+  │                                                             │
   │       ↑ 20-nt target sequence                               │
   │       └── guide RNA anneals here                            │
   └─────────────────────────────────────────────────────────────┘
@@ -100,9 +100,9 @@ CRISPR: PROGRAMMABLE GENOME EDITING
 
   USE CASE: Gene knockout
   ┌──────────────────────────────────────────────────────┐
-  │ Wild-type: ATCGATCGATCGATCG → Protein: IDIDID       │
+  │ Wild-type: ATCGATCGATCGATCG → Protein: IDIDID        │
   │ +1 insertion: ATCG[A]ATCGATCGATCG → IDIDX (frame   │
-  │   shift, garbage protein → nonsense-mediated decay) │
+  │   shift, garbage protein → nonsense-mediated decay)  │
   └──────────────────────────────────────────────────────┘
 
   PATHWAY 2: HDR (Homology-Directed Repair)
@@ -119,7 +119,7 @@ CRISPR: PROGRAMMABLE GENOME EDITING
   USE CASE: Gene correction, reporter knock-in, disease modeling
 
   ┌──────────────────────────────────────────────────────────┐
-  │ CUT AT DISEASE MUTATION                                   │
+  │ CUT AT DISEASE MUTATION                                  │
   │ + ssODN template with corrected sequence                 │
   │ HDR uses template: MUTANT → WILD-TYPE restored           │
   │ Application: Sickle cell / beta-thalassemia correction   │
@@ -187,19 +187,19 @@ CRISPR: PROGRAMMABLE GENOME EDITING
 
   CBE (Cytosine Base Editor, David Liu lab):
   ┌────────────────────────────────────────────────────────────┐
-  │ dCas9 + nicking + Cytosine Deaminase (APOBEC/AID)         │
+  │ dCas9 + nicking + Cytosine Deaminase (APOBEC/AID)          │
   │ Converts: C → U → read as T after repair                   │
   │ Result: C:G → T:A base pair conversion                     │
-  │ Editing window: positions 4–8 of gRNA (counting from PAM) │
+  │ Editing window: positions 4–8 of gRNA (counting from PAM)  │
   └────────────────────────────────────────────────────────────┘
 
   ABE (Adenine Base Editor):
   ┌────────────────────────────────────────────────────────────┐
-  │ dCas9 + evolved adenosine deaminase (ABE8e)               │
-  │ Converts: A → I → read as G after repair                  │
-  │ Result: A:T → G:C base pair conversion                    │
-  │ Medically relevant: most pathogenic SNPs can be corrected │
-  │ with C→T or A→G conversion                                │
+  │ dCas9 + evolved adenosine deaminase (ABE8e)                │
+  │ Converts: A → I → read as G after repair                   │
+  │ Result: A:T → G:C base pair conversion                     │
+  │ Medically relevant: most pathogenic SNPs can be corrected  │
+  │ with C→T or A→G conversion                                 │
   └────────────────────────────────────────────────────────────┘
 
   WHY BASE EDITING MATTERS:
@@ -226,11 +226,11 @@ CRISPR: PROGRAMMABLE GENOME EDITING
 
   MECHANISM:
   ┌────────────────────────────────────────────────────────────────┐
-  │ pegRNA = gRNA + primer binding site (PBS) + reverse           │
-  │          transcriptase template (RTT) encoding desired edit   │
+  │ pegRNA = gRNA + primer binding site (PBS) + reverse            │
+  │          transcriptase template (RTT) encoding desired edit    │
   │                                                                │
   │ PE protein = Cas9 nickase (nicks one strand) +               │
-  │              M-MLV reverse transcriptase                      │
+  │              M-MLV reverse transcriptase                       │
   │                                                                │
   │ PROCESS:                                                       │
   │ 1. pegRNA guides Cas9 to target; nicks PAM strand            │
@@ -267,19 +267,19 @@ CRISPR: PROGRAMMABLE GENOME EDITING
 
   CRISPRi (interference) — GENE SILENCING:
   ┌──────────────────────────────────────────────────────────┐
-  │ dCas9–KRAB (Krüppel-associated box repressor domain)    │
-  │ Target to gene promoter → block RNA Pol II              │
-  │ + recruit H3K9me3 machinery → chromatin compaction      │
-  │ Reversible: remove dCas9, gene re-activates             │
-  │ Use: "soft knockdown" without permanent edit            │
+  │ dCas9–KRAB (Krüppel-associated box repressor domain)     │
+  │ Target to gene promoter → block RNA Pol II               │
+  │ + recruit H3K9me3 machinery → chromatin compaction       │
+  │ Reversible: remove dCas9, gene re-activates              │
+  │ Use: "soft knockdown" without permanent edit             │
   └──────────────────────────────────────────────────────────┘
 
   CRISPRa (activation) — GENE ACTIVATION:
   ┌──────────────────────────────────────────────────────────┐
-  │ dCas9–VPR (VP64-p65-Rta activation domains)             │
-  │ Or dCas9–SAM (synergistic activation mediator)          │
-  │ Target to gene promoter → recruit transcription factors │
-  │ Result: 10–1,000-fold upregulation of target gene       │
+  │ dCas9–VPR (VP64-p65-Rta activation domains)              │
+  │ Or dCas9–SAM (synergistic activation mediator)           │
+  │ Target to gene promoter → recruit transcription factors  │
+  │ Result: 10–1,000-fold upregulation of target gene        │
   │ Use: Overexpress gene without additional copy insertion  │
   └──────────────────────────────────────────────────────────┘
 
@@ -315,7 +315,7 @@ CRISPR: PROGRAMMABLE GENOME EDITING
   ┌─────────────────────────────────────────────────────────────────┐
   │ GUIDE-seq: Tag DSBs with oligo; sequence all cut sites          │
   │ CIRCLE-seq: In vitro Cas9 cut, circularize fragments; sequence  │
-  │ DISCOVER-seq: Detect DSB repair marks (MRE11 ChIP-seq)         │
+  │ DISCOVER-seq: Detect DSB repair marks (MRE11 ChIP-seq)          │
   │ Rhampseq: Deep sequencing at predicted off-target sites         │
   └─────────────────────────────────────────────────────────────────┘
 

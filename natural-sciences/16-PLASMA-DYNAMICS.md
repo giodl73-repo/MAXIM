@@ -10,14 +10,14 @@
 
 ```
 ┌─────────────────────────────────────────────────────────────────────┐
-│                    PLASMA DYNAMICS & CONFINEMENT                     │
-│                                                                      │
-│  MHD EQUILIBRIUM                                                     │
-│  ─────────────────                                                   │
+│                    PLASMA DYNAMICS & CONFINEMENT                    │
+│                                                                     │
+│  MHD EQUILIBRIUM                                                    │
+│  ─────────────────                                                  │
 │  J × B = ∇p (force balance)    β = p / (B²/2µ₀)                   │
 │  Grad-Shafranov equation        Flux surfaces, q safety factor      │
-│          │                                                           │
-│          ▼                                                           │
+│          │                                                          │
+│          ▼                                                          │
 │  MHD INSTABILITIES (perturbation grows if energy is released)       │
 │  ─────────────────────────────────────────────────────────────      │
 │  Interchange / RT:  bad curvature → density finger penetrates       │
@@ -25,13 +25,13 @@
 │  Tearing:           resistive layer → magnetic island formation     │
 │  NTM:               bootstrap current loss → self-reinforcing island│
 │  Disruption:        catastrophic confinement loss (ms timescale)    │
-│          │                                                           │
-│          ▼                                                           │
-│  MAGNETIC RECONNECTION                                               │
-│  ────────────────────────                                            │
+│          │                                                          │
+│          ▼                                                          │
+│  MAGNETIC RECONNECTION                                              │
+│  ────────────────────────                                           │
 │  Topology change at X-point     Sweet-Parker vs. Petschek rate      │
 │  Converts B-field energy → heat + jets + particle acceleration      │
-│          │                                                           │
+│          │                                                          │
 │     ┌────┴──────────────────────────────────┐                       │
 │     ▼                                        ▼                       │
 │  MAGNETIC CONFINEMENT               INERTIAL CONFINEMENT            │
@@ -41,7 +41,7 @@
 │  Lawson criterion: nTτ_E threshold  RT instability is key challenge │
 │          │                                                           │
 │     ┌────┴──────────────────────────────────┐                       │
-│     ▼                                        ▼                       │
+│     ▼                                        ▼                      │
 │  ASTROPHYSICAL PLASMAS              INDUSTRIAL APPLICATIONS         │
 │  ──────────────────────              ────────────────────────       │
 │  Solar flares, CMEs, substorms       Plasma etching (chips)         │

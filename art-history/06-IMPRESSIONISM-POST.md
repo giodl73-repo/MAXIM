@@ -13,11 +13,11 @@ IMPRESSIONISM AND POST-IMPRESSIONISM
   │  1840s-1870s: Railway expansion across France                 │
   │        --> reach Normandy coast, Barbizon forest, Argenteuil  │
   │  1853-1870: Haussmann rebuilds Paris -- new boulevards,       │
-  │        cafés, department stores, leisure culture emerge        │
+  │        cafés, department stores, leisure culture emerge       │
   │  1860s-1880s: Photography matures -- challenges painting      │
   │  1856: Japonisme begins (trade with Japan reopens)            │
   │        -- Japanese prints: flat color, radical cropping,      │
-  │           high horizon, decorative line                        │
+  │           high horizon, decorative line                       │
   └───────────────────────────────────────────────────────────────┘
 
   IMPRESSIONISM (c. 1865–1886):
@@ -54,18 +54,18 @@ ACADEMIC PAINTING vs IMPRESSIONIST APPROACH
   ACADEMIC:                         IMPRESSIONIST:
   ┌───────────────────────────────┐  ┌───────────────────────────────┐
   │ Object has a LOCAL COLOR       │  │ Light modifies every surface   │
-  │ (grass is green, sky is blue) │  │ Local color + light quality    │
-  │                               │  │ + reflections from other       │
-  │ Blend smooth transitions      │  │ surfaces + atmospheric haze    │
+  │ (grass is green, sky is blue) │  │ Local color + light quality   │
+  │                               │  │ + reflections from other      │
+  │ Blend smooth transitions      │  │ surfaces + atmospheric haze   │
   │                               │  │                               │
-  │ Finish the surface until no   │  │ BROKEN BRUSHWORK:              │
-  │ brushstroke is visible        │  │ Separate strokes of different  │
-  │ (the "licked" academic finish)│  │ colors placed side-by-side     │
+  │ Finish the surface until no   │  │ BROKEN BRUSHWORK:             │
+  │ brushstroke is visible        │  │ Separate strokes of different │
+  │ (the "licked" academic finish)│  │ colors placed side-by-side    │
   │                               │  │                               │
-  │ Model in the studio under     │  │ At viewing distance, the eye   │
-  │ controlled light              │  │ mixes the strokes optically    │
+  │ Model in the studio under     │  │ At viewing distance, the eye  │
+  │ controlled light              │  │ mixes the strokes optically   │
   │                               │  │                               │
-  │ Photograph-like surface       │  │ The surface is loose, sketch-  │
+  │ Photograph-like surface       │  │ The surface is loose, sketch- │
   │ = technical mastery           │  │ like -- critics said "unfinished"│
   └───────────────────────────────┘  └───────────────────────────────┘
 
@@ -150,9 +150,9 @@ DEGAS'S PHOTOGRAPHIC BORROWINGS
   │ In academic painting: important figures centered,      │
   │ complete within the frame.                             │
   │                                                        │
-  │ In Degas: figures cut at the edge of the canvas by    │
+  │ In Degas: figures cut at the edge of the canvas by     │
   │ the frame, as in a snapshot. The framing is arbitrary.│
-  │ This implies the scene continues beyond the canvas.   │
+  │ This implies the scene continues beyond the canvas.    │
   └────────────────────────────────────────────────────────┘
 
   HIGH VIEWPOINT / UNUSUAL ANGLES:
@@ -256,13 +256,13 @@ CÉZANNE'S FORMAL INNOVATIONS
 
   MULTIPLE VIEWPOINTS IN A SINGLE IMAGE:
   ┌───────────────────────────────────────────────────────┐
-  │ A Cézanne still life: the table is seen slightly     │
+  │ A Cézanne still life: the table is seen slightly      │
   │ from above. The far edge of the table tilts up to   │
-  │ show the tabletop. The fruit may be seen from a      │
-  │ different angle than the plate. The objects are      │
-  │ shown from their most informative angles combined.   │
+  │ show the tabletop. The fruit may be seen from a       │
+  │ different angle than the plate. The objects are       │
+  │ shown from their most informative angles combined.    │
   │                                                       │
-  │ This is NOT incompetence. It is the recognition that │
+  │ This is NOT incompetence. It is the recognition that  │
   │ we know more about an object than a single-viewpoint  │
   │ snapshot can show.                                    │
   └───────────────────────────────────────────────────────┘

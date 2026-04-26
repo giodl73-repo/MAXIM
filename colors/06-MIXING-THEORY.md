@@ -16,7 +16,7 @@
 |  SUBTRACTIVE MIXING (pigments/inks)                              |
 |  Start from: WHITE (paper/canvas reflects all light)             |
 |  Add: pigment layers → each subtracts wavelengths                |
-|  Primaries: CYAN + MAGENTA + YELLOW → BLACK (ideal)             |
+|  Primaries: CYAN + MAGENTA + YELLOW → BLACK (ideal)              |
 |  Used in: printing, painting, dyes                               |
 |  Physics: multiply the reflectance curves                        |
 |                                                                  |

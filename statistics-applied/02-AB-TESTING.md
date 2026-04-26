@@ -9,8 +9,8 @@
 |  REQUEST → [ASSIGNMENT] → [TREATMENT] → [LOGGING] → [ANALYSIS] |
 |                                                                  |
 |  ASSIGNMENT:                                                     |
-|  Hash(user_id + experiment_id) → bucket (0-999)                 |
-|  Bucket 0-499 → control; 500-999 → treatment                    |
+|  Hash(user_id + experiment_id) → bucket (0-999)                  |
+|  Bucket 0-499 → control; 500-999 → treatment                     |
 |  Consistent: same user always in same bucket for that experiment |
 |  Sticky: assignment doesn't change during experiment             |
 |                                                                  |

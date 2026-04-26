@@ -55,7 +55,7 @@ YOUNG DICOT ROOT — CROSS SECTION (inside out)
       │
   ENDODERMIS (one cell layer)
   ┌─────────────────────────────────────────────────────┐
-  │  CASPARIAN STRIP: band of suberin in cell walls      │
+  │  CASPARIAN STRIP: band of suberin in cell walls     │
   │  Blocks apoplastic pathway                          │
   │  All water/solutes must pass THROUGH endodermal cells│
   │  = quality control checkpoint                       │

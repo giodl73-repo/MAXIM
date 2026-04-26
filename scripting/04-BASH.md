@@ -72,20 +72,20 @@ script.sh
 │  bash process (PID 1234)                             │
 │                                                      │
 │  command1                                            │
-│  └─► fork() → child PID 1235                        │
+│  └─► fork() → child PID 1235                         │
 │      exec("ls", args)                                │
 │      parent waits (waitpid), reads exit code         │
 │                                                      │
 │  var=$(command2)                                     │
-│  └─► fork() + anonymous pipe → capture stdout       │
+│  └─► fork() + anonymous pipe → capture stdout        │
 │      runs in subshell; env changes do NOT propagate  │
 │                                                      │
 │  (subshell) { ... }                                  │
-│  └─► fork() → child gets COPY of env                │
+│  └─► fork() → child gets COPY of env                 │
 │      variable changes in child lost at exit          │
 │                                                      │
 │  { group; cmds; }                                    │
-│  └─► same process — env changes DO propagate        │
+│  └─► same process — env changes DO propagate         │
 └──────────────────────────────────────────────────────┘
 
 Everything is a command. [[ ]] is a command. true/false are commands.

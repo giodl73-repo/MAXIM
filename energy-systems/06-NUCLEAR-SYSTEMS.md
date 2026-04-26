@@ -42,15 +42,15 @@ NUCLEAR POWER ECONOMICS SPECTRUM
   NUCLEAR LCOE BREAKDOWN (new build, Gen III+):
 
   ┌────────────────────────────────────────────────────────────────┐
-  │  OVERNIGHT CAPITAL COST (OCC):   ~$6,000-10,000/kW installed  │
+  │  OVERNIGHT CAPITAL COST (OCC):   ~$6,000-10,000/kW installed   │
   │  "What it would cost if built overnight (no financing)"        │
   │  US: ~$8,000-10,000/kW (AP1000 Vogtle: ~$9,000/kW)          │
   │  South Korea (KEPCO APR-1400): ~$2,500-4,000/kW (export)     │
   │  China (CPR-1000, Hualong): ~$2,000-3,000/kW                 │
   │                                                                │
   │  FINANCING COST (Interest During Construction — IDC):          │
-  │  10-year construction × 8% WACC = enormous IDC                │
-  │  IDC adds ~30-60% to overnight cost                           │
+  │  10-year construction × 8% WACC = enormous IDC                 │
+  │  IDC adds ~30-60% to overnight cost                            │
   │  Final "all-in" cost: $10,000-18,000/kW                      │
   │                                                                │
   │  ANNUAL FIXED O&M:               ~$150-200/kW-yr             │
@@ -61,9 +61,9 @@ NUCLEAR POWER ECONOMICS SPECTRUM
   │  Vogtle Units 3&4 all-in est:    ~$180/MWh                   │
   │                                                                │
   │  COMPARISON:                                                   │
-  │  LCOE existing US nuclear:        ~$25-40/MWh (capital paid)  │
-  │  LCOE new utility solar:          ~$30-55/MWh                 │
-  │  LCOE new onshore wind:           ~$25-50/MWh                 │
+  │  LCOE existing US nuclear:        ~$25-40/MWh (capital paid)   │
+  │  LCOE new utility solar:          ~$30-55/MWh                  │
+  │  LCOE new onshore wind:           ~$25-50/MWh                  │
   └────────────────────────────────────────────────────────────────┘
 
   The economics problem: nuclear's LCOE is ~3-5× wind/solar in the US.
@@ -84,14 +84,14 @@ NUCLEAR POWER ECONOMICS SPECTRUM
   │  • Chernobyl (1986) → safety requirement retrofit mid-build    │
   │  • Regulatory changes mid-construction = costly retrofits      │
   │                                                                │
-  │  1990s-2000s (hiatus):                                        │
-  │  • No new builds in US for ~30 years                          │
-  │  • Workforce and supply chain atrophied                       │
+  │  1990s-2000s (hiatus):                                         │
+  │  • No new builds in US for ~30 years                           │
+  │  • Workforce and supply chain atrophied                        │
   │  • Engineering knowledge partially lost                        │
   │                                                                │
-  │  2010s (nuclear renaissance, failed):                         │
-  │  • First-of-a-kind (FOAK) projects with new designs           │
-  │  • Regulatory uncertainty, contractor inexperience            │
+  │  2010s (nuclear renaissance, failed):                          │
+  │  • First-of-a-kind (FOAK) projects with new designs            │
+  │  • Regulatory uncertainty, contractor inexperience             │
   │  • Westinghouse AP1000 at Vogtle: $14B → $35B+ (budget)     │
   │  • VC Summer (SC): cancelled after $9B spent                 │
   │  • Westinghouse bankrupt 2017 (Toshiba took $10B loss)       │
@@ -99,8 +99,8 @@ NUCLEAR POWER ECONOMICS SPECTRUM
   │  CONTRAST WITH FRANCE (1970s-1990s):                         │
   │  58 reactors, standardized N4 design, rapid sequential build │
   │  Cost: ~$1,500-2,500/kW (1990s dollars)                      │
-  │  Key: series production of identical units                    │
-  │  Korea/China: same strategy, achieving low costs today        │
+  │  Key: series production of identical units                     │
+  │  Korea/China: same strategy, achieving low costs today         │
   └────────────────────────────────────────────────────────────────┘
 ```
 
@@ -118,15 +118,15 @@ Currently operating or under construction globally.
   Passive safety: gravity + natural convection, no pumps/diesel required
   ┌────────────────────────────────────────────────────────────────┐
   │  Emergency Core Cooling:                                       │
-  │  • Water tanks above reactor (gravity drain on actuation)     │
+  │  • Water tanks above reactor (gravity drain on actuation)      │
   │  • Core Makeup Tanks: pressurized N₂ injection               │
   │  • No AC power required for 72 hours                         │
-  │                                                               │
-  │  Passive Residual Heat Removal:                               │
-  │  • Steam condenses on steel containment wall                  │
-  │  • Wall cooled by water flowing down exterior                 │
-  │  • Air convection removes heat from cooling water             │
-  │  • Works indefinitely without operator action                 │
+  │                                                                │
+  │  Passive Residual Heat Removal:                                │
+  │  • Steam condenses on steel containment wall                   │
+  │  • Wall cooled by water flowing down exterior                  │
+  │  • Air convection removes heat from cooling water              │
+  │  • Works indefinitely without operator action                  │
   └────────────────────────────────────────────────────────────────┘
 
   Rating: 1,117 MWe (net)
@@ -187,39 +187,39 @@ for potential commercialization by 2030-2040. Status varies widely.
   GEN IV REACTOR FAMILIES:
 
   ┌──────────────────────────────────────────────────────────────────┐
-  │  SODIUM FAST REACTOR (SFR) — most advanced                      │
-  │  Coolant: liquid sodium (~500°C)                                │
-  │  Spectrum: fast neutrons (no moderator)                         │
-  │  Fuel breeding: can breed Pu from U-238 (extends fuel supply)   │
-  │  Waste: burns long-lived actinides → less radiotoxic waste      │
-  │  Safety: sodium fire risk (water reaction) — passive cooling    │
+  │  SODIUM FAST REACTOR (SFR) — most advanced                       │
+  │  Coolant: liquid sodium (~500°C)                                 │
+  │  Spectrum: fast neutrons (no moderator)                          │
+  │  Fuel breeding: can breed Pu from U-238 (extends fuel supply)    │
+  │  Waste: burns long-lived actinides → less radiotoxic waste       │
+  │  Safety: sodium fire risk (water reaction) — passive cooling     │
   │  Examples: TerraPower Natrium (US), China CFR-600, Russia BN-800│
   │                                                                  │
-  │  MOLTEN SALT REACTOR (MSR) — fuel dissolved in coolant          │
+  │  MOLTEN SALT REACTOR (MSR) — fuel dissolved in coolant           │
   │  Coolant: fluoride salt (FLiBe or other) at 600-750°C          │
   │  Fuel: dissolved UF₄ or ThF₄ (thorium cycle possible)         │
-  │  Online refueling (no shutdown needed for fuel change)          │
-  │  Walk-away safe: fuel drains to freeze plug if power lost       │
+  │  Online refueling (no shutdown needed for fuel change)           │
+  │  Walk-away safe: fuel drains to freeze plug if power lost        │
   │  Examples: Terrestrial Energy IMSR, Kairos KP-FHR, ThorCon     │
   │                                                                  │
   │  HIGH-TEMPERATURE GAS (HTGR) — used for industrial heat        │
-  │  Coolant: helium at 700-1,000°C                                 │
-  │  Fuel: TRISO particles (fuel encased in ceramic layers)         │
-  │  Inherently safe: fuel can't melt (ceramic has ~2,000°C limit)  │
-  │  Heat output: can drive steam turbines or direct H₂ production  │
+  │  Coolant: helium at 700-1,000°C                                  │
+  │  Fuel: TRISO particles (fuel encased in ceramic layers)          │
+  │  Inherently safe: fuel can't melt (ceramic has ~2,000°C limit)   │
+  │  Heat output: can drive steam turbines or direct H₂ production   │
   │  Examples: X-energy Xe-100 (USA), HTR-PM (China — operating)   │
   │                                                                  │
-  │  LEAD-COOLED FAST REACTOR (LFR)                                 │
-  │  Coolant: liquid lead or Pb-Bi eutectic                         │
-  │  Very high neutron economy; natural convection cooling          │
+  │  LEAD-COOLED FAST REACTOR (LFR)                                  │
+  │  Coolant: liquid lead or Pb-Bi eutectic                          │
+  │  Very high neutron economy; natural convection cooling           │
   │  Examples: Russia BREST-OD-300 (under construction)            │
   │                                                                  │
-  │  SUPERCRITICAL WATER REACTOR (SCWR)                             │
+  │  SUPERCRITICAL WATER REACTOR (SCWR)                              │
   │  Coolant: supercritical water (>374°C, >22 MPa)                │
-  │  Higher thermal efficiency (~44%); familiar LWR fuel cycle      │
-  │  R&D stage; no demonstration projects yet                       │
+  │  Higher thermal efficiency (~44%); familiar LWR fuel cycle       │
+  │  R&D stage; no demonstration projects yet                        │
   │                                                                  │
-  │  GAS-COOLED FAST REACTOR (GFR)                                  │
+  │  GAS-COOLED FAST REACTOR (GFR)                                   │
   │  Fast spectrum + helium cooling — early R&D stage              │
   └──────────────────────────────────────────────────────────────────┘
 ```
@@ -408,15 +408,15 @@ Fusion power (combining light nuclei, typically D-T, releasing energy) has been
   ┌────────────────────────────────────────────────────────────────┐
   │  Even after ignition (plasma physics):                         │
   │  • Tritium breeding (T must be bred from Li-6 in blanket)    │
-  │  • Neutron activation of structural materials (activation)    │
-  │  • Materials survival (14 MeV neutrons damage everything)     │
-  │  • Remote handling for activated components                   │
-  │  • Heat exchange to steam turbine (~40% thermal efficiency)   │
+  │  • Neutron activation of structural materials (activation)     │
+  │  • Materials survival (14 MeV neutrons damage everything)      │
+  │  • Remote handling for activated components                    │
+  │  • Heat exchange to steam turbine (~40% thermal efficiency)    │
   │  • Grid-scale economics ($0.05-0.10/kWh competitive target)  │
   │                                                                │
   │  D-T fusion produces:                                          │
-  │  80% of energy: fast neutrons (14 MeV) — hard to capture      │
-  │  20% of energy: alpha particles (3.5 MeV) — heat the plasma   │
+  │  80% of energy: fast neutrons (14 MeV) — hard to capture       │
+  │  20% of energy: alpha particles (3.5 MeV) — heat the plasma    │
   └────────────────────────────────────────────────────────────────┘
 ```
 
@@ -430,14 +430,14 @@ Fusion power (combining light nuclei, typically D-T, releasing energy) has been
   │  Grid need: firm, zero-carbon power for the hours when         │
   │  solar and wind are not available                              │
   │                                                                │
-  │  Nuclear matches this: 90%+ CF, weather-independent           │
-  │  1 GW nuclear = ~4-5 GW solar + 4-8 hours storage             │
+  │  Nuclear matches this: 90%+ CF, weather-independent            │
+  │  1 GW nuclear = ~4-5 GW solar + 4-8 hours storage              │
   │  (rough equivalence for annual energy; not identical for       │
   │   hourly reliability)                                          │
   │                                                                │
   │  Without nuclear: 100% renewable requires                      │
-  │  • Massive overbuilding (3-5× peak demand)                    │
-  │  • Long-duration storage (weeks) — not commercially available │
+  │  • Massive overbuilding (3-5× peak demand)                     │
+  │  • Long-duration storage (weeks) — not commercially available  │
   │  • Massive transmission (continent-scale)                      │
   │                                                                │
   │  With nuclear: much more tractable grid architecture           │

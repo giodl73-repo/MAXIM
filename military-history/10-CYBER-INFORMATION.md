@@ -4,7 +4,7 @@
 
 ```
 +------------------------------------------------------------------+
-|           CYBER AND INFORMATION WARFARE DOMAIN MAP              |
+|           CYBER AND INFORMATION WARFARE DOMAIN MAP               |
 +------------------------------------------------------------------+
 |                                                                  |
 |  PHYSICAL LAYER          LOGICAL LAYER          COGNITIVE LAYER |
@@ -25,19 +25,19 @@
 +------------------------------------------------------------------+
 |                                                                  |
 |  ACTORS:                                                         |
-|  Nation-states: US, Russia, China, Iran, North Korea, Israel    |
-|  Criminal groups: ransomware-as-a-service (RaaS) providers      |
-|  Hacktivists: Anonymous, various                                |
-|  Insiders: Edward Snowden, Chelsea Manning model                |
+|  Nation-states: US, Russia, China, Iran, North Korea, Israel     |
+|  Criminal groups: ransomware-as-a-service (RaaS) providers       |
+|  Hacktivists: Anonymous, various                                 |
+|  Insiders: Edward Snowden, Chelsea Manning model                 |
 |  Terrorist groups: generally limited capability                  |
 |                                                                  |
-|  UNIQUE CHARACTERISTICS OF CYBER DOMAIN:                        |
-|  1. Deniability: attribution is hard; false flag is easy        |
-|  2. Dual use: attack tools = civilian infrastructure tools      |
-|  3. Non-linearity: small action can cascade (Colonial Pipeline) |
-|  4. No clear battle damage assessment: effects uncertain        |
-|  5. Offense advantages: defender must secure everything;        |
-|     attacker needs one entry point                              |
+|  UNIQUE CHARACTERISTICS OF CYBER DOMAIN:                         |
+|  1. Deniability: attribution is hard; false flag is easy         |
+|  2. Dual use: attack tools = civilian infrastructure tools       |
+|  3. Non-linearity: small action can cascade (Colonial Pipeline)  |
+|  4. No clear battle damage assessment: effects uncertain         |
+|  5. Offense advantages: defender must secure everything;         |
+|     attacker needs one entry point                               |
 +------------------------------------------------------------------+
 ```
 

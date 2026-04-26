@@ -4,7 +4,7 @@
 
 ```
 +------------------------------------------------------------------+
-|               WWI STALEMATE MECHANISM (Western Front)           |
+|               WWI STALEMATE MECHANISM (Western Front)            |
 +------------------------------------------------------------------+
 |                                                                  |
 |  OFFENSE REQUIREMENT        vs     DEFENSE CAPABILITY           |
@@ -134,7 +134,7 @@ The worst day in British military history. Understanding why 57,470 British casu
 
 ```
 +------------------------------------------------------------------+
-|                    SOMME JULY 1: FAILURE ANALYSIS               |
+|                    SOMME JULY 1: FAILURE ANALYSIS                |
 +------------------------------------------------------------------+
 |                                                                  |
 |  PLAN:                                                           |

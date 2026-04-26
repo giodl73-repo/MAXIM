@@ -158,9 +158,9 @@ ANCHOR ESCAPEMENT — GEOMETRY
           │           ┌──────┴───────┐              │
           │           │  ESCAPE      │              │
           │           │  WHEEL       │◄── going     │
-          │           │  (ratchet    │    train      │
+          │           │  (ratchet    │    train     │
           │           │   teeth)     │              │
-          │           └─────────────┘              │
+          │           └─────────────┘               │
           └─────────────────────────────────────────┘
 
 Pendulum swings left:  entry pallet catches escape wheel tooth

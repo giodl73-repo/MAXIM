@@ -49,9 +49,9 @@ Navigation answers four questions:
 ```
   ┌──────────────────────────────────────────────────────┐
   │  1. WHERE AM I?       → Position (latitude, longitude)│
-  │  2. WHICH WAY?        → Heading (compass bearing)     │
-  │  3. HOW FAR?          → Distance traveled             │
-  │  4. WHERE IS THE GOAL?→ Chart (map of destinations)   │
+  │  2. WHICH WAY?        → Heading (compass bearing)    │
+  │  3. HOW FAR?          → Distance traveled            │
+  │  4. WHERE IS THE GOAL?→ Chart (map of destinations)  │
   ├──────────────────────────────────────────────────────┤
   │  Solve all four → you can navigate.                   │
   │  Fail any one  → you are lost, or you miss landfall.  │
@@ -500,7 +500,7 @@ HULL CONSTRUCTION: TWO TRADITIONS
   │  │  (hull   │    │     │   │ frames  │    │
   │  │  shape   │    │     │   │  (ribs) │    │
   │  │  first)  │    │     │   │  (then  │    │
-  │  │          │    │     │   │ planked) │    │
+  │  │          │    │     │   │ planked) │   │
   │  ╰──────────╯    │     │   └─────────┘    │
   │  frames added    │     │  planks nailed   │
   │  inside later    │     │  to frames       │
@@ -914,7 +914,7 @@ PORTOLAN CHART STRUCTURE
   │            * ─── rhumb lines ───*          │
   │           /│\                  /│\         │
   │          / │ \                / │ \        │
-  │    ╭────╮  │  ╲         ╭────╮ │  ╲       │
+  │    ╭────╮  │  ╲         ╭────╮ │  ╲        │
   │    │ROSE│  │   \        │ROSE│ │   \      │
   │    ╰────╯  │    \       ╰────╯ │    \     │
   │     ╱ ╲    │     \      ╱ ╲    │     \    │

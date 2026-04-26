@@ -40,21 +40,21 @@ ROMAN CONCRETE COMPOSITION
 ============================
 
   ┌──────────────────────────────────────────────────────────────────┐
-  │  LIME MORTAR (binder)                                           │
+  │  LIME MORTAR (binder)                                            │
   │  Quicklime (CaO) from calcined limestone + water → Ca(OH)₂     │
-  │                                                                   │
-  │  POZZOLANA (volcanic ash — natural puzzolan from Pozzuoli)      │
+  │                                                                  │
+  │  POZZOLANA (volcanic ash — natural puzzolan from Pozzuoli)       │
   │  Silica-rich volcanic ash (amorphous SiO₂ + Al₂O₃)             │
   │  Reacts with Ca(OH)₂ at ambient temperature:                   │
   │  Ca(OH)₂ + SiO₂ → calcium silicate hydrate (CSH)               │
-  │                → tobermorite crystals in marine environments    │
-  │                                                                   │
+  │                → tobermorite crystals in marine environments     │
+  │                                                                  │
   │  AGGREGATE (caementa = chunks of rubble, brick, stone)         │
-  │  Tuff, travertine, broken brick, lightweight pumice toward top  │
-  │                                                                   │
+  │  Tuff, travertine, broken brick, lightweight pumice toward top   │
+  │                                                                  │
   │  SEAWATER (in marine pozzolanic concrete, e.g., harbor moles) │
   │  Cl⁻ + Al₂O₃ in ash → Al-tobermorite crystal growth in pores  │
-  │  Counter-intuitive: seawater STRENGTHENS Roman marine concrete! │
+  │  Counter-intuitive: seawater STRENGTHENS Roman marine concrete!  │
   └──────────────────────────────────────────────────────────────────┘
 
   WHY IT STILL STANDS:
@@ -82,17 +82,17 @@ ROMAN FACING TYPES
 
   OPUS RETICULATUM (~100 BCE – 100 CE):
   ┌────────────────────────────────────────────────────────────────┐
-  │  Diamond-pattern tuff pyramids set into concrete core         │
+  │  Diamond-pattern tuff pyramids set into concrete core          │
   │  ◇◇◇◇◇◇◇◇◇◇◇◇◇◇◇◇                                           │
-  │  Visually striking; better mechanical bond to core            │
+  │  Visually striking; better mechanical bond to core             │
   └────────────────────────────────────────────────────────────────┘
 
   OPUS TESTACEUM (~100–300 CE):
   ┌────────────────────────────────────────────────────────────────┐
-  │  All-brick facing (fired clay brick, often thin, 1.5" × 16")  │
+  │  All-brick facing (fired clay brick, often thin, 1.5" × 16")   │
   │  ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━                 │
   │  ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━                 │
-  │  Clean horizontal courses; standard in late Empire            │
+  │  Clean horizontal courses; standard in late Empire             │
   └────────────────────────────────────────────────────────────────┘
 
   OPUS MIXTUM (mixed):
@@ -114,17 +114,17 @@ GREEK ASHLAR CHARACTERISTICS
 
   CONSTRUCTION SEQUENCE (Parthenon, 447–432 BCE):
   ┌──────────────────────────────────────────────────────────────────┐
-  │  1. Block quarrying: Pentelic marble from Attica mountains      │
-  │  2. Rough shaping at quarry (boss left for handling)            │
-  │  3. Transport on wooden sled / wheeled wagon / ship             │
-  │  4. Final dressing on site (anathyrosis technique):             │
-  │     - Only perimeter of bed face precision-dressed              │
-  │     - Center relieved slightly → bears only on dressed ring     │
+  │  1. Block quarrying: Pentelic marble from Attica mountains       │
+  │  2. Rough shaping at quarry (boss left for handling)             │
+  │  3. Transport on wooden sled / wheeled wagon / ship              │
+  │  4. Final dressing on site (anathyrosis technique):              │
+  │     - Only perimeter of bed face precision-dressed               │
+  │     - Center relieved slightly → bears only on dressed ring      │
   │     - Minimizes contact → true-plane bearing                   │
-  │  5. Setting: no mortar; final position by crow bar + sand       │
-  │  6. Connecting hardware: iron or bronze clamps in carved        │
-  │     channels, poured lead for corrosion resistance              │
-  │  7. Final surface treatment: plaster / color applied after      │
+  │  5. Setting: no mortar; final position by crow bar + sand        │
+  │  6. Connecting hardware: iron or bronze clamps in carved         │
+  │     channels, poured lead for corrosion resistance               │
+  │  7. Final surface treatment: plaster / color applied after       │
   │     (Greek temples were NOT white marble — they were painted)  │
   └──────────────────────────────────────────────────────────────────┘
 
@@ -157,10 +157,10 @@ THE LIME CYCLE
 
   CARBONATION RATE:
   ┌──────────────────────────────────────────────────────────────────┐
-  │  Face exposure to air: carbonates in weeks to months            │
+  │  Face exposure to air: carbonates in weeks to months             │
   │  Thick rubble core: CO₂ penetrates ~5–10mm/month               │
-  │  8" thick wall core: fully carbonated in 10–20 years            │
-  │  2-ft thick cathedral wall core: decades to centuries           │
+  │  8" thick wall core: fully carbonated in 10–20 years             │
+  │  2-ft thick cathedral wall core: decades to centuries            │
   └──────────────────────────────────────────────────────────────────┘
 
   CONSEQUENCE: Cathedral walls were still curing while the building
@@ -193,25 +193,25 @@ ISLAMIC STRUCTURAL TRADITIONS
 
   PERSIAN / CENTRAL ASIAN BRICK TRADITION:
   ┌──────────────────────────────────────────────────────────────────┐
-  │  • Small fired brick (much smaller than Roman, typically        │
-  │    9×4.5×2" or local equivalent)                                │
-  │  • Thick mortar joints (sometimes = brick thickness)            │
-  │  • Ornamental brickwork: projecting / recessed courses form     │
+  │  • Small fired brick (much smaller than Roman, typically         │
+  │    9×4.5×2" or local equivalent)                                 │
+  │  • Thick mortar joints (sometimes = brick thickness)             │
+  │  • Ornamental brickwork: projecting / recessed courses form      │
   │    geometric patterns — Samanid Mausoleum (Bukhara, 943 CE)    │
-  │  • Dome tradition: double-shell domes in fired brick            │
+  │  • Dome tradition: double-shell domes in fired brick             │
   │    Gur-e Amir (Samarkand) — tilted drum + inner/outer shell    │
   └──────────────────────────────────────────────────────────────────┘
 
   MUQARNAS: The Three-Dimensional Geometry
   ┌──────────────────────────────────────────────────────────────────┐
-  │  Muqarnas = stalactite vault / honeycomb ceiling                │
+  │  Muqarnas = stalactite vault / honeycomb ceiling                 │
   │  Structural: NOT a structural system — primarily ornamental      │
   │  Material: plaster, brick, stone, or wood (per region)         │
-  │                                                                   │
-  │  MATHEMATICS: Each muqarnas cell is generated by rotating and   │
-  │  scaling a small set of geometric forms (5 or 7 base units).    │
-  │  The pattern tiles without gaps. Complex 3D geometry.           │
-  │                                                                   │
+  │                                                                  │
+  │  MATHEMATICS: Each muqarnas cell is generated by rotating and    │
+  │  scaling a small set of geometric forms (5 or 7 base units).     │
+  │  The pattern tiles without gaps. Complex 3D geometry.            │
+  │                                                                  │
   │  NOTABLE EXAMPLES:                                               │
   │  • Alhambra Palace (Granada, 14th c.) — plaster muqarnas       │
   │  • Sultan Hassan Mosque (Cairo, 1356) — stone muqarnas         │
@@ -228,19 +228,19 @@ ISLAMIC TILE TRADITIONS
   MOSAIC TILEWORK (Zellij / Zellige):
   ┌──────────────────────────────────────────────────────────────────┐
   │  Small opaque glazed tile pieces, hand-cut and hand-set        │
-  │  Pattern: geometric — Islamic geometric tilings are COMPLEX:    │
+  │  Pattern: geometric — Islamic geometric tilings are COMPLEX:     │
   │  • 5-fold / 10-fold symmetry (pentagon tilings, Penrose-like)  │
-  │  • Girih tiles: 5 shapes generating complex quasiperiodic fill  │
-  │  • 2007: Peter Lu (Harvard) identified Penrose tiling patterns  │
-  │    in 13th-century Islamic geometric art — 500 years before     │
-  │    Penrose's mathematical formalization (1970s)                 │
+  │  • Girih tiles: 5 shapes generating complex quasiperiodic fill   │
+  │  • 2007: Peter Lu (Harvard) identified Penrose tiling patterns   │
+  │    in 13th-century Islamic geometric art — 500 years before      │
+  │    Penrose's mathematical formalization (1970s)                  │
   └──────────────────────────────────────────────────────────────────┘
 
   UNDERGLAZE PAINTED TILE (Iznik, Ottoman):
   ┌──────────────────────────────────────────────────────────────────┐
-  │  High-quality fritware: quartz + glass + white clay             │
-  │  Distinctive: pure white ground, cobalt blue + tomato red       │
-  │  Topkapi Palace, Süleymaniye Mosque interior cladding           │
+  │  High-quality fritware: quartz + glass + white clay              │
+  │  Distinctive: pure white ground, cobalt blue + tomato red        │
+  │  Topkapi Palace, Süleymaniye Mosque interior cladding            │
   └──────────────────────────────────────────────────────────────────┘
 ```
 
@@ -254,10 +254,10 @@ MAYAN MASONRY SYSTEM
 
   CORE: Rubble fill + lime mortar (not ashlar throughout)
   ┌──────────────────────────────────────────────────────────────────┐
-  │  External appearance: dressed limestone facing                  │
-  │  Interior: rough rubble fill + lime concrete core               │
-  │  VAULT: corbelled vault (not true arch) — each course projects  │
-  │    slightly inward until they meet or are bridged by capstone   │
+  │  External appearance: dressed limestone facing                   │
+  │  Interior: rough rubble fill + lime concrete core                │
+  │  VAULT: corbelled vault (not true arch) — each course projects   │
+  │    slightly inward until they meet or are bridged by capstone    │
   └──────────────────────────────────────────────────────────────────┘
 
   LIME PRODUCTION: Massive scale — burning vast quantities of
@@ -267,7 +267,7 @@ MAYAN MASONRY SYSTEM
 
   CORBELLED "VAULT" vs. TRUE ARCH:
   ┌──────────────────────────────────────────────────────────────────┐
-  │  Corbelled vault:              True arch (Roman/Gothic):        │
+  │  Corbelled vault:              True arch (Roman/Gothic):         │
   │         ┌─┐                        ╭───╮                       │
   │       ┌─┘ └─┐                    ╭╯   ╰╮                      │
   │     ┌─┘     └─┐                ╭╯       ╰╮                    │
@@ -290,20 +290,20 @@ INCA MASONRY CHARACTERISTICS
 
   POLYGONAL ASHLAR: Stones with many sides (not rectangular)
   ┌──────────────────────────────────────────────────────────────────┐
-  │  Fitting method: Iterative grinding — lower stone defines       │
-  │  the upper stone's bed; stones rubbed together with abrasive    │
-  │  sand until mating surfaces are perfectly complementary         │
-  │                                                                   │
+  │  Fitting method: Iterative grinding — lower stone defines        │
+  │  the upper stone's bed; stones rubbed together with abrasive     │
+  │  sand until mating surfaces are perfectly complementary          │
+  │                                                                  │
   │  No mortar → polyhedral contact at dozens of faces per stone   │
-  │                                                                   │
-  │  SEISMIC PERFORMANCE EXPLANATION:                               │
+  │                                                                  │
+  │  SEISMIC PERFORMANCE EXPLANATION:                                │
   │  During earthquake: stones rock slightly, micro-slide          │
   │  After earthquake: gravity reseats all stones in original      │
-  │    positions (polyhedral contact self-corrects to stable fit)   │
+  │    positions (polyhedral contact self-corrects to stable fit)    │
   │  Mortar equivalent: none needed — geometry is the joint        │
-  │                                                                   │
+  │                                                                  │
   │  MEASURED TOLERANCES: Some joints fit within 0.5mm —           │
-  │  approaching precision machining standards                      │
+  │  approaching precision machining standards                       │
   └──────────────────────────────────────────────────────────────────┘
 
   TRANSPORT AND PLACEMENT: No wheel, no draft animals at Machu

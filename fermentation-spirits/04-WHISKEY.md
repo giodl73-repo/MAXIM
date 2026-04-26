@@ -4,25 +4,25 @@
 
 ```
 +------------------------------------------------------------------+
-|                    WHISKEY FAMILY TREE                            |
+|                    WHISKEY FAMILY TREE                           |
 |                                                                    |
 |  COMMON THREAD: Grain fermentation -> Distillation -> Oak aging  |
 |                                                                    |
-|  SCOTCH          IRISH          BOURBON/RYE     JAPANESE          |
-|  ------          -----          -----------     --------          |
-|  Scotland        Ireland        USA             Japan             |
-|  Malted barley   Barley/        Corn/rye/       Scotch-inspired   |
-|  (+ unmalted     unmalted       wheat mash       (since 1920s)    |
-|   for grain)     (pot still)    bill                              |
-|  Pot + column    Triple dist    Column          Pot + column      |
-|  Ex-bourbon/     (usually)      (160 pr max)    Mizunara oak      |
-|   sherry cask    Oak 3yr min    New charred oak  Sherry/bourbon   |
-|  3yr min         No req.        No req. (2yr     3yr min          |
-|                               "straight")                         |
+|  SCOTCH          IRISH          BOURBON/RYE     JAPANESE         |
+|  ------          -----          -----------     --------         |
+|  Scotland        Ireland        USA             Japan            |
+|  Malted barley   Barley/        Corn/rye/       Scotch-inspired  |
+|  (+ unmalted     unmalted       wheat mash       (since 1920s)   |
+|   for grain)     (pot still)    bill                             |
+|  Pot + column    Triple dist    Column          Pot + column     |
+|  Ex-bourbon/     (usually)      (160 pr max)    Mizunara oak     |
+|   sherry cask    Oak 3yr min    New charred oak  Sherry/bourbon  |
+|  3yr min         No req.        No req. (2yr     3yr min         |
+|                               "straight")                        |
 |                                                                    |
-|  CANADIAN        RYES           TAIWAN/INDIA    OTHER             |
-|  Blended, light  51%+ rye       Kaoliang,       Global boom       |
-|  Less regulated  Spicy char     tropical aging  since 2000s       |
+|  CANADIAN        RYES           TAIWAN/INDIA    OTHER            |
+|  Blended, light  51%+ rye       Kaoliang,       Global boom      |
+|  Less regulated  Spicy char     tropical aging  since 2000s      |
 +------------------------------------------------------------------+
 ```
 
@@ -87,25 +87,25 @@ SCOTCH WHISKY REGIONS
 +------------------------------------------------------------------+
 |                          SCOTLAND                                  |
 |                                                                    |
-|  HIGHLANDS                    SPEYSIDE (within Highlands)         |
+|  HIGHLANDS                    SPEYSIDE (within Highlands)        |
 |  Large, diverse region        Highest concentration of distilleries|
-|  Wide style range             River Spey valley                   |
-|  Glenmorangie, Dalmore,       Fruity, floral, light peat          |
-|  Old Pulteney, Balblair       Glenfiddich, Macallan, Glenlivet,   |
-|                               GlenGrant, Balvenie, Glenfarclas    |
+|  Wide style range             River Spey valley                  |
+|  Glenmorangie, Dalmore,       Fruity, floral, light peat         |
+|  Old Pulteney, Balblair       Glenfiddich, Macallan, Glenlivet,  |
+|                               GlenGrant, Balvenie, Glenfarclas   |
 |                                                                    |
 |  ISLAY (island)               LOWLANDS                           |
 |  Peated maritime style        South Scotland                       |
-|  Seaweed, iodine, smoke       Triple-distilled, light             |
+|  Seaweed, iodine, smoke       Triple-distilled, light            |
 |  Ardbeg, Laphroaig,           Auchentoshan, Glenkinchie          |
-|  Lagavulin, Bowmore           Often good aperitif whisky          |
-|  Bruichladdich, Bunnahabhain                                      |
+|  Lagavulin, Bowmore           Often good aperitif whisky         |
+|  Bruichladdich, Bunnahabhain                                     |
 |                                                                    |
-|  CAMPBELTOWN                  OTHER ISLANDS                       |
-|  Once Scotland's whisky       Orkney (Highland Park,Scapa)        |
+|  CAMPBELTOWN                  OTHER ISLANDS                      |
+|  Once Scotland's whisky       Orkney (Highland Park,Scapa)       |
 |  capital; now 3 distilleries  Jura, Mull (Tobermory)             |
 |  Springbank (unpeated to      Skye (Talisker -- peppery/maritime) |
-|  heavily peated range)        Arran                               |
+|  heavily peated range)        Arran                              |
 +------------------------------------------------------------------+
 ```
 
@@ -199,19 +199,19 @@ KEY DIFFERENCES FROM SCOTCH:
 BOURBON LEGAL DEFINITION
 
 +------------------------------------------------------------------+
-| MUST be:                                                          |
-|   Produced in the UNITED STATES                                   |
+| MUST be:                                                         |
+|   Produced in the UNITED STATES                                  |
 |   Mash bill: 51%+ CORN (remainder: rye, wheat, malted barley)    |
 |   Distilled to no more than 160 proof (80% ABV)                  |
 |   Barreled at no more than 125 proof (62.5% ABV)                 |
 |   Aged in NEW, CHARRED OAK CONTAINERS                            |
 |   Bottled at no less than 80 proof (40% ABV)                     |
-|                                                                   |
+|                                                                  |
 | NO AGE REQUIREMENT for plain "bourbon"                           |
-|                                                                   |
+|                                                                  |
 | "STRAIGHT bourbon": minimum 2 years in new charred oak           |
 |   (age statement required if under 4 years)                      |
-|                                                                   |
+|                                                                  |
 | "BOTTLED IN BOND": 4 years minimum, one distillation season,     |
 |   one distillery, 100 proof (50% ABV) -- Bottled in Bond Act 1897|
 +------------------------------------------------------------------+

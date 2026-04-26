@@ -8,13 +8,13 @@
 
   Before Solon:                After Solon:           After Cleisthenes:
   +------------------+         +------------------+    +------------------+
-  | Eupatridae       |         | Eupatridae (less)|    | DEMOS             |
+  | Eupatridae       |         | Eupatridae (less)|    | DEMOS            |
   | (aristocratic    |         | Areopagus (relic)|    | 10 phylai (tribes)|
-  |  clans)          |         +------------------+    | mixed geography   |
-  | owns land + debt |         | Council of 400   |    | Boule (500)       |
-  |  slaves (hektemoroi)       | (by property)    |    | ostracism added   |
-  | debt bondage     |  ──────>| 4 property       |<───| isonomia (equal   |
-  | no codified law  |  Solon  | classes          |    |  participation)   |
+  |  clans)          |         +------------------+    | mixed geography  |
+  | owns land + debt |         | Council of 400   |    | Boule (500)      |
+  |  slaves (hektemoroi)       | (by property)    |    | ostracism added  |
+  | debt bondage     |  ──────>| 4 property       |<───| isonomia (equal  |
+  | no codified law  |  Solon  | classes          |    |  participation)  |
   | crisis: debt     |  594BCE | Debt cancelled   |    +------------------+
   |  leads to civil  |         | Bondage banned   |    Pericles:
   |  war imminence   |         | Written laws     |    pay for jury service

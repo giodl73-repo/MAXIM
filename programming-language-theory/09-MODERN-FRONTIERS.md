@@ -6,7 +6,7 @@ The current frontiers of type theory are about extending static guarantees to mo
 
 ```
 +--------------------------------------------------------------------------+
-|                    MODERN FRONTIERS LANDSCAPE                             |
+|                    MODERN FRONTIERS LANDSCAPE                            |
 +--------------------------------------------------------------------------+
 |                                                                          |
 |  GRADUAL TYPING (Siek/Taha 2006)     REFINEMENT TYPES (Freeman 1991)   |

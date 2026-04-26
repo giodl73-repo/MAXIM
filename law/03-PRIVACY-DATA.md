@@ -12,7 +12,7 @@
 ├───────────────────────┬──────────────────────────────────────────────────┤
 │  JURISDICTION         │  KEY LAWS                                        │
 ├───────────────────────┼──────────────────────────────────────────────────┤
-│  European Union (EU)  │  GDPR (2018) — comprehensive                    │
+│  European Union (EU)  │  GDPR (2018) — comprehensive                     │
 │                       │  ePrivacy Directive (cookies/tracking)           │
 │                       │  AI Act (2024) — AI-specific                     │
 ├───────────────────────┼──────────────────────────────────────────────────┤
@@ -23,7 +23,7 @@
 │                       │  FTC Act §5: deceptive/unfair practices          │
 │                       │  ECPA: electronic communications interception    │
 ├───────────────────────┼──────────────────────────────────────────────────┤
-│  US States            │  CCPA/CPRA (California), CPA (Colorado),        │
+│  US States            │  CCPA/CPRA (California), CPA (Colorado),         │
 │                       │  VCDPA (Virginia), CTDPA (Connecticut),          │
 │                       │  20+ state laws enacted or pending               │
 ├───────────────────────┼──────────────────────────────────────────────────┤

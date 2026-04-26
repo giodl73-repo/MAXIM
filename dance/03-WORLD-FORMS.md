@@ -6,20 +6,20 @@ World dance traditions represent independent solutions to the same problem: how 
 
 ```
 +----------------------------------------------------------------------+
-|              WORLD DANCE TRADITIONS MAP                               |
+|              WORLD DANCE TRADITIONS MAP                              |
 |                                                                      |
-|  SOUTH ASIA            EAST ASIA              AFRICA / DIASPORA     |
-|  Bharatanatyam         Noh / Kabuki           West African poly     |
-|  Kathak                Beijing Opera          Sabar (Senegal)       |
-|  Odissi                Legong (Bali)          Capoeira (Brazil)     |
-|  Kathakali             Topeng (Java)          Samba                 |
-|  Manipuri              Peking Opera           Candomble             |
+|  SOUTH ASIA            EAST ASIA              AFRICA / DIASPORA      |
+|  Bharatanatyam         Noh / Kabuki           West African poly      |
+|  Kathak                Beijing Opera          Sabar (Senegal)        |
+|  Odissi                Legong (Bali)          Capoeira (Brazil)      |
+|  Kathakali             Topeng (Java)          Samba                  |
+|  Manipuri              Peking Opera           Candomble              |
 |                                                                      |
-|  MIDDLE EAST / MED     EUROPE / AMERICAS      PACIFIC / OCEANIA     |
-|  Flamenco (Andalusia)  Tango (Buenos Aires)   Haka (Maori)          |
-|  Raqs Sharqi           Lindy Hop (NYC)        Hula (Hawaii)         |
-|  Whirling dervishes    Irish step             Kecak (Bali)          |
-|  Khaleegy              Salsa / Mambo           Poi (NZ)             |
+|  MIDDLE EAST / MED     EUROPE / AMERICAS      PACIFIC / OCEANIA      |
+|  Flamenco (Andalusia)  Tango (Buenos Aires)   Haka (Maori)           |
+|  Raqs Sharqi           Lindy Hop (NYC)        Hula (Hawaii)          |
+|  Whirling dervishes    Irish step             Kecak (Bali)           |
+|  Khaleegy              Salsa / Mambo           Poi (NZ)              |
 |                                                                      |
 |  JAPANESE AVANT-GARDE  (special category)                            |
 |  Butoh -- post-Hiroshima phenomenology; anti-tradition               |

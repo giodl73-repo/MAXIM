@@ -9,8 +9,8 @@
 
 ```
 ┌─────────────────────────────────────────────────────────────────────────────┐
-│                           PYTORCH STACK                                      │
-│                                                                              │
+│                           PYTORCH STACK                                     │
+│                                                                             │
 │  ┌──────────────────────────────────────────────────────────────────────┐   │
 │  │                     YOUR TRAINING CODE                               │   │
 │  │   Dataset / DataLoader → nn.Module → Loss → Optimizer → .backward() │   │
@@ -22,14 +22,14 @@
 │  └─────────────────┘  └─────────────────┘  └──────────────────────────┘    │
 │                                                                              │
 │  ┌──────────────────────────────────────────────────────────────────────┐   │
-│  │                      torch.autograd                                   │   │
-│  │    Dynamic computational graph — builds forward, differentiates       │   │
-│  │    backward, accumulates gradients                                    │   │
+│  │                      torch.autograd                                  │   │
+│  │    Dynamic computational graph — builds forward, differentiates      │   │
+│  │    backward, accumulates gradients                                   │   │
 │  └──────────────────────────────────────────────────────────────────────┘   │
 │                                                                              │
 │  ┌──────────────────────────────────────────────────────────────────────┐   │
 │  │              torch.Tensor  (CPU / CUDA / MPS / XPU)                  │   │
-│  │              C++ core: LibTorch — ATen tensor library                 │   │
+│  │              C++ core: LibTorch — ATen tensor library                │   │
 │  └──────────────────────────────────────────────────────────────────────┘   │
 └─────────────────────────────────────────────────────────────────────────────┘
 ```

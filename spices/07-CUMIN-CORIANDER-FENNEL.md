@@ -4,9 +4,9 @@
 
 ```
 +------------------------------------------------------------------+
-|              THE APIACEAE (CARROT/PARSLEY) FAMILY                 |
+|              THE APIACEAE (CARROT/PARSLEY) FAMILY                |
 |                                                                  |
-|  Family hallmark: Compound umbel flower clusters                  |
+|  Family hallmark: Compound umbel flower clusters                 |
 |  (umbrella-shaped, small flowers on radiating stalks)            |
 |  Aromatic fruits (technically schizocarps, not true seeds)       |
 |  Mediterranean + Middle East = primary origin zone               |
@@ -19,7 +19,7 @@
 |  CONVERGENT CHEMISTRY THEME:                                     |
 |  Anethole: appears in fennel, anise, star anise (different family)|
 |  Carvone enantiomers: caraway (R) vs spearmint (S) — same atom,  |
-|  different chirality, completely different smell                  |
+|  different chirality, completely different smell                 |
 |  This family is a masterclass in chirality + convergent synthesis|
 +------------------------------------------------------------------+
 ```

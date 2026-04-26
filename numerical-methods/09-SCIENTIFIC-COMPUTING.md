@@ -13,12 +13,12 @@ Scientific computing is the software layer that makes the algorithms from module
 |  +-------------------------------------------------------------+ |
 |  | Array notation, broadcasting, high-level routines           | |
 |  | Python: numpy.linalg.solve() -> calls LAPACK dgesv          | |
-|  | Julia:  A \ b             -> calls LAPACK dgesv              | |
+|  | Julia:  A \ b             -> calls LAPACK dgesv             | |
 |  +-------------------------------------------------------------+ |
 |                          |                                       |
 |  LAPACK                  | (Linear Algebra PACKage)             |
 |  +-------------------------------------------------------------+ |
-|  | Dense: LU/QR/Cholesky/SVD/eigenvalue — module 02/03        | |
+|  | Dense: LU/QR/Cholesky/SVD/eigenvalue — module 02/03         | |
 |  | Drivers (simple/expert), computational routines, auxiliary  | |
 |  +-------------------------------------------------------------+ |
 |                          |                                       |
@@ -698,13 +698,13 @@ REVERSE-MODE AD → ADJOINT METHOD (the cross-module bridge):
   applied to the numerical solver. The connection:
 
   ┌─────────────────────────────────────────────────────────────────┐
-  │  ML BACKPROP              ODE/PDE ADJOINT                      │
-  │  ─────────────            ──────────────────                   │
+  │  ML BACKPROP              ODE/PDE ADJOINT                       │
+  │  ─────────────            ──────────────────                    │
   │  Forward pass:            Forward solve:                        │
   │    compute activations      y' = f(t,y,p), y(0)=y_0           │
-  │    through layers           integrate t=0 → T                  │
+  │    through layers           integrate t=0 → T                   │
   │                                                                 │
-  │  Loss: L(output)          Objective: J(y(T), p)                │
+  │  Loss: L(output)          Objective: J(y(T), p)                 │
   │                                                                 │
   │  Backward pass:           Adjoint solve:                        │
   │    ∂L/∂weights via          λ' = -(∂f/∂y)^T λ, λ(T)=∂J/∂y(T) │

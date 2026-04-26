@@ -12,7 +12,7 @@ science and data science; the questions are historical.
 |              DIGITAL HISTORY LANDSCAPE                            |
 |                                                                   |
 |  DATA SOURCES              METHODS                 APPLICATIONS   |
-|  +---------------+         +------------------+   +-----------+  |
+|  +---------------+         +------------------+   +-----------+   |
 |  | Digitized     |         | Text mining:     |   | Corpus    |  |
 |  | archives      |         | NLP, topic       |   | analysis  |  |
 |  | Newspapers    |         | modeling (LDA),  |   |           |  |
@@ -28,9 +28,9 @@ science and data science; the questions are historical.
 |  | authority     |         | correspondence   |   | Social    |  |
 |  | files)        |         | networks         |   | networks  |  |
 |  +---------------+         +------------------+   +-----------+  |
-|                                                                   |
-|  KEY TOOLS AND PROJECTS                                           |
-|  +-----------------------------------------------------------+    |
+|                                                                  |
+|  KEY TOOLS AND PROJECTS                                          |
+|  +-----------------------------------------------------------+   |
 |  | Voyant Tools  |  MALLET (topic model)  |  QGIS / ArcGIS  |    |
 |  | Gephi (nets)  |  Google Ngrams  |  JSTOR DFR  |  Palladio  |    |
 |  +-----------------------------------------------------------+    |

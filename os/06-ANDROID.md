@@ -4,12 +4,12 @@
 
 ```
 ┌─────────────────────────────────────────────────────────────────────┐
-│                          YOUR APP                                    │
+│                          YOUR APP                                   │
 │   Activities · Fragments · Services · BroadcastReceivers · Providers│
 └────────────────────────────┬────────────────────────────────────────┘
                              │ calls
 ┌────────────────────────────▼────────────────────────────────────────┐
-│                     ANDROID FRAMEWORK                                │
+│                     ANDROID FRAMEWORK                               │
 │  ActivityManager · WindowManager · PackageManager · NotificationMgr │
 │  ContentResolver · TelephonyManager · LocationManager · etc.        │
 └────────────────────────────┬────────────────────────────────────────┘
@@ -17,7 +17,7 @@
 ┌────────────────────────────▼────────────────────────────────────────┐
 │               ANDROID RUNTIME (ART) + CORE LIBRARIES                │
 │  ART: AOT compilation + JIT profiling + GC                          │
-│  Java API layer: java.*, android.*, androidx.*                       │
+│  Java API layer: java.*, android.*, androidx.*                      │
 │  Native libs: OpenGL ES, libc (Bionic), media, SQLite, WebKit       │
 └────────────┬───────────────────────────┬────────────────────────────┘
              │                           │
@@ -30,7 +30,7 @@
 └────────────┬──────────┘   └────────────┬────────────────────────────┘
              │                           │
 ┌────────────▼───────────────────────────▼────────────────────────────┐
-│                   LINUX KERNEL (modified)                            │
+│                   LINUX KERNEL (modified)                           │
 │  Binder IPC driver · Wakelocks · Low Memory Killer (LMK)            │
 │  Ashmen (shared memory) · ION allocator · USB Gadget driver         │
 └─────────────────────────────────────────────────────────────────────┘
@@ -65,7 +65,7 @@
   ┌─────────────────────────────────────────────┐
   │  ART  (Android Runtime)                     │
   │                                             │
-  │  AOT: dex2oat → .oat (native machine code) │
+  │  AOT: dex2oat → .oat (native machine code)  │
   │       compiled at install / after boot      │
   │                                             │
   │  JIT: profile-guided; hotspot methods       │
@@ -130,7 +130,7 @@ Android apps are not monolithic executables. The OS **assembles** an app from de
   │  ┌─────┴──────────────────────────────────────────▼──────┐  │
   │  │                      Intent                           │  │
   │  │  (the Android message bus — all component wiring)     │  │
-  │  └──────────────────────────────────────────────────────┘  │
+  │  └──────────────────────────────────────────────────────┘   │
   │                                                              │
   │  ┌──────────────────────────────────────────────────────┐   │
   │  │  ContentProvider  (structured data sharing via URI)  │   │
@@ -721,7 +721,7 @@ fun AppNavHost(navController: NavHostController) {
   ┌─────────────────────────────────────────────────────────────────┐
   │  UI Layer                                                       │
   │  Activity / Fragment / NavHost                                  │
-  │      ↑ render UiState         ↓ user events (clicks, inputs)   │
+  │      ↑ render UiState         ↓ user events (clicks, inputs)    │
   │  ┌──────────────────────────────────────────────────────────┐   │
   │  │  ViewModel  (survives rotation, scoped to NavBackStack)  │   │
   │  │  val uiState: StateFlow<UiState>                         │   │
@@ -864,8 +864,8 @@ class MainActivity : ComponentActivity() {
 ```
   Dispatcher selection:
   ┌─────────────────┬────────────────────────────────────────────────┐
-  │ Dispatchers.Main│ UI thread — must use for UI updates           │
-  │ Dispatchers.IO  │ Blocking I/O: network, disk, database         │
+  │ Dispatchers.Main│ UI thread — must use for UI updates            │
+  │ Dispatchers.IO  │ Blocking I/O: network, disk, database          │
   │ Dispatchers.Default│ CPU-intensive: sorting, parsing, crypto   │
   │ Dispatchers.Unconfined│ Inherits caller's thread (rarely useful) │
   └─────────────────┴────────────────────────────────────────────────┘
@@ -1046,7 +1046,7 @@ Json { ignoreUnknownKeys = true }.asConverterFactory("application/json".toMediaT
   ┌──────────────────────────────────────────────────────────────────┐
   │  Security Layers                                                 │
   │                                                                  │
-  │  ┌────────────────┐  ┌────────────────┐  ┌────────────────────┐ │
+  │  ┌────────────────┐  ┌────────────────┐  ┌────────────────────┐  │
   │  │  App sandbox   │  │  Permissions   │  │  Android Keystore  │ │
   │  │  (uid per app) │  │  system        │  │  (HW-backed keys)  │ │
   │  └────────────────┘  └────────────────┘  └────────────────────┘ │
@@ -1222,7 +1222,7 @@ adb shell input keyevent KEYCODE_BACK
   │  Memory Profiler                                               │
   │  ├── Heap dump: snapshot of all live objects                   │
   │  ├── Allocation tracking: record all allocations over time     │
-  │  └── GC events: visualize GC pressure                         │
+  │  └── GC events: visualize GC pressure                          │
   │                                                                │
   │  Network Profiler                                              │
   │  └── HTTP requests: URL, size, timing, payload inspector       │
@@ -1256,7 +1256,7 @@ adb shell input keyevent KEYCODE_BACK
   │ all device configs  │        │ optimized APKs per device:      │
   │                     │        │ - Screen density (hdpi/xxhdpi)  │
   │ ~40% larger than    │        │ - CPU architecture (arm64/x86)  │
-  │ AAB-derived APK     │        │ - Language (en/de/zh)          │
+  │ AAB-derived APK     │        │ - Language (en/de/zh)           │
   │                     │        │                                 │
   │ Use for: sideload,  │        │ Result: 15-40% smaller download │
   │ enterprise internal │        │ Required for new Play apps      │

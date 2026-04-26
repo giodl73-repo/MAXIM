@@ -84,18 +84,18 @@ EMS FUNCTIONAL STACK:
 
 REAL-TIME OPERATIONS:
   ┌─────────────────────────────────────────────────────────────────┐
-  │  State Estimation: Compute full system V, I, P, Q from         │
+  │  State Estimation: Compute full system V, I, P, Q from          │
   │  subset of measurements (some RTUs fail; some values estimated) │
-  │  Result: real-time "power flow snapshot" of entire grid        │
+  │  Result: real-time "power flow snapshot" of entire grid         │
   │  Run: every 30-60 seconds                                       │
   ├─────────────────────────────────────────────────────────────────┤
   │  Contingency Analysis (N-1 Security): Simulate each element    │
   │  tripping; check if system remains stable for all N-1 events   │
   │  Run: every 5-10 minutes; flags violations for operator        │
   ├─────────────────────────────────────────────────────────────────┤
-  │  AGC (Automatic Generation Control): Regulate frequency        │
-  │  Send regulating signals to participating generators every 4s  │
-  │  Balances ACE (Area Control Error) to zero                     │
+  │  AGC (Automatic Generation Control): Regulate frequency         │
+  │  Send regulating signals to participating generators every 4s   │
+  │  Balances ACE (Area Control Error) to zero                      │
   ├─────────────────────────────────────────────────────────────────┤
   │  Economic Dispatch: Minimize fuel cost while meeting load      │
   │  Re-dispatch every 5-15 minutes as load changes               │
@@ -394,7 +394,7 @@ MICROGRID ARCHITECTURE:
    │  Normal: connected to main grid (import/export possible)   │
    │  Island: disconnected (self-sufficient operation)          │
    │                                                            │
-   │  ┌────────────────────────────────────────────────────┐   │
+   │  ┌────────────────────────────────────────────────────┐    │
    │  │           MICROGRID BOUNDARY                        │   │
    │  │                                                    │   │
    │  │  ┌──────────┐    ┌──────────┐    ┌─────────────┐  │   │
@@ -411,7 +411,7 @@ MICROGRID ARCHITECTURE:
    │  │              │ (hospital wing, │                    │   │
    │  │              │ command center, │                    │   │
    │  │              │ data center)    │                    │   │
-   │  └────────────────────────────────────────────────────┘   │
+   │  └────────────────────────────────────────────────────┘    │
    └───────────────────────────────────────────────────────────┘
 ```
 
@@ -464,22 +464,22 @@ ADMS FUNCTIONAL STACK:
 
   ┌─────────────────────────────────────────────────────────────────┐
   │  OUTAGE MANAGEMENT SYSTEM (OMS)                                 │
-  │  Fault detection (AMI last gasp), crew dispatch, ETR           │
+  │  Fault detection (AMI last gasp), crew dispatch, ETR            │
   ├─────────────────────────────────────────────────────────────────┤
   │  FAULT DETECTION, ISOLATION, RESTORATION (FDIR)                │
   │  Automated switching to minimize outage impact (seconds)       │
   ├─────────────────────────────────────────────────────────────────┤
-  │  VOLT/VAR OPTIMIZATION (VVO)                                   │
-  │  Minimize losses + maintain voltage: coordinate OLTC,          │
-  │  capacitor banks, DER reactive power, voltage regulators       │
+  │  VOLT/VAR OPTIMIZATION (VVO)                                    │
+  │  Minimize losses + maintain voltage: coordinate OLTC,           │
+  │  capacitor banks, DER reactive power, voltage regulators        │
   ├─────────────────────────────────────────────────────────────────┤
   │  DER MANAGEMENT (DERMS)                                        │
   │  Coordinate DER dispatch, curtailment, reactive support        │
   │  Prevent overvoltage from rooftop solar, manage exports        │
   ├─────────────────────────────────────────────────────────────────┤
-  │  NETWORK TOPOLOGY ANALYSIS                                     │
-  │  Real-time connectivity model from switch status               │
-  │  Foundation for all above functions                            │
+  │  NETWORK TOPOLOGY ANALYSIS                                      │
+  │  Real-time connectivity model from switch status                │
+  │  Foundation for all above functions                             │
   └─────────────────────────────────────────────────────────────────┘
   Data: AMI meters, automated switches, sensors, SCADA
   Communications: SCADA, IEC 61968/61970 (CIM), DNP3

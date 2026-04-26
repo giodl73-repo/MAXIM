@@ -9,20 +9,20 @@ UX WRITING SCOPE
 +------------------------------------------------------------------+
 |                    INTERFACE TEXT DOMAINS                        |
 |                                                                  |
-|  NAVIGATION          FORMS              ERROR STATES            |
-|  Labels, tabs,       Field labels,      Error messages,         |
-|  menu items,         placeholder text,  validation messages,    |
-|  breadcrumbs         help text          empty states            |
+|  NAVIGATION          FORMS              ERROR STATES             |
+|  Labels, tabs,       Field labels,      Error messages,          |
+|  menu items,         placeholder text,  validation messages,     |
+|  breadcrumbs         help text          empty states             |
 |                                                                  |
-|  ONBOARDING          NOTIFICATIONS      ACTIONS                 |
-|  Welcome messages,   Push, in-app,      Button labels,          |
-|  tooltips, tours,    email subject      CTAs, confirm dialogs   |
-|  empty states        lines              destructive actions     |
+|  ONBOARDING          NOTIFICATIONS      ACTIONS                  |
+|  Welcome messages,   Push, in-app,      Button labels,           |
+|  tooltips, tours,    email subject      CTAs, confirm dialogs    |
+|  empty states        lines              destructive actions      |
 |                                                                  |
-|  TRANSACTIONAL       SYSTEM STATUS      CONVERSATIONAL          |
-|  Confirmation,       Loading states,    Chatbot, voice UI,      |
-|  receipts,           progress bars,     AI assistant,           |
-|  invoices            sync indicators    Siri/Alexa scripts      |
+|  TRANSACTIONAL       SYSTEM STATUS      CONVERSATIONAL           |
+|  Confirmation,       Loading states,    Chatbot, voice UI,       |
+|  receipts,           progress bars,     AI assistant,            |
+|  invoices            sync indicators    Siri/Alexa scripts       |
 +------------------------------------------------------------------+
 
 UX Writing is NOT:

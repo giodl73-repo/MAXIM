@@ -23,7 +23,7 @@ PostgreSQL is the de facto standard for open-source relational databases. It ext
 
 ```
 ┌─────────────────────────────────────────────────────────────────────────┐
-│                         PostgreSQL Feature Surface                       │
+│                         PostgreSQL Feature Surface                      │
 ├─────────────────────────────────────────────────────────────────────────┤
 │  RELATIONAL CORE         │  EXTENDED TYPES           │  SEARCH           │
 │  ─────────────────────── │  ────────────────────────  │  ─────────────── │
@@ -546,16 +546,16 @@ SQL Server comparison:
 │                  │ Updates visibility map. Updates freeze    │ reads/writes continue) │
 │                  │ map. Updates pg_class.relpages stats.     │                        │
 ├──────────────────┼──────────────────────────────────────────┼────────────────────────┤
-│ VACUUM FULL t    │ Rewrites the entire table to a new file.  │ ACCESS EXCLUSIVE       │
-│                  │ Returns space to OS. Equivalent to        │ (table fully locked — │
-│                  │ REBUILD on a SQL Server table.            │ blocks all queries)    │
-│                  │ Use after extreme bloat only.             │                        │
+│ VACUUM FULL t    │ Rewrites the entire table to a new file. │ ACCESS EXCLUSIVE       │
+│                  │ Returns space to OS. Equivalent to       │ (table fully locked —  │
+│                  │ REBUILD on a SQL Server table.           │ blocks all queries)    │
+│                  │ Use after extreme bloat only.            │                        │
 ├──────────────────┼──────────────────────────────────────────┼────────────────────────┤
 │ VACUUM ANALYZE t │ VACUUM + updates planner statistics       │ ShareUpdateExclusive   │
 │                  │ (same as running ANALYZE separately).     │ (non-blocking)         │
 ├──────────────────┼──────────────────────────────────────────┼────────────────────────┤
-│ ANALYZE t        │ Updates planner statistics only.          │ ShareUpdateExclusive   │
-│                  │ No dead tuple reclaim.                    │ (non-blocking)         │
+│ ANALYZE t        │ Updates planner statistics only.         │ ShareUpdateExclusive   │
+│                  │ No dead tuple reclaim.                   │ (non-blocking)         │
 └──────────────────┴──────────────────────────────────────────┴────────────────────────┘
 
 VACUUM FULL is rarely the right answer:

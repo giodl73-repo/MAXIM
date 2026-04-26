@@ -39,12 +39,12 @@
 │  │  └────────────┘  └────────────┘  │  /proc /sys│  └─────────────────┘ │  │
 │  │                                  │  /dev      │                       │  │
 │  │  ┌────────────┐  ┌────────────┐  └────────────┘  ┌─────────────────┐ │  │
-│  │  │  Namespaces│  │  cgroups   │                   │ Device Drivers  │ │  │
-│  │  │  pid net   │  │  v2 unified│                   │                 │ │  │
-│  │  │  mnt uts   │  │  hierarchy │                   │  block (disk)   │ │  │
-│  │  │  ipc user  │  │  (container│                   │  char (tty)     │ │  │
-│  │  │  cgroup    │  │  isolation)│                   │  net (NIC)      │ │  │
-│  │  └────────────┘  └────────────┘                   └─────────────────┘ │  │
+│  │  │  Namespaces│  │  cgroups   │                  │ Device Drivers  │ │  │
+│  │  │  pid net   │  │  v2 unified│                  │                 │ │  │
+│  │  │  mnt uts   │  │  hierarchy │                  │  block (disk)   │ │  │
+│  │  │  ipc user  │  │  (container│                  │  char (tty)     │ │  │
+│  │  │  cgroup    │  │  isolation)│                  │  net (NIC)      │ │  │
+│  │  └────────────┘  └────────────┘                   └─────────────────┘ │ │
 │  └───────────────────────────────────────────────────────────────────────┘  │
 │                                      │                                      │
 │                                      ▼                                      │
@@ -73,25 +73,25 @@ Before you type a single command, you need to know your distro family. Package m
 ┌─────────────────────────────────────────────────────────────────────────────┐
 │                         LINUX DISTRO LANDSCAPE                              │
 │                                                                             │
-│  DEBIAN FAMILY               RHEL FAMILY              ARCH FAMILY          │
-│  ─────────────               ───────────              ───────────          │
-│  Debian (upstream)           RHEL (Red Hat, $)        Arch Linux           │
+│  DEBIAN FAMILY               RHEL FAMILY              ARCH FAMILY           │
+│  ─────────────               ───────────              ───────────           │
+│  Debian (upstream)           RHEL (Red Hat, $)        Arch Linux            │
 │   └─ Ubuntu                   └─ CentOS Stream         └─ Manjaro           │
 │       ├─ Ubuntu Server         └─ Rocky Linux           └─ EndeavourOS      │
 │       ├─ Ubuntu Desktop        └─ AlmaLinux             └─ Garuda           │
 │       └─ Mint, Pop!_OS         └─ Fedora (upstream)    AUR = community pkgs │
 │                                └─ Amazon Linux 2023                         │
 │  Package: .deb                 └─ Azure Linux (CBL)    Package: pkg.tar.zst │
-│  Tool: apt + dpkg             Package: .rpm            Tool: pacman          │
-│  Repo: /etc/apt/sources.list  Tool: dnf / yum                              │
-│                               Repo: /etc/yum.repos.d/                      │
+│  Tool: apt + dpkg             Package: .rpm            Tool: pacman         │
+│  Repo: /etc/apt/sources.list  Tool: dnf / yum                               │
+│                               Repo: /etc/yum.repos.d/                       │
 │                                                                             │
 │  IMMUTABLE / CONTAINER-FIRST                                                │
 │  ────────────────────────────                                               │
-│  Fedora Silverblue   — rpm-ostree atomic updates, Flatpak for apps         │
-│  NixOS               — declarative entire system in Nix expressions        │
-│  Flatcar             — designed for containers only (runs on AKS nodes)    │
-│  Azure Linux         — Microsoft's CBL-Mariner, used for AKS + Azure VMs   │
+│  Fedora Silverblue   — rpm-ostree atomic updates, Flatpak for apps          │
+│  NixOS               — declarative entire system in Nix expressions         │
+│  Flatcar             — designed for containers only (runs on AKS nodes)     │
+│  Azure Linux         — Microsoft's CBL-Mariner, used for AKS + Azure VMs    │
 └─────────────────────────────────────────────────────────────────────────────┘
 ```
 
@@ -236,9 +236,9 @@ systemd is PID 1. It replaces old-world init scripts (SysV `/etc/init.d/` shell 
 
 ```
 ┌──────────────────────────────────────────────────────────────────────────┐
-│                     SYSTEMD OBJECT MODEL                                  │
-│                                                                           │
-│  Unit Types:                                                              │
+│                     SYSTEMD OBJECT MODEL                                 │
+│                                                                          │
+│  Unit Types:                                                             │
 │  .service   — a daemon process (nginx, sshd, your app)                   │
 │  .timer     — scheduled work (replaces cron)                             │
 │  .socket    — socket-activated service (starts on first connection)      │
@@ -246,15 +246,15 @@ systemd is PID 1. It replaces old-world init scripts (SysV `/etc/init.d/` shell 
 │  .target    — group of units / runlevel equivalent                       │
 │  .path      — watch a filesystem path, start service on change           │
 │  .slice     — cgroup hierarchy node for resource limits                  │
-│                                                                           │
+│                                                                          │
 │  Unit file locations (in priority order, last wins):                     │
-│  /usr/lib/systemd/system/    ← package-installed (don't edit)           │
+│  /usr/lib/systemd/system/    ← package-installed (don't edit)            │
 │  /etc/systemd/system/        ← admin overrides — this is yours           │
-│  /etc/systemd/system/foo.service.d/override.conf  ← drop-in overrides   │
-│  ~/.config/systemd/user/     ← user services (run without root)         │
-│                                                                           │
+│  /etc/systemd/system/foo.service.d/override.conf  ← drop-in overrides    │
+│  ~/.config/systemd/user/     ← user services (run without root)          │
+│                                                                          │
 │  Config override pattern (preferred over editing package files):         │
-│  systemctl edit nginx    ← creates .d/override.conf automatically       │
+│  systemctl edit nginx    ← creates .d/override.conf automatically        │
 └──────────────────────────────────────────────────────────────────────────┘
 ```
 
@@ -538,19 +538,19 @@ eBPF (extended Berkeley Packet Filter) lets you run sandboxed programs inside th
 
 ```
 ┌──────────────────────────────────────────────────────────────────────────┐
-│                         eBPF ARCHITECTURE                                 │
-│                                                                           │
+│                         eBPF ARCHITECTURE                                │
+│                                                                          │
 │  Your tool (bpftrace script, Cilium, Falco)                              │
-│       │                                                                   │
-│       ▼                                                                   │
+│       │                                                                  │
+│       ▼                                                                  │
 │  BPF bytecode  ──► Verifier (safety check: no loops, bounded mem access) │
-│       │                                                                   │
-│       ▼                                                                   │
-│  JIT compiler  ──► native CPU instructions                                │
-│       │                                                                   │
-│       ▼                                                                   │
-│  Attached to hook:                                                        │
-│  ┌──────────────┬──────────────┬──────────────┬──────────────┐          │
+│       │                                                                  │
+│       ▼                                                                  │
+│  JIT compiler  ──► native CPU instructions                               │
+│       │                                                                  │
+│       ▼                                                                  │
+│  Attached to hook:                                                       │
+│  ┌──────────────┬──────────────┬──────────────┬──────────────┐           │
 │  │  kprobe      │  tracepoint  │  XDP         │  tc (traffic │          │
 │  │  (kernel fn  │  (kernel     │  (earliest   │  control)    │          │
 │  │  entry/exit) │  static pts) │  network     │  (ingress/   │          │

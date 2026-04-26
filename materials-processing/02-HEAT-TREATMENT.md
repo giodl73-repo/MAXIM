@@ -11,13 +11,13 @@ HEAT TREATMENT TAXONOMY
 ──────────────────────────────────────────────────────────────────
 ┌─────────────────────────────────────────────────────────────────┐
 │  FULL PROCESSING (through-thickness)                            │
-│                                                                  │
-│  Annealing family:       Hardening family:                       │
-│    Full anneal             Austenitize + quench                  │
-│    Process anneal          Martempering                          │
-│    Spheroidize anneal      Austempering                          │
-│    Stress relief           Temper (always follows quench)        │
-│    Normalizing                                                   │
+│                                                                 │
+│  Annealing family:       Hardening family:                      │
+│    Full anneal             Austenitize + quench                 │
+│    Process anneal          Martempering                         │
+│    Spheroidize anneal      Austempering                         │
+│    Stress relief           Temper (always follows quench)       │
+│    Normalizing                                                  │
 │                            Solution treat + age (Al, Ti, Ni)    │
 ├─────────────────────────────────────────────────────────────────┤
 │  SURFACE (shallow depth, tough core maintained)                  │

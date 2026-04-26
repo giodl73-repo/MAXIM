@@ -4,7 +4,7 @@
 
 ```
 +------------------------------------------------------------------+
-|            THE NAPOLEONIC MILITARY REVOLUTION (~1795-1815)      |
+|            THE NAPOLEONIC MILITARY REVOLUTION (~1795-1815)       |
 +------------------------------------------------------------------+
 |                                                                  |
 |  PRE-NAPOLEONIC (Ancien Regime, ~1700-1789)                     |
@@ -80,7 +80,7 @@ Napoleon's corps system (refined 1800-1804, fully developed by Austerlitz 1805):
 |                                                                  |
 |  LOGISTICAL ADVANTAGE:                                           |
 |  5 corps on 5 roads = 5x the foraging area                     |
-|  Armies now fed off the land (HUGE doctrinal change)            |
+|  Armies now fed off the land (HUGE doctrinal change)           |
 |  No more 16-km operational radius from supply depot            |
 +------------------------------------------------------------------+
 ```
@@ -306,7 +306,7 @@ The 1812 campaign is the paradigmatic example of a logistics failure destroying 
 
 ```
 +------------------------------------------------------------------+
-|              GRANDE ARMÉE RUSSIA 1812: LOGISTICS MATH           |
+|              GRANDE ARMÉE RUSSIA 1812: LOGISTICS MATH            |
 +------------------------------------------------------------------+
 |                                                                  |
 |  FORCE SIZE: ~685,000 crossed the Niemen River, June 24, 1812  |

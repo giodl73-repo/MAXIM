@@ -92,7 +92,7 @@ RESIDENTIAL SUPPLY SYSTEM OVERVIEW
 
   ANATOMY:
   ┌──────────────────────────────────────────────────────────┐
-  │  High pressure             Low pressure (set point)       │
+  │  High pressure             Low pressure (set point)      │
   │  inlet ──→                      ──→ outlet               │
   │                                                          │
   │    ┌────────────────────────────────────┐                │

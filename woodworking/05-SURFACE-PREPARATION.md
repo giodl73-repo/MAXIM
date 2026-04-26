@@ -51,8 +51,8 @@ Two identical parallel sticks placed across the board:
 FLAT BOARD:                    TWISTED BOARD:
   ┌─────────┐                    ┌────────────────┐
   │   ════   │ ← near stick      │   ════          │ ← near stick
-  │         │                    │                 │
-  │         │                    │         ════    │
+  │         │                    │                │
+  │         │                    │         ════   │
   │   ════   │ ← far stick       │   ════          │ ← far stick
   └─────────┘                    └────────────────┘
 

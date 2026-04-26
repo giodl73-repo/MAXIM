@@ -138,25 +138,25 @@ FUNCTION:
   |                                          |
   |  * Multiple newspapers on tables         |
   |  * Patrons read, discuss, debate         |
-  |  * Single subscription fee shared       |
-  |    by many readers (10-50x leverage)    |
-  |  * Information exchange (shipping,      |
-  |    trade, politics)                     |
-  |  * Social mixing across classes         |
+  |  * Single subscription fee shared        |
+  |    by many readers (10-50x leverage)     |
+  |  * Information exchange (shipping,       |
+  |    trade, politics)                      |
+  |  * Social mixing across classes          |
   |                                          |
   |  LLOYD'S COFFEE HOUSE (1688):            |
-  |  -> became Lloyd's of London            |
-  |     (insurance market)                  |
-  |  -> shipping intelligence sharing       |
-  |     -> mutual risk information          |
-  |     -> insurance pricing based on       |
-  |        shared information               |
+  |  -> became Lloyd's of London             |
+  |     (insurance market)                   |
+  |  -> shipping intelligence sharing        |
+  |     -> mutual risk information           |
+  |     -> insurance pricing based on        |
+  |        shared information                |
   |                                          |
   |  JONATHAN'S COFFEE HOUSE (1698):         |
-  |  -> became London Stock Exchange        |
-  |     (share trading)                     |
-  |  -> same pattern: price information     |
-  |     sharing -> market making            |
+  |  -> became London Stock Exchange         |
+  |     (share trading)                      |
+  |  -> same pattern: price information      |
+  |     sharing -> market making             |
   +------------------------------------------+
 
 JÜRGEN HABERMAS: "PUBLIC SPHERE" CONCEPT

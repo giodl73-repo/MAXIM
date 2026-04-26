@@ -6,23 +6,23 @@ Synthetic fertilizers and pesticides are the two chemical pillars of industrial 
 
 ```
 +------------------------------------------------------------------+
-|              CHEMICAL INPUTS TO AGRICULTURE                       |
-|                                                                   |
+|              CHEMICAL INPUTS TO AGRICULTURE                      |
+|                                                                  |
 |  FERTILIZERS                   PESTICIDES                        |
 |  ──────────────────────        ─────────────────────────────── |\n|  Provide macronutrients        Kill or repel organisms that   |
 |  (N, P, K) + secondaries      compete with or damage crops    |
-|                                                                   |
+|                                                                  |
 |  SOURCES:                      CLASSES:                          |
-|  Synthetic: Haber-Bosch N      Herbicides   (weeds)             |
-|  Mined:     P (phosphate rock) Insecticides (insects)           |
-|  Mined:     K (potash/sylvite) Fungicides   (fungi)             |
-|  Organic:   manure, compost    Nematicides  (nematodes)         |
-|                                Rodenticides (rodents)           |
-|                                Molluscicides (slugs/snails)     |
-|                                                                   |
+|  Synthetic: Haber-Bosch N      Herbicides   (weeds)              |
+|  Mined:     P (phosphate rock) Insecticides (insects)            |
+|  Mined:     K (potash/sylvite) Fungicides   (fungi)              |
+|  Organic:   manure, compost    Nematicides  (nematodes)          |
+|                                Rodenticides (rodents)            |
+|                                Molluscicides (slugs/snails)      |
+|                                                                  |
 |  GLOBAL SCALE:                                                   |
-|  ~190 million tonnes N applied/yr (synthetic)                   |
-|  ~4 million tonnes active ingredient pesticide/yr               |
+|  ~190 million tonnes N applied/yr (synthetic)                    |
+|  ~4 million tonnes active ingredient pesticide/yr                |
 +------------------------------------------------------------------+
 ```
 

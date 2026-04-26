@@ -4,7 +4,7 @@
 
 ```
 +------------------------------------------------------------------+
-|               AMERICAN SUPERHERO COMICS AGES                      |
+|               AMERICAN SUPERHERO COMICS AGES                     |
 |                                                                  |
 |  GOLDEN AGE (1938-1956)                                          |
 |  Superman (1938), Batman (1939), Wonder Woman (1941)             |

@@ -18,25 +18,25 @@ CYTOKINES: THE SIGNALING NETWORK OF IMMUNITY
   │ INTERLEUKINS (IL-1 through IL-38)                            │
   │   Originally "between leukocytes" but also from other cells  │
   │   Each numbered in order of discovery                        │
-  │                                                               │
+  │                                                              │
   │ INTERFERONS (IFN)                                            │
-  │   Type I: IFN-α, IFN-β (antiviral; all nucleated cells)     │
-  │   Type II: IFN-γ (immune activation; T cells + NK cells)    │
-  │   Type III: IFN-λ (antiviral; mucosal/epithelial)           │
-  │                                                               │
-  │ TUMOR NECROSIS FACTOR (TNF) SUPERFAMILY                     │
+  │   Type I: IFN-α, IFN-β (antiviral; all nucleated cells)      │
+  │   Type II: IFN-γ (immune activation; T cells + NK cells)     │
+  │   Type III: IFN-λ (antiviral; mucosal/epithelial)            │
+  │                                                              │
+  │ TUMOR NECROSIS FACTOR (TNF) SUPERFAMILY                      │
   │   TNF, LTα, RANKL, BAFF, APRIL, FasL, TRAIL                │
   │   25 ligands → 29 receptors; diverse effects                 │
-  │                                                               │
+  │                                                              │
   │ CHEMOKINES (~50 members)                                     │
   │   Chemoattractants: direct cell migration                    │
-  │   CXC, CC, C, CX3C subfamilies by cysteine pattern          │
-  │                                                               │
-  │ COLONY-STIMULATING FACTORS (CSFs)                           │
+  │   CXC, CC, C, CX3C subfamilies by cysteine pattern           │
+  │                                                              │
+  │ COLONY-STIMULATING FACTORS (CSFs)                            │
   │   G-CSF, M-CSF, GM-CSF: control myeloid differentiation    │
-  │   Used clinically to boost neutrophil counts post-chemo     │
-  │                                                               │
-  │ TRANSFORMING GROWTH FACTORS (TGF)                           │
+  │   Used clinically to boost neutrophil counts post-chemo      │
+  │                                                              │
+  │ TRANSFORMING GROWTH FACTORS (TGF)                            │
   │   TGF-β: Pleotropic; suppressive in immune context         │
   └──────────────────────────────────────────────────────────────┘
 
@@ -64,29 +64,29 @@ CYTOKINES: THE SIGNALING NETWORK OF IMMUNITY
 
   ARCHITECTURE:
   ┌────────────────────────────────────────────────────────────────┐
-  │  EXTRACELLULAR                                                  │
+  │  EXTRACELLULAR                                                 │
   │      Cytokine (e.g., IFN-γ)                                    │
-  │           │                                                     │
-  │  ─────────┼──────────────── MEMBRANE ──────────────────────── │
-  │           │                                                     │
-  │      Receptor dimerization (IFNγR1 + IFNγR2)                  │
-  │           │                                                     │
+  │           │                                                    │
+  │  ─────────┼──────────────── MEMBRANE ────────────────────────  │
+  │           │                                                    │
+  │      Receptor dimerization (IFNγR1 + IFNγR2)                   │
+  │           │                                                    │
   │      JAK1  JAK2 (associated with receptor chains)              │
   │      (pre-bound to receptor intracellular domains)             │
   │           │ trans-phosphorylation activates JAKs               │
-  │           ▼                                                     │
-  │      STAT protein phosphorylation (STAT1 for IFN-γ)           │
+  │           ▼                                                    │
+  │      STAT protein phosphorylation (STAT1 for IFN-γ)            │
   │      STAT dimer formation                                      │
-  │           │                                                     │
+  │           │                                                    │
   │  ─────────┼──────────────── NUCLEUS ──────────────────────── │
-  │           ▼                                                     │
-  │      pSTAT dimer binds GAS elements                           │
+  │           ▼                                                    │
+  │      pSTAT dimer binds GAS elements                            │
   │      → ISG (interferon-stimulated gene) transcription          │
   └────────────────────────────────────────────────────────────────┘
 
   JAK-STAT SPECIFICITY TABLE:
   ┌────────────────────────────────────────────────────────────────┐
-  │ Cytokine     │ JAKs used    │ STAT activated │ Effect         │
+  │ Cytokine     │ JAKs used    │ STAT activated │ Effect          │
   ├──────────────┼──────────────┼────────────────┼────────────────┤
   │ IFN-α/β     │ JAK1, TYK2  │ STAT1, STAT2   │ Antiviral ISGs │
   │ IFN-γ       │ JAK1, JAK2  │ STAT1          │ MHC↑, Th1      │
@@ -130,21 +130,21 @@ CYTOKINES: THE SIGNALING NETWORK OF IMMUNITY
   │                  │                                         │
   │                  ▼                                         │
   │             IKK complex (IKKα + IKKβ + NEMO)             │
-  │                  │ phosphorylates IκB                     │
+  │                  │ phosphorylates IκB                      │
   │                  ▼                                         │
-  │         IκB → polyubiquitinated → 26S proteasome          │
+  │         IκB → polyubiquitinated → 26S proteasome           │
   │                  │                                         │
   │                  ▼                                         │
-  │         NF-κB freed → nuclear translocation               │
+  │         NF-κB freed → nuclear translocation                │
   │                  │                                         │
   │                  ▼                                         │
-  │         κB element binding → gene transcription           │
-  │                                                             │
+  │         κB element binding → gene transcription            │
+  │                                                            │
   │ GENES ACTIVATED:                                           │
   │   TNF, IL-6, IL-1β, IL-12 (proinflammatory cytokines)    │
   │   COX-2 (prostaglandin synthesis)                          │
   │   iNOS (nitric oxide synthesis)                            │
-  │   ICAM-1, VCAM-1 (adhesion molecules)                     │
+  │   ICAM-1, VCAM-1 (adhesion molecules)                      │
   │   Bcl-2, Bcl-xL (anti-apoptotic)                         │
   └────────────────────────────────────────────────────────────┘
 
@@ -243,20 +243,20 @@ CYTOKINES: THE SIGNALING NETWORK OF IMMUNITY
 
   TYPE I INTERFERONS (IFN-α/β): ANTIVIRAL STATE
   ┌────────────────────────────────────────────────────────────────┐
-  │ INDUCTION:                                                      │
+  │ INDUCTION:                                                     │
   │ Viral dsRNA → RIG-I/MDA5 → MAVS → IRF3/7 → IFN-β gene       │
   │ Viral DNA → cGAS → STING → TBK1 → IRF3 → IFN-β gene          │
   │ Viral ssRNA → TLR7/8 (endosomal) → IRF7 → IFN-α              │
   │                                                                  │
-  │ AUTOCRINE + PARACRINE SIGNALING:                                │
-  │ IFN-β secreted → binds IFNAR1/2 on same + neighbor cells      │
+  │ AUTOCRINE + PARACRINE SIGNALING:                               │
+  │ IFN-β secreted → binds IFNAR1/2 on same + neighbor cells       │
   │ → JAK1/TYK2 → STAT1/STAT2 → ISGF3 complex                    │
   │ → Hundreds of ISGs (Interferon-Stimulated Genes)               │
   │                                                                  │
-  │ ANTIVIRAL MECHANISMS:                                           │
+  │ ANTIVIRAL MECHANISMS:                                          │
   │   PKR: Phosphorylates eIF2α → translation shutdown             │
   │   OAS/RNase L: Degrades viral RNA                              │
-  │   Mx1/Mx2: GTPases that interfere with viral replication      │
+  │   Mx1/Mx2: GTPases that interfere with viral replication       │
   │   TRIM5α: Restriction factor for retroviruses                  │
   │   APOBEC3G: Mutates HIV reverse transcript                     │
   │   Tetherin (BST-2): Tethers enveloped viruses to cell surface  │
@@ -269,9 +269,9 @@ CYTOKINES: THE SIGNALING NETWORK OF IMMUNITY
   │ → GAS element binding                                          │
   │                                                                  │
   │ EFFECTS (immunological, not directly antiviral):               │
-  │   Macrophage M1 activation → iNOS, ROS, phagocytosis          │
+  │   Macrophage M1 activation → iNOS, ROS, phagocytosis           │
   │   MHC I and II upregulation on all cells                       │
-  │   Antigen processing: TAP, LMP2/7 (proteasome subunits) ↑     │
+  │   Antigen processing: TAP, LMP2/7 (proteasome subunits) ↑      │
   │   Th1 polarization (positive feedback via STAT4)               │
   │   B cell class switching → IgG2a (mouse) / IgG1,3 (human)    │
   └────────────────────────────────────────────────────────────────┘
@@ -298,12 +298,12 @@ CYTOKINES: THE SIGNALING NETWORK OF IMMUNITY
   TNFR1 SIGNALING:
   ┌────────────────────────────────────────────────────────────┐
   │ TNFR1 + TNF → TRADD → TRAF2 + RIP1                       │
-  │                │                │                           │
-  │                ▼                ▼                           │
+  │                │                │                          │
+  │                ▼                ▼                          │
   │             NF-κB            Caspase-8                     │
-  │          (survival,         (apoptosis)                     │
-  │           inflammation)                                     │
-  │                                                             │
+  │          (survival,         (apoptosis)                    │
+  │           inflammation)                                    │
+  │                                                            │
   │ Which pathway?                                             │
   │ NF-κB active (inflammation) → survival genes               │
   │ NF-κB inactive → apoptosis                                 │
@@ -312,18 +312,18 @@ CYTOKINES: THE SIGNALING NETWORK OF IMMUNITY
 
   TNF BLOCKING DRUGS (anti-TNF biologics):
   ┌────────────────────────────────────────────────────────────────┐
-  │ Infliximab (Remicade): chimeric anti-TNF mAb                  │
-  │ Adalimumab (Humira): fully human anti-TNF mAb                 │
-  │   → World's best-selling drug for years (~$20B/yr peak)       │
-  │ Etanercept: TNFR2-Fc fusion protein (decoy receptor)          │
+  │ Infliximab (Remicade): chimeric anti-TNF mAb                   │
+  │ Adalimumab (Humira): fully human anti-TNF mAb                  │
+  │   → World's best-selling drug for years (~$20B/yr peak)        │
+  │ Etanercept: TNFR2-Fc fusion protein (decoy receptor)           │
   │ Certolizumab: PEGylated anti-TNF Fab (no ADCC, no FcRn)      │
-  │                                                                 │
-  │ INDICATIONS: RA, psoriasis, psoriatic arthritis, AS, IBD,     │
+  │                                                                │
+  │ INDICATIONS: RA, psoriasis, psoriatic arthritis, AS, IBD,      │
   │              juvenile idiopathic arthritis, uveitis            │
-  │                                                                 │
+  │                                                                │
   │ SIDE EFFECTS:                                                  │
-  │   Infections (especially TB reactivation — screen first!)     │
-  │   Lymphoma risk (small increase)                              │
+  │   Infections (especially TB reactivation — screen first!)      │
+  │   Lymphoma risk (small increase)                               │
   │   Demyelination (MS-like) — contraindicated in MS            │
   └────────────────────────────────────────────────────────────────┘
 ```
@@ -347,20 +347,20 @@ CYTOKINES: THE SIGNALING NETWORK OF IMMUNITY
 
   KEY CHEMOKINES:
   ┌──────────────────────────────────────────────────────────────┐
-  │ CXCL8 (IL-8): Neutrophil chemoattractant — bacterial infec. │
-  │                                                               │
-  │ CCL2 (MCP-1): Monocyte + DC chemotactic — chronic inflam.   │
-  │                                                               │
-  │ CXCL10 (IP-10): T cell + NK chemoattractant (IFN-γ-induced) │
-  │                                                               │
+  │ CXCL8 (IL-8): Neutrophil chemoattractant — bacterial infec.  │
+  │                                                              │
+  │ CCL2 (MCP-1): Monocyte + DC chemotactic — chronic inflam.    │
+  │                                                              │
+  │ CXCL10 (IP-10): T cell + NK chemoattractant (IFN-γ-induced)  │
+  │                                                              │
   │ CCL5 (RANTES): T cell + eosinophil + DC recruitment          │
-  │                                                               │
+  │                                                              │
   │ CXCL12 (SDF-1): Bone marrow homing + HSC retention         │
-  │   CXCR4 receptor: Used by HIV-1 as co-receptor              │
-  │                                                               │
-  │ CCL19/CCL21: T cell homing to lymph nodes (via CCR7)        │
-  │              Expressed by lymph node stromal cells            │
-  │                                                               │
+  │   CXCR4 receptor: Used by HIV-1 as co-receptor               │
+  │                                                              │
+  │ CCL19/CCL21: T cell homing to lymph nodes (via CCR7)         │
+  │              Expressed by lymph node stromal cells           │
+  │                                                              │
   │ CXCL13: B cell homing to B cell follicles (via CXCR5)      │
   └──────────────────────────────────────────────────────────────┘
 
@@ -382,18 +382,18 @@ CYTOKINES: THE SIGNALING NETWORK OF IMMUNITY
 
   MECHANISM:
   ┌────────────────────────────────────────────────────────────────┐
-  │  Trigger: Infection, CAR-T infusion, sepsis, hemophagocytic   │
-  │                                                                 │
+  │  Trigger: Infection, CAR-T infusion, sepsis, hemophagocytic    │
+  │                                                                │
   │  Macrophage activation → TNF, IL-6, IL-1β                    │
   │            │                                                   │
-  │            ▼ (positive feedback loop)                         │
-  │  More immune cell activation → more macrophages               │
-  │  More cytokines → more activation                             │
+  │            ▼ (positive feedback loop)                          │
+  │  More immune cell activation → more macrophages                │
+  │  More cytokines → more activation                              │
   │            │                                                   │
   │            ▼ SYSTEMIC EFFECTS                                  │
   │  Fever, hypotension, capillary leak → shock                  │
-  │  Liver: Ferritin production (hyperferritinemia)               │
-  │  Blood: DIC (disseminated intravascular coagulation)          │
+  │  Liver: Ferritin production (hyperferritinemia)                │
+  │  Blood: DIC (disseminated intravascular coagulation)           │
   │  Organs: Multi-organ failure (ARDS, AKI, cardiac)            │
   └────────────────────────────────────────────────────────────────┘
 

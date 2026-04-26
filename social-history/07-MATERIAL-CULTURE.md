@@ -12,23 +12,23 @@ brought objects back to the center of historical analysis.
 |              MATERIAL CULTURE HISTORY LANDSCAPE                   |
 |                                                                   |
 |  THEORETICAL FOUNDATIONS                                          |
-|  +------------------+  +------------------+  +----------------+  |
+|  +------------------+  +------------------+  +----------------+   |
 |  | ANTHROPOLOGY     |  | ARCHAEOLOGY      |  | SOCIOLOGY      |  |
 |  | Mauss: The Gift  |  | Material remains |  | Bourdieu:      |  |
 |  | Douglas/Isherwood|  | as historical    |  | habitus,       |  |
 |  | World of Goods   |  | evidence         |  | cultural cap.  |  |
 |  +------------------+  +------------------+  +----------------+  |
-|                                                                   |
-|  APPROACHES                                                       |
+|                                                                  |
+|  APPROACHES                                                      |
 |  +------------------+  +------------------+  +----------------+  |
 |  | HISTORY OF       |  | CONSUMPTION      |  | COMMODITY      |  |
 |  | TECHNOLOGY       |  | HISTORY          |  | CHAIN          |  |
 |  | Things as tech   |  | Consumer society,|  | From producer  |  |
 |  | and affordance   |  | luxury, shopping |  | to consumer    |  |
 |  +------------------+  +------------------+  +----------------+  |
-|                                                                   |
-|  KEY CONCEPTS                                                     |
-|  +-----------------------------------------------------------+    |
+|                                                                  |
+|  KEY CONCEPTS                                                    |
+|  +-----------------------------------------------------------+   |
 |  | Social life of things  Commodity fetishism  Affordance    |    |
 |  | Provenance  Taste  Gift economy  Entanglement              |    |
 |  +-----------------------------------------------------------+    |

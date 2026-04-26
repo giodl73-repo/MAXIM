@@ -44,17 +44,17 @@ THE MOLLUSCAN BODY PLAN (hypothetical ancestral mollusk):
 1. MANTLE
    ┌────────────────────────────────────────────┐
    │ Dorsal fold of body wall                   │
-   │ Secretes shell (periostracum + calcite      │
-   │   layers: prismatic + nacreous)             │
-   │ Encloses mantle cavity                      │
-   │ Gas exchange, waste removal, gametes        │
+   │ Secretes shell (periostracum + calcite     │
+   │   layers: prismatic + nacreous)            │
+   │ Encloses mantle cavity                     │
+   │ Gas exchange, waste removal, gametes       │
    └────────────────────────────────────────────┘
 
 2. FOOT
    ┌────────────────────────────────────────────┐
    │ Muscular, ventral, highly modified         │
    │ Gastropod: flat creeping sole              │
-   │ Bivalve: wedge for burrowing              │
+   │ Bivalve: wedge for burrowing               │
    │ Cephalopod: highly modified → funnel + arms│
    └────────────────────────────────────────────┘
 
@@ -83,15 +83,15 @@ THE MOLLUSCAN BODY PLAN (hypothetical ancestral mollusk):
 MOLLUSCAN SHELL CROSS-SECTION
 +------------------------------------------+
 |  Periostracum   Organic protein (quinone) |
-|                 Outermost, protective     |
+|                 Outermost, protective    |
 +------------------------------------------+
 |  Prismatic     Calcite or aragonite       |
 |  layer         Columnar crystals          |
 +------------------------------------------+
-|  Nacreous      Aragonite platelets +      |
-|  layer         protein (conchiolin)       |
+|  Nacreous      Aragonite platelets +     |
+|  layer         protein (conchiolin)      |
 |  (mother of    Iridescent interference   |
-|   pearl)       NACRE                      |
+|   pearl)       NACRE                     |
 +------------------------------------------+
 |  Interior      Contact with mantle tissue |
 +------------------------------------------+
@@ -141,9 +141,9 @@ SHELL COILING TERMINOLOGY
 +-----------------------------------------------+
 |  Dextral (right-handed)  Most common (R→R→R)  |
 |  Sinistral (left-handed) Rare (L→L→L)         |
-|  Planispiral             Flat coil (Nautilus)  |
-|  Conical                 High spire            |
-|  Limpet                  Cap-shaped, uncoiled  |
+|  Planispiral             Flat coil (Nautilus) |
+|  Conical                 High spire           |
+|  Limpet                  Cap-shaped, uncoiled |
 +-----------------------------------------------+
 
 Coiling handed-ness controlled by single gene (nodal pathway)
@@ -300,7 +300,7 @@ The octopus nervous system is a distributed computing architecture: 8 independen
 ```
 NERVOUS SYSTEM COMPARISON
 +------------------------------------------+
-|  Animal    | Total neurons |              |
+|  Animal    | Total neurons |             |
 |------------|--------------|              |
 |  Nematode  |     302      |              |
 |  Fly       |    250,000   |              |
@@ -373,12 +373,12 @@ SIZE COMPARISON
 |  Architeuthis dux (Giant squid)              |
 |  Total: 13 m (body 2m + tentacles 11m)       |
 |  Eye diameter: 30 cm (largest in animal kingdom)|
-|  Habitat: deep ocean 300–1000 m               |
-|  Predator: sperm whales (sucker scars found)  |
-|                                               |
-|  Mesonychoteuthis hamiltoni (Colossal squid)  |
-|  Mantle: up to 2.5 m                          |
-|  Heavier: up to 500 kg                        |
+|  Habitat: deep ocean 300–1000 m              |
+|  Predator: sperm whales (sucker scars found) |
+|                                              |
+|  Mesonychoteuthis hamiltoni (Colossal squid) |
+|  Mantle: up to 2.5 m                         |
+|  Heavier: up to 500 kg                       |
 |  Rotating hooks on tentacle clubs            |
 +----------------------------------------------+
 ```

@@ -13,17 +13,17 @@
 │                                                                             │
 │  Your Python code                                                           │
 │       │                                                                     │
-│  ┌────▼────────────────────────────────────────────────────────────────┐   │
+│  ┌────▼────────────────────────────────────────────────────────────────┐    │
 │  │  NumPy API  (ndarray methods, ufuncs, linalg, fft, random, ...)    │   │
 │  └────┬────────────────────────────────────────────────────────────────┘   │
 │       │                                                                     │
 │  ┌────▼────────────────────────────────────────────────────────────────┐   │
-│  │  C extension layer  (type-specialized loops, BLAS/LAPACK calls)    │   │
+│  │  C extension layer  (type-specialized loops, BLAS/LAPACK calls)     │   │
 │  └────┬────────────────────────────────────────────────────────────────┘   │
 │       │                                                                     │
 │  ┌────▼────────────────────────────────────────────────────────────────┐   │
 │  │  Contiguous memory block  (dtype-homogeneous, row-major by default) │   │
-│  └────────────────────────────────────────────────────────────────────┘   │
+│  └────────────────────────────────────────────────────────────────────┘    │
 │                                                                             │
 │  Everything above NumPy — Pandas, scikit-learn, PyTorch CPU, SciPy —      │
 │  ultimately operates on or converts to ndarray memory.                     │
@@ -538,7 +538,7 @@ values if this matters.
 
 ```
 ┌─────────────────────────────────────────────────────────────────────┐
-│  TASK                           │  APPROACH                        │
+│  TASK                           │  APPROACH                         │
 ├─────────────────────────────────┼──────────────────────────────────┤
 │  Create array from list         │  np.array([...])                 │
 │  Create range array             │  np.arange / np.linspace         │

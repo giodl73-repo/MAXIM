@@ -6,25 +6,25 @@
 +------------------------------------------------------------------+
 |              FUNGI AS INDUSTRIAL WORKHORSES                      |
 |                                                                  |
-|  ANTIBIOTICS        ORGANIC ACIDS      ENZYMES                  |
-|  Penicillin (1928)  Citric acid        Amylases (starch→sugar)  |
-|  → WWII scale-up   (Aspergillus niger) Lipases (biodiesel)      |
-|  → β-lactam era    → 2M tonnes/year    Cellulases (biofuel)     |
-|                    Gluconic acid       Proteases (detergent)    |
-|                    Itaconic acid       Pectinases (juice)       |
+|  ANTIBIOTICS        ORGANIC ACIDS      ENZYMES                   |
+|  Penicillin (1928)  Citric acid        Amylases (starch→sugar)   |
+|  → WWII scale-up   (Aspergillus niger) Lipases (biodiesel)       |
+|  → β-lactam era    → 2M tonnes/year    Cellulases (biofuel)      |
+|                    Gluconic acid       Proteases (detergent)     |
+|                    Itaconic acid       Pectinases (juice)        |
 |                                                                  |
 |  FOOD & FERMENTATION  MYCOPROTEIN      MATERIALS                 |
 |  Bread (S. cerevisiae) Quorn           Mycelium composites       |
-|  Beer / wine          (Fusarium venena-  (Ecovative, IKEA)      |
-|  Soy sauce (Asperg.)  tum venenatum)   Fungal leather (Bolt     |
-|  Miso, tempeh         22,000 t/year      Threads, Ganni)        |
+|  Beer / wine          (Fusarium venena-  (Ecovative, IKEA)       |
+|  Soy sauce (Asperg.)  tum venenatum)   Fungal leather (Bolt      |
+|  Miso, tempeh         22,000 t/year      Threads, Ganni)         |
 |  Cheese ripening                                                 |
 |                                                                  |
-|  PHARMACEUTICALS      BIOREMEDIATION   BIOPESTICIDES            |
+|  PHARMACEUTICALS      BIOREMEDIATION   BIOPESTICIDES             |
 |  Statins (lovastatin)  Petroleum        Trichoderma (biocontrol) |
 |  Cyclosporine         PAHs, dioxins    Beauveria bassiana        |
-|  Ergot alkaloids      Heavy metals     (insect pathogen)        |
-|  Taxol (endophyte)    (mycoextraction) Metarhizium (locusts)    |
+|  Ergot alkaloids      Heavy metals     (insect pathogen)         |
+|  Taxol (endophyte)    (mycoextraction) Metarhizium (locusts)     |
 +------------------------------------------------------------------+
 ```
 
@@ -207,34 +207,34 @@ OTHER ASPERGILLUS ORGANIC ACIDS:
 |            INDUSTRIAL ENZYMES: APPLICATIONS                      |
 |                                                                  |
 |  FOOD PROCESSING:                                                |
-|  Amylases (A. oryzae, A. niger)                                 |
-|    α-amylase: starch → dextrins (liquefaction)                  |
-|    glucoamylase: dextrins → glucose (saccharification)          |
-|    → Corn syrup production; bread softening; brewing            |
-|  Proteases: bread dough conditioning; cheese making             |
-|  Pectinases: fruit juice clarification (apple, grape)           |
-|  Lipases: cheese ripening flavor; interesterification           |
-|  Xylanases: wheat bread volume improvement                      |
+|  Amylases (A. oryzae, A. niger)                                  |
+|    α-amylase: starch → dextrins (liquefaction)                   |
+|    glucoamylase: dextrins → glucose (saccharification)           |
+|    → Corn syrup production; bread softening; brewing             |
+|  Proteases: bread dough conditioning; cheese making              |
+|  Pectinases: fruit juice clarification (apple, grape)            |
+|  Lipases: cheese ripening flavor; interesterification            |
+|  Xylanases: wheat bread volume improvement                       |
 |                                                                  |
-|  DETERGENTS (~30% of industrial enzyme market):                 |
-|  Proteases (Savinase, Subtilisin E): protein stain removal      |
-|  Lipases: fat stains                                            |
-|  Amylases: starch stains                                        |
-|  Cellulases: cotton fabric finishing (softening, anti-pilling)  |
+|  DETERGENTS (~30% of industrial enzyme market):                  |
+|  Proteases (Savinase, Subtilisin E): protein stain removal       |
+|  Lipases: fat stains                                             |
+|  Amylases: starch stains                                         |
+|  Cellulases: cotton fabric finishing (softening, anti-pilling)   |
 |                                                                  |
 |  BIOFUELS:                                                       |
-|  Cellulases + xylanases: cellulose → fermentable sugars         |
-|  (lignocellulosic ethanol; the 2nd-generation biofuel problem)  |
-|  Trichoderma reesei: prolific cellulase producer                |
+|  Cellulases + xylanases: cellulose → fermentable sugars          |
+|  (lignocellulosic ethanol; the 2nd-generation biofuel problem)   |
+|  Trichoderma reesei: prolific cellulase producer                 |
 |                                                                  |
 |  TEXTILES:                                                       |
-|  Cellulases: stone-washing denim (replaced pumice stones)       |
-|  Proteases: wool shrink-proofing; silk degumming                |
-|  Laccases: denim bleaching (replaced chlorine)                  |
+|  Cellulases: stone-washing denim (replaced pumice stones)        |
+|  Proteases: wool shrink-proofing; silk degumming                 |
+|  Laccases: denim bleaching (replaced chlorine)                   |
 |                                                                  |
 |  PAPER:                                                          |
-|  Cellulases, xylanases: pulp biobleaching                       |
-|  Lipases: pitch control                                         |
+|  Cellulases, xylanases: pulp biobleaching                        |
+|  Lipases: pitch control                                          |
 +------------------------------------------------------------------+
 ```
 

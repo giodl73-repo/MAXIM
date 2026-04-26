@@ -12,22 +12,22 @@ MICROSERVICES INFRASTRUCTURE LAYERS
 |                    API GATEWAY                                        |
 |   Rate limiting, auth, routing, SSL termination, API versioning      |
 +-----------------------------------------------------------------------+
-|                    SERVICE MESH (CONTROL PLANE)                      |
-|   Traffic policies, mTLS, circuit breaking, canary routing           |
-|   No application code change required                                |
+|                    SERVICE MESH (CONTROL PLANE)                       |
+|   Traffic policies, mTLS, circuit breaking, canary routing            |
+|   No application code change required                                 |
 +-----------------------------------------------------------------------+
 |                    DATA PLANE (SIDECAR PROXIES)                      |
 |   Envoy (Istio/Dapr) or Linkerd proxy per pod                       |
 |   Intercepts all network traffic in/out of service                   |
 +-----------------------------------------------------------------------+
-|    SVC A    |    SVC B    |    SVC C    |    SVC D    |  SVC E       |
+|    SVC A    |    SVC B    |    SVC C    |    SVC D    |  SVC E        |
 |  [app][proxy]  [app][proxy]  [app][proxy]  [app][proxy]  [app][proxy] |
 +-----------------------------------------------------------------------+
 |                    SERVICE REGISTRY / DISCOVERY                      |
 |   DNS (Kubernetes service DNS) or Consul / etcd                      |
 +-----------------------------------------------------------------------+
 |                    INFRASTRUCTURE                                     |
-|   Kubernetes (AKS), container runtime, CNI networking                |
+|   Kubernetes (AKS), container runtime, CNI networking                 |
 +-----------------------------------------------------------------------+
 ```
 

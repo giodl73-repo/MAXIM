@@ -12,14 +12,14 @@ INTERNATIONAL RELATIONS — FIELD MAP
 
   LEVELS OF ANALYSIS (Waltz's Three Images)
   ┌─────────────────────────────────────────────────────────────┐
-  │  IMAGE 1: Individual      Leaders, psychology, perception  │
+  │  IMAGE 1: Individual      Leaders, psychology, perception   │
   │           (Man)           Misperception, cognitive bias     │
   │                                                             │
-  │  IMAGE 2: State           Domestic politics, regime type,  │
+  │  IMAGE 2: State           Domestic politics, regime type,   │
   │           (State)         bureaucratic politics             │
-  │                           Democratic peace theory          │
+  │                           Democratic peace theory           │
   │                                                             │
-  │  IMAGE 3: International   Anarchy, distribution of         │
+  │  IMAGE 3: International   Anarchy, distribution of          │
   │           system          capabilities (polarity)           │
   │           (System)        Balance of power, hegemony        │
   └─────────────────────────────────────────────────────────────┘
@@ -145,32 +145,32 @@ IR METHODS
   ┌──────────────────────────────────────────────────────────┐
   │ Correlates of War (COW) project (J. David Singer, 1963+)│
   │ Systematic data on:                                      │
-  │ • Interstate wars (onset, duration, casualties)         │
+  │ • Interstate wars (onset, duration, casualties)          │
   │ • Alliance data (formal alliances, dyadic relationships)│
-  │ • Military capabilities (CINC score — composite index)  │
-  │ • Trade flows, colonial relationships, contiguity       │
+  │ • Military capabilities (CINC score — composite index)   │
+  │ • Trade flows, colonial relationships, contiguity        │
   │                                                          │
-  │ Used to test: democratic peace, power transition,       │
-  │ alliances, trade-conflict nexus, etc.                   │
+  │ Used to test: democratic peace, power transition,        │
+  │ alliances, trade-conflict nexus, etc.                    │
   │                                                          │
-  │ V-Dem: democracy data (see 07-DEMOCRATIC-BACKSLIDING)   │
-  │ UCDP: Uppsala Conflict Data Program — armed conflicts   │
+  │ V-Dem: democracy data (see 07-DEMOCRATIC-BACKSLIDING)    │
+  │ UCDP: Uppsala Conflict Data Program — armed conflicts    │
   └──────────────────────────────────────────────────────────┘
 
   QUALITATIVE / COMPARATIVE:
   ┌──────────────────────────────────────────────────────────┐
-  │ Process tracing: what were the causal mechanisms?       │
-  │ Case studies: detailed analysis of specific cases       │
-  │ Comparative: structured comparison across cases         │
-  │ Counterfactual: what if X hadn't happened?              │
+  │ Process tracing: what were the causal mechanisms?        │
+  │ Case studies: detailed analysis of specific cases        │
+  │ Comparative: structured comparison across cases          │
+  │ Counterfactual: what if X hadn't happened?               │
   └──────────────────────────────────────────────────────────┘
 
   FORMAL / GAME THEORY:
   ┌──────────────────────────────────────────────────────────┐
-  │ Deterrence theory: sequential games of threat/response  │
-  │ Bargaining model of war (Fearon 1995): war as failure   │
-  │   of bargaining under incomplete information            │
-  │ Alliance formation: formal models of coalition dynamics │
+  │ Deterrence theory: sequential games of threat/response   │
+  │ Bargaining model of war (Fearon 1995): war as failure    │
+  │   of bargaining under incomplete information             │
+  │ Alliance formation: formal models of coalition dynamics  │
   └──────────────────────────────────────────────────────────┘
 ```
 

@@ -8,9 +8,9 @@ Plate tectonics is geology's grand unified theory, explaining the distribution o
 
 ```
 +------------------------------------------------------------------+
-|                  GLOBAL PLATE SYSTEM                              |
-|                                                                   |
-|  PLATE BOUNDARIES                                                 |
+|                  GLOBAL PLATE SYSTEM                             |
+|                                                                  |
+|  PLATE BOUNDARIES                                                |
 |  ┌─────────────────────┬─────────────────────┬─────────────┐     |
 |  │ DIVERGENT           │ CONVERGENT          │ TRANSFORM   │     |
 |  │ (rifting apart)     │ (colliding)         │ (sliding)   │     |

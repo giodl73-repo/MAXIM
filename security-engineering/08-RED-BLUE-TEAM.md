@@ -19,8 +19,8 @@ OFFENSIVE AND DEFENSIVE SECURITY FUNCTIONS
 |  +-----------------------+   +-------------------+   +------------+ |
 |          |                           |                      |         |
 |          v                           v                      v         |
-|  PEN TEST                   THREAT HUNTING        TABLETOP           |
-|  Point-in-time              Hypothesis-driven     Scenario-based     |
+|  PEN TEST                   THREAT HUNTING        TABLETOP          |
+|  Point-in-time              Hypothesis-driven     Scenario-based    |
 |  scoped assessment          proactive search      discussion exercise |
 |  weeks                      for undetected        no actual attack    |
 |                             threats               hours               |

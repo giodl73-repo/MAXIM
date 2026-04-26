@@ -436,14 +436,14 @@ NDE METHODS COMPARED:
   ├──────────────────────────────────────────────────────────────┤
   │ Ultrasonic    │ Internal cracks,    │ 0.5–1 mm (pulse-echo)  │
   │ (UT)          │ delaminations,      │ TOFD/phased array:     │
-  │               │ porosity            │ better resolution       │
+  │               │ porosity            │ better resolution      │
   ├──────────────────────────────────────────────────────────────┤
   │ Eddy current  │ Surface + near-     │ 0.1–0.5 mm from        │
   │ (ET)          │ surface cracks      │ surface, depth ~3 mm   │
   │               │ (conductive only)   │                         │
   ├──────────────────────────────────────────────────────────────┤
-  │ Liquid        │ Surface-open        │ ~0.025 mm (surface      │
-  │ penetrant (PT)│ cracks only         │ only, all materials)    │
+  │ Liquid        │ Surface-open        │ ~0.025 mm (surface     │
+  │ penetrant (PT)│ cracks only         │ only, all materials)   │
   ├──────────────────────────────────────────────────────────────┤
   │ Magnetic      │ Surface + near-     │ ~0.1 mm (ferromagnetic  │
   │ particle (MT) │ surface cracks      │ materials only)         │

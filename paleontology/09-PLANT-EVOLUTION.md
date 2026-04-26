@@ -4,7 +4,7 @@
 
 ```
 +===========================================================================+
-|              PLANT EVOLUTION — 1 BILLION YEARS OF CONQUEST               |
+|              PLANT EVOLUTION — 1 BILLION YEARS OF CONQUEST                |
 +===========================================================================+
 |                                                                           |
 |  ALGAE (aquatic photosynthesizers)                                        |

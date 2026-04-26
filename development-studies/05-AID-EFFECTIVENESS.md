@@ -6,7 +6,7 @@ Foreign aid has transferred over $5 trillion from rich to poor countries since W
 
 ```
 +--------------------------------------------------------------------------+
-|                    AID EFFECTIVENESS DEBATE MAP                           |
+|                    AID EFFECTIVENESS DEBATE MAP                          |
 +--------------------------------------------------------------------------+
 |                                                                          |
 |  BIG PICTURE DEBATE             MICRO EVIDENCE REVOLUTION                |

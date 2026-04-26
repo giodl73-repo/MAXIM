@@ -8,25 +8,25 @@ PORTLAND CEMENT TO CONCRETE TO STRUCTURE
 │                                                                              │
 │  INPUTS                    CLINKER PRODUCTION              CEMENT            │
 │  ──────────────────────    ────────────────────────────    ───────────────   │
-│  Limestone (CaCO₃) 75%     → rotary kiln 1450°C           → grind clinker   │
-│  Clay / shale 20%            CaCO₃ → CaO + CO₂             + gypsum (CaSO₄) │
+│  Limestone (CaCO₃) 75%     → rotary kiln 1450°C           → grind clinker    │
+│  Clay / shale 20%            CaCO₃ → CaO + CO₂             + gypsum (CaSO₄)  │
 │  Iron ore / silica  5%       CaO + SiO₂+Al₂O₃ → clinker   → Portland OPC   │
 │                                                                              │
 │  CLINKER PHASES (Bogue equations):                                           │
-│  C₃S  (alite)    50–70%  → fast strength; main phase                        │
-│  C₂S  (belite)   15–25%  → slow strength; lower heat                        │
-│  C₃A  (aluminate) 5–10%  → very fast; high heat; sulfate attack risk        │
-│  C₄AF (ferrite)  5–15%  → low strength; grey colour                         │
+│  C₃S  (alite)    50–70%  → fast strength; main phase                         │
+│  C₂S  (belite)   15–25%  → slow strength; lower heat                         │
+│  C₃A  (aluminate) 5–10%  → very fast; high heat; sulfate attack risk         │
+│  C₄AF (ferrite)  5–15%  → low strength; grey colour                          │
 │                                                                              │
-│  CEMENT + SCMs + WATER + ADMIXTURES + AGGREGATE = CONCRETE                  │
+│  CEMENT + SCMs + WATER + ADMIXTURES + AGGREGATE = CONCRETE                   │
 │                                                                              │
 │  HYDRATION → C-S-H GEL (strength) + Ca(OH)₂ (portlandite)                  │
 │                                                                              │
 │  CONCRETE IN STRUCTURE:                                                      │
 │  Plain → columns/walls in compression                                        │
-│  RC (reinforced) → beams, slabs, frames                                     │
-│  PC (prestressed) → long-span; thin elements                                │
-│  UHPC → fibre-reinforced; near-steel performance                            │
+│  RC (reinforced) → beams, slabs, frames                                      │
+│  PC (prestressed) → long-span; thin elements                                 │
+│  UHPC → fibre-reinforced; near-steel performance                             │
 │                                                                              │
 └──────────────────────────────────────────────────────────────────────────────┘
 ```
@@ -130,41 +130,41 @@ ABRAMS' LAW: compressive strength = A / B^(w/c)
 SCM COMPARISON
 ┌──────────────────────────────────────────────────────────────────────────────┐
 │                                                                              │
-│  SCM         SOURCE              MECHANISM     REPLACEMENT  CO₂ SAVING      │
-│  ─────────────────────────────────────────────────────────────────────────  │
-│  Fly ash     Coal power station  Pozzolanic:   20–40%       ~30–40%         │
+│  SCM         SOURCE              MECHANISM     REPLACEMENT  CO₂ SAVING       │
+│  ─────────────────────────────────────────────────────────────────────────   │
+│  Fly ash     Coal power station  Pozzolanic:   20–40%       ~30–40%          │
 │  (Class F)   Siliceous FA        Ca(OH)₂ +                                   │
-│                                  SiO₂ → C-S-H                               │
+│                                  SiO₂ → C-S-H                                │
 │                                  Slower; 56-day strength                     │
 │                                                                              │
-│  GGBS        Blast furnace slag  Latent hydraulic: 30–70%   ~40–60%         │
+│  GGBS        Blast furnace slag  Latent hydraulic: 30–70%   ~40–60%          │
 │  (ground     (iron-making)       reacts with water                           │
 │  granulated)                     + alkali activator                          │
-│                                  → similar C-S-H                            │
+│                                  → similar C-S-H                             │
 │                                  Slower early; better                        │
 │                                  long-term; low heat                         │
 │                                                                              │
 │  Silica fume Ferrochrome smelter Ultra-fine SiO₂ 5–15%     ~10–15%         │
 │  (CSF)       industry            Highly reactive                             │
 │  (≈ 150,000  off-gas             pozzolanic                                  │
-│   m²/kg BET)                     Fills capillary pores                      │
+│   m²/kg BET)                     Fills capillary pores                       │
 │                                  Strength bonus                              │
 │                                  Very sticky mix                             │
 │                                                                              │
-│  Metakaolin  Calcined kaolin     Reactive alumino-  10–20%  ~15–20%         │
+│  Metakaolin  Calcined kaolin     Reactive alumino-  10–20%  ~15–20%          │
 │              clay (650°C)        silicate; pozzolanic                        │
-│                                  Cleaner (white) concrete                   │
+│                                  Cleaner (white) concrete                    │
 │                                                                              │
-│  Limestone   Quarry dust         Filler + nucleation   Up to 15%  ~15%      │
+│  Limestone   Quarry dust         Filler + nucleation   Up to 15%  ~15%       │
 │  filler      (CaCO₃ fine)        Not truly reactive                          │
 │                                  EN 197: "Portland                           │
 │                                  limestone cement"                           │
 │                                                                              │
 │  LIMITS ON REPLACEMENT:                                                      │
-│  High FA or GGBS → slower early strength → later stripping of formwork      │
-│  Carbonation resistance may decrease (less Ca(OH)₂ buffer)                  │
-│  Alkali-silica reaction (ASR) risk: FA/GGBS REDUCES ASR risk                │
-│  Always verify with mix design testing at target w/b ratio                  │
+│  High FA or GGBS → slower early strength → later stripping of formwork       │
+│  Carbonation resistance may decrease (less Ca(OH)₂ buffer)                   │
+│  Alkali-silica reaction (ASR) risk: FA/GGBS REDUCES ASR risk                 │
+│  Always verify with mix design testing at target w/b ratio                   │
 │                                                                              │
 └──────────────────────────────────────────────────────────────────────────────┘
 ```
@@ -224,29 +224,29 @@ RC BEAM: CRACKED SECTION ANALYSIS
 ┌──────────────────────────────────────────────────────────────────────────────┐
 │                                                                              │
 │  UNCRACKED (elastic, before cracking):                                       │
-│  ─────────────────────────────────── compression (top)                      │
+│  ─────────────────────────────────── compression (top)                       │
 │  ─ ─ ─ ─ ─ ─ ─ ─ ─ ─ ─ ─ ─ ─ ─ ─ ─ neutral axis                           │
 │  ─────────────────────────────────── tension (bottom — concrete can carry)   │
 │                                                                              │
-│  AT CRACKING: concrete tensile strength ~3 MPa reached                      │
+│  AT CRACKING: concrete tensile strength ~3 MPa reached                       │
 │  Cracks form at bottom fiber where tension is maximum                        │
 │                                                                              │
 │  CRACKED SECTION (in service):                                               │
 │  ─ ─ ─ ─ ─ ─ ─ ─ ─ ─ ─ ─ ─ ─ ─ ─    compression block (concrete)          │
-│  N.A. moves up (concrete below N.A. cracked; only steel works)              │
+│  N.A. moves up (concrete below N.A. cracked; only steel works)               │
 │  ═════════════════════════════════    steel rebar (in tension)               │
 │                                                                              │
 │  FORCE COUPLE (simplified):                                                  │
 │  C = 0.85 f'c × b × a   (compression in concrete block)                    │
 │  T = As × fy             (tension in steel)                                  │
-│  C = T  →  solve for a (depth of compression block)                         │
-│  M_n = T × (d - a/2)    (nominal moment capacity)                           │
+│  C = T  →  solve for a (depth of compression block)                          │
+│  M_n = T × (d - a/2)    (nominal moment capacity)                            │
 │                                                                              │
 │  DUCTILITY REQUIREMENT (ACI 318 / EN 1992):                                  │
 │  Maximum reinforcement ratio ρ < 0.75 ρ_bal (ACI) or ε_s > 0.0025 (EC2)   │
-│  → ensures steel yields before concrete crushes → ductile failure           │
-│  → wide cracks give warning before collapse                                 │
-│  → seismic: ρ further limited to ensure large ductility                     │
+│  → ensures steel yields before concrete crushes → ductile failure            │
+│  → wide cracks give warning before collapse                                  │
+│  → seismic: ρ further limited to ensure large ductility                      │
 │                                                                              │
 └──────────────────────────────────────────────────────────────────────────────┘
 ```
@@ -321,41 +321,41 @@ PRE-TENSIONING vs POST-TENSIONING
 │                                                                              │
 │  PRE-TENSIONING (factory, precast):                                          │
 │  ─────────────────────────────────                                           │
-│  1. Stress high-tensile steel strands between abutments                     │
+│  1. Stress high-tensile steel strands between abutments                      │
 │     f_pi = 0.75 f_pu = 0.75 × 1860 = 1395 MPa (typ. strand f_pu)          │
 │  2. Pour concrete around strands; cure                                       │
-│  3. Release strand → strand tries to shorten → bond transfers               │
+│  3. Release strand → strand tries to shorten → bond transfers                │
 │     compression to concrete → concrete pre-compressed (f_pe ≈ 1100–1200 MPa)│
-│  Typical products: hollowcore slabs, bridge beams, railway sleepers         │
+│  Typical products: hollowcore slabs, bridge beams, railway sleepers          │
 │                                                                              │
 │  POST-TENSIONING (in situ or precast):                                       │
 │  ──────────────────────────────────                                          │
-│  1. Cast concrete with plastic ducts embedded (no strand yet)               │
+│  1. Cast concrete with plastic ducts embedded (no strand yet)                │
 │  2. Cure to target strength (usually f_ck ≥ 20 MPa before stressing)       │
-│  3. Thread strands (tendons) through ducts                                  │
-│  4. Jack against anchors cast into concrete ends → elongate tendons         │
-│  5. Lock off jack → tendon force transferred via anchor plates              │
-│  6. Grout ducts (bonded) or leave accessible (unbonded flat duct)           │
+│  3. Thread strands (tendons) through ducts                                   │
+│  4. Jack against anchors cast into concrete ends → elongate tendons          │
+│  5. Lock off jack → tendon force transferred via anchor plates               │
+│  6. Grout ducts (bonded) or leave accessible (unbonded flat duct)            │
 │  Applications: flat slabs (post-tensioned flat plate — most common in US/UK)│
-│    large-span bridge decks, transfer plates, water-retaining structures     │
+│    large-span bridge decks, transfer plates, water-retaining structures      │
 │                                                                              │
 │  EFFECT OF PRESTRESS:                                                        │
 │  Consider mid-span section under full service load:                          │
-│  Without prestress:  bottom fiber in tension → CRACK                        │
+│  Without prestress:  bottom fiber in tension → CRACK                         │
 │  With prestress:     prestress adds compression → net stress ≥ 0 → NO CRACK│
 │                                                                              │
 │  f_bottom = -P/A - P×e×c/I + M_applied×c/I                                 │
-│    P = prestress force; e = eccentricity; A,I = section properties          │
+│    P = prestress force; e = eccentricity; A,I = section properties           │
 │    → choose P and e so f_bottom ≥ -0.5√f_ck (tension limit under service)  │
 │                                                                              │
-│  LOSSES (significant; must account for):                                    │
-│  Elastic shortening:    concrete shortens as force applied → strand follows │
-│  Friction (PT only):    duct wall friction reduces force along tendon       │
-│  Anchorage draw-in:     strand slips slightly on locking off jack           │
+│  LOSSES (significant; must account for):                                     │
+│  Elastic shortening:    concrete shortens as force applied → strand follows  │
+│  Friction (PT only):    duct wall friction reduces force along tendon        │
+│  Anchorage draw-in:     strand slips slightly on locking off jack            │
 │  Relaxation:            steel creeps under sustained tension → Δf_p = 2–5% │
 │  Creep:                 concrete creeps → shortens → strand loses tension  │
-│  Shrinkage:             drying shrinkage → shortening → tension loss        │
-│  Total long-term losses: typically 15–25% of initial jacking force          │
+│  Shrinkage:             drying shrinkage → shortening → tension loss         │
+│  Total long-term losses: typically 15–25% of initial jacking force           │
 │                                                                              │
 └──────────────────────────────────────────────────────────────────────────────┘
 ```

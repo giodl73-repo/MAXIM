@@ -148,7 +148,7 @@ Top view:                   Cross-section:
                                 ┌─┬─┬─┬─┐
  ○ ○ ○ ○ ○ ○                   │o│o│o│o│  stones
  ○ ○ ○ ○ ○ ○                   ├─┴─┴─┴─┤
- ○ ○ ○ ○ ○ ○                   │  METAL │
+ ○ ○ ○ ○ ○ ○                    │  METAL │
                                 └────────┘
  Metal barely visible
  between stones                 Tiny beads raised from metal
@@ -304,7 +304,7 @@ Calibré-cut stones with grooves on their girdles, placed on a metal grid rail s
   ┌────────────────┐
   │ □□□□□□□□□□□□□ │  ← stones appear seamless from top
   │ □□□□□□□□□□□□□ │  ← metal hidden below
-  │ □□□□□□□□□□□□□ │
+  │ □□□□□□□□□□□□□  │
   └────────────────┘
 
 Patented by Van Cleef & Arpels; requires precision calibration;

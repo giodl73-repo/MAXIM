@@ -8,26 +8,26 @@
 
   20TH-CENTURY TOTALITARIANISM    vs.    21ST-CENTURY AUTHORITARIANISM
   ┌──────────────────────────────┐        ┌────────────────────────────┐
-  │ • Mass mobilization          │        │ • Demobilization:           │
-  │   (Nuremberg rallies,         │        │   citizens should be       │
-  │   Soviet parades)             │        │   passive, not active      │
-  │                               │        │                            │
-  │ • Transformative ideology     │        │ • Legitimacy through       │
-  │   (utopian goals —            │        │   performance:             │
-  │   classless society,          │        │   GDP, security,           │
-  │   thousand-year Reich)        │        │   national pride           │
-  │                               │        │                            │
-  │ • Extreme coercion            │        │ • Selective coercion:      │
-  │   (Gulag, Holocaust,          │        │   targeted repression,     │
-  │   Cultural Revolution)        │        │   not mass violence        │
-  │                               │        │                            │
-  │ • Command economy             │        │ • Market integration:      │
-  │   (autarky, state             │        │   state capitalism,        │
-  │   ownership of everything)    │        │   not autarky              │
-  │                               │        │                            │
-  │ • International isolation     │        │ • Global integration:      │
-  │   or expansion by war         │        │   WTO members, global      │
-  │                               │        │   trade, BRI               │
+  │ • Mass mobilization          │        │ • Demobilization:          │
+  │   (Nuremberg rallies,        │        │   citizens should be       │
+  │   Soviet parades)            │        │   passive, not active      │
+  │                              │        │                            │
+  │ • Transformative ideology    │        │ • Legitimacy through       │
+  │   (utopian goals —           │        │   performance:             │
+  │   classless society,         │        │   GDP, security,           │
+  │   thousand-year Reich)       │        │   national pride           │
+  │                              │        │                            │
+  │ • Extreme coercion           │        │ • Selective coercion:      │
+  │   (Gulag, Holocaust,         │        │   targeted repression,     │
+  │   Cultural Revolution)       │        │   not mass violence        │
+  │                              │        │                            │
+  │ • Command economy            │        │ • Market integration:      │
+  │   (autarky, state            │        │   state capitalism,        │
+  │   ownership of everything)   │        │   not autarky              │
+  │                              │        │                            │
+  │ • International isolation    │        │ • Global integration:      │
+  │   or expansion by war        │        │   WTO members, global      │
+  │                              │        │   trade, BRI               │
   └──────────────────────────────┘        └────────────────────────────┘
 ```
 
@@ -100,7 +100,7 @@ GERASIMOV'S "DOCTRINE" (Western interpretation)
   │ • Economic coercion (gas supply manipulation)           │
   │ • "Little green men" (unmarked forces — Crimea 2014)    │
   │ • Proxies (Donbas 2014 — deniable military support)     │
-  │ • Reflexive control theory (shape adversary's decisions  │
+  │ • Reflexive control theory (shape adversary's decisions │
   │   by managing their information environment)            │
   └─────────────────────────────────────────────────────────┘
 
@@ -295,10 +295,10 @@ WHY SOME DEMOCRACIES SURVIVE AUTHORITARIAN PRESSURE
 
   INTERNATIONAL:
   ┌──────────────────────────────────────────────────┐
-  │ EU membership (conditionality, funding leverage)  │
+  │ EU membership (conditionality, funding leverage) │
   │ NATO membership (at least marginal military      │
-  │  independence from Russia)                        │
-  │ US support for democratic opposition              │
+  │  independence from Russia)                       │
+  │ US support for democratic opposition             │
   │ International media attention                    │
   └──────────────────────────────────────────────────┘
 
@@ -307,7 +307,7 @@ WHY SOME DEMOCRACIES SURVIVE AUTHORITARIAN PRESSURE
   │ Prior democratic experience matters              │
   │ Czech Republic more resilient than Hungary —     │
   │  richer civic tradition, Havel legacy            │
-  │ Baltic states more resistant to Russian pressure  │
+  │ Baltic states more resistant to Russian pressure │
   │  — memory of Soviet occupation is recent         │
   └──────────────────────────────────────────────────┘
 ```

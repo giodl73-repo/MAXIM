@@ -10,7 +10,7 @@ from this population-level view.
 
 ```
 ┌──────────────────────────────────────────────────────────────────┐
-│                   QUASISPECIES FRAMEWORK                          │
+│                   QUASISPECIES FRAMEWORK                         │
 │                                                                    │
 │  CLASSICAL VIEW:            QUASISPECIES VIEW:                   │
 │  ──────────────             ────────────────────                 │
@@ -19,13 +19,13 @@ from this population-level view.
 │  mutations over time        in sequence space                    │
 │  Drug resistance = new      Drug resistance variants PRE-EXIST   │
 │  mutation after drug        in the cloud before drug exposure    │
-│  exposure                                                         │
+│  exposure                                                        │
 │                                                                    │
 │  KEY CONSEQUENCES:                                               │
 │  - Drug-resistant mutants are present before treatment begins    │
 │  - "Consensus sequence" is a statistical abstraction             │
 │  - Fitness of the cloud (quasispecies fitness) ≠ fitness of      │
-│    any individual variant                                         │
+│    any individual variant                                        │
 │  - Error threshold: too high a mutation rate → sequence space    │
 │    information destroyed (error catastrophe)                     │
 └──────────────────────────────────────────────────────────────────┘

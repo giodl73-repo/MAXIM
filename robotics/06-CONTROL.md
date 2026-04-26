@@ -291,7 +291,7 @@ HYBRID CONTROL (Raibert & Craig, 1981):
 
   Example: robot pushing on a surface:
   +----------+--------------------------------+
-  | Direction| Control mode                  |
+  | Direction| Control mode                   |
   +----------+--------------------------------+
   | x, y     | POSITION (move along surface) |
   | z        | FORCE (push with 5 N)         |

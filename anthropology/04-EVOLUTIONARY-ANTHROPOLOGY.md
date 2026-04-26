@@ -4,8 +4,8 @@
 
 ```
 +------------------------------------------------------------------+
-|              EVOLUTIONARY ANTHROPOLOGY                            |
-|                                                                   |
+|              EVOLUTIONARY ANTHROPOLOGY                           |
+|                                                                  |
 |  Applies evolutionary theory to human behavior, psychology,      |
 |  and social organization — but in dialogue with ethnographic     |
 |  data, not as a replacement for it                               |
@@ -52,15 +52,15 @@
 
   DOMAIN-SPECIFIC MODULES (proposed):
   ┌────────────────────────────────────────────────────────┐
-  │ Face recognition: neonates prefer face-like patterns  │
-  │ Cheater detection: Wason selection task with social   │
-  │   content (social contracts) is easier than abstract  │
-  │   version — Cosmides's original finding               │
-  │ Fear acquisition: snakes and spiders are acquired     │
+  │ Face recognition: neonates prefer face-like patterns   │
+  │ Cheater detection: Wason selection task with social    │
+  │   content (social contracts) is easier than abstract   │
+  │   version — Cosmides's original finding                │
+  │ Fear acquisition: snakes and spiders are acquired      │
   │   faster than cars and guns (preparedness learning)  │
-  │ Kin recognition: Westermarck effect, incest avoidance │
-  │ Language acquisition device (Chomsky): universal      │
-  │   grammar constraints on language learning            │
+  │ Kin recognition: Westermarck effect, incest avoidance  │
+  │ Language acquisition device (Chomsky): universal       │
+  │   grammar constraints on language learning             │
   └────────────────────────────────────────────────────────┘
 ```
 
@@ -242,13 +242,13 @@
   HUMAN MATING SYSTEMS (cross-cultural survey, Murdock 1967):
   ┌──────────────────────────────────────────────────┐
   │ Monogamy:        ~17% of societies (serial is    │
-  │                  common; simultaneous rare)       │
+  │                  common; simultaneous rare)      │
   │ Polygyny:        ~83% of societies permit it     │
   │                  (but only ~20-30% of males in   │
   │                   polygynous societies have > 1  │
   │                   wife — resource-constrained)   │
   │ Polyandry:       ~1% of societies (fraternal     │
-  │                   polyandry — Tibet/Nepal)        │
+  │                   polyandry — Tibet/Nepal)       │
   └──────────────────────────────────────────────────┘
 
   BUT: In most societies, most people are de facto
@@ -408,9 +408,9 @@
   │ Age at first birth:  13       19-21                │
   │ Inter-birth interval: 5 yr    3-4 yr (with help!)  │
   │ Weaning:             4-5 yr   2-3 yr               │
-  │ Max lifespan:        ~60      ~120                  │
+  │ Max lifespan:        ~60      ~120                 │
   │ Post-reprod lifespan: ~0      20-40 yr (females)   │
-  │ Male care of offspring: none  variable but present  │
+  │ Male care of offspring: none  variable but present │
   └────────────────────────────────────────────────────┘
 
   The shorter human inter-birth interval DESPITE longer
@@ -480,7 +480,7 @@
   │ sharing norms). No universal "fairness module."        │
   │                                                        │
   │ Analytical vs. holistic cognition: WEIRD subjects      │
-  │ tend to categorize by attributes (both triangles        │
+  │ tend to categorize by attributes (both triangles       │
   │ go together). East Asian subjects tend to categorize   │
   │ by relationship (cow goes with grass, not with horse). │
   │                                                        │

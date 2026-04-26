@@ -8,11 +8,11 @@ Pharmacogenomics (PGx) is the study of how genetic variation affects drug respon
 +──────────────────────────────────────────────────────────────────+
 |              PHARMACOGENOMICS LANDSCAPE                          |
 |                                                                  |
-|  GENOTYPE → PHENOTYPE → DRUG RESPONSE                           |
+|  GENOTYPE → PHENOTYPE → DRUG RESPONSE                            |
 |                                                                  |
 |  SNPs in:           Phenotype:              Drug impact:         |
-|  CYP enzymes    →  PM/IM/EM/UM         →   Dose adjustment      |
-|  Transporters   →  ↓/↑ drug uptake     →   Efficacy/toxicity    |
+|  CYP enzymes    →  PM/IM/EM/UM         →   Dose adjustment       |
+|  Transporters   →  ↓/↑ drug uptake     →   Efficacy/toxicity     |
 |  Drug targets   →  Altered target       →   Response or failure  |
 |  HLA alleles    →  Immune reactions     →   Severe hypersensitivity|
 |  Ion channels   →  Altered electrophys  →   QT prolongation      |

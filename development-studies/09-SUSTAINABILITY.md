@@ -6,7 +6,7 @@ The sustainability challenge in development is a genuine structural tension: the
 
 ```
 +--------------------------------------------------------------------------+
-|                    SUSTAINABILITY AND DEVELOPMENT LANDSCAPE               |
+|                    SUSTAINABILITY AND DEVELOPMENT LANDSCAPE              |
 +--------------------------------------------------------------------------+
 |                                                                          |
 |  THE CORE TENSION:                                                       |
@@ -212,9 +212,9 @@ Kate Raworth (*Doughnut Economics*, 2017):
 DOUGHNUT ECONOMICS FRAMEWORK:
 
          ┌─────────────────────────────────────────────┐
-         │         ECOLOGICAL CEILING                   │
-         │  (Planetary boundaries — 9 dimensions)       │
-         │    ┌─────────────────────────────────┐       │
+         │         ECOLOGICAL CEILING                  │
+         │  (Planetary boundaries — 9 dimensions)      │
+         │    ┌─────────────────────────────────┐      │
          │    │                                 │       │
          │    │     THE DOUGHNUT               │       │
          │    │   (Safe and just space          │       │

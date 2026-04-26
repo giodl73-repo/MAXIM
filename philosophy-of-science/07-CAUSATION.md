@@ -6,7 +6,7 @@ Two questions that look similar but are distinct: (1) What is causation? (2) Wha
 
 ```
 +------------------------------------------------------------------+
-|            THEORIES OF EXPLANATION AND CAUSATION                |
+|            THEORIES OF EXPLANATION AND CAUSATION                 |
 +------------------------------------------------------------------+
 |                                                                  |
 |  MODELS OF EXPLANATION:                                          |
@@ -24,7 +24,7 @@ Two questions that look similar but are distinct: (1) What is causation? (2) Wha
 |  |  REGULARITY      |  |  COUNTERFACTUAL   |  |  INTERVENTIONIST|
 |  |  (Hume)          |  |  (Lewis)          |  |  (Woodward)   | |
 |  |  C causes E =    |  |  C causes E =     |  |  C causes E = | |
-|  |  Cs regularly    |  |  if C had not     |  |  ideal interv.|  |
+|  |  Cs regularly    |  |  if C had not     |  |  ideal interv.| |
 |  |  followed by Es  |  |  occurred, E would|  |  on C changes | |
 |  |                  |  |  not have occurred|  |  E            | |
 |  +------------------+  +-------------------+  +---------------+ |

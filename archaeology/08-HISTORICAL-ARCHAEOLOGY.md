@@ -6,20 +6,20 @@
 
 ```
 +------------------------------------------------------------------+
-|           HISTORICAL ARCHAEOLOGY: SCOPE AND SIGNIFICANCE        |
+|           HISTORICAL ARCHAEOLOGY: SCOPE AND SIGNIFICANCE         |
 |                                                                  |
-|  DEFINITION: Archaeology of societies that have written records |
-|  PARADOX: Why dig if we have documents?                         |
-|  ANSWER: Documents record what their authors chose to record.   |
-|    Material culture records what people actually did.           |
-|    The gap is often the most important finding.                 |
+|  DEFINITION: Archaeology of societies that have written records  |
+|  PARADOX: Why dig if we have documents?                          |
+|  ANSWER: Documents record what their authors chose to record.    |
+|    Material culture records what people actually did.            |
+|    The gap is often the most important finding.                  |
 |                                                                  |
 |  SUBFIELDS:                                                      |
-|  Plantation archaeology / archaeology of the enslaved           |
-|  Colonial contact archaeology                                   |
-|  Industrial archaeology                                         |
-|  Shipwreck archaeology (post-1500)                              |
-|  Conflict archaeology                                           |
+|  Plantation archaeology / archaeology of the enslaved            |
+|  Colonial contact archaeology                                    |
+|  Industrial archaeology                                          |
+|  Shipwreck archaeology (post-1500)                               |
+|  Conflict archaeology                                            |
 |  Contemporary/modern archaeology                               |
 +------------------------------------------------------------------+
 ```

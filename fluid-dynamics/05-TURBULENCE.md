@@ -10,11 +10,11 @@ TURBULENCE — CONCEPTUAL MAP
 
   WHAT TURBULENCE IS:
   ┌──────────────────────────────────────────────────────────────────────┐
-  │  Irregular, chaotic, deterministic (N-S solution at high Re)        │
-  │  3D (vortex stretching requires 3D — 2D "turbulence" is different)  │
-  │  Multi-scale (eddies from meters to millimeters simultaneously)     │
-  │  Dissipative (converts KE to heat at small scales)                  │
-  │  Diffusive (turbulent mixing >> molecular diffusion)                │
+  │  Irregular, chaotic, deterministic (N-S solution at high Re)         │
+  │  3D (vortex stretching requires 3D — 2D "turbulence" is different)   │
+  │  Multi-scale (eddies from meters to millimeters simultaneously)      │
+  │  Dissipative (converts KE to heat at small scales)                   │
+  │  Diffusive (turbulent mixing >> molecular diffusion)                 │
   └──────────────────────────────────────────────────────────────────────┘
 
   KOLMOGOROV ENERGY CASCADE:

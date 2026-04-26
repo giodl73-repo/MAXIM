@@ -251,22 +251,22 @@ ARENDT: AMERICAN VS. FRENCH REVOLUTIONARY LOGICS
 
   AMERICAN REVOLUTION           FRENCH REVOLUTION
   ┌─────────────────────┐       ┌─────────────────────┐
-  │ Goal: Foundation of │       │ Goal: Liberation     │
+  │ Goal: Foundation of │       │ Goal: Liberation    │
   │ new political order │       │ from misery (social) │
-  │                     │       │                      │
-  │ "Public happiness"  │       │ "Compassion for the  │
-  │ — participation in  │       │  poor" unleashes     │
-  │   public affairs    │       │  Terror              │
-  │                     │       │                      │
-  │ Political question: │       │ Social question      │
-  │ How shall we govern │       │ overwhelms:          │
-  │ ourselves?          │       │ endless suffering    │
-  │                     │       │ cannot be resolved   │
-  │ Constitution as     │       │ politically          │
-  │ founding act        │       │                      │
-  │                     │       │ Robespierre:         │
-  │ Result: stable      │       │ "virtue and terror"  │
-  │ republic            │       │                      │
+  │                     │       │                     │
+  │ "Public happiness"  │       │ "Compassion for the │
+  │ — participation in  │       │  poor" unleashes    │
+  │   public affairs    │       │  Terror             │
+  │                     │       │                     │
+  │ Political question: │       │ Social question     │
+  │ How shall we govern │       │ overwhelms:         │
+  │ ourselves?          │       │ endless suffering   │
+  │                     │       │ cannot be resolved  │
+  │ Constitution as     │       │ politically         │
+  │ founding act        │       │                     │
+  │                     │       │ Robespierre:        │
+  │ Result: stable      │       │ "virtue and terror" │
+  │ republic            │       │                     │
   └─────────────────────┘       └─────────────────────┘
 
   KEY DISTINCTION:

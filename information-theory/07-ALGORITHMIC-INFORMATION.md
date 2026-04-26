@@ -16,11 +16,11 @@ Kolmogorov = worst case / individual string
 │                                                                  │
 │  "The complexity of a string is the length of its shortest       │
 │   description in a fixed universal formal language"              │
-│                                         — Kolmogorov (1965)     │
+│                                         — Kolmogorov (1965)      │
 │                                                                  │
-│  K("0101010101...01") = O(log n)   [short description]          │
-│  K(π to n places)    = O(log n)   [short program]               │
-│  K(random n bits)    ≈ n          [no compression possible]     │
+│  K("0101010101...01") = O(log n)   [short description]           │
+│  K(π to n places)    = O(log n)   [short program]                │
+│  K(random n bits)    ≈ n          [no compression possible]      │
 └──────────────────────────────────────────────────────────────────┘
 ```
 
@@ -267,11 +267,11 @@ state, costing kT ln 2 per bit. Information-theoretic accounting restores 2nd la
 ┌──────────────────────────────────────────────────────────────┐
 │  Maxwell's Demon resolved:                                   │
 │                                                              │
-│  Gas ──[demon measures]──> Demon memory: {fast, slow, ...}  │
+│  Gas ──[demon measures]──> Demon memory: {fast, slow, ...}   │
 │                                     ↓                        │
 │  Demon operates trap door (work extracted from gas)          │
 │                                     ↓                        │
-│  Demon erases memory to repeat: costs ≥ kT ln 2 per bit     │
+│  Demon erases memory to repeat: costs ≥ kT ln 2 per bit      │
 │                                     ↓                        │
 │  Heat dissipated ≥ work extracted   [2nd law preserved]      │
 └──────────────────────────────────────────────────────────────┘

@@ -4,7 +4,7 @@
 
 ```
 +------------------------------------------------------------------+
-|              THE CINNAMON IDENTITY PROBLEM                        |
+|              THE CINNAMON IDENTITY PROBLEM                       |
 |                                                                  |
 |  "CINNAMON" sold globally = two different products               |
 |                                                                  |

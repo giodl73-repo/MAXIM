@@ -7,20 +7,20 @@
 |                    FUNGI IN THE ECOSYSTEM                        |
 |                                                                  |
 |  SAPROTROPHS: dead organic matter → CO₂ + minerals             |
-|  Carbon cycle engine; only organisms that degrade lignin        |
+|  Carbon cycle engine; only organisms that degrade lignin         |
 |                                                                  |
 |  MYCORRHIZAL SYMBIONTS: plant roots ↔ fungal hyphae            |
-|  90% of land plant species participate                          |
-|  Plant provides carbon; fungus provides P, water, minerals      |
+|  90% of land plant species participate                           |
+|  Plant provides carbon; fungus provides P, water, minerals       |
 |                                                                  |
 |  PARASITES AND PATHOGENS: feed from living hosts               |
-|  Plants (rusts, smuts, powdery mildews, blights)                |
-|  Animals (Aspergillus, Cryptococcus, Batrachochytrium)          |
+|  Plants (rusts, smuts, powdery mildews, blights)                 |
+|  Animals (Aspergillus, Cryptococcus, Batrachochytrium)           |
 |                                                                  |
 |  ENDOPHYTES: live in healthy plants asymptomatically           |
 |  Most plants harbor multiple endophytic fungal species         |
 |                                                                  |
-|  LICHENS: fungus + photosynthetic partner                       |
+|  LICHENS: fungus + photosynthetic partner                        |
 |  Pioneer colonizers; extreme environment specialists           |
 +------------------------------------------------------------------+
 

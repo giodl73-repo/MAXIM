@@ -39,7 +39,7 @@ The canonical twelve (though lists varied by source and city-state):
 
 ```
 ┌──────────────────────────────────────────────────────────────────┐
-│              THE TWELVE OLYMPIANS                                 │
+│              THE TWELVE OLYMPIANS                                │
 ├──────────────┬────────────┬──────────────────────────────────────┤
 │ GREEK        │ ROMAN      │ DOMAIN / ATTRIBUTES                  │
 ├──────────────┼────────────┼──────────────────────────────────────┤

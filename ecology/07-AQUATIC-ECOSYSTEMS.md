@@ -6,8 +6,8 @@ Aquatic ecosystems cover ~71% of Earth's surface (ocean) and host the majority o
 
 ```
 +---------------------------------------------------------------+
-|              AQUATIC ECOSYSTEM TYPES                           |
-|                                                                |
+|              AQUATIC ECOSYSTEM TYPES                          |
+|                                                               |
 |  FRESHWATER                 MARINE                            |
 |  ┌──────────┐               ┌──────────────────────────────┐  |
 |  │  Lakes   │               │ Open ocean (pelagic)         │  |

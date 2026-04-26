@@ -7,9 +7,9 @@ elliptic PDEs and appears in electrostatics, gravitation, steady heat, and irrot
 
 ```
 +-----------------------------------------------------------------------+
-|              LAPLACE / POISSON LANDSCAPE                               |
+|              LAPLACE / POISSON LANDSCAPE                              |
 |                                                                       |
-|  LAPLACE EQUATION:   ∇²u = 0   (harmonic functions)                  |
+|  LAPLACE EQUATION:   ∇²u = 0   (harmonic functions)                   |
 |  Electrostatics:  ∇²φ = 0  in vacuum                                  |
 |  Gravitation:     ∇²φ = 0  outside masses                             |
 |  Steady heat:     ∇²T = 0  in equilibrium                             |
@@ -17,13 +17,13 @@ elliptic PDEs and appears in electrostatics, gravitation, steady heat, and irrot
 |  Complex analysis: Re(f) and Im(f) for holomorphic f                  |
 |                                                                       |
 |  POISSON EQUATION:   ∇²u = f   (harmonic with source)                 |
-|  Electrostatics:  ∇²φ = −ρ/ε₀  (charge density source)               |
-|  Gravitation:     ∇²φ = 4πGρ   (mass density source)                 |
-|  Steady heat:     ∇²T = −Q/k   (heat source Q)                       |
+|  Electrostatics:  ∇²φ = −ρ/ε₀  (charge density source)                |
+|  Gravitation:     ∇²φ = 4πGρ   (mass density source)                  |
+|  Steady heat:     ∇²T = −Q/k   (heat source Q)                        |
 |                                                                       |
 |  KEY TOOLS:                                                           |
 |  • Fundamental solution (Green's function for free space)             |
-|  • Green's theorems (integration by parts for ∇²)                    |
+|  • Green's theorems (integration by parts for ∇²)                     |
 |  • Maximum principle (extrema on boundary)                            |
 |  • Mean value property                                                |
 |  • Separation of variables (spherical/cylindrical harmonics)          |
@@ -169,7 +169,7 @@ The centerpiece of elliptic theory:
   GREEN'S FUNCTION G(x,y) for domain Ω with Dirichlet BC:
   ┌───────────────────────────────────────────────────────────────┐
   │  ∇²_x G(x,y) = δ(x−y)    in Ω  (for fixed y)               │
-  │  G(x,y) = 0               on ∂Ω                              │
+  │  G(x,y) = 0               on ∂Ω                               │
   └───────────────────────────────────────────────────────────────┘
 
   Decomposition: G(x,y) = Φ(x−y) + H(x,y)

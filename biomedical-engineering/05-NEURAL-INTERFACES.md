@@ -9,7 +9,7 @@ brain — the "biotic-abiotic interface problem."
 
 ```
 +---------------------------------------------------------------------+
-|              NEURAL INTERFACE — SIGNAL HIERARCHY                   |
+|              NEURAL INTERFACE — SIGNAL HIERARCHY                    |
 +---------------------------------------------------------------------+
 |                                                                     |
 |  SINGLE UNIT (SPIKE)   LFP          ECoG          EEG             |
@@ -23,11 +23,11 @@ brain — the "biotic-abiotic interface problem."
 |       |                    |            |              |            |
 |       +--------------------+------------+--------------+            |
 |                            |                                        |
-|              RECORDING -> PROCESSING -> DECODING                   |
-|              Filtering, spike sorting, feature extraction,         |
-|              machine learning decoder, control output              |
+|              RECORDING -> PROCESSING -> DECODING                    |
+|              Filtering, spike sorting, feature extraction,          |
+|              machine learning decoder, control output               |
 |                                                                     |
-|              OUTPUT: cursor, prosthetic, communication device      |
+|              OUTPUT: cursor, prosthetic, communication device       |
 +---------------------------------------------------------------------+
 ```
 

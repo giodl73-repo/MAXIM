@@ -10,7 +10,7 @@ The Neural Tangent Kernel (NTK, Jacot et al. 2018) characterizes the dynamics of
 |                                                                  |
 |  SETUP                                                           |
 |  Network f(x; θ) parameterized by θ ∈ ℝᴾ                       |
-|  P = number of parameters (neurons × weights)                   |
+|  P = number of parameters (neurons × weights)                    |
 |                                                                  |
 |  NTK DEFINITION                                                  |
 |  K^(t)(x, x') = ⟨∇_θ f(x; θᵗ), ∇_θ f(x'; θᵗ)⟩                |
@@ -18,11 +18,11 @@ The Neural Tangent Kernel (NTK, Jacot et al. 2018) characterizes the dynamics of
 |  INFINITE-WIDTH MIRACLE                                          |
 |  As width → ∞:                                                   |
 |  (1) NTK converges to a deterministic kernel K*                  |
-|  (2) K^(t) stays constant during training: K^(t) = K* for all t |
+|  (2) K^(t) stays constant during training: K^(t) = K* for all t  |
 |  (3) Training = kernel regression with K*                        |
 |                                                                  |
 |  IMPLICATION: For sufficiently wide networks, training is        |
-|  equivalent to kernel regression in a fixed RKHS.               |
+|  equivalent to kernel regression in a fixed RKHS.                |
 +──────────────────────────────────────────────────────────────────+
 ```
 

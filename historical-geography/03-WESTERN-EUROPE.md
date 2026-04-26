@@ -9,18 +9,18 @@
 |  NORTH SEA                 +-----------+                         |
 |  +---------+               | DENMARK   |                         |
 |  |ENGLAND  |               +-----------+                         |
-|  |Kingdoms |                                                      |
+|  |Kingdoms |                                                     |
 |  |of Mercia|  NORTH                                              |
 |  |Wessex   |  SEA                                                |
-|  |etc.     |                                                      |
-|  +---------+                                                      |
+|  |etc.     |                                                     |
+|  +---------+                                                     |
 |                                                                  |
 |  +-------------------------------------------------------+       |
 |  |              KINGDOM OF FRANCE                        |       |
-|  | [ILE-DE-FRANCE: royal demesne — tiny!]               |       |
-|  | Normandy | Champagne | Flanders (rich!)              |       |
-|  | Anjou    | Burgundy  | Toulouse                      |       |
-|  | Brittany | Aquitaine (huge — disputed)               |       |
+|  | [ILE-DE-FRANCE: royal demesne — tiny!]                |       |
+|  | Normandy | Champagne | Flanders (rich!)               |       |
+|  | Anjou    | Burgundy  | Toulouse                       |       |
+|  | Brittany | Aquitaine (huge — disputed)                |       |
 |  +-------------------------------------------------------+       |
 |       |                  |                                        |
 |  +-----------+   +-------+----+                                  |
@@ -28,13 +28,13 @@
 |  | OF ARAGON |   | (Pyrenees) |                                  |
 |  |           |   +------------+                                  |
 |  +-----------+                                                   |
-|  +-----------+   +------------+   +-----------+                 |
+|  +-----------+   +------------+   +-----------+                  |
 |  | CASTILE   |   | LEON       |   | PORTUGAL  |                 |
 |  |           |   |            |   | (emerging)|                 |
 |  +-----------+   +------------+   +-----------+                 |
-|                                                                  |
-|  [TAIFA KINGDOMS / AL-ANDALUS — Muslim south of Iberia]        |
-|                                                                  |
+|                                                                 |
+|  [TAIFA KINGDOMS / AL-ANDALUS — Muslim south of Iberia]         |
+|                                                                 |
 |  +------------------------+   +----------------------------+    |
 |  | PAPAL STATES (central) |   | KINGDOM OF SICILY (south)  |   |
 |  +------------------------+   | Norman / then Hohenstaufen |   |
@@ -189,9 +189,9 @@ IBERIA c. 1000 CE:
 +---------------------------------+
 |   TAIFA KINGDOMS (after 1031):  |
 |   Caliphate of Córdoba collapsed |
-|   → 30+ small taifa kingdoms     |
-|   Toledo / Seville / Granada     |
-|   / Valencia / Zaragoza / etc.   |
+|   → 30+ small taifa kingdoms    |
+|   Toledo / Seville / Granada    |
+|   / Valencia / Zaragoza / etc.  |
 +---------------------------------+
 | ALMORAVIDS (Berber dynasty      |
 |  from Morocco, called in 1086)  |

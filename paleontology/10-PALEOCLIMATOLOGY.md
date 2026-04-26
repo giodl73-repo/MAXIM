@@ -88,29 +88,29 @@ CLIMATE FEEDBACK LOOP DIAGRAM (control systems view):
 
   POSITIVE FEEDBACKS (destabilizing, amplifying):
   ┌──────────────────────────────────────────────────────────────────────┐
-  │  Temperature ↑                                                        │
+  │  Temperature ↑                                                       │
   │     → Ice melts → albedo decreases (less reflective surface)         │
-  │     → More solar absorption → Temperature ↑ (gain ~0.3–0.5 W/m²/°C) │
+  │     → More solar absorption → Temperature ↑ (gain ~0.3–0.5 W/m²/°C)  │
   │                                                                        │
-  │  Temperature ↑                                                        │
+  │  Temperature ↑                                                       │
   │     → Water vapor (H₂O) increases → stronger greenhouse              │
-  │     → Temperature ↑ (gain ~1.5–2× CO₂ forcing alone)                │
+  │     → Temperature ↑ (gain ~1.5–2× CO₂ forcing alone)                 │
   │                                                                        │
   │  Temperature ↑ (ocean)                                               │
-  │     → Clathrate (CH₄) destabilization → CH₄ released                │
+  │     → Clathrate (CH₄) destabilization → CH₄ released                 │
   │     → Greenhouse forcing → Temperature ↑                             │
   └──────────────────────────────────────────────────────────────────────┘
 
   NEGATIVE FEEDBACKS (stabilizing, restoring):
   ┌──────────────────────────────────────────────────────────────────────┐
-  │  Temperature ↑                                                        │
-  │     → Enhanced silicate weathering (faster kinetics at higher T)    │
+  │  Temperature ↑                                                       │
+  │     → Enhanced silicate weathering (faster kinetics at higher T)     │
   │     → CaSiO₃ + CO₂ → CaCO₃ + SiO₂ (Urey reaction)                 │
   │     → CO₂ drawdown → cooling (timescale: 10⁴–10⁶ yr)               │
   │     → Negative feedback: LONG delay; not fast enough for short events│
   │                                                                        │
   │  CO₂ ↑                                                               │
-  │     → Enhanced plant growth → more organic C burial → CO₂ ↓         │
+  │     → Enhanced plant growth → more organic C burial → CO₂ ↓          │
   │     → Partial negative feedback; saturates when nutrient-limited     │
   └──────────────────────────────────────────────────────────────────────┘
 

@@ -98,28 +98,28 @@ PTOLEMY'S INNOVATIONS
 
   COORDINATE SYSTEM
   ┌────────────────────────────────────────────────────────────┐
-  │  Latitude:  0° at equator, 90° at pole                    │
+  │  Latitude:  0° at equator, 90° at pole                     │
   │             measured from equator northward                │
-  │  Longitude: 0° at "Fortunate Isles" (Canary Islands)      │
+  │  Longitude: 0° at "Fortunate Isles" (Canary Islands)       │
   │             measured eastward to end of known world        │
   │                                                            │
-  │  Every place name has (latitude, longitude) coordinates   │
-  │  ~8,000 named locations with coordinates in Geographia    │
+  │  Every place name has (latitude, longitude) coordinates    │
+  │  ~8,000 named locations with coordinates in Geographia     │
   │                                                            │
   │  This IS the modern system. We just moved the prime        │
-  │  meridian to Greenwich in 1884.                           │
+  │  meridian to Greenwich in 1884.                            │
   └────────────────────────────────────────────────────────────┘
 
   PROJECTION (first systematic use)
   ┌────────────────────────────────────────────────────────────┐
   │  Ptolemy used conic projection for his world maps          │
-  │  and a modified conic for his regional maps               │
+  │  and a modified conic for his regional maps                │
   │                                                            │
   │  Meridians converge toward north pole (correctly)          │
   │  Parallels as arcs of circles                              │
   │                                                            │
   │  First cartographer to acknowledge the problem of          │
-  │  projecting a sphere onto a flat surface and offer        │
+  │  projecting a sphere onto a flat surface and offer         │
   │  a systematic solution                                     │
   └────────────────────────────────────────────────────────────┘
 
@@ -153,8 +153,8 @@ PTOLEMY'S WORLD MAP — SCHEMATIC
 
   North (top)
   ┌──────────────────────────────────────────────────────────┐
-  │  UNKNOWN NORTHERN LANDS                                   │
-  │  ───────────────────────────────────────────────────────  │
+  │  UNKNOWN NORTHERN LANDS                                  │
+  │  ─────────────────────────────────────────────────────── │
   │  Britannia │ Germania │  Sarmatia  │  Scythia            │
   │  ──────────┼──────────┼────────────┼────────────────     │
   │  Hispania  │   Italia │   Pontus   │  India              │
@@ -164,7 +164,7 @@ PTOLEMY'S WORLD MAP — SCHEMATIC
   │            │          │            │                     │
   │  ─────────────────────────────────────────────────────   │
   │  UNKNOWN              INDIAN OCEAN (enclosed sea)        │
-  │  SOUTHERN LAND ←——————connects here ——————————————→     │
+  │  SOUTHERN LAND ←——————connects here ——————————————→      │
   └──────────────────────────────────────────────────────────┘
 
   Note: Mediterranean ~25% too long; Indian Ocean enclosed (wrong);
@@ -194,7 +194,7 @@ PEUTINGER TABLE — WHAT IT IS AND ISN'T
   │  Vertical compression: massive (north-south squashed)       │
   │                                                             │
   │  Britain  → Rome → Constantinople → Antioch → Persia → India│
-  │  ←————————————————— 6.82 meters ————————————————————————→  │
+  │  ←————————————————— 6.82 meters ————————————————————————→   │
   │  ↕ 34 cm (north-south — Mediterranean is a thin line)       │
   └─────────────────────────────────────────────────────────────┘
 
@@ -230,15 +230,15 @@ T-O MAP STRUCTURE
 
   The T-O form:
   ┌───────────────────────────────────────────────────────────┐
-  │                    East (top)                              │
+  │                    East (top)                             │
   │              ┌─────────────────┐                          │
   │              │   ASIA          │                          │
   │              │  (Noah's sons:  │                          │
   │              │  Shem's land)   │                          │
   │  North ──────┼─────────────────┼────── South             │
-  │              │EUROPE │ AFRICA  │                          │
-  │              │(Japhet)│(Ham)   │                          │
-  │              └────────┴────────┘                          │
+  │              │EUROPE │ AFRICA  │                         │
+  │              │(Japhet)│(Ham)   │                         │
+  │              └────────┴────────┘                         │
   │                    West (bottom)                           │
   │                                                            │
   │  The "T":  Don/Nile rivers (vertical bar)                 │

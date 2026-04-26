@@ -8,29 +8,29 @@ No building exists in isolation. Every building is simultaneously a private arti
 +--------------------------------------------------------------------+
 |                   URBAN ARCHITECTURE SCALES                        |
 |                                                                    |
-|  CITY SCALE (1:10,000–1:50,000)                                   |
-|  Urban structure, transit networks, land use, zoning              |
-|  → Urban planning, not architecture per se                        |
+|  CITY SCALE (1:10,000–1:50,000)                                    |
+|  Urban structure, transit networks, land use, zoning               |
+|  → Urban planning, not architecture per se                         |
 |                       │                                            |
 |  DISTRICT / NEIGHBORHOOD SCALE (1:2,000–1:10,000)                |
-|  Urban fabric, block structure, street network,                   |
-|  TOD (transit-oriented development)                               |
-|  → Architecture + urban design overlap                            |
+|  Urban fabric, block structure, street network,                    |
+|  TOD (transit-oriented development)                                |
+|  → Architecture + urban design overlap                             |
 |                       │                                            |
-|  BLOCK SCALE (1:500–1:2,000)                                      |
-|  Building typology: perimeter block / tower / slab / podium       |
+|  BLOCK SCALE (1:500–1:2,000)                                       |
+|  Building typology: perimeter block / tower / slab / podium        |
 |  Figure-ground relationship, street wall, setbacks               |
-|  → Primary architecture + urban design territory                  |
+|  → Primary architecture + urban design territory                   |
 |                       │                                            |
-|  STREET SECTION (1:100–1:500)                                     |
-|  Ground floor activation, building edge condition,                |
-|  public vs private threshold, sunlight access                     |
-|  → Architecture's primary urban responsibility                    |
+|  STREET SECTION (1:100–1:500)                                      |
+|  Ground floor activation, building edge condition,                 |
+|  public vs private threshold, sunlight access                      |
+|  → Architecture's primary urban responsibility                     |
 |                       │                                            |
-|  BUILDING SCALE (1:1–1:200)                                       |
-|  The building's contribution to urban experience:                 |
-|  facade quality, entry, materials, scale articulation             |
-|  → Architecture proper                                            |
+|  BUILDING SCALE (1:1–1:200)                                        |
+|  The building's contribution to urban experience:                  |
+|  facade quality, entry, materials, scale articulation              |
+|  → Architecture proper                                             |
 +--------------------------------------------------------------------+
 ```
 
@@ -253,9 +253,9 @@ Jacobs's *The Death and Life of Great American Cities* (1961) remains the founda
   UNSAFE:                        SAFE:
   ┌────────────────┐             ┌────────────────┐
   │ BLANK WALL     │             │ RETAIL / CAFE  │ ← eyes
-  │                │             │ ──────────────  │
+  │                │             │ ────────────── │
   │ (parking,      │             │ STOOP / ENTRY  │ ← eyes
-  │  loading,      │             │ ──────────────  │
+  │  loading,      │             │ ────────────── │
   │  service)      │             │ RESIDENTIAL    │ ← eyes
   │                │             │ WINDOWS        │
   └────────────────┘             └────────────────┘
@@ -378,7 +378,7 @@ William H. Whyte studied New York plaza behavior using time-lapse photography (*
 
   ┌──────────────────────────────────────────────┐
   │                                              │
-  │           1/2 mile radius                   │
+  │           1/2 mile radius                    │
   │        ┌─────────────────────────────┐       │
   │        │                            │        │
   │        │       1/4 mile radius      │        │
@@ -493,13 +493,13 @@ William H. Whyte studied New York plaza behavior using time-lapse photography (*
   ┌──────────────────────────────────────────────────────────────┐
   │  SPONGE CITY COMPONENTS                                      │
   │                                                              │
-  │  GREEN ROOFS          Retain 60–80% of rainfall event       │
+  │  GREEN ROOFS          Retain 60–80% of rainfall event        │
   │  BIOSWALES            Linear infiltration channels           │
   │  RAIN GARDENS         Planted infiltration basins            │
-  │  PERMEABLE PAVEMENT   Infiltration through surface            │
+  │  PERMEABLE PAVEMENT   Infiltration through surface           │
   │  URBAN WETLANDS       Large-scale storage + infiltration     │
   │  RETENTION PONDS      Storage + delayed release              │
-  │  TREE PITS            Subsurface infiltration               │
+  │  TREE PITS            Subsurface infiltration                │
   └──────────────────────────────────────────────────────────────┘
 
   BEIJING CASE (2021 floods): massive flooding exposed failure

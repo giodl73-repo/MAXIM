@@ -6,7 +6,7 @@ General philosophy of science (demarcation, realism, causation) plays out differ
 
 ```
 +------------------------------------------------------------------+
-|           PHILOSOPHY BY FIELD — PROBLEM MAP                     |
+|           PHILOSOPHY BY FIELD — PROBLEM MAP                      |
 +------------------------------------------------------------------+
 |                                                                  |
 |  PHYSICS                  BIOLOGY                                |
@@ -38,7 +38,7 @@ QM is the most predictively accurate physical theory ever developed. Its formali
 
 ```
 +------------------------------------------------------------------+
-|              QM INTERPRETATIONS — COMPARISON                    |
+|              QM INTERPRETATIONS — COMPARISON                     |
 +------------------------------------------------------------------+
 |                                                                  |
 |  FORMALISM: ψ evolves via Schrödinger equation.                 |
@@ -72,8 +72,8 @@ QM is the most predictively accurate physical theory ever developed. Its formali
 | (Rovelli)          | No absolute state; only relative states.  | |
 +--------------------+-------------------------------------------+ |
 |                                                                  |
-|  ALL produce identical empirical predictions. Pure under-       |
-|  determination. Choice is metaphysical, not empirical.          |
+|  ALL produce identical empirical predictions. Pure under-        |
+|  determination. Choice is metaphysical, not empirical.           |
 |                                                                  |
 +------------------------------------------------------------------+
 ```

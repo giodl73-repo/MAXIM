@@ -7,42 +7,42 @@ You know lambda calculus from MIT — this builds that directly into modern PL p
 
 ```
 +--------------------------------------------------------------------------+
-|                          TYPE THEORY HIERARCHY                            |
+|                          TYPE THEORY HIERARCHY                           |
 |                                                                            |
 |  SIMPLY TYPED LAMBDA CALCULUS (STLC)                                     |
-|  Base types + function types. Strong normalization. No self-application.  |
-|  No polymorphism. Every term has exactly one type.                        |
+|  Base types + function types. Strong normalization. No self-application. |
+|  No polymorphism. Every term has exactly one type.                       |
 +--------------------------------------------------------------------------+
             | add parametric polymorphism
             v
 +--------------------------------------------------------------------------+
 |  SYSTEM F  (Girard 1971 / Reynolds 1974)                                 |
-|  Universal type: ΛX. t  /  forall X. T                                  |
-|  Haskell's forall. Rank-2 polymorphism. Parametricity / free theorems.  |
+|  Universal type: ΛX. t  /  forall X. T                                   |
+|  Haskell's forall. Rank-2 polymorphism. Parametricity / free theorems.   |
 +--------------------------------------------------------------------------+
             | add type constructors
             v
 +--------------------------------------------------------------------------+
-|  SYSTEM F-omega                                                           |
-|  Type-level functions (type constructors). Kind system: * -> * -> *.    |
-|  Haskell type classes, higher-kinded types, Functor, Monad.             |
+|  SYSTEM F-omega                                                          |
+|  Type-level functions (type constructors). Kind system: * -> * -> *.     |
+|  Haskell type classes, higher-kinded types, Functor, Monad.              |
 +--------------------------------------------------------------------------+
             | add type-level computation on values
             v
 +--------------------------------------------------------------------------+
-|  DEPENDENT TYPES (Martin-Lof Type Theory, CIC, Lean 4)                  |
-|  Pi type:   (x : A) -> B(x)    -- return type depends on VALUE of arg   |
+|  DEPENDENT TYPES (Martin-Lof Type Theory, CIC, Lean 4)                   |
+|  Pi type:   (x : A) -> B(x)    -- return type depends on VALUE of arg    |
 |  Sigma type: (x : A) × B(x)    -- second component type depends on first |
 |  Vector n: Array whose length is IN THE TYPE.                            |
-|  Propositions as types. Proofs as programs. Coq, Lean 4, Agda.          |
+|  Propositions as types. Proofs as programs. Coq, Lean 4, Agda.           |
 +--------------------------------------------------------------------------+
             | add paths/higher structure
             v
 +--------------------------------------------------------------------------+
 |  HOMOTOPY TYPE THEORY (HoTT)                                             |
 |  Types as spaces. Paths as equality proofs. Univalence axiom.            |
-|  Higher inductive types. Cubical type theory (computational content).   |
-|  Agda cubical, Lean 4 (classical, not cubical).                         |
+|  Higher inductive types. Cubical type theory (computational content).    |
+|  Agda cubical, Lean 4 (classical, not cubical).                          |
 +--------------------------------------------------------------------------+
 
   INDUSTRIAL IMPLEMENTATIONS:

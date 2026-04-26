@@ -4,7 +4,7 @@
 
 ```
 +------------------------------------------------------------------+
-|              SURFACE TREATMENTS LANDSCAPE                         |
+|              SURFACE TREATMENTS LANDSCAPE                        |
 +------------------------------------------------------------------+
 |                                                                  |
 |  PAINTS & STAINS          CLEAR FINISHES       INDUSTRIAL        |
@@ -45,25 +45,25 @@ All liquid coatings start wet and cure to solid film. The mechanism determines:
 ```
 FILM FORMATION MECHANISMS
 ┌─────────────────┬──────────────────────────────────────────────────┐
-│ Mechanism       │ How it works                                      │
+│ Mechanism       │ How it works                                     │
 ├─────────────────┼──────────────────────────────────────────────────┤
 │ Evaporation     │ Solvent evaporates, polymer chains deposit        │
 │                 │ Reversible: yes (re-dissolve with same solvent)   │
 │                 │ Examples: lacquer, shellac, basic acrylics        │
 ├─────────────────┼──────────────────────────────────────────────────┤
 │ Oxidative cure  │ O₂ crosslinks unsaturated fatty acid chains      │
-│                 │ Reversible: no (crosslinked network)              │
-│                 │ Examples: oil varnish, alkyd paint                │
-│                 │ CAUTION: oil-soaked rags spontaneously combust    │
+│                 │ Reversible: no (crosslinked network)             │
+│                 │ Examples: oil varnish, alkyd paint               │
+│                 │ CAUTION: oil-soaked rags spontaneously combust   │
 ├─────────────────┼──────────────────────────────────────────────────┤
 │ Coalescence     │ Latex particles fuse as water evaporates          │
 │ (latex)         │ Requires T > MFFT (min film formation temp)       │
 │                 │ Reversible: no                                    │
 │                 │ Examples: latex/acrylic interior/exterior paint   │
 ├─────────────────┼──────────────────────────────────────────────────┤
-│ Polymerization  │ Chemical reaction between mixed components        │
-│ (2-part)        │ Irreversible covalent bonds; pot life constraint  │
-│                 │ Examples: 2-part epoxy, 2-part polyurethane       │
+│ Polymerization  │ Chemical reaction between mixed components       │
+│ (2-part)        │ Irreversible covalent bonds; pot life constraint │
+│                 │ Examples: 2-part epoxy, 2-part polyurethane      │
 ├─────────────────┼──────────────────────────────────────────────────┤
 │ Heat cure       │ Powder or liquid applied, then cured in oven      │
 │                 │ Irreversible; highest performance                 │

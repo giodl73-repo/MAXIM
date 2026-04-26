@@ -7,10 +7,10 @@ checks its type. A proof is a term whose type is the proposition being proved.
 
 ```
 +--------------------------------------------------------------------------+
-|                    PROOF ASSISTANT LANDSCAPE                              |
+|                    PROOF ASSISTANT LANDSCAPE                             |
 |                                                                            |
-|  FOUNDATION         TOOL           ECOSYSTEM        PRIMARY USE           |
-|  ──────────         ────           ─────────        ───────────           |
+|  FOUNDATION         TOOL           ECOSYSTEM        PRIMARY USE          |
+|  ──────────         ────           ─────────        ───────────          |
 |                                                                            |
 |  CIC (Coq)          Coq 8.x        Coq stdlib,      Compilers,           |
 |  Calculus of        (INRIA)        MathComp, CF     math, program        |
@@ -29,18 +29,18 @@ checks its type. A proof is a term whose type is the proposition being proved.
 |                                                                            |
 |  Simple HOL         HOL Light      Flyspeck (Kepler)Formal math          |
 |  LCF minimal        (Harrison,     geometry         proofs               |
-|                     Intel/MSR)                                            |
+|                     Intel/MSR)                                           |
 +--------------------------------------------------------------------------+
 
   All proof assistants share this architecture:
   ┌──────────────────────────────────────────────────────────────┐
   │  TACTIC LAYER  (user-facing: automation, search, tactics)    │
   │       |                                                        │
-  │  ELABORATOR    (fills implicit arguments, type inference)     │
+  │  ELABORATOR    (fills implicit arguments, type inference)    │
   │       |                                                        │
-  │  KERNEL        (the trusted core — checks proof terms)        │
+  │  KERNEL        (the trusted core — checks proof terms)       │
   │       |                                                        │
-  │  LOGIC         (type theory or higher-order logic)            │
+  │  LOGIC         (type theory or higher-order logic)           │
   └──────────────────────────────────────────────────────────────┘
 
   Only the kernel needs to be trusted.
@@ -454,29 +454,29 @@ For software verification (not pure mathematics):
 
 ```
   ┌────────────────────────────────────────────────────────────────┐
-  │  1. SPECIFY: Write formal spec in proof assistant             │
-  │     - Define data types (states, operations)                  │
-  │     - State invariants (what must always hold)                │
-  │     - State functional spec (what each function should do)    │
+  │  1. SPECIFY: Write formal spec in proof assistant              │
+  │     - Define data types (states, operations)                   │
+  │     - State invariants (what must always hold)                 │
+  │     - State functional spec (what each function should do)     │
   ├────────────────────────────────────────────────────────────────┤
   │  2. IMPLEMENT: Write or import the implementation             │
   │     - Can be in the PA's language (Coq Gallina, Lean 4)       │
   │     - Can be external C/Rust + axiomatized interface          │
   ├────────────────────────────────────────────────────────────────┤
-  │  3. PROVE: Construct the proofs                               │
-  │     - Start with easy lemmas (typing, structural)             │
-  │     - Work toward the main theorem                            │
-  │     - Use automation: simp, omega, decide, Sledgehammer       │
-  │     - Hand-prove complex inductive cases                      │
+  │  3. PROVE: Construct the proofs                                │
+  │     - Start with easy lemmas (typing, structural)              │
+  │     - Work toward the main theorem                             │
+  │     - Use automation: simp, omega, decide, Sledgehammer        │
+  │     - Hand-prove complex inductive cases                       │
   ├────────────────────────────────────────────────────────────────┤
   │  4. EXTRACT (if applicable): Export to target language        │
   │     - Coq -> OCaml/Haskell                                    │
   │     - Lean 4 -> Lean executable (it's also a PL)              │
   │     - Otherwise: use proof as certification + manual impl.    │
   ├────────────────────────────────────────────────────────────────┤
-  │  5. MAINTAIN: Proofs must be updated when code changes        │
-  │     This is the ongoing cost — proofs are brittle to change.  │
-  │     Proof refactoring is real work.                           │
+  │  5. MAINTAIN: Proofs must be updated when code changes         │
+  │     This is the ongoing cost — proofs are brittle to change.   │
+  │     Proof refactoring is real work.                            │
   └────────────────────────────────────────────────────────────────┘
 ```
 

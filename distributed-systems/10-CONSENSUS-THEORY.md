@@ -21,7 +21,7 @@ CONSENSUS THEORY — THE CONSTRAINT STACK
   │                                                             │
   │ CAP (2002)     No simultaneous C + A + P                    │
   │                                                             │
-  │ BFT bound      Need 3f+1 nodes for f Byzantine faults      │
+  │ BFT bound      Need 3f+1 nodes for f Byzantine faults       │
   │                (Lamport-Shostak-Pease 1982)                 │
   └─────────────────────────┬───────────────────────────────────┘
                             │
@@ -31,7 +31,7 @@ CONSENSUS THEORY — THE CONSTRAINT STACK
   PROTOCOL DESIGN (how you WORK WITHIN the constraints)
   ┌─────────────────────────────────────────────────────────────┐
   │                                                             │
-  │  CRASH FAULT TOLERANT (f crashes, 2f+1 nodes)              │
+  │  CRASH FAULT TOLERANT (f crashes, 2f+1 nodes)               │
   │  ┌───────────┐  ┌──────────┐  ┌──────────────────┐        │
   │  │ Paxos     │  │ Raft     │  │ Viewstamped Rep  │        │
   │  │ (1989)    │  │ (2014)   │  │ (1988)           │        │
@@ -39,7 +39,7 @@ CONSENSUS THEORY — THE CONSTRAINT STACK
   │                                                             │
   │  BYZANTINE FAULT TOLERANT (f Byzantine, 3f+1 nodes)        │
   │  ┌───────────┐  ┌──────────┐  ┌──────────────────┐        │
-  │  │ PBFT      │  │ Tendermint│  │ HotStuff         │        │
+  │  │ PBFT      │  │ Tendermint│  │ HotStuff         │       │
   │  │ (1999)    │  │ (2014)   │  │ (2019)           │        │
   │  └───────────┘  └──────────┘  └──────────────────┘        │
   │                                                             │
@@ -52,7 +52,7 @@ CONSENSUS THEORY — THE CONSTRAINT STACK
   ┌─────────────────────────────────────────────────────────────┐
   │ ZooKeeper (ZAB)   etcd (Raft)    Spanner (Paxos+TrueTime) │
   │ CockroachDB (Raft+MVCC)  TiKV (Raft)  Consul (Raft)      │
-  │ Hyperledger (PBFT)  Cosmos SDK (Tendermint)                │
+  │ Hyperledger (PBFT)  Cosmos SDK (Tendermint)                 │
   └─────────────────────────────────────────────────────────────┘
 ```
 
@@ -204,7 +204,7 @@ THE BYZANTINE GENERALS — 4 GENERALS, 1 TRAITOR
   Scenario A: General 3 is the traitor
   ┌─────────┐     "attack"     ┌─────────┐
   │General 1│────────────────> │General 2│
-  │(loyal)  │<────────────────│(loyal)  │
+  │(loyal)  │<────────────────│(loyal)   │
   └────┬────┘    "attack"      └────┬────┘
        │                            │
   "attack"                     "attack"
@@ -222,7 +222,7 @@ THE BYZANTINE GENERALS — 4 GENERALS, 1 TRAITOR
   Scenario B: 3 generals, 1 traitor — FAILS
   ┌─────────┐     "attack"     ┌─────────┐
   │General 1│────────────────> │General 2│
-  │(loyal)  │<────────────────│(loyal)  │
+  │(loyal)  │<────────────────│(loyal)   │
   └────┬────┘    "attack"      └────┬────┘
        │                            │
        │    ┌─────────┐            │
@@ -368,9 +368,9 @@ MULTI-PAXOS ARCHITECTURE
 
   Leader (elected via Paxos)
   ┌──────────────────────────────────────────────────┐
-  │ Log slot 1:  value=X   (Phase 2 only — decided) │
-  │ Log slot 2:  value=Y   (Phase 2 only — decided) │
-  │ Log slot 3:  value=Z   (Phase 2 in progress)    │
+  │ Log slot 1:  value=X   (Phase 2 only — decided)  │
+  │ Log slot 2:  value=Y   (Phase 2 only — decided)  │
+  │ Log slot 3:  value=Z   (Phase 2 in progress)     │
   │ Log slot 4:  (empty — awaiting client request)   │
   └──────────────────────────────────────────────────┘
        │              │              │
@@ -470,7 +470,7 @@ RAFT vs. PAXOS — DESIGN PHILOSOPHY
   │ left as exercise       │       │ fully specified         │
   ├────────────────────────┤       ├────────────────────────┤
   │ Snapshotting:          │       │ Snapshotting:          │
-  │ not discussed          │       │ fully specified         │
+  │ not discussed          │       │ fully specified        │
   └────────────────────────┘       └────────────────────────┘
 
   RESULT: Raft's TLA+ spec is complete enough to implement from.
@@ -619,7 +619,7 @@ PBFT IN BLOCKCHAIN CONTEXT
 
   PERMISSIONLESS BLOCKCHAINS (unknown validators)
   ┌────────────────────────────┬─────────────────────────────┐
-  │ System                     │ Consensus Mechanism          │
+  │ System                     │ Consensus Mechanism         │
   ├────────────────────────────┼─────────────────────────────┤
   │ Bitcoin                    │ Nakamoto consensus (PoW)     │
   │ Ethereum (post-Merge)      │ Gasper (Casper FFG + LMD)   │
@@ -740,7 +740,7 @@ COCKROACHDB CONSENSUS ARCHITECTURE
   CockroachDB uses Raft PER RANGE (not one global Raft group).
 
   ┌──────────────────────────────────────────────────┐
-  │                 TABLE DATA                        │
+  │                 TABLE DATA                       │
   │  key range [a, m)  │  key range [m, z)           │
   │  ┌──────────────┐  │  ┌──────────────┐           │
   │  │ Raft Group 1 │  │  │ Raft Group 2 │           │

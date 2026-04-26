@@ -10,22 +10,22 @@ Speech act theory answers: what are speakers DOING when they speak? The emphasis
 +-----------------------------------------------------------------------+
 |                     SPEECH ACT THEORY MAP                             |
 |                                                                       |
-|  AUSTIN (1955/1962)              SEARLE (1969–1979)                  |
-|  How to Do Things with Words     Speech Acts (1969)                  |
+|  AUSTIN (1955/1962)              SEARLE (1969–1979)                   |
+|  How to Do Things with Words     Speech Acts (1969)                   |
 |                                  A Taxonomy of Illocutionary Acts     |
 |                                                                       |
-|  CONSTATIVES vs PERFORMATIVES    TAXONOMY OF ILLOCUTIONARY ACTS:     |
-|  (initial distinction)           - Assertives (describing)           |
+|  CONSTATIVES vs PERFORMATIVES    TAXONOMY OF ILLOCUTIONARY ACTS:      |
+|  (initial distinction)           - Assertives (describing)            |
 |                                  - Directives (requesting, ordering)  |
-|  LOCUTIONARY / ILLOCUTIONARY /   - Commissives (promising, offering) |
+|  LOCUTIONARY / ILLOCUTIONARY /   - Commissives (promising, offering)  |
 |  PERLOCUTIONARY acts             - Expressives (thanking, apologizing)|
 |                                  - Declarations (marrying, firing)    |
 |  FELICITY CONDITIONS:                                                 |
-|  What makes a speech act succeed Constitutive rules vs regulative    |
-|  or fail (void/misfire/abuse)    rules                               |
+|  What makes a speech act succeed Constitutive rules vs regulative     |
+|  or fail (void/misfire/abuse)    rules                                |
 |                                                                       |
-|  INDIRECT SPEECH ACTS (Searle):                                      |
-|  "Can you pass the salt?" → request, not question about ability      |
+|  INDIRECT SPEECH ACTS (Searle):                                       |
+|  "Can you pass the salt?" → request, not question about ability       |
 +-----------------------------------------------------------------------+
 ```
 
@@ -155,16 +155,16 @@ For a performative to succeed, certain conditions must hold. Austin calls violat
   not the legal effect.
 
 +----------------------------------------------------------------+
-| INFELICITY TYPE | WHAT FAILS             | EFFECT             |
+| INFELICITY TYPE | WHAT FAILS             | EFFECT              |
 |-----------------|------------------------|--------------------|
-| MISFIRE A.1/A.2 | No procedure or wrong  | Act void —         |
-|                 | circumstances          | "doesn't come off" |
+| MISFIRE A.1/A.2 | No procedure or wrong  | Act void —          |
+|                 | circumstances          | "doesn't come off"  |
 |-----------------|------------------------|--------------------|
-| MISFIRE B.1/B.2 | Execution incorrect/   | Act void           |
-|                 | incomplete             |                    |
+| MISFIRE B.1/B.2 | Execution incorrect/   | Act void            |
+|                 | incomplete             |                     |
 |-----------------|------------------------|--------------------|
-| ABUSE Γ.1/Γ.2   | Sincerity conditions   | Act performed but  |
-|                 | violated               | hollow/abused      |
+| ABUSE Γ.1/Γ.2   | Sincerity conditions   | Act performed but   |
+|                 | violated               | hollow/abused       |
 +----------------------------------------------------------------+
 ```
 

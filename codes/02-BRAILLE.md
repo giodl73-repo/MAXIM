@@ -6,10 +6,10 @@ Braille is a **6-dot tactile writing system** that encodes text and specialized 
 
 ```
 ┌──────────────────────────────────────────────────────────────────┐
-│                      BRAILLE SYSTEM MAP                           │
+│                      BRAILLE SYSTEM MAP                          │
 │                                                                  │
-│  Grade 1 (Uncontracted)     Grade 2 (Contracted/UEB)            │
-│  ┌──────────────────┐       ┌─────────────────────┐             │
+│  Grade 1 (Uncontracted)     Grade 2 (Contracted/UEB)             │
+│  ┌──────────────────┐       ┌─────────────────────┐              │
 │  │ 26 letters       │       │ Grade 1 +            │             │
 │  │ 10 digits        │  ──→  │ 189 contractions     │             │
 │  │ Punctuation      │       │ Short forms          │             │
@@ -18,9 +18,9 @@ Braille is a **6-dot tactile writing system** that encodes text and specialized 
 │                                                                  │
 │  Nemeth Code            Computer Braille (8-dot)                │
 │  ┌──────────────┐       ┌──────────────────────┐               │
-│  │ Mathematics  │       │ Full ASCII (256 chars)│               │
-│  │ Science      │       │ Programming code      │               │
-│  │ Technical    │       │ Braille display output│               │
+│  │ Mathematics  │       │ Full ASCII (256 chars)│              │
+│  │ Science      │       │ Programming code     │               │
+│  │ Technical    │       │ Braille display output│              │
 │  └──────────────┘       └──────────────────────┘               │
 │                                                                  │
 │  Music Braille          Braille versions exist for:             │
@@ -39,7 +39,7 @@ The fundamental unit of Braille is a 6-dot cell. Dots are numbered 1–6 in a fi
 
 ```
 ┌──────────────────────────────────────────────────────────┐
-│                  BRAILLE CELL LAYOUT                      │
+│                  BRAILLE CELL LAYOUT                     │
 │                                                          │
 │    Left column    Right column                           │
 │                                                          │
@@ -83,9 +83,9 @@ Cells are described by dot numbers (e.g., "1" = only dot 1 raised, "12" = dots 1
 │  u=136     v=1236    w=2456    x=1346    y=13456   z=1356    │
 │                                                              │
 │  PATTERN: letters a–j use only dots 1,2,4,5 (top 4 dots)   │
-│           letters k–t = corresponding a–j + dot 3           │
-│           letters u–z = corresponding k–t + dot 6           │
-│           (w is irregular: j+6 would be 2456, which IS w)   │
+│           letters k–t = corresponding a–j + dot 3            │
+│           letters u–z = corresponding k–t + dot 6            │
+│           (w is irregular: j+6 would be 2456, which IS w)    │
 │           (w was added for English; French Braille had no w) │
 └──────────────────────────────────────────────────────────────┘
 ```
@@ -309,26 +309,26 @@ The speed advantage of Grade 2 over Grade 1 is ~35% (mirroring dictionary compre
 ┌──────────────────────────────────────────────────────────────┐
 │            BRAILLE EMBOSSING METHODS                         │
 │                                                              │
-│  Personal embosser (home/office):                           │
-│  — Interpoint embosser: dots on both sides, interlaced      │
-│  — Single-sided: less efficient, easier to produce          │
-│  — Speed: 10–50 pages/minute                                │
+│  Personal embosser (home/office):                            │
+│  — Interpoint embosser: dots on both sides, interlaced       │
+│  — Single-sided: less efficient, easier to produce           │
+│  — Speed: 10–50 pages/minute                                 │
 │  — Cost: $1,000–$5,000                                       │
 │                                                              │
 │  Industrial embosser:                                        │
-│  — High-volume: textbook production                         │
-│  — Speed: 800+ pages/hour                                   │
+│  — High-volume: textbook production                          │
+│  — Speed: 800+ pages/hour                                    │
 │                                                              │
 │  Braille paper:                                              │
-│  — Weight: 90–160 gsm (heavier than copier paper)           │
-│  — Dots last ~2 years with heavy use before flattening      │
+│  — Weight: 90–160 gsm (heavier than copier paper)            │
+│  — Dots last ~2 years with heavy use before flattening       │
 │  — Wet conditions collapse dots faster                       │
 │                                                              │
-│  Braille slate and stylus (manual):                         │
-│  — Metal or plastic template with 6-dot wells               │
-│  — Punch from right to left (mirror image)                  │
-│  — Turn over to read left-to-right                          │
-│  — The pencil-and-paper equivalent for Braille              │
+│  Braille slate and stylus (manual):                          │
+│  — Metal or plastic template with 6-dot wells                │
+│  — Punch from right to left (mirror image)                   │
+│  — Turn over to read left-to-right                           │
+│  — The pencil-and-paper equivalent for Braille               │
 └──────────────────────────────────────────────────────────────┘
 ```
 

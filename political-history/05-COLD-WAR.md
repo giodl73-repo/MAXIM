@@ -8,14 +8,14 @@ COLD WAR HISTORIOGRAPHY — SCHOOLS OVER TIME
 
   1945-1960      1960s-70s     1970s-80s      1990s-present
   ┌──────────┐   ┌──────────┐  ┌──────────┐   ┌──────────────────┐
-  │ORTHODOX  │   │REVISIONIST│  │POST-     │   │POST-SOVIET       │
-  │          │ → │          │→ │REVISIONIST│ → │ARCHIVAL          │
-  │USSR aggr │   │US aggr   │  │Shared    │   │New evidence from  │
-  │caused CW │   │caused CW │  │responsib-│   │Soviet, Chinese,   │
-  │          │   │          │  │ility;    │   │Eastern Bloc       │
-  │Truman    │   │Williams, │  │Gaddis,   │   │archives open      │
-  │Acheson,  │   │Kolko,    │  │Leffler,  │   │after 1991         │
-  │Kennan    │   │LaFeber   │  │Hogan     │   │                   │
+  │ORTHODOX  │   │REVISIONIST│  │POST-     │   │POST-SOVIET      │
+  │          │ → │          │→ │REVISIONIST│ → │ARCHIVAL         │
+  │USSR aggr │   │US aggr   │  │Shared    │   │New evidence from │
+  │caused CW │   │caused CW │  │responsib-│   │Soviet, Chinese,  │
+  │          │   │          │  │ility;    │   │Eastern Bloc      │
+  │Truman    │   │Williams, │  │Gaddis,   │   │archives open     │
+  │Acheson,  │   │Kolko,    │  │Leffler,  │   │after 1991        │
+  │Kennan    │   │LaFeber   │  │Hogan     │   │                  │
   └──────────┘   └──────────┘  └──────────┘   └──────────────────┘
 
   Trigger: Korean War   Vietnam War   Détente era   USSR collapse
@@ -313,7 +313,7 @@ COLD WAR END — COMPETING EXPLANATIONS
   │ Reagan defense   │    │ Gorbachev chosen │   │ Soviet economy   │
   │ buildup forced   │    │ to reform the    │   │ structurally     │
   │ Soviet matching  │    │ system; chose    │   │ failing:         │
-  │ → unaffordable  │    │ glasnost and     │   │ • TFP declining  │
+  │ → unaffordable   │    │ glasnost and     │   │ • TFP declining  │
   │                  │    │ perestroika;     │   │ • Oil revenue    │
   │ SDI (Star Wars)  │    │ underestimated   │   │   fell (1986)    │
   │ forced Soviets   │    │ destabilizing    │   │ • Military       │

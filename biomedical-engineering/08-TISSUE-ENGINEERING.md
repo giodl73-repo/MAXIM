@@ -9,7 +9,7 @@ optimized simultaneously.
 
 ```
 +---------------------------------------------------------------------+
-|              TISSUE ENGINEERING — LANDSCAPE                        |
+|              TISSUE ENGINEERING — LANDSCAPE                         |
 +---------------------------------------------------------------------+
 |                                                                     |
 |  SCAFFOLD                  CELLS                  SIGNALS           |
@@ -195,9 +195,9 @@ optimized simultaneously.
   BIOINK FORMULATIONS:
   +------------------+----------------------------------------------+
   | GelMA (gelatin   | Gelatin methacrylate — photocrosslinkable    |
-  | methacrylate)    | Tunable stiffness (0.5-40 kPa)              |
+  | methacrylate)    | Tunable stiffness (0.5-40 kPa)               |
   |                  | RGD sequences -> cell adhesion               |
-  |                  | Most popular research bioink                  |
+  |                  | Most popular research bioink                 |
   +------------------+----------------------------------------------+
   | Alginate         | Ionic crosslink (CaCl2)                      |
   |                  | Biocompatible, easy to work with              |
@@ -505,7 +505,7 @@ optimized simultaneously.
   |                           | patient's own cells, spray device   |
   |                           | FDA cleared for burns and wounds    |
   |                           | Not strictly "bioprinting" but      |
-  |                           | autologous cell-based              |
+  |                           | autologous cell-based               |
   |                           |                                     |
   |                           | 3D-printed acellular skin scaffolds:|
   |                           | Integra (collagen/GAG scaffold) —   |
@@ -519,7 +519,7 @@ optimized simultaneously.
   |                           | membrane (not strictly bioprinted)  |
   |                           | 3D bioprinted cartilage: early      |
   |                           | clinical trials for ears (auricle), |
-  |                           | tracheal ring repair               |
+  |                           | tracheal ring repair                |
   +---------------------------+-------------------------------------+
   | Bone                      | Patient-specific 3D printed Ti      |
   |                           | implants (not bioprinted, but       |

@@ -15,37 +15,37 @@ FROM DNA TO EXPRESSION MEASUREMENT
 
   KEY DIFFERENCE FROM GENOMICS:
   ┌────────────────────────────────────────────────────────────────┐
-  │ GENOMICS (DNA-seq)                                              │
+  │ GENOMICS (DNA-seq)                                             │
   │   Same in every cell of the body                               │
   │   Stable over time (mostly)                                    │
   │   Answer: "What could this organism make?"                     │
-  │                                                                 │
-  │ TRANSCRIPTOMICS (RNA-seq)                                       │
+  │                                                                │
+  │ TRANSCRIPTOMICS (RNA-seq)                                      │
   │   Different in liver vs. brain vs. immune cells                │
-  │   Changes with development, disease, drug treatment             │
+  │   Changes with development, disease, drug treatment            │
   │   Answer: "What is this cell currently making, and how much?"  │
   └────────────────────────────────────────────────────────────────┘
 
   RNA-SEQ PIPELINE:
   ┌────────────────────────────────────────────────────────────────┐
-  │  Biological sample                                              │
+  │  Biological sample                                             │
   │       │ RNA extraction + quality check (RIN score)             │
-  │       ▼                                                         │
+  │       ▼                                                        │
   │  Total RNA or poly(A)-selected mRNA                            │
   │       │ Library preparation (fragmentation, cDNA, adapters)    │
-  │       ▼                                                         │
+  │       ▼                                                        │
   │  FASTQ files (paired-end 2×150 bp typical)                     │
   │       │ Quality control (FastQC, trimming)                     │
-  │       ▼                                                         │
+  │       ▼                                                        │
   │  Alignment (STAR, HISAT2) or pseudo-alignment (kallisto, salmon)│
-  │       │                                                         │
-  │       ▼                                                         │
-  │  Read counts per gene/transcript                                │
+  │       │                                                        │
+  │       ▼                                                        │
+  │  Read counts per gene/transcript                               │
   │       │ Normalization (TPM, FPKM, TMM, VST)                    │
-  │       ▼                                                         │
+  │       ▼                                                        │
   │  Differential expression (DESeq2, edgeR, limma)                │
-  │       │                                                         │
-  │       ▼                                                         │
+  │       │                                                        │
+  │       ▼                                                        │
   │  Gene lists + pathway analysis (GSEA, g:Profiler)              │
   └────────────────────────────────────────────────────────────────┘
 ```
@@ -170,24 +170,24 @@ FROM DNA TO EXPRESSION MEASUREMENT
   NORMALIZATION METHODS:
   ┌───────────────────────────────────────────────────────────────────┐
   │ RPKM/FPKM (Reads/Fragments Per Kilobase per Million mapped reads)│
-  │   Corrects for: library size + gene length                       │
-  │   Problem: Not comparable across samples (sum ≠ same)            │
-  │   Status: Deprecated for DGE; still used in some contexts        │
+  │   Corrects for: library size + gene length                        │
+  │   Problem: Not comparable across samples (sum ≠ same)             │
+  │   Status: Deprecated for DGE; still used in some contexts         │
   │                                                                   │
-  │ TPM (Transcripts Per Million)                                    │
-  │   Corrects for: gene length first, then library size             │
-  │   Sum per sample = 1,000,000 (comparable across samples)         │
-  │   Status: Preferred for expression level reporting               │
+  │ TPM (Transcripts Per Million)                                     │
+  │   Corrects for: gene length first, then library size              │
+  │   Sum per sample = 1,000,000 (comparable across samples)          │
+  │   Status: Preferred for expression level reporting                │
   │                                                                   │
-  │ TMM (edgeR) / DESeq2 size factors                                │
-  │   Normalizes to housekeeping reference (no length correction)    │
-  │   Designed specifically for DGE statistical testing              │
-  │   Assumes: most genes are NOT differentially expressed           │
-  │   Status: Required for DESeq2/edgeR statistical tests            │
+  │ TMM (edgeR) / DESeq2 size factors                                 │
+  │   Normalizes to housekeeping reference (no length correction)     │
+  │   Designed specifically for DGE statistical testing               │
+  │   Assumes: most genes are NOT differentially expressed            │
+  │   Status: Required for DESeq2/edgeR statistical tests             │
   │                                                                   │
-  │ VST / rlog (DESeq2)                                              │
-  │   Variance-stabilizing transformation for PCA/visualization      │
-  │   Makes variance independent of mean (heteroscedasticity fix)    │
+  │ VST / rlog (DESeq2)                                               │
+  │   Variance-stabilizing transformation for PCA/visualization       │
+  │   Makes variance independent of mean (heteroscedasticity fix)     │
   └───────────────────────────────────────────────────────────────────┘
 
   TPM FORMULA:
@@ -233,10 +233,10 @@ FROM DNA TO EXPRESSION MEASUREMENT
 
   OUTPUT: DESeqDataSet with results():
   ┌─────────────────────────────────────────────────────────┐
-  │ baseMean   Average normalized count across all samples   │
-  │ log2FC     Log2(treatment/control)                       │
+  │ baseMean   Average normalized count across all samples  │
+  │ log2FC     Log2(treatment/control)                      │
   │ lfcSE      Standard error of log2FC                     │
-  │ stat       Wald test statistic                           │
+  │ stat       Wald test statistic                          │
   │ pvalue     Unadjusted p-value                           │
   │ padj       BH-adjusted p-value (FDR)                    │
   └─────────────────────────────────────────────────────────┘
@@ -285,23 +285,23 @@ FROM DNA TO EXPRESSION MEASUREMENT
   STEP 1: QUALITY CONTROL
   ┌─────────────────────────────────────────────────────┐
   │ Filter low-quality cells:                           │
-  │   - Too few genes detected (<200 → empty droplet)  │
-  │   - Too many genes (>5,000 → doublets)             │
-  │   - High mitochondrial % (>20% → dying cell)       │
+  │   - Too few genes detected (<200 → empty droplet)   │
+  │   - Too many genes (>5,000 → doublets)              │
+  │   - High mitochondrial % (>20% → dying cell)        │
   │ Filter unexpressed genes: keep genes in >3 cells    │
   └─────────────────────────────────────────────────────┘
 
   STEP 2: NORMALIZATION + LOG TRANSFORM
   ┌─────────────────────────────────────────────────────┐
-  │ Normalize each cell to 10,000 total counts (CPM)   │
-  │ Log1p transform: log(counts + 1)                   │
+  │ Normalize each cell to 10,000 total counts (CPM)    │
+  │ Log1p transform: log(counts + 1)                    │
   │ Select highly variable genes (HVGs): top 2,000–3,000│
   └─────────────────────────────────────────────────────┘
 
   STEP 3: DIMENSIONALITY REDUCTION
   ┌─────────────────────────────────────────────────────┐
-  │ PCA on HVGs (20,000 genes → 50 PCs)                │
-  │ UMAP/t-SNE on top PCs (50 PCs → 2D visualization)  │
+  │ PCA on HVGs (20,000 genes → 50 PCs)                 │
+  │ UMAP/t-SNE on top PCs (50 PCs → 2D visualization)   │
   │ UMAP preserves global structure; t-SNE = local only │
   └─────────────────────────────────────────────────────┘
 
@@ -316,18 +316,18 @@ FROM DNA TO EXPRESSION MEASUREMENT
   ┌─────────────────────────────────────────────────────┐
   │ Find marker genes per cluster (Wilcoxon or LR test) │
   │ Compare to known cell-type markers                  │
-  │ T cells: CD3E, CD4, CD8A                           │
+  │ T cells: CD3E, CD4, CD8A                            │
   │ B cells: CD19, CD79A, MS4A1                         │
-  │ Macrophages: CD14, LYZ, FCGR3A                     │
+  │ Macrophages: CD14, LYZ, FCGR3A                      │
   │ Assign cell type labels to clusters                 │
   └─────────────────────────────────────────────────────┘
 
   STEP 6: DOWNSTREAM ANALYSIS
   ┌─────────────────────────────────────────────────────┐
-  │ Trajectory/pseudotime (RNA velocity, Monocle)        │
-  │ Cell-cell communication (CellChat, NicheNet)         │
+  │ Trajectory/pseudotime (RNA velocity, Monocle)       │
+  │ Cell-cell communication (CellChat, NicheNet)        │
   │ Multi-sample DE (Pseudobulk → DESeq2)               │
-  │ Doublet detection (Scrublet, DoubletFinder)          │
+  │ Doublet detection (Scrublet, DoubletFinder)         │
   └─────────────────────────────────────────────────────┘
 ```
 
@@ -362,7 +362,7 @@ FROM DNA TO EXPRESSION MEASUREMENT
   │   C2: curated pathways (KEGG, Reactome, BioCarta)    │
   │   C5: Gene Ontology terms                            │
   │   C7: immunologic signatures                         │
-  │                                                       │
+  │                                                      │
   │ Reactome: human pathway hierarchy                    │
   │ KEGG: biochemical pathway maps                       │
   │ GO: Gene Ontology (MF/BP/CC)                         │

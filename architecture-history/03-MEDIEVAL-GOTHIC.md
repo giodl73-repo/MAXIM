@@ -187,7 +187,7 @@ RIBBED VAULT (Gothic):
   | r  \/  r|      Web: thin, self-supporting only
   | i  /\  i|      Ribs deliver loads to PIER CAPITALS
   | b /__\ b|      Ribs act as concentrated load paths
-  |  /    \ |
+  |  /    \  |
   +----------+
 
 Load path:

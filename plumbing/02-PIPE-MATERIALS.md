@@ -40,7 +40,7 @@ Legacy — remove       Galvanized      N/A             N/A      Replace if foun
 
 ```
   ┌──────┬─────────┬──────────────────────────────────────────┐
-  │ Type │ Color   │ Use                                       │
+  │ Type │ Color   │ Use                                      │
   ├──────┼─────────┼──────────────────────────────────────────┤
   │  K   │ Green   │ Thickest wall; underground burial,       │
   │      │ stripe  │ gas service, medical gas                 │
@@ -48,7 +48,7 @@ Legacy — remove       Galvanized      N/A             N/A      Replace if foun
   ├──────┼─────────┼──────────────────────────────────────────┤
   │  L   │ Blue    │ Medium wall; standard residential        │
   │      │ stripe  │ above-ground supply                      │
-  │      │         │ 1/2" L wall = 0.040"                    │
+  │      │         │ 1/2" L wall = 0.040"                     │
   ├──────┼─────────┼──────────────────────────────────────────┤
   │  M   │ Red     │ Thinnest wall; interior use only         │
   │      │ stripe  │ Some jurisdictions prohibit              │
@@ -151,13 +151,13 @@ Legacy — remove       Galvanized      N/A             N/A      Replace if foun
 
   COMPARISON:
   ┌─────────────────────────────────────────────────────────────────┐
-  │ Property        │ PEX-a         │ PEX-b         │ PEX-c        │
+  │ Property        │ PEX-a         │ PEX-b         │ PEX-c         │
   ├─────────────────┼───────────────┼───────────────┼──────────────┤
   │ Cross-link      │ Peroxide      │ Silane (Sievert│ Electron     │
   │ method          │ (Engel)       │ method) or    │ beam         │
   │                 │               │ electron beam │              │
   ├─────────────────┼───────────────┼───────────────┼──────────────┤
-  │ Cross-link      │ ~75-80%       │ ~65-70%        │ ~70-75%      │
+  │ Cross-link      │ ~75-80%       │ ~65-70%       │ ~70-75%      │
   │ density         │ (highest)     │               │              │
   ├─────────────────┼───────────────┼───────────────┼──────────────┤
   │ Flexibility     │ Most flexible │ Slightly       │ Moderate     │

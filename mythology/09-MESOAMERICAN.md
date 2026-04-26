@@ -6,34 +6,34 @@ Mesoamerica — the culture zone running from central Mexico through Guatemala a
 
 ```
 ┌──────────────────────────────────────────────────────────────────┐
-│            MESOAMERICAN MYTHOLOGY — SOURCE LANDSCAPE              │
+│            MESOAMERICAN MYTHOLOGY — SOURCE LANDSCAPE             │
 │                                                                  │
 │  PRE-CONQUEST AZTEC:                                             │
-│  — Some pictorial codices survived (Codex Borgia, Codex         │
-│    Borbonicus, Codex Vindobonensis, etc.)                       │
-│  — Massive ritual destruction of codices by Bishop Zumárraga    │
+│  — Some pictorial codices survived (Codex Borgia, Codex          │
+│    Borbonicus, Codex Vindobonensis, etc.)                        │
+│  — Massive ritual destruction of codices by Bishop Zumárraga     │
 │    and others; unknown quantity destroyed                        │
 │                                                                  │
 │  POST-CONQUEST AZTEC (most reliable):                            │
-│  — Florentine Codex (Sahagún, ~1575–1577): Nahuatl text with    │
-│    Spanish translation; most comprehensive source               │
+│  — Florentine Codex (Sahagún, ~1575–1577): Nahuatl text with     │
+│    Spanish translation; most comprehensive source                │
 │  — Legends of the Suns (Leyenda de los Soles, 1558)            │
-│  — Aztec songs (cantares mexicanos, romances de los señores)    │
+│  — Aztec songs (cantares mexicanos, romances de los señores)     │
 │                                                                  │
 │  MAYA:                                                           │
-│  — Popol Vuh: written in Quiché Maya ~1550–1700 CE              │
-│    (original compiled earlier; a bishop discovered the copy)    │
+│  — Popol Vuh: written in Quiché Maya ~1550–1700 CE               │
+│    (original compiled earlier; a bishop discovered the copy)     │
 │  — Dresden, Madrid, and Paris Codices (pre-conquest)           │
-│  — Classic Maya inscriptions on stone (600–900 CE): largely     │
-│    dynastic, but include mythological narrative                 │
+│  — Classic Maya inscriptions on stone (600–900 CE): largely      │
+│    dynastic, but include mythological narrative                  │
 │  — Chilam Balam books (post-conquest)                          │
 │                                                                  │
 │  INCA:                                                           │
-│  — No writing system; oral tradition recorded by Spanish        │
+│  — No writing system; oral tradition recorded by Spanish         │
 │  — Garcilaso de la Vega: Inca Comentarios Reales (1609)        │
 │  — Guaman Poma de Ayala: Letter to a King (~1615)              │
 │  — Francisco de Avila: Huarochirí Manuscript (~1598)           │
-│    Only pre-Columbian Andean mythology in indigenous language   │
+│    Only pre-Columbian Andean mythology in indigenous language    │
 └──────────────────────────────────────────────────────────────────┘
 ```
 
@@ -45,62 +45,62 @@ The central Aztec cosmological myth explains the current world as the fifth and 
 
 ```
 ┌──────────────────────────────────────────────────────────────────┐
-│                    THE FIVE SUNS (AZTEC)                          │
+│                    THE FIVE SUNS (AZTEC)                         │
 │                                                                  │
 │  Each "Sun" = a complete world-age; each destroyed               │
 │  Current world = the Fifth Sun = the Sun of Movement (Nahui Ollin)│
 │                                                                  │
 │  SUN 1 — Nahui Ocelotl (4-Jaguar)                              │
-│  Patron: Tezcatlipoca (Smoking Mirror; Black god; darkness)     │
-│  Inhabitants: Giants who ate acorns                             │
+│  Patron: Tezcatlipoca (Smoking Mirror; Black god; darkness)      │
+│  Inhabitants: Giants who ate acorns                              │
 │  Destruction: Tezcatlipoca's foot bitten off by a great crocodile│
-│    → He falls; jaguars devour the giants at darkness            │
+│    → He falls; jaguars devour the giants at darkness             │
 │                                                                  │
-│  SUN 2 — Nahui Ehécatl (4-Wind)                                 │
-│  Patron: Quetzalcóatl (Feathered Serpent; Wind god; sky)        │
+│  SUN 2 — Nahui Ehécatl (4-Wind)                                  │
+│  Patron: Quetzalcóatl (Feathered Serpent; Wind god; sky)         │
 │  Inhabitants: Humans who ate pine nuts; turned into monkeys      │
 │  Destruction: Hurricane wind; Tezcatlipoca overthrows Quetzalcóatl│
 │                                                                  │
-│  SUN 3 — Nahui Quiahuitl (4-Rain)                               │
-│  Patron: Tlaloc (Rain god)                                      │
-│  Inhabitants: Humans who ate wild seeds; turned into birds      │
-│  Destruction: Rain of fire; Quetzalcóatl destroys it in revenge │
+│  SUN 3 — Nahui Quiahuitl (4-Rain)                                │
+│  Patron: Tlaloc (Rain god)                                       │
+│  Inhabitants: Humans who ate wild seeds; turned into birds       │
+│  Destruction: Rain of fire; Quetzalcóatl destroys it in revenge  │
 │                                                                  │
-│  SUN 4 — Nahui Atl (4-Water)                                    │
-│  Patron: Chalchiuhtlicue (goddess of water, rivers, lakes)      │
-│  Inhabitants: Humans who ate maize; turned into fish            │
-│  Destruction: 52-year flood; the sky fell                       │
+│  SUN 4 — Nahui Atl (4-Water)                                     │
+│  Patron: Chalchiuhtlicue (goddess of water, rivers, lakes)       │
+│  Inhabitants: Humans who ate maize; turned into fish             │
+│  Destruction: 52-year flood; the sky fell                        │
 │  Note: Tezcatlipoca and Quetzalcóatl rebuild sky (become pillars)│
 │                                                                  │
 │  SUN 5 — Nahui Ollin (4-Movement) — CURRENT SUN                │
-│  Created at Teotihuacan:                                        │
+│  Created at Teotihuacan:                                         │
 │  — The gods gather in darkness; two volunteer to become sun/moon │
 │  — Tecuciztecatl (proud, wealthy) and Nanahuatzin (humble, scab)│
-│  — Both must throw themselves into a great bonfire              │
-│  — Tecuciztecatl approaches four times; each time he flinches   │
-│  — Nanahuatzin approaches once; leaps without hesitation        │
-│    → He becomes the sun                                         │
-│  — Tecuciztecatl finally jumps; becomes the moon                │
-│    (Originally as bright as the sun; one of the gods hits the   │
+│  — Both must throw themselves into a great bonfire               │
+│  — Tecuciztecatl approaches four times; each time he flinches    │
+│  — Nanahuatzin approaches once; leaps without hesitation         │
+│    → He becomes the sun                                          │
+│  — Tecuciztecatl finally jumps; becomes the moon                 │
+│    (Originally as bright as the sun; one of the gods hits the    │
 │     moon with a rabbit to dim it — why there is a rabbit in    │
 │     the moon / why the moon is dimmer)                         │
 │                                                                  │
-│  THE PROBLEM: Both sun and moon sit on the horizon; neither     │
-│  moves. The gods must die to set the sun in motion.             │
-│  Quetzalcóatl kills all the gods; their blood sets the sun      │
-│  moving.                                                        │
+│  THE PROBLEM: Both sun and moon sit on the horizon; neither      │
+│  moves. The gods must die to set the sun in motion.              │
+│  Quetzalcóatl kills all the gods; their blood sets the sun       │
+│  moving.                                                         │
 │                                                                  │
 │  THE IMPLICATION:                                                │
-│  The sun moves because the gods died to make it so.             │
-│  But the Fifth Sun can still end: it will be destroyed by       │
-│  earthquake — on a day Nahui Ollin.                             │
-│  To delay this, the sun requires blood to continue moving.      │
-│  Human sacrifice = feeding the sun = keeping creation alive.    │
-│  This is not bloodthirst — it is cosmic maintenance.            │
+│  The sun moves because the gods died to make it so.              │
+│  But the Fifth Sun can still end: it will be destroyed by        │
+│  earthquake — on a day Nahui Ollin.                              │
+│  To delay this, the sun requires blood to continue moving.       │
+│  Human sacrifice = feeding the sun = keeping creation alive.     │
+│  This is not bloodthirst — it is cosmic maintenance.             │
 │                                                                  │
-│  The Aztec universe runs on debt:                               │
+│  The Aztec universe runs on debt:                                │
 │  The gods sacrificed themselves; humans owe the gods their lives.│
-│  Sacrifice repays the cosmic debt that sustains the world.      │
+│  Sacrifice repays the cosmic debt that sustains the world.       │
 └──────────────────────────────────────────────────────────────────┘
 ```
 
@@ -177,70 +177,70 @@ The K'iche' Maya creation epic — the most complete pre-Columbian mythological 
 
 ```
 ┌──────────────────────────────────────────────────────────────────┐
-│                    POPOL VUH — NARRATIVE MAP                      │
+│                    POPOL VUH — NARRATIVE MAP                     │
 │                                                                  │
-│  "In the beginning there was only sky and sea" (Huracán and     │
-│  Gucumatz/Kukulcán deliberate in the darkness)                  │
+│  "In the beginning there was only sky and sea" (Huracán and      │
+│  Gucumatz/Kukulcán deliberate in the darkness)                   │
 │                                                                  │
 │  CREATION ATTEMPTS:                                              │
-│  1st: Animals created → they cannot speak the names of the      │
-│       gods → condemned to be food                               │
-│  2nd: Mud humans → dissolve in water; cannot speak properly     │
-│  3rd: Wood humans → speak but have no minds or souls; no        │
-│       memory of the gods; they mistreat their animals and       │
-│       domestic objects → destroyed in a flood + their own       │
-│       possessions revolt: dogs bite, millstones grind, pots burn│
-│       → Survivors become the monkeys in the trees               │
-│  4th: Maize humans (CURRENT) — successful creation (see below)  │
+│  1st: Animals created → they cannot speak the names of the       │
+│       gods → condemned to be food                                │
+│  2nd: Mud humans → dissolve in water; cannot speak properly      │
+│  3rd: Wood humans → speak but have no minds or souls; no         │
+│       memory of the gods; they mistreat their animals and        │
+│       domestic objects → destroyed in a flood + their own        │
+│       possessions revolt: dogs bite, millstones grind, pots burn │
+│       → Survivors become the monkeys in the trees                │
+│  4th: Maize humans (CURRENT) — successful creation (see below)   │
 │                                                                  │
-│  THE HERO TWINS — XUN HUNAHPU AND XBALANQUE:                   │
-│  (This narrative precedes the creation of maize humans)         │
+│  THE HERO TWINS — XUN HUNAHPU AND XBALANQUE:                     │
+│  (This narrative precedes the creation of maize humans)          │
 │                                                                  │
-│  The Hero Twins' father (Hunahpu) and uncle (Vucub Hunahpu)     │
+│  The Hero Twins' father (Hunahpu) and uncle (Vucub Hunahpu)      │
 │  play the ball game; the noise annoys the lords of Xibalba       │
-│  (the underworld); the lords summon them; they fail the traps   │
-│  and are sacrificed; Hunahpu's head hung in a calabash tree     │
+│  (the underworld); the lords summon them; they fail the traps    │
+│  and are sacrificed; Hunahpu's head hung in a calabash tree      │
 │                                                                  │
-│  Xquic (a Xibalba princess) visits the tree; the head spits in  │
-│  her hand; she becomes pregnant; flees Xibalba; gives birth to  │
-│  the Hero Twins: Hunahpu and Xbalanque                          │
+│  Xquic (a Xibalba princess) visits the tree; the head spits in   │
+│  her hand; she becomes pregnant; flees Xibalba; gives birth to   │
+│  the Hero Twins: Hunahpu and Xbalanque                           │
 │                                                                  │
 │  THE HERO TWINS' ADVENTURES:                                     │
-│  — Defeat Seven Macaw (Vucub Caquix) — a false sun who claims  │
-│    to be the sun; they shoot him; his sons fall too             │
-│  — Are summoned to Xibalba; survive where their father failed:  │
-│    Pass the Dark House (fire not matches), Shivering House,     │
-│    Fire House, Jaguar House, Bat House (Hunahpu loses his head  │
-│    briefly; they trick Xibalba using a turtle decoy)           │
-│  — They win the ball game                                       │
-│  — Let themselves be defeated and killed (final trick):         │
-│    The lords of Xibalba ask a magician to demonstrate killing   │
-│    and revival; the twins are killed and ground to bone powder  │
-│    and dumped in a river; they revive (they had tricked the     │
-│    lords into killing them in order to rise again)             │
-│  — They reveal their identity; the lords beg for their lives   │
-│  — The twins spare the lower Xibalba lords; abolish human       │
-│    sacrifice to Xibalba; the great lords are defeated          │
-│  — The twins ascend: Hunahpu becomes the sun; Xbalanque the    │
-│    moon (or: both become the sun and moon together)             │
+│  — Defeat Seven Macaw (Vucub Caquix) — a false sun who claims    │
+│    to be the sun; they shoot him; his sons fall too              │
+│  — Are summoned to Xibalba; survive where their father failed:   │
+│    Pass the Dark House (fire not matches), Shivering House,      │
+│    Fire House, Jaguar House, Bat House (Hunahpu loses his head   │
+│    briefly; they trick Xibalba using a turtle decoy)             │
+│  — They win the ball game                                        │
+│  — Let themselves be defeated and killed (final trick):          │
+│    The lords of Xibalba ask a magician to demonstrate killing    │
+│    and revival; the twins are killed and ground to bone powder   │
+│    and dumped in a river; they revive (they had tricked the      │
+│    lords into killing them in order to rise again)               │
+│  — They reveal their identity; the lords beg for their lives     │
+│  — The twins spare the lower Xibalba lords; abolish human        │
+│    sacrifice to Xibalba; the great lords are defeated            │
+│  — The twins ascend: Hunahpu becomes the sun; Xbalanque the      │
+│    moon (or: both become the sun and moon together)              │
 │                                                                  │
 │  CREATION OF MAIZE HUMANS:                                       │
-│  The gods find the right material: white and yellow maize       │
-│  (found in a mountain by animal messengers)                     │
-│  Four men are made from maize dough:                           │
-│  — Their vision and knowledge is too great (they can see        │
-│    everything; equal the gods)                                  │
-│  — The gods "fog" their eyes (like breathing on a mirror)       │
-│  — Humans become limited in sight and knowledge                 │
-│  → The limitation of human understanding is intentional design  │
-│  Four women are created from the men while they sleep           │
-│  These eight are the ancestors of the K'iche' Maya lineages     │
+│  The gods find the right material: white and yellow maize        │
+│  (found in a mountain by animal messengers)                      │
+│  Four men are made from maize dough:                             │
+│  — Their vision and knowledge is too great (they can see         │
+│    everything; equal the gods)                                   │
+│  — The gods "fog" their eyes (like breathing on a mirror)        │
+│  — Humans become limited in sight and knowledge                  │
+│  → The limitation of human understanding is intentional design   │
+│  Four women are created from the men while they sleep            │
+│  These eight are the ancestors of the K'iche' Maya lineages      │
 │                                                                  │
 │  AFTER CREATION:                                                 │
-│  The ancestors search for the gods in darkness; pray for the sun│
-│  The first sunrise causes all tribes to weep with joy           │
-│  The mythological narrative transitions to the historical:      │
-│  K'iche' lineages and their territories                         │
+│  The ancestors search for the gods in darkness; pray for the sun │
+│  The first sunrise causes all tribes to weep with joy            │
+│  The mythological narrative transitions to the historical:       │
+│  K'iche' lineages and their territories                          │
 └──────────────────────────────────────────────────────────────────┘
 ```
 
@@ -328,65 +328,65 @@ NEW FIRE CEREMONY:
 
 ```
 ┌──────────────────────────────────────────────────────────────────┐
-│                      INCA MYTHOLOGY                               │
+│                      INCA MYTHOLOGY                              │
 │                                                                  │
-│  THE INCA EMPIRE (Tawantinsuyu) — "The Four Regions Together"   │
-│  Peak: 1438–1533 CE; Cusco as capital; 4,000 miles along Andes  │
+│  THE INCA EMPIRE (Tawantinsuyu) — "The Four Regions Together"    │
+│  Peak: 1438–1533 CE; Cusco as capital; 4,000 miles along Andes   │
 │  Quechua language; no writing → all myth recorded post-conquest  │
 │                                                                  │
 │  VIRACOCHA — THE CREATOR                                         │
-│  — Supreme creator deity; made the world at Lake Titicaca       │
+│  — Supreme creator deity; made the world at Lake Titicaca        │
 │  — Created humans; first attempt: stone giants (he destroyed     │
-│    them for refusing to worship him); second attempt: current   │
-│    humans, made from clay at Tiwanaku                           │
+│    them for refusing to worship him); second attempt: current    │
+│    humans, made from clay at Tiwanaku                            │
 │  — Sent his two sons and himself to populate the world           │
 │  — Taught humanity arts of civilization; then walked west        │
-│    across the ocean (toward the setting sun) and disappeared    │
+│    across the ocean (toward the setting sun) and disappeared     │
 │  — Described as white-bearded, tall; Spanish arrival seen through │
-│    lens of this mythology (Viracocha = Spanish? — same source   │
-│    problem as Quetzalcóatl/Cortés)                              │
+│    lens of this mythology (Viracocha = Spanish? — same source    │
+│    problem as Quetzalcóatl/Cortés)                               │
 │                                                                  │
 │  INTI — THE SUN                                                  │
-│  — Primary deity of the Inca state religion                     │
-│  — The Inca emperor (Sapa Inca) = direct son of Inti            │
-│    → The Emperor's absolute power derives from solar divinity   │
+│  — Primary deity of the Inca state religion                      │
+│  — The Inca emperor (Sapa Inca) = direct son of Inti             │
+│    → The Emperor's absolute power derives from solar divinity    │
 │  — Coricancha (Temple of the Sun) at Cusco: faced east; sun      │
-│    reflection off gold walls lit the city at dawn               │
-│  — Sacrifices to Inti: food offerings, woven cloth, chicha      │
+│    reflection off gold walls lit the city at dawn                │
+│  — Sacrifices to Inti: food offerings, woven cloth, chicha       │
 │    (corn beer); human sacrifice on rare special occasions        │
-│    (Capacocha: child sacrifices on mountain peaks — confirmed   │
-│     by archaeological finds, frozen mummies at high altitudes)  │
+│    (Capacocha: child sacrifices on mountain peaks — confirmed    │
+│     by archaeological finds, frozen mummies at high altitudes)   │
 │                                                                  │
 │  MAMA QUILLA — THE MOON                                          │
-│  — Wife and sister of Inti                                      │
-│  — Governed the lunar calendar; women's cycles                  │
-│  — Mother of the Inca royal family alongside Inti               │
-│  — During lunar eclipses: a jaguar or serpent attacks the moon; │
-│    people make noise to frighten it away                        │
+│  — Wife and sister of Inti                                       │
+│  — Governed the lunar calendar; women's cycles                   │
+│  — Mother of the Inca royal family alongside Inti                │
+│  — During lunar eclipses: a jaguar or serpent attacks the moon;  │
+│    people make noise to frighten it away                         │
 │                                                                  │
 │  PACHAMAMA — EARTH MOTHER                                        │
-│  — Ancient, deeply rooted Andean earth deity                    │
-│  — "Pacha" = time/earth; "Mama" = mother                        │
-│  — Still actively worshipped in Andean communities today        │
-│  — Receives offerings poured into the earth (especially chicha) │
-│  — Not absorbed into Inca state religion the same way as Inti   │
+│  — Ancient, deeply rooted Andean earth deity                     │
+│  — "Pacha" = time/earth; "Mama" = mother                         │
+│  — Still actively worshipped in Andean communities today         │
+│  — Receives offerings poured into the earth (especially chicha)  │
+│  — Not absorbed into Inca state religion the same way as Inti    │
 │                                                                  │
 │  THE ORIGIN MYTH — MANCO CAPAC AND MAMA OCLLO:                 │
-│  Inti sent his son Manco Capac and daughter-wife Mama Ocllo     │
-│  from Lake Titicaca with a golden staff                         │
-│  They were to found a city where the staff sank into the ground │
-│  → The staff sank at Cusco (Huanacauri hill)                    │
-│  → Cusco founded; the Inca civilization established             │
-│  — This is the "official" origin myth of the Inca state;        │
-│    older local traditions had different accounts                │
+│  Inti sent his son Manco Capac and daughter-wife Mama Ocllo      │
+│  from Lake Titicaca with a golden staff                          │
+│  They were to found a city where the staff sank into the ground  │
+│  → The staff sank at Cusco (Huanacauri hill)                     │
+│  → Cusco founded; the Inca civilization established              │
+│  — This is the "official" origin myth of the Inca state;         │
+│    older local traditions had different accounts                 │
 │                                                                  │
 │  THE CEQUE SYSTEM:                                               │
-│  41 sacred lines (ceques) radiating from the Coricancha temple  │
-│  → Each line linked a series of sacred sites (huacas) in Cusco  │
+│  41 sacred lines (ceques) radiating from the Coricancha temple   │
+│  → Each line linked a series of sacred sites (huacas) in Cusco   │
 │  Huacas: any sacred place (mountain, spring, rock, burial site)  │
-│  328 huacas total (one for each day of the lunar calendar)      │
-│  → Religion embedded in the landscape of the capital            │
-│  → The entire city was a cosmological map                       │
+│  328 huacas total (one for each day of the lunar calendar)       │
+│  → Religion embedded in the landscape of the capital             │
+│  → The entire city was a cosmological map                        │
 │  → Nothing comparable in other mythological traditions           │
 └──────────────────────────────────────────────────────────────────┘
 ```

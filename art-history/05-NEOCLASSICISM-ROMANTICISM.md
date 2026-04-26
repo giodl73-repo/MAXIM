@@ -20,13 +20,13 @@ NEOCLASSICISM VS ROMANTICISM: COMPETING RESPONSES TO MODERNITY
   │                                                                 │
   │ Reason as guide                  Emotion as guide               │
   │ Universal human nature           Individual / national spirit   │
-  │ Greece and Rome as models        Medieval, exotic, natural       │
+  │ Greece and Rome as models        Medieval, exotic, natural      │
   │ Clarity of line and form         Color, atmosphere, indistinct  │
   │ Civic virtue                     Sublime terror                 │
   │ Public subjects                  Private experience             │
   │ Order                            Chaos                          │
   │ Greece as universal ideal        The particular place, time     │
-  │ (Winckelmann)                    (Herder, Hegel)               │
+  │ (Winckelmann)                    (Herder, Hegel)                │
   │                                                                 │
   │ David, Canova, Ingres            Turner, Friedrich, Delacroix,  │
   │                                  Goya, Cole, Géricault          │
@@ -71,8 +71,8 @@ BURKE'S CATEGORIES
   │                      │            │                          │
   │ Pleasure             │            │ Astonishment, terror,    │
   │ Love                 │            │ awe -- the mind overwhelmed│
-  │ Social               │            │ Individual facing the     │
-  │                      │            │ incomprehensible          │
+  │ Social               │            │ Individual facing the    │
+  │                      │            │ incomprehensible         │
   └──────────────────────┘            └──────────────────────────┘
 
   Kant's elaboration (Critique of Judgment, 1790):

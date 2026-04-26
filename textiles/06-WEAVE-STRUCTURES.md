@@ -25,7 +25,7 @@ WEAVE STRUCTURE TAXONOMY
   │  PILE WEAVES │  DOBBY WEAVE │  JACQUARD WEAVE      │
   │  Extra warp  │  Small repeat│  Per-thread control  │
   │  or weft     │  geometric   │  (punch card → CNC   │
-  │  raised/cut  │  patterns    │   digital today)      │
+  │  raised/cut  │  patterns    │   digital today)     │
   └──────┬───────┴──────┬───────┴──────┬───────────────┘
          │              │              │
          ▼              ▼              ▼
@@ -70,9 +70,9 @@ Stiffer hand             Softer drape              Fragile face
 ```
 PLAIN WEAVE FABRIC FAMILIES:
 ┌──────────────────────────────────────────────────────────────┐
-│  MUSLIN                                                       │
+│  MUSLIN                                                      │
 │    Unbleached/bleached plain-weave cotton                    │
-│    Two grades: cheesecloth (open weave) vs muslin (proper)  │
+│    Two grades: cheesecloth (open weave) vs muslin (proper)   │
 │    Use in garments: "toile" — mockup garment in muslin       │
 │    before cutting expensive fashion fabric                   │
 │    Washed test garment → check fit → transfer corrections    │
@@ -85,7 +85,7 @@ PLAIN WEAVE FABRIC FAMILIES:
 │    owners lobbied Parliament to ban them to protect          │
 │    domestic wool industry (Calico Acts 1690, 1720)           │
 ├──────────────────────────────────────────────────────────────┤
-│  POPLIN                                                       │
+│  POPLIN                                                      │
 │    Fine warp + heavier weft → slight crosswise rib           │
 │    Crisp, smooth face; good definition for shirting          │
 │    Cotton poplin = standard dress shirt fabric               │
@@ -96,7 +96,7 @@ PLAIN WEAVE FABRIC FAMILIES:
 │    Synthetic taffeta = lining, disposable formal wear        │
 │    "Crunchy" sound when fabric moves = "scroop"              │
 ├──────────────────────────────────────────────────────────────┤
-│  CHIFFON                                                      │
+│  CHIFFON                                                     │
 │    Sheer, lightweight plain weave; highly twisted yarns      │
 │    High-twist yarns → crimped slightly → drape/sheerness     │
 │    Silk or polyester; eveningwear, scarves, overlays         │

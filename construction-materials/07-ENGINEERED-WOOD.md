@@ -6,13 +6,13 @@
 SOLID TIMBER vs ENGINEERED WOOD PRODUCTS
 ┌──────────────────────────────────────────────────────────────────────────────┐
 │                                                                              │
-│  SOLID SAWN TIMBER     STRUCTURAL ISSUES           ENGINEERED SOLUTION      │
-│  ─────────────────────────────────────────────────────────────────────────  │
-│  Knots, splits          Random defects → weak spots  LVL: parallel lam;     │
+│  SOLID SAWN TIMBER     STRUCTURAL ISSUES           ENGINEERED SOLUTION       │
+│  ─────────────────────────────────────────────────────────────────────────   │
+│  Knots, splits          Random defects → weak spots  LVL: parallel lam;      │
 │                                                       averages out defects   │
 │                                                                              │
-│  Short lengths          Forests grow limited lengths  Finger-joint → any L  │
-│  (max ~6–8m usable)                                  Glulam: laminated      │
+│  Short lengths          Forests grow limited lengths  Finger-joint → any L   │
+│  (max ~6–8m usable)                                  Glulam: laminated       │
 │                                                                              │
 │  Limited section size   Large trees scarce; slow grow Glulam: assemble from  │
 │                                                       small boards           │
@@ -20,10 +20,10 @@ SOLID TIMBER vs ENGINEERED WOOD PRODUCTS
 │  Anisotropic (one        Weak perpendicular to grain  PLY: 90° rotation      │
 │  direction)              limits sheet applications    CLT: orthogonal lam    │
 │                                                                              │
-│  Dimensional instability Moisture → swell/shrink      CLT/LVL: reduced EMC  │
+│  Dimensional instability Moisture → swell/shrink      CLT/LVL: reduced EMC   │
 │                                                        swings; stable        │
 │                                                                              │
-│  Variable quality        Natural variability          E-rated, MSR graded   │
+│  Variable quality        Natural variability          E-rated, MSR graded    │
 │                          → design conservatively      → consistent values    │
 │                                                                              │
 │  PRODUCT FAMILY:                                                             │
@@ -93,35 +93,35 @@ PLYWOOD CONSTRUCTION
 │  ──────────────────────────────                                              │
 │  Face veneer:   grain → → → → → → (along panel length direction)           │
 │  Core veneer:   grain ↑↑↑↑↑↑↑↑↑↑ (across; 90° to face)                     │
-│  Back veneer:   grain → → → → → → (same as face; panel balanced)            │
+│  Back veneer:   grain → → → → → → (same as face; panel balanced)             │
 │                                                                              │
 │  ALWAYS ODD NUMBER OF PLIES:                                                 │
-│  3, 5, 7, 9 plies → always symmetric about mid-plane                        │
-│  → no residual bending moment from moisture change → stays flat             │
-│  Asymmetric panel (even plies): warps on drying/wetting                     │
+│  3, 5, 7, 9 plies → always symmetric about mid-plane                         │
+│  → no residual bending moment from moisture change → stays flat              │
+│  Asymmetric panel (even plies): warps on drying/wetting                      │
 │                                                                              │
 │  EFFECT OF CROSS-LAMINATION:                                                 │
-│  1. Dimensional stability: perpendicular plies restrain swelling/shrinkage  │
-│     Net in-plane movement: ~0.02% per 1% MC change vs ~0.3% for solid wood  │
-│  2. Biaxial stiffness: load sharing in both directions                      │
-│     (though face grain direction is still stiffer)                          │
+│  1. Dimensional stability: perpendicular plies restrain swelling/shrinkage   │
+│     Net in-plane movement: ~0.02% per 1% MC change vs ~0.3% for solid wood   │
+│  2. Biaxial stiffness: load sharing in both directions                       │
+│     (though face grain direction is still stiffer)                           │
 │  3. Splits blocked: crack along grain in one ply stopped by next ply       │
 │                                                                              │
 │  STANDARD SIZES:                                                             │
 │  2440 × 1220 mm (8 × 4 ft) — universally dominant                          │
-│  1250 × 2500 mm (metric equivalent)                                         │
+│  1250 × 2500 mm (metric equivalent)                                          │
 │  Thicknesses: 3, 4, 6, 9, 12, 15, 18, 25, 32 mm                           │
 │                                                                              │
 │  GRADES (face/back):                                                         │
 │  A-A: both faces clear; furniture; expensive                                 │
-│  B-C: one good face; one filled face; typical construction                  │
-│  C-D (CDX): unsanded; exterior; sheathing → structural use                  │
-│  Structural (EN 636): F grades; specified by bending strength               │
+│  B-C: one good face; one filled face; typical construction                   │
+│  C-D (CDX): unsanded; exterior; sheathing → structural use                   │
+│  Structural (EN 636): F grades; specified by bending strength                │
 │                                                                              │
 │  BONDING:                                                                    │
-│  Interior (E0/E1): UF (urea formaldehyde); for dry conditions only          │
-│  Exterior (WBP): PF (phenol formaldehyde); fully waterproof; boil-proof     │
-│  EN 314 bond quality: Class 3 (exterior) required for structural            │
+│  Interior (E0/E1): UF (urea formaldehyde); for dry conditions only           │
+│  Exterior (WBP): PF (phenol formaldehyde); fully waterproof; boil-proof      │
+│  EN 314 bond quality: Class 3 (exterior) required for structural             │
 │                                                                              │
 └──────────────────────────────────────────────────────────────────────────────┘
 ```
@@ -234,31 +234,31 @@ CLT CONSTRUCTION
 │                                                                              │
 │  Layer 1 (top/outer):  → → → → → →  major direction (span direction)       │
 │  Layer 2:              ↑↑↑↑↑↑↑↑↑↑  minor direction (90°)                   │
-│  Layer 3 (core):       → → → → → →  major direction                         │
+│  Layer 3 (core):       → → → → → →  major direction                          │
 │  Layer 4:              ↑↑↑↑↑↑↑↑↑↑  minor direction                         │
-│  Layer 5 (bottom/outer): → → → → →  major direction                         │
+│  Layer 5 (bottom/outer): → → → → →  major direction                          │
 │                                                                              │
 │  PANEL SIZES:                                                                │
-│    Width: up to 3.0 m (limited by press width)                              │
+│    Width: up to 3.0 m (limited by press width)                               │
 │    Length: up to 20 m (limited by transport)                                 │
 │    Thickness: 60mm (3-ply) to 400mm+ (7+ ply)                              │
 │    Common floor panels: 140–200 mm (5-ply); wall panels: 100–200 mm        │
 │                                                                              │
 │  TWO-WAY PLATE ACTION:                                                       │
-│    Unlike I-beams or one-way slabs, CLT panel distributes load in 2D        │
+│    Unlike I-beams or one-way slabs, CLT panel distributes load in 2D         │
 │    Orthotropic elastic plate: D₁₁ ≠ D₂₂  (different stiffness per direction)│
 │    D₁₁ (major): governed by layers 1,3,5 (strong direction)                │
-│    D₂₂ (minor): governed by layers 2,4  (weaker direction)                  │
+│    D₂₂ (minor): governed by layers 2,4  (weaker direction)                   │
 │    Torsional stiffness D₁₂: provided by cross layers                       │
-│    → stiffness matrix Dij used in FEM plate analysis                        │
+│    → stiffness matrix Dij used in FEM plate analysis                         │
 │    → for panel-level design: simplified Kxyz method or Gamma method        │
 │                                                                              │
 │  ROLLING SHEAR:                                                              │
-│    Shear in the transverse layers (layers 2, 4) → rolling shear failure     │
-│    Rolling shear: shear parallel to glue face in cross layer                │
+│    Shear in the transverse layers (layers 2, 4) → rolling shear failure      │
+│    Rolling shear: shear parallel to glue face in cross layer                 │
 │    f_r,k = 1.0–1.5 MPa (very low; governs in thick panels with short spans)│
-│    → critical detail: CLT-to-CLT connection; spline joint; notched beam     │
-│    → avoid large concentrated loads without stiffener or reinforcement      │
+│    → critical detail: CLT-to-CLT connection; spline joint; notched beam      │
+│    → avoid large concentrated loads without stiffener or reinforcement       │
 │                                                                              │
 │  CONNECTIONS (structural critical path):                                     │
 │    Self-tapping screws (STS): fully threaded; draw panels together;        │
@@ -297,24 +297,24 @@ TALL TIMBER BUILDINGS: CASE STUDIES
 ┌──────────────────────────────────────────────────────────────────────────────┐
 │                                                                              │
 │  BROCK COMMONS TALLWOOD HOUSE (Vancouver, 2017)                              │
-│  18 stories; 53 m tall                                                      │
+│  18 stories; 53 m tall                                                       │
 │  Structural system:                                                          │
 │    CLT floor panels: 5-ply 169 mm span ~8.2 m between columns              │
-│    Glulam columns: continuous vertical post-and-beam                        │
-│    RC cores × 2: lateral stability (seismic + wind)                         │
+│    Glulam columns: continuous vertical post-and-beam                         │
+│    RC cores × 2: lateral stability (seismic + wind)                          │
 │    RC ground floor: transfer slab + podium (fire access)                   │
-│    Hybrid: CLT + glulam structure; concrete lateral system                  │
-│  CLT prefabricated with pre-drilled connection holes → fast erection        │
+│    Hybrid: CLT + glulam structure; concrete lateral system                   │
+│  CLT prefabricated with pre-drilled connection holes → fast erection         │
 │  One floor per day at peak rate                                              │
 │  CO₂ stored in CLT structure: ~1,628 tCO₂ sequestered                      │
 │                                                                              │
 │  ASCENT (Milwaukee, 2022)                                                    │
-│  25 stories; 86.6 m — currently tallest mass timber building in world       │
-│  CLT + glulam + RC core hybrid                                              │
+│  25 stories; 86.6 m — currently tallest mass timber building in world        │
+│  CLT + glulam + RC core hybrid                                               │
 │                                                                              │
-│  TYPICAL MASS TIMBER STRUCTURAL SCHEME:                                     │
+│  TYPICAL MASS TIMBER STRUCTURAL SCHEME:                                      │
 │                                                                              │
-│  ┌─────────────────────────────────────────────────────────────┐            │
+│  ┌─────────────────────────────────────────────────────────────┐             │
 │  │                     CLT floor plate                          │            │
 │  │ (diaphragm + floor spanning between glulam beams)           │            │
 │  │ ──────┬──────────────────────┬─────────────────── floor     │            │
@@ -340,7 +340,7 @@ TIMBER CHARRING AND FIRE RESISTANCE
 ┌──────────────────────────────────────────────────────────────────────────────┐
 │                                                                              │
 │  CHARRING PROCESS:                                                           │
-│  At ~270–300°C: wood surface begins pyrolysis → char layer forms            │
+│  At ~270–300°C: wood surface begins pyrolysis → char layer forms             │
 │  Char rate (β₀): ~0.65 mm/min for glulam/CLT softwood (EN 1995-1-2)        │
 │  Hardwood: ~0.5 mm/min (slower → better fire resistance per mm)            │
 │                                                                              │
@@ -356,7 +356,7 @@ TIMBER CHARRING AND FIRE RESISTANCE
 │                                                                              │
 │  MASS TIMBER FIRE COMPARISON vs STEEL:                                       │
 │                                                                              │
-│  ┌────────────────────────────────────────────────────────────────────┐     │
+│  ┌────────────────────────────────────────────────────────────────────┐      │
 │  │              STEEL                    MASS TIMBER (CLT/Glulam)     │     │
 │  │  Behaviour:  Non-combustible          Combustible + chars           │     │
 │  │  Fire behav: Softens above 500°C     Chars predictably             │     │

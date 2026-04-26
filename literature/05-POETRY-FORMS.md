@@ -6,7 +6,7 @@ Prosody is the formal study of poetic meter, rhythm, and sound. Poetry is langua
 
 ```
 +------------------------------------------------------------------+
-|               PROSODY — LANDSCAPE MAP                           |
+|               PROSODY — LANDSCAPE MAP                            |
 +------------------------------------------------------------------+
 |                                                                  |
 |  SYSTEM         BASIS           LANGUAGES        KEY FORMS      |
@@ -179,9 +179,9 @@ PINDARIC ODE — TRIADIC STRUCTURE
 
 Each TRIAD:
   ┌─────────────────────────────────────────────────────────────┐
-  │ STROPHE      (στροφή = "turn")                               │
-  │  Meter:  [x / u / u u / u u / u / ...]   [Pindar's own     │
-  │          complex lyric meters; no English equivalent]        │
+  │ STROPHE      (στροφή = "turn")                              │
+  │  Meter:  [x / u / u u / u u / u / ...]   [Pindar's own      │
+  │          complex lyric meters; no English equivalent]       │
   │  Chorus physically turns left across the orchestra          │
   │  Content: opens the myth or narrative                       │
   ├─────────────────────────────────────────────────────────────┤

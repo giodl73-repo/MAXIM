@@ -78,19 +78,19 @@ Toshio Murashige and Folke Skoog (1962) developed the medium that became the sta
 ```
 MS MEDIUM COMPONENTS:
   ┌─────────────────────────────────────────────────────────────────┐
-  │ MACRONUTRIENTS (mM range):                                       │
+  │ MACRONUTRIENTS (mM range):                                      │
   │   NH₄NO₃ (ammonium nitrate)    1650 mg/L — nitrogen source      │
   │   KNO₃ (potassium nitrate)      1900 mg/L — nitrogen + potassium │
-  │   CaCl₂·2H₂O                    440 mg/L  — calcium              │
-  │   MgSO₄·7H₂O                    370 mg/L  — magnesium + sulfur   │
-  │   KH₂PO₄                        170 mg/L  — phosphorus           │
+  │   CaCl₂·2H₂O                    440 mg/L  — calcium             │
+  │   MgSO₄·7H₂O                    370 mg/L  — magnesium + sulfur  │
+  │   KH₂PO₄                        170 mg/L  — phosphorus          │
   ├─────────────────────────────────────────────────────────────────┤
   │ MICRONUTRIENTS (μM range):                                       │
   │   MnSO₄, ZnSO₄, H₃BO₃, KI,                                     │
   │   Na₂MoO₄, CuSO₄, CoCl₂, FeSO₄/Na₂EDTA                        │
   │   (exact concentrations vary by species and purpose)             │
   ├─────────────────────────────────────────────────────────────────┤
-  │ VITAMINS:                                                        │
+  │ VITAMINS:                                                       │
   │   Myo-inositol (100 mg/L) — cell wall synthesis                 │
   │   Thiamine (B1), Pyridoxine (B6), Nicotinic acid                │
   ├─────────────────────────────────────────────────────────────────┤
@@ -100,7 +100,7 @@ MS MEDIUM COMPONENTS:
   │   external carbon required                                       │
   ├─────────────────────────────────────────────────────────────────┤
   │ GELLING AGENT (for solid media):                                │
-  │   Agar (6–8 g/L) — seaweed polysaccharide; gels at 40°C        │
+  │   Agar (6–8 g/L) — seaweed polysaccharide; gels at 40°C         │
   │   Alternative: Gelrite (gellan gum) — clearer, more defined     │
   ├─────────────────────────────────────────────────────────────────┤
   │ PLANT GROWTH REGULATORS (variable):                             │

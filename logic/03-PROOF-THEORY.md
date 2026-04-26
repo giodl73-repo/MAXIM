@@ -20,7 +20,7 @@ meta-theorems (consistency, decidability, proof lengths).
 |  | Easy to analyze |      | Curry-Howard   |     |             |  |
 |  +-----------------+      +----------------+     +-------------+  |
 |                                                                   |
-|  RESOLUTION               TABLEAU                AUTOMATED       |
+|  RESOLUTION               TABLEAU                AUTOMATED        |
 |  +-----------------+      +----------------+     +-------------+  |
 |  | Clause-based    |      | Semantic tree  |     | SAT/SMT     |  |
 |  | Single rule     |      | Branch-closing |     | Lean/Coq    |  |

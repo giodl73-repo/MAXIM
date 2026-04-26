@@ -234,7 +234,7 @@ GUN-TYPE (Little Boy):
   │  Propellant → target ring ← projectile slug (²³⁵U + ²³⁵U)    │
   │  Assembly rate: ~300 m/s → supercritical in microseconds        │
   │  Never tested before use (confidence in design was high)        │
-  │  Inefficient: only ~1.3% of U fissioned                        │
+  │  Inefficient: only ~1.3% of U fissioned                         │
   │  Cannot work with Pu (²⁴⁰Pu pre-detonation would occur)       │
   └─────────────────────────────────────────────────────────────────┘
 
@@ -243,10 +243,10 @@ IMPLOSION (Fat Man / Trinity):
   │  Explosive lenses (precisely shaped HE) surround Pu core        │
   │  Simultaneous detonation → symmetrical implosion shock wave     │
   │  Pu core compressed to ~3× normal density → critical            │
-  │  Assembly time: ~2 μs (too fast for pre-detonation)            │
+  │  Assembly time: ~2 μs (too fast for pre-detonation)             │
   │  More complex — required Trinity test to verify design          │
-  │  More material-efficient: initiator + reflector + polonium-Be  │
-  │  neutron initiator                                               │
+  │  More material-efficient: initiator + reflector + polonium-Be   │
+  │  neutron initiator                                              │
   └─────────────────────────────────────────────────────────────────┘
 
 COST (1945 dollars): ~$2 billion (~$28 billion 2024)
@@ -262,13 +262,13 @@ Peak workforce: ~130,000 at Oak Ridge, Hanford, Los Alamos, Chicago, other sites
 
 IONIZATION SMOKE DETECTOR:
   ┌────────────────────────────────────────────────────────────┐
-  │  ~0.9 μg ²⁴¹Am in ionization chamber                      │
+  │  ~0.9 μg ²⁴¹Am in ionization chamber                       │
   │  α particles ionize air in chamber → steady ion current    │
   │  Smoke enters → alpha range (~4 cm in air) interrupted     │
   │  → Ion current drops → alarm triggers                      │
-  │                                                             │
+  │                                                            │
   │  Billion+ detectors worldwide contain Am-241               │
-  │  Total ²⁴¹Am in all smoke detectors: ~100 kg worldwide    │
+  │  Total ²⁴¹Am in all smoke detectors: ~100 kg worldwide     │
   └────────────────────────────────────────────────────────────┘
 
 α particles cannot penetrate the chamber wall → safe in normal use

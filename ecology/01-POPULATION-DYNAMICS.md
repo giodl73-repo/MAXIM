@@ -6,18 +6,18 @@ Population dynamics is the quantitative core of ecology. The mathematical struct
 
 ```
 +---------------------------------------------------------------+
-|              POPULATION DYNAMICS FRAMEWORK                     |
-|                                                                |
+|              POPULATION DYNAMICS FRAMEWORK                    |
+|                                                               |
 |  SINGLE SPECIES           MULTI-SPECIES                       |
 |  dN/dt = f(N, environment) dN₁/dt = f(N₁, N₂, ...)          |
-|                                                                |
-|  Exponential growth  ←→  Lotka-Volterra predator-prey        |
-|  Logistic growth     ←→  Competition models                  |
-|  Structured models   ←→  Mutualism models                    |
-|  Stochastic models   ←→  Food web models                     |
-|                                                                |
-|  SPATIAL EXTENSION: Metapopulation (patch dynamics)          |
-|  EVOLUTIONARY: r vs K selection; life history theory         |
+|                                                               |
+|  Exponential growth  ←→  Lotka-Volterra predator-prey         |
+|  Logistic growth     ←→  Competition models                   |
+|  Structured models   ←→  Mutualism models                     |
+|  Stochastic models   ←→  Food web models                      |
+|                                                               |
+|  SPATIAL EXTENSION: Metapopulation (patch dynamics)           |
+|  EVOLUTIONARY: r vs K selection; life history theory          |
 +---------------------------------------------------------------+
 ```
 

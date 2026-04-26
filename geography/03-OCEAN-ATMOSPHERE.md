@@ -11,21 +11,21 @@ propagates spatially.
 
 ```
 +----------------------------------------------------------------------+
-|                    OCEAN-ATMOSPHERE COUPLING                          |
+|                    OCEAN-ATMOSPHERE COUPLING                         |
 |                                                                      |
 |  SURFACE CIRCULATION          DEEP CIRCULATION                       |
 |  ──────────────────           ────────────────                       |
-|  Wind-driven gyres            Thermohaline (THC/AMOC)               |
-|  (5 subtropical gyres)        North Atlantic Deep Water             |
+|  Wind-driven gyres            Thermohaline (THC/AMOC)                |
+|  (5 subtropical gyres)        North Atlantic Deep Water              |
 |  Western intensification      formation at high latitudes            |
-|  (Gulf Stream/Kuroshio)       Timescale: ~1000 years                |
+|  (Gulf Stream/Kuroshio)       Timescale: ~1000 years                 |
 |  Ekman transport              Tipping point if weakened              |
 |                                                                      |
 |  OCEAN-ATMOSPHERE VARIABILITY                                        |
 |  ────────────────────────────                                        |
-|  ENSO: 2-7 year cycles        MONSOONS: seasonal ITCZ migration     |
-|  NAO: N Atlantic pressure     PDO: 20-30 year Pacific modulation    |
-|  TELECONNECTIONS: anomalies correlated across vast distances        |
+|  ENSO: 2-7 year cycles        MONSOONS: seasonal ITCZ migration      |
+|  NAO: N Atlantic pressure     PDO: 20-30 year Pacific modulation     |
+|  TELECONNECTIONS: anomalies correlated across vast distances         |
 +----------------------------------------------------------------------+
 ```
 
@@ -41,13 +41,13 @@ propagates spatially.
   │ Trade winds (equatorward) + Westerlies (poleward) + polar      │
   │ easterlies drive surface water in characteristic patterns      │
   │                                                                │
-  │ Ekman Transport: Coriolis deflects surface water at 90° to    │
-  │ wind direction (45° per layer → 90° net over Ekman depth)     │
-  │ → Convergence → downwelling (subtropical gyres center)        │
-  │ → Divergence → upwelling (eastern boundaries, equator)        │
+  │ Ekman Transport: Coriolis deflects surface water at 90° to     │
+  │ wind direction (45° per layer → 90° net over Ekman depth)      │
+  │ → Convergence → downwelling (subtropical gyres center)         │
+  │ → Divergence → upwelling (eastern boundaries, equator)         │
   │                                                                │
   │ Geostrophic Flow: pressure gradient (sea level slope) balances │
-  │ Coriolis → sustained gyre circulation                         │
+  │ Coriolis → sustained gyre circulation                          │
   └────────────────────────────────────────────────────────────────┘
 
   FIVE SUBTROPICAL GYRES:
@@ -65,17 +65,17 @@ propagates spatially.
 
   UPWELLING ZONES:
   ┌──────────────────────────────────────────────────────────────┐
-  │ Coastal upwelling: Ekman transport carries surface water      │
-  │ away from coast → cold, nutrient-rich deep water rises        │
+  │ Coastal upwelling: Ekman transport carries surface water     │
+  │ away from coast → cold, nutrient-rich deep water rises       │
   │                                                              │
   │ California Current (US West): cold, foggy coast; massive     │
   │   fisheries; Monterey Bay sardines (collapsed 1948)          │
-  │ Humboldt/Peru Current: world's most productive fishery        │
+  │ Humboldt/Peru Current: world's most productive fishery       │
   │   (anchoveta); dramatically disrupted by El Niño             │
   │ Benguela (SW Africa): cold, dry Namib Desert nearby;         │
   │   productive fishery                                         │
   │ Canary (NW Africa): contributes to W Saharan aridity         │
-  │ Somalia Current: switches direction with monsoon              │
+  │ Somalia Current: switches direction with monsoon             │
   └──────────────────────────────────────────────────────────────┘
 ```
 
@@ -91,19 +91,19 @@ propagates spatially.
   THE GLOBAL OCEAN CONVEYOR BELT:
   ┌────────────────────────────────────────────────────────────────┐
   │                                                                │
-  │  Warm surface return ←─────────────────────────────────────── │
-  │  (Indian/Pacific) ←──────────────────────────────────────     │
+  │  Warm surface return ←───────────────────────────────────────  │
+  │  (Indian/Pacific) ←──────────────────────────────────────      │
   │                                                                │
-  │  N ATLANTIC: warm surface water → cooling + evaporation       │
-  │  (increases salinity) → dense water sinks                     │
-  │  → NADW (North Atlantic Deep Water) formation at Labrador Sea │
-  │    + GIN Seas (Greenland/Iceland/Norwegian Seas)              │
-  │  → Deep water flows south along Atlantic floor                │
-  │  → Upwells in Southern Ocean / Pacific / Indian Ocean         │
-  │  → Returns as warm shallow water via Indian + Pacific         │
+  │  N ATLANTIC: warm surface water → cooling + evaporation        │
+  │  (increases salinity) → dense water sinks                      │
+  │  → NADW (North Atlantic Deep Water) formation at Labrador Sea  │
+  │    + GIN Seas (Greenland/Iceland/Norwegian Seas)               │
+  │  → Deep water flows south along Atlantic floor                 │
+  │  → Upwells in Southern Ocean / Pacific / Indian Ocean          │
+  │  → Returns as warm shallow water via Indian + Pacific          │
   │                                                                │
-  │  Timescale: ~1000 years for complete circuit                  │
-  │  Volume: Gulf Stream alone = 100× Amazon River flow           │
+  │  Timescale: ~1000 years for complete circuit                   │
+  │  Volume: Gulf Stream alone = 100× Amazon River flow            │
   └────────────────────────────────────────────────────────────────┘
 
   WHY AMOC MATTERS FOR EUROPE:
@@ -135,14 +135,14 @@ propagates spatially.
   │ Greenland ice sheet melting → freshwater influx → reduces      │
   │ salinity → reduces density → reduces sinking → weakens AMOC  │
   │                                                                │
-  │ Evidence: AMOC is at weakest point in ~1000 years (Caesar     │
-  │ et al. 2018; Boers 2021 — tipping point indicators)           │
+  │ Evidence: AMOC is at weakest point in ~1000 years (Caesar      │
+  │ et al. 2018; Boers 2021 — tipping point indicators)            │
   │                                                                │
-  │ Consequence of collapse: abrupt NW European cooling despite   │
-  │ global warming; Sahel drought; Amazon precipitation changes   │
-  │ → Tipping element in Earth system (Lenton et al.)             │
+  │ Consequence of collapse: abrupt NW European cooling despite    │
+  │ global warming; Sahel drought; Amazon precipitation changes    │
+  │ → Tipping element in Earth system (Lenton et al.)              │
   │                                                                │
-  │ Timeline uncertainty: 2025-2095 range for tipping (wide);     │
+  │ Timeline uncertainty: 2025-2095 range for tipping (wide);      │
   │ high scientific priority but high uncertainty                  │
   └────────────────────────────────────────────────────────────────┘
 
@@ -161,9 +161,9 @@ propagates spatially.
   NORMAL (NEUTRAL) CONDITIONS:
   ┌────────────────────────────────────────────────────────────────┐
   │ Trade winds blow W along equatorial Pacific                    │
-  │ → Warm water accumulates in W Pacific (Indonesia/Australia)   │
-  │ → Cold upwelling along Peru coast (Humboldt Current enhanced) │
-  │ → Walker Circulation: low pressure W Pacific, high pressure E │
+  │ → Warm water accumulates in W Pacific (Indonesia/Australia)    │
+  │ → Cold upwelling along Peru coast (Humboldt Current enhanced)  │
+  │ → Walker Circulation: low pressure W Pacific, high pressure E  │
   │ → Heavy rainfall Indonesia/PNG; dry Peru/Ecuador             │
   └────────────────────────────────────────────────────────────────┘
 
@@ -175,13 +175,13 @@ propagates spatially.
   │ → Walker Circulation reverses or weakens                       │
   │                                                                │
   │ REGIONAL CONSEQUENCES:                                         │
-  │ Peru/Ecuador: floods, landslides, anchovy fishery collapses   │
-  │ Indonesia/Australia: drought, fires (1997: SE Asian fires)    │
-  │ US: wet SW (California winter rain), dry SE                   │
-  │ Gulf of Mexico: Atlantic hurricane season SUPPRESSED          │
-  │   (enhanced wind shear in Atlantic from El Niño)              │
-  │ East Africa: wetter; S Africa: drier                          │
-  │ Jet stream shifts → N American winter anomalies               │
+  │ Peru/Ecuador: floods, landslides, anchovy fishery collapses    │
+  │ Indonesia/Australia: drought, fires (1997: SE Asian fires)     │
+  │ US: wet SW (California winter rain), dry SE                    │
+  │ Gulf of Mexico: Atlantic hurricane season SUPPRESSED           │
+  │   (enhanced wind shear in Atlantic from El Niño)               │
+  │ East Africa: wetter; S Africa: drier                           │
+  │ Jet stream shifts → N American winter anomalies                │
   └────────────────────────────────────────────────────────────────┘
 
   LA NIÑA CONDITIONS:
@@ -254,17 +254,17 @@ propagates spatially.
 
   SOUTH ASIAN MONSOON:
   ┌────────────────────────────────────────────────────────────────┐
-  │ June: ITCZ migrates north; Arabian Sea + Bay of Bengal low    │
-  │       pressure; southwest winds → onshore flow                │
-  │ June-September: ~80% of India's annual precipitation          │
-  │ Onset: "bursts" across India over ~45 days from Kerala north  │
+  │ June: ITCZ migrates north; Arabian Sea + Bay of Bengal low     │
+  │       pressure; southwest winds → onshore flow                 │
+  │ June-September: ~80% of India's annual precipitation           │
+  │ Onset: "bursts" across India over ~45 days from Kerala north   │
   │                                                                │
   │ IMD (India Meteorological Department) forecasts closely watched│
-  │ → ~60% of India's population depends on monsoon agriculture   │
-  │ Failure → crop stress; excess → floods + landslides           │
+  │ → ~60% of India's population depends on monsoon agriculture    │
+  │ Failure → crop stress; excess → floods + landslides            │
   │                                                                │
   │ October-November: withdrawal; Northeast monsoon (Bay of Bengal)│
-  │ → SE India and Sri Lanka receive rainfall                     │
+  │ → SE India and Sri Lanka receive rainfall                      │
   └────────────────────────────────────────────────────────────────┘
 
   EAST ASIAN MONSOON:
@@ -295,14 +295,14 @@ propagates spatially.
   ┌────────────────────────────────────────────────────────────────┐
   │ Index: pressure difference between Icelandic Low and Azores High│
   │                                                                │
-  │ NAO+ (high index): strong pressure gradient                   │
+  │ NAO+ (high index): strong pressure gradient                    │
   │   → Strong westerlies → mild, wet W Europe                   │
   │   → Cold, dry NE Canada; dry Mediterranean                   │
   │                                                                │
-  │ NAO− (low index): weak pressure gradient                      │
+  │ NAO− (low index): weak pressure gradient                       │
   │   → Weak westerlies → cold, dry/snowy W Europe               │
   │   → Mild NE Canada; wet Mediterranean                        │
-  │   → 2010: extreme NAO−; severe European winters               │
+  │   → 2010: extreme NAO−; severe European winters                │
   └────────────────────────────────────────────────────────────────┘
 
   ARCTIC OSCILLATION (AO) / POLAR VORTEX:

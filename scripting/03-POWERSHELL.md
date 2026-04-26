@@ -31,26 +31,26 @@
 │  ┌─────────────────────────────────────────────────────────────────────────────────────┐  │
 │  │  MODULE ECOSYSTEM LAYERS                                                              │  │
 │  │                                                                                       │  │
-│  │  4. Private feed / internal modules    ← NuGet / Azure Artifacts feed                │  │
-│  │  3. Az.* (Azure SDK modules)           ← PSGallery; sub-modules by service area      │  │
-│  │  2. Community modules                  ← PSGallery (Pester, dbatools, PSReadLine…)   │  │
-│  │  1. Built-in modules                   ← Ship with Windows (ActiveDirectory, CIM…)   │  │
+│  │  4. Private feed / internal modules    ← NuGet / Azure Artifacts feed               │  │
+│  │  3. Az.* (Azure SDK modules)           ← PSGallery; sub-modules by service area     │  │
+│  │  2. Community modules                  ← PSGallery (Pester, dbatools, PSReadLine…)  │  │
+│  │  1. Built-in modules                   ← Ship with Windows (ActiveDirectory, CIM…)  │  │
 │  │                                                                                       │  │
-│  │  PSModulePath controls search order    ← $env:PSModulePath (colon-separated dirs)    │  │
-│  │  Autoloading: PS 3+ discovers modules automatically when a command is typed          │  │
+│  │  PSModulePath controls search order    ← $env:PSModulePath (colon-separated dirs)   │  │
+│  │  Autoloading: PS 3+ discovers modules automatically when a command is typed         │  │
 │  └─────────────────────────────────────────────────────────────────────────────────────┘  │
 │                                                                                           │
 │  ┌─────────────────────────────────────────────────────────────────────────────────────┐  │
 │  │  EXECUTION POLICY (Windows only — not a security boundary, a convenience guardrail) │  │
 │  │                                                                                       │  │
-│  │  Restricted      — no scripts (default on client Windows)                            │  │
-│  │  RemoteSigned     — local scripts OK; downloaded scripts need signature              │  │
-│  │  Unrestricted    — all scripts, warns on downloaded                                  │  │
-│  │  Bypass           — no checking at all (use in CI/CD: -ExecutionPolicy Bypass)       │  │
+│  │  Restricted      — no scripts (default on client Windows)                           │  │
+│  │  RemoteSigned     — local scripts OK; downloaded scripts need signature             │  │
+│  │  Unrestricted    — all scripts, warns on downloaded                                 │  │
+│  │  Bypass           — no checking at all (use in CI/CD: -ExecutionPolicy Bypass)      │  │
 │  │                                                                                       │  │
 │  │  Scope precedence (highest wins):                                                     │  │
-│  │  MachinePolicy > UserPolicy > Process > CurrentUser > LocalMachine                   │  │
-│  │  Set-ExecutionPolicy -Scope Process -ExecutionPolicy Bypass   ← CI-safe              │  │
+│  │  MachinePolicy > UserPolicy > Process > CurrentUser > LocalMachine                  │  │
+│  │  Set-ExecutionPolicy -Scope Process -ExecutionPolicy Bypass   ← CI-safe             │  │
 │  └─────────────────────────────────────────────────────────────────────────────────────┘  │
 └─────────────────────────────────────────────────────────────────────────────────────────┘
 ```

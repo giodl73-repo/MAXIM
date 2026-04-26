@@ -8,7 +8,7 @@ primarily by receptor distribution and post-entry replication capacity.
 
 ```
 ┌──────────────────────────────────────────────────────────────────┐
-│               VIRUS-HOST INTERACTION LAYERS                       │
+│               VIRUS-HOST INTERACTION LAYERS                      │
 │                                                                    │
 │  MOLECULAR LEVEL:    Receptor recognition → entry mechanism      │
 │  CELLULAR LEVEL:     Restriction factors, innate sensors         │
@@ -19,8 +19,8 @@ primarily by receptor distribution and post-entry replication capacity.
 │  TROPISM DETERMINANTS:                                           │
 │  1. Receptor expression (necessary)                              │
 │  2. Co-receptor expression (necessary for some)                  │
-│  3. Cellular replication machinery compatibility                  │
-│  4. Restriction factor landscape                                  │
+│  3. Cellular replication machinery compatibility                 │
+│  4. Restriction factor landscape                                 │
 │  5. Innate immune signaling in that cell type                    │
 └──────────────────────────────────────────────────────────────────┘
 ```

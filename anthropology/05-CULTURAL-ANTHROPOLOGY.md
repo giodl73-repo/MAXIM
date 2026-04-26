@@ -4,10 +4,10 @@
 
 ```
 +------------------------------------------------------------------+
-|                  CULTURAL ANTHROPOLOGY                            |
-|                                                                   |
+|                  CULTURAL ANTHROPOLOGY                           |
+|                                                                  |
 |  "The comparative study of human cultures — how people live,     |
-|   make meaning, organize themselves, and transmit knowledge       |
+|   make meaning, organize themselves, and transmit knowledge      |
 |   across generations through ethnographic fieldwork"             |
 +------------------------------------------------------------------+
          |             |              |              |

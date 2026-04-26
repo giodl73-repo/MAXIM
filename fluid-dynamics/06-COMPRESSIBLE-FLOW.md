@@ -29,10 +29,10 @@ COMPRESSIBLE FLOW — REGIMES BY MACH NUMBER
               ionization; shock layer merges with boundary layer
 
   ┌────────────────────────────────────────────────────────────────┐
-  │  KEY FACT: At M > 1, disturbances cannot propagate upstream   │
-  │  (they are swept downstream at U > c).                        │
+  │  KEY FACT: At M > 1, disturbances cannot propagate upstream    │
+  │  (they are swept downstream at U > c).                         │
   │  ⟹  Supersonic flow "doesn't know" what's coming next.       │
-  │  ⟹  Shocks form suddenly when flow must adjust to boundaries. │
+  │  ⟹  Shocks form suddenly when flow must adjust to boundaries.  │
   └────────────────────────────────────────────────────────────────┘
 ```
 

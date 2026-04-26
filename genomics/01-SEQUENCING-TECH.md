@@ -91,8 +91,8 @@ Illumina holds ~80% of the global sequencing market. Understanding its chemistry
   ┌──────────────────────────────────────────────────────┐
   │ Raw: fluorescence intensity images per cycle         │
   │ Basecaller converts images → FASTQ file              │
-  │ Each base gets quality score Q = -10 log₁₀(P_error) │
-  │ Q30 = 0.1% error, Q40 = 0.01% error                 │
+  │ Each base gets quality score Q = -10 log₁₀(P_error)  │
+  │ Q30 = 0.1% error, Q40 = 0.01% error                  │
   └──────────────────────────────────────────────────────┘
 
   KEY LIMITATION: Bridge PCR requires local amplification.
@@ -113,13 +113,13 @@ Illumina holds ~80% of the global sequencing market. Understanding its chemistry
            threads through a protein pore in a membrane
 
   ┌─────────────────────────────────────────────────────┐
-  │                  NANOPORE PORE                       │
-  │                                                      │
-  │  Upper chamber (+)                                   │
-  │  ─────────────────────────────                       │
-  │         A   T   G   C   C                            │
-  │          ╲  │  /  │  /                               │
-  │           ┌─┴──┴──┴──┘                               │
+  │                  NANOPORE PORE                      │
+  │                                                     │
+  │  Upper chamber (+)                                  │
+  │  ─────────────────────────────                      │
+  │         A   T   G   C   C                           │
+  │          ╲  │  /  │  /                              │
+  │           ┌─┴──┴──┴──┘                              │
   │           │  PROTEIN PORE  │                         │
   │           └────────────────┘                         │
   │  ─────────────────────────────                       │
@@ -229,11 +229,11 @@ Illumina holds ~80% of the global sequencing market. Understanding its chemistry
 
   10x VISIUM (capture-array based):
   ┌─────────────────────────────────────────────────────┐
-  │ Tissue section placed on array of ~5,000 spots       │
-  │ Each spot has oligos with spatial barcode + poly-T   │
-  │ mRNA diffuses down, captured at nearest spot         │
-  │ After library prep, Illumina sequencing              │
-  │ Result: gene expression at 55 μm spot resolution     │
+  │ Tissue section placed on array of ~5,000 spots      │
+  │ Each spot has oligos with spatial barcode + poly-T  │
+  │ mRNA diffuses down, captured at nearest spot        │
+  │ After library prep, Illumina sequencing             │
+  │ Result: gene expression at 55 μm spot resolution    │
   └─────────────────────────────────────────────────────┘
 
   XENIUM / MERFISH (in situ hybridization):

@@ -51,18 +51,18 @@ The blast furnace is a countercurrent reduction reactor: ore descends, hot gases
 │                                                              │
 │  ZONES (temperature increases downward):                     │
 │                                                              │
-│  1. Stack / Upper zone (200–500°C):                         │
-│     H₂O driven off, indirect reduction begins               │
+│  1. Stack / Upper zone (200–500°C):                          │
+│     H₂O driven off, indirect reduction begins                │
 │     3Fe₂O₃ + CO → 2Fe₃O₄ + CO₂                            │
 │     Fe₃O₄ + CO → 3FeO + CO₂                                │
 │                                                              │
-│  2. Bosh (600–900°C):                                       │
+│  2. Bosh (600–900°C):                                        │
 │     CaCO₃ → CaO + CO₂  (limestone calcination)             │
-│     FeO + CO → Fe + CO₂  (final reduction)                  │
+│     FeO + CO → Fe + CO₂  (final reduction)                   │
 │                                                              │
-│  3. Combustion zone / Tuyeres (~2000°C):                    │
+│  3. Combustion zone / Tuyeres (~2000°C):                     │
 │     2C + O₂ → 2CO  (coke + hot blast air)                  │
-│     CO rises — is the primary reductant                     │
+│     CO rises — is the primary reductant                      │
 │                                                              │
 │  OUTPUTS (from bottom):                                      │
 │  Pig iron (liquid): ~94% Fe, 4–4.5% C, + Si, Mn, S, P     │
@@ -218,10 +218,10 @@ HALL-HÉROULT ELECTROLYTIC CELL:
 
     Carbon anodes (+) →
    ┌─────────────────────────────────────────────────┐
-   │  Molten cryolite (Na₃AlF₆) electrolyte, ~960°C │
-   │  with dissolved Al₂O₃ (~2–8%)                  │
-   │  (cryolite lowers melting point of Al₂O₃       │
-   │   from 2072°C to ~960°C — crucial innovation)  │
+   │  Molten cryolite (Na₃AlF₆) electrolyte, ~960°C  │
+   │  with dissolved Al₂O₃ (~2–8%)                   │
+   │  (cryolite lowers melting point of Al₂O₃        │
+   │   from 2072°C to ~960°C — crucial innovation)   │
    └─────────────────────────────────────────────────┘
     Carbon cathode lining (-) ←
                     ↓

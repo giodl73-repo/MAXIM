@@ -8,15 +8,15 @@
 JOINT TYPE MAP:
 +------------------------------------------------------------------+
 |                                                                  |
-|  PERMANENT                      SEMI-PERMANENT / SERVICEABLE    |
+|  PERMANENT                      SEMI-PERMANENT / SERVICEABLE     |
 |  =========                      ================================ |
 |                                                                  |
-|  Sweat solder   (copper)        Compression    (copper/rigid)   |
-|  Press-fit      (copper/SS)     Flare          (soft copper)    |
-|  Expansion      (PEX-a)         Threaded NPT   (any compatible) |
+|  Sweat solder   (copper)        Compression    (copper/rigid)    |
+|  Press-fit      (copper/SS)     Flare          (soft copper)     |
+|  Expansion      (PEX-a)         Threaded NPT   (any compatible)  |
 |  Solvent weld   (PVC/CPVC/ABS)  Push-fit       (copper/PEX/CPVC)|
-|  Crimp/Clamp    (PEX)                                           |
-|  Grooved        (Victaulic)                                     |
+|  Crimp/Clamp    (PEX)                                            |
+|  Grooved        (Victaulic)                                      |
 +------------------------------------------------------------------+
 
 STRENGTH HIERARCHY (for supply pressure service):
@@ -85,7 +85,7 @@ PRINCIPLE: hydraulic tool compresses EPDM O-ring into annular groove
 FITTING ANATOMY:
   ┌──────────────────────────────────┐
   │  Press fitting body              │
-  │  ┌──────────────────────────┐   │
+  │  ┌──────────────────────────┐    │
   │  │  O-ring groove           │   │
   │  │  [EPDM O-ring ─────────] │   │
   │  │                          │   │
@@ -131,11 +131,11 @@ PRINCIPLE: brass ferrule (olive/ring) compressed against pipe OD
 
 ANATOMY:
   ┌──────────────────────────────────────────────┐
-  │  Body nut  │ ferrule │  Body fitting          │
+  │  Body nut  │ ferrule │  Body fitting         │
   │  ────────► │ (olive) │ ◄─ pipe →             │
-  │            │         │                        │
+  │            │         │                       │
   │  Tighten nut → ferrule compresses into pipe OD│
-  │  → indentation creates seal                   │
+  │  → indentation creates seal                  │
   └──────────────────────────────────────────────┘
 
 FERRULE TYPES:
@@ -202,7 +202,7 @@ PRINCIPLE: stainless steel grab ring + EPDM O-ring
 ANATOMY:
   ┌──────────────────────────────────────────────────────────┐
   │                                                          │
-  │  ← push pipe in this direction                          │
+  │  ← push pipe in this direction                           │
   │                                                          │
   │  Release collar   Stainless teeth   EPDM O-ring          │
   │  ┌─────────────┬──────────────────┬────────────────────┐ │
@@ -311,7 +311,7 @@ MATERIALS AND CEMENTS (CRITICAL: use correct product):
   ├──────────────────────────────────────────────────────────┤
   │ ABS→PVC   │ Purple primer             │ Transition cement│
   │ (transition│                          │ (specified for   │
-  │ joint)    │                           │ ABS/PVC combo)  │
+  │ joint)    │                           │ ABS/PVC combo)   │
   └──────────────────────────────────────────────────────────┘
 
 PROCESS:

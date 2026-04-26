@@ -10,19 +10,19 @@ DIGITAL HISTORY TOOLKIT
   TEXT MINING              NETWORK ANALYSIS        GIS / SPATIAL
   +----------------+       +----------------+      +----------------+
   | Large corpus   |       | Correspondence |      | Historical maps |
-  | (millions of   |       | networks       |      | overlaid on     |
+  | (millions of   |       | networks       |      | overlaid on    |
   |  words)        |       | Social networks|      | modern GIS data |
-  |                |       | Citation nets  |      |                 |
-  | Tools:         |       | Tools:         |      | Tools:          |
+  |                |       | Citation nets  |      |                |
+  | Tools:         |       | Tools:         |      | Tools:         |
   | LDA topic model|       | Gephi, Cytosc- |      | QGIS, ArcGIS   |
   | word2vec       |       | ape, R igraph  |      | StoryMapJS     |
-  | N-gram viewer  |       |                |      |                 |
-  | BERT/LLMs      |       | Questions:     |      | Questions:      |
-  |                |       | Centrality,    |      | Distribution,   |
-  | Questions:     |       | community,     |      | movement,       |
-  | Topic change,  |       | weak ties,     |      | proximity,      |
-  | sentiment,     |       | brokers        |      | boundary        |
-  | word meaning   |       |                |      |                 |
+  | N-gram viewer  |       |                |      |                |
+  | BERT/LLMs      |       | Questions:     |      | Questions:     |
+  |                |       | Centrality,    |      | Distribution,  |
+  | Questions:     |       | community,     |      | movement,      |
+  | Topic change,  |       | weak ties,     |      | proximity,     |
+  | sentiment,     |       | brokers        |      | boundary       |
+  | word meaning   |       |                |      |                |
   +----------------+       +----------------+      +----------------+
          |                        |                       |
          +------------------------+-----------------------+

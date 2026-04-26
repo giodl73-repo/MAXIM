@@ -9,10 +9,10 @@
 ┌────────────────────────────────────────────────────────────────────────────┐
 │                        EXOPLANET LANDSCAPE                                 │
 │                                                                            │
-│   DETECTION ERA     MISSION           PLANETS FOUND                       │
-│   ────────────      ───────           ─────────────                       │
-│   1992–1995         Ground RV         First confirmed (51 Peg b, 1995)    │
-│   2004–2013         Ground transit    WASP, HAT surveys                   │
+│   DETECTION ERA     MISSION           PLANETS FOUND                        │
+│   ────────────      ───────           ─────────────                        │
+│   1992–1995         Ground RV         First confirmed (51 Peg b, 1995)     │
+│   2004–2013         Ground transit    WASP, HAT surveys                    │
 │   2009–2018         Kepler            >2600 confirmed; statistics          │
 │   2018–present      TESS              All-sky; bright nearby stars         │
 │   2013–present      Gaia              Astrometric detections               │
@@ -20,11 +20,11 @@
 │   ~2030s+           PLATO             Rocky planets around FGK stars       │
 │   ~2040s            HWO / LUVOIR      Direct imaging, rocky planet spectra │
 │                                                                            │
-│   POPULATION CENSUS (confirmed ~5700+ as of 2025):                        │
-│   Gas giants (R > 6 R_E)          ~5%  — overrepresented (detection bias) │
+│   POPULATION CENSUS (confirmed ~5700+ as of 2025):                         │
+│   Gas giants (R > 6 R_E)          ~5%  — overrepresented (detection bias)  │
 │   Sub-Neptunes (1.7–4 R_E)        ~36% — most common type                │
 │   Super-Earths (1–1.7 R_E)        ~30% — rocky side of Fulton gap        │
-│   Earths (< 1.2 R_E)              ~13% — difficult to detect              │
+│   Earths (< 1.2 R_E)              ~13% — difficult to detect               │
 │   Hot Jupiters (a < 0.1 AU, large) ~1%  — rare but first detected        │
 └────────────────────────────────────────────────────────────────────────────┘
 ```
@@ -339,10 +339,10 @@ Dayside temperatures > 2200 K → molecular dissociation (H₂ dissociates, FeI/
 │  TESS        Active   All-sky transit survey  Bright nearby stars    │
 │  JWST        Active   Atmosphere spectra      Sub-Neptune to rocky   │
 │  Ariel       2029     Atmospheric survey      >1000 planets          │
-│  PLATO       2026     Rocky HZ planets        P up to 2 yr          │
-│  Roman       2027     Microlensing + coronagraph Cold planets + HJ  │
+│  PLATO       2026     Rocky HZ planets        P up to 2 yr           │
+│  Roman       2027     Microlensing + coronagraph Cold planets + HJ   │
 │  HWO         ~2040    Rocky planet direct imaging 10⁻¹⁰ contrast   │
-│  LUVOIR-A    ~2040    UV-optical-IR direct imaging Rocky biosigs    │
+│  LUVOIR-A    ~2040    UV-optical-IR direct imaging Rocky biosigs     │
 └──────────────────────────────────────────────────────────────────────┘
 ```
 

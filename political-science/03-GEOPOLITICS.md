@@ -20,19 +20,19 @@ of extended commitments — you generally cannot simultaneously maximize all thr
 
 ```
 +----------------------------------------------------------------------+
-|                    CLASSICAL GEOPOLITICAL THEORIES                    |
+|                    CLASSICAL GEOPOLITICAL THEORIES                   |
 |                                                                      |
-|  MACKINDER (1904):           MAHAN (1890):                          |
+|  MACKINDER (1904):           MAHAN (1890):                           |
 |  Heartland = Central Asia    Command of the sea = national power     |
 |  → Control Eurasia           → Merchant marine + Navy + Bases        |
-|  → Control the world         → Chokepoints                          |
+|  → Control the world         → Chokepoints                           |
 |                                                                      |
 |  SPYKMAN (1944):             BRZEZINSKI (1997):                      |
 |  Rimland > Heartland         Eurasia as grand chessboard             |
 |  → Coastal Eurasia is key    → "Eurasian Balkans" = prize            |
 |  → Containment strategy      → Ukraine as pivotal state              |
 |                                                                      |
-|         ┌─────────────────────────────────────┐                     |
+|         ┌─────────────────────────────────────┐                      |
 |         │        EURASIA                       │                     |
 |         │    ┌─────────────────────┐           │                     |
 |         │    │    HEARTLAND        │           │                     |
@@ -156,34 +156,34 @@ of extended commitments — you generally cannot simultaneously maximize all thr
   HISTORICAL ARC:
   ┌──────────────────────────────────────────────────────────────────┐
   │ Cold War (1947–1991): Bipolar; US/USSR                           │
-  │ Unipolar moment (1991–2008): US dominance; "end of history"     │
-  │ Multipolar contestation (2008+): China rise; Russia revisionism │
+  │ Unipolar moment (1991–2008): US dominance; "end of history"      │
+  │ Multipolar contestation (2008+): China rise; Russia revisionism  │
   │                                                                  │
   │ KEY TRANSITIONS:                                                 │
-  │ 2008: Georgia war (Russia); financial crisis (US model crisis)  │
-  │ 2013: China's Xi era begins; "Wolf Warrior diplomacy" precursor │
-  │ 2022: Russia invades Ukraine; post-WWII order directly tested   │
-  │ 2024+: China pressure on Taiwan; US-China tech war intensifies  │
+  │ 2008: Georgia war (Russia); financial crisis (US model crisis)   │
+  │ 2013: China's Xi era begins; "Wolf Warrior diplomacy" precursor  │
+  │ 2022: Russia invades Ukraine; post-WWII order directly tested    │
+  │ 2024+: China pressure on Taiwan; US-China tech war intensifies   │
   └──────────────────────────────────────────────────────────────────┘
 
   US/CHINA/RUSSIA TRIANGLE:
   ┌─────────────────────────────────────────────────────────────────┐
   │         UNITED STATES                                           │
-  │         ─────────────                                          │
-  │         Offshore balancer     ←──── Nuclear deterrence ────→   │
+  │         ─────────────                                           │
+  │         Offshore balancer     ←──── Nuclear deterrence ────→    │
   │         Alliance leader                                         │
   │         Technology + finance                                    │
   │               │                           │                     │
   │         Competition               Transactional                 │
   │         (chips/Taiwan)            (no genuine alignment)        │
   │               │                           │                     │
-  │            CHINA                       RUSSIA                  │
-  │            ─────                       ──────                  │
+  │            CHINA                       RUSSIA                   │
+  │            ─────                       ──────                   │
   │            "No limits"                 Military power           │
   │            partnership                 declining economy        │
   │            (post-2022)                 revisionism              │
-  │            Economic power              Energy leverage           │
-  │            Military buildup            Nuclear threats           │
+  │            Economic power              Energy leverage          │
+  │            Military buildup            Nuclear threats          │
   └─────────────────────────────────────────────────────────────────┘
 
   INDIA AS SWING STATE:
@@ -207,9 +207,9 @@ of extended commitments — you generally cannot simultaneously maximize all thr
   GEOPOLITICAL INTERPRETATION:
   ┌────────────────────────────────────────────────────────────────┐
   │ CHINA'S STATED GOALS:       STRATEGIC CRITICS' INTERPRETATION:│
-  │ South-South cooperation     Create debt-dependent clients       │
-  │ Mutual development          Build military logistics network    │
-  │ Connectivity                Encirclement of India               │
+  │ South-South cooperation     Create debt-dependent clients      │
+  │ Mutual development          Build military logistics network   │
+  │ Connectivity                Encirclement of India              │
   │ Trade facilitation          Dollar-alternative financial system │
   └────────────────────────────────────────────────────────────────┘
 
@@ -245,7 +245,7 @@ of extended commitments — you generally cannot simultaneously maximize all thr
   │ (Iran-Oman)             │ Iran has closure option (asymmetric)    │
   │                         │ 5 nautical miles at narrowest           │
   ├─────────────────────────┼─────────────────────────────────────────┤
-  │ Strait of Malacca       │ ~40% of world trade; ~80% of China's   │
+  │ Strait of Malacca       │ ~40% of world trade; ~80% of China's    │
   │ (Malaysia-Indonesia)    │ oil imports; shortest East-West route   │
   │                         │ "Malacca Dilemma" for China             │
   ├─────────────────────────┼─────────────────────────────────────────┤

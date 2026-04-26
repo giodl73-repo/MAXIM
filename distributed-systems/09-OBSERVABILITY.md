@@ -9,7 +9,7 @@ THE THREE PILLARS OF OBSERVABILITY
 +-----------------------------------------------------------------------+
 |                                                                       |
 |   LOGS              METRICS              TRACES                       |
-|   +------------+    +------------+       +------------------+        |
+|   +------------+    +------------+       +------------------+         |
 |   | Discrete   |    | Aggregated |       | Request journey  |        |
 |   | events at  |    | measurements|      | across services  |        |
 |   | a point in |    | over time  |       | (spans, timing,  |        |
@@ -19,7 +19,7 @@ THE THREE PILLARS OF OBSERVABILITY
 |   | structured |    | Prometheus |       | Jaeger, Zipkin   |        |
 |   | JSON       |    | model      |       | OpenTelemetry    |        |
 |   +------------+    +------------+       +------------------+        |
-|         |                 |                       |                   |
+|         |                 |                       |                  |
 |         +─────────────────+───────────────────────+                  |
 |                           |                                           |
 |                  CORRELATION ID threads through all three            |
@@ -155,18 +155,18 @@ Traces show the complete journey of a single request through multiple services.
 ```
 TRACE: Single request (trace-id: abc123)
 +---------------------------------------------------------------+
-| SPAN: api-gateway (duration: 250ms)                          |
+| SPAN: api-gateway (duration: 250ms)                           |
 |   |                                                           |
-|   +-- SPAN: auth-service (duration: 15ms)                    |
+|   +-- SPAN: auth-service (duration: 15ms)                     |
 |   |      JWT validation                                       |
 |   |                                                           |
-|   +-- SPAN: product-service (duration: 200ms)                |
+|   +-- SPAN: product-service (duration: 200ms)                 |
 |          |                                                    |
-|          +-- SPAN: product-db (duration: 45ms)               |
-|          |      SELECT * FROM products WHERE id=123          |
+|          +-- SPAN: product-db (duration: 45ms)                |
+|          |      SELECT * FROM products WHERE id=123           |
 |          |                                                    |
-|          +-- SPAN: recommendation-service (duration: 120ms)  |
-|                 async call, parallel with db query           |
+|          +-- SPAN: recommendation-service (duration: 120ms)   |
+|                 async call, parallel with db query            |
 +---------------------------------------------------------------+
 
 Each SPAN has:

@@ -11,13 +11,13 @@ PLANT CELL ANATOMY
   OUTER CELL WALL
   ┌─────────────────────────────────────────────────────────────────────┐
   │ Primary wall: cellulose microfibrils in pectin/hemicellulose gel    │
-  │ Secondary wall (when present): S1+S2+S3 cellulose + LIGNIN         │
+  │ Secondary wall (when present): S1+S2+S3 cellulose + LIGNIN          │
   └──────────────────────────┬──────────────────────────────────────────┘
                              │ (connected to next cell via Plasmodesmata)
   PLASMA MEMBRANE            │
   ┌──────────────────────────┴──────────────────────────────────────────┐
-  │  CYTOPLASM                                                           │
-  │                                                                      │
+  │  CYTOPLASM                                                          │
+  │                                                                     │
   │  ┌─────────────────┐    ┌───────────────────────────────────────┐   │
   │  │   CHLOROPLAST   │    │              VACUOLE                  │   │
   │  │ (photosynthesis)│    │   (up to 90% of cell volume)         │   │

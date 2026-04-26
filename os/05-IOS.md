@@ -6,24 +6,24 @@
 ┌─────────────────────────────────────────────────────────────────────────────┐
 │                          iOS SYSTEM LAYERS                                  │
 │                                                                             │
-│  ┌──────────────────────────────────────────────────────────────────────┐  │
+│  ┌──────────────────────────────────────────────────────────────────────┐   │
 │  │  Your App (SwiftUI / UIKit)                                          │  │
 │  └────────────────────────────┬─────────────────────────────────────────┘  │
 │                               │                                             │
 │  ┌──────────────────────────────────────────────────────────────────────┐  │
 │  │  Cocoa Touch Frameworks                                              │  │
-│  │  UIKit · SwiftUI · WatchKit · tvOS · WidgetKit · StoreKit           │  │
-│  │  CoreData · CloudKit · CoreLocation · HealthKit · ARKit             │  │
+│  │  UIKit · SwiftUI · WatchKit · tvOS · WidgetKit · StoreKit            │  │
+│  │  CoreData · CloudKit · CoreLocation · HealthKit · ARKit              │  │
 │  └────────────────────────────┬─────────────────────────────────────────┘  │
 │                               │                                             │
 │  ┌──────────────────────────────────────────────────────────────────────┐  │
 │  │  Media + Graphics                                                    │  │
-│  │  CoreGraphics · CoreText · CoreImage · AVFoundation · Metal         │  │
+│  │  CoreGraphics · CoreText · CoreImage · AVFoundation · Metal          │  │
 │  └────────────────────────────┬─────────────────────────────────────────┘  │
 │                               │                                             │
 │  ┌──────────────────────────────────────────────────────────────────────┐  │
 │  │  Core Services                                                       │  │
-│  │  Foundation · CoreFoundation · Security · CFNetwork · SQLite        │  │
+│  │  Foundation · CoreFoundation · Security · CFNetwork · SQLite         │  │
 │  └────────────────────────────┬─────────────────────────────────────────┘  │
 │                               │                                             │
 │  ┌──────────────────────────────────────────────────────────────────────┐  │
@@ -31,12 +31,12 @@
 │  └────────────────────────────┬─────────────────────────────────────────┘  │
 │                               │                                             │
 │  ┌──────────────────────────────────────────────────────────────────────┐  │
-│  │  XNU Kernel + Darwin (same base as macOS)                           │  │
-│  │  Mach · BSD · IOKit · Sandbox (every app, always)                   │  │
+│  │  XNU Kernel + Darwin (same base as macOS)                            │  │
+│  │  Mach · BSD · IOKit · Sandbox (every app, always)                    │  │
 │  └──────────────────────────────────────────────────────────────────────┘  │
 │                               │                                             │
 │  ┌──────────────────────────────────────────────────────────────────────┐  │
-│  │  Apple Silicon SoC (A-series / M-series on iPad)                    │  │
+│  │  Apple Silicon SoC (A-series / M-series on iPad)                     │  │
 │  └──────────────────────────────────────────────────────────────────────┘  │
 └─────────────────────────────────────────────────────────────────────────────┘
 ```
@@ -85,8 +85,8 @@ SpringBoard (com.apple.springboard)
 │         │ user taps icon / URL scheme / notification                 │
 │         ▼                                                            │
 │  ┌─────────────┐                                                     │
-│  │  Inactive   │  ← in foreground but not receiving events          │
-│  │             │    (phone call, Notification Center pull-down)     │
+│  │  Inactive   │  ← in foreground but not receiving events           │
+│  │             │    (phone call, Notification Center pull-down)      │
 │  └──────┬──────┘                                                     │
 │         │ OS hands events to app                                     │
 │         ▼                                                            │
@@ -102,10 +102,10 @@ SpringBoard (com.apple.springboard)
 │         │ OS decides (low memory, time limit)                        │
 │         ▼                                                            │
 │  ┌─────────────┐                                                     │
-│  │  Suspended  │  ← frozen in RAM; no CPU time; can be killed       │
-│  └─────────────┘    without notification (jetsam)                   │
+│  │  Suspended  │  ← frozen in RAM; no CPU time; can be killed        │
+│  └─────────────┘    without notification (jetsam)                    │
 │                                                                      │
-│  SwiftUI equivalent:  @Environment(\.scenePhase)                    │
+│  SwiftUI equivalent:  @Environment(\.scenePhase)                     │
 │    .active / .inactive / .background                                 │
 └──────────────────────────────────────────────────────────────────────┘
 ```
@@ -264,7 +264,7 @@ This is the most confusing part of iOS for newcomers. Here is the full model.
 
 ```
 ┌─────────────────────────────────────────────────────────────────────────────┐
-│               WHAT MUST ALL LINE UP TO INSTALL ON A DEVICE                 │
+│               WHAT MUST ALL LINE UP TO INSTALL ON A DEVICE                  │
 │                                                                             │
 │  1. Certificate  — proves you are who you say (trusted by Apple)            │
 │     Generated on your Mac (private key in Keychain)                         │
@@ -272,11 +272,11 @@ This is the most confusing part of iOS for newcomers. Here is the full model.
 │                                                                             │
 │  2. App ID       — identifier: com.myco.myapp (explicit or wildcard)        │
 │     Registered on developer.apple.com                                       │
-│     Enables specific capabilities: push, iCloud, HealthKit, etc.           │
+│     Enables specific capabilities: push, iCloud, HealthKit, etc.            │
 │                                                                             │
-│  3. Device UDID  — 40-char hex ID unique to each physical device           │
+│  3. Device UDID  — 40-char hex ID unique to each physical device            │
 │     Must be registered in developer portal (development only)               │
-│     Ad Hoc profiles: up to 100 registered UDIDs                            │
+│     Ad Hoc profiles: up to 100 registered UDIDs                             │
 │                                                                             │
 │  4. Provisioning Profile — a signed bag containing:                         │
 │       { certificate + app ID + device list + entitlements + expiry }        │
@@ -286,7 +286,7 @@ This is the most confusing part of iOS for newcomers. Here is the full model.
 │  5. Entitlements — the capability list your app actually claims             │
 │     Must be a subset of what the provisioning profile allows                │
 │                                                                             │
-│  codesign writes: binary + entitlements + profile seal → verifiable IPA    │
+│  codesign writes: binary + entitlements + profile seal → verifiable IPA     │
 └─────────────────────────────────────────────────────────────────────────────┘
 
 Windows bridge:
@@ -500,7 +500,7 @@ if let url = URL(string: UIApplication.openSettingsURLString) {
 ┌─────────────────────────────────────────────────────────────────────────────┐
 │                       UI FRAMEWORK COMPARISON                               │
 │                                                                             │
-│  UIKit                                    SwiftUI                          │
+│  UIKit                                    SwiftUI                           │
 │  ┌──────────────────────────────┐        ┌────────────────────────────┐   │
 │  │ UIViewController lifecycle  │        │ View.body computed prop    │   │
 │  │   viewDidLoad()             │        │ .onAppear / .onDisappear   │   │
@@ -709,8 +709,8 @@ hosting.didMove(toParent: self)
 ┌─────────────────────────────────────────────────────────────────────────────┐
 │                    SWIFT CONCURRENCY MODEL                                  │
 │                                                                             │
-│  Structured Concurrency  (Swift 5.5+)                                      │
-│  ┌──────────────────────────────────────────────────────────────────────┐  │
+│  Structured Concurrency  (Swift 5.5+)                                       │
+│  ┌──────────────────────────────────────────────────────────────────────┐   │
 │  │  async func   — can be suspended and resumed                        │  │
 │  │  await        — suspension point; thread is freed while waiting     │  │
 │  │  Task { }     — unstructured; fire and forget; can cancel           │  │
@@ -720,10 +720,10 @@ hosting.didMove(toParent: self)
 │                                                                             │
 │  Actors  (data isolation)                                                   │
 │  ┌──────────────────────────────────────────────────────────────────────┐  │
-│  │  actor        — reference type; only one caller at a time inside    │  │
-│  │  @MainActor   — global actor pinned to main thread                  │  │
-│  │  Sendable     — marker: safe to pass across actor boundaries        │  │
-│  │  nonisolated  — method opts out of actor isolation                  │  │
+│  │  actor        — reference type; only one caller at a time inside     │  │
+│  │  @MainActor   — global actor pinned to main thread                   │  │
+│  │  Sendable     — marker: safe to pass across actor boundaries         │  │
+│  │  nonisolated  — method opts out of actor isolation                   │  │
 │  └──────────────────────────────────────────────────────────────────────┘  │
 │                                                                             │
 │  Bridge from GCD:                                                           │
@@ -1008,8 +1008,8 @@ iOS is aggressive about CPU/battery — apps do not run freely in the background
 ┌─────────────────────────────────────────────────────────────────────────────┐
 │                     BACKGROUND EXECUTION MODES                              │
 │                                                                             │
-│  Mode                │ Entitlement            │ Use Case                   │
-│  ────────────────────┼────────────────────────┼────────────────────────    │
+│  Mode                │ Entitlement            │ Use Case                    │
+│  ────────────────────┼────────────────────────┼────────────────────────     │
 │  audio               │ UIBackgroundModes      │ Music, podcast, VoIP audio │
 │  location            │ UIBackgroundModes      │ Navigation, tracking        │
 │  voip                │ UIBackgroundModes      │ Incoming call (deprecated;  │
@@ -1104,8 +1104,8 @@ func applicationDidEnterBackground(_ application: UIApplication) {
 ┌─────────────────────────────────────────────────────────────────────────────┐
 │                       APNs ARCHITECTURE                                     │
 │                                                                             │
-│  Your Server                  APNs                     Device              │
-│  ┌───────────────┐           ┌──────────┐            ┌──────────────────┐  │
+│  Your Server                  APNs                     Device               │
+│  ┌───────────────┐           ┌──────────┐            ┌──────────────────┐   │
 │  │               │           │  Apple   │            │  iOS app         │  │
 │  │  POST /3/     │  TLS+HTTP2│  Push    │  persistent│  registers:      │  │
 │  │  device/token │──────────►│  Notif   │  connection│  deviceToken =   │  │

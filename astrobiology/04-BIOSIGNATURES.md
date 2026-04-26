@@ -4,7 +4,7 @@
 
 ```
 +-----------------------------------------------------------------------+
-|                    BIOSIGNATURE SPACE                                  |
+|                    BIOSIGNATURE SPACE                                 |
 +-----------------------------------------------------------------------+
 |                                                                       |
 |  ATMOSPHERIC          SURFACE            CHEMICAL          TECHNICAL  |
@@ -321,10 +321,10 @@ BIOSIGNATURE vs. TECHNOSIGNATURE:
 +----------------------------+----------------------------+
 | Biosignature               | Technosignature            |
 +----------------------------+----------------------------+
-| Could be primitive life     | Requires intelligence      |
-| Atmospheric, surface        | Radio, optical, structure  |
-| Passive (no intent)         | Active or artifact         |
-| JWST detectable (in future) | Requires targeted search   |
+| Could be primitive life    | Requires intelligence      |
+| Atmospheric, surface       | Radio, optical, structure  |
+| Passive (no intent)        | Active or artifact         |
+| JWST detectable (in future) | Requires targeted search  |
 +----------------------------+----------------------------+
 ```
 

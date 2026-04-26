@@ -217,10 +217,10 @@ FUNCTION MAP (in C major):
 ┌──────────────────────────────────────────────────────────────┐
 │  TONIC (T)           PRE-DOMINANT (PD)      DOMINANT (D)     │
 │  I, I⁶, vi, iii      ii, ii⁶, IV, IV⁶       V, V⁷, vii°    │
-│                       II (secondary)          V of X          │
-│                                                               │
-│  Stable, at rest      Moving, heading          Tense, needs   │
-│  "home base"          toward dominant          resolution     │
+│                       II (secondary)          V of X         │
+│                                                              │
+│  Stable, at rest      Moving, heading          Tense, needs  │
+│  "home base"          toward dominant          resolution    │
 └──────────────────────────────────────────────────────────────┘
 
 Normal flow: T → PD → D → T

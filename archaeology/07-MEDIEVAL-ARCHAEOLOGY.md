@@ -6,17 +6,17 @@
 +------------------------------------------------------------------+
 |           MEDIEVAL ARCHAEOLOGY: THE DISCIPLINE LANDSCAPE         |
 |                                                                  |
-|  TIME RANGE: ~400–1500 AD (Europe); extended definitions vary   |
-|  RELATIONSHIP TO WRITTEN RECORD: complex partnership            |
-|  → More written sources than prehistory, but still biased       |
-|  → Most writing by church and elite; peasant life undocumented  |
-|  → Archaeology fills the "history from below" gap               |
+|  TIME RANGE: ~400–1500 AD (Europe); extended definitions vary    |
+|  RELATIONSHIP TO WRITTEN RECORD: complex partnership             |
+|  → More written sources than prehistory, but still biased        |
+|  → Most writing by church and elite; peasant life undocumented   |
+|  → Archaeology fills the "history from below" gap                |
 |                                                                  |
 |  KEY QUESTIONS:                                                  |
-|  → Settlement: where did people live, how many, what form?      |
-|  → Economy: what did they eat? what did they trade?             |
-|  → Religion: how did Christian practice materialize?            |
-|  → Technology: how were buildings made? what tools used?        |
+|  → Settlement: where did people live, how many, what form?       |
+|  → Economy: what did they eat? what did they trade?              |
+|  → Religion: how did Christian practice materialize?             |
+|  → Technology: how were buildings made? what tools used?         |
 +------------------------------------------------------------------+
 ```
 

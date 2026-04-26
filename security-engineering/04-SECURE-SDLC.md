@@ -21,10 +21,10 @@ SECURE SDLC LIFECYCLE
 |              Problems found in production cost 30-100x               |
 |                                                                       |
 |  DEVOPS INTEGRATION (DevSecOps):                                      |
-|  Every commit: SAST scan, secret scan, SCA                          |
-|  Every PR: security gate (no new high/critical issues)              |
-|  Every merge: container scan, IaC scan                              |
-|  Every release: FSR or automated equivalents                        |
+|  Every commit: SAST scan, secret scan, SCA                         |
+|  Every PR: security gate (no new high/critical issues)             |
+|  Every merge: container scan, IaC scan                             |
+|  Every release: FSR or automated equivalents                       |
 +-----------------------------------------------------------------------+
 ```
 

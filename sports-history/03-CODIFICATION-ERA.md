@@ -8,11 +8,11 @@
 |                                                                  |
 |  WHY ENGLAND, WHY NOW?                                           |
 |  ----------------------                                          |
-|  Industrial Revolution -> freed leisure time (factory workers)  |
-|  Public schools (Eton, Harrow, Rugby) -> rule standardization   |
-|  Railways (1825+) -> clubs could travel to play each other      |
-|  National press -> universal rule dissemination possible        |
-|  Muscular Christianity -> sport as moral/civic institution      |
+|  Industrial Revolution -> freed leisure time (factory workers)   |
+|  Public schools (Eton, Harrow, Rugby) -> rule standardization    |
+|  Railways (1825+) -> clubs could travel to play each other       |
+|  National press -> universal rule dissemination possible         |
+|  Muscular Christianity -> sport as moral/civic institution       |
 |                                                                  |
 |  CODIFICATION TIMELINE:                                          |
 |  1787  MCC founded (cricket)                                     |
@@ -20,13 +20,13 @@
 |  1845  Knickerbocker Rules (baseball, USA)                       |
 |  1848  Cambridge Rules (football)                                |
 |  1857  Sheffield FC (oldest surviving club)                      |
-|  1863  FA founded -> Laws of the Game                           |
-|  1863  FA-Rugby split (handling + hacking dispute)              |
-|  1867  Marquess of Queensberry Rules (boxing)                   |
+|  1863  FA founded -> Laws of the Game                            |
+|  1863  FA-Rugby split (handling + hacking dispute)               |
+|  1867  Marquess of Queensberry Rules (boxing)                    |
 |  1871  RFU founded                                               |
 |  1877  First cricket Test Match                                  |
-|  1880s Walter Camp's American football rules                    |
-|  1888  Football League (first professional football league)     |
+|  1880s Walter Camp's American football rules                     |
+|  1888  Football League (first professional football league)      |
 |  1891  Basketball (Naismith, USA)                                |
 +------------------------------------------------------------------+
 ```
@@ -124,7 +124,7 @@ CODIFICATION MECHANISM:
 
 ```
 +----------------------------------------------------------+
-|        FOOTBALL TRADITIONS (pre-1863)                     |
+|        FOOTBALL TRADITIONS (pre-1863)                    |
 |                                                          |
 |  CAMBRIDGE RULES (1848)                                  |
 |  -- No handling of ball while in motion                  |

@@ -23,8 +23,8 @@
 │  │pH           │  │  FILL/BUILD │                                         │
 │  │NEUTRALIZATION│ │             │                                         │
 │  │ Fresh plaster│ │ High-build  │                                         │
-│  │ concrete     │ │ primers fill │                                         │
-│  │ saponifies   │ │ surface     │                                         │
+│  │ concrete    │  │ primers fill │                                        │
+│  │ saponifies  │  │ surface     │                                         │
 │  │ oil topcoats │ │ irregulars  │                                         │
 │  └─────────────┘  └─────────────┘                                         │
 └─────────────────────────────────────────────────────────────────────────────┘
@@ -184,10 +184,10 @@ evaporation. The resulting film is extremely dense, hard, and non-porous.
 
 ```
   ┌─────────────────────────────────────────────────────────────────┐
-  │ ZINSSER BIN (B-I-N) ─── White Pigmented Shellac                │
+  │ ZINSSER BIN (B-I-N) ─── White Pigmented Shellac                 │
   │   Binder: dewaxed shellac in denatured alcohol                  │
   │   The "dewaxed" part matters — wax in shellac prevents          │
-  │   topcoat adhesion; BIN is dewaxed = topcoats bond             │
+  │   topcoat adhesion; BIN is dewaxed = topcoats bond              │
   │   Dry time: 45 minutes                                          │
   │   Recoat: 45 minutes                                            │
   │   Topcoats: latex or oil — anything bonds to dewaxed shellac    │

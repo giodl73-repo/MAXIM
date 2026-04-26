@@ -49,10 +49,10 @@ A distributed system is a collection of independent computers that appears to it
 |   FUNDAMENTAL IMPOSSIBILITIES        FUNDAMENTAL PROBLEMS           |
 |   +---------------------------+       +---------------------------+  |
 |   | FLP (1985): No async      |       | Consensus                 |  |
-|   | system can guarantee      |       | How do N nodes agree?    |  |
+|   | system can guarantee      |       | How do N nodes agree?    |   |
 |   | consensus with 1 failure  |       +---------------------------+  |
 |   +---------------------------+       | Consistency               |  |
-|   | CAP Theorem: You cannot   |       | What does "read" return? |  |
+|   | CAP Theorem: You cannot   |       | What does "read" return? |   |
 |   | have C + A + P together   |       +---------------------------+  |
 |   +---------------------------+       | Availability              |  |
 |   | Einstein/SR: Speed of     |       | Does every request get    |  |
@@ -79,10 +79,10 @@ SYSTEMS LAYER
 | Spanner (Google)   | External consistency via TrueTime      |
 | DynamoDB (Amazon)  | Eventual consistency, tunable quorums  |
 | Kafka              | Ordered log, partition-level ordering  |
-| ZooKeeper / etcd   | CP coordination services              |
-| CosmosDB (Azure)   | 5 consistency levels, tunable         |
+| ZooKeeper / etcd   | CP coordination services               |
+| CosmosDB (Azure)   | 5 consistency levels, tunable          |
 | CockroachDB        | Serializable SQL, Paxos per range      |
-| Cassandra          | AP, tunable quorums, ring topology    |
+| Cassandra          | AP, tunable quorums, ring topology     |
 +-------------------------------------------------------------+
 ```
 
@@ -195,15 +195,15 @@ AZURE DEVOPS / VSTS                    DISTRIBUTED SYSTEMS CONCEPT
 | across datacenters for reads     | → | consistency for writes (leader), |
 | with geo-failover                |   | eventual for reads (followers)   |
 +----------------------------------+   +----------------------------------+
-| Build queue: multiple agents,   |   | Distributed job scheduling,      |
-| at-least-once delivery,         | → | idempotent execution, poison     |
+| Build queue: multiple agents,   |   | Distributed job scheduling,       |
+| at-least-once delivery,         | → | idempotent execution, poison      |
 | retry with backoff               |   | message handling                 |
 +----------------------------------+   +----------------------------------+
 | Service Bus for inter-service   |   | Reliable messaging, at-least-    |
 | communication between ADO       | → | once delivery, consumer groups,  |
 | microservices                    |   | offset tracking                  |
 +----------------------------------+   +----------------------------------+
-| SQL Azure with retry logic for  |   | Network transience, partial      |
+| SQL Azure with retry logic for  |   | Network transience, partial       |
 | transient failures               | → | failure handling, idempotent     |
 |                                  |   | writes                           |
 +----------------------------------+   +----------------------------------+

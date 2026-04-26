@@ -9,16 +9,16 @@ MORTAR FUNCTION DIAGRAM
 =======================
 
   ┌──────────────────────────────────────────────────────────────────┐
-  │                        MASONRY WALL SECTION                     │
-  │                                                                   │
+  │                        MASONRY WALL SECTION                      │
+  │                                                                  │
   │  [UNIT]  [BED JOINT — horizontal mortar]  [UNIT]               │
   │  [UNIT]  [HEAD JOINT — vertical mortar]   [UNIT]               │
-  │                                                                   │
+  │                                                                  │
   │  MORTAR FUNCTIONS:                                               │
-  │  ① Bond units together (tensile/shear bond strength)            │
-  │  ② Transfer compressive loads (gravity path)                    │
-  │  ③ Accommodate dimensional variation (3/8" joint tolerance)     │
-  │  ④ Seal joints against moisture infiltration                    │
+  │  ① Bond units together (tensile/shear bond strength)             │
+  │  ② Transfer compressive loads (gravity path)                     │
+  │  ③ Accommodate dimensional variation (3/8" joint tolerance)      │
+  │  ④ Seal joints against moisture infiltration                     │
   │  ⑤ SACRIFICIAL ELEMENT — fails before unit face spalls         │
   └──────────────────────────────────────────────────────────────────┘
 
@@ -123,10 +123,10 @@ BINDER COMPARISON
   ┌──────────────────────────────────────────────────────────────────┐
   │  Type I/II: General purpose                                      │
   │  Type III:  High early strength                                  │
-  │  Mechanism: Calcium silicate hydration (CSH) — rapid set        │
-  │  Set time:  Initial 2–4 hrs, final 6–8 hrs                      │
-  │  Strength:  4,000+ psi alone; 2,500 psi in mortar               │
-  │  Character: Hard, rigid, low flexibility, good adhesion         │
+  │  Mechanism: Calcium silicate hydration (CSH) — rapid set         │
+  │  Set time:  Initial 2–4 hrs, final 6–8 hrs                       │
+  │  Strength:  4,000+ psi alone; 2,500 psi in mortar                │
+  │  Character: Hard, rigid, low flexibility, good adhesion          │
   └──────────────────────────────────────────────────────────────────┘
 
   MASONRY CEMENT (ASTM C91)
@@ -137,7 +137,7 @@ BINDER COMPARISON
   │  Convenience: One-bag solution — add sand and water only         │
   │  Tradeoff: Lower bond strength than Portland+lime (proprietary   │
   │            plasticizer reduces bond compared to lime putty)      │
-  │  Air content: 12–22% by volume (improves workability + FT)      │
+  │  Air content: 12–22% by volume (improves workability + FT)       │
   └──────────────────────────────────────────────────────────────────┘
 
   HYDRATED LIME (ASTM C207)
@@ -147,17 +147,17 @@ BINDER COMPARISON
   │  Chemistry: Ca(OH)₂ (calcium hydroxide)                          │
   │  Set mechanism: Slow carbonation → Ca(OH)₂ + CO₂ → CaCO₃       │
   │  Role in mortar: Workability, plasticity, water retention        │
-  │  Sets by: Drying + CO₂ absorption from air (weeks to months)    │
+  │  Sets by: Drying + CO₂ absorption from air (weeks to months)     │
   └──────────────────────────────────────────────────────────────────┘
 
   LIME PUTTY (non-ASTM, traditional)
   ┌──────────────────────────────────────────────────────────────────┐
-  │  Quicklime (CaO) + water → slaked lime putty Ca(OH)₂ paste      │
+  │  Quicklime (CaO) + water → slaked lime putty Ca(OH)₂ paste       │
   │  Aged putty (months to years) develops superior plasticity       │
   │  Historic mortar standard before Portland cement                 │
   │  Natural Hydraulic Lime (NHL): contains silicates → sets         │
   │    partially by hydraulic reaction + carbonation                 │
-  │  NHL 2, NHL 3.5, NHL 5 = compressive strength class (MPa)       │
+  │  NHL 2, NHL 3.5, NHL 5 = compressive strength class (MPa)        │
   └──────────────────────────────────────────────────────────────────┘
 ```
 
@@ -285,37 +285,37 @@ JOINT PROFILE CROSS-SECTIONS
 
   TOOLED (weathered) — BEST moisture resistance:
   ┌────────────────────────────────┐
-  │  UNIT                         │
+  │  UNIT                          │
   │         \_____/               │ ← concave, water sheds outward
-  │  UNIT                         │
+  │  UNIT                          │
   └────────────────────────────────┘
 
   FLUSH — good resistance:
   ┌────────────────────────────────┐
-  │  UNIT                         │
+  │  UNIT                          │
   │  ─────────────────────────    │ ← flat, sealed face
-  │  UNIT                         │
+  │  UNIT                          │
   └────────────────────────────────┘
 
   RAKED — poor moisture resistance (spec for interior only):
   ┌────────────────────────────────┐
-  │  UNIT                         │
+  │  UNIT                          │
   │    ┌─────────────────────┐    │ ← shadow line, water pockets
-  │  UNIT                         │
+  │  UNIT                          │
   └────────────────────────────────┘
 
   RODDED (rounded) — good:
   ┌────────────────────────────────┐
-  │  UNIT                         │
+  │  UNIT                          │
   │         ╰─────╯               │ ← rounded bead, sheds water
-  │  UNIT                         │
+  │  UNIT                          │
   └────────────────────────────────┘
 
   STRUCK — moderate (overhanging unit edge pockets water on lower face):
   ┌────────────────────────────────┐
-  │  UNIT          ←──────────    │
+  │  UNIT          ←──────────     │
   │   /                            │ ← angled inward at bottom
-  │  UNIT                         │
+  │  UNIT                          │
   └────────────────────────────────┘
 ```
 

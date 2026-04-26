@@ -11,16 +11,16 @@ The natural notion of distance is KL divergence.
 ┌───────────────────────────────────────────────────────────────────┐
 │  Statistical manifold M = {p(x;θ) : θ ∈ Θ ⊆ ℝᵈ}                │
 │                                                                   │
-│  Tangent vector at θ = score function ∂_i log p(x;θ)             │
+│  Tangent vector at θ = score function ∂_i log p(x;θ)              │
 │                                                                   │
 │  Riemannian metric = Fisher information: g_{ij}(θ) = I(θ)_{ij}  │
 │                                                                   │
 │  Two natural connections (not the Levi-Civita connection):        │
-│    e-connection (exponential):  α = +1                           │
-│    m-connection (mixture):      α = −1                           │
+│    e-connection (exponential):  α = +1                            │
+│    m-connection (mixture):      α = −1                            │
 │                                                                   │
-│  Exponential families are FLAT in both e and m coordinates       │
-│  → "dually flat" structure is the key geometric fact             │
+│  Exponential families are FLAT in both e and m coordinates        │
+│  → "dually flat" structure is the key geometric fact              │
 └───────────────────────────────────────────────────────────────────┘
 ```
 
@@ -221,9 +221,9 @@ Pythagorean theorem ensures KL(target‖p_θ) decreases monotonically:
 
 ┌─────────────────────────────────────────────────────────────────┐
 │  E-step = m-projection:  q ← best model matching observed data  │
-│  M-step = e-projection:  θ ← best exponential family at q      │
+│  M-step = e-projection:  θ ← best exponential family at q       │
 │  Alternate projections converge to intersection point           │
-│  (if S ∩ M ≠ ∅) or to closest point on S to M                  │
+│  (if S ∩ M ≠ ∅) or to closest point on S to M                   │
 └─────────────────────────────────────────────────────────────────┘
 ```
 

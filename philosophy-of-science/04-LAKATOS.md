@@ -6,15 +6,15 @@ Imre Lakatos's Methodology of Scientific Research Programs (MSRP) is the most so
 
 ```
 +------------------------------------------------------------------+
-|              RESEARCH PROGRAM STRUCTURE (MSRP)                  |
+|              RESEARCH PROGRAM STRUCTURE (MSRP)                   |
 +------------------------------------------------------------------+
 |                                                                  |
 |  HARD CORE                                                       |
 |  +---------------------------------------------------------+     |
-|  |  The unfalsifiable (by decision) center:               |     |
+|  |  The unfalsifiable (by decision) center:                |     |
 |  |  Core theoretical commitments protected by convention   |     |
 |  |  Newton's laws of motion + universal gravitation        |     |
-|  |  → "Do not blame Newton's laws if anomaly appears"     |     |
+|  |  → "Do not blame Newton's laws if anomaly appears"      |     |
 |  +---------------------------------------------------------+     |
 |           |                                                      |
 |           v  protected by                                        |
@@ -24,10 +24,10 @@ Imre Lakatos's Methodology of Scientific Research Programs (MSRP) is the most so
 |           v  directs attention toward                            |
 |  PROTECTIVE BELT                                                  |
 |  +---------------------------------------------------------+     |
-|  |  Auxiliary hypotheses that absorb empirical failures:  |     |
-|  |  - Initial conditions                                    |     |
+|  |  Auxiliary hypotheses that absorb empirical failures:   |     |
+|  |  - Initial conditions                                   |     |
 |  |  - Background assumptions                               |     |
-|  |  - Measurement theories                                  |     |
+|  |  - Measurement theories                                 |     |
 |  |  - Ancillary assumptions                                |     |
 |  |  These can be revised when anomalies appear             |     |
 |  +---------------------------------------------------------+     |

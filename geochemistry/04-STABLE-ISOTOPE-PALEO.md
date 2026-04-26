@@ -6,7 +6,7 @@ Stable isotope ratios in ancient geological materials are frozen snapshots of pa
 
 ```
 +------------------------------------------------------------------+
-|              STABLE ISOTOPE PROXY TOOLKIT                         |
+|              STABLE ISOTOPE PROXY TOOLKIT                        |
 +------------------------------------------------------------------+
 |                                                                  |
 |  PROXY    ARCHIVE         RECORDS              RESOLUTION        |

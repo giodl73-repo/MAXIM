@@ -119,16 +119,16 @@ MAJOR ANATOLIAN BEYLIKS c. 1300:
   | Kastamonu (Jandarids)               |
   | Sinop | Trabzon (Pontic Greeks)     |
   |──────────────────────────────────── |
-  | GERMIYAN (Kütahya area — powerful) |
-  | KARAMAN (Konya area — most         |
-  |   prestigious: former Seljuk core) |
-  | Eretna (central Anatolia)          |
-  | KARAMANIDS: considered themselves  |
-  |   rightful Seljuk heirs            |
+  | GERMIYAN (Kütahya area — powerful)  |
+  | KARAMAN (Konya area — most          |
+  |   prestigious: former Seljuk core)  |
+  | Eretna (central Anatolia)           |
+  | KARAMANIDS: considered themselves   |
+  |   rightful Seljuk heirs             |
   |──────────────────────────────────── |
-  | OTTOMAN (northwest corner — small) |
-  | Adjacent to Byzantine territory    |
-  | Position: on the ghazi frontier    |
+  | OTTOMAN (northwest corner — small)  |
+  | Adjacent to Byzantine territory     |
+  | Position: on the ghazi frontier     |
   +─────────────────────────────────────+
 
   Ghazi = frontier warrior for Islam

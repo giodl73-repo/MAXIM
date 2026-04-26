@@ -11,7 +11,7 @@ understanding anything about medical device development.
 
 ```
 +---------------------------------------------------------------------+
-|              MEDICAL DEVICE REGULATORY FRAMEWORK                   |
+|              MEDICAL DEVICE REGULATORY FRAMEWORK                    |
 +---------------------------------------------------------------------+
 |                                                                     |
 |  DEVICE CLASSIFICATION        MARKET ACCESS PATHWAY                 |
@@ -444,7 +444,7 @@ Design History File (DHF) at any time.
 
   TYPES:
   +-------------------+------------------------------------------------+
-  | Syringe pump      | Syringe driven by stepper motor               |
+  | Syringe pump      | Syringe driven by stepper motor                |
   |                   | Very precise, low flow rates (0.1-300 mL/hr)   |
   |                   | ICU/OR for vasoactive drugs, opioids           |
   +-------------------+------------------------------------------------+
@@ -494,15 +494,15 @@ Design History File (DHF) at any time.
   +---------------------+----------------------------------------------+
   | Volume Control (VC) | Set tidal volume VT delivered each breath    |
   |                     | Pressure varies (risk: high pressure = barotrauma)|
-  |                     | Set: VT, RR, FiO2, PEEP                     |
+  |                     | Set: VT, RR, FiO2, PEEP                      |
   +---------------------+----------------------------------------------+
   | Pressure Control    | Set inspiratory pressure (PC above PEEP)     |
   | (PC)                | Volume varies (depends on compliance)         |
   |                     | Better for non-uniform lung disease           |
   +---------------------+----------------------------------------------+
   | SIMV                | Synchronized intermittent mandatory vent.    |
-  |                     | Delivers set number of mandatory breaths      |
-  |                     | Patient can breathe spontaneously between     |
+  |                     | Delivers set number of mandatory breaths     |
+  |                     | Patient can breathe spontaneously between    |
   +---------------------+----------------------------------------------+
   | PSV (Pressure       | Patient-triggered, pressure-supported         |
   | Support)            | Patient determines RR and VT within limits   |
@@ -563,7 +563,7 @@ Design History File (DHF) at any time.
 
   EXAMPLES:
   +----------------------------+--------+-----------------------------+
-  | Product                    | Class  | Lead Center                |
+  | Product                    | Class  | Lead Center                 |
   +----------------------------+--------+-----------------------------+
   | Drug-eluting stent         | III PMA| CDRH leads / CDER consult  |
   | Drug-coated balloon        | III PMA| CDRH                       |

@@ -9,13 +9,13 @@
 │  MODEL-BASED          DATA-ASSISTED        DATA-DRIVEN              │
 │  ─────────────────    ────────────────     ─────────────────────    │
 │  LQR, MPC, H∞        System ID → MPC       RL, Imitation Learning   │
-│  Full model known     Model learned         No model required        │
-│  Optimal globally     Good if ID correct    Can handle unknowns      │
-│  Fragile under        Periodic refit        Learns from interaction  │
-│  model mismatch       needed                                         │
+│  Full model known     Model learned         No model required       │
+│  Optimal globally     Good if ID correct    Can handle unknowns     │
+│  Fragile under        Periodic refit        Learns from interaction │
+│  model mismatch       needed                                        │
 │                                                                     │
 │  CONNECTIONS TO CLASSICAL THEORY:                                   │
-│  ┌─────────────────────────────────────────────────────────────┐   │
+│  ┌─────────────────────────────────────────────────────────────┐    │
 │  │  Bellman equation:  V*(x) = min_u [c(x,u) + γ V*(f(x,u))]  │   │
 │  │                                                             │   │
 │  │  LQR IS RL:  V*(x) = x'Px  (P from Riccati equation)       │   │
@@ -50,19 +50,19 @@
 
 ```
 ┌──────────────────────────────────────────────────────────────────┐
-│  REINFORCE (Monte Carlo policy gradient):                         │
-│                                                                   │
+│  REINFORCE (Monte Carlo policy gradient):                        │
+│                                                                  │
 │    ∇_θ J = E[Σ_t ∇_θ log π_θ(u_t|x_t) · G_t]                   │
-│    G_t = Σ_{k≥t} γᵏ r_k   (return from t)                       │
-│                                                                   │
-│    Problem: high variance — G_t mixes good/bad actions            │
-│                                                                   │
-│  ACTOR-CRITIC:                                                    │
-│    Actor:   π_θ  — the policy                                     │
-│    Critic:  V_φ  — estimates V(x) to reduce variance              │
+│    G_t = Σ_{k≥t} γᵏ r_k   (return from t)                        │
+│                                                                  │
+│    Problem: high variance — G_t mixes good/bad actions           │
+│                                                                  │
+│  ACTOR-CRITIC:                                                   │
+│    Actor:   π_θ  — the policy                                    │
+│    Critic:  V_φ  — estimates V(x) to reduce variance             │
 │    Advantage: A(x,u) = Q(x,u) - V(x) — was this action better    │
 │               than average?                                        │
-│                                                                   │
+│                                                                  │
 │    ∇_θ J ≈ E[∇_θ log π_θ(u|x) · A(x,u)]   (lower variance)     │
 └──────────────────────────────────────────────────────────────────┘
 ```
@@ -104,7 +104,7 @@ SAC (Soft Actor-Critic):
 │  MODEL-BASED RL: x_t → [learned f̂] → x_{t+1}  (white box)    │
 │                                                                 │
 │  MBRL LOOP:                                                     │
-│    1. Collect real data: D = {(x,u,x',r)}                      │
+│    1. Collect real data: D = {(x,u,x',r)}                       │
 │    2. Train dynamics model: f̂_φ(x,u) ≈ x'                     │
 │    3. Plan/optimize inside model (rollouts, MPC, policy search) │
 │    4. Execute on real system, collect more data                 │
@@ -115,10 +115,10 @@ SAC (Soft Actor-Critic):
 │    Model rollouts  → Q-function updates (cheap "hallucinated")  │
 │                                                                 │
 │  DREAMER (world models in latent space):                        │
-│    Encode: x_t → h_t  (latent state)                           │
-│    Model:  h_t → h_{t+1}  (transition in latent space)         │
-│    Policy: h_t → u_t      (act in latent space)                │
-│    Value:  h_t → V        (predict in latent space)            │
+│    Encode: x_t → h_t  (latent state)                            │
+│    Model:  h_t → h_{t+1}  (transition in latent space)          │
+│    Policy: h_t → u_t      (act in latent space)                 │
+│    Value:  h_t → V        (predict in latent space)             │
 │    10-100x more sample efficient than model-free for some tasks │
 └─────────────────────────────────────────────────────────────────┘
 ```
@@ -230,12 +230,12 @@ SAC (Soft Actor-Critic):
   PROBLEM: Covariate shift / compounding errors
   ┌──────────────────────────────────────────────────────────────┐
   │  Training: always in expert state distribution               │
-  │  Deployment: small errors → novel states → large errors       │
+  │  Deployment: small errors → novel states → large errors      │
   │  Example: autonomous driving — 1° heading error compounds    │
   │                                                              │
   │  DAGGER fix (Ross, 2011):                                    │
   │  1. π_θ executes, expert labels states visited by π_θ        │
-  │  2. Train on mixed {expert states} ∪ {π_θ states}           │
+  │  2. Train on mixed {expert states} ∪ {π_θ states}            │
   │  3. Iteratively expands training distribution                │
   └──────────────────────────────────────────────────────────────┘
 ```
@@ -355,7 +355,7 @@ SAC (Soft Actor-Critic):
 │  quadratic cost           │                                            │
 ├───────────────────────────┼────────────────────────────────────────────┤
 │  Model unknown, can       │  System ID → model-based control           │
-│  excite system safely     │  (N4SID, PEM, DMD + LQR/MPC)              │
+│  excite system safely     │  (N4SID, PEM, DMD + LQR/MPC)               │
 ├───────────────────────────┼────────────────────────────────────────────┤
 │  Model unknown, nonlinear,│  Model-free RL (SAC, PPO)                  │
 │  simulator available      │  + domain randomization for sim-to-real    │

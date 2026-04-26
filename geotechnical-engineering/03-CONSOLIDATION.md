@@ -6,7 +6,7 @@ When a saturated, low-permeability soil (clay, silt) is loaded, it cannot immedi
 
 ```
 +------------------------------------------------------------------+
-|               CONSOLIDATION — TWO DISTINCT PROBLEMS             |
+|               CONSOLIDATION — TWO DISTINCT PROBLEMS              |
 +------------------------------------------------------------------+
 |                                                                  |
 |  PROBLEM 1: HOW MUCH will it settle?                            |

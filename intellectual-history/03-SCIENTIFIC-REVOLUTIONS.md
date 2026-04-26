@@ -11,7 +11,7 @@ Feyerabend, Popper, and Laudan all responded.
 +-------------------------------------------------------------------+
 |              MODELS OF SCIENTIFIC CHANGE                          |
 |                                                                   |
-|  CLASSICAL (Cumulative)       KUHN (Revolutionary)               |
+|  CLASSICAL (Cumulative)       KUHN (Revolutionary)                |
 |  +---------------------+      +-------------------------+         |
 |  | Science adds to a   |      | Normal science within   |         |
 |  | growing body of     |      | paradigm -> anomalies   |         |
@@ -20,7 +20,7 @@ Feyerabend, Popper, and Laudan all responded.
 |  | truths accumulate   |      | incommensurable worlds  |         |
 |  +---------------------+      +-------------------------+         |
 |                                                                   |
-|  POPPER (Falsificationism)    LAKATOS (Research Programmes)      |
+|  POPPER (Falsificationism)    LAKATOS (Research Programmes)       |
 |  +---------------------+      +-------------------------+         |
 |  | Science progresses  |      | Hard core protected by  |         |
 |  | by bold conjectures |      | auxiliary belt          |         |
@@ -28,7 +28,7 @@ Feyerabend, Popper, and Laudan all responded.
 |  | refutations         |      | degenerative programmes |         |
 |  +---------------------+      +-------------------------+         |
 |                                                                   |
-|  FEYERABEND                   LAUDAN (Problem-Solving)           |
+|  FEYERABEND                   LAUDAN (Problem-Solving)            |
 |  +---------------------+      +-------------------------+         |
 |  | "Against Method":   |      | Science solves          |         |
 |  | No single method    |      | conceptual and          |         |

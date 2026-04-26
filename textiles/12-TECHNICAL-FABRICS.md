@@ -48,14 +48,14 @@ TECHNICAL TEXTILES: FUNCTION OVER AESTHETICS
   THE PHYSICS:
   ┌───────────────────────────────────────────────────────────┐
   │  ePTFE MEMBRANE PORE SIZE: ~0.2 microns (200 nm)        │
-  │                                                          │
-  │  COMPARISON:                                             │
+  │                                                           │
+  │  COMPARISON:                                              │
   │  Water droplet (rain/mist): ~100 microns (100,000 nm)   │
   │  Water vapor molecule: ~0.0003 microns (0.3 nm)         │
-  │                                                          │
+  │                                                           │
   │  Liquid water droplet: 500,000× too large → BLOCKED     │
   │  Water vapor molecule: 667× too small → PASSES THROUGH  │
-  │                                                          │
+  │                                                           │
   │  RESULT: Waterproof + Breathable                        │
   └───────────────────────────────────────────────────────────┘
 
@@ -74,7 +74,7 @@ TECHNICAL TEXTILES: FUNCTION OVER AESTHETICS
   │  3-layer:   Face + membrane + backer ALL laminated      │
   │             Stiffer, more durable; used in hard shells  │
   │  2.5-layer: Face + membrane + printed texture (not lining)│
-  │             Compromise; common in packable shells        │
+  │             Compromise; common in packable shells         │
   └───────────────────────────────────────────────────────────┘
 
   PERFORMANCE METRICS:
@@ -118,15 +118,15 @@ TECHNICAL TEXTILES: FUNCTION OVER AESTHETICS
     → Wet spinning → orientation locked in → crystal alignment
 
   ┌───────────────────────────────────────────────────────────┐
-  │  Kevlar structure (schematic):                           │
+  │  Kevlar structure (schematic):                            │
   │  –[NH-C₆H₄-NH-CO-C₆H₄-CO]ₙ–                           │
-  │  Aromatic rings connected at para positions              │
+  │  Aromatic rings connected at para positions               │
   │  → all-aromatic backbone → extremely rigid              │
   └───────────────────────────────────────────────────────────┘
 
   MECHANICAL PROPERTIES:
   ┌─────────────────────────────────────────────────────────────┐
-  │  Property         │ Kevlar 29      │ Steel     │ Nylon     │
+  │  Property         │ Kevlar 29      │ Steel     │ Nylon      │
   ├─────────────────────────────────────────────────────────────┤
   │  Tensile strength │ 3.6 GPa        │ 0.4 GPa   │ 0.08 GPa  │
   │  by weight        │ (5× steel/wt)  │           │           │
@@ -185,10 +185,10 @@ TECHNICAL TEXTILES: FUNCTION OVER AESTHETICS
 
   PROPERTIES:
   ┌─────────────────────────────────────────────────────────┐
-  │  Highest specific strength of any fiber (surpasses     │
-  │  Kevlar on a weight basis — up to 15× stronger than    │
+  │  Highest specific strength of any fiber (surpasses      │
+  │  Kevlar on a weight basis — up to 15× stronger than     │
   │  steel by weight)                                       │
-  │  Floats on water (density < 1 g/cm³)                   │
+  │  Floats on water (density < 1 g/cm³)                    │
   │  Excellent cut resistance                               │
   │  Excellent abrasion resistance                          │
   │  Very low friction surface                              │
@@ -217,7 +217,7 @@ TECHNICAL TEXTILES: FUNCTION OVER AESTHETICS
 
   INHERENTLY FR (flame resistance in polymer chemistry):
   ┌─────────────────────────────────────────────────────────────┐
-  │  Fiber          │ Mechanism                │ Temp limit    │
+  │  Fiber          │ Mechanism                │ Temp limit     │
   ├─────────────────────────────────────────────────────────────┤
   │  Nomex          │ Chars, swells, no drip   │ ~370°C        │
   │  Kevlar         │ Chars, high LOI          │ ~400°C        │
@@ -237,15 +237,15 @@ TECHNICAL TEXTILES: FUNCTION OVER AESTHETICS
 
   LAYERING SYSTEM (industrial protection):
   ┌───────────────────────────────────────────────────────────┐
-  │  OUTER SHELL: arc/flash fire protection (FR cotton,      │
+  │  OUTER SHELL: arc/flash fire protection (FR cotton,       │
   │               Nomex blend, Kevlar/Nomex)                  │
-  │                                                          │
-  │  MID LAYER: FR insulation (if needed for thermal         │
+  │                                                           │
+  │  MID LAYER: FR insulation (if needed for thermal          │
   │             protection in firefighting applications)      │
-  │                                                          │
-  │  BASE LAYER: moisture management; NO non-FR synthetics   │
-  │              (polyester melts to skin in flash fire →    │
-  │              catastrophic burns; always FR base layer)   │
+  │                                                           │
+  │  BASE LAYER: moisture management; NO non-FR synthetics    │
+  │              (polyester melts to skin in flash fire →     │
+  │              catastrophic burns; always FR base layer)    │
   └───────────────────────────────────────────────────────────┘
 
   STANDARDS:
@@ -274,27 +274,27 @@ TECHNICAL TEXTILES: FUNCTION OVER AESTHETICS
 
   IMPLANTABLE TEXTILES:
   ┌───────────────────────────────────────────────────────────┐
-  │  SURGICAL SUTURES:                                       │
-  │  Absorbable:                                             │
+  │  SURGICAL SUTURES:                                        │
+  │  Absorbable:                                              │
   │    PGA (polyglycolic acid) — Dexon: absorbs 3-4 months  │
   │    PGLA (glycolide/lactide) — Vicryl: absorbs 2-3 months│
-  │    Chromic gut: collagen + chromium; absorbs 2-3 weeks   │
-  │  Non-absorbable:                                         │
-  │    Nylon (monofilament or braided)                       │
+  │    Chromic gut: collagen + chromium; absorbs 2-3 weeks    │
+  │  Non-absorbable:                                          │
+  │    Nylon (monofilament or braided)                        │
   │    Polypropylene: least tissue reactivity               │
-  │    Silk: braided; traditional but absorbs slowly         │
+  │    Silk: braided; traditional but absorbs slowly          │
   │    Stainless steel wire: bone closure, sternal wires    │
-  │                                                          │
-  │  HERNIA MESH:                                            │
-  │    Polypropylene knitted mesh — most common              │
-  │    Lightweight vs heavyweight: tissue ingrowth tradeoffs │
+  │                                                           │
+  │  HERNIA MESH:                                             │
+  │    Polypropylene knitted mesh — most common               │
+  │    Lightweight vs heavyweight: tissue ingrowth tradeoffs  │
   │    Controversy: PP mesh complications; FDA warnings       │
   │    Biologic meshes (porcine/bovine collagen): alternative│
-  │                                                          │
-  │  VASCULAR GRAFTS:                                        │
+  │                                                           │
+  │  VASCULAR GRAFTS:                                         │
   │    ePTFE (Gore-Tex) or PET/Dacron (woven or knitted)    │
-  │    For replacing/bypassing blood vessels                 │
-  │    Porosity allows tissue ingrowth over time             │
+  │    For replacing/bypassing blood vessels                  │
+  │    Porosity allows tissue ingrowth over time              │
   └───────────────────────────────────────────────────────────┘
 
   ELECTROSPUN NANOFIBERS:
@@ -314,20 +314,20 @@ TECHNICAL TEXTILES: FUNCTION OVER AESTHETICS
 
   FUNCTIONS (one structure may serve several):
   ┌──────────────────────────────────────────────────────────┐
-  │  SEPARATION: prevent mixing of soil layers              │
+  │  SEPARATION: prevent mixing of soil layers               │
   │    Road base over soft soil; railroad ballast over subgrade│
   │                                                          │
-  │  FILTRATION: allow water through, retain soil           │
-  │    Drain behind retaining wall; around drainage pipe    │
+  │  FILTRATION: allow water through, retain soil            │
+  │    Drain behind retaining wall; around drainage pipe     │
   │                                                          │
-  │  DRAINAGE: transmit water within geotextile plane       │
-  │    Wrapped around perforated pipe; chimney drain        │
+  │  DRAINAGE: transmit water within geotextile plane        │
+  │    Wrapped around perforated pipe; chimney drain         │
   │                                                          │
-  │  REINFORCEMENT: add tensile strength to soil mass       │
-  │    Slope stabilization; mechanically stabilized earth   │
-  │    retaining walls (layers of geogrid + compacted fill) │
+  │  REINFORCEMENT: add tensile strength to soil mass        │
+  │    Slope stabilization; mechanically stabilized earth    │
+  │    retaining walls (layers of geogrid + compacted fill)  │
   │                                                          │
-  │  CONTAINMENT: erosion control; pond liner reinforcement │
+  │  CONTAINMENT: erosion control; pond liner reinforcement  │
   └──────────────────────────────────────────────────────────┘
 
   MATERIALS:

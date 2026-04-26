@@ -60,10 +60,10 @@ THE LANDSCAPE
 
   EXAMPLES:
   ┌──────────────────────────────────────────────────────────────────────┐
-  │  Straight line:  κ=0, τ=0    (no bending, no twisting)              │
-  │  Circle of radius r: κ=1/r, τ=0   (constant bending, flat)          │
+  │  Straight line:  κ=0, τ=0    (no bending, no twisting)               │
+  │  Circle of radius r: κ=1/r, τ=0   (constant bending, flat)           │
   │  Helix (r, pitch p): κ=r/(r²+p²), τ=p/(r²+p²)  (constant κ and τ) │
-  │  Plane curve: τ=0 always (stays in its plane)                       │
+  │  Plane curve: τ=0 always (stays in its plane)                        │
   └──────────────────────────────────────────────────────────────────────┘
 ```
 
@@ -170,17 +170,17 @@ THE LANDSCAPE
 
   CONCRETE CONSEQUENCES:
   ┌──────────────────────────────────────────────────────────────────────┐
-  │  You cannot flatten a sphere without distortion.                    │
+  │  You cannot flatten a sphere without distortion.                     │
   │  (K=1/R²≠0 on sphere, K=0 on plane → not isometric)               │
-  │  This is why maps of Earth always distort either area or angle.     │
-  │                                                                     │
+  │  This is why maps of Earth always distort either area or angle.      │
+  │                                                                      │
   │  You CAN flatten a cylinder (K=0 on both cylinder and plane).      │
-  │  Unrolling a cylinder = isometric map.                              │
-  │                                                                     │
-  │  An ant can measure K by doing geometry:                            │
+  │  Unrolling a cylinder = isometric map.                               │
+  │                                                                      │
+  │  An ant can measure K by doing geometry:                             │
   │  Sum of angles of a geodesic triangle = π + K × (area)             │
-  │  On sphere: triangle angles sum > π ✓                               │
-  │  On saddle: triangle angles sum < π ✓                               │
+  │  On sphere: triangle angles sum > π ✓                                │
+  │  On saddle: triangle angles sum < π ✓                                │
   └──────────────────────────────────────────────────────────────────────┘
 ```
 
@@ -255,19 +255,19 @@ THE LANDSCAPE
   the vector returns ROTATED (in general). The rotation angle = holonomy.
 
   ┌─────────────────────────────────────────────────────────────────────┐
-  │  EXAMPLE: Sphere S² of radius R                                    │
+  │  EXAMPLE: Sphere S² of radius R                                     │
   │                                                                     │
-  │  Start at North Pole with vector pointing toward 0° longitude.     │
-  │  Transport south along 0° longitude to equator.                    │
-  │  Transport east along equator by angle φ.                          │
-  │  Transport north back to North Pole along φ longitude.             │
+  │  Start at North Pole with vector pointing toward 0° longitude.      │
+  │  Transport south along 0° longitude to equator.                     │
+  │  Transport east along equator by angle φ.                           │
+  │  Transport north back to North Pole along φ longitude.              │
   │                                                                     │
-  │  Vector returns rotated by angle φ (the solid angle enclosed).     │
+  │  Vector returns rotated by angle φ (the solid angle enclosed).      │
   │  Rotation angle = K × (enclosed area) = (1/R²)(φR²) = φ           │
   │                                                                     │
   │     N                                                               │
   │     │↑                                                              │
-  │     │ ↖ (rotated by φ on return)                                   │
+  │     │ ↖ (rotated by φ on return)                                    │
   │   φ─┤                                                               │
   │   equator                                                           │
   └─────────────────────────────────────────────────────────────────────┘
@@ -337,12 +337,12 @@ THE LANDSCAPE
   R(X,Y)Z = ∇_X∇_YZ - ∇_Y∇_XZ - ∇_{[X,Y]}Z
 
   ┌──────────────────────────────────────────────────────────────────────┐
-  │  Geometric interpretation:                                          │
-  │                                                                     │
+  │  Geometric interpretation:                                           │
+  │                                                                      │
   │  Transport Z first in Y-direction, then in X-direction:   ∇_X∇_YZ │
   │  Transport Z first in X-direction, then in Y-direction:   ∇_Y∇_XZ │
-  │  The difference = R(X,Y)Z                                           │
-  │                                                                     │
+  │  The difference = R(X,Y)Z                                            │
+  │                                                                      │
   │  On flat space: partial derivatives commute → R=0.                 │
   │  On curved space: R≠0 measures the curvature.                      │
   └──────────────────────────────────────────────────────────────────────┘
@@ -381,8 +381,8 @@ THE LANDSCAPE
   │                                                                      │
   │   Gμν = (8πG/c⁴) Tμν                                               │
   │                                                                      │
-  │   Gμν = Rμν - ½ gμν R      (Einstein tensor = spacetime curvature)  │
-  │   Tμν = stress-energy tensor  (energy, momentum, pressure, stress)  │
+  │   Gμν = Rμν - ½ gμν R      (Einstein tensor = spacetime curvature)   │
+  │   Tμν = stress-energy tensor  (energy, momentum, pressure, stress)   │
   │   G = Newton's gravitational constant                                │
   │   c = speed of light                                                 │
   │                                                                      │
@@ -434,10 +434,10 @@ THE LANDSCAPE
   ┌──────────────────────────────────────────────────────────────────────┐
   │  Sphere (χ=2):      ∫K dA = 4π                                     │
   │  Deform sphere → ∫K dA stays 4π no matter how you squish it!       │
-  │                                                                     │
+  │                                                                      │
   │  Torus (χ=0):       ∫K dA = 0                                      │
   │  Positive curvature (outside) and negative (inside hole) cancel.   │
-  │                                                                     │
+  │                                                                      │
   │  Genus-g surface (χ=2-2g): ∫K dA = 4π(1-g)                       │
   └──────────────────────────────────────────────────────────────────────┘
 
@@ -755,12 +755,12 @@ THE LANDSCAPE
   Ricci = 0 (vacuum) ≠ Riemann = 0: gravitational waves and tidal forces live in Weyl.
 
   ┌────────────────────────────────────────────────────────────────────┐
-  │  TIDAL FORCES (geodesic deviation equation):                      │
+  │  TIDAL FORCES (geodesic deviation equation):                       │
   │  D²ξμ/dτ² = -Rμνρσ Uν ξρ Uσ                                    │
-  │  ξμ = separation vector between nearby geodesics                  │
-  │  Uμ = 4-velocity along geodesic                                   │
-  │  In vacuum: this is ENTIRELY due to the Weyl tensor.              │
-  │  Tidal disruption of infalling objects near black holes = Weyl.   │
+  │  ξμ = separation vector between nearby geodesics                   │
+  │  Uμ = 4-velocity along geodesic                                    │
+  │  In vacuum: this is ENTIRELY due to the Weyl tensor.               │
+  │  Tidal disruption of infalling objects near black holes = Weyl.    │
   └────────────────────────────────────────────────────────────────────┘
 
   GRAVITATIONAL WAVES: perturbation of flat spacetime gμν = ημν + hμν

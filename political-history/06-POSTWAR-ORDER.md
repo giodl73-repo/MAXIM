@@ -305,23 +305,23 @@ FUKUYAMA vs. HUNTINGTON (1990s)
 ═══════════════════════════════════════════════════════════════════
   FUKUYAMA (1989-92)            HUNTINGTON (1993-96)
   ┌────────────────────┐        ┌────────────────────┐
-  │ Liberal democracy  │        │ Civilizational      │
-  │ has won            │        │ differences are     │
-  │                    │        │ deep, persistent,   │
-  │ No more major      │        │ becoming more       │
+  │ Liberal democracy  │        │ Civilizational     │
+  │ has won            │        │ differences are    │
+  │                    │        │ deep, persistent,  │
+  │ No more major      │        │ becoming more      │
   │ ideological        │        │ salient as Cold War │
-  │ competitors        │        │ overlay dissolves   │
-  │                    │        │                     │
+  │ competitors        │        │ overlay dissolves  │
+  │                    │        │                    │
   │ "End of history"   │        │ "West vs. the rest" │
-  │ = boring           │        │ is the key axis     │
-  │ administrative     │        │                     │
-  │ problems           │        │ NATO enlargement    │
-  │                    │        │ threatens Orthodox  │
-  │ Revised (2006):    │        │ civilization        │
-  │ state-building is  │        │ (Russia, Serbia)    │
-  │ hard; democracy    │        │                     │
-  │ requires prior     │        │ Islam's             │
-  │ state capacity     │        │ "bloody borders"    │
+  │ = boring           │        │ is the key axis    │
+  │ administrative     │        │                    │
+  │ problems           │        │ NATO enlargement   │
+  │                    │        │ threatens Orthodox │
+  │ Revised (2006):    │        │ civilization       │
+  │ state-building is  │        │ (Russia, Serbia)   │
+  │ hard; democracy    │        │                    │
+  │ requires prior     │        │ Islam's            │
+  │ state capacity     │        │ "bloody borders"   │
   └────────────────────┘        └────────────────────┘
   ASSESSMENT: Both had insights; both were too deterministic.
   Fukuyama underestimated resilience of nationalism and

@@ -6,21 +6,21 @@
 +------------------------------------------------------------------+
 |                    COMMERCIAL EDIBLE FUNGI                       |
 |                                                                  |
-|  CULTIVATED (majority of market):                               |
-|  Agaricus bisporus: button/cremini/portobello (same species)    |
-|  Lentinula edodes: shiitake (~25% of world mushroom production) |
-|  Pleurotus ostreatus: oyster mushroom                           |
-|  Pleurotus eryngii: king oyster                                 |
+|  CULTIVATED (majority of market):                                |
+|  Agaricus bisporus: button/cremini/portobello (same species)     |
+|  Lentinula edodes: shiitake (~25% of world mushroom production)  |
+|  Pleurotus ostreatus: oyster mushroom                            |
+|  Pleurotus eryngii: king oyster                                  |
 |  Flammulina velutipes: enoki                                     |
-|  Grifola frondosa: maitake/hen-of-the-woods                     |
-|  Cyclocybe aegerita: pioppino/chestnut mushroom                 |
+|  Grifola frondosa: maitake/hen-of-the-woods                      |
+|  Cyclocybe aegerita: pioppino/chestnut mushroom                  |
 |                                                                  |
-|  WILD-FORAGED (cannot yet be commercially cultivated):          |
-|  Tuber melanosporum: black Périgord truffle (~€800–2000/kg)     |
+|  WILD-FORAGED (cannot yet be commercially cultivated):           |
+|  Tuber melanosporum: black Périgord truffle (~€800–2000/kg)      |
 |  Tuber magnatum: white Alba truffle (~€2,000–5,000/kg)         |
-|  Cantharellus cibarius: chanterelle                             |
-|  Boletus edulis: porcini                                        |
-|  Morchella: morel (some cultivation, difficult)                 |
+|  Cantharellus cibarius: chanterelle                              |
+|  Boletus edulis: porcini                                         |
+|  Morchella: morel (some cultivation, difficult)                  |
 |  Lactarius deliciosus: saffron milk cap                        |
 +------------------------------------------------------------------+
 ```

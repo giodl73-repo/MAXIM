@@ -357,7 +357,7 @@ beyond comprehension in height.
 | Can G be proved in a stronger system? | Yes — G is provable in T + Con(T). |
 | Does G2 prove PA is inconsistent? | No — it says PA cannot prove its own consistency. |
 | What is Tarski undefinability? | No formula in PA can serve as its own truth predicate. |
-| What is Löb's theorem? | T |- Box phi -> phi only when T |- phi. |
+| What is Löb's theorem? | T | - Box phi -> phi only when T | - phi. |
 
 ---
 

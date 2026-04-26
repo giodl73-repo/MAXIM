@@ -91,16 +91,16 @@ ADAPTIVE IMMUNITY: LEARNED, SPECIFIC, REMEMBERED
   STAGE 1: CORTEX — POSITIVE SELECTION
   ┌─────────────────────────────────────────────────────────────┐
   │ Double-positive (CD4+CD8+) thymocytes                       │
-  │ TCR must be able to bind self-MHC (at least weakly)        │
-  │                                                              │
-  │ Test: Cortical thymic epithelial cells present self-peptide  │
+  │ TCR must be able to bind self-MHC (at least weakly)         │
+  │                                                             │
+  │ Test: Cortical thymic epithelial cells present self-peptide │
   │       on MHC I and MHC II                                   │
-  │                                                              │
-  │ Result:                                                      │
-  │   Binds MHC I: Become CD8+ T cell (single positive)        │
-  │   Binds MHC II: Become CD4+ T cell (single positive)       │
-  │   Binds neither: Die by neglect (~95% of thymocytes)       │
-  │                                                              │
+  │                                                             │
+  │ Result:                                                     │
+  │   Binds MHC I: Become CD8+ T cell (single positive)         │
+  │   Binds MHC II: Become CD4+ T cell (single positive)        │
+  │   Binds neither: Die by neglect (~95% of thymocytes)        │
+  │                                                             │
   │ Why positive selection?: Ensures T cells can recognize      │
   │ self-MHC molecules (which display foreign peptides in       │
   │ infection) — TCRs that can't bind MHC are useless           │
@@ -109,19 +109,19 @@ ADAPTIVE IMMUNITY: LEARNED, SPECIFIC, REMEMBERED
   STAGE 2: MEDULLA — NEGATIVE SELECTION
   ┌─────────────────────────────────────────────────────────────┐
   │ Single-positive thymocytes encounter medullary DCs + mTECs  │
-  │ mTECs express AIRE (AutoImmune REgulator) transcription      │
+  │ mTECs express AIRE (AutoImmune REgulator) transcription     │
   │ factor → express tissue-restricted antigens (insulin, etc.) │
-  │                                                              │
+  │                                                             │
   │ Test: Does TCR bind self-peptide:self-MHC too strongly?     │
-  │                                                              │
-  │ Result:                                                      │
+  │                                                             │
+  │ Result:                                                     │
   │   Binds self-peptide too strongly: CLONAL DELETION (apopt.) │
   │   Intermediate binding → TREG development                   │
   │   Appropriate binding: Survive, mature, exit to periphery   │
-  │                                                              │
+  │                                                             │
   │ Why negative selection?: Removes self-reactive T cells      │
   │ before they can cause autoimmunity                          │
-  │                                                              │
+  │                                                             │
   │ AIRE mutations → APECED syndrome (multi-organ autoimmunity) │
   └─────────────────────────────────────────────────────────────┘
 
@@ -185,40 +185,40 @@ ADAPTIVE IMMUNITY: LEARNED, SPECIFIC, REMEMBERED
   MHC CLASS I: ENDOGENOUS ANTIGEN PRESENTATION
   ┌────────────────────────────────────────────────────────────────┐
   │ SOURCES: Cytoplasmic proteins (normal cellular + viral)        │
-  │                                                                 │
-  │ PATHWAY:                                                        │
+  │                                                                │
+  │ PATHWAY:                                                       │
   │ 1. Proteasome degrades cytoplasmic proteins → 8–10 aa peptides │
   │ 2. TAP transporter moves peptides into ER                      │
   │ 3. MHC I α-chain + β₂-microglobulin + peptide assemble in ER │
   │ 4. Complex traffics to cell surface                            │
-  │                                                                 │
+  │                                                                │
   │ RESULT: MHC I:peptide on surface says:                         │
-  │   "This is what I'm making inside. Is it foreign?"            │
-  │                                                                 │
+  │   "This is what I'm making inside. Is it foreign?"             │
+  │                                                                │
   │ RECOGNIZED BY: CD8+ cytotoxic T cells (via TCR + CD8 co-recep)│
   │ PRESENT ON: All nucleated cells (ubiquitous)                   │
-  │                                                                 │
-  │ Virally infected cell: Viral peptides on MHC I → CD8 kills it │
+  │                                                                │
+  │ Virally infected cell: Viral peptides on MHC I → CD8 kills it  │
   └────────────────────────────────────────────────────────────────┘
 
   MHC CLASS II: EXOGENOUS ANTIGEN PRESENTATION
   ┌────────────────────────────────────────────────────────────────┐
   │ SOURCES: Extracellular proteins taken up by endocytosis        │
-  │                                                                 │
-  │ PATHWAY:                                                        │
-  │ 1. APC engulfs pathogen/protein by phagocytosis/macropinocy.  │
+  │                                                                │
+  │ PATHWAY:                                                       │
+  │ 1. APC engulfs pathogen/protein by phagocytosis/macropinocy.   │
   │ 2. Phagosome fuses with lysosome → acid pH, proteases          │
   │ 3. Proteins degraded to ~13–25 aa peptides                     │
-  │ 4. MHC II α+β chains + Ii (invariant chain) in ER             │
+  │ 4. MHC II α+β chains + Ii (invariant chain) in ER              │
   │ 5. MHC II:Ii traffics to late endosome/lysosome                │
   │ 6. Ii degraded → CLIP occupies binding groove                  │
-  │ 7. HLA-DM (chaperone) exchanges CLIP for pathogen peptide     │
+  │ 7. HLA-DM (chaperone) exchanges CLIP for pathogen peptide      │
   │ 8. MHC II:peptide traffics to surface                          │
-  │                                                                 │
-  │ RECOGNIZED BY: CD4+ helper T cells (via TCR + CD4 co-recep.)  │
-  │ PRESENT ON: DCs, macrophages, B cells (professional APCs)     │
-  │                                                                 │
-  │ DC ingests pathogen: Pathogen peptides on MHC II → CD4 help   │
+  │                                                                │
+  │ RECOGNIZED BY: CD4+ helper T cells (via TCR + CD4 co-recep.)   │
+  │ PRESENT ON: DCs, macrophages, B cells (professional APCs)      │
+  │                                                                │
+  │ DC ingests pathogen: Pathogen peptides on MHC II → CD4 help    │
   └────────────────────────────────────────────────────────────────┘
 
   CROSS-PRESENTATION (special case):
@@ -261,15 +261,15 @@ ADAPTIVE IMMUNITY: LEARNED, SPECIFIC, REMEMBERED
   CO-STIMULATORY CHECKPOINTS (exploited by cancer/immunotherapy):
   ┌───────────────────────────────────────────────────────────┐
   │ CTLA-4: Competes with CD28 for B7 binding               │
-  │   Higher affinity than CD28 → INHIBITS T cell activation │
-  │   Expressed after activation → dampens response          │
+  │   Higher affinity than CD28 → INHIBITS T cell activation  │
+  │   Expressed after activation → dampens response           │
   │   Anti-CTLA-4 (ipilimumab): blocks inhibition → more    │
   │   T cell activation → cancer immunotherapy              │
   │                                                           │
-  │ PD-1: Checkpoint expressed on chronic stimulation        │
+  │ PD-1: Checkpoint expressed on chronic stimulation         │
   │   Binds PD-L1 (on tumor cells) → inhibits T cell        │
   │   Anti-PD-1 (pembrolizumab/nivolumab): reinvigorates    │
-  │   exhausted T cells → tumor killing                      │
+  │   exhausted T cells → tumor killing                       │
   └───────────────────────────────────────────────────────────┘
 
   THREE SIGNALS FOR FULL CD8 T CELL ACTIVATION:
@@ -291,24 +291,24 @@ ADAPTIVE IMMUNITY: LEARNED, SPECIFIC, REMEMBERED
 
   PROCESS:
   ┌──────────────────────────────────────────────────────────────┐
-  │ Activated B cell → Germinal Center (GC)                     │
-  │                                                               │
-  │ DARK ZONE: Rapid proliferation of centroblasts              │
-  │   Activation-induced cytidine deaminase (AID) enzyme        │
-  │   Introduces targeted mutations in VDJ region               │
-  │   (somatic hypermutation) — ~10⁻³ per bp per generation     │
+  │ Activated B cell → Germinal Center (GC)                      │
+  │                                                              │
+  │ DARK ZONE: Rapid proliferation of centroblasts               │
+  │   Activation-induced cytidine deaminase (AID) enzyme         │
+  │   Introduces targeted mutations in VDJ region                │
+  │   (somatic hypermutation) — ~10⁻³ per bp per generation      │
   │   (vs. ~10⁻⁹ in rest of genome)                            │
-  │                                                               │
-  │ LIGHT ZONE: Selection of high-affinity variants             │
-  │   Mutated B cells (centrocytes) compete for antigen         │
-  │   Antigen held on Follicular DCs (FDCs) as immune complexes │
-  │   High-affinity BCR captures more antigen → internalize     │
+  │                                                              │
+  │ LIGHT ZONE: Selection of high-affinity variants              │
+  │   Mutated B cells (centrocytes) compete for antigen          │
+  │   Antigen held on Follicular DCs (FDCs) as immune complexes  │
+  │   High-affinity BCR captures more antigen → internalize      │
   │   Present to Tfh (T follicular helper) cells → get help    │
   │   High affinity → survive + re-enter dark zone             │
-  │   Low affinity → die by apoptosis                           │
-  │                                                               │
-  │ ANALOGY: Gradient descent on the affinity landscape         │
-  │   Random mutations (AID) = gradient perturbation            │
+  │   Low affinity → die by apoptosis                            │
+  │                                                              │
+  │ ANALOGY: Gradient descent on the affinity landscape          │
+  │   Random mutations (AID) = gradient perturbation             │
   │   Antigen competition = fitness function                     │
   │   Multiple rounds = optimization iterations                  │
   └──────────────────────────────────────────────────────────────┘

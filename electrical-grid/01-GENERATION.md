@@ -173,14 +173,14 @@ Vessel (RPV)             (heat exchanger)
 ┌──────────┐             ┌────────────┐         ┌────────────┐
 │ UO₂ fuel │◀── control  │ Primary:   │         │  Steam     │
 │  rods     │    rods     │ 325°C/155  │◀steam   │  Turbine   │──▶ Generator
-│           │             │ bar water  │         │            │
-│ Fission:  │──hot water  │           │         └─────┬──────┘
+│          │             │ bar water  │         │            │
+│ Fission: │──hot water  │           │         └─────┬──────┘
 │ U-235 +   │──────────▶  │ Secondary:│               │
 │ neutron → │             │ steam gen │         Condenser
 │ 2 fission │             │ (not in   │ water   └─────┬──────┘
 │ products  │◀── coolant  │ contact   │               │
-│ + 2-3     │    return   │ with      │         Feedwater pump
-│ neutrons  │             │ primary)  │         └─────┬──────┘
+│ + 2-3    │    return   │ with      │         Feedwater pump
+│ neutrons │             │ primary)  │         └─────┬──────┘
 │ + heat    │             └────────────┘               │
 └──────────┘                                    back to steam generator
 

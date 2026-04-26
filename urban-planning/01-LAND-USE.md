@@ -6,7 +6,7 @@ Zoning is the primary legal mechanism through which cities control what gets bui
 
 ```
 +------------------------------------------------------------------+
-|                    LAND USE CONTROL SYSTEM                        |
+|                    LAND USE CONTROL SYSTEM                       |
 |                                                                  |
 |  CONSTITUTIONAL     STATUTORY           REGULATORY               |
 |  BASIS              FRAMEWORK           INSTRUMENTS              |
@@ -23,7 +23,7 @@ Zoning is the primary legal mechanism through which cities control what gets bui
          |
          v
 +------------------------------------------------------------------+
-|                    ZONING MECHANICS                               |
+|                    ZONING MECHANICS                              |
 |                                                                  |
 |  WHAT IS REGULATED:                                              |
 |  Use (residential/commercial/industrial/agricultural/            |

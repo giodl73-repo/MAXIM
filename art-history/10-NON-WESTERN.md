@@ -14,20 +14,20 @@ NON-WESTERN ART: THE STRUCTURAL PROBLEM
 
   THE CANON PROBLEM:
   ┌───────────────────────────────────────────────────────────┐
-  │ The Western canon was institutionalized in 19th-century  │
-  │ German universities (Winckelmann, Kugler, Wölfflin).     │
-  │ It takes Greek antiquity → Renaissance → Modernism       │
+  │ The Western canon was institutionalized in 19th-century   │
+  │ German universities (Winckelmann, Kugler, Wölfflin).      │
+  │ It takes Greek antiquity → Renaissance → Modernism        │
   │ as the spine. Everything else is "other" or "source."   │
   │                                                           │
   │ Consequences:                                             │
-  │ - African objects become "primitivism's" raw material    │
-  │ - Japanese prints become "influence" on Impressionism    │
-  │ - Chinese painting becomes "decorative"                  │
-  │ - Islamic art is categorized as "ornament" not painting  │
+  │ - African objects become "primitivism's" raw material     │
+  │ - Japanese prints become "influence" on Impressionism     │
+  │ - Chinese painting becomes "decorative"                   │
+  │ - Islamic art is categorized as "ornament" not painting   │
   │                                                           │
   │ What this module does:                                    │
-  │ Takes each tradition on its own internal logic first,    │
-  │ then addresses the Western encounter with it.            │
+  │ Takes each tradition on its own internal logic first,     │
+  │ then addresses the Western encounter with it.             │
   └───────────────────────────────────────────────────────────┘
 
   TRADITIONS COVERED:
@@ -56,9 +56,9 @@ WENREN IDEAL vs PROFESSIONAL PAINTING
   PROFESSIONAL PAINTER:           LITERATI PAINTER:
   ┌───────────────────────────┐   ┌───────────────────────────────┐
   │ Hired for skill            │   │ Paints as personal cultivation │
-  │ Client sets the subject    │   │ Chooses subject for meaning   │
+  │ Client sets the subject   │   │ Chooses subject for meaning   │
   │ Technical virtuosity valued│   │ Technical ease APPEARS effortless│
-  │ Illusionistic rendering    │   │ Brushwork = moral character   │
+  │ Illusionistic rendering   │   │ Brushwork = moral character   │
   │ Color, decoration           │   │ Ink, not color (primarily)    │
   │ Work as product            │   │ Work as self-portrait of mind │
   └───────────────────────────┘   └───────────────────────────────┘
@@ -116,7 +116,7 @@ THE LITERATI LANDSCAPE: WHAT IT DEPICTS
   ┌───────────────────────────────────────────────────────┐
   │ HANDSCROLL: horizontal, unrolled progressively        │
   │ - Time-based: the landscape reveals itself section    │
-  │   by section as you unroll it                        │
+  │   by section as you unroll it                         │
   │ - Not displayed -- handled, stored, shared            │
   │ - Inscriptions and colophons by subsequent owners     │
   │   accumulate: the scroll is a community object        │
@@ -165,17 +165,17 @@ UKIYO-E: MEDIUM AND MEANING
   WOODBLOCK PRINTING TECHNIQUE:
   ┌──────────────────────────────────────────────────────────┐
   │ 1. Artist draws composition on paper                     │
-  │ 2. Block carver cuts blocks (one per color + keyblock)  │
+  │ 2. Block carver cuts blocks (one per color + keyblock)   │
   │ 3. Printer registers each block precisely                │
   │ 4. Each impression adds one color layer                  │
   │ 5. A full-color print: 5-20 blocks                       │
   │                                                          │
   │ COLLABORATION: artist, carver, printer, publisher        │
-  │ are separate people. The artist designed; specialists   │
-  │ executed. Like software: the algorithm vs the build.    │
+  │ are separate people. The artist designed; specialists    │
+  │ executed. Like software: the algorithm vs the build.     │
   │                                                          │
-  │ PRODUCTION: editions of hundreds or thousands           │
-  │ Price: affordable for urban middle class                │
+  │ PRODUCTION: editions of hundreds or thousands            │
+  │ Price: affordable for urban middle class                 │
   │ Subject: contemporary life, not mythology              │
   └──────────────────────────────────────────────────────────┘
 
@@ -270,7 +270,7 @@ ISLAMIC GEOMETRIC PATTERN: MATHEMATICAL STRUCTURE
     only in 1973 by Penrose)
 
   ┌───────────────────────────────────────────────────────┐
-  │ ALHAMBRA PALACE (Granada, 13th-14th c.):             │
+  │ ALHAMBRA PALACE (Granada, 13th-14th c.):              │
   │ Mathematicians have identified 13 of the 17 possible  │
   │ plane symmetry groups in the Alhambra's tilework.     │
   │ M.C. Escher visited in 1936; his repeating figure     │
@@ -468,14 +468,14 @@ SYNCHRONIC ANALYSIS ACROSS TRADITIONS
   │ ITALY: Giotto breaks Byzantine convention; Trecento        │
   │        proto-Renaissance begins                            │
   │                                                            │
-  │ CHINA: Yuan Dynasty Four Masters (Ni Zan, Wu Zhen,        │
-  │        Wang Meng, Huang Gongwang) produce the literati    │
+  │ CHINA: Yuan Dynasty Four Masters (Ni Zan, Wu Zhen,         │
+  │        Wang Meng, Huang Gongwang) produce the literati     │
   │        tradition's definitive works                        │
   │                                                            │
-  │ WEST AFRICA: Ife bronzes reach their peak naturalism      │
-  │              (redated to 11th-15th c. range)              │
+  │ WEST AFRICA: Ife bronzes reach their peak naturalism       │
+  │              (redated to 11th-15th c. range)               │
   │                                                            │
-  │ MESOAMERICA: Late Classic Maya (Palenque, Uxmal)          │
+  │ MESOAMERICA: Late Classic Maya (Palenque, Uxmal)           │
   │                                                            │
   │ ISLAMIC: Alhambra completion; geometric art pinnacle       │
   └────────────────────────────────────────────────────────────┘

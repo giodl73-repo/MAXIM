@@ -4,7 +4,7 @@
 
 ```
 +-----------------------------------------------------------------------+
-|                    RAWLS' THEORY OF JUSTICE                            |
+|                    RAWLS' THEORY OF JUSTICE                           |
 +-----------------------------------------------------------------------+
 |                                                                       |
 |  QUESTION: What principles of justice would rational persons          |

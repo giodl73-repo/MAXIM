@@ -115,9 +115,9 @@ SWISS WATCH GEOGRAPHY
                      │    ETA (ébauche manufacturer)   │
                      │                                 │
 LAKE GENEVA REGION → │  Geneva:                        │
-                     │    Patek Philippe                │
+                     │    Patek Philippe               │
                      │    Rolex (also Biel manufacturing│
-                     │    Cartier, Piaget, Vacheron     │
+                     │    Cartier, Piaget, Vacheron    │
                      └─────────────────────────────────┘
 
 GERMANY — GLASHÜTTE (Saxon watchmaking tradition):

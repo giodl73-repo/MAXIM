@@ -156,17 +156,17 @@ DURAND-RUEL'S STRATEGY
   │                                                          │
   │ 3. CRITICAL APPARATUS:                                   │
   │    Commission favorable reviews; fund exhibitions;       │
-  │    build the narrative that makes the work significant  │
+  │    build the narrative that makes the work significant   │
   │                                                          │
   │ 4. INTERNATIONAL EXPANSION:                              │
   │    New York exhibitions (1886): the Impressionists       │
   │    broke in America before they were fully accepted      │
   │    in France. American robber-baron collectors were      │
-  │    the first large buyers.                              │
+  │    the first large buyers.                               │
   │                                                          │
   │ 5. LONG PATIENCE:                                        │
   │    Durand-Ruel held Monet and Renoir inventory for       │
-  │    20+ years before the market moved                    │
+  │    20+ years before the market moved                     │
   └──────────────────────────────────────────────────────────┘
 
   RESULT: The dealer-critic system replaces the Academy
@@ -451,9 +451,9 @@ REPATRIATION: THE COMPETING CLAIMS
   FOR RETURN:
   ┌───────────────────────────────────────────────────────┐
   │ 1. OWNERSHIP: the objects were taken without consent  │
-  │    (colonial looting, wartime theft, illicit trade)  │
+  │    (colonial looting, wartime theft, illicit trade)   │
   │    Ownership law: you cannot acquire good title from  │
-  │    a thief; the original owner's title persists.     │
+  │    a thief; the original owner's title persists.      │
   │                                                       │
   │ 2. CULTURAL PROPERTY: some objects belong to a        │
   │    community's living culture, not to "universal      │
@@ -476,7 +476,7 @@ REPATRIATION: THE COMPETING CLAIMS
   │ 3. LEGAL OBSTACLES: the British Museum Act (1963)     │
   │    prohibits the trustees from disposing of objects   │
   │    in the collection. A literal Act of Parliament     │
-  │    would be required to return the Elgin Marbles.    │
+  │    would be required to return the Elgin Marbles.     │
   │                                                       │
   │ 4. SLIPPERY SLOPE: if the Elgin Marbles return,       │
   │    what remains in any encyclopedic museum?           │

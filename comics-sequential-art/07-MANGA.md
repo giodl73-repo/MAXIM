@@ -4,7 +4,7 @@
 
 ```
 +------------------------------------------------------------------+
-|                   MANGA OVERVIEW                                  |
+|                   MANGA OVERVIEW                                 |
 |                                                                  |
 |  DEFINITION: Japanese comics; manga (漫画) = "whimsical pictures"|
 |  READING: Right to left; top to bottom                           |

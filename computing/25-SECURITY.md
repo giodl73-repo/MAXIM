@@ -884,7 +884,7 @@ Prevention:
 ```
 Traditional perimeter model (1990s–2010s):
   ┌─────────────────────────────────────────────┐
-  │  Corporate Network                           │
+  │  Corporate Network                          │
   │                                             │
   │  ┌──────────────────────────────────────┐   │
   │  │  Trusted Zone                         │   │

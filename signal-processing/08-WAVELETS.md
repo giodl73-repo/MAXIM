@@ -60,7 +60,7 @@ STFT uses the SAME window width for all frequencies:
 
 High frequency (short period):    Low frequency (long period):
   ┌──window──┐                      ┌──────── same window ────────┐
-  │ ╫╫╫╫╫╫╫╫│                      │ ╫                           │
+  │ ╫╫╫╫╫╫╫╫│                      │ ╫                            │
   └──────────┘                      └────────────────────────────┘
   Many cycles fit → good freq res   Less than one cycle → bad freq res
 

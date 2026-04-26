@@ -6,7 +6,7 @@
 
 ```
 +------------------------------------------------------------------+
-|                    SMART CITY TECHNOLOGY STACK                    |
+|                    SMART CITY TECHNOLOGY STACK                   |
 |                                                                  |
 |  DIGITAL TWIN / SIMULATION LAYER                                 |
 |  3D city model + building physics + agent simulation             |
@@ -17,15 +17,15 @@
 |  Demand forecasting | Anomaly detection | Service routing         |
 +------------------------------------------------------------------+
 |  PLATFORM / DATA LAYER                                           |
-|  Urban data platform | Open data portal | APIs                    |
+|  Urban data platform | Open data portal | APIs                   |
 |  GTFS | 311 | Permits | Assessments | Weather                    |
 +------------------------------------------------------------------+
 |  CONNECTIVITY LAYER                                              |
 |  Fiber backbone | 5G small cells | LoRaWAN | NB-IoT | Wi-Fi mesh  |
 +------------------------------------------------------------------+
 |  SENSOR / DEVICE LAYER                                           |
-|  Traffic loops | Cameras | Environmental sensors | Smart meters   |
-|  Connected vehicles | Smartphones as probes | Gunshot detection   |
+|  Traffic loops | Cameras | Environmental sensors | Smart meters  |
+|  Connected vehicles | Smartphones as probes | Gunshot detection  |
 +------------------------------------------------------------------+
 |  PHYSICAL LAYER (the actual city)                                |
 |  Roads | Buildings | Transit | Utilities | Parks | People         |
@@ -289,7 +289,7 @@ DIGITAL TWIN SPECTRUM:
 
   LIVE DIGITAL TWIN (integrated simulation):
   +------------------------------------------+
-  |           DIGITAL TWIN                    |
+  |           DIGITAL TWIN                   |
   |                                          |
   |  Real-time data feeds:                   |
   |  - Traffic sensors --> traffic model     |

@@ -12,7 +12,7 @@ SILVICULTURAL SYSTEMS — DECISION SPACE
   +-------------+   +----------+   +------------------+
   | Natural seed |   | Even-aged|   | Clearcut          |
   | (from above) |   | one cohort|  | Seed tree         |
-  +-------------+   +----------+   | Shelterwood       |
+  +-------------+   +----------+   | Shelterwood      |
                                    +------------------+
   +-------------+   +----------+   +------------------+
   | Advance      |   |Uneven-aged|  | Single-tree sel.  |
@@ -281,15 +281,15 @@ Plantations are intensively managed monocultures (or simple mixtures) of single 
 ```
   PLANTATION CHARACTERISTICS:
   +----------------------------------------------+
-  | Species: typically 1–3 species per stand      |
-  | Origin: seedlings from seed orchards (bred    |
+  | Species: typically 1–3 species per stand     |
+  | Origin: seedlings from seed orchards (bred   |
   |         for growth rate, form, disease resist.)|
   | Spacing: regular, designed for harvest machine|
-  | Thinning: 1–3 commercial thinnings scheduled  |
+  | Thinning: 1–3 commercial thinnings scheduled |
   | Rotation: short (eucalyptus: 7 yr; pine: 20 yr;|
-  |           hardwood: 25–40 yr)                 |
-  | Yield: 2–10× natural forest (site-prepared,   |
-  |         fertilized, weed-controlled)          |
+  |           hardwood: 25–40 yr)                |
+  | Yield: 2–10× natural forest (site-prepared,  |
+  |         fertilized, weed-controlled)         |
   +----------------------------------------------+
 
   GLOBAL PLANTATION AREA: ~294 M ha (~7% of global forest area)

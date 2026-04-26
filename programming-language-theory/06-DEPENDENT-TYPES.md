@@ -6,7 +6,7 @@ Dependent types are types that depend on *values*. This collapses the distinctio
 
 ```
 +--------------------------------------------------------------------------+
-|                    DEPENDENT TYPES LANDSCAPE                              |
+|                    DEPENDENT TYPES LANDSCAPE                             |
 +--------------------------------------------------------------------------+
 |                                                                          |
 |  THE KEY TYPES:                                                          |

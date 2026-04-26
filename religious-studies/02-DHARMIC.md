@@ -25,11 +25,11 @@ Hindu Atman concept; Jainism rejected the Vedic tradition entirely.
 |                                             ~5 million.            |
 |                                                                    |
 |  SHARED CONCEPTS (with different meanings in each tradition):      |
-|  karma, samsara, dharma, liberation (moksha/nirvana/mukti)        |
+|  karma, samsara, dharma, liberation (moksha/nirvana/mukti)         |
 |                                                                    |
 |  KEY DISPUTE: Does a permanent self (Atman) exist?                 |
 |  Hinduism (mostly): YES — Atman = Brahman                          |
-|  Buddhism: NO — anatta (no-self) is a core teaching               |
+|  Buddhism: NO — anatta (no-self) is a core teaching                |
 |  Jainism: YES — jiva (soul), but material, accumulates karma       |
 +--------------------------------------------------------------------+
 ```
@@ -59,14 +59,14 @@ and broad geographic origin.
 |  |           | Yajur Veda (ritual formulas),            |           |
 |  |           | Atharva Veda (spells, healing)           |           |
 |  +-----------+------------------------------------------+           |
-|  | BRAHMANAS | Prose ritual commentaries on the Vedas  |           |
+|  | BRAHMANAS | Prose ritual commentaries on the Vedas   |           |
 |  +-----------+------------------------------------------+           |
 |  | ARANYAKAS | Forest treatises — transitional          |           |
 |  +-----------+------------------------------------------+           |
-|  | UPANISHADS| 108 philosophical texts (~800-200 BCE)  |           |
+|  | UPANISHADS| 108 philosophical texts (~800-200 BCE)   |           |
 |  |           | The "Vedanta" (end/culmination of Vedas) |           |
 |  |           | Brahman-Atman identity: tat tvam asi     |           |
-|  |           | ("that thou art") — self = ultimate     |           |
+|  |           | ("that thou art") — self = ultimate      |           |
 |  +-----------+------------------------------------------+           |
 |                                                                     |
 |  SMRITI ("remembered" — secondary authority)                        |
@@ -134,8 +134,8 @@ bhakti (devotion to a personal deity) and structured around three major sectaria
 |  SHAIVISM              VAISHNAVISM         SHAKTISM       |
 |  ---------             -----------         --------       |
 |  Shiva as supreme.     Vishnu/Krishna      Devi/Shakti    |
-|  Pashupata, Shaiva     as supreme.         (divine female  |
-|  Siddhanta,            Alvars (Tamil        power) as      |
+|  Pashupata, Shaiva     as supreme.         (divine female |
+|  Siddhanta,            Alvars (Tamil        power) as     |
 |  Kashmiri Shaivism,    poets), Ramanuja,   supreme.       |
 |  Nath tradition.       ISKCON (Hare        Tantrism,      |
 |  Lingam, Nataraj.      Krishna).           Devi Mahatmya. |
@@ -265,7 +265,7 @@ which would require a permanent self) and "nothing exists" (nihilism).
 |  as fuel for awakening. Mantra, mudra, mandala, visualization.    |
 |  Lama (guru) lineage essential. Tibet, Mongolia, Bhutan.          |
 |  Dalai Lama institution: Avalokiteshvara incarnation.             |
-|  Tulku system: reincarnate teachers identified in childhood.       |
+|  Tulku system: reincarnate teachers identified in childhood.      |
 +-------------------------------------------------------------------+
 ```
 

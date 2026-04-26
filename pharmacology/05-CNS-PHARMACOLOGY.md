@@ -19,7 +19,7 @@ CNS pharmacology targets the chemical signaling systems of the brain. Each major
 |  OPIOID PEPTIDES → Analgesics, addiction drugs                   |
 |                                                                  |
 |  BLOOD-BRAIN BARRIER (BBB)                                       |
-|  All CNS drugs must cross: lipophilic, small, non-P-gp-substrate  |
+|  All CNS drugs must cross: lipophilic, small, non-P-gp-substrate |
 |  Or use active transporters (L-dopa transporter for dopamine)    |
 +──────────────────────────────────────────────────────────────────+
 ```

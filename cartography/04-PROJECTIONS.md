@@ -23,20 +23,20 @@ THE DISTORTION IMPOSSIBILITY — FORMAL STATEMENT
   The four properties that cannot simultaneously be preserved:
   ┌──────────────────────────────────────────────────────────────┐
   │  CONFORMAL (shape-preserving):                               │
-  │  Angles between curves preserved at every point             │
+  │  Angles between curves preserved at every point              │
   │  Local shapes correct; area wrong                            │
   │                                                              │
-  │  EQUAL-AREA (area-preserving):                              │
-  │  Areas of regions proportional to their true areas          │
+  │  EQUAL-AREA (area-preserving):                               │
+  │  Areas of regions proportional to their true areas           │
   │  Area correct; local shapes distorted                        │
   │                                                              │
-  │  EQUIDISTANT (distance-preserving):                         │
+  │  EQUIDISTANT (distance-preserving):                          │
   │  Distances from one or two specific points correct           │
   │  Cannot be globally equidistant                              │
   │                                                              │
-  │  GNOMONIC (great-circle-preserving):                        │
+  │  GNOMONIC (great-circle-preserving):                         │
   │  Great circles (shortest paths) render as straight lines     │
-  │  Strong distortion of both area and shape away from center  │
+  │  Strong distortion of both area and shape away from center   │
   └──────────────────────────────────────────────────────────────┘
 
   A projection can preserve at most one of conformal or equal-area.
@@ -63,11 +63,11 @@ TISSOT INDICATRIX — WHAT IT SHOWS
 
   Possible shapes:
   ┌──────────────────────────────────────────────────────────────┐
-  │  Circle (same size): no distortion (impossible globally)    │
-  │  Circle (different sizes): equal-area, scale varies         │
-  │  Ellipse (equal area): conformal → shape distorted          │
-  │  Ellipse (different area): neither                          │
-  │  Ellipse with equal semi-axes: conformal at that point      │
+  │  Circle (same size): no distortion (impossible globally)     │
+  │  Circle (different sizes): equal-area, scale varies          │
+  │  Ellipse (equal area): conformal → shape distorted           │
+  │  Ellipse (different area): neither                           │
+  │  Ellipse with equal semi-axes: conformal at that point       │
   └──────────────────────────────────────────────────────────────┘
 
   On a conformal projection (Mercator):
@@ -151,15 +151,15 @@ MERCATOR PROJECTION — MATHEMATICS AND PROPERTIES
   Mathematical construction:
   ┌────────────────────────────────────────────────────────────┐
   │  Standard parametrization:                                 │
-  │  x = R·λ  (longitude → x, linear)                         │
-  │  y = R·ln|tan(π/4 + φ/2)|  (latitude → y, nonlinear)      │
+  │  x = R·λ  (longitude → x, linear)                          │
+  │  y = R·ln|tan(π/4 + φ/2)|  (latitude → y, nonlinear)       │
   │                                                            │
   │  Where φ = latitude, λ = longitude, R = Earth radius       │
   │                                                            │
   │  The y formula is the Gudermannian function's inverse.     │
-  │  Mercator arrived at this geometrically; Edward Wright      │
+  │  Mercator arrived at this geometrically; Edward Wright     │
   │  (1599) provided the mathematical derivation — it requires │
-  │  computing ∫ sec(φ)dφ, which is the integral of secant.   │
+  │  computing ∫ sec(φ)dφ, which is the integral of secant.    │
   │  This was a hard problem in 1569 (calculus didn't exist).  │
   └────────────────────────────────────────────────────────────┘
 
@@ -430,15 +430,15 @@ COMPROMISE PROJECTIONS — WHEN NEITHER PROPERTY IS PARAMOUNT
   SELECTION GUIDE:
   ┌──────────────────────────────────────────────────────────────┐
   │  Purpose                → Recommended projection             │
-  │  Navigation (sea)       → Mercator                          │
-  │  Navigation (air, GC)  → Lambert Conformal Conic / Gnomonic │
-  │  Thematic (area)        → Albers / Mollweide / Gall-Peters  │
-  │  General world map      → Winkel Tripel / Robinson          │
-  │  Regional mid-lat map   → Lambert CC or Albers              │
-  │  Polar region           → Stereographic / Azimuthal EA      │
-  │  US national map (USGS) → Albers Equal-Area Conic           │
-  │  Web slippy map         → Web Mercator (EPSG:3857)          │
-  │  Survey / GPS coords    → UTM (zone-specific TM)            │
+  │  Navigation (sea)       → Mercator                           │
+  │  Navigation (air, GC)  → Lambert Conformal Conic / Gnomonic  │
+  │  Thematic (area)        → Albers / Mollweide / Gall-Peters   │
+  │  General world map      → Winkel Tripel / Robinson           │
+  │  Regional mid-lat map   → Lambert CC or Albers               │
+  │  Polar region           → Stereographic / Azimuthal EA       │
+  │  US national map (USGS) → Albers Equal-Area Conic            │
+  │  Web slippy map         → Web Mercator (EPSG:3857)           │
+  │  Survey / GPS coords    → UTM (zone-specific TM)             │
   └──────────────────────────────────────────────────────────────┘
 
 ══════════════════════════════════════════════════════════════════════
@@ -460,7 +460,7 @@ WEB MERCATOR — WHAT IT IS AND WHY IT'S USED
   │  Web Mercator: projects as if Earth were a sphere          │
   │  (using spherical formula with WGS84 equatorial radius)    │
   │                                                            │
-  │  Error: up to ~0.33% in scale near the equator            │
+  │  Error: up to ~0.33% in scale near the equator             │
   │  This is invisible at web map zoom levels                  │
   └────────────────────────────────────────────────────────────┘
 
@@ -475,7 +475,7 @@ WEB MERCATOR — WHAT IT IS AND WHY IT'S USED
   ┌────────────────────────────────────────────────────────────┐
   │  Zoom 0: 1 tile  (256×256px = whole world)                 │
   │  Zoom 1: 4 tiles (2×2 grid)                                │
-  │  Zoom n: 4ⁿ tiles (2ⁿ × 2ⁿ grid)                          │
+  │  Zoom n: 4ⁿ tiles (2ⁿ × 2ⁿ grid)                           │
   │  Zoom 18: 68 billion tiles (street level)                  │
   │                                                            │
   │  Tile URL format: /tiles/{z}/{x}/{y}.png                   │

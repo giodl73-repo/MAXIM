@@ -9,24 +9,24 @@ a different social function and generated different research programs.
 
 ```
 +----------------------------------------------------------------------+
-|              SOCIOLOGY OF RELIGION — THEORETICAL MAP                |
+|              SOCIOLOGY OF RELIGION — THEORETICAL MAP                 |
 |                                                                      |
-|  DURKHEIM                WEBER                  MARX                |
-|  --------                -----                  ----                |
+|  DURKHEIM                WEBER                  MARX                 |
+|  --------                -----                  ----                 |
 |  Religion = society      Religion = meaning      Religion = ideology |
 |  worshipping itself.     system.                 mystifying class    |
-|  Function: solidarity.   Function: theodicy,     relations.         |
+|  Function: solidarity.   Function: theodicy,     relations.          |
 |  Sacred/profane.         legitimation,           Opiate of the       |
 |  Collective effervescence rationalization.        masses.            |
 |  Ritual = solidarity     Protestant Ethic.       False consciousness.|
-|  production engine.      Three authority types.  Gramsci: hegemony. |
+|  production engine.      Three authority types.  Gramsci: hegemony.  |
 |                                                                      |
 |  CONTEMPORARY BRANCHES:                                              |
 |  Secularization studies   Religious markets     NRM / cult studies   |
-|  (Berger, Bruce, Wilson)  theory (Stark/Finke)  (Stark, Lofland)    |
+|  (Berger, Bruce, Wilson)  theory (Stark/Finke)  (Stark, Lofland)     |
 |                                                                      |
-|  Ritual theory (Collins)  Civil religion (Bellah) Fundamentalism    |
-|  Social neuroscience      (Almond/Appleby)        studies           |
+|  Ritual theory (Collins)  Civil religion (Bellah) Fundamentalism     |
+|  Social neuroscience      (Almond/Appleby)        studies            |
 +----------------------------------------------------------------------+
 ```
 
@@ -239,41 +239,41 @@ Marx's analysis of religion is structurally different from Durkheim's and Weber'
 |       the ruling ideas" — also applies to theology        |
 |    → Divine sanction for earthly hierarchy:               |
 |       "The rich man in his castle, the poor man at        |
-|        his gate, God made them high and lowly"           |
+|        his gate, God made them high and lowly"            |
 |                                                           |
 |  ALIENATION:                                              |
-|  Workers are alienated from their labor, their product,  |
+|  Workers are alienated from their labor, their product,   |
 |    their fellow workers, and their species-being          |
-|    (their capacity for free, creative activity)          |
+|    (their capacity for free, creative activity)           |
 |  Religion is the "inverted world-consciousness" of        |
-|    an inverted world — it projects human powers onto     |
-|    a supernatural being (God) who then dominates humans  |
-|  Feuerbach (Marx's starting point): God is a human       |
-|    projection; theology is inverted anthropology         |
-|  Marx: right analysis, wrong solution. Feuerbach wants   |
+|    an inverted world — it projects human powers onto      |
+|    a supernatural being (God) who then dominates humans   |
+|  Feuerbach (Marx's starting point): God is a human        |
+|    projection; theology is inverted anthropology          |
+|  Marx: right analysis, wrong solution. Feuerbach wants    |
 |    to replace religion with humanism; Marx says           |
-|    we need to change the material conditions that        |
+|    we need to change the material conditions that         |
 |    produce alienation, not just the ideas               |
 |                                                           |
 |  "OPIATE OF THE MASSES":                                  |
-|  Famous phrase, usually misread as pure contempt         |
-|  Full quote: "Religious distress is at the same time     |
+|  Famous phrase, usually misread as pure contempt          |
+|  Full quote: "Religious distress is at the same time      |
 |    the expression of real distress and the protest        |
-|    against real distress. Religion is the sigh of the    |
-|    oppressed creature, the heart of a heartless world,   |
-|    just as it is the spirit of a spiritless situation.   |
-|    It is the opium of the people."                       |
-|    — Contribution to the Critique of Hegel's             |
-|       Philosophy of Right (1844)                         |
+|    against real distress. Religion is the sigh of the     |
+|    oppressed creature, the heart of a heartless world,    |
+|    just as it is the spirit of a spiritless situation.    |
+|    It is the opium of the people."                        |
+|    — Contribution to the Critique of Hegel's              |
+|       Philosophy of Right (1844)                          |
 |                                                           |
-|  Opium in 1844: a painkiller, not a vice.                |
-|  Religion provides genuine consolation for real          |
-|    suffering — the problem is that it also prevents      |
-|    addressing the material cause of that suffering       |
-|  FALSE CONSCIOUSNESS: workers misidentify their          |
-|    interests; religion offers heavenly reward instead    |
-|    of earthly justice; acceptance of suffering as        |
-|    God's will instead of resistance to exploitation      |
+|  Opium in 1844: a painkiller, not a vice.                 |
+|  Religion provides genuine consolation for real           |
+|    suffering — the problem is that it also prevents       |
+|    addressing the material cause of that suffering        |
+|  FALSE CONSCIOUSNESS: workers misidentify their           |
+|    interests; religion offers heavenly reward instead     |
+|    of earthly justice; acceptance of suffering as         |
+|    God's will instead of resistance to exploitation       |
 +-----------------------------------------------------------+
 
 GRAMSCI'S EXTENSION — HEGEMONY:

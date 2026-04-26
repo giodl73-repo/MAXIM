@@ -24,19 +24,19 @@ REPAIR DECISION FRAMEWORK
   ┌──────────────────────────────────────────────────────────────────┐
   │  ① Repointing with Portland-rich mortar on soft historic brick │
   │    → mortar harder than unit → brick face spalls               │
-  │    (correct: match original mortar or use NHL/lime putty)       │
-  │                                                                   │
+  │    (correct: match original mortar or use NHL/lime putty)        │
+  │                                                                  │
   │  ② Applying sealants to masonry                                │
   │    → traps moisture inside → freeze-thaw destroys from within  │
-  │    (masonry must breathe — vapor-permeable coatings only)       │
-  │                                                                   │
+  │    (masonry must breathe — vapor-permeable coatings only)        │
+  │                                                                  │
   │  ③ Pressure-washing historic brick                             │
-  │    → high pressure damages fired face, drives water into joints │
-  │    (correct: low-pressure water + gentle chemical cleaning)     │
-  │                                                                   │
+  │    → high pressure damages fired face, drives water into joints  │
+  │    (correct: low-pressure water + gentle chemical cleaning)      │
+  │                                                                  │
   │  ④ Sandblasting historic stone/brick                           │
-  │    → removes hardened surface layer; accelerates weathering     │
-  │    (prohibited by Secretary of Interior Standards)              │
+  │    → removes hardened surface layer; accelerates weathering      │
+  │    (prohibited by Secretary of Interior Standards)               │
   └──────────────────────────────────────────────────────────────────┘
 ```
 
@@ -52,9 +52,9 @@ REPOINTING PROCEDURE
 
   STEP 1: Joint preparation
   ┌──────────────────────────────────────────────────────────────────┐
-  │  RAKE DEPTH REQUIREMENT:                                        │
+  │  RAKE DEPTH REQUIREMENT:                                         │
   │  Minimum: 3/4" depth below unit face                           │
-  │  ┌────────────────────────────────────────────────────────────┐ │
+  │  ┌────────────────────────────────────────────────────────────┐  │
   │  │  [BRICK]                          [BRICK]                  │ │
   │  │          ← 3/4" min →                                      │ │
   │  │  ════════════════════════════════════════  ← original mortar│ │
@@ -117,12 +117,12 @@ COMPATIBILITY TEST PROTOCOL
   ┌──────────────────────────────────────────────────────────────────┐
   │  Scratch existing mortar with fingernail (Mohs ~2.5)           │
   │  Scratch existing mortar with knife blade (Mohs ~5.5)          │
-  │                                                                   │
-  │  Result interpretation:                                         │
+  │                                                                  │
+  │  Result interpretation:                                          │
   │  Fingernail scratches → very soft (Type O / lime putty)        │
   │  Knife scratches, fingernail doesn't → moderate (Type N)       │
   │  Neither scratches → hard (Type S or M Portland mortar)        │
-  │                                                                   │
+  │                                                                  │
   │  Replacement mortar: same hardness or slightly softer          │
   └──────────────────────────────────────────────────────────────────┘
 
@@ -132,7 +132,7 @@ COMPATIBILITY TEST PROTOCOL
   │  Identifies: binder type, aggregate type and size,             │
   │    approximate proportions, signs of deterioration             │
   │  Cost: $300–600 per sample; usually worthwhile for             │
-  │    significant historic structures                              │
+  │    significant historic structures                               │
   └──────────────────────────────────────────────────────────────────┘
 
   TEST 3: MOCK-UP PANEL
@@ -158,14 +158,14 @@ CRACK PATTERN DIAGNOSIS
   VERTICAL CRACKS:
   ┌──────────────────────────────────────────────────────────────────┐
   │  Pattern:  ┃  (vertical, through mortar joints or units)       │
-  │                                                                   │
+  │                                                                  │
   │  DIFFERENTIAL SETTLEMENT: vertical crack where two sections    │
   │    of building move independently (e.g., at addition/original) │
   │  THERMAL EXPANSION: long wall with no expansion joint; mortar  │
   │    joints in compression → failure in tension at ends          │
   │  LINTEL DEFLECTION: vertical crack at corners of openings      │
-  │    → lintel rotating at support                                 │
-  │                                                                   │
+  │    → lintel rotating at support                                  │
+  │                                                                  │
   │  FIX: Address cause first. Expansion joints if thermal.        │
   │       Monitor settlement before repair (may still be moving).  │
   └──────────────────────────────────────────────────────────────────┘
@@ -173,11 +173,11 @@ CRACK PATTERN DIAGNOSIS
   DIAGONAL (STAIR-STEP) CRACKS:
   ┌──────────────────────────────────────────────────────────────────┐
   │  Pattern: steps along mortar joints diagonally                 │
-  │  ┌─┬─┬─┐                                                        │
+  │  ┌─┬─┬─┐                                                         │
   │  │ │╲│ │                                                         │
   │  ├─┴─┼─┤                                                         │
   │  │  ╲│ │                                                         │
-  │  └───┴─┘                                                        │
+  │  └───┴─┘                                                         │
   │                                                                   │
   │  DIFFERENTIAL SETTLEMENT: one end dropping faster              │
   │  FOUNDATION MOVEMENT: corner settlement most common             │
@@ -189,15 +189,15 @@ CRACK PATTERN DIAGNOSIS
 
   HORIZONTAL CRACKS:
   ┌──────────────────────────────────────────────────────────────────┐
-  │  Pattern: ─────────────── (horizontal, at bed joints)           │
-  │                                                                   │
+  │  Pattern: ─────────────── (horizontal, at bed joints)            │
+  │                                                                  │
   │  BED JOINT SLIDING: lateral seismic force exceeding mortar     │
   │    shear strength → wall slides on bed joint                   │
   │  CORRODED LINTEL/FLASHING: steel corrosion expands, pushes     │
-  │    brickwork apart horizontally above lintel                    │
+  │    brickwork apart horizontally above lintel                     │
   │  FROST HEAVE: saturated soil expands upward into foundation    │
   │  OVERLOADED WALL: axial + bending exceeds mortar tensile bond  │
-  │                                                                   │
+  │                                                                  │
   │  FIX: Seismic → reinforce and anchor. Steel → replace corroded │
   │       metal (flashing, lintels). Frost → drainage correction.  │
   └──────────────────────────────────────────────────────────────────┘
@@ -224,10 +224,10 @@ EFFLORESCENCE MECHANISM
 ========================
 
   ┌──────────────────────────────────────────────────────────────────┐
-  │  1. Water enters masonry (rain, ground moisture, condensation)  │
-  │  2. Water dissolves soluble salts in mortar, brick, or concrete │
-  │     (calcium sulfate, sodium sulfate, potassium carbonate)      │
-  │  3. Water migrates through masonry to external face             │
+  │  1. Water enters masonry (rain, ground moisture, condensation)   │
+  │  2. Water dissolves soluble salts in mortar, brick, or concrete  │
+  │     (calcium sulfate, sodium sulfate, potassium carbonate)       │
+  │  3. Water migrates through masonry to external face              │
   │  4. Water evaporates at face → salts crystallize on surface    │
   │  5. Crystals grow → white powdery or fluffy deposit            │
   └──────────────────────────────────────────────────────────────────┘
@@ -242,14 +242,14 @@ EFFLORESCENCE MECHANISM
   ┌──────────────────────────────────────────────────────────────────┐
   │  FIRST: Identify and fix moisture source (flashing, grade,     │
   │         cracks, missing caulk, failed gutters/downspouts)      │
-  │                                                                   │
-  │  THEN: Clean surface                                            │
+  │                                                                  │
+  │  THEN: Clean surface                                             │
   │  • Light efflorescence: dry brush, then mild acid wash         │
   │  • Stubborn: 10% muriatic acid solution + brush + rinse        │
-  │    (wear PPE; test on small area; do not use on limestone or    │
+  │    (wear PPE; test on small area; do not use on limestone or     │
   │     polished stone — acid dissolves calcium carbonate)         │
   │  • Organic (biogenic) deposits: sodium hypochlorite solution   │
-  │                                                                   │
+  │                                                                  │
   │  NEVER: Apply sealant to suppress efflorescence — only traps   │
   │         salts inside, which then crystallize WITHIN masonry    │
   │         (cryptoflorescence) → spalling from inside out         │
@@ -266,24 +266,24 @@ CLEANING METHOD SELECTION
 
   ACCEPTABLE (in order of preference):
   ┌──────────────────────────────────────────────────────────────────┐
-  │  LOW-PRESSURE WATER WASHING                                     │
+  │  LOW-PRESSURE WATER WASHING                                      │
   │  < 400 psi; gentle rinse; pre-soak                             │
   │  Safe for most masonry; does not abrade surface                │
-  │  Best for general dirt and biological growth                    │
+  │  Best for general dirt and biological growth                     │
   │  ──────────────────────────────────────────────────────────────  │
   │  CHEMICAL CLEANING (acidic or alkaline)                        │
   │  Acidic: dilute muriatic or proprietary masonry acid           │
   │    Good for efflorescence, mortar smears, iron stains          │
-  │    NEVER on limestone, marble, calcareous sandstone (dissolves) │
+  │    NEVER on limestone, marble, calcareous sandstone (dissolves)  │
   │    Always: pre-wet surface + rinse thoroughly                  │
   │  Alkaline: trisodium phosphate (TSP) or proprietary            │
   │    Good for organic stains, atmospheric soot, oil stains       │
   │    Apply, dwell 5–10 min, scrub, rinse                        │
   │  ──────────────────────────────────────────────────────────────  │
-  │  STEAM CLEANING                                                 │
+  │  STEAM CLEANING                                                  │
   │  Hot water vapor; no abrasion; penetrates biological growth    │
   │  Good for historic limestone, terra cotta, decorative stone    │
-  │  Slow; expensive; but gentle                                    │
+  │  Slow; expensive; but gentle                                     │
   │  ──────────────────────────────────────────────────────────────  │
   │  MICRO-ABRASIVE (controlled abrasive blast at very low pressure)│
   │  TORC / Doff system / Jos system                               │
@@ -296,8 +296,8 @@ CLEANING METHOD SELECTION
   │  HIGH-PRESSURE WASHING (>400 psi)                              │
   │  SANDBLASTING / GLASS-BEAD BLASTING                            │
   │  WIRE BRUSHING (on soft historic brick or stone)               │
-  │  GRINDING / WHEEL TOOLS                                         │
-  │  All prohibited by Secretary of Interior Standards (36 CFR 68)  │
+  │  GRINDING / WHEEL TOOLS                                          │
+  │  All prohibited by Secretary of Interior Standards (36 CFR 68)   │
   └──────────────────────────────────────────────────────────────────┘
 ```
 
@@ -314,29 +314,29 @@ SECRETARY OF INTERIOR TREATMENT HIERARCHY
   PRESERVATION (most conservative)
   ┌──────────────────────────────────────────────────────────────────┐
   │  Retain and repair existing materials to the maximum extent      │
-  │  No removal of historic fabric                                  │
-  │  Stabilize, consolidate, protect existing material              │
+  │  No removal of historic fabric                                   │
+  │  Stabilize, consolidate, protect existing material               │
   └──────────────────────────────────────────────────────────────────┘
 
   REHABILITATION (most common)
   ┌──────────────────────────────────────────────────────────────────┐
   │  Allow alterations for new use while protecting significant      │
-  │  historic character                                             │
+  │  historic character                                              │
   │  Repair rather than replace; if replacement necessary, match     │
   │  original in design, color, texture, and where possible material │
-  │  No sandblasting, incompatible coatings, damaging cleaning      │
+  │  No sandblasting, incompatible coatings, damaging cleaning       │
   └──────────────────────────────────────────────────────────────────┘
 
   RESTORATION (less common)
   ┌──────────────────────────────────────────────────────────────────┐
   │  Recover the form and details of a specific period             │
-  │  Remove features of other periods; reconstruct missing features │
+  │  Remove features of other periods; reconstruct missing features  │
   └──────────────────────────────────────────────────────────────────┘
 
   RECONSTRUCTION (most intrusive)
   ┌──────────────────────────────────────────────────────────────────┐
-  │  Rebuild non-surviving portions using physical and              │
-  │  documentary evidence                                           │
+  │  Rebuild non-surviving portions using physical and               │
+  │  documentary evidence                                            │
   └──────────────────────────────────────────────────────────────────┘
 ```
 

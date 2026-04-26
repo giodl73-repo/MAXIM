@@ -8,14 +8,14 @@ Ballet is a codified theatrical dance system developed over 500 years into one o
 +-------------------------------------------------------------------+
 |                    BALLET AS A SYSTEM                             |
 |                                                                   |
-|  HISTORICAL LAYER         TECHNICAL LAYER        TRAINING LAYER  |
+|  HISTORICAL LAYER         TECHNICAL LAYER        TRAINING LAYER   |
 |                                                                   |
 |  Renaissance courts  -->  5 Positions          --> Barre work     |
-|  Louis XIV           -->  Turnout as base       --> Center work    |
-|  Romantic era        -->  Port de bras          --> Allegro        |
-|  Russian Imperial    -->  Battements            --> Pointe work    |
-|  Diaghilev reform    -->  Adagio / allegro       --> Variations    |
-|  Neoclassical        -->  Jumps, turns           --> Pas de deux   |
+|  Louis XIV           -->  Turnout as base       --> Center work   |
+|  Romantic era        -->  Port de bras          --> Allegro       |
+|  Russian Imperial    -->  Battements            --> Pointe work   |
+|  Diaghilev reform    -->  Adagio / allegro       --> Variations   |
+|  Neoclassical        -->  Jumps, turns           --> Pas de deux  |
 +-------------------------------------------------------------------+
          |                         |                       |
          v                         v                       v
@@ -282,16 +282,16 @@ Different national traditions codified ballet training differently:
 |                  | Port de bras (arm carriage) paramount     |
 +------------------+------------------------------------------+
 | Russian/Vaganova | Full range of motion; dramatic expression |
-| (Mariinsky,      | Strong backs; deep pliés; musicality      |
-|  Bolshoi)        | Competitive technique; bravura jumps      |
+| (Mariinsky,      | Strong backs; deep pliés; musicality     |
+|  Bolshoi)        | Competitive technique; bravura jumps     |
 +------------------+------------------------------------------+
 | Royal Ballet     | English understatement; clean lines       |
 | (London)         | Mime tradition maintained                 |
 |                  | MacMillan psychological realism           |
 +------------------+------------------------------------------+
-| Balanchine/NYCB  | Speed, athleticism, contemporary music    |
+| Balanchine/NYCB  | Speed, athleticism, contemporary music   |
 | (American)       | "Ballet is woman" -- female lead emphasis |
-|                  | Long lines, high extensions, fast feet    |
+|                  | Long lines, high extensions, fast feet   |
 +------------------+------------------------------------------+
 | RAD              | Royal Academy of Dance; systematic graded|
 | (International)  | curriculum; widely used for teaching      |

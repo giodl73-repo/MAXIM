@@ -7,19 +7,19 @@ The key word is automatically — no human-written proofs, just state space expl
 
 ```
 +--------------------------------------------------------------------------+
-|                        MODEL CHECKING LANDSCAPE                           |
+|                        MODEL CHECKING LANDSCAPE                          |
 |                                                                            |
 |  INPUT          TECHNIQUE              TOOLS             USE CASE          |
 |  ─────          ─────────              ─────             ────────          |
 |                                                                            |
-|  System model + EXPLICIT-STATE        SPIN (PROMELA)    Concurrent        |
-|  LTL/CTL         BFS/DFS + Buchi      TLC (TLA+)        protocols         |
+|  System model + EXPLICIT-STATE        SPIN (PROMELA)    Concurrent       |
+|  LTL/CTL         BFS/DFS + Buchi      TLC (TLA+)        protocols        |
 |  property        on-the-fly                                                |
 |                                                                            |
-|  System model + SYMBOLIC (BDD)        NuSMV/SMV         Hardware,         |
+|  System model + SYMBOLIC (BDD)        NuSMV/SMV         Hardware,        |
 |  CTL property    image computation    Cadence JasperGold control systems   |
 |                                                                            |
-|  C/C++ code +   BOUNDED (SAT/SMT)     CBMC              Embedded C,       |
+|  C/C++ code +   BOUNDED (SAT/SMT)     CBMC              Embedded C,      |
 |  assertions      unroll k steps       AWS CBMC           memory safety     |
 |                  check as SAT         ESBMC                                |
 |                                                                            |
@@ -353,10 +353,10 @@ concrete program, verify an abstraction, then refine when the abstraction lies.
   CEGAR Loop:
   ┌──────────────────────────────────────────────────────┐
   │                                                        │
-  │   Concrete Program  --abstract-->  Abstract Model     │
-  │                                         |             │
-  │                                    model check        │
-  │                                         |             │
+  │   Concrete Program  --abstract-->  Abstract Model    │
+  │                                         |            │
+  │                                    model check       │
+  │                                         |            │
   │                               ┌────────┴──────────┐  │
   │                               |                   |  │
   │                          Property            Counterexample  │
@@ -367,7 +367,7 @@ concrete program, verify an abstraction, then refine when the abstraction lies.
   │                                       ┌───────────┴───────┐ │
   │                                       |                   | │
   │                                  Spurious CE         Real bug│
-  │                                  (abstraction        (DONE)  │
+  │                                  (abstraction        (DONE) │
   │                                   too coarse)               │
   │                                       |                     │
   │                                  Refine abstraction         │
@@ -516,7 +516,7 @@ THEOREM Spec => EventualAcquisition
 ```
   Why it's hard:
   +------------------+------------------+------------------------------+
-  | Concurrent comps | States each       | Total state space            |
+  | Concurrent comps | States each      | Total state space            |
   +------------------+------------------+------------------------------+
   | 10               | 10               | 10^10 = 10 billion           |
   | 20               | 10               | 10^20 (beyond any computer)  |

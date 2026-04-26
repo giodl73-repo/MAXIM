@@ -101,7 +101,7 @@ TERMINOLOGY:
 
   TANNIN SOURCES:
   ┌────────────────────────────────────────────────────────────┐
-  │  Source              │ Tannin type       │ Leather effect   │
+  │  Source              │ Tannin type       │ Leather effect  │
   ├────────────────────────────────────────────────────────────┤
   │  Oak bark            │ Condensed         │ Firm, strong     │
   │  Chestnut wood       │ Hydrolyzable      │ Supple, full     │
@@ -213,10 +213,10 @@ GRADE HIERARCHY (best to worst):
 ┌──────────────────────────────────────────────────────────────────┐
 │  FULL-GRAIN                                                      │
 │  The outermost surface of the hide; grain intact                 │
-│  Natural markings: growth lines, insect bites, brands, scars    │
+│  Natural markings: growth lines, insect bites, brands, scars     │
 │  Most durable (densest fiber orientation at top surface)         │
-│  Develops best patina with use (natural oils penetrate)         │
-│  What Hermès, LV, quality makers use                            │
+│  Develops best patina with use (natural oils penetrate)          │
+│  What Hermès, LV, quality makers use                             │
 │  PRICE: highest                                                  │
 ├──────────────────────────────────────────────────────────────────┤
 │  TOP-GRAIN                                                       │
@@ -229,10 +229,10 @@ GRADE HIERARCHY (best to worst):
 │  PRICE: mid-range                                                │
 ├──────────────────────────────────────────────────────────────────┤
 │  SPLIT LEATHER                                                   │
-│  The lower layers after the top-grain is separated              │
-│  Suede (flesh side, napped): soft, fuzzy, no natural grain      │
+│  The lower layers after the top-grain is separated               │
+│  Suede (flesh side, napped): soft, fuzzy, no natural grain       │
 │  Much weaker fiber structure                                     │
-│  Used for: suede shoes, jacket linings, cheaper goods           │
+│  Used for: suede shoes, jacket linings, cheaper goods            │
 │  PRICE: low                                                      │
 ├──────────────────────────────────────────────────────────────────┤
 │  BONDED LEATHER ("reconstituted", "bicast")                      │

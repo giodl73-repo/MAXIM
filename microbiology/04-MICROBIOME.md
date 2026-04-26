@@ -9,18 +9,18 @@ THE HUMAN MICROBIOME: SCALE AND COMPOSITION
   YOU ARE NOT ALONE IN YOUR OWN BODY
 
   ┌─────────────────────────────────────────────────────────────────┐
-  │  NUMBERS (2016 revision of "10:1 ratio" — now ~1:1)            │
+  │  NUMBERS (2016 revision of "10:1 ratio" — now ~1:1)             │
   │                                                                   │
-  │  Human cells:     ~37 trillion (Bianconi et al. 2013)          │
-  │  Bacterial cells: ~38 trillion (Sender et al. 2016)            │
-  │  Ratio: ~1:1  (old "10:1" was based on flawed estimates)       │
+  │  Human cells:     ~37 trillion (Bianconi et al. 2013)           │
+  │  Bacterial cells: ~38 trillion (Sender et al. 2016)             │
+  │  Ratio: ~1:1  (old "10:1" was based on flawed estimates)        │
   │                                                                   │
-  │  But by GENE COUNT:                                              │
-  │  Human genome:      ~20,000 protein-coding genes               │
-  │  Gut microbiome: ~3,000,000 unique microbial genes (150x more) │
-  │  → You are ~0.6% human by gene count                           │
+  │  But by GENE COUNT:                                             │
+  │  Human genome:      ~20,000 protein-coding genes                │
+  │  Gut microbiome: ~3,000,000 unique microbial genes (150x more)  │
+  │  → You are ~0.6% human by gene count                            │
   │                                                                   │
-  │  ANATOMICAL DISTRIBUTION:                                        │
+  │  ANATOMICAL DISTRIBUTION:                                       │
   │  ┌──────────────────────────────────────────────────────────┐   │
   │  │ Site         Dominant taxa          Density              │   │
   │  │ Stomach      Helicobacter pylori    ~10²–10³ cells/mL    │   │
@@ -58,22 +58,22 @@ THE HUMAN MICROBIOME: SCALE AND COMPOSITION
   │   → Anti-inflammatory; depleted in IBD                      │
   │                                                               │
   │ BACTEROIDETES (20–35%)                                        │
-  │   Bacteroides: B. thetaiotaomicron (polysaccharide degrader) │
-  │   Prevotella: Diet-associated; fiber diet → more Prevotella  │
-  │   Key function: Polysaccharide utilization loci (PULs)       │
-  │   → Can digest >100 types of dietary polysaccharide          │
+  │   Bacteroides: B. thetaiotaomicron (polysaccharide degrader)  │
+  │   Prevotella: Diet-associated; fiber diet → more Prevotella   │
+  │   Key function: Polysaccharide utilization loci (PULs)        │
+  │   → Can digest >100 types of dietary polysaccharide           │
   │                                                               │
   │ ACTINOBACTERIA (~5%)                                          │
-  │   Bifidobacterium: Major infant microbiome constituent       │
-  │   Collinsella: SCFA producer                                 │
+  │   Bifidobacterium: Major infant microbiome constituent        │
+  │   Collinsella: SCFA producer                                  │
   │                                                               │
   │ PROTEOBACTERIA (~5%)                                          │
-  │   E. coli, Klebsiella: Low-abundance commensals normally     │
-  │   Bloom in disease/dysbiosis → inflammophiles                │
+  │   E. coli, Klebsiella: Low-abundance commensals normally      │
+  │   Bloom in disease/dysbiosis → inflammophiles                 │
   │                                                               │
   │ VERRUCOMICROBIA (<1%)                                         │
-  │   Akkermansia muciniphila: Mucus layer inhabitant            │
-  │   → Correlates with metabolic health, diabetes protection    │
+  │   Akkermansia muciniphila: Mucus layer inhabitant             │
+  │   → Correlates with metabolic health, diabetes protection     │
   │   → Pasteurized (heat-killed) A. muciniphila: clinical trials│
   └───────────────────────────────────────────────────────────────┘
 
@@ -95,28 +95,28 @@ THE HUMAN MICROBIOME: SCALE AND COMPOSITION
 
   SHORT-CHAIN FATTY ACIDS (SCFAs): The key metabolic output
   ┌────────────────────────────────────────────────────────────────┐
-  │ SUBSTRATE: Dietary fiber → fermentation by anaerobes          │
-  │                                                                 │
+  │ SUBSTRATE: Dietary fiber → fermentation by anaerobes           │
+  │                                                                │
   │ PRODUCTS:                                                      │
-  │   Butyrate (butyric acid): C4:0                               │
-  │   → PRIMARY fuel for colonocytes (epithelial cells)           │
-  │   → Histone deacetylase inhibitor → epigenetic regulation     │
-  │   → Anti-inflammatory; stimulates mucus production            │
-  │   → Producers: Roseburia, Faecalibacterium, Clostridium IV    │
-  │                                                                 │
+  │   Butyrate (butyric acid): C4:0                                │
+  │   → PRIMARY fuel for colonocytes (epithelial cells)            │
+  │   → Histone deacetylase inhibitor → epigenetic regulation      │
+  │   → Anti-inflammatory; stimulates mucus production             │
+  │   → Producers: Roseburia, Faecalibacterium, Clostridium IV     │
+  │                                                                │
   │   Propionate: C3:0                                             │
-  │   → Liver metabolism; gluconeogenic substrate                 │
+  │   → Liver metabolism; gluconeogenic substrate                  │
   │   → Appetite regulation (GPR41/GPR43 on L-cells)             │
-  │   → Producers: Bacteroides, Ruminococcus                      │
-  │                                                                 │
-  │   Acetate: C2:0  (most abundant SCFA)                         │
-  │   → Peripheral tissue fuel; muscle, heart                     │
-  │   → Appetite signaling via vagal nerve                        │
-  │   → Producers: Bifidobacterium, Bacteroides                   │
-  │                                                                 │
+  │   → Producers: Bacteroides, Ruminococcus                       │
+  │                                                                │
+  │   Acetate: C2:0  (most abundant SCFA)                          │
+  │   → Peripheral tissue fuel; muscle, heart                      │
+  │   → Appetite signaling via vagal nerve                         │
+  │   → Producers: Bifidobacterium, Bacteroides                    │
+  │                                                                │
   │ TOTAL SCFA PRODUCTION:                                         │
-  │   ~50–100 mmol/day — meaningful energetic contribution        │
-  │   Provides ~10% of human daily caloric intake                 │
+  │   ~50–100 mmol/day — meaningful energetic contribution         │
+  │   Provides ~10% of human daily caloric intake                  │
   └────────────────────────────────────────────────────────────────┘
 
   OTHER METABOLIC FUNCTIONS:

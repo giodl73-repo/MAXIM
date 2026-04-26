@@ -11,14 +11,14 @@ INTERPRETATION MODES — OVERVIEW
   behind the speaker. The speaker never stops.
 
   ┌──────────────────────────────────────────────────────────┐
-  │  SPEAKER → [soundproof booth] INTERPRETER → HEADPHONES  │
+  │  SPEAKER → [soundproof booth] INTERPRETER → HEADPHONES   │
   │                                                          │
   │  Speaker speaks: "The delegation from France has..."     │
-  │  Interpreter: (2 seconds later) "La délégation de..."   │
+  │  Interpreter: (2 seconds later) "La délégation de..."    │
   │               (while speaker is still talking)           │
   │                                                          │
   │  Result: Audience hears continuous interpretation        │
-  │  with no break in the speaker's presentation            │
+  │  with no break in the speaker's presentation             │
   └──────────────────────────────────────────────────────────┘
 
   CONSECUTIVE INTERPRETATION (CI):
@@ -64,7 +64,7 @@ SELESKOVITCH'S INTERPRETIVE THEORY — THREE STAGES
   │ representation — it is a concept/meaning             │
   │ representation that has been "deverbalized."         │
   │                                                      │
-  │ The words drop away; the meaning remains.           │
+  │ The words drop away; the meaning remains.            │
   │                                                      │
   │ This is why you often cannot remember the exact      │
   │ words of something you understood — you retained     │
@@ -75,7 +75,7 @@ SELESKOVITCH'S INTERPRETIVE THEORY — THREE STAGES
   STAGE 2: DEVERBALIZATION
   ┌──────────────────────────────────────────────────────┐
   │ The meaning is held briefly as a non-linguistic      │
-  │ concept — the "sense" that Cicero and Nida          │
+  │ concept — the "sense" that Cicero and Nida           │
   │ were talking about.                                  │
   │                                                      │
   │ This is the interpretive moment — the cognitive      │
@@ -122,7 +122,7 @@ GILE'S EFFORT MODEL FOR SIMULTANEOUS INTERPRETATION
   │  L (Listening and Analysis Effort)                     │
   │  + M (Memory Effort — working memory management)       │
   │  + P (Production Effort)                               │
-  │  + C (Coordination Effort — coordinating the above)   │
+  │  + C (Coordination Effort — coordinating the above)    │
   │  ≤ Available Processing Capacity                       │
   └────────────────────────────────────────────────────────┘
 
@@ -132,12 +132,12 @@ GILE'S EFFORT MODEL FOR SIMULTANEOUS INTERPRETATION
 
   TRIGGERS FOR OVERLOAD:
   ┌─────────────────────────────────────────────────────┐
-  │ • Speaker talks too fast                             │
-  │ • Unfamiliar topic or terminology                    │
+  │ • Speaker talks too fast                            │
+  │ • Unfamiliar topic or terminology                   │
   │ • Dense information (lists of numbers, proper names) │
-  │ • Long sentences requiring held memory               │
-  │ • Accent or voice quality requiring extra L effort   │
-  │ • Background noise increasing L effort               │
+  │ • Long sentences requiring held memory              │
+  │ • Accent or voice quality requiring extra L effort  │
+  │ • Background noise increasing L effort              │
   └─────────────────────────────────────────────────────┘
 
   COPING STRATEGIES:

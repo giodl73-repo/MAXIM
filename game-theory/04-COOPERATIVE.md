@@ -9,29 +9,29 @@ can guarantee itself.
 
 ```
 +------------------------------------------------------------------+
-|                COOPERATIVE GAME THEORY STRUCTURE                  |
+|                COOPERATIVE GAME THEORY STRUCTURE                 |
 |                                                                  |
-|  PRIMITIVES                     SOLUTION CONCEPTS               |
-|  ----------                     ----------------                |
+|  PRIMITIVES                     SOLUTION CONCEPTS                |
+|  ----------                     ----------------                 |
 |                                                                  |
-|  (N, v) where:                  STABILITY:                      |
-|  N = {1,...,n} players          Core — no coalition wants to    |
-|  v: 2^N → ℝ                     defect from the grand coalition |
-|  v(S) = what coalition S                                        |
-|    can guarantee itself         FAIRNESS / UNIQUENESS:          |
-|  v(∅) = 0                       Shapley value — unique fair     |
+|  (N, v) where:                  STABILITY:                       |
+|  N = {1,...,n} players          Core — no coalition wants to     |
+|  v: 2^N → ℝ                     defect from the grand coalition  |
+|  v(S) = what coalition S                                         |
+|    can guarantee itself         FAIRNESS / UNIQUENESS:           |
+|  v(∅) = 0                       Shapley value — unique fair      |
 |                                  allocation (4 axioms)           |
 |  TU game: transferable utility  Nucleolus — minimizes worst-     |
-|  (money can flow freely)         case excess; unique; in core   |
+|  (money can flow freely)         case excess; unique; in core    |
 |                                                                  |
-|  BARGAINING (2-player):         NASH BARGAINING:                |
+|  BARGAINING (2-player):         NASH BARGAINING:                 |
 |  Disagreement point d           Maximizes (u₁-d₁)(u₂-d₂)       |
-|  Feasible set U ⊆ ℝ²           (4 axioms → unique)              |
+|  Feasible set U ⊆ ℝ²           (4 axioms → unique)               |
 |                                                                  |
-|  NON-COOPERATIVE FOUNDATION:    RUBINSTEIN ALTERNATING OFFERS:  |
+|  NON-COOPERATIVE FOUNDATION:    RUBINSTEIN ALTERNATING OFFERS:   |
 |  Rubinstein (1982) shows         Unique SPE; converges to Nash   |
-|  Nash bargaining solution        bargaining as δ → 1            |
-|  as limiting case of SPE                                        |
+|  Nash bargaining solution        bargaining as δ → 1             |
+|  as limiting case of SPE                                         |
 +------------------------------------------------------------------+
 ```
 

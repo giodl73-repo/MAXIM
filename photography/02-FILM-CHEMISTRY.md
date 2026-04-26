@@ -246,12 +246,12 @@ Color negative film has **three emulsion layers** sensitized to different colors
 ```
 LAYER STRUCTURE (cross-section):
   ┌─────────────────────────────────────────────────────┐
-  │  Protective overcoat                                 │
+  │  Protective overcoat                                │
   ├─────────────────────────────────────────────────────┤
   │  Blue-sensitive layer + yellow dye coupler           │
   │  (yellow filter dye layer prevents blue below)       │
   ├─────────────────────────────────────────────────────┤
-  │  Green-sensitive layer + magenta dye coupler         │
+  │  Green-sensitive layer + magenta dye coupler        │
   ├─────────────────────────────────────────────────────┤
   │  Red-sensitive layer + cyan dye coupler              │
   ├─────────────────────────────────────────────────────┤

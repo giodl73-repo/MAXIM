@@ -15,12 +15,12 @@
 ├───────────────────┼─────────────────────────────────────────────────────┤
 │  ANALYTIC         │  Study design: RCT > cohort > case-control >        │
 │  EPIDEMIOLOGY     │    cross-sectional > ecological                     │
-│                   │  Measures: RR, OR, NNT, attributable risk            │
+│                   │  Measures: RR, OR, NNT, attributable risk           │
 ├───────────────────┼─────────────────────────────────────────────────────┤
 │  INFECTIOUS DX    │  R₀, herd immunity, transmission dynamics,          │
 │  EPIDEMIOLOGY     │  epidemic curves, outbreak investigation             │
 ├───────────────────┼─────────────────────────────────────────────────────┤
-│  PUBLIC HEALTH    │  Screening (Wilson-Jungner), prevention levels,      │
+│  PUBLIC HEALTH    │  Screening (Wilson-Jungner), prevention levels,     │
 │                   │  vaccines, surveillance systems, IHR                │
 ├───────────────────┼─────────────────────────────────────────────────────┤
 │  GLOBAL BURDEN    │  GBD, DALY, NCD transition, demographic transition  │
@@ -127,7 +127,7 @@ YEARS OF POTENTIAL LIFE LOST (YPLL):
                          └───────────┬──────────────┘
                                      │
               ┌──────────────────────┼─────────────────────┐
-              │                      │                      │
+              │                      │                     │
    ┌──────────┴───────┐   ┌──────────┴───────┐   ┌─────────┴────────┐
    │   COHORT study   │   │  CASE-CONTROL    │   │  CROSS-SECTIONAL │
    │(prospective/retro│   │    study         │   │     study        │

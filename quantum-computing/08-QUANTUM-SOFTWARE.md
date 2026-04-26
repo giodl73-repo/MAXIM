@@ -6,7 +6,7 @@
 ┌─────────────────────────────────────────────────────────────────────┐
 │                    QUANTUM SOFTWARE STACK                           │
 │                                                                     │
-│  ┌──────────────────────────────────────────────────────────────┐  │
+│  ┌──────────────────────────────────────────────────────────────┐   │
 │  │ APPLICATION LAYER                                            │  │
 │  │  VQE / QAOA / QKD / Grover search                           │  │
 │  │  Domain libraries: Qiskit Nature, PennyLane QML, Q# Chemistry│  │
@@ -14,13 +14,13 @@
 │                          │                                          │
 │  ┌───────────────────────▼──────────────────────────────────────┐  │
 │  │ SDK / FRAMEWORK LAYER                                        │  │
-│  │  Qiskit (IBM) · Cirq (Google) · PennyLane (Xanadu) · Q#(MS) │  │
+│  │  Qiskit (IBM) · Cirq (Google) · PennyLane (Xanadu) · Q#(MS)  │  │
 │  │  High-level circuit construction, algorithm primitives       │  │
 │  └───────────────────────┬──────────────────────────────────────┘  │
 │                          │                                          │
 │  ┌───────────────────────▼──────────────────────────────────────┐  │
 │  │ INTERMEDIATE REPRESENTATION                                  │  │
-│  │  OpenQASM 3.0 (text IR) · QIR (LLVM-based binary IR)        │  │
+│  │  OpenQASM 3.0 (text IR) · QIR (LLVM-based binary IR)         │  │
 │  │  Interchange format between tools and hardware vendors       │  │
 │  └───────────────────────┬──────────────────────────────────────┘  │
 │                          │                                          │
@@ -38,7 +38,7 @@
 │  ┌───────────────────────▼──────────────────────────────────────┐  │
 │  │ PHYSICAL LAYER                                               │  │
 │  │  Superconducting (IBM, Google) · Ion trap (IonQ, Quantinuum) │  │
-│  │  Photonic (Xanadu, PsiQuantum) · Neutral atom (QuEra)       │  │
+│  │  Photonic (Xanadu, PsiQuantum) · Neutral atom (QuEra)        │  │
 │  └──────────────────────────────────────────────────────────────┘  │
 └─────────────────────────────────────────────────────────────────────┘
 
@@ -397,7 +397,7 @@ ADVANTAGE:
 │ Statevector      │ Store 2^n amplitudes│ 2^n       │ ≤ 30   │ No     │
 │ (Aer, Cirq)      │ Matrix-vector mult  │ complex   │ (32GB) │        │
 ├──────────────────┼─────────────────────┼───────────┼────────┼────────┤
-│ Density Matrix   │ Store 2^n × 2^n ρ  │ 4^n real  │ ≤ 20   │ Yes    │
+│ Density Matrix   │ Store 2^n × 2^n ρ   │ 4^n real  │ ≤ 20   │ Yes    │
 │                  │ Superoperator app   │           │        │ (mixed │
 │                  │                     │           │        │ states)│
 ├──────────────────┼─────────────────────┼───────────┼────────┼────────┤
@@ -425,7 +425,7 @@ STIM (Google, Gidney 2021):
 
 ```
 ┌──────────────────────────────────────────────────────────────────────┐
-│ USE CASE                      │ RECOMMENDED FRAMEWORK               │
+│ USE CASE                      │ RECOMMENDED FRAMEWORK                │
 ├───────────────────────────────┼─────────────────────────────────────┤
 │ IBM hardware access           │ Qiskit (native API, Runtime)        │
 │ VQE/QAOA on IBM backends      │ Qiskit + Qiskit Nature               │
@@ -443,7 +443,7 @@ STIM (Google, Gidney 2021):
 │ QEC circuit simulation        │ Stim (stabilizer circuits)          │
 │ Large stabilizer circuits     │ Stim                                │
 ├───────────────────────────────┼─────────────────────────────────────┤
-│ Multi-backend research        │ PennyLane or Qiskit (both support  │
+│ Multi-backend research        │ PennyLane or Qiskit (both support   │
 │                               │ multiple backends via providers)    │
 └──────────────────────────────┴──────────────────────────────────────┘
 ```

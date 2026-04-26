@@ -8,13 +8,13 @@ simultaneous round) to arbitrary sequential interaction.
 
 ```
 +------------------------------------------------------------------+
-|                 EXTENSIVE FORM GAME STRUCTURE                     |
+|                 EXTENSIVE FORM GAME STRUCTURE                    |
 |                                                                  |
 |  GAME TREE                    INFORMATION STRUCTURE              |
 |  ----------                   ---------------------              |
 |  Nodes (histories)            Perfect info: info sets = singletons|
-|  Actions (edges)              Imperfect info: non-singleton sets  |
-|  Information sets             Incomplete info: private types      |
+|  Actions (edges)              Imperfect info: non-singleton sets |
+|  Information sets             Incomplete info: private types     |
 |  (partition of nodes)         (Harsanyi: convert to imperfect)   |
 |  Terminal nodes + payoffs                                        |
 |  Player assignment per node                                      |
@@ -23,18 +23,18 @@ simultaneous round) to arbitrary sequential interaction.
 |  ----------------------------                                    |
 |                                                                  |
 |  Perfect info, finite     -->  Backward induction (Zermelo)      |
-|                           -->  Subgame perfect equilibrium (SPE)  |
+|                           -->  Subgame perfect equilibrium (SPE) |
 |                                                                  |
 |  Imperfect info (general) -->  Subgame perfect equilibrium       |
 |                           -->  Perfect Bayesian Equilibrium (PBE) |
-|                           -->  Sequential Equilibrium             |
+|                           -->  Sequential Equilibrium            |
 |                                                                  |
 |  Incomplete info          -->  Bayesian Nash Equilibrium (BNE)   |
-|  (private types)          -->  PBE (with beliefs over types)      |
+|  (private types)          -->  PBE (with beliefs over types)     |
 |                                                                  |
-|  Infinitely repeated      -->  Folk Theorem (SPE can sustain      |
-|                                any feasible individually          |
-|                                rational payoff)                   |
+|  Infinitely repeated      -->  Folk Theorem (SPE can sustain     |
+|                                any feasible individually         |
+|                                rational payoff)                  |
 +------------------------------------------------------------------+
 ```
 

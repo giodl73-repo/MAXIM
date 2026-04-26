@@ -42,9 +42,9 @@ TERRITORIAL CONTROL OVER TIME:
   │                │ River trade cities: Novgorod,      │
   │                │ Smolensk, Chernigov, Pereyaslavl  │
   ├────────────────┼──────────────────────────────────┤
-  │ 1054–1240      │ FRAGMENTATION                     │
+  │ 1054–1240      │ FRAGMENTATION                    │
   │                │ Rota succession → ~12 principalities│
-  │                │ Major centers: Kyiv, Novgorod,    │
+  │                │ Major centers: Kyiv, Novgorod,   │
   │                │ Vladimir-Suzdal, Galicia-Volhynia │
   ├────────────────┼──────────────────────────────────┤
   │ 1240–1480      │ GOLDEN HORDE OVERLAY              │
@@ -53,11 +53,11 @@ TERRITORIAL CONTROL OVER TIME:
   │                │ Sarai (Volga) = Horde capital     │
   │                │ Moscow: tribute collector for Horde│
   ├────────────────┼──────────────────────────────────┤
-  │ 1300–1547      │ MOSCOW EXPANSION                  │
-  │                │ Ivan I (Kalita) → Ivan III        │
-  │                │ Absorbs: Tver, Ryazan, Novgorod   │
+  │ 1300–1547      │ MOSCOW EXPANSION                 │
+  │                │ Ivan I (Kalita) → Ivan III       │
+  │                │ Absorbs: Tver, Ryazan, Novgorod  │
   │                │ Ivan III: repudiates Horde (1480) │
-  │                │ Claims Byzantine succession       │
+  │                │ Claims Byzantine succession      │
   └────────────────┴──────────────────────────────────┘
 ```
 

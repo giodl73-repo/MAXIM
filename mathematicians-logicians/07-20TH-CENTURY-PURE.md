@@ -204,8 +204,8 @@ VON NEUMANN ARCHITECTURE (1945 EDVAC Report)
 The architecture of essentially every computer built since 1945:
 
   ┌────────────────────────────────────────────────────┐
-  │                    BUS                              │
-  │  ┌──────────┐   ┌──────────┐   ┌──────────────┐   │
+  │                    BUS                             │
+  │  ┌──────────┐   ┌──────────┐   ┌──────────────┐    │
   │  │   CPU    │   │ Control  │   │    Memory    │   │
   │  │ (ALU +   │   │  Unit    │   │  (program +  │   │
   │  │ registers│   │          │   │   data       │   │

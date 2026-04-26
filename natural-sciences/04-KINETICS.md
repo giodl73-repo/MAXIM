@@ -10,19 +10,19 @@
 
 ```
 ┌───────────────────────────────────────────────────────────────────┐
-│                      CHEMICAL KINETICS                             │
-│                                                                    │
-│  EXPERIMENTAL OBSERVABLES                                          │
-│  ─────────────────────────                                         │
+│                      CHEMICAL KINETICS                            │
+│                                                                   │
+│  EXPERIMENTAL OBSERVABLES                                         │
+│  ─────────────────────────                                        │
 │  Concentration vs. time data → method of initial rates            │
-│          │                                                         │
-│          ▼                                                         │
+│          │                                                        │
+│          ▼                                                        │
 │  RATE LAWS  rate = k[A]^m [B]^n                                   │
-│  ─────────────────────────────                                     │
+│  ─────────────────────────────                                    │
 │  Integrated forms (0th, 1st, 2nd order)                           │
-│  Diagnostic plots ([A] vs t, ln[A] vs t, 1/[A] vs t)             │
-│          │                                                         │
-│     ┌────┴─────────────────┐                                       │
+│  Diagnostic plots ([A] vs t, ln[A] vs t, 1/[A] vs t)              │
+│          │                                                        │
+│     ┌────┴─────────────────┐                                      │
 │     ▼                      ▼                                       │
 │  MECHANISM              TEMPERATURE DEPENDENCE                    │
 │  ──────────             ─────────────────────                      │

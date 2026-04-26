@@ -40,7 +40,7 @@ GARMENT DESIGN → WEARABLE OBJECT: The Transformation Chain
   ├──────────────────────────────────────────────────────────────┤
   │  COMMERCIAL PATTERN ADJUSTMENT                               │
   │  Start from existing commercial pattern                      │
-  │  Baste toile → fit → adjust → re-cut                        │
+  │  Baste toile → fit → adjust → re-cut                         │
   │  Common for home sewers                                      │
   └──────────────────────────────────────────────────────────────┘
 ```
@@ -175,7 +175,7 @@ EASE = garment measurement MINUS body measurement
   ┌────────────────────────────────────────────────────────┐
   │  DART ROTATION PRINCIPLE                               │
   │                                                        │
-  │  Original:  shoulder dart ──→ apex ←── side dart      │
+  │  Original:  shoulder dart ──→ apex ←── side dart       │
   │                                                        │
   │  Can become:                                           │
   │    Waist dart (at waistline)                           │
@@ -324,8 +324,8 @@ EASE = garment measurement MINUS body measurement
   Fabric is expensive → marker efficiency directly = profit/loss
 
   ┌──────────────────────────────────────────────────────────┐
-  │  FABRIC WIDTH (typically 44-45" or 58-60")              │
-  │  ┌──────────────────────────────────────────────────┐   │
+  │  FABRIC WIDTH (typically 44-45" or 58-60")               │
+  │  ┌──────────────────────────────────────────────────┐    │
   │  │  [bodice front] [bodice back]  [sleeve] [collar]│   │
   │  │  [skirt F] [skirt B]   [pkt] [pocket] [band]  │   │
   │  └──────────────────────────────────────────────────┘   │

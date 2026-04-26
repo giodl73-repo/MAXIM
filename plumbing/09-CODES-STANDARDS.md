@@ -12,17 +12,17 @@ THE MODEL CODE SYSTEM:
   → Enforced by local Authority Having Jurisdiction (AHJ)
 
   ┌─────────────────────────────────────────────────────────────┐
-  │  MODEL CODE ORGANIZATION → MODEL CODE                      │
+  │  MODEL CODE ORGANIZATION → MODEL CODE                       │
   │                                                             │
-  │  ICC (International Code Council) →                        │
-  │    IBC (International Building Code): commercial           │
-  │    IRC (International Residential Code): 1-2 family        │
-  │    IPC (International Plumbing Code): plumbing supplement  │
-  │    IMC (International Mechanical Code): mechanical         │
+  │  ICC (International Code Council) →                         │
+  │    IBC (International Building Code): commercial            │
+  │    IRC (International Residential Code): 1-2 family         │
+  │    IPC (International Plumbing Code): plumbing supplement   │
+  │    IMC (International Mechanical Code): mechanical          │
   │                                                             │
-  │  IAPMO (Int'l Assoc. Plumbing/Mechanical Officials) →      │
-  │    UPC (Uniform Plumbing Code): Western US states          │
-  │    UMC (Uniform Mechanical Code)                           │
+  │  IAPMO (Int'l Assoc. Plumbing/Mechanical Officials) →       │
+  │    UPC (Uniform Plumbing Code): Western US states           │
+  │    UMC (Uniform Mechanical Code)                            │
   └─────────────────────────────────────────────────────────────┘
 
   CRITICAL RULE: The model code book is not "the code"
@@ -99,29 +99,29 @@ THE MODEL CODE SYSTEM:
 
   THE PERMIT WORKFLOW:
   ┌──────────────────────────────────────────────────────────────┐
-  │  APPLICATION: submit forms, describe scope, pay fee         │
-  │  Fee: typically $50-200 residential; based on project value │
+  │  APPLICATION: submit forms, describe scope, pay fee          │
+  │  Fee: typically $50-200 residential; based on project value  │
   │          ↓                                                   │
-  │  PLAN REVIEW (if required):                                 │
-  │  Complex systems: plumber submits drawings                  │
-  │  Simple residential: over-counter permit (same day)         │
+  │  PLAN REVIEW (if required):                                  │
+  │  Complex systems: plumber submits drawings                   │
+  │  Simple residential: over-counter permit (same day)          │
   │          ↓                                                   │
-  │  ROUGH-IN INSPECTION:                                       │
+  │  ROUGH-IN INSPECTION:                                        │
   │  Pipes installed but walls NOT covered                       │
-  │  Inspector checks: materials, supports, joints, traps,      │
-  │  vent arrangement, drain slope                              │
+  │  Inspector checks: materials, supports, joints, traps,       │
+  │  vent arrangement, drain slope                               │
   │          ↓                                                   │
-  │  PRESSURE TEST (supply):                                    │
-  │  Supply pipes capped and pressurized (water or air)         │
-  │  Hold at test pressure (typically 100 PSI × 15 minutes)     │
-  │  Inspector or plumber witnesses; no pressure drop = pass    │
+  │  PRESSURE TEST (supply):                                     │
+  │  Supply pipes capped and pressurized (water or air)          │
+  │  Hold at test pressure (typically 100 PSI × 15 minutes)      │
+  │  Inspector or plumber witnesses; no pressure drop = pass     │
   │          ↓                                                   │
-  │  FINAL INSPECTION:                                          │
-  │  Fixtures installed; trim complete; all covers on           │
-  │  Functional test: flush toilet, run water, check hot/cold   │
-  │  correct, no leaks                                          │
+  │  FINAL INSPECTION:                                           │
+  │  Fixtures installed; trim complete; all covers on            │
+  │  Functional test: flush toilet, run water, check hot/cold    │
+  │  correct, no leaks                                           │
   │          ↓                                                   │
-  │  APPROVED: work accepted; permit closed                     │
+  │  APPROVED: work accepted; permit closed                      │
   └──────────────────────────────────────────────────────────────┘
 ```
 
@@ -138,7 +138,7 @@ The sizing methodology is a probabilistic layer (Hunter's fixture-unit method) o
 
   SUPPLY FIXTURE UNITS (SFU):
   ┌─────────────────────────────────────────────────────────────────┐
-  │  Fixture              │ SFU (private) │ SFU (public)           │
+  │  Fixture              │ SFU (private) │ SFU (public)            │
   ├─────────────────────────────────────────────────────────────────┤
   │  Lavatory (sink)      │ 1.0           │ 2.0                    │
   │  Toilet (flush tank)  │ 2.5           │ 5.0                    │
@@ -180,7 +180,7 @@ The sizing methodology is a probabilistic layer (Hunter's fixture-unit method) o
     (Different from supply fixture units — separate calculation)
 
   ┌─────────────────────────────────────────────────────────────────┐
-  │  Fixture           │ DFU (residential)                         │
+  │  Fixture           │ DFU (residential)                          │
   ├─────────────────────────────────────────────────────────────────┤
   │  Toilet (tank)     │ 3 (IRC) / 4 (IPC on horizontal branches) │
   │  Lavatory          │ 1                                         │
@@ -289,27 +289,27 @@ The sizing methodology is a probabilistic layer (Hunter's fixture-unit method) o
 
   BACKFLOW PREVENTER TYPES:
   ┌──────────────────────────────────────────────────────────────┐
-  │  DEVICE             │ HAZARD LEVEL │ USE                    │
+  │  DEVICE             │ HAZARD LEVEL │ USE                     │
   ├──────────────────────────────────────────────────────────────┤
   │  Air Gap: physical  │ High-hazard  │ Most reliable; limited │
   │  break in flow      │              │ where feasible         │
   │  (no physical       │              │                        │
   │  connection at all) │              │                        │
   ├──────────────────────────────────────────────────────────────┤
-  │  RPZ (Reduced       │ High-hazard  │ Irrigation with chem.  │
-  │  Pressure Zone)     │              │ Commercial kitchen     │
-  │                     │              │ Solar thermal          │
-  │  Redundant checks   │              │ Annual test required   │
-  │  + intermediate     │              │                        │
-  │  pressure relief    │              │                        │
+  │  RPZ (Reduced       │ High-hazard  │ Irrigation with chem.   │
+  │  Pressure Zone)     │              │ Commercial kitchen      │
+  │                     │              │ Solar thermal           │
+  │  Redundant checks   │              │ Annual test required    │
+  │  + intermediate     │              │                         │
+  │  pressure relief    │              │                         │
   ├──────────────────────────────────────────────────────────────┤
   │  PVB (Pressure      │ Low-to-medium│ Irrigation (no chem.  │
   │  Vacuum Breaker)    │              │ injection)             │
   │  One-way + air      │              │ Hose bibs              │
   │  intake chamber     │              │                        │
   ├──────────────────────────────────────────────────────────────┤
-  │  DCVA (Double       │ Low-hazard   │ Supplemental (not      │
-  │  Check Valve)       │              │ for high-hazard)       │
+  │  DCVA (Double       │ Low-hazard   │ Supplemental (not       │
+  │  Check Valve)       │              │ for high-hazard)        │
   └──────────────────────────────────────────────────────────────┘
 
   TESTABLE DEVICES:

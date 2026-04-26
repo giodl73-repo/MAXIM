@@ -6,28 +6,28 @@ Category theory is the mathematics of mathematical structure — it studies obje
 
 ```
 ┌─────────────────────────────────────────────────────────────────────────────┐
-│  CATEGORY THEORY LANDSCAPE                                                   │
-│                                                                              │
-│  Foundations                          Universal Constructions                │
+│  CATEGORY THEORY LANDSCAPE                                                  │
+│                                                                             │
+│  Foundations                          Universal Constructions               │
 │  ──────────────────────────────        ──────────────────────────────────     │
 │  Category: objects + morphisms        Products, coproducts                  │
-│  Functor: structure-preserving map    Limits, colimits                       │
+│  Functor: structure-preserving map    Limits, colimits                      │
 │  Natural transformation: functor map  Equalizers, pullbacks, pushouts       │
-│  Isomorphism, equivalence             Initial/terminal objects               │
-│                                                                              │
-│  Adjunctions                          Monads                                 │
+│  Isomorphism, equivalence             Initial/terminal objects              │
+│                                                                             │
+│  Adjunctions                          Monads                                │
 │  ──────────────────────────────        ──────────────────────────────────     │
 │  F ⊣ G: universal property           T = GF, unit/counit, monad laws        │
-│  Unit and counit                      Kleisli category                       │
-│  Triangle identities                  Eilenberg-Moore algebras               │
+│  Unit and counit                      Kleisli category                      │
+│  Triangle identities                  Eilenberg-Moore algebras              │
 │  Freeness and forgetfulness           Every adjunction gives a monad        │
-│                                                                              │
+│                                                                             │
 │  PL Theory Connections                Higher Categories                     │
 │  ──────────────────────────────        ──────────────────────────────────     │
-│  Curry-Howard: proofs = programs      2-categories (morphisms of morphisms)  │
+│  Curry-Howard: proofs = programs      2-categories (morphisms of morphisms) │
 │  Types = objects, terms = morphisms   ∞-categories (homotopy theory)        │
 │  Products = pair types                Topos theory (generalized sets)       │
-│  Coproducts = sum types               Homotopy type theory (HoTT)          │
+│  Coproducts = sum types               Homotopy type theory (HoTT)           │
 └─────────────────────────────────────────────────────────────────────────────┘
 ```
 

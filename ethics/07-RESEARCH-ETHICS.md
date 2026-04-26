@@ -4,7 +4,7 @@
 
 ```
 +-----------------------------------------------------------------------+
-|                    RESEARCH ETHICS FRAMEWORK                           |
+|                    RESEARCH ETHICS FRAMEWORK                          |
 +-----------------------------------------------------------------------+
 |                                                                       |
 |  RESEARCH ETHICS: Constraints on the use of human subjects in        |
@@ -64,8 +64,8 @@ TYPES OF EXPERIMENTS:
   | Sterilization               | Irradiation, castration, chemical.  |
   | (multiple camps)            | Scale up for mass sterilization.    |
   +-----------------------------+--------------------------------------+
-  | Mengele's twin studies      | Experiments on twins; often killed  |
-  | (Auschwitz)                 | to enable comparative autopsy.      |
+  | Mengele's twin studies      | Experiments on twins; often killed   |
+  | (Auschwitz)                 | to enable comparative autopsy.       |
   +-----------------------------+--------------------------------------+
 
   Estimated 15,000-20,000+ subjects. Most died or were left permanently injured.
@@ -368,7 +368,7 @@ REVIEW LEVELS:
   | FULL BOARD       | Greater than minimal risk.                     |
   |                  | Vulnerable populations.                        |
   |                  | Clinical trials.                               |
-  |                  | Full committee review at convened meeting.    |
+  |                  | Full committee review at convened meeting.     |
   +------------------+------------------------------------------------+
 
 WHAT IRBs EVALUATE:

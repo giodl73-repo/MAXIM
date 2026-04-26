@@ -8,18 +8,18 @@ building envelope and what drives that movement.
 
 ```
 +----------------------------------------------------------------------+
-|               HEAT TRANSFER IN THE BUILDING ENVELOPE                  |
+|               HEAT TRANSFER IN THE BUILDING ENVELOPE                 |
 |                                                                      |
-|  CONDUCTION             CONVECTION              RADIATION             |
-|  (through solids)       (via fluid movement)    (EM transmission)     |
+|  CONDUCTION             CONVECTION              RADIATION            |
+|  (through solids)       (via fluid movement)    (EM transmission)    |
 |                                                                      |
-|  Wall, roof, floor      Air leakage (infil.)    Sun through glass     |
-|  Window frame           Forced air at surface   Night sky radiation   |
-|  Thermal bridging       Natural convection      Radiant floor         |
+|  Wall, roof, floor      Air leakage (infil.)    Sun through glass    |
+|  Window frame           Forced air at surface   Night sky radiation  |
+|  Thermal bridging       Natural convection      Radiant floor        |
 |                                                                      |
 |  Q = kA∆T/L            Q = h·A·∆T              Q = ε·σ·A·T⁴        |
-|  Fourier's law          Newton's law of          Stefan-Boltzmann     |
-|                         cooling                                       |
+|  Fourier's law          Newton's law of          Stefan-Boltzmann    |
+|                         cooling                                      |
 +----------------------------------------------------------------------+
          |                    |                    |
          v                    v                    v
@@ -250,11 +250,11 @@ substitutes — they routinely produce 30-50% oversized equipment.
   ┌─────────────────────────────────────────────────────────┐
   │ Building geometry: floor plan, orientation, ceiling heights
   │ Insulation: R-values per assembly (wall, ceiling, floor)  │
-  │ Windows: U-factor, SHGC, area by orientation             │
-  │ Infiltration: ACH50 from blower door (or assumed)        │
-  │ Outdoor design conditions: ASHRAE 99%/1% by city         │
-  │ Indoor setpoints: 70°F heating, 75°F cooling             │
-  │ Internal gains: occupants, lighting, equipment           │
+  │ Windows: U-factor, SHGC, area by orientation            │
+  │ Infiltration: ACH50 from blower door (or assumed)       │
+  │ Outdoor design conditions: ASHRAE 99%/1% by city        │
+  │ Indoor setpoints: 70°F heating, 75°F cooling            │
+  │ Internal gains: occupants, lighting, equipment          │
   └─────────────────────────────────────────────────────────┘
                            |
                            v
@@ -266,8 +266,8 @@ substitutes — they routinely produce 30-50% oversized equipment.
   │ Room-by-room sensible heating load (BTU/hr)             │
   │ Room-by-room sensible cooling load (BTU/hr)             │
   │ Room-by-room latent cooling load (BTU/hr)               │
-  │ Total building peak loads → equipment sizing target      │
-  │ Airflow per room (CFM) → input to Manual D duct sizing   │
+  │ Total building peak loads → equipment sizing target     │
+  │ Airflow per room (CFM) → input to Manual D duct sizing  │
   └─────────────────────────────────────────────────────────┘
 ```
 

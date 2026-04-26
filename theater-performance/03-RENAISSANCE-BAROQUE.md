@@ -6,7 +6,7 @@ The Renaissance (roughly 1450–1600) and Baroque (1600–1750) periods produced
 
 ```
 +------------------------------------------------------------------+
-|        RENAISSANCE AND BAROQUE THEATER — LANDSCAPE              |
+|        RENAISSANCE AND BAROQUE THEATER — LANDSCAPE               |
 +------------------------------------------------------------------+
 |                                                                  |
 |  ENGLAND 1576–1642        SPAIN 1580–1680       ITALY 1545+     |
@@ -78,8 +78,8 @@ THE THRUST STAGE GEOMETRY
                      [TIRING HOUSE]
                       (backstage)
            +----------+-----+----------+
-           |     backstage rooms        |
-           | (costume, props, exits)    |
+           |     backstage rooms       |
+           | (costume, props, exits)   |
            +----------+-----+----------+
            |      STAGE DOORS          |
            |   Left         Right      |

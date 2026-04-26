@@ -4,7 +4,7 @@
 
 ```
 +------------------------------------------------------------------+
-|                 DIGITAL FASHION LANDSCAPE                         |
+|                 DIGITAL FASHION LANDSCAPE                        |
 |                                                                  |
 |  CATEGORIES                                                      |
 |  1. Virtual-only fashion: exists only as digital file/image      |

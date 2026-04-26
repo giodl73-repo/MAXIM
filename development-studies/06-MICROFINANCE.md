@@ -6,7 +6,7 @@ Microfinance promised to solve poverty through credit market access. The evidenc
 
 ```
 +--------------------------------------------------------------------------+
-|                    MICROFINANCE LANDSCAPE                                 |
+|                    MICROFINANCE LANDSCAPE                                |
 +--------------------------------------------------------------------------+
 |                                                                          |
 |  THEORY:                                                                 |
@@ -82,8 +82,8 @@ GRAMEEN GROUP LENDING STRUCTURE:
 
   5 borrowers form a group (self-selected → information screening)
   ┌──────────────────────────────────────────┐
-  │  Borrower 1  │  Borrower 2  │  Borrower 3 │
-  │  Borrower 4  │  Borrower 5              │
+  │  Borrower 1  │  Borrower 2  │  Borrower 3│
+  │  Borrower 4  │  Borrower 5               │
   └──────────────────────────────────────────┘
                     │
               JOINT LIABILITY:

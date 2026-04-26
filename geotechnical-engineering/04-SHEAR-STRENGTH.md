@@ -6,7 +6,7 @@ Soil fails in shear — not compression or tension. When you push soil to its li
 
 ```
 +------------------------------------------------------------------+
-|               SHEAR STRENGTH — CONCEPTUAL MAP                   |
+|               SHEAR STRENGTH — CONCEPTUAL MAP                    |
 +------------------------------------------------------------------+
 |                                                                  |
 |  MOHR-COULOMB FAILURE CRITERION                                  |

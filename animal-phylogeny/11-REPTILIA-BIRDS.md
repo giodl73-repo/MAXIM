@@ -11,7 +11,7 @@ Defined by: AMNIOTIC EGG (or equivalent live birth)
     +----------+----------+
     |                     |
  AMPHIBIA              AMNIOTA
- (water-dependent)         |
+ (water-dependent)        |
                    +-------+-------+
                    |               |
                REPTILIA         MAMMALIA
@@ -87,14 +87,14 @@ TURTLE BODY PLAN
 |    dorsal vertebrae + dermal bone          |
 |    covered by scutes (keratinized scales)  |
 |  Plastron (ventral) = modified clavicles + |
-|    interclavicle + dermal bone            |
+|    interclavicle + dermal bone             |
 |  The shell IS the ribcage — fused.         |
 |                                            |
 |  RESULT:                                   |
 |  Shoulder blades (scapulae) inside ribcage!|
 |  Unique in all vertebrates                 |
-|  Evolved Triassic (~230 Ma)               |
-|  Pappochelys + Odontochelys (230–220 Ma): |
+|  Evolved Triassic (~230 Ma)                |
+|  Pappochelys + Odontochelys (230–220 Ma):  |
 |  partial shell showing the transition      |
 +--------------------------------------------+
 
@@ -382,15 +382,15 @@ The bird lung is a streaming pipeline; the mammal lung is a batch processor. Mam
 ONE-WAY AIRFLOW LUNG:
 +---------------------------------------------+
 | MAMMAL LUNG (tidal):                        |
-|   Air in → fills alveoli → O₂/CO₂ exchange |
+|   Air in → fills alveoli → O₂/CO₂ exchange  |
 |   Same air OUT (stale air mixes with fresh) |
 |                                             |
-| BIRD LUNG + AIR SAC SYSTEM (flow-through): |
-|   9 air sacs + rigid lungs                 |
+| BIRD LUNG + AIR SAC SYSTEM (flow-through):  |
+|   9 air sacs + rigid lungs                  |
 |   Air flows CONTINUOUSLY through parabronchi|
 |   Same direction during both inhale + exhale|
 |   Counter-current O₂ exchange (95%+ extract)|
-|   (vs mammal: ~25% O₂ extracted)           |
+|   (vs mammal: ~25% O₂ extracted)            |
 +---------------------------------------------+
 
 CONSEQUENCE: Birds can fly at 8,000+ m altitude

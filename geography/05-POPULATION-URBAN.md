@@ -12,21 +12,21 @@ to economic and political geography.
 
 ```
 +----------------------------------------------------------------------+
-|                    POPULATION & URBAN LANDSCAPE                       |
+|                    POPULATION & URBAN LANDSCAPE                      |
 |                                                                      |
 |  DEMOGRAPHIC DYNAMICS        URBAN STRUCTURE                         |
 |  ─────────────────────       ─────────────────                       |
-|  Demographic Transition      Burgess concentric zones               |
-|  Model (DTM) — 5 stages      Hoyt sector model                      |
-|  Demographic dividend        Harris-Ullman nuclei                   |
-|  Aging + dependency ratio    Edge cities + polycentrism             |
+|  Demographic Transition      Burgess concentric zones                |
+|  Model (DTM) — 5 stages      Hoyt sector model                       |
+|  Demographic dividend        Harris-Ullman nuclei                    |
+|  Aging + dependency ratio    Edge cities + polycentrism              |
 |                                                                      |
 |  POPULATION DISTRIBUTION     MIGRATION                               |
 |  ────────────────────────    ─────────                               |
-|  Ecumene vs anecumene        Push-pull factors                      |
+|  Ecumene vs anecumene        Push-pull factors                       |
 |  Megacity formation          Rural-urban (dominant global flow)      |
-|  Zipf's Law + primacy        International: refugees + economic     |
-|  Urban heat islands          Remittances ($800B+ globally)          |
+|  Zipf's Law + primacy        International: refugees + economic      |
+|  Urban heat islands          Remittances ($800B+ globally)           |
 +----------------------------------------------------------------------+
 ```
 
@@ -40,31 +40,31 @@ to economic and political geography.
 
   ┌────────────────────────────────────────────────────────────────┐
   │ STAGE 1: Pre-industrial                                        │
-  │ High birth rate + High death rate → stable, low population    │
-  │ High infant mortality; disease/famine/war → high CDR          │
+  │ High birth rate + High death rate → stable, low population     │
+  │ High infant mortality; disease/famine/war → high CDR           │
   │ Examples: no contemporary examples; historical hunter-gatherers│
   │                                                                │
   │ STAGE 2: Early industrial / sanitary revolution                │
   │ Death rate drops (sanitation, medicine, food security)         │
-  │ Birth rate remains high → POPULATION EXPLOSION                │
-  │ Examples: early 20th C Europe; most of sub-Saharan Africa now │
+  │ Birth rate remains high → POPULATION EXPLOSION                 │
+  │ Examples: early 20th C Europe; most of sub-Saharan Africa now  │
   │ Sub-Saharan Africa: CDR fallen sharply; CBR still high         │
   │                                                                │
   │ STAGE 3: Late industrial                                       │
-  │ Birth rate begins to fall (education, urbanization,           │
-  │ women's rights, child labor laws, social security)            │
-  │ Still population growth but slowing                           │
-  │ Examples: India, Mexico, much of Latin America, SE Asia       │
+  │ Birth rate begins to fall (education, urbanization,            │
+  │ women's rights, child labor laws, social security)             │
+  │ Still population growth but slowing                            │
+  │ Examples: India, Mexico, much of Latin America, SE Asia        │
   │                                                                │
   │ STAGE 4: Post-industrial / developed                           │
   │ Low birth rate + Low death rate → stable/slow growth           │
-  │ TFR near replacement (2.1 in developed world)                 │
-  │ Examples: USA, Australia, W Europe, China (now)               │
+  │ TFR near replacement (2.1 in developed world)                  │
+  │ Examples: USA, Australia, W Europe, China (now)                │
   │                                                                │
   │ STAGE 5: Post-transition decline                               │
-  │ TFR below replacement (<2.1) → population decline without     │
+  │ TFR below replacement (<2.1) → population decline without      │
   │ immigration                                                    │
-  │ Examples: Japan (TFR 1.2), Germany, South Korea (TFR 0.72!),  │
+  │ Examples: Japan (TFR 1.2), Germany, South Korea (TFR 0.72!),   │
   │ Italy, Russia                                                  │
   └────────────────────────────────────────────────────────────────┘
 
@@ -101,11 +101,11 @@ to economic and political geography.
   REGIONAL DIVERGENCE:
   ┌────────────────────────────────────────────────────────────────┐
   │ Sub-Saharan Africa: 1.2B → ~3.9B by 2100 (medium)            │
-  │ South Asia: peaked; India already = China ~1.4B               │
-  │ E Asia: China declining; Japan already shrinking              │
-  │ Europe: stable/declining without immigration                  │
-  │ N America: stable (immigration-driven)                        │
-  │ Latin America: slowing; several countries near Stage 4        │
+  │ South Asia: peaked; India already = China ~1.4B                │
+  │ E Asia: China declining; Japan already shrinking               │
+  │ Europe: stable/declining without immigration                   │
+  │ N America: stable (immigration-driven)                         │
+  │ Latin America: slowing; several countries near Stage 4         │
   └────────────────────────────────────────────────────────────────┘
 
   AGING SOCIETIES:
@@ -193,7 +193,7 @@ to economic and political geography.
   URBAN INTERNAL STRUCTURE MODELS:
   ┌────────────────────────────────────────────────────────────────┐
   │ BURGESS CONCENTRIC ZONE (1925):                                │
-  │ CBD → transition zone (factory/blight) → working class →      │
+  │ CBD → transition zone (factory/blight) → working class →       │
   │   middle class → commuter zone                                 │
   │ Based on Chicago 1920s; invasion-succession dynamics           │
   │ Limitation: oversimplified; city grows in all directions       │
@@ -201,16 +201,16 @@ to economic and political geography.
   │ HOYT SECTOR MODEL (1939):                                      │
   │ Cities grow in sectors along transportation axes               │
   │ High-income sector extends from CBD along best route           │
-  │ Better fits pre-freeway cities with radial rail               │
+  │ Better fits pre-freeway cities with radial rail                │
   │                                                                │
-  │ HARRIS-ULLMAN MULTIPLE NUCLEI (1945):                         │
+  │ HARRIS-ULLMAN MULTIPLE NUCLEI (1945):                          │
   │ Multiple centers of activity (CBD + industrial district +      │
-  │   suburb + airport) → decentralized structure                 │
-  │ Better fits post-WWII auto-oriented US cities                 │
+  │   suburb + airport) → decentralized structure                  │
+  │ Better fits post-WWII auto-oriented US cities                  │
   │                                                                │
   │ CONTEMPORARY: POLYCENTRIC SPRAWL                               │
   │ Edge cities (Garreau 1991): suburban nodes with office/retail  │
-  │ Tyson's Corner VA, Schaumburg IL, Plano TX                    │
+  │ Tyson's Corner VA, Schaumburg IL, Plano TX                     │
   │ Tech corridors: Route 128 MA, Silicon Valley (polycentric)     │
   └────────────────────────────────────────────────────────────────┘
 
@@ -242,7 +242,7 @@ to economic and political geography.
   │ Tokyo-Yokohama: ~37M (world's largest metro area)            │
   │ Delhi: ~33M (growing fastest; will exceed Tokyo)             │
   │ Shanghai: ~29M                                               │
-  │ Dhaka: ~23M (density: 44,000 people/km² in core)            │
+  │ Dhaka: ~23M (density: 44,000 people/km² in core)             │
   │ São Paulo, Mexico City, Cairo, Mumbai, Beijing, Osaka: 20M+  │
   │ Lagos, Kinshasa: rapidly approaching 20M+                    │
   │ Notable: only 6 megacities in 1975; rapid 20th C expansion   │
@@ -283,12 +283,12 @@ to economic and political geography.
   │ Seasonal/circular migration                                    │
   │                                                                │
   │ INTERNATIONAL: between countries                               │
-  │ Economic migrants: ~260M total international migrants (2020)  │
-  │ Refugees + asylum seekers: ~100M+ displaced (2022 record)     │
+  │ Economic migrants: ~260M total international migrants (2020)   │
+  │ Refugees + asylum seekers: ~100M+ displaced (2022 record)      │
   │ Climate migration: growing, often overlaps with poverty        │
   │                                                                │
-  │ FORCED vs VOLUNTARY: blurry in practice                       │
-  │ Conflict + poverty + climate → compound drivers               │
+  │ FORCED vs VOLUNTARY: blurry in practice                        │
+  │ Conflict + poverty + climate → compound drivers                │
   └────────────────────────────────────────────────────────────────┘
 
   REMITTANCES:

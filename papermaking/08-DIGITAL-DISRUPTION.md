@@ -6,9 +6,9 @@
 +------------------------------------------------------------------+
 |              THE PAPER MARKET STRUCTURAL SHIFT                   |
 |                                                                  |
-|   PRINTING & WRITING PAPER (P&W)      PACKAGING PAPER/BOARD     |
+|   PRINTING & WRITING PAPER (P&W)      PACKAGING PAPER/BOARD      |
 |   ─────────────────────────────       ──────────────────────     |
-|   Peak ~2007–2013 (varies by region)  Rising, +2–4% yr/yr       |
+|   Peak ~2007–2013 (varies by region)  Rising, +2–4% yr/yr        |
 |   Now declining -2 to -8%/yr         E-commerce structural drive |
 |   Office paper: -6%/yr (EU 2019–)    Corrugated board: growing   |
 |   Newsprint: -8%/yr                  Packaging board: growing    |
@@ -16,7 +16,7 @@
 |                                                                  |
 |   TISSUE                              SPECIALTY                  |
 |   ──────                              ─────────                  |
-|   +2–3%/yr (emerging markets)        Stable / growing           |
+|   +2–3%/yr (emerging markets)        Stable / growing            |
 |   Developing world urbanization       Security, medical, filter  |
 +------------------------------------------------------------------+
 ```

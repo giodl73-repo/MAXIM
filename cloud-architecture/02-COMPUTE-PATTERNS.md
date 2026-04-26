@@ -42,7 +42,7 @@ Azure VM SKUs are organized into series with specific optimization targets.
 ```
 GENERAL PURPOSE
 +----------------------------------------------------------+
-| D-series (Dv5, Dav5, Dlsv5)                             |
+| D-series (Dv5, Dav5, Dlsv5)                              |
 |   Balanced CPU:memory (1:4 ratio)                        |
 |   Most common: web servers, dev/test, databases          |
 |   Standard_D4s_v5: 4 vCPU, 16 GB RAM                   |
@@ -67,27 +67,27 @@ COMPUTE OPTIMIZED
 GPU / ML
 +----------------------------------------------------------+
 | N-series                                                 |
-|   NC: NVIDIA V100/A100, ML training                     |
-|   ND: NVIDIA A100, deep learning                        |
-|   NV: NVIDIA T4, visualization                          |
+|   NC: NVIDIA V100/A100, ML training                      |
+|   ND: NVIDIA A100, deep learning                         |
+|   NV: NVIDIA T4, visualization                           |
 +----------------------------------------------------------+
 
 BURSTABLE (B-series)
 +----------------------------------------------------------+
-| B-series (Bsv2, Basv2)                                  |
+| B-series (Bsv2, Basv2)                                   |
 |   Accumulate credits when below baseline CPU usage       |
 |   Burst above baseline using accumulated credits         |
-|   Dev/test, small web apps, low baseline with peaks     |
+|   Dev/test, small web apps, low baseline with peaks      |
 |   Standard_B2ms: 2 vCPU, 8 GB RAM, 40% baseline CPU   |
-|   Cheapest general-purpose option for intermittent load |
+|   Cheapest general-purpose option for intermittent load  |
 +----------------------------------------------------------+
 
 HIGH PERFORMANCE COMPUTE
 +----------------------------------------------------------+
-| H-series, HB-series (HBv3, HBv4)                        |
-|   AMD EPYC, high memory bandwidth                       |
+| H-series, HB-series (HBv3, HBv4)                         |
+|   AMD EPYC, high memory bandwidth                        |
 |   InfiniBand 200 Gbit/s for MPI workloads              |
-|   Molecular dynamics, finite element analysis, CFD      |
+|   Molecular dynamics, finite element analysis, CFD       |
 +----------------------------------------------------------+
 ```
 

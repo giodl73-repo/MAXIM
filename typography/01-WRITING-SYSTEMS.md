@@ -255,11 +255,11 @@ ROMAN MONUMENTAL CAPITALS (~200 BCE – 200 CE)
   Brushed on stone first to guide chisel; then incised
   ┌──────────────────────────────────────────────────────┐
   │ WHY STROKE CONTRAST EXISTS:                          │
-  │ A chisel cuts wider strokes at 0°/90° and narrow    │
-  │ diagonals — exactly replicating a broad-nib pen     │
-  │ held at ~30°. Medium → stroke contrast.             │
-  │ This is the origin of the thick/thin variation      │
-  │ that distinguishes serif fonts to this day.         │
+  │ A chisel cuts wider strokes at 0°/90° and narrow     │
+  │ diagonals — exactly replicating a broad-nib pen      │
+  │ held at ~30°. Medium → stroke contrast.              │
+  │ This is the origin of the thick/thin variation       │
+  │ that distinguishes serif fonts to this day.          │
   └──────────────────────────────────────────────────────┘
   Trajan Column (113 CE) = definitive canonical model
   Proportions studied/formalized by Renaissance typographers
@@ -288,11 +288,11 @@ CAROLINGIAN MINUSCULE (789 CE)
   ┌──────────────────────────────────────────────────────────────┐
   │ WHAT CAROLINGIAN INTRODUCED:                                 │
   │  - Consistent clear letter forms across all scriptoria       │
-  │  - Distinct ascenders (b, d, f, h, k, l) and descenders     │
-  │    (g, j, p, q, y) — contrast structure of reading          │
+  │  - Distinct ascenders (b, d, f, h, k, l) and descenders      │
+  │    (g, j, p, q, y) — contrast structure of reading           │
   │  - Used alongside Roman capitals = MIXED CASE                │
   │  - Legible at speed; economical on vellum                    │
-  │  - OUR LOWERCASE LETTERS — a, b, c, d, e, f, g ... = this   │
+  │  - OUR LOWERCASE LETTERS — a, b, c, d, e, f, g ... = this    │
   └──────────────────────────────────────────────────────────────┘
 
 GOTHIC / BLACKLETTER (~11th–15th century)

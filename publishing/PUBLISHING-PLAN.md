@@ -9,9 +9,9 @@
 
 ```
                     ┌─────────────────────────────────┐
-                    │     THE ONE RING (source repo)   │
-                    │  Git + MkDocs + Markdown master  │
-                    │   "One Ring to rule them all"    │
+                    │     THE ONE RING (source repo)  │
+                    │  Git + MkDocs + Markdown master │
+                    │   "One Ring to rule them all"   │
                     └──────────┬──────────────────────┘
                                │
               ┌────────────────┼────────────────┐

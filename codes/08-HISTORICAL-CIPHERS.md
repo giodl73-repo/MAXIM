@@ -6,7 +6,7 @@ Classical cryptography is the prehistory of modern cryptographic theory. The arc
 
 ```
 ┌──────────────────────────────────────────────────────────────────┐
-│           CLASSICAL CIPHER EVOLUTION                              │
+│           CLASSICAL CIPHER EVOLUTION                             │
 │                                                                  │
 │  ~100 BCE  Caesar cipher         monoalphabetic substitution     │
 │  ~600 BCE  Atbash               Hebrew mirror alphabet           │
@@ -15,7 +15,7 @@ Classical cryptography is the prehistory of modern cryptographic theory. The arc
 │  1854      Playfair              digraph substitution            │
 │  1918      ADFGVX                WWI German field cipher         │
 │  1917      Vernam (OTP)          one-time pad (provably secure)  │
-│  1918      Enigma concept        first mechanical cipher machine  │
+│  1918      Enigma concept        first mechanical cipher machine │
 │  1920s     Enigma production     electromechanical, naval/army   │
 │  1941–45   Bletchley Park breaks Enigma, Lorenz                  │
 │  1949      Shannon: "Communication Theory of Secrecy Systems"    │
@@ -34,7 +34,7 @@ The simplest cipher: shift every letter by a fixed amount.
 
 ```
 ┌──────────────────────────────────────────────────────────────────┐
-│                    CAESAR CIPHER (ROT-N)                          │
+│                    CAESAR CIPHER (ROT-N)                         │
 │                                                                  │
 │  ROT-3 (Caesar's alleged preference):                            │
 │  Plaintext:   A B C D E F G H I J K L M N O P Q R S T U V W X Y Z│
@@ -88,16 +88,16 @@ The breakthrough: using multiple alphabets (shifts) in rotation, keyed by a keyw
 
 ```
 ┌──────────────────────────────────────────────────────────────────┐
-│                    VIGENÈRE CIPHER                                │
+│                    VIGENÈRE CIPHER                               │
 │                                                                  │
 │  Key: LEMON   (repeated for length of message)                   │
 │  Plaintext:   A  T  T  A  C  K  A  T  D  A  W  N               │
 │  Key:         L  E  M  O  N  L  E  M  O  N  L  E               │
-│  Key (0-idx): 11  4 12 14 13 11  4 12 14 13 11  4               │
+│  Key (0-idx): 11  4 12 14 13 11  4 12 14 13 11  4                │
 │  Ciphertext:  L  X  F  O  P  V  E  F  R  N  H  R               │
 │                                                                  │
 │  Rule: C_i = (P_i + K_i) mod 26                                  │
-│  Decryption: P_i = (C_i - K_i) mod 26                           │
+│  Decryption: P_i = (C_i - K_i) mod 26                            │
 │                                                                  │
 │  TABULA RECTA: 26×26 table of Caesar shifts                      │
 │  Row label = key letter, Column label = plaintext letter         │
@@ -134,7 +134,7 @@ Still breakable with sufficient ciphertext.
 
 ```
 ┌──────────────────────────────────────────────────────────────┐
-│               KASISKI / FRIEDMAN ATTACK                       │
+│               KASISKI / FRIEDMAN ATTACK                      │
 │                                                              │
 │  KASISKI (1863):                                             │
 │  1. Scan ciphertext for repeated trigrams                    │
@@ -144,11 +144,11 @@ Still breakable with sufficient ciphertext.
 │  4. Once key length known: divide into key-length columns    │
 │  5. Each column is a simple Caesar cipher → frequency-analyze│
 │                                                              │
-│  FRIEDMAN (1922) — Index of Coincidence method:             │
-│  IC = Σ(f_i × (f_i-1)) / (N × (N-1))                        │
+│  FRIEDMAN (1922) — Index of Coincidence method:              │
+│  IC = Σ(f_i × (f_i-1)) / (N × (N-1))                         │
 │  For English random text: IC ≈ 0.065                         │
 │  For random uniform: IC ≈ 0.038                              │
-│  Vigenère with key length k → IC ≈ 0.038 + (0.027/k)        │
+│  Vigenère with key length k → IC ≈ 0.038 + (0.027/k)         │
 │  → IC tells you the key length                               │
 │  → Then Kasiski columns + frequency analysis = broken        │
 │                                                              │
@@ -165,9 +165,9 @@ Charles Wheatstone invented it; Lord Playfair popularized it. Encrypts **pairs**
 
 ```
 ┌──────────────────────────────────────────────────────────────┐
-│                PLAYFAIR CIPHER                                │
+│                PLAYFAIR CIPHER                               │
 │                                                              │
-│  5×5 grid: fill with keyword (no duplicate letters),        │
+│  5×5 grid: fill with keyword (no duplicate letters),         │
 │  then remaining alphabet (I and J share a cell)              │
 │                                                              │
 │  Example key: MONARCH                                        │
@@ -183,11 +183,11 @@ Charles Wheatstone invented it; Lord Playfair popularized it. Encrypts **pairs**
 │  2. Same column: each slides down one (wrap)                 │
 │     (M,C) → (C,E)                                            │
 │  3. Rectangle: each takes the other's column in same row     │
-│     (E,R) → E in row 3 col 1, R in row 1 col 5              │
-│           → take row 3 col 5, row 1 col 1 = (K,M)           │
+│     (E,R) → E in row 3 col 1, R in row 1 col 5               │
+│           → take row 3 col 5, row 1 col 1 = (K,M)            │
 │                                                              │
 │  PREPROCESSING:                                              │
-│  — J → I (or Q → K, depends on variant)                     │
+│  — J → I (or Q → K, depends on variant)                      │
 │  — Double letters in a pair: insert X between (HELLO → HE LX LO)│
 │  — Odd-length plaintext: add X at end                        │
 │                                                              │
@@ -206,10 +206,10 @@ Used by the Imperial German Army in the final months of WWI. Combines substituti
 
 ```
 ┌──────────────────────────────────────────────────────────────┐
-│                ADFGVX CIPHER                                  │
+│                ADFGVX CIPHER                                 │
 │                                                              │
 │  Step 1: Polybius square with alphabet + digits (36 chars)   │
-│  Uses the 6 letters A, D, F, G, V, X as coordinates         │
+│  Uses the 6 letters A, D, F, G, V, X as coordinates          │
 │  (chosen because these letters are distinct in Morse code)   │
 │                                                              │
 │  Example ADFGVX grid (key "CAFE"):                           │
@@ -229,10 +229,10 @@ Used by the Imperial German Army in the final months of WWI. Combines substituti
 │  Write output rows under a numeric keyword                   │
 │  Read columns in keyword-number order                        │
 │                                                              │
-│  Security: combined substitution + transposition was        │
+│  Security: combined substitution + transposition was         │
 │  difficult for 1918 cryptanalysts. Broken by Georges Painvin │
-│  (French) in June 1918 during the Spring Offensive — one    │
-│  of the most important cryptanalytic feats of WWI.          │
+│  (French) in June 1918 during the Spring Offensive — one     │
+│  of the most important cryptanalytic feats of WWI.           │
 └──────────────────────────────────────────────────────────────┘
 ```
 
@@ -244,16 +244,16 @@ The **only provably secure cipher**. Gilbert Vernam's 1917 patent; Claude Shanno
 
 ```
 ┌──────────────────────────────────────────────────────────────┐
-│                ONE-TIME PAD (OTP)                             │
+│                ONE-TIME PAD (OTP)                            │
 │                                                              │
-│  Requirements for perfect secrecy:                          │
+│  Requirements for perfect secrecy:                           │
 │  1. Key must be as long as the message                       │
 │  2. Key must be truly random (not pseudorandom)              │
 │  3. Key must never be reused (hence "one-time")              │
 │  4. Key must be kept secret                                  │
 │                                                              │
 │  Encryption: C_i = (P_i + K_i) mod 26 (or XOR for binary)  │
-│  Decryption: P_i = (C_i - K_i) mod 26                       │
+│  Decryption: P_i = (C_i - K_i) mod 26                        │
 │  (Same formula as Vigenère, but key length = message length  │
 │   and key is random — this is what makes it unbreakable)     │
 │                                                              │
@@ -263,11 +263,11 @@ The **only provably secure cipher**. Gilbert Vernam's 1917 patent; Claude Shanno
 │  For every possible plaintext p and ciphertext c:            │
 │  P(P=p | C=c) = P(P=p)                                       │
 │  → Observing ciphertext gives NO information about plaintext │
-│  → Breaking the cipher requires the key, period.            │
+│  → Breaking the cipher requires the key, period.             │
 │                                                              │
 │  Historical use:                                             │
 │  — USSR/US hotline (Moscow-Washington) used OTP              │
-│  — "Number stations" broadcast OTP key consumption            │
+│  — "Number stations" broadcast OTP key consumption           │
 │  — Diplomatic traffic for highest-security messages          │
 │                                                              │
 │  Why not universally used:                                   │
@@ -287,10 +287,10 @@ Electromechanical rotor machine; the most sophisticated cipher device of its era
 
 ```
 ┌──────────────────────────────────────────────────────────────────┐
-│                    ENIGMA ARCHITECTURE                            │
+│                    ENIGMA ARCHITECTURE                           │
 │                                                                  │
-│  KEYBOARD ──→ PLUGBOARD ──→ ROTORS (3 or 4) ──→ REFLECTOR       │
-│               (Steckerbrett)   (Scrambler)      (Umkehrwalze)   │
+│  KEYBOARD ──→ PLUGBOARD ──→ ROTORS (3 or 4) ──→ REFLECTOR        │
+│               (Steckerbrett)   (Scrambler)      (Umkehrwalze)    │
 │                    ↑                                ↓            │
 │                    └───────── return path ──────────┘            │
 │                                                                  │
@@ -344,11 +344,11 @@ The difference: Enigma had structural weaknesses; DES did not.
 
 ```
 ┌──────────────────────────────────────────────────────────────┐
-│              HOW ENIGMA WAS BROKEN                            │
+│              HOW ENIGMA WAS BROKEN                           │
 │                                                              │
 │  STRUCTURAL WEAKNESS: no letter can encrypt to itself        │
 │  (because reflector returns signal through rotors)           │
-│  This gave cryptanalysts a "crib" test: if proposed key       │
+│  This gave cryptanalysts a "crib" test: if proposed key      │
 │  produces a ciphertext letter that equals the plaintext,     │
 │  that key setting is IMPOSSIBLE.                             │
 │                                                              │
@@ -365,15 +365,15 @@ The difference: Enigma had structural weaknesses; DES did not.
 │  Thousands of Bombe machines by 1944 at Bletchley Park       │
 │                                                              │
 │  ADDITIONAL ATTACKS:                                         │
-│  — Polish mathematicians (Rejewski, Różycki, Zygalski):     │
-│    broke early Enigma using algebraic group theory (1932)   │
+│  — Polish mathematicians (Rejewski, Różycki, Zygalski):      │
+│    broke early Enigma using algebraic group theory (1932)    │
 │    — Before WWII, before the bombe!                          │
 │  — Captured key sheets from U-boats (pinch operations)       │
-│  — Indicators repeated → provided known plaintext           │
+│  — Indicators repeated → provided known plaintext            │
 │  — Operator errors: messages enciphered with same key        │
 │                                                              │
 │  LORENZ CIPHER (Tunny): German high command teleprinter      │
-│  Even more complex; broken by Bill Tutte analyzing structure  │
+│  Even more complex; broken by Bill Tutte analyzing structure │
 │  without ever seeing the machine.                            │
 │  → Led to Colossus (first programmable electronic computer)  │
 └──────────────────────────────────────────────────────────────┘
@@ -387,21 +387,21 @@ The fundamental attack on monoalphabetic substitution, developed by Arab scholar
 
 ```
 ┌──────────────────────────────────────────────────────────────┐
-│              ENGLISH LETTER FREQUENCIES                       │
+│              ENGLISH LETTER FREQUENCIES                      │
 │                                                              │
-│  E  12.7%   T   9.1%   A   8.2%   O   7.5%                  │
-│  I   7.0%   N   6.7%   S   6.3%   H   6.1%                  │
-│  R   6.0%   D   4.3%   L   4.0%   C   2.8%                  │
-│  U   2.8%   M   2.4%   W   2.4%   F   2.2%                  │
-│  G   2.0%   Y   2.0%   P   1.9%   B   1.5%                  │
-│  V   1.0%   K   0.8%   J   0.15%  X   0.15%                 │
+│  E  12.7%   T   9.1%   A   8.2%   O   7.5%                   │
+│  I   7.0%   N   6.7%   S   6.3%   H   6.1%                   │
+│  R   6.0%   D   4.3%   L   4.0%   C   2.8%                   │
+│  U   2.8%   M   2.4%   W   2.4%   F   2.2%                   │
+│  G   2.0%   Y   2.0%   P   1.9%   B   1.5%                   │
+│  V   1.0%   K   0.8%   J   0.15%  X   0.15%                  │
 │  Q   0.10%  Z   0.07%                                        │
 │                                                              │
 │  DIGRAPH FREQUENCIES (most common):                          │
-│  TH  HE  IN  ER  AN  RE  ON  EN  AT  ES  ST  NT             │
+│  TH  HE  IN  ER  AN  RE  ON  EN  AT  ES  ST  NT              │
 │                                                              │
 │  TRIGRAPH FREQUENCIES:                                       │
-│  THE  AND  ING  ION  ENT  ION  FOR  HER  HAT  THA           │
+│  THE  AND  ING  ION  ENT  ION  FOR  HER  HAT  THA            │
 │                                                              │
 │  ATTACK STRATEGY for monoalphabetic ciphertext:              │
 │  1. Count ciphertext letter frequencies                      │
@@ -440,7 +440,7 @@ Interpretation:
 
 ```
 ┌──────────────────────────────────────────────────────────────┐
-│              SECRECY TECHNIQUE TAXONOMY                       │
+│              SECRECY TECHNIQUE TAXONOMY                      │
 │                                                              │
 │  CIPHER: transforms plaintext algorithmically                │
 │  — Security comes from key secrecy, not algorithm secrecy    │
@@ -460,7 +460,7 @@ Interpretation:
 │  — Modern: watermarking, stego in image files                │
 │                                                              │
 │  Real-world systems combine all three:                       │
-│  Enigma = cipher (rotor algorithm) + codebook (Schlüssel)   │
+│  Enigma = cipher (rotor algorithm) + codebook (Schlüssel)    │
 │  + operational security protocols                            │
 └──────────────────────────────────────────────────────────────┘
 ```

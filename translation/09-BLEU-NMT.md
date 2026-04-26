@@ -170,7 +170,7 @@ MT EVALUATION METRICS — COMPARISON
 
   chrF (Popovic, 2015):
   ┌──────────────────────────────────────────────────────────┐
-  │ Character n-gram F-score                                  │
+  │ Character n-gram F-score                                 │
   │ Better for morphologically rich languages                │
   │ (Turkish, Finnish, Czech)                                │
   │ No tokenization required — language-neutral              │
@@ -194,7 +194,7 @@ MT EVALUATION METRICS — COMPARISON
   │ reference and predicts human quality judgment score      │
   │ Trained on direct assessment (DA) human annotations      │
   │ Currently best correlation with human judgments          │
-  │ Multiple variants: COMET-DA, COMET-QE (no reference)    │
+  │ Multiple variants: COMET-DA, COMET-QE (no reference)     │
   │ Requires source sentence (unlike BLEU/METEOR which       │
   │ only need reference)                                     │
   └──────────────────────────────────────────────────────────┘
@@ -464,7 +464,7 @@ NMT vs. HUMAN TRANSLATION — HONEST COMPARISON
   │ • Literary translation: style, rhythm, cultural          │
   │   resonance, untranslatables                             │
   │ • Legal and medical text: hallucination risk;            │
-  │   human review remains required                         │
+  │   human review remains required                          │
   │ • Low-resource languages: NMT quality poor for           │
   │   most African, indigenous, minority languages           │
   │ • Pragmatics and register: irony, humor, implicature     │

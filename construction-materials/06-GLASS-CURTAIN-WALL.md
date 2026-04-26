@@ -6,7 +6,7 @@
 FACADE SYSTEM TAXONOMY
 ┌──────────────────────────────────────────────────────────────────────────────┐
 │                                                                              │
-│  MASONRY            FRAMED INFILL        CURTAIN WALL         POINT-FIXED   │
+│  MASONRY            FRAMED INFILL        CURTAIN WALL         POINT-FIXED    │
 │  (loadbearing)      (non-structural)     (non-structural)     (structural    │
 │  ┌────────────┐     ┌────────────┐       ┌────────────┐        silicone/bolt)│
 │  │Brick/stone │     │Alum. frame │       │Stick-built │       ┌────────────┐ │
@@ -22,7 +22,7 @@ FACADE SYSTEM TAXONOMY
 │  │ Tempered (toughened)      │   │  │Glass│   │Glass│             │        │
 │  │ Heat-strengthened         │   │  └─────┘   └─────┘             │        │
 │  │ Laminated (PVB/SGP/EVA)   │   │  spacer bar + desiccant        │        │
-│  │ Borosilicate               │   │  gas fill: Ar / Kr              │        │
+│  │ Borosilicate              │   │  gas fill: Ar / Kr               │        │
 │  └───────────────────────────┘   └──────────────────────────────────┘        │
 │                                                                              │
 │  SOLAR CONTROL                    THERMAL PERFORMANCE                        │
@@ -129,32 +129,32 @@ Two or more glass plies bonded by interlayer material, usually in autoclave.
 LAMINATED GLASS INTERLAYERS
 ┌──────────────────────────────────────────────────────────────────────────────┐
 │                                                                              │
-│  INTERLAYER       MATERIAL           PROPERTIES                             │
-│  ─────────────────────────────────────────────────────────────────────────  │
+│  INTERLAYER       MATERIAL           PROPERTIES                              │
+│  ─────────────────────────────────────────────────────────────────────────   │
 │  PVB              Polyvinyl butyral  Most common; flexible; good post-       │
-│  (polyvinyl       Thickness: 0.38,   fracture glass adhesion; clear/tinted  │
-│  butyral)         0.76, 1.52 mm      Shear modulus G: 0.4–2 MPa (rate-dep.) │
-│                                      → creep-compliant for long-term loads  │
+│  (polyvinyl       Thickness: 0.38,   fracture glass adhesion; clear/tinted   │
+│  butyral)         0.76, 1.52 mm      Shear modulus G: 0.4–2 MPa (rate-dep.)  │
+│                                      → creep-compliant for long-term loads   │
 │                                                                              │
-│  SGP (SentryGlas) Ionoplast polymer  Stiffer (G ~ 65 MPa); higher strength  │
+│  SGP (SentryGlas) Ionoplast polymer  Stiffer (G ~ 65 MPa); higher strength   │
 │                   Thickness: 0.89,   Better structural performance;          │
-│                   1.52, 2.28 mm      Point-fixed glazing; overhead          │
-│                                      50× stiffer than PVB; 5× stronger      │
+│                   1.52, 2.28 mm      Point-fixed glazing; overhead           │
+│                                      50× stiffer than PVB; 5× stronger       │
 │                                                                              │
-│  EVA              Ethylene vinyl     For laminating non-float glass;        │
+│  EVA              Ethylene vinyl     For laminating non-float glass;         │
 │                   acetate            solar panels; humid environments        │
 │                                                                              │
 │  POST-FRACTURE BEHAVIOUR:                                                    │
-│  Single glass lite fractures → fragments adhere to interlayer               │
-│  → "broken but holding" → weather protection maintained temporarily         │
-│  → THIS is why laminated is required for overhead, structural, fall hazard  │
+│  Single glass lite fractures → fragments adhere to interlayer                │
+│  → "broken but holding" → weather protection maintained temporarily          │
+│  → THIS is why laminated is required for overhead, structural, fall hazard   │
 │                                                                              │
 │  BUILDING USES:                                                              │
 │  Overhead glazing:  must be laminated (HSG + PVB or T + PVB, or T + SGP)   │
-│  Balustrade glass:  must be laminated (structural; post-fracture integral)  │
+│  Balustrade glass:  must be laminated (structural; post-fracture integral)   │
 │  Safety glass (BS EN 12600): impact performance Class 1B1 (BS 6206)        │
 │  Bulletproof glass: multiple laminates (polycarbonate + glass; 25–50 mm)   │
-│  Blast glazing:     laminated with thicker PVB or SGP; stiff frame critical │
+│  Blast glazing:     laminated with thicker PVB or SGP; stiff frame critical  │
 │                                                                              │
 └──────────────────────────────────────────────────────────────────────────────┘
 ```
@@ -243,42 +243,42 @@ LOW-E COATING COMPARISON
 ┌──────────────────────────────────────────────────────────────────────────────┐
 │                                                                              │
 │  HARD COAT (pyrolytic):                                                      │
-│    Applied during float glass production while glass is still hot (~600°C)  │
+│    Applied during float glass production while glass is still hot (~600°C)   │
 │    Chemical vapour deposition (CVD) onto hot ribbon                          │
-│    Doped tin oxide (SnO₂:F) layer; ~300 nm thick                            │
+│    Doped tin oxide (SnO₂:F) layer; ~300 nm thick                             │
 │    Chemically bonded to glass → very durable                                 │
-│    Can be used on Face 2 (exposed position) without deterioration           │
-│    Emissivity: ε ~ 0.15–0.2 (moderate performance)                          │
+│    Can be used on Face 2 (exposed position) without deterioration            │
+│    Emissivity: ε ~ 0.15–0.2 (moderate performance)                           │
 │    Slight haze sometimes visible                                             │
 │                                                                              │
 │  SOFT COAT (sputtered, offline):                                             │
-│    Applied after float production in separate magnetron sputtering machine  │
-│    Multiple thin metallic/oxide layers deposited by sputtering              │
+│    Applied after float production in separate magnetron sputtering machine   │
+│    Multiple thin metallic/oxide layers deposited by sputtering               │
 │    Typical stack: SiO₂ / Ag / NiCr / SiO₂ (silver is the active layer)    │
-│    Silver layer: IR-reflective; very thin (~10 nm)                          │
+│    Silver layer: IR-reflective; very thin (~10 nm)                           │
 │    Chemically delicate: must be protected in IGU cavity (Face 3 or Face 2) │
-│    Cannot be exposed to atmosphere → SEALED in IGU                          │
-│    Emissivity: ε ~ 0.02–0.05 (high performance; much better than hard coat) │
-│    Best U-value improvement → used in all Passivhaus-grade glazing          │
+│    Cannot be exposed to atmosphere → SEALED in IGU                           │
+│    Emissivity: ε ~ 0.02–0.05 (high performance; much better than hard coat)  │
+│    Best U-value improvement → used in all Passivhaus-grade glazing           │
 │                                                                              │
 │  KEY METRICS FOR SOLAR GLAZING:                                              │
 │                                                                              │
 │  EMISSIVITY (ε):                                                             │
-│    Measure of longwave (thermal) IR radiation from surface                  │
-│    Normal glass: ε ~ 0.84 (like a black body)                               │
-│    Low-e coating: ε ~ 0.02–0.20                                             │
-│    → low ε → reflects room heat back into room (winter benefit)             │
+│    Measure of longwave (thermal) IR radiation from surface                   │
+│    Normal glass: ε ~ 0.84 (like a black body)                                │
+│    Low-e coating: ε ~ 0.02–0.20                                              │
+│    → low ε → reflects room heat back into room (winter benefit)              │
 │                                                                              │
 │  SHGC (Solar Heat Gain Coefficient):                                         │
-│    Fraction of solar radiation transmitted through window (0–1)             │
+│    Fraction of solar radiation transmitted through window (0–1)              │
 │    High SHGC (0.4–0.7): cold climates → welcome solar gain                 │
-│    Low SHGC (0.2–0.35): hot climates / south-facing offices → reject solar  │
-│    Can control SHGC independently of U-value with appropriate coatings      │
-│    "Solar control" glass: absorbs or reflects near-IR spectrum selectively  │
+│    Low SHGC (0.2–0.35): hot climates / south-facing offices → reject solar   │
+│    Can control SHGC independently of U-value with appropriate coatings       │
+│    "Solar control" glass: absorbs or reflects near-IR spectrum selectively   │
 │                                                                              │
 │  VISIBLE TRANSMITTANCE (VT or T_vis):                                        │
-│    Fraction of visible light transmitted (0–1)                              │
-│    Clear: T_vis ~ 0.80–0.88                                                 │
+│    Fraction of visible light transmitted (0–1)                               │
+│    Clear: T_vis ~ 0.80–0.88                                                  │
 │    Tinted: T_vis ~ 0.35–0.60 (but also blocks daylight)                    │
 │    High-performance low-e: T_vis ~ 0.60–0.70 (light in; IR out)            │
 │    → "selective" coatings: high VT + low SHGC = best of both worlds        │
@@ -298,28 +298,28 @@ CURTAIN WALL SYSTEM COMPARISON
 ┌──────────────────────────────────────────────────────────────────────────────┐
 │                                                                              │
 │  STICK-BUILT:                                                                │
-│  ─────────────────────────────────────────────────────────────────────────  │
-│  Mullions (vertical) and transoms (horizontal) installed piece by piece     │
-│  on site; glazing units inserted after frame                                │
+│  ─────────────────────────────────────────────────────────────────────────   │
+│  Mullions (vertical) and transoms (horizontal) installed piece by piece      │
+│  on site; glazing units inserted after frame                                 │
 │                                                                              │
 │  SECTION ELEVATION:                                                          │
-│  ─────────────────────────────── structural floor slab edge                 │
+│  ─────────────────────────────── structural floor slab edge                  │
 │  │          │          │                                                     │
 │  │  glass   │  glass   │  ← glass units held by pressure plate + gaskets   │
 │  │          │          │                                                     │
-│  │──────────│──────────│ ← transom (horizontal; spans mullion to mullion)   │
+│  │──────────│──────────│ ← transom (horizontal; spans mullion to mullion)    │
 │  │          │          │                                                     │
 │  │  glass   │  glass   │                                                     │
 │  │          │          │                                                     │
-│  mullion  mullion  mullion ← span floor to floor; load to slab              │
-│  ─────────────────────────────── structural floor slab edge                 │
+│  mullion  mullion  mullion ← span floor to floor; load to slab               │
+│  ─────────────────────────────── structural floor slab edge                  │
 │                                                                              │
-│  Advantages: flexible; can accommodate irregular geometry                   │
-│  Disadvantages: extensive site work; weather exposure during installation   │
+│  Advantages: flexible; can accommodate irregular geometry                    │
+│  Disadvantages: extensive site work; weather exposure during installation    │
 │    sequence; difficult quality control                                       │
 │                                                                              │
 │  UNITIZED:                                                                   │
-│  ─────────────────────────────────────────────────────────────────────────  │
+│  ─────────────────────────────────────────────────────────────────────────   │
 │  Factory-assembled panels (typically one floor height × one bay width)     │
 │  Delivered to site; hoisted by tower crane; hook-on to edge of slab        │
 │  Stack-joint at top/bottom of each panel: vertical drainage path           │
@@ -328,17 +328,17 @@ CURTAIN WALL SYSTEM COMPARISON
 │  Disadvantages: high tooling cost; inflexible (changes → whole panel);     │
 │    shipping volume; crane-dependent installation                             │
 │                                                                              │
-│  STACK JOINT DETAIL (critical for weather tightness):                       │
-│  ┌──────────────┐  ← upper panel (head frame)                               │
-│  │ ╔══════════╗ │  ← glass unit                                             │
+│  STACK JOINT DETAIL (critical for weather tightness):                        │
+│  ┌──────────────┐  ← upper panel (head frame)                                │
+│  │ ╔══════════╗ │  ← glass unit                                              │
 │  │ ║          ║ │                                                            │
-│  │ ╚══════════╝ │  ← glass unit                                             │
-│  ├──────────────┤  ← stack joint: interleave male/female profiles           │
-│  │ ╔══════════╗ │  ← glass unit                                             │
+│  │ ╚══════════╝ │  ← glass unit                                              │
+│  ├──────────────┤  ← stack joint: interleave male/female profiles            │
+│  │ ╔══════════╗ │  ← glass unit                                              │
 │  │ ║          ║ │                                                            │
 │  │ ╚══════════╝ │                                                            │
-│  └──────────────┘  ← lower panel (sill frame)                               │
-│  Rainwater enters joint → drained to exterior via weep holes                │
+│  └──────────────┘  ← lower panel (sill frame)                                │
+│  Rainwater enters joint → drained to exterior via weep holes                 │
 │  Two-stage sealing: outer barrier (rain screen) + inner air seal           │
 │                                                                              │
 └──────────────────────────────────────────────────────────────────────────────┘
@@ -470,24 +470,24 @@ DOUBLE-SKIN FACADE TYPES
 │                                                                              │
 │  MULTI-STORY:  buffer zone full height of building                           │
 │  ──────────────────────────────────────────────────────────────────────────  │
-│  Outer skin: single glass (usually toughened laminated)                     │
+│  Outer skin: single glass (usually toughened laminated)                      │
 │  Cavity: 300mm–2m+; automated blinds; sometimes walkable                   │
-│  Inner skin: thermal IGU; operable vents                                    │
-│  Stack effect: warm air rises in cavity → draws fresh air from base         │
-│  Result: inner skin sheltered from wind → vent inner skin without draft     │
-│  Problem: fire spread up cavity → fire stops at each floor level mandatory  │
+│  Inner skin: thermal IGU; operable vents                                     │
+│  Stack effect: warm air rises in cavity → draws fresh air from base          │
+│  Result: inner skin sheltered from wind → vent inner skin without draft      │
+│  Problem: fire spread up cavity → fire stops at each floor level mandatory   │
 │                                                                              │
-│  CORRIDOR (SHAFT BOX) TYPE:  each floor is self-contained cavity bay        │
+│  CORRIDOR (SHAFT BOX) TYPE:  each floor is self-contained cavity bay         │
 │  ──────────────────────────────────────────────────────────────────────────  │
-│  Cavity divided horizontally at each floor level                            │
+│  Cavity divided horizontally at each floor level                             │
 │  Ventilated by openings in outer skin at each bay                          │
 │  → better fire containment; no stack effect                                  │
-│  → most common in UK/EU commercial buildings                                │
+│  → most common in UK/EU commercial buildings                                 │
 │                                                                              │
 │  ENERGY PERFORMANCE:                                                         │
-│  Winter: cavity acts as thermal buffer → reduces heat loss from inner skin  │
-│  Summer: cavity can overheat → automated vents + blinds critical            │
-│  Net energy performance depends heavily on control system sophistication    │
+│  Winter: cavity acts as thermal buffer → reduces heat loss from inner skin   │
+│  Summer: cavity can overheat → automated vents + blinds critical             │
+│  Net energy performance depends heavily on control system sophistication     │
 │  Energy modelling essential (EnergyPlus, IES-VE, TRNSYS)                   │
 │                                                                              │
 └──────────────────────────────────────────────────────────────────────────────┘

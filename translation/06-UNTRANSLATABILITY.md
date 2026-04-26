@@ -8,16 +8,16 @@ UNTRANSLATABILITY — CONCEPTUAL MAP
 
   CLAIMS ABOUT UNTRANSLATABILITY
   ┌─────────────────────────────────────────────────────────┐
-  │  STRONG CLAIM: Some meanings cannot be transferred     │
-  │  across languages at all — the concepts are bound      │
-  │  to the language/culture that produced them.           │
+  │  STRONG CLAIM: Some meanings cannot be transferred      │
+  │  across languages at all — the concepts are bound       │
+  │  to the language/culture that produced them.            │
   │                                                         │
-  │  WEAK CLAIM: Some meanings cannot be transferred       │
-  │  without loss — the transfer requires paraphrase,      │
-  │  footnotes, or expansion that inevitably changes       │
+  │  WEAK CLAIM: Some meanings cannot be transferred        │
+  │  without loss — the transfer requires paraphrase,       │
+  │  footnotes, or expansion that inevitably changes        │
   │  what is communicated.                                  │
   │                                                         │
-  │  ALMOST NOBODY HOLDS THE STRONG CLAIM in its           │
+  │  ALMOST NOBODY HOLDS THE STRONG CLAIM in its            │
   │  purest form. The interesting debates are in the middle.│
   └─────────────────────────────────────────────────────────┘
                               │
@@ -334,7 +334,7 @@ WHAT MT HANDLES WELL vs. POORLY
   ┌──────────────────────────────────────────────────────────┐
   │ PRAGMATIC FAILURE:                                       │
   │ Irony, sarcasm, understatement often lost.               │
-  │ "That's just great" (sarcastic) often renders as        │
+  │ "That's just great" (sarcastic) often renders as         │
   │ straightforwardly positive.                              │
   │                                                          │
   │ CULTURE-SPECIFIC CONTENT:                                │

@@ -8,14 +8,14 @@ System architecture is the high-level structural decomposition of a system — w
 WHAT ARCHITECTURE DEFINES
 ──────────────────────────────────────────────────────────────────
 ┌─────────────────────────────────────────────────────────────────┐
-│  System boundary         │  What is inside vs outside          │
-│  Functional decomposition│  What the major functions are       │
-│  Physical decomposition  │  What the major components are      │
+│  System boundary         │  What is inside vs outside           │
+│  Functional decomposition│  What the major functions are        │
+│  Physical decomposition  │  What the major components are       │
 │  Interfaces              │  How elements connect and communicate│
 │  Allocation              │  Which physical element does which   │
-│                          │  function                           │
+│                          │  function                            │
 │  Design principles       │  Redundancy strategy, fault tolerance│
-│                          │  make/buy decisions, modularity     │
+│                          │  make/buy decisions, modularity      │
 │  Constraints             │  Technology limits, standards, budget│
 └─────────────────────────────────────────────────────────────────┘
 ```

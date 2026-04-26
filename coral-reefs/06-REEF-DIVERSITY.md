@@ -158,28 +158,28 @@ THREE HOTSPOT HYPOTHESES
    +------------------------------------------+
    | Coral Triangle has highest speciation rate|
    | New species arise there; disperse outward |
-   | Evidence: some support from phylogenies   |
+   | Evidence: some support from phylogenies  |
    | Problem: not all groups show this pattern |
    +------------------------------------------+
 
 2. CENTER OF ACCUMULATION
    +------------------------------------------+
-   | Species from all directions accumulate    |
+   | Species from all directions accumulate   |
    | Range edges of Indo-Pacific + Asian coast |
-   | species overlap in Coral Triangle         |
+   | species overlap in Coral Triangle        |
    | Evidence: overlap of biogeographic ranges |
-   | Problem: ranges are circular argument     |
+   | Problem: ranges are circular argument    |
    +------------------------------------------+
 
 3. CENTER OF OVERLAP / INTERSECTION
    +------------------------------------------+
    | Central location of Indo-Pacific province |
-   | All mid-Pacific / Indian Ocean ranges     |
-   | simply intersect here geometrically       |
-   | Evidence: mid-domain null model predicts  |
-   | peak diversity at geographic center       |
-   | Problem: doesn't explain why center is    |
-   | in CT specifically vs. open ocean center  |
+   | All mid-Pacific / Indian Ocean ranges    |
+   | simply intersect here geometrically      |
+   | Evidence: mid-domain null model predicts |
+   | peak diversity at geographic center      |
+   | Problem: doesn't explain why center is   |
+   | in CT specifically vs. open ocean center |
    +------------------------------------------+
 
 CURRENT SYNTHESIS:

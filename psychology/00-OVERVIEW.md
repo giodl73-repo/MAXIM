@@ -12,7 +12,7 @@ PSYCHOLOGY AS A MEASUREMENT PROBLEM — FOUR ANALYSIS LEVELS
   │ Neurotransmitters        │      │ Group norms              │
   │ HPA axis / cortisol      │◄────►│ Cultural scripts         │
   │ Neural circuits          │      │ Power structures         │
-  │ Genetic variance (h²)   │      │ Conformity pressure      │
+  │ Genetic variance (h²)   │      │ Conformity pressure       │
   │ Psychopharmacology       │      │ Role expectations        │
   └────────────┬─────────────┘      └─────────────┬────────────┘
                │                                   │
@@ -21,7 +21,7 @@ PSYCHOLOGY AS A MEASUREMENT PROBLEM — FOUR ANALYSIS LEVELS
                ├──►│  (computation layer)  │◄──────┤
                │   │                       │       │
                │   │ Perception · Memory   │       │
-               │   │ Attention · Language   │       │
+               │   │ Attention · Language   │      │
                │   │ Decision / Judgment   │       │
                │   │ Executive control     │       │
                │   └───────────┬───────────┘       │
@@ -77,11 +77,11 @@ of what didn't.
 
 ```
 +----------------------------------------------------------------------+
-|                    PSYCHOLOGY FIELD MAP (LAYERED)                     |
+|                    PSYCHOLOGY FIELD MAP (LAYERED)                    |
 |                                                                      |
-|  BIOLOGICAL ◄─────────────────────────────────────────► SOCIAL      |
+|  BIOLOGICAL ◄─────────────────────────────────────────► SOCIAL       |
 |                                                                      |
-|  Behav. neuroscience ─────────────────────────── Social psychology  |
+|  Behav. neuroscience ─────────────────────────── Social psychology   |
 |  Neuropsychology ──────────────────────────────── Cross-cultural     |
 |  Psychopharmacology ───────────────────────────── Organizational     |
 |  Evolutionary psych ───────────────────────────── Political psych    |
@@ -117,22 +117,22 @@ The most important context for evaluating psychological findings:
   ┌────────────────────────────────────────────────────────────────┐
   │ Social/behavioral priming (money primes greed, etc.)           │
   │ Ego depletion (using self-control depletes "muscle" of         │
-  │ willpower) — major industry collapsed in meta-analysis        │
+  │ willpower) — major industry collapsed in meta-analysis         │
   │ Power posing (Amy Cuddy — testosterone/cortisol changes)       │
-  │ Facial feedback hypothesis (pencil in mouth smiling study)    │
+  │ Facial feedback hypothesis (pencil in mouth smiling study)     │
   │ "Macbeth effect" (moral cleansing through physical washing)    │
   │ Stereotype threat: effect size much smaller than original claim│
   └────────────────────────────────────────────────────────────────┘
 
   WHAT SURVIVED:
   ┌────────────────────────────────────────────────────────────────┐
-  │ Big Five personality structure and validity                     │
+  │ Big Five personality structure and validity                    │
   │ Cognitive dissonance effects (Festinger)                       │
   │ Classical and operant conditioning                             │
-  │ Fear conditioning (amygdala) — robust across species          │
-  │ Implicit memory and priming (basic, not social)               │
+  │ Fear conditioning (amygdala) — robust across species           │
+  │ Implicit memory and priming (basic, not social)                │
   │ Attachment theory (basic patterns)                             │
-  │ Milgram-type obedience (Burger 2009 partial replication)      │
+  │ Milgram-type obedience (Burger 2009 partial replication)       │
   │ CBT for depression and anxiety — effect sizes hold             │
   │ Intelligence/GMA prediction of outcomes                        │
   └────────────────────────────────────────────────────────────────┘
@@ -144,17 +144,17 @@ The most important context for evaluating psychological findings:
   STRUCTURAL CAUSES:
   ┌────────────────────────────────────────────────────────────────┐
   │ Publication bias: journals published positive results only     │
-  │ → File drawer problem: failed replications unpublished        │
+  │ → File drawer problem: failed replications unpublished         │
   │                                                                │
-  │ Small samples: median psychology study N ~20-40               │
-  │ → Underpowered → high false positive rate when replicated     │
+  │ Small samples: median psychology study N ~20-40                │
+  │ → Underpowered → high false positive rate when replicated      │
   │                                                                │
-  │ p-hacking / QRPs (Questionable Research Practices):           │
-  │ Run analysis multiple ways; report only significant           │
-  │ Add subjects until p < 0.05 (optional stopping)               │
-  │ Hypothesize After Results Known (HARKing)                     │
+  │ p-hacking / QRPs (Questionable Research Practices):            │
+  │ Run analysis multiple ways; report only significant            │
+  │ Add subjects until p < 0.05 (optional stopping)                │
+  │ Hypothesize After Results Known (HARKing)                      │
   │                                                                │
-  │ Analyst degrees of freedom: many plausible analysis choices;  │
+  │ Analyst degrees of freedom: many plausible analysis choices;   │
   │ pick the one that works                                        │
   └────────────────────────────────────────────────────────────────┘
 
@@ -202,25 +202,25 @@ The most important context for evaluating psychological findings:
   PSYCHOLOGY HISTORY:
   ┌────────────────────────────────────────────────────────────────┐
   │ 1879 Leipzig: Wundt's first psychology lab                     │
-  │ Structuralism (Wundt/Titchener): introspection to map mental  │
+  │ Structuralism (Wundt/Titchener): introspection to map mental   │
   │ elements; limited scientific traction                          │
   │                                                                │
-  │ 1900s: Functionalism (James): what does mind DO? → adaptive   │
+  │ 1900s: Functionalism (James): what does mind DO? → adaptive    │
   │ Psychoanalysis (Freud): unconscious drives; clinical influence │
   │                                                                │
   │ 1920-1960: BEHAVIORISM (Watson/Skinner)                        │
-  │ "Psychology should be a science of behavior, not mind"        │
-  │ S-R (stimulus-response) associations; conditioning            │
+  │ "Psychology should be a science of behavior, not mind"         │
+  │ S-R (stimulus-response) associations; conditioning             │
   │ Mind as black box; reject introspection                        │
   │                                                                │
   │ 1956: COGNITIVE REVOLUTION                                     │
-  │ Miller (7±2), Chomsky critique of Skinner, Simon/Newell AI    │
+  │ Miller (7±2), Chomsky critique of Skinner, Simon/Newell AI     │
   │ Information processing models; mental representations OK again │
   │                                                                │
   │ 1980s+: Social-cognitive, evolutionary, neuroscience integration│
   │ Gene-environment interaction research                          │
   │                                                                │
-  │ 2010s+: Replication crisis → reform → more rigorous science   │
+  │ 2010s+: Replication crisis → reform → more rigorous science    │
   └────────────────────────────────────────────────────────────────┘
 ```
 

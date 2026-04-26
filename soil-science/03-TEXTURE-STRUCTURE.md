@@ -164,7 +164,7 @@ Soil structure is the arrangement of primary particles (sand, silt, clay) and or
   GRANULAR:         CRUMB:              BLOCKY:
   +----+            +-------+           +----------+
   | o  |  1-5 mm   | ~o~o  |  1-5 mm  |  ______  |  5-50 mm
-  | o  |  spherical | ~o~o  |  porous  | |      | |
+  | o  |  spherical | ~o~o  |  porous   | |      | |
   +----+            +-------+           +----------+
   Plowed horizon    Organic-rich A       Subsoil B horizon
   Common in well-   Common in forest     Angular or subangular

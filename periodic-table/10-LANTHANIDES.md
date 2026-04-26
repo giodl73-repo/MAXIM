@@ -58,11 +58,11 @@ WHY:
 VISUAL:
   ┌───────────────────────────────────────────────────────────────┐
   │  4f orbital shape: high angular nodes, stays near nucleus     │
-  │                                                                │
-  │         [nucleus]  ←── 4f electrons (poorly shield) ───      │
-  │              ↑                                                 │
+  │                                                               │
+  │         [nucleus]  ←── 4f electrons (poorly shield) ───       │
+  │              ↑                                                │
   │         5s5p5d6s electrons feel increasing Z_eff              │
-  │              ↓                                                 │
+  │              ↓                                                │
   │         → contracts → ionic radius shrinks                    │
   └───────────────────────────────────────────────────────────────┘
 ```

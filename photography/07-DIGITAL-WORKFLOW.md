@@ -9,30 +9,30 @@ DIGITAL WORKFLOW PIPELINE:
 
   CAPTURE
   ┌──────────────────────────────────────────────────────────────┐
-  │ Sensor → Bayer CFA → ADC → Linear RAW data (12/14 bit)      │
+  │ Sensor → Bayer CFA → ADC → Linear RAW data (12/14 bit)       │
   │ White balance tag, exposure metadata written (not applied)   │
   └────────────────────────────────┬─────────────────────────────┘
                                    │ RAW file (.CR3, .NEF, .ARW, .DNG)
   ┌──────────────────────────────────────────────────────────────┐
   │ RAW PROCESSING (Lightroom, Capture One, darktable, RawTherapee)│
-  │  1. White balance → chromatic adaptation → neutral grays      │
-  │  2. Demosaicing → full RGB at every pixel                     │
-  │  3. Tone curve → map linear scene values to perceptual space  │
-  │  4. Color space conversion → sRGB / AdobeRGB / ProPhoto       │
+  │  1. White balance → chromatic adaptation → neutral grays     │
+  │  2. Demosaicing → full RGB at every pixel                    │
+  │  3. Tone curve → map linear scene values to perceptual space │
+  │  4. Color space conversion → sRGB / AdobeRGB / ProPhoto      │
   │  5. Noise reduction → luminance NR + color NR                │
   │  6. Output sharpening → USM or deconvolution                 │
   └────────────────────────────────┬─────────────────────────────┘
                                    │ Processed image (16-bit TIFF)
   ┌──────────────────────────────────────────────────────────────┐
-  │ EDITING (Photoshop, Affinity Photo, Pixelmator)               │
-  │  Local adjustments, compositing, retouching                   │
+  │ EDITING (Photoshop, Affinity Photo, Pixelmator)              │
+  │  Local adjustments, compositing, retouching                  │
   └────────────────────────────────┬─────────────────────────────┘
                                    │
   ┌──────────────────────────────────────────────────────────────┐
-  │ OUTPUT                                                        │
+  │ OUTPUT                                                       │
   │  Screen: sRGB JPEG/HEIC (8-bit; ICC embed)                   │
-  │  Print: CMYK conversion; soft proof → printer profile TIFF    │
-  │  Archive: original RAW + sidecar (.xmp) or catalog backup     │
+  │  Print: CMYK conversion; soft proof → printer profile TIFF   │
+  │  Archive: original RAW + sidecar (.xmp) or catalog backup    │
   └──────────────────────────────────────────────────────────────┘
 
 KEY PRINCIPLE:

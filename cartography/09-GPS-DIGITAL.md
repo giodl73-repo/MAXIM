@@ -44,38 +44,38 @@ GPS SYSTEM ARCHITECTURE
 
   SPACE SEGMENT:
   ┌──────────────────────────────────────────────────────────┐
-  │  24 operational satellites (+ spares, currently ~31)    │
-  │  6 orbital planes, 4 satellites per plane               │
-  │  Altitude: 20,200 km (medium Earth orbit)               │
-  │  Inclination: 55° (covers ±55° latitude well)           │
-  │  Orbital period: ~11h 58min (2 orbits per sidereal day) │
-  │  Guarantee: 4+ satellites visible anywhere on Earth     │
-  │             > 95% of time (more typically 6–12 visible) │
+  │  24 operational satellites (+ spares, currently ~31)     │
+  │  6 orbital planes, 4 satellites per plane                │
+  │  Altitude: 20,200 km (medium Earth orbit)                │
+  │  Inclination: 55° (covers ±55° latitude well)            │
+  │  Orbital period: ~11h 58min (2 orbits per sidereal day)  │
+  │  Guarantee: 4+ satellites visible anywhere on Earth      │
+  │             > 95% of time (more typically 6–12 visible)  │
   │                                                          │
   │  Each satellite carries:                                 │
-  │  - 2–4 cesium atomic clocks (accurate to 1ns/day)       │
-  │  - Transmitters broadcasting on L1 (1575.42 MHz) and    │
+  │  - 2–4 cesium atomic clocks (accurate to 1ns/day)        │
+  │  - Transmitters broadcasting on L1 (1575.42 MHz) and     │
   │    L2 (1227.60 MHz)                                      │
   └──────────────────────────────────────────────────────────┘
 
   CONTROL SEGMENT:
   ┌──────────────────────────────────────────────────────────┐
-  │  Master Control Station: Schriever AFB, Colorado        │
-  │  Ground antennas: 5 worldwide monitoring stations       │
+  │  Master Control Station: Schriever AFB, Colorado         │
+  │  Ground antennas: 5 worldwide monitoring stations        │
   │  Functions:                                              │
-  │  - Monitor satellite health and clock accuracy          │
-  │  - Upload corrected ephemeris (position) data           │
-  │  - Update navigation message                            │
-  │  - Manage constellation (retirements, launches)         │
+  │  - Monitor satellite health and clock accuracy           │
+  │  - Upload corrected ephemeris (position) data            │
+  │  - Update navigation message                             │
+  │  - Manage constellation (retirements, launches)          │
   └──────────────────────────────────────────────────────────┘
 
   USER SEGMENT:
   ┌──────────────────────────────────────────────────────────┐
-  │  Any device with a GPS receiver chip                    │
-  │  Smartphone chip: ~$5; survey-grade receiver: $15,000+  │
-  │  Passive receiver: only receives, does not transmit     │
-  │  Privacy note: GPS is one-way — no one knows where you  │
-  │  are from GPS alone (apps are different)                │
+  │  Any device with a GPS receiver chip                     │
+  │  Smartphone chip: ~$5; survey-grade receiver: $15,000+   │
+  │  Passive receiver: only receives, does not transmit      │
+  │  Privacy note: GPS is one-way — no one knows where you   │
+  │  are from GPS alone (apps are different)                 │
   └──────────────────────────────────────────────────────────┘
 
 ══════════════════════════════════════════════════════════════════════
@@ -113,20 +113,20 @@ GPS POSITIONING — STEP BY STEP
   │  TRIANGULATION: measures angles → derives distances    │
   │  TRILATERATION: measures distances → derives position  │
   │                                                        │
-  │  From satellite S1 at known position: receiver is on  │
+  │  From satellite S1 at known position: receiver is on   │
   │  a sphere of radius r1                                 │
   │  From satellite S2: receiver is on a sphere of r2      │
-  │  Two spheres intersect in a circle                    │
-  │  From satellite S3: receiver is at one of two points  │
-  │  (one is usually in space — eliminated)               │
+  │  Two spheres intersect in a circle                     │
+  │  From satellite S3: receiver is at one of two points   │
+  │  (one is usually in space — eliminated)                │
   │  3 satellites → unique position (in 2D, or 3D if alt known)│
   │                                                        │
-  │  BUT: receiver clock error → need a 4th satellite     │
-  │  4th satellite provides the equation needed to solve  │
+  │  BUT: receiver clock error → need a 4th satellite      │
+  │  4th satellite provides the equation needed to solve   │
   │  for receiver clock error simultaneously with position│
   │                                                        │
-  │  4 unknowns: x, y, z, t (clock error)                 │
-  │  4 satellites: 4 equations → unique solution          │
+  │  4 unknowns: x, y, z, t (clock error)                  │
+  │  4 satellites: 4 equations → unique solution           │
   └────────────────────────────────────────────────────────┘
 
 ══════════════════════════════════════════════════════════════════════
@@ -344,8 +344,8 @@ GOOGLE MAPS UX INNOVATION (2005)
   THE TILE SCHEME:
   ┌────────────────────────────────────────────────────────┐
   │  Zoom 0:  1 tile  = whole world (very small)           │
-  │  Zoom 1:  4 tiles (2×2 grid)                          │
-  │  Zoom 2: 16 tiles (4×4 grid)                          │
+  │  Zoom 1:  4 tiles (2×2 grid)                           │
+  │  Zoom 2: 16 tiles (4×4 grid)                           │
   │  Zoom n: 4ⁿ tiles (2ⁿ × 2ⁿ grid)                     │
   │  Zoom 18: 68 billion tiles (house-level detail)        │
   │                                                        │

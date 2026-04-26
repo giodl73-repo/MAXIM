@@ -7,21 +7,21 @@ The spectrum is real — most industrial adoption lives in the middle, not at th
 
 ```
 +------------------------------------------------------------------------------+
-|                         FORMAL METHODS SPECTRUM                               |
+|                         FORMAL METHODS SPECTRUM                              |
 |                                                                                |
-|  LIGHTWEIGHT <───────────────────────────────────────────> HEAVYWEIGHT        |
+|  LIGHTWEIGHT <───────────────────────────────────────────> HEAVYWEIGHT       |
 |                                                                                |
-|  TYPES &        MODEL           BOUNDED         DEDUCTIVE    FULL             |
-|  LINTING        CHECKING        MODEL           PROGRAM      PROOF            |
-|                                 CHECKING        ANALYSIS                      |
+|  TYPES &        MODEL           BOUNDED         DEDUCTIVE    FULL            |
+|  LINTING        CHECKING        MODEL           PROGRAM      PROOF           |
+|                                 CHECKING        ANALYSIS                     |
 |                                                                                |
-|  TypeScript     TLA+ TLC        CBMC            Dafny        Coq              |
-|  Mypy           SPIN            KLEE            F*           Lean 4           |
-|  Eslint         NuSMV           SAT-based       Infer        Isabelle         |
-|  Rust types     Alloy                           VeriFast                      |
+|  TypeScript     TLA+ TLC        CBMC            Dafny        Coq             |
+|  Mypy           SPIN            KLEE            F*           Lean 4          |
+|  Eslint         NuSMV           SAT-based       Infer        Isabelle        |
+|  Rust types     Alloy                           VeriFast                     |
 |                                                                                |
-|  Cost:  LOW <───────────────────────────────────────────> VERY HIGH           |
-|  ROI:   HIGH (just use it)       HIGH (protocols)         High (safety-crit)  |
+|  Cost:  LOW <───────────────────────────────────────────> VERY HIGH          |
+|  ROI:   HIGH (just use it)       HIGH (protocols)         High (safety-crit) |
 |  Scope: shallow/scalable         finite-state systems      full correctness    |
 +------------------------------------------------------------------------------+
 ```
@@ -325,25 +325,25 @@ You construct a machine-checked mathematical proof. High effort, maximum assuran
 COST FACTORS:
 +------------------+--------------------------------------------+
 | Spec writing     | Writing a correct formal spec is as hard   |
-|                  | as writing correct code. Bugs in the spec   |
-|                  | mean the proof proves the wrong thing.      |
+|                  | as writing correct code. Bugs in the spec  |
+|                  | mean the proof proves the wrong thing.     |
 +------------------+--------------------------------------------+
 | Proof effort     | seL4: 11 person-years for 10k LOC.         |
 |                  | Most software: not safety-critical enough   |
 |                  | to justify this ratio.                      |
 +------------------+--------------------------------------------+
-| Tooling maturity | Lean 4 Mathlib is excellent for math.       |
-|                  | For software, library coverage is limited.  |
+| Tooling maturity | Lean 4 Mathlib is excellent for math.      |
+|                  | For software, library coverage is limited. |
 |                  | OS interfaces, networking stacks, databases |
-|                  | lack verified models.                       |
+|                  | lack verified models.                      |
 +------------------+--------------------------------------------+
 | State explosion  | Model checkers: state space grows           |
 |                  | exponentially with concurrent components.   |
 |                  | 10 threads x 10 states each = 10^10 states. |
 +------------------+--------------------------------------------+
-| Undecidability   | Full program correctness is undecidable     |
-|                  | (Rice's Theorem). All sound analyzers       |
-|                  | approximate — false positives are real.     |
+| Undecidability   | Full program correctness is undecidable    |
+|                  | (Rice's Theorem). All sound analyzers      |
+|                  | approximate — false positives are real.    |
 +------------------+--------------------------------------------+
 | Human factors    | Engineers aren't trained in it.             |
 |                  | TLA+ is not in most CS curricula.           |

@@ -6,7 +6,7 @@ Underdetermination is the thesis that evidence never uniquely determines which t
 
 ```
 +------------------------------------------------------------------+
-|               UNDERDETERMINATION — TWO LEVELS                   |
+|               UNDERDETERMINATION — TWO LEVELS                    |
 +------------------------------------------------------------------+
 |                                                                  |
 |  LEVEL 1: DUHEM'S PROBLEM (weak underdetermination)             |
@@ -21,10 +21,10 @@ Underdetermination is the thesis that evidence never uniquely determines which t
 |                                                                  |
 +------------------------------------------------------------------+
 |                                                                  |
-|  QUINE'S HOLISM (connects levels 1 and 2)                       |
-|  No statement faces experience alone — "web of belief"          |
-|  No analytic/synthetic distinction → any statement revisable    |
-|  → Underdetermination is pervasive, not isolated                |
+|  QUINE'S HOLISM (connects levels 1 and 2)                        |
+|  No statement faces experience alone — "web of belief"           |
+|  No analytic/synthetic distinction → any statement revisable     |
+|  → Underdetermination is pervasive, not isolated                 |
 |                                                                  |
 +------------------------------------------------------------------+
 ```
@@ -80,7 +80,7 @@ Quine's positive thesis: **the web of belief**. Our beliefs form a web; they fac
 
 ```
 +------------------------------------------------------------------+
-|                    QUINE'S WEB OF BELIEF                        |
+|                    QUINE'S WEB OF BELIEF                         |
 +------------------------------------------------------------------+
 |                                                                  |
 |                PERIPHERY (empirical beliefs)                    |

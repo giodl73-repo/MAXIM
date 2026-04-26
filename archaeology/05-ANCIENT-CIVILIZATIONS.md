@@ -4,20 +4,20 @@
 
 ```
 +------------------------------------------------------------------+
-|           FIRST CITIES AND STATES: COMPARATIVE FRAMEWORK        |
+|           FIRST CITIES AND STATES: COMPARATIVE FRAMEWORK         |
 |                                                                  |
-|  REGION          DATES (BC)   WRITING     STATE TYPE            |
-|  Mesopotamia     3500–539     Cuneiform   City-states → empire  |
+|  REGION          DATES (BC)   WRITING     STATE TYPE             |
+|  Mesopotamia     3500–539     Cuneiform   City-states → empire   |
 |  Egypt           3100–30      Hieroglyphs Territorial monarchy   |
-|  Indus Valley    2600–1900    Undeciphered? Urban networks      |
-|  Shang China     1600–1045    Oracle bones Dynastic monarchy    |
-|  Mesoamerica     1200–1521    Several      Varied city-states   |
-|  Andean          3000–1532    Khipu (?)    Administrative state |
+|  Indus Valley    2600–1900    Undeciphered? Urban networks       |
+|  Shang China     1600–1045    Oracle bones Dynastic monarchy     |
+|  Mesoamerica     1200–1521    Several      Varied city-states    |
+|  Andean          3000–1532    Khipu (?)    Administrative state  |
 |                                                                  |
-|  CONVERGENT FEATURES: urbanism, monumental architecture,        |
-|  craft specialization, administrative records, social hierarchy |
+|  CONVERGENT FEATURES: urbanism, monumental architecture,         |
+|  craft specialization, administrative records, social hierarchy  |
 |                                                                  |
-|  DIVERGENT: political form, writing type, collapse patterns     |
+|  DIVERGENT: political form, writing type, collapse patterns      |
 +------------------------------------------------------------------+
 ```
 

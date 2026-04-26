@@ -8,24 +8,24 @@ Metamorphism = solid-state recrystallization of existing rocks in response to ch
 
 ```
 +---------------------------------------------------------------+
-|                METAMORPHIC FRAMEWORK                           |
-|                                                                |
+|                METAMORPHIC FRAMEWORK                          |
+|                                                               |
 |  PRESSURE (depth)                                             |
-|  HIGH |                                                        |
-|       |  Eclogite      Granulite                             |
-|       |  (blueschist   facies (high                          |
-|       |   before)      T/low P)                              |
-|       |                                                        |
-|       |  Amphibolite facies (peak regional metamorphism)     |
-|       |                                                        |
-|       |  Greenschist facies (chlorite, epidote green colors) |
-|       |                                                        |
+|  HIGH |                                                       |
+|       |  Eclogite      Granulite                              |
+|       |  (blueschist   facies (high                           |
+|       |   before)      T/low P)                               |
+|       |                                                       |
+|       |  Amphibolite facies (peak regional metamorphism)      |
+|       |                                                       |
+|       |  Greenschist facies (chlorite, epidote green colors)  |
+|       |                                                       |
 |  LOW  |  Zeolite / Sub-greenschist (diagenesis boundary)    |
 |       +-------------------------------------------------->    |
-|          LOW                    HIGH   TEMPERATURE           |
+|          LOW                    HIGH   TEMPERATURE            |
 |                                                               |
-|  CONTACT METAMORPHISM: aureole around igneous intrusion      |
-|  REGIONAL METAMORPHISM: mountain-building, deep burial       |
+|  CONTACT METAMORPHISM: aureole around igneous intrusion       |
+|  REGIONAL METAMORPHISM: mountain-building, deep burial        |
 +---------------------------------------------------------------+
 ```
 
@@ -157,7 +157,7 @@ Mylonite          Ductile shear zone    Any      Mylonite (fine-
 |  Scale: m to km aureole   |    |  Scale: 100s of km belt   |
 |  P: low (shallow)         |    |  P: high (deep burial)    |
 |  T: very high (contact)   |    |  T: moderate to high      |
-|  Result: HORNFELS          |    |  Result: SCHIST, GNEISS  |
+|  Result: HORNFELS         |    |  Result: SCHIST, GNEISS   |
 |  (non-foliated; no        |    |  (foliated; directed      |
 |   directed stress)        |    |   stress from tectonics)  |
 |  Zoning: spotted →        |    |  Zoning: Barrow zones     |

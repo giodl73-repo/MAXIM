@@ -8,16 +8,16 @@ Gastrulation is the most consequential single event in development — Lewis Wol
 +──────────────────────────────────────────────────────────────────+
 |              GASTRULATION OVERVIEW                               |
 |                                                                  |
-|  BEFORE                     DURING              AFTER           |
-|  Blastocyst (3 layers)  →  Cell migration   →  Trilaminar       |
+|  BEFORE                     DURING              AFTER            |
+|  Blastocyst (3 layers)  →  Cell migration   →  Trilaminar        |
 |  Epiblast (pluripotent)     through PS          gastrula         |
 |  Trophectoderm              Ingression          3 germ layers    |
 |  Primitive endoderm         Epithelial-         Body axes set    |
 |                             mesenchymal         Organizer active |
 |                             transition (EMT)                     |
 |                                                                  |
-|  Human: Week 2-3            Primitive streak forms (Day 14-15)  |
-|  "Two week rule": UK embryo research ethics cutoff at 14 days   |
+|  Human: Week 2-3            Primitive streak forms (Day 14-15)   |
+|  "Two week rule": UK embryo research ethics cutoff at 14 days    |
 +──────────────────────────────────────────────────────────────────+
 ```
 

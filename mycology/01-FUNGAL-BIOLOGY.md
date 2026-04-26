@@ -5,7 +5,7 @@
 ```
 +------------------------------------------------------------------+
 |                    FUNGAL CELL BIOLOGY                           |
-|               (cross-section, outside to inside)                |
+|               (cross-section, outside to inside)                 |
 |                                                                  |
 |  ┌── CELL WALL (outermost) ──────────────────────────────────┐ |
 |  │  β-1,3-glucan scaffold + chitin microfibrils              │ |
@@ -13,9 +13,9 @@
 |  │  Antifungal targets: echinocandins block glucan synthase   │ |
 |  │                                                             │ |
 |  │  ┌── PLASMA MEMBRANE ──────────────────────────────────┐  │ |
-|  │  │  Ergosterol (NOT cholesterol)                        │  │ |
-|  │  │  Antifungal target: azoles block ergosterol synth    │  │ |
-|  │  │  Amphotericin B: binds ergosterol → pore             │  │ |
+|  │  │  Ergosterol (NOT cholesterol)                       │  │|
+|  │  │  Antifungal target: azoles block ergosterol synth   │  │|
+|  │  │  Amphotericin B: binds ergosterol → pore            │  │|
 |  │  │                                                       │  │ |
 |  │  │  ┌── CYTOPLASM ────────────────────────────────┐    │  │ |
 |  │  │  │  ER, Golgi, vacuoles, mitochondria          │    │  │ |
@@ -44,12 +44,12 @@ The fungal cell wall is the defining structural feature and the primary target o
 ```
 FUNGAL CELL WALL LAYERS (inside to outside):
 +--------------------------------------------------+
-|  Plasma membrane (ergosterol)                   |
+|  Plasma membrane (ergosterol)                    |
 |  β-1,3-glucan layer (branched polysaccharide)  |
 |  β-1,6-glucan crosslinks                       |
-|  Chitin fibres (embedded in glucan)             |
+|  Chitin fibres (embedded in glucan)              |
 |  α-1,3-glucan + galactomannan (outer layer)    |
-|  Mannoproteins (surface glycoproteins)          |
+|  Mannoproteins (surface glycoproteins)           |
 +--------------------------------------------------+
 
 CHITIN: poly-N-acetylglucosamine (β-1,4 linkages)
@@ -157,7 +157,7 @@ OSMOTROPHIC NUTRITION (feeding by absorption):
 
 COMPARISON TO OTHER NUTRITIONAL STRATEGIES:
 +--------------------------------------------------+
-|  Strategy      | Who         | Mechanism        |
+|  Strategy      | Who         | Mechanism         |
 +--------------------------------------------------+
 |  Photosynthesis| Plants, algae| Light → carbon  |
 |  Ingestion     | Animals     | Eat whole food   |

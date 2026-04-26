@@ -6,7 +6,7 @@ Operational semantics gives programming languages precise mathematical meaning b
 
 ```
 +--------------------------------------------------------------------------+
-|                    OPERATIONAL SEMANTICS LANDSCAPE                        |
+|                    OPERATIONAL SEMANTICS LANDSCAPE                       |
 +--------------------------------------------------------------------------+
 |                                                                          |
 |  BIG-STEP (Natural)          SMALL-STEP (SOS)                           |

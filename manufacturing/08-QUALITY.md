@@ -8,7 +8,7 @@ Quality systems span three levels: philosophical frameworks (how you think about
 QUALITY SYSTEM HIERARCHY
 ──────────────────────────────────────────────────────────────────
 ┌─────────────────────────────────────────────────────────────────┐
-│  QUALITY PHILOSOPHY / FRAMEWORK                                  │
+│  QUALITY PHILOSOPHY / FRAMEWORK                                 │
 │  Deming (System of Profound Knowledge)                          │
 │  Juran (Quality Trilogy: planning / control / improvement)      │
 │  Crosby (Zero Defects, cost of quality)                         │
@@ -20,7 +20,7 @@ QUALITY SYSTEM HIERARCHY
 │  DOE (Design of Experiments — Taguchi arrays, factorial)        │
 │  FMEA (Failure Mode and Effects Analysis)                        │
 ├─────────────────────────────────────────────────────────────────┤
-│  MANAGEMENT SYSTEMS (what to document, audit, certify)           │
+│  MANAGEMENT SYSTEMS (what to document, audit, certify)          │
 │  ISO 9001:2015        Generic QMS                               │
 │  IATF 16949           Automotive (extends ISO 9001)             │
 │  AS9100D              Aerospace/defense (extends ISO 9001)      │
@@ -393,16 +393,16 @@ External failure:    Customer returns, warranty, field fixes, recalls
 
 Optimal quality cost:
   ┌───────────────────────────────────────────────────────┐
-  │ Cost                                                   │
-  │    │   Total COQ                                       │
+  │ Cost                                                  │
+  │    │   Total COQ                                      │
   │    │     ╲                                            │
   │    │      ╲      Internal + External failure          │
-  │    │       ╲____                                       │
-  │    │       /    ────────────────────────               │
+  │    │       ╲____                                      │
+  │    │       /    ────────────────────────              │
   │    │      / Prevention + Appraisal                    │
-  │    │     /                                             │
+  │    │     /                                            │
   │    └──────────────────────────────── Quality level    │
-  │              Optimal                                   │
+  │              Optimal                                  │
   └───────────────────────────────────────────────────────┘
   Old (Juran) model shows optimum; Crosby argued zero defects
   always cheaper — debate continues in industry.

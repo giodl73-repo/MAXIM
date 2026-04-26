@@ -6,7 +6,7 @@ Shallow foundations transfer structural loads to near-surface soils — typicall
 
 ```
 +------------------------------------------------------------------+
-|          SHALLOW FOUNDATION DESIGN — DECISION FLOW              |
+|          SHALLOW FOUNDATION DESIGN — DECISION FLOW               |
 +------------------------------------------------------------------+
 |                                                                  |
 |  STRUCTURAL LOADS: Column, wall, mat loads (kN, kN/m, kPa)     |

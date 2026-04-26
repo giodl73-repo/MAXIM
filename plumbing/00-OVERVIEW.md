@@ -6,7 +6,7 @@ Residential plumbing is three independent pipe systems sharing the same walls:
 
 ```
 +------------------------------------------------------------------+
-|                    PLUMBING SYSTEM OVERVIEW                       |
+|                    PLUMBING SYSTEM OVERVIEW                      |
 +------------------------------------------------------------------+
 |                                                                  |
 |  SUPPLY SYSTEM              DWV SYSTEM           GAS SYSTEM      |
@@ -104,16 +104,16 @@ WHAT THE VENT STACK DOES:
 GOVERNING CODES
 ┌────────────────────────────────────────────────────────────┐
 │  IRC — International Residential Code                      │
-│  Chapters 25-32: plumbing for 1-2 family dwellings        │
-│  Published by ICC (International Code Council)            │
+│  Chapters 25-32: plumbing for 1-2 family dwellings         │
+│  Published by ICC (International Code Council)             │
 ├────────────────────────────────────────────────────────────┤
 │  IPC — International Plumbing Code                        │
 │  Commercial/multi-family, more comprehensive              │
 │  Published by ICC                                         │
 ├────────────────────────────────────────────────────────────┤
-│  UPC — Uniform Plumbing Code                              │
+│  UPC — Uniform Plumbing Code                               │
 │  Western states: CA, WA, OR, AZ, HI                      │
-│  Published by IAPMO                                       │
+│  Published by IAPMO                                        │
 ├────────────────────────────────────────────────────────────┤
 │  LOCAL AMENDMENTS — ALWAYS WIN                            │
 │  AHJ = Authority Having Jurisdiction = local building dept│

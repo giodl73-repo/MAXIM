@@ -13,15 +13,15 @@ MEMORY IN ORAL CULTURES: SYSTEMS AND THEORY
 |  Long-term declarative: episodic + semantic                      |
 |  Long-term procedural: skills, habits                            |
 |                                                                  |
-|  ORAL CULTURE STRATEGIES     LITERATE CULTURE STRATEGIES        |
+|  ORAL CULTURE STRATEGIES     LITERATE CULTURE STRATEGIES         |
 |  --------------------------   ----------------------------       |
-|  Method of loci               External storage (text)           |
-|  Formulaic compression        Index and retrieval               |
-|  Rhythm / meter               Cross-reference                   |
-|  Narrative embedding          Table / list                      |
-|  Mnemonic verse               Diagram                           |
-|  Social distribution          Database query                    |
-|  Repetition / rehearsal       Search engine                     |
+|  Method of loci               External storage (text)            |
+|  Formulaic compression        Index and retrieval                |
+|  Rhythm / meter               Cross-reference                    |
+|  Narrative embedding          Table / list                       |
+|  Mnemonic verse               Diagram                            |
+|  Social distribution          Database query                     |
+|  Repetition / rehearsal       Search engine                      |
 +------------------------------------------------------------------+
            |
            v

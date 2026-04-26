@@ -6,17 +6,17 @@
 +------------------------------------------------------------------+
 |              SILICATE CLASSIFICATION BY CONNECTIVITY             |
 |                                                                  |
-|  Building block: SiO₄ tetrahedron                               |
-|  Si at center, 4 oxygens at corners                             |
-|  When tetrahedra share oxygens, they polymerize                 |
+|  Building block: SiO₄ tetrahedron                                |
+|  Si at center, 4 oxygens at corners                              |
+|  When tetrahedra share oxygens, they polymerize                  |
 |                                                                  |
-|  ISOLATED          No sharing    Nesosilicates    Olivine       |
-|  PAIRS             1 shared O    Sorosilicates    Epidote       |
-|  RINGS             2 shared O    Cyclosilicates   Tourmaline    |
-|  SINGLE CHAIN      2 shared O    Inosilicates     Pyroxene      |
-|  DOUBLE CHAIN      2½ shared O   Inosilicates     Amphibole     |
-|  SHEETS            3 shared O    Phyllosilicates  Mica, clay    |
-|  3D FRAMEWORK      4 shared O    Tectosilicates   Quartz, feld. |
+|  ISOLATED          No sharing    Nesosilicates    Olivine        |
+|  PAIRS             1 shared O    Sorosilicates    Epidote        |
+|  RINGS             2 shared O    Cyclosilicates   Tourmaline     |
+|  SINGLE CHAIN      2 shared O    Inosilicates     Pyroxene       |
+|  DOUBLE CHAIN      2½ shared O   Inosilicates     Amphibole      |
+|  SHEETS            3 shared O    Phyllosilicates  Mica, clay     |
+|  3D FRAMEWORK      4 shared O    Tectosilicates   Quartz, feld.  |
 +------------------------------------------------------------------+
 
 This is literally a graph connectivity problem:

@@ -16,7 +16,7 @@ DESIGN PROCESS
         │
         ▼
 ┌───────────────────────────────────────────────────┐
-│  Define loads + environment                        │
+│  Define loads + environment                       │
 │  (forces, torques, temperatures, corrosion, ...)  │
 ├───────────────────────────────────────────────────┤
 │  Compute stresses (σ, τ) and strains              │

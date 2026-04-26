@@ -4,7 +4,7 @@
 
 ```
 +------------------------------------------------------------------+
-|               FASHION HISTORY TIMELINE                            |
+|               FASHION HISTORY TIMELINE                           |
 |                                                                  |
 |  1858   Charles Frederick Worth: invents modern couture system   |
 |  1910s  Paul Poiret: liberation from corset; orientalism         |
@@ -17,7 +17,7 @@
 |  1970s  Kenzo, Issey Miyake: Japanese designers in Paris         |
 |  1980s  Power dressing: Armani, Versace, Donna Karan             |
 |  1980s  Deconstruction: Comme des Garcons, Yamamoto              |
-|  1990s  Grunge: Cobain aesthetic -> Marc Jacobs at Perry Ellis    |
+|  1990s  Grunge: Cobain aesthetic -> Marc Jacobs at Perry Ellis   |
 |  1990s  Minimalism: Helmut Lang, Calvin Klein, Jil Sander        |
 |  2000s  McQueen theatricality; Galliano's Dior excess            |
 |  2010s  Normcore; streetwear; logo renaissance                   |

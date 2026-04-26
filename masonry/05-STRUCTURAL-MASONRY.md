@@ -95,8 +95,8 @@ UNIT STRENGTH METHOD (simplified table)
 
   Concrete Masonry f'm (psi) by mortar type:
   ┌──────────────────────────────────────────────────────────────────┐
-  │  Unit Net Strength (psi)  │  Type M or S  │  Type N             │
-  │  ─────────────────────────┼───────────────┼──────────────────── │
+  │  Unit Net Strength (psi)  │  Type M or S  │  Type N              │
+  │  ─────────────────────────┼───────────────┼────────────────────  │
   │  ≥4,800                   │  3,000        │  2,500              │
   │  ≥3,750                   │  2,500        │  2,000              │
   │  ≥2,800                   │  2,000        │  1,500              │
@@ -120,17 +120,17 @@ SLENDERNESS LIMITS (TMS 402 Empirical Design)
 
   UNREINFORCED MASONRY BEARING WALLS:
   ┌──────────────────────────────────────────────────────────────────┐
-  │  h/t ≤ 18  for solid masonry                                    │
-  │  h/t ≤ 18  for hollow masonry                                   │
+  │  h/t ≤ 18  for solid masonry                                     │
+  │  h/t ≤ 18  for hollow masonry                                    │
   │  h/t ≤ 12  for walls with d/t > 25 (cavity/composite walls)    │
   └──────────────────────────────────────────────────────────────────┘
 
   h = effective height
   ┌──────────────────────────────────────────────────────────────────┐
-  │  Both ends fixed   → h_eff = 0.5 × clear height                 │
-  │  One end pinned    → h_eff = 0.7 × clear height                 │
-  │  Both ends pinned  → h_eff = 1.0 × clear height                 │
-  │  One end free      → h_eff = 2.0 × clear height (cantilever)    │
+  │  Both ends fixed   → h_eff = 0.5 × clear height                  │
+  │  One end pinned    → h_eff = 0.7 × clear height                  │
+  │  Both ends pinned  → h_eff = 1.0 × clear height                  │
+  │  One end free      → h_eff = 2.0 × clear height (cantilever)     │
   └──────────────────────────────────────────────────────────────────┘
 
   EXAMPLE:
@@ -150,19 +150,19 @@ URM vs. RM COMPARISON
 
   UNREINFORCED MASONRY (URM)
   ┌──────────────────────────────────────────────────────────────────┐
-  │  Cross-section: solid or hollow (ungrouted)                     │
-  │  Tension: masonry mortar only (very low)                        │
+  │  Cross-section: solid or hollow (ungrouted)                      │
+  │  Tension: masonry mortar only (very low)                         │
   │  Seismic: permitted SDC A, B, C only                           │
   │  Failure mode: brittle cracking at mortar joints               │
   │  h/t limit: ≤ 18 for bearing walls                             │
-  │  Advantage: simple, low cost                                    │
+  │  Advantage: simple, low cost                                     │
   └──────────────────────────────────────────────────────────────────┘
 
   REINFORCED MASONRY (RM)
   ┌──────────────────────────────────────────────────────────────────┐
-  │  Cross-section: CMU with grout in reinforced cells              │
-  │                                                                   │
-  │  ┌────────────────────────────────────────────────────┐         │
+  │  Cross-section: CMU with grout in reinforced cells               │
+  │                                                                  │
+  │  ┌────────────────────────────────────────────────────┐          │
   │  │  [FACE][CORE w/rebar+grout][WEB][CORE ungrouted]   │         │
   │  └────────────────────────────────────────────────────┘         │
   │                                                                   │
@@ -190,7 +190,7 @@ REINFORCED CMU WALL SECTION (ASD approach)
   CROSS-SECTION AT REINFORCED CORE:
   ┌──────────────────────────────────────────────────────────────────┐
   │                  ← t = 7.625" →                                  │
-  │  ┌──────┬────────────────────────┬──────┐                       │
+  │  ┌──────┬────────────────────────┬──────┐                        │
   │  │FACE  │ GROUT                  │FACE  │ ← full grouted core   │
   │  │SHELL │   ─────  ← rebar (A_s)│SHELL │                       │
   │  │ 1.25"│         CENTERED       │ 1.25"│                       │
@@ -199,13 +199,13 @@ REINFORCED CMU WALL SECTION (ASD approach)
 
   STRESS DISTRIBUTION (ASD under combined axial + bending):
   ┌──────────────────────────────────────────────────────────────────┐
-  │  fa = P / An  (axial compressive stress)                        │
-  │  fb = M / Sn  (flexural stress)                                 │
-  │                                                                   │
+  │  fa = P / An  (axial compressive stress)                         │
+  │  fb = M / Sn  (flexural stress)                                  │
+  │                                                                  │
   │  Combined: fa/Fa + fb/Fb ≤ 1.0 (ASD interaction equation)      │
   │  where: Fa = 0.25 f'm × [1 - (h/140r)²]  for h/r ≤ 99         │
-  │         Fb = 0.33 f'm  (flexural compression allowable)         │
-  │         r  = radius of gyration of net section                  │
+  │         Fb = 0.33 f'm  (flexural compression allowable)          │
+  │         r  = radius of gyration of net section                   │
   └──────────────────────────────────────────────────────────────────┘
 ```
 
@@ -242,14 +242,14 @@ POST-TENSIONED MASONRY CONCEPT
 
   PT HARDWARE:
   ┌──────────────────────────────────────────────────────────────────┐
-  │  Anchor plate at top of wall                                    │
+  │  Anchor plate at top of wall                                     │
   │  ↑                                                               │
-  │  High-strength threaded rod or cable in CMU core (ungrouted     │
+  │  High-strength threaded rod or cable in CMU core (ungrouted      │
   │    or debonded sleeve)                                           │
   │  ↓                                                               │
   │  Anchor plate at foundation                                      │
-  │                                                                   │
-  │  Tensioning: hollow ram jack stretches rod against top plate    │
+  │                                                                  │
+  │  Tensioning: hollow ram jack stretches rod against top plate     │
   │  Locking: nut or wedge anchor locks rod at target force          │
   └──────────────────────────────────────────────────────────────────┘
 ```
@@ -306,13 +306,13 @@ SEISMIC DESIGN CATEGORY vs. MASONRY REQUIREMENTS
 
   SPECIAL REINFORCED MASONRY REQUIREMENTS (SDC D/E/F):
   ┌──────────────────────────────────────────────────────────────────┐
-  │  Vertical rebar: max spacing 48" in shear walls                 │
-  │  Horizontal rebar: max spacing 48" in shear walls               │
-  │  Minimum reinforcement: 0.0007 in each direction                │
-  │  Maximum reinforcement: complex formula (ductility limit)       │
-  │  Full grouting: all cores in shear wall zones                   │
-  │  Lap splice length: governed by development length in grout     │
-  │  Inspection: Level C (continuous special inspection) required   │
+  │  Vertical rebar: max spacing 48" in shear walls                  │
+  │  Horizontal rebar: max spacing 48" in shear walls                │
+  │  Minimum reinforcement: 0.0007 in each direction                 │
+  │  Maximum reinforcement: complex formula (ductility limit)        │
+  │  Full grouting: all cores in shear wall zones                    │
+  │  Lap splice length: governed by development length in grout      │
+  │  Inspection: Level C (continuous special inspection) required    │
   └──────────────────────────────────────────────────────────────────┘
 
   WHY MASONRY FAILS IN EARTHQUAKES:
@@ -320,9 +320,9 @@ SEISMIC DESIGN CATEGORY vs. MASONRY REQUIREMENTS
   │  URM fails in shear → diagonal X-cracking in wall panels       │
   │  URM fails in flexure → bed joint sliding at base              │
   │  URM fails out-of-plane → wall overturns from its own inertia  │
-  │                                                                   │
-  │  RM resists all three IF: rebar properly placed + fully grouted │
-  │    + walls properly connected to diaphragm                      │
+  │                                                                  │
+  │  RM resists all three IF: rebar properly placed + fully grouted  │
+  │    + walls properly connected to diaphragm                       │
   └──────────────────────────────────────────────────────────────────┘
 ```
 
@@ -336,27 +336,27 @@ DESIGN METHOD COMPARISON
 
   EMPIRICAL DESIGN (TMS 402 Chapter 5):
   ┌──────────────────────────────────────────────────────────────────┐
-  │  Rules of thumb based on historical practice                    │
-  │  No stress calculations required                                │
+  │  Rules of thumb based on historical practice                     │
+  │  No stress calculations required                                 │
   │  Limits: ≤3 stories OR ≤35 ft height, low seismic only         │
   │  Wall thickness minimums, h/t limits, bearing width requirements│
-  │  Adequate for small, simple, low-seismic buildings              │
+  │  Adequate for small, simple, low-seismic buildings               │
   └──────────────────────────────────────────────────────────────────┘
 
   ENGINEERED DESIGN — ASD (TMS 402 Chapter 8):
   ┌──────────────────────────────────────────────────────────────────┐
-  │  Working stress design                                          │
+  │  Working stress design                                           │
   │  Allowable stresses = fraction of f'm (safety factor embedded) │
   │  Interaction equation: fa/Fa + fb/Fb ≤ 1.0                    │
-  │  Simple to apply; conservative                                  │
+  │  Simple to apply; conservative                                   │
   │  Industry standard for mid-20th century through today          │
   └──────────────────────────────────────────────────────────────────┘
 
   ENGINEERED DESIGN — Strength (TMS 402 Chapter 9):
   ┌──────────────────────────────────────────────────────────────────┐
   │  Factored loads × load factors (matches LRFD philosophy)       │
-  │  φ factors on nominal strength                                  │
-  │  More complex; allows more economical designs                   │
+  │  φ factors on nominal strength                                   │
+  │  More complex; allows more economical designs                    │
   │  Required for some high-seismic applications                   │
   └──────────────────────────────────────────────────────────────────┘
 ```

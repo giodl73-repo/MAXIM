@@ -6,7 +6,7 @@ Weathering is the chemical and physical breakdown of rocks at or near the Earth'
 
 ```
 +------------------------------------------------------------------+
-|                    WEATHERING SYSTEM                              |
+|                    WEATHERING SYSTEM                             |
 +------------------------------------------------------------------+
 |                                                                  |
 |  PHYSICAL WEATHERING          CHEMICAL WEATHERING                |

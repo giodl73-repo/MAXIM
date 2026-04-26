@@ -14,9 +14,9 @@ HISTORIOGRAPHY — HOW HISTORIANS KNOW WHAT THEY KNOW
                             │
                     EVIDENCE LAYER
   ┌────────────────────────────────────────────────────────────┐
-  │  Documents · Archives · Artifacts · Oral testimony        │
-  │  Inscriptions · Statistics · Photographs · Recordings     │
-  │  (Biased: produced by literate, powerful, surviving)      │
+  │  Documents · Archives · Artifacts · Oral testimony         │
+  │  Inscriptions · Statistics · Photographs · Recordings      │
+  │  (Biased: produced by literate, powerful, surviving)       │
   └────────────────────────────────────────────────────────────┘
                             │
                METHODOLOGICAL CHOICES
@@ -30,8 +30,8 @@ HISTORIOGRAPHY — HOW HISTORIANS KNOW WHAT THEY KNOW
                THEORETICAL FRAMEWORKS
   ┌────────────────────────────────────────────────────────────┐
   │  Rankean positivism · Marxist · Annales · Cambridge School │
-  │  Social history · Quantitative / digital history          │
-  │  Poststructuralist · Postcolonial                         │
+  │  Social history · Quantitative / digital history           │
+  │  Poststructuralist · Postcolonial                          │
   └────────────────────────────────────────────────────────────┘
                             │
                         OUTPUT
@@ -115,7 +115,7 @@ GREAT MAN vs. STRUCTURAL HISTORY
   ┌────────────────────┐        ┌────────────────────────────────┐
   │ Thomas Carlyle     │        │ Marx, Weber, Durkheim, Tilly   │
   │ (1841): "The       │        │                                │
-  │ history of the     │        │ Structural forces determine     │
+  │ history of the     │        │ Structural forces determine    │
   │ world is but the   │        │ outcomes; individuals operate  │
   │ biography of great │        │ within constraints they        │
   │ men"               │        │ didn't choose and can't escape │

@@ -4,7 +4,7 @@
 
 ```
 +------------------------------------------------------------------+
-|                  FASHION INDUSTRY STRUCTURE                       |
+|                  FASHION INDUSTRY STRUCTURE                      |
 |                                                                  |
 |  UPSTREAM (raw materials)                                        |
 |  Fiber production -> Yarn spinning -> Fabric weaving/knitting    |

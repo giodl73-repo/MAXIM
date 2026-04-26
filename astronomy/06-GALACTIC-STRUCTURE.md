@@ -128,17 +128,17 @@ The thick disk is structurally and chemically distinct: older, hotter (velocity 
 ```
   BAR MORPHOLOGY:
   ┌─────────────────────────────────────────────────────────────────┐
-  │  Triaxial bar: axis ratios roughly 1 : 0.4 : 0.3               │
-  │  Half-length: ~3.5 kpc (to "bar ends")                         │
-  │  Bar angle: ~27° between bar major axis and Sun–GC line        │
+  │  Triaxial bar: axis ratios roughly 1 : 0.4 : 0.3                │
+  │  Half-length: ~3.5 kpc (to "bar ends")                          │
+  │  Bar angle: ~27° between bar major axis and Sun–GC line         │
   │  Pattern speed Ω_bar ~ 40–45 km/s/kpc (controversial)         │
-  │                                                                  │
+  │                                                                 │
   │  "Boxy/Peanut" (B/P) morphology in central ~2.5 kpc:          │
-  │  Viewed edge-on, the bulge has an X-shape                      │
+  │  Viewed edge-on, the bulge has an X-shape                       │
   │  Origin: vertical resonance — bar undergoes BUCKLING instability│
   │  When bar amplitude exceeds threshold, vertical resonance       │
   │  (2:1 vertical frequency to bar tumbling) heats stars into      │
-  │  off-plane banana-shaped orbits → peanut morphology            │
+  │  off-plane banana-shaped orbits → peanut morphology             │
   └─────────────────────────────────────────────────────────────────┘
   This is NOT a classical bulge (slowly built by mergers).
   It's a PSEUDO-BULGE — the buckled inner bar.
@@ -184,15 +184,15 @@ Proposed by C.C. Lin and Frank Shu (1964): spiral arms are **density waves** —
   DENSITY WAVE PICTURE:
   ┌──────────────────────────────────────────────────────────────────┐
   │                                                                  │
-  │   Stars/gas orbit at local Ω(R).                                │
+  │   Stars/gas orbit at local Ω(R).                                 │
   │   The density wave pattern rotates at Ω_p ~ 25–30 km/s/kpc.   │
   │                                                                  │
-  │   Stars inside corotation (R < R_CR):                           │
+  │   Stars inside corotation (R < R_CR):                            │
   │     Ω(R) > Ω_p → stars overtake the pattern                   │
   │     Stars slow down, pile up, then pass through                  │
   │     Net effect: enhanced density in the arm → SF triggered       │
   │                                                                  │
-  │   Stars outside corotation (R > R_CR):                          │
+  │   Stars outside corotation (R > R_CR):                           │
   │     Ω(R) < Ω_p → pattern overtakes stars                      │
   │                                                                  │
   │   COROTATION RADIUS: Ω(R_CR) = Ω_p                            │
@@ -301,10 +301,10 @@ Navarro, Frenk & White (1996, 1997) showed N-body CDM halos converge to a univer
   NFW DENSITY PROFILE:
   ┌─────────────────────────────────────────────────────────────────┐
   │  ρ_NFW(r) = ρ_s / [(r/r_s)(1 + r/r_s)²]                      │
-  │                                                                  │
-  │  r_s   = scale radius (~20 kpc for MW)                         │
-  │  ρ_s   = characteristic density (set by halo concentration c)  │
-  │                                                                  │
+  │                                                                 │
+  │  r_s   = scale radius (~20 kpc for MW)                          │
+  │  ρ_s   = characteristic density (set by halo concentration c)   │
+  │                                                                 │
   │  Asymptotic behavior:                                           │
   │    r << r_s:  ρ ∝ r⁻¹   (cuspy inner profile)                 │
   │    r >> r_s:  ρ ∝ r⁻³   (rapid outer fall-off)                │
@@ -550,16 +550,16 @@ The closed-box model predicts too many metal-poor ([Fe/H] < −1) G dwarfs in th
   ┌─────────────────────────────────────────────────────────────────┐
   │  Mass: M_• = 4.154 ± 0.014 × 10⁶ M☉                          │
   │  [GRAVITY Collaboration, Abuter et al. 2019, A&A 625, L10]    │
-  │                                                                  │
+  │                                                                 │
   │  Schwarzschild radius:                                          │
   │  r_S = 2GM/c² = 2 × 6.67×10⁻⁸ × 4.15×10⁶ × 2×10³³           │
-  │           / (3×10¹⁰)²                                          │
+  │           / (3×10¹⁰)²                                           │
   │       ~ 1.24×10¹² cm ~ 0.083 AU                               │
-  │                                                                  │
+  │                                                                 │
   │  Angular size: θ = r_S / D = 0.083 AU / 8.178 kpc ~ 10 μas    │
-  │  EHT resolution: ~20 μas at 230 GHz → Sgr A* marginally        │
+  │  EHT resolution: ~20 μas at 230 GHz → Sgr A* marginally         │
   │  resolvable (EHT 2022 image published)                          │
-  │                                                                  │
+  │                                                                 │
   │  Luminosity: L_Sgr A* ~ 10³⁶ erg/s ~ 300 L☉                  │
   │  Eddington limit: L_Edd = 4πGMc/κ ~ 5×10⁴⁴ erg/s             │
   │  → Sgr A* radiates at ~10⁻⁸ of Eddington (DORMANT GALACTIC CENTER) │
@@ -574,18 +574,18 @@ The most direct BH mass determination comes from stellar orbits in the S-star cl
   S2/S0-2 ORBIT:
   ┌─────────────────────────────────────────────────────────────────┐
   │  Period:       P = 16.0 yr                                      │
-  │  Semi-major axis: a = 1025 AU = 0.005 pc                       │
-  │  Eccentricity: e = 0.884 (highly elliptical)                   │
+  │  Semi-major axis: a = 1025 AU = 0.005 pc                        │
+  │  Eccentricity: e = 0.884 (highly elliptical)                    │
   │  Pericenter:   r_p = a(1−e) = 119 AU = 1430 r_S               │
-  │                                                                  │
+  │                                                                 │
   │  KEPLER → BH MASS:                                              │
   │  M = 4π²a³/(GP²) = 4π²(1025×1.496×10¹³)³/(6.67×10⁻⁸×(16×3.15×10⁷)²) │
   │  ~ 4.15×10⁶ M☉                                                │
-  │                                                                  │
-  │  GR EFFECTS DETECTED (GRAVITY Collaboration 2020):             │
+  │                                                                 │
+  │  GR EFFECTS DETECTED (GRAVITY Collaboration 2020):              │
   │  1. Gravitational redshift at pericenter:                       │
   │     Δz = Δv_grav/c = GM/(r_p c²) − v_p²/2c²                   │
-  │     First confirmed in S2 pericenter passage 2018              │
+  │     First confirmed in S2 pericenter passage 2018               │
   │  2. Schwarzschild precession of orbital periapsis:              │
   │     Δφ = 6πGM/(ac²(1−e²)) per orbit                           │
   │         ~ 12' per orbit for S2 → detected 2020                │
@@ -610,8 +610,8 @@ The most direct BH mass determination comes from stellar orbits in the S-star cl
   │        ╭───────────────╮   south bubble                           │
   │       ╭╯               ╰╮  symmetric counterpart                  │
   │       │  ~10 kpc tall   │                                         │
-  │       ╰╮               ╭╯  Total energy ~ 10⁵⁵ J                 │
-  │        ╰───────────────╯                                           │
+  │       ╰╮               ╭╯  Total energy ~ 10⁵⁵ J                  │
+  │        ╰───────────────╯                                          │
   └─────────────────────────────────────────────────────────────────────┘
 
   ORIGIN DEBATE:
@@ -636,20 +636,20 @@ The most direct BH mass determination comes from stellar orbits in the S-star cl
   │  Total gas mass: ~ 5×10⁷ M☉ (mostly molecular H₂)             │
   │  Gas density: n > 10⁴ cm⁻³ (100× higher than spiral arm GMCs) │
   │  Temperature: T_gas ~ 60–200 K (warm due to cosmic rays, shocks)│
-  │  Turbulent velocity: σ ~ 10–30 km/s (hugely supersonic)        │
-  │                                                                  │
+  │  Turbulent velocity: σ ~ 10–30 km/s (hugely supersonic)         │
+  │                                                                 │
   │  LANDMARKS (in order of position, roughly):                     │
-  │  Sgr C (l ~ −0.5°): dense cloud + HII region                   │
+  │  Sgr C (l ~ −0.5°): dense cloud + HII region                    │
   │  Sgr B2 (l ~ +0.7°): most massive GMC in MW (~10⁷ M☉),        │
   │                        site of complex organic chemistry        │
-  │  Sgr A West (l ~ 0°): minispiral of ionized gas                │
-  │                        orbiting within 1 pc of Sgr A*          │
-  │  Sgr A East (l ~ 0°): expanding shell of non-thermal emission  │
+  │  Sgr A West (l ~ 0°): minispiral of ionized gas                 │
+  │                        orbiting within 1 pc of Sgr A*           │
+  │  Sgr A East (l ~ 0°): expanding shell of non-thermal emission   │
   │                        ~ supernova remnant                      │
-  │                                                                  │
+  │                                                                 │
   │  SFR in CMZ: ~0.05–0.1 M☉/yr — surprisingly LOW given         │
-  │  high gas density (expected: ~1 M☉/yr from Kennicutt-Schmidt)  │
-  │  Open problem: strong turbulence + magnetic pressure suppress SF │
+  │  high gas density (expected: ~1 M☉/yr from Kennicutt-Schmidt)   │
+  │  Open problem: strong turbulence + magnetic pressure suppress SF│
   └─────────────────────────────────────────────────────────────────┘
 ```
 
@@ -658,19 +658,19 @@ The most direct BH mass determination comes from stellar orbits in the S-star cl
 ```
   HILLS MECHANISM (Hills 1988):
   ┌─────────────────────────────────────────────────────────────────┐
-  │  A stellar binary approaches Sgr A* on a near-radial orbit.    │
+  │  A stellar binary approaches Sgr A* on a near-radial orbit.     │
   │  Tidal disruption of the binary:                                │
   │    r_t = a_binary (M_BH / m_binary)^{1/3}                     │
-  │  One star is CAPTURED (extreme hardening of orbit around BH)   │
+  │  One star is CAPTURED (extreme hardening of orbit around BH)    │
   │  Other star is EJECTED with velocity:                           │
   │    v_HVS ~ √(2GM_BH/r_t) × (m_binary/M_BH)^{1/6}             │
-  │          ~ few × 10³ km/s at ejection                          │
-  │                                                                  │
-  │  Observed HVS (Brown et al. 2005 first discovery):             │
+  │          ~ few × 10³ km/s at ejection                           │
+  │                                                                 │
+  │  Observed HVS (Brown et al. 2005 first discovery):              │
   │    ~30 HVS candidates with v > 400 km/s (> v_esc at R☉)       │
-  │    Mostly B-type stars (short-lived → constrain ejection time) │
-  │    Anisotropic on sky → trace back to GC (not disk sources)    │
-  │    Current record holder: ~700 km/s                            │
+  │    Mostly B-type stars (short-lived → constrain ejection time)  │
+  │    Anisotropic on sky → trace back to GC (not disk sources)     │
+  │    Current record holder: ~700 km/s                             │
   └─────────────────────────────────────────────────────────────────┘
 ```
 
@@ -702,7 +702,7 @@ The key question: do gravitational encounters between individual stars matter?
   │  t_relax ~ N / (8 ln N) × t_cross                              │
   │                                                                  │
   │  t_cross = R/σ = crossing time (~ orbit period)                │
-  │  N = number of "field stars"                                    │
+  │  N = number of "field stars"                                     │
   └──────────────────────────────────────────────────────────────────┘
 
   FOR MILKY WAY DISK:
@@ -729,8 +729,8 @@ For a collisionless system, the distribution function f(x, v, t) evolves via:
   COLLISIONLESS BOLTZMANN EQUATION (CBE):
   ┌─────────────────────────────────────────────────────────────────┐
   │  ∂f/∂t + v · ∇_x f − ∇Φ · ∇_v f = 0                         │
-  │                                                                  │
-  │  (also written: df/dt = 0  along phase-space trajectories)     │
+  │                                                                 │
+  │  (also written: df/dt = 0  along phase-space trajectories)      │
   └─────────────────────────────────────────────────────────────────┘
 
   f(x, v, t): number of stars per unit volume per unit velocity volume
@@ -757,8 +757,8 @@ For a collisionless system, the distribution function f(x, v, t) evolves via:
   │  In steady state (∂f/∂t = 0), f depends on phase-space        │
   │  coordinates ONLY through integrals of motion (constants of     │
   │  motion along orbits).                                          │
-  │                                                                  │
-  │  Strong form: For an integrable potential with isolating         │
+  │                                                                 │
+  │  Strong form: For an integrable potential with isolating        │
   │  integrals I₁, I₂, I₃:    f = f(I₁, I₂, I₃)                  │
   └─────────────────────────────────────────────────────────────────┘
 
@@ -821,7 +821,7 @@ Stars on nearly circular orbits undergo small oscillations — this is the epicy
   EPICYCLIC ORBIT GEOMETRY:
   ┌────────────────────────────────────────────────────────────────────┐
   │  Guiding center radius: R_g (set by L_z = R_g v_c(R_g))         │
-  │  Radial displacement: x = R − R_g                                 │
+  │  Radial displacement: x = R − R_g                                  │
   │  Radial oscillation: ẍ = −κ² x                                   │
   │  (κ = epicyclic frequency, defined in Section 4.3)               │
   │                                                                    │
@@ -829,17 +829,17 @@ Stars on nearly circular orbits undergo small oscillations — this is the epicy
   │    R(t) = R_g + A cos(κt + φ₀)                                   │
   │    φ(t) = Ω_g t − (2A Ω_g)/(κ R_g) sin(κt + φ₀)               │
   │                                                                    │
-  │  The orbit traces an ELLIPSE (epicycle) about the guiding center. │
-  │  In the guiding center frame: the star moves on an ellipse with   │
+  │  The orbit traces an ELLIPSE (epicycle) about the guiding center.  │
+  │  In the guiding center frame: the star moves on an ellipse with    │
   │  axis ratio (radial:azimuthal) = κ : 2Ω                         │
   │  For flat curve: κ = √2 Ω → axis ratio 1/√2 ~ 0.71              │
   │                                                                    │
-  │  WHY ORBITS DON'T CLOSE in general:                               │
+  │  WHY ORBITS DON'T CLOSE in general:                                │
   │  Orbital period = 2π/Ω_g (azimuthal return time)                 │
-  │  Epicyclic period = 2π/κ                                          │
+  │  Epicyclic period = 2π/κ                                           │
   │  For orbit to close: κ/Ω = rational number                       │
   │  For flat curve: κ/Ω = √2 = irrational → orbits DON'T close     │
-  │  → rosette patterns (they precess)                                │
+  │  → rosette patterns (they precess)                                 │
   └────────────────────────────────────────────────────────────────────┘
 
   VELOCITY DISPERSION vs DISK HEATING:
@@ -894,18 +894,18 @@ Stars on nearly circular orbits undergo small oscillations — this is the epicy
   ┌──────────────────────────────────────────────────────────────────┐
   │  r_t = R × (m / 3M(R))^{1/3}                                   │
   │                                                                  │
-  │  DERIVATION: At the satellite's edge, the tidal force from MW   │
+  │  DERIVATION: At the satellite's edge, the tidal force from MW    │
   │  equals the satellite's self-gravity:                            │
   │  2GM(R) r_t / R³  = G m / r_t²                                 │
   │  → r_t³ = m R³ / (2M(R))                                       │
-  │  [factor of 2 → 3 from including centrifugal term in rotating   │
+  │  [factor of 2 → 3 from including centrifugal term in rotating    │
   │  frame, Roche criterion]                                         │
   │                                                                  │
   │  EXAMPLE: Sagittarius dwarf (M_Sgr ~ 10⁸ M☉) at R = 20 kpc:  │
   │  M_MW(20 kpc) ~ 10¹¹ M☉                                        │
   │  r_t = 20 × (10⁸/3×10¹¹)^{1/3} = 20 × (3.3×10⁻⁴)^{1/3}      │
   │      = 20 × 0.069 ~ 1.4 kpc                                    │
-  │  → Stars beyond ~1.4 kpc from Sgr center get tidally stripped   │
+  │  → Stars beyond ~1.4 kpc from Sgr center get tidally stripped    │
   └──────────────────────────────────────────────────────────────────┘
 
   TIDAL STREAMS:
@@ -960,20 +960,20 @@ The LMC is not a typical small satellite. Its mass (~10% of the MW disk mass) ma
   │  LMC mass: M_LMC ~ 1.5×10¹⁰ M☉ (from stellar mass + subhalos)  │
   │  Pericenter: ~50 kpc, 50 Myr ago (FIRST pericenter — not on a    │
   │  long-bound orbit, just arrived on cosmological infall trajectory)│
-  │                                                                    │
+  │                                                                     │
   │  EFFECTS ON MW:                                                   │
   │  1. DARK MATTER WAKE: LMC gravitationally drags DM halo behind   │
   │     it as it orbits → overdense trailing wake detected in         │
   │     RR Lyrae star counts (Conker et al. 2021)                    │
-  │                                                                    │
+  │                                                                     │
   │  2. REFLEX MOTION OF MW: LMC's gravity pulls MW inner halo       │
   │     toward LMC → MW disk is offset from MW halo center by ~30 kpc│
   │     This induces apparent proper motion of SGR A* (spurious!)     │
   │     and must be corrected for in MW mass measurements             │
-  │                                                                    │
+  │                                                                     │
   │  3. DISK PERTURBATION: LMC induces a warp + corrugations in      │
   │     the outer MW disk (confirmed in Gaia red giant branch stars)  │
-  │                                                                    │
+  │                                                                     │
   │  4. MW-ANDROMEDA MERGER TIMING: LMC infall adds uncertainty       │
   │     to MW total mass → collision timing uncertain by ~1 Gyr       │
   └─────────────────────────────────────────────────────────────────────┘
@@ -1025,9 +1025,9 @@ The LMC is not a typical small satellite. Its mass (~10% of the MW disk mass) ma
   │ Resolution: baryonic feedback (repeated SN outbursts) heats DM     │
   │ cusp → core. Works for dwarfs with SFH; fails for halos with no SF. │
   ├──────────────────────────────────────────────────────────────────────┤
-  │ Planes of Satellites │ Isotropic         │ MW + M31 sats    │ Active  │
-  │ (great plane problem)│ accretion → no    │ in co-planar     │ debate  │
-  │                      │ preferred plane   │ co-rotating plane│         │
+  │ Planes of Satellites │ Isotropic         │ MW + M31 sats    │ Active │
+  │ (great plane problem)│ accretion → no    │ in co-planar     │ debate │
+  │                      │ preferred plane   │ co-rotating plane│        │
   │ Resolution: filamentary accretion along cosmic web; but            │
   │ co-rotation is hard to explain. Some say statistical fluke.        │
   └──────────────────────────────────────────────────────────────────────┘
@@ -1092,24 +1092,24 @@ The LMC is not a typical small satellite. Its mass (~10% of the MW disk mass) ma
   EXPONENTIAL DISK (Freeman 1970):
   ┌─────────────────────────────────────────────────────────────────┐
   │  Σ(R) = Σ₀ exp(−R/R_d)                                        │
-  │                                                                  │
-  │  Σ₀ = central surface density [M☉/pc²]                         │
+  │                                                                 │
+  │  Σ₀ = central surface density [M☉/pc²]                          │
   │  R_d = scale length [kpc]                                       │
   │  μ(R) = μ₀ + 1.086 R/R_d   [magnitude/arcsec²; 1.086 = 2.5/ln10]│
-  │                                                                  │
+  │                                                                 │
   │  MW: R_d ~ 3.5 kpc, Σ₀(R☉) derived from deprojection          │
   └─────────────────────────────────────────────────────────────────┘
 
   SÉRSIC PROFILE (de Vaucouleurs 1948 generalized by Sérsic 1963):
   ┌─────────────────────────────────────────────────────────────────┐
   │  Σ(R) = Σ_e exp{−b_n [(R/R_e)^{1/n} − 1]}                    │
-  │                                                                  │
+  │                                                                 │
   │  R_e = effective radius (half-light radius)                     │
   │  Σ_e = surface density at R_e                                   │
   │  n   = Sérsic index                                             │
   │  b_n ≈ 2n − 1/3 + 4/(405n) + ...  (from Γ(2n) = 2γ(2n, b_n)) │
-  │                                                                  │
-  │  n=1: exponential disk (b_1 ≈ 1.678)                           │
+  │                                                                 │
+  │  n=1: exponential disk (b_1 ≈ 1.678)                            │
   │  n=4: de Vaucouleurs profile (classical ellipticals) (b_4 ≈ 7.67)│
   │  n<2: pseudo-bulge (disk-like)                                  │
   │  n>2: classical bulge / elliptical                              │
@@ -1118,14 +1118,14 @@ The LMC is not a typical small satellite. Its mass (~10% of the MW disk mass) ma
   SCHECHTER LUMINOSITY FUNCTION:
   ┌─────────────────────────────────────────────────────────────────┐
   │  φ(L) dL = φ* (L/L*)^α exp(−L/L*) d(L/L*)                    │
-  │                                                                  │
+  │                                                                 │
   │  L* ~ 2×10¹⁰ L☉ (characteristic "knee" luminosity)            │
   │  α ~ −1.05 (faint-end slope; −1 → equal mass per decade in L) │
   │  φ* ~ 1.4×10⁻² h³ Mpc⁻³ (normalization)                      │
-  │                                                                  │
+  │                                                                 │
   │  L >> L*: exponential cutoff → rare very luminous galaxies      │
   │  L << L*: power-law rise → many faint galaxies                  │
-  │  L* corresponds to MW ~ M31 luminosity range                   │
+  │  L* corresponds to MW ~ M31 luminosity range                    │
   └─────────────────────────────────────────────────────────────────┘
 ```
 
@@ -1136,14 +1136,14 @@ The LMC is not a typical small satellite. Its mass (~10% of the MW disk mass) ma
   ┌─────────────────────────────────────────────────────────────────┐
   │  L ∝ v_c^4    (spiral galaxies; v_c from 21-cm HI linewidth)  │
   │  or: M_* ∝ v_c^4 (more fundamental; stellar mass TF relation) │
-  │                                                                  │
+  │                                                                 │
   │  DERIVATION SKETCH:                                             │
   │  Assume: M ∝ v_c² R (virial), Σ ~ const (Freeman), L ∝ M_*:  │
   │  M ~ v_c² R, R ∝ M^{1/2}/Σ^{1/2} → M ∝ v_c^4/Σ             │
-  │  For constant Σ: M ∝ v_c^4                                     │
-  │                                                                  │
+  │  For constant Σ: M ∝ v_c^4                                      │
+  │                                                                 │
   │  USE: Standard ruler/candle for distances to spiral galaxies    │
-  │  (measure v_c from emission lines; get intrinsic L; compare to │
+  │  (measure v_c from emission lines; get intrinsic L; compare to  │
   │  apparent magnitude → distance)                                 │
   └─────────────────────────────────────────────────────────────────┘
 
@@ -1154,35 +1154,35 @@ The LMC is not a typical small satellite. Its mass (~10% of the MW disk mass) ma
   FUNDAMENTAL PLANE (Dressler 1987, Djorgovski & Davis 1987):
   ┌─────────────────────────────────────────────────────────────────┐
   │  log R_e = α log σ₀ + β log <I_e> + γ                         │
-  │                                                                  │
-  │  Standard values: α ~ 1.24, β ~ −0.82                          │
+  │                                                                 │
+  │  Standard values: α ~ 1.24, β ~ −0.82                           │
   │  Scatter: ~0.07 dex in log R_e (< 20% in R_e)                 │
-  │                                                                  │
+  │                                                                 │
   │  VIRIAL EXPECTATION:                                            │
-  │  Virial theorem: M ∝ σ² R_e                                    │
+  │  Virial theorem: M ∝ σ² R_e                                     │
   │  M/L = const → L ∝ M → L ∝ Σ R_e² → Σ_e ∝ M/R_e²            │
   │  Combining: R_e ∝ σ^2 / Σ_e   [virial FP]                     │
   │  α=2, β=−1 expected; observed α=1.24 → "tilt" of FP          │
-  │  Tilt due to: M/L increasing with mass (massive ellipticals    │
+  │  Tilt due to: M/L increasing with mass (massive ellipticals     │
   │  have older stellar populations + more DM contribution)         │
   └─────────────────────────────────────────────────────────────────┘
 
   GALAXY BIMODALITY:
   ┌─────────────────────────────────────────────────────────────────┐
   │              M_* ~ 3×10¹⁰ M☉                                  │
-  │              (green valley transition)                           │
+  │              (green valley transition)                          │
   │   LOW MASS:                          HIGH MASS:                 │
   │   Blue Cloud                         Red Sequence               │
   │   Star-forming                       Quiescent                  │
   │   Exponential disks                  de Vaucouleurs / Sérsic n>2 │
   │   Low [Fe/H] (ongoing infall)        High [Fe/H], old           │
   │   Isolated or low-density envs       Cluster centers            │
-  │                                                                  │
+  │                                                                 │
   │   QUENCHING MECHANISMS:                                         │
   │   1. AGN feedback: energy/momentum from SMBH → ejects/heats gas │
   │   2. Virial heating: in M > 10¹² M☉ halos, infalling gas shocks│
-  │      to T_vir and can't cool fast → no cold gas → no SF        │
-  │   3. Ram-pressure stripping: ICM strips ISM from satellite       │
+  │      to T_vir and can't cool fast → no cold gas → no SF         │
+  │   3. Ram-pressure stripping: ICM strips ISM from satellite      │
   │      galaxies in clusters → "jellyfish galaxies"                │
   │   4. Strangulation: halo stripped → no further gas accretion    │
   └─────────────────────────────────────────────────────────────────┘
@@ -1198,21 +1198,21 @@ The LMC is not a typical small satellite. Its mass (~10% of the MW disk mass) ma
   CDM STRUCTURE FORMATION HIERARCHY:
   ┌──────────────────────────────────────────────────────────────────┐
   │  POWER SPECTRUM: P(k) ∝ k^n_s T²(k)                           │
-  │  n_s ~ 0.965 (primordial tilt from inflation)                   │
-  │  T(k) = transfer function (suppresses small scales below        │
-  │          matter-radiation equality horizon ~ 100 Mpc comoving)  │
+  │  n_s ~ 0.965 (primordial tilt from inflation)                    │
+  │  T(k) = transfer function (suppresses small scales below         │
+  │          matter-radiation equality horizon ~ 100 Mpc comoving)   │
   │                                                                  │
-  │  BOTTOM-UP (hierarchical) for CDM:                              │
+  │  BOTTOM-UP (hierarchical) for CDM:                               │
   │  Small halos (10⁶ M☉) collapse first at z ~ 20–30              │
-  │  Merge progressively → larger halos                             │
+  │  Merge progressively → larger halos                              │
   │  Galaxy clusters (10¹⁴ M☉) only assemble recently (z < 1)     │
   │                                                                  │
-  │  CONTRAST with WDM / HDM:                                       │
-  │  HDM (neutrinos): free-stream far, small scales erased          │
-  │  → top-down structure: large pancakes fragment into galaxies    │
+  │  CONTRAST with WDM / HDM:                                        │
+  │  HDM (neutrinos): free-stream far, small scales erased           │
+  │  → top-down structure: large pancakes fragment into galaxies     │
   │  Observed large-scale structure (voids, filaments, walls)        │
-  │  + galaxy formation times → rules out HDM (neutrino masses      │
-  │  too large ruled out by Lyman-α forest + CMB).                  │
+  │  + galaxy formation times → rules out HDM (neutrino masses       │
+  │  too large ruled out by Lyman-α forest + CMB).                   │
   └──────────────────────────────────────────────────────────────────┘
 ```
 
@@ -1223,7 +1223,7 @@ White & Rees (1978) formulated the key physics: gas falls into DM potential well
 ```
   WHITE-REES CONDITION:
   ┌──────────────────────────────────────────────────────────────────┐
-  │  Gas in halo virial shock heated to:                            │
+  │  Gas in halo virial shock heated to:                             │
   │  T_vir = μ m_H v_c² / (2 k_B)                                  │
   │        ~ 5×10⁵ K (v_c/100 km/s)²     [for μ = 0.59]           │
   │                                                                  │
@@ -1238,18 +1238,18 @@ White & Rees (1978) formulated the key physics: gas falls into DM potential well
   │                                                                  │
   │  GALAXY FORMATION CONDITION: t_cool < t_dyn                    │
   │  → Gas can radiate away its thermal energy faster than it        │
-  │    would gravitationally disperse → collapse → star formation   │
+  │    would gravitationally disperse → collapse → star formation    │
   │                                                                  │
-  │  THIS IS MET FOR:                                               │
+  │  THIS IS MET FOR:                                                │
   │    Halos with M ~ 10¹⁰–10¹² M☉ (T_vir in cooling peak)       │
-  │    → galaxy mass scale! Explains why galaxies have masses in    │
-  │      this range (White-Rees 1978 — fundamental result).         │
+  │    → galaxy mass scale! Explains why galaxies have masses in     │
+  │      this range (White-Rees 1978 — fundamental result).          │
   │                                                                  │
-  │  NOT MET FOR:                                                   │
+  │  NOT MET FOR:                                                    │
   │    M < 10¹⁰ M☉: gas heated by UV background after reionization │
-  │                   → gas photo-evaporated, no SF                 │
-  │    M > 10¹² M☉: cooling time >> dynamical time even with metals │
-  │                   → VIRIAL SHOCK; hot diffuse halo; no cold     │
+  │                   → gas photo-evaporated, no SF                  │
+  │    M > 10¹² M☉: cooling time >> dynamical time even with metals  │
+  │                   → VIRIAL SHOCK; hot diffuse halo; no cold      │
   │                     inflow → no star formation → red, dead       │
   └──────────────────────────────────────────────────────────────────┘
 ```
@@ -1262,23 +1262,23 @@ White & Rees (1978) formulated the key physics: gas falls into DM potential well
   │  M_halo < ~10¹² M☉  (T_vir < ~2×10⁶ K):                      │
   │    COLD ACCRETION: infalling gas streams along dark matter       │
   │    filaments, never shocks, reaches disk as cold (T ~ 10⁴ K)   │
-  │    dense streams → efficient SF                                 │
-  │    → Blue, star-forming, gas-rich galaxies                      │
+  │    dense streams → efficient SF                                  │
+  │    → Blue, star-forming, gas-rich galaxies                       │
   │                                                                  │
   │  M_halo > ~10¹² M☉  (T_vir > ~2×10⁶ K):                      │
   │    VIRIAL SHOCK: infalling gas cannot penetrate hot halo         │
-  │    (shock heating + AGN feedback prevents cooling)              │
+  │    (shock heating + AGN feedback prevents cooling)               │
   │    → No cold supply → quenching → red sequence                 │
   │                                                                  │
   │  The ~10¹² M☉ threshold is the "bimodality mass" → it          │
   │  corresponds to the L* transition in the galaxy luminosity       │
-  │  function and the star-forming/quiescent bimodality.            │
+  │  function and the star-forming/quiescent bimodality.             │
   │                                                                  │
-  │  At HIGH REDSHIFT (z > 2):                                      │
+  │  At HIGH REDSHIFT (z > 2):                                       │
   │    Even massive halos can have cold streams penetrate through    │
   │    the hot halo along cosmic web filaments → explains why        │
-  │    z~2 SMGs (massive, dusty SF galaxies) exist and form stars   │
-  │    rapidly despite being in massive halos.                      │
+  │    z~2 SMGs (massive, dusty SF galaxies) exist and form stars    │
+  │    rapidly despite being in massive halos.                       │
   └──────────────────────────────────────────────────────────────────┘
 ```
 
@@ -1289,35 +1289,35 @@ White & Rees (1978) formulated the key physics: gas falls into DM potential well
   ┌─────────────────────────────────────────────────────────────────┐
   │  Each SN releases ~10⁵¹ erg. With SFR ~ 1 M☉/yr:              │
   │  SN rate ~ 1/100 yr → power ~ 10⁵¹ erg / 10⁷ yr ~ 3×10³⁶ W  │
-  │                                                                  │
-  │  In low-mass halos: v_esc small → SN energy can drive winds    │
+  │                                                                 │
+  │  In low-mass halos: v_esc small → SN energy can drive winds     │
   │  that eject gas, enrich CGM, suppress SF                        │
   │  Mass loading: η = Ṁ_wind / SFR ~ 1–10 for dwarf galaxies     │
-  │  Coupling efficiency: ~30% of SN energy goes to wind kinetics  │
+  │  Coupling efficiency: ~30% of SN energy goes to wind kinetics   │
   │  (rest radiated away during Sedov phase before hot gas merges)  │
   └─────────────────────────────────────────────────────────────────┘
 
   AGN FEEDBACK (high-mass galaxies — the "maintenance mode"):
   ┌─────────────────────────────────────────────────────────────────┐
-  │  Two modes:                                                      │
-  │                                                                  │
-  │  QUASAR MODE (high accretion, z ~ 2–3 peak):                   │
+  │  Two modes:                                                     │
+  │                                                                 │
+  │  QUASAR MODE (high accretion, z ~ 2–3 peak):                    │
   │    Ṁ_BH ~ 0.1–1 Ṁ_Edd → luminous; radiative driving           │
   │    → blast wave quenching of host galaxy ("blowout")            │
   │    → rapid BH mass growth (BH–bulge mass correlation set here)  │
-  │                                                                  │
+  │                                                                 │
   │  RADIO/KINETIC MODE (low accretion, present-day clusters):      │
   │    RIAF (radiatively inefficient accretion flow)                │
   │    Jets inflate bubbles in cluster ICM (seen in X-ray cavities) │
   │    Bubble enthalpy ~ P V = 4 × 10⁶⁰ erg                       │
   │    Heating balances cooling in cluster cores → no catastrophic  │
   │    cooling flow → no starburst in central galaxy ("maintenance")│
-  │                                                                  │
-  │  M_BH − σ RELATION:                                            │
+  │                                                                 │
+  │  M_BH − σ RELATION:                                             │
   │  M_BH ~ 10⁸ M☉ (σ/200 km/s)^5   [Gebhardt 2000, Ferrarese 2000]│
-  │  Scatter: ~0.3 dex; implies co-evolution of BH + bulge         │
+  │  Scatter: ~0.3 dex; implies co-evolution of BH + bulge          │
   │  Physical: energy coupling via quasar wind; BH mass when wind   │
-  │  can unbind the bulge's gas: E_wind = f ε Ṁ c² = f_gas M_bulge │
+  │  can unbind the bulge's gas: E_wind = f ε Ṁ c² = f_gas M_bulge  │
   │  σ² → M_BH ∝ σ^5 (King 2003 momentum-driven)                  │
   └─────────────────────────────────────────────────────────────────┘
 ```
@@ -1438,22 +1438,22 @@ The classic result: a thermally stratified gas in pressure equilibrium can be un
   ┌─────────────────────────────────────────────────────────────────┐
   │  Thermal (T ~ 8000 K WNM):  P_th = n k_B T                    │
   │    ~ 0.4 × 1.38×10⁻¹⁶ × 8000 ~ 4.4×10⁻¹³ erg/cm³            │
-  │                                                                  │
-  │  Turbulent:  P_turb = ½ ρ σ²_turb                              │
+  │                                                                 │
+  │  Turbulent:  P_turb = ½ ρ σ²_turb                               │
   │    σ_turb ~ 10 km/s, n_WNM ~ 0.4 cm⁻³                        │
   │    ~ ½ × 0.4 × 1.67×10⁻²⁴ × (10⁶)² ~ 3×10⁻¹³ erg/cm³       │
-  │                                                                  │
-  │  Magnetic:  P_B = B²/8π                                        │
+  │                                                                 │
+  │  Magnetic:  P_B = B²/8π                                         │
   │    B ~ 4 μG = 4×10⁻⁶ G                                        │
   │    ~ (4×10⁻⁶)²/(8π) ~ 6×10⁻¹³ erg/cm³                       │
-  │                                                                  │
+  │                                                                 │
   │  Cosmic ray:  P_CR ~ 10⁻¹² erg/cm³  (GeV protons)             │
-  │                                                                  │
+  │                                                                 │
   │  ALL FOUR ARE COMPARABLE — ~10⁻¹² erg/cm³ = 1 eV/cm³          │
   │  This is NOT a coincidence: the ISM self-regulates to near-     │
   │  equipartition. SN feedback drives turbulence; turbulence       │
   │  amplifies B via dynamo; CRs stream along B and provide         │
-  │  additional pressure support. Each component contributes ~       │
+  │  additional pressure support. Each component contributes ~      │
   │  equally to disk pressure balance and vertical hydrostatic equil.│
   └─────────────────────────────────────────────────────────────────┘
 
@@ -1463,11 +1463,11 @@ The classic result: a thermally stratified gas in pressure equilibrium can be un
   │  Field reversal at ~3–4 kpc inside R☉ (sign flip in RM)       │
   │  Random/turbulent component: δB ~ B_reg                         │
   │  Vertical: B_z very small (B mostly in plane)                   │
-  │                                                                  │
-  │  Scale height of B: ~ 1–2 kpc (thin disk)                      │
+  │                                                                 │
+  │  Scale height of B: ~ 1–2 kpc (thin disk)                       │
   │  Parker instability: magnetic buoyancy lifts field out of plane │
   │    → loops emerge → CRs escape along loops → pressure relief    │
-  │    → Vertical convective transport of magnetic flux            │
+  │    → Vertical convective transport of magnetic flux             │
   └─────────────────────────────────────────────────────────────────┘
 ```
 
@@ -1480,18 +1480,18 @@ The classic result: a thermally stratified gas in pressure equilibrium can be un
   │  F=1 (parallel spins) → F=0 (antiparallel) + photon           │
   │  A_10 = 2.87×10⁻¹⁵ s⁻¹  (half-life ~ 11 Myr for single atom) │
   │  BUT: n_H ~ 10²⁰–10²² cm⁻² in galaxy → emission detectable    │
-  │                                                                  │
+  │                                                                 │
   │  Column density from optically thin emission:                   │
   │  N_HI [cm⁻²] = 1.82×10¹⁸ ∫ T_B(v) dv   [K km/s]             │
-  │                                                                  │
+  │                                                                 │
   │  Velocity field → Galactic rotation via 21-cm line:             │
   │  v_obs = v_LSR = v_c(R) sin(l) cos(b) − v_c(R☉) sin(l)       │
   │  [for b=0 (midplane), l = Galactic longitude]                   │
-  │                                                                  │
+  │                                                                 │
   │  TANGENT POINT METHOD (l < 90°):                                │
   │  Maximum velocity at given l is from tangent point at R=R☉ sin(l)│
   │  → v_max(l) = v_c(R_tan) − v_c(R☉) sin(l)                    │
-  │  → Trace v_c(R) from 21-cm observations alone                  │
+  │  → Trace v_c(R) from 21-cm observations alone                   │
   └─────────────────────────────────────────────────────────────────┘
 
   PULSAR DISPERSION MEASURE (DM probe of WIM):

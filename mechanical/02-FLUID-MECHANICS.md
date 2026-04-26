@@ -7,16 +7,16 @@ FLUID MECHANICS HIERARCHY
           │
           ▼
 ┌─────────────────────────────────────────────────────────────┐
-│                   FLUID STATICS                              │
+│                   FLUID STATICS                             │
 │    p = p₀ + ρgh   (hydrostatics, buoyancy)                  │
 ├─────────────────────────────────────────────────────────────┤
 │                  FLUID KINEMATICS                            │
 │    streamlines, continuity, RTT, vorticity                  │
 ├─────────────────────────────────────────────────────────────┤
-│                  FLUID DYNAMICS                              │
-│    Euler equations (inviscid)                                │
-│    Navier-Stokes (viscous)                                   │
-│    Bernoulli (simplified)                                    │
+│                  FLUID DYNAMICS                             │
+│    Euler equations (inviscid)                               │
+│    Navier-Stokes (viscous)                                  │
+│    Bernoulli (simplified)                                   │
 ├──────────────────────────┬──────────────────────────────────┤
 │   INTERNAL FLOW          │   EXTERNAL FLOW                  │
 │   pipe, duct, channel    │   airfoils, bluff bodies         │

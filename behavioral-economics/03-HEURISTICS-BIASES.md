@@ -4,27 +4,27 @@
 
 ```
 ┌─────────────────────────────────────────────────────────────────────────────┐
-│                    HEURISTICS LANDSCAPE                                      │
+│                    HEURISTICS LANDSCAPE                                     │
 │                                                                               │
 │  TVERSKY & KAHNEMAN (1974) "Science" paper:                                 │
 │  Three heuristics: Representativeness, Availability, Anchoring              │
-│  These are cognitive shortcuts for making probability judgments.             │
-│  Under most conditions: fast, adequate.                                      │
+│  These are cognitive shortcuts for making probability judgments.            │
+│  Under most conditions: fast, adequate.                                     │
 │  Under certain conditions: systematic, predictable errors.                  │
 │                                                                               │
-│  KEY DISTINCTION:                                                            │
+│  KEY DISTINCTION:                                                           │
 │  K-T view: Heuristics are error-prone shortcuts                             │
 │  Gigerenzen view: Heuristics are ecologically rational tools                │
 │  BOTH are empirically supported in their domains.                           │
 │                                                                               │
-│  MODERN SYNTHESIS:                                                           │
+│  MODERN SYNTHESIS:                                                          │
 │  Heuristics work well when:                                                 │
-│    - Environment has regularities matching heuristic structure               │
+│    - Environment has regularities matching heuristic structure              │
 │    - Task is familiar, domain expertise is present                          │
-│    - Decision speed matters more than precision                              │
-│  Heuristics fail when:                                                       │
+│    - Decision speed matters more than precision                             │
+│  Heuristics fail when:                                                      │
 │    - Environment is decontextualized (lab tasks)                            │
-│    - Statistical reasoning required (base rates, conditional probability)    │
+│    - Statistical reasoning required (base rates, conditional probability)   │
 │    - Incentives conflict with heuristic defaults                            │
 └─────────────────────────────────────────────────────────────────────────────┘
 ```

@@ -8,21 +8,21 @@ NABOKOV'S TRANSLATION PARADOX
 
   NABOKOV THE NOVELIST:          NABOKOV THE TRANSLATOR:
   ┌────────────────────┐         ┌────────────────────────────┐
-  │ Lolita (1955)      │         │ Eugene Onegin (1964)        │
-  │ Pale Fire (1962)   │         │ 4 volumes:                  │
-  │ Ada (1969)         │         │ • Vol 1: Interlinear        │
-  │                    │         │   translation (405 pp)      │
-  │ Gloriously playful │         │ • Vols 2-4: Commentary      │
-  │ prose; supreme     │         │   (1,000+ pp)               │
-  │ stylist in English │         │                             │
-  │ (his third         │         │ Deliberately "ugly,         │
-  │ language)          │         │ literal, and faithful"      │
-  │                    │         │ (his words)                 │
-  │ A writer who made  │         │                             │
-  │ English prose sing │         │ The novelist who valued     │
-  │ refused to do so   │         │ style above all else        │
-  │ in translation.    │         │ produced a translation      │
-  │                    │         │ that has no style           │
+  │ Lolita (1955)      │         │ Eugene Onegin (1964)       │
+  │ Pale Fire (1962)   │         │ 4 volumes:                 │
+  │ Ada (1969)         │         │ • Vol 1: Interlinear       │
+  │                    │         │   translation (405 pp)     │
+  │ Gloriously playful │         │ • Vols 2-4: Commentary     │
+  │ prose; supreme     │         │   (1,000+ pp)              │
+  │ stylist in English │         │                            │
+  │ (his third         │         │ Deliberately "ugly,        │
+  │ language)          │         │ literal, and faithful"     │
+  │                    │         │ (his words)                │
+  │ A writer who made  │         │                            │
+  │ English prose sing │         │ The novelist who valued    │
+  │ refused to do so   │         │ style above all else       │
+  │ in translation.    │         │ produced a translation     │
+  │                    │         │ that has no style          │
   └────────────────────┘         └────────────────────────────┘
 
   THE PARADOX: The supreme stylist deliberately sacrificed
@@ -195,8 +195,8 @@ NABOKOV'S TAXONOMY OF TRANSLATION HONESTY
 
   HONEST:            Semi-honest          Dishonest
   ┌────────────────┐  ┌────────────────┐  ┌────────────────┐
-  │ Interlinear    │  │ Prose           │  │ Verse          │
-  │ gloss          │  │ translation     │  │ translation    │
+  │ Interlinear    │  │ Prose          │  │ Verse          │
+  │ gloss          │  │ translation    │  │ translation    │
   │                │  │ that admits    │  │ that claims    │
   │ "I am not      │  │ not being      │  │ to reproduce   │
   │ giving you     │  │ poetry         │  │ Pushkin while  │

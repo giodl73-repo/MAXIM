@@ -6,29 +6,29 @@ You have MIT 6.006 and 6.046 under your belt. This is not a tutorial — it is a
 
 ```
 ┌─────────────────────────────────────────────────────────────────────────────┐
-│  ALGORITHMIC COMPLEXITY LANDSCAPE                                            │
-│                                                                              │
-│  Provably Efficient                    Practically Efficient                 │
+│  ALGORITHMIC COMPLEXITY LANDSCAPE                                           │
+│                                                                             │
+│  Provably Efficient                    Practically Efficient                │
 │  ───────────────────────────────           ─────────────────────────────────────         │
 │  Sorting:      O(n log n) optimal      TimSort, Introsort (real constants)  │
 │  Shortest path: O(E log V)             Dijkstra with binary heap            │
-│  MST:          O(E log V) or E α(n)    Kruskal + union-find                │
+│  MST:          O(E log V) or E α(n)    Kruskal + union-find                 │
 │  Max-flow:     O(V²E) Dinic            Push-relabel in practice             │
 │  Matching:     O(E√V)                  Hopcroft-Karp                        │
-│                                                                              │
+│                                                                             │
 │  Intractable (NP-hard)                 Modern Escapes                       │
 │  ───────────────────────               ─────────────────────────────────    │
 │  TSP, 3-SAT, Graph Coloring           FPT (parameterized by solution size)  │
 │  Independent Set, Clique              Approximation schemes (PTAS/FPTAS)    │
 │  Knapsack (general), Partition        Randomized algorithms                 │
-│                                                                              │
-│  Complexity Hierarchy:                                                       │
+│                                                                             │
+│  Complexity Hierarchy:                                                      │
 │  P ⊆ NP ∩ co-NP ⊆ PH ⊆ PSPACE ⊆ EXPTIME                                  │
 │  NP-hard: ≥ any NP (not necessarily in NP)                                  │
 │  NP-complete: NP-hard ∩ NP                                                  │
-│                                                                              │
-│  Modern practical concerns:                                                  │
-│  Cache efficiency (I/O model)   Parallelism (PRAM)   Streaming (polylog)   │
+│                                                                             │
+│  Modern practical concerns:                                                 │
+│  Cache efficiency (I/O model)   Parallelism (PRAM)   Streaming (polylog)    │
 └─────────────────────────────────────────────────────────────────────────────┘
 ```
 

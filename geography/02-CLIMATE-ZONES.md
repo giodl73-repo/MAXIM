@@ -11,27 +11,27 @@ with remarkable fidelity — you can reconstruct one from the other.
 
 ```
 +----------------------------------------------------------------------+
-|                    CLIMATE CONTROL HIERARCHY                          |
+|                    CLIMATE CONTROL HIERARCHY                         |
 |                                                                      |
-|  LATITUDE              → primary driver (solar angle → insolation)  |
+|  LATITUDE              → primary driver (solar angle → insolation)   |
 |  │                                                                   |
 |  ├── Tropical (0°-23.5°N/S)  ←──── ITCZ (follows solar zenith)    |
-|  │     ITCZ migration → wet-dry seasonality ←──── Ocean SST         |
+|  │     ITCZ migration → wet-dry seasonality ←──── Ocean SST          |
 |  │                                                                   |
-|  ├── Subtropical (23.5°-35°): HIGH PRESSURE BELTS                   |
-|  │     Descending air → deserts      ←──── Cold upwelling currents  |
+|  ├── Subtropical (23.5°-35°): HIGH PRESSURE BELTS                    |
+|  │     Descending air → deserts      ←──── Cold upwelling currents   |
 |  │     (Sahara, Arabian, Sonoran)          amplify dryness on W coasts
 |  │                                                                   |
-|  ├── Temperate (35°-60°): MIDLATITUDE WESTERLIES                    |
+|  ├── Temperate (35°-60°): MIDLATITUDE WESTERLIES                     |
 |  │     Storm tracks; ocean moderation ←── Warm currents (Gulf Stream)
 |  │     4 seasons on continental interiors ←── Continentality effect  |
 |  │                       ↑                                           |
-|  │                 OROGRAPHY: mountains intercept westerly flow     |
+|  │                 OROGRAPHY: mountains intercept westerly flow      |
 |  │                 Windward: wet; Leeward: rain shadow / dry         |
-|  │                 (Pacific NW wet / Great Basin dry)               |
+|  │                 (Pacific NW wet / Great Basin dry)                |
 |  │                                                                   |
 |  ├── ALTITUDE (cross-cuts all latitude zones):                       |
-|  │     −6.5°C per 1000m → compressed climate zones vertically       |
+|  │     −6.5°C per 1000m → compressed climate zones vertically        |
 |  │     Mountains create local climate envelope regardless of latitude|
 |  │                                                                   |
 |  └── Polar (60°-90°): COLD POLAR HIGH PRESSURE                     |
@@ -68,7 +68,7 @@ with remarkable fidelity — you can reconstruct one from the other.
   │ Gulf Stream/North Atlantic Drift: warms W Europe; UK/Ireland │
   │   ~10°C warmer than same latitude in Canada/Russia           │
   │ Kuroshio: warms Japan's Pacific coast                        │
-  │ Effect: mild, wet climates on western coasts in midlatitudes  │
+  │ Effect: mild, wet climates on western coasts in midlatitudes │
   │                                                              │
   │ COLD CURRENTS (poleward → equatorward flow):                 │
   │ California Current: cools W USA; summer fog (San Francisco)  │
@@ -111,16 +111,16 @@ with remarkable fidelity — you can reconstruct one from the other.
   │                                                              │
   │ Am (Tropical Monsoon): brief dry season but ≥100mm wettest   │
   │   month; makes up for dry season                             │
-  │   Sri Lanka, coastal SE Asia, parts of Amazon               │
+  │   Sri Lanka, coastal SE Asia, parts of Amazon                │
   │                                                              │
   │ Aw (Tropical Savanna): distinct dry season (<60mm/month)     │
   │   African savanna, Brazilian cerrado, Indian Deccan plateau  │
-  │   Wet + dry season follows ITCZ migration                   │
+  │   Wet + dry season follows ITCZ migration                    │
   └──────────────────────────────────────────────────────────────┘
 
   B — DRY (evapotranspiration > precipitation):
   ┌──────────────────────────────────────────────────────────────┐
-  │ BW (Desert): extreme aridity                                  │
+  │ BW (Desert): extreme aridity                                 │
   │   BWh: hot desert — Sahara, Arabian, Sonoran, Australian     │
   │         interior; year-round high pressure + cold upwelling  │
   │   BWk: cold desert — Gobi, Atacama interior, Patagonia;      │
@@ -220,8 +220,8 @@ with remarkable fidelity — you can reconstruct one from the other.
   │        Boreal/taiga │ Boreal (Dfc)  │  Cold desert              │
   │  ───────────────────┼───────────────┼─────────────────────────  │
   │  Low T  Tundra (ET) │               │  Ice cap (EF)             │
-  │        ←────────────────────────────────────────→              │
-  │               Wet (high precip)     Dry (low precip)           │
+  │        ←────────────────────────────────────────→               │
+  │               Wet (high precip)     Dry (low precip)            │
   └─────────────────────────────────────────────────────────────────┘
 
   TROPICAL RAINFOREST:
@@ -261,9 +261,9 @@ with remarkable fidelity — you can reconstruct one from the other.
   ANDEAN PISOS ALTITUDINALES (altitudinal climate zones):
   ┌──────────────────────────────────────────────────────────────┐
   │ Tierra Caliente: 0-1000m; tropical; sugarcane, bananas,      │
-  │   cacao; humid; original colonist disease zone              │
+  │   cacao; humid; original colonist disease zone               │
   │                                                              │
-  │ Tierra Templada: 1000-2000m; "temperate"; coffee, maize,    │
+  │ Tierra Templada: 1000-2000m; "temperate"; coffee, maize,     │
   │   temperate crops; most colonial capitals sited here (Bogotá,│
   │   Mexico City, Guatemala City — disease avoidance + climate) │
   │                                                              │
@@ -296,13 +296,13 @@ with remarkable fidelity — you can reconstruct one from the other.
   PROJECTED KOPPEN ZONE MIGRATIONS (RCP 8.5, 2°C+ warming):
   ┌────────────────────────────────────────────────────────────────┐
   │ TROPICAL ZONES (A) EXPANDING POLEWARD:                         │
-  │ → Tropical wet-dry zone (Aw) migrating ~50–200 km poleward    │
+  │ → Tropical wet-dry zone (Aw) migrating ~50–200 km poleward     │
   │ → Subtropics (B zones) following: Sahara expanding S + N edges│
-  │ → Sahel wetter in some models (ITCZ shift); drier in others   │
+  │ → Sahel wetter in some models (ITCZ shift); drier in others    │
   │   (high model disagreement due to vegetation feedbacks)        │
   │                                                                │
   │ MEDITERRANEAN ZONES (Cs) POLEWARD + WIDER:                     │
-  │ → Cs zones expanding 100–200 km poleward in both hemispheres  │
+  │ → Cs zones expanding 100–200 km poleward in both hemispheres   │
   │ → California: longer fire seasons; summer drought intensifying │
   │ → Mediterranean Basin: more extreme summer dryness             │
   │ → SW Australia: significant drying trend already observed      │

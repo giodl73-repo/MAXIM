@@ -5,7 +5,7 @@
 ```
 ORCHESTRA LAYOUT (from conductor's perspective):
           ┌────────────────────────────────────────────────┐
-          │                  AUDIENCE                       │
+          │                  AUDIENCE                      │
           └────────────────────────────────────────────────┘
                               ↑
      ┌────────────────────────────────────────────────────┐
@@ -22,7 +22,7 @@ ORCHESTRA LAYOUT (from conductor's perspective):
      │  V1 V1 V1 V1    |    V2 V2 V2 V2                   │
      │  VA VA VA VA    |    VC VC VC VC                   │
      │                      CB CB CB                      │
-     │                    CONDUCTOR                        │
+     │                    CONDUCTOR                       │
      └────────────────────────────────────────────────────┘
 
 SCORE READING ORDER (top to bottom in full score):

@@ -112,7 +112,7 @@ Bentham operationalized Beccaria through utilitarianism and the Panopticon.
 ```
   +---------------------------+
   |         GUARD TOWER       |
-  |         (central)        |
+  |         (central)         |
   |        / | | | \          |
   |       /  | | |  \         |
   |      v   v v v   v        |
@@ -290,7 +290,7 @@ The policy application of rational choice and routine activity: reduce crime by 
 
 ```
 +------------------------------------------------------------------+
-|         25 TECHNIQUES OF SITUATIONAL CRIME PREVENTION           |
+|         25 TECHNIQUES OF SITUATIONAL CRIME PREVENTION            |
 |                    (Clarke & Eck, 2003)                          |
 +------------------------------------------------------------------+
 |                                                                  |

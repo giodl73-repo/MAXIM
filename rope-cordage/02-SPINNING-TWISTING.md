@@ -10,22 +10,22 @@ TWIST DIRECTION DEFINITIONS
 
   S-TWIST: The helix leans like the diagonal of the letter S
   ┌──────────────────────────────────────────────────────────────────┐
-  │                                                                   │
+  │                                                                  │
   │   ╲   ╲   ╲   ╲   ╲   ╲   ╲   ╲   ╲                          │
   │    ╲   ╲   ╲   ╲   ╲   ╲   ╲   ╲                              │
-  │                                                                   │
+  │                                                                  │
   │   Middle stroke of S leans ↖↗ = S-twist                        │
-  │   Also called "left-lay" or "backhand twist"                    │
+  │   Also called "left-lay" or "backhand twist"                     │
   └──────────────────────────────────────────────────────────────────┘
 
   Z-TWIST: The helix leans like the diagonal of the letter Z
   ┌──────────────────────────────────────────────────────────────────┐
-  │                                                                   │
+  │                                                                  │
   │   ╱   ╱   ╱   ╱   ╱   ╱   ╱   ╱   ╱                          │
   │    ╱   ╱   ╱   ╱   ╱   ╱   ╱   ╱                              │
-  │                                                                   │
+  │                                                                  │
   │   Middle stroke of Z leans ↘↗ = Z-twist                        │
-  │   Also called "right-lay" or "forehand twist"                   │
+  │   Also called "right-lay" or "forehand twist"                    │
   └──────────────────────────────────────────────────────────────────┘
 
   MNEMONIC: Hold the rope vertically.
@@ -103,10 +103,10 @@ SPINNING MECHANICS
   TWIST ANGLE and STRENGTH:
   ┌──────────────────────────────────────────────────────────────────┐
   │  Low twist angle (< 10°): High strength, low cohesion (frays)  │
-  │  Moderate angle (15–25°): Best strength-to-cohesion balance     │
+  │  Moderate angle (15–25°): Best strength-to-cohesion balance      │
   │  High twist angle (> 30°): Low strength (fibers act in shear)  │
-  │                             High cohesion (won't unravel)       │
-  │                             HIGH ELONGATION (helix stretches)   │
+  │                             High cohesion (won't unravel)        │
+  │                             HIGH ELONGATION (helix stretches)    │
   └──────────────────────────────────────────────────────────────────┘
 
   SYNTHETIC FILAMENT YARNS: Continuous filament (no finite length).
@@ -201,8 +201,8 @@ CABLE LAY
   S-cable = three (Z-strand) ropes in S-lay
 
   ┌──────────────────────────────────────────────────────────────────┐
-  │  Each rope element:  Z-lay (right hand)                         │
-  │  Combined cable:     S-lay (left hand)                          │
+  │  Each rope element:  Z-lay (right hand)                          │
+  │  Combined cable:     S-lay (left hand)                           │
   │  Result: 9-strand assembly (3 ropes × 3 strands each)          │
   └──────────────────────────────────────────────────────────────────┘
 

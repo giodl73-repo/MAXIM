@@ -6,7 +6,7 @@ Habitability as a scientific concept is sharply defined: conditions permitting l
 
 ```
 +------------------------------------------------------------------+
-|              HABITABILITY FRAMEWORK                               |
+|              HABITABILITY FRAMEWORK                              |
 +------------------------------------------------------------------+
 |                                                                  |
 |  STELLAR ZONE     SURFACE HABITABILITY    SUBSURFACE HABITABILITY|

@@ -6,16 +6,16 @@
 +------------------------------------------------------------------+
 |                 THE ELASTOMER LANDSCAPE                          |
 |                                                                  |
-|   NATURAL            SYNTHETIC GENERAL       SPECIALTY          |
-|   ─────────          ──────────────────       ─────────         |
-|   NR (cis-PI)        SBR (tire tread)         NBR (oil resist)  |
-|   Hevea brasiliensis BR  (tire sidewall)       CR  (neoprene)   |
-|   ~14M t/yr          EPDM (weather seal)       IIR (butyl)      |
-|                       IR  (synthetic isoprene) VMQ (silicone)   |
-|                       SBR ~60% of synth         FVMQ, FKM       |
+|   NATURAL            SYNTHETIC GENERAL       SPECIALTY           |
+|   ─────────          ──────────────────       ─────────          |
+|   NR (cis-PI)        SBR (tire tread)         NBR (oil resist)   |
+|   Hevea brasiliensis BR  (tire sidewall)       CR  (neoprene)    |
+|   ~14M t/yr          EPDM (weather seal)       IIR (butyl)       |
+|                       IR  (synthetic isoprene) VMQ (silicone)    |
+|                       SBR ~60% of synth         FVMQ, FKM        |
 |                                                                  |
-|   THERMOPLASTIC ELASTOMERS (TPE) — processable like plastics    |
-|   SBS/SEBS  TPU  TPV  COPE  PEBA                                |
+|   THERMOPLASTIC ELASTOMERS (TPE) — processable like plastics     |
+|   SBS/SEBS  TPU  TPV  COPE  PEBA                                 |
 +------------------------------------------------------------------+
 ```
 
@@ -266,7 +266,7 @@ that break down on heating.
 |  TPV (Santoprene)  |  Vulcanized EPDM particles in PP matrix     |
 |                    |  Dynamic vulcanization during melt mixing    |
 +--------------------+----------------------------------------------+
-|  COPE (TEEE)       |  Hard PBT crystalline blocks + soft polyol  |
+|  COPE (TEEE)       |  Hard PBT crystalline blocks + soft polyol   |
 |  (Hytrel)          |  High-temp, fatigue resistance               |
 +--------------------+----------------------------------------------+
 |  PEBA              |  Hard Nylon blocks + soft polyether          |

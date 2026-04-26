@@ -6,7 +6,7 @@ Gender was invisible in development theory and policy for its first four decades
 
 ```
 +--------------------------------------------------------------------------+
-|                    GENDER AND DEVELOPMENT LANDSCAPE                       |
+|                    GENDER AND DEVELOPMENT LANDSCAPE                      |
 +--------------------------------------------------------------------------+
 |                                                                          |
 |  PARADIGM TIMELINE:                                                      |

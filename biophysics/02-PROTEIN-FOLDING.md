@@ -4,13 +4,13 @@
 
 ```
 ┌──────────────────────────────────────────────────────────────────────────┐
-│                   PROTEIN FOLDING LANDSCAPE                               │
+│                   PROTEIN FOLDING LANDSCAPE                              │
 │                                                                            │
-│  SEQUENCE → STRUCTURE → FUNCTION                                          │
-│  (1D)        (3D)         (activity)                                      │
+│  SEQUENCE → STRUCTURE → FUNCTION                                         │
+│  (1D)        (3D)         (activity)                                     │
 │                                                                            │
 │  THE FOLDING PROBLEM (three distinct questions):                           │
-│  ─────────────────────────────────────────────                            │
+│  ─────────────────────────────────────────────                           │
 │  1. Prediction: Given sequence, what is the 3D structure?  ← AlphaFold2  │
 │  2. Mechanism: How does folding happen in time?             ← energy funnels│
 │  3. Design: Given desired function, what sequence folds to it? ← RFdiffusion│
@@ -18,18 +18,18 @@
 │  LEVINTHAL'S PARADOX                                                       │
 │  ──────────────────                                                        │
 │  100-residue protein: 3¹⁰⁰ ≈ 10⁴⁸ conformations                          │
-│  At 1 ns/conformation: 10³⁹ years to search exhaustively                  │
+│  At 1 ns/conformation: 10³⁹ years to search exhaustively                 │
 │  Actual folding time: microseconds to seconds                              │
 │  Resolution: proteins do NOT do exhaustive search — they fold via          │
 │  energy funnels, biasing toward lower-energy conformations                 │
 │                                                                            │
 │  MISFOLDING DISEASES                                                       │
 │  ──────────────────                                                        │
-│  Alzheimer's:  Aβ, tau fibrillization                                     │
-│  Parkinson's:  α-synuclein aggregation                                    │
+│  Alzheimer's:  Aβ, tau fibrillization                                    │
+│  Parkinson's:  α-synuclein aggregation                                   │
 │  Prion:        PrPᶜ → PrPˢᶜ conversion                                   │
-│  Type II DM:   IAPP (islet amyloid polypeptide)                           │
-│  Huntington's: polyglutamine expansion → aggregation                      │
+│  Type II DM:   IAPP (islet amyloid polypeptide)                          │
+│  Huntington's: polyglutamine expansion → aggregation                     │
 └──────────────────────────────────────────────────────────────────────────┘
 ```
 
@@ -176,24 +176,24 @@ off-pathway aggregation and enable productive folding:
 
 ```
 ┌──────────────────────────────────────────────────────────────────────────┐
-│  CHAPERONE     │  SUBSTRATE           │  MECHANISM                        │
-│  ──────────────│──────────────────────│─────────────────────────────────  │
+│  CHAPERONE     │  SUBSTRATE           │  MECHANISM                       │
+│  ──────────────│──────────────────────│───────────────────────────────── │
 │  Hsp70 (DnaK)  │  Unfolded/extended   │  Binds exposed hydrophobic       │
 │  + Hsp40 (DnaJ)│  peptides, ~7 aa     │  stretches. ATP-driven release.  │
 │                │                      │  Co-chaperone DnaJ loads clients. │
-│  ──────────────│──────────────────────│─────────────────────────────────  │
-│  GroEL/GroES   │  Misfolded, sticky,  │  Barrel chamber: encapsulates     │
-│  (Hsp60/Hsp10) │  ~20-60 kDa          │  single protein. ATP-driven lid   │
+│  ──────────────│──────────────────────│───────────────────────────────── │
+│  GroEL/GroES   │  Misfolded, sticky,  │  Barrel chamber: encapsulates    │
+│  (Hsp60/Hsp10) │  ~20-60 kDa          │  single protein. ATP-driven lid  │
 │                │                      │  (GroES) closes → forced unfolding│
 │                │                      │  and refolding in isolation.       │
-│  ──────────────│──────────────────────│─────────────────────────────────  │
-│  Hsp90         │  Signaling proteins, │  Stabilizes near-native states.   │
-│                │  kinases, nuclear    │  Regulatory: many co-chaperones.  │
+│  ──────────────│──────────────────────│───────────────────────────────── │
+│  Hsp90         │  Signaling proteins, │  Stabilizes near-native states.  │
+│                │  kinases, nuclear    │  Regulatory: many co-chaperones. │
 │                │  receptors           │  ATP-dependent conformational      │
 │                │                      │  clamp mechanism.                  │
-│  ──────────────│──────────────────────│─────────────────────────────────  │
-│  TRiC/CCT      │  Actin, tubulin,     │  Eukaryotic GroEL analog.         │
-│                │  WD40 domains        │  8 subunits, different pockets    │
+│  ──────────────│──────────────────────│───────────────────────────────── │
+│  TRiC/CCT      │  Actin, tubulin,     │  Eukaryotic GroEL analog.        │
+│                │  WD40 domains        │  8 subunits, different pockets   │
 └──────────────────────────────────────────────────────────────────────────┘
 ```
 
@@ -297,7 +297,7 @@ This ended the "protein structure prediction problem" as stated for 50+ years.
 │  Accurate backbone + sidechain  │    ensemble (only one state predicted) │
 │  Most structured proteins       │  Intrinsically disordered proteins     │
 │  Homology-template-free         │  Large protein complexes (progress     │
-│  ~200M structures in database   │    with AlphaFold-Multimer, partial)  │
+│  ~200M structures in database   │    with AlphaFold-Multimer, partial)   │
 │                                 │  Protein-small molecule interactions   │
 │                                 │  Protein-nucleic acid interactions     │
 │                                 │  Effect of mutations on stability      │

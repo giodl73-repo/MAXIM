@@ -192,7 +192,7 @@ Supply vessel          Measuring vessel
 │          │          │              │
 │ overflow │──────────│ float ──────┬┼── gear train ──► rotating drum
 │ level    │  orifice │ (rises as   │                   with hour marks
-│          │  (const  │  water      │
+│          │  (const  │  water       │
 │ drain    │   head)  │  rises)     │                   indicator pointer
 └──────────┘          └─────────────┘
    supply
@@ -346,7 +346,7 @@ ASTROLABE STRUCTURE
            ┌──────────┐
            │  *    *  │  star positions (pierced fretwork)
            │    ☉    │  ecliptic ring (sun path)
-           │  *      │
+           │  *       │
            └──────────┘
                 |
            mater (fixed base)

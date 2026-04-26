@@ -9,22 +9,22 @@ Stem cells are defined by two properties: self-renewal (can make more stem cells
 |              STEM CELL POTENCY HIERARCHY                         |
 |                                                                  |
 |  TOTIPOTENT: Can make ALL cell types including trophectoderm     |
-|  Zygote, 2-cell blastomere                                      |
+|  Zygote, 2-cell blastomere                                       |
 |       ↓                                                          |
-|  PLURIPOTENT: Can make all embryonic cell types (3 germ layers) |
-|  Epiblast, ESC, iPSC                                            |
+|  PLURIPOTENT: Can make all embryonic cell types (3 germ layers)  |
+|  Epiblast, ESC, iPSC                                             |
 |       ↓                                                          |
-|  MULTIPOTENT: Can make all types within a tissue/lineage        |
-|  HSC (all blood), NSC (neurons + glia + oligodendrocytes)       |
+|  MULTIPOTENT: Can make all types within a tissue/lineage         |
+|  HSC (all blood), NSC (neurons + glia + oligodendrocytes)        |
 |       ↓                                                          |
-|  OLIGOPOTENT: 2-3 lineages                                      |
-|  Common myeloid progenitor (CMP): myeloid cell types            |
+|  OLIGOPOTENT: 2-3 lineages                                       |
+|  Common myeloid progenitor (CMP): myeloid cell types             |
 |       ↓                                                          |
-|  UNIPOTENT: One cell type                                       |
-|  Spermatogonial stem cell (sperm only)                          |
+|  UNIPOTENT: One cell type                                        |
+|  Spermatogonial stem cell (sperm only)                           |
 |       ↓                                                          |
-|  TERMINALLY DIFFERENTIATED: No further division in most cases   |
-|  Neurons, cardiomyocytes, erythrocytes                          |
+|  TERMINALLY DIFFERENTIATED: No further division in most cases    |
+|  Neurons, cardiomyocytes, erythrocytes                           |
 +──────────────────────────────────────────────────────────────────+
 ```
 
@@ -174,7 +174,7 @@ THE HEMATOPOIETIC HIERARCHY
      │  Limited self-renewal
      ↓
   ┌───────────────────────────────────┐
-  │ Multipotent Progenitor (MPP)       │
+  │ Multipotent Progenitor (MPP)      │
   └───┬───────────────────────────────┘
       │
   ┌───┴──────────────────┐

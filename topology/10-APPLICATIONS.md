@@ -4,7 +4,7 @@
 
 ```
 +====================================================================+
-|      TOPOLOGY IN THE WILD — THREE MAJOR APPLICATION DOMAINS       |
+|      TOPOLOGY IN THE WILD — THREE MAJOR APPLICATION DOMAINS        |
 +====================================================================+
 |                                                                    |
 |  1. TOPOLOGICAL DATA ANALYSIS (TDA)                               |

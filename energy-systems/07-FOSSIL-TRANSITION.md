@@ -111,13 +111,13 @@ FOSSIL FUEL ROLE IN GLOBAL ENERGY (2023)
 
   IEA UNBURNABLE CARBON:
   ┌───────────────────────────────────────────────────────────────┐
-  │  PROVEN global fossil fuel reserves:                           │
-  │    Coal:  ~900 GtC equivalent (~3,300 GtCO₂)                 │
-  │    Oil:   ~190 GtC equivalent (~700 GtCO₂)                   │
-  │    Gas:   ~140 GtC equivalent (~515 GtCO₂)                   │
+  │  PROVEN global fossil fuel reserves:                          │
+  │    Coal:  ~900 GtC equivalent (~3,300 GtCO₂)                  │
+  │    Oil:   ~190 GtC equivalent (~700 GtCO₂)                    │
+  │    Gas:   ~140 GtC equivalent (~515 GtCO₂)                    │
   │                                                               │
-  │  Carbon budget for 1.5°C (2024): ~250 GtCO₂                  │
-  │  Carbon budget for 2°C (2024):   ~1,150 GtCO₂                │
+  │  Carbon budget for 1.5°C (2024): ~250 GtCO₂                   │
+  │  Carbon budget for 2°C (2024):   ~1,150 GtCO₂                 │
   │                                                               │
   │  Conclusion: ~80% of proven reserves are "unburnable"         │
   │  under 1.5°C; ~50% under 2°C                                  │
@@ -198,23 +198,23 @@ Amine scrubbing is a direct application of gas-liquid absorption/stripping (see 
 
   ┌──────────────────────────────────────────────────────────────────┐
   │  OXYFUEL COMBUSTION:                                             │
-  │  Burn natural gas with PURE OXYGEN (from air separation unit)   │
+  │  Burn natural gas with PURE OXYGEN (from air separation unit)    │
   │  → Flue gas is almost entirely CO₂ + H₂O (no N₂)              │
   │  → After H₂O condenses: pure CO₂ stream                        │
-  │  → No need for amine scrubbing                                  │
+  │  → No need for amine scrubbing                                   │
   │                                                                  │
   │  WORKING FLUID: supercritical CO₂ (sCO₂) at 300 bar, 1,150°C  │
   │  CO₂ turbine drives generator → very high efficiency (~51-54%) │
   │  Exhaust CO₂ recycled as working fluid (most goes back in)     │
-  │  Small fraction: sequestered or sold                            │
+  │  Small fraction: sequestered or sold                             │
   │                                                                  │
   │  NET EMISSIONS: ~0.05 kg CO₂/kWh (vs ~0.43 for standard CCGT) │
   │                                                                  │
   │  DEMO PLANT:                                                     │
-  │  NET Power (NET Power LLC, now merged with OXY) — La Porte, TX  │
-  │  50 MW thermal demonstration, operated 2018-2022                │
+  │  NET Power (NET Power LLC, now merged with OXY) — La Porte, TX   │
+  │  50 MW thermal demonstration, operated 2018-2022                 │
   │  Full-scale plant: 280 MW proposed in Wyoming/TX (EPC stage)   │
-  │  Timeline: commercial operation ~2025-2027                      │
+  │  Timeline: commercial operation ~2025-2027                       │
   └──────────────────────────────────────────────────────────────────┘
 ```
 
@@ -286,15 +286,15 @@ Amine scrubbing is a direct application of gas-liquid absorption/stripping (see 
 
   LAND USE CONTROVERSY:
   ┌────────────────────────────────────────────────────────────────┐
-  │  To remove 2 GtCO₂/yr via BECCS requires:                     │
+  │  To remove 2 GtCO₂/yr via BECCS requires:                      │
   │  ~250-500 million hectares of energy crops                     │
   │  (compare: total global cropland ~1,400 million hectares)      │
   │  → Competes with food production, biodiversity, water          │
   │                                                                │
-  │  BECCS optimists: dedicated energy crops on marginal land     │
-  │  BECCS critics:   any food-quality land diversion → famine    │
+  │  BECCS optimists: dedicated energy crops on marginal land      │
+  │  BECCS critics:   any food-quality land diversion → famine     │
   │  Reality: BECCS has a physical land limit                      │
-  │  "Negative emission technologies are not a license to emit"   │
+  │  "Negative emission technologies are not a license to emit"    │
   │                     — Kevin Anderson, et al.                   │
   └────────────────────────────────────────────────────────────────┘
 ```
@@ -401,19 +401,19 @@ backlash that slows or reverses transition (see German coal phase-out politics).
 ```
   FOSSIL FUEL EMPLOYMENT (US, 2023):
   ┌────────────────────────────────────────────────────────────────┐
-  │  Coal mining:              ~42,000 direct jobs                  │
-  │  Oil and gas extraction:   ~150,000 direct jobs                 │
-  │  Oil/gas pipeline:         ~125,000                             │
-  │  Petroleum refining:       ~65,000                              │
-  │  Coal power plants:        ~70,000                              │
-  │  Total (direct):           ~450,000                             │
-  │                                                                 │
-  │  Multiplier (indirect/induced): 3-5×                            │
-  │  Total employment impact:  ~1.5-2 million                       │
-  │                                                                 │
-  │  Compare: clean energy (2023):                                  │
+  │  Coal mining:              ~42,000 direct jobs                 │
+  │  Oil and gas extraction:   ~150,000 direct jobs                │
+  │  Oil/gas pipeline:         ~125,000                            │
+  │  Petroleum refining:       ~65,000                             │
+  │  Coal power plants:        ~70,000                             │
+  │  Total (direct):           ~450,000                            │
+  │                                                                │
+  │  Multiplier (indirect/induced): 3-5×                           │
+  │  Total employment impact:  ~1.5-2 million                      │
+  │                                                                │
+  │  Compare: clean energy (2023):                                 │
   │  Solar: ~270,000; Wind: ~130,000; EV: ~30,000 (growing)        │
-  │  Net job trajectory: MORE total jobs in clean energy            │
+  │  Net job trajectory: MORE total jobs in clean energy           │
   │  Problem: jobs are in different places, require different skills │
   └────────────────────────────────────────────────────────────────┘
 

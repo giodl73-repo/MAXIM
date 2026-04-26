@@ -18,12 +18,12 @@ Every load applied to a building must travel from the point of application throu
 |  Thermal / movement     Cable / suspension                         |
 |                         Tensegrity                                 |
 |                                                                    |
-|  MATERIALS                          LATERAL SYSTEMS               |
+|  MATERIALS                          LATERAL SYSTEMS                |
 |  ─────────                          ──────────────                 |
-|  Concrete (strong in compression)   Moment frame (ductile)        |
-|  Steel (strong in both)             Shear wall (stiff)            |
-|  Timber (moderate both)             Braced frame                  |
-|  Masonry (compression only)         Core + outrigger (tall)       |
+|  Concrete (strong in compression)   Moment frame (ductile)         |
+|  Steel (strong in both)             Shear wall (stiff)             |
+|  Timber (moderate both)             Braced frame                   |
+|  Masonry (compression only)         Core + outrigger (tall)        |
 |                                                                    |
 |  EXPRESSION                                                        |
 |  ─────────                                                         |
@@ -217,9 +217,9 @@ A truss is a triangulated frame. Triangles are inherently rigid (unlike squares,
 
   ┌─────────────────────────────────────────────────┐
   │  ─────────────────────────────────────────────  │  ← top chord (C)
-  │   \    |    /    |    \    |    /    |    \  /   │
-  │    \   |   /     |     \   |   /     |     X     │
-  │     \  |  /      |      \  |  /      |    / \    │
+  │   \    |    /    |    \    |    /    |    \  /  │
+  │    \   |   /     |     \   |   /     |     X    │
+  │     \  |  /      |      \  |  /      |    / \   │
   │  ────────────────────────────────────────────    │  ← bottom chord (T)
   └─────────────────────────────────────────────────┘
 

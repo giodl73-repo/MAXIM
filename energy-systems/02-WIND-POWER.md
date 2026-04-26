@@ -27,7 +27,7 @@ WIND ENERGY STACK
   +---------------------+
   |  DRIVETRAIN          |  Gearbox (steps up to ~1500 RPM)
   |  Gearbox or          |  OR direct-drive (no gearbox, large PMSG)
-  |  Direct-drive        |
+  |  Direct-drive       |
   +---------------------+
         │  High-speed shaft (gearbox) or direct connection
         v
@@ -216,14 +216,14 @@ The derivation is actuator disk theory — a classic fluid mechanics result.
   │  Rotor (10-20 RPM)                                   │
   │      │                                               │
   │      └──► [3-stage gearbox] ──► High-speed shaft     │
-  │                                    (~1500 RPM)        │
-  │                                      │                │
-  │                                      └──► DFIG        │
-  │                              (doubly-fed induction)   │
-  │                                      │                │
-  │                              Partial-scale converter  │
-  │                              (~30% of rated power)    │
-  │                              Variable speed ±30% RPM  │
+  │                                    (~1500 RPM)       │
+  │                                      │               │
+  │                                      └──► DFIG       │
+  │                              (doubly-fed induction)  │
+  │                                      │               │
+  │                              Partial-scale converter │
+  │                              (~30% of rated power)   │
+  │                              Variable speed ±30% RPM │
   └──────────────────────────────────────────────────────┘
 
   GEARBOX PROS:  Smaller, lighter generator; cheaper power electronics
@@ -241,7 +241,7 @@ The derivation is actuator disk theory — a classic fluid mechanics result.
   │                │                                     │
   │           Full-scale converter                       │
   │           (100% of rated power goes through it)      │
-  │           Decouples generator from grid frequency     │
+  │           Decouples generator from grid frequency    │
   └──────────────────────────────────────────────────────┘
 
   PMSG PROS:  No gearbox failures; full variable speed; excellent low-wind perf
@@ -276,21 +276,21 @@ The derivation is actuator disk theory — a classic fluid mechanics result.
 
   0-30 m: MONOPILE (dominant, ~80% of installed offshore)
   ┌─────────────────────┐
-  │  Turbine on top      │
-  │                      │
-  │  Transition piece    │
+  │  Turbine on top     │
+  │                     │
+  │  Transition piece   │
   │  ──────────────────  │  ← waterline
-  │                      │
+  │                     │
   │  ▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓   │  steel monopile, ~8-12 m diameter
   │  ▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓   │  driven into seabed
   └─────────────────────┘
 
   20-60 m: JACKET (lattice frame)
   ┌─────────────────────┐
-  │  Turbine on top      │
-  │  Transition piece    │
+  │  Turbine on top     │
+  │  Transition piece   │
   │  ──────────────────  │  ← waterline
-  │     /  │  \          │
+  │     /  │  \         │
   │    /   │   \         │  3 or 4-leg jacket
   │   /    │    \        │  heavier, more expensive than monopile
   │  /─────┼─────\       │  used for larger turbines and deeper water
@@ -318,7 +318,7 @@ The derivation is actuator disk theory — a classic fluid mechanics result.
 
   Wind direction →
   ┌─────────────────────────────────────────────────────────────┐
-  │  T1 ●         T2 ●         T3 ●         T4 ●               │
+  │  T1 ●         T2 ●         T3 ●         T4 ●                │
   │     │            │            │            │                │
   │     └──wake──────►            └──wake──────►                │
   │     (reduced      cumulative  wake deficit                  │

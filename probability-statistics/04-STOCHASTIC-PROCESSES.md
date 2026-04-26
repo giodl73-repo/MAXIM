@@ -11,24 +11,24 @@ A stochastic process is a collection of random variables indexed by time (or spa
 |                                                                  |
 |  INDEX SET T         STATE SPACE S          KEY PROCESSES        |
 |  +---------------+   +---------------+      +----------------+  |
-|  | Discrete time |   | Discrete       |  ->  | Markov chains  |  |
-|  | T = {0,1,2,...}|  | (countable)    |      | Random walks   |  |
+|  | Discrete time |   | Discrete      |  ->  | Markov chains  |  |
+|  | T = {0,1,2,...}|  | (countable)    |      | Random walks   | |
 |  +---------------+   +---------------+      +----------------+  |
 |  | Continuous    |   | Discrete       |  ->  | Poisson process|  |
 |  | T = [0, inf)  |   | (countable)    |      | Birth-death    |  |
 |  +---------------+   +---------------+      +----------------+  |
-|  | Continuous    |   | Continuous     |  ->  | Brownian motion|  |
-|  | T = [0, inf)  |   | R or R^n       |      | Diffusions     |  |
+|  | Continuous    |   | Continuous    |  ->  | Brownian motion|  |
+|  | T = [0, inf)  |   | R or R^n      |      | Diffusions     |  |
 |  +---------------+   +---------------+      +----------------+  |
 |  | Continuous    |   | Continuous     |  ->  | Gaussian field |  |
 |  | T = R^d       |   | R              |      | (spatial stats)|  |
 |  +---------------+   +---------------+      +----------------+  |
-|                                                                  |
+|                                                                 |
 |  SPECIAL PROPERTIES:                                            |
 |  Markov: future depends only on present                         |
-|  Martingale: E[X_{t+1} | past] = X_t  (fair game)              |
+|  Martingale: E[X_{t+1} | past] = X_t  (fair game)               |
 |  Stationary: distribution doesn't change with time shift        |
-|  Ergodic: time average = ensemble average (a.s.)               |
+|  Ergodic: time average = ensemble average (a.s.)                |
 +------------------------------------------------------------------+
 ```
 

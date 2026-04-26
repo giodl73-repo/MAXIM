@@ -6,7 +6,7 @@ Mars is the most studied planet besides Earth, yet also the most surprising: ove
 
 ```
 +------------------------------------------------------------------+
-|                        MARS AT A GLANCE                           |
+|                        MARS AT A GLANCE                          |
 +------------------------------------------------------------------+
 |  Mass:         0.107 M⊕       Radius:    3,390 km (0.53 R⊕)     |
 |  Distance:     1.52 AU        Solar flux: 0.43× Earth            |

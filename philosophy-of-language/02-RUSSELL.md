@@ -10,20 +10,20 @@ Russell is also responsible for discovering the paradox in Frege's system and fo
 +-----------------------------------------------------------------------+
 |                      RUSSELL'S KEY CONTRIBUTIONS                      |
 |                                                                       |
-|  LOGIC/FOUNDATIONS          PHILOSOPHY OF LANGUAGE                   |
+|  LOGIC/FOUNDATIONS          PHILOSOPHY OF LANGUAGE                    |
 |  ------------------         -------------------------                 |
-|  Russell's Paradox (1902)   Theory of Descriptions (1905)            |
+|  Russell's Paradox (1902)   Theory of Descriptions (1905)             |
 |  {x : x ∉ x} → contradiction  "On Denoting"                         |
 |                             - Definite descriptions analyzed          |
 |  Principia Mathematica      - Names vs descriptions distinguished     |
-|  (with Whitehead, 1910-13)  - Eliminates Meinong's "objects"         |
+|  (with Whitehead, 1910-13)  - Eliminates Meinong's "objects"          |
 |  - Arithmetic from logic    - No reference failure problem            |
 |                                                                       |
-|  Theory of Types (1908)     Logical Atomism (1918)                   |
-|  - Hierarchical types to    - World = atomic facts                   |
-|    avoid Russell's Paradox  - Propositions = logical combinations    |
-|  - Ramified type theory     - Analysis = finding atomic forms        |
-|  - Ancestor of modern type  - Wittgenstein I = Russell + Frege       |
+|  Theory of Types (1908)     Logical Atomism (1918)                    |
+|  - Hierarchical types to    - World = atomic facts                    |
+|    avoid Russell's Paradox  - Propositions = logical combinations     |
+|  - Ramified type theory     - Analysis = finding atomic forms         |
+|  - Ancestor of modern type  - Wittgenstein I = Russell + Frege        |
 |    systems                                                            |
 +-----------------------------------------------------------------------+
 ```
@@ -183,7 +183,7 @@ Russell's later metaphysical program, outlined in lectures 1918, influenced by (
   |  (object has property F)      (elementary propns)|
   |                                                  |
   |  Complex facts                Molecular propns   |
-  |  (built from atoms by         (P ∧ Q, P ∨ Q,    |
+  |  (built from atoms by         (P ∧ Q, P ∨ Q,     |
   |  logical operations)          P → Q, ¬P)         |
   |                                                  |
   |  The STRUCTURE of language    mirrors the        |
@@ -213,22 +213,22 @@ Russell's later metaphysical program, outlined in lectures 1918, influenced by (
 | Definite descriptions  | Have sense + reference| Incomplete symbols;|
 | ("the F")             | like other expressions| no reference at all|
 |------------------------|-----------------------|-------------------|
-| Non-referring terms    | Sentence has sense    | Sentence is FALSE  |
+| Non-referring terms    | Sentence has sense    | Sentence is FALSE |
 | ("the king of France") | but no truth value    | (existential fails)|
 |------------------------|-----------------------|-------------------|
-| Ordinary proper names  | Have sense            | Disguised          |
-| ("Aristotle")          | (mode of presentation)| descriptions       |
+| Ordinary proper names  | Have sense            | Disguised         |
+| ("Aristotle")          | (mode of presentation)| descriptions      |
 |------------------------|-----------------------|-------------------|
 | Numbers                | Logical objects       | Logical constructs |
-|                        | (extensions of        | (contextual        |
-|                        | concepts)             | definitions)       |
+|                        | (extensions of        | (contextual       |
+|                        | concepts)             | definitions)      |
 |------------------------|-----------------------|-------------------|
-| Reference failure      | Truth value gap       | Eliminates the     |
-|                        |                       | problem entirely   |
+| Reference failure      | Truth value gap       | Eliminates the    |
+|                        |                       | problem entirely  |
 |------------------------|-----------------------|-------------------|
-| Types                  | Not explicitly        | Ramified type      |
-|                        | developed             | theory to avoid    |
-|                        |                       | Russell's Paradox  |
+| Types                  | Not explicitly        | Ramified type     |
+|                        | developed             | theory to avoid   |
+|                        |                       | Russell's Paradox |
 +--------------------------------------------------------------------+
 ```
 

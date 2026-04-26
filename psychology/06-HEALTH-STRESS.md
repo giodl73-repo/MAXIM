@@ -11,7 +11,7 @@ explain why ACEs (adverse childhood experiences) shorten life expectancy.
 
 ```
 +----------------------------------------------------------------------+
-|                    HEALTH PSYCHOLOGY LANDSCAPE                        |
+|                    HEALTH PSYCHOLOGY LANDSCAPE                       |
 |                                                                      |
 |  STRESS PHYSIOLOGY        CUMULATIVE DAMAGE        RESILIENCE        |
 |  ─────────────────        ───────────────          ─────────         |
@@ -41,42 +41,42 @@ explain why ACEs (adverse childhood experiences) shorten life expectancy.
   │ Timeline: seconds                                              │
   │ Pathway: Hypothalamus → Sympathetic NS → Adrenal MEDULLA       │
   │          → Epinephrine (adrenaline) + Norepinephrine           │
-  │ Effects: heart rate ↑, blood pressure ↑, glucose ↑,           │
+  │ Effects: heart rate ↑, blood pressure ↑, glucose ↑,            │
   │          digestion suspended, immune function temporarily      │
-  │          boosted (short-term), pain suppression               │
+  │          boosted (short-term), pain suppression                │
   │ Purpose: immediate mobilization for fight/flight/freeze        │
   │                                                                │
-  │ SLOW: Hypothalamic-Pituitary-Adrenal (HPA) axis               │
+  │ SLOW: Hypothalamic-Pituitary-Adrenal (HPA) axis                │
   │ Timeline: minutes                                              │
-  │ Pathway: Hypothalamus (CRH) → Anterior Pituitary (ACTH)       │
-  │          → Adrenal CORTEX → Cortisol                          │
+  │ Pathway: Hypothalamus (CRH) → Anterior Pituitary (ACTH)        │
+  │          → Adrenal CORTEX → Cortisol                           │
   │ Effects: sustained energy mobilization, immune suppression     │
-  │          (chronic), anti-inflammatory (acute), hippocampal    │
+  │          (chronic), anti-inflammatory (acute), hippocampal     │
   │          remodeling (chronic)                                  │
-  │ Purpose: sustained stress response; resource mobilization     │
+  │ Purpose: sustained stress response; resource mobilization      │
   └────────────────────────────────────────────────────────────────┘
 
   HPA AXIS — ANATOMY IN DETAIL:
   ┌────────────────────────────────────────────────────────────────┐
   │ Hypothalamus                                                   │
-  │   ↓ CRH (Corticotropin-Releasing Hormone)                     │
+  │   ↓ CRH (Corticotropin-Releasing Hormone)                      │
   │ Anterior Pituitary                                             │
-  │   ↓ ACTH (Adrenocorticotropic Hormone)                        │
+  │   ↓ ACTH (Adrenocorticotropic Hormone)                         │
   │ Adrenal Cortex                                                 │
   │   ↓ Cortisol (glucocorticoid)                                  │
   │                                                                │
-  │ NEGATIVE FEEDBACK: Cortisol → hippocampus + hypothalamus      │
+  │ NEGATIVE FEEDBACK: Cortisol → hippocampus + hypothalamus       │
   │ → suppresses CRH and ACTH → cortisol returns to baseline       │
   │                                                                │
   │ DIURNAL RHYTHM:                                                │
-  │ Peak: within 30-45 minutes of waking (Cortisol Awakening      │
-  │ Response, CAR) — prepares body for day's demands              │
+  │ Peak: within 30-45 minutes of waking (Cortisol Awakening       │
+  │ Response, CAR) — prepares body for day's demands               │
   │ Trough: late evening, promoting sleep                          │
   │                                                                │
   │ DYSREGULATION IN DEPRESSION:                                   │
   │ HPA hyperactivity → elevated baseline cortisol                 │
   │ Blunted negative feedback (DST suppression test)               │
-  │ Hippocampal atrophy (volume reduction, especially CA1/CA3)    │
+  │ Hippocampal atrophy (volume reduction, especially CA1/CA3)     │
   └────────────────────────────────────────────────────────────────┘
 
   THE ADAPTIVE → MALADAPTIVE TRANSITION:
@@ -105,15 +105,15 @@ explain why ACEs (adverse childhood experiences) shorten life expectancy.
   activation and failure to shut down adaptive responses
 
   ┌────────────────────────────────────────────────────────────────┐
-  │ TYPE 1: Repeated hits — same stressor recurs frequently       │
-  │ → Cardiovascular system re-activated repeatedly               │
-  │ → Endothelial damage accumulates                              │
+  │ TYPE 1: Repeated hits — same stressor recurs frequently        │
+  │ → Cardiovascular system re-activated repeatedly                │
+  │ → Endothelial damage accumulates                               │
   │                                                                │
-  │ TYPE 2: Inability to habituate — normal stressor doesn't shut │
-  │ down → Prolonged cortisol → hippocampal damage                │
+  │ TYPE 2: Inability to habituate — normal stressor doesn't shut  │
+  │ down → Prolonged cortisol → hippocampal damage                 │
   │                                                                │
-  │ TYPE 3: Inadequate response — depleted system can't mount     │
-  │ adequate stress response → Different pathology                │
+  │ TYPE 3: Inadequate response — depleted system can't mount      │
+  │ adequate stress response → Different pathology                 │
   └────────────────────────────────────────────────────────────────┘
 
   ALLOSTATIC LOAD BIOMARKERS:
@@ -131,14 +131,14 @@ explain why ACEs (adverse childhood experiences) shorten life expectancy.
   ACE Score (0-10) → dose-response with health outcomes
 
   ┌────────────────────────────────────────────────────────────────┐
-  │ ACE Score ≥ 4 vs 0:                                           │
-  │ Alcoholism: 7× more likely                                    │
+  │ ACE Score ≥ 4 vs 0:                                            │
+  │ Alcoholism: 7× more likely                                     │
   │ Depression: 4.6× more likely                                   │
   │ Suicide attempt: 12× more likely                               │
   │ IV drug use: 10× more likely                                   │
   │ Heart disease: 2.2× more likely                                │
   │ COPD: 3.1× more likely                                         │
-  │ Life expectancy reduction: ~20 years for ACE score ≥ 6        │
+  │ Life expectancy reduction: ~20 years for ACE score ≥ 6         │
   └────────────────────────────────────────────────────────────────┘
 
   MECHANISM: ACEs activate stress response systems during sensitive
@@ -153,10 +153,10 @@ explain why ACEs (adverse childhood experiences) shorten life expectancy.
 ```
   NEUROIMMUNOLOGICAL PATHWAY:
   ┌────────────────────────────────────────────────────────────────┐
-  │ Stress → SNS activation → pro-inflammatory cytokine release   │
-  │ (IL-6, IL-1β, TNF-α, CRP)                                     │
+  │ Stress → SNS activation → pro-inflammatory cytokine release    │
+  │ (IL-6, IL-1β, TNF-α, CRP)                                      │
   │ → Systemic inflammation → atherosclerosis, cancer proliferation│
-  │   depression (inflammatory depression subtype), dementia      │
+  │   depression (inflammatory depression subtype), dementia       │
   │                                                                │
   │ Paradox: Acute stress → immune boost (fights infection)        │
   │          Chronic stress → immune suppression + dysregulation   │
@@ -218,7 +218,7 @@ explain why ACEs (adverse childhood experiences) shorten life expectancy.
   │                                                                │
   │ PSI 1: 27% infection rate                                      │
   │ PSI 5: 47% infection rate                                      │
-  │ Effect persists after controlling for: age, sex, education,   │
+  │ Effect persists after controlling for: age, sex, education,    │
   │ weight, smoking, alcohol, exercise, diet, pre-existing         │
   │ antibody levels, season                                        │
   └────────────────────────────────────────────────────────────────┘
@@ -242,8 +242,8 @@ explain why ACEs (adverse childhood experiences) shorten life expectancy.
   ┌────────────────────────────────────────────────────────────────┐
   │ RESILIENT: ~65% of bereaved/trauma survivors                   │
   │ Minimal sustained distress; stable functioning throughout      │
-  │ NOT absence of negative emotion — normal grief that doesn't   │
-  │ become disorder; not pathological denial                        │
+  │ NOT absence of negative emotion — normal grief that doesn't    │
+  │ become disorder; not pathological denial                       │
   │                                                                │
   │ RECOVERY: ~25% (after bereavement/loss)                        │
   │ Initial high distress → return to pre-trauma functioning       │
@@ -252,7 +252,7 @@ explain why ACEs (adverse childhood experiences) shorten life expectancy.
   │ CHRONIC DYSFUNCTION: ~10%                                      │
   │ Persistent elevated distress; doesn't remit without treatment  │
   │ → PTSD, MDD, complex grief; predicted by: prior mental health, │
-  │   low social support, severe/prolonged stressor               │
+  │   low social support, severe/prolonged stressor                │
   │                                                                │
   │ DELAYED ONSET: small minority                                  │
   │ Initial coping → delayed deterioration months/years later      │
@@ -272,8 +272,8 @@ explain why ACEs (adverse childhood experiences) shorten life expectancy.
   │ Cognitive flexibility: ability to reframe and find meaning     │
   │ Positive emotions: broaden-and-build (Fredrickson) — positive  │
   │   emotions undo physiological effects of negative emotions     │
-  │ Meaning-making: finding significance in experience            │
-  │ Physical health: fitness and sleep buffer against stress        │
+  │ Meaning-making: finding significance in experience             │
+  │ Physical health: fitness and sleep buffer against stress       │
   └────────────────────────────────────────────────────────────────┘
 
   POST-TRAUMATIC GROWTH (Tedeschi/Calhoun 1996):
@@ -299,8 +299,8 @@ explain why ACEs (adverse childhood experiences) shorten life expectancy.
 
   PERMA:
   ┌────────────────────────────────────────────────────────────────┐
-  │ P — POSITIVE EMOTIONS: not just happiness but the full range  │
-  │     Joy, gratitude, serenity, hope, awe, elevation            │
+  │ P — POSITIVE EMOTIONS: not just happiness but the full range   │
+  │     Joy, gratitude, serenity, hope, awe, elevation             │
   │     Broaden-and-build (Fredrickson): positive emotions → broad │
   │     thought-action repertoires → build durable personal resources│
   │                                                                │
@@ -360,14 +360,14 @@ explain why ACEs (adverse childhood experiences) shorten life expectancy.
 
   META-ANALYTIC EVIDENCE:
   ┌────────────────────────────────────────────────────────────────┐
-  │ Anxiety: d~0.5-0.7 (moderate-large)                           │
-  │ Depression: d~0.4-0.6 (comparable to antidepressants)         │
-  │ Chronic pain: d~0.3-0.5 (pain intensity AND acceptance)       │
+  │ Anxiety: d~0.5-0.7 (moderate-large)                            │
+  │ Depression: d~0.4-0.6 (comparable to antidepressants)          │
+  │ Chronic pain: d~0.3-0.5 (pain intensity AND acceptance)        │
   │ Largely non-inferior to active treatments (CBT, medication)    │
-  │ for most conditions — not clearly superior                    │
+  │ for most conditions — not clearly superior                     │
   │                                                                │
-  │ Best evidence for: recurrent depression prevention (MBCT),    │
-  │ chronic pain, anxiety, caregiver stress, substance cravings   │
+  │ Best evidence for: recurrent depression prevention (MBCT),     │
+  │ chronic pain, anxiety, caregiver stress, substance cravings    │
   │ Weaker evidence for: immune function, "performance", longevity│
   └────────────────────────────────────────────────────────────────┘
 
@@ -394,19 +394,19 @@ explain why ACEs (adverse childhood experiences) shorten life expectancy.
 ```
   SLEEP ARCHITECTURE:
   ┌────────────────────────────────────────────────────────────────┐
-  │ N1 (NREM Stage 1): Light sleep; hypnic jerks; easily woken    │
-  │   ~5% of night; theta waves                                   │
+  │ N1 (NREM Stage 1): Light sleep; hypnic jerks; easily woken     │
+  │   ~5% of night; theta waves                                    │
   │                                                                │
-  │ N2 (NREM Stage 2): True sleep onset; sleep spindles + K-      │
-  │   complexes; ~50% of night; memory consolidation starts       │
+  │ N2 (NREM Stage 2): True sleep onset; sleep spindles + K-       │
+  │   complexes; ~50% of night; memory consolidation starts        │
   │                                                                │
   │ N3 (NREM Stage 3 / Slow Wave Sleep / Deep Sleep):              │
   │   Delta waves; most restorative; growth hormone release;       │
-  │   ~20% of night; immune function; declarative memory          │
+  │   ~20% of night; immune function; declarative memory           │
   │                                                                │
   │ REM (Rapid Eye Movement): Dream sleep; muscle atonia;          │
-  │   ~25% of night; emotional memory processing; creative        │
-  │   association; first REM ~90 min after sleep onset            │
+  │   ~25% of night; emotional memory processing; creative         │
+  │   association; first REM ~90 min after sleep onset             │
   └────────────────────────────────────────────────────────────────┘
 
   SLEEP CYCLE:
@@ -428,20 +428,20 @@ explain why ACEs (adverse childhood experiences) shorten life expectancy.
   ┌────────────────────────────────────────────────────────────────┐
   │ Cognitive: sustained attention impaired first; resembles       │
   │   intoxication; 24h awake ≈ 0.10 BAC impairment              │
-  │   Working memory, executive function, decision quality        │
+  │   Working memory, executive function, decision quality         │
   │                                                                │
-  │ Emotional: amygdala reactivity increased ~60% (less PFC       │
-  │   regulation); mood lability, stress intolerance              │
+  │ Emotional: amygdala reactivity increased ~60% (less PFC        │
+  │   regulation); mood lability, stress intolerance               │
   │                                                                │
   │ Immune: <7 hrs → 3× more susceptible to rhinovirus           │
-  │   (Cohen et al.) NK cell activity reduced                     │
+  │   (Cohen et al.) NK cell activity reduced                      │
   │                                                                │
   │ Metabolic: insulin sensitivity reduced; hunger hormones        │
   │   shifted (ghrelin ↑, leptin ↓) → increased appetite and     │
-  │   caloric intake; long-term → T2DM and obesity risk           │
+  │   caloric intake; long-term → T2DM and obesity risk            │
   │                                                                │
-  │ Cardiovascular: 1-hour sleep loss (spring clock change) →     │
-  │   24% increase in cardiac events next day (Sandhu 2014)       │
+  │ Cardiovascular: 1-hour sleep loss (spring clock change) →      │
+  │   24% increase in cardiac events next day (Sandhu 2014)        │
   └────────────────────────────────────────────────────────────────┘
 
   "SLEEP DEBT" MYTH:
@@ -470,10 +470,10 @@ explain why ACEs (adverse childhood experiences) shorten life expectancy.
 
   Two dimensions:
   ┌────────────────────────────────────────────────────────────────┐
-  │             │  Low Control   │   High Control                 │
-  │  High       │  HIGH STRAIN   │   ACTIVE (healthy challenge)   │
-  │  Demands    │  (burnout risk)│   Learning + motivation        │
-  │─────────────┼────────────────┼──────────────────────────────  │
+  │             │  Low Control   │   High Control                  │
+  │  High       │  HIGH STRAIN   │   ACTIVE (healthy challenge)    │
+  │  Demands    │  (burnout risk)│   Learning + motivation         │
+  │─────────────┼────────────────┼──────────────────────────────   │
   │  Low        │  PASSIVE       │   LOW STRAIN (least stress)    │
   │  Demands    │  (skills decay)│                                │
   └────────────────────────────────────────────────────────────────┘

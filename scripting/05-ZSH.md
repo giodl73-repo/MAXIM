@@ -34,13 +34,13 @@ Deployment contexts:
 Zsh Layered Architecture:
   ┌──────────────────────────────────────────────────────────────┐
   │  Plugin Layer        Oh-My-Zsh / Prezto / Zinit / Antidote   │
-  │  Prompt Layer        Starship / Powerlevel10k / pure          │
+  │  Prompt Layer        Starship / Powerlevel10k / pure         │
   ├──────────────────────────────────────────────────────────────┤
   │  Completion System   compinit / _arguments / zstyle           │
   │  ZLE (Line Editor)   bindkey / keymaps / custom widgets       │
   ├──────────────────────────────────────────────────────────────┤
-  │  Option System       setopt / unsetopt (~250 named options)   │
-  │  Module System       zmodload (compiled C modules)            │
+  │  Option System       setopt / unsetopt (~250 named options)  │
+  │  Module System       zmodload (compiled C modules)           │
   ├──────────────────────────────────────────────────────────────┤
   │  Zsh Binary          parameter flags, glob qualifiers, float  │
   └──────────────────────────────────────────────────────────────┘
@@ -74,9 +74,9 @@ The honest framing:
 
   ┌──────────────────────────────────────────────────────────┐
   │  Interactive shell on dev machine  → Zsh (macOS default) │
-  │  Scripts that others run           → Bash (portable)      │
-  │  CI/CD, Docker, shared automation  → Bash                 │
-  │  Scripts only you run locally      → Either; zsh if pref  │
+  │  Scripts that others run           → Bash (portable)     │
+  │  CI/CD, Docker, shared automation  → Bash                │
+  │  Scripts only you run locally      → Either; zsh if pref │
   └──────────────────────────────────────────────────────────┘
 
 Zsh is your interactive shell. Your shared scripts (CI, Docker,

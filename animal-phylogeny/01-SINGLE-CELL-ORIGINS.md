@@ -4,11 +4,11 @@
 
 ```
 +---------------------------------------------------------------+
-|                    TREE OF LIFE                                |
-|                                                                |
+|                    TREE OF LIFE                               |
+|                                                               |
 |  LUCA (~3.8 Ga)   ─── Last Universal Common Ancestor          |
-|        |                                                       |
-|   +----+----+                                                  |
+|        |                                                      |
+|   +----+----+                                                 |
 |   |         |                                                  |
 | BACTERIA  ARCHAEA                                              |
 |   |         |                                                  |
@@ -43,7 +43,7 @@ PROKARYOTE (Bacteria / Archaea)
 +------------------------------------------------+
 |  Cell wall (peptidoglycan in Bacteria,         |
 |            pseudopeptidoglycan in Archaea)     |
-|  +-----------------------------------------+  |
+|  +-----------------------------------------+   |
 |  |  CYTOPLASM                              |  |
 |  |                                         |  |
 |  |  Nucleoid region  (DNA, no membrane)    |  |
@@ -51,7 +51,7 @@ PROKARYOTE (Bacteria / Archaea)
 |  |  Plasmids         (extra circular DNA)  |  |
 |  |  Flagella (different structure in Arch) |  |
 |  +-----------------------------------------+  |
-|  Plasma membrane                               |
+|  Plasma membrane                              |
 +------------------------------------------------+
 SIZE: 0.1 – 10 μm  (compare eukaryote: 10–100 μm)
 ```
@@ -101,13 +101,13 @@ Long misclassified as bacteria, Archaea share features with both Bacteria and Eu
 ARCHAEA ECOLOGICAL NICHES (extremophiles + mainstream)
 +---------------------------------------------------------+
 | Methanogens      Anaerobic, produce CH₄                 |
-|                  In cow guts, rice paddies, human colon  |
-| Halophiles       High salt (Dead Sea, salt lakes)        |
+|                  In cow guts, rice paddies, human colon |
+| Halophiles       High salt (Dead Sea, salt lakes)       |
 |                  Halobacterium uses light (bacteriorhodopsin)|
 | Thermophiles     90–121°C (deep sea hydrothermal vents) |
-|                  Sulfolobus, Pyrolobus fumarii           |
+|                  Sulfolobus, Pyrolobus fumarii          |
 | Acidophiles      pH < 3 (mine drainage)                 |
-| Psychrophiles    Sub-zero (Antarctic brines)             |
+| Psychrophiles    Sub-zero (Antarctic brines)            |
 | "Normal" archaea In soils, oceans, human microbiome     |
 +---------------------------------------------------------+
 ```
@@ -156,7 +156,7 @@ EVIDENCE FOR LUCA (~3.8 Ga)
 | All life shares:                                   |
 |   DNA as genetic material (not RNA)                |
 |   Same 4 DNA bases (A/T/G/C)                       |
-|   Same genetic code (64 codons → 20 amino acids)  |
+|   Same genetic code (64 codons → 20 amino acids)   |
 |   ATP as energy currency                           |
 |   Ribosomes (though subtly different)              |
 |   Left-handed amino acids, right-handed sugars     |
@@ -199,10 +199,10 @@ EVIDENCE IT HAPPENED:
 | Feature         | Mitochondria | Chloroplast     |
 |-----------------|-------------|-----------------|
 | Own DNA         | ✓ (circular)| ✓ (circular)   |
-| Double membrane | ✓           | ✓               |
-| 70S ribosomes   | ✓           | ✓               |
-| Binary fission  | ✓           | ✓               |
-| Sequence sim.   | α-proteo    | cyanobacteria   |
+| Double membrane | ✓           | ✓                |
+| 70S ribosomes   | ✓           | ✓                |
+| Binary fission  | ✓           | ✓                |
+| Sequence sim.   | α-proteo    | cyanobacteria    |
 | Gene transfer   | ✓ (to nucleus)| ✓ (to nucleus) |
 +--------------------------------------------------+
 
@@ -220,7 +220,7 @@ part archaeal host, part bacterial endosymbiont(s)
 SAR CLADE (Stramenopiles + Alveolata + Rhizaria)
 +---------------------------------------------------------+
 | Stramenopiles                                           |
-|   Diatoms — silica frustules, 20–25% of global O₂      |
+|   Diatoms — silica frustules, 20–25% of global O₂       |
 |   Brown algae — kelp forests (Macrocystis 45m long)     |
 |   Water molds (Oomycetes) — caused Irish potato famine  |
 |                                                         |
@@ -232,8 +232,8 @@ SAR CLADE (Stramenopiles + Alveolata + Rhizaria)
 |     Toxoplasma, Cryptosporidium                         |
 |                                                         |
 | Rhizaria                                                |
-|   Foraminifera — tests of CaCO₃, chalk/limestone       |
-|   Radiolaria — intricate silica shells                 |
+|   Foraminifera — tests of CaCO₃, chalk/limestone        |
+|   Radiolaria — intricate silica shells                  |
 +---------------------------------------------------------+
 
 EXCAVATA

@@ -11,20 +11,20 @@ CONTENT STRATEGY SCOPE
 |                                                                  |
 |  "Content strategy plans for the creation,                       |
 |   publication, and governance of useful,                         |
-|   usable content." — Kristina Halvorson (2008)                  |
+|   usable content." — Kristina Halvorson (2008)                   |
 |                                                                  |
-|  SUBSTANCE           STRUCTURE            WORKFLOW              |
-|  (what content)      (how organized)      (how created)         |
+|  SUBSTANCE           STRUCTURE            WORKFLOW               |
+|  (what content)      (how organized)      (how created)          |
 |  Content types       Taxonomy             Roles                  |
-|  Key messages        Metadata             Process               |
-|  User needs          IA / navigation      Tools                 |
-|  Gaps / redundancy   Labeling             Governance            |
+|  Key messages        Metadata             Process                |
+|  User needs          IA / navigation      Tools                  |
+|  Gaps / redundancy   Labeling             Governance             |
 |                                                                  |
-|  VOICE & TONE        EDITORIAL STANDARDS  GOVERNANCE            |
-|  (how it sounds)     (writing rules)      (who decides)         |
-|  Brand voice         Style guide          Ownership             |
-|  Tone variations     Grammar/usage        Approval chain        |
-|  Consistency         Formatting rules     Maintenance           |
+|  VOICE & TONE        EDITORIAL STANDARDS  GOVERNANCE             |
+|  (how it sounds)     (writing rules)      (who decides)          |
+|  Brand voice         Style guide          Ownership              |
+|  Tone variations     Grammar/usage        Approval chain         |
+|  Consistency         Formatting rules     Maintenance            |
 +------------------------------------------------------------------+
 ```
 

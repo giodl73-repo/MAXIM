@@ -16,11 +16,11 @@
 │ CHEMOTHERAPY        │ Antimetabolites (S-phase specific)                  │
 │                     │ Microtubule poisons (mitosis block)                 │
 ├─────────────────────┼────────────────────────────────────────────────────┤
-│ TARGETED THERAPY    │ Small molecule kinase inhibitors (-nibs)            │
-│                     │ Monoclonal antibodies (-mabs)                       │
-│                     │ PARP inhibitors (synthetic lethality)               │
-│                     │ BCL-2 inhibitors (apoptosis restoration)            │
-│                     │ CDK inhibitors (cell cycle)                         │
+│ TARGETED THERAPY    │ Small molecule kinase inhibitors (-nibs)           │
+│                     │ Monoclonal antibodies (-mabs)                      │
+│                     │ PARP inhibitors (synthetic lethality)              │
+│                     │ BCL-2 inhibitors (apoptosis restoration)           │
+│                     │ CDK inhibitors (cell cycle)                        │
 ├─────────────────────┼────────────────────────────────────────────────────┤
 │ IMMUNOTHERAPY       │ Checkpoint inhibitors (PD-1/PD-L1/CTLA-4)          │
 │                     │ CAR-T cells                                         │

@@ -29,7 +29,7 @@ Where Batch fits TODAY:
   │  STATUS: Legacy maintenance, NOT greenfield                     │
   │                                                                 │
   │  Use when:                                                      │
-  │  - Existing .bat scripts that must not be changed              │
+  │  - Existing .bat scripts that must not be changed               │
   │  - Thin launcher: call cmd → bootstrap PowerShell/Python        │
   │  - Environment guarantees cmd.exe only (rare CI agents)         │
   │                                                                 │
@@ -42,18 +42,18 @@ The execution environment:
   ┌──────────────────────────────────────────────────────────────────┐
   │                         cmd.exe process                          │
   │                                                                  │
-  │   script.bat ──read──► tokenizer ──► line-by-line interpreter   │
+  │   script.bat ──read──► tokenizer ──► line-by-line interpreter    │
   │                                           │                      │
-  │                                     expansion order:            │
-  │                                     1. %var%   (parse time)     │
-  │                                     2. special chars            │
-  │                                     3. FOR/IF recognition       │
+  │                                     expansion order:             │
+  │                                     1. %var%   (parse time)      │
+  │                                     2. special chars             │
+  │                                     3. FOR/IF recognition        │
   │                                     4. execution               │
   │                                     5. !var!   (runtime, opt-in)│
   │                                                                  │
   │   No AST. No bytecode. No JIT. Pure sequential text processing.  │
-  │   Unicode: limited (code page dependent; UTF-8 via chcp 65001)  │
-  │   16-bit heritage: ERRORLEVEL semantics, EXIT behavior, %%      │
+  │   Unicode: limited (code page dependent; UTF-8 via chcp 65001)   │
+  │   16-bit heritage: ERRORLEVEL semantics, EXIT behavior, %%       │
   └──────────────────────────────────────────────────────────────────┘
 
 Side-by-side execution model comparison:

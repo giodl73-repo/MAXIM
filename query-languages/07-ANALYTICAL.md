@@ -10,34 +10,34 @@ Cloud data warehouses replaced on-prem Hadoop clusters and SQL Server Analysis S
 ┌──────────────────────────────────────────────────────────────────────────────┐
 │                         Data Warehouse Evolution                             │
 │                                                                              │
-│  ON-PREM ERA (the old world)                                                │
+│  ON-PREM ERA (the old world)                                                 │
 │  ──────────────────────────                                                  │
 │  SQL Server DW ──► SSIS (ETL) ──► SSAS (cubes/tabular) ──► SSRS / Excel    │
-│  Fixed capacity. Scale up (bigger box). MOLAP cubes pre-aggregate.          │
+│  Fixed capacity. Scale up (bigger box). MOLAP cubes pre-aggregate.           │
 │                                                                              │
 │  HADOOP ERA                                                                  │
 │  ──────────                                                                  │
-│  HDFS ──► MapReduce ──► Hive ──► Impala / Presto                            │
-│  Cheap commodity hardware. Disk-based. Slow. Good for raw archive.          │
+│  HDFS ──► MapReduce ──► Hive ──► Impala / Presto                             │
+│  Cheap commodity hardware. Disk-based. Slow. Good for raw archive.           │
 │                                                                              │
 │  CLOUD DW ERA (now)                                                          │
 │  ──────────────────                                                          │
-│  Object Storage (S3 / ADLS Gen2 / GCS)                                      │
+│  Object Storage (S3 / ADLS Gen2 / GCS)                                       │
 │       │                                                                      │
-│       ├──► BigQuery (Google)       ─ serverless, on-demand                  │
+│       ├──► BigQuery (Google)       ─ serverless, on-demand                   │
 │       ├──► Snowflake                ─ virtual warehouses, multi-cloud        │
-│       ├──► Databricks (Delta Lake) ─ Spark + SQL unified                    │
-│       └──► Synapse Analytics       ─ Azure-native, T-SQL familiar           │
+│       ├──► Databricks (Delta Lake) ─ Spark + SQL unified                     │
+│       └──► Synapse Analytics       ─ Azure-native, T-SQL familiar            │
 │                                                                              │
-│  KEY SHIFT: Storage and compute are SEPARATED and scaled independently.     │
-│  No more "buy bigger SQL Server." Pay for compute when you use it.          │
+│  KEY SHIFT: Storage and compute are SEPARATED and scaled independently.      │
+│  No more "buy bigger SQL Server." Pay for compute when you use it.           │
 │                                                                              │
-│  MODERN DATA PATTERN (Medallion Architecture)                               │
-│  ─────────────────────────────────────────────                              │
+│  MODERN DATA PATTERN (Medallion Architecture)                                │
+│  ─────────────────────────────────────────────                               │
 │  Raw Sources ──► BRONZE (raw) ──► SILVER (clean) ──► GOLD (biz layer)      │
 │                                                            │                 │
-│                                              Power BI / Tableau / Looker    │
-│                                              ML / AI / Feature Stores       │
+│                                              Power BI / Tableau / Looker     │
+│                                              ML / AI / Feature Stores        │
 └──────────────────────────────────────────────────────────────────────────────┘
 ```
 
@@ -649,11 +649,11 @@ The standard pattern for organizing data in a cloud DW or data lakehouse. Replac
 
 ```
 ┌──────────────────────────────────────────────────────────────────────────────┐
-│                    Medallion Architecture (Delta Lake / All DWs)            │
+│                    Medallion Architecture (Delta Lake / All DWs)             │
 │                                                                              │
 │  Raw Sources                                                                 │
-│  ─────────────────────────────────────────────────────────────────────────  │
-│  App Databases │ REST APIs │ Event Streams │ File Drops │ CDC (Debezium)    │
+│  ─────────────────────────────────────────────────────────────────────────   │
+│  App Databases │ REST APIs │ Event Streams │ File Drops │ CDC (Debezium)     │
 │                │                                                             │
 │                ▼                                                             │
 │  ┌─────────────────┐    ┌─────────────────┐    ┌─────────────────┐         │

@@ -4,23 +4,23 @@
 
 ```
 +------------------------------------------------------------------+
-|     RELIABILITY ENGINEERING + SPC: PRODUCT & PROCESS QUALITY    |
+|     RELIABILITY ENGINEERING + SPC: PRODUCT & PROCESS QUALITY     |
 |                                                                  |
 |  RELIABILITY (time-to-failure perspective):                      |
-|  Product: does it fail? when? → Weibull, bathtub curve          |
+|  Product: does it fail? when? → Weibull, bathtub curve           |
 |  System: redundancy architecture → series/parallel models        |
-|  Field: repair cycle → MTBF, MTTR, availability                 |
+|  Field: repair cycle → MTBF, MTTR, availability                  |
 |  Software: MTTF, chaos engineering, reliability growth           |
 |                                                                  |
 |  SPC (Statistical Process Control):                              |
-|  Process: in control? improving? → control charts               |
-|  Product: meets spec? → process capability (Cp, Cpk)            |
-|  Incoming: accept or reject lots? → acceptance sampling         |
+|  Process: in control? improving? → control charts                |
+|  Product: meets spec? → process capability (Cp, Cpk)             |
+|  Incoming: accept or reject lots? → acceptance sampling          |
 |                                                                  |
 |  ORIGINS:                                                        |
 |  Reliability: WWII military requirements → reliability engineering|
-|  SPC: Walter Shewhart (1924, Bell Labs) → Deming in Japan 1950  |
-|  Six Sigma: Motorola 1986; GE 1990s adoption                    |
+|  SPC: Walter Shewhart (1924, Bell Labs) → Deming in Japan 1950   |
+|  Six Sigma: Motorola 1986; GE 1990s adoption                     |
 +------------------------------------------------------------------+
 ```
 

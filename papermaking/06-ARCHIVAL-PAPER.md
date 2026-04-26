@@ -15,8 +15,8 @@
 |   cheap grades                   CaCO3 buffer                    |
 |   Lifespan: 50–200 years         Lifespan: 300–500+ years        |
 |                                                                  |
-|   The "slow fires" problem:      ISO 9706 / ANSI Z39.48-1992    |
-|   ~80% of library holdings       standards define permanence      |
+|   The "slow fires" problem:      ISO 9706 / ANSI Z39.48-1992     |
+|   ~80% of library holdings       standards define permanence     |
 |   from 1850–1990 are on          requirements                    |
 |   acidic, degrading paper                                        |
 +------------------------------------------------------------------+

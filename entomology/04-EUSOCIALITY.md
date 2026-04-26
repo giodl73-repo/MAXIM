@@ -204,7 +204,7 @@ INFORMATION ENCODED:
   | -> food is 60 deg to RIGHT of sun |
   |                                   |
   | Waggle run for 2 seconds          |
-  | -> food is ~2 km away            |
+  | -> food is ~2 km away             |
   +-----------------------------------+
 
 This is the ONLY known symbolic communication in invertebrates:

@@ -26,7 +26,7 @@ this to the practical questions of how history is produced outside the academy.
 |  +---------------------+         | Postmemory / prosthetic   |    |
 |                                   | memory                    |    |
 |  APPLIED                          +---------------------------+    |
-|  +---------------------+                                          |
+|  +---------------------+                                           |
 |  | Holocaust memory     |                                         |
 |  | War commemoration    |                                         |
 |  | Colonial memory      |                                         |

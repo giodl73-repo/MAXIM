@@ -170,26 +170,26 @@ BRITISH EMPIRE TIMELINE
 
   COMPANY ERA (1600-1858)
   ┌──────────────────────────────────────────────────────────┐
-  │ East India Company as governing body for South Asia     │
+  │ East India Company as governing body for South Asia      │
   │ Mercantilist trading empire in Atlantic and Indian Ocean │
-  │ Slave trade (abolished 1807), plantation economies      │
-  │ Loss of American colonies (1776-83)                     │
+  │ Slave trade (abolished 1807), plantation economies       │
+  │ Loss of American colonies (1776-83)                      │
   └──────────────────────────────────────────────────────────┘
                           │
                           ▼
   CROWN ERA / HIGH IMPERIALISM (1858-1914)
   ┌──────────────────────────────────────────────────────────┐
-  │ Crown rule in India (1858 — after Indian Rebellion)     │
-  │ Free trade imperialism: global market integration       │
+  │ Crown rule in India (1858 — after Indian Rebellion)      │
+  │ Free trade imperialism: global market integration        │
   │ Gold standard anchored by City of London               │
-  │ Scramble for Africa (1880s-1900s)                       │
-  │ Peak: ~25% of world's land surface, ~23% of population  │
+  │ Scramble for Africa (1880s-1900s)                        │
+  │ Peak: ~25% of world's land surface, ~23% of population   │
   └──────────────────────────────────────────────────────────┘
                           │
                           ▼
   IMPERIAL OVERSTRETCH (1914-1945)
   ┌──────────────────────────────────────────────────────────┐
-  │ WWI: Empire mobilized (Indian Army, ANZAC, etc.)        │
+  │ WWI: Empire mobilized (Indian Army, ANZAC, etc.)         │
   │ 1931: Statute of Westminster — Dominion autonomy         │
   │ Interwar: nationalist movements emerge everywhere        │
   │ WWII: fall of Singapore (1942) shatters myth of invulnerability│
@@ -198,9 +198,9 @@ BRITISH EMPIRE TIMELINE
                           ▼
   MANAGED WITHDRAWAL (1945-1975)
   ┌──────────────────────────────────────────────────────────┐
-  │ India/Pakistan 1947, Burma/Ceylon 1948                  │
+  │ India/Pakistan 1947, Burma/Ceylon 1948                   │
   │ African decolonization (Gold Coast 1957 → Rhodesia 1980)│
-  │ "Wind of Change" speech (Macmillan, Cape Town, 1960)    │
+  │ "Wind of Change" speech (Macmillan, Cape Town, 1960)     │
   │ Last formal colonies (Hong Kong 1997, Falklands ongoing) │
   └──────────────────────────────────────────────────────────┘
                           │
@@ -225,7 +225,7 @@ The Berlin Conference (1884-85) was convened by Bismarck — paradoxically, not 
 SCRAMBLE FOR AFRICA — CAUSES DEBATE:
   ┌──────────────────────────────────────────────────────┐
   │ METROPOLITAN CAUSATION:                              │
-  │ Industrial capitalism seeking markets/materials       │
+  │ Industrial capitalism seeking markets/materials      │
   │ (Hobson/Lenin model)                                 │
   │ → Problem: Africa was marginal in European trade     │
   │                                                      │
@@ -235,7 +235,7 @@ SCRAMBLE FOR AFRICA — CAUSES DEBATE:
   │                                                      │
   │ PERIPHERAL CAUSATION (Robinson-Gallagher):           │
   │ Egyptian financial crisis → British occupation →     │
-  │ French feel excluded → scramble cascades            │
+  │ French feel excluded → scramble cascades             │
   │                                                      │
   │ TECHNOLOGICAL ENABLEMENT:                            │
   │ Quinine (malaria prophylaxis), Maxim gun, steamship  │

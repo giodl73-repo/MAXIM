@@ -4,21 +4,21 @@
 
 ```
 ┌─────────────────────────────────────────────────────────────────────────────┐
-│                    POPULATION PROJECTION APPROACHES                          │
+│                    POPULATION PROJECTION APPROACHES                         │
 │                                                                               │
-│  DETERMINISTIC SCENARIOS       PROBABILISTIC             SIMPLIFIED          │
-│  ──────────────────────────    ─────────────────         ──────────────────  │
-│  UN: Low/Medium/High variants  UN probabilistic          Extrapolation       │
-│  Conditional on assumed        forecasts (since 2015)    Exponential model   │
-│  fertility/mortality/migration Time series of            Logistic model      │
-│  paths                         fertility rates           (S-curve)           │
-│                                Bayesian model            Cohort model        │
-│                                Uncertainty intervals     simplifications     │
+│  DETERMINISTIC SCENARIOS       PROBABILISTIC             SIMPLIFIED         │
+│  ──────────────────────────    ─────────────────         ────────────────── │
+│  UN: Low/Medium/High variants  UN probabilistic          Extrapolation      │
+│  Conditional on assumed        forecasts (since 2015)    Exponential model  │
+│  fertility/mortality/migration Time series of            Logistic model     │
+│  paths                         fertility rates           (S-curve)          │
+│                                Bayesian model            Cohort model       │
+│                                Uncertainty intervals     simplifications    │
 │                                                                               │
-│  COHORT-COMPONENT MODEL: Standard method for all serious projection          │
+│  COHORT-COMPONENT MODEL: Standard method for all serious projection         │
 │  - Projects each age-sex cohort forward using fertility, mortality, migration │
-│  - Leslie matrix formulation                                                 │
-│  - Requires assumptions for each demographic component                       │
+│  - Leslie matrix formulation                                                │
+│  - Requires assumptions for each demographic component                      │
 └─────────────────────────────────────────────────────────────────────────────┘
 ```
 

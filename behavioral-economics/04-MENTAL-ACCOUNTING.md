@@ -4,27 +4,27 @@
 
 ```
 ┌─────────────────────────────────────────────────────────────────────────────┐
-│                    MENTAL ACCOUNTING ARCHITECTURE                            │
+│                    MENTAL ACCOUNTING ARCHITECTURE                           │
 │                                                                               │
-│  STANDARD ECONOMIC VIEW:                                                     │
+│  STANDARD ECONOMIC VIEW:                                                    │
 │  Money is perfectly fungible. $1 from salary = $1 from bonus = $1 from      │
 │  gambling winnings = $1 found on street. Same $1 → same purchasing power.   │
 │                                                                               │
 │  REALITY (Thaler 1980, 1985, 1999):                                         │
 │  People maintain SEPARATE MENTAL ACCOUNTS for money.                        │
-│  Accounts have:                                                              │
-│    - Implicit labels (food budget, entertainment, savings, "windfall")       │
+│  Accounts have:                                                             │
+│    - Implicit labels (food budget, entertainment, savings, "windfall")      │
 │    - Non-fungibility: money in one account not freely transferred to another │
-│    - Different psychological "prices" for spending                           │
-│    - Different loss aversion across accounts                                 │
+│    - Different psychological "prices" for spending                          │
+│    - Different loss aversion across accounts                                │
 │                                                                               │
-│  MENTAL ACCOUNTING PHENOMENA:                                                │
-│  ├── Sunk cost fallacy    (past costs affect future decisions)               │
-│  ├── House money effect   (windfall gains spent differently from earned)     │
+│  MENTAL ACCOUNTING PHENOMENA:                                               │
+│  ├── Sunk cost fallacy    (past costs affect future decisions)              │
+│  ├── House money effect   (windfall gains spent differently from earned)    │
 │  ├── Payment decoupling   (credit cards decouple pain of payment)           │
-│  ├── Budgeting effects    (mental budget categories constrain spending)      │
-│  ├── Transaction utility  (pleasure/displeasure from the deal itself)        │
-│  └── Hedonic framing      (how to combine gains/losses to maximize utility)  │
+│  ├── Budgeting effects    (mental budget categories constrain spending)     │
+│  ├── Transaction utility  (pleasure/displeasure from the deal itself)       │
+│  └── Hedonic framing      (how to combine gains/losses to maximize utility) │
 └─────────────────────────────────────────────────────────────────────────────┘
 ```
 

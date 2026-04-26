@@ -6,7 +6,7 @@ Slopes fail when driving forces (gravity component along failure surface) exceed
 
 ```
 +------------------------------------------------------------------+
-|               SLOPE STABILITY — ANALYSIS HIERARCHY              |
+|               SLOPE STABILITY — ANALYSIS HIERARCHY               |
 +------------------------------------------------------------------+
 |                                                                  |
 |  CHARACTERIZE SLOPE AND GEOMETRY                                 |
@@ -15,10 +15,10 @@ Slopes fail when driving forces (gravity component along failure surface) exceed
 |              v                                                   |
 |  SELECT ANALYSIS TYPE                                            |
 |  +------------------+  +------------------+  +--------------+  |
-|  |  INFINITE SLOPE  |  | CIRCULAR FAILURE |  | NON-CIRCULAR | |
-|  |  Shallow, long   |  | Homogeneous soil |  | Layered soils| |
-|  |  translational   |  | or weak layer    |  | Hard base    | |
-|  |  failures        |  |                  |  | Complex geo  | |
+|  |  INFINITE SLOPE  |  | CIRCULAR FAILURE |  | NON-CIRCULAR |  |
+|  |  Shallow, long   |  | Homogeneous soil |  | Layered soils|  |
+|  |  translational   |  | or weak layer    |  | Hard base    |  |
+|  |  failures        |  |                  |  | Complex geo  |  |
 |  +------------------+  +------------------+  +--------------+  |
 |              |                   |                   |          |
 |              v                   v                   v          |

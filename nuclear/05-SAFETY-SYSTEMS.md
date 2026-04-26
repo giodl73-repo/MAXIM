@@ -6,12 +6,12 @@
 DEFENSE IN DEPTH — FIVE BARRIERS TO FISSION PRODUCT RELEASE
 
   ┌──────────────────────────────────────────────────────────────────────┐
-  │  5. Containment Building (reinforced concrete, 1.5–2.0 m thick)     │
+  │  5. Containment Building (reinforced concrete, 1.5–2.0 m thick)      │
   │     ┌────────────────────────────────────────────────────────────┐   │
   │     │  4. Reactor Pressure Vessel (12 cm steel, 155 bar)         │   │
   │     │     ┌──────────────────────────────────────────────────┐   │   │
-  │     │     │  3. Primary Coolant Boundary (piping, pumps, SGs) │   │   │
-  │     │     │     ┌──────────────────────────────────────────┐  │   │   │
+  │     │     │  3. Primary Coolant Boundary (piping, pumps, SGs) │   │  │
+  │     │     │     ┌──────────────────────────────────────────┐  │   │  │
   │     │     │     │  2. Fuel Cladding (Zircaloy, 0.57 mm)    │  │   │   │
   │     │     │     │     ┌────────────────────────────────┐   │  │   │   │
   │     │     │     │     │  1. Fuel Matrix (UO₂ ceramic)  │   │  │   │   │

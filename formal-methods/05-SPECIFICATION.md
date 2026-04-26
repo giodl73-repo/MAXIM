@@ -8,31 +8,31 @@ verification: it is design clarity and communication.
 
 ```
 +--------------------------------------------------------------------------+
-|                    SPECIFICATION LANGUAGE LANDSCAPE                       |
+|                    SPECIFICATION LANGUAGE LANDSCAPE                      |
 |                                                                            |
-|  LANGUAGE    FORMALISM        BACKEND         BEST FOR                    |
-|  ────────    ─────────        ───────         ────────                    |
-|  TLA+        Temporal logic   TLC (explicit   Distributed protocols       |
-|  (Lamport)   + set theory     state), TLAPS   (Paxos, Raft, replication)  |
-|                               (proof system)                              |
+|  LANGUAGE    FORMALISM        BACKEND         BEST FOR                   |
+|  ────────    ─────────        ───────         ────────                   |
+|  TLA+        Temporal logic   TLC (explicit   Distributed protocols      |
+|  (Lamport)   + set theory     state), TLAPS   (Paxos, Raft, replication) |
+|                               (proof system)                             |
 |                                                                            |
-|  PlusCal     Pseudocode       Transpiles to   Algorithms (easier entry    |
-|  (Lamport)   (imperative)     TLA+            for engineers)              |
+|  PlusCal     Pseudocode       Transpiles to   Algorithms (easier entry   |
+|  (Lamport)   (imperative)     TLA+            for engineers)             |
 |                                                                            |
-|  Alloy       Relational FOL   Kodkod (SAT)    Data model correctness,     |
-|  (Jackson)   first-order      bounded scope   structural invariants,      |
-|              + transitive     analysis        schema design               |
+|  Alloy       Relational FOL   Kodkod (SAT)    Data model correctness,    |
+|  (Jackson)   first-order      bounded scope   structural invariants,     |
+|              + transitive     analysis        schema design              |
 |              closure                                                       |
 |                                                                            |
-|  Z notation  Set theory       Z/Eves, ProofPwr  Sequential specs,         |
-|  (Spivey)    + schemas        (verification)    IBM CICS, civil aviation  |
+|  Z notation  Set theory       Z/Eves, ProofPwr  Sequential specs,        |
+|  (Spivey)    + schemas        (verification)    IBM CICS, civil aviation |
 |                                                                            |
-|  Event-B     Refinement       Rodin tool      Safety-critical embedded,   |
-|  (Abrial)    calculus         (proof oblig.)  Paris Metro Line 14,        |
-|              B-Method family  ProB (animator) transit control systems     |
+|  Event-B     Refinement       Rodin tool      Safety-critical embedded,  |
+|  (Abrial)    calculus         (proof oblig.)  Paris Metro Line 14,       |
+|              B-Method family  ProB (animator) transit control systems    |
 |                                                                            |
-|  VDM-SL      Implicit + expl. VDMTools        Sequential + concurrent     |
-|  (Bjorner)   specs, pre/post  Overture         industrial specs           |
+|  VDM-SL      Implicit + expl. VDMTools        Sequential + concurrent    |
+|  (Bjorner)   specs, pre/post  Overture         industrial specs          |
 +--------------------------------------------------------------------------+
 ```
 
@@ -60,7 +60,7 @@ so describe them as state machines using mathematics.
   | Initial predicate| Init == x = 0 /\ y = {} /\ z = "idle"     |
   |                  | Which states are initial                   |
   +------------------+--------------------------------------------+
-  | Next-state rel.  | Next == Action1 \/ Action2 \/ Action3     |
+  | Next-state rel.  | Next == Action1 \/ Action2 \/ Action3      |
   |                  | What transitions are allowed               |
   +------------------+--------------------------------------------+
   | Temporal spec    | Spec == Init /\ [][Next]_vars /\ Fairness  |
@@ -321,17 +321,17 @@ and schemas.
 ```
   State schema: declares state variables and invariants
   ┌─── Library ─────────────────────────────┐
-  │ stock: BOOK --> N                        │
-  │ issued: PATRON -->> BOOK                 │
+  │ stock: BOOK --> N                       │
+  │ issued: PATRON -->> BOOK                │
   ├──────────────────────────────────────────┤
   │ dom issued ⊆ dom stock                   │
   └──────────────────────────────────────────┘
 
   Operation schema: pre and post conditions
   ┌─── Checkout ───────────────────────────────────────┐
-  │ DeltaLibrary           (* state changes *)          │
-  │ p?: PATRON             (* input -- ? suffix *)      │
-  │ b?: BOOK               (* input *)                  │
+  │ DeltaLibrary           (* state changes *)         │
+  │ p?: PATRON             (* input -- ? suffix *)     │
+  │ b?: BOOK               (* input *)                 │
   ├────────────────────────────────────────────────────┤
   │ b? ∈ dom stock                    (* precondition *)│
   │ b? ∉ ran issued                   (* book available*)│

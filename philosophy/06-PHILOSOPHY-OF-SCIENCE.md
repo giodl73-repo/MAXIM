@@ -20,8 +20,8 @@
 │  Theory change              │  Reductionism                             │
 ├─────────────────────────────┴────────────────────────────────────────────┤
 │  SCIENTIFIC RATIONALITY                                                  │
-│  Kuhn's paradigm shifts, Lakatos's research programs,                   │
-│  Feyerabend's anarchism, Bayesian confirmation, inference to best expl. │
+│  Kuhn's paradigm shifts, Lakatos's research programs,                    │
+│  Feyerabend's anarchism, Bayesian confirmation, inference to best expl.  │
 └──────────────────────────────────────────────────────────────────────────┘
 ```
 

@@ -15,10 +15,10 @@
 |  | Mechanisms,       |  | XRF, Raman, IRR, |  | = forgery      | |
 |  | predictors        |  | UV, X-ray        |  | detection      | |
 |  +------------------+  +------------------+  +----------------+ |
-|                                                                  |
-|  KEY PRINCIPLE: Artworks are chemical systems evolving in time   |
-|  What we see today ≠ what the artist intended                    |
-|  Authentication requires knowing what was possible at a date     |
+|                                                                 |
+|  KEY PRINCIPLE: Artworks are chemical systems evolving in time  |
+|  What we see today ≠ what the artist intended                   |
+|  Authentication requires knowing what was possible at a date    |
 +------------------------------------------------------------------+
 ```
 

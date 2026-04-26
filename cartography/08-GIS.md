@@ -95,7 +95,7 @@ VECTOR DATA MODEL
 
   GEOMETRY TYPES:
   ┌──────────────────────────────────────────────────────────┐
-  │  POINT: single coordinate pair (x,y) or (x,y,z)         │
+  │  POINT: single coordinate pair (x,y) or (x,y,z)          │
   │  Examples: city center, tree location, sensor station    │
   │                                                          │
   │  LINE (LineString): ordered sequence of points           │
@@ -139,9 +139,9 @@ RASTER DATA MODEL
   │  Each cell: single value (or multiple bands)             │
   │  Cell size = spatial resolution                          │
   │                                                          │
-  │  1m cell: 1 cell = 1m² of Earth surface                 │
-  │  30m cell (Landsat): 1 cell = 900m² of Earth            │
-  │  1km cell (MODIS): 1 cell = 1km²                        │
+  │  1m cell: 1 cell = 1m² of Earth surface                  │
+  │  30m cell (Landsat): 1 cell = 900m² of Earth             │
+  │  1km cell (MODIS): 1 cell = 1km²                         │
   └──────────────────────────────────────────────────────────┘
 
   COMMON RASTER TYPES:
@@ -207,7 +207,7 @@ COORDINATE REFERENCE SYSTEMS IN GIS
   │             Units: meters (but spherical approximation)  │
   │                                                          │
   │  EPSG:4269  NAD83 geographic (lat/lon, N. America)       │
-  │             US federal standard                         │
+  │             US federal standard                          │
   │                                                          │
   │  EPSG:32618  UTM Zone 18N (WGS84)                        │
   │  EPSG:326xx  UTM Zone xx N (WGS84) — xx = 01 to 60       │
@@ -223,10 +223,10 @@ COORDINATE REFERENCE SYSTEMS IN GIS
   │  Data A: EPSG:4326 (degrees)                             │
   │  Data B: EPSG:3857 (meters)                              │
   │                                                          │
-  │  Overlaying without reprojection: Africa appears where  │
+  │  Overlaying without reprojection: Africa appears where   │
   │  the North Sea should be. Classic beginner error.        │
   │                                                          │
-  │  GIS tools: "project on the fly" (display only, risky)  │
+  │  GIS tools: "project on the fly" (display only, risky)   │
   │             Transform/reproject (correct, permanent)     │
   └──────────────────────────────────────────────────────────┘
 
@@ -431,27 +431,27 @@ WEB GIS ARCHITECTURE
   CLIENT (Browser):
   ┌──────────────────────────────────────────────────────────┐
   │  Leaflet / MapboxGL / OpenLayers (JavaScript)            │
-  │  ├── Renders tiles (raster or vector)                   │
-  │  ├── Renders GeoJSON features                           │
-  │  ├── Handles pan/zoom/click interactions                │
-  │  └── Makes WMS/WFS/tile requests                        │
+  │  ├── Renders tiles (raster or vector)                    │
+  │  ├── Renders GeoJSON features                            │
+  │  ├── Handles pan/zoom/click interactions                 │
+  │  └── Makes WMS/WFS/tile requests                         │
   └──────────────────────────────────────────────────────────┘
          ↕ HTTP
   SERVER (Tile/Feature Server):
   ┌──────────────────────────────────────────────────────────┐
   │  GeoServer / MapServer / pg_tileserv / Martin            │
-  │  ├── WMS: raster tile rendering (fixed style)           │
-  │  ├── WFS: vector features + attributes (GeoJSON)        │
-  │  ├── WMTS: pre-rendered raster tiles (cached)           │
-  │  └── Vector Tiles (MVT): styled client-side             │
+  │  ├── WMS: raster tile rendering (fixed style)            │
+  │  ├── WFS: vector features + attributes (GeoJSON)         │
+  │  ├── WMTS: pre-rendered raster tiles (cached)            │
+  │  └── Vector Tiles (MVT): styled client-side              │
   └──────────────────────────────────────────────────────────┘
          ↕ SQL
   DATABASE:
   ┌──────────────────────────────────────────────────────────┐
-  │  PostGIS (PostgreSQL + spatial extension)               │
-  │  ├── Stores: geometries + attributes + spatial index    │
-  │  ├── Answers: spatial queries in milliseconds           │
-  │  └── CRS management, coordinate transformation (PROJ)   │
+  │  PostGIS (PostgreSQL + spatial extension)                │
+  │  ├── Stores: geometries + attributes + spatial index     │
+  │  ├── Answers: spatial queries in milliseconds            │
+  │  └── CRS management, coordinate transformation (PROJ)    │
   └──────────────────────────────────────────────────────────┘
 
   TILE SCHEMES:

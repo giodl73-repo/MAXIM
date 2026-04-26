@@ -100,12 +100,12 @@ WARHOL'S FORMAL STRATEGIES
   │ canvases, one per variety. Installed in a row.        │
   │                                                       │
   │ What does repeating the image do?                     │
-  │ - Drains the iconic image of uniqueness              │
-  │ - Reveals the repetition that is already present     │
-  │   in the supermarket (32 identical cans on shelf)    │
-  │ - Raises: is each painting unique? Is any canvas?    │
-  │ - The uniqueness claim of "fine art" confronted by   │
-  │   commercial multiples                               │
+  │ - Drains the iconic image of uniqueness               │
+  │ - Reveals the repetition that is already present      │
+  │   in the supermarket (32 identical cans on shelf)     │
+  │ - Raises: is each painting unique? Is any canvas?     │
+  │ - The uniqueness claim of "fine art" confronted by    │
+  │   commercial multiples                                │
   └───────────────────────────────────────────────────────┘
 
   CELEBRITY AND DEATH:
@@ -181,11 +181,11 @@ MINIMALISM'S ARGUMENT
 
   DONALD JUDD: "Specific Objects" (1965):
   ┌───────────────────────────────────────────────────────┐
-  │ "Three-dimensionality is real space. That gets rid   │
-  │ of the problem of illusionism and of literal space,  │
-  │ space in and around marks and colors -- which is     │
+  │ "Three-dimensionality is real space. That gets rid    │
+  │ of the problem of illusionism and of literal space,   │
+  │ space in and around marks and colors -- which is      │
   │ riddance of one of the salient and most objectionable│
-  │ relics of European art."                             │
+  │ relics of European art."                              │
   └───────────────────────────────────────────────────────┘
 
   Judd's stacks: galvanized iron boxes mounted at
@@ -254,8 +254,8 @@ CONCEPTUAL ART'S PROGRAM
   │                                                          │
   │ Kosuth's argument (from Wittgenstein):                   │
   │ Art = analytic proposition (true by definition)          │
-  │ NOT synthetic proposition (true by reference to facts)  │
-  │ "Art is the definition of art." (tautology)             │
+  │ NOT synthetic proposition (true by reference to facts)   │
+  │ "Art is the definition of art." (tautology)              │
   └──────────────────────────────────────────────────────────┘
 
   ART & LANGUAGE (group, UK):
@@ -439,15 +439,15 @@ NFT EPISODE (2017-2022)
   ┌───────────────────────────────────────────────────────┐
   │ WHAT NFTS SOLVED (genuine problem):                   │
   │                                                       │
-  │ Digital files are infinitely copyable. There is no   │
+  │ Digital files are infinitely copyable. There is no    │
   │ "original." Photography had this problem for physical │
   │ prints; the edition system (numbered, signed) was the │
-  │ solution. NFTs are the digital equivalent of the     │
-  │ edition number -- a certificate of limited issuance. │
+  │ solution. NFTs are the digital equivalent of the      │
+  │ edition number -- a certificate of limited issuance.  │
   │                                                       │
-  │ Digital provenance: who made it first, who bought it │
-  │ when -- this IS genuinely useful for artists and     │
-  │ collectors of digital work.                          │
+  │ Digital provenance: who made it first, who bought it  │
+  │ when -- this IS genuinely useful for artists and      │
+  │ collectors of digital work.                           │
   └───────────────────────────────────────────────────────┘
 
   WHAT NFTS DID NOT SOLVE:

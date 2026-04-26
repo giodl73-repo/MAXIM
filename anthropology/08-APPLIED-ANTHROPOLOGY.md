@@ -4,8 +4,8 @@
 
 ```
 +------------------------------------------------------------------+
-|                    APPLIED ANTHROPOLOGY                           |
-|                                                                   |
+|                    APPLIED ANTHROPOLOGY                          |
+|                                                                  |
 |  "Anthropological methods and theory put to work on real         |
 |   problems — in health, development, design, justice, and        |
 |   heritage — outside the academic literature"                    |
@@ -71,7 +71,7 @@ the gap between what research shows and what organizations can implement.
   │ 1. What do you call the problem?                       │
   │ 2. What do you think has caused it?                    │
   │ 3. Why do you think it started when it did?            │
-  │ 4. What do you think the sickness does to you?        │
+  │ 4. What do you think the sickness does to you?         │
   │ 5. How severe is it?                                   │
   │ 6. What kind of treatment do you think you need?       │
   │ 7. What are the main results you hope to get?          │
@@ -191,9 +191,9 @@ the gap between what research shows and what organizations can implement.
   │    knowledge can be complete.                          │
   │                                                        │
   │ 3. AUTHORITARIAN STATE: ability to impose the plan     │
-  │    regardless of local resistance.                    │
+  │    regardless of local resistance.                     │
   │                                                        │
-  │ (+ weak civil society unable to resist or modify)     │
+  │ (+ weak civil society unable to resist or modify)      │
   └────────────────────────────────────────────────────────┘
 
   METIS vs. TECHNE:
@@ -311,29 +311,29 @@ the gap between what research shows and what organizations can implement.
 
   Four principles:
   ┌────────────────────────────────────────────────────────┐
-  │ 1. CONTEXT: observe in the actual work environment,   │
+  │ 1. CONTEXT: observe in the actual work environment,    │
   │    not a usability lab                                 │
-  │ 2. PARTNERSHIP: researcher and user as partners       │
-  │    exploring the work together                        │
+  │ 2. PARTNERSHIP: researcher and user as partners        │
+  │    exploring the work together                         │
   │ 3. INTERPRETATION: share interpretations in real time  │
-  │    ("It looks like you're doing X because Y — is      │
-  │    that right?") Get corrections immediately.         │
-  │ 4. FOCUS: guided by a research agenda, not a rigid    │
-  │    script. Follow interesting threads.                │
+  │    ("It looks like you're doing X because Y — is       │
+  │    that right?") Get corrections immediately.          │
+  │ 4. FOCUS: guided by a research agenda, not a rigid     │
+  │    script. Follow interesting threads.                 │
   └────────────────────────────────────────────────────────┘
 
   WORK MODELS (Holtzblatt's five models):
   ┌────────────────────────────────────────────────────────┐
   │ Flow model: communication and coordination between     │
-  │   people. Who talks to whom, when, about what.        │
-  │ Cultural model: policies, values, influencers — the   │
-  │   invisible rules governing work.                     │
-  │ Artifact model: documents, tools, objects used in     │
-  │   work — their structure and meaning.                 │
+  │   people. Who talks to whom, when, about what.         │
+  │ Cultural model: policies, values, influencers — the    │
+  │   invisible rules governing work.                      │
+  │ Artifact model: documents, tools, objects used in      │
+  │   work — their structure and meaning.                  │
   │ Physical model: physical environment and how it        │
-  │   shapes work (desk arrangement, interruptions, etc.) │
-  │ Sequence model: steps taken to accomplish key tasks   │
-  │   (often reveals actual vs. designed workflow gap).   │
+  │   shapes work (desk arrangement, interruptions, etc.)  │
+  │ Sequence model: steps taken to accomplish key tasks    │
+  │   (often reveals actual vs. designed workflow gap).    │
   └────────────────────────────────────────────────────────┘
 
   These are directly the "thick description" tools of
@@ -349,8 +349,8 @@ the gap between what research shows and what organizations can implement.
 
   MICROSOFT'S ANTHROPOLOGICAL TRADITION:
   ┌────────────────────────────────────────────────────────┐
-  │ Microsoft Research: CHI (Computer-Human Interaction)  │
-  │ and CSCW (Computer Supported Cooperative Work) are    │
+  │ Microsoft Research: CHI (Computer-Human Interaction)   │
+  │ and CSCW (Computer Supported Cooperative Work) are     │
   │ the conferences where social science meets computing.  │
   │                                                        │
   │ EPIC conference (Ethnographic Praxis in Industry):     │
@@ -361,9 +361,9 @@ the gap between what research shows and what organizations can implement.
   │ Pioneered deployment of professional ethnographers in  │
   │ product teams (Genevieve Bell).                        │
   │                                                        │
-  │ danah boyd (MSR): Technology and society research —   │
-  │ ethnography of teen social media use; privacy norms;  │
-  │ algorithmic accountability. Applied anthropological   │
+  │ danah boyd (MSR): Technology and society research —    │
+  │ ethnography of teen social media use; privacy norms;   │
+  │ algorithmic accountability. Applied anthropological    │
   │ methods to digital contexts.                           │
   └────────────────────────────────────────────────────────┘
 
@@ -402,32 +402,32 @@ the gap between what research shows and what organizations can implement.
   THE METHODOLOGY:
   ┌────────────────────────────────────────────────────────┐
   │ 1. SITE LOCATION:                                      │
-  │    - Witness testimony + satellite imagery + LiDAR    │
+  │    - Witness testimony + satellite imagery + LiDAR     │
   │    - Ground-penetrating radar to confirm disturbed     │
-  │      ground without excavation                        │
+  │      ground without excavation                         │
   │                                                        │
   │ 2. ARCHAEOLOGICAL EXCAVATION:                          │
-  │    - Full forensic context documentation              │
-  │    - Secondary graves (moved to hide evidence): most  │
-  │      complex; bodies scattered, commingled            │
-  │    - Chain of custody for all evidence                │
+  │    - Full forensic context documentation               │
+  │    - Secondary graves (moved to hide evidence): most   │
+  │      complex; bodies scattered, commingled             │
+  │    - Chain of custody for all evidence                 │
   │                                                        │
   │ 3. MORTUARY ANALYSIS:                                  │
-  │    - Individual inventory (count, articulation)       │
-  │    - Biological profile each individual               │
-  │    - Cause of death documentation (gunshot location,  │
-  │      trajectory, perimortem injury pattern)           │
+  │    - Individual inventory (count, articulation)        │
+  │    - Biological profile each individual                │
+  │    - Cause of death documentation (gunshot location,   │
+  │      trajectory, perimortem injury pattern)            │
   │    - Personal effects (clothing, documents, artifacts) │
   │                                                        │
   │ 4. IDENTIFICATION:                                     │
-  │    - Ante-mortem data collection from families        │
-  │    - DNA: blood reference from families; aDNA from    │
-  │      remains; STR profile matching                    │
-  │    - Dental/medical record comparison                 │
-  │    - ICMP DNA database: >8,000 IDs in Bosnia          │
+  │    - Ante-mortem data collection from families         │
+  │    - DNA: blood reference from families; aDNA from     │
+  │      remains; STR profile matching                     │
+  │    - Dental/medical record comparison                  │
+  │    - ICMP DNA database: >8,000 IDs in Bosnia           │
   │                                                        │
   │ 5. REPATRIATION: death certificate issued;             │
-  │    family receives remains for burial                 │
+  │    family receives remains for burial                  │
   └────────────────────────────────────────────────────────┘
 
   DAUBERT STANDARD (US federal courts, 1993):
@@ -512,17 +512,17 @@ the gap between what research shows and what organizations can implement.
   │                                                        │
   │ Scientists (Chatters et al.): claimed "Caucasoid"      │
   │ morphology -> not Native American -> no NAGPRA claim   │
-  │ (incorrect racial typology)                           │
+  │ (incorrect racial typology)                            │
   │                                                        │
   │ Tribes (Umatilla, Colville, Yakama, Nez Perce,         │
   │ Wanapum): oral tradition + geographic continuity;      │
-  │ this is "The Ancient One" — a relative                │
+  │ this is "The Ancient One" — a relative                 │
   │                                                        │
-  │ 9-year legal battle (Bonnichsen v. United States).    │
-  │ Scientists studied the remains during litigation.     │
+  │ 9-year legal battle (Bonnichsen v. United States).     │
+  │ Scientists studied the remains during litigation.      │
   │                                                        │
   │ 2015: Ancient DNA (Reich lab) showed: closest living   │
-  │ relatives are Indigenous Americans, specifically        │
+  │ relatives are Indigenous Americans, specifically       │
   │ Colville tribe. The "Caucasoid" claim was false.       │
   │                                                        │
   │ 2017: Reburied by tribes.                              │
@@ -561,7 +561,7 @@ the gap between what research shows and what organizations can implement.
   │ Community identifies research questions                │
   │ Community members are co-investigators                 │
   │ Research design is co-developed                        │
-  │ Data stays with community (or jointly held)           │
+  │ Data stays with community (or jointly held)            │
   │ Publications require community review and co-authorship│
   │ Results returned to community in usable form           │
   │ Researcher is accountable to community, not just       │
@@ -589,7 +589,7 @@ the gap between what research shows and what organizations can implement.
   │ FAIR says: genomic data should be in open repositories │
   │           for other scientists to use.                 │
   │                                                        │
-  │ CARE says: Indigenous genomic data may be subject to  │
+  │ CARE says: Indigenous genomic data may be subject to   │
   │           tribal governance. The tribe decides who     │
   │           can access it, for what purposes.            │
   │                                                        │
@@ -597,7 +597,7 @@ the gap between what research shows and what organizations can implement.
   │ community to study disease risk. FAIR: put it in       │
   │ dbGaP (public genomic repository). CARE: does the      │
   │ tribe want their genetic information accessible to     │
-  │ pharmaceutical companies? Ancestry.com? Government?   │
+  │ pharmaceutical companies? Ancestry.com? Government?    │
   │ The tribe should decide.                               │
   └────────────────────────────────────────────────────────┘
 

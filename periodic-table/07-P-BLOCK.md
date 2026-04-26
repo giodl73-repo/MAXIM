@@ -65,13 +65,13 @@ ACTUAL STRUCTURE:
   ┌─────────────────────────────────────────────────────────┐
   │  Each B has 2 terminal H (normal 2c-2e bonds)           │
   │  Two bridging H atoms: each shared between both B atoms │
-  │                                                          │
+  │                                                         │
   │      Ht    Hb    Ht                                     │
   │       \   / \   /                                       │
   │        B       B                                        │
   │       /   \ /   \                                       │
   │      Ht    Hb    Ht                                     │
-  │                                                          │
+  │                                                         │
   │  The B–Hb–B bridge: 3-center 2-electron bond            │
   │  2 electrons delocalized over B–H–B (banana bond)       │
   └─────────────────────────────────────────────────────────┘

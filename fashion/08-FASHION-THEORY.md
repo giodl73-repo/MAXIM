@@ -4,7 +4,7 @@
 
 ```
 +------------------------------------------------------------------+
-|               FASHION THEORY: KEY FRAMEWORKS                      |
+|               FASHION THEORY: KEY FRAMEWORKS                     |
 |                                                                  |
 |  ECONOMICS / CLASS                                               |
 |  Veblen: conspicuous consumption (1899)                          |

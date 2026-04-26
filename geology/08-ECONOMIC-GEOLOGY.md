@@ -145,27 +145,27 @@ A petroleum system requires all five elements to exist simultaneously:
 
 ```
 +----------------------------------------------------------------+
-|                    PETROLEUM SYSTEM                             |
-|                                                                 |
+|                    PETROLEUM SYSTEM                            |
+|                                                                |
 |  SOURCE ROCK      Organic-rich shale buried to "oil window"    |
 |  (kitchen)        Ro 0.6–1.3% = oil; 1.3–3.0% = wet gas;     |
 |                   >3% = dry gas (overmature)                   |
-|                                                                 |
+|                                                                |
 |  MIGRATION        Primary: micro-scale to carrier bed          |
 |                   Secondary: updip through permeable bed       |
 |                   Expulsion when pore pressure builds          |
-|                                                                 |
+|                                                                |
 |  RESERVOIR        Porous + permeable rock                      |
 |                   Sandstone (intergranular porosity)           |
 |                   Carbonate (vuggy, fracture, intercrystalline)|
 |                   Key metrics: φ (porosity 10–35%)             |
 |                                k (permeability 1–1000 mD)      |
-|                                                                 |
+|                                                                |
 |  TRAP             Where oil/gas accumulates                    |
 |                   Structural: anticline, dome, fault           |
 |                   Stratigraphic: pinch-out, unconformity       |
-|                   Combination                                   |
-|                                                                 |
+|                   Combination                                  |
+|                                                                |
 |  SEAL             Cap rock preventing escape                   |
 |                   Shale, evaporite (best: halite is plastic)   |
 |                   Must be present before/during charge         |

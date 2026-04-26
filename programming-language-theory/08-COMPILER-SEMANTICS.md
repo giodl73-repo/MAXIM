@@ -6,7 +6,7 @@ Compiler semantics is about what it means for a compiler to be *correct* — and
 
 ```
 +--------------------------------------------------------------------------+
-|                    COMPILER SEMANTICS LANDSCAPE                           |
+|                    COMPILER SEMANTICS LANDSCAPE                          |
 +--------------------------------------------------------------------------+
 |                                                                          |
 |  THE CORRECTNESS PROPERTY:                                               |

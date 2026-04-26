@@ -16,7 +16,7 @@ BRICKLAYING WORKFLOW
   │███████     ███████      │           │███████████████████████  │
   │  Lead A    Lead B       │           │  leads set level        │
   │  (5-7      (5-7         │           │  line pulled between    │
-  │  courses   courses      │           │  at each course        │
+  │  courses   courses      │           │  at each course         │
   │  tall)     tall)        │           │                         │
   └─────────────────────────┘           └─────────────────────────┘
 
@@ -166,13 +166,13 @@ COURSE HEIGHT CALCULATION
   ┌──────────────────────────────────────────────────────────────────┐
   │  A story pole is a vertical rod marked at each course height     │
   │  Pre-marked to show: sill heights, lintel heights, floor heights │
-  │                                                                   │
+  │                                                                  │
   │  Purpose: Maintain uniform joint thickness without measuring     │
   │           every course. Mark once, use throughout project.       │
-  │                                                                   │
+  │                                                                  │
   │  Mark locations (typical 8' wall, modular brick, 3 courses=8"):  │
   │  8", 16", 24", 32", 40", 48" (sill), 56", 64", 72", 80" (arch) │
-  │                                                                   │
+  │                                                                  │
   │  RULE: If courses don't hit marks, mortar joint is wrong.        │
   │        Adjust mortar joint thickness — never cut brick.          │
   └──────────────────────────────────────────────────────────────────┘
@@ -235,7 +235,7 @@ CORNER GEOMETRY: RUNNING BOND
 
   REVEALS: The set-back of the masonry at a window/door frame
   ┌──────────────────────────────────────────────────────────────────┐
-  │  Window frame      │ ← reveal dimension (typically 1/2"–1")     │
+  │  Window frame      │ ← reveal dimension (typically 1/2"–1")      │
   │  ────────────      │                                             │
   │  [   glass   ]     │  Reveal must be consistent course-to-course │
   │  ────────────      │  Marks end of wythe; requires closure brick │
@@ -261,19 +261,19 @@ CLOSURE IN FLEMISH BOND
 
   CLOSURE TYPES:
   ┌────────────────────────────────────────────────────────────────┐
-  │ QUEEN CLOSER: Brick split along length = half-width unit      │
-  │  Use: In Flemish bond to start/end a course at corner         │
-  │  Position: Placed next to corner header to "close" the bond   │
-  │                                                                 │
-  │  [H][QC][S][H][S][H][S][CORNER]                               │
-  │       ↑                                                         │
-  │  Queen closer adjusts spacing to maintain bond pattern        │
-  │                                                                 │
-  │ KING CLOSER: Brick cut diagonally                             │
-  │  Use: Turning corners in Flemish bond                         │
-  │                                                                 │
+  │ QUEEN CLOSER: Brick split along length = half-width unit       │
+  │  Use: In Flemish bond to start/end a course at corner          │
+  │  Position: Placed next to corner header to "close" the bond    │
+  │                                                                │
+  │  [H][QC][S][H][S][H][S][CORNER]                                │
+  │       ↑                                                        │
+  │  Queen closer adjusts spacing to maintain bond pattern         │
+  │                                                                │
+  │ KING CLOSER: Brick cut diagonally                              │
+  │  Use: Turning corners in Flemish bond                          │
+  │                                                                │
   │ BAT: Brick cut to 1/2 length                                   │
-  │  Use: Filling end position in running bond                    │
+  │  Use: Filling end position in running bond                     │
   └────────────────────────────────────────────────────────────────┘
 
   CLOSURE PROCEDURE:
@@ -293,23 +293,23 @@ QUALITY CONTROL SEQUENCE
 
   TOOL: Mason's line (string line pulled taut between leads)
   ┌──────────────────────────────────────────────────────────────────┐
-  │  Lead A ────────────────────────────────────────── Lead B       │
-  │          ← string line at top of course height →                │
-  │          Each brick's top edge aligns with string               │
-  │          Leave 1/16" gap between string and brick face          │
-  │          (touching string bows it → course bulges out)          │
+  │  Lead A ────────────────────────────────────────── Lead B        │
+  │          ← string line at top of course height →                 │
+  │          Each brick's top edge aligns with string                │
+  │          Leave 1/16" gap between string and brick face           │
+  │          (touching string bows it → course bulges out)           │
   └──────────────────────────────────────────────────────────────────┘
 
   THREE CHECKS:
   ┌────────────────────────────────────────────────────────────────┐
   │  PLUMB: Is the face of the wall vertical?                      │
   │    Tool: 4-foot mason's level held vertically against face     │
-  │    Tolerance: 1/4" in 10 feet max (ACI 530.1 / TMS 602)       │
-  │                                                                 │
+  │    Tolerance: 1/4" in 10 feet max (ACI 530.1 / TMS 602)        │
+  │                                                                │
   │  LEVEL: Are bed joints horizontal?                             │
   │    Tool: 4-foot mason's level held horizontally on bed joint   │
   │    Tolerance: 1/8" in 10 feet max                              │
-  │                                                                 │
+  │                                                                │
   │  RANGE: Are bricks in plane along the run?                     │
   │    Tool: String line pulled between leads                      │
   │    Tolerance: 1/16" gap between string and each brick          │

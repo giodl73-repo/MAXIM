@@ -20,10 +20,10 @@ INVESTIGATIVE vs. BEAT JOURNALISM
 
   CLASSIC EXAMPLES:
   ┌──────────────────────────────────────────────────────────────────┐
-  │  Watergate (WashPost 1972–74): Followed money + sources         │
-  │  Ida Tarbell/Standard Oil (1904): Document analysis             │
-  │  Boston Globe/Catholic Church (2002): Source cultivation        │
-  │   → basis for the film Spotlight                                │
+  │  Watergate (WashPost 1972–74): Followed money + sources          │
+  │  Ida Tarbell/Standard Oil (1904): Document analysis              │
+  │  Boston Globe/Catholic Church (2002): Source cultivation         │
+  │   → basis for the film Spotlight                                 │
   │  Panama Papers (ICIJ 2016): Data analysis of 11.5M documents   │
   │  NYT/Weinstein (2017): Source cultivation over months          │
   └──────────────────────────────────────────────────────────────────┘
@@ -122,11 +122,11 @@ CAR METHODOLOGY
 
   DATA JOURNALISM APPLIED TO INVESTIGATION:
   ┌──────────────────────────────────────────────────────────────────┐
-  │  CLASSIC CAR STORIES:                                           │
+  │  CLASSIC CAR STORIES:                                            │
   │  Pulitzer 1989 (Philadelphia Inquirer, Donald Barlett/James    │
   │   Steele): Tax code analysis showed systematic inequality     │
   │  USA Today: Bridge safety database analysis                    │
-  │  IRE (Investigative Reporters and Editors): Annual conf.        │
+  │  IRE (Investigative Reporters and Editors): Annual conf.         │
   │   shares methodology templates                                 │
   └──────────────────────────────────────────────────────────────────┘
 
@@ -239,7 +239,7 @@ CONFRONTING THE SUBJECT
   WHY IT'S REQUIRED:
   ┌──────────────────────────────────────────────────────────────────┐
   │  Fairness: Subject has right to respond to damaging claims     │
-  │  Accuracy: Subject may have information that changes the story  │
+  │  Accuracy: Subject may have information that changes the story   │
   │  Legal protection: Cannot claim malice if subject was offered  │
   │   opportunity to respond and declined or responded inadequately│
   └──────────────────────────────────────────────────────────────────┘
@@ -275,7 +275,7 @@ DEFAMATION LAW BASICS (US)
 
   DEFAMATION ELEMENTS:
   ┌──────────────────────────────────────────────────────────────────┐
-  │  To succeed in a defamation lawsuit, plaintiff must prove:      │
+  │  To succeed in a defamation lawsuit, plaintiff must prove:       │
   │  ① False statement of fact (not opinion, not true)             │
   │  ② Publication to a third party                               │
   │  ③ Identification (reader would understand who it refers to)  │

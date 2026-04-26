@@ -8,12 +8,12 @@ The bias-variance decomposition is a formal analysis of generalization error as 
 +──────────────────────────────────────────────────────────────────+
 |                  BIAS-VARIANCE FRAMEWORK                         |
 |                                                                  |
-|  TOTAL EXPECTED ERROR = BIAS² + VARIANCE + IRREDUCIBLE NOISE    |
+|  TOTAL EXPECTED ERROR = BIAS² + VARIANCE + IRREDUCIBLE NOISE     |
 |                                                                  |
 |  BIAS: Error from wrong assumptions in the model class           |
-|        Underfitting. Too simple. High if H can't represent f*.  |
+|        Underfitting. Too simple. High if H can't represent f*.   |
 |                                                                  |
-|  VARIANCE: Error from sensitivity to training set fluctuations  |
+|  VARIANCE: Error from sensitivity to training set fluctuations   |
 |            Overfitting. Too complex. High if model memorizes S.  |
 |                                                                  |
 |  NOISE: Irreducible. Intrinsic randomness in the label process.  |
@@ -21,14 +21,14 @@ The bias-variance decomposition is a formal analysis of generalization error as 
 |                                                                  |
 |    ↑                                                             |
 |  Error                                            Total error    |
-|    |              Variance                      ╱               |
-|    |               ╱╲                          ╱                |
-|    |              ╱  ╲                        ╱                 |
-|    |             ╱    ╲                      ╱                  |
-|    |            ╱      ╲                    ╱                   |
-|    |  Bias²    ╱        ╲__________________╱                    |
-|    |───────────────────────────────────────                     |
-|    +───────────────────────────────────────→ Model complexity   |
+|    |              Variance                      ╱                |
+|    |               ╱╲                          ╱                 |
+|    |              ╱  ╲                        ╱                  |
+|    |             ╱    ╲                      ╱                   |
+|    |            ╱      ╲                    ╱                    |
+|    |  Bias²    ╱        ╲__________________╱                     |
+|    |───────────────────────────────────────                      |
+|    +───────────────────────────────────────→ Model complexity    |
 |                              ↑                                   |
 |                          Optimal point                           |
 +──────────────────────────────────────────────────────────────────+

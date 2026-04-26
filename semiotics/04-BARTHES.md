@@ -12,21 +12,21 @@ His work can be divided into two phases:
 +-----------------------------------------------------------------------+
 |                       BARTHES'S ARC                                   |
 |                                                                       |
-|  STRUCTURALIST (1950s–60s)       POST-STRUCTURALIST (1967+)          |
+|  STRUCTURALIST (1950s–60s)       POST-STRUCTURALIST (1967+)           |
 |  ----------------------------    ----------------------------         |
-|  Mythologies (1957)             "Death of the Author" (1967)         |
-|  Fashion System (1967)          S/Z (1970)                           |
-|  Elements of Semiology          The Pleasure of the Text (1973)      |
+|  Mythologies (1957)             "Death of the Author" (1967)          |
+|  Fashion System (1967)          S/Z (1970)                            |
+|  Elements of Semiology          The Pleasure of the Text (1973)       |
 |                                 Camera Lucida (1980)                  |
 |                                                                       |
-|  Ideology = naturalized         Author is "dead" — text is           |
-|  second-order signs             not controlled by origin             |
-|  (myth as mechanism)            Writerly vs readerly texts           |
-|                                 Codes produce polysemy               |
+|  Ideology = naturalized         Author is "dead" — text is            |
+|  second-order signs             not controlled by origin              |
+|  (myth as mechanism)            Writerly vs readerly texts            |
+|                                 Codes produce polysemy                |
 |                                                                       |
-|  SAUSSUREAN FRAMEWORK           DERRIDEAN INFLUENCE                  |
-|  Binary: signifier/signified    Open-ended semiosis                  |
-|  Two orders of signification    Plurality, dissemination             |
+|  SAUSSUREAN FRAMEWORK           DERRIDEAN INFLUENCE                   |
+|  Binary: signifier/signified    Open-ended semiosis                   |
+|  Two orders of signification    Plurality, dissemination              |
 +-----------------------------------------------------------------------+
 ```
 
@@ -41,9 +41,9 @@ The central analysis of Mythologies. Barthes takes Saussure's two-level sign and
 ```
   FIRST ORDER SYSTEM (Language / Denotation):
   +------------------------------------------+
-  |  Signifier    |    Signified              |
-  |  (form)       |    (concept)              |
-  |  [arbr]       |    tree-concept           |
+  |  Signifier    |    Signified             |
+  |  (form)       |    (concept)             |
+  |  [arbr]       |    tree-concept          |
   +------------------------------------------+
   This whole sign: [arbr / tree-concept] = SIGN₁
 
@@ -51,8 +51,8 @@ The central analysis of Mythologies. Barthes takes Saussure's two-level sign and
   Sign₁ becomes a new SIGNIFIER in a second system:
   +------------------------------------------+
   |  Signifier₂   |    Signified₂            |
-  |  (Sign₁)      |    (mythical concept)     |
-  |  [arbr/tree]  |    FRENCHNESS, NATURE,    |
+  |  (Sign₁)      |    (mythical concept)    |
+  |  [arbr/tree]  |    FRENCHNESS, NATURE,   |
   |               |    NATURAL ORDER           |
   +------------------------------------------+
 

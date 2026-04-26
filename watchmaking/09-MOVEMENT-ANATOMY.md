@@ -34,7 +34,7 @@ ENERGY FLOW: MAINSPRING TO HANDS
 │       │              ┌──────────────────────┐                       │
 │       │              │   REGULATOR          │                       │
 │       │              │   Balance wheel      │                       │
-│       │              │   + hairspring       │                      │
+│       │              │   + hairspring       │                       │
 │       │              │   Sets the tempo     │                       │
 │       │              └──────────────────────┘                       │
 │       │                                                              │
@@ -58,12 +58,12 @@ MAINSPRING CROSS-SECTION
 
 Fully wound state:             Mid-wind state:        Nearly run-down:
 ┌──────────────────────┐      ┌──────────────────────┐  ┌──────────────────────┐
-│ ██████████████████  │      │    ████████████      │  │         ████          │
-│ ████████████████    │      │   ██████████         │  │        ████           │
-│ ██████████████      │      │  ████████            │  │       ████            │
-│ ████████████        │      │ ██████               │  │      ████             │
-│ outer edge          │      │                      │  │                       │
-│ (arbor end)         │      │                      │  │                       │
+│ ██████████████████   │      │    ████████████      │  │         ████         │
+│ ████████████████     │      │   ██████████         │  │        ████          │
+│ ██████████████       │      │  ████████            │  │       ████           │
+│ ████████████         │      │ ██████               │  │      ████            │
+│ outer edge           │      │                      │  │                      │
+│ (arbor end)          │      │                      │  │                      │
 └──────────────────────┘      └──────────────────────┘  └──────────────────────┘
 
   Torque: HIGH                  Torque: MEDIUM              Torque: LOW
@@ -237,7 +237,7 @@ OIL RESERVOIR:
   a tiny enclosed space that holds lubricant:
   ┌────────────────────────────────┐
   │  cap jewel (flat)              │
-  │  ─────────────────── ← oil    │
+  │  ─────────────────── ← oil     │
   │  hole jewel (cup-shaped)       │
   │  ──── ─ ─ ── ─ ──── pivot rotating inside
   └────────────────────────────────┘
@@ -461,7 +461,7 @@ With Incabloc:
   ┌─────────────────────────────────────────┐
   │ cap jewel  ← sits in spring-loaded nest │
   │ hole jewel ← same nest                  │
-  │ spring (Incabloc shape):                 │
+  │ spring (Incabloc shape):                │
   │   ╭────────────────╮ lyre shape         │
   │   │ slots for tab  │ catches on plate   │
   │   │ of hole jewel  │ protrusions        │

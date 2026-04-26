@@ -7,7 +7,7 @@
 |              COMPOSITE DAMAGE AND INSPECTION LANDSCAPE           |
 |                                                                  |
 |   DAMAGE TYPES            NDT METHODS           DECISIONS        |
-|   ────────────            ───────────           ─────────       |
+|   ────────────            ───────────           ─────────        |
 |   Impact (BVID/VID)       Ultrasonic C-scan      Repair          |
 |   Delamination            Tap test               No action       |
 |   Matrix cracking         Thermography           Monitor         |
@@ -17,8 +17,8 @@
 |   Moisture ingress        Acoustic emission       Resin injection |
 |                                                                  |
 |   BARELY VISIBLE IMPACT DAMAGE (BVID) — the critical concept   |
-|   Definition: damage not detectable in normal walk-around       |
-|   Design must tolerate BVID for entire service life             |
+|   Definition: damage not detectable in normal walk-around        |
+|   Design must tolerate BVID for entire service life              |
 +------------------------------------------------------------------+
 ```
 

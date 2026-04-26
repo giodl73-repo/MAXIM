@@ -16,7 +16,7 @@ CONSISTENCY MODEL HIERARCHY (strongest to weakest)
            v
 +-----------------------------------------------------------+
 |  LINEARIZABILITY (Herlihy 1990)                           |
-|  Equivalent to single shared copy. Real-time order.      |
+|  Equivalent to single shared copy. Real-time order.       |
 |  CAP's "C". Expensive: requires global coordination.      |
 |  CosmosDB "Strong", ZooKeeper reads.                      |
 +-----------------------------------------------------------+
@@ -24,32 +24,32 @@ CONSISTENCY MODEL HIERARCHY (strongest to weakest)
            v
 +-----------------------------------------------------------+
 |  SEQUENTIAL CONSISTENCY (Lamport 1979)                    |
-|  All processes see same order. Not necessarily           |
+|  All processes see same order. Not necessarily            |
 |  real-time. Cheaper than linearizability.                 |
-|  TSO (x86 memory model), some GPU memory models.         |
+|  TSO (x86 memory model), some GPU memory models.          |
 +-----------------------------------------------------------+
            |
            v
 +-----------------------------------------------------------+
-|  CAUSAL CONSISTENCY (Causal+)                            |
-|  Causally related operations seen in order.              |
-|  Concurrent operations may appear in any order.          |
-|  CosmosDB "Consistent Prefix", COPS system.              |
+|  CAUSAL CONSISTENCY (Causal+)                             |
+|  Causally related operations seen in order.               |
+|  Concurrent operations may appear in any order.           |
+|  CosmosDB "Consistent Prefix", COPS system.               |
 +-----------------------------------------------------------+
            |
            v
 +-----------------------------------------------------------+
 |  PRAM (FIFO) CONSISTENCY                                  |
-|  Within a single process, operations seen in order.      |
-|  Between processes, no ordering guarantee.               |
+|  Within a single process, operations seen in order.       |
+|  Between processes, no ordering guarantee.                |
 +-----------------------------------------------------------+
            |
            v
 +-----------------------------------------------------------+
 |  EVENTUAL CONSISTENCY (Vogels 2009)                       |
-|  Given no new writes, all replicas converge.             |
-|  No ordering guarantee between nodes.                    |
-|  DynamoDB default, Cassandra default, DNS.               |
+|  Given no new writes, all replicas converge.              |
+|  No ordering guarantee between nodes.                     |
+|  DynamoDB default, Cassandra default, DNS.                |
 +-----------------------------------------------------------+
 ```
 

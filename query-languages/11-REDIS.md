@@ -16,11 +16,11 @@ Redis is not a query language in the SQL sense — it's a command-based interfac
 │   │                                                                  │
 │   └──► PostgreSQL / SQL Server (on-disk) ────► responses in ms-s   │
 │                                                                      │
-│  Redis = primary store for ephemeral / hot data                     │
-│  RDBMS = primary store for durable / relational data                │
+│  Redis = primary store for ephemeral / hot data                      │
+│  RDBMS = primary store for durable / relational data                 │
 │                                                                      │
 │  Use cases:                                                          │
-│  ┌──────────────────────────────────────────────────────────────┐   │
+│  ┌──────────────────────────────────────────────────────────────┐    │
 │  │  Cache (aside, write-through, write-behind)                  │   │
 │  │  Session storage  (user session → JSON blob by session ID)   │   │
 │  │  Rate limiting    (INCR + EXPIRE per user/IP)                │   │
@@ -35,9 +35,9 @@ Redis is not a query language in the SQL sense — it's a command-based interfac
 │  Redis Stack modules:                                                │
 │  ┌────────────────┬──────────────────────────────────────────────┐  │
 │  │ RediSearch     │ Full-text + vector similarity search (KNN)   │  │
-│  │ RedisJSON      │ Native JSON storage + JSONPath queries        │  │
-│  │ RedisTimeSeries│ Time-series data with downsampling            │  │
-│  │ RedisBloom     │ Probabilistic structures (Bloom, Cuckoo,      │  │
+│  │ RedisJSON      │ Native JSON storage + JSONPath queries       │  │
+│  │ RedisTimeSeries│ Time-series data with downsampling           │  │
+│  │ RedisBloom     │ Probabilistic structures (Bloom, Cuckoo,     │  │
 │  │                │ Count-Min Sketch, Top-K, HyperLogLog)        │  │
 │  └────────────────┴──────────────────────────────────────────────┘  │
 └──────────────────────────────────────────────────────────────────────┘
@@ -47,31 +47,31 @@ Redis is not a query language in the SQL sense — it's a command-based interfac
 ┌──────────────────────────────────────────────────────────────────────────┐
 │                     Redis Data Structure Taxonomy                        │
 │                                                                          │
-│  ┌──────────────┬───────────────────────────────────────────────────┐   │
+│  ┌──────────────┬───────────────────────────────────────────────────┐    │
 │  │  String      │ Bytes, integers, floats. GET/SET/INCR. O(1).      │   │
 │  │              │ Use: cache values, counters, session tokens        │   │
 │  ├──────────────┼───────────────────────────────────────────────────┤   │
 │  │  Hash        │ Field→value map (flat row). HSET/HGET/HINCRBY.    │   │
-│  │              │ O(1) per field. Use: objects, profiles, configs    │   │
+│  │              │ O(1) per field. Use: objects, profiles, configs   │   │
 │  ├──────────────┼───────────────────────────────────────────────────┤   │
 │  │  List        │ Doubly linked list. LPUSH/RPUSH/BRPOP. O(1)       │   │
 │  │              │ push/pop. Use: queues, stacks, activity feeds      │   │
 │  ├──────────────┼───────────────────────────────────────────────────┤   │
-│  │  Set         │ Unordered unique members. SADD/SINTER/SUNION.      │   │
-│  │              │ O(1) add/member. Use: tags, unique visitors,       │   │
+│  │  Set         │ Unordered unique members. SADD/SINTER/SUNION.     │   │
+│  │              │ O(1) add/member. Use: tags, unique visitors,      │   │
 │  │              │ follow graphs                                       │   │
 │  ├──────────────┼───────────────────────────────────────────────────┤   │
 │  │  Sorted Set  │ Members + float score, sorted. ZADD/ZRANGE.        │   │
 │  │  (ZSET)      │ O(log N). Use: leaderboards, priority queues       │   │
 │  ├──────────────┼───────────────────────────────────────────────────┤   │
-│  │  HyperLogLog │ Probabilistic cardinality estimator. PFADD.        │   │
-│  │              │ O(1), 12KB max. Use: unique visitor counts         │   │
+│  │  HyperLogLog │ Probabilistic cardinality estimator. PFADD.       │   │
+│  │              │ O(1), 12KB max. Use: unique visitor counts        │   │
 │  ├──────────────┼───────────────────────────────────────────────────┤   │
 │  │  Geospatial  │ Lat/lon members via ZSET + geohash encoding.       │   │
 │  │              │ GEOADD/GEOSEARCH. O(log N). Use: proximity         │   │
 │  ├──────────────┼───────────────────────────────────────────────────┤   │
-│  │  Stream      │ Append-only log with consumer groups + ACK.        │   │
-│  │              │ XADD/XREADGROUP. O(1) append. Use: event log,      │   │
+│  │  Stream      │ Append-only log with consumer groups + ACK.       │   │
+│  │              │ XADD/XREADGROUP. O(1) append. Use: event log,     │   │
 │  │              │ durable queue                                       │   │
 │  └──────────────┴───────────────────────────────────────────────────┘   │
 └──────────────────────────────────────────────────────────────────────────┘
@@ -82,18 +82,18 @@ Redis is not a query language in the SQL sense — it's a command-based interfac
 │             Redis Execution Model — Single-Threaded Event Loop           │
 │                                                                          │
 │  Client A ──┐                                                            │
-│  Client B ──┼──► epoll/kqueue ──► Event Loop ──► Command Executor       │
-│  Client C ──┘    (I/O mux,        (single         (one command at       │
-│                   all sockets)     thread)          a time, in RAM)     │
+│  Client B ──┼──► epoll/kqueue ──► Event Loop ──► Command Executor        │
+│  Client C ──┘    (I/O mux,        (single         (one command at        │
+│                   all sockets)     thread)          a time, in RAM)      │
 │                                        │                                 │
 │                                        ▼                                 │
 │                              Responses queued back                       │
 │                              to client sockets                           │
 │                                                                          │
-│  Key consequence: every command is serialized — no locks, no mutexes,   │
+│  Key consequence: every command is serialized — no locks, no mutexes,    │
 │  no deadlocks. Atomicity is structural, not lock-based.                  │
 │                                                                          │
-│  Redis 6.0+: network I/O is multithreaded (reading from / writing to    │
+│  Redis 6.0+: network I/O is multithreaded (reading from / writing to     │
 │  sockets). Command execution is still single-threaded.                   │
 └──────────────────────────────────────────────────────────────────────────┘
 ```
@@ -678,14 +678,14 @@ Understanding why Redis is fast despite single-threading is the key mental model
 │  10,000 client connections                                          │
 │       │                                                             │
 │       ▼                                                             │
-│  ┌─────────────┐    all sockets registered with OS                 │
-│  │ epoll/kqueue│◄── epoll_wait() returns readable sockets          │
-│  └──────┬──────┘                                                   │
+│  ┌─────────────┐    all sockets registered with OS                  │
+│  │ epoll/kqueue│◄── epoll_wait() returns readable sockets           │
+│  └──────┬──────┘                                                    │
 │         │  readable events dispatched one at a time                │
 │         ▼                                                           │
 │  ┌─────────────────────────────────────────────────┐               │
-│  │              Command Executor (1 thread)         │               │
-│  │                                                  │               │
+│  │              Command Executor (1 thread)        │               │
+│  │                                                 │               │
 │  │  GET key  →  hash lookup  →  O(1)  →  done      │               │
 │  │  ZADD key →  skip list insert → O(log N) → done │               │
 │  │  EVAL ... →  Lua interpreter → atomic → done    │               │
@@ -765,7 +765,7 @@ Redis Cluster shards data across multiple master nodes using hash slots, with ea
 ┌──────────────────────────────────────────────────────────────────────┐
 │                       Redis Cluster Topology                         │
 │                                                                      │
-│  16384 hash slots distributed across master nodes                   │
+│  16384 hash slots distributed across master nodes                    │
 │                                                                      │
 │  ┌─────────────────┐  ┌─────────────────┐  ┌─────────────────┐     │
 │  │  Master A        │  │  Master B        │  │  Master C        │    │

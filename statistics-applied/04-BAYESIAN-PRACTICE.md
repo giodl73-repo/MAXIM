@@ -20,14 +20,14 @@
 |     MCMC (HMC/NUTS) or variational inference                     |
 |                                                                  |
 |  4. POSTERIOR DIAGNOSTICS                                        |
-|     R̂ (convergence), ESS (effective samples), trace plots       |
+|     R̂ (convergence), ESS (effective samples), trace plots        |
 |                                                                  |
 |  5. POSTERIOR PREDICTIVE CHECK                                   |
-|     Sample θ from posterior → generate y_rep                    |
+|     Sample θ from posterior → generate y_rep                     |
 |     Does y_rep match real data structure? → Model fit            |
 |                                                                  |
 |  6. COMPARE MODELS (if multiple)                                 |
-|     LOO-CV (PSIS-LOO), WAIC, stacking                           |
+|     LOO-CV (PSIS-LOO), WAIC, stacking                            |
 |                                                                  |
 |  7. ITERATE                                                      |
 |     If failed at any step → refine model, prior, likelihood      |

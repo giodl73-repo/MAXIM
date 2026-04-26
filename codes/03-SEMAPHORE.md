@@ -6,26 +6,26 @@ Semaphore encodes the alphabet into **spatial positions** of arms, flags, or mec
 
 ```
 ┌──────────────────────────────────────────────────────────────────┐
-│                    SEMAPHORE SYSTEM MAP                           │
+│                    SEMAPHORE SYSTEM MAP                          │
 │                                                                  │
 │  FLAG SEMAPHORE (most familiar)                                  │
 │  Two handheld flags, arm positions encode letters                │
-│  Range: ~3 km with flags; ~10 km with Aldis lamp                │
-│  Speed: ~20–30 characters/min (trained operator)                │
-│  Context: maritime, military, emergency signaling               │
+│  Range: ~3 km with flags; ~10 km with Aldis lamp                 │
+│  Speed: ~20–30 characters/min (trained operator)                 │
+│  Context: maritime, military, emergency signaling                │
 │                                                                  │
-│  CHAPPE OPTICAL TELEGRAPH (historical, 1793)                    │
-│  Mechanical semaphore towers, 556 km network across France      │
-│  Forerunner of all telecommunications                           │
+│  CHAPPE OPTICAL TELEGRAPH (historical, 1793)                     │
+│  Mechanical semaphore towers, 556 km network across France       │
+│  Forerunner of all telecommunications                            │
 │                                                                  │
-│  RAILWAY SEMAPHORE (operational, 1830s–present)                 │
-│  Fixed mechanical arm signals; 2 or 3 positions                 │
-│  Controls train movement on single-track lines                  │
+│  RAILWAY SEMAPHORE (operational, 1830s–present)                  │
+│  Fixed mechanical arm signals; 2 or 3 positions                  │
+│  Controls train movement on single-track lines                   │
 │                                                                  │
-│  HELIOGRAPH (optical, 1870s–1944)                               │
-│  Reflected sunlight using mirror and shutter                    │
-│  Encodes Morse, not semaphore positions                         │
-│  Range: 50–100+ km in clear conditions                          │
+│  HELIOGRAPH (optical, 1870s–1944)                                │
+│  Reflected sunlight using mirror and shutter                     │
+│  Encodes Morse, not semaphore positions                          │
+│  Range: 50–100+ km in clear conditions                           │
 └──────────────────────────────────────────────────────────────────┘
 ```
 
@@ -84,8 +84,8 @@ Standard International Semaphore (most widely used; variations exist):
 
 ```
 ┌─────────────────────────────────────────────────────────────────┐
-│        FLAG SEMAPHORE ALPHABET — LEFT/RIGHT ARM POSITIONS        │
-│        Position key: 8=up, 7=UL, 6=L, 5=LL, 4=down,            │
+│        FLAG SEMAPHORE ALPHABET — LEFT/RIGHT ARM POSITIONS       │
+│        Position key: 8=up, 7=UL, 6=L, 5=LL, 4=down,             │
 │                      3=LR, 2=R, 1=UR                            │
 ├─────┬───────┬──────────────────────────────────────────────────┤
 │  A  │ L:4   │ R:1    "L down, R upper-right"                   │
@@ -169,7 +169,7 @@ Claude Chappe built the first telecommunications network in history — not elec
 
 ```
 ┌──────────────────────────────────────────────────────────────┐
-│              CHAPPE OPTICAL TELEGRAPH SYSTEM                  │
+│              CHAPPE OPTICAL TELEGRAPH SYSTEM                 │
 │                                                              │
 │  Tower structure:                                            │
 │                                                              │
@@ -184,7 +184,7 @@ Claude Chappe built the first telecommunications network in history — not elec
 │  Indicator arms on each end of horizontal beam:              │
 │  Each has 7 positions (45° increments, 0°–270°)              │
 │                                                              │
-│  Capacity: 196 distinct configurations                        │
+│  Capacity: 196 distinct configurations                       │
 │  Codebook: 92 pages × 92 signals = 8,464 vocabulary entries  │
 │  Speed: Paris to Lille (225 km, 15 towers): ~10 min          │
 │  Paris to Toulon (765 km, 50+ towers): ~20 min               │
@@ -192,7 +192,7 @@ Claude Chappe built the first telecommunications network in history — not elec
 │                                                              │
 │  Operation:                                                  │
 │  Relay operator reads predecessor tower through telescope,   │
-│  reproduces configuration, successor reads and continues.   │
+│  reproduces configuration, successor reads and continues.    │
 │  Network: ~556 towers across France by 1820                  │
 └──────────────────────────────────────────────────────────────┘
 ```
@@ -214,7 +214,7 @@ Lord George Murray's competing British system used **6 shutters** in a 2×3 grid
 ┌────────────────────────────────────────────┐
 │  MURRAY SHUTTER TELEGRAPH                  │
 │                                            │
-│  ┌──┬──┬──┐                               │
+│  ┌──┬──┬──┐                                │
 │  │  │  │  │  Each shutter: OPEN or CLOSED  │
 │  ├──┼──┼──┤  6 shutters → 2⁶ = 64 codes   │
 │  │  │  │  │                                │
@@ -237,7 +237,7 @@ Fixed-arm trackside signals that control train movements:
 
 ```
 ┌──────────────────────────────────────────────────────────────┐
-│                RAILWAY SEMAPHORE SIGNALS                      │
+│                RAILWAY SEMAPHORE SIGNALS                     │
 │                                                              │
 │  Two-position (lower quadrant, UK classic):                  │
 │                                                              │
@@ -273,7 +273,7 @@ The heliograph reflected sunlight to transmit Morse code over extreme distances:
 
 ```
 ┌──────────────────────────────────────────────────────────────┐
-│                HELIOGRAPH PRINCIPLE                           │
+│                HELIOGRAPH PRINCIPLE                          │
 │                                                              │
 │  Sunlight → Mirror (aimed at receiver)                       │
 │             Shutter/wink mechanism opens/closes beam         │
@@ -284,18 +284,18 @@ The heliograph reflected sunlight to transmit Morse code over extreme distances:
 │             Mance, British Army India)                       │
 │             Weight: ~5 lbs field instrument                  │
 │                                                              │
-│  Range: 50–100 km in good conditions (clear sky, no dust)   │
+│  Range: 50–100 km in good conditions (clear sky, no dust)    │
 │         Record: 288 km (Rocky Mountain US Army survey)       │
 │                                                              │
 │  Used in:                                                    │
-│  — British Army, India and Afghanistan (1880s–1900s)        │
-│  — US Army, Southwest (Apache Wars 1880s)                   │
-│  — Boer War (1899–1902)                                     │
-│  — WWI (still in use for field communications)              │
-│  — WWII: Last known military use, Burma campaign 1944       │
+│  — British Army, India and Afghanistan (1880s–1900s)         │
+│  — US Army, Southwest (Apache Wars 1880s)                    │
+│  — Boer War (1899–1902)                                      │
+│  — WWI (still in use for field communications)               │
+│  — WWII: Last known military use, Burma campaign 1944        │
 │                                                              │
-│  Limitation: Requires direct sunlight. Useless at night,    │
-│  in overcast weather, or in dense forest/terrain.           │
+│  Limitation: Requires direct sunlight. Useless at night,     │
+│  in overcast weather, or in dense forest/terrain.            │
 └──────────────────────────────────────────────────────────────┘
 ```
 
@@ -311,22 +311,22 @@ The Aldis lamp is the modern naval equivalent:
 ┌──────────────────────────────────────────────────────────────┐
 │  ALDIS LAMP                                                  │
 │                                                              │
-│  Focused directional spotlight with a shutter/key           │
-│  Short flash = dot, Long flash = dash (Morse encoding)      │
+│  Focused directional spotlight with a shutter/key            │
+│  Short flash = dot, Long flash = dash (Morse encoding)       │
 │                                                              │
-│  Range: ~6–10 km ship-to-ship (day)                         │
-│         Longer at night (up to 15+ km)                      │
+│  Range: ~6–10 km ship-to-ship (day)                          │
+│         Longer at night (up to 15+ km)                       │
 │                                                              │
 │  Advantages over radio:                                      │
-│  — Directional: intercept requires being in line-of-sight   │
-│  — No radio frequency to allocate or detect passively       │
-│  — Useful under radio silence conditions                    │
+│  — Directional: intercept requires being in line-of-sight    │
+│  — No radio frequency to allocate or detect passively        │
+│  — Useful under radio silence conditions                     │
 │                                                              │
-│  Speed: trained naval signaller: 8–10 WPM (receiving);      │
-│         ~5–6 WPM transmitting with lamp key                 │
+│  Speed: trained naval signaller: 8–10 WPM (receiving);       │
+│         ~5–6 WPM transmitting with lamp key                  │
 │                                                              │
-│  Still in active use: NATO navies train on Aldis lamp as    │
-│  backup to radio communications                             │
+│  Still in active use: NATO navies train on Aldis lamp as     │
+│  backup to radio communications                              │
 └──────────────────────────────────────────────────────────────┘
 ```
 

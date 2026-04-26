@@ -4,7 +4,7 @@
 
 ```
 +====================================================================+
-|             COMPACTNESS — THE FINITE-COVER CONDITION              |
+|             COMPACTNESS — THE FINITE-COVER CONDITION               |
 +====================================================================+
 |                                                                    |
 |  COMPACT: Every open cover has a finite subcover.                 |

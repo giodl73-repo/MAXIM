@@ -379,11 +379,11 @@ PATENT CARTEL STRUCTURE — MPPC MODEL (1908-1914)
 
 Edison MPPC controls:
   ┌─────────────────────────────────────────────────────┐
-  │  Patent pool: 16 patents covering cameras + film     │
-  │  Licensing: production only to trust members         │
-  │  Supply chain: Eastman Kodak raw film → MPPC only    │
-  │  Distribution: licensed exchanges only               │
-  │  Exhibition: licensed theaters only                  │
+  │  Patent pool: 16 patents covering cameras + film    │
+  │  Licensing: production only to trust members        │
+  │  Supply chain: Eastman Kodak raw film → MPPC only   │
+  │  Distribution: licensed exchanges only              │
+  │  Exhibition: licensed theaters only                 │
   └─────────────────────────────────────────────────────┘
   Enforcement: Pinkerton agents, patent suits, equipment seizure
   Collapse: 1914 antitrust suit; cartel broken by 1918

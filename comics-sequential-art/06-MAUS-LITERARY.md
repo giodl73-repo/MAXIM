@@ -4,7 +4,7 @@
 
 ```
 +------------------------------------------------------------------+
-|                   MAUS: KEY FACTS                                 |
+|                   MAUS: KEY FACTS                                |
 |                                                                  |
 |  CREATOR: Art Spiegelman (b. 1948, Stockholm; grew up NYC)       |
 |  SERIALIZATION: RAW Magazine, 1980-1991                          |
@@ -20,8 +20,8 @@
 |           Jews = mice; Nazis = cats; Poles = pigs                |
 |           Americans = dogs; French = frogs                       |
 |                                                                  |
-|  STRUCTURE: A comic about Holocaust AND about making a comic      |
-|             about the Holocaust                                   |
+|  STRUCTURE: A comic about Holocaust AND about making a comic     |
+|             about the Holocaust                                  |
 +------------------------------------------------------------------+
 ```
 

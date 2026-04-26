@@ -8,7 +8,7 @@ producing traits that reduce survival but increase reproduction.
 
 ```
 ┌──────────────────────────────────────────────────────────────────┐
-│               SEXUAL SELECTION FRAMEWORK                          │
+│               SEXUAL SELECTION FRAMEWORK                         │
 │                                                                    │
 │  SEXUAL SELECTION                  NATURAL SELECTION             │
 │  ────────────────                  ──────────────────            │
@@ -17,15 +17,15 @@ producing traits that reduce survival but increase reproduction.
 │  Can oppose natural selection      Generally adaptive            │
 │  Produces costly ornaments         Eliminates costly traits      │
 │                                                                    │
-│  MECHANISMS:                                                      │
-│  ─────────────                                                    │
+│  MECHANISMS:                                                     │
+│  ─────────────                                                   │
 │  Intrasexual: male-male competition → weapons (antlers, fangs)   │
 │  Intersexual: female choice → ornaments (peacock tail, song)     │
 │               Mutual choice: both sexes choose (monogamous spp.) │
 │                                                                    │
 │  WHY ORNAMENTS ARE HONEST SIGNALS:                               │
 │  Runaway selection (Fisher)   vs.   Handicap principle (Zahavi)  │
-│  → Arbitrary but self-        →  Signal is costly and           │
+│  → Arbitrary but self-        →  Signal is costly and            │
 │    reinforcing preference         condition-dependent:           │
 │    + trait coupling               only high-quality males can    │
 │                                   afford it                      │

@@ -6,19 +6,19 @@ Pragmatics is the study of how context determines the meaning conveyed beyond wh
 
 ```
 +-------------------------------------------------------------------+
-|                    PRAGMATICS LANDSCAPE                            |
+|                    PRAGMATICS LANDSCAPE                           |
 |                                                                   |
-|  SEMANTICS              PRAGMATICS                               |
-|  "What the sentence     "What the speaker means                  |
-|   literally means"       by saying the sentence                  |
-|  (truth conditions,       in this context"                       |
+|  SEMANTICS              PRAGMATICS                                |
+|  "What the sentence     "What the speaker means                   |
+|   literally means"       by saying the sentence                   |
+|  (truth conditions,       in this context"                        |
 |   compositional)                                                  |
 |                                                                   |
-|  "Can you pass the salt?"                                        |
-|  SEMANTIC: Do you have the ability to pass the salt? (T/F)       |
-|  PRAGMATIC: Please pass the salt. (request)                      |
+|  "Can you pass the salt?"                                         |
+|  SEMANTIC: Do you have the ability to pass the salt? (T/F)        |
+|  PRAGMATIC: Please pass the salt. (request)                       |
 |                                                                   |
-|  The gap between semantics and pragmatics is:                    |
+|  The gap between semantics and pragmatics is:                     |
 |  Gricean implicature | Speech acts | Deixis | Presupposition      |
 +-------------------------------------------------------------------+
 ```

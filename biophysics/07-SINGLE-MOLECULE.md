@@ -4,7 +4,7 @@
 
 ```
 ┌──────────────────────────────────────────────────────────────────────────┐
-│              SINGLE-MOLECULE TECHNIQUE LANDSCAPE                          │
+│              SINGLE-MOLECULE TECHNIQUE LANDSCAPE                         │
 │                                                                            │
 │  TECHNIQUE         WHAT IT MEASURES        FORCE RANGE   RESOLUTION      │
 │  ─────────────     ────────────────────────────────────────────────────  │
@@ -14,14 +14,14 @@
 │  smFRET            Distance, dynamics       N/A           1-10 nm dist.  │
 │  Patch clamp       Ion current              N/A           0.1 pA, 0.05 ms│
 │                                                                            │
-│  THE VALUE: ensemble methods give averages;                               │
-│  single-molecule methods reveal:                                          │
-│    • Distributions (not just means)                                       │
-│    • Rare intermediates hidden in ensemble average                        │
-│    • Individual conformational states                                     │
-│    • Real-time trajectories of individual molecules                       │
-│    • Stochastic switching between states                                  │
-│    • Heterogeneity that ensemble would average away                       │
+│  THE VALUE: ensemble methods give averages;                              │
+│  single-molecule methods reveal:                                         │
+│    • Distributions (not just means)                                      │
+│    • Rare intermediates hidden in ensemble average                       │
+│    • Individual conformational states                                    │
+│    • Real-time trajectories of individual molecules                      │
+│    • Stochastic switching between states                                 │
+│    • Heterogeneity that ensemble would average away                      │
 └──────────────────────────────────────────────────────────────────────────┘
 ```
 
@@ -352,16 +352,16 @@ Magnetic tweezers are uniquely suited to studying DNA supercoiling:
 ┌──────────────────────────────────────────────────────────────────────────┐
 │  TECHNIQUE     │  FORCE    │  DIST.   │  TORQUE │  IMAGING │  THROUGHPUT│
 │  ─────────────  │  RANGE    │  RES.    │         │          │            │
-│  Optical        │  0.1-100pN│  0.1 nm  │  No*    │  No       │  1 at a    │
+│  Optical        │  0.1-100pN│  0.1 nm  │  No*    │  No       │  1 at a   │
 │  tweezers       │           │          │         │          │  time      │
-│  Magnetic       │  0.01-100 │  nm      │  Yes    │  No       │  Many      │
+│  Magnetic       │  0.01-100 │  nm      │  Yes    │  No       │  Many     │
 │  tweezers       │  pN       │          │         │          │  (parallel)│
-│  AFM            │  10pN-10  │  0.1 nm  │  No     │  Yes      │  1 at a    │
+│  AFM            │  10pN-10  │  0.1 nm  │  No     │  Yes      │  1 at a   │
 │                 │  nN       │          │         │          │  time      │
-│  smFRET         │  None     │  1-10 nm │  No     │  Yes (2D) │  100s      │
+│  smFRET         │  None     │  1-10 nm │  No     │  Yes (2D) │  100s     │
 │                 │           │  (coarse)│         │  (position│  (parallel)│
 │                 │           │          │         │  only)   │            │
-│  Patch clamp    │  None     │  None    │  No     │  No       │  1-10      │
+│  Patch clamp    │  None     │  None    │  No     │  No       │  1-10     │
 │  (ion channels) │  (current)│  (current│         │          │  cells     │
 └──────────────────────────────────────────────────────────────────────────┘
 *Dual-beam optical tweezers can apply torque via birefringent particles

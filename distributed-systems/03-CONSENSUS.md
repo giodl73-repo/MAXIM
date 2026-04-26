@@ -8,28 +8,28 @@ Consensus is the problem of getting N nodes to agree on a single value, even whe
 CONSENSUS PROBLEM
 +-----------------------------------------------------------+
 |                                                           |
-|  N nodes, each proposes a value.                         |
-|  Agreement required: all decide on the same value.       |
-|  Validity required: the decided value was proposed.      |
-|  Termination required: all non-faulty nodes decide.      |
+|  N nodes, each proposes a value.                          |
+|  Agreement required: all decide on the same value.        |
+|  Validity required: the decided value was proposed.       |
+|  Termination required: all non-faulty nodes decide.       |
 |                                                           |
-|  Fault model: crash-stop (nodes halt silently)           |
-|  FLP (1985): impossible with >= 1 crash in async model   |
-|  Solution: partial synchrony (Dwork-Lynch-Stockmeyer)    |
+|  Fault model: crash-stop (nodes halt silently)            |
+|  FLP (1985): impossible with >= 1 crash in async model    |
+|  Solution: partial synchrony (Dwork-Lynch-Stockmeyer)     |
 |                                                           |
 |  ALGORITHM LANDSCAPE                                      |
-|  +---------------+  +-------------+  +-----------------+ |
+|  +---------------+  +-------------+  +-----------------+  |
 |  | Paxos (1989)  |  | Raft (2014) |  | Viewstamped Rep | |
 |  | Consensus     |  | Consensus   |  | (VR, 1988)      | |
 |  | via quorums   |  | via leader  |  | View changes    | |
 |  | Hard to impl  |  | Explicit    |  | Liskov et al.   | |
 |  +---------------+  +-------------+  +-----------------+ |
-|          |                |                  |            |
-|          v                v                  v            |
+|          |                |                  |           |
+|          v                v                  v           |
 |     Chubby          etcd, CockroachDB    MongoDB repl    |
 |     CosmosDB        TiKV, ConsulDB                       |
 |     internally      Kubernetes control                   |
-|                                                           |
+|                                                          |
 +-----------------------------------------------------------+
 ```
 

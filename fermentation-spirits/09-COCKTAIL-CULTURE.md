@@ -4,20 +4,20 @@
 
 ```
 +------------------------------------------------------------------+
-|                    COCKTAIL HISTORY ARC                           |
+|                    COCKTAIL HISTORY ARC                          |
 |                                                                    |
 |  PRE-COCKTAIL     GOLDEN AGE    PROHIBITION   TIKI/POST-WAR      |
 |  (to 1806)        (1860-1919)   (1920-1933)   (1933-1980)        |
-|  Punch culture    Jerry Thomas  Speakeasy     Simplified drinks   |
-|  Tavern culture   First recipes  Bootleg gin   Sweet mixers       |
-|  Communal bowl    Ice industry   Caribbean     Disco era          |
+|  Punch culture    Jerry Thomas  Speakeasy     Simplified drinks  |
+|  Tavern culture   First recipes  Bootleg gin   Sweet mixers      |
+|  Communal bowl    Ice industry   Caribbean     Disco era         |
 |                   arrives        golden age    Harvey Wallbanger   |
 |                                                                    |
-|  CRAFT REVIVAL    MOLECULAR      LOW-ABV       FUTURE             |
-|  (1987-present)   (2000s)        (2010s+)      N/A spirits        |
-|  Dale DeGroff     Dave Arnold    Aperitivo     Fermented NA       |
-|  Milk & Honey     Centrifuge     Low-proof     Cannabis           |
-|  Death & Co       Fat-wash       Seltzer       Functional drinks  |
+|  CRAFT REVIVAL    MOLECULAR      LOW-ABV       FUTURE            |
+|  (1987-present)   (2000s)        (2010s+)      N/A spirits       |
+|  Dale DeGroff     Dave Arnold    Aperitivo     Fermented NA      |
+|  Milk & Honey     Centrifuge     Low-proof     Cannabis          |
+|  Death & Co       Fat-wash       Seltzer       Functional drinks |
 +------------------------------------------------------------------+
 ```
 

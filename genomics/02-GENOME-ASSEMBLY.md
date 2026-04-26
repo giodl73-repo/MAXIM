@@ -22,19 +22,19 @@ GENOME ASSEMBLY AS A GRAPH PROBLEM
 
   ASSEMBLY APPROACHES:
   ┌─────────────────────────────────────────────────────────────────┐
-  │                                                                  │
-  │  REFERENCE-GUIDED ASSEMBLY                                       │
-  │  ─────────────────────────                                       │
-  │  Align reads to existing reference genome                        │
-  │  Fast, reliable for known organisms                              │
-  │  Cannot find sequences absent from reference                     │
-  │  Tools: BWA-MEM2, minimap2                                       │
-  │                                                                  │
-  │  DE NOVO ASSEMBLY                                                │
-  │  ─────────────────                                               │
-  │  Build genome from scratch, no reference needed                  │
-  │  Harder: must solve the graph problem                            │
-  │  Required for: new species, large structural variants            │
+  │                                                                 │
+  │  REFERENCE-GUIDED ASSEMBLY                                      │
+  │  ─────────────────────────                                      │
+  │  Align reads to existing reference genome                       │
+  │  Fast, reliable for known organisms                             │
+  │  Cannot find sequences absent from reference                    │
+  │  Tools: BWA-MEM2, minimap2                                      │
+  │                                                                 │
+  │  DE NOVO ASSEMBLY                                               │
+  │  ─────────────────                                              │
+  │  Build genome from scratch, no reference needed                 │
+  │  Harder: must solve the graph problem                           │
+  │  Required for: new species, large structural variants           │
   │  Tools: Hifiasm (HiFi), Flye (ONT), SPAdes (Illumina)           │
   └─────────────────────────────────────────────────────────────────┘
 ```
@@ -151,8 +151,8 @@ GENOME ASSEMBLY AS A GRAPH PROBLEM
   │ SHORT-READ ASSEMBLY (Illumina only)               │
   │   N50 contig: ~50–100 kb                          │
   │   Genome completeness: ~95% (repeats unresolved)  │
-  │   Telomeres: missing                               │
-  │   Centromeres: missing                             │
+  │   Telomeres: missing                              │
+  │   Centromeres: missing                            │
   ├───────────────────────────────────────────────────┤
   │ LONG-READ ASSEMBLY (PacBio HiFi)                  │
   │   N50 contig: ~30–100 Mb (chromosome-scale)       │
@@ -161,7 +161,7 @@ GENOME ASSEMBLY AS A GRAPH PROBLEM
   ├───────────────────────────────────────────────────┤
   │ TELOMERE-TO-TELOMERE (HiFi + ONT ultra-long)      │
   │   N50 contig: >100 Mb (complete chromosomes)      │
-  │   Genome completeness: ~100%                       │
+  │   Genome completeness: ~100%                      │
   │   T2T-CHM13 (2022): First complete human genome   │
   └───────────────────────────────────────────────────┘
 ```
@@ -225,10 +225,10 @@ GENOME ASSEMBLY AS A GRAPH PROBLEM
 
   PHASING APPROACHES:
   ┌─────────────────────────────────────────────────────────┐
-  │ TRIO SEQUENCING                                          │
+  │ TRIO SEQUENCING                                         │
   │ Sequence child + both parents                           │
   │ Mendelian inheritance assigns each variant to a parent  │
-  │ Gold standard, expensive                                 │
+  │ Gold standard, expensive                                │
   ├─────────────────────────────────────────────────────────┤
   │ STATISTICAL PHASING (SHAPEIT4/EAGLE2)                   │
   │ Use linkage disequilibrium patterns from large panels   │
@@ -276,10 +276,10 @@ GENOME ASSEMBLY AS A GRAPH PROBLEM
     │ T2T assembly: 2.8 Mb of perfectly resolved alpha-sat     │
     │ ONT reads that span it: individual reads >2 Mb           │
     │                                                          │
-    │ Key biology revealed:                                     │
+    │ Key biology revealed:                                    │
     │ - 182 previously unknown protein-coding genes found      │
     │ - 99 new copies of medically relevant NOTCH2NL gene      │
-    │ - Structural variants completely invisible before         │
+    │ - Structural variants completely invisible before        │
     └──────────────────────────────────────────────────────────┘
 
   PANGENOME REFERENCE (2023 — ongoing):

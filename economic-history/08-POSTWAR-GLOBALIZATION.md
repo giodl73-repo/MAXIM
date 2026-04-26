@@ -9,9 +9,9 @@ POSTWAR ECONOMIC REGIMES — STRUCTURAL LANDSCAPE
 PHASE 1: GOLDEN AGE (1945–1973)
   ┌────────────────────────────────────────────────────────────┐
   │ FAVORABLE CONDITIONS (all present simultaneously):         │
-  │  Cheap oil ($2–3/barrel) · Reconstruction demand ·        │
-  │  US hegemony + dollar standard · Labor-capital bargain ·  │
-  │  Keynesian demand management · Technology catch-up room   │
+  │  Cheap oil ($2–3/barrel) · Reconstruction demand ·         │
+  │  US hegemony + dollar standard · Labor-capital bargain ·   │
+  │  Keynesian demand management · Technology catch-up room    │
   └────────────────────────────────────────────────────────────┘
                               │
                               │ All these conditions erode
@@ -20,7 +20,7 @@ PHASE 2: SHOCK AND ADJUSTMENT (1973–1982)
   ┌────────────────────────────────────────────────────────────┐
   │ 1973 OPEC oil embargo → stagflation (inflation + stagnation│
   │ → Keynesian demand management fails: can't fight both      │
-  │ 1979 second oil shock + Iranian Revolution                  │
+  │ 1979 second oil shock + Iranian Revolution                 │
   │ → Volcker shock: interest rates to 20% to break inflation  │
   │ → Deepest US recession since 1930s (1981–82)               │
   └────────────────────────────────────────────────────────────┘
@@ -31,9 +31,9 @@ PHASE 3: MONETARIST TURN + DEVELOPMENTAL STATES (1980s)
   ┌───────────────────────────┐  ┌────────────────────────────┐
   │ WEST:                     │  │ EAST ASIA:                 │
   │ Reagan-Thatcher monetarism│  │ Japan → Korea → Taiwan     │
-  │ Deregulation · Privatiz.  │  │ → Singapore → Malaysia    │
+  │ Deregulation · Privatiz.  │  │ → Singapore → Malaysia     │
   │ Union weakness · Shareholder│ │ → China                   │
-  │ value · Deindustrialization│  │ State-directed industrial  │
+  │ value · Deindustrialization│  │ State-directed industrial │
   │ Financial sector grows    │  │ policy; export-led;        │
   └───────────────────────────┘  │ developmental state model  │
                                  └────────────────────────────┘

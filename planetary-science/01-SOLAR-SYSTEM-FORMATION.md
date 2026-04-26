@@ -6,7 +6,7 @@ The solar system formed from a collapsing molecular cloud ~4.567 billion years a
 
 ```
 +------------------------------------------------------------------+
-|              SOLAR SYSTEM FORMATION TIMELINE                      |
+|              SOLAR SYSTEM FORMATION TIMELINE                     |
 +------------------------------------------------------------------+
 |                                                                  |
 |  t=0          Molecular cloud collapse; solar nebula forms       |

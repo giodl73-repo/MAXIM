@@ -8,13 +8,13 @@ The Toyota Production System (TPS) is a production philosophy developed by Taiic
 TPS STRUCTURE ("The TPS House")
 ──────────────────────────────────────────────────────────────────
                     ┌─────────────────────────────┐
-                    │     GOAL: Best quality,      │
-                    │  lowest cost, shortest lead  │
-                    │    time, best safety,        │
+                    │     GOAL: Best quality,     │
+                    │  lowest cost, shortest lead │
+                    │    time, best safety,       │
                     │     high morale             │
                     └────────────┬────────────────┘
                ┌─────────────────┴────────────────────┐
-               │                                       │
+               │                                      │
     ┌──────────▼──────────┐               ┌───────────▼──────────┐
     │     JUST-IN-TIME     │               │       JIDOKA          │
     │  Right part, right  │               │  "Automation with     │
@@ -28,9 +28,9 @@ TPS STRUCTURE ("The TPS House")
                          └───────┬───────┘
                                  │
     ┌────────────────────────────▼──────────────────────────────┐
-    │                    FOUNDATION                              │
+    │                    FOUNDATION                             │
     │   Heijunka (leveling)  ·  Standardized work               │
-    │   Kaizen (continuous improvement)                          │
+    │   Kaizen (continuous improvement)                         │
     └────────────────────────────────────────────────────────────┘
 ```
 
@@ -225,7 +225,7 @@ A — Act:     If successful → standardize. If not → return to Plan.
              ┌───────────────────────────────────────────┐
              │               PDCA Cycle                  │
              │                                           │
-             │   ┌───────┐         ┌───────┐            │
+             │   ┌───────┐         ┌───────┐             │
              │   │  Act  │◄────────│ Check │            │
              │   └───┬───┘         └───┬───┘            │
              │       │                 │                 │

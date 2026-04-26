@@ -17,7 +17,7 @@ Computing eigenvalues and singular values is central to data analysis, stability
 |  | Industry standard   |        +------------------------+      |
 |  | (LAPACK DSYEV/DGEEV)|        | INVERSE ITERATION      |      |
 |  +---------------------+        | Smallest eigenvalue    |      |
-|                                  +------------------------+      |
+|                                  +------------------------+     |
 |  SVD                            | RAYLEIGH QUOTIENT ITER |      |
 |  +---------------------+        | Cubic convergence      |      |
 |  | A = U Sigma V^T     |        +------------------------+      |
@@ -25,10 +25,10 @@ Computing eigenvalues and singular values is central to data analysis, stability
 |  | Rank, null space,   |        | Sparse large matrices  |      |
 |  | pseudoinverse       |        | Basis for ARPACK       |      |
 |  +---------------------+        +------------------------+      |
-|                                  | RANDOMIZED SVD         |      |
-|                                  | Approximate, very fast |      |
-|                                  | Foundation of many ML  |      |
-|                                  +------------------------+      |
+|                                 | RANDOMIZED SVD         |      |
+|                                 | Approximate, very fast |      |
+|                                 | Foundation of many ML  |      |
+|                                  +------------------------+     |
 +------------------------------------------------------------------+
 ```
 

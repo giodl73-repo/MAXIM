@@ -6,7 +6,7 @@ Orbital mechanics is the application of Newtonian gravity and classical mechanic
 
 ```
 +------------------------------------------------------------------+
-|                    ORBITAL MECHANICS FRAMEWORK                    |
+|                    ORBITAL MECHANICS FRAMEWORK                   |
 +------------------------------------------------------------------+
 |                                                                  |
 |  GOVERNING PHYSICS  (sets the hard constraints)                  |

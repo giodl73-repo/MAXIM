@@ -45,54 +45,54 @@ East Asian mythology divides into two major streams — Chinese and Japanese —
 
 ```
 ┌──────────────────────────────────────────────────────────────────┐
-│                    CHINESE CREATION MYTHS                         │
+│                    CHINESE CREATION MYTHS                        │
 │                                                                  │
-│  PANGU — THE BODY-AS-WORLD CREATION MYTH                        │
-│  Source: Sanwu Liji (~3rd c. CE); a relatively late myth        │
+│  PANGU — THE BODY-AS-WORLD CREATION MYTH                         │
+│  Source: Sanwu Liji (~3rd c. CE); a relatively late myth         │
 │                                                                  │
-│  Before creation: the universe is a chaos egg (hundun)          │
-│  Pangu sleeps inside the egg for 18,000 years                   │
+│  Before creation: the universe is a chaos egg (hundun)           │
+│  Pangu sleeps inside the egg for 18,000 years                    │
 │  He wakes; chaos separates:                                      │
-│    — Light, pure qi rises → heaven (yang)                       │
-│    — Heavy, turbid qi descends → earth (yin)                    │
-│  Pangu stands between them, growing 10 feet per day for 18,000  │
-│  years, holding heaven and earth apart                          │
-│  (Compare: Egyptian Shu holding sky Nut above earth Geb)        │
+│    — Light, pure qi rises → heaven (yang)                        │
+│    — Heavy, turbid qi descends → earth (yin)                     │
+│  Pangu stands between them, growing 10 feet per day for 18,000   │
+│  years, holding heaven and earth apart                           │
+│  (Compare: Egyptian Shu holding sky Nut above earth Geb)         │
 │                                                                  │
-│  Pangu dies; his body becomes the world:                        │
-│    — Breath → wind and clouds                                   │
-│    — Voice → thunder                                            │
+│  Pangu dies; his body becomes the world:                         │
+│    — Breath → wind and clouds                                    │
+│    — Voice → thunder                                             │
 │    — Left eye → sun; right eye → moon                          │
-│    — Four limbs → cardinal mountains                            │
-│    — Blood → rivers                                             │
-│    — Flesh → soil                                               │
+│    — Four limbs → cardinal mountains                             │
+│    — Blood → rivers                                              │
+│    — Flesh → soil                                                │
 │    — Hair → stars; body hair → plants                          │
-│    — Sweat → rain                                               │
+│    — Sweat → rain                                                │
 │    — Parasites on his body → humanity                          │
 │                                                                  │
 │  The "parasites become humans" variant is unusual and suggests   │
-│  a different origin for this sub-element                        │
+│  a different origin for this sub-element                         │
 │                                                                  │
 │  NU WA — THE CREATOR OF HUMANITY AND COSMIC REPAIR               │
-│  Source: Shanhaijing, Huainanzi, and many later texts           │
+│  Source: Shanhaijing, Huainanzi, and many later texts            │
 │                                                                  │
-│  Nu Wa is a goddess with a human upper body and serpent lower   │
-│  body. She and her brother/consort Fu Xi (also serpent-tailed)  │
-│  are the first beings; sometimes described as intermarrying     │
-│  after a cosmic flood                                           │
+│  Nu Wa is a goddess with a human upper body and serpent lower    │
+│  body. She and her brother/consort Fu Xi (also serpent-tailed)   │
+│  are the first beings; sometimes described as intermarrying      │
+│  after a cosmic flood                                            │
 │                                                                  │
-│  CREATING HUMANITY:                                             │
-│  Nu Wa walks the earth alone and feels lonely                   │
-│  She takes yellow earth and shapes human figures from it        │
-│  First careful ones → nobility and wealthy people               │
-│  Tired; drags a rope through mud → drops become common people   │
-│  (folk etiology of social class)                                │
+│  CREATING HUMANITY:                                              │
+│  Nu Wa walks the earth alone and feels lonely                    │
+│  She takes yellow earth and shapes human figures from it         │
+│  First careful ones → nobility and wealthy people                │
+│  Tired; drags a rope through mud → drops become common people    │
+│  (folk etiology of social class)                                 │
 │                                                                  │
-│  REPAIRING HEAVEN:                                              │
+│  REPAIRING HEAVEN:                                               │
 │  The cosmic pillar Buzhou Mountain is broken by the water god  │
-│  Gonggong (in a rage after losing a battle)                     │
+│  Gonggong (in a rage after losing a battle)                      │
 │  The sky tilts; floods and fires overwhelm the earth           │
-│  Nu Wa:                                                         │
+│  Nu Wa:                                                          │
 │    — Melts five-colored stones to patch the sky                │
 │    — Cuts off the legs of a great sea turtle to use as four    │
 │       pillars holding up the sky                               │
@@ -163,48 +163,48 @@ HOUYI — The Divine Archer
 
 ```
 ┌──────────────────────────────────────────────────────────────────┐
-│              THE CHINESE CELESTIAL BUREAUCRACY                    │
+│              THE CHINESE CELESTIAL BUREAUCRACY                   │
 │                                                                  │
 │  JADE EMPEROR (Yù Huáng Dàdì) — Supreme Ruler of Heaven        │
-│  — Not the oldest Chinese deity but became supreme through the  │
-│    influence of popular Taoism (Song Dynasty, ~10th–13th c.)    │
-│  — Rules heaven as a divine Emperor rules China                 │
+│  — Not the oldest Chinese deity but became supreme through the   │
+│    influence of popular Taoism (Song Dynasty, ~10th–13th c.)     │
+│  — Rules heaven as a divine Emperor rules China                  │
 │  — His court mirrors the Chinese imperial administration exactly:│
-│    — Ministers, departments, officials with specific portfolios │
-│    — Gods report to him; receive celestial appointments or      │
+│    — Ministers, departments, officials with specific portfolios  │
+│    — Gods report to him; receive celestial appointments or       │
 │       demotions based on performance                           │
-│    — Annual audit: gods submit reports on human behavior below  │
+│    — Annual audit: gods submit reports on human behavior below   │
 │                                                                  │
-│  KITCHEN GOD (Zao Jun)                                          │
-│  — Lives behind every kitchen hearth; observes family behavior  │
-│  — One week before New Year: his paper image is burned; he      │
-│    ascends to the Jade Emperor to give his annual family report │
-│  — His lips are smeared with honey (or he is given sweet rice   │
-│    cakes) so he will only say sweet things about the family     │
-│  — New image placed on New Year's Day                           │
+│  KITCHEN GOD (Zao Jun)                                           │
+│  — Lives behind every kitchen hearth; observes family behavior   │
+│  — One week before New Year: his paper image is burned; he       │
+│    ascends to the Jade Emperor to give his annual family report  │
+│  — His lips are smeared with honey (or he is given sweet rice    │
+│    cakes) so he will only say sweet things about the family      │
+│  — New image placed on New Year's Day                            │
 │                                                                  │
-│  EARTH GOD (Tu Di Gong)                                         │
+│  EARTH GOD (Tu Di Gong)                                          │
 │  — Local deity; one per neighborhood or district               │
 │  — The lowest level of the celestial bureaucracy               │
-│  — Receives offerings; reports to higher gods                   │
+│  — Receives offerings; reports to higher gods                    │
 │                                                                  │
-│  GUAN YU — God of War, Righteousness, Business                  │
-│  — Historical figure: general during the Three Kingdoms period  │
+│  GUAN YU — God of War, Righteousness, Business                   │
+│  — Historical figure: general during the Three Kingdoms period   │
 │    (died 220 CE); his loyalty and righteousness made him a deity│
-│  — Worshipped in temples by soldiers, police, merchants, and    │
-│    criminals (yes — both sides invoke him)                      │
+│  — Worshipped in temples by soldiers, police, merchants, and     │
+│    criminals (yes — both sides invoke him)                       │
 │                                                                  │
 │  GUAN YIN / AVALOKITESHVARA                                      │
-│  — Buddhist Bodhisattva of Compassion                           │
-│  — In India: male (Avalokiteshvara)                             │
+│  — Buddhist Bodhisattva of Compassion                            │
+│  — In India: male (Avalokiteshvara)                              │
 │  — In China: gradually became female (Guan Yin) ~9th–12th c.   │
 │  — Goddess of mercy; hears the cries of the suffering world    │
-│  — Shows how Chinese mythology absorbed Buddhist figures into   │
-│    native religious practice                                    │
+│  — Shows how Chinese mythology absorbed Buddhist figures into    │
+│    native religious practice                                     │
 │                                                                  │
 │  QUEEN MOTHER OF THE WEST (Xi Wangmu)                          │
 │  — Ancient goddess; originally fierce (plague and punishment)  │
-│  — Later: wise ruler of the immortals in Kunlun Mountains       │
+│  — Later: wise ruler of the immortals in Kunlun Mountains        │
 │  — Her peach garden grows peaches of immortality (ripen every  │
 │    3,000 years; party of the gods when they do)                │
 │  — Sun Wukong steals them in Journey to the West               │
@@ -340,29 +340,29 @@ attributed to those born in each year. Sixty-year cycle (5 elements
 
 ```
 ┌──────────────────────────────────────────────────────────────────┐
-│                   JAPANESE CREATION MYTHOLOGY                     │
+│                   JAPANESE CREATION MYTHOLOGY                    │
 │                                                                  │
 │  SOURCES:                                                        │
-│  Kojiki (712 CE) — "Record of Ancient Matters"                  │
-│    Compiled by Ō no Yasumaro at Emperor Genmei's order          │
-│    Oldest surviving book in Japan                               │
-│  Nihon Shoki (720 CE) — "Chronicles of Japan"                   │
-│    More formally structured; some variant versions of myths     │
+│  Kojiki (712 CE) — "Record of Ancient Matters"                   │
+│    Compiled by Ō no Yasumaro at Emperor Genmei's order           │
+│    Oldest surviving book in Japan                                │
+│  Nihon Shoki (720 CE) — "Chronicles of Japan"                    │
+│    More formally structured; some variant versions of myths      │
 │  Both written to legitimize imperial rule through divine lineage│
 │                                                                  │
 │  BEGINNING: THE LAND IS FORMLESS                                 │
-│  Seven generations of heavenly deities (Kotoamatsukami) emerge  │
-│  spontaneously; the last pair are Izanagi and Izanami           │
+│  Seven generations of heavenly deities (Kotoamatsukami) emerge   │
+│  spontaneously; the last pair are Izanagi and Izanami            │
 │                                                                  │
-│  IZANAGI AND IZANAMI:                                           │
-│  Sent to solidify the earth (which is like "floating oil")      │
-│  They stand on the "floating bridge of heaven" (rainbow?)       │
+│  IZANAGI AND IZANAMI:                                            │
+│  Sent to solidify the earth (which is like "floating oil")       │
+│  They stand on the "floating bridge of heaven" (rainbow?)        │
 │  Stir the ocean with the Jeweled Spear of Heaven (Amenonuhoko) │
 │  The drops that fall form Onogoro Island → they descend there  │
 │                                                                  │
-│  They marry (circling a pillar — Izanagi clockwise, Izanami     │
-│  counter-clockwise); give birth to the islands of Japan and     │
-│  then to the gods of fire, water, earth, etc.                   │
+│  They marry (circling a pillar — Izanagi clockwise, Izanami      │
+│  counter-clockwise); give birth to the islands of Japan and      │
+│  then to the gods of fire, water, earth, etc.                    │
 │                                                                  │
 │  IZANAMI'S DEATH:                                                │
 │  Giving birth to the fire god Kagutsuchi burns Izanami         │
@@ -370,17 +370,17 @@ attributed to those born in each year. Sixty-year cycle (5 elements
 │  Izanagi grieves; descends to Yomi to retrieve her             │
 │                                                                  │
 │  THE YOMI TABOO:                                                 │
-│  Izanami: "Do not look at me." (She has begun to decay)         │
+│  Izanami: "Do not look at me." (She has begun to decay)          │
 │  Izanagi, impatient, lights a tooth of his comb for light      │
 │  Sees Izanami putrefying; maggots and thunder gods writhe in   │
-│  her body                                                       │
+│  her body                                                        │
 │  He flees; she pursues, furious at being seen in her shameful  │
 │  state; sends the shikome (hags of Yomi) after him             │
 │                                                                  │
 │  IZANAGI'S ESCAPE:                                               │
 │  He throws his black headdress → transforms to grapes          │
 │  He throws his comb → transforms to bamboo shoots (pursuing    │
-│  shikome stop to eat them)                                      │
+│  shikome stop to eat them)                                       │
 │  At the pass of Yomi, he hurls three peaches at the 1,500      │
 │  soldiers pursuing him → they retreat                          │
 │  He rolls a giant rock across the entrance to Yomi             │
@@ -534,7 +534,7 @@ Korea sits at the intersection of Chinese cultural influence and a distinct indi
 
 ```
 ┌──────────────────────────────────────────────────────────────────┐
-│                    KOREAN MYTHOLOGY                               │
+│                    KOREAN MYTHOLOGY                              │
 │                                                                  │
 │  DANGUN — FOUNDING MYTH OF KOREA                                 │
 │                                                                  │
@@ -543,31 +543,31 @@ Korea sits at the intersection of Chinese cultural influence and a distinct indi
 │                                                                  │
 │  Hwan-in, the Lord of Heaven, has a son: Hwanung               │
 │  Hwanung descends to earth under the Sandalwood tree on        │
-│  Baekdu Mountain (sacred mountain, Korea-Manchuria border)      │
-│  He rules with ministers of Wind, Rain, and Cloud               │
+│  Baekdu Mountain (sacred mountain, Korea-Manchuria border)       │
+│  He rules with ministers of Wind, Rain, and Cloud                │
 │  He teaches humans: agriculture, medicine, law, morality         │
 │                                                                  │
-│  A tiger and a bear both wish to become human                   │
+│  A tiger and a bear both wish to become human                    │
 │  Hwanung's test: eat only mugwort and garlic for 100 days        │
 │  in a cave, out of sunlight                                      │
 │  The tiger gives up; the bear endures → becomes a woman (Ungnyeo)│
 │                                                                  │
 │  Ungnyeo (Bear-woman) prays under the Sandalwood tree for        │
-│  a child; Hwanung temporarily takes human form and marries her  │
-│  → Son: Dangun Wanggeom                                         │
+│  a child; Hwanung temporarily takes human form and marries her   │
+│  → Son: Dangun Wanggeom                                          │
 │                                                                  │
 │  Dangun founds Gojoseon (Old Joseon), Korea's first kingdom      │
 │  Traditional date: 2333 BCE                                      │
-│  → Still celebrated: National Foundation Day (Oct. 3 in Korea)  │
-│  → The "half-heaven, half-earth" origin: Korean kingship        │
-│    legitimacy rooted in celestial descent + terrestrial nature  │
+│  → Still celebrated: National Foundation Day (Oct. 3 in Korea)   │
+│  → The "half-heaven, half-earth" origin: Korean kingship         │
+│    legitimacy rooted in celestial descent + terrestrial nature   │
 │                                                                  │
 │  INTERPRETATION:                                                 │
-│  The bear/tiger test encodes an endurance ethic central to      │
-│  Korean identity. The tiger failure / bear success may reflect  │
-│  historical memories of distinct tribal groups: the bear-totem  │
-│  tribe absorbed into proto-Korean culture; tiger-totem tribes   │
-│  excluded. Structurally: totemism as political allegory.        │
+│  The bear/tiger test encodes an endurance ethic central to       │
+│  Korean identity. The tiger failure / bear success may reflect   │
+│  historical memories of distinct tribal groups: the bear-totem   │
+│  tribe absorbed into proto-Korean culture; tiger-totem tribes    │
+│  excluded. Structurally: totemism as political allegory.         │
 └──────────────────────────────────────────────────────────────────┘
 
 MUDANG — KOREAN SHAMANIC TRADITION:

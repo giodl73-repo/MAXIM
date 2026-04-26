@@ -14,9 +14,9 @@
 |                                                                  |
 |  THE LEAD PIGMENT FAMILY:                                        |
 |  Lead white (cerussite/hydrocerussite)  → warm white             |
-|  Red lead (minium, Pb₃O₄)              → orange-red             |
+|  Red lead (minium, Pb₃O₄)              → orange-red              |
 |  Naples yellow (lead antimonate)        → pale yellow            |
-|  Lead tin yellow (Pb₂SnO₄)             → warm yellow            |
+|  Lead tin yellow (Pb₂SnO₄)             → warm yellow             |
 |  Chrome yellow (PbCrO₄, 19th c.)       → vivid yellow            |
 |                                                                  |
 |  ALL: excellent color properties; ALL: serious toxicity          |
@@ -312,7 +312,7 @@ PENTIMENTO:
 COMPARISON:
   +---------------------+  +---------------------+
   | LEAD WHITE          |  | TITANIUM WHITE      |
-  | (2PbCO₃·Pb(OH)₂)   |  | (TiO₂, rutile)       |
+  | (2PbCO₃·Pb(OH)₂)    |  | (TiO₂, rutile)      |
   +---------------------+  +---------------------+
   | RI: ~2.0            |  | RI: 2.70–2.73        |
   | Less opaque/unit    |  | Max opacity           |

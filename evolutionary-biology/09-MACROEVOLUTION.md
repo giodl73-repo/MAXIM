@@ -8,7 +8,7 @@ The fossil record is the primary data source.
 
 ```
 ┌──────────────────────────────────────────────────────────────────┐
-│                   MACROEVOLUTION LANDSCAPE                        │
+│                   MACROEVOLUTION LANDSCAPE                       │
 │                                                                    │
 │  PATTERN                   PROCESS                TIMESCALE      │
 │  ───────                   ───────                ─────────      │
@@ -17,13 +17,13 @@ The fossil record is the primary data source.
 │  Evolutionary trends        Species selection      10-100 Mya    │
 │  Body plan origins          Constraint + key innov.>500 Mya      │
 │                                                                    │
-│  TEMPO:                                                           │
-│  ──────                                                           │
+│  TEMPO:                                                          │
+│  ──────                                                          │
 │  Gradualism: Darwin — slow, continuous change                    │
 │  Punctuated equilibrium: Gould & Eldredge — stasis + rapid bursts│
 │                                                                    │
-│  EXTINCTION:                                                      │
-│  ──────────                                                       │
+│  EXTINCTION:                                                     │
+│  ──────────                                                      │
 │  Background extinction: ~1 species per million species-years     │
 │  Mass extinction: >75% species lost in <2 million years          │
 │  Big Five + current 6th mass extinction underway                 │

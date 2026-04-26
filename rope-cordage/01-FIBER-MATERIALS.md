@@ -12,7 +12,7 @@ FIBER CLASSIFICATION
   ┌──────────────────────────────────────────────────────────────────┐
   │  BAST FIBERS (plant stem):  Hemp, Flax, Jute                   │
   │  LEAF FIBERS (plant leaf):  Manila (abaca), Sisal, Phormium    │
-  │  SEED FIBERS (seed hair):   Cotton                              │
+  │  SEED FIBERS (seed hair):   Cotton                               │
   │  FRUIT FIBERS (husk):       Coir (coconut)                     │
   │  ANIMAL (protein):          Wool, Silk (rare in rope)          │
   └──────────────────────────────────────────────────────────────────┘

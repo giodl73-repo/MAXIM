@@ -4,18 +4,18 @@
 
 ```
 +------------------------------------------------------------------+
-|                ANCIENT ATHLETIC TRADITIONS                        |
+|                ANCIENT ATHLETIC TRADITIONS                       |
 |                                                                  |
 |  GREEK WORLD            ROMAN WORLD          MESOAMERICA         |
 |  -----------            ----------           -----------         |
 |  Panhellenic Games      Ludi (public games)  Ulama / Pok-a-tok   |
 |  Olympics (Olympia)     Gladiatorial combat  Rubber ball game    |
 |  Pythian (Delphi)       Venatio (beast hunt) 1500+ courts        |
-|  Isthmian (Corinth)     Circus Maximus       Ritual sacrifice     |
+|  Isthmian (Corinth)     Circus Maximus       Ritual sacrifice    |
 |  Nemean (Nemea)         Chariot racing       Hip/knee/thigh only |
 |                                                                  |
 |  Sacred to Zeus         State spectacle      Religious embedded  |
-|  Civic/religious        Political tool       Victory = cosmic     |
+|  Civic/religious        Political tool       Victory = cosmic    |
 |  4-year cycle           Annual ludi          significance        |
 |  Nudity / gymnos        Amphitheater/circus  Stone ring goals    |
 +------------------------------------------------------------------+
@@ -35,22 +35,22 @@ not isolated entertainment. The separation of "sport" from
 
 ```
 +------------------------------------------+
-|              OLYMPIA SANCTUARY            |
+|              OLYMPIA SANCTUARY           |
 |                                          |
-|  +------------------+  +--------------+ |
+|  +------------------+  +--------------+  |
 |  | Temple of Zeus   |  | Heraion      | |
 |  | (housing         |  | (Hera temple,| |
 |  |  Pheidias statue)|  |  older)      | |
 |  +------------------+  +--------------+ |
-|                                          |
+|                                         |
 |  +------------------+  +--------------+ |
 |  | Stadium          |  | Hippodrome   | |
 |  | (192m course)    |  | (chariot     | |
 |  | ~45,000 seated   |  |  racing)     | |
 |  | on earthen banks |  |  400m+       | |
 |  +------------------+  +--------------+ |
-|                                          |
-|  Palaistra (wrestling/boxing training)   |
+|                                         |
+|  Palaistra (wrestling/boxing training)  |
 |  Gymnasion (running/throwing practice)  |
 |  Altis (sacred grove, altar fires)      |
 +------------------------------------------+
@@ -217,17 +217,17 @@ The "amateur ideal" was invented in Victorian England. Ancient athletes were pro
 
 ```
 +-----------------------------------------------------------+
-|              PANHELLENIC CIRCUIT                           |
+|              PANHELLENIC CIRCUIT                          |
 |                                                           |
 |  OLYMPIC GAMES         PYTHIAN GAMES                      |
-|  Every 4 years         Every 4 years (2 yrs after Olym)  |
+|  Every 4 years         Every 4 years (2 yrs after Olym)   |
 |  Olympia               Delphi (Apollo)                    |
 |  Prize: Olive crown    Prize: Laurel wreath               |
 |  Zeus honored          Apollo honored                     |
 |  Athletics + equestrian Athletics + music/poetry          |
 |                                                           |
 |  ISTHMIAN GAMES        NEMEAN GAMES                       |
-|  Every 2 years         Every 2 years (alt. Isthmian)     |
+|  Every 2 years         Every 2 years (alt. Isthmian)      |
 |  Isthmus of Corinth    Nemea (Zeus)                       |
 |  Prize: Pine/celery    Prize: Celery/parsley crown        |
 |  Poseidon honored      Nemean Lion myth                   |
@@ -251,7 +251,7 @@ The "amateur ideal" was invented in Victorian England. Ancient athletes were pro
 
 ```
 +------------------------------------------+
-|          GLADIATORIAL WORLD               |
+|          GLADIATORIAL WORLD              |
 |                                          |
 |  LANISTA                                 |
 |  (owner/trainer of gladiator troupe)     |
@@ -311,12 +311,12 @@ COLOSSEUM (Flavian Amphitheater, 80 CE)
 
   Structure:
   +------------------------------------------+
-  |  Velarium (awning) -- shaded spectators   |
-  |  Tiers: senatorial / equestrian /         |
-  |    plebeian / women/slaves (top)          |
-  |  80 arches on each of 4 floors            |
-  |  Hypogeum (underground): animal pens,     |
-  |    gladiator holding cells, elevators     |
+  |  Velarium (awning) -- shaded spectators  |
+  |  Tiers: senatorial / equestrian /        |
+  |    plebeian / women/slaves (top)         |
+  |  80 arches on each of 4 floors           |
+  |  Hypogeum (underground): animal pens,    |
+  |    gladiator holding cells, elevators    |
   +------------------------------------------+
 
 CIRCUS MAXIMUS (Rome)
@@ -426,7 +426,7 @@ EVIDENCE FOR SACRIFICE CONNECTION:
 
 ```
 +------------------------------------------------------+
-|          ANCIENT SPORT COMMON STRUCTURE               |
+|          ANCIENT SPORT COMMON STRUCTURE              |
 |                                                      |
 |  ALL THREE TRADITIONS share:                         |
 |                                                      |

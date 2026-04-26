@@ -4,7 +4,7 @@
 
 ```
 +------------------------------------------------------------------+
-|               MODERN PRECISION WARFARE ARCHITECTURE             |
+|               MODERN PRECISION WARFARE ARCHITECTURE              |
 +------------------------------------------------------------------+
 |                                                                  |
 |  SENSORS                PROCESSING               SHOOTERS        |
@@ -33,7 +33,7 @@
 |  S-400/500 (Russia)    Tunnels (Gaza/etc.)    Anti-satellite     |
 |  Layered SAMs          Urban warfare          Navigation denial  |
 |  Anti-ship missiles    Suicide drones (low    Cognitive effects  |
-|  Submarine threat      cost vs $1M JDAM)                        |
+|  Submarine threat      cost vs $1M JDAM)                         |
 +------------------------------------------------------------------+
 ```
 
@@ -118,7 +118,7 @@ Vice Admiral Arthur Cebrowski and John Garstka articulated the theory in a 1998 
 
 ```
 +------------------------------------------------------------------+
-|                    NETWORK-CENTRIC WARFARE THEORY               |
+|                    NETWORK-CENTRIC WARFARE THEORY                |
 +------------------------------------------------------------------+
 |                                                                  |
 |  INDUSTRIAL AGE WAR:                                             |

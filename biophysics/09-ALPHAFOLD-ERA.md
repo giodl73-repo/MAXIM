@@ -4,29 +4,29 @@
 
 ```
 ┌──────────────────────────────────────────────────────────────────────────┐
-│                   THE ALPHAFOLD ERA LANDSCAPE                             │
+│                   THE ALPHAFOLD ERA LANDSCAPE                            │
 │                                                                            │
 │  TIMELINE:                                                                 │
 │  1951: Pauling: α-helix and β-sheet from H-bond geometry                 │
 │  1957: First protein structure (myoglobin, Kendrew) by X-ray             │
 │  1969: Levinthal's paradox — folding cannot be exhaustive search         │
-│  1994: CASP competition begins (biennial structure prediction contest)    │
+│  1994: CASP competition begins (biennial structure prediction contest)   │
 │  2018: AlphaFold1 (CASP13): first major improvement in 20 years          │
 │  2020: AlphaFold2 (CASP14): near-experimental accuracy; solved CASP      │
 │  2021: AlphaFold2 paper + code released; 200M+ structure database        │
 │  2022: ESMFold (Meta), RoseTTAFold; RFdiffusion (de novo design)         │
 │  2023-24: AlphaFold3 (DNA/RNA/small molecules); RF2/Boltz-1              │
 │                                                                            │
-│  WHAT ALPHAFOLD2 SOLVED:                                                  │
-│  Static 3D structure of most single-chain soluble proteins                │
-│  → Near-experimental quality (TM-score ≈ 0.9 on CASP14)                 │
+│  WHAT ALPHAFOLD2 SOLVED:                                                 │
+│  Static 3D structure of most single-chain soluble proteins               │
+│  → Near-experimental quality (TM-score ≈ 0.9 on CASP14)                  │
 │                                                                            │
 │  WHAT REMAINS UNSOLVED:                                                    │
-│  Protein dynamics / conformational ensembles                              │
-│  Intrinsically disordered proteins (IDPs)                                 │
-│  Protein-protein interaction prediction at atomic resolution              │
+│  Protein dynamics / conformational ensembles                             │
+│  Intrinsically disordered proteins (IDPs)                                │
+│  Protein-protein interaction prediction at atomic resolution             │
 │  Drug design (structure → binding → efficacy is long chain)              │
-│  Function prediction from structure                                       │
+│  Function prediction from structure                                      │
 └──────────────────────────────────────────────────────────────────────────┘
 ```
 
@@ -63,7 +63,7 @@ distance information.
 
 ```
 ┌──────────────────────────────────────────────────────────────────────────┐
-│  ALPHAFOLD2 ARCHITECTURE                                                  │
+│  ALPHAFOLD2 ARCHITECTURE                                                 │
 │                                                                            │
 │  ┌────────────────────────────────────────────────────────┐              │
 │  │  MSA representation: [N_seq × L × c_m]                │              │
@@ -72,30 +72,30 @@ distance information.
 │                   │                                        │              │
 │  ┌────────────────▼────────────────────────────────────┐  │              │
 │  │  EVOFORMER STACK (48 blocks)                        │  │              │
-│  │                                                      │  │              │
+│  │                                                     │  │              │
 │  │  MSA row attention: attention across MSA rows       │  │              │
 │  │  (shared queries per column — efficient)            │  │              │
-│  │  MSA column attention: attention within each col.  │  │              │
+│  │  MSA column attention: attention within each col.   │  │              │
 │  │  MSA transition: feed-forward                       │  │              │
-│  │                                                      │  │              │
+│  │                                                     │  │              │
 │  │  Pair triangular multiplicative update:             │  │              │
-│  │    z[i,j] updated from z[i,k] and z[k,j]           │  │              │
+│  │    z[i,j] updated from z[i,k] and z[k,j]            │  │              │
 │  │    (triangle inequality: ij < ik + kj)              │  │              │
 │  │  Pair triangular attention (outgoing/incoming)      │  │              │
 │  │  Pair transition: feed-forward                      │  │              │
-│  │                                                      │  │              │
+│  │                                                     │  │              │
 │  │  MSA ↔ Pair communication via "outer product mean"  │  │              │
 │  └────────────────┬────────────────────────────────────┘  │              │
 │                   │                                        │              │
 │  ┌────────────────▼────────────────────────────────────┐  │              │
 │  │  STRUCTURE MODULE (8 blocks)                        │  │              │
-│  │                                                      │  │              │
+│  │                                                     │  │              │
 │  │  Invariant Point Attention (IPA):                   │  │              │
 │  │    Residues represented as rigid frames             │  │              │
 │  │    (R_i ∈ SO(3), t_i ∈ R³)                          │  │              │
 │  │    Attention is SE(3)-invariant                     │  │              │
 │  │    Updates frames based on pair representation      │  │              │
-│  │                                                      │  │              │
+│  │                                                     │  │              │
 │  │  Backbone update: update R_i, t_i per residue       │  │              │
 │  │  Sidechain prediction: 8-layer MLP for chi angles   │  │              │
 │  │  FAPE loss: frame-aligned point error               │  │              │
@@ -211,7 +211,7 @@ Released 2021 (v1), expanded 2022 (v4):
 ```
   ┌────────────────────────────────────────────────────────────────────┐
   │  APPLICATION                  │  HOW DATABASE HELPS                │
-  │  ───────────────────────────  │  ──────────────────────────────── │
+  │  ───────────────────────────  │  ────────────────────────────────  │
   │  Structure-based drug design  │  Virtual screening against targets │
   │                               │  previously without structures     │
   │  Evolutionary analysis        │  Compare structures across kingdoms│
@@ -279,7 +279,7 @@ Many proteins function through multiple conformations:
   │  Cellular localization        │  Sequence signals not in struct  │
   │  Pathogenicity of mutations   │  Need: thermodynamics, kinetics  │
   │                               │  of folding change + function    │
-  │  Drug efficacy                │  ΔG_binding → ΔΔG_binding (FEP) │
+  │  Drug efficacy                │  ΔG_binding → ΔΔG_binding (FEP)  │
   │                               │  → in vitro potency → ADMET      │
   │                               │  → clinical efficacy: very long chain│
   └──────────────────────────────────────────────────────────────────┘

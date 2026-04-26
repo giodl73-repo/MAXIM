@@ -148,8 +148,8 @@ FRENCH SEAM (clean finish on both sides):
   Result: raw edges fully enclosed inside seam
 
   ┌────────────────────────────────────────┐
-  │  Inside view: smooth, no raw edges    │
-  │  Used for: sheers, lingerie, silk     │
+  │  Inside view: smooth, no raw edges     │
+  │  Used for: sheers, lingerie, silk      │
   └────────────────────────────────────────┘
 
 FLAT-FELLED SEAM (extremely strong, visible topstitching):
@@ -160,9 +160,9 @@ FLAT-FELLED SEAM (extremely strong, visible topstitching):
   Result: two visible rows of topstitching on face side
 
   ┌────────────────────────────────────────┐
-  │  Jeans inseam and side seam           │
-  │  Work shirts (western shirts)         │
-  │  Extremely durable; won't ravel       │
+  │  Jeans inseam and side seam            │
+  │  Work shirts (western shirts)          │
+  │  Extremely durable; won't ravel        │
   └────────────────────────────────────────┘
 
 LAPPED SEAM:
@@ -233,14 +233,14 @@ PAD STITCHING (tailoring):
 
   PRESSING EQUIPMENT (professional):
   ┌──────────────────────────────────────────────────────────┐
-  │  Tailor's Ham:   Stuffed egg-shaped cushion             │
-  │  (ham cushion)   Press curved seams (bust seam,         │
+  │  Tailor's Ham:   Stuffed egg-shaped cushion              │
+  │  (ham cushion)   Press curved seams (bust seam,          │
   │                  armhole, sleeve head)                   │
   ├──────────────────────────────────────────────────────────┤
   │  Sleeve Board:   Narrow board; fits inside sleeve       │
   │                  Press sleeve seams without creasing      │
   ├──────────────────────────────────────────────────────────┤
-  │  Seam Roll:      Cylindrical; press seams open on       │
+  │  Seam Roll:      Cylindrical; press seams open on        │
   │                  curved areas without impressions        │
   ├──────────────────────────────────────────────────────────┤
   │  Point Presser:  Narrow board; press points of collars  │

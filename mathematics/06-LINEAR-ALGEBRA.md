@@ -6,7 +6,7 @@ THE LANDSCAPE
 
   VECTOR SPACES          MATRICES               EIGENSTRUCTURE
   ┌─────────────────┐    ┌─────────────────┐    ┌─────────────────┐
-  │ abstract spaces │    │ linear maps      │    │ Av = λv         │
+  │ abstract spaces │    │ linear maps     │    │ Av = λv         │
   │ span, basis     │ →  │ rank, null space │ →  │ diagonalization │
   │ dimension       │    │ row reduction    │    │ spectral theorem │
   └────────┬────────┘    └────────┬────────┘    └────────┬────────┘
@@ -101,8 +101,8 @@ A **vector space** V over field F satisfies:
   │  Left null space:        N(Aᵀ)                     ⊆ Fᵐ          │
   │                                                                    │
   │  RANK-NULLITY THEOREM:                                             │
-  │  rank(A) + nullity(A) = n                                         │
-  │  dim C(A) + dim N(A) = number of columns                          │
+  │  rank(A) + nullity(A) = n                                          │
+  │  dim C(A) + dim N(A) = number of columns                           │
   │                                                                    │
   │  ORTHOGONALITY:                                                    │
   │  C(A) ⊥ N(Aᵀ)    (column space ⊥ left null space, both in Fᵐ)   │
@@ -419,15 +419,15 @@ A **vector space** V over field F satisfies:
   │  Image compression: A = image matrix, Aₖ = compressed version    │
   │  k=10 terms: ~90% quality, 10× compression                       │
   │                                                                    │
-  │  PCA (Principal Component Analysis):                              │
-  │  Center data, compute SVD of data matrix X                        │
+  │  PCA (Principal Component Analysis):                               │
+  │  Center data, compute SVD of data matrix X                         │
   │  Principal components = right singular vectors (rows of Vᵀ)      │
   │  Variance captured = σᵢ²/Σσᵢ²                                    │
   │                                                                    │
-  │  Latent Semantic Analysis (pre-deep learning NLP):                │
+  │  Latent Semantic Analysis (pre-deep learning NLP):                 │
   │  Term-document matrix → SVD → semantic "topics"                  │
   │                                                                    │
-  │  Recommender systems (Netflix Prize era): matrix factorization    │
+  │  Recommender systems (Netflix Prize era): matrix factorization     │
   │  Ratings matrix ≈ UΣVᵀ, fill in missing entries from low-rank   │
   └────────────────────────────────────────────────────────────────────┘
 ```
@@ -579,15 +579,15 @@ The theoretical structures above have a direct computational implementation laye
 
   BACKWARD STABILITY — why it matters:
   ┌───────────────────────────────────────────────────────────────────┐
-  │  An algorithm is BACKWARD STABLE if the computed result is the   │
+  │  An algorithm is BACKWARD STABLE if the computed result is the    │
   │  exact answer to a slightly perturbed problem.                    │
   │                                                                   │
-  │  LU with partial pivoting: backward stable for most matrices,    │
-  │    but pathological cases exist (Wilkinson matrix)               │
-  │  QR (Householder): unconditionally backward stable for least sq. │
+  │  LU with partial pivoting: backward stable for most matrices,     │
+  │    but pathological cases exist (Wilkinson matrix)                │
+  │  QR (Householder): unconditionally backward stable for least sq.  │
   │  Normal equations AᵀAx = Aᵀb: condition number SQUARED → avoid  │
   │                                                                   │
-  │  RULE: solve least squares via QR (scipy.linalg.lstsq uses it),  │
+  │  RULE: solve least squares via QR (scipy.linalg.lstsq uses it),   │
   │  not via (AᵀA)⁻¹Aᵀ. The condition number of AᵀA = κ(A)².        │
   └───────────────────────────────────────────────────────────────────┘
 
@@ -622,10 +622,10 @@ The theoretical structures above have a direct computational implementation laye
   WHEN TO USE WHAT:
   ┌──────────────────────────────────────────────────────────────────┐
   │  Dense n×n, n < 10⁴:      LAPACK (direct)  — numpy.linalg      │
-  │  SPD system:               Cholesky (2× faster than LU)         │
+  │  SPD system:               Cholesky (2× faster than LU)          │
   │  Least squares:            QR via lstsq (never normal equations) │
-  │  Large sparse Ax=b:        CG (SPD) or GMRES (general)          │
-  │  Large sparse eigenvalues: Lanczos (sym) or Arnoldi (general)   │
+  │  Large sparse Ax=b:        CG (SPD) or GMRES (general)           │
+  │  Large sparse eigenvalues: Lanczos (sym) or Arnoldi (general)    │
   │  Low-rank approx:          Randomized SVD (see §11.5 below)      │
   └──────────────────────────────────────────────────────────────────┘
 ```
@@ -653,8 +653,8 @@ The theoretical structures above have a direct computational implementation laye
   │  A weight matrix W ∈ M_{m×n} has SVD W = UΣVᵀ.                 │
   │  The singular value spectrum σ₁ ≥ σ₂ ≥ ... reveals:            │
   │  ├── Effective rank: how many singular values are non-negligible │
-  │  ├── Information compression: top-k singular vectors span the   │
-  │  │   "important" subspace for that layer                        │
+  │  ├── Information compression: top-k singular vectors span the    │
+  │  │   "important" subspace for that layer                         │
   │  └── Stability: κ(W) = σ₁/σₙ — high = numerically sensitive    │
   └──────────────────────────────────────────────────────────────────┘
 
@@ -720,7 +720,7 @@ The Jordan form is the canonical answer.
   │  For a Jordan block Jₖ(λ) = λI + N:                            │
   │  e^(Jₖ(λ)t) = e^(λt) · e^(Nt)                                  │
   │             = e^(λt) · (I + Nt + N²t²/2! + ... + Nᵏ⁻¹tᵏ⁻¹/(k-1)!)
-  │             (series terminates because Nᵏ=0)                    │
+  │             (series terminates because Nᵏ=0)                     │
   │                                                                  │
   │  Result: solutions contain terms  tʲ e^(λt) for j=0,1,...,k-1  │
   │  This is why repeated eigenvalues produce "polynomial × exponential"│
@@ -776,10 +776,10 @@ essential new phenomena that don't exist in finite dimensions.
   │  eigenvectors" exist: ‖Txₙ - λxₙ‖→0 with ‖xₙ‖=1.               │
   │  Example: free particle momentum p̂ on L²(ℝ)                      │
   │  "Eigenfunctions" e^(ikx) are not in L² — they're distributions.  │
-  │  Scattering states, continuous spectrum = physical continuum.      │
+  │  Scattering states, continuous spectrum = physical continuum.       │
   │                                                                     │
   │  RESIDUAL SPECTRUM σ_r(T): (T-λI) injective, range not dense.     │
-  │  Doesn't occur for self-adjoint operators — purely a curiosity     │
+  │  Doesn't occur for self-adjoint operators — purely a curiosity      │
   │  for asymmetric operators.                                          │
   └─────────────────────────────────────────────────────────────────────┘
 

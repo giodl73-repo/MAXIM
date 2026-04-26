@@ -751,25 +751,25 @@ Embedding vs Referencing decision:
 
 ┌──────────────────────────────────────┬──────────────────────────────────────┐
 │ EMBED (denormalize)                  │ REFERENCE (normalize)                │
-│ ────────────────────────────────     │ ────────────────────────────────      │
-│ {                                    │ orders: { customer_id: ObjectId(42) } │
-│   order_id: 1,                       │ customers: { _id: ObjectId(42), ... } │
-│   customer: {                        │                                       │
-│     name:  "Alice",                  │ Use when:                             │
-│     email: "a@b.com"                 │  • Referenced doc is large            │
-│   },                                 │  • Referenced doc changes frequently  │
-│   line_items: [                      │  • Many-to-many relationship          │
-│     { product: "Widget",             │  • Need to query the referenced doc   │
-│       qty: 2, price: 9.99 }          │    independently                      │
+│ ────────────────────────────────     │ ────────────────────────────────     │
+│ {                                    │ orders: { customer_id: ObjectId(42) }│
+│   order_id: 1,                       │ customers: { _id: ObjectId(42), ... }│
+│   customer: {                        │                                      │
+│     name:  "Alice",                  │ Use when:                            │
+│     email: "a@b.com"                 │  • Referenced doc is large           │
+│   },                                 │  • Referenced doc changes frequently │
+│   line_items: [                      │  • Many-to-many relationship         │
+│     { product: "Widget",             │  • Need to query the referenced doc  │
+│       qty: 2, price: 9.99 }          │    independently                     │
 │   ]                                  │  • Embedding would exceed 16 MB limit │
-│ }                                    │    (BSON document size limit)         │
-│                                      │                                       │
-│ Use when:                            │                                       │
-│  • One-to-few (e.g. order→line items)│                                       │
-│  • Always read together              │                                       │
-│  • Sub-docs updated infrequently     │                                       │
-│  • Single-document atomic update     │                                       │
-│    is sufficient                     │                                       │
+│ }                                    │    (BSON document size limit)        │
+│                                      │                                      │
+│ Use when:                            │                                      │
+│  • One-to-few (e.g. order→line items)│                                      │
+│  • Always read together              │                                      │
+│  • Sub-docs updated infrequently     │                                      │
+│  • Single-document atomic update     │                                      │
+│    is sufficient                     │                                      │
 └──────────────────────────────────────┴──────────────────────────────────────┘
 
 The guiding principle: model data the way your application queries it, not the

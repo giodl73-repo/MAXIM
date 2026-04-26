@@ -38,7 +38,7 @@ THE MICROBIAL WORLD
   │  Earth biomass distribution (by carbon):                       │
   │  Plants:    82%    Bacteria:  13%    Archaea: 1.3%             │
   │  Fungi:     2.2%   Protists:  0.7%   Animals: 0.47%            │
-  │  Humans: ~0.01% — yet dominate the biosphere's metabolism     │
+  │  Humans: ~0.01% — yet dominate the biosphere's metabolism      │
   └────────────────────────────────────────────────────────────────┘
 ```
 
@@ -100,17 +100,17 @@ THE MICROBIAL WORLD
 
   TWO APPROACHES:
   ┌──────────────────────────────────────────────────────────────┐
-  │ 16S rRNA AMPLICON SEQUENCING                                  │
+  │ 16S rRNA AMPLICON SEQUENCING                                 │
   │   PCR amplify 16S rRNA gene (present in all bacteria)        │
-  │   Sequence amplicons → compare to database                  │
+  │   Sequence amplicons → compare to database                   │
   │   Identifies which bacteria are present (who's there?)       │
   │   Cheap: ~$10–30/sample                                      │
   │   Limitation: Semi-quantitative; primer bias; no function    │
-  │                                                               │
+  │                                                              │
   │ SHOTGUN METAGENOMICS                                         │
   │   Sequence ALL DNA in sample (not just 16S)                  │
-  │   Reconstruct genomes: metagenome-assembled genomes (MAGs)  │
-  │   Identifies: Who's there + What they can do (function)     │
+  │   Reconstruct genomes: metagenome-assembled genomes (MAGs)   │
+  │   Identifies: Who's there + What they can do (function)      │
   │   Expensive: ~$100–500/sample                                │
   │   Tools: Kraken2/Bracken (classification), MetaSPAdes (assembly)│
   │           MetaPhlAn4 (species profiling), HUMAnN3 (function) │

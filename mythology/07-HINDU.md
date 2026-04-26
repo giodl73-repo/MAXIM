@@ -6,31 +6,31 @@ Hindu mythology is not a single tradition — it is the accumulated theological 
 
 ```
 ┌──────────────────────────────────────────────────────────────────┐
-│                HINDU MYTHOLOGY — TEXTUAL LAYERS                   │
+│                HINDU MYTHOLOGY — TEXTUAL LAYERS                  │
 │                                                                  │
 │  SHRUTI ("heard" — revealed, not authored):                      │
-│  — Rigveda (~1500–1200 BCE): 1,028 hymns; oldest Sanskrit text  │
-│  — Samaveda, Yajurveda, Atharvaveda (other three Vedas)         │
-│  — Upanishads (800–200 BCE): philosophical commentary on Vedas  │
+│  — Rigveda (~1500–1200 BCE): 1,028 hymns; oldest Sanskrit text   │
+│  — Samaveda, Yajurveda, Atharvaveda (other three Vedas)          │
+│  — Upanishads (800–200 BCE): philosophical commentary on Vedas   │
 │                                                                  │
 │  SMRITI ("remembered" — composed, not revealed):                 │
-│  — Mahabharata (~400 BCE–400 CE compiled): 1.8 million words    │
+│  — Mahabharata (~400 BCE–400 CE compiled): 1.8 million words     │
 │    Includes Bhagavad Gita (Chapters 25–42 of Book 6)           │
-│  — Ramayana (~500–100 BCE): 24,000 verses; Valmiki version      │
+│  — Ramayana (~500–100 BCE): 24,000 verses; Valmiki version       │
 │  — Puranas (3rd–18th c. CE): 18 major, 18 minor                │
-│    Vishnu Purana, Shiva Purana, Bhagavata Purana, etc.          │
-│  — Dharma Shastras: Manu's Laws, etc.                           │
+│    Vishnu Purana, Shiva Purana, Bhagavata Purana, etc.           │
+│  — Dharma Shastras: Manu's Laws, etc.                            │
 │                                                                  │
 │  AGAMAS / TANTRAS:                                               │
-│  — Sectarian texts (Shaiva, Vaishnava, Shakta)                  │
-│  — Ritual and meditative instruction                            │
+│  — Sectarian texts (Shaiva, Vaishnava, Shakta)                   │
+│  — Ritual and meditative instruction                             │
 │                                                                  │
 │  CRITICAL NOTE ON INTERPRETATION:                                │
 │  There is NO single "Hindu mythology" — Shaivites, Vaishnavites, │
 │  and Shaktas have radically different theologies. Brahma who     │
-│  creates in one text is humbled or absent in others. Vishnu is  │
-│  supreme deity or subordinate depending on sect. These are      │
-│  living, contested traditions, not a fixed canon.               │
+│  creates in one text is humbled or absent in others. Vishnu is   │
+│  supreme deity or subordinate depending on sect. These are       │
+│  living, contested traditions, not a fixed canon.                │
 └──────────────────────────────────────────────────────────────────┘
 ```
 
@@ -88,42 +88,42 @@ Post-Vedic synthesis produces the Trimurti — three aspects of the divine manag
 │                    THE TRIMURTI                                    │
 │                                                                  │
 │  BRAHMA — The Creator                                            │
-│  — Creates the universe at the beginning of each cosmic cycle   │
-│  — Four heads (originally five; fifth burnt off by Shiva)       │
-│  — Four Vedas emerged from his four mouths                      │
-│  — Consort: Saraswati (knowledge, arts, music)                  │
-│  — Almost no active worship (few temples); creator-role does    │
-│    not sustain ongoing devotion. His work is done at creation.  │
+│  — Creates the universe at the beginning of each cosmic cycle    │
+│  — Four heads (originally five; fifth burnt off by Shiva)        │
+│  — Four Vedas emerged from his four mouths                       │
+│  — Consort: Saraswati (knowledge, arts, music)                   │
+│  — Almost no active worship (few temples); creator-role does     │
+│    not sustain ongoing devotion. His work is done at creation.   │
 │                                                                  │
 │  VISHNU — The Preserver                                          │
-│  — Maintains and sustains creation through cosmic cycles        │
-│  — Descends to earth in avatars when dharma is threatened       │
+│  — Maintains and sustains creation through cosmic cycles         │
+│  — Descends to earth in avatars when dharma is threatened        │
 │  — Rests on the cosmic serpent Shesha (Ananta) on the milky    │
-│    ocean (Kshira Sagara) between creations                      │
-│  — Consort: Lakshmi (wealth, fortune, beauty)                   │
+│    ocean (Kshira Sagara) between creations                       │
+│  — Consort: Lakshmi (wealth, fortune, beauty)                    │
 │  — Attributes: conch (shankha), discus (Sudarshana Chakra),    │
-│    mace (Kaumodaki), lotus                                      │
-│  — Color: dark blue-black                                       │
+│    mace (Kaumodaki), lotus                                       │
+│  — Color: dark blue-black                                        │
 │                                                                  │
 │  SHIVA — The Destroyer/Transformer                               │
-│  — Destroys at end of each cosmic cycle; makes room for new     │
+│  — Destroys at end of each cosmic cycle; makes room for new      │
 │    creation; destruction = liberation                            │
-│  — Simultaneously: ascetic (meditates on Mount Kailash),        │
-│    householder (married to Parvati/Shakti), cosmic dancer       │
-│    (Nataraja — dancing destroys and recreates the universe)     │
-│  — Attributes: trident (trishula), drum (damaru), third eye     │
+│  — Simultaneously: ascetic (meditates on Mount Kailash),         │
+│    householder (married to Parvati/Shakti), cosmic dancer        │
+│    (Nataraja — dancing destroys and recreates the universe)      │
+│  — Attributes: trident (trishula), drum (damaru), third eye      │
 │    (destroys with fire when opened), crescent moon in hair,    │
-│    Ganga flows from his matted locks, snake Vasuki on neck      │
-│  — Lingam: phallic column = his primary form of worship         │
+│    Ganga flows from his matted locks, snake Vasuki on neck       │
+│  — Lingam: phallic column = his primary form of worship          │
 │  — Consort: Parvati (and her fierce forms: Durga, Kali)        │
-│  — Sons: Ganesha (elephant head; remover of obstacles),         │
-│           Kartikeya/Murugan (war god, peacock rider)            │
+│  — Sons: Ganesha (elephant head; remover of obstacles),          │
+│           Kartikeya/Murugan (war god, peacock rider)             │
 │                                                                  │
 │  NOTE: The "Trimurti as Trinity" parallel to Christianity is     │
-│  a popular comparison but misleading. Brahma is barely          │
-│  worshipped; Vishnu and Shiva are rivals, not members of a      │
-│  unified theology. Most Hindus are Vaishnavites or Shaivites    │
-│  — devotees of one supreme deity who encompasses all others.    │
+│  a popular comparison but misleading. Brahma is barely           │
+│  worshipped; Vishnu and Shiva are rivals, not members of a       │
+│  unified theology. Most Hindus are Vaishnavites or Shaivites     │
+│  — devotees of one supreme deity who encompasses all others.     │
 └──────────────────────────────────────────────────────────────────┘
 ```
 
@@ -135,72 +135,72 @@ Avatar (avatāra) = descent; Vishnu descends in bodily form to restore dharma:
 
 ```
 ┌──────────────────────────────────────────────────────────────────┐
-│                  DASHAVATARA (TEN AVATARS OF VISHNU)              │
+│                  DASHAVATARA (TEN AVATARS OF VISHNU)             │
 │                                                                  │
 │  1. MATSYA (Fish)                                                │
 │     — Saves Manu (Hindu Noah) and the Vedas from the great flood│
 │     — Pulls Manu's boat to safety; destroys the demon Shankhasura│
 │                                                                  │
 │  2. KURMA (Tortoise)                                             │
-│     — Samudra Manthan (Churning of the Ocean of Milk)           │
-│     — Supports Mount Mandara as pivot for the churning          │
-│     — Ocean churned by gods and asuras; produces amrita         │
-│       (immortality nectar), Lakshmi, poison Halahala,           │
-│       Dhanvantari (divine physician), divine horse, etc.        │
+│     — Samudra Manthan (Churning of the Ocean of Milk)            │
+│     — Supports Mount Mandara as pivot for the churning           │
+│     — Ocean churned by gods and asuras; produces amrita          │
+│       (immortality nectar), Lakshmi, poison Halahala,            │
+│       Dhanvantari (divine physician), divine horse, etc.         │
 │                                                                  │
-│  3. VARAHA (Boar)                                               │
-│     — Demon Hiranyaksha pushes Earth (Bhudevi) to bottom of sea │
-│     — Varaha dives in, tusks the earth, lifts it back up        │
+│  3. VARAHA (Boar)                                                │
+│     — Demon Hiranyaksha pushes Earth (Bhudevi) to bottom of sea  │
+│     — Varaha dives in, tusks the earth, lifts it back up         │
 │                                                                  │
 │  4. NARASIMHA (Man-Lion)                                         │
 │     — Demon Hiranyakashipu has boon: cannot be killed by man     │
-│       or beast, by day or night, inside or outside, on earth    │
-│       or in sky, by any weapon                                  │
+│       or beast, by day or night, inside or outside, on earth     │
+│       or in sky, by any weapon                                   │
 │     — Narasimha: neither man nor beast; at dusk (neither day   │
-│       nor night); on a threshold (neither inside nor outside);  │
-│       on his lap (neither earth nor sky); with claws            │
-│       (not a weapon) — every condition of the boon exploited    │
-│     — Devotee Prahlada protected; tyrant father destroyed       │
+│       nor night); on a threshold (neither inside nor outside);   │
+│       on his lap (neither earth nor sky); with claws             │
+│       (not a weapon) — every condition of the boon exploited     │
+│     — Devotee Prahlada protected; tyrant father destroyed        │
 │                                                                  │
 │  5. VAMANA (Dwarf)                                               │
-│     — Demon king Mahabali rules the three worlds justly but     │
-│       has displaced the gods. Vishnu appears as a dwarf brahmin │
-│     — Asks for three steps of land; Mahabali grants it          │
-│     — Vamana becomes gigantic Trivikrama (three strides):       │
-│       First step = earth; second = sky; third = Mahabali's head │
-│       Mahabali pushed to the underworld; his humility honored   │
+│     — Demon king Mahabali rules the three worlds justly but      │
+│       has displaced the gods. Vishnu appears as a dwarf brahmin  │
+│     — Asks for three steps of land; Mahabali grants it           │
+│     — Vamana becomes gigantic Trivikrama (three strides):        │
+│       First step = earth; second = sky; third = Mahabali's head  │
+│       Mahabali pushed to the underworld; his humility honored    │
 │                                                                  │
-│  6. PARASHURAMA (Rama with Axe)                                 │
-│     — Brahmin warrior who destroys the warrior (Kshatriya)      │
-│       caste 21 times to avenge his father's murder              │
-│     — Still considered alive ("Chiranjeevi" = immortal)         │
+│  6. PARASHURAMA (Rama with Axe)                                  │
+│     — Brahmin warrior who destroys the warrior (Kshatriya)       │
+│       caste 21 times to avenge his father's murder               │
+│     — Still considered alive ("Chiranjeevi" = immortal)          │
 │                                                                  │
-│  7. RAMA — Hero of the Ramayana                                 │
-│     — Model king, dutiful son, devoted husband                  │
-│     — Rescues Sita from Ravana with help of Hanuman             │
+│  7. RAMA — Hero of the Ramayana                                  │
+│     — Model king, dutiful son, devoted husband                   │
+│     — Rescues Sita from Ravana with help of Hanuman              │
 │     — The "maryada purushottama" — the ideal man               │
 │                                                                  │
-│  8. KRISHNA — Hero of the Mahabharata                           │
-│     — Most complex avatar: divine trickster, lover, warrior,    │
-│       cosmic deity. Bhagavad Gita = his teaching.               │
+│  8. KRISHNA — Hero of the Mahabharata                            │
+│     — Most complex avatar: divine trickster, lover, warrior,     │
+│       cosmic deity. Bhagavad Gita = his teaching.                │
 │                                                                  │
-│  9. BUDDHA — Gautama Buddha (Vaishnava absorption of Buddhism)  │
-│     — Appeared to lead demons/bad souls astray from Vedic truth │
-│     — A theological move: by incorporating the Buddha as a      │
-│       Vishnu avatar, Vaishnavism absorbs Buddhist devotees      │
+│  9. BUDDHA — Gautama Buddha (Vaishnava absorption of Buddhism)   │
+│     — Appeared to lead demons/bad souls astray from Vedic truth  │
+│     — A theological move: by incorporating the Buddha as a       │
+│       Vishnu avatar, Vaishnavism absorbs Buddhist devotees       │
 │                                                                  │
 │  10. KALKI — The Future Avatar                                   │
-│     — Will appear at the end of the Kali Yuga on a white horse  │
-│     — Destroys evil and corruption; ends the current cycle      │
-│     — Has not yet come                                          │
+│     — Will appear at the end of the Kali Yuga on a white horse   │
+│     — Destroys evil and corruption; ends the current cycle       │
+│     — Has not yet come                                           │
 │                                                                  │
 │  EVOLUTIONARY BIOLOGY NOTE:                                      │
-│  The first four avatars (Fish → Tortoise → Boar → Man-Lion)     │
-│  loosely parallel the evolutionary sequence aquatic → amphibian │
-│  → land mammal → proto-human. This parallelism was noticed in   │
-│  the 19th c. and is sometimes cited in popular literature.      │
-│  It is almost certainly coincidental; the Puranic texts had     │
-│  different cosmological logic in mind.                          │
+│  The first four avatars (Fish → Tortoise → Boar → Man-Lion)      │
+│  loosely parallel the evolutionary sequence aquatic → amphibian  │
+│  → land mammal → proto-human. This parallelism was noticed in    │
+│  the 19th c. and is sometimes cited in popular literature.       │
+│  It is almost certainly coincidental; the Puranic texts had      │
+│  different cosmological logic in mind.                           │
 └──────────────────────────────────────────────────────────────────┘
 ```
 
@@ -351,50 +351,50 @@ One of the most distinctive Hindu cosmological contributions — time as cyclica
 │                                                                  │
 │  A Mahayuga = four yugas = one complete cycle of human history   │
 │                                                                  │
-│  SATYA YUGA (Krita Yuga) — The Golden Age                       │
-│  Duration: 1,728,000 human years                                │
-│  — Dharma stands on all four legs                               │
-│  — Humans are virtuous, long-lived (100,000 years), truthful    │
-│  — No disease, no need for work                                 │
+│  SATYA YUGA (Krita Yuga) — The Golden Age                        │
+│  Duration: 1,728,000 human years                                 │
+│  — Dharma stands on all four legs                                │
+│  — Humans are virtuous, long-lived (100,000 years), truthful     │
+│  — No disease, no need for work                                  │
 │                                                                  │
 │  TRETA YUGA — The Silver Age                                     │
-│  Duration: 1,296,000 human years                                │
-│  — Dharma loses one leg                                         │
-│  — Virtue decreases by 1/4; humans still noble but need ritual  │
-│  — Ramayana occurs in this yuga                                 │
+│  Duration: 1,296,000 human years                                 │
+│  — Dharma loses one leg                                          │
+│  — Virtue decreases by 1/4; humans still noble but need ritual   │
+│  — Ramayana occurs in this yuga                                  │
 │                                                                  │
 │  DVAPARA YUGA — The Bronze Age                                   │
-│  Duration: 864,000 human years                                  │
-│  — Dharma on two legs; humanity at half capacity                │
-│  — Disease and discord appear; need for more complex ritual     │
+│  Duration: 864,000 human years                                   │
+│  — Dharma on two legs; humanity at half capacity                 │
+│  — Disease and discord appear; need for more complex ritual      │
 │  — Mahabharata occurs at the cusp of Dvapara/Kali transition   │
-│  — Krishna departs; Kali Yuga begins                            │
+│  — Krishna departs; Kali Yuga begins                             │
 │                                                                  │
-│  KALI YUGA — The Iron Age (Current)                             │
-│  Duration: 432,000 human years                                  │
+│  KALI YUGA — The Iron Age (Current)                              │
+│  Duration: 432,000 human years                                   │
 │  — Dharma on one leg; majority of virtue has left the world    │
 │  — Discord, deception, greed, shortened lifespans              │
 │  — Began: ~3102 BCE (traditional date = when Krishna departed) │
 │  — We are ~5,100 years into a 432,000-year era                 │
 │                                                                  │
-│  MAHAYUGA TOTAL: 4,320,000 years                                │
+│  MAHAYUGA TOTAL: 4,320,000 years                                 │
 │                                                                  │
 │  LARGER CYCLES:                                                  │
-│  1,000 Mahayugas = 1 Kalpa (one day of Brahma)                  │
+│  1,000 Mahayugas = 1 Kalpa (one day of Brahma)                   │
 │  = 4.32 billion years = one creative cycle of the universe     │
 │  (strikingly close to Earth's actual age: ~4.5 billion years)  │
 │                                                                  │
-│  Brahma's night = 4.32 billion years (universe dissolved)       │
-│  Brahma's full life = 311 trillion years                        │
+│  Brahma's night = 4.32 billion years (universe dissolved)        │
+│  Brahma's full life = 311 trillion years                         │
 │  After Brahma dies, a new Brahma is born; the cycle restarts   │
 │  → No beginning; no end; time is cyclic at all scales          │
 │                                                                  │
 │  COMPARE:                                                        │
 │  Greek: Hesiod's five ages (Gold → Silver → Bronze → Heroic →  │
-│          Iron) also shows degradation over time                 │
+│          Iron) also shows degradation over time                  │
 │  Norse: Three ages from creation to Ragnarok (no restart)      │
 │  Abrahamic: Linear time (creation → fall → redemption → end)   │
-│  Hindu: Cyclic, multi-scale, no ultimate end — just more cycles │
+│  Hindu: Cyclic, multi-scale, no ultimate end — just more cycles  │
 └──────────────────────────────────────────────────────────────────┘
 ```
 

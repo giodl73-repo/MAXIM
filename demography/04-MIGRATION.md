@@ -4,7 +4,7 @@
 
 ```
 ┌─────────────────────────────────────────────────────────────────────────────┐
-│                    MIGRATION TAXONOMY                                        │
+│                    MIGRATION TAXONOMY                                       │
 │                                                                               │
 │  BY GEOGRAPHY:         BY DURATION:          BY MOTIVATION:                 │
 │  International         Temporary/circular    Economic (labor)               │
@@ -12,14 +12,14 @@
 │    Rural-urban         Semi-permanent        Family reunification           │
 │    Urban-rural (return)Permanent             Environmental/climate          │
 │    Region to region                          Education                      │
-│                                                                              │
+│                                                                             │
 │  BY DOCUMENTATION:     BY DIRECTION:                                        │
 │  Documented/legal      Emigration (leaving)                                 │
 │  Undocumented/irregular Immigration (arriving)                              │
 │  Asylum seekers        Return migration                                     │
 │  Refugees              Transit migration                                    │
 │                                                                               │
-│  SCALE (2020):                                                               │
+│  SCALE (2020):                                                              │
 │  ~281M international migrants = 3.6% of world population                    │
 │  ~1B+ internal migrants (domestic rural-urban)                              │
 │  ~100M forcibly displaced (2023 — new record)                               │

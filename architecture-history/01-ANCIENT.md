@@ -73,11 +73,11 @@ TOMB TYPOLOGY EVOLUTION
 
   MASTABA (~3000 BCE)     STEP PYRAMID (~2650)    TRUE PYRAMID (~2600)
   +===================+   +===================+   +===================+
-  |                   |   |     ___            |   |        /\         |
-  |  Flat top bench   |   |    /   \           |   |       /  \        |
-  |  Burial below     |   |   /     \          |   |      /    \       |
-  |  grade            |   |  /  ___  \         |   |     /      \      |
-  +===================+   | /  /   \  \        |   |    /        \     |
+  |                   |   |     ___           |   |        /\         |
+  |  Flat top bench   |   |    /   \          |   |       /  \        |
+  |  Burial below     |   |   /     \         |   |      /    \       |
+  |  grade            |   |  /  ___  \        |   |     /      \      |
+  +===================+   | /  /   \  \        |   |    /        \    |
                           |/__/     \__\       |   |   /          \    |
                                                |   |  /____________\   |
   Imhotep: stack mastabas  Djoser, Saqqara     |   Khafre, Khufu,     |

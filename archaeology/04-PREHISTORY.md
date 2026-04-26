@@ -6,18 +6,18 @@
 +------------------------------------------------------------------+
 |          PREHISTORIC TIMELINE: MAJOR TRANSITIONS                 |
 |                                                                  |
-|  3.3 Ma  Lomekwian tools (Kenya): earliest stone tools          |
-|  2.6 Ma  Oldowan (Mode 1): core tools, flakes                   |
-|  1.76 Ma Acheulean (Mode 2): handaxes; Homo erectus             |
-|  300 Ka  Middle Paleolithic / MSA: prepared-core technology     |
+|  3.3 Ma  Lomekwian tools (Kenya): earliest stone tools           |
+|  2.6 Ma  Oldowan (Mode 1): core tools, flakes                    |
+|  1.76 Ma Acheulean (Mode 2): handaxes; Homo erectus              |
+|  300 Ka  Middle Paleolithic / MSA: prepared-core technology      |
 |  300 Ka  Anatomically modern Homo sapiens (Jebel Irhoud, Morocco)|
 |  195 Ka  Earliest modern behavior (Pinnacle Point, South Africa) |
-|  100 Ka  Out-of-Africa dispersal (multiple waves evidence)      |
-|  45 Ka   Upper Paleolithic revolution in Europe                 |
-|  40 Ka   Cave art (Sulawesi, Indonesia now oldest)              |
+|  100 Ka  Out-of-Africa dispersal (multiple waves evidence)       |
+|  45 Ka   Upper Paleolithic revolution in Europe                  |
+|  40 Ka   Cave art (Sulawesi, Indonesia now oldest)               |
 |  12 Ka   End of Pleistocene; start of Holocene                 |
-|  10 Ka   Neolithic Revolution begins (SW Asia)                  |
-|  5 Ka    Metalworking; first writing; state societies           |
+|  10 Ka   Neolithic Revolution begins (SW Asia)                   |
+|  5 Ka    Metalworking; first writing; state societies            |
 |  2 Ka    Iron widespread; historical period begins most regions  |
 +------------------------------------------------------------------+
 ```

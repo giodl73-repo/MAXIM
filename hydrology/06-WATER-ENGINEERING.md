@@ -4,7 +4,7 @@
 
 ```
 +===========================================================================+
-|           WATER INFRASTRUCTURE — FLOW THROUGH THE SYSTEM                 |
+|           WATER INFRASTRUCTURE — FLOW THROUGH THE SYSTEM                  |
 +===========================================================================+
 |                                                                           |
 |  WATERSHED                                                                |

@@ -10,15 +10,15 @@ TEMPERATE TREE TAXONOMY MAP
   GYMNOSPERMS (softwoods — tracheids only, no vessels)
   +------------------------------------------------------------------+
   | Pinaceae            Cupressaceae         Taxaceae                |
-  | Pine, Spruce,       Cedar, Juniper,      Yew                    |
-  | Fir, Larch,         Cypress, Redwood,    (poisonous + bow wood) |
+  | Pine, Spruce,       Cedar, Juniper,      Yew                     |
+  | Fir, Larch,         Cypress, Redwood,    (poisonous + bow wood)  |
   | Hemlock, Doug-fir   Arborvitae                                   |
   +------------------------------------------------------------------+
 
   ANGIOSPERMS (hardwoods — vessels + fibers)
   +------------------------------------------------------------------+
   | Fagaceae            Betulaceae           Aceraceae/Sapindaceae   |
-  | Oak, Beech,         Birch, Alder,        Maple, Horsechestnut   |
+  | Oak, Beech,         Birch, Alder,        Maple, Horsechestnut    |
   | Chestnut, Chinkapin Hornbeam, Hazel                              |
   +------------------------------------------------------------------+
   +------------------------------------------------------------------+
@@ -28,7 +28,7 @@ TEMPERATE TREE TAXONOMY MAP
   +------------------------------------------------------------------+
   +------------------------------------------------------------------+
   | Rosaceae            Magnoliaceae         Platanaceae             |
-  | Cherry, Apple,      Tulip poplar,        Sycamore, Plane        |
+  | Cherry, Apple,      Tulip poplar,        Sycamore, Plane         |
   | Serviceberry        Magnolia                                     |
   +------------------------------------------------------------------+
 ```
@@ -169,16 +169,16 @@ The largest conifer family: pines, spruces, firs, larches, hemlocks, Douglas-fir
   | (Spruces) |  | P. sitchensis     |   | excellent E/density ratio; |
   |           |  | P. rubens (Red)   |   | Sitka: aircraft + violins  |
   +-----------+  +-------------------+   +---------------------------+
-  | Abies     |  | A. balsamea (Bals)|   | Fir: clean white wood,     |
-  | (Firs)    |  | A. concolor (W W) |   | low resin, good structure  |
-  |           |  | A. alba (Silver EU)|  |                            |
+  | Abies     |  | A. balsamea (Bals)|   | Fir: clean white wood,    |
+  | (Firs)    |  | A. concolor (W W) |   | low resin, good structure |
+  |           |  | A. alba (Silver EU)|  |                           |
   +-----------+  +-------------------+   +---------------------------+
   | Pseudotsuga|  | P. menziesii      |   | Douglas-fir: most important|
   | (Doug-fir) |  | (Douglas-fir)     |   | N.Am. structural timber    |
   |           |  |                   |   | E: 13 GPa; MOR: 85 MPa    |
   +-----------+  +-------------------+   +---------------------------+
-  | Larix     |  | L. decidua (EU)   |   | ONLY deciduous conifer;    |
-  | (Larches) |  | L. laricina (N.Am)|   | Dense, durable; cold bog   |
+  | Larix     |  | L. decidua (EU)   |   | ONLY deciduous conifer;   |
+  | (Larches) |  | L. laricina (N.Am)|   | Dense, durable; cold bog  |
   |           |  |                   |   | indicator; no spring frost  |
   +-----------+  +-------------------+   +---------------------------+
   | Tsuga     |  | T. canadensis     |   | Fine-textured; bark: high   |

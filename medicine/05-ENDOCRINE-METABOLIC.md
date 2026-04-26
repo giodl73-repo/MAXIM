@@ -20,10 +20,10 @@
 │                     │ DPP-4 inhibitors (↑ endogenous GLP-1)              │
 │                     │ TZDs/pioglitazone (↑ insulin sensitivity)           │
 ├─────────────────────┼────────────────────────────────────────────────────┤
-│ THYROID             │ Levothyroxine (T4 replacement)                      │
-│                     │ PTU/methimazole (block synthesis)                   │
-│                     │ Radioiodine I-131 (ablation)                        │
-│                     │ β-blockers (symptom control in hyperthyroid)        │
+│ THYROID             │ Levothyroxine (T4 replacement)                     │
+│                     │ PTU/methimazole (block synthesis)                  │
+│                     │ Radioiodine I-131 (ablation)                       │
+│                     │ β-blockers (symptom control in hyperthyroid)       │
 ├─────────────────────┼────────────────────────────────────────────────────┤
 │ ADRENAL / STEROIDS  │ Corticosteroids (GR agonism → anti-inflammatory)   │
 │                     │ Mineralocorticoids (MR agonism → Na/water)          │
@@ -32,7 +32,7 @@
 │ BONE METABOLISM     │ Bisphosphonates (↓ osteoclasts)                    │
 │                     │ Denosumab (anti-RANKL → ↓ osteoclasts)             │
 │                     │ Teriparatide/abaloparatide (↑ osteoblasts)         │
-│                     │ SERMs (estrogen receptor modulation)                │
+│                     │ SERMs (estrogen receptor modulation)               │
 ├─────────────────────┼────────────────────────────────────────────────────┤
 │ URIC ACID / GOUT    │ Xanthine oxidase inhibitors (↓ uric acid synthesis)│
 │                     │ Uricosurics (↑ uric acid excretion)                │

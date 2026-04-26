@@ -4,21 +4,21 @@
 
 ```
 ┌─────────────────────────────────────────────────────────────────────────────┐
-│                   INFECTIOUS DISEASE TRANSMISSION FRAMEWORK                  │
+│                   INFECTIOUS DISEASE TRANSMISSION FRAMEWORK                 │
 │                                                                               │
-│  PATHOGEN         HOST            ENVIRONMENT       TRANSMISSION             │
+│  PATHOGEN         HOST            ENVIRONMENT       TRANSMISSION            │
 │  ─────────────    ─────────────   ─────────────     ─────────────────────   │
 │  Infectivity      Susceptibility  Temperature       Direct contact          │
 │  Virulence        Immunity        Humidity          Airborne droplets       │
 │  Incubation pd    Age/genetics    Crowding          Fomites                 │
 │  Shedding rate    Comorbidities   Sanitation        Vector (mosquito etc)   │
-│  Mutation rate    Behavior        Healthcare access  Sexual / bloodborne     │
+│  Mutation rate    Behavior        Healthcare access  Sexual / bloodborne    │
 │                                                                               │
 │  INFECTION CHAIN:                                                             │
 │  Reservoir → Portal of exit → Mode of transmission → Portal of entry        │
 │  → Susceptible host → Infection → (back to reservoir or dead end)           │
 │                                                                               │
-│  BREAK ANY LINK → INTERRUPT TRANSMISSION                                     │
+│  BREAK ANY LINK → INTERRUPT TRANSMISSION                                    │
 └─────────────────────────────────────────────────────────────────────────────┘
 ```
 

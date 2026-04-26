@@ -4,7 +4,7 @@
 
 ```
 +===========================================================================+
-|                  GROUNDWATER SYSTEM STRUCTURE                              |
+|                  GROUNDWATER SYSTEM STRUCTURE                             |
 |       Darcy's law: flux proportional to head gradient — same as Ohm's law |
 +===========================================================================+
 |                                                                           |

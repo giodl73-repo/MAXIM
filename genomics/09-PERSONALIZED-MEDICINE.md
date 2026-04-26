@@ -8,29 +8,29 @@ PERSONALIZED MEDICINE: GENOMICS IN THE CLINIC
 
   SPECTRUM OF CLINICAL APPLICATIONS:
   ┌──────────────────────────────────────────────────────────────────┐
-  │                                                                   │
-  │  PHARMACOGENOMICS                                                 │
+  │                                                                  │
+  │  PHARMACOGENOMICS                                                │
   │  Which drugs work for you? Which are dangerous?                  │
   │  Germline variants in drug-metabolizing genes                    │
-  │                                                                   │
+  │                                                                  │
   │  RARE DISEASE DIAGNOSIS                                          │
-  │  ~7,000 rare diseases, ~80% genetic cause                       │
+  │  ~7,000 rare diseases, ~80% genetic cause                        │
   │  Exome/genome sequencing as diagnostic endpoint                  │
-  │  ~35% diagnostic yield (undiagnosed disease programs)           │
-  │                                                                   │
+  │  ~35% diagnostic yield (undiagnosed disease programs)            │
+  │                                                                  │
   │  CANCER GENOMICS                                                 │
-  │  Tumor sequencing to match therapy to mutation                  │
+  │  Tumor sequencing to match therapy to mutation                   │
   │  Resistance mutation monitoring                                  │
   │  Liquid biopsy for early detection                               │
-  │                                                                   │
-  │  PREIMPLANTATION / PRENATAL                                     │
-  │  PGT-M: single-gene disease testing of embryos                  │
-  │  cfDNA: cell-free DNA in maternal blood for trisomy             │
-  │                                                                   │
-  │  HEREDITARY CANCER / RISK                                       │
-  │  BRCA1/2, Lynch syndrome, APC, TP53                             │
-  │  Polygenic risk scores in population screening                  │
-  │                                                                   │
+  │                                                                  │
+  │  PREIMPLANTATION / PRENATAL                                      │
+  │  PGT-M: single-gene disease testing of embryos                   │
+  │  cfDNA: cell-free DNA in maternal blood for trisomy              │
+  │                                                                  │
+  │  HEREDITARY CANCER / RISK                                        │
+  │  BRCA1/2, Lynch syndrome, APC, TP53                              │
+  │  Polygenic risk scores in population screening                   │
+  │                                                                  │
   │  INFECTIOUS DISEASE                                              │
   │  Pathogen sequencing for outbreak investigation                  │
   │  Drug resistance prediction (TB, HIV)                            │
@@ -58,20 +58,20 @@ PERSONALIZED MEDICINE: GENOMICS IN THE CLINIC
   CYP450 ENZYME SUPERFAMILY (the key metabolizers):
   ┌──────────────────────────────────────────────────────────────────┐
   │ CYP2D6  Most polymorphic CYP gene                                │
-  │         Metabolizes: codeine, tamoxifen, tramadol,              │
-  │                      antidepressants (fluoxetine, paroxetine)   │
+  │         Metabolizes: codeine, tamoxifen, tramadol,               │
+  │                      antidepressants (fluoxetine, paroxetine)    │
   │         Poor metabolizer (PM): toxic accumulation of prodrug   │
   │         Ultrarapid metabolizer (UM): no effect from prodrug    │
-  │                                                                   │
+  │                                                                  │
   │ CYP2C19 Metabolizes: clopidogrel (Plavix), PPIs, SSRIs         │
-  │         *2 allele: loss-of-function (28% of East Asians)        │
+  │         *2 allele: loss-of-function (28% of East Asians)         │
   │         PM + clopidogrel → no antiplatelet effect → stent clot │
   │         FDA Black Box Warning: test before prescribing           │
-  │                                                                   │
-  │ CYP2C9  Metabolizes: warfarin, NSAIDs                           │
-  │         *2, *3 alleles → reduced metabolism → bleeding risk     │
+  │                                                                  │
+  │ CYP2C9  Metabolizes: warfarin, NSAIDs                            │
+  │         *2, *3 alleles → reduced metabolism → bleeding risk      │
   │         Dosing algorithm: warfarin dose = f(CYP2C9, VKORC1)    │
-  │                                                                   │
+  │                                                                  │
   │ CYP3A4/5 Metabolizes: ~50% of all drugs (statin, tacrolimus)   │
   │          Less polymorphic; inducible (rifampin, carbamazepine) │
   └──────────────────────────────────────────────────────────────────┘
@@ -119,20 +119,20 @@ PERSONALIZED MEDICINE: GENOMICS IN THE CLINIC
   TESTING STRATEGY (tiered):
   ┌──────────────────────────────────────────────────────────────┐
   │ TIER 1: TARGETED PANEL (if phenotype suggests specific gene) │
-  │   e.g., CFTR for CF; FBN1 for Marfan; dystrophin for DMD    │
+  │   e.g., CFTR for CF; FBN1 for Marfan; dystrophin for DMD     │
   │   Fast, cheap (~$200), high depth (>1000x)                   │
-  │                                                               │
-  │ TIER 2: WHOLE EXOME SEQUENCING (WES)                        │
+  │                                                              │
+  │ TIER 2: WHOLE EXOME SEQUENCING (WES)                         │
   │   Captures all ~20,000 genes at once                         │
   │   Diagnostic yield: ~25–40% in rare disease (higher for      │
   │   early-onset severe phenotypes)                             │
   │   Cost: ~$400–800                                            │
-  │   Analysis: trio (proband + both parents) maximizes yield   │
-  │                                                               │
-  │ TIER 3: WHOLE GENOME SEQUENCING (WGS)                       │
-  │   Captures non-coding, structural variants missed by WES    │
-  │   Diagnostic yield: ~5–15% additional over WES              │
-  │   Used for: exome-negative cases; suspected regulatory/SV   │
+  │   Analysis: trio (proband + both parents) maximizes yield    │
+  │                                                              │
+  │ TIER 3: WHOLE GENOME SEQUENCING (WGS)                        │
+  │   Captures non-coding, structural variants missed by WES     │
+  │   Diagnostic yield: ~5–15% additional over WES               │
+  │   Used for: exome-negative cases; suspected regulatory/SV    │
   │   Cost: ~$700–2,000                                          │
   └──────────────────────────────────────────────────────────────┘
 
@@ -145,13 +145,13 @@ PERSONALIZED MEDICINE: GENOMICS IN THE CLINIC
 
   VARIANT INTERPRETATION PIPELINE:
   ┌──────────────────────────────────────────────────────────────┐
-  │ 1. Filter by frequency: gnomAD AF <0.1% for severe disease  │
-  │ 2. Filter by consequence: LoF + missense in disease genes   │
-  │ 3. Filter by inheritance: de novo / homozygous / comp. het  │
-  │ 4. Functional prediction: CADD score, SIFT, PolyPhen        │
-  │ 5. Literature search: gene in disease databases (OMIM)      │
-  │ 6. ACMG classification: P/LP/VUS/LB/B                       │
-  │ 7. Return result: typically 1–5 candidate variants          │
+  │ 1. Filter by frequency: gnomAD AF <0.1% for severe disease   │
+  │ 2. Filter by consequence: LoF + missense in disease genes    │
+  │ 3. Filter by inheritance: de novo / homozygous / comp. het   │
+  │ 4. Functional prediction: CADD score, SIFT, PolyPhen         │
+  │ 5. Literature search: gene in disease databases (OMIM)       │
+  │ 6. ACMG classification: P/LP/VUS/LB/B                        │
+  │ 7. Return result: typically 1–5 candidate variants           │
   └──────────────────────────────────────────────────────────────┘
 
   REANALYSIS: Diagnostic yield increases with time
@@ -178,7 +178,7 @@ PERSONALIZED MEDICINE: GENOMICS IN THE CLINIC
   │ HER2 amplif.    Breast           Trastuzumab/T-DM1               │
   │ BRAF V600E      Melanoma/CRC     Vemurafenib/Dabrafenib          │
   │ BRCA1/2         Ovarian/Breast   Olaparib (PARP inhibitor)       │
-  │ MSI-H/dMMR      Pan-cancer       Pembrolizumab (PD-1)           │
+  │ MSI-H/dMMR      Pan-cancer       Pembrolizumab (PD-1)            │
   │ KRAS G12C       NSCLC/CRC        Sotorasib/Adagrasib             │
   │ FGFR2 fusion    Cholangiocarc.   Pemigatinib                     │
   │ RET fusion      NSCLC/Thyroid    Selpercatinib                   │
@@ -218,32 +218,32 @@ PERSONALIZED MEDICINE: GENOMICS IN THE CLINIC
 
   TECHNOLOGY:
   ┌──────────────────────────────────────────────────────────────┐
-  │ cfDNA extraction from 5–10 mL plasma (not whole blood)      │
+  │ cfDNA extraction from 5–10 mL plasma (not whole blood)       │
   │ Library prep with unique molecular identifiers (UMIs)        │
-  │ Ultra-deep sequencing (500x–100,000x target depth)          │
-  │ Error correction via UMI consensus sequencing               │
-  │ Detection threshold: ~0.1% VAF (with deep sequencing)       │
+  │ Ultra-deep sequencing (500x–100,000x target depth)           │
+  │ Error correction via UMI consensus sequencing                │
+  │ Detection threshold: ~0.1% VAF (with deep sequencing)        │
   └──────────────────────────────────────────────────────────────┘
 
   CLINICAL APPLICATIONS:
   ┌──────────────────────────────────────────────────────────────┐
-  │ TREATMENT MONITORING:                                         │
+  │ TREATMENT MONITORING:                                        │
   │   Serial cfDNA tracks tumor burden over time                 │
-  │   Clearance of ctDNA → response to therapy                  │
-  │   Rising ctDNA → progression before imaging shows it        │
-  │                                                               │
-  │ RESISTANCE DETECTION:                                         │
+  │   Clearance of ctDNA → response to therapy                   │
+  │   Rising ctDNA → progression before imaging shows it         │
+  │                                                              │
+  │ RESISTANCE DETECTION:                                        │
   │   EGFR T790M detectable in cfDNA before clinical progression │
-  │   Guides switch from 1st → 3rd-gen EGFR inhibitor           │
-  │                                                               │
+  │   Guides switch from 1st → 3rd-gen EGFR inhibitor            │
+  │                                                              │
   │ MINIMAL RESIDUAL DISEASE (MRD):                              │
-  │   Post-surgery ctDNA → predicts recurrence                  │
+  │   Post-surgery ctDNA → predicts recurrence                   │
   │   Personalized assay: tumor-informed (know mutations)        │
-  │   BESPOKE study: ctDNA at day 30 predicts 3-yr survival     │
-  │                                                               │
+  │   BESPOKE study: ctDNA at day 30 predicts 3-yr survival      │
+  │                                                              │
   │ EARLY DETECTION (GRAIL Galleri):                             │
-  │   Methylation + fragment pattern across 50+ cancer types    │
-  │   Tissue-of-origin signal → localize tumor                  │
+  │   Methylation + fragment pattern across 50+ cancer types     │
+  │   Tissue-of-origin signal → localize tumor                   │
   │   Sensitivity varies: ~50–90% for stage 3–4, ~20% stage 1  │
   └──────────────────────────────────────────────────────────────┘
 ```
@@ -266,17 +266,17 @@ PERSONALIZED MEDICINE: GENOMICS IN THE CLINIC
   PREIMPLANTATION GENETIC TESTING (PGT):
   ┌──────────────────────────────────────────────────────────────┐
   │ PGT-M (Monogenic): Test embryo for specific disease-causing  │
-  │   variant (e.g., BRCA1, CF, Huntington's, sickle cell)      │
-  │   Protocol: IVF → biopsy 5–10 cells from blastocyst         │
-  │   Whole genome amplify → targeted sequencing                │
-  │   Select unaffected embryos for transfer                    │
-  │                                                               │
+  │   variant (e.g., BRCA1, CF, Huntington's, sickle cell)       │
+  │   Protocol: IVF → biopsy 5–10 cells from blastocyst          │
+  │   Whole genome amplify → targeted sequencing                 │
+  │   Select unaffected embryos for transfer                     │
+  │                                                              │
   │ PGT-A (Aneuploidy): Check all 24 chromosomes for copy number │
   │   Detects trisomy, monosomy, segmental gains/losses          │
-  │   Reduces miscarriage rate; controversial for older patients  │
-  │                                                               │
-  │ PGT-SR (Structural Rearrangement): For carriers of          │
-  │   chromosomal inversions/translocations                       │
+  │   Reduces miscarriage rate; controversial for older patients │
+  │                                                              │
+  │ PGT-SR (Structural Rearrangement): For carriers of           │
+  │   chromosomal inversions/translocations                      │
   └──────────────────────────────────────────────────────────────┘
 ```
 

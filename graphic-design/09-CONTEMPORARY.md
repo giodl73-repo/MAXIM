@@ -54,24 +54,24 @@ ANALOGY TO SOFTWARE:
 
 ```
 +-------------------------------------------+
-|  DESIGN SYSTEM LAYERS                      |
+|  DESIGN SYSTEM LAYERS                     |
 |                                           |
-|  1. FOUNDATIONS                            |
+|  1. FOUNDATIONS                           |
 |     Color tokens, type scale, spacing,    |
 |     grid, motion, iconography             |
 |     (The variables / constants of design) |
 |                                           |
-|  2. COMPONENTS                             |
+|  2. COMPONENTS                            |
 |     Button, Input, Card, Modal,           |
 |     Navigation, Table, Form...            |
 |     (Reusable functional units)           |
 |                                           |
-|  3. PATTERNS                               |
+|  3. PATTERNS                              |
 |     Forms, data tables, sign-up flows,    |
 |     empty states, error recovery          |
 |     (Solved interaction patterns)         |
 |                                           |
-|  4. GUIDELINES                             |
+|  4. GUIDELINES                            |
 |     When to use what, voice/tone,         |
 |     accessibility, localization           |
 |     (The decisions behind the artifacts)  |

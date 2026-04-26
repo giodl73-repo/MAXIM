@@ -13,27 +13,27 @@
                                  │
   ┌──────────────────────────────▼───────────────────────────────────────┐
   │  ATTENTION LAYER                                                     │
-  │  Attention(Q,K,V) — the quadratic bottleneck                        │
-  │  Optimizations: FlashAttention, MQA, GQA, linear attention          │
+  │  Attention(Q,K,V) — the quadratic bottleneck                         │
+  │  Optimizations: FlashAttention, MQA, GQA, linear attention           │
   └──────────────────────────────┬───────────────────────────────────────┘
                                  │
   ┌──────────────────────────────▼───────────────────────────────────────┐
   │  MEMORY LAYER                                                        │
-  │  KV cache management — the primary GPU memory constraint            │
-  │  PagedAttention (vLLM): virtual memory paging for KV cache          │
-  │  Prefix caching: reuse KV state for repeated system prompts         │
+  │  KV cache management — the primary GPU memory constraint             │
+  │  PagedAttention (vLLM): virtual memory paging for KV cache           │
+  │  Prefix caching: reuse KV state for repeated system prompts          │
   └──────────────────────────────┬───────────────────────────────────────┘
                                  │
   ┌──────────────────────────────▼───────────────────────────────────────┐
   │  COMPUTE LAYER                                                       │
-  │  Quantization: FP16 → INT8 → INT4 (size, quality, speed tradeoffs)  │
+  │  Quantization: FP16 → INT8 → INT4 (size, quality, speed tradeoffs)   │
   │  Speculative decoding: draft model accelerates large model           │
   └──────────────────────────────┬───────────────────────────────────────┘
                                  │
   ┌──────────────────────────────▼───────────────────────────────────────┐
   │  SERVING LAYER                                                       │
   │  Continuous batching · Request scheduling · Load balancing           │
-  │  vLLM · TGI · SGLang · Triton · Ollama                              │
+  │  vLLM · TGI · SGLang · Triton · Ollama                               │
   └──────────────────────────────┬───────────────────────────────────────┘
                                  │
   ┌──────────────────────────────▼───────────────────────────────────────┐
@@ -252,24 +252,24 @@
   │    Post-training quantization, weight-only                          │
   │    Minimizes layer-wise quantization error with second-order info   │
   │    INT4, per-group quantization (128 weights share scale factor)    │
-  │    Supported by: AutoGPTQ, vLLM, TGI                               │
+  │    Supported by: AutoGPTQ, vLLM, TGI                                │
   │                                                                     │
   │  AWQ (Lin et al. 2023)                                              │
   │    Activation-Aware Quantization                                    │
-  │    Identifies 1% of "salient" weights and protects them at FP16    │
+  │    Identifies 1% of "salient" weights and protects them at FP16     │
   │    Better than GPTQ on many tasks at same bit width                 │
   │    Fast inference (custom CUDA kernels)                             │
-  │    Supported by: AutoAWQ, vLLM, llama.cpp                          │
+  │    Supported by: AutoAWQ, vLLM, llama.cpp                           │
   │                                                                     │
   │  GGUF (llama.cpp format)                                            │
   │    Flexible quantization: Q2_K, Q3_K, Q4_K, Q5_K, Q6_K, Q8_0     │
   │    CPU and Apple Silicon optimized                                  │
-  │    Used by: llama.cpp, Ollama, LM Studio, Jan                      │
-  │    Q4_K_M is the standard local-deployment choice                  │
+  │    Used by: llama.cpp, Ollama, LM Studio, Jan                       │
+  │    Q4_K_M is the standard local-deployment choice                   │
   │                                                                     │
   │  SmoothQuant                                                        │
-  │    Smooth activation outliers → enables W8A8 without quality loss  │
-  │    Used in production serving (NVIDIA TensorRT-LLM)                │
+  │    Smooth activation outliers → enables W8A8 without quality loss   │
+  │    Used in production serving (NVIDIA TensorRT-LLM)                 │
   └─────────────────────────────────────────────────────────────────────┘
 ```
 
@@ -287,21 +287,21 @@
   │          │  (pages, copy-on-write, flexible memory allocation)      │
   │          │  Continuous batching: no fixed batch timeout             │
   │          │  OpenAI-compatible API                                   │
-  │          │  Supports: Llama, Mistral, Gemma, Phi, Qwen, etc.       │
-  │          │  Multi-GPU with tensor parallelism (tp=4 for 4 GPUs)    │
+  │          │  Supports: Llama, Mistral, Gemma, Phi, Qwen, etc.        │
+  │          │  Multi-GPU with tensor parallelism (tp=4 for 4 GPUs)     │
   └──────────┴──────────────────────────────────────────────────────────┘
   ┌──────────┬──────────────────────────────────────────────────────────┐
   │  TGI     │  Text Generation Inference (HuggingFace)                 │
   │          │  Production-grade, Docker-based                          │
   │          │  Flash Attention, continuous batching                    │
-  │          │  Strong HuggingFace ecosystem integration               │
-  │          │  Powers HuggingFace Inference Endpoints                 │
+  │          │  Strong HuggingFace ecosystem integration                │
+  │          │  Powers HuggingFace Inference Endpoints                  │
   └──────────┴──────────────────────────────────────────────────────────┘
   ┌──────────┬──────────────────────────────────────────────────────────┐
   │  SGLang  │  Structured Generation Language                          │
   │          │  RadixAttention: prefix caching via radix tree           │
   │          │  Efficient for multi-turn and structured output tasks    │
-  │          │  Growing adoption for reasoning/agent workloads         │
+  │          │  Growing adoption for reasoning/agent workloads          │
   └──────────┴──────────────────────────────────────────────────────────┘
   ┌──────────┬──────────────────────────────────────────────────────────┐
   │  Ollama  │  Local deployment, developer-friendly                    │
@@ -313,7 +313,7 @@
   │  Triton  │  NVIDIA Triton Inference Server                          │
   │          │  Supports TensorRT-LLM, FasterTransformer                │
   │          │  Enterprise, K8s-native, model ensemble support          │
-  │          │  Bridge: this is to LLMs what IIS is to web apps        │
+  │          │  Bridge: this is to LLMs what IIS is to web apps         │
   └──────────┴──────────────────────────────────────────────────────────┘
 ```
 

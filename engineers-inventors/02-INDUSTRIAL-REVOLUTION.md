@@ -72,7 +72,7 @@ NEWCOMEN ATMOSPHERIC ENGINE — PRINCIPLES
   │ pump    pivot                 cylinder          │
   │  rod     ○                    piston            │
   │   ↑↓                            ↑↓              │
-  │  pump                         steam/vacuum       │
+  │  pump                         steam/vacuum      │
   └─────────────────────────────────────────────────┘
 
   LIMITATIONS:

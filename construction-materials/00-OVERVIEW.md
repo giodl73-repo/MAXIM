@@ -36,10 +36,10 @@ MATERIAL FAMILIES AND STRUCTURAL ROLES
 │                                                                              │
 │  CEMENTITIOUS              GLASS                  ENGINEERED WOOD           │
 │  ┌───────────────┐         ┌───────────────┐      ┌───────────────────────┐ │
-│  │ Portland OPC  │         │ Float glass   │      │ Plywood  LVL         │  │
-│  │ Fly ash blend │         │ Tempered      │      │ Glulam   CLT         │  │
-│  │ UHPC          │         │ Laminated     │      │ Mass timber hybrids  │  │
-│  │ Geopolymer    │         │ IGU systems   │      │                      │  │
+│  │ Portland OPC  │         │ Float glass   │      │ Plywood  LVL          │  │
+│  │ Fly ash blend │         │ Tempered      │      │ Glulam   CLT          │  │
+│  │ UHPC          │         │ Laminated     │      │ Mass timber hybrids   │  │
+│  │ Geopolymer    │         │ IGU systems   │      │                       │  │
 │  └───────────────┘         └───────────────┘      └───────────────────────┘ │
 │  Compression +++           Compression +          Compression + Tension +   │
 │  Tension poor (RC fixes)   Tension ~zero          Bending ++ biaxial (CLT)  │
@@ -93,7 +93,7 @@ mode when capacity is exceeded.
 LOAD TYPES AND STRUCTURAL ELEMENTS
 ┌──────────────────────────────────────────────────────────────────────────────┐
 │                                                                              │
-│  GRAVITY LOADS: Dead (permanent) + Live (occupancy / snow / wind uplift)    │
+│  GRAVITY LOADS: Dead (permanent) + Live (occupancy / snow / wind uplift)     │
 │                                                                              │
 │  Beam in bending:                                                            │
 │  Load → ↓ ↓ ↓ ↓ ↓ ↓ ↓ ↓ ↓ ↓ ↓                                              │
@@ -164,17 +164,17 @@ LOAD TYPES AND STRUCTURAL ELEMENTS
 ┌──────────────────────────────────────────────────────────────────────────────┐
 │  MECHANICAL PROPERTIES                                                       │
 │                                                                              │
-│  σ_y    Yield strength (MPa)  — stress where permanent deformation begins   │
-│          For concrete: compressive cylinder strength f'c (28-day)           │
-│          For timber: characteristic value at 5th percentile                 │
+│  σ_y    Yield strength (MPa)  — stress where permanent deformation begins    │
+│          For concrete: compressive cylinder strength f'c (28-day)            │
+│          For timber: characteristic value at 5th percentile                  │
 │                                                                              │
-│  σ_u    Ultimate strength (MPa) — fracture / crushing point                 │
+│  σ_u    Ultimate strength (MPa) — fracture / crushing point                  │
 │                                                                              │
-│  E      Young's modulus (GPa) — stiffness, independent of strength          │
-│          E_steel = 200 GPa  (all grades — changing grade changes σ_y not E) │
+│  E      Young's modulus (GPa) — stiffness, independent of strength           │
+│          E_steel = 200 GPa  (all grades — changing grade changes σ_y not E)  │
 │          E_concrete = 25–35 GPa  (≈ 4700√f'c MPa, US customary)            │
-│          E_timber (// grain) = 8–15 GPa                                     │
-│          E_CFRP (UD) = 70–300 GPa                                           │
+│          E_timber (// grain) = 8–15 GPa                                      │
+│          E_CFRP (UD) = 70–300 GPa                                            │
 │          E_glass = 70 GPa                                                    │
 │                                                                              │
 │  ρ      Density (kg/m³)                                                      │
@@ -182,12 +182,12 @@ LOAD TYPES AND STRUCTURAL ELEMENTS
 │          CFRP: 1,500–1,600  GFRP: 1,600–2,000  Aerogel: 100–200           │
 │                                                                              │
 │  Specific strength = σ_u / ρ  (strength per unit weight)                   │
-│          CFRP >> Steel >> Timber >> Concrete >> Masonry                     │
+│          CFRP >> Steel >> Timber >> Concrete >> Masonry                      │
 │                                                                              │
-│  ν      Poisson's ratio — lateral strain per unit axial strain              │
+│  ν      Poisson's ratio — lateral strain per unit axial strain               │
 │          Steel: 0.30  Concrete: 0.15–0.20  Rubber: ~0.50  Cork: ~0.00      │
 │                                                                              │
-│  G      Shear modulus = E / [2(1+ν)]                                        │
+│  G      Shear modulus = E / [2(1+ν)]                                         │
 │          Steel: 77 GPa  Concrete: 10–14 GPa  Timber (// grain): 0.5–1 GPa  │
 │                                                                              │
 │  CREEP: time-dependent strain under sustained constant stress                │
@@ -198,21 +198,21 @@ LOAD TYPES AND STRUCTURAL ELEMENTS
 │  SHRINKAGE: volume change without load                                       │
 │          Concrete drying shrinkage ε_cs ≈ 300–600 × 10⁻⁶                   │
 │          → crack control joints spaced ≤ 5–7 m                             │
-│          → minimum ρ (reinforcement ratio) to distribute cracks             │
+│          → minimum ρ (reinforcement ratio) to distribute cracks              │
 │                                                                              │
 │  FATIGUE: repeated stress cycling reduces failure load                       │
-│          S-N (Wöhler) curve: log stress vs log cycles to failure            │
+│          S-N (Wöhler) curve: log stress vs log cycles to failure             │
 │          Steel: endurance limit ≈ 40% σ_u at ~10⁷ cycles                   │
-│          Concrete: no clear endurance limit; each cycle damages             │
-│          Composites: delamination fatigue — critical in aerospace           │
+│          Concrete: no clear endurance limit; each cycle damages              │
+│          Composites: delamination fatigue — critical in aerospace            │
 │                                                                              │
 │  DUCTILITY: ratio of ultimate strain to yield strain (μ = ε_u / ε_y)       │
-│          Steel: μ ≈ 10–20 — warning before collapse, absorbs seismic energy │
+│          Steel: μ ≈ 10–20 — warning before collapse, absorbs seismic energy  │
 │          Masonry/glass: μ ≈ 1 — sudden brittle failure                     │
-│          → seismic design explicitly requires ductility in primary elements │
+│          → seismic design explicitly requires ductility in primary elements  │
 │                                                                              │
 │  HARDNESS: resistance to surface indentation (Brinell/Vickers/Mohs)        │
-│          Relevant for wear, scratch resistance (flooring, worktops)         │
+│          Relevant for wear, scratch resistance (flooring, worktops)          │
 │          Granite Mohs 6–7  Steel Vickers ~200 HV  Concrete ~100 HV         │
 │                                                                              │
 └──────────────────────────────────────────────────────────────────────────────┘
@@ -224,42 +224,42 @@ LOAD TYPES AND STRUCTURAL ELEMENTS
 ┌──────────────────────────────────────────────────────────────────────────────┐
 │  THERMAL PROPERTIES                                                          │
 │                                                                              │
-│  λ (k)  Thermal conductivity (W/mK)  — heat flow through material           │
+│  λ (k)  Thermal conductivity (W/mK)  — heat flow through material            │
 │          Steel: 50    Concrete: 1.7   Brick: 0.5–1.0  Timber: 0.12         │
 │          Mineral wool: 0.035  EPS: 0.038  Aerogel: 0.015                   │
 │          → lower = better insulator                                          │
 │                                                                              │
 │  α      Thermal diffusivity = λ / (ρ × c_p)  (m²/s)                        │
 │          High α: fast temperature equalization → poor thermal buffer         │
-│          Low α: slow thermal response → good thermal mass buffer            │
+│          Low α: slow thermal response → good thermal mass buffer             │
 │          Stone α ~ 1×10⁻⁶ m²/s  Steel α ~ 12×10⁻⁶ m²/s                    │
 │                                                                              │
 │  c_p    Specific heat capacity (J/kgK)                                       │
-│          Water: 4,186  Concrete: 880  Steel: 490  Timber: 1,700             │
+│          Water: 4,186  Concrete: 880  Steel: 490  Timber: 1,700              │
 │          → Thermal mass (stored heat) = ρ × c_p × volume                   │
 │                                                                              │
-│  α_T    Coefficient of thermal expansion (× 10⁻⁶ /°C)                       │
-│          Steel: 12   Concrete: 10–12  ← matched → composite works well      │
+│  α_T    Coefficient of thermal expansion (× 10⁻⁶ /°C)                        │
+│          Steel: 12   Concrete: 10–12  ← matched → composite works well       │
 │          Aluminium: 23  Glass: 8–9   Timber (//) 3–5  Timber (⊥) 30–60     │
-│          Mismatch → differential movement → cracking / joint failure        │
+│          Mismatch → differential movement → cracking / joint failure         │
 │                                                                              │
-│  R-value = thickness / λ  (m²K/W, thermal resistance)                       │
+│  R-value = thickness / λ  (m²K/W, thermal resistance)                        │
 │          100 mm mineral wool: 0.1/0.035 = 2.86 m²K/W                       │
 │          100 mm concrete: 0.1/1.7 = 0.06 m²K/W                             │
-│          → insulation R is ~50× greater per unit thickness                  │
+│          → insulation R is ~50× greater per unit thickness                   │
 │                                                                              │
 │  U-value = 1 / ΣR  (W/m²K, total heat transmission including surface Rsi/o)│
 │          Passivhaus wall: U ≤ 0.15 W/m²K                                   │
 │          UK Building Regs Part L 2021: wall U ≤ 0.18 W/m²K new build       │
 │                                                                              │
 │  FIRE BEHAVIOUR:                                                             │
-│          Steel: non-combustible; loses ~50% strength at 500–550°C           │
-│            → intumescent coating or board/spray fireproofing mandatory      │
+│          Steel: non-combustible; loses ~50% strength at 500–550°C            │
+│            → intumescent coating or board/spray fireproofing mandatory       │
 │          Concrete: non-combustible; spalling risk at >300°C (steam pressure)│
-│          Timber: combustible; chars at ~0.65 mm/min                         │
-│            → char layer insulates residual section → predictable behaviour  │
+│          Timber: combustible; chars at ~0.65 mm/min                          │
+│            → char layer insulates residual section → predictable behaviour   │
 │          Glass: shatters from thermal shock; fire-rated glass uses wire mesh│
-│            or specialist composites (e.g., Pyrostop, Contraflam)            │
+│            or specialist composites (e.g., Pyrostop, Contraflam)             │
 │                                                                              │
 └──────────────────────────────────────────────────────────────────────────────┘
 ```
@@ -341,52 +341,52 @@ MATERIALS EVOLUTION ARC
 │                                                                              │
 │  ERA 1: EARTH & ORGANIC  (pre-3000 BCE)                                      │
 │  ────────────────────────────────────────────────────────────────────────    │
-│  Mud brick → thermal mass; cheap; local; 1–3 storey limit                   │
-│  Thatch → lightweight roofing; breathable; renewable                        │
-│  Timber → flexible; spans possible; mortise-and-tenon joints                │
-│  Dry stone → gravity walls; no binder; earthquake-tolerant                  │
-│  Limit: tension weak; weathering; span limit ~5 m; fire risk                │
+│  Mud brick → thermal mass; cheap; local; 1–3 storey limit                    │
+│  Thatch → lightweight roofing; breathable; renewable                         │
+│  Timber → flexible; spans possible; mortise-and-tenon joints                 │
+│  Dry stone → gravity walls; no binder; earthquake-tolerant                   │
+│  Limit: tension weak; weathering; span limit ~5 m; fire risk                 │
 │                                                                              │
-│  ERA 2: FIRED MASONRY & ROMAN CONCRETE  (~3000 BCE – 500 CE)                │
+│  ERA 2: FIRED MASONRY & ROMAN CONCRETE  (~3000 BCE – 500 CE)                 │
 │  ────────────────────────────────────────────────────────────────────────    │
-│  Fired brick → consistent; durable; 5–6 storey masonry possible             │
-│  Cut stone → monumental; self-compressive                                   │
-│  Pozzolana concrete → hydraulic; stronger with age; underwater use          │
-│  Voussoir arch → spans masonry beyond lintel limits                         │
-│  Dome + vault → enclose space without intermediate supports                 │
+│  Fired brick → consistent; durable; 5–6 storey masonry possible              │
+│  Cut stone → monumental; self-compressive                                    │
+│  Pozzolana concrete → hydraulic; stronger with age; underwater use           │
+│  Voussoir arch → spans masonry beyond lintel limits                          │
+│  Dome + vault → enclose space without intermediate supports                  │
 │  Limit: zero tension allowed; all structure must be compressive              │
 │                                                                              │
 │  ERA 3: GOTHIC TIMBER & MASONRY  (~500–1700 CE)                              │
 │  ────────────────────────────────────────────────────────────────────────    │
-│  Pointed arch → reduces horizontal thrust vs round arch → thinner walls     │
-│  Flying buttress → carries thrust outside → interior freed for windows      │
-│  Timber roof trusses → span large halls                                     │
-│  Lime mortar → self-healing; flexible; breathable                           │
-│  Limit: height; fire in timber; lime maintenance                            │
+│  Pointed arch → reduces horizontal thrust vs round arch → thinner walls      │
+│  Flying buttress → carries thrust outside → interior freed for windows       │
+│  Timber roof trusses → span large halls                                      │
+│  Lime mortar → self-healing; flexible; breathable                            │
+│  Limit: height; fire in timber; lime maintenance                             │
 │                                                                              │
-│  ERA 4: IRON & STEEL  (~1750–1900)                                            │
+│  ERA 4: IRON & STEEL  (~1750–1900)                                           │
 │  ────────────────────────────────────────────────────────────────────────    │
-│  Cast iron → first cheap structural material; brittle in tension            │
-│  Wrought iron → fibrous; better in tension; puddling process                │
-│  Bessemer steel → consistent; cheap; strong in tension AND compression      │
-│  Skeleton frame → load off walls → curtain walls possible                   │
-│  Limit: fire; corrosion; rolling/fabrication limits                         │
+│  Cast iron → first cheap structural material; brittle in tension             │
+│  Wrought iron → fibrous; better in tension; puddling process                 │
+│  Bessemer steel → consistent; cheap; strong in tension AND compression       │
+│  Skeleton frame → load off walls → curtain walls possible                    │
+│  Limit: fire; corrosion; rolling/fabrication limits                          │
 │                                                                              │
-│  ERA 5: CONCRETE DOMINANCE  (~1900–1990)                                      │
+│  ERA 5: CONCRETE DOMINANCE  (~1900–1990)                                     │
 │  ────────────────────────────────────────────────────────────────────────    │
-│  RC → cheap; fireproof; mouldable; combines concrete + steel perfectly      │
+│  RC → cheap; fireproof; mouldable; combines concrete + steel perfectly       │
 │  Prestressed/post-tensioned → thin slabs; long spans                       │
-│  Curtain wall → glass + aluminium envelope decoupled from structure         │
+│  Curtain wall → glass + aluminium envelope decoupled from structure          │
 │  Limit: embodied carbon — Portland cement ≈ 8% of global CO₂               │
 │                                                                              │
-│  ERA 6: ENGINEERED & COMPOSITE  (~1990–present)                               │
+│  ERA 6: ENGINEERED & COMPOSITE  (~1990–present)                              │
 │  ────────────────────────────────────────────────────────────────────────    │
-│  CLT/glulam → tall timber; carbon sequestration; biophilic design           │
-│  UHPC → ultra-thin; ultra-strong; fibers partially replace rebar            │
-│  CFRP → post-tensioning; façade; lightweight repair                         │
+│  CLT/glulam → tall timber; carbon sequestration; biophilic design            │
+│  UHPC → ultra-thin; ultra-strong; fibers partially replace rebar             │
+│  CFRP → post-tensioning; façade; lightweight repair                          │
 │  Geopolymer → cement substitute; 40–80% lower CO₂                          │
-│  Aerogel → extreme insulation in thin profiles                              │
-│  Limit: cost; supply chains; building codes still catching up               │
+│  Aerogel → extreme insulation in thin profiles                               │
+│  Limit: cost; supply chains; building codes still catching up                │
 │                                                                              │
 └──────────────────────────────────────────────────────────────────────────────┘
 ```

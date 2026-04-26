@@ -55,10 +55,10 @@ INSECT ORDERS BY SIZE AND POSITION IN TREE
 ```
 ODONATA QUICK PROFILE
 +--------------------------------------------------+
-| Metamorphosis:  Hemimetabolous (aquatic nymph)  |
+| Metamorphosis:  Hemimetabolous (aquatic nymph)   |
 | Wings:          Two pairs, cannot fold           |
-| Mouthparts:     Biting-chewing                  |
-| Special:        Labium modified as prehensile   |
+| Mouthparts:     Biting-chewing                   |
+| Special:        Labium modified as prehensile    |
 |                 "mask" in larvae                 |
 | Eyes:           ~30,000 ommatidia, near 360 deg  |
 | Flight:         Biplane -- fore/hind independent |
@@ -77,10 +77,10 @@ Suborders:
 ```
 EPHEMEROPTERA QUICK PROFILE
 +--------------------------------------------------+
-| Metamorphosis:  Hemimetabolous                  |
+| Metamorphosis:  Hemimetabolous                   |
 | Unique:         Only insects with winged subimago|
 |                 (penultimate molt is winged)     |
-| Adult lifespan: Hours to days (no mouthparts)   |
+| Adult lifespan: Hours to days (no mouthparts)    |
 | Ecology:        Aquatic larva; indicator species |
 |                 for water quality (EPT index)    |
 | Wings:          Cannot fold; triangular hind     |

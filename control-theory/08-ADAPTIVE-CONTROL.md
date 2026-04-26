@@ -6,9 +6,9 @@
 ┌─────────────────────────────────────────────────────────────────────┐
 │                    ADAPTIVE CONTROL ARCHITECTURE                    │
 │                                                                     │
-│  PROBLEM: θ* = true plant parameters — UNKNOWN                     │
+│  PROBLEM: θ* = true plant parameters — UNKNOWN                      │
 │                                                                     │
-│  ┌──────────────────────────────────────────────────────────────┐  │
+│  ┌──────────────────────────────────────────────────────────────┐   │
 │  │  DIRECT ADAPTIVE CONTROL:                                    │  │
 │  │  Controller parameters θ updated directly from error         │  │
 │  │  (no explicit plant estimation)                              │  │
@@ -20,11 +20,11 @@
 │                                                                     │
 │  ┌──────────────────────────────────────────────────────────────┐  │
 │  │  INDIRECT ADAPTIVE CONTROL (Self-Tuning Regulator):          │  │
-│  │  1. Estimate θ̂(t) from I/O data                             │  │
-│  │  2. Design controller for estimated plant (certainty equiv.)  │  │
+│  │  1. Estimate θ̂(t) from I/O data                              │  │
+│  │  2. Design controller for estimated plant (certainty equiv.) │  │
 │  │                                                              │  │
 │  │     r ─► [C(θ̂(t))] ─► u ─► [Plant G(θ*)] ─► y             │  │
-│  │                              ↓ estimation                   │  │
+│  │                              ↓ estimation                    │  │
 │  │              θ̂̇ = RLS update                                │  │
 │  └──────────────────────────────────────────────────────────────┘  │
 │                                                                     │
@@ -194,7 +194,7 @@ CONCEPT: Not truly adaptive — a family of linear controllers, one per operatin
   │                                                             │
   │  Schedule variable ρ(t)  (e.g., airspeed, temperature, SOC)│
   │         ↓                                                   │
-  │  Lookup table: C(ρ) = {K(ρ), gain, reference}              │
+  │  Lookup table: C(ρ) = {K(ρ), gain, reference}               │
   │         ↓                                                   │
   │  Linear controller interpolated from design grid            │
   └─────────────────────────────────────────────────────────────┘
@@ -233,11 +233,11 @@ L1 ADAPTIVE CONTROL (Hovakimyan & Cao, 2010):
 ARCHITECTURE:
   ┌────────────────────────────────────────────────────────────────┐
   │  State predictor:  x̂̇ = A_m x̂ + B(u + σ̂(t))               │
-  │                   (fast, uses current θ̂)                      │
+  │                   (fast, uses current θ̂)                       │
   │  Adaptation law:  σ̂̇ = ΓProj(σ̂, -Bᵀ P ẽ)  (fast, Γ → ∞)   │
   │                   ẽ = x̂ - x  (prediction error)              │
   │  Control signal:  u(s) = -C(s)σ̂(s)  (LPF of adaptive signal) │
-  │                   C(s) = ω/(s + ω)  (low-pass filter)         │
+  │                   C(s) = ω/(s + ω)  (low-pass filter)          │
   └────────────────────────────────────────────────────────────────┘
 
 KEY PROPERTY:
@@ -325,7 +325,7 @@ CONTROL EFFORT DURING ADAPTATION:
 
 ```
 ┌──────────────────────────────────────────────────────────────────────┐
-│ SCENARIO                     │ RECOMMENDATION                       │
+│ SCENARIO                     │ RECOMMENDATION                        │
 ├──────────────────────────────┼───────────────────────────────────────┤
 │ Linear plant, parametric     │ MRAC (direct, Lyapunov-based);       │
 │ uncertainty, tracking        │ add projection to prevent drift       │
@@ -337,14 +337,14 @@ CONTROL EFFORT DURING ADAPTATION:
 │ slow scheduling variable     │ industry standard; use LPV for       │
 │                              │ formal stability analysis            │
 ├──────────────────────────────┼───────────────────────────────────────┤
-│ Safety-critical + adaptation │ L1 adaptive control — guaranteed     │
-│ needed (aerospace)           │ transient bounds; tune via C(s) ω_c  │
+│ Safety-critical + adaptation │ L1 adaptive control — guaranteed      │
+│ needed (aerospace)           │ transient bounds; tune via C(s) ω_c   │
 ├──────────────────────────────┼───────────────────────────────────────┤
 │ Unknown nonlinear dynamics   │ NN adaptive control + Lyapunov       │
 │                              │ stability analysis + projection       │
 ├──────────────────────────────┼───────────────────────────────────────┤
-│ Time-varying plant, need     │ RLS with λ < 1; set λ based on       │
-│ tracking of parameter change │ time constant of variation           │
+│ Time-varying plant, need     │ RLS with λ < 1; set λ based on        │
+│ tracking of parameter change │ time constant of variation            │
 └──────────────────────────────┴───────────────────────────────────────┘
 ```
 

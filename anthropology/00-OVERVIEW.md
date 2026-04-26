@@ -4,10 +4,10 @@
 
 ```
 +------------------------------------------------------------------+
-|                     ANTHROPOLOGY                                  |
-|                                                                   |
+|                     ANTHROPOLOGY                                 |
+|                                                                  |
 |  "The study of humans — all of them, everywhere, across all      |
-|   time — as biological, cultural, linguistic, and social beings"  |
+|   time — as biological, cultural, linguistic, and social beings" |
 +------------------------------------------------------------------+
           |             |              |              |
           v             v              v              v
@@ -39,7 +39,7 @@ psychology (mind only), or history (text records only).
 
 ```
 +------------------------------------------------------------------------+
-|                    THEORETICAL LINEAGE                                  |
+|                    THEORETICAL LINEAGE                                 |
 |                                                                        |
 |  1860s-1890s: UNILINEAR EVOLUTIONISM                                   |
 |  Tylor / Morgan — all cultures pass through the same stages:           |
@@ -47,7 +47,7 @@ psychology (mind only), or history (text records only).
 |  Culture hierarchy justified colonialism. Now entirely rejected.       |
 |             |                                                          |
 |             v                                                          |
-|  1900s-1940s: HISTORICAL PARTICULARISM / CULTURAL RELATIVISM          |
+|  1900s-1940s: HISTORICAL PARTICULARISM / CULTURAL RELATIVISM           |
 |  Franz Boas — each culture has its own history; cannot be ranked.      |
 |  Fieldwork rigor. Anti-racism. Trained Kroeber, Sapir, Lowie,          |
 |  Benedict, Mead — the 5 students who shaped American anthropology.     |
@@ -61,22 +61,22 @@ psychology (mind only), or history (text records only).
 |             v                                                          |
 |  1950s-1970s: STRUCTURALISM                                            |
 |  Levi-Strauss — myths are transformations of each other. Binary        |
-|  oppositions (raw/cooked, nature/culture) as deep cognitive grammar.  |
+|  oppositions (raw/cooked, nature/culture) as deep cognitive grammar.   |
 |             |                                                          |
 |             v                                                          |
-|  1960s-1980s: INTERPRETIVE / SYMBOLIC ANTHROPOLOGY                    |
+|  1960s-1980s: INTERPRETIVE / SYMBOLIC ANTHROPOLOGY                     |
 |  Geertz — "thick description." Culture as a text to be read.           |
-|  The wink vs. the twitch: same motion, radically different meaning.   |
+|  The wink vs. the twitch: same motion, radically different meaning.    |
 |             |                                                          |
 |             v                                                          |
 |  1970s-1990s: PRACTICE THEORY                                          |
 |  Bourdieu — habitus, field, capital. People are not rule-followers;    |
-|  they are strategists using embodied dispositions.                    |
+|  they are strategists using embodied dispositions.                     |
 |             |                                                          |
 |             v                                                          |
-|  1980s-PRESENT: POSTCOLONIAL / REFLEXIVE TURN                         |
-|  "Writing Culture" (1986) — who has the right to represent whom?      |
-|  Decolonizing methodology. NAGPRA. Indigenous intellectual property.  |
+|  1980s-PRESENT: POSTCOLONIAL / REFLEXIVE TURN                          |
+|  "Writing Culture" (1986) — who has the right to represent whom?       |
+|  Decolonizing methodology. NAGPRA. Indigenous intellectual property.   |
 +------------------------------------------------------------------------+
 ```
 
@@ -88,7 +88,7 @@ psychology (mind only), or history (text records only).
 
 ```
   +-----------------------------------------------------------------+
-  | BIOLOGICAL ANTHROPOLOGY                                          |
+  | BIOLOGICAL ANTHROPOLOGY                                         |
   |                                                                 |
   |  Paleoanthropology      Primatology         Human variation     |
   |  -----------------      -----------         ---------------     |
@@ -110,7 +110,7 @@ Leakey family (East African fossils), Svante Paabo (ancient DNA, Nobel 2022).
 
 ```
   +-----------------------------------------------------------------+
-  | CULTURAL ANTHROPOLOGY                                            |
+  | CULTURAL ANTHROPOLOGY                                           |
   |                                                                 |
   |  ETHNOGRAPHY            KINSHIP                 RELIGION        |
   |  -----------            -------                 --------        |
@@ -129,7 +129,7 @@ Leakey family (East African fossils), Svante Paabo (ancient DNA, Nobel 2022).
 
 ```
   +-----------------------------------------------------------------+
-  | ARCHAEOLOGY                                                      |
+  | ARCHAEOLOGY                                                     |
   |                                                                 |
   |  METHODS                DATING                  THEORY          |
   |  -------                ------                  ------          |
@@ -144,7 +144,7 @@ Leakey family (East African fossils), Svante Paabo (ancient DNA, Nobel 2022).
 
 ```
   +-----------------------------------------------------------------+
-  | LINGUISTIC ANTHROPOLOGY                                          |
+  | LINGUISTIC ANTHROPOLOGY                                         |
   |                                                                 |
   |  Sapir-Whorf hypothesis (language shapes thought — weak version |
   |  supported: language influences cognition, does not determine)  |
@@ -152,7 +152,7 @@ Leakey family (East African fossils), Svante Paabo (ancient DNA, Nobel 2022).
   |  Ethnography of communication (Hymes) — speech acts, codes,     |
   |  competence. "Rules for speaking" vary across cultures.         |
   |                                                                 |
-  |  Language documentation: endangered languages. ~7,000 exist;   |
+  |  Language documentation: endangered languages. ~7,000 exist;    |
   |  ~half will be gone by 2100. Archives, revitalization efforts.  |
   |                                                                 |
   |  Sociolinguistics overlap: dialects, code-switching, prestige   |
@@ -168,24 +168,24 @@ Why anthropology insists on holism — and why it matters:
 
 ```
 +-------------------------------------------------------------------+
-|                      HOLISM IN PRACTICE                            |
+|                      HOLISM IN PRACTICE                           |
 |                                                                   |
 |   BIOLOGY  ------shapes------>  CULTURE                           |
 |      ^                              |                             |
 |      |                              v                             |
-|   selection <---creates--- LANGUAGE / COGNITION                  |
+|   selection <---creates--- LANGUAGE / COGNITION                   |
 |   pressure                                                        |
 |                                                                   |
 |   Example: Lactase persistence (canonical case)                   |
-|   - Biology: LCT gene variant allows milk digestion in adults    |
+|   - Biology: LCT gene variant allows milk digestion in adults     |
 |   - Culture: cattle herding created the selection pressure        |
 |   - Language: vocabulary for dairy practices, social norms        |
-|   - Cannot study any of these layers in isolation                |
+|   - Cannot study any of these layers in isolation                 |
 |                                                                   |
 |   Example: Color naming                                           |
-|   - Berlin/Kay: 11 basic color terms appear cross-culturally     |
+|   - Berlin/Kay: 11 basic color terms appear cross-culturally      |
 |     in a predictable sequence (universal biology of vision)       |
-|   - BUT: Pirahã, Dani, others have fewer distinctions            |
+|   - BUT: Pirahã, Dani, others have fewer distinctions             |
 |   - Cultural need drives elaboration of existing biology          |
 +-------------------------------------------------------------------+
 ```
@@ -226,7 +226,7 @@ outliers on the very dimensions social science treats as universal.
   The five students who reshaped American anthropology:
   +----------+--------------------------------------------------+
   | Kroeber  | Culture history, superorganic — culture has its  |
-  |          | own logic irreducible to individual psychology    |
+  |          | own logic irreducible to individual psychology   |
   +----------+--------------------------------------------------+
   | Sapir    | Language and culture intertwined;                |
   |          | Sapir-Whorf hypothesis (with Whorf)              |

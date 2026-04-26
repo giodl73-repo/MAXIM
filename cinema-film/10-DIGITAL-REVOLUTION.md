@@ -18,11 +18,11 @@ CAPTURE          VISUAL          EDITORIAL      COLOR          DELIVERY
      |              |      |               +--------+--+
      v              v      |               | MASTERING |
 +----+----+   +-----+--+   |               | DELIVERABLES
-| RAW     |   | VFX     |  |               | 4K HDR    |
-| MEDIA   |   | MEDIA   |  |               | SDR       |
-| (on-set | + | (render |--+               | IMAX      |
-| drives) |   | farm)   |                  | Dolby     |
-+---------+   +---------+                  | Vision    |
+| RAW     |   | VFX    |  |               | 4K HDR      |
+| MEDIA   |   | MEDIA  |  |               | SDR         |
+| (on-set | + | (render |--+               | IMAX       |
+| drives) |   | farm)  |                  | Dolby       |
++---------+   +---------+                  | Vision     |
                                            +-----------+
 
 Previous pipeline (pre-2000):

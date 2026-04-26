@@ -9,13 +9,13 @@
 
   ┌────────────────────────────────────────────────────────────────────┐
   │  SPATIAL DOMAIN            FREQUENCY DOMAIN                        │
-  │  x[m,n] — image pixels     X(ω₁,ω₂) — 2D spectrum                 │
+  │  x[m,n] — image pixels     X(ω₁,ω₂) — 2D spectrum                  │
   │                                                                    │
-  │  Convolution (2D)          Multiplication (pointwise)             │
-  │  y[m,n] = x[m,n] ** h[m,n]  Y = X · H                             │
+  │  Convolution (2D)          Multiplication (pointwise)              │
+  │  y[m,n] = x[m,n] ** h[m,n]  Y = X · H                              │
   │                                                                    │
   │  Separable systems:        H(ω₁,ω₂) = H₁(ω₁) · H₂(ω₂)          │
-  │  → row-by-row 1D then column-by-column 1D                         │
+  │  → row-by-row 1D then column-by-column 1D                          │
   └────────────────────────────────────────────────────────────────────┘
 
   Applications:
@@ -360,15 +360,15 @@ The CNN convolution layer is exactly 2D DSP convolution with learned kernels —
     Sensitive to off-resonance (chemical shift, B₀ inhomogeneity).
 
   ┌─────────────────────────────────────────────────────┐
-  │  k-SPACE REGIONS AND IMAGE FEATURES                  │
-  │                                                      │
+  │  k-SPACE REGIONS AND IMAGE FEATURES                 │
+  │                                                     │
   │  Center of k-space (low k): contrast, large features │
-  │  Periphery (high k): edges, fine detail              │
-  │                                                      │
+  │  Periphery (high k): edges, fine detail             │
+  │                                                     │
   │  Missing center → blurry, low contrast              │
-  │  Missing periphery → smooth, loss of detail          │
-  │                                                      │
-  │  Corrupted k-space line → striping artifact          │
+  │  Missing periphery → smooth, loss of detail         │
+  │                                                     │
+  │  Corrupted k-space line → striping artifact         │
   │  (FT of a single point = sinusoid across image)     │
   └─────────────────────────────────────────────────────┘
 ```

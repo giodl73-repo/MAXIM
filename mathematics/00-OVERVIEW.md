@@ -16,8 +16,8 @@ THE MATHEMATICAL LANDSCAPE — DEPENDENCY ARCHITECTURE
 
   FOUNDATIONS                          ANALYSIS                  TRANSFORMS
   ┌──────────────────────┐             ┌────────────────────┐    ┌──────────────┐
-  │ 03 Trigonometry      │             │ 01 Vector Calculus  │    │ 12 Fourier   │
-  │ 04 Power Series      │             │ 02 Integral Thms    │    │ 13 Laplace   │
+  │ 03 Trigonometry      │             │ 01 Vector Calculus  │    │ 12 Fourier  │
+  │ 04 Power Series      │             │ 02 Integral Thms    │    │ 13 Laplace  │
   │ 05 Groups/Sets/Alg.  │             │ 07 DiffEq           │    └──────┬───────┘
   │ 06 Linear Algebra    │             │ 14 Complex Analysis │           │
   └──────────┬───────────┘             │ 21 Measure Theory   │           │
@@ -66,19 +66,19 @@ PREREQUISITE DAG — READ BOTTOM TO TOP
                         └──────────────────┘
 
         ┌──────────────────┐          ┌──────────────────┐
-        │  24 REPRESENTATION│          │  23 FUNCTIONAL   │
-        │     THEORY        │          │     ANALYSIS     │
+        │  24 REPRESENTATION│          │  23 FUNCTIONAL  │
+        │     THEORY        │          │     ANALYSIS    │
         └────────┬─────────┘          └────┬─────┬───────┘
                  │                         │     │
     ┌────────────┤              ┌──────────┘     │
-    │            │              │                 │
+    │            │              │                │
     │   ┌────────┴────────┐    │    ┌────────────┴──────────┐
     │   │ 05 GROUPS/SETS  │    │    │   21 MEASURE THEORY   │
     │   │    ALGEBRA       │    │    └────────────┬──────────┘
     │   └────────┬────────┘    │                 │
     │            │              │                 │
     │            │    ┌────────┴────────┐        │
-    │            │    │ 10 DIFF. GEOM. │         │
+    │            │    │ 10 DIFF. GEOM.  │         │
     │            │    └────┬───────────┘         │
     │            │         │                    │
     │            │    ┌────┴───────────┐        │
@@ -113,7 +113,7 @@ PREREQUISITE DAG — READ BOTTOM TO TOP
     │        └──────────┬──────────┘       │
     │                   │                   │
     │        ┌──────────┴──────────┐       │
-    │        │  03 TRIGONOMETRY     │       │
+    │        │  03 TRIGONOMETRY     │      │
     │        └─────────────────────┘       │
     │                                       │
     ═════════════════════════════════════════

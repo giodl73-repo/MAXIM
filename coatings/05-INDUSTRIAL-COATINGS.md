@@ -11,20 +11,20 @@ INDUSTRIAL SURFACE TREATMENT HIERARCHY:
            OR enhance appearance OR ALL THREE
 
   ┌────────────────────────────────────────────────────────────────┐
-  │  ORGANIC COATINGS         │ Powder coat; epoxy; polyurethane  │
-  │  (applied as film)        │ field-applied or factory-applied  │
+  │  ORGANIC COATINGS         │ Powder coat; epoxy; polyurethane   │
+  │  (applied as film)        │ field-applied or factory-applied   │
   ├────────────────────────────────────────────────────────────────┤
   │  CONVERSION COATINGS      │ Anodizing; phosphate; chromate    │
   │  (substrate becomes coat) │ substrate surface CONVERTS to     │
   │                           │ protective oxide/compound         │
   ├────────────────────────────────────────────────────────────────┤
-  │  ELECTROCHEMICAL          │ Electroplating; electroless Ni;   │
-  │  DEPOSITION               │ electrogalvanizing                │
+  │  ELECTROCHEMICAL          │ Electroplating; electroless Ni;    │
+  │  DEPOSITION               │ electrogalvanizing                 │
   ├────────────────────────────────────────────────────────────────┤
   │  HOT DIP / THERMAL        │ Hot-dip galvanizing; thermal spray│
   │  PROCESSES                │ zinc arc spray; plasma spray      │
   ├────────────────────────────────────────────────────────────────┤
-  │  VAPOR DEPOSITION         │ PVD (sputtering/evaporation);     │
+  │  VAPOR DEPOSITION         │ PVD (sputtering/evaporation);      │
   │  (vacuum processes)       │ CVD; DLC                         │
   └────────────────────────────────────────────────────────────────┘
 
@@ -41,25 +41,25 @@ INDUSTRIAL SURFACE TREATMENT HIERARCHY:
 ```
   PROCESS:
   ┌──────────────────────────────────────────────────────────────┐
-  │  STEP 1: SURFACE PREPARATION                                │
-  │    Iron phosphate pretreatment (mild steel)                 │
-  │    OR zinc phosphate (better corrosion resistance)          │
-  │    Blast or chemical etch for aluminum                      │
-  │    Critical: contamination removal (oil, oxide)             │
+  │  STEP 1: SURFACE PREPARATION                                 │
+  │    Iron phosphate pretreatment (mild steel)                  │
+  │    OR zinc phosphate (better corrosion resistance)           │
+  │    Blast or chemical etch for aluminum                       │
+  │    Critical: contamination removal (oil, oxide)              │
   │                                                              │
-  │  STEP 2: POWDER APPLICATION                                 │
-  │    Part grounded (earth/chassis ground)                     │
-  │    Powder spray gun charges particles (corona or            │
-  │    tribo-charging): 40,000-100,000 V corona charge          │
-  │    Charged particles attracted to grounded part             │
-  │    Uniform powder deposit; even inside corners and complex  │
-  │    geometry (electrostatic lines wrap around)               │
+  │  STEP 2: POWDER APPLICATION                                  │
+  │    Part grounded (earth/chassis ground)                      │
+  │    Powder spray gun charges particles (corona or             │
+  │    tribo-charging): 40,000-100,000 V corona charge           │
+  │    Charged particles attracted to grounded part              │
+  │    Uniform powder deposit; even inside corners and complex   │
+  │    geometry (electrostatic lines wrap around)                │
   │                                                              │
-  │  STEP 3: CURE IN OVEN                                       │
-  │    Typically 350-400°F (177-204°C)                          │
-  │    Duration: 15-30 minutes at temperature                   │
-  │    Thermoset powder: crosslinks chemically → permanent      │
-  │    Thermoplastic: melts → fuses → cools → no crosslink      │
+  │  STEP 3: CURE IN OVEN                                        │
+  │    Typically 350-400°F (177-204°C)                           │
+  │    Duration: 15-30 minutes at temperature                    │
+  │    Thermoset powder: crosslinks chemically → permanent       │
+  │    Thermoplastic: melts → fuses → cools → no crosslink       │
   └──────────────────────────────────────────────────────────────┘
 
   POWDER CHEMISTRY:
@@ -123,10 +123,10 @@ INDUSTRIAL SURFACE TREATMENT HIERARCHY:
 
   THREE TYPES:
   ┌────────────────────────────────────────────────────────────┐
-  │  TYPE I: Chromic Acid Anodize                             │
+  │  TYPE I: Chromic Acid Anodize                              │
   │    Thinnest: 0.0002"-0.0003" (0.5-0.8 μm)                │
   │    Minimal dimensional change                              │
-  │    AEROSPACE: fatigue-sensitive parts (thinnest → minimal │
+  │    AEROSPACE: fatigue-sensitive parts (thinnest → minimal  │
   │    stress concentration); MIL-A-8625                       │
   ├────────────────────────────────────────────────────────────┤
   │  TYPE II: Sulfuric Acid Anodize (standard)                │
@@ -135,9 +135,9 @@ INDUSTRIAL SURFACE TREATMENT HIERARCHY:
   │    Accepts color dyes; sealing after dyeing                │
   │    Architectural aluminum (AAMA 611 standards)             │
   ├────────────────────────────────────────────────────────────┤
-  │  TYPE III: Hard Anodize (hardcoat)                        │
+  │  TYPE III: Hard Anodize (hardcoat)                         │
   │    Thickness: 0.001"-0.002" (25-50 μm, up to 100 μm)     │
-  │    Very hard: 60-70 Rockwell C equivalent                 │
+  │    Very hard: 60-70 Rockwell C equivalent                  │
   │    Very abrasion resistant                                 │
   │    Requires cold electrolyte (near freezing) + higher current│
   │    Uses: piston skirts, firearms, cookware, sliding parts  │
@@ -167,8 +167,8 @@ INDUSTRIAL SURFACE TREATMENT HIERARCHY:
   MECHANISM: ELECTROLYTIC METAL DEPOSITION
 
   ┌──────────────────────────────────────────────────────────────┐
-  │  Metal ion solution (electrolyte)                           │
-  │  DC current: work part = CATHODE (-); anode = plating metal │
+  │  Metal ion solution (electrolyte)                            │
+  │  DC current: work part = CATHODE (-); anode = plating metal  │
   │                                                              │
   │  At cathode: M^n+ + ne⁻ → M (metal deposits on part)       │
   │  At anode: M → M^n+ + ne⁻ (or inert anode: O₂ evolution)  │
@@ -179,7 +179,7 @@ INDUSTRIAL SURFACE TREATMENT HIERARCHY:
 
   COMMON PLATING METALS:
   ┌─────────────────────────────────────────────────────────────────┐
-  │  METAL  │ PURPOSE                                │ KEY NOTES   │
+  │  METAL  │ PURPOSE                                │ KEY NOTES    │
   ├─────────────────────────────────────────────────────────────────┤
   │  Zinc   │ Corrosion protection (galvanic)        │ Sacrificial │
   │  Chrome │ Decorative + corrosion (hex chrome)   │ Cr⁶⁺ toxic! │
@@ -266,11 +266,11 @@ INDUSTRIAL SURFACE TREATMENT HIERARCHY:
   │                                                              │
   │  From steel outward:                                         │
   │  Steel → Gamma (FeZn₃) → Delta (FeZn₇) → Zeta (FeZn₁₃)    │
-  │         → Eta (pure zinc outer layer)                       │
+  │         → Eta (pure zinc outer layer)                        │
   │                                                              │
-  │  These are actual iron-zinc alloy phases, NOT just zinc     │
+  │  These are actual iron-zinc alloy phases, NOT just zinc      │
   │  stuck to steel surface.                                     │
-  │  Result: coating that cannot peel; metallurgically bonded   │
+  │  Result: coating that cannot peel; metallurgically bonded    │
   └──────────────────────────────────────────────────────────────┘
 
   GALVANIC PROTECTION:
@@ -317,7 +317,7 @@ INDUSTRIAL SURFACE TREATMENT HIERARCHY:
 
   COMMON PVD MATERIALS:
   ┌──────────────────────────────────────────────────────────────┐
-  │  MATERIAL  │ COLOR     │ HARDNESS │ APPLICATION             │
+  │  MATERIAL  │ COLOR     │ HARDNESS │ APPLICATION              │
   ├──────────────────────────────────────────────────────────────┤
   │  TiN       │ Gold      │ ~2000 HV │ Drill bits, cutting     │
   │  (Titanium │           │          │ tools, architectural     │
@@ -373,18 +373,18 @@ INDUSTRIAL SURFACE TREATMENT HIERARCHY:
   │                                                              │
   │  ARC SPRAY: Electric arc between two wire electrodes       │
   │    High productivity; zinc, aluminum, steel wire           │
-  │    Corrosion protection on large structures                 │
-  │    (bridges, offshore, storage tanks)                       │
+  │    Corrosion protection on large structures                  │
+  │    (bridges, offshore, storage tanks)                        │
   │                                                              │
   │  PLASMA SPRAY: Plasma torch (Ar/He/H₂ at ~15,000°C)       │
   │    Highest temperatures → ceramics, refractory materials   │
   │    Thermal barrier coatings (TBC) on turbine blades:       │
   │    YSZ (yttria-stabilized zirconia) — low thermal          │
-  │    conductivity at high temperature                         │
+  │    conductivity at high temperature                          │
   │                                                              │
   │  HVOF (High Velocity Oxy-Fuel):                            │
   │    Supersonic particle velocity; dense, hard deposit       │
-  │    WC-Co (tungsten carbide-cobalt): extreme wear resistance │
+  │    WC-Co (tungsten carbide-cobalt): extreme wear resistance  │
   │    Replacing hard chrome plating for wear applications     │
   └──────────────────────────────────────────────────────────────┘
 

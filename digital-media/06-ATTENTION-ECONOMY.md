@@ -17,7 +17,7 @@ ECONOMIC FOUNDATION:
 +------------------------------------------------------------------+
 |  VALUE CHAIN                                                     |
 |                                                                  |
-|  User attention -> Platform engagement metric                   |
+|  User attention -> Platform engagement metric                    |
 |                 -> Advertiser targeting signal                   |
 |                 -> Advertising revenue                           |
 |                 -> Platform profit                               |

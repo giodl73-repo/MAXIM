@@ -8,7 +8,7 @@ THE LANDSCAPE
 
   GENERAL RELATIVITY (strong fields, fast motion, curved spacetime)
   ┌─────────────────────────────────────────────────────────────────────────┐
-  │  Gμν = (8πG/c⁴) Tμν                                                    │
+  │  Gμν = (8πG/c⁴) Tμν                                                     │
   │  Geometry = Energy/Momentum content                                     │
   │  Black holes, gravitational waves, cosmology                            │
   └────────────────────────┬────────────────────────────────────────────────┘
@@ -76,7 +76,7 @@ metric components — spacetime twisting due to mass currents)
 
 GEM equations (Mashhoon 2001, linearized GR):
 ┌─────────────────────────────────────────────────────────┐
-│  ∇·Eg = -4πGρ           ∇·Bg = 0                       │
+│  ∇·Eg = -4πGρ           ∇·Bg = 0                        │
 │  ∇×Eg = -∂Bg/∂t         ∇×Bg = (1/c²)(4πG·Jm + ∂Eg/∂t)│
 └─────────────────────────────────────────────────────────┘
   Jm = mass current density ρv [kg/m²s]
@@ -509,7 +509,7 @@ THE UNIFICATION LANDSCAPE (2026)
   │                                                       │
   │  Planck scale: E_P = √(ℏc⁵/G) = 1.22 × 10¹⁹ GeV    │
   │  Where QM and GR must both matter                     │
-  │  LHC reaches 10⁴ GeV — 15 orders below Planck scale  │
+  │  LHC reaches 10⁴ GeV — 15 orders below Planck scale   │
   └───────────────────────────────────────────────────────┘
 
   IMPLICATION:

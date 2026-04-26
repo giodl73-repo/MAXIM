@@ -4,7 +4,7 @@
 
 ```
 +-----------------------------------------------------------------------+
-|                    CONSEQUENTIALISM FAMILY TREE                        |
+|                    CONSEQUENTIALISM FAMILY TREE                       |
 +-----------------------------------------------------------------------+
 |                                                                       |
 |  CONSEQUENTIALISM: The right action is the one that produces         |
@@ -47,13 +47,13 @@ THE FELICIFIC CALCULUS:
   Pleasures and pains can be measured and compared.
   Seven dimensions:
   +------------------+-------------------------------------------+
-  | Intensity        | How strong is the feeling?               |
-  | Duration         | How long does it last?                   |
-  | Certainty        | How probable is it to occur?             |
-  | Propinquity      | How soon will it occur? (time discount)  |
-  | Fecundity        | Will it lead to more pleasures?          |
-  | Purity           | Will it NOT be followed by pain?         |
-  | Extent           | How many people are affected?            |
+  | Intensity        | How strong is the feeling?                |
+  | Duration         | How long does it last?                    |
+  | Certainty        | How probable is it to occur?              |
+  | Propinquity      | How soon will it occur? (time discount)   |
+  | Fecundity        | Will it lead to more pleasures?           |
+  | Purity           | Will it NOT be followed by pain?          |
+  | Extent           | How many people are affected?             |
   +------------------+-------------------------------------------+
 
   Sum up across all affected parties.

@@ -13,21 +13,21 @@
 │                                                                         │
 │  LABORATORY DIAGNOSTICS                                                 │
 │  ┌──────────────────────────────────────────────────────────────────┐   │
-│  │  Hematology: CBC + diff — anemia/leukocytosis/thrombocytopenia  │   │
-│  │  Metabolic: BMP/CMP — electrolytes, renal function, liver       │   │
-│  │  Coagulation: PT/INR (extrinsic), aPTT (intrinsic), d-dimer     │   │
-│  │  Cardiac: troponin, BNP, CK-MB (time courses matter)            │   │
-│  │  Inflammatory: CRP, procalcitonin, ESR, ferritin                │   │
-│  │  ABG: acid-base + oxygenation interpretation                    │   │
+│  │  Hematology: CBC + diff — anemia/leukocytosis/thrombocytopenia   │   │
+│  │  Metabolic: BMP/CMP — electrolytes, renal function, liver        │   │
+│  │  Coagulation: PT/INR (extrinsic), aPTT (intrinsic), d-dimer      │   │
+│  │  Cardiac: troponin, BNP, CK-MB (time courses matter)             │   │
+│  │  Inflammatory: CRP, procalcitonin, ESR, ferritin                 │   │
+│  │  ABG: acid-base + oxygenation interpretation                     │   │
 │  └──────────────────────────────────────────────────────────────────┘   │
 │                                                                         │
 │  IMAGING MODALITIES (physics + clinical)                                │
 │  ┌──────────────────────────────────────────────────────────────────┐   │
-│  │  X-ray: ionizing; bone/air/soft tissue contrast                 │   │
-│  │  CT: Hounsfield units; rapid; excellent detail; radiation dose  │   │
+│  │  X-ray: ionizing; bone/air/soft tissue contrast                  │   │
+│  │  CT: Hounsfield units; rapid; excellent detail; radiation dose   │   │
 │  │  MRI: T1/T2/DWI/FLAIR; soft tissue; no radiation               │   │
-│  │  Ultrasound: real-time; no radiation; bedside POCUS             │   │
-│  │  Nuclear/PET: functional imaging; tracers; FDG/sestamibi        │   │
+│  │  Ultrasound: real-time; no radiation; bedside POCUS              │   │
+│  │  Nuclear/PET: functional imaging; tracers; FDG/sestamibi         │   │
 │  └──────────────────────────────────────────────────────────────────┘   │
 │                                                                         │
 │  DIAGNOSTIC REASONING                                                   │

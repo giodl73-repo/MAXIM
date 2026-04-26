@@ -31,22 +31,22 @@ GENOMICS LANDSCAPE
                          ==================================================
 
   ┌────────────────────────────────────────────────────────────────┐
-  │  APPLICATIONS                                                   │
+  │  APPLICATIONS                                                  │
   │  Personalized medicine · GWAS · CRISPR target design           │
-  │  Clinical reporting · Drug discovery · Cancer monitoring        │
+  │  Clinical reporting · Drug discovery · Cancer monitoring       │
   ├────────────────────────────────────────────────────────────────┤
   │  ANALYSIS TOOLS (like application frameworks)                   │
   │  GATK · DESeq2 · PLINK · Seurat · STAR · kallisto/salmon       │
   ├────────────────────────────────────────────────────────────────┤
-  │  FILE FORMATS (data contracts — like .proto or OpenAPI spec)    │
-  │  FASTQ → BAM/CRAM → VCF/GVCF → BED/GTF                        │
+  │  FILE FORMATS (data contracts — like .proto or OpenAPI spec)   │
+  │  FASTQ → BAM/CRAM → VCF/GVCF → BED/GTF                         │
   ├────────────────────────────────────────────────────────────────┤
   │  WORKFLOW ENGINES (like MSBuild/ADF pipelines)                  │
   │  Snakemake · Nextflow · WDL/Cromwell · CWL                     │
   ├────────────────────────────────────────────────────────────────┤
-  │  CLOUD COMPUTE (familiar territory)                             │
-  │  Terra · DNAnexus · Azure Microsoft Genomics                    │
-  │  AWS HealthOmics · Google Cloud Life Sciences                   │
+  │  CLOUD COMPUTE (familiar territory)                            │
+  │  Terra · DNAnexus · Azure Microsoft Genomics                   │
+  │  AWS HealthOmics · Google Cloud Life Sciences                  │
   └────────────────────────────────────────────────────────────────┘
 ```
 

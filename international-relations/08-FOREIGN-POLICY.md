@@ -8,18 +8,18 @@ FOREIGN POLICY ANALYSIS — LEVELS AND MODELS
 
   WALTZ'S THREE IMAGES (levels of analysis):
   ┌──────────────────────────────────────────────────────────────┐
-  │  IMAGE 1: Human Nature / Individual                         │
-  │  Leaders' psychology, cognitive biases, emotional states    │
-  │  Misperception, mirror imaging, operational code            │
-  │                                                             │
-  │  IMAGE 2: State / Domestic Politics                         │
-  │  Bureaucratic politics, organizational process              │
-  │  Two-level games (international + domestic ratification)    │
-  │  Regime type, public opinion                                │
-  │                                                             │
-  │  IMAGE 3: International System                              │
-  │  Anarchy, balance of power, polarity                        │
-  │  Systemic constraints on state behavior                     │
+  │  IMAGE 1: Human Nature / Individual                          │
+  │  Leaders' psychology, cognitive biases, emotional states     │
+  │  Misperception, mirror imaging, operational code             │
+  │                                                              │
+  │  IMAGE 2: State / Domestic Politics                          │
+  │  Bureaucratic politics, organizational process               │
+  │  Two-level games (international + domestic ratification)     │
+  │  Regime type, public opinion                                 │
+  │                                                              │
+  │  IMAGE 3: International System                               │
+  │  Anarchy, balance of power, polarity                         │
+  │  Systemic constraints on state behavior                      │
   └──────────────────────────────────────────────────────────────┘
 
   ANALYTIC MODELS (Graham Allison, Essence of Decision):
@@ -221,8 +221,8 @@ GROUPTHINK SYMPTOMS AND HISTORIC CASES
   │ Japanese attack; dismissed warning signs.               │
   │ Stereotyping: Japan wouldn't dare attack US directly.   │
   │                                                         │
-  │ IRAQ WMD ASSESSMENT (2002-03):                         │
-  │ Intelligence analysts under pressure to find WMD;      │
+  │ IRAQ WMD ASSESSMENT (2002-03):                          │
+  │ Intelligence analysts under pressure to find WMD;       │
   │ dissenting assessments filtered;                        │
   │ Bush administration's certainty reinforced groupthink   │
   │ in both intelligence community and cabinet.             │

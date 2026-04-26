@@ -9,7 +9,7 @@ AFUE efficiency, and distribution method.
 
 ```
 +----------------------------------------------------------------------+
-|                    HEATING SYSTEM TAXONOMY                            |
+|                    HEATING SYSTEM TAXONOMY                           |
 |                                                                      |
 |  COMBUSTION SYSTEMS              ELECTRIC SYSTEMS                    |
 |  ------------------              -----------------                   |
@@ -114,7 +114,7 @@ is the most common configuration installed over the past 40 years.
   CONDENSING (90–98% AFUE):
   ┌─────────────────────────────────────────────────────────────────┐
   │ Secondary heat exchanger extracts latent heat from water vapor  │
-  │ Flue gas exits at 100–120°F → water vapor condenses            │
+  │ Flue gas exits at 100–120°F → water vapor condenses             │
   │ Condensate: slightly acidic (pH 3–5) → floor drain required     │
   │ Condensate neutralizer (limestone chips) → some municipalities  │
   │ PVC or CPVC flue (2" or 3") — two pipes: intake + exhaust       │
@@ -166,17 +166,17 @@ or radiant floor. No ductwork — heat distribution is hydraulic.
   ┌───────────────────┬────────────────────────────────────────────────┐
   │ Cast iron sectional│ High mass; slow response; very durable;       │
   │                   │ atmospheric vent common; assembled in sections │
-  │                   │ (fits through door); AFUE ~80–85%             │
+  │                   │ (fits through door); AFUE ~80–85%              │
   ├───────────────────┼────────────────────────────────────────────────┤
   │ Steel fire tube   │ Lighter; faster response; AFUE 80–85%         │
   ├───────────────────┼────────────────────────────────────────────────┤
-  │ Mod-con           │ Modulating-Condensing; stainless steel HX;    │
-  │ (condensing)      │ modulates 10–100% burner output;              │
-  │                   │ AFUE 95–98%; PVC flue; outdoor reset control; │
+  │ Mod-con           │ Modulating-Condensing; stainless steel HX;     │
+  │ (condensing)      │ modulates 10–100% burner output;               │
+  │                   │ AFUE 95–98%; PVC flue; outdoor reset control;  │
   │                   │ eliminates short cycling; best efficiency;     │
-  │                   │ Brands: Navien, Triangle Tube, Viessmann,     │
-  │                   │ Weil-McLain Ultra                             │
-  │                   │ REQUIRES: low return water temp (<130°F)      │
+  │                   │ Brands: Navien, Triangle Tube, Viessmann,      │
+  │                   │ Weil-McLain Ultra                              │
+  │                   │ REQUIRES: low return water temp (<130°F)       │
   │                   │ for condensing operation                       │
   └───────────────────┴────────────────────────────────────────────────┘
 ```
@@ -222,7 +222,7 @@ electricity is ~3–4× more expensive per BTU than natural gas in most US marke
   ├──────────────────┼─────────────────────────────────────────────────┤
   │ Infrared panels  │ High-temperature radiant; warms occupants       │
   │                  │ directly via radiation; efficient if people     │
-  │                  │ in line of sight (garages, outdoor patios)     │
+  │                  │ in line of sight (garages, outdoor patios)      │
   └──────────────────┴─────────────────────────────────────────────────┘
 
   WHEN ELECTRIC RESISTANCE MAKES SENSE:

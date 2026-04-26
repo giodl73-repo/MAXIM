@@ -430,7 +430,7 @@ CURTAILMENT MECHANISMS:
 
   CURTAILMENT REDUCTION STRATEGIES:
   ┌─────────────────────────────────────────────────────────────────┐
-  │  Strategy              Effectiveness    Cost/Complexity          │
+  │  Strategy              Effectiveness    Cost/Complexity         │
   ├─────────────────────────────────────────────────────────────────┤
   │  4-hour BESS           HIGH (daily)     Moderate ($150-250/kWh) │
   │  Transmission build    HIGH (systemic)  High ($1-3M/mile)       │
@@ -469,14 +469,14 @@ DEMAND RESPONSE (DR) — MAKING LOAD FOLLOW SUPPLY:
   ┌──────────────────────────────────────────────────────────────────┐
   │  INDUSTRIAL DR (largest potential, easiest to implement):        │
   │                                                                  │
-  │  Aluminum smelting:  Continuous process, can modulate ±10-20%   │
-  │  Cement grinding:    Shift grinding to off-peak (storage bin)   │
-  │  Steel EAF:          Batch process, schedulable                 │
-  │  Water treatment:    Pumping can shift by hours                 │
-  │  Desalination:       Excellent DR candidate (buffer tanks)      │
+  │  Aluminum smelting:  Continuous process, can modulate ±10-20%    │
+  │  Cement grinding:    Shift grinding to off-peak (storage bin)    │
+  │  Steel EAF:          Batch process, schedulable                  │
+  │  Water treatment:    Pumping can shift by hours                  │
+  │  Desalination:       Excellent DR candidate (buffer tanks)       │
   │  Electrolysis (H₂):  Ideal: electrolyzer follows VRE directly  │
   │                                                                  │
-  │  Potential: 50-200 GW in US alone (DOE estimate)                │
+  │  Potential: 50-200 GW in US alone (DOE estimate)                 │
   ├──────────────────────────────────────────────────────────────────┤
   │  COMMERCIAL DR:                                                  │
   │                                                                  │
@@ -491,7 +491,7 @@ DEMAND RESPONSE (DR) — MAKING LOAD FOLLOW SUPPLY:
   │                                                                  │
   │  Smart thermostat:   Pre-heat/cool + coast (Nest, Ecobee)      │
   │  EV smart charging:  Charge overnight or midday (not 6pm peak) │
-  │  Water heater:       Pre-heat tank, coast for hours             │
+  │  Water heater:       Pre-heat tank, coast for hours              │
   │  Dishwasher/dryer:   Delay start to off-peak (mild convenience)│
   │                                                                  │
   │  Potential: 30-100 GW in US (mostly EV charging, growing)      │

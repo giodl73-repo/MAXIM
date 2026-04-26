@@ -8,20 +8,20 @@
 SPECIALTY SYSTEMS: BEYOND BASIC SUPPLY AND DRAIN
 
   ┌─────────────────────────────────────────────────────────────┐
-  │  GAS SYSTEMS: fuel distribution from utility/tank to       │
+  │  GAS SYSTEMS: fuel distribution from utility/tank to        │
   │  appliances; separate discipline; life-safety               │
   │                                                             │
-  │  HYDRONIC: water-based heat distribution (vs forced air)   │
-  │  More comfortable, quieter, flexible; higher install cost  │
+  │  HYDRONIC: water-based heat distribution (vs forced air)    │
+  │  More comfortable, quieter, flexible; higher install cost   │
   │                                                             │
-  │  RADIANT FLOOR: hydronic at lowest practical temp          │
-  │  Most comfortable heat delivery; highest material cost     │
+  │  RADIANT FLOOR: hydronic at lowest practical temp           │
+  │  Most comfortable heat delivery; highest material cost      │
   │                                                             │
-  │  FIRE SUPPRESSION: life-safety; code-mandated contexts     │
-  │  Saves lives; often misunderstood (all heads ≠ open)       │
+  │  FIRE SUPPRESSION: life-safety; code-mandated contexts      │
+  │  Saves lives; often misunderstood (all heads ≠ open)        │
   │                                                             │
-  │  MEDICAL GAS: hospital-grade; certification requirements   │
-  │  Separate systems for each gas; safety-critical            │
+  │  MEDICAL GAS: hospital-grade; certification requirements    │
+  │  Separate systems for each gas; safety-critical             │
   └─────────────────────────────────────────────────────────────┘
 
   SHARED CHARACTERISTIC: All require specialized installers
@@ -78,23 +78,23 @@ SPECIALTY SYSTEMS: BEYOND BASIC SUPPLY AND DRAIN
   Significantly faster installation than rigid black iron
 
   ┌──────────────────────────────────────────────────────────────┐
-  │  CSST LIGHTNING ARC RISK:                                   │
+  │  CSST LIGHTNING ARC RISK:                                    │
   │                                                              │
-  │  Lightning strikes near structure → induced current in      │
-  │  gas piping → electrical arc can penetrate thin corrugated  │
-  │  wall of CSST → gas escapes → fire                          │
+  │  Lightning strikes near structure → induced current in       │
+  │  gas piping → electrical arc can penetrate thin corrugated   │
+  │  wall of CSST → gas escapes → fire                           │
   │                                                              │
-  │  Black iron: thick wall; much harder to arc through         │
-  │  CSST: thin corrugated wall; vulnerable to induced arc      │
+  │  Black iron: thick wall; much harder to arc through          │
+  │  CSST: thin corrugated wall; vulnerable to induced arc       │
   │                                                              │
-  │  SOLUTION: BOND EVERY CSST SEGMENT                          │
-  │  Bond wire (typically #6 AWG copper) connected to CSST      │
-  │  at each segment → connected to grounding electrode system  │
-  │  This equalizes potential → prevents arc forming            │
+  │  SOLUTION: BOND EVERY CSST SEGMENT                           │
+  │  Bond wire (typically #6 AWG copper) connected to CSST       │
+  │  at each segment → connected to grounding electrode system   │
+  │  This equalizes potential → prevents arc forming             │
   │                                                              │
-  │  CODE: NFPA 54 (National Fuel Gas Code) requires bonding    │
-  │  Required by most jurisdictions since ~2006                 │
-  │  Manufacturers have specific bonding instructions           │
+  │  CODE: NFPA 54 (National Fuel Gas Code) requires bonding     │
+  │  Required by most jurisdictions since ~2006                  │
+  │  Manufacturers have specific bonding instructions            │
   └──────────────────────────────────────────────────────────────┘
 
   BRANDS: TracPipe (OmegaFlex), CounterStrike (OmegaFlex — bonded
@@ -117,17 +117,17 @@ SPECIALTY SYSTEMS: BEYOND BASIC SUPPLY AND DRAIN
   ┌──────────────────────────────────────────────────────────────┐
   │  UTILITY DISTRIBUTION MAIN: 0.25-200 PSI (varies)          │
   │          ↓                                                   │
-  │  SERVICE REGULATOR (utility-owned at meter):                │
-  │    Reduces to "service pressure" at meter                   │
+  │  SERVICE REGULATOR (utility-owned at meter):                 │
+  │    Reduces to "service pressure" at meter                    │
   │    Typical residential delivery: 0.25 PSI (7" w.c.)        │
-  │    OR 2 PSI with in-house regulator for longer runs         │
+  │    OR 2 PSI with in-house regulator for longer runs          │
   │          ↓                                                   │
   │  HOUSE PIPING: 7" w.c. (0.25 PSI) or 2 PSI                 │
   │          ↓                                                   │
-  │  APPLIANCE MANIFOLD PRESSURE:                               │
+  │  APPLIANCE MANIFOLD PRESSURE:                                │
   │    Most appliances: 3.5" w.c. (0.125 PSI) for natural gas  │
   │    OR 11" w.c. (0.4 PSI) for gas ranges, some appliances   │
-  │    Regulator at appliance reduces house pressure to this    │
+  │    Regulator at appliance reduces house pressure to this     │
   └──────────────────────────────────────────────────────────────┘
 
   INCHES WATER COLUMN (IWC):
@@ -166,12 +166,12 @@ SPECIALTY SYSTEMS: BEYOND BASIC SUPPLY AND DRAIN
 
   BOILER TYPES:
   ┌────────────────────────────────────────────────────────────┐
-  │  CAST IRON ATMOSPHERIC BOILER:                            │
-  │    Heavy, durable (25-40 year life)                       │
-  │    Slow to heat but retains heat; stable operation        │
-  │    Standing pilot or electronic ignition                  │
-  │    B-vent (atmospheric draft to chimney)                  │
-  │    AFUE: 80-82%                                           │
+  │  CAST IRON ATMOSPHERIC BOILER:                             │
+  │    Heavy, durable (25-40 year life)                        │
+  │    Slow to heat but retains heat; stable operation         │
+  │    Standing pilot or electronic ignition                   │
+  │    B-vent (atmospheric draft to chimney)                   │
+  │    AFUE: 80-82%                                            │
   ├────────────────────────────────────────────────────────────┤
   │  MODULATING-CONDENSING (MOD-CON) BOILER:                  │
   │    Modulating burner: ramps output 10-100% to match load  │
@@ -239,22 +239,22 @@ SPECIALTY SYSTEMS: BEYOND BASIC SUPPLY AND DRAIN
 
   HYDRONIC RADIANT FLOOR TYPES:
   ┌───────────────────────────────────────────────────────────┐
-  │  SLAB ON GRADE (in-slab):                                │
-  │  PEX tubing embedded in concrete slab                    │
-  │  Best conductivity (concrete contact with tube)          │
-  │  Highest thermal mass (slow response — 2-4 hours)        │
-  │  Best for: continuous occupation, large homes, slab      │
+  │  SLAB ON GRADE (in-slab):                                 │
+  │  PEX tubing embedded in concrete slab                     │
+  │  Best conductivity (concrete contact with tube)           │
+  │  Highest thermal mass (slow response — 2-4 hours)         │
+  │  Best for: continuous occupation, large homes, slab       │
   │                                                           │
-  │  BELOW SUBFLOOR (staple-up or heat transfer plates):     │
-  │  PEX stapled under subfloor; aluminum transfer plates    │
-  │  direct heat through subfloor                            │
-  │  Lower thermal mass; faster response; lower output       │
-  │  Best for: wood frame with crawlspace access             │
+  │  BELOW SUBFLOOR (staple-up or heat transfer plates):      │
+  │  PEX stapled under subfloor; aluminum transfer plates     │
+  │  direct heat through subfloor                             │
+  │  Lower thermal mass; faster response; lower output        │
+  │  Best for: wood frame with crawlspace access              │
   │                                                           │
-  │  ABOVE SUBFLOOR (gypcrete or sleeper):                   │
-  │  PEX in 1.5" gypcrete or wood sleeper system             │
-  │  Above existing floor → adds height                      │
-  │  Better than staple-up; less than in-slab                │
+  │  ABOVE SUBFLOOR (gypcrete or sleeper):                    │
+  │  PEX in 1.5" gypcrete or wood sleeper system              │
+  │  Above existing floor → adds height                       │
+  │  Better than staple-up; less than in-slab                 │
   └───────────────────────────────────────────────────────────┘
 
   MANIFOLD SYSTEM:
@@ -293,16 +293,16 @@ SPECIALTY SYSTEMS: BEYOND BASIC SUPPLY AND DRAIN
 ```
   FUNDAMENTAL MYTH CORRECTION:
   ┌──────────────────────────────────────────────────────────────┐
-  │  MYTH: When one sprinkler head activates, ALL heads         │
-  │  in the building open simultaneously (like in the movies)   │
+  │  MYTH: When one sprinkler head activates, ALL heads          │
+  │  in the building open simultaneously (like in the movies)    │
   │                                                              │
-  │  REALITY: Each sprinkler head is independently triggered    │
-  │  by heat. Only the heads DIRECTLY EXPOSED to heat from      │
-  │  the fire activate. In 80%+ of fire incidents, ONE OR       │
-  │  TWO heads control the fire.                                │
+  │  REALITY: Each sprinkler head is independently triggered     │
+  │  by heat. Only the heads DIRECTLY EXPOSED to heat from       │
+  │  the fire activate. In 80%+ of fire incidents, ONE OR        │
+  │  TWO heads control the fire.                                 │
   │                                                              │
-  │  The deluge system (all open) exists but is rare:           │
-  │  aircraft hangars, stage theaters — specific high-risk      │
+  │  The deluge system (all open) exists but is rare:            │
+  │  aircraft hangars, stage theaters — specific high-risk       │
   └──────────────────────────────────────────────────────────────┘
 
   HOW INDIVIDUAL HEAD WORKS:
@@ -316,12 +316,12 @@ SPECIALTY SYSTEMS: BEYOND BASIC SUPPLY AND DRAIN
 
   NFPA STANDARDS:
   ┌──────────────────────────────────────────────────────────────┐
-  │  NFPA 13: Commercial and multi-family (3+ family)           │
-  │  Full coverage except exempt areas                          │
-  │  Minimum density based on hazard classification             │
-  │  Light hazard: office, school, residential                  │
-  │  Ordinary hazard: light manufacturing, retail               │
-  │  Extra hazard: painting, auto service, rubber goods         │
+  │  NFPA 13: Commercial and multi-family (3+ family)            │
+  │  Full coverage except exempt areas                           │
+  │  Minimum density based on hazard classification              │
+  │  Light hazard: office, school, residential                   │
+  │  Ordinary hazard: light manufacturing, retail                │
+  │  Extra hazard: painting, auto service, rubber goods          │
   ├──────────────────────────────────────────────────────────────┤
   │  NFPA 13D: One and two family dwellings                     │
   │  Simplified requirements; lower demand                      │
@@ -332,9 +332,9 @@ SPECIALTY SYSTEMS: BEYOND BASIC SUPPLY AND DRAIN
   │  Many jurisdictions require for new construction            │
   ├──────────────────────────────────────────────────────────────┤
   │  NFPA 13R: Residential, 1-4 stories                        │
-  │  Low-rise multi-family: apartments, condos, townhouses      │
-  │  Intermediate standard between 13D and 13                   │
-  │  Allows some space exemptions (similar to 13D)              │
+  │  Low-rise multi-family: apartments, condos, townhouses       │
+  │  Intermediate standard between 13D and 13                    │
+  │  Allows some space exemptions (similar to 13D)               │
   └──────────────────────────────────────────────────────────────┘
 
   WET vs DRY SYSTEMS:

@@ -16,13 +16,13 @@
 |  Galagos ("bush babies")              ANTHROPOIDEA                 |
 |                                              |                     |
 |                               ┌──────────────┴──────────────┐     |
-|                               |                              |     |
-|                        PLATYRRHINI                    CATARRHINI   |
-|                        (New World monkeys)            (Old World)  |
-|                        Flat nose,                     Narrow nose, |
-|                        broad nasal septum             all females  |
-|                        3-color polymorphism           trichromats  |
-|                               |                              |     |
+|                               |                             |     |
+|                        PLATYRRHINI                    CATARRHINI  |
+|                        (New World monkeys)            (Old World) |
+|                        Flat nose,                     Narrow nose,|
+|                        broad nasal septum             all females |
+|                        3-color polymorphism           trichromats |
+|                               |                             |     |
 |                         Capuchins,            ┌─────────────┴──┐  |
 |                         Spider monkeys,       |                |  |
 |                         Howler monkeys,  Old World           APES  |
@@ -83,10 +83,10 @@
   CATARRHINI (Old World — "narrow-nosed"):
   ┌──────────────────────────────────────────────────────────┐
   │ Narrow nose, nostrils facing downward                    │
-  │ 32 teeth (2.1.2.3 formula, like humans)                 │
+  │ 32 teeth (2.1.2.3 formula, like humans)                  │
   │ ALL FEMALES ARE TRICHROMATS — consistent color vision    │
   │ No prehensile tail                                       │
-  │ Ischial callosities: sitting pads (in cercopithecoids)  │
+  │ Ischial callosities: sitting pads (in cercopithecoids)   │
   │ Divided into: Cercopithecoidea (OW monkeys) +            │
   │               Hominoidea (apes including humans)         │
   └──────────────────────────────────────────────────────────┘
@@ -104,7 +104,7 @@
   GREAT APES (Hominidae):
   +----------+--------------------------------------------+
   | Orangutan| Borneo/Sumatra. Solitary. Slow life        |
-  |          | history. Complex cognition. Nest-builders.  |
+  |          | history. Complex cognition. Nest-builders. |
   |          | 97% DNA shared with humans.                |
   +----------+--------------------------------------------+
   | Gorilla  | Africa (W and E). One-male groups.         |
@@ -192,9 +192,9 @@ typical company size before bureaucracy sets in.
   │ Eagle alarm       │ Look up, move into bushes            │
   │ (raptor threat)   │                                      │
   ├──────────────────┼──────────────────────────────────────┤
-  │ Leopard alarm     │ Run up into trees                    │
-  │ (terrestrial      │                                      │
-  │  predator)        │                                      │
+  │ Leopard alarm    │ Run up into trees                    │
+  │ (terrestrial     │                                      │
+  │  predator)       │                                      │
   ├──────────────────┼──────────────────────────────────────┤
   │ Snake alarm       │ Stand up, look at ground around you  │
   │ (python/cobra)    │                                      │
@@ -302,7 +302,7 @@ typical company size before bureaucracy sets in.
   ┌────────────────────────────────────────────────────────┐
   │ Termite fishing: grass stem, bark strip probe          │
   │ Ant dipping: leaf-midrib whisk for driver ants         │
-  │ Nut cracking (Bossou, Guinea — Matsuzawa):            │
+  │ Nut cracking (Bossou, Guinea — Matsuzawa):             │
   │   Stone hammer + stone anvil to crack Panda nuts       │
   │   The only documented spontaneous use of two stones    │
   │   as a compound tool set in the wild                   │
@@ -312,7 +312,7 @@ typical company size before bureaucracy sets in.
   │ Branch club: used as weapon/intimidation display       │
   │ Spear hunting: Fongoli (Pruetz/Bertolani 2007):        │
   │   Chimps sharpen sticks with teeth, use to probe       │
-  │   into cavities for small primates. ~75% female use.  │
+  │   into cavities for small primates. ~75% female use.   │
   └────────────────────────────────────────────────────────┘
 
   ARCHAEOLOGICAL RECORD OF CHIMPANZEE TOOL USE:

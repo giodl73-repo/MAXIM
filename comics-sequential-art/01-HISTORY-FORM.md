@@ -4,7 +4,7 @@
 
 ```
 +------------------------------------------------------------------+
-|                  COMICS HISTORY TIMELINE                          |
+|                  COMICS HISTORY TIMELINE                         |
 |                                                                  |
 |  PRE-HISTORY                                                     |
 |  Bayeux Tapestry (1070s): sequential narrative in image          |

@@ -23,11 +23,11 @@
 │                                                                          │
 ├──────────────────────────────────────────────────────────────────────────┤
 │                                                                          │
-│  SOURCES OF INT'L LAW (ICJ Statute Art. 38):                            │
-│  (1) International conventions/treaties (express consent)               │
-│  (2) International custom (general state practice + opinio juris)       │
-│  (3) General principles recognized by civilized nations                 │
-│  (4) Judicial decisions + scholarly writings (subsidiary sources)       │
+│  SOURCES OF INT'L LAW (ICJ Statute Art. 38):                             │
+│  (1) International conventions/treaties (express consent)                │
+│  (2) International custom (general state practice + opinio juris)        │
+│  (3) General principles recognized by civilized nations                  │
+│  (4) Judicial decisions + scholarly writings (subsidiary sources)        │
 │                                                                          │
 └──────────────────────────────────────────────────────────────────────────┘
 ```

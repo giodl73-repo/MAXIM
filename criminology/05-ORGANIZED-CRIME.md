@@ -173,7 +173,7 @@ Modern criminology uses social network analysis to map criminal organizations wi
 
   Key metrics:
   +------------------+----------------------------------------+
-  | Degree centrality| Number of direct connections          |
+  | Degree centrality| Number of direct connections           |
   |                  | High degree = potential broker or hub  |
   +------------------+----------------------------------------+
   | Betweenness      | How often on shortest paths between    |

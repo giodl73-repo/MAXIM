@@ -8,7 +8,7 @@ Distributed transactions are the problem of executing operations across multiple
 DISTRIBUTED TRANSACTION PROBLEM SPACE
 +---------------------------------------------------------------+
 |                                                               |
-|  REQUIREMENT: Atomic update across nodes A, B, C             |
+|  REQUIREMENT: Atomic update across nodes A, B, C              |
 |  CONSTRAINT: Any node can fail at any time                    |
 |  CONSTRAINT: Network can partition at any time                |
 |                                                               |
@@ -18,7 +18,7 @@ DISTRIBUTED TRANSACTION PROBLEM SPACE
 |  | (coordinator) | | coordinator     | | coordinator       |  |
 |  |               | | failure blocks  | | failure           |  |
 |  +---------------+ +-----------------+ +-------------------+  |
-|  | 3PC           | | Reduces          | | Still not         |  |
+|  | 3PC           | | Reduces          | | Still not         | |
 |  | (pre-commit)  | | blocking, not   | | partition-tolerant|  |
 |  |               | | partition-safe  | |                   |  |
 |  +---------------+ +-----------------+ +-------------------+  |
@@ -26,9 +26,9 @@ DISTRIBUTED TRANSACTION PROBLEM SPACE
 |  | (compensating | | consistent,     | | compensating       |  |
 |  | transactions) | | not isolated    | | transaction design |  |
 |  +---------------+ +-----------------+ +-------------------+  |
-|  | CRDTs         | | Always mergeable | | Limited to        |  |
-|  | (conflict-free| | no coordination | | CRDT-shaped        |  |
-|  | data types)   | | needed          | | data models        |  |
+|  | CRDTs         | | Always mergeable | | Limited to        | |
+|  | (conflict-free| | no coordination | | CRDT-shaped       |  |
+|  | data types)   | | needed          | | data models       |  |
 |  +---------------+ +-----------------+ +-------------------+  |
 |  | Spanner       | | Externally       | | Requires           |  |
 |  | TrueTime      | | consistent, full | | atomic clocks /    |  |

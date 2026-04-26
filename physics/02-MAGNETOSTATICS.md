@@ -14,10 +14,10 @@ of electrostatics, but with a structural difference that runs deep:
 |   SOURCE          CREATES            FIELD          DESCRIBED BY       |
 |   ──────          ───────            ─────          ────────────       |
 |                                                                        |
-|   current J  ──>  force on           B(x,y,z)       ∇·B  = 0          |
+|   current J  ──>  force on           B(x,y,z)       ∇·B  = 0           |
 |   (vector)        moving charges     vector field    ∇×B  = μ₀J        |
 |                                          │                             |
-|                                          │ B = ∇×A                    |
+|                                          │ B = ∇×A                     |
 |                                          ▼                             |
 |                                     A(x,y,z)       ∇²A = -μ₀J        |
 |                                     vector field   (Coulomb gauge)     |
@@ -405,11 +405,11 @@ The dipole tends to align with B (τ = 0 when m ∥ B). This is:
 | Constant              1/ε₀          |    μ₀                          |
 | Field                 E             |    B                           |
 | Divergence law     ∇·E = ρ/ε₀      |    ∇·B = 0                    |
-| Curl law           ∇×E = 0          |    ∇×B = μ₀J                  |
+| Curl law           ∇×E = 0          |    ∇×B = μ₀J                   |
 | Integral (div)   ∮∮E·dA = Q/ε₀     |    ∮∮B·dA = 0                 |
-| Integral (curl)  ∮E·dl = 0          |    ∮B·dl = μ₀I_enc            |
+| Integral (curl)  ∮E·dl = 0          |    ∮B·dl = μ₀I_enc             |
 | Potential         V scalar           |    A vector                   |
-| Field from pot    E = -∇V           |    B = ∇×A                    |
+| Field from pot    E = -∇V           |    B = ∇×A                     |
 | Poisson eq        ∇²V = -ρ/ε₀      |    ∇²A = -μ₀J                 |
 | Point source      Coulomb 1/r²       |    Biot-Savart (messier)      |
 | Symmetric tool    Gauss's law        |    Ampere's law               |

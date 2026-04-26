@@ -20,20 +20,20 @@ produce Hobbesian enemies or Kantian friends depending on the culture that inter
 
 ```
 +----------------------------------------------------------------------+
-|                    IR THEORY FAMILY TREE                              |
+|                    IR THEORY FAMILY TREE                             |
 |                                                                      |
 |  REALISM                LIBERALISM            CONSTRUCTIVISM         |
 |  ───────                ─────────             ─────────────          |
-|  Thucydides (400 BCE)   Kant (1795)           Wendt (1992)          |
+|  Thucydides (400 BCE)   Kant (1795)           Wendt (1992)           |
 |  Morgenthau (1948)      Cobden/Bright (1840s)  Katzenstein (1996)    |
-|  Waltz (1979)           Keohane/Nye (1977)    Finnemore (1996)      |
+|  Waltz (1979)           Keohane/Nye (1977)    Finnemore (1996)       |
 |  Mearsheimer (2001)     Doyle/Russett (1983)   Onuf (1989)           |
 |                                                                      |
-|  Core claim:            Core claim:           Core claim:           |
+|  Core claim:            Core claim:           Core claim:            |
 |  Power + anarchy        Institutions +         Identity + norms      |
-|  → self-help            interdependence        → constructed          |
+|  → self-help            interdependence        → constructed         |
 |  → security dilemma     → cooperation          interests             |
-|                         → democracy peace                           |
+|                         → democracy peace                            |
 |                                                                      |
 |  ENGLISH SCHOOL (synthesis): International SOCIETY — not just system |
 |  Bull (1977): The Anarchical Society                                 |
@@ -211,7 +211,7 @@ produce Hobbesian enemies or Kantian friends depending on the culture that inter
   RUSSETT & ONEAL (1997-2001): "Kantian Triangle"
   Each factor independently reduces conflict:
   ┌──────────────────────────────────────────────────────────────┐
-  │       DEMOCRACY ────────────────────────────────────────┐   │
+  │       DEMOCRACY ────────────────────────────────────────┐    │
   │              |                                           |   │
   │              v                                           |   │
   │         Institutional                                    |   │
@@ -253,7 +253,7 @@ produce Hobbesian enemies or Kantian friends depending on the culture that inter
   THREE CULTURES OF ANARCHY:
   ┌─────────────────┬──────────────────────────────────────────────┐
   │ Hobbesian       │ Enemies: treat each other as existential     │
-  │                 │ threats; no limits on violence                │
+  │                 │ threats; no limits on violence               │
   │                 │ (pre-state of nature, some IR subsystems)    │
   ├─────────────────┼──────────────────────────────────────────────┤
   │ Lockean         │ Rivals: compete but accept right to exist;   │
@@ -262,7 +262,7 @@ produce Hobbesian enemies or Kantian friends depending on the culture that inter
   ├─────────────────┼──────────────────────────────────────────────┤
   │ Kantian         │ Friends: collective security, help each other │
   │                 │ against threats from outside the community   │
-  │                 │ (NATO allies, EU members)                   │
+  │                 │ (NATO allies, EU members)                    │
   └─────────────────┴──────────────────────────────────────────────┘
 
   IMPLICATION: Change is possible by changing the culture, not just power

@@ -258,11 +258,11 @@ TRANSPARENT STAIN:
   SOLUTIONS:
   ┌────────────────────────────────────────────────────────────┐
   │  1. WOOD CONDITIONER (Pre-conditioner)                     │
-  │     Apply thin penetrating liquid before stain              │
+  │     Apply thin penetrating liquid before stain             │
   │     Partially fills pores → equalizes absorption           │
-  │     Reduces blotching substantially                         │
+  │     Reduces blotching substantially                        │
   │     Reduces overall stain intensity (need stronger stain   │
-  │     color to compensate)                                    │
+  │     color to compensate)                                   │
   │     Minwax Pre-Stain Wood Conditioner, General Finishes    │
   │     Wait Time: apply stain within 15 min (oil) or 30 min   │
   │     (water-based) of conditioner — don't let dry fully     │

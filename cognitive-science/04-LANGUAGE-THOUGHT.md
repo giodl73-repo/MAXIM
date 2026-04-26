@@ -50,9 +50,9 @@ LATERAL LEFT HEMISPHERE:
           └────────────connecting Broca+Wernicke)
   TEMPORAL LOBE         ↓
   +───────────────────────────────────────+
-  |  WERNICKE'S AREA (STG, BA 22)        |
-  |  Comprehension, lexical access       |
-  |  Semantic-phonological mapping       |
+  |  WERNICKE'S AREA (STG, BA 22)         |
+  |  Comprehension, lexical access        |
+  |  Semantic-phonological mapping        |
   +───────────────────────────────────────+
 ```
 

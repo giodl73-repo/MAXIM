@@ -14,10 +14,10 @@ NUCLEAR DETERRENCE — CONCEPTUAL MAP
 
   ┌─────────────────────────────────────────────────────────────┐
   │  DETERRENCE REQUIREMENTS:                                   │
-  │  1. CAPABILITY: Ability to destroy the adversary           │
-  │  2. SURVIVABILITY: Second-strike capability survives       │
-  │     adversary's first strike (hardened silos, submarines)  │
-  │  3. CREDIBILITY: Adversary believes you will actually use  │
+  │  1. CAPABILITY: Ability to destroy the adversary            │
+  │  2. SURVIVABILITY: Second-strike capability survives        │
+  │     adversary's first strike (hardened silos, submarines)   │
+  │  3. CREDIBILITY: Adversary believes you will actually use   │
   │     the weapons (the hard part)                             │
   └─────────────────────────────────────────────────────────────┘
 
@@ -72,16 +72,16 @@ MAD — THE STRATEGIC LOGIC
 
   US SURVIVABLE SECOND-STRIKE TRIAD:
   ┌──────────────────────────────────────────────────────────┐
-  │ LAND-BASED ICBMs (silo-based)                           │
+  │ LAND-BASED ICBMs (silo-based)                            │
   │ Minuteman III: 400 deployed; hardened silos              │
   │ Fast response; vulnerable to counterforce attack         │
   │                                                          │
-  │ SUBMARINE-LAUNCHED BALLISTIC MISSILES (SLBMs)           │
+  │ SUBMARINE-LAUNCHED BALLISTIC MISSILES (SLBMs)            │
   │ Ohio-class SSBNs: 14 deployed; virtually undetectable    │
   │ The most survivable leg; 70%+ of warheads at sea         │
   │                                                          │
   │ STRATEGIC BOMBERS                                        │
-  │ B-52H, B-2: slow; can be recalled                       │
+  │ B-52H, B-2: slow; can be recalled                        │
   │ "Penetrating" leg; also signals resolve                  │
   └──────────────────────────────────────────────────────────┘
 

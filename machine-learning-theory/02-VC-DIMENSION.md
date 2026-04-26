@@ -13,11 +13,11 @@ VC dimension (Vapnik-Chervonenkis, 1971) is the combinatorial measure of hypothe
 |  y: C → {0,1}, there exists h ∈ H with h(xᵢ) = yᵢ for all i    |
 |                                                                  |
 |  VC DIMENSION                                                    |
-|  VCdim(H) = largest d such that some set of d points is         |
+|  VCdim(H) = largest d such that some set of d points is          |
 |             shattered by H                                       |
-|           = ∞ if H shatters sets of every size                  |
+|           = ∞ if H shatters sets of every size                   |
 |                                                                  |
-|  FUNDAMENTAL THEOREM OF STATISTICAL LEARNING                    |
+|  FUNDAMENTAL THEOREM OF STATISTICAL LEARNING                     |
 |  The following are equivalent for binary classification:         |
 |  (1) H has finite VC dimension                                   |
 |  (2) H is PAC learnable (realizable)                             |
@@ -129,21 +129,21 @@ AGNOSTIC ERM BOUND
 
 ```
 +─────────────────────────────────────────────────────────────────+
-|                COMPUTING VCdim: TWO STEPS                        |
-|                                                                  |
-|  STEP 1: LOWER BOUND                                             |
+|                COMPUTING VCdim: TWO STEPS                       |
+|                                                                 |
+|  STEP 1: LOWER BOUND                                            |
 |  Exhibit a set of d points that H shatters.                     |
 |  One construction achieves every labeling → d is achievable.    |
-|                                                                  |
-|  STEP 2: UPPER BOUND                                             |
+|                                                                 |
+|  STEP 2: UPPER BOUND                                            |
 |  Show no set of d+1 points can be shattered.                    |
 |  Must hold for ALL sets of d+1 points, not just specific ones.  |
-|                                                                  |
-|  COMMON UPPER BOUND TECHNIQUES                                   |
+|                                                                 |
+|  COMMON UPPER BOUND TECHNIQUES                                  |
 |  • Dimension counting: parameterized by k real numbers          |
 |    → VCdim ≤ k (usually; need to be careful)                    |
-|  • Direct case analysis: enumerate all labelings                 |
-|  • Radon's theorem: convex position argument for halfspaces      |
+|  • Direct case analysis: enumerate all labelings                |
+|  • Radon's theorem: convex position argument for halfspaces     |
 +─────────────────────────────────────────────────────────────────+
 ```
 

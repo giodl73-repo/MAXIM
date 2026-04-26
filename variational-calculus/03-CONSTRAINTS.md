@@ -7,20 +7,20 @@ conditions in addition to the boundary conditions.
 
 ```
 +-----------------------------------------------------------------------+
-|              CONSTRAINED VARIATION                                     |
+|              CONSTRAINED VARIATION                                    |
 |                                                                       |
-|  UNCONSTRAINED: extremize J[u] over all admissible u                 |
+|  UNCONSTRAINED: extremize J[u] over all admissible u                  |
 |  → Euler-Lagrange equation                                            |
 |                                                                       |
 |  ISOPERIMETRIC CONSTRAINT:                                            |
-|  extremize J[u] subject to K[u] = C (integral constraint)            |
-|  → E-L for J − λK  (Lagrange multiplier λ)                           |
+|  extremize J[u] subject to K[u] = C (integral constraint)             |
+|  → E-L for J − λK  (Lagrange multiplier λ)                            |
 |                                                                       |
 |  HOLONOMIC (POINTWISE) CONSTRAINT:                                    |
-|  extremize J[u] subject to g(x, u, u') = 0                           |
+|  extremize J[u] subject to g(x, u, u') = 0                            |
 |  → E-L for F + λ(x)g (multiplier is a FUNCTION)                     |
 |                                                                       |
-|  NON-HOLONOMIC (DIFFERENTIAL) CONSTRAINT:                            |
+|  NON-HOLONOMIC (DIFFERENTIAL) CONSTRAINT:                             |
 |  constraint involves velocities in a non-integrable way               |
 |  → Requires special treatment                                         |
 |                                                                       |

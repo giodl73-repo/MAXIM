@@ -8,7 +8,7 @@ Windows Architecture — Full Stack (from silicon to your app)
 
   +------------------------------------------------------------------+
   |  YOUR APPLICATION LAYER                                          |
-  |  WinForms / WPF / WinUI 3 / MAUI / Console / ASP.NET            |
+  |  WinForms / WPF / WinUI 3 / MAUI / Console / ASP.NET             |
   +------------------------------------------------------------------+
   |  .NET RUNTIME (CLR / CoreCLR)                                    |
   |  BCL, GC, JIT (RyuJIT), type system, P/Invoke bridge            |
@@ -40,8 +40,8 @@ Windows Architecture — Full Stack (from silicon to your app)
   |  KERNEL-MODE DRIVERS (ring 0)                                    |
   |  WDM/KMDF drivers, filter drivers, miniport drivers              |
   +------------------------------------------------------------------+
-  |  HAL (Hardware Abstraction Layer)                                 |
-  |  hal.dll — normalizes chipset/ACPI/interrupt controller diffs     |
+  |  HAL (Hardware Abstraction Layer)                                |
+  |  hal.dll — normalizes chipset/ACPI/interrupt controller diffs    |
   +------------------------------------------------------------------+
   |  UEFI / FIRMWARE                                                 |
   +------------------------------------------------------------------+
@@ -754,10 +754,10 @@ Access Token — What "who are you" means to the kernel
 
   Token fields:
   ┌─────────────────────────────────────────────────────────┐
-  │  User SID        S-1-5-21-<domain>-<RID>               │
+  │  User SID        S-1-5-21-<domain>-<RID>                │
   │  Group SIDs      [Domain Users, Administrators, ...]    │
   │  Privileges      [SeDebugPrivilege, SeShutdownPrivilege] │
-  │  Integrity Level [Low | Medium | High | System]          │
+  │  Integrity Level [Low | Medium | High | System]         │
   │  Session ID      1 (interactive) or 0 (services)        │
   │  LogonSession    reference to logon session in LSASS    │
   │  Token Type      Primary (process) or Impersonation     │
@@ -788,7 +788,7 @@ UAC: Filtered Token vs Linked Token
   LSASS creates TWO tokens:
   ┌─────────────────────────┐   ┌─────────────────────────┐
   │  Filtered Token         │   │  Full Token (linked)    │
-  │  ─────────────          │   │  ──────────────────      │
+  │  ─────────────          │   │  ──────────────────     │
   │  Admin SID stripped     │   │  Admin SID present      │
   │  Privileges stripped    │   │  All privileges         │
   │  Integrity: Medium      │   │  Integrity: High        │
@@ -1092,12 +1092,12 @@ Windows Event Log Architecture
 ================================
 
   ┌──────────────────────────────────────────────────────────┐
-  │                  Event Log Consumers                      │
+  │                  Event Log Consumers                     │
   │   Event Viewer  wevtutil  Get-WinEvent  SIEM/Splunk      │
   └───────────────────────────┬──────────────────────────────┘
                               │  Windows Event Log API
   ┌───────────────────────────▼──────────────────────────────┐
-  │                  Windows Event Log Service                │
+  │                  Windows Event Log Service               │
   │   Manages .evtx files, subscriptions, forwarding         │
   └───────────────────────────┬──────────────────────────────┘
               ┌───────────────┼───────────────┐
@@ -1577,11 +1577,11 @@ MSBuild — What's Still True
   Key concepts (you know these — vocabulary check):
   ┌───────────────────────────────────────────────────────────────┐
   │  Property    — $(TargetFramework), $(Configuration)           │
-  │  Item        — @(Compile), @(Content), @(PackageReference)   │
+  │  Item        — @(Compile), @(Content), @(PackageReference)    │
   │  Target      — named execution unit (BeforeBuild, Build, etc)│
-  │  Task        — action within a target (Csc, Copy, Exec, etc) │
-  │  Import      — pull in another .props or .targets file       │
-  │  SDK         — "Sdk=" attribute = shorthand for SDK import   │
+  │  Task        — action within a target (Csc, Copy, Exec, etc)  │
+  │  Import      — pull in another .props or .targets file        │
+  │  SDK         — "Sdk=" attribute = shorthand for SDK import    │
   └───────────────────────────────────────────────────────────────┘
 
   Build hook points:

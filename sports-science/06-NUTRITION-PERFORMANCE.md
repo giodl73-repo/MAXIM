@@ -11,7 +11,7 @@ SPORTS NUTRITION FRAMEWORK:
   +------------------------------------------+
   | EA = Energy intake - Exercise expenditure |
   | EA target: >45 kcal/kg fat-free mass/day |
-  | EA <30 kcal/kg FFM/day → RED-S risk       |
+  | EA <30 kcal/kg FFM/day → RED-S risk      |
   +------------------------------------------+
              |
     +---------+----------+

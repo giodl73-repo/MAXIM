@@ -11,30 +11,30 @@ CLASSICAL HOLLYWOOD STRUCTURE
 |  STUDIO SYSTEM (1930-1948)                                        |
 |                                                                   |
 |  VERTICAL INTEGRATION:                                            |
-|  +-----------+    +-----------+    +-----------+                 |
+|  +-----------+    +-----------+    +-----------+                  |
 |  |PRODUCTION |    |DISTRIBUTION   |EXHIBITION |                 |
 |  |           | -> |           | -> |           |                 |
 |  |Studio lot |    |Distributes|    |Theater    |                 |
 |  |Contract   |    |to theaters|    |chains     |                 |
 |  |talent     |    |worldwide  |    |First-run  |                 |
 |  +-----------+    +-----------+    +-----------+                 |
-|                                                                   |
+|                                                                  |
 |  BIG FIVE (controlled all 3 verticals):                          |
-|    Paramount Pictures                                             |
-|    Metro-Goldwyn-Mayer (MGM)                                      |
-|    Warner Bros                                                    |
-|    RKO Radio Pictures                                             |
-|    20th Century Fox                                               |
-|                                                                   |
+|    Paramount Pictures                                            |
+|    Metro-Goldwyn-Mayer (MGM)                                     |
+|    Warner Bros                                                   |
+|    RKO Radio Pictures                                            |
+|    20th Century Fox                                              |
+|                                                                  |
 |  LITTLE THREE (production + distribution, no theaters):          |
-|    Universal Pictures                                             |
-|    Columbia Pictures                                              |
+|    Universal Pictures                                            |
+|    Columbia Pictures                                             |
 |    United Artists (distribution only; artist-owned)              |
-|                                                                   |
-|  ANTI-COMPETITIVE PRACTICES:                                      |
+|                                                                  |
+|  ANTI-COMPETITIVE PRACTICES:                                     |
 |    Block booking: must take whole slate to get hits              |
 |    Blind bidding: buy films without seeing them                  |
-|    Clearances: release schedule privileges first-run theaters     |
+|    Clearances: release schedule privileges first-run theaters    |
 |    Geographic exclusivity: one first-run theater per zone        |
 +-------------------------------------------------------------------+
          |
@@ -45,10 +45,10 @@ CLASSICAL HOLLYWOOD STRUCTURE
 +-------------------------------------------------------------------+
 |  POST-PARAMOUNT STRUCTURE (1948+)                                 |
 |  Production: independent + studio                                 |
-|  Distribution: studios retain (still powerful)                   |
-|  Exhibition: independent chains (no studio ownership)            |
+|  Distribution: studios retain (still powerful)                    |
+|  Exhibition: independent chains (no studio ownership)             |
 |                                                                   |
-|  Result: talent goes independent, cost-plus productions          |
+|  Result: talent goes independent, cost-plus productions           |
 |          studios become distributors + financiers                 |
 |          risk distribution changes: stars demand profit share     |
 +-------------------------------------------------------------------+

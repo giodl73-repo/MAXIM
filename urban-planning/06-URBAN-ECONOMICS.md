@@ -6,10 +6,10 @@ Urban economics explains why cities exist, why they grow, why some thrive and ot
 
 ```
 +------------------------------------------------------------------+
-|                    URBAN ECONOMICS SYSTEM                         |
+|                    URBAN ECONOMICS SYSTEM                        |
 |                                                                  |
 |  WHY CITIES EXIST       SPATIAL STRUCTURE      GROWTH & DECLINE  |
-|  -----------------      ----------------      ----------------  |
+|  -----------------      ----------------      ----------------   |
 |  Agglomeration          Bid-rent function      Economic base     |
 |  economies              Monocentric model      Cluster theory    |
 |  (Marshall's trinity)   Polycentric evolution  Creative class    |
@@ -70,7 +70,7 @@ MARSHALL'S THREE MECHANISMS:
    |  specialize in just that.               |
    |                                         |
    |  CLUSTER:                               |
-   |  100 semiconductor firms.              |
+   |  100 semiconductor firms.               |
    |  Enough demand for a specialized law    |
    |  firm, specialized equipment repair,    |
    |  specialized recruiting firm.           |
@@ -220,11 +220,11 @@ URBAN SCALING RELATIONSHIPS:
 
   EXPLAINS: WHY CITIES ARE EFFICIENT
   +-------------------------------+
-  |  2x population               |
+  |  2x population                |
   |                               |
   |  Economic output: 2.3x       |  (superlinear)
   |  Infrastructure cost: 1.8x   |  (sublinear)
-  |  NET: 2.3/1.8 = cities are   |
+  |  NET: 2.3/1.8 = cities are    |
   |  economically efficient       |
   +-------------------------------+
 
@@ -384,10 +384,10 @@ FLORIDA'S CREATIVE CLASS THEORY:
 
   3 T's FRAMEWORK:
   +------------------------------------------+
-  |  TECHNOLOGY: High-tech industry presence  |
+  |  TECHNOLOGY: High-tech industry presence |
   |  TALENT: % of workforce with college degree|
-  |  TOLERANCE: Gay Index, Bohemian Index     |
-  |  (open, diverse, tolerant culture)        |
+  |  TOLERANCE: Gay Index, Bohemian Index    |
+  |  (open, diverse, tolerant culture)       |
   +------------------------------------------+
   Cities high on all 3T = attract creative
   class = economic growth.

@@ -6,10 +6,10 @@
 +------------------------------------------------------------------+
 |              FIBER SOURCES FOR PAPERMAKING                       |
 |                                                                  |
-|   WOOD (dominant, ~95% of global pulp)                          |
+|   WOOD (dominant, ~95% of global pulp)                           |
 |   ──────────────────────────────────                             |
-|   Softwood:   Pine, Spruce, Fir, Hemlock, Larch                 |
-|   Hardwood:   Eucalyptus, Birch, Aspen, Beech, Acacia           |
+|   Softwood:   Pine, Spruce, Fir, Hemlock, Larch                  |
+|   Hardwood:   Eucalyptus, Birch, Aspen, Beech, Acacia            |
 |               Hybrid poplar, Maple, Alder                        |
 |                                                                  |
 |   NON-WOOD (specialized, ~5%)                                    |
@@ -20,8 +20,8 @@
 |   Cereal straw: Wheat, rice   →  China, India                    |
 |   Flax, hemp, sisal           →  Specialty, tea bags, filter     |
 |                                                                  |
-|   RECYCLED FIBER (~50% of global production uses recycled)      |
-|   OCC, ONP, mixed office, deinked pulp                          |
+|   RECYCLED FIBER (~50% of global production uses recycled)       |
+|   OCC, ONP, mixed office, deinked pulp                           |
 +------------------------------------------------------------------+
 ```
 

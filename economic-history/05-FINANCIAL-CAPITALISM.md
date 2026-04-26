@@ -14,10 +14,10 @@ LAYER 1: INFORMATION INFRASTRUCTURE
 
 LAYER 2: CAPITAL MARKETS
   ┌──────────────────────────────────────────────────────────┐
-  │  SOVEREIGN BONDS  │  RAILWAY BONDS  │  EQUITY (stocks)  │
-  │  (Rothschilds,    │  (dominant      │  (US: post-Civil  │
-  │  Barings: core    │  1840s–1890s)   │  War; trusts)     │
-  │  business)        │                 │                   │
+  │  SOVEREIGN BONDS  │  RAILWAY BONDS  │  EQUITY (stocks)   │
+  │  (Rothschilds,    │  (dominant      │  (US: post-Civil   │
+  │  Barings: core    │  1840s–1890s)   │  War; trusts)      │
+  │  business)        │                 │                    │
   └──────────────────┴─────────────────┴───────────────────┘
   London (dominant) ← Paris ← Frankfurt ← New York (rising)
 
@@ -28,9 +28,9 @@ LAYER 3: BANKING ARCHITECTURE
   │ (Rothschilds,    │ Take equity stakes in industrial firms│
   │ Barings, Morgan  │ Sit on supervisory boards             │
   │ in US)           │ Long-term relationship banking        │
-  │ Separation of    │ → "Hausbank" model                   │
+  │ Separation of    │ → "Hausbank" model                    │
   │ deposit and      │ Result: German industry financed      │
-  │ investment       │ more patiently; US/UK more market-   │
+  │ investment       │ more patiently; US/UK more market-    │
   │                  │ dependent                             │
   └──────────────────┴───────────────────────────────────────┘
 

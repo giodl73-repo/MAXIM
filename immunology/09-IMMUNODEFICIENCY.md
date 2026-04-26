@@ -9,15 +9,15 @@ IMMUNODEFICIENCY: WHEN IMMUNITY IS INSUFFICIENT
   TWO CATEGORIES:
   ┌──────────────────────────────────────────────────────────────────┐
   │ PRIMARY IMMUNODEFICIENCY (PID)                                   │
-  │   Genetic — born with defect in immune gene                     │
-  │   Rare: ~1 in 1,200–2,000 births                                │
-  │   Manifests early in life (usually)                             │
-  │   Treatment: Targeted immune replacement / gene therapy         │
-  │                                                                   │
-  │ SECONDARY (ACQUIRED) IMMUNODEFICIENCY                           │
+  │   Genetic — born with defect in immune gene                      │
+  │   Rare: ~1 in 1,200–2,000 births                                 │
+  │   Manifests early in life (usually)                              │
+  │   Treatment: Targeted immune replacement / gene therapy          │
+  │                                                                  │
+  │ SECONDARY (ACQUIRED) IMMUNODEFICIENCY                            │
   │   Caused by external factor:                                     │
-  │   HIV infection, chemotherapy, malnutrition, burns,             │
-  │   immunosuppressive drugs, extremes of age                      │
+  │   HIV infection, chemotherapy, malnutrition, burns,              │
+  │   immunosuppressive drugs, extremes of age                       │
   │   Much more common than primary                                  │
   └──────────────────────────────────────────────────────────────────┘
 
@@ -32,7 +32,7 @@ IMMUNODEFICIENCY: WHEN IMMUNITY IS INSUFFICIENT
   │ Opportunistic infections (PCP, CMV, candida, mycobacteria)     │
   │ → T cell deficiency (SCID, HIV, DiGeorge)                      │
   │                                                                  │
-  │ Recurrent Neisseria meningitidis                                │
+  │ Recurrent Neisseria meningitidis                               │
   │ → Complement C5–9 deficiency (MAC cannot form)                 │
   │                                                                  │
   │ Recurrent bacterial + fungal + viral infections (all types)    │
@@ -57,45 +57,45 @@ IMMUNODEFICIENCY: WHEN IMMUNITY IS INSUFFICIENT
 
   GENETIC CAUSES AND MECHANISMS:
   ┌────────────────────────────────────────────────────────────────┐
-  │ X-LINKED SCID (most common, ~50% of SCID):                    │
+  │ X-LINKED SCID (most common, ~50% of SCID):                     │
   │   Gene: IL2RG (γc chain, shared by IL-2, IL-4, IL-7, IL-15   │
-  │           IL-21 receptors)                                      │
+  │           IL-21 receptors)                                     │
   │   Defect: JAK3 cannot signal → no lymphocyte survival        │
   │   Phenotype: T⁻B⁺NK⁻ (T and NK absent; B cells present but  │
   │              non-functional — no T cell help)                  │
-  │                                                                 │
-  │ ADA SCID (15–20% of SCID):                                    │
+  │                                                                │
+  │ ADA SCID (15–20% of SCID):                                     │
   │   Gene: ADA (adenosine deaminase)                              │
-  │   Defect: Adenosine accumulates → toxic to lymphocytes        │
+  │   Defect: Adenosine accumulates → toxic to lymphocytes         │
   │   Phenotype: T⁻B⁻NK⁻ (all lymphocytes absent)               │
-  │   First gene therapy disease (1990; Kymriah era now CRISPR)   │
-  │                                                                 │
+  │   First gene therapy disease (1990; Kymriah era now CRISPR)    │
+  │                                                                │
   │ RAG1/RAG2 SCID:                                                │
-  │   Defect: VDJ recombination impossible → no lymphocytes       │
+  │   Defect: VDJ recombination impossible → no lymphocytes        │
   │   Phenotype: T⁻B⁻NK⁺                                         │
-  │                                                                 │
-  │ ARTEMIS SCID:                                                   │
-  │   Defect: DNA repair of hairpin → cannot complete VDJ         │
-  │   Also: Radiation sensitivity (DNA double-strand repair)      │
+  │                                                                │
+  │ ARTEMIS SCID:                                                  │
+  │   Defect: DNA repair of hairpin → cannot complete VDJ          │
+  │   Also: Radiation sensitivity (DNA double-strand repair)       │
   └────────────────────────────────────────────────────────────────┘
 
   TREATMENT:
   ┌────────────────────────────────────────────────────────────────┐
   │ HEMATOPOIETIC STEM CELL TRANSPLANT (HSCT):                   │
-  │   Curative if matched donor available                         │
+  │   Curative if matched donor available                          │
   │   Best results: Matched sibling donor, age <3.5 months       │
-  │   Works because: T cells reconstitute from donor HSC          │
-  │                                                                 │
+  │   Works because: T cells reconstitute from donor HSC           │
+  │                                                                │
   │ GENE THERAPY (ADA-SCID and X-SCID):                          │
-  │   Remove patient HSCs                                         │
-  │   Correct mutation ex vivo (retrovirus or CRISPR)             │
+  │   Remove patient HSCs                                          │
+  │   Correct mutation ex vivo (retrovirus or CRISPR)              │
   │   Reinfuse corrected cells                                     │
-  │                                                                 │
+  │                                                                │
   │   Libmeldy (OTL-101): EMA-approved for ADA-SCID (2021)       │
-  │   Lentiviral vector delivering ADA into HSCs                  │
-  │                                                                 │
+  │   Lentiviral vector delivering ADA into HSCs                   │
+  │                                                                │
   │   Risk: Insertional mutagenesis (retroviral, now mostly      │
-  │   replaced by safer lentiviral vectors or CRISPR safe harbor) │
+  │   replaced by safer lentiviral vectors or CRISPR safe harbor)  │
   └────────────────────────────────────────────────────────────────┘
 ```
 
@@ -182,12 +182,12 @@ IMMUNODEFICIENCY: WHEN IMMUNITY IS INSUFFICIENT
   │ 1. ENTRY: gp120:CD4:CCR5/CXCR4 → fusion → viral core enters  │
   │ 2. REVERSE TRANSCRIPTION: ssRNA → dsDNA (RT enzyme)           │
   │    Error rate: 3×10⁻⁵/base/cycle → rapid mutation → quasispecies│
-  │ 3. INTEGRATION: Integrase enzyme → HIV DNA integrated into     │
-  │    host genome (PROVIRUS — permanent unless cell eliminated)   │
+  │ 3. INTEGRATION: Integrase enzyme → HIV DNA integrated into      │
+  │    host genome (PROVIRUS — permanent unless cell eliminated)    │
   │ 4. LATENCY: Provirus transcriptionally silent in resting T cells│
   │    Reservoir: Long-lived memory CD4 T cells                   │
   │ 5. REACTIVATION: T cell stimulation → NF-κB → HIV LTR → tx   │
-  │ 6. TRANSCRIPTION: Nuclear mRNA → protein production            │
+  │ 6. TRANSCRIPTION: Nuclear mRNA → protein production             │
   │ 7. ASSEMBLY: Gag, Pol, Env proteins assemble at membrane      │
   │ 8. BUDDING + MATURATION: Protease cleaves Gag → mature virion │
   └─────────────────────────────────────────────────────────────────┘
@@ -197,42 +197,42 @@ IMMUNODEFICIENCY: WHEN IMMUNITY IS INSUFFICIENT
   │ ACUTE (2–4 weeks post infection):                              │
   │   Massive viral replication: viral load 10⁶–10⁸ copies/mL    │
   │   CD4 count drops dramatically                                 │
-  │   Flu-like illness (fever, rash, lymphadenopathy)             │
-  │   Immune response partially controls virus                    │
+  │   Flu-like illness (fever, rash, lymphadenopathy)              │
+  │   Immune response partially controls virus                     │
   │   "Viral set point" established: viral load falls to 10³–10⁵ │
-  │                                                                 │
+  │                                                                │
   │ CHRONIC (years to decades, untreated):                         │
-  │   Gradual CD4 T cell depletion                                │
-  │   CD4 <500: Mild immune compromise                            │
-  │   CD4 <200: AIDS (CDC definition)                             │
-  │   Ongoing viral replication even when clinically asymptomatic │
-  │                                                                 │
+  │   Gradual CD4 T cell depletion                                 │
+  │   CD4 <500: Mild immune compromise                             │
+  │   CD4 <200: AIDS (CDC definition)                              │
+  │   Ongoing viral replication even when clinically asymptomatic  │
+  │                                                                │
   │ AIDS:                                                          │
   │   AIDS-defining conditions: PCP, CMV retinitis, MAC, Toxo,   │
-  │   cryptococcal meningitis, Kaposi sarcoma, HIV wasting        │
-  │   Median time from infection to AIDS (untreated): ~10 years   │
+  │   cryptococcal meningitis, Kaposi sarcoma, HIV wasting         │
+  │   Median time from infection to AIDS (untreated): ~10 years    │
   └────────────────────────────────────────────────────────────────┘
 
   ANTIRETROVIRAL THERAPY (ART):
   ┌────────────────────────────────────────────────────────────────┐
-  │ DRUG CLASSES:                                                   │
+  │ DRUG CLASSES:                                                  │
   │ NRTIs: Block reverse transcriptase (chain terminator)          │
-  │        Tenofovir (TDF/TAF), emtricitabine, lamivudine, ABC    │
+  │        Tenofovir (TDF/TAF), emtricitabine, lamivudine, ABC     │
   │ NNRTIs: Non-competitive RT inhibitors                          │
-  │         Efavirenz, rilpivirine, doravirine                    │
+  │         Efavirenz, rilpivirine, doravirine                     │
   │ PIs: Protease inhibitors                                       │
-  │      Ritonavir (boosting), darunavir, atazanavir              │
-  │ INSTIs: Integrase strand transfer inhibitors (most modern)    │
+  │      Ritonavir (boosting), darunavir, atazanavir               │
+  │ INSTIs: Integrase strand transfer inhibitors (most modern)     │
   │         Dolutegravir, bictegravir, cabotegravir                │
   │ Entry inhibitors: Maraviroc (CCR5 antagonist), ibalizumab      │
-  │ Fusion inhibitors: Enfuvirtide (gp41 peptide)                 │
-  │                                                                 │
+  │ Fusion inhibitors: Enfuvirtide (gp41 peptide)                  │
+  │                                                                │
   │ CURRENT STANDARD: 2 NRTI + 1 INSTI (bictegravir or doluteg.) │
-  │ Once-daily single pill: Biktarvy (B/F/TAF)                    │
-  │                                                                 │
+  │ Once-daily single pill: Biktarvy (B/F/TAF)                     │
+  │                                                                │
   │ RESULT OF ART:                                                 │
-  │   Viral suppression <50 copies/mL                             │
-  │   CD4 recovery (>500/μL in most)                              │
+  │   Viral suppression <50 copies/mL                              │
+  │   CD4 recovery (>500/μL in most)                               │
   │   Near-normal life expectancy                                  │
   │   Undetectable = Untransmittable (U=U): no sexual transmission│
   └────────────────────────────────────────────────────────────────┘
@@ -256,47 +256,47 @@ IMMUNODEFICIENCY: WHEN IMMUNITY IS INSUFFICIENT
 
   REJECTION TYPES:
   ┌────────────────────────────────────────────────────────────────┐
-  │ HYPERACUTE REJECTION (minutes–hours):                         │
-  │   Pre-formed antibodies against donor HLA or ABO              │
+  │ HYPERACUTE REJECTION (minutes–hours):                          │
+  │   Pre-formed antibodies against donor HLA or ABO               │
   │   → Complement activation → vessel occlusion → organ death   │
   │   Prevention: ABO matching + crossmatch test (donor cells +  │
   │               recipient serum → no complement activation = OK)│
-  │                                                                 │
+  │                                                                │
   │ ACUTE REJECTION (days–weeks):                                  │
   │   T cell-mediated: Donor DCs present alloantigens to host T  │
-  │   B cell-mediated: Anti-donor HLA antibodies (AMR)            │
-  │   Treatment: High-dose steroids; antithymocyte globulin (ATG) │
-  │              Plasmapheresis + IVIG for AMR                    │
-  │                                                                 │
+  │   B cell-mediated: Anti-donor HLA antibodies (AMR)             │
+  │   Treatment: High-dose steroids; antithymocyte globulin (ATG)  │
+  │              Plasmapheresis + IVIG for AMR                     │
+  │                                                                │
   │ CHRONIC REJECTION (months–years):                              │
-  │   Slow fibrosis, vasculopathy → organ dysfunction             │
-  │   Not reversible; major cause of long-term allograft loss     │
+  │   Slow fibrosis, vasculopathy → organ dysfunction              │
+  │   Not reversible; major cause of long-term allograft loss      │
   └────────────────────────────────────────────────────────────────┘
 
   IMMUNOSUPPRESSION REGIMEN (typical solid organ transplant):
   ┌────────────────────────────────────────────────────────────────┐
   │ CALCINEURIN INHIBITORS (CNIs):                                 │
-  │   Cyclosporin A, Tacrolimus (FK506)                           │
+  │   Cyclosporin A, Tacrolimus (FK506)                            │
   │   Block calcineurin → NFAT blocked → no IL-2 → T cells off   │
-  │   Tacrolimus: 100x more potent than cyclosporin               │
+  │   Tacrolimus: 100x more potent than cyclosporin                │
   │   Side effects: Nephrotoxicity, hypertension, neurotoxicity  │
-  │                                                                 │
+  │                                                                │
   │ ANTIMETABOLITES:                                               │
   │   Mycophenolate mofetil (MMF): Blocks IMPDH → no guanosine   │
-  │   → lymphocytes can't proliferate                             │
-  │                                                                 │
+  │   → lymphocytes can't proliferate                              │
+  │                                                                │
   │ CORTICOSTEROIDS:                                               │
   │   NF-κB suppression → broad anti-inflammatory                │
   │   Minimize dose over time (side effects: osteoporosis, DM)   │
-  │                                                                 │
+  │                                                                │
   │ mTOR INHIBITORS:                                               │
-  │   Sirolimus (rapamycin), everolimus                           │
+  │   Sirolimus (rapamycin), everolimus                            │
   │   mTOR complex 1 → blocks IL-2-driven T cell cycle entry     │
   │   Alternative to CNI; also anti-proliferative (tumor risk ↓) │
-  │                                                                 │
+  │                                                                │
   │ COSTIMULATION BLOCKADE:                                        │
   │   Belatacept (CTLA-4-Ig): Blocks CD28:B7 → T cell anergy    │
-  │   Better renal function than calcineurin inhibitors           │
+  │   Better renal function than calcineurin inhibitors            │
   └────────────────────────────────────────────────────────────────┘
 
   HLA MATCHING:
@@ -315,29 +315,29 @@ IMMUNODEFICIENCY: WHEN IMMUNITY IS INSUFFICIENT
 
   KEY CHANGES WITH AGE:
   ┌────────────────────────────────────────────────────────────────┐
-  │ THYMUS:                                                         │
-  │   Involutes progressively from puberty (70-90% by age 70)     │
+  │ THYMUS:                                                        │
+  │   Involutes progressively from puberty (70-90% by age 70)      │
   │   Fewer new naïve T cells exported                             │
-  │   → Naïve T cell pool shrinks; Memory/effector expand         │
+  │   → Naïve T cell pool shrinks; Memory/effector expand          │
   │   → Less diversity → less capacity to respond to new antigens  │
-  │                                                                 │
-  │ T CELLS:                                                        │
+  │                                                                │
+  │ T CELLS:                                                       │
   │   Accumulation of CD28⁻ T cells (senescent, low co-stimulation)│
-  │   KLRG1+ terminally differentiated memory cells predominate   │
-  │   Fewer naïve T cells → reduced vaccine responses             │
-  │   Cytomegalovirus (CMV): Drives terminal differentiation of   │
-  │   large CD8 T cell clones that "fill up" the repertoire       │
-  │                                                                 │
-  │ B CELLS:                                                        │
-  │   Fewer B cell precursors from bone marrow                    │
+  │   KLRG1+ terminally differentiated memory cells predominate    │
+  │   Fewer naïve T cells → reduced vaccine responses              │
+  │   Cytomegalovirus (CMV): Drives terminal differentiation of    │
+  │   large CD8 T cell clones that "fill up" the repertoire        │
+  │                                                                │
+  │ B CELLS:                                                       │
+  │   Fewer B cell precursors from bone marrow                     │
   │   Reduced antibody affinity maturation                         │
   │   Reduced class switching capacity                             │
-  │   → Reduced vaccine response, especially to novel antigens    │
-  │                                                                 │
+  │   → Reduced vaccine response, especially to novel antigens     │
+  │                                                                │
   │ INNATE IMMUNITY:                                               │
-  │   "Inflammaging": Baseline low-grade chronic inflammation     │
+  │   "Inflammaging": Baseline low-grade chronic inflammation      │
   │   Elevated CRP, IL-6, TNF in elderly → contributes to CVD,   │
-  │   neurodegeneration, cancer (NLRP3 inflammatory tone ↑)       │
+  │   neurodegeneration, cancer (NLRP3 inflammatory tone ↑)        │
   │   Macrophage phagocytic capacity reduced                       │
   │   NK cell cytotoxicity reduced                                 │
   └────────────────────────────────────────────────────────────────┘
@@ -391,14 +391,14 @@ PRINCIPLE:
 
 FAULT-TREE MAP:
   ┌───────────────────────────────────────────────────────────────────────┐
-  │ Infection type          → Subsystem down    → Primary defect         │
+  │ Infection type          → Subsystem down    → Primary defect          │
   ├───────────────────────────────────────────────────────────────────────┤
   │ Encapsulated bacteria   → Antibody layer    → XLA, CVID, hyper-IgM  │
   │ (S. pneumo, H. flu,     (opsonization       BTK, IGHM mutations      │
   │ N. meningitidis)        required)                                      │
   ├───────────────────────────────────────────────────────────────────────┤
-  │ Recurrent Neisseria     → Complement C5–9   → Terminal complement    │
-  │ (bacteremia, meningitis) (MAC required for  deficiency               │
+  │ Recurrent Neisseria     → Complement C5–9   → Terminal complement     │
+  │ (bacteremia, meningitis) (MAC required for  deficiency                │
   │                          Neisseria killing)                           │
   ├───────────────────────────────────────────────────────────────────────┤
   │ Catalase+ bacteria      → Phagocyte burst   → CGD (NADPH oxidase)   │
@@ -406,8 +406,8 @@ FAULT-TREE MAP:
   │ Burkholderia)            kill post-phagocyte)                         │
   ├───────────────────────────────────────────────────────────────────────┤
   │ Infection sites w/o pus → Neutrophil traffic → LAD (CD18/integrin)  │
-  │ (wounds don't heal,      (neutrophils can't  Neutrophilia in blood   │
-  │ delayed cord separation) reach tissue)       = diagnostic giveaway   │
+  │ (wounds don't heal,      (neutrophils can't  Neutrophilia in blood    │
+  │ delayed cord separation) reach tissue)       = diagnostic giveaway    │
   ├───────────────────────────────────────────────────────────────────────┤
   │ PCP, CMV, Candida,       → T cell layer     → SCID, HIV/AIDS,       │
   │ Mycobacteria, Crypto     (intracellular      DiGeorge, CD40L         │

@@ -8,13 +8,13 @@ Digital technology has transformed dance in three separate ways: documentation (
 +----------------------------------------------------------------------+
 |           DIGITAL + DANCE: THREE DOMAINS                             |
 |                                                                      |
-|  DOCUMENTATION/ANALYSIS    CREATION TOOLS         PERFORMANCE       |
+|  DOCUMENTATION/ANALYSIS    CREATION TOOLS         PERFORMANCE        |
 |                                                                      |
 |  Video documentation       DAW as partner         Interactive works  |
 |  Motion capture (MoCap)    Interactive software   VR dance           |
-|  LMA-to-data mapping       Generative systems     Telepresence dance  |
-|  Gait analysis             Digital scores         Avatar performance  |
-|  Annotation tools          AI choreography        Gaming + dance      |
+|  LMA-to-data mapping       Generative systems     Telepresence dance |
+|  Gait analysis             Digital scores         Avatar performance |
+|  Annotation tools          AI choreography        Gaming + dance     |
 |                                                                      |
 |  PURPOSE: Understand        PURPOSE: Make new       PURPOSE: New       |
 |  what already exists        work with new tools     contexts for body  |

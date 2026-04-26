@@ -9,20 +9,20 @@ MEDIEVAL EPIGRAPHIC LANDSCAPE (c. 500-1500 CE)
 +------------------------------------------------------------------+
 |  LANGUAGE          CONTEXT              FUNCTION                 |
 |  --------          -------              --------                 |
-|  Latin             Church architecture   Dedication, relic        |
-|  (dominant)        Tomb monuments        Memorial, identity       |
-|                    Coins                 Authority, legitimacy    |
-|                    Charters (sometimes)  Legal, boundary          |
-|                    Reliquaries           Sacred identification    |
-|                                                                   |
-|  Vernacular        Tomb monuments        Local identity           |
-|  (emerging         Graffiti              Personal presence        |
-|   post-1000)       Heraldic              Clan/family identity     |
-|                    Coins (late)          Regional authority       |
-|                                                                   |
-|  Mixed             Church programs       Hierarchy, teaching      |
-|  Latin +           Memorial stones       Status + piety           |
-|  vernacular                                                       |
+|  Latin             Church architecture   Dedication, relic       |
+|  (dominant)        Tomb monuments        Memorial, identity      |
+|                    Coins                 Authority, legitimacy   |
+|                    Charters (sometimes)  Legal, boundary         |
+|                    Reliquaries           Sacred identification   |
+|                                                                  |
+|  Vernacular        Tomb monuments        Local identity          |
+|  (emerging         Graffiti              Personal presence       |
+|   post-1000)       Heraldic              Clan/family identity    |
+|                    Coins (late)          Regional authority      |
+|                                                                  |
+|  Mixed             Church programs       Hierarchy, teaching     |
+|  Latin +           Memorial stones       Status + piety          |
+|  vernacular                                                      |
 +------------------------------------------------------------------+
 ```
 

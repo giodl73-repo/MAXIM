@@ -6,24 +6,24 @@ Computational linguistics sits at the intersection of linguistics and computer s
 
 ```
 +------------------------------------------------------------------+
-|              COMPUTATIONAL LINGUISTICS LANDSCAPE                  |
+|              COMPUTATIONAL LINGUISTICS LANDSCAPE                 |
 |                                                                  |
-|  FORMAL GRAMMARS              PARSING ALGORITHMS                |
+|  FORMAL GRAMMARS              PARSING ALGORITHMS                 |
 |  (CFG, PCFG, CCG, TAG,        (CYK, Earley, chart,             |
-|   dependency grammar)          shift-reduce, neural)            |
+|   dependency grammar)          shift-reduce, neural)             |
 |                                                                  |
-|  CLASSIC NLP PIPELINE         STATISTICAL REVOLUTION            |
+|  CLASSIC NLP PIPELINE         STATISTICAL REVOLUTION             |
 |  (tokenize → POS tag →        (IBM alignment models,           |
 |   parse → NER → SRL)           n-gram LMs, HMMs, PCFGs)        |
 |                                                                  |
-|  DISTRIBUTIONAL               NEURAL NLP                        |
-|  SEMANTICS                    (word2vec, GloVe, BERT,           |
-|  (word2vec, GloVe,             Transformer, LLMs)               |
-|   pointwise mutual info)                                        |
+|  DISTRIBUTIONAL               NEURAL NLP                         |
+|  SEMANTICS                    (word2vec, GloVe, BERT,            |
+|  (word2vec, GloVe,             Transformer, LLMs)                |
+|   pointwise mutual info)                                         |
 |                                                                  |
 |  TCS BRIDGES:                                                    |
 |  CFG parsing → CYK (O(n³)), Earley (O(n³)),                    |
-|  weighted automata, inside-outside algorithm                    |
+|  weighted automata, inside-outside algorithm                     |
 +------------------------------------------------------------------+
 ```
 

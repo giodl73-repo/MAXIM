@@ -204,7 +204,7 @@ WHY UNIVERSALITY?
   ┌─────────────────────────────────────────────────────────────────┐
   │  What determines the universality class:                        │
   │  1. Spatial dimension d                                         │
-  │  2. Symmetry of the order parameter (Z₂, O(n), etc.)           │
+  │  2. Symmetry of the order parameter (Z₂, O(n), etc.)            │
   │  3. Range of interactions (short vs. long-range)                │
   │                                                                 │
   │  What does NOT matter:                                          │

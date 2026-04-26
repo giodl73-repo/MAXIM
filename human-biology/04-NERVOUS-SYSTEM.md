@@ -7,7 +7,7 @@ NERVOUS SYSTEM
 ┌────────────────────────────────────────────────────────────────┐
 │  CENTRAL (CNS)                   PERIPHERAL (PNS)              │
 │  brain + spinal cord             everything else               │
-│  ┌──────────────┐               ┌────────────────────────┐    │
+│  ┌──────────────┐               ┌────────────────────────┐     │
 │  │ BRAIN        │               │  SOMATIC               │    │
 │  │ cerebrum     │               │  voluntary motor +     │    │
 │  │ cerebellum   │               │  sensory to/from skin, │    │

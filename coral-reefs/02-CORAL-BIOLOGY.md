@@ -50,7 +50,7 @@ CORAL POLYP — CROSS SECTION
 +----------+-------+-------+----------+
 |  tentacle                 tentacle  |   ← nematocysts (stinging cells)
 |          GASTROVASCULAR             |
-|            CAVITY                  |
+|            CAVITY                   |
 |                                     |
 |  mesenteries                        |   ← vertical partitions
 |  (septal filaments hang off them)   |   ← mesenterial filaments: digest

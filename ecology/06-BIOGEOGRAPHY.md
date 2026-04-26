@@ -6,8 +6,8 @@ Biogeography asks: why are species where they are? The answer involves both ecol
 
 ```
 +---------------------------------------------------------------+
-|              BIOGEOGRAPHY FRAMEWORK                            |
-|                                                                |
+|              BIOGEOGRAPHY FRAMEWORK                           |
+|                                                               |
 |  HISTORICAL FACTORS          ECOLOGICAL FACTORS               |
 |  ----------------------      -------------------------        |
 |  Continental drift           Current climate                  |
@@ -15,9 +15,9 @@ Biogeography asks: why are species where they are? The answer involves both ecol
 |  Past climate (glacials)     Interspecific competition        |
 |  Dispersal events            Predation + disturbance          |
 |  Mass extinctions            Niche availability               |
-|                                                                |
-|  PATTERN: Species distributions reflect both                 |
-|           historical contingency + current filtering         |
+|                                                               |
+|  PATTERN: Species distributions reflect both                  |
+|           historical contingency + current filtering          |
 +---------------------------------------------------------------+
 ```
 

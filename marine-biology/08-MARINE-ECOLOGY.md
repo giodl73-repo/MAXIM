@@ -15,8 +15,8 @@ MARINE FOOD WEB — PELAGIC SYSTEM
                     ▼
          ┌──────────────────────────────┐
 LEVEL 1  │  PRIMARY PRODUCERS           │  ~50 Pg C/yr
-         │  Phytoplankton, macroalgae,   │
-         │  chemosynthetic bacteria      │
+         │  Phytoplankton, macroalgae,  │
+         │  chemosynthetic bacteria     │
          └──────────────────┬───────────┘
                             │ ~10% transferred
                             ▼
@@ -211,7 +211,7 @@ CONCEPT (Schaefer, 1954):
   ┌────────────────────────────────────────────────────┐
   │  Population   0   K/2    K                         │
   │  Growth rate  0   MAX    0                         │
-  │  MSY harvest at N = K/2                           │
+  │  MSY harvest at N = K/2                            │
   └────────────────────────────────────────────────────┘
 
 PROBLEMS WITH MSY IN PRACTICE:
@@ -306,12 +306,12 @@ BIOLOGICAL IMPACTS:
   │    Dissolution of aragonite (less stable than calcite) │
   │    begins at Ω_arag < 1                                │
   │                                                        │
-  │  Fish: navigation, olfaction disrupted at pH 7.8-7.9  │
+  │  Fish: navigation, olfaction disrupted at pH 7.8-7.9   │
   │    Larvae of some species fail to avoid predators      │
   │    (CO₂ disrupts GABA receptor signaling)              │
   │                                                        │
-  │  Pteropods (free-swimming snails):                    │
-  │    Already dissolving in Southern Ocean (Ω_arag < 1   │
+  │  Pteropods (free-swimming snails):                     │
+  │    Already dissolving in Southern Ocean (Ω_arag < 1    │
   │    in some areas in winter — now)                      │
   └────────────────────────────────────────────────────────┘
 ```

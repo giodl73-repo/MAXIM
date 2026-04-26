@@ -19,20 +19,20 @@ SCRIPTING LANGUAGE LANDSCAPE
   │                                                                           │
   │  ONE-LINER             SCRIPT FILE             MODULE / OOP               │
   │  ─────────────────     ──────────────────────  ───────────────────────    │
-  │  perl -e 'code'        #!/usr/bin/perl          package My::Module;        │
-  │  perl -n -e '...'      use strict;              use Moose;                 │
-  │  perl -p -e '...'      use warnings;            has 'attr' => (...);       │
-  │  perl -i -e '...' f    # full program           method dispatch, roles     │
-  │                        # file I/O, CPAN         CPAN-deployable            │
+  │  perl -e 'code'        #!/usr/bin/perl          package My::Module;       │
+  │  perl -n -e '...'      use strict;              use Moose;                │
+  │  perl -p -e '...'      use warnings;            has 'attr' => (...);      │
+  │  perl -i -e '...' f    # full program           method dispatch, roles    │
+  │                        # file I/O, CPAN         CPAN-deployable           │
   │  ← replaces sed/awk →  ← replaces shell  →     ← replaces Java beans →    │
   │                                                                           │
   │  Language surface:                                                        │
-  │    $scalar  @array  %hash                 ← data                         │
-  │    =~  s///  tr///  qr//                  ← regex (grammar, not library) │
+  │    $scalar  @array  %hash                 ← data                          │
+  │    =~  s///  tr///  qr//                  ← regex (grammar, not library)  │
   │    map grep sort reverse                  ← functional list ops           │
-  │    open / close / <$fh> / print           ← I/O                          │
-  │    eval / die / $@                        ← error handling               │
-  │    use Module / CPAN                      ← ecosystem                    │
+  │    open / close / <$fh> / print           ← I/O                           │
+  │    eval / die / $@                        ← error handling                │
+  │    use Module / CPAN                      ← ecosystem                     │
   └───────────────────────────────────────────────────────────────────────────┘
 ```
 

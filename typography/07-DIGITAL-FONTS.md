@@ -275,10 +275,10 @@ Additional tables added by OpenType (beyond TrueType's required set):
   Typography tables:
   ┌─────────┬───────────────────────────────────────────────────────┐
   │ GSUB    │ Glyph Substitution — ligatures, alternates, small caps │
-  │ GPOS    │ Glyph Positioning — kerning, mark attachment           │
+  │ GPOS    │ Glyph Positioning — kerning, mark attachment          │
   │ GDEF    │ Glyph Definitions — glyph class assignments           │
   │ JSTF    │ Justification — line breaking + justification rules   │
-  │ BASE    │ Baseline offsets for multilingual typesetting          │
+  │ BASE    │ Baseline offsets for multilingual typesetting         │
   └─────────┴───────────────────────────────────────────────────────┘
 
   Layout feature examples in GSUB:
@@ -418,9 +418,9 @@ FONTS AT LOW RESOLUTION:
 BEFORE HINTING:               AFTER HINTING:
 ┌──────────────────────────┐  ┌──────────────────────────┐
 │  n   n   n              │  │  n   n   n              │
-│  (stems vary in         │  │  (all stems same         │
+│  (stems vary in          │  │  (all stems same         │
 │   apparent weight)       │  │   apparent weight)       │
-│  m and n look slightly  │  │  m and n look consistent │
+│  m and n look slightly   │  │  m and n look consistent │
 │  different weights       │  │  in weight               │
 └──────────────────────────┘  └──────────────────────────┘
 

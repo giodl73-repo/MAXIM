@@ -7,19 +7,19 @@ MISINFORMATION TAXONOMY
 =========================
 
 +------------------------------------------------------------------+
-|  TAXONOMY (First Draft, Claire Wardle & Hossein Derakhshan)     |
+|  TAXONOMY (First Draft, Claire Wardle & Hossein Derakhshan)      |
 |                                                                  |
-|  DIS-INFORMATION:            False + intentional to harm        |
-|  MIS-INFORMATION:            False + NOT intentional to harm    |
-|  MAL-INFORMATION:            TRUE + intentional to harm         |
+|  DIS-INFORMATION:            False + intentional to harm         |
+|  MIS-INFORMATION:            False + NOT intentional to harm     |
+|  MAL-INFORMATION:            TRUE + intentional to harm          |
 |                              (reveals private information;       |
-|                               true dirt on political opponent)  |
+|                               true dirt on political opponent)   |
 |                                                                  |
 |  INFORMATION DISORDER:                                           |
 |  All three types, overlapping, creating:                         |
-|  - Confusion (can't tell what's true)                           |
-|  - Overabundance of information (firehose)                      |
-|  - Deliberate weaponization of all three                        |
+|  - Confusion (can't tell what's true)                            |
+|  - Overabundance of information (firehose)                       |
+|  - Deliberate weaponization of all three                         |
 +------------------------------------------------------------------+
 
 WHY THE TAXONOMY MATTERS FOR INTERVENTION:

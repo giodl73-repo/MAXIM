@@ -11,10 +11,10 @@ GLOBAL GOVERNANCE — THE LANDSCAPE
 
   PROBLEM TYPES → GOVERNANCE MECHANISMS
   ┌────────────────────────────────────────────────────────────┐
-  │ GLOBAL COMMONS:              Climate, ocean, space,       │
-  │ (no exclusive ownership)     electromagnetic spectrum     │
-  │ → UNFCCC, UNCLOS, ITU        Tragedy of the commons       │
-  │                              logic; collective action     │
+  │ GLOBAL COMMONS:              Climate, ocean, space,        │
+  │ (no exclusive ownership)     electromagnetic spectrum      │
+  │ → UNFCCC, UNCLOS, ITU        Tragedy of the commons        │
+  │                              logic; collective action      │
   ├────────────────────────────────────────────────────────────┤
   │ CROSS-BORDER EXTERNALITIES:  Pandemic, financial crisis,  │
   │ (spillovers)                 nuclear fallout              │
@@ -22,9 +22,9 @@ GLOBAL GOVERNANCE — THE LANDSCAPE
   │                              sovereign states             │
   ├────────────────────────────────────────────────────────────┤
   │ STANDARD-SETTING:            Telecommunications, internet,│
-  │ (network effects)            AI systems, trade rules      │
+  │ (network effects)            AI systems, trade rules       │
   │ → ITU, ICANN, ISO,           Standards = de facto power  │
-  │   WTO, G7/G20                                             │
+  │   WTO, G7/G20                                              │
   ├────────────────────────────────────────────────────────────┤
   │ SECURITY PUBLIC GOODS:       Nuclear non-proliferation,   │
   │ (peace as public good)       maritime security, WMD       │
@@ -104,14 +104,14 @@ CLIMATE GOVERNANCE ARCHITECTURE
   NDC (Nationally Determined Contribution) ARCHITECTURE:
   ┌──────────────────────────────────────────────────────────┐
   │ Each country submits its own emissions reduction pledge  │
-  │ (NDC) — self-determined, not internationally imposed    │
+  │ (NDC) — self-determined, not internationally imposed     │
   │                                                          │
-  │ Countries must update NDCs every 5 years                │
+  │ Countries must update NDCs every 5 years                 │
   │ (ratchet mechanism — pledges should increase over time)  │
   │                                                          │
   │ Transparency mechanism: countries must report progress   │
   │                                                          │
-  │ GOAL: Limit warming to 1.5°C / well below 2°C           │
+  │ GOAL: Limit warming to 1.5°C / well below 2°C            │
   └──────────────────────────────────────────────────────────┘
 
   THE GAP:
@@ -142,22 +142,22 @@ PANDEMIC GOVERNANCE — COVID LESSONS
 
   WHO AUTHORITY:
   ┌──────────────────────────────────────────────────────────┐
-  │ WHO can declare a PHEIC (Public Health Emergency        │
-  │ of International Concern) and make recommendations      │
+  │ WHO can declare a PHEIC (Public Health Emergency         │
+  │ of International Concern) and make recommendations       │
   │                                                          │
-  │ WHO CANNOT:                                             │
-  │ • Enter China to investigate independently              │
-  │ • Override national public health decisions             │
-  │ • Mandate quarantine or travel restrictions             │
-  │ • Enforce reporting requirements                        │
+  │ WHO CANNOT:                                              │
+  │ • Enter China to investigate independently               │
+  │ • Override national public health decisions              │
+  │ • Mandate quarantine or travel restrictions              │
+  │ • Enforce reporting requirements                         │
   │                                                          │
-  │ IHR (International Health Regulations):                 │
-  │ Countries must report "potential PHEICs."               │
-  │ China reported COVID to WHO: December 31, 2019          │
-  │ SARS began in November 2002; reported March 2003.       │
+  │ IHR (International Health Regulations):                  │
+  │ Countries must report "potential PHEICs."                │
+  │ China reported COVID to WHO: December 31, 2019           │
+  │ SARS began in November 2002; reported March 2003.        │
   │ The incentive structure punishes early reporting         │
   │ (economic costs of warning; political costs of           │
-  │  acknowledging outbreak).                               │
+  │  acknowledging outbreak).                                │
   └──────────────────────────────────────────────────────────┘
 
   COVAX:
@@ -252,7 +252,7 @@ INTERNET GOVERNANCE — COMPETING MODELS
   │ • Open, global, interoperable      │ • Sovereign internets             │
   │ • Limited government role          │ • Governments control content     │
   │ • Technical community leads        │ • ITU governance                  │
-  │ • Civil society participating      │ • No cross-border data flows       │
+  │ • Civil society participating      │ • No cross-border data flows      │
   │ • Free data flows                  │   without government approval     │
   └────────────────────────────────────┴───────────────────────────────────┘
 

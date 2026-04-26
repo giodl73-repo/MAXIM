@@ -11,15 +11,15 @@
 ┌─────────────────────────────────────────────────────────────────────────────┐
 │                         PANDAS DATA MODEL                                   │
 │                                                                             │
-│  DataFrame = dict of Series sharing an Index                               │
+│  DataFrame = dict of Series sharing an Index                                │
 │                                                                             │
-│  ┌─────────────────────────────────────────────────────────────────────┐   │
+│  ┌─────────────────────────────────────────────────────────────────────┐    │
 │  │  Index    │  col_A  │  col_B  │  col_C  │  ...                     │   │
 │  │  ─────────┼─────────┼─────────┼─────────┼──────────────────────    │   │
 │  │  "a"      │  1.0    │  "foo"  │  True   │                          │   │
 │  │  "b"      │  2.0    │  "bar"  │  False  │                          │   │
 │  │  "c"      │  3.0    │  "baz"  │  True   │                          │   │
-│  └─────────────────────────────────────────────────────────────────────┘   │
+│  └─────────────────────────────────────────────────────────────────────┘  │
 │       │           │          │         │                                   │
 │     Index      Series     Series    Series  ← each column is a Series     │
 │   (labels)   (float64) (object_)  (bool_)    with the same Index          │
@@ -114,7 +114,7 @@ This is the most confusing part of Pandas. Three indexers with overlapping behav
 
 ```
 ┌────────────────────────────────────────────────────────────────────┐
-│  INDEXER   │  ROWS           │  COLUMNS        │  RETURNS         │
+│  INDEXER   │  ROWS           │  COLUMNS        │  RETURNS          │
 ├────────────┼─────────────────┼─────────────────┼──────────────────┤
 │  df[col]   │  —              │  label only     │  Series          │
 │  df[cols]  │  —              │  list of labels │  DataFrame       │
@@ -505,11 +505,11 @@ Pandas is slow when misused. The hierarchy:
 
 ```
 ┌─────────────────────────────────────────────────────────────────────┐
-│  FAST  ← ─ ─ ─ ─ ─ ─ ─ ─ ─ ─ ─ ─ ─ ─ ─ ─ ─ ─ ─ ─ ─ ─ ─ ─ ─ ►  SLOW │
+│  FAST  ← ─ ─ ─ ─ ─ ─ ─ ─ ─ ─ ─ ─ ─ ─ ─ ─ ─ ─ ─ ─ ─ ─ ─ ─ ─ ►  SLOW  │
 │                                                                     │
-│  Vectorized   eval()    apply()   itertuples()  iterrows()  loop   │
-│  numpy ops    (numexpr)  (Python   (named        (Series     over  │
-│                          func)     tuples)        per row)   rows  │
+│  Vectorized   eval()    apply()   itertuples()  iterrows()  loop    │
+│  numpy ops    (numexpr)  (Python   (named        (Series     over   │
+│                          func)     tuples)        per row)   rows   │
 └─────────────────────────────────────────────────────────────────────┘
 ```
 
@@ -557,7 +557,7 @@ df = pd.read_parquet("data.parquet",
 
 ```
 ┌─────────────────────────────────────────────────────────────────────┐
-│  SITUATION                    │  ALTERNATIVE                       │
+│  SITUATION                    │  ALTERNATIVE                        │
 ├───────────────────────────────┼────────────────────────────────────┤
 │  > 1GB data, single machine   │  Polars (Rust, lazy eval, faster)  │
 │  > memory data, distributed   │  Dask, Spark, Modin                │
@@ -641,7 +641,7 @@ one Python string object per cell — no vectorization possible. Cast to
 
 ```
 ┌─────────────────────────────────────────────────────────────────────┐
-│  TASK                           │  APPROACH                        │
+│  TASK                           │  APPROACH                         │
 ├─────────────────────────────────┼──────────────────────────────────┤
 │  Select single column           │  df["col"]                       │
 │  Select by label, safe write    │  df.loc[rows, cols]              │

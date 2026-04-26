@@ -4,7 +4,7 @@
 
 ```
 +------------------------------------------------------------------+
-|               SUSTAINABLE FASHION LANDSCAPE                       |
+|               SUSTAINABLE FASHION LANDSCAPE                      |
 |                                                                  |
 |  PROBLEM DIMENSIONS                                              |
 |  Volume: 100B+ garments/year; most in landfill in 3 years        |
@@ -99,8 +99,8 @@ DOWN (natural, bird feather)
 | Mylo (Bolt Threads| Mycelium       | Very limited     | Mushroom leather;         |
 | / Stella McCartney| (fungus)       | Luxury only      | biodegradable             |
 +------------------+----------------+------------------+---------------------------+
-| Qmonos (Spiber) | Spider silk     | Limited          | Bioengineered; extreme    |
-| Brewed Protein   | (bacterial)     | pilot            | performance potential     |
+| Qmonos (Spiber)  | Spider silk    | Limited          | Bioengineered; extreme    |
+| Brewed Protein   | (bacterial)    | pilot            | performance potential     |
 +------------------+----------------+------------------+---------------------------+
 | Seaweed fiber    | Algae          | Early stage      | Fast-growing; ocean-      |
 |                  |                |                  | compatible                |

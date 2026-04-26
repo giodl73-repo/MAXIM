@@ -153,8 +153,8 @@ PRESS STRUCTURE:
                        |
             +-----------v-----------+
             |        SCREW          |
-            |     (wooden, later     |
-            |      iron)             |
+            |     (wooden, later    |
+            |      iron)            |
             +-----------+-----------+
                         |
                    +----v----+

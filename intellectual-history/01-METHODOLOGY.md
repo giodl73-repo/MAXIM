@@ -12,7 +12,7 @@ of history and interpretation theory.
 |                INTELLECTUAL HISTORY METHODS                       |
 |                                                                   |
 |  LEVEL OF ANALYSIS                                                |
-|  +------------------+  +------------------+  +----------------+  |
+|  +------------------+  +------------------+  +----------------+   |
 |  | TEXT-LEVEL        |  | CONTEXT-LEVEL    |  | STRUCTURE-LEVEL|  |
 |  | Close reading,   |  | Linguistic,      |  | Longue duree,  |  |
 |  | internal logic,  |  | political, social|  | epistemes,     |  |
@@ -21,9 +21,9 @@ of history and interpretation theory.
 |  | Cambridge School)|  | (Cambridge,      |  | Annales,       |  |
 |  |                  |  | Mannheim)        |  | Koselleck)     |  |
 |  +------------------+  +------------------+  +----------------+  |
-|                                                                   |
-|  THE HERMENEUTIC CIRCLE                                           |
-|  +-----------------------------------------------------------+    |
+|                                                                  |
+|  THE HERMENEUTIC CIRCLE                                          |
+|  +-----------------------------------------------------------+   |
 |  | Understanding parts requires understanding the whole,     |    |
 |  | understanding the whole requires understanding parts.     |    |
 |  | Iterative process: never fully resolved.                  |    |

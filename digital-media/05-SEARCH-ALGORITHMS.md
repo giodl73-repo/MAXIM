@@ -9,13 +9,13 @@ SEARCH SYSTEM ARCHITECTURE
 QUERY -> QUERY UNDERSTANDING -> RETRIEVAL -> RANKING -> RESULTS
 
 +------------------------------------------------------------------+
-|  QUERY UNDERSTANDING         RANKING SIGNALS                    |
+|  QUERY UNDERSTANDING         RANKING SIGNALS                     |
 |                                                                  |
-|  Named entity recognition     RELEVANCE:                        |
-|  Intent classification         Keyword match                    |
+|  Named entity recognition     RELEVANCE:                         |
+|  Intent classification         Keyword match                     |
 |  Query rewriting               Semantic similarity               |
 |  Spell correction              Topic modeling                    |
-|  Language detection                                             |
+|  Language detection                                              |
 |                                AUTHORITY:                        |
 |                                 Backlink graph (PageRank)        |
 |                                 E-E-A-T signals                  |

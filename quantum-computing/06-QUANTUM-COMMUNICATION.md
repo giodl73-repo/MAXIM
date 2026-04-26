@@ -6,8 +6,8 @@
 ┌─────────────────────────────────────────────────────────────────────┐
 │              QUANTUM KEY DISTRIBUTION — PROTOCOL FAMILY             │
 │                                                                     │
-│  PREPARE-AND-MEASURE              ENTANGLEMENT-BASED               │
-│  ┌──────────────────────────┐     ┌────────────────────────────┐   │
+│  PREPARE-AND-MEASURE              ENTANGLEMENT-BASED                │
+│  ┌──────────────────────────┐     ┌────────────────────────────┐    │
 │  │  BB84 (1984)             │     │  E91 / Ekert (1991)        │   │
 │  │  Alice prepares qubits   │     │  Source emits entangled     │   │
 │  │  in 2 conjugate bases    │     │  pairs to Alice + Bob      │   │
@@ -304,26 +304,26 @@ STATUS (2025):
 
 ```
 ┌──────────────────────────────────────────────────────────────────────┐
-│ SCENARIO                     │ RECOMMENDATION                       │
+│ SCENARIO                     │ RECOMMENDATION                        │
 ├──────────────────────────────┼───────────────────────────────────────┤
 │ Need information-theoretic   │ QKD (BB84 with decoy states in       │
 │ security for key exchange    │ practice); requires authenticated    │
 │                              │ classical channel                    │
 ├──────────────────────────────┼───────────────────────────────────────┤
-│ Distance < 100 km, fiber     │ BB84 with attenuated laser + decoy;  │
-│                              │ commercial systems available         │
+│ Distance < 100 km, fiber     │ BB84 with attenuated laser + decoy;   │
+│                              │ commercial systems available          │
 ├──────────────────────────────┼───────────────────────────────────────┤
 │ Distance 100-400 km          │ BB84 with SNSPD + trusted repeater  │
 │                              │ nodes (security degrades at nodes)   │
 ├──────────────────────────────┼───────────────────────────────────────┤
 │ Distance > 400 km            │ Satellite relay (Micius-style) or   │
-│                              │ wait for quantum repeaters (Gen 3)   │
+│                              │ wait for quantum repeaters (Gen 3)    │
 ├──────────────────────────────┼───────────────────────────────────────┤
 │ Distrust devices             │ DI-QKD based on E91/Bell violation;  │
 │ (untrusted manufacturer)     │ requires loophole-free Bell test     │
 ├──────────────────────────────┼───────────────────────────────────────┤
-│ QBER > 11% observed          │ Abort — either eavesdropping or      │
-│                              │ channel too noisy for secure QKD     │
+│ QBER > 11% observed          │ Abort — either eavesdropping or       │
+│                              │ channel too noisy for secure QKD      │
 ├──────────────────────────────┼───────────────────────────────────────┤
 │ Post-quantum security for    │ Use ML-KEM (Kyber) / ML-DSA (Dilith.)│
 │ classical data                │ Shor-resistant, deployable now      │
@@ -344,7 +344,7 @@ STATUS (2025):
 
 ```
 ┌──────────────────────┬────────────────────────────┬────────────────────────────┐
-│ DIMENSION            │ QKD (BB84/E91)              │ PQC (ML-KEM, ML-DSA)       │
+│ DIMENSION            │ QKD (BB84/E91)             │ PQC (ML-KEM, ML-DSA)       │
 ├──────────────────────┼────────────────────────────┼────────────────────────────┤
 │ Security basis       │ Physics (info-theoretic)    │ Math (computational)       │
 │ Quantum-safe?        │ Yes — by definition         │ Yes — believed hard for QC │

@@ -9,8 +9,8 @@ Space is the core medium of architecture. Not walls, not floors, not roofs — t
 |                  THE SPATIAL DESIGN STACK                          |
 |                                                                    |
 |  PHENOMENOLOGY / EXPERIENCE                                        |
-|  What it feels like to be in the space                            |
-|  Prospect/refuge, compression/release, procession                 |
+|  What it feels like to be in the space                             |
+|  Prospect/refuge, compression/release, procession                  |
 |                       |                                            |
 |  ENVIRONMENTAL PSYCHOLOGY                                          |
 |  How humans respond to spatial attributes                          |
@@ -18,7 +18,7 @@ Space is the core medium of architecture. Not walls, not floors, not roofs — t
 |                       |                                            |
 |  SPATIAL SEQUENCE                                                  |
 |  How spaces connect and transition                                 |
-|  Circulation, thresholds, borrowed light                          |
+|  Circulation, thresholds, borrowed light                           |
 |                       |                                            |
 |  PROPORTION SYSTEMS                                                |
 |  Rules governing dimensional relationships                         |
@@ -246,8 +246,8 @@ Proportion is the discipline of making dimensional relationships feel coherent. 
   ┌────────────────────────────────────┬─────────────┐
   │                                    │             │
   │                                    │             │
-  │         GOLDEN RECTANGLE          │   SQUARE    │
-  │             (φ : 1)               │   (1 : 1)   │
+  │         GOLDEN RECTANGLE           │   SQUARE    │
+  │             (φ : 1)                │   (1 : 1)   │
   │                                    │             │
   │                                    │             │
   └────────────────────────────────────┴─────────────┘
@@ -383,7 +383,7 @@ Spaces without direct exterior access can receive light and visual connection vi
                      │ EXTERIOR     │ INTERIOR     │
                      │ ROOM         │ ROOM         │
                      │    light ──→ │    [glass]   │
-                     │  (window)    │    ↑          │
+                     │  (window)    │    ↑         │
                      └──────────────┴──────────────┘
 
   Borrowed view:     Interior room with view to

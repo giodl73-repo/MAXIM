@@ -19,9 +19,9 @@ KERNEL ARCHITECTURE AT A GLANCE
   ├──────────────┤          ├──────────────────┤       ├──────────────────────────────┤
   │  glibc       │          │  Win32 / WinRT   │       │ Foundation / libSystem        │
   ├──────────────┤          ├──────────────────┤       ├──────────────────────────────┤
-  │  LINUX       │          │  NT Executive    │       │ BSD layer (POSIX syscalls)    │
-  │  KERNEL      │          │  (Object Mgr,    │       │ Mach layer (IPC/VM/tasks)     │
-  │  (all in     │          │  I/O Mgr, Sec,   │       │ IOKit (C++ drivers)           │
+  │  LINUX       │          │  NT Executive    │       │ BSD layer (POSIX syscalls)   │
+  │  KERNEL      │          │  (Object Mgr,    │       │ Mach layer (IPC/VM/tasks)    │
+  │  (all in     │          │  I/O Mgr, Sec,   │       │ IOKit (C++ drivers)          │
   │   ring 0)    │          │  Proc Mgr, Mem)  │       │                              │
   ├──────────────┤          ├──────────────────┤       ├──────────────────────────────┤
   │  HARDWARE    │          │  HAL + HARDWARE  │       │  HARDWARE                    │

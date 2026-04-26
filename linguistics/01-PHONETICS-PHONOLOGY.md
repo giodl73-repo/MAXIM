@@ -7,7 +7,7 @@ Two related but distinct disciplines:
 ```
 +----------------------------------------------------------+
 |  PHONETICS                    PHONOLOGY                  |
-|  (physical facts of sound)    (abstract sound systems)  |
+|  (physical facts of sound)    (abstract sound systems)   |
 |                                                          |
 |  Articulatory:                 Phonemes:                 |
 |  where/how vocal tract         the distinctive units     |

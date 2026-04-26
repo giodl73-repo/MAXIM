@@ -28,8 +28,8 @@ MARINE RIGGING OVERVIEW
   │  │  Sheets (control sail angle)                               │ │
   │  │  Guys (spinnaker, outrigger control)                       │ │
   │  │  Travelers, preventers, vangs                              │ │
-  │  │  Material: Polyester double braid or high-modulus braid   │  │
-  │  │  Key property: LOW STRETCH + GOOD HANDLING                │  │
+  │  │  Material: Polyester double braid or high-modulus braid    │ │
+  │  │  Key property: LOW STRETCH + GOOD HANDLING                 │ │
   │  └────────────────────────────────────────────────────────────┘ │
   └──────────────────────────────────────────────────────────────────┘
 
@@ -50,8 +50,8 @@ STANDING RIGGING SPECIFICATIONS
   1×19 WIRE ROPE (most common traditional standing rigging):
   ┌──────────────────────────────────────────────────────────────────┐
   │  Construction: 19 wires in concentric layers (1+6+12)          │
-  │  Wire material: Type 316 stainless steel                        │
-  │  ┌──────────────────────────────────────────────────────────┐   │
+  │  Wire material: Type 316 stainless steel                         │
+  │  ┌──────────────────────────────────────────────────────────┐    │
   │  │  CENTER: 1 wire   (king wire)                            │   │
   │  │  LAYER 2: 6 wires (inner crown)                          │   │
   │  │  LAYER 3: 12 wires (outer crown)                         │   │
@@ -67,18 +67,18 @@ STANDING RIGGING SPECIFICATIONS
   7×7 WIRE ROPE (more flexible):
   ┌──────────────────────────────────────────────────────────────────┐
   │  Construction: 7 strands × 7 wires = 49 wires total            │
-  │  More flexible than 1×19 (smaller wire diameter, more helical)  │
-  │  Use: Intermediate stays, running backstays, controls           │
+  │  More flexible than 1×19 (smaller wire diameter, more helical)   │
+  │  Use: Intermediate stays, running backstays, controls            │
   │  Elongation: Slightly more than 1×19                           │
   └──────────────────────────────────────────────────────────────────┘
 
   HIGH-MODULUS FIBER STANDING RIGGING (modern racing/cruising):
   ┌──────────────────────────────────────────────────────────────────┐
-  │  PBO (Zylon): Highest modulus, lightest; UV degradation fatal   │
+  │  PBO (Zylon): Highest modulus, lightest; UV degradation fatal    │
   │  Vectran: Low creep, excellent for permanent stays             │
   │  UHMWPE (Dyneema): Strong, light, UV moderate                  │
   │  Aramid (Kevlar): Proven but poor bending fatigue              │
-  │                                                                   │
+  │                                                                  │
   │  COMMON: Rod rigging (solid stainless rod, not wire)           │
   │  Construction: Single solid rod, swaged end terminals          │
   │  Properties: Minimal elongation (<0.1%), very long service life│
@@ -96,32 +96,32 @@ RUNNING RIGGING REQUIREMENTS
 
   HALYARDS (raise/lower sails):
   ┌──────────────────────────────────────────────────────────────────┐
-  │  Primary requirement: Run through masthead sheave without       │
+  │  Primary requirement: Run through masthead sheave without        │
   │  kinking; low stretch so sail doesn't drop when eased          │
-  │                                                                   │
+  │                                                                  │
   │  TRADITIONAL: Polyester double braid                           │
   │    Elongation: 10–15% at break; ~3–5% at working loads        │
-  │    Durability: Excellent UV stability; good abrasion resistance │
-  │    Cost: Moderate                                               │
-  │                                                                   │
+  │    Durability: Excellent UV stability; good abrasion resistance  │
+  │    Cost: Moderate                                                │
+  │                                                                  │
   │  PERFORMANCE: Polyester/UHMWPE composite braid                 │
   │    UHMWPE core + polyester cover                               │
   │    Elongation: <3% at working loads                            │
   │    Advantage: Near-zero stretch so sail height is held         │
-  │    Cost: High                                                   │
+  │    Cost: High                                                    │
   └──────────────────────────────────────────────────────────────────┘
 
   SHEETS (control sail angle in/out):
   ┌──────────────────────────────────────────────────────────────────┐
   │  Primary requirement: Must run through blocks smoothly;        │
-  │  be gripped in clutches and cleats; hand-manageable             │
-  │                                                                   │
+  │  be gripped in clutches and cleats; hand-manageable              │
+  │                                                                  │
   │  Standard: 3/8"–1/2" polyester double braid                    │
-  │  Coefficient of friction: Must grip on cleats and winch drums   │
-  │  Construction: Braided cover must engage winch drum (not        │
-  │    so slippery that it slips under load)                        │
+  │  Coefficient of friction: Must grip on cleats and winch drums    │
+  │  Construction: Braided cover must engage winch drum (not         │
+  │    so slippery that it slips under load)                         │
   │  Cover material: Polyester (good friction) + durability        │
-  │                                                                   │
+  │                                                                  │
   │  Note: UHMWPE covers are too slippery for standard cleats      │
   │        and can fail to grip on winch drums — racing sheets     │
   │        with UHMWPE core always use polyester or nylon covers   │
@@ -149,21 +149,21 @@ MOORING LINE SYSTEM
 
   MATERIAL SELECTION:
   ┌──────────────────────────────────────────────────────────────────┐
-  │  NYLON (preferred for most mooring):                            │
+  │  NYLON (preferred for most mooring):                             │
   │  • 20–30% elongation absorbs dock surge and wave action        │
   │  • Prevents snatch loads that would break cleats and deck gear │
   │  • Sinks (won't foul propeller if dropped)                     │
   │  • Degrades over time (UV + abrasion at chocks)                │
-  │  • Replace when sheath worn through or stiff/brittle            │
-  │                                                                   │
-  │  POLYESTER (for minimum stretch situations):                    │
+  │  • Replace when sheath worn through or stiff/brittle             │
+  │                                                                  │
+  │  POLYESTER (for minimum stretch situations):                     │
   │  • Lower elongation = more precise vessel positioning          │
   │  • Less surge absorption than nylon                            │
-  │  • Use where tidal range is small and tide control matters      │
-  │                                                                   │
+  │  • Use where tidal range is small and tide control matters       │
+  │                                                                  │
   │  NYLON SPRING DAMPER (combination):                            │
-  │  Nylon stretch insert in polyester line                         │
-  │  Provides controlled elongation + stable endpoint               │
+  │  Nylon stretch insert in polyester line                          │
+  │  Provides controlled elongation + stable endpoint                │
   └──────────────────────────────────────────────────────────────────┘
 
   CHAFE PROTECTION:
@@ -190,7 +190,7 @@ ANCHOR RODE TYPES
   ALL-CHAIN RODE:
   ┌──────────────────────────────────────────────────────────────────┐
   │  Construction: Galvanized or stainless steel grade 40 chain    │
-  │  Properties:                                                    │
+  │  Properties:                                                     │
   │  • Heavy (catenary sag provides dynamic surge absorption)      │
   │  • Abrasion-resistant (rock bottoms)                           │
   │  • Self-stowing (falls into locker without coiling)            │
@@ -202,9 +202,9 @@ ANCHOR RODE TYPES
 
   ROPE RODE:
   ┌──────────────────────────────────────────────────────────────────┐
-  │  Construction: 3-strand nylon (preferred over braid for         │
-  │    flexibility and resistance to unfair bends in locker)        │
-  │  Properties:                                                    │
+  │  Construction: 3-strand nylon (preferred over braid for          │
+  │    flexibility and resistance to unfair bends in locker)         │
+  │  Properties:                                                     │
   │  • Light (less windlass load; smaller anchor locker)           │
   │  • High elongation absorbs surge and wave slam                 │
   │  • Can foul and chafe on bottom obstacles                      │
@@ -214,11 +214,11 @@ ANCHOR RODE TYPES
   COMBINATION RODE (most common on cruising vessels):
   ┌──────────────────────────────────────────────────────────────────┐
   │  ANCHOR ──── 15–50 ft CHAIN ──── ROPE RODE                    │
-  │                                                                   │
+  │                                                                  │
   │  Chain section: Resists chafe on seabed                        │
-  │    Provides catenary at anchor attachment                       │
+  │    Provides catenary at anchor attachment                        │
   │    (Horizontal pull on anchor critical — angle should be <15°) │
-  │                                                                   │
+  │                                                                  │
   │  Rope section: Reduces overall weight                          │
   │    Provides elongation shock absorption                        │
   │    Large-diameter nylon (1/2"–3/4") for strength               │
@@ -227,12 +227,12 @@ ANCHOR RODE TYPES
   SCOPE CALCULATION:
   ┌──────────────────────────────────────────────────────────────────┐
   │  Scope = rode length paid out / water depth at high tide       │
-  │                                                                   │
-  │  Minimum by rode type:                                          │
+  │                                                                  │
+  │  Minimum by rode type:                                           │
   │  All chain:    3:1 (catenary handles the rest)                 │
   │  All rope:     5:1 to 7:1 (no catenary cushion)               │
   │  Combination: 5:1 (5 × depth in feet, paid out)               │
-  │                                                                   │
+  │                                                                  │
   │  EXAMPLE: Anchoring in 20 ft at high tide                      │
   │    Add freeboard (5 ft) + depth = 25 ft reference              │
   │    All rope at 5:1: 125 ft of rode                             │
@@ -258,9 +258,9 @@ COILING (for storage and running):
 
   BRAID COILING:
   ┌──────────────────────────────────────────────────────────────────┐
-  │  No preferred direction (torque-balanced)                       │
+  │  No preferred direction (torque-balanced)                        │
   │  Use figure-8 coil to prevent twist accumulation               │
-  │  ┌──────────────────────────────────────────────────────────┐   │
+  │  ┌──────────────────────────────────────────────────────────┐    │
   │  │  ○ → figure-8:  top loop CW, bottom loop CCW              │   │
   │  │  ∞                                                         │   │
   │  └──────────────────────────────────────────────────────────┘   │
@@ -268,7 +268,7 @@ COILING (for storage and running):
 
   CLEATING A LINE:
   ┌──────────────────────────────────────────────────────────────────┐
-  │  1. Round turn under both horns of cleat                        │
+  │  1. Round turn under both horns of cleat                         │
   │  2. Figure-8: over far horn, under near horn, over far horn    │
   │  3. Finishing hitch: loop over near horn (locks the figure-8) │
   │  4. DO NOT: wrap more than 2 figure-8s (jams under load)      │

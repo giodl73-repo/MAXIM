@@ -19,12 +19,12 @@
 │  Eliminative materialism       │  Neural correlates of consciousness    │
 │  Panpsychism                   │  Integrated Information Theory (IIT)   │
 ├────────────────────────────────┼─────────────────────────────────────────┤
-│  MENTAL CONTENT                │  AI AND MIND                           │
+│  MENTAL CONTENT                │  AI AND MIND                            │
 │  ─────────────────             │  ────────────                           │
-│  Intentionality                │  Turing Test                           │
-│  Twin Earth (Putnam)           │  Chinese Room (Searle)                 │
-│  Internalism vs externalism    │  Functionalism and AI consciousness    │
-│  about mental content          │  Extended mind thesis                  │
+│  Intentionality                │  Turing Test                            │
+│  Twin Earth (Putnam)           │  Chinese Room (Searle)                  │
+│  Internalism vs externalism    │  Functionalism and AI consciousness     │
+│  about mental content          │  Extended mind thesis                   │
 └────────────────────────────────┴─────────────────────────────────────────┘
 ```
 

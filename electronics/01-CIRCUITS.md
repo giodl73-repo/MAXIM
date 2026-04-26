@@ -26,9 +26,9 @@ CIRCUIT ANALYSIS LANDSCAPE
                               ▼
             ┌─────────────────────────────────────────────┐
             │  Layer 4: Op-Amp Analysis                   │
-            │  Golden rules (V+=V−, I_in=0) from         │
+            │  Golden rules (V+=V−, I_in=0) from          │
             │  negative feedback + high open-loop gain    │
-            │  Builds on Layers 1–3 for each topology    │
+            │  Builds on Layers 1–3 for each topology     │
             └─────────────────────────────────────────────┘
 
   6.002 bridge: This is the 6.002 core. 30-year refresher for intuition,
@@ -135,9 +135,9 @@ CIRCUIT ANALYSIS LANDSCAPE
 
   Thévenin:               Norton:
     ┌──────Vth──────┐       ┌────────────────┐
-    │              │        │                │
+    │               │       │                │
    Rth            Load     Isc   Rth(=Vth/Isc)   Load
-    │              │        │                │
+    │               │       │                │
     └──────────────┘        └────────────────┘
 
   Finding Thévenin equivalent:
@@ -196,8 +196,8 @@ CIRCUIT ANALYSIS LANDSCAPE
   ┌───────────────────────────────────────────────────────┐
   │  Op-amp golden rules (for negative feedback circuits): │
   │                                                         │
-  │  Rule 1: V+ = V−   (virtual short — inputs equalize)   │
-  │  Rule 2: Iin = 0   (no current into inputs)            │
+  │  Rule 1: V+ = V−   (virtual short — inputs equalize)  │
+  │  Rule 2: Iin = 0   (no current into inputs)           │
   │                                                         │
   │  Open-loop gain A → ∞, Rin → ∞, Rout → 0              │
   └───────────────────────────────────────────────────────┘

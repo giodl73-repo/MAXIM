@@ -144,14 +144,14 @@ Here χ''(ω) is the imaginary part of the response (dissipation) and S_{AA}(ω)
 ```
 PHYSICAL MEANING:
   ┌──────────────────────────────────────────────────────────────┐
-  │  The dissipation when you shake a system (χ''(ω))           │
-  │  is proportional to the system's equilibrium fluctuations   │
-  │  at the same frequency (S_{AA}(ω)).                         │
+  │  The dissipation when you shake a system (χ''(ω))            │
+  │  is proportional to the system's equilibrium fluctuations    │
+  │  at the same frequency (S_{AA}(ω)).                          │
   │                                                              │
-  │  Same physics: a resistor dissipates electrical energy      │
-  │  AND generates Johnson-Nyquist thermal noise.               │
+  │  Same physics: a resistor dissipates electrical energy       │
+  │  AND generates Johnson-Nyquist thermal noise.                │
   │  They are related: S_V(ω) = 4k_BT Re[Z(ω)]                 │
-  │  (Nyquist theorem: noise voltage spectral density ∝ T × R)  │
+  │  (Nyquist theorem: noise voltage spectral density ∝ T × R)   │
   └──────────────────────────────────────────────────────────────┘
 
   CONSEQUENCES:

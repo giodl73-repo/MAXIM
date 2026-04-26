@@ -46,7 +46,7 @@ Cloud architecture is the discipline of designing systems that run on cloud infr
 CLOUD ARCHITECTURE LANDSCAPE
 +-----------------------------------------------------------------------+
 |                                                                       |
-|  ABSTRACTION LAYERS (you choose where to sit)                        |
+|  ABSTRACTION LAYERS (you choose where to sit)                         |
 |  +------------------------------------------------------------------+ |
 |  | Your Code                                                        | |
 |  +------------------------------------------------------------------+ |
@@ -60,7 +60,7 @@ CLOUD ARCHITECTURE LANDSCAPE
 |  +------------------------------------------------------------------+ |
 |  | Physical: Servers, Switches, Storage Arrays, Power, Cooling     | |
 |  +------------------------------------------------------------------+ |
-|  ↑ You manage this      ↑ Cloud provider manages this →            | |
+|  ↑ You manage this      ↑ Cloud provider manages this →            |  |
 +-----------------------------------------------------------------------+
 
 CLOUD-NATIVE PRINCIPLES (CNCF):

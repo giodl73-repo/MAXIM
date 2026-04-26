@@ -177,7 +177,7 @@ The Atkinson-Shiffrin "modal model" (1968) had a simple short-term store. Baddel
 
 ```
 +------------------------------------------------------------------+
-|  WORKING MEMORY (Baddeley 1974, revised 2000)                   |
+|  WORKING MEMORY (Baddeley 1974, revised 2000)                    |
 +------------------------------------------------------------------+
 |                                                                  |
 |              CENTRAL EXECUTIVE                                   |

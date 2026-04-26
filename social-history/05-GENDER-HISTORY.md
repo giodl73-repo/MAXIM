@@ -13,7 +13,7 @@ the entire discipline.
 |              GENDER HISTORY LANDSCAPE                             |
 |                                                                   |
 |  PHASES OF THE FIELD                                              |
-|  +------------------+  +------------------+  +----------------+  |
+|  +------------------+  +------------------+  +----------------+   |
 |  | WOMEN'S HISTORY  |  | FEMINIST HISTORY |  | GENDER AS      |  |
 |  | (1970s)          |  | (late 1970s-80s) |  | CATEGORY       |  |
 |  |                  |  |                  |  | (1986-)        |  |
@@ -21,17 +21,17 @@ the entire discipline.
 |  | into history     |  | patriarchy as    |  | is a form of   |  |
 |  | Fill the gap      |  | historical system|  | power-knowledge|  |
 |  +------------------+  +------------------+  +----------------+  |
-|                                                                   |
-|  KEY APPROACHES                                                   |
+|                                                                  |
+|  KEY APPROACHES                                                  |
 |  +------------------+  +------------------+  +----------------+  |
 |  | SOCIAL/MATERIAL  |  | CULTURAL/        |  | INTERSECTIONAL |  |
 |  | Women's work,    |  | DISCURSIVE       |  | (race, class,  |  |
 |  | family, labor    |  | Representations, |  | gender, dis-   |  |
 |  | market           |  | identities, norms|  | ability, etc.) |  |
 |  +------------------+  +------------------+  +----------------+  |
-|                                                                   |
-|  KEY THEORISTS                                                    |
-|  +-----------------------------------------------------------+    |
+|                                                                  |
+|  KEY THEORISTS                                                   |
+|  +-----------------------------------------------------------+   |
 |  | Joan Scott  |  Judith Butler  |  Kimberlé Crenshaw        |    |
 |  | Natalie Zemon Davis  |  Catherine Hall  |  Ann Stoler     |    |
 |  +-----------------------------------------------------------+    |

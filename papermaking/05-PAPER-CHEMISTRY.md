@@ -6,20 +6,20 @@
 +------------------------------------------------------------------+
 |             WET-END AND SURFACE CHEMISTRY                        |
 |                                                                  |
-|   WET END (added to stock before forming)                       |
+|   WET END (added to stock before forming)                        |
 |   ──────────────────────────────────────                         |
-|   Sizing:      AKD, ASA        → water resistance               |
-|   Wet strength: PAE, polyamide → strength when wet              |
-|   Fillers:     CaCO3, clay     → opacity, brightness, cost      |
-|   Retention:   PAM, C-PAM      → keep fillers in sheet          |
-|   Drainage:    microparticles  → drainage rate                  |
+|   Sizing:      AKD, ASA        → water resistance                |
+|   Wet strength: PAE, polyamide → strength when wet               |
+|   Fillers:     CaCO3, clay     → opacity, brightness, cost       |
+|   Retention:   PAM, C-PAM      → keep fillers in sheet           |
+|   Drainage:    microparticles  → drainage rate                   |
 |                                                                  |
-|   SURFACE (applied at size press or coater)                     |
+|   SURFACE (applied at size press or coater)                      |
 |   ──────────────────────────────────────────                     |
-|   Starch sizing:   surface strength, barrier                    |
-|   Coatings:        CaCO3+clay+binder → print quality            |
-|   Optical brighteners (OBA): fluorescence → high brightness     |
-|   Barriers:        PLA, starch, PE → food/liquid packaging      |
+|   Starch sizing:   surface strength, barrier                     |
+|   Coatings:        CaCO3+clay+binder → print quality             |
+|   Optical brighteners (OBA): fluorescence → high brightness      |
+|   Barriers:        PLA, starch, PE → food/liquid packaging       |
 +------------------------------------------------------------------+
 ```
 

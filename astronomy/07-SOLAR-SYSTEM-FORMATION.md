@@ -28,12 +28,12 @@
 
   THE KEY ACTORS:
   ┌──────────────────────────────────────────────────────────────────────────┐
-  │  Solar nebula gas   → carries angular momentum, drives migration        │
+  │  Solar nebula gas   → carries angular momentum, drives migration         │
   │  Dust/ice grains    → feedstock for all solids                         │
   │  Planetesimals      → first self-gravitating bodies, meteorite parents │
   │  Planetary embryos  → oligarchic stage, 0.01–0.1 M_Earth               │
-  │  Giant planet cores → ~10 M_Earth, trigger runaway gas accretion        │
-  │  Gas giants         → gravitational architects, migration engines       │
+  │  Giant planet cores → ~10 M_Earth, trigger runaway gas accretion         │
+  │  Gas giants         → gravitational architects, migration engines        │
   └──────────────────────────────────────────────────────────────────────────┘
 ```
 
@@ -270,7 +270,7 @@ Classic core accretion (Pollack 1996) was too slow at 5 AU. Pebble accretion (La
   │  Disk gas dissipates in 1–10 Myr (median ~3 Myr)                   │
   │  Giant planet MUST reach runaway phase before disk clears            │
   │  → Jupiter and Saturn managed it; Uranus/Neptune did not fully       │
-  │    → "failed cores" → ice giants (H/He envelope but not Jovian)     │
+  │    → "failed cores" → ice giants (H/He envelope but not Jovian)      │
   └──────────────────────────────────────────────────────────────────────┘
 ```
 
@@ -366,19 +366,19 @@ Walsh, Morbidelli, Raymond, O'Brien & Mandell (2011):
 
   CONSEQUENCES:
   ┌────────────────────────────────────────────────────────────────────────┐
-  │  Jupiter swept through 1.5–3 AU (inward pass):                        │
-  │  → Scattered S-type (rocky) planetesimals inward AND outward          │
-  │  → Depleted mass reservoir between 1–3 AU                             │
-  │  → Mars's feeding zone mass-depleted → Mars stays small               │
+  │  Jupiter swept through 1.5–3 AU (inward pass):                         │
+  │  → Scattered S-type (rocky) planetesimals inward AND outward           │
+  │  → Depleted mass reservoir between 1–3 AU                              │
+  │  → Mars's feeding zone mass-depleted → Mars stays small                │
   │                                                                        │
   │  On outward pass:                                                      │
   │  → Scattered C-type (volatile-rich) bodies from 5–8 AU inward        │
-  │  → Some implanted into asteroid belt → explains C-type in outer belt  │
-  │  → Some C-type impacted Earth → water delivery to early Earth         │
+  │  → Some implanted into asteroid belt → explains C-type in outer belt   │
+  │  → Some C-type impacted Earth → water delivery to early Earth          │
   │                                                                        │
   │  Asteroid belt composition:                                            │
   │  Before Grand Tack: S-type everywhere                                  │
-  │  After: S-type inner, C-type outer → matches observed gradient        │
+  │  After: S-type inner, C-type outer → matches observed gradient         │
   └────────────────────────────────────────────────────────────────────────┘
 ```
 
@@ -403,21 +403,21 @@ After disk dispersal (~5 Myr), ~10-20 planetary embryos remain in the inner sola
 
   THE MOON-FORMING IMPACT:
   ┌──────────────────────────────────────────────────────────────────────┐
-  │  Theia: ~0.1 M_Earth (Mars-sized), on Venus-crossing orbit          │
-  │  Collision: oblique, ~45°, v_impact ~ 10 km/s                       │
-  │  Result: proto-Earth (now ~Earth mass) + debris disk → Moon         │
+  │  Theia: ~0.1 M_Earth (Mars-sized), on Venus-crossing orbit           │
+  │  Collision: oblique, ~45°, v_impact ~ 10 km/s                        │
+  │  Result: proto-Earth (now ~Earth mass) + debris disk → Moon          │
   │                                                                      │
   │  EVIDENCE FOR THIS MODEL:                                            │
-  │  ● Lunar oxygen isotopes match Earth's mantle exactly               │
+  │  ● Lunar oxygen isotopes match Earth's mantle exactly                │
   │    (Earth + Theia must have been isotopically similar — same region) │
-  │  ● Moon is iron-depleted: high-T impact vaporized + ejected Fe      │
-  │  ● Moon has no volatiles: impact desiccated the debris              │
-  │  ● Earth's obliquity (23.5°): impact tilt                           │
+  │  ● Moon is iron-depleted: high-T impact vaporized + ejected Fe       │
+  │  ● Moon has no volatiles: impact desiccated the debris               │
+  │  ● Earth's obliquity (23.5°): impact tilt                            │
   │                                                                      │
-  │  TIMING (Hf-W chronometer):                                         │
+  │  TIMING (Hf-W chronometer):                                          │
   │  ¹⁸²Hf → ¹⁸²W (t₁/₂ = 8.9 Myr): W goes to core, Hf stays in mantle│
-  │  Compare W isotope ratio in lunar mantle vs Earth mantle            │
-  │  → Moon-forming impact: 50–150 Myr after CAI formation              │
+  │  Compare W isotope ratio in lunar mantle vs Earth mantle             │
+  │  → Moon-forming impact: 50–150 Myr after CAI formation               │
   └──────────────────────────────────────────────────────────────────────┘
 ```
 
@@ -511,14 +511,14 @@ Gomes, Morbidelli, Tsiganis & Levison (2005) — "Nice model" (from Nice, France
   KEY RESULTS:
   ┌──────────────────────────────────────────────────────────────────────┐
   │  ²⁶Al/²⁷Al = 5×10⁻⁵ at t=0 (from CAIs)                            │
-  │  → ²⁶Al decay heated planetesimals that formed in first ~2 Myr      │
-  │  → Bodies formed EARLY: melted + differentiated (iron meteorite     │
+  │  → ²⁶Al decay heated planetesimals that formed in first ~2 Myr       │
+  │  → Bodies formed EARLY: melted + differentiated (iron meteorite      │
   │    parents, achondrite parents)                                      │
-  │  → Bodies formed LATE: didn't melt (chondrites — undifferentiated)  │
+  │  → Bodies formed LATE: didn't melt (chondrites — undifferentiated)   │
   │                                                                      │
-  │  ¹⁸²Hf-¹⁸²W:                                                        │
-  │  Earth's core formed within ~30–40 Myr of CAIs                      │
-  │  Moon-forming impact: ~50–150 Myr after CAIs                        │
+  │  ¹⁸²Hf-¹⁸²W:                                                         │
+  │  Earth's core formed within ~30–40 Myr of CAIs                       │
+  │  Moon-forming impact: ~50–150 Myr after CAIs                         │
   └──────────────────────────────────────────────────────────────────────┘
 
   SUPERNOVA INJECTION:

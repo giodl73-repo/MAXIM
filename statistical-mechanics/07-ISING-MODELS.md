@@ -17,10 +17,10 @@ ISING MODEL LANDSCAPE
   HAMILTONIAN:  H = −J Σ_{⟨ij⟩} sᵢ sⱼ − h Σᵢ sᵢ    (sᵢ = ±1)
 
   ┌──────────────────────────────────────────────────────────────────────┐
-  │  1D: exact solution (transfer matrix) — no phase transition T > 0   │
+  │  1D: exact solution (transfer matrix) — no phase transition T > 0    │
   │  2D: exact solution (Onsager 1944) — T_c = 2.27 J/k_B, β = 1/8     │
   │  3D: no exact solution — Monte Carlo, ε-expansion, conformal field   │
-  │  Mean-field: T_c = zJ/k_B, β = 1/2 (always overestimates order)     │
+  │  Mean-field: T_c = zJ/k_B, β = 1/2 (always overestimates order)      │
   └──────────────────────────────────────────────────────────────────────┘
 
   MAPPINGS:

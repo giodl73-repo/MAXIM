@@ -59,21 +59,21 @@ BROAD STREET CHOLERA OUTBREAK — THE FULL PICTURE
   SNOW'S MAP:
   ┌────────────────────────────────────────────────────────────┐
   │  BASE: street map of Soho neighborhood                     │
-  │  DATA LAYER 1: black bars = cholera deaths (each bar = 1) │
+  │  DATA LAYER 1: black bars = cholera deaths (each bar = 1)  │
   │  DATA LAYER 2: dots = water pump locations                 │
   │                                                            │
   │  Pattern visible: deaths cluster around Broad Street pump  │
-  │  Deaths thin out away from Broad Street pump              │
+  │  Deaths thin out away from Broad Street pump               │
   │  Deaths near OTHER pumps: few                              │
   └────────────────────────────────────────────────────────────┘
 
   THE PUMP HANDLE STORY (partially mythologized):
   ┌────────────────────────────────────────────────────────────┐
   │  September 8, 1854: Snow presents to Board of Guardians    │
-  │  Pump handle removed same day                             │
-  │  Outbreak was already declining (cases had peaked Sept 2) │
-  │  Handle removal probably did not end the outbreak         │
-  │  Snow himself acknowledged this                           │
+  │  Pump handle removed same day                              │
+  │  Outbreak was already declining (cases had peaked Sept 2)  │
+  │  Handle removal probably did not end the outbreak          │
+  │  Snow himself acknowledged this                            │
   └────────────────────────────────────────────────────────────┘
 
   THE ACTUAL EVIDENCE THAT MATTERED:
@@ -127,7 +127,7 @@ MINARD'S NAPOLEON MAP — SIX VARIABLES IN TWO DIMENSIONS
 
   Visual structure:
   ┌──────────────────────────────────────────────────────────────┐
-  │  Left (Poland border) → Right (Moscow) → back Left          │
+  │  Left (Poland border) → Right (Moscow) → back Left           │
   │                                                              │
   │  Advance (tan): ████████████████████                         │
   │                  (wide — 422,000 men)                        │
@@ -206,14 +206,14 @@ CHOROPLETH MAPS — MECHANICS AND PITFALLS
 
   THE MODIFIABLE AREAL UNIT PROBLEM (MAUP):
   ┌─────────────────────────────────────────────────────────────┐
-  │  Aggregating point data to regions produces different        │
+  │  Aggregating point data to regions produces different       │
   │  results depending on HOW you draw the region boundaries.   │
   │                                                             │
   │  Scale problem: county-level vs state-level patterns differ │
   │  Zone problem: gerrymandering makes this visceral           │
   │               Drawing different district boundaries with    │
-  │               the same points produces opposite electoral  │
-  │               outcomes — this is MAUP weaponized           │
+  │               the same points produces opposite electoral   │
+  │               outcomes — this is MAUP weaponized            │
   │                                                             │
   │  The choropleth LOOKS objective. The boundaries are not.    │
   └─────────────────────────────────────────────────────────────┘
@@ -261,7 +261,7 @@ DOT DENSITY MAPS — MECHANICS AND APPROPRIATE USE
 
   THE RACIAL DOT MAP (2010 US Census):
   ┌──────────────────────────────────────────────────────────┐
-  │  1 dot = 1 person; color = race/ethnicity               │
+  │  1 dot = 1 person; color = race/ethnicity                │
   │  308 million dots rendered at full resolution            │
   │  Makes segregation patterns immediately visible          │
   │  Technically challenging: rendering 300M dots at         │
@@ -285,18 +285,18 @@ PROPORTIONAL SYMBOL MAPS — DESIGN AND PERCEPTION
 
   CIRCLE AREA vs RADIUS CONFUSION:
   ┌──────────────────────────────────────────────────────────┐
-  │  If city A has 2× the population of city B:             │
+  │  If city A has 2× the population of city B:              │
   │                                                          │
-  │  CORRECT: scale circle AREA proportionally              │
-  │  Area = π·r²  →  r = √(value/π·k)                       │
-  │  Doubling value → circle ~1.41× bigger in radius        │
+  │  CORRECT: scale circle AREA proportionally               │
+  │  Area = π·r²  →  r = √(value/π·k)                        │
+  │  Doubling value → circle ~1.41× bigger in radius         │
   │                                                          │
-  │  COMMON ERROR: scale circle RADIUS proportionally       │
-  │  Doubling value → circle 4× bigger in area              │
+  │  COMMON ERROR: scale circle RADIUS proportionally        │
+  │  Doubling value → circle 4× bigger in area               │
   │  This exaggerates differences between large values       │
   │                                                          │
   │  Perceptual reality: people underestimate circle area    │
-  │  Flannery correction: overscale by 0.57 exponent        │
+  │  Flannery correction: overscale by 0.57 exponent         │
   │  (empirically matches perception) — rarely used          │
   └──────────────────────────────────────────────────────────┘
 
@@ -391,7 +391,7 @@ CARTOGRAMS — DISTORTING GEOGRAPHY TO SHOW DATA
 
   EXAMPLES:
   ┌──────────────────────────────────────────────────────────┐
-  │  Electoral map (votes):                                   │
+  │  Electoral map (votes):                                  │
   │  Geographic: US looks mostly Republican (land area)      │
   │  Vote cartogram: proportional to electoral votes         │
   │  Population cartogram: proportional to population        │

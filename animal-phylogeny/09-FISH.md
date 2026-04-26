@@ -332,10 +332,10 @@ FISH "SHOULDER" → HUMAN ARM:
 +-------------------------------------------+
 | Sarcopterygian fin   | Tetrapod limb      |
 |---------------------|---------------------|
-| Proximal bone (1)   | Humerus            |
-| Two intermediate (2)| Radius + ulna      |
-| Distal bones        | Carpals            |
-| Fin rays (branching)| Metacarpals+digits |
+| Proximal bone (1)   | Humerus             |
+| Two intermediate (2)| Radius + ulna       |
+| Distal bones        | Carpals             |
+| Fin rays (branching)| Metacarpals+digits  |
 +-------------------------------------------+
 ```
 

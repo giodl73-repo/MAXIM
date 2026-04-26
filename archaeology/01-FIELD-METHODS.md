@@ -4,19 +4,19 @@
 
 ```
 +------------------------------------------------------------------+
-|              FIELD ARCHAEOLOGY: THE DATA COLLECTION PIPELINE    |
+|              FIELD ARCHAEOLOGY: THE DATA COLLECTION PIPELINE     |
 |                                                                  |
-|  DISCOVERY          EVALUATION         EXCAVATION               |
-|  Find sites         Assess potential   Recover data             |
+|  DISCOVERY          EVALUATION         EXCAVATION                |
+|  Find sites         Assess potential   Recover data              |
 |                                                                  |
 |  Desk-based         Fieldwalking       Open-area excavation      |
-|  assessment         Trial trenches     Quadrant method          |
-|  Remote sensing     Geophysics         Watching brief           |
-|  LiDAR/aerial       Test pits          Developer-funded digging |
+|  assessment         Trial trenches     Quadrant method           |
+|  Remote sensing     Geophysics         Watching brief            |
+|  LiDAR/aerial       Test pits          Developer-funded digging  |
 |                                                                  |
-|  POST-EXCAVATION    REPORTING          ARCHIVE                  |
-|  Finds analysis     Grey literature    Deposition to museum     |
-|  Dating             Published report   Digital archive          |
+|  POST-EXCAVATION    REPORTING          ARCHIVE                   |
+|  Finds analysis     Grey literature    Deposition to museum      |
+|  Dating             Published report   Digital archive           |
 |  Environmental      Online database    Repatriation (if relevant)|
 +------------------------------------------------------------------+
 
@@ -156,11 +156,11 @@ Developed at Winchester (1960s), standardized in the 1970s. Now universal in pro
 ```
 SINGLE CONTEXT RECORDING SYSTEM
 +------------------------------------------------------------------+
-|  PRINCIPLE: each stratigraphic unit = one record sheet          |
+|  PRINCIPLE: each stratigraphic unit = one record sheet           |
 |                                                                  |
-|  Each "context" gets:                                           |
+|  Each "context" gets:                                            |
 |  Context number (unique sequential, e.g., F.001, F.002, ...)   |
-|  Type: deposit (layer/fill), cut, structure, interface          |
+|  Type: deposit (layer/fill), cut, structure, interface           |
 |  Description: colour, texture, inclusions of deposit           |
 |  Dimensions: extent, depth, dimensions                         |
 |  Relationships: above/below/cuts/is cut by other contexts      |
@@ -169,9 +169,9 @@ SINGLE CONTEXT RECORDING SYSTEM
 |  Samples: environmental/scientific sample numbers              |
 |  Plans and sections at specific scales                         |
 |                                                                  |
-|  CONTEXT NUMBER = the immutable audit key                       |
+|  CONTEXT NUMBER = the immutable audit key                        |
 |  An artifact found in F.047 can always be traced to F.047      |
-|  Every bag, every sample, every photo references context number |
+|  Every bag, every sample, every photo references context number  |
 |  → Like a database foreign key linking all records to location |
 +------------------------------------------------------------------+
 ```
@@ -216,10 +216,10 @@ ENVIRONMENTAL SAMPLES:
 ```
 HARRIS MATRIX: DAG OF ALL CONTEXTS
 +------------------------------------------------------------------+
-|  Nodes = context numbers                                        |
+|  Nodes = context numbers                                         |
 |  Edges = stratigraphic relationship (older → younger)          |
 |                                                                  |
-|  Four valid relationships:                                      |
+|  Four valid relationships:                                       |
 |  A is above B (A younger; superposition)                       |
 |  A is equal to B (correlation; same event)                    |
 |  A cuts B (A younger; interface relationship)                  |
@@ -260,13 +260,13 @@ EXAMPLE MATRIX READING:
 ```
 ARCHAEOLOGICAL GIS LAYERS
 +------------------------------------------------------------------+
-|  BASE LAYERS:                                                   |
+|  BASE LAYERS:                                                    |
 |  → Digital terrain model (LiDAR or surveyed)                  |
 |  → Historic maps, cadastral boundaries                         |
 |  → Satellite/aerial imagery                                    |
 |  → Geological/soil maps                                        |
 |                                                                  |
-|  SURVEY LAYERS:                                                 |
+|  SURVEY LAYERS:                                                  |
 |  → Fieldwalking transects + artifact density                  |
 |  → Geophysics anomalies                                       |
 |  → Previous site locations                                    |
@@ -309,11 +309,11 @@ DRAWING CONVENTIONS:
   Surviving section after excavation ↓
   +------------------------------------------+
   |  F.001 Topsoil (grey brown silty loam)   |
-  |    ↕                                      |
+  |    ↕                                     |
   |  F.020 Gravel metalling (road surface)   |
-  |    ↕                                      |
+  |    ↕                                     |
   |  F.030 Dump layer (mixed finds)          |
-  |    ↕                                      |
+  |    ↕                                     |
   |  F.040 Pit fill (occupation deposit)     |
   |    ↕   (cut = F.041, cut into F.050)     |
   |  F.050 Clay natural subsoil              |

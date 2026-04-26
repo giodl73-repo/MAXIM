@@ -4,9 +4,9 @@
 
 ```
 ┌─────────────────────────────────────────────────────────────────────────────┐
-│                    DISEASE SURVEILLANCE ECOSYSTEM                            │
+│                    DISEASE SURVEILLANCE ECOSYSTEM                           │
 │                                                                               │
-│  DATA SOURCES           COLLECTION                ANALYSIS & ACTION          │
+│  DATA SOURCES           COLLECTION                ANALYSIS & ACTION         │
 │                                                                               │
 │  Clinicians/hospitals ──→ Passive/Mandatory ──→ Case counting               │
 │  Laboratories ──────────→ Lab reporting ────→ Cluster detection             │
@@ -17,7 +17,7 @@
 │  Traveler screening ────→ PoE surveillance → Response activation            │
 │                                                                               │
 │  FEEDBACK LOOP: surveillance → public health action → disease control       │
-│                 → changed disease pattern → updated surveillance             │
+│                 → changed disease pattern → updated surveillance            │
 └─────────────────────────────────────────────────────────────────────────────┘
 
 This is a distributed sensor network with:

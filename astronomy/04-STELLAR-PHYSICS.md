@@ -146,11 +146,11 @@ A star in spherical hydrostatic equilibrium is described by four coupled ODEs:
   KEY REGIONS:
   ┌──────────────────────────────────────────────────────────────────────┐
   │ Main Sequence:  hydrogen core burning; τ_nuc ∝ M^(−2.5)            │
-  │ Red Giants:     H shell burning; greatly expanded envelope          │
-  │ Horizontal Branch: He core burning (post-RGB helium flash)          │
+  │ Red Giants:     H shell burning; greatly expanded envelope           │
+  │ Horizontal Branch: He core burning (post-RGB helium flash)           │
   │ AGB:            He+H shell burning; thermal pulses; mass loss        │
-  │ White Dwarfs:   cooling sequence; no nuclear burning; e⁻ degeneracy │
-  │ Instability Strip: Cepheid, RR Lyrae, Delta Scuti variables         │
+  │ White Dwarfs:   cooling sequence; no nuclear burning; e⁻ degeneracy  │
+  │ Instability Strip: Cepheid, RR Lyrae, Delta Scuti variables          │
   └──────────────────────────────────────────────────────────────────────┘
 ```
 
@@ -461,10 +461,10 @@ After He exhaustion, the core contracts, heats further:
   ┌────────────────────────────────────────────────────────────────────────┐
   │  dP/dr = −(ε + P)(m + 4πr³P/c²)  ×  G / (r²c² (1 − 2Gm/rc²))      │
   │                                                                        │
-  │  Newtonian: dP/dr = −Gm ρ/r²                                          │
-  │  GR additions: (ε+P) instead of ρ  [energy density + pressure]        │
-  │               (m + 4πr³P/c²)      [effective gravitating mass + P]    │
-  │               (1 − 2Gm/rc²)       [curved spacetime near center]      │
+  │  Newtonian: dP/dr = −Gm ρ/r²                                           │
+  │  GR additions: (ε+P) instead of ρ  [energy density + pressure]         │
+  │               (m + 4πr³P/c²)      [effective gravitating mass + P]     │
+  │               (1 − 2Gm/rc²)       [curved spacetime near center]       │
   └────────────────────────────────────────────────────────────────────────┘
   Maximum NS mass from TOV: ~2–3 M☉ (uncertain because nuclear EOS unknown)
   Observed: PSR J0952-0607 at 2.35 M☉ (2022) — near the theoretical ceiling
@@ -499,9 +499,9 @@ After He exhaustion, the core contracts, heats further:
 
   SCHWARZSCHILD BLACK HOLE (non-rotating):
   ┌────────────────────────────────────────────────────────────────────┐
-  │  Schwarzschild radius:  r_s = 2GM/c²                              │
-  │  Sun:     r_s = 3.0 km                                            │
-  │  Earth:   r_s = 8.9 mm                                            │
+  │  Schwarzschild radius:  r_s = 2GM/c²                               │
+  │  Sun:     r_s = 3.0 km                                             │
+  │  Earth:   r_s = 8.9 mm                                             │
   │  10 M☉:   r_s = 30 km                                            │
   └────────────────────────────────────────────────────────────────────┘
 
@@ -584,7 +584,7 @@ After He exhaustion, the core contracts, heats further:
   │ Origin       Multiple SN      Early galaxy      Primordial H+He only   │
   │              enrichment       formation         (no metals to form dust)│
   ├─────────────────────────────────────────────────────────────────────────┤
-  │ "Metallicity" in astronomy = everything heavier than He                │
+  │ "Metallicity" in astronomy = everything heavier than He                 │
   │ Z☉ ≈ 0.0142 (1.42% of solar mass in elements heavier than He)         │
   └─────────────────────────────────────────────────────────────────────────┘
 
@@ -620,9 +620,9 @@ After He exhaustion, the core contracts, heats further:
   │ Why does He burning have triple-alpha? │ ⁸Be is unstable; needs resonance  │
   │ Why is the Hoyle state remarkable?     │ Predicted from existence of C life │
   ├────────────────────────────────────────┼───────────────────────────────────┤
-  │ Where does gold come from?             │ r-process in neutron star mergers  │
+  │ Where does gold come from?             │ r-process in neutron star mergers │
   │ Where does Fe come from?               │ Type Ia SN (⁵⁶Ni→⁵⁶Co→⁵⁶Fe)     │
-  │ Where does C come from?               │ Triple-α in He-burning stars       │
+  │ Where does C come from?                │ Triple-α in He-burning stars      │
   ├────────────────────────────────────────┼───────────────────────────────────┤
   │ What is the turnoff point?             │ Stars just leaving main sequence;  │
   │                                        │ τ_MS = cluster age → dating method │

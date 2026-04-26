@@ -12,12 +12,12 @@ required abandoning a deeply held assumption. The result was quantum mechanics.
 |                                                                        |
 |  EXPERIMENT              CLASSICAL FAILURE      QUANTUM FIX            |
 |  ──────────              ────────────────       ──────────             |
-|  Blackbody radiation     UV catastrophe         Energy quantized        |
-|  Photoelectric effect    Intensity should work  Light comes in quanta   |
-|  Atomic spectra          Atoms should collapse  Stable quantum orbits   |
-|  Compton scattering      Waves don't bounce     Photons have momentum   |
+|  Blackbody radiation     UV catastrophe         Energy quantized       |
+|  Photoelectric effect    Intensity should work  Light comes in quanta  |
+|  Atomic spectra          Atoms should collapse  Stable quantum orbits  |
+|  Compton scattering      Waves don't bounce     Photons have momentum  |
 |                                                                        |
-|  THE THEORY (Schrödinger, Heisenberg, Dirac — 1925-1928):             |
+|  THE THEORY (Schrödinger, Heisenberg, Dirac — 1925-1928):              |
 |                                                                        |
 |  iℏ ∂ψ/∂t = Ĥψ          ← Schrödinger equation                       |
 |                                                                        |

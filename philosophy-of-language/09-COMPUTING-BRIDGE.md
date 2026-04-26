@@ -8,27 +8,27 @@ Philosophy of language and computer science share a common conceptual infrastruc
 +-----------------------------------------------------------------------+
 |                    PHIL OF LANGUAGE ↔ COMPUTING                       |
 |                                                                       |
-|  PHILOSOPHY                          COMPUTING                       |
-|  -----------                         --------                        |
+|  PHILOSOPHY                          COMPUTING                        |
+|  -----------                         --------                         |
 |                                                                       |
-|  Frege's sense/reference  ─────────→ Lambda calculus (Church 1936)   |
-|  Function/argument form               Types (Church's STT 1940)      |
+|  Frege's sense/reference  ─────────→ Lambda calculus (Church 1936)    |
+|  Function/argument form               Types (Church's STT 1940)       |
 |                                                                       |
 |  Compositionality ─────────────────→ Denotational semantics           |
-|  (meaning from parts)                (Scott/Strachey 1970s)          |
+|  (meaning from parts)                (Scott/Strachey 1970s)           |
 |                                                                       |
-|  Montague grammar ─────────────────→ Semantic parsing / NLU          |
-|  (NL as formal language)             Type-theoretic semantics        |
+|  Montague grammar ─────────────────→ Semantic parsing / NLU           |
+|  (NL as formal language)             Type-theoretic semantics         |
 |                                                                       |
 |  Truth conditions ─────────────────→ Formal verification, Hoare logic |
-|  (what makes statements true)        (pre/post conditions)           |
+|  (what makes statements true)        (pre/post conditions)            |
 |                                                                       |
-|  Possible worlds semantics ────────→ Modal logics in CS:             |
+|  Possible worlds semantics ────────→ Modal logics in CS:              |
 |  (necessity, possibility)             temporal logic, dynamic logic   |
 |                                       epistemic logic for knowledge   |
 |                                       representation                  |
 |                                                                       |
-|  Speech acts / pragmatics ─────────→ API design, protocol specs,     |
+|  Speech acts / pragmatics ─────────→ API design, protocol specs,      |
 |  (what utterances DO)                 command languages               |
 |                                                                       |
 |  Private language argument ────────→ Public interfaces, type systems, |

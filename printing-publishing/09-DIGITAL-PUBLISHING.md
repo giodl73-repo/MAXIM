@@ -20,7 +20,7 @@ PRE-1985: Professional prepress workflow
 
 1985 DESKTOP PUBLISHING REVOLUTION:
   +------------------------+     +---------------------------+
-  |  Apple Macintosh 512K  |  +  |  Aldus PageMaker 1.0     |
+  |  Apple Macintosh 512K  |  +  |  Aldus PageMaker 1.0      |
   |  (Sep 1984)            |     |  (July 1985)              |
   +------------------------+     +---------------------------+
   [Note: PageMaker required 512K minimum RAM; the original 128K Mac (Jan 1984)
@@ -210,22 +210,22 @@ PDF TECHNICAL ARCHITECTURE:
   +---------------------------------------------------+
   |  PDF FILE STRUCTURE                               |
   |                                                   |
-  |  Header: %PDF-1.7 (version declaration)          |
+  |  Header: %PDF-1.7 (version declaration)           |
   |                                                   |
-  |  Objects (numbered references):                  |
-  |    Pages: content streams for each page          |
-  |    Content streams: PostScript-like drawing ops  |
-  |    Font objects: embedded font data              |
-  |    Image XObjects: compressed image data         |
-  |    Annotations: links, comments, form fields     |
-  |    Metadata: title, author, keywords             |
+  |  Objects (numbered references):                   |
+  |    Pages: content streams for each page           |
+  |    Content streams: PostScript-like drawing ops   |
+  |    Font objects: embedded font data               |
+  |    Image XObjects: compressed image data          |
+  |    Annotations: links, comments, form fields      |
+  |    Metadata: title, author, keywords              |
   |                                                   |
-  |  Cross-reference table:                          |
-  |    Maps object numbers to byte offsets           |
-  |    Enables random access to pages without        |
-  |    reading entire file                           |
+  |  Cross-reference table:                           |
+  |    Maps object numbers to byte offsets            |
+  |    Enables random access to pages without         |
+  |    reading entire file                            |
   |                                                   |
-  |  Trailer: points to cross-reference table        |
+  |  Trailer: points to cross-reference table         |
   +---------------------------------------------------+
 
 PDF AS BYTECODE ANALOGY:

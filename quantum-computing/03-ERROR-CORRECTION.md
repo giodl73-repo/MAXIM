@@ -4,7 +4,7 @@
 
 ```
 +------------------------------------------------------------------+
-|               QUANTUM ERROR CORRECTION LANDSCAPE                  |
+|               QUANTUM ERROR CORRECTION LANDSCAPE                 |
 +------------------------------------------------------------------+
 |                                                                    |
 |  WHY IT'S HARD               HOW IT WORKS                        |

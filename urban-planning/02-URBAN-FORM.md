@@ -6,7 +6,7 @@ Urban morphology is the study of city form — how streets, plots, and buildings
 
 ```
 +------------------------------------------------------------------+
-|                      URBAN FORM SYSTEM                            |
+|                      URBAN FORM SYSTEM                           |
 |                                                                  |
 |  THREE BASIC ELEMENTS (Conzen school):                           |
 |                                                                  |
@@ -29,10 +29,10 @@ Urban morphology is the study of city form — how streets, plots, and buildings
          |                    |                    |
          v                    v                    v
 +------------------------------------------------------------------+
-|                    URBAN OUTCOMES                                 |
-|  Pedestrian flow    Land value distribution    Microclimate       |
-|  Retail viability   Housing supply capacity    Heat island        |
-|  Crime / safety     Development potential      Air quality        |
+|                    URBAN OUTCOMES                                |
+|  Pedestrian flow    Land value distribution    Microclimate      |
+|  Retail viability   Housing supply capacity    Heat island       |
+|  Crime / safety     Development potential      Air quality       |
 +------------------------------------------------------------------+
 ```
 

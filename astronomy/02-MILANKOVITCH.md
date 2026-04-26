@@ -110,20 +110,20 @@ Eccentricity does **not** change total annual insolation significantly:
   What eccentricity DOES affect:
   ┌────────────────────────────────────────────────────────────────────────┐
   │ 1. Seasonal contrast                                                   │
-  │    Earth at perihelion receives (1+e)²/(1−e)² more flux than aphelion │
-  │    At e=0.06: 27% more flux at perihelion than aphelion               │
-  │    At e=0.017: 6.9% more flux at perihelion than aphelion             │
+  │    Earth at perihelion receives (1+e)²/(1−e)² more flux than aphelion  │
+  │    At e=0.06: 27% more flux at perihelion than aphelion                │
+  │    At e=0.017: 6.9% more flux at perihelion than aphelion              │
   │                                                                        │
-  │ 2. Duration asymmetry (Kepler's 2nd law)                              │
+  │ 2. Duration asymmetry (Kepler's 2nd law)                               │
   │    Equal areas in equal times → Earth moves faster at perihelion       │
   │    Northern summer (aphelion currently): ~186 days                     │
   │    Northern winter (perihelion currently): ~179 days                   │
-  │    At e=0.06: asymmetry would be ~2× larger                           │
+  │    At e=0.06: asymmetry would be ~2× larger                            │
   │                                                                        │
   │ 3. Precession amplitude modulation                                     │
   │    Climate precession index = e·sin(λ̃)                               │
   │    When e→0: precession has no climate effect (no "preferred" season   │
-  │    for perihelion)                                                      │
+  │    for perihelion)                                                     │
   └────────────────────────────────────────────────────────────────────────┘
 ```
 
@@ -137,9 +137,9 @@ Axial precession (covered in 01-EARTH-MOTIONS.md) is not the whole story for cli
   TWO PRECESSIONS IN OPPOSITE DIRECTIONS
 
   ┌──────────────────────────────────────────────────────────────────────┐
-  │  Axial precession:      ~50.3 "/yr  RETROGRADE (westward)           │
-  │  Apsidal precession:    ~11.45"/yr  PROGRADE (eastward)             │
-  │  Combined rate:         ~61.75"/yr                                  │
+  │  Axial precession:      ~50.3 "/yr  RETROGRADE (westward)            │
+  │  Apsidal precession:    ~11.45"/yr  PROGRADE (eastward)              │
+  │  Combined rate:         ~61.75"/yr                                   │
   │  Climate precession period: 360° × 3600" / 61.75"/yr ≈ 21,000 yr   │
   └──────────────────────────────────────────────────────────────────────┘
 
@@ -273,17 +273,17 @@ The orbital parameters cannot be integrated analytically over geological time �
   Beyond ~50 Myr:                   only statistical → "chaotic zone" occupancy fractions
 
   ┌─────────────────────────────────────────────────────────────────────────────┐
-  │  ROLE OF THE MOON IN STABILIZING OBLIQUITY                                 │
+  │  ROLE OF THE MOON IN STABILIZING OBLIQUITY                                  │
   │                                                                             │
   │  The same lunisolar torque that drives precession also provides a           │
   │  gyroscopic stabilization of the obliquity.                                 │
   │                                                                             │
   │  Without the Moon:                                                          │
-  │    Precession rate → 0 (no lunar torque) → resonance with planetary        │
-  │    forcing frequencies → obliquity could wander 0°–85° chaotically         │
-  │    on timescales of ~10–100 Myr (Laskar & Robutel 1993)                    │
+  │    Precession rate → 0 (no lunar torque) → resonance with planetary         │
+  │    forcing frequencies → obliquity could wander 0°–85° chaotically          │
+  │    on timescales of ~10–100 Myr (Laskar & Robutel 1993)                     │
   │                                                                             │
-  │  Mars (no large moon): obliquity chaotic between ~10°–60° on ~5 Myr scale  │
+  │  Mars (no large moon): obliquity chaotic between ~10°–60° on ~5 Myr scale   │
   │  Earth (with Moon): obliquity confined to 22.1°–24.5° range (±1.2°)       │
   │                                                                             │
   │  The Moon is a long-term climate stabilizer.                                │
@@ -338,8 +338,8 @@ The critical test of Milankovitch theory:
   ┌────────────────────────────────────────────────────────────────┐
   │  Observed in δ¹⁸O   Predicted by orbital theory  Parameter   │
   │  ~100 kyr           ~95–125 kyr eccentricity beat eccentricity│
-  │  ~41 kyr            ~41 kyr                       obliquity   │
-  │  ~23 kyr            ~23 + ~19 kyr                 precession  │
+  │  ~41 kyr            ~41 kyr                       obliquity    │
+  │  ~23 kyr            ~23 + ~19 kyr                 precession   │
   └────────────────────────────────────────────────────────────────┘
 
   Phases matched predictions → orbital forcing is the *pacemaker*.
@@ -529,7 +529,7 @@ Deep tropics show ~11 kyr (half-precession) signal in speleothem records. The ex
   │ Why do African monsoons pulse at       │ Precession (~23 kyr) — controls    │
   │ ~21 kyr? (Green Sahara periods)        │ NH summer insolation and ITCZ      │
   ├────────────────────────────────────────┼────────────────────────────────────┤
-  │ Which parameter is most stable over    │ 413-kyr eccentricity cycle —        │
+  │ Which parameter is most stable over    │ 413-kyr eccentricity cycle —       │
   │ tens of millions of years?             │ Laskar: reliable to ±50 Myr        │
   ├────────────────────────────────────────┼────────────────────────────────────┤
   │ When is precession forcing strongest? │ When e is large (e·sin(λ̃) large)  │

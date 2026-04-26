@@ -27,8 +27,8 @@
 │                                                                         │
 │  ┌──────────────────────────────────────────────────────────────────┐   │
 │  │  GENERAL:  all three components; intubated; mechanical ventilation│  │
-│  │  REGIONAL: analgesia/motor block without unconsciousness         │  │
-│  │  LOCAL:    targeted nerve blockade; patient awake                │  │
+│  │  REGIONAL: analgesia/motor block without unconsciousness         │   │
+│  │  LOCAL:    targeted nerve blockade; patient awake                │   │
 │  └──────────────────────────────────────────────────────────────────┘   │
 └─────────────────────────────────────────────────────────────────────────┘
 ```

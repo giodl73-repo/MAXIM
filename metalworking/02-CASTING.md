@@ -123,12 +123,12 @@ Key advantage over sand: wall thickness down to 1mm;
 
 Turbine blade casting: directionally solidified (DS) and single-crystal (SX):
 ┌────────────────────────────────────────────────────────────────┐
-│ CONVENTIONAL:   random polycrystalline grain structure          │
+│ CONVENTIONAL:   random polycrystalline grain structure         │
 │   Grain boundaries perpendicular to stress axis → creep failure│
-│                                                                 │
+│                                                                │
 │ DIRECTIONAL SOLIDIFICATION (DS): grain boundaries parallel to  │
 │   blade axis → eliminates transverse boundaries → better creep │
-│                                                                 │
+│                                                                │
 │ SINGLE CRYSTAL (SX): no grain boundaries at all                │
 │   Process: withdraw slowly from melt → crystal grows upward    │
 │   All modern high-temperature gas turbine stage-1 blades are SX│

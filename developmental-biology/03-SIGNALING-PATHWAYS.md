@@ -6,22 +6,22 @@ Three signaling pathways — Wnt, Notch, and Hedgehog — are deployed repeatedl
 
 ```
 +──────────────────────────────────────────────────────────────────+
-|          THREE CORE DEVELOPMENTAL SIGNALING PATHWAYS            |
+|          THREE CORE DEVELOPMENTAL SIGNALING PATHWAYS             |
 |                                                                  |
-|  Wnt/β-catenin    Notch              Hedgehog                   |
+|  Wnt/β-catenin    Notch              Hedgehog                    |
 |  ─────────────    ──────────         ──────────                  |
 |  Diffusible       Juxtacrine         Diffusible (lipid-modified) |
-|  ligand           (cell contact)     ligand                     |
+|  ligand           (cell contact)     ligand                      |
 |  GPCR-like        Ligand AND         GPCR-like receptor          |
 |  response         receptor on same   signaling                   |
 |  cell             or neighboring     via Gli TFs                 |
 |                   cell               through primary cilium      |
 |                                                                  |
-|  Used in:         Used in:           Used in:                   |
+|  Used in:         Used in:           Used in:                    |
 |  Stem cells       Cell fate choice   Neural tube (floor plate)   |
 |  Axis patterning  Lateral inhibition Limb patterning (ZPA)       |
 |  Colon epithelium Angiogenesis       Cerebellum development      |
-|  Colorectal CA    T-ALL              Basal cell carcinoma         |
+|  Colorectal CA    T-ALL              Basal cell carcinoma        |
 +──────────────────────────────────────────────────────────────────+
 ```
 
@@ -92,9 +92,9 @@ CANONICAL WNT PATHWAY MECHANICS
 
   WNT OFF STATE:
   ┌─────────────────────────────────────────────────────┐
-  │  β-catenin is continuously phosphorylated by         │
+  │  β-catenin is continuously phosphorylated by        │
   │  DESTRUCTION COMPLEX:                               │
-  │    APC + Axin + GSK3β + CK1                        │
+  │    APC + Axin + GSK3β + CK1                         │
   │    ↓                                                │
   │    P-β-catenin → ubiquitination → proteasomal       │
   │    degradation                                      │
@@ -116,7 +116,7 @@ CANONICAL WNT PATHWAY MECHANICS
   │    ↓                                                │
   │  β-catenin → nucleus → binds TCF/LEF                │
   │    ↓                                                │
-  │  Transcription of target genes: c-Myc, Cyclin D1,  │
+  │  Transcription of target genes: c-Myc, Cyclin D1,   │
   │    Axin2, LGR5 (stem cell marker), etc.             │
   └─────────────────────────────────────────────────────┘
 ```
@@ -274,13 +274,13 @@ HEDGEHOG PATHWAY MECHANICS
 
   HEDGEHOG ON STATE:
   ┌────────────────────────────────────────────────────────────┐
-  │  Shh binds PTCH1 → PTCH1 moves away from cilium           │
+  │  Shh binds PTCH1 → PTCH1 moves away from cilium            │
   │    ↓                                                       │
   │  SMO accumulates in primary cilium → activated             │
   │    ↓                                                       │
   │  Full-length Gli2/Gli1 → activator form (Gli-A)            │
-  │  Gli2-A → nucleus → activates target genes:               │
-  │    Ptch1 (feedback), Gli1, Cyclin D/E, Bcl-2              │
+  │  Gli2-A → nucleus → activates target genes:                │
+  │    Ptch1 (feedback), Gli1, Cyclin D/E, Bcl-2               │
   └────────────────────────────────────────────────────────────┘
 
   PRIMARY CILIUM REQUIREMENT

@@ -10,22 +10,22 @@ For a TCS background: possible worlds semantics is Kripke semantics for modal lo
 +-----------------------------------------------------------------------+
 |                    POSSIBLE WORLDS FRAMEWORK                          |
 |                                                                       |
-|  ACTUAL WORLD              POSSIBLE WORLDS                           |
-|  (this world)              (all ways the world could be)             |
+|  ACTUAL WORLD              POSSIBLE WORLDS                            |
+|  (this world)              (all ways the world could be)              |
 |                                                                       |
-|  "Water is H₂O" TRUE       World w2: water = XYZ (impossible: rigid) |
-|  "Obama is tall" TRUE       World w3: no Obama ever born             |
-|  "There are dragons" FALSE  World w4: dragons exist                  |
+|  "Water is H₂O" TRUE       World w2: water = XYZ (impossible: rigid)  |
+|  "Obama is tall" TRUE       World w3: no Obama ever born              |
+|  "There are dragons" FALSE  World w4: dragons exist                   |
 |  "2+2=5" FALSE              World w5: no world — necessary falsehood  |
 |                                                                       |
 |  SEMANTICS:                                                           |
 |  □P (necessarily P): P is true in ALL accessible worlds             |
 |  ◇P (possibly P):    P is true in SOME accessible world             |
 |                                                                       |
-|  ACCESSIBILITY RELATION R(w, w'):                                    |
+|  ACCESSIBILITY RELATION R(w, w'):                                     |
 |  w' is accessible from w = w' is relevant for evaluating            |
-|  necessity/possibility from perspective of w                         |
-|  Different modal logics = different properties of R                  |
+|  necessity/possibility from perspective of w                          |
+|  Different modal logics = different properties of R                   |
 +-----------------------------------------------------------------------+
 ```
 

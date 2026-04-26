@@ -9,9 +9,9 @@ BROADCAST JOURNALISM ECOSYSTEM
 ================================
 
   ┌──────────────────────────────────────────────────────────────────────┐
-  │                    BROADCAST JOURNALISM                             │
+  │                    BROADCAST JOURNALISM                              │
   │                                                                      │
-  │  TELEVISION                   RADIO                 PODCAST         │
+  │  TELEVISION                   RADIO                 PODCAST          │
   │  ┌────────────────────┐   ┌──────────────────┐  ┌───────────────┐  │
   │  │ Nightly news       │   │ NPR/public radio  │  │ Long-form     │  │
   │  │ Cable 24-hour      │   │ AM talk radio     │  │ Narrative     │  │
@@ -143,19 +143,19 @@ CHYRON SYSTEMS AND LOWER THIRDS
   │  NOTABLE FAILURES:                                               │
   │  CNN (2022): Lower third labeling issues on cable news panels    │
   │  Networks often mislabel party affiliation (R as D or vice versa │
-  │   — corrections run but damage already done via screenshot)     │
+  │   — corrections run but damage already done via screenshot)      │
   └──────────────────────────────────────────────────────────────────┘
 
   BREAKING NEWS CHYRONS:
   ┌──────────────────────────────────────────────────────────────────┐
   │  PROBLEM: Breaking news chyrons often overstate certainty        │
   │   before information is confirmed                                │
-  │   "SHOOTER DEAD" → shooter apprehended (not dead)               │
+  │   "SHOOTER DEAD" → shooter apprehended (not dead)                │
   │   "MULTIPLE FATALITIES" → number unknown initially               │
   │                                                                  │
   │  CABLE NEWS FAILURE MODE: Chyron becomes leading fact for        │
   │   viewers who catch partial broadcast; correction added later    │
-  │   but chyron screenshot spreads on social media                 │
+  │   but chyron screenshot spreads on social media                  │
   │                                                                  │
   │  STANDARD: Chyron should match actual confirmed information;     │
   │   prefer "Reports of..." to definitive statement when unconfirmed│
@@ -172,11 +172,11 @@ LIVE SHOT MECHANICS AND ETHICS
 
   TECHNICAL COMPONENTS:
   ┌──────────────────────────────────────────────────────────────────┐
-  │  IFB (Interruptible Foldback): Earpiece — producer/anchor       │
+  │  IFB (Interruptible Foldback): Earpiece — producer/anchor        │
   │   can interrupt correspondent live; correspondent hears          │
-  │   anchor intro and own delayed audio feed                       │
+  │   anchor intro and own delayed audio feed                        │
   │  MICROWAVE/SATELLITE UPLINK: Signal path from field to air     │
-  │  STAND-UP POSITION: Location with visual context behind         │
+  │  STAND-UP POSITION: Location with visual context behind          │
   │   correspondent — courthouse, scene, landmark                  │
   └──────────────────────────────────────────────────────────────────┘
 
@@ -343,7 +343,7 @@ PODCAST AS JOURNALISM FORM
   │  No length constraint            Format-constrained              │
   │  Long-form viable                2–3 min story max               │
   │  Niche audience viable           Must hit mass market            │
-  │  Discovery problem               Discovery via dial/station     │
+  │  Discovery problem               Discovery via dial/station      │
   └──────────────────────────────────────────────────────────────────┘
 ```
 
@@ -381,7 +381,7 @@ BROADCAST-SPECIFIC ETHICAL STANDARDS
   │  BROADCAST LIVE ERROR PROBLEM:                                   │
   │  Live air is not correctable in real time                        │
   │  Anchor must interrupt own script to correct mid-broadcast       │
-  │  Social media amplifies initial error before correction airs    │
+  │  Social media amplifies initial error before correction airs     │
   └──────────────────────────────────────────────────────────────────┘
 
   STAGING FOR BROADCAST:
@@ -390,7 +390,7 @@ BROADCAST-SPECIFIC ETHICAL STANDARDS
   │  Walking shot: Reporter "walking" to camera setup — accepted     │
   │   as production convention                                       │
   │  Re-asking interview questions for camera coverage ("noddies")   │
-  │   — accepted convention when disclosed to production team       │
+  │   — accepted convention when disclosed to production team        │
   │  B-roll deception: Pairing archival footage with current story   │
   │   without disclosure — not acceptable                            │
   └──────────────────────────────────────────────────────────────────┘

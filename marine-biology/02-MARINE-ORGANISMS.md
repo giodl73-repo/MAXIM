@@ -18,7 +18,7 @@ PRIMARY PRODUCERS
 │  ├── Coccolithophores  — calcium carbonate scales, carbonate pump│
 │  └── Cyanobacteria     — Prochlorococcus: most abundant photosynth│
 │  Macroalgae (seaweeds) — kelp, Sargassum (coastal/neritic)      │
-│  Seagrasses            — true flowering plants (angiosperms)     │
+│  Seagrasses            — true flowering plants (angiosperms)    │
 └─────────────────────────────────────────────────────────────────┘
                │ Consumed by
                ▼

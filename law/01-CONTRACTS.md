@@ -20,8 +20,8 @@
 │                                                                          │
 ├──────────────────────────────────────────────────────────────────────────┤
 │                                                                          │
-│  COMMON LAW (services, real estate) vs UCC Article 2 (goods)            │
-│  REMEDIES: expectation / reliance / restitution / specific performance  │
+│  COMMON LAW (services, real estate) vs UCC Article 2 (goods)             │
+│  REMEDIES: expectation / reliance / restitution / specific performance   │
 │                                                                          │
 └──────────────────────────────────────────────────────────────────────────┘
 ```

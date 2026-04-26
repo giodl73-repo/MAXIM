@@ -13,18 +13,18 @@ These principles hold for most real programs (loops, arrays, structs). They are 
 +-----------------------------------------------------------------------+
 |                     MEMORY HIERARCHY                                  |
 |                                                                       |
-|   LEVEL    SIZE         LATENCY    BANDWIDTH    TECHNOLOGY           |
-|   -------  -----------  ---------  -----------  -----------          |
-|   Register  <1 KB       0 cycles   ∞            flip-flops           |
-|   L1 I$    32–64 KB     ~4 cycles  ~1 TB/s      6T SRAM              |
-|   L1 D$    32–64 KB     ~4 cycles  ~1 TB/s      6T SRAM              |
-|   L2       256KB–1MB    ~12 cycles ~500 GB/s    6T SRAM              |
-|   L3       8–64 MB      ~40 cycles ~200 GB/s    6T SRAM              |
-|   DRAM     8–256 GB     ~70ns      ~50–100 GB/s DRAM cells           |
+|   LEVEL    SIZE         LATENCY    BANDWIDTH    TECHNOLOGY            |
+|   -------  -----------  ---------  -----------  -----------           |
+|   Register  <1 KB       0 cycles   ∞            flip-flops            |
+|   L1 I$    32–64 KB     ~4 cycles  ~1 TB/s      6T SRAM               |
+|   L1 D$    32–64 KB     ~4 cycles  ~1 TB/s      6T SRAM               |
+|   L2       256KB–1MB    ~12 cycles ~500 GB/s    6T SRAM               |
+|   L3       8–64 MB      ~40 cycles ~200 GB/s    6T SRAM               |
+|   DRAM     8–256 GB     ~70ns      ~50–100 GB/s DRAM cells            |
 |            (100 cycles)                                               |
-|   NVMe     256GB–8TB    ~100μs     ~5–12 GB/s   NAND flash           |
+|   NVMe     256GB–8TB    ~100μs     ~5–12 GB/s   NAND flash            |
 |            (~50K cycles)                                              |
-|   HDD      1–20 TB      ~5–10ms    ~100–200 MB/s magnetic            |
+|   HDD      1–20 TB      ~5–10ms    ~100–200 MB/s magnetic             |
 |                                                                       |
 |  DRAM latency numbers: DDR5-6400, typical desktop system            |
 |  Apple M2: L2 per-cluster 12 MB; "System cache" 8–24 MB before DRAM |
@@ -128,10 +128,10 @@ All caches use Static RAM (SRAM), which holds a bit stably as long as power is a
   Address bits: [tag][index:6 bits][offset:6 bits]
 
   +────────+──────────────────────────────────────────────────+
-  |  SET 0 |  Way 0  |  Way 1  | ... |  Way 7  |             |
-  |  SET 1 |  Way 0  |  Way 1  | ... |  Way 7  |             |
+  |  SET 0 |  Way 0  |  Way 1  | ... |  Way 7  |              |
+  |  SET 1 |  Way 0  |  Way 1  | ... |  Way 7  |              |
   |  ...   |                                                  |
-  |  SET 63|  Way 0  |  Way 1  | ... |  Way 7  |             |
+  |  SET 63|  Way 0  |  Way 1  | ... |  Way 7  |              |
   +────────+──────────────────────────────────────────────────+
 
   On access:

@@ -30,7 +30,7 @@
 
 ```
 +====================================================================+
-|                    THE GROUP AXIOMS                                 |
+|                    THE GROUP AXIOMS                                |
 +====================================================================+
 |                                                                    |
 |  A GROUP (G, ·) satisfies:                                        |
@@ -48,17 +48,17 @@
 +---------------+----------+---------------------+-------------------+
 | Group         | Operation | Order               | Abelian?          |
 +---------------+----------+---------------------+-------------------+
-| Z             | +         | ∞                   | Yes               |
-| Z/nZ          | + mod n   | n                   | Yes               |
-| (Z/nZ)*       | × mod n   | φ(n)                | Yes               |
-| Q*, R*, C*    | ×         | ∞                   | Yes               |
-| S_n           | compose   | n!                  | n≤2 only          |
-| A_n           | compose   | n!/2                | n≤3 only          |
-| D_n (dihedral)| compose   | 2n                  | n≤2 only          |
-| GL(n,F)       | ×         | ∞ (or finite for F_p)| No (n≥2)         |
-| SL(n,F)       | ×         | ∞ (or finite)       | No (n≥2)          |
-| SO(n)         | ×         | ∞ (Lie group)       | n≤2 only          |
-| SU(2)         | ×         | ∞ (Lie group)       | No                |
+| Z             | +        | ∞                   | Yes               |
+| Z/nZ          | + mod n  | n                   | Yes               |
+| (Z/nZ)*       | × mod n  | φ(n)                | Yes               |
+| Q*, R*, C*    | ×        | ∞                   | Yes               |
+| S_n           | compose  | n!                  | n≤2 only          |
+| A_n           | compose  | n!/2                | n≤3 only          |
+| D_n (dihedral)| compose  | 2n                  | n≤2 only          |
+| GL(n,F)       | ×        | ∞ (or finite for F_p)| No (n≥2)         |
+| SL(n,F)       | ×        | ∞ (or finite)       | No (n≥2)          |
+| SO(n)         | ×        | ∞ (Lie group)       | n≤2 only          |
+| SU(2)         | ×        | ∞ (Lie group)       | No                |
 | (Z/pZ)* (p prime)| ×     | p-1                 | Yes (cyclic)      |
 +---------------+----------+---------------------+-------------------+
 ```

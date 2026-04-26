@@ -8,20 +8,20 @@ Receptor theory is the mathematical and mechanistic framework for how drugs inte
 +──────────────────────────────────────────────────────────────────+
 |                  RECEPTOR THEORY LANDSCAPE                       |
 |                                                                  |
-|  RECEPTOR = Macromolecule that binds drug → transduces signal   |
+|  RECEPTOR = Macromolecule that binds drug → transduces signal    |
 |                                                                  |
 |  DRUG-RECEPTOR INTERACTION                                       |
-|  Drug (D) + Receptor (R) ⇌ Drug-Receptor complex (DR) → Effect  |
+|  Drug (D) + Receptor (R) ⇌ Drug-Receptor complex (DR) → Effect   |
 |                                                                  |
-|  KEY QUESTIONS                                                    |
-|  1. How tightly does drug bind?   → Affinity (Kd)               |
-|  2. How much receptor is occupied? → Occupancy                  |
-|  3. What effect does binding produce? → Efficacy / Intrinsic    |
+|  KEY QUESTIONS                                                   |
+|  1. How tightly does drug bind?   → Affinity (Kd)                |
+|  2. How much receptor is occupied? → Occupancy                   |
+|  3. What effect does binding produce? → Efficacy / Intrinsic     |
 |                                         activity                 |
 |  4. Full agonist? Partial? Antagonist? Inverse?                  |
 |                                                                  |
 |  OCCUPANCY THEORY (Clark 1926)                                   |
-|  Effect ∝ fraction of receptors occupied by drug                |
+|  Effect ∝ fraction of receptors occupied by drug                 |
 +──────────────────────────────────────────────────────────────────+
 ```
 
@@ -119,11 +119,11 @@ EFFICACY vs POTENCY
   ┌─────────────────────────────────────────────────────────┐
   │           DOSE-RESPONSE CURVES                          │
   │                                                         │
-  │ Effect  100% │ ━━━━━━━━━━━━ A (full agonist)           │
-  │          75% │     ━━━━━━━━ B (partial agonist)        │
+  │ Effect  100% │ ━━━━━━━━━━━━ A (full agonist)            │
+  │          75% │     ━━━━━━━━ B (partial agonist)         │
   │          50% │ A50%          B50%                       │
   │              │ │              │                         │
-  │              └─│──────────────│──────────→ [Drug]      │
+  │              └─│──────────────│──────────→ [Drug]       │
   │                EC50_A         EC50_B                    │
   │                (lower = more potent)                    │
   └─────────────────────────────────────────────────────────┘
@@ -226,7 +226,7 @@ GPCR → EFFECTOR PATHWAY
     │
     v
   ┌─────────────────────────────────────────────────────┐
-  │  RECEPTOR (7-transmembrane GPCR)                   │
+  │  RECEPTOR (7-transmembrane GPCR)                    │
   │  Conformational change → activates Gα subunit       │
   └───────────────────────┬─────────────────────────────┘
                           │

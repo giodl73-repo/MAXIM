@@ -145,11 +145,11 @@ NANOSHEET (or nanowire):
   Cross-section through gate:
   +-----------------------------+
   |         Gate metal          |
-  | +--+  +----------+  +--+   |
+  | +--+  +----------+  +--+    |
   | |  |  | Nanosheet |  |  |  | <- gate dielectric wraps nanosheet
   | +--+  +----------+  +--+   |
-  |        (another)            |
-  |         Gate metal          |
+  |        (another)           |
+  |         Gate metal         |
   +-----------------------------+
 
 STACKED NANOSHEETS:

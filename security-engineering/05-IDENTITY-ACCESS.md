@@ -8,9 +8,9 @@ Identity and access management (IAM) is the enforcement point for the principle 
 IDENTITY AND ACCESS LANDSCAPE
 +-----------------------------------------------------------------------+
 |                                                                       |
-|  AUTHENTICATION              AUTHORIZATION                           |
-|  (who are you?)              (what can you do?)                      |
-|  +-----------------------+   +---------------------------+           |
+|  AUTHENTICATION              AUTHORIZATION                            |
+|  (who are you?)              (what can you do?)                       |
+|  +-----------------------+   +---------------------------+            |
 |  | Password + MFA        |   | RBAC (Role-Based)         |           |
 |  | OAuth 2.0 flows       |   | ABAC (Attribute-Based)    |           |
 |  | OIDC identity token   |   | ReBAC (Relationship-Based)|           |
@@ -20,7 +20,7 @@ IDENTITY AND ACCESS LANDSCAPE
 |  +-----------------------+   PRIVILEGED ACCESS                       |
 |                               +---------------------------+           |
 |  SERVICE IDENTITY             | PAM (Privileged Access    |           |
-|  +-----------------------+   | Management)               |           |
+|  +-----------------------+   | Management)               |            |
 |  | Managed identities    |   | JIT (Just-in-Time)        |           |
 |  | Service principals    |   | Session recording         |           |
 |  | Workload identity fed.|   | Credential vaulting       |           |

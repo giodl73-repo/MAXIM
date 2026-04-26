@@ -6,7 +6,7 @@ The Curry-Howard correspondence is the deepest structural insight in PLT: type s
 
 ```
 +--------------------------------------------------------------------------+
-|                    CURRY-HOWARD CORRESPONDENCE                            |
+|                    CURRY-HOWARD CORRESPONDENCE                           |
 +--------------------------------------------------------------------------+
 |                                                                          |
 |     LOGIC (Intuitionistic)          TYPE THEORY / PROGRAMS               |

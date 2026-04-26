@@ -10,18 +10,18 @@ CLEAR FINISH SELECTION MATRIX:
   ┌────────────────────────────────────────────────────────────────────┐
   │                    PERFORMANCE vs CONVENIENCE                      │
   │                                                                    │
-  │  Highest        Conversion Varnish (2-component, catalyzed)       │
-  │  performance    2K Polyurethane (isocyanate hardener)             │
-  │       ↑         Oil-based 1-part polyurethane                     │
-  │       │         Pre-cat / post-cat lacquer                        │
-  │       │         Water-based polyurethane                          │
+  │  Highest        Conversion Varnish (2-component, catalyzed)        │
+  │  performance    2K Polyurethane (isocyanate hardener)              │
+  │       ↑         Oil-based 1-part polyurethane                      │
+  │       │         Pre-cat / post-cat lacquer                         │
+  │       │         Water-based polyurethane                           │
   │       │         Nitrocellulose lacquer                             │
   │       │         Alkyd varnish                                      │
   │       │         Oil varnish / danish oil                           │
-  │  Lowest         Shellac (beautiful, not durable)                  │
-  │  performance    Paste wax (reversible, non-film)                  │
+  │  Lowest         Shellac (beautiful, not durable)                   │
+  │  performance    Paste wax (reversible, non-film)                   │
   │                                                                    │
-  │  ←── Most convenient ────────── Least convenient ──→              │
+  │  ←── Most convenient ────────── Least convenient ──→               │
   └────────────────────────────────────────────────────────────────────┘
 
   THREE HARDENING MECHANISMS:
@@ -53,7 +53,7 @@ CLEAR FINISH SELECTION MATRIX:
 
   TUNG OIL vs LINSEED OIL:
   ┌───────────────────────────────────────────────────────────┐
-  │  Tung Oil           │ Linseed Oil                        │
+  │  Tung Oil           │ Linseed Oil                         │
   ├───────────────────────────────────────────────────────────┤
   │  Harder, better     │ More flexible                      │
   │  water resistance   │ More amber color                   │
@@ -272,12 +272,12 @@ CLEAR FINISH SELECTION MATRIX:
 ```
   THREE LEVELS OF CATALYSIS:
   ┌──────────────────────────────────────────────────────────────┐
-  │  PRE-CATALYZED LACQUER ("pre-cat"):                         │
-  │    Catalyst added by manufacturer at factory                │
-  │    Limited shelf life: ~1 year after opening                │
-  │    One-component application (no mixing required)           │
-  │    More durable than nitro; some crosslinking               │
-  │    Professional cabinet shops; spray application            │
+  │  PRE-CATALYZED LACQUER ("pre-cat"):                          │
+  │    Catalyst added by manufacturer at factory                 │
+  │    Limited shelf life: ~1 year after opening                 │
+  │    One-component application (no mixing required)            │
+  │    More durable than nitro; some crosslinking                │
+  │    Professional cabinet shops; spray application             │
   ├──────────────────────────────────────────────────────────────┤
   │  POST-CATALYZED LACQUER ("post-cat"):                       │
   │    Finisher adds catalyst just before use                   │
@@ -287,18 +287,18 @@ CLEAR FINISH SELECTION MATRIX:
   │    Pot life: 8-24 hours after catalyzing                    │
   │    Better than pre-cat; less labor than conversion varnish  │
   ├──────────────────────────────────────────────────────────────┤
-  │  CONVERSION VARNISH (acid-catalyzed varnish):               │
-  │    Full two-component system: urea-formaldehyde or          │
-  │    melamine resin + acid catalyst                           │
-  │    HIGHEST performance clear finish for wood:               │
-  │      Exceeds polyurethane in hardness and chem. resistance  │
+  │  CONVERSION VARNISH (acid-catalyzed varnish):                │
+  │    Full two-component system: urea-formaldehyde or           │
+  │    melamine resin + acid catalyst                            │
+  │    HIGHEST performance clear finish for wood:                │
+  │      Exceeds polyurethane in hardness and chem. resistance   │
   │      Kitchen cabinets, commercial casework, hardwood floors  │
-  │    Requires precise mix ratio (typically 5-10% catalyst)    │
-  │    Pot life: 8-12 hours                                     │
-  │    Temperature sensitivity: cold = slow cure, brittle;      │
-  │    hot = fast cure                                          │
-  │    PROFESSIONAL SHOP ONLY: spray equipment, spray booth,    │
-  │    temperature/humidity control for consistent results      │
+  │    Requires precise mix ratio (typically 5-10% catalyst)     │
+  │    Pot life: 8-12 hours                                      │
+  │    Temperature sensitivity: cold = slow cure, brittle;       │
+  │    hot = fast cure                                           │
+  │    PROFESSIONAL SHOP ONLY: spray equipment, spray booth,     │
+  │    temperature/humidity control for consistent results       │
   └──────────────────────────────────────────────────────────────┘
 ```
 

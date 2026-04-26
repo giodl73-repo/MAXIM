@@ -18,10 +18,10 @@ ROPE PERFORMANCE DIMENSIONS
   │                                                                   │
   │  DURABILITY PROPERTIES          HANDLING PROPERTIES             │
   │  ┌──────────────────┐           ┌──────────────────┐            │
-  │  │ UV degradation   │           │ Flexibility      │           │
-  │  │ Abrasion resistance│         │ Knotability      │           │
-  │  │ Chemical resistance│         │ Coilability      │           │
-  │  │ Creep (sustained)│           │ Hand (softness)  │           │
+  │  │ UV degradation   │           │ Flexibility      │            │
+  │  │ Abrasion resistance│         │ Knotability      │            │
+  │  │ Chemical resistance│         │ Coilability      │            │
+  │  │ Creep (sustained)│           │ Hand (softness)  │            │
   │  └──────────────────┘           └──────────────────┘            │
   └──────────────────────────────────────────────────────────────────┘
 ```
@@ -49,13 +49,13 @@ STRENGTH TERMINOLOGY
 
   WLL (Working Load Limit) = MBS / Safety Factor:
   ┌──────────────────────────────────────────────────────────────────┐
-  │  Application              SF         WLL = MBS/SF               │
+  │  Application              SF         WLL = MBS/SF                │
   │  ─────────────────────────────────────────────────────────────── │
-  │  Life safety (NFPA 1983) 10:1        WLL = MBS/10               │
+  │  Life safety (NFPA 1983) 10:1        WLL = MBS/10                │
   │  Lifting (ASME B30.9)     5:1–8:1    WLL = MBS/5 to MBS/8      │
   │  Marine (ISO 4565)        5:1–6:1    WLL = MBS/5 or MBS/6      │
-  │  Arborist (ANSI Z133)     10:1       WLL = MBS/10               │
-  │  Rigging (general)        5:1        WLL = MBS/5                │
+  │  Arborist (ANSI Z133)     10:1       WLL = MBS/10                │
+  │  Rigging (general)        5:1        WLL = MBS/5                 │
   └──────────────────────────────────────────────────────────────────┘
 
   SHOCK LOAD:
@@ -111,18 +111,18 @@ ELONGATION CATEGORIES
   HIGH ELONGATION ROPES (energy-absorbing applications):
   ┌──────────────────────────────────────────────────────────────────┐
   │  Nylon 3-strand/braid: 20–30% at break; 8–12% at 10% MBS      │
-  │  Uses: Anchor rodes, mooring lines, climbing rope               │
-  │  Physics: Energy = ∫F·dx = area under F-elongation curve        │
-  │           Higher elongation → larger area → more energy stored  │
-  │  Benefit: Absorbs surge, dock impact, fall energy               │
+  │  Uses: Anchor rodes, mooring lines, climbing rope                │
+  │  Physics: Energy = ∫F·dx = area under F-elongation curve         │
+  │           Higher elongation → larger area → more energy stored   │
+  │  Benefit: Absorbs surge, dock impact, fall energy                │
   └──────────────────────────────────────────────────────────────────┘
 
   MEDIUM ELONGATION ROPES (balance of use):
   ┌──────────────────────────────────────────────────────────────────┐
   │  Polyester double braid: 10–15% at break; 3–6% at 10% MBS     │
-  │  Uses: General marine, sheets, halyards, static rigging         │
+  │  Uses: General marine, sheets, halyards, static rigging          │
   │  Balance: Enough stretch to absorb normal loads; not so much   │
-  │           that positioning control is lost                      │
+  │           that positioning control is lost                       │
   └──────────────────────────────────────────────────────────────────┘
 
   LOW ELONGATION ROPES (position-critical applications):
@@ -130,10 +130,10 @@ ELONGATION CATEGORIES
   │  UHMWPE:    3–4% at break; <1% at 10% MBS                     │
   │  Vectran:   3.3% at break; <1% at 10% MBS                      │
   │  Aramid:    3.6% at break; ~1% at 10% MBS                      │
-  │  Uses: Racing sails, offshore mooring, precise positioning,     │
-  │         structural stays where length control critical          │
-  │  Note: Low elongation = poor energy absorption = cannot arrest  │
-  │         dynamic falls (Dyneema is NOT suitable for dynamic      │
+  │  Uses: Racing sails, offshore mooring, precise positioning,      │
+  │         structural stays where length control critical           │
+  │  Note: Low elongation = poor energy absorption = cannot arrest   │
+  │         dynamic falls (Dyneema is NOT suitable for dynamic       │
   │         climbing rope — no energy absorption, breaks anchor)   │
   └──────────────────────────────────────────────────────────────────┘
 
@@ -172,9 +172,9 @@ ABRASION RESISTANCE RANKING (rope-level, approximate)
   ┌──────────────────────────────────────────────────────────────────┐
   │  • Chafe gear: rubber, leather, or plastic sleeve at chafe point│
   │  • Chafe guard hose: split garden hose over running line       │
-  │  • Fairleads: smooth-surfaced rollers or blocks to guide line   │
-  │  • Inspection: check sheath regularly; replace when core shows  │
-  │  • Running rope is better than static (distributes wear)        │
+  │  • Fairleads: smooth-surfaced rollers or blocks to guide line    │
+  │  • Inspection: check sheath regularly; replace when core shows   │
+  │  • Running rope is better than static (distributes wear)         │
   └──────────────────────────────────────────────────────────────────┘
 ```
 
@@ -192,26 +192,26 @@ UV DEGRADATION RATES
 
   DEGRADATION RANKING (outdoor UV exposure, uncoated):
   ┌──────────────────────────────────────────────────────────────────┐
-  │  MOST RESISTANT:                                                │
-  │  Polyester:    Excellent UV resistance — recommended for        │
-  │                permanent outdoor installations                  │
-  │                Color fading before strength loss                │
-  │                                                                   │
-  │  Nylon:        Good; better than PP; some UV stabilizer helps   │
-  │                                                                   │
+  │  MOST RESISTANT:                                                 │
+  │  Polyester:    Excellent UV resistance — recommended for         │
+  │                permanent outdoor installations                   │
+  │                Color fading before strength loss                 │
+  │                                                                  │
+  │  Nylon:        Good; better than PP; some UV stabilizer helps    │
+  │                                                                  │
   │  Manila/Hemp:  Moderate; surface degrades but core protected   │
-  │                by compacted construction                        │
-  │                                                                   │
+  │                by compacted construction                         │
+  │                                                                  │
   │  UHMWPE:       Moderate; absorbs UV at surface; sheath         │
-  │                protection recommended for long-term use         │
-  │                                                                   │
+  │                protection recommended for long-term use          │
+  │                                                                  │
   │  Polypropylene:POOR — brittle and weak in 1–2 seasons          │
   │                without UV stabilizer (carbon black additive    │
-  │                extends life significantly — black PP is better) │
-  │                                                                   │
+  │                extends life significantly — black PP is better)  │
+  │                                                                  │
   │  Aramid (Kevlar): VERY POOR — must be sheathed for outdoor use │
-  │                   UV destroys fiber within months of exposure   │
-  │                                                                   │
+  │                   UV destroys fiber within months of exposure    │
+  │                                                                  │
   │  PBO (Zylon):  EXTREMELY POOR — must be sheathed at all times  │
   │                6 months of UV exposure causes 40%+ loss        │
   └──────────────────────────────────────────────────────────────────┘
@@ -237,16 +237,16 @@ CREEP BEHAVIOR BY MATERIAL
   ┌──────────────────────────────────────────────────────────────────┐
   │  Nylon:    Significant creep at loads >10% MBS                 │
   │  UHMWPE:   Creep at room temperature is low; but at >70°C     │
-  │            and loads >20% MBS, creep becomes significant        │
-  │  Polyester: Moderate creep; less than nylon                     │
+  │            and loads >20% MBS, creep becomes significant         │
+  │  Polyester: Moderate creep; less than nylon                      │
   └──────────────────────────────────────────────────────────────────┘
 
   LOW CREEP (preferred for long-term tensioned applications):
   ┌──────────────────────────────────────────────────────────────────┐
-  │  Vectran LCP: Very low creep — designed for sustained tension   │
+  │  Vectran LCP: Very low creep — designed for sustained tension    │
   │    → preferred for: boat shrouds, seismic moorings, suspensions│
   │  Aramid:     Low creep at ambient (bending fatigue is the issue)│
-  │  Polyester:  Moderate (better than nylon, worse than Vectran)   │
+  │  Polyester:  Moderate (better than nylon, worse than Vectran)    │
   └──────────────────────────────────────────────────────────────────┘
 
   CREEP TEST: ASTM D6988
@@ -272,18 +272,18 @@ ROPE RETIREMENT CRITERIA
 
   GENERAL INSPECTION (before each use):
   ┌──────────────────────────────────────────────────────────────────┐
-  │  VISIBLE DAMAGE:                                                │
+  │  VISIBLE DAMAGE:                                                 │
   │  • Core visible through sheath (discard immediately)           │
   │  • Cuts, glazing, severe abrasion on sheath (evaluate)         │
   │  • Hard spots or soft spots (internal damage — discard)        │
   │  • Diameter reduction (tension damage, core failure)           │
   │  • Discoloration from chemical exposure (test or discard)      │
-  │                                                                   │
+  │                                                                  │
   │  LIFE SAFETY ROPE (NFPA 1983 compliant):                       │
-  │  Discard after:                                                 │
-  │  • Any life-safety load event                                   │
-  │  • Visible damage of any type                                   │
-  │  • Contamination (chemicals, sharp particles)                   │
+  │  Discard after:                                                  │
+  │  • Any life-safety load event                                    │
+  │  • Visible damage of any type                                    │
+  │  • Contamination (chemicals, sharp particles)                    │
   │  • 10 years from manufacture date (NFPA recommendation)        │
   │  • When inspection reveals any doubt                           │
   └──────────────────────────────────────────────────────────────────┘

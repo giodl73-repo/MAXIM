@@ -11,9 +11,9 @@ Numerical integration approximates Integral_a^b f(x) dx when the antiderivative 
 |                                                                  |
 |  NEWTON-COTES (equally-spaced)    GAUSSIAN QUADRATURE            |
 |  +------------------------+        +-----------------------+     |
-|  | Midpoint: O(h^2)       |        | n points: O(h^{2n})  |     |
-|  | Trapezoid: O(h^2)      |        | (degree 2n-1 exact)  |     |
-|  | Simpson's: O(h^4)      |        | OPTIMAL node placement|    |
+|  | Midpoint: O(h^2)       |        | n points: O(h^{2n})   |     |
+|  | Trapezoid: O(h^2)      |        | (degree 2n-1 exact)   |     |
+|  | Simpson's: O(h^4)      |        | OPTIMAL node placement|     |
 |  | Composite rules        |        | Gauss-Legendre, etc.  |     |
 |  +------------------------+        +-----------------------+     |
 |                                                                  |

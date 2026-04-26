@@ -91,12 +91,12 @@ Four modes of convergence for a sequence of random variables Xₙ → X:
   │    Xₙ(ω) → X(ω) for all ω outside a null set.                     │
   │                                                                     │
   │  In Lᵖ (mean pth power): E[|Xₙ - X|ᵖ] → 0                        │
-  │    Most useful: L² (mean square convergence, geometry of Hilbert)  │
+  │    Most useful: L² (mean square convergence, geometry of Hilbert)   │
   │                                                                     │
   │  In probability:  P(|Xₙ - X| > ε) → 0  for all ε > 0             │
   │                                                                     │
   │  In distribution: F_Xₙ(x) → F_X(x) at continuity points of F_X   │
-  │    Weakest: only the law (distribution) converges, not the values  │
+  │    Weakest: only the law (distribution) converges, not the values   │
   └─────────────────────────────────────────────────────────────────────┘
 
   Implications:
@@ -284,9 +284,9 @@ These are the workhorses of PAC learning, VC-dimension bounds, and algorithm ana
   ┌─────────────────────────────────────────────────────────────────────────┐
   │  CONCENTRATION HIERARCHY (increasing generality)                        │
   │                                                                         │
-  │  Chernoff (sums of independent {0,1} r.v., sharpest for Bernoullis):   │
+  │  Chernoff (sums of independent {0,1} r.v., sharpest for Bernoullis):    │
   │    P(Σ Xᵢ ≥ (1+δ)μ) ≤ e^(-μδ²/3)   for δ ∈ (0,1]                   │
-  │    Derived from M_X(t) directly; exponentially tight.                  │
+  │    Derived from M_X(t) directly; exponentially tight.                   │
   │                                                                         │
   │  Hoeffding (bounded independent r.v., aᵢ ≤ Xᵢ ≤ bᵢ):                │
   │    P(Σ(Xᵢ - E[Xᵢ]) ≥ t) ≤ exp(-2t²/Σ(bᵢ-aᵢ)²)                    │
@@ -298,7 +298,7 @@ These are the workhorses of PAC learning, VC-dimension bounds, and algorithm ana
   │    Drops the independence requirement — only needs bounded increments.  │
   │    Doob martingale converts function of independent r.v. to martingale. │
   │                                                                         │
-  │  McDiarmid / Bounded Differences (function of independent inputs):     │
+  │  McDiarmid / Bounded Differences (function of independent inputs):      │
   │    f(x₁,...,xₙ) stable: changing xᵢ → x'ᵢ changes f by at most cᵢ.  │
   │    P(f - E[f] ≥ t) ≤ exp(-2t²/Σcᵢ²)                                 │
   │    This is Azuma applied via Doob's martingale construction.            │
@@ -345,17 +345,17 @@ recurrence structure and (b) random recursion trees connect to branching process
   ┌─────────────────────────────────────────────────────────────────────┐
   │  Compare f(n) vs n^(c*)                                             │
   │                                                                     │
-  │  Case 1: f(n) = O(n^(c*-ε))  for some ε > 0                        │
+  │  Case 1: f(n) = O(n^(c*-ε))  for some ε > 0                         │
   │    Subproblems dominate — leaves do most work                       │
   │    T(n) = Θ(n^c*)                                                   │
   │                                                                     │
   │  Case 2: f(n) = Θ(n^(c*) · log^k(n))  for some k ≥ 0              │
   │    Balanced — work spread across all levels                         │
-  │    T(n) = Θ(n^(c*) · log^(k+1)(n))                                 │
+  │    T(n) = Θ(n^(c*) · log^(k+1)(n))                                  │
   │    Common: f(n) = Θ(n^c*) → k=0 → T(n) = Θ(n^c* log n)            │
   │                                                                     │
-  │  Case 3: f(n) = Ω(n^(c*+ε))  for some ε > 0,                       │
-  │    AND  a·f(n/b) ≤ c·f(n)  for c < 1  (regularity condition)       │
+  │  Case 3: f(n) = Ω(n^(c*+ε))  for some ε > 0,                        │
+  │    AND  a·f(n/b) ≤ c·f(n)  for c < 1  (regularity condition)        │
   │    Top level dominates — root does most work                        │
   │    T(n) = Θ(f(n))                                                   │
   └─────────────────────────────────────────────────────────────────────┘

@@ -39,7 +39,7 @@ PHYSICAL CLASSIFICATION:
     Sharp halocline separates two layers
     Example: Mississippi River mouth
     ┌─────────────────────────────────────────┐
-    │  FRESHWATER (S=0)  ─────────────────── │
+    │  FRESHWATER (S=0)  ───────────────────  │
     │ ─────────────────────────────────────── │  sea
     │     SALTWATER (S=35) ──────────────► │
     └─────────────────────────────────────────┘

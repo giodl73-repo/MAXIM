@@ -46,14 +46,14 @@ SPECIES COUNTS:
 CUTICLE LAYERS (outside to inside)
 +--------------------------------------------+
 |  Epicuticle     Thin, waxy, waterproof     |
-|                 (wax layer = key land       |
-|                  conquest innovation)       |
+|                 (wax layer = key land      |
+|                  conquest innovation)      |
 +--------------------------------------------+
 |  Exocuticle     Hardened by quinone        |
 |                 tanning (sclerotization)    |
 +--------------------------------------------+
 |  Endocuticle    Soft, flexible,            |
-|                 laminated chitin-protein    |
+|                 laminated chitin-protein   |
 +--------------------------------------------+
 |  Epidermis      Secretes above layers      |
 +--------------------------------------------+
@@ -332,11 +332,11 @@ RIMICARIS EXOCULATA (vent shrimp):
 ```
 INSECT BODY PLAN
 +-----------------------------------------------+
-|  HEAD          THORAX         ABDOMEN          |
-|  Antenna pair  Pro/Meso/Meta  10–11 segments   |
-|  Compound eyes 3 pairs legs   Spiracles        |
-|  Ocelli (3)    2 pairs wings  Reproductive     |
-|  Mouthparts    (typically)    organs           |
+|  HEAD          THORAX         ABDOMEN         |
+|  Antenna pair  Pro/Meso/Meta  10–11 segments  |
+|  Compound eyes 3 pairs legs   Spiracles       |
+|  Ocelli (3)    2 pairs wings  Reproductive    |
+|  Mouthparts    (typically)    organs          |
 +-----------------------------------------------+
 
 KEY INNOVATIONS FOR LAND:

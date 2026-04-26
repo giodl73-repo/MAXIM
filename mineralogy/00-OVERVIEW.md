@@ -6,7 +6,7 @@
 +------------------------------------------------------------------+
 |                    THE MINERAL KINGDOM                           |
 |                                                                  |
-|  A mineral: naturally occurring, inorganic, crystalline solid   |
+|  A mineral: naturally occurring, inorganic, crystalline solid    |
 |  with a defined chemical composition                             |
 +------------------------------------------------------------------+
                               |
@@ -33,29 +33,29 @@
 MINERAL CLASSES (by dominant anion group)
 +------------------------------------------------------------------+
 |                                                                  |
-|  SILICATES          ~1,000 species       Rock-forming backbone  |
+|  SILICATES          ~1,000 species       Rock-forming backbone   |
 |  SiO₄ tetrahedra    Quartz, feldspar, mica, pyroxene, olivine  |
 |                                                                  |
-|  CARBONATES           ~200 species       Sedimentary record     |
+|  CARBONATES           ~200 species       Sedimentary record      |
 |  CO₃²⁻              Calcite, dolomite, aragonite, malachite    |
 |                                                                  |
-|  OXIDES               ~500 species       Economic ores          |
+|  OXIDES               ~500 species       Economic ores           |
 |  O²⁻                 Hematite, magnetite, corundum, rutile     |
 |                                                                  |
-|  SULFIDES             ~600 species       Ore minerals           |
+|  SULFIDES             ~600 species       Ore minerals            |
 |  S²⁻                 Pyrite, galena, sphalerite, chalcopyrite  |
 |                                                                  |
-|  PHOSPHATES           ~700 species       Bones, fertilizer      |
+|  PHOSPHATES           ~700 species       Bones, fertilizer       |
 |  PO₄³⁻               Apatite, turquoise, monazite              |
 |                                                                  |
-|  SULFATES             ~400 species       Evaporites             |
+|  SULFATES             ~400 species       Evaporites              |
 |  SO₄²⁻               Gypsum, barite, celestite                 |
 |                                                                  |
-|  HALIDES              ~100 species       Evaporites, fluxes     |
+|  HALIDES              ~100 species       Evaporites, fluxes      |
 |  F⁻, Cl⁻             Halite, fluorite, sylvite                 |
 |                                                                  |
-|  NATIVE ELEMENTS       ~50 species       Pure metals/metalloids |
-|                        Gold, silver, copper, diamond, graphite  |
+|  NATIVE ELEMENTS       ~50 species       Pure metals/metalloids  |
+|                        Gold, silver, copper, diamond, graphite   |
 +------------------------------------------------------------------+
 ```
 
@@ -79,15 +79,15 @@ MINERAL CLASSES (by dominant anion group)
 ```
 ELEMENTAL ABUNDANCE IN EARTH'S CRUST (by mass)
 +------------------------------------------------------------+
-|  Oxygen (O)        46.6%   ← dominates all mineral anions |
-|  Silicon (Si)      27.7%   ← forms silicate tetrahedra    |
-|  Aluminum (Al)      8.1%   ← feldspar, clays              |
-|  Iron (Fe)          5.0%   ← pyroxene, olivine, ore       |
-|  Calcium (Ca)       3.6%   ← plagioclase, calcite         |
-|  Sodium (Na)        2.8%   ← plagioclase, halite          |
-|  Potassium (K)      2.6%   ← K-feldspar, mica             |
-|  Magnesium (Mg)     2.1%   ← olivine, pyroxene, dolomite  |
-|  All others         1.5%   ← includes all ore metals      |
+|  Oxygen (O)        46.6%   ← dominates all mineral anions  |
+|  Silicon (Si)      27.7%   ← forms silicate tetrahedra     |
+|  Aluminum (Al)      8.1%   ← feldspar, clays               |
+|  Iron (Fe)          5.0%   ← pyroxene, olivine, ore        |
+|  Calcium (Ca)       3.6%   ← plagioclase, calcite          |
+|  Sodium (Na)        2.8%   ← plagioclase, halite           |
+|  Potassium (K)      2.6%   ← K-feldspar, mica              |
+|  Magnesium (Mg)     2.1%   ← olivine, pyroxene, dolomite   |
+|  All others         1.5%   ← includes all ore metals       |
 +------------------------------------------------------------+
    Si + O = 74.3% → silicates dominate by chemistry alone
 ```
@@ -124,27 +124,27 @@ SEVEN CRYSTAL SYSTEMS
 MINERALS IN THE MODERN ECONOMY
 +------------------------------------------------------------------+
 |  CONSTRUCTION MATERIALS                                          |
-|  Limestone → cement    Gypsum → drywall    Silica sand → glass  |
-|  Sand/gravel → concrete aggregates                              |
+|  Limestone → cement    Gypsum → drywall    Silica sand → glass   |
+|  Sand/gravel → concrete aggregates                               |
 |                                                                  |
 |  METALS FROM ORES                                                |
-|  Magnetite/hematite → iron/steel (infrastructure backbone)      |
-|  Chalcopyrite → copper (all electrical wiring)                  |
-|  Bauxite → aluminum (aircraft, packaging, power lines)          |
+|  Magnetite/hematite → iron/steel (infrastructure backbone)       |
+|  Chalcopyrite → copper (all electrical wiring)                   |
+|  Bauxite → aluminum (aircraft, packaging, power lines)           |
 |  Sphalerite → zinc (galvanizing, batteries)                      |
 |                                                                  |
-|  CRITICAL TECH MINERALS (direct relevance to MS/tech industry)  |
-|  Spodumene/brine → lithium → Li-ion battery anodes              |
-|  Cobaltite → cobalt → NMC battery cathodes                      |
-|  Bastnäsite/monazite → rare earth elements → motors, screens    |
-|  Columbite-tantalite → tantalum → capacitors in every device    |
-|  Sphalerite byproduct → indium → ITO in all touchscreens        |
+|  CRITICAL TECH MINERALS (direct relevance to MS/tech industry)   |
+|  Spodumene/brine → lithium → Li-ion battery anodes               |
+|  Cobaltite → cobalt → NMC battery cathodes                       |
+|  Bastnäsite/monazite → rare earth elements → motors, screens     |
+|  Columbite-tantalite → tantalum → capacitors in every device     |
+|  Sphalerite byproduct → indium → ITO in all touchscreens         |
 |                                                                  |
 |  FERTILIZERS                                                     |
-|  Apatite → phosphate fertilizer    Potash → K fertilizer        |
+|  Apatite → phosphate fertilizer    Potash → K fertilizer         |
 |                                                                  |
 |  GEMS AND JEWELRY                                                |
-|  Diamond, ruby/sapphire (corundum), emerald (beryl), opal       |
+|  Diamond, ruby/sapphire (corundum), emerald (beryl), opal        |
 +------------------------------------------------------------------+
 ```
 

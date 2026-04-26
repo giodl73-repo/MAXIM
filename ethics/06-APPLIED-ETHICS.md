@@ -4,7 +4,7 @@
 
 ```
 +-----------------------------------------------------------------------+
-|                    APPLIED ETHICS LANDSCAPE                            |
+|                    APPLIED ETHICS LANDSCAPE                           |
 +-----------------------------------------------------------------------+
 |                                                                       |
 |  APPLIED ETHICS: Normative theory applied to specific domains.       |
@@ -44,7 +44,7 @@ BEAUCHAMP AND CHILDRESS: PRINCIPLES OF BIOMEDICAL ETHICS
 
 THE FOUR PRINCIPLES:
   +--------------------+-----------------------------------------------+
-  | AUTONOMY           | Respect persons' right to make their own     |
+  | AUTONOMY           | Respect persons' right to make their own      |
   |                    | informed decisions.                           |
   |                    | Grounded in: Kantian rational agency.         |
   |                    | Operationalized as: informed consent.         |
@@ -53,10 +53,10 @@ THE FOUR PRINCIPLES:
   |                    | Positive duty to benefit, not just avoid harm.|
   |                    | Doctor's traditional Hippocratic duty.        |
   +--------------------+-----------------------------------------------+
-  | NON-MALEFICENCE    | "First, do no harm" (primum non nocere).     |
-  |                    | Distinct from beneficence: avoiding harm.    |
+  | NON-MALEFICENCE    | "First, do no harm" (primum non nocere).      |
+  |                    | Distinct from beneficence: avoiding harm.     |
   |                    | Why separate? Strong asymmetry: causing harm  |
-  |                    | is worse than failing to provide benefit.    |
+  |                    | is worse than failing to provide benefit.     |
   +--------------------+-----------------------------------------------+
   | JUSTICE            | Fair distribution of benefits, risks, costs. |
   |                    | Who gets access to treatments?               |

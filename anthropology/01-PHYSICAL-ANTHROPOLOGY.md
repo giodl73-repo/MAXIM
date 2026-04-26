@@ -4,10 +4,10 @@
 
 ```
 +------------------------------------------------------------------+
-|               BIOLOGICAL / PHYSICAL ANTHROPOLOGY                  |
-|                                                                   |
+|               BIOLOGICAL / PHYSICAL ANTHROPOLOGY                 |
+|                                                                  |
 |  What makes us human biologically — and how human bodies vary    |
-|  across populations, through time, and in forensic contexts       |
+|  across populations, through time, and in forensic contexts      |
 +------------------------------------------------------------------+
           |               |               |              |
           v               v               v              v
@@ -36,8 +36,8 @@ humans engage in. The nature-culture split dissolves here.
 ```
   THE KEY FINDING:
   ┌──────────────────────────────────────────────────────────┐
-  │ ~85% of human genetic variation is WITHIN populations   │
-  │ ~15% of human genetic variation is BETWEEN populations  │
+  │ ~85% of human genetic variation is WITHIN populations    │
+  │ ~15% of human genetic variation is BETWEEN populations   │
   └──────────────────────────────────────────────────────────┘
 
   What this means: any two randomly chosen humans from the same
@@ -248,59 +248,59 @@ humans engage in. The nature-culture split dissolves here.
   ┌──────────────────────────────────────────────────────────┐
   │  AGE ESTIMATION                                          │
   │                                                          │
-  │  Subadult (< ~25):  More precise                        │
-  │  - Dental eruption sequence (most reliable in children) │
-  │  - Epiphyseal fusion (long bone ends fuse 16-25 yr)     │
-  │  - Skeletal maturation staging                          │
+  │  Subadult (< ~25):  More precise                         │
+  │  - Dental eruption sequence (most reliable in children)  │
+  │  - Epiphyseal fusion (long bone ends fuse 16-25 yr)      │
+  │  - Skeletal maturation staging                           │
   │                                                          │
   │  Adult (> ~25): Less precise, ranges widen             │
-  │  - Pubic symphysis (articular surface degenerates)      │
-  │  - Auricular surface of ilium                           │
+  │  - Pubic symphysis (articular surface degenerates)       │
+  │  - Auricular surface of ilium                            │
   │  - Sternal rib ends (4th rib morphology)               │
-  │  - Cranial suture closure (highly variable — less used) │
-  │  - Osteoarthritis patterns                              │
+  │  - Cranial suture closure (highly variable — less used)  │
+  │  - Osteoarthritis patterns                               │
   └──────────────────────────────────────────────────────────┘
 
   ┌──────────────────────────────────────────────────────────┐
   │  SEX ESTIMATION                                          │
   │                                                          │
-  │  Most reliable: pelvic morphology (female pelvis wider, │
+  │  Most reliable: pelvic morphology (female pelvis wider,  │
   │  greater sciatic notch, pubic shape — obstetric demands) │
-  │  ~98% accuracy with complete pelvis                     │
+  │  ~98% accuracy with complete pelvis                      │
   │                                                          │
-  │  Secondary: cranial features                            │
-  │  - Males: larger mastoid, more pronounced brow ridges,  │
+  │  Secondary: cranial features                             │
+  │  - Males: larger mastoid, more pronounced brow ridges,   │
   │           squarer chin, more nuchal rugosity             │
-  │  - Females: smaller, more gracile, rounded forehead     │
-  │  ~80-90% accuracy cranium alone                         │
+  │  - Females: smaller, more gracile, rounded forehead      │
+  │  ~80-90% accuracy cranium alone                          │
   │                                                          │
-  │  Metric methods: discriminant function analysis on      │
-  │  skeletal measurements (population-specific equations)  │
+  │  Metric methods: discriminant function analysis on       │
+  │  skeletal measurements (population-specific equations)   │
   └──────────────────────────────────────────────────────────┘
 
   ┌──────────────────────────────────────────────────────────┐
   │  STATURE ESTIMATION                                      │
   │                                                          │
-  │  Long bone regression equations (Trotter/Gleser 1952,   │
-  │  Ousley 1995 and others):                               │
+  │  Long bone regression equations (Trotter/Gleser 1952,    │
+  │  Ousley 1995 and others):                                │
   │  Stature = (2.38 x femur length) + 61.41 cm  (example) │
   │                                                          │
-  │  POPULATION-SPECIFIC: equations derived from one        │
-  │  reference population do not transfer cleanly to others │
-  │  (body proportions vary — Allen's rule effect)          │
+  │  POPULATION-SPECIFIC: equations derived from one         │
+  │  reference population do not transfer cleanly to others  │
+  │  (body proportions vary — Allen's rule effect)           │
   └──────────────────────────────────────────────────────────┘
 
   ┌──────────────────────────────────────────────────────────┐
   │  POPULATION AFFINITY                                     │
   │                                                          │
   │  Craniometric methods: metric measurements analyzed      │
-  │  against reference databases (Fordisc software —        │
-  │  discriminant function analysis)                        │
+  │  against reference databases (Fordisc software —         │
+  │  discriminant function analysis)                         │
   │                                                          │
-  │  Dental non-metric traits: shovel incisors, Carabelli's |
+  │  Dental non-metric traits: shovel incisors, Carabelli's  |
   │                                                          │
-  │  Controversy: "population affinity" in forensic context |
-  │  is not "racial classification" — it is statistical     │
+  │  Controversy: "population affinity" in forensic context  |
+  │  is not "racial classification" — it is statistical      │
   │  comparison to reference populations for identification  │
   └──────────────────────────────────────────────────────────┘
 ```
@@ -313,7 +313,7 @@ humans engage in. The nature-culture split dissolves here.
   | Occupational stress markers: bone remodeling from        |
   | repeated mechanical loading at specific muscle           |
   | attachments — entesophytes (bony growths at tendon       |
-  | insertions). Can indicate rowers, archers, miners.      |
+  | insertions). Can indicate rowers, archers, miners.       |
   +----------------------------------------------------------+
   | Nutritional deficiencies:                                |
   | - Cribra orbitalia (porous bone in eye socket) —        |
@@ -323,9 +323,9 @@ humans engage in. The nature-culture split dissolves here.
   | - Rickets: bowed long bones (vitamin D deficiency)      |
   +----------------------------------------------------------+
   | Infectious disease:                                      |
-  | - Treponema (syphilis, yaws): distinctive bone lesions  |
-  | - Tuberculosis: vertebral collapse (Pott's disease)     |
-  | - Leprosy: loss of distal hand/foot bones               |
+  | - Treponema (syphilis, yaws): distinctive bone lesions   |
+  | - Tuberculosis: vertebral collapse (Pott's disease)      |
+  | - Leprosy: loss of distal hand/foot bones                |
   +----------------------------------------------------------+
   | Trauma: perimortem (at/near time of death) vs.         |
   | antemortem (healed before death) vs.                    |

@@ -11,24 +11,24 @@ scales to arbitrary dimensionality.
 ```
 +------------------------------------------------------------------+
 |              STATE-SPACE MENTAL MODEL                            |
-|                                                                   |
-|  Physical system:                                                 |
+|                                                                  |
+|  Physical system:                                                |
 |    Inputs u(t) ─────→ [PLANT DYNAMICS] ─────→ Outputs y(t)     |
-|                           ↕                                       |
-|                        State x(t)                                 |
-|                   (internal variables)                            |
-|                                                                   |
-|  Equations:                                                       |
+|                           ↕                                      |
+|                        State x(t)                                |
+|                   (internal variables)                           |
+|                                                                  |
+|  Equations:                                                      |
 |    ẋ = Ax + Bu    (state update, vector ODE)                     |
 |    y  = Cx + Du   (output equation)                              |
-|                                                                   |
-|  x ∈ ℝⁿ  : state vector (position, velocity, temperature, ...)  |
-|  u ∈ ℝᵐ  : input vector (voltages, forces, flow rates, ...)     |
-|  y ∈ ℝᵖ  : output vector (sensor measurements)                  |
-|  A ∈ ℝⁿˣⁿ: system matrix    (dynamics)                          |
-|  B ∈ ℝⁿˣᵐ: input matrix     (how input enters)                  |
-|  C ∈ ℝᵖˣⁿ: output matrix    (what we can observe)               |
-|  D ∈ ℝᵖˣᵐ: feedthrough (often 0 in physical systems)            |
+|                                                                  |
+|  x ∈ ℝⁿ  : state vector (position, velocity, temperature, ...)   |
+|  u ∈ ℝᵐ  : input vector (voltages, forces, flow rates, ...)      |
+|  y ∈ ℝᵖ  : output vector (sensor measurements)                   |
+|  A ∈ ℝⁿˣⁿ: system matrix    (dynamics)                           |
+|  B ∈ ℝⁿˣᵐ: input matrix     (how input enters)                   |
+|  C ∈ ℝᵖˣⁿ: output matrix    (what we can observe)                |
+|  D ∈ ℝᵖˣᵐ: feedthrough (often 0 in physical systems)             |
 +------------------------------------------------------------------+
 ```
 

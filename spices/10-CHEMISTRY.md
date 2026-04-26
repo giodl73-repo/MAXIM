@@ -4,13 +4,13 @@
 
 ```
 +------------------------------------------------------------------+
-|              WHY PLANTS MAKE THESE COMPOUNDS                      |
+|              WHY PLANTS MAKE THESE COMPOUNDS                     |
 |                                                                  |
 |  ALL SPICE COMPOUNDS = SECONDARY METABOLITES                     |
 |  (not primary metabolism: not protein/carbohydrate/DNA)          |
 |                                                                  |
 |  PRIMARY FUNCTIONS (evolutionary):                               |
-|  +-----------------+  +-----------------+  +-----------------+  |
+|  +-----------------+  +-----------------+  +-----------------+   |
 |  | HERBIVORE       |  | PATHOGEN        |  | SEED DISPERSAL  |  |
 |  | DETERRENCE      |  | RESISTANCE      |  | MANAGEMENT      |  |
 |  | Bitter alkaloids|  | Thymol/carvacrol|  | Capsaicin deters|  |
@@ -18,10 +18,10 @@
 |  | cin — mammals   |  | Allicin vs      |  | birds           |  |
 |  | avoid           |  | pathogens       |  |                 |  |
 |  +-----------------+  +-----------------+  +-----------------+  |
-|                                                                  |
-|  THREE MAJOR BIOSYNTHETIC PATHWAYS:                              |
+|                                                                 |
+|  THREE MAJOR BIOSYNTHETIC PATHWAYS:                             |
 |  Phenylpropanoid pathway → cinnamaldehyde, eugenol, anethole,   |
-|                            capsaicin backbone, curcumin          |
+|                            capsaicin backbone, curcumin         |
 |  Terpenoid pathway (MVA/MEP) → terpenes, monoterpenes, steroids |
 |  Alkaloid biosynthesis (varied) → piperine, capsaicin amide     |
 +------------------------------------------------------------------+

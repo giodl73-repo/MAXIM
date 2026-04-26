@@ -51,12 +51,12 @@ ultraproducts — that have applications across mathematics.
 |           v                                                       |
 |  APPLICATIONS                                                     |
 |  +-----------------------------------------------------------+    |
-|  | RCF (Tarski): QE → decidable real closed fields          |    |
+|  | RCF (Tarski): QE → decidable real closed fields           |    |
 |  | ACF (algebraically closed): QE → decidable; Nullstellensatz|   |
 |  | DLO: QE → complete, decidable; ω-categorical              |    |
 |  | Non-standard analysis: ultrapowers of R → infinitesimals  |    |
 |  | SMT theories: each background theory uses QE or Nelson-Op |    |
-|  | O-minimality: tame topology from ordered field structure   |    |
+|  | O-minimality: tame topology from ordered field structure  |    |
 |  +-----------------------------------------------------------+    |
 +-------------------------------------------------------------------+
 ```

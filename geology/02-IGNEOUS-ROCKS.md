@@ -8,24 +8,24 @@ Igneous rocks record the cooling history of melts. The entire compositional rang
 
 ```
 +---------------------------------------------------------------+
-|                  IGNEOUS ROCK FRAMEWORK                        |
-|                                                                |
+|                  IGNEOUS ROCK FRAMEWORK                       |
+|                                                               |
 |  COMPOSITION (SiO₂ content)                                   |
 |  Mafic         Intermediate      Felsic                       |
 |  ~50% SiO₂     ~57-63%           ~70-75% SiO₂               |
 |  (Mg/Fe-rich)  (mixed)           (Si/Al-rich)                 |
-|                                                                |
+|                                                               |
 |  EXTRUSIVE (volcanic, fast cooling, fine-grained):            |
 |  Basalt    -- Andesite        -- Rhyolite                     |
 |  Pillow lava   Stratovolcano     Rhyolite domes               |
-|                                                                |
+|                                                               |
 |  INTRUSIVE (plutonic, slow cooling, coarse-grained):          |
 |  Gabbro    -- Diorite         -- Granite                      |
 |  Oceanic crust  Batholiths       Continental crust            |
-|                                                                |
+|                                                               |
 |  TEXTURES: grain size = cooling rate                          |
-|  Pegmatite (cm) > Phaneritic (mm) > Aphanitic (invisible)    |
-|  > Glassy (quenched) = Obsidian/Pumice                       |
+|  Pegmatite (cm) > Phaneritic (mm) > Aphanitic (invisible)     |
+|  > Glassy (quenched) = Obsidian/Pumice                        |
 +---------------------------------------------------------------+
 ```
 

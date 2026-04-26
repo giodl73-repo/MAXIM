@@ -26,14 +26,14 @@ Retaining structures hold back a mass of soil (or other material) against gravit
 |                                                                  |
 |  ACTIVE:        PASSIVE:         AT REST:                       |
 |  ───┐           ───┐             ───┐                          |
-|     │              │  much           │  between                 |
-|     │  σ'h = Ka×γz │  larger         │  active and             |
-|     │              │                 │  passive                 |
-|     ▼              ▼                 ▼                          |
-|  Pressure          Pressure          Pressure                   |
-|  triangular        triangular        triangular                 |
-|  (increases        (larger)                                     |
-|  with depth)                                                    |
+|     │              │  much          │  between                 |
+|     │  σ'h = Ka×γz │  larger        │  active and              |
+|     │              │                │  passive                 |
+|     ▼              ▼                 ▼                         |
+|  Pressure          Pressure          Pressure                  |
+|  triangular        triangular        triangular                |
+|  (increases        (larger)                                    |
+|  with depth)                                                   |
 |                                                                  |
 |  Ka << Ko << Kp (typically Ka ≈ 0.3, Ko ≈ 0.5, Kp ≈ 3.0)     |
 |                                                                  |

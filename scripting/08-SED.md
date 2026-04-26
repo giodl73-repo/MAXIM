@@ -20,15 +20,15 @@ TEXT-PROCESSING TOOL LANDSCAPE
   │  file / stdin                                                        │
   │       │                                                              │
   │       ▼                                                              │
-  │  ┌──────────┐   address   ┌─────────┐  command  ┌────────────────┐  │
+  │  ┌──────────┐   address   ┌─────────┐  command  ┌────────────────┐   │
   │  │  line N  │ ──filter──► │ match?  │ ─────────► │ s/// d p a i  │  │
   │  └──────────┘             └─────────┘            └────────┬───────┘  │
   │                                                           │          │
   │                    ┌──────────────────────────────────────┘          │
-  │                    ▼                                                  │
-  │             pattern space  ◄──► hold space (h/H/g/G/x)              │
-  │                    │                                                  │
-  │                    ▼                                                  │
+  │                    ▼                                                 │
+  │             pattern space  ◄──► hold space (h/H/g/G/x)               │
+  │                    │                                                 │
+  │                    ▼                                                 │
   │             stdout / -i (in-place)                                   │
   │                                                                      │
   │  sed command surface:                                                │

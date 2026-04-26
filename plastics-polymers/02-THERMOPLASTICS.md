@@ -5,7 +5,7 @@
 ```
 +--------------------------------------------------------------------+
 |              THE FIVE COMMODITY THERMOPLASTICS                     |
-|         ~80% of all plastic by volume lives here                  |
+|         ~80% of all plastic by volume lives here                   |
 |                                                                    |
 |  PE           PP           PVC          PS           PET           |
 |  --           --           ---          --           ---           |

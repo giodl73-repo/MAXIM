@@ -13,7 +13,7 @@ medicine, law, ecology, and social order. The category itself is contested.
 |                                                                      |
 |  Who gets called "indigenous religion"?                              |
 |  - Australian Aboriginal traditions (~500 distinct language groups)  |
-|  - North and South American indigenous traditions (~1000+ groups)   |
+|  - North and South American indigenous traditions (~1000+ groups)    |
 |  - African traditional religions (~1000+ ethnic traditions)          |
 |  - Pacific traditions (Melanesia, Polynesia, Micronesia)             |
 |  - Siberian and Central Asian shamanic traditions                    |
@@ -259,20 +259,20 @@ significant in ways that cannot be transferred.
 |              FORMS OF SACRED GEOGRAPHY                    |
 |                                                           |
 |  Sacred mountains:                                        |
-|  Mt. Fuji (Japan), Black Hills (Lakota), Uluru           |
-|  (Anangu, Australia), Mt. Kailash (Hindu/Buddhist/Jain), |
-|  Mt. Olympus (Greek). Sacred not because of height       |
-|  but because of presence — what happened there,          |
+|  Mt. Fuji (Japan), Black Hills (Lakota), Uluru            |
+|  (Anangu, Australia), Mt. Kailash (Hindu/Buddhist/Jain),  |
+|  Mt. Olympus (Greek). Sacred not because of height        |
+|  but because of presence — what happened there,           |
 |  what dwells there.                                       |
 |                                                           |
 |  Sacred rivers:                                           |
-|  Ganges (India) — the goddess Ganga, purification.       |
-|  Missouri/Mississippi (various nations) — relationships, |
+|  Ganges (India) — the goddess Ganga, purification.        |
+|  Missouri/Mississippi (various nations) — relationships,  |
 |  not just geography.                                      |
 |                                                           |
 |  Songlines (Australian Aboriginal):                       |
 |  Invisible pathways across the landscape corresponding    |
-|  to routes traveled by Ancestors during the Dreamtime.   |
+|  to routes traveled by Ancestors during the Dreamtime.    |
 |  Singing (chanting) the song of a songline while          |
 |  traveling it re-enacts and maintains the creation.       |
 |  Not historical past — ontological foundation.            |
@@ -281,12 +281,12 @@ significant in ways that cannot be transferred.
 |  useful if imperfect introduction.                        |
 |                                                           |
 |  Land rights as religious rights:                         |
-|  For traditions with place-specific sacred geographies,  |
-|  the loss of ancestral territory is not just political   |
-|  dispossession — it destroys the conditions for          |
-|  religious practice. This is why UNDRIP (UN Declaration  |
-|  on the Rights of Indigenous Peoples, 2007) frames       |
-|  land rights and religious rights together.              |
+|  For traditions with place-specific sacred geographies,   |
+|  the loss of ancestral territory is not just political    |
+|  dispossession — it destroys the conditions for           |
+|  religious practice. This is why UNDRIP (UN Declaration   |
+|  on the Rights of Indigenous Peoples, 2007) frames        |
+|  land rights and religious rights together.               |
 +-----------------------------------------------------------+
 ```
 
@@ -389,8 +389,8 @@ must be maintained.
 |                                                           |
 |  Chinese: Home ancestor altars, incense offerings,        |
 |  ancestral tablets with the deceased's name.              |
-|  Qingming: annual grave sweeping. Ghost Month            |
-|  (7th lunar month): the hungry dead need feeding.        |
+|  Qingming: annual grave sweeping. Ghost Month             |
+|  (7th lunar month): the hungry dead need feeding.         |
 |  Paper money and goods burned for the dead to use.        |
 |                                                           |
 |  Japanese: Butsudan (Buddhist altar) in the home,         |

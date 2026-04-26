@@ -6,18 +6,18 @@ Spectroscopy is the measurement of how matter interacts with light as a function
 
 ```
 +------------------------------------------------------------------+
-|                    SPECTROSCOPY LANDSCAPE                         |
+|                    SPECTROSCOPY LANDSCAPE                        |
 |                                                                  |
 |  INTERACTION TYPE     SPECTRAL REGION    INFORMATION OBTAINED    |
-|  ----------------     --------------    -------------------     |
-|  Absorption           UV-Vis             Electronic transitions   |
-|  (Beer-Lambert law)   IR                 Vibrational modes        |
-|                        Microwave          Rotational modes        |
-|  Emission             UV-Vis, X-ray      Elemental composition    |
-|  (excited states)     Gamma              Nuclear transitions      |
-|  Scattering           Any (Raman)        Molecular structure      |
+|  ----------------     --------------    -------------------      |
+|  Absorption           UV-Vis             Electronic transitions  |
+|  (Beer-Lambert law)   IR                 Vibrational modes       |
+|                        Microwave          Rotational modes       |
+|  Emission             UV-Vis, X-ray      Elemental composition   |
+|  (excited states)     Gamma              Nuclear transitions     |
+|  Scattering           Any (Raman)        Molecular structure     |
 |  (photon energy shift) (elastic=Rayleigh)Surface chemistry(SERS) |
-|  Fluorescence         UV-Vis-NIR         Labeled molecules,       |
+|  Fluorescence         UV-Vis-NIR         Labeled molecules,      |
 |  (absorb then emit)                      environmental, biosensors|
 +------------------------------------------------------------------+
 
@@ -351,9 +351,9 @@ FTIR is a Michelson interferometer-based spectrometer. Instead of dispersing lig
 |  Absorption)  at a time)     furnace: ppt)     state atoms       |
 |                                                                  |
 |  ICP-OES      Multi-element  ppb               Plasma (8000-10000K)|
-|  (Optical     metals,        simultaneous       excites atoms,    |
+|  (Optical     metals,        simultaneous       excites atoms,   |
 |  Emission     metalloids     (30+ elements)    measure emission  |
-|  Spectroscopy)|                                                   |
+|  Spectroscopy)|                                                  |
 |                                                                  |
 |  ICP-MS       Multi-element  ppt-ppq           Plasma + mass     |
 |  (Mass Spec)  isotope ratio  10^6x better      spectrometry      |

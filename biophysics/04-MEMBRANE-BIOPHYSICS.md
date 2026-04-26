@@ -4,24 +4,24 @@
 
 ```
 ┌──────────────────────────────────────────────────────────────────────────┐
-│               MEMBRANE BIOPHYSICS LANDSCAPE                               │
+│               MEMBRANE BIOPHYSICS LANDSCAPE                              │
 │                                                                            │
-│  BILAYER STRUCTURE               ELECTRICAL PROPERTIES                    │
-│  ────────────────                ────────────────────                     │
-│  Singer-Nicolson fluid mosaic    Resting potential: -70 mV (neuron)       │
-│  2D fluid: lateral diffusion     Goldman-Hodgkin-Katz equation            │
-│  Lipid asymmetry                 Nernst equation per ion                  │
-│  Rafts / phase separation        Membrane as RC circuit                   │
+│  BILAYER STRUCTURE               ELECTRICAL PROPERTIES                   │
+│  ────────────────                ────────────────────                    │
+│  Singer-Nicolson fluid mosaic    Resting potential: -70 mV (neuron)      │
+│  2D fluid: lateral diffusion     Goldman-Hodgkin-Katz equation           │
+│  Lipid asymmetry                 Nernst equation per ion                 │
+│  Rafts / phase separation        Membrane as RC circuit                  │
 │                                                                            │
-│  ION CHANNELS                    VESICLE MECHANICS                        │
-│  ────────────                    ─────────────────                        │
+│  ION CHANNELS                    VESICLE MECHANICS                       │
+│  ────────────                    ─────────────────                       │
 │  Gating: voltage / ligand / mech Bending rigidity κ ≈ 20 k_BT            │
-│  Single channel conductance      Helfrich free energy                     │
-│  Selectivity filter              Curvature-inducing proteins              │
-│  Patch clamp technique           BAR domains, dynamin                     │
+│  Single channel conductance      Helfrich free energy                    │
+│  Selectivity filter              Curvature-inducing proteins             │
+│  Patch clamp technique           BAR domains, dynamin                    │
 │                                                                            │
 │  SCALE:                                                                    │
-│  Bilayer thickness: ~4 nm total (hydrophobic core: ~3 nm)                 │
+│  Bilayer thickness: ~4 nm total (hydrophobic core: ~3 nm)                │
 │  Single channel current: 1-100 pA (10⁶-10⁷ ions/s)                       │
 │  Membrane resistance: ~10⁸ Ω per μm² (neuron at rest)                    │
 └──────────────────────────────────────────────────────────────────────────┘
@@ -60,20 +60,20 @@ each leaflet. Proteins float in the bilayer like icebergs in a lipid sea.
 
 ```
   ┌─────────────────────────────────────────────────────────────────────┐
-  │  LIPID CLASS    │  LOCATION        │  BIOPHYSICAL ROLE               │
+  │  LIPID CLASS    │  LOCATION        │  BIOPHYSICAL ROLE              │
   │  ─────────────  │  ─────────────── │  ────────────────────────────── │
-  │  DPPC (PC)      │  Both leaflets   │  Most abundant, forms bilayer   │
+  │  DPPC (PC)      │  Both leaflets   │  Most abundant, forms bilayer  │
   │  PE             │  Inner leaflet   │  Cone shape → negative curvature│
-  │  PS             │  Inner leaflet   │  Negatively charged (apoptosis  │
-  │                 │                  │  signal when outer leaflet)     │
-  │  PI(4,5)P₂      │  Inner leaflet   │  Signaling: PLC substrate,      │
-  │                 │                  │  channel gating modulator       │
+  │  PS             │  Inner leaflet   │  Negatively charged (apoptosis │
+  │                 │                  │  signal when outer leaflet)    │
+  │  PI(4,5)P₂      │  Inner leaflet   │  Signaling: PLC substrate,     │
+  │                 │                  │  channel gating modulator      │
   │  Cholesterol    │  Both leaflets   │  Modulates fluidity, forms rafts│
   │                 │                  │  40% of mammalian membrane lipid│
-  │  Sphingomyelin  │  Outer leaflet   │  High melting temperature,      │
-  │                 │                  │  raft component                 │
-  │  Cardiolipin    │  Inner mitochond.│  Anchors ETC complexes,         │
-  │                 │  membrane        │  required for ATP synthase      │
+  │  Sphingomyelin  │  Outer leaflet   │  High melting temperature,     │
+  │                 │                  │  raft component                │
+  │  Cardiolipin    │  Inner mitochond.│  Anchors ETC complexes,        │
+  │                 │  membrane        │  required for ATP synthase     │
   └─────────────────────────────────────────────────────────────────────┘
 ```
 
@@ -203,26 +203,26 @@ Ion channels are membrane proteins that form hydrophilic pores:
 
 ```
   ┌───────────────────────────────────────────────────────────────┐
-  │  ION CHANNEL PROPERTIES                                        │
-  │                                                                │
+  │  ION CHANNEL PROPERTIES                                       │
+  │                                                               │
   │  Single-channel conductance:  1-100 pS (picosiemens)          │
   │  → At -70 mV: current = g × V ≈ 1 pS × 70 mV = 70 fA        │
-  │  → Ionic flux: ~10⁶-10⁷ ions/second per channel              │
-  │                                                                │
-  │  Selectivity filter: sub-Å selectivity between K⁺ and Na⁺    │
+  │  → Ionic flux: ~10⁶-10⁷ ions/second per channel               │
+  │                                                               │
+  │  Selectivity filter: sub-Å selectivity between K⁺ and Na⁺     │
   │  (K⁺ r = 1.33 Å; Na⁺ r = 0.95 Å; filter: ~3 Å pore)         │
-  │  → Selectivity paradox: K⁺ passes 10⁴× faster than Na⁺       │
-  │     despite K⁺ being larger                                    │
+  │  → Selectivity paradox: K⁺ passes 10⁴× faster than Na⁺        │
+  │     despite K⁺ being larger                                   │
   │  → Resolution: K⁺ fits perfectly into 8-oxygen cage; Na⁺      │
-  │     retains hydration shell (dehydration cost > electrostatic  │
-  │     gain inside filter)                                        │
-  │                                                                │
-  │  Gating mechanisms:                                            │
+  │     retains hydration shell (dehydration cost > electrostatic │
+  │     gain inside filter)                                       │
+  │                                                               │
+  │  Gating mechanisms:                                           │
   │    Voltage-gated: S4 helix (charged) moves in field           │
   │    Ligand-gated: ACh, GABA, glutamate binding opens pore      │
-  │    Mechanically-gated: membrane tension, touch                 │
-  │    Inactivation: N-type (ball-and-chain), C-type (pore         │
-  │      collapse during sustained depolarization)                 │
+  │    Mechanically-gated: membrane tension, touch                │
+  │    Inactivation: N-type (ball-and-chain), C-type (pore        │
+  │      collapse during sustained depolarization)                │
   └───────────────────────────────────────────────────────────────┘
 ```
 
@@ -254,20 +254,20 @@ activity of single ion channels:
   Fire-polished pipette (tip ~1 μm) pressed against cell membrane
 
   ┌─────────────────────────────────────────────────────────────┐
-  │  PATCH CLAMP CONFIGURATIONS                                  │
-  │                                                              │
+  │  PATCH CLAMP CONFIGURATIONS                                 │
+  │                                                             │
   │  Cell-attached: pipette on intact cell                      │
   │    → channels in native membrane environment                │
   │    → cytoplasmic face inaccessible                          │
-  │                                                              │
-  │  Whole-cell: rupture patch → access to cell interior         │
+  │                                                             │
+  │  Whole-cell: rupture patch → access to cell interior        │
   │    → measure total membrane current                         │
   │    → cell contents exchange with pipette solution           │
-  │                                                              │
+  │                                                             │
   │  Inside-out: pull after cell-attached                       │
   │    → cytoplasmic face exposed to bath solution              │
   │    → apply ligands to cytoplasmic side                      │
-  │                                                              │
+  │                                                             │
   │  Outside-out: pull after whole-cell                         │
   │    → extracellular face exposed to bath                     │
   │    → apply agonists to extracellular side                   │
@@ -344,9 +344,9 @@ Biological curvature generation:
 
 ```
   ┌─────────────────────────────────────────────────────────────────┐
-  │  CURVATURE MECHANISM    │  PROTEIN/LIPID     │  PROCESS          │
+  │  CURVATURE MECHANISM    │  PROTEIN/LIPID     │  PROCESS         │
   │  ─────────────────────  │  ─────────────────  │  ──────────────── │
-  │  BAR domain scaffold    │  N-BAR, F-BAR, I-BAR│  Endocytosis,    │
+  │  BAR domain scaffold    │  N-BAR, F-BAR, I-BAR│  Endocytosis,   │
   │                         │  (banana-shaped)    │  tubulation       │
   │  Amphipathic helix ins. │  ENTH, ANTH, ALPS   │  Sensing and      │
   │                         │  N-BAR H0 helix     │  generating curv. │

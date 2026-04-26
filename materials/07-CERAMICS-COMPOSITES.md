@@ -41,14 +41,14 @@ CERAMICS & COMPOSITES LANDSCAPE
 ```
   BONDING IN CERAMICS
   ┌─────────────────────────────────────────────────────────────────────────┐
-  │  Ionic bonding (MgO, NaCl): electrostatic attraction of opposite ions  │
-  │    → high melting point, electrically insulating, cleavage along       │
+  │  Ionic bonding (MgO, NaCl): electrostatic attraction of opposite ions   │
+  │    → high melting point, electrically insulating, cleavage along        │
   │    crystallographic planes (charge neutrality must be maintained)       │
-  │                                                                          │
+  │                                                                         │
   │  Covalent bonding (SiC, Si₃N₄, diamond): shared electron pairs        │
   │    → extremely strong, directional; highest hardness and T_melt         │
   │    → even more brittle than ionic ceramics                              │
-  │                                                                          │
+  │                                                                         │
   │  Most ceramics: mix of ionic + covalent (Al₂O₃ ~60% ionic/40% covalent)│
   └─────────────────────────────────────────────────────────────────────────┘
 
@@ -132,11 +132,11 @@ CERAMICS & COMPOSITES LANDSCAPE
   ┌─────────────────────────────────────────────────────────────────────────┐
   │  STRESS INTENSITY FACTOR:  K_I = σ√(πa) · Y  (Y = geometry factor)    │
   │  Fracture when: K_I ≥ K_Ic  (fracture toughness, material property)   │
-  │                                                                          │
-  │  Material    K_Ic (MPa√m)   Implication                                │
+  │                                                                         │
+  │  Material    K_Ic (MPa√m)   Implication                                 │
   │  Glass           0.7        Shatters at any crack                       │
-  │  Al₂O₃          3–5        Better but still brittle                    │
-  │  Si₃N₄          5–8        Best monolithic ceramic                     │
+  │  Al₂O₃          3–5        Better but still brittle                     │
+  │  Si₃N₄          5–8        Best monolithic ceramic                      │
   │  SiC             3–5        Hard but brittle                            │
   │  t-ZrO₂          7–15       Toughened (transformation mechanism)        │
   │  Steel (4340)   50–100      Ductile — enormous comparison               │
@@ -221,26 +221,26 @@ CERAMICS & COMPOSITES LANDSCAPE
   COMPOSITE CLASSIFICATION
   ┌─────────────────────────────────────────────────────────────────────────┐
   │  BY REINFORCEMENT GEOMETRY:                                             │
-  │                                                                          │
+  │                                                                         │
   │  Particle-reinforced:     WC-Co (cemented carbide); SiC/Al MMC          │
   │  (isotropic, low cost)    Al₂O₃ particles in polymer; concrete          │
-  │                                                                          │
+  │                                                                         │
   │  Short fiber / whisker:   Chopped CFRP; glass-filled nylon              │
-  │  (quasi-isotropic in 2D)  SiC whisker reinforced Al₂O₃; TiB₂/Ti        │
-  │                                                                          │
+  │  (quasi-isotropic in 2D)  SiC whisker reinforced Al₂O₃; TiB₂/Ti         │
+  │                                                                         │
   │  Continuous fiber UD:     CFRP prepreg unidirectional ply               │
   │  (max stiffness along UD) High E and σ in fiber direction, low ⊥        │
-  │                                                                          │
+  │                                                                         │
   │  Woven fabric:            ±45°, 0/90° weave patterns                    │
-  │  (balanced in-plane)      Plain, twill, satin weave architectures        │
-  │                                                                          │
-  │  Laminate:                Multiple UD plies at different angles stacked  │
+  │  (balanced in-plane)      Plain, twill, satin weave architectures       │
+  │                                                                         │
+  │  Laminate:                Multiple UD plies at different angles stacked │
   │  (engineered anisotropy)  Quasi-isotropic: [0/±45/90]_s                 │
-  │                           Tailored for load path                         │
-  │                                                                          │
-  │  Sandwich:                CFRP face sheets + Nomex honeycomb core        │
+  │                           Tailored for load path                        │
+  │                                                                         │
+  │  Sandwich:                CFRP face sheets + Nomex honeycomb core       │
   │  (high flexural rigidity  Flexural stiffness ∝ (thickness)³             │
-  │  at low areal density)    Floor panels, racing car tubs                  │
+  │  at low areal density)    Floor panels, racing car tubs                 │
   └─────────────────────────────────────────────────────────────────────────┘
 ```
 
@@ -302,32 +302,32 @@ CERAMICS & COMPOSITES LANDSCAPE
 ```
   THERMOSET MATRICES (cure = irreversible chemical crosslink)
   ┌──────────────────────────────────────────────────────────────────────────┐
-  │  Epoxy: most common; T_g up to 180°C; excellent adhesion; 120°C cure    │
-  │  Phenolic (BMI): fire resistant, low smoke; aircraft interiors          │
-  │  Cyanate ester: low dielectric loss; radomes, electronics               │
-  │  PEKK/PEEK thermoset: high-T capability (T_g > 200°C)                   │
-  │  Disadvantage: cannot remelt/recycle; cure shrinkage; pot life          │
+  │  Epoxy: most common; T_g up to 180°C; excellent adhesion; 120°C cure     │
+  │  Phenolic (BMI): fire resistant, low smoke; aircraft interiors           │
+  │  Cyanate ester: low dielectric loss; radomes, electronics                │
+  │  PEKK/PEEK thermoset: high-T capability (T_g > 200°C)                    │
+  │  Disadvantage: cannot remelt/recycle; cure shrinkage; pot life           │
   └──────────────────────────────────────────────────────────────────────────┘
 
   THERMOPLASTIC MATRICES (no cure — melt and solidify)
   ┌──────────────────────────────────────────────────────────────────────────┐
-  │  PEEK: T_g = 143°C, T_melt = 343°C; excellent chemical resistance       │
-  │  PEKK: T_g = 160°C; slightly better than PEEK, more processable         │
-  │  PPS: lower cost, T_melt = 285°C; automotive, oil & gas                 │
-  │  LMPAEK: lower melt temp than PEEK — easier processing                  │
+  │  PEEK: T_g = 143°C, T_melt = 343°C; excellent chemical resistance        │
+  │  PEKK: T_g = 160°C; slightly better than PEEK, more processable          │
+  │  PPS: lower cost, T_melt = 285°C; automotive, oil & gas                  │
+  │  LMPAEK: lower melt temp than PEEK — easier processing                   │
   │  Advantages: recyclable; weldable (resistance/induction/ultrasonic);     │
   │  no cure; no pot life; fast consolidation; impact resistant              │
-  │  Disadvantage: higher processing temp/pressure; fiber impregnation hard │
+  │  Disadvantage: higher processing temp/pressure; fiber impregnation hard  │
   └──────────────────────────────────────────────────────────────────────────┘
 
   CERAMIC MATRIX COMPOSITES (CMC)
   ┌──────────────────────────────────────────────────────────────────────────┐
   │  SiC/SiC: SiC fibers in SiC matrix; T_use to 1400°C                    │
   │  C/SiC, C/C: carbon fibers in SiC or carbon matrix; >1600°C (inert atm)│
-  │  Application: GE LEAP engine fan blades, turbine stage 1 shrouds        │
-  │  Benefit: 25% lower density than Ni-superalloy → higher bypass ratio    │
+  │  Application: GE LEAP engine fan blades, turbine stage 1 shrouds         │
+  │  Benefit: 25% lower density than Ni-superalloy → higher bypass ratio     │
   │  BN interphase coating: weak fiber-matrix bond → crack deflection,       │
-  │  not through-fiber fracture → pseudo-ductility                          │
+  │  not through-fiber fracture → pseudo-ductility                           │
   └──────────────────────────────────────────────────────────────────────────┘
 ```
 
@@ -349,13 +349,13 @@ CERAMICS & COMPOSITES LANDSCAPE
   FAILURE MODES IN LAMINATES:
   ┌─────────────────────────────────────────────────────────────────────────┐
   │  Fiber breakage (UD tension):    catastrophic in fiber direction        │
-  │  Matrix cracking (transverse):   damage tolerance; precursor to delam  │
+  │  Matrix cracking (transverse):   damage tolerance; precursor to delam   │
   │  Delamination:                   interlaminar shear failure between plies│
   │    → caused by: out-of-plane loads, impact, free-edge effects           │
-  │    → detected by: ultrasonic C-scan, thermography, X-ray CT            │
+  │    → detected by: ultrasonic C-scan, thermography, X-ray CT             │
   │  Fiber microbuckling (compression): kink band formation; limits σ_c     │
   │  Impact damage:                  BVID (barely visible impact damage)    │
-  │    invisible on surface, significant internal damage; design-critical    │
+  │    invisible on surface, significant internal damage; design-critical   │
   └─────────────────────────────────────────────────────────────────────────┘
 ```
 
@@ -364,24 +364,24 @@ CERAMICS & COMPOSITES LANDSCAPE
 ```
   ASHBY MAP: E vs ρ  (stiffness vs density)
   ┌─────────────────────────────────────────────────────────────────────────┐
-  │                                                                          │
-  │  E (GPa)                                                                 │
-  │  1000 │  Diamond                                                         │
-  │       │    Ceramics (Al₂O₃, SiC, Si₃N₄)                                │
+  │                                                                         │
+  │  E (GPa)                                                                │
+  │  1000 │  Diamond                                                        │
+  │       │    Ceramics (Al₂O₃, SiC, Si₃N₄)                                 │
   │   100 │    Steel, Ti alloys     CFRP (0°) ← composites fill here        │
-  │       │    Al alloys                                                     │
+  │       │    Al alloys                                                    │
   │    10 │              GFRP, CFRP (quasi-iso)                             │
   │       │                         Wood (along grain)                      │
   │     1 │                    Rigid polymers                               │
   │       │                         Elastomers                              │
   │  0.01 │                              Foams                              │
-  │       └───────────────────────────────────────────── ρ (g/cm³)         │
+  │       └───────────────────────────────────────────── ρ (g/cm³)          │
   │              0.1         1          2        5  10                      │
   │                   ←── low density steels, Ti ──────►                    │
-  │                                                                          │
+  │                                                                         │
   │  CFRP fills the upper-left corner (high E, low ρ) — no monolithic       │
-  │  material achieves this combination. This is why composites dominate     │
-  │  aerospace primary structure.                                            │
+  │  material achieves this combination. This is why composites dominate    │
+  │  aerospace primary structure.                                           │
   └─────────────────────────────────────────────────────────────────────────┘
 
   APPLICATIONS:

@@ -9,7 +9,7 @@ the two levels.
 
 ```
 +----------------------------------------------------------------------+
-|               THE LIE ALGEBRA–LIE GROUP CORRESPONDENCE              |
+|               THE LIE ALGEBRA–LIE GROUP CORRESPONDENCE               |
 +----------------------------------------------------------------------+
 |                                                                      |
 |  LIE ALGEBRA g = T_e G                 LIE GROUP G                  |

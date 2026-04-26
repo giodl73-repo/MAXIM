@@ -8,23 +8,23 @@ theory to the questions of strategic interaction.
 
 ```
 +------------------------------------------------------------------+
-|         EVOLUTIONARY AND ALGORITHMIC GAME THEORY                  |
+|         EVOLUTIONARY AND ALGORITHMIC GAME THEORY                 |
 |                                                                  |
-|  EVOLUTIONARY GAME THEORY        ALGORITHMIC GAME THEORY        |
-|  -------------------------        -------------------------       |
-|  Maynard Smith / Price (1973)     Papadimitriou, Roughgarden,   |
+|  EVOLUTIONARY GAME THEORY        ALGORITHMIC GAME THEORY         |
+|  -------------------------        -------------------------      |
+|  Maynard Smith / Price (1973)     Papadimitriou, Roughgarden,    |
 |  Rational agents → populations    Tardos (2000s)               |
-|  Strategies evolve by selection   Efficiency of equilibria      |
+|  Strategies evolve by selection   Efficiency of equilibria       |
 |                                                                  |
-|  Key concepts:                    Key concepts:                 |
+|  Key concepts:                    Key concepts:                  |
 |  ESS — invasion resistance        Price of Anarchy (PoA)       |
 |  Replicator dynamics              Price of Stability (PoS)     |
 |  Hawk-Dove game                   Potential games              |
 |  Kin selection / cooperation      Congestion games             |
-|                                   PPAD-completeness of Nash     |
+|                                   PPAD-completeness of Nash      |
 |                                                                  |
-|  CONNECTION: No-regret learning   ←→  CE as stable state        |
-|  MARL, AlphaGo, Pluribus          ←→  Nash in large game spaces |
+|  CONNECTION: No-regret learning   ←→  CE as stable state         |
+|  MARL, AlphaGo, Pluribus          ←→  Nash in large game spaces  |
 +------------------------------------------------------------------+
 ```
 
@@ -298,8 +298,8 @@ the resulting equilibrium may be inefficient. How much does selfishness cost?
   Original network (2000 drivers, A → D):
   ┌────────────────────────────────┐
   │                                │
-  │  A ──x/100──► B ──50──► D     │
-  │  A ──50────► C ──x/100──► D   │
+  │  A ──x/100──► B ──50──► D      │
+  │  A ──50────► C ──x/100──► D    │
   │                                │
   │  x = number of drivers on edge │
   │  Cost = latency (time to travel)│
@@ -309,11 +309,11 @@ the resulting equilibrium may be inefficient. How much does selfishness cost?
 
   BEFORE adding the new edge:
   ┌─────────────────────────────────────────────────────┐
-  │  Two routes only:                                    │
-  │                                                      │
+  │  Two routes only:                                   │
+  │                                                     │
   │  Route 1: A ──x/100──► B ──45──► D                  │
   │  Route 2: A ──45────► C ──x/100──► D                │
-  │                                                      │
+  │                                                     │
   │  Edge A→B: latency = x/100 (x = flow in hundreds)   │
   │  Edge B→D: latency = 45 (constant)                  │
   │  Edge A→C: latency = 45 (constant)                  │
@@ -329,8 +329,8 @@ the resulting equilibrium may be inefficient. How much does selfishness cost?
   AFTER adding a zero-latency edge B→C:
   ┌─────────────────────────────────────────────────────┐
   │  New route available: A→B→C→D                       │
-  │                                                      │
-  │  A ──x/100──► B ──0──► C ──x/100──► D              │
+  │                                                     │
+  │  A ──x/100──► B ──0──► C ──x/100──► D               │
   │               ╰──45──► D                            │
   │  A ──45────► C                                      │
   └─────────────────────────────────────────────────────┘
@@ -578,11 +578,11 @@ frequency of opponents' play.
   │ Nash Q-learning: compute Nash at each step          │
   │ Tractable only for small state/action spaces        │
   │                                                     │
-  │ Mean-field games: N → ∞ agents; each interacts     │
-  │ with population mean; reduces to single-agent RL   │
+  │ Mean-field games: N → ∞ agents; each interacts      │
+  │ with population mean; reduces to single-agent RL    │
   │                                                     │
   │ No-regret + MARL: use EXP3/Hedge in each round;   │
-  │ convergence to CE (not NE) — computationally valid │
+  │ convergence to CE (not NE) — computationally valid  │
   └─────────────────────────────────────────────────────┘
 ```
 

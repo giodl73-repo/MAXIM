@@ -60,20 +60,20 @@ humans have settled and why.
   │ Hazards: volcanic (gentle, effusive); mild earthquakes         │
   │                                                                │
   │ CONVERGENT: plates collide                                     │
-  │ Ocean-Ocean: denser subducts → island arc + oceanic trench    │
+  │ Ocean-Ocean: denser subducts → island arc + oceanic trench     │
   │   Examples: Japan, Philippines, Lesser Antilles, Mariana Trench│
-  │   (deepest: 11km); explosive volcanism (silicic magma)        │
+  │   (deepest: 11km); explosive volcanism (silicic magma)         │
   │                                                                │
   │ Ocean-Continent: oceanic subducts under continent →            │
   │   volcanic arc + trench                                        │
-  │   Examples: Andes/Cascades (Subduction of Nazca/Juan de Fuca) │
+  │   Examples: Andes/Cascades (Subduction of Nazca/Juan de Fuca)  │
   │                                                                │
-  │ Continent-Continent: neither subducts → collision + uplift    │
-  │   → fold mountains; no subduction zone volcanism              │
-  │   Examples: Himalayas (India-Eurasia), Alps (Africa-Europe)   │
-  │   Still rising: Himalayas +5mm/year                           │
+  │ Continent-Continent: neither subducts → collision + uplift     │
+  │   → fold mountains; no subduction zone volcanism               │
+  │   Examples: Himalayas (India-Eurasia), Alps (Africa-Europe)    │
+  │   Still rising: Himalayas +5mm/year                            │
   │                                                                │
-  │ TRANSFORM: plates slide laterally; no creation/destruction    │
+  │ TRANSFORM: plates slide laterally; no creation/destruction     │
   │ Examples: San Andreas Fault (Pacific-N America), North         │
   │   Anatolian Fault (Turkey — seismically analogous to SA Fault)│
   │ Hazards: large strike-slip earthquakes; no volcanism           │
@@ -142,20 +142,20 @@ humans have settled and why.
   VOLCANO TYPES (reflect magma composition):
   ┌────────────────────────────────────────────────────────────────┐
   │ SHIELD VOLCANOES:                                              │
-  │ Basaltic magma (low silica, low viscosity, low gas)           │
-  │ Gentle slopes (~5°); effusive eruptions; lava flows           │
+  │ Basaltic magma (low silica, low viscosity, low gas)            │
+  │ Gentle slopes (~5°); effusive eruptions; lava flows            │
   │ Examples: Mauna Loa/Kilauea (Hawaii), Iceland volcanoes        │
   │ Hazard: lava flow property destruction; rarely kills directly  │
   │                                                                │
-  │ STRATOVOLCANOES (COMPOSITE):                                  │
+  │ STRATOVOLCANOES (COMPOSITE):                                   │
   │ Felsic/andesitic magma (high silica, high viscosity, high gas)│
   │ Steep sides; explosive eruptions; pyroclastic flows            │
-  │ Examples: Mt. Fuji, Mt. St. Helens, Pinatubo, Rainier         │
-  │ Hazard: most dangerous — pyroclastic flow, lahar, ashfall     │
+  │ Examples: Mt. Fuji, Mt. St. Helens, Pinatubo, Rainier          │
+  │ Hazard: most dangerous — pyroclastic flow, lahar, ashfall      │
   │                                                                │
   │ CALDERAS / SUPERVOLCANOES:                                     │
   │ Collapse feature after large magma chamber evacuation          │
-  │ Yellowstone (640k years ago eruption — VEI 8)                 │
+  │ Yellowstone (640k years ago eruption — VEI 8)                  │
   │ Toba (74k BP — nearly caused human extinction per some models)│
   │ Hazard: global cooling from sulfur aerosols (nuclear winter-like│
   └────────────────────────────────────────────────────────────────┘
@@ -179,28 +179,28 @@ humans have settled and why.
 ```
   THREE ROCK FAMILIES:
   ┌────────────────────────────────────────────────────────────────┐
-  │ IGNEOUS: formed from cooling magma or lava                    │
+  │ IGNEOUS: formed from cooling magma or lava                     │
   │                                                                │
   │ Intrusive (plutonic): slow cooling underground → large crystals│
   │   Granite: continental crust; quartz + feldspar + mica         │
-  │   Diorite, Gabbro, Peridotite (mantle)                        │
+  │   Diorite, Gabbro, Peridotite (mantle)                         │
   │                                                                │
   │ Extrusive (volcanic): rapid cooling at surface → small crystals│
   │   Basalt: oceanic crust + shield volcano flows                 │
-  │   Rhyolite, Obsidian (felsic volcanic)                        │
+  │   Rhyolite, Obsidian (felsic volcanic)                         │
   │   Pumice: vesicular (gas bubbles) → floats on water            │
   │                                                                │
   │ SEDIMENTARY: lithified erosion products or chemical precipitates│
   │                                                                │
   │ Clastic: fragments of other rocks                              │
-  │   Conglomerate (gravel), Sandstone (sand), Shale (silt/clay)  │
+  │   Conglomerate (gravel), Sandstone (sand), Shale (silt/clay)   │
   │ Chemical: precipitation from solution                          │
   │   Limestone (CaCO₃ — marine organisms or direct precipitation) │
   │   Evaporites: Halite (salt), Gypsum (desert/restricted basins) │
   │ Organic: accumulated organic material                          │
   │   Coal (plant material), Chalk (microorganism shells)          │
   │                                                                │
-  │ METAMORPHIC: existing rock transformed by heat + pressure       │
+  │ METAMORPHIC: existing rock transformed by heat + pressure      │
   │   Marble: limestone → metamorphic (recrystallized calcite)     │
   │   Quartzite: sandstone → metamorphic                           │
   │   Schist, Gneiss: high-grade metamorphism (alignment of micas) │
@@ -213,32 +213,32 @@ humans have settled and why.
   │ Granite: building/dimension stone; stable cratonic foundations │
   │ Basalt: road aggregate; oceanic crust globally                 │
   │ Pegmatite: gem minerals (tourmaline, emerald, beryl); REE-     │
-  │   bearing minerals (spodumene for Li; columbite for Nb/Ta)    │
-  │ Porphyry intrusions: largest Cu-Mo deposits (~75% of global   │
+  │   bearing minerals (spodumene for Li; columbite for Nb/Ta)     │
+  │ Porphyry intrusions: largest Cu-Mo deposits (~75% of global    │
   │   Cu production from porphyry deposits; Bingham Canyon UT,   │
-  │   Escondida Chile)                                            │
-  │ Kimberlite pipes: primary diamond source (>50 km depth mantle │
-  │   xenoliths; South Africa, Botswana, Russia, Canada)          │
+  │   Escondida Chile)                                             │
+  │ Kimberlite pipes: primary diamond source (>50 km depth mantle  │
+  │   xenoliths; South Africa, Botswana, Russia, Canada)           │
   │                                                                │
   │ SEDIMENTARY ROCK RESOURCES:                                    │
   │ Limestone: cement feedstock (CaCO₃ → CaO + CO₂ at 900°C);   │
-  │   karst aquifer; building stone (Paris Basin limestone)       │
-  │ Coal: organic accumulation + burial; Carboniferous swamps     │
+  │   karst aquifer; building stone (Paris Basin limestone)        │
+  │ Coal: organic accumulation + burial; Carboniferous swamps      │
   │ Oil/gas: organic-rich shale buried to "oil window" (~60-120°C)│
-  │   migration to porous reservoir; trap + seal required         │
+  │   migration to porous reservoir; trap + seal required          │
   │ Evaporites: potash (fertilizer; K is a critical crop nutrient)│
   │   halite (chemical feedstock); gypsum (drywall/plaster)      │
-  │ Iron formation (BIF): world's largest iron ore deposits;      │
-  │   Proterozoic age (Hamersley Basin Australia; Carajas Brazil) │
+  │ Iron formation (BIF): world's largest iron ore deposits;       │
+  │   Proterozoic age (Hamersley Basin Australia; Carajas Brazil)  │
   │                                                                │
   │ CRITICAL MINERAL GEOGRAPHY:                                    │
-  │ REE (rare earth elements): carbonatite-hosted (Mountain Pass  │
-  │   CA; Bayan Obo China); China dominates processing (~90%)     │
-  │ Lithium: pegmatite spodumene (Australia) + brine evaporites   │
-  │   (Lithium Triangle: Chile/Argentina/Bolivia)                 │
-  │ Cobalt: DRC (70%); magmatic Ni-Cu-Co deposits (Sudbury,       │
-  │   Norilsk) + Congo Basin laterites                            │
-  │ → Connects to geopolitics: resource geography ≈ mineral       │
+  │ REE (rare earth elements): carbonatite-hosted (Mountain Pass   │
+  │   CA; Bayan Obo China); China dominates processing (~90%)      │
+  │ Lithium: pegmatite spodumene (Australia) + brine evaporites    │
+  │   (Lithium Triangle: Chile/Argentina/Bolivia)                  │
+  │ Cobalt: DRC (70%); magmatic Ni-Cu-Co deposits (Sudbury,        │
+  │   Norilsk) + Congo Basin laterites                             │
+  │ → Connects to geopolitics: resource geography ≈ mineral        │
   │   deposit geography (see 06-GEOPOLITICS-RESOURCES.md)        │
   └────────────────────────────────────────────────────────────────┘
 ```
@@ -250,14 +250,14 @@ humans have settled and why.
 ```
   FLUVIAL (river) PROCESSES:
   ┌────────────────────────────────────────────────────────────────┐
-  │ Upper course (headwaters): steep gradient; V-shaped valleys;  │
+  │ Upper course (headwaters): steep gradient; V-shaped valleys;   │
   │   vertical erosion dominant; waterfalls, rapids                │
   │                                                                │
-  │ Middle course: meanders form as gradient decreases; lateral   │
-  │   erosion + deposition; floodplain develops                   │
+  │ Middle course: meanders form as gradient decreases; lateral    │
+  │   erosion + deposition; floodplain develops                    │
   │                                                                │
-  │ Lower course: broad flat floodplain; oxbow lakes (cut-off     │
-  │   meanders); delta/estuary formation at mouth                 │
+  │ Lower course: broad flat floodplain; oxbow lakes (cut-off      │
+  │   meanders); delta/estuary formation at mouth                  │
   └────────────────────────────────────────────────────────────────┘
 
   DRAINAGE BASIN CONCEPTS:
@@ -305,24 +305,24 @@ humans have settled and why.
   SOIL FORMATION FACTORS (Jenny 1941 — CLORPT):
   ┌────────────────────────────────────────────────────────────────┐
   │ C — Climate: temperature + moisture (primary controls)         │
-  │     → Warm, wet: intense weathering, thick leached profiles   │
-  │     → Cold, dry: slow weathering, thin profiles               │
+  │     → Warm, wet: intense weathering, thick leached profiles    │
+  │     → Cold, dry: slow weathering, thin profiles                │
   │                                                                │
   │ O — Organisms: vegetation type, microbial community, earthworms│
-  │     → Prairie soils: deep organic horizons from grass roots   │
-  │     → Forest soils: acidic from leaf litter decomposition     │
+  │     → Prairie soils: deep organic horizons from grass roots    │
+  │     → Forest soils: acidic from leaf litter decomposition      │
   │                                                                │
-  │ R — Relief (topography): slope, aspect, drainage position     │
-  │     → Slopes: thinner soils (erosion-prone)                   │
-  │     → Valley bottoms: thicker, waterlogged soils              │
+  │ R — Relief (topography): slope, aspect, drainage position      │
+  │     → Slopes: thinner soils (erosion-prone)                    │
+  │     → Valley bottoms: thicker, waterlogged soils               │
   │                                                                │
   │ P — Parent material: rock type that weathers to form soil      │
   │     → Basalt: nutrient-rich (volcanic soils); limestone karst  │
-  │     → Granite: nutrient-poor quartz residue                   │
+  │     → Granite: nutrient-poor quartz residue                    │
   │                                                                │
-  │ T — Time: older soils more developed, more leached            │
+  │ T — Time: older soils more developed, more leached             │
   │     → Hawaii: young volcanic soils high in nutrients           │
-  │     → Laterites: ancient tropical soils highly leached        │
+  │     → Laterites: ancient tropical soils highly leached         │
   └────────────────────────────────────────────────────────────────┘
 
   SOIL HORIZONS (profile from surface down):

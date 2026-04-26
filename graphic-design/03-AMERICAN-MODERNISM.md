@@ -267,7 +267,7 @@ IS: A complete system governing how an organization looks
 
 COMPONENTS
 +------------------------------------------+
-|  CORPORATE IDENTITY PROGRAM               |
+|  CORPORATE IDENTITY PROGRAM              |
 |                                          |
 |  Primary Mark (logo)                     |
 |    - Horizontal / vertical / icon forms  |
@@ -323,11 +323,11 @@ United Airlines  Saul Bass       1974   Tulip; geometric harmony
 ```
 EDUCATION
 +----------------------------------------+
-| Yale School of Art                      |
-|  Alvin Eisenman built design dept       |
-|  Paul Rand taught there                 |
+| Yale School of Art                     |
+|  Alvin Eisenman built design dept      |
+|  Paul Rand taught there                |
 |  Massimo Vignelli, Ed Fella both passed |
-|  through this network                   |
+|  through this network                  |
 +----------------------------------------+
 | New York: SVA, Pratt, Cooper Union      |
 |  Training ground for NYC agency work    |
@@ -340,10 +340,10 @@ INDUSTRY
 |  TV network as design client            |
 |  Iconic eye logo (1951)                 |
 +----------------------------------------+
-| Container Corporation of America (CCA)  |
-|  Walter Paepcke: industrialist patron   |
-|  Commissioned Herbert Bayer, others     |
-|  "Great Ideas of Western Man" series    |
+| Container Corporation of America (CCA) |
+|  Walter Paepcke: industrialist patron  |
+|  Commissioned Herbert Bayer, others    |
+|  "Great Ideas of Western Man" series   |
 +----------------------------------------+
 | Push Pin Studios (Glaser + Chwast)      |
 |  Monthly Graphic (magazine)             |

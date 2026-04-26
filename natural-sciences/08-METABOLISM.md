@@ -186,12 +186,12 @@ ELECTROCHEMICAL GRADIENT AS STORED ENERGY:
   ┌─────────────────────────────────────────────────────┐
   │  Intermembrane space  (high H⁺ — positive terminal) │
   │  ~ +180 mV electrical potential across membrane     │
-  │  ~ 1 pH unit ΔpH (0.06 V per pH unit contribution) │
-  │  Total proton-motive force: Δp ≈ 220 mV            │
+  │  ~ 1 pH unit ΔpH (0.06 V per pH unit contribution)  │
+  │  Total proton-motive force: Δp ≈ 220 mV             │
   ╔═════════════════════════════════════════════════════╗
   ║  Inner mitochondrial membrane (insulator + machine) ║
   ╚═════════════════════════════════════════════════════╝
-  │  Matrix  (low H⁺ — negative terminal)              │
+  │  Matrix  (low H⁺ — negative terminal)               │
   └─────────────────────────────────────────────────────┘
 
 ETC (Complexes I–IV) = pumps building the gradient

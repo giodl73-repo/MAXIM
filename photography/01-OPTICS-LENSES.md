@@ -154,7 +154,7 @@ A real lens deviates from the ideal thin lens in multiple ways. Aberrations are 
 │                   │ differently than   │ "glowing" in highlights│
 │                   │ paraxial rays      │ Stops down to sharpen  │
 ├─────────────────────────────────────────────────────────────────┤
-│ Coma              │ Off-axis rays from │ "Seagull" or "comet"  │
+│ Coma              │ Off-axis rays from │ "Seagull" or "comet"   │
 │                   │ different pupil    │ flare on bright stars/ │
 │                   │ zones focus at     │ point sources at edges │
 │                   │ different points   │                        │

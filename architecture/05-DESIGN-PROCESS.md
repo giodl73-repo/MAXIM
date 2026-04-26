@@ -8,24 +8,24 @@ The architecture design process is not linear. It spirals: each phase revisits e
 +--------------------------------------------------------------------+
 |                    AIA PHASE STRUCTURE (US)                        |
 |                                                                    |
-|  PRE-DESIGN        SD         DD            CDs         CA        |
-|  ─────────       ──────     ──────        ──────      ──────      |
+|  PRE-DESIGN        SD         DD            CDs         CA         |
+|  ─────────       ──────     ──────        ──────      ──────       |
 |  Programming     15%        35%            65%        construction|
-|  Site analysis   design     design         design     admin       |
-|  Feasibility     complete   complete       complete               |
+|  Site analysis   design     design         design     admin        |
+|  Feasibility     complete   complete       complete                |
 |                                                                    |
-|  ~5% of fee    ~15%       ~20%           ~40%       ~20% of fee   |
+|  ~5% of fee    ~15%       ~20%           ~40%       ~20% of fee    |
 |                                                                    |
 |  DECISIONS MADE vs COST TO CHANGE:                                 |
-|  ────────────────────────────────────────────────────────────     |
+|  ────────────────────────────────────────────────────────────      |
 |  SD: 15% decisions → determine 80% of project cost               |
-|      1x cost to change                                            |
-|  DD: 35% decisions locked                                         |
-|      10–50x cost to change                                        |
-|  CDs: 65% decisions locked                                        |
-|      100–200x cost to change                                      |
-|  Field: 5% undecided surprises                                    |
-|      500–1,000x cost to change                                    |
+|      1x cost to change                                             |
+|  DD: 35% decisions locked                                          |
+|      10–50x cost to change                                         |
+|  CDs: 65% decisions locked                                         |
+|      100–200x cost to change                                       |
+|  Field: 5% undecided surprises                                     |
+|      500–1,000x cost to change                                     |
 |                                                                    |
 |  This is the Boehm curve applied to buildings.                     |
 +--------------------------------------------------------------------+

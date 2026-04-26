@@ -11,7 +11,7 @@ ENDURANCE PERFORMANCE MODEL:
   (ceiling)      (sustainable %)      (efficiency)
   +--------+     +----------------+   +-----------+
   |Maximum |     |%VO2max you can |   |O₂ cost per|
-  |O₂ your |  ×  |sustain for     | ÷ |unit speed  |
+  |O₂ your |  ×  |sustain for     | ÷ |unit speed |
   |body can|     |race duration   |   |(ml/kg/km) |
   |use/min |     |                |   |           |
   +--------+     +----------------+   +-----------+

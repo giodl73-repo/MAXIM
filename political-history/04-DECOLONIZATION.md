@@ -52,24 +52,24 @@ WHO DROVE DECOLONIZATION?
 
   METROPOLITAN CAUSATION         PERIPHERAL CAUSATION
   ┌───────────────────────┐      ┌───────────────────────┐
-  │ Empires became too    │      │ Colonial subjects      │
-  │ expensive to maintain │      │ fought for and won     │
-  │                       │      │ independence           │
-  │ • Post-WWII British   │      │                        │
-  │   economic weakness   │      │ • Indian National      │
+  │ Empires became too    │      │ Colonial subjects     │
+  │ expensive to maintain │      │ fought for and won    │
+  │                       │      │ independence          │
+  │ • Post-WWII British   │      │                       │
+  │   economic weakness   │      │ • Indian National     │
   │   made empire         │      │   Congress — 50+ years │
-  │   unaffordable        │      │   of mobilization      │
-  │                       │      │                        │
-  │ • Cost-benefit: did   │      │ • Mau Mau, FLN, MPLA,  │
-  │   empire actually     │      │   FRELIMO — armed      │
-  │   pay for post-WWII   │      │   insurgencies         │
-  │   Britain?            │      │                        │
-  │                       │      │ • Mass nationalist     │
-  │ • Gallagher-Robinson: │      │   parties using        │
-  │   local collaborative │      │   colonial political   │
-  │   structures eroded   │      │   concepts against     │
-  │   — formal control    │      │   empire               │
-  │   no longer worked    │      │                        │
+  │   unaffordable        │      │   of mobilization     │
+  │                       │      │                       │
+  │ • Cost-benefit: did   │      │ • Mau Mau, FLN, MPLA, │
+  │   empire actually     │      │   FRELIMO — armed     │
+  │   pay for post-WWII   │      │   insurgencies        │
+  │   Britain?            │      │                       │
+  │                       │      │ • Mass nationalist    │
+  │ • Gallagher-Robinson: │      │   parties using       │
+  │   local collaborative │      │   colonial political  │
+  │   structures eroded   │      │   concepts against    │
+  │   — formal control    │      │   empire              │
+  │   no longer worked    │      │                       │
   └───────────────────────┘      └───────────────────────┘
            │                              │
            └───────────────┬──────────────┘

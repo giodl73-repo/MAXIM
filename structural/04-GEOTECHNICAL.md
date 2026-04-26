@@ -8,16 +8,16 @@ THE GEOTECHNICAL PROBLEM
  SURFACE LOADS
       ↓
 ┌─────────────────────────────────────────────────────────┐
-│  SOIL/ROCK MASS                                          │
+│  SOIL/ROCK MASS                                         │
 │  • 3-phase medium: solid grains + water + air           │
 │  • Behavior driven by effective stress σ' = σ − u       │
-│  • Strength: τ_f = c + σ' tan φ  (Mohr-Coulomb)        │
-│                                                          │
-│  Key issues:                                             │
-│  Bearing capacity: can the foundation resist load?       │
-│  Settlement: how much does it compress? how fast?        │
-│  Slope stability: will the slope slide?                  │
-│  Earth pressure: how hard does soil push on wall?        │
+│  • Strength: τ_f = c + σ' tan φ  (Mohr-Coulomb)         │
+│                                                         │
+│  Key issues:                                            │
+│  Bearing capacity: can the foundation resist load?      │
+│  Settlement: how much does it compress? how fast?       │
+│  Slope stability: will the slope slide?                 │
+│  Earth pressure: how hard does soil push on wall?       │
 └─────────────────────────────────────────────────────────┘
 ```
 

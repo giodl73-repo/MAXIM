@@ -7,7 +7,7 @@
 |           COLOR SYSTEMS: PURPOSE AND GENEALOGY                   |
 |                                                                  |
 |  PERCEPTUAL SYSTEMS (organized by how humans see)                |
-|  Munsell (1905): 3D Hue/Value/Chroma — art/soil/design          |
+|  Munsell (1905): 3D Hue/Value/Chroma — art/soil/design           |
 |  NCS (1979): opponent-color model — Scandinavian architecture    |
 |                                                                  |
 |  MEASUREMENT SYSTEMS (physics → numbers)                         |
@@ -15,15 +15,15 @@
 |  CIE xyY (1931): chromaticity + luminance (2D horseshoe diagram) |
 |                                                                  |
 |  UNIFORM PERCEPTUAL SPACES (physics → equal-step perception)     |
-|  CIELAB (1976): L*a*b*, ΔE color difference standard            |
-|  CIELUV (1976): alternative, better for self-luminous displays  |
+|  CIELAB (1976): L*a*b*, ΔE color difference standard             |
+|  CIELUV (1976): alternative, better for self-luminous displays   |
 |  OKLab (2020): improved uniform space (modern CSS default)       |
 |                                                                  |
 |  DEVICE SPACES (encode for specific output hardware)             |
-|  sRGB (1996): screens, internet — D65 white, γ=2.2              |
+|  sRGB (1996): screens, internet — D65 white, γ=2.2               |
 |  Adobe RGB (1998): print preparation — wider gamut               |
 |  Display P3 (2015): modern displays — ~26% wider than sRGB       |
-|  Rec.2020 (2012): UHD/HDR standard — 76% of CIE gamut           |
+|  Rec.2020 (2012): UHD/HDR standard — 76% of CIE gamut            |
 |                                                                  |
 |  INDUSTRY COMMUNICATION SYSTEMS (physical sample catalogs)       |
 |  Pantone PMS: spot inks, proprietary                             |

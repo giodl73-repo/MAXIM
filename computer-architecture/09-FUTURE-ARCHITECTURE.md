@@ -8,20 +8,20 @@ Post-Moore's law computing explores architectures that do not rely on transistor
 +-----------------------------------------------------------------------+
 |               FUTURE ARCHITECTURE LANDSCAPE                           |
 |                                                                       |
-|  NEAR TERM (2024–2027)          MEDIUM TERM (2028–2035)              |
+|  NEAR TERM (2024–2027)          MEDIUM TERM (2028–2035)               |
 |  ----------------------         -------------------------             |
-|  Chiplet integration            3D stacked DRAM on CPU               |
-|  CXL memory expansion           CXL fabric at rack scale             |
-|  Domain-specific accelerators   Photonic interconnects               |
-|  NPUs on consumer silicon       In-memory compute (PIM)              |
+|  Chiplet integration            3D stacked DRAM on CPU                |
+|  CXL memory expansion           CXL fabric at rack scale              |
+|  Domain-specific accelerators   Photonic interconnects                |
+|  NPUs on consumer silicon       In-memory compute (PIM)               |
 |  Die stacking (3D)              Near-memory processing                |
 |                                                                       |
-|  LONG TERM / SPECULATIVE        QUANTUM                              |
+|  LONG TERM / SPECULATIVE        QUANTUM                               |
 |  -------------------------      -------                               |
-|  Neuromorphic (Loihi, SpiNNaker)NISQ devices: 100–10,000 qubits      |
-|  Analog compute                 (2024: IBM Condor 1,121 qubits)      |
+|  Neuromorphic (Loihi, SpiNNaker)NISQ devices: 100–10,000 qubits       |
+|  Analog compute                 (2024: IBM Condor 1,121 qubits)       |
 |  Optical computing              Fault-tolerant: millions of           |
-|  DNA storage/compute            physical qubits for logical qubit    |
+|  DNA storage/compute            physical qubits for logical qubit     |
 |                                 Target: chemistry, optimization,      |
 |                                 crypto-breaking (distant)             |
 +-----------------------------------------------------------------------+

@@ -6,7 +6,7 @@ You know this. The question is: what aspects matter for understanding modern lan
 
 ```
 +--------------------------------------------------------------------------+
-|                    LAMBDA CALCULUS LANDSCAPE                              |
+|                    LAMBDA CALCULUS LANDSCAPE                             |
 +--------------------------------------------------------------------------+
 |                                                                          |
 |  THE FORMAL SYSTEM:                                                      |
@@ -243,29 +243,29 @@ Operational comparison (pure programs):
 
 ```
 +-----------------------------------------------------------------------+
-|                    EVALUATION STRATEGIES                               |
+|                    EVALUATION STRATEGIES                              |
 +-----------------------------------------------------------------------+
 |              CBV                 CBN              CBNeed               |
 |         (call by value)    (call by name)    (call by need/lazy)       |
 +-----------------------------------------------------------------------+
-| Arguments  Evaluated         Not evaluated      Not evaluated          |
-| evaluated: before call       before call        before call (WHNF)     |
-|                                                                        |
-| Sharing:   N/A (value)       No sharing:        Shared: thunk          |
-|                               re-evaluate        evaluated once,       |
-|                               each use           cached                |
-|                                                                        |
-| Diverging  (λy.42) Ω        (λy.42) Ω          (λy.42) Ω             |
-| argument:  diverges          = 42                = 42                  |
-|                                                                        |
-| Languages: ML, Scheme,       (no mainstream      Haskell, Miranda,     |
-|            Python, Rust,      pure-CBN)           lazy Racket          |
-|            JavaScript,        (CBN with           (with memoization)   |
-|            OCaml              effects = messy)                         |
-|                                                                        |
-| Efficiency: Good for I/O,   Re-evaluation       Best for data          |
-|             effects         overhead            structures;            |
-|                             (no sharing)        worst for simple       |
+| Arguments  Evaluated         Not evaluated      Not evaluated         |
+| evaluated: before call       before call        before call (WHNF)    |
+|                                                                       |
+| Sharing:   N/A (value)       No sharing:        Shared: thunk         |
+|                               re-evaluate        evaluated once,      |
+|                               each use           cached               |
+|                                                                       |
+| Diverging  (λy.42) Ω        (λy.42) Ω          (λy.42) Ω              |
+| argument:  diverges          = 42                = 42                 |
+|                                                                       |
+| Languages: ML, Scheme,       (no mainstream      Haskell, Miranda,    |
+|            Python, Rust,      pure-CBN)           lazy Racket         |
+|            JavaScript,        (CBN with           (with memoization)  |
+|            OCaml              effects = messy)                        |
+|                                                                       |
+| Efficiency: Good for I/O,   Re-evaluation       Best for data         |
+|             effects         overhead            structures;           |
+|                             (no sharing)        worst for simple      |
 |                                                 scalars               |
 +-----------------------------------------------------------------------+
 

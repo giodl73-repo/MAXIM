@@ -6,7 +6,7 @@
 +------------------------------------------------------------------+
 |              COMPOSITE END-OF-LIFE LANDSCAPE                     |
 |                                                                  |
-|   THERMOSET COMPOSITES (~70% of all composites)                 |
+|   THERMOSET COMPOSITES (~70% of all composites)                  |
 |   ──────────────────────────────────────────────                 |
 |   Cannot melt → no easy recycling route                          |
 |   Options: Mechanical → filler/short fiber (low value)           |
@@ -16,11 +16,11 @@
 |            Landfill   → banned in EU (2003 landfill directive)   |
 |            Incineration → energy recovery only                   |
 |                                                                  |
-|   THERMOPLASTIC COMPOSITES (~30%)                               |
+|   THERMOPLASTIC COMPOSITES (~30%)                                |
 |   ─────────────────────────────                                  |
-|   Can melt → standard thermoplastic recycling routes            |
-|   Fiber shortening inevitable → property degradation            |
-|   BUT: structural thermoplastic repair + reweld possible        |
+|   Can melt → standard thermoplastic recycling routes             |
+|   Fiber shortening inevitable → property degradation             |
+|   BUT: structural thermoplastic repair + reweld possible         |
 +------------------------------------------------------------------+
 ```
 

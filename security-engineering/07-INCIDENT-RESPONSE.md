@@ -10,23 +10,23 @@ NIST SP 800-61 INCIDENT RESPONSE LIFECYCLE
 |                                                                       |
 |  PREPARATION → DETECTION & → CONTAINMENT, → POST-INCIDENT          |
 |               ANALYSIS      ERADICATION,   ACTIVITY                 |
-|                              RECOVERY                                |
+|                              RECOVERY                                 |
 |                                                                       |
-|  PREPARATION:        DETECTION &        CONTAINMENT:                 |
+|  PREPARATION:        DETECTION &        CONTAINMENT:                  |
 |  IR plan             ANALYSIS:          Short-term containment        |
 |  CSIRT / SOC         SIEM alerts        Evidence preservation         |
 |  Runbooks            EDR telemetry      System isolation              |
 |  Communication       User reports       Network block                 |
-|  templates           Threat intel                                    |
+|  templates           Threat intel                                     |
 |  Legal contacts      Triage             ERADICATION:                  |
-|  Forensic tools      Severity matrix    Remove malware               |
-|  Offline backups                        Reset compromised creds      |
-|                                         Patch exploited vuln         |
+|  Forensic tools      Severity matrix    Remove malware                |
+|  Offline backups                        Reset compromised creds       |
+|                                         Patch exploited vuln          |
 |                      RECOVERY:                                        |
-|                      Restore systems    POST-INCIDENT:               |
-|                      Validate integrity Lessons learned              |
-|                      Monitor closely    Blameless postmortem         |
-|                                         Control improvements         |
+|                      Restore systems    POST-INCIDENT:                |
+|                      Validate integrity Lessons learned               |
+|                      Monitor closely    Blameless postmortem          |
+|                                         Control improvements          |
 +-----------------------------------------------------------------------+
 ```
 

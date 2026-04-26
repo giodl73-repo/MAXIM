@@ -4,18 +4,18 @@
 
 ```
 +------------------------------------------------------------------+
-|           PARADIGM SHIFTS IN ARCHAEOLOGICAL THOUGHT             |
+|           PARADIGM SHIFTS IN ARCHAEOLOGICAL THOUGHT              |
 |                                                                  |
 |  CULTURE HISTORY         PROCESSUALISM          POST-PROCESSUALISM|
 |  1880s–1960s             1960s–1980s             1980s–present   |
 |                                                                  |
 |  Classify + describe     Explain + test          Interpret +     |
 |                                                                  |
-|  Types → cultures        Hypotheses → laws       critique       |
+|  Types → cultures        Hypotheses → laws       critique        |
 |  Diffusion model         Systems theory          Agency/meaning  |
 |                          Ecology/adaptation      Political power |
 |                                                                  |
-|  "What?" / "When?"       "Why?" / "How?"         "Who says?"    |
+|  "What?" / "When?"       "Why?" / "How?"         "Who says?"     |
 +------------------------------------------------------------------+
 
 **Software engineering paradigm parallel**: The three-phase shift in archaeological theory maps directly onto software development paradigm shifts, and the structural logic is the same in both cases.

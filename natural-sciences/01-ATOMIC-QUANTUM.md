@@ -11,7 +11,7 @@
 ```
 ┌─────────────────────────────────────────────────────────────────────┐
 │                  ATOMIC STRUCTURE & QUANTUM CHEMISTRY               │
-│                                                                      │
+│                                                                     │
 │  EXACT SOLUTION     MULTI-ELECTRON          PERIODIC TABLE          │
 │  ─────────────      ───────────────         ─────────────────       │
 │  H atom             Shielding / Zeff         s/p/d/f blocks         │

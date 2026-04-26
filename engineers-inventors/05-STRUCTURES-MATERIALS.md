@@ -113,14 +113,14 @@ BESSEMER CONVERTER
 
   THE CONVERTER:
     ┌────────────────────────────────────────────────────┐
-    │  EGG-SHAPED VESSEL, 15–30 TONS CAPACITY           │
+    │  EGG-SHAPED VESSEL, 15–30 TONS CAPACITY            │
     │                                                    │
-    │  Lined with refractory brick                      │
-    │  Trunnions for tilting (pour in molten iron,      │
-    │  later tilt to pour out steel)                    │
+    │  Lined with refractory brick                       │
+    │  Trunnions for tilting (pour in molten iron,       │
+    │  later tilt to pour out steel)                     │
     │                                                    │
-    │  Bottom: TUYERES (air injection nozzles)          │
-    │  Air blast: ~25 psi through the molten metal      │
+    │  Bottom: TUYERES (air injection nozzles)           │
+    │  Air blast: ~25 psi through the molten metal       │
     └────────────────────────────────────────────────────┘
 
   PROCESS:

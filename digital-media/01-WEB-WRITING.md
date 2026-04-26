@@ -17,22 +17,22 @@ PRINT READING                  WEB READING
 +------------------------------------------------------------------+
 |  F-PATTERN (Nielsen Norman Group, 2006)                          |
 |                                                                  |
-|  XXXXXXXXXXXXXXXXXXXXXXXXX   <- Horizontal sweep #1 (top)       |
-|  XXXXXXXXXXXXXXXXXXXXXXXXX   <- Horizontal sweep #2             |
-|  XXXXXX                      <- Vertical scan down left         |
-|  XXXXXX                      <- Left column continuation        |
+|  XXXXXXXXXXXXXXXXXXXXXXXXX   <- Horizontal sweep #1 (top)        |
+|  XXXXXXXXXXXXXXXXXXXXXXXXX   <- Horizontal sweep #2              |
+|  XXXXXX                      <- Vertical scan down left          |
+|  XXXXXX                      <- Left column continuation         |
 |  XXXXXX                                                          |
 |                                                                  |
 |  LAYER CAKE PATTERN (subsequent research, 2017):                 |
-|  XXXXXXXXXXXXXXXXXXXXXXXXX   <- heading stripe                  |
-|  x                           <- first word / few words only     |
-|  XXXXXXXXXXXXXXXXXXXXXXXXX   <- heading stripe                  |
+|  XXXXXXXXXXXXXXXXXXXXXXXXX   <- heading stripe                   |
+|  x                           <- first word / few words only      |
+|  XXXXXXXXXXXXXXXXXXXXXXXXX   <- heading stripe                   |
 |  x                                                               |
 |                                                                  |
 |  Z-PATTERN (landing pages, ad-heavy layouts):                    |
-|  XXXXXXXXXXXXXXXXXXXXXXXXX   <- left to right (top)             |
-|                          X   <- diagonal to bottom right        |
-|  XXXXXXXXXXXXXXXXXXXXXXXXX   <- left to right (bottom)          |
+|  XXXXXXXXXXXXXXXXXXXXXXXXX   <- left to right (top)              |
+|                          X   <- diagonal to bottom right         |
+|  XXXXXXXXXXXXXXXXXXXXXXXXX   <- left to right (bottom)           |
 +------------------------------------------------------------------+
 ```
 

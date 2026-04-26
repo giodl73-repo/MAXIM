@@ -163,19 +163,19 @@ straight lines with characteristic slope on log-log plots.
 
 ```
     ┌──────────────────────────────────────────────────┐
-    │  QUANTUM MECHANICS (Schrödinger, Hilbert space)   │
-    │  ψ, Ĥ, eigenvalues → atomic orbital shapes, E   │
+    │  QUANTUM MECHANICS (Schrödinger, Hilbert space)  │
+    │  ψ, Ĥ, eigenvalues → atomic orbital shapes, E    │
     └──────────────────────┬───────────────────────────┘
                            │
                            ▼
     ┌──────────────────────────────────────────────────┐
-    │  ATOMIC BONDING                                   │
-    │  • Ionic:    Madelung energy, Coulomb             │
+    │  ATOMIC BONDING                                  │
+    │  • Ionic:    Madelung energy, Coulomb            │
     │  • Covalent: MO theory, hybridization, σ/π bonds │
-    │  • Metallic: free electrons, Fermi sea            │
-    │  • van der Waals: London dispersion               │
-    │                                                   │
-    │  Mie potential: U(r) = A/r^n - B/r^m            │
+    │  • Metallic: free electrons, Fermi sea           │
+    │  • van der Waals: London dispersion              │
+    │                                                  │
+    │  Mie potential: U(r) = A/r^n - B/r^m             │
     │  Bond energy E_b, equilibrium r₀, curvature      │
     │  → E_elastic ∝ d²U/dr²|_{r₀} / r₀              │
     │  → T_m ∝ E_b                                     │
@@ -184,7 +184,7 @@ straight lines with characteristic slope on log-log plots.
                            │
                            ▼
     ┌──────────────────────────────────────────────────┐
-    │  CRYSTAL STRUCTURE                                │
+    │  CRYSTAL STRUCTURE                               │
     │  14 Bravais lattices, space groups               │
     │  FCC (Cu, Al, Ni): CN=12, APF=0.74               │
     │  BCC (Fe, W, Cr):  CN=8,  APF=0.68               │
@@ -195,17 +195,17 @@ straight lines with characteristic slope on log-log plots.
                            │
                            ▼
     ┌──────────────────────────────────────────────────┐
-    │  DEFECTS                                          │
+    │  DEFECTS                                         │
     │  • Point: vacancies, interstitials, substitutionals│
-    │  • Line: edge/screw dislocations                  │
-    │  • Planar: grain boundaries, stacking faults      │
+    │  • Line: edge/screw dislocations                 │
+    │  • Planar: grain boundaries, stacking faults     │
     │  → Dislocations enable plastic flow              │
     │  → Blocking dislocations = hardening mechanisms  │
     └──────────────────────┬───────────────────────────┘
                            │
                            ▼
     ┌──────────────────────────────────────────────────┐
-    │  MICROSTRUCTURE                                   │
+    │  MICROSTRUCTURE                                  │
     │  Grain size d, phase fractions f_α/f_β           │
     │  Precipitate size r, spacing λ                   │
     │  Controlled by: T, t, ε during processing        │
@@ -213,8 +213,8 @@ straight lines with characteristic slope on log-log plots.
                            │
                            ▼
     ┌──────────────────────────────────────────────────┐
-    │  PROPERTIES                                       │
-    │  σ_y = f(d, ρ_disloc, r_precipitate, c_solute)  │
+    │  PROPERTIES                                      │
+    │  σ_y = f(d, ρ_disloc, r_precipitate, c_solute)   │
     │  E = essentially independent of microstructure   │
     │  K_IC = f(crack tip plasticity, grain size)      │
     └──────────────────────────────────────────────────┘
@@ -239,11 +239,11 @@ straight lines with characteristic slope on log-log plots.
     │  (Fe, Cu, Al: high σ_e, free electrons)             │
     │                                                     │
     │  E_F in gap, small gap (< 2 eV) → SEMICONDUCTOR     │
-    │  (Si: 1.1 eV, Ge: 0.67 eV, GaAs: 1.43 eV)          │
+    │  (Si: 1.1 eV, Ge: 0.67 eV, GaAs: 1.43 eV)           │
     │  Thermally excited carriers, doping shifts E_F      │
     │                                                     │
     │  E_F in large gap (> 3 eV) → INSULATOR              │
-    │  (SiO₂: 9 eV, Al₂O₃: 7 eV, diamond: 5.5 eV)        │
+    │  (SiO₂: 9 eV, Al₂O₃: 7 eV, diamond: 5.5 eV)         │
     │                                                     │
     └─────────────────────────────────────────────────────┘
 
@@ -345,7 +345,7 @@ Sort remaining candidates by M_I value. Plot on chart.
     ┌──────────────────────────────────────────────────────────────────┐
     │              CHARACTERIZATION METHOD MATRIX                      │
     │                                                                  │
-    │  Technique   │ What measured        │ Scale    │ Destructive?   │
+    │  Technique   │ What measured        │ Scale    │ Destructive?    │
     │  ────────────┼──────────────────────┼──────────┼───────────────  │
     │  XRD (Bragg) │ Crystal structure,   │ bulk avg │ No            │
     │              │ phase ID, lattice    │          │               │

@@ -55,9 +55,9 @@ PDP-1 HARDWARE CONTEXT (1961)
                  │
         ┌────────▼────────┐
         │  Spacewar! (1962)│
-        │  Steve Russell   │
-        │  Martin Graetz   │
-        │  Wayne Wiitanen  │
+        │  Steve Russell  │
+        │  Martin Graetz  │
+        │  Wayne Wiitanen │
         └────────┬────────┘
                  │
    Two-player: each ship has thrust,
@@ -145,7 +145,7 @@ ARCADE ECONOMICS MODEL
   ┌──────────────────────────────────────────────────────────┐
   │  OPERATOR (location owner or route operator)             │
   │  Buys cabinets, places in arcades, bars, pizza places    │
-  │  Revenue: quarters. Split with location: ~50/50           │
+  │  Revenue: quarters. Split with location: ~50/50          │
   │  Typical payback period: 6–18 months                     │
   │  PCB SWAP MODEL: buy new PCB for existing cabinet        │
   │  when game gets stale — major cost reducer               │
@@ -203,7 +203,7 @@ PAC-MAN GHOST AI STATE MACHINE
   CHASE ALGORITHMS (each ghost different):
   ┌────────┬─────────────────────────────────────────────┐
   │ Blinky │ Targets Pac-Man's exact tile (direct chase) │
-  │ Pinky  │ Targets 4 tiles AHEAD of Pac-Man's facing  │
+  │ Pinky  │ Targets 4 tiles AHEAD of Pac-Man's facing   │
   │ Inky   │ Vector from Blinky + Pinky offset (complex) │
   │ Clyde  │ Direct chase if far; retreats if close <8t  │
   └────────┴─────────────────────────────────────────────┘
@@ -237,8 +237,8 @@ DISPLAY TECHNOLOGY SPLIT (1978–1983)
   ┌────────────────────┐          ┌────────────────────┐
   │ Scan lines top-to- │          │ Electron beam draws │
   │ bottom, left-right │          │ lines point-to-point│
-  │ Fixed resolution   │          │ NOT pixel grid      │
-  │ 256×224 typical    │          │ Infinitely sharp    │
+  │ Fixed resolution   │          │ NOT pixel grid     │
+  │ 256×224 typical    │          │ Infinitely sharp   │
   └────────────────────┘          └────────────────────┘
 
   Pac-Man, Donkey Kong,           Asteroids (1979)
@@ -505,7 +505,7 @@ ID SOFTWARE TECHNICAL LINEAGE
   Quake (1996)
   ├── TRUE 3D: BSP + PVS (Potentially Visible Set)
   │   ┌─────────────────────────────────────────────────────┐
-  │   │  PVS = precomputed visibility set per BSP leaf       │
+  │   │  PVS = precomputed visibility set per BSP leaf      │
   │   │  At runtime: look up which leaves are visible from  │
   │   │  current player leaf → only render those            │
   │   │  True volumetric 3D: floors above floors possible   │
@@ -695,7 +695,7 @@ MOBILE GAMING REVENUE FUNNEL (F2P MODEL)
   │  D1/D7/D30 = Day 1/7/30 retention rates            │
   │                                                    │
   │  CPI (Cost Per Install) < LTV = profitable         │
-  │  Typical mobile CPI: $1–5 (casual), $10–30 (mid)  │
+  │  Typical mobile CPI: $1–5 (casual), $10–30 (mid)   │
   │  Typical mobile LTV: varies wildly; $1–200+        │
   └────────────────────────────────────────────────────┘
 
@@ -729,7 +729,7 @@ ESPORTS INFRASTRUCTURE STACK
                              │
   ┌──────────────────────────▼───────────────────────────────┐
   │  ORGANIZERS / LEAGUES                                    │
-  │  Riot (LCS/LCK/LEC) — publisher-run                     │
+  │  Riot (LCS/LCK/LEC) — publisher-run                      │
   │  Valve (The International) — community-funded prize pool │
   │  ESL/BLAST/PGL — third-party tournament organizers       │
   │  Overwatch League — traditional sports franchise model   │
@@ -856,16 +856,16 @@ MDA FRAMEWORK
       ▼                                                ▼
   ┌──────────────┐   generate  ┌──────────────┐  produce  ┌──────────────┐
   │  MECHANICS   │ ──────────► │   DYNAMICS   │ ─────────►│ AESTHETICS   │
-  │              │             │              │            │              │
-  │ Rules of the │             │ Emergent     │            │ Emotional    │
-  │ game system  │             │ behavior at  │            │ response in  │
-  │              │             │ runtime      │            │ the player   │
-  │ e.g., chess  │             │              │            │              │
-  │ piece moves  │             │ Opening      │            │ Tension of   │
-  │              │             │ theory,      │            │ endgame      │
-  │              │             │ blunders,    │            │              │
-  │              │             │ positional   │            │              │
-  │              │             │ pressure     │            │              │
+  │              │             │              │           │              │
+  │ Rules of the │             │ Emergent     │           │ Emotional    │
+  │ game system  │             │ behavior at  │           │ response in  │
+  │              │             │ runtime      │           │ the player   │
+  │ e.g., chess  │             │              │           │              │
+  │ piece moves  │             │ Opening      │           │ Tension of   │
+  │              │             │ theory,      │           │ endgame      │
+  │              │             │ blunders,    │           │              │
+  │              │             │ positional   │           │              │
+  │              │             │ pressure     │           │              │
   └──────────────┘             └──────────────┘            └──────────────┘
 
   Key insight: Designers create mechanics. They cannot directly

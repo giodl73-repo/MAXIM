@@ -8,15 +8,15 @@ evolution is selectively neutral, driven by drift rather than selection.
 
 ```
 ┌──────────────────────────────────────────────────────────────────┐
-│              MOLECULAR EVOLUTION LANDSCAPE                        │
+│              MOLECULAR EVOLUTION LANDSCAPE                       │
 │                                                                    │
-│  INPUT                  FORCES                OUTPUT              │
-│  ─────                  ──────                ──────              │
+│  INPUT                  FORCES                OUTPUT             │
+│  ─────                  ──────                ──────             │
 │  Mutation               Purifying selection   Sequence divergence │
-│  Recombination          Positive selection    Polymorphism level  │
-│  Gene duplication       Neutral drift         Gene family size    │
-│  Horizontal transfer    Codon usage bias      GC content          │
-│                         Methylation           Substitution rate   │
+│  Recombination          Positive selection    Polymorphism level │
+│  Gene duplication       Neutral drift         Gene family size   │
+│  Horizontal transfer    Codon usage bias      GC content         │
+│                         Methylation           Substitution rate  │
 │                                                                    │
 │  KEY TOOL: dN/dS ratio (ω = Ka/Ks)                               │
 │  ─────────────────────────────────                               │
@@ -251,9 +251,9 @@ existing function.
   Duplication event
          │
          ├──────────────────────────────────────────────┐
-         │                                               │
+         │                                              │
   Copy 1 (original function)                   Copy 2 (free to evolve)
-         │                                               │
+         │                                              │
          │                                    ┌──────────┴──────────┐
          │                               Neofunctionalization   Pseudogenization
          │                               (new function)         (neutral evolution,

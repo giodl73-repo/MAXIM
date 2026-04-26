@@ -8,10 +8,10 @@ COMMON-PRACTICE PERIOD (≈ 1600–1900):
   Characterized by:
     ┌─────────────────────────────────────────────────────────┐
     │ 1. FUNCTIONAL TONALITY: T → PD → D → T drives structure │
-    │ 2. DIATONIC CORE: most chords from the key's scale       │
-    │ 3. CONTROLLED CHROMATICISM: non-diatonic notes prepared  │
+    │ 2. DIATONIC CORE: most chords from the key's scale      │
+    │ 3. CONTROLLED CHROMATICISM: non-diatonic notes prepared │
     │ 4. VOICE LEADING RULES: smooth motion, resolved tensions │
-    │ 5. HIERARCHICAL FORM: keys organized around a tonic key  │
+    │ 5. HIERARCHICAL FORM: keys organized around a tonic key │
     └─────────────────────────────────────────────────────────┘
 
 CHROMATIC EXPANSION TIMELINE:

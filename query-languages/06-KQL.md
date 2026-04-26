@@ -8,7 +8,7 @@ KQL is Microsoft's pipe-based query language for log analytics and telemetry at 
 
 ```
 ┌─────────────────────────────────────────────────────────────────────────────┐
-│                       KQL-Powered Azure Services                           │
+│                       KQL-Powered Azure Services                            │
 ├───────────────────┬───────────────────┬────────────────┬───────────────────┤
 │  Azure Monitor    │  Application      │   Microsoft    │   Azure Data      │
 │  Log Analytics    │  Insights         │   Sentinel     │   Explorer (ADX)  │
@@ -46,12 +46,12 @@ Per-context behavioral differences — same KQL syntax, different capabilities:
 ┌──────────────────────────────────────────────────────────────┐
 │  Query Entry Points                                          │
 │                                                              │
-│  Azure Portal → Log Analytics workspace → Logs blade        │
-│  Azure Portal → App Insights resource  → Logs / Metrics     │
+│  Azure Portal → Log Analytics workspace → Logs blade         │
+│  Azure Portal → App Insights resource  → Logs / Metrics      │
 │  Azure Portal → Sentinel               → Hunting / Analytics│
-│  ADX Web UI   → cluster.region.kusto.windows.net            │
-│  Grafana       → Azure Monitor data source (KQL queries)    │
-│  VS Code       → Kusto extension                            │
+│  ADX Web UI   → cluster.region.kusto.windows.net             │
+│  Grafana       → Azure Monitor data source (KQL queries)     │
+│  VS Code       → Kusto extension                             │
 │  SDK/API       → kusto-ingest / Azure.Data.Kusto (C#/Python)│
 └──────────────────────────────────────────────────────────────┘
 ```

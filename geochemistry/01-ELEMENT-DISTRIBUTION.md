@@ -8,23 +8,23 @@ The distribution of elements in Earth and the solar system is the result of nucl
 ELEMENT DISTRIBUTION: HIERARCHY + FEEDBACKS
 +------------------------------------------------------------------+
 |                                                                  |
-|  NUCLEOSYNTHESIS → SOLAR SYSTEM COMPOSITION → PLANET FORMATION  |
+|  NUCLEOSYNTHESIS → SOLAR SYSTEM COMPOSITION → PLANET FORMATION   |
 |  (Big Bang + stars   (CI chondrites ≈ solar    (differentiation: |
 |   set cosmic abund.)  photosphere composition)   core/mantle/crust)|
 |                                                        |         |
-|       ←————————————————————————————————————————————————         |
+|       ←————————————————————————————————————————————————          |
 |       RECYCLING LOOPS (cyclic, not one-way):                     |
 |                                                                  |
 |  CRUST ——[subduction]——→ MANTLE                                  |
 |    ↑ [volcanism / arc magmatism]  ↓                              |
 |    ←————[partial melting]—————————                               |
 |                                                                  |
-|  ATMOSPHERE ←→ OCEAN ←→ SEDIMENTS ←→ CRUST                      |
+|  ATMOSPHERE ←→ OCEAN ←→ SEDIMENTS ←→ CRUST                       |
 |  (weathering; diagenesis; carbonate burial; uplift erosion)      |
 |                                                                  |
-|  The system has been cycling for 4+ Gyr: the continental crust  |
-|  is the enriched residue of billions of years of this loop,     |
-|  not a static reservoir from initial differentiation.           |
+|  The system has been cycling for 4+ Gyr: the continental crust   |
+|  is the enriched residue of billions of years of this loop,      |
+|  not a static reservoir from initial differentiation.            |
 +------------------------------------------------------------------+
 ```
 

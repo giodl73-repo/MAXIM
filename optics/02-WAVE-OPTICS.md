@@ -6,7 +6,7 @@ When feature sizes approach the wavelength of light, rays fail and waves take ov
 
 ```
 +------------------------------------------------------------------+
-|                    WAVE OPTICS LANDSCAPE                          |
+|                    WAVE OPTICS LANDSCAPE                         |
 |                                                                  |
 |  FOUNDATION           DIFFRACTION         INTERFERENCE           |
 |  ----------           -----------         ------------           |
@@ -79,9 +79,9 @@ Characterized by the Fresnel number N:
   L = propagation distance
 
   +---------+----------+------------------------------------------+
-  | N >> 1  | Geometric | Geometric optics valid                   |
+  | N >> 1  | Geometric| Geometric optics valid                   |
   | N ~ 1   | Fresnel   | Near-field diffraction; Fresnel integrals|
-  | N << 1  | Fraunhofer| Far-field diffraction; aperture FT       |
+  | N << 1  | Fraunhofer| Far-field diffraction; aperture FT      |
   +---------+----------+------------------------------------------+
 
   Practical threshold for Fraunhofer (far field):

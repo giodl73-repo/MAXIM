@@ -4,8 +4,8 @@
 
 ```
 +------------------------------------------------------------------+
-|                        ARCHAEOLOGY                                |
-|                                                                   |
+|                        ARCHAEOLOGY                               |
+|                                                                  |
 |  "The study of human past through material remains — artifacts,  |
 |   structures, features, and environmental data"                  |
 +------------------------------------------------------------------+
@@ -44,15 +44,15 @@ in an argument about behavior, cognition, society, and change over time.
   │ FULL COVERAGE: survey entire study area. Most complete.│
   │ Impractical for large areas.                           │
   │                                                        │
-  │ RANDOM SAMPLING: randomly select transects/units.     │
-  │ Statistically defensible; misses spatially clustered  │
+  │ RANDOM SAMPLING: randomly select transects/units.      │
+  │ Statistically defensible; misses spatially clustered   │
   │ sites.                                                 │
   │                                                        │
-  │ STRATIFIED SAMPLING: divide area into environmental   │
-  │ zones; sample each proportionally. Better for         │
-  │ heterogeneous landscapes.                             │
+  │ STRATIFIED SAMPLING: divide area into environmental    │
+  │ zones; sample each proportionally. Better for          │
+  │ heterogeneous landscapes.                              │
   │                                                        │
-  │ JUDGMENTAL SAMPLING: survey where you think sites     │
+  │ JUDGMENTAL SAMPLING: survey where you think sites      │
   │ are (near water, on ridges). Efficient but biased.   │
   └────────────────────────────────────────────────────────┘
 
@@ -106,22 +106,22 @@ in an argument about behavior, cognition, society, and change over time.
   LiDAR reveals topography below the canopy.
 
   ┌────────────────────────────────────────────────────────┐
-  │ CARACOL, Belize (Chase et al. 2010):                  │
-  │ Classic Maya city. Airborne LiDAR over 200 km².       │
-  │ Revealed: causeways, agricultural terracing, plazas,  │
-  │ and a continuous urban complex MUCH larger than       │
-  │ ground survey suggested (>100,000 population).        │
-  │ Transformed understanding of Maya urbanism.           │
+  │ CARACOL, Belize (Chase et al. 2010):                   │
+  │ Classic Maya city. Airborne LiDAR over 200 km².        │
+  │ Revealed: causeways, agricultural terracing, plazas,   │
+  │ and a continuous urban complex MUCH larger than        │
+  │ ground survey suggested (>100,000 population).         │
+  │ Transformed understanding of Maya urbanism.            │
   │                                                        │
-  │ ANGKOR, Cambodia (Evans et al. 2013):                 │
-  │ LiDAR revealed hydraulic infrastructure (reservoir    │
-  │ systems, canal networks) and suburban extent of       │
-  │ Angkor complex. Largest pre-industrial urban spread.  │
+  │ ANGKOR, Cambodia (Evans et al. 2013):                  │
+  │ LiDAR revealed hydraulic infrastructure (reservoir     │
+  │ systems, canal networks) and suburban extent of        │
+  │ Angkor complex. Largest pre-industrial urban spread.   │
   │                                                        │
-  │ AMAZON BASIN (various 2010s-present):                 │
-  │ Earthworks, ditched enclosures, raised fields under   │
-  │ dense forest — evidence of large pre-Columbian        │
-  │ populations that transformed the landscape.           │
+  │ AMAZON BASIN (various 2010s-present):                  │
+  │ Earthworks, ditched enclosures, raised fields under    │
+  │ dense forest — evidence of large pre-Columbian         │
+  │ populations that transformed the landscape.            │
   └────────────────────────────────────────────────────────┘
 
   GROUND-PENETRATING RADAR (GPR):
@@ -234,10 +234,10 @@ in an argument about behavior, cognition, society, and change over time.
   │ Precision: typically ±30-200 cal yr depending on       │
   │ sample quality and position on calibration curve       │
   │                                                        │
-  │ RESERVOIR EFFECT: marine organisms take up 14C from   │
+  │ RESERVOIR EFFECT: marine organisms take up 14C from    │
   │ ocean water (which exchanges with atmosphere slowly).  │
   │ Apparent age ~400 years older — must apply marine      │
-  │ reservoir correction. Freshwater reservoirs vary.     │
+  │ reservoir correction. Freshwater reservoirs vary.      │
   └────────────────────────────────────────────────────────┘
 
   BAYESIAN MODELING (Bronk Ramsey):
@@ -253,7 +253,7 @@ in an argument about behavior, cognition, society, and change over time.
 ```
   POTASSIUM-ARGON (K-Ar) AND ARGON-ARGON (40Ar/39Ar):
   ┌────────────────────────────────────────────────────────┐
-  │ 40K decays to 40Ar with half-life of 1.25 billion yr  │
+  │ 40K decays to 40Ar with half-life of 1.25 billion yr   │
   │ Measures: ratio of 40Ar to 40K in volcanic rocks       │
   │ Zero-point: volcanic eruption releases all argon;      │
   │             clock resets                               │
@@ -275,36 +275,36 @@ in an argument about behavior, cognition, society, and change over time.
   │ electrons as luminescence.                             │
   │                                                        │
   │ Zero-point event:                                      │
-  │ TL: firing of ceramics, burning of sediment           │
+  │ TL: firing of ceramics, burning of sediment            │
   │ OSL: sunlight exposure during sediment transport       │
   │                                                        │
-  │ Effective range: TL 1,000-500,000 yr                  │
+  │ Effective range: TL 1,000-500,000 yr                   │
   │                  OSL 100-500,000 yr                    │
   │                                                        │
   │ USE: dating:                                           │
-  │ - Ceramics without organic content                    │
+  │ - Ceramics without organic content                     │
   │ - Burned lithics                                       │
-  │ - Loess, aeolian, alluvial sediments                  │
+  │ - Loess, aeolian, alluvial sediments                   │
   │   (for when sediment was last exposed to light)        │
   └────────────────────────────────────────────────────────┘
 
   DENDROCHRONOLOGY:
   ┌────────────────────────────────────────────────────────┐
-  │ Tree rings: one per year; width varies with climate   │
-  │ Pattern of wide/narrow rings is distinctive for       │
+  │ Tree rings: one per year; width varies with climate    │
+  │ Pattern of wide/narrow rings is distinctive for        │
   │ regional climate sequence — can be cross-dated         │
   │                                                        │
-  │ MASTER CHRONOLOGIES: built by overlapping living +    │
+  │ MASTER CHRONOLOGIES: built by overlapping living +     │
   │ dead + fossil trees:                                   │
-  │ - US Southwest: ~8,000 years                          │
-  │ - German oak: ~12,500 years                           │
+  │ - US Southwest: ~8,000 years                           │
+  │ - German oak: ~12,500 years                            │
   │ - Anatolian oak: used for IntCal calibration           │
   │                                                        │
   │ Precision: exact calendar year.                        │
   │                                                        │
-  │ Limitation: requires wood that survived in context;   │
+  │ Limitation: requires wood that survived in context;    │
   │ not universal. And the wood may be reused (old-growth  │
-  │ timber in a new building doesn't date the building).  │
+  │ timber in a new building doesn't date the building).   │
   └────────────────────────────────────────────────────────┘
 ```
 
@@ -397,23 +397,23 @@ in an argument about behavior, cognition, society, and change over time.
   THE SUSPECTS (Cline, "1177 BC"):
   ┌────────────────────────────────────────────────────────┐
   │ Sea Peoples: Egyptian records describe migrations and  │
-  │ raids by confederacy of peoples from "the islands."   │
-  │ DNA evidence: some were from Aegean/Mycenaean region. │
-  │ Were they cause or symptom? Probably both — displaced │
+  │ raids by confederacy of peoples from "the islands."    │
+  │ DNA evidence: some were from Aegean/Mycenaean region.  │
+  │ Were they cause or symptom? Probably both — displaced  │
   │ by other disruptions.                                  │
   │                                                        │
-  │ Climate/drought: pollen records, sediment cores show  │
-  │ ~300-year aridification across Eastern Mediterranean  │
+  │ Climate/drought: pollen records, sediment cores show   │
+  │ ~300-year aridification across Eastern Mediterranean   │
   │ ~1200-900 BCE. Megadrought in 1200s BCE documented.  │
   │                                                        │
   │ Earthquakes: several Mycenaean sites show earthquake   │
   │ damage (~1200 BCE).                                    │
   │                                                        │
-  │ Internal rebellion: palace texts show social strain;  │
-  │ economic inequality; possible slave/peasant revolts.  │
+  │ Internal rebellion: palace texts show social strain;   │
+  │ economic inequality; possible slave/peasant revolts.   │
   │                                                        │
-  │ Trade network disruption: palace economies depended   │
-  │ on long-distance trade (tin from Afghanistan, copper  │
+  │ Trade network disruption: palace economies depended    │
+  │ on long-distance trade (tin from Afghanistan, copper   │
   │ from Cyprus). Disruption cascaded.                     │
   └────────────────────────────────────────────────────────┘
 
@@ -442,7 +442,7 @@ in an argument about behavior, cognition, society, and change over time.
   │ - Reject: culture history (just describing sequences); │
   │   normative anthropology                               │
   │ - Methods: quantification, spatial analysis, explicit  │
-  │   sampling design, ecological data                    │
+  │   sampling design, ecological data                     │
   │ - Lewis Binford, David Clarke, Colin Renfrew           │
   └────────────────────────────────────────────────────────┘
 
@@ -452,9 +452,9 @@ in an argument about behavior, cognition, society, and change over time.
   │ - Artifacts have meaning that cannot be read from      │
   │   form alone (a knife is a knife AND a ritual object)  │
   │ - Agency: individuals make choices; not just adapting  │
-  │ - Context: same artifact means different things in    │
+  │ - Context: same artifact means different things in     │
   │   different contexts                                   │
-  │ - Reflexivity: archaeologist's position shapes        │
+  │ - Reflexivity: archaeologist's position shapes         │
   │   interpretation                                       │
   │ - Ian Hodder's Catalhoyuk approach: multivocality      │
   │   (local communities involved in interpretation)       │
@@ -480,13 +480,13 @@ in an argument about behavior, cognition, society, and change over time.
   LEGAL FRAMEWORK:
   ┌────────────────────────────────────────────────────────┐
   │ National Historic Preservation Act (NHPA, 1966):       │
-  │ - Section 106: federal undertakings that may affect   │
-  │   historic properties require review                  │
+  │ - Section 106: federal undertakings that may affect    │
+  │   historic properties require review                   │
   │ - "Adverse effect" triggers mitigation (data recovery  │
-  │   = excavation + analysis)                            │
+  │   = excavation + analysis)                             │
   │                                                        │
   │ Archaeological Resources Protection Act (ARPA, 1979):  │
-  │ Illegal to excavate archaeological sites on federal   │
+  │ Illegal to excavate archaeological sites on federal    │
   │ land without a permit.                                 │
   │                                                        │
   │ Section 106 PROCESS:                                   │

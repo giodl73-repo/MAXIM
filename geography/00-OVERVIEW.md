@@ -15,28 +15,28 @@ than distant things."
 |                    GEOGRAPHY — LAYERED SYSTEM VIEW                   |
 |                                                                      |
 |  PHYSICAL SUBSTRATE (internal + external Earth processes)            |
-|  ─────────────────────────────────────────────────────              |
-|  Tectonics/Climate/Soils/Hydrology/Biogeography/Oceanography        |
+|  ─────────────────────────────────────────────────────               |
+|  Tectonics/Climate/Soils/Hydrology/Biogeography/Oceanography         |
 |          │                    │                                      |
 |          │  feedbacks:        │  feedbacks:                          |
 |          │  deforestation     │  irrigation salinization             |
-|          │  → erosion,        │  → soil loss; urbanization          |
-|          │  CO₂ → warming     │  → flood risk                       |
+|          │  → erosion,        │  → soil loss; urbanization           |
+|          │  CO₂ → warming     │  → flood risk                        |
 |          ▼                    ▼                                      |
-|  HUMAN GEOGRAPHY (overlaid on, and reshaping, the substrate)        |
-|  ─────────────────────────────────────────────────────              |
+|  HUMAN GEOGRAPHY (overlaid on, and reshaping, the substrate)         |
+|  ─────────────────────────────────────────────────────               |
 |  Population + Urban │ Economic geography │ Political geography       |
 |  Cultural geography │ Historical geography                           |
 |                                                                      |
-|  ANALYTICAL TOOLCHAIN                                               |
+|  ANALYTICAL TOOLCHAIN                                                |
 |  ──────────────────                                                  |
-|  SCALE: local ──────────────────────────────────── global           |
-|         (parcel) (neighborhood) (city) (region) (planet)            |
-|  GIS/PostGIS: spatial queries on vector + raster layers             |
-|  Remote sensing: image ML pipeline over multispectral data          |
-|  Spatial stats: Moran's I, Kriging, hot-spot analysis               |
-|  MAUP: results change as aggregation unit changes                   |
-|  → connects physical measurements to human patterns                 |
+|  SCALE: local ──────────────────────────────────── global            |
+|         (parcel) (neighborhood) (city) (region) (planet)             |
+|  GIS/PostGIS: spatial queries on vector + raster layers              |
+|  Remote sensing: image ML pipeline over multispectral data           |
+|  Spatial stats: Moran's I, Kriging, hot-spot analysis                |
+|  MAUP: results change as aggregation unit changes                    |
+|  → connects physical measurements to human patterns                  |
 +----------------------------------------------------------------------+
 ```
 
@@ -47,7 +47,7 @@ than distant things."
 ```
   KEY CONCEPTS:
   ┌────────────────────────────────────────────────────────────────┐
-  │ LOCATION                                                        │
+  │ LOCATION                                                       │
   │ Absolute: lat/long, address, coordinate system                 │
   │ Relative: positional to other places (3 miles from X)          │
   │                                                                │
@@ -55,11 +55,11 @@ than distant things."
   │ SPACE: the expanse between places; can be social (social       │
   │        distance), functional, perceived                        │
   │                                                                │
-  │ SCALE: local vs regional vs national vs global                │
-  │ Scale matters: processes visible at one scale may disappear   │
+  │ SCALE: local vs regional vs national vs global                 │
+  │ Scale matters: processes visible at one scale may disappear    │
   │ at another; patterns aggregate differently                     │
   │                                                                │
-  │ REGION: area with common characteristics (formal/functional/  │
+  │ REGION: area with common characteristics (formal/functional/   │
   │ perceptual); a mental or analytical construct, not given       │
   └────────────────────────────────────────────────────────────────┘
 
@@ -112,17 +112,17 @@ than distant things."
   ┌────────────────────────────────────────────────────────────────┐
   │ DIAMOND'S CAUSAL CHAIN:                                        │
   │                                                                │
-  │ Eurasia's E-W axis → crops/animals spread along same latitude │
-  │ → same climate → rapid diffusion of domesticates              │
+  │ Eurasia's E-W axis → crops/animals spread along same latitude  │
+  │ → same climate → rapid diffusion of domesticates               │
   │                                                                │
   │ Americas/Africa N-S axes → climate barriers → slower diffusion│
   │                                                                │
-  │ Domesticable plants + animals → food surplus → population     │
-  │ density → specialization → state capacity → technology →      │
+  │ Domesticable plants + animals → food surplus → population      │
+  │ density → specialization → state capacity → technology →       │
   │ military advantage + disease immunity                          │
   │                                                                │
-  │ 13 large domesticable mammals in Eurasia; 1 in Americas       │
-  │ (llama); 0 in sub-Saharan Africa (zebras aren't domesticable) │
+  │ 13 large domesticable mammals in Eurasia; 1 in Americas        │
+  │ (llama); 0 in sub-Saharan Africa (zebras aren't domesticable)  │
   └────────────────────────────────────────────────────────────────┘
 
   WHAT SURVIVES THE CRITIQUE OF DIAMOND:
@@ -153,15 +153,15 @@ than distant things."
 ```
   RIVER VALLEY CIVILIZATIONS:
   ┌────────────────────────────────────────────────────────────────┐
-  │ Tigris-Euphrates (Mesopotamia): seasonal flooding + silt;     │
-  │   first writing (Sumer), first cities, irrigation networks    │
+  │ Tigris-Euphrates (Mesopotamia): seasonal flooding + silt;      │
+  │   first writing (Sumer), first cities, irrigation networks     │
   │                                                                │
-  │ Nile: predictable annual flood + narrow fertile corridor;     │
-  │   isolation (desert buffer) → long political continuity       │
+  │ Nile: predictable annual flood + narrow fertile corridor;      │
+  │   isolation (desert buffer) → long political continuity        │
   │                                                                │
-  │ Indus: less excavated; Harappa/Mohenjo-Daro; urban planning   │
+  │ Indus: less excavated; Harappa/Mohenjo-Daro; urban planning    │
   │                                                                │
-  │ Yellow/Yangtze: loess soil; hydraulic state management;       │
+  │ Yellow/Yangtze: loess soil; hydraulic state management;        │
   │   China's north-south agricultural/climate divide still visible│
   └────────────────────────────────────────────────────────────────┘
 

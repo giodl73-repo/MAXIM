@@ -9,7 +9,7 @@ MESSAGE SYSTEM TAXONOMY
 +-----------------------------------------------------------------------+
 |                                                                       |
 |  TRADITIONAL QUEUE          STREAMING LOG           EVENT GRID        |
-|  +-------------------+     +------------------+     +-------------+  |
+|  +-------------------+     +------------------+     +-------------+   |
 |  | RabbitMQ          |     | Apache Kafka     |     | Azure Event |  |
 |  | Azure Service Bus |     | Azure Event Hubs |     | Grid        |  |
 |  | Amazon SQS        |     | AWS Kinesis      |     |             |  |
@@ -19,7 +19,7 @@ MESSAGE SYSTEM TAXONOMY
 |  Consumer acks/nacks.       Multiple consumer       routing          |
 |  Point-to-point or pub/sub  groups, each tracks     HTTP push        |
 |  with routing.              own offset.             to endpoints.    |
-|                                                                       |
+|                                                                      |
 |  USE: Task queues           USE: Event sourcing,    USE: Reactive    |
 |       work distribution          audit logs,             automation  |
 |       retry / DLQ                stream processing       triggers    |

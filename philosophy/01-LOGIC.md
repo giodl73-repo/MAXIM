@@ -19,11 +19,11 @@
 │                                        │  Paraconsistent (tolerate ⊥)     │
 │                                        │  Relevance logic                 │
 ├────────────────────────────────────────┴─────────────────────────────────┤
-│  PROOF THEORY                          │  MODEL THEORY                    │
-│  Natural deduction                     │  Interpretations/structures      │
-│  Sequent calculus                      │  Soundness + completeness        │
-│  Resolution (automated)               │  Compactness theorem             │
-│  Hilbert systems                       │  Löwenheim-Skolem                │
+│  PROOF THEORY                          │  MODEL THEORY                   │
+│  Natural deduction                     │  Interpretations/structures     │
+│  Sequent calculus                      │  Soundness + completeness       │
+│  Resolution (automated)                │  Compactness theorem            │
+│  Hilbert systems                       │  Löwenheim-Skolem               │
 └────────────────────────────────────────┴─────────────────────────────────┘
 ```
 

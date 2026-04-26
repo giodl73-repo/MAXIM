@@ -6,20 +6,20 @@
 +------------------------------------------------------------------+
 |              PLASTIC IN THE ENVIRONMENT                          |
 |                                                                  |
-|   PRODUCTION          USE PHASE          END-OF-LIFE            |
-|   ──────────          ─────────          ───────────            |
-|   ~400 Mt/yr          Long service       Recycled: ~9%          |
-|   Fossil feedstock    (pipes: 50yr)      Incinerated: ~12%      |
-|   GHG emissions       or disposable      Landfill: ~49%         |
-|   Monomer synthesis   (bags: <1hr)       Env. release: ~30%     |
-|                                          (historical leakage)   |
+|   PRODUCTION          USE PHASE          END-OF-LIFE             |
+|   ──────────          ─────────          ───────────             |
+|   ~400 Mt/yr          Long service       Recycled: ~9%           |
+|   Fossil feedstock    (pipes: 50yr)      Incinerated: ~12%       |
+|   GHG emissions       or disposable      Landfill: ~49%          |
+|   Monomer synthesis   (bags: <1hr)       Env. release: ~30%      |
+|                                          (historical leakage)    |
 |                                                                  |
 |   ENVIRONMENTAL PATHWAYS                                         |
-|   Fragmentation → Macroplastic → Mesoplastic → Microplastic     |
+|   Fragmentation → Macroplastic → Mesoplastic → Microplastic      |
 |                                                                  |
 |   ECOLOGICAL EFFECTS                                             |
-|   Physical entanglement · Ingestion · Chemical exposure         |
-|   Biofilm vector · Additive leaching · Nano-particle effects    |
+|   Physical entanglement · Ingestion · Chemical exposure          |
+|   Biofilm vector · Additive leaching · Nano-particle effects     |
 +------------------------------------------------------------------+
 ```
 

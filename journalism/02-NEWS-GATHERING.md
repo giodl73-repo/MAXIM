@@ -41,23 +41,23 @@ BEAT SYSTEM ANALYSIS
   ┌──────────────────────────────────────────────────────────────────┐
   │  Source relationships: Sources call when news happens          │
   │  Institutional knowledge: Understand context for new events    │
-  │  Document familiarity: Know which records exist, where, access  │
+  │  Document familiarity: Know which records exist, where, access   │
   │  Pattern recognition: Anomalies visible against baseline       │
   └──────────────────────────────────────────────────────────────────┘
 
   RISKS:
   ┌──────────────────────────────────────────────────────────────────┐
-  │  SOURCE CAPTURE:                                                │
+  │  SOURCE CAPTURE:                                                 │
   │  Long-term beat relationships → sources become friends        │
   │  Friends get favorable coverage → independence compromised    │
   │  "Beat sweetening": Withholding critical stories to preserve  │
-  │   access for future stories                                     │
-  │                                                                   │
+  │   access for future stories                                      │
+  │                                                                  │
   │  COGNITIVE CAPTURE:                                            │
   │  Reporter internalizes beat community's worldview             │
   │  City hall reporter starts thinking like city hall            │
   │  Mitigation: Rotation, outside editor perspective, fresh eyes │
-  │                                                                   │
+  │                                                                  │
   │  INSTITUTIONAL BIAS:                                           │
   │  Beats defined around institutions (police, courts, city hall)│
   │  → Institutionally powerful sources dominate coverage          │
@@ -99,7 +99,7 @@ SOURCE TAXONOMY
   │   ("The White House is considering...")                        │
   │  OFF THE RECORD: Cannot be published in any form               │
   │   (Information used only to guide further reporting)           │
-  │                                                                   │
+  │                                                                  │
   │  CRITICAL: Attribution rules must be established BEFORE the    │
   │   source begins speaking, not retroactively negotiated         │
   └──────────────────────────────────────────────────────────────────┘
@@ -116,7 +116,7 @@ CONFIDENTIAL SOURCE FRAMEWORK
   │  49 states + DC have some form of shield protection            │
   │  Shield laws: Reporters cannot be compelled to reveal sources  │
   │  Variation: Absolute vs. qualified privilege; civil vs. criminal│
-  │                                                                   │
+  │                                                                  │
   │  Federal level: No federal shield law (as of 2025)             │
   │  Federal courts: Qualified privilege from Branzburg v. Hayes   │
   │   (1972) — reporters can be compelled in federal proceedings   │
@@ -125,13 +125,13 @@ CONFIDENTIAL SOURCE FRAMEWORK
 
   WHEN CONFIDENTIAL SOURCES ARE APPROPRIATE:
   ┌──────────────────────────────────────────────────────────────────┐
-  │  SPJ Code: Use only when:                                       │
+  │  SPJ Code: Use only when:                                        │
   │  ① Information is vital and cannot be obtained otherwise       │
   │  ② Source has demonstrated knowledge and reliability           │
   │  ③ Source faces real risk if identified                        │
   │  ④ Story importance outweighs risk to source                   │
-  │                                                                   │
-  │  EVALUATE SOURCE MOTIVE:                                        │
+  │                                                                  │
+  │  EVALUATE SOURCE MOTIVE:                                         │
   │  Sources leak information for reasons:                         │
   │   Whistleblower (genuine public interest)                      │
   │   Faction within organization (serving in-group)              │
@@ -154,18 +154,18 @@ FOIA PROCESS (FEDERAL)
 
   STEP 1: IDENTIFY THE AGENCY
   ┌──────────────────────────────────────────────────────────────────┐
-  │  Which agency holds the records you need?                       │
+  │  Which agency holds the records you need?                        │
   │  FBI, EPA, SEC, FDA, DoD, DHS — each has separate FOIA office  │
-  │  Agency locator: FOIA.gov                                       │
+  │  Agency locator: FOIA.gov                                        │
   └──────────────────────────────────────────────────────────────────┘
 
   STEP 2: CRAFT THE REQUEST
   ┌──────────────────────────────────────────────────────────────────┐
-  │  Be specific but not over-narrow:                               │
+  │  Be specific but not over-narrow:                                │
   │  Specific: Names, dates, document types (emails, memos)        │
   │  Not too specific: "All emails from X about Y" → 0 records     │
-  │                    if Y never named in emails                   │
-  │                                                                   │
+  │                    if Y never named in emails                    │
+  │                                                                  │
   │  Include fee waiver request (news media qualify for reduced fee)│
   │  Include expedited processing request if time-sensitive        │
   │  Send by certified mail (creates evidence of submission)       │
@@ -174,13 +174,13 @@ FOIA PROCESS (FEDERAL)
   STEP 3: AGENCY PROCESSING
   ┌──────────────────────────────────────────────────────────────────┐
   │  Statutory response time: 20 business days (rarely met)        │
-  │  Actual wait: Weeks to years depending on backlog               │
-  │  Track with request number                                      │
+  │  Actual wait: Weeks to years depending on backlog                │
+  │  Track with request number                                       │
   └──────────────────────────────────────────────────────────────────┘
 
   STEP 4: EXEMPTIONS (why agencies deny)
   ┌──────────────────────────────────────────────────────────────────┐
-  │  Nine FOIA exemptions:                                          │
+  │  Nine FOIA exemptions:                                           │
   │  Exemption 1: Classified national security information         │
   │  Exemption 2: Internal agency personnel rules (limited)        │
   │  Exemption 3: Statutes prohibiting disclosure (CIA Act, etc.)  │
@@ -190,7 +190,7 @@ FOIA PROCESS (FEDERAL)
   │  Exemption 7: Law enforcement records (active investigations)  │
   │  Exemption 8: Financial institution examination reports        │
   │  Exemption 9: Geological/geophysical information               │
-  │                                                                   │
+  │                                                                  │
   │  Most frequent invocations: Exemptions 5 and 6                │
   │  Common problem: Agencies over-classify or over-apply Exmp 5   │
   └──────────────────────────────────────────────────────────────────┘
@@ -224,7 +224,7 @@ NON-SOURCE GATHERING METHODS
 
   OBSERVATION:
   ┌──────────────────────────────────────────────────────────────────┐
-  │  Attending public meetings, trials, press conferences           │
+  │  Attending public meetings, trials, press conferences            │
   │  Walking a beat, seeing conditions firsthand                   │
   │  Immersive reporting (embedding, extended presence)            │
   │  Advantage: No source filter; direct primary observation       │
@@ -233,15 +233,15 @@ NON-SOURCE GATHERING METHODS
 
   DOCUMENT ANALYSIS:
   ┌──────────────────────────────────────────────────────────────────┐
-  │  WHAT TO LOOK FOR:                                              │
-  │  • Discrepancies between documents and official statements      │
+  │  WHAT TO LOOK FOR:                                               │
+  │  • Discrepancies between documents and official statements       │
   │  • Missing documents (what should be there but isn't)          │
   │  • Dates and timelines (who knew what, when)                   │
   │  • Signatures and approvals (accountability trail)             │
   │  • Footnotes and citations (follow the references)             │
   │  • Amendments and revisions (track changes)                    │
-  │                                                                   │
-  │  KEY DOCUMENT TYPES:                                            │
+  │                                                                  │
+  │  KEY DOCUMENT TYPES:                                             │
   │  Court filings: Publicly filed, usually available              │
   │  Corporate SEC filings: 10-K, 10-Q, proxy statements          │
   │  Lobbying disclosures: OpenSecrets.org                         │
@@ -261,10 +261,10 @@ VERIFICATION FRAMEWORK
 
   THE TWO-SOURCE RULE (Watergate standard):
   ┌──────────────────────────────────────────────────────────────────┐
-  │  For damaging claims about named individuals:                   │
+  │  For damaging claims about named individuals:                    │
   │  Require minimum two independent sources, OR                   │
   │  One source + documentary corroboration                        │
-  │                                                                   │
+  │                                                                  │
   │  "Independent" means sources who don't know each other's info  │
   │  Two sources repeating the same rumor ≠ two independent sources│
   └──────────────────────────────────────────────────────────────────┘
@@ -276,7 +276,7 @@ VERIFICATION FRAMEWORK
   │  ③ Does the source have a motive to distort or mislead?        │
   │  ④ Can the claim be corroborated by document or other source?  │
   │  ⑤ Has the subject of the claim been given opportunity to      │
-  │     respond?                                                    │
+  │     respond?                                                     │
   └──────────────────────────────────────────────────────────────────┘
 
   PRE-PUBLICATION FACT-CHECKING:

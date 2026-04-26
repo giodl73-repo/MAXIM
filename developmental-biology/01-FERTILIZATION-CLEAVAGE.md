@@ -8,14 +8,14 @@ The first developmental events — fertilization, cleavage, and blastulation —
 +──────────────────────────────────────────────────────────────────+
 |          FERTILIZATION → CLEAVAGE → BLASTULATION                 |
 |                                                                  |
-|  FERTILIZATION     CLEAVAGE          BLASTULATION               |
-|  Day 0             Days 1-3           Days 3-5                  |
+|  FERTILIZATION     CLEAVAGE          BLASTULATION                |
+|  Day 0             Days 1-3           Days 3-5                   |
 |  ─────────────     ──────────────     ──────────────────         |
-|  Sperm + egg →     Mitotic divisions  Morula → Blastocyst       |
-|  Zygote            No cell growth     Compaction (E-cadherin)   |
-|  Egg activation    Rapid cycling      ICM (embryo) vs TE        |
-|  Meiosis II        Totipotent → ?     (placenta)                |
-|  completion        maternal → zyg.    Cavitation → blastocoel   |
+|  Sperm + egg →     Mitotic divisions  Morula → Blastocyst        |
+|  Zygote            No cell growth     Compaction (E-cadherin)    |
+|  Egg activation    Rapid cycling      ICM (embryo) vs TE         |
+|  Meiosis II        Totipotent → ?     (placenta)                 |
+|  completion        maternal → zyg.    Cavitation → blastocoel    |
 |                    genome transition  Implantation Day 5-7       |
 +──────────────────────────────────────────────────────────────────+
 ```
@@ -239,7 +239,7 @@ BLASTOCYST CAVITATION
   ┌──┴──────────────────────────────────────┐
   │ Trophectoderm (outer epithelial layer)  │
   │                                         │
-  │  ┌───────┐                             │
+  │  ┌───────┐                              │
   │  │  ICM  │   ← Embryonic pole          │
   │  └───────┘                             │
   │                                         │

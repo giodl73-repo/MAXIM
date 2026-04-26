@@ -14,8 +14,8 @@ Maritime shipping moves ~80% of global trade by volume and ~70% by value. It is 
 |  | Ship     | | Carrier  | | (Crude/  | | Carrier  | | Ferry  | |
 |  | (TEU)    | | (Dry)    | | Product) | |          | |        | |
 |  +----------+ +----------+ +----------+ +----------+ +--------+ |
-|                                                                  |
-|  NAVAL ARCHITECTURE                                              |
+|                                                                 |
+|  NAVAL ARCHITECTURE                                             |
 |  +----------+ +----------+ +----------+ +----------+            |
 |  | Hull Form| | Stability| | Resistance| | Propulsion|           |
 |  | (Cb, Cp) | | (GM, GZ) | | (wave/   | | (diesel/ |           |
@@ -349,7 +349,7 @@ Chokepoints are where geography concentrates global trade into narrow passages. 
   |                     |        |                  | +1,200km; costly  |
   +---------------------+--------+------------------+------------------+
   | Suez Canal (Egypt)  | 313m   | ~20,000 ships/yr | Alt: Cape of     |
-  |                     | (new   | 12% global trade  | Good Hope       |
+  |                     | (new   | 12% global trade | Good Hope        |
   |                     | canal) | 30% container    | +10 days; +$300k |
   |                     |        | traffic Europe-  | per voyage       |
   |                     |        | Asia             |                  |

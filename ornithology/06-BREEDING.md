@@ -13,12 +13,12 @@ BREEDING SYSTEM LANDSCAPE
                           |
                           v
 +------------------------------------------------------------------+
-|                     MATING SYSTEM                                 |
+|                     MATING SYSTEM                                |
 |                                                                    |
-|  Monogamy (~90%)        Polygyny (~2%)      Polyandry (<1%)       |
-|  1M + 1F pair bond      1M + >1F            1F + >1M              |
-|  +/- extra-pair         resource/lek/       classic or            |
-|  copulation (EPC)       female defense      cooperative           |
+|  Monogamy (~90%)        Polygyny (~2%)      Polyandry (<1%)      |
+|  1M + 1F pair bond      1M + >1F            1F + >1M             |
+|  +/- extra-pair         resource/lek/       classic or           |
+|  copulation (EPC)       female defense      cooperative          |
 +--------+----------------+---------+---------+----+----------------+
          |                          |               |
          v                          v               v

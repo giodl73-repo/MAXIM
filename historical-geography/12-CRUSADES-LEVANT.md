@@ -8,8 +8,8 @@ THE LEVANT UNDER CRUSADER CONTROL (peak, c. 1140):
   MEDITERRANEAN SEA
        |
   +----+----------------------------------+
-  |  COUNTY OF EDESSA                    |
-  |  (furthest east; first to fall 1144) |
+  |  COUNTY OF EDESSA                     |
+  |  (furthest east; first to fall 1144)  |
   +--------------------------------------+
   |  PRINCIPALITY OF ANTIOCH             |
   |  (Bohemond I; Norman/Italian)        |

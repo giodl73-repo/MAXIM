@@ -33,24 +33,24 @@ SMART INFRASTRUCTURE TECHNOLOGY STACK
           | Time-series database (InfluxDB,  |
           | OSIsoft PI, Azure TSI)           |
           | Data lake (raw sensor data)      |
-          | Asset management integration    |
+          | Asset management integration     |
           +----------------------------------+
                            |
               CONNECTIVITY LAYER
           +----------------------------------+
-          | LoRaWAN, NB-IoT, LTE-M          |
+          | LoRaWAN, NB-IoT, LTE-M           |
           | Cellular (4G/5G), WiFi           |
-          | Fiber backbone                  |
-          | SCADA/industrial protocols      |
+          | Fiber backbone                   |
+          | SCADA/industrial protocols       |
           +----------------------------------+
                            |
                  SENSING LAYER
           +----------------------------------+
-          | IoT edge devices                |
-          | Vibration, strain, temperature  |
-          | Smart meters (AMI)              |
-          | Environmental sensors           |
-          | Cameras (visual/thermal)        |
+          | IoT edge devices                 |
+          | Vibration, strain, temperature   |
+          | Smart meters (AMI)               |
+          | Environmental sensors            |
+          | Cameras (visual/thermal)         |
           +----------------------------------+
                            |
                PHYSICAL INFRASTRUCTURE

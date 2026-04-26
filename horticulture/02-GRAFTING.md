@@ -74,8 +74,8 @@ The rootstock's root system connects to the soil; its vascular system feeds the 
 ROOTSTOCK EFFECTS:
   +------------------+------------------------------------------+
   | SIZE CONTROL     | Dwarfing rootstocks produce smaller trees |
-  |                  | by restricting water/nutrient delivery    |
-  |                  | and through graft union restriction.      |
+  |                  | by restricting water/nutrient delivery   |
+  |                  | and through graft union restriction.     |
   +------------------+------------------------------------------+
   | PRECOCITY        | Dwarfing rootstocks induce earlier       |
   |                  | flowering: typically 1–2 years earlier.  |
@@ -92,7 +92,7 @@ ROOTSTOCK EFFECTS:
   +------------------+------------------------------------------+
   | FRUIT QUALITY    | Indirect: tree vigor affects fruit size, |
   |                  | color development, sugar content.        |
-  |                  | High-vigor rootstocks → large trees →   |
+  |                  | High-vigor rootstocks → large trees →    |
   |                  | excess shade → poor color development.   |
   +------------------+------------------------------------------+
 ```

@@ -14,18 +14,18 @@ CONTEMPORARY IR — THE STRUCTURAL LANDSCAPE
   ┌──────────────────┬───────────────────┬────────────────────┐
   │  LIBERAL ORDER   │  GREAT POWER      │  POLYCRISIS /      │
   │  CONTINUITY      │  COMPETITION      │  DISORDER          │
-  │                  │                   │                     │
+  │                  │                   │                    │
   │  Mearsheimer     │  Mearsheimer      │  Tooze, Runciman   │
   │  wrong; liberals │  right; US-China  │  The world faces   │
   │  right; democra- │  structural       │  compounding crises │
-  │  cies adapting   │  conflict coming  │  with no adequate   │
-  │                  │                   │  governance         │
-  │  Biden's "US is  │  Allison's        │                     │
+  │  cies adapting   │  conflict coming  │  with no adequate  │
+  │                  │                   │  governance        │
+  │  Biden's "US is  │  Allison's        │                    │
   │  back" thesis    │  Thucydides Trap  │  Climate + pandemic │
-  │                  │                   │  + AI + democratic  │
+  │                  │                   │  + AI + democratic │
   │  Institutions    │  Tech decoupling, │  backsliding + geop │
-  │  survive; norms  │  military buildup,│  olitical conflict  │
-  │  persist         │  Taiwan risk      │  = systemic stress  │
+  │  survive; norms  │  military buildup,│  olitical conflict │
+  │  persist         │  Taiwan risk      │  = systemic stress │
   └──────────────────┴───────────────────┴────────────────────┘
 
   STRUCTURAL FORCES SHAPING CONTEMPORARY IR:
@@ -55,19 +55,19 @@ US-CHINA COMPETITION — STRUCTURAL ANALYSIS
 
   WHY STRUCTURAL COMPETITION IS HARD TO AVOID:
   ┌────────────────────────────────────────────────────────────┐
-  │  SECURITY DILEMMA:                                        │
-  │  China's military buildup = defensive from Beijing's view │
-  │  (Taiwan, South China Sea, first island chain)            │
-  │  = offensive from US/regional perspective                 │
-  │  → Actions each takes for security threaten the other     │
-  │  → Spiral of mutual buildup and counter-buildup           │
-  │                                                           │
-  │  POWER SHIFT TIMELINE:                                    │
-  │  GDP at PPP: China already surpassed US (~2017 IMF est.)  │
-  │  Military spending: US ~$900B; China ~$300B (official)    │
-  │  But China's advantage in its home region is asymmetric   │
-  │  A2/AD (anti-access/area denial) means US can't easily    │
-  │  project power into western Pacific near China's coast    │
+  │  SECURITY DILEMMA:                                         │
+  │  China's military buildup = defensive from Beijing's view  │
+  │  (Taiwan, South China Sea, first island chain)             │
+  │  = offensive from US/regional perspective                  │
+  │  → Actions each takes for security threaten the other      │
+  │  → Spiral of mutual buildup and counter-buildup            │
+  │                                                            │
+  │  POWER SHIFT TIMELINE:                                     │
+  │  GDP at PPP: China already surpassed US (~2017 IMF est.)   │
+  │  Military spending: US ~$900B; China ~$300B (official)     │
+  │  But China's advantage in its home region is asymmetric    │
+  │  A2/AD (anti-access/area denial) means US can't easily     │
+  │  project power into western Pacific near China's coast     │
   └────────────────────────────────────────────────────────────┘
 
   COUNTER: INTERDEPENDENCE CONSTRAINT
@@ -87,27 +87,27 @@ US-CHINA TECH COMPETITION
 
   SEMICONDUCTORS (the chokepoint):
   ┌──────────────────────────────────────────────────────────┐
-  │ CHIP SUPPLY CHAIN (simplified):                         │
+  │ CHIP SUPPLY CHAIN (simplified):                          │
   │                                                          │
-  │ Design:    ARM (UK), Qualcomm (US), Apple (US)          │
-  │            Intel (US), AMD (US)                         │
-  │            Huawei/HiSilicon (China, partially blocked)  │
+  │ Design:    ARM (UK), Qualcomm (US), Apple (US)           │
+  │            Intel (US), AMD (US)                          │
+  │            Huawei/HiSilicon (China, partially blocked)   │
   │                                                          │
-  │ EDA Tools: Synopsys/Cadence/Mentor (US) — CHOKEPOINT    │
-  │            China cannot design advanced chips without   │
-  │            US EDA software                              │
+  │ EDA Tools: Synopsys/Cadence/Mentor (US) — CHOKEPOINT     │
+  │            China cannot design advanced chips without    │
+  │            US EDA software                               │
   │                                                          │
-  │ Fabrication: TSMC (Taiwan) — most critical node         │
-  │              Samsung (South Korea)                      │
-  │              Intel (US, rebuilding)                     │
-  │              SMIC (China) — 7nm, partially blocked      │
+  │ Fabrication: TSMC (Taiwan) — most critical node          │
+  │              Samsung (South Korea)                       │
+  │              Intel (US, rebuilding)                      │
+  │              SMIC (China) — 7nm, partially blocked       │
   │                                                          │
-  │ Equipment: ASML (Netherlands, EUV — monopoly)           │
+  │ Equipment: ASML (Netherlands, EUV — monopoly)            │
   │            Applied Materials, Lam Research, KLA (US)   │
-  │            Tokyo Electron (Japan)                       │
+  │            Tokyo Electron (Japan)                        │
   │                                                          │
   │ US CONTROLS (2022-2024):                               │
-  │ • Advanced node chip export controls (below 14nm)       │
+  │ • Advanced node chip export controls (below 14nm)        │
   │ • EDA software export controls                         │
   │ • NVIDA H100/A100 GPU restrictions                     │
   │ • CHIPS Act: $52B to subsidize US domestic fabs        │
@@ -259,17 +259,17 @@ RUSSIA'S WAR IN UKRAINE — ANALYTICAL FRAMEWORKS
   THE HYBRID WARFARE FRAME:
   ┌──────────────────────────────────────────────────────────┐
   │ "HYBRID WARFARE" — Elements observed in Ukraine 2014-22: │
-  │ • Conventional military force                           │
+  │ • Conventional military force                            │
   │ • "Little green men" (ambiguous forces without markings) │
-  │ • Cyber attacks (NotPetya 2017, power grid attacks)     │
-  │ • Disinformation campaigns (domestic and foreign)       │
-  │ • Economic coercion (gas supply manipulation)           │
-  │ • Political subversion (electoral interference)         │
-  │ • Information operations (RT/Sputnik)                   │
+  │ • Cyber attacks (NotPetya 2017, power grid attacks)      │
+  │ • Disinformation campaigns (domestic and foreign)        │
+  │ • Economic coercion (gas supply manipulation)            │
+  │ • Political subversion (electoral interference)          │
+  │ • Information operations (RT/Sputnik)                    │
   │                                                          │
   │ Caveat: "hybrid warfare" is partly an analytical         │
   │ construct imposed by Western analysts. Russia sees       │
-  │ these as integrated operations, not new doctrine.       │
+  │ these as integrated operations, not new doctrine.        │
   └──────────────────────────────────────────────────────────┘
 ```
 
@@ -344,18 +344,18 @@ MIDDLE POWERS — HEDGING AND STRATEGIC AUTONOMY
 
   INDIA:
   ┌──────────────────────────────────────────────────────────┐
-  │ INDIA'S STRATEGIC POSITION:                             │
-  │ • Founding member of Non-Aligned Movement               │
-  │ • "Strategic autonomy" as consistent doctrine           │
-  │ • Buys Russian oil at discount post-2022 sanctions      │
-  │ • Abstained on UN GA resolutions condemning Russia      │
-  │ • Simultaneously: Quad member (US, Japan, Australia,    │
-  │   India — implicit anti-China security grouping)        │
-  │ • AUKUS: India not included; watched with interest      │
-  │ • India-China border conflict (Galwan Valley 2020)      │
-  │   → genuine security concern about China                │
-  │ Result: hedging both sides; benefiting from strategic   │
-  │ importance to both.                                     │
+  │ INDIA'S STRATEGIC POSITION:                              │
+  │ • Founding member of Non-Aligned Movement                │
+  │ • "Strategic autonomy" as consistent doctrine            │
+  │ • Buys Russian oil at discount post-2022 sanctions       │
+  │ • Abstained on UN GA resolutions condemning Russia       │
+  │ • Simultaneously: Quad member (US, Japan, Australia,     │
+  │   India — implicit anti-China security grouping)         │
+  │ • AUKUS: India not included; watched with interest       │
+  │ • India-China border conflict (Galwan Valley 2020)       │
+  │   → genuine security concern about China                 │
+  │ Result: hedging both sides; benefiting from strategic    │
+  │ importance to both.                                      │
   └──────────────────────────────────────────────────────────┘
 
   TURKEY:
@@ -410,24 +410,24 @@ GLOBAL SOUTH — CONTESTED CONCEPT AND REAL POLITICS
   │ BELT AND ROAD INITIATIVE (BRI) — DEBT TRAP DEBATE:     │
   │                                                          │
   │ DEBT TRAP THESIS (Brahma Chellaney, 2017):             │
-  │ China extends loans for infrastructure;                 │
-  │ countries cannot repay → China gains strategic assets.  │
-  │ Hambantota Port (Sri Lanka): leased to China for 99 yrs │
-  │ cited as paradigm case.                                 │
+  │ China extends loans for infrastructure;                  │
+  │ countries cannot repay → China gains strategic assets.   │
+  │ Hambantota Port (Sri Lanka): leased to China for 99 yrs  │
+  │ cited as paradigm case.                                  │
   │                                                          │
-  │ COUNTER-EVIDENCE (AidData, Johns Hopkins, others):      │
-  │ • Hambantota: Sri Lanka's debt crisis was from          │
-  │   international bond markets, not primarily China.      │
-  │ • Most BRI loans are commercial, not strategic.         │
-  │ • China has renegotiated more than seized assets.       │
-  │ • Many BRI projects are overpriced and poor quality.    │
-  │   The problem is economic waste, not strategic trap.    │
+  │ COUNTER-EVIDENCE (AidData, Johns Hopkins, others):       │
+  │ • Hambantota: Sri Lanka's debt crisis was from           │
+  │   international bond markets, not primarily China.       │
+  │ • Most BRI loans are commercial, not strategic.          │
+  │ • China has renegotiated more than seized assets.        │
+  │ • Many BRI projects are overpriced and poor quality.     │
+  │   The problem is economic waste, not strategic trap.     │
   │                                                          │
-  │ NUANCED ASSESSMENT:                                     │
-  │ BRI is significant infrastructure finance where World   │
-  │ Bank and Western donors weren't competing.              │
-  │ Creates dependence and political influence, not seizure │
-  │ of assets — a subtler form of structural power.         │
+  │ NUANCED ASSESSMENT:                                      │
+  │ BRI is significant infrastructure finance where World    │
+  │ Bank and Western donors weren't competing.               │
+  │ Creates dependence and political influence, not seizure  │
+  │ of assets — a subtler form of structural power.          │
   └──────────────────────────────────────────────────────────┘
 
   G20 REFORM:
@@ -469,29 +469,29 @@ CLIMATE CHANGE — GEOPOLITICAL DIMENSIONS
 
   PHYSICAL RISK → GEOPOLITICAL RISK PATHWAY:
   ┌──────────────────────────────────────────────────────────┐
-  │ SEA LEVEL RISE:                                         │
+  │ SEA LEVEL RISE:                                          │
   │ Maldives, Bangladesh, Pacific Islands → displacement     │
   │ Bangladesh: 20-30 million potentially displaced by 2050  │
-  │ → Regional migration pressures (India, Myanmar)         │
+  │ → Regional migration pressures (India, Myanmar)          │
   │                                                          │
-  │ WATER SCARCITY:                                         │
+  │ WATER SCARCITY:                                          │
   │ Nile (Egypt-Ethiopia-Sudan): Grand Ethiopian Renaissance │
   │ Dam; Egypt views reduced Nile flow as existential threat │
-  │ Indus (India-Pakistan): treaty under strain             │
-  │ Mekong (China-Southeast Asia): China dams upstream      │
+  │ Indus (India-Pakistan): treaty under strain              │
+  │ Mekong (China-Southeast Asia): China dams upstream       │
   │ Water conflicts: classified as "threat multiplier" by    │
-  │ US DoD.                                                 │
+  │ US DoD.                                                  │
   │                                                          │
-  │ FOOD SECURITY:                                          │
-  │ Ukraine-Russia: 30% of world wheat exports at risk      │
-  │ Climate-driven crop failures → food price shocks        │
-  │ → Political instability (Arab Spring 2011 preceded      │
-  │   by 2010 wheat price spike)                            │
+  │ FOOD SECURITY:                                           │
+  │ Ukraine-Russia: 30% of world wheat exports at risk       │
+  │ Climate-driven crop failures → food price shocks         │
+  │ → Political instability (Arab Spring 2011 preceded       │
+  │   by 2010 wheat price spike)                             │
   │                                                          │
-  │ MIGRATION:                                              │
-  │ Heat zones: parts of Middle East, South Asia, Sahel     │
-  │ may become unlivable during summer by 2050 (wet-bulb    │
-  │ temperature limit for human outdoor survival)           │
+  │ MIGRATION:                                               │
+  │ Heat zones: parts of Middle East, South Asia, Sahel      │
+  │ may become unlivable during summer by 2050 (wet-bulb     │
+  │ temperature limit for human outdoor survival)            │
   └──────────────────────────────────────────────────────────┘
 
   GREEN INDUSTRIAL POLICY COMPETITION:
@@ -531,33 +531,33 @@ AI IN IR — MILITARY, INTELLIGENCE, AND EPISTEMIC SECURITY
 
   MILITARY AI:
   ┌──────────────────────────────────────────────────────────┐
-  │ AUTONOMOUS WEAPONS SYSTEMS (AWS):                       │
+  │ AUTONOMOUS WEAPONS SYSTEMS (AWS):                        │
   │                                                          │
-  │ Current: semi-autonomous (human-on-the-loop or in-loop) │
-  │ CIWS (Close-In Weapon System): automated anti-missile   │
-  │ Iron Dome: automated intercept decisions                │
-  │ Loitering munitions (Switchblade, Harop): human launch; │
+  │ Current: semi-autonomous (human-on-the-loop or in-loop)  │
+  │ CIWS (Close-In Weapon System): automated anti-missile    │
+  │ Iron Dome: automated intercept decisions                 │
+  │ Loitering munitions (Switchblade, Harop): human launch;  │
   │   autonomous terminal guidance                         │
   │                                                          │
-  │ DEBATE:                                                 │
-  │ FOR lethal autonomous weapons:                          │
+  │ DEBATE:                                                  │
+  │ FOR lethal autonomous weapons:                           │
   │ • Faster decision loop (sub-second; human can't keep up)│
-  │ • Remove humans from harm                               │
-  │ • More precise (no anger, no fear, no panic)            │
+  │ • Remove humans from harm                                │
+  │ • More precise (no anger, no fear, no panic)             │
   │                                                          │
-  │ AGAINST (Campaign to Stop Killer Robots):               │
+  │ AGAINST (Campaign to Stop Killer Robots):                │
   │ • Accountability gap (who is responsible for a war crime│
-  │   by an autonomous weapon?)                             │
-  │ • Lowering threshold for conflict (no human casualties  │
-  │   on deploying side = no political cost)                │
-  │ • AI errors in novel environments (adversarial attacks, │
-  │   unexpected scenarios)                                 │
-  │ • Escalation risk (machine-speed warfare)               │
+  │   by an autonomous weapon?)                              │
+  │ • Lowering threshold for conflict (no human casualties   │
+  │   on deploying side = no political cost)                 │
+  │ • AI errors in novel environments (adversarial attacks,  │
+  │   unexpected scenarios)                                  │
+  │ • Escalation risk (machine-speed warfare)                │
   │                                                          │
-  │ STATUS: No binding international treaty; UN discussions │
+  │ STATUS: No binding international treaty; UN discussions  │
   │ ongoing since 2013 (Convention on Certain                │
-  │ Conventional Weapons framework). US, Russia, China      │
-  │ all developing autonomous capabilities.                 │
+  │ Conventional Weapons framework). US, Russia, China       │
+  │ all developing autonomous capabilities.                  │
   └──────────────────────────────────────────────────────────┘
 
   AI IN INTELLIGENCE:
@@ -618,25 +618,25 @@ POLYCRISIS — COMPOUNDING SYSTEMIC RISKS
 
   WHY "POLYCRISIS" IS ANALYTICALLY USEFUL:
   ┌──────────────────────────────────────────────────────────┐
-  │ TRADITIONAL IR FRAMEWORK: handle crises one at a time   │
-  │ • Great power competition (one analysis)                │
-  │ • Climate change (another analysis)                     │
-  │ • Pandemic governance (another)                         │
-  │ • Democratic backsliding (another)                      │
+  │ TRADITIONAL IR FRAMEWORK: handle crises one at a time    │
+  │ • Great power competition (one analysis)                 │
+  │ • Climate change (another analysis)                      │
+  │ • Pandemic governance (another)                          │
+  │ • Democratic backsliding (another)                       │
   │                                                          │
-  │ POLYCRISIS INSIGHT: these interact                      │
-  │ • COVID → supply chain disruption → inflation →         │
-  │   political populism → democratic backsliding           │
-  │ • Climate → food insecurity → migration →               │
-  │   right-wing politics → Paris Agreement defection       │
-  │ • Ukraine war → energy crisis → industrial recession →  │
-  │   reduced climate investment                            │
+  │ POLYCRISIS INSIGHT: these interact                       │
+  │ • COVID → supply chain disruption → inflation →          │
+  │   political populism → democratic backsliding            │
+  │ • Climate → food insecurity → migration →                │
+  │   right-wing politics → Paris Agreement defection        │
+  │ • Ukraine war → energy crisis → industrial recession →   │
+  │   reduced climate investment                             │
   │ • AI disruption → labor dislocation → political anger  │
-  │   → protectionism → deglobalization                     │
+  │   → protectionism → deglobalization                      │
   │                                                          │
-  │ The system isn't just stressed; it's in compounding     │
-  │ stress where each shock weakens the capacity to         │
-  │ respond to the next.                                    │
+  │ The system isn't just stressed; it's in compounding      │
+  │ stress where each shock weakens the capacity to          │
+  │ respond to the next.                                     │
   └──────────────────────────────────────────────────────────┘
 
   GOVERNANCE FAILURES THAT AMPLIFY POLYCRISIS:

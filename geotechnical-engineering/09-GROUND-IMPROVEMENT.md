@@ -6,7 +6,7 @@ When the natural ground is inadequate for the proposed structure, you can either
 
 ```
 +------------------------------------------------------------------+
-|              GROUND IMPROVEMENT — SELECTION MAP                 |
+|              GROUND IMPROVEMENT — SELECTION MAP                  |
 +------------------------------------------------------------------+
 |                                                                  |
 |  PROBLEM: SOFT/WEAK SOIL         GROUND IMPROVEMENT OPTIONS:   |

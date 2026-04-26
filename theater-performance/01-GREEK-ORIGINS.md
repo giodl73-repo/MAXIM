@@ -121,7 +121,7 @@ THEATER OF DIONYSUS — PHYSICAL LAYOUT
               |    ORCHESTRA      |
               |   (dance floor)   |
               |      [   ]        |
-              |   THYMELE        |
+              |   THYMELE         |
               |   (altar)         |
               |                   |
               +-------------------+

@@ -22,11 +22,11 @@ Frontend frameworks solve one problem: **keeping the UI in sync with data**. Wit
 |  | Meta/Vercel|  | Evan You   |  | Google     |  | Rich     |   |
 |  |            |  |            |  |            |  | Harris   |   |
 |  +------------+  +------------+  +------------+  +----------+   |
-|                                                                  |
-|  ECOSYSTEM LAYER (built on top of frameworks)                    |
+|                                                                 |
+|  ECOSYSTEM LAYER (built on top of frameworks)                   |
 |  React: Next.js, Remix, Gatsby, Expo (React Native)             |
-|  Vue:   Nuxt.js                                                  |
-|  Angular: Angular itself (full framework, no separate meta)      |
+|  Vue:   Nuxt.js                                                 |
+|  Angular: Angular itself (full framework, no separate meta)     |
 +------------------------------------------------------------------+
 ```
 

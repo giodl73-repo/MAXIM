@@ -6,21 +6,21 @@ Interaction design (IxD) is the discipline of designing the behavior of products
 
 ```
 +----------------------------------------------------------------------+
-|           THE SPECTRUM FROM PRODUCT TO INTERACTION DESIGN             |
+|           THE SPECTRUM FROM PRODUCT TO INTERACTION DESIGN            |
 |                                                                      |
 |  PHYSICAL PRODUCT         HYBRID PRODUCT         DIGITAL INTERFACE   |
-|  (pure hardware)           (hardware + software)   (pure software)    |
+|  (pure hardware)           (hardware + software)   (pure software)   |
 |                                                                      |
-|  Dial on radio             iPhone home screen      Web application    |
-|  Ergonomics: primary       Both: co-equal          Cognitive: primary |
-|  Materials: constrain      SW mediates HW          Pixels: constrain  |
-|  Manufacturing: limits     OS constrains both      Framework: limits  |
+|  Dial on radio             iPhone home screen      Web application   |
+|  Ergonomics: primary       Both: co-equal          Cognitive: primary|
+|  Materials: constrain      SW mediates HW          Pixels: constrain |
+|  Manufacturing: limits     OS constrains both      Framework: limits |
 |                                                                      |
-|  Don Norman's work     <-- ORIGIN OF KEY CONCEPTS -->                 |
-|  "Design of Everyday       "The Design of               UX design     |
-|  Things" (1988)            Everyday Things"             (1990s-)      |
-|  applies to: doors,        first applied digital                      |
-|  faucets, switches         HCI (Human-Computer Interaction)           |
+|  Don Norman's work     <-- ORIGIN OF KEY CONCEPTS -->                |
+|  "Design of Everyday       "The Design of               UX design    |
+|  Things" (1988)            Everyday Things"             (1990s-)     |
+|  applies to: doors,        first applied digital                     |
+|  faucets, switches         HCI (Human-Computer Interaction)          |
 +----------------------------------------------------------------------+
 
 KEY CONTRIBUTORS:

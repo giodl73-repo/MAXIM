@@ -6,7 +6,7 @@ Isotope geochemistry uses the natural variation in isotopic compositions to cons
 
 ```
 +------------------------------------------------------------------+
-|                    ISOTOPE SYSTEMS TAXONOMY                       |
+|                    ISOTOPE SYSTEMS TAXONOMY                      |
 +------------------------------------------------------------------+
 |                                                                  |
 |  RADIOGENIC ISOTOPES          STABLE ISOTOPES                    |

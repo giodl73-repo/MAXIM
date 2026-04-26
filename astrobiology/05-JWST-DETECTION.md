@@ -4,7 +4,7 @@
 
 ```
 +-----------------------------------------------------------------------+
-|                    JWST EXOPLANET SCIENCE                              |
+|                    JWST EXOPLANET SCIENCE                             |
 +-----------------------------------------------------------------------+
 |                                                                       |
 |  TRANSIT SPECTROSCOPY          EMISSION SPECTROSCOPY                  |

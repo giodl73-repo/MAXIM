@@ -18,8 +18,8 @@
 │                        │ Steroids (broad anti-inflammatory)               │
 │                        │ Induction agents (anti-thymocyte globulin)       │
 ├────────────────────────┼─────────────────────────────────────────────────┤
-│ TNF-α BLOCKADE         │ Infliximab, adalimumab, certolizumab (mAb/Fab)   │
-│                        │ Etanercept (TNFR2-Fc fusion protein)             │
+│ TNF-α BLOCKADE         │ Infliximab, adalimumab, certolizumab (mAb/Fab)  │
+│                        │ Etanercept (TNFR2-Fc fusion protein)            │
 ├────────────────────────┼─────────────────────────────────────────────────┤
 │ IL-6 BLOCKADE          │ Tocilizumab, sarilumab (anti-IL-6R)             │
 │                        │ Siltuximab (anti-IL-6 ligand)                   │
@@ -29,7 +29,7 @@
 ├────────────────────────┼─────────────────────────────────────────────────┤
 │ IL-4/13, IgE, IL-5     │ Dupilumab, omalizumab, mepolizumab             │
 ├────────────────────────┼─────────────────────────────────────────────────┤
-│ T-CELL COSTIMULATION   │ Abatacept (CTLA-4-Fc → ↓ CD28 activation)      │
+│ T-CELL COSTIMULATION   │ Abatacept (CTLA-4-Fc → ↓ CD28 activation)       │
 │ / B-CELL DEPLETION     │ Rituximab, ocrelizumab (anti-CD20)              │
 │                        │ Belimumab (anti-BAFF → ↓ B-cell survival)       │
 ├────────────────────────┼─────────────────────────────────────────────────┤

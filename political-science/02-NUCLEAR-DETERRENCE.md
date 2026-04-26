@@ -24,10 +24,10 @@ act without principal approval in some scenarios.
 
 ```
 +----------------------------------------------------------------------+
-|                    DETERRENCE LOGIC                                   |
+|                    DETERRENCE LOGIC                                  |
 |                                                                      |
 |  ACTOR A (potential attacker)                                        |
-|  Expected benefit of attack = pV - (1-p) × Punishment               |
+|  Expected benefit of attack = pV - (1-p) × Punishment                |
 |                                                                      |
 |  p    = probability of attack succeeding                             |
 |  V    = value of objective                                           |
@@ -54,13 +54,13 @@ act without principal approval in some scenarios.
   ┌────────────────────────────────────────────────────────────────┐
   │  Both sides maintain SECURE SECOND-STRIKE CAPABILITY           │
   │                                                                │
-  │  State A launches first strike → destroys most of B's forces  │
-  │  B still has enough surviving warheads → retaliates           │
-  │  A is destroyed anyway → therefore A never launches           │
+  │  State A launches first strike → destroys most of B's forces   │
+  │  B still has enough surviving warheads → retaliates            │
+  │  A is destroyed anyway → therefore A never launches            │
   │                                                                │
-  │  KEY: Second-strike survivability is the stabilizing factor   │
-  │  → Missiles in hardened silos, submarines (SSBNs), bombers    │
-  │  → SSBNs are most survivable: mobile, opaque                  │
+  │  KEY: Second-strike survivability is the stabilizing factor    │
+  │  → Missiles in hardened silos, submarines (SSBNs), bombers     │
+  │  → SSBNs are most survivable: mobile, opaque                   │
   └────────────────────────────────────────────────────────────────┘
 
   MCNAMARA'S ASSURED DESTRUCTION CRITERIA (1960s):
@@ -130,7 +130,7 @@ Thomas Schelling's contribution — the most important nuclear theorist after Hi
   │                                                                │
   │ 4. IRRATIONALITY AS STRATEGY (Schelling): appear willing to    │
   │    do the irrational → make adversary doubt your sanity        │
-  │    Nixon's "madman theory" — deliberate unpredictability        │
+  │    Nixon's "madman theory" — deliberate unpredictability       │
   └────────────────────────────────────────────────────────────────┘
 
   POSITIVE vs NEGATIVE CONTROL:
@@ -213,7 +213,7 @@ Thomas Schelling's contribution — the most important nuclear theorist after Hi
   │ - Mobile → not targetable for first strike                     │
   │ - Opaque → adversary can't know if/where                       │
   │ - Secure second strike guaranteed                              │
-  │ → Most stabilizing leg of the nuclear triad                   │
+  │ → Most stabilizing leg of the nuclear triad                    │
   │                                                                │
   │ HARDENING + DISPERSAL:                                         │
   │ - Hard silos resist close-in bursts                            │
@@ -250,7 +250,7 @@ Thomas Schelling's contribution — the most important nuclear theorist after Hi
   │                    │ preserve MAD stability; US withdrew 2002    │
   ├────────────────────┼────────────────────────────────────────────┤
   │ SALT I (1972)      │ Freeze on ICBMs + SLBMs; first strategic   │
-  │                    │ arms agreement; no reduction, just cap      │
+  │                    │ arms agreement; no reduction, just cap     │
   ├────────────────────┼────────────────────────────────────────────┤
   │ SALT II (1979)     │ Equal ceilings ~2,250 launchers; not ratified │
   │                    │ by US Senate (Afghanistan invasion)         │
@@ -263,8 +263,8 @@ Thomas Schelling's contribution — the most important nuclear theorist after Hi
   │                    │ verification + on-site inspection           │
   ├────────────────────┼────────────────────────────────────────────┤
   │ New START (2010)   │ 1,550 deployed strategic warheads each;    │
-  │                    │ expired Feb 2026; Russia suspended 2023;    │
-  │                    │ no replacement agreed                       │
+  │                    │ expired Feb 2026; Russia suspended 2023;   │
+  │                    │ no replacement agreed                      │
   ├────────────────────┼────────────────────────────────────────────┤
   │ NPT (1968)         │ Five nuclear states pledge disarmament;    │
   │                    │ 191 non-nuclear states pledge no acquisition │
@@ -301,7 +301,7 @@ Why do states pursue nuclear weapons, and why do they stop?
   │ SECURITY GUARANTEE: US extended deterrence replaces own weapons │
   │ (Japan, South Korea, Germany — under US umbrella)              │
   │                                                                │
-  │ ECONOMIC COST: Sanctions, technology denial, investment flight  │
+  │ ECONOMIC COST: Sanctions, technology denial, investment flight │
   │                                                                │
   │ REGIME CHANGE: Gaddafi (Libya) gave up WMD 2003 → still        │
   │ overthrown 2011; DPRK observed lesson                          │
@@ -326,25 +326,25 @@ Why do states pursue nuclear weapons, and why do they stop?
 ```
   CURRENT ARSENAL SIZES (approximate, 2025):
   ┌─────────────┬──────────────────────────────────────────────────┐
-  │ US           │ ~5,500 total / ~1,700 deployed strategic        │
-  │ Russia       │ ~6,200 total / ~1,700 deployed strategic        │
-  │ China        │ ~500+ total; building toward 1,500 by 2035      │
-  │ France       │ ~290                                            │
-  │ UK           │ ~225                                            │
-  │ Pakistan     │ ~170                                            │
-  │ India        │ ~164                                            │
-  │ Israel       │ ~90 (undeclared)                                │
-  │ DPRK         │ ~50–60 + operational ICBMs (Hwasong-17)         │
+  │ US          │ ~5,500 total / ~1,700 deployed strategic         │
+  │ Russia      │ ~6,200 total / ~1,700 deployed strategic         │
+  │ China       │ ~500+ total; building toward 1,500 by 2035       │
+  │ France      │ ~290                                             │
+  │ UK          │ ~225                                             │
+  │ Pakistan    │ ~170                                             │
+  │ India       │ ~164                                             │
+  │ Israel      │ ~90 (undeclared)                                 │
+  │ DPRK        │ ~50–60 + operational ICBMs (Hwasong-17)          │
   └─────────────┴──────────────────────────────────────────────────┘
 
   NEW TECHNOLOGY CHALLENGES:
   ┌────────────────────────────────────────────────────────────────┐
   │ HYPERSONICS: Hypersonic glide vehicles (DF-17, Zircon, LRHW)   │
-  │ Fly at Mach 5–20+; maneuverable → harder to intercept         │
+  │ Fly at Mach 5–20+; maneuverable → harder to intercept          │
   │ Compress warning time → pressure for launch-on-warning         │
-  │ Crisis stability concern                                        │
+  │ Crisis stability concern                                       │
   │                                                                │
-  │ CYBER: Attacks on early warning systems, command/control        │
+  │ CYBER: Attacks on early warning systems, command/control       │
   │ "Wolf cries" — false attack indications                        │
   │ Degrading NC3 (nuclear command, control, communications)       │
   │                                                                │
@@ -352,7 +352,7 @@ Why do states pursue nuclear weapons, and why do they stop?
   │ Autonomous systems → escalation control problems               │
   │ Predictive → each side fears other has strategic advantage     │
   │                                                                │
-  │ CONVENTIONAL PRECISION: Long-range precision strikes on         │
+  │ CONVENTIONAL PRECISION: Long-range precision strikes on        │
   │ nuclear command infrastructure (Russia's escalate-to-deescalate│
   │ doctrine partly responds to this)                              │
   └────────────────────────────────────────────────────────────────┘

@@ -6,19 +6,19 @@
 +------------------------------------------------------------------+
 |               ORE DEPOSIT CLASSIFICATION SYSTEM                  |
 |                                                                  |
-|  MAGMATIC          HYDROTHERMAL        SEDIMENTARY              |
+|  MAGMATIC          HYDROTHERMAL        SEDIMENTARY               |
 |  (igneous process) (hot fluid)         (sedimentary basin)       |
 |                                                                  |
-|  Chromite           Porphyry Cu-Mo      BIF (iron)              |
-|  Ni-Cu-PGE          Epithermal Au-Ag    SEDEX (Pb-Zn)           |
+|  Chromite           Porphyry Cu-Mo      BIF (iron)               |
+|  Ni-Cu-PGE          Epithermal Au-Ag    SEDEX (Pb-Zn)            |
 |  Kimberlite (diamond)VMS (Cu-Zn-Pb)    MVT (Pb-Zn)             |
 |  Anorthosite (Ti)   Skarn (Fe, Cu, W)  Phosphorite             |
-|  Pegmatite (Li, REE)Carlin (Au)        Evaporite (K, Na)        |
+|  Pegmatite (Li, REE)Carlin (Au)        Evaporite (K, Na)         |
 |                                                                  |
 |  SUPERGENE          PLACER              RESIDUAL                 |
-|  (weathering)       (erosion/transport) (in-situ weathering)    |
+|  (weathering)       (erosion/transport) (in-situ weathering)     |
 |                                                                  |
-|  Secondary enrichment Beach/river sands Laterite (Ni, Al)       |
+|  Secondary enrichment Beach/river sands Laterite (Ni, Al)        |
 |  (Cu, Ag, Au)       (Ti, Sn, Au, REE)  Bauxite (Al)            |
 +------------------------------------------------------------------+
 ```
@@ -136,21 +136,21 @@ Hot fluids (50–400°C) move through crust, leach metals, and deposit them wher
 HYDROTHERMAL ORE SYSTEM SCHEMATIC
 +------------------------------------------------------------------+
 |                                                                  |
-|  HEAT SOURCE: magma body, geothermal gradient                   |
-|  ↓                                                              |
-|  FLUID: groundwater or magmatic water, saline brines            |
-|  ↓                                                              |
-|  TRANSPORT: metals dissolved as chloride or sulfide complexes   |
+|  HEAT SOURCE: magma body, geothermal gradient                    |
+|  ↓                                                               |
+|  FLUID: groundwater or magmatic water, saline brines             |
+|  ↓                                                               |
+|  TRANSPORT: metals dissolved as chloride or sulfide complexes    |
 |  AuCl₂⁻, FeCl₂, ZnCl⁺, PbCl⁺ in high-T, acidic fluids       |
-|  ↓                                                              |
-|  DEPOSITION TRIGGERS:                                           |
-|  - Temperature drop (cooling)                                   |
-|  - Pressure drop (boiling or level change)                      |
-|  - Chemical change (mixing with different water, reaction       |
-|    with limestone/carbonate rocks)                              |
-|  - pH change (acid-neutralization)                              |
-|  ↓                                                              |
-|  ORE: metal sulfides/oxides precipitate in fractures/cavities   |
+|  ↓                                                               |
+|  DEPOSITION TRIGGERS:                                            |
+|  - Temperature drop (cooling)                                    |
+|  - Pressure drop (boiling or level change)                       |
+|  - Chemical change (mixing with different water, reaction        |
+|    with limestone/carbonate rocks)                               |
+|  - pH change (acid-neutralization)                               |
+|  ↓                                                               |
+|  ORE: metal sulfides/oxides precipitate in fractures/cavities    |
 +------------------------------------------------------------------+
 ```
 
@@ -301,29 +301,29 @@ EVAPORITE DEPOSITS: formed by evaporation of saline water bodies
 ```
 TECH SUPPLY CHAINS: MINERAL TO DEVICE
 +------------------------------------------------------------------+
-|  LITHIUM-ION BATTERY (EV and grid storage)                      |
+|  LITHIUM-ION BATTERY (EV and grid storage)                       |
 |                                                                  |
 |  Cathode: Li + NiMnCo or LiFePO₄                               |
-|  Li source: spodumene pegmatite (Australia, Chile)              |
+|  Li source: spodumene pegmatite (Australia, Chile)               |
 |             or Andean brine (Chile, Argentina, Bolivia triangle) |
-|  Ni source: laterite Ni (Philippines, Indonesia) or Ni sulfide  |
-|  Co source: cobaltite/pentlandite; 70% from DRC                 |
-|  Mn source: various; relatively abundant                        |
+|  Ni source: laterite Ni (Philippines, Indonesia) or Ni sulfide   |
+|  Co source: cobaltite/pentlandite; 70% from DRC                  |
+|  Mn source: various; relatively abundant                         |
 |                                                                  |
 |  Anode: graphite (natural or synthetic)                        |
-|  China: 65% of natural graphite production                      |
+|  China: 65% of natural graphite production                       |
 |                                                                  |
 |  RARE EARTH ELEMENTS (REE): for motors and displays            |
 |  Nd, Pr → NdFeB permanent magnets (EV motors, wind turbines)   |
 |  La, Ce → catalytic converters, glass polishing               |
 |  Tb, Dy → high-T magnets (needed for EV in extreme temps)     |
 |  Eu, Tb, Y → phosphors (LEDs, fluorescent screens)             |
-|  Source: bastnasite (Mountain Pass, CA; China)                  |
+|  Source: bastnasite (Mountain Pass, CA; China)                   |
 |           monazite (Australia, India, S. Africa)               |
 |           ion-adsorption clays (China Jiangxi Province = HREE) |
 |  China: ~60% of REE production, ~85% of separation/processing  |
 |                                                                  |
-|  SEMICONDUCTOR MATERIALS                                        |
+|  SEMICONDUCTOR MATERIALS                                         |
 |  Silicon (Si): quartz sand → metallurgical Si → polysilicon    |
 |  Gallium (Ga): byproduct of Al smelting from bauxite          |
 |    → GaAs, GaN (high-frequency semiconductors, LEDs, solar)   |
@@ -333,7 +333,7 @@ TECH SUPPLY CHAINS: MINERAL TO DEVICE
 |    → ITO (touchscreens); In-Ga-N LEDs                        |
 |  High-purity quartz → fused silica → fiber optic cladding     |
 |                                                                  |
-|  TANTALUM AND NIOBIUM                                           |
+|  TANTALUM AND NIOBIUM                                            |
 |  Columbite-tantalite ("coltan"): DRC, Rwanda, Australia        |
 |  Ta → capacitors (85% of capacitors in electronics)           |
 |  Nb → high-strength steel, superconducting magnets (NbTi, Nb₃Sn)|
@@ -411,7 +411,7 @@ MINING METHODS vs. DEPOSIT TYPE
 |  Bingham Canyon: world's largest open pit (1.2 km deep, 4 km wide)|
 |                                                                  |
 |  UNDERGROUND: narrow veins, high-grade, deep                   |
-|  Block caving (mass caving): large low-grade bodies underground |
+|  Block caving (mass caving): large low-grade bodies underground  |
 |  Cut and fill: narrow high-grade veins                         |
 |                                                                  |
 |  PLACER: alluvial/beach mining; gold, Ti, Sn                  |

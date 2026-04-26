@@ -23,7 +23,7 @@
   │ otherwise" — in a world where most people experience the    │
   │ existing order as natural and inevitable.                   │
   │                                                             │
-  │ THOUGHT EXPERIMENT: Tests institutional arrangements         │
+  │ THOUGHT EXPERIMENT: Tests institutional arrangements        │
   │ by imagining them completely. What kind of people would     │
   │ such a society produce? What would the failure modes be?    │
   └─────────────────────────────────────────────────────────────┘

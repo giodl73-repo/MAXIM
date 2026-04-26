@@ -9,7 +9,7 @@ creating heat, you're moving it. Moving heat requires less work than creating it
 
 ```
 +----------------------------------------------------------------------+
-|                    HEAT PUMP OPERATING MODES                          |
+|                    HEAT PUMP OPERATING MODES                         |
 |                                                                      |
 |  COOLING MODE (Summer)          HEATING MODE (Winter)                |
 |  -----------------------        -----------------------              |
@@ -20,12 +20,12 @@ creating heat, you're moving it. Moving heat requires less work than creating it
 |  Outdoor coil = CONDENSER       Outdoor coil = EVAPORATOR            |
 |  Rejects heat to outside        Absorbs heat from outdoor air        |
 |                                                                      |
-|                    REVERSING VALVE switches direction                 |
+|                    REVERSING VALVE switches direction                |
 |                    (four-way valve in refrigerant circuit)           |
 |                                                                      |
-|  COP (cooling): 3–5             COP (heating): 2–4 at 47°F          |
+|  COP (cooling): 3–5             COP (heating): 2–4 at 47°F           |
 |  = more efficient than AC       = more efficient than gas furnace    |
-|    vs. gas furnace (COP < 1)    in most conditions                  |
+|    vs. gas furnace (COP < 1)    in most conditions                   |
 +----------------------------------------------------------------------+
 ```
 
@@ -118,12 +118,12 @@ hit their performance floor at ~25°F.
   ┌─────────────────────────────────────────────────────────────────┐
   │ Variable-speed/inverter compressor                              │
   │ → Runs at higher speed in cold (compensates for less heat       │
-  │   in air) → maintains capacity at low temperatures             │
+  │   in air) → maintains capacity at low temperatures              │
   │                                                                 │
   │ Enhanced Vapor Injection (EVI) / Intermediate Injection         │
-  │ → Injects additional refrigerant vapor mid-compression         │
-  │ → Increases refrigerant mass flow → more capacity in cold      │
-  │ → Reduces discharge temperature → protects compressor          │
+  │ → Injects additional refrigerant vapor mid-compression          │
+  │ → Increases refrigerant mass flow → more capacity in cold       │
+  │ → Reduces discharge temperature → protects compressor           │
   │                                                                 │
   │ Flash tank / Economizer cycle                                   │
   │ → Intermediate pressure stage for additional heat exchange      │
@@ -131,13 +131,13 @@ hit their performance floor at ~25°F.
 
   MAJOR COLD-CLIMATE BRANDS:
   ┌──────────────────┬────────────────────────────────────────────────┐
-  │ Mitsubishi       │ Hyper Heat (H2i) line; rated to -13°F; some   │
+  │ Mitsubishi       │ Hyper Heat (H2i) line; rated to -13°F; some    │
   │                  │ models to -22°F; pioneered the market          │
   ├──────────────────┼────────────────────────────────────────────────┤
   │ Daikin           │ Aurora series; rated to -13°F; extensive mini- │
   │                  │ split and ducted options                        │
   ├──────────────────┼────────────────────────────────────────────────┤
-  │ Bosch            │ IDS series; rated to -13°F; strong US market  │
+  │ Bosch            │ IDS series; rated to -13°F; strong US market   │
   ├──────────────────┼────────────────────────────────────────────────┤
   │ Fujitsu          │ Halcyon series; -15°F rated                   │
   ├──────────────────┼────────────────────────────────────────────────┤
@@ -198,15 +198,15 @@ The dominant form factor for cold-climate heat pumps and zone additions:
 
 ```
   ┌──────────────────┬────────────────────────────────────────────────┐
-  │ Wall-mounted     │ Most common; installed high on wall; typical    │
+  │ Wall-mounted     │ Most common; installed high on wall; typical   │
   │ cassette         │ rooms, bedrooms, living areas                  │
   ├──────────────────┼────────────────────────────────────────────────┤
   │ Ceiling cassette │ 4-way airflow; center of room; commercial feel;│
   │                  │ minimal wall space impact; requires ceiling     │
   │                  │ access for installation                        │
   ├──────────────────┼────────────────────────────────────────────────┤
-  │ Floor console    │ Low on wall; good for rooms with windows on     │
-  │                  │ all walls or where high mount impractical       │
+  │ Floor console    │ Low on wall; good for rooms with windows on    │
+  │                  │ all walls or where high mount impractical      │
   ├──────────────────┼────────────────────────────────────────────────┤
   │ Concealed ducted │ Air handler in ceiling/closet; short duct runs; │
   │ air handler      │ no visible indoor unit; aesthetically seamless; │
@@ -231,7 +231,7 @@ The ground temperature below frost line (~6 feet) is ~50–55°F year-round in t
 
   LOOP TYPES:
   ┌───────────────────┬──────────────────────────────────────────────┐
-  │ Horizontal closed │ 2–6 ft deep trenches; 400–600 ft pipe/ton;  │
+  │ Horizontal closed │ 2–6 ft deep trenches; 400–600 ft pipe/ton;   │
   │ loop              │ large lot required; lowest drilling cost     │
   ├───────────────────┼──────────────────────────────────────────────┤
   │ Vertical closed   │ Boreholes 150–300 ft deep; ~200–250 ft/ton; │

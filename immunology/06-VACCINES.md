@@ -37,26 +37,26 @@ VACCINE TYPES: AN EVOLUTIONARY TAXONOMY
 
   ┌──────────────────────────────────────────────────────────────────┐
   │ VACCINE          EXAMPLES             KEY INNOVATION             │
-  │                                                                   │
+  │                                                                  │
   │ Live-attenuated  MMR, Yellow fever,   Most immunogenic vaccine   │
-  │                  OPV, Varicella       type; mimics infection      │
-  │                                                                   │
+  │                  OPV, Varicella       type; mimics infection     │
+  │                                                                  │
   │ Inactivated      Flu (IPV), Hep A,    Safer than live; needs     │
   │                  Rabies, IPV          boosters; adjuvant often   │
-  │                                                                   │
+  │                                                                  │
   │ Subunit          Hep B, Pertussis,    Defined antigens; adjuvant │
   │                  HBsAg (recombinant)  critical                   │
-  │                                                                   │
+  │                                                                  │
   │ VLP              HPV (Gardasil),       Mimics virus structure;   │
   │                  Hep B                no genetic material        │
-  │                                                                   │
+  │                                                                  │
   │ Conjugate        PCV, MenACWY,        Polysaccharide + protein   │
-  │                  Hib, MenB            → T cell help for memory  │
-  │                                                                   │
+  │                  Hib, MenB            → T cell help for memory   │
+  │                                                                  │
   │ mRNA+LNP         COVID-19 (Pfizer,    Fastest design ever;       │
-  │                  Moderna), Influenza   programmable platform      │
-  │                                                                   │
-  │ Adenoviral       COVID-19 (AZ, J&J),  Strong T cell response    │
+  │                  Moderna), Influenza   programmable platform     │
+  │                                                                  │
+  │ Adenoviral       COVID-19 (AZ, J&J),  Strong T cell response     │
   │ vector           Ebola, HIV trials     Pre-existing immunity risk │
   └──────────────────────────────────────────────────────────────────┘
 ```
@@ -72,79 +72,79 @@ VACCINE TYPES: AN EVOLUTIONARY TAXONOMY
   DESIGN SEQUENCE (from antigen sequence to vaccine):
   ┌────────────────────────────────────────────────────────────────┐
   │ 1. Pathogen genome sequenced (SARS-CoV-2: Jan 10, 2020)      │
-  │ 2. Select target antigen (spike protein)                      │
-  │ 3. Codon-optimize for human expression                        │
+  │ 2. Select target antigen (spike protein)                       │
+  │ 3. Codon-optimize for human expression                         │
   │ 4. Stability modifications (proline substitutions in S2P)    │
   │ 5. In vitro transcription: DNA template → mRNA (IVT)         │
-  │ 6. Encapsulate in LNP                                         │
-  │ 7. First human dose: Day 66 after sequence release            │
-  │    (Moderna Phase I: March 16, 2020)                          │
+  │ 6. Encapsulate in LNP                                          │
+  │ 7. First human dose: Day 66 after sequence release             │
+  │    (Moderna Phase I: March 16, 2020)                           │
   └────────────────────────────────────────────────────────────────┘
 
   mRNA STRUCTURAL MODIFICATIONS:
   ┌────────────────────────────────────────────────────────────────┐
   │ 5' CAP (Cap1 modification):                                    │
   │   Required for ribosome recruitment + inhibits innate sensing  │
-  │                                                                 │
-  │ 5' UTR: Optimized for translation initiation (alpha-globin)   │
-  │                                                                 │
+  │                                                                │
+  │ 5' UTR: Optimized for translation initiation (alpha-globin)    │
+  │                                                                │
   │ CODING SEQUENCE:                                               │
-  │   Codon optimized for high human expression                   │
+  │   Codon optimized for high human expression                    │
   │   Proline substitutions (K986P/V987P for BNT162b2):          │
-  │   Locks spike in prefusion conformation (more immunogenic)    │
-  │                                                                 │
-  │ 3' UTR: Stability elements (human beta-globin); multiple)     │
-  │                                                                 │
-  │ POLY-A TAIL: Stability (100–120 A residues)                   │
-  │                                                                 │
-  │ N1-METHYLPSEUDOURIDINE (m1Ψ) substitution:                    │
-  │   All uridines replaced with m1Ψ                              │
-  │   Dramatically reduces innate immune sensing via TLR7/8       │
-  │   Increases translation efficiency ~10-fold                   │
-  │   KEY INNOVATION by Karikó & Weissman (Nobel Prize 2023)      │
+  │   Locks spike in prefusion conformation (more immunogenic)     │
+  │                                                                │
+  │ 3' UTR: Stability elements (human beta-globin); multiple)      │
+  │                                                                │
+  │ POLY-A TAIL: Stability (100–120 A residues)                    │
+  │                                                                │
+  │ N1-METHYLPSEUDOURIDINE (m1Ψ) substitution:                     │
+  │   All uridines replaced with m1Ψ                               │
+  │   Dramatically reduces innate immune sensing via TLR7/8        │
+  │   Increases translation efficiency ~10-fold                    │
+  │   KEY INNOVATION by Karikó & Weissman (Nobel Prize 2023)       │
   └────────────────────────────────────────────────────────────────┘
 
   LNP (LIPID NANOPARTICLE) DELIVERY:
   ┌────────────────────────────────────────────────────────────────┐
   │ COMPOSITION (BNT162b2 example):                                │
-  │   ALC-0315: Ionizable lipid (≈50 mol%)                        │
-  │     - Neutral at pH 7.4 (blood) — reduces toxicity            │
+  │   ALC-0315: Ionizable lipid (≈50 mol%)                         │
+  │     - Neutral at pH 7.4 (blood) — reduces toxicity             │
   │     - Cationic at pH 4 (endosome) — helps endosomal escape   │
-  │   DSPC: Phospholipid stabilizer (≈10 mol%)                    │
-  │   Cholesterol: Membrane stability (≈38 mol%)                  │
-  │   PEG-DMG: Steric stabilization, prevents aggregation (≈2%)   │
+  │   DSPC: Phospholipid stabilizer (≈10 mol%)                     │
+  │   Cholesterol: Membrane stability (≈38 mol%)                   │
+  │   PEG-DMG: Steric stabilization, prevents aggregation (≈2%)    │
   │   mRNA: Encapsulated in core                                   │
-  │   Size: ~80–100 nm nanoparticle                               │
-  │                                                                 │
+  │   Size: ~80–100 nm nanoparticle                                │
+  │                                                                │
   │ ENDOSOMAL ESCAPE MECHANISM:                                    │
-  │   LNP internalized by macropinocytosis/receptor-mediated      │
-  │   In endosome (pH drops): ionizable lipid protonated          │
-  │   → disrupts endosomal membrane → mRNA released to cytoplasm  │
-  │   mRNA translated by ribosomes → spike protein produced       │
+  │   LNP internalized by macropinocytosis/receptor-mediated       │
+  │   In endosome (pH drops): ionizable lipid protonated           │
+  │   → disrupts endosomal membrane → mRNA released to cytoplasm   │
+  │   mRNA translated by ribosomes → spike protein produced        │
   │   Spike protein: Displayed on cell surface (MHC I + surface) │
   │   → CD8 T cell recognition + antibody production             │
   └────────────────────────────────────────────────────────────────┘
 
   INNATE IMMUNE SENSING OF mRNA:
   ┌────────────────────────────────────────────────────────────────┐
-  │ This is both the challenge AND part of why mRNA works:        │
-  │                                                                 │
+  │ This is both the challenge AND part of why mRNA works:         │
+  │                                                                │
   │ SENSING RECEPTORS:                                             │
   │   TLR7 (endosomal): ssRNA → detect mRNA in endosome          │
   │   TLR8 (endosomal): ssRNA → similar to TLR7                  │
   │   RIG-I (cytoplasmic): Detects dsRNA contaminants            │
   │   MDA5 (cytoplasmic): Long dsRNA (IVT byproducts)            │
-  │                                                                 │
-  │ RESPONSE: Type I IFN + proinflammatory cytokines              │
-  │   → Activation of DCs at injection site                       │
+  │                                                                │
+  │ RESPONSE: Type I IFN + proinflammatory cytokines               │
+  │   → Activation of DCs at injection site                        │
   │   → Innate immune activation → ADJUVANT EFFECT               │
-  │                                                                 │
+  │                                                                │
   │ m1Ψ modification: Reduces TLR7/8 sensing → less innate alarm │
   │ BUT: LNP itself (ionizable lipid + PEG) still acts as adjuvant│
   │   → IL-6, TNF at injection site → local reaction (arm pain)  │
-  │                                                                 │
-  │ NET RESULT: Controlled innate activation → DC maturation      │
-  │   → T cell priming WITHOUT overwhelming inflammation          │
+  │                                                                │
+  │ NET RESULT: Controlled innate activation → DC maturation       │
+  │   → T cell priming WITHOUT overwhelming inflammation           │
   └────────────────────────────────────────────────────────────────┘
 ```
 
@@ -166,17 +166,17 @@ VACCINE TYPES: AN EVOLUTIONARY TAXONOMY
   ADJUVANT MECHANISMS:
   ┌──────────────────────────────────────────────────────────────┐
   │ DEPOT EFFECT: Hold antigen at injection site                 │
-  │   Alum crystals: Antigen adsorbs → slow release             │
-  │   → prolonged antigen availability to APCs                  │
-  │                                                               │
+  │   Alum crystals: Antigen adsorbs → slow release              │
+  │   → prolonged antigen availability to APCs                   │
+  │                                                              │
   │ DIRECT INNATE ACTIVATION:                                    │
   │   Alum: Activates NLRP3 inflammasome → IL-1β               │
   │   MPLA (Monophosphoryl lipid A): TLR4 agonist (non-toxic LPS)│
   │   CpG ODN: TLR9 agonist → Th1 response                     │
   │   QS-21 (saponin): Unknown mechanism → strong CD8 T cells  │
-  │                                                               │
+  │                                                              │
   │ FORMULATION EFFECTS:                                         │
-  │   Oil emulsions (MF59, AS03): Activates NLRP3, recruits     │
+  │   Oil emulsions (MF59, AS03): Activates NLRP3, recruits      │
   │   monocytes/DCs → stronger than alum for flu               │
   └──────────────────────────────────────────────────────────────┘
 
@@ -184,21 +184,21 @@ VACCINE TYPES: AN EVOLUTIONARY TAXONOMY
   ┌────────────────────────────────────────────────────────────────┐
   │ ALUM (aluminum salts):  Most widely used; safe; Th2 bias     │
   │   Used in: HBV, Hep A, HPV (Gardasil), DTP                  │
-  │                                                                 │
+  │                                                                │
   │ AS01B (GSK):           MPL (TLR4) + QS-21 (saponin)         │
   │   Used in: RTS,S (malaria), SHINGRIX (VZV subunit)           │
   │   Very strong T cell + antibody response                     │
-  │                                                                 │
+  │                                                                │
   │ AS04 (GSK):            Alum + MPL                            │
   │   Used in: Cervarix (HPV), HBsAg (hepatitis B)               │
-  │                                                                 │
+  │                                                                │
   │ MF59 (Seqirus):        Squalene emulsion                     │
   │   Used in: Fluad (elderly flu vaccine)                       │
   │   Stronger immune response than alum                         │
-  │                                                                 │
+  │                                                                │
   │ AS03 (GSK):            Squalene + α-tocopherol               │
   │   Used in: Pandemic flu vaccines (H1N1 2009); COVID-19       │
-  │                                                                 │
+  │                                                                │
   │ LNP (lipid nanoparticle): mRNA vaccines — LNP acts as adjuv. │
   │   Ionizable lipid → IL-6 at injection site → DC activation  │
   └────────────────────────────────────────────────────────────────┘
@@ -238,8 +238,8 @@ VACCINE TYPES: AN EVOLUTIONARY TAXONOMY
   │ Measles: IgG >200 mIU/mL → protected                     │
   │ HBV: Anti-HBsAg >10 mIU/mL → protected                   │
   │ Flu: Hemagglutination inhibition (HI) titer >1:40 → 50%  │
-  │ COVID: No single threshold; neutralization titers proxy   │
-  │ Pertussis: Unclear; cellular immunity may matter more     │
+  │ COVID: No single threshold; neutralization titers proxy    │
+  │ Pertussis: Unclear; cellular immunity may matter more      │
   └────────────────────────────────────────────────────────────┘
 ```
 
@@ -262,11 +262,11 @@ VACCINE TYPES: AN EVOLUTIONARY TAXONOMY
 
   EXAMPLES:
   ┌─────────────────────────────────────────────────────────────┐
-  │ Pathogen       R₀ (range)   HIT          Notes             │
+  │ Pathogen       R₀ (range)   HIT          Notes              │
   │ Measles        12–18        ~92–94%       Very hard to reach│
-  │ Mumps          4–7          ~75–86%                        │
-  │ Rubella        5–7          ~80–86%                        │
-  │ Smallpox       5–7          ~80–86%      Eradicated 1980   │
+  │ Mumps          4–7          ~75–86%                         │
+  │ Rubella        5–7          ~80–86%                         │
+  │ Smallpox       5–7          ~80–86%      Eradicated 1980    │
   │ COVID-19       2–6 (alpha)  ~50–83%      Variants changed R₀│
   │ Influenza      1.2–3        ~17–67%       Annual vaccine    │
   │ Polio          5–7          ~80–86%       Near eradication  │

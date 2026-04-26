@@ -6,7 +6,7 @@ The central debate in development trade policy is whether countries should indus
 
 ```
 +--------------------------------------------------------------------------+
-|                    TRADE AND INDUSTRIALIZATION LANDSCAPE                  |
+|                    TRADE AND INDUSTRIALIZATION LANDSCAPE                 |
 +--------------------------------------------------------------------------+
 |                                                                          |
 |  THE DEBATE:                                                             |

@@ -12,27 +12,27 @@ STATIC FONTS vs VARIABLE FONTS
 
 STATIC FONT MODEL:
   ┌──────────────────────────────────────────────────────────────────────────┐
-  │  Roboto-Thin.ttf         (weight: 100)   68 KB                          │
-  │  Roboto-Light.ttf        (weight: 300)   68 KB                          │
-  │  Roboto-Regular.ttf      (weight: 400)   68 KB                          │
-  │  Roboto-Medium.ttf       (weight: 500)   68 KB                          │
-  │  Roboto-Bold.ttf         (weight: 700)   68 KB                          │
-  │  Roboto-Black.ttf        (weight: 900)   68 KB                          │
-  │  Roboto-ThinItalic.ttf                   65 KB                          │
-  │  Roboto-LightItalic.ttf                  65 KB                          │
-  │  Roboto-Italic.ttf                       65 KB                          │
-  │  Roboto-BoldItalic.ttf                   65 KB                          │
-  │  ...                                                                    │
-  │  Total: 12 files × ~66 KB = ~790 KB                                     │
+  │  Roboto-Thin.ttf         (weight: 100)   68 KB                           │
+  │  Roboto-Light.ttf        (weight: 300)   68 KB                           │
+  │  Roboto-Regular.ttf      (weight: 400)   68 KB                           │
+  │  Roboto-Medium.ttf       (weight: 500)   68 KB                           │
+  │  Roboto-Bold.ttf         (weight: 700)   68 KB                           │
+  │  Roboto-Black.ttf        (weight: 900)   68 KB                           │
+  │  Roboto-ThinItalic.ttf                   65 KB                           │
+  │  Roboto-LightItalic.ttf                  65 KB                           │
+  │  Roboto-Italic.ttf                       65 KB                           │
+  │  Roboto-BoldItalic.ttf                   65 KB                           │
+  │  ...                                                                     │
+  │  Total: 12 files × ~66 KB = ~790 KB                                      │
   │  Instances available: discrete (100, 300, 400, 500, 700, 900)          │
   └──────────────────────────────────────────────────────────────────────────┘
 
 VARIABLE FONT MODEL:
   ┌──────────────────────────────────────────────────────────────────────────┐
-  │  Roboto[wght].woff2      (weight axis: 100–900)  ~180 KB                │
-  │  Total: 1 file × 180 KB = ~180 KB                                       │
+  │  Roboto[wght].woff2      (weight axis: 100–900)  ~180 KB                 │
+  │  Total: 1 file × 180 KB = ~180 KB                                        │
   │  Instances available: ANY value from 100.0 to 900.0 (continuous)       │
-  │  font-weight: 437;  → valid; precisely between Regular and Medium       │
+  │  font-weight: 437;  → valid; precisely between Regular and Medium        │
   └──────────────────────────────────────────────────────────────────────────┘
 
 SIZE COMPARISON:
@@ -114,17 +114,17 @@ fvar (Font Variations Table):
   Defines the axes and their parameters:
   ┌─────────────────────────────────────────────────────────────────┐
   │ Axis record:                                                    │
-  │   axisTag:    4-byte identifier (e.g., 'wght')                 │
-  │   minValue:   minimum allowed value (e.g., 100)                │
-  │   defaultValue: default (e.g., 400)                            │
-  │   maxValue:   maximum (e.g., 900)                              │
-  │   axisNameID: index into name table for human-readable name    │
+  │   axisTag:    4-byte identifier (e.g., 'wght')                  │
+  │   minValue:   minimum allowed value (e.g., 100)                 │
+  │   defaultValue: default (e.g., 400)                             │
+  │   maxValue:   maximum (e.g., 900)                               │
+  │   axisNameID: index into name table for human-readable name     │
   │                                                                 │
   │ Named instances (optional):                                     │
-  │   "Light"   → wght=300                                         │
-  │   "Regular" → wght=400                                         │
-  │   "Bold"    → wght=700                                         │
-  │   (These map to CSS font-weight named values)                  │
+  │   "Light"   → wght=300                                          │
+  │   "Regular" → wght=400                                          │
+  │   "Bold"    → wght=700                                          │
+  │   (These map to CSS font-weight named values)                   │
   └─────────────────────────────────────────────────────────────────┘
 
 gvar (TrueType variation data):

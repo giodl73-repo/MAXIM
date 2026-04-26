@@ -161,7 +161,7 @@ where these properties outweigh the brittleness risk.
 
   BIOINERT: no significant chemical interaction with tissue
   +---------+---------+--------------------+------------------+
-  | Material| Al2O3   | ZrO2 (zirconia)    | Notes           |
+  | Material| Al2O3   | ZrO2 (zirconia)    | Notes            |
   |         | Alumina | stabilized         |                  |
   +---------+---------+--------------------+------------------+
   | Modulus | 380 GPa | 200 GPa            | Very stiff       |
@@ -183,7 +183,7 @@ where these properties outweigh the brittleness risk.
   |                    |   porous scaffold material               |
   |                    | Sintered HA: brittle, limited structural  |
   +--------------------+------------------------------------------+
-  | Bioglass (45S5)    | SiO2-Na2O-CaO-P2O5                      |
+  | Bioglass (45S5)    | SiO2-Na2O-CaO-P2O5                       |
   |                    | Forms HA layer on surface in body fluid  |
   |                    | Bonds to both bone AND soft tissue       |
   |                    | Oseoconductive + osteostimulatory        |
@@ -212,9 +212,9 @@ Wide range — from inert structural materials (UHMWPE, PEEK) to degradable scaf
 
   +-----------+--------------------------------------------------+
   | UHMWPE    | Ultra-high molecular weight polyethylene         |
-  | (GUR 1020)| Mw > 3.5 million g/mol                          |
+  | (GUR 1020)| Mw > 3.5 million g/mol                           |
   |           | Young's modulus: 0.6-1 GPa (soft, absorbs shock) |
-  |           | Excellent wear resistance (acetabular cups,       |
+  |           | Excellent wear resistance (acetabular cups,      |
   |           | tibial knee inserts)                             |
   |           | Cross-linked UHMWPE: even better wear (2000s+)   |
   |           | Vitamin E UHMWPE: oxidation-stabilized           |
@@ -231,7 +231,7 @@ Wide range — from inert structural materials (UHMWPE, PEEK) to degradable scaf
   | PMMA      | Polymethylmethacrylate — "bone cement"           |
   |           | Exothermic polymerization in situ                |
   |           | Fills interface gap in cemented arthroplasty     |
-  |           | Brittle: KIC ~1-2 MPa√m                         |
+  |           | Brittle: KIC ~1-2 MPa√m                          |
   |           | Fatigue failure at cement-implant interface      |
   |           |   over 10-15 years (revision trigger)            |
   +-----------+--------------------------------------------------+
@@ -351,19 +351,19 @@ properties. Most critical factor in determining biocompatibility outcome.
 
   PHYSICOCHEMICAL:
   +-----------------+------------------------------------------------+
-  | Plasma treatment| Low-pressure O2/N2/Ar plasma                  |
+  | Plasma treatment| Low-pressure O2/N2/Ar plasma                   |
   |                 | Removes contamination, increases hydrophilicity |
   |                 | Adds functional groups (-OH, -NH2, -COOH)      |
-  |                 | for subsequent biofunctionalization             |
+  |                 | for subsequent biofunctionalization            |
   +-----------------+------------------------------------------------+
   | Acid etching    | HCl/H2SO4 creates microroughness              |
   |                 | Increases surface area, improves cell adhesion  |
   +-----------------+------------------------------------------------+
   | Anodization     | Electrochemical TiO2 thickening on titanium    |
-  |                 | Controls oxide layer structure (amorphous,      |
+  |                 | Controls oxide layer structure (amorphous,     |
   |                 | anatase, rutile — anatase best for osseointegr.)|
-  |                 | Nanotube arrays: dramatically improves          |
-  |                 | osteoblast differentiation                      |
+  |                 | Nanotube arrays: dramatically improves         |
+  |                 | osteoblast differentiation                     |
   +-----------------+------------------------------------------------+
   | Grit blasting   | Al2O3 or TiO2 particles create macro-roughness |
   |                 | Standard for cementless implant surfaces (SLA:  |
@@ -377,8 +377,8 @@ properties. Most critical factor in determining biocompatibility outcome.
   |                 | Risk: coating delamination under shear          |
   +-----------------+------------------------------------------------+
   | Drug eluting    | PLGA or other polymer loaded with drug         |
-  |                 | Drug-eluting stents (paclitaxel/sirolimus)      |
-  |                 | Antibiotic-eluting bone cement                  |
+  |                 | Drug-eluting stents (paclitaxel/sirolimus)     |
+  |                 | Antibiotic-eluting bone cement                 |
   +-----------------+------------------------------------------------+
   | Anti-fouling    | PEG (polyethylene glycol) brush coating         |
   | PEG             | Resists protein adsorption (steric hindrance)   |
@@ -393,7 +393,7 @@ properties. Most critical factor in determining biocompatibility outcome.
   |                 | Covalently grafted to surface                   |
   |                 | Enhances osteoblast/fibroblast adhesion         |
   +-----------------+------------------------------------------------+
-  | BMP-2 immobil.  | Bone morphogenetic protein-2 immobilized        |
+  | BMP-2 immobil.  | Bone morphogenetic protein-2 immobilized       |
   |                 | Osteoinductive signal at implant surface         |
   |                 | Experimental — concern about ectopic bone        |
   +-----------------+------------------------------------------------+
@@ -450,7 +450,7 @@ Understanding how implant materials fail over time is as important as their init
 
   CERAMICS:
   +-----------------+---------------------------------------------+
-  | Low-temp        | Hydrothermal degradation of Y-TZP zirconia |
+  | Low-temp        | Hydrothermal degradation of Y-TZP zirconia  |
   | degradation     | (ageing): tetragonal -> monoclinic at       |
   |                 | low temps in water. Surface roughening.     |
   |                 | Addressed by alumina-toughened zirconia.    |

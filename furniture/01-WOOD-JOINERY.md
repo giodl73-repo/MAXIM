@@ -10,7 +10,7 @@ THE JOINERY PROBLEM HIERARCHY
 +---------------------------------------------------------------+
 |  CONSTRAINT 1: Wood moves (moisture-driven dimensional change) |
 |  Wood moves across grain; negligible along grain              |
-|  A 300mm-wide board can move 6–9mm seasonally                |
+|  A 300mm-wide board can move 6–9mm seasonally                 |
 +---------------------------------------------------------------+
                     |
                     v
@@ -290,9 +290,9 @@ The engineering solution to the wood movement problem for large surfaces:
 | (vertical)|  (floats in |( vert.)|
 |           |   groove -- |        |
 +--+        |  NOT glued) |       ++
-|  |        |             |       |
-|  | RAIL   |    wood can |  RAIL |
-|  |(horiz.)|    expand / |       |
+|  |        |             |        |
+|  | RAIL   |    wood can |  RAIL  |
+|  |(horiz.)|    expand / |        |
 +--+        |    contract |       ++
 |           |    without  |        |
 |  STILE    |    stress   |  STILE |

@@ -6,7 +6,7 @@ Morse code is a **variable-length prefix code** that maps each letter, digit, an
 
 ```
 ┌──────────────────────────────────────────────────────────────────┐
-│                    MORSE CODE SYSTEM MAP                          │
+│                    MORSE CODE SYSTEM MAP                         │
 │                                                                  │
 │  Message ──→ Encoding ──→ Transmission medium ──→ Decoding       │
 │                                                                  │
@@ -14,7 +14,7 @@ Morse code is a **variable-length prefix code** that maps each letter, digit, an
 │  S=···  O=───  S=···   ("three dots, three dashes, three dots")  │
 │                                                                  │
 │  Transmission modes:                                             │
-│  ┌─────────────┬──────────────────────────────────────────────┐ │
+│  ┌─────────────┬──────────────────────────────────────────────┐  │
 │  │ CW (radio)  │ Continuous Wave keying — on/off carrier      │ │
 │  │ Sounder     │ Audible click/clack mechanical device         │ │
 │  │ Light       │ Flash lamp or mirror (heliograph/Aldis lamp)  │ │
@@ -33,7 +33,7 @@ Morse is a **time-based** code. The relationships between durations are everythi
 
 ```
 ┌────────────────────────────────────────────────────────────┐
-│                    TIMING RATIOS                            │
+│                    TIMING RATIOS                           │
 │                                                            │
 │  Dot duration      = 1 unit  (reference unit)              │
 │  Dash duration     = 3 units                               │
@@ -46,7 +46,7 @@ Morse is a **time-based** code. The relationships between durations are everythi
 │  H = · · · ·    I = · ·                                    │
 │  ·_·_·_·  ___  ·_·                                         │
 │  1+1+1+1+1+1+1  3  1+1+1  (units)                          │
-│         ^inter-char gap^                                    │
+│         ^inter-char gap^                                   │
 └────────────────────────────────────────────────────────────┘
 ```
 
@@ -137,7 +137,7 @@ Prosigns are sent as single characters (no inter-element gap between letters), i
 
 ```
 ┌─────────────────────────────────────────────────────────────────┐
-│                    PROSIGNS                                      │
+│                    PROSIGNS                                     │
 ├───────┬─────────┬───────────────────────────────────────────────┤
 │ AR    │ ·—·—·   │ End of message — "over" (go ahead, reply)     │
 │ AS    │ ·—···   │ Wait / Stand by                               │
@@ -217,17 +217,17 @@ The Koch method (Ludwig Koch, 1930s) is the modern standard for learning Morse:
 ┌──────────────────────────────────────────────────────────────┐
 │                    KOCH METHOD                               │
 │                                                              │
-│  Step 1: Choose final target speed (20–25 WPM typical)      │
+│  Step 1: Choose final target speed (20–25 WPM typical)       │
 │  Step 2: Start with 2 letters only (K and M classically)     │
 │  Step 3: Practice until 90% copy accuracy at full speed      │
 │  Step 4: Add one new letter at a time                        │
 │  Step 5: Never slow down — only add letters                  │
 │                                                              │
-│  Key insight: SPEED UP to learn, not slow down.             │
-│  Slow Morse forces visual/counting recognition.             │
-│  Fast Morse forces pattern/sound recognition (the goal).    │
+│  Key insight: SPEED UP to learn, not slow down.              │
+│  Slow Morse forces visual/counting recognition.              │
+│  Fast Morse forces pattern/sound recognition (the goal).     │
 │                                                              │
-│  Tools: LCWO.net, G4FON Koch trainer, Morse Runner          │
+│  Tools: LCWO.net, G4FON Koch trainer, Morse Runner           │
 └──────────────────────────────────────────────────────────────┘
 ```
 
@@ -272,7 +272,7 @@ Not a perfect Huffman code (developed empirically, not mathematically), but clos
 │  International Morse (Continental, ITU 1865)               │
 │  — Only two elements: dot and dash (simpler)               │
 │  — Used globally for radio, maritime, amateur              │
-│  — All modern Morse = International Morse                   │
+│  — All modern Morse = International Morse                  │
 └────────────────────────────────────────────────────────────┘
 ```
 

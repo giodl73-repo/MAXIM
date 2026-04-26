@@ -6,19 +6,19 @@ Livestock occupy ~26% of Earth's ice-free land (pasture) plus ~33% of cropland (
 
 ```
 +------------------------------------------------------------------+
-|              LIVESTOCK SYSTEMS OVERVIEW                           |
-|                                                                   |
+|              LIVESTOCK SYSTEMS OVERVIEW                          |
+|                                                                  |
 |  RUMINANTS           MONOGASTRICS         AQUACULTURE            |
 |  ──────────────────  ──────────────────   (see 08-AQUACULTURE)   |
 |  Cattle, sheep,      Pigs, poultry        ─────────────────────  |
 |  goats, buffalo      (simple stomach)                            |
-|                                                                   |
+|                                                                  |
 |  Ferment cellulose   Cannot digest        INTENSIFICATION:       |
 |  (4-chamber stomach) cellulose; fed        Grassland → feedlot   |
 |                      grain directly        → vertical integration |
-|                                                                   |
-|  HIGH GHG            LOWER GHG            GLOBAL PRODUCTION:    |
-|  (enteric CH₄)       (no enteric CH₄)     Cattle: 1B head       |
+|                                                                  |
+|  HIGH GHG            LOWER GHG            GLOBAL PRODUCTION:     |
+|  (enteric CH₄)       (no enteric CH₄)     Cattle: 1B head        |
 |                                            Pigs:   1B head       |
 |                                            Chickens: 25B         |
 +------------------------------------------------------------------+
@@ -127,7 +127,7 @@ RUMINANT STOMACH ANATOMY:
                      ↓
         ┌────────────────────────────────┐
         │  OMASUM (book-like folds)      │
-        │  Water absorption; reduces    │
+        │  Water absorption; reduces     │
         │  particle size                 │
         └────────────┬───────────────────┘
                      ↓

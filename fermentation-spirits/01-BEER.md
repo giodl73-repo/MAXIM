@@ -4,7 +4,7 @@
 
 ```
 +------------------------------------------------------------------+
-|                    BEER PRODUCTION FLOW                           |
+|                    BEER PRODUCTION FLOW                          |
 |                                                                    |
 |  MALTHOUSE              BREWHOUSE              FERMENTATION        |
 |  ---------              ---------              -----------         |
@@ -300,32 +300,32 @@ Examples        IPA, stout, porter,         Pilsner, Helles, Märzen,
 +------------------------------------------------------------------+
 |                    BEER STYLE TREE                                 |
 |                                                                    |
-|  LAGER                          ALE                               |
-|  -----                          ---                               |
-|  Pale                           British                           |
-|  +-Pilsner (Czech/German)       +-Pale Ale / Bitter               |
-|  +-Helles (Munich)              +-IPA (English)                   |
-|  +-Kolsch (top-fermented lager) +-Porter / Stout                  |
-|  +-American Light               +-Barleywine                      |
+|  LAGER                          ALE                              |
+|  -----                          ---                              |
+|  Pale                           British                          |
+|  +-Pilsner (Czech/German)       +-Pale Ale / Bitter              |
+|  +-Helles (Munich)              +-IPA (English)                  |
+|  +-Kolsch (top-fermented lager) +-Porter / Stout                 |
+|  +-American Light               +-Barleywine                     |
 |                                                                    |
-|  Amber/Dark                     American                          |
-|  +-Vienna                       +-American Pale Ale               |
+|  Amber/Dark                     American                         |
+|  +-Vienna                       +-American Pale Ale              |
 |  +-Märzen/Oktoberfest            +-American IPA (West Coast)       |
-|  +-Dunkel                       +-Double/Imperial IPA             |
-|  +-Schwarzbier                  +-New England/Hazy IPA            |
-|                                 +-American Stout                  |
-|  Strong                                                           |
-|  +-Bock                         Belgian                           |
-|  +-Doppelbock                   +-Witbier (wheat, coriander)      |
-|  +-Eisbock                      +-Saison (rustic, farmhouse)      |
-|                                 +-Tripel / Dubbel / Quad          |
+|  +-Dunkel                       +-Double/Imperial IPA            |
+|  +-Schwarzbier                  +-New England/Hazy IPA           |
+|                                 +-American Stout                 |
+|  Strong                                                          |
+|  +-Bock                         Belgian                          |
+|  +-Doppelbock                   +-Witbier (wheat, coriander)     |
+|  +-Eisbock                      +-Saison (rustic, farmhouse)     |
+|                                 +-Tripel / Dubbel / Quad         |
 |  German Wheat                   +-Lambic / Gueuze (spontaneous)  |
-|  +-Hefeweizen (S. cerevisiae    +-Krieken (cherry lambic)         |
-|    with Weizen character)                                         |
-|  +-Dunkelweizen                 Sour/Wild                         |
+|  +-Hefeweizen (S. cerevisiae    +-Krieken (cherry lambic)        |
+|    with Weizen character)                                        |
+|  +-Dunkelweizen                 Sour/Wild                        |
 |  +-Weizenbock                   +-Berliner Weisse (Lactobacillus) |
-|                                 +-Gose (salt + coriander)         |
-|                                 +-Flanders Red (Roeselare blend)  |
+|                                 +-Gose (salt + coriander)        |
+|                                 +-Flanders Red (Roeselare blend) |
 +------------------------------------------------------------------+
 ```
 

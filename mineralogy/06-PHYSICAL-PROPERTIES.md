@@ -125,21 +125,21 @@ The quality and intensity of light reflected from a mineral's surface:
 LUSTER TYPES AND WHAT CAUSES THEM
 +------------------------------------------------------------------+
 |  METALLIC: opaque minerals with free electrons (metals, sulfides)|
-|  → Mirror-like, like polished metal                             |
-|  Examples: native gold, silver, galena, chalcopyrite, pyrite    |
+|  → Mirror-like, like polished metal                              |
+|  Examples: native gold, silver, galena, chalcopyrite, pyrite     |
 |                                                                  |
 |  SUB-METALLIC: partially opaque, less mirror-like              |
-|  Examples: magnetite, hematite (specular)                       |
+|  Examples: magnetite, hematite (specular)                        |
 |                                                                  |
 |  ADAMANTINE (diamond-like): very high refractive index         |
 |  → Brilliant, fire, high dispersion of light                   |
-|  Examples: diamond (n=2.42), cerussite, anglesite, cassiterite  |
+|  Examples: diamond (n=2.42), cerussite, anglesite, cassiterite   |
 |                                                                  |
 |  VITREOUS (glassy): most common; moderate refractive index     |
 |  → Clear to glassy like glass (n=1.4–1.9)                     |
 |  Examples: quartz, calcite, fluorite, garnet, most silicates   |
 |                                                                  |
-|  RESINOUS: amber-like; moderate-high n in non-metallic minerals |
+|  RESINOUS: amber-like; moderate-high n in non-metallic minerals  |
 |  Examples: sphalerite, opal, some garnets                      |
 |                                                                  |
 |  PEARLY: pearl-like; seen in some cleavage faces               |
@@ -205,18 +205,18 @@ Mass of mineral / mass of equal volume of water. Measured with a scale + Archime
 ```
 SPECIFIC GRAVITY RANGES
 +--------------------------------------------------+
-|  SG < 2.0    Extremely light (rare)             |
+|  SG < 2.0    Extremely light (rare)              |
 |  SG 2.0–3.0  Most silicates: quartz (2.65),    |
-|               feldspars (2.56–2.76), calcite    |
-|               (2.71), gypsum (2.32)             |
+|               feldspars (2.56–2.76), calcite     |
+|               (2.71), gypsum (2.32)              |
 |  SG 3.0–4.0  Most sulfates, some silicates:    |
-|               barite (4.48!), corundum (4.0)    |
+|               barite (4.48!), corundum (4.0)     |
 |  SG 4.0–5.0  Most sulfides, some oxides:       |
-|               pyrite (5.0), sphalerite (4.0)    |
+|               pyrite (5.0), sphalerite (4.0)     |
 |  SG 5.0–7.5  Dense sulfides, some oxides:      |
-|               chalcopyrite (4.2), galena (7.6)  |
-|  SG > 7.5    Native metals: gold (19.3),        |
-|               silver (10.5), copper (8.9)       |
+|               chalcopyrite (4.2), galena (7.6)   |
+|  SG > 7.5    Native metals: gold (19.3),         |
+|               silver (10.5), copper (8.9)        |
 +--------------------------------------------------+
 
 Field test: "heft" — a rock that feels surprisingly heavy for its size
@@ -314,32 +314,32 @@ These properties require the absence of a center of symmetry in the crystal stru
 HAND SPECIMEN IDENTIFICATION DECISION TREE
 +------------------------------------------------------------------+
 |  Step 1: LUSTER                                                  |
-|   Metallic/opaque → sulfides, oxides, native metals             |
+|   Metallic/opaque → sulfides, oxides, native metals              |
 |   Non-metallic → silicates, carbonates, etc.                   |
 |                    |                                             |
-|  Step 2: HARDNESS                                               |
+|  Step 2: HARDNESS                                                |
 |   < 2.5 (fingernail): talc, gypsum                             |
 |   2.5–3.5 (coin): calcite, halite                              |
 |   3.5–5.5 (knife): apatite, fluorite                           |
 |   5.5–7 (glass): pyroxene, amphibole, feldspar                 |
 |   > 7 (quartz scratches glass): quartz, topaz, corundum        |
 |                    |                                             |
-|  Step 3: CLEAVAGE/FRACTURE                                      |
+|  Step 3: CLEAVAGE/FRACTURE                                       |
 |   Perfect in one direction: mica                               |
 |   3 planes at 90°: halite, galena                              |
-|   3 planes at ~75°: calcite                                     |
+|   3 planes at ~75°: calcite                                      |
 |   2 planes at ~90°: pyroxene, feldspar                         |
 |   2 planes at 60°/120°: amphibole                              |
 |   Conchoidal fracture: quartz, obsidian                        |
 |                    |                                             |
 |  Step 4: STREAK (if opaque/dark)                               |
-|   Red-brown streak: hematite                                    |
-|   Black streak: magnetite                                       |
+|   Red-brown streak: hematite                                     |
+|   Black streak: magnetite                                        |
 |   Yellow streak: gold                                          |
 |   Green-black streak: pyrite, chalcopyrite                     |
 |                    |                                             |
 |  Step 5: SPECIAL TESTS                                         |
-|   Magnetic: magnetite                                           |
+|   Magnetic: magnetite                                            |
 |   Acid test: calcite (cold fizz), dolomite (hot/powder)        |
 |   Taste: halite (salty), sylvite (bitter salty)               |
 |   UV: scheelite, willemite                                     |

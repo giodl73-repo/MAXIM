@@ -18,7 +18,7 @@ framework, not an OS, and not a monolith. It is a communication layer + tooling 
 |                           |                                              |
 |  ROS 2 MIDDLEWARE LAYER                                                   |
 |  +------------------------------------------------------------------+    |
-|  | Nodes | Topics | Services | Actions | Parameters | Lifecycle    |    |
+|  | Nodes | Topics | Services | Actions | Parameters | Lifecycle     |    |
 |  +------------------------------------------------------------------+    |
 |                           |                                              |
 |  DDS (Data Distribution Service)                                          |
@@ -317,17 +317,17 @@ NAV2 ARCHITECTURE:
   +------------------+
         |
   +------------------+   +------------------+
-  |  GLOBAL PLANNER  |   |  LOCALIZATION     |
+  |  GLOBAL PLANNER  |   |  LOCALIZATION    |
   |  NavFn (A*)       |   |  AMCL (particle   |
-  |  SMAC (lattice)  |   |  filter), or      |
-  |  Theta* (any-ang)|   |  SLAM Toolbox     |
+  |  SMAC (lattice)  |   |  filter), or     |
+  |  Theta* (any-ang)|   |  SLAM Toolbox    |
   +------------------+   +------------------+
         |                        |
   +------------------+   +------------------+
-  |  LOCAL PLANNER   |   |  COSTMAPS         |
-  |  DWB / MPPI / RPP|   |  Global costmap   |
-  |                  |   |  Local costmap    |
-  +------------------+   |  Inflation layer  |
+  |  LOCAL PLANNER   |   |  COSTMAPS        |
+  |  DWB / MPPI / RPP|   |  Global costmap  |
+  |                  |   |  Local costmap   |
+  +------------------+   |  Inflation layer |
         |                |  Obstacle layer   |
   cmd_vel (v, omega)     +------------------+
 
@@ -369,7 +369,7 @@ MOVEIT2 ARCHITECTURE:
   |  FRAMEWORK (OMPL)    |   |  Collision objects   |
   |  RRTConnect default  |   |  ACM (allowed        |
   |  PILZ (industrial)   |   |  collision matrix)   |
-  +---------------------+   | Robot model (URDF)   |
+  +---------------------+   | Robot model (URDF)  |
         |                   +---------------------+
   +---------------------+
   |  TRAJECTORY EXECUTION|

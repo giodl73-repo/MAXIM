@@ -9,23 +9,23 @@ DISTRIBUTED DATABASE LANDSCAPE
 +-----------------------------------------------------------------------+
 |                                                                       |
 |  CONSISTENCY AXIS                                                     |
-|  Strong ──────────────────────────────────────── Eventual            |
+|  Strong ──────────────────────────────────────── Eventual             |
 |     |                                                 |               |
-|  Spanner        CockroachDB   CosmosDB   CosmosDB  DynamoDB          |
-|  (TrueTime)     (HLC)         (Strong)   (Eventual) (AP default)     |
+|  Spanner        CockroachDB   CosmosDB   CosmosDB  DynamoDB           |
+|  (TrueTime)     (HLC)         (Strong)   (Eventual) (AP default)      |
 |  FoundationDB                 Azure SQL                               |
 |                                                                       |
 |  QUERY MODEL AXIS                                                     |
 |  SQL ──────────────────────────────── Document/KV/Graph               |
 |     |                                          |                      |
-|  Spanner        CockroachDB   CosmosDB(SQL)  DynamoDB   Cassandra    |
+|  Spanner        CockroachDB   CosmosDB(SQL)  DynamoDB   Cassandra     |
 |  FoundationDB                 CosmosDB(Mongo)            Redis        |
 |                                                                       |
 |  SCALE AXIS                                                           |
-|  Single-DC ──────────────────────────── Globally distributed         |
+|  Single-DC ──────────────────────────── Globally distributed          |
 |     |                                          |                      |
-|  PostgreSQL     CockroachDB   CosmosDB         Spanner               |
-|  (single node)  (multi-region) (multi-region)  (global)              |
+|  PostgreSQL     CockroachDB   CosmosDB         Spanner                |
+|  (single node)  (multi-region) (multi-region)  (global)               |
 +-----------------------------------------------------------------------+
 ```
 
@@ -42,7 +42,7 @@ DISTRIBUTED DATABASE LANDSCAPE
 ```
 SPANNER ARCHITECTURE
 +----------------------------------------------------------+
-|                    GLOBAL                                 |
+|                    GLOBAL                                |
 |  +-------------------+   +-------------------+           |
 |  | Zone A (US-East)  |   | Zone B (EU-West)  |  ...     |
 |  +-------------------+   +-------------------+           |
@@ -52,11 +52,11 @@ SPANNER ARCHITECTURE
 |          |                        |                       |
 |          +----------+-------------+                       |
 |                     |                                     |
-|          Paxos groups (per shard)                        |
-|          (majority = cross-zone quorum)                  |
+|          Paxos groups (per shard)                         |
+|          (majority = cross-zone quorum)                   |
 |                     |                                     |
-|         TrueTime API (atomic clock + GPS)                |
-|         provides bounded timestamp uncertainty           |
+|         TrueTime API (atomic clock + GPS)                 |
+|         provides bounded timestamp uncertainty            |
 +----------------------------------------------------------+
 
 WRITE PATH
@@ -155,8 +155,8 @@ DYNAMODB ARCHITECTURE
 |   Partition key + sort key      → composite PK          |
 +----------------------------------------------------------+
 | STORAGE:                                                 |
-|   3 AZ replicas per table region (sync replication)     |
-|   Consistent hash ring → auto-sharding                  |
+|   3 AZ replicas per table region (sync replication)      |
+|   Consistent hash ring → auto-sharding                   |
 +----------------------------------------------------------+
 | CONSISTENCY OPTIONS:                                     |
 |   Eventually consistent reads (default) → read 1 replica |
@@ -202,7 +202,7 @@ Access patterns drive the schema. The Dynamo single-table model is optimal for k
 COSMOSDB ARCHITECTURE
 +----------------------------------------------------------+
 | Account (globally distributed resource)                  |
-|   Regions: write region(s) + read regions               |
+|   Regions: write region(s) + read regions                |
 |   Multi-master: optional (multiple write regions)        |
 +----------------------------------------------------------+
 | Database → Containers (collections)                      |
@@ -211,7 +211,7 @@ COSMOSDB ARCHITECTURE
 +----------------------------------------------------------+
 | Physical partitions                                      |
 |   Each physical partition: ~50GB max                     |
-|   Replicated 4 times within a region (quorum)           |
+|   Replicated 4 times within a region (quorum)            |
 |   Replicated across regions via async log replication    |
 +----------------------------------------------------------+
 | Consistency level per request (5 options)                |
@@ -253,24 +253,24 @@ Azure DevOps services use CosmosDB (and Azure SQL) internally. Work item queries
 CASSANDRA RING TOPOLOGY
 +----------------------------------------------------------+
 |                                                          |
-|        Node1 ────── Node2                               |
-|       /                    \                            |
-|    Node5                  Node3                         |
-|       \                    /                            |
-|        Node4 ────── (Node4)                             |
+|        Node1 ────── Node2                                |
+|       /                    \                             |
+|    Node5                  Node3                          |
+|       \                    /                             |
+|        Node4 ────── (Node4)                              |
 |                                                          |
-| Consistent hashing: each node owns a token range        |
-| Replication factor: each key replicated to RF nodes     |
-| (adjacent in ring by token)                             |
+| Consistent hashing: each node owns a token range         |
+| Replication factor: each key replicated to RF nodes      |
+| (adjacent in ring by token)                              |
 |                                                          |
 | WRITE:                                                   |
-|   Client → coordinator (any node) → W replica nodes     |
+|   Client → coordinator (any node) → W replica nodes      |
 |   Coordinator waits for W acks (W = quorum setting)    |
 |                                                          |
 | READ:                                                    |
 |   Client → coordinator → R replica nodes               |
-|   Coordinator returns latest (by timestamp), repairs    |
-|   stale replicas (read repair)                          |
+|   Coordinator returns latest (by timestamp), repairs     |
+|   stale replicas (read repair)                           |
 +----------------------------------------------------------+
 ```
 

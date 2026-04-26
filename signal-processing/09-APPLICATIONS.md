@@ -16,7 +16,7 @@ DSP APPLICATION MAP
 
                       CORE DSP TOOLS
    ┌──────────────────────────────────────────────────────────────┐
-   │ FFT/DFT | Filters (FIR/IIR) | Convolution | PSD estimation  │
+   │ FFT/DFT | Filters (FIR/IIR) | Convolution | PSD estimation   │
    │ Z-transform | Correlation | Wavelets | Sampling theory       │
    └──────────────────────────────────────────────────────────────┘
 
@@ -340,8 +340,8 @@ Common 2D kernels:
 ┌─────────────────────────────────────────────────────────────────┐
 │ Gaussian blur (low-pass):        Edge detection (Sobel X):      │
 │  1/16 · [1 2 1]                  [-1  0  1]                     │
-│          [2 4 2]                  [-2  0  2]                     │
-│          [1 2 1]                  [-1  0  1]                     │
+│          [2 4 2]                  [-2  0  2]                    │
+│          [1 2 1]                  [-1  0  1]                    │
 │                                                                   │
 │ Sharpen:                         Laplacian (edge enhance):      │
 │  [0  -1   0]                      [ 0  1   0]                   │

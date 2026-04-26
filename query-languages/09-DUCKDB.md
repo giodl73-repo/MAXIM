@@ -23,7 +23,7 @@ DuckDB is SQLite for analytics — an in-process OLAP database. Single binary, n
 │                                  │  in-process call (no network)           │
 │  ┌───────────────────────────────▼─────────────────────────────────────┐   │
 │  │                        DuckDB Engine                                │   │
-│  │  ┌──────────────────────────────────────────────────────────────┐  │   │
+│  │  ┌──────────────────────────────────────────────────────────────┐  │    │
 │  │  │  SQL Parser → Binder → Optimizer → Physical Planner          │  │   │
 │  │  │  → Vectorized Execution (SIMD, batch = 2048 rows)            │  │   │
 │  │  └──────────────────────────────────────────────────────────────┘  │   │

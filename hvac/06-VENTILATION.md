@@ -11,7 +11,7 @@ is now required — and the energy cost of ventilating can be recovered through 
 |               THE TIGHT BUILDING DILEMMA                             |
 |                                                                      |
 |  OLD LEAKY HOUSE           NEW TIGHT HOUSE                           |
-|  (>10 ACH50)               (<3 ACH50)                               |
+|  (>10 ACH50)               (<3 ACH50)                                |
 |                                                                      |
 |  Natural infiltration      Minimal infiltration                      |
 |  keeps air "fresh"         saves energy                              |
@@ -53,7 +53,7 @@ is now required — and the energy cost of ventilating can be recovered through 
   │                    ROOF                              │
   │          +P  warm air exits ↑                        │
   │                                                      │
-  │ NEUTRAL  ←─────────────────────────────── neutral   │
+  │ NEUTRAL  ←─────────────────────────────── neutral    │
   │ PLANE    no pressure differential                    │
   │                                                      │
   │          -P  cold air enters ↓                       │
@@ -146,7 +146,7 @@ The most important design decision for balanced ventilation:
   │ Transfers SENSIBLE HEAT only between exhaust and supply streams  │
   │                                                                  │
   │ Exhaust air: 70°F, 50% RH  ──────── HRV core ──────── exits    │
-  │ Supply air: -10°F outdoor   ──────── HRV core ──────── 55°F in  │
+  │ Supply air: -10°F outdoor   ──────── HRV core ──────── 55°F in   │
   │                                                                  │
   │ 70–80% sensible heat recovery                                    │
   │ Moisture: does NOT transfer → exhaust moisture exits building    │
@@ -196,21 +196,21 @@ Filtration efficiency is standardized by ASHRAE 52.2:
 ```
   MERV RATINGS (Minimum Efficiency Reporting Value):
   ┌──────────┬──────────────────────────────────────────────────────┐
-  │ MERV 1–4 │ Fiberglass, washable; pollen (>10 μm); dust mites   │
+  │ MERV 1–4 │ Fiberglass, washable; pollen (>10 μm); dust mites    │
   │          │ Basic equipment protection only                      │
   ├──────────┼──────────────────────────────────────────────────────┤
   │ MERV 5–8 │ Mold spores, dust, pet dander (3–10 μm)             │
   │          │ Minimum recommended for residential comfort           │
   ├──────────┼──────────────────────────────────────────────────────┤
   │ MERV 9–12│ Legionella, auto emissions, lead dust (1–3 μm)       │
-  │          │ Good residential; some commercial; hospital waiting   │
+  │          │ Good residential; some commercial; hospital waiting  │
   ├──────────┼──────────────────────────────────────────────────────┤
   │ MERV 13  │ Bacteria, virus-carrying droplets (0.3–1 μm)         │
   │          │ Recommended upgrade post-COVID; residential feasible │
   │          │ with proper system design; some pressure drop penalty │
   ├──────────┼──────────────────────────────────────────────────────┤
   │ MERV 14–16│ Similar to HEPA efficiency; hospital, OR, clean room │
-  │          │ High pressure drop — must verify system fan capacity  │
+  │          │ High pressure drop — must verify system fan capacity │
   ├──────────┼──────────────────────────────────────────────────────┤
   │ MERV 17+ │ HEPA: ≥99.97% at 0.3 μm; cleanroom, OR, IC fab     │
   │          │ Standalone HEPA units bypass main HVAC (separate unit)│

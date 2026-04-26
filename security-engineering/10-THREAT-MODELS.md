@@ -29,8 +29,8 @@ THREAT MODEL ARCHITECTURE — THE TRUST STACK
   ARCHITECTURAL POSTURE (how do you structure defense?)
   ┌─────────────────────────────────────────────────────────────┐
   │                                                             │
-  │  PERIMETER (legacy)           ZERO TRUST (modern)          │
-  │  ┌───────────────────┐       ┌───────────────────┐         │
+  │  PERIMETER (legacy)           ZERO TRUST (modern)           │
+  │  ┌───────────────────┐       ┌───────────────────┐          │
   │  │ Trust the network │       │ Trust nothing     │         │
   │  │ VPN = inside      │       │ Verify every      │         │
   │  │ Firewall = safe   │       │ request           │         │
@@ -45,10 +45,10 @@ THREAT MODEL ARCHITECTURE — THE TRUST STACK
                              ▼
   CONTROL LAYERS
   ┌─────────────────────────────────────────────────────────────┐
-  │ Authentication  │ Who are you?         (FIDO2, passkeys)   │
-  │ Authorization   │ What can you do?     (OPA, Cedar, ReBAC) │
-  │ Supply Chain    │ What code do you run?(SLSA, Sigstore)    │
-  │ Observability   │ What happened?       (SIEM, audit logs)  │
+  │ Authentication  │ Who are you?         (FIDO2, passkeys)    │
+  │ Authorization   │ What can you do?     (OPA, Cedar, ReBAC)  │
+  │ Supply Chain    │ What code do you run?(SLSA, Sigstore)     │
+  │ Observability   │ What happened?       (SIEM, audit logs)   │
   └─────────────────────────────────────────────────────────────┘
 ```
 
@@ -109,13 +109,13 @@ BEYONDCORP ARCHITECTURE
   └──────────────┬──────────────────────────────┘
                  │ VPN
   ┌──────────────┴──────────────────────────────┐
-  │              INTERNET                        │
+  │              INTERNET                       │
   └─────────────────────────────────────────────┘
 
   AFTER (BeyondCorp):
   ┌─────────────────────────────────────────────┐
-  │              INTERNET                        │
-  │   (no privileged network exists)             │
+  │              INTERNET                       │
+  │   (no privileged network exists)            │
   └──────────────┬──────────────────────────────┘
                  │ HTTPS (every request)
                  ▼
@@ -187,10 +187,10 @@ NIST SP 800-207 — ZERO TRUST TENETS
 NIST ZTA REFERENCE ARCHITECTURE
 
   ┌──────────┐            ┌────────────────────────┐
-  │  Subject │            │  POLICY ENGINE (PE)     │
-  │  (user + │            │  Decision point.        │
-  │  device) │            │  Evaluates trust score  │
-  │          │            │  from all inputs.       │
+  │  Subject │            │  POLICY ENGINE (PE)    │
+  │  (user + │            │  Decision point.       │
+  │  device) │            │  Evaluates trust score │
+  │          │            │  from all inputs.      │
   └────┬─────┘            └────────┬───────────────┘
        │                           │
        │ access request            │ grant/deny
@@ -207,13 +207,13 @@ NIST ZTA REFERENCE ARCHITECTURE
                        │ allowed traffic only
                        ▼
   ┌────────────────────────────────────────────┐
-  │              RESOURCE                       │
+  │              RESOURCE                      │
   │      (application, API, database)          │
   └────────────────────────────────────────────┘
 
   TRUST INPUTS TO POLICY ENGINE:
   ┌────────────────────────────────────────────┐
-  │ Identity Provider     → user identity       │
+  │ Identity Provider     → user identity      │
   │ Device Management     → device health/trust │
   │ Threat Intelligence   → known bad IPs/IOCs │
   │ SIEM / Analytics      → behavioral anomaly │
@@ -233,11 +233,11 @@ AZURE AD CONDITIONAL ACCESS — MICROSOFT'S ZERO TRUST
   │ Cloud app or action  │              │ Grant access:        │
   │ Device platform      │─── POLICY ──>│   Require MFA        │
   │ Location (IP/named)  │              │   Require compliant  │
-  │ Client app           │              │   device              │
-  │ Sign-in risk (ML)    │              │   Require Intune      │
-  │ User risk (ML)       │              │   managed app         │
-  │ Device state         │              │   Require password    │
-  └──────────────────────┘              │   change              │
+  │ Client app           │              │   device             │
+  │ Sign-in risk (ML)    │              │   Require Intune     │
+  │ User risk (ML)       │              │   managed app        │
+  │ Device state         │              │   Require password   │
+  └──────────────────────┘              │   change             │
                                         │   Session controls:   │
                                         │     App enforced      │
                                         │     restrictions      │
@@ -247,7 +247,7 @@ AZURE AD CONDITIONAL ACCESS — MICROSOFT'S ZERO TRUST
 
   EXAMPLE POLICIES (production):
   ┌────────────────────────────────────────────────────────────┐
-  │ 1. All users → all cloud apps → require MFA               │
+  │ 1. All users → all cloud apps → require MFA                │
   │    (baseline: no access without MFA, period)               │
   │                                                            │
   │ 2. All users → Azure Management → require compliant device │
@@ -256,17 +256,17 @@ AZURE AD CONDITIONAL ACCESS — MICROSOFT'S ZERO TRUST
   │ 3. Risky sign-in (medium+) → require password change + MFA│
   │    (ML detects: new location, impossible travel, tor exit) │
   │                                                            │
-  │ 4. Guest users → specific apps only → session limit 1hr   │
+  │ 4. Guest users → specific apps only → session limit 1hr    │
   │    (vendors/contractors get scoped, time-limited access)   │
   │                                                            │
-  │ 5. Service principals → from specific IPs only → grant    │
+  │ 5. Service principals → from specific IPs only → grant     │
   │    (CI/CD service principal locked to GitHub runner IPs)   │
   └────────────────────────────────────────────────────────────┘
 
   SIGN-IN RISK SIGNALS (Azure AD Identity Protection):
   ┌────────────────────────────────────────────────────────────┐
   │ Impossible travel      Two logins from geographically      │
-  │                        impossible locations within          │
+  │                        impossible locations within         │
   │                        the time window                     │
   │ Anonymous IP           Login from known VPN/Tor exit node  │
   │ Unfamiliar properties  Browser, OS, or location never      │
@@ -325,25 +325,25 @@ PASSWORD ATTACK SURFACE
 
   ATTACK                 DEFENSE                   EFFECTIVENESS
   ┌──────────────────────┬─────────────────────────┬────────────┐
-  │ Credential stuffing  │ Unique passwords per     │ Moderate   │
-  │ (reused passwords    │ site (password manager)  │ (requires  │
-  │ from breach dumps)   │                          │ user       │
-  │                      │                          │ adoption)  │
+  │ Credential stuffing  │ Unique passwords per    │ Moderate   │
+  │ (reused passwords    │ site (password manager) │ (requires  │
+  │ from breach dumps)   │                         │ user       │
+  │                      │                         │ adoption)  │
   ├──────────────────────┼─────────────────────────┼────────────┤
   │ Phishing             │ URL inspection, security │ Low        │
   │ (fake login page)    │ training                 │ (humans    │
   │                      │                          │ are bad    │
   │                      │                          │ at this)   │
   ├──────────────────────┼─────────────────────────┼────────────┤
-  │ Brute force          │ Rate limiting, lockout,  │ High       │
-  │                      │ Argon2id hashing         │            │
+  │ Brute force          │ Rate limiting, lockout, │ High       │
+  │                      │ Argon2id hashing        │            │
   ├──────────────────────┼─────────────────────────┼────────────┤
   │ Password spraying    │ Lockout with per-IP      │ Moderate   │
   │ (common passwords    │ tracking, Azure AD Smart │            │
   │ across many accounts)│ Lockout                  │            │
   ├──────────────────────┼─────────────────────────┼────────────┤
-  │ Keylogging           │ OS-level security,       │ Low        │
-  │                      │ endpoint detection       │ (defeats   │
+  │ Keylogging           │ OS-level security,      │ Low        │
+  │                      │ endpoint detection      │ (defeats   │
   │                      │                          │ everything)│
   └──────────────────────┴─────────────────────────┴────────────┘
 
@@ -364,7 +364,7 @@ FIDO2/WEBAUTHN PROTOCOL
   │                                                          │
   │  Browser              Authenticator         Server       │
   │     │                    │                    │          │
-  │     │<── challenge ──────────────────────────│          │
+  │     │<── challenge ──────────────────────────│           │
   │     │                    │                    │          │
   │     │── create(rp_id, ──>│                    │          │
   │     │   user, challenge) │                    │          │
@@ -378,7 +378,7 @@ FIDO2/WEBAUTHN PROTOCOL
   │     │    attestation)    │                    │          │
   │     │                    │                    │          │
   │     │── pk + attestation ────────────────────>│          │
-  │     │                                    store pk       │
+  │     │                                    store pk        │
   └──────────────────────────────────────────────────────────┘
 
   ┌──────────────────────────────────────────────────────────┐
@@ -386,20 +386,20 @@ FIDO2/WEBAUTHN PROTOCOL
   │                                                          │
   │  Browser              Authenticator         Server       │
   │     │                    │                    │          │
-  │     │<── challenge + rp_id ──────────────────│          │
+  │     │<── challenge + rp_id ──────────────────│           │
   │     │                    │                    │          │
   │     │── get(rp_id,  ────>│                    │          │
   │     │   challenge)       │                    │          │
   │     │                    │                    │          │
   │     │   Authenticator:   │                    │          │
-  │     │   1. Look up sk for rp_id              │          │
-  │     │   2. Verify user (biometric/PIN)       │          │
+  │     │   1. Look up sk for rp_id              │           │
+  │     │   2. Verify user (biometric/PIN)       │           │
   │     │   3. Sign challenge with sk             │          │
   │     │                    │                    │          │
   │     │<── signed assertion│                    │          │
   │     │                    │                    │          │
   │     │── assertion ───────────────────────────>│          │
-  │     │                                    verify with pk │
+  │     │                                    verify with pk  │
   └──────────────────────────────────────────────────────────┘
 
   WHY IT IS PHISHING-PROOF:
@@ -412,7 +412,7 @@ FIDO2/WEBAUTHN PROTOCOL
   │   Authenticator has NO key for "evil-login.com"          │
   │   Authentication FAILS silently — nothing to phish.      │
   │                                                          │
-  │ The private key NEVER LEAVES the authenticator.           │
+  │ The private key NEVER LEAVES the authenticator.          │
   │ There is NO shared secret that can be stolen.            │
   │ The server stores only the public key.                   │
   │ Even a server breach reveals nothing useful.             │
@@ -479,14 +479,14 @@ MFA FATIGUE ATTACK (2022 — Uber, Cisco, Twilio breaches)
 
   DEFENSE — NUMBER MATCHING (Microsoft Authenticator):
   ┌────────────────────────────────────────────────────────────┐
-  │ Login screen shows:  "Enter the number: 42"               │
-  │ Phone prompt shows:  "What number is shown on screen?"    │
-  │ User types: 42 → approved                                 │
+  │ Login screen shows:  "Enter the number: 42"                │
+  │ Phone prompt shows:  "What number is shown on screen?"     │
+  │ User types: 42 → approved                                  │
   │                                                            │
   │ If attacker triggers login:                                │
-  │ Attacker's screen shows: "Enter the number: 73"           │
-  │ Victim's phone: "What number is shown on screen?"         │
-  │ Victim does NOT see 73 → cannot approve                   │
+  │ Attacker's screen shows: "Enter the number: 73"            │
+  │ Victim's phone: "What number is shown on screen?"          │
+  │ Victim does NOT see 73 → cannot approve                    │
   │ Attack fails.                                              │
   └────────────────────────────────────────────────────────────┘
 
@@ -583,11 +583,11 @@ ABAC — ATTRIBUTE-BASED ACCESS CONTROL
   ┌────────────────────────────────────────────────────────────────┐
   │ Dynamic conditions    "Only during business hours"             │
   │ Attribute matching    "Same department as resource owner"      │
-  │ Risk-based            "If risk_score < 0.3"                   │
-  │ Data classification   "If document is CONFIDENTIAL, require   │
+  │ Risk-based            "If risk_score < 0.3"                    │
+  │ Data classification   "If document is CONFIDENTIAL, require    │
   │                        clearance >= SECRET"                    │
-  │ Context-aware         "If accessing from corporate network,   │
-  │                        allow; else require MFA step-up"       │
+  │ Context-aware         "If accessing from corporate network,    │
+  │                        allow; else require MFA step-up"        │
   └────────────────────────────────────────────────────────────────┘
 
   ABAC CHALLENGES:
@@ -656,22 +656,22 @@ ReBAC — RELATIONSHIP-BASED ACCESS CONTROL
 POLICY ENGINE LANDSCAPE
 
   ┌─────────────────────────────────────────────────────────────┐
-  │ Engine       │ Model │ Language │ Backed by │ Use case     │
+  │ Engine       │ Model │ Language │ Backed by │ Use case      │
   ├─────────────────────────────────────────────────────────────┤
   │ OPA          │ ABAC  │ Rego     │ CNCF      │ K8s, APIs,  │
   │ (Open Policy │       │ (Datalog │           │ Terraform,  │
   │  Agent)      │       │  variant)│           │ microservices│
   ├─────────────────────────────────────────────────────────────┤
-  │ Cedar        │ ABAC+ │ Cedar    │ AWS       │ Amazon       │
-  │              │ ReBAC │ (purpose │           │ Verified     │
-  │              │       │  built)  │           │ Permissions  │
+  │ Cedar        │ ABAC+ │ Cedar    │ AWS       │ Amazon        │
+  │              │ ReBAC │ (purpose │           │ Verified      │
+  │              │       │  built)  │           │ Permissions   │
   ├─────────────────────────────────────────────────────────────┤
   │ SpiceDB      │ ReBAC │ Schema + │ AuthZed   │ Google Docs  │
   │              │       │ API      │           │ -style sharing│
   ├─────────────────────────────────────────────────────────────┤
-  │ OpenFGA      │ ReBAC │ Schema + │ Auth0/Okta│ Document /   │
-  │              │       │ API      │           │ resource     │
-  │              │       │          │           │ sharing      │
+  │ OpenFGA      │ ReBAC │ Schema + │ Auth0/Okta│ Document /    │
+  │              │       │ API      │           │ resource      │
+  │              │       │          │           │ sharing       │
   └─────────────────────────────────────────────────────────────┘
 ```
 
@@ -771,12 +771,12 @@ CEDAR POLICY LANGUAGE (AWS)
   │ Language           │ Purpose-built,    │ Datalog-derived,   │
   │                    │ constrained       │ general-purpose    │
   ├────────────────────┼───────────────────┼────────────────────┤
-  │ Formal verification│ Yes (proven sound)│ No                │
+  │ Formal verification│ Yes (proven sound)│ No                 │
   ├────────────────────┼───────────────────┼────────────────────┤
   │ Policy analysis    │ Built-in          │ Third-party tools │
   ├────────────────────┼───────────────────┼────────────────────┤
-  │ Expressiveness     │ Intentionally     │ Turing-complete   │
-  │                    │ limited (safe)    │ (powerful, risky) │
+  │ Expressiveness     │ Intentionally     │ Turing-complete    │
+  │                    │ limited (safe)    │ (powerful, risky)  │
   ├────────────────────┼───────────────────┼────────────────────┤
   │ Ecosystem          │ AWS (newer)       │ CNCF (mature)     │
   └────────────────────┴───────────────────┴────────────────────┘
@@ -809,7 +809,7 @@ SUPPLY CHAIN ATTACK TAXONOMY
   │  │   → SolarWinds (2020): build system injected backdoor │  │
   │  │     into signed Orion update                          │  │
   │  │ Tampered build environment / toolchain                │  │
-  │  │   → XcodeGhost (2015): modified Xcode distributed    │  │
+  │  │   → XcodeGhost (2015): modified Xcode distributed     │  │
   │  │     through Chinese mirrors                           │  │
   │  └───────────────────────────────────────────────────────┘  │
   │                                                             │
@@ -855,7 +855,7 @@ Developed by Google, adopted by OpenSSF.
   │       │ "Build service vouches for      │                  │
   │       │  how it was built"              │                  │
   ├───────┼─────────────────────────────────┼──────────────────┤
-  │   3   │ Hardened build platform          │ Tampering        │
+  │   3   │ Hardened build platform         │ Tampering        │
   │       │ Isolated, ephemeral builders    │ during build     │
   │       │ "Tamper-resistant build"        │ (SolarWinds      │
   │       │                                 │  -class)         │
@@ -902,7 +902,7 @@ SIGSTORE — KEYLESS SIGNING FOR OPEN SOURCE
 
   COMPONENTS:
   ┌──────────────────────────────────────────────────────────────┐
-  │ Fulcio (CA)         Issues short-lived signing certificates │
+  │ Fulcio (CA)         Issues short-lived signing certificates  │
   │                     bound to OIDC identity (GitHub, Google)  │
   │                                                              │
   │ Rekor (log)         Immutable transparency log of all        │
@@ -963,7 +963,7 @@ SBOM — WHAT'S IN YOUR SOFTWARE?
 
   SBOM USE CASES:
   ┌────────────────────────────────────────────────────────────┐
-  │ Vulnerability response  "We heard log4j is vulnerable.    │
+  │ Vulnerability response  "We heard log4j is vulnerable.     │
   │                          Do we use it? Where?"             │
   │                          → Search SBOM: instant answer.    │
   │                                                            │
@@ -1005,7 +1005,7 @@ DEPENDENCY CONFUSION — HOW IT WORKS
 
   DEFENSE:
   ┌────────────────────────────────────────────────────────────┐
-  │ 1. Scope packages       Use @my-company/utils (scoped)    │
+  │ 1. Scope packages       Use @my-company/utils (scoped)     │
   │                         Scoped packages can only be        │
   │                         published by scope owner           │
   │                                                            │

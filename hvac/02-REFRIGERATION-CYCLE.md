@@ -9,12 +9,12 @@ the mechanism that makes this practical.
 
 ```
 +----------------------------------------------------------------------+
-|                  VAPOR COMPRESSION CYCLE                              |
+|                  VAPOR COMPRESSION CYCLE                             |
 |                                                                      |
 |  INDOOR UNIT                          OUTDOOR UNIT                   |
 |  (EVAPORATOR in cooling mode)         (CONDENSER in cooling mode)    |
 |                                                                      |
-|  ┌─────────────┐                      ┌─────────────┐               |
+|  ┌─────────────┐                      ┌─────────────┐                |
 |  │ Low pressure│                      │High pressure│               |
 |  │ Low temp    │                      │ High temp   │               |
 |  │ Refrigerant │                      │ Refrigerant │               |
@@ -137,14 +137,14 @@ the mechanism that makes this practical.
   EXPANSION DEVICES:
   ┌──────────────────┬──────────────────────────────────────────────────┐
   │ Fixed orifice /  │ Simple; one optimum operating point; used in     │
-  │ piston           │ older/cheaper equipment                           │
+  │ piston           │ older/cheaper equipment                          │
   ├──────────────────┼──────────────────────────────────────────────────┤
   │ TXV (Thermal     │ Modulates to maintain fixed superheat at evap     │
   │ Expansion Valve) │ outlet; bulb senses evap outlet temp + pressure  │
   │                  │ → adjusts opening; better over range of loads    │
   ├──────────────────┼──────────────────────────────────────────────────┤
   │ EEV (Electronic  │ Stepper motor; electronic control; optimal for   │
-  │ Expansion Valve) │ variable-speed systems; adjusts continuously      │
+  │ Expansion Valve) │ variable-speed systems; adjusts continuously     │
   └──────────────────┴──────────────────────────────────────────────────┘
 ```
 

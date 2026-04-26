@@ -6,31 +6,31 @@ The Abrahamic traditions (Judaism, Christianity, Islam) are not usually framed a
 
 ```
 ┌──────────────────────────────────────────────────────────────────┐
-│           ABRAHAMIC TRADITIONS — OVERVIEW                         │
+│           ABRAHAMIC TRADITIONS — OVERVIEW                        │
 │                                                                  │
 │  SHARED FOUNDATION:                                              │
-│  — All three claim descent from Abraham (Ibrahim)               │
+│  — All three claim descent from Abraham (Ibrahim)                │
 │  — Monotheism (one God) as core theological commitment           │
-│  — Revelation through prophets; written scripture               │
-│  — Jerusalem / Temple Mount as sacred center (all three)        │
-│  — Adam, Noah, Moses, Abraham as shared figures                 │
-│  — Eschatology: history is linear and ends in divine judgment   │
+│  — Revelation through prophets; written scripture                │
+│  — Jerusalem / Temple Mount as sacred center (all three)         │
+│  — Adam, Noah, Moses, Abraham as shared figures                  │
+│  — Eschatology: history is linear and ends in divine judgment    │
 │                                                                  │
 │  TEXTUAL FOUNDATIONS:                                            │
-│  — Judaism: Torah (5 Books of Moses) + Nevi'im (Prophets) +     │
-│    Ketuvim (Writings) = Tanakh                                  │
-│  — Christianity: Old Testament (= Tanakh, different canonical   │
-│    order and sometimes different books) + New Testament         │
-│  — Islam: Quran (direct revelation to Muhammad) + Hadith        │
-│    (sayings/actions of Muhammad) + earlier scriptures as        │
-│    "corrupted" versions of original divine revelation           │
+│  — Judaism: Torah (5 Books of Moses) + Nevi'im (Prophets) +      │
+│    Ketuvim (Writings) = Tanakh                                   │
+│  — Christianity: Old Testament (= Tanakh, different canonical    │
+│    order and sometimes different books) + New Testament          │
+│  — Islam: Quran (direct revelation to Muhammad) + Hadith         │
+│    (sayings/actions of Muhammad) + earlier scriptures as         │
+│    "corrupted" versions of original divine revelation            │
 │                                                                  │
-│  DISTINCTIVE CONTRIBUTIONS TO WORLD MYTHOLOGY:                  │
-│  — Linear, directional time (vs. cyclical in Hindu/Aztec)       │
-│  — History as sacred narrative (not just cosmological backdrop) │
-│  — Ethical monotheism: God is both creator and moral authority  │
-│  — Angelology and demonology elaborated extensively             │
-│  — Apocalypticism: a final end-point to history                 │
+│  DISTINCTIVE CONTRIBUTIONS TO WORLD MYTHOLOGY:                   │
+│  — Linear, directional time (vs. cyclical in Hindu/Aztec)        │
+│  — History as sacred narrative (not just cosmological backdrop)  │
+│  — Ethical monotheism: God is both creator and moral authority   │
+│  — Angelology and demonology elaborated extensively              │
+│  — Apocalypticism: a final end-point to history                  │
 │  — Rich interpretive traditions (Talmud, theology, tafsir)     │
 └──────────────────────────────────────────────────────────────────┘
 ```
@@ -43,73 +43,73 @@ The book of Genesis contains TWO distinct creation accounts, written at differen
 
 ```
 ┌──────────────────────────────────────────────────────────────────┐
-│                  TWO CREATION ACCOUNTS IN GENESIS                 │
+│                  TWO CREATION ACCOUNTS IN GENESIS                │
 │                                                                  │
-│  ACCOUNT 1 — Genesis 1:1–2:3 ("P" or Priestly source)          │
+│  ACCOUNT 1 — Genesis 1:1–2:3 ("P" or Priestly source)            │
 │  Composition: Probably 6th century BCE (Babylonian exile period) │
 │                                                                  │
-│  STRUCTURE: Six days of creation + Sabbath rest                 │
-│  Day 1: Light and dark (sky and earth not yet made)             │
+│  STRUCTURE: Six days of creation + Sabbath rest                  │
+│  Day 1: Light and dark (sky and earth not yet made)              │
 │  Day 2: Firmament (the dome separating upper/lower waters)       │
-│  Day 3: Dry land + vegetation                                   │
-│  Day 4: Sun, moon, stars (after vegetation! — anti-astrology)  │
-│  Day 5: Sea creatures + birds                                   │
-│  Day 6: Land animals + humanity (LAST created)                  │
-│  Day 7: God rests → sanctifies the Sabbath                      │
+│  Day 3: Dry land + vegetation                                    │
+│  Day 4: Sun, moon, stars (after vegetation! — anti-astrology)    │
+│  Day 5: Sea creatures + birds                                    │
+│  Day 6: Land animals + humanity (LAST created)                   │
+│  Day 7: God rests → sanctifies the Sabbath                       │
 │                                                                  │
 │  KEY FEATURES:                                                   │
-│  — Orderly, formulaic, majestic: "And God said... and it was so"│
-│  — Humanity created in God's "image" (tselem) and "likeness"   │
-│  — Male AND female created simultaneously in God's image        │
-│  — Hebrew "Elohim" (plural form used for God) — grammatically  │
-│    plural, theologically singular → possibly a vestige of the  │
-│    pre-monotheistic divine assembly                             │
-│  — The firmament (raqia) is a solid dome holding back upper     │
-│    waters — ancient Near Eastern cosmological model            │
+│  — Orderly, formulaic, majestic: "And God said... and it was so" │
+│  — Humanity created in God's "image" (tselem) and "likeness"     │
+│  — Male AND female created simultaneously in God's image         │
+│  — Hebrew "Elohim" (plural form used for God) — grammatically    │
+│    plural, theologically singular → possibly a vestige of the    │
+│    pre-monotheistic divine assembly                              │
+│  — The firmament (raqia) is a solid dome holding back upper      │
+│    waters — ancient Near Eastern cosmological model              │
 │                                                                  │
-│  NEAR EASTERN PARALLEL:                                         │
-│  — Enuma Elish: Tiamat killed; body split into sky and earth   │
-│  — Genesis 1: The "deep" (tehom) over which God's spirit moves  │
-│    — "tehom" and "Tiamat" are cognates (both from the same     │
-│       Semitic root, both referring to the primordial waters)   │
-│  — Genesis 1 is a deliberate theological revision of Enuma Elish│
-│    The Babylonian model: creation through violence and divine   │
-│    combat. The Israelite response during the Exile: creation   │
-│    through sovereign divine speech alone, no conflict needed.  │
+│  NEAR EASTERN PARALLEL:                                          │
+│  — Enuma Elish: Tiamat killed; body split into sky and earth     │
+│  — Genesis 1: The "deep" (tehom) over which God's spirit moves   │
+│    — "tehom" and "Tiamat" are cognates (both from the same       │
+│       Semitic root, both referring to the primordial waters)     │
+│  — Genesis 1 is a deliberate theological revision of Enuma Elish │
+│    The Babylonian model: creation through violence and divine    │
+│    combat. The Israelite response during the Exile: creation     │
+│    through sovereign divine speech alone, no conflict needed.    │
 │                                                                  │
-│  ACCOUNT 2 — Genesis 2:4–3:24 ("J" or Yahwist source)         │
-│  Composition: Probably 10th–9th century BCE (earlier than P)   │
-│  God's name: YHWH Elohim (Yahweh) rather than Elohim alone     │
+│  ACCOUNT 2 — Genesis 2:4–3:24 ("J" or Yahwist source)            │
+│  Composition: Probably 10th–9th century BCE (earlier than P)     │
+│  God's name: YHWH Elohim (Yahweh) rather than Elohim alone       │
 │                                                                  │
-│  ORDER IS DIFFERENT:                                            │
-│  — Earth and sky created → but no rain, no humans              │
-│  — God forms the man (adam) from earth (adamah) → breathes     │
-│    life (nishmat chayyim) into his nostrils                    │
-│  — God plants a garden (Eden); places the man there             │
-│  — God creates animals and brings them to the man to be named  │
-│  — No suitable partner found among animals                     │
-│  — God creates the woman from the man's rib (tsela — also      │
-│    translatable as "side")                                     │
+│  ORDER IS DIFFERENT:                                             │
+│  — Earth and sky created → but no rain, no humans                │
+│  — God forms the man (adam) from earth (adamah) → breathes       │
+│    life (nishmat chayyim) into his nostrils                      │
+│  — God plants a garden (Eden); places the man there              │
+│  — God creates animals and brings them to the man to be named    │
+│  — No suitable partner found among animals                       │
+│  — God creates the woman from the man's rib (tsela — also        │
+│    translatable as "side")                                       │
 │                                                                  │
 │  KEY FEATURES:                                                   │
-│  — Intimate, anthropomorphic God: walks in the garden; asks     │
-│    "Where are you?"                                             │
-│  — The man is created FIRST (vs. Account 1: simultaneous)      │
-│  — Animals created AFTER the man (vs. Account 1: before)       │
-│  — Two trees: Tree of Life + Tree of Knowledge of Good and Evil │
-│  — The serpent (nachash) — not called Satan; it is simply a    │
-│    crafty beast                                                │
+│  — Intimate, anthropomorphic God: walks in the garden; asks      │
+│    "Where are you?"                                              │
+│  — The man is created FIRST (vs. Account 1: simultaneous)        │
+│  — Animals created AFTER the man (vs. Account 1: before)         │
+│  — Two trees: Tree of Life + Tree of Knowledge of Good and Evil  │
+│  — The serpent (nachash) — not called Satan; it is simply a      │
+│    crafty beast                                                  │
 │                                                                  │
 │  THE FALL NARRATIVE:                                             │
-│  Eve → serpent's suggestion → eats from tree of knowledge       │
-│  Adam → Eve → eats                                             │
-│  Result: knowledge (they see they are naked); shame            │
-│  God discovers this by walking in the garden                   │
-│  Punishments: serpent cursed (crawls, enmity with humans);      │
-│    woman: pain in childbirth, subordination; man: labor, death  │
-│  "By the sweat of your face you shall eat bread, until you    │
-│   return to the ground, for out of it you were taken"          │
-│  Expulsion from Eden → guarded by cherubim with flaming swords  │
+│  Eve → serpent's suggestion → eats from tree of knowledge        │
+│  Adam → Eve → eats                                               │
+│  Result: knowledge (they see they are naked); shame              │
+│  God discovers this by walking in the garden                     │
+│  Punishments: serpent cursed (crawls, enmity with humans);       │
+│    woman: pain in childbirth, subordination; man: labor, death   │
+│  "By the sweat of your face you shall eat bread, until you       │
+│   return to the ground, for out of it you were taken"            │
+│  Expulsion from Eden → guarded by cherubim with flaming swords   │
 └──────────────────────────────────────────────────────────────────┘
 ```
 
@@ -175,49 +175,49 @@ THE CANAANITE CONNECTIONS:
 
 ```
 ┌──────────────────────────────────────────────────────────────────┐
-│              ANGELOLOGY ACROSS THE ABRAHAMIC TRADITIONS           │
+│              ANGELOLOGY ACROSS THE ABRAHAMIC TRADITIONS          │
 │                                                                  │
 │  JEWISH ANGELOLOGY:                                              │
-│  — Develops primarily in Second Temple period (500 BCE–70 CE)   │
+│  — Develops primarily in Second Temple period (500 BCE–70 CE)    │
 │  — Named angels: Michael, Gabriel, Raphael, Uriel (in          │
 │    Deuterocanonical books: 1 Enoch, Tobit)                     │
 │  — In the Tanakh proper: angels are messengers (malakh); mostly  │
-│    unnamed; functional not hierarchical                         │
-│  — Seraphim (Isaiah 6): six-winged; "Holy, holy, holy"          │
+│    unnamed; functional not hierarchical                          │
+│  — Seraphim (Isaiah 6): six-winged; "Holy, holy, holy"           │
 │  — Cherubim (Ezekiel 1, 10): four faces (human, lion, ox, eagle)│
-│    + four wings; the chariot-throne (Merkabah) vision           │
-│  — The Merkabah (chariot) tradition → Jewish mysticism          │
+│    + four wings; the chariot-throne (Merkabah) vision            │
+│  — The Merkabah (chariot) tradition → Jewish mysticism           │
 │  — SATAN in the Tanakh: "the adversary" (ha-satan = the accuser)│
-│    — Job: a member of the divine council who challenges God;    │
-│      not evil, but a prosecuting attorney                       │
-│    — Not yet the ruler of hell or cosmic enemy of God           │
+│    — Job: a member of the divine council who challenges God;     │
+│      not evil, but a prosecuting attorney                        │
+│    — Not yet the ruler of hell or cosmic enemy of God            │
 │                                                                  │
 │  CHRISTIAN ANGELOLOGY (elaborated):                              │
-│  — Pseudo-Dionysius the Areopagite (~5th c. CE): nine orders    │
-│    of angels in three triads:                                   │
+│  — Pseudo-Dionysius the Areopagite (~5th c. CE): nine orders     │
+│    of angels in three triads:                                    │
 │    Upper triad: Seraphim → Cherubim → Thrones                  │
 │    Middle triad: Dominions → Powers → Virtues                  │
-│    Lower triad: Principalities → Archangels → Angels            │
+│    Lower triad: Principalities → Archangels → Angels             │
 │  — Satan transformed: the adversary becomes the cosmic enemy   │
-│    — Conflation of multiple texts: Isaiah 14 ("How you have     │
+│    — Conflation of multiple texts: Isaiah 14 ("How you have      │
 │      fallen from heaven, morning star, son of the dawn!") +    │
 │      Ezekiel 28 (king of Tyre as fallen celestial being) +     │
 │      Revelation's dragon = Satan/Lucifer as fallen archangel   │
-│    — This composite is not present in the Tanakh itself         │
-│  — The devil as ruler of hell: develops fully in medieval       │
+│    — This composite is not present in the Tanakh itself          │
+│  — The devil as ruler of hell: develops fully in medieval        │
 │    Christian thought (Dante's Inferno crystallizes the image)  │
 │                                                                  │
 │  ISLAMIC ANGELOLOGY:                                             │
-│  — Quran names four archangels: Jibril (Gabriel), Mikail        │
-│    (Michael), Israfil (blows the trumpet at Judgment), Izrail   │
+│  — Quran names four archangels: Jibril (Gabriel), Mikail         │
+│    (Michael), Israfil (blows the trumpet at Judgment), Izrail    │
 │    (Angel of Death)                                            │
 │  — Two recording angels accompany every human: Raqib (records  │
 │    good deeds) and Atid (records bad deeds) = "the two noble   │
 │    scribes" (Quran 82:10-12)                                   │
-│  — Angels created from light; humans from clay; djinn from fire │
-│  — Iblis (Satan): was among the angels (or djinn) commanded to  │
-│    bow to Adam; refused on grounds of superiority (created from │
-│    fire vs. clay); cast out; granted respite until Judgment Day │
+│  — Angels created from light; humans from clay; djinn from fire  │
+│  — Iblis (Satan): was among the angels (or djinn) commanded to   │
+│    bow to Adam; refused on grounds of superiority (created from  │
+│    fire vs. clay); cast out; granted respite until Judgment Day  │
 │    to tempt humanity → became Iblis / Shaytan (Satan)          │
 └──────────────────────────────────────────────────────────────────┘
 ```
@@ -288,57 +288,57 @@ THE NIGHT JOURNEY (Isra and Mi'raj):
 
 ```
 ┌──────────────────────────────────────────────────────────────────┐
-│              KABBALAH — THE TEN SEFIROT                           │
+│              KABBALAH — THE TEN SEFIROT                          │
 │                                                                  │
 │  ORIGIN:                                                         │
-│  — Jewish mystical tradition; systematic form from ~12th c. CE  │
-│  — Zohar (Book of Radiance): compiled ~1280 CE by Moses de León │
+│  — Jewish mystical tradition; systematic form from ~12th c. CE   │
+│  — Zohar (Book of Radiance): compiled ~1280 CE by Moses de León  │
 │    in Spain, attributed to 2nd-century sage Shimon bar Yochai  │
 │  — Lurianic Kabbalah (16th c.): Isaac Luria in Safed, Israel   │
 │                                                                  │
-│  THE TEN SEFIROT — Emanations of the Divine:                    │
+│  THE TEN SEFIROT — Emanations of the Divine:                     │
 │                                                                  │
-│             KETER (Crown) — Pure Being                          │
+│             KETER (Crown) — Pure Being                           │
 │            /                 \                                   │
-│    CHOKHMAH (Wisdom)    BINAH (Understanding)                   │
-│    "Flash of insight"  "Womb of gestation"                      │
+│    CHOKHMAH (Wisdom)    BINAH (Understanding)                    │
+│    "Flash of insight"  "Womb of gestation"                       │
 │            \                 /                                   │
 │             DAAT (Knowledge) — hidden; not always listed         │
 │            /                 \                                   │
-│    CHESED (Lovingkindness)  GEVURAH (Strength/Judgment)         │
-│    "Expansion, grace"       "Contraction, discipline"           │
+│    CHESED (Lovingkindness)  GEVURAH (Strength/Judgment)          │
+│    "Expansion, grace"       "Contraction, discipline"            │
 │            \                 /                                   │
-│             TIFERET (Beauty) — Heart; harmony; balance          │
+│             TIFERET (Beauty) — Heart; harmony; balance           │
 │            /                 \                                   │
-│    NETZACH (Victory/Eternity) HOD (Splendor/Acknowledgment)     │
+│    NETZACH (Victory/Eternity) HOD (Splendor/Acknowledgment)      │
 │    "Feeling, nature, art"    "Surrender, communication"          │
 │            \                 /                                   │
 │             YESOD (Foundation) — Connection; generation          │
 │                      |                                           │
-│             MALKHUT (Kingdom) — The manifest world; Shekhinah   │
+│             MALKHUT (Kingdom) — The manifest world; Shekhinah    │
 │                                                                  │
 │  STRUCTURE:                                                      │
-│  — Three columns: Right (expansive/male), Left (contractive/    │
-│    female), Middle (balancing)                                  │
-│  — Three triads + Malkhut at the bottom                         │
+│  — Three columns: Right (expansive/male), Left (contractive/     │
+│    female), Middle (balancing)                                   │
+│  — Three triads + Malkhut at the bottom                          │
 │  — The "Tree of Life" is a map of both divine emanation and    │
-│    human spiritual structure                                    │
+│    human spiritual structure                                     │
 │  — Reading downward: God's light/being flows from Keter to     │
 │    Malkhut (from Ein Sof — "without end" — into the world)     │
-│  — Reading upward: spiritual ascent from materiality to the     │
+│  — Reading upward: spiritual ascent from materiality to the      │
 │    divine source                                               │
 │                                                                  │
 │  LURIANIC ADDITIONS:                                             │
-│  TZIMTZUM: "Contraction" — God contracted/withdrew into himself │
+│  TZIMTZUM: "Contraction" — God contracted/withdrew into himself  │
 │  to make room for creation; the space left is where the world is│
 │  SHEVIRAT HA-KELIM: "Breaking of the Vessels" — divine light   │
 │  was too intense; the vessels (Sefirot) shattered; sparks of   │
 │  divine light fell into the material world; imprisoned in kelipot│
-│  (husks/shells)                                                 │
-│  TIKKUN OLAM: "Repair of the World" — human ethical and         │
-│  spiritual action gathers the scattered sparks, restoring them  │
-│  to their source → the goal of existence is cosmic repair       │
-│  → Tikkun Olam is now widely used in social justice discourse;  │
+│  (husks/shells)                                                  │
+│  TIKKUN OLAM: "Repair of the World" — human ethical and          │
+│  spiritual action gathers the scattered sparks, restoring them   │
+│  to their source → the goal of existence is cosmic repair        │
+│  → Tikkun Olam is now widely used in social justice discourse;   │
 │    this has substantially modified the original mystical meaning│
 └──────────────────────────────────────────────────────────────────┘
 ```

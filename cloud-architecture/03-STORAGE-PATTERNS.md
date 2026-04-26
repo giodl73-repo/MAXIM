@@ -8,7 +8,7 @@ Storage in the cloud is not a single category — the right storage type depends
 STORAGE TYPE TAXONOMY
 +-----------------------------------------------------------------------+
 |                                                                       |
-|  OBJECT / BLOB         BLOCK               FILE                      |
+|  OBJECT / BLOB         BLOCK               FILE                       |
 |  +-----------------+  +----------------+  +--------------------+    |
 |  | Azure Blob      |  | Managed Disk   |  | Azure Files        |    |
 |  | (S3, GCS equiv) |  | (EBS equiv)    |  | (EFS equiv)        |    |
@@ -20,7 +20,7 @@ STORAGE TYPE TAXONOMY
 |     |           |                                                     |
 |   Database                                                            |
 |   services                                                            |
-|  +-----------------------+  +------------------+  +--------------+   |
+|  +-----------------------+  +------------------+  +--------------+  |
 |  | Azure SQL Database    |  | Azure Cosmos DB  |  | Redis Cache  |   |
 |  | Structured, ACID      |  | NoSQL, global    |  | In-memory    |   |
 |  | SQL Server compatible |  | multi-model      |  | K/V cache    |   |
@@ -42,8 +42,8 @@ BLOB ACCESS TIERS
 | HOT tier                                                 |
 |   Storage cost: highest                                  |
 |   Access cost:  lowest (per read/write operation)        |
-|   Use: frequently accessed data, active web content     |
-|   Latency: single-digit milliseconds                    |
+|   Use: frequently accessed data, active web content      |
+|   Latency: single-digit milliseconds                     |
 +----------------------------------------------------------+
 | COOL tier                                                |
 |   Storage cost: ~50% of Hot                             |
@@ -53,9 +53,9 @@ BLOB ACCESS TIERS
 |        monthly reports                                   |
 +----------------------------------------------------------+
 | COLD tier (preview 2023)                                 |
-|   Storage cost: lower than Cool                         |
-|   Minimum retention: 90 days                            |
-|   Use: rarely accessed, long-term backup                |
+|   Storage cost: lower than Cool                          |
+|   Minimum retention: 90 days                             |
+|   Use: rarely accessed, long-term backup                 |
 +----------------------------------------------------------+
 | ARCHIVE tier                                             |
 |   Storage cost: lowest (~90% less than Hot)             |
@@ -133,10 +133,10 @@ Block storage is raw storage attached to a VM as a device — the cloud equivale
 MANAGED DISK TYPES (Azure)
 +----------------------------------------------------------+
 | Standard HDD                                             |
-|   Max IOPS: 2,000 (per disk)                            |
-|   Max throughput: 500 MB/s                              |
-|   Use: dev/test, non-critical, archive                  |
-|   Cost: cheapest                                        |
+|   Max IOPS: 2,000 (per disk)                             |
+|   Max throughput: 500 MB/s                               |
+|   Use: dev/test, non-critical, archive                   |
+|   Cost: cheapest                                         |
 +----------------------------------------------------------+
 | Standard SSD                                             |
 |   Max IOPS: 6,000                                       |
@@ -145,10 +145,10 @@ MANAGED DISK TYPES (Azure)
 |   Better latency than HDD                               |
 +----------------------------------------------------------+
 | Premium SSD v2                                           |
-|   Max IOPS: 80,000 per disk                             |
-|   Max throughput: 1,200 MB/s                            |
-|   Configurable IOPS/throughput independently            |
-|   Use: production databases, SAP, SQL Server            |
+|   Max IOPS: 80,000 per disk                              |
+|   Max throughput: 1,200 MB/s                             |
+|   Configurable IOPS/throughput independently             |
+|   Use: production databases, SAP, SQL Server             |
 |   SLA: 99.9% on single VM                              |
 +----------------------------------------------------------+
 | Ultra Disk                                               |
@@ -223,11 +223,11 @@ DATABASE SELECTION BY ACCESS PATTERN
 
 RELATIONAL (SQL)
 +----------------------------------------------------------+
-| Azure SQL Database                                        |
-|   SQL Server compatible (T-SQL, ADO.NET, EF Core)       |
-|   vCore: General Purpose (standard), Business Critical  |
+| Azure SQL Database                                       |
+|   SQL Server compatible (T-SQL, ADO.NET, EF Core)        |
+|   vCore: General Purpose (standard), Business Critical   |
 |   (in-memory OLTP, local SSD), Hyperscale (100TB)      |
-|   Elastic Pool: shared resources for multi-tenant SaaS  |
+|   Elastic Pool: shared resources for multi-tenant SaaS   |
 +----------------------------------------------------------+
 | Azure SQL Managed Instance                               |
 |   100% SQL Server compatibility                          |
@@ -235,18 +235,18 @@ RELATIONAL (SQL)
 |   Use: migrate SQL Server to cloud with minimal changes |
 +----------------------------------------------------------+
 | Azure DB for PostgreSQL Flexible Server                  |
-|   Managed PostgreSQL (up to v16)                        |
-|   Zone redundant HA, read replicas, built-in Citus      |
-|   Use: open source preference, PostGIS, JSONB workloads |
+|   Managed PostgreSQL (up to v16)                         |
+|   Zone redundant HA, read replicas, built-in Citus       |
+|   Use: open source preference, PostGIS, JSONB workloads  |
 +----------------------------------------------------------+
 
 NoSQL
 +----------------------------------------------------------+
 | Azure Cosmos DB                                          |
-|   Multi-model, multi-region, 5 consistency levels       |
-|   APIs: SQL, MongoDB, Cassandra, Gremlin, Table         |
-|   Use: global distribution, variable consistency needs  |
-|   Pricing: RU/s (Request Units per second)              |
+|   Multi-model, multi-region, 5 consistency levels        |
+|   APIs: SQL, MongoDB, Cassandra, Gremlin, Table          |
+|   Use: global distribution, variable consistency needs   |
+|   Pricing: RU/s (Request Units per second)               |
 |   Pitfall: RU capacity planning requires workload knowledge|
 +----------------------------------------------------------+
 
@@ -255,13 +255,13 @@ CACHE / KEY-VALUE
 | Azure Cache for Redis                                    |
 |   In-memory, sub-millisecond latency                   |
 |   Clustering (C6/P5 tiers), persistence, geo-replication|
-|   Use: session cache, result cache, pub/sub, rate limit |
+|   Use: session cache, result cache, pub/sub, rate limit  |
 +----------------------------------------------------------+
 
 ANALYTICS
 +----------------------------------------------------------+
 | Azure Synapse Analytics / Azure Databricks               |
-|   See 07-DATA-PLATFORMS.md                              |
+|   See 07-DATA-PLATFORMS.md                               |
 +----------------------------------------------------------+
 ```
 

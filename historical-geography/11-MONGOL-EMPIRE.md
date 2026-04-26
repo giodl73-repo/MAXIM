@@ -70,9 +70,9 @@ MONGOL EMPIRE FORMATION AND DIVISION:
   FOUR KHANATES (after ~1260):
   +──────────────────────────────────────────────+
   | YUAN DYNASTY       | CHAGATAI KHANATE        |
-  | (China + Mongolia) | (Central Asia)           |
-  | Kublai Khan        | Endless civil wars       |
-  | → Sinicized        | → Islamized eventually   |
+  | (China + Mongolia) | (Central Asia)          |
+  | Kublai Khan        | Endless civil wars      |
+  | → Sinicized        | → Islamized eventually  |
   +────────────────────+─────────────────────────+
   | ILKHANATE          | GOLDEN HORDE             |
   | (Persia/Iraq)      | (Steppe + Russia)        |

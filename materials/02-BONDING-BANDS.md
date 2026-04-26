@@ -299,21 +299,21 @@ $$\mathbf{b}_1 = 2\pi \frac{\mathbf{a}_2 \times \mathbf{a}_3}{\mathbf{a}_1 \cdot
 
 ```
     ┌─────────────────────────────────────────────────────────┐
-    │  METAL (partially filled band):                          │
-    │                                                          │
-    │  ───────────── E_F (middle of conduction band)           │
-    │  ╔═══════════╗                                           │
+    │  METAL (partially filled band):                         │
+    │                                                         │
+    │  ───────────── E_F (middle of conduction band)          │
+    │  ╔═══════════╗                                          │
     │  ║           ║  ← states above E_F available            │
-    │  ╚═══════════╝                                           │
-    │  ╔═══════════╗                                           │
+    │  ╚═══════════╝                                          │
+    │  ╔═══════════╗                                          │
     │  ║███████████║  ← filled states below E_F               │
-    │  ╚═══════════╝                                           │
-    │                                                          │
+    │  ╚═══════════╝                                          │
+    │                                                         │
     │  Even infinitesimal electric field accelerates electrons │
     │  → σ_e ~ 10⁷ S/m (Cu), 10⁶ S/m (Al)                   │
     │  Resistivity: ρ_e = m/(ne²τ) increases with T           │
-    │  (more phonon scattering at higher T)                    │
-    │                                                          │
+    │  (more phonon scattering at higher T)                   │
+    │                                                         │
     ├─────────────────────────────────────────────────────────┤
     │  SEMICONDUCTOR (E_F in small gap, E_g ~ 0.5-3 eV):       │
     │                                                          │
@@ -328,13 +328,13 @@ $$\mathbf{b}_1 = 2\pi \frac{\mathbf{a}_2 \times \mathbf{a}_3}{\mathbf{a}_1 \cdot
     │                                                          │
     ├─────────────────────────────────────────────────────────┤
     │  INSULATOR (E_F in large gap, E_g > 3-4 eV):            │
-    │                                                          │
+    │                                                         │
     │  ─────────────   ← conduction band (empty)              │
-    │       E_g ↕   (too large for thermal or optical          │
+    │       E_g ↕   (too large for thermal or optical         │
     │  ─────────────   ← valence band (full)  excitation)     │
-    │                                                          │
-    │  σ_e ~ 10⁻¹⁴ S/m for SiO₂                              │
-    │  Transparent in visible (E_photon < E_g)                 │
+    │                                                         │
+    │  σ_e ~ 10⁻¹⁴ S/m for SiO₂                               │
+    │  Transparent in visible (E_photon < E_g)                │
     └─────────────────────────────────────────────────────────┘
 ```
 
@@ -393,22 +393,22 @@ Lorentz force on carriers: F = q(v × B)
 
 ```
     ┌─────────────────────────────────────────────┐
-    │                                              │
+    │                                             │
     │   B ↑ (into page)                           │
     │   ──────────────────────────────────────    │
-    │   I_x →    ●  ●  ●  ●                      │
+    │   I_x →    ●  ●  ●  ●                       │
     │            electrons move ←                 │
-    │   Lorentz force on e⁻: F = -e(v × B)       │
+    │   Lorentz force on e⁻: F = -e(v × B)        │
     │   v = -v_x x̂, B = B_z ẑ                   │
     │   F = -e(-v_x x̂ × B_z ẑ) = ev_x B_z ŷ    │
-    │   → electrons accumulate on +y face          │
+    │   → electrons accumulate on +y face         │
     │   → Hall voltage V_H = positive on -y face  │
-    │                                              │
+    │                                             │
     │   Hall coefficient R_H = E_y/(J_x B_z)      │
     │   For electrons: R_H = -1/(ne) < 0          │
     │   For holes:     R_H = +1/(pe) > 0          │
-    │                                              │
-    │   → Sign of R_H tells carrier type!          │
+    │                                             │
+    │   → Sign of R_H tells carrier type!         │
     │   → Magnitude gives carrier density n = 1/|R_H e| │
     └─────────────────────────────────────────────┘
 

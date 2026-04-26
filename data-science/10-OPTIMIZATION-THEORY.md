@@ -8,8 +8,8 @@ THE OPTIMIZATION LANDSCAPE
   ┌──────────────────┐              ┌──────────────────────────────────┐
   │  Global min = local min         │  Many local minima, saddle points │
   │  GD converges (with LR tuning)  │  SGD finds flat minima           │
-  │  Strong theory, guarantees      │  Theory: NTK, loss landscape      │
-  │  Logistic regression, SVM, LR   │  Neural networks                  │
+  │  Strong theory, guarantees      │  Theory: NTK, loss landscape     │
+  │  Logistic regression, SVM, LR   │  Neural networks                 │
   └──────────────────┘              └──────────────────────────────────┘
 
   Key parameters:

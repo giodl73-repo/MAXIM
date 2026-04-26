@@ -20,16 +20,16 @@ INTERNATIONAL INSTITUTIONS — THE SYSTEM
 
   WHY INSTITUTIONS EXIST:
   ┌──────────────────────────────────────────────────────────────┐
-  │ FUNCTIONAL THEORY (Keohane):                                │
-  │ Reduce transaction costs of repeated interactions           │
-  │ Provide information (monitoring, transparency)              │
-  │ Create reputational linkages (defection in one area         │
-  │ affects others)                                             │
-  │ Enable issue linkage and package deals                      │
-  │                                                             │
-  │ POWER THEORY (Ikenberry, others):                           │
-  │ Dominant powers create institutions to lock in              │
-  │ advantages and secure other states' acceptance              │
+  │ FUNCTIONAL THEORY (Keohane):                                 │
+  │ Reduce transaction costs of repeated interactions            │
+  │ Provide information (monitoring, transparency)               │
+  │ Create reputational linkages (defection in one area          │
+  │ affects others)                                              │
+  │ Enable issue linkage and package deals                       │
+  │                                                              │
+  │ POWER THEORY (Ikenberry, others):                            │
+  │ Dominant powers create institutions to lock in               │
+  │ advantages and secure other states' acceptance               │
   └──────────────────────────────────────────────────────────────┘
 ```
 
@@ -47,32 +47,32 @@ UN SYSTEM ARCHITECTURE
 
   SECURITY COUNCIL (SC)
   ┌──────────────────────────────────────────────────────────┐
-  │ 15 members: 5 permanent (P5: US, UK, France, Russia,    │
-  │ China) + 10 elected for 2-year terms                    │
+  │ 15 members: 5 permanent (P5: US, UK, France, Russia,     │
+  │ China) + 10 elected for 2-year terms                     │
   │                                                          │
-  │ ARTICLE 25: Members accept decisions of SC as binding   │
-  │ → SC can authorize force, impose sanctions,             │
-  │   demand ceasefires                                     │
+  │ ARTICLE 25: Members accept decisions of SC as binding    │
+  │ → SC can authorize force, impose sanctions,              │
+  │   demand ceasefires                                      │
   │                                                          │
-  │ VETO POWER: Any P5 member can block any substantive     │
-  │ resolution                                              │
+  │ VETO POWER: Any P5 member can block any substantive      │
+  │ resolution                                               │
   │ → Design reflects 1945 reality: great powers won't     │
   │   accept binding decisions against their interests     │
-  │ → Consequence: SC gridlocks when P5 interests conflict  │
+  │ → Consequence: SC gridlocks when P5 interests conflict   │
   └──────────────────────────────────────────────────────────┘
 
   GENERAL ASSEMBLY (GA)
   ┌──────────────────────────────────────────────────────────┐
-  │ 193 member states, equal voting (one state, one vote)   │
-  │ ARTICLE 11: GA makes recommendations, not binding       │
-  │ decisions on peace and security                         │
+  │ 193 member states, equal voting (one state, one vote)    │
+  │ ARTICLE 11: GA makes recommendations, not binding        │
+  │ decisions on peace and security                          │
   │                                                          │
-  │ Majority in GA ≠ majority of world population           │
-  │ (Vanuatu has same vote as China)                        │
+  │ Majority in GA ≠ majority of world population            │
+  │ (Vanuatu has same vote as China)                         │
   │                                                          │
   │ GA as political theater:                                 │
-  │ Non-binding resolutions; legitimacy signaling;          │
-  │ norm-creation (UDHR adopted as GA resolution)           │
+  │ Non-binding resolutions; legitimacy signaling;           │
+  │ norm-creation (UDHR adopted as GA resolution)            │
   └──────────────────────────────────────────────────────────┘
 
   SECRETARIAT:

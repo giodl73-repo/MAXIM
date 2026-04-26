@@ -8,7 +8,7 @@ in biology — and some of the most rapid evolutionary change.
 
 ```
 ┌──────────────────────────────────────────────────────────────────┐
-│                   COEVOLUTION LANDSCAPE                           │
+│                   COEVOLUTION LANDSCAPE                          │
 │                                                                    │
 │  TYPE              INTERACTION      EXAMPLE                      │
 │  ────              ───────────      ───────                      │
@@ -18,12 +18,12 @@ in biology — and some of the most rapid evolutionary change.
 │                                                                    │
 │  Mutualism         Cooperative      Plant-pollinator             │
 │  (+ / +)                            Fig-fig wasp                 │
-│                                    Mycorrhizal fungi              │
+│                                    Mycorrhizal fungi             │
 │                                                                    │
 │  Red Queen         Parasites drive  Sexual reproduction          │
 │                    host diversity   MHC diversity                │
 │                                                                    │
-│  Cospeciation      Parallel clade   Figs & fig wasps            │
+│  Cospeciation      Parallel clade   Figs & fig wasps             │
 │                    divergence       Pocket gopher lice           │
 │                                                                    │
 │  KEY TENSION: coevolution happens at population level            │

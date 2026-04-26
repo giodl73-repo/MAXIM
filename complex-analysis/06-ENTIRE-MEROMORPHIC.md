@@ -11,8 +11,8 @@ ENTIRE AND MEROMORPHIC FUNCTIONS — MAP
   ENTIRE (no singularities anywhere in ℂ):
   ┌──────────────────────────────────────────────────────────────────────┐
   │  Polynomials    Growth: |f(z)| ~ |z|ⁿ         Zeros: finite        │
-  │  e^z, sin z    Growth: exponential              Zeros: discrete     │
-  │  e^{e^z}       Growth: superexponential         Zeros: none?        │
+  │  e^z, sin z    Growth: exponential              Zeros: discrete      │
+  │  e^{e^z}       Growth: superexponential         Zeros: none?         │
   └──────────────────────────────────────────────────────────────────────┘
 
   GROWTH RATE — ORDER ρ:

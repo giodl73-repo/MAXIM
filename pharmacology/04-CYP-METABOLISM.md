@@ -11,18 +11,18 @@ The cytochrome P450 (CYP) enzyme family is the primary metabolic system for drug
 |  LOCATION                                                        |
 |  Primarily liver (hepatocytes), also intestine, lung, brain      |
 |                                                                  |
-|  MECHANISM                                                        |
+|  MECHANISM                                                       |
 |  Drug (substrate) + O₂ + NADPH + CYP → oxidized drug + H₂O     |
 |  (monooxygenation: inserts one oxygen atom into the drug)        |
 |                                                                  |
 |  WHY IT MATTERS                                                  |
-|  ~90% of clinically used drugs are CYP substrates               |
+|  ~90% of clinically used drugs are CYP substrates                |
 |  DDIs via CYP: 20-30% of adverse drug reactions                  |
-|  Genetic variants in CYP: explain 15-25% of drug response       |
+|  Genetic variants in CYP: explain 15-25% of drug response        |
 |                                                                  |
 |  CYP NOMENCLATURE                                                |
-|  CYP[family][subfamily][isoform]                                  |
-|  CYP3A4 = family 3, subfamily A, isoform 4                      |
+|  CYP[family][subfamily][isoform]                                 |
+|  CYP3A4 = family 3, subfamily A, isoform 4                       |
 |  Clinically relevant: CYP3A4, CYP2D6, CYP2C9, CYP2C19, CYP1A2  |
 +──────────────────────────────────────────────────────────────────+
 ```

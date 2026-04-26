@@ -19,14 +19,14 @@ Solving Ax = b is the most common operation in scientific computing. Every PDE s
 |  +---------------------+           | Multigrid         |        |
 |  | QR factorization    |           +-------------------+        |
 |  | Least squares min   |           | O(n) to O(n^{4/3})         |
-|  | ||Ax-b||^2          |           | for sparse A       |        |
+|  | ||Ax-b||^2          |           | for sparse A      |        |
 |  +---------------------+           +-------------------+        |
 |  | Cholesky (sym.PD)   |           PRECONDITIONING:             |
 |  | A = LL^T            |           Key to practical speed       |
 |  | Half the work of LU |                                        |
 |  +---------------------+                                        |
-|                                                                  |
-|  WHEN DIRECT:          n < 10^4, dense, need exact solution    |
+|                                                                 |
+|  WHEN DIRECT:          n < 10^4, dense, need exact solution     |
 |  WHEN ITERATIVE:       n > 10^4, sparse, structure exploitable  |
 +------------------------------------------------------------------+
 ```

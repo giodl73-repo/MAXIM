@@ -11,30 +11,30 @@ Regression models the relationship between a response Y and predictors X. The fa
 |                                                                  |
 |  CLASSICAL LINEAR                                                |
 |  +---------------------------+                                   |
-|  | OLS: Y = Xbeta + epsilon  |  epsilon ~ Normal(0, sigma^2 I)  |
+|  | OLS: Y = Xbeta + epsilon  |  epsilon ~ Normal(0, sigma^2 I)   |
 |  | Assumptions: linearity, independence, homoscedasticity        |
 |  +---------------------------+                                   |
 |          |                                                       |
 |          v                                                       |
 |  GENERALIZED LINEAR MODELS (GLMs)                                |
 |  +---------------------------+                                   |
-|  | Relax Normality of Y.     |  Y ~ Exponential family          |
+|  | Relax Normality of Y.     |  Y ~ Exponential family           |
 |  | link(E[Y]) = X beta       |  (Logistic, Poisson, Gamma, ...)  |
 |  +---------------------------+                                   |
 |          |                                                       |
 |          v                                                       |
 |  REGULARIZED / HIGH-DIMENSIONAL                                  |
 |  +---------------------------+                                   |
-|  | Ridge: L2 penalty         |  For multicollinearity           |
+|  | Ridge: L2 penalty         |  For multicollinearity            |
 |  | Lasso: L1 penalty         |  For sparse models              |
-|  | Elastic Net: L1 + L2      |  For correlated predictors       |
+|  | Elastic Net: L1 + L2      |  For correlated predictors        |
 |  +---------------------------+                                   |
 |          |                                                       |
 |          v                                                       |
 |  MIXED EFFECTS MODELS                                            |
 |  +---------------------------+                                   |
-|  | Fixed effects + random    |  For grouped / repeated data     |
-|  | effects for groups        |  Partial pooling                 |
+|  | Fixed effects + random    |  For grouped / repeated data      |
+|  | effects for groups        |  Partial pooling                  |
 |  +---------------------------+                                   |
 +------------------------------------------------------------------+
 ```

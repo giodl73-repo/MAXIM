@@ -4,26 +4,26 @@
 
 ```
 +------------------------------------------------------------------+
-|           FUNGAL PATHOGENS OF ANIMALS: SCOPE                    |
+|           FUNGAL PATHOGENS OF ANIMALS: SCOPE                     |
 |                                                                  |
-|  HUMAN PATHOGENS:                                               |
-|  Candida (C. albicans, C. auris): mucosal and invasive disease  |
-|  Aspergillus fumigatus: invasive aspergillosis                  |
-|  Cryptococcus neoformans: meningitis                            |
-|  Histoplasma, Coccidioides: dimorphic systemic fungi            |
+|  HUMAN PATHOGENS:                                                |
+|  Candida (C. albicans, C. auris): mucosal and invasive disease   |
+|  Aspergillus fumigatus: invasive aspergillosis                   |
+|  Cryptococcus neoformans: meningitis                             |
+|  Histoplasma, Coccidioides: dimorphic systemic fungi             |
 |  Dermatophytes (Trichophyton etc.): skin, hair, nails          |
-|  Pneumocystis jirovecii: pneumonia in AIDS patients             |
+|  Pneumocystis jirovecii: pneumonia in AIDS patients              |
 |                                                                  |
-|  WILDLIFE PATHOGENS:                                            |
-|  Batrachochytrium dendrobatidis (Bd): amphibian crisis          |
-|  B. salamandrivorans (Bsal): salamander crisis                  |
-|  Pseudogymnoascus destructans: white-nose syndrome (bats)       |
+|  WILDLIFE PATHOGENS:                                             |
+|  Batrachochytrium dendrobatidis (Bd): amphibian crisis           |
+|  B. salamandrivorans (Bsal): salamander crisis                   |
+|  Pseudogymnoascus destructans: white-nose syndrome (bats)        |
 |  Ophidiomyces ophiodiicola: snake fungal disease               |
 |                                                                  |
-|  GLOBAL BURDEN:                                                 |
+|  GLOBAL BURDEN:                                                  |
 |  ~1.5 billion people: superficial fungal infections            |
 |  ~1 million deaths/year from invasive fungal diseases          |
-|  (More than malaria or tuberculosis in immunocompromised)       |
+|  (More than malaria or tuberculosis in immunocompromised)        |
 +------------------------------------------------------------------+
 ```
 
@@ -326,7 +326,7 @@ PSEUDOGYMNOASCUS DESTRUCTANS (formerly Geomyces):
 ```
 ANTIFUNGAL TARGETS AND DRUGS
 +------------------------------------------------------------------+
-|  TARGET            | DRUG CLASS      | Examples                 |
+|  TARGET            | DRUG CLASS      | Examples                  |
 +------------------------------------------------------------------+
 |  Ergosterol        | Polyenes        | Amphotericin B, nystatin |
 |  (membrane binding)|                 |                          |

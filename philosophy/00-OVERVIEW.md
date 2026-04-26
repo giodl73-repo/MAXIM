@@ -17,8 +17,8 @@
 │  Logic & Formal Methods        │  Epistemology (theory of knowledge)     │
 │  ├── Propositional logic       │  ├── What is knowledge?                 │
 │  ├── Predicate (FOL)           │  ├── Justification & evidence           │
-│  ├── Modal logic               │  ├── Skepticism                        │
-│  ├── Proof theory              │  └── Bayesian epistemology             │
+│  ├── Modal logic               │  ├── Skepticism                         │
+│  ├── Proof theory              │  └── Bayesian epistemology              │
 │  └── Gödel's incompleteness    │                                         │
 │                                │  Metaphysics (nature of reality)        │
 │  Philosophy of Mathematics     │  ├── Ontology (what exists)             │
@@ -27,10 +27,10 @@
 │  ├── Intuitionism              │  └── Modality (possible worlds)         │
 │  └── Logicism (Frege/Russell)  │                                         │
 │                                │  Ethics & Political Philosophy          │
-│  Philosophy of Science         │  ├── Metaethics                        │
-│  ├── Demarcation               │  ├── Consequentialism                  │
-│  ├── Explanation               │  ├── Deontology (Kant)                 │
-│  ├── Scientific realism        │  └── Virtue ethics                     │
+│  Philosophy of Science         │  ├── Metaethics                         │
+│  ├── Demarcation               │  ├── Consequentialism                   │
+│  ├── Explanation               │  ├── Deontology (Kant)                  │
+│  ├── Scientific realism        │  └── Virtue ethics                      │
 │  └── Paradigm shifts (Kuhn)    │                                         │
 │                                │  Philosophy of Mind                     │
 │                                │  ├── Mind-body problem                  │

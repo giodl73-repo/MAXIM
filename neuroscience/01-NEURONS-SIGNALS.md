@@ -50,7 +50,7 @@
     ┌──────────────────────────────────────────────────────────────┐
     │  ION CONCENTRATIONS (approximate, mammalian neuron)          │
     │                                                              │
-    │  Ion      │ Intracellular │ Extracellular │ Nernst Eq.      │
+    │  Ion      │ Intracellular │ Extracellular │ Nernst Eq.       │
     │  ─────────┼───────────────┼───────────────┼────────────────  │
     │  K⁺       │ 140 mM        │ 5 mM          │ E_K = -90 mV    │
     │  Na⁺      │ 10 mM         │ 140 mM        │ E_Na = +65 mV   │
@@ -320,14 +320,14 @@ From the learner's electronics background:
     ┌─────────────────────────────────────────────────────────────┐
     │  PRESYNAPTIC TERMINAL        │  POSTSYNAPTIC DENSITY (PSD)  │
     │                              │                              │
-    │  Synaptic vesicles (SV)      │  Receptors (AMPA, NMDA)     │
+    │  Synaptic vesicles (SV)      │  Receptors (AMPA, NMDA)      │
     │  ~40 nm diameter             │  PSD-95 scaffolding          │
     │  ~5000 glutamate molecules   │  CaMKII, SHANK, Homer        │
     │  per vesicle                 │                              │
-    │  Active zone proteins:       │  Spine head: ~0.1-0.5 μm    │
-    │  RIM, Munc13, RIM-BP         │  Spine neck: thin, ~0.1 μm  │
+    │  Active zone proteins:       │  Spine head: ~0.1-0.5 μm     │
+    │  RIM, Munc13, RIM-BP         │  Spine neck: thin, ~0.1 μm   │
     │                              │                              │
-    │  SYNAPTIC CLEFT (~20-30 nm) │                              │
+    │  SYNAPTIC CLEFT (~20-30 nm) │                               │
     └─────────────────────────────────────────────────────────────┘
 ```
 

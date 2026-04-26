@@ -6,21 +6,21 @@ Soil is the living foundation of agriculture — not just dirt but a complex sys
 
 ```
 +---------------------------------------------------------------+
-|                    SOIL SYSTEM OVERVIEW                        |
-|                                                                |
+|                    SOIL SYSTEM OVERVIEW                       |
+|                                                               |
 |  MINERAL FRACTION          ORGANIC FRACTION                   |
 |  (45-55% by volume)        (1-6% by volume)                   |
 |  Sand/silt/clay            Humus, root debris                 |
 |  (texture, structure)      (fertility, water retention)       |
-|                                                                |
+|                                                               |
 |  PORE SPACE                BIOLOGICAL FRACTION                |
 |  (25-50% by volume)        (~0.1% by volume but critical)     |
 |  Air + water               Bacteria, fungi, earthworms,       |
 |  (drainage, aeration,      nematodes, arthropods              |
 |   root penetration)        (nutrient cycling, structure)      |
-|                                                                |
+|                                                               |
 |  KEY OUTPUTS: Plant-available water, nutrients, physical      |
-|               support, temperature buffering                   |
+|               support, temperature buffering                  |
 +---------------------------------------------------------------+
 ```
 

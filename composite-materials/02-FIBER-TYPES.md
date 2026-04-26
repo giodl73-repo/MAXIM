@@ -6,15 +6,15 @@
 +------------------------------------------------------------------+
 |              REINFORCEMENT FIBER LANDSCAPE                       |
 |                                                                  |
-|   CARBON FIBER   GLASS FIBER    ARAMID       NATURAL            |
-|   ───────────    ───────────    ──────       ───────            |
+|   CARBON FIBER   GLASS FIBER    ARAMID       NATURAL             |
+|   ───────────    ───────────    ──────       ───────             |
 |   CFRP / GFRP split of market: 30% CF / 65% GF / 5% other     |
 |                                                                  |
-|   Carbon:        Glass:         Aramid:      Flax, hemp,        |
+|   Carbon:        Glass:         Aramid:      Flax, hemp,         |
 |   High E, high σ Low cost       Ballistic     jute, basalt       |
-|   Low density    Good E/ρ       Tensile str   Bio-sourced       |
+|   Low density    Good E/ρ       Tensile str   Bio-sourced        |
 |   Brittle in     Isotropic fib  Weak in       Lower property     |
-|   compression    Toughened sys  compression   but sustainable   |
+|   compression    Toughened sys  compression   but sustainable    |
 |                                                                  |
 |   $25–200/kg     $1.5–8/kg      $20–60/kg    $2–15/kg          |
 +------------------------------------------------------------------+

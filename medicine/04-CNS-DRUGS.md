@@ -48,7 +48,7 @@ Drug classes map to specific intervention points:
 │                     │ Vigabatrin: GABA-T inhibitor → ↑ GABA             │
 ├─────────────────────┼────────────────────────────────────────────────────┤
 │ GLUTAMATE SYSTEM    │ Memantine, ketamine, esketamine: NMDA antagonists  │
-│                     │ Phenytoin/carbamazepine: Na⁺ channel (↓ neuronal  │
+│                     │ Phenytoin/carbamazepine: Na⁺ channel (↓ neuronal   │
 │                     │   firing, also ↓ glutamate release indirectly)     │
 ├─────────────────────┼────────────────────────────────────────────────────┤
 │ OPIOID RECEPTORS    │ μ (MOR): analgesia, euphoria, respiratory dep.     │

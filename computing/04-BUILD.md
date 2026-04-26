@@ -46,7 +46,7 @@ Build tools solve a problem that doesn't exist in .NET: browsers can't natively 
   Each module resolution requires a round trip.
 
   +--------+     GET /src/app.js           +--------+
-  |        | --> GET /src/router.js     -->|       |
+  |        | --> GET /src/router.js     -->|        |
   | Browser|     GET /src/auth.js          | Server |
   |        |     GET /src/utils.js         |        |
   |        |     ...×300                   |        |

@@ -4,7 +4,7 @@
 
 ```
 +===========================================================================+
-|                  EXTREMES OF THE WATER CYCLE                               |
+|                  EXTREMES OF THE WATER CYCLE                              |
 |         Flood = too much water too fast; Drought = too little too long    |
 +===========================================================================+
 |                                                                           |

@@ -4,7 +4,7 @@
 
 ```
 ┌─────────────────────────────────────────────────────────────────────────────┐
-│                    BEHAVIORAL INSIGHT TEAMS GLOBALLY                         │
+│                    BEHAVIORAL INSIGHT TEAMS GLOBALLY                        │
 │                                                                               │
 │  BIT (UK Behavioural Insights Team, 2010):                                  │
 │  First government behavioral unit. Started in Cabinet Office.               │
@@ -19,16 +19,16 @@
 │  BETA (Australian Government Behavioral Economics Team, 2015)               │
 │  EAST unit in Singapore, Netherlands, France, Canada, Denmark               │
 │                                                                               │
-│  COMMON METHODOLOGY:                                                         │
+│  COMMON METHODOLOGY:                                                        │
 │  1. Diagnose the behavioral bottleneck (why don't people do X already?)     │
-│  2. Design the intervention (EAST framework; exploit behavioral patterns)    │
+│  2. Design the intervention (EAST framework; exploit behavioral patterns)   │
 │  3. Test with randomized controlled trial (A/B test)                        │
-│  4. Scale if effective                                                       │
+│  4. Scale if effective                                                      │
 │                                                                               │
-│  CONNECTION TO COMPUTING:                                                    │
+│  CONNECTION TO COMPUTING:                                                   │
 │  This is A/B testing applied to policy. Same statistical framework as       │
 │  product feature testing (see statistics-applied/). Same power calculations. │
-│  The political challenge: policymakers less comfortable with randomized      │
+│  The political challenge: policymakers less comfortable with randomized     │
 │  control than product managers. Same technical problem, different context.  │
 └─────────────────────────────────────────────────────────────────────────────┘
 ```

@@ -6,7 +6,7 @@ Deep foundations transfer load to soil or rock at depth, bypassing near-surface 
 
 ```
 +------------------------------------------------------------------+
-|               DEEP FOUNDATION SELECTION                         |
+|               DEEP FOUNDATION SELECTION                          |
 +------------------------------------------------------------------+
 |                                                                  |
 |  WHY DEEP FOUNDATIONS?                                           |

@@ -4,14 +4,14 @@
 
 ```
 +------------------------------------------------------------------+
-|                    FAST FASHION LANDSCAPE                         |
+|                    FAST FASHION LANDSCAPE                        |
 |                                                                  |
 |  DEFINITION: Fashion produced rapidly in response to current     |
 |  trends, at low cost, for mass consumption and disposal          |
 |                                                                  |
 |  GENERATIONS                                                     |
-|  Gen 1 (1990s-2000s): Zara, H&M -- weeks from trend to store    |
-|  Gen 2 (2010s): Boohoo, ASOS -- days; online-only               |
+|  Gen 1 (1990s-2000s): Zara, H&M -- weeks from trend to store     |
+|  Gen 2 (2010s): Boohoo, ASOS -- days; online-only                |
 |  Gen 3 (2021+): SHEIN, Temu -- 24-72hrs; algorithmically driven  |
 |                                                                  |
 |  VOLUME                                                          |
@@ -58,36 +58,36 @@ ZARA'S INNOVATION (from 1975, La Coruna, Spain)
 ```
 ZARA'S INFORMATION FLYWHEEL
   +-------------------------------------------+
-  |  STORE MANAGER reports daily:              |
-  |  - What sold out (what to reorder)         |
-  |  - What didn't sell (what not to reorder)  |
+  |  STORE MANAGER reports daily:             |
+  |  - What sold out (what to reorder)        |
+  |  - What didn't sell (what not to reorder) |
   |  - What customers asked for               |
-  |  - What customers tried on but didn't buy  |
+  |  - What customers tried on but didn't buy |
   +-------------------------------------------+
              |
              | nightly upload
              v
   +-------------------------------------------+
-  |  DESIGN TEAM (La Coruna HQ)                |
-  |  Receives real-time demand data            |
-  |  Designs in response to signals            |
-  |  Creates 500-1,000 new designs/week        |
+  |  DESIGN TEAM (La Coruna HQ)               |
+  |  Receives real-time demand data           |
+  |  Designs in response to signals           |
+  |  Creates 500-1,000 new designs/week       |
   +-------------------------------------------+
              |
              | fast production
              v
   +-------------------------------------------+
-  |  FACTORIES (Spain, Portugal, Morocco)      |
-  |  Small-batch production                    |
-  |  Can adjust mid-run based on orders        |
+  |  FACTORIES (Spain, Portugal, Morocco)     |
+  |  Small-batch production                   |
+  |  Can adjust mid-run based on orders       |
   +-------------------------------------------+
              |
              | 2-3 week cycle
              v
   +-------------------------------------------+
-  |  STORES (twice-weekly truck delivery)      |
-  |  New items arrive constantly               |
-  |  No full warehouse pre-season              |
+  |  STORES (twice-weekly truck delivery)     |
+  |  New items arrive constantly              |
+  |  No full warehouse pre-season             |
   |  "If you like it, buy it now -- it's gone" |
   +-------------------------------------------+
 ```

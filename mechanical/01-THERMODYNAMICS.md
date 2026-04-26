@@ -261,11 +261,11 @@ Practical Stirling engines: 30–40%. Used in spacecraft (RTG), submarines (Swed
 ```
      ┌──────CONDENSER──────┐
      │   (high p, heat out) │
-     │                      │
+     │                     │
   Compressor             Expansion
   (work in)               valve
-     │                      │
-     │    EVAPORATOR        │
+     │                     │
+     │    EVAPORATOR       │
      └──────────────────────┘
         (low p, heat in from space to be cooled)
 ```

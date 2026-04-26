@@ -12,8 +12,8 @@ ELECTRICITY MARKET STRUCTURE (US):
 │                    WHOLESALE ELECTRICITY MARKETS                           │
 ├──────────────────────────────────────────────────────────────────────────── │
 │  ISO/RTO Competitive Markets          Non-ISO Regulated Utility Areas      │
-│  (PJM, MISO, CAISO, ERCOT, etc.)      (Southeast, Pacific NW)             │
-│                                                                             │
+│  (PJM, MISO, CAISO, ERCOT, etc.)      (Southeast, Pacific NW)              │
+│                                                                            │
 │  ┌───────────────────────────────┐    ┌──────────────────────────────────┐ │
 │  │  ENERGY MARKETS               │    │  TRADITIONAL VERTICALLY          │ │
 │  │  • Day-ahead (DA) market       │    │  INTEGRATED UTILITY              │ │
@@ -22,10 +22,10 @@ ELECTRICITY MARKET STRUCTURE (US):
 │  │    (nodal pricing)             │    │  • State PUC sets retail rates   │ │
 │  │                                │    │  • No competitive energy market  │ │
 │  ├───────────────────────────────┤    └──────────────────────────────────┘ │
-│  │  CAPACITY MARKETS              │                                         │
-│  │  • Forward capacity auctions   │    Examples: Duke Energy Carolinas,    │
-│  │  • Ensure adequate MW exist    │    Southern Company, Xcel Energy       │
-│  │    3 years forward             │    Pacific Gas & Electric (hybrid)     │
+│  │  CAPACITY MARKETS             │                                         │
+│  │  • Forward capacity auctions  │    Examples: Duke Energy Carolinas,     │
+│  │  • Ensure adequate MW exist   │    Southern Company, Xcel Energy        │
+│  │    3 years forward            │    Pacific Gas & Electric (hybrid)      │
 │  ├───────────────────────────────┤                                         │
 │  │  ANCILLARY SERVICES MARKETS   │                                         │
 │  │  • Regulation (frequency)      │                                         │
@@ -415,7 +415,7 @@ PHYSICAL PPA STRUCTURE:
 
   Generator (wind farm)         PPA Contract              Offtaker (utility)
   ┌────────────────────┐        $/MWh, 15-25 years        ┌───────────────┐
-  │ Nameplate: 200 MW  │  ←──── Fixed price: $35/MWh ───── │ Utility LSE   │
+  │ Nameplate: 200 MW  │  ←──── Fixed price: $35/MWh ───── │ Utility LSE  │
   │ CF: ~35%           │  ←──── Delivery point: grid ────── │ (or corporate)│
   │ Annual output:     │        All energy physically       └───────────────┘
   │  ~613 GWh/yr       │        delivered                   Physically buys
@@ -443,8 +443,8 @@ VPPA STRUCTURE:
   Wind farm in Texas (ERCOT)        Financial settlement      Microsoft data center
   ┌────────────────────────┐        Contract for Differences  ┌─────────────────┐
   │ Generate electricity   │  ←──── Strike price: $30/MWh ─── │  Buys local     │
-  │ Sell into ERCOT spot   │        Duration: 20 years         │  grid power at  │
-  │ market at market price │                                   │  market rate    │
+  │ Sell into ERCOT spot   │        Duration: 20 years        │  grid power at  │
+  │ market at market price │                                  │  market rate    │
   └────────────────────────┘                                   └─────────────────┘
            │                                                           │
            │ Settle difference with Microsoft:                        │

@@ -9,30 +9,30 @@ unifying essentially all static analysis. The tools range from fast approximate 
 
 ```
 +--------------------------------------------------------------------------+
-|                       PROGRAM ANALYSIS LANDSCAPE                          |
+|                       PROGRAM ANALYSIS LANDSCAPE                         |
 |                                                                            |
-|  TECHNIQUE           TOOLS              PROPERTIES         SCALE          |
-|  ─────────           ─────              ──────────         ─────          |
-|  Abstract            Astrée, Frama-C    Absence of         Safety-crit.   |
-|  interpretation      (value analysis)   runtime errors     C (avionics)   |
+|  TECHNIQUE           TOOLS              PROPERTIES         SCALE         |
+|  ─────────           ─────              ──────────         ─────         |
+|  Abstract            Astrée, Frama-C    Absence of         Safety-crit.  |
+|  interpretation      (value analysis)   runtime errors     C (avionics)  |
 |                                                                            |
-|  Dataflow analysis   Clang SA, Infer    Null deref,        Any codebase   |
-|  (flow-sensitive)    (flow-insens.)     resource leaks,    (scales well)  |
+|  Dataflow analysis   Clang SA, Infer    Null deref,        Any codebase  |
+|  (flow-sensitive)    (flow-insens.)     resource leaks,    (scales well) |
 |                                         uninitialized vars                 |
 |                                                                            |
-|  Symbolic execution  KLEE, angr,        Reachability,      C/binary       |
-|                      S2E, Manticore     crashes, asserts   (moderate)     |
+|  Symbolic execution  KLEE, angr,        Reachability,      C/binary      |
+|                      S2E, Manticore     crashes, asserts   (moderate)    |
 |                                                                            |
-|  Separation logic    Infer (biabduct.)  Memory safety,     Java/C/ObjC    |
-|                                         null deref,        (Facebook-     |
-|                                         resource leaks     scale CI)      |
+|  Separation logic    Infer (biabduct.)  Memory safety,     Java/C/ObjC   |
+|                                         null deref,        (Facebook-    |
+|                                         resource leaks     scale CI)     |
 |                                                                            |
-|  Taint analysis      CodeQL, FlowDagger Security info-     Java/Python/   |
-|  (IFDS framework)    Semgrep            flow, SQL inject.  JS (CI)        |
+|  Taint analysis      CodeQL, FlowDagger Security info-     Java/Python/  |
+|  (IFDS framework)    Semgrep            flow, SQL inject.  JS (CI)       |
 |                                                                            |
-|  Deductive           Frama-C WP,        Full functional    Safety-crit.   |
-|  verification        Dafny, VeriFast    correctness        C (nuclear,    |
-|                                                            aerospace)     |
+|  Deductive           Frama-C WP,        Full functional    Safety-crit.  |
+|  verification        Dafny, VeriFast    correctness        C (nuclear,   |
+|                                                            aerospace)    |
 +--------------------------------------------------------------------------+
 
   Fundamental tension:
@@ -41,7 +41,7 @@ unifying essentially all static analysis. The tools range from fast approximate 
   │               (Conservative over-approximation.)                   │
   │  COMPLETENESS No false positives: if tool reports a bug, it's real.│
   │               (Precise under-approximation.)                       │
-  │  TERMINATION  Tool always halts.                                    │
+  │  TERMINATION  Tool always halts.                                   │
   │                                                                    │
   │  Rice's Theorem: you cannot have all three for non-trivial props.  │
   │                                                                    │
@@ -95,7 +95,7 @@ Different domains trade precision for efficiency:
   | Signs            | x ∈ {negative, zero, positive, unknown}  | O(n)    |
   |                  | Coarse, fast. Good for div-by-zero.       |         |
   +------------------+-------------------------------------------+---------+
-  | Intervals        | x ∈ [lo, hi]  (per variable)             | O(n)    |
+  | Intervals        | x ∈ [lo, hi]  (per variable)              | O(n)    |
   |                  | Tracks bounds. Buffer overflow.           |         |
   +------------------+-------------------------------------------+---------+
   | Octagons         | ±x ± y ≤ c  (pairwise constraints)       | O(n^2)  |
@@ -107,7 +107,7 @@ Different domains trade precision for efficiency:
   | Shape analysis   | Heap structure (list, tree, DAG, cyclic)  | O(exp)  |
   |                  | Pointer safety, aliasing structure.       |         |
   +------------------+-------------------------------------------+---------+
-  | Congruences      | x ≡ r (mod n)                            | O(n)    |
+  | Congruences      | x ≡ r (mod n)                             | O(n)    |
   |                  | Array alignment, stride patterns.         |         |
   +------------------+-------------------------------------------+---------+
 
@@ -195,11 +195,11 @@ analyses. Every compiler optimization you know is a dataflow analysis.
   are monotone, this always terminates.
 
   ┌──────────────────────────────────────────────────────────────┐
-  │  Forward analysis:  data flows from program start toward end  │
+  │  Forward analysis:  data flows from program start toward end │
   │  IN[n]  = JOIN over all predecessors p: OUT[p]               │
   │  OUT[n] = f_n(IN[n])                                         │
-  │                                                               │
-  │  Backward analysis: data flows from program end toward start  │
+  │                                                              │
+  │  Backward analysis: data flows from program end toward start │
   │  OUT[n] = JOIN over all successors s: IN[s]                  │
   │  IN[n]  = f_n(OUT[n])                                        │
   └──────────────────────────────────────────────────────────────┘
@@ -537,13 +537,13 @@ shared intermediate representation (Cil — C Intermediate Language).
 
 ```
   +──────────────────────────────────────────────────────────+
-  │                       Frama-C                             │
-  │                                                           │
+  │                       Frama-C                            │
+  │                                                          │
   │  C source -> CIL normalization -> Kernel (AST + state)   │
-  │                                                           │
+  │                                                          │
   │  Plugins (each provides an analysis):                    │
-  │                                                           │
-  │  ┌────────┐  ┌─────────┐  ┌──────────┐  ┌──────────┐    │
+  │                                                          │
+  │  ┌────────┐  ┌─────────┐  ┌──────────┐  ┌──────────┐     │
   │  | Value  |  |   WP    |  |   EVA    |  | PathCrawler│   │
   │  |(abs.   |  |(deductive|  |(evolved  |  |(structural │   │
   │  | interp.)  | verif.) |  | value)   |  | coverage) │   │
@@ -632,11 +632,11 @@ Putting it all together — what does each analysis technique guarantee?
 
 ```
   ┌──────────────────────────────────────────────────────────────────────┐
-  │  FAST (seconds): Run on every commit                                  │
-  │  - Type checker (already running)                                     │
-  │  - Infer (on changed files)                                           │
-  │  - CodeQL basic queries                                               │
-  │  - Clang Static Analyzer                                              │
+  │  FAST (seconds): Run on every commit                                 │
+  │  - Type checker (already running)                                    │
+  │  - Infer (on changed files)                                          │
+  │  - CodeQL basic queries                                              │
+  │  - Clang Static Analyzer                                             │
   ├──────────────────────────────────────────────────────────────────────┤
   │  MEDIUM (minutes-hours): Run on PR / nightly                          │
   │  - Full Infer analysis                                                │
@@ -646,7 +646,7 @@ Putting it all together — what does each analysis technique guarantee?
   ├──────────────────────────────────────────────────────────────────────┤
   │  SLOW (days-weeks): Run at milestones / pre-release                  │
   │  - Frama-C WP with ACSL annotations                                  │
-  │  - Symbolic execution full coverage                                   │
+  │  - Symbolic execution full coverage                                  │
   │  - Abstract interpretation (full program Astrée run)                 │
   ├──────────────────────────────────────────────────────────────────────┤
   │  ONE-TIME (months-years): Safety-critical certification               │

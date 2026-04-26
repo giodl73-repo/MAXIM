@@ -4,19 +4,19 @@
 
 ```
 +------------------------------------------------------------------+
-|              THE PAPER MACHINE — SECTION BY SECTION             |
+|              THE PAPER MACHINE — SECTION BY SECTION              |
 |                                                                  |
-|  HEADBOX → FORMING → PRESS → DRY END → FINISHING                |
+|  HEADBOX → FORMING → PRESS → DRY END → FINISHING                 |
 |              |          |       |          |                     |
-|         Consistency  Water   Water      Calendering             |
-|         0.3–1.0%    removal removal    Reeling                  |
+|         Consistency  Water   Water      Calendering              |
+|         0.3–1.0%    removal removal    Reeling                   |
 |         1.0%→0.20%  20→45%  45→93%    Slitting                 |
 |                                                                  |
-|  STOCK PREP → fan pump → headbox → machine → finished roll      |
+|  STOCK PREP → fan pump → headbox → machine → finished roll       |
 |                                                                  |
 |  WIRE SECTION:   0.3–1.0% consistency → ~20% solids            |
-|  PRESS SECTION:  20% solids → ~40–45% solids                    |
-|  DRY END:        45% solids → 92–95% solids                     |
+|  PRESS SECTION:  20% solids → ~40–45% solids                     |
+|  DRY END:        45% solids → 92–95% solids                      |
 +------------------------------------------------------------------+
 ```
 

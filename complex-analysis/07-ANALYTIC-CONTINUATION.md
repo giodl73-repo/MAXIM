@@ -23,7 +23,7 @@ ANALYTIC CONTINUATION — PROCESS
   │  f = g on a set S ⊂ Ω with an accumulation point in Ω             │
   │  ⟹  f ≡ g on all of Ω                                             │
   │                                                                     │
-  │  Consequence: continuation is UNIQUE when it exists                │
+  │  Consequence: continuation is UNIQUE when it exists                 │
   └─────────────────────────────────────────────────────────────────────┘
 
   MULTI-VALUED CONTINUATION (monodromy issue):
@@ -120,8 +120,8 @@ SCHWARZ REFLECTION PRINCIPLE:
 
        Upper half-plane          Lower half-plane
        ┌─────────────────┐       ┌─────────────────┐
-       │     Ω ⊂ ℍ      │       │      Ω*         │
-       │   f defined     │       │  f(z̄) = f̄(z)   │
+       │     Ω ⊂ ℍ       │       │      Ω*         │
+       │   f defined     │       │  f(z̄) = f̄(z)    │
        └─────────────────┘       └─────────────────┘
               │                        │
               └──────── I (real axis) ──┘

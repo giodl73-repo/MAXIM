@@ -4,7 +4,7 @@
 
 ```
 +------------------------------------------------------------------+
-|                    BRAND IDENTITY HIERARCHY                       |
+|                    BRAND IDENTITY HIERARCHY                      |
 |                                                                  |
 |  BRAND STRATEGY (business level)                                 |
 |  Mission, values, positioning, audience, voice                   |
@@ -38,18 +38,18 @@ A good logo = successful brand System + consistency over time = brand equity
 
 COMPONENTS OF A BRAND IDENTITY SYSTEM
 +------------------------------------------+
-|  1. Primary mark (logo)                   |
-|  2. Secondary marks (symbol, wordmark,    |
-|     submarks, co-brand versions)          |
-|  3. Color system (primary + secondary)    |
+|  1. Primary mark (logo)                  |
+|  2. Secondary marks (symbol, wordmark,   |
+|     submarks, co-brand versions)         |
+|  3. Color system (primary + secondary)   |
 |  4. Typography system (typefaces + rules) |
 |  5. Imagery style (photography direction) |
-|  6. Iconography style                     |
-|  7. Motion guidelines (animation,         |
-|     transitions -- modern requirement)    |
-|  8. Voice and tone guidelines             |
-|  9. Application examples                  |
-| 10. Usage rules (what NOT to do)          |
+|  6. Iconography style                    |
+|  7. Motion guidelines (animation,        |
+|     transitions -- modern requirement)   |
+|  8. Voice and tone guidelines            |
+|  9. Application examples                 |
+| 10. Usage rules (what NOT to do)         |
 +------------------------------------------+
 ```
 
@@ -65,24 +65,24 @@ COMPONENTS OF A BRAND IDENTITY SYSTEM
 | (Logotype)       | company name    | (word as logo)             |
 |                  | stylized        |                            |
 +------------------+----------------+-----------------------------+
-| Lettermark       | Initials or     | IBM (striped), GE, CNN,   |
-| (Monogram)       | abbreviation    | HP, NASA                   |
+| Lettermark       | Initials or    | IBM (striped), GE, CNN,     |
+| (Monogram)       | abbreviation   | HP, NASA                    |
 +------------------+----------------+-----------------------------+
 | Symbol / Icon    | Abstract or     | Apple, Twitter bird,       |
 | (Brandmark)      | pictorial mark  | Nike swoosh, Target        |
 |                  | only; no text   | bullseye                   |
 +------------------+----------------+-----------------------------+
-| Combination Mark | Symbol +        | Most logos: Burger King,   |
-|                  | wordmark        | Adidas, Starbucks          |
-|                  | together        |                            |
+| Combination Mark | Symbol +       | Most logos: Burger King,    |
+|                  | wordmark       | Adidas, Starbucks           |
+|                  | together       |                             |
 +------------------+----------------+-----------------------------+
 | Emblem           | Text contained  | Starbucks (text inside     |
 |                  | within a shape  | circle), NFL, Harley       |
 +------------------+----------------+-----------------------------+
-| Dynamic / Flex   | System that     | MIT Media Lab, Google      |
-| Identity         | changes while   | Doodles, MTV               |
-|                  | remaining       | (rule: varies; system      |
-|                  | recognizable    | stays constant)            |
+| Dynamic / Flex   | System that    | MIT Media Lab, Google       |
+| Identity         | changes while  | Doodles, MTV                |
+|                  | remaining      | (rule: varies; system       |
+|                  | recognizable   | stays constant)             |
 +------------------+----------------+-----------------------------+
 ```
 

@@ -46,7 +46,7 @@ The founding framework for externalist intellectual history:
   MARX'S MODEL:
 
   +----------------------------------------------+
-  |              SUPERSTRUCTURE                   |
+  |              SUPERSTRUCTURE                  |
   |   Law, Politics, Religion, Philosophy, Art   |
   |   (ideas, institutions, ideologies)          |
   +----------------------------------------------+

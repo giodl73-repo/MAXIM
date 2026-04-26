@@ -4,9 +4,9 @@
 
 ```
 +------------------------------------------------------------------+
-|              MEDIEVAL MILITARY TECHNOLOGY EVOLUTION             |
+|              MEDIEVAL MILITARY TECHNOLOGY EVOLUTION              |
 |                                                                  |
-|  ~500 AD        ~700 AD        ~900 AD      ~1200 AD   ~1300 AD |
+|  ~500 AD        ~700 AD        ~900 AD      ~1200 AD   ~1300 AD  |
 |  Germanic       Stirrup        Heavy        Castle     Infantry  |
 |  infantry  -->  adoption  -->  cavalry  --> network -> revolution|
 |  dominance                     (knight)                          |
@@ -129,17 +129,17 @@ The castle was the infrastructure node of medieval power. Understanding its evol
 |  post-1066. Rapid deployment fortification.                     |
 +------------------------------------------------------------------+
 |                                                                  |
-|  STONE KEEP (~1100-1200)                                        |
+|  STONE KEEP (~1100-1200)                                         |
 |                                                                  |
-|     [Square stone keep, 20-30m tall]                            |
-|     Walls 3-5m thick. Narrow slit windows.                      |
-|     Ground floor: storage (siege supplies).                     |
-|     Upper floors: garrison + lord's chambers.                   |
+|     [Square stone keep, 20-30m tall]                             |
+|     Walls 3-5m thick. Narrow slit windows.                       |
+|     Ground floor: storage (siege supplies).                      |
+|     Upper floors: garrison + lord's chambers.                    |
 |                                                                  |
-|  Construction time: years. Cost: very high. Stone + skilled     |
-|  labor. Vulnerability: square corners create dead ground —      |
-|  miners can approach along wall without being shot at.          |
-|  Solution: round towers (no dead ground).                       |
+|  Construction time: years. Cost: very high. Stone + skilled      |
+|  labor. Vulnerability: square corners create dead ground —       |
+|  miners can approach along wall without being shot at.           |
+|  Solution: round towers (no dead ground).                        |
 +------------------------------------------------------------------+
 |                                                                  |
 |  CONCENTRIC CURTAIN WALL (~1200-1350)                           |
@@ -253,10 +253,10 @@ This comparison is not just technical — it is a social and economic question a
 +------------------------------------------------------------------+
 |                    CROSSBOW              LONGBOW                 |
 +------------------------------------------------------------------+
-| Draw weight   | 150-350+ lb (lever/    | 100-175 lb (muscle)    |
-|               | windlass assisted)     |                        |
-| Range (max)   | 300-380m               | 200-300m               |
-| Rate of fire  | 2-4 bolts/min          | 10-12 arrows/min       |
+| Draw weight   | 150-350+ lb (lever/    | 100-175 lb (muscle)     |
+|               | windlass assisted)     |                         |
+| Range (max)   | 300-380m               | 200-300m                |
+| Rate of fire  | 2-4 bolts/min          | 10-12 arrows/min        |
 | Armor pen.    | Excellent at close     | Excellent at close      |
 |               | range (~30m+)          | range with broadhead    |
 | Training time | Weeks                  | Years (childhood start  |
@@ -265,9 +265,9 @@ This comparison is not just technical — it is a social and economic question a
 |               |                        | medieval archers show   |
 |               |                        | asymmetric muscle/bone  |
 | Maintenance   | Mechanical — springs,  | Wood + string, weather  |
-|               | nut, trigger; complex  | sensitive; simpler       |
-| Field use     | Can hold draw — sniper | Cannot hold draw;        |
-|               | use from cover         | continuous effort        |
+|               | nut, trigger; complex  | sensitive; simpler      |
+| Field use     | Can hold draw — sniper | Cannot hold draw;       |
+|               | use from cover         | continuous effort       |
 +------------------------------------------------------------------+
 
 AGINCOURT (1415):
@@ -386,7 +386,7 @@ The period 1302-1415 saw the systematic defeat of feudal heavy cavalry by infant
 
 ```
 +------------------------------------------------------------------+
-|              INFANTRY DEFEATS CAVALRY: THREE BATTLES            |
+|              INFANTRY DEFEATS CAVALRY: THREE BATTLES             |
 +------------------------------------------------------------------+
 |                                                                  |
 |  BATTLE OF GOLDEN SPURS, Courtrai (1302)                       |

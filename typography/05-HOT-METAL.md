@@ -58,9 +58,9 @@ THE TYPE CASE:
   │                                                                         │
   │ [i] [s] [f] [g] [y] [p]  [,] [.] [;]    e  t  a  o  i  n  s  h  r   │
   │                                                                         │
-  │ [l] [a] [o] [e] [r] [n]  Most frequent letters in easiest reach        │
+  │ [l] [a] [o] [e] [r] [n]  Most frequent letters in easiest reach         │
   │                                                                         │
-  │ [h] [c] [d] [u] [t] [m]                                                │
+  │ [h] [c] [d] [u] [t] [m]                                                 │
   └─────────────────────────────────────────────────────────────────────────┘
 
   NOTE: The upper/lower case physical arrangement → "upper/lowercase" terms
@@ -100,18 +100,18 @@ LINOTYPE MACHINE — SYSTEM ARCHITECTURE
 
                     KEYBOARD
                     ┌──────────────────────────────┐
-                    │ 90-key keyboard               │
+                    │ 90-key keyboard              │
                     │ (normal QWERTY + caps/special) │
                     │ Note: originally influenced    │
-                    │ QWERTY layout of standard     │
+                    │ QWERTY layout of standard    │
                     │ typewriter keyboards           │
                     └────────────────┬─────────────┘
                                      │ key press
                                      ▼
                     MAGAZINE
                     ┌──────────────────────────────┐
-                    │ 90 channels, each containing  │
-                    │ a stack of MATRICES           │
+                    │ 90 channels, each containing │
+                    │ a stack of MATRICES          │
                     │ (brass molds, one per letter) │
                     │                              │
                     │ Each key press releases one  │
@@ -237,12 +237,12 @@ MACHINE 2: MONOTYPE CASTER
   │ — backward reading for: justification computed at end    │
   │   of line, then word spaces set correctly                │
   │                                                          │
-  │ TYPE MATRIX CASE: 15×15 grid of brass matrices          │
+  │ TYPE MATRIX CASE: 15×15 grid of brass matrices           │
   │ (up to 225 characters in the case)                       │
   │ Air jets read tape holes → position matrix case          │
-  │ Correct matrix positioned over mold                     │
+  │ Correct matrix positioned over mold                      │
   │ Molten metal cast → individual character type body       │
-  │ Characters delivered in order into galley               │
+  │ Characters delivered in order into galley                │
   └──────────────────────────────────────────────────────────┘
 
 ADVANTAGES OVER LINOTYPE:

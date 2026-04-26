@@ -86,8 +86,8 @@ GRID ARCHITECTURE — The Stack
   FREQUENCY AS POWER BALANCE SIGNAL:
   ┌──────────────────────────────────────────────────────────┐
   │  Generation = Load  →  f = 60.00 Hz  (balanced)          │
-  │  Generation > Load  →  f rises       (excess power)       │
-  │  Generation < Load  →  f falls       (deficit)            │
+  │  Generation > Load  →  f rises       (excess power)      │
+  │  Generation < Load  →  f falls       (deficit)           │
   └──────────────────────────────────────────────────────────┘
 
   Rate of Change of Frequency (ROCOF):
@@ -161,13 +161,13 @@ GRID ARCHITECTURE — The Stack
 
   GRID-FOLLOWING (GFL):                  GRID-FORMING (GFM):
   ┌──────────────────┐                   ┌──────────────────┐
-  │  Measure grid V,f │                  │  Create internal  │
-  │  Lock PLL to grid │                  │  voltage source   │
+  │  Measure grid V,f │                  │  Create internal │
+  │  Lock PLL to grid │                  │  voltage source  │
   │  Inject current   │                  │  with defined V,f │
-  │  per setpoint     │                  │  Act as voltage   │
+  │  per setpoint    │                   │  Act as voltage  │
   │                   │                  │  source, not just │
-  │  Like a current   │                  │  current source   │
-  │  source           │                  │                   │
+  │  Like a current  │                   │  current source  │
+  │  source          │                   │                  │
   └──────────────────┘                   └──────────────────┘
 
   GFL: 90%+ of deployed inverters today
@@ -316,12 +316,12 @@ Grid operators procure services beyond energy to maintain reliability. These are
 ```
   HVAC (High Voltage AC) — standard grid:
   ┌────────────────────────────────────────────────────────┐
-  │  Pros:                                                  │
-  │  • Transformers work (change voltage easily)            │
-  │  • Interconnected mesh (n-1 security, rerouting)        │
-  │  • Simple substations                                   │
-  │                                                         │
-  │  Cons:                                                  │
+  │  Pros:                                                 │
+  │  • Transformers work (change voltage easily)           │
+  │  • Interconnected mesh (n-1 security, rerouting)       │
+  │  • Simple substations                                  │
+  │                                                        │
+  │  Cons:                                                 │
   │  • Reactive power (Q) must be managed along line       │
   │  • Charging current limits distance (~1,000 km max)    │
   │  • Synchronous interconnect (frequency must match)     │
@@ -329,15 +329,15 @@ Grid operators procure services beyond energy to maintain reliability. These are
 
   HVDC (High Voltage DC) — for long-distance or asynchronous links:
   ┌────────────────────────────────────────────────────────┐
-  │  Pros:                                                  │
+  │  Pros:                                                 │
   │  • Lower losses for distances > 600-800 km (land)      │
   │    or > 50-100 km (submarine cable)                    │
   │  • Asynchronous link: connects different grids         │
   │    (ERCOT to Eastern Interconnect, Norway to UK)       │
   │  • Fully controllable power flow (no loop flows)       │
   │  • No reactive charging current in cable               │
-  │                                                         │
-  │  Cons:                                                  │
+  │                                                        │
+  │  Cons:                                                 │
   │  • Converter stations expensive (~$200-300M each end)  │
   │  • No meshed HVDC standard (until VSC-MTDC emerging)   │
   │  • Fault protection harder for DC faults               │
@@ -401,12 +401,12 @@ is producing (calm, cloudy winter weeks in high-latitude continental climates).
 
   PJM CAPACITY MARKET:
   ┌─────────────────────────────────────────────────────────────────┐
-  │  ISO identifies "Reliability Period" (hottest peak demand day)   │
+  │  ISO identifies "Reliability Period" (hottest peak demand day)  │
   │  Calculates: how much firm capacity needed for N-1-1 reliability │
   │  Procures 1 year in advance (3-year forward in PJM)             │
   │  Generators bid: "$X/MW-day to be available during peak"        │
-  │  ISO clears at price that meets reliability requirement          │
-  │  Generator receives capacity payment regardless of dispatch      │
+  │  ISO clears at price that meets reliability requirement         │
+  │  Generator receives capacity payment regardless of dispatch     │
   │  (plus energy market revenue when actually running)             │
   └─────────────────────────────────────────────────────────────────┘
 

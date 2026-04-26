@@ -262,9 +262,9 @@ FILTER LANDSCAPE
 
   ARCHITECTURE
   ┌─────────────┐    ┌──────────────┐    ┌──────────────┐
-  │  Summing amp │───▶│ Integrator 1 │───▶│ Integrator 2 │
-  │  (op-amp 1)  │    │  (op-amp 2)  │    │  (op-amp 3)  │
-  │  HP output   │    │  BP output   │    │  LP output   │
+  │  Summing amp │───▶│ Integrator 1 │───▶│ Integrator 2│
+  │  (op-amp 1) │    │  (op-amp 2)  │    │  (op-amp 3)  │
+  │  HP output  │    │  BP output   │    │  LP output   │
   └──────┬───────┘    └──────────────┘    └──────┬───────┘
          ↑                                        │
          └────── R_Q feedback ────────────────────┘

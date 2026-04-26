@@ -66,10 +66,10 @@ THE DEEP LEARNING THEORY MAP
   ┌────────────────────────────────────────────────────────┐
   │  Shallow circuit  ≡  wide shallow network              │
   │  Deep circuit     ≡  deep narrow network               │
-  │                                                         │
-  │  NC¹ ⊂ NC² ⊂ ... ⊂ P  (likely strict, unproven)       │
-  │   ↕                                                     │
-  │  depth-1 ⊂ depth-2 ⊂ ... (strict separation in size)  │
+  │                                                        │
+  │  NC¹ ⊂ NC² ⊂ ... ⊂ P  (likely strict, unproven)        │
+  │   ↕                                                    │
+  │  depth-1 ⊂ depth-2 ⊂ ... (strict separation in size)   │
   └────────────────────────────────────────────────────────┘
 
   Depth separation theorems tell us that depth is computationally necessary.
@@ -469,7 +469,7 @@ Classifier-free guidance (Ho & Salimans 2022):
 
 ```
 ┌──────────────────────────────────────────────────────────────────────────────┐
-│  Framework      │  Explicit density  │  Sampling     │  Training objective  │
+│  Framework      │  Explicit density  │  Sampling     │  Training objective   │
 ├─────────────────┼────────────────────┼───────────────┼──────────────────────┤
 │  VAE            │  Lower bound (ELBO)│  1 step       │  ELBO                │
 │  Normalizing    │  Exact (change of  │  1 step       │  Exact NLL           │

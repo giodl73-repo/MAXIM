@@ -218,13 +218,13 @@ MECHANISM:
 ```
   WOOL FIBER SURFACE:
     ┌─────────────────────────────┐
-    │  ← Root end   Tip end →    │
-    │  \\\\\\\\\\\\\\\\\\\\\\\\  │
-    │   \\\\\\\\\\\\\\\\\\\\\\\  │
-    │    \\\\\\\\\\\\\\\\\\\\\\  │
-    │  Overlapping scales like   │
-    │  roof shingles, pointing   │
-    │  toward tip                │
+    │  ← Root end   Tip end →     │
+    │  \\\\\\\\\\\\\\\\\\\\\\\\   │
+    │   \\\\\\\\\\\\\\\\\\\\\\\   │
+    │    \\\\\\\\\\\\\\\\\\\\\\   │
+    │  Overlapping scales like    │
+    │  roof shingles, pointing    │
+    │  toward tip                 │
     └─────────────────────────────┘
 
   FELTING CONDITIONS:
@@ -288,17 +288,17 @@ STEP 2: WEB BONDING
   ┌────────────────────────────────────────────────────────────────┐
   │ Thermal bonding:                                               │
   │   Heat melts binder fibers (often BiCo — bicomponent)        │
-  │   BiCo: PE/PP sheath/core; sheath melts at lower temp         │
+  │   BiCo: PE/PP sheath/core; sheath melts at lower temp          │
   │   Core provides structure; sheath bonds fibers together        │
   │                                                                │
   │ Chemical bonding:                                              │
   │   Latex or acrylic binder sprayed onto web then cured          │
-  │   "Resin bonded" → stiffer, less drapeable                    │
+  │   "Resin bonded" → stiffer, less drapeable                     │
   │                                                                │
   │ Hydroentanglement (spunlace):                                  │
   │   High-pressure water jets (100+ bar) punch through web        │
   │   Physically entangle fibers around each other                 │
-  │   No binder — soft, cloth-like feel                           │
+  │   No binder — soft, cloth-like feel                            │
   │   Used: wet wipes, medical drapes, industrial wipes            │
   │                                                                │
   │ Needle punch:                                                  │

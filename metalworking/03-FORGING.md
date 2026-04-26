@@ -11,7 +11,7 @@ WHY FORGING BEATS CASTING FOR CRITICAL APPLICATIONS:
 
   CASTING:                          FORGING:
   ┌──────────────┐                 ┌──────────────┐
-  │ ○ ○ ○ ○ ○ ○ │                 │ ──────────── │
+  │ ○ ○ ○ ○ ○ ○  │                 │ ──────────── │
   │ ○ ○ ○ ○ ○ ○ │   forge it →   │ ──────────── │ ← grain flow
   │ ○ ○ ○ ○ ○ ○ │                 │ ──────────── │   follows shape
   └──────────────┘                 └──────────────┘

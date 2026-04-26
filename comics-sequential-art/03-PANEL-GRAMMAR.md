@@ -4,7 +4,7 @@
 
 ```
 +------------------------------------------------------------------+
-|                   PANEL GRAMMAR SYSTEM                            |
+|                   PANEL GRAMMAR SYSTEM                           |
 |                                                                  |
 |  THE PAGE                                                        |
 |  Page as unit; panels as sub-units; gutters as transitions       |

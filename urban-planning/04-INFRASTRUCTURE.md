@@ -6,7 +6,7 @@ Urban infrastructure is the physical capital that makes cities function: water, 
 
 ```
 +------------------------------------------------------------------+
-|                    URBAN INFRASTRUCTURE SYSTEM                    |
+|                    URBAN INFRASTRUCTURE SYSTEM                   |
 |                                                                  |
 |  TRANSPORTATION     WATER/WASTEWATER      UTILITY/ENERGY         |
 |  Streets/roads      Drinking water        Electric grid          |
@@ -124,8 +124,8 @@ ASSET MANAGEMENT LIFECYCLE:
        v                   v                     v
   +----------+      +----------+         +----------+
   | GIS asset|      | Field     |         | Deterior-|
-  | registry |      | inspection|         | ation    |
-  | (geometry|      | PCI/BCI   |         | curves   |
+  | registry |      | inspection|         | ation   |
+  | (geometry|      | PCI/BCI  |         | curves   |
   | + attribs|      | sensor    |         | (empirical|
   |          |      | data      |         | or model)|
   +----------+      +----------+         +----------+
@@ -463,7 +463,7 @@ CLIMATE RISKS TO URBAN INFRASTRUCTURE:
   SEA LEVEL RISE + STORM SURGE:
   +----------------------------------+
   | Coastal cities: 1-4 ft rise by   |
-  | 2100 (RCP4.5), 3-10 ft (RCP8.5) |
+  | 2100 (RCP4.5), 3-10 ft (RCP8.5)  |
   | Storm surge now compound with    |
   | higher baseline.                 |
   | NYC Sandy (2012): $65B damage.   |
@@ -525,13 +525,13 @@ CRITICAL INFRASTRUCTURE INTERDEPENDENCIES:
 FINANCING LANDSCAPE:
 
   +--------------------------------------------------------+
-  |                 INFRASTRUCTURE FINANCE                  |
+  |                 INFRASTRUCTURE FINANCE                 |
   |                                                        |
   |  PUBLIC/TAX-BACKED    REVENUE/USER-BACKED   PRIVATE    |
   |  ---------------      ------------------    -------    |
   |  General Obligation   Revenue Bonds         PPP        |
   |  (GO) Bonds           Water/sewer user fees Concession |
-  |                       Toll roads            DBFOM       |
+  |                       Toll roads            DBFOM      |
   |  Federal grants       Transit fares                    |
   |  (FHWA, FTA,          Airport fees          Developer  |
   |  IIJA, CDBG)                                exactions  |

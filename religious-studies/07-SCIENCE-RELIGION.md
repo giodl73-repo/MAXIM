@@ -10,7 +10,7 @@ produce religion, and what does that imply?"
 
 ```
 +----------------------------------------------------------------------+
-|              SCIENCE-RELIGION INTERFACE — CONCEPTUAL MAP            |
+|              SCIENCE-RELIGION INTERFACE — CONCEPTUAL MAP             |
 |                                                                      |
 |  HISTORICAL QUESTION:          DEMARCATION QUESTION:                 |
 |  Did/do they conflict?         Are they even the same type of        |
@@ -21,7 +21,7 @@ produce religion, and what does that imply?"
 |  Cosmology vs. cosmogony       What cognitive mechanisms produce it? |
 |  Neuroscience vs. soul         Is it adaptive or a byproduct?        |
 |                                                                      |
-|  BARBOUR'S TAXONOMY:                                                  |
+|  BARBOUR'S TAXONOMY:                                                 |
 |  Conflict (Dawkins) -> Independence (NOMA/Gould) ->                  |
 |  Dialogue (shared questions) -> Integration (Process theology)       |
 |                                                                      |
@@ -117,7 +117,7 @@ framework for the relationship between science and religion.
 |  Science and religion address different questions with    |
 |  different methods; no conflict possible.                 |
 |  - NOMA (Gould): science = facts; religion = values.      |
-|  - Existentialist theology (Bultmann): religious language  |
+|  - Existentialist theology (Bultmann): religious language |
 |    is not factual; scientific critique misses the point.  |
 |                                                           |
 |  DIALOGUE:                                                |
@@ -329,7 +329,7 @@ about truth claims while explaining why religion is universal.
 
 ```
 +----------------------------------------------------------------------+
-|              COGNITIVE SCIENCE OF RELIGION — CORE CLAIMS            |
+|              COGNITIVE SCIENCE OF RELIGION — CORE CLAIMS             |
 |                                                                      |
 |  Boyer (Religion Explained, 2001):                                   |
 |  Religious concepts spread because they are "minimally               |
@@ -364,7 +364,7 @@ about truth claims while explaining why religion is universal.
 |  McCauley (Why Religion is Natural, 2011):                           |
 |  Cognitive naturalness as a spectrum: religion exploits "maturationally|
 |  natural" cognitive systems (intuitive psychology, teleology, agency) |
-|  while science violates them (requiring counterintuitive concepts     |
+|  while science violates them (requiring counterintuitive concepts    |
 |  like selection without foresight, quantum superposition, relativity).|
 |  Religion is cognitively easy; science is hard.                      |
 +----------------------------------------------------------------------+

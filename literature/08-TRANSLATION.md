@@ -6,7 +6,7 @@ Translation is the transfer of a text from one language (source) to another (tar
 
 ```
 +------------------------------------------------------------------+
-|            TRANSLATION — THEORETICAL LANDSCAPE                  |
+|            TRANSLATION — THEORETICAL LANDSCAPE                   |
 +------------------------------------------------------------------+
 |                                                                  |
 |  THE CORE TENSION                                                |

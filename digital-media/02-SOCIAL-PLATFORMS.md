@@ -8,21 +8,21 @@ SOCIAL PLATFORM ARCHITECTURE TAXONOMY
 
 BY GRAPH STRUCTURE:
 +------------------------------------------------------------------+
-|  BROADCAST ASYMMETRIC       SOCIAL GRAPH SYMMETRIC              |
-|  (Twitter/X, Substack)      (Facebook, LinkedIn)                |
+|  BROADCAST ASYMMETRIC       SOCIAL GRAPH SYMMETRIC               |
+|  (Twitter/X, Substack)      (Facebook, LinkedIn)                 |
 |                                                                  |
 |  A -> B (one way)            A <-> B (mutual)                    |
 |  Follower != following        Friend = bidirectional             |
 |  Public by default            Privacy controls important         |
-|  Designed for:               Designed for:                      |
+|  Designed for:               Designed for:                       |
 |    publishing to audience      maintaining relationships         |
 |                                                                  |
 |  INTEREST GRAPH               EPHEMERAL                          |
-|  (TikTok, YouTube)            (Snapchat, Stories)               |
+|  (TikTok, YouTube)            (Snapchat, Stories)                |
 |                                                                  |
 |  No social graph needed        Content disappears                |
-|  Platform infers interests      Reduces permanence anxiety        |
-|  from behavior                 Designed for:                    |
+|  Platform infers interests      Reduces permanence anxiety       |
+|  from behavior                 Designed for:                     |
 |  Designed for:                  casual, frequent posting         |
 |    content discovery                                             |
 +------------------------------------------------------------------+

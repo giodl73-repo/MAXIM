@@ -25,8 +25,8 @@ Rail is the oldest large-scale transportation technology still dominant in its n
 |  | Timetable  | Train   |  | Control |  | Incident|             |
 |  | planning|  | dispatch|  | Centre  |  | mgmt    |             |
 |  +---------+  +---------+  +---------+  +---------+             |
-|                                                                  |
-|  APPLICATION SEGMENTS                                            |
+|                                                                 |
+|  APPLICATION SEGMENTS                                           |
 |  +----------+  +--------+  +---------+  +----------+            |
 |  | High-    |  | Inter- |  | Urban   |  | Heavy    |            |
 |  | Speed    |  | city   |  | Metro/  |  | Freight  |            |

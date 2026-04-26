@@ -203,7 +203,7 @@ Contemporary sits between designer RTW and fast fashion:
 +------------------------------------------------------------------+
 |  CONTEMPORARY BRANDS (the "better" segment)                      |
 |                                                                  |
-|  US: Theory, Vince, Eileen Fisher, Cos (H&M premium)            |
+|  US: Theory, Vince, Eileen Fisher, Cos (H&M premium)             |
 |  UK: Reiss, LK Bennett, Whistles                                 |
 |  EU: Sandro, Maje, Isabel Marant (diffusion lines)               |
 |                                                                  |

@@ -7,12 +7,12 @@
 |                   THE GEM QUALITY SYSTEM                         |
 |                                                                  |
 |  NATURAL GEMS          TREATED GEMS        SYNTHETIC GEMS        |
-|  (mined, unmodified)   (mined, enhanced)   (lab-grown, same     |
+|  (mined, unmodified)   (mined, enhanced)   (lab-grown, same      |
 |                                             mineral species)     |
-|         |                   |                     |             |
-|         v                   v                     v             |
-|  VALUE: highest        VALUE: moderate      VALUE: much lower   |
-|  (rarity premium)      (disclosed req'd)    (no rarity premium) |
+|         |                   |                     |              |
+|         v                   v                     v              |
+|  VALUE: highest        VALUE: moderate      VALUE: much lower    |
+|  (rarity premium)      (disclosed req'd)    (no rarity premium)  |
 |                                                                  |
 |  GEM QUALITY DIMENSIONS (the 4Cs for diamonds, more for colored)|
 |  Cut × Clarity × Color × Carat weight × (Origin for colored)   |
@@ -31,19 +31,19 @@ The Gemological Institute of America (GIA) introduced standardized 4C grading in
 CUT QUALITY: proportions, symmetry, polish
 +------------------------------------------------------------------+
 |  IDEAL CUT PHYSICS:                                              |
-|  Light enters through table (top flat face)                     |
-|  Internal total reflection off pavilion facets                  |
-|  Exits through crown → "brilliance"                             |
+|  Light enters through table (top flat face)                      |
+|  Internal total reflection off pavilion facets                   |
+|  Exits through crown → "brilliance"                              |
 |                                                                  |
-|  Table   Crown facets                                           |
-|    ___________                                                  |
+|  Table   Crown facets                                            |
+|    ___________                                                   |
 |   /     |     \    ← Crown: angles 34-35° from horizontal      |
-|  /      |      \                                                |
+|  /      |      \                                                 |
 |  |   Girdle    |   ← Where stone is set                        |
-|  \             /                                                |
+|  \             /                                                 |
 |   \           /    ← Pavilion: angles ~40.75°                  |
-|    \    |    /                                                  |
-|     \___|___/                                                   |
+|    \    |    /                                                   |
+|     \___|___/                                                    |
 |         Culet (tiny bottom facet)                              |
 |                                                                  |
 |  Round Brilliant: 57 or 58 facets (standard)                   |
@@ -137,14 +137,14 @@ For colored gemstones (rubies, emeralds, sapphires, etc.), **origin** and **colo
 ```
 COLORED GEM VALUE HIERARCHY
 +------------------------------------------------------------------+
-|  Most valuable: unheated natural stone from premium origin      |
-|  Ruby:    Burma (Mogok Valley) > Mozambique > Thailand          |
-|  Sapphire: Kashmir > Burma > Ceylon (Sri Lanka) > Madagascar    |
-|  Emerald: Colombia > Zambia > Brazil > Zimbabwe                 |
+|  Most valuable: unheated natural stone from premium origin       |
+|  Ruby:    Burma (Mogok Valley) > Mozambique > Thailand           |
+|  Sapphire: Kashmir > Burma > Ceylon (Sri Lanka) > Madagascar     |
+|  Emerald: Colombia > Zambia > Brazil > Zimbabwe                  |
 |                                                                  |
-|  Origin affects: color quality + prestige + provenance          |
+|  Origin affects: color quality + prestige + provenance           |
 |  Kashmir sapphire (no longer mined): velvety blue; 20-30× premium|
-|  Mogok ruby ("pigeon's blood"): fluorescent red; 5-10× premium  |
+|  Mogok ruby ("pigeon's blood"): fluorescent red; 5-10× premium   |
 +------------------------------------------------------------------+
 
 THE COLORED STONE 4Cs (modified):
@@ -245,31 +245,31 @@ DIAMOND (C):
 COMMON TREATMENTS
 +------------------------------------------------------------------+
 |  HEAT TREATMENT (thermal)                                        |
-|  Ruby/sapphire: 99%+ of commercial stones heated                |
-|  Purpose: improve color and/or clarity (dissolve silk)          |
-|  Temperature: 1500–1900°C in controlled atmosphere              |
-|  Detection: inclusions altered (melted, tension halos),         |
-|    no rutile silk, altered chemistry at parting planes          |
+|  Ruby/sapphire: 99%+ of commercial stones heated                 |
+|  Purpose: improve color and/or clarity (dissolve silk)           |
+|  Temperature: 1500–1900°C in controlled atmosphere               |
+|  Detection: inclusions altered (melted, tension halos),          |
+|    no rutile silk, altered chemistry at parting planes           |
 |  Emerald: heat improves clarity (dissolves inclusions) rarely used|
 |                                                                  |
-|  FRACTURE FILLING                                               |
-|  Emerald: 99%+ of commercial emeralds have fractures filled     |
-|    Filler: cedar oil, synthetic resins, Opticon                 |
+|  FRACTURE FILLING                                                |
+|  Emerald: 99%+ of commercial emeralds have fractures filled      |
+|    Filler: cedar oil, synthetic resins, Opticon                  |
 |  Ruby/sapphire: glass or borax filling of heavy fractures      |
 |    Lead glass (Pb) filling in rubies: changes density, RI      |
 |    Detection: RI measurement, heavy element by XRF             |
 |  Diamond: Laser drilling + filling (improving clarity)         |
 |    Laser drill channel → acid bleaches inclusion               |
-|    Then resin fills channel                                     |
+|    Then resin fills channel                                      |
 |                                                                  |
-|  IRRADIATION (radiation exposure)                               |
+|  IRRADIATION (radiation exposure)                                |
 |  Blue topaz: colorless/pale → blue (neutron/electron/gamma)   |
 |  Blue diamond: irradiation (then heating for green diamond)    |
 |  Fancy colored diamond: gamma or electron bombardment         |
 |  Detection: temperature gradient of color (color zoned vs.    |
 |    uniform); spectroscopy; distinctive absorption features     |
 |                                                                  |
-|  COATING                                                        |
+|  COATING                                                         |
 |  Pale blue sapphire: thin Be-oxide coating = pink              |
 |  Topaz: mylar film on pavilion for "mystic topaz" colors       |
 |  Beryllium diffusion: heat + Be saturate lattice → new colors  |
@@ -346,22 +346,22 @@ LASER INSCRIPTION:
 ```
 DETECTION METHODS AT LABS (GIA, AGL, Gübelin, SSEF)
 +--------------------------------------------------+
-|  Spectroscopy (UV-VIS, FTIR, Raman):            |
+|  Spectroscopy (UV-VIS, FTIR, Raman):             |
 |  → Color origin (natural vs. irradiation)        |
-|  → Treatment indicators (glass fill, fracture)  |
+|  → Treatment indicators (glass fill, fracture)   |
 |                                                  |
 |  Photoluminescence spectroscopy:                 |
-|  → CVD diamond signature peaks                  |
-|  → HPHT treatment markers                       |
+|  → CVD diamond signature peaks                   |
+|  → HPHT treatment markers                        |
 |                                                  |
-|  UV fluorescence:                               |
+|  UV fluorescence:                                |
 |  → Natural blue diamond: red phosphorescence   |
 |  → CVD: typically no UV phosphorescence        |
 |                                                  |
-|  Inclusions:                                    |
-|  → Flux inclusions (tiny solidified flux drops) |
+|  Inclusions:                                     |
+|  → Flux inclusions (tiny solidified flux drops)  |
 |  → Curved striae (Verneuil)                    |
-|  → Natural inclusions (minerals, fingerprints)  |
+|  → Natural inclusions (minerals, fingerprints)   |
 |                                                  |
 |  X-ray fluorescence (XRF):                     |
 |  → Heavy elements (Pb) in glass-filled ruby    |

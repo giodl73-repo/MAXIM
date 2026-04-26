@@ -133,7 +133,7 @@ Pre-war naval doctrine assumed the battleship (capital ship) would decide naval 
 
 ```
 +------------------------------------------------------------------+
-|              CARRIER vs BATTLESHIP: WHY CARRIERS WON            |
+|              CARRIER vs BATTLESHIP: WHY CARRIERS WON             |
 +------------------------------------------------------------------+
 |                                                                  |
 |  BATTLESHIP:                                                     |

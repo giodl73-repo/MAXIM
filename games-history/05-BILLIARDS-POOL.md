@@ -280,14 +280,14 @@ BALL SET (22 balls total):
 COLORED BALL PLACEMENT (D-line / baulk line area):
   ┌──────────────────────────────────────────────┐
   │                                              │
-  │    Pink    Red reds reds reds               │
-  │    Blue    reds reds reds reds              │
+  │    Pink    Red reds reds reds                │
+  │    Blue    reds reds reds reds               │
   │                   reds reds               │
   │                       reds               │
   │                                            │
   │──────────────────── baulk line ────────────│
-  │ Yellow │ Brown │ Green                      │
-  │   ○    │   ○   │   ○                        │
+  │ Yellow │ Brown │ Green                       │
+  │   ○    │   ○   │   ○                         │
   │  (D-semicircle below baulk line)           │
   └──────────────────────────────────────────────┘
 ```

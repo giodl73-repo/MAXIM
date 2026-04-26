@@ -47,7 +47,7 @@ NEMATODE CROSS-SECTION
 |  Muscle cells (only longitudinal!)        |
 |  Pseudocoelom (fluid-filled, under        |
 |    pressure — hydrostatic skeleton)       |
-|  Gut: mouth → pharynx → intestine → anus |
+|  Gut: mouth → pharynx → intestine → anus  |
 |  Excretory system (H-shaped canals)       |
 |  Nerve ring + dorsal/ventral cords        |
 +-------------------------------------------+
@@ -173,7 +173,7 @@ Burrowing nematode (Radopholus):
 TARDIGRADE BODY PLAN
 
 +---------------------------------------+
-|  0.1–1.5 mm (most ~0.5 mm)           |
+|  0.1–1.5 mm (most ~0.5 mm)            |
 |  4 pairs of stubby legs               |
 |  Each leg: 4–8 claws or suckers       |
 |  No circular muscles                  |
@@ -211,7 +211,7 @@ WHAT TARDIGRADES SURVIVE:
 | Radiation          | 570,000 rad    | 1,000 rad lethal|
 | Pressure           | 6,000 atm      | ~60 atm lethal|
 | Desiccation        | 100% dehydrated| ~10% lethal |
-| Chemical           | Ethanol, HCl   | Very toxic  |
+| Chemical           | Ethanol, HCl   | Very toxic |
 +--------------------------------------------------+
 
 MECHANISMS:

@@ -13,13 +13,13 @@ GWAS: CONNECTING VARIANTS TO TRAITS AT POPULATION SCALE
   ┌──────────────────────────────────────────────────────────────┐
   │  CASES: ~5,000–100,000 people WITH the trait                 │
   │  CONTROLS: ~5,000–100,000 people WITHOUT the trait           │
-  │                                                               │
-  │  Genotype each person at ~500,000–10,000,000 SNPs             │
-  │  (via SNP array or imputation to full genome)                 │
-  │                                                               │
+  │                                                              │
+  │  Genotype each person at ~500,000–10,000,000 SNPs            │
+  │  (via SNP array or imputation to full genome)                │
+  │                                                              │
   │  For each SNP:                                               │
   │    Test: Is this allele more common in cases vs. controls?   │
-  │    Statistical test: chi-squared or logistic regression       │
+  │    Statistical test: chi-squared or logistic regression      │
   │    Result: odds ratio (OR) + p-value                         │
   └──────────────────────────────────────────────────────────────┘
 
@@ -56,12 +56,12 @@ GWAS: CONNECTING VARIANTS TO TRAITS AT POPULATION SCALE
   ┌──────────────────────────────────────────────────────────────┐
   │ SNP ARRAY GENOTYPES 500,000 SNPs directly                    │
   │ IMPUTATION PREDICTS the remaining ~5-10 million SNPs         │
-  │                                                               │
-  │ Method: If SNP A is in LD (r²=0.95) with SNP B,             │
+  │                                                              │
+  │ Method: If SNP A is in LD (r²=0.95) with SNP B,              │
   │   and you know A's genotype, you can PREDICT B's genotype    │
   │   with ~95% accuracy using a reference panel (1000G/TOPMed)  │
-  │                                                               │
-  │ IMPUTATION PIPELINE:                                          │
+  │                                                              │
+  │ IMPUTATION PIPELINE:                                         │
   │ 1. Genotype array (500K SNPs) → PLINK format                 │
   │ 2. Pre-phasing: infer haplotypes (EAGLE2, SHAPEIT4)          │
   │ 3. Imputation server (Michigan/TOPMed): match to reference   │
@@ -135,13 +135,13 @@ GWAS: CONNECTING VARIANTS TO TRAITS AT POPULATION SCALE
   SOLUTION: PRINCIPAL COMPONENT ANALYSIS (PCA) OF GENOTYPES
   ┌─────────────────────────────────────────────────────────┐
   │ 1. Compute covariance matrix of genotypes (samples × SNPs)│
-  │ 2. PCA decomposition: PC1, PC2, ... explain ancestry     │
-  │ 3. In most studies:                                      │
+  │ 2. PCA decomposition: PC1, PC2, ... explain ancestry    │
+  │ 3. In most studies:                                     │
   │    PC1 ≈ European vs. African ancestry axis             │
-  │    PC2 ≈ East Asian vs. South Asian axis                 │
-  │    PC3–10: finer structure                               │
+  │    PC2 ≈ East Asian vs. South Asian axis                │
+  │    PC3–10: finer structure                              │
   │ 4. Include top 10 PCs as covariates in regression       │
-  │    → removes ancestry-driven association                 │
+  │    → removes ancestry-driven association                │
   └─────────────────────────────────────────────────────────┘
 
   GENOMIC INFLATION FACTOR (λ):
@@ -165,20 +165,20 @@ GWAS: CONNECTING VARIANTS TO TRAITS AT POPULATION SCALE
 
   APPROACHES:
   ┌──────────────────────────────────────────────────────────┐
-  │ CONDITIONAL ANALYSIS                                      │
+  │ CONDITIONAL ANALYSIS                                     │
   │   Condition on the lead SNP, look for residual signal    │
   │   Identifies multiple independent signals in same locus  │
-  │                                                           │
+  │                                                          │
   │ BAYESIAN FINE-MAPPING (FINEMAP, SUSIE)                   │
   │   Compute posterior inclusion probability (PIP) per SNP  │
   │   "Credible set": smallest set of SNPs covering 95%      │
   │   of posterior probability of containing causal variant  │
   │   Good locus: 1–3 SNP credible set                       │
   │   Bad locus: 100 SNP credible set (all in LD)            │
-  │                                                           │
+  │                                                          │
   │ FUNCTIONAL ANNOTATION (LDSC, CAVIARBF)                   │
   │   Prioritize SNPs in regulatory elements (ENCODE, ATAC)  │
-  │   eQTL colocalization: is the GWAS hit also an eQTL?    │
+  │   eQTL colocalization: is the GWAS hit also an eQTL?     │
   └──────────────────────────────────────────────────────────┘
 
   eQTL: Expression quantitative trait locus
@@ -220,15 +220,15 @@ GWAS: CONNECTING VARIANTS TO TRAITS AT POPULATION SCALE
   ┌─────────────────────────────────────────────────────────┐
   │ Coronary artery disease PRS (Inouye et al. 2018):       │
   │   Top 8% PRS = 3x increased risk vs. average            │
-  │   Comparable to monogenic familial hypercholesterolemia  │
-  │                                                          │
-  │ Breast cancer PRS:                                       │
-  │   Combined with BRCA1/2 testing in clinical use          │
+  │   Comparable to monogenic familial hypercholesterolemia │
+  │                                                         │
+  │ Breast cancer PRS:                                      │
+  │   Combined with BRCA1/2 testing in clinical use         │
   │   Top percentile PRS + no BRCA1/2 → preventive measures │
-  │                                                          │
-  │ LIMITATIONS:                                             │
+  │                                                         │
+  │ LIMITATIONS:                                            │
   │   PRS trained on European ancestry → poor transferability│
-  │   to non-European populations (LD patterns differ)       │
+  │   to non-European populations (LD patterns differ)      │
   │   Active research: multi-ancestry PRS methods           │
   └─────────────────────────────────────────────────────────┘
 ```
@@ -249,15 +249,15 @@ GWAS: CONNECTING VARIANTS TO TRAITS AT POPULATION SCALE
   ┌──────────────────────────────────────────────────────────┐
   │ Instrumental variable: Use genetic variants as "natural  │
   │ randomization" for the exposure.                         │
-  │                                                           │
+  │                                                          │
   │ Analogy: Random assignment in RCT → genetic assignment   │
   │   RCT: randomly give statin vs. placebo                  │
   │   MR: people with LDL-lowering alleles vs. LDL-raising   │
   │       alleles (randomly assigned at conception)          │
-  │                                                           │
+  │                                                          │
   │ LOGIC:                                                   │
-  │ If variant → LDL ↑ (confirmed by LDL GWAS)              │
-  │ And variant → heart disease ↑ (confirmed by CHD GWAS)   │
+  │ If variant → LDL ↑ (confirmed by LDL GWAS)               │
+  │ And variant → heart disease ↑ (confirmed by CHD GWAS)    │
   │ And variant affects CHD only through LDL (key assumption)│
   │ → CAUSAL evidence that LDL → CHD                         │
   └──────────────────────────────────────────────────────────┘

@@ -8,16 +8,16 @@
 |                                                                  |
 |              BIO-BASED SOURCE?                                   |
 |              YES              NO                                 |
-|   BIODEGRAD- ┌──────────────┬───────────────┐                   |
+|   BIODEGRAD- ┌──────────────┬───────────────┐                    |
 |   ABLE?   YES│  PLA, PHA    │  PBAT, PCL    │                   |
 |              │  TPS, PBS    │  (fossil-based │                   |
 |              │  Cellophane  │   but degrades)│                   |
 |              ├──────────────┼───────────────┤                   |
-|            NO│  Bio-PE      │  Conventional  │                   |
-|              │  Bio-PET     │  PE, PP, PET   │                   |
-|              │  Bio-PA      │  PS, PVC, ABS  │                   |
-|              │  (bio-based  │                │                   |
-|              │   not degradable)│            │                   |
+|            NO│  Bio-PE      │  Conventional │                   |
+|              │  Bio-PET     │  PE, PP, PET  │                   |
+|              │  Bio-PA      │  PS, PVC, ABS │                   |
+|              │  (bio-based  │               │                   |
+|              │   not degradable)│           │                   |
 |              └──────────────┴───────────────┘                   |
 |                                                                  |
 |  Only top-left quadrant is both bio-based AND biodegradable     |

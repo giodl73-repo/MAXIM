@@ -6,11 +6,11 @@ Classification is not taxonomy — it determines everything downstream:
 
 ```
 +---------------------------------------------------------------+
-|  CLASSIFICATION DETERMINES                                     |
+|  CLASSIFICATION DETERMINES                                    |
 |                                                               |
 |  1. WHAT BOUNDARY CONDITIONS ARE APPROPRIATE                  |
-|     Elliptic:   data on closed boundary ∂Ω                   |
-|     Parabolic:  data at t=0 + spatial boundary               |
+|     Elliptic:   data on closed boundary ∂Ω                    |
+|     Parabolic:  data at t=0 + spatial boundary                |
 |     Hyperbolic: Cauchy data (value + normal derivative)       |
 |                                                               |
 |  2. HOW INFORMATION PROPAGATES                                |
@@ -19,7 +19,7 @@ Classification is not taxonomy — it determines everything downstream:
 |     Hyperbolic: finite speed (light cones / characteristics)  |
 |                                                               |
 |  3. WHAT REGULARITY TO EXPECT                                 |
-|     Elliptic:   solutions are C∞ in the interior             |
+|     Elliptic:   solutions are C∞ in the interior              |
 |     Parabolic:  instantly smooth for t > 0                    |
 |     Hyperbolic: kinks and discontinuities can persist         |
 |                                                               |
@@ -85,18 +85,18 @@ naturally flows. They are the key geometric concept.
   ┌────────────────────────────────────────────────────────────────┐
   │ ELLIPTIC:  B²−AC < 0 → no REAL characteristic curves         │
   │   No preferred propagation direction.                          │
-  │   Solutions are smooth (C∞) everywhere in the interior.       │
-  │   Think: a soap film — disturb one point, whole film adjusts. │
+  │   Solutions are smooth (C∞) everywhere in the interior.        │
+  │   Think: a soap film — disturb one point, whole film adjusts.  │
   │                                                                │
   │ PARABOLIC: B²−AC = 0 → ONE real characteristic family        │
   │   One degenerate direction.                                    │
-  │   For the heat equation: t = const are the characteristics.   │
+  │   For the heat equation: t = const are the characteristics.    │
   │   Information moves "forward" in the degenerate direction.     │
   │                                                                │
   │ HYPERBOLIC: B²−AC > 0 → TWO real characteristic families     │
   │   Two distinct propagation directions.                         │
   │   Wave eq: t − x/c = const and t + x/c = const.              │
-  │   Discontinuities travel along characteristics.               │
+  │   Discontinuities travel along characteristics.                │
   └────────────────────────────────────────────────────────────────┘
 ```
 
@@ -161,11 +161,11 @@ In n independent variables x = (x₁,...,xₙ):
   CLASSIFICATION by eigenvalues of A(x):
 
   ┌────────────────────────────────────────────────────────────────┐
-  │ All eigenvalues same nonzero sign     → ELLIPTIC              │
-  │ One zero eigenvalue, rest same sign   → PARABOLIC             │
-  │ One eigenvalue opposite sign to rest  → HYPERBOLIC            │
+  │ All eigenvalues same nonzero sign     → ELLIPTIC               │
+  │ One zero eigenvalue, rest same sign   → PARABOLIC              │
+  │ One eigenvalue opposite sign to rest  → HYPERBOLIC             │
   │ (the "time" direction has opposite sign)                       │
-  │ More than one opposite sign           → ULTRAHYPERBOLIC       │
+  │ More than one opposite sign           → ULTRAHYPERBOLIC        │
   │ (more than one "time" direction — typically ill-posed)         │
   └────────────────────────────────────────────────────────────────┘
 

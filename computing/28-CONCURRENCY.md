@@ -6,24 +6,24 @@ Concurrency correctness is hard because the interleaving of operations from mult
 
 ```
 ┌─────────────────────────────────────────────────────────────────────────────┐
-│  CONCURRENCY LANDSCAPE                                                       │
-│                                                                              │
-│  Correctness Properties          Progress Properties                         │
-│  ───────────────────────────     ─────────────────────────────               │
-│  Safety: nothing bad happens     Deadlock-freedom: some thread progresses    │
+│  CONCURRENCY LANDSCAPE                                                      │
+│                                                                             │
+│  Correctness Properties          Progress Properties                        │
+│  ───────────────────────────     ─────────────────────────────              │
+│  Safety: nothing bad happens     Deadlock-freedom: some thread progresses   │
 │  Linearizability: atomic ops     Starvation-freedom: every thread progresses │
 │  Sequential consistency          Lock-freedom: some op completes in O(steps) │
 │  Serializability (transactions)  Wait-freedom: every op completes in O(steps)│
-│                                                                              │
-│  Synchronization Models         Hardware Concerns                            │
-│  ───────────────────────────     ──────────────────────────────              │
-│  Mutex / monitors                Memory ordering (TSO, PSO, SC)              │
-│  Reader-writer locks             Cache coherence (MESI protocol)             │
-│  Lock-free (CAS, LL/SC)          False sharing, cache line contention        │
-│  Wait-free (universal construction) Memory barriers / fences                 │
-│  STM (transactional memory)      ABA problem                                 │
-│  Message passing (CSP, Actors)                                               │
-│  Async/await (cooperative)                                                   │
+│                                                                             │
+│  Synchronization Models         Hardware Concerns                           │
+│  ───────────────────────────     ──────────────────────────────             │
+│  Mutex / monitors                Memory ordering (TSO, PSO, SC)             │
+│  Reader-writer locks             Cache coherence (MESI protocol)            │
+│  Lock-free (CAS, LL/SC)          False sharing, cache line contention       │
+│  Wait-free (universal construction) Memory barriers / fences                │
+│  STM (transactional memory)      ABA problem                                │
+│  Message passing (CSP, Actors)                                              │
+│  Async/await (cooperative)                                                  │
 └─────────────────────────────────────────────────────────────────────────────┘
 ```
 
@@ -88,7 +88,7 @@ Multi-core CPU:
   └────┬─────┘        └────┬─────┘        └────┬─────┘
        │                   │                   │
   ┌────┴───────────────────┴───────────────────┴────┐
-  │                  L3 cache (shared)               │
+  │                  L3 cache (shared)              │
   └─────────────────────────┬───────────────────────┘
                              │
                            DRAM

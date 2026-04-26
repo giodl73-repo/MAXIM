@@ -6,7 +6,7 @@ Performance studies emerged as an academic field in the 1970s (associated with R
 
 ```
 +------------------------------------------------------------------+
-|          PERFORMANCE STUDIES — THEORETICAL LANDSCAPE            |
+|          PERFORMANCE STUDIES — THEORETICAL LANDSCAPE             |
 +------------------------------------------------------------------+
 |                                                                  |
 |  ANTHROPOLOGICAL ROOTS                                           |

@@ -6,22 +6,22 @@ Disturbance — any event that disrupts ecosystem structure and releases resourc
 
 ```
 +---------------------------------------------------------------+
-|              DISTURBANCE ECOLOGY FRAMEWORK                     |
-|                                                                |
-|  DISTURBANCE TYPES:                                            |
-|  Physical: fire, wind, flood, drought, ice storm, volcano    |
-|  Biotic: herbivory, disease outbreak, invasive species       |
-|  Anthropogenic: clear-cutting, tillage, pollution, hunting   |
-|                                                                |
-|  KEY VARIABLES:                                                |
+|              DISTURBANCE ECOLOGY FRAMEWORK                    |
+|                                                               |
+|  DISTURBANCE TYPES:                                           |
+|  Physical: fire, wind, flood, drought, ice storm, volcano     |
+|  Biotic: herbivory, disease outbreak, invasive species        |
+|  Anthropogenic: clear-cutting, tillage, pollution, hunting    |
+|                                                               |
+|  KEY VARIABLES:                                               |
 |  Frequency: how often      Intensity: how severe              |
 |  Extent: spatial scale     Duration: how long                 |
 |  Return interval: T between events                            |
-|                                                                |
-|  RESPONSES:                                                    |
-|  Resistance: avoid disturbance (thick bark, deep roots)      |
+|                                                               |
+|  RESPONSES:                                                   |
+|  Resistance: avoid disturbance (thick bark, deep roots)       |
 |  Resilience: recover after disturbance                        |
-|  Avoidance: dormancy (seeds, bulbs, spores)                  |
+|  Avoidance: dormancy (seeds, bulbs, spores)                   |
 +---------------------------------------------------------------+
 ```
 

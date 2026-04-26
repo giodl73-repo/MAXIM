@@ -11,20 +11,20 @@ creating new critical mineral concentrations even as it reduces oil dependency.
 
 ```
 +----------------------------------------------------------------------+
-|                    RESOURCE GEOPOLITICS LANDSCAPE                     |
+|                    RESOURCE GEOPOLITICS LANDSCAPE                    |
 |                                                                      |
 |  OIL & GAS                    WATER                                  |
 |  ─────────                    ─────                                  |
-|  Persian Gulf concentration   Aquifer depletion (Ogallala/Indus)    |
+|  Persian Gulf concentration   Aquifer depletion (Ogallala/Indus)     |
 |  OPEC+ production decisions   Transboundary conflicts (Nile/Mekong)  |
 |  Resource curse mechanisms    Desalination economics                 |
 |  Chokepoints as leverage      Virtual water trade                    |
 |                                                                      |
-|  CRITICAL MINERALS            FOOD SECURITY                         |
+|  CRITICAL MINERALS            FOOD SECURITY                          |
 |  ─────────────────            ────────────                           |
 |  REE: China 60% production    Breadbasket concentration (7 countries)|
-|  Lithium Triangle (S America) Food export weapon (Russia 2022)      |
-|  Cobalt: DRC 70%              Price shocks → political instability  |
+|  Lithium Triangle (S America) Food export weapon (Russia 2022)       |
+|  Cobalt: DRC 70%              Price shocks → political instability   |
 |  Energy transition dependency                                        |
 +----------------------------------------------------------------------+
 ```
@@ -43,7 +43,7 @@ creating new critical mineral concentrations even as it reduces oil dependency.
   │ Iraq: 145 Gb                                                   │
   │ Russia: 107 Gb                                                 │
   │ UAE: 111 Gb                                                    │
-  │ Total Middle East: ~48% of world proven reserves              │
+  │ Total Middle East: ~48% of world proven reserves               │
   └────────────────────────────────────────────────────────────────┘
 
   PRODUCTION vs CONSUMPTION GEOGRAPHY:
@@ -90,7 +90,7 @@ creating new critical mineral concentrations even as it reduces oil dependency.
   ┌──────────────────────────────────────────────────────────────┐
   │ DUTCH DISEASE: oil revenues → currency appreciation →        │
   │   manufacturing uncompetitive → deindustrialization          │
-  │   Named after Netherlands post-Groningen gas field discovery  │
+  │   Named after Netherlands post-Groningen gas field discovery │
   │                                                              │
   │ RENTIER STATE: government revenues from resource rents →     │
   │   no need to tax citizens → no fiscal → political bargain →  │
@@ -102,9 +102,9 @@ creating new critical mineral concentrations even as it reduces oil dependency.
   │                                                              │
   │ COUNTER-CASES:                                               │
   │ Norway: sovereign wealth fund (GPFG ~$1.7T); avoided Dutch   │
-  │   disease through sterilization of oil revenues             │
+  │   disease through sterilization of oil revenues              │
   │ Botswana: diamonds → stable democracy; institutional quality │
-  │   matters as much as resource type                          │
+  │   matters as much as resource type                           │
   │ Conclusion: curse is institutional failure, not inevitable   │
   └──────────────────────────────────────────────────────────────┘
 ```
@@ -119,44 +119,44 @@ creating new critical mineral concentrations even as it reduces oil dependency.
 
   ┌──────────────────────────────────────────────────────────────────┐
   │ STRAIT OF HORMUZ:                                                │
-  │ Between Iran and Oman/UAE; 21M bbl/day (20% of global oil,      │
-  │   25% of global LNG)                                            │
-  │ Width: 33-98 km; navigationally constrained to ~3 km lanes      │
-  │ Iran threat: periodic closure threats; tanker seizures          │
-  │ Alternative: Saudi East-West pipeline, UAE Habshan-Fujairah,    │
-  │   but bypass capacity limited                                   │
+  │ Between Iran and Oman/UAE; 21M bbl/day (20% of global oil,       │
+  │   25% of global LNG)                                             │
+  │ Width: 33-98 km; navigationally constrained to ~3 km lanes       │
+  │ Iran threat: periodic closure threats; tanker seizures           │
+  │ Alternative: Saudi East-West pipeline, UAE Habshan-Fujairah,     │
+  │   but bypass capacity limited                                    │
   │                                                                  │
-  │ STRAIT OF MALACCA:                                              │
+  │ STRAIT OF MALACCA:                                               │
   │ Between Malay Peninsula and Sumatra; 15M bbl/day               │
-  │   + 40% of world container trade                                │
+  │   + 40% of world container trade                                 │
   │ Shortest route between Indian and Pacific Oceans               │
-  │ Piracy historically; now heavily patrolled (5 Eyes + regional)  │
+  │ Piracy historically; now heavily patrolled (5 Eyes + regional)   │
   │ Alternative: Lombok Strait (longer) or proposed canals         │
   │ Thailand Kra Canal: repeatedly proposed; geopolitically complex  │
   │                                                                  │
-  │ BAB-EL-MANDEB:                                                  │
+  │ BAB-EL-MANDEB:                                                   │
   │ Between Djibouti/Eritrea and Yemen; Red Sea access to Suez     │
   │   12M bbl/day; 10% of world trade                              │
   │ Houthi disruptions 2023-: drone/missile attacks on shipping    │
   │   → 60% drop in Suez Canal traffic; rerouting around Africa    │
   │   → +10-14 day voyage; significant cost increase               │
   │                                                                  │
-  │ SUEZ CANAL:                                                     │
+  │ SUEZ CANAL:                                                      │
   │ 12% of world trade; 30% of global container traffic            │
-  │ Largest supertankers can't fit; they go around Africa anyway    │
+  │ Largest supertankers can't fit; they go around Africa anyway     │
   │ 2021 Ever Given: 6-day blockage → $9.6B/day impact (Lloyd's)  │
   │ Egyptian revenue: ~$9.4B/year (2022-23 record before Houthi)   │
   │                                                                  │
-  │ TURKISH STRAITS (BOSPORUS + DARDANELLES):                       │
-  │ Only egress for Black Sea; 3M bbl/day Russian oil exports       │
-  │ Montreux Convention (1936): Turkey controls warship passage;    │
-  │   closed Russian warships after Ukraine invasion (2022)         │
-  │ Geopolitically: NATO leverage over Russian Black Sea Fleet      │
+  │ TURKISH STRAITS (BOSPORUS + DARDANELLES):                        │
+  │ Only egress for Black Sea; 3M bbl/day Russian oil exports        │
+  │ Montreux Convention (1936): Turkey controls warship passage;     │
+  │   closed Russian warships after Ukraine invasion (2022)          │
+  │ Geopolitically: NATO leverage over Russian Black Sea Fleet       │
   │                                                                  │
-  │ GIUK GAP (Greenland-Iceland-UK):                                │
-  │ NATO anti-submarine warfare corridor; Russian submarine access  │
-  │ to Atlantic shipping lanes; Cold War origin; re-activated post  │
-  │ 2014 Russian resurgence                                         │
+  │ GIUK GAP (Greenland-Iceland-UK):                                 │
+  │ NATO anti-submarine warfare corridor; Russian submarine access   │
+  │ to Atlantic shipping lanes; Cold War origin; re-activated post   │
+  │ 2014 Russian resurgence                                          │
   └──────────────────────────────────────────────────────────────────┘
 ```
 
@@ -179,8 +179,8 @@ creating new critical mineral concentrations even as it reduces oil dependency.
   │ OGALLALA (High Plains Aquifer, USA):                           │
   │ Underlies ~450,000 km²; 30% of US groundwater irrigation       │
   │ Recharge rate: ~0.05m/year; withdrawal rate: ~0.5m/year        │
-  │ 30-40% depletion in some areas since 1950s                    │
-  │ → Threatens Great Plains agriculture without alternative water  │
+  │ 30-40% depletion in some areas since 1950s                     │
+  │ → Threatens Great Plains agriculture without alternative water │
   │                                                                │
   │ INDUS BASIN (India/Pakistan):                                  │
   │ GRACE satellite data: groundwater depletion accelerating       │
@@ -197,15 +197,15 @@ creating new critical mineral concentrations even as it reduces oil dependency.
   │   → Existential threat to Egypt (95% water from Nile)        │
   │   GERD filling rate dispute; no binding agreement            │
   │                                                              │
-  │ COLORADO: 7 US states + Mexico; over-allocated since 1922   │
+  │ COLORADO: 7 US states + Mexico; over-allocated since 1922    │
   │   Lake Mead/Powell at ~25-30% capacity (2022); mandatory     │
-  │   cutbacks; Las Vegas, Phoenix, LA all affected             │
+  │   cutbacks; Las Vegas, Phoenix, LA all affected              │
   │                                                              │
   │ JORDAN: Israel/Jordan/Palestine/Syria; heavily contested;    │
-  │   Palestinian access severely limited by Israeli control      │
+  │   Palestinian access severely limited by Israeli control     │
   │                                                              │
   │ MEKONG: China dams upstream vs SE Asia (Vietnam/Thailand);   │
-  │   China controls flow; downstream drought correlation         │
+  │   China controls flow; downstream drought correlation        │
   └──────────────────────────────────────────────────────────────┘
 
   BRIDGE — VIRTUAL WATER AS EXTERNALITY QUANTIFICATION (LCA PATTERN):
@@ -258,13 +258,13 @@ creating new critical mineral concentrations even as it reduces oil dependency.
   ┌────────────────────────────────────────────────────────────────┐
   │ CHINA'S MONOPOLY:                                              │
   │ Mining: ~60% of global production                              │
-  │ Processing/refining: ~90% global capacity (key chokepoint)    │
-  │ Mountain Pass (California): major deposit; China buys         │
-  │   processing capacity; US revived mining but not processing   │
+  │ Processing/refining: ~90% global capacity (key chokepoint)     │
+  │ Mountain Pass (California): major deposit; China buys          │
+  │   processing capacity; US revived mining but not processing    │
   │                                                                │
   │ CHINA'S USE OF THIS LEVERAGE:                                  │
   │ 2010: Japan row (Senkaku/Diaoyu Islands) → China cut REE       │
-  │   exports to Japan → rare earth price spike → WTO challenge   │
+  │   exports to Japan → rare earth price spike → WTO challenge    │
   │ 2023-2024: gallium/germanium export controls vs US chip policy │
   │ Leverage against European critical mineral supply chains       │
   └────────────────────────────────────────────────────────────────┘
@@ -288,7 +288,7 @@ creating new critical mineral concentrations even as it reduces oil dependency.
   │   China: ~80% of global polysilicon production               │
   │   Xinjiang: ~35% of Chinese production; forced labor concerns│
   │                                                              │
-  │ Copper: electrical infrastructure (EVs, grids need 3-5×)    │
+  │ Copper: electrical infrastructure (EVs, grids need 3-5×)     │
   │   Chile/Peru: ~40% of production; political risk (Chile)     │
   └──────────────────────────────────────────────────────────────┘
 
@@ -316,10 +316,10 @@ creating new critical mineral concentrations even as it reduces oil dependency.
   │                                                              │
   │ CORN: USA (~40% of world production) + Brazil + Argentina    │
   │                                                              │
-  │ RICE: Most production consumed locally in S/SE Asia;        │
+  │ RICE: Most production consumed locally in S/SE Asia;         │
   │   India/Vietnam/Thailand dominate exports                    │
   │                                                              │
-  │ SOY: Brazil + USA + Argentina = ~85% of exports             │
+  │ SOY: Brazil + USA + Argentina = ~85% of exports              │
   └──────────────────────────────────────────────────────────────┘
 
   UKRAINE GRAIN WAR (2022):
@@ -351,13 +351,13 @@ creating new critical mineral concentrations even as it reduces oil dependency.
 
   SOLAR BELT — HIGH IRRADIANCE GEOGRAPHY:
   ┌────────────────────────────────────────────────────────────────┐
-  │ Highest solar irradiance (GHI >2000 kWh/m²/yr):               │
-  │ North Africa (Sahara): 2400–2800 kWh/m²/yr — stranded unless  │
+  │ Highest solar irradiance (GHI >2000 kWh/m²/yr):                │
+  │ North Africa (Sahara): 2400–2800 kWh/m²/yr — stranded unless   │
   │   long-distance transmission (EU-Africa cables) or H₂ export   │
   │ Arabian Peninsula: high solar + cheap land + oil $ → NEOM,     │
   │   Saudi Green Initiative, UAE utility-scale (Al Dhafra: $0.013/│
   │   kWh — world record auction price)                            │
-  │ Atacama (Chile/Peru): driest + most solar globally; already     │
+  │ Atacama (Chile/Peru): driest + most solar globally; already    │
   │   cheapest electricity in world at some hours                  │
   │ Southwest US: solar + storage buildout in CA/AZ/NV             │
   │ India (Rajasthan, Gujarat): 220 GW solar target by 2028        │
@@ -412,36 +412,36 @@ creating new critical mineral concentrations even as it reduces oil dependency.
   STRATEGIC IMPORTANCE OF ARCTIC:
   ┌──────────────────────────────────────────────────────────────┐
   │ RESOURCES: ~13% of undiscovered conventional oil (USGS 2008) │
-  │   + ~30% of undiscovered natural gas                        │
-  │   Russia has exploited Yamal LNG; Novatek                   │
+  │   + ~30% of undiscovered natural gas                         │
+  │   Russia has exploited Yamal LNG; Novatek                    │
   │                                                              │
-  │ NORTHERN SEA ROUTE (NSR):                                   │
-  │ Russia's exclusive economic zone; ~40% shorter Europe-Asia  │
+  │ NORTHERN SEA ROUTE (NSR):                                    │
+  │ Russia's exclusive economic zone; ~40% shorter Europe-Asia   │
   │   than Suez route (12,000 km vs 21,000 km: Hamburg-Yokohama)│
-  │ Current: ice-free ~3 months/yr (September peak)             │
+  │ Current: ice-free ~3 months/yr (September peak)              │
   │ Russian icebreaker fleet: world's largest (including nuclear) │
-  │ 2022: Western sanctions → NSR traffic dropped; few willing  │
-  │   to use Russian waters                                     │
+  │ 2022: Western sanctions → NSR traffic dropped; few willing   │
+  │   to use Russian waters                                      │
   │                                                              │
-  │ NORTHWEST PASSAGE (NWP):                                    │
+  │ NORTHWEST PASSAGE (NWP):                                     │
   │ Through Canadian Arctic Archipelago                          │
   │ Canada claims: internal waters (territorial waters + control)│
-  │ USA/EU claim: international strait (freedom of navigation)  │
+  │ USA/EU claim: international strait (freedom of navigation)   │
   │ Ice-free summers approaching; dispute intensifying           │
   │                                                              │
   │ MILITARY COMPETITION:                                        │
-  │ Russia: rebuilt Arctic bases (Nagurskoye); new icebreakers  │
+  │ Russia: rebuilt Arctic bases (Nagurskoye); new icebreakers   │
   │ NATO: Norway, Canada, Denmark/Greenland strategic investment │
   │ China: "Near Arctic State" (2018 White Paper); polar Silk Road│
-  │   → Observer in Arctic Council; Chinese icebreaker Xuelong  │
+  │   → Observer in Arctic Council; Chinese icebreaker Xuelong   │
   │                                                              │
   │ SOVEREIGNTY CLAIMS:                                          │
   │ UNCLOS Article 76: extended continental shelf submissions    │
   │ Russia: 2015 submission claiming Lomonosov Ridge (under-Arctic)│
   │ Canada/Denmark: competing claims to North Pole seabed        │
-  │ Arctic Council: 8 members (A5 + Finland/Sweden/Iceland);    │
-  │   Norway/Canada/Denmark/Russia/USA core; Russia suspended   │
-  │   cooperation post-2022                                     │
+  │ Arctic Council: 8 members (A5 + Finland/Sweden/Iceland);     │
+  │   Norway/Canada/Denmark/Russia/USA core; Russia suspended    │
+  │   cooperation post-2022                                      │
   └──────────────────────────────────────────────────────────────┘
 ```
 

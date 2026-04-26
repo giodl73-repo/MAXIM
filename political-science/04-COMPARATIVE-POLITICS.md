@@ -22,7 +22,7 @@ the spread of their ideal points in policy space.
 
 ```
 +----------------------------------------------------------------------+
-|                    COMPARATIVE POLITICS FRAMEWORK                     |
+|                    COMPARATIVE POLITICS FRAMEWORK                    |
 |                                                                      |
 |  INSTITUTIONAL DESIGN            OUTCOMES                            |
 |  ─────────────────────           ────────                            |
@@ -30,7 +30,7 @@ the spread of their ideal points in policy space.
 |  Executive structure             Policy output (stability/change)    |
 |  Federal/unitary               → Democratic quality                  |
 |  Veto players                    Economic performance                |
-|  State capacity                  Redistribution                     |
+|  State capacity                  Redistribution                      |
 |                                  Democratic durability               |
 |                                                                      |
 |  VARIETIES OF CAPITALISM         DEMOCRATIC TRAJECTORIES             |
@@ -62,15 +62,15 @@ the entire party system and policy outcomes.
   EFFECTS:
   ┌────────────────────────────────────────────────────────────────┐
   │ + Manufactured majorities: minority of votes → majority of seats│
-  │   → Single-party government → decisive policy action          │
-  │ + Clear accountability: voters know who governs               │
-  │ + Geographic representation: each district has own MP         │
+  │   → Single-party government → decisive policy action           │
+  │ + Clear accountability: voters know who governs                │
+  │ + Geographic representation: each district has own MP          │
   │                                                                │
   │ - Unrepresentative: 40% of votes → 60% of seats              │
-  │ - Wasted votes: large parties win big margins; small parties  │
+  │ - Wasted votes: large parties win big margins; small parties   │
   │   get nothing                                                  │
-  │ - Tactical voting: vote for lesser evil, not preference       │
-  │ - Two-party lock: third parties face structural disadvantage  │
+  │ - Tactical voting: vote for lesser evil, not preference        │
+  │ - Two-party lock: third parties face structural disadvantage   │
   └────────────────────────────────────────────────────────────────┘
 
   EXAMPLES: US House, UK Commons, Canada, India
@@ -84,7 +84,7 @@ the entire party system and policy outcomes.
   VARIANTS:
   ┌────────────────────┬──────────────────────────────────────────────┐
   │ Closed list PR     │ Party controls ranking; voters choose party  │
-  │                    │ Israel, Spain, Netherlands                    │
+  │                    │ Israel, Spain, Netherlands                   │
   ├────────────────────┼──────────────────────────────────────────────┤
   │ Open list PR       │ Voters influence individual candidate rank   │
   │                    │ Finland, Sweden, Brazil                      │
@@ -96,11 +96,11 @@ the entire party system and policy outcomes.
   EFFECTS:
   ┌────────────────────────────────────────────────────────────────┐
   │ + More representative: vote share ≈ seat share                 │
-  │ + More parties: ideological diversity represented             │
-  │ + Higher voter participation (every vote counts)              │
+  │ + More parties: ideological diversity represented              │
+  │ + Higher voter participation (every vote counts)               │
   │                                                                │
-  │ - Coalition governments: slower policy-making, compromise     │
-  │ - Harder accountability: multiple parties share blame/credit  │
+  │ - Coalition governments: slower policy-making, compromise      │
+  │ - Harder accountability: multiple parties share blame/credit   │
   │ - Small parties can have outsized leverage in coalition        │
   │ - Threshold requirement needed to prevent fragmentation        │
   └────────────────────────────────────────────────────────────────┘
@@ -213,7 +213,7 @@ The phenomenon that has dominated comparative politics since ~2010:
 
   CASE STUDIES:
   ┌───────────────┬────────────────────────────────────────────────────┐
-  │ Hungary       │ Fidesz 2010+: electoral reforms, media capture,   │
+  │ Hungary       │ Fidesz 2010+: electoral reforms, media capture,    │
   │               │ judiciary packing, constitutional changes          │
   │               │ Still has elections — competitive authoritarianism │
   ├───────────────┼────────────────────────────────────────────────────┤
@@ -222,8 +222,8 @@ The phenomenon that has dominated comparative politics since ~2010:
   │               │ system with weakened institutional checks         │
   ├───────────────┼────────────────────────────────────────────────────┤
   │ Venezuela     │ Chavez → Maduro: economic crisis + institutional   │
-  │               │ capture → authoritarian consolidation             │
-  │               │ Electoral fraud from 2018 onward                  │
+  │               │ capture → authoritarian consolidation              │
+  │               │ Electoral fraud from 2018 onward                   │
   └───────────────┴────────────────────────────────────────────────────┘
 
   V-DEM BACKSLIDING INDEX:
@@ -251,8 +251,8 @@ Hall and Soskice's framework — institutional complementarities in political ec
   │ Finance: equity markets (short-term return focus)              │
   │ Skills: general (portable, company-funded training risky)      │
   │ Corporate governance: shareholder primacy                      │
-  │ Innovation: radical (disruptive, Schumpeterian)               │
-  │ Comparative advantage: high-tech, finance, bio                │
+  │ Innovation: radical (disruptive, Schumpeterian)                │
+  │ Comparative advantage: high-tech, finance, bio                 │
   └────────────────────────────────────────────────────────────────┘
 
   COORDINATED MARKET ECONOMIES (CME):
@@ -264,8 +264,8 @@ Hall and Soskice's framework — institutional complementarities in political ec
   │ Finance: banks (patient capital, relationship lending)         │
   │ Skills: specific (company-specific, apprenticeship programs)   │
   │ Corporate governance: stakeholder orientation                  │
-  │ Innovation: incremental (quality, reliability, process)       │
-  │ Comparative advantage: machine tools, autos, chemicals        │
+  │ Innovation: incremental (quality, reliability, process)        │
+  │ Comparative advantage: machine tools, autos, chemicals         │
   └────────────────────────────────────────────────────────────────┘
 
   INSTITUTIONAL COMPLEMENTARITIES:
@@ -305,7 +305,7 @@ Why do some authoritarian regimes last for decades?
   ┌────────────────────────┬─────────────────────────────────────────┐
   │ Personalist            │ Single leader dominates; Stalin, Saddam │
   │                        │ Weakest institutionally; most brutal    │
-  │                        │ Succession = most dangerous moment     │
+  │                        │ Succession = most dangerous moment      │
   ├────────────────────────┼─────────────────────────────────────────┤
   │ Party-based            │ Party apparatus rules; CCP, CPVN       │
   │                        │ More institutionalized; succession rules│

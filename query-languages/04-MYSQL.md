@@ -8,13 +8,13 @@ MySQL is the most widely deployed RDBMS on the planet by install count (LAMP sta
 
 ```
 ┌─────────────────────────────────────────────────────────────────────────────┐
-│                       MySQL / MariaDB Architecture                           │
+│                       MySQL / MariaDB Architecture                          │
 ├─────────────────────────────────────────────────────────────────────────────┤
 │  CONNECTION LAYER                                                            │
 │  Thread-per-connection model (or thread pool with ProxySQL / MariaDB TP)   │
 │  Authentication · SSL/TLS · Connection cache                                │
 ├─────────────────────────────────────────────────────────────────────────────┤
-│  SQL LAYER                                                                   │
+│  SQL LAYER                                                                  │
 │  ┌──────────────┐  ┌─────────────────────────┐  ┌─────────────────────┐   │
 │  │   Parser      │  │   Query Optimizer        │  │  Query Cache        │   │
 │  │  ─────────── │  │  ───────────────────────│  │  ─────────────────  │   │
@@ -26,13 +26,13 @@ MySQL is the most widely deployed RDBMS on the planet by install count (LAMP sta
 ├─────────────────────────────────────────────────────────────────────────────┤
 │  STORAGE ENGINE API (pluggable interface)                                   │
 │  ── This is architecturally unlike SQL Server, which has one storage engine │
-│  ── The SQL layer calls engine API: ha_write_row(), ha_read_next(), etc.   │
+│  ── The SQL layer calls engine API: ha_write_row(), ha_read_next(), etc.    │
 ├─────────────────────────────────────────────────────────────────────────────┤
 │  InnoDB (USE THIS)                    │  Other engines (mostly avoid)       │
 │  ┌────────────────────────────────┐   │  MyISAM — no transactions, legacy   │
 │  │  Buffer Pool (default 128MB;   │   │  Memory — RAM-only, no persistence  │
 │  │  set innodb_buffer_pool_size   │   │  CSV — flat file, no indexes        │
-│  │  to 70-80% of RAM)            │   │  Archive — append-only, compressed  │
+│  │  to 70-80% of RAM)             │   │  Archive — append-only, compressed  │
 │  ├────────────────────────────────┤   │  NDB — MySQL Cluster (shared-nothing│
 │  │  Change Buffer                 │   │        distributed; niche)          │
 │  │  Defers writes to secondary    │   │                                     │
@@ -132,9 +132,9 @@ InnoDB B-Tree Layout vs SQL Server Index Structures
   InnoDB — table with PK (id INT)
   ┌─────────────────────────────────────────────────────────────────────┐
   │  PK Clustered Index (the table itself)                              │
-  │  Leaf pages: id=1 | email | name | ...all columns...               │
-  │              id=2 | email | name | ...all columns...               │
-  │              id=3 | email | name | ...all columns...               │
+  │  Leaf pages: id=1 | email | name | ...all columns...                │
+  │              id=2 | email | name | ...all columns...                │
+  │              id=3 | email | name | ...all columns...                │
   └─────────────────────────────────────────────────────────────────────┘
   ┌─────────────────────────────────────────────────────────────────────┐
   │  Secondary Index on email                                           │
@@ -148,9 +148,9 @@ InnoDB B-Tree Layout vs SQL Server Index Structures
 
   SQL Server — heap table (no clustered index)
   ┌─────────────────────────────────────────────────────────────────────┐
-  │  Heap (IAM pages → data pages, unordered)                          │
-  │  Row at RID=(file=1, page=73, slot=4): email | name | ...          │
-  │  Row at RID=(file=1, page=73, slot=5): email | name | ...          │
+  │  Heap (IAM pages → data pages, unordered)                           │
+  │  Row at RID=(file=1, page=73, slot=4): email | name | ...           │
+  │  Row at RID=(file=1, page=73, slot=5): email | name | ...           │
   └─────────────────────────────────────────────────────────────────────┘
   ┌─────────────────────────────────────────────────────────────────────┐
   │  Nonclustered Index on email                                        │

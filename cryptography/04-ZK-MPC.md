@@ -22,13 +22,13 @@
 │  PROOF SYSTEMS FOR CIRCUITS                                             │
 │  ┌─────────────────────────────────────────────────────────────────┐    │
 │  │  zkSNARKs (Groth16, Plonk):                                     │    │
-│  │    Succinct (O(1) proof); fast verify; needs trusted setup       │    │
-│  │    Pairing-based; not post-quantum                               │    │
-│  │  zkSTARKs (StarkWare):                                           │    │
-│  │    No trusted setup; post-quantum; larger proof (~100KB)         │    │
-│  │    FRI (Fast Reed-Solomon IOPP)                                  │    │
-│  │  Bulletproofs:                                                   │    │
-│  │    No trusted setup; logarithmic proof size; slow verify         │    │
+│  │    Succinct (O(1) proof); fast verify; needs trusted setup      │    │
+│  │    Pairing-based; not post-quantum                              │    │
+│  │  zkSTARKs (StarkWare):                                          │    │
+│  │    No trusted setup; post-quantum; larger proof (~100KB)        │    │
+│  │    FRI (Fast Reed-Solomon IOPP)                                 │    │
+│  │  Bulletproofs:                                                  │    │
+│  │    No trusted setup; logarithmic proof size; slow verify        │    │
 │  └─────────────────────────────────────────────────────────────────┘    │
 │                                                                         │
 │  MULTI-PARTY COMPUTATION (MPC)                                          │

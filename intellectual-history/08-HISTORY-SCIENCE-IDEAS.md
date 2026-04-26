@@ -9,7 +9,7 @@ through internalist-externalist debates, to contextual, sociological, and postco
 
 ```
 +-------------------------------------------------------------------+
-|           HISTORY OF SCIENCE AS INTELLECTUAL HISTORY             |
+|           HISTORY OF SCIENCE AS INTELLECTUAL HISTORY              |
 |                                                                   |
 |  PHASES OF THE FIELD                                              |
 |  +----------------------+                                         |
@@ -276,7 +276,7 @@ through internalist-externalist debates, to contextual, sociological, and postco
   |               THREE EPISTEMIC VIRTUES (Daston & Galison)          |
   |                                                                   |
   |  ERA          VIRTUE             PROBLEM IT SOLVED                |
-  |  +-----------+-----------------+--------------------------------+  |
+  |  +-----------+-----------------+--------------------------------+ |
   |  | 18th C    | TRUTH-TO-NATURE | Individual specimens are       |  |
   |  |           | Idealized images| imperfect; the type must be    |  |
   |  |           | that represent  | extracted by expert judgment.  |  |

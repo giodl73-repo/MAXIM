@@ -6,7 +6,7 @@ Ergonomics (human factors engineering) is the scientific discipline of designing
 
 ```
 +----------------------------------------------------------------------+
-|           ERGONOMICS: THREE DOMAINS                                   |
+|           ERGONOMICS: THREE DOMAINS                                  |
 |                                                                      |
 |  PHYSICAL ERGONOMICS    COGNITIVE ERGONOMICS    ORGANIZATIONAL       |
 |  (body-product fit)     (mind-product fit)      ERGONOMICS           |

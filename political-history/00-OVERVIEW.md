@@ -8,8 +8,8 @@ POLITICAL HISTORY — FIELD MAP
 
   OBJECT OF STUDY
   ┌────────────────────────────────────────────────────────────────┐
-  │  States · Empires · Revolutions · Wars · Elections · Regimes  │
-  │  Treaties · Institutions · Leaders · Ideologies · Movements   │
+  │  States · Empires · Revolutions · Wars · Elections · Regimes   │
+  │  Treaties · Institutions · Leaders · Ideologies · Movements    │
   └────────────────────────────────────────────────────────────────┘
                               │
             ┌─────────────────┼──────────────────┐

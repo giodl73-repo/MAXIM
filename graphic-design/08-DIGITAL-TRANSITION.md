@@ -4,7 +4,7 @@
 
 ```
 +------------------------------------------------------------------+
-|              PRINT -> SCREEN: THE TRANSITION (1984-2010)          |
+|              PRINT -> SCREEN: THE TRANSITION (1984-2010)         |
 |                                                                  |
 |  1984: Macintosh + LaserWriter + Aldus PageMaker                 |
 |  1987: PostScript enables screen -> print fidelity               |

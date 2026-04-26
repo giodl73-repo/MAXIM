@@ -4,7 +4,7 @@
 
 ```
 +====================================================================+
-|              HOMOLOGY — COUNTING HOLES ALGEBRAICALLY              |
+|              HOMOLOGY — COUNTING HOLES ALGEBRAICALLY               |
 +====================================================================+
 |                                                                    |
 |  CORE IDEA: Assign abelian groups Hₙ(X) to a space X.            |

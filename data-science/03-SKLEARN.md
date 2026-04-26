@@ -13,7 +13,7 @@
 │                    MACHINE LEARNING PROBLEM MAP                             │
 │                                                                             │
 │  INPUT DATA                                                                 │
-│  ┌───────────────────────────────────────────────────────────────────────┐ │
+│  ┌───────────────────────────────────────────────────────────────────────┐  │
 │  │  X: feature matrix  (n_samples × n_features)  — always NumPy/Pandas  │ │
 │  │  y: target vector   (n_samples,)   — supervised only                 │ │
 │  └───────────────────────────────────────────────────────────────────────┘ │
@@ -21,9 +21,9 @@
 │       Has labels (y)?                                                       │
 │       ┌──────┴──────────────────────────────────────┐                      │
 │      Yes                                            No                     │
-│       │                                              │                      │
+│       │                                             │                      │
 │  SUPERVISED                                   UNSUPERVISED                 │
-│  ┌────┴───────────────────┐             ┌─────┴─────────────────────┐     │
+│  ┌────┴───────────────────┐             ┌─────┴─────────────────────┐      │
 │  │  y is continuous?      │             │  Clustering               │     │
 │  │  ┌───────────────────┐ │             │  KMeans, DBSCAN, Agglom.  │     │
 │  │  │ YES → Regression  │ │             │                           │     │
@@ -93,13 +93,13 @@ implements the same interface:
 ┌─────────────────────────────────────────────────────────────────────┐
 │  ESTIMATOR INTERFACE                                                │
 │                                                                     │
-│  .fit(X, y=None)          → self        learns from training data  │
-│  .predict(X)              → array       supervised output          │
-│  .predict_proba(X)        → array       class probabilities        │
+│  .fit(X, y=None)          → self        learns from training data   │
+│  .predict(X)              → array       supervised output           │
+│  .predict_proba(X)        → array       class probabilities         │
 │  .transform(X)            → array       unsupervised transformation│
-│  .fit_transform(X, y=None)→ array       fit then transform         │
-│  .score(X, y)             → float       default metric (R² or acc) │
-│  .get_params() / .set_params(**p)        hyperparameter access     │
+│  .fit_transform(X, y=None)→ array       fit then transform          │
+│  .score(X, y)             → float       default metric (R² or acc)  │
+│  .get_params() / .set_params(**p)        hyperparameter access      │
 └─────────────────────────────────────────────────────────────────────┘
 
 Estimators with .transform():  Transformers  (scalers, encoders, PCA)
@@ -621,7 +621,7 @@ shap.force_plot(explainer.expected_value, shap_values[0], X_test.iloc[0])
 
 ```
 ┌─────────────────────┬──────────────────────────────────────────────────────┐
-│  Method             │  What it measures + caveats                         │
+│  Method             │  What it measures + caveats                          │
 ├─────────────────────┼──────────────────────────────────────────────────────┤
 │  SHAP               │  Per-sample, per-feature contribution. Handles       │
 │                     │  correlated features. Exact for trees.              │
@@ -666,36 +666,36 @@ predictions = pipeline.predict(X_new)
 │  STANDARD ML WORKFLOW                                               │
 │                                                                     │
 │  1. Explore (EDA)                                                   │
-│     df.describe(), df.corr(), distribution plots                   │
-│     Find: missing values, outliers, class imbalance, data types    │
+│     df.describe(), df.corr(), distribution plots                    │
+│     Find: missing values, outliers, class imbalance, data types     │
 │                                                                     │
 │  2. Split FIRST                                                     │
-│     train_test_split before any analysis on test set               │
+│     train_test_split before any analysis on test set                │
 │     Test set = unseen until final evaluation                        │
 │                                                                     │
 │  3. Build baseline                                                  │
-│     DummyClassifier(strategy="most_frequent") — floor score        │
+│     DummyClassifier(strategy="most_frequent") — floor score         │
 │     LinearRegression / LogisticRegression — interpretable baseline  │
 │                                                                     │
 │  4. Preprocess in Pipeline                                          │
-│     Scaler + encoder + imputer all inside Pipeline                 │
-│     Never fit preprocessors outside the cross-validation loop      │
+│     Scaler + encoder + imputer all inside Pipeline                  │
+│     Never fit preprocessors outside the cross-validation loop       │
 │                                                                     │
 │  5. Cross-validate (not test set yet)                               │
-│     5-fold StratifiedKFold for classification                      │
-│     Score: validation folds only                                   │
+│     5-fold StratifiedKFold for classification                       │
+│     Score: validation folds only                                    │
 │                                                                     │
 │  6. Tune hyperparameters                                            │
-│     RandomizedSearchCV first (find the ballpark)                   │
-│     GridSearchCV to refine around best region                      │
+│     RandomizedSearchCV first (find the ballpark)                    │
+│     GridSearchCV to refine around best region                       │
 │                                                                     │
 │  7. Evaluate on test set — ONCE                                     │
-│     Final evaluation on held-out test set                          │
+│     Final evaluation on held-out test set                           │
 │     No tuning after seeing test results                             │
 │                                                                     │
 │  8. Analyze errors                                                  │
-│     confusion_matrix, classification_report                        │
-│     What types of errors? Is the cost asymmetric?                  │
+│     confusion_matrix, classification_report                         │
+│     What types of errors? Is the cost asymmetric?                   │
 └─────────────────────────────────────────────────────────────────────┘
 ```
 
@@ -705,7 +705,7 @@ predictions = pipeline.predict(X_new)
 
 ```
 ┌──────────────────────────────────────────────────────────────────────┐
-│  SITUATION                      │  START WITH                       │
+│  SITUATION                      │  START WITH                        │
 ├─────────────────────────────────┼───────────────────────────────────┤
 │  Any problem                    │  LinearRegression / LogisticReg   │
 │                                 │  (always build a baseline)        │

@@ -28,10 +28,10 @@ THE CHOMSKY HIERARCHY — THEORY TO PRODUCTION MAP
   │  │  Type 2   Context-Free                       │       │
   │  │  ┌───────────────────────────────────┐       │       │
   │  │  │  PDA / CFG                        │       │       │
-  │  │  │  ▸ LL/LR parsers                 │       │       │
-  │  │  │  ▸ ANTLR4 (LL(*), batch parse)   │       │       │
-  │  │  │  ▸ tree-sitter (LR(1), incr.)    │       │       │
-  │  │  │  ▸ Programming languages, JSON   │       │       │
+  │  │  │  ▸ LL/LR parsers                  │       │       │
+  │  │  │  ▸ ANTLR4 (LL(*), batch parse)    │       │       │
+  │  │  │  ▸ tree-sitter (LR(1), incr.)     │       │       │
+  │  │  │  ▸ Programming languages, JSON    │       │       │
   │  │  │                                   │       │       │
   │  │  │  Type 3   Regular                 │       │       │
   │  │  │  ┌──────────────────────┐         │       │       │

@@ -11,7 +11,7 @@
 │                         EPISTEMOLOGY                                     │
 │                    Theory of knowledge and justified belief              │
 │                                                                          │
-│   Individual ←──────────────────────────────────────────→ Social        │
+│   Individual ←──────────────────────────────────────────→ Social         │
 │                                                                          │
 ├────────────────────────────────┬─────────────────────────────────────────┤
 │  INDIVIDUAL EPISTEMOLOGY       │  SOCIAL EPISTEMOLOGY                    │
@@ -31,9 +31,9 @@
 │  Bayesian probability theory   │  Quine: epistemology as science         │
 │  Epistemic logic               │  Cognitive science of knowledge         │
 │  Formal learning theory        │  Evolutionary debunking                 │
-│  Formal theories of belief rev │  Reliabilism                           │
+│  Formal theories of belief rev │  Reliabilism                            │
 │                                │                                         │
-│   Formal ←──────────────────── ┼ ───────────────────────→ Naturalized   │
+│   Formal ←──────────────────── ┼ ───────────────────────→ Naturalized    │
 └────────────────────────────────┴─────────────────────────────────────────┘
 
 Quadrant dynamics:

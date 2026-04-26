@@ -4,7 +4,7 @@
 
 ```
 +------------------------------------------------------------------+
-|                  HAUTE COUTURE: THE APEX                          |
+|                  HAUTE COUTURE: THE APEX                         |
 |                                                                  |
 |  LEGAL DEFINITION: French protected term                         |
 |  Regulated by: Chambre Syndicale de la Haute Couture (Paris)     |

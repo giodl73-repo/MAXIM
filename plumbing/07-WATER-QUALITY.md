@@ -46,7 +46,7 @@ RESIDENTIAL WATER QUALITY TREATMENT HIERARCHY:
 
   HARDNESS SCALE:
   ┌───────────────────────────────────────────────────────────┐
-  │  Classification    │ GPG        │ mg/L as CaCO₃          │
+  │  Classification    │ GPG        │ mg/L as CaCO₃           │
   ├───────────────────────────────────────────────────────────┤
   │  Soft              │ < 1        │ < 17                    │
   │  Slightly hard     │ 1-3.5      │ 17-60                   │
@@ -88,15 +88,15 @@ RESIDENTIAL WATER QUALITY TREATMENT HIERARCHY:
 
   ECONOMIC IMPACT:
   ┌──────────────────────────────────────────────────────────┐
-  │  Scale insulates heat exchange surfaces:                │
+  │  Scale insulates heat exchange surfaces:                 │
   │  1/4" scale on heating element → 39% efficiency loss   │
-  │  1/2" scale → 70% efficiency loss (DOE estimates)       │
+  │  1/2" scale → 70% efficiency loss (DOE estimates)        │
   │                                                          │
-  │  Tankless water heater vulnerability:                   │
+  │  Tankless water heater vulnerability:                    │
   │  Very narrow heat exchanger passages → scale quickly   │
-  │  blocks flow → catastrophic failure without maintenance │
-  │  Annual descaling required in hard water areas          │
-  │  (citric acid or white vinegar circulated through)      │
+  │  blocks flow → catastrophic failure without maintenance  │
+  │  Annual descaling required in hard water areas           │
+  │  (citric acid or white vinegar circulated through)       │
   └──────────────────────────────────────────────────────────┘
 
   SCALE IN PIPES:
@@ -113,8 +113,8 @@ RESIDENTIAL WATER QUALITY TREATMENT HIERARCHY:
 ```
   PROCESS:
   ┌──────────────────────────────────────────────────────────────┐
-  │  RESIN TANK: filled with sulfonated polystyrene resin beads │
-  │  Beads pre-charged with Na⁺ ions                            │
+  │  RESIN TANK: filled with sulfonated polystyrene resin beads  │
+  │  Beads pre-charged with Na⁺ ions                             │
   │                                                              │
   │  SOFTENING:                                                  │
   │  Hard water (Ca²⁺, Mg²⁺) flows through resin               │
@@ -123,10 +123,10 @@ RESIDENTIAL WATER QUALITY TREATMENT HIERARCHY:
   │  → Softened water exits with Na⁺ (no Ca²⁺ or Mg²⁺)         │
   │                                                              │
   │  REGENERATION (when resin exhausted):                        │
-  │  Concentrated NaCl brine from salt tank flushes resin       │
+  │  Concentrated NaCl brine from salt tank flushes resin        │
   │  High Na⁺ concentration reverses equilibrium               │
   │  → Ca²⁺ and Mg²⁺ released from resin                       │
-  │  → Drain to waste                                           │
+  │  → Drain to waste                                            │
   │  → Resin re-charged with Na⁺ → ready for next cycle        │
   └──────────────────────────────────────────────────────────────┘
 
@@ -287,9 +287,9 @@ RESIDENTIAL WATER QUALITY TREATMENT HIERARCHY:
     → Dissolved ions, large molecules rejected
 
   ┌──────────────────────────────────────────────────────────────┐
-  │  Feed water → [pre-filter] → [RO membrane] → product water  │
-  │                                  ↓                          │
-  │                           Reject/brine (to drain)           │
+  │  Feed water → [pre-filter] → [RO membrane] → product water   │
+  │                                  ↓                           │
+  │                           Reject/brine (to drain)            │
   └──────────────────────────────────────────────────────────────┘
 
   WHAT RO REMOVES:
@@ -424,26 +424,26 @@ RESIDENTIAL WATER QUALITY TREATMENT HIERARCHY:
 
   COMMON WELL WATER CONCERNS BY GEOGRAPHY:
   ┌──────────────────────────────────────────────────────────┐
-  │  Arsenic: New England, Upper Midwest, mountain West,    │
-  │  Southwest (naturally occurring in some bedrock)        │
-  │  MCL: 10 ppb; exceeds in many wells without awareness   │
-  │  Treatment: RO, activated alumina, iron coagulation     │
+  │  Arsenic: New England, Upper Midwest, mountain West,     │
+  │  Southwest (naturally occurring in some bedrock)         │
+  │  MCL: 10 ppb; exceeds in many wells without awareness    │
+  │  Treatment: RO, activated alumina, iron coagulation      │
   │                                                          │
-  │  Radon: New England, Appalachians, Southwest (granite   │
-  │  rock releases radon into groundwater)                  │
-  │  Offgasses in home when water used → lung cancer risk   │
-  │  Treatment: aeration (outdoor) or activated carbon      │
+  │  Radon: New England, Appalachians, Southwest (granite    │
+  │  rock releases radon into groundwater)                   │
+  │  Offgasses in home when water used → lung cancer risk    │
+  │  Treatment: aeration (outdoor) or activated carbon       │
   │                                                          │
-  │  Iron/Manganese: Very common; causes orange staining    │
-  │  (iron), black staining (manganese)                     │
-  │  Sulfur smell (hydrogen sulfide): common in anaerobic   │
-  │  aquifers; not a health threat at low levels            │
+  │  Iron/Manganese: Very common; causes orange staining     │
+  │  (iron), black staining (manganese)                      │
+  │  Sulfur smell (hydrogen sulfide): common in anaerobic    │
+  │  aquifers; not a health threat at low levels             │
   │  Treatment: oxidation (chlorination or air) + filtration│
   │                                                          │
-  │  Nitrates: agricultural areas, near septic systems      │
+  │  Nitrates: agricultural areas, near septic systems       │
   │  MCL: 10 mg/L (as N); dangerous for infants <6 months  │
-  │  ("blue baby syndrome" — methemoglobinemia)             │
-  │  Treatment: RO, ion exchange                            │
+  │  ("blue baby syndrome" — methemoglobinemia)              │
+  │  Treatment: RO, ion exchange                             │
   └──────────────────────────────────────────────────────────┘
 
   SHOCK CHLORINATION:

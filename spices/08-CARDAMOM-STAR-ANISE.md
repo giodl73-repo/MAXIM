@@ -13,7 +13,7 @@
 |  Small green pods                  8-pointed woody star          |
 |  Western Ghats, India              S. China / N. Vietnam         |
 |  3rd most expensive spice          Commodity-priced              |
-|  Eucalyptus-floral (1,8-cineole)  Intense anise (anethole)      |
+|  Eucalyptus-floral (1,8-cineole)  Intense anise (anethole)       |
 |  Scandinavian + Arab connection    Chinese 5-spice               |
 |  via Viking trade routes           → Tamiflu → pandemic response |
 |                                                                  |
@@ -43,7 +43,7 @@ ELETTARIA CARDAMOMUM:
   |  Green three-sided pod (capsule)         |
   |  ~1–2 cm length                          |
   |  Contains: 15–20 small dark seeds        |
-  |  Arranged in 3 rows of ~5               |
+  |  Arranged in 3 rows of ~5                |
   |                                          |
   |  Volatile oils: IN THE SEEDS, not pod    |
   |  Pod = protective wrapper                |

@@ -25,9 +25,9 @@ Optimization finds the minimum (or maximum) of an objective function, possibly s
 |                                                                  |
 |  STOCHASTIC / GLOBAL                                            |
 |  +---------------------------------------------+               |
-|  | SGD, Adam, RMSprop (ML training)             |               |
-|  | Simulated annealing, genetic algorithms      |               |
-|  | Bayesian optimization (expensive objectives) |               |
+|  | SGD, Adam, RMSprop (ML training)            |               |
+|  | Simulated annealing, genetic algorithms     |               |
+|  | Bayesian optimization (expensive objectives) |              |
 |  +---------------------------------------------+               |
 +------------------------------------------------------------------+
 ```

@@ -9,7 +9,7 @@ LANDSCAPE DESIGN PROCESS:
 
   SITE ANALYSIS          PROGRAM              DESIGN
   +------------------+   +------------------+  +------------------+
-  | Sun/shade mapping |   | Who uses it?     |  | Concept (parti)  |
+  | Sun/shade mapping |   | Who uses it?     |  | Concept (parti) |
   | Soil assessment  |   | What activities? |  | Master plan      |
   | Drainage/water   |   | What budget?     |  | Planting plan    |
   | Existing plants  |   | Maintenance level|  | Hardscape plan   |

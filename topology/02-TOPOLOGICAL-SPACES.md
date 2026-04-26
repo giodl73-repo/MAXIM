@@ -4,7 +4,7 @@
 
 ```
 +====================================================================+
-|           TOPOLOGICAL SPACES — THE ABSTRACT FRAMEWORK             |
+|           TOPOLOGICAL SPACES — THE ABSTRACT FRAMEWORK              |
 +====================================================================+
 |                                                                    |
 |  TOPOLOGY τ on set X:                                             |

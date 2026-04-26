@@ -46,7 +46,7 @@ Fe-C PHASE DIAGRAM (simplified, 0–2.1% C, 0–1000°C):
     1000 ─                      γ (austenite)
           │             ┌────────────────────────┐
      912 ─│  α+γ region │   A₃ line              │
-          │             │ (eutectoid: 0.77% C)    │
+          │             │ (eutectoid: 0.77% C)   │
      727 ─│─────────────┼───────────────────────── A₁ line (eutectoid temp)
           │    α        │ α + Fe₃C (pearlite)     │ γ + Fe₃C (upper)
           │  (ferrite)  └────────────────────────┘

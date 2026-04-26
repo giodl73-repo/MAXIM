@@ -86,9 +86,9 @@ OPTION 3 — PENDENTIVE (Byzantine solution)
        | / dome\ |                   /   \
        |/ (circ)\|                  / drum\
        +---------+            ____ /       \
-       |pend pend|           |    |         |
+       |pend pend|           |    |        |
        |  \   /  |    arch   |    |pendentive
-       +---------+           |    |         |
+       +---------+           |    |        |
                              |____|_________|
                               square room
 

@@ -12,7 +12,7 @@ TRANSMISSION GRID (69–500 kV)
         │
 ┌───────▼────────────────────────────────────────────────────────────────────┐
 │   DISTRIBUTION SUBSTATION (the boundary between transmission & distribution)│
-│   Typical: 69 kV or 115 kV → 12.47 kV (most common US) or 34.5 kV         │
+│   Typical: 69 kV or 115 kV → 12.47 kV (most common US) or 34.5 kV          │
 │   Equipment: Power transformer(s), circuit breakers, protective relays,    │
 │              bus, capacitor banks, voltage regulators, SCADA               │
 └───────┬────────────────────────────────────────────────────────────────────┘
@@ -20,9 +20,9 @@ TRANSMISSION GRID (69–500 kV)
         │ Primary distribution feeders (12.47 kV three-phase, 3-wire or 4-wire)
         │
    ┌────┴─────────────────────────────────────────────────────┐
-   │         PRIMARY DISTRIBUTION FEEDER (~8 miles average)    │
-   │  OH/UG conductors, reclosers, sectionalizing switches,    │
-   │  capacitor banks, voltage regulators, laterals            │
+   │         PRIMARY DISTRIBUTION FEEDER (~8 miles average)   │
+   │  OH/UG conductors, reclosers, sectionalizing switches,   │
+   │  capacitor banks, voltage regulators, laterals           │
    └────┬────────────────────┬────────────────────┬───────────┘
         │                    │                    │
    ┌────▼───┐          ┌────▼───┐          ┌────▼───┐
@@ -54,7 +54,7 @@ DISTRIBUTION SUBSTATION — ONE-LINE DIAGRAM (simplified):
                                   ┌─┴─┐               ┌─┴─┐
                                   │OCB│ Oil/SF₆        │OCB│  115 kV
                                   └─┬─┘ Circuit        └─┬─┘  Breakers
-                                    │    Breaker           │
+                                    │    Breaker          │
                        115 kV Bus ──┴───────────────────┴──
                                            │
                                         ┌──┴──────┐
@@ -509,9 +509,9 @@ MODERN DISTRIBUTION WITH DERs:
 Substation ◀─▶ Feeder ◀─▶ Loads/Generators (bidirectional)
 
                              ┌─────────────────┐
-                    12.47 kV │  Distribution    │
+                    12.47 kV │  Distribution   │
     ─────────────────────────┤  Feeder          ├────────────────────
-                             │                  │
+                             │                 │
                          ┌───┴───┐          ┌───┴───┐
                          │5MW    │          │200kW  │
                          │Solar  │          │BESS   │  ← export to grid

@@ -27,10 +27,10 @@ Limit theorems explain why statistical practice works. They are the mathematical
 |  Berry-Esseen         -- quantify CLT error rate               |
 |                                                                  |
 +------------------------------------------------------------------+
-|                  APPLICATIONS                                     |
-|  Algorithm average-case analysis   Monte Carlo integration      |
-|  SGD convergence theory            Confidence intervals         |
-|  A/B test sample sizes             Extreme value theory         |
+|                  APPLICATIONS                                    |
+|  Algorithm average-case analysis   Monte Carlo integration       |
+|  SGD convergence theory            Confidence intervals          |
+|  A/B test sample sizes             Extreme value theory          |
 +------------------------------------------------------------------+
 ```
 

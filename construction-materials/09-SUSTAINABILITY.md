@@ -55,7 +55,7 @@ PASSIVHAUS ENERGY BALANCE PRINCIPLE
   HOW PASSIVHAUS WORKS:
   ┌──────────────────────────────────────────────────────────────────────────┐
   │                                                                          │
-  │  GAINS:                        LOSSES:                                  │
+  │  GAINS:                        LOSSES:                                   │
   │  Solar gains through glazing   Fabric heat loss: U × A × ΔT            │
   │  Internal gains: people,       Ventilation heat loss: V_dot × ρ_air    │
   │    appliances, lighting         × c_p × ΔT × (1 − η_MVHR)             │
@@ -66,13 +66,13 @@ PASSIVHAUS ENERGY BALANCE PRINCIPLE
   │  3. Thermal bridge-free: Ψ ≤ 0.01 W/mK at all junctions               │
   │  4. Air-tight: n50 ≤ 0.6 ACH → stop infiltration losses               │
   │  5. MVHR: mechanical ventilation with heat recovery η ≥ 75%            │
-  │     → ventilation losses nearly eliminated                              │
-  │  6. Result: internal + solar gains = space heating demand               │
+  │     → ventilation losses nearly eliminated                               │
+  │  6. Result: internal + solar gains = space heating demand                │
   │     → no boiler needed in most climates (only top-up from small HP)   │
   │                                                                          │
-  │  MVHR: MECHANICAL VENTILATION WITH HEAT RECOVERY                        │
-  │  Extract stale air from wet rooms → recover ~85% heat in heat exchanger │
-  │  → supply pre-warmed fresh air to living rooms                          │
+  │  MVHR: MECHANICAL VENTILATION WITH HEAT RECOVERY                         │
+  │  Extract stale air from wet rooms → recover ~85% heat in heat exchanger  │
+  │  → supply pre-warmed fresh air to living rooms                           │
   │  Net ventilation heat loss: < 2% of extraction flow heat content       │
   │                                                                          │
   └──────────────────────────────────────────────────────────────────────────┘
@@ -88,17 +88,17 @@ PASSIVHAUS ENERGY BALANCE PRINCIPLE
 LCA STAGES IN DETAIL (EN 15978 / EN ISO 14040/14044)
 ┌──────────────────────────────────────────────────────────────────────────────┐
 │                                                                              │
-│  A1  RAW MATERIAL EXTRACTION:  mining, quarrying, forestry                  │
-│      For cement: CaCO₃ quarrying; clay/shale mining                         │
-│      For steel: iron ore mining; coking coal mining                         │
-│      For timber: forestry operations; transport to mill                     │
+│  A1  RAW MATERIAL EXTRACTION:  mining, quarrying, forestry                   │
+│      For cement: CaCO₃ quarrying; clay/shale mining                          │
+│      For steel: iron ore mining; coking coal mining                          │
+│      For timber: forestry operations; transport to mill                      │
 │                                                                              │
 │  A2  TRANSPORT to manufacturing site                                         │
 │      Global supply chains → shipping CO₂ often significant                 │
 │                                                                              │
 │  A3  MANUFACTURING:                                                          │
 │      Cement: kiln (1450°C); ~0.83 tCO₂/t OPC clinker                       │
-│      Steel BOF: blast furnace + converter; ~1.9 tCO₂/t steel                │
+│      Steel BOF: blast furnace + converter; ~1.9 tCO₂/t steel                 │
 │      Steel EAF: electric arc (scrap); ~0.4–0.6 tCO₂/t steel                │
 │      CLT: sawmill + adhesive + press; ~0.3–0.5 tCO₂/t CLT panel            │
 │      Glass: float line (1600°C); ~0.7–1.0 tCO₂/t glass                    │
@@ -111,21 +111,21 @@ LCA STAGES IN DETAIL (EN 15978 / EN ISO 14040/14044)
 │      Temporary works: formwork (timber + reuse factor); scaffolding        │
 │      Energy: diesel plant, tower cranes, site lighting                     │
 │                                                                              │
-│  B1  IN USE (carbon release from materials — e.g., adhesive VOC)            │
-│  B2  MAINTENANCE (repainting, recaulking, etc.)                             │
+│  B1  IN USE (carbon release from materials — e.g., adhesive VOC)             │
+│  B2  MAINTENANCE (repainting, recaulking, etc.)                              │
 │  B3  REPAIR (structural repair — uncommon in LCA)                          │
 │  B4  REPLACEMENT (replace short-life components: glazing seals, carpet)    │
-│  B5  REFURBISHMENT (major building lifecycle event)                         │
+│  B5  REFURBISHMENT (major building lifecycle event)                          │
 │  B6  OPERATIONAL ENERGY (heating, cooling, lighting, hot water)            │
-│  B7  OPERATIONAL WATER (embodied carbon in water treatment, pumping)        │
+│  B7  OPERATIONAL WATER (embodied carbon in water treatment, pumping)         │
 │                                                                              │
 │  C1  DECONSTRUCTION/DEMOLITION                                               │
-│  C2  TRANSPORT to waste processing                                          │
-│  C3  WASTE PROCESSING (recycling, sorting)                                  │
-│  C4  DISPOSAL (landfill)                                                    │
+│  C2  TRANSPORT to waste processing                                           │
+│  C3  WASTE PROCESSING (recycling, sorting)                                   │
+│  C4  DISPOSAL (landfill)                                                     │
 │                                                                              │
-│  D   BEYOND BOUNDARY (reuse, recovery, recycling potential)                 │
-│      Steel: high scrap value → D credit                                     │
+│  D   BEYOND BOUNDARY (reuse, recovery, recycling potential)                  │
+│      Steel: high scrap value → D credit                                      │
 │      CLT: structural reuse credit (if designed for disassembly)            │
 │      Concrete: downcycled to aggregate (C3/D credit, small)                │
 │                                                                              │
@@ -182,20 +182,20 @@ STRUCTURAL FRAME COMPARISON (kgCO₂e/m² GROSS FLOOR AREA)
 │                                                                              │
 │  (Based on RICS guidance, LETI reports, IStructE embodied carbon data)     │
 │                                                                              │
-│  FRAME TYPE                kgCO₂e/m² GFA    NOTES                           │
-│  ─────────────────────────────────────────────────────────────────────────  │
-│  RC flat slab              80–160            Depends on concrete strength,  │
-│                                              rebar kg/m³, cement type       │
-│  RC flat slab (50% GGBS)   50–110            GGBS substitution ~30% savings │
+│  FRAME TYPE                kgCO₂e/m² GFA    NOTES                            │
+│  ─────────────────────────────────────────────────────────────────────────   │
+│  RC flat slab              80–160            Depends on concrete strength,   │
+│                                              rebar kg/m³, cement type        │
+│  RC flat slab (50% GGBS)   50–110            GGBS substitution ~30% savings  │
 │  RC flat slab (70% GGBS)   40–90             Further reduction; code limits  │
-│  Structural steel (BOF)    90–180            BOF route; high scrap content  │
-│  Structural steel (EAF)    60–120            EAF scrap-based; ~40% less     │
-│  Mass timber CLT            30–80  (gross)   Plus biogenic sequestration    │
+│  Structural steel (BOF)    90–180            BOF route; high scrap content   │
+│  Structural steel (EAF)    60–120            EAF scrap-based; ~40% less      │
+│  Mass timber CLT            30–80  (gross)   Plus biogenic sequestration     │
 │  Mass timber CLT            −10 to +30 (net) If biogenic credit included   │
-│  Hybrid CLT + steel core   50–100            Typical commercial mass timber │
+│  Hybrid CLT + steel core   50–100            Typical commercial mass timber  │
 │  Precast concrete           70–140            Includes transport premium     │
 │                                                                              │
-│  LETI TARGETS (London Energy Transformation Initiative, 2020):              │
+│  LETI TARGETS (London Energy Transformation Initiative, 2020):               │
 │  2025:  <700 kgCO₂e/m² whole building embodied (A1–A5)                    │
 │  2030:  <500 kgCO₂e/m² whole building embodied                             │
 │  Net zero embodied:  <300 kgCO₂e/m² whole building (aggressive; GLA London)│
@@ -203,9 +203,9 @@ STRUCTURAL FRAME COMPARISON (kgCO₂e/m² GROSS FLOOR AREA)
 │  Note: structural frame is 30–50% of whole-building A1–A5 embodied carbon  │
 │  → foundation, façade, fit-out, MEP add the rest                           │
 │                                                                              │
-│  REDUCING EMBODIED IN CONCRETE FRAMES:                                      │
+│  REDUCING EMBODIED IN CONCRETE FRAMES:                                       │
 │  → Specify GGBS/fly ash replacement: 40–50% GGBS = ~25–35% CO₂ reduction  │
-│  → Optimise rebar quantity (BIM analysis; avoid over-specification)         │
+│  → Optimise rebar quantity (BIM analysis; avoid over-specification)          │
 │  → Use UHPC or post-tensioned slabs to reduce concrete volume              │
 │  → Design for adaptability → longer building life → embodied amortized     │
 │                                                                              │
@@ -220,18 +220,18 @@ STRUCTURAL FRAME COMPARISON (kgCO₂e/m² GROSS FLOOR AREA)
 CIRCULAR ECONOMY PRINCIPLES IN CONSTRUCTION
 ┌──────────────────────────────────────────────────────────────────────────────┐
 │                                                                              │
-│  LINEAR ECONOMY:  Extract → Manufacture → Build → Use → Demolish → Landfill │
+│  LINEAR ECONOMY:  Extract → Manufacture → Build → Use → Demolish → Landfill  │
 │                                                                              │
 │  CIRCULAR ECONOMY:                                                           │
-│    Design for Disassembly (DfD): reversible connections → components reused │
-│    Material passports: BIM-embedded data → future use database              │
-│    Deconstruction (not demolition): careful dismantling vs bulk demolition  │
-│    Urban mining: building stock as resource bank                            │
+│    Design for Disassembly (DfD): reversible connections → components reused  │
+│    Material passports: BIM-embedded data → future use database               │
+│    Deconstruction (not demolition): careful dismantling vs bulk demolition   │
+│    Urban mining: building stock as resource bank                             │
 │                                                                              │
 │  DESIGN FOR DISASSEMBLY PRINCIPLES:                                          │
-│  1. Accessible connections: exposed or accessible bolts vs cast-in          │
-│  2. Reversible: bolt/screw not weld; timber screws not adhesive glulam      │
-│  3. Standardized components: designed to current standards for future reuse │
+│  1. Accessible connections: exposed or accessible bolts vs cast-in           │
+│  2. Reversible: bolt/screw not weld; timber screws not adhesive glulam       │
+│  3. Standardized components: designed to current standards for future reuse  │
 │  4. Documented: material passports; as-built drawings; QR codes on elements│
 │  5. Separation of layers: structure / envelope / fit-out at different lifespans│
 │     (Brand's shearing layers: Site 0–∞; Structure 30–300yr; Skin 20yr; Services 7–15yr)│
@@ -240,23 +240,23 @@ CIRCULAR ECONOMY PRINCIPLES IN CONSTRUCTION
 │    Steel: 97%+ theoretically recyclable; in practice ~86% collected from   │
 │      buildings; high-value market for scrap; embodied carbon of EAF scrap  │
 │      ~0.4 tCO₂/t vs BOF ~1.9 tCO₂/t                                       │
-│    Concrete: ~99% recycled as aggregate (C3 stage) but DOWNCYCLED           │
+│    Concrete: ~99% recycled as aggregate (C3 stage) but DOWNCYCLED            │
 │      Recycled concrete aggregate (RCA) used in sub-base, non-structural;   │
-│      properties inferior to virgin aggregate for structural concrete        │
-│      "Closed-loop" structural concrete recycling: experimental; not yet     │
+│      properties inferior to virgin aggregate for structural concrete         │
+│      "Closed-loop" structural concrete recycling: experimental; not yet      │
 │      commercial (concrete composition knowledge needed; separating C from S)│
-│    Timber/CLT: reversible screw connections → structural reuse possible     │
+│    Timber/CLT: reversible screw connections → structural reuse possible      │
 │      Structural reuse: 2nd-use CLT panels, glulam beams                    │
 │      "Design for reuse" specifically sizes CLT for multiple use cycles     │
-│    Glass: recyclable but mixed cullet → not float glass quality             │
-│      Currently: crushed glass → road aggregate, foam glass insulation       │
-│      True closed-loop float glass recycling: possible but market limited    │
+│    Glass: recyclable but mixed cullet → not float glass quality              │
+│      Currently: crushed glass → road aggregate, foam glass insulation        │
+│      True closed-loop float glass recycling: possible but market limited     │
 │                                                                              │
 │  MATERIAL PASSPORTS:                                                         │
 │    BIM models → material quantities, specifications, connection types        │
-│    RFID or QR codes on structural elements → scan to retrieve data          │
+│    RFID or QR codes on structural elements → scan to retrieve data           │
 │    Netherlands: Dutch Madaster platform — building "bank accounts"           │
-│    EU: Construction Product Regulation (CPR) revision → passports mandated  │
+│    EU: Construction Product Regulation (CPR) revision → passports mandated   │
 │                                                                              │
 └──────────────────────────────────────────────────────────────────────────────┘
 ```
@@ -275,13 +275,13 @@ HEMPCRETE: MATERIAL AND PERFORMANCE
 │  Hemp shiv (hurds): woody core of Cannabis sativa stem, after retting      │
 │    Particle size: 3–20 mm; density 100–140 kg/m³; ~50% hollow              │
 │  Lime binder: hydraulic lime (NHL 2 or NHL 3.5) + air lime putty           │
-│  Water: mix to paste consistency                                            │
+│  Water: mix to paste consistency                                             │
 │  Hemp:lime ratio: typically 1:1 to 1:2 by weight                          │
 │                                                                              │
-│  CURING:                                                                    │
+│  CURING:                                                                     │
 │  Carbonation (air lime): CO₂ + Ca(OH)₂ → CaCO₃; weeks to months           │
-│  Hydraulic set (NHL): days to weeks                                         │
-│  Minimum cure before loading: 28 days                                       │
+│  Hydraulic set (NHL): days to weeks                                          │
+│  Minimum cure before loading: 28 days                                        │
 │                                                                              │
 │  STRUCTURAL PROPERTIES:                                                      │
 │  Compressive strength: 0.2–1.5 MPa  ← NOT structural in bending/shear     │
@@ -299,13 +299,13 @@ HEMPCRETE: MATERIAL AND PERFORMANCE
 │    Hemp growth: sequesters ~1.6–3 tCO₂/ha/year during growing season      │
 │    Hemp shiv embodied carbon: −0.3 to −0.5 kgCO₂/kg (biogenic credit)    │
 │    Lime binder: +0.4–0.6 kgCO₂/kg (calcination + carbonation net)         │
-│    Hempcrete panel 300 mm: potentially near carbon-neutral or net-negative  │
-│    Uncertainty: biogenic carbon accounting conventions (temporary storage)  │
+│    Hempcrete panel 300 mm: potentially near carbon-neutral or net-negative   │
+│    Uncertainty: biogenic carbon accounting conventions (temporary storage)   │
 │                                                                              │
 │  APPLICATIONS:                                                               │
 │  Cast-in-place: temporary formwork; cast hemp-lime in lifts around frame   │
-│  Pre-cast blocks: smaller-scale projects; easier quality control            │
-│  Spray-applied: mechanical application onto frame                           │
+│  Pre-cast blocks: smaller-scale projects; easier quality control             │
+│  Spray-applied: mechanical application onto frame                            │
 │                                                                              │
 └──────────────────────────────────────────────────────────────────────────────┘
 ```
@@ -398,40 +398,40 @@ BAMBOO AS STRUCTURAL MATERIAL
 BUILDING RATING SYSTEMS COMPARISON
 ┌──────────────────────────────────────────────────────────────────────────────┐
 │                                                                              │
-│  SYSTEM        ORIGIN  WHAT IT MEASURES            KEY METRIC               │
-│  ────────────────────────────────────────────────────────────────────────   │
-│  LEED          USA     Energy, water, materials,   Points 26–110 → Cert/    │
-│                        health, transport            Silver/Gold/Platinum    │
+│  SYSTEM        ORIGIN  WHAT IT MEASURES            KEY METRIC                │
+│  ────────────────────────────────────────────────────────────────────────    │
+│  LEED          USA     Energy, water, materials,   Points 26–110 → Cert/     │
+│                        health, transport            Silver/Gold/Platinum     │
 │                        Operational focus            40% credits energy-relat │
 │                        Not Passivhaus standard      No absolute energy limit │
 │                                                                              │
-│  BREEAM        UK      Breadth: energy, water,      Pass/Good/VG/Exc/Outst  │
-│                        transport, ecology, pollu.   % score by category     │
+│  BREEAM        UK      Breadth: energy, water,      Pass/Good/VG/Exc/Outst   │
+│                        transport, ecology, pollu.   % score by category      │
 │                        Materials credits include    Mandatory min standards  │
 │                        embodied carbon option       Widely used UK (mandatory│
 │                                                     for some public funding) │
 │                                                                              │
-│  Passivhaus    DE/AT   Energy performance only:     Absolute kWh/m²/yr      │
+│  Passivhaus    DE/AT   Energy performance only:     Absolute kWh/m²/yr       │
 │  (PHPP)                Heating ≤15; cooling ≤15;    Air tightness n50        │
-│                        air tightness ≤0.6 ACH       Binary: meets or fails  │
+│                        air tightness ≤0.6 ACH       Binary: meets or fails   │
 │                        Not sustainability           Gold standard energy     │
 │                                                                              │
-│  WELL          USA     Health and wellbeing:        Concepts: Air, Water,   │
-│                        Air, water, light, thermal   Light, Nourishment,     │
+│  WELL          USA     Health and wellbeing:        Concepts: Air, Water,    │
+│                        Air, water, light, thermal   Light, Nourishment,      │
 │                        comfort, acoustics, biophilia Mind, Movement, Comfort │
-│                        No energy focus              Complementary to LEED   │
+│                        No energy focus              Complementary to LEED    │
 │                                                                              │
 │  Living Bldg   USA     Highest bar: net positive    Net zero or positive     │
-│  Challenge            water, energy, carbon         ALL petals must pass    │
+│  Challenge            water, energy, carbon         ALL petals must pass     │
 │                        Beauty + biophilic design     Very few buildings cert │
 │                                                                              │
-│  NABERS        AU      Actual operational energy:   Star ratings 0–6        │
+│  NABERS        AU      Actual operational energy:   Star ratings 0–6         │
 │                        Measured in use (not predicted) Widely used commercial│
 │                        No embodied carbon metric    AU/NZ origin             │
 │                                                                              │
-│  GAPS IN ALL SYSTEMS: No current major rating system adequately measures    │
+│  GAPS IN ALL SYSTEMS: No current major rating system adequately measures     │
 │  whole-life carbon (A1–C4 per EN 15978) in a rigorous standardized way.    │
-│  LETI, RIBA 2030 targets, GLA London Plan: provide embodied carbon limits   │
+│  LETI, RIBA 2030 targets, GLA London Plan: provide embodied carbon limits    │
 │  but these are planning guidance, not certification schemes.                 │
 │                                                                              │
 └──────────────────────────────────────────────────────────────────────────────┘

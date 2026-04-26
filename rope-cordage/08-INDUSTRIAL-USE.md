@@ -9,8 +9,8 @@ INDUSTRIAL ROPE APPLICATIONS
 ==============================
 
   ┌──────────────────────────────────────────────────────────────────┐
-  │  LIFTING/RIGGING          ARBORIST               RESCUE         │
-  │  ASME B30.9               ANSI Z133              NFPA 1983      │
+  │  LIFTING/RIGGING          ARBORIST               RESCUE          │
+  │  ASME B30.9               ANSI Z133              NFPA 1983       │
   │  ┌──────────────┐         ┌──────────────┐       ┌──────────────┐│
   │  │ Crane slings │         │ Climbing line│       │ Life safety  ││
   │  │ Roundslings  │         │ Throw line   │       │ rescue rope  ││
@@ -41,10 +41,10 @@ SLING TYPE COMPARISON (ASME B30.9, ASME B30.10)
 
   WEB SLING (flat polyester webbing):
   ┌──────────────────────────────────────────────────────────────────┐
-  │  Construction: Flat woven polyester strap, sewn loop eyes       │
+  │  Construction: Flat woven polyester strap, sewn loop eyes        │
   │  Width: 1"–6"; thickness: 1–6 layers                           │
-  │  Rated capacity: single leg, vertical (WLL)                     │
-  │  ┌──────────────────────────────────────────────────────────┐   │
+  │  Rated capacity: single leg, vertical (WLL)                      │
+  │  ┌──────────────────────────────────────────────────────────┐    │
   │  │  Width   Single Leg WLL    Choker WLL  Basket WLL        │   │
   │  │  1"        1,600 lb       1,200 lb     3,200 lb          │   │
   │  │  2"        3,100 lb       2,300 lb     6,200 lb          │   │
@@ -58,10 +58,10 @@ SLING TYPE COMPARISON (ASME B30.9, ASME B30.10)
 
   ROUND SLING (polyester fiber bundle in protective tubular sheath):
   ┌──────────────────────────────────────────────────────────────────┐
-  │  Construction: Parallel polyester yarns in continuous loop,     │
-  │    inside protective tubular cover                              │
+  │  Construction: Parallel polyester yarns in continuous loop,      │
+  │    inside protective tubular cover                               │
   │  Capacity by color code (ASME B30.9):                          │
-  │  ┌──────────────────────────────────────────────────────────┐   │
+  │  ┌──────────────────────────────────────────────────────────┐    │
   │  │  Color    Vertical WLL   Choker WLL    Basket WLL        │   │
   │  │  Purple      2,100 lb     1,680 lb      4,200 lb        │   │
   │  │  Green       4,200 lb     3,360 lb      8,400 lb        │   │
@@ -79,7 +79,7 @@ SLING TYPE COMPARISON (ASME B30.9, ASME B30.10)
   CHAIN SLING:
   ┌──────────────────────────────────────────────────────────────────┐
   │  Construction: Alloy steel Grade 80 or Grade 100 chains        │
-  │  Advantage: Heat-resistant; abrasion-resistant; dimensional     │
+  │  Advantage: Heat-resistant; abrasion-resistant; dimensional      │
   │    stability; can be repaired in field (link replacement)      │
   │  Use: Hot loads (>250°F), sharp edges, rough surfaces         │
   │  Capacity: Grade 80, 5/16" = 4,500 lb single leg WLL          │
@@ -117,13 +117,13 @@ ARBORIST ROPE STANDARDS
 
   ARBORIST CLIMBING LINE:
   ┌──────────────────────────────────────────────────────────────────┐
-  │  Type:    Low-elongation kernmantle (static type) OR            │
-  │           Modified dynamic (some elongation for movement)       │
+  │  Type:    Low-elongation kernmantle (static type) OR             │
+  │           Modified dynamic (some elongation for movement)        │
   │  Diameter: 11–12.7 mm (7/16"–1/2") most common                 │
-  │  Material: Polyester or nylon kernmantle                        │
+  │  Material: Polyester or nylon kernmantle                         │
   │  MBS:     Minimum 7,200 lb (32 kN) per ANSI Z133               │
   │  WLL:     720 lb minimum (10:1 SF applied)                     │
-  │                                                                   │
+  │                                                                  │
   │  KEY DIFFERENCE FROM CLIMBING ROPE:                            │
   │  Rock climbing rope: High elongation → absorbs fall force      │
   │  Arborist rope: Low elongation → stable positioning in tree    │
@@ -133,18 +133,18 @@ ARBORIST ROPE STANDARDS
 
   RIGGING LINE (for lowering cut sections):
   ┌──────────────────────────────────────────────────────────────────┐
-  │  Purpose: Controlled lowering of cut wood sections              │
+  │  Purpose: Controlled lowering of cut wood sections               │
   │  Type:    Very low elongation, high MBS (heavy sections)       │
   │  Diameter: 5/8"–3/4" polyester double braid                    │
   │  MBS:     Minimum 9,000–25,000 lb depending on tree section    │
   │  Friction device: Port-a-wrap or block/tackle system           │
-  │                                                                   │
+  │                                                                  │
   │  DYNAMIC LOADING IN RIGGING:                                   │
   │  A falling section accelerates before rope goes taut           │
   │  Dynamic factor: up to 2–4× static weight at arrest           │
   │  EXAMPLE: 200 lb section falls 2 ft before taut →             │
   │    Peak force estimate: 800–1,600 lb dynamic                   │
-  │    Rigging system must handle this safely                       │
+  │    Rigging system must handle this safely                        │
   └──────────────────────────────────────────────────────────────────┘
 ```
 
@@ -168,20 +168,20 @@ NFPA 1983 ROPE CATEGORIES
   TECHNICAL USE (1-person load):
   ┌──────────────────────────────────────────────────────────────────┐
   │  MBS: ≥ 4,496 lb (20 kN) — single person with gear           │
-  │  Application: Most rope rescue operations, single-line lowering │
+  │  Application: Most rope rescue operations, single-line lowering  │
   └──────────────────────────────────────────────────────────────────┘
 
   ESCAPE ROPE (single-use self-rescue):
   ┌──────────────────────────────────────────────────────────────────┐
   │  MBS: ≥ 2,922 lb (13 kN) — minimum single-use, single person  │
-  │  Application: Firefighter self-rescue from window/building      │
+  │  Application: Firefighter self-rescue from window/building       │
   │  SINGLE USE ONLY — discard after any life-safety event         │
   │  NOT for: rescue of others, multi-person loads                 │
   └──────────────────────────────────────────────────────────────────┘
 
   RESCUE SYSTEM CONFIGURATION:
   ┌──────────────────────────────────────────────────────────────────┐
-  │  Typical 2-line high-angle system:                              │
+  │  Typical 2-line high-angle system:                               │
   │  LINE 1 (main): Load and attendant (2 persons)                │
   │  LINE 2 (belay): Independent backup; must also hold load       │
   │  Both lines: NFPA 1983 General Use rated                       │
@@ -205,12 +205,12 @@ MINING HOIST WIRE ROPE
   ROPE CONSTRUCTION FOR HOISTING:
   ┌──────────────────────────────────────────────────────────────────┐
   │  ROPE TYPE: 6×36 classification (6 strands × 36 wires approx.) │
-  │  Flexibility required: Multi-layer drum winding                 │
-  │                                                                   │
-  │  TORQUE-BALANCED CONSTRUCTION:                                  │
+  │  Flexibility required: Multi-layer drum winding                  │
+  │                                                                  │
+  │  TORQUE-BALANCED CONSTRUCTION:                                   │
   │  Single-drum hoists: rope must not rotate under load           │
   │  Solution: Rotation-resistant rope (multi-layer counter-twisted)│
-  │  ┌──────────────────────────────────────────────────────────┐   │
+  │  ┌──────────────────────────────────────────────────────────┐    │
   │  │  Inner layer:  right-lay strands                        │   │
   │  │  Outer layer:  left-lay strands                         │   │
   │  │  Under load: both layers want to untwist → cancel out   │   │
@@ -226,16 +226,16 @@ MINING HOIST WIRE ROPE
 
   WIRE ROPE DISCARD CRITERIA (ASME B30.2 for mining hoists):
   ┌──────────────────────────────────────────────────────────────────┐
-  │  BROKEN WIRE CRITERIA:                                          │
+  │  BROKEN WIRE CRITERIA:                                           │
   │  • 6 broken wires in one lay length of rope                    │
   │  • 3 broken wires in one strand, one lay length                │
   │  • Any broken wires in valley (between strands) position       │
-  │                                                                   │
-  │  DIAMETER REDUCTION:                                            │
+  │                                                                  │
+  │  DIAMETER REDUCTION:                                             │
   │  • > 10% reduction from nominal diameter                       │
   │  (Diameter reduction = internal corrosion or core failure)     │
-  │                                                                   │
-  │  OTHER:                                                         │
+  │                                                                  │
+  │  OTHER:                                                          │
   │  • Kink, sharp bend, bird-cage, core protrusion                │
   │  • Corrosion (pitting on wires)                                │
   │  • Heat damage (discoloration, loss of wire ductility)         │
@@ -256,9 +256,9 @@ PRE-USE ROPE INSPECTION (ASME B30.9 / NFPA 1983):
   │  ① Run rope through hands, entire length                       │
   │  ② Hard spots or lumps → internal damage; remove from service  │
   │  ③ Soft spots or flat sections → core damage; remove from svc  │
-  │  ④ Glazing or polished areas → friction damage; evaluate        │
+  │  ④ Glazing or polished areas → friction damage; evaluate         │
   │  ⑤ Cuts, abrasion through sheath → check core; if damaged,     │
-  │     remove from service                                         │
+  │     remove from service                                          │
   │  ⑥ Kinks → discard (permanent geometry change)                │
   │  ⑦ Discoloration → chemical damage; test before reuse          │
   │  ⑧ Stiffness → chemical or UV degradation; test or discard     │
@@ -266,11 +266,11 @@ PRE-USE ROPE INSPECTION (ASME B30.9 / NFPA 1983):
 
   PERIODIC INSPECTION (annual minimum, ASME):
   ┌──────────────────────────────────────────────────────────────────┐
-  │  By qualified person; document and tag with last inspection     │
-  │  date and inspector's name                                      │
-  │  Evaluate: elongation history, number of uses, load history     │
+  │  By qualified person; document and tag with last inspection      │
+  │  date and inspector's name                                       │
+  │  Evaluate: elongation history, number of uses, load history      │
   │  Life-safety rope: consider replacement at 10 years or after   │
-  │  any significant event regardless of condition                  │
+  │  any significant event regardless of condition                   │
   └──────────────────────────────────────────────────────────────────┘
 ```
 

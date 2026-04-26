@@ -16,7 +16,7 @@ BIOLUMINESCENCE — TAXONOMIC AND ECOLOGICAL DISTRIBUTION
 MARINE CONTEXTS (most bioluminescence is marine)
 ┌────────────────────────────────────────────────────────────┐
 │  BACTERIA              Aliivibrio fischeri, Photobacterium │
-│                        Free-living in seawater            │
+│                        Free-living in seawater             │
 │                        Symbiotic in fish light organs      │
 │                        Quorum-sensing control              │
 ├────────────────────────────────────────────────────────────┤
@@ -24,21 +24,21 @@ MARINE CONTEXTS (most bioluminescence is marine)
 │                         Mechanical trigger → flash         │
 │                         Sea surface / breaking waves        │
 ├────────────────────────────────────────────────────────────┤
-│  CNIDARIANS             Many deep-sea jellies               │
-│                         Aequorea victoria: GFP discovered   │
+│  CNIDARIANS             Many deep-sea jellies              │
+│                         Aequorea victoria: GFP discovered  │
 ├────────────────────────────────────────────────────────────┤
 │  CEPHALOPODS            Squid: photophores for              │
 │                         counterillumination + signaling     │
 │                         Vampyroteuthis: multiple functions  │
 ├────────────────────────────────────────────────────────────┤
-│  FISH                   ~76% mesopelagic species            │
-│                         Anglerfishes: esca lure             │
-│                         Lanternfishes: ventral photophores  │
-│                         Viperfish: photophores + fang lure  │
+│  FISH                   ~76% mesopelagic species           │
+│                         Anglerfishes: esca lure            │
+│                         Lanternfishes: ventral photophores │
+│                         Viperfish: photophores + fang lure │
 ├────────────────────────────────────────────────────────────┤
 │  ECHINODERMS            Some brittlestars, sea cucumbers    │
 ├────────────────────────────────────────────────────────────┤
-│  CRUSTACEANS            Ostracods (cypridinid): courtship   │
+│  CRUSTACEANS            Ostracods (cypridinid): courtship  │
 │                         display; only marine firefly analog │
 └────────────────────────────────────────────────────────────┘
 
@@ -75,24 +75,24 @@ Key principle: CHEMILUMINESCENCE — chemical energy → light
 Multiple luciferins — different chemistry, independent evolution:
 ┌────────────────────────────────────────────────────────────────┐
 │  Bacterial luciferin     Reduced riboflavin phosphate (FMNH₂)  │
-│                          + long-chain aldehyde                  │
-│                          Wavelength: ~490 nm (blue-green)       │
+│                          + long-chain aldehyde                 │
+│                          Wavelength: ~490 nm (blue-green)      │
 │                                                                  │
 │  Coelenterazine          Imidazopyrazinone skeleton              │
-│  (most widespread        Found in: cnidarians, cephalopods,     │
-│   marine luciferin)      radiolarians, fish, crustaceans        │
-│                          Wavelength: ~460-480 nm (blue)         │
+│  (most widespread        Found in: cnidarians, cephalopods,    │
+│   marine luciferin)      radiolarians, fish, crustaceans       │
+│                          Wavelength: ~460-480 nm (blue)        │
 │                          Acquired by diet (not synthesized       │
-│                          by most species that use it)           │
+│                          by most species that use it)          │
 │                                                                  │
-│  Dinoflagellate luciferin Tetrapyrrole (chlorophyll-derived)    │
-│                          Located in scintillons (organelles)    │
-│                          Wavelength: ~474 nm (blue)             │
+│  Dinoflagellate luciferin Tetrapyrrole (chlorophyll-derived)   │
+│                          Located in scintillons (organelles)   │
+│                          Wavelength: ~474 nm (blue)            │
 │                                                                  │
-│  Firefly luciferin       Benzothiazole compound                 │
-│                          (unique to beetles)                    │
-│                          Wavelength: 550-570 nm (yellow-green)  │
-│                          → color shift in different species     │
+│  Firefly luciferin       Benzothiazole compound                │
+│                          (unique to beetles)                   │
+│                          Wavelength: 550-570 nm (yellow-green) │
+│                          → color shift in different species    │
 └────────────────────────────────────────────────────────────────┘
 ```
 
@@ -153,8 +153,8 @@ BOBTAIL SQUID LIGHT ORGAN — SYMBIOSIS
 
 LIGHT ORGAN CRYPTS
   ┌─────────────────────────────────────────┐
-  │  ~10⁵-10⁶ Aliivibrio fischeri cells    │
-  │  Glow continuously (high density)        │
+  │  ~10⁵-10⁶ Aliivibrio fischeri cells     │
+  │  Glow continuously (high density)       │
   │  Fed by nutrients from squid epithelium │
   └─────────────────────────────────────────┘
          │ light output
@@ -203,7 +203,7 @@ ANATOMY:
   │            from ambient seawater               │
   │  Light output: continuous glow                 │
   │  Color: blue-green (~480 nm — blue penetrates  │
-  │         water best; deep sea animals have       │
+  │         water best; deep sea animals have      │
   │         blue-shifted visual pigments)          │
   │  Species recognition: different esca shapes,   │
   │  flash patterns allow species ID in darkness   │

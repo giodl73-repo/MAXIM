@@ -14,9 +14,9 @@ DIGITAL STORYTELLING FORMS
 |  Data narrative    Variable        Dear Data, narrative charts   |
 |  Podcast narrative None (audio)    Serial, Radiolab              |
 |  VR documentary    Presence        Nonny de la Peña works        |
-|  Longform web      Low (read)      Atavist, Epic Magazine         |
-|  Video essay       None (watch)    YouTube video essays           |
-|  Game narrative    High (all)      AAA storytelling games         |
+|  Longform web      Low (read)      Atavist, Epic Magazine        |
+|  Video essay       None (watch)    YouTube video essays          |
+|  Game narrative    High (all)      AAA storytelling games        |
 +------------------------------------------------------------------+
 
 KEY TENSION IN ALL FORMS:

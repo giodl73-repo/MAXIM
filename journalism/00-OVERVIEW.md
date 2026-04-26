@@ -10,30 +10,30 @@ JOURNALISM ECOSYSTEM
 
   NEWS GATHERING          EDITING/PRODUCTION         DISTRIBUTION
   ┌──────────────────┐    ┌──────────────────────┐   ┌─────────────────┐
-  │  Beat reporters  │    │  Assignment editors   │   │  Print (daily/  │
-  │  Investigative   │ →  │  Copy editors         │ → │   weekly)       │
+  │  Beat reporters  │    │  Assignment editors   │   │  Print (daily/ │
+  │  Investigative   │ →  │  Copy editors         │ → │   weekly)      │
   │  Data journalists│    │  Photo editors        │   │  Broadcast (TV/ │
-  │  Photojournalists│    │  Managing editor      │   │   radio)        │
-  │  Stringers/free- │    │  Publisher (business) │   │  Digital (web/  │
+  │  Photojournalists│    │  Managing editor      │   │   radio)       │
+  │  Stringers/free- │    │  Publisher (business) │   │  Digital (web/ │
   │  lancers         │    └──────────────────────┘   │   app/social)   │
   └──────────────────┘                                └─────────────────┘
           ↑                      ↑                           ↓
   SOURCES                  STANDARDS                   AUDIENCE
   ┌──────────────────┐    ┌──────────────────────┐   ┌─────────────────┐
-  │  Officials       │    │  Verification         │   │  Citizens      │
-  │  Documents       │    │  Attribution          │   │  Policy-makers │
-  │  Whistleblowers  │    │  Fairness             │   │  Other media   │
-  │  Databases       │    │  Corrections policy   │   │  (agenda-      │
-  │  Wire services   │    │  Editorial independence│  │   setting)     │
+  │  Officials       │    │  Verification        │   │  Citizens      │
+  │  Documents       │    │  Attribution         │   │  Policy-makers │
+  │  Whistleblowers  │    │  Fairness            │   │  Other media   │
+  │  Databases       │    │  Corrections policy  │   │  (agenda-      │
+  │  Wire services   │    │  Editorial independence│ │   setting)     │
   └──────────────────┘    └──────────────────────┘   └─────────────────┘
 
   THE FOURTH ESTATE CLAIM:
   ┌──────────────────────────────────────────────────────────────────┐
-  │  Government (executive + legislative + judicial)                │
-  │  + Press (journalism)                                           │
-  │  = four-power check on concentrated authority                   │
-  │                                                                   │
-  │  Historical origin: Edmund Burke (c. 1787): "Three Estates in   │
+  │  Government (executive + legislative + judicial)                 │
+  │  + Press (journalism)                                            │
+  │  = four-power check on concentrated authority                    │
+  │                                                                  │
+  │  Historical origin: Edmund Burke (c. 1787): "Three Estates in    │
   │  Parliament; but in the Reporters' Gallery yonder, there sat   │
   │  a Fourth Estate more important far than they all."            │
   └──────────────────────────────────────────────────────────────────┘
@@ -49,40 +49,40 @@ JOURNALISM FUNCTIONS
 
   ① INFORMATION FUNCTION
   ┌──────────────────────────────────────────────────────────────────┐
-  │  Provide citizens with information needed for self-governance   │
+  │  Provide citizens with information needed for self-governance    │
   │  Thomas Jefferson: "Were it left to me to decide whether we    │
-  │   should have government without newspapers or newspapers       │
+  │   should have government without newspapers or newspapers        │
   │   without government, I should not hesitate to prefer the      │
   │   latter."                                                       │
   └──────────────────────────────────────────────────────────────────┘
 
   ② WATCHDOG FUNCTION
   ┌──────────────────────────────────────────────────────────────────┐
-  │  Investigate and expose wrongdoing by powerful institutions     │
+  │  Investigate and expose wrongdoing by powerful institutions      │
   │  Examples: Watergate (1972–74), Pentagon Papers (1971),        │
   │  Abu Ghraib (2004), Panama Papers (2016)                       │
   │  Mechanism: Access to documents, sources, and databases that   │
-  │  public lacks; first-amendment legal protection for publication │
+  │  public lacks; first-amendment legal protection for publication  │
   └──────────────────────────────────────────────────────────────────┘
 
   ③ AGENDA-SETTING FUNCTION
   ┌──────────────────────────────────────────────────────────────────┐
-  │  What media covers → what public thinks about                   │
+  │  What media covers → what public thinks about                    │
   │  McCombs & Shaw (1972): Agenda-setting theory                  │
-  │  Framing: HOW stories are told determines public understanding  │
-  │  Priming: Issues covered affect how audiences evaluate leaders  │
+  │  Framing: HOW stories are told determines public understanding   │
+  │  Priming: Issues covered affect how audiences evaluate leaders   │
   └──────────────────────────────────────────────────────────────────┘
 
   ④ FORUM FUNCTION
   ┌──────────────────────────────────────────────────────────────────┐
-  │  Create space for public debate and multiple perspectives       │
+  │  Create space for public debate and multiple perspectives        │
   │  Op-ed pages, letters, debate coverage, expert voices          │
   │  Tension with watchdog function: objectivity vs. advocacy      │
   └──────────────────────────────────────────────────────────────────┘
 
   ⑤ NARRATIVE FUNCTION
   ┌──────────────────────────────────────────────────────────────────┐
-  │  Storytelling as vehicle for complex information                │
+  │  Storytelling as vehicle for complex information                 │
   │  Feature journalism, longform, narrative nonfiction            │
   │  Emotional resonance increases public engagement               │
   └──────────────────────────────────────────────────────────────────┘
@@ -99,17 +99,17 @@ JOURNALISM ECONOMICS: THREE ERAS
   ERA 1: PRINT MONOPOLY (1830–1970)
   ┌──────────────────────────────────────────────────────────────────┐
   │  Revenue: Advertising (classified ads + display) + subscriptions│
-  │  Geographic monopoly: One or two papers per city                │
-  │  Model: Classified ads (cars, jobs, real estate) subsidize news │
+  │  Geographic monopoly: One or two papers per city                 │
+  │  Model: Classified ads (cars, jobs, real estate) subsidize news  │
   │  Journalism investment: High — reporters, bureaus, wire services│
   │  Profitability: 20–30% margins at major metros                 │
   └──────────────────────────────────────────────────────────────────┘
 
   ERA 2: BROADCAST + PRINT (1950–2000)
   ┌──────────────────────────────────────────────────────────────────┐
-  │  Television: 1960 Kennedy-Nixon debate transforms political     │
+  │  Television: 1960 Kennedy-Nixon debate transforms political      │
   │  coverage → visual medium dominates narrative journalism       │
-  │  Network news (CBS, NBC, ABC): Oligopoly of information         │
+  │  Network news (CBS, NBC, ABC): Oligopoly of information          │
   │  Public broadcasting: BBC (UK), PBS/NPR (US) — non-commercial  │
   │  Print survives: Different function (depth) vs. TV (speed)     │
   └──────────────────────────────────────────────────────────────────┘
@@ -119,10 +119,10 @@ JOURNALISM ECONOMICS: THREE ERAS
   │  Craigslist: Destroys classified ad revenue (2000–2009)        │
   │  Google/Facebook: Captures digital advertising (2010–present)  │
   │  Consequence: US newspapers lost ~75% of advertising revenue   │
-  │    between 2000 and 2020                                        │
+  │    between 2000 and 2020                                         │
   │  Newsroom employment: 56% decline (2008–2020, US BLS data)    │
   │  New models: Subscriptions (NYT), nonprofit (ProPublica),      │
-  │              newsletters (Substack), platform journalism        │
+  │              newsletters (Substack), platform journalism         │
   │  Verification pressure: Real-time publishing before verifying  │
   └──────────────────────────────────────────────────────────────────┘
 ```
@@ -139,8 +139,8 @@ TENSIONS IN JOURNALISM
 
   TRUTH vs. SPEED:
   ┌──────────────────────────────────────────────────────────────────┐
-  │  Real-time publishing (Twitter, live blogs) incentivizes        │
-  │  publishing before verification                                 │
+  │  Real-time publishing (Twitter, live blogs) incentivizes         │
+  │  publishing before verification                                  │
   │  "First draft of history" → later-draft corrections invisible  │
   │  Corrections at page A24; original story on front page         │
   └──────────────────────────────────────────────────────────────────┘
@@ -152,7 +152,7 @@ TENSIONS IN JOURNALISM
   │  Climate change example: 97% scientific consensus vs. 3%       │
   │   treated as two equal sides → misleads public                 │
   │  "False balance" problem: systematic distortion in the name    │
-  │   of impartiality                                               │
+  │   of impartiality                                                │
   └──────────────────────────────────────────────────────────────────┘
 
   TRUTH vs. ACCESS:
@@ -166,7 +166,7 @@ TENSIONS IN JOURNALISM
   ┌──────────────────────────────────────────────────────────────────┐
   │  Clickbait economics: Outrage and entertainment → clicks       │
   │  Advertising-dependent model creates editorial pressure        │
-  │  Public interest journalism unprofitable without subsidy        │
+  │  Public interest journalism unprofitable without subsidy         │
   └──────────────────────────────────────────────────────────────────┘
 ```
 
@@ -225,7 +225,7 @@ NEWS ECOSYSTEM FEEDBACK LOOP
 
   SOURCES                                            AUDIENCE
   ┌──────────┐    ┌───────────┐    ┌───────────┐    ┌──────────┐
-  │ Officials│    │ REPORTING │    │ EDITING /  │    │ Citizens│
+  │ Officials│    │ REPORTING │    │ EDITING / │    │ Citizens│
   │ Documents│ →  │ (gather + │ →  │ PRODUCTION│ →  │ Readers  │
   │ Leaks    │    │  verify)  │    │ (gate-    │    │ Viewers  │
   │ Data sets│    │           │    │  keeping) │    │ Clicks   │

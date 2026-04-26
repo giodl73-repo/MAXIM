@@ -151,7 +151,7 @@ Metals forge together behind tool.
          Pin (plasticizes and stirs)
          │
     ┌────▼──────────────────────────────────┐
-    │  Workpiece 1    │    Workpiece 2       │
+    │  Workpiece 1    │    Workpiece 2      │
     └─────────────────┴─────────────────────┘
               Joint line (zero gap tolerance)
 

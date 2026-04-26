@@ -22,14 +22,14 @@ REACTIVE LANDSCAPE
   │  RLC CIRCUITS — energy exchanges between C and L                 │
   │  Natural frequency ω₀ = 1/√(LC)    Q = ω₀L/R = 1/(2ζ)         │
   │  Damping ζ controls: oscillation (ζ<1) vs exponential decay (ζ>1)│
-  │  Characteristic equation roots = s-domain poles (§3-4)          │
+  │  Characteristic equation roots = s-domain poles (§3-4)           │
   └──────────────────────────────┬───────────────────────────────────┘
                                  │
                                  ▼
   ┌──────────────────────────────────────────────────────────────────┐
-  │  RESONANCE & FILTERING — frequency selectivity (§5-6)           │
-  │  High Q → narrow bandpass, voltage magnification                │
-  │  → Foundation for filter design (03-FILTERS)                    │
+  │  RESONANCE & FILTERING — frequency selectivity (§5-6)            │
+  │  High Q → narrow bandpass, voltage magnification                 │
+  │  → Foundation for filter design (03-FILTERS)                     │
   └──────────────────────────────────────────────────────────────────┘
 
   6.002/6.003 bridge: RLC is where circuit analysis meets differential equations
@@ -180,18 +180,18 @@ REACTIVE LANDSCAPE
   │  ζ > 1  (Q < 0.5)  OVERDAMPED                                       │
   │    s₁,₂ = -ζω₀ ± ω₀√(ζ²-1)   (two real negative poles)           │
   │    i(t) = A₁e^(s₁t) + A₂e^(s₂t)                                   │
-  │    No oscillation. Exponential decay. Slow response.               │
+  │    No oscillation. Exponential decay. Slow response.                │
   │                                                                     │
-  │  ζ = 1  (Q = 0.5)  CRITICALLY DAMPED                               │
-  │    s₁,₂ = -ω₀   (repeated pole)                                    │
+  │  ζ = 1  (Q = 0.5)  CRITICALLY DAMPED                                │
+  │    s₁,₂ = -ω₀   (repeated pole)                                     │
   │    i(t) = (A₁ + A₂t)e^(-ω₀t)                                      │
-  │    Fastest decay without oscillation. Optimal for step response.   │
+  │    Fastest decay without oscillation. Optimal for step response.    │
   │                                                                     │
-  │  ζ < 1  (Q > 0.5)  UNDERDAMPED                                     │
+  │  ζ < 1  (Q > 0.5)  UNDERDAMPED                                      │
   │    s₁,₂ = -ζω₀ ± jω_d   where ω_d = ω₀√(1-ζ²)  (damped freq)    │
   │    i(t) = e^(-ζω₀t)[A·cos(ω_d t) + B·sin(ω_d t)]                 │
-  │    Oscillates at ω_d with decaying envelope.                       │
-  │    Overshoot in step response.                                     │
+  │    Oscillates at ω_d with decaying envelope.                        │
+  │    Overshoot in step response.                                      │
   └─────────────────────────────────────────────────────────────────────┘
 
   Physical intuition:
@@ -234,11 +234,11 @@ REACTIVE LANDSCAPE
 
   ┌────────────────────────────────────────────────────────────────────┐
   │           |H(jω)|                                                  │
-  │              │ ← Q=10 (tall, narrow)                              │
+  │              │ ← Q=10 (tall, narrow)                               │
   │              │                                                     │
-  │         ─── │ ──── Q=1 (shorter, wider)                           │
+  │         ─── │ ──── Q=1 (shorter, wider)                            │
   │    ─────────┼─────────── Q=0.5 (no peak)                         │
-  │             ω₀    ω→                                              │
+  │             ω₀    ω→                                               │
   └────────────────────────────────────────────────────────────────────┘
 
   Typical Q values:

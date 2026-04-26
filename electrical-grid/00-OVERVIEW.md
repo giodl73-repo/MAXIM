@@ -72,17 +72,17 @@ This real-time balance requirement is what makes the grid fundamentally differen
 │  ┌────────────────────────────▼───────────────────────────────────────────┐  │
 │  │                   WESTERN INTERCONNECTION                              │  │
 │  │   ~300 GW installed capacity                                           │  │
-│  │   11 western US states + 2 Canadian provinces + N. Baja Mexico        │  │
-│  │   ISOs/RTOs: CAISO, WECC-coordinated areas, BPA (Bonneville)          │  │
+│  │   11 western US states + 2 Canadian provinces + N. Baja Mexico        │   │
+│  │   ISOs/RTOs: CAISO, WECC-coordinated areas, BPA (Bonneville)          │   │
 │  └────────────────────────────┬───────────────────────────────────────────┘  │
 │                               │  DC ties only                                │
 │  ┌────────────────────────────▼───────────────────────────────────────────┐  │
 │  │                   ERCOT (Texas)                                        │  │
 │  │   ~90 GW installed capacity                                            │  │
-│  │   Most of Texas (not El Paso, Panhandle — those are in EI/WI)         │  │
+│  │   Most of Texas (not El Paso, Panhandle — those are in EI/WI)         │   │
 │  │   Single control area — unique in North America                        │  │
 │  │   Intentionally isolated: avoids federal FERC jurisdiction             │  │
-│  │   Consequence: minimal mutual aid during ERCOT-wide emergency         │  │
+│  │   Consequence: minimal mutual aid during ERCOT-wide emergency         │   │
 │  └────────────────────────────────────────────────────────────────────────┘  │
 │                                                                              │
 │  KEY: The interconnections are NOT synchronously connected to each other.    │

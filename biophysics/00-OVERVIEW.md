@@ -9,11 +9,11 @@ mechanics) to tissues (collective cell dynamics).
 
 ```
 ┌──────────────────────────────────────────────────────────────────┐
-│                    BIOPHYSICS LANDSCAPE                           │
+│                    BIOPHYSICS LANDSCAPE                          │
 │                                                                    │
 │  STRUCTURAL  ──────────►  DYNAMICAL  ──────────►  FUNCTIONAL     │
-│  (what atoms  feeds        (how it     informs      (what it      │
-│   are where)              moves)                   does)          │
+│  (what atoms  feeds        (how it     informs      (what it     │
+│   are where)              moves)                   does)         │
 │  ──────────               ─────────                ──────────    │
 │  X-ray crystallography    Molecular motors         Ion channels  │
 │  NMR spectroscopy         Cytoskeletal dynamics    Membrane pot. │
@@ -21,7 +21,7 @@ mechanics) to tissues (collective cell dynamics).
 │  SAXS                     Diffusion in membranes   Gene networks │
 │                                                                    │
 │  SCALE:                                                          │
-│  ───────                                                          │
+│  ───────                                                         │
 │  Å:       Bond lengths, small molecule binding                   │
 │  nm:      Proteins, DNA/RNA, molecular motors                    │
 │  100 nm:  Viruses, organelle membranes                           │
@@ -29,8 +29,8 @@ mechanics) to tissues (collective cell dynamics).
 │  10-100μm: Cell aggregates, tissues                              │
 │                                                                    │
 │  METHODS:                                                        │
-│  ─────────                                                        │
-│  Structural:  X-ray, NMR, cryo-EM, SAXS, AFM                    │
+│  ─────────                                                       │
+│  Structural:  X-ray, NMR, cryo-EM, SAXS, AFM                     │
 │  Single mol.: optical tweezers, magnetic tweezers, FRET, TIRF    │
 │  Electrophys.: patch clamp, MEA, voltage clamp                   │
 │  Computational: MD simulation, coarse-grained models, AlphaFold  │
@@ -58,7 +58,7 @@ Resolution:
 
 ```
 ┌─────────────────────────────────────────────────────────────────┐
-│                      BIOPHYSICS                                  │
+│                      BIOPHYSICS                                 │
 ├──────────────────┬──────────────────┬────────────────────────── ┤
 │  STRUCTURAL       │  SINGLE MOLECULE  │  CELLULAR                 │
 │  BIOPHYSICS       │  BIOPHYSICS       │  BIOPHYSICS               │
@@ -71,11 +71,11 @@ Resolution:
 ├──────────────────┼──────────────────┼───────────────────────────┤
 │  STATISTICAL      │  MOLECULAR        │  COMPUTATIONAL            │
 │  BIOPHYSICS       │  MOTORS           │  BIOPHYSICS               │
-│                  │                   │                           │
+│                  │                   │                          │
 │  Fluctuation-     │  Kinesin          │  MD simulation            │
 │  dissipation      │  Myosin           │  Coarse-grained           │
-│  Jarzynski eq.   │  ATP synthase     │  Stochastic modeling      │
-│  Langevin eq.    │  Polymerases      │  Neural network models    │
+│  Jarzynski eq.   │  ATP synthase     │  Stochastic modeling     │
+│  Langevin eq.    │  Polymerases      │  Neural network models   │
 │  Free energy calc │  Brownian ratchet │  Systems biology          │
 └──────────────────┴──────────────────┴───────────────────────────┘
 ```

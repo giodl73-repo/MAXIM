@@ -11,7 +11,7 @@ Climate change is now rewriting species distributions in real time.
 
 ```
 +----------------------------------------------------------------------+
-|                    BIOGEOGRAPHY FRAMEWORKS                            |
+|                    BIOGEOGRAPHY FRAMEWORKS                           |
 |                                                                      |
 |  HISTORICAL BIOGEOGRAPHY         ECOLOGICAL BIOGEOGRAPHY             |
 |  ────────────────────            ─────────────────────               |
@@ -19,11 +19,11 @@ Climate change is now rewriting species distributions in real time.
 |  Gondwana/Laurasia legacies      Fundamental vs realized niche       |
 |  Wallace Line (Gondwana vs       Competitive exclusion               |
 |  Laurasia fauna)                 Dispersal vs barriers               |
-|  Paleoclimate refugia                                                 |
+|  Paleoclimate refugia                                                |
 |                                                                      |
 |  ISLAND BIOGEOGRAPHY             CONTEMPORARY CHANGE                 |
 |  ────────────────────            ─────────────────────               |
-|  MacArthur-Wilson S=f(area,dist) Range shifts (poleward/upslope)    |
+|  MacArthur-Wilson S=f(area,dist) Range shifts (poleward/upslope)     |
 |  Equilibrium theory              Phenological mismatch               |
 |  SLOSS debate                    Invasive species                    |
 |  Conservation applications       Climate debt                        |
@@ -42,31 +42,31 @@ Climate change is now rewriting species distributions in real time.
   │ Connection: Bering Land Bridge (shared species with Palearctic)│
   │                                                                │
   │ NEOTROPICAL: C+S America + Caribbean                           │
-  │ Fauna: jaguars, tapirs, capybaras, sloths, toucans, piranhas  │
-  │ Isolated 60-3 Ma → unique radiation; Panama land bridge 3 Ma  │
+  │ Fauna: jaguars, tapirs, capybaras, sloths, toucans, piranhas   │
+  │ Isolated 60-3 Ma → unique radiation; Panama land bridge 3 Ma   │
   │ → Great American Biotic Interchange (N fauna → S; armadillos N)│
   │                                                                │
   │ PALEARCTIC: Europe + Asia + N Africa (vast; largest realm)     │
   │ Fauna: lynx, wolf, bear (shared with Nearctic), reindeer       │
-  │ Connected to Nearctic (Beringia) + Indomalayan (SE Asia)      │
+  │ Connected to Nearctic (Beringia) + Indomalayan (SE Asia)       │
   │                                                                │
   │ AFROTROPICAL: Sub-Saharan Africa + Madagascar                  │
-  │ Fauna: elephants, rhinos, hippos, great apes, lions, giraffes │
+  │ Fauna: elephants, rhinos, hippos, great apes, lions, giraffes  │
   │ Madagascar: 90% endemic (isolated 88 Ma ago — unique radiation)│
   │ (lemurs; no monkeys, cats, or snakes)                          │
   │                                                                │
-  │ INDOMALAYAN: South + SE Asia (India, Indochina, Sunda Shelf)  │
+  │ INDOMALAYAN: South + SE Asia (India, Indochina, Sunda Shelf)   │
   │ Fauna: Asian elephants, tigers, orangutans, cobras, hornbills  │
   │ Separated from Australia by Wallace Line                       │
   │                                                                │
   │ AUSTRALASIAN: Australia + New Guinea + NZ                      │
-  │ Fauna: marsupials (kangaroos, koalas, wombats), monotremes,   │
-  │   flightless birds (cassowary, emu, kiwi in NZ)               │
-  │ Isolated since ~80-65 Ma (Gondwana breakup)                   │
+  │ Fauna: marsupials (kangaroos, koalas, wombats), monotremes,    │
+  │   flightless birds (cassowary, emu, kiwi in NZ)                │
+  │ Isolated since ~80-65 Ma (Gondwana breakup)                    │
   │                                                                │
   │ OCEANIAN: Pacific Islands (Hawaii, Polynesia)                  │
   │ Fauna: extreme endemism; sparse mammals; many bird species     │
-  │ Reached by over-ocean dispersal only                          │
+  │ Reached by over-ocean dispersal only                           │
   │                                                                │
   │ ANTARCTIC: Antarctica                                          │
   └────────────────────────────────────────────────────────────────┘
@@ -82,11 +82,11 @@ Climate change is now rewriting species distributions in real time.
   boundary between Bali-Lombok (just 35km apart) and Borneo-Sulawesi
 
   ┌────────────────────────────────────────────────────────────────┐
-  │  ORIENTAL (Indomalayan) side     │  AUSTRALASIAN side         │
+  │  ORIENTAL (Indomalayan) side     │  AUSTRALASIAN side          │
   │  (Bali, Borneo, Java, Sumatra)   │  (Lombok, Sulawesi, etc.) │
-  │                                  │                            │
-  │  Tigers, rhinos, elephants       │  Marsupials                │
-  │  Deer, pigs, monkeys             │  Cockatoos, megapodes      │
+  │                                  │                             │
+  │  Tigers, rhinos, elephants       │  Marsupials                 │
+  │  Deer, pigs, monkeys             │  Cockatoos, megapodes       │
   │  Pheasants, woodpeckers          │  Monitor lizards (different)│
   │  Asian freshwater fish           │  Australian freshwater fish │
   └────────────────────────────────────────────────────────────────┘
@@ -122,12 +122,12 @@ Climate change is now rewriting species distributions in real time.
   ┌────────────────────────────────────────────────────────────────┐
   │ VICARIANCE: populations separated by geological event          │
   │ (continental drift, mountain uplift, sea level change)         │
-  │ → Diverge in isolation → separate species                     │
+  │ → Diverge in isolation → separate species                      │
   │ "Populations were split; evolution diverged in place"          │
   │                                                                │
-  │ DISPERSAL: organisms cross barriers by their own movement,    │
-  │ wind, ocean current, rafting, or human introduction           │
-  │ "Organisms crossed the barrier from elsewhere"                │
+  │ DISPERSAL: organisms cross barriers by their own movement,     │
+  │ wind, ocean current, rafting, or human introduction            │
+  │ "Organisms crossed the barrier from elsewhere"                 │
   └────────────────────────────────────────────────────────────────┘
 
   GONDWANAN DISTRIBUTIONS (classic vicariance examples):
@@ -159,19 +159,19 @@ Climate change is now rewriting species distributions in real time.
 
   THE EQUILIBRIUM MODEL:
   ┌────────────────────────────────────────────────────────────────┐
-  │ Species richness on an island = equilibrium between:          │
+  │ Species richness on an island = equilibrium between:           │
   │                                                                │
-  │ IMMIGRATION RATE: from species pool on mainland               │
-  │ → Decreases as more species already present (fewer new)       │
-  │ → Higher rate on NEAR islands (shorter dispersal distance)    │
+  │ IMMIGRATION RATE: from species pool on mainland                │
+  │ → Decreases as more species already present (fewer new)        │
+  │ → Higher rate on NEAR islands (shorter dispersal distance)     │
   │                                                                │
-  │ EXTINCTION RATE: of species already on island                 │
+  │ EXTINCTION RATE: of species already on island                  │
   │ → Increases as more species (more competition, limited space)  │
-  │ → Higher rate on SMALL islands (smaller populations → more    │
-  │   vulnerable to stochastic extinction)                        │
+  │ → Higher rate on SMALL islands (smaller populations → more     │
+  │   vulnerable to stochastic extinction)                         │
   │                                                                │
   │ EQUILIBRIUM: where immigration rate = extinction rate          │
-  │ → Turnover continues (different species at same richness)     │
+  │ → Turnover continues (different species at same richness)      │
   └────────────────────────────────────────────────────────────────┘
 
   BRIDGE — SPECIES-AREA AS A POWER LAW (log-log linear):
@@ -210,7 +210,7 @@ Climate change is now rewriting species distributions in real time.
   │                                                              │
   │ One large (SL): lower extinction rate per unit area; avoids  │
   │   edge effects; supports large-range species                 │
-  │ Several small (SS): more total edge/habitat diversity;        │
+  │ Several small (SS): more total edge/habitat diversity;       │
   │   insurance against catastrophe; may capture beta diversity  │
   │                                                              │
   │ Modern consensus: LARGE is generally better, BUT the best    │
@@ -277,7 +277,7 @@ Climate change is now rewriting species distributions in real time.
 
   ┌────────────────────────────────────────────────────────────────┐
   │ BIOME NPP RANKING (approximate):                               │
-  │ Tropical rainforest: 1000-3500 gC/m²/yr                       │
+  │ Tropical rainforest: 1000-3500 gC/m²/yr                        │
   │ Tropical seasonal: 600-1500                                    │
   │ Temperate deciduous: 600-800                                   │
   │ Temperate grassland: 200-600                                   │
@@ -313,21 +313,21 @@ Climate change is now rewriting species distributions in real time.
   │ EPIPELAGIC (0–200m): "sunlit zone"                             │
   │ Photosynthesis occurs; phytoplankton + zooplankton base;       │
   │ Sea surface temperature determines community composition       │
-  │ Tropical gyres: warm, clear, nutrient-poor (marine deserts)   │
-  │ Upwelling zones: cold, turbid, nutrient-rich → high NPP       │
+  │ Tropical gyres: warm, clear, nutrient-poor (marine deserts)    │
+  │ Upwelling zones: cold, turbid, nutrient-rich → high NPP        │
   │                                                                │
   │ MESOPELAGIC (200–1000m): "twilight zone"                       │
   │ Dim light; no net photosynthesis; diel vertical migration      │
-  │ (organisms migrate up at night to feed, down by day)          │
-  │ Enormous biomass — poorly quantified; important carbon pump   │
+  │ (organisms migrate up at night to feed, down by day)           │
+  │ Enormous biomass — poorly quantified; important carbon pump    │
   │                                                                │
   │ BATHYPELAGIC (1000–4000m): permanent darkness                  │
-  │ Cold (~2–4°C), high pressure; scarce food (marine snow)       │
+  │ Cold (~2–4°C), high pressure; scarce food (marine snow)        │
   │ Bioluminescence dominant; anglerfish, viperfish                │
   │                                                                │
-  │ ABYSSOPELAGIC (4000–6000m) + HADAL (>6000m, trenches):        │
+  │ ABYSSOPELAGIC (4000–6000m) + HADAL (>6000m, trenches):         │
   │ Extreme pressure; bacterial mats; specialized deep-sea fauna   │
-  │ Mariana Trench: >10,000m depth; complete darkness; 1000 bar   │
+  │ Mariana Trench: >10,000m depth; complete darkness; 1000 bar    │
   └────────────────────────────────────────────────────────────────┘
 
   BENTHIC ZONES (seafloor):
@@ -380,7 +380,7 @@ Climate change is now rewriting species distributions in real time.
   │ (Parmesan/Yohe 2003; meta-analysis of 1700 species)            │
   │                                                                │
   │ Species-specific variation: some faster, some stagnant         │
-  │ → Dispersal ability, habitat connectivity, physiology all     │
+  │ → Dispersal ability, habitat connectivity, physiology all      │
   │   mediate response speed                                       │
   │                                                                │
   │ Examples:                                                      │

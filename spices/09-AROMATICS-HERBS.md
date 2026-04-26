@@ -4,11 +4,11 @@
 
 ```
 +------------------------------------------------------------------+
-|              THE HERB LANDSCAPE                                   |
+|              THE HERB LANDSCAPE                                  |
 |                                                                  |
-|  LAMIACEAE (Mint Family) — DOMINANT CULINARY HERB FAMILY        |
-|  Rosemary, Thyme, Oregano, Basil, Sage, Mint, Lavender          |
-|  Square stems | Opposite leaves | Bilateral flowers               |
+|  LAMIACEAE (Mint Family) — DOMINANT CULINARY HERB FAMILY         |
+|  Rosemary, Thyme, Oregano, Basil, Sage, Mint, Lavender           |
+|  Square stems | Opposite leaves | Bilateral flowers              |
 |  Mediterranean origin (most culinary species)                    |
 |  Glandular trichomes = essential oil production                  |
 |                                                                  |
@@ -19,7 +19,7 @@
 |  FUNCTIONAL CHEMISTRY:                                           |
 |  Phenolics (thymol, carvacrol): antimicrobial membrane disruptors|
 |  Terpenes (camphor, 1,8-cineole, pinene): aroma + mild bioactivity|
-|  Organosulfur (allicin, diallyl disulfide): allium heat           |
+|  Organosulfur (allicin, diallyl disulfide): allium heat          |
 |  Ketones (thujone, camphor): neurotoxic at high doses            |
 +------------------------------------------------------------------+
 ```

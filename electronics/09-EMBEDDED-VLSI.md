@@ -62,11 +62,11 @@ EMBEDDED / VLSI LANDSCAPE
 ```
   ┌─────────────────────────────────────────────────────────────────────────┐
   │  CPU REGISTERS         ~32 × 32-bit          0-cycle access             │
-  │  Cortex-M: R0-R12, SP, LR, PC, PSR          inside CPU core            │
+  │  Cortex-M: R0-R12, SP, LR, PC, PSR          inside CPU core             │
   └─────────────────────────────────────────────────────────────────────────┘
   ┌─────────────────────────────────────────────────────────────────────────┐
   │  TCM (Tightly Coupled Memory)     64KB–1MB   1-cycle                    │
-  │  Cortex-M7+: ITCM/DTCM mapped    deterministic — use for ISRs          │
+  │  Cortex-M7+: ITCM/DTCM mapped    deterministic — use for ISRs           │
   │  directly, no cache uncertainty   and real-time control loops           │
   └─────────────────────────────────────────────────────────────────────────┘
   ┌─────────────────────────────────────────────────────────────────────────┐
@@ -75,8 +75,8 @@ EMBEDDED / VLSI LANDSCAPE
   │  CCM (Core-Coupled Memory) on STM32: DMA cannot reach it                │
   └─────────────────────────────────────────────────────────────────────────┘
   ┌─────────────────────────────────────────────────────────────────────────┐
-  │  Flash (program storage, on-chip) 32KB–2MB   3-10 cycles (with cache)  │
-  │  Non-volatile; .text and .rodata  ART Accelerator (STM32) = 0-wait     │
+  │  Flash (program storage, on-chip) 32KB–2MB   3-10 cycles (with cache)   │
+  │  Non-volatile; .text and .rodata  ART Accelerator (STM32) = 0-wait      │
   │  Erase in pages (512B–128KB)      ~100K erase cycles lifetime           │
   └─────────────────────────────────────────────────────────────────────────┘
   ┌─────────────────────────────────────────────────────────────────────────┐
@@ -84,7 +84,7 @@ EMBEDDED / VLSI LANDSCAPE
   │  Flexible Memory Controller (FMC) On MPU systems only                   │
   └─────────────────────────────────────────────────────────────────────────┘
   ┌─────────────────────────────────────────────────────────────────────────┐
-  │  External Flash (QSPI, eMMC, SD)  MBs–TBs    very slow (µs+ erase)     │
+  │  External Flash (QSPI, eMMC, SD)  MBs–TBs    very slow (µs+ erase)      │
   │  Firmware OTA storage             Not XiP (execute in place) unless QSPI│
   └─────────────────────────────────────────────────────────────────────────┘
 ```
@@ -146,28 +146,28 @@ Linker script memory regions (what the `.ld` file controls) — this is the embe
 ```
   RTOS CORE STRUCTURE
   ┌─────────────────────────────────────────────────────────────────────────┐
-  │  APPLICATION TASKS                                                       │
+  │  APPLICATION TASKS                                                      │
   │  Task A (priority 3)   Task B (priority 2)   Task C (priority 1)        │
   │  [Stack] [TCB]         [Stack] [TCB]         [Stack] [TCB]              │
-  │                                                                          │
+  │                                                                         │
   │  TCB (Task Control Block): stack pointer, priority, state,              │
-  │  task name, run-time stats, list links                                   │
+  │  task name, run-time stats, list links                                  │
   └─────────────────────────────────────────────────────────────────────────┘
   ┌─────────────────────────────────────────────────────────────────────────┐
-  │  SCHEDULER                                                               │
+  │  SCHEDULER                                                              │
   │  Preemptive priority: highest-priority ready task always runs           │
   │  Tick interrupt (e.g., 1 kHz = 1ms tick): drives time slicing           │
   │  Context switch: save registers to TCB stack, load next task's          │
   │  registers — Cortex-M uses PendSV exception for this                    │
-  │  Context switch cost: ~100-300ns (Cortex-M4 at 168 MHz, FreeRTOS)      │
+  │  Context switch cost: ~100-300ns (Cortex-M4 at 168 MHz, FreeRTOS)       │
   └─────────────────────────────────────────────────────────────────────────┘
   ┌─────────────────────────────────────────────────────────────────────────┐
-  │  IPC PRIMITIVES                                                          │
+  │  IPC PRIMITIVES                                                         │
   │  Queue: thread-safe FIFO, blocks producer if full, consumer if empty    │
   │  Semaphore: counting or binary; counts available resources              │
   │  Mutex: binary + priority inheritance; prevents priority inversion      │
   │  Event flags: 32-bit flags, task waits for bit pattern                  │
-  │  Stream buffer / message buffer (FreeRTOS 10+): lockless for 1P/1C     │
+  │  Stream buffer / message buffer (FreeRTOS 10+): lockless for 1P/1C      │
   └─────────────────────────────────────────────────────────────────────────┘
 ```
 
@@ -218,19 +218,19 @@ overflows are silent corruption bugs in bare-metal contexts.
   │              │ MISO,CS        │              │ selects slave via CS pin  │
   ├──────────────┼────────────────┼──────────────┼───────────────────────────┤
   │ I²C          │ 2: SDA, SCL    │ 100k/400k/   │ Multi-master; 7-bit addr; │
-  │              │ (open-drain)   │ 1M/3.4MHz    │ ACK/NACK; clock stretch  │
+  │              │ (open-drain)   │ 1M/3.4MHz    │ ACK/NACK; clock stretch   │
   ├──────────────┼────────────────┼──────────────┼───────────────────────────┤
   │ UART         │ 2: TX, RX      │ 9.6k–5Mbps   │ Async; start/stop bits;  │
   │              │ (+RTS/CTS opt) │              │ no clock; must match baud │
   ├──────────────┼────────────────┼──────────────┼───────────────────────────┤
   │ CAN bus      │ 2: CAN_H/L     │ 1 Mbps       │ Differential; multi-node; │
-  │              │ (differential) │ (CAN-FD 8M)  │ arbitration; auto. ACK   │
+  │              │ (differential) │ (CAN-FD 8M)  │ arbitration; auto. ACK    │
   ├──────────────┼────────────────┼──────────────┼───────────────────────────┤
   │ USB 2.0 FS   │ D+/D- (diff)   │ 12 Mbps      │ Host/device; enumeration; │
   │              │ + VBUS + GND   │              │ protocol stack required   │
   ├──────────────┼────────────────┼──────────────┼───────────────────────────┤
   │ USB 3.2      │ D+/D- + TX/RX  │ 10 Gbps      │ SuperSpeed; separate      │
-  │              │ differential   │              │ SuperSpeed lanes           │
+  │              │ differential   │              │ SuperSpeed lanes          │
   ├──────────────┼────────────────┼──────────────┼───────────────────────────┤
   │ I²S          │ SCK,WS,SD      │ to 100 MHz   │ Audio serial; word-select │
   │              │                │              │ sets L/R channel          │
@@ -244,13 +244,13 @@ overflows are silent corruption bugs in bare-metal contexts.
 ```
   MCU POWER STATES (STM32 as example — similar across MCUs)
   ┌──────────────────────────────────────────────────────────────────────────┐
-  │  RUN mode         CPU + all peripherals on        10–100 mA @ 3.3V      │
+  │  RUN mode         CPU + all peripherals on        10–100 mA @ 3.3V       │
   │    ↓ sleep entry  WFI / WFE instruction                                  │
-  │  SLEEP mode       CPU halted; peripherals + RAM on  5–50 mA             │
+  │  SLEEP mode       CPU halted; peripherals + RAM on  5–50 mA              │
   │    ↓ stop entry   peripheral clocks off                                  │
-  │  STOP mode        CPU + most clocks off; RAM retained  1–300 µA         │
+  │  STOP mode        CPU + most clocks off; RAM retained  1–300 µA          │
   │    ↓ standby      SRAM off; RTC still on                                 │
-  │  STANDBY mode     Almost everything off; RTC on       1–10 µA           │
+  │  STANDBY mode     Almost everything off; RTC on       1–10 µA            │
   │    ↓ shutdown                                                            │
   │  SHUTDOWN mode    Only WKUP pin and tamper detection  ~100 nA            │
   └──────────────────────────────────────────────────────────────────────────┘
@@ -374,21 +374,21 @@ overflows are silent corruption bugs in bare-metal contexts.
 ```
   SETUP TIME CONSTRAINT
   ┌────────────────────────────────────────────────────────────────────────┐
-  │  Clock period T ≥ t_clk_to_Q + t_combinational + t_setup              │
+  │  Clock period T ≥ t_clk_to_Q + t_combinational + t_setup               │
   │                                                                        │
   │  Clock edge                                  Next clock edge           │
-  │       │                                           │                   │
-  │       │  t_clk_to_Q    t_comb          t_setup    │                   │
+  │       │                                           │                    │
+  │       │  t_clk_to_Q    t_comb          t_setup    │                    │
   │       │◄────────────►◄───────────────►◄─────────►│                   │
-  │       │                                           │                   │
-  │       ▼                                           ▼                   │
-  │  FF1 output        logic propagation         FF2 must be stable       │
+  │       │                                           │                    │
+  │       ▼                                           ▼                    │
+  │  FF1 output        logic propagation         FF2 must be stable        │
   │                                                                        │
   │  Critical path: the combinational path with maximum propagation delay  │
   │  Clock frequency = 1/T_critical_path (after meeting all timing)        │
   │                                                                        │
   │  HOLD TIME CONSTRAINT (independent of frequency!)                      │
-  │  t_clk_to_Q + t_comb_min ≥ t_hold                                     │
+  │  t_clk_to_Q + t_comb_min ≥ t_hold                                      │
   │  Hold violation: data changes too fast → metastability at FF2          │
   │  Fix: add buffer/delay on data path (NOT by slowing clock)             │
   └────────────────────────────────────────────────────────────────────────┘
@@ -444,12 +444,12 @@ overflows are silent corruption bugs in bare-metal contexts.
   ┌─────────────────────────────────────────────────────────────────────────┐
   │  Metal 8 (top): wide VDD/GND straps (horizontal)                        │
   │  Metal 7: wide straps (vertical)                                        │
-  │  ...                                                                     │
+  │  ...                                                                    │
   │  Metal 3-4: intermediate routing                                        │
   │  Metal 1-2: signal routing + local power rails                          │
   │  Standard cell row: VDD rail at top, GND rail at bottom                 │
-  │                                                                          │
-  │  IR drop: ΔV = I·R_grid_path; budget typically < 5% of VDD             │
+  │                                                                         │
+  │  IR drop: ΔV = I·R_grid_path; budget typically < 5% of VDD              │
   │  EM: current density > limit → metal void over time (failure)           │
   └─────────────────────────────────────────────────────────────────────────┘
 
@@ -469,10 +469,10 @@ overflows are silent corruption bugs in bare-metal contexts.
   │  "3nm"        21 nm        48 nm         ~292               TSMC N3E │
   │  "2nm"        ~18 nm       ~45 nm        ~350+              TSMC N2  │
   │  "7nm"        30 nm        57 nm         ~96                TSMC N7  │
-  │                                                                       │
-  │  Node names are marketing; actual gate length is ~2-3× smaller        │
+  │                                                                      │
+  │  Node names are marketing; actual gate length is ~2-3× smaller       │
   │  than node name implies. N3 gate length ≈ 12-15 nm.                  │
-  │  Power density becomes the bottleneck — more transistors, more heat   │
+  │  Power density becomes the bottleneck — more transistors, more heat  │
   └──────────────────────────────────────────────────────────────────────┘
 
   CHIPLETS AND 3D:

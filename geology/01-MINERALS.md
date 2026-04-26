@@ -8,20 +8,20 @@ Minerals are the atoms-to-molecules level of geology. ~5,700 known minerals; ~30
 
 ```
 +---------------------------------------------------------------+
-|               MINERAL HIERARCHY                                |
-|                                                                |
+|               MINERAL HIERARCHY                               |
+|                                                               |
 |  ELEMENT:   Si, O, Al, Fe, Ca, Na, K, Mg  (Big 8 of crust)  |
-|                          |                                     |
-|                          v                                     |
-|  ION/CRYSTAL:  [SiO₄]⁴⁻ tetrahedra link into structures      |
-|                          |                                     |
-|                          v                                     |
-|  MINERAL:   Quartz, Feldspar, Pyroxene, Olivine, Mica...     |
-|             (defined composition, crystalline structure)       |
-|                          |                                     |
-|                          v                                     |
+|                          |                                    |
+|                          v                                    |
+|  ION/CRYSTAL:  [SiO₄]⁴⁻ tetrahedra link into structures       |
+|                          |                                    |
+|                          v                                    |
+|  MINERAL:   Quartz, Feldspar, Pyroxene, Olivine, Mica...      |
+|             (defined composition, crystalline structure)      |
+|                          |                                    |
+|                          v                                    |
 |  ROCK:      Granite (quartz+feldspar+mica)                    |
-|             Basalt (pyroxene+plagioclase)                      |
+|             Basalt (pyroxene+plagioclase)                     |
 +---------------------------------------------------------------+
 ```
 

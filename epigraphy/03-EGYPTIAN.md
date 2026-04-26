@@ -22,7 +22,7 @@ Same language at different stages; different scripts for different contexts
 |                                             Categorize meaning   |
 |  ~100 in common use   Unilateral: ~26       ~150 in common use   |
 |  (the "alphabet"      Bilateral: ~80        Follow the word      |
-|   letter + word)      Trilateral: ~50       Signal word category  |
+|   letter + word)      Trilateral: ~50       Signal word category |
 +------------------------------------------------------------------+
 ```
 

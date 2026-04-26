@@ -6,7 +6,7 @@ Photonic devices are the optics equivalent of electronic components: converters 
 
 ```
 +------------------------------------------------------------------+
-|                     PHOTONIC DEVICE LANDSCAPE                     |
+|                     PHOTONIC DEVICE LANDSCAPE                    |
 |                                                                  |
 |  SOURCES              DETECTORS         MODULATORS               |
 |  -------              ---------         ----------               |
@@ -17,7 +17,7 @@ Photonic devices are the optics equivalent of electronic components: converters 
 |                       Bolometers        Electro-absorption mod   |
 |                       (thermal, IR)                              |
 |                                                                  |
-|  PASSIVE WAVEGUIDE    PHOTONIC CRYSTALS  FLAT OPTICS              |
+|  PASSIVE WAVEGUIDE    PHOTONIC CRYSTALS  FLAT OPTICS             |
 |  ----------------     ----------------  ----------               |
 |  Optical fiber        PhC bandgap        Metasurfaces            |
 |  SOI waveguides        structures        Metalenses              |
@@ -98,16 +98,16 @@ The workhorse detector for optical communications and instrumentation:
 
 ```
 +------------------------------------------------------------------+
-|  DETECTOR     WAVELENGTH  GAIN   NOTES                          |
-|  --------     ----------  ----   -----                          |
-|  Silicon PIN  350-1100nm  1      Cheap, fast, large area        |
-|  InGaAs PIN   900-1700nm  1      Telecom, NIR                   |
-|  Ge PIN       800-1800nm  1      Low cost NIR                   |
-|  Si APD       400-1000nm  10-100 Low noise, photon counting     |
-|  InGaAs APD   900-1700nm  10-40  Telecom, higher noise than Si  |
-|  Si SPAD      400-1000nm  10^6   Single photon, dead time       |
+|  DETECTOR     WAVELENGTH  GAIN   NOTES                           |
+|  --------     ----------  ----   -----                           |
+|  Silicon PIN  350-1100nm  1      Cheap, fast, large area         |
+|  InGaAs PIN   900-1700nm  1      Telecom, NIR                    |
+|  Ge PIN       800-1800nm  1      Low cost NIR                    |
+|  Si APD       400-1000nm  10-100 Low noise, photon counting      |
+|  InGaAs APD   900-1700nm  10-40  Telecom, higher noise than Si   |
+|  Si SPAD      400-1000nm  10^6   Single photon, dead time        |
 |  PMT          200-800nm   10^6   Ultra-sensitive, fragile, bulky|
-|  Bolometer    1um-1mm     1      IR/THz uncooled thermal        |
+|  Bolometer    1um-1mm     1      IR/THz uncooled thermal         |
 |  HgCdTe (MCT) 3-12um      varies Cooled IR, highest performance|
 +------------------------------------------------------------------+
 ```
@@ -307,16 +307,16 @@ The dominant modulator for high-speed optical communications:
   +------------------------------------------------------------------+
   |  TYPE              CORE   USE CASE               NA              |
   |  ----              ----   --------               --              |
-  |  SM step-index     9um    Long-haul, metro comms 0.12           |
-  |  SM dispersion-    9um    Long-haul (DWDM)       0.12           |
+  |  SM step-index     9um    Long-haul, metro comms 0.12            |
+  |  SM dispersion-    9um    Long-haul (DWDM)       0.12            |
   |  shifted (DSF)                                                   |
-  |  MM step-index     50um   Short-reach LAN        0.20           |
-  |  MM graded-index   50um   Short-reach LAN (OM3/4)0.20           |
-  |  (GRIN)                   Lower dispersion                      |
-  |  PM (polarization  10um   Fiber sensors, coherent comms         |
-  |  maintaining)             interferometry                        |
-  |  Large mode area   25+um  High power delivery    small          |
-  |  (LMA)                    (fiber lasers)                        |
+  |  MM step-index     50um   Short-reach LAN        0.20            |
+  |  MM graded-index   50um   Short-reach LAN (OM3/4)0.20            |
+  |  (GRIN)                   Lower dispersion                       |
+  |  PM (polarization  10um   Fiber sensors, coherent comms          |
+  |  maintaining)             interferometry                         |
+  |  Large mode area   25+um  High power delivery    small           |
+  |  (LMA)                    (fiber lasers)                         |
   +------------------------------------------------------------------+
 
   Attenuation mechanisms:

@@ -8,12 +8,12 @@ constraints naturally, and directly reveals conservation laws via symmetry.
 
 ```
 +-----------------------------------------------------------------------+
-|              LAGRANGIAN MECHANICS ARCHITECTURE                         |
+|              LAGRANGIAN MECHANICS ARCHITECTURE                        |
 |                                                                       |
 |  NEWTONIAN                 LAGRANGIAN                                 |
 |  ---------                 ----------                                 |
-|  F = ma for each particle  δS = 0 (action is stationary)             |
-|  Coordinates: Cartesian    Generalized coordinates q_i               |
+|  F = ma for each particle  δS = 0 (action is stationary)              |
+|  Coordinates: Cartesian    Generalized coordinates q_i                |
 |  Constraints: eliminated   Automatically handled                      |
 |  Conservation laws:        Follow from symmetry (Noether)             |
 |    found case-by-case       systematically                            |
@@ -65,9 +65,9 @@ constraints naturally, and directly reveals conservation laws via symmetry.
   ┌─────────────────────────────────────────────────────────────────┐
   │ Double pendulum:     q = (θ₁, θ₂)  (two angles)               │
   │ Rigid body rotation: q = (φ, θ, ψ)  (Euler angles)            │
-  │ Molecule:            q = (COM position, bond lengths, angles)  │
-  │ Elastic rod:         q(s,t) = shape function (infinite DOF)    │
-  │ EM field:            q = A_μ(x,t)  (gauge potential — field)   │
+  │ Molecule:            q = (COM position, bond lengths, angles)   │
+  │ Elastic rod:         q(s,t) = shape function (infinite DOF)     │
+  │ EM field:            q = A_μ(x,t)  (gauge potential — field)    │
   └─────────────────────────────────────────────────────────────────┘
 
   TRANSFORMATION:

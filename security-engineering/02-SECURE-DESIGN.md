@@ -8,7 +8,7 @@ Secure design principles are the axioms that should guide architecture and engin
 SECURE DESIGN PRINCIPLES OVERVIEW
 +-----------------------------------------------------------------------+
 |                                                                       |
-|  SALTZER & SCHROEDER (1975)          MODERN ADDITIONS                |
+|  SALTZER & SCHROEDER (1975)          MODERN ADDITIONS                 |
 |  +---------------------------------+ +-----------------------------+  |
 |  | Economy of Mechanism           | | Zero Trust Architecture     |  |
 |  | Fail-Safe Defaults             | | Supply Chain Security (SLSA)|  |
@@ -23,7 +23,7 @@ SECURE DESIGN PRINCIPLES OVERVIEW
 |  +---------------------------------+ +-----------------------------+  |
 |                                                                       |
 |  ARCHITECTURAL PATTERNS                                               |
-|  +----------------------------------------------------------------+  |
+|  +----------------------------------------------------------------+   |
 |  | Defense in Depth                                               |  |
 |  | Zero Trust Network Access                                      |  |
 |  | Attack Surface Reduction                                       |  |

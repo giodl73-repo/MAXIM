@@ -289,12 +289,12 @@ REGENERATIVE FEEDWATER HEATING — Use bleed steam to preheat feedwater:
   │  Turbine: HP ──►[bleed]──► IP ──►[bleed]──► LP ──► Cond. │
   │                   │                │                       │
   │                   ▼                ▼                       │
-  │              [FWH #1]         [FWH #2]                    │
-  │              (closed or       (open /                     │
-  │               open)           deaerator)                  │
+  │              [FWH #1]         [FWH #2]                     │
+  │              (closed or       (open /                      │
+  │               open)           deaerator)                   │
   │                   │                │                       │
   │                   ▼                ▼                       │
-  │              ───── Feedwater heated from ~35°C to ~250°C  │
+  │              ───── Feedwater heated from ~35°C to ~250°C   │
   │                    before entering the boiler              │
   └────────────────────────────────────────────────────────────┘
 
@@ -551,7 +551,7 @@ COMBINED CYCLE GAS TURBINE — SYSTEM DIAGRAM:
         ▼
   ┌─────────────────────────────────────────────────────┐
   │  GAS TURBINE (Brayton topping cycle)                │
-  │                                                      │
+  │                                                     │
   │  [Compressor] → [Combustor] → [Turbine] → Generator │
   │                                    │                  │
   │  Exhaust gas: ~550-650°C           │                  │
@@ -559,28 +559,28 @@ COMBINED CYCLE GAS TURBINE — SYSTEM DIAGRAM:
                                        │
                                        ▼
   ┌─────────────────────────────────────────────────────┐
-  │  HRSG (Heat Recovery Steam Generator)                │
-  │                                                      │
-  │  Exhaust gas passes through:                         │
+  │  HRSG (Heat Recovery Steam Generator)               │
+  │                                                     │
+  │  Exhaust gas passes through:                        │
   │    HP superheater → HP evaporator → HP economizer   │
   │    IP superheater → IP evaporator → IP economizer   │
   │    LP superheater → LP evaporator → LP economizer   │
-  │                                                      │
-  │  Three pressure levels extract maximum heat          │
-  │  HP steam: ~565°C / 170 bar                          │
-  │  IP steam: ~565°C / 40 bar                           │
-  │  LP steam: ~250°C / 5 bar                            │
-  │                                                      │
+  │                                                     │
+  │  Three pressure levels extract maximum heat         │
+  │  HP steam: ~565°C / 170 bar                         │
+  │  IP steam: ~565°C / 40 bar                          │
+  │  LP steam: ~250°C / 5 bar                           │
+  │                                                     │
   │  Stack gas exit: ~80-100°C (nearly all heat captured)│
   └────────────┬─────────────────────────────────────────┘
                │  Steam at three pressures
                ▼
   ┌─────────────────────────────────────────────────────┐
-  │  STEAM TURBINE (Rankine bottoming cycle)             │
-  │                                                      │
-  │  HP turbine → IP turbine → LP turbine → Condenser  │
-  │                                              │       │
-  │                                           Generator  │
+  │  STEAM TURBINE (Rankine bottoming cycle)            │
+  │                                                     │
+  │  HP turbine → IP turbine → LP turbine → Condenser   │
+  │                                              │      │
+  │                                           Generator │
   └──────────────────────────────────────────────────────┘
 
   EFFICIENCY ARITHMETIC:
@@ -915,24 +915,24 @@ ALLAM-FETVEDT CYCLE SCHEMATIC:
         │
         ▼
   ┌──────────────────────────────────────────────┐
-  │  COMBUSTOR                                    │
+  │  COMBUSTOR                                   │
   │  Oxy-combustion: CH₄ + 2O₂ → CO₂ + 2H₂O    │
   │  Working fluid: supercritical CO₂ at ~300 bar │
-  │  T_combustor: ~1150°C                         │
+  │  T_combustor: ~1150°C                        │
   └────────┬─────────────────────────────────────┘
            │  sCO₂ + H₂O at 1150°C, 300 bar
            ▼
   ┌──────────────────────────────────────────────┐
-  │  sCO₂ TURBINE                                 │
-  │  Expansion: 300 bar → 30 bar                  │
-  │  Power output: generator                      │
+  │  sCO₂ TURBINE                                │
+  │  Expansion: 300 bar → 30 bar                 │
+  │  Power output: generator                     │
   └────────┬─────────────────────────────────────┘
            │  Exhaust: ~700°C, 30 bar
            ▼
   ┌──────────────────────────────────────────────┐
-  │  RECUPERATOR (multi-stream heat exchanger)    │
-  │  Hot exhaust preheats recycled CO₂            │
-  │  Cooled exhaust → water separator             │
+  │  RECUPERATOR (multi-stream heat exchanger)   │
+  │  Hot exhaust preheats recycled CO₂           │
+  │  Cooled exhaust → water separator            │
   └────────┬─────────────────────────────────────┘
            │
            ├──► H₂O separated (condensed out)

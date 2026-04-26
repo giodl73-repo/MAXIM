@@ -317,14 +317,14 @@ ACORN WORM BODY PLAN
 +--------------------------------------------+
 |  Proboscis (muscular, digging)             |
 |  Collar (with mouth)                       |
-|  Trunk (long, burrowing)                  |
+|  Trunk (long, burrowing)                   |
 |                                            |
-|  CHORDATE PRECURSOR FEATURES:             |
+|  CHORDATE PRECURSOR FEATURES:              |
 |  ├── Pharyngeal gill slits                 |
 |  |   (filter feeding + gas exchange)       |
-|  ├── Dorsal nerve cord (in some species)  |
+|  ├── Dorsal nerve cord (in some species)   |
 |  |   (stomochord ≠ notochord but homolog?) |
-|  └── Post-anal tail (some species)        |
+|  └── Post-anal tail (some species)         |
 +--------------------------------------------+
 
 GILL SLITS: identical function to chordate pharyngeal slits

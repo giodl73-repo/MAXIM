@@ -4,22 +4,22 @@
 
 ```
 +-----------------------------------------------------------------------+
-|                    QUALIA AND PHENOMENOLOGY                            |
+|                    QUALIA AND PHENOMENOLOGY                           |
 +-----------------------------------------------------------------------+
 |                                                                       |
 |  QUALIA                         PHENOMENOLOGY                        |
 |  (Analytic tradition)           (Continental tradition)              |
 |  +----------------------+       +-------------------------+          |
 |  | The "raw feel" of    |       | The structure of        |          |
-|  | experience           |       | conscious experience     |          |
-|  | Intrinsic, private   |       | from first-person        |          |
-|  | The redness of red   |       | perspective              |          |
-|  | The painfulness of   |       | Husserl: intentionality  |          |
-|  | pain                 |       | Heidegger: being-in-world|          |
-|  +----------------------+       | Merleau-Ponty: body      |          |
+|  | experience           |       | conscious experience    |          |
+|  | Intrinsic, private   |       | from first-person       |          |
+|  | The redness of red   |       | perspective             |          |
+|  | The painfulness of   |       | Husserl: intentionality |          |
+|  | pain                 |       | Heidegger: being-in-world|         |
+|  +----------------------+       | Merleau-Ponty: body      |         |
 |                                 +-------------------------+          |
-|                                                                       |
-|  SHARED QUESTION: What is the structure of first-person experience?   |
+|                                                                      |
+|  SHARED QUESTION: What is the structure of first-person experience?  |
 +-----------------------------------------------------------------------+
 ```
 

@@ -18,25 +18,25 @@ BAROQUE AND ROCOCO LANDSCAPE
     empirical methods in science (contemporary with Galileo, Bacon)
 
   ┌─────────────────────────────────────────────────────────────────┐
-  │ BAROQUE (c. 1600–1750)                                         │
+  │ BAROQUE (c. 1600–1750)                                          │
   │                                                                 │
-  │  ITALY: Caravaggio (1571–1610), Artemisia Gentileschi,         │
+  │  ITALY: Caravaggio (1571–1610), Artemisia Gentileschi,          │
   │          Bernini (1598–1680), Pietro da Cortona                 │
   │                                                                 │
-  │  SPAIN: Velázquez (1599–1660), Zurbarán, Murillo               │
+  │  SPAIN: Velázquez (1599–1660), Zurbarán, Murillo                │
   │                                                                 │
-  │  FLANDERS: Rubens (1577–1640), Van Dyck (1599–1641)            │
+  │  FLANDERS: Rubens (1577–1640), Van Dyck (1599–1641)             │
   │                                                                 │
-  │  NETHERLANDS: Rembrandt (1606–1669), Vermeer (1632–1675),      │
+  │  NETHERLANDS: Rembrandt (1606–1669), Vermeer (1632–1675),       │
   │               Hals, De Hooch -- secular bourgeois market        │
   │                                                                 │
-  │  FRANCE: Poussin (1594–1665), Claude Lorrain (1604–1682)       │
+  │  FRANCE: Poussin (1594–1665), Claude Lorrain (1604–1682)        │
   │          Louis XIV: Versailles as total artwork                 │
   └─────────────────────────────────────────────────────────────────┘
   ┌─────────────────────────────────────────────────────────────────┐
-  │ ROCOCO (c. 1720–1780)                                          │
+  │ ROCOCO (c. 1720–1780)                                           │
   │                                                                 │
-  │  FRANCE: Watteau (1684–1721), Boucher (1703–1770),             │
+  │  FRANCE: Watteau (1684–1721), Boucher (1703–1770),              │
   │           Fragonard (1732–1806)                                 │
   │                                                                 │
   │  Reaction against Baroque grandeur and Counter-Reformation      │

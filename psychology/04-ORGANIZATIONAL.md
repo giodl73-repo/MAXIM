@@ -10,7 +10,7 @@ or design work systems, this field's findings directly apply.
 
 ```
 +----------------------------------------------------------------------+
-|                    I-O PSYCHOLOGY DOMAINS                             |
+|                    I-O PSYCHOLOGY DOMAINS                            |
 |                                                                      |
 |  SELECTION         PERFORMANCE        MOTIVATION/DESIGN  LEADERSHIP  |
 |  ─────────         ───────────        ──────────────     ──────────  |
@@ -18,10 +18,10 @@ or design work systems, this field's findings directly apply.
 |  predictors        OCB vs             SDT at work        emergence   |
 |  GMA, struct.      in-role behavior   Job enrichment     vs          |
 |  interviews,       Rater biases       Job crafting       effectiveness|
-|  work samples      360-degree                                         |
-|                    feedback                                           |
+|  work samples      360-degree                                        |
+|                    feedback                                          |
 |                                                                      |
-|  WELL-BEING AT WORK                  ORGANIZATIONAL CULTURE           |
+|  WELL-BEING AT WORK                  ORGANIZATIONAL CULTURE          |
 |  Burnout (Maslach MBI)               Schein's levels                 |
 |  Engagement (vigor/dedication)       Climate vs culture              |
 |  Presenteeism vs absenteeism         Culture change levers           |
@@ -46,25 +46,25 @@ These represent ~100 years of research on thousands of studies.
   │   — cognitive ability tests          │ across all jobs)            │
   ├──────────────────────────────────────┼────────────────────────────┤
   │ Structured interviews                │ 0.58 (situational/behavioral│
-  │   — behavioral + situational         │ with standardized scoring)  │
+  │   — behavioral + situational         │ with standardized scoring) │
   ├──────────────────────────────────────┼────────────────────────────┤
   │ Work sample tests                    │ 0.54 (actual task performance│
   │   — test actual job tasks            │ high face validity)         │
   ├──────────────────────────────────────┼────────────────────────────┤
-  │ Job knowledge tests                  │ 0.48 (for experienced)      │
+  │ Job knowledge tests                  │ 0.48 (for experienced)     │
   ├──────────────────────────────────────┼────────────────────────────┤
   │ Integrity tests                      │ 0.41                        │
   ├──────────────────────────────────────┼────────────────────────────┤
-  │ Conscientiousness (Big Five)         │ 0.24                        │
+  │ Conscientiousness (Big Five)         │ 0.24                       │
   ├──────────────────────────────────────┼────────────────────────────┤
   │ Reference checks                     │ 0.26 (employment reference) │
   ├──────────────────────────────────────┼────────────────────────────┤
-  │ Unstructured interviews              │ 0.20                        │
+  │ Unstructured interviews              │ 0.20                       │
   ├──────────────────────────────────────┼────────────────────────────┤
   │ Years of education                   │ 0.10                        │
   ├──────────────────────────────────────┼────────────────────────────┤
-  │ Years of experience                  │ 0.18 (quickly diminishing   │
-  │                                      │ returns after 5 years)      │
+  │ Years of experience                  │ 0.18 (quickly diminishing  │
+  │                                      │ returns after 5 years)     │
   ├──────────────────────────────────────┼────────────────────────────┤
   │ Graphology (handwriting analysis)    │ ~0.00 (no validity)         │
   └──────────────────────────────────────┴────────────────────────────┘
@@ -82,7 +82,7 @@ These represent ~100 years of research on thousands of studies.
   More complex jobs → more training required → GMA predicts more
   ┌────────────────────────────────────────────────────────────────┐
   │ Job complexity:       Low    Medium    High                    │
-  │ GMA validity:         0.23   0.40      0.58                   │
+  │ GMA validity:         0.23   0.40      0.58                    │
   └────────────────────────────────────────────────────────────────┘
 
   GMA → Job Knowledge Acquisition → Job Performance
@@ -118,7 +118,7 @@ These represent ~100 years of research on thousands of studies.
   ┌────────────────────────────────────────────────────────────────┐
   │ Same questions for all candidates (standardized)               │
   │ Questions derived from job analysis                            │
-  │ Anchored rating scales (BARS — Behaviorally Anchored)         │
+  │ Anchored rating scales (BARS — Behaviorally Anchored)          │
   │ Multiple interviewers (panel vs single)                        │
   │ No prompting or follow-up beyond standardized probes           │
   └────────────────────────────────────────────────────────────────┘
@@ -214,9 +214,9 @@ These represent ~100 years of research on thousands of studies.
 
   ┌────────────────────────────────────────────────────────────────┐
   │ BURNOUT (negative pole)      ENGAGEMENT (positive pole)        │
-  │ Exhaustion ←────────────────→ Vigor (energy, resilience)      │
+  │ Exhaustion ←────────────────→ Vigor (energy, resilience)       │
   │ Cynicism ←──────────────────→ Dedication (significance, pride) │
-  │ Reduced efficacy ←──────────→ Absorption (fully immersed)     │
+  │ Reduced efficacy ←──────────→ Absorption (fully immersed)      │
   └────────────────────────────────────────────────────────────────┘
   Engagement is not just "not burned out" — it's the positive state
 
@@ -240,10 +240,10 @@ These represent ~100 years of research on thousands of studies.
   TWO PROCESSES OPERATING SIMULTANEOUSLY:
   ┌────────────────────────────────────────────────────────────────┐
   │ HEALTH IMPAIRMENT PROCESS (negative):                          │
-  │ Job Demands → Depletion of resources → Exhaustion → Health    │
+  │ Job Demands → Depletion of resources → Exhaustion → Health     │
   │                                                                │
   │ Job Demands: Physical (manual labor), Cognitive (complexity),  │
-  │ Emotional (patient care, customer service), Interpersonal     │
+  │ Emotional (patient care, customer service), Interpersonal      │
   │ (conflict), Work Pace, Uncertainty                             │
   └────────────────────────────────────────────────────────────────┘
   ┌────────────────────────────────────────────────────────────────┐
@@ -275,19 +275,19 @@ These represent ~100 years of research on thousands of studies.
 ```
   RATING BIASES (systematic errors in performance ratings):
   ┌────────────────────────────────────────────────────────────────┐
-  │ HALO EFFECT: One positive attribute colors all ratings        │
-  │ → Technically excellent → rated high on teamwork too          │
+  │ HALO EFFECT: One positive attribute colors all ratings         │
+  │ → Technically excellent → rated high on teamwork too           │
   │                                                                │
-  │ LENIENCY/SEVERITY: Rater consistently rates all high or low   │
-  │ → Distribution of ratings compressed; poor differentiation    │
+  │ LENIENCY/SEVERITY: Rater consistently rates all high or low    │
+  │ → Distribution of ratings compressed; poor differentiation     │
   │                                                                │
-  │ CENTRAL TENDENCY: Rater avoids extremes                       │
+  │ CENTRAL TENDENCY: Rater avoids extremes                        │
   │ → All ratings near the middle; top performers underdistinguished│
   │                                                                │
-  │ RECENCY: Recent events dominate over full period              │
-  │ → Last 3 months = "entire year" in rater's mind               │
+  │ RECENCY: Recent events dominate over full period               │
+  │ → Last 3 months = "entire year" in rater's mind                │
   │                                                                │
-  │ SIMILAR-TO-ME: Rate higher those who resemble rater           │
+  │ SIMILAR-TO-ME: Rate higher those who resemble rater            │
   │ → Demographic bias pathway                                     │
   └────────────────────────────────────────────────────────────────┘
 

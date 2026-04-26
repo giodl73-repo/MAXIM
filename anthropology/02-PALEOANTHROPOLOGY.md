@@ -4,34 +4,34 @@
 
 ```
 +------------------------------------------------------------------+
-|                    HOMININ PHYLOGENY                              |
-|                                                                   |
+|                    HOMININ PHYLOGENY                             |
+|                                                                  |
 |  7 Ma                                                 Present    |
 |  |-------------------------------------------------->            |
-|                                                                   |
+|                                                                  |
 |  Sahelanthropus (~7 Ma)                                          |
 |  Orrorin (~6 Ma)                                                 |
-|  Ardipithecus (~5.6-4.4 Ma)                                     |
-|       |                                                           |
-|       v                                                           |
+|  Ardipithecus (~5.6-4.4 Ma)                                      |
+|       |                                                          |
+|       v                                                          |
 |  Australopithecus afarensis (~4-3 Ma)    [Lucy]                  |
 |  A. africanus, A. sediba (~3-2 Ma)                               |
-|  Paranthropus (robust, ~2.5-1.2 Ma)     [dietary dead-end?]     |
-|       |                                                           |
-|       v                                                           |
+|  Paranthropus (robust, ~2.5-1.2 Ma)     [dietary dead-end?]      |
+|       |                                                          |
+|       v                                                          |
 |  Homo habilis / H. rudolfensis (~2.5-1.5 Ma)  [Oldowan tools]  |
-|       |                                                           |
-|       v                                                           |
-|  Homo erectus (~1.9 Ma - 100 ka)  [Out of Africa 1, fire]       |
-|       |                                                           |
-|       v                                                           |
+|       |                                                          |
+|       v                                                          |
+|  Homo erectus (~1.9 Ma - 100 ka)  [Out of Africa 1, fire]        |
+|       |                                                          |
+|       v                                                          |
 |  H. heidelbergensis (~700-200 ka)  [Levallois, hunting]          |
-|       |                 |                                         |
-|       v                 v                                         |
+|       |                 |                                        |
+|       v                 v                                        |
 |  Neanderthals      Denisovans          Modern H. sapiens         |
 |  (400-40 ka)       (ghost lineage)     (~315 ka - present)       |
-|       |                 |                    |                    |
-|       +--------+--------+                    |                    |
+|       |                 |                    |                   |
+|       +--------+--------+                    |                   |
 |                |                             |                    |
 |           ADMIXTURE: modern non-Africans carry                   |
 |           1-4% Neanderthal + variable Denisovan DNA              |
@@ -219,22 +219,22 @@ laboratory analysis — and remains contested at multiple points.
 
   TECHNOLOGY — THE ACHEULEAN HANDAXE:
   ┌────────────────────────────────────────────────────────┐
-  │ The Acheulean handaxe (~1.7 Ma - 200 ka):             │
+  │ The Acheulean handaxe (~1.7 Ma - 200 ka):              │
   │                                                        │
-  │ Bifacially worked (flaked on both faces) to a         │
-  │ symmetrical tear-drop shape. The shape is imposed     │
-  │ on the stone — a MENTAL TEMPLATE exists before        │
+  │ Bifacially worked (flaked on both faces) to a          │
+  │ symmetrical tear-drop shape. The shape is imposed      │
+  │ on the stone — a MENTAL TEMPLATE exists before         │
   │ the knapping begins.                                   │
   │                                                        │
   │ Used for ~1.5 MILLION YEARS with almost no change.   │
-  │ Called "the most successful technology in human       │
-  │ history." Very likely multipurpose: butchery,         │
-  │ digging, processing plant material.                   │
+  │ Called "the most successful technology in human        │
+  │ history." Very likely multipurpose: butchery,          │
+  │ digging, processing plant material.                    │
   │                                                        │
   │ Why so static? No cumulative cultural evolution.     │
-  │ Each individual learns the template; innovations      │
-  │ don't accumulate. Compare to post-50ka Upper          │
-  │ Paleolithic — explosive diversity of tool types.      │
+  │ Each individual learns the template; innovations       │
+  │ don't accumulate. Compare to post-50ka Upper           │
+  │ Paleolithic — explosive diversity of tool types.       │
   └────────────────────────────────────────────────────────┘
 
   FIRE:
@@ -318,7 +318,7 @@ laboratory analysis — and remains contested at multiple points.
   │ 2010: First draft Neanderthal genome (3 specimens,     │
   │       Vindija Cave, Croatia)                           │
   │                                                        │
-  │ Finding: Non-African modern humans carry 1-4% of      │
+  │ Finding: Non-African modern humans carry 1-4% of       │
   │ Neanderthal DNA. Interbreeding occurred when modern    │
   │ humans left Africa and encountered Neanderthals in     │
   │ the Middle East (~60-50 ka).                           │
@@ -363,7 +363,7 @@ laboratory analysis — and remains contested at multiple points.
   │ Melanesians/Papua New Guineans: ~5% Denisovan DNA      │
   │ (highest of any modern population)                     │
   │                                                        │
-  │ Southeast Asian populations: 0.5-2% Denisovan         │
+  │ Southeast Asian populations: 0.5-2% Denisovan          │
   │ depending on group. Aboriginal Australians have        │
   │ significant Denisovan admixture.                       │
   └────────────────────────────────────────────────────────┘
@@ -392,7 +392,7 @@ laboratory analysis — and remains contested at multiple points.
   | Jebel Irhoud,    | 315 ka   | Oldest known AMH fossils.    |
   | Morocco          |          | Modern face, archaic braincase|
   +------------------+----------+-------------------------------+
-  | Blombos Cave,    | 75-100 ka| Ochre engraving (abstract    |
+  | Blombos Cave,    | 75-100 ka| Ochre engraving (abstract     |
   | South Africa     |          | geometric design), shell      |
   |                  |          | beads, ochre processing kits  |
   +------------------+----------+-------------------------------+
@@ -400,9 +400,9 @@ laboratory analysis — and remains contested at multiple points.
   | South Africa     |          | + ochre use (oldest pigment  |
   |                  |          | use with ritual interpretation)|
   +------------------+----------+-------------------------------+
-  | Howieson's Poort | 65-80 ka | Microlithic tools, engraved  |
-  | (multiple sites) |          | ostrich eggshell, heat       |
-  |                  |          | treatment of stone           |
+  | Howieson's Poort | 65-80 ka | Microlithic tools, engraved   |
+  | (multiple sites) |          | ostrich eggshell, heat        |
+  |                  |          | treatment of stone            |
   +------------------+----------+-------------------------------+
   | Diepkloof,       | 60 ka    | Ostrich eggshell with        |
   | South Africa     |          | geometric engraved patterns  |

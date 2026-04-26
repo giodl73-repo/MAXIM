@@ -13,7 +13,7 @@ Geometric optics treats light as rays — directed lines that carry power, obey 
 |  the one for which the optical path length (OPL) is an        |
 |  extremum (usually a minimum -- "least time").                |
 |                                                               |
-|  OPL = integral of n(s) ds  along the path                   |
+|  OPL = integral of n(s) ds  along the path                    |
 |       = n * L  (uniform medium, n = refractive index)         |
 |                                                               |
 |  From Fermat's principle, you derive:                         |
@@ -77,7 +77,7 @@ When light goes from a dense medium (n1 > n2) to a less dense one, there exists 
   |     \ /           |  Used in: fiber optics,
   |------X------------|  prism reflectors, TIR
   |   (no refracted)  |  microscopy.
-  | Air (n2=1.0)      |
+  | Air (n2=1.0)     |
   +------------------+
 ```
 
@@ -159,20 +159,20 @@ A ray is represented as a column vector:
 |  Free space           [1  d]          d = propagation distance   |
 |  propagation          [0  1]          y' = y + d*u               |
 |                                                                  |
-|  Thin lens            [ 1    0]       f > 0: converging           |
+|  Thin lens            [ 1    0]       f > 0: converging          |
 |  (focal length f)     [-1/f  1]       u' = u - y/f               |
 |                                                                  |
 |  Flat interface       [1  0]          n1, n2 = refractive indices |
 |  (refraction)         [0  n1/n2]      (using reduced angle nu)   |
 |                                                                  |
 |  Curved interface     [ 1      0   ]  R > 0: center to right     |
-|  (refraction, R)      [-(n2-n1)/R n1/n2]                        |
+|  (refraction, R)      [-(n2-n1)/R n1/n2]                         |
 |                                                                  |
-|  Flat mirror          [1  0]          same as free space but      |
-|  (reflection)         [0  1]          reverses direction          |
+|  Flat mirror          [1  0]          same as free space but     |
+|  (reflection)         [0  1]          reverses direction         |
 |                                                                  |
 |  Curved mirror        [ 1    0]       f = R/2 (R = mirror radius)|
-|  (focal length f)     [-1/f  1]       same form as thin lens      |
+|  (focal length f)     [-1/f  1]       same form as thin lens     |
 +------------------------------------------------------------------+
 ```
 
@@ -264,23 +264,23 @@ The paraxial approximation uses sin(theta) ~ theta. Third-order (Seidel) theory 
 |  SEIDEL ABERRATION    VISUAL SIGNATURE      CAUSE                |
 |  -----------------    ----------------      -----                |
 |                                                                  |
-|  1. Spherical         Halo around point     Marginal rays focus   |
-|     aberration        source (on axis)      closer than paraxial  |
-|                                             (spherical surfaces)  |
+|  1. Spherical         Halo around point     Marginal rays focus  |
+|     aberration        source (on axis)      closer than paraxial |
+|                                             (spherical surfaces) |
 |                                                                  |
-|  2. Coma              Comet-tail shape      Off-axis point        |
+|  2. Coma              Comet-tail shape      Off-axis point       |
 |                       (off-axis)            sources, magnification|
-|                                             varies with aperture  |
+|                                             varies with aperture |
 |                                                                  |
-|  3. Astigmatism       Lines instead of      Off-axis rays in two  |
-|                       points (off-axis)     planes focus at       |
-|                                             different distances   |
+|  3. Astigmatism       Lines instead of      Off-axis rays in two |
+|                       points (off-axis)     planes focus at      |
+|                                             different distances  |
 |                                                                  |
-|  4. Field curvature   Sharp at center OR    Focal surface is      |
-|     (Petzval)         edge, not both        curved, not flat      |
+|  4. Field curvature   Sharp at center OR    Focal surface is     |
+|     (Petzval)         edge, not both        curved, not flat     |
 |                                                                  |
-|  5. Distortion        Straight lines bow    Magnification varies  |
-|                       (barrel or pincushion)with field height     |
+|  5. Distortion        Straight lines bow    Magnification varies |
+|                       (barrel or pincushion)with field height    |
 |                       -- NOT a blur!                             |
 +------------------------------------------------------------------+
 

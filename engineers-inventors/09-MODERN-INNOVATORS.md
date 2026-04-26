@@ -113,20 +113,20 @@ SILICON VALLEY GENEALOGY (partial)
          ↓
   ┌──────────────────────────────────────────────────────┐
   │  Companies founded by Fairchild alumni:              │
-  │  Intel (1968) — Noyce + Moore                       │
-  │  AMD (1969) — Jerry Sanders                         │
-  │  National Semiconductor — Charlie Sporck            │
+  │  Intel (1968) — Noyce + Moore                        │
+  │  AMD (1969) — Jerry Sanders                          │
+  │  National Semiconductor — Charlie Sporck             │
   │  Kleiner Perkins VC firm — Gene Kleiner              │
-  │  ... 65+ companies trace to Fairchild               │
+  │  ... 65+ companies trace to Fairchild                │
   └──────────────────────────────────────────────────────┘
 
   INTEL (1968)
          ↓
   ┌──────────────────────────────────────────────────────┐
   │  Intel supplied chips to:                            │
-  │  IBM PC (1981) → x86 clone industry                 │
+  │  IBM PC (1981) → x86 clone industry                  │
   │  Apple (until 2020, then Apple Silicon)              │
-  │  Every PC and server for 40+ years                  │
+  │  Every PC and server for 40+ years                   │
   └──────────────────────────────────────────────────────┘
 ```
 

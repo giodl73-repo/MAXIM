@@ -4,10 +4,10 @@
 
 ```
 ┌─────────────────────────────────────────────────────────────────────────────┐
-│                      GLOBAL HEALTH GOVERNANCE ECOSYSTEM                      │
+│                      GLOBAL HEALTH GOVERNANCE ECOSYSTEM                     │
 │                                                                               │
-│  UN SYSTEM          WHO    UNICEF   World Bank   UNFPA   UNDP                │
-│       │             │        │          │          │       │                 │
+│  UN SYSTEM          WHO    UNICEF   World Bank   UNFPA   UNDP               │
+│       │             │        │          │          │       │                │
 │       └─────────────┴────────┴──────────┴──────────┴───────┘                │
 │                               ↕                                              │
 │  MULTILATERAL        Global Fund (HIV/TB/Malaria)                            │

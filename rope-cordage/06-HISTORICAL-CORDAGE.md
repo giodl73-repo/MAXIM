@@ -37,17 +37,17 @@ EGYPTIAN CORDAGE
 
   PAPYRUS ROPE (Cyperus papyrus):
   ┌──────────────────────────────────────────────────────────────────┐
-  │  Construction: Rush stems split and twisted while green         │
+  │  Construction: Rush stems split and twisted while green          │
   │  Process:                                                        │
   │  1. Cut papyrus stems (6–8 ft); soak briefly                   │
-  │  2. Split longitudinally into strips                            │
+  │  2. Split longitudinally into strips                             │
   │  3. Twist strips into Z-yarns while damp                       │
   │  4. Ply yarns S-direction into strands                         │
   │  5. Lay 3–4 strands Z-direction into rope                     │
-  │                                                                   │
-  │  Properties: Stiff, rough, moderate strength, degrades in water │
-  │  Use: hauling, mooring, construction (pyramid building hauling  │
-  │       lines), sail rigging on Nile boats                        │
+  │                                                                  │
+  │  Properties: Stiff, rough, moderate strength, degrades in water  │
+  │  Use: hauling, mooring, construction (pyramid building hauling   │
+  │       lines), sail rigging on Nile boats                         │
   └──────────────────────────────────────────────────────────────────┘
 
   ESPARTO GRASS ROPE (Stipa tenacissima):
@@ -76,9 +76,9 @@ QUIPU STRUCTURE
 
   PHYSICAL STRUCTURE:
   ┌──────────────────────────────────────────────────────────────────┐
-  │  MAIN CORD (horizontal):                                        │
+  │  MAIN CORD (horizontal):                                         │
   │  ═══════════════════════════════════════════════════════════════│
-  │  │    │    │    │    │    │    │    │    │    │    │            │
+  │  │    │    │    │    │    │    │    │    │    │    │             │
   │  ↓    ↓    ↓    ↓    ↓    ↓    ↓    ↓    ↓    ↓    ↓           │
   │  PENDANT CORDS (hanging vertically from main cord)             │
   │  Each pendant may have SUB-PENDANTS attached at right angles   │
@@ -87,22 +87,22 @@ QUIPU STRUCTURE
 
   ENCODING SYSTEM:
   ┌──────────────────────────────────────────────────────────────────┐
-  │  KNOT TYPE encodes numeric value:                               │
+  │  KNOT TYPE encodes numeric value:                                │
   │  Single overhand knot = "1" (or single digit)                  │
   │  Long knot (multiple loops) = 2–9 (number of loops = value)   │
   │  Figure-8 knot = "10"                                          │
   │  Position on pendant = decimal place (top = high value,        │
   │                                        bottom = ones)          │
-  │                                                                   │
-  │  COLOR encodes category:                                        │
+  │                                                                  │
+  │  COLOR encodes category:                                         │
   │  Natural white, dyed colors, alternating colors                │
   │  Specific color assignments were quipu-reader knowledge        │
-  │                                                                   │
-  │  PLY DIRECTION:                                                 │
+  │                                                                  │
+  │  PLY DIRECTION:                                                  │
   │  S-ply vs. Z-ply cords may encode different categories        │
   │  Pendant attached by overhand vs. loop also carries meaning    │
-  │                                                                   │
-  │  FIBER TYPE:                                                    │
+  │                                                                  │
+  │  FIBER TYPE:                                                     │
   │  Cotton cords vs. camelid (llama/alpaca) fiber cords           │
   │  Coastal provinces used cotton; highland used camelid fiber    │
   └──────────────────────────────────────────────────────────────────┘
@@ -129,27 +129,27 @@ VIKING CORDAGE SYSTEMS
 
   WALRUS HIDE (ROSTUNG):
   ┌──────────────────────────────────────────────────────────────────┐
-  │  SOURCE: Greenland and Arctic walrus (Odobenus rosmarus)        │
+  │  SOURCE: Greenland and Arctic walrus (Odobenus rosmarus)         │
   │  PREPARATION:                                                    │
   │  1. Hide cut in long spiral strip (1–2 inches wide)            │
-  │  2. Twisted slightly; dried under tension                       │
+  │  2. Twisted slightly; dried under tension                        │
   │  3. Treated with cod liver oil or seal fat                     │
-  │                                                                   │
-  │  PROPERTIES:                                                    │
+  │                                                                  │
+  │  PROPERTIES:                                                     │
   │  • Exceptional tensile strength (strongest pre-synthetic       │
-  │    natural material available to Norse)                         │
+  │    natural material available to Norse)                          │
   │  • Very stiff and inelastic → good for standing rigging        │
-  │  • Resistant to salt water (animal fat treatment)               │
-  │  • Extremely valuable — traded as luxury commodity across       │
+  │  • Resistant to salt water (animal fat treatment)                │
+  │  • Extremely valuable — traded as luxury commodity across        │
   │    Viking trade routes from Greenland to Constantinople        │
-  │                                                                   │
+  │                                                                  │
   │  USE: Forestays, backstays, shrouds (standing rigging — stays  │
-  │       the mast in position; does not move under sail)           │
+  │       the mast in position; does not move under sail)            │
   └──────────────────────────────────────────────────────────────────┘
 
   HEMP ROPE (Cannabis sativa):
   ┌──────────────────────────────────────────────────────────────────┐
-  │  SOURCE: Baltic hemp from trading partners                      │
+  │  SOURCE: Baltic hemp from trading partners                       │
   │  USE: Running rigging (halyards, sheets) — needs to run        │
   │       through blocks and be handled by crew                    │
   │  PROPERTIES: More flexible and lighter than walrus hide        │
@@ -178,28 +178,28 @@ THE ROPEWALK
 
   REQUIRED LENGTH:
   ┌──────────────────────────────────────────────────────────────────┐
-  │  Rope shortens during laying by approximately 5–15%             │
+  │  Rope shortens during laying by approximately 5–15%              │
   │  To make 100-fathom (600 ft) rope:                             │
-  │  Need ~690 ft of strand walking distance                        │
+  │  Need ~690 ft of strand walking distance                         │
   │  → Ropewalks were 300–1,200 feet long                          │
   │  Royal Navy Chatham ropewalk: 1,135 feet (1791)                │
   └──────────────────────────────────────────────────────────────────┘
 
   PRODUCTION PROCESS (pre-industrial):
   ┌──────────────────────────────────────────────────────────────────┐
-  │  HACKLING: Hemp fibers combed to align and remove short fibers  │
+  │  HACKLING: Hemp fibers combed to align and remove short fibers   │
   │  SPINNING:                                                       │
-  │    Spinner walks backward with fiber around waist               │
-  │    Hookman operates twisting hook (Z-twist)                     │
-  │    As spinner walks back, fibers draft and twist into yarn      │
+  │    Spinner walks backward with fiber around waist                │
+  │    Hookman operates twisting hook (Z-twist)                      │
+  │    As spinner walks back, fibers draft and twist into yarn       │
   │  PLYING: Machine twists yarns into strand (S-twist)            │
   │  LAYING: Machine twists strands into rope (Z-lay)              │
-  │    Rope-layer walks with sledge catching lay as it forms        │
+  │    Rope-layer walks with sledge catching lay as it forms         │
   └──────────────────────────────────────────────────────────────────┘
 
   ROYAL NAVY CORDAGE SPECIFICATIONS (1790s):
   ┌──────────────────────────────────────────────────────────────────┐
-  │  All cordage: Riga hemp (Baltic, considered finest quality)     │
+  │  All cordage: Riga hemp (Baltic, considered finest quality)      │
   │  Standard specification: 3-strand Z-lay, tarred                │
   │  Sizes: 1" to 24" circumference (not diameter — measured around)│
   │  "Cable" = circumference in inches × 180 lbs = approx. WLL     │
@@ -235,11 +235,11 @@ WIRE ROPE INTRODUCTION
 
   WHY WIRE REPLACED HEMP FOR HEAVY LIFTING:
   ┌──────────────────────────────────────────────────────────────────┐
-  │  Hemp:  Degrades under heat from drum friction                  │
-  │         Creeps under sustained load                             │
+  │  Hemp:  Degrades under heat from drum friction                   │
+  │         Creeps under sustained load                              │
   │         Swells when wet → jamming in sheaves                   │
   │  Wire:  No heat degradation (to ~400°F)                        │
-  │         No creep (crystalline steel)                            │
+  │         No creep (crystalline steel)                             │
   │         Predictable failure (broken wire counting)             │
   │         → Mines, elevators, suspension bridges, cranes         │
   └──────────────────────────────────────────────────────────────────┘

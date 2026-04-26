@@ -8,11 +8,11 @@
 
   TRADITIONAL MODEL (pre-1800 and persistent):
   ┌─────────────────────────────────────────────┐
-  │  Teacher: transmits fixed body of knowledge  │
-  │  Student: receives, memorizes, recites       │
-  │  Method:  repetition + punishment            │
-  │  Goal:    compliance; religious observance;  │
-  │           fit for predetermined role         │
+  │  Teacher: transmits fixed body of knowledge │
+  │  Student: receives, memorizes, recites      │
+  │  Method:  repetition + punishment           │
+  │  Goal:    compliance; religious observance; │
+  │           fit for predetermined role        │
   └─────────────────────────────────────────────┘
 
   REFORM WAVE 1 — CHILD-CENTERED DEVELOPMENT (1790s-1920s)
@@ -43,7 +43,7 @@
   │  Teacher-centered            Child-centered            │
   │  Measurable outcomes         Hard-to-measure outcomes  │
   │                                                        │
-  │  Neither is simply right.    Tension is structural.   │
+  │  Neither is simply right.    Tension is structural.    │
   └────────────────────────────────────────────────────────┘
 ```
 

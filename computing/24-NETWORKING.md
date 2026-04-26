@@ -806,13 +806,13 @@ Server interceptor chain:
                     ┌──────────────────────────────────────────────┐
 Client (Paris)      │  CDN                                         │
   │                 │  PoP Paris ──────────── PoP NYC              │
-  │──► DNS query   │  PoP London             PoP Tokyo            │
-  │◄── 104.18.5.1  │       │                                       │
-  │    (Anycast)   │  Origin Shield (optional, one per region)     │
-  │                │       │                                       │
+  │──► DNS query    │  PoP London             PoP Tokyo            │
+  │◄── 104.18.5.1   │       │                                      │
+  │    (Anycast)    │  Origin Shield (optional, one per region)    │
+  │                 │       │                                      │
   │──► HTTPS ──────►  Edge cache at Paris PoP                      │
-  │                │  HIT: serve from cache                        │
-  │                │  MISS: forward to origin shield → origin      │
+  │                 │  HIT: serve from cache                       │
+  │                 │  MISS: forward to origin shield → origin     │
   └────────────────└──────────────────────────────────────────────-┘
 
 Anycast: multiple PoPs share the same IP. BGP routes client to nearest PoP.
@@ -888,7 +888,7 @@ Origin: changed   → 200 OK with new body + new ETag
 ```
                     ┌──────────────────────────────────────────────────┐
                     │                                                  │
-Client ────────────►│  L4 Load Balancer                               │
+Client ────────────►│  L4 Load Balancer                                │
                     │  Sees: TCP/UDP (IP, port)                        │──► Backend 1: 10.0.1.4:8080
                     │  Cannot: inspect HTTP path/headers               │──► Backend 2: 10.0.1.5:8080
                     │  Algorithms: hash(src_ip+dst_ip+ports)           │──► Backend 3: 10.0.1.6:8080

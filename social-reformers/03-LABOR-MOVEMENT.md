@@ -18,8 +18,8 @@
   THEORETICAL FRAMEWORKS:
   ┌─────────────────────────────────────────────────────────────┐
   │ UTOPIAN SOCIALISM (Owen, Fourier, Saint-Simon)              │
-  │ Goal: replace capitalism with cooperative communities        │
-  │ Method: demonstrate the alternative; moral suasion           │
+  │ Goal: replace capitalism with cooperative communities       │
+  │ Method: demonstrate the alternative; moral suasion          │
   │ Result: the communes failed; the ideas influenced later work │
   ├─────────────────────────────────────────────────────────────┤
   │ MARXIST SOCIALISM (Marx, Engels, Debs)                       │
@@ -27,9 +27,9 @@
   │ Method: class struggle; general strike; revolution           │
   │ Result: USSR, China, Cuba (and their problems)              │
   ├─────────────────────────────────────────────────────────────┤
-  │ TRADE UNIONISM (Gompers, AFL model)                          │
-  │ Goal: better wages, hours, conditions within capitalism      │
-  │ Method: collective bargaining; strikes; political pressure   │
+  │ TRADE UNIONISM (Gompers, AFL model)                         │
+  │ Goal: better wages, hours, conditions within capitalism     │
+  │ Method: collective bargaining; strikes; political pressure  │
   │ Result: US labor law; 8-hour day; weekend; OSHA             │
   ├─────────────────────────────────────────────────────────────┤
   │ INDUSTRIAL UNIONISM (IWW, CIO)                               │

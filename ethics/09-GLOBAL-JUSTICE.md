@@ -4,7 +4,7 @@
 
 ```
 +-----------------------------------------------------------------------+
-|                    GLOBAL JUSTICE LANDSCAPE                            |
+|                    GLOBAL JUSTICE LANDSCAPE                           |
 +-----------------------------------------------------------------------+
 |                                                                       |
 |  GLOBAL JUSTICE: What do people and states owe to each other         |
@@ -390,10 +390,10 @@ THE BASIC PROBLEM:
 
 KEY INSTITUTIONS:
   +---------------------+------------------------------------------+
-  | UN Security Council | Primary peace/security decision body.   |
+  | UN Security Council | Primary peace/security decision body.    |
   |                     | P5 veto (US, UK, France, Russia, China). |
-  |                     | Structural problem: veto protects P5    |
-  |                     | interests; can't act on P5 violations.  |
+  |                     | Structural problem: veto protects P5     |
+  |                     | interests; can't act on P5 violations.   |
   +---------------------+------------------------------------------+
   | WTO                 | Trade rules + dispute resolution.       |
   |                     | Binding arbitration -- unusual for IGOs. |
@@ -401,16 +401,16 @@ KEY INSTITUTIONS:
   |                     | collapsed 2016.                         |
   +---------------------+------------------------------------------+
   | IMF                 | Financial stability, loans to countries.|
-  |                     | Conditionality: austerity requirements. |
+  |                     | Conditionality: austerity requirements.  |
   |                     | Criticized as imposing neoliberal model.|
   +---------------------+------------------------------------------+
   | World Bank          | Development loans/grants.               |
   |                     | Governance reform conditions.           |
   |                     | Effectiveness contested.                |
   +---------------------+------------------------------------------+
-  | ICC                 | International Criminal Court.           |
-  |                     | Prosecutes genocide, war crimes,        |
-  |                     | crimes against humanity.                |
+  | ICC                 | International Criminal Court.            |
+  |                     | Prosecutes genocide, war crimes,         |
+  |                     | crimes against humanity.                 |
   |                     | Limited jurisdiction (states must join).|
   |                     | US, Russia, China not members.         |
   +---------------------+------------------------------------------+

@@ -5,14 +5,14 @@
 THE INFORMATION THEORY MAP
 
   ┌─────────────────────────────────────────────────────────────────────────┐
-  │  ENTROPY H(X)          JOINT H(X,Y)         CONDITIONAL H(X|Y)         │
+  │  ENTROPY H(X)          JOINT H(X,Y)         CONDITIONAL H(X|Y)          │
   │  uncertainty in X      total uncertainty     uncertainty in X given Y   │
-  │                                                                          │
-  │  KL DIVERGENCE D(P‖Q)  MUTUAL INFO I(X;Y)   CHANNEL CAPACITY C         │
-  │  "distance" P from Q   shared information    max info through channel    │
-  │                                                                          │
+  │                                                                         │
+  │  KL DIVERGENCE D(P‖Q)  MUTUAL INFO I(X;Y)   CHANNEL CAPACITY C          │
+  │  "distance" P from Q   shared information    max info through channel   │
+  │                                                                         │
   │  FISHER INFORMATION     CROSS-ENTROPY         MINIMUM DESCRIPTION LENGTH│
-  │  curvature of log-lik   loss function for ML  compression = learning     │
+  │  curvature of log-lik   loss function for ML  compression = learning    │
   └─────────────────────────────────────────────────────────────────────────┘
 
   All of ML optimization is information theory in disguise.

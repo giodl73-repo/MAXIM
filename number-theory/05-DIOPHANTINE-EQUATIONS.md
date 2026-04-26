@@ -10,10 +10,10 @@
 |  LINEAR           QUADRATIC          CUBIC / ELLIPTIC  GENERAL    |
 |  ax + by = c      x² - Dy² = 1       y² = x³ + ax + b  xⁿ+yⁿ=zⁿ |
 |  +-----------+    +-----------+       +---------------+ +-------+ |
-|  |Bezout      |   |Pell eq.   |       |Elliptic curves| |Fermat | |
-|  |condition   |   |continued  |       |finite/infinite| |Last   | |
-|  |gcd(a,b)|c  |   |fractions  |       |rational pts   | |Theorem| |
-|  |           |   |fund. sol. |       |Mordell-Weil   | |(1994) | |
+|  |Bezout     |    |Pell eq.   |       |Elliptic curves| |Fermat | |
+|  |condition  |    |continued  |       |finite/infinite| |Last   | |
+|  |gcd(a,b)|c |    |fractions  |       |rational pts   | |Theorem| |
+|  |           |    |fund. sol. |       |Mordell-Weil   | |(1994) | |
 |  +-----------+    +-----------+       +---------------+ +-------+ |
 |                                                                    |
 |  PYTHAGOREAN      SUMS OF SQUARES     WARING'S PROBLEM            |

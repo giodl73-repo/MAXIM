@@ -10,8 +10,8 @@
     ┌──────────────────────┐           ┌─────────────────────┐
     │ Chain connectivity   │           │ E, σ_y, ε_f         │
     │ Degree of polymer.   │──────────▶│ T_g, T_m            │
-    │ MW distribution      │           │ Viscoelasticity      │
-    │ Tacticity            │           │ Creep, fatigue       │
+    │ MW distribution      │           │ Viscoelasticity     │
+    │ Tacticity            │           │ Creep, fatigue      │
     └──────────────────────┘           └─────────────────────┘
               │
               ▼
@@ -316,7 +316,7 @@ Simultaneously elastic (store energy, spring-like) and viscous (dissipate energy
 
 ```
     ┌────────────────────────────┐
-    │    [spring k]─[dashpot η] │
+    │    [spring k]─[dashpot η]  │
     └────────────────────────────┘
 
     Same stress in both: σ = k·ε_elastic = η·(dε_viscous/dt)
@@ -416,8 +416,8 @@ Response: σ(t) = σ₀ e^{i(ωt+δ)} = ε₀(E' + iE'')e^{iωt}
     │  THERMOPLASTICS                                          │
     │  Linear or branched chains → melt and flow above T_g/T_m│
     │  Recyclable, re-processable                              │
-    │  Examples: PE, PP, PS, Nylon, PET, PC                   │
-    │  Bond type holding together: van der Waals (physical)   │
+    │  Examples: PE, PP, PS, Nylon, PET, PC                    │
+    │  Bond type holding together: van der Waals (physical)    │
     ├──────────────────────────────────────────────────────────┤
     │  THERMOSETS                                              │
     │  Covalently crosslinked network → cannot melt or flow   │

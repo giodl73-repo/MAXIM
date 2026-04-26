@@ -174,8 +174,8 @@ This is the fundamental design tension in transit networks (Jarrett Walker's fra
   Maximize geographic coverage.       Maximize riders per cost dollar.
 
   +---------------------------+       +---------------------------+
-  | SERVE LOW-DENSITY AREAS  |       | CONCENTRATE ON HIGH-      |
-  | Many routes, low frequency|       | DEMAND CORRIDORS         |
+  | SERVE LOW-DENSITY AREAS   |       | CONCENTRATE ON HIGH-      |
+  | Many routes, low frequency|       | DEMAND CORRIDORS          |
   | 30-60min headways        |       | Few routes, high frequency|
   | 2-3 riders per bus       |       | 5-10 min headways        |
   | High subsidy per trip    |       | 50+ riders per bus       |

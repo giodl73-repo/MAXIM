@@ -6,21 +6,21 @@ Historical linguistics studies how languages change over time — phonologically
 
 ```
 +------------------------------------------------------------------+
-|                    HISTORICAL LINGUISTICS                         |
+|                    HISTORICAL LINGUISTICS                        |
 |                                                                  |
-|  LANGUAGE CHANGE              COMPARATIVE METHOD                |
+|  LANGUAGE CHANGE              COMPARATIVE METHOD                 |
 |  (how and why languages       (reconstruct proto-languages       |
 |   change over time)            from systematic correspondences)  |
 |                                                                  |
-|  LANGUAGE FAMILIES            LANGUAGE CONTACT                  |
-|  (trees, branches,            (borrowing, pidgins,              |
-|   genetic classification)      creoles, convergence)            |
+|  LANGUAGE FAMILIES            LANGUAGE CONTACT                   |
+|  (trees, branches,            (borrowing, pidgins,               |
+|   genetic classification)      creoles, convergence)             |
 |                                                                  |
-|  TYPES OF CHANGE:                                               |
+|  TYPES OF CHANGE:                                                |
 |  Phonological (sound shifts)                                     |
-|  Morphological (paradigm leveling, analogy)                     |
-|  Syntactic (word order change, grammaticalization)              |
-|  Semantic (narrowing, widening, amelioration, pejoration)       |
+|  Morphological (paradigm leveling, analogy)                      |
+|  Syntactic (word order change, grammaticalization)               |
+|  Semantic (narrowing, widening, amelioration, pejoration)        |
 +------------------------------------------------------------------+
 ```
 

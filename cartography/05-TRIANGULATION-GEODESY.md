@@ -47,9 +47,9 @@ TRIANGULATION PRINCIPLE
   STEP 1: Measure a baseline precisely
   ┌──────────────────────────────────────────────────────────┐
   │  A ─────────────────────────────────── B                 │
-  │  ←────── known length L exactly ──────→                 │
+  │  ←────── known length L exactly ──────→                  │
   │                                                          │
-  │  Method: lay calibrated rods end-to-end on flat ground  │
+  │  Method: lay calibrated rods end-to-end on flat ground   │
   │  UK Hounslow Heath baseline (1784): 5 miles,             │
   │  measured to 1.4 inches accuracy (error < 0.001%)        │
   └──────────────────────────────────────────────────────────┘
@@ -67,8 +67,8 @@ TRIANGULATION PRINCIPLE
   │  Measure: angle α at A, angle β at B                     │
   │  The triangle ABC is fully determined:                   │
   │  - Third angle γ = 180° - α - β                          │
-  │  - Side AC = L × sin(β) / sin(γ)     (law of sines)     │
-  │  - Side BC = L × sin(α) / sin(γ)                        │
+  │  - Side AC = L × sin(β) / sin(γ)     (law of sines)      │
+  │  - Side BC = L × sin(α) / sin(γ)                         │
   │  ∴ Position of C is known exactly                        │
   └──────────────────────────────────────────────────────────┘
 
@@ -138,7 +138,7 @@ GREAT TRIGONOMETRICAL SURVEY — KEY FACTS
   │  Result: 29,002 feet (8,839m)                              │
   │  Modern value: 8,848.86m (as of 2020 Chinese survey)       │
   │  Error: ~10m = 0.1%                                        │
-  │  From 150km away, without ever setting foot near it       │
+  │  From 150km away, without ever setting foot near it        │
   └────────────────────────────────────────────────────────────┘
 
 ══════════════════════════════════════════════════════════════════════
@@ -169,11 +169,11 @@ GEOID — DEFINITION AND RELATIONSHIP TO OTHER SURFACES
   │                     TOPOGRAPHIC SURFACE                      │
   │  (actual terrain — mountains, valleys, ocean floor)          │
   │                          ↕ terrain height above geoid        │
-  │  ~~~~~~~~~~~~~~~~~~~ GEOID ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~  │
+  │  ~~~~~~~~~~~~~~~~~~~ GEOID ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ │
   │  (equipotential surface of Earth's gravity field)            │
   │  (physically: where mean sea level would be everywhere)      │
   │  (deviates from ellipsoid by ±100m due to mass distribution) │
-  │                          ↕ geoid undulation N               │
+  │                          ↕ geoid undulation N                │
   │  - - - - - - - - - REFERENCE ELLIPSOID - - - - - - - - - -   │
   │  (mathematical approximation: flattened sphere)              │
   │  (used for coordinate calculations)                          │

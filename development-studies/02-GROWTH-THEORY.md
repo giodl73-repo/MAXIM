@@ -6,7 +6,7 @@ Growth theory asks: what determines the long-run growth rate of an economy? The 
 
 ```
 +--------------------------------------------------------------------------+
-|                    GROWTH THEORY LANDSCAPE                                |
+|                    GROWTH THEORY LANDSCAPE                               |
 +--------------------------------------------------------------------------+
 |                                                                          |
 |  MODEL           KEY VARIABLE    LONG-RUN GROWTH    CONVERGENCE         |

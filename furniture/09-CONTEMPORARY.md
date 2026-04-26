@@ -25,7 +25,7 @@ CONTEMPORARY FURNITURE: TECHNOLOGY STACK → BUSINESS MODEL → OUTCOME
   BUSINESS MODEL UNLOCKED
   ┌─────────────────────────────────────────────────────────────────┐
   │  BATCH SIZE → 1        DIRECT-TO-CONSUMER     OPEN SOURCE       │
-  │  Custom at mass cost   Configurator model     File sharing       │
+  │  Custom at mass cost   Configurator model     File sharing      │
   │  (vs. factory minimum) No retailer markup     Distributed mfg   │
   │         \                     |                    /            │
   │          └────────────┬────────────────────────┘                │
@@ -38,10 +38,10 @@ CONTEMPORARY FURNITURE: TECHNOLOGY STACK → BUSINESS MODEL → OUTCOME
                           ▼
   OUTCOMES
   ┌─────────────────────────────────────────────────────────────────┐
-  │  Form complexity: achievable without craft skill premium         │
-  │  Geography: design file global; production local                 │
+  │  Form complexity: achievable without craft skill premium        │
+  │  Geography: design file global; production local                │
   │  Market: mass-market (IKEA) + bespoke (studio) + everything in  │
-  │           between (configurators, open-source flat-pack kits)    │
+  │           between (configurators, open-source flat-pack kits)   │
   └─────────────────────────────────────────────────────────────────┘
 
 TIMELINE CONTEXT:

@@ -5,7 +5,7 @@
 PROBABILISTIC ML LANDSCAPE
                                                  tractable?
                               ┌──────────────────────────────────────────────┐
-                              │  EXACT                     APPROXIMATE        │
+                              │  EXACT                     APPROXIMATE       │
                               ├──────────────────────────────────────────────┤
          parametric  ─────►  │  Conjugate Bayes  │  MAP (point)             │
          (fixed H)            │  (closed-form     │  Variational Inference   │

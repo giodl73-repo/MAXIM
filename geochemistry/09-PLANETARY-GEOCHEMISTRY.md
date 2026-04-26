@@ -6,7 +6,7 @@ Cosmochemistry studies the chemical composition and evolution of the solar syste
 
 ```
 +------------------------------------------------------------------+
-|              COSMOCHEMISTRY / PLANETARY GEOCHEMISTRY              |
+|              COSMOCHEMISTRY / PLANETARY GEOCHEMISTRY             |
 +------------------------------------------------------------------+
 |                                                                  |
 |  COSMOCHEMISTRY          PLANETARY GEOCHEMISTRY                  |

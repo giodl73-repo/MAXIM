@@ -6,7 +6,7 @@
 ┌─────────────────────────────────────────────────────────────────────────────┐
 │                          macOS SYSTEM LAYERS                                │
 │                                                                             │
-│  ┌──────────────────────────────────────────────────────────────────────┐  │
+│  ┌──────────────────────────────────────────────────────────────────────┐   │
 │  │  Applications (SwiftUI / AppKit / Electron / CLI tools)              │  │
 │  └────────────────────────────┬─────────────────────────────────────────┘  │
 │                               │                                             │
@@ -17,8 +17,8 @@
 │                               │                                             │
 │  ┌──────────────────────────────────────────────────────────────────────┐  │
 │  │  Mid-Level Frameworks                                                │  │
-│  │  Foundation (ObjC/Swift) · CoreFoundation (C) · CoreGraphics        │  │
-│  │  CoreText · CoreImage · AVFoundation · CoreLocation · Security      │  │
+│  │  Foundation (ObjC/Swift) · CoreFoundation (C) · CoreGraphics         │  │
+│  │  CoreText · CoreImage · AVFoundation · CoreLocation · Security       │  │
 │  └────────────────────────────┬─────────────────────────────────────────┘  │
 │                               │                                             │
 │  ┌──────────────────────────────────────────────────────────────────────┐  │
@@ -41,7 +41,7 @@
 │  └─────────────────────────────────────────────────────────────────────┘   │
 │                               │                                             │
 │  ┌─────────────────────────────────────────────────────────────────────┐   │
-│  │  Hardware  (Apple Silicon SoC / Intel)                               │   │
+│  │  Hardware  (Apple Silicon SoC / Intel)                              │   │
 │  └─────────────────────────────────────────────────────────────────────┘   │
 └─────────────────────────────────────────────────────────────────────────────┘
 ```
@@ -56,7 +56,7 @@ XNU = "X is Not Unix". Hybrid kernel combining Mach microkernel, BSD layer, and 
 ┌─────────────────────────────────────────────────────────────────────────────┐
 │                            XNU KERNEL                                       │
 │                                                                             │
-│  ┌──────────────────────────────────────────────────────────────────────┐  │
+│  ┌──────────────────────────────────────────────────────────────────────┐   │
 │  │  MACH LAYER  (Carnegie Mellon Mach 3.0 heritage)                     │  │
 │  │                                                                      │  │
 │  │  Task          — heavyweight resource container (address space, ports)│  │
@@ -76,7 +76,7 @@ XNU = "X is Not Unix". Hybrid kernel combining Mach microkernel, BSD layer, and 
 │  │  BSD LAYER  (FreeBSD heritage)                                       │  │
 │  │                                                                      │  │
 │  │  POSIX syscall interface (read/write/open/fork/exec/wait/signal)     │  │
-│  │  VFS (Virtual File System) — abstraction over APFS, HFS+, FAT, etc. │  │
+│  │  VFS (Virtual File System) — abstraction over APFS, HFS+, FAT, etc.  │  │
 │  │  BSD networking stack (TCP/IP, sockets, TUN/TAP)                     │  │
 │  │  Process model: fork() + exec() — standard POSIX heritage            │  │
 │  │  Signals: SIGKILL, SIGTERM, SIGHUP — all work as expected            │  │
@@ -291,8 +291,8 @@ Everything that needs to run as a service, on a schedule, or on-demand goes thro
 ┌─────────────────────────────────────────────────────────────────────────────┐
 │                          launchd DOMAIN MODEL                               │
 │                                                                             │
-│  System Domain (PID 1 owns)                                                │
-│  ┌──────────────────────────────────────────────────────────────────────┐  │
+│  System Domain (PID 1 owns)                                                 │
+│  ┌──────────────────────────────────────────────────────────────────────┐   │
 │  │  /System/Library/LaunchDaemons/   ← Apple's own daemons (SIP-sealed)│  │
 │  │  /Library/LaunchDaemons/          ← third-party system daemons      │  │
 │  │  Run as specified UserName (often root)                              │  │
@@ -301,11 +301,11 @@ Everything that needs to run as a service, on a schedule, or on-demand goes thro
 │                                                                             │
 │  User Domain (one per logged-in user)                                      │
 │  ┌──────────────────────────────────────────────────────────────────────┐  │
-│  │  /System/Library/LaunchAgents/    ← Apple's own agents              │  │
-│  │  /Library/LaunchAgents/           ← third-party, all users          │  │
-│  │  ~/Library/LaunchAgents/          ← per-user agents                 │  │
+│  │  /System/Library/LaunchAgents/    ← Apple's own agents               │  │
+│  │  /Library/LaunchAgents/           ← third-party, all users           │  │
+│  │  ~/Library/LaunchAgents/          ← per-user agents                  │  │
 │  │  Run as the logged-in user                                           │  │
-│  │  Have access to user session, GUI, Keychain                         │  │
+│  │  Have access to user session, GUI, Keychain                          │  │
 │  └──────────────────────────────────────────────────────────────────────┘  │
 └─────────────────────────────────────────────────────────────────────────────┘
 
@@ -445,7 +445,7 @@ XPC vs NSXPCConnection vs low-level xpc_connection_t:
 │                    SIGNING + DISTRIBUTION PIPELINE                          │
 │                                                                             │
 │  Developer Machine                                                          │
-│  ┌─────────────────────────────────────────────────────────────────────┐   │
+│  ┌─────────────────────────────────────────────────────────────────────┐    │
 │  │  1. Generate CSR (Keychain Access or: certtool / security)          │   │
 │  │  2. Submit CSR to developer.apple.com → Apple issues certificate    │   │
 │  │  3. Certificate lives in login Keychain with private key            │   │
@@ -925,7 +925,7 @@ CONCURRENCY LAYER ARCHITECTURE (macOS / iOS)
 
   Swift async/await + Actors (Swift 5.5+, macOS 12+)
   ┌──────────────────────────────────────────────────────────────┐
-  │  Task { ... }                  async-let x = fetch()        │
+  │  Task { ... }                  async-let x = fetch()         │
   │  await someActor.method()      for await item in stream      │
   │  @MainActor func updateUI()    Actor: isolated state         │
   └──────────────────────┬───────────────────────────────────────┘
@@ -1028,7 +1028,7 @@ SIGNAL HANDLING: LINUX vs MACOS vs WINDOWS
 ┌─────────────────────────────────────────────────────────────────────────────┐
 │                    UI FRAMEWORK LANDSCAPE                                   │
 │                                                                             │
-│  AppKit (macOS 10.0, 1999)          SwiftUI (macOS 10.15, 2019)            │
+│  AppKit (macOS 10.0, 1999)          SwiftUI (macOS 10.15, 2019)             │
 │  ┌─────────────────────────────┐    ┌─────────────────────────────────┐   │
 │  │ NSApplication               │    │ @main struct MyApp: App { }      │   │
 │  │ NSWindow + NSWindowDelegate │    │ WindowGroup { ContentView() }    │   │
@@ -1293,7 +1293,7 @@ context.evaluatePolicy(
 │                    APPLE SILICON ARCHITECTURE                               │
 │                                                                             │
 │  Single SoC Package                                                         │
-│  ┌────────────────────────────────────────────────────────────────────┐    │
+│  ┌────────────────────────────────────────────────────────────────────┐     │
 │  │  P-cores (Performance)  │  E-cores (Efficiency)  │  GPU           │    │
 │  │  High IPC, high clock   │  Low power, always on  │  Metal GPU     │    │
 │  │  (runs your critical    │  (background agents,   │  (shares RAM   │    │

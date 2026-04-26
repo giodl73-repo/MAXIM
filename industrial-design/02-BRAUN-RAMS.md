@@ -6,7 +6,7 @@ The Braun-Rams design vocabulary (1955-1995) is the most influential body of ind
 
 ```
 +----------------------------------------------------------------------+
-|           THE BRAUN -> APPLE VISUAL LINEAGE                           |
+|           THE BRAUN -> APPLE VISUAL LINEAGE                          |
 |                                                                      |
 |  BRAUN (1955-1995)              APPLE (1998-2020s)                   |
 |  Dieter Rams, Hans Gugelot      Jonathan Ive                         |

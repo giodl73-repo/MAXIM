@@ -8,12 +8,12 @@ BIOINFORMATICS AS SOFTWARE ENGINEERING
 
   ANALOGY MAP (your prior art → bioinformatics):
   ┌──────────────────────────────────────────────────────────────────┐
-  │ MSBuild / Azure DevOps pipeline  ↔  Snakemake / Nextflow / WDL  │
+  │ MSBuild / Azure DevOps pipeline  ↔  Snakemake / Nextflow / WDL   │
   │ Azure Data Factory               ↔  Nextflow / Cromwell          │
   │ ETL pipeline stages              ↔  Read QC → Align → Call       │
   │ Structured file formats          ↔  FASTQ / BAM / VCF / BED      │
   │ Schema / OpenAPI spec            ↔  SAM spec / VCF spec (htslib) │
-  │ Pipeline checkpointing           ↔  Snakemake --rerun-incomplete  │
+  │ Pipeline checkpointing           ↔  Snakemake --rerun-incomplete │
   │ Distributed compute (ADF)        ↔  Terra / DNAnexus / AWS       │
   │ Data lake / Delta Lake           ↔  Hail / AllOfUs / gnomAD      │
   │ Version control                  ↔  Git + DVC (data version ctrl) │
@@ -21,25 +21,25 @@ BIOINFORMATICS AS SOFTWARE ENGINEERING
 
   THE STANDARD GERMLINE WGS PIPELINE:
   ┌────────────────────────────────────────────────────────────────┐
-  │  FASTQ (raw)                                                    │
-  │     │ QC: FastQC, MultiQC                                       │
-  │     │ Trim: Trimmomatic / fastp (optional)                      │
-  │     ▼                                                           │
+  │  FASTQ (raw)                                                   │
+  │     │ QC: FastQC, MultiQC                                      │
+  │     │ Trim: Trimmomatic / fastp (optional)                     │
+  │     ▼                                                          │
   │  Alignment: BWA-MEM2 → SAM                                     │
-  │     │ Convert + sort: samtools sort → BAM                       │
-  │     │ Index: samtools index → BAM.bai                           │
-  │     ▼                                                           │
+  │     │ Convert + sort: samtools sort → BAM                      │
+  │     │ Index: samtools index → BAM.bai                          │
+  │     ▼                                                          │
   │  Mark duplicates: Picard MarkDuplicates → deduped BAM          │
-  │     ▼                                                           │
+  │     ▼                                                          │
   │  BQSR: GATK BaseRecalibrator + ApplyBQSR → recal BAM           │
-  │     ▼                                                           │
+  │     ▼                                                          │
   │  Variant calling: GATK HaplotypeCaller → GVCF                  │
-  │     │ Joint genotyping: GenomicsDBImport + GenotypeGVCFs        │
-  │     ▼                                                           │
+  │     │ Joint genotyping: GenomicsDBImport + GenotypeGVCFs       │
+  │     ▼                                                          │
   │  VQSR → Filtered VCF                                           │
-  │     │ Annotation: VEP / ANNOVAR                                 │
-  │     ▼                                                           │
-  │  Results: Annotated VCF + TSV reports                           │
+  │     │ Annotation: VEP / ANNOVAR                                │
+  │     ▼                                                          │
+  │  Results: Annotated VCF + TSV reports                          │
   └────────────────────────────────────────────────────────────────┘
 ```
 
@@ -100,7 +100,7 @@ BIOINFORMATICS AS SOFTWARE ENGINEERING
   │ 4    POS      1000000       1-based leftmost position          │
   │ 5    MAPQ     60            Mapping quality                    │
   │ 6    CIGAR    100M          Alignment description              │
-  │ 7    RNEXT    =             Mate's chromosome (= means same)  │
+  │ 7    RNEXT    =             Mate's chromosome (= means same)   │
   │ 8    PNEXT    1000300       Mate's position                    │
   │ 9    TLEN     400           Template length                    │
   │ 10   SEQ      ATCGATCG...   Read sequence                      │
@@ -154,13 +154,13 @@ BIOINFORMATICS AS SOFTWARE ENGINEERING
   │ CHROM  Chromosome                                              │
   │ POS    1-based position                                        │
   │ ID     dbSNP ID or '.'                                         │
-  │ REF    Reference allele (from reference genome)               │
+  │ REF    Reference allele (from reference genome)                │
   │ ALT    Alternate allele(s), comma-separated if multiple        │
-  │ QUAL   Phred-scaled genotype quality (-10 log₁₀ P(wrong))     │
-  │ FILTER PASS or filter names that the variant failed           │
+  │ QUAL   Phred-scaled genotype quality (-10 log₁₀ P(wrong))      │
+  │ FILTER PASS or filter names that the variant failed            │
   │ INFO   Key=value pairs: AF, DP, SOR, QD, etc.                │
-  │ FORMAT Per-sample format field definition                     │
-  │ SAMPLE Per-sample values: 0/1:99:45                           │
+  │ FORMAT Per-sample format field definition                      │
+  │ SAMPLE Per-sample values: 0/1:99:45                            │
   └────────────────────────────────────────────────────────────────┘
 
   GENOTYPE ENCODING:
@@ -216,9 +216,9 @@ BIOINFORMATICS AS SOFTWARE ENGINEERING
   │ VCF: 1-based, inclusive  position = 1-based          │
   │ GTF: 1-based, inclusive                              │
   │ SAM/BAM: 1-based, inclusive (POS field)              │
-  │                                                       │
+  │                                                      │
   │ Converting between formats? Off-by-one errors lurk.  │
-  │ chr1:1000-2000 in BED = chr1:1001-2000 in VCF/GTF   │
+  │ chr1:1000-2000 in BED = chr1:1001-2000 in VCF/GTF    │
   └──────────────────────────────────────────────────────┘
 ```
 
@@ -366,10 +366,10 @@ BIOINFORMATICS AS SOFTWARE ENGINEERING
 
   SEQUENCE REFERENCES:
   ┌───────────────────────────────────────────────────────────────┐
-  │ GRCh38 (hg38)      Human reference genome, current (2013)    │
-  │ T2T-CHM13 (2022)   First complete human genome               │
+  │ GRCh38 (hg38)      Human reference genome, current (2013)     │
+  │ T2T-CHM13 (2022)   First complete human genome                │
   │ GRCm39             Mouse reference genome                     │
-  │ Source: NCBI RefSeq, UCSC Genome Browser, Ensembl            │
+  │ Source: NCBI RefSeq, UCSC Genome Browser, Ensembl             │
   └───────────────────────────────────────────────────────────────┘
 
   VARIANT DATABASES:
@@ -393,9 +393,9 @@ BIOINFORMATICS AS SOFTWARE ENGINEERING
 
   PROTEIN/PATHWAY:
   ┌───────────────────────────────────────────────────────────────┐
-  │ UniProt             Protein sequences + function               │
+  │ UniProt             Protein sequences + function              │
   │ Reactome            Human pathway hierarchy                   │
-  │ STRING              Protein-protein interaction network        │
+  │ STRING              Protein-protein interaction network       │
   │ AlphaFold DB        Predicted 3D structures for ~200M proteins │
   └───────────────────────────────────────────────────────────────┘
 ```

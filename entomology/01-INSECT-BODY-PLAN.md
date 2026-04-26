@@ -6,14 +6,14 @@ The insect body plan is a masterpiece of miniaturized engineering: a rigid exosk
 
 ```
 +-------------------------------------------------------------+
-|            INSECT BODY PLAN — OVERVIEW                       |
+|            INSECT BODY PLAN — OVERVIEW                      |
 |                                                             |
 |  HEAD          THORAX              ABDOMEN                  |
 |  ====          ======              =======                  |
 |  Compound eye  Pro-  Meso- Meta-   Segments 1-11 (varies)   |
 |  Ocelli (3)    thorax thorax thorax  Spiracles x8           |
 |  Antennae      |     |     |        Reproductive organs     |
-|  Mouthparts    L1    L2    L3       Cerci (basal lineages)   |
+|  Mouthparts    L1    L2    L3       Cerci (basal lineages)  |
 |                      Wings         Ovipositor (females)     |
 |                      (varies)                               |
 |                      Spiracles x2                           |

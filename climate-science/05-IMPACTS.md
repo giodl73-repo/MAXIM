@@ -70,10 +70,10 @@ RISK FRAMING:
   │  SSP2-4.5 (intermediate):  0.44-0.76 m                      │
   │  SSP5-8.5 (high):          0.63-1.01 m                      │
   │                                                               │
-  │  LOW-PROBABILITY, HIGH-IMPACT TAIL:                          │
+  │  LOW-PROBABILITY, HIGH-IMPACT TAIL:                           │
   │  Marine ice sheet instability → 2m+ by 2100                 │
   │  (Ice Sheet Model Intercomparison Project — ISMIP6:           │
-  │   low-confidence but non-negligible probability)             │
+  │   low-confidence but non-negligible probability)              │
   └───────────────────────────────────────────────────────────────┘
 
   CONSEQUENCES:
@@ -146,16 +146,16 @@ RISK FRAMING:
   PRECIPITATION CHANGES:
   ┌───────────────────────────────────────────────────────────┐
   │  Increase in heavy precipitation intensity: ~7%/°C      │
-  │  BUT: precipitation frequency and duration may decrease  │
+  │  BUT: precipitation frequency and duration may decrease   │
   │       in many regions (fewer but heavier events)        │
-  │                                                          │
+  │                                                           │
   │  REGIONAL PATTERNS (approximate, GCM agreement):        │
-  │  Wetter: high latitudes (polar amplification + moisture) │
-  │           Equatorial tropics; monsoon intensification    │
+  │  Wetter: high latitudes (polar amplification + moisture)  │
+  │           Equatorial tropics; monsoon intensification     │
   │  Drier: Mediterranean, southwestern US/Chile, S Africa  │
-  │         Amazon (dieback risk creating drought feedback)  │
-  │  Complex: South Asian monsoon (intensity up, but timing  │
-  │           shifts; droughts AND floods)                   │
+  │         Amazon (dieback risk creating drought feedback)   │
+  │  Complex: South Asian monsoon (intensity up, but timing   │
+  │           shifts; droughts AND floods)                    │
   └───────────────────────────────────────────────────────────┘
 
   "WET-GET-WETTER, DRY-GET-DRIER":

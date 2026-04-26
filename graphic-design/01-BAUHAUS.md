@@ -4,7 +4,7 @@
 
 ```
 +---------------------------------------------------------------+
-|                   THE BAUHAUS (1919-1933)                      |
+|                   THE BAUHAUS (1919-1933)                     |
 |                                                               |
 |  WEIMAR 1919-1925   DESSAU 1925-1932   BERLIN 1932-1933       |
 |  (Gropius)          (Gropius -> Meyer  (Mies van der Rohe)    |
@@ -19,7 +19,7 @@
                |
                v
 +-----------------------------------------------+
-|  LEGACY CHANNELS                               |
+|  LEGACY CHANNELS                              |
 |                                               |
 |  -> Art education (Foundation Course model)   |
 |  -> Corporate identity (IBM, etc.)            |
@@ -64,16 +64,16 @@ Every student at the Bauhaus took the same path:
 
 ```
 +--------------------------------------------------+
-|  VORKURS (Foundation Course)                      |
+|  VORKURS (Foundation Course)                     |
 |  6 months                                        |
-|  Taught by: Itten, then Moholy-Nagy, Albers       |
-|  Content: Color theory, materials, basic forms    |
+|  Taught by: Itten, then Moholy-Nagy, Albers      |
+|  Content: Color theory, materials, basic forms   |
 |  Purpose: Unlearn academic habits                |
 +--------------------------------------------------+
                     |
                     v
 +--------------------------------------------------+
-|  WORKSHOPS (3 years)                              |
+|  WORKSHOPS (3 years)                             |
 |                                                  |
 |  Two masters per workshop:                       |
 |  MASTER OF FORM (artist) + MASTER OF CRAFT       |
@@ -90,9 +90,9 @@ Every student at the Bauhaus took the same path:
                     |
                     v
 +--------------------------------------------------+
-|  BUILDING WORKSHOP (advanced)                     |
-|  Architecture + comprehensive design              |
-|  Gropius's ultimate goal (arrived late)           |
+|  BUILDING WORKSHOP (advanced)                    |
+|  Architecture + comprehensive design             |
+|  Gropius's ultimate goal (arrived late)          |
 +--------------------------------------------------+
 ```
 
@@ -106,9 +106,9 @@ craftsman taught technique. Neither alone was sufficient.
 ```
 FOUNDER / DIRECTORS
 +---------------+--------------------------------------------------+
-| Walter Gropius | Architect; founding director; the thesis itself  |
-|                | Left 1928; Hannes Meyer (Marxist) followed;      |
-|                | Mies van der Rohe directed final Berlin phase    |
+| Walter Gropius | Architect; founding director; the thesis itself |
+|               | Left 1928; Hannes Meyer (Marxist) followed;      |
+|               | Mies van der Rohe directed final Berlin phase    |
 +---------------+--------------------------------------------------+
 | Ludwig Mies    | Brought rigor; "less is more"; steel + glass     |
 | van der Rohe   | architecture; moved to USA; IIT in Chicago       |
@@ -120,17 +120,17 @@ TEACHERS
 |                   | left 1923 (clash with Gropius on direction)    |
 +-------------------+-----------------------------------------------+
 | Laszlo            | Photography, typography, light; replaced Itten |
-| Moholy-Nagy       | in Foundation Course; fled to Chicago 1937     |
+| Moholy-Nagy       | in Foundation Course; fled to Chicago 1937    |
 +-------------------+-----------------------------------------------+
 | Josef Albers      | Glass workshop; later taught at Black Mountain |
 |                   | College (USA); "Interaction of Color" (1963)   |
 +-------------------+-----------------------------------------------+
-| Paul Klee         | Painting; color and form theory; Weimar phase  |
+| Paul Klee         | Painting; color and form theory; Weimar phase |
 +-------------------+-----------------------------------------------+
 | Wassily Kandinsky | Painting; color/form synesthesia; Dessau phase |
 +-------------------+-----------------------------------------------+
-| Herbert Bayer     | Typography workshop; universal typeface; grid  |
-|                   | use in advertising; fled to USA                |
+| Herbert Bayer     | Typography workshop; universal typeface; grid |
+|                   | use in advertising; fled to USA               |
 +-------------------+-----------------------------------------------+
 | Marcel Breuer     | Student -> master; tubular steel furniture;    |
 |                   | Wassily chair (1925); B32 (Cesca) chair        |
@@ -208,13 +208,13 @@ BERLIN (1932-1933)
       |
       v
 +------------------------------------------+
-|  STAFF AND STUDENTS FLEE EUROPE           |
+|  STAFF AND STUDENTS FLEE EUROPE          |
 |                                          |
 |  Moholy-Nagy -> Chicago (New Bauhaus,    |
 |                  1937 = Institute of     |
 |                  Design)                 |
 |                                          |
-|  Gropius -> Harvard Graduate School     |
+|  Gropius -> Harvard Graduate School      |
 |             of Design (chair, 1937)      |
 |                                          |
 |  Mies van der Rohe -> IIT Chicago        |

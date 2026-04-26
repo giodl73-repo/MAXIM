@@ -22,7 +22,7 @@ Four defining features (present at SOME life stage):
 |     Secondarily: gas exchange in fish                    |
 |     Vestigial: in amniote embryos only                   |
 |                                                          |
-|  4. POST-ANAL TAIL                                        |
+|  4. POST-ANAL TAIL                                       |
 |     Extension of body posterior to anus                  |
 |     Contains muscle, notochord                           |
 |     Often reduced in adult (vestigial coccyx in humans)  |

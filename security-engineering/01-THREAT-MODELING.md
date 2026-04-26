@@ -9,7 +9,7 @@ THREAT MODELING PROCESS
 +-----------------------------------------------------------------------+
 |                                                                       |
 |  DECOMPOSE          IDENTIFY          PRIORITIZE        MITIGATE      |
-|  +-----------+     +----------+      +----------+      +----------+  |
+|  +-----------+     +----------+      +----------+      +----------+   |
 |  | What are  |     | What can |      | Which    |      | What     |  |
 |  | the       | --> | go wrong | -->  | threats  | -->  | controls |  |
 |  | components|     | with     |      | matter   |      | address  |  |
@@ -18,12 +18,12 @@ THREAT MODELING PROCESS
 |  | (DFD)     |     | (STRIDE) |      |  risk)   |      |  Fix,    |  |
 |  |           |     |          |      |          |      |  Transfer)|  |
 |  +-----------+     +----------+      +----------+      +----------+  |
-|                                                                       |
-|  INPUT:                             OUTPUT:                           |
+|                                                                      |
+|  INPUT:                             OUTPUT:                          |
 |  Architecture diagram               Threat model document            |
-|  Data flow diagram (DFD)            Threat list with risk scores      |
+|  Data flow diagram (DFD)            Threat list with risk scores     |
 |  Trust boundary definitions         Mitigations per threat           |
-|  Component inventory                Open items tracked in backlog     |
+|  Component inventory                Open items tracked in backlog    |
 +-----------------------------------------------------------------------+
 ```
 
@@ -124,13 +124,13 @@ DATA FLOW DIAGRAM ELEMENTS AND APPLICABLE THREATS
 | (users, external systems)|                                             |
 +-----------------------------------------------------------------------+
 | Processes                | Spoofing, Tampering, Repudiation,            |
-| (services, APIs)         | Info Disclosure, DoS, Elevation             |
+| (services, APIs)         | Info Disclosure, DoS, Elevation            |
 +-----------------------------------------------------------------------+
 | Data flows               | Tampering, Info Disclosure, DoS              |
 | (HTTP, gRPC, queue msgs) |                                             |
 +-----------------------------------------------------------------------+
 | Data stores              | Tampering, Repudiation, Info Disclosure,     |
-| (DBs, caches, files)     | DoS (store exhaustion)                      |
+| (DBs, caches, files)     | DoS (store exhaustion)                     |
 +-----------------------------------------------------------------------+
 | Trust boundaries         | Spoofing, Tampering, Elevation              |
 | (the line between trust  |                                             |
@@ -210,21 +210,21 @@ PASTA is a risk-centric framework (vs. STRIDE which is threat-centric). 7 stages
 ```
 PASTA 7 STAGES
 +------------------------------------------------------------------+
-| Stage 1: DEFINE OBJECTIVES                                        |
-|   Business objectives, security objectives, compliance needs      |
+| Stage 1: DEFINE OBJECTIVES                                       |
+|   Business objectives, security objectives, compliance needs     |
 |   Who are we protecting? What is the business impact of breach?  |
 +------------------------------------------------------------------+
 | Stage 2: DEFINE TECHNICAL SCOPE                                   |
 |   Components, technologies, interfaces, dependencies             |
 +------------------------------------------------------------------+
-| Stage 3: DECOMPOSE APPLICATION                                    |
+| Stage 3: DECOMPOSE APPLICATION                                   |
 |   Data flow diagrams, use cases, trust boundaries                |
 +------------------------------------------------------------------+
 | Stage 4: THREAT ANALYSIS                                          |
 |   Threat intelligence (current threat landscape)                 |
 |   Attack scenarios relevant to the application type             |
 +------------------------------------------------------------------+
-| Stage 5: VULNERABILITY AND WEAKNESS ANALYSIS                      |
+| Stage 5: VULNERABILITY AND WEAKNESS ANALYSIS                     |
 |   Map existing vulnerabilities to identified threats             |
 |   SAST results, pen test findings, known CVEs in dependencies    |
 +------------------------------------------------------------------+
@@ -232,7 +232,7 @@ PASTA 7 STAGES
 |   Attack trees for each threat                                   |
 |   Simulate attacker steps                                        |
 +------------------------------------------------------------------+
-| Stage 7: RISK AND IMPACT ANALYSIS                                 |
+| Stage 7: RISK AND IMPACT ANALYSIS                                |
 |   Risk = likelihood × impact                                     |
 |   Prioritize mitigations by business risk                        |
 |   Output: risk register with treatment decisions                 |

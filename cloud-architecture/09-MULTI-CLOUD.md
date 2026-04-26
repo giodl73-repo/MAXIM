@@ -8,7 +8,7 @@ Multi-cloud and hybrid architectures extend Azure's management plane to on-premi
 HYBRID AND MULTI-CLOUD SPECTRUM
 +-----------------------------------------------------------------------+
 |                                                                       |
-|  HYBRID                           MULTI-CLOUD                        |
+|  HYBRID                           MULTI-CLOUD                         |
 |  +---------------------------+   +-----------------------------+    |
 |  | Azure + On-Premises       |   | Azure + AWS                 |    |
 |  | Connected (VPN/ER)        |   | Azure + GCP                 |    |
@@ -16,14 +16,14 @@ HYBRID AND MULTI-CLOUD SPECTRUM
 |  | VMs, Kubernetes, SQL      |   | True multi-cloud strategy   |    |
 |  +---------------------------+   +-----------------------------+    |
 |                                                                       |
-|  MANAGEMENT PLANE PROJECTIONS                                        |
+|  MANAGEMENT PLANE PROJECTIONS                                       |
 |  +------------------------------------------------------------------+ |
 |  | Azure Arc (Microsoft)   | Project Azure to on-prem / other clouds| |
 |  | Google Anthos           | Project GKE management to anywhere    | |
 |  | AWS Outposts            | AWS in your datacenter               | |
 |  +------------------------------------------------------------------+ |
 |                                                                       |
-|  KUBERNETES AS PORTABILITY LAYER                                     |
+|  KUBERNETES AS PORTABILITY LAYER                                      |
 |  +------------------------------------------------------------------+ |
 |  | Same workload definition (YAML manifests) runs on any K8s       | |
 |  | AKS, EKS, GKE, on-prem K8s: same kubectl, same Helm charts     | |

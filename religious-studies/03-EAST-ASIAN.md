@@ -28,7 +28,7 @@ domains of life.
 |  |              CHINESE FOLK RELIGION                       |        |
 |  | No founder, no scripture, no institution — yet arguably  |        |
 |  | the largest religion by adherents (400–500M+)            |        |
-|  | Ancestor veneration + local deities (Mazu, Guan Yu,     |        |
+|  | Ancestor veneration + local deities (Mazu, Guan Yu,      |        |
 |  | Tudigong) + divination + qi cosmology + domestic ritual  |        |
 |  | Structural position: the ground-level practice into which|        |
 |  | the Three Teachings feed; most Chinese participate in    |        |
@@ -97,13 +97,13 @@ Core concepts:
 |                   The process/pattern underlying all.     |
 |                   Operates through natural spontaneity.   |
 |                                                           |
-|  DE (Power/Virtue): The Dao as manifested in particular  |
+|  DE (Power/Virtue): The Dao as manifested in particular   |
 |                   things. Each thing has its own de —     |
 |                   its natural virtue, power, potency.     |
 |                   A skilled craftsman has de. A good      |
 |                   ruler has de. A tree has de.            |
 |                                                           |
-|  WU WEI (Non-action): Not passivity but acting in        |
+|  WU WEI (Non-action): Not passivity but acting in         |
 |                   accord with the natural flow of things. |
 |                   Yielding, non-forcing, effortless       |
 |                   effectiveness. Water wearing away rock. |
@@ -177,8 +177,8 @@ Religious Daoism (Daojiao) developed from the 2nd century CE onward:
 |              RELIGIOUS DAOIST TRADITIONS                  |
 |                                                           |
 |  Tianshi Dao (Celestial Masters, c.142 CE):               |
-|  Zhang Daoling received revelation from deified Laozi.   |
-|  Communal organization, confession of sins, healing.     |
+|  Zhang Daoling received revelation from deified Laozi.    |
+|  Communal organization, confession of sins, healing.      |
 |  First institutionalized Daoist church.                   |
 |                                                           |
 |  Waidan (External Alchemy, c.3rd c CE onward):            |
@@ -230,35 +230,35 @@ systematic treatise; must be read as a record of a teaching relationship.
 +------------------------------------------------------------------+
 |                    CONFUCIAN CONCEPTS                            |
 |                                                                  |
-|  REN (benevolence/humaneness/authoritative conduct):            |
-|  The supreme virtue. The full realization of humanity.          |
-|  Ren is achieved through li, expressed in all relationships.    |
-|  "Do not do to others what you would not want for yourself."    |
+|  REN (benevolence/humaneness/authoritative conduct):             |
+|  The supreme virtue. The full realization of humanity.           |
+|  Ren is achieved through li, expressed in all relationships.     |
+|  "Do not do to others what you would not want for yourself."     |
 |  (Negative formulation of the Golden Rule — Analects 12.2)     |
 |                                                                  |
-|  LI (ritual propriety/rites):                                   |
-|  The totality of proper behavior in social roles.               |
-|  Not empty formalism — li is the form through which             |
-|  ren is expressed and cultivated. Ritual makes virtue           |
-|  habitual. Compare: etiquette as a system that externalizes     |
+|  LI (ritual propriety/rites):                                    |
+|  The totality of proper behavior in social roles.                |
+|  Not empty formalism — li is the form through which              |
+|  ren is expressed and cultivated. Ritual makes virtue            |
+|  habitual. Compare: etiquette as a system that externalizes      |
 |  and trains inner virtue.                                        |
 |                                                                  |
-|  YI (righteousness):                                            |
+|  YI (righteousness):                                             |
 |  Doing what is right because it is right, not for              |
 |  profit. The superior person (junzi) acts from yi.             |
 |                                                                  |
-|  ZHI (wisdom/moral knowledge):                                  |
-|  Knowing what is right in concrete situations.                  |
+|  ZHI (wisdom/moral knowledge):                                   |
+|  Knowing what is right in concrete situations.                   |
 |                                                                  |
-|  XIN (trustworthiness):                                         |
-|  Integrity; matching words and actions.                         |
+|  XIN (trustworthiness):                                          |
+|  Integrity; matching words and actions.                          |
 |                                                                  |
-|  ZHENGMING (rectification of names):                            |
-|  When names don't match realities, social order decays.         |
+|  ZHENGMING (rectification of names):                             |
+|  When names don't match realities, social order decays.          |
 |  "Let the ruler be a ruler, the minister a minister,           |
 |   the father a father, the son a son." (Analects 12.11)        |
 |  This is not conservative stasis — it is a call to make        |
-|  rulers actually rule well, ministers actually serve.           |
+|  rulers actually rule well, ministers actually serve.            |
 +------------------------------------------------------------------+
 ```
 
@@ -346,29 +346,29 @@ distinct tradition partly in response to Buddhism's arrival in Japan (6th centur
 |                    SHINTO BASICS                         |
 |                                                          |
 |  KAMI:                                                   |
-|  Not "gods" exactly — spirits/forces that inspire awe.  |
+|  Not "gods" exactly — spirits/forces that inspire awe.   |
 |  Present in remarkable natural phenomena: mountains,     |
-|  storms, rivers, exceptional trees, the sun.            |
-|  Also: spirits of the imperial ancestors, notable dead. |
-|  Motoori Norinaga (18th c): "anything whatsoever which  |
+|  storms, rivers, exceptional trees, the sun.             |
+|  Also: spirits of the imperial ancestors, notable dead.  |
+|  Motoori Norinaga (18th c): "anything whatsoever which   |
 |  was outside the ordinary, which possessed superior      |
-|  power or which was awe-inspiring was called kami."     |
+|  power or which was awe-inspiring was called kami."      |
 |                                                          |
 |  SHRINES (Jinja):                                        |
 |  Residence of kami. Torii gate marks the threshold       |
-|  between ordinary and sacred space. Haiden (oratory),   |
-|  honden (inner sanctuary, usually not accessible).      |
+|  between ordinary and sacred space. Haiden (oratory),    |
+|  honden (inner sanctuary, usually not accessible).       |
 |  ~80,000 shrines in Japan.                               |
 |                                                          |
 |  PURITY (Kiyome):                                        |
-|  Ritual purity (ke) vs. ritual pollution (kegare).      |
-|  Harae: purification rites. Misogi: water purification. |
-|  Death, blood, illness = kegare. Not moral sin —        |
-|  a physical/ritual state requiring purification.        |
+|  Ritual purity (ke) vs. ritual pollution (kegare).       |
+|  Harae: purification rites. Misogi: water purification.  |
+|  Death, blood, illness = kegare. Not moral sin —         |
+|  a physical/ritual state requiring purification.         |
 |                                                          |
 |  MATSURI (Festivals):                                    |
 |  Ritual events maintaining the relationship between      |
-|  community and its kami. Seasonal, agricultural.        |
+|  community and its kami. Seasonal, agricultural.         |
 +----------------------------------------------------------+
 ```
 
@@ -449,27 +449,27 @@ religion by adherents (400-500M+) if counted separately.
 |  Ancestor veneration:                                      |
 |  The dead remain morally present. Ancestral tablets        |
 |  in home altars. Qingming festival (grave sweeping).       |
-|  Joss paper and ghost money burned for the dead.          |
-|  Hungry Ghost Festival: dead who lack living              |
+|  Joss paper and ghost money burned for the dead.           |
+|  Hungry Ghost Festival: dead who lack living               |
 |  descendants need offerings.                               |
 |                                                            |
 |  Local deities:                                            |
-|  Tudigong (Earth God) — every neighborhood has one.       |
-|  Mazu (sea goddess) — 400M+ devotees, Taiwan, Fujian.     |
+|  Tudigong (Earth God) — every neighborhood has one.        |
+|  Mazu (sea goddess) — 400M+ devotees, Taiwan, Fujian.      |
 |  Guan Yu (war god, also god of business integrity).        |
 |  City gods, trade gods, medicine gods.                     |
-|  Promoted and demoted based on efficacy (divine           |
+|  Promoted and demoted based on efficacy (divine            |
 |  bureaucracy mirrors human bureaucracy).                   |
 |                                                            |
 |  Divination:                                               |
-|  I Ching (Yi Jing) — hexagram casting.                    |
-|  Kau cim (fortune sticks at temples).                     |
+|  I Ching (Yi Jing) — hexagram casting.                     |
+|  Kau cim (fortune sticks at temples).                      |
 |  Feng shui: spatial arrangement for qi optimization.       |
 |                                                            |
 |  Integration with medicine:                                |
 |  Five-phase theory underlies Traditional Chinese           |
-|  Medicine. Body = cosmological microcosm. Qi blockage     |
-|  = illness. Acupuncture, herbalism as ritual-medical.     |
+|  Medicine. Body = cosmological microcosm. Qi blockage      |
+|  = illness. Acupuncture, herbalism as ritual-medical.      |
 +------------------------------------------------------------+
 ```
 

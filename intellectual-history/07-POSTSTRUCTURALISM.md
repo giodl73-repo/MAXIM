@@ -12,8 +12,8 @@ and historiography internationally.
 +-------------------------------------------------------------------+
 |              STRUCTURALISM TO POSTSTRUCTURALISM                   |
 |                                                                   |
-|  STRUCTURALISM (1950s-60s)     POSTSTRUCTURALISM (1966-1990s)    |
-|  +---------------------+       +----------------------------+    |
+|  STRUCTURALISM (1950s-60s)     POSTSTRUCTURALISM (1966-1990s)     |
+|  +---------------------+       +----------------------------+     |
 |  | Saussure: language  |       | DERRIDA:                   |    |
 |  | as system of        |       | Deconstruction, differance,|    |
 |  | differences         |  =>   | trace, logocentrism        |    |

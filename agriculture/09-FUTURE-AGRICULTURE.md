@@ -6,19 +6,19 @@ The constraints are clear: feed 10 billion by 2050 while using less water, less 
 
 ```
 +------------------------------------------------------------------+
-|              AGRICULTURAL TRANSFORMATION PATHWAYS                 |
-|                                                                   |
+|              AGRICULTURAL TRANSFORMATION PATHWAYS                |
+|                                                                  |
 |  DEMAND SIDE                    SUPPLY SIDE                      |
-|  ──────────────────────         ─────────────────────────────── |
+|  ──────────────────────         ───────────────────────────────  |
 |  Dietary shift (less beef)      Precision agriculture            |
-|  Food waste reduction           Crop biotechnology (CRISPR)     |
+|  Food waste reduction           Crop biotechnology (CRISPR)      |
 |  Protein diversification        Vertical farming                 |
-|  (insects, alt-meat, seafood)   Regenerative practices          |
+|  (insects, alt-meat, seafood)   Regenerative practices           |
 |                                 Cellular agriculture             |
-|                                                                   |
-|  BOTH REQUIRED: Demand reduction alone can't keep up with       |
+|                                                                  |
+|  BOTH REQUIRED: Demand reduction alone can't keep up with        |
 |  population + income growth. Supply efficiency alone can't       |
-|  overcome the GHG ceiling. Combined: plausible.                 |
+|  overcome the GHG ceiling. Combined: plausible.                  |
 +------------------------------------------------------------------+
 ```
 

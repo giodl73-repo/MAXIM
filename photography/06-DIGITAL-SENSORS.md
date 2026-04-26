@@ -56,7 +56,7 @@ CCD OPERATION:
   Single output amplifier → low noise, uniform → historically superior quality
 
   ┌──────────────────────────────────┐
-  │  Row 1: ●●●●●●●●●●●●●●●●●●●●●●  │
+  │  Row 1: ●●●●●●●●●●●●●●●●●●●●●●   │
   │  Row 2: ●●●●●●●●●●●●●●●●●●●●●●  │  → clock ↓
   │  ...                             │
   │  Output register ← ← ← ← ← ← ←│  → single ADC
@@ -91,8 +91,8 @@ CMOS ACTIVE PIXEL SENSOR:
   PIXEL CIRCUIT (4T):
     ┌────────────────────────────┐
     │  PD → Transfer gate → FD  │  FD = floating diffusion (charge → voltage)
-    │        (TX)          │    │
-    │                      ▼    │
+    │        (TX)          │     │
+    │                      ▼     │
     │               Source follower amplifier
     │               → Row select → Column bus → Column ADC
     └────────────────────────────┘

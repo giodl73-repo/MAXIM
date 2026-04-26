@@ -1,5 +1,5 @@
-# glint.toml — MAXIM Reference Library root schema
-# Applies to all content guides. Per-directory glint.toml files inherit and extend.
+# proof.toml — MAXIM Reference Library root schema
+# Applies to all content guides. Per-directory proof.toml files inherit and extend.
 
 [meta]
 name = "MAXIM Reference Library"
@@ -67,3 +67,22 @@ description = "@editor review tags should be resolved before a guide is consider
 pattern = "@editor\\["
 negate = true
 severity = "warning"
+
+[[davinci]]
+id = "goroutine-scheduler"
+uri = "md://languages/10-GO.md#concurrency-model-conceptual-landscape:0"
+description = "Go M:N multiplexing scheduler diagram"
+protection = "error"
+
+  [[davinci.invariants]]
+  rule = "contains-text"
+  text = "M:N multiplexing"
+
+  [[davinci.invariants]]
+  rule = "contains-text"
+  text = "Goroutines"
+
+  [[davinci.invariants]]
+  rule = "box-count"
+  min = 3
+

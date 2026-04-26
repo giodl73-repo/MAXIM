@@ -6,7 +6,7 @@ Denotational semantics assigns mathematical objects to programs — independentl
 
 ```
 +--------------------------------------------------------------------------+
-|                    DENOTATIONAL SEMANTICS LANDSCAPE                       |
+|                    DENOTATIONAL SEMANTICS LANDSCAPE                      |
 +--------------------------------------------------------------------------+
 |                                                                          |
 |  GOAL: ⟦t⟧ ∈ D — assign mathematical object from domain D to term t    |

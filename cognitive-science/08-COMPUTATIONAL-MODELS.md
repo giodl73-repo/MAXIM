@@ -100,12 +100,12 @@ ACT-R ARCHITECTURE:
   +──────────────────────────────────────────────────+
   |              CENTRAL PROCEDURAL SYSTEM           |
   |              (basal ganglia — production selection)|
-  |              ~50ms per production cycle           |
+  |              ~50ms per production cycle          |
   +──────────────────────────────────────────────────+
               ↕ retrieval requests
   +──────────────────────────────────────────────────+
   |         DECLARATIVE MEMORY (hippocampus)         |
-  |         Activation = log(sum of uses × recency) |
+  |         Activation = log(sum of uses × recency)  |
   |         Retrieval time = f(1/activation)         |
   +──────────────────────────────────────────────────+
 ```

@@ -13,11 +13,11 @@ Source X ──[Encoder]──> codeword (R bits/symbol) ──[Decoder]──> 
 
      ┌─────────────────────────────────────────────────────┐
      │  R                                                  │
-     │  │  R(0) = H(X) ──────────────────────────────•    │
+     │  │  R(0) = H(X) ──────────────────────────────•     │
      │  │              \                                   │
      │  │               \  R(D) curve                      │
      │  │                \      (convex, non-increasing)   │
-     │  │                 \                                 │
+     │  │                 \                                │
      │  │                  '─────────────────────────      │
      │  │                           D_max    D             │
      │  └────────────────────────────────────────────      │
@@ -238,7 +238,7 @@ Rate = (log₂ k)/n bits per sample. As n → ∞, VQ achieves R(D) (shape gain 
 ┌─────────────────────────────────────────────────────────────────┐
 │  VQ for n-dimensional vectors:                                  │
 │                                                                 │
-│  Training: LBG algorithm (k-means generalization)              │
+│  Training: LBG algorithm (k-means generalization)               │
 │    Init: split codebook (Lloyd doubling)                        │
 │    Iterate: Voronoi partition + centroid update                 │
 │    Convergence: monotone decrease in quantization error         │
@@ -250,7 +250,7 @@ Rate = (log₂ k)/n bits per sample. As n → ∞, VQ achieves R(D) (shape gain 
 │                                                                 │
 │    Product Quantization (PQ): split vector, quantize subspaces  │
 │      X = [X₁, X₂, ..., Xₘ]  (d/m dimensions each)             │
-│      Rate = m · log₂(k)/n  bits/sample                         │
+│      Rate = m · log₂(k)/n  bits/sample                          │
 │      Used in: FAISS ANN search, ANN vector databases            │
 └─────────────────────────────────────────────────────────────────┘
 ```
@@ -276,7 +276,7 @@ Distortion D:            pixel-level fidelity (MSE, SSIM)
 │  P                                                      │
 │  │ • (perfect perception, high distortion)              │
 │  │   [generative models: hallucinate details]           │
-│  │    \                                                  │
+│  │    \                                                 │
 │  │     \   Pareto frontier                              │
 │  │      \                                               │
 │  │       \                                              │

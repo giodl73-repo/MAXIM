@@ -8,14 +8,14 @@ Kernel methods provide a rigorous framework for learning in infinite-dimensional
 +──────────────────────────────────────────────────────────────────+
 |                  KERNEL METHODS LANDSCAPE                        |
 |                                                                  |
-|  PROBLEM: Linear methods work in ℝⁿ but data is nonlinear.      |
+|  PROBLEM: Linear methods work in ℝⁿ but data is nonlinear.       |
 |                                                                  |
 |  NAIVE SOLUTION: Map x ∈ ℝⁿ to φ(x) ∈ ℝᴰ (D >> n)             |
-|  Learn a linear model in the feature space.                     |
-|  PROBLEM: If D = ∞ (e.g., polynomial features), computation is  |
+|  Learn a linear model in the feature space.                      |
+|  PROBLEM: If D = ∞ (e.g., polynomial features), computation is   |
 |  infinite.                                                       |
 |                                                                  |
-|  KERNEL TRICK: Never compute φ(x) explicitly.                   |
+|  KERNEL TRICK: Never compute φ(x) explicitly.                    |
 |  Only compute k(x, x') = ⟨φ(x), φ(x')⟩ — inner products.       |
 |  All learning algorithms that only need inner products work      |
 |  in O(m²) time, regardless of the (infinite) feature space.    |

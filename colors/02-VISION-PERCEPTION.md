@@ -7,17 +7,17 @@
 |              HOW THE EYE AND BRAIN CONSTRUCT COLOR               |
 |                                                                  |
 |  STEP 1: RETINAL SAMPLING (photoreceptors)                       |
-|  ~6M cones: L (peak 564nm), M (534nm), S (420nm)                |
+|  ~6M cones: L (peak 564nm), M (534nm), S (420nm)                 |
 |  ~120M rods: single type, peak 498nm, no color discrimination    |
-|  → 3D compression: infinite spectrum → 3 numbers (LMS)          |
+|  → 3D compression: infinite spectrum → 3 numbers (LMS)           |
 |                                                                  |
-|  STEP 2: OPPONENT ENCODING (horizontal cells → ganglion cells)  |
+|  STEP 2: OPPONENT ENCODING (horizontal cells → ganglion cells)   |
 |  Channel 1: L − M  (red-green axis)                              |
-|  Channel 2: (L+M) − S  (yellow-blue axis)                       |
-|  Channel 3: L + M + S  (luminance, light-dark)                  |
+|  Channel 2: (L+M) − S  (yellow-blue axis)                        |
+|  Channel 3: L + M + S  (luminance, light-dark)                   |
 |  → 3 channels transmitted to brain via optic nerve               |
 |                                                                  |
-|  STEP 3: CORTICAL PROCESSING (V1, V4, etc.)                     |
+|  STEP 3: CORTICAL PROCESSING (V1, V4, etc.)                      |
 |  Color constancy adjustments (for illuminant)                    |
 |  Context effects (simultaneous contrast)                         |
 |  → Perceptual color experience constructed                       |

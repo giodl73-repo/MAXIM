@@ -9,10 +9,10 @@ FIXTURE SELECTION MATRIX:
 
   Performance criteria:
   ┌──────────────────────────────────────────────────────────────┐
-  │  WATER EFFICIENCY: GPF (toilet), GPM (faucet/shower)        │
+  │  WATER EFFICIENCY: GPF (toilet), GPM (faucet/shower)         │
   │  DURABILITY: cartridge type, valve material, finish          │
-  │  CODE COMPLIANCE: federal max, state max, ADA requirements  │
-  │  SCALD SAFETY: pressure-balance vs thermostatic valves      │
+  │  CODE COMPLIANCE: federal max, state max, ADA requirements   │
+  │  SCALD SAFETY: pressure-balance vs thermostatic valves       │
   └──────────────────────────────────────────────────────────────┘
 
   THE FEDERAL BASELINES:
@@ -38,18 +38,18 @@ FIXTURE SELECTION MATRIX:
   ┌──────────────────────────────────────────────────────────────┐
   │                    TANK                                      │
   │                                                              │
-  │  FILL VALVE ──────────────────────────────────────────────  │
+  │  FILL VALVE ──────────────────────────────────────────────   │
   │  (float-cup type)    Float rises as tank fills → valve     │
   │                      closes. Float drops when flushed →    │
   │                      valve opens → tank refills.           │
   │                                                              │
-  │  OVERFLOW TUBE ───────────────────────────────────────────  │
+  │  OVERFLOW TUBE ───────────────────────────────────────────   │
   │  (vertical tube)     Water level must stay BELOW top.      │
   │                      If fill valve fails open: water runs  │
-  │                      into overflow tube → into bowl → drain │
+  │                      into overflow tube → into bowl → drain  │
   │                      (prevents tank overflow to floor)     │
   │                                                              │
-  │  FLAPPER ─────────────────────────────────────────────────  │
+  │  FLAPPER ─────────────────────────────────────────────────   │
   │  (rubber seal at    Lifts via chain when handle pulled.    │
   │   flush valve)       Water rushes from tank to bowl.       │
   │                      Drops when tank empties → seals.      │
@@ -171,34 +171,34 @@ FIXTURE SELECTION MATRIX:
   FOUR TYPES: different wear mechanisms, different repairs
 
   ┌──────────────────────────────────────────────────────────────┐
-  │  COMPRESSION (two-handle, traditional):                     │
-  │    Rubber washer screws down onto brass seat                │
-  │    Turn handle → shaft threads down → washer compresses     │
-  │    Drip = seat wear or washer wear                          │
-  │    Repair: replace washer OR replace seat                   │
+  │  COMPRESSION (two-handle, traditional):                      │
+  │    Rubber washer screws down onto brass seat                 │
+  │    Turn handle → shaft threads down → washer compresses      │
+  │    Drip = seat wear or washer wear                           │
+  │    Repair: replace washer OR replace seat                    │
   │    Serviceable; still found in 50+ year old homes; dated   │
   │                                                              │
   │  BALL (single handle, ball-type by Delta/Price Pfister):   │
   │    Rotating stainless ball with three holes (hot, cold,    │
-  │    outlet) in spring-loaded rubber seats                    │
+  │    outlet) in spring-loaded rubber seats                     │
   │    Handle moves ball → aligns holes → mixes temperature    │
   │    Failure: worn springs, seats, O-rings                   │
   │    Repair: replacement ball + springs + seats kit (~$20)   │
   │    Characteristic: single-handle on circular base          │
   │                                                              │
-  │  CARTRIDGE (single or double handle):                       │
-  │    Plastic or brass cartridge with rubber seals             │
+  │  CARTRIDGE (single or double handle):                        │
+  │    Plastic or brass cartridge with rubber seals              │
   │    Cartridge slides in/out of faucet body                  │
   │    Repair: replace entire cartridge as one unit            │
   │    Most repairable single-cartridge in US:                 │
   │    Moen 1225/1222 cartridge (pull handle style)            │
   │    → available everywhere; $20-30; 30-minute repair        │
-  │    Delta, Kohler have own cartridge families                │
+  │    Delta, Kohler have own cartridge families                 │
   │                                                              │
-  │  CERAMIC DISC (quarter-turn):                               │
+  │  CERAMIC DISC (quarter-turn):                                │
   │    Two machined ceramic discs — flat to <0.001" tolerance  │
   │    Discs rotate relative to each other (1/4 turn on/off)  │
-  │    Extremely durable: essentially no moving seal to wear    │
+  │    Extremely durable: essentially no moving seal to wear     │
   │    Failure mode: grit/debris scratches lapped faces        │
   │    No lubrication needed; no drip expected for 10+ years   │
   │    Used by: Kohler, Hans Grohe, most European brands       │
@@ -229,7 +229,7 @@ FIXTURE SELECTION MATRIX:
 
 ```
   ┌───────────────────────────────────────────────────────────┐
-  │  Finish           │ How Made          │ Durability       │
+  │  Finish           │ How Made          │ Durability        │
   ├───────────────────────────────────────────────────────────┤
   │  Chrome           │ Electroplated Cr  │ Excellent if thick│
   │  Brushed nickel   │ Electroplated Ni  │ Good-excellent    │
@@ -306,7 +306,7 @@ FIXTURE SELECTION MATRIX:
 
   COMPARISON:
   ┌───────────────────────────────────────────────────────────┐
-  │  Feature           │ Pressure-Balance  │ Thermostatic    │
+  │  Feature           │ Pressure-Balance  │ Thermostatic     │
   ├───────────────────────────────────────────────────────────┤
   │  Scald from flush  │ Prevents ✅       │ Prevents ✅     │
   │  Temp from cold WH │ No protection ⚠️  │ Prevents ✅     │

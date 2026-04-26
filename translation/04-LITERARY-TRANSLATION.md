@@ -20,18 +20,18 @@ LITERARY TRANSLATION — THE CENTRAL TENSIONS
 
   THE INVISIBLE TRANSLATOR PROBLEM:
   ┌────────────────────────────────────────────────────────────┐
-  │ Anglo-American literary culture prizes the "fluent"       │
-  │ translation — reading as if originally in English.        │
-  │ The translator's labor disappears into the text.          │
-  │ Venuti: this is cultural imperialism at sentence level.   │
+  │ Anglo-American literary culture prizes the "fluent"        │
+  │ translation — reading as if originally in English.         │
+  │ The translator's labor disappears into the text.           │
+  │ Venuti: this is cultural imperialism at sentence level.    │
   └────────────────────────────────────────────────────────────┘
 
   FREEDOM:
   ┌────────────────────────────────────────────────────────────┐
   │ Robert Lowell's "imitations" (1961): acknowledged          │
-  │ departures from the source, creative reimagining.         │
-  │ Not translation but using a foreign poem as material.     │
-  │ Gregory Rabassa: some things are *gained* in translation. │
+  │ departures from the source, creative reimagining.          │
+  │ Not translation but using a foreign poem as material.      │
+  │ Gregory Rabassa: some things are *gained* in translation.  │
   └────────────────────────────────────────────────────────────┘
 ```
 

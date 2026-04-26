@@ -6,7 +6,7 @@ Modern dance was a rebellion against ballet's codified vocabulary. Postmodern da
 
 ```
 +----------------------------------------------------------------------+
-|                    THE LINEAGE OF REBELLION                           |
+|                    THE LINEAGE OF REBELLION                          |
 |                                                                      |
 |  BALLET          MODERN           POSTMODERN         CONTEMPORARY    |
 |  (1700s+)        (1900-1960s)      (1960s-1980s)      (1980s-)       |
@@ -17,7 +17,7 @@ Modern dance was a rebellion against ballet's codified vocabulary. Postmodern da
 |  European        Bare feet        Pedestrian ok      Release tech    |
 |  narrative       Natural mvmt     Chance ok          Somatic work    |
 |  |               |                |                  |               |
-|  REJECTED BY --> REJECTED BY -->  REJECTED BY -->   INTEGRATES ALL  |
+|  REJECTED BY --> REJECTED BY -->  REJECTED BY -->   INTEGRATES ALL   |
 +----------------------------------------------------------------------+
 
 ISADORA DUNCAN --> RUTH ST. DENIS --> MARTHA GRAHAM --> JOSE LIMON
@@ -61,7 +61,7 @@ Her life: scandalous (free love, unmarried children), tragic (both children drow
 
 ```
 +------------------------------------------+
-|  DENISHAWN (School founded 1915, LA)      |
+|  DENISHAWN (School founded 1915, LA)     |
 |                                          |
 |  St. Denis: exotic orientalism           |
 |  -- Indian, Egyptian, Japanese imagery   |
@@ -75,7 +75,7 @@ Her life: scandalous (free love, unmarried children), tragic (both children drow
 |     still running                        |
 |                                          |
 |  TRAINED: Martha Graham, Doris Humphrey, |
-|  Charles Weidman, Louis Horst             |
+|  Charles Weidman, Louis Horst            |
 +------------------------------------------+
 ```
 

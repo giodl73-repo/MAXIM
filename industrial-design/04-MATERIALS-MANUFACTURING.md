@@ -6,7 +6,7 @@ Materials and manufacturing processes are not background constraints on design -
 
 ```
 +----------------------------------------------------------------------+
-|           DFM: DESIGN FOR MANUFACTURABILITY                           |
+|           DFM: DESIGN FOR MANUFACTURABILITY                          |
 |                                                                      |
 |  DESIGN INTENT            MANUFACTURING CONSTRAINT     RESULT        |
 |  (what designer wants)    (what process allows)         (trade-offs) |
@@ -18,7 +18,7 @@ Materials and manufacturing processes are not background constraints on design -
 |  Seamless enclosure       Assembly requires access      Add seam     |
 |  Tight tolerances         Cost scales with precision    Relax specs  |
 |                                                                      |
-|  BRIDGE: This is exactly constraints programming. The design          |
+|  BRIDGE: This is exactly constraints programming. The design         |
 |  solution space is the intersection of:                              |
 |  aesthetic intent ∩ engineering specs ∩ manufacturing envelope       |
 +----------------------------------------------------------------------+

@@ -8,22 +8,22 @@ Replication means keeping copies of the same data on multiple nodes. The three a
 REPLICATION TOPOLOGY COMPARISON
 +----------------------------------------------------------+
 |                                                          |
-|  SINGLE-LEADER          MULTI-LEADER         LEADERLESS |
-|  (Master-Replica)       (Multi-Master)        (Dynamo)  |
+|  SINGLE-LEADER          MULTI-LEADER         LEADERLESS  |
+|  (Master-Replica)       (Multi-Master)        (Dynamo)   |
 |                                                          |
-|  Client                Client               Client      |
-|    |                   / \                 / | \        |
-|    | writes           /   \               /  |  \       |
-|    v                 v     v             v   v   v      |
-|  Leader            Leader Leader       N1  N2   N3      |
-|  (strong           A       B           (write to any)   |
-|  consistency)      \       /            \   |   /       |
-|    |                \ sync/              \  |  /        |
-|    | replicates      \   /               Read Repair    |
-|    |                  \ /                Anti-entropy   |
-|    v                  Merge             (eventual sync) |
+|  Client                Client               Client       |
+|    |                   / \                 / | \         |
+|    | writes           /   \               /  |  \        |
+|    v                 v     v             v   v   v       |
+|  Leader            Leader Leader       N1  N2   N3       |
+|  (strong           A       B           (write to any)    |
+|  consistency)      \       /            \   |   /        |
+|    |                \ sync/              \  |  /         |
+|    | replicates      \   /               Read Repair     |
+|    |                  \ /                Anti-entropy    |
+|    v                  Merge             (eventual sync)  |
 |  R1  R2  R3          conflict                          |
-|  (read replicas)                                        |
+|  (read replicas)                                         |
 +----------------------------------------------------------+
 
 WRITE PATH     Single: one node    Multi: nearest DC    Leaderless: any node
@@ -146,11 +146,11 @@ Multiple nodes accept writes simultaneously. Each is a leader; they replicate to
 MULTI-LEADER USE CASES
 +--------------------------------------------+
 | Multi-datacenter writes                    |
-|   WestUS Leader ←──sync──→ EastUS Leader  |
-|   User in WestUS writes locally (low lat) |
-|   User in EastUS writes locally (low lat) |
-|   Async replication between DCs           |
-|   Conflict resolution on divergence       |
+|   WestUS Leader ←──sync──→ EastUS Leader   |
+|   User in WestUS writes locally (low lat)  |
+|   User in EastUS writes locally (low lat)  |
+|   Async replication between DCs            |
+|   Conflict resolution on divergence        |
 +--------------------------------------------+
 | Offline-capable clients                    |
 |   Each device is its own "leader"          |

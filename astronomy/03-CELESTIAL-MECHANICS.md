@@ -9,37 +9,37 @@
   CELESTIAL MECHANICS HIERARCHY
 
   ┌──────────────────────────────────────────────────────────────────────────┐
-  │  TWO-BODY PROBLEM (exact analytic solution)                             │
-  │    Reduction to 1D via conservation laws                                │
-  │    Conic sections: ellipse / parabola / hyperbola                       │
-  │    Kepler's laws as corollaries; vis-viva equation                      │
+  │  TWO-BODY PROBLEM (exact analytic solution)                              │
+  │    Reduction to 1D via conservation laws                                 │
+  │    Conic sections: ellipse / parabola / hyperbola                        │
+  │    Kepler's laws as corollaries; vis-viva equation                       │
   └───────────────────────┬──────────────────────────────────────────────────┘
                           │ add a third body
                           ▼
   ┌──────────────────────────────────────────────────────────────────────────┐
-  │  THREE-BODY PROBLEM (no general analytic solution — Poincaré 1887)      │
-  │    Restricted case → Jacobi integral (1 conserved quantity)             │
-  │    Hill sphere, Lagrange points L1–L5                                   │
+  │  THREE-BODY PROBLEM (no general analytic solution — Poincaré 1887)       │
+  │    Restricted case → Jacobi integral (1 conserved quantity)              │
+  │    Hill sphere, Lagrange points L1–L5                                    │
   └───────────────────────┬──────────────────────────────────────────────────┘
                           │ add n bodies, small perturbations
                           ▼
   ┌──────────────────────────────────────────────────────────────────────────┐
-  │  PERTURBATION THEORY                                                    │
-  │    Lagrange planetary equations (elements evolve under perturbations)   │
-  │    Secular vs periodic effects; J₂ nodal regression; lunisolar forcing  │
+  │  PERTURBATION THEORY                                                     │
+  │    Lagrange planetary equations (elements evolve under perturbations)    │
+  │    Secular vs periodic effects; J₂ nodal regression; lunisolar forcing   │
   └───────────────────────┬──────────────────────────────────────────────────┘
                           │ special frequency relationships
                           ▼
   ┌──────────────────────────────────────────────────────────────────────────┐
-  │  RESONANCES                                                             │
-  │    Mean motion resonances (MMR) — Laplace, Kirkwood, Trojans, Plutinos  │
-  │    Secular resonances — precession rate matching                        │
+  │  RESONANCES                                                              │
+  │    Mean motion resonances (MMR) — Laplace, Kirkwood, Trojans, Plutinos   │
+  │    Secular resonances — precession rate matching                         │
   └───────────────────────┬──────────────────────────────────────────────────┘
                           │ add deformable bodies, dissipation
                           ▼
   ┌──────────────────────────────────────────────────────────────────────────┐
-  │  TIDAL MECHANICS                                                        │
-  │    Tidal forces, tidal locking, Roche limit, tidal heating              │
+  │  TIDAL MECHANICS                                                         │
+  │    Tidal forces, tidal locking, Roche limit, tidal heating               │
   └───────────────────────┬──────────────────────────────────────────────────┘
                           │ long time integration
                           ▼
@@ -283,11 +283,11 @@ Two massive bodies M₁ ≫ M₂ orbit their CM in circles; massless test partic
   STABILITY CHECK:
   ┌─────────────────────────────────────────────────────────────────────┐
   │ System         M₂/(M₁+M₂)    L4/L5 stable?   Trojans?             │
-  │ Sun–Jupiter    9.5 × 10⁻⁴    YES              ~12,000 Trojans      │
-  │ Sun–Earth      3.0 × 10⁻⁶    YES              ~few Earth Trojans   │
-  │ Sun–Mars       3.2 × 10⁻⁷    YES              ~Trojan asteroids    │
-  │ Sun–Neptune    5.2 × 10⁻⁵    YES              abundant Trojans     │
-  │ Earth–Moon     1.2 × 10⁻²    YES (< 0.0385)   no significant obj.  │
+  │ Sun–Jupiter    9.5 × 10⁻⁴    YES              ~12,000 Trojans       │
+  │ Sun–Earth      3.0 × 10⁻⁶    YES              ~few Earth Trojans    │
+  │ Sun–Mars       3.2 × 10⁻⁷    YES              ~Trojan asteroids     │
+  │ Sun–Neptune    5.2 × 10⁻⁵    YES              abundant Trojans      │
+  │ Earth–Moon     1.2 × 10⁻²    YES (< 0.0385)   no significant obj.   │
   └─────────────────────────────────────────────────────────────────────┘
 ```
 
@@ -338,7 +338,7 @@ Earth's equatorial bulge (J₂) acts as a perturbation R on satellite orbits:
   Nodal regression:
   ┌─────────────────────────────────────────────────────────┐
   │  dΩ/dt = −(3/2) · n · J₂ · (R_E/a)² · cos i          │
-  │                              (1−e²)²                   │
+  │                              (1−e²)²                    │
   └─────────────────────────────────────────────────────────┘
   Prograde orbits (i < 90°): Ω decreases (nodes regress westward)
   Retrograde orbits (i > 90°): Ω increases (nodes precess eastward)
@@ -346,7 +346,7 @@ Earth's equatorial bulge (J₂) acts as a perturbation R on satellite orbits:
   Apsidal precession:
   ┌─────────────────────────────────────────────────────────┐
   │  dω/dt = +(3/4) · n · J₂ · (R_E/a)² · (5cos²i − 1)   │
-  │                               (1−e²)²                  │
+  │                               (1−e²)²                   │
   └─────────────────────────────────────────────────────────┘
   5cos²i − 1 = 0 at i = 63.43° → ω frozen (Molniya condition)
 
@@ -532,10 +532,10 @@ If a body orbits too close, tidal forces overcome its self-gravity and it is tor
   d_Roche ≈ 2.44 R_primary × ( ρ_primary / ρ_secondary )^(1/3)
 
   ┌─────────────────────────────────────────────────────────────────────┐
-  │  System              d_Roche    Comparison                         │
+  │  System              d_Roche    Comparison                          │
   │  Earth (fluid Moon)  ~9,500 km  ~1.5 R_Earth (Moon at 384,400 km) │
-  │  Saturn (ice)        ~87,000 km Saturn's rings are INSIDE this!    │
-  │  Sun (Earth)         ~557,000 km ~0.8 R_Sun (well inside Sun)      │
+  │  Saturn (ice)        ~87,000 km Saturn's rings are INSIDE this!     │
+  │  Sun (Earth)         ~557,000 km ~0.8 R_Sun (well inside Sun)       │
   └─────────────────────────────────────────────────────────────────────┘
 
   Saturn's rings exist because:
@@ -720,7 +720,7 @@ Covered in 02-MILANKOVITCH.md but worth connecting here:
   ├────────────────────────────────────────┼────────────────────────────────────┤
   │ Will satellite orbit precess?        │ J₂ nodal regression: dΩ/dt ∝ cos i │
   │ Need sun-synchronous?                │ i ≈ 97–98° (retrograde, dΩ/dt =    │
-  │                                      │ +360°/yr)                           │
+  │                                      │ +360°/yr)                            │
   ├────────────────────────────────────────┼────────────────────────────────────┤
   │ Want apogee frozen over latitude?    │ Molniya: i = 63.43°, ω = 270°      │
   ├────────────────────────────────────────┼────────────────────────────────────┤

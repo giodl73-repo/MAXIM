@@ -7,26 +7,26 @@ Measure theory is the rigorous foundation for integration, probability, and func
 ```
 ┌─────────────────────────────────────────────────────────────────────────────┐
 │  MEASURE THEORY ARCHITECTURE                                                  │
-│                                                                              │
-│  Foundations                         Integration                             │
+│                                                                             │
+│  Foundations                         Integration                            │
 │  ──────────────────────────────       ─────────────────────────────────       │
-│  Set theory + σ-algebra              Measurable functions                    │
+│  Set theory + σ-algebra              Measurable functions                   │
 │  Measure space (Ω, ℱ, μ)            Simple functions → Lebesgue integral    │
 │  Borel σ-algebra on ℝ               Dominated/Monotone Convergence          │
 │  Lebesgue measure on ℝⁿ             Fubini-Tonelli theorem                  │
-│                                                                              │
+│                                                                             │
 │  Lᵖ Spaces                           Probability Foundations                │
 │  ──────────────────────────────       ─────────────────────────────────       │
-│  Lᵖ(μ): norms, completeness          Probability space (Ω, ℱ, P)           │
-│  L²: inner product, Hilbert space     Random variables as measurable fns     │
+│  Lᵖ(μ): norms, completeness          Probability space (Ω, ℱ, P)            │
+│  L²: inner product, Hilbert space     Random variables as measurable fns    │
 │  L∞: essential supremum              Conditional expectation E[X|ℱ]         │
-│  Dense subspaces                      Characteristic functions               │
-│                                                                              │
-│  Radon-Nikodym                        Convergence                            │
+│  Dense subspaces                      Characteristic functions              │
+│                                                                             │
+│  Radon-Nikodym                        Convergence                           │
 │  ──────────────────────────────       ─────────────────────────────────       │
-│  Absolute continuity                  Almost sure convergence                │
-│  Radon-Nikodym derivative            Convergence in measure                  │
-│  Change of variables                  Lᵖ convergence                         │
+│  Absolute continuity                  Almost sure convergence               │
+│  Radon-Nikodym derivative            Convergence in measure                 │
+│  Change of variables                  Lᵖ convergence                        │
 │  Conditional expectation              Weak convergence / CLT rigorous         │
 └─────────────────────────────────────────────────────────────────────────────┘
 ```

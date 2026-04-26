@@ -4,22 +4,22 @@
 
 ```
 +------------------------------------------------------------------+
-|              CLASSICAL LAMINATE THEORY (CLT)                    |
+|              CLASSICAL LAMINATE THEORY (CLT)                     |
 |                                                                  |
 |   GOAL: Predict laminate behavior from ply properties            |
 |   via linear elastic mechanics                                   |
 |                                                                  |
-|   INPUT:  Ply properties (E1, E2, G12, ν12, ply thickness)      |
+|   INPUT:  Ply properties (E1, E2, G12, ν12, ply thickness)       |
 |           Stacking sequence [0/45/-45/90]s                       |
 |                                                                  |
-|   OUTPUT: [A][B][D] matrices → stiffness                        |
-|           Strains/stresses in each ply under loads              |
+|   OUTPUT: [A][B][D] matrices → stiffness                         |
+|           Strains/stresses in each ply under loads               |
 |           Failure prediction when combined with criteria         |
 |                                                                  |
 |   ASSUMPTIONS:                                                   |
 |   1. Kirchhoff-Love plate theory (thin plate, plane stress)      |
 |   2. Linear elastic material behavior                            |
-|   3. Perfect bonding between plies (no delamination)            |
+|   3. Perfect bonding between plies (no delamination)             |
 |   4. Plane stress through thickness (σ3 = τ23 = τ13 = 0)       |
 +------------------------------------------------------------------+
 ```

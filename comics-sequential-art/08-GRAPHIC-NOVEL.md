@@ -4,7 +4,7 @@
 
 ```
 +------------------------------------------------------------------+
-|                   THE GRAPHIC NOVEL                               |
+|                   THE GRAPHIC NOVEL                              |
 |                                                                  |
 |  TERM ORIGIN: Will Eisner, "A Contract with God" (1978)          |
 |  "Graphic novel" printed on cover as description                 |
@@ -16,8 +16,8 @@
 |  4. A marketing/prestige term: "comics for adults"               |
 |                                                                  |
 |  PROBLEM: The term is used for all of these + none of these      |
-|  "Maus" = graphic novel; also = collected serial magazine strips  |
-|  "Watchmen" = graphic novel; also = 12-issue superhero series     |
+|  "Maus" = graphic novel; also = collected serial magazine strips |
+|  "Watchmen" = graphic novel; also = 12-issue superhero series    |
 |  "Complete Peanuts Vol 1" = graphic novel? No one says this.     |
 |                                                                  |
 |  WORKING DEFINITION (pragmatic):                                 |

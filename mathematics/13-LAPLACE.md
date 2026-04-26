@@ -18,7 +18,7 @@ LAPLACE LANDSCAPE
   │                    s-plane geometry                                   │
   │                                                                       │
   │    iω ↑                                                               │
-  │       │  ×  ×  ×  │  poles here = oscillation                        │
+  │       │  ×  ×  ×  │  poles here = oscillation                         │
   │       │            │                                                  │
   │  ─────┼────────────┼───────→ σ                                        │
   │       │            │                                                  │
@@ -271,20 +271,20 @@ systems with initial conditions:
 
 ```
   ┌─────────────────────────────────────────────────────────────────────┐
-  │  1. Constant K:                                                      │
-  │     Mag: 20 log|K| dB (flat line)    Phase: 0° or ±180°            │
-  │                                                                      │
-  │  2. Pole at origin 1/s:                                              │
-  │     Mag: -20 dB/decade    Phase: -90° (constant)                   │
-  │                                                                      │
+  │  1. Constant K:                                                     │
+  │     Mag: 20 log|K| dB (flat line)    Phase: 0° or ±180°             │
+  │                                                                     │
+  │  2. Pole at origin 1/s:                                             │
+  │     Mag: -20 dB/decade    Phase: -90° (constant)                    │
+  │                                                                     │
   │  3. Simple real pole 1/(1 + s/ωₚ):                                  │
   │     Low ω: 0 dB, 0°                                                 │
   │     High ω: -20 dB/decade, -90°                                     │
-  │     At ω = ωₚ (corner freq): -3 dB, -45°                           │
-  │                                                                      │
+  │     At ω = ωₚ (corner freq): -3 dB, -45°                            │
+  │                                                                     │
   │  4. Simple real zero (1 + s/ωz):                                    │
   │     Same but +20 dB/decade, +90°                                    │
-  │                                                                      │
+  │                                                                     │
   │  5. Complex conjugate pair 1/(s² + 2ζω₀s + ω₀²):                  │
   │     Resonance peak at ω₀, height 1/2ζ                               │
   │     -40 dB/decade above ω₀                                          │
@@ -476,7 +476,7 @@ transform of a sampled (impulse-train) signal:
 
 ```
   ┌─────────────────┬──────────────────────────────────────────────────┐
-  │                 │ Tool                                              │
+  │                 │ Tool                                             │
   ├─────────────────┼───────────┬───────────┬──────────────────────────┤
   │ Domain          │ Fourier   │ Laplace   │ z-transform              │
   ├─────────────────┼───────────┼───────────┼──────────────────────────┤

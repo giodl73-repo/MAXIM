@@ -15,19 +15,19 @@ Time series analysis handles data where observations are ordered in time and may
 |                                                                  |
 |  STATIONARY MODELS              NON-STATIONARY                  |
 |  +-------------------+         +-------------------+            |
-|  | AR(p): Y_t depends|         | ARIMA: difference  |           |
-|  | on past Y values  |         | to achieve         |           |
-|  | MA(q): Y_t depends|         | stationarity       |           |
-|  | on past errors    |         | Seasonal ARIMA     |           |
-|  | ARMA(p,q): both   |         | Unit root tests    |           |
+|  | AR(p): Y_t depends|         | ARIMA: difference |            |
+|  | on past Y values  |         | to achieve        |            |
+|  | MA(q): Y_t depends|         | stationarity      |            |
+|  | on past errors    |         | Seasonal ARIMA    |            |
+|  | ARMA(p,q): both   |         | Unit root tests   |            |
 |  +-------------------+         +-------------------+            |
 |                                                                  |
 |  SPECTRAL DOMAIN                STATE SPACE / KALMAN            |
 |  +-------------------+         +-------------------+            |
 |  | Fourier analysis  |         | Latent state model |           |
-|  | Periodogram       |         | Optimal filtering  |           |
-|  | Spectral density  |         | Prediction,        |           |
-|  | Cross-spectrum    |         | smoothing          |           |
+|  | Periodogram       |         | Optimal filtering |            |
+|  | Spectral density  |         | Prediction,       |            |
+|  | Cross-spectrum    |         | smoothing         |            |
 |  +-------------------+         +-------------------+            |
 |                                                                  |
 |  MULTIVARIATE: VAR, VECM, DLM (Dynamic Linear Models)          |

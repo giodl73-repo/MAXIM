@@ -289,7 +289,7 @@ works without power or equipment.
   STRIP ARCHITECTURE:
   +-------+----------+--------+---------+--------+
   | Sample |  Conj.  |  Test  | Control |  Absorp|
-  | pad    |  pad    |  line  |  line   |  pad   |
+  | pad   |  pad     |  line  |  line   |  pad   |
   +-------+----------+--------+---------+--------+
     Add      Colloidal  Capture  Validates  Excess
     sample   gold-Ab    Ab       strip      fluid

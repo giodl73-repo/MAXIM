@@ -4,7 +4,7 @@
 
 ```
 +===========================================================================+
-|                  STRATIGRAPHY AS VERSION CONTROL                           |
+|                  STRATIGRAPHY AS VERSION CONTROL                          |
 |     The rock record is a commit history; strata are commits; disconform-  |
 |     ities are deleted commits; GSSPs are release tags                     |
 +===========================================================================+

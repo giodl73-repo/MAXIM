@@ -20,13 +20,13 @@ The central question: do theoretical entities posited by successful science — 
 |  ANTI-REALISM VARIANTS:                                          |
 |  +-----------------+------------------+----------------------+  |
 |  |  INSTRUMENTALISM |  CONSTRUCTIVE    |  PRAGMATISM         |  |
-|  |  Theories are    |  EMPIRICISM      |  Theories are tools |  |
-|  |  computational   |  (van Fraassen)  |  for coping with    |  |
-|  |  tools, not      |  Theories need   |  experience; no     |  |
-|  |  descriptions    |  only be         |  truth question     |  |
-|  |                  |  empirically     |                     |  |
-|  |                  |  adequate, not   |                     |  |
-|  |                  |  true            |                     |  |
+|  |  Theories are   |  EMPIRICISM      |  Theories are tools  |  |
+|  |  computational  |  (van Fraassen)  |  for coping with     |  |
+|  |  tools, not     |  Theories need   |  experience; no      |  |
+|  |  descriptions   |  only be         |  truth question      |  |
+|  |                 |  empirically     |                      |  |
+|  |                 |  adequate, not   |                      |  |
+|  |                 |  true            |                      |  |
 |  +-----------------+------------------+----------------------+  |
 |                                                                  |
 |  MIDDLE POSITIONS:                                               |

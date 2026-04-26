@@ -10,21 +10,21 @@ MICROBIAL ECOLOGY: MICROBES AS ECOSYSTEM ENGINEERS
   Without microbial activity, multicellular life would collapse in months.
 
   ┌─────────────────────────────────────────────────────────────────┐
-  │  ECOSYSTEM ROLES                                                 │
+  │  ECOSYSTEM ROLES                                                │
   │                                                                   │
   │  PRODUCERS:      Cyanobacteria (photosynthesis, O₂ generation)  │
-  │                  Chemoautotrophs (sulfur/iron oxidation)         │
+  │                  Chemoautotrophs (sulfur/iron oxidation)        │
   │                                                                   │
-  │  DECOMPOSERS:    Soil bacteria + fungi → mineralization          │
+  │  DECOMPOSERS:    Soil bacteria + fungi → mineralization         │
   │                  Complete carbon cycle by returning C to CO₂    │
   │                                                                   │
-  │  TRANSFORMERS:   Nitrogen fixers, nitrifiers, denitrifiers       │
-  │                  Sulfate reducers, methanogens                   │
-  │                  Iron reducers, manganese oxidizers              │
+  │  TRANSFORMERS:   Nitrogen fixers, nitrifiers, denitrifiers      │
+  │                  Sulfate reducers, methanogens                  │
+  │                  Iron reducers, manganese oxidizers             │
   │                                                                   │
   │  ENGINEERS:      Biofilm formers alter substrate chemistry      │
   │                  Stromatolites: First complex ecosystems (3.5 Ga)│
-  │                  Coral reefs: Built on coral + Symbiodinium      │
+  │                  Coral reefs: Built on coral + Symbiodinium     │
   │                                                                   │
   │  SCALE:                                                           │
   │  ~10³⁰ bacteria on Earth (Kallmeyer et al.)                     │
@@ -217,25 +217,25 @@ MICROBIAL ECOLOGY: MICROBES AS ECOSYSTEM ENGINEERS
 
   MARINE MICROBIAL ZONES:
   ┌────────────────────────────────────────────────────────────────┐
-  │ PHOTIC ZONE (0–200 m): Sun-lit; photosynthetic primary prod.  │
+  │ PHOTIC ZONE (0–200 m): Sun-lit; photosynthetic primary prod.   │
   │   Picoplankton: <2 μm; dominates biomass                     │
   │   Prochlorococcus: Most abundant photosynthetic organism     │
   │   on Earth; chlorophyll b/b₂ variant; ~10⁵ cells/mL         │
   │   Synechococcus: Slightly larger; broader geographic range   │
   │   Together: ~25% of global primary production                │
-  │                                                               │
+  │                                                                │
   │ MESOPELAGIC (200–1000 m): Twilight zone; organic export      │
   │   Biological pump: Sinking particles carry fixed C down      │
   │   Bacteria remineralize: C→CO₂ before reaching deep          │
-  │   SAR11 clade (Pelagibacter): Most abundant organism on Earth │
+  │   SAR11 clade (Pelagibacter): Most abundant organism on Earth  │
   │   ~25% of marine bacterial cells; ultra-oligotrophic adapted │
-  │                                                               │
+  │                                                                │
   │ DEEP SEA (>1000 m): Dark, cold, high pressure               │
   │   Archaea dominate by cell number (Thaumarchaeota)           │
   │   Chemolithotrophs near hydrothermal vents                   │
   │   Vent ecosystems: Independent of sunlight energy            │
-  │                                                               │
-  │ HYDROTHERMAL VENTS:                                           │
+  │                                                                │
+  │ HYDROTHERMAL VENTS:                                            │
   │   Sulfide-rich fluids (400°C); temperature gradient          │
   │   Sulfur-oxidizing bacteria (Thiomicrorhabdus, Beggiatoa)   │
   │   → Fix CO₂ via Calvin cycle using H₂S as electron donor    │
@@ -270,21 +270,21 @@ MICROBIAL ECOLOGY: MICROBES AS ECOSYSTEM ENGINEERS
   NITROGEN CYCLE:
   ┌────────────────────────────────────────────────────────────────┐
   │   N₂ (atmospheric, 78%)                                        │
-  │      │ NITROGEN FIXATION (only bacteria + archaea)            │
+  │      │ NITROGEN FIXATION (only bacteria + archaea)             │
   │      ▼ Nitrogenase enzyme: N₂ + 8H⁺ + 16ATP → 2NH₃ + H₂    │
   │   NH₄⁺ (ammonium)                                              │
-  │      │ NITRIFICATION (aerobic autotrophs)                     │
+  │      │ NITRIFICATION (aerobic autotrophs)                      │
   │      │ Step 1: NH₄⁺ → NO₂⁻  (Nitrosomonas, Thaumarchaeota)  │
   │      │ Step 2: NO₂⁻ → NO₃⁻  (Nitrospira, Nitrobacter)       │
   │      ▼                                                         │
-  │   NO₃⁻ (nitrate — plant-available form)                       │
-  │      │ DENITRIFICATION (anaerobic heterotrophs)               │
+  │   NO₃⁻ (nitrate — plant-available form)                        │
+  │      │ DENITRIFICATION (anaerobic heterotrophs)                │
   │      │ NO₃⁻ → NO₂⁻ → NO → N₂O → N₂                         │
-  │      │ Pseudomonas, Paracoccus, Bacillus                      │
+  │      │ Pseudomonas, Paracoccus, Bacillus                       │
   │      ▼                                                         │
-  │   N₂ (returns to atmosphere)                                  │
-  │                                                                 │
-  │ ANAMMOX (anaerobic ammonium oxidation): Planctomycetes        │
+  │   N₂ (returns to atmosphere)                                   │
+  │                                                                │
+  │ ANAMMOX (anaerobic ammonium oxidation): Planctomycetes         │
   │   NH₄⁺ + NO₂⁻ → N₂ + H₂O (no O₂ needed)                    │
   │   Accounts for ~50% of oceanic N₂ production                 │
   └────────────────────────────────────────────────────────────────┘
@@ -385,14 +385,14 @@ MICROBIAL ECOLOGY: MICROBES AS ECOSYSTEM ENGINEERS
   SYNTROPHY: OBLIGATE METABOLIC COOPERATION
   ┌────────────────────────────────────────────────────────────────┐
   │ Syntrophic acetate-oxidizing bacteria (SAOB) + methanogens:    │
-  │                                                                 │
+  │                                                                │
   │ SAOB:   Acetate → H₂ + CO₂  (thermodynamically unfavorable)  │
   │ Methanogen: H₂ + CO₂ → CH₄  (removes H₂ → drives SAOB)      │
-  │                                                                 │
-  │ Only works together — neither survives alone in this niche    │
+  │                                                                │
+  │ Only works together — neither survives alone in this niche     │
   │ H₂ transfer at nanometer scale (interspecies electron transfer)│
-  │ Also: Direct interspecies electron transfer (DIET) via pili   │
-  │ Example: Geobacter-Methanosaeta consortia in anaerobic sludge │
+  │ Also: Direct interspecies electron transfer (DIET) via pili    │
+  │ Example: Geobacter-Methanosaeta consortia in anaerobic sludge  │
   └────────────────────────────────────────────────────────────────┘
 
   MUTUALISM AND SYMBIOSIS SPECTRUM:

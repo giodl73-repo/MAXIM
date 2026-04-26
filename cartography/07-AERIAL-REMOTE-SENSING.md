@@ -72,14 +72,14 @@ WWI AERIAL PHOTOGRAPHY — SYSTEMATIC INTELLIGENCE
   ┌──────────────────────────────────────────────────────────┐
   │  STEREOSCOPIC INTERPRETATION:                            │
   │  Two photos of same area from slightly different positions│
-  │  → 3D effect when viewed with stereo viewer             │
-  │  → height of features estimable from parallax           │
-  │  → craters, trenches, fortifications classified         │
+  │  → 3D effect when viewed with stereo viewer              │
+  │  → height of features estimable from parallax            │
+  │  → craters, trenches, fortifications classified          │
   │                                                          │
   │  OVERLAP PLANNING:                                       │
-  │  Photos taken with 60% overlap (fore-aft)               │
+  │  Photos taken with 60% overlap (fore-aft)                │
   │  30% sidelap between flight lines                        │
-  │  Enables stereo coverage; enables photogrammetry later  │
+  │  Enables stereo coverage; enables photogrammetry later   │
   └──────────────────────────────────────────────────────────┘
 
   INTELLIGENCE PRODUCTS:
@@ -217,13 +217,13 @@ MULTISPECTRAL IMAGING — THE ELECTROMAGNETIC SPECTRUM AS TOOL
   Different wavelengths reveal different surface properties:
 
   ┌────────────────────────────────────────────────────────────┐
-  │  VISIBLE (0.4–0.7 μm): what the eye sees                  │
+  │  VISIBLE (0.4–0.7 μm): what the eye sees                   │
   │  ├── Blue (0.45–0.52 μm): atmosphere scatter, water depth  │
   │  ├── Green (0.52–0.60 μm): vegetation health (peak reflect)│
   │  └── Red (0.63–0.69 μm): vegetation chlorophyll absorption │
   │                                                            │
   │  NEAR-INFRARED (0.77–0.90 μm):                             │
-  │  ├── Strong reflection by healthy green vegetation          │
+  │  ├── Strong reflection by healthy green vegetation         │
   │  ├── Absorption by water                                   │
   │  └── Used for: NDVI (vegetation index), land/water boundary│
   │                                                            │
@@ -239,7 +239,7 @@ MULTISPECTRAL IMAGING — THE ELECTROMAGNETIC SPECTRUM AS TOOL
   │  └── Ocean/lake surface temperature                        │
   │                                                            │
   │  MICROWAVE (1 mm – 1 m): SAR (see below)                   │
-  │  ├── Penetrates clouds (no atmospheric window needed)       │
+  │  ├── Penetrates clouds (no atmospheric window needed)      │
   │  └── Night imaging possible (active — its own energy)      │
   └────────────────────────────────────────────────────────────┘
 
@@ -247,7 +247,7 @@ MULTISPECTRAL IMAGING — THE ELECTROMAGNETIC SPECTRUM AS TOOL
   ┌────────────────────────────────────────────────────────────┐
   │  RGB channels mapped to non-visible bands → false color    │
   │                                                            │
-  │  Classic Landsat false color (bands 4-3-2 = NIR-R-G):     │
+  │  Classic Landsat false color (bands 4-3-2 = NIR-R-G):      │
   │  - Healthy vegetation: bright RED (high NIR)               │
   │  - Urban areas: blue-grey                                  │
   │  - Bare soil: brownish                                     │
@@ -352,9 +352,9 @@ SAR — HOW IT WORKS AND WHAT IT SHOWS
   PRINCIPLE — ACTIVE ILLUMINATION:
   ┌──────────────────────────────────────────────────────────┐
   │  Radar transmits microwave pulse toward Earth            │
-  │  Pulse reflects off surface → returns to sensor         │
-  │  Measure: amplitude (how much returned) + phase         │
-  │  Time of return → distance → geometry                   │
+  │  Pulse reflects off surface → returns to sensor          │
+  │  Measure: amplitude (how much returned) + phase          │
+  │  Time of return → distance → geometry                    │
   └──────────────────────────────────────────────────────────┘
 
   SYNTHETIC APERTURE:

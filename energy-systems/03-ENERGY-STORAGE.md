@@ -82,7 +82,7 @@ by moving water uphill (off-peak, cheap electricity) and generating downhill (on
                 │  Penstock (high-pressure pipe)
                 │
   ┌─────────────▼───────────────────────────────────────────────┐
-  │  POWERHOUSE                                                  │
+  │  POWERHOUSE                                                 │
   │  ┌────────────────────────────────────────────────────────┐ │
   │  │  Pump-turbine (reversible Francis turbine)             │ │
   │  │  Motor-generator (reversible)                          │ │
@@ -137,9 +137,9 @@ the cathode is where the energy density, safety, and cycle life differences live
   CATHODE CHEMISTRIES:
 
   ┌────────────┬──────────────────────────────────────────────────────────┐
-  │  NMC       │  LiNiMnCoO₂ (Nickel Manganese Cobalt)                   │
+  │  NMC       │  LiNiMnCoO₂ (Nickel Manganese Cobalt)                    │
   │            │  Energy density: HIGH (200-250 Wh/kg cell)               │
-  │            │  NMC 811 (80% Ni, 10% Mn, 10% Co): highest density      │
+  │            │  NMC 811 (80% Ni, 10% Mn, 10% Co): highest density       │
   │            │  NMC 622, 532: lower Ni, more stable, less energy        │
   │            │  Cycle life: 1,000-3,000 cycles                          │
   │            │  Thermal runway: moderate risk (above ~150°C)            │
@@ -153,7 +153,7 @@ the cathode is where the energy density, safety, and cycle life differences live
   │            │  Use: DOMINANT for utility-scale BESS; Tesla LFP EV packs│
   │            │  China: ~85% of grid BESS is LFP                         │
   ├────────────┼──────────────────────────────────────────────────────────┤
-  │  NCA        │  LiNiCoAlO₂ (Nickel Cobalt Aluminum)                    │
+  │  NCA       │  LiNiCoAlO₂ (Nickel Cobalt Aluminum)                     │
   │            │  Energy density: HIGHEST (250-300 Wh/kg cell)            │
   │            │  Tesla 4680 cells use NCA variant                        │
   │            │  Thermal stability: lower (careful BMS required)         │
@@ -212,7 +212,7 @@ the cathode is where the energy density, safety, and cycle life differences live
 
   ┌────────────────────────────────────────────────────────────────┐
   │  MODULE (10-30 kWh):    cells → module (pack of cells)         │
-  │  RACK (100-300 kWh):    modules → 19" or custom rack          │
+  │  RACK (100-300 kWh):    modules → 19" or custom rack           │
   │  CONTAINER (2-4 MWh):   racks → shipping container unit        │
   │  BLOCK (4-20 MW):       containers + inverters + transformer   │
   │  SITE:                  multiple blocks → substation → grid    │
@@ -255,7 +255,7 @@ either different electrochemistry or physics.
   │  V²⁺/V³⁺ tank     ← electrolyte pump →     V⁴⁺/V⁵⁺ tank   │
   │  (negative side)                            (positive side)  │
   │       │                                          │           │
-  │       └──────────────[STACK]────────────────────┘           │
+  │       └──────────────[STACK]────────────────────┘            │
   │                     ion exchange membrane                    │
   │                     current collectors                       │
   │                                                              │
@@ -338,8 +338,8 @@ either different electrochemistry or physics.
   │   Speed: 10,000-50,000 RPM                                 │
   │   Magnetic bearings (frictionless)                         │
   │                                                            │
-  │   E = ½ I ω²  (rotational KE)                             │
-  │   I = moment of inertia, ω = angular velocity             │
+  │   E = ½ I ω²  (rotational KE)                              │
+  │   I = moment of inertia, ω = angular velocity              │
   └────────────────────────────────────────────────────────────┘
 
   Properties:

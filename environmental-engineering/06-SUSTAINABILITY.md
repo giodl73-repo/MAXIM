@@ -14,7 +14,7 @@ and circular economy (how do we eliminate waste by design?).
   │  LIFE CYCLE ASSESSMENT (LCA)                                    │
   │  ISO 14040 / 14044                                              │
   │  Goal: quantify ALL environmental impacts across full           │
-  │  product/system life — climate, water, toxicity, land use      │
+  │  product/system life — climate, water, toxicity, land use       │
   │  Scale: product/process/service                                 │
   ├─────────────────────────────────────────────────────────────────┤
   │  CARBON FOOTPRINT / GHG ACCOUNTING                             │
@@ -24,19 +24,19 @@ and circular economy (how do we eliminate waste by design?).
   │  Subset of LCA focused on climate change impact only           │
   ├─────────────────────────────────────────────────────────────────┤
   │  CIRCULAR ECONOMY                                               │
-  │  Ellen MacArthur Foundation model                              │
-  │  Goal: eliminate waste and pollution by design; keep           │
-  │  materials in use; regenerate natural systems                  │
-  │  Scale: business model, product design, industrial symbiosis   │
+  │  Ellen MacArthur Foundation model                               │
+  │  Goal: eliminate waste and pollution by design; keep            │
+  │  materials in use; regenerate natural systems                   │
+  │  Scale: business model, product design, industrial symbiosis    │
   └─────────────────────────────────────────────────────────────────┘
             ↓                    ↓                    ↓
   ┌─────────────────────────────────────────────────────────────────┐
-  │  REPORTING / DISCLOSURE FRAMEWORKS                             │
+  │  REPORTING / DISCLOSURE FRAMEWORKS                              │
   │  GHG Protocol → Scope 1/2/3 reporting                         │
-  │  TCFD / ISSB IFRS S2 → climate-related financial disclosure    │
+  │  TCFD / ISSB IFRS S2 → climate-related financial disclosure     │
   │  SBTi → science-based emission reduction targets              │
   │  CDP / GRI / SASB → voluntary disclosure aggregators          │
-  │  SEC Climate Rule → mandatory US public company disclosure     │
+  │  SEC Climate Rule → mandatory US public company disclosure      │
   └─────────────────────────────────────────────────────────────────┘
 ```
 
@@ -181,50 +181,50 @@ carbon accounting. Developed by WRI + WBCSD; used by >90% of Fortune 500.
 
   UPSTREAM (supplier-side):
   ┌────┬──────────────────────────────────────────────────────────┐
-  │ 1  │ Purchased goods and services                            │
-  │    │ Raw materials, components, outsourced services          │
-  │    │ Largest category for most manufacturers                 │
+  │ 1  │ Purchased goods and services                             │
+  │    │ Raw materials, components, outsourced services           │
+  │    │ Largest category for most manufacturers                  │
   ├────┼──────────────────────────────────────────────────────────┤
   │ 2  │ Capital goods                                           │
   │    │ Servers, building construction, equipment               │
   │    │ Embodied carbon in purchased capital                    │
   ├────┼──────────────────────────────────────────────────────────┤
-  │ 3  │ Fuel- and energy-related activities                     │
-  │    │ Upstream emissions from extraction/processing of        │
+  │ 3  │ Fuel- and energy-related activities                      │
+  │    │ Upstream emissions from extraction/processing of         │
   │    │ purchased fuel and energy (not Scope 1 or 2)           │
   ├────┼──────────────────────────────────────────────────────────┤
   │ 4  │ Upstream transportation and distribution                │
   ├────┼──────────────────────────────────────────────────────────┤
   │ 5  │ Waste generated in operations                          │
-  │    │ Disposal/treatment of operational waste                 │
+  │    │ Disposal/treatment of operational waste                  │
   ├────┼──────────────────────────────────────────────────────────┤
   │ 6  │ Business travel                                         │
   ├────┼──────────────────────────────────────────────────────────┤
-  │ 7  │ Employee commuting                                      │
+  │ 7  │ Employee commuting                                       │
   ├────┼──────────────────────────────────────────────────────────┤
   │ 8  │ Upstream leased assets                                  │
   └────┴──────────────────────────────────────────────────────────┘
 
   DOWNSTREAM (customer-side):
   ┌────┬──────────────────────────────────────────────────────────┐
-  │ 9  │ Downstream transportation and distribution              │
+  │ 9  │ Downstream transportation and distribution               │
   ├────┼──────────────────────────────────────────────────────────┤
   │ 10 │ Processing of sold products                             │
   ├────┼──────────────────────────────────────────────────────────┤
-  │ 11 │ Use of sold products                                    │
-  │    │ Electricity consumed by products during use phase       │
+  │ 11 │ Use of sold products                                     │
+  │    │ Electricity consumed by products during use phase        │
   │    │ Typically the #1 or #2 category for electronics/software│
-  │    │ For Microsoft: Azure customers' workloads run on Azure  │
-  │    │ hardware → Category 11 dwarfs Microsoft's direct emiss. │
+  │    │ For Microsoft: Azure customers' workloads run on Azure   │
+  │    │ hardware → Category 11 dwarfs Microsoft's direct emiss.  │
   ├────┼──────────────────────────────────────────────────────────┤
   │ 12 │ End-of-life treatment of sold products                  │
   │    │ E-waste, product disposal                               │
   ├────┼──────────────────────────────────────────────────────────┤
-  │ 13 │ Downstream leased assets                                │
+  │ 13 │ Downstream leased assets                                 │
   ├────┼──────────────────────────────────────────────────────────┤
   │ 14 │ Franchises                                              │
   ├────┼──────────────────────────────────────────────────────────┤
-  │ 15 │ Investments                                             │
+  │ 15 │ Investments                                              │
   └────┴──────────────────────────────────────────────────────────┘
 ```
 
@@ -278,16 +278,16 @@ The circular economy reframes waste as a design failure, not an inevitable outpu
 
   R-STRATEGIES (most to least preferred):
   ┌────────────────────────────────────────────────────────────────┐
-  │ R0: Refuse — eliminate product/material entirely              │
-  │ R1: Rethink — servicize; optimize product use intensity       │
-  │ R2: Reduce — less material/energy per unit function           │
-  │ R3: Reuse — same function, different user                     │
-  │ R4: Repair — extend product life by maintenance               │
-  │ R5: Refurbish — restore product performance                   │
-  │ R6: Remanufacture — rebuild to original specs                 │
-  │ R7: Repurpose — different function, different user            │
-  │ R8: Recycle — material recovery (loses product value)         │
-  │ R9: Recover — energy from waste (lowest CE value)             │
+  │ R0: Refuse — eliminate product/material entirely               │
+  │ R1: Rethink — servicize; optimize product use intensity        │
+  │ R2: Reduce — less material/energy per unit function            │
+  │ R3: Reuse — same function, different user                      │
+  │ R4: Repair — extend product life by maintenance                │
+  │ R5: Refurbish — restore product performance                    │
+  │ R6: Remanufacture — rebuild to original specs                  │
+  │ R7: Repurpose — different function, different user             │
+  │ R8: Recycle — material recovery (loses product value)          │
+  │ R9: Recover — energy from waste (lowest CE value)              │
   └────────────────────────────────────────────────────────────────┘
 
   Microsoft Circular Centers:
@@ -305,10 +305,10 @@ The circular economy reframes waste as a design failure, not an inevitable outpu
   KALUNDBORG INDUSTRIAL SYMBIOSIS (Denmark — the archetype):
   ┌────────────────────────────────────────────────────────────────┐
   │ Asnæs Power Plant → steam → Novo Nordisk (pharma)            │
-  │                   → cooling water → fishery                   │
-  │                   → fly ash → cement manufacturer             │
-  │                   → gypsum → wallboard manufacturer           │
-  │                   → district heating → Kalundborg city        │
+  │                   → cooling water → fishery                    │
+  │                   → fly ash → cement manufacturer              │
+  │                   → gypsum → wallboard manufacturer            │
+  │                   → district heating → Kalundborg city         │
   │ Statoil refinery  → fuel gas → power plant (vs. flaring)     │
   │ Novo Nordisk      → sludge → agriculture (fertilizer)        │
   └────────────────────────────────────────────────────────────────┘
@@ -382,14 +382,14 @@ Understanding which framework is mandatory vs. voluntary and who the audience is
   │                      │ defines Scope 1/2/3 methodology           │
   ├──────────────────────┼────────────────────────────────────────────┤
   │ CDP (Carbon          │ Investor/customer-facing; annual           │
-  │ Disclosure Project)  │ questionnaire; A–D scoring; voluntary     │
+  │ Disclosure Project)  │ questionnaire; A–D scoring; voluntary      │
   │                      │ but increasingly requested by supply chain │
   ├──────────────────────┼────────────────────────────────────────────┤
   │ GRI (Global          │ Broad stakeholder-facing; voluntary;      │
   │ Reporting Initiative)│ comprehensive ESG topics beyond climate   │
   ├──────────────────────┼────────────────────────────────────────────┤
-  │ SASB (Sustainability │ Investor-focused; industry-specific       │
-  │ Accounting Standards)│ metrics; now part of ISSB                 │
+  │ SASB (Sustainability │ Investor-focused; industry-specific        │
+  │ Accounting Standards)│ metrics; now part of ISSB                  │
   │ Board                │                                            │
   ├──────────────────────┼────────────────────────────────────────────┤
   │ TCFD (Task Force on  │ Investors; scenario analysis (physical +  │
@@ -398,18 +398,18 @@ Understanding which framework is mandatory vs. voluntary and who the audience is
   │                      │ metrics & targets; voluntary but becoming │
   │                      │ mandatory in many jurisdictions           │
   ├──────────────────────┼────────────────────────────────────────────┤
-  │ ISSB IFRS S2         │ IOSCO-endorsed global baseline for        │
-  │ (2023)               │ climate disclosure; absorbs TCFD;         │
-  │                      │ mandatory in many countries by 2026       │
+  │ ISSB IFRS S2         │ IOSCO-endorsed global baseline for         │
+  │ (2023)               │ climate disclosure; absorbs TCFD;          │
+  │                      │ mandatory in many countries by 2026        │
   ├──────────────────────┼────────────────────────────────────────────┤
   │ SEC Climate Rule     │ US public companies; mandatory (when      │
   │ (2024, stayed)       │ effective); Scope 1+2 required; Scope 3   │
   │                      │ if material or in SBTi target;            │
   │                      │ currently stayed pending court review     │
   ├──────────────────────┼────────────────────────────────────────────┤
-  │ EU CSRD              │ EU large companies; mandatory; ESRS       │
-  │ (Corporate Sustain.  │ (European Sustainability Reporting Stds); │
-  │ Reporting Directive) │ double materiality; very broad; audited   │
+  │ EU CSRD              │ EU large companies; mandatory; ESRS        │
+  │ (Corporate Sustain.  │ (European Sustainability Reporting Stds);  │
+  │ Reporting Directive) │ double materiality; very broad; audited    │
   └──────────────────────┴────────────────────────────────────────────┘
 ```
 
@@ -513,16 +513,16 @@ Understanding which framework is mandatory vs. voluntary and who the audience is
   │ Afforestation/         │ Low permanence (fire, disease risk);  │
   │ reforestation          │ large scale; low cost                  │
   ├────────────────────────┼────────────────────────────────────────┤
-  │ BECCS (bioenergy +     │ Moderate permanence (geological);     │
-  │ CCS)                   │ scaling challenges                    │
+  │ BECCS (bioenergy +     │ Moderate permanence (geological);      │
+  │ CCS)                   │ scaling challenges                     │
   ├────────────────────────┼────────────────────────────────────────┤
   │ Direct Air Capture     │ Very high permanence (geological);    │
   │ + storage (DAC)        │ current cost $300–1000/MT CO₂;       │
   │                        │ Microsoft is major buyer (Climeworks,  │
   │                        │ CarbonCapture, Heirloom)              │
   ├────────────────────────┼────────────────────────────────────────┤
-  │ Enhanced weathering    │ High permanence; scaling challenge;   │
-  │                        │ land use intensive                    │
+  │ Enhanced weathering    │ High permanence; scaling challenge;    │
+  │                        │ land use intensive                     │
   ├────────────────────────┼────────────────────────────────────────┤
   │ Biochar                │ Moderate permanence (100+ yrs);       │
   │                        │ scalable; co-benefits for soil        │
@@ -542,7 +542,7 @@ Understanding which framework is mandatory vs. voluntary and who the audience is
   │ Scope 1 direct emissions     │ GHG Protocol — combustion EFs,    │
   │                              │ EPA AP-42, IPCC GWP100            │
   ├──────────────────────────────┼────────────────────────────────────┤
-  │ Scope 2 (market-based)       │ RECs + PPAs → supplier EFs;       │
+  │ Scope 2 (market-based)       │ RECs + PPAs → supplier EFs;        │
   │                              │ residual mix for remainder         │
   ├──────────────────────────────┼────────────────────────────────────┤
   │ Scope 3 value chain          │ GHG Protocol Corporate Value Chain │
@@ -557,10 +557,10 @@ Understanding which framework is mandatory vs. voluntary and who the audience is
   │                              │ waste generated); "zero waste"     │
   │                              │ = >90% diversion rate             │
   ├──────────────────────────────┼────────────────────────────────────┤
-  │ Surface LCA results          │ ISO 14040/14044; ecoinvent DB;    │
-  │ (carbon footprint of         │ TRACI or ReCiPe characterization; │
-  │ Surface hardware)            │ cradle-to-grave FU = 1 device/    │
-  │                              │ per year of use                   │
+  │ Surface LCA results          │ ISO 14040/14044; ecoinvent DB;     │
+  │ (carbon footprint of         │ TRACI or ReCiPe characterization;  │
+  │ Surface hardware)            │ cradle-to-grave FU = 1 device/     │
+  │                              │ per year of use                    │
   ├──────────────────────────────┼────────────────────────────────────┤
   │ Carbon removal portfolio     │ SBTi removal accounting; verified │
   │                              │ by Gold Standard, Verra/VCS,      │

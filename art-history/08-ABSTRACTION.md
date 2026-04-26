@@ -64,20 +64,20 @@ KANDINSKY'S ARGUMENT STRUCTURE
   ┌───────────────────────────────────────────────────────┐
   │ COLOR has inherent psychological effects:             │
   │                                                       │
-  │ Yellow: sharp, insistent, "earthly" excitement       │
-  │         (highest pitch of a trumpet)                 │
-  │ Blue:   deep, infinite, heavenly, withdrawal         │
+  │ Yellow: sharp, insistent, "earthly" excitement        │
+  │         (highest pitch of a trumpet)                  │
+  │ Blue:   deep, infinite, heavenly, withdrawal          │
   │         (cello, then organ, then double bass)         │
-  │ Red:    glowing, purposeful, confident               │
+  │ Red:    glowing, purposeful, confident                │
   │         (forte tuba)                                  │
-  │ Green:  peaceful, motionless, bourgeois              │
+  │ Green:  peaceful, motionless, bourgeois               │
   │         (middle violin)                               │
-  │ White:  silence that is not dead, possibility        │
+  │ White:  silence that is not dead, possibility         │
   │ Black:  dead silence, finality, nothingness           │
   │                                                       │
-  │ COLOR + FORM combinations have distinct resonances   │
-  │ Yellow works best in angular forms (triangle)        │
-  │ Blue works best in circular forms                    │
+  │ COLOR + FORM combinations have distinct resonances    │
+  │ Yellow works best in angular forms (triangle)         │
+  │ Blue works best in circular forms                     │
   │ Red in squares                                        │
   └───────────────────────────────────────────────────────┘
 
@@ -394,15 +394,15 @@ POLLOCK'S DRIP TECHNIQUE
 
   WHAT IT IS NOT:
   ┌───────────────────────────────────────────────────────┐
-  │ NOT random splashing: the trajectory of poured paint │
-  │ follows the laws of fluid dynamics. Pollock controls │
+  │ NOT random splashing: the trajectory of poured paint  │
+  │ follows the laws of fluid dynamics. Pollock controls  │
   │ the viscosity, height of pour, speed of movement.   │
-  │ The results are predictable within a range.          │
+  │ The results are predictable within a range.           │
   │                                                       │
-  │ NOT unconscious: Pollock worked until it was right   │
-  │ and stopped. He edited by cutting sections, painting │
-  │ out areas. The "accidents" are accepted when they    │
-  │ work and rejected when they don't.                   │
+  │ NOT unconscious: Pollock worked until it was right    │
+  │ and stopped. He edited by cutting sections, painting  │
+  │ out areas. The "accidents" are accepted when they     │
+  │ work and rejected when they don't.                    │
   └───────────────────────────────────────────────────────┘
 
   THE CLAIM (Harold Rosenberg, 1952):

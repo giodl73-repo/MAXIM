@@ -8,7 +8,7 @@ the **Pontryagin Maximum Principle** (PMP) replaces it.
 
 ```
 +-----------------------------------------------------------------------+
-|              OPTIMAL CONTROL LANDSCAPE                                 |
+|              OPTIMAL CONTROL LANDSCAPE                                |
 |                                                                       |
 |  VARIATIONAL CALCULUS:        OPTIMAL CONTROL:                        |
 |  u(t) unconstrained           control u(t) ∈ U (constrained set)    |
@@ -18,7 +18,7 @@ the **Pontryagin Maximum Principle** (PMP) replaces it.
 |                                                                       |
 |  PROBLEM: minimize J = ∫₀ᵀ L(x,u,t) dt + Ψ(x(T))                   |
 |           subject to: ẋ = f(x, u, t)  (dynamics)                    |
-|                        x(0) = x₀       (initial state)               |
+|                        x(0) = x₀       (initial state)                |
 |                        u(t) ∈ U         (control constraint)          |
 |                                                                       |
 |  x = state,  u = control,  L = running cost,  Ψ = terminal cost     |
@@ -72,17 +72,17 @@ Lev Pontryagin (1956) — one of the major results of 20th-century mathematics.
 
   PONTRYAGIN MAXIMUM PRINCIPLE:
   ┌──────────────────────────────────────────────────────────────────┐
-  │ If u*(t) is optimal, then there exists costate p(t) such that:  │
+  │ If u*(t) is optimal, then there exists costate p(t) such that:   │
   │                                                                  │
   │ 1. STATE EQUATION:  ẋ* = ∂H/∂p = f(x*, u*, t)                 │
   │                                                                  │
   │ 2. COSTATE EQUATION: ṗ = −∂H/∂x = ∂L/∂x − p·∂f/∂x            │
-  │    (backward ODE! — integrated from T to 0)                     │
+  │    (backward ODE! — integrated from T to 0)                      │
   │    Transversality: p(T) = −∂Ψ/∂x(T) (terminal condition for p)│
   │                                                                  │
-  │ 3. MAXIMUM CONDITION:                                           │
+  │ 3. MAXIMUM CONDITION:                                            │
   │    H(x*(t), p(t), u*(t), t) = max_{u ∈ U} H(x*(t), p(t), u, t)│
-  │    The optimal control MAXIMIZES the Hamiltonian at each t.     │
+  │    The optimal control MAXIMIZES the Hamiltonian at each t.      │
   └──────────────────────────────────────────────────────────────────┘
 
   KEY DIFFERENCE from E-L:

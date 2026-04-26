@@ -6,7 +6,7 @@ Effect systems track what "side effects" a computation can perform — IO, state
 
 ```
 +--------------------------------------------------------------------------+
-|                    EFFECT SYSTEMS LANDSCAPE                               |
+|                    EFFECT SYSTEMS LANDSCAPE                              |
 +--------------------------------------------------------------------------+
 |                                                                          |
 |  THE PROBLEM:                                                            |
@@ -16,16 +16,16 @@ Effect systems track what "side effects" a computation can perform — IO, state
 |                                                                          |
 |  APPROACHES:                                                             |
 |  ┌──────────────────┬──────────────────────┬────────────────────────┐  |
-|  │ MONADS           │ ALGEBRAIC EFFECTS     │ CAPABILITY TYPES       │  |
-|  │ Moggi 1991       │ Plotkin/Power 2003    │ Capabilities-as-tokens │  |
-|  │                  │                       │                        │  |
-|  │ Haskell IO, State│ Eff language, Koka    │ Scala CC, OCaml 5     │  |
-|  │ compose via >>=  │ compose via handlers  │ capabilities restrict  │  |
-|  │ (bind)           │ algebraic operations  │ effect use             │  |
-|  │                  │                       │                        │  |
+|  │ MONADS           │ ALGEBRAIC EFFECTS    │ CAPABILITY TYPES       │  |
+|  │ Moggi 1991       │ Plotkin/Power 2003   │ Capabilities-as-tokens │  |
+|  │                  │                      │                        │  |
+|  │ Haskell IO, State│ Eff language, Koka   │ Scala CC, OCaml 5      │  |
+|  │ compose via >>=  │ compose via handlers │ capabilities restrict  │  |
+|  │ (bind)           │ algebraic operations │ effect use             │  |
+|  │                  │                      │                        │  |
 |  │ n effects =       │ n effects compose    │ n effects: capability   │  |
 |  │ 2ⁿ transformer   │ naturally              │ tokens in environment   │  |
-|  │ stack options    │ handlers are first-   │                        │  |
+|  │ stack options    │ handlers are first-  │                        │  |
 |  │                  │ class                  │                        │  |
 |  └──────────────────┴──────────────────────┴────────────────────────┘  |
 |                                                                          |

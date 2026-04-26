@@ -8,7 +8,7 @@ Social control theory asks the opposite question from strain theory: not "why do
 
 ```
 +------------------------------------------------------------------+
-|           SOCIAL CONTROL / LABELING LANDSCAPE                   |
+|           SOCIAL CONTROL / LABELING LANDSCAPE                    |
 +------------------------------------------------------------------+
 |                                                                  |
 |  SOCIAL CONTROL THEORIES           LABELING THEORIES            |

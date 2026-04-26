@@ -13,22 +13,22 @@ VARIANT CALLING: FINDING WHAT DIFFERS FROM REFERENCE
   ┌──────────────────────────────────────────────────────────────────┐
   │ SNP   Single Nucleotide Polymorphism  1 bp substitution          │
   │       REF: A  ALT: G  (most common, ~3 million per genome)       │
-  │                                                                   │
+  │                                                                  │
   │ Indel INsertion/DELetion              1–50 bp                    │
   │       REF: ATCG  ALT: ATC (deletion of G)                        │
-  │       Frameshift if in coding region                              │
-  │                                                                   │
+  │       Frameshift if in coding region                             │
+  │                                                                  │
   │ CNV   Copy Number Variant             1–10 Mb                    │
   │       Extra or missing copies of large genomic segments          │
   │       ~1,000 CNVs per genome vs. reference                       │
-  │                                                                   │
+  │                                                                  │
   │ SV    Structural Variant              50 bp–Mb                   │
   │       Inversions, translocations, large insertions/deletions     │
   │       ~1,000–10,000 SVs per genome vs. reference                 │
-  │                                                                   │
+  │                                                                  │
   │ Tandem Repeat Variation (STR/VNTR)                               │
   │       Variation in repeat copy number                            │
-  │       Medical: HTT (Huntington's), FMR1 (fragile X)             │
+  │       Medical: HTT (Huntington's), FMR1 (fragile X)              │
   └──────────────────────────────────────────────────────────────────┘
 
   SIGNAL DETECTION FRAMING:
@@ -95,7 +95,7 @@ The Genome Analysis Toolkit (GATK) from the Broad Institute is the field standar
   │ Problem: Single quality threshold → poor precision/recall│
   │ Solution: Train Gaussian mixture model on known variants │
   │ Training data: HapMap, 1000G, dbSNP (known true positives)│
-  │ Features: QD, MQ, FS, SOR, MQRankSum, ReadPosRankSum   │
+  │ Features: QD, MQ, FS, SOR, MQRankSum, ReadPosRankSum    │
   │ Output: VQSLOD score + PASS/FILTER labels               │
   │ For small cohorts (<30 samples): use CNN-based scoring  │
   └─────────────────────────────────────────────────────────┘
@@ -151,21 +151,21 @@ The Genome Analysis Toolkit (GATK) from the Broad Institute is the field standar
   =========================
 
   ┌─────────────────────────────────────────────────────────────────┐
-  │                                                                  │
-  │  DELETION:        ──[A]──[B]──[C]──  →  ──[A]──[C]──           │
+  │                                                                 │
+  │  DELETION:        ──[A]──[B]──[C]──  →  ──[A]──[C]──            │
   │                         ↑ [B] removed                           │
-  │                                                                  │
-  │  INSERTION:       ──[A]──[B]──  →  ──[A]──[NEW]──[B]──         │
-  │                                                                  │
+  │                                                                 │
+  │  INSERTION:       ──[A]──[B]──  →  ──[A]──[NEW]──[B]──          │
+  │                                                                 │
   │  INVERSION:       ──[A]──[B]──[C]──  →  ──[A]──[B']──[C]──    │
   │                         ↑ [B] reversed                          │
-  │                                                                  │
+  │                                                                 │
   │  DUPLICATION:     ──[A]──[B]──  →  ──[A]──[B]──[B]──[B]──     │
   │  (tandem)                ↑ [B] copied                           │
-  │                                                                  │
+  │                                                                 │
   │  TRANSLOCATION:   Segment moves to different chromosome         │
   │                   der(22;9) Philadelphia chromosome in CML      │
-  │                                                                  │
+  │                                                                 │
   │  MOBILE ELEMENT:  Transposable element inserts at new location  │
   │                   (LINE-1 / Alu retrotransposition)             │
   └─────────────────────────────────────────────────────────────────┘
@@ -208,7 +208,7 @@ The Genome Analysis Toolkit (GATK) from the Broad Institute is the field standar
   │ pLI (probability of LoF intolerance): 0–1               │
   │   pLI > 0.9 = gene likely lethal to lose one copy       │
   │   Used for: assessing deleteriousness of LoF variants   │
-  │                                                          │
+  │                                                         │
   │ Z-score (missense constraint): negative = constrained   │
   │   High Z = gene under strong purifying selection        │
   └─────────────────────────────────────────────────────────┘
@@ -279,13 +279,13 @@ The Genome Analysis Toolkit (GATK) from the Broad Institute is the field standar
 
   CRITERIA (summarized):
   ┌────────────────────────────────────────────────────────┐
-  │ PVS1: Null variant in LoF-intolerant gene             │
-  │ PS1–4: Pathogenic evidence (frequency/functional/etc) │
-  │ PM1–6: Moderate pathogenic evidence                   │
-  │ PP1–5: Supporting pathogenic evidence                 │
+  │ PVS1: Null variant in LoF-intolerant gene              │
+  │ PS1–4: Pathogenic evidence (frequency/functional/etc)  │
+  │ PM1–6: Moderate pathogenic evidence                    │
+  │ PP1–5: Supporting pathogenic evidence                  │
   │ BA1: AF >5% in gnomAD → Benign standalone            │
-  │ BS1–4: Strong benign evidence                         │
-  │ BP1–7: Supporting benign evidence                     │
+  │ BS1–4: Strong benign evidence                          │
+  │ BP1–7: Supporting benign evidence                      │
   └────────────────────────────────────────────────────────┘
 
   DATABASES:
@@ -319,13 +319,13 @@ The Genome Analysis Toolkit (GATK) from the Broad Institute is the field standar
 
   TUMOR-NORMAL PAIRED ANALYSIS:
   ┌─────────────────────────────────────────────────────────┐
-  │ Normal sample: establishes germline background           │
+  │ Normal sample: establishes germline background          │
   │ Tumor sample:  contains somatic mutations               │
-  │                                                          │
-  │ Mutect2 model:                                           │
+  │                                                         │
+  │ Mutect2 model:                                          │
   │ P(somatic | reads in tumor, reads in normal)            │
   │ Filters: panel of normals (PoN), germline AF filter     │
-  │                                                          │
+  │                                                         │
   │ Tumor Mutational Burden (TMB):                          │
   │ # somatic mutations per Mb of genome                    │
   │ Low: <5/Mb (most cancers)                               │

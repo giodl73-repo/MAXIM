@@ -6,7 +6,7 @@
 +------------------------------------------------------------------------+
 |                     VECTOR CALCULUS LANDSCAPE                          |
 |                                                                        |
-|   COORDINATE EXPRESSION (R³)          COORDINATE-FREE                 |
+|   COORDINATE EXPRESSION (R³)          COORDINATE-FREE                  |
 |   ─────────────────────────────        (Exterior Calculus)             |
 |                                                                        |
 |   f: R³→R   ──── ∇  (gradient) ──>  F: R³→R³   ≡  d on 0-forms       |
@@ -318,9 +318,9 @@ Generalization of Laplace's equation. Shows up constantly in E&M.
 |                                                                   |
 |   SCALAR FIELD f                         VECTOR FIELD F           |
 |                                                                   |
-|        │ ∇ (gradient)          ∇· (divergence) │                 |
-|        ▼                                        ▼                |
-|   VECTOR FIELD ∇f              SCALAR FIELD ∇·F                  |
+|        │ ∇ (gradient)          ∇· (divergence) │                  |
+|        ▼                                        ▼                 |
+|   VECTOR FIELD ∇f              SCALAR FIELD ∇·F                   |
 |        │                                                          |
 |        │ ∇· (divergence of gradient)                              |
 |        ▼                                                          |

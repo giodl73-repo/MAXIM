@@ -17,7 +17,7 @@ Each has a distinct philosophy and ideal domain of application.
 |                                                                       |
 |  FINITE ELEMENTS (FEM):                                               |
 |  Discretize the WEAK FORMULATION on a mesh.                           |
-|  Handles complex geometries. Rigorous error theory (Céa's lemma).    |
+|  Handles complex geometries. Rigorous error theory (Céa's lemma).     |
 |  Sparse linear system; exploits local support of basis functions.     |
 |                                                                       |
 |  FINITE VOLUMES (FV):                                                 |
@@ -26,7 +26,7 @@ Each has a distinct philosophy and ideal domain of application.
 |  Standard in CFD (fluid dynamics), hyperbolic conservation laws.      |
 |                                                                       |
 |  SPECTRAL METHODS:                                                    |
-|  Expand in global basis (Fourier, Chebyshev, spherical harmonics).   |
+|  Expand in global basis (Fourier, Chebyshev, spherical harmonics).    |
 |  Exponential convergence for smooth problems.                         |
 |  Dense operations; poor for discontinuities.                          |
 |                                                                       |
@@ -139,14 +139,14 @@ Each has a distinct philosophy and ideal domain of application.
   ┌─────────────────────────────────────────────────────────────┐
   │  EQUATION     METHOD      STABILITY         ORDER           │
   │  ─────────    ──────      ─────────         ─────           │
-  │  Heat         Explicit    Δt ≤ h²/2α        O(Δt + h²)     │
-  │  Heat         Implicit    Unconditional     O(Δt + h²)     │
-  │  Heat         C-N         Unconditional     O(Δt² + h²)    │
+  │  Heat         Explicit    Δt ≤ h²/2α        O(Δt + h²)      │
+  │  Heat         Implicit    Unconditional     O(Δt + h²)      │
+  │  Heat         C-N         Unconditional     O(Δt² + h²)     │
   │  Wave         Explicit    Δt ≤ h/c (CFL!)   O(Δt² + h²)   │
-  │  Wave         Implicit    Unconditional*    O(Δt² + h²)    │
+  │  Wave         Implicit    Unconditional*    O(Δt² + h²)     │
   │  Conv. u_t+cu_x=0  Upwind  Δt ≤ h/c        O(Δt + h)     │
   │                                                             │
-  │  *Wave implicit: unconditionally stable but dispersive     │
+  │  *Wave implicit: unconditionally stable but dispersive      │
   └─────────────────────────────────────────────────────────────┘
 ```
 
@@ -258,13 +258,13 @@ The systematic method for checking stability of FD schemes:
   V-CYCLE:
   ┌──────────────────────────────────────────────────────────────┐
   │ 1. PRE-SMOOTH: ν₁ smoothing steps (Gauss-Seidel) on fine grid│
-  │ 2. RESTRICT: compute residual r = b − Au, restrict to coarse  │
+  │ 2. RESTRICT: compute residual r = b − Au, restrict to coarse │
   │              grid: r^H = I_h^H r^h                           │
   │ 3. COARSE SOLVE: solve A^H e^H = r^H (direct if small enough) │
   │    or RECURSE: apply V-cycle on coarse grid                  │
   │ 4. PROLONGATE: interpolate correction e^h = I_H^h e^H        │
-  │ 5. CORRECT: u ← u + e^h                                     │
-  │ 6. POST-SMOOTH: ν₂ smoothing steps                          │
+  │ 5. CORRECT: u ← u + e^h                                      │
+  │ 6. POST-SMOOTH: ν₂ smoothing steps                           │
   └──────────────────────────────────────────────────────────────┘
 
   COMPLEXITY: O(N) per V-cycle, O(N) total for full convergence.
@@ -381,7 +381,7 @@ ML-BASED PDE SOLVERS — LANDSCAPE
   │  Fixed grid/mesh        │     │  Mesh-free, point-sampled    │
   │  Sparse linear system   │     │  Minimize PDE residual       │
   │  Proven error bounds    │     │  No mesh generation needed   │
-  │  Cost: O(N^α), α=1..3  │     │  Cost: training iterations   │
+  │  Cost: O(N^α), α=1..3   │     │  Cost: training iterations   │
   └─────────────────────────┘     └──────────────────────────────┘
                                   ┌──────────────────────────────┐
                                   │  Neural Operators (FNO, etc.)│

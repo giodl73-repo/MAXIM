@@ -12,17 +12,17 @@ Performance occasion
 +-------------------------------------------------------+
 |              THE ORAL SINGER'S TOOLKIT                |
 |                                                       |
-|  FORMULAS                    THEMES                  |
-|  --------                    ------                  |
-|  "swift-footed Achilles"     Arming of the hero      |
-|  "wine-dark sea"             Feasting / hospitality  |
-|  "rosy-fingered Dawn"        Council of heroes       |
-|  "when shining Dawn arose"   Battle narrative        |
-|  "much-enduring Odysseus"    Lament / grief          |
-|                              Descent to underworld   |
+|  FORMULAS                    THEMES                   |
+|  --------                    ------                   |
+|  "swift-footed Achilles"     Arming of the hero       |
+|  "wine-dark sea"             Feasting / hospitality   |
+|  "rosy-fingered Dawn"        Council of heroes        |
+|  "when shining Dawn arose"   Battle narrative         |
+|  "much-enduring Odysseus"    Lament / grief           |
+|                              Descent to underworld    |
 |                                                       |
-|  Syntactic slots + metric    Typical scene templates |
-|  constraints drive reuse     expanded/compressed     |
+|  Syntactic slots + metric    Typical scene templates  |
+|  constraints drive reuse     expanded/compressed      |
 +-------------------------------------------------------+
         |                              |
         v                              v

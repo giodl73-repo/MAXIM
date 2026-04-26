@@ -10,16 +10,16 @@ frequency space.
 
 ```
 +-----------------------------------------------------------------------+
-|              FOURIER METHODS LANDSCAPE                                 |
+|              FOURIER METHODS LANDSCAPE                                |
 |                                                                       |
 |  SEPARATION OF VARIABLES:                                             |
 |  u(x,t) = X(x)·T(t)  →  each factor solves an ODE                   |
 |  Eigenvalue problem determines the basis functions                    |
-|  Works on: rectangles, cylinders, spheres (separable geometries)     |
+|  Works on: rectangles, cylinders, spheres (separable geometries)      |
 |                                                                       |
 |  FOURIER SERIES (finite domain):                                      |
-|  u(x) = Σ c_n φ_n(x)  where φ_n are the eigenfunctions               |
-|  Inner product: (f,g) = ∫ f·g dx                                     |
+|  u(x) = Σ c_n φ_n(x)  where φ_n are the eigenfunctions                |
+|  Inner product: (f,g) = ∫ f·g dx                                      |
 |  Coefficients: c_n = (u, φ_n) / (φ_n, φ_n)                          |
 |                                                                       |
 |  FOURIER TRANSFORM (infinite domain):                                 |
@@ -29,8 +29,8 @@ frequency space.
 |                                                                       |
 |  LAPLACE TRANSFORM (temporal):                                        |
 |  Û(x,s) = ∫₀^∞ u(x,t) e^{−st} dt                                   |
-|  Turns ∂/∂t → ×s (after handling IC)                                 |
-|  Converts time-evolution PDE → ODE in x                              |
+|  Turns ∂/∂t → ×s (after handling IC)                                  |
+|  Converts time-evolution PDE → ODE in x                               |
 |                                                                       |
 +-----------------------------------------------------------------------+
 ```
@@ -57,7 +57,7 @@ Separation of variables always leads to a Sturm-Liouville eigenvalue problem:
   │ If p,q,w are smooth and p,w > 0:                                │
   │ • Eigenvalues λ₁ ≤ λ₂ ≤ λ₃ ≤ ... → +∞ (discrete, real)       │
   │ • Eigenfunctions φ_n are orthogonal: ∫ φ_n φ_m w dx = 0 (n≠m) │
-  │ • Completeness: {φ_n} forms a basis for L²_w([a,b])            │
+  │ • Completeness: {φ_n} forms a basis for L²_w([a,b])             │
   │ • nth eigenfunction has exactly n−1 zeros in (a,b)              │
   └─────────────────────────────────────────────────────────────────┘
 
@@ -105,10 +105,10 @@ Separation of variables always leads to a Sturm-Liouville eigenvalue problem:
 
   KEY PROPERTIES:
   ┌────────────────────────────────────────────────────────────┐
-  │  F[u']         = ik · û(k)                                │
+  │  F[u']         = ik · û(k)                                 │
   │  F[u'']        = (ik)² û(k) = −k² û(k)                   │
   │  F[u^{(n)}]    = (ik)ⁿ û(k)                              │
-  │  F[xu]         = i (d/dk) û(k)                            │
+  │  F[xu]         = i (d/dk) û(k)                             │
   │  F[e^{iax}u]   = û(k−a)     (modulation → frequency shift)│
   │  F[u(x−a)]     = e^{−ika} û(k)  (translation → phase shift)│
   │  F[u * v]      = û(k) · v̂(k)   (convolution → product)   │

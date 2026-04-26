@@ -33,7 +33,7 @@ INNATE IMMUNITY: THE ALWAYS-ON FIREWALL
   ┌──────────────────────────────────────────────────────────────┐
   │ PAMP: "I see something foreign" → antimicrobial response     │
   │ DAMP: "I see damage" → repair/inflammation response          │
-  │                                                               │
+  │                                                              │
   │ Together they define the "danger model" of immunity:         │
   │ Immune activation = foreign + dangerous (or damage alone)    │
   └──────────────────────────────────────────────────────────────┘
@@ -99,23 +99,23 @@ INNATE IMMUNITY: THE ALWAYS-ON FIREWALL
   INFLAMMASOME: The cytoplasmic kill switch
   ┌────────────────────────────────────────────────────────────┐
   │ NLRP3 inflammasome (most studied):                         │
-  │                                                             │
+  │                                                            │
   │ SIGNAL 1 (priming): LPS → NF-κB → NLRP3 + IL-1β mRNA    │
-  │ SIGNAL 2 (activation): ATP, uric acid crystals,           │
-  │   silica crystals, bacterial toxins, mitochondrial ROS    │
-  │                                                             │
+  │ SIGNAL 2 (activation): ATP, uric acid crystals,            │
+  │   silica crystals, bacterial toxins, mitochondrial ROS     │
+  │                                                            │
   │ NLRP3 + ASC + Caspase-1 → INFLAMMASOME complex           │
-  │                                                             │
+  │                                                            │
   │ Caspase-1 cleaves:                                         │
-  │   Pro-IL-1β → mature IL-1β (potent inflammatory cytokine) │
+  │   Pro-IL-1β → mature IL-1β (potent inflammatory cytokine)  │
   │   Pro-IL-18 → mature IL-18 (IFN-γ inducer)               │
-  │   Gasdermin D → pore in membrane → PYROPTOSIS             │
-  │   (inflammatory cell death — releases all contents)       │
-  │                                                             │
-  │ DISEASE CONNECTIONS:                                        │
+  │   Gasdermin D → pore in membrane → PYROPTOSIS              │
+  │   (inflammatory cell death — releases all contents)        │
+  │                                                            │
+  │ DISEASE CONNECTIONS:                                       │
   │ Gout: Uric acid crystals activate NLRP3 → IL-1β → pain   │
-  │ Cryopyrinopathies: Gain-of-function NLRP3 mutations       │
-  │ COVID-19: Hyperactive inflammasome → cytokine storm       │
+  │ Cryopyrinopathies: Gain-of-function NLRP3 mutations        │
+  │ COVID-19: Hyperactive inflammasome → cytokine storm        │
   └────────────────────────────────────────────────────────────┘
 ```
 
@@ -140,19 +140,19 @@ INNATE IMMUNITY: THE ALWAYS-ON FIREWALL
   │   Detects cytoplasmic double-stranded DNA                 │
   │   Activated by: viral DNA, bacterial DNA, self-DNA        │
   │   (micronuclei, mitochondrial DNA leak)                   │
-  │                                                            │
-  │ cGAS catalyzes: GTP + ATP → cGAMP (cyclic dinucleotide)  │
-  │                                                            │
+  │                                                           │
+  │ cGAS catalyzes: GTP + ATP → cGAMP (cyclic dinucleotide)   │
+  │                                                           │
   │ cGAMP binds STING (ER-resident adapter)                   │
-  │       │                                                    │
+  │       │                                                   │
   │       ▼ TBK1 kinase                                       │
-  │       │                                                    │
+  │       │                                                   │
   │       ▼ IRF3 phosphorylation                              │
-  │       │                                                    │
+  │       │                                                   │
   │       ▼ Type I IFN gene expression → antiviral state      │
-  │                                                            │
+  │                                                           │
   │ THERAPEUTIC: STING agonists as cancer immunotherapy       │
-  │ DISEASE: cGAS-STING activates on self-DNA in SLE, AGS    │
+  │ DISEASE: cGAS-STING activates on self-DNA in SLE, AGS     │
   └───────────────────────────────────────────────────────────┘
 ```
 
@@ -172,15 +172,15 @@ INNATE IMMUNITY: THE ALWAYS-ON FIREWALL
 
   THREE ACTIVATION PATHWAYS:
   ┌──────────────────────────────────────────────────────────────────┐
-  │                                                                   │
+  │                                                                  │
   │  CLASSICAL                 LECTIN                  ALTERNATIVE   │
   │  ─────────                 ──────                  ───────────   │
-  │  Antibody (IgG/IgM)        MBL binds               Spontaneous  │
+  │  Antibody (IgG/IgM)        MBL binds               Spontaneous   │
   │  binds antigen             mannose on              C3 hydrolysis │
-  │  → C1q recognizes          pathogen surface        → low-level  │
-  │  Fc regions                → MASP1/2 activated     activation   │
-  │                                                                   │
-  │  C1q:C1r:C1s complex       MBL:MASP2 complex       properdin    │
+  │  → C1q recognizes          pathogen surface        → low-level   │
+  │  Fc regions                → MASP1/2 activated     activation    │
+  │                                                                  │
+  │  C1q:C1r:C1s complex       MBL:MASP2 complex       properdin     │
   │       │                         │                    stabilizes  │
   │       └─────────────────────────┴────────────────────┘           │
   │                                 │                                 │
@@ -195,8 +195,8 @@ INNATE IMMUNITY: THE ALWAYS-ON FIREWALL
   │              C3b OPSONIZES             C3b + C3b → C5 convertase │
   │              bacteria for              → C5 → C5a + C5b          │
   │              phagocytosis              → C5b678 + C9 → MAC       │
-  │                                                                   │
-  │  C3a, C5a = ANAPHYLATOXINS → Mast cell degranulation            │
+  │                                                                  │
+  │  C3a, C5a = ANAPHYLATOXINS → Mast cell degranulation             │
   │  MAC (C5b-9) = punches hole in bacterial membrane → lysis        │
   └──────────────────────────────────────────────────────────────────┘
 
@@ -255,16 +255,16 @@ INNATE IMMUNITY: THE ALWAYS-ON FIREWALL
   POLARIZATION:
   ┌──────────────────────────────────────────────────────────┐
   │ M1 (classical activation):                               │
-  │   Stimulated by: LPS, IFN-γ                             │
-  │   Functions: Killing bacteria, pro-inflammatory           │
+  │   Stimulated by: LPS, IFN-γ                              │
+  │   Functions: Killing bacteria, pro-inflammatory          │
   │   Products: NO (nitric oxide), TNF, IL-6, IL-12          │
-  │                                                           │
+  │                                                          │
   │ M2 (alternative activation):                             │
-  │   Stimulated by: IL-4, IL-13, IL-10                     │
+  │   Stimulated by: IL-4, IL-13, IL-10                      │
   │   Functions: Wound healing, parasite killing             │
-  │   Products: IL-10, TGF-β, arginase                      │
-  │                                                           │
-  │ (M1/M2 is oversimplified; real macrophages exist on     │
+  │   Products: IL-10, TGF-β, arginase                       │
+  │                                                          │
+  │ (M1/M2 is oversimplified; real macrophages exist on      │
   │  a spectrum with many activation states)                 │
   └──────────────────────────────────────────────────────────┘
 
@@ -306,11 +306,11 @@ INNATE IMMUNITY: THE ALWAYS-ON FIREWALL
   BALANCE: Activating vs. inhibitory receptors
   ┌──────────────────────────────────────────────────────────┐
   │ INHIBITORY: KIRs (Killer Immunoglobulin-like Receptors)  │
-  │   Bind MHC I → "Cell is normal, don't kill"             │
-  │                                                           │
+  │   Bind MHC I → "Cell is normal, don't kill"              │
+  │                                                          │
   │ ACTIVATING: NKG2D, NCRs (NKp30, NKp44, NKp46)          │
   │   Bind stress ligands → "Kill this cell"                 │
-  │                                                           │
+  │                                                          │
   │ Kill happens when: Activating > Inhibitory               │
   └──────────────────────────────────────────────────────────┘
 
@@ -335,17 +335,17 @@ INNATE IMMUNITY: THE ALWAYS-ON FIREWALL
 
   VASCULAR CHANGES:
   ┌──────────────────────────────────────────────────────────────┐
-  │ 1. Vasodilation: Histamine, prostaglandins → blood flow ↑   │
+  │ 1. Vasodilation: Histamine, prostaglandins → blood flow ↑    │
   │    → Redness + heat                                          │
-  │                                                               │
+  │                                                              │
   │ 2. Increased permeability: Histamine, bradykinin             │
-  │    → Plasma proteins leak into tissue → edema (swelling)    │
-  │    → Fibrin deposition → clot formation at site             │
-  │                                                               │
+  │    → Plasma proteins leak into tissue → edema (swelling)     │
+  │    → Fibrin deposition → clot formation at site              │
+  │                                                              │
   │ 3. Leukocyte extravasation (rolling → adhesion → diapedesis)│
   │    Chemokines (IL-8/CXCL8) → leukocyte rolling on selectins│
   │    → integrin activation → firm adhesion (ICAM-1:LFA-1)    │
-  │    → diapedesis through vessel wall → chemokine gradient    │
+  │    → diapedesis through vessel wall → chemokine gradient     │
   └──────────────────────────────────────────────────────────────┘
 
   PROSTAGLANDIN PATHWAY:

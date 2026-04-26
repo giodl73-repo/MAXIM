@@ -4,7 +4,7 @@
 
 ```
 +------------------------------------------------------------------+
-|                   COMBAT SPORTS LANDSCAPE                         |
+|                   COMBAT SPORTS LANDSCAPE                        |
 |                                                                  |
 |  STRIKING                GRAPPLING              MIXED            |
 |  --------                ---------              -----            |
@@ -15,17 +15,17 @@
 |  Taekwondo               Sumo (Japanese)                         |
 |  Boxing (bare-knuckle)   Catch wrestling                         |
 |                                                                  |
-|  TIMELINE:                                                        |
+|  TIMELINE:                                                       |
 |  Ancient boxing (himantes) -> Broughton Rules (1743) ->          |
 |  London Prize Ring (1838) -> Queensberry Rules (1867) ->         |
 |  Modern boxing (gloves, weight classes, organizations) ->        |
-|  WBC/WBA/IBF/WBO split (1980s) -> MMA/UFC (1993) ->             |
+|  WBC/WBA/IBF/WBO split (1980s) -> MMA/UFC (1993) ->              |
 |  Zuffa purchase/mainstream (2001) -> billion-dollar MMA          |
 |                                                                  |
-|  JUDO SPECIAL:                                                    |
+|  JUDO SPECIAL:                                                   |
 |  Kano 1882 -> systematic codification -> Olympic 1964 ->         |
-|  Gracie BJJ fork (1910s-20s) -> UFC 1993 (Royce Gracie) ->      |
-|  MMA grappling foundation                                         |
+|  Gracie BJJ fork (1910s-20s) -> UFC 1993 (Royce Gracie) ->       |
+|  MMA grappling foundation                                        |
 +------------------------------------------------------------------+
 ```
 

@@ -8,9 +8,9 @@ why a small number of "toolkit" genes control the body plans of all animals.
 
 ```
 ┌──────────────────────────────────────────────────────────────────┐
-│                   EVO-DEVO LANDSCAPE                              │
+│                   EVO-DEVO LANDSCAPE                             │
 │                                                                    │
-│  CORE INSIGHT: The same toolkit genes                             │
+│  CORE INSIGHT: The same toolkit genes                            │
 │  control development in fly, worm, fish, and human.              │
 │  Morphological diversity arises from WHEN, WHERE, HOW MUCH       │
 │  these genes are expressed — not from different genes.           │

@@ -14,7 +14,7 @@ ROPE STRUCTURE HIERARCHY
                                      together)         together)
 
   ┌──────┐       ┌──────────┐      ┌─────────────┐  ┌─────────────┐
-  │ ~~   │  →    │ ≋≋≋≋≋≋≋ │  →   │  STRAND 1   │  │  ╭───────╮  │
+  │ ~~   │  →    │ ≋≋≋≋≋≋≋ │  →   │  STRAND 1   │  │  ╭───────╮   │
   │ ~~   │       │ (Z-twist)│      │  (3 yarns)  │  │  │ ╭───╮ │  │
   │fiber │       │          │      │  STRAND 2   │ →│  │ │   │ │  │
   └──────┘       └──────────┘      │  (3 yarns)  │  │  │ ╰───╯ │  │
@@ -46,10 +46,10 @@ TWISTED (LAID) ROPE
 
   Cross-section view:          Side view:
   ┌─────────────────────┐     ┌────────────────────────────────────┐
-  │   STRAND 1  ╮        │     │  /\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\ │
-  │  ╱──────────╯        │     │  Left lay: S on the body         │
-  │  STRAND 2            │     │  Right lay: Z on the body        │
-  │  ╱──────────╮        │     │  (most rope is right-lay = Z)    │
+  │   STRAND 1  ╮       │     │  /\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\ │
+  │  ╱──────────╯        │     │  Left lay: S on the body          │
+  │  STRAND 2            │     │  Right lay: Z on the body         │
+  │  ╱──────────╮        │     │  (most rope is right-lay = Z)     │
   │  STRAND 3  ╯         │     └────────────────────────────────────┘
   └─────────────────────┘
 
@@ -61,7 +61,7 @@ TWISTED (LAID) ROPE
   │  8-carrier braid:  4 clockwise + 4 counterclockwise            │
   │  16-carrier braid: 8 + 8 (tighter, rounder, smoother)         │
   │  Hollow braid: no core — can accept core for double-braid      │
-  │  Solid braid: fully filled cross-section                        │
+  │  Solid braid: fully filled cross-section                         │
   └──────────────────────────────────────────────────────────────────┘
 
   KERNMANTLE (core-and-sheath):
@@ -69,7 +69,7 @@ TWISTED (LAID) ROPE
   │  KERN: parallel fiber core (takes 70–80% of load)              │
   │  MANTLE: braided sheath (abrasion protection, handling)        │
   │  Cross-section:  [sheath ═══ CORE ═══ sheath]                  │
-  │  Use: climbing rope, technical rescue                           │
+  │  Use: climbing rope, technical rescue                            │
   └──────────────────────────────────────────────────────────────────┘
 ```
 
@@ -94,30 +94,30 @@ NATURAL vs. SYNTHETIC FIBER COMPARISON
   ERA 2 (1938–1980s): FIRST-GENERATION SYNTHETICS
   ┌────────────────────────────────────────────────────────────────┐
   │ Nylon (PA 6/6.6, DuPont 1938): 10× manila strength, elastic  │
-  │ Polyester (PET, ICI 1941): lower stretch than nylon, marine   │
-  │ Polypropylene (PP, 1950s): cheap, floats, weak UV degradation │
+  │ Polyester (PET, ICI 1941): lower stretch than nylon, marine    │
+  │ Polypropylene (PP, 1950s): cheap, floats, weak UV degradation  │
   └────────────────────────────────────────────────────────────────┘
 
   ERA 3 (1980s–present): HIGH-PERFORMANCE SYNTHETICS
   ┌────────────────────────────────────────────────────────────────┐
   │ UHMWPE (Dyneema/Spectra, DSM 1979): 15× steel by weight      │
-  │ Aramid (Kevlar/Technora, DuPont 1965): heat-resistant         │
-  │ Vectran (liquid crystal polymer, Kuraray): ultra-low creep    │
-  │ PBO (Zylon, Toyobo): highest strength, UV degradation warning │
+  │ Aramid (Kevlar/Technora, DuPont 1965): heat-resistant          │
+  │ Vectran (liquid crystal polymer, Kuraray): ultra-low creep     │
+  │ PBO (Zylon, Toyobo): highest strength, UV degradation warning  │
   └────────────────────────────────────────────────────────────────┘
 
   PERFORMANCE SNAPSHOT:
   ┌───────────────────────────────────────────────────────────────────────┐
-  │ Fiber          Tensile (MPa)  Elongation%  Density(g/cc)  UV stable? │
+  │ Fiber          Tensile (MPa)  Elongation%  Density(g/cc)  UV stable?  │
   │ ─────────────────────────────────────────────────────────────────────│
-  │ Hemp (natural) 300–900        2–4%          1.4–1.5        Moderate  │
-  │ Nylon 6.6      900–1,000      20–30%         1.14          Good      │
-  │ Polyester      800–1,100      10–15%         1.38          Good      │
-  │ Polypropylene  300–500        15–25%         0.91          Poor      │
+  │ Hemp (natural) 300–900        2–4%          1.4–1.5        Moderate   │
+  │ Nylon 6.6      900–1,000      20–30%         1.14          Good       │
+  │ Polyester      800–1,100      10–15%         1.38          Good       │
+  │ Polypropylene  300–500        15–25%         0.91          Poor       │
   │ UHMWPE (Dyn.)  2,400–3,600   3–4% (rope)    0.97          Moderate  │
-  │ Kevlar 29      2,900–3,600   3.6%            1.44          Poor      │
-  │ Vectran HS     2,850–3,340   3.3%            1.41          Moderate  │
-  │ PBO (Zylon)    5,800         3.5%            1.56          Very poor │
+  │ Kevlar 29      2,900–3,600   3.6%            1.44          Poor       │
+  │ Vectran HS     2,850–3,340   3.3%            1.41          Moderate   │
+  │ PBO (Zylon)    5,800         3.5%            1.56          Very poor  │
   └───────────────────────────────────────────────────────────────────────┘
 ```
 
@@ -142,16 +142,16 @@ APPLICATION MAP
   │  Life safety escape: polyester or nylon, 5:1 min safety factor  │
   └─────────────────────────────────────────────────────────────────┘
   ┌─────────────────────────────────────────────────────────────────┐
-  │  LIFTING / RIGGING (see 08-INDUSTRIAL-USE.md)                  │
+  │  LIFTING / RIGGING (see 08-INDUSTRIAL-USE.md)                   │
   │  Wire rope: steel, torque-balanced, safety factor 5:1 to 8:1  │
-  │  Synthetic slings: web, round-sling, polyester or nylon        │
-  │  Chain: for high-temperature, abrasion-exposed applications    │
+  │  Synthetic slings: web, round-sling, polyester or nylon         │
+  │  Chain: for high-temperature, abrasion-exposed applications     │
   └─────────────────────────────────────────────────────────────────┘
   ┌─────────────────────────────────────────────────────────────────┐
-  │  HIGH-PERFORMANCE APPLICATIONS (see 09-MODERN-SYNTHETICS.md)   │
+  │  HIGH-PERFORMANCE APPLICATIONS (see 09-MODERN-SYNTHETICS.md)    │
   │  Offshore moorings: UHMWPE (Dyneema) for buoyancy + strength  │
-  │  Racing yacht rigging: Vectran (low creep)                     │
-  │  Aerospace: Zylon/Kevlar (weight-critical, not UV exposed)     │
+  │  Racing yacht rigging: Vectran (low creep)                      │
+  │  Aerospace: Zylon/Kevlar (weight-critical, not UV exposed)      │
   └─────────────────────────────────────────────────────────────────┘
 ```
 
@@ -173,7 +173,7 @@ ROPE STRENGTH TERMS
 
   SAFETY FACTORS BY APPLICATION:
   ┌──────────────────────────────────────────────────────────────────┐
-  │  Application         SF Typical   Comments                      │
+  │  Application         SF Typical   Comments                       │
   │  ─────────────────────────────────────────────────────────────── │
   │  Crane lifting        5:1 – 8:1   ASME B30; depends on mode    │
   │  Life safety          10:1        NFPA 1983 (rescue ropes)     │

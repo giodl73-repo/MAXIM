@@ -23,7 +23,7 @@ CONTEMPORARY PRACTICE LANDSCAPE
   |             Maiwa, Dharma (some natural),     |
   |             Earthues                          |
   |                                               |
-  |  Dye plants grown: weld, woad, indigo garden |
+  |  Dye plants grown: weld, woad, indigo garden  |
   |  Foraged: Japanese indigo (invasive), mugwort |
   |                                               |
   |  Knowledge: guild archives, Catharine Ellis,  |

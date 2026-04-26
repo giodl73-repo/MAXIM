@@ -8,23 +8,23 @@ Ecosystems are open thermodynamic systems: energy flows in (solar radiation or c
 
 ```
 +------------------------------------------------------------------+
-|              ECOSYSTEM ENERGY BUDGET                              |
-|                                                                   |
+|              ECOSYSTEM ENERGY BUDGET                             |
+|                                                                  |
 |  SOLAR INPUT (~340 W/m² global average)                          |
-|       |                                                           |
-|       | ~1-3% captured by photosynthesis (terrestrial)          |
-|       v                                                           |
+|       |                                                          |
+|       | ~1-3% captured by photosynthesis (terrestrial)           |
+|       v                                                          |
 |  GROSS PRIMARY PRODUCTION (GPP)                                  |
-|       |                                                           |
+|       |                                                          |
 |       | Plant respiration (~50% of GPP)                          |
-|       v                                                           |
+|       v                                                          |
 |  NET PRIMARY PRODUCTION (NPP) = available to consumers           |
-|       |                                                           |
-|       | Herbivory (~10% eaten in terrestrial; ~30-70% aquatic)  |
-|       v                                                           |
-|  HERBIVORE BIOMASS → CARNIVORE → TOP PREDATOR                   |
+|       |                                                          |
+|       | Herbivory (~10% eaten in terrestrial; ~30-70% aquatic)   |
+|       v                                                          |
+|  HERBIVORE BIOMASS → CARNIVORE → TOP PREDATOR                    |
 |       (each trophic transfer: ~10% efficiency, Lindeman)         |
-|                                                                   |
+|                                                                  |
 |  DETRITAL PATHWAY: ~90% of NPP not eaten → dead organic matter   |
 |  Decomposers (bacteria/fungi) process → CO₂ + nutrients          |
 +------------------------------------------------------------------+

@@ -4,7 +4,7 @@
 
 ```
 +------------------------------------------------------------------+
-|           INDUSTRIAL WARFARE: SEQUENTIAL DISRUPTIONS            |
+|           INDUSTRIAL WARFARE: SEQUENTIAL DISRUPTIONS             |
 +------------------------------------------------------------------+
 |                                                                  |
 |  ~1840s          ~1850s           ~1860s          ~1880s        |
@@ -25,8 +25,8 @@
 |  1864-1870       for 1870 war                     by 1914       |
 +------------------------------------------------------------------+
 |                                                                  |
-|  AMERICAN CIVIL WAR (1861-1865): First war to exhibit ALL       |
-|  industrial characteristics simultaneously — attrition, rail    |
+|  AMERICAN CIVIL WAR (1861-1865): First war to exhibit ALL        |
+|  industrial characteristics simultaneously — attrition, rail     |
 |  logistics, ironclads, entrenched defense, strategic bombing     |
 |  (Sherman), political-military interaction (Lincoln-Grant)       |
 +------------------------------------------------------------------+

@@ -106,15 +106,15 @@ The energy density improvement is roughly 5–10× over the lead-acid baseline. 
 LITHIUM-ION CELL ARCHITECTURE:
 
   ┌─────────────────────────────────────────────────────────────┐
-  │  DISCHARGE (energy out):                                     │
-  │                                                              │
+  │  DISCHARGE (energy out):                                    │
+  │                                                             │
   │  ANODE (−)          ELECTROLYTE       CATHODE (+)           │
-  │  graphite           LiPF₆ in         LiCoO₂ / LiFePO₄      │
+  │  graphite           LiPF₆ in         LiCoO₂ / LiFePO₄       │
   │  (Li intercalated)  organic solvent   / NMC / NCA           │
-  │                                                              │
+  │                                                             │
   │  LiC₆ → C₆ + Li⁺ + e⁻    Li⁺ migrates    Li₁₋ₓCoO₂ + xLi⁺ + xe⁻ → LiCoO₂
-  │         e⁻ → external circuit                                │
-  │                                                              │
+  │         e⁻ → external circuit                               │
+  │                                                             │
   │  Nominal voltage: ~3.6-3.7 V                                │
   │  Energy density: 150-265 Wh/kg (cell level)                 │
   └─────────────────────────────────────────────────────────────┘
@@ -169,15 +169,15 @@ animal cell. It consumes ~1/3 of all neuronal ATP.
 
   PUMP CYCLE:
   ┌──────────────────────────────────────────────────────────┐
-  │  1. 3 Na⁺ bind intracellularly                          │
+  │  1. 3 Na⁺ bind intracellularly                           │
   │  2. ATP phosphorylates the pump → conformational change  │
-  │  3. 3 Na⁺ released extracellularly                      │
-  │  4. 2 K⁺ bind extracellularly                           │
+  │  3. 3 Na⁺ released extracellularly                       │
+  │  4. 2 K⁺ bind extracellularly                            │
   │  5. Dephosphorylation → pump resets                      │
-  │  6. 2 K⁺ released intracellularly                       │
+  │  6. 2 K⁺ released intracellularly                        │
   │                                                          │
   │  Net: 3 Na⁺ out, 2 K⁺ in (against concentration grad.) │
-  │       Membrane potential = −70 mV at rest               │
+  │       Membrane potential = −70 mV at rest                │
   └──────────────────────────────────────────────────────────┘
 
 Consequences:
@@ -263,7 +263,7 @@ THE SI SECOND:
   │  4. Magnet selects F=4 state atoms (state detection)        │
   │  5. Feedback loop locks microwave to maximize F=4 signal    │
   │  6. Count oscillations → time                               │
-  │                                                              │
+  │                                                             │
   │  Accuracy: ~5×10⁻¹⁴ (NIST F-2 fountain clock)             │
   │  Optical clocks (Al⁺, Sr lattice) now ~10⁻¹⁸ — better     │
   │  but Cs still defines the SI second                         │

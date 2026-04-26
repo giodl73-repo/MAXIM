@@ -23,15 +23,15 @@
 │  │             LWE, Ring-LWE, Module-LWE                           │    │
 │  │             Worst-case to avg-case reduction (Regev 2005)       │    │
 │  │  Hash:      One-way function only; symmetric-crypto assumptions │    │
-│  │  Code:      Syndrome decoding (McEliece, BIKE, HQC)            │    │
+│  │  Code:      Syndrome decoding (McEliece, BIKE, HQC)             │    │
 │  └─────────────────────────────────────────────────────────────────┘    │
 │                                                                         │
 │  NIST PQC STANDARDS (2024)                                              │
 │  ┌─────────────────────────────────────────────────────────────────┐    │
-│  │  FIPS 203: ML-KEM (Kyber) — lattice KEM                        │    │
-│  │  FIPS 204: ML-DSA (Dilithium) — lattice signature              │    │
-│  │  FIPS 205: SLH-DSA (SPHINCS+) — hash-based signature           │    │
-│  │  FN-DSA (FALCON, NIST IR 8413): lattice signature (2024 final) │    │
+│  │  FIPS 203: ML-KEM (Kyber) — lattice KEM                         │    │
+│  │  FIPS 204: ML-DSA (Dilithium) — lattice signature               │    │
+│  │  FIPS 205: SLH-DSA (SPHINCS+) — hash-based signature            │    │
+│  │  FN-DSA (FALCON, NIST IR 8413): lattice signature (2024 final)  │    │
 │  └─────────────────────────────────────────────────────────────────┘    │
 │                                                                         │
 │  MIGRATION STRATEGY                                                     │
@@ -217,7 +217,7 @@ DILITHIUM OVERVIEW:
 
 PARAMETER SETS:
   ┌────────────────────────────────────────────────────────────────────┐
-  │  Variant     │ Security │ PK size │ SK size │ Sig size │ Level    │
+  │  Variant     │ Security │ PK size │ SK size │ Sig size │ Level     │
   ├────────────────────────────────────────────────────────────────────┤
   │  ML-DSA-44   │ ≈AES-128 │ 1312 B  │  2528 B │  2420 B  │  2       │
   │  ML-DSA-65   │ ≈AES-192 │ 1952 B  │  4000 B │  3293 B  │  3       │
@@ -357,7 +357,7 @@ CRYPTO AGILITY — ARCHITECTURAL REQUIREMENT:
   Never hard-code: don't encode "ECDH" or "SHA-256" in binary protocols without version field
   Design pattern: algorithm identifier in every message + key material
     ┌──────────────────────────────────────────────────────────────┐
-    │  DO:   alg_id = "ML-KEM-768"; key_material = <bytes>        │
+    │  DO:   alg_id = "ML-KEM-768"; key_material = <bytes>         │
     │  DON'T: implicit assumption that all keys are 32-byte X25519 │
     └──────────────────────────────────────────────────────────────┘
   TLS: cipher suite negotiation → already agile
@@ -571,23 +571,23 @@ IETF PQC STANDARDS PIPELINE — PROTOCOL INTEGRATION MAP:
   │  (KEM)          │ 2024         │ draft-ietf-tls-hybrid-design    │ shipping X25519+   │
   │                 │              │ (TLS hybrid KEM; not yet RFC)   │ ML-KEM-768 now     │
   ├────────────────────────────────────────────────────────────────────────────────────────┤
-  │  ML-DSA         │ FIPS 204 ✓   │ draft-ietf-lamps-dilithium-x509 │ X.509 cert profile │
-  │  (Dilithium)    │ 2024         │ (cert profile; in progress)     │ in progress        │
-  │  (signature)    │              │ draft-ietf-tls-mlkem (TLS sig)  │ TLS client/server  │
+  │  ML-DSA         │ FIPS 204 ✓   │ draft-ietf-lamps-dilithium-x509 │ X.509 cert profile  │
+  │  (Dilithium)    │ 2024         │ (cert profile; in progress)     │ in progress         │
+  │  (signature)    │              │ draft-ietf-tls-mlkem (TLS sig)  │ TLS client/server   │
   ├────────────────────────────────────────────────────────────────────────────────────────┤
   │  SLH-DSA        │ FIPS 205 ✓   │ draft-ietf-lamps-sphincs-x509   │ CA signing; code   │
   │  (SPHINCS+)     │ 2024         │ (cert profile; in progress)     │ signing use cases  │
   │  (signature)    │              │                                 │                    │
   ├────────────────────────────────────────────────────────────────────────────────────────┤
-  │  FN-DSA (FALCON)│ NIST IR 8413 │ draft-ietf-lamps-pq-composite   │ Composite certs    │
-  │  (signature)    │ 2024         │ (composite: classical + PQC)    │ (dual algorithm)   │
+  │  FN-DSA (FALCON)│ NIST IR 8413 │ draft-ietf-lamps-pq-composite   │ Composite certs     │
+  │  (signature)    │ 2024         │ (composite: classical + PQC)    │ (dual algorithm)    │
   ├────────────────────────────────────────────────────────────────────────────────────────┤
   │  SSH hybrid KEM │ —            │ mlkem768x25519 (OpenSSH 9.0+)   │ Deployed;          │
   │                 │              │ RFC in progress (IETF SSHM WG)  │ interoperable      │
   ├────────────────────────────────────────────────────────────────────────────────────────┤
-  │  OpenPGP PQC    │ —            │ draft-ietf-openpgp-pqc          │ Hybrid ML-KEM +    │
-  │                 │              │ (PGP 6 extension)               │ X25519 + ML-DSA +  │
-  │                 │              │                                 │ Ed25519            │
+  │  OpenPGP PQC    │ —            │ draft-ietf-openpgp-pqc          │ Hybrid ML-KEM +     │
+  │                 │              │ (PGP 6 extension)               │ X25519 + ML-DSA +   │
+  │                 │              │                                 │ Ed25519             │
   └────────────────────────────────────────────────────────────────────────────────────────┘
 
   KEY DOCUMENTS TO FOLLOW:

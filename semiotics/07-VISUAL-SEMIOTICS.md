@@ -8,23 +8,23 @@ Verbal language is linear and arbitrary. Visual signs are spatial, simultaneous,
 +-----------------------------------------------------------------------+
 |                    VISUAL SEMIOTICS MAP                               |
 |                                                                       |
-|  FILM SEMIOTICS              VISUAL COMMUNICATION                    |
+|  FILM SEMIOTICS              VISUAL COMMUNICATION                     |
 |  (Christian Metz, 1960s)     (Kress & van Leeuwen, 1996)            |
 |                                                                       |
-|  Is film a language?         Grammar of Visual Design                |
+|  Is film a language?         Grammar of Visual Design                 |
 |  Grande Syntagmatique        Representational meaning                 |
 |  8 syntagmatic types         Interactive meaning                      |
 |  for film editing            Compositional meaning                    |
 |                                                                       |
 |  Cinematic codes:            Social semiotics:                        |
-|  - Technical (shot types)    signs are social productions            |
+|  - Technical (shot types)    signs are social productions             |
 |  - Cinematographic           motivated but not arbitrary              |
 |  - Auditory                  semiotic resources, not fixed code       |
 |  - Syntactic (editing)                                                |
-|  - Iconic                    ROLAND BARTHES (1964):                  |
-|                               "Rhetoric of the Image"                |
+|  - Iconic                    ROLAND BARTHES (1964):                   |
+|                               "Rhetoric of the Image"                 |
 |  LACAN/PSYCHOANALYTIC:        Linguistic message                      |
-|  Mulvey's "Visual Pleasure"   Coded iconic message                   |
+|  Mulvey's "Visual Pleasure"   Coded iconic message                    |
 |  Gaze theory, subject pos.    Non-coded iconic message                |
 +-----------------------------------------------------------------------+
 ```

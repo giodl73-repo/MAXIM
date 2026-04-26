@@ -12,18 +12,18 @@ Crucially for CS: Peirce's disciple Charles Morris adapted the framework into th
 |                                                                       |
 |  THE SIGN IS TRIADIC:                                                 |
 |                                                                       |
-|  REPRESENTAMEN ─────────────────→ OBJECT                             |
-|  (the sign vehicle;              (what the sign is about;            |
-|   what stands for something)      the referent in world)             |
+|  REPRESENTAMEN ─────────────────→ OBJECT                              |
+|  (the sign vehicle;              (what the sign is about;             |
+|   what stands for something)      the referent in world)              |
 |        │                                                              |
-|        └────────────────────────→ INTERPRETANT                       |
-|                                   (the meaning produced;             |
-|                                    a further sign in the mind        |
-|                                    or another sign system)           |
+|        └────────────────────────→ INTERPRETANT                        |
+|                                   (the meaning produced;              |
+|                                    a further sign in the mind         |
+|                                    or another sign system)            |
 |                                                                       |
-|  Semiosis = the dynamic process of sign interpretation.              |
-|  Each interpretant can become a new representamen → new              |
-|  interpretant → ... (potentially unlimited semiosis)                 |
+|  Semiosis = the dynamic process of sign interpretation.               |
+|  Each interpretant can become a new representamen → new               |
+|  interpretant → ... (potentially unlimited semiosis)                  |
 +-----------------------------------------------------------------------+
 ```
 
@@ -294,28 +294,28 @@ Charles Morris (1938) adapted Peirce into a framework that programming language 
 
 ```
 +----------------------------------------------------------------------+
-| ATTRIBUTE           | SAUSSURE              | PEIRCE                |
+| ATTRIBUTE           | SAUSSURE              | PEIRCE                 |
 |---------------------|-----------------------|-----------------------|
-| Sign structure      | Binary (Signifier/    | Triadic (Rep/Object/  |
-|                     | Signified)            | Interpretant)         |
+| Sign structure      | Binary (Signifier/    | Triadic (Rep/Object/   |
+|                     | Signified)            | Interpretant)          |
 |---------------------|-----------------------|-----------------------|
-| Sign-object link    | Always arbitrary      | Three types: icon,    |
-|                     | (for linguistic signs)| index, symbol         |
+| Sign-object link    | Always arbitrary      | Three types: icon,     |
+|                     | (for linguistic signs)| index, symbol          |
 |---------------------|-----------------------|-----------------------|
-| Scope               | Linguistic signs      | All signs (including  |
-|                     | primarily             | non-linguistic)       |
+| Scope               | Linguistic signs      | All signs (including   |
+|                     | primarily             | non-linguistic)        |
 |---------------------|-----------------------|-----------------------|
-| Historical moment   | 1916 (posthumous)     | 1867–1914             |
+| Historical moment   | 1916 (posthumous)     | 1867–1914              |
 |---------------------|-----------------------|-----------------------|
-| Influence           | European structuralism| American pragmatism,  |
-|                     | Post-structuralism    | formal semiotics,     |
-|                     | Literary theory       | cognitive science     |
+| Influence           | European structuralism| American pragmatism,   |
+|                     | Post-structuralism    | formal semiotics,      |
+|                     | Literary theory       | cognitive science      |
 |---------------------|-----------------------|-----------------------|
-| Meaning in context  | Bracketed (langue)    | Central (interpretant |
-|                     |                       | is always contextual) |
+| Meaning in context  | Bracketed (langue)    | Central (interpretant  |
+|                     |                       | is always contextual)  |
 |---------------------|-----------------------|-----------------------|
-| Logic of inference  | Not addressed         | Deduction, induction, |
-|                     |                       | abduction             |
+| Logic of inference  | Not addressed         | Deduction, induction,  |
+|                     |                       | abduction              |
 +----------------------------------------------------------------------+
 ```
 

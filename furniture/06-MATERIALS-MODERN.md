@@ -30,15 +30,15 @@ Plywood is the first major material departure from solid wood in furniture. Its 
 ```
 PLYWOOD LAMINATE STRUCTURE:
   +------------------------------------------+
-  | Face veneer:     grain runs E-W           |
+  | Face veneer:     grain runs E-W          |
   +------------------------------------------+
   | Core veneer:     grain runs N-S  ← alternates |
   +------------------------------------------+
-  | Core veneer:     grain runs E-W           |
+  | Core veneer:     grain runs E-W          |
   +------------------------------------------+
   | Core veneer:     grain runs N-S           |
   +------------------------------------------+
-  | Back veneer:     grain runs E-W           |
+  | Back veneer:     grain runs E-W          |
   +------------------------------------------+
   Always odd number of plies; outer faces parallel.
 

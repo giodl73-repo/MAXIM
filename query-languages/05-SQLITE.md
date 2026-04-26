@@ -47,11 +47,11 @@ SQLite's niche: everywhere a database belongs but a server would be overkill
 ```
 ┌─────────────────────────────────────────────────────────────┐
 │                    Your Application                         │
-│   Python   /   Node.js   /   C#   /   Swift   /   C        │
+│   Python   /   Node.js   /   C#   /   Swift   /   C         │
 └────────────────────────┬────────────────────────────────────┘
                          │  in-process API call (no network)
 ┌────────────────────────▼────────────────────────────────────┐
-│                    SQLite Library (~600KB)                   │
+│                    SQLite Library (~600KB)                  │
 │  ┌──────────────────────────────────────────────────────┐   │
 │  │  SQL Tokenizer                                       │   │
 │  │       ↓                                              │   │

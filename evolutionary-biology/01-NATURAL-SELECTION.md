@@ -8,13 +8,13 @@ respect to function. Selection alone links environment to heritable change.
 
 ```
 ┌────────────────────────────────────────────────────────────────┐
-│                  NATURAL SELECTION ENGINE                       │
+│                  NATURAL SELECTION ENGINE                      │
 │                                                                  │
-│  PREREQUISITES (all three required simultaneously):             │
+│  PREREQUISITES (all three required simultaneously):            │
 │  ─────────────                                                   │
-│  1. VARIATION         Individuals differ in some trait          │
+│  1. VARIATION         Individuals differ in some trait         │
 │  2. HERITABILITY      Offspring resemble parents for that trait │
-│  3. FITNESS EFFECT    Variants differ in survival/reproduction  │
+│  3. FITNESS EFFECT    Variants differ in survival/reproduction │
 │                              │                                   │
 │                              ▼                                   │
 │           Allele frequencies change across generations           │

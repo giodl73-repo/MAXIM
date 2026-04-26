@@ -112,31 +112,31 @@ STONE PROPERTIES FOR STRUCTURAL USE
 │                                                                              │
 │  STONE          FORMATION    HARDNESS   COMP.STR    WORKABILITY   EXAMPLES   │
 │  ─────────────  ──────────   ────────   ────────    ──────────    ────────── │
-│  Limestone      Sedimentary  3–4 Mohs   50–170 MPa  Easy–medium  Parthenon  │
-│  Marble         Metamorphic  3–4 Mohs   80–200 MPa  Medium       Taj Mahal  │
-│  Granite        Igneous      6–7 Mohs   150–250 MPa Hard         Egyptian   │
-│  Sandstone      Sedimentary  2–5 Mohs   20–170 MPa  Easy         Many UK    │
-│  Basalt         Igneous      5–6 Mohs   100–300 MPa Very hard    Roman road │
+│  Limestone      Sedimentary  3–4 Mohs   50–170 MPa  Easy–medium  Parthenon   │
+│  Marble         Metamorphic  3–4 Mohs   80–200 MPa  Medium       Taj Mahal   │
+│  Granite        Igneous      6–7 Mohs   150–250 MPa Hard         Egyptian    │
+│  Sandstone      Sedimentary  2–5 Mohs   20–170 MPa  Easy         Many UK     │
+│  Basalt         Igneous      5–6 Mohs   100–300 MPa Very hard    Roman road  │
 │  Travertine     Sedimentary  3–4 Mohs   50–150 MPa  Easy        Colosseum  │
 │                                                                              │
 │  WORKABILITY FACTORS:                                                        │
-│  Grain size: fine-grain → smooth finish; coarse → rough but strong          │
+│  Grain size: fine-grain → smooth finish; coarse → rough but strong           │
 │  Bedding planes: stone must be cut/laid with loads parallel to bedding       │
-│    → cross-bedded limestone WILL delaminate under load                      │
-│  Iron content: high iron → warm colour + rust staining risk (sandstone)     │
+│    → cross-bedded limestone WILL delaminate under load                       │
+│  Iron content: high iron → warm colour + rust staining risk (sandstone)      │
 │                                                                              │
 │  EGYPTIAN STRUCTURAL LIMIT:                                                  │
-│  Post-and-lintel: lintel span limited by tensile strength in bending        │
-│  Granite tensile: ~7–25 MPa; but large section gives M = σZ                 │
-│  Typical span: 5 m limit at practical section sizes                         │
-│  → hypostyle halls (Karnak): columns spaced 3–5 m on centre                 │
-│  → this constraint CREATED hypostyle forest column aesthetic                │
+│  Post-and-lintel: lintel span limited by tensile strength in bending         │
+│  Granite tensile: ~7–25 MPa; but large section gives M = σZ                  │
+│  Typical span: 5 m limit at practical section sizes                          │
+│  → hypostyle halls (Karnak): columns spaced 3–5 m on centre                  │
+│  → this constraint CREATED hypostyle forest column aesthetic                 │
 │                                                                              │
 │  PYRAMID GEOMETRY:                                                           │
-│  Angle of repose for rough limestone: ~45°                                  │
+│  Angle of repose for rough limestone: ~45°                                   │
 │  Pyramid face angle: ~52° (Khufu); stability from self-weight, not mortar  │
 │  Core: roughly cut limestone rubble; casing: fine-cut Tura limestone         │
-│  Interior chambers: corbelled (stepped) vault → reduces tension in lintel   │
+│  Interior chambers: corbelled (stepped) vault → reduces tension in lintel    │
 │  Grand Gallery: corbelled vault 47 m long × 8.6 m high                     │
 │                                                                              │
 └──────────────────────────────────────────────────────────────────────────────┘
@@ -191,9 +191,9 @@ ROMAN CONCRETE CHEMISTRY
 │  COMPONENTS:                                                                 │
 │  1. Lime (CaO): calcined limestone  CaCO₃ → CaO + CO₂  at ~900°C           │
 │  2. Pozzolana: volcanic ash from Puteoli (Pozzuoli) near Naples              │
-│     Minerals: leucite (KAlSi₂O₆), analcite, smectite clays                  │
+│     Minerals: leucite (KAlSi₂O₆), analcite, smectite clays                   │
 │     → reactive aluminosilicates (amorphous glass phase critical)             │
-│  3. Seawater: provides Mg²⁺, Cl⁻, SO₄²⁻ ions                                │
+│  3. Seawater: provides Mg²⁺, Cl⁻, SO₄²⁻ ions                                 │
 │  4. Aggregate: tuff, pumice, brick rubble (lightweight; reactive)            │
 │                                                                              │
 │  REACTION SEQUENCE:                                                          │
@@ -208,14 +208,14 @@ ROMAN CONCRETE CHEMISTRY
 │  Step 3 — Seawater reaction (UNIQUE to Roman concrete):                      │
 │    Al-tobermorite crystallizes from C-A-H over decades to centuries          │
 │    Al-tobermorite: crystalline phase with high aspect ratio platelets        │
-│    → plates bridge cracks; reinforces the C-S-H gel matrix                  │
+│    → plates bridge cracks; reinforces the C-S-H gel matrix                   │
 │    Phillipsite (zeolite) also nucleates in seawater pores                    │
 │    → void filling; further strengthening                                     │
 │                                                                              │
 │  WHY STRONGER AFTER CENTURIES:                                               │
-│    Modern OPC: hydration ~95% complete at 28 days; no further strengthening │
+│    Modern OPC: hydration ~95% complete at 28 days; no further strengthening  │
 │    Roman pozzolana: pozzolanic + zeolite reactions continue for centuries    │
-│    → Pantheon concrete after 2,000 years: stronger than when poured         │
+│    → Pantheon concrete after 2,000 years: stronger than when poured          │
 │    → al-tobermorite crystals continue forming from slag/pozzolana precursors │
 │                                                                              │
 │  WHY IT WAS "LOST":                                                          │
@@ -223,7 +223,7 @@ ROMAN CONCRETE CHEMISTRY
 │    Pozzolana deposits are specific to Italian volcanic geology               │
 │    Medieval lime mortars used gypsum or calcite — no pozzolanic reaction     │
 │    Rediscovery: Smeaton's work on hydraulic lime (Eddystone Lighthouse 1759)│
-│    Portland cement patented 1824 → superseded lime-pozzolana systems        │
+│    Portland cement patented 1824 → superseded lime-pozzolana systems         │
 │    True Roman chemistry understood: 2013 (Jackson et al., American Mineralogist)│
 │                                                                              │
 └──────────────────────────────────────────────────────────────────────────────┘
@@ -309,7 +309,7 @@ BARREL VAULT THRUST LINES
 ──────────────────────────────────────────────────────────────────────────────
   Plan:                                     Section:
   ┌──────────────────────────────────┐          ╭──────╮
-  │  → → → → → lateral thrust → →   │         /        \
+  │  → → → → → lateral thrust → →    │         /        \
   │  ┌────────────────────────────┐  │        │          │
   │  │       BARREL VAULT         │  │        │          │
   │  └────────────────────────────┘  │         \        /
@@ -337,35 +337,35 @@ BARREL VAULT THRUST LINES
 PANTHEON DOME GEOMETRY (118–125 CE, Emperor Hadrian)
 ┌──────────────────────────────────────────────────────────────────────────────┐
 │                                                                              │
-│  Internal diameter: 43.3 m  ← still the world's largest unreinforced        │
-│  Thickness at base:  6.4 m  (massive; transitions to lighter concrete)      │
-│  Thickness at crown: 1.2 m  (near oculus)                                   │
-│  Oculus diameter:    8.7 m  (no glass — open to sky)                        │
-│  Springing height:   ~4 m above floor  (drum section below dome)            │
+│  Internal diameter: 43.3 m  ← still the world's largest unreinforced         │
+│  Thickness at base:  6.4 m  (massive; transitions to lighter concrete)       │
+│  Thickness at crown: 1.2 m  (near oculus)                                    │
+│  Oculus diameter:    8.7 m  (no glass — open to sky)                         │
+│  Springing height:   ~4 m above floor  (drum section below dome)             │
 │                                                                              │
 │  AGGREGATE STRATEGY (genius of Roman concrete):                              │
-│    Base of dome: heavyweight aggregate (basalt, brick) for mass stability   │
+│    Base of dome: heavyweight aggregate (basalt, brick) for mass stability    │
 │    Middle zone:  medium (tuff, pumice mix)                                   │
-│    Crown:        lightweight pumice only → minimizes load on crown          │
-│    Net result: lighter top → thrust line stays within thick cross-section   │
+│    Crown:        lightweight pumice only → minimizes load on crown           │
+│    Net result: lighter top → thrust line stays within thick cross-section    │
 │                                                                              │
-│  MERIDIONAL COMPRESSION (vertical arches through the dome surface):         │
-│    Load flows like a series of arches from oculus to drum                   │
-│    → always compressive: fine for pozzolana concrete                        │
+│  MERIDIONAL COMPRESSION (vertical arches through the dome surface):          │
+│    Load flows like a series of arches from oculus to drum                    │
+│    → always compressive: fine for pozzolana concrete                         │
 │                                                                              │
-│  HOOP TENSION PROBLEM (horizontal rings through the dome):                  │
-│    In the upper portion: hoop forces are compressive → no problem           │
+│  HOOP TENSION PROBLEM (horizontal rings through the dome):                   │
+│    In the upper portion: hoop forces are compressive → no problem            │
 │    In the lower portion: hoop forces are TENSILE → concrete can't take it  │
-│    Roman solution: COFFERING (the decorative recesses in the dome)          │
-│    Coffering reduces dome mass → reduces the tensile hoop forces            │
-│    Also: stepped outer rings at base = horizontal buttressing               │
+│    Roman solution: COFFERING (the decorative recesses in the dome)           │
+│    Coffering reduces dome mass → reduces the tensile hoop forces             │
+│    Also: stepped outer rings at base = horizontal buttressing                │
 │    Roman pozzolana concrete tensile: ~2 MPa (enough to resist small tension)│
 │                                                                              │
 │  OCULUS STRUCTURAL ROLE:                                                     │
 │    The oculus is NOT a weak point. At the crown of a dome, the meridional  │
 │    compressive forces converge → crown is under biaxial compression        │
-│    Opening the crown reduces the hoop tension that would otherwise build up │
-│    in a solid crown → structurally beneficial as well as functional         │
+│    Opening the crown reduces the hoop tension that would otherwise build up  │
+│    in a solid crown → structurally beneficial as well as functional          │
 │                                                                              │
 └──────────────────────────────────────────────────────────────────────────────┘
 ```

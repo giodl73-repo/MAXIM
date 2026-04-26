@@ -310,9 +310,9 @@ ACCESS CONTROL TABLE — KEIGO:
 |           | 言う→おっしゃる    |                 |                             |
 |           | 食べる→召し上がる  |                 |                             |
 +-----------+--------------------+-----------------+-----------------------------+
-| KENJŌGO   | Humble verbs for   | Lowers YOUR OWN  | Describing your own actions|
-| (謙譲語)  | the speaker's own  | actions          | to a superior or customer. |
-|           | actions            | (requests lower  | Humbling yourself =        |
+| KENJŌGO   | Humble verbs for   | Lowers YOUR OWN | Describing your own actions|
+| (謙譲語)  | the speaker's own  | actions         | to a superior or customer.  |
+|           | actions            | (requests lower | Humbling yourself =         |
 |           |                    | access for self) | elevating the other.       |
 |           | 行く→参る          |                 |                             |
 |           | 言う→申す          |                 |                             |
@@ -324,7 +324,7 @@ ACCESS CONTROL TABLE — KEIGO:
 |           |                    |                 | Does not assert relative    |
 |           |                    |                 | rank.                       |
 +-----------+--------------------+-----------------+-----------------------------+
-| Plain     | Dictionary forms   | No access token  | Close friends, family,      |
+| Plain     | Dictionary forms   | No access token | Close friends, family,      |
 | (常体)    |                    | asserted         | internal monologue, writing.|
 |           |                    |                 | Using this to a superior    |
 |           |                    |                 | = dropped connection.       |
@@ -406,12 +406,12 @@ Every type of object has a counter suffix. Number + counter = correct.
 
 COMMON COUNTERS:
 +--------+-------+-------------------------------------------+
-| 本 hon | books | Also: long thin objects: pens, bottles,  |
-|        |       | rivers, roads, fingers                   |
-| 枚 mai |       | Flat thin objects: paper, shirts, slices |
+| 本 hon | books | Also: long thin objects: pens, bottles,   |
+|        |       | rivers, roads, fingers                    |
+| 枚 mai |       | Flat thin objects: paper, shirts, slices  |
 | 台 dai |       | Machines: cars, computers, TVs            |
 | 匹 hiki|       | Small animals: cats, dogs, fish           |
-| 頭 tou |       | Large animals: horses, cows, elephants   |
+| 頭 tou |       | Large animals: horses, cows, elephants    |
 | 羽 wa  |       | Birds + rabbits                           |
 | 冊 satsu|      | Bound books, notebooks                    |
 | 杯 hai |       | Cups, glasses, bowls of liquid/food       |
@@ -421,7 +421,7 @@ COMMON COUNTERS:
 | 個 ko  |       | General small objects (default)           |
 | 回 kai | times | Number of times/occurrences               |
 | 番 ban |       | Order/rank (first, second...)             |
-| 階 kai | floors| Floor of building (1F=一階)                |
+| 階 kai | floors| Floor of building (1F=一階)               |
 +--------+-------+-------------------------------------------+
 
 NUMBER FORMS: 1 and 2 have irregular native forms for people:

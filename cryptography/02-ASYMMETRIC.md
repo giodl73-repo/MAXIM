@@ -13,21 +13,21 @@
 │                                                                          │
 │  HARDNESS PROBLEMS                                                       │
 │  ┌────────────────────────┬───────────────────────────────────────────┐  │
-│  │ INTEGER FACTORING       │ DISCRETE LOGARITHM                       │  │
+│  │ INTEGER FACTORING      │ DISCRETE LOGARITHM                        │  │
 │  │  RSA, Rabin, Paillier   │  DH, DSA (ℤₚ*), ECDH, ECDSA (EC group) │  │
-│  │  n=pq → factor n hard   │  given g^x, find x hard                 │  │
+│  │  n=pq → factor n hard   │  given g^x, find x hard                 │   │
 │  │  Best: GNFS (~2¹¹²/2048)│  DLOG ℤₚ*: index calculus sub-exp      │  │
-│  │                         │  DLOG EC: no sub-exp known → ECC smaller│  │
+│  │                         │  DLOG EC: no sub-exp known → ECC smaller│   │
 │  └────────────────────────┴───────────────────────────────────────────┘  │
 │                                                                          │
 │  CONSTRUCTIONS                                                           │
 │  ┌──────────────────────────────────────────────────────────────────┐    │
 │  │  PKE (public-key encryption):                                    │    │
-│  │    RSA-OAEP (factoring), ECIES (ECDH + AEAD), HPKE (RFC 9180)   │    │
+│  │    RSA-OAEP (factoring), ECIES (ECDH + AEAD), HPKE (RFC 9180)    │    │
 │  │  Digital signatures:                                             │    │
-│  │    RSA-PSS (factoring), ECDSA (ECDLP), Ed25519 (safe EdDSA)     │    │
+│  │    RSA-PSS (factoring), ECDSA (ECDLP), Ed25519 (safe EdDSA)      │    │
 │  │  Key exchange (KEM):                                             │    │
-│  │    ECDH / X25519, X448; also RSA-KEM; KEM-DEM hybrid            │    │
+│  │    ECDH / X25519, X448; also RSA-KEM; KEM-DEM hybrid             │    │
 │  │  Advanced (pairings):                                            │    │
 │  │    BLS (aggregatable sigs), IBE, attribute-based enc, zk-SNARKs  │    │
 │  └──────────────────────────────────────────────────────────────────┘    │

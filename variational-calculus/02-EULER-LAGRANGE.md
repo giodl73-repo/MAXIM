@@ -9,7 +9,7 @@ functional. It is the single most important equation in variational calculus.
 
 ```
 +-----------------------------------------------------------------------+
-|              EULER-LAGRANGE EQUATION                                   |
+|              EULER-LAGRANGE EQUATION                                  |
 |                                                                       |
 |  FUNCTIONAL:  J[u] = ∫ₐᵇ F(x, u, u') dx                             |
 |                                                                       |
@@ -221,8 +221,8 @@ For multiple dependent variables u = (u₁,...,u_m):
   │ SYMMETRY               CONSERVED QUANTITY                  │
   │ q → q + a (translation)  → pᵢ = ∂L/∂q̇ᵢ  (momentum)     │
   │ t → t + s (time shift)   → H = Σpq̇ − L   (energy)       │
-  │ q → R(s)q (rotation)     → L = q × p       (ang. moment)  │
-  │ φ → φ + s (U(1) phase)   → Q (electric charge)            │
+  │ q → R(s)q (rotation)     → L = q × p       (ang. moment)   │
+  │ φ → φ + s (U(1) phase)   → Q (electric charge)             │
   └────────────────────────────────────────────────────────────┘
 ```
 

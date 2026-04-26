@@ -8,7 +8,7 @@ A building is a climate-control device. Before any mechanical system is switched
 +--------------------------------------------------------------------+
 |                  ENVIRONMENTAL DESIGN HIERARCHY                    |
 |                                                                    |
-|  1. PASSIVE STRATEGIES (free — use sun, wind, mass, earth)        |
+|  1. PASSIVE STRATEGIES (free — use sun, wind, mass, earth)         |
 |     - Orientation (reduce solar gain / maximize winter sun)        |
 |     - Shading devices (overhang, fins, trees)                      |
 |     - Thermal mass (phase shift, dampen swings)                    |
@@ -26,7 +26,7 @@ A building is a climate-control device. Before any mechanical system is switched
 |     - Top-lighting (skylights — 3× more efficient)                 |
 |     - Light shelves, diffuse glazing                               |
 |                          |                                         |
-|  4. ACTIVE SYSTEMS (minimize — see hvac/ directory)               |
+|  4. ACTIVE SYSTEMS (minimize — see hvac/ directory)                |
 |     - Sized to the reduced load from steps 1–3                     |
 |     - High-efficiency equipment (heat pumps, ERV)                  |
 |                          |                                         |
@@ -281,11 +281,11 @@ Daylight is not just about energy savings (though they are significant — light
 
   LIGHT SHELF:
   ┌──────────────┬─────────────────────────────────┐
-  │   EXTERIOR   │        INTERIOR ROOM             │
-  │              │                                  │
-  │    ──────────┤  light shelf (horizontal)        │
+  │   EXTERIOR   │        INTERIOR ROOM            │
+  │              │                                 │
+  │    ──────────┤  light shelf (horizontal)       │
   │     upper    │       bounces light               │
-  │     glazing  │    ↗  to ceiling                 │
+  │     glazing  │    ↗  to ceiling                │
   │    ──────────┤────────────────────               │
   │     lower    │        deep                       │
   │     glazing  │        penetration                │

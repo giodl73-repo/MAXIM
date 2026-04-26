@@ -16,7 +16,7 @@
 ├──────────────────────┼───────────────────────────┼───────────────────────┤
 │  Realism vs          │  Humean regularity        │  Possible worlds      │
 │  anti-realism        │  Counterfactual (Lewis)   │  De re vs de dicto    │
-│  Universals vs       │  Causal powers            │  Essential properties  │
+│  Universals vs       │  Causal powers            │  Essential properties │
 │  nominalism          │  Interventionism (Pearl)  │  Mereology            │
 │  Abstract entities   │  Probabilistic causation  │  Haecceity            │
 │  Physical ontology   │  Laws of nature           │                       │

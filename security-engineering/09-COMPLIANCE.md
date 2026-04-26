@@ -8,20 +8,20 @@ Security compliance frameworks define minimum standards that organizations must 
 COMPLIANCE LANDSCAPE
 +-----------------------------------------------------------------------+
 |                                                                       |
-|  VOLUNTARY FRAMEWORKS           REGULATORY REQUIREMENTS              |
-|  +---------------------------+  +--------------------------------+   |
+|  VOLUNTARY FRAMEWORKS           REGULATORY REQUIREMENTS               |
+|  +---------------------------+  +--------------------------------+    |
 |  | SOC 2 (AICPA)             |  | GDPR (EU - all personal data)  |   |
 |  | ISO 27001 (global ISMS)   |  | CCPA (California consumers)    |   |
 |  | CSA STAR (cloud security) |  | HIPAA (US health data)         |   |
 |  | CIS Controls              |  | PCI DSS (payment card data)    |   |
 |  +---------------------------+  | GLBA (US financial)            |   |
-|                                  | SOX (US public companies)      |   |
+|                                  | SOX (US public companies)      |  |
 |  US GOVERNMENT                  +--------------------------------+   |
 |  +---------------------------+                                        |
-|  | FedRAMP (cloud, federal)  |  COMPLIANCE vs. SECURITY:             |
-|  | FISMA (federal agencies)  |  Compliance = meeting audit criteria  |
-|  | NIST CSF (guidance)       |  Security = actually hard to attack   |
-|  | CMMC (defense contracts)  |  You can be compliant AND insecure    |
+|  | FedRAMP (cloud, federal)  |  COMPLIANCE vs. SECURITY:              |
+|  | FISMA (federal agencies)  |  Compliance = meeting audit criteria   |
+|  | NIST CSF (guidance)       |  Security = actually hard to attack    |
+|  | CMMC (defense contracts)  |  You can be compliant AND insecure     |
 |  +---------------------------+                                        |
 +-----------------------------------------------------------------------+
 ```

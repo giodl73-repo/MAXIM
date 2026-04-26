@@ -10,10 +10,10 @@ Jacques Derrida (1930–2004) is the central figure. His project: close reading 
 +-----------------------------------------------------------------------+
 |               STRUCTURALISM → POST-STRUCTURALISM                      |
 |                                                                       |
-|  STRUCTURALISM assumes:           POST-STRUCTURALISM shows:          |
+|  STRUCTURALISM assumes:           POST-STRUCTURALISM shows:           |
 |                                                                       |
-|  Signs are stable (Saussure)      Signs are unstable — meaning       |
-|  Signifier ──────→ Signified      deferred and differed (différance) |
+|  Signs are stable (Saussure)      Signs are unstable — meaning        |
+|  Signifier ──────→ Signified      deferred and differed (différance)  |
 |                                                                       |
 |  Structures can be identified     The observer is always inside       |
 |  from outside                     the structure (no outside)          |

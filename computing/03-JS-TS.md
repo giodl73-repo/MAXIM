@@ -9,7 +9,7 @@ JavaScript is a runtime language. TypeScript is a compile-time layer on top of i
 |                    THE JS/TS STACK                               |
 |                                                                  |
 |  YOU WRITE          YOU BUILD            RUNTIME EXECUTES        |
-|  ----------         ----------           -----------------        |
+|  ----------         ----------           -----------------       |
 |  TypeScript   -->   TypeScript   -->     JavaScript              |
 |  (.ts, .tsx)        Compiler             (.js)                   |
 |                     (tsc / esbuild                               |

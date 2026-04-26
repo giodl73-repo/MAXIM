@@ -8,11 +8,11 @@ layer map:
 
 ```
 +--------------------------------------------------------------------------+
-|                        LOGIC LAYERS                                       |
+|                        LOGIC LAYERS                                      |
 |                                                                            |
-|  PROPOSITIONAL LOGIC         "P and Q implies R"                          |
-|  SAT Solvers: DPLL, CDCL     NP-complete, but practical at millions vars  |
-|  MiniSat, CaDiCaL, Kissat                                                 |
+|  PROPOSITIONAL LOGIC         "P and Q implies R"                         |
+|  SAT Solvers: DPLL, CDCL     NP-complete, but practical at millions vars |
+|  MiniSat, CaDiCaL, Kissat                                                |
 +--------------------------------------------------------------------------+
          |   embeds into
          v
@@ -25,18 +25,18 @@ layer map:
          v
 +--------------------------------------------------------------------------+
 |  SMT: SATISFIABILITY MODULO THEORIES                                     |
-|  "This formula over integers/arrays/bitvectors" — is it satisfiable?    |
-|  DPLL(T) architecture: SAT core + theory solvers                        |
+|  "This formula over integers/arrays/bitvectors" — is it satisfiable?     |
+|  DPLL(T) architecture: SAT core + theory solvers                         |
 |  Z3, CVC5, Yices2 — the engines behind Dafny, CBMC, Infer, Lean 4      |
 +--------------------------------------------------------------------------+
          |   specialized logics
          v
 +--------------------------------------------------------------------------+
 |  TEMPORAL LOGICS             Reasoning about TIME and STATE SEQUENCES    |
-|  LTL: linear time (paths)    "Always p", "Eventually q", "p Until q"    |
+|  LTL: linear time (paths)    "Always p", "Eventually q", "p Until q"     |
 |  CTL: branching time (trees) "There exists a path where...", "All paths" |
 |  CTL*: full (unifies both)   Expressiveness: LTL ⊄ CTL, CTL ⊄ LTL      |
-|  Used in: model checkers (SPIN, NuSMV, TLC)                             |
+|  Used in: model checkers (SPIN, NuSMV, TLC)                              |
 +--------------------------------------------------------------------------+
          |   proof systems
          v
@@ -103,7 +103,7 @@ decision level that caused it.
 ```
   CDCL algorithm:
   ┌─────────────────────────────────────────────┐
-  │  1. Unit propagate                           │
+  │  1. Unit propagate                          │
   │     If conflict: goto ANALYZE               │
   │  2. If all vars assigned: return SAT        │
   │  3. Decide: pick next variable, assign it   │
@@ -235,22 +235,22 @@ theories with known decision procedures.
 
 ```
   ┌──────────────────────────────────────────────────────┐
-  │                    DPLL(T) CORE                       │
+  │                    DPLL(T) CORE                      │
   │                                                        │
-  │  SAT Solver                 Theory Solver T           │
-  │  ────────────               ─────────────────         │
-  │  Works on              <--> Handles T-consistency     │
-  │  propositional          |   of assignments            │
-  │  abstraction            |                             │
-  │  of the formula         |   Theory propagation:       │
-  │                         |   infer literals forced     │
-  │  Assigns T-atoms:   --->|   by T-constraints          │
-  │  (x + y <= 5)           |                             │
-  │  (a[i] = b[j])          |   Theory conflict:          │
+  │  SAT Solver                 Theory Solver T          │
+  │  ────────────               ─────────────────        │
+  │  Works on              <--> Handles T-consistency    │
+  │  propositional          |   of assignments           │
+  │  abstraction            |                            │
+  │  of the formula         |   Theory propagation:      │
+  │                         |   infer literals forced    │
+  │  Assigns T-atoms:   --->|   by T-constraints         │
+  │  (x + y <= 5)           |                            │
+  │  (a[i] = b[j])          |   Theory conflict:         │
   │  (f(a) = f(b))      <---|   return explanation clause |
   │                                                        │
-  │  If T-consistent: continue                            │
-  │  If T-conflict:   learn clause, backjump              │
+  │  If T-consistent: continue                           │
+  │  If T-conflict:   learn clause, backjump             │
   └──────────────────────────────────────────────────────┘
 
   The SAT solver handles propositional structure.
@@ -311,15 +311,15 @@ LTL reasons about a single infinite path (sequence of states):
 
   Operators:
   ┌───────┬───────────────────────────────────────────────────┐
-  | X p   | NEXT: p holds in the next state (s1)             |
-  | G p   | GLOBALLY (always): p holds in all states         |
-  |       | (also written as □p)                             |
-  | F p   | FINALLY (eventually): p holds in some future     |
-  |       | state (also written as ◇p)                       |
-  | p U q | UNTIL: p holds until q becomes true              |
-  |       | (q must eventually become true)                  |
-  | p W q | WEAK UNTIL: p holds until q, or p holds forever  |
-  | p R q | RELEASE: q holds until (and including) p does    |
+  | X p   | NEXT: p holds in the next state (s1)              |
+  | G p   | GLOBALLY (always): p holds in all states          |
+  |       | (also written as □p)                              |
+  | F p   | FINALLY (eventually): p holds in some future      |
+  |       | state (also written as ◇p)                        |
+  | p U q | UNTIL: p holds until q becomes true               |
+  |       | (q must eventually become true)                   |
+  | p W q | WEAK UNTIL: p holds until q, or p holds forever   |
+  | p R q | RELEASE: q holds until (and including) p does     |
   └───────┴───────────────────────────────────────────────────┘
 
   Examples:

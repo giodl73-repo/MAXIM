@@ -4,16 +4,16 @@
 
 ```
 +------------------------------------------------------------------+
-|             COGNITIVE AND CULTURAL ANTHROPOLOGY                   |
-|                                                                   |
+|             COGNITIVE AND CULTURAL ANTHROPOLOGY                  |
+|                                                                  |
 |  Where mind, material culture, and cumulative knowledge meet     |
 +------------------------------------------------------------------+
          |              |              |              |
          v              v              v              v
   +-----------+ +-----------+ +-----------+ +-----------+
-  | DISTRIBUTED| | MATERIAL  | | NICHE     | | CULTURAL  |
+  | DISTRIBUTED| | MATERIAL  | | NICHE     | | CULTURAL |
   | COGNITION  | | CULTURE   | | CONSTRUC- | | EVOLUTION |
-  |            | | & MIND    | | TION      | |           |
+  |            | | & MIND    | | TION      | |          |
   +-----------+ +-----------+ +-----------+ +-----------+
   | Hutchins   | | Malafouris| | Odling-   | | Richerson |
   | Clark/Cha  | | Object    | | Smee      | | /Boyd     |
@@ -51,12 +51,12 @@
   ┌────────────────────────────────────────────────────────┐
   │ The fix computation (determining position):            │
   │                                                        │
-  │ Bearing taker 1 -> bearing to landmark A -> pelorus   │
-  │ Bearing taker 2 -> bearing to landmark B -> pelorus   │
+  │ Bearing taker 1 -> bearing to landmark A -> pelorus    │
+  │ Bearing taker 2 -> bearing to landmark B -> pelorus    │
   │ Chart table     -> plot both bearings -> intersection  │
   │                    = ship's position                   │
   │                                                        │
-  │ NO SINGLE PERSON knows the position until the         │
+  │ NO SINGLE PERSON knows the position until the          │
   │ distributed process completes.                         │
   │ The "computation" is in the team + instruments + space.│
   └────────────────────────────────────────────────────────┘
@@ -152,8 +152,8 @@
   local environment in real time, not pre-scripted.
 
   ┌────────────────────────────────────────────────────────┐
-  │ "The purpose of plans is not to control action —      │
-  │  it is to provide retrospective accounts of it."      │
+  │ "The purpose of plans is not to control action —       │
+  │  it is to provide retrospective accounts of it."       │
   └────────────────────────────────────────────────────────┘
 
   IMPLICATIONS FOR ENGINEERING ORGS:
@@ -262,10 +262,10 @@
 
   ┌────────────────────────────────────────────────────────┐
   │ Example: Earthworms                                    │
-  │ Earthworms digest soil -> change pH, drainage,        │
-  │ nutrient availability -> changes selection pressure   │
-  │ on earthworms AND on other soil organisms.            │
-  │ The earthworm is adapting TO an environment it        │
+  │ Earthworms digest soil -> change pH, drainage,         │
+  │ nutrient availability -> changes selection pressure    │
+  │ on earthworms AND on other soil organisms.             │
+  │ The earthworm is adapting TO an environment it         │
   │ partially CREATED.                                     │
   └────────────────────────────────────────────────────────┘
 
@@ -279,14 +279,14 @@
   │ Fire -> cooking -> more caloric extractable from food  │
   │ -> supports larger brain -> larger brain enables better │
   │ fire management. And: cooking -> softer food ->        │
-  │ reduced jaw muscle -> smaller jaw -> face shape change  │
-  │ -> further changes in social signaling.               │
+  │ reduced jaw muscle -> smaller jaw -> face shape change │
+  │ -> further changes in social signaling.                │
   │                                                        │
   │ CATTLE HERDING + LACTASE PERSISTENCE:                  │
   │ Cattle herding (cultural) creates abundant milk supply │
   │ -> adults who can digest lactose have higher fitness   │
   │ -> lactase persistence gene rises in frequency.        │
-  │ Culture created the selection pressure for the gene.  │
+  │ Culture created the selection pressure for the gene.   │
   │                                                        │
   │ AGRICULTURE + STARCHY DIET + AMYLASE:                  │
   │ Grain agriculture -> starchy diet -> individuals with  │
@@ -299,7 +299,7 @@
   │ Dense settlements -> new pathogen ecology (measles,    │
   │ smallpox require dense hosts) -> selection for immune  │
   │ variants -> genetic differences between populations    │
-  │ with long vs. short agricultural histories.           │
+  │ with long vs. short agricultural histories.            │
   └────────────────────────────────────────────────────────┘
 ```
 
@@ -321,22 +321,22 @@
   Cultural variants spread through populations by:
 
   ┌────────────────────────────────────────────────────────┐
-  │ CONTENT BIAS: people preferentially adopt variants    │
-  │ that "work" — effective farming techniques,           │
-  │ successful hunting methods. Direct evaluation.        │
+  │ CONTENT BIAS: people preferentially adopt variants     │
+  │ that "work" — effective farming techniques,            │
+  │ successful hunting methods. Direct evaluation.         │
   │                                                        │
   │ MODEL BIAS (PRESTIGE BIAS): copy what successful       │
-  │ people do, regardless of whether you can evaluate     │
+  │ people do, regardless of whether you can evaluate      │
   │ why they're successful. Copy high-prestige individuals.│
-  │ Efficient when evaluation is costly.                  │
+  │ Efficient when evaluation is costly.                   │
   │                                                        │
-  │ FREQUENCY-DEPENDENT BIAS (CONFORMISM): copy what      │
-  │ most people do. "When in Rome." Adaptive when local   │
-  │ adaptation has occurred and you don't know what.      │
+  │ FREQUENCY-DEPENDENT BIAS (CONFORMISM): copy what       │
+  │ most people do. "When in Rome." Adaptive when local    │
+  │ adaptation has occurred and you don't know what.       │
   │                                                        │
   │ CULTURAL DRIFT: random fluctuation (small populations  │
   │ lose cultural variants by chance — analogous to        │
-  │ genetic drift in small populations)                   │
+  │ genetic drift in small populations)                    │
   └────────────────────────────────────────────────────────┘
 
   BIG-MISTAKE THEORY:
@@ -364,7 +364,7 @@
   THE MECHANISM (Henrich's argument):
   ┌────────────────────────────────────────────────────────┐
   │ Medieval Western Christian Church (particularly        │
-  │ post-Papal Revolution, ~1000-1300 CE) banned:         │
+  │ post-Papal Revolution, ~1000-1300 CE) banned:          │
   │ - Cousin marriage (to 6th degree initially)            │
   │ - Levirate marriage (marrying brother's widow)         │
   │ - Polygamy                                             │
@@ -378,11 +378,11 @@
   │ - Extended kin networks weakened (no clans, no lineages│
   │   in Western Europe, uniquely)                         │
   │ - Nuclear family became primary unit                   │
-  │ - Need for trust with NON-KIN strangers grew          │
+  │ - Need for trust with NON-KIN strangers grew           │
   │ - Voluntary associations (guilds, universities,        │
-  │   corporations) replaced kin groups                   │
+  │   corporations) replaced kin groups                    │
   │ - Impersonal institutions (courts, contracts, law)     │
-  │   became necessary and valued                         │
+  │   became necessary and valued                          │
   └────────────────────────────────────────────────────────┘
 
   THE RESULTING PSYCHOLOGY (WEIRD):
@@ -427,13 +427,13 @@
 
   VALIDATIONS:
   ┌────────────────────────────────────────────────────────┐
-  │ Hunter-gatherer bands: typical ~150 (range 100-200)   │
-  │ Hutterite communities: split when >150 (historically) │
-  │ Gore-Tex: factories deliberately split at ~150        │
-  │ Roman maniple: ~130-160 soldiers (tactical unit)      │
-  │ Military units: company size ~100-200 in most armies  │
+  │ Hunter-gatherer bands: typical ~150 (range 100-200)    │
+  │ Hutterite communities: split when >150 (historically)  │
+  │ Gore-Tex: factories deliberately split at ~150         │
+  │ Roman maniple: ~130-160 soldiers (tactical unit)       │
+  │ Military units: company size ~100-200 in most armies   │
   │ Christmas card networks (UK study): ~150 active social │
-  │ relationships maintained by typical person            │
+  │ relationships maintained by typical person             │
   └────────────────────────────────────────────────────────┘
 
   THE NESTED STRUCTURE (Dunbar's circles):
@@ -472,7 +472,7 @@
   ┌────────────────────────────────────────────────────────┐
   │ Requires: 3D spatial modeling of stone fracture        │
   │           mechanics.                                   │
-  │ Not trivial: experimental archaeologists take weeks   │
+  │ Not trivial: experimental archaeologists take weeks    │
   │ to learn. Knapping requires understanding conchoidal   │
   │ fracture, stone quality, angle of percussion.          │
   │                                                        │
@@ -482,9 +482,9 @@
 
   ACHEULEAN HANDAXE (~1.7 Ma):
   ┌────────────────────────────────────────────────────────┐
-  │ Requires: hierarchical planning (mental template        │
+  │ Requires: hierarchical planning (mental template       │
   │           imposed on stone before starting);           │
-  │           mental rotation in 3D; working memory         │
+  │           mental rotation in 3D; working memory        │
   │           to hold the template while executing.        │
   │                                                        │
   │ Possibly: teaching (too complex for pure imitation?)   │
@@ -497,11 +497,11 @@
   ┌────────────────────────────────────────────────────────┐
   │ Requires: multi-part thinking (stone + handle +        │
   │           adhesive as unified concept);                │
-  │           planning ahead (manufacture before need);   │
+  │           planning ahead (manufacture before need);    │
   │           understanding of material properties         │
   │                                                        │
   │ Possibly indicates: symbolic thinking about object     │
-  │ identity persisting across disassembly/reassembly     │
+  │ identity persisting across disassembly/reassembly      │
   └────────────────────────────────────────────────────────┘
 
   BLOMBOS OCHRE ENGRAVINGS (75 ka):
@@ -511,8 +511,8 @@
   │ This is the minimum requirement for symbolic cognition │
   │                                                        │
   │ Indicates: abstract, combinatorial thought;            │
-  │           possibly the cognitive prerequisite for     │
-  │           language and cumulative culture             │
+  │           possibly the cognitive prerequisite for      │
+  │           language and cumulative culture              │
   └────────────────────────────────────────────────────────┘
 ```
 

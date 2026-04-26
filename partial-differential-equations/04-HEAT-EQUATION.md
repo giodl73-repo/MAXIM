@@ -8,23 +8,23 @@ imaginary-time version of the Schrödinger equation.
 
 ```
 +-----------------------------------------------------------------------+
-|              HEAT EQUATION LANDSCAPE                                   |
+|              HEAT EQUATION LANDSCAPE                                  |
 |                                                                       |
 |  FORMS:                                                               |
-|  u_t = α∇²u          (heat / diffusion, α = diffusivity)             |
+|  u_t = α∇²u          (heat / diffusion, α = diffusivity)              |
 |  u_t = α∇²u + f      (with source f)                                  |
 |  u_t = ∇·(D(x)∇u)   (variable diffusivity D)                        |
-|  u_t = ∇·(D(u)∇u)   (nonlinear diffusion)                            |
+|  u_t = ∇·(D(u)∇u)   (nonlinear diffusion)                             |
 |  iℏψ_t = −(ℏ²/2m)∇²ψ + Vψ   (Schrödinger = i × heat)               |
 |  V_t + ½σ²S²V_SS + rSV_S − rV = 0  (Black-Scholes)                  |
 |                                                                       |
 |  PROPERTIES:                                                          |
 |  • Infinite propagation speed (instantaneous awareness)               |
 |  • Immediate regularization (rough → smooth in any ε > 0 time)        |
-|  • Irreversible (entropy increases; backward problem ill-posed)        |
-|  • Gaussian kernel (the fundamental solution)                          |
-|  • Maximum principle (no interior extrema)                             |
-|  • Energy dissipation (‖u‖_L² decreases)                             |
+|  • Irreversible (entropy increases; backward problem ill-posed)       |
+|  • Gaussian kernel (the fundamental solution)                         |
+|  • Maximum principle (no interior extrema)                            |
+|  • Energy dissipation (‖u‖_L² decreases)                              |
 |                                                                       |
 +-----------------------------------------------------------------------+
 ```
@@ -47,7 +47,7 @@ The heat kernel K(x,t) is the solution starting from a point mass at the origin:
   │ ∫ K(x,t) dx = 1  for all t > 0  (mass conservation)    │
   │ K(x,t) > 0  for all x, t>0  (strict positivity)        │
   │ K(x,t) → δ(x) as t → 0+                                │
-  │ K(x,t) is a Gaussian: mean 0, variance 2αt              │
+  │ K(x,t) is a Gaussian: mean 0, variance 2αt               │
   │ K(x,t) → 0 as t → ∞ (spreads to zero)                  │
   └──────────────────────────────────────────────────────────┘
 

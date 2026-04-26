@@ -6,7 +6,7 @@
 ┌─────────────────────────────────────────────────────────────────────┐
 │                NONLINEAR PHENOMENA — A TAXONOMY                     │
 │                                                                     │
-│  LINEAR WORLD          vs.      NONLINEAR WORLD                    │
+│  LINEAR WORLD          vs.      NONLINEAR WORLD                     │
 │  ──────────────────────         ───────────────────────────         │
 │  Single equilibrium             Multiple equilibria                 │
 │  Stability = global             Stability = local (Lyapunov)        │
@@ -16,10 +16,10 @@
 │  Phase portrait: rays/spirals   Rich phase portrait geometry        │
 │                                                                     │
 │  TOOLS:                                                             │
-│  Phase plane ──► Lyapunov ──► Feedback lin ──► Sliding mode        │
-│  (2D analysis)  (stability)   (exact cancel) (robustness)          │
+│  Phase plane ──► Lyapunov ──► Feedback lin ──► Sliding mode         │
+│  (2D analysis)  (stability)   (exact cancel) (robustness)           │
 │                                                                     │
-│  REALITY CHECK: Most engineered systems are nonlinear.             │
+│  REALITY CHECK: Most engineered systems are nonlinear.              │
 │  Linear control works when: operating near equilibrium, small       │
 │  disturbances, adequate gain/phase margins for the linearization.   │
 │  Nonlinear control needed when: large excursions, saturation,       │
@@ -49,14 +49,14 @@ CLASSIFICATION from eigenvalues λ₁, λ₂ of A:
   │ λ₁, λ₂ > 0 (real)    │ Unstable   │ Unstable                │
   │                       │ node       │                         │
   ├───────────────────────┼────────────┼─────────────────────────┤
-  │ λ₁ < 0 < λ₂ (real)   │ Saddle     │ Unstable (saddle)       │
+  │ λ₁ < 0 < λ₂ (real)    │ Saddle     │ Unstable (saddle)       │
   ├───────────────────────┼────────────┼─────────────────────────┤
   │ λ = α ± jβ, α < 0    │ Stable     │ Asymptotically stable   │
   │                       │ spiral     │                         │
   │ λ = α ± jβ, α > 0    │ Unstable   │ Unstable                │
   │                       │ spiral     │                         │
   ├───────────────────────┼────────────┼─────────────────────────┤
-  │ λ = ±jβ (purely imag.)│ Center     │ Stable (Lyapunov) but  │
+  │ λ = ±jβ (purely imag.)│ Center     │ Stable (Lyapunov) but   │
   │                       │            │ NOT asymptotically —    │
   │                       │            │ linearization ambiguous │
   └───────────────────────┴────────────┴─────────────────────────┘
@@ -358,26 +358,26 @@ ADVANTAGES:
 
 ```
 ┌──────────────────────────────────────────────────────────────────────┐
-│ SCENARIO                     │ RECOMMENDATION                       │
+│ SCENARIO                     │ RECOMMENDATION                        │
 ├──────────────────────────────┼───────────────────────────────────────┤
 │ 2D system, need stability    │ Phase plane + Poincaré-Bendixson for │
 │ analysis or limit cycle study│ existence; Lyapunov for stability     │
 ├──────────────────────────────┼───────────────────────────────────────┤
-│ Need global stability proof  │ Lyapunov direct method; SOS programs │
+│ Need global stability proof  │ Lyapunov direct method; SOS programs  │
 │ (not just local linear)      │ for polynomial systems                │
 ├──────────────────────────────┼───────────────────────────────────────┤
 │ Exact linearization desired  │ Feedback linearization; FIRST check  │
 │ (cancel nonlinearities)      │ minimum phase (zero dynamics stable) │
 ├──────────────────────────────┼───────────────────────────────────────┤
-│ Disturbance rejection,       │ Sliding mode; tune k for disturbance │
-│ finite-time convergence      │ bound; add boundary layer for        │
+│ Disturbance rejection,       │ Sliding mode; tune k for disturbance  │
+│ finite-time convergence      │ bound; add boundary layer for         │
 │                              │ chattering reduction                  │
 ├──────────────────────────────┼───────────────────────────────────────┤
 │ Strict-feedback structure,   │ Backstepping (systematic Lyapunov    │
 │ need systematic design       │ design); DSC for lower complexity    │
 ├──────────────────────────────┼───────────────────────────────────────┤
 │ Robotics, port-Hamiltonian   │ Passivity-based control (IDA-PBC);  │
-│ systems, power electronics   │ energy shaping + damping injection   │
+│ systems, power electronics   │ energy shaping + damping injection    │
 └──────────────────────────────┴───────────────────────────────────────┘
 ```
 

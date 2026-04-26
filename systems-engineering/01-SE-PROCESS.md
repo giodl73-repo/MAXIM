@@ -8,7 +8,7 @@ SE process is the structured sequence of activities that transforms stakeholder 
 ISO 15288 PROCESS GROUPS
 ──────────────────────────────────────────────────────────────────
 ┌─────────────────────────────────────────────────────────────────┐
-│  AGREEMENT PROCESSES                                             │
+│  AGREEMENT PROCESSES                                            │
 │  Acquisition ·· Supply                                          │
 │  (customer-supplier relationship management)                    │
 ├─────────────────────────────────────────────────────────────────┤
@@ -17,10 +17,10 @@ ISO 15288 PROCESS GROUPS
 │  Portfolio management ·· Human resource management             │
 │  Quality management ·· Knowledge management                    │
 ├─────────────────────────────────────────────────────────────────┤
-│  PROJECT PROCESSES                                               │
+│  PROJECT PROCESSES                                              │
 │  Project planning ·· Project assessment and control             │
 │  Decision management ·· Risk management                         │
-│  Configuration management ·· Information management            │
+│  Configuration management ·· Information management             │
 │  Measurement ·· Quality assurance                               │
 ├─────────────────────────────────────────────────────────────────┤
 │  TECHNICAL PROCESSES  ◄── The core SE work                      │

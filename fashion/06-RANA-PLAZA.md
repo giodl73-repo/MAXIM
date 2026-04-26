@@ -4,7 +4,7 @@
 
 ```
 +------------------------------------------------------------------+
-|                  RANA PLAZA, APRIL 24, 2013                       |
+|                  RANA PLAZA, APRIL 24, 2013                      |
 |                                                                  |
 |  LOCATION: Savar, Dhaka, Bangladesh                              |
 |  STRUCTURE: 8-story commercial building                          |
@@ -19,7 +19,7 @@
 |                                                                  |
 |  THIS WAS THE DEADLIEST GARMENT FACTORY DISASTER IN HISTORY      |
 |  (Surpassing Triangle Shirtwaist Factory fire, 1911, USA:        |
-|   146 dead)                                                       |
+|   146 dead)                                                      |
 +------------------------------------------------------------------+
 ```
 

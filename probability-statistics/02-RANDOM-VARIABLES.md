@@ -20,15 +20,15 @@
 |  +--------------------+        | Log-normal         |           |
 |                                | Pareto (heavy tail)|           |
 |  DERIVED FROM NORMAL           +--------------------+           |
-|  +-----------------------------+                                 |
+|  +-----------------------------+                                |
 |  | Chi-squared: sum of sq normal r.v.s                         |
 |  | t-distribution: normal / sqrt(chi-sq / n)                   |
 |  | F-distribution: ratio of chi-squareds                       |
 |  | Wishart: multivariate chi-squared (for covariances)         |
 |  +-----------------------------+                                 |
 |                                                                  |
-|  EXPONENTIAL FAMILY (unified framework)                         |
-|  Normal, Poisson, Exponential, Binomial, Gamma, Beta, ...       |
+|  EXPONENTIAL FAMILY (unified framework)                          |
+|  Normal, Poisson, Exponential, Binomial, Gamma, Beta, ...        |
 +------------------------------------------------------------------+
 ```
 

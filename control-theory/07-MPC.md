@@ -6,9 +6,9 @@
 ┌─────────────────────────────────────────────────────────────────────┐
 │               MODEL PREDICTIVE CONTROL — CORE IDEA                  │
 │                                                                     │
-│   TIME     t    t+1   t+2   t+3  ...  t+N                          │
+│   TIME     t    t+1   t+2   t+3  ...  t+N                           │
 │            ↓                                                        │
-│   ┌────────────────────────────────────────────────────────────┐   │
+│   ┌────────────────────────────────────────────────────────────┐    │
 │   │  SOLVE:  min  Σ_{k=0}^{N-1} [x_kᵀQx_k + u_kᵀRu_k]        │   │
 │   │               + x_Nᵀ Px_N  (terminal cost)                 │   │
 │   │  subject to:                                               │   │
@@ -315,27 +315,27 @@ WHEN PID OVER MPC:
 
 ```
 ┌──────────────────────────────────────────────────────────────────────┐
-│ SCENARIO                     │ RECOMMENDATION                       │
+│ SCENARIO                     │ RECOMMENDATION                        │
 ├──────────────────────────────┼───────────────────────────────────────┤
 │ Linear plant, hard           │ Linear MPC with condensed QP;        │
 │ constraints, T_s > 10ms      │ OSQP or qpOASES; terminal cost/set  │
 ├──────────────────────────────┼───────────────────────────────────────┤
-│ Nonlinear dynamics,          │ NMPC with multiple shooting +        │
+│ Nonlinear dynamics,          │ NMPC with multiple shooting +         │
 │ T_s > 100ms                  │ IPOPT; CasADi for automatic diff.   │
 ├──────────────────────────────┼───────────────────────────────────────┤
 │ Nonlinear, fast dynamics     │ RTI-NMPC (single SQP iteration);    │
 │ (T_s < 100ms)                │ acados or ACADO toolkit              │
 ├──────────────────────────────┼───────────────────────────────────────┤
 │ Embedded, no QP solver,      │ Explicit MPC (MPT3 offline);        │
-│ simple system (n_x ≤ 5)      │ PWA lookup at runtime                │
+│ simple system (n_x ≤ 5)      │ PWA lookup at runtime                 │
 ├──────────────────────────────┼───────────────────────────────────────┤
 │ Economic objective           │ Economic MPC: replace quadratic cost │
 │ (maximize yield, etc.)       │ with economic objective; stability   │
 │                              │ via dissipativity theory             │
 ├──────────────────────────────┼───────────────────────────────────────┤
-│ Stability guarantee needed   │ Terminal cost P = DARE, terminal set │
-│                              │ X_f = max positively invariant set   │
-│                              │ under LQR; verify N sufficient       │
+│ Stability guarantee needed   │ Terminal cost P = DARE, terminal set  │
+│                              │ X_f = max positively invariant set    │
+│                              │ under LQR; verify N sufficient        │
 └──────────────────────────────┴───────────────────────────────────────┘
 ```
 

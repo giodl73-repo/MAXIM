@@ -8,18 +8,18 @@
 |                                                                    |
 |  INPUT: Fermented liquid (~5-15% ABV)                            |
 |  OUTPUT: Concentrated spirit (15-95% ABV)                        |
-|  MECHANISM: Exploit different boiling points of mixture           |
+|  MECHANISM: Exploit different boiling points of mixture          |
 |                                                                    |
-|  POT STILL                        COLUMN STILL                    |
-|  (batch distillation)             (continuous distillation)       |
-|  ----------------                 --------------------------      |
-|  One charge at a time             Continuous input/output         |
-|  Simple or compound               Theoretical plates              |
-|  Retains congeners                Strips congeners                |
-|  Lower ABV (<70%)                 Higher ABV (up to 96%)          |
-|  More flavor                      More neutral                    |
-|  Scotch, Cognac, Irish pot        Vodka, grain neutral, column    |
-|                                   Scotch grain, rum               |
+|  POT STILL                        COLUMN STILL                   |
+|  (batch distillation)             (continuous distillation)      |
+|  ----------------                 --------------------------     |
+|  One charge at a time             Continuous input/output        |
+|  Simple or compound               Theoretical plates             |
+|  Retains congeners                Strips congeners               |
+|  Lower ABV (<70%)                 Higher ABV (up to 96%)         |
+|  More flavor                      More neutral                   |
+|  Scotch, Cognac, Irish pot        Vodka, grain neutral, column   |
+|                                   Scotch grain, rum              |
 +------------------------------------------------------------------+
 ```
 

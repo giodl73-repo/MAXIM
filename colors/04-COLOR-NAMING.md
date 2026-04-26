@@ -6,16 +6,16 @@
 +------------------------------------------------------------------+
 |         THE UNIVERSAL SEQUENCE OF COLOR NAMING                   |
 |                                                                  |
-|  BERLIN & KAY (1969): across 20 languages, color terms          |
+|  BERLIN & KAY (1969): across 20 languages, color terms           |
 |  are acquired in a fixed order:                                  |
 |                                                                  |
-|  STAGE I:   black + white  (all languages have these)           |
+|  STAGE I:   black + white  (all languages have these)            |
 |  STAGE II:  red                                                  |
-|  STAGE III: yellow OR green (one or the other comes next)       |
-|  STAGE IV:  the other (yellow or green)                         |
+|  STAGE III: yellow OR green (one or the other comes next)        |
+|  STAGE IV:  the other (yellow or green)                          |
 |  STAGE V:   blue                                                 |
 |  STAGE VI:  brown                                                |
-|  STAGE VII: pink, orange, purple, gray (any order)              |
+|  STAGE VII: pink, orange, purple, gray (any order)               |
 |                                                                  |
 |  A language with 3 basic color terms always has: black/white/red|
 |  A language with 5 always has: black/white/red + yellow + green  |

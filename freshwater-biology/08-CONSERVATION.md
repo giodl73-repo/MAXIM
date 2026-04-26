@@ -11,7 +11,7 @@ FRESHWATER CONSERVATION — THREAT MATRIX
   +---------------+   +------------------+    +----------+    +------------+
   | Invasive spp. |   | Competition,     |    | Local to |    | Low; often |
   |               |   | predation,       |    | regional |    | irreversible|
-  |               |   | disease vector   |    |          |    |             |
+  |               |   | disease vector   |    |          |    |            |
   +---------------+   +------------------+    +----------+    +------------+
   | Dam/barrier   |   | Thermal change,  |    | Watershed|    | Moderate;  |
   |               |   | sediment trap,   |    | to river |    | dam removal|
@@ -227,8 +227,8 @@ Environmental flows (e-flows) are the quantity, timing, and quality of water flo
 
   FLOW COMPONENT          ECOLOGICAL FUNCTION
   +------------------+   +------------------------------------------+
-  | Low flows        |   | Maintain pool refugia; concentrate        |
-  | (base flow)      |   | organisms for feeding; fish over-winter   |
+  | Low flows        |   | Maintain pool refugia; concentrate       |
+  | (base flow)      |   | organisms for feeding; fish over-winter  |
   +------------------+   +------------------------------------------+
   | High flow pulses |   | Flush fine sediment from gravels;        |
   | (small floods)   |   | access riparian feeding areas;           |

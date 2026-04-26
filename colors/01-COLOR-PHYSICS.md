@@ -9,7 +9,7 @@
 |  1. SELECTIVE ABSORPTION / REFLECTION                            |
 |     Chromophores in material absorb specific wavelengths         |
 |     Complementary wavelengths reflected → perceived color        |
-|     EXAMPLES: pigments, dyes, colored glass, solutions          |
+|     EXAMPLES: pigments, dyes, colored glass, solutions           |
 |               → dominant mechanism for most human-made color     |
 |                                                                  |
 |  2. STRUCTURAL COLOR (interference / diffraction)                |
@@ -21,11 +21,11 @@
 |  3. EMISSION                                                     |
 |     Object generates its own light (not reflected)               |
 |     Blackbody radiation (hot objects), LEDs (band gap),          |
-|     fluorescence (absorb short λ, re-emit longer λ)             |
+|     fluorescence (absorb short λ, re-emit longer λ)              |
 |                                                                  |
 |  4. SCATTERING                                                   |
 |     Wavelength-selective scattering from particles/molecules     |
-|     Rayleigh (small particles: λ⁻⁴) → blue sky                  |
+|     Rayleigh (small particles: λ⁻⁴) → blue sky                   |
 |     Mie (large particles: wavelength-independent) → white clouds |
 +------------------------------------------------------------------+
 ```

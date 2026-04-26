@@ -19,7 +19,7 @@ CONFORMAL MAPS — LANDSCAPE
   │  Power maps                   f = zⁿ, f = z^{1/n}                 │
   │  Exponential/logarithm        f = e^z, f = log z                  │
   │  Joukowski                    f = z + 1/z   (circles → airfoils)  │
-  │  Schwarz-Christoffel          maps to polygons                     │
+  │  Schwarz-Christoffel          maps to polygons                      │
   └─────────────────────────────────────────────────────────────────────┘
 
   RIEMANN MAPPING THEOREM
@@ -33,8 +33,8 @@ CONFORMAL MAPS — LANDSCAPE
   ┌──────────────┬────────────────────────────────────────────────────┐
   │ Laplace PDE  │ Map complex domain to disk; solve; map back        │
   │ Fluid flow   │ Map airfoil to disk; solve potential flow          │
-  │ Airfoil      │ Joukowski transform: circle → wing profile        │
-  │ Electrostatics│ Potential on Ω = real part of holomorphic f on Ω │
+  │ Airfoil      │ Joukowski transform: circle → wing profile         │
+  │ Electrostatics│ Potential on Ω = real part of holomorphic f on Ω  │
   └──────────────┴────────────────────────────────────────────────────┘
 ```
 

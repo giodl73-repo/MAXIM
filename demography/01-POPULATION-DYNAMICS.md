@@ -4,7 +4,7 @@
 
 ```
 ┌─────────────────────────────────────────────────────────────────────────────┐
-│                    POPULATION CHANGE MECHANICS                               │
+│                    POPULATION CHANGE MECHANICS                              │
 │                                                                               │
 │  P(t+1) = P(t) + B(t) − D(t) + IM(t) − EM(t)                              │
 │                                                                               │
@@ -12,14 +12,14 @@
 │  B(t)  = Births in period t → t+1        determined by ASFR × women_x       │
 │  D(t)  = Deaths in period t → t+1        determined by ASDR × N_x           │
 │  IM(t) = In-migrants in period            driven by economic/political forces │
-│  EM(t) = Out-migrants in period           selective, age/skill-structured    │
+│  EM(t) = Out-migrants in period           selective, age/skill-structured   │
 │                                                                               │
-│  NATURAL INCREASE:  NI = B − D                                               │
-│  NET MIGRATION:     NM = IM − EM                                             │
-│  GROWTH:            ΔP = NI + NM                                             │
+│  NATURAL INCREASE:  NI = B − D                                              │
+│  NET MIGRATION:     NM = IM − EM                                            │
+│  GROWTH:            ΔP = NI + NM                                            │
 │                                                                               │
-│  Population growth rate: r = ΔP/P = (NI + NM)/P                            │
-│  ≈ CBR − CDR + Net migration rate                                            │
+│  Population growth rate: r = ΔP/P = (NI + NM)/P                             │
+│  ≈ CBR − CDR + Net migration rate                                           │
 │                                                                               │
 └─────────────────────────────────────────────────────────────────────────────┘
 
@@ -148,11 +148,11 @@ DISCRETE LESLIE MATRIX (1945):
   A = Leslie matrix:
   ┌─────────────────────────────────────────────────────────────────┐
   │  F₁   F₂   F₃  ...  Fₙ  ← fertilities (weighted by survival)  │
-  │  P₁   0    0   ...  0   ← P₁ = survival prob from age 1 to 2   │
-  │  0    P₂   0   ...  0   ← P₂ = survival from age 2 to 3        │
+  │  P₁   0    0   ...  0   ← P₁ = survival prob from age 1 to 2    │
+  │  0    P₂   0   ...  0   ← P₂ = survival from age 2 to 3         │
   │  0    0    P₃  ...  0                                           │
   │  :                  :                                           │
-  │  0    0    0   ...  Pₙ  ← final class: open interval (P=Pₙ)    │
+  │  0    0    0   ...  Pₙ  ← final class: open interval (P=Pₙ)     │
   └─────────────────────────────────────────────────────────────────┘
 
   Fᵢ = ½ × (fᵢ + fᵢ₊₁ × Pᵢ) × (P₀/2)    (births in age class i)

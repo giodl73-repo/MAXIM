@@ -133,14 +133,14 @@ RAMMED EARTH CONSTRUCTION SEQUENCE
 │  2. Fill: damp soil placed in 150 mm loose lifts               │
 │                                                                │
 │  3. Ram: pneumatic tamper compacts to ~100 mm                  │
-│     Density increases: 1,600 → 2,100 kg/m³                    │
+│     Density increases: 1,600 → 2,100 kg/m³                     │
 │                                                                │
 │  4. Strike form: forms moved up; repeat                        │
 │                                                                │
 │  5. Lift lines visible in finished wall — design feature       │
 │                                                                │
-│  Typical compressive strength: 2–5 MPa (unstabilized)         │
-│                                5–12 MPa (cement-stabilized)   │
+│  Typical compressive strength: 2–5 MPa (unstabilized)          │
+│                                5–12 MPa (cement-stabilized)    │
 │                                                                │
 │  Thermal mass: ρ × c_p ≈ 2,100 × 840 = 1,764 kJ/m³K          │
 │  vs concrete: 2,400 × 880 = 2,112 kJ/m³K  → comparable       │
@@ -213,26 +213,26 @@ THATCH MATERIALS AND PERFORMANCE
 │  MATERIAL           SPECIES              LIFESPAN      NOTES       │
 │  ───────────────────────────────────────────────────────────────   │
 │  Water reed         Phragmites australis  25–50 yrs    Best durability│
-│  Combed wheat reed  Winter wheat straw    15–25 yrs    Most UK      │
+│  Combed wheat reed  Winter wheat straw    15–25 yrs    Most UK     │
 │  Long straw         Various wheat/rye     10–20 yrs    Softest look │
-│  Norfolk reed       East Anglian grown    30–50 yrs    Premium      │
-│  Heather            Calluna vulgaris      15–30 yrs    Scotland     │
-│  Palm/sugar cane    Tropical species      5–15 yrs     Tropics      │
+│  Norfolk reed       East Anglian grown    30–50 yrs    Premium     │
+│  Heather            Calluna vulgaris      15–30 yrs    Scotland    │
+│  Palm/sugar cane    Tropical species      5–15 yrs     Tropics     │
 │                                                                    │
 │  PERFORMANCE                                                       │
-│    λ ~ 0.07–0.10 W/mK  (better insulator than concrete)           │
+│    λ ~ 0.07–0.10 W/mK  (better insulator than concrete)            │
 │    300 mm thatch: R ≈ 3–4 m²K/W  → comparable to 100mm mineral wool│
-│    Fire: Class D combustible; ridge is highest risk               │
-│      → fire retardant injection treatments extend life            │
-│    Wind: minimum pitch 45° (water reed) to 50° (long straw)       │
+│    Fire: Class D combustible; ridge is highest risk                │
+│      → fire retardant injection treatments extend life             │
+│    Wind: minimum pitch 45° (water reed) to 50° (long straw)        │
 │      → surface tension + drainage, not adhesion, keeps water out   │
-│    Weight: 35–70 kg/m² depending on thickness and material        │
+│    Weight: 35–70 kg/m² depending on thickness and material         │
 │      → structural roof must accommodate (heavier than modern tiles)│
 │                                                                    │
-│  APPLICATION PRINCIPLE (steep pitch = fast drainage)              │
+│  APPLICATION PRINCIPLE (steep pitch = fast drainage)               │
 │                                                                    │
 │     pitch 50°                                                      │
-│       ╱╱╱╱╱╱╱ ← water runs off fast; minimal penetration depth    │
+│       ╱╱╱╱╱╱╱ ← water runs off fast; minimal penetration depth     │
 │      ╱╱╱╱╱╱╱                                                       │
 │     ╱╱╱╱╱╱╱     low pitch 20°                                      │
 │    ═══════════   ─────────── ← water penetrates; rot risk          │
@@ -254,15 +254,15 @@ POST-AND-BEAM STRUCTURAL ELEMENTS
 ┌──────────────────────────────────────────────────────────────────────┐
 │                                                                      │
 │  Purlin  ──────────────────────────────────────────────────          │
-│               │                   │                   │             │
+│               │                   │                   │              │
 │  Rafter ─────┤───────────────────┤───────────────────┤─────        │
 │               │                   │                   │             │
 │  Plate  ──────┴───────────────────┴───────────────────┴──── (top   │
 │               │                   │                   │     of wall)│
-│               │                   │                   │             │
-│  Post/stud  │P│                 │P│                 │P│             │
-│               │                   │                   │             │
-│  Sill plate ──┴───────────────────┴───────────────────┴────         │
+│               │                   │                   │            │
+│  Post/stud  │P│                 │P│                 │P│            │
+│               │                   │                   │            │
+│  Sill plate ──┴───────────────────┴───────────────────┴────        │
 │               │                   │                   │             │
 │  Foundation:  stone/pad/strip footing                               │
 │                                                                      │
@@ -349,30 +349,30 @@ DRY-STONE WALL ANATOMY
 │                                                                  │
 │  Section view:                                                   │
 │                                                                  │
-│     ← batter (inward lean) →                                    │
+│     ← batter (inward lean) →                                     │
 │                                                                  │
 │   ▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓ ← top stone / coping              │
-│   ▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓                                     │
+│   ▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓                                      │
 │   ▓▓▓▓▓▓▓▓▓▓ ▒▒▒▒▒ ▓▓▓▓▓▓▓▓ ← throughstones (full width spans) │
 │   ▓▓▓▓ ▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒ ▓▓▓▓ ← hearting (small stones, core)   │
 │   ▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓ ← face stones (outer course)       │
 │   ─────────────────────────── ← foundation course (widest, flat) │
 │                                                                  │
-│  Face stones:    irregular but flat face; largest stones low      │
+│  Face stones:    irregular but flat face; largest stones low     │
 │  Hearting:       small irregular stones fill the core            │
 │  Throughstones:  every 0.6–1.0 m vertically; full width tie      │
 │  Batter:         face leans inward 1:6 → gravity stabilises wall │
-│  Coping:         upright or angled stones cap and shed water      │
+│  Coping:         upright or angled stones cap and shed water     │
 │                                                                  │
 │  TYPICAL DIMENSIONS:                                             │
-│  Retaining wall: base = 50–60% height; batter 1:4 to 1:6        │
+│  Retaining wall: base = 50–60% height; batter 1:4 to 1:6         │
 │  Field wall: 1.0–1.5 m high; 0.6–0.8 m base; 0.45 m top        │
 │                                                                  │
 │  STABILITY MECHANISM:                                            │
-│  Gravity: mass × g × moment arm > overturning moment            │
-│  Friction: coefficient μ ≈ 0.5–0.7 for rough stone on stone     │
+│  Gravity: mass × g × moment arm > overturning moment             │
+│  Friction: coefficient μ ≈ 0.5–0.7 for rough stone on stone      │
 │  Interlocking: irregular shapes lock → resist sliding            │
-│  Batter: resultant of gravity passes inside base → no overturn  │
+│  Batter: resultant of gravity passes inside base → no overturn   │
 │                                                                  │
 └──────────────────────────────────────────────────────────────────┘
 ```
@@ -406,10 +406,10 @@ TRADITIONAL PERSIAN / GULF HOUSE
 │  ────┼──────────────────────────────────── roof level             │
 │      │          courtyard                                          │
 │  ────┼──────┬──────────────────┬────────── first floor            │
-│      │      │                  │                                   │
-│      room   │    courtyard     │   room                            │
-│      │      │    (water pool   │                                   │
-│             │    + vegetation) │                                   │
+│      │      │                  │                                  │
+│      room   │    courtyard     │   room                           │
+│      │      │    (water pool   │                                  │
+│             │    + vegetation) │                                  │
 │  ───────────┴──────────────────┴───────── ground level            │
 │                                                                    │
 │  STRATEGY:                                                         │

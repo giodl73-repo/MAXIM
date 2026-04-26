@@ -109,7 +109,7 @@ PELTON TURBINE:
   │  PENSTOCK (high-pressure pipe from reservoir)         │
   │       │                                               │
   │       ▼                                               │
-  │  ┌─────────┐                                         │
+  │  ┌─────────┐                                          │
   │  │  NOZZLE  │──► High-velocity water jet              │
   │  │ (spear   │    V_jet = Cv × √(2gH)                │
   │  │  valve)  │    Cv ≈ 0.98 (nozzle velocity coeff)   │
@@ -117,9 +117,9 @@ PELTON TURBINE:
   │       │                                               │
   │       ▼                                               │
   │  ┌───────────────────────────────────────────────┐   │
-  │  │  RUNNER (wheel with double-cupped buckets)     │   │
-  │  │                                                │   │
-  │  │    ╭──────╮                                    │   │
+  │  │  RUNNER (wheel with double-cupped buckets)    │   │
+  │  │                                               │   │
+  │  │    ╭──────╮                                    │  │
   │  │   ╱ bucket ╲   Jet strikes bucket center      │   │
   │  │  │  ╭──╮   │   Splits, deflects ~170°         │   │
   │  │  │ ╱    ╲  │   Momentum transfer → torque      │   │
@@ -164,35 +164,35 @@ FRANCIS TURBINE:
   │  PENSTOCK                                             │
   │       │                                               │
   │       ▼                                               │
-  │  ┌───────────────────────────────────┐               │
+  │  ┌───────────────────────────────────┐                │
   │  │  SPIRAL CASING (scroll)            │               │
   │  │  Distributes flow evenly around    │               │
   │  │  the runner circumference          │               │
   │  │          ╭───────────╮             │               │
-  │  │    ──►  ╱ Guide vanes ╲   ──►     │               │
-  │  │        │   (wicket     │          │               │
-  │  │    ──►  │    gates)    │   ──►    │               │
-  │  │         ╲  adjustable ╱           │               │
-  │  │          ╰─────┬─────╯            │               │
+  │  │    ──►  ╱ Guide vanes ╲   ──►     │                │
+  │  │        │   (wicket     │          │                │
+  │  │    ──►   │    gates)    │   ──►    │               │
+  │  │         ╲  adjustable ╱           │                │
+  │  │          ╰─────┬─────╯            │                │
   │  └────────────────┼──────────────────┘               │
   │                   ▼                                   │
   │  ┌────────────────────────────────────┐              │
-  │  │  RUNNER                             │              │
-  │  │  Mixed-flow: water enters radially, │              │
-  │  │  exits axially                      │              │
-  │  │  REACTION turbine: pressure drops   │              │
-  │  │  across BOTH guide vanes AND runner │              │
-  │  │  Runner is SUBMERGED (not in air)   │              │
+  │  │  RUNNER                            │              │
+  │  │  Mixed-flow: water enters radially, │             │
+  │  │  exits axially                     │              │
+  │  │  REACTION turbine: pressure drops  │              │
+  │  │  across BOTH guide vanes AND runner │             │
+  │  │  Runner is SUBMERGED (not in air)  │              │
   │  └────────────┬───────────────────────┘              │
   │               │                                       │
   │               ▼                                       │
   │  ┌────────────────────────────────────┐              │
-  │  │  DRAFT TUBE                         │              │
-  │  │  Diffuser: recovers kinetic energy  │              │
-  │  │  from runner exit, converts back    │              │
-  │  │  to pressure → increases effective  │              │
-  │  │  head (enables setting runner above │              │
-  │  │  tailwater without losing head)     │              │
+  │  │  DRAFT TUBE                        │              │
+  │  │  Diffuser: recovers kinetic energy │              │
+  │  │  from runner exit, converts back   │              │
+  │  │  to pressure → increases effective │              │
+  │  │  head (enables setting runner above │             │
+  │  │  tailwater without losing head)    │              │
   │  └────────────────────────────────────┘              │
   │                                                       │
   └───────────────────────────────────────────────────────┘
@@ -232,17 +232,17 @@ KAPLAN TURBINE:
 
   ┌───────────────────────────────────────────────────────┐
   │                                                       │
-  │  Flow enters scroll casing → guide vanes → runner    │
+  │  Flow enters scroll casing → guide vanes → runner     │
   │                                                       │
-  │  ┌────────────────────────────────────────┐          │
+  │  ┌────────────────────────────────────────┐           │
   │  │  RUNNER: axial flow (propeller-type)    │          │
   │  │                                         │          │
   │  │    ───►  ┌──────────┐  ───►            │          │
-  │  │          │ Adjustable│                  │          │
-  │  │    ───►  │  blades   │  ───►            │          │
-  │  │          │ (4-8 per  │                  │          │
-  │  │    ───►  │  runner)  │  ───►            │          │
-  │  │          └──────────┘                   │          │
+  │  │          │ Adjustable│                  │         │
+  │  │    ───►  │  blades  │  ───►            │          │
+  │  │          │ (4-8 per │                  │          │
+  │  │    ───►  │  runner) │  ───►            │          │
+  │  │          └──────────┘                   │         │
   │  │                                         │          │
   │  │  DOUBLE REGULATION:                     │          │
   │  │  Both guide vanes AND runner blades     │          │
@@ -271,13 +271,13 @@ KAPLAN TURBINE:
   VARIANTS:
   ┌──────────────┬──────────────────────────────────────────────┐
   │ Kaplan       │ Adjustable guide vanes + adjustable blades   │
-  │ (full)       │ Best efficiency range; highest cost           │
+  │ (full)       │ Best efficiency range; highest cost          │
   ├──────────────┼──────────────────────────────────────────────┤
   │ Semi-Kaplan  │ Adjustable guide vanes, fixed blades         │
   │              │ Simpler, cheaper; narrower efficiency range   │
   ├──────────────┼──────────────────────────────────────────────┤
   │ Propeller    │ Fixed guide vanes + fixed blades             │
-  │              │ Cheapest; single design point only            │
+  │              │ Cheapest; single design point only           │
   ├──────────────┼──────────────────────────────────────────────┤
   │ Bulb turbine │ Generator inside water passage (horizontal)  │
   │              │ Very low head (2-25 m); tidal applications   │
@@ -384,10 +384,10 @@ RESERVOIR HYDROPOWER — SYSTEM DIAGRAM:
   ┌─────────────────────────────────────────────────────────────┐
   │                                                             │
   │  RESERVOIR (impounded water behind dam)                     │
-  │  Volume: millions to km³ of water                          │
+  │  Volume: millions to km³ of water                           │
   │  Purpose: store water for seasonal/annual regulation        │
   │                                                             │
-  │  ┌─────────────────┐                                       │
+  │  ┌─────────────────┐                                        │
   │  │       DAM        │  Concrete gravity, arch, earth-fill, │
   │  │  (retains water) │  or rock-fill — site geology decides  │
   │  └────────┬────────┘                                       │
@@ -395,17 +395,17 @@ RESERVOIR HYDROPOWER — SYSTEM DIAGRAM:
   │           ▼                                                 │
   │  ┌─────────────────┐                                       │
   │  │    PENSTOCK      │  Pressure conduit: steel-lined tunnel │
-  │  │  (water tunnel)  │  or surface pipe. Length: 100m-10km+  │
+  │  │  (water tunnel) │  or surface pipe. Length: 100m-10km+  │
   │  └────────┬────────┘                                       │
   │           ▼                                                 │
   │  ┌─────────────────────────────────────┐                   │
-  │  │  POWERHOUSE                          │                   │
-  │  │  Turbines + generators + transformers│                   │
-  │  │  Surface, underground, or cavern     │                   │
+  │  │  POWERHOUSE                         │                   │
+  │  │  Turbines + generators + transformers│                  │
+  │  │  Surface, underground, or cavern    │                   │
   │  └────────┬────────────────────────────┘                   │
   │           ▼                                                 │
   │  ┌─────────────────┐                                       │
-  │  │   TAILRACE       │  Returns water to river downstream   │
+  │  │   TAILRACE      │  Returns water to river downstream    │
   │  └─────────────────┘                                       │
   │                                                             │
   │  SPILLWAY: overflow safety valve (uncontrolled release      │
@@ -477,7 +477,7 @@ SMALL HYDRO CLASSIFICATION:
 
   TECHNOLOGIES FOR VERY LOW HEAD / SMALL SCALE:
   ┌──────────────────┬────────────────────────────────────────┐
-  │ Archimedes screw │ 1-10 m head, 0.1-10 m³/s              │
+  │ Archimedes screw │ 1-10 m head, 0.1-10 m³/s               │
   │                  │ Fish-friendly (very slow rotation)     │
   │                  │ η ≈ 80-90%, simple, low maintenance    │
   │                  │ Historically: grain mills, now: micro  │
@@ -489,7 +489,7 @@ SMALL HYDRO CLASSIFICATION:
   ├──────────────────┼────────────────────────────────────────┤
   │ Turgo            │ 15-300 m head (like small Pelton)      │
   │                  │ η ≈ 85-90%, compact, simple            │
-  │                  │ Good for micro/mini with moderate head  │
+  │                  │ Good for micro/mini with moderate head │
   └──────────────────┴────────────────────────────────────────┘
 
   GLOBAL SMALL HYDRO:
@@ -599,16 +599,16 @@ PUMPED HYDRO IN THE VRE GRID:
 
   DAILY CYCLE (duck curve arbitrage):
   ┌──────────────────────────────────────────────────────────┐
-  │  Midday (11am-3pm):   Solar surplus → negative LMP      │
+  │  Midday (11am-3pm):   Solar surplus → negative LMP       │
   │    PUMP MODE:  buy cheap electricity, pump water uphill  │
   │                (consuming 1,200-1,500 MWh)               │
   │                                                          │
   │  Evening (5pm-9pm):   Solar gone, demand peak            │
   │    TURBINE MODE: release water, generate 1,000-1,200 MWh│
-  │                  (round-trip efficiency: 78-85%)          │
+  │                  (round-trip efficiency: 78-85%)         │
   │                                                          │
   │  Revenue = (peak price × generation) - (off-peak × pump) │
-  │  If peak = $60/MWh and off-peak = $10/MWh:              │
+  │  If peak = $60/MWh and off-peak = $10/MWh:               │
   │  Revenue = $60 × 1100 - $10 × 1375 = $66,000 - $13,750 │
   │         = $52,250 per cycle → ~$19M/yr                   │
   └──────────────────────────────────────────────────────────┘

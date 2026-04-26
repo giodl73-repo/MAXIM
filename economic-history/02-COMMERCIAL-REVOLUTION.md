@@ -86,9 +86,9 @@ THE TRANSACTION:
           or via return bills, or in coin)
 
 +----------+    gives coin    +----------+
-| Remitter |---------------->| Drawer   |
-| (Bruges  |                 | (Bruges  |
-|  merchant|  issues bill    | banker)  |
+| Remitter |---------------->| Drawer    |
+| (Bruges  |                  | (Bruges  |
+|  merchant|  issues bill     | banker)  |
 +----------+  to Remitter    +-----+----+
      |                             |
      | carries bill                | bill sent to

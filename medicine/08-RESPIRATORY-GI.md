@@ -8,7 +8,7 @@
 
 ```
 ┌─────────────────────────────────────────────────────────────────────────┐
-│                     RESPIRATORY & GI DRUG TARGETS                      │
+│                     RESPIRATORY & GI DRUG TARGETS                       │
 ├─────────────────────────────────────────────────────────────────────────┤
 │                                                                         │
 │  RESPIRATORY SYSTEM                                                     │
@@ -16,7 +16,7 @@
 │  │  BRONCHOSPASM AXIS                                               │   │
 │  │    β2-agonist (SABAs/LABAs) → cAMP ↑ → smooth muscle relax     │   │
 │  │    Anticholinergic (SAMA/LAMA) → block M3 → reduce ACh-bronchoconstriction│
-│  │    Xanthines → PDE inhibition → cAMP ↑ (weak); adenosine block  │   │
+│  │    Xanthines → PDE inhibition → cAMP ↑ (weak); adenosine block   │   │
 │  ├──────────────────────────────────────────────────────────────────┤   │
 │  │  INFLAMMATION AXIS                                               │   │
 │  │    ICS → NF-κB suppression → ↓ eosinophil/mast cell activity   │   │
@@ -26,18 +26,18 @@
 │  UPPER GI SYSTEM                                                        │
 │  ┌──────────────────────────────────────────────────────────────────┐   │
 │  │  ACID CONTROL                                                    │   │
-│  │    PPIs → irreversible H+/K+-ATPase block (omeprazole, etc.)    │   │
-│  │    H2 blockers → competitive histamine block (famotidine)       │   │
+│  │    PPIs → irreversible H+/K+-ATPase block (omeprazole, etc.)     │   │
+│  │    H2 blockers → competitive histamine block (famotidine)        │   │
 │  │  MOTILITY / EMESIS                                               │   │
-│  │    Prokinetics → D2/5-HT4 targets (metoclopramide, erythromycin)│   │
+│  │    Prokinetics → D2/5-HT4 targets (metoclopramide, erythromycin)│    │
 │  │    Antiemetics → 5-HT3 / D2 / NK1 / H1 targets                 │   │
 │  └──────────────────────────────────────────────────────────────────┘   │
 │                                                                         │
 │  LOWER GI SYSTEM                                                        │
 │  ┌──────────────────────────────────────────────────────────────────┐   │
 │  │  Constipation: osmotic, stimulant, bulk, secretagogue laxatives  │   │
-│  │  Diarrhea: loperamide (μ-opioid), bismuth, bile acid sequestr.  │   │
-│  │  IBD: 5-ASA (mesalazine), azathioprine, biologics (see 07)      │   │
+│  │  Diarrhea: loperamide (μ-opioid), bismuth, bile acid sequestr.   │   │
+│  │  IBD: 5-ASA (mesalazine), azathioprine, biologics (see 07)       │   │
 │  └──────────────────────────────────────────────────────────────────┘   │
 └─────────────────────────────────────────────────────────────────────────┘
 ```

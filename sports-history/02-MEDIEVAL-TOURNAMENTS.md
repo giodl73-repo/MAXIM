@@ -4,7 +4,7 @@
 
 ```
 +------------------------------------------------------------------+
-|              MEDIEVAL SPORT AND PHYSICAL CULTURE                  |
+|              MEDIEVAL SPORT AND PHYSICAL CULTURE                 |
 |                                                                  |
 |  ARISTOCRATIC                                    POPULAR         |
 |  -----------                                     -------         |
@@ -13,9 +13,9 @@
 |  11th-13th c.          13th-16th c.              Parish vs parish|
 |                                                                  |
 |  Archery                              Blood sports               |
-|  Longbow (Welsh/English)             Bear-baiting               |
-|  Crossbow                            Bull-baiting               |
-|  Crécy 1346, Agincourt 1415          Cockfighting               |
+|  Longbow (Welsh/English)             Bear-baiting                |
+|  Crossbow                            Bull-baiting                |
+|  Crécy 1346, Agincourt 1415          Cockfighting                |
 |  Mandatory practice laws             Cross-class entertainment   |
 |                                                                  |
 |  Falconry (aristocratic)             Wrestling (universal)       |
@@ -39,7 +39,7 @@ TOURNAMENT EVOLUTION:
 PHASE 1: EARLY TOURNAMENT (11th-12th c.)
   +------------------------------------------+
   | MASS MELEE (tournoi)                     |
-  | -- Two teams of knights, any size         |
+  | -- Two teams of knights, any size        |
   | -- Actual weapons, lethal force allowed  |
   | -- No defined "arena" -- wide geography  |
   |    (fields, forests, even villages)      |
@@ -47,7 +47,7 @@ PHASE 1: EARLY TOURNAMENT (11th-12th c.)
   | -- Prize: horse, armor, the man himself  |
   | -- Casualties: common, deaths: frequent  |
   | -- Church banned repeatedly (Council     |
-  |    of Clermont 1130, later bans)          |
+  |    of Clermont 1130, later bans)         |
   +------------------------------------------+
 
 PHASE 2: REGULATED TOURNAMENT (13th c.)
@@ -58,10 +58,10 @@ PHASE 2: REGULATED TOURNAMENT (13th c.)
   |    plaisance = for pleasure/display)     |
   | -- Sharp weapons still in a outrance     |
   |    (to the utmost = serious combat)      |
-  | -- Royal licensing required (England,   |
+  | -- Royal licensing required (England,    |
   |    Richard I licensed 5 sites 1194)      |
-  | -- Formal heraldic display developed    |
-  | -- Structured program (opening parade,  |
+  | -- Formal heraldic display developed     |
+  | -- Structured program (opening parade,   |
   |    jousts, final melee)                  |
   +------------------------------------------+
 

@@ -62,7 +62,7 @@ Total marine net primary production: ~50 Pg C/year
 DISTRIBUTION:
 ┌────────────────────────────────────────────────────────────────┐
 │  High productivity                Low productivity             │
-│  ┌─────────────────────┐         ┌──────────────────────────┐ │
+│  ┌─────────────────────┐         ┌──────────────────────────┐  │
 │  │ Coastal upwelling   │         │ Subtropical gyres        │ │
 │  │ zones: 1-5 g C/m²/d│         │ (Pacific, Atlantic)      │ │
 │  │ Polar spring blooms │         │ <0.1 g C/m²/day          │ │
@@ -284,8 +284,8 @@ SUBTROPICAL GYRE STRUCTURE
 ============================
 
          ┌──────────────────────────────────────────────┐
-         │         SUBTROPICAL HIGH PRESSURE             │
-         │         (Hadley cell descending air)          │
+         │         SUBTROPICAL HIGH PRESSURE            │
+         │         (Hadley cell descending air)         │
          └──────────────────────────────────────────────┘
                               │
               Winds spiral → Ekman convergence

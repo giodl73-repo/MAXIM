@@ -21,20 +21,20 @@ Performance engineering is sports science viewed through a systems lens. The ath
 |       ▲                                                                  |
 |  LAYER 3: POWER DELIVERY (Energy Systems)                                |
 |  ┌──────────────────────────────────────────────────────────────────┐    |
-|  │  Phosphocreatine (0-10s) · Glycolytic (10s-2min) · Oxidative    │    |
+|  │  Phosphocreatine (0-10s) · Glycolytic (10s-2min) · Oxidative     │    |
 |  │  "How much power can the body deliver, and for how long?"        │    |
 |  └──────────────────────────────────────────────────────────────────┘    |
 |       ▲                                                                  |
 |  LAYER 2: PHYSIOLOGICAL CAPACITY (Trainable Ceilings)                    |
 |  ┌──────────────────────────────────────────────────────────────────┐    |
 |  │  VO2max · Lactate threshold · Neuromuscular recruitment · Economy│    |
-|  │  "What are the rate limits of each subsystem?"                    │    |
+|  │  "What are the rate limits of each subsystem?"                   │    |
 |  └──────────────────────────────────────────────────────────────────┘    |
 |       ▲                                                                  |
 |  LAYER 1: TRAINING & RECOVERY (Control Inputs)                           |
 |  ┌──────────────────────────────────────────────────────────────────┐    |
 |  │  Training load · Periodization · Nutrition · Sleep · Recovery    │    |
-|  │  "What inputs produce the desired adaptation?"                    │    |
+|  │  "What inputs produce the desired adaptation?"                   │    |
 |  └──────────────────────────────────────────────────────────────────┘    |
 |                                                                          |
 |  READ BOTTOM-UP: Inputs (L1) build capacity (L2) which fuels power      |

@@ -105,7 +105,7 @@ Its practical value: unlike most treatises, it gives exact measurements. Any arc
   ┌──────────────────────────────────────────────────────┐
   │                                                      │
   │          PORTICO      PORTICO                        │
-  │             ┌──────────────────┐                    │
+  │             ┌──────────────────┐                     │
   │  PORTICO    │                  │   PORTICO           │
   │    ──────── │   CENTRAL DOME   │ ────────            │
   │             │     (round)      │                    │

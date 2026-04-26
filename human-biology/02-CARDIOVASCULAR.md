@@ -136,7 +136,7 @@ DIASTOLE (filling):
 SYSTOLE (ejection):
   ┌─────────────────────────────────────────────────────┐
   │  Isovolumetric contraction: all valves closed,      │
-  │  pressure rises until LV > aorta (~80 mmHg)        │
+  │  pressure rises until LV > aorta (~80 mmHg)         │
   │  → Aortic valve opens                               │
   │  Rapid ejection → reduced ejection                  │
   │  End-systolic volume (ESV) ~60 mL                   │
@@ -207,7 +207,7 @@ ARTERY                    ARTERIOLE          CAPILLARY
 │ Intima       │         │ Intima  │        │ 1-cell│
 │ (endothelium)│         │(endoth.)│        │ thick │
 │ Media        │         │ Media   │        │ ~10μm │
-│ (SM + elastin)│        │(thick SM│        │ dia.  │
+│ (SM + elastin)│        │(thick SM│        │ dia. │
 │ Adventitia   │         │ layer)  │        └──────┘
 │ (collagen)   │         │Adventit.│
 └──────────────┘         └─────────┘

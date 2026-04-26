@@ -450,18 +450,18 @@ tRPC (TypeScript Remote Procedure Call) takes a different approach: no schema la
 
   +----------------+         +-------------------+
   | server/router.ts|         | client/component.tsx|
-  |                 |         |                   |
-  | const appRouter |         | const result =    |
-  |  = router({     |  types  |   trpc.users      |
-  |   users: {      | ~~~~~~> |     .getById      |
+  |                |         |                   |
+  | const appRouter |         | const result =   |
+  |  = router({    |  types  |   trpc.users      |
+  |   users: {     | ~~~~~~> |     .getById      |
   |    getById:     |         |     .useQuery(123)|
-  |     procedure   |         |                   |
+  |     procedure  |         |                   |
   |      .input(    |         | result.data?.name |
-  |       z.number()| ←───────|   ↑ TypeScript    |
+  |       z.number()| ←───────|   ↑ TypeScript   |
   |      )          |         |   knows the shape |
-  |      .query(...)| ─────── |   of this!        |
-  |   }             |         |                   |
-  | })              |         |                   |
+  |      .query(...)| ─────── |   of this!       |
+  |   }            |         |                   |
+  | })             |         |                   |
   +----------------+         +-------------------+
 ```
 

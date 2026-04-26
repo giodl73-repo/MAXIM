@@ -9,12 +9,12 @@ FOREST CONSERVATION FRAMEWORK
 
   PROTECTION                  RESTORATION               REWILDING
   +------------------+       +------------------+      +------------------+
-  | Define old-growth|       | Reforestation    |      | Passive: remove   |
-  | Structural metrics|      | (previously      |      | pressure; let     |
-  | Protected area    |      | forested land)   |      | forest return     |
-  | designations     |       | Afforestation    |      | Trophic cascades  |
-  | Old-growth at    |       | (new forest on   |      | Apex predator     |
-  | global scale     |       | non-forested)    |      | reintroduction    |
+  | Define old-growth|       | Reforestation    |      | Passive: remove  |
+  | Structural metrics|      | (previously      |      | pressure; let    |
+  | Protected area   |       | forested land)   |      | forest return     |
+  | designations     |       | Afforestation    |      | Trophic cascades |
+  | Old-growth at    |       | (new forest on   |      | Apex predator    |
+  | global scale     |       | non-forested)    |      | reintroduction   |
   +------------------+       +------------------+      +------------------+
           |                         |                        |
           +-------------------------+------------------------+

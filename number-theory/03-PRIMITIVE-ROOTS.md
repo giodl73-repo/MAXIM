@@ -198,13 +198,13 @@ Complexity: L_p[1/2, c] = exp(c · √(ln p · ln ln p))
 
 ```
 +-------------------------------------------------------------------+
-| PROBLEM    | GROUP           | Best attack   | Security bits     |
+| PROBLEM    | GROUP           | Best attack   | Security bits      |
 +-------------------------------------------------------------------+
 | DLP        | (Z/pZ)*         | Index calculus| 128-bit: p≈3072b  |
 |            |                 | sub-exp time  | 256-bit: p≈15360b |
 +-------------------------------------------------------------------+
-| ECDLP      | E(F_p) (ellip-  | BSGS/Pollard  | 128-bit: p≈256b   |
-|            | tic curve group)| rho: O(√p)    | 256-bit: p≈512b   |
+| ECDLP      | E(F_p) (ellip-  | BSGS/Pollard  | 128-bit: p≈256b    |
+|            | tic curve group)| rho: O(√p)    | 256-bit: p≈512b    |
 +-------------------------------------------------------------------+
 
 Key insight: No sub-exponential algorithm is known for ECDLP in general.

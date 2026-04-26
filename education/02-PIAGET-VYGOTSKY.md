@@ -197,7 +197,7 @@ Vygotsky worked in the Soviet Union from 1924 until his death from tuberculosis 
 
   +--------------------------------------------------+
   |                                                  |
-  |  [CANNOT DO WITH SUPPORT]                       |
+  |  [CANNOT DO WITH SUPPORT]                        |
   |    (too difficult; beyond ZPD)                   |
   |                                                  |
   |  +--------------------------------------+        |
@@ -205,9 +205,9 @@ Vygotsky worked in the Soviet Union from 1924 until his death from tuberculosis 
   |  |  (can do with guidance/support)     |        |
   |  |    <- instruction targets HERE      |        |
   |  +--------------------------------------+        |
-  |  |                                              |
+  |  |                                               |
   |  |  [CAN DO INDEPENDENTLY]                     |
-  |  |    (already developed)                       |
+  |  |    (already developed)                        |
   |  +----------------------------------------------+
   |                                                  |
   +--------------------------------------------------+

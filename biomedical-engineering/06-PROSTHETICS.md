@@ -115,9 +115,9 @@ prosthesis. Poor socket fit causes skin breakdown, discomfort, and rejection.
 
   SUSPENSION SYSTEMS:
   +-------------------+-------------------------------------------+
-  | Sleeve suspension | Silicone or urethane sleeve rolls over     |
-  |                   | socket rim, creates seal by pressure       |
-  |                   | Simple, but sleeve wears out               |
+  | Sleeve suspension | Silicone or urethane sleeve rolls over    |
+  |                   | socket rim, creates seal by pressure      |
+  |                   | Simple, but sleeve wears out              |
   +-------------------+-------------------------------------------+
   | Pin lock          | Pin on distal liner threads into          |
   |                   | catch mechanism at socket base            |
@@ -125,7 +125,7 @@ prosthesis. Poor socket fit causes skin breakdown, discomfort, and rejection.
   +-------------------+-------------------------------------------+
   | Vacuum-assisted   | Active pump creates negative pressure     |
   | socket system     | (-50 to -100 mmHg) at socket interface    |
-  | (VASS)            | Best suspension, reduces pistoning         |
+  | (VASS)            | Best suspension, reduces pistoning        |
   |                   | Volume stability -> less edema, better fit |
   +-------------------+-------------------------------------------+
 

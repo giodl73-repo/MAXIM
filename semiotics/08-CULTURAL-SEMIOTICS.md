@@ -8,20 +8,20 @@ Yuri Lotman (1922–1993) was a Russian literary theorist and semiotician who de
 +-----------------------------------------------------------------------+
 |                    LOTMAN'S CULTURAL SEMIOTICS                        |
 |                                                                       |
-|  TEXT                     CULTURE                 SEMIOSPHERE        |
-|  ----                     -------                 -----------        |
-|  Any coherent,            An organized            The totality of    |
-|  bounded sign complex     structure of texts      semiotic space     |
-|  with meaning potential   and codes               within which all   |
-|                                                   semiosis occurs    |
-|  Can be: poem, film,      Culture = MEMORY:       Has a BOUNDARY     |
+|  TEXT                     CULTURE                 SEMIOSPHERE         |
+|  ----                     -------                 -----------         |
+|  Any coherent,            An organized            The totality of     |
+|  bounded sign complex     structure of texts      semiotic space      |
+|  with meaning potential   and codes               within which all    |
+|                                                   semiosis occurs     |
+|  Can be: poem, film,      Culture = MEMORY:       Has a BOUNDARY      |
 |  ritual, law, painting,   collective, selective,  (inside vs outside)|
-|  a city, a dream          accumulating                               |
-|                           A PROGRAM for           Non-semiotic ≠     |
-|  Texts encode             generating new texts    meaningless;       |
-|  INFORMATION                                      = not-yet-cultural |
-|  (reorganize into         Culture vs              or differently     |
-|  non-redundant form)      Anti-culture            coded              |
+|  a city, a dream          accumulating                                |
+|                           A PROGRAM for           Non-semiotic ≠      |
+|  Texts encode             generating new texts    meaningless;        |
+|  INFORMATION                                      = not-yet-cultural  |
+|  (reorganize into         Culture vs              or differently      |
+|  non-redundant form)      Anti-culture            coded               |
 +-----------------------------------------------------------------------+
 ```
 

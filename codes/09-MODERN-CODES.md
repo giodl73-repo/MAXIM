@@ -6,10 +6,10 @@ Modern codes are optimized for **machine reading**, not human reading. The shift
 
 ```
 ┌──────────────────────────────────────────────────────────────────┐
-│              MODERN CODE TAXONOMY                                 │
+│              MODERN CODE TAXONOMY                                │
 │                                                                  │
 │  1D LINEAR BARCODES                                              │
-│  ┌──────────────────────────────────────────────────────────┐   │
+│  ┌──────────────────────────────────────────────────────────┐    │
 │  │ UPC-A, UPC-E, EAN-13, EAN-8 — retail products            │   │
 │  │ Code 128, Code 39 — industrial/logistics                  │   │
 │  │ ITF-14 — outer cartons and pallets                        │   │
@@ -21,23 +21,23 @@ Modern codes are optimized for **machine reading**, not human reading. The shift
 │  │ QR Code — URLs, contact cards, payments                  │   │
 │  │ Data Matrix — manufacturing, small parts, pharmaceuticals│   │
 │  │ Aztec Code — transport tickets (Eurostar, Amtrak)        │   │
-│  │ PDF417 — ID documents, shipping labels                    │   │
+│  │ PDF417 — ID documents, shipping labels                   │   │
 │  │ MaxiCode — UPS sorting system                            │   │
 │  └──────────────────────────────────────────────────────────┘   │
 │                                                                  │
 │  PROXIMITY/WIRELESS                                              │
 │  ┌──────────────────────────────────────────────────────────┐   │
 │  │ NFC (ISO 18092) — payments, access, tags                 │   │
-│  │ RFID (ISO 15693) — passive tags, supply chain           │   │
+│  │ RFID (ISO 15693) — passive tags, supply chain            │   │
 │  │ Bluetooth LE — proximity sensing                         │   │
-│  │ iBeacon / Eddystone — location beacons                  │   │
+│  │ iBeacon / Eddystone — location beacons                   │   │
 │  └──────────────────────────────────────────────────────────┘   │
 │                                                                  │
 │  COMPONENT MARKING                                               │
 │  ┌──────────────────────────────────────────────────────────┐   │
 │  │ Resistor color bands — resistance + tolerance            │   │
 │  │ Capacitor markings — capacitance + voltage rating        │   │
-│  │ Wire color codes — circuit function identification        │   │
+│  │ Wire color codes — circuit function identification       │   │
 │  └──────────────────────────────────────────────────────────┘   │
 │                                                                  │
 │  REGULATORY/SAFETY                                               │
@@ -58,30 +58,30 @@ The global standard for retail product identification, managed by GS1.
 
 ```
 ┌──────────────────────────────────────────────────────────────────┐
-│                    EAN-13 STRUCTURE                               │
+│                    EAN-13 STRUCTURE                              │
 │                                                                  │
-│  13 digits total: [GS1 Prefix][Company Code][Item Ref][Check]   │
+│  13 digits total: [GS1 Prefix][Company Code][Item Ref][Check]    │
 │                   ─────────────────────────────────────────────  │
-│                   D1 D2 D3 D4 D5 D6 D7 D8 D9 D10 D11 D12 | D13  │
+│                   D1 D2 D3 D4 D5 D6 D7 D8 D9 D10 D11 D12 | D13   │
 │                                                                  │
-│  GS1 prefix (2–3 digits): country/organization of GS1 member    │
-│  — 0xx = USA/Canada                                             │
-│  — 3xx = France                                                 │
-│  — 400–440 = Germany                                            │
-│  — 45x/49x = Japan                                              │
-│  — 690–699 = China                                              │
-│  — 978/979 = Books (ISBN)                                       │
-│  — 977 = Periodicals (ISSN)                                     │
+│  GS1 prefix (2–3 digits): country/organization of GS1 member     │
+│  — 0xx = USA/Canada                                              │
+│  — 3xx = France                                                  │
+│  — 400–440 = Germany                                             │
+│  — 45x/49x = Japan                                               │
+│  — 690–699 = China                                               │
+│  — 978/979 = Books (ISBN)                                        │
+│  — 977 = Periodicals (ISSN)                                      │
 │                                                                  │
-│  Company code + Item reference: variable split based on         │
-│  GS1 membership tier                                            │
+│  Company code + Item reference: variable split based on          │
+│  GS1 membership tier                                             │
 │                                                                  │
-│  Check digit (D13): calculated by algorithm:                    │
-│  1. Multiply alternate digits by 1 and 3                        │
+│  Check digit (D13): calculated by algorithm:                     │
+│  1. Multiply alternate digits by 1 and 3                         │
 │     (positions 1,3,5,7,9,11 × 1; positions 2,4,6,8,10,12 × 3) │
-│  2. Sum all 12 weighted values                                  │
-│  3. Find what makes sum + check_digit divisible by 10           │
-│     check = (10 - (sum mod 10)) mod 10                          │
+│  2. Sum all 12 weighted values                                   │
+│  3. Find what makes sum + check_digit divisible by 10            │
+│     check = (10 - (sum mod 10)) mod 10                           │
 │                                                                  │
 │  Example: 978-0-306-40615-? (a book ISBN → EAN-13)             │
 │  9×1 + 7×3 + 8×1 + 0×3 + 3×1 + 0×3 + 6×1 + 4×3 + 0×1 + 6×3   │
@@ -128,9 +128,9 @@ Invented 1994 by Masahiro Hara at Denso Wave (Toyota supplier) for tracking auto
 
 ```
 ┌──────────────────────────────────────────────────────────────────┐
-│                    QR CODE ANATOMY                                │
+│                    QR CODE ANATOMY                               │
 │                                                                  │
-│  ┌─────┐  . . . . . .  ┌─────┐                                  │
+│  ┌─────┐  . . . . . .  ┌─────┐                                   │
 │  │■■■■■│  . . . . . .  │■■■■■│   FINDER PATTERNS (3 corners)    │
 │  │■   ■│  . . . . . .  │■   ■│   7×7 squares with white border  │
 │  │■ ■ ■│  . . . . . .  │■ ■ ■│   Unique pattern; tells scanner  │
@@ -164,13 +164,13 @@ Version = size, from 1 (21×21 modules) to 40 (177×177 modules)
 ├─────────┬──────────────┬────────────────────────────────────┤
 │ Version │  Size        │  Max numeric / alphanumeric / byte  │
 ├─────────┼──────────────┼────────────────────────────────────┤
-│    1    │  21×21       │  41 / 25 / 17                       │
-│    3    │  29×29       │  127 / 77 / 53                      │
-│    5    │  37×37       │  277 / 167 / 115                    │
-│   10    │  57×57       │  652 / 395 / 271                    │
-│   20    │  97×97       │  1817 / 1096 / 754                  │
-│   30    │  137×137     │  3057 / 1985 / 1367                 │
-│   40    │  177×177     │  7089 / 4296 / 2953                 │
+│    1    │  21×21       │  41 / 25 / 17                      │
+│    3    │  29×29       │  127 / 77 / 53                     │
+│    5    │  37×37       │  277 / 167 / 115                   │
+│   10    │  57×57       │  652 / 395 / 271                   │
+│   20    │  97×97       │  1817 / 1096 / 754                 │
+│   30    │  137×137     │  3057 / 1985 / 1367                │
+│   40    │  177×177     │  7089 / 4296 / 2953                │
 └─────────┴──────────────┴────────────────────────────────────┘
 ```
 
@@ -221,7 +221,7 @@ Mixed: QR can switch modes within one code for efficiency
 
 ```
 ┌──────────────────────────────────────────────────────────────┐
-│                DATA MATRIX OVERVIEW                           │
+│                DATA MATRIX OVERVIEW                          │
 │                                                              │
 │  Structure:                                                  │
 │  ┌─────────────────────┐                                     │
@@ -259,23 +259,23 @@ NFC is a short-range (≤4 cm) wireless communication standard derived from RFID
 
 ```
 ┌──────────────────────────────────────────────────────────────────┐
-│                    NFC SYSTEM MAP                                 │
+│                    NFC SYSTEM MAP                                │
 │                                                                  │
 │  Frequency: 13.56 MHz (ISM band, globally available)             │
-│  Range: 1–4 cm (security through proximity)                     │
-│  Data rate: 106, 212, 424, or 848 kbps                          │
-│  Standard: ISO/IEC 18092, ISO/IEC 14443                         │
+│  Range: 1–4 cm (security through proximity)                      │
+│  Data rate: 106, 212, 424, or 848 kbps                           │
+│  Standard: ISO/IEC 18092, ISO/IEC 14443                          │
 │                                                                  │
 │  THREE OPERATING MODES:                                          │
-│  ┌───────────────────────────────────────────────────────────┐  │
+│  ┌───────────────────────────────────────────────────────────┐   │
 │  │ Card Emulation Mode:                                      │  │
 │  │ Device behaves like a passive NFC tag                    │  │
 │  │ Use case: contactless payment (Apple Pay, Google Pay)    │  │
 │  │ Secure Element stores payment credentials                │  │
 │  ├───────────────────────────────────────────────────────────┤  │
 │  │ Reader/Writer Mode:                                       │  │
-│  │ Device powers and reads passive NFC tags                 │  │
-│  │ Use case: scanning product tags, transit cards, posters  │  │
+│  │ Device powers and reads passive NFC tags                  │  │
+│  │ Use case: scanning product tags, transit cards, posters   │  │
 │  │ Android/iOS apps can read NDEF-formatted tags             │  │
 │  ├───────────────────────────────────────────────────────────┤  │
 │  │ Peer-to-Peer Mode:                                        │  │
@@ -315,14 +315,14 @@ NFC is a short-range (≤4 cm) wireless communication standard derived from RFID
 ├─────────────────────┬────────────────────────────────────────┤
 │  NFC                │ RFID                                   │
 ├─────────────────────┼────────────────────────────────────────┤
-│ 13.56 MHz only      │ LF (125kHz), HF (13.56MHz), UHF       │
+│ 13.56 MHz only      │ LF (125kHz), HF (13.56MHz), UHF        │
 │                     │ (860–960MHz), microwave (2.45GHz)      │
-│ ≤4 cm range         │ LF: 10cm; HF: 1m; UHF: 1–12m          │
+│ ≤4 cm range         │ LF: 10cm; HF: 1m; UHF: 1–12m           │
 │ Bidirectional (P2P) │ Unidirectional (reader → tag)          │
 │ Peer-to-peer mode   │ No peer-to-peer                        │
 │ Smart devices built-│ Requires dedicated reader hardware     │
 │ in (phones/watches) │                                        │
-│ ISO 18092           │ ISO 15693 (HF); ISO 18000-6 (UHF)     │
+│ ISO 18092           │ ISO 15693 (HF); ISO 18000-6 (UHF)      │
 │ Payment, transit,   │ Supply chain, inventory, animal tag,   │
 │ access control      │ vehicle tracking (EZPass/FastTrack)    │
 └─────────────────────┴────────────────────────────────────────┘
@@ -336,35 +336,35 @@ NFC is a short-range (≤4 cm) wireless communication standard derived from RFID
 
 ```
 ┌──────────────────────────────────────────────────────────────────┐
-│                RESISTOR COLOR CODE                                │
+│                RESISTOR COLOR CODE                               │
 │                                                                  │
 │  COLOR BAND TABLE:                                               │
 │                                                                  │
-│  Color      Digit  Multiplier      Tolerance (5th band)         │
-│  ─────────  ─────  ────────────    ────────────────────         │
-│  Black        0      ×1 (10⁰)      —                            │
-│  Brown        1      ×10 (10¹)     ±1%  (F)                     │
-│  Red          2      ×100 (10²)    ±2%  (G)                     │
-│  Orange       3      ×1k (10³)     ±0.05% (rare)                │
+│  Color      Digit  Multiplier      Tolerance (5th band)          │
+│  ─────────  ─────  ────────────    ────────────────────          │
+│  Black        0      ×1 (10⁰)      —                             │
+│  Brown        1      ×10 (10¹)     ±1%  (F)                      │
+│  Red          2      ×100 (10²)    ±2%  (G)                      │
+│  Orange       3      ×1k (10³)     ±0.05% (rare)                 │
 │  Yellow       4      ×10k (10⁴)   ±0.02% (rare)                │
 │  Green        5      ×100k (10⁵)  ±0.5% (D)                    │
 │  Blue         6      ×1M (10⁶)    ±0.25% (C)                   │
 │  Violet       7      ×10M (10⁷)   ±0.1% (B)                    │
 │  Gray         8      ×100M (10⁸)  ±0.05% (A)                   │
-│  White        9      ×1G (10⁹)    —                             │
-│  Gold         —      ×0.1          ±5%  (J)                     │
-│  Silver       —      ×0.01         ±10% (K)                     │
-│  (no band)   —      —              ±20% (M)                     │
+│  White        9      ×1G (10⁹)    —                              │
+│  Gold         —      ×0.1          ±5%  (J)                      │
+│  Silver       —      ×0.01         ±10% (K)                      │
+│  (no band)   —      —              ±20% (M)                      │
 │                                                                  │
-│  4-BAND RESISTOR: [Band1][Band2][Multiplier][Tolerance]         │
+│  4-BAND RESISTOR: [Band1][Band2][Multiplier][Tolerance]          │
 │  Example: Red-Red-Brown-Gold = 2,2,×10, ±5% = 220Ω ±5%        │
 │                                                                  │
 │  5-BAND RESISTOR: [Band1][Band2][Band3][Multiplier][Tolerance] │
 │  Example: Brown-Black-Black-Brown-Brown = 1,0,0,×10,±1%        │
-│           = 1000Ω = 1kΩ ±1%                                     │
+│           = 1000Ω = 1kΩ ±1%                                      │
 │                                                                  │
-│  6-BAND RESISTOR: adds temperature coefficient                  │
-│  (6th band, usually on precision resistors)                     │
+│  6-BAND RESISTOR: adds temperature coefficient                   │
+│  (6th band, usually on precision resistors)                      │
 └──────────────────────────────────────────────────────────────────┘
 ```
 
@@ -388,25 +388,25 @@ Wire color coding is NOT globally standardized — it varies significantly by co
 
 ```
 ┌──────────────────────────────────────────────────────────────────┐
-│           WIRE COLOR CODES BY CONTEXT                             │
+│           WIRE COLOR CODES BY CONTEXT                            │
 │                                                                  │
-│  AC MAINS POWER (IEC 60446 — EU standard, adopted 2003+):       │
+│  AC MAINS POWER (IEC 60446 — EU standard, adopted 2003+):        │
 │  Phase (Live):    Brown                                          │
 │  Neutral:         Blue                                           │
 │  Earth (Ground):  Green/Yellow stripe                            │
 │                                                                  │
-│  AC MAINS POWER (Pre-2004 UK / old British standard):           │
+│  AC MAINS POWER (Pre-2004 UK / old British standard):            │
 │  Phase:    Red                                                   │
 │  Neutral:  Black                                                 │
 │  Earth:    Green (no stripe)                                     │
 │                                                                  │
-│  AC MAINS POWER (US/Canada, NEC):                               │
+│  AC MAINS POWER (US/Canada, NEC):                                │
 │  Hot (Line 1):     Black                                         │
 │  Hot (Line 2):     Red (in 240V circuits)                        │
 │  Neutral:          White or Gray                                 │
 │  Ground:           Green or Bare                                 │
 │  * Single-phase: Black(hot), White(neutral), Green/Bare(ground)  │
-│  * 3-phase: Black, Red, Blue (L1, L2, L3) + White(N) + Green(G) │
+│  * 3-phase: Black, Red, Blue (L1, L2, L3) + White(N) + Green(G)  │
 │                                                                  │
 │  DC AUTOMOTIVE (12V/24V vehicle systems):                        │
 │  Positive (+):     Red                                           │
@@ -414,10 +414,10 @@ Wire color coding is NOT globally standardized — it varies significantly by co
 │  Ground:           Black (same as negative in single-ground)     │
 │  (Additional colors vary by vehicle manufacturer)                │
 │                                                                  │
-│  DC ELECTRONICS (typical PCB/breadboard convention):            │
+│  DC ELECTRONICS (typical PCB/breadboard convention):             │
 │  Positive:         Red                                           │
 │  Negative/Ground:  Black                                         │
-│  Signal:           Other colors (application-specific)          │
+│  Signal:           Other colors (application-specific)           │
 │                                                                  │
 │  ETHERNET (TIA/EIA-568):                                         │
 │  568A: W-Green/Green, W-Orange/Blue, W-Blue/Orange, W-Brown/Brown│
@@ -434,12 +434,12 @@ Two major competing standards for road sign design:
 
 ```
 ┌──────────────────────────────────────────────────────────────────┐
-│              ROAD SIGN SYSTEMS COMPARISON                         │
+│              ROAD SIGN SYSTEMS COMPARISON                        │
 ├─────────────────────────────┬────────────────────────────────────┤
 │  MUTCD (USA/Canada)         │  Vienna Convention (150+ countries) │
 ├─────────────────────────────┼────────────────────────────────────┤
 │  Text-based primarily       │  Symbol-based primarily            │
-│  Sign shapes carry meaning  │  Sign shapes + colors carry meaning │
+│  Sign shapes carry meaning  │  Sign shapes + colors carry meaning│
 │  Specific fonts mandated    │  No specific font standard         │
 │  (Highway Gothic, Clearview)│                                    │
 ├─────────────────────────────┼────────────────────────────────────┤
@@ -453,11 +453,11 @@ Two major competing standards for road sign design:
 ├─────────────────────────────┼────────────────────────────────────┤
 │  COLORS:                    │  COLORS:                           │
 │  Red = STOP/PROHIBITION     │  Red = STOP/PROHIBITION            │
-│  Yellow = WARNING           │  Yellow/Orange = WARNING            │
-│  Orange = construction      │  Blue = mandatory instruction       │
+│  Yellow = WARNING           │  Yellow/Orange = WARNING           │
+│  Orange = construction      │  Blue = mandatory instruction      │
 │  Green = guide/direction    │  Green = direction/guide           │
 │  Blue = services/info       │  Brown = tourist/cultural          │
-│  Brown = recreational/cultural│                                   │
+│  Brown = recreational/cultural│                                  │
 │  White = regulatory         │                                    │
 └─────────────────────────────┴────────────────────────────────────┘
 ```
@@ -468,7 +468,7 @@ ISO 7010 is the international standard for safety signs in workplaces and public
 
 ```
 ┌──────────────────────────────────────────────────────────────┐
-│              ISO 7010 SIGN CATEGORIES                         │
+│              ISO 7010 SIGN CATEGORIES                        │
 │                                                              │
 │  PROHIBITION (circular, red border, red diagonal bar):       │
 │  P001 = No smoking                                           │
@@ -482,19 +482,19 @@ ISO 7010 is the international standard for safety signs in workplaces and public
 │  W027 = Radiation hazard                                     │
 │                                                              │
 │  MANDATORY (circular, blue, white symbol):                   │
-│  M001 = Eye protection must be worn                         │
-│  M003 = Safety helmet must be worn                          │
-│  M010 = Wear safety footwear                                │
+│  M001 = Eye protection must be worn                          │
+│  M003 = Safety helmet must be worn                           │
+│  M010 = Wear safety footwear                                 │
 │                                                              │
-│  SAFE CONDITION (rectangular/square, green, white symbol):  │
-│  E001 = Emergency exit left/right                           │
-│  E003 = First aid                                           │
-│  E004 = Stretcher                                           │
+│  SAFE CONDITION (rectangular/square, green, white symbol):   │
+│  E001 = Emergency exit left/right                            │
+│  E003 = First aid                                            │
+│  E004 = Stretcher                                            │
 │                                                              │
-│  FIRE EQUIPMENT (rectangular, red background):              │
-│  F001 = Fire extinguisher                                   │
-│  F002 = Fire hose reel                                      │
-│  F003 = Fire ladder                                         │
+│  FIRE EQUIPMENT (rectangular, red background):               │
+│  F001 = Fire extinguisher                                    │
+│  F002 = Fire hose reel                                       │
+│  F003 = Fire ladder                                          │
 └──────────────────────────────────────────────────────────────┘
 ```
 
@@ -506,7 +506,7 @@ Ground surface indicators for visually impaired pedestrians. Internationally sta
 
 ```
 ┌──────────────────────────────────────────────────────────────────┐
-│                TACTILE PAVING PATTERNS                            │
+│                TACTILE PAVING PATTERNS                           │
 │                                                                  │
 │  HAZARD WARNING (Blister/Truncated dome pattern):                │
 │  ○ ○ ○ ○ ○ ○    Small round bumps (domes)                        │
@@ -514,7 +514,7 @@ Ground surface indicators for visually impaired pedestrians. Internationally sta
 │  ○ ○ ○ ○ ○ ○                                                     │
 │                                                                  │
 │  Meaning: STOP — hazard ahead                                    │
-│  Used at: curb ramps, road crossings, platform edges, stairs,   │
+│  Used at: curb ramps, road crossings, platform edges, stairs,    │
 │           escalator approaches, hazardous level changes          │
 │                                                                  │
 │  DIRECTIONAL (Bar/Corduroy pattern):                             │
@@ -524,7 +524,7 @@ Ground surface indicators for visually impaired pedestrians. Internationally sta
 │  ─────────────────────────────────                               │
 │                                                                  │
 │  Meaning: SAFE — walkable direction, follow bars                 │
-│  Used at: transit platforms, pedestrian paths, shopping areas   │
+│  Used at: transit platforms, pedestrian paths, shopping areas    │
 │                                                                  │
 │  COLOR:                                                          │
 │  Yellow preferred (contrast against most ground surfaces)        │
@@ -532,9 +532,9 @@ Ground surface indicators for visually impaired pedestrians. Internationally sta
 │                                                                  │
 │  Standards:                                                      │
 │  ISO 23599 — general standard                                    │
-│  ADA (US): dome dimensions, placement at curb ramps             │
-│  JASSO (Japan): pioneered tactile paving (Seiichi Miyake 1965)  │
-│  BS 8300 (UK), DIN 32984 (Germany)                              │
+│  ADA (US): dome dimensions, placement at curb ramps              │
+│  JASSO (Japan): pioneered tactile paving (Seiichi Miyake 1965)   │
+│  BS 8300 (UK), DIN 32984 (Germany)                               │
 └──────────────────────────────────────────────────────────────────┘
 ```
 

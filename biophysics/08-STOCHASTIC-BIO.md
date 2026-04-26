@@ -4,17 +4,17 @@
 
 ```
 ┌──────────────────────────────────────────────────────────────────────────┐
-│             STOCHASTIC PROCESSES IN BIOLOGY LANDSCAPE                     │
+│             STOCHASTIC PROCESSES IN BIOLOGY LANDSCAPE                    │
 │                                                                            │
-│  WHY STOCHASTICITY MATTERS:                                               │
-│  Cell volume ~10⁻¹⁵ L → low copy numbers                                │
+│  WHY STOCHASTICITY MATTERS:                                              │
+│  Cell volume ~10⁻¹⁵ L → low copy numbers                                 │
 │  Typical transcription factor: ~10-1000 molecules per cell               │
 │  Transcription: 1-2 copies of each gene → discrete, bursty events        │
-│  Single-molecule reactions: Poisson statistics, not continuous flows      │
+│  Single-molecule reactions: Poisson statistics, not continuous flows     │
 │                                                                            │
 │  MATHEMATICAL FRAMEWORKS:                                                  │
 │  ─────────────────────────────────────────────────────────────────────── │
-│  Langevin equation:  mẍ = F_det - γẋ + ξ(t)    (trajectory level)       │
+│  Langevin equation:  mẍ = F_det - γẋ + ξ(t)    (trajectory level)        │
 │  Fokker-Planck eq:   ∂P/∂t = -∂(FP)/∂x + D∂²P/∂x²  (density level)     │
 │  Master equation:    dPₙ/dt = Σ [W(n|m)Pₘ - W(m|n)Pₙ]  (discrete)      │
 │  Birth-death process: gene expression, protein synthesis/degradation     │
@@ -22,7 +22,7 @@
 │  KEY RESULTS:                                                              │
 │  Fluctuation-dissipation theorem: noise ↔ dissipation are linked         │
 │  Jarzynski equality: ⟨exp(-βW)⟩ = exp(-βΔF)  (non-eq → eq)             │
-│  Crooks fluctuation theorem: P(W)/P(-W) = exp(β(W-ΔF))                  │
+│  Crooks fluctuation theorem: P(W)/P(-W) = exp(β(W-ΔF))                   │
 │  Transcriptional bursting: protein count CV² = 1/⟨n⟩ + b/(1+kf/kb)     │
 └──────────────────────────────────────────────────────────────────────────┘
 ```
@@ -436,7 +436,7 @@ Some gene networks are bistable: two stable states with noise-driven switching:
 
   ┌──────────────────────────────────────────────────────────────────┐
   │  Effective energy landscape (Waddington landscape):              │
-  │                                                                   │
+  │                                                                  │
   │  G     ┌──┐         ┌──┐                                         │
   │        │  │         │  │  ← energy barrier between states        │
   │       ─┘  └─────────┘  └─   (set by synthesis/degradation rates) │

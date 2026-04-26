@@ -399,7 +399,7 @@ MAP MANIPULATION TECHNIQUES
   │                                                            │
   │  The same set of point data (voters + their preferences)   │
   │  can be districted to produce dramatically different       │
-  │  outcomes. The map = the political outcome.               │
+  │  outcomes. The map = the political outcome.                │
   └────────────────────────────────────────────────────────────┘
 
   THE GALL-PETERS VS MERCATOR CONTROVERSY (recap):

@@ -8,7 +8,7 @@ the full joint strategy profile.
 
 ```
 +------------------------------------------------------------------+
-|                  NORMAL FORM GAME STRUCTURE                       |
+|                  NORMAL FORM GAME STRUCTURE                      |
 |                                                                  |
 |  PRIMITIVES                  DERIVED OBJECTS                     |
 |  ----------                  ---------------                     |
@@ -18,23 +18,23 @@ the full joint strategy profile.
 |  uᵢ: S₁×...×Sₙ → ℝ payoff   (extended multilinearly)           |
 |                                                                  |
 |  SOLUTION LADDER (most selective → least)                        |
-|  ----------------------------------------                       |
+|  ----------------------------------------                        |
 |                                                                  |
 |  Dominant Strategy Equilibrium                                   |
-|          |  (sᵢ* dominates all others for all opponents)        |
-|          v                                                        |
+|          |  (sᵢ* dominates all others for all opponents)         |
+|          v                                                       |
 |  IESDS / Rationalizability                                       |
-|          |  (iterated elimination of strictly dominated strats) |
-|          v                                                        |
+|          |  (iterated elimination of strictly dominated strats)  |
+|          v                                                       |
 |  Nash Equilibrium (pure)                                         |
 |          |  (σᵢ* ∈ BR(σ*₋ᵢ) for all i)                        |
-|          v                                                        |
-|  Nash Equilibrium (mixed)   <-- always exists (Kakutani)        |
-|          |                                                        |
-|          v                                                        |
-|  Correlated Equilibrium     <-- convex polytope, contains NE    |
+|          v                                                       |
+|  Nash Equilibrium (mixed)   <-- always exists (Kakutani)         |
+|          |                                                       |
+|          v                                                       |
+|  Correlated Equilibrium     <-- convex polytope, contains NE     |
 |          |                      computable in poly time (LP)     |
-|          v                                                        |
+|          v                                                       |
 |  Rationalizability                                               |
 |                                                                  |
 +------------------------------------------------------------------+

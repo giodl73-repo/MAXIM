@@ -8,9 +8,9 @@ AUTOIMMUNE DISEASE: adaptive immune response against self-antigens
 MECHANISMS OF TOLERANCE FAILURE:
 ┌──────────────────────────────────────────────────────────────────┐
 │  MOLECULAR MIMICRY                                               │
-│  Pathogen antigen similar to self-antigen → cross-reactive T/B  │
+│  Pathogen antigen similar to self-antigen → cross-reactive T/B   │
 │  cells initially activated against pathogen persist vs self      │
-│  Examples: GAS M protein → cardiac tissue (rheumatic fever)     │
+│  Examples: GAS M protein → cardiac tissue (rheumatic fever)      │
 │            Campylobacter gangliosides → nerve gangliosides (GBS)│
 ├──────────────────────────────────────────────────────────────────┤
 │  BYSTANDER ACTIVATION                                            │
@@ -19,8 +19,8 @@ MECHANISMS OF TOLERANCE FAILURE:
 │  that escaped negative selection                                 │
 ├──────────────────────────────────────────────────────────────────┤
 │  EPITOPE SPREADING                                               │
-│  Initial response to one self-antigen → tissue damage → new     │
-│  antigens released → response broadens to additional epitopes   │
+│  Initial response to one self-antigen → tissue damage → new      │
+│  antigens released → response broadens to additional epitopes    │
 │  → explains why autoimmune diseases progress over time           │
 ├──────────────────────────────────────────────────────────────────┤
 │  LOSS OF REGULATORY T CELLS (Treg)                               │

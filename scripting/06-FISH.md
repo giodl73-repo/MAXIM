@@ -14,7 +14,7 @@ Shell Space: POSIX Compatibility vs Interactive UX Quality
         │               ┌─────────────╫──────────────╫──┐
         │               │    Zsh      ╚══════════════╝  │
         │               │  (+ Oh My   Zsh is mid-POSIX, │
-        │               │    Zsh)     high UX w/plugins  │
+        │               │    Zsh)     high UX w/plugins │
         │               └─────────────────────────────-─┘
         │    ┌──────────────────┐
         │    │      Bash        │
@@ -57,10 +57,10 @@ Decision tree for any developer:
                    ▼
           ┌─────────────────────────────────────────────┐
           │ Fish gives you: autosuggestions from history │
-          │ syntax highlighting as you type              │
+          │ syntax highlighting as you type             │
           │ tab completion auto-generated from man pages │
-          │ web config UI (fish_config)                  │
-          │ consistent syntax (no POSIX legacy quirks)   │
+          │ web config UI (fish_config)                 │
+          │ consistent syntax (no POSIX legacy quirks)  │
           └────────────────────┬────────────────────────┘
                                │
                      Do you need Zsh?
@@ -105,12 +105,12 @@ Decision tree for any developer:
 Design choices in Fish:
   ┌──────────────────────────────────────────────────────────────┐
   │ 1. Discoverability: tab-complete everything, syntax highlight │
-  │    while typing, man page auto-generated from functions       │
+  │    while typing, man page auto-generated from functions      │
   │ 2. No legacy cruft: drop POSIX quirks that cause confusion   │
   │    (no set -e, no word-splitting, no $'...' ANSI)            │
   │ 3. Consistent syntax: one way to do each thing               │
-  │    (set for all vars; if/else/end everywhere)                 │
-  │                                                               │
+  │    (set for all vars; if/else/end everywhere)                │
+  │                                                              │
   │ Cost: scripts written for Fish don't run in Bash/sh          │
   │       CI/CD can't run Fish scripts directly (no /bin/fish)   │
   └──────────────────────────────────────────────────────────────┘
@@ -710,7 +710,7 @@ Fish's ecosystem is managed through one of two plugin managers. Every modern int
 Plugin ecosystem:
 
   ┌────────────────────────────────────────────────────────┐
-  │                    Fisher (recommended)                 │
+  │                    Fisher (recommended)                │
   │  - Pure Fish implementation (no dependencies)          │
   │  - Install: curl -sL git.io/fisher | source && ...     │
   │  - Usage: fisher install <github-user/repo>            │

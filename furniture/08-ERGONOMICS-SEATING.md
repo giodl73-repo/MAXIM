@@ -9,31 +9,31 @@ THE SEATING PROBLEM:
 
   ANTHROPOMETRIC REALITY:
   +------------------------------------------+
-  | Human bodies span an enormous range:      |
-  | 5th percentile female → 95th male         |
-  | Seat height range needed: ~380–500mm      |
-  | Seat depth range needed: ~380–480mm       |
-  | A chair optimized for one person          |
-  | will be wrong for many others.            |
+  | Human bodies span an enormous range:     |
+  | 5th percentile female → 95th male        |
+  | Seat height range needed: ~380–500mm     |
+  | Seat depth range needed: ~380–480mm      |
+  | A chair optimized for one person         |
+  | will be wrong for many others.           |
   +------------------------------------------+
                    |
                    v
   +------------------------------------------+
-  | POSTURE REALITY:                          |
-  | Sitting loads the lumbar spine MORE       |
+  | POSTURE REALITY:                         |
+  | Sitting loads the lumbar spine MORE      |
   | than standing. Slumped sitting: even more.|
   | No static posture is "correct" — the body |
-  | needs variation. The best chair is one    |
-  | that supports many postures, not one.     |
+  | needs variation. The best chair is one   |
+  | that supports many postures, not one.    |
   +------------------------------------------+
                    |
                    v
   +------------------------------------------+
-  | DESIGN RESPONSE:                          |
-  | 1. Adjustability (multiple parameters)    |
-  | 2. Compliance (chair adapts to body)      |
-  | 3. Encourage movement (synchro-tilt)      |
-  | 4. Match chair to task                    |
+  | DESIGN RESPONSE:                         |
+  | 1. Adjustability (multiple parameters)   |
+  | 2. Compliance (chair adapts to body)     |
+  | 3. Encourage movement (synchro-tilt)     |
+  | 4. Match chair to task                   |
   +------------------------------------------+
 ```
 
@@ -166,11 +166,11 @@ PARAMETER DEPENDENCY MAP:
        |                           |
        v                           v
   +-----------------------------------------+
-  |          FIT TO USER OUTCOME             |
+  |          FIT TO USER OUTCOME            |
   |  No pressure under thighs (seat height) |
-  |  Feet flat on floor or footrest          |
+  |  Feet flat on floor or footrest         |
   |  Lumbar curve supported                 |
-  |  Elbows at desk height (armrests)        |
+  |  Elbows at desk height (armrests)       |
   |  Monitor at eye level (separate param)  |
   +-----------------------------------------+
 

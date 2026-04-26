@@ -135,12 +135,12 @@ PORTUGUESE SYSTEMATIC SURVEY METHOD
   Process:
   ┌────────────────────────────────────────────────────────────┐
   │  Each voyage: extend the known coast further south         │
-  │  Each captain: required to record coastal profile,        │
-  │  bearings, depths, hazards, water sources                 │
-  │  Each return: data deposited at Casa da Guiné (later      │
-  │  incorporated into Armazéns da Guiné e Índia)             │
-  │  Padrões: stone pillars erected at reached points         │
-  │  (territorial claim + survey marker)                      │
+  │  Each captain: required to record coastal profile,         │
+  │  bearings, depths, hazards, water sources                  │
+  │  Each return: data deposited at Casa da Guiné (later       │
+  │  incorporated into Armazéns da Guiné e Índia)              │
+  │  Padrões: stone pillars erected at reached points          │
+  │  (territorial claim + survey marker)                       │
   └────────────────────────────────────────────────────────────┘
 
   Progress (approx dates of Portuguese reaching):
@@ -221,7 +221,7 @@ WALDSEEMÜLLER 1507 — KEY DECISIONS AND THEIR CONSEQUENCES
   ┌────────────────────────────────────────────────────────────┐
   │  Basis: Vespucci's voyages (1501–02) along South American  │
   │  coast showed a continental landmass with no Asian cities  │
-  │  Vespucci explicitly argued: this is a New World (Mundus  │
+  │  Vespucci explicitly argued: this is a New World (Mundus   │
   │  Novus), not Asia                                          │
   │  Columbus (died 1506) maintained to his death it was Asia  │
   └────────────────────────────────────────────────────────────┘
@@ -231,18 +231,18 @@ WALDSEEMÜLLER 1507 — KEY DECISIONS AND THEIR CONSEQUENCES
   │  Waldseemüller and Ringmann (co-author of accompanying     │
   │  text) chose Vespucci because his letters described the    │
   │  territory in accessible, geographic terms                 │
-  │  Columbus was not well known to German scholars in 1507   │
-  │  Once 1,000 copies circulated, the name stuck             │
-  │  Waldseemüller later tried to remove it (1513 edition     │
+  │  Columbus was not well known to German scholars in 1507    │
+  │  Once 1,000 copies circulated, the name stuck              │
+  │  Waldseemüller later tried to remove it (1513 edition      │
   │  calls it "Unknown Land") — too late, name was established│
   └────────────────────────────────────────────────────────────┘
 
   Decision 3: Pacific Ocean shown (pre-Balboa by 6 years!)
   ┌────────────────────────────────────────────────────────────┐
-  │  Balboa first sighted the Pacific in 1513                 │
-  │  Waldseemüller's 1507 map shows a large ocean west of     │
+  │  Balboa first sighted the Pacific in 1513                  │
+  │  Waldseemüller's 1507 map shows a large ocean west of      │
   │  the Americas                                              │
-  │  Source: possibly pre-circulated geographic intelligence, │
+  │  Source: possibly pre-circulated geographic intelligence,  │
   │  possibly inference from Vespucci's distances, possibly    │
   │  a Portuguese source that isn't documented                 │
   │  This is historically unexplained and somewhat mysterious  │
@@ -286,12 +286,12 @@ COOK'S THREE VOYAGES — CARTOGRAPHIC OBJECTIVES AND OUTPUTS
   Why the Venus transit mattered for cartography:
   ┌────────────────────────────────────────────────────────────┐
   │  Parallax from two widely separated observation points     │
-  │  → exact Earth-Sun distance (1 AU)                        │
-  │  → absolute size of solar system                          │
-  │  → exact length of a degree of latitude at equator        │
-  │  → scale factor for all world maps                        │
-  │  This is why astronomical observatories coordinated       │
-  │  expeditions to distant locations for the 1769 transit    │
+  │  → exact Earth-Sun distance (1 AU)                         │
+  │  → absolute size of solar system                           │
+  │  → exact length of a degree of latitude at equator         │
+  │  → scale factor for all world maps                         │
+  │  This is why astronomical observatories coordinated        │
+  │  expeditions to distant locations for the 1769 transit     │
   └────────────────────────────────────────────────────────────┘
 
   SECOND VOYAGE (1772–75, HMS Resolution + HMS Adventure)
@@ -385,11 +385,11 @@ TREATY OF TORDESILLAS (1494) — CARTOGRAPHIC GEOPOLITICS
   │  The line was "370 leagues west of the Cape Verde Islands" │
   │  No one knew what longitude the Cape Verde Islands were at │
   │  in 1494 (longitude determination at sea not solved yet)   │
-  │  The exact position of the line on the globe was unknown  │
+  │  The exact position of the line on the globe was unknown   │
   │  and remained disputed for decades                         │
   │                                                            │
   │  Also: Tordesillas only divided the Atlantic.              │
-  │  The Treaty of Zaragoza (1529) extended the line          │
+  │  The Treaty of Zaragoza (1529) extended the line           │
   │  to the Pacific, dividing the Spice Islands between        │
   │  Spain and Portugal                                        │
   └────────────────────────────────────────────────────────────┘

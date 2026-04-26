@@ -8,23 +8,23 @@ Four rocky planets, one star, similar building blocks — wildly different outco
 COMPARATIVE PLANETOLOGY: SAME STARTING MATERIALS, DIVERGENT OUTCOMES
 +------------------------------------------------------------------+
 |                                                                  |
-|  DISTANCE    0.38 AU    0.72 AU    1.00 AU    1.52 AU           |
+|  DISTANCE    0.38 AU    0.72 AU    1.00 AU    1.52 AU            |
 |              Mercury    Venus      Earth      Mars               |
 |                                                                  |
 |  MASS        0.055 M⊕  0.815 M⊕  1.000 M⊕   0.107 M⊕          |
-|  (outcome)   lost mantle?  twin?  reference  too small          |
+|  (outcome)   lost mantle?  twin?  reference  too small           |
 |                                                                  |
-|  ATMOSPHERE  none       92 bar    1 bar       0.006 bar         |
-|  (outcome)   stripped   runaway   stable      lost (no dynamo)  |
+|  ATMOSPHERE  none       92 bar    1 bar       0.006 bar          |
+|  (outcome)   stripped   runaway   stable      lost (no dynamo)   |
 |                                                                  |
-|  SURFACE T   ~167°C avg  464°C    15°C mean   -63°C mean        |
+|  SURFACE T   ~167°C avg  464°C    15°C mean   -63°C mean         |
 |  (outcome)   solar-driven GH+500K  GH+33K     GH+5K            |
 |                                                                  |
-|  DYNAMO      none       none      active      extinct ~3.9 Ga   |
-|  (outcome)   too small? slow rot? plate tecton.→ core convects  |
+|  DYNAMO      none       none      active      extinct ~3.9 Ga    |
+|  (outcome)   too small? slow rot? plate tecton.→ core convects   |
 |                                                                  |
-|  WATER       ice (poles) trace D/H oceans     ancient; now ice  |
-|  (outcome)   cold trap   lost     retained    lost w/ dynamo    |
+|  WATER       ice (poles) trace D/H oceans     ancient; now ice   |
+|  (outcome)   cold trap   lost     retained    lost w/ dynamo     |
 |                                                                  |
 +------------------------------------------------------------------+
 

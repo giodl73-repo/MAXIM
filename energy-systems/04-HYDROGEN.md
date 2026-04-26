@@ -129,7 +129,7 @@ Three main technologies with different maturity, cost, and operational character
   │  DC Power Supply                                               │
   │      +                      −                                  │
   │      │                      │                                  │
-  │  ┌───▼───────────────────────▼───┐                            │
+  │  ┌───▼───────────────────────▼───┐                             │
   │  │  Anode │ Nafion membrane│Cathode │                         │
   │  │  (IrO₂)│  (solid polymer)│(Pt/C) │                        │
   │  │         │                 │        │                        │
@@ -379,27 +379,27 @@ Apply to the applications where alternatives are hardest.
   │  Ammonia synthesis (fertilizer):                                │
   │    Already uses H₂ (grey). Drop-in green H₂.                  │
   │    35% of global H₂ demand (~70 Mt H₂ total)                  │
-  │    Every kg of green H₂ directly displaces grey                │
+  │    Every kg of green H₂ directly displaces grey                 │
   │                                                                 │
   │  Steel DRI (direct reduction):                                  │
   │    H₂ replaces coking coal as reductant: Fe₂O₃ + 3H₂ → 2Fe + 3H₂O│
-  │    ~7-8% of global CO₂ emissions from steel                    │
-  │    HYBRIT (Sweden), H2 Green Steel — commercial scale 2025+    │
+  │    ~7-8% of global CO₂ emissions from steel                     │
+  │    HYBRIT (Sweden), H2 Green Steel — commercial scale 2025+     │
   │                                                                 │
-  │  Heavy shipping (via NH₃):                                     │
-  │    No viable battery alternative for 20,000 km ocean voyages   │
-  │    IMO 2050: net zero shipping → NH₃/methanol pilots active    │
+  │  Heavy shipping (via NH₃):                                      │
+  │    No viable battery alternative for 20,000 km ocean voyages    │
+  │    IMO 2050: net zero shipping → NH₃/methanol pilots active     │
   │                                                                 │
-  │  Long-haul trucking (fuel cell):                               │
-  │    Marginal (BEV + megacharger is competition)                 │
+  │  Long-haul trucking (fuel cell):                                │
+  │    Marginal (BEV + megacharger is competition)                  │
   │    Fuel cell wins for heavy gross vehicle weight, long range    │
   └─────────────────────────────────────────────────────────────────┘
 
   ┌─────────────────────────────────────────────────────────────────┐
   │  MEDIUM PRIORITY (viable, but competition from direct electrif):│
   │                                                                 │
-  │  Seasonal grid storage (see 03-ENERGY-STORAGE.md)              │
-  │  Industrial high-temp heat (>800°C kilns)                      │
+  │  Seasonal grid storage (see 03-ENERGY-STORAGE.md)               │
+  │  Industrial high-temp heat (>800°C kilns)                       │
   │  Aviation (SAF route likely cheaper near-term)                  │
   └─────────────────────────────────────────────────────────────────┘
 
@@ -407,8 +407,8 @@ Apply to the applications where alternatives are hardest.
   │  LOW PRIORITY (direct electrification is much better):          │
   │                                                                 │
   │  Passenger cars (fuel cell vs BEV):                             │
-  │    BEV wins on efficiency: 77% vs 25-30% for FCEV              │
-  │    H₂ has energy penalty at every step                         │
+  │    BEV wins on efficiency: 77% vs 25-30% for FCEV               │
+  │    H₂ has energy penalty at every step                          │
   │    Infrastructure cost: H₂ station ~$2M vs EV charger ~$50K   │
   │                                                                 │
   │  Building heating (H₂ boiler):                                  │

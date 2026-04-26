@@ -12,15 +12,15 @@ Amplification: 1 hormone molecule can activate thousands of downstream effects
 HIERARCHY:
 ┌──────────────────────────────────────────────────────────┐
 │  HYPOTHALAMUS (master controller)                        │
-│  CRH, TRH, GnRH, GHRH, somatostatin, dopamine           │
+│  CRH, TRH, GnRH, GHRH, somatostatin, dopamine            │
 │               ↓↓ portal blood (short circuit)            │
-│  ANTERIOR PITUITARY (6 hormones)                        │
+│  ANTERIOR PITUITARY (6 hormones)                         │
 │  ACTH, TSH, LH, FSH, GH, Prolactin                     │
 │               ↓↓ systemic blood                          │
 │  PERIPHERAL GLANDS                                       │
-│  Adrenal · Thyroid · Gonads · Liver/IGF-1               │
+│  Adrenal · Thyroid · Gonads · Liver/IGF-1                │
 │               ↓↓ feedback                                │
-│  (long loop to hypothalamus + pituitary; short loop)    │
+│  (long loop to hypothalamus + pituitary; short loop)     │
 └──────────────────────────────────────────────────────────┘
 
 POSTERIOR PITUITARY: not a gland — stores hypothalamic hormones

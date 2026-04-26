@@ -140,19 +140,19 @@ Relay strategies:
   ┌─────────────────────────────────────────────────────────┐
   │  Decode-and-Forward (DF):                               │
   │    Relay fully decodes M, re-encodes, forwards          │
-  │    Rate ≤ min{I(X;Y_R), I(X,Z;Y)}                      │
+  │    Rate ≤ min{I(X;Y_R), I(X,Z;Y)}                       │
   │    Best when: relay closer to source than destination   │
   │                                                         │
   │  Compress-and-Forward (CF):                             │
   │    Relay compresses Y_R, forwards compressed version    │
-  │    Applies Wyner-Ziv coding (Y at destination is SI)   │
+  │    Applies Wyner-Ziv coding (Y at destination is SI)    │
   │    Rate ≤ I(X; Y, Y̌_R) - I(Y_R; Y̌_R | X, Y)          │
   │    Best when: relay closer to destination               │
   │                                                         │
   │  Amplify-and-Forward (AF):                              │
   │    Relay scales and forwards (analog)                   │
   │    No decoding; noise amplified too                     │
-  │    SNR_eff = (SNR_SR · SNR_RD) / (SNR_SR + SNR_RD + 1) │
+  │    SNR_eff = (SNR_SR · SNR_RD) / (SNR_SR + SNR_RD + 1)  │
   │    Best for: low complexity, full-duplex systems        │
   └─────────────────────────────────────────────────────────┘
 ```
@@ -217,11 +217,11 @@ Capacity with total power P:
 ┌──────────────────────────────────────────────────────────────┐
 │  Waterfilling across singular values:                        │
 │                                                              │
-│     μ ─────────────────────────────── water level           │
-│         ┌───┐   ┌───┐                                       │
+│     μ ─────────────────────────────── water level            │
+│         ┌───┐   ┌───┐                                        │
 │         │P₁ │   │P₂ │                                       │
 │   σᵢ² ──┼───┼───┼───┼──────────────── noise floor N₀/σᵢ²  │
-│         │   │   │   │   ┌───┐   ┌───┐                      │
+│         │   │   │   │   ┌───┐   ┌───┐                     │
 │         │   │   │   │   │ 0 │   │ 0 │  ← silent channels   │
 │         └───┘   └───┘   └───┘   └───┘                      │
 │          i=1     i=2     i=3     i=4                        │

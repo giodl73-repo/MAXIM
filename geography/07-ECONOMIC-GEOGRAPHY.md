@@ -11,7 +11,7 @@ vulnerabilities exposed by COVID and Suez are now reshaping the map.
 
 ```
 +----------------------------------------------------------------------+
-|                    ECONOMIC GEOGRAPHY LANDSCAPE                       |
+|                    ECONOMIC GEOGRAPHY LANDSCAPE                      |
 |                                                                      |
 |  LOCATION THEORY              AGGLOMERATION                          |
 |  ────────────────             ─────────────                          |
@@ -22,10 +22,10 @@ vulnerabilities exposed by COVID and Suez are now reshaping the map.
 |                                                                      |
 |  DEVELOPMENT GEOGRAPHY        TRADE + LOGISTICS                      |
 |  ─────────────────────        ────────────────                       |
-|  World-systems (Wallerstein)  Container revolution (McLean 1956)    |
-|  Core-periphery               Port hierarchy (Rotterdam/Singapore)  |
-|  New Economic Geography       Smile curve (value capture)           |
-|  (Krugman 1991)               Supply chain geographic shift         |
+|  World-systems (Wallerstein)  Container revolution (McLean 1956)     |
+|  Core-periphery               Port hierarchy (Rotterdam/Singapore)   |
+|  New Economic Geography       Smile curve (value capture)            |
+|  (Krugman 1991)               Supply chain geographic shift          |
 +----------------------------------------------------------------------+
 ```
 
@@ -40,18 +40,18 @@ vulnerabilities exposed by COVID and Suez are now reshaping the map.
   │ Insight: different crops will occupy different distance rings  │
   │ from the city based on land rent bid + transportation costs    │
   │                                                                │
-  │ Rings (inner → outer):                                        │
+  │ Rings (inner → outer):                                         │
   │ 1. Market gardening/dairy: perishable; high transport cost →   │
-  │    must be near market                                        │
-  │ 2. Forestry (19th C: firewood → wood heavy/cheap)             │
+  │    must be near market                                         │
+  │ 2. Forestry (19th C: firewood → wood heavy/cheap)              │
   │ 3. Intensive grain cultivation                                 │
   │ 4. Extensive grain + pasture                                   │
   │ 5. Three-field rotation (fallow)                               │
   │ 6. Livestock ranching                                          │
   │                                                                │
-  │ Modern relevance: explains land use gradients around cities;  │
-  │ urban fringe dynamics; "exurban" food production patterns;    │
-  │ airport cargo proximity → perishable flower/produce industry  │
+  │ Modern relevance: explains land use gradients around cities;   │
+  │ urban fringe dynamics; "exurban" food production patterns;     │
+  │ airport cargo proximity → perishable flower/produce industry   │
   └────────────────────────────────────────────────────────────────┘
 
   ALFRED WEBER (1909): Industrial Location:
@@ -73,12 +73,12 @@ vulnerabilities exposed by COVID and Suez are now reshaping the map.
   │ High-order goods (jewelry, hospitals): long range, high thresh │
   │ Low-order goods (bread, haircuts): short range, low threshold  │
   │                                                                │
-  │ Result: nested HIERARCHY of central places                    │
-  │ Hamlets → Villages → Towns → Cities → Regional Centers        │
+  │ Result: nested HIERARCHY of central places                     │
+  │ Hamlets → Villages → Towns → Cities → Regional Centers         │
   │ Hexagonal market areas (closest packing without overlap)       │
   │                                                                │
-  │ Empirical: retail geography generally confirms hierarchy;     │
-  │   online commerce disrupting by extending effective range     │
+  │ Empirical: retail geography generally confirms hierarchy;      │
+  │   online commerce disrupting by extending effective range      │
   └────────────────────────────────────────────────────────────────┘
 ```
 
@@ -90,20 +90,20 @@ vulnerabilities exposed by COVID and Suez are now reshaping the map.
   MARSHALL'S EXTERNAL ECONOMIES (1890):
   Co-location of similar firms generates external economies:
   ┌────────────────────────────────────────────────────────────────┐
-  │ LOCALIZATION (same-industry) ECONOMIES:                       │
-  │ 1. Shared labor pool: workers with specialized skills;        │
-  │    lower search costs; workers take career risks (can find    │
-  │    new jobs nearby)                                           │
+  │ LOCALIZATION (same-industry) ECONOMIES:                        │
+  │ 1. Shared labor pool: workers with specialized skills;         │
+  │    lower search costs; workers take career risks (can find     │
+  │    new jobs nearby)                                            │
   │ 2. Specialized suppliers: upstream industries co-locate;       │
   │    parts/services available; lower inventory costs           │
-  │ 3. Knowledge spillovers: ideas spread across firms; informal  │
-  │    conversations at coffee shops; tacit knowledge diffuses    │
+  │ 3. Knowledge spillovers: ideas spread across firms; informal   │
+  │    conversations at coffee shops; tacit knowledge diffuses     │
   └────────────────────────────────────────────────────────────────┘
   ┌────────────────────────────────────────────────────────────────┐
-  │ URBANIZATION (cross-industry) ECONOMIES:                      │
-  │ Diverse city → cross-sector innovation; financial services;   │
+  │ URBANIZATION (cross-industry) ECONOMIES:                       │
+  │ Diverse city → cross-sector innovation; financial services;    │
   │ legal/accounting; transport infrastructure; thick labor market │
-  │ across all occupations                                        │
+  │ across all occupations                                         │
   └────────────────────────────────────────────────────────────────┘
 
   BRIDGE — AGGLOMERATION AS PLATFORM LOCK-IN:
@@ -216,19 +216,19 @@ vulnerabilities exposed by COVID and Suez are now reshaping the map.
   THREE ZONES:
   ┌────────────────────────────────────────────────────────────────┐
   │ CORE: capital-intensive production; high wages; high skill;    │
-  │   strong state; extracts value from periphery                 │
-  │   USA, W Europe, Japan, Australia                             │
+  │   strong state; extracts value from periphery                  │
+  │   USA, W Europe, Japan, Australia                              │
   │                                                                │
-  │ SEMI-PERIPHERY: transitional; both exploit and are exploited; │
-  │   mix of core and periphery production                        │
-  │   Brazil, China, India, Mexico, Turkey, E Europe              │
+  │ SEMI-PERIPHERY: transitional; both exploit and are exploited;  │
+  │   mix of core and periphery production                         │
+  │   Brazil, China, India, Mexico, Turkey, E Europe               │
   │   (China's rapid ascent from periphery → semi → approaching  │
-  │   core challenges Wallerstein's static framework)             │
+  │   core challenges Wallerstein's static framework)              │
   │                                                                │
   │ PERIPHERY: labor-intensive production; raw material extraction │
-  │   low wages; weak state; subject to core terms of trade       │
+  │   low wages; weak state; subject to core terms of trade        │
   │   Sub-Saharan Africa, much of SE Asia historically,          │
-  │   parts of Latin America                                      │
+  │   parts of Latin America                                       │
   └────────────────────────────────────────────────────────────────┘
 
   MECHANISMS OF EXTRACTION:
@@ -266,10 +266,10 @@ vulnerabilities exposed by COVID and Suez are now reshaping the map.
   │ Chip design: Apple Silicon, ARM (UK/US IP)                   │
   │ Memory chips: Samsung/SK Hynix (Korea)                       │
   │ Display: Samsung/LG/BOE (Korea/China)                        │
-  │ Camera: Sony sensors (Japan)                                  │
+  │ Camera: Sony sensors (Japan)                                 │
   │ Rare Earth magnets: China                                    │
-  │ Assembly: Foxconn/TSMC contract (China/Taiwan/India now)      │
-  │ Software: iOS — California (US) — highest value             │
+  │ Assembly: Foxconn/TSMC contract (China/Taiwan/India now)     │
+  │ Software: iOS — California (US) — highest value              │
   │ Brand + marketing: California (US)                           │
   │ → Assembled in China for ~$5-10 labor value of $600 product  │
   └──────────────────────────────────────────────────────────────┘
@@ -277,18 +277,18 @@ vulnerabilities exposed by COVID and Suez are now reshaping the map.
   SMILE CURVE (Stan Shih, Acer, 1992):
   ┌────────────────────────────────────────────────────────────────┐
   │         Value                                                  │
-  │           ↑                                                   │
-  │    High ──│─────────────────────────────────────────────────  │
-  │           │ \                                           /     │
+  │           ↑                                                    │
+  │    High ──│─────────────────────────────────────────────────   │
+  │           │ \                                           /      │
   │           │  \   R&D/                       Branding  /      │
   │           │   \  Design                     Marketing/       │
   │           │    \                            Services/        │
-  │    Low  ──│─────────────────────────────────────────────────  │
-  │           │         \                      /                  │
-  │           │          \  Manufacturing     /                   │
-  │           │           ────────────────────                    │
+  │    Low  ──│─────────────────────────────────────────────────   │
+  │           │         \                      /                   │
+  │           │          \  Manufacturing     /                    │
+  │           │           ────────────────────                     │
   │           +──────────────────────────────────→               │
-  │                    Stage in value chain                       │
+  │                    Stage in value chain                        │
   └────────────────────────────────────────────────────────────────┘
 
   Curve has DEEPENED since 1990s: manufacturing value share declining;
@@ -364,7 +364,7 @@ vulnerabilities exposed by COVID and Suez are now reshaping the map.
   │ Ningbo-Zhoushan: 33M TEU                                     │
   │ Rotterdam: 15M TEU (Europe's largest)                        │
   │ Los Angeles/Long Beach: 19M TEU (combined, US West Coast)    │
-  │ Dubai (Jebel Ali): 14M TEU (dominant Middle East hub)       │
+  │ Dubai (Jebel Ali): 14M TEU (dominant Middle East hub)        │
   └──────────────────────────────────────────────────────────────┘
 
   TRANSSHIPMENT HUBS vs GATEWAY PORTS:
@@ -401,9 +401,9 @@ vulnerabilities exposed by COVID and Suez are now reshaping the map.
   ┌────────────────────────────────────────────────────────────────┐
   │ LAND CORRIDORS (Silk Road Economic Belt):                      │
   │ CPEC: China-Pakistan; Kashgar → Gwadar port ($62B); strategic  │
-  │   access to Indian Ocean bypassing Malacca Strait             │
+  │   access to Indian Ocean bypassing Malacca Strait              │
   │ AIIB/Central Asia: Xinjiang → Central Asia → Iran → Europe     │
-  │   rail (China-Europe cargo rail grew from 0 to 15k trains/yr) │
+  │   rail (China-Europe cargo rail grew from 0 to 15k trains/yr)  │
   │ BCIM: Bangladesh-China-India-Myanmar; politically stalled      │
   │                                                                │
   │ MARITIME SILK ROAD:                                            │
@@ -412,7 +412,7 @@ vulnerabilities exposed by COVID and Suez are now reshaping the map.
   │ Port investments: Gwadar (Pakistan), Hambantota (Sri Lanka),   │
   │   Piraeus (Greece, acquired by COSCO), Mombasa (Kenya),        │
   │   Djibouti (China's first overseas military base)              │
-  │ String of pearls: port network providing logistics + potential  │
+  │ String of pearls: port network providing logistics + potential │
   │   naval basing options along Indian Ocean                      │
   └────────────────────────────────────────────────────────────────┘
 
@@ -426,15 +426,15 @@ vulnerabilities exposed by COVID and Suez are now reshaping the map.
   DEBT SUSTAINABILITY:
   ┌──────────────────────────────────────────────────────────────┐
   │ Countries at high BRI debt distress risk (AidData + IMF):    │
-  │ Pakistan: ~$27B to Chinese state entities; IMF bailouts;      │
+  │ Pakistan: ~$27B to Chinese state entities; IMF bailouts;     │
   │   CPEC debt service ~40% of export earnings in some years    │
   │ Zambia: first African sovereign default 2020; Chinese          │
   │   creditors ~30–40% of external debt; protracted restructuring│
-  │ Sri Lanka: Hambantota port lease (2017); forced by inability  │
-  │   to service $1.4B Hambantota loan; politically contested     │
-  │ Ecuador: oil-for-loans; ~$18B to China; debt restructured     │
-  │ Ethiopia: Addis-Djibouti railway + industrial parks; debt     │
-  │   burden significant relative to export base                  │
+  │ Sri Lanka: Hambantota port lease (2017); forced by inability │
+  │   to service $1.4B Hambantota loan; politically contested    │
+  │ Ecuador: oil-for-loans; ~$18B to China; debt restructured    │
+  │ Ethiopia: Addis-Djibouti railway + industrial parks; debt    │
+  │   burden significant relative to export base                 │
   │                                                                │
   │ COUNTER-NARRATIVE: Many BRI loans are commercial terms,        │
   │ not concessional; some are refinanceable; debt-trap narrative  │
@@ -485,20 +485,20 @@ vulnerabilities exposed by COVID and Suez are now reshaping the map.
   │   international internet traffic (satellite handles <1%)       │
   │                                                                │
   │ Key routes:                                                    │
-  │ Trans-Atlantic: ~20 cables (US Northeast ↔ UK/Ireland/Europe) │
-  │ Trans-Pacific: ~15 major cables (US West Coast ↔ Japan/Asia)  │
+  │ Trans-Atlantic: ~20 cables (US Northeast ↔ UK/Ireland/Europe)  │
+  │ Trans-Pacific: ~15 major cables (US West Coast ↔ Japan/Asia)   │
   │ Indian Ocean: connecting Middle East, India, SE Asia, Africa   │
   │                                                                │
   │ Chokepoints:                                                   │
   │ Suez Canal cable corridor: most Asia-Europe cables pass nearby │
-  │   → Houthi disruption 2023-24: several cables severed/at risk │
+  │   → Houthi disruption 2023-24: several cables severed/at risk  │
   │ Luzon Strait (Philippines): multiple Asia-Pacific cables pass  │
   │ Taiwan: ~14 cables land in Taiwan; TSMC + cable geography      │
   │   create compound strategic concentration                      │
   │                                                                │
-  │ Ownership concentration: Hyperscalers (Google, Meta, Amazon,  │
-  │   Microsoft) now own or co-own ~40%+ of submarine capacity;   │
-  │   previously dominated by telcos (AT&T, NTT, STC)             │
+  │ Ownership concentration: Hyperscalers (Google, Meta, Amazon,   │
+  │   Microsoft) now own or co-own ~40%+ of submarine capacity;    │
+  │   previously dominated by telcos (AT&T, NTT, STC)              │
   └────────────────────────────────────────────────────────────────┘
 
   DATA CENTER GEOGRAPHY — SITING FACTORS:
@@ -506,25 +506,25 @@ vulnerabilities exposed by COVID and Suez are now reshaping the map.
   │ ENERGY:                                                      │
   │ Data centers: ~1–2% of global electricity; growing rapidly   │
   │ AI training clusters: 100–1000+ MW per hyperscale campus     │
-  │ Iceland: geothermal + cool air → low PUE; bitcoin mining hub  │
+  │ Iceland: geothermal + cool air → low PUE; bitcoin mining hub │
   │ US Pacific Northwest (Oregon/Washington): hydropower → AWS,  │
   │   Google, Microsoft campuses in The Dalles, Quincy, etc.     │
-  │ Northern Europe (Sweden, Finland, Norway): renewables + cold  │
-  │                                                               │
-  │ COOLING:                                                      │
+  │ Northern Europe (Sweden, Finland, Norway): renewables + cold │
+  │                                                              │
+  │ COOLING:                                                     │
   │40–50% of data center energy is cooling; cold climates reduce │
   │ mechanical cooling need (free cooling > 90% of year in       │
   │ Scandinavia); water cooling for GPU clusters → water rights  │
   │ conflicts (drought-prone regions facing data center water use)│
-  │                                                               │
-  │ LATENCY:                                                      │
+  │                                                              │
+  │ LATENCY:                                                     │
   │ Edge computing: bring compute close to users (CDN nodes)     │
-  │ Financial HFT: microseconds matter → co-location at exchange  │
-  │   (NY4 data center in Secaucus NJ ↔ NYSE; London ↔ LD4)     │
+  │ Financial HFT: microseconds matter → co-location at exchange │
+  │   (NY4 data center in Secaucus NJ ↔ NYSE; London ↔ LD4)      │
   │ Consumer applications: 50ms+ acceptable; AI inference: 100ms+│
-  │                                                               │
-  │ REGULATORY / POLITICAL:                                       │
-  │ GDPR: EU data must stay in EU; data localization laws create  │
+  │                                                              │
+  │ REGULATORY / POLITICAL:                                      │
+  │ GDPR: EU data must stay in EU; data localization laws create │
   │   fragmented geographic requirements (India, Russia, China)  │
   │ CLOUD REGION MAP reflects regulatory + latency geography:    │
   │   AWS (35 regions), Azure (60+), GCP (40+) distributed       │

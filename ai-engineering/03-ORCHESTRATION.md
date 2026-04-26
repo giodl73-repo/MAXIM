@@ -11,7 +11,7 @@
 ┌─────────────────────────────────────────────────────────────────────────────┐
 │                    LLM ORCHESTRATION LANDSCAPE                              │
 │                                                                             │
-│  ┌──────────────────────────────────────────────────────────────────────┐  │
+│  ┌──────────────────────────────────────────────────────────────────────┐   │
 │  │  YOUR APPLICATION                                                    │  │
 │  │                                                                      │  │
 │  │  ┌─────────────┐   ┌─────────────┐   ┌──────────────────────────┐  │  │
@@ -21,13 +21,13 @@
 │  │  └─────────────┘   └─────────────┘   └──────────────────────────┘  │  │
 │  │         │                 │                        │                  │  │
 │  │  ┌──────┴─────────────────┴────────────────────────┴──────────────┐  │  │
-│  │  │              SHARED ABSTRACTIONS                                │  │  │
+│  │  │              SHARED ABSTRACTIONS                               │  │  │
 │  │  │  Models  │  Prompts  │  Memory  │  Tools/Fns  │  Vector Stores │  │  │
 │  │  └────────────────────────────────────────────────────────────────┘  │  │
 │  └──────────────────────────────────────────────────────────────────────┘  │
 │                                │                                            │
 │  ┌─────────────────────────────┼──────────────────────────────────────┐    │
-│  │  PROVIDERS                  │                                       │    │
+│  │  PROVIDERS                  │                                      │    │
 │  │  Anthropic  OpenAI  Azure   │  Cohere  Ollama  HuggingFace  Bedrock│    │
 │  └─────────────────────────────┴──────────────────────────────────────┘    │
 └─────────────────────────────────────────────────────────────────────────────┘
@@ -119,13 +119,13 @@ then TypeScript/JS port. Heavily influenced by LlamaIndex; now large surface are
 ┌─────────────────────────────────────────────────────────────────────┐
 │  LANGCHAIN PRIMITIVES                                               │
 │                                                                     │
-│  ChatModel    — model abstraction (Claude, GPT-4o, Gemini, etc.)   │
-│  PromptTemplate — parameterized prompt with {variable} slots       │
-│  Chain        — pipeline: input → steps → output                   │
+│  ChatModel    — model abstraction (Claude, GPT-4o, Gemini, etc.)    │
+│  PromptTemplate — parameterized prompt with {variable} slots        │
+│  Chain        — pipeline: input → steps → output                    │
 │  Retriever    — fetch relevant docs (vector, BM25, hybrid)          │
 │  Tool         — function the LLM can call                           │
-│  Memory       — persist conversation state across turns            │
-│  Agent        — LLM-driven loop: think → use tool → observe        │
+│  Memory       — persist conversation state across turns             │
+│  Agent        — LLM-driven loop: think → use tool → observe         │
 └─────────────────────────────────────────────────────────────────────┘
 ```
 
@@ -292,7 +292,7 @@ result = executor.invoke({"input": "What's Apple's stock price?", "chat_history"
 ┌─────────────────────────────────────────────────────────────────────┐
 │  KNOWN PAIN POINTS                                                  │
 │                                                                     │
-│  Version churn    — v0.1 → v0.2 → v0.3 broke APIs repeatedly       │
+│  Version churn    — v0.1 → v0.2 → v0.3 broke APIs repeatedly        │
 │  Abstraction tax  — simple things require knowing 5 class names     │
 │  Magic behavior   — errors surface far from their source            │
 │  Dependency bloat — `langchain` pulls in hundreds of transitive deps│
@@ -319,13 +319,13 @@ agent orchestration.
 ┌─────────────────────────────────────────────────────────────────────┐
 │  LLAMAINDEX PRIMITIVES                                              │
 │                                                                     │
-│  Document       — raw data (PDF, web page, DB record, etc.)        │
-│  Node           — chunk of a document with metadata + embedding    │
-│  Index          — organized structure over nodes (vector, keyword) │
-│  Retriever      — query an index → top-k nodes                     │
-│  QueryEngine    — retriever + response synthesis                   │
-│  ChatEngine     — stateful conversation over an index              │
-│  Pipeline       — Ingestion DAG (load → transform → embed → store) │
+│  Document       — raw data (PDF, web page, DB record, etc.)         │
+│  Node           — chunk of a document with metadata + embedding     │
+│  Index          — organized structure over nodes (vector, keyword)  │
+│  Retriever      — query an index → top-k nodes                      │
+│  QueryEngine    — retriever + response synthesis                    │
+│  ChatEngine     — stateful conversation over an index               │
+│  Pipeline       — Ingestion DAG (load → transform → embed → store)  │
 └─────────────────────────────────────────────────────────────────────┘
 ```
 
@@ -452,12 +452,12 @@ existing systems, and for Azure-native deployments.
 ┌─────────────────────────────────────────────────────────────────────┐
 │  SEMANTIC KERNEL PRIMITIVES                                         │
 │                                                                     │
-│  Kernel        — central orchestrator, holds services + plugins    │
+│  Kernel        — central orchestrator, holds services + plugins     │
 │  Plugin        — collection of related functions (= tool namespace)│
-│  KernelFunction — either a semantic function (prompt) or native fn │
-│  Memory        — context store (volatile or persistent)            │
-│  Planner       — generates and executes multi-step plans           │
-│  Filter        — interceptor hooks (prompt, function, result)      │
+│  KernelFunction — either a semantic function (prompt) or native fn  │
+│  Memory        — context store (volatile or persistent)             │
+│  Planner       — generates and executes multi-step plans            │
+│  Filter        — interceptor hooks (prompt, function, result)       │
 └─────────────────────────────────────────────────────────────────────┘
 ```
 
@@ -627,20 +627,20 @@ managed identity, auditable, within Azure compliance boundaries.
 ```
 ┌────────────────────────────────────────────────────────────────────────┐
 │                    FRAMEWORK COMPARISON                                │
-├──────────────────┬────────────────┬────────────────┬───────────────── │
+├──────────────────┬────────────────┬────────────────┬─────────────────  │
 │                  │   LangChain    │   LlamaIndex   │ Semantic Kernel  │
 ├──────────────────┼────────────────┼────────────────┼─────────────────┤
 │ Primary language │ Python, JS/TS  │ Python, TS     │ Python, C#, Java│
-│ Origin           │ Open source    │ Open source    │ Microsoft        │
+│ Origin           │ Open source    │ Open source    │ Microsoft       │
 │ Focus            │ General agents │ Retrieval/RAG  │ Enterprise, .NET │
-│ Abstraction      │ High (leaky)   │ Medium         │ Medium           │
-│ Stability        │ Low (churn)    │ Medium         │ High             │
-│ RAG quality      │ Good           │ Excellent      │ Good             │
-│ Agent quality    │ Excellent      │ Good           │ Excellent        │
-│ Azure integration│ Good           │ Good           │ Native           │
-│ .NET support     │ None           │ None           │ First-class      │
-│ Enterprise fit   │ Medium         │ Medium         │ High             │
-│ Community size   │ Largest        │ Large          │ Growing          │
+│ Abstraction      │ High (leaky)   │ Medium         │ Medium          │
+│ Stability        │ Low (churn)    │ Medium         │ High            │
+│ RAG quality      │ Good           │ Excellent      │ Good            │
+│ Agent quality    │ Excellent      │ Good           │ Excellent       │
+│ Azure integration│ Good           │ Good           │ Native          │
+│ .NET support     │ None           │ None           │ First-class     │
+│ Enterprise fit   │ Medium         │ Medium         │ High            │
+│ Community size   │ Largest        │ Large          │ Growing         │
 │ Tracing          │ LangSmith      │ LlamaTrace     │ Built-in filters │
 ├──────────────────┴────────────────┴────────────────┴─────────────────┤
 │ VERDICT                                                               │
@@ -681,17 +681,17 @@ that will need any of those properties, start with LangGraph.
 │  FastAPI / ASP.NET Core / Express                                   │
 │       │                                                             │
 │  Orchestration Layer                                                │
-│  LangChain / LlamaIndex / Semantic Kernel                          │
+│  LangChain / LlamaIndex / Semantic Kernel                           │
 │       │                         │                                   │
 │  Retrieval Layer           Tool Layer                               │
 │  pgvector / Pinecone /     REST APIs, DBs,                          │
-│  Weaviate / Azure AI Search  code execution, webhooks              │
+│  Weaviate / Azure AI Search  code execution, webhooks               │
 │       │                                                             │
 │  Model Layer                                                        │
-│  Anthropic API / Azure OpenAI / Bedrock / Ollama (local)           │
+│  Anthropic API / Azure OpenAI / Bedrock / Ollama (local)            │
 │       │                                                             │
 │  Observability Layer                                                │
-│  LangSmith / Braintrust / OpenTelemetry traces                     │
+│  LangSmith / Braintrust / OpenTelemetry traces                      │
 └─────────────────────────────────────────────────────────────────────┘
 ```
 
@@ -766,7 +766,7 @@ These aren't framework-specific but underpin every RAG pipeline:
 
 ```
 ┌─────────────────────────────────────────────────────────────────────┐
-│  CHUNKING STRATEGY         │  WHEN TO USE                          │
+│  CHUNKING STRATEGY         │  WHEN TO USE                           │
 ├────────────────────────────┼────────────────────────────────────────┤
 │  Fixed size (512 tokens)   │  Baseline; fast; uniform              │
 │  Sentence splitter         │  Prose documents; preserves sentences  │
@@ -850,7 +850,7 @@ strategies will eventually push you into prompt truncation or OOM. LangChain's
 │  Prototyping fast                  │  LangChain (widest docs/stack) │
 ├────────────────────────────────────┼────────────────────────────────┤
 │  CHUNKING                          │                                │
-│  Quick prototype                   │  Fixed size, 512 + overlap 64 │
+│  Quick prototype                   │  Fixed size, 512 + overlap 64  │
 │  Production prose                  │  SentenceSplitter              │
 │  Mixed structure (PDF, HTML)       │  Structure-aware + overlap     │
 │  Max retrieval quality             │  Semantic chunking + HyDE      │

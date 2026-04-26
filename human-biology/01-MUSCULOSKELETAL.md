@@ -6,9 +6,9 @@
 MUSCULOSKELETAL SYSTEM
 ┌──────────────────────────────────────────────────────────┐
 │  SKELETON (passive framework)                            │
-│  206 bones · cartilage · ligaments · tendons            │
-│  Functions: support, protection, levers, Ca²⁺ reservoir │
-│  ┌──────────────────────────────────────────────────┐   │
+│  206 bones · cartilage · ligaments · tendons             │
+│  Functions: support, protection, levers, Ca²⁺ reservoir  │
+│  ┌──────────────────────────────────────────────────┐    │
 │  │  AXIAL (80 bones)     │  APPENDICULAR (126)      │   │
 │  │  skull, vertebrae,    │  girdles, arms, hands,   │   │
 │  │  ribs, sternum        │  pelvis, legs, feet      │   │
@@ -45,11 +45,11 @@ CORTICAL (COMPACT) BONE — 80% of skeleton mass
 ┌─────────────────────────────────────────────────────┐
 │  OSTEON (Haversian system)                          │
 │                                                     │
-│  Haversian canal (center)                          │
-│    └── blood vessel + nerve                        │
-│  Concentric lamellae around canal                  │
-│  Osteocytes in lacunae (spaces in lamellae)        │
-│  Canaliculi connecting osteocytes to each other    │
+│  Haversian canal (center)                           │
+│    └── blood vessel + nerve                         │
+│  Concentric lamellae around canal                   │
+│  Osteocytes in lacunae (spaces in lamellae)         │
+│  Canaliculi connecting osteocytes to each other     │
 │    and to Haversian canal (nutrient/waste pathway)  │
 │  Volkmann's canals: perpendicular, connect osteons  │
 └─────────────────────────────────────────────────────┘

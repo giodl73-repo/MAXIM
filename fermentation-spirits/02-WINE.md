@@ -4,17 +4,17 @@
 
 ```
 +------------------------------------------------------------------+
-|                    WINE PRODUCTION FLOW                           |
+|                    WINE PRODUCTION FLOW                          |
 |                                                                    |
-|  VINEYARD            HARVEST            WINERY                    |
-|  --------            -------            ------                    |
-|  Vitis vinifera      Brix/pH/TA         Crush/Destem              |
-|  Terroir             decision           -> Press (white)          |
-|  Annual cycle        Hand vs            -> Macerate (red)         |
+|  VINEYARD            HARVEST            WINERY                   |
+|  --------            -------            ------                   |
+|  Vitis vinifera      Brix/pH/TA         Crush/Destem             |
+|  Terroir             decision           -> Press (white)         |
+|  Annual cycle        Hand vs            -> Macerate (red)        |
 |  Pruning/training    mechanical         -> Ferment                 |
-|                      pick               -> MLF (optional)         |
-|                                         -> Aging                  |
-|                                         -> Bottle                 |
+|                      pick               -> MLF (optional)        |
+|                                         -> Aging                 |
+|                                         -> Bottle                |
 +------------------------------------------------------------------+
 
 CRITICAL BRANCH POINT: White vs Red vs Rosé

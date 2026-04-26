@@ -14,7 +14,7 @@
 |   masterbatch               Thermoforming   →   Trays, cups      |
 |                             Compression     →   Thermoset parts  |
 |                             Transfer mold   →   Precision TS     |
-|                             Rotomolding     →   Large hollow      |
+|                             Rotomolding     →   Large hollow     |
 |                             Foam            →   Structural / pack |
 +------------------------------------------------------------------+
 ```
@@ -293,7 +293,7 @@ material thins. Draw ratio = depth / width. Ratio > 1 requires plug assist.
    │    steel molds $50K–$500K                                    │
    │  + No weld lines, no gates, no sink marks                    │
    │  – Slow cycle: 20–45 minutes (limited by thermal mass)       │
-   │  – Material must be powder-form or liquid                     │
+   │  – Material must be powder-form or liquid                    │
    │  – Dimensional tolerance: ±0.5–1% (worse than injection)     │
    └──────────────────────────────────────────────────────────────┘
 

@@ -10,27 +10,27 @@ The core reversal: where the Tractatus sought the hidden logical structure benea
 +-----------------------------------------------------------------------+
 |                    TRACTATUS VS INVESTIGATIONS                        |
 |                                                                       |
-|  TRACTATUS (1921)                INVESTIGATIONS (1953)               |
-|  -----------------               ------------------                  |
-|  Language has ONE function:      Language has MANY functions:        |
-|  picturing atomic facts          describing, questioning,            |
-|                                  commanding, joking, greeting,       |
-|                                  performing, praying...              |
+|  TRACTATUS (1921)                INVESTIGATIONS (1953)                |
+|  -----------------               ------------------                   |
+|  Language has ONE function:      Language has MANY functions:         |
+|  picturing atomic facts          describing, questioning,             |
+|                                  commanding, joking, greeting,        |
+|                                  performing, praying...               |
 |                                                                       |
-|  Words get meaning by            Words get meaning by USE            |
-|  NAMING objects                  in language games                   |
+|  Words get meaning by            Words get meaning by USE             |
+|  NAMING objects                  in language games                    |
 |                                                                       |
-|  Meaning = the named object      Meaning = how the word is used      |
+|  Meaning = the named object      Meaning = how the word is used       |
 |                                                                       |
-|  All propositions have           Different "regions" of language     |
-|  the same LOGICAL FORM           have different grammars             |
+|  All propositions have           Different "regions" of language      |
+|  the same LOGICAL FORM           have different grammars              |
 |                                                                       |
-|  Language mirrors                Language = diverse, embedded in     |
-|  logical structure               forms of life (Lebensform)          |
+|  Language mirrors                Language = diverse, embedded in      |
+|  logical structure               forms of life (Lebensform)           |
 |                                                                       |
-|  Philosophy = logical analysis   Philosophy = therapeutic:           |
-|               of language forms  dissolves confusions caused by      |
-|                                  language's surface grammar          |
+|  Philosophy = logical analysis   Philosophy = therapeutic:            |
+|               of language forms  dissolves confusions caused by       |
+|                                  language's surface grammar           |
 +-----------------------------------------------------------------------+
 ```
 

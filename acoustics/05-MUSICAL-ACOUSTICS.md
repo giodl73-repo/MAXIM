@@ -30,8 +30,8 @@ ELECTROPHONES: electronic instruments (not included here)
 GENERAL PRINCIPLE FOR ALL:
 ┌──────────┐    coupling    ┌──────────┐    radiation    ┌──────────┐
 │  Driver  │ ─────────────► │ Resonator│ ──────────────► │  Sound   │
-│(energy   │               │ (selects  │                 │  Field   │
-│ source)  │               │ harmonics)│                 │          │
+│(energy   │                │ (selects │                 │  Field   │
+│ source)  │                │ harmonics)│                 │         │
 └──────────┘               └──────────┘                 └──────────┘
   Bow/pluck/blow             Strings/tube/membrane/plate   Air radiation
 ```

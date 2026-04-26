@@ -10,22 +10,22 @@ APPLIED MICROBIOLOGY: MICROBES AS INDUSTRIAL ASSETS
   Industrial biotechnology: ~$400 billion/year global market.
 
   ┌─────────────────────────────────────────────────────────────────┐
-  │  APPLICATION SECTORS                                             │
+  │  APPLICATION SECTORS                                            │
   │                                                                   │
-  │  FOOD + BEVERAGE:    Fermentation — bread, cheese, beer, wine  │
+  │  FOOD + BEVERAGE:    Fermentation — bread, cheese, beer, wine   │
   │                      Yogurt, vinegar, miso, tempeh, kimchi      │
   │                      ~$250 billion food fermentation market     │
   │                                                                   │
-  │  PHARMACEUTICALS:   Antibiotics (penicillin, streptomycin)     │
+  │  PHARMACEUTICALS:   Antibiotics (penicillin, streptomycin)      │
   │                      Insulin (E. coli / S. cerevisiae)          │
   │                      Biologics: mAbs in CHO cells               │
-  │                      Vaccines: yeast-produced HBsAg, HPV VLPs  │
+  │                      Vaccines: yeast-produced HBsAg, HPV VLPs   │
   │                                                                   │
-  │  INDUSTRIAL ENZYMES: Proteases (detergent), lipases,           │
+  │  INDUSTRIAL ENZYMES: Proteases (detergent), lipases,            │
   │                       amylases (starch), cellulases (biofuel)   │
   │                       ~$6 billion/year market                   │
   │                                                                   │
-  │  BIOFUELS:           Ethanol (Saccharomyces, E. coli)          │
+  │  BIOFUELS:           Ethanol (Saccharomyces, E. coli)           │
   │                       Butanol, isobutanol, fatty acids          │
   │                       Algal biodiesel                           │
   │                                                                   │
@@ -33,7 +33,7 @@ APPLIED MICROBIOLOGY: MICROBES AS INDUSTRIAL ASSETS
   │                       Heavy metal reduction (Geobacter)         │
   │                       Chlorinated solvent degradation           │
   │                                                                   │
-  │  SYNTHETIC BIOLOGY:  Engineered chassis; non-natural products  │
+  │  SYNTHETIC BIOLOGY:  Engineered chassis; non-natural products   │
   │                       Biosensors; programmable living medicines │
   └─────────────────────────────────────────────────────────────────┘
 ```
@@ -55,42 +55,42 @@ APPLIED MICROBIOLOGY: MICROBES AS INDUSTRIAL ASSETS
   ┌────────────────────────────────────────────────────────────────┐
   │  1928: Fleming observes Penicillium mold killing Staphylococcus│
   │  1940: Florey/Chain purify penicillin (Oxford)               │
-  │  1943: Industrial production using Penicillium chrysogenum    │
+  │  1943: Industrial production using Penicillium chrysogenum     │
   │  Problem: Original yield: 2 units/mL → insufficient          │
   │  Solution: Strain improvement + fermentation optimization      │
   │   ─ UV mutagenesis → higher-yielding mutants                 │
-  │   ─ Corn steep liquor as medium component (key discovery)     │
-  │   ─ Submerged deep-tank fermentation (not surface culture)    │
-  │   ─ Oxygen supply: Aeration + agitation critical              │
+  │   ─ Corn steep liquor as medium component (key discovery)      │
+  │   ─ Submerged deep-tank fermentation (not surface culture)     │
+  │   ─ Oxygen supply: Aeration + agitation critical               │
   │  Result: 100,000 units/mL by end of WWII                     │
   │  Modern titers: >50 g/L (25 million-fold improvement!)       │
-  │                                                                 │
-  │  Still produced by fermentation: Penicillium chrysogenum      │
+  │                                                                │
+  │  Still produced by fermentation: Penicillium chrysogenum       │
   │  ~60,000 tonnes of penicillin/year globally                  │
   └────────────────────────────────────────────────────────────────┘
 
   BIOREACTOR TYPES:
   ┌────────────────────────────────────────────────────────────────┐
-  │ STIRRED TANK REACTOR (STR): Industry standard                 │
-  │   Agitator: Impeller breaks air bubbles; mixes nutrients      │
+  │ STIRRED TANK REACTOR (STR): Industry standard                  │
+  │   Agitator: Impeller breaks air bubbles; mixes nutrients       │
   │   Sparger: Introduces sterile air/O₂                         │
-  │   Sensors: pH, dissolved O₂, temperature, pressure, turbidity │
+  │   Sensors: pH, dissolved O₂, temperature, pressure, turbidity  │
   │   Scale: 10 L (lab) → 100,000 L (industrial)                │
   │   Challenge: Mixing at large scale; O₂ transfer limitation   │
-  │                                                                 │
-  │ FED-BATCH (most common for high-density culture):             │
-  │   Start: Low substrate concentration                          │
+  │                                                                │
+  │ FED-BATCH (most common for high-density culture):              │
+  │   Start: Low substrate concentration                           │
   │   Feed: Continuous or periodic substrate addition            │
   │   → Prevents substrate inhibition (glucose repression)       │
   │   → Achieves very high cell density                          │
   │   E. coli: 80–120 g/L dry cell weight achievable             │
-  │                                                                 │
+  │                                                                │
   │ CONTINUOUS (CHEMOSTAT):                                        │
   │   Continuous feed-in + overflow-out                          │
   │   Steady state: Growth rate = dilution rate (D = μ)          │
   │   Selects for fastest-growing mutants over time              │
-  │   Use: Research; some industrial cheese/beer production       │
-  │                                                                 │
+  │   Use: Research; some industrial cheese/beer production        │
+  │                                                                │
   │ AIRLIFT: No mechanical agitator; air circulates broth        │
   │   Gentle mixing → shear-sensitive organisms (plant cells)    │
   └────────────────────────────────────────────────────────────────┘
@@ -122,18 +122,18 @@ APPLIED MICROBIOLOGY: MICROBES AS INDUSTRIAL ASSETS
   CHEESE (complex ecology):
   ┌────────────────────────────────────────────────────────────────┐
   │ STAGE          ORGANISMS               BIOCHEMISTRY            │
-  │                                                                 │
+  │                                                                │
   │ Primary ferm.  Lactococcus lactis      Lactose → lactic acid   │
   │                Lactobacillus spp.      pH drop → casein coag.  │
-  │                                                                 │
+  │                                                                │
   │ Surface molds  Penicillium camemberti  Brie/Camembert: white   │
   │                Penicillium roqueforti  Blue cheese: blue veins │
   │                                        Lipolysis → flavor      │
-  │                                                                 │
-  │ Smear/wash     Brevibacterium linens   Limburger, Munster       │
+  │                                                                │
+  │ Smear/wash     Brevibacterium linens   Limburger, Munster      │
   │ rind           Arthrobacter spp.       Orange rind; methanethiol│
-  │                                                                 │
-  │ Aging (long)   Propionibacterium       Swiss/Emmental eyes      │
+  │                                                                │
+  │ Aging (long)   Propionibacterium       Swiss/Emmental eyes     │
   │                freudenreichii          Propionic acid + CO₂    │
   └────────────────────────────────────────────────────────────────┘
 
@@ -173,23 +173,23 @@ APPLIED MICROBIOLOGY: MICROBES AS INDUSTRIAL ASSETS
 
   HYDROCARBON DEGRADATION:
   ┌────────────────────────────────────────────────────────────────┐
-  │ PETROLEUM HYDROCARBONS: Major environmental contaminants      │
-  │                                                                 │
+  │ PETROLEUM HYDROCARBONS: Major environmental contaminants       │
+  │                                                                │
   │ AEROBIC DEGRADATION:                                           │
   │   Initial attack: Oxygenases (monooxygenase or dioxygenase)  │
   │   → Introduce -OH groups → activate for β-oxidation pathway  │
   │   Key organisms: Pseudomonas putida (toluene, xylene, naphthalene)│
-  │                  Rhodococcus (aromatic + aliphatic)           │
-  │                  Marinobacter (marine hydrocarbons)           │
-  │                                                                 │
-  │ DEEPWATER HORIZON (2010): Field case study                    │
+  │                  Rhodococcus (aromatic + aliphatic)            │
+  │                  Marinobacter (marine hydrocarbons)            │
+  │                                                                │
+  │ DEEPWATER HORIZON (2010): Field case study                     │
   │   200 million gallons crude oil → Gulf of Mexico             │
-  │   Autochthonous (native) hydrocarbon-degrading bacteria bloom │
-  │   Oceanospirillales, Colwellia, Cycloclasticus                │
+  │   Autochthonous (native) hydrocarbon-degrading bacteria bloom  │
+  │   Oceanospirillales, Colwellia, Cycloclasticus                 │
   │   Dramatic increase in hydrocarbon-degrading populations     │
-  │   → Biodegraded much of deep plume before reaching surface    │
+  │   → Biodegraded much of deep plume before reaching surface     │
   │   BUT: Dispersant (Corexit) reduced biodegradation in some   │
-  │        studies (toxicity to degraders + oil bioavailability)  │
+  │        studies (toxicity to degraders + oil bioavailability)   │
   └────────────────────────────────────────────────────────────────┘
 
   CHLORINATED SOLVENT DEGRADATION:
@@ -239,54 +239,54 @@ APPLIED MICROBIOLOGY: MICROBES AS INDUSTRIAL ASSETS
   │ Escherichia coli K-12 (MG1655, BL21, DH5α):                  │
   │   Advantages: Fast growth, well-characterized, extensive tools│
   │   Genetic tools: >5,000 characterized promoters, ribosome    │
-  │   binding sites, terminators in registries                    │
+  │   binding sites, terminators in registries                     │
   │   Insulin production: 1982, first recombinant biologic       │
   │   Protein overexpression: T7 system (pET vectors)            │
-  │   Limitations: Doesn't glycosylate proteins; inclusion bodies │
+  │   Limitations: Doesn't glycosylate proteins; inclusion bodies  │
   │                at high expression; endotoxin in products     │
-  │                                                                 │
+  │                                                                │
   │ Saccharomyces cerevisiae:                                      │
   │   Advantages: Post-translational modifications; GRAS status  │
   │   Established: Hepatitis B vaccine (HBsAg, 1986)            │
   │   HPV vaccine (VLP): VLPs assembled in yeast                 │
   │   Artemisinic acid: Amyris engineered yeast (see below)      │
-  │   Tools: CRISPR-Cas9 very efficient; strong selection markers │
-  │                                                                 │
+  │   Tools: CRISPR-Cas9 very efficient; strong selection markers  │
+  │                                                                │
   │ Bacillus subtilis:                                             │
-  │   Industrial enzyme production (amylases, proteases)          │
+  │   Industrial enzyme production (amylases, proteases)           │
   │   Gram-positive: Secretes directly to media (easy purification)│
-  │   GRAS status; no endotoxin                                   │
-  │                                                                 │
-  │ Pichia pastoris (now: Komagataella phaffii):                  │
-  │   Yeast with methanol-inducible promoter (AOX1): Ultra-strong │
-  │   Secreted proteins; glycosylation; high-density fermentation │
+  │   GRAS status; no endotoxin                                    │
+  │                                                                │
+  │ Pichia pastoris (now: Komagataella phaffii):                   │
+  │   Yeast with methanol-inducible promoter (AOX1): Ultra-strong  │
+  │   Secreted proteins; glycosylation; high-density fermentation  │
   │   Used for: Insulin, EPO, mAb fragments                      │
-  │                                                                 │
-  │ Chinese Hamster Ovary (CHO) cells:                            │
+  │                                                                │
+  │ Chinese Hamster Ovary (CHO) cells:                             │
   │   Mammalian: Human-like glycosylation → therapeutic mAbs     │
   │   ~70% of biologic drugs produced in CHO                     │
-  │   Technically cell culture, not microbe; included for context │
+  │   Technically cell culture, not microbe; included for context  │
   └────────────────────────────────────────────────────────────────┘
 
   SYNTHETIC BIOLOGY CASE STUDIES:
   ┌────────────────────────────────────────────────────────────────┐
-  │ ARTEMISININ (antimalarial): The landmark project              │
+  │ ARTEMISININ (antimalarial): The landmark project               │
   │   Plant-derived: Artemisia annua (sweet wormwood)            │
-  │   Problem: Plant supply unreliable; price volatile            │
-  │   Keasling lab (2006, Nature): Engineered S. cerevisiae       │
-  │   → Mevalonate pathway extended to artemisinic acid           │
+  │   Problem: Plant supply unreliable; price volatile             │
+  │   Keasling lab (2006, Nature): Engineered S. cerevisiae        │
+  │   → Mevalonate pathway extended to artemisinic acid            │
   │   → Amyris commercialized (2013): Semisynthetic artemisinin  │
   │   → Stable supply; reduced drug cost                         │
-  │                                                                 │
+  │                                                                │
   │ SHIKIMATE PATHWAY PRODUCTS:                                    │
   │   Shikimic acid: Oseltamivir (Tamiflu) precursor             │
   │   Original: Star anise (limited supply during H5N1 fears)    │
   │   Engineered E. coli: Roche-independent supply               │
-  │   Amino acid analogs, flavonoids, stilbenes via same pathway  │
-  │                                                                 │
+  │   Amino acid analogs, flavonoids, stilbenes via same pathway   │
+  │                                                                │
   │ INSULIN PRODUCTION:                                            │
-  │   1982: Humulin (Eli Lilly × Genentech) — first recombinant   │
-  │   drug; E. coli expression                                    │
+  │   1982: Humulin (Eli Lilly × Genentech) — first recombinant    │
+  │   drug; E. coli expression                                     │
   │   A-chain + B-chain expressed separately → combined → fold   │
   │   Now: Mostly S. cerevisiae or P. pastoris (native-like)     │
   │   mRNA-based insulin: In development (not approved yet)      │
@@ -303,18 +303,18 @@ APPLIED MICROBIOLOGY: MICROBES AS INDUSTRIAL ASSETS
   GENETIC CIRCUITS — FROM BIOLOGY TO ENGINEERING:
   ┌────────────────────────────────────────────────────────────────┐
   │ Toggle Switch (Gardner 2000, Nature):                          │
-  │   Two mutually repressing promoters → bistable system         │
+  │   Two mutually repressing promoters → bistable system          │
   │   Promoter1 → repressor2; Promoter2 → repressor1             │
-  │   → Two stable states; switched by inducer pulses             │
-  │   → Proof that synthetic genetic bistability possible         │
-  │                                                                 │
+  │   → Two stable states; switched by inducer pulses              │
+  │   → Proof that synthetic genetic bistability possible          │
+  │                                                                │
   │ Repressilator (Elowitz 2000, Nature):                          │
   │   Three repressors in a ring: LacI → TetR → CI → LacI        │
   │   → Oscillations (~150 min period) — first synthetic clock   │
-  │   → Later improved: Sicker oscillator with >1000 hours stable │
-  │                                                                 │
-  │ AND gates, NOR gates: Implemented with transcription factors  │
-  │ Multi-layer circuits: Cascade amplification; coherent FFLs    │
+  │   → Later improved: Sicker oscillator with >1000 hours stable  │
+  │                                                                │
+  │ AND gates, NOR gates: Implemented with transcription factors   │
+  │ Multi-layer circuits: Cascade amplification; coherent FFLs     │
   └────────────────────────────────────────────────────────────────┘
 ```
 
@@ -347,19 +347,19 @@ APPLIED MICROBIOLOGY: MICROBES AS INDUSTRIAL ASSETS
   │   → Reduced CDI recurrence (not primary prevention)          │
   │   Pouchitis (UC after colectomy): VSL#3 (8-strain mixture)  │
   │   → Only approved probiotic for a specific GI condition      │
-  │                                                                 │
+  │                                                                │
   │ MODERATE EVIDENCE:                                             │
   │   IBS: Multi-strain products; symptom reduction in some trials│
   │   Infantile colic: L. reuteri DSM17938 → reduced crying time │
-  │   Necrotizing enterocolitis prevention (premature infants):   │
-  │   → Multiple Cochrane analyses favor probiotic use            │
+  │   Necrotizing enterocolitis prevention (premature infants):    │
+  │   → Multiple Cochrane analyses favor probiotic use             │
   │   → Many NICUs now use routinely                             │
-  │                                                                 │
+  │                                                                │
   │ WEAK / INSUFFICIENT EVIDENCE:                                  │
-  │   Depression/anxiety: Small trials; promising but not enough  │
-  │   Obesity: No consistent clinical benefit yet                 │
+  │   Depression/anxiety: Small trials; promising but not enough   │
+  │   Obesity: No consistent clinical benefit yet                  │
   │   Atopic dermatitis: Prevention in at-risk infants: modest   │
-  │   Systemic infection prevention: Not demonstrated in most     │
+  │   Systemic infection prevention: Not demonstrated in most      │
   │   populations; CAUTION in immunocompromised (sepsis risk)    │
   └────────────────────────────────────────────────────────────────┘
 

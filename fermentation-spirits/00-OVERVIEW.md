@@ -4,13 +4,13 @@
 
 ```
 +------------------------------------------------------------------+
-|              FERMENTATION: THE BIOCHEMICAL ENGINE                 |
+|              FERMENTATION: THE BIOCHEMICAL ENGINE                |
 |                                                                    |
 |  SUBSTRATE          MICROORGANISM        PRODUCTS                  |
-|  ---------          ------------        --------                  |
-|  Sugars/Starches    Yeast               Ethanol + CO₂             |
-|  (glucose, maltose, (Saccharomyces      + Congeners               |
-|   fructose, etc.)    cerevisiae, etc.)  (flavor compounds)        |
+|  ---------          ------------        --------                 |
+|  Sugars/Starches    Yeast               Ethanol + CO₂            |
+|  (glucose, maltose, (Saccharomyces      + Congeners              |
+|   fructose, etc.)    cerevisiae, etc.)  (flavor compounds)       |
 +------------------------------------------------------------------+
                               |
               +---------------+---------------+
@@ -103,21 +103,21 @@ Yeast metabolism is sloppy. Alongside ethanol, it produces dozens of trace compo
 +------------------------------------------------------------------+
 |                      CONGENER MAP                                  |
 |                                                                    |
-|  Higher Alcohols     Esters              Aldehydes                |
-|  (Fusel Oils)        (from acid + alcohol (from oxidized          |
-|                       esterification)    alcohols)                |
-|  Propanol            Isoamyl acetate     Acetaldehyde             |
-|  Isobutanol          (banana)            (green apple, harsh)     |
-|  Isoamyl alcohol     Ethyl butyrate      Furfural                 |
-|  (rubbing alcohol    (pineapple)         (from pentose sugars)    |
-|   character at high  Ethyl hexanoate                              |
-|   levels)            (apple/anise)                                |
+|  Higher Alcohols     Esters              Aldehydes               |
+|  (Fusel Oils)        (from acid + alcohol (from oxidized         |
+|                       esterification)    alcohols)               |
+|  Propanol            Isoamyl acetate     Acetaldehyde            |
+|  Isobutanol          (banana)            (green apple, harsh)    |
+|  Isoamyl alcohol     Ethyl butyrate      Furfural                |
+|  (rubbing alcohol    (pineapple)         (from pentose sugars)   |
+|   character at high  Ethyl hexanoate                             |
+|   levels)            (apple/anise)                               |
 |                                                                    |
-|  Acids               Ketones             Sulfur compounds         |
-|  Acetic acid         Diacetyl            DMS                      |
-|  (vinegar)           (butter/butterscotch) (cooked corn)          |
-|  Butyric acid        Acetoin                                      |
-|  (rancid butter)     (lighter butter note)                        |
+|  Acids               Ketones             Sulfur compounds        |
+|  Acetic acid         Diacetyl            DMS                     |
+|  (vinegar)           (butter/butterscotch) (cooked corn)         |
+|  Butyric acid        Acetoin                                     |
+|  (rancid butter)     (lighter butter note)                       |
 +------------------------------------------------------------------+
 ```
 
@@ -143,25 +143,25 @@ The "heads/hearts/tails" cut in distillation is a congener management decision.
 +------------------------------------------------------------------+
 |                    YEAST TAXONOMY                                  |
 |                                                                    |
-|  Kingdom: Fungi     Class: Saccharomycetes                        |
+|  Kingdom: Fungi     Class: Saccharomycetes                       |
 |                                                                    |
-|  S. cerevisiae      "Brewer's yeast"                              |
-|  (ale yeast)        Top-fermenting                                |
-|                     15-24 degrees C optimal                       |
-|                     Wild + domesticated strains                   |
-|                     Used for: ale, wine, bread, spirits           |
+|  S. cerevisiae      "Brewer's yeast"                             |
+|  (ale yeast)        Top-fermenting                               |
+|                     15-24 degrees C optimal                      |
+|                     Wild + domesticated strains                  |
+|                     Used for: ale, wine, bread, spirits          |
 |                                                                    |
-|  S. pastorianus     Lager hybrid                                  |
-|  (lager yeast)      Bottom-fermenting                             |
-|                     4-12 degrees C optimal                        |
-|                     S. cerevisiae x S. eubayanus hybrid           |
-|                     Cryotolerant -- evolved in Patagonia?         |
-|                     Used for: lager, bock                         |
+|  S. pastorianus     Lager hybrid                                 |
+|  (lager yeast)      Bottom-fermenting                            |
+|                     4-12 degrees C optimal                       |
+|                     S. cerevisiae x S. eubayanus hybrid          |
+|                     Cryotolerant -- evolved in Patagonia?        |
+|                     Used for: lager, bock                        |
 |                                                                    |
-|  Wild yeasts        Brettanomyces/Dekkera                         |
-|  (terroir organisms) (barnyard, horse, leather notes)             |
-|                     Torulaspora, Lachancea, Pichia                |
-|                     Used in: lambic, natural wine, kombucha       |
+|  Wild yeasts        Brettanomyces/Dekkera                        |
+|  (terroir organisms) (barnyard, horse, leather notes)            |
+|                     Torulaspora, Lachancea, Pichia               |
+|                     Used in: lambic, natural wine, kombucha      |
 +------------------------------------------------------------------+
 ```
 
@@ -250,37 +250,37 @@ his germ theory of disease by ~20 years and directly enabled modern industrial b
 
 ```
 +------------------------------------------------------------------+
-|               REGIONAL SPIRIT TRADITIONS                          |
+|               REGIONAL SPIRIT TRADITIONS                         |
 |                                                                    |
-|  EUROPE                                                           |
+|  EUROPE                                                          |
 |  Scotland:   Scotch whisky (malted barley + peat)                |
-|  Ireland:    Irish whiskey (triple distilled, smooth)             |
+|  Ireland:    Irish whiskey (triple distilled, smooth)            |
 |  France:     Cognac/Armagnac (grape brandy), Calvados (apple)    |
-|  Netherlands: Genever (malt wine + juniper -- proto-gin)          |
-|  England:    Gin (neutral spirit + botanicals)                    |
-|  Scandinavia: Aquavit (caraway/dill)                              |
-|  Germany:    Obstler (fruit brandy), korn (grain)                 |
-|  Balkans:    Slivovitz (plum), rakia                              |
+|  Netherlands: Genever (malt wine + juniper -- proto-gin)         |
+|  England:    Gin (neutral spirit + botanicals)                   |
+|  Scandinavia: Aquavit (caraway/dill)                             |
+|  Germany:    Obstler (fruit brandy), korn (grain)                |
+|  Balkans:    Slivovitz (plum), rakia                             |
 |                                                                    |
-|  AMERICAS                                                         |
+|  AMERICAS                                                        |
 |  USA:        Bourbon (corn + new oak), rye, Tennessee whiskey    |
-|  Canada:     Canadian whisky (blended, lighter)                   |
+|  Canada:     Canadian whisky (blended, lighter)                  |
 |  Caribbean:  Rum (molasses), rhum agricole (fresh cane juice)    |
-|  Brazil:     Cachaca (fresh cane juice)                           |
-|  Peru/Chile: Pisco (grape spirit, contested AOC)                  |
+|  Brazil:     Cachaca (fresh cane juice)                          |
+|  Peru/Chile: Pisco (grape spirit, contested AOC)                 |
 |  Mexico:     Tequila (blue agave), mezcal (various agave)        |
 |                                                                    |
-|  ASIA-PACIFIC                                                     |
+|  ASIA-PACIFIC                                                    |
 |  Japan:      Whisky (Scotch-inspired), shochu (misc base)        |
 |  Korea:      Soju (diluted column spirit -- #1 world volume)     |
 |  China:      Baijiu (world's #1 volume, solid-state ferment)     |
-|  Japan:      Sake (rice "wine" via koji parallel fermentation)    |
-|  SEA:        Tapai, palm wine, rice wine traditions               |
+|  Japan:      Sake (rice "wine" via koji parallel fermentation)   |
+|  SEA:        Tapai, palm wine, rice wine traditions              |
 |                                                                    |
-|  AFRICA/MIDDLE EAST                                               |
+|  AFRICA/MIDDLE EAST                                              |
 |  North Africa: Arak (anise, grape or date base)                  |
 |  Sub-Saharan:  Sorghum beer, palm wine, banana beer              |
-|  Egypt/Sudan:  Bouza (ancient wheat/barley beer)                  |
+|  Egypt/Sudan:  Bouza (ancient wheat/barley beer)                 |
 +------------------------------------------------------------------+
 ```
 

@@ -12,10 +12,10 @@
 ├───────────────────────────────────────────┬──────────────────────────────┤
 │  US ANTITRUST                             │  EU COMPETITION LAW          │
 ├───────────────────────────────────────────┼──────────────────────────────┤
-│  Sherman Act §1: Restraints of trade       │  TFEU Art. 101: Agreements  │
-│  Sherman Act §2: Monopolization            │  TFEU Art. 102: Abuse of    │
-│  Clayton Act §2: Price discrimination      │    dominant position         │
-│  Clayton Act §7: Mergers                   │  Merger Regulation (EUMR)   │
+│  Sherman Act §1: Restraints of trade      │  TFEU Art. 101: Agreements   │
+│  Sherman Act §2: Monopolization           │  TFEU Art. 102: Abuse of     │
+│  Clayton Act §2: Price discrimination     │    dominant position         │
+│  Clayton Act §7: Mergers                  │  Merger Regulation (EUMR)    │
 │  FTC Act §5: Unfair methods               │  DMA (Digital Markets Act)   │
 ├───────────────────────────────────────────┴──────────────────────────────┤
 │                                                                          │

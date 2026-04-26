@@ -25,7 +25,7 @@ DATA PLATFORM ARCHITECTURE EVOLUTION
 |  |  (storage)      |  (table format) |  Analytics      |            | |
 |  |                 |                 |  +Databricks     |            | |
 |  +------------------------------------------------------------------+ |
-|  |  Azure Data Factory (orchestration / ETL-ELT)                   | |
+|  |  Azure Data Factory (orchestration / ETL-ELT)                    | |
 |  +------------------------------------------------------------------+ |
 +-----------------------------------------------------------------------+
 ```

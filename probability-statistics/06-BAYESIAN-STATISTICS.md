@@ -15,14 +15,14 @@ Bayesian statistics treats parameters as random variables and updates beliefs us
 |   before seeing data?"        data given theta?"         after data"           |
 |          |                          |                          |                |
 |          +----------x--------------+                          |                |
-|                     |                                          |                |
+|                     |                                          |               |
 |             BAYES' THEOREM                                      |                |
 |             p(theta|x) = p(x|theta) p(theta) / p(x)           |                |
-|                          = p(x|theta) p(theta) /               |                |
-|                            Integral p(x|theta) p(theta) dtheta |                |
+|                          = p(x|theta) p(theta) /               |               |
+|                            Integral p(x|theta) p(theta) dtheta |               |
 |                                                                  |
 |  4. PREDICTION                                                  |
-|     p(x_new | x) = Integral p(x_new | theta) p(theta | x) dtheta              |
+|     p(x_new | x) = Integral p(x_new| theta) p(theta | x) dtheta                |
 |     "Integrate out uncertainty in theta"                        |
 |                                                                  |
 +------------------------------------------------------------------+

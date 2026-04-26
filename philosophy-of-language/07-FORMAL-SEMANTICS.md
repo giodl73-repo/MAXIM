@@ -10,18 +10,18 @@ For TCS background: Montague grammar IS typed lambda calculus applied to natural
 +-----------------------------------------------------------------------+
 |                    FORMAL SEMANTICS LANDSCAPE                         |
 |                                                                       |
-|  MONTAGUE (1970s)              DAVIDSON (1967–1980s)                 |
+|  MONTAGUE (1970s)              DAVIDSON (1967–1980s)                  |
 |  Universal grammar             Truth-conditional semantics            |
 |  Intensional logic + λ-calc    Event semantics                        |
 |  PTQ — "English is a fragment  Action sentences analyzed via          |
 |  of a formal language"         events as first-class entities         |
-|  Denotational: phrases →       Davidson: T-sentences as the          |
+|  Denotational: phrases →       Davidson: T-sentences as the           |
 |  mathematical objects          core of meaning theory                 |
 |                                                                       |
 |  CONTINUATIONS/TYPE-SHIFTING   DYNAMIC SEMANTICS (1990s)            |
 |  Montague extended:            Discourse representation theory        |
-|  flexible types, continuations Pronouns across sentences             |
-|  in natural language semantics Dynamic predicate logic               |
+|  flexible types, continuations Pronouns across sentences              |
+|  in natural language semantics Dynamic predicate logic                |
 +-----------------------------------------------------------------------+
 ```
 

@@ -12,17 +12,17 @@ evolutionary biology.
 │                                                                    │
 │  FORCE           DIRECTION        SPEED        PREDICTABLE?      │
 │  ─────           ─────────        ─────        ────────────      │
-│  Selection       Toward fitness   Fast (large s)   Yes          │
-│  Genetic drift   Random           Faster in        No (stoch.)  │
+│  Selection       Toward fitness   Fast (large s)   Yes           │
+│  Genetic drift   Random           Faster in        No (stoch.)   │
 │                                   small N                        │
-│  Mutation        Toward new       Very slow         Yes (μ)     │
-│                  alleles          (~10⁻⁸/bp/gen)                │
-│  Gene flow       Toward source    Depends on        Yes (Fst)   │
-│                  population       migration rate                  │
+│  Mutation        Toward new       Very slow         Yes (μ)      │
+│                  alleles          (~10⁻⁸/bp/gen)                 │
+│  Gene flow       Toward source    Depends on        Yes (Fst)    │
+│                  population       migration rate                 │
 │                                                                    │
-│  NULL: HARDY-WEINBERG EQUILIBRIUM                                 │
+│  NULL: HARDY-WEINBERG EQUILIBRIUM                                │
 │  ─────────────────────────────────                               │
-│  No forces acting → allele frequencies constant, genotype       │
+│  No forces acting → allele frequencies constant, genotype        │
 │  frequencies = p², 2pq, q² forever                               │
 └──────────────────────────────────────────────────────────────────┘
 ```

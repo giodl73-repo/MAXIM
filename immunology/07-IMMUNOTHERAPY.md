@@ -8,39 +8,39 @@ CANCER IMMUNOTHERAPY: USING THE IMMUNE SYSTEM TO FIGHT CANCER
 
   WHY CANCER ESCAPES IMMUNITY (the problem):
   ┌────────────────────────────────────────────────────────────────┐
-  │  NORMAL                         CANCER                        │
-  │  MHC I displays self-peptides   MHC I downregulated           │
+  │  NORMAL                         CANCER                         │
+  │  MHC I displays self-peptides   MHC I downregulated            │
   │  No co-stimulation → T cell     PD-L1 upregulated → T exhaustion│
   │   ignored                        Tregs recruited to tumor      │
   │  No "eat me" signal             MDSCs suppress T cells         │
-  │                                  IDO: Trp depletion → anergy  │
+  │                                  IDO: Trp depletion → anergy   │
   │                                  TGF-β: anti-inflammatory      │
   └────────────────────────────────────────────────────────────────┘
 
   IMMUNOTHERAPY APPROACHES:
   ┌──────────────────────────────────────────────────────────────────┐
-  │ CHECKPOINT INHIBITORS                                             │
+  │ CHECKPOINT INHIBITORS                                            │
   │   Remove the brakes on T cells                                   │
   │   Anti-PD-1/PD-L1, anti-CTLA-4, anti-LAG-3, anti-TIM-3        │
-  │                                                                   │
-  │ CELL THERAPIES                                                    │
-  │   Engineer patient's own immune cells                           │
-  │   CAR-T cells, TIL therapy, CAR-NK                              │
-  │                                                                   │
+  │                                                                  │
+  │ CELL THERAPIES                                                   │
+  │   Engineer patient's own immune cells                            │
+  │   CAR-T cells, TIL therapy, CAR-NK                               │
+  │                                                                  │
   │ BISPECIFIC ANTIBODIES                                            │
-  │   Physically bring T cells to tumor cells                       │
-  │   CD3 × tumor antigen                                           │
-  │                                                                   │
+  │   Physically bring T cells to tumor cells                        │
+  │   CD3 × tumor antigen                                            │
+  │                                                                  │
   │ CANCER VACCINES                                                  │
   │   Elicit tumor-specific T cells                                  │
-  │   Neoantigen vaccines (personalized); off-the-shelf             │
-  │                                                                   │
+  │   Neoantigen vaccines (personalized); off-the-shelf              │
+  │                                                                  │
   │ CYTOKINE THERAPY                                                 │
   │   IL-2, IFN-α (older), IL-15, IL-21 (newer)                    │
-  │                                                                   │
+  │                                                                  │
   │ ONCOLYTIC VIRUSES                                                │
   │   Viruses that selectively replicate in cancer cells             │
-  │   T-VEC (talimogene laherparepvec): Herpes-based, melanoma      │
+  │   T-VEC (talimogene laherparepvec): Herpes-based, melanoma       │
   └──────────────────────────────────────────────────────────────────┘
 ```
 
@@ -67,16 +67,16 @@ CANCER IMMUNOTHERAPY: USING THE IMMUNE SYSTEM TO FIGHT CANCER
   ANTI-PD-1 DRUGS:
   ┌────────────────────────────────────────────────────────────────┐
   │ Pembrolizumab (Keytruda): anti-PD-1 IgG4                     │
-  │   ~30+ FDA approvals across cancer types                      │
+  │   ~30+ FDA approvals across cancer types                       │
   │   First pan-tumor approval: MSI-H/dMMR (any solid tumor)     │
   │   TMB-H (tumor mutational burden high) approval              │
-  │                                                                 │
+  │                                                                │
   │ Nivolumab (Opdivo): anti-PD-1 IgG4                           │
   │   Melanoma, NSCLC, RCC, HCC, gastric, cervical, more         │
   │   Combined with ipilimumab: "ipi+nivo" combination standard  │
-  │                                                                 │
-  │ Cemiplimab (Libtayo): anti-PD-1                               │
-  │   CSCC (cutaneous squamous cell carcinoma) as primary         │
+  │                                                                │
+  │ Cemiplimab (Libtayo): anti-PD-1                                │
+  │   CSCC (cutaneous squamous cell carcinoma) as primary          │
   └────────────────────────────────────────────────────────────────┘
 
   ANTI-PD-L1 DRUGS:
@@ -91,12 +91,12 @@ CANCER IMMUNOTHERAPY: USING THE IMMUNE SYSTEM TO FIGHT CANCER
   │   Higher affinity for B7 than CD28 → competes                │
   │   CTLA-4:B7 → removes B7 from APC surface (trans-endocytosis)│
   │   → other T cells can't get CD28 signal → dampened response  │
-  │                                                                 │
+  │                                                                │
   │ Ipilimumab (Yervoy): First checkpoint inhibitor (2011)       │
-  │   Melanoma (monotherapy or with nivolumab)                    │
+  │   Melanoma (monotherapy or with nivolumab)                     │
   │   Higher toxicity than anti-PD-1 alone                       │
-  │   Combination ipi+nivo: better response but more side effects │
-  │                                                                 │
+  │   Combination ipi+nivo: better response but more side effects  │
+  │                                                                │
   │ Tremelimumab (Imjudo): anti-CTLA-4                           │
   │   Combined with durvalumab (anti-PD-L1) → HCC, NSCLC        │
   └────────────────────────────────────────────────────────────────┘
@@ -110,20 +110,20 @@ CANCER IMMUNOTHERAPY: USING THE IMMUNE SYSTEM TO FIGHT CANCER
   IMMUNE-RELATED ADVERSE EVENTS (irAEs):
   ┌────────────────────────────────────────────────────────────────┐
   │ Mechanism: Checkpoint inhibitors remove tolerance constraints  │
-  │   → T cells attack normal tissues                             │
-  │                                                                 │
+  │   → T cells attack normal tissues                              │
+  │                                                                │
   │ COMMON:                                                        │
   │ Dermatitis (rash): Very common (30–50% with CTLA-4)          │
   │ Thyroiditis (hypothyroidism): Common with PD-1 (5–10%)       │
-  │ Pneumonitis: 5% with PD-1; potentially life-threatening       │
+  │ Pneumonitis: 5% with PD-1; potentially life-threatening        │
   │ Hepatitis: CTLA-4 > PD-1                                     │
   │ Colitis: CTLA-4 > PD-1 (grade 3–4: ~15% with ipi)          │
-  │                                                                 │
+  │                                                                │
   │ MANAGEMENT:                                                    │
-  │ Grade 1: Continue, monitor                                    │
-  │ Grade 2: Hold checkpoint; oral steroids                       │
+  │ Grade 1: Continue, monitor                                     │
+  │ Grade 2: Hold checkpoint; oral steroids                        │
   │ Grade 3–4: Permanently discontinue; high-dose IV steroids    │
-  │            Infliximab for steroid-refractory colitis          │
+  │            Infliximab for steroid-refractory colitis           │
   └────────────────────────────────────────────────────────────────┘
 ```
 
@@ -142,19 +142,19 @@ CANCER IMMUNOTHERAPY: USING THE IMMUNE SYSTEM TO FIGHT CANCER
 
   CAR STRUCTURE:
   ┌────────────────────────────────────────────────────────────────┐
-  │                                                                 │
+  │                                                                │
   │  EXTRACELLULAR                INTRACELLULAR                    │
-  │  ─────────────                ─────────────                   │
-  │  scFv (antibody fragment)     CD3ζ (ITAM signaling)           │
+  │  ─────────────                ─────────────                    │
+  │  scFv (antibody fragment)     CD3ζ (ITAM signaling)            │
   │  binds tumor antigen          + Co-stimulatory domains         │
-  │  (no MHC needed!)             CD28 or 4-1BB or both           │
-  │       │                                                         │
+  │  (no MHC needed!)             CD28 or 4-1BB or both            │
+  │       │                                                        │
   │  Hinge (spacer)                                                │
-  │       │                                                         │
-  │  Transmembrane domain                                           │
-  │       │                                                         │
-  │  ─────┼─────────────────────────────────────────────────────  │
-  │       │ PLASMA MEMBRANE                                         │
+  │       │                                                        │
+  │  Transmembrane domain                                          │
+  │       │                                                        │
+  │  ─────┼─────────────────────────────────────────────────────   │
+  │       │ PLASMA MEMBRANE                                        │
   └────────────────────────────────────────────────────────────────┘
 
   CAR GENERATIONS:
@@ -165,14 +165,14 @@ CANCER IMMUNOTHERAPY: USING THE IMMUNE SYSTEM TO FIGHT CANCER
 
   MANUFACTURING PROCESS (ex vivo gene engineering):
   ┌────────────────────────────────────────────────────────────────┐
-  │ 1. Leukapheresis: Collect patient T cells from blood          │
-  │ 2. T cell stimulation: Activate with anti-CD3/anti-CD28 beads │
-  │ 3. Viral transduction: Lentivirus or retrovirus delivers CAR  │
-  │    gene into T cell genome → stable expression                │
-  │ 4. Expansion: ~2 weeks in cytokine-supplemented media         │
-  │ 5. Quality control: CAR expression, potency, sterility        │
-  │ 6. Infusion: Patient receives lymphodepleting chemo first     │
-  │    (cyclophosphamide + fludarabine → creates space for CAR-T) │
+  │ 1. Leukapheresis: Collect patient T cells from blood           │
+  │ 2. T cell stimulation: Activate with anti-CD3/anti-CD28 beads  │
+  │ 3. Viral transduction: Lentivirus or retrovirus delivers CAR   │
+  │    gene into T cell genome → stable expression                 │
+  │ 4. Expansion: ~2 weeks in cytokine-supplemented media          │
+  │ 5. Quality control: CAR expression, potency, sterility         │
+  │ 6. Infusion: Patient receives lymphodepleting chemo first      │
+  │    (cyclophosphamide + fludarabine → creates space for CAR-T)  │
   │ 7. CAR-T infused → encounters antigen → expand and kill      │
   └────────────────────────────────────────────────────────────────┘
 
@@ -187,7 +187,7 @@ CANCER IMMUNOTHERAPY: USING THE IMMUNE SYSTEM TO FIGHT CANCER
   ┌────────────────────────────────────────────────────────────────┐
   │ Tisagenlecleucel (Kymriah): CD19 CAR; B-ALL, DLBCL           │
   │ Axicabtagene ciloleucel (Yescarta): CD19 CAR; DLBCL, FL      │
-  │ Lisocabtagene maraleucel (Breyanzi): CD19 CAR; DLBCL          │
+  │ Lisocabtagene maraleucel (Breyanzi): CD19 CAR; DLBCL           │
   │ Brexucabtagene autoleucel (Tecartus): CD19 CAR; MCL, B-ALL  │
   │ Idecabtagene vicleucel (Abecma): BCMA CAR; multiple myeloma  │
   │ Ciltacabtagene autoleucel (Carvykti): BCMA CAR; myeloma      │
@@ -217,11 +217,11 @@ CANCER IMMUNOTHERAPY: USING THE IMMUNE SYSTEM TO FIGHT CANCER
   MECHANISM:
   ┌────────────────────────────────────────────────────────────┐
   │  Bispecific antibody physically bridges:                   │
-  │                                                             │
+  │                                                            │
   │  T cell ─── [CD3 arm] ─── Bispecific ─── [TAA arm] ─── Tumor│
-  │                                                             │
+  │                                                            │
   │  Creates "immunological synapse" between T cell and tumor  │
-  │  TCR not involved → bypasses MHC restriction              │
+  │  TCR not involved → bypasses MHC restriction               │
   │  Any T cell can be redirected (not antigen-specific)       │
   │  → Very fast cytotoxicity (minutes)                        │
   └────────────────────────────────────────────────────────────┘
@@ -231,16 +231,16 @@ CANCER IMMUNOTHERAPY: USING THE IMMUNE SYSTEM TO FIGHT CANCER
   │ Blinatumomab (Blincyto): CD19×CD3 BiTE format               │
   │   First approved T cell engager (2014)                       │
   │   B-ALL, CLL; continuous IV infusion (short half-life)       │
-  │                                                                 │
+  │                                                                │
   │ Catumaxomab: anti-EpCAM × anti-CD3 × Fc binding to APC     │
   │   Malignant ascites (Europe, withdrawn; EU)                  │
-  │                                                                 │
+  │                                                                │
   │ Mosunetuzumab (Lunsumio): CD20×CD3                          │
   │   Follicular lymphoma (approved 2022)                        │
-  │                                                                 │
+  │                                                                │
   │ Talquetamab (Talvey): GPRC5D×CD3                            │
   │   Multiple myeloma (approved 2023)                           │
-  │                                                                 │
+  │                                                                │
   │ Teclistamab (Tecvayli): BCMA×CD3                            │
   │   Multiple myeloma (approved 2022)                           │
   └────────────────────────────────────────────────────────────────┘
@@ -267,29 +267,29 @@ CANCER IMMUNOTHERAPY: USING THE IMMUNE SYSTEM TO FIGHT CANCER
   The tumor is not just cancer cells — it's a complex ecosystem:
 
   ┌────────────────────────────────────────────────────────────────┐
-  │  CELLULAR COMPONENTS:                                           │
+  │  CELLULAR COMPONENTS:                                          │
   │                                                                  │
   │  Cancer cells: Express neoantigens, downregulate MHC I,        │
   │               upregulate PD-L1, secrete TGF-β                  │
   │                                                                  │
-  │  Tumor-associated macrophages (TAMs):                           │
+  │  Tumor-associated macrophages (TAMs):                          │
   │    M2-polarized → IL-10, TGF-β, VEGF (pro-tumor)               │
   │    Target: CSF1R inhibitors to deplete M2 TAMs                 │
   │                                                                  │
   │  MDSCs (Myeloid-derived suppressor cells):                     │
-  │    Immature myeloid cells → IDO, arginase, ROS suppression    │
+  │    Immature myeloid cells → IDO, arginase, ROS suppression     │
   │    Deplete L-arginine → T cells can't make TCR ζ-chain         │
   │                                                                  │
-  │  Tregs:                                                         │
-  │    Recruited via CCR4 (CCL17/22 from tumor)                   │
-  │    Consume IL-2 → starve effector T cells                     │
-  │    Target: Anti-CCR4 (mogamulizumab) depletes tumor Tregs     │
+  │  Tregs:                                                        │
+  │    Recruited via CCR4 (CCL17/22 from tumor)                    │
+  │    Consume IL-2 → starve effector T cells                      │
+  │    Target: Anti-CCR4 (mogamulizumab) depletes tumor Tregs      │
   │                                                                  │
   │  Tumor-infiltrating lymphocytes (TILs):                        │
-  │    CD8+ TIL density: strong predictor of survival             │
+  │    CD8+ TIL density: strong predictor of survival              │
   │    Exhausted state (PD-1hi TOX+): limited killing potential    │
   │                                                                  │
-  │  PHYSICAL BARRIERS:                                             │
+  │  PHYSICAL BARRIERS:                                            │
   │    Desmoplastic stroma (pancreatic cancer) → T cell exclusion  │
   │    Abnormal vasculature → poor T cell trafficking              │
   │    Hypoxia → immunosuppressive M2 polarization                 │

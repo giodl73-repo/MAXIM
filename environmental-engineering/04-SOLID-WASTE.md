@@ -206,8 +206,8 @@ end products.
   │ Windrow          │ Long rows turned by machine; low capital;    │
   │                  │ large land area; odor risk                    │
   ├──────────────────┼───────────────────────────────────────────────┤
-  │ Aerated static   │ Forced air through static pile; no turning;  │
-  │ pile (ASP)       │ faster (~21 days); enclosed with biofilter   │
+  │ Aerated static   │ Forced air through static pile; no turning;   │
+  │ pile (ASP)       │ faster (~21 days); enclosed with biofilter    │
   │                  │ controls odors                                │
   ├──────────────────┼───────────────────────────────────────────────┤
   │ In-vessel        │ Rotating drum or tunnel; fully enclosed;     │
@@ -302,14 +302,14 @@ Subtitle D sanitary landfill is the engineering design standard for MSW disposal
   │              │ EPA NSPS requires flare or energy recovery      │
   │              │ for ≥34 Mg/hr NMOC emission rate               │
   ├──────────────┼─────────────────────────────────────────────────┤
-  │ Direct power │ Engine-generator sets at landfill;             │
-  │ generation   │ 30–35% electrical efficiency; can supply grid  │
+  │ Direct power │ Engine-generator sets at landfill;              │
+  │ generation   │ 30–35% electrical efficiency; can supply grid   │
   ├──────────────┼─────────────────────────────────────────────────┤
   │ RNG          │ Clean, upgrade to pipeline-quality CH₄;        │
   │              │ highest revenue; qualifies for D3 RIN credits  │
   │              │ (Renewable Fuel Standard)                       │
   ├──────────────┼─────────────────────────────────────────────────┤
-  │ Direct use   │ Industrial boiler, kiln, greenhouse heating    │
+  │ Direct use   │ Industrial boiler, kiln, greenhouse heating     │
   └──────────────┴─────────────────────────────────────────────────┘
 
   LMOP: EPA Landfill Methane Outreach Program — technical assistance
@@ -326,8 +326,8 @@ Hazardous waste requires a completely different cradle-to-grave management syste
   WHAT MAKES A WASTE "HAZARDOUS" UNDER RCRA?
 
   ┌──────────────────────────────────────────────────────────────────┐
-  │  LISTED WASTES (EPA has pre-determined these are hazardous):    │
-  │  F-list: non-specific source wastes (e.g., spent chlorinated    │
+  │  LISTED WASTES (EPA has pre-determined these are hazardous):     │
+  │  F-list: non-specific source wastes (e.g., spent chlorinated     │
   │           solvents — F001-F005)                                  │
   │  K-list: specific industry source wastes (e.g., K001 wood        │
   │           preserving, K051 API separator sludge)                 │
@@ -357,7 +357,7 @@ Hazardous waste requires a completely different cradle-to-grave management syste
   │ quantity)  │                │ personnel training; contingency   │
   │            │                │ plan; RCRA Subpart BB leak detec. │
   ├────────────┼────────────────┼───────────────────────────────────┤
-  │ SQG        │ 100–1,000 kg/mo│ 270-day on-site storage limit;   │
+  │ SQG        │ 100–1,000 kg/mo│ 270-day on-site storage limit;    │
   │ (small     │                │ basic contingency plan; training  │
   │ quantity)  │                │                                   │
   ├────────────┼────────────────┼───────────────────────────────────┤

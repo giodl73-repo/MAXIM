@@ -61,7 +61,7 @@ THE FAUVE FORMAL PROGRAM
 
   WHAT FAUVISM DOES TO COLOR:
   ┌───────────────────────────────────────────────────────────┐
-  │ Before Fauvism: even Impressionism and Post-Impressionism  │
+  │ Before Fauvism: even Impressionism and Post-Impressionism │
   │ related color to observation. Seurat: scientific.         │
   │ Van Gogh: emotionally heightened but still FROM the scene.│
   │                                                           │
@@ -257,11 +257,11 @@ SYNTHETIC CUBISM: THE COLLAGE TURN
   │ 2. SIGN vs OBJECT: the newspaper's text signifies news,  │
   │    date, text. It is also a visual texture. Both at once.│
   │                                                          │
-  │ 3. TROMPE L'OEIL REVERSED: Classical trompe l'oeil      │
+  │ 3. TROMPE L'OEIL REVERSED: Classical trompe l'oeil       │
   │    painted things to look real. Collage inserts real     │
   │    things into painting. The hierarchy inverts.          │
   │                                                          │
-  │ 4. COLOR RETURNS: collage materials bring color and       │
+  │ 4. COLOR RETURNS: collage materials bring color and      │
   │    texture that Analytic Cubism eliminated               │
   └──────────────────────────────────────────────────────────┘
 ```
@@ -388,13 +388,13 @@ THE READYMADE AS PROPOSITION
   │ C. The discourse around it (art critics discuss it)      │
   │                                                          │
   │ NOT by:                                                  │
-  │ - Craft (the artist did not make it)                    │
-  │ - Beauty (a urinal is not conventionally beautiful)     │
-  │ - Uniqueness (it is mass-produced)                      │
-  │ - Intention to make art (Mutt is anonymous)             │
+  │ - Craft (the artist did not make it)                     │
+  │ - Beauty (a urinal is not conventionally beautiful)      │
+  │ - Uniqueness (it is mass-produced)                       │
+  │ - Intention to make art (Mutt is anonymous)              │
   │                                                          │
-  │ If an artist can designate any object as art,           │
-  │ then what is art? The question is the point.            │
+  │ If an artist can designate any object as art,            │
+  │ then what is art? The question is the point.             │
   └──────────────────────────────────────────────────────────┘
 
   OTHER READYMADES:

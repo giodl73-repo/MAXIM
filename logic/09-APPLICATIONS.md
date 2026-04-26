@@ -11,7 +11,7 @@ underlie knowledge graphs and OWL ontologies.
 +-------------------------------------------------------------------+
 |              LOGIC IN ENGINEERING AND AI                          |
 |                                                                   |
-|  PROGRAM VERIFICATION        SAT / SMT SOLVING                   |
+|  PROGRAM VERIFICATION        SAT / SMT SOLVING                    |
 |  +--------------------+      +---------------------------+        |
 |  | Hoare logic        |      | SAT: Boolean (CDCL)       |        |
 |  | Weakest precond.   |      | SMT: theories over SAT    |        |

@@ -14,24 +14,24 @@ GEOCHRONOLOGY: METHODS ORDERED BY CLOSURE TEMPERATURE
 |  Lu-Hf garnet   Tc ~600°C    Metamorphic garnet growth           |
 |  Sm-Nd garnet   Tc ~600°C    Metamorphic garnet growth           |
 |                                                                  |
-|  COOLING / EXHUMATION (300–600°C)                               |
+|  COOLING / EXHUMATION (300–600°C)                                |
 |  Rb-Sr muscovite Tc ~500°C   Cooling after metamorphism          |
 |  Ar-Ar hornblende Tc ~500°C  Closure on cooling path             |
 |  Re-Os molybdenite Tc ~300°C Ore deposit formation               |
-|  Ar-Ar K-feldspar  Tc ~150-350°C Multi-diffusion domain         |
+|  Ar-Ar K-feldspar  Tc ~150-350°C Multi-diffusion domain          |
 |                                                                  |
-|  LOW-TEMPERATURE THERMOCHRONOLOGY (<300°C)                      |
-|  Fission track (apatite)  Tc ~110°C   Uplift / erosion timing   |
+|  LOW-TEMPERATURE THERMOCHRONOLOGY (<300°C)                       |
+|  Fission track (apatite)  Tc ~110°C   Uplift / erosion timing    |
 |  (U-Th)/He apatite        Tc ~70°C    Very shallow exhumation    |
 |  Fission track (zircon)   Tc ~240°C   Intermediate cooling       |
 |                                                                  |
 |  CALENDAR-RANGE (recent)                                         |
-|  ¹⁴C            t½ 5730 yr  Organic C   0–50,000 yr             |
+|  ¹⁴C            t½ 5730 yr  Organic C   0–50,000 yr              |
 |                                                                  |
 |  Reading guide: a rock's thermal history is a path through       |
 |  temperature-time space. Each system has a closure temperature   |
 |  Tc at which it "locks in." Multiple systems in the same rock    |
-|  give the full T(t) path from crystallization to surface.       |
+|  give the full T(t) path from crystallization to surface.        |
 +------------------------------------------------------------------+
 ```
 

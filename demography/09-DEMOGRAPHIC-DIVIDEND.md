@@ -4,12 +4,12 @@
 
 ```
 ┌─────────────────────────────────────────────────────────────────────────────┐
-│                    DEMOGRAPHIC DIVIDEND MECHANISM                            │
+│                    DEMOGRAPHIC DIVIDEND MECHANISM                           │
 │                                                                               │
 │  STAGE 1: HIGH FERTILITY           STAGE 2: FERTILITY DECLINE               │
-│  Young, wide-based pyramid         Small new cohorts enter reproductive age  │
+│  Young, wide-based pyramid         Small new cohorts enter reproductive age │
 │                                    Large working-age cohort already in place  │
-│  ┌──────────┐ Small working-age    ┌──────────┐                              │
+│  ┌──────────┐ Small working-age    ┌──────────┐                             │
 │  │  ████    │                      │  ██      │                              │
 │  │  ██████  │                      │  ████    │ Small youth cohort            │
 │  │  ████████│ ← large child cohort │  ██████  │                              │

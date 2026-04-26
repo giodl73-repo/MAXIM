@@ -8,25 +8,25 @@ theoretical foundation of the Finite Element Method (FEM).
 
 ```
 +-----------------------------------------------------------------------+
-|              WEAK FORMULATION CONCEPT                                  |
+|              WEAK FORMULATION CONCEPT                                 |
 |                                                                       |
 |  CLASSICAL (STRONG) FORMULATION:                                      |
 |  −∇²u = f in Ω,  u = 0 on ∂Ω                                        |
-|  Requires: u ∈ C²(Ω) — twice differentiable                          |
+|  Requires: u ∈ C²(Ω) — twice differentiable                           |
 |  What about rough f? Irregular Ω? Discontinuous coefficients?         |
 |                                                                       |
 |  WEAK FORMULATION:                                                    |
 |  ∫_Ω ∇u·∇v dx = ∫_Ω fv dx   for all v ∈ H₀¹(Ω)                     |
 |  Requires: u,v ∈ H₀¹(Ω) — just ONE derivative in L²                 |
 |                                                                       |
-|  KEY STEP: integration by parts ONCE, moving one derivative to v.    |
+|  KEY STEP: integration by parts ONCE, moving one derivative to v.     |
 |  Classical solution ⊂ weak solutions.                                 |
 |  Weak solutions may be less smooth — but they exist under             |
 |  much weaker hypotheses.                                              |
 |                                                                       |
 |  FEM CONNECTION:                                                      |
 |  Replace: v ∈ H₀¹(Ω) by v ∈ V_h ⊂ H₀¹ (finite-dimensional subspace) |
-|  → Galerkin approximation (linear system Au = b)                     |
+|  → Galerkin approximation (linear system Au = b)                      |
 |  → This IS the finite element method.                                 |
 |                                                                       |
 +-----------------------------------------------------------------------+
@@ -86,7 +86,7 @@ values and derivatives in L².
   ┌──────────────────────────────────────────────────────────────┐
   │  a(u,v) = F(v)   for all v ∈ H₀¹(Ω)                        │
   │  where a(u,v) = ∫_Ω ∇u·∇v dx   (bilinear form)             │
-  │  and   F(v)   = ∫_Ω fv dx       (linear functional)         │
+  │  and   F(v)   = ∫_Ω fv dx       (linear functional)          │
   └──────────────────────────────────────────────────────────────┘
 
   OBSERVATIONS:
@@ -127,11 +127,11 @@ FEM is the numerical method that directly discretizes the weak formulation.
   │ Mesh T_h: partition Ω into elements (triangles in 2D,      │
   │ tetrahedra in 3D). Mesh size h = max element diameter.     │
   │                                                            │
-  │  [*]─[*]─[*]─[*]─[*]                                      │
+  │  [*]─[*]─[*]─[*]─[*]                                       │
   │   |\ |\ |\ |\ |\                                           │
-  │  [*]─[*]─[*]─[*]─[*]                                      │
+  │  [*]─[*]─[*]─[*]─[*]                                       │
   │   |\ |\ |\ |\ |\                                           │
-  │  [*]─[*]─[*]─[*]─[*]                                      │
+  │  [*]─[*]─[*]─[*]─[*]                                       │
   └────────────────────────────────────────────────────────────┘
 
   STEP 2: DEFINE FINITE ELEMENT SPACE V_h ⊂ H₀¹(Ω).

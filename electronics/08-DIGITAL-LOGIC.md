@@ -322,11 +322,11 @@ NOR: series pMOS is slow (pMOS already slower than nMOS).
 
 ```
   ┌──────────────────────────────────────────────────────────────────┐
-  │                    D-FF TIMING                                    │
-  │                                                                   │
-  │    D ───XXXXXXX╔════════════════╗XXXXXXXX───                      │
+  │                    D-FF TIMING                                   │
+  │                                                                  │
+  │    D ───XXXXXXX╔════════════════╗XXXXXXXX───                     │
   │                 ← t_setup →    ← t_hold →                        │
-  │   CLK ──────────────╔════╗─────────────────                       │
+  │   CLK ──────────────╔════╗─────────────────                      │
   │                     ↑ rising edge                                 │
   │                     capture point                                 │
   │    Q ────────────────────────────╔══════════── (after t_cq)       │
@@ -486,15 +486,15 @@ NOR: series pMOS is slow (pMOS already slower than nMOS).
 
 ```
   ┌─────────────────────────────────────────────────────────────────────┐
-  │                   FPGA ARCHITECTURE                                  │
-  │                                                                      │
+  │                   FPGA ARCHITECTURE                                 │
+  │                                                                     │
   │  IOB ──── Routing ──── CLB ──── Routing ──── CLB ──── Routing ─ IOB │
-  │            matrix       │        matrix       │        matrix        │
-  │                         │                     │                      │
+  │            matrix       │        matrix       │        matrix       │
+  │                         │                     │                     │
   │                        DSP                   BRAM                   │
-  │                    (multiply-                (block                  │
-  │                    accumulate)                RAM,                   │
-  │                                             18/36Kb)                 │
+  │                    (multiply-                (block                 │
+  │                    accumulate)                RAM,                  │
+  │                                             18/36Kb)                │
   └─────────────────────────────────────────────────────────────────────┘
 
   CLB (Configurable Logic Block):

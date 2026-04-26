@@ -166,7 +166,7 @@ CYCLE PHASES (sequential):
   ┌─────────────────────────────────────────────────────────────┐
   │ 1. CLAMPING: mold halves close → clamp force applied        │
   │                                                             │
-  │ 2. INJECTION: screw advances → melt injected into cavity   │
+  │ 2. INJECTION: screw advances → melt injected into cavity    │
   │    Gate freezes → end of injection phase                    │
   │                                                             │
   │ 3. PACKING/HOLDING: extra melt pushed in to compensate      │
@@ -175,7 +175,7 @@ CYCLE PHASES (sequential):
   │ 4. COOLING: part cools below ejection temperature           │
   │    Screw recovers (rotates, feeds next shot while cooling)  │
   │                                                             │
-  │ 5. EJECTION: mold opens → ejector pins push part out       │
+  │ 5. EJECTION: mold opens → ejector pins push part out        │
   └─────────────────────────────────────────────────────────────┘
 
 CYCLE TIME BREAKDOWN (typical):
@@ -204,7 +204,7 @@ INJECTION MOLD ANATOMY
             │   [Cavity 1] [Cavity 2]     │
             │                             │
             │  Cooling channels (water)   │
-            │  Ejector pins              │
+            │  Ejector pins               │
             └─────────────────────────────┘
               Fixed half    Moving half
 

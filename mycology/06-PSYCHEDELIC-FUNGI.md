@@ -6,10 +6,10 @@
 +------------------------------------------------------------------+
 |              PSILOCYBIN: FROM MOLECULE TO MIND                   |
 |                                                                  |
-|  Psilocybin (prodrug) → psilocin (active)                       |
-|  5-HT2A receptor agonism                                        |
-|  Default Mode Network (DMN) disruption                          |
-|  Subjective effects: altered perception, ego dissolution        |
+|  Psilocybin (prodrug) → psilocin (active)                        |
+|  5-HT2A receptor agonism                                         |
+|  Default Mode Network (DMN) disruption                           |
+|  Subjective effects: altered perception, ego dissolution         |
 |                                                                  |
 |  CLINICAL STATUS (updated 2026):                               |
 |  Schedule I (US), Class A (UK), Schedule III (Canada, some)    |
@@ -21,7 +21,7 @@
 |    as of 2025; USONA MDD Phase 3 ongoing                       |
 |  No FDA approval as of early 2026; BLA not yet filed           |
 |                                                                  |
-|  FDA Breakthrough Therapy Designation:                          |
+|  FDA Breakthrough Therapy Designation:                           |
 |  Psilocybin for MDD (2018) and TRD (treatment-resistant, 2019) |
 +------------------------------------------------------------------+
 ```

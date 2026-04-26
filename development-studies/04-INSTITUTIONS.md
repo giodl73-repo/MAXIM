@@ -6,7 +6,7 @@ The institutional turn in development economics (1990s–2000s) produced the fie
 
 ```
 +--------------------------------------------------------------------------+
-|                    INSTITUTIONS IN DEVELOPMENT                            |
+|                    INSTITUTIONS IN DEVELOPMENT                           |
 +--------------------------------------------------------------------------+
 |                                                                          |
 |  WHAT ARE INSTITUTIONS?                                                  |

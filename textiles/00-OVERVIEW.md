@@ -74,7 +74,7 @@ REVOLUTION 4: GLOBALIZATION + FAST FASHION (1990s–present)
 
 ```
 +------------------------------------------------------------------+
-|                    TEXTILES FIELD MAP                             |
+|                    TEXTILES FIELD MAP                            |
 +------------------------------------------------------------------+
 |                                                                  |
 |  FIBER SCIENCE          YARN ENGINEERING          FABRIC TECH    |
@@ -155,7 +155,7 @@ MANUFACTURED FIBERS
 ```
   FIXED WEIGHT SYSTEMS (indirect — higher number = finer yarn)
   ┌──────────────┬────────────────────────────────────────────────┐
-  │ System       │ Definition                                      │
+  │ System       │ Definition                                     │
   ├──────────────┼────────────────────────────────────────────────┤
   │ Ne (English) │ # of 840-yd hanks per pound. Cotton/spun.      │
   │ Nm (Metric)  │ # of 1000-m lengths per kg                     │
@@ -164,8 +164,8 @@ MANUFACTURED FIBERS
 
   FIXED LENGTH SYSTEMS (direct — higher number = heavier/thicker yarn)
   ┌──────────────┬────────────────────────────────────────────────┐
-  │ tex          │ mass (g) per 1000 m — SI system               │
-  │ denier (dtex)│ mass (g) per 9000 m — hosiery/filament        │
+  │ tex          │ mass (g) per 1000 m — SI system                │
+  │ denier (dtex)│ mass (g) per 9000 m — hosiery/filament         │
   └──────────────┴────────────────────────────────────────────────┘
 
   Conversion: tex = 590.5 / Ne = 1000 / Nm

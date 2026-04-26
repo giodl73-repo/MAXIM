@@ -210,9 +210,9 @@ Salinization is the accumulation of soluble salts in the root zone to concentrat
 
   CROP SALT TOLERANCES:
   +-----------+------+-------+-------------------------------------------+
-  | Crop      | ECt  | Slope | Classification                           |
-  |           |(dS/m)| (%/   |                                          |
-  |           |      |  dS/m)|                                          |
+  | Crop      | ECt  | Slope | Classification                            |
+  |           |(dS/m)| (%/   |                                           |
+  |           |      |  dS/m)|                                           |
   +-----------+------+-------+-------------------------------------------+
   | Barley    | 8    | 5     | Tolerant (halophyte boundary)            |
   | Beet (sug)| 7    | 5.9   | Tolerant                                 |

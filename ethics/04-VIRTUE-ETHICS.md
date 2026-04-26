@@ -4,7 +4,7 @@
 
 ```
 +-----------------------------------------------------------------------+
-|                    VIRTUE ETHICS FRAMEWORK                             |
+|                    VIRTUE ETHICS FRAMEWORK                            |
 +-----------------------------------------------------------------------+
 |                                                                       |
 |  CORE QUESTION: Not "What should I DO?" but "What kind of person     |

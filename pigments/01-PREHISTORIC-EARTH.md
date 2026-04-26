@@ -19,7 +19,7 @@
 |  | Yellow ochre     |  | Red ochre        |  | Raw sienna     | |
 |  | Heat → hematite  |  | Stable to 1200°C |  | Heat → umber   | |
 |  +------------------+  +------------------+  +----------------+ |
-|                                                                  |
+|                                                                 |
 |  PLUS: Manganese dioxide (MnO₂) = black                         |
 |        Carbon (charcoal, bone black) = black/gray               |
 |        Green earth (celadonite/glauconite) = gray-green         |

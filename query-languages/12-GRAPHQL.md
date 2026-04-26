@@ -13,25 +13,25 @@ GraphQL is a typed API query language and runtime. This guide covers it at the l
 │                   API Query Language Landscape                           │
 │                                                                          │
 │  REST (resource-based, URL-per-resource):                                │
-│    GET /users/1           → returns ALL user fields (maybe 30 fields)   │
-│    GET /users/1/orders    → second round-trip for orders                │
-│    Problem: over-fetching + N round trips for N related resources       │
+│    GET /users/1           → returns ALL user fields (maybe 30 fields)    │
+│    GET /users/1/orders    → second round-trip for orders                 │
+│    Problem: over-fetching + N round trips for N related resources        │
 │                                                                          │
 │  GraphQL (field-based, single endpoint):                                 │
 │    POST /graphql                                                         │
 │    { user(id: 1) { name, orders { id, total } } }                      │
-│    → exactly these fields, one request, client drives shape             │
+│    → exactly these fields, one request, client drives shape              │
 │                                                                          │
 │  tRPC (TypeScript-first RPC):                                            │
-│    No schema language — TypeScript IS the schema                        │
-│    Type-safe without codegen, but TypeScript/Node-only ecosystem        │
+│    No schema language — TypeScript IS the schema                         │
+│    Type-safe without codegen, but TypeScript/Node-only ecosystem         │
 │                                                                          │
 │  OData (Microsoft's URL-based query):                                    │
 │    GET /users?$select=name,email&$expand=orders&$filter=age gt 18      │
-│    Query params in URL — REST + filter language                         │
-│    Used in: Azure REST APIs, Dynamics 365, Power BI datasets            │
-│    T-SQL bridge: if you've used Azure REST APIs or ADO.NET OData        │
-│    adapters, you've already used OData                                  │
+│    Query params in URL — REST + filter language                          │
+│    Used in: Azure REST APIs, Dynamics 365, Power BI datasets             │
+│    T-SQL bridge: if you've used Azure REST APIs or ADO.NET OData         │
+│    adapters, you've already used OData                                   │
 │                                                                          │
 │  Where GraphQL fits architecturally:                                     │
 │                                                                          │
@@ -647,11 +647,11 @@ T-SQL bridge: like a federated view that spans multiple databases,
 ┌─────────────────────────────────────────────────────────────────────┐
 │                      Apollo Supergraph                              │
 │                                                                     │
-│  Client ──► Apollo Router/Gateway ──► Users Subgraph               │
-│                          │         └──► Orders Subgraph            │
-│                          │         └──► Products Subgraph          │
+│  Client ──► Apollo Router/Gateway ──► Users Subgraph                │
+│                          │         └──► Orders Subgraph             │
+│                          │         └──► Products Subgraph           │
 │                          │                                          │
-│  Router generates a query plan: which fields from which subgraph   │
+│  Router generates a query plan: which fields from which subgraph    │
 └─────────────────────────────────────────────────────────────────────┘
 
 # Orders subgraph schema:
@@ -781,7 +781,7 @@ Federation query planning — execution model:
   │                                                                         │
   │  Step 2: Resolve entity reference in Users subgraph                     │
   │    POST /users-subgraph/graphql                                         │
-  │    { _entities(representations: [{ __typename: "User", id: "42" }]) {  │
+  │    { _entities(representations: [{ __typename: "User", id: "42" }]) {   │
   │        ... on User { name email }                                       │
   │      }                                                                  │
   │    }                                                                    │
@@ -789,7 +789,7 @@ Federation query planning — execution model:
   │                                                                         │
   │  Step 3: Router merges and returns to client                            │
   │    { order: { total: 99.99, customer: { name: "Alice",                  │
-  │                                         email: "a@example.com" } } }   │
+  │                                         email: "a@example.com" } } }    │
   └─────────────────────────────────────────────────────────────────────────┘
 
   The _entities query with representations array is the Federation wire protocol.

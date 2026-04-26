@@ -9,27 +9,27 @@ HYDROTHERMAL SYSTEMS: SCHEMATIC CROSS-SECTION (continental arc)
 +------------------------------------------------------------------+
 |                                                                  |
 |  SURFACE  ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~    |
-|  0-1 km   Epithermal Au-Ag  |  MVT Pb-Zn in carbonates          |
-|           (boiling zone)    |  (basinal brine; no magma link)   |
+|  0-1 km   Epithermal Au-Ag  |  MVT Pb-Zn in carbonates           |
+|           (boiling zone)    |  (basinal brine; no magma link)    |
 |           Low-S: adularia   |                                    |
 |           High-S: enargite  |                                    |
-|                ↑ structurally above porphyry                    |
-|  1-4 km   PORPHYRY Cu-Mo core  (300-600°C; magmatic fluid)      |
-|           Alteration zones (outermost → innermost):             |
-|           Propylitic: chlorite + epidote + calcite (distal)     |
-|           Argillic: kaolinite + alunite                         |
-|           Phyllic: quartz + sericite + pyrite                   |
+|                ↑ structurally above porphyry                     |
+|  1-4 km   PORPHYRY Cu-Mo core  (300-600°C; magmatic fluid)       |
+|           Alteration zones (outermost → innermost):              |
+|           Propylitic: chlorite + epidote + calcite (distal)      |
+|           Argillic: kaolinite + alunite                          |
+|           Phyllic: quartz + sericite + pyrite                    |
 |           Potassic: K-feldspar + biotite (proximal to intrusion)|
-|                ↑ concentric shells like heat diffusion          |
-|                  contours around a cooling point source         |
-|  4-8 km   Porphyritic granite intrusion (exsolves fluid)        |
-|           Skarn at granite/carbonate contact:                   |
-|           garnet + pyroxene + W/Cu/Fe sulfides                  |
+|                ↑ concentric shells like heat diffusion           |
+|                  contours around a cooling point source          |
+|  4-8 km   Porphyritic granite intrusion (exsolves fluid)         |
+|           Skarn at granite/carbonate contact:                    |
+|           garnet + pyroxene + W/Cu/Fe sulfides                   |
 |                                                                  |
-|  MID-OCEAN RIDGE (separate tectonic setting):                   |
+|  MID-OCEAN RIDGE (separate tectonic setting):                    |
 |  Seawater → down faults → heated (350-400°C) → black smoker    |
-|  VMS deposit: massive sulfide lens at seafloor                  |
-|  (Same chemistry, different geotectonic context)                |
+|  VMS deposit: massive sulfide lens at seafloor                   |
+|  (Same chemistry, different geotectonic context)                 |
 +------------------------------------------------------------------+
 ```
 

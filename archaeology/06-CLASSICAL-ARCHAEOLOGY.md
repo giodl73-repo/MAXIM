@@ -6,15 +6,15 @@
 +------------------------------------------------------------------+
 |           CLASSICAL WORLD: MATERIAL CULTURE LANDSCAPE            |
 |                                                                  |
-|  GREEK ARCHAEOLOGY     ROMAN ARCHAEOLOGY    UNDERWATER ARCH.    |
-|  Archaic–Hellenistic   Republic → Empire     Shipwrecks         |
-|  Temple/sanctuary      City infrastructure   Submerged cities   |
-|  Epigraphy, ceramics   Military architecture Amphorae cargoes   |
+|  GREEK ARCHAEOLOGY     ROMAN ARCHAEOLOGY    UNDERWATER ARCH.     |
+|  Archaic–Hellenistic   Republic → Empire     Shipwrecks          |
+|  Temple/sanctuary      City infrastructure   Submerged cities    |
+|  Epigraphy, ceramics   Military architecture Amphorae cargoes    |
 |                                                                  |
 |  TOOLS:                                                          |
 |  Stratigraphy + ceramic sequence (pottery = dating currency)     |
-|  Epigraphy (inscriptions on stone, metal, wood)                 |
-|  Numismatics (coins = TPQ dating)                               |
+|  Epigraphy (inscriptions on stone, metal, wood)                  |
+|  Numismatics (coins = TPQ dating)                                |
 |  Classical texts + archaeology (corroborate, contradict, extend) |
 +------------------------------------------------------------------+
 ```

@@ -38,7 +38,7 @@ TIMELINE:
 +------------------------------------------------------------+
 |  EDIACARAN FOSSILS — soft-body impressions in sandstone    |
 |                                                            |
-|  Dickinsonia        Oval ribbed body, 1mm–140 cm          |
+|  Dickinsonia        Oval ribbed body, 1mm–140 cm           |
 |                     Moved? Fed? Was it even an animal?     |
 |                     Biomarker sterols suggest animal-like  |
 |                                                            |
@@ -75,7 +75,7 @@ SPONGE BODY PLAN
 |                                              |
 |    osculum (large exit pore)                 |
 |         |                                    |
-|    +----+-----+                             |
+|    +----+-----+                              |
 |    |   spongocoel (central cavity)           |
 |    |                                         |
 |    |  ←← water current                       |
@@ -113,9 +113,9 @@ CELL TYPES:
 ```
 ASCONOID          SYCONOID          LEUCONOID
 +--------+        +--------+        +--------+
-|        |        |        |        | Many    |
+|        |        |        |        | Many   |
 | Simple |        | Folded |        | chambers|
-| tube   |        | wall   |        | High    |
+| tube   |        | wall   |        | High   |
 |        |        |        |        | pumping |
 | Low    |        | More   |        | capacity|
 | efficiency|     | cells  |        |        |
@@ -173,7 +173,7 @@ CNIDARIAN BODY PLAN
 
 Two body forms (alternating in many species):
 +------------------+     +------------------+
-|    POLYP         |     |    MEDUSA         |
+|    POLYP         |     |    MEDUSA        |
 |                  |     |                  |
 |   oral side UP   |     |  oral side DOWN  |
 |   attached       |     |  free-swimming   |
@@ -201,11 +201,11 @@ TWO GERM LAYERS ONLY: ectoderm + endoderm (no mesoderm)
 ```
 CNIDOCYTE (stinging cell)
 +--------------------------------+
-|  Cnidocil (trigger hair)        |
-|  Operculum (cap)                |
-|  Nematocyst (capsule inside)    |
-|    Stylet (barb)                |
-|    Thread (coiled)              |
+|  Cnidocil (trigger hair)       |
+|  Operculum (cap)               |
+|  Nematocyst (capsule inside)   |
+|    Stylet (barb)               |
+|    Thread (coiled)             |
 +--------------------------------+
 Discharge is one of fastest events in biology:
 ~3 μs, 40,000 g acceleration

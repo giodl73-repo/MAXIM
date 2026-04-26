@@ -4,21 +4,21 @@
 
 ```
 ┌─────────────────────────────────────────────────────────────────────────────┐
-│                   ENVIRONMENTAL HEALTH CAUSAL CHAIN                          │
+│                   ENVIRONMENTAL HEALTH CAUSAL CHAIN                         │
 │                                                                               │
-│  SOURCE         RELEASE         TRANSPORT/FATE      EXPOSURE                 │
-│  ──────────     ───────         ──────────────      ────────                 │
-│  Industrial     Emissions       Air dispersion       Inhalation              │
-│  Transport      Effluents       Water flow            Ingestion              │
-│  Agriculture    Leaching        Soil percolation      Dermal                 │
-│  Mining         Spills          Bioaccumulation       Mother → fetus         │
-│  Natural        Runoff          Food chain            Breast milk            │
+│  SOURCE         RELEASE         TRANSPORT/FATE      EXPOSURE                │
+│  ──────────     ───────         ──────────────      ────────                │
+│  Industrial     Emissions       Air dispersion       Inhalation             │
+│  Transport      Effluents       Water flow            Ingestion             │
+│  Agriculture    Leaching        Soil percolation      Dermal                │
+│  Mining         Spills          Bioaccumulation       Mother → fetus        │
+│  Natural        Runoff          Food chain            Breast milk           │
 │                                                                               │
-│       ↓                                ↓                   ↓                 │
-│  DOSE ASSESSMENT           EFFECT (dose-response)     SUSCEPTIBILITY         │
-│  Concentration × duration  Threshold models           Age (fetal, child)     │
-│  × intake rate             Linear no-threshold (LNT)  Genetic variants       │
-│  = ABSORBED DOSE           Hormesis (J-curve)         Comorbidities          │
+│       ↓                                ↓                   ↓                │
+│  DOSE ASSESSMENT           EFFECT (dose-response)     SUSCEPTIBILITY        │
+│  Concentration × duration  Threshold models           Age (fetal, child)    │
+│  × intake rate             Linear no-threshold (LNT)  Genetic variants      │
+│  = ABSORBED DOSE           Hormesis (J-curve)         Comorbidities         │
 │                                                                               │
 │  DISEASE OUTCOME → Attribution analysis → Regulation                        │
 └─────────────────────────────────────────────────────────────────────────────┘

@@ -8,16 +8,16 @@ field theories. Understanding it deeply gives you the template for all hyperboli
 
 ```
 +-----------------------------------------------------------------------+
-|              WAVE EQUATION LANDSCAPE                                   |
+|              WAVE EQUATION LANDSCAPE                                  |
 |                                                                       |
 |  1D: u_tt = c²u_xx                     (string vibration, acoustics)  |
 |  2D: u_tt = c²(u_xx + u_yy)            (drum membrane, water surface) |
-|  3D: u_tt = c²∇²u = c²(u_xx+u_yy+u_zz)(sound, light in vacuum)       |
+|  3D: u_tt = c²∇²u = c²(u_xx+u_yy+u_zz)(sound, light in vacuum)        |
 |                                                                       |
 |  SCALAR → SYSTEMS                                                     |
-|  Maxwell (EM):   ε₀E_tt = c²∇×(∇×E)   6-component hyperbolic system  |
-|  Elasticity:     ρu_tt = ∇·σ(u)        vector wave, two speeds       |
-|  MHD:            coupled magneto-hydro   more complex hyperbolic sys.  |
+|  Maxwell (EM):   ε₀E_tt = c²∇×(∇×E)   6-component hyperbolic system   |
+|  Elasticity:     ρu_tt = ∇·σ(u)        vector wave, two speeds        |
+|  MHD:            coupled magneto-hydro   more complex hyperbolic sys. |
 |                                                                       |
 |  PROPERTIES                                                           |
 |  • Finite propagation speed c                                         |
@@ -146,7 +146,7 @@ expanding spheres — a beautiful result with no 2D analogue:
     Signal has a sharp front AND sharp back.
     After the wavefront passes, signal returns to zero.
     ┌────────────────────────────────────────────────────────┐
-    │  3D: u(x,t) depends only on data on sphere |y−x|=ct   │
+    │  3D: u(x,t) depends only on data on sphere |y−x|=ct    │
     │  (thin shell, not ball)                                │
     └────────────────────────────────────────────────────────┘
 

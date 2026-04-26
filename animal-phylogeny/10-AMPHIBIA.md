@@ -108,7 +108,7 @@ AMPHIBIAN SKIN:
 |  No scales (unlike fish + reptiles)          |
 |  No hair or feathers (unlike amniotes)       |
 |  MOIST, PERMEABLE                            |
-|  Mucus glands: keep skin moist              |
+|  Mucus glands: keep skin moist               |
 |  Granular glands: secrete toxins             |
 +----------------------------------------------+
 

@@ -17,9 +17,9 @@ ANALYTIC FUNCTIONS — CONCEPTUAL MAP
   │  lim_{h→0} [f(z₀+h) − f(z₀)] / h  exists  (h ∈ ℂ, any direction) │
   │                                                                     │
   │  EQUIVALENT CONDITIONS (Goursat: no continuity hypothesis needed):  │
-  │  (1) f'(z₀) exists as complex limit                                │
+  │  (1) f'(z₀) exists as complex limit                                 │
   │  (2) C-R: ∂u/∂x = ∂v/∂y,  ∂u/∂y = −∂v/∂x   (and partials exist) │
-  │  (3) f has a convergent power series near z₀                       │
+  │  (3) f has a convergent power series near z₀                        │
   │  (4) f is conformal at z₀ (if f'(z₀) ≠ 0)                        │
   └─────────────────────────────────────────────────────────────────────┘
 
@@ -68,8 +68,8 @@ Equating real and imaginary parts:
 ┌─────────────────────────────────────────────┐
 │   CAUCHY-RIEMANN EQUATIONS                  │
 │                                             │
-│   ∂u/∂x = ∂v/∂y                            │
-│   ∂u/∂y = −∂v/∂x                           │
+│   ∂u/∂x = ∂v/∂y                             │
+│   ∂u/∂y = −∂v/∂x                            │
 │                                             │
 │   (necessary condition for holomorphicity)  │
 └─────────────────────────────────────────────┘

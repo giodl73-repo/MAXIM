@@ -17,7 +17,7 @@ CANONICAL ENSEMBLE — MASTER STRUCTURE
   Energy can fluctuate; T fixed by heat reservoir
 
   ┌──────────────────────────────────┐     ┌──────────────────────────────┐
-  │         SYSTEM                   │◄────►│     HEAT RESERVOIR at T      │
+  │         SYSTEM                   │◄────►│     HEAT RESERVOIR at T     │
   │    (small; we care about this)   │     │  (huge; β = 1/kT is fixed)   │
   └──────────────────────────────────┘     └──────────────────────────────┘
 
@@ -30,11 +30,11 @@ CANONICAL ENSEMBLE — MASTER STRUCTURE
   │  ALL THERMODYNAMICS FROM Z:                                          │
   │                                                                      │
   │  F = −k_BT ln Z              (Helmholtz free energy)                 │
-  │  U = −∂(ln Z)/∂β = ⟨E⟩      (internal energy = ⟨H⟩)                 │
-  │  S = −∂F/∂T = k_B(ln Z + βU) (entropy)                              │
-  │  P = −∂F/∂V = k_BT ∂(ln Z)/∂V (pressure)                            │
+  │  U = −∂(ln Z)/∂β = ⟨E⟩      (internal energy = ⟨H⟩)                  │
+  │  S = −∂F/∂T = k_B(ln Z + βU) (entropy)                               │
+  │  P = −∂F/∂V = k_BT ∂(ln Z)/∂V (pressure)                             │
   │  C_V = ∂U/∂T = k_Bβ² ∂²(ln Z)/∂β² (heat capacity)                  │
-  │  μ = ∂F/∂N                   (chemical potential)                   │
+  │  μ = ∂F/∂N                   (chemical potential)                    │
   │                                                                      │
   └──────────────────────────────────────────────────────────────────────┘
 ```
@@ -245,12 +245,12 @@ ENSEMBLE ↔ LEGENDRE TRANSFORM:
   MICROCANONICAL: S(E, V, N) — entropy as function of energy
   ┌──────────────────────────────────────────────────────┐
   │  Legendre transform S → T:  F = E − TS               │
-  │  (or equivalently: β = 1/kT = ∂S/∂E, F = −kT ln Z)  │
+  │  (or equivalently: β = 1/kT = ∂S/∂E, F = −kT ln Z)   │
   └──────────────────────────────────────────────────────┘
 
   CANONICAL → GRAND CANONICAL:
   ┌──────────────────────────────────────────────────────┐
-  │  Legendre transform N → μ:  Ω = F − μN = −kT ln Z_G │
+  │  Legendre transform N → μ:  Ω = F − μN = −kT ln Z_G  │
   └──────────────────────────────────────────────────────┘
 
   THERMODYNAMIC POTENTIALS — full structure:

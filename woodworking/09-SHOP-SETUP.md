@@ -50,8 +50,8 @@ WORKBENCH TRADITIONS
 
 ROUBO (French, 18th century — André Roubo, 1769):
   +--------------------------------------------+
-  |           THICK TOP (3–4" solid wood)       |
-  |  +-+                              +------+  |
+  |           THICK TOP (3–4" solid wood)      |
+  |  +-+                              +------+ |
   |  |L|                              | TAIL |  |
   |  |E|  LEG VISE                    | VISE |  |
   |  |G|  (on left face, front leg)   +------+  |
@@ -67,7 +67,7 @@ ROUBO (French, 18th century — André Roubo, 1769):
 
 SCANDINAVIAN (German/Scandinavian tradition):
   +--------------------------------------------+
-  |       TOP (2–3" thick)                      |
+  |       TOP (2–3" thick)                     |
   |  +-------+                       +------+  |
   |  |FACE   |                       | TAIL |  |
   |  | VISE  |                       | VISE |  |

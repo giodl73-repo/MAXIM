@@ -19,8 +19,8 @@ RIEMANN SURFACES — CONCEPTUAL MAP
   │                                                                     │
   │  Two sheets: Sheet 1 (√z > 0), Sheet 2 (−√z)                      │
   │  Glued along branch cut (−∞, 0]                                     │
-  │  Topology: cylinder ≅ ℂ* (punctured plane)                         │
-  │  One loop in ℂ \ {0} → need to go around TWICE to return to start  │
+  │  Topology: cylinder ≅ ℂ* (punctured plane)                          │
+  │  One loop in ℂ \ {0} → need to go around TWICE to return to start   │
   └─────────────────────────────────────────────────────────────────────┘
 
   CLASSIFICATION BY GENUS:

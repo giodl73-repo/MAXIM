@@ -4,7 +4,7 @@
 
 ```
 +===========================================================================+
-|                THE FIVE MASS EXTINCTIONS OF THE PHANEROZOIC              |
+|                THE FIVE MASS EXTINCTIONS OF THE PHANEROZOIC               |
 +===========================================================================+
 |                                                                           |
 |  GEOLOGICAL TIME →                                                        |
@@ -225,11 +225,11 @@ CAUSE: Siberian Traps Large Igneous Province (LIP)
   │ SIBERIAN TRAPS ERUPTIONS                                            │
   │   ↓ CO₂ + SO₂ + HCl + halogens released                           │
   │   ↓                                                                 │
-  │ SHORT-TERM (SO₂): Volcanic winter → rapid cooling → acid rain      │
+  │ SHORT-TERM (SO₂): Volcanic winter → rapid cooling → acid rain       │
   │   ↓                                                                 │
-  │ LONG-TERM (CO₂): +5–8°C global warming                             │
+  │ LONG-TERM (CO₂): +5–8°C global warming                              │
   │   ↓                                                                 │
-  │ OCEAN WARMING → decreased O₂ solubility → anoxia                   │
+  │ OCEAN WARMING → decreased O₂ solubility → anoxia                    │
   │ OCEAN ACIDIFICATION → carbonate dissolution → reef/shell collapse   │
   │ HYPERCAPNIA: CO₂ directly toxic to marine organisms                 │
   │ OZONE DESTRUCTION: UV radiation spikes → land and ocean surface     │

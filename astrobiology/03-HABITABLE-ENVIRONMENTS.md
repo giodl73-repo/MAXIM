@@ -4,7 +4,7 @@
 
 ```
 +-----------------------------------------------------------------------+
-|              SOLAR SYSTEM HABITABILITY MAP                             |
+|              SOLAR SYSTEM HABITABILITY MAP                            |
 +-----------------------------------------------------------------------+
 |                                                                       |
 |  Sun   Mercury  Venus   Earth   Mars   (Belt)  Jupiter  Saturn  ...  |

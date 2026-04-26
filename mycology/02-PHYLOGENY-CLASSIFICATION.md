@@ -6,11 +6,11 @@
 +------------------------------------------------------------------+
 |                    KINGDOM FUNGI PHYLOGENY                       |
 |                                                                  |
-|  OPISTHOKONTA (animals + fungi: shared common ancestor)         |
+|  OPISTHOKONTA (animals + fungi: shared common ancestor)          |
 |       |                                                          |
-|  FUNGI (Kingdom Mycota)                                         |
+|  FUNGI (Kingdom Mycota)                                          |
 |       |                                                          |
-|  +-----------+----------+-----------+-----------+               |
+|  +-----------+----------+-----------+-----------+                |
 |  |           |          |           |           |               |
 |  Chitrido-   Microsporidia Mucoromycota Ascomycota Basidiomycota|
 |  mycota                                                         |

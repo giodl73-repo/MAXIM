@@ -10,7 +10,7 @@ means holding economic and political logic simultaneously.
 
 ```
 +----------------------------------------------------------------------+
-|                    POLITICAL ECONOMY FRAMEWORK                        |
+|                    POLITICAL ECONOMY FRAMEWORK                       |
 |                                                                      |
 |  TRADE          FINANCE         DEVELOPMENT     SANCTIONS            |
 |  ─────          ───────         ───────────     ────────             |
@@ -21,7 +21,7 @@ means holding economic and political logic simultaneously.
 |  trade policy                   Consensus                            |
 |                                                                      |
 |  RESOURCE POLITICS:  Oil, rare earths, food, water as political levers|
-|  GLOBAL GOVERNANCE:  G7/G20, IMF, WTO, OECD tax rules               |
+|  GLOBAL GOVERNANCE:  G7/G20, IMF, WTO, OECD tax rules                |
 +----------------------------------------------------------------------+
 ```
 
@@ -69,29 +69,29 @@ means holding economic and political logic simultaneously.
   WHY FREE TRADE IS POLITICALLY DIFFICULT:
   ┌────────────────────────────────────────────────────────────────┐
   │ CONCENTRATED LOSSES vs DIFFUSE GAINS                           │
-  │ Gains from trade: small benefit per consumer ($50/yr)         │
+  │ Gains from trade: small benefit per consumer ($50/yr)          │
   │ Losses from trade: large harm to specific industry workers     │
-  │ → Industry workers organize, lobby; consumers don't           │
-  │ → Political economy biased toward protection                  │
+  │ → Industry workers organize, lobby; consumers don't            │
+  │ → Political economy biased toward protection                   │
   │                                                                │
   │ INFANT INDUSTRY ARGUMENT (Hamilton/List):                      │
-  │ New industries need protection to develop economies of scale  │
+  │ New industries need protection to develop economies of scale   │
   │ before facing established foreign competition                  │
-  │ East Asian developmental states used this successfully        │
+  │ East Asian developmental states used this successfully         │
   │ (Korea autos, Taiwan electronics, Japan steel)                 │
-  │ Counter: how do you know which infant will grow up?           │
+  │ Counter: how do you know which infant will grow up?            │
   │ Government may pick losers; protected industries may never grow│
   │                                                                │
   │ STRATEGIC TRADE POLICY:                                        │
-  │ In imperfectly competitive markets, government subsidy to     │
-  │ national champion can shift profit from foreign to domestic   │
+  │ In imperfectly competitive markets, government subsidy to      │
+  │ national champion can shift profit from foreign to domestic    │
   │ Boeing/Airbus: both governments subsidize; WTO dispute ongoing │
   │ Semiconductors: CHIPS Act, EU Chips Act, China strategy        │
   │                                                                │
-  │ NATIONAL SECURITY (GATT Article XXI):                         │
-  │ Countries can restrict trade for national security reasons    │
+  │ NATIONAL SECURITY (GATT Article XXI):                          │
+  │ Countries can restrict trade for national security reasons     │
   │ Largely self-judging (WTO panel found limits in Russia-Ukraine │
-  │ transit case 2019, but enforcement questionable)              │
+  │ transit case 2019, but enforcement questionable)               │
   └────────────────────────────────────────────────────────────────┘
 ```
 
@@ -105,16 +105,16 @@ means holding economic and political logic simultaneously.
   "Factory World" emerged 1990s-2010s:
 
   ┌───────────────────────────────────────────────────────────────────┐
-  │  Design        Components      Assembly        Brand/Marketing   │
+  │  Design        Components      Assembly        Brand/Marketing    │
   │  (US, EU)  →   (Japan, Korea) → (China, Vietnam) → (US, EU)     │
   │                                                                   │
   │  iPhone example:                                                  │
   │  Design: Apple (California)                                       │
   │  OLED display: Samsung (Korea)                                    │
-  │  Memory: SK Hynix/Micron (Korea/US)                              │
+  │  Memory: SK Hynix/Micron (Korea/US)                               │
   │  Logic chip: TSMC (Taiwan design, Apple design)                   │
   │  Assembly: Foxconn (China, Vietnam, India)                        │
-  │  Distribution: global supply chain                               │
+  │  Distribution: global supply chain                                │
   └───────────────────────────────────────────────────────────────────┘
 
   TRADE IN VALUE ADDED:
@@ -146,14 +146,14 @@ means holding economic and political logic simultaneously.
   │ Effect: hurts civilian population; limited behavioral change   │
   │                                                                │
   │ TARGETED/SMART: Specific individuals/entities                  │
-  │ Asset freeze, travel ban, property confiscation               │
-  │ SDN list (US Treasury OFAC)                                   │
+  │ Asset freeze, travel ban, property confiscation                │
+  │ SDN list (US Treasury OFAC)                                    │
   │ Evolution post-Iraq (humanitarian damage criticism)            │
   │                                                                │
-  │ FINANCIAL: SWIFT exclusion, dollar clearing denial            │
-  │ Most powerful modern instrument; cuts off from global finance │
+  │ FINANCIAL: SWIFT exclusion, dollar clearing denial             │
+  │ Most powerful modern instrument; cuts off from global finance  │
   │                                                                │
-  │ EXPORT CONTROLS: Deny specific technology/goods               │
+  │ EXPORT CONTROLS: Deny specific technology/goods                │
   │ Chips, defense equipment, dual-use technology                  │
   │ US controls extraterritorial via FDPR (Foreign Direct Product  │
   │ Rule) — controls foreign goods made with US technology         │
@@ -226,7 +226,7 @@ means holding economic and political logic simultaneously.
   │  (2) Fixed exchange rate                                         │
   │  (3) Independent monetary policy                                 │
   │                                                                  │
-  │ Bretton Woods: (2) + (3) → capital controls                     │
+  │ Bretton Woods: (2) + (3) → capital controls                      │
   │ Post-1970s: (1) + (3) → floating rates                         │
   │ Eurozone: (1) + (2) → no independent monetary policy           │
   │ China historically: (2) + (3) → capital controls               │
@@ -279,9 +279,9 @@ means holding economic and political logic simultaneously.
   │ SOEs in strategic sectors (energy, telecom, finance)           │
   │ Private sector in competitive sectors with party guidance      │
   │ Capital controls → domestic financial system insulated         │
-  │ Export + FDI platform → absorbed technology                   │
+  │ Export + FDI platform → absorbed technology                    │
   │ BRI → extend influence through investment                      │
-  │ Now: "innovation-driven" → chips, EVs, AI, quantum            │
+  │ Now: "innovation-driven" → chips, EVs, AI, quantum             │
   └────────────────────────────────────────────────────────────────┘
 ```
 

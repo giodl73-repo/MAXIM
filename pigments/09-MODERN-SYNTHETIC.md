@@ -13,16 +13,16 @@
 |  | Ends 2,000 yr   |  | Most lightfast  |  | isoindolinone   |   |
 |  | lead dominance  |  | organic blue    |  | (1935–1960s)    |   |
 |  +----------------+  +----------------+  +------------------+   |
-|                                                                  |
-|  MODERN FRONTIER:                                                |
+|                                                                 |
+|  MODERN FRONTIER:                                               |
 |  +------------------+  +------------------+                     |
 |  | Quantum dots      |  | Carbon nanotube  |                     |
 |  | Size-tunable      |  | Vantablack       |                     |
 |  | semiconductor     |  | 99.965% absorption|                    |
 |  | nanocrystals      |  | Near-perfect black|                    |
 |  +------------------+  +------------------+                     |
-|                                                                  |
-|  Performance trend: better lightfastness, lower toxicity,        |
+|                                                                 |
+|  Performance trend: better lightfastness, lower toxicity,       |
 |  higher tinting strength, more reproducible color               |
 +------------------------------------------------------------------+
 ```

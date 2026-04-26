@@ -6,18 +6,18 @@
 +------------------------------------------------------------------+
 |              COMPOSITE MANUFACTURING PROCESSES                   |
 |                                                                  |
-|   OPEN MOLD (wet lay-up)    CLOSED MOLD           AUTOMATED     |
-|   ─────────────────────     ───────────           ─────────     |
-|   Hand lay-up               RTM (Resin Transfer)  AFP/ATL       |
+|   OPEN MOLD (wet lay-up)    CLOSED MOLD           AUTOMATED      |
+|   ─────────────────────     ───────────           ─────────      |
+|   Hand lay-up               RTM (Resin Transfer)  AFP/ATL        |
 |   Spray-up                  HP-RTM                Filament wind  |
 |   Infusion (VARTM)          Compression mold      Braiding       |
-|                             Pultrusion             Robotic drape  |
+|                             Pultrusion             Robotic drape |
 |                                                                  |
 |   LOW COST / QUALITY ◄──────────────────────────► HIGH COST/Q  |
 |                                                                  |
 |   PREPREG + AUTOCLAVE: Aerospace gold standard                   |
-|   → Highest Vf (60%), lowest void, controlled properties        |
-|   → High cost, slow, large capital                              |
+|   → Highest Vf (60%), lowest void, controlled properties         |
+|   → High cost, slow, large capital                               |
 +------------------------------------------------------------------+
 ```
 

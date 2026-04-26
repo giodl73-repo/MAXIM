@@ -273,7 +273,7 @@ IPM DECISION FRAMEWORK
 
 4. CONTROL SELECTION MATRIX
    +------------------+----------+----------+---------+---------+
-   | Control method   | Speed    | Specificity| Cost   | Risk    |
+   | Control method   | Speed    | Specificity| Cost  | Risk    |
    +------------------+----------+----------+---------+---------+
    | Chemical (broad) | Fast     | Low      | Low     | High    |
    | Chemical (select)| Fast     | Moderate | Medium  | Medium  |

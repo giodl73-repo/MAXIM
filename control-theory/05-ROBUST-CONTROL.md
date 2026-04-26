@@ -7,7 +7,7 @@
 │                    ROBUST CONTROL FRAMEWORK                         │
 │                                                                     │
 │  REALITY:                                                           │
-│  ┌─────────────────────────────────────────────────────────────┐   │
+│  ┌─────────────────────────────────────────────────────────────┐    │
 │  │  True plant: G_real(s) = G(s)(1 + Δ(s))                    │   │
 │  │                                        ↑                    │   │
 │  │  Nominal model: G(s)  (what you designed for)               │   │
@@ -315,25 +315,25 @@ WHEN TO USE EACH:
 
 ```
 ┌──────────────────────────────────────────────────────────────────────┐
-│ SCENARIO                     │ RECOMMENDATION                       │
+│ SCENARIO                     │ RECOMMENDATION                        │
 ├──────────────────────────────┼───────────────────────────────────────┤
 │ Single uncertain gain        │ Gain/phase margins (classical), or   │
 │ in SISO plant                │ H∞ sensitivity minimization          │
 ├──────────────────────────────┼───────────────────────────────────────┤
-│ Multiple independent         │ μ-synthesis (D-K iteration)          │
-│ parametric uncertainties     │ Model as structured Δ                │
+│ Multiple independent         │ μ-synthesis (D-K iteration)           │
+│ parametric uncertainties     │ Model as structured Δ                 │
 ├──────────────────────────────┼───────────────────────────────────────┤
 │ High-frequency dynamics      │ H∞ with output multiplicative        │
 │ unmodeled (rolloff needed)   │ uncertainty weight; W₂T bound        │
 ├──────────────────────────────┼───────────────────────────────────────┤
-│ Want intuitive design        │ Loop shaping (McFarlane-Glover):     │
-│ + automatic robustification  │ shape L₀, then run coprime synthesis │
+│ Want intuitive design        │ Loop shaping (McFarlane-Glover):      │
+│ + automatic robustification  │ shape L₀, then run coprime synthesis  │
 ├──────────────────────────────┼───────────────────────────────────────┤
 │ Robust stability only        │ Small gain theorem:                  │
 │ (no performance spec)        │ ‖T_zw‖∞ · l(ω) < 1 sufficient      │
 ├──────────────────────────────┼───────────────────────────────────────┤
-│ Real parametric uncertainty  │ μ with real scalings (harder, non-   │
-│ (physical parameter ranges)  │ convex); robust LMI methods          │
+│ Real parametric uncertainty  │ μ with real scalings (harder, non-    │
+│ (physical parameter ranges)  │ convex); robust LMI methods           │
 └──────────────────────────────┴───────────────────────────────────────┘
 ```
 

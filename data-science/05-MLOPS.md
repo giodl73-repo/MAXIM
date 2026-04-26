@@ -12,7 +12,7 @@
 ┌─────────────────────────────────────────────────────────────────────────────┐
 │                         MLOPS LIFECYCLE                                     │
 │                                                                             │
-│  DATA        TRAINING         EVALUATION      DEPLOYMENT      MONITORING   │
+│  DATA        TRAINING         EVALUATION      DEPLOYMENT      MONITORING    │
 │                                                                             │
 │  ┌────────┐  ┌────────────┐  ┌────────────┐  ┌──────────┐  ┌──────────┐  │
 │  │ ingest │→ │ experiment │→ │   eval /   │→ │  model   │→ │  drift   │  │
@@ -159,7 +159,7 @@ wandb.agent(sweep_id, function=train_fn, count=30)
 
 ```
 ┌────────────────────────────────────────────────────────────────────┐
-│                  │  MLflow            │  Weights & Biases         │
+│                  │  MLflow            │  Weights & Biases          │
 ├──────────────────┼────────────────────┼───────────────────────────┤
 │  Hosting         │  Self or Azure ML  │  Cloud (SaaS)             │
 │  Open source     │  Yes               │  Client SDK only          │
@@ -376,7 +376,7 @@ catching the corruption early.
 
 ```
 ┌─────────────────────────────────────────────────────────────────────┐
-│  SERVING PATTERN       │  LATENCY │  THROUGHPUT │  USE CASE        │
+│  SERVING PATTERN       │  LATENCY │  THROUGHPUT │  USE CASE         │
 ├────────────────────────┼──────────┼─────────────┼──────────────────┤
 │  REST API (sync)       │  Low     │  Medium     │  Interactive UX  │
 │  Batch inference       │  High    │  Very high  │  Nightly scoring │
@@ -489,7 +489,7 @@ graph-level optimizations). Standard for edge, mobile, and high-throughput servi
 
 ```
 ┌─────────────────────────────────────────────────────────────────────┐
-│  SIGNAL                │  MEASURES              │  TOOL            │
+│  SIGNAL                │  MEASURES              │  TOOL             │
 ├────────────────────────┼────────────────────────┼──────────────────┤
 │  Prediction drift      │  Output distribution   │  Evidently       │
 │                        │  shifts over time      │  Arize / WhyLabs │
@@ -557,7 +557,7 @@ PSI > 0.2:  significant shift — consider retraining
 
 ```
 ┌─────────────────────────────────────────────────────────────────────┐
-│  RETRAINING TRIGGER                │  PATTERN                      │
+│  RETRAINING TRIGGER                │  PATTERN                       │
 ├────────────────────────────────────┼───────────────────────────────┤
 │  Scheduled (e.g., weekly)          │  Simple, predictable          │
 │  Data volume threshold             │  Retrain when N new samples   │
@@ -708,7 +708,7 @@ prediction drift and actual performance, not just model age.
 
 ```
 ┌─────────────────────────────────────────────────────────────────────┐
-│  TASK                           │  TOOL                            │
+│  TASK                           │  TOOL                             │
 ├─────────────────────────────────┼──────────────────────────────────┤
 │  Experiment tracking (Azure)    │  MLflow (Azure ML backend)       │
 │  Experiment tracking (DL/GPU)   │  W&B                             │

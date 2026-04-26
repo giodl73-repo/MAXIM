@@ -8,20 +8,20 @@ and are exactly the **impulse response** / **convolution kernel** from signal pr
 
 ```
 +-----------------------------------------------------------------------+
-|              GREEN'S FUNCTION CONCEPT                                  |
+|              GREEN'S FUNCTION CONCEPT                                 |
 |                                                                       |
-|  SIGNAL PROCESSING:          PDE ANALOG:                             |
+|  SIGNAL PROCESSING:          PDE ANALOG:                              |
 |  Linear system with          Linear PDE with                          |
-|  impulse response h(t):      Green's function G(x,y):                |
+|  impulse response h(t):      Green's function G(x,y):                 |
 |                                                                       |
-|  INPUT: δ(t)                 SOURCE: δ(x−y)                          |
-|  OUTPUT: h(t)                RESPONSE: G(x,y)                        |
+|  INPUT: δ(t)                 SOURCE: δ(x−y)                           |
+|  OUTPUT: h(t)                RESPONSE: G(x,y)                         |
 |                                                                       |
-|  GENERAL INPUT f(t):         GENERAL SOURCE f(y):                    |
-|  OUTPUT = h * f              u(x) = ∫ G(x,y) f(y) dy                 |
-|         = ∫h(t−s)f(s)ds     (same: convolution)                      |
+|  GENERAL INPUT f(t):         GENERAL SOURCE f(y):                     |
+|  OUTPUT = h * f              u(x) = ∫ G(x,y) f(y) dy                  |
+|         = ∫h(t−s)f(s)ds     (same: convolution)                       |
 |                                                                       |
-|  INVERSION:                  INVERSION:                              |
+|  INVERSION:                  INVERSION:                               |
 |  Y(ω) = H(ω)·F(ω)           û(k) = Ĝ(k)·f̂(k)                      |
 |  H(ω) = 1 / (transfer fn)   Ĝ(k) = 1 / (symbol)                     |
 |                                                                       |
@@ -64,7 +64,7 @@ To work rigorously with Green's functions requires the theory of distributions
   │ δ(x):      ⟨δ, φ⟩ = φ(0)           (point mass at 0)         │
   │ δ(x−y):    ⟨δ_y, φ⟩ = φ(y)         (point mass at y)         │
   │ H(x):      ⟨H, φ⟩ = ∫₀^∞ φ(x) dx  (Heaviside step function) │
-  │ H'(x) = δ(x) in distribution sense                            │
+  │ H'(x) = δ(x) in distribution sense                             │
   │                                                                │
   │ P.V.(1/x): ⟨P.V.(1/x), φ⟩ = lim_{ε→0} ∫_{|x|>ε} φ(x)/x dx │
   │ (principal value, arises in Hilbert transform)                 │
@@ -89,7 +89,7 @@ To work rigorously with Green's functions requires the theory of distributions
   GREEN'S FUNCTION G(x,y) satisfies:
   ┌──────────────────────────────────────────────────────────────┐
   │  L_x G(x,y) = δ(x−y)   in Ω  (for each fixed y)            │
-  │  G(x,y) satisfies the homogeneous BCs in x                  │
+  │  G(x,y) satisfies the homogeneous BCs in x                   │
   └──────────────────────────────────────────────────────────────┘
 
   SOLUTION:  u(x) = ∫_Ω G(x,y) f(y) dy

@@ -9,7 +9,7 @@ In 2006, Shinya Yamanaka demonstrated that fully differentiated adult fibroblast
 |              iPSC REPROGRAMMING OVERVIEW                         |
 |                                                                  |
 |  NORMAL DEVELOPMENT (one way)                                    |
-|  Zygote → ESC → Progenitors → Differentiated cells              |
+|  Zygote → ESC → Progenitors → Differentiated cells               |
 |                                                                  |
 |  YAMANAKA (reversed the arrow, 2006)                             |
 |  Fibroblast + Oct4 + Sox2 + Klf4 + cMyc → iPSC                 |
@@ -19,9 +19,9 @@ In 2006, Shinya Yamanaka demonstrated that fully differentiated adult fibroblast
 |  • Pluripotent (can make all cell types)                         |
 |  • Self-renewing                                                 |
 |  • Patient-specific (avoid immune rejection)                     |
-|  • Ethical alternative to ESCs (no embryo destruction)          |
+|  • Ethical alternative to ESCs (no embryo destruction)           |
 |                                                                  |
-|  iPSC → Neurons, cardiomyocytes, hepatocytes, beta cells, etc.  |
+|  iPSC → Neurons, cardiomyocytes, hepatocytes, beta cells, etc.   |
 |         Disease modeling, drug screening, cell therapy           |
 +──────────────────────────────────────────────────────────────────+
 ```

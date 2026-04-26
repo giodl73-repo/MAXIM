@@ -4,11 +4,11 @@
 
 ```
 +------------------------------------------------------------------+
-|                NEUTRAL SPIRIT -> FINISHED PRODUCT               |
+|                NEUTRAL SPIRIT -> FINISHED PRODUCT                |
 |                                                                    |
 |  BASE SPIRIT (neutral grain spirit, ~96% ABV)                    |
-|                     |                                             |
-|          +----------+----------+                                  |
+|                     |                                            |
+|          +----------+----------+                                 |
 |          |                     |                                  |
 |          v                     v                                  |
 |     VODKA                  GIN                                    |
@@ -304,25 +304,25 @@ ADDITIONAL POPULAR BOTANICALS:
 
 ```
 +------------------------------------------------------------------+
-|                      GIN STYLE TREE                               |
+|                      GIN STYLE TREE                              |
 |                                                                    |
-|  CLASSIC                           HISTORICAL                     |
-|  London Dry                        Genever (Dutch)                |
-|    Juniper-forward                 Old Tom (sweetened)            |
-|    No post-distillation additions  Plymouth Gin (GI, Devon)       |
-|    Tanqueray, Beefeater, Gordon's  Navy Strength (57.1% ABV)      |
-|    Sipsmith, Hendrick's                                           |
+|  CLASSIC                           HISTORICAL                    |
+|  London Dry                        Genever (Dutch)               |
+|    Juniper-forward                 Old Tom (sweetened)           |
+|    No post-distillation additions  Plymouth Gin (GI, Devon)      |
+|    Tanqueray, Beefeater, Gordon's  Navy Strength (57.1% ABV)     |
+|    Sipsmith, Hendrick's                                          |
 |                                                                    |
-|  CONTEMPORARY / NEW WESTERN                                       |
-|    Reduced juniper prominence                                     |
-|    Fruit/floral/botanical forward                                 |
+|  CONTEMPORARY / NEW WESTERN                                      |
+|    Reduced juniper prominence                                    |
+|    Fruit/floral/botanical forward                                |
 |    Aviation (lavender, anise), Monkey 47 (47 botanicals)         |
-|    St George Terroir, Botanivore                                  |
+|    St George Terroir, Botanivore                                 |
 |                                                                    |
-|  REGIONAL STYLES                                                  |
-|    Mediterranean: citrus-forward, Gin Mare, Gin de Menorca        |
-|    Scottish: Caorunn (rowan/heather/apple), The Botanist          |
-|    Japanese: Roku (sakura, yuzu, sencha), Nikka Coffey Gin        |
+|  REGIONAL STYLES                                                 |
+|    Mediterranean: citrus-forward, Gin Mare, Gin de Menorca       |
+|    Scottish: Caorunn (rowan/heather/apple), The Botanist         |
+|    Japanese: Roku (sakura, yuzu, sencha), Nikka Coffey Gin       |
 +------------------------------------------------------------------+
 ```
 

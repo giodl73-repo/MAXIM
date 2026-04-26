@@ -9,7 +9,7 @@ dynamics, herd immunity thresholds, and intervention effects.
 
 ```
 ┌──────────────────────────────────────────────────────────────────┐
-│                   PANDEMIC BIOLOGY LANDSCAPE                      │
+│                   PANDEMIC BIOLOGY LANDSCAPE                     │
 │                                                                    │
 │  EMERGENCE                SPREAD                  CONTROL        │
 │  ────────                 ─────────               ───────        │
@@ -17,7 +17,7 @@ dynamics, herd immunity thresholds, and intervention effects.
 │  Host range expansion     exponential growth      Vaccination    │
 │  Reassortment             Serial interval         NPIs           │
 │  Genetic adaptation       Generation time         Antivirals     │
-│  Zoonosis                 Superspreading          Quarantine      │
+│  Zoonosis                 Superspreading          Quarantine     │
 │                                                                    │
 │  KEY EQUATION:                                                   │
 │  R_eff = R₀ × (1 - p_immune) × (1 - p_NPI)                     │

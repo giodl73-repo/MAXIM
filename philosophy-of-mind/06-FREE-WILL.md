@@ -4,7 +4,7 @@
 
 ```
 +-----------------------------------------------------------------------+
-|                    FREE WILL POSITIONS MAP                             |
+|                    FREE WILL POSITIONS MAP                            |
 +-----------------------------------------------------------------------+
 |                                                                       |
 |                  Is determinism true?                                 |
@@ -15,11 +15,11 @@
 |    Is free will                        LIBERTARIANISM                 |
 |    compatible                    (Kane, van Inwagen)                  |
 |    with determinism?             Free will requires                   |
-|         |         |              indeterminism.                       |
+|         |          |              indeterminism.                      |
 |        YES        NO             Quantum indeterminacy?               |
-|         |         |                                                   |
+|         |          |                                                  |
 |  COMPATIBILISM  HARD                                                  |
-|  (Hume, Kant,  DETERMINISM                                           |
+|  (Hume, Kant,  DETERMINISM                                            |
 |  Dennett,      (d'Holbach,                                            |
 |  Frankfurt,    Pereboom)                                              |
 |  Fischer)      No free will exists.                                   |

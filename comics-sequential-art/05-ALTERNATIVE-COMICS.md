@@ -4,12 +4,12 @@
 
 ```
 +------------------------------------------------------------------+
-|               ALTERNATIVE AND UNDERGROUND COMICS                  |
+|               ALTERNATIVE AND UNDERGROUND COMICS                 |
 |                                                                  |
 |  TIMELINE                                                        |
 |  1968: Zap Comix -- underground comix born                       |
 |  1970s: Feminist underground; racial minority voices             |
-|  1980s: RAW magazine; Black and White boom; punk comix            |
+|  1980s: RAW magazine; Black and White boom; punk comix           |
 |  1990s: Alternative press; mainstream-adjacent (Fantagraphics)   |
 |  2000s: Memoir/autobiographical peak; literary mainstream        |
 |  2010s+: Webcomics absorb and expand alternative tradition       |

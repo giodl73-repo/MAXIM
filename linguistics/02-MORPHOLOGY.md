@@ -6,15 +6,15 @@ Morphology is the study of word structure — how morphemes combine to form word
 
 ```
 +----------------------------------------------------------------+
-|                    MORPHOLOGY LANDSCAPE                         |
+|                    MORPHOLOGY LANDSCAPE                        |
 |                                                                |
-|  MORPHEMES                    WORD FORMATION                  |
-|  (minimal meaningful          Affixation: pre/in/suf/circum   |
+|  MORPHEMES                    WORD FORMATION                   |
+|  (minimal meaningful          Affixation: pre/in/suf/circum    |
 |   units)                      Compounding: blackbird           |
 |  +---------+                  Conversion: "to google"          |
-|  | FREE     | — stand alone   Reduplication: zig-zag          |
-|  | "cat"    |                 Clipping: advertisement→ad      |
-|  +---------+                  Blending: smoke+fog=smog        |
+|  | FREE     | — stand alone   Reduplication: zig-zag           |
+|  | "cat"    |                 Clipping: advertisement→ad       |
+|  +---------+                  Blending: smoke+fog=smog         |
 |  | BOUND    | — must attach                                    |
 |  | -s, pre- |                                                  |
 |  +---------+                                                   |
@@ -271,9 +271,9 @@ This is a crucial distinction:
 ```
 INFLECTION                           DERIVATION
 +-------------------------------+   +-------------------------------+
-| Grammatically required        |   | Lexically creative             |
+| Grammatically required        |   | Lexically creative            |
 | Stays same lexeme/lexical class|   | Typically creates new lexeme   |
-| Not listed separately in dict |   | Listed as separate entry       |
+| Not listed separately in dict |   | Listed as separate entry      |
 | Highly regular, few exceptions|   | Less regular, more idiosyncratic|
 | Outer position in word        |   | Inner position (closer to root)|
 +-------------------------------+   +-------------------------------+

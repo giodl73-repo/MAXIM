@@ -6,23 +6,23 @@ Signal flags are the maritime lingua franca: a standardized visual communication
 
 ```
 ┌──────────────────────────────────────────────────────────────────┐
-│              SIGNAL FLAG SYSTEM MAP                               │
+│              SIGNAL FLAG SYSTEM MAP                              │
 │                                                                  │
 │  40 distinct flags:                                              │
-│  ┌──────────────┬───────────────────────────────────────────┐   │
+│  ┌──────────────┬───────────────────────────────────────────┐    │
 │  │ 26 Letter     │ One per letter A–Z, each with:            │   │
 │  │ Flags         │ (1) Single-letter meaning (procedural)    │   │
 │  │               │ (2) Part of multi-flag combination (ICS   │   │
 │  │               │     codebook, thousands of messages)      │   │
 │  ├──────────────┼───────────────────────────────────────────┤   │
-│  │ 10 Numeral    │ Pennants 0–9, hoisted with letter flags   │   │
-│  │ Pennants      │ for bearings, speeds, chart references    │   │
+│  │ 10 Numeral   │ Pennants 0–9, hoisted with letter flags   │   │
+│  │ Pennants     │ for bearings, speeds, chart references    │   │
 │  ├──────────────┼───────────────────────────────────────────┤   │
 │  │ 3 Substitute  │ Allows same flag repeated in one hoist    │   │
 │  │ Pennants      │ (can't carry two identical flags)         │   │
 │  ├──────────────┼───────────────────────────────────────────┤   │
-│  │ Answering     │ "I understand/am copying" pennant         │   │
-│  │ Pennant       │ Dipped = "I have not yet understood"      │   │
+│  │ Answering    │ "I understand/am copying" pennant         │   │
+│  │ Pennant      │ Dipped = "I have not yet understood"      │   │
 │  └──────────────┴───────────────────────────────────────────┘   │
 └──────────────────────────────────────────────────────────────────┘
 ```
@@ -37,20 +37,20 @@ Each letter flag has a **single-letter procedural signal** — a meaning when fl
 
 ```
 ┌──────────────────────────────────────────────────────────────┐
-│                CRITICAL SAFETY FLAGS                          │
+│                CRITICAL SAFETY FLAGS                         │
 │                                                              │
-│  A — Alpha  "I have a diver down; keep well clear at slow   │
+│  A — Alpha  "I have a diver down; keep well clear at slow    │
 │              speed" — MOST COMMONLY USED FLAG IN DIVING      │
 │              Blue/white swallowtail                          │
 │                                                              │
-│  B — Bravo  "I am taking in, or discharging, or carrying    │
-│              dangerous goods (explosives/flammable)"          │
+│  B — Bravo  "I am taking in, or discharging, or carrying     │
+│              dangerous goods (explosives/flammable)"         │
 │              Solid red                                       │
 │                                                              │
-│  O — Oscar  "Man overboard!" (distress/emergency)           │
+│  O — Oscar  "Man overboard!" (distress/emergency)            │
 │              Orange/yellow diagonal                          │
 │                                                              │
-│  W — Whiskey "I require medical assistance"                 │
+│  W — Whiskey "I require medical assistance"                  │
 │               Red cross on white with blue square            │
 │                                                              │
 │  Q — Quebec "My vessel is healthy and I request free         │
@@ -133,7 +133,7 @@ When the same flag needs to appear twice in one hoist, substitute pennants fill 
 
 ```
 ┌─────────────────────────────────────────────────────────────┐
-│  SUBSTITUTE PENNANTS                                         │
+│  SUBSTITUTE PENNANTS                                        │
 │                                                             │
 │  1st Substitute: repeats the top flag in the hoist          │
 │  2nd Substitute: repeats the second flag from top           │
@@ -156,13 +156,13 @@ When the same flag needs to appear twice in one hoist, substitute pennants fill 
 
 ```
 ┌─────────────────────────────────────────────────────────────┐
-│  ANSWERING PENNANT (Code and Answer Pennant)                 │
+│  ANSWERING PENNANT (Code and Answer Pennant)                │
 │                                                             │
 │  Shape: Long pennant (swallowtail narrow)                   │
-│  Colors: Red/white horizontal stripes                        │
+│  Colors: Red/white horizontal stripes                       │
 │                                                             │
 │  Usage:                                                     │
-│  FULL HOIST (at mast):  "I understand your signal /        │
+│  FULL HOIST (at mast):  "I understand your signal /         │
 │                          message is received and understood" │
 │  HALF HOIST (dipped):   "I am receiving / do not yet        │
 │                          understand — repeat if needed"     │
@@ -242,14 +242,14 @@ When survivors on the ground need to signal aircraft, these symbols are laid out
 │                                                             │
 │  Symbol  Meaning                                            │
 │  ──────  ─────────────────────────────────────────────────  │
-│    V     Require assistance                                  │
+│    V     Require assistance                                 │
 │    X     Require medical assistance                         │
 │    →     Going this direction (arrow pointing route)        │
 │    N     No / Negative (response)                           │
 │    Y     Yes / Affirmative (response)                       │
 │    LL    All is well                                        │
 │    F     Need food and water                                │
-│    △     Safe to land here                                   │
+│    △     Safe to land here                                  │
 │    K     Tell us the direction to proceed                   │
 │                                                             │
 │  Minimum size: 3m long for air visibility at 1,000 ft       │
@@ -292,8 +292,8 @@ Flags are **read top-to-bottom** on a single halyard. Multiple halyards: port ha
 
 ```
 ┌────────────────────────────────────────────────────────┐
-│  ICS (civilian maritime): universal, IMO published      │
-│  NATO Signal Book (ACP 175): military, classified       │
+│  ICS (civilian maritime): universal, IMO published     │
+│  NATO Signal Book (ACP 175): military, classified      │
 │                                                        │
 │  NATO uses additional flags and signals not in ICS.    │
 │  The 26 letter flags and their shapes/colors are       │

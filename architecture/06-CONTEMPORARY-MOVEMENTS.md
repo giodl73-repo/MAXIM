@@ -26,8 +26,8 @@ Contemporary architecture is not a single style. It is a field in productive ten
 |        Structure as          Factory quality,                      |
 |        architecture          field speed                           |
 |                                                                    |
-|  These are not competing — a project can be simultaneously        |
-|  parametric, mass timber, biophilic, and prefabricated.           |
+|  These are not competing — a project can be simultaneously         |
+|  parametric, mass timber, biophilic, and prefabricated.            |
 +--------------------------------------------------------------------+
 ```
 
@@ -448,7 +448,7 @@ Frei Otto (1925–2015) developed physical form-finding experiments that presage
   ┌──────────────────────────────────────────┐
   │ FACTORY (controlled environment)         │
   │                                          │
-  │ ┌────┐  ┌────┐  ┌────┐  ┌────┐          │
+  │ ┌────┐  ┌────┐  ┌────┐  ┌────┐           │
   │ │ M1 │  │ M2 │  │ M3 │  │ M4 │          │
   │ └────┘  └────┘  └────┘  └────┘          │
   │  walls + floors + MEP all installed      │

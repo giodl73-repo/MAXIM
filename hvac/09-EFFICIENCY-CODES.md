@@ -10,11 +10,11 @@ created significant tax incentives that change the economics of high-efficiency 
 
 ```
 +----------------------------------------------------------------------+
-|                    EFFICIENCY REGULATION HIERARCHY                    |
+|                    EFFICIENCY REGULATION HIERARCHY                   |
 |                                                                      |
 |  FEDERAL DOE MINIMUMS (mandatory floor)                              |
 |  └── National Appliance Energy Conservation Act (NAECA)              │
-|      └── Updated 2023: SEER2/EER2/HSPF2 test procedures             │
+|      └── Updated 2023: SEER2/EER2/HSPF2 test procedures              │
 |                                                                      |
 |  VOLUNTARY ABOVE-CODE PROGRAMS                                       |
 |  ├── ENERGY STAR (EPA/DOE co-program)                                │
@@ -80,8 +80,8 @@ different number. Critical to understand when comparing pre-2023 and post-2023 s
 ```
   CENTRAL AIR CONDITIONERS:
   ┌─────────────────────────────────────────────────────────────────┐
-  │ North (states 1): 13.4 SEER2 minimum                           │
-  │ South/Southwest (states 2): 14.3 SEER2 minimum                 │
+  │ North (states 1): 13.4 SEER2 minimum                            │
+  │ South/Southwest (states 2): 14.3 SEER2 minimum                  │
   │ (Different because AC runs more in hot climates → bigger impact) │
   └─────────────────────────────────────────────────────────────────┘
 
@@ -94,7 +94,7 @@ different number. Critical to understand when comparing pre-2023 and post-2023 s
   ┌─────────────────────────────────────────────────────────────────┐
   │ National: 80% AFUE minimum                                      │
   │ (2023 DOE attempt at 92% AFUE national minimum was blocked      │
-  │ by court challenge from furnace industry and northern states)    │
+  │ by court challenge from furnace industry and northern states)   │
   │ Some northern utilities require 95% for rebates                 │
   └─────────────────────────────────────────────────────────────────┘
 
@@ -118,20 +118,20 @@ Energy Star is voluntary — significantly above federal minimums:
   ENERGY STAR THRESHOLDS (current):
   ┌─────────────────────────────────────────────────────────────────┐
   │ CENTRAL AC:                                                     │
-  │ Split: ≥ 16.0 SEER2 (variable speed)                           │
-  │        ≥ 15.2 SEER2 (two-stage)                                │
+  │ Split: ≥ 16.0 SEER2 (variable speed)                            │
+  │        ≥ 15.2 SEER2 (two-stage)                                 │
   │                                                                 │
   │ HEAT PUMPS:                                                     │
   │ ≥ 15.2 SEER2 (cooling) AND ≥ 8.1 HSPF2 (heating)              │
   │                                                                 │
   │ GAS FURNACES:                                                   │
-  │ ≥ 95% AFUE                                                     │
+  │ ≥ 95% AFUE                                                      │
   │                                                                 │
   │ BOILERS:                                                        │
   │ ≥ 90% AFUE (oil), ≥ 90% AFUE (gas)                            │
   │                                                                 │
   │ HEAT PUMP WATER HEATERS:                                        │
-  │ ≥ 2.0 UEF (Energy Factor); best are 3.5+ UEF                   │
+  │ ≥ 2.0 UEF (Energy Factor); best are 3.5+ UEF                    │
   └─────────────────────────────────────────────────────────────────┘
 
   WHY ENERGY STAR MATTERS:
@@ -161,8 +161,8 @@ incentives in decades. Effective for equipment installed Jan 1, 2023 – Dec 31,
   │                                    │ ($2,000 total for both)    │
   ├────────────────────────────────────┼────────────────────────────┤
   │ Central AC — highest efficiency    │ $600/year                  │
-  │ Gas furnace — 95% AFUE            │ $600/year (shared with AC) │
-  │ Gas boiler — 95% AFUE             │ $600/year (shared)         │
+  │ Gas furnace — 95% AFUE             │ $600/year (shared with AC) │
+  │ Gas boiler — 95% AFUE              │ $600/year (shared)         │
   ├────────────────────────────────────┼────────────────────────────┤
   │ Insulation + air sealing           │ $1,200/year                │
   │ Windows + skylights                │ $600/year                  │
@@ -242,7 +242,7 @@ vary by zone.
   │                                                                 │
   │  MANUAL J (Load Calculation)                                    │
   │  "How much heating/cooling does this building need?"            │
-  │  → Room-by-room sensible and latent BTU/hr loads               │
+  │  → Room-by-room sensible and latent BTU/hr loads                │
   │  → Design day outdoor conditions                                │
   │  → Output: required equipment capacity range                    │
   │                                                                 │
@@ -251,15 +251,15 @@ vary by zone.
   │  MANUAL S (Equipment Selection)                                 │
   │  "What specific equipment matches the Manual J loads?"          │
   │  → Select equipment at AHRI-certified conditions                │
-  │  → Overcapacity limits: typically no more than 15% for AC,     │
+  │  → Overcapacity limits: typically no more than 15% for AC,      │
   │    40% for heating (allows some oversizing for design day)      │
-  │  → Matches equipment SHR to building SHR                       │
+  │  → Matches equipment SHR to building SHR                        │
   │                                                                 │
   │           ↓                                                     │
   │                                                                 │
   │  MANUAL D (Duct Design)                                         │
   │  "How do we distribute that heating/cooling to each room?"      │
-  │  → Duct sizes based on Manual J room-by-room airflow needs     │
+  │  → Duct sizes based on Manual J room-by-room airflow needs      │
   │  → Friction rate calculation from available static pressure     │
   │  → Supply and return sizing; register/grille sizing             │
   │                                                                 │

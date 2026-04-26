@@ -8,9 +8,9 @@ One question drives all rendering strategy decisions: **where and when is HTML g
 +------------------------------------------------------------------+
 |              THE RENDERING STRATEGY SPECTRUM                     |
 |                                                                  |
-|  ←— more server work                      more client work —→   |
+|  ←— more server work                      more client work —→    |
 |                                                                  |
-|  Traditional   SSG        ISR        SSR        SPA/CSR         |
+|  Traditional   SSG        ISR        SSR        SPA/CSR          |
 |  MVC/Razor   (build)  (build+bg)  (request)   (browser)        |
 |    |            |         |           |            |             |
 |    v            v         v           v            v             |
@@ -19,7 +19,7 @@ One question drives all rendering strategy decisions: **where and when is HTML g
 |  request      time      refresh    on server    Renders in       |
 |               once      in bg                   browser          |
 |                                                                  |
-|  NEW: React Server Components (RSC) — granular server/client    |
+|  NEW: React Server Components (RSC) — granular server/client     |
 |       split at the component level, not the page level           |
 +------------------------------------------------------------------+
 
@@ -76,13 +76,13 @@ RSC        Server (component-   Full HTML (server       Only "use client"  Fast
 +--------------------------------------------------------------------+
 | KEY TRADEOFFS                                                      |
 |                                                                    |
-| Mode  | TTFB      | FCP   | TTI   | Fresh data | SEO | Hosting    |
+| Mode  | TTFB      | FCP   | TTI   | Fresh data | SEO | Hosting     |
 |-------|-----------|-------|-------|------------|-----|------------|
 | CSR   | Fast(CDN) | Slow  | Slow  | Always     | ⚠️  | CDN only   |
-| SSR   | Med-slow  | Fast  | Med   | Always     | ✅  | Server req |
-| SSG   | Fast(CDN) | Fast  | Med   | Build-time | ✅  | CDN only   |
-| ISR   | Fast(CDN) | Fast  | Med   | ~Window    | ✅  | Server+CDN |
-| RSC   | Med       | Fast  | Fast  | Always     | ✅  | Server req |
+| SSR   | Med-slow  | Fast  | Med   | Always     | ✅  | Server req  |
+| SSG   | Fast(CDN) | Fast  | Med   | Build-time | ✅  | CDN only    |
+| ISR   | Fast(CDN) | Fast  | Med   | ~Window    | ✅  | Server+CDN  |
+| RSC   | Med       | Fast  | Fast  | Always     | ✅  | Server req  |
 +--------------------------------------------------------------------+
 ```
 
@@ -597,7 +597,7 @@ Next.js implements every pattern, per route.
   +----------+--------+--------+---------+---------+--------+
   | TTI      | Fast   | Slow   | Medium  | Medium  | Medium |
   +----------+--------+--------+---------+---------+--------+
-  | SEO      | ✅     | ⚠️      | ✅      | ✅      | ✅      |
+  | SEO      | ✅     | ⚠️      | ✅      | ✅      | ✅     |
   +----------+--------+--------+---------+---------+--------+
   | Fresh    | ✅     | ✅     | ✅      | ❌      | ⚠️     |
   | data     |        |        |         | build   | window |

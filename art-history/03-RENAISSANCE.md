@@ -9,26 +9,26 @@ RENAISSANCE ART: GEOGRAPHY AND CHRONOLOGY
   ┌────────────────────────────────────────────────────────────────────┐
   │                    ITALIAN RENAISSANCE                             │
   │                                                                    │
-  │  PROTO-RENAISSANCE (Trecento, 14th c.)                            │
+  │  PROTO-RENAISSANCE (Trecento, 14th c.)                             │
   │    Giotto di Bondone: pictorial space, psychological presence      │
   │    Duccio: Byzantine convention + incipient naturalism             │
   │                                                                    │
-  │  EARLY RENAISSANCE / QUATTROCENTO (c. 1400–1490)                  │
+  │  EARLY RENAISSANCE / QUATTROCENTO (c. 1400–1490)                   │
   │    Florence: Brunelleschi, Masaccio, Donatello, Ghiberti           │
   │    Linear perspective codified c. 1413–1435                        │
   │    Medici patronage structures painting program                    │
   │                                                                    │
-  │  HIGH RENAISSANCE (c. 1490–1527)                                  │
+  │  HIGH RENAISSANCE (c. 1490–1527)                                   │
   │    Leonardo, Michelangelo, Raphael                                 │
   │    Papal Rome replaces Florence as center                          │
   │    Sack of Rome 1527 ends the moment                               │
   │                                                                    │
   │  VENETIAN RENAISSANCE (parallel, c. 1430–1580)                   │
-  │    Bellini, Giorgione, Titian, Tintoretto, Veronese               │
+  │    Bellini, Giorgione, Titian, Tintoretto, Veronese                │
   │    Color as structure (vs Florentine disegno)                      │
   │                                                                    │
-  │  MANNERISM (c. 1520–1600)                                         │
-  │    Post-High-Renaissance: Pontormo, Bronzino, Parmigianino        │
+  │  MANNERISM (c. 1520–1600)                                          │
+  │    Post-High-Renaissance: Pontormo, Bronzino, Parmigianino         │
   │    Elongation, difficult poses, acid color, sophisticated wit      │
   └────────────────────────────────────────────────────────────────────┘
 
@@ -39,10 +39,10 @@ RENAISSANCE ART: GEOGRAPHY AND CHRONOLOGY
   │    Hugo van der Goes, Hieronymus Bosch                             │
   │    Oil technique as fundamental innovation                         │
   │                                                                    │
-  │  German (c. 1490–1550): Dürer, Grünewald, Cranach, Holbein        │
+  │  German (c. 1490–1550): Dürer, Grünewald, Cranach, Holbein         │
   │    Print culture + Reformation + portraiture                       │
   │                                                                    │
-  │  French (c. 1494–): Italian influence after French invasion         │
+  │  French (c. 1494–): Italian influence after French invasion        │
   │    Fontainebleau School                                            │
   └────────────────────────────────────────────────────────────────────┘
 ```
@@ -115,7 +115,7 @@ ALBERTI'S CONSTRUCTION METHOD
   │ 4. Place vanishing point on horizon                          │
   │ 5. Draw orthogonals from vanishing point to ground divisions │
   │ 6. Set transversals (horizontal lines) using separate        │
-  │    diagonal construction to correctly foreshorten           │
+  │    diagonal construction to correctly foreshorten            │
   │    the receding floor tiles                                  │
   └──────────────────────────────────────────────────────────────┘
 
@@ -228,7 +228,7 @@ LEONARDO'S TECHNICAL INNOVATIONS
   SFUMATO (from Italian fumo = smoke):
   ┌───────────────────────────────────────────────────────────┐
   │ Outlines dissolved into gradual tonal transitions         │
-  │ No hard contour lines at the edge of forms               │
+  │ No hard contour lines at the edge of forms                │
   │ Layers of translucent oil glaze applied with fingers      │
   │ (fingerprints visible under microscopy in Mona Lisa)      │
   │ Form emerges from shadow rather than being bounded        │
@@ -252,7 +252,7 @@ LEONARDO'S TECHNICAL INNOVATIONS
   │ paper)                                                    │
   │ Pounced (perforated along lines and charcoal dust blown   │
   │ through) onto prepared surface to transfer composition    │
-  │ OR incised through with stylus                           │
+  │ OR incised through with stylus                            │
   │ The Virgin of the Rocks cartoon (Burlington House):       │
   │ full-scale, extraordinarily finished drawing, used as     │
   │ study not transfer (it is now an independent masterwork)  │
@@ -352,14 +352,14 @@ VAN EYCK'S GLAZING SYSTEM
   TRADITIONAL TEMPERA:            VAN EYCK OIL:
   ┌──────────────────────┐        ┌───────────────────────────────┐
   │ Fast drying (min.)   │        │ Slow drying (hours–days)      │
-  │ Opaque               │        │ Transparent glazes possible    │
-  │ Hatching to model    │        │ Layer over layer, each drying  │
+  │ Opaque               │        │ Transparent glazes possible   │
+  │ Hatching to model    │        │ Layer over layer, each drying │
   │ No blending          │        │ Infinite blending while wet   │
   │ Surface is matte     │        │ Final surface luminous        │
-  │                      │        │ Light penetrates layers,       │
+  │                      │        │ Light penetrates layers,      │
   │                      │        │ reflects off white gesso base, │
-  │                      │        │ passes back through glazes:    │
-  │                      │        │ inner light effect             │
+  │                      │        │ passes back through glazes:   │
+  │                      │        │ inner light effect            │
   └──────────────────────┘        └───────────────────────────────┘
 
   VAN EYCK'S GHENT ALTARPIECE (1432):
@@ -450,10 +450,10 @@ RENAISSANCE PATRONAGE ARC
   ┌────────────────────────────────────────────────────────┐
   │ Julius II ("Warrior Pope"): St. Peter's rebuilding,    │
   │   Sistine ceiling, Vatican stanze -- art as power      │
-  │ Leo X (Medici pope): Raphael workshop, extensive        │
+  │ Leo X (Medici pope): Raphael workshop, extensive       │
   │   Vatican decoration program                           │
   │ The artist as intellectual peer to the patron:         │
-  │   Michelangelo argues with Julius II; Raphael dines     │
+  │   Michelangelo argues with Julius II; Raphael dines    │
   │   with cardinals -- social elevation of the artist     │
   └────────────────────────────────────────────────────────┘
                               |

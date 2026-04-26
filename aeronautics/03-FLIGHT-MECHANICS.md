@@ -73,9 +73,9 @@ EULER ANGLES — body-frame orientation relative to NED:
   Rotation matrix (CNED→B = Rx(φ)·Ry(θ)·Rz(ψ)):
   ┌                                                                         ┐
   │  cos θ cos ψ          cos θ sin ψ         -sin θ                        │
-  │  sin φ sin θ cos ψ   sin φ sin θ sin ψ   sin φ cos θ                   │
+  │  sin φ sin θ cos ψ   sin φ sin θ sin ψ   sin φ cos θ                    │
   │ -cos φ sin ψ        +cos φ cos ψ                                        │
-  │  cos φ sin θ cos ψ   cos φ sin θ sin ψ   cos φ cos θ                   │
+  │  cos φ sin θ cos ψ   cos φ sin θ sin ψ   cos φ cos θ                    │
   │ +sin φ sin ψ        -sin φ cos ψ                                        │
   └                                                                         ┘
 
@@ -127,7 +127,7 @@ ROTATIONAL (assuming constant inertia tensor Iᵢⱼ):
 INERTIA TENSOR for typical aircraft (symmetric about xz-plane):
   ┌              ┐
   │ Iₓₓ   0  -Iₓᵤ│
-  │  0   Iyy   0  │
+  │  0   Iyy   0 │
   │-Iₓᵤ   0   Izz│
   └              ┘
 
@@ -374,9 +374,9 @@ FBW ARCHITECTURE:
   ┌──────────────────────────────────────────────────────────┐
   │  PILOT INPUT    INCEPTOR (sidestick or conventional yoke)│
   │       │                    │                             │
-  │  ADIRS (air data / inertial ref): α, β, V, γ, Euler     │
+  │  ADIRS (air data / inertial ref): α, β, V, γ, Euler      │
   │       │                    │                             │
-  │  ┌────┴────┐ ┌────┐ ┌────┐ ┌────┐  ← 4 FCCs             │
+  │  ┌────┴────┐ ┌────┐ ┌────┐ ┌────┐  ← 4 FCCs              │
   │  │  FCC1   │ │FCC2│ │FCC3│ │FCC4│     majority voting    │
   │  └────┬────┘ └────┘ └────┘ └────┘                        │
   │       │                                                   │

@@ -4,7 +4,7 @@
 
 ```
 +-----------------------------------------------------------------------+
-|                    AI ETHICS LANDSCAPE                                 |
+|                    AI ETHICS LANDSCAPE                                |
 +-----------------------------------------------------------------------+
 |                                                                       |
 |  AI ethics = applied ethics + philosophy of mind + CS theory.       |
@@ -230,7 +230,7 @@ COMMON FAIRNESS CRITERIA:
   |                           | protected attribute were different.      |
   +---------------------------+------------------------------------------+
   | Individual fairness       | Similar individuals treated similarly.   |
-  |                           | Requires a similarity metric.           |
+  |                           | Requires a similarity metric.            |
   +---------------------------+------------------------------------------+
 
 CHOOSING AMONG CRITERIA:

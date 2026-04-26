@@ -214,28 +214,28 @@ Journalism is the practice of gathering, verifying, and distributing information
   ==============================
 
   +-------------------+-------------------------------------------+
-  | ELITE NATIONAL    | NYT, Washington Post, WSJ, BBC           |
+  | ELITE NATIONAL    | NYT, Washington Post, WSJ, BBC            |
   |                   | Resources for investigation, verification |
   |                   | Digital subscription model (partly works) |
-  |                   | Global reach; niche national audience    |
+  |                   | Global reach; niche national audience     |
   +-------------------+-------------------------------------------+
   | LOCAL             | Regional and community newspapers        |
   |                   | Severe resource cuts; "news deserts"     |
   |                   | Critical for local democracy; struggling |
   +-------------------+-------------------------------------------+
-  | PARTISAN          | Fox News, MSNBC, Breitbart, Daily Wire   |
-  |                   | Explicitly opinionated                   |
-  |                   | Often profitable (engaged partisan base) |
-  |                   | Drives polarization; selective facts     |
+  | PARTISAN          | Fox News, MSNBC, Breitbart, Daily Wire    |
+  |                   | Explicitly opinionated                    |
+  |                   | Often profitable (engaged partisan base)  |
+  |                   | Drives polarization; selective facts      |
   +-------------------+-------------------------------------------+
   | INVESTIGATIVE     | ProPublica, The Intercept, OCCRP        |
   | NONPROFIT         | Grant-funded; no advertising dependency  |
   |                   | Can pursue long-form investigations      |
   |                   | Scale limited by funding                 |
   +-------------------+-------------------------------------------+
-  | NATIVE DIGITAL    | Axios, Politico, The Atlantic (revived)  |
-  |                   | Mix of subscription + events + licensing |
-  |                   | Varies widely in quality                 |
+  | NATIVE DIGITAL    | Axios, Politico, The Atlantic (revived)   |
+  |                   | Mix of subscription + events + licensing  |
+  |                   | Varies widely in quality                  |
   +-------------------+-------------------------------------------+
   | DATA JOURNALISM   | FiveThirtyEight (defunct), The Pudding  |
   |                   | Empirically grounded; niche audience     |

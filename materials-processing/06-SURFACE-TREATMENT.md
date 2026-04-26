@@ -8,7 +8,7 @@ Surface treatments modify only the near-surface region of a part while leaving t
 SURFACE TREATMENT TAXONOMY
 ──────────────────────────────────────────────────────────────────
 ┌─────────────────────────────────────────────────────────────────┐
-│  SURFACE MODIFICATION (no new layer added)                       │
+│  SURFACE MODIFICATION (no new layer added)                      │
 │    Mechanical: shot peen, laser peen, burnishing (cold work)    │
 │    Thermal: induction harden, flame harden, laser harden        │
 │    Diffusion: carburize, nitride, boriding, chromizing          │
@@ -19,12 +19,12 @@ SURFACE TREATMENT TAXONOMY
 │    Chromate conversion (Al) → chrome complex                    │
 │    Bluing (Fe) → magnetite (cosmetic/mild corrosion)            │
 ├─────────────────────────────────────────────────────────────────┤
-│  APPLIED COATINGS (new layer deposited)                          │
-│    PVD (Physical Vapor Deposition): sputtering, evaporation      │
-│    CVD (Chemical Vapor Deposition): thermal or plasma            │
+│  APPLIED COATINGS (new layer deposited)                         │
+│    PVD (Physical Vapor Deposition): sputtering, evaporation     │
+│    CVD (Chemical Vapor Deposition): thermal or plasma           │
 │    Thermal spray: HVOF, plasma spray, arc spray                 │
 │    Electroplating / electroless plating                         │
-│    Paint / organic coatings                                      │
+│    Paint / organic coatings                                     │
 │    Hot-dip galvanizing / tin coating                            │
 └─────────────────────────────────────────────────────────────────┘
 ```
@@ -200,7 +200,7 @@ The TBC system is a layered architecture where each layer optimizes for a differ
 TBC system layers:
   ┌────────────────────────────────────────────┐
   │ Ceramic top coat: 7% YSZ (yttria-stabilized│
-  │ zirconia, ZrO₂+7%Y₂O₃), ~150–500 µm thick │
+  │ zirconia, ZrO₂+7%Y₂O₃), ~150–500 µm thick  │
   │ Thermal conductivity: ~2 W/m·K (vs 12 for  │
   │ substrate)  Low but non-zero→ temp gradient │
   ├────────────────────────────────────────────┤
@@ -208,7 +208,7 @@ TBC system layers:
   │ Grows during service from MCrAlY oxidation │
   │ TGO growth → eventually causes spallation  │
   ├────────────────────────────────────────────┤
-  │ Bond coat: MCrAlY (M=Ni, Co, Fe)          │
+  │ Bond coat: MCrAlY (M=Ni, Co, Fe)           │
   │ ~100–150 µm, applied by HVOF or plasma     │
   │ Provides adhesion for top coat             │
   │ Al-rich → forms protective TGO             │

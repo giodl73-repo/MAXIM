@@ -4,7 +4,7 @@
 
 ```
 +------------------------------------------------------------------+
-|                  DIGITAL AND WEBCOMICS LANDSCAPE                  |
+|                  DIGITAL AND WEBCOMICS LANDSCAPE                 |
 |                                                                  |
 |  FORMATS                                                         |
 |  Webcomic: published directly to web; free; creator-to-reader    |

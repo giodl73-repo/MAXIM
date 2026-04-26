@@ -406,13 +406,13 @@ OBSERVED (Rubin + Ford, 1970s):
     This continues as far as observations can reach.
 
   ┌────────────────────────────────────────┐
-  │   v (rotation speed)                  │
-  │   │         ___observed___________    │
-  │   │        /                          │
-  │   │       / expected                  │
-  │   │      /          \                 │
-  │   │     /             \               │
-  │   └───────────────────────────── r    │
+  │   v (rotation speed)                   │
+  │   │         ___observed___________     │
+  │   │        /                           │
+  │   │       / expected                   │
+  │   │      /          \                  │
+  │   │     /             \                │
+  │   └───────────────────────────── r     │
   └────────────────────────────────────────┘
 
 TO PRODUCE v = constant:

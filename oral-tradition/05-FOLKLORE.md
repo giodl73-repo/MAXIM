@@ -9,15 +9,15 @@ FOLKLORE TAXONOMY
 +------------------------------------------------------------------+
 |                        FOLKLORE                                  |
 |                                                                  |
-|  NARRATIVE               PROVERB / RIDDLE      CUSTOM / RITUAL  |
-|  ---------               ----------------      ---------------  |
-|  Myth                    Proverb                Festival        |
+|  NARRATIVE               PROVERB / RIDDLE      CUSTOM / RITUAL   |
+|  ---------               ----------------      ---------------   |
+|  Myth                    Proverb                Festival         |
 |  Legend                  Wellerism              Life-cycle rite  |
 |  Folktale (Marchen)      Riddle                 Folk belief      |
 |  Epic                    Tongue twister         Superstition     |
 |  Ballad                  Blessing/curse         Folk medicine    |
-|  Fable                                                          |
-|  Urban legend                                                   |
+|  Fable                                                           |
+|  Urban legend                                                    |
 |                                                                  |
 +------------------------------------------------------------------+
          |

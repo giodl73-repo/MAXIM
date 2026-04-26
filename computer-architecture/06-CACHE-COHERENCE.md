@@ -10,17 +10,17 @@ These are two distinct problems that are often conflated:
 +-----------------------------------------------------------------------+
 |                    TWO DISTINCT PROBLEMS                              |
 |                                                                       |
-|  CACHE COHERENCE                    MEMORY CONSISTENCY               |
+|  CACHE COHERENCE                    MEMORY CONSISTENCY                |
 |  --------------------------------   --------------------------------- |
 |  Single cache line problem          Ordering of multiple operations   |
 |  across multiple cores              across multiple addresses         |
 |                                                                       |
-|  "If Core 0 writes X=1,             "If Core 0 writes X=1, Y=1,      |
+|  "If Core 0 writes X=1,             "If Core 0 writes X=1, Y=1,       |
 |   when does Core 1 see X=1?"        does Core 1 see X=1 when it       |
 |                                      sees Y=1?"                       |
 |                                                                       |
-|  Solved by: MESI protocol,          Defined by: memory model         |
-|  snooping, directory               (TSO, PSO, WRC, SC, etc.)         |
+|  Solved by: MESI protocol,          Defined by: memory model          |
+|  snooping, directory               (TSO, PSO, WRC, SC, etc.)          |
 |                                                                       |
 |  Guarantee: reads see the MOST      Does NOT guarantee ordering       |
 |  recent write to that address       between different addresses       |
@@ -60,15 +60,15 @@ The standard cache coherence protocol. Each cache line is in one of four states.
   +---------------------------------------------------------------------+
   |                     MESI STATE TRANSITIONS                          |
   |                                                                     |
-  |  I  ──(local read miss)──→  E   (no other sharers found)           |
-  |  I  ──(local read miss)──→  S   (other sharers exist)              |
-  |  I  ──(local write miss)─→  M   (invalidate others first)          |
-  |  E  ──(local write)──────→  M   (silent, no bus traffic)           |
-  |  E  ──(remote read)──────→  S   (share the line)                   |
-  |  S  ──(local write)──────→  M   (broadcast invalidation to others) |
-  |  S  ──(remote invalidate)→  I   (another core wrote)               |
-  |  M  ──(remote read)──────→  S   (write back, then share)           |
-  |  M  ──(remote write)─────→  I   (write back, then invalidate self) |
+  |  I  ──(local read miss)──→  E   (no other sharers found)            |
+  |  I  ──(local read miss)──→  S   (other sharers exist)               |
+  |  I  ──(local write miss)─→  M   (invalidate others first)           |
+  |  E  ──(local write)──────→  M   (silent, no bus traffic)            |
+  |  E  ──(remote read)──────→  S   (share the line)                    |
+  |  S  ──(local write)──────→  M   (broadcast invalidation to others)  |
+  |  S  ──(remote invalidate)→  I   (another core wrote)                |
+  |  M  ──(remote read)──────→  S   (write back, then share)            |
+  |  M  ──(remote write)─────→  I   (write back, then invalidate self)  |
   +---------------------------------------------------------------------+
 ```
 
@@ -306,37 +306,37 @@ The full stack from language ordering guarantees down to hardware coherence — 
   +------------------------------------------------------------------------+
   |  LANGUAGE LEVEL — acquire/release semantics                            |
   |                                                                        |
-  |  C++: memory_order_acquire/release on std::atomic<T>                  |
-  |  Java: volatile fields, synchronized, VarHandle.getAcquire()          |
+  |  C++: memory_order_acquire/release on std::atomic<T>                   |
+  |  Java: volatile fields, synchronized, VarHandle.getAcquire()           |
   |  Go: sync.Mutex, sync/atomic.Load/Store (seq_cst by default)         |
-  |  Rust: Ordering::Acquire / Ordering::Release on atomics               |
-  |  C#: volatile keyword, Interlocked, Thread.MemoryBarrier()            |
+  |  Rust: Ordering::Acquire / Ordering::Release on atomics                |
+  |  C#: volatile keyword, Interlocked, Thread.MemoryBarrier()             |
   +------------------------------------------------------------------------+
               ↕ compiler translates to
   +------------------------------------------------------------------------+
   |  RUNTIME / COMPILER LAYER                                              |
-  |  C++ / Rust: direct ISA fence emission (no separate runtime layer)    |
-  |  JVM: JMM specifies happens-before; HotSpot JIT emits fences          |
-  |  .NET CLR: CLR memory model (stronger than C# spec minimum);          |
+  |  C++ / Rust: direct ISA fence emission (no separate runtime layer)     |
+  |  JVM: JMM specifies happens-before; HotSpot JIT emits fences           |
+  |  .NET CLR: CLR memory model (stronger than C# spec minimum);           |
   |            explicit fences at volatile read/write                      |
-  |  Go runtime: inserts barriers at goroutine sync points                |
+  |  Go runtime: inserts barriers at goroutine sync points                 |
   +------------------------------------------------------------------------+
               ↕ emits
   +------------------------------------------------------------------------+
   |  ISA FENCE INSTRUCTIONS                                                |
   |  x86-64: MFENCE (full), SFENCE (stores), LFENCE (loads),             |
-  |          LOCK prefix on RMW operations                                |
+  |          LOCK prefix on RMW operations                                 |
   |  ARM64:  LDAR (load-acquire), STLR (store-release),                  |
-  |          DMB ISH (full data memory barrier)                           |
+  |          DMB ISH (full data memory barrier)                            |
   |  RISC-V: FENCE r,rw / FENCE rw,w (per RVWMO)                        |
   |                                                                        |
-  |  x86 NOTE: TSO is so strong that acquire/release often maps to        |
+  |  x86 NOTE: TSO is so strong that acquire/release often maps to         |
   |  plain load/store — no fence emitted. ARM requires LDAR/STLR.        |
   +------------------------------------------------------------------------+
               ↕ hardware enforces
   +------------------------------------------------------------------------+
   |  CACHE COHERENCE PROTOCOL                                              |
-  |  MESI / MOESI — snooping (small core count) or directory (large)      |
+  |  MESI / MOESI — snooping (small core count) or directory (large)       |
   |  Ensures: a read sees the most recent write to that address            |
   +------------------------------------------------------------------------+
               ↕ defines what is observable

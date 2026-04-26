@@ -6,24 +6,24 @@ Functional analysis is linear algebra in infinite dimensions. The jump from ℝ�
 
 ```
 ┌─────────────────────────────────────────────────────────────────────────────┐
-│  FUNCTIONAL ANALYSIS LANDSCAPE                                               │
-│                                                                              │
+│  FUNCTIONAL ANALYSIS LANDSCAPE                                              │
+│                                                                             │
 │  Normed Spaces                        Dual Spaces & Weak Topology           │
 │  ──────────────────────────────        ──────────────────────────────────     │
 │  Normed, Banach, Hilbert spaces       Dual space X* = B(X, 𝕂)             │
 │  Completeness, Schauder bases         Hahn-Banach theorem                   │
 │  Examples: Lᵖ, C[a,b], ℓᵖ, H^k      Weak topology σ(X, X*)               │
 │                                        Weak* topology σ(X*, X)              │
-│                                        Reflexive spaces                      │
-│                                                                              │
-│  Bounded Operators                    Spectral Theory                        │
+│                                        Reflexive spaces                     │
+│                                                                             │
+│  Bounded Operators                    Spectral Theory                       │
 │  ──────────────────────────────        ──────────────────────────────────     │
 │  B(X,Y): bounded linear maps          Eigenvalues vs spectrum               │
-│  Operator norm, compactness           Compact operators                      │
+│  Operator norm, compactness           Compact operators                     │
 │  Open mapping, closed graph theorem   Spectral theorem (compact, SA)        │
-│  Adjoints (Banach/Hilbert)            Functional calculus                    │
-│                                                                              │
-│  Applications                                                                │
+│  Adjoints (Banach/Hilbert)            Functional calculus                   │
+│                                                                             │
+│  Applications                                                               │
 │  ──────────────────────────────────────────────────────────────────────────   │
 │  PDEs (Sobolev spaces, weak solutions)   QM (observables, C*-algebras)      │
 │  ML (RKHS, kernel methods, SVMs)         Signal processing (Fourier in L²)  │

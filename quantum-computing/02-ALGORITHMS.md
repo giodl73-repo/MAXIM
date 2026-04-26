@@ -4,7 +4,7 @@
 
 ```
 +------------------------------------------------------------------+
-|                   QUANTUM ALGORITHM LANDSCAPE                     |
+|                   QUANTUM ALGORITHM LANDSCAPE                    |
 +------------------------------------------------------------------+
 |                                                                    |
 |  PROVEN SPEEDUP                    VARIATIONAL (NISQ-era)         |

@@ -304,7 +304,7 @@ BLAKE3 (2020):
 
 HASH COMPARISON:
   ┌────────────────────────────────────────────────────────────────────┐
-  │  Hash     │ Output │ Speed     │ Side-ch  │ Length ext │ Status   │
+  │  Hash     │ Output │ Speed     │ Side-ch  │ Length ext │ Status    │
   ├────────────────────────────────────────────────────────────────────┤
   │  SHA-256  │ 256b   │ Medium    │ OK       │ Vulnerable │ FIPS std │
   │  SHA-512  │ 512b   │ Fast 64b  │ OK       │ Vulnerable │ FIPS std │

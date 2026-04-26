@@ -17,11 +17,11 @@
 │  ┌──────────────────────────────────────────────────────────────┐   │
 │  │                    CLASSICAL OPTIMIZER                       │   │
 │  │                                                              │   │
-│  │   θ_new = θ - η ∇C(θ)    (gradient-based)                   │   │
+│  │   θ_new = θ - η ∇C(θ)    (gradient-based)                    │   │
 │  │   θ_new = COBYLA/SPSA    (gradient-free)                     │   │
 │  │                                                              │   │
 │  │   ∂C/∂θⱼ = [C(θ + π/2 eⱼ) - C(θ - π/2 eⱼ)] / 2           │   │
-│  │            └──────────── parameter-shift rule ──────────┘   │   │
+│  │            └──────────── parameter-shift rule ──────────┘   │    │
 │  └───────────────────────────┬──────────────────────────────────┘   │
 │                              │ new parameters θ                    │
 │                              └──────────── (loop until converge) ──►│
@@ -199,8 +199,8 @@ where C₁ is a circuit-architecture constant
 │ Structured ansatz            │ Problem-specific U(θ):   │ Requires    │
 │ (UCC, QAOA, MERA)            │ not 2-design-like        │ domain know │
 ├──────────────────────────────┼─────────────────────────┼─────────────┤
-│ Warm starting                │ Initialize near known    │ Need good   │
-│ (classical pre-solve)        │ solution; small θ range  │ initial pt  │
+│ Warm starting                │ Initialize near known   │ Need good   │
+│ (classical pre-solve)        │ solution; small θ range │ initial pt  │
 ├──────────────────────────────┼─────────────────────────┼─────────────┤
 │ Correlation-based pruning    │ Remove parameters with   │ Overhead;   │
 │ (parameter freezing)         │ small gradients early    │ heuristic   │
@@ -251,8 +251,8 @@ CLASSICAL METHODS VS VQE:
 │                  │ Interaction (FCI): exact  │ and fast                │
 ├──────────────────┼──────────────────────────┼─────────────────────────┤
 │ n ~ 30-50        │ DMRG: near-exact for 1D  │ Maybe — strongly        │
-│                  │ CCSD(T): chemical accuracy│ correlated 2D systems   │
-│                  │ for weakly correlated     │                         │
+│                  │ CCSD(T): chemical accuracy│ correlated 2D systems  │
+│                  │ for weakly correlated    │                         │
 ├──────────────────┼──────────────────────────┼─────────────────────────┤
 │ n ~ 100+         │ DFT: scales as O(n³),    │ In principle — but need │
 │                  │ approximate              │ error-corrected qubits  │
@@ -277,19 +277,19 @@ HONEST ASSESSMENT:
 
 ```
 ┌──────────────────────────────────────────────────────────────────────┐
-│ SCENARIO                     │ RECOMMENDATION                       │
+│ SCENARIO                     │ RECOMMENDATION                        │
 ├──────────────────────────────┼───────────────────────────────────────┤
 │ Ground state energy,         │ UCCSD-VQE or hardware-efficient VQE  │
 │ small molecule (< 20 qubits) │ Compare with CCSD(T) classically     │
 ├──────────────────────────────┼───────────────────────────────────────┤
-│ Ground state energy,         │ Wait for fault-tolerant hardware;    │
-│ large/strongly correlated    │ current VQE won't beat DMRG/QMC      │
+│ Ground state energy,         │ Wait for fault-tolerant hardware;     │
+│ large/strongly correlated    │ current VQE won't beat DMRG/QMC       │
 ├──────────────────────────────┼───────────────────────────────────────┤
 │ Combinatorial optimization   │ QAOA for benchmarking/research;      │
 │ (MaxCut, portfolio opt.)     │ for production: use GW/SA classically │
 ├──────────────────────────────┼───────────────────────────────────────┤
 │ Barren plateau suspected     │ Switch to local cost, structured      │
-│ (gradient ≈ 0 for all θ)    │ ansatz, or warm start                 │
+│ (gradient ≈ 0 for all θ)     │ ansatz, or warm start                 │
 ├──────────────────────────────┼───────────────────────────────────────┤
 │ Gradient evaluation          │ Parameter-shift rule on hardware;    │
 │ on noisy hardware            │ SPSA when noise dominates            │

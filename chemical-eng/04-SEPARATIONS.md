@@ -5,8 +5,8 @@
 ```
 SEPARATION SELECTION — FROM FEED TO EQUIPMENT
 ┌─────────────────────────────────────────────────────────────────────────┐
-│ FEED MIXTURE                                                             │
-│   What phases?  What property differs between components?                │
+│ FEED MIXTURE                                                            │
+│   What phases?  What property differs between components?               │
 └────────┬────────────────────────────────────────────────────────────────┘
          │
          ├─ Boiling point differs (α > 1.05)?
@@ -34,9 +34,9 @@ SEPARATION SELECTION — FROM FEED TO EQUIPMENT
          └─ Solid-liquid phase boundary?
              └─► CRYSTALLIZATION (cooling, evaporative, antisolvent)
 ┌─────────────────────────────────────────────────────────────────────────┐
-│ CONTACTING METHOD:                                                       │
+│ CONTACTING METHOD:                                                      │
 │   Equilibrium stages: each stage reaches VLE/LLE → step-off design      │
-│   Differential contact: continuous gradient → NTU/HTU design             │
+│   Differential contact: continuous gradient → NTU/HTU design            │
 └─────────────────────────────────────────────────────────────────────────┘
 ```
 

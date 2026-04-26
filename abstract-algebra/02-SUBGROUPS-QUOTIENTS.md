@@ -4,7 +4,7 @@
 
 ```
 +====================================================================+
-|     THE ARCHITECTURE OF QUOTIENTS AND HOMOMORPHISMS               |
+|     THE ARCHITECTURE OF QUOTIENTS AND HOMOMORPHISMS                |
 +====================================================================+
 |                                                                    |
 |       G  ──φ──→  H                                               |

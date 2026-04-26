@@ -136,12 +136,12 @@ POSTPRANDIAL GLUCOSE (after eating):
                                                 ↓
                                           Insulin secreted
                           ┌──────────────────────────────────┐
-                          │ Insulin effects:                  │
-                          │ • GLUT4 translocation to muscle   │
+                          │ Insulin effects:                 │
+                          │ • GLUT4 translocation to muscle  │
                           │   and adipose (insulin-dependent) │
-                          │ • Glycogen synthesis ↑            │
-                          │ • Glycolysis ↑                    │
-                          │ • Gluconeogenesis ↓               │
+                          │ • Glycogen synthesis ↑           │
+                          │ • Glycolysis ↑                   │
+                          │ • Gluconeogenesis ↓              │
                           │ • Lipolysis ↓ (anti-lipolytic)   │
                           └──────────────────────────────────┘
                           Blood glucose returns to ~4.5–5.5 mmol/L

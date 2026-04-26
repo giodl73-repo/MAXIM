@@ -168,12 +168,12 @@ TEOSINTE → MAIZE: THE TRANSFORMATION
 
 Teosinte ear:                    Modern corn ear:
 ┌─────────────────────────┐      ┌─────────────────────────────────────┐
-│ ~5-12 kernels            │  →  │ ~400-1000 kernels                   │
-│ Hard, glassy seed case   │     │ Naked kernels, no enclosure         │
-│ Shatters at maturity     │     │ Non-shattering (totally dependent   │
-│ (seed dispersal mech.)   │     │  on humans for reproduction)        │
-│ Branching plant          │     │ Single stalk (usually)              │
-│ 2 ranked kernels         │     │ Multiple ranks (6-22)               │
+│ ~5-12 kernels           │  →   │ ~400-1000 kernels                   │
+│ Hard, glassy seed case  │      │ Naked kernels, no enclosure         │
+│ Shatters at maturity    │      │ Non-shattering (totally dependent   │
+│ (seed dispersal mech.)  │      │  on humans for reproduction)        │
+│ Branching plant         │      │ Single stalk (usually)              │
+│ 2 ranked kernels        │      │ Multiple ranks (6-22)               │
 └─────────────────────────┘      └─────────────────────────────────────┘
 
 Key genetic changes: ~5 major genetic loci

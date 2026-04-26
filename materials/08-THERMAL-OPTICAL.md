@@ -21,18 +21,18 @@ THERMAL & OPTICAL PROPERTIES LANDSCAPE
          └──────┬──────┘            └──────┬───────┘
                 │                          │
     ┌───────────▼──────────┐   ┌───────────▼──────────────┐
-    │ EMISSIVITY / PLANCK  │   │ REFRACTIVE INDEX          │
-    │ (Kirchhoff: ε = α)  │   │ ñ = n + iκ               │
-    │ Hot surfaces emit    │   │ Controls reflection,      │
-    │ photons via phonon   │   │ refraction, absorption    │
-    │ + electron coupling  │   │ Kramers-Kronig links n,κ  │
+    │ EMISSIVITY / PLANCK  │   │ REFRACTIVE INDEX         │
+    │ (Kirchhoff: ε = α)   │   │ ñ = n + iκ               │
+    │ Hot surfaces emit    │   │ Controls reflection,     │
+    │ photons via phonon   │   │ refraction, absorption   │
+    │ + electron coupling  │   │ Kramers-Kronig links n,κ │
     └──────────┬───────────┘   └───────────┬──────────────┘
                │                           │
     ┌──────────▼───────────────────────────▼──────────────┐
-    │  DEVICE APPLICATIONS                                 │
+    │  DEVICE APPLICATIONS                                │
     │  CPU cooling (κ_th) · Telecom fiber (low α at 1550nm)│
-    │  Photovoltaics (bandgap absorption) · TBC coatings   │
-    │  Thermal imaging (emissivity) · LED phosphors        │
+    │  Photovoltaics (bandgap absorption) · TBC coatings  │
+    │  Thermal imaging (emissivity) · LED phosphors       │
     └─────────────────────────────────────────────────────┘
 
   Heat capacity: C_v = ∂U/∂T            Refractive index: ñ = n + iκ
@@ -101,10 +101,10 @@ THERMAL & OPTICAL PROPERTIES LANDSCAPE
 
   PHONON SCATTERING MECHANISMS (limit λ and thus κ):
   ┌──────────────────────────────────────────────────────────────────────────┐
-  │  Umklapp (U) processes:    phonon-phonon; dominant at high T            │
+  │  Umklapp (U) processes:    phonon-phonon; dominant at high T             │
   │    κ_phonon ∝ 1/T at high T  (Umklapp increases with T)                │
-  │  Impurity/alloy scattering: κ drops with alloying (stainless < pure Fe) │
-  │  Grain boundary scattering: significant in nanostructures (κ of bulk    │
+  │  Impurity/alloy scattering: κ drops with alloying (stainless < pure Fe)  │
+  │  Grain boundary scattering: significant in nanostructures (κ of bulk     │
   │    Si = 150 W/mK; nanowire Si = 5 W/mK)                                │
   │  Isotope scattering:       natural Si has 3 isotopes; isotopically pure  │
   │    Si-28: κ ≈ 11,000 W/mK at low T (current record)                    │
@@ -182,17 +182,17 @@ THERMAL & OPTICAL PROPERTIES LANDSCAPE
 ```
   THREE THERMOELECTRIC EFFECTS:
   ┌─────────────────────────────────────────────────────────────────────────┐
-  │  SEEBECK: ΔV = S · ΔT         (thermocouple, temperature sensor, TEG)  │
+  │  SEEBECK: ΔV = S · ΔT         (thermocouple, temperature sensor, TEG)   │
   │    S = Seebeck coefficient (µV/K)                                       │
-  │    Metals: S ≈ 1–10 µV/K                                               │
-  │    Semiconductors: S ≈ 100–300 µV/K  (better thermoelectrics)          │
-  │                                                                          │
+  │    Metals: S ≈ 1–10 µV/K                                                │
+  │    Semiconductors: S ≈ 100–300 µV/K  (better thermoelectrics)           │
+  │                                                                         │
   │  PELTIER: Q = Π · I            (active heat pump, TEC cooler)           │
   │    Π = Peltier coefficient = S·T                                        │
-  │    Heat pumped proportional to current — NOT temperature difference      │
-  │                                                                          │
+  │    Heat pumped proportional to current — NOT temperature difference     │
+  │                                                                         │
   │  THOMSON: q = β · I · ∇T       (reversible heat in current-carrying     │
-  │    conductor in temperature gradient; small correction to above)         │
+  │    conductor in temperature gradient; small correction to above)        │
   └─────────────────────────────────────────────────────────────────────────┘
 
   FIGURE OF MERIT ZT:
@@ -303,21 +303,21 @@ THERMAL & OPTICAL PROPERTIES LANDSCAPE
 ```
   DIRECT vs INDIRECT BANDGAP:
   ┌─────────────────────────────────────────────────────────────────────────┐
-  │  DIRECT (GaAs, InP, GaN, InGaAs, CdTe):                                │
+  │  DIRECT (GaAs, InP, GaN, InGaAs, CdTe):                                 │
   │    Conduction band minimum directly above valence band maximum in k-space│
-  │    E-k: both extrema at k=0 (Γ point)                                  │
-  │    Photon absorption/emission: momentum conserved with k_photon ≈ 0    │
+  │    E-k: both extrema at k=0 (Γ point)                                   │
+  │    Photon absorption/emission: momentum conserved with k_photon ≈ 0     │
   │    → efficient light emission; high absorption coefficient near E_g     │
   │    → used for LEDs, laser diodes, solar cells, photodetectors           │
-  │                                                                          │
-  │  INDIRECT (Si, Ge, GaP, AlAs):                                         │
-  │    CB minimum at different k than VB maximum (k ≠ 0)                   │
+  │                                                                         │
+  │  INDIRECT (Si, Ge, GaP, AlAs):                                          │
+  │    CB minimum at different k than VB maximum (k ≠ 0)                    │
   │    Photon + phonon required to conserve momentum                        │
   │    → two-particle process → low probability → poor light emitter        │
-  │    → high optical absorption depth (mm for Si at 1µm vs nm for GaAs)   │
-  │    → Si solar cells need 200 µm thickness vs 1 µm for GaAs             │
+  │    → high optical absorption depth (mm for Si at 1µm vs nm for GaAs)    │
+  │    → Si solar cells need 200 µm thickness vs 1 µm for GaAs              │
   │    → Si cannot make practical laser diode (but CAN detect with thick    │
-  │       absorption layer)                                                  │
+  │       absorption layer)                                                 │
   └─────────────────────────────────────────────────────────────────────────┘
 
   ABSORPTION EDGE:
@@ -354,15 +354,15 @@ THERMAL & OPTICAL PROPERTIES LANDSCAPE
   ┌─────────────────────────────────────────────────────────────────────────┐
   │  Dark (equilibrium): depletion region, built-in field E_bi              │
   │  Light: photons create electron-hole pairs                              │
-  │  Minority carriers diffuse to junction → separated by E_bi             │
-  │  → photocurrent I_ph flows opposite to diode forward current           │
-  │                                                                          │
+  │  Minority carriers diffuse to junction → separated by E_bi              │
+  │  → photocurrent I_ph flows opposite to diode forward current            │
+  │                                                                         │
   │  I-V under illumination:  I = I_0·(e^(qV/nkT) - 1) - I_ph             │
-  │                                                                          │
-  │  Short-circuit current: I_sc = I_ph  (at V=0)                          │
+  │                                                                         │
+  │  Short-circuit current: I_sc = I_ph  (at V=0)                           │
   │  Open-circuit voltage:   V_oc = (nkT/q)·ln(I_ph/I_0 + 1)             │
   │  Fill factor:            FF = P_max / (V_oc · I_sc) ≈ 0.7–0.85        │
-  │  Efficiency:             η = FF · V_oc · I_sc / P_incident             │
+  │  Efficiency:             η = FF · V_oc · I_sc / P_incident              │
   └─────────────────────────────────────────────────────────────────────────┘
 
   SHOCKLEY-QUEISSER LIMIT:
@@ -421,15 +421,15 @@ THERMAL & OPTICAL PROPERTIES LANDSCAPE
 
   FIBER TYPES:
   ┌──────────────────────────────────────────────────────────────────────────┐
-  │  Multimode (MM):  core 50–62.5 µm; many modes travel different paths    │
-  │    → modal dispersion limits bandwidth-distance product                 │
+  │  Multimode (MM):  core 50–62.5 µm; many modes travel different paths     │
+  │    → modal dispersion limits bandwidth-distance product                  │
   │    → 10 GbE: max 300m at 850 nm on OM4 fiber                           │
-  │    → cheap (LED source); data center campus backbones                   │
+  │    → cheap (LED source); data center campus backbones                    │
   │                                                                          │
   │  Single-mode (SM): core 8–10 µm; only HE₁₁ mode propagates            │
   │    → no modal dispersion; bandwidth limit from chromatic dispersion only │
   │    → 100+ km without amplification (EDFA every 80 km in long-haul)     │
-  │    → requires laser source; all metro/long-haul fiber                   │
+  │    → requires laser source; all metro/long-haul fiber                    │
   └──────────────────────────────────────────────────────────────────────────┘
 
   DISPERSION TYPES:

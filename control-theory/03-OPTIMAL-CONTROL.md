@@ -9,24 +9,24 @@ an optimization problem with a rigorous solution. Two main paths:
 ```
 +------------------------------------------------------------------+
 |               OPTIMAL CONTROL PATHS                              |
-|                                                                   |
+|                                                                  |
 |  INDIRECT METHODS (calculus of variations approach)              |
 |  ─────────────────────────────────────────────────               |
 |  Pontryagin Minimum Principle (PMP)                              |
 │  → Necessary conditions for optimality (Hamiltonian system)      |
 |  → Works for constrained inputs, nonlinear systems               |
 |  → Bang-bang control, minimum-time problems                      |
-|                                                                   |
+|                                                                  |
 |  DIRECT METHODS (dynamic programming approach)                   |
 |  ────────────────────────────────────────────                    |
-|  Hamilton-Jacobi-Bellman (HJB) equation                         |
+|  Hamilton-Jacobi-Bellman (HJB) equation                          |
 |  → Sufficient conditions; optimal value function V*(x,t)         |
-|  → LQR: HJB + linear + quadratic = algebraic Riccati equation   |
+|  → LQR: HJB + linear + quadratic = algebraic Riccati equation    |
 |  → Works backward in time; curse of dimensionality in general    |
-|                                                                   |
+|                                                                  |
 |  LQR = Linear Quadratic Regulator                                |
-|  LQG = LQR + Kalman Filter (stochastic version)                 |
-|  H∞  = Minimax (worst-case disturbance)                         |
+|  LQG = LQR + Kalman Filter (stochastic version)                  |
+|  H∞  = Minimax (worst-case disturbance)                          |
 +------------------------------------------------------------------+
 ```
 

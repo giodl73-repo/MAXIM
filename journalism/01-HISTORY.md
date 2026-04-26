@@ -45,7 +45,7 @@ PRE-PRINT JOURNALISM
 
   VENETIAN NOTIZIE SCRITTE (1556):
   ┌──────────────────────────────────────────────────────────────────┐
-  │  Handwritten newsletters circulated in Venice                   │
+  │  Handwritten newsletters circulated in Venice                    │
   │  Cost: One gazetta (small copper coin) → origin of "gazette"   │
   │  Content: Commercial information (ship arrivals, prices, wars) │
   │  Audience: Merchants, government officials, wealthy readers    │
@@ -95,10 +95,10 @@ PENNY PRESS REVOLUTION
   │  Revenue: Advertising — mass readership attractive to ads      │
   │  Content: Crime, human interest, sensation → mass appeal       │
   │  Business model: Selling readers' attention to advertisers     │
-  │                   (This model persists to this day)             │
-  │                                                                   │
-  │  KEY INNOVATIONS:                                               │
-  │  • Newsboys: Active street-corner distribution                  │
+  │                   (This model persists to this day)              │
+  │                                                                  │
+  │  KEY INNOVATIONS:                                                │
+  │  • Newsboys: Active street-corner distribution                   │
   │  • High-speed steam-powered press (volume)                     │
   │  • General interest content replacing partisan advocacy        │
   │  • Reporter as professional (not printer-editor combined)      │
@@ -139,7 +139,7 @@ YELLOW JOURNALISM ERA
   ┌──────────────────────────────────────────────────────────────────┐
   │  Feb 15, 1898: USS Maine explodes in Havana harbor             │
   │  Cause: Unknown (later evidence suggested internal accident)   │
-  │  Hearst Journal headline: "The War Ship Maine Was Split in Two  │
+  │  Hearst Journal headline: "The War Ship Maine Was Split in Two   │
   │   by an Enemy's Secret Infernal Machine"                       │
   │  → Congress declares war on Spain within months               │
   │  Did Hearst "cause" the war? Historians debate this; press    │
@@ -158,23 +158,23 @@ WIRE SERVICE HISTORY
 
   ASSOCIATED PRESS (1846):
   ┌──────────────────────────────────────────────────────────────────┐
-  │  Origin: Six New York papers sharing telegraph costs for        │
-  │   receiving news from Mexico via Baltimore                      │
+  │  Origin: Six New York papers sharing telegraph costs for         │
+  │   receiving news from Mexico via Baltimore                       │
   │  Structure: Non-profit cooperative (members own it)            │
   │  Model: Member papers share content; AP distributes broadly    │
-  │  Innovation: Neutral/objective tone — required because content  │
+  │  Innovation: Neutral/objective tone — required because content   │
   │   goes to papers of all political persuasions                  │
   │  → "Wire service neutrality" shapes journalism norms broadly   │
   └──────────────────────────────────────────────────────────────────┘
 
   REUTERS (1851):
   ┌──────────────────────────────────────────────────────────────────┐
-  │  Paul Julius Reuter: Used carrier pigeons to fill telegraph     │
+  │  Paul Julius Reuter: Used carrier pigeons to fill telegraph      │
   │   gap between Brussels and Aachen (1849)                       │
   │  1851: London office; first cable to transmit financial news   │
-  │  Revenue: Financial and commercial information → premium        │
+  │  Revenue: Financial and commercial information → premium         │
   │   subscription business (financial services, governments)      │
-  │  Today: Thomson Reuters — financial data dominant revenue       │
+  │  Today: Thomson Reuters — financial data dominant revenue        │
   └──────────────────────────────────────────────────────────────────┘
 
   WHAT WIRE SERVICES CHANGED:
@@ -195,7 +195,7 @@ PROGRESSIVE ERA MUCKRAKERS (1890–1915)
 
   IDA TARBELL — Standard Oil (1904):
   ┌──────────────────────────────────────────────────────────────────┐
-  │  19-part investigation in McClure's Magazine                    │
+  │  19-part investigation in McClure's Magazine                     │
   │  Documented: Standard Oil's monopolistic practices, railroad   │
   │   rebates, coercive tactics against competitors                │
   │  Method: Documents + former employees + corporate records      │
@@ -205,7 +205,7 @@ PROGRESSIVE ERA MUCKRAKERS (1890–1915)
 
   UPTON SINCLAIR — The Jungle (1906):
   ┌──────────────────────────────────────────────────────────────────┐
-  │  Goal: Expose exploitation of immigrant meatpacking workers     │
+  │  Goal: Expose exploitation of immigrant meatpacking workers      │
   │  Effect: Public horror at food safety conditions (not workers) │
   │  Result: 1906 Pure Food and Drug Act and Meat Inspection Act   │
   │  Quote (Sinclair): "I aimed at the public's heart and by       │
@@ -234,14 +234,14 @@ TELEVISION CHANGES JOURNALISM
 
   1960 KENNEDY-NIXON DEBATE (September 26):
   ┌──────────────────────────────────────────────────────────────────┐
-  │  First televised presidential debate                            │
+  │  First televised presidential debate                             │
   │  Nixon: Pale, sweating, refused makeup                         │
   │  Kennedy: Tan, relaxed, comfortable on camera                  │
-  │                                                                   │
-  │  Survey result: Radio listeners thought Nixon won;              │
-  │   Television viewers thought Kennedy won                        │
-  │  → Image/performance became as important as substance           │
-  │  → Presidential campaigns permanently transformed               │
+  │                                                                  │
+  │  Survey result: Radio listeners thought Nixon won;               │
+  │   Television viewers thought Kennedy won                         │
+  │  → Image/performance became as important as substance            │
+  │  → Presidential campaigns permanently transformed                │
   │  → TV journalism covers visual/performance, not just policy    │
   └──────────────────────────────────────────────────────────────────┘
 
@@ -250,7 +250,7 @@ TELEVISION CHANGES JOURNALISM
   │  Feb 27, 1968: After Tet Offensive, Cronkite (CBS anchor)      │
   │   editorializes that war is a "bloody stalemate"               │
   │  Johnson reportedly said: "If I've lost Cronkite, I've lost   │
-  │   Middle America"                                               │
+  │   Middle America"                                                │
   │  Significance: Television anchor opinion could move national   │
   │   policy conversation in a pre-fragmented media environment    │
   │  (Not possible in post-cable fragmented environment)           │
@@ -273,12 +273,12 @@ PENTAGON PAPERS (1971)
 
   LEGAL BATTLE:
   ┌──────────────────────────────────────────────────────────────────┐
-  │  Nixon administration seeks injunction against publication      │
-  │  Courts: Prior restraint (government stopping publication       │
-  │   before it occurs) requires extraordinary justification        │
+  │  Nixon administration seeks injunction against publication       │
+  │  Courts: Prior restraint (government stopping publication        │
+  │   before it occurs) requires extraordinary justification         │
   │  Supreme Court (6-3): NYT v. US — Cannot suppress publication  │
   │  Rule established: Prior restraint presumptively unconstitutional│
-  │   Government must show direct, immediate harm to national       │
+  │   Government must show direct, immediate harm to national        │
   │   security — not embarrassment or policy criticism             │
   └──────────────────────────────────────────────────────────────────┘
 
@@ -288,17 +288,17 @@ WATERGATE (1972-1974)
   THE STORY:
   ┌──────────────────────────────────────────────────────────────────┐
   │  June 17, 1972: Burglars caught in DNC HQ at Watergate         │
-  │  Woodward and Bernstein (Washington Post) pursue story          │
-  │  "Deep Throat" = FBI Associate Director Mark Felt (revealed     │
+  │  Woodward and Bernstein (Washington Post) pursue story           │
+  │  "Deep Throat" = FBI Associate Director Mark Felt (revealed      │
   │   2005) — meets Woodward in parking garage, guides reporting   │
-  │                                                                   │
-  │  REPORTING METHODOLOGY:                                         │
+  │                                                                  │
+  │  REPORTING METHODOLOGY:                                          │
   │  Two-source rule: No single source sufficient for damaging     │
-  │   claims about named individuals                                │
+  │   claims about named individuals                                 │
   │  Document corroboration: Phone records, bank records verified  │
-  │   source claims                                                 │
-  │  Editor Ben Bradlee: Held stories until sufficient verification │
-  │                                                                   │
+  │   source claims                                                  │
+  │  Editor Ben Bradlee: Held stories until sufficient verification  │
+  │                                                                  │
   │  RESULT: Nixon resigns August 9, 1974                          │
   │  Legacy: "Woodstein" model of investigative journalism         │
   │   becomes template globally; "Deep Throat" enters culture      │

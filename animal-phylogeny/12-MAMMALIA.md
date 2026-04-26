@@ -291,10 +291,10 @@ PLACENTA — highly derived membrane for fetal nutrition
 
 Types by invasiveness:
 +--------------------------------------------------+
-| Epitheliochorial   Uterine lining intact          |
-|   Pigs, horses     Least invasive                 |
+| Epitheliochorial   Uterine lining intact         |
+|   Pigs, horses     Least invasive                |
 | Endotheliochorial  Maternal blood vessels exposed |
-|   Carnivores       Moderate                       |
+|   Carnivores       Moderate                      |
 | Hemochorial        Maternal blood directly bathes |
 |   Rodents, humans  Most invasive → most efficient  |
 +--------------------------------------------------+
@@ -474,7 +474,7 @@ Strepsirrhini  Haplorhini
                            +------+------+
                            |             |
                        Cercopithecidae HOMINOIDEA
-                       (macaques,         |
+                       (macaques,        |
                         baboons)    +------+------+
                                     |             |
                                Gibbons         HOMINIDAE

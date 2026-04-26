@@ -19,20 +19,20 @@ BALTIMORE CLASSIFICATION: THE FORMAL VIRAL TAXONOMY
   │        │             │ (like eukaryotes)      │ Pox, HPV          │
   ├────────┼─────────────┼───────────────────────┼───────────────────┤
   │  II    │ ssDNA (+)   │ ssDNA → dsDNA → mRNA  │ Parvovirus, AAV,  │
-  │        │             │                        │ Circovirus       │
+  │        │             │                       │ Circovirus        │
   ├────────┼─────────────┼───────────────────────┼───────────────────┤
   │  III   │ dsRNA       │ Segmented genome;      │ Rotavirus,        │
   │        │             │ virion RdRp makes mRNA │ Reovirus          │
   ├────────┼─────────────┼───────────────────────┼───────────────────┤
-  │  IV    │ ssRNA (+)   │ Genome = mRNA          │ SARS-CoV-2,      │
-  │        │             │ (directly translated)  │ Poliovirus, HCV, │
-  │        │             │                        │ Dengue, Zika     │
+  │  IV    │ ssRNA (+)   │ Genome = mRNA         │ SARS-CoV-2,       │
+  │        │             │ (directly translated) │ Poliovirus, HCV,  │
+  │        │             │                       │ Dengue, Zika      │
   ├────────┼─────────────┼───────────────────────┼───────────────────┤
   │  V     │ ssRNA (−)   │ Virion RdRp makes      │ Influenza, Ebola, │
   │        │             │ (+) strand first       │ Measles, Rabies,  │
   │        │             │                        │ RSV               │
   ├────────┼─────────────┼───────────────────────┼───────────────────┤
-  │  VI    │ ssRNA (+)   │ Reverse transcription  │ HIV-1, HIV-2,    │
+  │  VI    │ ssRNA (+)   │ Reverse transcription │ HIV-1, HIV-2,     │
   │        │ retroviruses│ RNA→DNA → integrates  │ HTLV              │
   ├────────┼─────────────┼───────────────────────┼───────────────────┤
   │  VII   │ dsDNA       │ RNA intermediate       │ Hepatitis B,      │
@@ -64,7 +64,7 @@ BALTIMORE CLASSIFICATION: THE FORMAL VIRAL TAXONOMY
 
   CAPSID ARCHITECTURES:
   ┌────────────────────────────────────────────────────────────────┐
-  │ ICOSAHEDRAL (most viruses):                                     │
+  │ ICOSAHEDRAL (most viruses):                                    │
   │   20 equilateral triangular faces                              │
   │   Mathematically optimal packing for sphere-like protein shell │
   │   Triangulation number (T): determines size/complexity         │
@@ -72,28 +72,28 @@ BALTIMORE CLASSIFICATION: THE FORMAL VIRAL TAXONOMY
   │                                                                  │
   │ HELICAL:                                                         │
   │   Protein subunits spiral around nucleic acid                  │
-  │   Common in plant viruses (TMV) + enveloped animal viruses    │
-  │   Examples: Influenza, Measles, Rabies, RSV                   │
+  │   Common in plant viruses (TMV) + enveloped animal viruses     │
+  │   Examples: Influenza, Measles, Rabies, RSV                    │
   │                                                                  │
-  │ COMPLEX (none of the above):                                    │
+  │ COMPLEX (none of the above):                                   │
   │   Poxviruses: "Brick-shaped"; most complex known               │
   │   Bacteriophage T4: Icosahedral head + helical tail            │
   └────────────────────────────────────────────────────────────────┘
 
   ENVELOPED vs. NON-ENVELOPED:
   ┌────────────────────────────────────────────────────────────────┐
-  │ ENVELOPED:                                                      │
+  │ ENVELOPED:                                                     │
   │   Lipid bilayer from host cell (usually ER or plasma membrane) │
-  │   Viral glycoproteins embedded (hemagglutinin, gp120, etc.)   │
-  │   Fragile: Disrupted by detergent, drying, stomach acid       │
-  │   → Usually transmitted through close contact, respiratory    │
+  │   Viral glycoproteins embedded (hemagglutinin, gp120, etc.)    │
+  │   Fragile: Disrupted by detergent, drying, stomach acid        │
+  │   → Usually transmitted through close contact, respiratory     │
   │   Examples: HIV, Influenza, SARS-CoV-2, CMV, EBV             │
   │                                                                  │
-  │ NON-ENVELOPED (naked):                                          │
-  │   Capsid directly exposed                                       │
-  │   Resistant: Survives on surfaces, stomach acid, detergent    │
-  │   → Often fecal-oral transmission; highly contagious          │
-  │   Examples: Poliovirus, Norovirus, Rotavirus, Adenovirus, HPV │
+  │ NON-ENVELOPED (naked):                                         │
+  │   Capsid directly exposed                                      │
+  │   Resistant: Survives on surfaces, stomach acid, detergent     │
+  │   → Often fecal-oral transmission; highly contagious           │
+  │   Examples: Poliovirus, Norovirus, Rotavirus, Adenovirus, HPV  │
   └────────────────────────────────────────────────────────────────┘
 ```
 
@@ -125,19 +125,19 @@ BALTIMORE CLASSIFICATION: THE FORMAL VIRAL TAXONOMY
   ┌────────────────────────────────────────────────────────────────┐
   │ 1. Phage injects DNA                                           │
   │ 2. Integration: Phage DNA integrates into bacterial chromosome │
-  │    via site-specific recombination (attB × attP)              │
+  │    via site-specific recombination (attB × attP)               │
   │ 3. PROPHAGE: Integrated phage genome silenced                  │
-  │    CI repressor: Blocks lytic gene expression                 │
+  │    CI repressor: Blocks lytic gene expression                  │
   │ 4. Replication with host: Prophage copied every cell division  │
-  │ 5. INDUCTION: UV, mitomycin C, DNA damage                     │
-  │    → RecA cleaves CI repressor → lytic cycle begins           │
+  │ 5. INDUCTION: UV, mitomycin C, DNA damage                      │
+  │    → RecA cleaves CI repressor → lytic cycle begins            │
   │                                                                  │
   │ MEDICAL IMPORTANCE OF LYSOGENY:                                │
   │   Prophages encode many bacterial virulence factors:           │
   │   Shiga toxin: stx1/stx2 on lambdoid phage in E. coli O157   │
-  │   Cholera toxin: ctx on CTXφ phage in V. cholerae             │
-  │   Diphtheria toxin: tox gene on corynephage β                 │
-  │   Scarlet fever toxin: on phage in S. pyogenes                │
+  │   Cholera toxin: ctx on CTXφ phage in V. cholerae              │
+  │   Diphtheria toxin: tox gene on corynephage β                  │
+  │   Scarlet fever toxin: on phage in S. pyogenes                 │
   └────────────────────────────────────────────────────────────────┘
 ```
 

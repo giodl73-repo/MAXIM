@@ -7,20 +7,20 @@ Atmospheric motion is governed by the Navier-Stokes equations applied to a rotat
 ```
 +---------------------------------------------------------------+
 |              ATMOSPHERIC FORCE BALANCE HIERARCHY              |
-|                                                                |
-|  SCALE      DOMINANT BALANCE        RESULT                   |
+|                                                               |
+|  SCALE      DOMINANT BALANCE        RESULT                    |
 |  --------   -----------------------  -------------------------  |
-|  Planetary  Pressure gradient +      Jet streams, trade winds  |
-|             Coriolis                 flowing along isobars     |
-|                                                                |
-|  Synoptic   Geostrophic balance      Cyclones/anticyclones;    |
+|  Planetary  Pressure gradient +      Jet streams, trade winds |
+|             Coriolis                 flowing along isobars    |
+|                                                               |
+|  Synoptic   Geostrophic balance      Cyclones/anticyclones;   |
 |  (~1000km)  (PGF ≈ Coriolis)         winds parallel to isobars|
-|                                                                |
-|  Mesoscale  Non-geostrophic          Thunderstorm outflows,    |
-|  (~100km)   (ageostrophic)           sea breezes, fronts       |
-|                                                                |
-|  Small      Inertial/viscous         Turbulence, boundary      |
-|  scale                               layer                     |
+|                                                               |
+|  Mesoscale  Non-geostrophic          Thunderstorm outflows,   |
+|  (~100km)   (ageostrophic)           sea breezes, fronts      |
+|                                                               |
+|  Small      Inertial/viscous         Turbulence, boundary     |
+|  scale                               layer                    |
 +---------------------------------------------------------------+
 ```
 

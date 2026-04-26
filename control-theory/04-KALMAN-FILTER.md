@@ -4,7 +4,7 @@
 
 ```
 +------------------------------------------------------------------+
-|               STATE ESTIMATION LANDSCAPE                          |
+|               STATE ESTIMATION LANDSCAPE                         |
 +------------------------------------------------------------------+
 |                                                                    |
 |  PROBLEM:  Estimate x(t) from noisy measurements y(t)            |

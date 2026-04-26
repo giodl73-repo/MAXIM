@@ -6,14 +6,14 @@ The NATO/ICAO phonetic alphabet is a **noise-robust spelling alphabet**: each le
 
 ```
 ┌──────────────────────────────────────────────────────────────────┐
-│            NATO/ICAO PHONETIC ALPHABET — SYSTEM MAP               │
+│            NATO/ICAO PHONETIC ALPHABET — SYSTEM MAP              │
 │                                                                  │
 │  Purpose: Anti-ambiguity communication over radio/telephone      │
 │  Standard: ICAO Annex 10 (aviation), STANAG 3910 (NATO military) │
 │  Adopted: 1956 (finalized, after ICAO 1951 trial version)        │
 │                                                                  │
 │  Three parallel usage domains:                                   │
-│  ┌───────────────────────────────────────────────────────────┐  │
+│  ┌───────────────────────────────────────────────────────────┐   │
 │  │ Aviation    │ ATC uses ICAO alphabet for all callsigns,   │  │
 │  │             │ runways, altimeter settings, frequencies    │  │
 │  ├─────────────┼───────────────────────────────────────────  │  │
@@ -35,7 +35,7 @@ The NATO/ICAO phonetic alphabet is a **noise-robust spelling alphabet**: each le
 
 ```
 ┌─────────────────────────────────────────────────────────────────┐
-│           NATO/ICAO PHONETIC ALPHABET                            │
+│           NATO/ICAO PHONETIC ALPHABET                           │
 ├──────┬────────────┬─────────────────────────┬───────────────────┤
 │  A   │  Alfa      │  AL-fah                  │ (not "Alpha")    │
 │  B   │  Bravo     │  BRAH-voh                │                  │
@@ -104,29 +104,29 @@ The current alphabet is the third major English spelling alphabet:
 │           EVOLUTION OF ENGLISH PHONETIC ALPHABETS            │
 │                                                              │
 │  WWI — British/US military (various, non-standardized)       │
-│  Example: Ack Beer Can Don Edward Frederick George...         │
+│  Example: Ack Beer Can Don Edward Frederick George...        │
 │                                                              │
 │  WWII — ABLE BAKER alphabet (US military, 1941)              │
 │  A=Able  B=Baker  C=Charlie  D=Dog  E=Easy  F=Fox            │
-│  G=George  H=How  I=Item  J=Jig  K=King  L=Love             │
-│  M=Mike  N=Nan  O=Oboe  P=Peter  Q=Queen  R=Roger           │
+│  G=George  H=How  I=Item  J=Jig  K=King  L=Love              │
+│  M=Mike  N=Nan  O=Oboe  P=Peter  Q=Queen  R=Roger            │
 │  S=Sugar  T=Tare  U=Uncle  V=Victor  W=William               │
 │  X=Xray  Y=Yoke  Z=Zebra                                     │
 │                                                              │
 │  Problem: "Able", "Baker", "George", "Dog" are English-      │
-│  centric. Non-native English speakers couldn't use them.    │
+│  centric. Non-native English speakers couldn't use them.     │
 │                                                              │
 │  ICAO 1951 — First international attempt                     │
 │  Changed most words; tested against 31 languages             │
 │                                                              │
 │  ICAO/NATO 1956 — Current alphabet                           │
 │  Tested for:                                                 │
-│  — Intelligibility in noise (signal-to-noise tests)         │
-│  — Pronounceability across language families                │
-│  — Acoustic distinctiveness (no two words confusable)       │
+│  — Intelligibility in noise (signal-to-noise tests)          │
+│  — Pronounceability across language families                 │
+│  — Acoustic distinctiveness (no two words confusable)        │
 │  — Each word recognizable when heard in isolation            │
 │                                                              │
-│  Key changes from ABLE BAKER to current:                    │
+│  Key changes from ABLE BAKER to current:                     │
 │  Able → Alfa (ph not ph; "Alpha" spelled differently)        │
 │  Baker → Bravo                                               │
 │  Dog → Delta                                                 │
@@ -263,7 +263,7 @@ Acknowledgment:
 
 ```
 ┌──────────────────────────────────────────────────────────────┐
-│                USAGE COMPARISON                               │
+│                USAGE COMPARISON                              │
 ├─────────────────┬────────────────┬───────────────────────────┤
 │ Aviation (ICAO) │ Military (NATO) │ Maritime (GMDSS)          │
 ├─────────────────┼────────────────┼───────────────────────────┤

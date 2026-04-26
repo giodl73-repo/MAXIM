@@ -26,10 +26,10 @@
 
   THE ΛCDM CONTENT PIE:
   ┌──────────────────────────────────────────────────────────────────────┐
-  │  Dark Energy (Λ):    68.5%  — drives accelerated expansion          │
-  │  Dark Matter (CDM):  26.5%  — gravitational scaffold for structure  │
+  │  Dark Energy (Λ):    68.5%  — drives accelerated expansion           │
+  │  Dark Matter (CDM):  26.5%  — gravitational scaffold for structure   │
   │  Ordinary Matter:     4.9%  — baryons (stars, gas, planets, you)   │
-  │  Radiation:          ~0.01% — photons + neutrinos, negligible today │
+  │  Radiation:          ~0.01% — photons + neutrinos, negligible today  │
   └──────────────────────────────────────────────────────────────────────┘
   Of the ~5% ordinary matter: ~90% is diffuse gas in filaments/CGM,
   ~10% is stars, ~0.1% is everything else (planets, dust, black holes...)
@@ -74,7 +74,7 @@ From Einstein's field equations G_μν + Λg_μν = 8πG/c⁴ T_μν with FLRW m
   FIRST FRIEDMANN EQUATION  (energy-like):
   ┌──────────────────────────────────────────────────────────────────────┐
   │  H² = (ȧ/a)² = 8πGρ/3 − kc²/a² + Λc²/3                          │
-  │                 ────────  ───────  ──────                           │
+  │                 ────────  ───────  ──────                            │
   │                 matter    curvature dark energy                      │
   └──────────────────────────────────────────────────────────────────────┘
   ρ = total energy density (matter + radiation)
@@ -112,13 +112,13 @@ From Einstein's field equations G_μν + Λg_μν = 8πG/c⁴ T_μν with FLRW m
   ┌─────────────────────────────────────────────────────────────────────┐
   │  H₀     = 67.36 ± 0.54  km/s/Mpc   (Planck CMB)                  │
   │  H₀     = 73.0  ± 1.0   km/s/Mpc   (SH0ES Cepheids) ← TENSION!   │
-  │  Ω_b h² = 0.02237        baryons                                   │
-  │  Ω_c h² = 0.1200         cold dark matter                          │
-  │  Ω_Λ   = 0.6847          dark energy                               │
+  │  Ω_b h² = 0.02237        baryons                                    │
+  │  Ω_c h² = 0.1200         cold dark matter                           │
+  │  Ω_Λ   = 0.6847          dark energy                                │
   │  n_s    = 0.9651          primordial spectral index                 │
   │  σ₈    = 0.8111           amplitude of matter fluctuations          │
   │  t₀    = 13.787 ± 0.020 Gyr   age of universe                     │
-  │  Flat: Ω_total = 1.000 ± 0.002                                     │
+  │  Flat: Ω_total = 1.000 ± 0.002                                      │
   └─────────────────────────────────────────────────────────────────────┘
 ```
 
@@ -188,7 +188,7 @@ Before inflation was proposed, ΛCDM had three unresolved problems:
   At t ~ 3 min (T ~ 0.1 MeV = 10⁹ K):
   ┌─────────────────────────────────────────────────────────────────────┐
   │  p + n → D + γ                                                      │
-  │  D + D → ³He + n,  ⁴He + p                                         │
+  │  D + D → ³He + n,  ⁴He + p                                          │
   │  D + p → ³He + γ,  ³He + n → ⁴He + p (etc.)                       │
   │  Bottleneck: D photodissociation delays start until T < 0.07 MeV    │
   │  (despite n+p→D available, photons destroy D until cool enough)     │
@@ -249,25 +249,25 @@ Before inflation was proposed, ΛCDM had three unresolved problems:
   │ Primary (from recombination):                                           │
   │                                                                         │
   │ 1. Sachs-Wolfe effect (ℓ < 100, θ > 2°):                              │
-  │    Photons climbing out of density wells at recombination              │
-  │    Are gravitationally redshifted → cooler toward overdensities        │
-  │    (counter-intuitive: overdense regions appear cool on large scales)  │
+  │    Photons climbing out of density wells at recombination               │
+  │    Are gravitationally redshifted → cooler toward overdensities         │
+  │    (counter-intuitive: overdense regions appear cool on large scales)   │
   │                                                                         │
   │ 2. Acoustic oscillations (ℓ ~ 100–2000):                              │
-  │    Pre-recombination plasma is coupled gas+radiation                   │
-  │    Pressure waves oscillate in photon-baryon fluid                     │
-  │    At recombination: modes "frozen" at random phase in oscillation     │
-  │    → peaks in power spectrum where modes caught at extrema             │
+  │    Pre-recombination plasma is coupled gas+radiation                    │
+  │    Pressure waves oscillate in photon-baryon fluid                      │
+  │    At recombination: modes "frozen" at random phase in oscillation      │
+  │    → peaks in power spectrum where modes caught at extrema              │
   │                                                                         │
   │ 3. Silk damping (ℓ > 1000, small scales):                             │
   │    Photon diffusion erases fluctuations below Silk scale (~7 Mpc)     │
   │    Exponential suppression of power at high ℓ                         │
   │                                                                         │
   │ Secondary (after recombination):                                        │
-  │    Reionization (τ_reion): suppresses power by e^(−2τ) at small scales │
+  │    Reionization (τ_reion): suppresses power by e^(−2τ) at small scales  │
   │    Integrated Sachs-Wolfe (ISW): DE-induced potential decay at late time│
   │    Sunyaev-Zel'dovich (SZ): hot cluster gas inverse-Compton scatters  │
-  │    Gravitational lensing: smears acoustic peaks                        │
+  │    Gravitational lensing: smears acoustic peaks                         │
   └─────────────────────────────────────────────────────────────────────────┘
 ```
 
@@ -330,7 +330,7 @@ Before inflation was proposed, ΛCDM had three unresolved problems:
   4. BULLET CLUSTER (1E0657-558):
      Two galaxy clusters that collided ~100 Myr ago
      ┌──────────────────────────────────────────────────────────────┐
-     │  Hot gas (X-ray):   slowed by ram pressure → sits between   │
+     │  Hot gas (X-ray):   slowed by ram pressure → sits between    │
      │  Galaxies + DM:     collisionless → passed through each other│
      │  Gravitational lens: mass peak coincides with galaxies, NOT gas│
      └──────────────────────────────────────────────────────────────┘
@@ -407,7 +407,7 @@ Before inflation was proposed, ΛCDM had three unresolved problems:
   ┌──────────────────────────────────────────────────────────────────────────┐
   │  QFT prediction: ρ_vac ~ (E_Planck)⁴/(ℏc)³ ~ 10⁹⁴ g/cm³              │
   │  Observed:       ρ_Λ  ~ 10⁻²⁹ g/cm³                                   │
-  │  Discrepancy:    10¹²³  — worst fine-tuning problem in physics          │
+  │  Discrepancy:    10¹²³  — worst fine-tuning problem in physics           │
   │  SUSY would reduce to ~10⁶⁰, still terrible.                           │
   └──────────────────────────────────────────────────────────────────────────┘
 
@@ -494,10 +494,10 @@ Before inflation was proposed, ΛCDM had three unresolved problems:
 
   KEY SURVEYS:
   ┌──────────────────────────────────────────────────────────────────────┐
-  │ SDSS BOSS (2014):   BAO detected at 0.1 < z < 0.6, ~1% precision    │
-  │ eBOSS (2021):       z up to 2.2 using quasars as tracers, ~0.7%     │
+  │ SDSS BOSS (2014):   BAO detected at 0.1 < z < 0.6, ~1% precision     │
+  │ eBOSS (2021):       z up to 2.2 using quasars as tracers, ~0.7%      │
   │ DESI (2024):        6 million galaxies, 0.1 < z < 3.5, ~0.5%       │
-  │                     First evidence of evolving dark energy (w₀,wₐ)  │
+  │                     First evidence of evolving dark energy (w₀,wₐ)   │
   └──────────────────────────────────────────────────────────────────────┘
 ```
 
@@ -620,27 +620,27 @@ How we measure cosmic distances — each rung calibrates the next:
 
   ┌────────────────────────────────────────────────────────────────────────┐
   │ Comoving distance:  χ = ∫₀ᶻ c dz'/H(z')                             │
-  │   Distance in today's coordinates; doesn't change as universe expands │
+  │   Distance in today's coordinates; doesn't change as universe expands  │
   │   Observable universe: χ_max ≈ 46.5 Gly (comoving)                   │
   │                                                                        │
   │ Angular diameter distance: D_A = χ/(1+z)                             │
   │   Physical size of object / observed angle: θ = l/D_A                │
   │   Has a MAXIMUM: peaks at z ~ 1.5 (objects at z > 1.5 appear LARGER  │
-  │   with increasing z — expansion shrinks angular diam. distance)       │
+  │   with increasing z — expansion shrinks angular diam. distance)        │
   │                                                                        │
   │ Luminosity distance: D_L = χ(1+z) = D_A(1+z)²                        │
   │   flux = L/(4πD_L²)    [used for SNe Ia, Type Ia standard candle]    │
-  │   Always larger than comoving distance                                │
+  │   Always larger than comoving distance                                 │
   │                                                                        │
   │ Hubble radius: d_H = c/H₀ ≈ 14.5 Gly                                 │
-  │   NOT a horizon — objects beyond can still send light to us           │
-  │   (due to acceleration, some comoving regions already out of reach)   │
+  │   NOT a horizon — objects beyond can still send light to us            │
+  │   (due to acceleration, some comoving regions already out of reach)    │
   │                                                                        │
   │ Particle horizon:  χ_particle ≈ 46.5 Gly   (furthest light could     │
-  │   have reached us from Big Bang — defines observable universe)        │
+  │   have reached us from Big Bang — defines observable universe)         │
   │                                                                        │
   │ Event horizon:  χ_event ≈ 16 Gly  (furthest we can ever influence    │
-  │   or receive light from — due to accelerating expansion)              │
+  │   or receive light from — due to accelerating expansion)               │
   └────────────────────────────────────────────────────────────────────────┘
 ```
 
@@ -711,7 +711,7 @@ How we measure cosmic distances — each rung calibrates the next:
   │ What problems did inflation solve?     │ Horizon, flatness, monopoles      │
   │ What did it predict?                   │ n_s ≈ 0.96, primordial GWs (B-mode│
   ├────────────────────────────────────────┼───────────────────────────────────┤
-  │ What is the Hubble tension?            │ CMB: H₀=67.4 vs Cepheids: 73.0   │
+  │ What is the Hubble tension?            │ CMB: H₀=67.4 vs Cepheids: 73.0    │
   │                                        │ ~5σ; unresolved; may be new physics│
   ├────────────────────────────────────────┼───────────────────────────────────┤
   │ What did GW170817 confirm?             │ NS mergers → r-process (gold!)    │

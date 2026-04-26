@@ -10,25 +10,25 @@ MASONRY MATERIAL HIERARCHY
 
   UNITS (the solid pieces)
   ┌─────────────────────────────────────────────────────────────────┐
-  │  Brick        CMU            Natural Stone      Adobe/Rammed   │
-  │  (fired clay) (concrete)     (igneous/sed/meta) (earth)        │
+  │  Brick        CMU            Natural Stone      Adobe/Rammed    │
+  │  (fired clay) (concrete)     (igneous/sed/meta) (earth)         │
   └─────────────────────────────────────────────────────────────────┘
                     ↓ bonded by ↓
   MORTAR (the connective tissue)
   ┌─────────────────────────────────────────────────────────────────┐
-  │  Type M   Type S   Type N   Type O   Historic Lime Putty       │
-  │  (strong) (flex)  (general) (soft)   (hydraulic / non-hyd)     │
+  │  Type M   Type S   Type N   Type O   Historic Lime Putty        │
+  │  (strong) (flex)  (general) (soft)   (hydraulic / non-hyd)      │
   └─────────────────────────────────────────────────────────────────┘
                     ↓ arranged in ↓
   BOND PATTERNS (structural + visual organization)
   ┌─────────────────────────────────────────────────────────────────┐
-  │  Running   Flemish   English   Stack   Ashlar   Rubble         │
+  │  Running   Flemish   English   Stack   Ashlar   Rubble          │
   └─────────────────────────────────────────────────────────────────┘
                     ↓ forming ↓
   ASSEMBLIES (walls, arches, vaults, domes)
   ┌─────────────────────────────────────────────────────────────────┐
-  │  Unreinforced    Reinforced (rebar+grout)   Post-tensioned     │
-  │  Cavity wall     Veneer     Composite       Single-wythe       │
+  │  Unreinforced    Reinforced (rebar+grout)   Post-tensioned      │
+  │  Cavity wall     Veneer     Composite       Single-wythe        │
   └─────────────────────────────────────────────────────────────────┘
                     ↓ governed by ↓
   STRUCTURAL BEHAVIOR
@@ -181,7 +181,7 @@ ARCH THRUST LINE
 
   FLEXIBLE CHAIN (hanging under gravity)     INVERTED = IDEAL ARCH SHAPE
   ┌──────────────────────────────────┐       ┌──────────────────────────────────┐
-  │                                  │       │   ╭─────────────────────────╮   │
+  │                                  │       │   ╭─────────────────────────╮    │
   │  A ──────────────────────── B    │  →   │  A                           B  │
   │       ╰──────────────────╯       │       │       ╭──────────────────╯       │
   │   (catenary under uniform load)  │       │   (inverted catenary = arch)     │

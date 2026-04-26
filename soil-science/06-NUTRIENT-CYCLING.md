@@ -45,7 +45,7 @@ Biological nitrogen fixation (BNF) is the only natural pathway by which atmosphe
   RATES OF BIOLOGICAL N FIXATION:
   +--------------------------+----------+-----------------------------------+
   | System                   |Rate      | Conditions for maximum fixation   |
-  |                          |(kg N/ha/yr)                                   |
+  |                          |(kg N/ha/yr)                                  |
   +--------------------------+----------+-----------------------------------+
   | Rhizobium (soybean)      | 100–300  | Low soil N; acid pH 6.0–7.5;     |
   | Rhizobium (alfalfa)      | 150–250  | adequate P, Mo, Fe; correct       |

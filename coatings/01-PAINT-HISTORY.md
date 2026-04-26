@@ -271,12 +271,12 @@ ERA 5: REGULATORY + FUNCTIONAL (~1990 to present)
   REGULATORY FRAMEWORK:
   ┌────────────────────────────────────────────────────────────┐
   │  1990 Clean Air Act Amendments (US)                        │
-  │  → EPA architectural coating VOC limits                   │
+  │  → EPA architectural coating VOC limits                    │
   │                                                            │
-  │  California CARB (most stringent — sets de facto          │
+  │  California CARB (most stringent — sets de facto           │
   │  national standard for manufacturers selling in CA)        │
   │                                                            │
-  │  EU Decopaint Directive (2004/42/EC)                      │
+  │  EU Decopaint Directive (2004/42/EC)                       │
   └────────────────────────────────────────────────────────────┘
 
   FORMULATION SHIFTS:

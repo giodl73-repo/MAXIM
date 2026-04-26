@@ -9,10 +9,10 @@ DWV SYSTEM: THREE INTERACTING FUNCTIONS
 
   ┌──────────────────────────────────────────────────────────────┐
   │  DRAIN: moves wastewater from fixture to sewer               │
-  │  WASTE: carries non-toilet fixture waste (sinks, tubs,      │
+  │  WASTE: carries non-toilet fixture waste (sinks, tubs,       │
   │         dishwashers, washing machines)                       │
   │  VENT: maintains atmospheric pressure throughout system      │
-  │        → prevents trap siphon                               │
+  │        → prevents trap siphon                                │
   └──────────────────────────────────────────────────────────────┘
 
   WHY VENTING IS MANDATORY:
@@ -54,11 +54,11 @@ DWV SYSTEM: THREE INTERACTING FUNCTIONS
 
   WHY SLOPE MATTERS:
   ┌──────────────────────────────────────────────────────────┐
-  │  TOO SHALLOW (< 1/8" per foot):                         │
+  │  TOO SHALLOW (< 1/8" per foot):                          │
   │    Water moves slowly                                    │
-  │    Solids settle, accumulate → chronic clogging         │
+  │    Solids settle, accumulate → chronic clogging          │
   │                                                          │
-  │  JUST RIGHT (1/4" per foot):                            │
+  │  JUST RIGHT (1/4" per foot):                             │
   │    Water and solids move together                        │
   │    Self-scouring velocity                                │
   │                                                          │
@@ -96,7 +96,7 @@ DWV SYSTEM: THREE INTERACTING FUNCTIONS
   │  Inlet (from fixture)                                    │
   │          ↓                                               │
   │      ──────                                              │
-  │     /  water  \  ← water seal (2" min depth)            │
+  │     /  water  \  ← water seal (2" min depth)             │
   │    │  SEALED  │                                          │
   │     ────────                                             │
   │          ↓                                               │
@@ -180,8 +180,8 @@ DWV SYSTEM: THREE INTERACTING FUNCTIONS
 
   VENT CONFIGURATIONS:
   ┌───────────────────────────────────────────────────────────┐
-  │  INDIVIDUAL VENT (true vent):                            │
-  │    Each fixture gets its own vent pipe back to stack     │
+  │  INDIVIDUAL VENT (true vent):                             │
+  │    Each fixture gets its own vent pipe back to stack      │
   │    Most reliable; most pipe required                      │
   │    Standard for toilets                                   │
   ├───────────────────────────────────────────────────────────┤
@@ -190,20 +190,20 @@ DWV SYSTEM: THREE INTERACTING FUNCTIONS
   │    Share one vent; vent between them                     │
   │    Common for bathroom pairs (two sinks, two baths)      │
   ├───────────────────────────────────────────────────────────┤
-  │  WET VENT:                                               │
-  │    Single pipe serves as BOTH drain for upper fixture    │
-  │    AND vent for lower fixture simultaneously             │
-  │    Pipe must be sized to handle both functions           │
-  │    Code-governed: specific fixture combinations allowed  │
+  │  WET VENT:                                                │
+  │    Single pipe serves as BOTH drain for upper fixture     │
+  │    AND vent for lower fixture simultaneously              │
+  │    Pipe must be sized to handle both functions            │
+  │    Code-governed: specific fixture combinations allowed   │
   ├───────────────────────────────────────────────────────────┤
   │  STACK VENT:                                             │
   │    Vertical drain stack extends above highest fixture    │
   │    Extension serves as vent (no additional pipe needed   │
   │    above highest fixture on that stack)                  │
   ├───────────────────────────────────────────────────────────┤
-  │  CIRCUIT VENT:                                           │
-  │    Commercial: vents a series of fixtures on one branch  │
-  │    Single vent at end of branch serving multiple         │
+  │  CIRCUIT VENT:                                            │
+  │    Commercial: vents a series of fixtures on one branch   │
+  │    Single vent at end of branch serving multiple          │
   └───────────────────────────────────────────────────────────┘
 
   VENT TERMINAL:

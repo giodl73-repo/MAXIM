@@ -36,10 +36,10 @@ BYZANTINE AND MEDIEVAL VISUAL CULTURE
 
   1140–1500  GOTHIC
           ┌──────────────────────────────────────────────────────────┐
-          │ STRUCTURAL LOGIC: pointed arch + flying buttress          │
-          │ transfers load outside the wall                           │
-          │ Result: walls become screens filled with glass            │
-          │ Chartres, Notre-Dame de Paris, Sainte-Chapelle            │
+          │ STRUCTURAL LOGIC: pointed arch + flying buttress         │
+          │ transfers load outside the wall                          │
+          │ Result: walls become screens filled with glass           │
+          │ Chartres, Notre-Dame de Paris, Sainte-Chapelle           │
           └──────────────────────────────────────────────────────────┘
           - Manuscript illumination: Book of Kells (c.800), Très
             Riches Heures du Duc de Berry (c.1416)
@@ -66,7 +66,7 @@ GOLD GROUND THEOLOGICAL FUNCTION
 
   ┌─────────────────────────────────────────────────────────┐
   │                                                         │
-  │   Gold = uncreated divine light (lux vs lumen)         │
+  │   Gold = uncreated divine light (lux vs lumen)          │
   │   Gold ≠ yellow paint ≠ sunlight ≠ material gold        │
   │                                                         │
   │   The gold ground says: this figure exists in           │
@@ -100,18 +100,18 @@ LINEAR PERSPECTIVE vs INVERSE PERSPECTIVE
   (Renaissance onward)        (Byzantine icons)
 
   ┌──────────────────┐        ┌──────────────────────────┐
-  │  Vanishing point │        │  No single VP             │
-  │  recedes INTO    │        │                           │
+  │  Vanishing point │        │  No single VP            │
+  │  recedes INTO    │        │                          │
   │  the picture     │        │  Lines of recession        │
-  │                  │        │  converge TOWARD viewer   │
-  │  Viewer is       │        │                           │
-  │  outside looking │        │  The space expands as     │
-  │  in              │        │  it approaches viewer     │
-  │                  │        │                           │
-  │  Creates         │        │  The holy figure is       │
-  │  illusionistic   │        │  "coming out" toward      │
-  │  window/space    │        │  the viewer, not          │
-  │                  │        │  receding away            │
+  │                  │        │  converge TOWARD viewer  │
+  │  Viewer is       │        │                          │
+  │  outside looking │        │  The space expands as    │
+  │  in              │        │  it approaches viewer    │
+  │                  │        │                          │
+  │  Creates         │        │  The holy figure is      │
+  │  illusionistic   │        │  "coming out" toward     │
+  │  window/space    │        │  the viewer, not         │
+  │                  │        │  receding away           │
   └──────────────────┘        └──────────────────────────┘
 
   Byzantine reading: the sacred enters our space, not
@@ -202,9 +202,9 @@ ROMANESQUE STRUCTURAL SYSTEM
   │   Result: massive, dim, heavy -- aesthetic of solidity       │
   │   and enclosure                                              │
   │                                                              │
-  │   THICK WALLS ──> Small windows ──> Dark interior           │
+  │   THICK WALLS ──> Small windows ──> Dark interior            │
   │                                                              │
-  │   GROIN VAULT (cross-vault): two barrel vaults              │
+  │   GROIN VAULT (cross-vault): two barrel vaults               │
   │   intersecting at right angles                               │
   │   Concentrates load at corners --> allows larger spans       │
   │   Still: thick walls, limited window size                    │
@@ -239,8 +239,8 @@ TYMPANUM AS THEOLOGICAL THRESHOLD
 
   ┌───────────────────────────────────────────────────────┐
   │        [Christ in Majesty / Last Judgment]            │
-  │   surrounded by the symbols of the Four Evangelists  │
-  │   flanked by apostles, angels, the blessed/damned    │
+  │   surrounded by the symbols of the Four Evangelists   │
+  │   flanked by apostles, angels, the blessed/damned     │
   │                                                       │
   │   Message: you cross this threshold into sacred       │
   │   space. The Last Judgment will also be a threshold   │
@@ -291,9 +291,9 @@ GOTHIC STRUCTURAL LOGIC
   FLYING BUTTRESS:
   ┌─────────────────────────────────────────────────────┐
   │                                                     │
-  │   Takes the remaining lateral thrust from the vault  │
+  │   Takes the remaining lateral thrust from the vault │
   │   and transfers it OUTSIDE the building             │
-  │   via an arched "flying" element to a pier buttress  │
+  │   via an arched "flying" element to a pier buttress │
   │                                                     │
   │   Interior wall is now freed from structural duty   │
   │   Wall becomes a SCREEN for windows                 │
@@ -337,7 +337,7 @@ STAINED GLASS FUNCTION AT CHARTRES
   │    Vertical, tall -- Old and New Testament typology     │
   │    Narrative scenes in medallion roundels               │
   │    Blue dominates: lapis lazuli-based glass             │
-  │    Red secondary: manganese/copper-based               │
+  │    Red secondary: manganese/copper-based                │
   │    The blue is distinctive "Chartres blue"              │
   └─────────────────────────────────────────────────────────┘
   ┌─────────────────────────────────────────────────────────┐

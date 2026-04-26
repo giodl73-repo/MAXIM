@@ -6,26 +6,26 @@
 IRON AND STEEL METALLURGY TIMELINE
 ┌──────────────────────────────────────────────────────────────────────────────┐
 │                                                                              │
-│  1709  Darby smelts iron with coke (not charcoal) → scale increases         │
-│  1779  Ironbridge, Coalbrookdale → first cast iron bridge                   │
-│  1784  Cort's puddling process → wrought iron at industrial scale           │
-│  1820  Tredgold's "Practical Essay on Cast Iron" → design rules emerge      │
-│  1851  Crystal Palace, London → prefab cast iron + glass system             │
+│  1709  Darby smelts iron with coke (not charcoal) → scale increases          │
+│  1779  Ironbridge, Coalbrookdale → first cast iron bridge                    │
+│  1784  Cort's puddling process → wrought iron at industrial scale            │
+│  1820  Tredgold's "Practical Essay on Cast Iron" → design rules emerge       │
+│  1851  Crystal Palace, London → prefab cast iron + glass system              │
 │  1856  Bessemer converter → cheap mild steel in bulk                         │
-│  1864  Open-hearth furnace (Siemens-Martin) → better steel quality control  │
-│  1880  American hot-rolling mills → standard I-beam sections                │
-│  1885  Home Insurance Building, Chicago → first steel skeleton frame        │
+│  1864  Open-hearth furnace (Siemens-Martin) → better steel quality control   │
+│  1880  American hot-rolling mills → standard I-beam sections                 │
+│  1885  Home Insurance Building, Chicago → first steel skeleton frame         │
 │  1890s Riveted connections standard → replaced by bolting post-1950          │
-│  1950s Electric arc furnace → scrap-based steelmaking                       │
-│  1960s Bolted high-strength connections → A325/A490                         │
-│  1970s Continuous casting → replaces ingot pouring                          │
-│  1980s TMCP steels → higher strength through process control                │
-│  2000s EAF + DRI (direct reduced iron) → lower CO₂ steelmaking              │
+│  1950s Electric arc furnace → scrap-based steelmaking                        │
+│  1960s Bolted high-strength connections → A325/A490                          │
+│  1970s Continuous casting → replaces ingot pouring                           │
+│  1980s TMCP steels → higher strength through process control                 │
+│  2000s EAF + DRI (direct reduced iron) → lower CO₂ steelmaking               │
 │                                                                              │
 │  CARBON CONTENT IS EVERYTHING:                                               │
-│  Pig iron (blast furnace output):   3–5% C → very brittle                   │
-│  Cast iron (remelted + poured):     2–4% C → brittle in tension             │
-│  Wrought iron (worked, slag-rich):  <0.1% C → ductile, fibrous              │
+│  Pig iron (blast furnace output):   3–5% C → very brittle                    │
+│  Cast iron (remelted + poured):     2–4% C → brittle in tension              │
+│  Wrought iron (worked, slag-rich):  <0.1% C → ductile, fibrous               │
 │  Mild steel (structural):           0.15–0.30% C → balanced properties     │
 │  High-carbon steel:                 0.6–1.5% C → hard but brittle          │
 │                                                                              │
@@ -178,31 +178,31 @@ BESSEMER CONVERTER PROCESS (1856)
 │                                                                              │
 │  1. Tilt converter → charge with ~15–20 tonnes molten pig iron (3.5–4% C)  │
 │                                                                              │
-│  2. Upright → blast air through tuyères in converter bottom                 │
-│      O₂ in air → reacts with C, Si, Mn in molten iron                       │
+│  2. Upright → blast air through tuyères in converter bottom                  │
+│      O₂ in air → reacts with C, Si, Mn in molten iron                        │
 │      C + O₂ → CO₂/CO  (carbon removed; violent reaction; intense flame)    │
 │      Si + O₂ → SiO₂ (into slag)                                            │
-│      Mn + O₂ → MnO (into slag)                                              │
+│      Mn + O₂ → MnO (into slag)                                               │
 │                                                                              │
 │  3. Blow duration: ~15–20 minutes                                            │
 │     → C drops from ~4% to <0.1% (OVER-blown) → iron oxidized               │
 │                                                                              │
 │  4. Add ferromanganese: re-carburizes to target C; deoxidizes                │
-│     → target C: 0.15–0.30% for mild steel                                   │
+│     → target C: 0.15–0.30% for mild steel                                    │
 │                                                                              │
-│  5. Tilt → pour into ladle → teemed into ingot molds                        │
+│  5. Tilt → pour into ladle → teemed into ingot molds                         │
 │                                                                              │
 │  PROBLEMS:                                                                   │
-│  Cannot remove phosphorus (need basic lining → Thomas converter, 1878)      │
-│  Nitrogen pickup from air → strain-age embrittlement                        │
-│  Tight carbon control difficult → variable product                          │
-│  → superseded by open-hearth furnace by 1900 for quality work               │
+│  Cannot remove phosphorus (need basic lining → Thomas converter, 1878)       │
+│  Nitrogen pickup from air → strain-age embrittlement                         │
+│  Tight carbon control difficult → variable product                           │
+│  → superseded by open-hearth furnace by 1900 for quality work                │
 │                                                                              │
 │  REVOLUTION:                                                                 │
 │  15–20 minutes for 20 tonnes vs 5 hours/200 kg for wrought iron puddling   │
 │  Cost drop: steel price fell ~85% between 1865 and 1880                    │
 │  → skeleton steel frame buildings viable                                     │
-│  → the Chicago School of architecture became economically possible          │
+│  → the Chicago School of architecture became economically possible           │
 │                                                                              │
 └──────────────────────────────────────────────────────────────────────────────┘
 ```

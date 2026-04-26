@@ -6,9 +6,9 @@
 DOMAINS OF LIFE
 +------------------------------------------------------------------+
 |  BACTERIA                    ARCHAEA               EUKARYOTA     |
-|  (most diversity)            (extremophiles,       (nucleus,      |
+|  (most diversity)            (extremophiles,       (nucleus,     |
 |  E.coli, cyanobacteria       methanogens,          membrane-bound |
-|  Firmicutes, Proteobacteria  Thermophiles)         organelles)    |
+|  Firmicutes, Proteobacteria  Thermophiles)         organelles)   |
 +------------------------------------------------------------------+
                                                          |
                               +--------------------------+
@@ -97,19 +97,19 @@ Cladistics is a maximum parsimony problem on a character-state matrix. Each taxo
 ```
 KEY CONCEPTS
 +---------------------------------------------------------------+
-| Clade (monophyletic group):                                    |
+| Clade (monophyletic group):                                   |
 |   An ancestor + ALL its descendants                           |
 |   "Mammals" is a clade. "Reptiles" (without birds) is NOT.    |
 |                                                               |
-| Synapomorphy:                                                  |
+| Synapomorphy:                                                 |
 |   Shared derived character — evidence of common ancestry      |
 |   Example: hair/fur = synapomorphy of all mammals             |
 |                                                               |
-| Homoplasy (convergence):                                       |
+| Homoplasy (convergence):                                      |
 |   Same trait evolving independently in different lineages     |
 |   Example: wings in insects, birds, bats, pterosaurs          |
 |                                                               |
-| Outgroup:                                                      |
+| Outgroup:                                                     |
 |   A related group used to determine which traits are ancestral|
 +---------------------------------------------------------------+
 
@@ -154,22 +154,22 @@ Interpretation:
 |  Two germ layers → Cnidaria, Ctenophora (ectoderm + endoderm)|
 |  Radial symmetry → Cnidaria, Ctenophora                     |
 |  Three germ layers → BILATERIA (+ mesoderm = muscles, organs)|
-|  Bilateral symmetry → BILATERIA                              |
+|  Bilateral symmetry → BILATERIA                             |
 |  True coelom     → Annelida, Mollusca, Arthropoda,          |
-|                    Echinodermata, Chordata                   |
-|  Segmentation    → Annelida, Arthropoda (Chordata too,       |
+|                    Echinodermata, Chordata                  |
+|  Segmentation    → Annelida, Arthropoda (Chordata too,      |
 |                    via somites)                               |
 |  Exoskeleton     → Arthropoda (chitin)                      |
-|  Endoskeleton    → Echinodermata (calcium carbonate),        |
+|  Endoskeleton    → Echinodermata (calcium carbonate),       |
 |                    Vertebrata (bone/cartilage)                |
-|  Pharyngeal slits → Chordata (including vertebrates)         |
-|  Notochord       → Chordata                                  |
-|  Vertebral column → Vertebrata                               |
-|  Jaws            → Gnathostomata (all vertebrates except     |
-|                    lampreys/hagfish)                         |
-|  Paired limbs    → Tetrapoda (4 limbs)                       |
-|  Amniotic egg    → Amniota (reptiles, birds, mammals)        |
-|  Placenta        → Eutheria (placental mammals)              |
+|  Pharyngeal slits → Chordata (including vertebrates)        |
+|  Notochord       → Chordata                                 |
+|  Vertebral column → Vertebrata                              |
+|  Jaws            → Gnathostomata (all vertebrates except    |
+|                    lampreys/hagfish)                        |
+|  Paired limbs    → Tetrapoda (4 limbs)                      |
+|  Amniotic egg    → Amniota (reptiles, birds, mammals)       |
+|  Placenta        → Eutheria (placental mammals)             |
 +-------------------------------------------------------------+
 ```
 
@@ -231,9 +231,9 @@ Pre-Cambrian (~600 Ma)          Cambrian (~520–508 Ma)
 | No eyes             |         | Opabinia (5 eyes, trunk)       |
 | No heads            |         | Hallucigenia (spiny)           |
 +---------------------+         | Pikaia (possible chordate)     |
-                                 |                                |
+                                 |                               |
                                  | CHENGJIANG FAUNA (520 Ma, China)|
-                                 | Yunnanozoon, Myllokunmingia    |
+                                 | Yunnanozoon, Myllokunmingia   |
                                  +--------------------------------+
 WHY the explosion?
 - Rising O₂ levels enabling larger active animals

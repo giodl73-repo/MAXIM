@@ -55,17 +55,17 @@ Shows: blocks (system elements), their properties, and relationships.
 
   bdd [Package] Vehicle [Vehicle Structure]
   ┌─────────────────────────────────────────┐
-  │ «block»                                  │
-  │ Vehicle                                  │
+  │ «block»                                 │
+  │ Vehicle                                 │
   ├─────────────────────────────────────────┤
   │ values:                                  │
   │   mass: kg = 1500                        │
   │   maxSpeed: m/s                          │
   ├─────────────────────────────────────────┤
-  │ parts:                                   │
-  │   engine: Engine [1]                     │
-  │   transmission: Transmission [1]         │
-  │   wheels: Wheel [4]                      │
+  │ parts:                                  │
+  │   engine: Engine [1]                    │
+  │   transmission: Transmission [1]        │
+  │   wheels: Wheel [4]                     │
   └─────────────────────────────────────────┘
          │ composition             inheritance
          ◆                              ◁
@@ -75,7 +75,7 @@ Shows: blocks (system elements), their properties, and relationships.
                                   └──────────────┘
                                         △
                                   ┌─────┴──────┐
-                                  │  Car        │
+                                  │  Car       │
                                   └─────────────┘
 
 Composition ◆: part cannot exist without whole
@@ -152,8 +152,8 @@ Same concept as UML use cases — actors and system interactions.
   │  └────────┘      (Monitor System Health)            │
   │                  (Communicate with HQ)              │
   │  ┌────────┐                                         │
-  │  │  HQ   ├────► (Transmit Mission Orders)          │
-  │  └────────┘      (Receive Status Reports)          │
+  │  │  HQ   ├────► (Transmit Mission Orders)           │
+  │  └────────┘      (Receive Status Reports)           │
   │                                                     │
   │  Extend / Include relationships between use cases   │
   └─────────────────────────────────────────────────────┘
@@ -203,11 +203,11 @@ Directly equivalent to UML sequence diagram.
   ┌────────────────────────────────────────────────────┐
   │  :GPS      :NavProcessor    :FlightController      │
   │  Sensor                                            │
-  │    │              │                   │             │
-  │    │──GPS frame──►│                   │             │
-  │    │              │──pos, vel, time──►│             │
+  │    │              │                   │            │
+  │    │──GPS frame──►│                   │            │
+  │    │              │──pos, vel, time──►│            │
   │    │              │                   │─servo cmd──►│
-  │    │              │                   │             │
+  │    │              │                   │            │
   │    │ (every 1 Hz) │ (computed in <10ms)│             │
   │                                                    │
   └────────────────────────────────────────────────────┘
@@ -267,17 +267,17 @@ Shows requirements and their relationships visually.
 
   req [Package] SystemRequirements [Top Level]
   ┌───────────────────────────────────────────────────────────────┐
-  │ «requirement»                «requirement»                     │
-  │ System Capabilities          Performance                       │
+  │ «requirement»                «requirement»                    │
+  │ System Capabilities          Performance                      │
   │   id="REQ-SYS-001"           id="REQ-SYS-010"                 │
   │   text="The system shall     text="The system shall           │
   │   support 6000nm range"      detect targets at ≥50km"         │
-  │                                         │                      │
-  │ «deriveReqt»          «containment»     │ «refine»             │
-  │ id="REQ-FUEL-005"     │                 ▼                      │
-  │ text="Fuel system     ▼        «requirement»                   │
-  │ shall have 20 ton     [child   Detection Range                 │
-  │ capacity"             reqs]    id="REQ-SEN-001"                │
+  │                                         │                     │
+  │ «deriveReqt»          «containment»     │ «refine»            │
+  │ id="REQ-FUEL-005"     │                 ▼                     │
+  │ text="Fuel system     ▼        «requirement»                  │
+  │ shall have 20 ton     [child   Detection Range                │
+  │ capacity"             reqs]    id="REQ-SEN-001"               │
   └───────────────────────────────────────────────────────────────┘
 
 Relationships:

@@ -36,7 +36,7 @@ STANDARD BRICK SIZES (actual dimensions in inches: W × H × L)
 ==============================================================
 
   ┌────────────────────────────────────────────────────────────────┐
-  │ Size Name     Actual (W×H×L)      Nominal (W×H×L)  Notes      │
+  │ Size Name     Actual (W×H×L)      Nominal (W×H×L)  Notes       │
   ├────────────────────────────────────────────────────────────────┤
   │ Modular       3-5/8 × 2-1/4 × 7-5/8   4 × 2-2/3 × 8   Most common US  │
   │ Standard      3-3/4 × 2-1/4 × 8        —            Older buildings    │
@@ -52,7 +52,7 @@ STANDARD BRICK SIZES (actual dimensions in inches: W × H × L)
 
   COURSE HEIGHTS (with 3/8" mortar joint):
   ┌──────────────────────────────────────────┐
-  │  Modular:   3 courses = 8" (2-2/3" nom) │
+  │  Modular:   3 courses = 8" (2-2/3" nom)  │
   │  Engineer:  5 courses = 16"              │
   │  Roman:     6 courses = 12"              │
   │  Norman:    3 courses = 8"               │
@@ -79,7 +79,7 @@ BRICK GRADE SELECTION BY EXPOSURE
   │                            walls; freezing zones│                   │
   ├────────────────────────────────────────────────────────────────────┤
   │  MW    Moderate Weather-   Vertical above grade │  ≤ 0.88          │
-  │        ing                 in most US climates  │                   │
+  │        ing                 in most US climates  │                  │
   ├────────────────────────────────────────────────────────────────────┤
   │  NW    Negligible Weather- Interior use only;   │  No limit        │
   │        ing                 very dry climates    │                   │
@@ -190,27 +190,27 @@ STONE TYPE vs. WORKABILITY
 
   IGNEOUS
   ┌────────────────────────────────────────────────────────────────┐
-  │ Granite: Silica-rich, crystalline, very hard (Mohs 6–7)       │
+  │ Granite: Silica-rich, crystalline, very hard (Mohs 6–7)        │
   │  Workability: Difficult — requires diamond tooling             │
   │  Use: Dimensional stone, countertops, exterior paving          │
-  │  Finish: Polished, honed, flamed (thermal), bush-hammered     │
-  │                                                                 │
+  │  Finish: Polished, honed, flamed (thermal), bush-hammered      │
+  │                                                                │
   │ Basalt: Fine-grained, dark, hard; columnar jointing common     │
   │  Use: Paving, aggregate; less common as ashlar                 │
   └────────────────────────────────────────────────────────────────┘
 
   SEDIMENTARY
   ┌────────────────────────────────────────────────────────────────┐
-  │ Limestone: Calcium carbonate, relatively soft (Mohs 3–4)      │
+  │ Limestone: Calcium carbonate, relatively soft (Mohs 3–4)       │
   │  Workability: Good — hand-chisel or saw                        │
   │  Use: Gothic cathedrals, facades, lintels                      │
   │  Caution: Acid-etched by rain, urban pollution                 │
-  │                                                                 │
+  │                                                                │
   │ Sandstone: Silica grains + cement matrix; hardness varies      │
   │  Workability: Moderate; check bedding orientation              │
   │  Use: Victorian buildings, retaining walls                     │
   │  Caution: Lay on natural bed (not face-bedded) to avoid spall  │
-  │                                                                 │
+  │                                                                │
   │ Slate: Metamorphosed shale; excellent cleavage plane           │
   │  Use: Roofing, flooring, wall facing                           │
   │  Workability: Splits cleanly along cleavage; drills well       │
@@ -218,12 +218,12 @@ STONE TYPE vs. WORKABILITY
 
   METAMORPHIC
   ┌────────────────────────────────────────────────────────────────┐
-  │ Marble: Recrystallized limestone (Mohs 3–4)                   │
+  │ Marble: Recrystallized limestone (Mohs 3–4)                    │
   │  Workability: Good — saws easily, accepts high polish          │
   │  Use: Interior cladding, statuary, floors                      │
-  │  Caution: Exterior marble hygrothermally warps (thin panels)  │
-  │                                                                 │
-  │ Quartzite: Metamorphosed sandstone; very hard (Mohs 7)        │
+  │  Caution: Exterior marble hygrothermally warps (thin panels)   │
+  │                                                                │
+  │ Quartzite: Metamorphosed sandstone; very hard (Mohs 7)         │
   │  Use: Paving, retaining walls; limited dimensional stone use   │
   └────────────────────────────────────────────────────────────────┘
 ```
@@ -242,10 +242,10 @@ ADOBE SOIL MIX REQUIREMENTS
 
   IDEAL COMPOSITION (by weight):
   ┌──────────────────────────────────────────────────────────────────┐
-  │  Clay:    20–30%   (binding agent — holds particles together)   │
-  │  Silt:    20–30%   (filler)                                     │
-  │  Sand:    40–50%   (aggregate — prevents shrinkage cracking)    │
-  │  Organic: 0–5%     (straw, grass — fiber reinforcement)         │
+  │  Clay:    20–30%   (binding agent — holds particles together)    │
+  │  Silt:    20–30%   (filler)                                      │
+  │  Sand:    40–50%   (aggregate — prevents shrinkage cracking)     │
+  │  Organic: 0–5%     (straw, grass — fiber reinforcement)          │
   └──────────────────────────────────────────────────────────────────┘
 
   ILC RATIO = Inorganic:Lime:Clay (used in stabilized adobe)

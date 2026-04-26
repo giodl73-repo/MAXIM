@@ -4,7 +4,7 @@
 
 ```
 +===========================================================================+
-|                  WATERSHED ANALYSIS AS GRAPH THEORY                        |
+|                  WATERSHED ANALYSIS AS GRAPH THEORY                       |
 |         A drainage network is a directed acyclic graph on a DEM           |
 +===========================================================================+
 |                                                                           |

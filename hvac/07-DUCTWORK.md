@@ -10,14 +10,14 @@ if the distribution system defeats them.
 
 ```
 +----------------------------------------------------------------------+
-|                    DUCT SYSTEM PERFORMANCE CHAIN                      |
+|                    DUCT SYSTEM PERFORMANCE CHAIN                     |
 |                                                                      |
-|  Equipment    → Supply plenum → Supply trunk → Branch ducts → Rooms |
+|  Equipment    → Supply plenum → Supply trunk → Branch ducts → Rooms  |
 |  (designed     (pressurized)   (main artery)  (per room)   (delivery)|
 |  for 400 CFM/                                                        |
 |  ton airflow)                                                        |
 |                                                                      |
-|  Failure mode 1: Duct leakage → conditioned air into attic (lost)   |
+|  Failure mode 1: Duct leakage → conditioned air into attic (lost)    |
 |  Failure mode 2: Undersized ducts → high static pressure → low flow  |
 |  Failure mode 3: Poorly designed → unbalanced delivery per room      |
 |  Failure mode 4: Compressed flex duct → massive pressure loss        |
@@ -47,9 +47,9 @@ don't use it. This is why duct problems are epidemic.
   ┌─────────────────────────────────────────────────────────────────┐
   │ CALCULATE: Available static pressure for ducts                  │
   │  TESP available = Equipment fan capacity at design CFM          │
-  │  Minus: filter pressure drop (0.08–0.15" w.c.)                 │
-  │  Minus: coil pressure drop (0.10–0.20" w.c.)                   │
-  │  = Remaining for supply + return ductwork                      │
+  │  Minus: filter pressure drop (0.08–0.15" w.c.)                  │
+  │  Minus: coil pressure drop (0.10–0.20" w.c.)                    │
+  │  = Remaining for supply + return ductwork                       │
   └──────────────────────────┬──────────────────────────────────────┘
                              |
                              v
@@ -96,12 +96,12 @@ The pressure the blower fan must overcome. Too much static = reduced airflow = r
 
   COMPONENTS OF PRESSURE DROP:
   ┌────────────────────────┬────────────────────────────────────┐
-  │ Filter (clean, MERV 8) │ 0.05–0.08" w.c.                   │
-  │ Filter (MERV 13)       │ 0.10–0.15" w.c.                   │
+  │ Filter (clean, MERV 8) │ 0.05–0.08" w.c.                    │
+  │ Filter (MERV 13)       │ 0.10–0.15" w.c.                    │
   │ Filter (dirty)         │ 0.20–0.40" w.c. (can double TESP!)│
-  │ AC evaporator coil     │ 0.10–0.20" w.c.                   │
-  │ Supply duct system     │ 0.10–0.20" w.c.                   │
-  │ Return duct system     │ 0.05–0.15" w.c.                   │
+  │ AC evaporator coil     │ 0.10–0.20" w.c.                    │
+  │ Supply duct system     │ 0.10–0.20" w.c.                    │
+  │ Return duct system     │ 0.05–0.15" w.c.                    │
   ├────────────────────────┼────────────────────────────────────┤
   │ Typical total TESP     │ 0.35–0.70" w.c.                   │
   └────────────────────────┴────────────────────────────────────┘
@@ -167,7 +167,7 @@ converted to equivalent straight-duct length for calculation:
   │ Must be FULLY EXTENDED — zero compression, no sag, no kinks      │
   │                                                                  │
   │ What installers often do:           What happens:                │
-  │ Leave slack in flex duct          →  Accordion compression        │
+  │ Leave slack in flex duct          →  Accordion compression       │
   │ Drape over framing with sag       →  Low-point restriction       │
   │ Route around obstacle with kink   →  Major pressure spike        │
   │                                                                  │

@@ -121,7 +121,7 @@ SPINNING = DRAFTING + TWISTING
     │  around flyer arm → onto bobbin    │
     │                                    │
     │  Twist added in orifice-to-flyer   │
-    │  section; wind-on at speed        │
+    │  section; wind-on at speed         │
     │  differential between flyer/bobbin │
     └────────────────────────────────────┘
 ```
@@ -205,39 +205,39 @@ OPEN-END / ROTOR SPINNING (1963, development from ~1960s):
   TWO INCOMPATIBLE CONVENTIONS:
   ┌──────────────────────────────────────────────────────────────┐
   │  INDIRECT (higher number = FINER yarn)                       │
-  │  "How many [length units] per [weight unit]?"               │
+  │  "How many [length units] per [weight unit]?"                │
   │                                                              │
   │  Ne (English Cotton Count):                                  │
-  │    # of 840-yd hanks per pound                              │
+  │    # of 840-yd hanks per pound                               │
   │    Ne 30 = 30 × 840 yd = 25,200 yd per pound               │
-  │    Ne 100 = much finer (100 hanks per pound)                │
+  │    Ne 100 = much finer (100 hanks per pound)                 │
   │    Used for: cotton, cotton blends, spun synthetic           │
   │                                                              │
   │  Nm (Metric Count):                                          │
-  │    # of 1000-m lengths per kg                               │
-  │    Nm 30 = 30,000 m per kg                                  │
-  │    Used for: worsted wool, synthetics (metric countries)    │
+  │    # of 1000-m lengths per kg                                │
+  │    Nm 30 = 30,000 m per kg                                   │
+  │    Used for: worsted wool, synthetics (metric countries)     │
   │                                                              │
   │  Worsted Count (Nw):                                         │
-  │    # of 560-yd hanks per pound                              │
-  │    Used for: combed wool (worsted system)                   │
+  │    # of 560-yd hanks per pound                               │
+  │    Used for: combed wool (worsted system)                    │
   └──────────────────────────────────────────────────────────────┘
 
   ┌──────────────────────────────────────────────────────────────┐
   │  DIRECT (higher number = THICKER yarn)                       │
-  │  "How many [weight units] per [length unit]?"               │
+  │  "How many [weight units] per [length unit]?"                │
   │                                                              │
   │  Tex:                                                        │
-  │    grams per 1000 meters (SI system)                        │
-  │    Tex 20 = lighter yarn; Tex 50 = heavier                  │
-  │    Used in: technical textiles, ISO standards               │
+  │    grams per 1000 meters (SI system)                         │
+  │    Tex 20 = lighter yarn; Tex 50 = heavier                   │
+  │    Used in: technical textiles, ISO standards                │
   │                                                              │
   │  Denier (D or den):                                          │
-  │    grams per 9000 meters                                    │
-  │    30D = fine (stockings); 70D = heavier; 210D = nylon pack │
-  │    Used for: filament yarns (nylon, polyester, silk)        │
-  │    Note: 9000m chosen as standard because a 1D silk         │
-  │    filament weighs 1 gram per 9000 m — historical           │
+  │    grams per 9000 meters                                     │
+  │    30D = fine (stockings); 70D = heavier; 210D = nylon pack  │
+  │    Used for: filament yarns (nylon, polyester, silk)         │
+  │    Note: 9000m chosen as standard because a 1D silk          │
+  │    filament weighs 1 gram per 9000 m — historical            │
   └──────────────────────────────────────────────────────────────┘
 
   CONVERSIONS:
@@ -272,7 +272,7 @@ OPEN-END / ROTOR SPINNING (1963, development from ~1960s):
 
   HAND-KNITTING WEIGHT SYSTEM (US/UK):
   ┌───────────────────────────────────────────┐
-  │  Weight     WPI*   Needle   Examples       │
+  │  Weight     WPI*   Needle   Examples      │
   │  Lace       30+    0-1 mm   Cobweb wool   │
   │  Fingering  14-30  1.5-2.5  Sock yarn     │
   │  Sport      12-14  2.5-3.5  Baby weight   │

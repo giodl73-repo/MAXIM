@@ -6,20 +6,20 @@ How crops are arranged in space and time determines pest pressure, nutrient cycl
 
 ```
 +---------------------------------------------------------------+
-|              CROP SYSTEM DIVERSITY SPECTRUM                    |
-|                                                                |
+|              CROP SYSTEM DIVERSITY SPECTRUM                   |
+|                                                               |
 |  LOW DIVERSITY                          HIGH DIVERSITY        |
-|  ─────────────────────────────────────────────────────────── |
+|  ───────────────────────────────────────────────────────────  |
 |  Monoculture → Rotation → Intercrop → Polyculture → Agroforest|
-|                                                                |
+|                                                               |
 |  MANAGEMENT                                                   |
-|  INTENSITY           HIGH ─────────────────────→ LOW         |
-|                                                                |
-|  ECOSYSTEM           LOW  ─────────────────────→ HIGH        |
+|  INTENSITY           HIGH ─────────────────────→ LOW          |
+|                                                               |
+|  ECOSYSTEM           LOW  ─────────────────────→ HIGH         |
 |  SERVICES                                                     |
-|                                                                |
-|  MECHANIZATION       EASY ─────────────────────→ HARDER      |
-|  TRACTABILITY                                                  |
+|                                                               |
+|  MECHANIZATION       EASY ─────────────────────→ HARDER       |
+|  TRACTABILITY                                                 |
 +---------------------------------------------------------------+
 ```
 
@@ -146,25 +146,25 @@ COVER CROP FUNCTIONS:
   │ FUNCTION           SPECIES             MECHANISM        │
   │─────────────────   ─────────────────   ────────────── │
   │ N fixation         Crimson clover,      Rhizobium       │
-  │                    hairy vetch,         symbiosis        │
-  │                    field peas           50–200 kg N/ha   │
-  │                                         (credit to next  │
-  │                                          crop)           │
-  │                                                          │
+  │                    hairy vetch,         symbiosis       │
+  │                    field peas           50–200 kg N/ha  │
+  │                                         (credit to next │
+  │                                          crop)          │
+  │                                                         │
   │ N scavenging       Winter rye,          Capture residual │
-  │ (catch crop)       annual ryegrass      N; prevent       │
-  │                                         winter leaching  │
-  │                                                          │
-  │ Erosion control    Any grass cover      Root binding;    │
-  │                                         canopy           │
-  │                                                          │
-  │ Weed suppression   Winter rye (allelopathic), buckwheat  │
-  │                                                          │
-  │ Soil biology       Diverse mixes        Feed soil        │
-  │                                         microbiome       │
-  │                                                          │
-  │ Compaction relief  Tillage radish,      Deep taproot     │
-  │ (bio-drilling)     turnip               pierces hardpan  │
+  │ (catch crop)       annual ryegrass      N; prevent      │
+  │                                         winter leaching │
+  │                                                         │
+  │ Erosion control    Any grass cover      Root binding;   │
+  │                                         canopy          │
+  │                                                         │
+  │ Weed suppression   Winter rye (allelopathic), buckwheat │
+  │                                                         │
+  │ Soil biology       Diverse mixes        Feed soil       │
+  │                                         microbiome      │
+  │                                                         │
+  │ Compaction relief  Tillage radish,      Deep taproot    │
+  │ (bio-drilling)     turnip               pierces hardpan │
   └─────────────────────────────────────────────────────────┘
 
 TERMINATION METHODS:

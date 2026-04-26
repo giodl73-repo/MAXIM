@@ -56,8 +56,8 @@ BENCH PLANE ANATOMY
       |    blade (iron)
       |      |
     +-+------+---------+
-    |  \_____/          |
-    |   frog            |
+    |  \_____/         |
+    |   frog           |
     |  adjustable angle |
     |  Y-adjustment rod |
     +-------------------+

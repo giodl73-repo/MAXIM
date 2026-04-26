@@ -387,7 +387,7 @@ This sets a floor on peak width — instrument broadening and microstrain add to
     │  Substitutional: foreign atom replacing host atom       │
     │    Hume-Rothery rules for extensive solid solution:     │
     │    1. Size: |r_A-r_B|/r_A < 15%                         │
-    │    2. Crystal structure: same                            │
+    │    2. Crystal structure: same                           │
     │    3. Electronegativity: similar (|Δχ| < 0.4)           │
     │    4. Valence: same preferred (higher valence dissolves) │
     │    Cu-Ni: complete mutual solubility (isomorphous)      │
@@ -570,7 +570,7 @@ For FCC: partial dislocations (b = a/6<112>) have lower energy than perfect disl
 
 ```
     ┌──────────────────────────────┬──────────────────────────────┐
-    │  CRYSTALLINE                  │  AMORPHOUS (GLASS)           │
+    │  CRYSTALLINE                 │  AMORPHOUS (GLASS)           │
     ├──────────────────────────────┼──────────────────────────────┤
     │  Long-range order            │  Short-range order only      │
     │  (periodic lattice)          │  (like snapshot of liquid)   │

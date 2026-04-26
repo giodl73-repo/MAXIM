@@ -8,25 +8,25 @@ evasion. Everything else is stripped out.
 
 ```
 ┌──────────────────────────────────────────────────────────────────┐
-│                VIRUS STRUCTURAL HIERARCHY                         │
+│                VIRUS STRUCTURAL HIERARCHY                        │
 │                                                                    │
-│  GENOME                                                           │
+│  GENOME                                                          │
 │  ─────── DNA or RNA, ss or ds, linear or circular, segmented     │
-│     │                                                             │
-│     ▼                                                             │
-│  CAPSID SHELL                                                     │
+│     │                                                            │
+│     ▼                                                            │
+│  CAPSID SHELL                                                    │
 │  ──────────── Protein coat: icosahedral / helical / complex      │
-│     │                                                             │
-│     ▼ (in enveloped viruses)                                      │
-│  MATRIX PROTEINS (some viruses)                                   │
-│  ──────────────────────────────                                   │
-│     │                                                             │
-│     ▼ (in enveloped viruses)                                      │
-│  LIPID ENVELOPE                                                   │
+│     │                                                            │
+│     ▼ (in enveloped viruses)                                     │
+│  MATRIX PROTEINS (some viruses)                                  │
+│  ──────────────────────────────                                  │
+│     │                                                            │
+│     ▼ (in enveloped viruses)                                     │
+│  LIPID ENVELOPE                                                  │
 │  ────────────── Stolen from host membrane                        │
-│     │                                                             │
-│     ▼ (in enveloped viruses)                                      │
-│  SURFACE GLYCOPROTEINS                                            │
+│     │                                                            │
+│     ▼ (in enveloped viruses)                                     │
+│  SURFACE GLYCOPROTEINS                                           │
 │  ─────────────────────── Receptor binding, membrane fusion       │
 └──────────────────────────────────────────────────────────────────┘
 ```

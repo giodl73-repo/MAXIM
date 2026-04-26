@@ -284,7 +284,7 @@
 
 ```
   ┌──────────────────────────────────────────────────────────────────────┐
-  │  DECISION: How to extract text/structure from PDFs and images         │
+  │  DECISION: How to extract text/structure from PDFs and images        │
   │                                                                      │
   │  Is the document clearly formatted (standard PDF, clean scan)?       │
   │           │                                                          │
@@ -297,7 +297,7 @@
   │  (pdfplumber,       │                                                │
   │  PyPDF2)       ┌────┴────────┐                                       │
   │  Free, fast   YES             NO                                     │
-  │               │              │                                       │
+  │                │             │                                       │
   │               ▼              ▼                                       │
   │         Vision model     OCR (Tesseract,                             │
   │         (GPT-4V, Claude  Azure Form                                  │

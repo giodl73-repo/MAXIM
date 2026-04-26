@@ -127,14 +127,14 @@ Hubel and Wiesel (Nobel 1981): discovered orientation selectivity and ocular dom
     │  HYPERCOLUMN (~1mm²): processes all orientations (0-180°), │
     │  all spatial frequencies, for one patch of visual field    │
     │                                                            │
-    │  Orientation columns: 0°→180° rotates around "pinwheels"  │
+    │  Orientation columns: 0°→180° rotates around "pinwheels"   │
     │  Ocular dominance columns: alternating L/R stripes ~0.5mm  │
     │  Spatial frequency columns: high-to-low across surface     │
     │                                                            │
     │  Layer organization (V1 example):                          │
-    │  Layer 4C: LGN input (M to 4Cα, P to 4Cβ)                 │
+    │  Layer 4C: LGN input (M to 4Cα, P to 4Cβ)                  │
     │  Layer 2/3: corticocortical output to V2, V4               │
-    │  Layer 5: output to superior colliculus, pulvinar           │
+    │  Layer 5: output to superior colliculus, pulvinar          │
     │  Layer 6: feedback to LGN                                  │
     └────────────────────────────────────────────────────────────┘
 ```
@@ -312,12 +312,12 @@ This maps to: N runnable processes → scheduler selects highest-priority → ot
 
 ```
     ┌─────────────────────────────────────────────────────────────┐
-    │  HIPPOCAMPAL CIRCUIT                                         │
+    │  HIPPOCAMPAL CIRCUIT                                        │
     │                                                             │
     │  ENTORHINAL CORTEX (EC) ─────────────────────────────┐      │
-    │  (Layer II → DG, CA3)  ┌─────────────────┐          │      │
-    │  (Layer III → CA1)     │                 │          │      │
-    │                        ▼                 ▼          │      │
+    │  (Layer II → DG, CA3)  ┌─────────────────┐          │       │
+    │  (Layer III → CA1)     │                 │          │       │
+    │                        ▼                 ▼          │       │
     │  DG (Dentate Gyrus)→ CA3 ──[Schaffer]→ CA1 ──→ Subiculum ──┤ │
     │  (granule cells)  (mossy)   collaterals    │                │ │
     │       │           (CA3                     ▼                │ │

@@ -9,30 +9,30 @@ underway now.
 
 ```
 +----------------------------------------------------------------------+
-|                    REFRIGERANT TRANSITION TIMELINE                    |
+|                    REFRIGERANT TRANSITION TIMELINE                   |
 |                                                                      |
-|  1930s–1980s:  CFCs dominant (R-12, R-11, R-502)                    |
+|  1930s–1980s:  CFCs dominant (R-12, R-11, R-502)                     |
 |                Great thermodynamics, zero flammability               |
 |                → Discovered: destroys stratospheric ozone            |
 |                                                                      |
-|  1987:   Montreal Protocol → CFC phaseout mandate                   |
+|  1987:   Montreal Protocol → CFC phaseout mandate                    |
 |  1996:   R-12 production ends in developed nations                   |
 |                                                                      |
-|  1990s–2000s:  HCFCs as transition (R-22 dominant)                  |
+|  1990s–2000s:  HCFCs as transition (R-22 dominant)                   |
 |                Lower ODP than CFCs, still good thermodynamics        |
 |                → Also ozone-depleting (less so), and high GWP        |
 |                                                                      |
 |  2010:   R-22 new equipment banned in US                             |
 |  2020:   R-22 new production/import banned in US                     |
 |                                                                      |
-|  2006–2024:  HFCs dominant (R-410A, R-134a, R-404A)                 |
-|                ODP=0, excellent thermodynamics                        |
+|  2006–2024:  HFCs dominant (R-410A, R-134a, R-404A)                  |
+|                ODP=0, excellent thermodynamics                       |
 |                → High GWP (climate forcing)                          |
 |                                                                      |
 |  2016:   Kigali Amendment to Montreal Protocol → HFC phasedown       |
 |  2025:   US GWP cap: new residential AC/HP must use ≤700 GWP         |
 |                                                                      |
-|  2025+:  A2L refrigerants (R-32, R-454B, R-466A) + naturals         |
+|  2025+:  A2L refrigerants (R-32, R-454B, R-466A) + naturals          |
 |                Low GWP, mildly flammable (A2L class)                 |
 +----------------------------------------------------------------------+
 ```
@@ -88,14 +88,14 @@ the formula, but understanding the naming helps decode the letter prefixes:
   │ A1  │ R-410A, R-134a, R-404A — nonflammable, lower toxicity      │
   │     │ No flammability concerns in field                           │
   ├─────┼─────────────────────────────────────────────────────────────┤
-  │ A2L │ R-32, R-454B, R-466A — mildly flammable                    │
+  │ A2L │ R-32, R-454B, R-466A — mildly flammable                     │
   │     │ Requires: ventilation, leak detection in some applications  │
   │     │ Flame speed <10 cm/s (vs propane ~46 cm/s)                  │
   │     │ Major transition class for new US equipment 2025+           │
   ├─────┼─────────────────────────────────────────────────────────────┤
   │ A2  │ R-152a — flammable. Limited use.                           │
   ├─────┼─────────────────────────────────────────────────────────────┤
-  │ A3  │ R-290 (propane), R-600a (isobutane) — highly flammable     │
+  │ A3  │ R-290 (propane), R-600a (isobutane) — highly flammable      │
   │     │ Limited charge size (<150g per circuit in residential)      │
   │     │ Explosion-proof controls required                           │
   ├─────┼─────────────────────────────────────────────────────────────┤
@@ -175,7 +175,7 @@ the formula, but understanding the naming helps decode the letter prefixes:
   │ R-422D       │ True drop-in (compatible with mineral oil); lower    │
   │              │ capacity and efficiency; temporary measure           │
   ├──────────────┼──────────────────────────────────────────────────────┤
-  │ Full replace  │ New R-410A or R-32/R-454B equipment; proper         │
+  │ Full replace │ New R-410A or R-32/R-454B equipment; proper          │
   │ equipment    │ solution; qualifies for IRA tax credits              │
   └──────────────┴──────────────────────────────────────────────────────┘
 ```

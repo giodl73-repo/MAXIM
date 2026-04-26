@@ -4,11 +4,11 @@
 
 ```
 +------------------------------------------------------------------+
-|                  TYPOGRAPHY IN GRAPHIC DESIGN                     |
+|                  TYPOGRAPHY IN GRAPHIC DESIGN                    |
 |                                                                  |
 |  TYPE DESIGN        TYPOGRAPHY           TYPESETTING             |
 |  (making fonts)     (using type)         (production)            |
-|  Glyphs, FontLab    Hierarchy, spacing   Kerning, tracking        |
+|  Glyphs, FontLab    Hierarchy, spacing   Kerning, tracking       |
 |  Bezier curves      Layout decisions     InDesign, CSS           |
 |                                                                  |
 |  TYPEFACE CATEGORIES                                             |

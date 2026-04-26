@@ -4,36 +4,36 @@
 
 ```
 +---------------------------------------------------------------------+
-|                         CAP THEOREM                                  |
-|                                                                      |
+|                         CAP THEOREM                                 |
+|                                                                     |
 |   Brewer's Conjecture (2000): You cannot build a web service that   |
 |   simultaneously provides all three of:                             |
-|                                                                      |
+|                                                                     |
 |         C — Consistency: every read receives the most recent        |
-|              write or an error                                       |
+|              write or an error                                      |
 |         A — Availability: every request receives a non-error        |
 |              response (no guarantee it's the latest data)           |
 |         P — Partition Tolerance: system continues to operate        |
-|              despite arbitrary network message loss                  |
-|                                                                      |
+|              despite arbitrary network message loss                 |
+|                                                                     |
 |   Gilbert-Lynch formal proof (2002): proved in asynchronous         |
 |   network model with crash failures                                 |
-|                                                                      |
-|   The critical insight: P is not optional. Partitions happen.      |
+|                                                                     |
+|   The critical insight: P is not optional. Partitions happen.       |
 |   So the real choice is: what do you sacrifice during a partition?  |
-|                                                                      |
+|                                                                     |
 |             C ──────────────── A                                    |
-|              \                /                                      |
-|               \   impossible /                                       |
-|                \  to achieve /                                       |
-|                 \   all 3   /                                        |
-|                  \         /                                         |
-|                   \       /                                          |
-|                    \     /                                           |
-|                     \   /                                            |
+|              \                /                                     |
+|               \   impossible /                                      |
+|                \  to achieve /                                      |
+|                 \   all 3   /                                       |
+|                  \         /                                        |
+|                   \       /                                         |
+|                    \     /                                          |
+|                     \   /                                           |
 |                      \ /                                            |
 |                       P                                             |
-|                                                                      |
+|                                                                     |
 |   CA: no partitions → only single-datacenter systems qualify        |
 |   CP: sacrifice availability during partition → return errors       |
 |   AP: sacrifice consistency during partition → return stale data    |
@@ -246,13 +246,13 @@ CAP describes what you lose during a partition. PACELC describes what you trade 
 ```
 DECIDING CP VS. AP
 +-----------------------------------------------+
-| What happens if a user gets stale data?        |
-|                                                |
-|  "Data loss / incorrect charge / safety risk"  |
-|       → CP (accept unavailability)             |
-|                                                |
+| What happens if a user gets stale data?       |
+|                                               |
+|  "Data loss / incorrect charge / safety risk" |
+|       → CP (accept unavailability)            |
+|                                               |
 |  "Slightly stale UI / recommendation mismatch" |
-|       → AP (accept staleness)                  |
+|       → AP (accept staleness)                 |
 +-----------------------------------------------+
 ```
 

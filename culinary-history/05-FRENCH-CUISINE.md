@@ -101,12 +101,12 @@ CHEF DE PARTIE (Station Chiefs)
   Each station has one chef de partie + commis (assistants):
   ┌──────────────────────────────────────────────────────────────────────┐
   │ Saucier:    Sauces, sautés, braised meats — most prestigious station │
-  │ Rôtisseur:  Roasts, grills, fried foods                             │
+  │ Rôtisseur:  Roasts, grills, fried foods                              │
   │ Poissonnier: Fish and seafood                                        │
   │ Entremetier: Vegetables, soups, eggs                                 │
   │ Garde-manger: Cold preparations, charcuterie, salads                 │
   │ Pâtissier:  Pastry, desserts, breads                                 │
-  │ Boucher:    Butchery                                                  │
+  │ Boucher:    Butchery                                                 │
   └──────────────────────────────────────────────────────────────────────┘
 
 ABOYEUR (Expediter)

@@ -4,7 +4,7 @@
 
 ```
 +------------------------------------------------------------------+
-|              PEPPER & SALT: PARALLEL HISTORIES                    |
+|              PEPPER & SALT: PARALLEL HISTORIES                   |
 |                                                                  |
 |  BLACK PEPPER (Piper nigrum)        SALT (NaCl)                  |
 |  +--------------------------+       +------------------------+   |
@@ -38,20 +38,20 @@ PIPER NIGRUM LIFECYCLE
 |  Kerala (Malabar Coast), SW India = origin            |
 |                                                       |
 |  FRUIT STAGES → PRODUCT                               |
-|  +----------+  +----------+  +----------+            |
+|  +----------+  +----------+  +----------+             |
 |  | Unripe   |  | Ripe red |  | Dried    |            |
 |  | green    |  | drupe    |  | states   |            |
 |  | drupe    |  |          |  |          |            |
 |  +----------+  +----------+  +----------+            |
-|       |              |            |                   |
-|       v              v            v                   |
-|  +--------+    +--------+   +----------+            |
+|       |              |            |                  |
+|       v              v            v                  |
+|  +--------+    +--------+   +----------+             |
 |  | GREEN  |    | RED    |   | BLACK:   |            |
 |  | pepper |    | pepper |   | unripe,  |            |
 |  | (brine |    | (rare, |   | dried/   |            |
 |  | or FD) |    | fresh) |   | wrinkled |            |
 |  +--------+    +--------+   +----------+            |
-|                              +----------+            |
+|                              +----------+           |
 |                              | WHITE:   |            |
 |                              | ripe,    |            |
 |                              | hull     |            |
@@ -122,12 +122,12 @@ PRICE CHAIN (c. 1450):
 
 Venice's mechanism:
   +-------------------------------------------+
-  | Venice controlled Levantine port access    |
-  | (Alexandria, Beirut, Acre)                 |
-  | Any European buyer had to go through       |
-  | Venice. No alternatives. No bypass.        |
-  | This is rent extraction via geographic     |
-  | chokepoint — a classic platform monopoly.  |
+  | Venice controlled Levantine port access   |
+  | (Alexandria, Beirut, Acre)                |
+  | Any European buyer had to go through      |
+  | Venice. No alternatives. No bypass.       |
+  | This is rent extraction via geographic    |
+  | chokepoint — a classic platform monopoly. |
   +-------------------------------------------+
 
 Driving the Portuguese response:

@@ -7,24 +7,24 @@ DIGITAL MEDIA HORIZON (2025-2030)
 ===================================
 
 +------------------------------------------------------------------+
-|  TREND                  CURRENT STATE        TRAJECTORY         |
-|  -----                  -------------        ----------         |
-|  Generative media       Proliferating        Ubiquitous         |
+|  TREND                  CURRENT STATE        TRAJECTORY          |
+|  -----                  -------------        ----------          |
+|  Generative media       Proliferating        Ubiquitous          |
 |  (text/image/video/voice)                                        |
 |                                                                  |
-|  AI-native interfaces   Emerging             Dominant           |
+|  AI-native interfaces   Emerging             Dominant            |
 |  (chat as navigation)                                            |
 |                                                                  |
-|  Spatial computing      Niche (Vision Pro)   Slow uptake        |
+|  Spatial computing      Niche (Vision Pro)   Slow uptake         |
 |  (AR/VR/MR)                                                      |
 |                                                                  |
-|  Decentralized social   Small but real       Growing slowly     |
+|  Decentralized social   Small but real       Growing slowly      |
 |  (ActivityPub, AT Proto)                                         |
 |                                                                  |
-|  Synthetic voice/video  Widespread           Proliferating fast |
-|  (text-to-speech/video)                                         |
+|  Synthetic voice/video  Widespread           Proliferating fast  |
+|  (text-to-speech/video)                                          |
 |                                                                  |
-|  Robot journalism       Operational          Expanding scope    |
+|  Robot journalism       Operational          Expanding scope     |
 |  (automated reporting)                                           |
 +------------------------------------------------------------------+
 

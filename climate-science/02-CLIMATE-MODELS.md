@@ -76,11 +76,11 @@ Each model type answers different questions. The choice depends on what you're t
   COUPLED GCM = AGCM + OGCM + SEA ICE + LAND SURFACE MODEL
   ┌──────────────────────────────────────────────────────────────┐
   │  ATMOSPHERIC GCM (AGCM)                                      │
-  │  Horizontal resolution: 50–100 km typical (1–2° lat/lon)    │
-  │  High-resolution: 25 km (~0.25°)                            │
-  │  Vertical levels: 30–90 levels (surface to ~80 km)          │
+  │  Horizontal resolution: 50–100 km typical (1–2° lat/lon)     │
+  │  High-resolution: 25 km (~0.25°)                             │
+  │  Vertical levels: 30–90 levels (surface to ~80 km)           │
   │  Time step: 20–30 minutes                                    │
-  │  Variables: T, u, v, w, q (water vapor), surface pressure   │
+  │  Variables: T, u, v, w, q (water vapor), surface pressure    │
   ├──────────────────────────────────────────────────────────────┤
   │  OCEAN GCM (OGCM)                                            │
   │  Resolution: 0.25°–1° (coarser runs faster; 1° = standard)  │
@@ -89,7 +89,7 @@ Each model type answers different questions. The choice depends on what you're t
   │  Variables: T, S (salinity), u, v, w, density               │
   ├──────────────────────────────────────────────────────────────┤
   │  SEA ICE MODEL                                               │
-  │  Thermodynamic (melt/freeze) + dynamic (drift)              │
+  │  Thermodynamic (melt/freeze) + dynamic (drift)               │
   │  Viscous-plastic or elastic-viscous-plastic rheology         │
   ├──────────────────────────────────────────────────────────────┤
   │  LAND SURFACE MODEL                                          │
@@ -226,10 +226,10 @@ Parameterization in climate models is the same contract boundary as a well-defin
   ADDITIONAL COMPONENTS:
   ┌────────────────────────────────────────────────────────────┐
   │  Carbon cycle:                                             │
-  │    Ocean biogeochemistry (OMIP): DIC, alkalinity,         │
-  │    phytoplankton, biological pump                         │
-  │    Land carbon: NPP, respiration, fire, permafrost        │
-  │    → prognostic CO₂ (C4MIP simulations)                   │
+  │    Ocean biogeochemistry (OMIP): DIC, alkalinity,          │
+  │    phytoplankton, biological pump                          │
+  │    Land carbon: NPP, respiration, fire, permafrost         │
+  │    → prognostic CO₂ (C4MIP simulations)                    │
   │                                                            │
   │  Atmospheric chemistry:                                    │
   │    Tropospheric ozone, OH, aerosol chemistry               │

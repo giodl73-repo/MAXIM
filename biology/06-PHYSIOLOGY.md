@@ -26,9 +26,9 @@ ORGAN SYSTEMS AND THEIR FUNCTIONS:
   │ Nervous:       rapid signal integration; sensory + motor     │
   │ Endocrine:     slow chemical signals; long-range coordination│
   │ Cardiovascular:pump + distribute O₂, nutrients, hormones     │
-  │ Respiratory:   O₂/CO₂ exchange; acid-base balance           │
+  │ Respiratory:   O₂/CO₂ exchange; acid-base balance            │
   │ Digestive:     absorb nutrients; eliminate waste             │
-  │ Renal (kidney):filter blood; regulate fluid/electrolyte/pH  │
+  │ Renal (kidney):filter blood; regulate fluid/electrolyte/pH   │
   │ Immune:        defense against pathogens; self/non-self      │
   │ Musculoskeletal:movement, posture, calcium reservoir         │
   │ Reproductive:  gamete production; development                │

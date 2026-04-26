@@ -8,7 +8,7 @@ Organogenesis (Weeks 4-8 in humans) is when specific organ structures form from 
 +──────────────────────────────────────────────────────────────────+
 |              ORGANOGENESIS OVERVIEW                              |
 |                                                                  |
-|  GERM LAYER → ORGAN SYSTEM DERIVATION                           |
+|  GERM LAYER → ORGAN SYSTEM DERIVATION                            |
 |                                                                  |
 |  ECTODERM ──────────────────────────────────────────────────►  |
 |  (outer)    Brain, spinal cord, PNS, skin, eye lens, ear         |
@@ -24,15 +24,15 @@ Organogenesis (Weeks 4-8 in humans) is when specific organ structures form from 
 |  (inner)    Gut epithelium, liver, pancreas, lungs, thyroid,     |
 |             thymus, bladder lining                               |
 |                                                                  |
-|  CORE PRINCIPLES (shared across all organs)                     |
+|  CORE PRINCIPLES (shared across all organs)                      |
 |  1. INDUCTION: epithelium ↔ mesenchyme reciprocal signaling      |
 |  2. PATTERNING: morphogen gradients encode positional identity   |
-|  3. BRANCHING: recursive bifurcation (FGF/Wnt on, BMP off tip)  |
+|  3. BRANCHING: recursive bifurcation (FGF/Wnt on, BMP off tip)   |
 |  4. APOPTOSIS: sculpts cavities, digit separation, valves        |
-|  5. MECHANICS: ECM stiffness, actomyosin tension shape 3D form  |
+|  5. MECHANICS: ECM stiffness, actomyosin tension shape 3D form   |
 |                                                                  |
-|  TIMELINE: Week 4 = rudiments form; Week 5-8 = morphogenesis;   |
-|            Week 8 = embryo→fetus; Week 9-40 = growth+maturation |
+|  TIMELINE: Week 4 = rudiments form; Week 5-8 = morphogenesis;    |
+|            Week 8 = embryo→fetus; Week 9-40 = growth+maturation  |
 +──────────────────────────────────────────────────────────────────+
 ```
 

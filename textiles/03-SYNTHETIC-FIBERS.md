@@ -18,7 +18,7 @@ NATURAL → MANUFACTURED FIBER TIMELINE
 |                                            Du Pont — elastomeric |
 |                                                                  |
 |  TODAY: ~65% of global fiber consumption is synthetic            |
-|  Polyester alone: ~54% of all fiber produced                    |
+|  Polyester alone: ~54% of all fiber produced                     |
 |  Cotton: ~24% (declining)                                        |
 +------------------------------------------------------------------+
 ```

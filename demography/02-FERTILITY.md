@@ -4,7 +4,7 @@
 
 ```
 ┌─────────────────────────────────────────────────────────────────────────────┐
-│                    FERTILITY MEASUREMENT HIERARCHY                           │
+│                    FERTILITY MEASUREMENT HIERARCHY                          │
 │                                                                               │
 │  CRUDE MEASURE          PERIOD MEASURES         COHORT MEASURES             │
 │  ──────────────         ───────────────         ───────────────             │
@@ -17,7 +17,7 @@
 │                         GRR (Gross Reprod. Rate)                            │
 │                                                                               │
 │  BEHAVIORAL FRAMEWORK: BONGAARTS PROXIMATE DETERMINANTS MODEL               │
-│  Decompose fertility into biological/behavioral intermediate variables       │
+│  Decompose fertility into biological/behavioral intermediate variables      │
 │                                                                               │
 │  TRANSITION THEORIES: Why does fertility fall?                              │
 │  Demographic transition theory, wealth flows theory, second DT              │

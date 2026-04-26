@@ -57,28 +57,28 @@ THE DECISIVE MOMENT
 
   INFLUENCE ON DOCUMENTARY PHOTOGRAPHY:
   ┌──────────────────────────────────────────────────────────────────┐
-  │  Pre-HCB: Press photography often posed or staged               │
-  │  HCB standard: Candid anticipation, not construction            │
-  │                                                                   │
-  │  MAGNUM PHOTOS (co-founded by HCB, 1947):                       │
+  │  Pre-HCB: Press photography often posed or staged                │
+  │  HCB standard: Candid anticipation, not construction             │
+  │                                                                  │
+  │  MAGNUM PHOTOS (co-founded by HCB, 1947):                        │
   │  Photographer-owned cooperative                                  │
-  │  Maintains narrative control vs. magazine assignments           │
+  │  Maintains narrative control vs. magazine assignments            │
   │  Members: HCB, Robert Capa, David Seymour, George Rodger       │
-  │  Model: photographer owns copyright, licenses to publications   │
+  │  Model: photographer owns copyright, licenses to publications    │
   └──────────────────────────────────────────────────────────────────┘
 
   DECISIVE MOMENT VS. STAGED PHOTOGRAPH:
   ┌──────────────────────────────────────────────────────────────────┐
   │  DECISIVE MOMENT (legitimate):                                   │
-  │  Photographer positions self, waits, fires at peak instant      │
-  │  Subject is behaving naturally — not performing for camera      │
-  │  Framing choices: legitimate (composition is editorial)         │
-  │                                                                   │
+  │  Photographer positions self, waits, fires at peak instant       │
+  │  Subject is behaving naturally — not performing for camera       │
+  │  Framing choices: legitimate (composition is editorial)          │
+  │                                                                  │
   │  STAGING (not legitimate):                                       │
-  │  Photographer directs subject action                            │
-  │  "Can you stand over there and look sad?"                       │
+  │  Photographer directs subject action                             │
+  │  "Can you stand over there and look sad?"                        │
   │  "Could you move the body closer to the weapon?"               │
-  │  Staging violates the claim that photo = documentary record     │
+  │  Staging violates the claim that photo = documentary record      │
   └──────────────────────────────────────────────────────────────────┘
 ```
 
@@ -246,40 +246,40 @@ WAR PHOTOGRAPHY: HARM vs. PUBLIC INTEREST
 
   HISTORICAL TURNING POINTS:
   ┌──────────────────────────────────────────────────────────────────┐
-  │  MATHEW BRADY / US CIVIL WAR (1860s):                           │
+  │  MATHEW BRADY / US CIVIL WAR (1860s):                            │
   │  First large-scale combat photography; displayed dead at Antietam│
-  │  NYT: "The dead of the battlefield come up to us very rarely"   │
-  │  Brady brought death home — established photographic testimony  │
-  │                                                                   │
-  │  ROBERT CAPA / "FALLING SOLDIER" (1936):                        │
-  │  Most iconic war photo — possibly staged; still debated         │
-  │  Capa's own rule: "If your pictures aren't good enough, you     │
-  │   aren't close enough." Killed by landmine, 1954.               │
-  │                                                                   │
+  │  NYT: "The dead of the battlefield come up to us very rarely"    │
+  │  Brady brought death home — established photographic testimony   │
+  │                                                                  │
+  │  ROBERT CAPA / "FALLING SOLDIER" (1936):                         │
+  │  Most iconic war photo — possibly staged; still debated          │
+  │  Capa's own rule: "If your pictures aren't good enough, you      │
+  │   aren't close enough." Killed by landmine, 1954.                │
+  │                                                                  │
   │  KEVIN CARTER / VULTURE AND CHILD (Sudan, 1993):               │
-  │  Pulitzer 1994; Carter photographed starving child and waiting  │
-  │   vulture; waited for child to move before leaving              │
-  │  Intense criticism: Why didn't he help? Psychological burden    │
-  │  Carter died by suicide three months after Pulitzer             │
-  │                                                                   │
+  │  Pulitzer 1994; Carter photographed starving child and waiting   │
+  │   vulture; waited for child to move before leaving               │
+  │  Intense criticism: Why didn't he help? Psychological burden     │
+  │  Carter died by suicide three months after Pulitzer              │
+  │                                                                  │
   │  NICK UT / NAPALM GIRL — KIM PHUC (Vietnam, 1972):             │
-  │  Girl running from napalm attack, naked, burned                 │
-  │  AP initially refused to distribute (nudity policy)             │
-  │  Overruled by photo editors — public interest outweighed policy │
-  │  Ran worldwide; became defining anti-war image                  │
-  │  Ut also took Kim Phuc to hospital after photograph             │
+  │  Girl running from napalm attack, naked, burned                  │
+  │  AP initially refused to distribute (nudity policy)              │
+  │  Overruled by photo editors — public interest outweighed policy  │
+  │  Ran worldwide; became defining anti-war image                   │
+  │  Ut also took Kim Phuc to hospital after photograph              │
   └──────────────────────────────────────────────────────────────────┘
 
   CONSENT IN CONFLICT ZONES:
   ┌──────────────────────────────────────────────────────────────────┐
   │  REALITY: Informed consent is rarely obtained in conflict zones  │
   │  STANDARD PRACTICE: Photograph first; obtain consent if possible│
-  │  LIMITS: Photographs of wounded, dying, dead — most contested   │
-  │                                                                   │
-  │  FACTORS IN PUBLICATION DECISION:                               │
-  │  ① Deceased: family notified? national security?                │
+  │  LIMITS: Photographs of wounded, dying, dead — most contested    │
+  │                                                                  │
+  │  FACTORS IN PUBLICATION DECISION:                                │
+  │  ① Deceased: family notified? national security?                 │
   │  ② Identifiability: can subject or family be harmed by I.D.?   │
-  │  ③ Dignity: does image dehumanize or record reality?            │
+  │  ③ Dignity: does image dehumanize or record reality?             │
   │  ④ Public interest: does publication change anything meaningful?│
   │  ⑤ Proportionality: is the harm commensurate with the value?   │
   └──────────────────────────────────────────────────────────────────┘
@@ -362,22 +362,22 @@ THE NO-PIXEL-EDITING PRINCIPLE
 
   GENERATIVE AI CHALLENGE (2023–present):
   ┌──────────────────────────────────────────────────────────────────┐
-  │  AI-generated photorealistic images now indistinguishable       │
-  │   from real photographs without technical forensic analysis     │
-  │                                                                   │
-  │  INDUSTRY RESPONSE:                                             │
-  │  C2PA (Coalition for Content Provenance and Authenticity):      │
-  │   Metadata standard embedded in image files at capture          │
-  │   Records camera model, settings, edit history in tamper-       │
-  │   evident container                                             │
-  │  Camera manufacturers implementing C2PA at sensor level         │
+  │  AI-generated photorealistic images now indistinguishable        │
+  │   from real photographs without technical forensic analysis      │
+  │                                                                  │
+  │  INDUSTRY RESPONSE:                                              │
+  │  C2PA (Coalition for Content Provenance and Authenticity):       │
+  │   Metadata standard embedded in image files at capture           │
+  │   Records camera model, settings, edit history in tamper-        │
+  │   evident container                                              │
+  │  Camera manufacturers implementing C2PA at sensor level          │
   │   (Leica M11-P, Nikon Z9 with firmware)                        │
-  │                                                                   │
-  │  DETECTION TOOLS:                                               │
-  │  Content credentials verification                               │
-  │  EXIF metadata analysis (origin camera, not guarantee)          │
-  │  GAN artifact detection models                                  │
-  │  Reverse image search for original context                      │
+  │                                                                  │
+  │  DETECTION TOOLS:                                                │
+  │  Content credentials verification                                │
+  │  EXIF metadata analysis (origin camera, not guarantee)           │
+  │  GAN artifact detection models                                   │
+  │  Reverse image search for original context                       │
   └──────────────────────────────────────────────────────────────────┘
 ```
 

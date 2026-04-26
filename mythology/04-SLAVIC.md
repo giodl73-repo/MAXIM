@@ -6,26 +6,26 @@ Slavic mythology is the hardest major tradition to reconstruct. Unlike Norse, Gr
 
 ```
 ┌──────────────────────────────────────────────────────────────────┐
-│              SLAVIC MYTHOLOGY — SOURCE PROBLEMS                   │
+│              SLAVIC MYTHOLOGY — SOURCE PROBLEMS                  │
 │                                                                  │
 │  PRIMARY SOURCES (hostile foreign observers):                    │
-│  — Primary Chronicle (Povest' Vremennykh Let, ~1113 CE)         │
-│    Russian monk Nestor: records Christianization, names idols   │
-│  — Helmold of Bosau (12th c. Germany): West Slavic paganism     │
-│  — Ibn Fadlan (922 CE Arab traveler): Volga Viking/Rus burial   │
-│  — Saxo Grammaticus: Danes, includes West Slavic material       │
+│  — Primary Chronicle (Povest' Vremennykh Let, ~1113 CE)          │
+│    Russian monk Nestor: records Christianization, names idols    │
+│  — Helmold of Bosau (12th c. Germany): West Slavic paganism      │
+│  — Ibn Fadlan (922 CE Arab traveler): Volga Viking/Rus burial    │
+│  — Saxo Grammaticus: Danes, includes West Slavic material        │
 │                                                                  │
 │  SECONDARY SOURCES (after Christianization):                     │
-│  — Russian/Ukrainian folklore (collected 19th c.)               │
+│  — Russian/Ukrainian folklore (collected 19th c.)                │
 │  — Fairy tales (skazki) — heavily transformed                  │
-│  — Seasonal customs and folk practices                          │
-│  — Place names with deity connections                           │
-│  — Medieval church polemics against pagan practices             │
+│  — Seasonal customs and folk practices                           │
+│  — Place names with deity connections                            │
+│  — Medieval church polemics against pagan practices              │
 │                                                                  │
-│  PROBLEMATIC SOURCE: Book of Veles (Velesova Kniga)             │
-│  — Claimed pre-Christian Slavic text                            │
+│  PROBLEMATIC SOURCE: Book of Veles (Velesova Kniga)              │
+│  — Claimed pre-Christian Slavic text                             │
 │  — Consensus: 20th-century forgery (appeared 1954)             │
-│  — Do not cite as authentic                                     │
+│  — Do not cite as authentic                                      │
 └──────────────────────────────────────────────────────────────────┘
 ```
 
@@ -37,39 +37,39 @@ The **central myth** of Slavic religion is a cosmic combat between two great for
 
 ```
 ┌──────────────────────────────────────────────────────────────────┐
-│                 PERUN vs. VELES — THE COSMIC COMBAT               │
+│                 PERUN vs. VELES — THE COSMIC COMBAT              │
 │                                                                  │
 │  PERUN (Sky/Thunder God)                                         │
-│  — Rules the sky, heavens, clouds                               │
-│  — Thunder, lightning, rain                                     │
-│  — Weapons: axe (thunderbolt), bow                              │
-│  — Associated with oak trees (lightning-struck oaks)            │
-│  — Warrior energy, order, light                                 │
-│  — Cognate: Baltic Perkūnas, Vedic Parjanya, PIE *perkwunos     │
+│  — Rules the sky, heavens, clouds                                │
+│  — Thunder, lightning, rain                                      │
+│  — Weapons: axe (thunderbolt), bow                               │
+│  — Associated with oak trees (lightning-struck oaks)             │
+│  — Warrior energy, order, light                                  │
+│  — Cognate: Baltic Perkūnas, Vedic Parjanya, PIE *perkwunos      │
 │                                                                  │
 │  VELES (Underworld God)                                          │
 │  — Rules the underworld (Nav), waters, earth                   │
-│  — Cattle, wealth, magic, arts, poetry                          │
-│  — Shape-shifter (serpent, bear, human)                         │
-│  — Associated with the dead and fate                            │
-│  — Patron of merchants, sorcerers                               │
+│  — Cattle, wealth, magic, arts, poetry                           │
+│  — Shape-shifter (serpent, bear, human)                          │
+│  — Associated with the dead and fate                             │
+│  — Patron of merchants, sorcerers                                │
 │                                                                  │
 │  THE COMBAT:                                                     │
-│  Veles steals cattle (or Perun's wife/son) and retreats to      │
-│  underworld or transforms into a tree/serpent                   │
-│  Perun pursues, hurls thunderbolts                              │
-│  Veles defeated and driven back underground                     │
-│  Rain falls where thunderbolts strike (releasing water Veles    │
-│  had hoarded underground)                                       │
-│  → Seasonal fertility cycle: sky-waters released to earth       │
+│  Veles steals cattle (or Perun's wife/son) and retreats to       │
+│  underworld or transforms into a tree/serpent                    │
+│  Perun pursues, hurls thunderbolts                               │
+│  Veles defeated and driven back underground                      │
+│  Rain falls where thunderbolts strike (releasing water Veles     │
+│  had hoarded underground)                                        │
+│  → Seasonal fertility cycle: sky-waters released to earth        │
 │                                                                  │
-│  BOTH ARE NECESSARY: Veles is not simply evil — he rules the    │
-│  underworld, the dead, and the fertility of the earth below.    │
-│  The combat is cyclic and cosmic, not a final war.              │
+│  BOTH ARE NECESSARY: Veles is not simply evil — he rules the     │
+│  underworld, the dead, and the fertility of the earth below.     │
+│  The combat is cyclic and cosmic, not a final war.               │
 │                                                                  │
 │  PARALLELS:                                                      │
-│  Zeus vs. Typhon (Greek), Indra vs. Vrtra (Vedic),              │
-│  Thor vs. Jörmungandr (Norse) — all PIE storm-vs.-serpent myth  │
+│  Zeus vs. Typhon (Greek), Indra vs. Vrtra (Vedic),               │
+│  Thor vs. Jörmungandr (Norse) — all PIE storm-vs.-serpent myth   │
 └──────────────────────────────────────────────────────────────────┘
 ```
 
@@ -134,26 +134,26 @@ This cosmological tripartition is reconstructed from folk sources and the compar
 
 ```
 ┌──────────────────────────────────────────────────────────────────┐
-│               SLAVIC THREE-WORLD COSMOLOGY                        │
+│               SLAVIC THREE-WORLD COSMOLOGY                       │
 │                                                                  │
 │  PRAV (Правь) — The True/Divine World                            │
-│  — Realm of cosmic order and the gods                           │
-│  — "Prav" related to "pravda" (truth/justice)                   │
-│  — The world as it ought to be; divine law                      │
+│  — Realm of cosmic order and the gods                            │
+│  — "Prav" related to "pravda" (truth/justice)                    │
+│  — The world as it ought to be; divine law                       │
 │                                                                  │
 │  YAV (Явь) — The Manifest World                                  │
-│  — The world of the living; reality as experienced              │
+│  — The world of the living; reality as experienced               │
 │  — "Yav" related to "yavit'" (to manifest/appear)              │
 │                                                                  │
 │  NAV (Навь) — The Death World                                    │
-│  — The realm of the dead, the unmanifest                        │
-│  — The Nav = spirits of the dead                                │
-│  — Associated with disease, winter, bad luck                    │
+│  — The realm of the dead, the unmanifest                         │
+│  — The Nav = spirits of the dead                                 │
+│  — Associated with disease, winter, bad luck                     │
 │                                                                  │
-│  The World Tree (Mировое Дерево) connects all three:            │
+│  The World Tree (Mировое Дерево) connects all three:             │
 │  — Roots in Nav, trunk in Yav, crown in Prav                   │
-│  — Birds in the canopy (heavenly), serpents at roots (chthonic) │
-│  — Axis mundi in Slavic cosmology                               │
+│  — Birds in the canopy (heavenly), serpents at roots (chthonic)  │
+│  — Axis mundi in Slavic cosmology                                │
 └──────────────────────────────────────────────────────────────────┘
 ```
 

@@ -4,7 +4,7 @@
 
 ```
 +------------------------------------------------------------------+
-|                   COLOR IN DESIGN SYSTEMS                         |
+|                   COLOR IN DESIGN SYSTEMS                        |
 |                                                                  |
 |  PHYSICS          PERCEPTION        APPLICATION                  |
 |  -------          ----------        -----------                  |

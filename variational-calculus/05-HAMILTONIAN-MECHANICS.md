@@ -8,13 +8,13 @@ symmetric structure that reveals the deep geometry of dynamics.
 
 ```
 +-----------------------------------------------------------------------+
-|              LAGRANGIAN vs. HAMILTONIAN                                |
+|              LAGRANGIAN vs. HAMILTONIAN                               |
 |                                                                       |
 |  LAGRANGIAN           HAMILTONIAN                                     |
 |  -----------          -----------                                     |
 |  State: (q, q̇)       State: (q, p)  [phase space]                   |
 |  n 2nd-order ODEs     2n 1st-order ODEs                               |
-|  L = T − V            H = T + V  (usually energy)                    |
+|  L = T − V            H = T + V  (usually energy)                     |
 |  q̈ = f(q, q̇)         q̇ = ∂H/∂p,  ṗ = −∂H/∂q                      |
 |  Tangent bundle TQ    Cotangent bundle T*Q                            |
 |                                                                       |

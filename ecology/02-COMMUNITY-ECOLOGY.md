@@ -6,23 +6,23 @@ A community is the set of species coexisting in a place, connected by interactio
 
 ```
 +---------------------------------------------------------------+
-|           SPECIES INTERACTION MATRIX                           |
-|                                                                |
+|           SPECIES INTERACTION MATRIX                          |
+|                                                               |
 |  INTERACTION    EFFECT A  EFFECT B   EXAMPLE                  |
 |  ------------   --------  --------   ----------------------   |
 |  Predation/     +         -          Wolf-elk, lion-zebra     |
 |  Parasitism/                         (consumer-victim)        |
-|  Herbivory                                                     |
-|                                                                |
+|  Herbivory                                                    |
+|                                                               |
 |  Competition    -         -          Two species, same niche  |
-|  (interspecific)                                               |
-|                                                                |
+|  (interspecific)                                              |
+|                                                               |
 |  Mutualism      +         +          Mycorrhizae-plant,       |
-|                                      bee-flower, cleaner fish  |
-|                                                                |
+|                                      bee-flower, cleaner fish |
+|                                                               |
 |  Commensalism   +         0          Epiphytes on trees,      |
 |                                      cattle egrets with cows  |
-|                                                                |
+|                                                               |
 |  Amensalism     0         -          Allelopathy (black       |
 |                                      walnut chemical)         |
 +---------------------------------------------------------------+

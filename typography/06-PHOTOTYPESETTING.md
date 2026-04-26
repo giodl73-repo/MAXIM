@@ -84,7 +84,7 @@ PHOTON MACHINE DESIGN (~1954)
   │ 96 characters arranged in concentric rings on the disk          │
   │ Each character = a film negative image of the letterform        │
   │                                                                 │
-  │         ┌────────────────────────────────────────────────┐     │
+  │         ┌────────────────────────────────────────────────┐      │
   │         │  •  A  B  C  D  E  F  G  ...  (outer ring)     │     │
   │         │    • a  b  c  d  e  f  g  ... (inner ring)     │     │
   │         └────────────────────────────────────────────────┘     │

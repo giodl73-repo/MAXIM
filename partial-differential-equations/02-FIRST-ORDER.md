@@ -8,7 +8,7 @@ to a solved one.
 
 ```
 +-----------------------------------------------------------------------+
-|              FIRST-ORDER PDE TAXONOMY                                  |
+|              FIRST-ORDER PDE TAXONOMY                                 |
 |                                                                       |
 |  LINEAR:         a(x,y)u_x + b(x,y)u_y = c(x,y)                     |
 |                  Characteristics: ODEs dx/a = dy/b = du/c             |

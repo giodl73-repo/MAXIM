@@ -10,8 +10,8 @@ SPJ CODE OF ETHICS — FOUR PRINCIPLES
 
   SEEK TRUTH AND REPORT IT
   ┌──────────────────────────────────────────────────────────────────┐
-  │  Take responsibility for accuracy                               │
-  │  Verify; do not assume                                          │
+  │  Take responsibility for accuracy                                │
+  │  Verify; do not assume                                           │
   │  Seek out the marginalized, not just the powerful              │
   │  Boldly tell the truth even when unpopular                     │
   └──────────────────────────────────────────────────────────────────┘
@@ -26,17 +26,17 @@ SPJ CODE OF ETHICS — FOUR PRINCIPLES
 
   ACT INDEPENDENTLY
   ┌──────────────────────────────────────────────────────────────────┐
-  │  Avoid conflicts of interest                                    │
+  │  Avoid conflicts of interest                                     │
   │  Reject gifts, favors that create obligations                  │
   │  Resist pressure from advertisers, owners, sources             │
-  │  Disclose unavoidable conflicts                                 │
+  │  Disclose unavoidable conflicts                                  │
   └──────────────────────────────────────────────────────────────────┘
 
   BE ACCOUNTABLE AND TRANSPARENT
   ┌──────────────────────────────────────────────────────────────────┐
-  │  Acknowledge errors promptly and correct with equal prominence  │
-  │  Expose unethical conduct in own organization                   │
-  │  Explain editorial choices when public interest demands         │
+  │  Acknowledge errors promptly and correct with equal prominence   │
+  │  Expose unethical conduct in own organization                    │
+  │  Explain editorial choices when public interest demands          │
   │  Respond to audience questions and criticism                   │
   └──────────────────────────────────────────────────────────────────┘
 ```
@@ -54,7 +54,7 @@ OBJECTIVITY — THREE ERAS
   │  Newspapers openly aligned with political parties or interests │
   │  Party newspapers: Common in UK, US, Europe                    │
   │  Editor's opinion mixed freely with news reporting             │
-  │  No expectation of "balance"                                    │
+  │  No expectation of "balance"                                     │
   └──────────────────────────────────────────────────────────────────┘
 
   ERA 2: OBJECTIVITY AS PROFESSIONAL NORM (1900s–1980s)
@@ -104,8 +104,8 @@ FALSE BALANCE TAXONOMY
 
   TYPE 1: SCIENTIFIC CONSENSUS vs. FRINGE (strongest problem):
   ┌──────────────────────────────────────────────────────────────────┐
-  │  Story: "Scientists debate whether vaccines cause autism"       │
-  │  Reality: No scientific debate; overwhelming consensus vaccines │
+  │  Story: "Scientists debate whether vaccines cause autism"        │
+  │  Reality: No scientific debate; overwhelming consensus vaccines  │
   │   do not cause autism; one retracted fraudulent study        │
   │  Effect: Treating Wakefield's fraud as one side of debate      │
   │   contributed to measles outbreaks by distorting public's      │
@@ -115,7 +115,7 @@ FALSE BALANCE TAXONOMY
   TYPE 2: FACTUAL CLAIM vs. UNSUBSTANTIATED DENIAL:
   ┌──────────────────────────────────────────────────────────────────┐
   │  Story: "Company denies releasing chemicals, regulators say    │
-  │   otherwise"                                                    │
+  │   otherwise"                                                     │
   │  Presented as: Equal sides → public uncertain                  │
   │  Reality: Documents, testing, inspection records may make      │
   │   denial factually incorrect — reporter must weigh evidence    │
@@ -125,7 +125,7 @@ FALSE BALANCE TAXONOMY
   ┌──────────────────────────────────────────────────────────────────┐
   │  "Should the city raise the minimum wage?"                     │
   │  Reality: Reasonable people with evidence on different sides   │
-  │  Appropriate: Present multiple perspectives and evidence        │
+  │  Appropriate: Present multiple perspectives and evidence         │
   │  The difference: Policy values questions ≠ factual questions   │
   └──────────────────────────────────────────────────────────────────┘
 ```
@@ -168,7 +168,7 @@ CORRECTIONS STANDARDS
 
   WHAT DOES NOT REQUIRE CORRECTION:
   ┌──────────────────────────────────────────────────────────────────┐
-  │  Subject dislikes accurate coverage                             │
+  │  Subject dislikes accurate coverage                              │
   │  Subject's interpretation of events differs from documented    │
   │   record (subject's preferred narrative ≠ factual error)       │
   └──────────────────────────────────────────────────────────────────┘
@@ -215,7 +215,7 @@ CONFLICT OF INTEREST FRAMEWORK
   │  Beat reporter develops close relationship with beat community │
   │  Sources become social contacts → favorable coverage expected  │
   │  Mitigation: Periodic rotation of beat assignments             │
-  │              Editor oversight of reporter-source relationships  │
+  │              Editor oversight of reporter-source relationships   │
   └──────────────────────────────────────────────────────────────────┘
 ```
 
@@ -235,7 +235,7 @@ ANONYMOUS SOURCE STANDARDS (expanded)
   │  ③ What is the source's reliability record?                      │
   │  ④ Is the information vital enough to justify the grant?         │
   │  ⑤ Will the source's identity be known to at least one           │
-  │     senior editor?                                                │
+  │     senior editor?                                               │
   └──────────────────────────────────────────────────────────────────┘
 
   ANONYMOUS SOURCE LIMITATIONS:

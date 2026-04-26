@@ -10,26 +10,26 @@ MODERN MASONRY WALL SYSTEMS
 
   STRUCTURAL SYSTEMS:
   ┌──────────────────────────────────────────────────────────────────┐
-  │  REINFORCED CMU (most common structural)                        │
-  │  Rebar in grouted cores + horizontal bond beams                 │
-  │  Used for: warehouses, parking structures, schools, retail      │
+  │  REINFORCED CMU (most common structural)                         │
+  │  Rebar in grouted cores + horizontal bond beams                  │
+  │  Used for: warehouses, parking structures, schools, retail       │
   │  Thickness: 8" most common, 12" for high loads or seismic      │
-  │                                                                   │
-  │  POST-TENSIONED MASONRY                                         │
-  │  PT rods in CMU cores; slender walls possible                   │
+  │                                                                  │
+  │  POST-TENSIONED MASONRY                                          │
+  │  PT rods in CMU cores; slender walls possible                    │
   │  Used for: high-wind single-wythe panels, URM retrofit         │
   └──────────────────────────────────────────────────────────────────┘
 
   ENCLOSURE SYSTEMS (non-structural):
   ┌──────────────────────────────────────────────────────────────────┐
-  │  CAVITY WALL                                                    │
+  │  CAVITY WALL                                                     │
   │  Traditional (structural outer + inner wythe + cavity)         │
   │  Modern (frame + CMU/brick outer wythe + insulation + air gap) │
-  │                                                                   │
-  │  THIN-BRICK VENEER                                              │
+  │                                                                  │
+  │  THIN-BRICK VENEER                                               │
   │  3/4" to 1-5/8" thick brick slices adhered to substrate       │
-  │                                                                   │
-  │  BRICK VENEER ON FRAME                                          │
+  │                                                                  │
+  │  BRICK VENEER ON FRAME                                           │
   │  4" brick + ties on steel/wood/CMU backup (most US residential)│
   └──────────────────────────────────────────────────────────────────┘
 ```
@@ -54,24 +54,24 @@ CAVITY WALL ASSEMBLY (inside to outside)
                                                                       │
   DETAILED SECTION:
   ┌──────────────────────────────────────────────────────────────────┐
-  │  STRUCTURAL BACKUP (CMU, metal stud, or concrete)               │
-  │  │                                                                │
-  │  CONTINUOUS INSULATION (rigid foam, mineral wool board)         │
+  │  STRUCTURAL BACKUP (CMU, metal stud, or concrete)                │
+  │  │                                                               │
+  │  CONTINUOUS INSULATION (rigid foam, mineral wool board)          │
   │  │   R-value: R-13 to R-21 typical per IRC requirements        │
-  │  │                                                                │
-  │  AIR BARRIER (fluid-applied or sheet membrane)                  │
-  │  │   Continuous — laps over window/door frames                  │
-  │  │                                                                │
-  │  AIR GAP / CAVITY (1" minimum, 2" preferred)                    │
-  │  │   Allows water that penetrates to drain to flashing          │
-  │  │                                                                │
-  │  DRAINAGE MAT (optional — promotes drainage, reduces bridging)  │
-  │  │                                                                │
-  │  VENEER BRICK / CMU OUTER WYTHE                                 │
-  │  │   4" nominal brick; mechanically tied to backup              │
-  │  │                                                                │
-  │  WEEP HOLES at base of cavity (every other head joint)          │
-  │    → drain infiltrated water at flashing level                  │
+  │  │                                                               │
+  │  AIR BARRIER (fluid-applied or sheet membrane)                   │
+  │  │   Continuous — laps over window/door frames                   │
+  │  │                                                               │
+  │  AIR GAP / CAVITY (1" minimum, 2" preferred)                     │
+  │  │   Allows water that penetrates to drain to flashing           │
+  │  │                                                               │
+  │  DRAINAGE MAT (optional — promotes drainage, reduces bridging)   │
+  │  │                                                               │
+  │  VENEER BRICK / CMU OUTER WYTHE                                  │
+  │  │   4" nominal brick; mechanically tied to backup               │
+  │  │                                                               │
+  │  WEEP HOLES at base of cavity (every other head joint)           │
+  │    → drain infiltrated water at flashing level                   │
   └──────────────────────────────────────────────────────────────────┘
 
   WALL TIE REQUIREMENTS:
@@ -86,20 +86,20 @@ CAVITY WALL ASSEMBLY (inside to outside)
 ```
 FLASHING LOCATIONS (critical — every horizontal mortar interruption):
 ┌──────────────────────────────────────────────────────────────────┐
-│  ① Base of cavity (at foundation / first course)                │
-│  ② Top of window and door openings (at head)                    │
+│  ① Base of cavity (at foundation / first course)                 │
+│  ② Top of window and door openings (at head)                     │
 │  ③ Above lintels                                                 │
 │  ④ At roof / wall intersections                                  │
 │  ⑤ At horizontal offsets (corbels, shelf angles)               │
-│                                                                   │
-│  FLASHING MATERIAL:                                             │
-│  Through-wall: 20-mil EPDM or rubberized asphalt membrane       │
-│  Shelf angle: copper or stainless steel (under shelf angle)     │
-│  End dams: upturned flashing ends prevent lateral water runout  │
-│                                                                   │
+│                                                                  │
+│  FLASHING MATERIAL:                                              │
+│  Through-wall: 20-mil EPDM or rubberized asphalt membrane        │
+│  Shelf angle: copper or stainless steel (under shelf angle)      │
+│  End dams: upturned flashing ends prevent lateral water runout   │
+│                                                                  │
 │  WEEP HOLES: every other head joint at flashing level (16" O.C.)│
 │  Clear weep = 3/8" × 3/4" opening (do not mortar closed)       │
-│  Alternative: through-brick open head joint tube weeps          │
+│  Alternative: through-brick open head joint tube weeps           │
 └──────────────────────────────────────────────────────────────────┘
 ```
 
@@ -116,13 +116,13 @@ THIN-BRICK VENEER TYPES
   ADHERED THIN BRICK:
   ┌──────────────────────────────────────────────────────────────────┐
   │  SUBSTRATE → scratch coat → mortar bed → thin brick face       │
-  │                                                                   │
-  │  Substrate options: concrete masonry, concrete, cement board    │
-  │  Mortar: polymer-modified Portland tile-setting mortar          │
-  │  Back-butter required: press mortar on back of each unit        │
+  │                                                                  │
+  │  Substrate options: concrete masonry, concrete, cement board     │
+  │  Mortar: polymer-modified Portland tile-setting mortar           │
+  │  Back-butter required: press mortar on back of each unit         │
   │  Joint: 3/8" grouted after setting (thin-set grout)            │
-  │                                                                   │
-  │  LIMITATIONS:                                                   │
+  │                                                                  │
+  │  LIMITATIONS:                                                    │
   │  • Not suitable for below grade or always-wet locations        │
   │  • Substrate must be rigid and crack-free (cracks telegraph)   │
   │  • Cannot use outdoors where substrate deflects > L/600        │
@@ -131,8 +131,8 @@ THIN-BRICK VENEER TYPES
 
   MECHANICAL THIN BRICK (panel system):
   ┌──────────────────────────────────────────────────────────────────┐
-  │  Thin brick units set into pre-formed panel track system        │
-  │  Panel anchored to structural frame                             │
+  │  Thin brick units set into pre-formed panel track system         │
+  │  Panel anchored to structural frame                              │
   │  Used on: taller buildings where adhered system cannot span    │
   │  Advantage: factory-controlled quality; field-installed panel  │
   └──────────────────────────────────────────────────────────────────┘
@@ -140,8 +140,8 @@ THIN-BRICK VENEER TYPES
   BRICK FORM LINER (for concrete):
   ┌──────────────────────────────────────────────────────────────────┐
   │  Plastic form liner with brick profile placed inside formwork  │
-  │  Cast concrete picks up the pattern                             │
-  │  Result: concrete wall with brick-pattern surface               │
+  │  Cast concrete picks up the pattern                              │
+  │  Result: concrete wall with brick-pattern surface                │
   │  Note: not actual masonry; fire-rated as concrete              │
   └──────────────────────────────────────────────────────────────────┘
 ```
@@ -157,20 +157,20 @@ GLASS BLOCK LIMITATIONS
 ========================
 
   ┌──────────────────────────────────────────────────────────────────┐
-  │  MAXIMUM PANEL SIZE (unreinforced): 100 sq ft / panel           │
-  │  MAXIMUM PANEL DIMENSION: 25 ft wide OR 20 ft tall              │
-  │  LOAD CAPACITY: none — glass block panels carry no gravity load │
-  │  SEISMIC: limited — panels deflect under seismic racking        │
-  │  FIRE RESISTANCE: 45–90 min depending on unit type              │
-  │                                                                   │
-  │  Panel expansion joints required:                               │
-  │  • Panel perimeter isolation from structural frame              │
+  │  MAXIMUM PANEL SIZE (unreinforced): 100 sq ft / panel            │
+  │  MAXIMUM PANEL DIMENSION: 25 ft wide OR 20 ft tall               │
+  │  LOAD CAPACITY: none — glass block panels carry no gravity load  │
+  │  SEISMIC: limited — panels deflect under seismic racking         │
+  │  FIRE RESISTANCE: 45–90 min depending on unit type               │
+  │                                                                  │
+  │  Panel expansion joints required:                                │
+  │  • Panel perimeter isolation from structural frame               │
   │  • 3/8" expansion joint (foam backer + sealant) at jambs/head  │
   │  • Allows frame movement without cracking glass units          │
-  │                                                                   │
-  │  MORTAR: White Portland + fine silica sand + glass block mortar │
-  │    mix (ASTM C270 Type S proportion)                            │
-  │    No lime (discolors glass)                                    │
+  │                                                                  │
+  │  MORTAR: White Portland + fine silica sand + glass block mortar  │
+  │    mix (ASTM C270 Type S proportion)                             │
+  │    No lime (discolors glass)                                     │
   └──────────────────────────────────────────────────────────────────┘
 ```
 
@@ -197,7 +197,7 @@ INSULATED CMU TYPES
   ┌──────────────────────────────────────────────────────────────────┐
   │  Standard CMU, grouted at reinforced cores only                │
   │  Continuous insulation on exterior face (rigid foam)           │
-  │  Air barrier over insulation                                    │
+  │  Air barrier over insulation                                     │
   │  Cladding or stucco on exterior                                │
   │  R-value: CMU alone R-2; add R-15 exterior = R-17 total        │
   └──────────────────────────────────────────────────────────────────┘
@@ -205,8 +205,8 @@ INSULATED CMU TYPES
   TYPE C: INTERLOCKING INSULATED CMU (proprietary)
   ┌──────────────────────────────────────────────────────────────────┐
   │  Units with integral foam core and tongue-and-groove interlocking│
-  │  No mortar required (dry-stack with surface-applied mortar)     │
-  │  Use: residential, light commercial                             │
+  │  No mortar required (dry-stack with surface-applied mortar)      │
+  │  Use: residential, light commercial                              │
   │  Examples: Sparton Block, Azar Block systems                   │
   └──────────────────────────────────────────────────────────────────┘
 ```
@@ -238,10 +238,10 @@ SEISMIC MASONRY REQUIREMENTS SUMMARY (SDC D/E/F)
   ┌──────────────────────────────────────────────────────────────────┐
   │  Minimum vertical reinforcement:   #4 @ 48" max vertical O.C.  │
   │  Minimum horizontal reinforcement: #4 @ 48" max horizontal O.C.│
-  │  Min reinforcement ratio (ρ):      0.0007 in each direction     │
-  │  Max reinforcement ratio (ρ_max):  governed by ductility calc   │
+  │  Min reinforcement ratio (ρ):      0.0007 in each direction      │
+  │  Max reinforcement ratio (ρ_max):  governed by ductility calc    │
   │                                    (prevents over-reinforcement  │
-  │                                     → non-ductile failure)      │
+  │                                     → non-ductile failure)       │
   │  Grouting:                         All cells within shear walls  │
   │  Lap splices:                      1.5 × development length      │
   │  Special inspection:               Level C (continuous)          │
@@ -249,9 +249,9 @@ SEISMIC MASONRY REQUIREMENTS SUMMARY (SDC D/E/F)
 
   DIAPHRAGM CONNECTIONS:
   ┌──────────────────────────────────────────────────────────────────┐
-  │  Ledger bolts or embedded anchors at floor/roof connections     │
+  │  Ledger bolts or embedded anchors at floor/roof connections      │
   │  Anchor bolt spacing: ≤ 4 ft O.C. (IBC Table 1905.1.1)        │
-  │  Bond beam at top of wall: continuous horizontal reinforcement  │
+  │  Bond beam at top of wall: continuous horizontal reinforcement   │
   │  Chord reinforcement at diaphragm edges                        │
   └──────────────────────────────────────────────────────────────────┘
 ```

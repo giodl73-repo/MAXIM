@@ -10,21 +10,21 @@ The central claim: language can express what is the case (facts about the world)
 +-----------------------------------------------------------------------+
 |                     TRACTATUS STRUCTURE                               |
 |                                                                       |
-|  WORLD                         LANGUAGE                              |
-|  -----                         --------                              |
+|  WORLD                         LANGUAGE                               |
+|  -----                         --------                               |
 |  OBJECTS (Gegenstände)         NAMES (simple, unanalyzable)           |
-|  Simple, unalterable           Name → Object (meaning = bearer)      |
+|  Simple, unalterable           Name → Object (meaning = bearer)       |
 |  Form the substance of world                                          |
-|            ↓                              ↓                          |
-|  ATOMIC FACTS (Sachverhalte)   ELEMENTARY PROPOSITIONS               |
-|  Objects in determinate        Names concatenated                    |
-|  combination                   "Picture" of possible atomic fact     |
-|            ↓                              ↓                          |
+|            ↓                              ↓                           |
+|  ATOMIC FACTS (Sachverhalte)   ELEMENTARY PROPOSITIONS                |
+|  Objects in determinate        Names concatenated                     |
+|  combination                   "Picture" of possible atomic fact      |
+|            ↓                              ↓                           |
 |  STATES OF AFFAIRS (Tatsachen) PROPOSITIONS                         |
-|  Existing atomic facts         Truth-functions of elementary propns  |
-|            ↓                              ↓                          |
-|  THE WORLD                     THE TOTALITY OF TRUE PROPOSITIONS     |
-|  All facts (not things)        = the totality of natural science     |
+|  Existing atomic facts         Truth-functions of elementary propns   |
+|            ↓                              ↓                           |
+|  THE WORLD                     THE TOTALITY OF TRUE PROPOSITIONS      |
+|  All facts (not things)        = the totality of natural science      |
 +-----------------------------------------------------------------------+
 ```
 

@@ -727,37 +727,37 @@ SPORT GLOBALIZATION VECTORS
 ════════════════════════════
 
   ┌─────────────────────────────────────────────────────┐
-  │               BROADCAST VECTOR                       │
-  │  Premier League: 200+ countries, 600M viewers/week   │
-  │  NBA: 215 countries; China = largest single market   │
-  │  F1: 100+ countries, 1.5B cumulative viewers/season  │
+  │               BROADCAST VECTOR                      │
+  │  Premier League: 200+ countries, 600M viewers/week  │
+  │  NBA: 215 countries; China = largest single market  │
+  │  F1: 100+ countries, 1.5B cumulative viewers/season │
   └──────────────────────┬──────────────────────────────┘
                          │
   ┌──────────────────────▼──────────────────────────────┐
-  │               MIGRATION VECTOR                       │
-  │  Players as cultural entry points:                   │
+  │               MIGRATION VECTOR                      │
+  │  Players as cultural entry points:                  │
   │  Yao Ming (2002) → Houston Rockets → 300M Chinese   │
   │    NBA fans within 2 years                          │
   │  Dirk Nowitzki (1998-2019) → Germany → NBA fandom   │
-  │  Ronaldo/Messi → >500M combined Instagram followers  │
+  │  Ronaldo/Messi → >500M combined Instagram followers │
   └──────────────────────┬──────────────────────────────┘
                          │
   ┌──────────────────────▼──────────────────────────────┐
-  │            INFRASTRUCTURE EXPORT                     │
+  │            INFRASTRUCTURE EXPORT                    │
   │  EPL clubs: academies in West Africa, Southeast Asia │
-  │  NBA: Basketball Without Borders (1994-present)      │
-  │  NFL London Games: 2007 → 3+/year → permanent        │
-  │  NFL Germany: Frankfurt, Munich (from 2022)          │
-  │  F1 calendar: Singapore (2008), Abu Dhabi (2009),    │
+  │  NBA: Basketball Without Borders (1994-present)     │
+  │  NFL London Games: 2007 → 3+/year → permanent       │
+  │  NFL Germany: Frankfurt, Munich (from 2022)         │
+  │  F1 calendar: Singapore (2008), Abu Dhabi (2009),   │
   │    Saudi Arabia (2021), Miami (2022), Las Vegas (2023)│
   └──────────────────────┬──────────────────────────────┘
                          │
   ┌──────────────────────▼──────────────────────────────┐
-  │            FRANCHISE/LEAGUE EXPANSION                │
-  │  MLS: 10 teams (1996) → 29 teams (2023)              │
-  │  NBA: 17 teams (1970) → 30 teams (2004)              │
-  │  NHL: 6 teams (1942) → 32 teams (2021)               │
-  │  Premier League: fixed 20 but global club ownership  │
+  │            FRANCHISE/LEAGUE EXPANSION               │
+  │  MLS: 10 teams (1996) → 29 teams (2023)             │
+  │  NBA: 17 teams (1970) → 30 teams (2004)             │
+  │  NHL: 6 teams (1942) → 32 teams (2021)              │
+  │  Premier League: fixed 20 but global club ownership │
   └─────────────────────────────────────────────────────┘
 ```
 

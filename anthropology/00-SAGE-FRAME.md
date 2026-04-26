@@ -28,17 +28,17 @@ Every technical discipline in the other fifty-one volumes has an ancestor here. 
 │        │                Before type theory: categories.           │
 │        │                                                          │
 │   MYTHOLOGY             How humans explain                        │
-│   (the storyteller)     Cosmogony, hero cycles, tricksters.      │
+│   (the storyteller)     Cosmogony, hero cycles, tricksters.       │
 │        │                Before physics: origin narratives.        │
 │        │                Before medicine: the healer myth.         │
 │        │                                                          │
 │   RELIGIOUS STUDIES     How humans sanctify                       │
-│   (the ritualist)       Sacred/profane, rites, doctrine.         │
+│   (the ritualist)       Sacred/profane, rites, doctrine.          │
 │        │                Before protocol: liturgy.                 │
 │        │                Before consensus algorithms: councils.    │
 │        │                                                          │
 │   ARCHAEOLOGY           What humans left behind                   │
-│   (the witness)         Stratigraphy, material culture, traces.  │
+│   (the witness)         Stratigraphy, material culture, traces.   │
 │                         Before version control: strata.           │
 │                         Before forensics: taphonomy.              │
 │                                                                   │

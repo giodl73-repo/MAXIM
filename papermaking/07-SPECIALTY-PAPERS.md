@@ -15,7 +15,7 @@
 |   RELEASE / SILICONE   ELECTRICAL    CARBONLESS   MEDICAL        |
 |   ─────────────────    ──────────    ──────────   ───────        |
 |   Label backing        Capacitor     NCR copies   Sterilization  |
-|   Baking parchment     Transformer   Self-copying  Wrapping       |
+|   Baking parchment     Transformer   Self-copying  Wrapping      |
 |                        winding                                   |
 +------------------------------------------------------------------+
 ```

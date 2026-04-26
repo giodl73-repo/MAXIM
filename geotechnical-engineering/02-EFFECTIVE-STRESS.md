@@ -6,7 +6,7 @@ Effective stress is the single most important concept in soil mechanics. Everyth
 
 ```
 +------------------------------------------------------------------+
-|               EFFECTIVE STRESS — MASTER CONCEPT                 |
+|               EFFECTIVE STRESS — MASTER CONCEPT                  |
 +------------------------------------------------------------------+
 |                                                                  |
 |  TOTAL STRESS  σ = weight of everything above (soil + water)    |

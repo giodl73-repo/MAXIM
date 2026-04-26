@@ -4,9 +4,9 @@
 
 ```
 +------------------------------------------------------------------+
-|           MINERAL IDENTIFICATION: FROM FIELD TO LABORATORY      |
+|           MINERAL IDENTIFICATION: FROM FIELD TO LABORATORY       |
 |                                                                  |
-|  FIELD                 PETROGRAPHIC LAB          ANALYTICAL LAB |
+|  FIELD                 PETROGRAPHIC LAB          ANALYTICAL LAB  |
 |  Hand specimen         Thin section under         XRD            |
 |  observation           polarizing microscope      XRF            |
 |                                                                  |
@@ -37,17 +37,17 @@ HAND SPECIMEN IDENTIFICATION WORKFLOW
 +------------------------------------------------------------------+
 |                                                                  |
 |  1. LUSTER                                                       |
-|     Metallic/opaque → go to sulfides/oxides/native metals       |
-|     Non-metallic → silicates/carbonates/phosphates/sulfates     |
+|     Metallic/opaque → go to sulfides/oxides/native metals        |
+|     Non-metallic → silicates/carbonates/phosphates/sulfates      |
 |                                                                  |
-|  2. HARDNESS (carry: fingernail, penny, knife, quartz piece)    |
+|  2. HARDNESS (carry: fingernail, penny, knife, quartz piece)     |
 |     <2.5: talc, gypsum, graphite, sulfur                       |
 |     2.5–3.5: calcite, halite, argentite                        |
 |     3.5–5.5: fluorite, apatite, chalcopyrite                   |
 |     5.5–7: pyroxene, amphibole, feldspar                       |
 |     >7: quartz, topaz, corundum, garnet                        |
 |                                                                  |
-|  3. CLEAVAGE/FRACTURE                                           |
+|  3. CLEAVAGE/FRACTURE                                            |
 |     1 perfect basal: mica                                      |
 |     3 planes ≈90°: halite, galena, orthoclase                  |
 |     3 planes rhombohedral: calcite, dolomite                   |
@@ -86,23 +86,23 @@ The standard tool of the economic geologist and petrologist. A 30 µm thick rock
 POLARIZING MICROSCOPE SETUP
 +------------------------------------------------------------------+
 |                                                                  |
-|    [Analyzer] ← (can insert/remove)                             |
+|    [Analyzer] ← (can insert/remove)                              |
 |    +---------+                                                   |
 |    |         |   ← Upper polarizer (analyzer): N-S             |
 |    | UPPER   |       perpendicular to lower                     |
 |    +---------+                                                   |
 |         |                                                        |
-|  MINERAL IN THIN SECTION  (30 µm thick)                         |
+|  MINERAL IN THIN SECTION  (30 µm thick)                          |
 |         |                                                        |
 |    +---------+                                                   |
 |    | LOWER   |   ← Lower polarizer (polarizer): E-W            |
 |    +---------+                                                   |
-|    [Light source]                                               |
+|    [Light source]                                                |
 |                                                                  |
-|  PPL: Plane Polarized Light (analyzer out)                      |
+|  PPL: Plane Polarized Light (analyzer out)                       |
 |  → Color, pleochroism, cleavage, habit                         |
 |                                                                  |
-|  XPL: Cross Polarized Light (analyzer in)                       |
+|  XPL: Cross Polarized Light (analyzer in)                        |
 |  → Birefringence (interference colors), extinction angle,      |
 |    twinning patterns                                           |
 +------------------------------------------------------------------+
@@ -155,20 +155,20 @@ The definitive mineral identification method — uses crystal structure, not jus
 POWDER XRD WORKFLOW
 +------------------------------------------------------------------+
 |  Sample: ~0.5 g mineral, ground to <45 µm powder               |
-|  Loaded into sample holder (flat plate or capillary)            |
+|  Loaded into sample holder (flat plate or capillary)             |
 |       |                                                          |
 |  Irradiated with X-rays (Cu Kα = 1.5406 Å most common)        |
 |       |                                                          |
 |  Detector scans 2θ from 2° to 70°+                             |
 |  Peak positions → d-spacings via Bragg's law: nλ = 2d·sin(θ)  |
 |       |                                                          |
-|  MATCH against ICDD database (International Centre for          |
+|  MATCH against ICDD database (International Centre for           |
 |  Diffraction Data) — PDF-4/Minerals database                   |
 |       |                                                          |
 |  Each mineral has a unique "fingerprint" of d-spacings         |
-|  and relative intensities                                       |
+|  and relative intensities                                        |
 |       |                                                          |
-|  Qualitative analysis: identify which minerals are present      |
+|  Qualitative analysis: identify which minerals are present       |
 |  Quantitative analysis (Rietveld refinement):                  |
 |    Fit calculated pattern to observed → wt% of each phase      |
 +------------------------------------------------------------------+
@@ -196,16 +196,16 @@ EPMA/EDS PRINCIPLE
 +------------------------------------------------------------------+
 |  Electron beam → mineral surface                                 |
 |       |                                                          |
-|  Incident electrons eject core electrons from atoms             |
+|  Incident electrons eject core electrons from atoms              |
 |       |                                                          |
 |  Outer electrons fall to fill vacancies → emit X-rays          |
 |  X-ray energy = specific to element (characteristic X-rays)    |
 |       |                                                          |
-|  EDS (Energy Dispersive Spectrometry):                          |
-|  → Fast; identifies all elements simultaneously                 |
+|  EDS (Energy Dispersive Spectrometry):                           |
+|  → Fast; identifies all elements simultaneously                  |
 |  → Lower precision (better for qualitative/semi-quantitative)  |
 |                                                                  |
-|  WDS (Wavelength Dispersive Spectrometry — EPMA proper):        |
+|  WDS (Wavelength Dispersive Spectrometry — EPMA proper):         |
 |  → Slower; analyzes one element at a time                      |
 |  → Higher precision (±0.01–0.1 wt%) → full quantitative        |
 |  → Can measure light elements (B, C, N, O, F) with appropriate |
@@ -239,14 +239,14 @@ LA-ICP-MS WORKFLOW
 |  Pulsed UV laser (193 nm ArF excimer) → mineral surface        |
 |  Ablation spot: 10–200 µm diameter; ~50 µm deep pit            |
 |       |                                                          |
-|  Ablated material transported in He carrier gas                 |
+|  Ablated material transported in He carrier gas                  |
 |       |                                                          |
 |  ICP (inductively coupled plasma): 6000–8000 K → full ionization|
 |       |                                                          |
 |  Mass spectrometer: separates ions by m/z → measures each isotope|
 |       |                                                          |
 |  Calibration against glass standards (NIST SRM 610, 612)       |
-|  Internal standard: usually a major element from EPMA           |
+|  Internal standard: usually a major element from EPMA            |
 +------------------------------------------------------------------+
 
 WHAT LA-ICP-MS CAN DO:

@@ -238,8 +238,8 @@ Eventually consistent — all replicas converge to the same value given enough t
 
 ```
 ┌─────────────────────────────────────────────────────────────────────────────┐
-│                           CAP THEOREM                                        │
-│   During a network partition, a distributed system can guarantee at most 2:  │
+│                           CAP THEOREM                                       │
+│   During a network partition, a distributed system can guarantee at most 2: │
 ├──────────────────┬──────────────────────┬───────────────────────────────────┤
 │  CP              │  AP                  │  CA                               │
 │  ─────────────── │  ────────────────    │  ────────────────                 │

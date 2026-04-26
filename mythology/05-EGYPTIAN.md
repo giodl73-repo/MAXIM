@@ -6,33 +6,33 @@ Egyptian religion is one of the world's longest-lived: 3,000+ years from c. 3000
 
 ```
 ┌──────────────────────────────────────────────────────────────────┐
-│              EGYPTIAN COSMOLOGICAL SCHOOLS                        │
+│              EGYPTIAN COSMOLOGICAL SCHOOLS                       │
 │                                                                  │
-│  HELIOPOLIS (On):                                               │
-│  The Ennead — "Nine" — the primary creation theology            │
+│  HELIOPOLIS (On):                                                │
+│  The Ennead — "Nine" — the primary creation theology             │
 │  Atum → Shu+Tefnut → Geb+Nut → Osiris+Isis+Set+Nephthys        │
-│  Ra/Atum as sun-creator; solar theology dominant                │
+│  Ra/Atum as sun-creator; solar theology dominant                 │
 │                                                                  │
 │  MEMPHIS:                                                        │
-│  Ptah creates through thought (heart) and word (tongue)         │
-│  = intellectual/ideational creation; proto-Logos theology       │
-│  "Memphite Theology" (Shabaka Stone, ~700 BCE, claims older)    │
+│  Ptah creates through thought (heart) and word (tongue)          │
+│  = intellectual/ideational creation; proto-Logos theology        │
+│  "Memphite Theology" (Shabaka Stone, ~700 BCE, claims older)     │
 │                                                                  │
 │  HERMOPOLIS:                                                     │
-│  The Ogdoad — "Eight" primordial pairs (chaos before creation)  │
+│  The Ogdoad — "Eight" primordial pairs (chaos before creation)   │
 │  Nun+Naunet (water), Amun+Amaunet (hidden), Huh+Hauhet (infinity),│
 │  Kuk+Kauket (darkness) — the eight chaos forces                │
 │  Creation: primordial mound rises from chaos waters; first light │
 │                                                                  │
-│  THEBES (New Kingdom dominance):                                │
-│  Amun becomes "king of gods"; syncretized as Amun-Ra            │
-│  Eventually: "the hidden one" whose name cannot be spoken       │
-│  → proto-monotheistic trend                                     │
+│  THEBES (New Kingdom dominance):                                 │
+│  Amun becomes "king of gods"; syncretized as Amun-Ra             │
+│  Eventually: "the hidden one" whose name cannot be spoken        │
+│  → proto-monotheistic trend                                      │
 │                                                                  │
 │  AMARNA HERESY (Akhenaten, 1353–1336 BCE):                     │
 │  Akhenaten (Amenhotep IV) suppresses all gods → worship Aten only│
 │  (solar disk, not anthropomorphized)                           │
-│  Only documented attempt at royal-imposed monotheism            │
+│  Only documented attempt at royal-imposed monotheism             │
 │  Reversed immediately after Akhenaten's death                  │
 └──────────────────────────────────────────────────────────────────┘
 ```
@@ -93,49 +93,49 @@ The most important narrative in Egyptian religion, encoding the theology of king
 
 ```
 ┌──────────────────────────────────────────────────────────────────┐
-│                    THE OSIRIS MYTH                                │
+│                    THE OSIRIS MYTH                               │
 │                                                                  │
 │  GOLDEN AGE:                                                     │
 │  Osiris is the first king; teaches agriculture, laws, civilization│
-│  Isis rules while Osiris civilizes the world                    │
+│  Isis rules while Osiris civilizes the world                     │
 │                                                                  │
 │  FIRST MURDER:                                                   │
-│  Set tricks Osiris into lying in an ornate chest                │
-│  Seals it, throws it into the Nile → floats to Byblos (Lebanon) │
-│  Isis searches → finds the chest embedded in a tree             │
-│  (Isis as nurse to Byblos's queen; nearly burns the prince      │
-│   immortal in fire; interrupted)                                │
-│  Brings Osiris body home                                        │
+│  Set tricks Osiris into lying in an ornate chest                 │
+│  Seals it, throws it into the Nile → floats to Byblos (Lebanon)  │
+│  Isis searches → finds the chest embedded in a tree              │
+│  (Isis as nurse to Byblos's queen; nearly burns the prince       │
+│   immortal in fire; interrupted)                                 │
+│  Brings Osiris body home                                         │
 │                                                                  │
-│  SECOND MURDER AND DISMEMBERMENT:                               │
-│  Set finds body → dismembers it into 14 (or 42) pieces          │
-│  Scatters across Egypt                                          │
+│  SECOND MURDER AND DISMEMBERMENT:                                │
+│  Set finds body → dismembers it into 14 (or 42) pieces           │
+│  Scatters across Egypt                                           │
 │                                                                  │
 │  ISIS REASSEMBLES OSIRIS:                                        │
-│  Isis and Nephthys gather pieces (all but the phallus,          │
-│  eaten by Nile fish — Isis makes a golden replacement)          │
-│  Isis breathes life into Osiris with her wings                  │
-│  Conceives Horus (post-mortem conception — miraculous)          │
+│  Isis and Nephthys gather pieces (all but the phallus,           │
+│  eaten by Nile fish — Isis makes a golden replacement)           │
+│  Isis breathes life into Osiris with her wings                   │
+│  Conceives Horus (post-mortem conception — miraculous)           │
 │                                                                  │
 │  OSIRIS IN THE UNDERWORLD:                                       │
-│  Osiris cannot fully return to life; becomes king of the dead   │
-│  (the Duat — Egyptian underworld)                               │
-│  His resurrection is partial: he is the first mummy             │
+│  Osiris cannot fully return to life; becomes king of the dead    │
+│  (the Duat — Egyptian underworld)                                │
+│  His resurrection is partial: he is the first mummy              │
 │  Embalming = re-enacting Isis/Anubis's preparation of Osiris   │
 │                                                                  │
-│  THE CONTENDINGS OF HORUS AND SET:                              │
-│  Horus grows up (protected by Isis in papyrus swamps)           │
-│  Challenges Set for Osiris's throne                             │
-│  80-year legal battle before the tribunal of the Ennead         │
-│  Multiple combats, trials, mutilations (Horus loses eye,        │
-│  Set loses testicles in some versions)                          │
-│  Eventually: Horus wins — becomes king of Egypt                 │
+│  THE CONTENDINGS OF HORUS AND SET:                               │
+│  Horus grows up (protected by Isis in papyrus swamps)            │
+│  Challenges Set for Osiris's throne                              │
+│  80-year legal battle before the tribunal of the Ennead          │
+│  Multiple combats, trials, mutilations (Horus loses eye,         │
+│  Set loses testicles in some versions)                           │
+│  Eventually: Horus wins — becomes king of Egypt                  │
 │  Set sent to sky as god of storms (necessary power, not pure evil)│
 │                                                                  │
 │  SIGNIFICANCE:                                                   │
-│  The living king = Horus; the dead king = Osiris                │
-│  Every pharaoh is Horus alive; becomes Osiris at death          │
-│  Every tomb = Osiris's resurrection narrative enacted           │
+│  The living king = Horus; the dead king = Osiris                 │
+│  Every pharaoh is Horus alive; becomes Osiris at death           │
+│  Every tomb = Osiris's resurrection narrative enacted            │
 └──────────────────────────────────────────────────────────────────┘
 ```
 
@@ -270,32 +270,32 @@ LAKE OF FIRE (Amenti):
 │  SETTING: Great Hall before Osiris and 42 assessor deities       │
 │                                                                  │
 │  THE SCALE:                                                      │
-│  One pan: the deceased's HEART (ib) — the seat of consciousness │
-│           and moral record (the heart remembers all deeds)      │
-│  Other pan: the FEATHER OF MA'AT (truth, justice, cosmic order) │
+│  One pan: the deceased's HEART (ib) — the seat of consciousness  │
+│           and moral record (the heart remembers all deeds)       │
+│  Other pan: the FEATHER OF MA'AT (truth, justice, cosmic order)  │
 │                                                                  │
 │  JUDGES:                                                         │
-│  Anubis: conducts and watches the scale                         │
-│  Thoth: records the result                                      │
-│  Osiris: presides                                               │
-│  Ammit: "The Devourer" — waits to eat the heart if heavy        │
+│  Anubis: conducts and watches the scale                          │
+│  Thoth: records the result                                       │
+│  Osiris: presides                                                │
+│  Ammit: "The Devourer" — waits to eat the heart if heavy         │
 │    (body of lion, head of crocodile, hindquarters of hippopotamus)│
-│    → Second death: total annihilation (no afterlife)            │
+│    → Second death: total annihilation (no afterlife)             │
 │                                                                  │
-│  THE 42 NEGATIVE CONFESSIONS:                                   │
-│  Before the 42 assessor deities (one per sin), the deceased     │
-│  recites "I have not..." for each transgression:                │
-│  "I have not stolen."                                           │
-│  "I have not killed."                                           │
-│  "I have not committed adultery."                               │
-│  "I have not stolen temple offerings."                          │
-│  "I have not spoken evil against the king."                     │
-│  "I have not stopped the flow of water."                        │
-│  [The list is exhaustive — personal, social, and cosmic sins]   │
+│  THE 42 NEGATIVE CONFESSIONS:                                    │
+│  Before the 42 assessor deities (one per sin), the deceased      │
+│  recites "I have not..." for each transgression:                 │
+│  "I have not stolen."                                            │
+│  "I have not killed."                                            │
+│  "I have not committed adultery."                                │
+│  "I have not stolen temple offerings."                           │
+│  "I have not spoken evil against the king."                      │
+│  "I have not stopped the flow of water."                         │
+│  [The list is exhaustive — personal, social, and cosmic sins]    │
 │                                                                  │
 │  IF HEART = FEATHER: justified (maa-kheru = "true of voice")   │
-│    → proceed to the Field of Reeds                              │
-│  IF HEART HEAVIER: Ammit devours it → second death              │
+│    → proceed to the Field of Reeds                               │
+│  IF HEART HEAVIER: Ammit devours it → second death               │
 └──────────────────────────────────────────────────────────────────┘
 ```
 

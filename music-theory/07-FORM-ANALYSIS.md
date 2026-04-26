@@ -35,13 +35,13 @@ FORM = the large-scale structure — how sections relate and how the piece unfol
 DIMENSIONS OF FORM:
   ┌─────────────────────────────────────────────────────────────────┐
   │ THEMATIC: what melodic material appears and when                │
-  │           A section, B section, returning A', new C            │
+  │           A section, B section, returning A', new C             │
   │                                                                 │
   │ TONAL:    what keys are established and when                    │
   │           Home → related key → development → return home        │
   │                                                                 │
   │ PHRASE:   how melodic units group and balance                   │
-  │           Antecedent + consequent = period (8 bars)            │
+  │           Antecedent + consequent = period (8 bars)             │
   │           4+4+8 = sentence structure (Schoenberg's terminology) │
   └─────────────────────────────────────────────────────────────────┘
 

@@ -40,11 +40,11 @@ CUTTING GEOMETRY (orthogonal model):
   │                              ╱╱╱╱╱╱╱╱╱╱╱╱╱ chip flows     │
   │                         ╱ PRIMARY         along tool face   │
   │                    ╱ SHEAR ZONE ╲                           │
-  │               ╱   (45°±rake/2)  ╲                          │
+  │               ╱   (45°±rake/2)  ╲                           │
   │          ╱ (material shears here) ╲                         │
   │      ─────────────────────────────╲──────                   │
   │                        TOOL    ╲   Flank face               │
-  │                            Rake angle α                      │
+  │                            Rake angle α                     │
   └─────────────────────────────────────────────────────────────┘
 
 RAKE ANGLE (α): angle between tool face and perpendicular to cutting direction
@@ -238,11 +238,11 @@ TOOL MATERIAL EVOLUTION (hardness → wear resistance → allows higher Vc):
 
   ┌──────────────────────────────────────────────────────────────────┐
   │                                               CUBIC BORON NITRIDE│ ← hardened steel
-  │                                  CERAMICS     (CBN)             │
+  │                                  CERAMICS     (CBN)              │
   │                 WC/CO CARBIDE    Al₂O₃/Si₃N₄  3500 HV          │
-  │   HSS            400–1800 HV    1600–3000HV    Vc: 200–600m/min │
+  │   HSS            400–1800 HV    1600–3000HV    Vc: 200–600m/min  │
   │   700–900HV       Vc: 100–400     coated:      for hard turning  │
-  │   Vc: 15–50m/min   m/min (steel)  up to 1000m/min               │
+  │   Vc: 15–50m/min   m/min (steel)  up to 1000m/min                │
   │                                                           DIAMOND│ ← non-ferrous
   └──────────────────────────────────────────────────────────────────┘
 

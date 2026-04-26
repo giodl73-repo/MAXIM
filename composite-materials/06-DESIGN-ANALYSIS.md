@@ -6,16 +6,16 @@
 +------------------------------------------------------------------+
 |              COMPOSITE STRUCTURAL DESIGN FRAMEWORK               |
 |                                                                  |
-|   DESIGN DRIVERS          ANALYSIS TOOLS        FAILURE MODES   |
-|   ─────────────           ──────────────        ────────────    |
+|   DESIGN DRIVERS          ANALYSIS TOOLS        FAILURE MODES    |
+|   ─────────────           ──────────────        ────────────     |
 |   Stiffness/strength       CLT                  Fiber failure    |
 |   Weight                   Tsai-Wu, Max stress  Matrix cracking  |
 |   Damage tolerance         FEA (progressive)    Delamination     |
 |   Certification            Buckle analysis      Buckling         |
 |   Manufacturability        Fatigue (S-N, DFB)   Bearing/pull-out |
 |                                                                  |
-|   BUILDING BLOCK APPROACH (aerospace):                          |
-|   Coupon → Element → Detail → Component → Full-scale test       |
+|   BUILDING BLOCK APPROACH (aerospace):                           |
+|   Coupon → Element → Detail → Component → Full-scale test        |
 +------------------------------------------------------------------+
 ```
 

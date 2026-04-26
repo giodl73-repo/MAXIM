@@ -10,7 +10,7 @@ ML theory has made enormous progress, yet a chasm remains between what theory ca
 |                                                                  |
 |  EXPLAINED BY THEORY                                             |
 |  ────────────────────                                            |
-|  PAC learning of VC-bounded classes                             |
+|  PAC learning of VC-bounded classes                              |
 |  NTK limit for infinite-width networks                           |
 |  Double descent for linear regression (Gaussian design)          |
 |  PAC-Bayes non-vacuous bounds for small stochastic classifiers   |

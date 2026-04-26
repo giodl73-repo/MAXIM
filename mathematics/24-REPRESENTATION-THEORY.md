@@ -6,23 +6,23 @@ Representation theory studies how groups act on vector spaces — it is the brid
 
 ```
 ┌─────────────────────────────────────────────────────────────────────────────┐
-│  REPRESENTATION THEORY LANDSCAPE                                             │
-│                                                                              │
-│  Finite Groups                        Compact Lie Groups                     │
+│  REPRESENTATION THEORY LANDSCAPE                                            │
+│                                                                             │
+│  Finite Groups                        Compact Lie Groups                    │
 │  ──────────────────────────────        ──────────────────────────────────     │
 │  Group algebra ℂ[G]                   Lie algebras (tangent at identity)    │
 │  Maschke's theorem (semisimplicity)   Exponential map exp: 𝔤 → G            │
 │  Characters χ(g) = tr ρ(g)            Root systems, Dynkin diagrams         │
-│  Character table                      Highest weight theorem                 │
-│  Regular, induced representations     Weyl character formula                 │
-│                                                                              │
-│  Key Groups in Physics               ML & Computation                        │
+│  Character table                      Highest weight theorem                │
+│  Regular, induced representations     Weyl character formula                │
+│                                                                             │
+│  Key Groups in Physics               ML & Computation                       │
 │  ──────────────────────────────        ──────────────────────────────────     │
 │  U(1): electromagnetism              G-equivariant networks (G-CNNs)        │
 │  SU(2) ≅ Spin(3): fermions           SE(3)-equivariant molecular modeling   │
 │  SU(3): strong force                 Permutation-equivariant (set networks) │
 │  SU(2)×U(1): electroweak             Spectral graph theory / GNNs           │
-│  SU(3)×SU(2)×U(1): Standard Model   Non-abelian Fourier (Peter-Weyl)       │
+│  SU(3)×SU(2)×U(1): Standard Model   Non-abelian Fourier (Peter-Weyl)        │
 └─────────────────────────────────────────────────────────────────────────────┘
 ```
 

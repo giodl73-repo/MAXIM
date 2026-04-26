@@ -6,7 +6,7 @@ Small bodies are the leftover building blocks of planet formation — frozen rec
 
 ```
 +------------------------------------------------------------------+
-|                    SMALL BODY POPULATIONS                         |
+|                    SMALL BODY POPULATIONS                        |
 +------------------------------------------------------------------+
 |                                                                  |
 |  INNER SOLAR SYSTEM         OUTER SOLAR SYSTEM                   |
@@ -135,7 +135,7 @@ COMET STRUCTURE
     |  Porous, icy aggregate ("dirty snowball") |
     |  50-80% empty space                      |
     |  Composition: H₂O ice (dominant)         |
-    |  + CO₂, CO, CH₄, NH₃, complex organics  |
+    |  + CO₂, CO, CH₄, NH₃, complex organics   |
     |  + silicate dust, organics, CHON grains  |
     +------------------------------------------+
          |

@@ -10,22 +10,22 @@
 
 ```
 ┌────────────────────────────────────────────────────────────────────┐
-│                        ENZYMOLOGY                                   │
+│                        ENZYMOLOGY                                  │
 │                                                                      │
-│  CATALYSIS FUNDAMENTALS                                             │
-│  ─────────────────────────                                          │
+│  CATALYSIS FUNDAMENTALS                                            │
+│  ─────────────────────────                                         │
 │  Lower ΔG‡ (both ΔH‡ and ΔS‡)     Rate enhancement 10⁶–10¹⁷      │
 │  Proximity / orientation            Does NOT change K or ΔG_rxn    │
-│  Electrostatic TS stabilization     EC number classification        │
+│  Electrostatic TS stabilization     EC number classification       │
 │          │                                                           │
 │          ▼                                                           │
-│  MICHAELIS-MENTEN KINETICS                                          │
-│  ──────────────────────────                                         │
-│  E + S ⇌ ES → E + P               v₀ = Vmax[S]/(Km + [S])         │
+│  MICHAELIS-MENTEN KINETICS                                         │
+│  ──────────────────────────                                        │
+│  E + S ⇌ ES → E + P               v₀ = Vmax[S]/(Km + [S])          │
 │  kcat (turnover), Km (half-sat)    kcat/Km = catalytic efficiency  │
-│  Lineweaver-Burk linearization                                      │
+│  Lineweaver-Burk linearization                                     │
 │          │                                                           │
-│     ┌────┴──────────────────────────┐                               │
+│     ┌────┴──────────────────────────┐                              │
 │     ▼                               ▼                               │
 │  INHIBITION                      ALLOSTERIC REGULATION             │
 │  ──────────                      ───────────────────                │

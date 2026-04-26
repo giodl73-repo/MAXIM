@@ -19,9 +19,9 @@ A smooth manifold is a topological space that locally looks like R^n, with compa
 |  ATLAS  {(U_alpha, phi_alpha)}                                   |
 |  +-------------------------------------------------+             |
 |  | Open cover U_alpha of M                         |             |
-|  | Homeomorphisms phi_alpha: U_alpha -> V_alpha     |             |
-|  | where V_alpha open in R^n                        |             |
-|  |                                                  |             |
+|  | Homeomorphisms phi_alpha: U_alpha -> V_alpha    |             |
+|  | where V_alpha open in R^n                       |             |
+|  |                                                 |             |
 |  | COMPATIBILITY: On overlaps U_alpha cap U_beta,  |             |
 |  | phi_beta o phi_alpha^{-1}: R^n -> R^n is C^inf  |             |
 |  +-------------------------------------------------+             |

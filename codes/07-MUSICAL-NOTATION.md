@@ -6,10 +6,10 @@ Western musical notation is a **two-dimensional symbolic system** that encodes f
 
 ```
 ┌──────────────────────────────────────────────────────────────────┐
-│              MUSICAL NOTATION INFORMATION LAYERS                  │
+│              MUSICAL NOTATION INFORMATION LAYERS                 │
 │                                                                  │
-│  Horizontal axis = TIME progression (left → right)              │
-│  Vertical axis   = PITCH (up = higher frequency)                │
+│  Horizontal axis = TIME progression (left → right)               │
+│  Vertical axis   = PITCH (up = higher frequency)                 │
 │                                                                  │
 │  A single page of orchestral score encodes simultaneously:       │
 │                                                                  │
@@ -21,8 +21,8 @@ Western musical notation is a **two-dimensional symbolic system** that encodes f
 │  TEMPO:         How fast? (beats per minute, Italian terms)      │
 │  EXPRESSION:    What character? (espressivo, con fuoco, etc.)    │
 │                                                                  │
-│  Information density rivals: a single measure of orchestral     │
-│  score can specify 30+ independent parameters simultaneously.   │
+│  Information density rivals: a single measure of orchestral      │
+│  score can specify 30+ independent parameters simultaneously.    │
 └──────────────────────────────────────────────────────────────────┘
 ```
 
@@ -34,24 +34,24 @@ Western musical notation is a **two-dimensional symbolic system** that encodes f
 
 ```
 ┌──────────────────────────────────────────────────────────────────┐
-│                    THE FIVE-LINE STAFF                            │
+│                    THE FIVE-LINE STAFF                           │
 │                                                                  │
-│  Line 5 ─────────────────────────────────────────────────────   │
-│  Space 4                                                        │
-│  Line 4 ─────────────────────────────────────────────────────   │
-│  Space 3                                                        │
-│  Line 3 ─────────────────────────────────────────────────────   │
-│  Space 2                                                        │
-│  Line 2 ─────────────────────────────────────────────────────   │
-│  Space 1                                                        │
-│  Line 1 ─────────────────────────────────────────────────────   │
+│  Line 5 ─────────────────────────────────────────────────────    │
+│  Space 4                                                         │
+│  Line 4 ─────────────────────────────────────────────────────    │
+│  Space 3                                                         │
+│  Line 3 ─────────────────────────────────────────────────────    │
+│  Space 2                                                         │
+│  Line 2 ─────────────────────────────────────────────────────    │
+│  Space 1                                                         │
+│  Line 1 ─────────────────────────────────────────────────────    │
 │                                                                  │
-│  Notes sit on lines or in spaces.                               │
-│  Notes above/below staff use ledger lines (short temporary      │
-│  extensions of the staff up or down).                           │
+│  Notes sit on lines or in spaces.                                │
+│  Notes above/below staff use ledger lines (short temporary       │
+│  extensions of the staff up or down).                            │
 │                                                                  │
-│  Middle C (C4) is on the FIRST LEDGER LINE BELOW treble clef    │
-│  and on the FIRST LEDGER LINE ABOVE bass clef.                  │
+│  Middle C (C4) is on the FIRST LEDGER LINE BELOW treble clef     │
+│  and on the FIRST LEDGER LINE ABOVE bass clef.                   │
 └──────────────────────────────────────────────────────────────────┘
 ```
 
@@ -61,31 +61,31 @@ The clef fixes which pitch each line/space represents:
 
 ```
 ┌──────────────────────────────────────────────────────────────────┐
-│                        CLEFS                                      │
+│                        CLEFS                                     │
 │                                                                  │
 │  TREBLE CLEF (G clef):                                           │
-│  — The curl of the symbol wraps around line 2 → that line = G4  │
-│  — Used for: violin, flute, clarinet, trumpet, guitar*, voice   │
+│  — The curl of the symbol wraps around line 2 → that line = G4   │
+│  — Used for: violin, flute, clarinet, trumpet, guitar*, voice    │
 │  — Lines bottom up: E G B D F ("Every Good Boy Does Fine")       │
-│  — Spaces bottom up: F A C E ("FACE")                           │
+│  — Spaces bottom up: F A C E ("FACE")                            │
 │                                                                  │
 │  BASS CLEF (F clef):                                             │
-│  — The two dots straddle line 4 → that line = F3                │
-│  — Used for: bass, cello (low range), trombone, tuba, piano LH  │
+│  — The two dots straddle line 4 → that line = F3                 │
+│  — Used for: bass, cello (low range), trombone, tuba, piano LH   │
 │  — Lines bottom up: G B D F A ("Good Boys Do Fine Always")       │
-│  — Spaces bottom up: A C E G ("All Cows Eat Grass")             │
+│  — Spaces bottom up: A C E G ("All Cows Eat Grass")              │
 │                                                                  │
 │  ALTO CLEF (C clef on line 3):                                   │
 │  — Middle line (line 3) = middle C (C4)                          │
-│  — Used for: viola (primary clef)                               │
+│  — Used for: viola (primary clef)                                │
 │                                                                  │
 │  TENOR CLEF (C clef on line 4):                                  │
 │  — Line 4 = middle C (C4)                                        │
-│  — Used for: cello, bassoon, trombone (high passages)           │
+│  — Used for: cello, bassoon, trombone (high passages)            │
 │                                                                  │
 │  PERCUSSION CLEF (2 vertical lines):                             │
-│  — No pitch implied — each line/space = specific drum/cymbal    │
-│  — Standard mapping varies by publisher/context                 │
+│  — No pitch implied — each line/space = specific drum/cymbal     │
+│  — Standard mapping varies by publisher/context                  │
 └──────────────────────────────────────────────────────────────────┘
 
 Grand Staff (piano):
@@ -104,28 +104,28 @@ Grand Staff (piano):
 
 ```
 ┌──────────────────────────────────────────────────────────────────┐
-│                     NOTE VALUE HIERARCHY                          │
+│                     NOTE VALUE HIERARCHY                         │
 │                                                                  │
-│  Whole note (semibreve):        ○          4 beats (in 4/4)     │
-│  Half note (minim):             ♩ (open)   2 beats              │
-│  Quarter note (crotchet):       ♩ (filled) 1 beat               │
-│  Eighth note (quaver):          ♪          1/2 beat             │
-│  Sixteenth note (semiquaver):   ♬          1/4 beat             │
-│  32nd note (demisemiquaver):    ♬ + flag   1/8 beat             │
-│  64th note:                     4 flags    1/16 beat            │
-│  128th note:                    5 flags    1/32 beat (rare)     │
+│  Whole note (semibreve):        ○          4 beats (in 4/4)      │
+│  Half note (minim):             ♩ (open)   2 beats               │
+│  Quarter note (crotchet):       ♩ (filled) 1 beat                │
+│  Eighth note (quaver):          ♪          1/2 beat              │
+│  Sixteenth note (semiquaver):   ♬          1/4 beat              │
+│  32nd note (demisemiquaver):    ♬ + flag   1/8 beat              │
+│  64th note:                     4 flags    1/16 beat             │
+│  128th note:                    5 flags    1/32 beat (rare)      │
 │                                                                  │
-│  Division rule: each level = half the previous                  │
-│  1 whole = 2 halves = 4 quarters = 8 eighths = 16 sixteenths    │
+│  Division rule: each level = half the previous                   │
+│  1 whole = 2 halves = 4 quarters = 8 eighths = 16 sixteenths     │
 │                                                                  │
 │  DOTTED NOTES: Dot after a note = note + half its value          │
 │  Dotted half = 2 + 1 = 3 beats                                   │
-│  Dotted quarter = 1 + 1/2 = 1.5 beats                           │
-│  Double-dotted = note + 1/2 + 1/4 its value                     │
+│  Dotted quarter = 1 + 1/2 = 1.5 beats                            │
+│  Double-dotted = note + 1/2 + 1/4 its value                      │
 │                                                                  │
 │  TIED NOTES: Curved line connecting same pitch = sum duration    │
-│  Quarter tied to quarter = 2 beats (plays as one 2-beat note)   │
-│  Used to cross barlines or create unusual durations             │
+│  Quarter tied to quarter = 2 beats (plays as one 2-beat note)    │
+│  Used to cross barlines or create unusual durations              │
 └──────────────────────────────────────────────────────────────────┘
 ```
 
@@ -150,25 +150,25 @@ Mnemonic: whole rest "hangs down" (heavy, falls off ledge); half rest "sits up" 
 
 ```
 ┌──────────────────────────────────────────────────────────────────┐
-│                     TIME SIGNATURES                               │
+│                     TIME SIGNATURES                              │
 │                                                                  │
 │     4              ← beats per measure                           │
 │     ─     ← fraction-like symbol, NOT actually a fraction        │
 │     4              ← note value that gets one beat               │
 │                                                                  │
-│  Top number: how many beats per measure                         │
+│  Top number: how many beats per measure                          │
 │  Bottom number: which note value = 1 beat                        │
-│    4 = quarter note, 2 = half note, 8 = eighth note             │
+│    4 = quarter note, 2 = half note, 8 = eighth note              │
 │                                                                  │
 │  Common signatures:                                              │
-│  4/4  = "common time" (C) = 4 quarter beats / measure           │
-│  2/4  = march time = 2 quarter beats (strong-weak)              │
-│  3/4  = waltz time = 3 quarter beats (strong-weak-weak)         │
-│  6/8  = compound duple = 6 eighth beats, grouped 3+3            │
-│  3/8  = compound simple = 3 eighth beats                        │
-│  12/8 = compound quadruple = 12 eighth beats, grouped 3+3+3+3   │
-│  5/4  = 5 quarter beats (uncommon; "Take Five", Brubeck)        │
-│  7/8  = 7 eighth beats (Balkan and progressive rock)            │
+│  4/4  = "common time" (C) = 4 quarter beats / measure            │
+│  2/4  = march time = 2 quarter beats (strong-weak)               │
+│  3/4  = waltz time = 3 quarter beats (strong-weak-weak)          │
+│  6/8  = compound duple = 6 eighth beats, grouped 3+3             │
+│  3/8  = compound simple = 3 eighth beats                         │
+│  12/8 = compound quadruple = 12 eighth beats, grouped 3+3+3+3    │
+│  5/4  = 5 quarter beats (uncommon; "Take Five", Brubeck)         │
+│  7/8  = 7 eighth beats (Balkan and progressive rock)             │
 │                                                                  │
 │  Cut time (₵) = 2/2 = 2 half beats per measure (march/alla breve)│
 └──────────────────────────────────────────────────────────────────┘
@@ -223,7 +223,7 @@ Key of C♭: 7 flats
 
 ```
 ┌──────────────────────────────────────────────────────────────┐
-│                    CIRCLE OF FIFTHS                           │
+│                    CIRCLE OF FIFTHS                          │
 │                                                              │
 │                    C (0 sharps/flats)                        │
 │               F (1♭)         G (1♯)                          │
@@ -231,20 +231,20 @@ Key of C♭: 7 flats
 │        E♭ (3♭)                     A (3♯)                    │
 │      A♭ (4♭)                         E (4♯)                  │
 │       D♭ (5♭)                       B (5♯)                   │
-│           G♭ (6♭/F♯6♯)          F♯/G♭                       │
+│           G♭ (6♭/F♯6♯)          F♯/G♭                        │
 │               C♭(7♭) ≡ B(5♯)                                 │
 │                                                              │
 │  Moving clockwise = up a fifth = add one sharp               │
 │  Moving counterclockwise = up a fourth = add one flat        │
 │                                                              │
 │  Enharmonic equivalents at the bottom:                       │
-│  G♭ major = F♯ major (6 flats = 6 sharps, same sound)       │
+│  G♭ major = F♯ major (6 flats = 6 sharps, same sound)        │
 │  C♭ major = B major  (7 flats = 5 sharps)                    │
-│  D♭ major = C♯ major (5 flats = 7 sharps)                   │
+│  D♭ major = C♯ major (5 flats = 7 sharps)                    │
 │                                                              │
 │  Relative minors: each major key has a relative minor        │
 │  sharing the same key signature, a minor third below:        │
-│  C major ↔ A minor, G major ↔ E minor, etc.                 │
+│  C major ↔ A minor, G major ↔ E minor, etc.                  │
 └──────────────────────────────────────────────────────────────┘
 ```
 
@@ -389,7 +389,7 @@ Used in jazz, pop, and lead sheets (not traditional classical notation):
 
 ```
 ┌──────────────────────────────────────────────────────────────┐
-│                    CHORD SYMBOL SYSTEM                        │
+│                    CHORD SYMBOL SYSTEM                       │
 │                                                              │
 │  Root note:      C, D, E, F, G, A, B (+ ♯/♭)               │
 │                                                              │
@@ -401,9 +401,9 @@ Used in jazz, pop, and lead sheets (not traditional classical notation):
 │                                                              │
 │  Extensions:                                                 │
 │  7    = dominant 7th:               C7   = C-E-G-B♭          │
-│  maj7 = major 7th:                  Cmaj7= C-E-G-B            │
+│  maj7 = major 7th:                  Cmaj7= C-E-G-B           │
 │  m7   = minor 7th:                  Cm7  = C-E♭-G-B♭         │
-│  m7♭5 = half-diminished:           Cm7♭5= C-E♭-G♭-B♭        │
+│  m7♭5 = half-diminished:           Cm7♭5= C-E♭-G♭-B♭         │
 │  dim7 = fully diminished 7th:       Cdim7= C-E♭-G♭-B♭♭       │
 │  9    = dominant 9th (includes 7): C9   = C-E-G-B♭-D         │
 │  add9 = major with added 9:        Cadd9= C-E-G-D (no 7th)   │
@@ -426,7 +426,7 @@ Alternative notation for string instruments (guitar, bass), encoding fret positi
 
 ```
 ┌──────────────────────────────────────────────────────────────┐
-│                    GUITAR TABLATURE                           │
+│                    GUITAR TABLATURE                          │
 │                                                              │
 │  e|─────0────────3────────0────────────────────────────────  │
 │  B|─────1────────0────────0────────────────────────────────  │
@@ -447,7 +447,7 @@ Alternative notation for string instruments (guitar, bass), encoding fret positi
 │  Standard notation advantages: pitch, rhythm, expression     │
 │  Standard notation disadvantages: doesn't specify position   │
 │                                                              │
-│  Professional guitarists use both: TAB for quick learning,  │
+│  Professional guitarists use both: TAB for quick learning,   │
 │  standard notation for orchestral/ensemble reading           │
 └──────────────────────────────────────────────────────────────┘
 ```
@@ -461,20 +461,20 @@ Alternative notation for string instruments (guitar, bass), encoding fret positi
 │               ORCHESTRAL SCORE ORDER (top to bottom)             │
 │                                                                  │
 │  Woodwinds (highest → lowest):                                   │
-│    Piccolo, Flute, Oboe, Cor Anglais, Clarinet, Bass Clarinet,  │
+│    Piccolo, Flute, Oboe, Cor Anglais, Clarinet, Bass Clarinet,   │
 │    Bassoon, Contrabassoon                                        │
 │  Brass (highest → lowest):                                       │
-│    French Horn, Trumpet, Trombone, Tuba                         │
+│    French Horn, Trumpet, Trombone, Tuba                          │
 │  Percussion:                                                     │
-│    Timpani, Snare, Bass drum, Cymbals, Glockenspiel, etc.       │
+│    Timpani, Snare, Bass drum, Cymbals, Glockenspiel, etc.        │
 │  Keyboard:                                                       │
 │    Harp, Piano, Celesta, Organ                                   │
 │  Strings (highest → lowest):                                     │
-│    Violin I, Violin II, Viola, Cello, Double Bass               │
+│    Violin I, Violin II, Viola, Cello, Double Bass                │
 │                                                                  │
-│  Barlines connect all staves of the same family                 │
-│  System brace connects all staves read simultaneously           │
-│  Rehearsal numbers/letters every 10–20 bars for coordination    │
+│  Barlines connect all staves of the same family                  │
+│  System brace connects all staves read simultaneously            │
+│  Rehearsal numbers/letters every 10–20 bars for coordination     │
 └──────────────────────────────────────────────────────────────────┘
 ```
 

@@ -258,7 +258,7 @@ THE LIGHT CONE:
   │         FUTURE LIGHT CONE   │
   │              /\             │
   │             /  \            │
-  │            / ds²=0           │
+  │            / ds²=0          │
   │           /      \          │
   │      ────/────────\────── t │
   │         /    NOW   \        │

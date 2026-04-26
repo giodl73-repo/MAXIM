@@ -10,7 +10,7 @@ WATER QUALITY MONITORING FRAMEWORK
   PHYSICAL/CHEMICAL           BIOLOGICAL               COMBINED INDICES
   MONITORING                  INDICATORS               +------------------+
   +------------------+        +------------------+     | EPT Index        |
-  | Dissolved O2     |        | Macroinvertebrates|     | IBI (fish)       |
+  | Dissolved O2     |        | Macroinvertebrates|     | IBI (fish)      |
   | BOD / COD        |  --->  | Algae (diatoms)  |  -> | Diatom Index     |
   | Nutrients (N, P) |        | Fish             |     | WQI (composite)  |
   | Temperature      |        | Macrophytes      |     | EU WFD classes   |
@@ -279,7 +279,7 @@ Karr (1981) developed the IBI as a multi-metric fish-based index. The concept ha
   PARAMETER         SURFACE WATER CRITERION    DRINKING WATER MCL
   (US EPA)          (aquatic life protection)  (human health)
   +---------------+---------------------------+-------------------+
-  | Ammonia (NH3) | 0.02 mg/L (acute, pH 7)  | No federal MCL    |
+  | Ammonia (NH3) | 0.02 mg/L (acute, pH 7)   | No federal MCL    |
   |               | 0.017 mg/L (chronic)      | (palatability ~35)|
   +---------------+---------------------------+-------------------+
   | Copper        | 0.013 mg/L (hardness 100) | 1.3 mg/L (action) |

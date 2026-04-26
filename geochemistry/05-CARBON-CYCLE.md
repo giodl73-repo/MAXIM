@@ -6,7 +6,7 @@ The carbon cycle operates on multiple timescales simultaneously. The short cycle
 
 ```
 +------------------------------------------------------------------+
-|                    CARBON CYCLE ARCHITECTURE                      |
+|                    CARBON CYCLE ARCHITECTURE                     |
 +------------------------------------------------------------------+
 |                                                                  |
 |  SHORT CYCLE (yr-kyr)          LONG CYCLE (Myr-Gyr)              |

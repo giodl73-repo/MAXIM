@@ -16,25 +16,25 @@ Astronomy is the science of deep time measured through light. Every observation 
 |                                                                            |
 |  CELESTIAL CLOCKS                     Scale: seconds → gigayears           |
 |  ┌──────────────────────────────────────────────────────────────────────┐  |
-|  │  ROTATION        Earth spin         24 h (slowing ~2.3 ms/century)  │  |
-|  │  PRECESSION      Axial wobble       25,772 yr (the Great Year)      │  |
-|  │  MILANKOVITCH    Orbital cycles     41 kyr obliquity, 100/413 kyr e │  |
+|  │  ROTATION        Earth spin         24 h (slowing ~2.3 ms/century)  │   |
+|  │  PRECESSION      Axial wobble       25,772 yr (the Great Year)      │   |
+|  │  MILANKOVITCH    Orbital cycles     41 kyr obliquity, 100/413 kyr e │   |
 |  │  STELLAR MAIN    H-burning lifetime 10 Myr (O-star) → 10 Tyr (M)   │  |
-|  │  NUCLEOSYNTHESIS Element buildup    Gyr (stellar + explosive)       │  |
+|  │  NUCLEOSYNTHESIS Element buildup    Gyr (stellar + explosive)       │   |
 |  │  EXPANSION       Hubble flow        13.787 ± 0.020 Gyr (CMB age)   │  |
 |  └──────────────────────────────────────────────────────────────────────┘  |
 |                                                                            |
 |  GEOLOGICAL CLOCKS                    Scale: years → gigayears             |
 |  ┌──────────────────────────────────────────────────────────────────────┐  |
 |  │  RADIOMETRIC      Isotope decay     ¹⁴C (50 kyr) → U-Pb (4.6 Gyr) │  |
-|  │  STRATIGRAPHY     Layer stacking    Superposition + unconformities  │  |
+|  │  STRATIGRAPHY     Layer stacking    Superposition + unconformities  │   |
 |  │  MAGNETIC         Polarity flips    ~300 chrons (GPTS) over 170 Myr│  |
 |  │  ASTROCHRONOLOGY  Orbital tuning    Milankovitch → counted to 50 Ma│  |
 |  └──────────────────────────────────────────────────────────────────────┘  |
 |                                                                            |
 |  PALEONTOLOGICAL CLOCKS               Scale: kiloyears → gigayears         |
 |  ┌──────────────────────────────────────────────────────────────────────┐  |
-|  │  BIOSTRATIGRAPHY  Index fossils     Zone resolution: ~200 kyr       │  |
+|  │  BIOSTRATIGRAPHY  Index fossils     Zone resolution: ~200 kyr       │   |
 |  │  MOLECULAR CLOCK  DNA mutation rate Calibrated divergence timing     │  |
 |  │  ISOTOPE PROXIES  δ¹⁸O, δ¹³C       Ice volume, temperature, carbon │  |
 |  └──────────────────────────────────────────────────────────────────────┘  |
@@ -156,9 +156,9 @@ RUNG   METHOD                 RANGE           CALIBRATOR         TIME PROBED
   8    CMB                   46.3 Gly comoving Last scattering   13.4 Gyr
 
  ┌────────────────────────────────────────────────────────────────────────┐
- │  KEY INSIGHT: the distance ladder is a TIME ladder.                   │
+ │  KEY INSIGHT: the distance ladder is a TIME ladder.                    │
  │  Parallax → Cepheids → SN Ia → BAO → CMB                            │
- │  Each rung reaches further back in lookback time.                     │
+ │  Each rung reaches further back in lookback time.                      │
  │  The Hubble tension (67.4 vs 73.0 km/s/Mpc) is fundamentally a      │
  │  disagreement about how to calibrate the universe's master clock.    │
  └────────────────────────────────────────────────────────────────────────┘

@@ -6,7 +6,7 @@ Literary critical theory is the set of epistemological frameworks for reading an
 
 ```
 +------------------------------------------------------------------+
-|        CRITICAL THEORY — SCHOOLS AND LINEAGES                   |
+|        CRITICAL THEORY — SCHOOLS AND LINEAGES                    |
 +------------------------------------------------------------------+
 |                                                                  |
 |  FORMALIST LINE              CONTEXTUAL LINE                     |

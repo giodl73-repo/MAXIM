@@ -24,7 +24,7 @@ Everything below the ISA is the microarchitecture — invisible to correctly-wri
 |  "Simple instructions,             "Complex instructions,             |
 |  execute in one cycle"             do more per instruction"           |
 |                                                                       |
-|  ARM64 / RISC-V / MIPS /           x86-64 / x86 / VAX /              |
+|  ARM64 / RISC-V / MIPS /           x86-64 / x86 / VAX /               |
 |  SPARC / PowerPC                   68000 / PDP-11                     |
 |                                                                       |
 |  Fixed instruction size            Variable instruction size          |
@@ -45,23 +45,23 @@ Everything below the ISA is the microarchitecture — invisible to correctly-wri
 
 ```
 +--------------------------------------------------------------------+
-| ATTRIBUTE         | RISC                  | CISC                  |
+| ATTRIBUTE         | RISC                  | CISC                   |
 |-------------------|-----------------------|-----------------------|
-| Instruction size  | Fixed (4 bytes)       | Variable (1–15 bytes) |
-| Instructions/ISA  | ~100–200              | 1000+ for x86-64      |
-| Memory access     | Only LOAD/STORE       | Any instruction can   |
-|                   | instructions          | access memory         |
+| Instruction size  | Fixed (4 bytes)       | Variable (1–15 bytes)  |
+| Instructions/ISA  | ~100–200              | 1000+ for x86-64       |
+| Memory access     | Only LOAD/STORE       | Any instruction can    |
+|                   | instructions          | access memory          |
 | Register count    | 32 GP registers       | 8 (x86) – 16 (x86-64)|
-|                   | (ARM64: x0–x30 + SP)  | (+ segment, flags)    |
-| Addressing modes  | Simple: [base+offset] | Complex: [base+       |
-|                   |                       | index*scale+offset]   |
-| Decode complexity | Trivial (fixed width  | Complex; variable     |
-|                   | → fixed decode time)  | length; multiple      |
-|                   |                       | decoders needed       |
+|                   | (ARM64: x0–x30 + SP)  | (+ segment, flags)     |
+| Addressing modes  | Simple: [base+offset] | Complex: [base+        |
+|                   |                       | index*scale+offset]    |
+| Decode complexity | Trivial (fixed width  | Complex; variable      |
+|                   | → fixed decode time)  | length; multiple       |
+|                   |                       | decoders needed        |
 | Multi-cycle ops   | Few (FP/divide)       | Many CISC instructions |
-|                   |                       | expand to many cycles |
-| Code density      | Lower (4 bytes/instr) | Higher (avg ~3 bytes  |
-|                   |                       | on x86)               |
+|                   |                       | expand to many cycles  |
+| Code density      | Lower (4 bytes/instr) | Higher (avg ~3 bytes   |
+|                   |                       | on x86)                |
 +--------------------------------------------------------------------+
 ```
 

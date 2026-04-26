@@ -6,7 +6,7 @@
 ALL ANIMAL FIBERS = PROTEIN POLYMER
 +------------------------------------------------------------------+
 |                                                                  |
-|  Amino acid monomers (20 types; all have -NH₂, -COOH, R-group)  |
+|  Amino acid monomers (20 types; all have -NH₂, -COOH, R-group)   |
 |        ↓                                                         |
 |  Peptide bonds: -CO-NH- (condensation of -COOH + -NH₂)         |
 |        ↓                                                         |
@@ -15,7 +15,7 @@ ALL ANIMAL FIBERS = PROTEIN POLYMER
 |  WOOL (α-keratin):          SILK (fibroin):                      |
 |  α-helix secondary struct.  β-sheet secondary struct.            |
 |  Coiled coils → crimped     Flat sheets → smooth, lustrous       |
-|  Disulfide bonds (Cys-Cys)  Glycine/Alanine repeat — small R    |
+|  Disulfide bonds (Cys-Cys)  Glycine/Alanine repeat — small R     |
 |  Elastic, springy, warm     Inelastic, strong, slippery          |
 +------------------------------------------------------------------+
 
@@ -39,7 +39,7 @@ WHY PROTEIN FIBERS BEHAVE DIFFERENTLY FROM CELLULOSIC:
 SHEEP FLEECE STRUCTURE:
   Individual fiber anatomy:
   ┌─────────────────────────────────────────────┐
-  │  Cuticle: overlapping scales (like roof      │
+  │  Cuticle: overlapping scales (like roof     │
   │  shingles) pointing from root to tip        │
   │  → interlocking in hot/wet agitation        │
   │  → felting (irreversible)                   │
@@ -49,7 +49,7 @@ SHEEP FLEECE STRUCTURE:
   │  → CRIMP (natural waviness of wool fiber)   │
   ├─────────────────────────────────────────────┤
   │  Medulla: hollow core (some fibers only)    │
-  │  Present in coarse fibers, carpet wools      │
+  │  Present in coarse fibers, carpet wools     │
   └─────────────────────────────────────────────┘
 
 GRADING SYSTEM:

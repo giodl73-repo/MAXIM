@@ -8,21 +8,21 @@ diversity of life.
 
 ```
 ┌──────────────────────────────────────────────────────────────────┐
-│                    SPECIATION FRAMEWORK                           │
+│                    SPECIATION FRAMEWORK                          │
 │                                                                    │
-│  GEOGRAPHIC ARRANGEMENT          REPRODUCTIVE ISOLATION           │
+│  GEOGRAPHIC ARRANGEMENT          REPRODUCTIVE ISOLATION          │
 │  ─────────────────────────       ──────────────────────          │
 │  Allopatric: populations          Prezygotic:                    │
-│    physically separated           - Ecological (habitat)        │
-│    (mountain range, ocean)        - Temporal (season)           │
-│                                   - Behavioral (mate choice)    │
-│  Parapatric: adjacent zones       - Mechanical (morphology)     │
-│    with limited contact           - Gametic (sperm-egg incomp.) │
+│    physically separated           - Ecological (habitat)         │
+│    (mountain range, ocean)        - Temporal (season)            │
+│                                   - Behavioral (mate choice)     │
+│  Parapatric: adjacent zones       - Mechanical (morphology)      │
+│    with limited contact           - Gametic (sperm-egg incomp.)  │
 │                                                                    │
 │  Sympatric: same geographic       Postzygotic:                   │
-│    area, diverging anyway         - Hybrid inviability          │
-│                                   - Hybrid sterility (F1)       │
-│  Peripatric: small peripheral     - Hybrid breakdown (F2)       │
+│    area, diverging anyway         - Hybrid inviability           │
+│                                   - Hybrid sterility (F1)        │
+│  Peripatric: small peripheral     - Hybrid breakdown (F2)        │
 │    population diverges            Dobzhansky-Muller model        │
 └──────────────────────────────────────────────────────────────────┘
 ```

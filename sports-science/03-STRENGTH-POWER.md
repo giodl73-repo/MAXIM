@@ -86,7 +86,7 @@ TRAINING SPECTRUM:
   +----------------+ +----------------+ +---------------+ +-------------+
   | Heavy deadlift | | Jump squat     | | Medicine ball | | Sprint      |
   | Heavy squat    | | Power clean    |   throw         | | Swinging    |
-  | 1–5 rep max   | | Box jump       | | Band-resisted | |   limbs     |
+  | 1–5 rep max    | | Box jump       | | Band-resisted | |   limbs     |
   | 80–95% 1RM    | | 30–60% 1RM    | | sprint        | |             |
   +----------------+ +----------------+ +---------------+ +-------------+
   Velocity: slow      Velocity: medium    Velocity: fast    Velocity: max

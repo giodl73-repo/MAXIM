@@ -30,7 +30,7 @@ Mythology is the systematic study of **sacred narratives** — stories that a cu
 │                                                                          │
 │  SCOPE: explains specific cross-cultural pattern                         │
 │  ┌─────────────────────────────────────────────────────────────────┐    │
-│  │  FRAZER (1890) — Comparative Religion / Golden Bough             │   │
+│  │  FRAZER (1890) — Comparative Religion / Golden Bough            │   │
 │  │  Pattern: dying-and-rising god; sacred king; vegetation cycle   │    │
 │  │  Mechanism: ecological — seasonal agricultural ritual as base   │    │
 │  │  Status: influential but contested; over-reduces differences    │    │
@@ -38,7 +38,7 @@ Mythology is the systematic study of **sacred narratives** — stories that a cu
 │                                                                          │
 │  SCOPE: Indo-European traditions ONLY (not applicable to non-IE)         │
 │  ┌─────────────────────────────────────────────────────────────────┐    │
-│  │  DUMÉZIL (1958) — Indo-European Trifunctionalism                 │   │
+│  │  DUMÉZIL (1958) — Indo-European Trifunctionalism                │   │
 │  │  Pattern: sovereignty / warrior / productive — in every IE      │    │
 │  │  pantheon (Vedic, Roman, Norse, Celtic, Iranian, Baltic)        │    │
 │  │  Mechanism: historical — inherited from Proto-Indo-European     │    │
@@ -57,29 +57,29 @@ Mythology is the systematic study of **sacred narratives** — stories that a cu
 
 ```
 ┌──────────────────────────────────────────────────────────────────┐
-│                    THE HERO'S JOURNEY                             │
+│                    THE HERO'S JOURNEY                            │
 │                                                                  │
-│           DEPARTURE              INITIATION           RETURN    │
+│           DEPARTURE              INITIATION           RETURN     │
 │                                                                  │
 │  Ordinary ──→ Call to ──→ Refusal ──→ Crossing ──→ Road of     │
-│  World       Adventure   of Call      Threshold    Trials       │
+│  World       Adventure   of Call      Threshold    Trials        │
 │                                                                  │
 │                                    ──→ Supreme ──→ Ordeal      │
-│                                        Road of      Abyss       │
-│                                        Trials                   │
+│                                        Road of      Abyss        │
+│                                        Trials                    │
 │                                                                  │
 │                                    ──→ Reward ──→ Road Back    │
 │                                                                  │
 │  ←── Return with ←── Resurrection ←── Crossing ←── Elixir/    │
-│       Elixir                          Return        Boon        │
-│                                       Threshold                 │
+│       Elixir                          Return        Boon         │
+│                                       Threshold                  │
 │                                                                  │
-│  Examples:                                                      │
-│  Odysseus: Ithaca → Trojan War → Return (20 years)              │
-│  Gilgamesh: Uruk → Cedar Forest → Underworld → Uruk             │
-│  Arjuna: Battlefield → Bhagavad Gita revelation → Battle        │
-│  Luke Skywalker: Tatooine → Death Star → Endor (consciously     │
-│  modeled on Campbell by George Lucas)                           │
+│  Examples:                                                       │
+│  Odysseus: Ithaca → Trojan War → Return (20 years)               │
+│  Gilgamesh: Uruk → Cedar Forest → Underworld → Uruk              │
+│  Arjuna: Battlefield → Bhagavad Gita revelation → Battle         │
+│  Luke Skywalker: Tatooine → Death Star → Endor (consciously      │
+│  modeled on Campbell by George Lucas)                            │
 └──────────────────────────────────────────────────────────────────┘
 ```
 
@@ -147,7 +147,7 @@ KEY PARALLEL ELEMENTS:
 
 ```
 ┌──────────────────────────────────────────────────────────────────┐
-│                TRICKSTER FIGURES ACROSS CULTURES                  │
+│                TRICKSTER FIGURES ACROSS CULTURES                 │
 ├─────────────────┬────────────────────────────────────────────────┤
 │ Loki (Norse)    │ Shape-shifter, chaos agent, Ragnarok instigator│
 │ Hermes (Greek)  │ Messenger, thief, psychopomp, inventor of lyre │
@@ -191,10 +191,10 @@ The Proto-Indo-European (PIE) people (~4500–2500 BCE, Pontic steppe) spread la
 ┌──────────────────────────────────────────────────────────────────┐
 │              INDO-EUROPEAN MYTHOLOGICAL CORRESPONDENCES          │
 │                                                                  │
-│  THEME          GREEK      ROMAN      VEDIC       NORSE         │
-│  ─────────────  ─────────  ─────────  ──────────  ────────────  │
-│  Sky Father     Zeus       Jupiter    Dyaus Pita  Tyr/Tiw       │
-│  (PIE: *Dyēus)  (Dis Pater)(Deus)     (Deiwo)     (Tiwaz)       │
+│  THEME          GREEK      ROMAN      VEDIC       NORSE          │
+│  ─────────────  ─────────  ─────────  ──────────  ────────────   │
+│  Sky Father     Zeus       Jupiter    Dyaus Pita  Tyr/Tiw        │
+│  (PIE: *Dyēus)  (Dis Pater)(Deus)     (Deiwo)     (Tiwaz)        │
 │  Thunder God    Zeus       Jupiter    Indra       Thor           │
 │  Sea/Fate       Poseidon   Neptune    Varuna      Njord/Odin     │
 │  Blacksmith     Hephaestus Vulcan     Tvashtri    —              │
@@ -204,8 +204,8 @@ The Proto-Indo-European (PIE) people (~4500–2500 BCE, Pontic steppe) spread la
 │  (PIE *h₂egʷh-) Python                            Beowulf/Grendel│
 │                                                                  │
 │  Dragon/Serpent combat (PIE *h₁óg̑ʷʰis) is possibly the        │
-│  oldest reconstructable IE myth: champion hero slays serpent    │
-│  near waters, frees cattle/waters (weather-control myth)        │
+│  oldest reconstructable IE myth: champion hero slays serpent     │
+│  near waters, frees cattle/waters (weather-control myth)         │
 └──────────────────────────────────────────────────────────────────┘
 ```
 
@@ -294,7 +294,7 @@ COSMIC GEOGRAPHY (nearly universal):
 ```
 PRIMARY SOURCES by tradition:
 ┌──────────────────────────────────────────────────────────────┐
-│ GREEK:       Homer (Iliad/Odyssey ~800BCE), Hesiod            │
+│ GREEK:       Homer (Iliad/Odyssey ~800BCE), Hesiod           │
 │              (Theogony/Works+Days), Homeric Hymns,           │
 │              Aeschylus/Sophocles/Euripides, Ovid (Roman)     │
 │ NORSE:       Prose Edda (Snorri Sturluson ~1220 CE)          │

@@ -8,7 +8,7 @@ DEMOCRATIC BACKSLIDING — CONCEPTUAL MAP
 
   OLD MODEL OF DEMOCRATIC DEATH:
   ┌─────────────────────────────────────────────────────────┐
-  │ Coup d'état: tanks in the street, generals seize power │
+  │ Coup d'état: tanks in the street, generals seize power  │
   │ Clear, sudden, visible — Chile 1973, Greece 1967        │
   └─────────────────────────────────────────────────────────┘
 
@@ -31,7 +31,7 @@ DEMOCRATIC BACKSLIDING — CONCEPTUAL MAP
   │ Liberal      Illiberal   Competitive    Electoral    Closed  │
   │ Democracy    Democracy   Authoritarianm Autocracy  Autocracy │
   │                          (hybrid)                            │
-  │ ←────────────────────────────────────────────────────────→  │
+  │ ←────────────────────────────────────────────────────────→   │
   │ diminishing political rights and civil liberties             │
   └──────────────────────────────────────────────────────────────┘
 ```

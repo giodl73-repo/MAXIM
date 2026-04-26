@@ -10,13 +10,13 @@ The Prague School (Prague Linguistic Circle, 1926–1948) was the first major in
 +-----------------------------------------------------------------------+
 |                      STRUCTURALISM MAP                                |
 |                                                                       |
-|  SAUSSURE (foundation)          PRAGUE SCHOOL (linguistics)          |
-|  Language as system of          Trubetzkoy: phonology as             |
-|  differences. Langue/parole.    system of oppositions.               |
-|  Synchronic priority.           Jakobson: functions of               |
+|  SAUSSURE (foundation)          PRAGUE SCHOOL (linguistics)           |
+|  Language as system of          Trubetzkoy: phonology as              |
+|  differences. Langue/parole.    system of oppositions.                |
+|  Synchronic priority.           Jakobson: functions of                |
 |                                 language; poetic function.            |
-|         ↓                                ↓                           |
-|  +-----------------------+    +------------------------------+       |
+|         ↓                                ↓                            |
+|  +-----------------------+    +------------------------------+        |
 |  | FRENCH STRUCTURALISM  |    | PRAGUE CONTRIBUTIONS         |       |
 |  | Lévi-Strauss: myth,   |    | Phoneme = distinctive unit   |       |
 |  | kinship as binary     |    | Marked/unmarked opposition   |       |
@@ -24,8 +24,8 @@ The Prague School (Prague Linguistic Circle, 1926–1948) was the first major in
 |  | Barthes: cultural     |    | Foregrounding in poetics     |       |
 |  | signs, fashion system |    | Functional sentence perspect.|       |
 |  | Lacan: unconscious    |    +------------------------------+       |
-|  | structured as language|                                            |
-|  +-----------------------+                                            |
+|  | structured as language|                                           |
+|  +-----------------------+                                           |
 +-----------------------------------------------------------------------+
 ```
 

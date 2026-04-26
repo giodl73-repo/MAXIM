@@ -4,14 +4,14 @@
 
 ```
 ┌─────────────────────────────────────────────────────────────────────────────┐
-│                    BEHAVIORAL FINANCE LANDSCAPE                              │
+│                    BEHAVIORAL FINANCE LANDSCAPE                             │
 │                                                                               │
 │  EFFICIENT MARKET HYPOTHESIS (Fama 1970):                                   │
-│  Prices reflect all available information.                                   │
+│  Prices reflect all available information.                                  │
 │  No systematic profitable trading strategy exists.                          │
 │  Price changes = unpredictable (random walk).                               │
 │                                                                               │
-│  BEHAVIORAL CHALLENGE:                                                       │
+│  BEHAVIORAL CHALLENGE:                                                      │
 │  Systematic, predictable pricing errors exist.                              │
 │  These anomalies are inconsistent with rational risk-based explanations.    │
 │  They are consistent with psychological mechanisms (prospect theory,        │
@@ -21,8 +21,8 @@
 │  ANSWER: Limits to arbitrage (Shleifer & Vishny 1997):                      │
 │  - Risk: arbitrage is never riskless (noise trader risk)                    │
 │  - Horizon: arbitrageurs may not survive until prices converge              │
-│  - Short-selling constraints: hard to short; costly                        │
-│  - Tracking error: fund managers fired before anomaly corrects             │
+│  - Short-selling constraints: hard to short; costly                         │
+│  - Tracking error: fund managers fired before anomaly corrects              │
 └─────────────────────────────────────────────────────────────────────────────┘
 ```
 

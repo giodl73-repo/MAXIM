@@ -65,8 +65,8 @@ WING BOX CROSS-SECTION:
   │──┼─┼───┼─┼─┼─┼───┼─┼──  ← FRONT SPAR (web+caps)│
   │  │ │   │ │ │ │   │ │                             │
   │──┼─┼───┼─┼─┼─┼───┼─┼──  ← REAR SPAR             │
-  │                                                  │
-  │                  SKIN (lower)                    │
+  │                                                 │
+  │                  SKIN (lower)                   │
   └──────────────────────────────────────────────────┘
   Upper skin: compression (buckling critical)
   Lower skin: tension (fatigue critical)
@@ -370,17 +370,17 @@ DAMAGE TOLERANCE DESIGN (FAR 25.571):
 
 SAFE-LIFE vs FAIL-SAFE vs DAMAGE TOLERANCE:
   ┌──────────────────┬───────────────────────────────────────────────────────┐
-  │ Safe-life        │ Retire part before predicted failure; used for:        │
-  │                  │ landing gear, wing attach fittings (single load path)  │
-  │                  │ Scatter factor 3-4 on test life                        │
+  │ Safe-life        │ Retire part before predicted failure; used for:       │
+  │                  │ landing gear, wing attach fittings (single load path) │
+  │                  │ Scatter factor 3-4 on test life                       │
   ├──────────────────┼───────────────────────────────────────────────────────┤
   │ Fail-safe        │ Multiple load paths; partial failure detectable before │
   │                  │ total failure; fuselage skin, stringers                │
   │                  │ Must sustain 80% design limit load with element failed  │
   ├──────────────────┼───────────────────────────────────────────────────────┤
   │ Damage tolerant  │ Fracture mechanics; flaw assumed present; crack growth │
-  │                  │ rate analyzed; inspection interval set                 │
-  │                  │ Now dominant philosophy per FAR 25.571 Amendment 45    │
+  │                  │ rate analyzed; inspection interval set                │
+  │                  │ Now dominant philosophy per FAR 25.571 Amendment 45   │
   └──────────────────┴───────────────────────────────────────────────────────┘
 ```
 

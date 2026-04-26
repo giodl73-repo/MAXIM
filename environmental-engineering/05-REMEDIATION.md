@@ -15,7 +15,7 @@ at reasonable cost.
   └─────────────────────────────┬───────────────────────────────────┘
                                  │
             ┌────────────────────┴─────────────────────┐
-            │                                           │
+            │                                          │
             v                                           v
   ┌──────────────────────┐              ┌──────────────────────────┐
   │  CERCLA (SUPERFUND)  │              │  RCRA CORRECTIVE ACTION  │
@@ -31,26 +31,26 @@ at reasonable cost.
    │  CERCLA PROCESS STAGES                 │
    │                                        │
    │  Preliminary Assessment (PA)           │
-   │         |                              │
+   │        |                               │
    │  Site Inspection (SI)                  │
-   │         |                              │
+   │        |                               │
    │  Hazard Ranking System (HRS) score     │
-   │         |                              │
-   │  If HRS ≥ 28.5 → NPL listing          │
-   │         |                              │
+   │        |                               │
+   │  If HRS ≥ 28.5 → NPL listing           │
+   │        |                               │
    │  Remedial Investigation (RI)           │
    │  (full site characterization)          │
-   │         |                              │
+   │        |                               │
    │  Feasibility Study (FS)                │
-   │  (evaluate alternatives)              │
-   │         |                              │
-   │  Record of Decision (ROD)             │
-   │  (selected remedy)                    │
-   │         |                              │
+   │  (evaluate alternatives)               │
+   │        |                               │
+   │  Record of Decision (ROD)              │
+   │  (selected remedy)                     │
+   │        |                               │
    │  Remedial Design (RD)                  │
-   │         |                              │
+   │        |                               │
    │  Remedial Action (RA)                  │
-   │         |                              │
+   │        |                               │
    │  Operations + Maintenance (O&M)        │
    │  Long-term monitoring                  │
    └────────────────────────────────────────┘
@@ -295,7 +295,7 @@ exposure pathways. This is **probabilistic safety analysis** — the same framew
   │ attenuation (MNA)      │ phase      │          │ occurring;     │
   │                        │ plume      │          │ long-term      │
   │                        │            │          │ monitoring;    │
-  │                        │            │          │ requires        │
+  │                        │            │          │ requires       │
   │                        │            │          │ shrinking plume │
   └────────────────────────┴────────────┴──────────┴────────────────┘
 ```
@@ -311,7 +311,7 @@ exposure pathways. This is **probabilistic safety analysis** — the same framew
   │ permanganate (KMnO₄) │ persistence in aquifer; good for       │
   │                      │ TCE/PCE; leaves MnO₂ precipitate      │
   ├──────────────────────┼────────────────────────────────────────┤
-  │ Persulfate (Na₂S₂O₈) │ Activated by heat, iron, or alkaline; │
+  │ Persulfate (Na₂S₂O₈) │ Activated by heat, iron, or alkaline;  │
   │                      │ very reactive; treats wide range of    │
   │                      │ VOCs + SVOCs                           │
   ├──────────────────────┼────────────────────────────────────────┤
@@ -319,9 +319,9 @@ exposure pathways. This is **probabilistic safety analysis** — the same framew
   │                      │ Extremely reactive but short-lived;   │
   │                      │ low pH required; exothermic           │
   ├──────────────────────┼────────────────────────────────────────┤
-  │ Ozone (O₃)           │ Gas injection; very reactive;         │
-  │                      │ quick treatment of accessible zones;  │
-  │                      │ limited radius of influence           │
+  │ Ozone (O₃)           │ Gas injection; very reactive;          │
+  │                      │ quick treatment of accessible zones;   │
+  │                      │ limited radius of influence            │
   └──────────────────────┴────────────────────────────────────────┘
   Challenge: DNAPL source zones have limited reagent contact due to
   heterogeneous geology. ISCO often achieves 60–90% mass removal

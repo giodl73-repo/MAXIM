@@ -6,12 +6,12 @@
 +------------------------------------------------------------------+
 |           THE SPICE ISLANDS — CAPITALISM'S ORIGIN STORY          |
 |                                                                  |
-|  NUTMEG + MACE (Myristica fragrans)                             |
+|  NUTMEG + MACE (Myristica fragrans)                              |
 |  Only native location: Banda Islands, Maluku, Indonesia          |
-|  Geographic area: 10 tiny volcanic islands, ~180 km²            |
+|  Geographic area: 10 tiny volcanic islands, ~180 km²             |
 |  Comparable: city the size of Pasadena, CA                       |
 |                                                                  |
-|  CLOVES (Syzygium aromaticum)                                   |
+|  CLOVES (Syzygium aromaticum)                                    |
 |  Only native location: Ternate + Tidore, N. Maluku               |
 |                                                                  |
 |  This is the most extreme geographic concentration of any        |

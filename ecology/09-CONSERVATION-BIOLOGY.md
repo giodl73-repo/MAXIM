@@ -6,19 +6,19 @@ Conservation biology is a crisis discipline — it applies ecological science to
 
 ```
 +---------------------------------------------------------------+
-|              CONSERVATION BIOLOGY FRAMEWORK                    |
-|                                                                |
+|              CONSERVATION BIOLOGY FRAMEWORK                   |
+|                                                               |
 |  PROBLEM:  Accelerating biodiversity loss                     |
 |            Habitat loss / fragmentation / degradation         |
-|            Overexploitation                                    |
-|            Invasive species                                    |
+|            Overexploitation                                   |
+|            Invasive species                                   |
 |            Pollution                                          |
 |            Climate change                                     |
-|            (HIPPO acronym: H,I,P,P,O)                        |
-|                                                                |
-|  TOOLS:                                                        |
+|            (HIPPO acronym: H,I,P,P,O)                         |
+|                                                               |
+|  TOOLS:                                                       |
 |  Protected areas   Species recovery plans                     |
-|  Connectivity      Ex situ conservation (zoos, seed banks)   |
+|  Connectivity      Ex situ conservation (zoos, seed banks)    |
 |  Rewilding         Environmental law / CITES                  |
 |  Restoration       Payment for ecosystem services             |
 +---------------------------------------------------------------+
@@ -321,21 +321,21 @@ CORE PROBLEM:
 ADAPTATION STRATEGIES:
   ┌─────────────────────────────────────────────────────────────────┐
   │ PASSIVE: reduce other stressors, let species self-adjust        │
-  │   Reduce fragmentation (improve matrix permeability)           │
-  │   Reduce overexploitation, pollution                           │
+  │   Reduce fragmentation (improve matrix permeability)            │
+  │   Reduce overexploitation, pollution                            │
   │   → Creates "headroom" for adaptation                         │
   │                                                               │
-  │ CONNECTIVITY: facilitate natural dispersal                     │
-  │   Climate corridors: route from current → future habitat       │
+  │ CONNECTIVITY: facilitate natural dispersal                      │
+  │   Climate corridors: route from current → future habitat        │
   │   Stepping stones: intermediate patches for long-distance moves│
   │   → Design for future climate, not current conditions         │
   │                                                               │
-  │ MANAGED RELOCATION (assisted migration):                       │
-  │   Deliberately move individuals/populations to future habitat  │
-  │   High controversy: could introduce new invasive dynamics      │
-  │   Best cases: species with very limited dispersal ability      │
+  │ MANAGED RELOCATION (assisted migration):                        │
+  │   Deliberately move individuals/populations to future habitat   │
+  │   High controversy: could introduce new invasive dynamics       │
+  │   Best cases: species with very limited dispersal ability       │
   │   (plants, tortoises, freshwater fish above dispersal barriers)│
-  │   Examples: Torreya taxifolia (Florida) moved to NC mountains  │
+  │   Examples: Torreya taxifolia (Florida) moved to NC mountains   │
   └─────────────────────────────────────────────────────────────────┘
 ```
 

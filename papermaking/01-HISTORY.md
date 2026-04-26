@@ -6,7 +6,7 @@
 +------------------------------------------------------------------+
 |              PAPERMAKING TIMELINE                                |
 |                                                                  |
-|  105 CE    Cai Lun → China        Invented / systematized       |
+|  105 CE    Cai Lun → China        Invented / systematized        |
 |  400s      Spread across East Asia Buddhist sutras, Tang culture |
 |  700s      Arab world              Battle of Talas (751) → Islam |
 |  1000s     Persia, North Africa    Samarkand, Baghdad            |

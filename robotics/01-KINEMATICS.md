@@ -28,7 +28,7 @@ And its inverse: given a desired end-effector pose, what joint angles achieve it
 |  +----------+    DH chain     +----------+                              |
 |  | q1..qn   | ------------->  | T_0n     |    DIFFERENTIAL KINEMATICS   |
 |  | angles   |                 | 4x4 pose |    J(q): maps q_dot -> v_EE  |
-|  +----------+                 +----------+    Jacobian matrix            |
+|  +----------+                 +----------+    Jacobian matrix           |
 |                                                                         |
 |  WORKSPACE ANALYSIS              SINGULARITIES                          |
 |  Reachable workspace:            J loses rank -> velocity               |
@@ -284,8 +284,8 @@ TYPES FOR A 6R ARM:
 | Shoulder     | Wrist center crosses shoulder joint axis | Arm fully    |
 |              |                                          | extended     |
 +--------------+------------------------------------------+-------------+
-| Elbow        | Joints 2, 3 are aligned (arm straight)   | Fully        |
-|              | or fully folded                          | extended     |
+| Elbow        | Joints 2, 3 are aligned (arm straight)   | Fully       |
+|              | or fully folded                          | extended    |
 +--------------+------------------------------------------+-------------+
 | Wrist        | Joints 4, 6 axes are aligned             | q5 = 0       |
 |              | (gimbal lock for wrist)                  |              |

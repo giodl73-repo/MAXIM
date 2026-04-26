@@ -8,18 +8,18 @@ ARM64 (AArch64) dominates mobile and has taken a large slice of the server and d
 +-----------------------------------------------------------------------+
 |                    ARM64 vs RISC-V COMPARISON                         |
 |                                                                       |
-|  ARM64 (AArch64)                  RISC-V (RV64GC)                    |
-|  ----------------                 ----------------                   |
-|  ARM Holdings, licensed           RISC-V International, open         |
-|  Fixed 32-bit instructions        Fixed 32-bit (C ext: 16-bit)       |
-|  31 GP registers + zero           31 GP registers + zero             |
-|  32 FP/SIMD registers (128-bit)   32 FP registers (64-bit)           |
-|  Conditional execution flags      No condition codes                 |
-|  Hardware divide (UDIV/SDIV)      M extension for multiply/divide    |
-|  Pointer auth (PAC)               Pointer masking (CFI via SW)       |
+|  ARM64 (AArch64)                  RISC-V (RV64GC)                     |
+|  ----------------                 ----------------                    |
+|  ARM Holdings, licensed           RISC-V International, open          |
+|  Fixed 32-bit instructions        Fixed 32-bit (C ext: 16-bit)        |
+|  31 GP registers + zero           31 GP registers + zero              |
+|  32 FP/SIMD registers (128-bit)   32 FP registers (64-bit)            |
+|  Conditional execution flags      No condition codes                  |
+|  Hardware divide (UDIV/SDIV)      M extension for multiply/divide     |
+|  Pointer auth (PAC)               Pointer masking (CFI via SW)        |
 |  SVE/SVE2: scalable vectors       V extension: scalable vectors       |
-|  A profile, R profile, M profile  RV32, RV64, RV128 + extensions     |
-|  IP royalties required            Free to implement                  |
+|  A profile, R profile, M profile  RV32, RV64, RV128 + extensions      |
+|  IP royalties required            Free to implement                   |
 +-----------------------------------------------------------------------+
 ```
 

@@ -33,8 +33,8 @@ B CELLS AND ANTIBODIES: HUMORAL IMMUNITY
   on top of the pre-existing random sampling.
 
   ┌──────────────────────────────────────────────────────────────┐
-  │ ANTIBODY STRUCTURE                                            │
-  │                                                               │
+  │ ANTIBODY STRUCTURE                                           │
+  │                                                              │
   │              ┌─────────────────────────┐                     │
   │              │   VH │     │ VL          │   Variable (Fab)    │
   │   Antigen ──►│   VH │     │ VL          │   domains           │
@@ -42,9 +42,9 @@ B CELLS AND ANTIBODIES: HUMORAL IMMUNITY
   │              └──────┤     ├────────────┘                     │
   │                     │Hinge│                                   │
   │              ┌──────┤     ├────────────┐                     │
-  │              │   CH2│     │ CH2         │   Constant (Fc)     │
-  │              │   CH2│     │ CH2         │   regions           │
-  │              │   CH3│     │ CH3         │   (effector func.)  │
+  │              │   CH2│     │ CH2        │   Constant (Fc)     │
+  │              │   CH2│     │ CH2        │   regions           │
+  │              │   CH3│     │ CH3        │   (effector func.)  │
   │              └─────────────────────────┘                     │
   │                                                               │
   │  Two heavy chains (VH-CH1-CH2-CH3) + Two light chains (VL-CL)│
@@ -114,12 +114,12 @@ B CELLS AND ANTIBODIES: HUMORAL IMMUNITY
   AID (same enzyme as somatic hypermutation) mediates class switch.
 
   ┌──────────────────────────────────────────────────────────────────┐
-  │  IgM                                                              │
+  │  IgM                                                             │
   │  ─────                                                           │
   │  First antibody produced in primary response                     │
-  │  Pentameric: 5 Y-shapes joined → 10 antigen-binding arms        │
+  │  Pentameric: 5 Y-shapes joined → 10 antigen-binding arms         │
   │  Excellent at complement activation (classical pathway)          │
-  │  On B cell surface as monomer (BCR)                             │
+  │  On B cell surface as monomer (BCR)                              │
   │  Half-life: ~10 days                                             │
   ├──────────────────────────────────────────────────────────────────┤
   │  IgG (4 subclasses: IgG1–4)                                     │
@@ -132,13 +132,13 @@ B CELLS AND ANTIBODIES: HUMORAL IMMUNITY
   │  Half-life: ~21 days (FcRn recycling)                           │
   │  IgG4: No complement, no ADCC → used therapeutically (no effec) │
   ├──────────────────────────────────────────────────────────────────┤
-  │  IgA (dimeric in secretions)                                    │
+  │  IgA (dimeric in secretions)                                     │
   │  ─────────────────────────                                       │
-  │  Dominant isotype at mucosal surfaces: gut, lung, breast milk   │
-  │  Secretory IgA (sIgA): dimer + J chain + secretory component    │
-  │  Neutralizes pathogens before they cross epithelium             │
-  │  Most abundant antibody in the body (total mass, gut lumen)     │
-  │  Half-life: ~5–6 days                                           │
+  │  Dominant isotype at mucosal surfaces: gut, lung, breast milk    │
+  │  Secretory IgA (sIgA): dimer + J chain + secretory component     │
+  │  Neutralizes pathogens before they cross epithelium              │
+  │  Most abundant antibody in the body (total mass, gut lumen)      │
+  │  Half-life: ~5–6 days                                            │
   ├──────────────────────────────────────────────────────────────────┤
   │  IgE                                                             │
   │  ────                                                            │
@@ -151,7 +151,7 @@ B CELLS AND ANTIBODIES: HUMORAL IMMUNITY
   │  IgD                                                             │
   │  ────                                                            │
   │  Low serum levels; co-expressed with IgM on naïve B cells      │
-  │  Function poorly understood; some role in upper respiratory     │
+  │  Function poorly understood; some role in upper respiratory      │
   └──────────────────────────────────────────────────────────────────┘
 ```
 
@@ -198,11 +198,11 @@ B CELLS AND ANTIBODIES: HUMORAL IMMUNITY
   │   CD40 (B cell) : CD40L (T cell) → survival + GC entry   │
   │   Cytokines (IL-21, IL-4, IL-10) → isotype switching     │
   │   Result: High-affinity IgG, IgA, IgE + memory B cells   │
-  │                                                             │
+  │                                                            │
   │ T-INDEPENDENT (polysaccharides, LPS):                      │
   │   Repeating epitopes cross-link BCR directly               │
   │   TLR signals provide additional stimulus                  │
-  │   Result: Mainly IgM; limited class switching; no memory  │
+  │   Result: Mainly IgM; limited class switching; no memory   │
   │   Problem: Encapsulated bacteria have polysaccharide       │
   │   capsules → limited protection without conjugate vaccine  │
   └────────────────────────────────────────────────────────────┘
@@ -266,19 +266,19 @@ B CELLS AND ANTIBODIES: HUMORAL IMMUNITY
   FORMATS:
   ┌────────────────────────────────────────────────────────────┐
   │ Full IgG (most common): Full Fc → long half-life, effectors│
-  │                                                             │
+  │                                                            │
   │ Fab fragment: Antigen-binding only, no Fc                  │
   │   Fast clearance → used for imaging, rapid therapy switch  │
-  │   Example: Ranibizumab (eye injection, no ADCC needed)    │
-  │                                                             │
-  │ ScFv: Single-chain variable fragment (VH-linker-VL)       │
+  │   Example: Ranibizumab (eye injection, no ADCC needed)     │
+  │                                                            │
+  │ ScFv: Single-chain variable fragment (VH-linker-VL)        │
   │   Building block for CAR-T and bispecific constructs       │
-  │                                                             │
+  │                                                            │
   │ Bispecific: Two different antigen-binding arms             │
-  │   Blinatumomab: CD19 (B cell) × CD3 (T cell)              │
+  │   Blinatumomab: CD19 (B cell) × CD3 (T cell)               │
   │   Brings T cells to kill B cell tumors                     │
-  │                                                             │
-  │ ADC (Antibody-Drug Conjugate):                            │
+  │                                                            │
+  │ ADC (Antibody-Drug Conjugate):                             │
   │   Antibody + cytotoxin linked via cleavable linker         │
   │   Trastuzumab emtansine (T-DM1): HER2 → delivers toxin   │
   └────────────────────────────────────────────────────────────┘

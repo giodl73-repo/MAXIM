@@ -6,7 +6,7 @@ Music and dance have co-evolved across all known cultures, but their relationshi
 
 ```
 +----------------------------------------------------------------------+
-|              MUSIC-DANCE RELATIONSHIP SPECTRUM                        |
+|              MUSIC-DANCE RELATIONSHIP SPECTRUM                       |
 |                                                                      |
 |  FULLY MERGED          COORDINATED          INDEPENDENT              |
 |  (one thing)           (related but sep.)    (coexist, not aligned)  |

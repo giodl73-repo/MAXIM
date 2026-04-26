@@ -8,14 +8,14 @@ BACTERIAL CELL: A SIMPLE BUT SOPHISTICATED AGENT
 
   CELL ANATOMY:
   ┌─────────────────────────────────────────────────────────────────┐
-  │  GRAM-POSITIVE                    GRAM-NEGATIVE                  │
+  │  GRAM-POSITIVE                    GRAM-NEGATIVE                 │
   │                                                                   │
   │  ┌──────────────────┐             ┌─────────────────────────┐   │
   │  │ Thick             │             │ Outer membrane          │   │
   │  │ Peptidoglycan    │             │ (LPS in gram-)          │   │
   │  │ (20–80 nm)       │             │ Thin peptidoglycan      │   │
   │  ├──────────────────┤             │ (2–7 nm)                │   │
-  │  │ Cytoplasmic      │             │ Periplasmic space        │   │
+  │  │ Cytoplasmic      │             │ Periplasmic space        │  │
   │  │ membrane         │             │ Cytoplasmic membrane    │   │
   │  │                  │             │                         │   │
   │  │ Cytoplasm:       │             │ Cytoplasm               │   │
@@ -144,20 +144,20 @@ BACTERIAL CELL: A SIMPLE BUT SOPHISTICATED AGENT
 
   THE METABOLIC MATRIX:
   ┌────────────────────────────────────────────────────────────────┐
-  │ Photoautotrophs:  Cyanobacteria (produced Earth's O₂),        │
+  │ Photoautotrophs:  Cyanobacteria (produced Earth's O₂),         │
   │                   purple/green sulfur bacteria                 │
-  │                                                                 │
+  │                                                                │
   │ Chemoheterotrophs: Most human pathogens (E. coli, Staph, Strep)│
   │                    Fermenters, aerobic respirers               │
-  │                                                                 │
+  │                                                                │
   │ Chemolithotrophs:  "Eat rocks"; sulfur oxidizers (Thiobacillus)│
   │                    Iron oxidizers, hydrogen oxidizers          │
   │                    Important in acid mine drainage, deep sea   │
-  │                                                                 │
-  │ Nitrogen fixers:   Rhizobium (in root nodules), Azotobacter,  │
+  │                                                                │
+  │ Nitrogen fixers:   Rhizobium (in root nodules), Azotobacter,   │
   │                    Clostridium (anaerobic)                     │
   │                    Nitrogenase enzyme: N₂ + 8H⁺ → 2NH₃ + H₂ │
-  │                    (ATP-expensive; inhibited by O₂)           │
+  │                    (ATP-expensive; inhibited by O₂)            │
   └────────────────────────────────────────────────────────────────┘
 
   FERMENTATION vs. RESPIRATION:

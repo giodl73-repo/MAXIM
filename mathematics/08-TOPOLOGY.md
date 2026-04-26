@@ -264,13 +264,13 @@ A **topological invariant** is a property preserved by homeomorphisms:
   │  The real line "wraps around" the circle.                       │
   │  Fiber p⁻¹(x₀) = ℤ (all integers, equally spaced)             │
   │                                                                 │
-  │  p: S² → RP²  (antipodal map)                                  │
+  │  p: S² → RP²  (antipodal map)                                   │
   │  Sphere double-covers real projective plane.                    │
   │  Fiber = 2 points.                                              │
   │                                                                 │
-  │  p: SU(2) → SO(3)  (the spin covering!)                        │
-  │  SU(2) ≅ S³ double-covers SO(3) ≅ RP³                          │
-  │  This is why spin-½ exists — SU(2) is the universal cover      │
+  │  p: SU(2) → SO(3)  (the spin covering!)                         │
+  │  SU(2) ≅ S³ double-covers SO(3) ≅ RP³                           │
+  │  This is why spin-½ exists — SU(2) is the universal cover       │
   └─────────────────────────────────────────────────────────────────┘
 
   MONODROMY: as you go around a loop in X, the fiber points permute.
@@ -429,10 +429,10 @@ A **topological invariant** is a property preserved by homeomorphisms:
   EXAMPLES:
   ┌──────────────────────────────────────────────────────────────────────┐
   │  Vortices (2D superfluid): π₁(U(1)) = ℤ → quantized vortex lines   │
-  │  Strings (3D, symmetry breaking): π₁(vacuum manifold) ≠ 0           │
-  │  Monopoles (3D): π₂(vacuum manifold) ≠ 0                            │
-  │  Textures: π₃(vacuum manifold) ≠ 0                                  │
-  │  Domain walls: π₀(vacuum manifold) ≠ 0  (discrete symmetry broken)  │
+  │  Strings (3D, symmetry breaking): π₁(vacuum manifold) ≠ 0            │
+  │  Monopoles (3D): π₂(vacuum manifold) ≠ 0                             │
+  │  Textures: π₃(vacuum manifold) ≠ 0                                   │
+  │  Domain walls: π₀(vacuum manifold) ≠ 0  (discrete symmetry broken)   │
   └──────────────────────────────────────────────────────────────────────┘
 
   The homotopy groups πₙ classify which topological defects are stable:
@@ -485,8 +485,8 @@ Before TDA, the algebraic machinery needs to be in place.
   ┌─────────────────────────────────────────────────────────────────────┐
   │  ... → C₂ →^∂₂ C₁ →^∂₁ C₀ → 0                                    │
   │                                                                     │
-  │  KEY IDENTITY: ∂²= 0  (boundary of a boundary is empty)            │
-  │  Algebraic proof: the (-1)ⁱ signs cause exact cancellation.        │
+  │  KEY IDENTITY: ∂²= 0  (boundary of a boundary is empty)             │
+  │  Algebraic proof: the (-1)ⁱ signs cause exact cancellation.         │
   │  This mirrors d²=0 from differential forms — same structure.        │
   └─────────────────────────────────────────────────────────────────────┘
 
@@ -559,15 +559,15 @@ Before TDA, the algebraic machinery needs to be in place.
   and "dies" (merges/fills) at some scale r_death.
 
   ┌────────────────────────────────────────────────────────────────────┐
-  │  PERSISTENCE BARCODE: one horizontal bar per feature              │
+  │  PERSISTENCE BARCODE: one horizontal bar per feature               │
   │  r:   0  ──────────────────────────────────────────────► ∞       │
   │  H₀:  ───── ──── ──── ──  ─    (components merging)             │
   │  H₁:                ────────  ──── ─  (loops appearing/dying)    │
-  │  Long bars = topologically significant features                   │
-  │  Short bars = noise                                               │
+  │  Long bars = topologically significant features                    │
+  │  Short bars = noise                                                │
   │                                                                    │
-  │  PERSISTENCE DIAGRAM: scatter plot of (birth, death) pairs.       │
-  │  Points near the diagonal = noise; points far from diagonal =     │
+  │  PERSISTENCE DIAGRAM: scatter plot of (birth, death) pairs.        │
+  │  Points near the diagonal = noise; points far from diagonal =      │
   │  genuine topological signal.                                       │
   └────────────────────────────────────────────────────────────────────┘
 
@@ -701,16 +701,16 @@ Before TDA, the algebraic machinery needs to be in place.
   EXAMPLES:
   ┌─────────────────────────────────────────────────────────────────────┐
   │  X = S¹:  X̃ = ℝ,  π₁(S¹) = ℤ                                    │
-  │  Deck transformations: t ↦ t + n (integer translations)            │
-  │  S¹ = ℝ/ℤ ✓                                                        │
+  │  Deck transformations: t ↦ t + n (integer translations)             │
+  │  S¹ = ℝ/ℤ ✓                                                         │
   │                                                                     │
   │  X = SO(3):  X̃ = SU(2) ≅ S³,  π₁(SO(3)) = ℤ/2ℤ                │
-  │  Deck transformations: {id, antipodal map on S³}                   │
+  │  Deck transformations: {id, antipodal map on S³}                    │
   │  SO(3) = S³/(ℤ/2ℤ) = RP³ ✓                                        │
   │                                                                     │
   │  X = torus T²:  X̃ = ℝ²,  π₁(T²) = ℤ²                            │
   │  Deck transformations: (m,n) integer lattice translations           │
-  │  T² = ℝ²/ℤ² ✓                                                      │
+  │  T² = ℝ²/ℤ² ✓                                                       │
   └─────────────────────────────────────────────────────────────────────┘
 
   MONODROMY REPRESENTATION:

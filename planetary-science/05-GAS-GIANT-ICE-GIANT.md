@@ -6,7 +6,7 @@ The four outer planets dominate the solar system's mass and angular momentum. Th
 
 ```
 +------------------------------------------------------------------+
-|                    OUTER PLANETS OVERVIEW                         |
+|                    OUTER PLANETS OVERVIEW                        |
 +------------------------------------------------------------------+
 |                                                                  |
 |           Jupiter      Saturn       Uranus       Neptune         |

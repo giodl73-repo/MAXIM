@@ -9,12 +9,12 @@ HIGH-PERFORMANCE FIBER COMPARISON
 ===================================
 
   ┌─────────────────────────────────────────────────────────────────────┐
-  │                  NORMALIZED PERFORMANCE (polyester = 1.0)          │
+  │                  NORMALIZED PERFORMANCE (polyester = 1.0)           │
   │                                                                       │
   │  Property          Polyester  Nylon  UHMWPE  Aramid  Vectran  PBO   │
   │  ─────────────────────────────────────────────────────────────────── │
-  │  Tensile strength  1.0        0.9    3.0–3.5 3.0–3.5 2.8–3.1 5.5   │
-  │  Strength/weight   1.0        1.3    4.0–4.5 3.2–3.5 2.9–3.2 5.3   │
+  │  Tensile strength  1.0        0.9    3.0–3.5 3.0–3.5 2.8–3.1 5.5    │
+  │  Strength/weight   1.0        1.3    4.0–4.5 3.2–3.5 2.9–3.2 5.3    │
   │  Elongation (rope) 1.0        2.0    0.3     0.3     0.3     0.3    │
   │  Creep             1.0        1.5    0.6     0.5     0.1     0.3    │
   │  UV stability      1.0        0.8    0.5     0.1     0.5     0.05   │
@@ -42,14 +42,14 @@ UHMWPE FIBER SCIENCE
   ┌──────────────────────────────────────────────────────────────────┐
   │  Normal HDPE: Mw = 100,000–500,000 g/mol                       │
   │  UHMWPE:      Mw = 3,000,000–6,000,000 g/mol                   │
-  │                                                                   │
+  │                                                                  │
   │  GEL-SPINNING PROCESS:                                         │
   │  1. Dissolve UHMWPE in solvent (very high viscosity)           │
   │  2. Extrude through spinnerets → gel fiber                     │
   │  3. Draw (stretch) fiber at high ratio (30:1 to 100:1)         │
   │  4. Drawing orients polymer chains nearly parallel to fiber axis│
-  │  5. Solvent removed; highly crystalline (70–80%), aligned fiber │
-  │                                                                   │
+  │  5. Solvent removed; highly crystalline (70–80%), aligned fiber  │
+  │                                                                  │
   │  RESULT: Strength from polymer chain orientation, not crosslinks │
   │  Tensile: 2,400–3,600 MPa (fiber); ~1,200–2,400 MPa (rope)    │
   │  Modulus: 70–150 GPa (stiffer than steel per unit weight)      │
@@ -66,34 +66,34 @@ UHMWPE FIBER SCIENCE
   ┌──────────────────────────────────────────────────────────────────┐
   │  1. FLOATS: Density 0.97 g/cc — only HP fiber that floats in   │
   │     seawater. Critical for offshore moorings, throw lines.     │
-  │                                                                   │
+  │                                                                  │
   │  2. CUT RESISTANCE: Very high (used in cut-resistant gloves)   │
-  │                                                                   │
+  │                                                                  │
   │  3. CHEMICAL RESISTANCE: Excellent (acids, bases, solvents)    │
-  │                                                                   │
-  │  4. VERY LOW COEFFICIENT OF FRICTION: Surface is very slippery  │
+  │                                                                  │
+  │  4. VERY LOW COEFFICIENT OF FRICTION: Surface is very slippery   │
   │     → knots slip; must use proper terminal methods             │
   │     → splices must be buried/locked (not standard tuck splice) │
   └──────────────────────────────────────────────────────────────────┘
 
   LIMITATIONS:
   ┌──────────────────────────────────────────────────────────────────┐
-  │  UV DEGRADATION:                                                │
+  │  UV DEGRADATION:                                                 │
   │  Without UV protection: yellowing/browning, strength loss      │
   │  Mechanism: UV breaks crystalline structure near surface       │
   │  Mitigation: Polyester or nylon braided cover provides shading │
-  │              UV-stabilized topcoat treatments available         │
+  │              UV-stabilized topcoat treatments available          │
   │  Service life outdoors (bare): 2–5 years typical              │
   │  With polyester cover: 10+ years                               │
-  │                                                                   │
+  │                                                                  │
   │  TEMPERATURE LIMITATIONS:                                      │
   │  Softening point: ~130–150°C                                   │
   │  Service temperature: ≤ 70°C continuous (< 90°C)              │
   │  At 70°C+: Creep increases significantly                       │
   │  At 150°C: Strength largely lost; fiber deforms               │
   │  DO NOT USE near: engines, exhaust, welding, fire              │
-  │                                                                   │
-  │  CREEP:                                                         │
+  │                                                                  │
+  │  CREEP:                                                          │
   │  At ambient: very low creep at reasonable loads (<20% MBS)    │
   │  At elevated temperature or high load: creep increases         │
   │  Offshore mooring: UHMWPE ropes stretch gradually under        │
@@ -104,17 +104,17 @@ UHMWPE FIBER SCIENCE
   ┌──────────────────────────────────────────────────────────────────┐
   │  STANDARD SWAGE: Fails — UHMWPE is too slippery for standard   │
   │    ferrule to grip without gripping compound                   │
-  │                                                                   │
+  │                                                                  │
   │  BURIED SPLICE (Brummel or lock-stitch):                       │
   │  The standard for UHMWPE terminations.                         │
   │  One strand is passed through the center of the other and      │
   │  locked — under load, the friction lock INCREASES with load.   │
   │  Efficiency: 90–95% of rope MBS                               │
-  │                                                                   │
+  │                                                                  │
   │  DYNEEMA PROFESSIONAL SPLICE:                                  │
   │  Proprietary method with up to 16 bury passes                  │
   │  Achieves ~100% of rope MBS                                    │
-  │  Required for: offshore mooring, structural applications        │
+  │  Required for: offshore mooring, structural applications         │
   └──────────────────────────────────────────────────────────────────┘
 ```
 
@@ -128,15 +128,15 @@ ARAMID CHEMISTRY
 
   PARA-ARAMID (Kevlar, Twaron, Technora):
   ┌──────────────────────────────────────────────────────────────────┐
-  │  Polymer: Poly(p-phenylene terephthalamide) — PPTA              │
-  │  Structure: Rigid aromatic rings connected by amide bonds       │
-  │    (-CO-NH-) in the chain backbone                              │
-  │                                                                   │
-  │  WHY HIGH STRENGTH: Aromatic rings create rigid, rod-like       │
-  │    polymer chains that align in liquid crystal solution before  │
-  │    fiber formation → spinning from liquid crystal solution      │
+  │  Polymer: Poly(p-phenylene terephthalamide) — PPTA               │
+  │  Structure: Rigid aromatic rings connected by amide bonds        │
+  │    (-CO-NH-) in the chain backbone                               │
+  │                                                                  │
+  │  WHY HIGH STRENGTH: Aromatic rings create rigid, rod-like        │
+  │    polymer chains that align in liquid crystal solution before   │
+  │    fiber formation → spinning from liquid crystal solution       │
   │    → very high molecular orientation in spun fiber             │
-  │                                                                   │
+  │                                                                  │
   │  THERMAL STABILITY: Aromatic amide bonds stable to 450°C+      │
   │    (vs. UHMWPE: C-C bonds, weaken at 130°C)                    │
   └──────────────────────────────────────────────────────────────────┘
@@ -147,26 +147,26 @@ ARAMID CHEMISTRY
   │               MBS ~2,900 MPa; elongation 3.6%                  │
   │  Kevlar 49:   Higher modulus (stiffness), lower elongation     │
   │               MBS ~3,600 MPa; elongation 2.4%                  │
-  │               Aerospace composite reinforcement (boats, planes) │
+  │               Aerospace composite reinforcement (boats, planes)  │
   │  Technora:    Copolymer; better hydrolysis resistance, chemical│
   │               resistance vs. Kevlar; slightly lower strength   │
-  │               Preferred for rope in wet marine conditions       │
+  │               Preferred for rope in wet marine conditions        │
   └──────────────────────────────────────────────────────────────────┘
 
   KEY LIMITATIONS:
   ┌──────────────────────────────────────────────────────────────────┐
-  │  UV DEGRADATION (severe):                                       │
-  │  Outdoor exposure without UV protection: strength loss in weeks │
+  │  UV DEGRADATION (severe):                                        │
+  │  Outdoor exposure without UV protection: strength loss in weeks  │
   │  Mechanism: UV breaks amide bonds (photolytic hydrolysis)      │
   │  Mitigation: Dark-colored polyester sheath (mandatory outdoors)│
-  │                                                                   │
-  │  BENDING FATIGUE (severe):                                      │
+  │                                                                  │
+  │  BENDING FATIGUE (severe):                                       │
   │  Kevlar 29 bending fatigue life: 100–200× fewer cycles than    │
   │    polyester at the same bend-over-diameter ratio              │
   │  Minimum sheave/pulley diameter: 40× rope diameter             │
   │  Do not use for: lines that run over blocks repeatedly         │
-  │                   repeated coiling/uncoiling applications       │
-  │                                                                   │
+  │                   repeated coiling/uncoiling applications        │
+  │                                                                  │
   │  GOOD FOR: Applications that don't bend repeatedly:            │
   │   Cut-resistant rope covers, structural stays, high-temp lines │
   └──────────────────────────────────────────────────────────────────┘
@@ -186,34 +186,34 @@ VECTRAN LCP PROPERTIES
   MANUFACTURING:
   ┌──────────────────────────────────────────────────────────────────┐
   │  Melt-spun from liquid crystal polymer (unlike gel-spun UHMWPE │
-  │  or solution-spun Kevlar)                                       │
-  │  Fiber is rigid-rod polymer → high modulus, high strength       │
-  │  Post-thermal treatment increases strength further              │
+  │  or solution-spun Kevlar)                                        │
+  │  Fiber is rigid-rod polymer → high modulus, high strength        │
+  │  Post-thermal treatment increases strength further               │
   └──────────────────────────────────────────────────────────────────┘
 
   PERFORMANCE PROFILE:
   ┌──────────────────────────────────────────────────────────────────┐
   │  Tensile strength: 2,850–3,340 MPa (fiber)                     │
-  │  Elongation: 3.3% at break                                      │
-  │  Density: 1.41 g/cc (sinks)                                     │
-  │  Creep: VERY LOW — the defining advantage of Vectran            │
+  │  Elongation: 3.3% at break                                       │
+  │  Density: 1.41 g/cc (sinks)                                      │
+  │  Creep: VERY LOW — the defining advantage of Vectran             │
   │    At 50% MBS, 100 hours: <0.1% creep extension                │
   │    (Polyester: ~0.5%; Nylon: ~1.0% same conditions)            │
-  │  UV resistance: Moderate (better than aramid, less than poly)   │
-  │  Bending fatigue: Good (better than aramid, less than poly)     │
-  │  Abrasion resistance: Good                                      │
+  │  UV resistance: Moderate (better than aramid, less than poly)    │
+  │  Bending fatigue: Good (better than aramid, less than poly)      │
+  │  Abrasion resistance: Good                                       │
   │  Chemical resistance: Good (hydrolysis-stable, unlike aramid)  │
   └──────────────────────────────────────────────────────────────────┘
 
   APPLICATIONS WHERE VECTRAN IS OPTIMAL:
   ┌──────────────────────────────────────────────────────────────────┐
   │  ① Yacht standing rigging: Low creep → rig stays tuned         │
-  │    longer without adjustment vs. polyester                      │
+  │    longer without adjustment vs. polyester                       │
   │  ② Kite lines / control lines: Zero stretch + low creep        │
-  │  ③ Marine mooring pendants: Sustained load without creep        │
+  │  ③ Marine mooring pendants: Sustained load without creep         │
   │  ④ Cargo nets, survival suits: Long-duration tension loads     │
   │  ⑤ Aerospace tethers: Space applications (low outgassing, low  │
-  │    creep in thermal cycles)                                     │
+  │    creep in thermal cycles)                                      │
   └──────────────────────────────────────────────────────────────────┘
 ```
 
@@ -239,16 +239,16 @@ PBO (ZYLON) PROPERTIES
 
   CRITICAL WARNING — UV/MOISTURE DEGRADATION:
   ┌──────────────────────────────────────────────────────────────────┐
-  │  PBO's most dangerous limitation:                               │
+  │  PBO's most dangerous limitation:                                │
   │  UV exposure: 6 months outdoor exposure → 40–75% strength loss │
-  │  Moisture + UV: Hydrolytic degradation accelerated              │
+  │  Moisture + UV: Hydrolytic degradation accelerated               │
   │  FATAL INCIDENT (2003): Parachute harness made from PBO        │
-  │    webbing degraded from UV → failed under normal load          │
-  │    → Death of user                                              │
+  │    webbing degraded from UV → failed under normal load           │
+  │    → Death of user                                               │
   │  RESULT: PBO banned from safety applications where UV or       │
-  │    moisture exposure possible unless fully sheathed in          │
-  │    UV-blocking material                                         │
-  │                                                                   │
+  │    moisture exposure possible unless fully sheathed in           │
+  │    UV-blocking material                                          │
+  │                                                                  │
   │  SAFE APPLICATIONS for PBO:                                    │
   │  ① Completely sheathed rope (sheath blocks all UV)             │
   │  ② Interior structural applications (no UV)                    │

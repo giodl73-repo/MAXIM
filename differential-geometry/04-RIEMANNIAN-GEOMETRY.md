@@ -27,9 +27,9 @@ A Riemannian metric turns a smooth manifold into a metric space with notions of 
 |       |                                                          |
 |       v                                                          |
 |  +--------------------+  +-------------------------+           |
-|  | EXPONENTIAL MAP    |  | RIEMANNIAN DISTANCE      |           |
+|  | EXPONENTIAL MAP    |  | RIEMANNIAN DISTANCE     |           |
 |  | exp_p: T_p M -> M  |  | d(p,q) = inf_curves L   |           |
-|  | geodesics from p   |  | (metric space structure) |           |
+|  | geodesics from p   |  | (metric space structure) |          |
 |  +--------------------+  +-------------------------+           |
 |                                                                  |
 +------------------------------------------------------------------+

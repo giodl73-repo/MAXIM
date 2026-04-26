@@ -192,12 +192,12 @@ ZINC WHITE: ZnO (zinc oxide)
 
   PROPERTIES vs LEAD WHITE:
   +---------------------+  +---------------------+
-  | Zinc white (ZnO)    |  | Lead white           |
-  | RI: 2.0             |  | RI: 2.0              |
+  | Zinc white (ZnO)    |  | Lead white          |
+  | RI: 2.0             |  | RI: 2.0             |
   | Slightly cool/blue  |  | Slightly warm         |
   | Slower drying oil   |  | Fast drying           |
   | Brittle film        |  | Flexible film         |
-  | Permanent + stable  |  | Darkens with H₂S     |
+  | Permanent + stable  |  | Darkens with H₂S    |
   | Non-toxic           |  | Toxic                 |
   +---------------------+  +---------------------+
 

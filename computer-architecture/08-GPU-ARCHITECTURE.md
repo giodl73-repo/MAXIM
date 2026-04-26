@@ -6,24 +6,24 @@ A CPU is optimized for LATENCY — minimize the time to complete a single instru
 
 ```
 +-----------------------------------------------------------------------+
-|                    CPU vs GPU ARCHITECTURE                             |
+|                    CPU vs GPU ARCHITECTURE                            |
 |                                                                       |
-|  CPU (Intel i9 / Apple M4)         GPU (NVIDIA H100 / AMD MI300X)    |
+|  CPU (Intel i9 / Apple M4)         GPU (NVIDIA H100 / AMD MI300X)     |
 |  -------------------------         --------------------------------   |
 |  8–32 cores (P+E)                  ~10,000 CUDA cores / shader procs  |
-|  Large L1/L2/L3 caches            Small per-SM cache                 |
-|  Deep OOO pipeline (600 ROB)       In-order execution                |
+|  Large L1/L2/L3 caches            Small per-SM cache                  |
+|  Deep OOO pipeline (600 ROB)       In-order execution                 |
 |  Branch prediction                 Simple warp scheduler              |
-|  Low latency (4 cycles for L1)     Hide latency via switching warps  |
+|  Low latency (4 cycles for L1)     Hide latency via switching warps   |
 |  Few, complex threads              Thousands of simple threads        |
 |  Strong memory model (TSO)         Weak memory model                  |
 |                                                                       |
 |  BEST FOR:                         BEST FOR:                          |
 |  Irregular computation             Regular, data-parallel computation |
 |  Pointer chasing                   Arrays, matrices, tensors          |
-|  Branchy code                      SIMD-friendly loops               |
+|  Branchy code                      SIMD-friendly loops                |
 |  OS tasks, databases               ML training, rendering, physics    |
-|  Single-threaded apps              Batch processing                  |
+|  Single-threaded apps              Batch processing                   |
 +-----------------------------------------------------------------------+
 ```
 
@@ -35,9 +35,9 @@ A CPU is optimized for LATENCY — minimize the time to complete a single instru
   FULL GPU (e.g., H100 SXM5):
   +──────────────────────────────────────────────────────────+
   |  GPU Die                                                 |
-  |  144 SM (Streaming Multiprocessors) on H100             |
-  |  HBM3 memory (80 GB at 3.35 TB/s)                       |
-  |  L2 cache: 50 MB (shared)                               |
+  |  144 SM (Streaming Multiprocessors) on H100              |
+  |  HBM3 memory (80 GB at 3.35 TB/s)                        |
+  |  L2 cache: 50 MB (shared)                                |
   +──────────────────────────────────────────────────────────+
 
   STREAMING MULTIPROCESSOR (SM):
@@ -46,7 +46,7 @@ A CPU is optimized for LATENCY — minimize the time to complete a single instru
   |  128 CUDA cores (FP32)                                   |
   |  4 warp schedulers                                       |
   |  4 dispatch units                                        |
-  |  Register file: 65,536 × 32-bit registers               |
+  |  Register file: 65,536 × 32-bit registers                |
   |  L1 cache / Shared Memory: 256 KB (configurable split)   |
   |  Tensor Core units                                       |
   +──────────────────────────────────────────────────────────+
@@ -148,10 +148,10 @@ Single Instruction, Multiple Threads — GPU's version of SIMD.
   BLOCK SHARED:
   +───────────────────────────────────────+
   | SHARED MEMORY (~128KB per SM max)     |
-  | = user-controlled L1-like memory     |
+  | = user-controlled L1-like memory      |
   | Accessible to ALL threads in a block  |
   | L1 speed: ~5 cycles latency           |
-  | 128-bit wide: 4 × float32 in 1 cycle |
+  | 128-bit wide: 4 × float32 in 1 cycle  |
   +───────────────────────────────────────+
   Explicit management: __shared__ in CUDA.
   Bank conflicts: shared memory is organized in 32 4-byte banks.
@@ -166,7 +166,7 @@ Single Instruction, Multiple Threads — GPU's version of SIMD.
   +───────────────────────────────────────+
   | HBM3 (H100): 80 GB, 3.35 TB/s       |
   | GDDR7 (desktop): 16–24 GB, ~900 GB/s|
-  | Latency: ~600–800 cycles             |
+  | Latency: ~600–800 cycles              |
   +───────────────────────────────────────+
   Key optimization: MEMORY COALESCING.
   Threads in a warp should access CONTIGUOUS addresses.

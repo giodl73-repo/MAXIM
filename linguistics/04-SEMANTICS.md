@@ -6,25 +6,25 @@ Semantics is the study of linguistic meaning — what words and sentences mean, 
 
 ```
 +-------------------------------------------------------------------+
-|                    SEMANTICS LANDSCAPE                             |
+|                    SEMANTICS LANDSCAPE                            |
 |                                                                   |
-|  TRUTH-CONDITIONAL          COMPOSITIONAL                        |
-|  SEMANTICS                  SEMANTICS                            |
-|  (Frege, Tarski,            (how word meanings                   |
+|  TRUTH-CONDITIONAL          COMPOSITIONAL                         |
+|  SEMANTICS                  SEMANTICS                             |
+|  (Frege, Tarski,            (how word meanings                    |
 |   Montague)                  combine — Frege's               |
 |  Meaning = intension         principle: meaning of              |
-|  + extension                 whole from parts)                   |
+|  + extension                 whole from parts)                    |
 |                                                                   |
-|  LAMBDA CALCULUS            LEXICAL SEMANTICS                    |
-|  for semantic               (word meaning:                       |
-|  composition — TCS bridge   prototype theory,                    |
-|  (types, function app,      thematic roles,                      |
-|   quantifier raising)       frames, fields)                      |
+|  LAMBDA CALCULUS            LEXICAL SEMANTICS                     |
+|  for semantic               (word meaning:                        |
+|  composition — TCS bridge   prototype theory,                     |
+|  (types, function app,      thematic roles,                       |
+|   quantifier raising)       frames, fields)                       |
 |                                                                   |
-|  SCOPE AMBIGUITY            SEMANTIC RELATIONS                   |
-|  (every, some, not —        synonymy, antonymy,                  |
-|   quantifier scope)         hyponymy, meronymy,                  |
-|                             entailment, presupposition           |
+|  SCOPE AMBIGUITY            SEMANTIC RELATIONS                    |
+|  (every, some, not —        synonymy, antonymy,                   |
+|   quantifier scope)         hyponymy, meronymy,                   |
+|                             entailment, presupposition            |
 +-------------------------------------------------------------------+
 ```
 

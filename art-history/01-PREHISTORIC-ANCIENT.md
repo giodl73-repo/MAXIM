@@ -197,24 +197,24 @@ FRONTALITY / TWISTED PERSPECTIVE
 
   ┌────────────────────────────────────────────────────────────────┐
   │                                                                │
-  │   EYE: front view     --> full eye visible                    │
-  │   SHOULDERS: front    --> full chest width, both arms seen    │
-  │   TORSO: slight 3/4   --> reads as chest, shows waist         │
-  │   HIPS: side view     --> clear profile                       │
-  │   LEGS: side view     --> walking pose, two feet visible      │
+  │   EYE: front view     --> full eye visible                     │
+  │   SHOULDERS: front    --> full chest width, both arms seen     │
+  │   TORSO: slight 3/4   --> reads as chest, shows waist          │
+  │   HIPS: side view     --> clear profile                        │
+  │   LEGS: side view     --> walking pose, two feet visible       │
   │                                                                │
-  │   Result: LEGIBILITY MAXIMIZED over optical realism           │
-  │   The figure is an information diagram, not a snapshot        │
+  │   Result: LEGIBILITY MAXIMIZED over optical realism            │
+  │   The figure is an information diagram, not a snapshot         │
   │                                                                │
   └────────────────────────────────────────────────────────────────┘
 
   HIERARCHICAL SCALE: Status = size
   ┌────────────────────────────────────────────────────────────────┐
   │                                                                │
-  │   [PHARAOH -- large]                                          │
-  │       flanked by [consort -- medium] and [servants -- small]  │
+  │   [PHARAOH -- large]                                           │
+  │       flanked by [consort -- medium] and [servants -- small]   │
   │                                                                │
-  │   NOT spatial recession -- social hierarchy made visible      │
+  │   NOT spatial recession -- social hierarchy made visible       │
   │                                                                │
   └────────────────────────────────────────────────────────────────┘
 ```
@@ -372,7 +372,7 @@ GREEK SCULPTURAL DEVELOPMENT
   │   - Transparent cloth over flesh rendered in stone  │
   │   - Veins, tendons -- anatomical demonstration      │
   │                                                     │
-  │ EVERYDAY SUBJECTS: old fisherman, drunken woman,   │
+  │ EVERYDAY SUBJECTS: old fisherman, drunken woman,    │
   │   sleeping satyr -- genre subjects alongside heroes │
   └─────────────────────────────────────────────────────┘
 ```
@@ -403,15 +403,15 @@ GREEK IDEAL vs ROMAN VERISM
 
   Greek Classical ideal:          Roman Republican verism:
   ┌──────────────────────┐        ┌──────────────────────────────┐
-  │ Idealized youth      │        │ Specific aged individual      │
-  │ No distinguishing    │        │ All identifying features      │
-  │   marks              │        │   retained: baldness, scars,  │
-  │ Beauty = ideal form  │        │   wrinkles, jowls             │
+  │ Idealized youth      │        │ Specific aged individual     │
+  │ No distinguishing    │        │ All identifying features     │
+  │   marks              │        │   retained: baldness, scars, │
+  │ Beauty = ideal form  │        │   wrinkles, jowls            │
   │ Could not function   │        │ Virtue lies in experience, not│
   │   as a portrait      │        │   beauty; gravitas over kalos │
-  │                      │        │ Portraits for ancestor cult:  │
-  │                      │        │   wax masks of the dead worn  │
-  │                      │        │   at funerals by living men   │
+  │                      │        │ Portraits for ancestor cult: │
+  │                      │        │   wax masks of the dead worn │
+  │                      │        │   at funerals by living men  │
   └──────────────────────┘        └──────────────────────────────┘
 
   Imperial period synthesis:

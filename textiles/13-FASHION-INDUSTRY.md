@@ -8,28 +8,28 @@
 FASHION INDUSTRY STRUCTURE: THE TIER PYRAMID
 
   ┌────────────────────────────────────────────────────────────┐
-  │  HAUTE COUTURE                                            │
-  │  ~15 official Paris houses; ~2,000 clients worldwide      │
-  │  $10,000-$300,000+ per piece; primary loss leader         │
-  │  Revenue: fragrance, RTW, accessories, licensing          │
+  │  HAUTE COUTURE                                             │
+  │  ~15 official Paris houses; ~2,000 clients worldwide       │
+  │  $10,000-$300,000+ per piece; primary loss leader          │
+  │  Revenue: fragrance, RTW, accessories, licensing           │
   ├────────────────────────────────────────────────────────────┤
   │  LUXURY READY-TO-WEAR / DESIGNER                          │
   │  LVMH (LV, Dior, Givenchy, Celine), Kering (Gucci, YSL, │
   │  Balenciaga), Hermès, Chanel, Prada                       │
   │  $500-$10,000+; own boutiques + luxury department stores  │
   ├────────────────────────────────────────────────────────────┤
-  │  CONTEMPORARY / BRIDGE                                    │
-  │  Calvin Klein, Theory, Rag & Bone, Club Monaco            │
-  │  $100-$800; department stores + specialty                 │
+  │  CONTEMPORARY / BRIDGE                                     │
+  │  Calvin Klein, Theory, Rag & Bone, Club Monaco             │
+  │  $100-$800; department stores + specialty                  │
   ├────────────────────────────────────────────────────────────┤
   │  FAST FASHION                                             │
   │  Zara (Inditex), H&M, ASOS, Shein                        │
   │  52+ micro-seasons; $5-$80; disposable quality            │
   │  Shein: 2,000-10,000 new styles PER DAY                   │
   ├────────────────────────────────────────────────────────────┤
-  │  MASS MARKET / VALUE                                      │
-  │  Target, Walmart, Primark                                 │
-  │  Commodity clothing; extreme cost pressure                │
+  │  MASS MARKET / VALUE                                       │
+  │  Target, Walmart, Primark                                  │
+  │  Commodity clothing; extreme cost pressure                 │
   └────────────────────────────────────────────────────────────┘
 
   ECONOMIC LOGIC:
@@ -235,15 +235,15 @@ FASHION INDUSTRY STRUCTURE: THE TIER PYRAMID
 
   COST STRUCTURE (representative $10 garment):
   ┌──────────────────────────────────────────────────────────┐
-  │  Fabric:         $1.20 (~12%)                           │
-  │  Cut/sew labor:  $0.60 (~6%)                            │
-  │  Trims/labels:   $0.20                                  │
-  │  Factory margin: $0.30                                  │
-  │  Freight:        $0.40                                  │
-  │  TOTAL FOB:      $2.70                                  │
-  │  Brand buys at:  $2.70 (FOB Bangladesh)                 │
-  │  Retail price:   $10 (3.7× markup)                      │
-  │  Labor content:  6% of retail price                     │
+  │  Fabric:         $1.20 (~12%)                            │
+  │  Cut/sew labor:  $0.60 (~6%)                             │
+  │  Trims/labels:   $0.20                                   │
+  │  Factory margin: $0.30                                   │
+  │  Freight:        $0.40                                   │
+  │  TOTAL FOB:      $2.70                                   │
+  │  Brand buys at:  $2.70 (FOB Bangladesh)                  │
+  │  Retail price:   $10 (3.7× markup)                       │
+  │  Labor content:  6% of retail price                      │
   └──────────────────────────────────────────────────────────┘
 ```
 
@@ -326,21 +326,21 @@ FASHION INDUSTRY STRUCTURE: THE TIER PYRAMID
 
   CONGLOMERATE CONTROL:
   ┌───────────────────────────────────────────────────────────┐
-  │  LVMH (Bernard Arnault):                                 │
+  │  LVMH (Bernard Arnault):                                  │
   │    Louis Vuitton, Dior, Givenchy, Celine, Loewe,        │
   │    Kenzo, Loro Piana, Bulgari, TAG Heuer, Sephora,      │
   │    Le Bon Marché, LVMH Moët Hennessy                    │
-  │    Revenue: ~€79B (2022)                                 │
+  │    Revenue: ~€79B (2022)                                  │
   ├───────────────────────────────────────────────────────────┤
   │  KERING (François-Henri Pinault):                        │
   │    Gucci, Saint Laurent, Bottega Veneta, Balenciaga,    │
   │    Alexander McQueen, Brioni, Boucheron                  │
   │    Revenue: ~€17B (2022)                                 │
   ├───────────────────────────────────────────────────────────┤
-  │  RICHEMONT (Johann Rupert):                              │
+  │  RICHEMONT (Johann Rupert):                               │
   │    Cartier, IWC, Jaeger-LeCoultre, Van Cleef,           │
-  │    Chloé (sold), Dunhill                                 │
-  │    Revenue: ~€19B (2022)                                 │
+  │    Chloé (sold), Dunhill                                  │
+  │    Revenue: ~€19B (2022)                                  │
   └───────────────────────────────────────────────────────────┘
   Strategy: acquire heritage brands, preserve equity,
   cross-subsidize via cash cows (LV, Gucci) funding new acquisitions
@@ -353,24 +353,24 @@ FASHION INDUSTRY STRUCTURE: THE TIER PYRAMID
 ```
   SCALE OF IMPACT:
   ┌────────────────────────────────────────────────────────────┐
-  │  Carbon: fashion ~4-10% of global emissions (methodology  │
-  │  debated; includes fiber production through end-of-life)  │
+  │  Carbon: fashion ~4-10% of global emissions (methodology   │
+  │  debated; includes fiber production through end-of-life)   │
   │                                                            │
   │  Water: ~2,700 liters to produce one cotton T-shirt      │
-  │  (~3 years of one person's drinking water need)           │
-  │  Aral Sea (Central Asia): disappeared partly from Uzbek   │
-  │  cotton irrigation diversions from Amu/Syr Darya rivers   │
+  │  (~3 years of one person's drinking water need)            │
+  │  Aral Sea (Central Asia): disappeared partly from Uzbek    │
+  │  cotton irrigation diversions from Amu/Syr Darya rivers    │
   │                                                            │
-  │  Textile dyeing: ~20% of industrial water pollution;      │
-  │  6,000+ chemicals used in textile production              │
+  │  Textile dyeing: ~20% of industrial water pollution;       │
+  │  6,000+ chemicals used in textile production               │
   │                                                            │
   │  Waste: ~85% of textiles globally go to landfill or      │
-  │  incineration; US: ~34 lbs per person per year waste      │
+  │  incineration; US: ~34 lbs per person per year waste       │
   │                                                            │
   │  Microplastics: single polyester garment sheds ~700,000  │
-  │  microplastic fibers per wash                             │
-  │  Passes wastewater treatment; in ocean sediment;          │
-  │  in fish; in human blood and placentas (2022 studies)     │
+  │  microplastic fibers per wash                              │
+  │  Passes wastewater treatment; in ocean sediment;           │
+  │  in fish; in human blood and placentas (2022 studies)      │
   └────────────────────────────────────────────────────────────┘
 
   FIBER SUSTAINABILITY (contested hierarchy):

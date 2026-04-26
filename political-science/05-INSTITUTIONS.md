@@ -20,11 +20,11 @@ agreement, which is why Turkey and Hungary can block decisions unilaterally.
 
 ```
 +----------------------------------------------------------------------+
-|                INTERNATIONAL INSTITUTIONS LANDSCAPE                   |
+|                INTERNATIONAL INSTITUTIONS LANDSCAPE                  |
 |                                                                      |
-|  SECURITY DOMAIN       ECONOMIC DOMAIN        TRADE DOMAIN          |
-|  ────────────          ───────────────        ────────────          |
-|  ┌───────────┐         ┌──────────┐           ┌──────────┐          |
+|  SECURITY DOMAIN       ECONOMIC DOMAIN        TRADE DOMAIN           |
+|  ────────────          ───────────────        ────────────           |
+|  ┌───────────┐         ┌──────────┐           ┌──────────┐           |
 |  │    UN     │         │   IMF    │           │   WTO    │          |
 |  │  Security │         │ monetary │           │  goods + │          |
 |  │  Council  │         │stability │           │ services │          |
@@ -70,11 +70,11 @@ The most powerful body in international law — and the most dysfunctional:
 
   REFORM DEBATES:
   ┌────────────────────────────────────────────────────────────────┐
-  │ G4 (Brazil, Germany, India, Japan) → permanent member seats   │
-  │ African Union → 2 permanent + 5 non-permanent seats           │
-  │ "Uniting for Peace" (UNGA) res. 377 → bypasses SC when vetoed │
+  │ G4 (Brazil, Germany, India, Japan) → permanent member seats    │
+  │ African Union → 2 permanent + 5 non-permanent seats            │
+  │ "Uniting for Peace" (UNGA) res. 377 → bypasses SC when vetoed  │
   │                                                                │
-  │ Barrier: expanding P5 requires P5 consent                     │
+  │ Barrier: expanding P5 requires P5 consent                      │
   │ → Self-defeating structure; 75+ years of reform talk, no reform│
   └────────────────────────────────────────────────────────────────┘
 
@@ -143,7 +143,7 @@ The most powerful body in international law — and the most dysfunctional:
 
   KEY PRINCIPLES:
   ┌────────────────────────────────────────────────────────────────┐
-  │ MFN (Most Favored Nation): treat all WTO members equally        │
+  │ MFN (Most Favored Nation): treat all WTO members equally       │
   │ → If you give one member a trade concession, give all          │
   │ Exceptions: FTAs/customs unions (Article XXIV), developing     │
   │ nations (Enabling Clause)                                      │
@@ -186,15 +186,15 @@ The most powerful body in international law — and the most dysfunctional:
   KEY FUNCTIONS:
   ┌────────────────────────────────────────────────────────────────┐
   │ SURVEILLANCE (Article IV): Annual bilateral reviews of         │
-  │ members' macroeconomic policies; IMF publishes WEO (World     │
-  │ Economic Outlook), GFSR (Global Financial Stability Report)   │
+  │ members' macroeconomic policies; IMF publishes WEO (World      │
+  │ Economic Outlook), GFSR (Global Financial Stability Report)    │
   │                                                                │
-  │ LENDING: Stand-By Arrangements (short-term), Extended Fund    │
-  │ Facility (medium-term structural), Flexible Credit Line       │
+  │ LENDING: Stand-By Arrangements (short-term), Extended Fund     │
+  │ Facility (medium-term structural), Flexible Credit Line        │
   │ (precautionary, Mexico/Colombia/Poland)                        │
   │                                                                │
-  │ SDRs (Special Drawing Rights): IMF reserve asset;             │
-  │ basket of USD/EUR/GBP/JPY/CNY; allocated to members based     │
+  │ SDRs (Special Drawing Rights): IMF reserve asset;              │
+  │ basket of USD/EUR/GBP/JPY/CNY; allocated to members based      │
   │ on quotas; not a currency but a reserve claim                  │
   └────────────────────────────────────────────────────────────────┘
 
@@ -207,7 +207,7 @@ The most powerful body in international law — and the most dysfunctional:
   │                                                                │
   │ Post-2008 shift: IMF allowed capital controls (Ostry 2010);    │
   │ acknowledged growth effects of austerity; more nuanced         │
-  │ → Greece conditionality still harsh (2010-2015)               │
+  │ → Greece conditionality still harsh (2010-2015)                │
   └────────────────────────────────────────────────────────────────┘
 
   GOVERNANCE:
@@ -231,8 +231,8 @@ The most powerful body in international law — and the most dysfunctional:
   │ IDA                │ Low-income countries; concessional (near-zero│
   │                    │ interest) loans and grants                   │
   ├────────────────────┼──────────────────────────────────────────────┤
-  │ IFC                │ Private sector: loans + equity in developing  │
-  │                    │ markets; risk-sharing with private investors  │
+  │ IFC                │ Private sector: loans + equity in developing │
+  │                    │ markets; risk-sharing with private investors │
   ├────────────────────┼──────────────────────────────────────────────┤
   │ MIGA               │ Political risk insurance for investors in    │
   │                    │ developing countries                         │
@@ -308,27 +308,27 @@ The most powerful body in international law — and the most dysfunctional:
   │ Direct effect (Van Gend en Loos, 1963): EU law creates rights  │
   │ for individuals directly, enforceable in national courts       │
   │                                                                │
-  │ Supremacy (Costa v ENEL, 1964): EU law takes precedence over  │
+  │ Supremacy (Costa v ENEL, 1964): EU law takes precedence over   │
   │ conflicting national law                                       │
   │                                                                │
   │ Both principles were NOT in the original Treaty of Rome —      │
-  │ created by ECJ (European Court of Justice) itself             │
+  │ created by ECJ (European Court of Justice) itself              │
   └────────────────────────────────────────────────────────────────┘
 
   EU INSTITUTIONS:
   ┌────────────────────────────────────────────────────────────────┐
   │ European Commission: executive; proposes legislation; guardian │
-  │ of treaties; technocratic; 27 commissioners                   │
+  │ of treaties; technocratic; 27 commissioners                    │
   │                                                                │
-  │ Council of the EU: ministers of member states; co-legislates; │
-  │ QMV (Qualified Majority Voting) for most matters; unanimity   │
-  │ for sensitive areas (tax, foreign policy, constitutional)     │
+  │ Council of the EU: ministers of member states; co-legislates;  │
+  │ QMV (Qualified Majority Voting) for most matters; unanimity    │
+  │ for sensitive areas (tax, foreign policy, constitutional)      │
   │                                                                │
   │ European Parliament: directly elected since 1979;              │
-  │ co-decision with Council; increased powers over time          │
+  │ co-decision with Council; increased powers over time           │
   │                                                                │
   │ European Council: heads of state/government; strategic direction│
-  │ Consensus required; no legislation                            │
+  │ Consensus required; no legislation                             │
   │                                                                │
   │ ECJ: interprets EU law; supremacy enforcer                     │
   └────────────────────────────────────────────────────────────────┘

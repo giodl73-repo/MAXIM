@@ -35,7 +35,7 @@ EUKARYOTIC CELL:
 
   ┌─────────────────────────────────────────────────────────────┐
   │  NUCLEUS: DNA storage, transcription, pre-mRNA processing   │
-  │    Nucleolus: rRNA synthesis (RNA Pol I), ribosome assembly  │
+  │    Nucleolus: rRNA synthesis (RNA Pol I), ribosome assembly │
   │    Nuclear pores (~120 MDa): selective bidirectional transport│
   ├─────────────────────────────────────────────────────────────┤
   │  ENDOPLASMIC RETICULUM (ER):                                │
@@ -44,7 +44,7 @@ EUKARYOTIC CELL:
   ├─────────────────────────────────────────────────────────────┤
   │  GOLGI APPARATUS: protein modification, sorting, secretion  │
   │    cis (receives from ER) → medial → trans (sorts to destinations)│
-  │    Modifications: glycosylation, sulfation, phosphorylation  │
+  │    Modifications: glycosylation, sulfation, phosphorylation │
   │    Sorts to: lysosomes, plasma membrane, secretion          │
   ├─────────────────────────────────────────────────────────────┤
   │  MITOCHONDRIA: ATP production, apoptosis, Ca²⁺ homeostasis  │
@@ -53,7 +53,7 @@ EUKARYOTIC CELL:
   │    Matrix: TCA cycle, β-oxidation, mtDNA, 70S ribosomes     │
   ├─────────────────────────────────────────────────────────────┤
   │  LYSOSOMES: degradation depot                               │
-  │    pH ~4.5–5 (V-type H⁺-ATPase)                            │
+  │    pH ~4.5–5 (V-type H⁺-ATPase)                             │
   │    ~60 acid hydrolases (proteases, lipases, nucleases)      │
   │    Receives: endosomes, autophagosomes                      │
   ├─────────────────────────────────────────────────────────────┤

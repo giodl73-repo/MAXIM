@@ -4,14 +4,14 @@
 
 ```
 ┌─────────────────────────────────────────────────────────────────────────────┐
-│                     EPIDEMIOLOGY LANDSCAPE                                   │
+│                     EPIDEMIOLOGY LANDSCAPE                                  │
 │                                                                               │
-│   EXPOSURE ──────────────→ OUTCOME                                           │
-│   (risk factor, treatment)   (disease, death, health event)                  │
+│   EXPOSURE ──────────────→ OUTCOME                                          │
+│   (risk factor, treatment)   (disease, death, health event)                 │
 │                                                                               │
 │   The core question: Is the association causal?                               │
 │                                                                               │
-│   ┌───────────────────────────────────────────────────────────────────────┐  │
+│   ┌───────────────────────────────────────────────────────────────────────┐ │
 │   │              STUDY DESIGN HIERARCHY (internal validity)               │  │
 │   │                                                                       │  │
 │   │  STRONGEST   Randomized Controlled Trial (RCT)                        │  │
@@ -67,28 +67,28 @@ PREVALENCE
 
 ```
 ┌─────────────────────────────────────────────────────────────────────────────┐
-│                     RISK MEASURES                                            │
+│                     RISK MEASURES                                           │
 ├──────────────────────────┬─────────────────────────────────────────────────┤
 │  RELATIVE MEASURES       │  ABSOLUTE MEASURES                               │
 ├──────────────────────────┼─────────────────────────────────────────────────┤
-│                          │                                                  │
-│  Risk Ratio (RR)         │  Risk Difference (RD) = Attributable Risk        │
-│  = CI_exposed / CI_unexpo│  = CI_exposed − CI_unexposed                     │
-│                          │  Interpretation: extra risk per person exposed   │
-│  Interpretation:         │                                                  │
-│  RR=2: 2× more likely    │  Population Attributable Risk (PAR)              │
-│  RR=1: no association    │  = p_exp × (RR − 1) / [1 + p_exp × (RR − 1)]   │
-│  RR<1: protective        │  where p_exp = prevalence of exposure            │
-│                          │  Interpretation: fraction of disease in          │
-│  Rate Ratio              │  population attributable to exposure             │
-│  = IR_exposed / IR_unexp │                                                  │
-│                          │  Number Needed to Treat (NNT)                    │
-│  Odds Ratio (OR)         │  = 1 / RD                                        │
+│                          │                                                 │
+│  Risk Ratio (RR)         │  Risk Difference (RD) = Attributable Risk       │
+│  = CI_exposed / CI_unexpo│  = CI_exposed − CI_unexposed                    │
+│                          │  Interpretation: extra risk per person exposed  │
+│  Interpretation:         │                                                 │
+│  RR=2: 2× more likely    │  Population Attributable Risk (PAR)             │
+│  RR=1: no association    │  = p_exp × (RR − 1) / [1 + p_exp × (RR − 1)]    │
+│  RR<1: protective        │  where p_exp = prevalence of exposure           │
+│                          │  Interpretation: fraction of disease in         │
+│  Rate Ratio              │  population attributable to exposure            │
+│  = IR_exposed / IR_unexp │                                                 │
+│                          │  Number Needed to Treat (NNT)                   │
+│  Odds Ratio (OR)         │  = 1 / RD                                       │
 │  = (a/b) / (c/d)         │  Interpretation: treat N people to prevent 1    │
-│  = ad / bc (2×2 table)   │  outcome                                         │
-│  → approximates RR when  │                                                  │
-│    disease is rare        │  Number Needed to Harm (NNH) = 1 / RD_harm      │
-│                          │                                                  │
+│  = ad / bc (2×2 table)   │  outcome                                        │
+│  → approximates RR when  │                                                 │
+│    disease is rare       │  Number Needed to Harm (NNH) = 1 / RD_harm      │
+│                          │                                                 │
 └──────────────────────────┴─────────────────────────────────────────────────┘
 
 2×2 TABLE:

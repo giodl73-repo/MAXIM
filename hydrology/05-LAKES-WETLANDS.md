@@ -4,7 +4,7 @@
 
 ```
 +===========================================================================+
-|           LAKES AND WETLANDS — HYDROLOGICAL FLOW RELATIONSHIPS           |
+|           LAKES AND WETLANDS — HYDROLOGICAL FLOW RELATIONSHIPS            |
 +===========================================================================+
 |                                                                           |
 |  ATMOSPHERE                                                               |

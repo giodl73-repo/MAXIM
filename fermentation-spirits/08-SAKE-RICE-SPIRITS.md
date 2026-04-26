@@ -17,9 +17,9 @@
 |                                       by volume                  |
 |  Makgeolli (Korea)                                               |
 |  Unfiltered milky rice beer           Baijiu (China)             |
-|                                       World's largest spirits     |
+|                                       World's largest spirits    |
 |  Various rice wines (SEA)             category by volume; solid  |
-|  Lao Khao (Thailand)                  state fermentation        |
+|  Lao Khao (Thailand)                  state fermentation         |
 |  Brem (Bali)                                                     |
 +------------------------------------------------------------------+
 ```
@@ -48,12 +48,12 @@ THE SACCHARIFICATION PROBLEM:
 
   SAKE PARALLEL FERMENTATION:
     +-----------------------------------------------+
-    | MOROMI (main mash tank)                        |
+    | MOROMI (main mash tank)                       |
     |                                               |
-    | Koji-covered rice: Aspergillus oryzae          |
+    | Koji-covered rice: Aspergillus oryzae         |
     | enzymes convert starch -> GLUCOSE continuously |
     |                                               |
-    | Yeast: simultaneously converts                 |
+    | Yeast: simultaneously converts                |
     | glucose -> ETHANOL as glucose accumulates     |
     |                                               |
     | Both processes run in the SAME VESSEL         |

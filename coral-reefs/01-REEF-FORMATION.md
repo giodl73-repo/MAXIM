@@ -227,7 +227,7 @@ BY STRUCTURAL RELATIONSHIP TO LAND:
 
   FRINGING REEF          BARRIER REEF         ATOLL
   +-----------+          +--+ ~ +--+          +--+   +--+
-  | shore |reef|          |R |lag|R |          |R | L |R |
+  | shore |reef|          |R |lag|R |          |R | L |R|
   +-----------+          +--+ ~ +--+          +--+   +--+
   No lagoon               Lagoon present       Ring; seamount
 

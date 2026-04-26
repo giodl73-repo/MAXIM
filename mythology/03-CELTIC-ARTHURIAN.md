@@ -34,33 +34,33 @@ The Mythological Cycle tells the pre-history of Ireland through five successive 
 
 ```
 ┌──────────────────────────────────────────────────────────────────┐
-│         FIVE INVASIONS OF IRELAND                                 │
+│         FIVE INVASIONS OF IRELAND                                │
 │                                                                  │
 │  1. CESSAIR (granddaughter of Noah — obviously Christian overlay)│
-│     Came before the Flood; all but one drowned                  │
+│     Came before the Flood; all but one drowned                   │
 │                                                                  │
 │  2. PARTHOLONIANS                                                │
-│     Cleared plains, dug lakes, established crafts               │
-│     Wiped out by plague after 300 years                         │
+│     Cleared plains, dug lakes, established crafts                │
+│     Wiped out by plague after 300 years                          │
 │                                                                  │
 │  3. NEMEDIANS                                                    │
-│     Fought the Fomorians (primal chaos beings)                  │
-│     Defeated and dispersed — descendants become Fir Bolg and    │
-│     Tuatha Dé Danann                                            │
+│     Fought the Fomorians (primal chaos beings)                   │
+│     Defeated and dispersed — descendants become Fir Bolg and     │
+│     Tuatha Dé Danann                                             │
 │                                                                  │
 │  4. FIR BOLG                                                     │
-│     Bags of earth; divided Ireland into provinces               │
+│     Bags of earth; divided Ireland into provinces                │
 │     Defeated at First Battle of Mag Tuired by Tuatha Dé Danann │
 │                                                                  │
 │  5. TUATHA DÉ DANANN                                             │
-│     "The peoples/tribes of the goddess Danu"                    │
-│     Divine race; brought four sacred treasures                  │
-│     Fought two great battles:                                   │
+│     "The peoples/tribes of the goddess Danu"                     │
+│     Divine race; brought four sacred treasures                   │
+│     Fought two great battles:                                    │
 │     — First Mag Tuired: vs. Fir Bolg (won)                     │
 │     — Second Mag Tuired: vs. Fomorians (won)                   │
-│     Then defeated by SONS OF MIL (Milesians = historical Irish) │
+│     Then defeated by SONS OF MIL (Milesians = historical Irish)  │
 │     → Retreat underground: become the Síde (fairy mounds)      │
-│       Aos Sí / Sídhe                                            │
+│       Aos Sí / Sídhe                                             │
 └──────────────────────────────────────────────────────────────────┘
 ```
 
@@ -125,28 +125,28 @@ The Ulster Cycle is the Irish equivalent of the Iliad: warrior heroics, geasa (s
 
 ```
 ┌──────────────────────────────────────────────────────────────────┐
-│                    THE TÁIN BÓ CÚAILNGE                           │
+│                    THE TÁIN BÓ CÚAILNGE                          │
 │           "The Cattle Raid of Cooley" — Irish national epic      │
 │                                                                  │
 │  CONTEXT: Queen Medb of Connacht argues with husband Ailill      │
 │  over who has more wealth. He has the White-Horned Bull (Finnbennach)│
-│  She wants the Brown Bull of Cooley (Donn Cúailnge, in Ulster)  │
-│  → demands it → rebuffed → invades Ulster with vast army        │
+│  She wants the Brown Bull of Cooley (Donn Cúailnge, in Ulster)   │
+│  → demands it → rebuffed → invades Ulster with vast army         │
 │                                                                  │
-│  PROBLEM FOR ULSTER:                                            │
+│  PROBLEM FOR ULSTER:                                             │
 │  Curse of Macha (wronged goddess): all Ulster warriors laid low  │
-│  by labor pains ("cess") during the crisis — except CuChulainn  │
-│  (not subject to the curse — semi-divine)                       │
+│  by labor pains ("cess") during the crisis — except CuChulainn   │
+│  (not subject to the curse — semi-divine)                        │
 │                                                                  │
-│  CUCHULAINN alone defends Ulster:                               │
-│  Fights single combat at fords (Irish convention) daily         │
-│  Kills dozens of champions including his foster-brother Ferdiad │
-│  (the Ferdiad combat: 4 days, with mutual care at night)        │
+│  CUCHULAINN alone defends Ulster:                                │
+│  Fights single combat at fords (Irish convention) daily          │
+│  Kills dozens of champions including his foster-brother Ferdiad  │
+│  (the Ferdiad combat: 4 days, with mutual care at night)         │
 │                                                                  │
 │  RESOLUTION:                                                     │
 │  Ulster warriors recover; Connacht retreats                      │
-│  The two bulls fight; the Donn Cúailnge kills Finnbennach       │
-│  then itself dies of exhaustion                                 │
+│  The two bulls fight; the Donn Cúailnge kills Finnbennach        │
+│  then itself dies of exhaustion                                  │
 │  → The quest was ultimately futile for everyone                  │
 └──────────────────────────────────────────────────────────────────┘
 ```
@@ -323,40 +323,40 @@ WHAT WE DON'T KNOW:
 
 ```
 ┌──────────────────────────────────────────────────────────────────┐
-│                   ARTHURIAN LAYERING                              │
+│                   ARTHURIAN LAYERING                             │
 │                                                                  │
-│  LAYER 1: POSSIBLE HISTORICAL KERNEL (5th–6th c.)               │
+│  LAYER 1: POSSIBLE HISTORICAL KERNEL (5th–6th c.)                │
 │  A Romano-British war leader ("dux bellorum") fought Saxon       │
 │  invaders after Roman withdrawal — perhaps won 12 battles        │
-│  (Nennius, 9th c. Historia Brittonum — 400 years after events)  │
+│  (Nennius, 9th c. Historia Brittonum — 400 years after events)   │
 │  No contemporary evidence for "King Arthur" by that name         │
 │                                                                  │
-│  LAYER 2: CELTIC MYTHOLOGY (6th–9th c.)                         │
+│  LAYER 2: CELTIC MYTHOLOGY (6th–9th c.)                          │
 │  Welsh poems (Y Gododdin ~600 CE mentions Arthur in passing)     │
 │  Welsh triads, Culhwch and Olwen (earliest Arthur in Welsh prose)│
 │  — Arthur = superhuman warrior hunting monstrous boar            │
-│  Camelot doesn't exist yet; no Grail, no chivalry               │
+│  Camelot doesn't exist yet; no Grail, no chivalry                │
 │                                                                  │
-│  LAYER 3: GEOFFREY OF MONMOUTH (1138 CE)                        │
-│  Historia Regum Britanniae ("History of the Kings of Britain")  │
-│  — Creates the full Arthurian narrative arc as pseudo-history   │
-│  — Invents/elaborates: Merlin, the sword in the stone,          │
+│  LAYER 3: GEOFFREY OF MONMOUTH (1138 CE)                         │
+│  Historia Regum Britanniae ("History of the Kings of Britain")   │
+│  — Creates the full Arthurian narrative arc as pseudo-history    │
+│  — Invents/elaborates: Merlin, the sword in the stone,           │
 │    Guinevere, the Round Table (hinted), Arthur's death at Camlann│
 │  — Enormously influential; medieval Europe reads this as history │
 │                                                                  │
-│  LAYER 4: FRENCH ROMANCE (12th–13th c.)                         │
-│  Chrétien de Troyes: adds Lancelot, Grail quest, courtly love   │
-│  — Lancelot-Guinevere adulterous love (new element)             │
-│  — The Holy Grail as a specific vessel (Perceval, c. 1180)      │
-│  Vulgate Cycle (~1210–1230): massive prose cycle                │
+│  LAYER 4: FRENCH ROMANCE (12th–13th c.)                          │
+│  Chrétien de Troyes: adds Lancelot, Grail quest, courtly love    │
+│  — Lancelot-Guinevere adulterous love (new element)              │
+│  — The Holy Grail as a specific vessel (Perceval, c. 1180)       │
+│  Vulgate Cycle (~1210–1230): massive prose cycle                 │
 │                                                                  │
-│  LAYER 5: MALORY'S LE MORTE D'ARTHUR (1485)                     │
-│  English synthesis; what most people mean by "Arthurian legend" │
-│  — Lancelot's love for Guinevere destroys the Round Table       │
+│  LAYER 5: MALORY'S LE MORTE D'ARTHUR (1485)                      │
+│  English synthesis; what most people mean by "Arthurian legend"  │
+│  — Lancelot's love for Guinevere destroys the Round Table        │
 │  — Mordred (Arthur's illegitimate son) betrays him             │
 │  — Battle of Camlann, Arthur mortally wounded                  │
 │  — Arthur taken to Avalon ("isle of apples" = Celtic Otherworld)│
-│  — "The once and future king" — will return in Britain's need   │
+│  — "The once and future king" — will return in Britain's need    │
 └──────────────────────────────────────────────────────────────────┘
 ```
 

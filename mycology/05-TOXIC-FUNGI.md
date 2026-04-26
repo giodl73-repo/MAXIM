@@ -6,25 +6,25 @@
 +------------------------------------------------------------------+
 |                    MUSHROOM TOXICITY CATEGORIES                  |
 |                                                                  |
-|  By mechanism and onset time:                                   |
+|  By mechanism and onset time:                                    |
 |                                                                  |
-|  AMATOXINS (Amanita phalloides etc.)                            |
-|  Mechanism: RNA polymerase II inhibition                        |
+|  AMATOXINS (Amanita phalloides etc.)                             |
+|  Mechanism: RNA polymerase II inhibition                         |
 |  Onset: 6–24 hr (DELAYED — false recovery period)              |
 |  Lethality: very high if untreated (80%+); treatable if early  |
 |                                                                  |
-|  ORELLANINE (Cortinarius spp.)                                  |
-|  Mechanism: kidney tubule toxin                                 |
+|  ORELLANINE (Cortinarius spp.)                                   |
+|  Mechanism: kidney tubule toxin                                  |
 |  Onset: 2–3 weeks (!!) — diagnosis typically missed            |
-|  Lethality: renal failure; dialysis/transplant                  |
+|  Lethality: renal failure; dialysis/transplant                   |
 |                                                                  |
 |  MUSCIMOL/IBOTENIC ACID (Amanita muscaria, A. pantherina)      |
 |  Mechanism: GABA-A agonist / NMDA antagonist                   |
 |  Onset: 30 min – 2 hr                                          |
 |  Lethality: low; intoxication not death in most cases          |
 |                                                                  |
-|  GI IRRITANTS (many species)                                    |
-|  Mechanism: various; many unknown                               |
+|  GI IRRITANTS (many species)                                     |
+|  Mechanism: various; many unknown                                |
 |  Onset: 30 min – 4 hr                                          |
 |  Lethality: very low; self-limiting                            |
 +------------------------------------------------------------------+
@@ -58,14 +58,14 @@ MECHANISM: RNA POLYMERASE II INHIBITION
 +------------------------------------------------------------------+
 |  α-amanitin → enters cells → binds RNA polymerase II (RNAP II) |
 |                                                                  |
-|  RNAP II = the enzyme that transcribes all protein-coding genes |
-|  (mRNA synthesis)                                               |
+|  RNAP II = the enzyme that transcribes all protein-coding genes  |
+|  (mRNA synthesis)                                                |
 |                                                                  |
 |  α-amanitin binds in the RNAP II "clamp" region →              |
-|  Inhibits translocation of RNA-DNA hybrid during elongation     |
+|  Inhibits translocation of RNA-DNA hybrid during elongation      |
 |  → Transcription arrested → no new mRNA → no new protein       |
 |                                                                  |
-|  WHO DIES FIRST:                                                |
+|  WHO DIES FIRST:                                                 |
 |  Highest-turnover cells (most protein synthesis needed):       |
 |  → Hepatocytes (liver) — first organ damaged                   |
 |  → Intestinal epithelial cells — GI symptoms                  |

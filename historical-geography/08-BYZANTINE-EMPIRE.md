@@ -9,8 +9,8 @@ BYZANTINE EMPIRE: SPATIAL CONTRACTION ACROSS TIME
 JUSTINIAN'S PEAK (c. 565 CE):
   +──────────────────────────────────────────────────────+
   |  SPAIN    |   ITALY    |     BALKANS    |            |
-  |  (Betica) |  (Sicily + | (up to Danube) | ANATOLIA  |
-  |           |  Ravenna)  |                | (all)     |
+  |  (Betica) |  (Sicily + | (up to Danube) | ANATOLIA   |
+  |           |  Ravenna)  |                | (all)      |
   +───────────+────────────+───────────────+───────────+
   |   NORTH AFRICA (coast)  |  EGYPT  |  SYRIA/LEVANT  |
   +─────────────────────────+─────────+────────────────+
@@ -20,7 +20,7 @@ AFTER ARAB CONQUESTS (c. 700 CE):
   +──────────────────────────────+
   |     BALKANS (reduced)        |
   +──────────────────────────────+
-  |  W. ANATOLIA  | E. ANATOLIA |
+  |  W. ANATOLIA  | E. ANATOLIA  |
   +───────────────+─────────────+
   [Syria, Egypt, N. Africa: LOST to Umayyads 636–698]
 

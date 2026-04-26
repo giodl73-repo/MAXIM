@@ -106,7 +106,7 @@ GYMNOSPERM (Softwood) XYLEM:        ANGIOSPERM (Hardwood) XYLEM:
   +---------+                         +-----------+     +------+
   |         |   Long, tapered cell    |           |     |  //  |
   |    //   |   both conducts water   | open end  |     |  //  |
-  |    //   |   AND provides support  |  (perforation)|  |  //  |
+  |    //   |   AND provides support  |  (perforation)| |  //  |
   |    //   |                         |           |     |  //  |
   +---------+                         +-----------+     +------+
   ~1–8 mm long                        Short (0.1–1.2mm) ~1–2 mm long

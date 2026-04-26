@@ -6,20 +6,20 @@ Language acquisition addresses one of the deepest questions in cognitive science
 
 ```
 +------------------------------------------------------------------+
-|              LANGUAGE ACQUISITION LANDSCAPE                       |
+|              LANGUAGE ACQUISITION LANDSCAPE                      |
 |                                                                  |
-|  L1 ACQUISITION               CRITICAL PERIOD                   |
+|  L1 ACQUISITION               CRITICAL PERIOD                    |
 |  (first language,              (biological window for            |
 |   native language)             native-like acquisition)          |
 |                                                                  |
 |  THEORETICAL DEBATE:                                             |
-|  NATIVIST                    USAGE-BASED                        |
+|  NATIVIST                    USAGE-BASED                         |
 |  (Chomsky/Pinker:             (Tomasello/Goldberg:               |
 |   Poverty of stimulus →       Statistical learning +             |
 |   innate UG required)         intention-reading is               |
 |                               sufficient)                        |
 |                                                                  |
-|  L2 ACQUISITION               BILINGUAL ACQUISITION             |
+|  L2 ACQUISITION               BILINGUAL ACQUISITION              |
 |  (second language —            (simultaneous or                  |
 |   profoundly different)        sequential bilinguals)            |
 +------------------------------------------------------------------+
@@ -347,13 +347,13 @@ Second language acquisition (SLA) is profoundly different from L1.
 ```
 L1                              L2
 +----------------------------+  +----------------------------+
-| No prior linguistic system  |  | L1 fully in place          |
-| All learning is acquisition |  | L1 interferes              |
+| No prior linguistic system |  | L1 fully in place          |
+| All learning is acquisition |  | L1 interferes             |
 | Critical period open        |  | Critical period closing/    |
 | Near-universal success       |  |   closed                   |
 |                             |  | Near-universal incompletion|
-| Error = developmental       |  | Error = transfer from L1   |
-| Motivation: survival        |  | Motivation: varies widely  |
+| Error = developmental      |  | Error = transfer from L1   |
+| Motivation: survival       |  | Motivation: varies widely  |
 +----------------------------+  +----------------------------+
 ```
 

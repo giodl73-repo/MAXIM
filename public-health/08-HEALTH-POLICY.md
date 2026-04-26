@@ -4,12 +4,12 @@
 
 ```
 ┌─────────────────────────────────────────────────────────────────────────────┐
-│                    HEALTH SYSTEM ARCHETYPES                                  │
+│                    HEALTH SYSTEM ARCHETYPES                                 │
 │                                                                               │
-│  BISMARCK MODEL         BEVERIDGE MODEL      OUT-OF-POCKET        MIXED      │
-│  (Social insurance)     (National service)   (Market)             (Hybrid)   │
+│  BISMARCK MODEL         BEVERIDGE MODEL      OUT-OF-POCKET        MIXED     │
+│  (Social insurance)     (National service)   (Market)             (Hybrid)  │
 │                                                                               │
-│  ┌─────────────────┐    ┌─────────────────┐  ┌─────────────────┐  ┌───────┐  │
+│  ┌─────────────────┐    ┌─────────────────┐  ┌─────────────────┐  ┌───────┐ │
 │  │Employer+employee│    │  Government     │  │  Individual     │  │Multi  │  │
 │  │payroll taxes    │    │  tax-funded     │  │  pays at point  │  │payer  │  │
 │  │→ insurance funds│    │  → government   │  │  of service     │  │system │  │
@@ -167,13 +167,13 @@ REASONS FOR HIGH US SPENDING:
 ```
 UHC CUBE (WHO three dimensions):
   ┌─────────────────────────────────────────────────────────┐
-  │           ↑ WHO IS COVERED?                              │
-  │           │  (population coverage)                       │
-  │           │                                              │
+  │           ↑ WHO IS COVERED?                             │
+  │           │  (population coverage)                      │
+  │           │                                             │
   │   ────────┼──────────────→ WHICH SERVICES?              │
-  │           │                (service coverage)            │
-  │           │                                              │
-  │           └──── WHAT COSTS? (financial protection)       │
+  │           │                (service coverage)           │
+  │           │                                             │
+  │           └──── WHAT COSTS? (financial protection)      │
   │                 (out-of-pocket cap)                       │
   └─────────────────────────────────────────────────────────┘
 

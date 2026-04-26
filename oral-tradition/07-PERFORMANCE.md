@@ -18,7 +18,7 @@ ORAL PERFORMER ROLES WORLDWIDE
 |  INDIA                IRELAND            CENTRAL ASIA            |
 |  Brahmin reciter      File/Bard          Manaschi                |
 |  Vedic precision      Bardic schools     Kyrgyz Manas epic       |
-|  11-way checking      Satire power       Initiated specialist     |
+|  11-way checking      Satire power       Initiated specialist    |
 |                                                                  |
 |  ANCIENT GREECE       MESOPOTAMIA        POLYNESIA               |
 |  Aoidos (singer)      Court reciter      Tohunga (specialist)    |

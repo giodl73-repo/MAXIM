@@ -17,7 +17,7 @@
 |   200°C+       LCP              Near-zero CTE, low µ  Electronics|
 |   150°C        POM (Delrin)     Best gear polymer     Precision  |
 |   ────────────────────────────────────────────────────────────── |
-|   ALL: >$10/kg, often $50–200+/kg, used in grams not kilograms  |
+|   ALL: >$10/kg, often $50–200+/kg, used in grams not kilograms   |
 +------------------------------------------------------------------+
 ```
 
@@ -362,11 +362,11 @@ precision mechanical parts (watches, firearms components, zippers, pens).
    │ Parameter        Typical range      Notes                  │
    │ ──────────────   ─────────────      ─────                  │
    │ Tsw (trigger T)  30–120°C          Must match application  │
-   │ Shape recovery   85–99%             Best in PU systems      │
-   │ Recovery stress  0.5–5 MPa          Drives actuation work   │
-   │ Cycle life       100–1,000 cycles   Fatigue in switching    │
-   │ Strain capacity  25–400%            High in PU; lower in    │
-   │                                     rigid glassy systems    │
+   │ Shape recovery   85–99%             Best in PU systems     │
+   │ Recovery stress  0.5–5 MPa          Drives actuation work  │
+   │ Cycle life       100–1,000 cycles   Fatigue in switching   │
+   │ Strain capacity  25–400%            High in PU; lower in   │
+   │                                     rigid glassy systems   │
    └────────────────────────────────────────────────────────────┘
 
    COMMERCIAL MATERIAL SYSTEMS:

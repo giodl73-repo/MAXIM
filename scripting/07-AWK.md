@@ -61,7 +61,7 @@ AWK processing pipeline:
   │  BEGIN { }    <- runs once before first record      │
   │                                                     │
   │  for each record (line by default):                 │
-  │    split record into fields: $1 $2 ... $NF         │
+  │    split record into fields: $1 $2 ... $NF          │
   │    for each rule:                                   │
   │      if pattern matches (or no pattern):            │
   │        execute action { }                           │

@@ -16,23 +16,23 @@ THE IMMUNE SYSTEM AS A DISTRIBUTED COMPUTING SYSTEM
   TWO-ARM ARCHITECTURE:
 
   ┌─────────────────────────────────────────────────────────────────┐
-  │  INNATE IMMUNITY (Born with it — first 0–4 hours)              │
-  │  ─────────────────────────────────────────────────             │
-  │  Pattern recognition: PRRs detect PAMPs and DAMPs              │
-  │  Fixed rules: TLR4 binds LPS → always triggers inflammation    │
-  │  No learning: same response every time                         │
-  │  Cells: Neutrophils, macrophages, NK cells, DCs, mast cells    │
-  │  Soluble: Complement, cytokines, acute-phase proteins          │
-  │  Response time: Minutes to hours                               │
-  │                                                                  │
-  │  ADAPTIVE IMMUNITY (Learned — 5–14 days for primary response)  │
-  │  ─────────────────────────────────────────────────────────     │
+  │  INNATE IMMUNITY (Born with it — first 0–4 hours)               │
+  │  ─────────────────────────────────────────────────              │
+  │  Pattern recognition: PRRs detect PAMPs and DAMPs               │
+  │  Fixed rules: TLR4 binds LPS → always triggers inflammation     │
+  │  No learning: same response every time                          │
+  │  Cells: Neutrophils, macrophages, NK cells, DCs, mast cells     │
+  │  Soluble: Complement, cytokines, acute-phase proteins           │
+  │  Response time: Minutes to hours                                │
+  │                                                                 │
+  │  ADAPTIVE IMMUNITY (Learned — 5–14 days for primary response)   │
+  │  ─────────────────────────────────────────────────────────      │
   │  Specific recognition: BCR/TCR bind exact molecular shapes      │
-  │  Learning: Clonal selection = select the "model" that fits     │
-  │  Memory: Long-lived plasma cells + memory T/B cells            │
-  │  Cells: B lymphocytes, T lymphocytes                           │
-  │  Soluble: Antibodies (immunoglobulins)                         │
-  │  Response time: Days to weeks (primary); hours (secondary)     │
+  │  Learning: Clonal selection = select the "model" that fits      │
+  │  Memory: Long-lived plasma cells + memory T/B cells             │
+  │  Cells: B lymphocytes, T lymphocytes                            │
+  │  Soluble: Antibodies (immunoglobulins)                          │
+  │  Response time: Days to weeks (primary); hours (secondary)      │
   └─────────────────────────────────────────────────────────────────┘
 
   THEIR RELATIONSHIP:
@@ -97,9 +97,9 @@ THE IMMUNE SYSTEM AS A DISTRIBUTED COMPUTING SYSTEM
   ┌───────────────────────────────────────────────────────────────┐
   │ Too little immunity → immunodeficiency (infections)           │
   │ Too much immunity → autoimmunity (self-attack)                │
-  │ Misdirected immunity → allergy (harmless antigens)           │
-  │ Tolerance failure in tumors → cancer (self-cells not killed) │
-  │ Rejection of transplant → alloimmunity                       │
+  │ Misdirected immunity → allergy (harmless antigens)            │
+  │ Tolerance failure in tumors → cancer (self-cells not killed)  │
+  │ Rejection of transplant → alloimmunity                        │
   └───────────────────────────────────────────────────────────────┘
 
   TOLERANCE MECHANISMS:

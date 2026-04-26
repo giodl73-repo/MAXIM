@@ -15,7 +15,7 @@ THE CULTIVATOR'S FOUR GROUNDS
 |  maps the ground      cultivates it        catalogs what         |
 |  (spatial systems)    (living factory)     it's made of          |
 |                                           (crystal inventory)    |
-|       ┌──────────┐     ┌──────────┐        ┌──────────┐         |
+|       ┌──────────┐     ┌──────────┐        ┌──────────┐          |
 |       │ WHERE    │     │ WHAT     │        │ WHAT IS  │         |
 |       │ things   │     │ grows    │        │ IT, AT   │         |
 |       │ are, and │     │ here,    │        │ the atom │         |

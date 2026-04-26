@@ -6,7 +6,7 @@ Dance science applies exercise physiology, biomechanics, anatomy, nutrition, and
 
 ```
 +-------------------------------------------------------------------+
-|              DANCE SCIENCE: THE PERFORMANCE SYSTEM                 |
+|              DANCE SCIENCE: THE PERFORMANCE SYSTEM                |
 |                                                                   |
 |  PHYSIOLOGICAL          BIOMECHANICAL         PSYCHOLOGICAL       |
 |  DEMANDS                DEMANDS               DEMANDS             |

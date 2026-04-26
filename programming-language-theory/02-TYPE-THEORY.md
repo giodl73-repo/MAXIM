@@ -6,7 +6,7 @@ Type theory is lambda calculus + types. The progression STLC → System F → Hi
 
 ```
 +--------------------------------------------------------------------------+
-|                    TYPE THEORY LANDSCAPE                                  |
+|                    TYPE THEORY LANDSCAPE                                 |
 +--------------------------------------------------------------------------+
 |                                                                          |
 |  EXPRESSIVENESS vs. INFERABILITY TRADEOFF:                              |

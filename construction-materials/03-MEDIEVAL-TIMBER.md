@@ -48,23 +48,23 @@ CRUCK FRAME STRUCTURE
 │                    ridge                                                     │
 │                    ─┬─                                                       │
 │                   / │ \                                                      │
-│                  /  │  \       ← blade: single curved timber                │
+│                  /  │  \       ← blade: single curved timber                 │
 │                 /   │   \                                                    │
-│  ─ collar ────╱─────┼─────╲──── collar                                      │
+│  ─ collar ────╱─────┼─────╲──── collar                                       │
 │              /      │      \    ← tie collar prevents spreading              │
 │             /       │       \                                                │
-│  ─ tie ───╱─────────┼─────────╲── tie beam at wall head height              │
-│           │  ←space→│←space→  │                                             │
+│  ─ tie ───╱─────────┼─────────╲── tie beam at wall head height               │
+│           │  ←space→│←space→  │                                              │
 │           └─────────┴─────────┘  ← groundsill or stone pad                 │
 │             ← bay spacing →                                                  │
 │                                                                              │
-│  KEY FEATURE: blades carry BOTH roof and wall loads in one curved element   │
-│  → no separate wall frame needed; bay = the fundamental unit                │
-│  → typical bay: 3.5–5 m span                                                │
-│  → buildings measured in "bays": "a 4-bay barn"                             │
+│  KEY FEATURE: blades carry BOTH roof and wall loads in one curved element    │
+│  → no separate wall frame needed; bay = the fundamental unit                 │
+│  → typical bay: 3.5–5 m span                                                 │
+│  → buildings measured in "bays": "a 4-bay barn"                              │
 │                                                                              │
-│  LIMITATION: curved tree scarcity; agricultural buildings mainly            │
-│  → English domestic cruck: found in Midlands and North; rare in SE          │
+│  LIMITATION: curved tree scarcity; agricultural buildings mainly             │
+│  → English domestic cruck: found in Midlands and North; rare in SE           │
 │                                                                              │
 └──────────────────────────────────────────────────────────────────────────────┘
 ```
@@ -86,22 +86,22 @@ BOX FRAME STRUCTURE
 │      /  │                        │  \  ← common rafters @ 400–600 mm cc    │
 │     /   │                        │   \                                      │
 │  ──┼────┼────────── purlin ───────┼────┼──                                  │
-│   │    principal rafter          │    │  ← principal rafter @ bay spacing  │
-│   │                              │    │                                     │
+│    │    principal rafter          │    │  ← principal rafter @ bay spacing  │
+│    │                              │    │                                    │
 │  tie beam ────────────────────── tie beam   ← at top of wall                │
-│   │                              │                                          │
+│    │                              │                                         │
 │  plate ────────────────────────── plate    ← wall top plate                 │
-│   │                              │                                          │
-│  │ studs/infill panels          │          ← wall frame                    │
-│   │                              │                                          │
+│    │                              │                                         │
+│  │ studs/infill panels          │          ← wall frame                     │
+│    │                              │                                         │
 │  sill ────────────────────────── sill      ← bottom of wall frame           │
-│   │                              │                                          │
-│  ground sill / stone plinths                                                 │
-│                                                                              │
+│    │                              │                                         │
+│  ground sill / stone plinths                                                │
+│                                                                             │
 │  CONNECTIONS: all mortise-and-tenon with oak pegs                           │
 │  BAY SPACING: 3–6 m typical; wider → heavier principal frame members        │
 │  ROOF TYPE: king post truss (small span) or queen post (larger span)        │
-│                                                                              │
+│                                                                             │
 └──────────────────────────────────────────────────────────────────────────────┘
 ```
 
@@ -114,28 +114,28 @@ NOT structural — the timber frame carries all loads.
 HALF-TIMBER INFILL COMPARISON
 ┌──────────────────────────────────────────────────────────────────────────────┐
 │                                                                              │
-│  INFILL TYPE      DESCRIPTION              PERFORMANCE                      │
-│  ─────────────── ──────────────────────── ──────────────────────────────    │
-│  Wattle-and-daub  Woven hazel + clay daub  Breathable; low R-value;         │
+│  INFILL TYPE      DESCRIPTION              PERFORMANCE                       │
+│  ─────────────── ──────────────────────── ──────────────────────────────     │
+│  Wattle-and-daub  Woven hazel + clay daub  Breathable; low R-value;          │
 │                   (see 01-PREHISTORIC)      traditional; requires maintenance│
 │                                                                              │
-│  Brick nogging    Bricks laid in herring-  Heavier; better thermal; fire    │
+│  Brick nogging    Bricks laid in herring-  Heavier; better thermal; fire     │
 │                   bone or horizontal bond   resistance; less flexible        │
-│                   between timber studs      Typical: 1600s onward (cheap    │
+│                   between timber studs      Typical: 1600s onward (cheap     │
 │                                             brick replaces daub in England)  │
 │                                                                              │
-│  Plaster direct   Lime render on riven     Light; cheap; thin; cracks       │
+│  Plaster direct   Lime render on riven     Light; cheap; thin; cracks        │
 │                   oak lath                  at timber-plaster interface      │
 │                   (lathe and plaster)       → replace with lime flex mortar  │
 │                                                                              │
-│  Celotex / PIR    Modern retrofit insulated Not traditional but common in   │
+│  Celotex / PIR    Modern retrofit insulated Not traditional but common in    │
 │  insulation       panel in historic frames  retrofit; vapour control needed  │
 │                                                                              │
-│  THERMAL COMPARISON (U-value, W/m²K):                                       │
+│  THERMAL COMPARISON (U-value, W/m²K):                                        │
 │    Wattle-and-daub 50 mm:    U ~ 1.8 W/m²K  (poor insulation)              │
 │    Brick nogging 100 mm:     U ~ 1.4 W/m²K  (still poor)                   │
 │    Modern PIR retrofit:      U ~ 0.3 W/m²K  (but vapour issues)            │
-│    → half-timber wall relied on fabric gains (solar, fire) not insulation   │
+│    → half-timber wall relied on fabric gains (solar, fire) not insulation    │
 │                                                                              │
 └──────────────────────────────────────────────────────────────────────────────┘
 ```

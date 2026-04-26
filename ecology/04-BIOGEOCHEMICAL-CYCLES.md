@@ -6,24 +6,24 @@ While energy flows through ecosystems and is lost as heat, nutrients cycle. The 
 
 ```
 +------------------------------------------------------------------+
-|              BIOGEOCHEMICAL CYCLE FRAMEWORK                       |
-|                                                                   |
+|              BIOGEOCHEMICAL CYCLE FRAMEWORK                      |
+|                                                                  |
 |  CYCLE    MAIN RESERVOIR    LIMITING    HUMAN PERTURBATION       |
 |  -------  ----------------  ----------  ----------------------   |
 |  Carbon   Deep ocean +      Light, H₂O  Fossil fuel combustion   |
-|           lithosphere                   Deforestation             |
+|           lithosphere                   Deforestation            |
 |           (sedimentary rock)                                       |
-|                                                                   |
+|                                                                  |
 |  Nitrogen Atmosphere (N₂)   N-fixation  Haber-Bosch; crop        |
-|           (vast but         capacity    legumes; NOx from         |
-|            unavailable)                 combustion                |
-|                                                                   |
+|           (vast but         capacity    legumes; NOx from        |
+|            unavailable)                 combustion               |
+|                                                                  |
 |  Phosphorus Lithosphere     P weathering Fertilizer mining;      |
 |             (rock, no gas   rate        no atmospheric           |
-|              phase)                     reservoir                 |
-|                                                                   |
+|              phase)                     reservoir                |
+|                                                                  |
 |  Sulfur   Ocean +           —           Fossil fuel SO₂; acid    |
-|           sediments                     rain; ocean DMS           |
+|           sediments                     rain; ocean DMS          |
 +------------------------------------------------------------------+
 ```
 

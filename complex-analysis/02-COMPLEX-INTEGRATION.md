@@ -13,7 +13,7 @@ COMPLEX INTEGRATION — CONCEPTUAL FLOW
   ┌─────────────────────────────────────────────────────────────────────┐
   │  CAUCHY'S THEOREM (Green's theorem + CR)                            │
   │                                                                     │
-  │  f holomorphic on simply connected domain Ω, C closed curve in Ω   │
+  │  f holomorphic on simply connected domain Ω, C closed curve in Ω    │
   │                                                                     │
   │  ⟹   ∮_C f(z) dz = 0                                              │
   │                                                                     │
@@ -200,7 +200,7 @@ From the derivative formula, C = {|z − z₀| = r}:
 ```
 SIMPLY CONNECTED (no holes)          MULTIPLY CONNECTED (has holes)
 ┌────────────────────┐                ┌────────────────────┐
-│                    │                │   ┌──┐      ┌──┐  │
+│                    │                │   ┌──┐      ┌──┐   │
 │   any closed curve │                │   │h₁│      │h₂│  │
 │   bounds a disk    │                │   └──┘      └──┘  │
 │   inside the domain│                │  holes = topological │
@@ -228,7 +228,7 @@ ORIGINAL CONTOUR C₁    →    DEFORMED CONTOUR C₂
 
   ┌──────────┐                    ┌──┐
   │    D     │     f holomorphic  │  │
-  │  no sgts │  =============>   │  │
+  │  no sgts │  =============>    │  │
   │          │    in between      └──┘
   └──────────┘
   ∫_{C₁} = ∫_{C₂}                smaller but same integral

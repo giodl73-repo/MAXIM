@@ -103,11 +103,11 @@ Three mechanistic modes:
 |  New tissue        Existing tissue    Remaining cells          |
 |  grows from        remodels into      proliferate to           |
 |  wound surface     missing part       restore mass             |
-|                                                                 |
+|                                                                |
 |  Examples:         Examples:          Examples:                |
 |  Limb regen        Hydra (mostly)     Liver after              |
 |  (salamander)      Planaria (partly)  partial hepatectomy      |
-|                                                                 |
+|                                                                |
 |  Requires:         Requires:          Requires:                |
 |  Blastema          Pattern-level      Functional               |
 |  formation         respecification    compensation             |
@@ -160,16 +160,16 @@ Planaria (genus *Schmidtea*) can regenerate a complete organism from a fragment 
 
 ```
 +────────────────────────────────────────────────────────────────+
-|  HYDRA BODY AXIS MAINTENANCE                                    |
-|                                                                 |
+|  HYDRA BODY AXIS MAINTENANCE                                   |
+|                                                                |
 |  HEAD ──── WNT gradient ────────────────────── FOOT            |
 |            High WNT at head organizer                          |
 |            β-catenin nuclear at tip                            |
 |            Gradient maintained by DKK inhibitor gradient       |
-|                                                                 |
+|                                                                |
 |  Remove head → WNT re-activates at cut end → new head forms    |
 |  (within 3 days in decapitated animals)                        |
-|                                                                 |
+|                                                                |
 |  Bisect → anterior half: re-establishes foot polarity          |
 |         → posterior half: re-establishes head polarity         |
 |  Morphallactic: no new cell mass needed, remodels existing     |
@@ -232,7 +232,7 @@ Mammals cannot regenerate cardiac muscle after infarction (scar tissue replaces 
 
 ```
 +────────────────────────────────────────────────────────────────+
-|  ZEBRAFISH CARDIAC REGENERATION                                 |
+|  ZEBRAFISH CARDIAC REGENERATION                                |
 +────────────────────────────────────────────────────────────────+
 |                                                                 |
 |  INJURY (resection or cryoinjury)                               |
@@ -314,7 +314,7 @@ Despite taxon-specific differences, conserved modules:
 
 ```
 +────────────────────────────────────────────────────────────────+
-|  CONSERVED REGENERATION SIGNALS                                 |
+|  CONSERVED REGENERATION SIGNALS                                |
 +─────────────────────────────────┬──────────────────────────────+
 |  PATHWAY          ROLE          |  NOTES                       |
 +─────────────────────────────────┼──────────────────────────────+
@@ -331,13 +331,13 @@ Despite taxon-specific differences, conserved modules:
 |                   formation     |  progenitors                 |
 +─────────────────────────────────┼──────────────────────────────+
 |  Hippo/YAP        Organ size    |  YAP nuclear → proliferation |
-|                   control       |  Hippo-ON stops it          |
+|                   control       |  Hippo-ON stops it           |
 +─────────────────────────────────┼──────────────────────────────+
 |  Retinoic Acid    Proximal-     |  Proximalizes blastema       |
 |                   distal        |  identity; too much RA →     |
 |                   identity      |  duplicate proximal elements |
 +─────────────────────────────────┼──────────────────────────────+
-|  Reactive Oxygen  Wound        |  H₂O₂ gradient required for  |
+|  Reactive Oxygen  Wound         |  H₂O₂ gradient required for  |
 |  Species          signaling     |  neoblast activation;        |
 |                                 |  also blocks mammalian regen |
 +────────────────────────────────────────────────────────────────+

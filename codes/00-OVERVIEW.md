@@ -105,15 +105,15 @@ Shannon entropy also explains **why Morse code works**: E (.) and T (-) are the 
 │                  │ constrained channel (wire/light/radio) │
 ├──────────────────┼───────────────────────────────────────┤
 │ ACCESSIBILITY    │ Braille, Moon type, ASL fingerspelling,│
-│                  │ tactile paving — same information for  │
-│                  │ different sensory modalities           │
+│                  │ tactile paving — same information for │
+│                  │ different sensory modalities          │
 ├──────────────────┼───────────────────────────────────────┤
 │ MACHINE-READABLE │ Barcode, QR, Data Matrix, NFC/RFID,   │
 │                  │ resistor bands — human → machine I/O  │
 ├──────────────────┼───────────────────────────────────────┤
-│ CULTURAL/DOMAIN  │ Musical notation, road signs, wire     │
-│ LINGUA FRANCA    │ color codes — expert community         │
-│                  │ standard, cross-language               │
+│ CULTURAL/DOMAIN  │ Musical notation, road signs, wire    │
+│ LINGUA FRANCA    │ color codes — expert community        │
+│                  │ standard, cross-language              │
 ├──────────────────┼───────────────────────────────────────┤
 │ SECURITY/SECRECY │ Historical ciphers (Caesar, Vigenère,  │
 │                  │ Enigma), modern crypto (in computing/  │

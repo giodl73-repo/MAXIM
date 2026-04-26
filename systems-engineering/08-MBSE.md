@@ -25,9 +25,9 @@ MODEL-BASED SE (MBSE)
                     ┌──────────────────────────────┐
                     │       SYSTEM MODEL             │
                     │                              │
-                    │  Requirements + Architecture  │
+                    │  Requirements + Architecture │
                     │  + Behavior + ICDs + Analyses  │
-                    │  All in one consistent model  │
+                    │  All in one consistent model │
                     └──────────────────────────────┘
                          │           │           │
                          │  generate views       │

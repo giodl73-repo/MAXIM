@@ -7,7 +7,7 @@
 
 ```
 ┌─────────────────────────────────────────────────────────────────────────────────────┐
-│                           SQL LANGUAGE SURFACE                                       │
+│                           SQL LANGUAGE SURFACE                                      │
 ├──────────────────┬──────────────────┬──────────────────┬──────────────────────────── │
 │  DDL             │  DML             │  DCL             │  TCL                        │
 │  ─────────────── │  ─────────────── │  ─────────────── │  ───────────────            │
@@ -37,7 +37,7 @@ QUERY EXECUTION PIPELINE (what happens after you press F5 / submit the query):
   │ Lex/parse  │──▶│ Resolve    │──▶│ Cost-based         │──▶│ Iterator model:      │
   │ SQL text   │   │ names →    │   │ optimizer:         │   │ plan tree of nodes   │
   │ → AST      │   │ OIDs /     │   │  - Stats from      │   │ each node: open/     │
-  │            │   │ column     │   │    pg_statistic     │   │ next/close           │
+  │            │   │ column     │   │    pg_statistic    │   │ next/close           │
   │ Syntax     │   │ metadata   │   │  - Cardinality est │   │                      │
   │ errors     │   │ Type check │   │  - Join order      │   │ SeqScan, IndexScan,  │
   │ caught     │   │ Security   │   │    (dynamic prog.) │   │ HashJoin, Gather...  │
@@ -171,14 +171,14 @@ FETCH  FIRST n ROWS ONLY              -- ANSI SQL:2008 / Oracle / DB2
 INNER JOIN                      LEFT OUTER JOIN
   ┌──────┐   ┌──────┐             ┌──────┐   ┌──────┐
   │  A   │░░░│   B  │             │  A   ███████   B  │
-  │      │███│      │             │      ░░░│      │
+  │      │███│      │             │      ░░░│       │
   └──────┘   └──────┘             └──────┘   └──────┘
   Only matching rows              All of A + matched B (NULLs where no match)
 
 RIGHT OUTER JOIN                FULL OUTER JOIN
   ┌──────┐   ┌──────┐             ┌──────┐   ┌──────┐
   │  A   │░░░███████│             ███████████████████│
-  │      │   │      │             │  A   ░░░│   B  │
+  │      │   │      │             │  A   ░░░│   B   │
   └──────┘   └──────┘             └──────┘   └──────┘
   All of B + matched A            All of A + all of B (NULLs on both sides where no match)
 
@@ -404,14 +404,14 @@ When ORDER BY is present but no frame clause specified:
   This is almost never what you want for a true running total.
 
   ┌─────────────────┬────────────────────────────────────────────────────────────────┐
-  │ Frame clause    │ Behavior                                                        │
+  │ Frame clause    │ Behavior                                                       │
   ├─────────────────┼────────────────────────────────────────────────────────────────┤
   │ (none, no OVER  │ ROWS BETWEEN UNBOUNDED PRECEDING AND UNBOUNDED FOLLOWING        │
   │  ORDER BY)      │ = entire partition — same value for all rows in partition       │
   ├─────────────────┼────────────────────────────────────────────────────────────────┤
   │ (none, with     │ RANGE BETWEEN UNBOUNDED PRECEDING AND CURRENT ROW              │
   │  ORDER BY)      │ = all rows up to and including ties at CURRENT ROW             │
-  │                 │ DANGER: ties get same cumulative total, not incremental one     │
+  │                 │ DANGER: ties get same cumulative total, not incremental one    │
   ├─────────────────┼────────────────────────────────────────────────────────────────┤
   │ ROWS BETWEEN    │ Physical row count — always deterministic                       │
   │ UNBOUNDED       │ Best for running totals, moving averages                        │

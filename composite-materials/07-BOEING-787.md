@@ -6,17 +6,17 @@
 +------------------------------------------------------------------+
 |              787 COMPOSITE CONTENT BREAKDOWN                     |
 |                                                                  |
-|   MATERIAL       BY WEIGHT    BY VOLUME   KEY LOCATIONS         |
-|   ────────       ─────────    ─────────   ────────────          |
-|   Composites     50%          ~80%        Fuselage, wings       |
-|   Aluminum       20%                      Wing boxes, nacelles  |
-|   Titanium       15%                      Fasteners, fittings   |
-|   Steel          10%                      Landing gear          |
-|   Other           5%                      Various               |
+|   MATERIAL       BY WEIGHT    BY VOLUME   KEY LOCATIONS          |
+|   ────────       ─────────    ─────────   ────────────           |
+|   Composites     50%          ~80%        Fuselage, wings        |
+|   Aluminum       20%                      Wing boxes, nacelles   |
+|   Titanium       15%                      Fasteners, fittings    |
+|   Steel          10%                      Landing gear           |
+|   Other           5%                      Various                |
 |                                                                  |
 |   Previous Boeing aircraft: 787 was step-change                  |
 |   777 (1994): ~10% composites by weight                          |
-|   787 (2011): 50% composites by weight                          |
+|   787 (2011): 50% composites by weight                           |
 |   Enabled by: 30 years of aerospace composite maturation         |
 +------------------------------------------------------------------+
 ```

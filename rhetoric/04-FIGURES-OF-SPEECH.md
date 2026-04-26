@@ -6,7 +6,7 @@ Figures of speech are departures from ordinary language use — ways of arrangin
 
 ```
 +------------------------------------------------------------------+
-|         FIGURES OF SPEECH — TAXONOMY                            |
+|         FIGURES OF SPEECH — TAXONOMY                             |
 +------------------------------------------------------------------+
 |                                                                  |
 |  SCHEMES (figures of arrangement/sound)                         |

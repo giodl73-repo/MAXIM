@@ -6,7 +6,7 @@ The history of development thought is a succession of paradigms, each responding
 
 ```
 +--------------------------------------------------------------------------+
-|                    DEVELOPMENT PARADIGM TIMELINE                          |
+|                    DEVELOPMENT PARADIGM TIMELINE                         |
 +--------------------------------------------------------------------------+
 |                                                                          |
 |  1944–1945  BRETTON WOODS: IMF + World Bank created. "Development"      |

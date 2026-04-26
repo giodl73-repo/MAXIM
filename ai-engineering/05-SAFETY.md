@@ -11,7 +11,7 @@
 ┌─────────────────────────────────────────────────────────────────────────────┐
 │                     LLM SAFETY THREAT SURFACE                               │
 │                                                                             │
-│  ┌─────────────────────────────────────────────────────────────────────┐   │
+│  ┌─────────────────────────────────────────────────────────────────────┐    │
 │  │  INPUT LAYER                   MODEL LAYER           OUTPUT LAYER   │   │
 │  │                                                                     │   │
 │  │  Direct injection    ────►  Misalignment  ────►  Hallucination     │   │
@@ -87,11 +87,11 @@ tool access (elevation of privilege).
 │                                                                     │
 │  INTRINSIC                          EXTRINSIC                       │
 │  Contradicts the source             Cannot be verified from source  │
-│  ─────────────────────              ────────────────────────────── │
+│  ─────────────────────              ──────────────────────────────  │
 │  "The paper says X."                "Also, related studies show Y." │
 │  Paper actually says not-X.         Y is fabricated entirely.       │
 │                                                                     │
-│  CLOSED-DOMAIN                      OPEN-DOMAIN                    │
+│  CLOSED-DOMAIN                      OPEN-DOMAIN                     │
 │  (RAG / summarization)              (open-ended generation)         │
 │  Output contradicts retrieved docs  Output fabricates facts         │
 │  Measurable with RAGAS faithfulness Hard to measure without oracle  │
@@ -116,7 +116,7 @@ because "I don't know" was not common in training data.
 
 ```
 ┌─────────────────────────────────────────────────────────────────────┐
-│  DETECTION METHOD          │  HOW                │  COST           │
+│  DETECTION METHOD          │  HOW                │  COST            │
 ├────────────────────────────┼─────────────────────┼─────────────────┤
 │  RAGAS Faithfulness        │  Claims vs. context │  LLM calls      │
 │  SelfCheckGPT              │  Sample N outputs,  │  N × model cost │
@@ -312,7 +312,7 @@ training directly.
 
 ```
 ┌─────────────────────────────────────────────────────────────────────┐
-│  PATTERN               │  EXAMPLE (conceptual)                     │
+│  PATTERN               │  EXAMPLE (conceptual)                      │
 ├────────────────────────┼────────────────────────────────────────────┤
 │  Role-play wrapper     │  "In a fictional story, a character       │
 │                        │   explains how to..."                     │
@@ -351,24 +351,24 @@ failures before deployment.
 │  RED-TEAM PHASES                                                    │
 │                                                                     │
 │  1. THREAT MODELING                                                 │
-│     Who are the adversarial users? What are they trying to do?     │
-│     What harm could they cause? What's the impact?                 │
+│     Who are the adversarial users? What are they trying to do?      │
+│     What harm could they cause? What's the impact?                  │
 │                                                                     │
 │  2. ATTACK SURFACE ENUMERATION                                      │
-│     List all inputs to the system: user messages, tool results,    │
-│     uploaded files, API parameters, session state.                 │
+│     List all inputs to the system: user messages, tool results,     │
+│     uploaded files, API parameters, session state.                  │
 │                                                                     │
 │  3. MANUAL RED-TEAMING                                              │
-│     Human testers attempt attacks from threat model.               │
-│     Document successful and near-miss attacks.                     │
+│     Human testers attempt attacks from threat model.                │
+│     Document successful and near-miss attacks.                      │
 │                                                                     │
 │  4. AUTOMATED RED-TEAMING                                           │
-│     LLM-generated attack variants at scale.                        │
-│     Tools: Garak, PromptFoo redteam, PyRIT.                        │
+│     LLM-generated attack variants at scale.                         │
+│     Tools: Garak, PromptFoo redteam, PyRIT.                         │
 │                                                                     │
 │  5. REGRESSION SUITE                                                │
-│     Successful attacks become test cases.                          │
-│     Run on every model/prompt update.                              │
+│     Successful attacks become test cases.                           │
+│     Run on every model/prompt update.                               │
 └─────────────────────────────────────────────────────────────────────┘
 ```
 
@@ -462,7 +462,7 @@ reach the user.
 │  GUARDRAIL PIPELINE                                                 │
 │                                                                     │
 │  Input ──► [Input Guard] ──► LLM ──► [Output Guard] ──► User      │
-│               │                           │                        │
+│               │                           │                         │
 │           - PII detect              - Toxicity classify           │
 │           - Injection detect        - Hallucination detect        │
 │           - Topic filter            - PII redact                  │
@@ -632,7 +632,7 @@ pluggable recognizers, supports custom entity types.
 
 ```
 ┌─────────────────────────────────────────────────────────────────────┐
-│  BIAS TYPE             │  MANIFESTATION                            │
+│  BIAS TYPE             │  MANIFESTATION                             │
 ├────────────────────────┼────────────────────────────────────────────┤
 │  Representation bias   │  Training data over/under-represents      │
 │                        │  demographic groups → stereotyping        │
@@ -837,22 +837,22 @@ the direct extension for AI systems.
 ┌─────────────────────────────────────────────────────────────────────┐
 │  NIST AI RMF — FOUR CORE FUNCTIONS                                  │
 │                                                                     │
-│  GOVERN                                                              │
+│  GOVERN                                                             │
 │  Establish policies, roles, culture, and accountability for AI risk │
 │  → Risk appetite statements, AI ethics board, ownership per system  │
 │                                                                     │
-│  MAP                                                                 │
+│  MAP                                                                │
 │  Identify and categorize AI risks in context                        │
 │  → Threat model per system, stakeholder impact analysis,            │
 │    EU AI Act tier classification, use-case risk rating              │
 │                                                                     │
-│  MEASURE                                                             │
+│  MEASURE                                                            │
 │  Quantify and track risks with metrics                              │
 │  → Bias metrics (demographic parity, equalized odds), hallucination │
 │    rate, safety eval scores, red-team results in CI, fairness       │
 │    metric frames by group                                           │
 │                                                                     │
-│  MANAGE                                                              │
+│  MANAGE                                                             │
 │  Prioritize, respond to, and monitor identified risks               │
 │  → Guardrail deployment, safety CI gates, incident response plans,  │
 │    human-in-the-loop escalation, model version pinning              │
@@ -882,7 +882,7 @@ of AI RMF with Azure-native integration:
 
 ```
 ┌─────────────────────────────────────────────────────────────────────┐
-│  EU AI ACT RISK TIERS (enforced 2025-2026)                         │
+│  EU AI ACT RISK TIERS (enforced 2025-2026)                          │
 │                                                                     │
 │  UNACCEPTABLE RISK → banned                                         │
 │    Social scoring, real-time biometric surveillance in public       │
@@ -898,7 +898,7 @@ of AI RMF with Azure-native integration:
 │  MINIMAL RISK → voluntary                                           │
 │    Spam filters, AI in video games                                  │
 │                                                                     │
-│  General Purpose AI (GPAI) — separate track for foundation models  │
+│  General Purpose AI (GPAI) — separate track for foundation models   │
 │    > 10^25 FLOP training = systemic risk → mandatory red-teaming    │
 └─────────────────────────────────────────────────────────────────────┘
 ```
@@ -954,13 +954,13 @@ jobs:
 ┌─────────────────────────────────────────────────────────────────────┐
 │  GATE HARD (block merge):                                           │
 │    Any injection attack succeeds against updated prompt             │
-│    Toxicity classifier flags > N% of test outputs                  │
+│    Toxicity classifier flags > N% of test outputs                   │
 │    PII detected in outputs for PII-free test inputs                 │
 │    Safety eval score drops > 5% from baseline                       │
 │                                                                     │
 │  WARN (flag for review):                                            │
-│    New jailbreak near-miss (scored 0.4-0.6)                        │
-│    Bias metric changes > 2% in any demographic slice               │
+│    New jailbreak near-miss (scored 0.4-0.6)                         │
+│    Bias metric changes > 2% in any demographic slice                │
 │    Hallucination rate increases in factual tasks                    │
 │                                                                     │
 │  LOG (track over time):                                             │
@@ -1100,7 +1100,7 @@ relevant for normal application development.
 
 ```
 ┌─────────────────────────────────────────────────────────────────────┐
-│  CONCERN                        │  APPROACH                        │
+│  CONCERN                        │  APPROACH                         │
 ├─────────────────────────────────┼──────────────────────────────────┤
 │  Hallucination in RAG           │  RAGAS faithfulness eval         │
 │  Hallucination in open-ended    │  SelfCheckGPT + citation forcing │

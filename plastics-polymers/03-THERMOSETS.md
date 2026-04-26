@@ -12,12 +12,12 @@
 |   OR monomer +                      irreversible     linked      |
 |   catalyst                          permanent        covalent    |
 |                                                                  |
-|   Once set, cannot melt or dissolve in most solvents            |
-|   Properties: high Tg, low creep, dimensional stability         |
+|   Once set, cannot melt or dissolve in most solvents             |
+|   Properties: high Tg, low creep, dimensional stability          |
 |                                                                  |
 |   MAJOR FAMILIES:                                                |
 |   Epoxy    Polyurethane    Phenolic    Unsaturated PE            |
-|   Vinyl ester   Melamine   Cyanate ester   BMI                  |
+|   Vinyl ester   Melamine   Cyanate ester   BMI                   |
 +------------------------------------------------------------------+
 ```
 

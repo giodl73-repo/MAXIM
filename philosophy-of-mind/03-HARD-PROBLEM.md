@@ -4,7 +4,7 @@
 
 ```
 +-----------------------------------------------------------------------+
-|                    THE EASY/HARD PROBLEM DISTINCTION                   |
+|                    THE EASY/HARD PROBLEM DISTINCTION                  |
 +-----------------------------------------------------------------------+
 |                                                                       |
 |  EASY PROBLEMS                    HARD PROBLEM                       |

@@ -194,15 +194,15 @@ K-Pg AS CASCADING FAILURE WITH PRE-EXISTING DEGRADED STATE:
 
   CASCADE SEQUENCE (multiple simultaneous failure modes):
   ┌────────────────────────────────────────────────────────────────────┐
-  │ IMPACT (t = 0)                                                      │
+  │ IMPACT (t = 0)                                                     │
   │   → Thermal pulse: firestorm across continents (hours)             │
   │   → Ejecta blanket: global dust + sulfate aerosol (days)           │
-  │          ↓ photosynthesis blocked                                   │
-  │   → Impact winter: 2–3 years global darkness, -10 to -20°C        │
+  │          ↓ photosynthesis blocked                                  │
+  │   → Impact winter: 2–3 years global darkness, -10 to -20°C         │
   │          ↓ food chain collapse (primary production = 0)            │
-  │   → Acid rain: SO₃ + HCl from vaporized Yucatan carbonate/sulfate │
-  │          ↓ ocean surface pH drop → carbonate dissolution            │
-  │   → CO₂ release (long-term): from vaporized carbonate → warming   │
+  │   → Acid rain: SO₃ + HCl from vaporized Yucatan carbonate/sulfate  │
+  │          ↓ ocean surface pH drop → carbonate dissolution           │
+  │   → CO₂ release (long-term): from vaporized carbonate → warming    │
   │          ↓ temperature recovery after darkness but then overshoots │
   │   → Recovery: Deccan Traps continues → extended instability        │
   └────────────────────────────────────────────────────────────────────┘

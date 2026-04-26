@@ -22,30 +22,30 @@ T-SQL is your home base. This file isn't a tutorial — it's a bridge from the S
 
 ```
 ┌─────────────────────────────────────────────────────────────────────────────┐
-│                        SQL Server Engine Architecture                        │
+│                        SQL Server Engine Architecture                       │
 ├─────────────────────────────────────────────────────────────────────────────┤
 │  CLIENT PROTOCOLS                                                            │
 │  TDS (Tabular Data Stream) over TCP/IP · Named Pipes · Shared Memory        │
 │  ADO.NET / ODBC / JDBC / OLE DB / SSMS / sqlcmd                            │
 ├─────────────────────────────────────────────────────────────────────────────┤
-│  PROTOCOL LAYER                                                              │
-│  SNI (Server Network Interface) — connection mgmt, TLS, auth negotiation   │
+│  PROTOCOL LAYER                                                             │
+│  SNI (Server Network Interface) — connection mgmt, TLS, auth negotiation    │
 ├─────────────────────────────────────────────────────────────────────────────┤
 │  RELATIONAL ENGINE (Query Processor)                                        │
 │  ┌──────────────┐  ┌──────────────────┐  ┌──────────────────────────────┐ │
-│  │   Parser      │→│   Algebrizer      │→│   Query Optimizer             │ │
+│  │   Parser     │→│   Algebrizer      │→│   Query Optimizer             ││
 │  │  ─────────── │  │  ──────────────  │  │  ──────────────────────────  │ │
-│  │  Syntax check│  │  Name resolution │  │  Cost-based, ~220K transform  │ │
-│  │  Parse tree  │  │  Type derivation  │  │  rules; produces memo+plan   │ │
+│  │  Syntax check│  │  Name resolution │  │  Cost-based, ~220K transform ││
+│  │  Parse tree  │  │  Type derivation │  │  rules; produces memo+plan   ││
 │  │  T-SQL→AST   │  │  Bound tree       │  │  Trivial plan fast-path       │ │
 │  └──────────────┘  └──────────────────┘  └──────────────────────────────┘ │
 │  ┌─────────────────────────────────────────────────────────────────────┐   │
-│  │  Query Executor                                                      │   │
-│  │  Iterator model (pull / volcano) · Parallel execution (DOP)        │   │
-│  │  Adaptive Joins (2017+) · Batch Mode for rowstore (2019+)          │   │
+│  │  Query Executor                                                     │   │
+│  │  Iterator model (pull / volcano) · Parallel execution (DOP)         │   │
+│  │  Adaptive Joins (2017+) · Batch Mode for rowstore (2019+)           │   │
 │  └─────────────────────────────────────────────────────────────────────┘   │
 ├─────────────────────────────────────────────────────────────────────────────┤
-│  STORAGE ENGINE                                                              │
+│  STORAGE ENGINE                                                             │
 │  ┌────────────────┐  ┌─────────────────┐  ┌───────────────────────────┐   │
 │  │  Buffer Manager│  │  Lock Manager    │  │  Transaction Log Manager  │   │
 │  │  ─────────────│  │  ───────────────│  │  ────────────────────────  │   │
@@ -56,16 +56,16 @@ T-SQL is your home base. This file isn't a tutorial — it's a bridge from the S
 │  │  Checkpoint    │  │  granularity     │  │  Log truncation on backup  │   │
 │  └────────────────┘  └─────────────────┘  └───────────────────────────┘   │
 │  ┌────────────────┐  ┌─────────────────┐  ┌───────────────────────────┐   │
-│  │  Access Methods│  │  Version Store   │  │  Plan Cache               │   │
+│  │  Access Methods│  │  Version Store  │  │  Plan Cache               │   │
 │  │  ─────────────│  │  ───────────────│  │  ────────────────────────  │   │
 │  │  B-tree index  │  │  tempdb (SI/     │  │  Parameterized plan reuse  │   │
-│  │  Heap (RID)    │  │  RCSI) or PVS   │  │  Query Store (2016+)       │   │
-│  │  Columnstore   │  │  (ADR, user DB) │  │  Plan forcing              │   │
-│  │  In-mem OLTP   │  │  Row versioning  │  │  PSP optimization (2022+) │   │
+│  │  Heap (RID)    │  │  RCSI) or PVS   │  │  Query Store (2016+)      │   │
+│  │  Columnstore   │  │  (ADR, user DB) │  │  Plan forcing             │   │
+│  │  In-mem OLTP   │  │  Row versioning │  │  PSP optimization (2022+) │   │
 │  └────────────────┘  └─────────────────┘  └───────────────────────────┘   │
 ├─────────────────────────────────────────────────────────────────────────────┤
-│  DATA FILES                                                                  │
-│  .mdf / .ndf (data + index pages, 8KB)                                     │
+│  DATA FILES                                                                 │
+│  .mdf / .ndf (data + index pages, 8KB)                                      │
 │  .ldf (transaction log, sequential VLF segments)                            │
 │  In-Memory: memory-optimized filegroup + checkpoint files                   │
 ├─────────────────────────────────────────────────────────────────────────────┤
@@ -1147,37 +1147,37 @@ Azure SQL Hyperscale — Disaggregated Architecture
 ─────────────────────────────────────────────────────────────────────────────
   ┌─────────────────────────────────────────────────────────────────────┐
   │  PRIMARY COMPUTE NODE                                               │
-  │  Runs SQL Server engine (query processor + buffer pool)            │
-  │  Generates log records → ships to Log Service immediately          │
-  │  Does NOT write data pages directly to storage                     │
+  │  Runs SQL Server engine (query processor + buffer pool)             │
+  │  Generates log records → ships to Log Service immediately           │
+  │  Does NOT write data pages directly to storage                      │
   └────────────────────┬────────────────────────────────────────────────┘
                        │ log stream (continuous, low-latency)
                        ▼
   ┌─────────────────────────────────────────────────────────────────────┐
   │  LOG SERVICE                                                        │
-  │  Durable, distributed log — the source of truth                    │
-  │  All compute nodes (primary + replicas) subscribe to this stream   │
-  │  Backup = ship log to Azure Blob Storage — near-instant            │
-  │  Restore = provision new compute + page servers, replay from log   │
+  │  Durable, distributed log — the source of truth                     │
+  │  All compute nodes (primary + replicas) subscribe to this stream    │
+  │  Backup = ship log to Azure Blob Storage — near-instant             │
+  │  Restore = provision new compute + page servers, replay from log    │
   └───────┬─────────────────────────────────────────────────────────────┘
           │ log replayed
           ▼
   ┌─────────────────────────────────────────────────────────────────────┐
-  │  PAGE SERVERS (1–N, auto-scaled)                                   │
-  │  Each page server owns a subset of the database's page range       │
-  │  Applies log records to its pages (replay, not bulk write)         │
+  │  PAGE SERVERS (1–N, auto-scaled)                                    │
+  │  Each page server owns a subset of the database's page range        │
+  │  Applies log records to its pages (replay, not bulk write)          │
   │  Primary and replicas fetch pages from page servers on demand       │
-  │  Pages are cached in the compute node's buffer pool after first    │
-  │  fetch — subsequent access is local buffer hit                     │
+  │  Pages are cached in the compute node's buffer pool after first     │
+  │  fetch — subsequent access is local buffer hit                      │
   └─────────────────────────────────────────────────────────────────────┘
           │ page requests (fetch-on-demand)
           │
   ┌───────▼──────────────────────────────────────────────────────────────┐
-  │  NAMED READ REPLICAS (0–4)                                          │
-  │  Each replica has its own compute node + buffer pool                │
+  │  NAMED READ REPLICAS (0–4)                                           │
+  │  Each replica has its own compute node + buffer pool                 │
   │  Subscribes to Log Service — lag is typically <1 second            │
   │  Reads pages from page servers (same as primary)                   │
-  │  ApplicationIntent=ReadOnly connection string routes here           │
+  │  ApplicationIntent=ReadOnly connection string routes here            │
   └─────────────────────────────────────────────────────────────────────┘
 ```
 

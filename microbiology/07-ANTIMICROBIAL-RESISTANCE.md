@@ -10,8 +10,8 @@ ANTIMICROBIAL RESISTANCE: THE EVOLUTION CRISIS
   ┌─────────────────────────────────────────────────────────────────┐
   │  Deaths attributable to AMR:  1.27 million/year (2019, Lancet)  │
   │  Deaths associated with AMR:  4.95 million/year (2019)          │
-  │  Projected (if unaddressed):  10 million/year by 2050 (O'Neill)  │
-  │  Economic cost:               ~$100 trillion cumulative by 2050  │
+  │  Projected (if unaddressed):  10 million/year by 2050 (O'Neill) │
+  │  Economic cost:               ~$100 trillion cumulative by 2050 │
   │                                                                   │
   │  NEW ANTIBIOTICS APPROVED (US FDA):                             │
   │  1980s: ~20 new approvals per decade                            │
@@ -22,12 +22,12 @@ ANTIMICROBIAL RESISTANCE: THE EVOLUTION CRISIS
   │  → Discovery void of ~30+ years for truly novel classes         │
   │                                                                   │
   │  WHO PRIORITY PATHOGENS (ESKAPE organisms):                     │
-  │  E - Enterococcus faecium (VRE)                                  │
+  │  E - Enterococcus faecium (VRE)                                 │
   │  S - Staphylococcus aureus (MRSA)                               │
   │  K - Klebsiella pneumoniae (carbapenem-resistant)               │
   │  A - Acinetobacter baumannii (pan-resistant strains exist)      │
   │  P - Pseudomonas aeruginosa (multi-drug resistant)              │
-  │  E - Enterobacter spp. (ESBL/carbapenem-resistant)             │
+  │  E - Enterobacter spp. (ESBL/carbapenem-resistant)              │
   └─────────────────────────────────────────────────────────────────┘
 
   FUNDAMENTAL EVOLUTIONARY TRUTH:
@@ -48,85 +48,85 @@ ANTIMICROBIAL RESISTANCE: THE EVOLUTION CRISIS
   1. ENZYMATIC INACTIVATION
   ┌────────────────────────────────────────────────────────────────┐
   │ β-LACTAMASES (most important class):                           │
-  │   Cleave the β-lactam ring → inactivates all β-lactams        │
+  │   Cleave the β-lactam ring → inactivates all β-lactams         │
   │   Class A (serine-based): TEM-1, SHV, CTX-M (ESBL)           │
-  │   Class B (metalloβ-lactamases): NDM-1, VIM, IMP              │
+  │   Class B (metalloβ-lactamases): NDM-1, VIM, IMP               │
   │   → Use Zn²⁺; cleave carbapenems → pan-β-lactam resistance   │
   │   Class C (cephalosporinases): AmpC (inducible in Enterobacter)│
-  │   Class D (OXA-type): OXA-48; carbapenem-hydrolyzing          │
-  │                                                                 │
+  │   Class D (OXA-type): OXA-48; carbapenem-hydrolyzing           │
+  │                                                                │
   │ ESBLs (Extended-Spectrum β-Lactamases):                        │
   │   Mutant TEM/SHV or acquired CTX-M enzymes                   │
-  │   → Cleave cephalosporins (not just penicillins)              │
+  │   → Cleave cephalosporins (not just penicillins)               │
   │   CTX-M-15: Most common ESBL globally; plasmid-borne         │
-  │   Treatment: Carbapenems (if carbapenemase-negative)          │
-  │                                                                 │
+  │   Treatment: Carbapenems (if carbapenemase-negative)           │
+  │                                                                │
   │ CPE (Carbapenemase-Producing Enterobacteriaceae):              │
   │   KPC (Klebsiella pneumoniae carbapenemase): Class A           │
   │   NDM-1 (New Delhi Metallo-β-lactamase): Class B; emerged 2009│
-  │   OXA-48: Class D; Mediterranean region + spreading globally  │
+  │   OXA-48: Class D; Mediterranean region + spreading globally   │
   │   Treatment: Ceftazidime-avibactam, meropenem-vaborbactam    │
   │   (avibactam: non-β-lactam β-lactamase inhibitor)            │
-  │                                                                 │
+  │                                                                │
   │ AMINOGLYCOSIDE-MODIFYING ENZYMES:                              │
-  │   APH (phosphotransferases), AAC (acetyltransferases),        │
-  │   ANT (nucleotidyltransferases)                               │
+  │   APH (phosphotransferases), AAC (acetyltransferases),         │
+  │   ANT (nucleotidyltransferases)                                │
   │   → Modify -OH or -NH₂ groups → disrupts ribosome binding    │
   └────────────────────────────────────────────────────────────────┘
 
   2. TARGET SITE MODIFICATION
   ┌────────────────────────────────────────────────────────────────┐
   │ MRSA (Methicillin-Resistant S. aureus):                        │
-  │   Acquired mecA gene (SCCmec — staphylococcal cassette)       │
-  │   Encodes PBP2a: Modified transpeptidase with low β-lactam    │
-  │   affinity (Kd ~1,000x higher than normal PBPs)               │
-  │   → ALL β-lactams ineffective (penicillin, methicillin, even  │
-  │     "anti-MRSA" cephalosporins used for susceptible Staph)    │
-  │   Treatment: Vancomycin, daptomycin, linezolid, ceftaroline   │
-  │                                                                 │
+  │   Acquired mecA gene (SCCmec — staphylococcal cassette)        │
+  │   Encodes PBP2a: Modified transpeptidase with low β-lactam     │
+  │   affinity (Kd ~1,000x higher than normal PBPs)                │
+  │   → ALL β-lactams ineffective (penicillin, methicillin, even   │
+  │     "anti-MRSA" cephalosporins used for susceptible Staph)     │
+  │   Treatment: Vancomycin, daptomycin, linezolid, ceftaroline    │
+  │                                                                │
   │ VRE (Vancomycin-Resistant Enterococcus):                       │
   │   vanA/vanB genes: Modify peptidoglycan terminus               │
   │   Normal: D-Ala-D-Ala (vancomycin binds this with high affinity)│
   │   VanA: D-Ala-D-Lac (depsipeptide) → 1,000x reduced affinity │
   │   VanB: D-Ala-D-Ser → ~7x reduced affinity (moderate level)  │
-  │   Treatment: Linezolid, daptomycin, tigecycline               │
-  │                                                                 │
+  │   Treatment: Linezolid, daptomycin, tigecycline                │
+  │                                                                │
   │ RIFAMPICIN RESISTANCE (M. tuberculosis):                       │
-  │   rpoB mutations: 81 bp core region of RNA polymerase β-sub.  │
+  │   rpoB mutations: 81 bp core region of RNA polymerase β-sub.   │
   │   S531L most common → ~3x larger Km for rifampicin           │
   │   Rifampicin resistance = MDR-TB marker (implies INH res. too)│
-  │                                                                 │
-  │ FLUOROQUINOLONE RESISTANCE:                                     │
-  │   QRDR mutations: gyrA (DNA gyrase), parC (topoisomerase IV)  │
+  │                                                                │
+  │ FLUOROQUINOLONE RESISTANCE:                                    │
+  │   QRDR mutations: gyrA (DNA gyrase), parC (topoisomerase IV)   │
   │   S83L in GyrA most common in E. coli                        │
-  │   QNRB (plasmid-mediated): Protects quinolone targets from    │
+  │   QNRB (plasmid-mediated): Protects quinolone targets from     │
   │   quinolone binding                                            │
   └────────────────────────────────────────────────────────────────┘
 
   3. REDUCED DRUG ACCUMULATION (Efflux + Reduced Uptake)
   ┌────────────────────────────────────────────────────────────────┐
   │ EFFLUX PUMPS (major resistance mechanism):                     │
-  │                                                                 │
+  │                                                                │
   │ 5 superfamilies:                                               │
   │   MFS (Major Facilitator Superfamily): TetA/TetB (tetracycline)│
-  │   RND (Resistance-Nodulation-Division): Most important Gram-  │
-  │   MATE (Multidrug/Oligo Exporter)                             │
-  │   ABC (ATP-Binding Cassette): Uses ATP hydrolysis             │
-  │   SMR (Small Multidrug Resistance): 4-helix; small molecules  │
-  │                                                                 │
-  │ KEY EXAMPLES:                                                   │
-  │ MexAB-OprM (P. aeruginosa): RND pump; broad spectrum          │
+  │   RND (Resistance-Nodulation-Division): Most important Gram-   │
+  │   MATE (Multidrug/Oligo Exporter)                              │
+  │   ABC (ATP-Binding Cassette): Uses ATP hydrolysis              │
+  │   SMR (Small Multidrug Resistance): 4-helix; small molecules   │
+  │                                                                │
+  │ KEY EXAMPLES:                                                  │
+  │ MexAB-OprM (P. aeruginosa): RND pump; broad spectrum           │
   │   Export: β-lactams, fluoroquinolones, aminoglycosides, biocides│
   │   Overexpressed in clinical isolates → multidrug resistance    │
-  │                                                                 │
-  │ AcrAB-TolC (E. coli): Primary intrinsic MDR pump              │
-  │   Constitutively expressed; overexpressed by marA regulator   │
-  │                                                                 │
-  │ NorA (S. aureus): MFS pump; quinolone efflux                  │
-  │                                                                 │
-  │ PORIN LOSS:                                                     │
-  │   Gram-negative outer membrane porins (OmpF, OmpC in E. coli) │
-  │   Loss/downregulation → reduced drug entry                    │
+  │                                                                │
+  │ AcrAB-TolC (E. coli): Primary intrinsic MDR pump               │
+  │   Constitutively expressed; overexpressed by marA regulator    │
+  │                                                                │
+  │ NorA (S. aureus): MFS pump; quinolone efflux                   │
+  │                                                                │
+  │ PORIN LOSS:                                                    │
+  │   Gram-negative outer membrane porins (OmpF, OmpC in E. coli)  │
+  │   Loss/downregulation → reduced drug entry                     │
   │   Combined with β-lactamase → high-level carbapenem resistance │
   └────────────────────────────────────────────────────────────────┘
 
@@ -148,12 +148,12 @@ ANTIMICROBIAL RESISTANCE: THE EVOLUTION CRISIS
 
   RESISTANCE GENE MOBILITY HIERARCHY:
   ┌────────────────────────────────────────────────────────────────┐
-  │                                                                 │
-  │  INTEGRONS:          Capture gene cassettes (attI × attC)     │
-  │  Class 1 integrons:  Most clinically important                │
-  │  → Can accumulate multiple resistance genes in tandem         │
+  │                                                                │
+  │  INTEGRONS:          Capture gene cassettes (attI × attC)      │
+  │  Class 1 integrons:  Most clinically important                 │
+  │  → Can accumulate multiple resistance genes in tandem          │
   │                      ↓                                         │
-  │  TRANSPOSONS:        Move integrons (+ other genes)           │
+  │  TRANSPOSONS:        Move integrons (+ other genes)            │
   │  Tn3 family, Tn10, Tn916: Cut-and-paste or copy-and-paste    │
   │  → Can relocate between plasmid ↔ chromosome                 │
   │                      ↓                                         │
@@ -162,10 +162,10 @@ ANTIMICROBIAL RESISTANCE: THE EVOLUTION CRISIS
   │  Conjugative plasmids: Self-transmissible (pKPN3, pOXA-48)   │
   │  Non-conjugative: Transfer via co-resident conjugative plasmid│
   │                      ↓                                         │
-  │  CONJUGATION:        Plasmid → new bacterial cell             │
+  │  CONJUGATION:        Plasmid → new bacterial cell              │
   │  Inter-species: E. coli → Klebsiella → Acinetobacter         │
-  │  Rate: Can be minutes; faster than cell division              │
-  │  Single conjugation event can make new host fully resistant   │
+  │  Rate: Can be minutes; faster than cell division               │
+  │  Single conjugation event can make new host fully resistant    │
   └────────────────────────────────────────────────────────────────┘
 
   THE CTX-M STORY (historical example of resistance spread):
@@ -204,42 +204,42 @@ ANTIMICROBIAL RESISTANCE: THE EVOLUTION CRISIS
 
   ┌──────────────────────────────────────────────────────────────────┐
   │ DRUG CLASS          MECHANISM                   KEY GENES        │
-  │                                                                   │
+  │                                                                  │
   │ Penicillins/         β-lactamases (hydrolysis)  blaTEM, blaSHV   │
-  │ Cephalosporins       PBP modification (MRSA)     mecA (PBP2a)     │
-  │                      Porin loss + ESBL                            │
-  │                                                                   │
-  │ Carbapenems          Carbapenemases              blaKPC, blaNDM   │
+  │ Cephalosporins       PBP modification (MRSA)     mecA (PBP2a)    │
+  │                      Porin loss + ESBL                           │
+  │                                                                  │
+  │ Carbapenems          Carbapenemases              blaKPC, blaNDM  │
   │                      Porin loss + AmpC           blaOXA-48       │
-  │                                                                   │
-  │ Glycopeptides        Target modification         vanA, vanB       │
-  │ (Vancomycin)         (D-Ala-D-Ala → D-Ala-D-Lac)                │
-  │                                                                   │
+  │                                                                  │
+  │ Glycopeptides        Target modification         vanA, vanB      │
+  │ (Vancomycin)         (D-Ala-D-Ala → D-Ala-D-Lac)                 │
+  │                                                                  │
   │ Fluoroquinolones     QRDR mutations (GyrA/ParC)  gyrA S83L       │
   │                      Efflux pump                 qnrB (plasmid)  │
-  │                      QNRB (protects gyrase)                       │
-  │                                                                   │
+  │                      QNRB (protects gyrase)                      │
+  │                                                                  │
   │ Aminoglycosides      AMEs (modifying enzymes)    aac, aph, ant   │
   │                      16S rRNA methylases          armA, rmtB     │
-  │                      (pan-aminoglycoside resist.)                 │
-  │                                                                   │
-  │ Macrolides           23S rRNA methylation         erm genes       │
-  │                      Efflux                       msrA            │
-  │                      Target mutation                              │
-  │                                                                   │
+  │                      (pan-aminoglycoside resist.)                │
+  │                                                                  │
+  │ Macrolides           23S rRNA methylation         erm genes      │
+  │                      Efflux                       msrA           │
+  │                      Target mutation                             │
+  │                                                                  │
   │ Tetracyclines        Efflux                       tetA, tetB     │
-  │                      Ribosomal protection         tetM, tetO      │
+  │                      Ribosomal protection         tetM, tetO     │
   │                      (TetM: GTPase mimics EF-G)                  │
-  │                                                                   │
-  │ Chloramphenicol      Acetyltransferase (CAT)      cat genes       │
-  │                                                                   │
-  │ Linezolid            23S rRNA mutation            G2576T          │
-  │                      rRNA methylase               cfr             │
-  │                                                                   │
+  │                                                                  │
+  │ Chloramphenicol      Acetyltransferase (CAT)      cat genes      │
+  │                                                                  │
+  │ Linezolid            23S rRNA mutation            G2576T         │
+  │                      rRNA methylase               cfr            │
+  │                                                                  │
   │ Colistin/Polymyxins  LPS modification (add        mcr-1 (2015)   │
   │ (last resort)        phosphoethanolamine to        plasmid-mediated│
-  │                      lipid A)                     historic: PmrA  │
-  │                      mcr-1: First mobile colistin resistance      │
+  │                      lipid A)                     historic: PmrA │
+  │                      mcr-1: First mobile colistin resistance     │
   └──────────────────────────────────────────────────────────────────┘
 ```
 
@@ -335,31 +335,31 @@ ANTIMICROBIAL RESISTANCE: THE EVOLUTION CRISIS
   PROPOSED SOLUTIONS:
   ┌────────────────────────────────────────────────────────────────┐
   │ PUSH INCENTIVES (government pays for R&D):                     │
-  │   BARDA, CARB-X, GARDP: Public funding for early pipeline     │
-  │   Billion-dollar grants to consortium (biopharmaceuticals)    │
-  │                                                                 │
+  │   BARDA, CARB-X, GARDP: Public funding for early pipeline      │
+  │   Billion-dollar grants to consortium (biopharmaceuticals)     │
+  │                                                                │
   │ PULL INCENTIVES (guaranteed revenue):                          │
-  │   UK NICE subscription model (2020s): Pay for access,         │
-  │   not per-unit-sold; first-of-kind globally                   │
-  │   US PASTEUR Act: Proposed subscription model                 │
-  │                                                                 │
-  │ ALTERNATIVE STRATEGIES:                                         │
+  │   UK NICE subscription model (2020s): Pay for access,          │
+  │   not per-unit-sold; first-of-kind globally                    │
+  │   US PASTEUR Act: Proposed subscription model                  │
+  │                                                                │
+  │ ALTERNATIVE STRATEGIES:                                        │
   │   Phage therapy: Bacteriophage cocktails; personalized for     │
   │   individual infection; FDA Expanded Access used in crisis     │
   │   Phase 1/2 trials ongoing                                     │
-  │   Anti-virulence: Target virulence factors not growth         │
+  │   Anti-virulence: Target virulence factors not growth          │
   │   → Less selective pressure (bacteria survive without virulence)│
-  │   CRISPR-based killing: Sequence-specific; antimicrobial use  │
-  │   (see genomics/07-CRISPR.md for CRISPR technology)           │
-  │   Antimicrobial peptides: Host defense peptides; synthetic    │
+  │   CRISPR-based killing: Sequence-specific; antimicrobial use   │
+  │   (see genomics/07-CRISPR.md for CRISPR technology)            │
+  │   Antimicrobial peptides: Host defense peptides; synthetic     │
   │   Biofilm-specific: Quorum quenching (QQ) enzymes            │
-  │                                                                 │
-  │ CURRENT PIPELINE:                                               │
-  │   ~40 antibiotics in clinical development (2024)              │
+  │                                                                │
+  │ CURRENT PIPELINE:                                              │
+  │   ~40 antibiotics in clinical development (2024)               │
   │   Most: Derivatives of existing classes                        │
   │   Truly novel mechanisms: Zoliflodacin (topoisomerase II     │
-  │   inhibitor, different binding site from quinolones),         │
-  │   Gepotidacin (similar); ALS-4                                │
+  │   inhibitor, different binding site from quinolones),          │
+  │   Gepotidacin (similar); ALS-4                                 │
   └────────────────────────────────────────────────────────────────┘
 ```
 

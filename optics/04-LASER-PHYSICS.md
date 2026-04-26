@@ -6,7 +6,7 @@ A laser is a feedback oscillator for light — identical in architectural concep
 
 ```
 +------------------------------------------------------------------+
-|                      LASER ARCHITECTURE                           |
+|                      LASER ARCHITECTURE                          |
 |                                                                  |
 |  GAIN MEDIUM          PUMP               OPTICAL CAVITY          |
 |  ----------           ----               ---------------         |
@@ -22,9 +22,9 @@ A laser is a feedback oscillator for light — identical in architectural concep
 |  |        |  emit     |  opt,   |<------- |   |<------^|    |   |
 |  +--------+  photons  |  thermal|         +---+ (round+---+     |
 |                        +---------+              trip)           |
-|                                                                  |
-|  Threshold condition: round-trip gain = round-trip loss          |
-|  g(nu) * 2L >= alpha_loss + ln(1/(R1*R2)) / (2L)               |
+|                                                                 |
+|  Threshold condition: round-trip gain = round-trip loss         |
+|  g(nu) * 2L >= alpha_loss + ln(1/(R1*R2)) / (2L)                |
 +------------------------------------------------------------------+
 ```
 
@@ -245,52 +245,52 @@ The fundamental TEM_00 mode has a Gaussian intensity profile. Key parameters:
 
 ```
 +------------------------------------------------------------------+
-|  LASER TYPE   WAVELENGTH  OUTPUT       KEY APPLICATION          |
-|  ----------   ----------  ------       ---------------          |
+|  LASER TYPE   WAVELENGTH  OUTPUT       KEY APPLICATION           |
+|  ----------   ----------  ------       ---------------           |
 |                                                                  |
 |  SOLID-STATE                                                     |
-|  Nd:YAG       1064nm      CW/pulsed    Industrial, medical,     |
-|  (Nd:glass)               multi-W to  pumping other lasers      |
-|               532nm       kW with      532nm via SHG (green)    |
+|  Nd:YAG       1064nm      CW/pulsed    Industrial, medical,      |
+|  (Nd:glass)               multi-W to  pumping other lasers       |
+|               532nm       kW with      532nm via SHG (green)     |
 |               355nm       harmonics    355nm UV via THG          |
 |                                                                  |
-|  Ti:sapphire  650-1100nm  Tunable CW,  Ultrafast science,       |
+|  Ti:sapphire  650-1100nm  Tunable CW,  Ultrafast science,        |
 |  (Ti:Al2O3)               modelocked   spectroscopy, STED micro  |
 |               (pump with  fs pulses    Pulse: 10-100 fs          |
-|               532nm Nd)                                         |
+|               532nm Nd)                                          |
 |                                                                  |
 |  Er:YAG       2940nm      Pulsed       Dental/medical (water     |
-|                                        absorbs strongly here)   |
+|                                        absorbs strongly here)    |
 |                                                                  |
 |  GAS                                                             |
-|  HeNe         632.8nm     CW, mW       Alignment, holography,   |
+|  HeNe         632.8nm     CW, mW       Alignment, holography,    |
 |               1152nm      low power    laser pointers (historic) |
-|               3390nm                   Single freq, long l_c    |
+|               3390nm                   Single freq, long l_c     |
 |                                                                  |
-|  CO2          10.6um      CW/pulsed    Cutting, welding,        |
-|               9.6um       W to kW      marking, surgery         |
-|                                        Highest power CW lasers  |
+|  CO2          10.6um      CW/pulsed    Cutting, welding,         |
+|               9.6um       W to kW      marking, surgery          |
+|                                        Highest power CW lasers   |
 |                                                                  |
-|  Excimer      193nm (ArF) Pulsed       Photolithography (Intel  |
+|  Excimer      193nm (ArF) Pulsed       Photolithography (Intel   |
 |  (rare gas +  248nm (KrF) high energy  7nm node: EUVL at 13.5nm)|
 |  halide)      308nm (XeCl) per pulse   LASIK eye surgery (193nm)|
 |                                                                  |
 |  SEMICONDUCTOR                                                   |
-|  Diode laser  780nm       mW to W      CD/DVD, telecom,         |
-|  (edge emit)  808nm       single mode  pumping solid-state,     |
-|               980nm       to 10W bars  LiDAR, sensing           |
-|               1310nm                                            |
-|               1550nm                                            |
+|  Diode laser  780nm       mW to W      CD/DVD, telecom,          |
+|  (edge emit)  808nm       single mode  pumping solid-state,      |
+|               980nm       to 10W bars  LiDAR, sensing            |
+|               1310nm                                             |
+|               1550nm                                             |
 |                                                                  |
-|  VCSEL        850nm       mW,          Short-reach fiber links, |
+|  VCSEL        850nm       mW,          Short-reach fiber links,  |
 |  (Vertical    940nm       fast mod     face ID sensors (iPhone), |
-|  cavity SE)   1310nm      >10 GHz      LiDAR arrays             |
+|  cavity SE)   1310nm      >10 GHz      LiDAR arrays              |
 |                                                                  |
 |  FIBER                                                           |
-|  Er-doped     1550nm      1W to kW     Long-haul fiber amp,     |
-|  fiber laser  (EDFA       (CW)         high-power industrial,   |
-|               amplifier)               coherent comms           |
-|  Yb-doped     1030-1120nm             Industrial cutting/weld   |
+|  Er-doped     1550nm      1W to kW     Long-haul fiber amp,      |
+|  fiber laser  (EDFA       (CW)         high-power industrial,    |
+|               amplifier)               coherent comms            |
+|  Yb-doped     1030-1120nm             Industrial cutting/weld    |
 |  fiber laser              to 100kW    Best beam quality at power|
 +------------------------------------------------------------------+
 ```

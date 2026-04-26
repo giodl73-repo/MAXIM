@@ -215,8 +215,8 @@ BMS ARCHITECTURE
                     +--+---+ +--+----+
                        |        |
                +---+---+   +---+---+
-               | Cell | | | Cell  |
-               | stack| | | stack |
+               | Cell  | | | Cell  |
+               | stack| | | stack  |
                +------+   +-------+
 
 BMS FUNCTIONS:

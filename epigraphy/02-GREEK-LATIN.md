@@ -7,9 +7,9 @@ GREEK AND LATIN EPIGRAPHIC LANDSCAPE
 ======================================
 
 +------------------------------------------------------------------+
-|  GREEK INSCRIPTIONS                LATIN INSCRIPTIONS           |
+|  GREEK INSCRIPTIONS                LATIN INSCRIPTIONS            |
 |                                                                  |
-|  ~190,000 texts (PHI corpus)       ~490,000 texts (EDCS corpus) |
+|  ~190,000 texts (PHI corpus)       ~490,000 texts (EDCS corpus)  |
 |  8th c. BCE - Byzantine            3rd c. BCE - 7th c. CE        |
 |                                                                  |
 |  FUNCTIONAL CATEGORIES:            FUNCTIONAL CATEGORIES:        |

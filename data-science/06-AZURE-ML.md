@@ -9,13 +9,13 @@
 ├─────────────────────────────────────────────────────────────────────────────┤
 │                                                                             │
 │  ┌──────────────────────────────────────────────────────────────────────┐  │
-│  │                        STUDIO UI / CLI v2 / SDK v2                    │  │
-│  │           (all three surface the same underlying API)                 │  │
+│  │                        STUDIO UI / CLI v2 / SDK v2                   │  │
+│  │           (all three surface the same underlying API)                │  │
 │  └──────────────┬───────────────────────────────────────────────────────┘  │
 │                 │                                                           │
 │  ┌──────────────▼───────────────────────────────────────────────────────┐  │
-│  │                         WORKSPACE                                     │  │
-│  │  ┌───────────┐  ┌───────────┐  ┌────────────┐  ┌─────────────────┐  │  │
+│  │                         WORKSPACE                                    │  │
+│  │  ┌───────────┐  ┌───────────┐  ┌────────────┐  ┌─────────────────┐  │   │
 │  │  │  Assets   │  │  Compute  │  │  Data      │  │  Connections     │  │  │
 │  │  │           │  │           │  │            │  │                  │  │  │
 │  │  │ • Models  │  │ • Cluster │  │ • Datastores│  │ • Storage acct  │  │  │
@@ -122,7 +122,7 @@ AzureML Data Scientist = train/deploy but not manage infra.
 ┌──────────────────────────────────────────────────────────────────────┐
 │                         COMPUTE TYPES                                │
 │                                                                      │
-│  ┌─────────────────────────────┐  ┌─────────────────────────────┐   │
+│  ┌─────────────────────────────┐  ┌─────────────────────────────┐    │
 │  │     COMPUTE INSTANCE         │  │     COMPUTE CLUSTER          │   │
 │  │  (Interactive dev)           │  │  (Training at scale)         │   │
 │  │                              │  │                              │   │
@@ -185,7 +185,7 @@ automatically if you enable it. Good for long training runs where restartability
 │  DATA LAYER                                                  │
 │                                                              │
 │  Datastore (connection)                                      │
-│  ┌──────────────────┐  ┌──────────────────┐                 │
+│  ┌──────────────────┐  ┌──────────────────┐                  │
 │  │  Azure Blob /    │  │  ADLS Gen2       │                 │
 │  │  Storage         │  │  (hierarchical)  │                 │
 │  └────────┬─────────┘  └────────┬─────────┘                 │
@@ -628,11 +628,11 @@ The Studio UI shows a "stage" column if you tag consistently.
 ┌───────────────────────────────────────────────────────────────────┐
 │                    MANAGED ONLINE ENDPOINT                        │
 │                                                                   │
-│  https://<endpoint-name>.<region>.inference.ml.azure.com/score   │
+│  https://<endpoint-name>.<region>.inference.ml.azure.com/score    │
 │                                                                   │
-│         traffic split (100% blue / 0% green)                     │
+│         traffic split (100% blue / 0% green)                      │
 │              │                  │                                 │
-│    ┌─────────▼──────┐  ┌────────▼────────┐                       │
+│    ┌─────────▼──────┐  ┌────────▼────────┐                        │
 │    │  Deployment A  │  │  Deployment B   │                       │
 │    │  (blue)        │  │  (green)        │                       │
 │    │  model v5      │  │  model v6       │                       │
@@ -987,7 +987,7 @@ jobs:
 │  Two portals — different focus, converging                          │
 │                                                                     │
 │  AzureML Studio (ml.azure.com)                                      │
-│  ┌───────────────────────────────────────────────────────────┐     │
+│  ┌───────────────────────────────────────────────────────────┐      │
 │  │  • Classic ML: training, pipeline, model registry         │     │
 │  │  • Compute management, datastores                         │     │
 │  │  • AutoML, sweep jobs                                     │     │
@@ -1073,24 +1073,24 @@ requires more wiring. For Azure-committed teams, Prompt Flow reduces ops burden.
 │  SECURITY LAYERS                                                    │
 │                                                                     │
 │  Identity & Access                                                  │
-│  ├── Managed Identity (workspace → ACR/Storage, no secrets)        │
-│  ├── RBAC (Owner/Contributor/Reader + 5 AzureML-specific roles)    │
-│  └── Entra ID integration (SSO, conditional access)                │
+│  ├── Managed Identity (workspace → ACR/Storage, no secrets)         │
+│  ├── RBAC (Owner/Contributor/Reader + 5 AzureML-specific roles)     │
+│  └── Entra ID integration (SSO, conditional access)                 │
 │                                                                     │
 │  Network                                                            │
-│  ├── Private Endpoint (workspace accessible only from VNet)        │
-│  ├── No public internet from training compute                      │
-│  └── Egress → Azure Firewall or NAT Gateway                        │
+│  ├── Private Endpoint (workspace accessible only from VNet)         │
+│  ├── No public internet from training compute                       │
+│  └── Egress → Azure Firewall or NAT Gateway                         │
 │                                                                     │
 │  Data                                                               │
-│  ├── Encryption at rest (ADE + CMK via Key Vault)                  │
-│  ├── Encryption in transit (TLS everywhere)                        │
-│  └── Data exfiltration prevention (outbound rules)                 │
+│  ├── Encryption at rest (ADE + CMK via Key Vault)                   │
+│  ├── Encryption in transit (TLS everywhere)                         │
+│  └── Data exfiltration prevention (outbound rules)                  │
 │                                                                     │
 │  Compliance                                                         │
-│  ├── Audit logs → Azure Monitor (every API call)                   │
-│  ├── Policy (deny non-compliant VM SKUs, enforce tags)             │
-│  └── Private link workspace + no public access = FedRAMP-ready     │
+│  ├── Audit logs → Azure Monitor (every API call)                    │
+│  ├── Policy (deny non-compliant VM SKUs, enforce tags)              │
+│  └── Private link workspace + no public access = FedRAMP-ready      │
 └─────────────────────────────────────────────────────────────────────┘
 ```
 

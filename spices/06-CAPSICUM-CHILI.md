@@ -4,21 +4,21 @@
 
 ```
 +------------------------------------------------------------------+
-|                  THE CHILI COLUMBIAN EXCHANGE                     |
+|                  THE CHILI COLUMBIAN EXCHANGE                    |
 |                                                                  |
 |  PRE-1492: Chili exists ONLY in the Americas                     |
 |  POST-1600: Chili has been adopted into cuisines of:             |
 |                                                                  |
 |  India (vindaloo, curry)                                         |
 |  Korea (kimchi, gochujang)                                       |
-|  Hungary (goulash, paprika)                                       |
-|  Thailand (all Thai curries)                                      |
+|  Hungary (goulash, paprika)                                      |
+|  Thailand (all Thai curries)                                     |
 |  West Africa (piri piri, suya)                                   |
 |  China (Sichuan mala, Hunan)                                     |
 |  Ethiopia (berbere)                                              |
 |                                                                  |
 |  Timeline: 50 years from 1492 to global integration              |
-|  This is the fastest food plant spread in human history           |
+|  This is the fastest food plant spread in human history          |
 |                                                                  |
 |  Why so fast?                                                    |
 |  ✓ Easy to grow in tropics                                       |
@@ -201,8 +201,8 @@ REFERENCE SCALE:
 | Thai bird chili      | 50,000–100,000 SHU        |
 | Habanero             | 100,000–350,000 SHU       |
 | Scotch bonnet        | 150,000–350,000 SHU       |
-| Ghost pepper (bhut)  | 800,000–1,000,000 SHU    |
-| Carolina Reaper      | 1,400,000–2,200,000 SHU  |
+| Ghost pepper (bhut)  | 800,000–1,000,000 SHU     |
+| Carolina Reaper      | 1,400,000–2,200,000 SHU   |
 | Pure capsaicin       | ~16,000,000 SHU           |
 +--------------------------------------------------+
 

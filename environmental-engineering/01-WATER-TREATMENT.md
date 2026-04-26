@@ -108,12 +108,12 @@ Coagulation destabilizes them so they can aggregate.
   │ Alum                 │ Al₂(SO₄)₃·14H₂O — most common,           │
   │ (aluminum sulfate)   │ lowers pH (consume alkalinity)             │
   ├──────────────────────┼────────────────────────────────────────────┤
-  │ Ferric sulfate       │ Fe₂(SO₄)₃ — effective at wider pH range   │
+  │ Ferric sulfate       │ Fe₂(SO₄)₃ — effective at wider pH range    │
   │                      │ than alum; produces denser sludge          │
   ├──────────────────────┼────────────────────────────────────────────┤
   │ Ferric chloride      │ FeCl₃ — similar to ferric sulfate         │
   ├──────────────────────┼────────────────────────────────────────────┤
-  │ PACl (polyaluminum   │ Pre-polymerized — less pH depression,     │
+  │ PACl (polyaluminum   │ Pre-polymerized — less pH depression,      │
   │ chloride)            │ effective in cold water                    │
   ├──────────────────────┼────────────────────────────────────────────┤
   │ Cationic polymer     │ Used as primary coagulant or coagulant aid │
@@ -181,7 +181,7 @@ loading rate, SLR), not detention time.
   │ Tube settlers    │ Inclined tubes (60°) increase effective     │
   │                  │ settling area 5–10× per footprint          │
   ├──────────────────┼─────────────────────────────────────────────┤
-  │ Plate settlers   │ Parallel inclined plates — same principle  │
+  │ Plate settlers   │ Parallel inclined plates — same principle   │
   │ (lamella)        │                                             │
   ├──────────────────┼─────────────────────────────────────────────┤
   │ DAF              │ Dissolved air flotation — low-density       │
@@ -278,8 +278,8 @@ The key concept is CT: the product of concentration (C, mg/L) and time (T, min).
   │              │ inactivation    │ turbidity must be low (<1 NTU│
   ├──────────────┼─────────────────┼──────────────────────────────┤
   │ Ozone        │ Powerful        │ Bromate formation (bromide   │
-  │              │ oxidant; Crypto  │ in source water + O₃);      │
-  │              │ effective;       │ no distribution residual;   │
+  │              │ oxidant; Crypto │ in source water + O₃);       │
+  │              │ effective;      │ no distribution residual;    │
   │              │ destroys taste/ │ high capital cost            │
   │              │ odor compounds  │                              │
   └──────────────┴─────────────────┴──────────────────────────────┘
@@ -347,18 +347,18 @@ RO-treated water for humidification and cooling tower makeup. Key considerations
 
 ```
   ┌──────────────────────────────────────────────────────────────┐
-  │ WATER BALANCE: DATA CENTER EVAPORATIVE COOLING              │
+  │ WATER BALANCE: DATA CENTER EVAPORATIVE COOLING               │
   │                                                              │
-  │ Municipal  →  Pretreatment  →  RO  →  Cooling tower         │
+  │ Municipal  →  Pretreatment  →  RO  →  Cooling tower          │
   │ supply         (antiscalant,    ↓      makeup water          │
   │                softening)    Brine →  sewer or reuse         │
   │                              (15-25%)                        │
   │                                                              │
   │ Cycles of concentration (CoC): how many times minerals       │
-  │ concentrate before blowdown                                   │
+  │ concentrate before blowdown                                  │
   │ CoC = TDS_blowdown / TDS_makeup                              │
-  │ Higher CoC → less blowdown → less water wasted              │
-  │ Limit: scaling (CaCO₃, SiO₂) and corrosion                  │
+  │ Higher CoC → less blowdown → less water wasted               │
+  │ Limit: scaling (CaCO₃, SiO₂) and corrosion                   │
   │                                                              │
   │ Microsoft "Water Positive": consume less fresh water than    │
   │ returned/recharged in same basin — requires detailed water   │
@@ -397,19 +397,19 @@ at parts-per-trillion levels, transforming treatment design.
   │                  │ exhausted carbon: reactivate or incinerate│
   │                  │ EBCT (empty bed contact time): 10–20 min  │
   ├──────────────────┼────────────────────────────────────────────┤
-  │ Ion exchange     │ Single-use (PFAS-selective resin) or      │
-  │ (IX resin)       │ regenerable (PFAS then concentrated);     │
-  │                  │ very high removal including short-chain;  │
+  │ Ion exchange     │ Single-use (PFAS-selective resin) or       │
+  │ (IX resin)       │ regenerable (PFAS then concentrated);      │
+  │                  │ very high removal including short-chain;   │
   │                  │ brine concentrate requires destruction     │
   ├──────────────────┼────────────────────────────────────────────┤
   │ High-pressure    │ NF/RO: >95% rejection of PFAS;           │
   │ membranes        │ concentrate problem — does not destroy;   │
   │                  │ used where low TDS is also needed         │
   ├──────────────────┼────────────────────────────────────────────┤
-  │ PFAS destruction │ EMERGING: electrochemical oxidation,      │
+  │ PFAS destruction │ EMERGING: electrochemical oxidation,       │
   │ (emerging)       │ supercritical water oxidation (SCWO),    │
-  │                  │ sonochemical, thermal desorption +        │
-  │                  │ high-temp incineration (>1100°C)          │
+  │                  │ sonochemical, thermal desorption +         │
+  │                  │ high-temp incineration (>1100°C)           │
   └──────────────────┴────────────────────────────────────────────┘
 ```
 
@@ -431,16 +431,16 @@ the customer tap. Two key challenges: chemical stability and microbiological saf
   │                     │ residual required at all points:      │
   │                     │ free Cl₂ ≥0.2 mg/L (SDWA)           │
   ├─────────────────────┼───────────────────────────────────────┤
-  │ DBP formation       │ Continues in distribution as Cl₂     │
+  │ DBP formation       │ Continues in distribution as Cl₂      │
   │ (water age)         │ reacts with residual NOM;             │
-  │                     │ LRAA monitoring required               │
+  │                     │ LRAA monitoring required              │
   ├─────────────────────┼───────────────────────────────────────┤
   │ Nitrification       │ With chloramine: ammonia released     │
   │                     │ supports nitrifier growth → chloramine│
   │                     │ depleted → loss of residual           │
   ├─────────────────────┼───────────────────────────────────────┤
-  │ Lead leaching       │ Lead service lines + lead solder;    │
-  │ (Lead & Copper Rule)│ Lead action level: 15 ppb at tap;    │
+  │ Lead leaching       │ Lead service lines + lead solder;     │
+  │ (Lead & Copper Rule)│ Lead action level: 15 ppb at tap;     │
   │                     │ corrosion control treatment (CCT)     │
   │                     │ required; LSL replacement program     │
   ├─────────────────────┼───────────────────────────────────────┤

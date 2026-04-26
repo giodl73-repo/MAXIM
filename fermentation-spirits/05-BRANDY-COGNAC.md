@@ -4,21 +4,21 @@
 
 ```
 +------------------------------------------------------------------+
-|                    BRANDY FAMILY TREE                             |
+|                    BRANDY FAMILY TREE                            |
 |                                                                    |
 |  BRANDY: Any distilled spirit from fermented fruit               |
 |  (from Dutch "brandewijn" = "burnt wine")                        |
 |                                                                    |
 |  GRAPE BRANDIES                    FRUIT BRANDIES (Eau de Vie)   |
 |  --------------                    ------------------------        |
-|  Cognac (Charente, France)         Calvados (Norman apple)        |
-|  Armagnac (Gascony, France)        Kirschwasser (cherry)          |
-|  Pisco (Peru/Chile -- disputed)    Slivovitz (Balkan plum)        |
-|  Grappa (Italian pomace)           Mirabelle (Lorraine plum)      |
-|  Marc (French pomace)              Framboise (raspberry)          |
-|  Metaxa (Greek grape blend)        Quetsch (prune plum)           |
-|  Brandy de Jerez (Spanish)         Poire William (pear)           |
-|                                    Applejack (American apple)     |
+|  Cognac (Charente, France)         Calvados (Norman apple)       |
+|  Armagnac (Gascony, France)        Kirschwasser (cherry)         |
+|  Pisco (Peru/Chile -- disputed)    Slivovitz (Balkan plum)       |
+|  Grappa (Italian pomace)           Mirabelle (Lorraine plum)     |
+|  Marc (French pomace)              Framboise (raspberry)         |
+|  Metaxa (Greek grape blend)        Quetsch (prune plum)          |
+|  Brandy de Jerez (Spanish)         Poire William (pear)          |
+|                                    Applejack (American apple)    |
 |                                                                    |
 |  POMACE BRANDIES (skins, seeds, stems after pressing)            |
 |  Grappa (Italy), Marc de Bourgogne (France), Bagaceira (Portugal)|
@@ -41,23 +41,23 @@ COGNAC APPELLATION CONTROLLEE
 COGNAC CRUS (sub-zones, best to least regarded):
 
   +----------------------------------------------+
-  |  GRANDE CHAMPAGNE (35,000 ha)                 |
-  |  Cretaceous chalky limestone (tufa/chalk)     |
-  |  Slowest-maturing, most delicate, finest      |
-  |  "Fine Champagne" = blend Grande + Petite     |
-  |                                               |
-  |  PETITE CHAMPAGNE (Surrounds Grande)          |
-  |  Similar chalk soils, slightly less fine      |
-  |                                               |
-  |  BORDERIES (northwest, smallest cru)          |
-  |  Clay + flint; round, violet/nutty notes      |
-  |  Fastest-maturing; blender's secret weapon    |
-  |                                               |
-  |  FINS BOIS (surrounding ring)                 |
-  |  Clay + limestone; quicker to mature          |
-  |                                               |
+  |  GRANDE CHAMPAGNE (35,000 ha)                |
+  |  Cretaceous chalky limestone (tufa/chalk)    |
+  |  Slowest-maturing, most delicate, finest     |
+  |  "Fine Champagne" = blend Grande + Petite    |
+  |                                              |
+  |  PETITE CHAMPAGNE (Surrounds Grande)         |
+  |  Similar chalk soils, slightly less fine     |
+  |                                              |
+  |  BORDERIES (northwest, smallest cru)         |
+  |  Clay + flint; round, violet/nutty notes     |
+  |  Fastest-maturing; blender's secret weapon   |
+  |                                              |
+  |  FINS BOIS (surrounding ring)                |
+  |  Clay + limestone; quicker to mature         |
+  |                                              |
   |  BONS BOIS + BOIS ORDINAIRES (outer zones)   |
-  |  Sandy/clay; less distinctive                 |
+  |  Sandy/clay; less distinctive                |
   +----------------------------------------------+
 ```
 
@@ -183,30 +183,30 @@ COGNAC BUSINESS MODEL:
 ARMAGNAC vs COGNAC COMPARISON
 
 +-----------------------------------------------------------+
-|                   ARMAGNAC          COGNAC                 |
-|                   --------          ------                 |
-| Region            Gascony (Gers,    Charente region        |
+|                   ARMAGNAC          COGNAC                |
+|                   --------          ------                |
+| Region            Gascony (Gers,    Charente region       |
 |                   Lot-et-Garonne,                         |
-|                   Landes)                                  |
-| Appellation       Bas-Armagnac,     Grande Champagne,      |
-|                   Armagnac-         Petite Champagne,      |
-|                   Tenareze,         Borderies, etc.        |
-|                   Haut-Armagnac                            |
-| Grapes            Ugni Blanc,       Ugni Blanc dominant    |
-|                   Baco Blanc (unique),                     |
-|                   Folle Blanche,                           |
-|                   Colombard                                |
+|                   Landes)                                 |
+| Appellation       Bas-Armagnac,     Grande Champagne,     |
+|                   Armagnac-         Petite Champagne,     |
+|                   Tenareze,         Borderies, etc.       |
+|                   Haut-Armagnac                           |
+| Grapes            Ugni Blanc,       Ugni Blanc dominant   |
+|                   Baco Blanc (unique),                    |
+|                   Folle Blanche,                          |
+|                   Colombard                               |
 | Still type        Alembic armagnacais  Charentais pot still|
 |                   (continuous         (double distillation)|
-|                   column still)                            |
-| ABV out           52-72%             68-72%                |
-| Character         Robust, rustic,    Refined, delicate     |
-|                   earthy, prunes     floral, complex       |
-| Single vintage    Common practice    Not a legal category  |
-| Aging minimum     VS: 1yr            VS: 2yr               |
-|                   VSOP: 4yr          VSOP: 4yr             |
-|                   XO: 10yr           XO: 10yr              |
-| Scale             ~6M bottles/yr     ~200M bottles/yr      |
+|                   column still)                           |
+| ABV out           52-72%             68-72%               |
+| Character         Robust, rustic,    Refined, delicate    |
+|                   earthy, prunes     floral, complex      |
+| Single vintage    Common practice    Not a legal category |
+| Aging minimum     VS: 1yr            VS: 2yr              |
+|                   VSOP: 4yr          VSOP: 4yr            |
+|                   XO: 10yr           XO: 10yr             |
+| Scale             ~6M bottles/yr     ~200M bottles/yr     |
 +-----------------------------------------------------------+
 
 ALEMBIC ARMAGNACAIS:

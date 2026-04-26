@@ -4,18 +4,18 @@
 
 ```
 +------------------------------------------------------------------+
-|              ANALYTICAL METHODS AND WHAT THEY ANSWER            |
+|              ANALYTICAL METHODS AND WHAT THEY ANSWER             |
 |                                                                  |
-|  Question                  Method                               |
+|  Question                  Method                                |
 |  ───────────────────────────────────────────────────────────── |
-|  Where was this made?      XRF / EMPA / lead isotopes           |
+|  Where was this made?      XRF / EMPA / lead isotopes            |
 |  What did they eat?        Stable isotopes (δ¹³C, δ¹⁵N)        |
-|  Where did they live?      Sr/O isotopes (migration)            |
-|  Who were they genetically?Ancient DNA (aDNA)                   |
-|  What was in this vessel?  Lipid residue analysis               |
-|  What plants were present? Phytoliths / pollen / seeds          |
-|  What was the diet detail? Zooarchaeology + faunal analysis     |
-|  What's the elemental comp? XRF (portable or lab)               |
+|  Where did they live?      Sr/O isotopes (migration)             |
+|  Who were they genetically?Ancient DNA (aDNA)                    |
+|  What was in this vessel?  Lipid residue analysis                |
+|  What plants were present? Phytoliths / pollen / seeds           |
+|  What was the diet detail? Zooarchaeology + faunal analysis      |
+|  What's the elemental comp? XRF (portable or lab)                |
 +------------------------------------------------------------------+
 ```
 

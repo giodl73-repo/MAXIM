@@ -6,33 +6,33 @@ Norse mythology is the pre-Christian religion of the Germanic peoples of Scandin
 
 ```
 ┌──────────────────────────────────────────────────────────────────┐
-│                    NINE WORLDS OF YGGDRASIL                       │
+│                    NINE WORLDS OF YGGDRASIL                      │
 │                                                                  │
 │                    ASGARD (gods — Aesir)                         │
-│                        │                                        │
-│             VANAHEIM ──┼── ALFHEIM (light elves)                │
-│           (Vanir gods) │                                        │
-│                        │                                        │
-│  NIFLHEIM ─────────────┼─────────────── MUSPELHEIM              │
-│  (ice, cold, mist;     │               (fire, heat;             │
-│   original void)       │                Surtr rules)            │
-│                        │                                        │
-│              MIDGARD (humans) — connected to Asgard             │
-│              by Bifrost (rainbow bridge)                        │
-│                        │                                        │
-│  SVARTALFHEIM ─────────┼─────────────── JOTUNHEIM               │
-│  (dwarves, dark elves) │               (giants — Jotnar)        │
-│                        │                                        │
+│                        │                                         │
+│             VANAHEIM ──┼── ALFHEIM (light elves)                 │
+│           (Vanir gods) │                                         │
+│                        │                                         │
+│  NIFLHEIM ─────────────┼─────────────── MUSPELHEIM               │
+│  (ice, cold, mist;     │               (fire, heat;              │
+│   original void)       │                Surtr rules)             │
+│                        │                                         │
+│              MIDGARD (humans) — connected to Asgard              │
+│              by Bifrost (rainbow bridge)                         │
+│                        │                                         │
+│  SVARTALFHEIM ─────────┼─────────────── JOTUNHEIM                │
+│  (dwarves, dark elves) │               (giants — Jotnar)         │
+│                        │                                         │
 │               HELHEIM (realm of ordinary dead)                   │
-│               ruled by Hel (Loki's daughter)                    │
+│               ruled by Hel (Loki's daughter)                     │
 │                                                                  │
 │  YGGDRASIL: enormous ash tree, roots in 3 wells:               │
-│  Urðarbrunnr (Well of Urð) — fate; Norns weave here             │
-│  Mímisbrunnr (Mimir's Well) — wisdom; Odin sacrificed eye here  │
-│  Hvergelmir — in Niflheim; primordial spring                    │
+│  Urðarbrunnr (Well of Urð) — fate; Norns weave here              │
+│  Mímisbrunnr (Mimir's Well) — wisdom; Odin sacrificed eye here   │
+│  Hvergelmir — in Niflheim; primordial spring                     │
 │                                                                  │
-│  Creatures: Eagle at top, serpent Níðhöggr gnawing roots,       │
-│  four stags eating leaves, Ratatoskr squirrel (gossip runner)   │
+│  Creatures: Eagle at top, serpent Níðhöggr gnawing roots,        │
+│  four stags eating leaves, Ratatoskr squirrel (gossip runner)    │
 └──────────────────────────────────────────────────────────────────┘
 ```
 
@@ -88,11 +88,11 @@ CREATION OF HUMANS:
 │               │ Valhalla: collects half of battle-slain          │
 │               │ (Freyja gets the other half — Fólkvangr)        │
 ├───────────────┼─────────────────────────────────────────────────┤
-│ THOR          │ Thunder, strength, protection of mankind         │
+│ THOR          │ Thunder, strength, protection of mankind        │
 │ (Donar)       │ Son of Odin and Jörð (Earth personified)        │
 │               │ Mjölnir (hammer), iron gauntlets, belt Megingjörð│
 │               │ Eternal enemy of Jörmungandr (World Serpent)    │
-│               │ Kills it at Ragnarok, walks 9 steps, dies        │
+│               │ Kills it at Ragnarok, walks 9 steps, dies       │
 │               │ Married to Sif (golden hair); most popular god  │
 │               │ among Norse commoners                           │
 ├───────────────┼─────────────────────────────────────────────────┤
@@ -107,9 +107,9 @@ CREATION OF HUMANS:
 ├───────────────┼─────────────────────────────────────────────────┤
 │ FREYR         │ Fertility, sunshine, rain, sex, prosperity        │
 │               │ Vanir god, lives in Asgard (Aesir-Vanir exchange)│
-│               │ Magic sword that fights on its own               │
+│               │ Magic sword that fights on its own              │
 │               │ Gave sword away for love of Gerðr → at Ragnarok │
-│               │ must fight bare-handed; killed by Surtr          │
+│               │ must fight bare-handed; killed by Surtr         │
 ├───────────────┼─────────────────────────────────────────────────┤
 │ FREYJA        │ Love, sex, war, magic (seiðr), death             │
 │               │ Receives half the slain (to Fólkvangr field)     │
@@ -117,9 +117,9 @@ CREATION OF HUMANS:
 │               │ Sister of Freyr; sometimes conflated with Frigg  │
 ├───────────────┼─────────────────────────────────────────────────┤
 │ TYR           │ Justice, law, war, single combat                  │
-│               │ Lost hand binding Fenrir (tricked wolf)          │
-│               │ Cognate with Zeus/Jupiter (PIE Dyēus)            │
-│               │ Tuesday = Tyr's day                              │
+│               │ Lost hand binding Fenrir (tricked wolf)         │
+│               │ Cognate with Zeus/Jupiter (PIE Dyēus)           │
+│               │ Tuesday = Tyr's day                             │
 ├───────────────┼─────────────────────────────────────────────────┤
 │ HEIMDALL      │ Watchman of the gods, guardian of Bifrost         │
 │               │ Gjallarhorn (horn) — blow at Ragnarok            │
@@ -128,10 +128,10 @@ CREATION OF HUMANS:
 ├───────────────┼─────────────────────────────────────────────────┤
 │ BALDUR        │ Light, beauty, purity; universally beloved        │
 │               │ Made invulnerable by Frigg (all things swore)   │
-│               │ except mistletoe (too young to swear)            │
+│               │ except mistletoe (too young to swear)           │
 │               │ Loki guides blind Höðr to throw mistletoe dart  │
-│               │ → Baldur dies — beginning of the end             │
-│               │ Will return after Ragnarok                       │
+│               │ → Baldur dies — beginning of the end            │
+│               │ Will return after Ragnarok                      │
 └───────────────┴─────────────────────────────────────────────────┘
 ```
 
@@ -191,7 +191,7 @@ Runes were the Germanic alphabet used for writing AND for magic. The Elder Futha
 
 ```
 ┌──────────────────────────────────────────────────────────────────┐
-│                    ELDER FUTHARK                                  │
+│                    ELDER FUTHARK                                 │
 ├──────┬───────┬───────────┬──────────────────────────────────────┤
 │  ᚠ   │ Fehu  │ F         │ Cattle, wealth, prosperity, luck     │
 │  ᚢ   │ Uruz  │ U         │ Aurochs, primal strength, vitality   │
@@ -202,7 +202,7 @@ Runes were the Germanic alphabet used for writing AND for magic. The Elder Futha
 │  ᚷ   │ Gebo  │ G         │ Gift, exchange, partnership, balance │
 │  ᚹ   │ Wunjo │ W         │ Joy, harmony, perfection, fellowship │
 ├──────┼───────┼───────────┼──────────────────────────────────────┤
-│  ᚺ   │ Hagalaz│ H        │ Hail, disruption, transformation    │
+│  ᚺ   │ Hagalaz│ H        │ Hail, disruption, transformation     │
 │  ᚾ   │ Nauthiz│ N        │ Need, constraint, resistance, endurance│
 │  ᛁ   │ Isaz  │ I         │ Ice, stillness, clarity, blockage    │
 │  ᛃ   │ Jera  │ J/Y       │ Year, harvest, cyclical time, reward │

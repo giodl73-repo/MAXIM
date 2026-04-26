@@ -8,7 +8,7 @@ sequences, bypassing the E-L equation entirely.
 
 ```
 +-----------------------------------------------------------------------+
-|              DIRECT METHODS CONCEPT                                    |
+|              DIRECT METHODS CONCEPT                                   |
 |                                                                       |
 |  CLASSICAL APPROACH:                                                  |
 |  1. Derive E-L equation.                                              |
@@ -18,10 +18,10 @@ sequences, bypassing the E-L equation entirely.
 |                                                                       |
 |  DIRECT METHODS (Tonelli, 1910s):                                     |
 |  1. Show J[u] is bounded below (infimum exists).                      |
-|  2. Take minimizing sequence: u_n with J[u_n] → inf J.               |
+|  2. Take minimizing sequence: u_n with J[u_n] → inf J.                |
 |  3. Extract convergent subsequence (compactness).                     |
 |  4. Show J is lower semicontinuous: J[u*] ≤ lim inf J[u_n].         |
-|  5. Conclude: J[u*] = inf J — the minimizer exists.                  |
+|  5. Conclude: J[u*] = inf J — the minimizer exists.                   |
 |                                                                       |
 |  ANALOGY: In Rⁿ, min of f on compact set K exists by EVT.           |
 |  Direct methods: replace "compact set" by "weakly compact" set in   |
@@ -79,15 +79,15 @@ Sobolev spaces provide the natural habitat for variational problems:
   KEY PROPERTIES:
   ┌──────────────────────────────────────────────────────────────────┐
   │ REFLEXIVITY: W^{k,p} is reflexive for 1 < p < ∞.               │
-  │   → Every bounded sequence has a weakly convergent subsequence. │
-  │   (This is the key compactness property for direct methods.)    │
+  │   → Every bounded sequence has a weakly convergent subsequence.  │
+  │   (This is the key compactness property for direct methods.)     │
   │                                                                  │
   │ SOBOLEV EMBEDDING: if k − n/p > j, then W^{k,p} ↪ C^j.        │
   │   n=3, p=2: H¹ ↪ L^6  (into Lebesgue spaces)                  │
   │             H² ↪ C⁰  (into continuous functions)               │
   │                                                                  │
   │ RELLICH-KONDRACHOV: if q < p* = np/(n−p), W^{1,p}↪↪ L^q      │
-  │   (compactly embedded — bounded sequences converge strongly)    │
+  │   (compactly embedded — bounded sequences converge strongly)     │
   │                                                                  │
   │ POINCARÉ INEQUALITY: ‖u‖_L^p ≤ C ‖∇u‖_L^p for u ∈ W₀^{1,p}  │
   │   → ‖∇u‖ alone controls ‖u‖ — coercivity follows.             │

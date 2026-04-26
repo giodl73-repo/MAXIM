@@ -28,9 +28,9 @@ Five modes move all people and freight on Earth. Each has distinct physics, econ
 |  | Train    | | Traffic | | ATC /   | | Voyage  | | SCADA   |   |
 |  | Control  | | Mgmt    | | dispatch| | routing | | control |   |
 |  +----------+ +---------+ +---------+ +---------+ +---------+   |
-|                                                                  |
-|  DEMAND LAYER (people and freight needing to move)               |
-|  Commuters, tourists, freight shippers, energy consumers         |
+|                                                                 |
+|  DEMAND LAYER (people and freight needing to move)              |
+|  Commuters, tourists, freight shippers, energy consumers        |
 +------------------------------------------------------------------+
 ```
 

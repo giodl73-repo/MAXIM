@@ -4,26 +4,26 @@
 
 ```
 ┌─────────────────────────────────────────────────────────────────────────────┐
-│                    PRODUCT BEHAVIORAL DESIGN SPECTRUM                        │
+│                    PRODUCT BEHAVIORAL DESIGN SPECTRUM                       │
 │                                                                               │
 │  ETHICAL                                                        UNETHICAL   │
-│  DESIGN                                                        DARK PATTERN  │
-│     │                                                               │        │
+│  DESIGN                                                        DARK PATTERN │
+│     │                                                               │       │
 │  BENEFICIAL DEFAULTS     PERSUASIVE DESIGN       MANIPULATIVE     DECEPTIVE │
-│  User genuinely          Works through            Exploits         Outright  │
-│  benefits; would         cognitive shortcuts      cognitive        false     │
+│  User genuinely          Works through            Exploits         Outright │
+│  benefits; would         cognitive shortcuts      cognitive        false    │
 │  choose same             but serves user          weaknesses       information│
 │  if fully informed       AND product goals        against user     or design  │
 │                                                   interest                    │
 │                                                                               │
-│  Example: Netflix pause  Example: Social proof   Example: Variable Example:  │
-│  suggestions at end      "X people watching       reward → infinite Fake     │
+│  Example: Netflix pause  Example: Social proof   Example: Variable Example: │
+│  suggestions at end      "X people watching       reward → infinite Fake    │
 │  of season               this right now"          scroll           countdowns │
 │                                                                               │
-│  THE CRITICAL DISTINCTION:                                                   │
+│  THE CRITICAL DISTINCTION:                                                  │
 │  Nudge: guides toward outcome user would choose if attentive and informed.  │
 │  Dark pattern: guides toward outcome that benefits product at user's expense.│
-│  Same technical mechanism (cognitive shortcuts); different alignment.        │
+│  Same technical mechanism (cognitive shortcuts); different alignment.       │
 └─────────────────────────────────────────────────────────────────────────────┘
 ```
 

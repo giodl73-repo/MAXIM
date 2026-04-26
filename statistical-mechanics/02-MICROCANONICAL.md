@@ -18,9 +18,9 @@ MICROCANONICAL ENSEMBLE — STRUCTURE
   │   FUNDAMENTAL POSTULATE:                                        │
   │   All microstates with energy E ± δE are equally probable.      │
   │                                                                 │
-  │   Ω(E, N, V) = number of microstates in [E, E+δE]              │
+  │   Ω(E, N, V) = number of microstates in [E, E+δE]               │
   │                                                                 │
-  │   S(E, N, V) = k_B ln Ω(E, N, V)        ← BOLTZMANN ENTROPY    │
+  │   S(E, N, V) = k_B ln Ω(E, N, V)        ← BOLTZMANN ENTROPY     │
   │                                                                 │
   │   From S, recover all of thermodynamics:                        │
   │   1/T = ∂S/∂E|_{N,V}     P/T = ∂S/∂V|_{N,E}                   │
@@ -30,7 +30,7 @@ MICROCANONICAL ENSEMBLE — STRUCTURE
 
   KEY OBJECTS:
   ┌──────────────────────┬──────────────────────────────────────────┐
-  │ Ω(E, N, V)           │ density of states Ω(E) or g(E)          │
+  │ Ω(E, N, V)           │ density of states Ω(E) or g(E)           │
   │ number of microstates│ Ω = ∫ d³ᴺr d³ᴺp δ(H − E) / (h³ᴺ N!)   │
   ├──────────────────────┼──────────────────────────────────────────┤
   │ S = k_B ln Ω         │ entropy from counting                    │

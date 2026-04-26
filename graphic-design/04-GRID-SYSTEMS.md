@@ -4,7 +4,7 @@
 
 ```
 +------------------------------------------------------------------+
-|                    GRID SYSTEMS TAXONOMY                          |
+|                    GRID SYSTEMS TAXONOMY                         |
 |                                                                  |
 |  MANUSCRIPT      COLUMN       MODULAR         HIERARCHICAL       |
 |  (single block)  (multi-col)  (rows + cols)   (custom)           |
@@ -13,7 +13,7 @@
 |  Reports         Web layouts  Catalogs        Annual reports     |
 |  Long-form text  Dashboards   Complex docs    Editorial spread   |
 |                                                                  |
-|  COMPLEXITY --------------------------------------------->        |
+|  COMPLEXITY --------------------------------------------->       |
 |  FLEXIBILITY <---------------------------------------------      |
 |                                                                  |
 |  All grids share: margins, columns, gutters, baselines           |

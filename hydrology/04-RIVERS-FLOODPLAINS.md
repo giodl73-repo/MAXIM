@@ -4,7 +4,7 @@
 
 ```
 +===========================================================================+
-|                   RIVER SYSTEM STRUCTURE                                   |
+|                   RIVER SYSTEM STRUCTURE                                  |
 |         From headwater to delta — energy, sediment, and form              |
 +===========================================================================+
 |                                                                           |

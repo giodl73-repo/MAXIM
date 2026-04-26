@@ -7,7 +7,7 @@
 │                     NISQ ERA (2019 – ~2030?)                        │
 │                                                                     │
 │  PHYSICAL REALITY:                                                  │
-│  ┌─────────────────────────────────────────────────────────────┐   │
+│  ┌─────────────────────────────────────────────────────────────┐    │
 │  │  ~50 – 1,000 physical qubits                                │   │
 │  │  No full quantum error correction                           │   │
 │  │  2-qubit gate error: 0.1% – 1%                              │   │
@@ -272,7 +272,7 @@ IBM Heron: 133 qubits, improved error rates (2023, focus on fidelity over count)
 
 ```
 ┌───────────────────────────────────────────────────────────────────────┐
-│ APPLICATION           │ NISQ STATUS  │ REALISTIC TIMELINE            │
+│ APPLICATION           │ NISQ STATUS  │ REALISTIC TIMELINE             │
 ├───────────────────────┼──────────────┼───────────────────────────────┤
 │ VQE for small         │ Demonstrated │ NOW — but classical (CCSD(T)) │
 │ molecules (H₂, LiH)  │ proof-of-    │ beats NISQ VQE on accuracy   │
@@ -350,7 +350,7 @@ LONG-TERM (2035+): Full fault-tolerant systems capable of RSA-2048, useful chemi
 
 ```
 ┌──────────────────────────────────────────────────────────────────────┐
-│ SCENARIO                      │ RECOMMENDATION                      │
+│ SCENARIO                      │ RECOMMENDATION                       │
 ├───────────────────────────────┼─────────────────────────────────────┤
 │ Need error mitigation now     │ Always apply readout calibration;   │
 │                               │ ZNE for shallow circuits (< 50 gates│
@@ -364,7 +364,7 @@ LONG-TERM (2035+): Full fault-tolerant systems capable of RSA-2048, useful chemi
 │                               │ Look for classical simulation paper │
 ├───────────────────────────────┼─────────────────────────────────────┤
 │ Near-term compute investment  │ Focus on quantum simulation         │
-│                               │ (strongly correlated systems —     │
+│                               │ (strongly correlated systems —      │
 │                               │ best bet for genuine NISQ value)    │
 ├───────────────────────────────┼─────────────────────────────────────┤
 │ Fault-tolerant planning       │ Resource estimation tools (e.g.,    │

@@ -130,7 +130,7 @@ NEMERTEAN INNOVATIONS
 
 COMPARED TO FLATWORMS:
   +--------------------------------------------+
-  | Nemertea adds:                              |
+  | Nemertea adds:                             |
   |   Complete gut (mouth AND anus) ← First!   |
   |   Circulatory system ← First!              |
   |   Proboscis (eversible, for prey capture)  |

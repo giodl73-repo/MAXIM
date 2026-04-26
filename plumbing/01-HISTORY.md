@@ -37,7 +37,7 @@ The Palace of Knossos had a remarkably modern-looking plumbing system 3,700 year
   │  KNOSSOS PALACE (~1700 BCE)                             │
   │                                                         │
   │  Terracotta pipe sections                               │
-  │  ┌────┐  ┌────┐  ┌────┐                                │
+  │  ┌────┐  ┌────┐  ┌────┐                                 │
   │  │    │  │    │  │    │  Tapered joints                 │
   │  │    ├──┤    ├──┤    │  (fit inside each other)        │
   │  └────┘  └────┘  └────┘                                │
@@ -162,10 +162,10 @@ This is arguably the greatest public health achievement in history — not vacci
   → Dense cluster around Broad Street water pump
 
   ┌─────────────────────────────────────────────┐
-  │  ●●●●   BROAD STREET PUMP                  │
-  │  ●●●                                       │
-  │  ●●●●●                                     │
-  │         ●●  Nearby pump                    │
+  │  ●●●●   BROAD STREET PUMP                   │
+  │  ●●●                                        │
+  │  ●●●●●                                      │
+  │         ●●  Nearby pump                     │
   │                                             │
   │  (Snow plotted deaths as dots on a map)     │
   └─────────────────────────────────────────────┘
@@ -287,7 +287,7 @@ PEX          ~2000s–present   Crimp, clamp,   Dominant new
   │           expand pipe + ring with tool, insert fitting,     │
   │           ring contracts and locks permanently              │
   │         Can be repaired with heat (kinks straighten)        │
-  │         Brand: Uponor/Wirsbo; Highest cost                 │
+  │         Brand: Uponor/Wirsbo; Highest cost                  │
   ├─────────────────────────────────────────────────────────────┤
   │  PEX-b  Silane (moisture cure) or e-beam method            │
   │         Slightly stiffer; slightly less flexible            │
@@ -296,7 +296,7 @@ PEX          ~2000s–present   Crimp, clamp,   Dominant new
   │         Brand: Rehau; widely available at home centers      │
   ├─────────────────────────────────────────────────────────────┤
   │  PEX-c  Electron beam cross-linking, different process      │
-  │         Less common; crimp or clamp fittings               │
+  │         Less common; crimp or clamp fittings                │
   └─────────────────────────────────────────────────────────────┘
 
   FREEZE RESISTANCE:

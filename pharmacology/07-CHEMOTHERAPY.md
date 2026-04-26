@@ -8,9 +8,9 @@ Cancer pharmacology kills tumor cells by exploiting differences between tumor an
 +──────────────────────────────────────────────────────────────────+
 |              CANCER PHARMACOLOGY LANDSCAPE                       |
 |                                                                  |
-|  GENERATION 1: Traditional Chemotherapy (1950s–1980s)           |
-|  • Targets rapidly dividing cells (all of them, not just tumor) |
-|  • High toxicity to bone marrow, GI tract, hair                 |
+|  GENERATION 1: Traditional Chemotherapy (1950s–1980s)            |
+|  • Targets rapidly dividing cells (all of them, not just tumor)  |
+|  • High toxicity to bone marrow, GI tract, hair                  |
 |  • Alkylating agents, antimetabolites, topoisomerase inhibitors  |
 |                                                                  |
 |  GENERATION 2: Targeted Therapy (1990s–present)                  |
@@ -19,11 +19,11 @@ Cancer pharmacology kills tumor cells by exploiting differences between tumor an
 |  • Small molecules (-ibs) and monoclonal antibodies (-mabs)      |
 |                                                                  |
 |  GENERATION 3: Immunotherapy (2010s–present)                     |
-|  • Activates or redirects immune system against tumor           |
-|  • Checkpoint inhibitors (PD-1/PD-L1, CTLA-4)                   |
+|  • Activates or redirects immune system against tumor            |
+|  • Checkpoint inhibitors (PD-1/PD-L1, CTLA-4)                    |
 |  • CAR-T cells, bispecific antibodies                            |
 |                                                                  |
-|  SELECT PATIENT → MATCH MECHANISM → MANAGE RESISTANCE           |
+|  SELECT PATIENT → MATCH MECHANISM → MANAGE RESISTANCE            |
 +──────────────────────────────────────────────────────────────────+
 ```
 

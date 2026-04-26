@@ -6,7 +6,7 @@ Every garment is a solution to a constraint-satisfaction problem. The body is th
 
 ```
 +------------------------------------------------------------------------+
-|                    THE DESIGN CONSTRAINT SPACE                          |
+|                    THE DESIGN CONSTRAINT SPACE                         |
 |                                                                        |
 |  INPUTS              CONSTRAINTS            OUTPUTS                    |
 |  +-----------+       +--------------+       +----------------+         |
@@ -19,7 +19,7 @@ Every garment is a solution to a constraint-satisfaction problem. The body is th
 |                                                                        |
 |  EVALUATION FUNCTION                                                   |
 |  Does the garment:                                                     |
-|    1. Achieve the intended silhouette?                                  |
+|    1. Achieve the intended silhouette?                                 |
 |    2. Move correctly on the body?                                      |
 |    3. Communicate the intended signal?                                 |
 |    4. Survive production at scale (if RTW)?                            |
@@ -159,7 +159,7 @@ RULE OF THIRDS: DIVIDING THE BODY
   1/3 top, 2/3 bottom          1/2 top, 1/2 bottom        1/4 top, 3/4 bottom
   ┌─────────┐                  ┌─────────┐                ┌─────────┐
   │ cropped  │ 1/3             │         │                │ crop    │ 1/4
-  │ jacket   │                 │  tunic  │ 1/2            ├─────────┤
+  │ jacket  │                 │  tunic  │ 1/2            ├─────────┤
   ├─────────┤                  │         │                │         │
   │         │                  ├─────────┤                │         │
   │  long   │ 2/3             │         │ 1/2            │  maxi   │ 3/4

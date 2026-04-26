@@ -10,14 +10,14 @@
 
 ```
 ┌───────────────────────────────────────────────────────────────────┐
-│                       ELECTROCHEMISTRY                             │
-│                                                                    │
-│  REDOX FOUNDATIONS                                                 │
-│  ─────────────────                                                 │
+│                       ELECTROCHEMISTRY                            │
+│                                                                   │
+│  REDOX FOUNDATIONS                                                │
+│  ─────────────────                                                │
 │  Oxidation states      Half-reaction balancing                    │
-│  Reduction potentials  Standard hydrogen electrode (SHE = 0 V)   │
-│          │                                                         │
-│     ┌────┴──────────────────┐                                      │
+│  Reduction potentials  Standard hydrogen electrode (SHE = 0 V)    │
+│          │                                                        │
+│     ┌────┴──────────────────┐                                     │
 │     ▼                       ▼                                      │
 │  GALVANIC CELL             ELECTROLYTIC CELL                      │
 │  ─────────────             ─────────────────                       │
@@ -27,10 +27,10 @@
 │          │                                                         │
 │     ┌────┴──────────────────┐                                      │
 │     ▼                       ▼                                      │
-│  THERMODYNAMIC LINKS       ELECTRODE KINETICS                     │
+│  THERMODYNAMIC LINKS       ELECTRODE KINETICS                      │
 │  ─────────────────         ──────────────────                      │
-│  ΔG° = −nFE°               Butler-Volmer equation                 │
-│  K = 10^(nE°/0.05916)      Overpotential η                        │
+│  ΔG° = −nFE°               Butler-Volmer equation                  │
+│  K = 10^(nE°/0.05916)      Overpotential η                         │
 │  Nernst: E = E°−(RT/nF)lnQ Tafel slope / exchange current j₀     │
 │          │                                                         │
 │     ┌────┴───────────────────────┐                                 │

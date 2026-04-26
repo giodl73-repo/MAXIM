@@ -6,7 +6,7 @@ Venus is Earth's twin by mass and size but has diverged into a hellscape: 737 K 
 
 ```
 +------------------------------------------------------------------+
-|                    VENUS AT A GLANCE                              |
+|                    VENUS AT A GLANCE                             |
 +------------------------------------------------------------------+
 |                                                                  |
 |  Mass:       0.815 M⊕        Radius:   6,052 km (0.95 R⊕)      |

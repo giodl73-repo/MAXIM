@@ -102,12 +102,12 @@ THE PLATONIC ONTOLOGY
 
   Visible World (becoming)          Intelligible World (being)
   ┌─────────────────────┐           ┌─────────────────────────┐
-  │ Shadows and images  │           │ Mathematical objects     │
-  │ (imagination)       │           │ (reasoning)              │
-  │                     │     ──>   │                          │
-  │ Physical objects    │           │ The Forms (knowledge)    │
-  │ (belief)            │           │ — Beauty Itself          │
-  └─────────────────────┘           │ — Justice Itself         │
+  │ Shadows and images  │           │ Mathematical objects    │
+  │ (imagination)       │           │ (reasoning)             │
+  │                     │     ──>   │                         │
+  │ Physical objects    │           │ The Forms (knowledge)   │
+  │ (belief)            │           │ — Beauty Itself         │
+  └─────────────────────┘           │ — Justice Itself        │
                                     │ — The Good               │
                                     └─────────────────────────┘
   Divided Line (Republic, Book VI)
@@ -126,9 +126,9 @@ This is essentially Platonic realism about universals — the position that type
 ```
   INSIDE CAVE                          OUTSIDE CAVE
   ┌────────────────────────────┐       ┌─────────────────────┐
-  │ Prisoners chained, facing  │       │ Actual objects       │
+  │ Prisoners chained, facing  │       │ Actual objects      │
   │ wall. See only shadows     │  ──>  │ The Sun (= The Good) │
-  │ of objects carried past    │       │ Direct knowledge     │
+  │ of objects carried past    │       │ Direct knowledge    │
   │ the fire. Take shadows     │       └─────────────────────┘
   │ for reality.               │
   └────────────────────────────┘
@@ -149,9 +149,9 @@ Plato's Republic asks: what is justice? The answer is structural:
 ```
   SOUL                    CITY-STATE (POLIS)
   ┌──────────────────┐    ┌──────────────────────┐
-  │ Reason           │ ── │ Rulers (Guardians)    │
-  │ Spirit/Passion   │ ── │ Soldiers/Auxiliaries  │
-  │ Appetite         │ ── │ Producers/Craftsmen   │
+  │ Reason           │ ── │ Rulers (Guardians)   │
+  │ Spirit/Passion   │ ── │ Soldiers/Auxiliaries │
+  │ Appetite         │ ── │ Producers/Craftsmen  │
   └──────────────────┘    └──────────────────────┘
 
   Justice = each part doing its proper function
@@ -212,7 +212,7 @@ Aristotle rejects Plato's separate Forms. Universals don't exist independently �
   │ Form of Dog  │      │ Each individual dog has:       │
   │ (separate,   │      │  Form (dogness) — in the dog   │
   │  eternal)    │      │  Matter (flesh, bone) — in the dog
-  └──────────────┘      │                                 │
+  └──────────────┘      │                                │
   Dogs participate in   │ Universal "dog" exists because  │
   the Form.             │ many individuals share a form.  │
                         └────────────────────────────────┘

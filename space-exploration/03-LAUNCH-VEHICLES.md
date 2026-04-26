@@ -6,7 +6,7 @@ A launch vehicle is a rocket system that delivers a payload from Earth's surface
 
 ```
 +------------------------------------------------------------------+
-|            LAUNCH VEHICLE LANDSCAPE (2025)                        |
+|            LAUNCH VEHICLE LANDSCAPE (2025)                       |
 |   Physics constraints → Architecture choices → Capability tiers  |
 +------------------------------------------------------------------+
 |                                                                  |

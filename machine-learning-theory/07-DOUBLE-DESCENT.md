@@ -10,19 +10,19 @@ Double descent (Belkin et al. 2019, Hastie et al. 2019) is the empirical and the
 |                                                                  |
 |  Error                                                           |
 |    │                                                             |
-|    │ ╲                         │                                |
-|    │  ╲          Classical     │     Overparameterized          |
-|    │   ╲         regime        │     regime                     |
-|    │    ╲                      │                                |
-|    │     ╲    ╱────            │╲                               |
-|    │      ╲  ╱  Second         │ ╲                              |
-|    │       ╲╱   descent        │  ╲──────────────               |
-|    │        ╲                  │                                |
-|    │         ╲           PEAK  │  Second descent                |
-|    │          ╲────────── ███  │  to low test error             |
-|    │           Classical  ███  │                                |
-|    │           U-curve    ███  │                                |
-|    └─────────────────────████──┼────────────────→ Model params  |
+|    │ ╲                         │                                 |
+|    │  ╲          Classical     │     Overparameterized           |
+|    │   ╲         regime        │     regime                      |
+|    │    ╲                      │                                 |
+|    │     ╲    ╱────            │╲                                |
+|    │      ╲  ╱  Second         │ ╲                               |
+|    │       ╲╱   descent        │  ╲──────────────                |
+|    │        ╲                  │                                 |
+|    │         ╲           PEAK  │  Second descent                 |
+|    │          ╲────────── ███  │  to low test error              |
+|    │           Classical  ███  │                                 |
+|    │           U-curve    ███  │                                 |
+|    └─────────────────────████──┼────────────────→ Model params   |
 |                           ████                                   |
 |                     Interpolation threshold                      |
 |                     (params ≈ training data size)               |

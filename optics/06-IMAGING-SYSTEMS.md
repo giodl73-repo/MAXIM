@@ -6,7 +6,7 @@ An imaging system maps the object space to the image space. The quality of that 
 
 ```
 +------------------------------------------------------------------+
-|                    IMAGING SYSTEM LANDSCAPE                       |
+|                    IMAGING SYSTEM LANDSCAPE                      |
 |                                                                  |
 |  CHARACTERIZATION        DETECTORS          ENHANCEMENT          |
 |  ----------------        ---------          ----------           |
@@ -129,7 +129,7 @@ The key mental model: **every imaging system is a low-pass filter**. Objects wit
 |                  Single on-chip ADC     Per-column or per-pixel  |
 |                                                                  |
 |  Read noise      Low (2-5 e-)           Higher historically;     |
-|                                         modern sCMOS: 1-2 e-    |
+|                                         modern sCMOS: 1-2 e-     |
 |                                                                  |
 |  Full-well       High (100k+ e-)        Lower per pixel          |
 |  capacity                               (dynamic range tradeoff) |
@@ -148,7 +148,7 @@ The key mental model: **every imaging system is a low-pass filter**. Objects wit
 |  consumption     transport lossy)                                |
 |                                                                  |
 |  Uniformity      Excellent (single      Column FPN (fixed pattern|
-|                  readout chain)         noise) -- calibrated out  |
+|                  readout chain)         noise) -- calibrated out |
 |                                                                  |
 |  Speed (frame    Moderate (serial       High (parallel readout,  |
 |  rate)           readout, < 100fps)     >1000fps possible)       |

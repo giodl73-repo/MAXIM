@@ -4,7 +4,7 @@
 
 ```
 +-----------------------------------------------------------------------+
-|                    DEONTOLOGY LANDSCAPE                                |
+|                    DEONTOLOGY LANDSCAPE                               |
 +-----------------------------------------------------------------------+
 |                                                                       |
 |  DEONTOLOGY: Morality is grounded in duties and rights,              |
@@ -238,13 +238,13 @@ ROSS'S PLURALISM:
 
 PRIMA FACIE DUTIES (selected):
   +-------------------+------------------------------------------+
-  | FIDELITY          | Keep promises; be truthful              |
-  | REPARATION        | Make amends for past wrongs             |
-  | GRATITUDE         | Reciprocate benefits received           |
+  | FIDELITY          | Keep promises; be truthful               |
+  | REPARATION        | Make amends for past wrongs              |
+  | GRATITUDE         | Reciprocate benefits received            |
   | NON-MALEFICENCE   | Don't harm others                      |
-  | BENEFICENCE       | Help others where possible              |
+  | BENEFICENCE       | Help others where possible               |
   | SELF-IMPROVEMENT  | Improve your own virtue and intelligence |
-  | JUSTICE           | Distribute goods according to merit     |
+  | JUSTICE           | Distribute goods according to merit      |
   +-------------------+------------------------------------------+
 
   These are not absolute -- they can be outweighed.

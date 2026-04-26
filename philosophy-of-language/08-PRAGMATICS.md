@@ -10,23 +10,23 @@ H.P. Grice (1913–1988) laid the foundations by identifying the inferential mec
 +-----------------------------------------------------------------------+
 |                    THE SEMANTICS/PRAGMATICS DIVIDE                    |
 |                                                                       |
-|  WHAT IS SAID:                     WHAT IS COMMUNICATED:             |
+|  WHAT IS SAID:                     WHAT IS COMMUNICATED:              |
 |  (semantic content)                (speaker meaning)                  |
 |                                                                       |
-|  The LITERAL, TRUTH-CONDITIONAL    WHAT IS SAID +                    |
-|  content of the sentence.          IMPLICATURES +                    |
+|  The LITERAL, TRUTH-CONDITIONAL    WHAT IS SAID +                     |
+|  content of the sentence.          IMPLICATURES +                     |
 |                                    PRESUPPOSITIONS +                  |
 |                                    INFERENCES FROM CONTEXT            |
 |                                                                       |
-|  "Can you pass the salt?"          A REQUEST for salt.               |
-|   literally: question about        Not really asking about ability.  |
+|  "Can you pass the salt?"          A REQUEST for salt.                |
+|   literally: question about        Not really asking about ability.   |
 |   ability                                                             |
 |                                                                       |
 |  "It's warm in here"               I want you to open a window.     |
-|   literally: a statement           (hint / indirect request)         |
+|   literally: a statement           (hint / indirect request)          |
 |   about temperature                                                   |
 |                                                                       |
-|  GRICE'S QUESTION:                                                   |
+|  GRICE'S QUESTION:                                                    |
 |  What REASONING allows hearers to recover speaker meaning             |
 |  from literal meaning + context?                                      |
 +-----------------------------------------------------------------------+
@@ -151,16 +151,16 @@ The key concept: what is IMPLIED but not SAID.
   NOT at-issue content: "but" doesn't contribute to truth conditions.
 
 +----------------------------------------------------------------+
-| TYPE               | CANCELABLE | TRUTH-CONDITIONAL | EXAMPLE |
+| TYPE               | CANCELABLE | TRUTH-CONDITIONAL | EXAMPLE  |
 |--------------------|------------|-------------------|---------|
-| Conversational     | Yes        | No                | Scalar  |
-| (generalized)      |            |                   | (some)  |
+| Conversational     | Yes        | No                | Scalar   |
+| (generalized)      |            |                   | (some)   |
 |--------------------|------------|-------------------|---------|
 | Conversational     | Yes        | No                | "There's|
-| (particularized)   |            |                   | a shop" |
+| (particularized)   |            |                   | a shop"  |
 |--------------------|------------|-------------------|---------|
-| Conventional       | No         | No                | "but",  |
-|                    |            |                   | "even", |
+| Conventional       | No         | No                | "but",   |
+|                    |            |                   | "even",  |
 |                    |            |                   | "managed|
 +----------------------------------------------------------------+
 ```

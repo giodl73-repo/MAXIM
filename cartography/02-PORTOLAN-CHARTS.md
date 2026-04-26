@@ -43,24 +43,24 @@ PORTOLAN CHART STRUCTURE — SCHEMATIC
 ═══════════════════════════════════════════════════════════════════════
 
   ┌─────────────────────────────────────────────────────────────────┐
-  │                                                                  │
+  │                                                                 │
   │    16-point compass roses (wind roses)                          │
   │    distributed across chart                                     │
   │         ✶         ✶          ✶                                  │
-  │                                                                  │
+  │                                                                 │
   │    Rhumb lines radiating from each rose:                        │
   │    ─ ─ ─ ─ ─ ─ ─ ─ ─ ─ ─ ─ ─ ─ ─ ─ ─                          │
-  │                                                                  │
-  │    Coastline (very detailed, accurate)                           │
-  │    ~~~~~~~~~~~~~~~~~~~~~~~~~~~~                                  │
+  │                                                                 │
+  │    Coastline (very detailed, accurate)                          │
+  │    ~~~~~~~~~~~~~~~~~~~~~~~~~~~~                                 │
   │    Place names written perpendicular to coast,                  │
   │    inland (to avoid obscuring the coastline)                    │
-  │    Major ports: RED ink                                          │
-  │    Minor ports: BLACK ink                                        │
-  │                                                                  │
-  │    Interior: largely empty (or decorated)                        │
+  │    Major ports: RED ink                                         │
+  │    Minor ports: BLACK ink                                       │
+  │                                                                 │
+  │    Interior: largely empty (or decorated)                       │
   │    Sea: sometimes colored (blue, green, red by tradition)       │
-  │                                                                  │
+  │                                                                 │
   │    Scale bar: present on most charts                            │
   │    (but projection not formally specified)                      │
   └─────────────────────────────────────────────────────────────────┘
@@ -133,13 +133,13 @@ PORTOLAN CONSTRUCTION PROCESS — RECONSTRUCTED
 
   DATA COLLECTION (years to decades, many voyages):
   ┌──────────────────────────────────────────────────────────────┐
-  │  Sailors record:                                              │
+  │  Sailors record:                                             │
   │  - Compass bearing from port to port                         │
   │  - Estimated distance (by time × assumed speed)              │
   │  - Harbor descriptions, hazards, landmarks                   │
   │                                                              │
   │  Written form: portolano (sailing manual)                    │
-  │  "From Genoa to Livorno: bear SW, 80 miles"                 │
+  │  "From Genoa to Livorno: bear SW, 80 miles"                  │
   └──────────────────────────────────────────────────────────────┘
          ↓
   COMPILATION (chartmaker's workshop):
@@ -154,7 +154,7 @@ PORTOLAN CONSTRUCTION PROCESS — RECONSTRUCTED
          ↓
   FINAL CHART:
   ┌──────────────────────────────────────────────────────────────┐
-  │  Coastline accurate to 1–2° in longitude (vs Ptolemy's ~4°) │
+  │  Coastline accurate to 1–2° in longitude (vs Ptolemy's ~4°)  │
   │  North is approximately correct (compass north)              │
   │  Distances approximately correct                             │
   │  Projection: implicitly equirectangular or plane chart       │
@@ -232,7 +232,7 @@ CATALAN ATLAS — STRUCTURE AND SIGNIFICANCE
   │  holding a large gold nugget (1324 hajj context)     │
   │  Gold fields of West Africa shown (Saharan routes)   │
   │  India: cities from Marco Polo's account (1271–1295) │
-  │  China: labeled (Cathay), with cities               │
+  │  China: labeled (Cathay), with cities                │
   │  "Silk Road" routes across Central Asia encoded      │
   └──────────────────────────────────────────────────────┘
 

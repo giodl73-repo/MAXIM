@@ -10,18 +10,18 @@ mechanisms with identified neural correlates and measurable effect sizes.
 
 ```
 +----------------------------------------------------------------------+
-|                    INFLUENCE LANDSCAPE                                |
+|                    INFLUENCE LANDSCAPE                               |
 |                                                                      |
-|  INDIVIDUAL LEVEL          SYSTEMIC/ARCHITECTURAL LEVEL             |
-|  ────────────────          ────────────────────────────             |
-|  Cialdini 6 principles     Nudge theory (Thaler/Sunstein)           |
-|  RECIPROCITY/COMMITMENT    Default effects                          |
-|  SOCIAL PROOF/AUTHORITY    EAST framework                           |
-|  LIKING/SCARCITY           Choice architecture                      |
-|  + Pre-suasion (2016)      Dark patterns (deceptive UI)             |
+|  INDIVIDUAL LEVEL          SYSTEMIC/ARCHITECTURAL LEVEL              |
+|  ────────────────          ────────────────────────────              |
+|  Cialdini 6 principles     Nudge theory (Thaler/Sunstein)            |
+|  RECIPROCITY/COMMITMENT    Default effects                           |
+|  SOCIAL PROOF/AUTHORITY    EAST framework                            |
+|  LIKING/SCARCITY           Choice architecture                       |
+|  + Pre-suasion (2016)      Dark patterns (deceptive UI)              |
 |                                                                      |
-|  COGNITIVE ROUTE MODEL     DISINFORMATION RESISTANCE                |
-|  ──────────────────────    ────────────────────────────             |
+|  COGNITIVE ROUTE MODEL     DISINFORMATION RESISTANCE                 |
+|  ──────────────────────    ────────────────────────────              |
 |  ELM (Petty/Cacioppo):     Inoculation theory (McGuire)            |
 |  Central route: effortful  Prebunking vs debunking                 |
 |  Peripheral route: cues    SIREN/inoculation vaccine model         |
@@ -48,9 +48,9 @@ through field research. Each has a mechanism — not just a label.
   │                                                                  │
   │ Exploitation techniques:                                         │
   │ • Uninvited gifts: Hare Krishna flowers; Amway samples; free     │
-  │   mints → obligation to tip (18% vs 3% increase per study)      │
+  │   mints → obligation to tip (18% vs 3% increase per study)       │
   │ • Door-in-the-face (DITF): Large request refused → smaller       │
-  │   request accepted; concession reciprocates concession          │
+  │   request accepted; concession reciprocates concession           │
   │ • Personalization magnifies effect: gift addressed to recipient  │
   └──────────────────────────────────────────────────────────────────┘
 
@@ -80,7 +80,7 @@ through field research. Each has a mechanism — not just a label.
   │                                                                  │
   │ Exploitation techniques:                                         │
   │ • Canned laughter: Audiences laugh more even at non-funny jokes  │
-  │ • "Most popular" product labeling (hotel towel reuse: 26%→33%)  │
+  │ • "Most popular" product labeling (hotel towel reuse: 26%→33%)   │
   │ • Testimonials, review counts, "bestseller" labels               │
   │ • Pluralistic ignorance (bystander effect: everyone looks calm)  │
   │ More powerful when: targets are uncertain, targets are similar   │
@@ -93,12 +93,12 @@ through field research. Each has a mechanism — not just a label.
   │ authorities to make correct decisions efficiently                │
   │                                                                  │
   │ Mechanism: Genuine epistemic efficiency (experts often ARE right)│
-  │ + exploitation through symbols of authority (not substance)     │
+  │ + exploitation through symbols of authority (not substance)      │
   │                                                                  │
   │ Exploitation techniques:                                         │
   │ • White coat effect: nursing study — unauthorized medication     │
-  │   dose followed if ordered by "doctor" voice on phone           │
-  │ • Titles, uniforms, job titles in email signature               │
+  │   dose followed if ordered by "doctor" voice on phone            │
+  │ • Titles, uniforms, job titles in email signature                │
   │ • "9 out of 10 dentists recommend" (constructed authority)       │
   │ Milgram connection: legitimate authority is the mechanism        │
   └──────────────────────────────────────────────────────────────────┘
@@ -107,7 +107,7 @@ through field research. Each has a mechanism — not just a label.
   ┌──────────────────────────────────────────────────────────────────┐
   │ Principle: We comply with and are persuaded by people we like    │
   │                                                                  │
-  │ Mechanism: Halo effect (positive trait → global positive        │
+  │ Mechanism: Halo effect (positive trait → global positive         │
   │ attribution) + reduced cognitive scrutiny of liked sources       │
   │                                                                  │
   │ Predictors of liking:                                            │
@@ -115,7 +115,7 @@ through field research. Each has a mechanism — not just a label.
   │ • Similarity: shared demographics, opinions, interests           │
   │ • Familiarity: mere exposure effect (Zajonc) — repeated          │
   │   exposure increases liking even without memory of exposure      │
-  │ • Cooperative context: working together → liking (contact hyp.) │
+  │ • Cooperative context: working together → liking (contact hyp.)  │
   │ • Flattery: works even when obviously strategic                  │
   │                                                                  │
   │ Exploitation: Tupperware parties; "warm up" scripts; sports      │
@@ -127,15 +127,15 @@ through field research. Each has a mechanism — not just a label.
   │ Principle: We value things more when they are rare or            │
   │ becoming unavailable                                             │
   │                                                                  │
-  │ Mechanisms:                                                       │
+  │ Mechanisms:                                                      │
   │ • Loss aversion (Kahneman/Tversky): losing access > gaining      │
   │ • Uniqueness motivation: rare = exclusive = status               │
-  │ • Reactance (Brehm): restricting access makes desire stronger   │
+  │ • Reactance (Brehm): restricting access makes desire stronger    │
   │                                                                  │
   │ Exploitation techniques:                                         │
   │ • "Limited time offer" countdown timers                          │
   │ • "Only 3 left in stock" — inventory artificially low            │
-  │ • "Application deadline" for no-deadline products               │
+  │ • "Application deadline" for no-deadline products                │
   │ • Exclusive/waitlist framing                                     │
   │ Note: artificial scarcity still works psychologically            │
   └──────────────────────────────────────────────────────────────────┘
@@ -185,15 +185,15 @@ through field research. Each has a mechanism — not just a label.
   │ Engage when: motivated + able to process                       │
   │ Requirements: subject involvement, sufficient cognitive        │
   │   capacity, time, relevant knowledge                           │
-  │ Outcome: DURABLE attitude change, resistant to counter-       │
+  │ Outcome: DURABLE attitude change, resistant to counter-        │
   │ persuasion, predicts behavior                                  │
   │                                                                │
   │ PERIPHERAL ROUTE (Low Elaboration):                            │
   │ Heuristic cue processing — shortcuts, not argument quality     │
   │ Engage when: not motivated OR not able to process              │
-  │ Cues used: source attractiveness, expertise, number of        │
+  │ Cues used: source attractiveness, expertise, number of         │
   │   arguments, audience reaction, music, etc.                    │
-  │ Outcome: SURFACE change, fragile under counter-persuasion,    │
+  │ Outcome: SURFACE change, fragile under counter-persuasion,     │
   │ less predictive of behavior                                    │
   └────────────────────────────────────────────────────────────────┘
 
@@ -327,16 +327,16 @@ through field research. Each has a mechanism — not just a label.
   EVIDENCE (more complex than the hypothesis):
   ┌──────────────────────────────────────────────────────────────┐
   │ Supporting: YouTube radicalization pathways (Ribeiro);       │
-  │ Facebook "angry" emoji → increased inflammatory content       │
-  │ (internal docs)                                               │
+  │ Facebook "angry" emoji → increased inflammatory content      │
+  │ (internal docs)                                              │
   │                                                              │
-  │ Complicating:                                                 │
-  │ • Most misinformation shares by small number of users         │
-  │ • Exposure to cross-cutting content higher online than        │
-  │   offline (Guess et al.)                                      │
+  │ Complicating:                                                │
+  │ • Most misinformation shares by small number of users        │
+  │ • Exposure to cross-cutting content higher online than       │
+  │   offline (Guess et al.)                                     │
   │ • Bail et al. (2018): exposure to opposing Twitter bot →     │
   │   increased polarization (backfire effect)                   │
-  │ • Sunstein echo chamber claim: empirically contested          │
+  │ • Sunstein echo chamber claim: empirically contested         │
   └──────────────────────────────────────────────────────────────┘
 
   ACTUAL CONSENSUS (as of ~2024):
@@ -370,7 +370,7 @@ through field research. Each has a mechanism — not just a label.
   │ Opt-OUT: to NOT be enrolled, you must take action            │
   │ Opt-IN: to BE enrolled, you must take action                 │
   │                                                              │
-  │ RESULT: ~90%+ choose the default regardless of which it is  │
+  │ RESULT: ~90%+ choose the default regardless of which it is   │
   │                                                              │
   │ Classic case: organ donation rates                           │
   │ Germany (opt-in): ~12% enrolled                              │
@@ -416,24 +416,24 @@ through field research. Each has a mechanism — not just a label.
   TAXONOMY:
   ┌──────────────────────────────────────────────────────────────┐
   │ TRICK QUESTIONS: ambiguous wording to get unwanted opt-in    │
-  │ "Uncheck to not receive marketing" (double negative)          │
+  │ "Uncheck to not receive marketing" (double negative)         │
   │                                                              │
   │ ROACH MOTEL: easy to get in, hard to get out                 │
-  │ Subscribe in one click; cancel requires 5 steps + phone call  │
+  │ Subscribe in one click; cancel requires 5 steps + phone call │
   │                                                              │
   │ PRIVACY ZUCKERING: default privacy settings = maximum data   │
-  │ sharing; opt-out buried in settings                           │
+  │ sharing; opt-out buried in settings                          │
   │                                                              │
   │ CONFIRMSHAMING: opt-out button says "No, I hate saving money"│
-  │ → emotional cost to declining                                 │
+  │ → emotional cost to declining                                │
   │                                                              │
-  │ MISDIRECTION: draw attention away from information you        │
+  │ MISDIRECTION: draw attention away from information you       │
   │ wouldn't want user to notice                                 │
   │                                                              │
-  │ HIDDEN COSTS: low price displayed; shipping/fees added at     │
+  │ HIDDEN COSTS: low price displayed; shipping/fees added at    │
   │ checkout (commitment/consistency + sunk cost)                │
   │                                                              │
-  │ NAGGING: repeat permission requests until user capitulates    │
+  │ NAGGING: repeat permission requests until user capitulates   │
   └──────────────────────────────────────────────────────────────┘
 
   REGULATORY TRAJECTORY:

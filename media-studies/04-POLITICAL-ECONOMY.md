@@ -6,7 +6,7 @@ Political economy of media asks: who owns media, what are the economic imperativ
 
 ```
 +------------------------------------------------------------------+
-|              POLITICAL ECONOMY OF MEDIA LANDSCAPE               |
+|              POLITICAL ECONOMY OF MEDIA LANDSCAPE                |
 +------------------------------------------------------------------+
 |                                                                  |
 |  OWNERSHIP ANALYSIS          ADVERTISING LOGIC                   |

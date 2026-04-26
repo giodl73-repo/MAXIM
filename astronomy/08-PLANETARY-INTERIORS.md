@@ -11,28 +11,28 @@
 │                                                                             │
 │   HEAT SOURCE           PROCESS              OBSERVABLE                     │
 │   ──────────            ───────              ──────────                     │
-│   Accretion energy  ──► Melting & mixing ──► Differentiation               │
+│   Accretion energy  ──► Melting & mixing ──► Differentiation                │
 │   ²⁶Al decay       ──► Iron sinks      ──► Core / mantle / crust          │
 │   ⁴⁰K, U, Th decay ──► Sustained heat  ──► Active tectonics               │
-│   Tidal friction   ──► Local heating   ──► Io volcanism, Europa ocean      │
+│   Tidal friction   ──► Local heating   ──► Io volcanism, Europa ocean       │
 │                                                                             │
-│   PROBE METHOD          WHAT IT SEES         RESOLUTION                    │
-│   ────────────          ────────────         ──────────                    │
+│   PROBE METHOD          WHAT IT SEES         RESOLUTION                     │
+│   ────────────          ────────────         ──────────                     │
 │   Seismology (P/S) ──► 1-D velocity ──► PREM layers, CMB                  │
 │   Normal modes     ──► Bulk elastic  ──► K, G, density vs. depth          │
 │   Moment of inertia──► Core fraction ──► C/MR² = 0.3307 (Earth)           │
 │   Geodesy / tides  ──► Tidal Love k₂──► Core state (liquid vs solid)      │
-│   Geomagnetism     ──► Dynamo active ──► Liquid conducting outer core      │
-│   Meteorites       ──► Bulk chemical ──► Core/mantle composition           │
-│   Sample return    ──► Rock types    ──► Crust + upper mantle              │
+│   Geomagnetism     ──► Dynamo active ──► Liquid conducting outer core       │
+│   Meteorites       ──► Bulk chemical ──► Core/mantle composition            │
+│   Sample return    ──► Rock types    ──► Crust + upper mantle               │
 │                                                                             │
 │   KEY NUMBERS — Earth                                                       │
 │   R_E = 6371 km   M_E = 5.972×10²⁴ kg   ρ_mean = 5514 kg/m³              │
-│   Inner core: r = 1221 km (solid Fe-Ni)                                    │
-│   Outer core: r = 3480 km (liquid Fe + light elements)                     │
-│   CMB at 2891 km depth; D″ layer ~200 km above                             │
-│   Mantle: 2891–35 km depth; mostly peridotite/bridgmanite                  │
-│   Crust: oceanic ~7 km; continental ~35 km                                 │
+│   Inner core: r = 1221 km (solid Fe-Ni)                                     │
+│   Outer core: r = 3480 km (liquid Fe + light elements)                      │
+│   CMB at 2891 km depth; D″ layer ~200 km above                              │
+│   Mantle: 2891–35 km depth; mostly peridotite/bridgmanite                   │
+│   Crust: oceanic ~7 km; continental ~35 km                                  │
 └─────────────────────────────────────────────────────────────────────────────┘
 ```
 
@@ -286,11 +286,11 @@ Variables: g = 10 m/s², α (thermal expansion) ~ 2×10⁻⁵ K⁻¹, ΔT ~ 3000
 ┌─────────────────────────────────────────────────────────────────┐
 │                  PLATE TECTONICS OVERVIEW                       │
 │                                                                 │
-│   DRIVER            MECHANISM              MAGNITUDE           │
-│   ──────            ─────────              ─────────           │
-│   Ridge push    ──► Elevated ridge → GP    ~10¹² N/m           │
+│   DRIVER            MECHANISM              MAGNITUDE            │
+│   ──────            ─────────              ─────────            │
+│   Ridge push    ──► Elevated ridge → GP    ~10¹² N/m            │
 │   Slab pull     ──► Cold dense slab sinks  ~10¹³ N/m ← dominant│
-│   Mantle drag   ──► Viscous coupling       variable            │
+│   Mantle drag   ──► Viscous coupling       variable             │
 │                                                                 │
 │   PLATE BOUNDARIES:                                             │
 │   Divergent (MOR): basalt eruption, new oceanic crust           │
@@ -299,7 +299,7 @@ Variables: g = 10 m/s², α (thermal expansion) ~ 2×10⁻⁵ K⁻¹, ΔT ~ 3000
 │   Transform:       strike-slip, no creation/destruction         │
 │                                                                 │
 │   WHY EARTH HAS PLATES:                                         │
-│   • Water in mantle → lowered solidus → partial melt           │
+│   • Water in mantle → lowered solidus → partial melt            │
 │   • Weak oceanic crust (basalt) dense enough to subduct         │
 │   • Plate boundaries as weak zones (damage rheology)            │
 │   Venus: no subduction (hot/dry crust too buoyant?), stagnant lid│

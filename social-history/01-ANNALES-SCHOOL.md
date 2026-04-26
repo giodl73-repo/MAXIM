@@ -11,7 +11,7 @@ Its four generations each took the project in new directions.
 +-------------------------------------------------------------------+
 |                   THE ANNALES SCHOOL                              |
 |                                                                   |
-|  GENERATION 1 (1929-1945)     GENERATION 2 (1945-1968)           |
+|  GENERATION 1 (1929-1945)     GENERATION 2 (1945-1968)            |
 |  +---------------------+      +---------------------------+       |
 |  | BLOCH and FEBVRE    |      | BRAUDEL                   |       |
 |  | Founders (Strasbourg|      | Longue duree              |       |
@@ -22,7 +22,7 @@ Its four generations each took the project in new directions.
 |  | history             |      |                           |       |
 |  +---------------------+      +---------------------------+       |
 |                                                                   |
-|  GENERATION 3 (1968-1989)     GENERATION 4 (1989-)               |
+|  GENERATION 3 (1968-1989)     GENERATION 4 (1989-)                |
 |  +---------------------+      +---------------------------+       |
 |  | LE ROY LADURIE,     |      | Cultural/micro turn       |       |
 |  | DUBY, LE GOFF       |      | Chartier, Revel           |       |

@@ -10,7 +10,7 @@ for most major disorders, with CBT having the broadest support.
 
 ```
 +----------------------------------------------------------------------+
-|                    CLINICAL TAXONOMY                                  |
+|                    CLINICAL TAXONOMY                                 |
 |                                                                      |
 |  MOOD           ANXIETY        PSYCHOTIC       PERSONALITY           |
 |  ─────          ───────        ─────────       ───────────           |
@@ -120,18 +120,18 @@ for most major disorders, with CBT having the broadest support.
 ```
   ANXIETY DISORDERS OVERVIEW:
   ┌───────────────────┬────────────────────────────────────────────────┐
-  │ GAD               │ Excessive worry about many domains; hard to   │
-  │ (Generalized      │ control; physical symptoms (muscle tension,   │
-  │ Anxiety Disorder) │ fatigue, insomnia); cognitive model: worry as │
-  │                   │ avoidance of emotional processing             │
+  │ GAD               │ Excessive worry about many domains; hard to    │
+  │ (Generalized      │ control; physical symptoms (muscle tension,    │
+  │ Anxiety Disorder) │ fatigue, insomnia); cognitive model: worry as  │
+  │                   │ avoidance of emotional processing              │
   ├───────────────────┼────────────────────────────────────────────────┤
   │ Social Anxiety    │ Most common anxiety disorder (~13% lifetime); │
   │ Disorder          │ fear of negative evaluation in social/        │
   │                   │ performance situations; avoidance maintains it │
   ├───────────────────┼────────────────────────────────────────────────┤
-  │ Panic Disorder    │ Recurrent unexpected panic attacks + fear of  │
-  │                   │ future attacks; interoceptive fear (fear of   │
-  │                   │ bodily sensations themselves)                 │
+  │ Panic Disorder    │ Recurrent unexpected panic attacks + fear of   │
+  │                   │ future attacks; interoceptive fear (fear of    │
+  │                   │ bodily sensations themselves)                  │
   ├───────────────────┼────────────────────────────────────────────────┤
   │ Specific Phobias  │ Excessive fear of specific objects/situations │
   │                   │ Spider, height, blood-injury-injection (BII)  │
@@ -206,16 +206,16 @@ for most major disorders, with CBT having the broadest support.
   SYMPTOMS — THREE DIMENSIONS:
   ┌────────────────────────────────────────────────────────────────┐
   │ POSITIVE (added/excess symptoms):                              │
-  │ Hallucinations: perception without stimulus (auditory most    │
-  │   common; commanding voices; second-person commentary)        │
+  │ Hallucinations: perception without stimulus (auditory most     │
+  │   common; commanding voices; second-person commentary)         │
   │ Delusions: fixed false beliefs (paranoid, referential, grandiose│
   │ Disorganized thinking: loose associations, word salad          │
   │                                                                │
   │ NEGATIVE (diminished function):                                │
-  │ Flat/blunted affect; alogia (poverty of speech);              │
+  │ Flat/blunted affect; alogia (poverty of speech);               │
   │ avolition (lack of motivation); anhedonia; asociality          │
-  │ → Often more disabling than positive symptoms                 │
-  │ → Less responsive to antipsychotics                           │
+  │ → Often more disabling than positive symptoms                  │
+  │ → Less responsive to antipsychotics                            │
   │                                                                │
   │ COGNITIVE:                                                     │
   │ Working memory, processing speed, executive function deficits  │
@@ -249,8 +249,8 @@ for most major disorders, with CBT having the broadest support.
   ┌────────────────────────────────────────────────────────────────┐
   │ CLUSTER A (Odd/Eccentric):                                     │
   │ Paranoid PD: pervasive distrust                                │
-  │ Schizoid PD: social detachment, restricted affect             │
-  │ Schizotypal PD: odd beliefs, perceptual distortions (spectrum │
+  │ Schizoid PD: social detachment, restricted affect              │
+  │ Schizotypal PD: odd beliefs, perceptual distortions (spectrum  │
   │   with schizophrenia)                                          │
   ├────────────────────────────────────────────────────────────────┤
   │ CLUSTER B (Dramatic/Emotional):                                │
@@ -261,10 +261,10 @@ for most major disorders, with CBT having the broadest support.
   │ Narcissistic PD: grandiosity, entitlement, lack of empathy    │
   ├────────────────────────────────────────────────────────────────┤
   │ CLUSTER C (Anxious/Fearful):                                   │
-  │ Avoidant PD: social inhibition, feelings of inadequacy        │
-  │ Dependent PD: excessive need to be cared for                  │
-  │ Obsessive-Compulsive PD: preoccupation with orderliness,      │
-  │   perfectionism (distinct from OCD)                           │
+  │ Avoidant PD: social inhibition, feelings of inadequacy         │
+  │ Dependent PD: excessive need to be cared for                   │
+  │ Obsessive-Compulsive PD: preoccupation with orderliness,       │
+  │   perfectionism (distinct from OCD)                            │
   └────────────────────────────────────────────────────────────────┘
 
   BORDERLINE PD — TREATMENT FOCUS:

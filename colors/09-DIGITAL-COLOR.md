@@ -9,20 +9,20 @@
 |  CAPTURE → ENCODE → STORE → PROCESS → DELIVER → DISPLAY        |
 |                                                                  |
 |  Camera sensor                                                   |
-|    ↓ RAW (device-specific spectral sensitivities)               |
-|  Color matrix correction → linear scene-referred XYZ            |
+|    ↓ RAW (device-specific spectral sensitivities)                |
+|  Color matrix correction → linear scene-referred XYZ             |
 |    ↓                                                             |
-|  Convert to working color space (sRGB / AdobeRGB / ProPhoto)    |
+|  Convert to working color space (sRGB / AdobeRGB / ProPhoto)     |
 |    ↓                                                             |
 |  Apply gamma encoding (sRGB TRC or log curve)                    |
 |    ↓                                                             |
-|  Store: JPEG/PNG (sRGB assumed) or TIFF/DNG (profile embedded)  |
+|  Store: JPEG/PNG (sRGB assumed) or TIFF/DNG (profile embedded)   |
 |    ↓                                                             |
-|  Edit: must linearize for correct math → re-encode for export   |
+|  Edit: must linearize for correct math → re-encode for export    |
 |    ↓                                                             |
-|  ICC profile conversion: source profile → destination profile   |
+|  ICC profile conversion: source profile → destination profile    |
 |    ↓                                                             |
-|  Display: output profile applied → physical light emitted       |
+|  Display: output profile applied → physical light emitted        |
 |                                                                  |
 |  EVERY STEP HAS A FAILURE MODE if done without profile awareness |
 +------------------------------------------------------------------+

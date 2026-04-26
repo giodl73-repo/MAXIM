@@ -17,9 +17,9 @@
 |                           -- East German doping   -- Streaming   |
 |                                                                  |
 |  DOPING THREAD (continuous):                                     |
-|  Strychnine (1904) -> Amphetamines (1950s) -> Steroids (1960s)  |
-|  -> East German program (1970s) -> EPO (1990s) -> Biologicals   |
-|  -> WADA 1999 -> Biological Passport 2008 -> Russia 2014-2022   |
+|  Strychnine (1904) -> Amphetamines (1950s) -> Steroids (1960s)   |
+|  -> East German program (1970s) -> EPO (1990s) -> Biologicals    |
+|  -> WADA 1999 -> Biological Passport 2008 -> Russia 2014-2022    |
 +------------------------------------------------------------------+
 ```
 

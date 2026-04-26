@@ -6,11 +6,11 @@ Syntax is the study of how words combine into phrases, clauses, and sentences â€
 
 ```
 +------------------------------------------------------------------+
-|                    SYNTAX LANDSCAPE                               |
+|                    SYNTAX LANDSCAPE                              |
 |                                                                  |
 |  PHRASE STRUCTURE              TRANSFORMATIONS                   |
 |  (what hierarchical            (how structures                   |
-|   structure sentences have)    are derived from base)           |
+|   structure sentences have)    are derived from base)            |
 |  X-bar theory, CFGs            Movement operations,              |
 |  constituency tests            traces, copies                    |
 |                                                                  |
@@ -20,7 +20,7 @@ Syntax is the study of how words combine into phrases, clauses, and sentences â€
 |   pronouns, R-expressions)                                       |
 |                                                                  |
 |  FROM GENERATIVE GRAMMAR:                                        |
-|  Government and Binding (GB) â†’ Minimalist Program (MP)          |
+|  Government and Binding (GB) â†’ Minimalist Program (MP)           |
 |  Core operation: MERGE builds hierarchical structure             |
 +------------------------------------------------------------------+
 ```

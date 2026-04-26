@@ -13,33 +13,33 @@ The AI Engineering Stack — Full Field Map
                                  │
   ┌──────────────────────────────▼──────────────────────────────────────────┐
   │  APPLICATION LAYER                                                      │
-  │  Prompt engineering · RAG pipelines · Agents · Orchestration           │
-  │  [03-ORCHESTRATION.md]  [04-AGENTS.md]  [09-VECTOR-DATABASES.md]       │
+  │  Prompt engineering · RAG pipelines · Agents · Orchestration            │
+  │  [03-ORCHESTRATION.md]  [04-AGENTS.md]  [09-VECTOR-DATABASES.md]        │
   └──────────────────────────────┬──────────────────────────────────────────┘
                                  │
   ┌──────────────────────────────▼──────────────────────────────────────────┐
   │  EVALUATION LAYER                                                       │
-  │  Evals harness · LLM-as-judge · A/B testing · regression suites        │
+  │  Evals harness · LLM-as-judge · A/B testing · regression suites         │
   │  [02-EVALS-HARNESS.md]                                                  │
   └──────────────────────────────┬──────────────────────────────────────────┘
                                  │
   ┌──────────────────────────────▼──────────────────────────────────────────┐
   │  MODEL LAYER                                                            │
-  │  Foundation model (frozen)    Fine-tuned adapter (LoRA/QLoRA)          │
-  │  Provider API (OpenAI/Anthropic/Azure) or self-hosted (vLLM/Ollama)    │
-  │  [01-LLM-CONCEPTS.md]  [06-FINE-TUNING.md]  [08-INFERENCE-DEPLOYMENT]  │
+  │  Foundation model (frozen)    Fine-tuned adapter (LoRA/QLoRA)           │
+  │  Provider API (OpenAI/Anthropic/Azure) or self-hosted (vLLM/Ollama)     │
+  │  [01-LLM-CONCEPTS.md]  [06-FINE-TUNING.md]  [08-INFERENCE-DEPLOYMENT]   │
   └──────────────────────────────┬──────────────────────────────────────────┘
                                  │
   ┌──────────────────────────────▼──────────────────────────────────────────┐
   │  INFRASTRUCTURE LAYER                                                   │
-  │  GPU clusters · KV cache · quantization · serving frameworks           │
+  │  GPU clusters · KV cache · quantization · serving frameworks            │
   │  Safety filters · logging · guardrails                                  │
-  │  [05-SAFETY.md]  [07-MULTIMODAL.md]  [08-INFERENCE-DEPLOYMENT.md]      │
+  │  [05-SAFETY.md]  [07-MULTIMODAL.md]  [08-INFERENCE-DEPLOYMENT.md]       │
   └──────────────────────────────┬──────────────────────────────────────────┘
                                  │
   ┌──────────────────────────────▼──────────────────────────────────────────┐
   │  DATA LAYER                                                             │
-  │  Embeddings · vector stores · chunking · hybrid search                 │
+  │  Embeddings · vector stores · chunking · hybrid search                  │
   │  [09-VECTOR-DATABASES.md]                                               │
   └─────────────────────────────────────────────────────────────────────────┘
 ```
@@ -85,7 +85,7 @@ These three roles share vocabulary but solve different problems.
   │                      FOUNDATION MODEL PROVIDERS                          │
   │                                                                          │
   │  PROPRIETARY API (managed inference, no weights released)                │
-  │  ┌─────────────┬─────────────┬─────────────┬───────────────────────┐    │
+  │  ┌─────────────┬─────────────┬─────────────┬───────────────────────┐     │
   │  │  OpenAI     │  Anthropic  │  Google     │  Azure OpenAI         │    │
   │  │  GPT-4o     │  Claude 3.5 │  Gemini 1.5 │  Same OpenAI models   │    │
   │  │  GPT-4o-mini│  Claude 3   │  Gemini 2.0 │  + Azure compliance   │    │
@@ -181,7 +181,7 @@ These three roles share vocabulary but solve different problems.
          │
     ┌────┴────────┐
    YES            NO (novel task, specialized domain)
-    │              │
+    │             │
     ▼              ▼
   USE API       Does the task require knowledge
   (OpenAI,      from proprietary documents / live data?
@@ -272,9 +272,9 @@ These three roles share vocabulary but solve different problems.
   │                                                              │
   │ IMPLEMENTATION DETAILS (delegate or learn as needed)         │
   │                                                              │
-  │ Fine-tuning mechanics  LoRA setup, hyperparameters          │
-  │ Serving infra          vLLM, quantization, batching         │
-  │ Vector DB ops          HNSW tuning, index rebuilds          │
+  │ Fine-tuning mechanics  LoRA setup, hyperparameters           │
+  │ Serving infra          vLLM, quantization, batching          │
+  │ Vector DB ops          HNSW tuning, index rebuilds           │
   └──────────────────────────────────────────────────────────────┘
 ```
 

@@ -61,10 +61,10 @@ Surface energy of a sphere radius r:
 Sintering mechanisms (contribute in parallel):
   ┌──────────────────────────────────────────────────────────────┐
   │ SURFACE DIFFUSION:    Atoms move on surface, fill neck       │
-  │                       → Neck grows, no densification        │
+  │                       → Neck grows, no densification         │
   │                                                              │
   │ VOLUME DIFFUSION:     Atoms diffuse through bulk, fill neck  │
-  │                       → Densification (pores shrink)        │
+  │                       → Densification (pores shrink)         │
   │                                                              │
   │ GRAIN BOUNDARY DIFF:  Atoms move along GB, most important    │
   │                       for densification in metals            │

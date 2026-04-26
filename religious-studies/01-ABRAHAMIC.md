@@ -27,7 +27,7 @@ to be the correct development or supersession of what came before.
 |      |         |                                                  |
 |      |         +--> Jesus of Nazareth (~4 BCE - ~30 CE)           |
 |      |               --> CHRISTIANITY (Paul's universalization,   |
-|      |                   Gentile mission, Greek conceptual         |
+|      |                   Gentile mission, Greek conceptual        |
 |      |                   framework, Roman empire)                 |
 |      |                                                            |
 |      +--> ISLAM (Muhammad, 610 CE Arabia) — claims to restore     |
@@ -52,7 +52,7 @@ Judaism does not accept the Christian fulfillment claim or the Islamic supersess
 |                  JEWISH TEXTUAL LAYERS                           |
 |                                                                  |
 |  TANAKH (Hebrew Bible)                                           |
-|  +-----------+------------------+------------------+            |
+|  +-----------+------------------+------------------+             |
 |  | Torah     | Nevi'im          | Ketuvim          |            |
 |  | (Law)     | (Prophets)       | (Writings)       |            |
 |  | 5 books   | Former + Latter  | Psalms, Proverbs,|            |
@@ -60,14 +60,14 @@ Judaism does not accept the Christian fulfillment claim or the Islamic supersess
 |  | Deuter-   | (Joshua-Kings,   | Esther, Daniel,  |            |
 |  | onomy     | Isaiah-Malachi)  | Ezra-Nehemiah    |            |
 |  +-----------+------------------+------------------+            |
-|                                                                  |
-|  ORAL TORAH (claims equal authority with Written Torah)          |
+|                                                                 |
+|  ORAL TORAH (claims equal authority with Written Torah)         |
 |  +------------------+                                           |
 |  | Mishnah (c.200 CE)| Oral law codified by Rabbi Judah         |
 |  | 6 orders, 63 tracts| the Prince. Topical arrangement.        |
 |  +------------------+                                           |
-|          |                                                       |
-|          v                                                       |
+|          |                                                      |
+|          v                                                      |
 |  +-------------------+------------------+                       |
 |  | Babylonian Talmud  | Jerusalem Talmud |                       |
 |  | (c.500 CE)         | (c.400 CE)       |                       |
@@ -75,9 +75,9 @@ Judaism does not accept the Christian fulfillment claim or the Islamic supersess
 |  | (rabbinic commentary| in most          |                      |
 |  | on Mishnah)        | traditions        |                      |
 |  +-------------------+------------------+                       |
-|                                                                  |
+|                                                                 |
 |  LATER LAYERS: Midrash (narrative exegesis), Responsa           |
-|  (legal rulings), Kabbalah (medieval mystical tradition),        |
+|  (legal rulings), Kabbalah (medieval mystical tradition),       |
 |  Shulchan Aruch (Joseph Karo, 1563 — practical law code)        |
 +------------------------------------------------------------------+
 ```
@@ -197,7 +197,7 @@ How is Jesus related to God? This question drove three centuries of dispute.
 |  Jesus = pre-existent divine Logos   as Son of God at baptism.      |
 |                                      (Theodotus, Ebionites)         |
 |                           |                                         |
-|                    NICAEA 325 CE                                     |
+|                    NICAEA 325 CE                                    |
 |                    Debate: homoousios vs. homoiousios               |
 |                    "same substance" vs. "similar substance"         |
 |                    (one iota of difference — literally)             |
@@ -249,20 +249,20 @@ against, and excluded by developing ecclesial consensus.
 |                                                                  |
 |  EARLY CHURCH (1st-4th c)                                        |
 |       |                                                          |
-|  +-----------------+                                            |
+|  +-----------------+                                             |
 |  | Great Schism 1054 CE: EAST-WEST SPLIT                        |
 |  +-----------------+                                            |
-|       |                    |                                     |
+|       |                    |                                    |
 |  ROMAN CATHOLIC        EASTERN ORTHODOX                         |
 |  (~1.3 billion)        (Greek, Russian,                         |
 |  Papal authority       Serbian, Coptic, etc.)                   |
 |  Magisterium           Conciliar authority                      |
 |  Marian doctrines      Seven ecumenical councils                |
 |  Purgatory, indulgences Icons, theosis                          |
-|       |                                                          |
+|       |                                                         |
 |  REFORMATION (Luther 1517, Calvin, Zwingli, Anabaptists)        |
-|       |                                                          |
-|  PROTESTANT BRANCHES:                                            |
+|       |                                                         |
+|  PROTESTANT BRANCHES:                                           |
 |  Lutheran (justification by faith alone, sola scriptura)        |
 |  Reformed/Presbyterian (Calvin — double predestination)         |
 |  Anglican/Episcopalian (via media, retained episcopacy)         |
@@ -304,16 +304,16 @@ Why did Jesus die, and how does it save? No single theory is normative for all C
 |                                                                  |
 |  QURAN                                                           |
 |  The direct speech of God (Allah) transmitted through            |
-|  Gabriel to Muhammad (610-632 CE). NOT Muhammad's words —       |
-|  God's own words. Uncreated (in mainstream Sunni view).         |
-|  Arranged in 114 suras (chapters) by length, not chronology.    |
+|  Gabriel to Muhammad (610-632 CE). NOT Muhammad's words —        |
+|  God's own words. Uncreated (in mainstream Sunni view).          |
+|  Arranged in 114 suras (chapters) by length, not chronology.     |
 |  Arabic is the sacred language — translation is interpretation.  |
-|  I'jaz (inimitability): cannot be matched in eloquence/style.   |
+|  I'jaz (inimitability): cannot be matched in eloquence/style.    |
 |       |                                                          |
 |  SUNNA (the Prophet's practice)                                  |
 |  Transmitted through hadith (individual reports of Muhammad's    |
-|  words, actions, tacit approvals). Six canonical Sunni          |
-|  collections (kutub al-sitta), most authoritative:              |
+|  words, actions, tacit approvals). Six canonical Sunni           |
+|  collections (kutub al-sitta), most authoritative:               |
 |  Sahih al-Bukhari and Sahih Muslim.                              |
 |       |                                                          |
 |  HADITH SCIENCE (Ilm al-hadith)                                  |
@@ -352,7 +352,7 @@ and legal divergence over 14 centuries.
 |  successor.                                                 |
 |         |                                                   |
 |         +-- SUNNI position: Abu Bakr (father-in-law)        |
-|         |   elected as first Caliph through community        |
+|         |   elected as first Caliph through community       |
 |         |   consultation. Legitimate succession: Abu Bakr   |
 |         |   → Umar → Uthman → Ali (fourth Caliph).          |
 |         |                                                   |
@@ -369,7 +369,7 @@ and legal divergence over 14 centuries.
 |                                                             |
 |  THEOLOGICAL DIVERGENCE:                                    |
 |  Sunni: Caliph is political/administrative leader.          |
-|  Shia: Imam (descendant of Ali) has special spiritual        |
+|  Shia: Imam (descendant of Ali) has special spiritual       |
 |        authority and near-infallibility.                    |
 |  Twelver Shia: 12th Imam is in occultation (hidden,         |
 |  alive) since 874 CE — will return as Mahdi.                |

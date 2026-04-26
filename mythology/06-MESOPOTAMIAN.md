@@ -45,55 +45,55 @@ The Sumerian cosmos was administered by a divine bureaucracy. Every city had a p
 
 ```
 ┌──────────────────────────────────────────────────────────────────┐
-│                  THE MAJOR SUMERIAN DEITIES                       │
+│                  THE MAJOR SUMERIAN DEITIES                      │
 │                                                                  │
 │  AN (Sumerian) / ANU (Akkadian)                                  │
 │  — Sky god; supreme authority in early theology                  │
 │  — Father of the gods (divine kingship resides with him)         │
 │  — Relatively remote; not actively invoked in daily life         │
-│  — City: Uruk; his descent/retreat mirrors the "deus otiosus"   │
+│  — City: Uruk; his descent/retreat mirrors the "deus otiosus"    │
 │    ("idle god") pattern — supreme but uninvolved                 │
 │                                                                  │
 │  ENLIL                                                           │
-│  — God of wind, storm, air; most powerful active deity          │
-│  — Lord of the Earth (between heaven and underworld)            │
-│  — Authorizes kingship; holds the Tablet of Destinies           │
+│  — God of wind, storm, air; most powerful active deity           │
+│  — Lord of the Earth (between heaven and underworld)             │
+│  — Authorizes kingship; holds the Tablet of Destinies            │
 │  — Can be terrifyingly destructive (sends the flood in Atrahasis)│
-│  — City: Nippur (pan-Sumerian sacred center)                    │
+│  — City: Nippur (pan-Sumerian sacred center)                     │
 │                                                                  │
 │  ENKI (Sumerian) / EA (Akkadian)                                 │
-│  — God of wisdom, magic, fresh water (Apsu), crafts, semen      │
-│  — Trickster-benefactor: warns Ziusudra/Utnapishtim of flood    │
-│  — Creator of humanity (from clay + divine blood)               │
-│  — Master of Me (divine decrees; see below)                     │
-│  — City: Eridu (oldest Sumerian city; first city in the world   │
+│  — God of wisdom, magic, fresh water (Apsu), crafts, semen       │
+│  — Trickster-benefactor: warns Ziusudra/Utnapishtim of flood     │
+│  — Creator of humanity (from clay + divine blood)                │
+│  — Master of Me (divine decrees; see below)                      │
+│  — City: Eridu (oldest Sumerian city; first city in the world    │
 │    per Sumerian King List)                                       │
 │                                                                  │
-│  INANNA (Sumerian) / ISHTAR (Akkadian)                          │
-│  — Goddess of love, sex, war, beauty, justice                   │
-│  — Wildly contradictory: tender lover AND goddess of slaughter  │
-│  — Queen of Heaven; planet Venus (morning AND evening star)     │
-│  — City: Uruk (also An's city — she is his daughter)            │
-│  — Most narrated deity in Sumerian literature                   │
+│  INANNA (Sumerian) / ISHTAR (Akkadian)                           │
+│  — Goddess of love, sex, war, beauty, justice                    │
+│  — Wildly contradictory: tender lover AND goddess of slaughter   │
+│  — Queen of Heaven; planet Venus (morning AND evening star)      │
+│  — City: Uruk (also An's city — she is his daughter)             │
+│  — Most narrated deity in Sumerian literature                    │
 │                                                                  │
-│  NANNA (Sumerian) / SIN (Akkadian)                              │
-│  — Moon god; son of Enlil                                       │
-│  — Measures time; patron of cattle herders                      │
-│  — City: Ur (Abraham's city of origin per Genesis)              │
+│  NANNA (Sumerian) / SIN (Akkadian)                               │
+│  — Moon god; son of Enlil                                        │
+│  — Measures time; patron of cattle herders                       │
+│  — City: Ur (Abraham's city of origin per Genesis)               │
 │                                                                  │
-│  UTU (Sumerian) / SHAMASH (Akkadian)                            │
-│  — Sun god; god of justice, law, divination                     │
-│  — Oversees oaths and legal proceedings                         │
-│  — Hammurabi receives law code from Shamash on famous stele     │
-│  — City: Sippar and Larsa                                       │
+│  UTU (Sumerian) / SHAMASH (Akkadian)                             │
+│  — Sun god; god of justice, law, divination                      │
+│  — Oversees oaths and legal proceedings                          │
+│  — Hammurabi receives law code from Shamash on famous stele      │
+│  — City: Sippar and Larsa                                        │
 │                                                                  │
-│  NINHURSAG / KI / NINTU / MAMI                                  │
-│  — Earth mother; mother of gods; goddess of birth               │
-│  — Multiple names reflect syncretism across cities              │
+│  NINHURSAG / KI / NINTU / MAMI                                   │
+│  — Earth mother; mother of gods; goddess of birth                │
+│  — Multiple names reflect syncretism across cities               │
 │                                                                  │
-│  NERGAL and ERESHKIGAL                                          │
-│  — King and Queen of the Underworld                             │
-│  — Kur / Irkalla = the Great Below (realm of the dead)         │
+│  NERGAL and ERESHKIGAL                                           │
+│  — King and Queen of the Underworld                              │
+│  — Kur / Irkalla = the Great Below (realm of the dead)           │
 └──────────────────────────────────────────────────────────────────┘
 ```
 
@@ -146,57 +146,57 @@ Recited on the fourth day of the Babylonian New Year festival (Akitu). Seven tab
 
 ```
 ┌──────────────────────────────────────────────────────────────────┐
-│                     ENUMA ELISH — NARRATIVE                       │
+│                       ENUMA ELISH — NARRATIVE                    │
 │                                                                  │
 │  TABLET I — PRIMORDIAL STATE:                                    │
 │  "When on high the heavens had not been named,                   │
-│   below the earth had not been called by name..."               │
+│   below the earth had not been called by name..."                │
 │                                                                  │
 │  Before everything: two primordial waters mingle                 │
-│  — Apsu: fresh water (male, underground)                        │
-│  — Tiamat: salt water (female, sea) — imagined as dragon        │
-│  Their mingling generates first gods                            │
+│  — Apsu: fresh water (male, underground)                         │
+│  — Tiamat: salt water (female, sea) — imagined as dragon         │
+│  Their mingling generates first gods                             │
 │                                                                  │
 │  CONFLICT BEGINS:                                                │
-│  Younger gods are noisy; Apsu cannot sleep; plans to destroy    │
-│  them. Enki/Ea learns of this through magic → kills Apsu        │
-│  first. Establishes his home on the "Apsu" (cosmic freshwater)  │
+│  Younger gods are noisy; Apsu cannot sleep; plans to destroy     │
+│  them. Enki/Ea learns of this through magic → kills Apsu         │
+│  first. Establishes his home on the "Apsu" (cosmic freshwater)   │
 │                                                                  │
-│  TABLETS II–III — TIAMAT MARSHALS FOR WAR:                      │
-│  Tiamat, enraged, creates an army of monsters:                  │
-│  — Viper, dragon, sphinx, great lion, mad dog,                  │
-│    scorpion-man, fish-man, bull-man (Lahmu/Lahamu)             │
-│  — Elevates Kingu as her champion; gives him Tablet of Destinies│
-│  Older gods (Anu, Ea) face Tiamat and flee in terror            │
+│  TABLETS II–III — TIAMAT MARSHALS FOR WAR:                       │
+│  Tiamat, enraged, creates an army of monsters:                   │
+│  — Viper, dragon, sphinx, great lion, mad dog,                   │
+│    scorpion-man, fish-man, bull-man (Lahmu/Lahamu)               │
+│  — Elevates Kingu as her champion; gives him Tablet of Destinies │
+│  Older gods (Anu, Ea) face Tiamat and flee in terror             │
 │                                                                  │
-│  TABLET IV — MARDUK'S TERMS AND VICTORY:                        │
+│  TABLET IV — MARDUK'S TERMS AND VICTORY:                         │
 │  Marduk agrees to fight IF the gods grant him supreme authority  │
-│  Test of his power: he speaks a constellation into/out of       │
-│  existence → gods acclaim him king                              │
+│  Test of his power: he speaks a constellation into/out of        │
+│  existence → gods acclaim him king                               │
 │                                                                  │
-│  Battle: Marduk traps Tiamat in a net, drives winds into her    │
-│  mouth to distend her body, spears her through the heart        │
-│  Splits her corpse in two:                                      │
-│    — Upper half → vault of heaven (sky)                         │
-│    — Lower half → earth                                         │
-│  Her eyes → sources of Tigris and Euphrates                     │
-│  Her spittle → clouds; her tail → Milky Way                     │
-│  Kingu captured; Tablet of Destinies transferred to Marduk      │
+│  Battle: Marduk traps Tiamat in a net, drives winds into her     │
+│  mouth to distend her body, spears her through the heart         │
+│  Splits her corpse in two:                                       │
+│    — Upper half → vault of heaven (sky)                          │
+│    — Lower half → earth                                          │
+│  Her eyes → sources of Tigris and Euphrates                      │
+│  Her spittle → clouds; her tail → Milky Way                      │
+│  Kingu captured; Tablet of Destinies transferred to Marduk       │
 │                                                                  │
-│  TABLETS V–VI — WORLD CONSTRUCTION AND HUMANITY:               │
-│  Marduk assigns the gods their stations (stars, planets, months)│
-│  Executes Kingu; uses his blood to create humanity              │
-│  (purpose: to labor and free the gods from toil)                │
-│  Babylon built as the gods' earthly home                        │
+│  TABLETS V–VI — WORLD CONSTRUCTION AND HUMANITY:                 │
+│  Marduk assigns the gods their stations (stars, planets, months) │
+│  Executes Kingu; uses his blood to create humanity               │
+│  (purpose: to labor and free the gods from toil)                 │
+│  Babylon built as the gods' earthly home                         │
 │                                                                  │
-│  TABLET VII — 50 NAMES OF MARDUK:                               │
-│  List of honorifics establishing Marduk's absolute supremacy    │
+│  TABLET VII — 50 NAMES OF MARDUK:                                │
+│  List of honorifics establishing Marduk's absolute supremacy     │
 │                                                                  │
 │  PARALLEL STRUCTURE:                                             │
-│  Enuma Elish recapitulates Hesiod's Theogony but is older:      │
-│  Tiamat = Chaos/primordial sea → Greek Chaos + Oceanus          │
-│  Cosmic combat → Marduk/Zeus defeating chaos monster            │
-│  Body-of-deity → world: specific to Mesopotamia (not in Hesiod) │
+│  Enuma Elish recapitulates Hesiod's Theogony but is older:       │
+│  Tiamat = Chaos/primordial sea → Greek Chaos + Oceanus           │
+│  Cosmic combat → Marduk/Zeus defeating chaos monster             │
+│  Body-of-deity → world: specific to Mesopotamia (not in Hesiod)  │
 └──────────────────────────────────────────────────────────────────┘
 ```
 
@@ -208,100 +208,100 @@ Twelve tablets; multiple versions spanning 1,500 years. The most complete versio
 
 ```
 ┌──────────────────────────────────────────────────────────────────┐
-│                   EPIC OF GILGAMESH — NARRATIVE MAP               │
+│                  EPIC OF GILGAMESH — NARRATIVE MAP               │
 │                                                                  │
-│  TABLET I — INTRODUCTION AND ENKIDU'S CREATION:                 │
+│  TABLET I — INTRODUCTION AND ENKIDU'S CREATION:                  │
 │  "He who saw the Deep" — narrator's prologue establishes         │
-│  Gilgamesh as 2/3 divine, 1/3 human; king of Uruk               │
+│  Gilgamesh as 2/3 divine, 1/3 human; king of Uruk                │
 │  Problem: Gilgamesh is too vigorous — exhausts his people        │
-│  with labor and sexual demands (prima nocta?)                   │
+│  with labor and sexual demands (prima nocta?)                    │
 │  Aruru (creation goddess) creates Enkidu from clay + spit        │
-│  — Enkidu is "natural man": lives with animals, eats grass      │
-│  Gilgamesh hears of him; sends a sacred prostitute (Shamhat)    │
-│  Shamhat civilizes Enkidu through 6 days/7 nights of sex        │
-│  — Animals no longer know him; he has language and culture      │
-│  — The Sumerian theory of civilization: sex = entry to culture  │
+│  — Enkidu is "natural man": lives with animals, eats grass       │
+│  Gilgamesh hears of him; sends a sacred prostitute (Shamhat)     │
+│  Shamhat civilizes Enkidu through 6 days/7 nights of sex         │
+│  — Animals no longer know him; he has language and culture       │
+│  — The Sumerian theory of civilization: sex = entry to culture   │
 │                                                                  │
-│  TABLETS II–III — GILGAMESH AND ENKIDU MEET AND BOND:           │
-│  Enkidu comes to Uruk; initially blocks Gilgamesh (stopping     │
-│  him from exercising prima nocta rights); they wrestle          │
+│  TABLETS II–III — GILGAMESH AND ENKIDU MEET AND BOND:            │
+│  Enkidu comes to Uruk; initially blocks Gilgamesh (stopping      │
+│  him from exercising prima nocta rights); they wrestle           │
 │  → Gilgamesh wins; they embrace; become inseparable friends      │
-│  Together they plan the Cedar Forest expedition                 │
+│  Together they plan the Cedar Forest expedition                  │
 │                                                                  │
-│  TABLETS IV–V — CEDAR FOREST; HUMBABA:                          │
+│  TABLETS IV–V — CEDAR FOREST; HUMBABA:                           │
 │  Journey to Cedar Forest (Lebanon); guarded by Humbaba           │
 │  Humbaba: monster appointed by Enlil to protect the cedars       │
-│  — Seven auras (terrifying radiances) protect him               │
-│  Shamash (sun god) helps them; they kill Humbaba                │
-│  Enkidu urges killing; Gilgamesh hesitates (Humbaba begs mercy) │
-│  They cut down the cedars and return with timber                │
+│  — Seven auras (terrifying radiances) protect him                │
+│  Shamash (sun god) helps them; they kill Humbaba                 │
+│  Enkidu urges killing; Gilgamesh hesitates (Humbaba begs mercy)  │
+│  They cut down the cedars and return with timber                 │
 │                                                                  │
-│  TABLET VI — ISHTAR'S PROPOSAL; BULL OF HEAVEN:                 │
-│  Ishtar proposes marriage to Gilgamesh upon return              │
-│  GILGAMESH REFUSES — lists Ishtar's discarded lovers:          │
-│    Tammuz (the shepherd), the bird, the lion, the horse...      │
+│  TABLET VI — ISHTAR'S PROPOSAL; BULL OF HEAVEN:                  │
+│  Ishtar proposes marriage to Gilgamesh upon return               │
+│  GILGAMESH REFUSES — lists Ishtar's discarded lovers:            │
+│    Tammuz (the shepherd), the bird, the lion, the horse...       │
 │    all destroyed by her; he will not join them                   │
 │  Ishtar, furious, demands her father Anu send Bull of Heaven     │
-│  Bull descends; Enkidu grabs its horns; Gilgamesh kills it      │
-│  Gilgamesh mocks Ishtar: throws bull's haunch at her face       │
-│  Ishtar and the women of Uruk mourn; heroes celebrate           │
+│  Bull descends; Enkidu grabs its horns; Gilgamesh kills it       │
+│  Gilgamesh mocks Ishtar: throws bull's haunch at her face        │
+│  Ishtar and the women of Uruk mourn; heroes celebrate            │
 │                                                                  │
-│  TABLET VII — ENKIDU'S DEATH:                                   │
+│  TABLET VII — ENKIDU'S DEATH:                                    │
 │  The gods deliberate: killing Humbaba AND the Bull of Heaven     │
-│  demands divine retribution. Enlil decrees Enkidu must die.     │
-│  Enkidu falls ill; twelve days of sickness                      │
-│  Enkidu curses the prostitute Shamhat (she civilized him →      │
-│  led to this death); Shamash intervenes; he blesses her instead │
-│  Enkidu dreams of the Underworld: the dead as birds in dust,    │
-│  kings dethroned, all equal in the great below                  │
-│  Enkidu dies                                                    │
+│  demands divine retribution. Enlil decrees Enkidu must die.      │
+│  Enkidu falls ill; twelve days of sickness                       │
+│  Enkidu curses the prostitute Shamhat (she civilized him →       │
+│  led to this death); Shamash intervenes; he blesses her instead  │
+│  Enkidu dreams of the Underworld: the dead as birds in dust,     │
+│  kings dethroned, all equal in the great below                   │
+│  Enkidu dies                                                     │
 │                                                                  │
-│  TABLET VIII — GILGAMESH MOURNS:                                │
-│  Extended mourning; funeral preparation                         │
-│  "Six days and seven nights I mourned over him                  │
-│   until a maggot dropped from his nostril"                      │
-│  → Gilgamesh first confronts mortality directly                 │
+│  TABLET VIII — GILGAMESH MOURNS:                                 │
+│  Extended mourning; funeral preparation                          │
+│  "Six days and seven nights I mourned over him                   │
+│   until a maggot dropped from his nostril"                       │
+│  → Gilgamesh first confronts mortality directly                  │
 │                                                                  │
-│  TABLETS IX–X — THE QUEST FOR IMMORTALITY:                      │
-│  Gilgamesh sets out to find Utnapishtim (the only mortal to     │
+│  TABLETS IX–X — THE QUEST FOR IMMORTALITY:                       │
+│  Gilgamesh sets out to find Utnapishtim (the only mortal to      │
 │  achieve immortality, granted by the gods after the flood)       │
-│  Journey through the Mountains of Mashu (twin peaks holding up  │
-│  sky); scorpion-men guard the pass; they let him through        │
-│  Twelve leagues of darkness; emerges into paradise garden       │
+│  Journey through the Mountains of Mashu (twin peaks holding up   │
+│  sky); scorpion-men guard the pass; they let him through         │
+│  Twelve leagues of darkness; emerges into paradise garden        │
 │  Meets Siduri (tavern keeper / "wine-maker of the gods"):        │
 │    She advises: "When the gods created mankind, they allotted    │
 │    death to mankind, but life they retained in their own keeping.│
-│    As for you, Gilgamesh, let your belly be full, make merry    │
+│    As for you, Gilgamesh, let your belly be full, make merry     │
 │    each day... look upon the child who holds your hand, let your │
 │    wife delight in your embrace — for this too is the lot of man"│
-│    → Epicurean consolation, 1000 years before Epicurus          │
-│  Gilgamesh refuses; finds Urshanabi (boatman of the dead)      │
-│  Crosses the Waters of Death; meets Utnapishtim               │
+│    → Epicurean consolation, 1000 years before Epicurus           │
+│  Gilgamesh refuses; finds Urshanabi (boatman of the dead)        │
+│  Crosses the Waters of Death; meets Utnapishtim                  │
 │                                                                  │
-│  TABLETS X–XI — UTNAPISHTIM'S FLOOD STORY:                     │
-│  (The flood narrative — see below)                              │
-│  Utnapishtim says: "We granted you kingship; immortality we     │
-│  did not grant you." Offers Gilgamesh a test: stay awake for    │
-│  six days and seven nights. Gilgamesh fails (falls asleep).     │
-│  "Go home." Wife intercedes; Utnapishtim reveals:               │
-│  There is a plant at the bottom of the sea — "Old Man Grown     │
-│  Young" / "Heartbeat of an Old Man"                             │
-│  Gilgamesh dives; retrieves the plant                           │
-│  Plans to bring it to Uruk to give to old men                   │
-│  Stops to bathe; a serpent steals the plant (sheds its skin)    │
-│  → The snake's skin-shedding explained; immortality lost        │
-│  Gilgamesh weeps                                               │
+│  TABLETS X–XI — UTNAPISHTIM'S FLOOD STORY:                       │
+│  (The flood narrative — see below)                               │
+│  Utnapishtim says: "We granted you kingship; immortality we      │
+│  did not grant you." Offers Gilgamesh a test: stay awake for     │
+│  six days and seven nights. Gilgamesh fails (falls asleep).      │
+│  "Go home." Wife intercedes; Utnapishtim reveals:                │
+│  There is a plant at the bottom of the sea — "Old Man Grown      │
+│  Young" / "Heartbeat of an Old Man"                              │
+│  Gilgamesh dives; retrieves the plant                            │
+│  Plans to bring it to Uruk to give to old men                    │
+│  Stops to bathe; a serpent steals the plant (sheds its skin)     │
+│  → The snake's skin-shedding explained; immortality lost         │
+│  Gilgamesh weeps                                                 │
 │                                                                  │
-│  TABLET XII — APPENDIX (possibly later addition):               │
-│  Enkidu descends to the underworld to retrieve Gilgamesh's      │
-│  drum and drumstick; becomes trapped; his ghost returns to give │
-│  Gilgamesh a report on the land of the dead                     │
+│  TABLET XII — APPENDIX (possibly later addition):                │
+│  Enkidu descends to the underworld to retrieve Gilgamesh's       │
+│  drum and drumstick; becomes trapped; his ghost returns to give  │
+│  Gilgamesh a report on the land of the dead                      │
 │                                                                  │
-│  CLOSING: Gilgamesh returns to Uruk; shows Urshanabi the walls  │
-│  he built. The frame narrative: "Go up on the wall of Uruk...   │
+│  CLOSING: Gilgamesh returns to Uruk; shows Urshanabi the walls   │
+│  he built. The frame narrative: "Go up on the wall of Uruk...    │
 │  see how its foundations are laid... is not even the foundation  │
-│  of brick a thing of permanence?" → The answer to mortality     │
-│  is civilization, craft, enduring works                         │
+│  of brick a thing of permanence?" → The answer to mortality      │
+│  is civilization, craft, enduring works                          │
 └──────────────────────────────────────────────────────────────────┘
 ```
 
@@ -363,42 +363,42 @@ One of the most psychologically complex myths in the ancient world:
 
 ```
 ┌──────────────────────────────────────────────────────────────────┐
-│                    DESCENT OF INANNA                              │
+│                       DESCENT OF INANNA                          │
 │                                                                  │
-│  PREMISE: Inanna decides to descend to the Great Below          │
-│  (Kur / Irkalla) — ruled by her sister Ereshkigal               │
+│  PREMISE: Inanna decides to descend to the Great Below           │
+│  (Kur / Irkalla) — ruled by her sister Ereshkigal                │
 │  Reasons given or implied:                                       │
 │  — To attend the funeral rites of Ereshkigal's husband Gugalanna │
-│  — To conquer or understand the realm of death                  │
-│  — To reclaim something; her motives are enigmatic              │
+│  — To conquer or understand the realm of death                   │
+│  — To reclaim something; her motives are enigmatic               │
 │                                                                  │
 │  THE SEVEN GATES:                                                │
-│  Inanna passes through 7 gates, surrendering one attribute each:│
+│  Inanna passes through 7 gates, surrendering one attribute each: │
 │                                                                  │
-│  Gate 1: Crown → "Give me the crown." Neti (gatekeeper) removes │
-│  Gate 2: Lapis lazuli measuring rod and line                    │
-│  Gate 3: Lapis lazuli beads at her throat                       │
-│  Gate 4: Double strand of beads on her breast                   │
-│  Gate 5: Gold ring from her hand                                │
-│  Gate 6: Breastplate ("Come, woman, the jewels of a woman...")  │
-│  Gate 7: Royal robe ("Come, woman, all must be naked before     │
-│          the queen of the Great Below")                         │
+│  Gate 1: Crown → "Give me the crown." Neti (gatekeeper) removes  │
+│  Gate 2: Lapis lazuli measuring rod and line                     │
+│  Gate 3: Lapis lazuli beads at her throat                        │
+│  Gate 4: Double strand of beads on her breast                    │
+│  Gate 5: Gold ring from her hand                                 │
+│  Gate 6: Breastplate ("Come, woman, the jewels of a woman...")   │
+│  Gate 7: Royal robe ("Come, woman, all must be naked before      │
+│          the queen of the Great Below")                          │
 │                                                                  │
-│  Inanna arrives naked and bowed low before Ereshkigal           │
-│  Ereshkigal commands the seven judges (Anunnaki): they fasten   │
-│  their eyes upon her — the look of death                        │
-│  The corpse of Inanna is hung on a peg                         │
+│  Inanna arrives naked and bowed low before Ereshkigal            │
+│  Ereshkigal commands the seven judges (Anunnaki): they fasten    │
+│  their eyes upon her — the look of death                         │
+│  The corpse of Inanna is hung on a peg                           │
 │                                                                  │
 │  RESCUE:                                                         │
-│  Inanna had given instructions to her servant Ninshubar:        │
-│  if she doesn't return in three days, mourn and plead for help  │
-│  Ninshubar goes to Enlil (refuses), Nanna/Sin (refuses)         │
-│  Enki creates two beings from the dirt under his fingernail     │
-│  — The kurgarra and galatur                                     │
-│  — They descend and comfort Ereshkigal (who is in labor-pain)  │
-│  — Ereshkigal, grateful, offers them gifts                     │
-│  — They ask for Inanna's corpse; sprinkle Water of Life and     │
-│    Food of Life upon it                                         │
+│  Inanna had given instructions to her servant Ninshubar:         │
+│  if she doesn't return in three days, mourn and plead for help   │
+│  Ninshubar goes to Enlil (refuses), Nanna/Sin (refuses)          │
+│  Enki creates two beings from the dirt under his fingernail      │
+│  — The kurgarra and galatur                                      │
+│  — They descend and comfort Ereshkigal (who is in labor-pain)    │
+│  — Ereshkigal, grateful, offers them gifts                       │
+│  — They ask for Inanna's corpse; sprinkle Water of Life and      │
+│    Food of Life upon it                                          │
 │                                                                  │
 │  RETURN CONDITIONS:                                              │
 │  "No one ascends from the underworld without a substitute"       │
@@ -406,21 +406,21 @@ One of the most psychologically complex myths in the ancient world:
 │  She travels with demons (galla) who escort the dead             │
 │                                                                  │
 │  THE SUBSTITUTE:                                                 │
-│  Inanna's servant Ninshubar is in mourning → spared             │
-│  Her sons are in mourning → spared                              │
-│  But Dumuzi (her husband, the shepherd god) is on his throne    │
-│  in fine clothes, not mourning at all                           │
-│  Inanna "fastens on him the eye of death" → Dumuzi taken down   │
-│  (Dumuzi's sister Geshtinanna bargains: each takes six months)  │
-│  → Seasonal cycle of vegetation: Dumuzi below = winter/drought  │
+│  Inanna's servant Ninshubar is in mourning → spared              │
+│  Her sons are in mourning → spared                               │
+│  But Dumuzi (her husband, the shepherd god) is on his throne     │
+│  in fine clothes, not mourning at all                            │
+│  Inanna "fastens on him the eye of death" → Dumuzi taken down    │
+│  (Dumuzi's sister Geshtinanna bargains: each takes six months)   │
+│  → Seasonal cycle of vegetation: Dumuzi below = winter/drought   │
 │                                                                  │
 │  INTERPRETATION:                                                 │
-│  — Psychological: stripping of identity, confronting death,     │
-│    emergence transformed (initiatory descent)                   │
-│  — Seasonal myth: vegetation god dying and returning            │
-│  — Political: Inanna/Ishtar's dual nature (love + war) explained│
-│  — Compare: Persephone/Demeter (Greek), Orpheus (Greek),        │
-│    Osiris (Egyptian) — the descent-and-return archetype         │
+│  — Psychological: stripping of identity, confronting death,      │
+│    emergence transformed (initiatory descent)                    │
+│  — Seasonal myth: vegetation god dying and returning             │
+│  — Political: Inanna/Ishtar's dual nature (love + war) explained │
+│  — Compare: Persephone/Demeter (Greek), Orpheus (Greek),         │
+│    Osiris (Egyptian) — the descent-and-return archetype          │
 └──────────────────────────────────────────────────────────────────┘
 ```
 

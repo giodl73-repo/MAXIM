@@ -9,7 +9,7 @@
 ```
 ┌─────────────────────────────────────────────────────────────────────────────┐
 │                                                                             │
-│   "The coating is only as good as the surface it's applied to."            │
+│   "The coating is only as good as the surface it's applied to."             │
 │                                                                             │
 │   Industry data: ~80% of premature coating failures trace to surface        │
 │   preparation failures — not coating failures.                              │
@@ -18,7 +18,7 @@
 │   fails, by which point the substrate damage has compounded.                │
 │                                                                             │
 │   Cost hierarchy:                                                           │
-│   Proper prep (day 0) << Recoat (6 months) << Remediation (2 years)        │
+│   Proper prep (day 0) << Recoat (6 months) << Remediation (2 years)         │
 │                        10×                   100×                           │
 │                                                                             │
 └─────────────────────────────────────────────────────────────────────────────┘
@@ -133,7 +133,7 @@ coating specs — you'll see "SSPC SP10" in coating specifications.
 
 ```
   ┌────────────────────────────────────────────────────────────────────────┐
-  │ SSPC STANDARDS — Metal Surface Preparation (ascending quality)        │
+  │ SSPC STANDARDS — Metal Surface Preparation (ascending quality)         │
   ├──────────┬────────────────────────────────┬───────────────────────────┤
   │ Standard │ Name                           │ Description               │
   ├──────────┼────────────────────────────────┼───────────────────────────┤
@@ -278,13 +278,13 @@ Before painting over existing glossy surfaces:
   NEW CONCRETE:
   ┌───────────────────────────────────────────────────────────────────┐
   │ 28-day cure minimum before applying non-breathable coatings       │
-  │ (concrete gains ~90% strength by 28 days, continues to gain)     │
+  │ (concrete gains ~90% strength by 28 days, continues to gain)      │
   │                                                                   │
-  │ Moisture test: tape 18"×18" plastic sheet, seal edges, 24h       │
-  │ If condensation on back of plastic → too wet for coating         │
+  │ Moisture test: tape 18"×18" plastic sheet, seal edges, 24h        │
+  │ If condensation on back of plastic → too wet for coating          │
   │                                                                   │
-  │ pH test: pH strips on wetted surface; pH>9 → alkali-resistant    │
-  │          primer required; pH<9 → standard masonry primer OK      │
+  │ pH test: pH strips on wetted surface; pH>9 → alkali-resistant     │
+  │          primer required; pH<9 → standard masonry primer OK       │
   └───────────────────────────────────────────────────────────────────┘
 
   GARAGE FLOOR EPOXY PREP (critical sequence — skip any step = failure):
@@ -318,8 +318,8 @@ Check the product TDS for specific limits — these are minimums:
 
   ┌─────────────────────────────────────────────────────────────────────┐
   │ Substrate temperature:   ≥ 40-50°F (some products require ≥ 50°F) │
-  │ Air temperature:         ≥ 50°F                                    │
-  │ Relative humidity:       ≤ 85%                                     │
+  │ Air temperature:         ≥ 50°F                                     │
+  │ Relative humidity:       ≤ 85%                                      │
   │ Substrate temperature:   ≥ 5°F above dew point                    │
   └─────────────────────────────────────────────────────────────────────┘
 

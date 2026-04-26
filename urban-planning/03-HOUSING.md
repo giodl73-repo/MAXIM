@@ -6,9 +6,9 @@ Housing markets are economically unusual: inelastic supply (building takes years
 
 ```
 +------------------------------------------------------------------+
-|                    HOUSING SYSTEM                                 |
+|                    HOUSING SYSTEM                                |
 |                                                                  |
-|  DEMAND SIDE            SUPPLY SIDE            POLICY LEVERS    |
+|  DEMAND SIDE            SUPPLY SIDE            POLICY LEVERS     |
 |  -----------            -----------            ------------      |
 |  Population growth      New construction       Zoning            |
 |  Income levels          (flow)                 (supply quantity) |
@@ -27,8 +27,8 @@ Housing markets are economically unusual: inelastic supply (building takes years
          |
          v
 +------------------------------------------------------------------+
-|                    HOUSING MARKET OUTCOMES                        |
-|  Price levels    Affordability    Neighborhood composition        |
+|                    HOUSING MARKET OUTCOMES                       |
+|  Price levels    Affordability    Neighborhood composition       |
 |  Vacancy rates   Tenure mix       Commute patterns               |
 |  Crowding        Homelessness     Segregation                    |
 +------------------------------------------------------------------+

@@ -8,8 +8,8 @@ Differential geometry is the language of fundamental physics, modern robotics, a
 DG APPLICATIONS — 6 DOMAINS WITH SOURCE MODULES
 +====================================================================+
 |  04-RIEMANNIAN ──→ ML OPTIMIZATION ON MANIFOLDS                    |
-|    Metric, geodesics,   Riem. SGD on SO(n), Sym+(n), Stiefel      |
-|    exp/log maps         Natural gradient (Fisher metric)            |
+|    Metric, geodesics,   Riem. SGD on SO(n), Sym+(n), Stiefel       |
+|    exp/log maps         Natural gradient (Fisher metric)           |
 |                                                                    |
 |  04-RIEMANNIAN ──→ INFORMATION GEOMETRY                            |
 |    Fisher metric        Statistical manifolds, exponential families |
@@ -19,15 +19,15 @@ DG APPLICATIONS — 6 DOMAINS WITH SOURCE MODULES
 |    Principal bundles,   Electromagnetism (U(1)), Yang-Mills (SU(3))|
 |    curvature F = dA     Standard Model, gravity as gauge theory    |
 |                                                                    |
-|  08-BUNDLES + 07-LIE ──→ EQUIVARIANT NEURAL NETWORKS              |
+|  08-BUNDLES + 07-LIE ──→ EQUIVARIANT NEURAL NETWORKS               |
 |    Assoc. bundles,      Gauge-equiv. CNNs, e3nn, NequIP            |
 |    representations      SO(3)/SE(3) irreps as feature types        |
 |                                                                    |
 |  02-TANGENT + 03-FORMS ──→ SYMPLECTIC GEOMETRY                     |
-|    Cotangent bundle,    Hamiltonian mechanics, symplectic integr.   |
+|    Cotangent bundle,    Hamiltonian mechanics, symplectic integr.  |
 |    canonical 2-form     HMC sampling, Hamiltonian neural nets      |
 |                                                                    |
-|  06-CURVATURE + 04-RIEM ──→ GENERAL RELATIVITY                    |
+|  06-CURVATURE + 04-RIEM ──→ GENERAL RELATIVITY                     |
 |    Ricci tensor,        Einstein equations, black holes, grav.     |
 |    Lorentzian metric    waves, cosmological models                 |
 +====================================================================+
@@ -42,18 +42,18 @@ DG APPLICATIONS — 6 DOMAINS WITH SOURCE MODULES
 |  | Spacetime = 4D     |       | Standard Model =   |            |
 |  | Lorentzian manifold|       | connections on     |            |
 |  | Einstein equations |       | principal bundles  |            |
-|  | Geodesics = free   |       | U(1) x SU(2) x SU(3)|          |
+|  | Geodesics = free   |       | U(1) x SU(2) x SU(3)|           |
 |  | fall trajectories  |       +--------------------+            |
 |  +--------------------+                                          |
 |                                                                  |
-|  ROBOT KINEMATICS             ML ON MANIFOLDS                   |
-|  +--------------------+       +--------------------+            |
+|  ROBOT KINEMATICS             ML ON MANIFOLDS                    |
+|  +--------------------+       +--------------------+             |
 |  | SE(3) = rigid body |       | Riemannian SGD     |            |
 |  | motions            |       | Natural gradient   |            |
 |  | Screw motions      |       | Manifold-valued    |            |
 |  | Configuration space|       | data (SPD matrices)|            |
 |  +--------------------+       +--------------------+            |
-|                                                                  |
+|                                                                 |
 +------------------------------------------------------------------+
 ```
 

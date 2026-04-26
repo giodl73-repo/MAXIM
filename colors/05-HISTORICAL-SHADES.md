@@ -9,7 +9,7 @@
 |  EVERY named shade has a specific origin:                        |
 |  a substance, a place, an event, a person, or an organism        |
 |                                                                  |
-|  PATTERN: material → name (not perception → name)               |
+|  PATTERN: material → name (not perception → name)                |
 |  Once the material has a name, the COLOR gets the same name      |
 |  Later: color term decouples from material (mauve now means      |
 |  a color, not necessarily the specific dye)                      |
@@ -20,7 +20,7 @@
 |  • Geography (ultramarine = beyond the sea)                      |
 |  • Accidents (Perkin's aniline experiment gone wrong)            |
 |  • Politics (magenta, Battle of 1859)                            |
-|  • Botany (indigo plant, gamboge resin)                         |
+|  • Botany (indigo plant, gamboge resin)                          |
 |  • Zoology (cochineal insect, kermes oak scale)                  |
 +------------------------------------------------------------------+
 ```
@@ -291,7 +291,7 @@ PRUSSIAN BLUE:
 
 COBALT BLUE vs PRUSSIAN BLUE vs ULTRAMARINE:
 +-------------------+---------------------+------------------------------+
-| Name              | Color character      | Chemistry                   |
+| Name              | Color character     | Chemistry                    |
 +-------------------+---------------------+------------------------------+
 | Prussian blue     | Greenish deep blue  | Fe₄[Fe(CN)₆]₃ (cyan-blue)  |
 | Cobalt blue       | Slightly warm blue  | CoAl₂O₄ (warmer than PB)   |

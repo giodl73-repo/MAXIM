@@ -14,7 +14,7 @@ MODULATION TAXONOMY
               ┌───────────────┴───────────────┐
            ANALOG                           DIGITAL
            (continuous message)             (discrete symbols)
-              │                                │
+              │                               │
     ┌─────────┼─────────┐         ┌────────────┼────────────┐
     AM        FM       PM         ASK         FSK          PSK/QAM
   Amplitude  Freq     Phase    Amplitude    Frequency    Phase/Amplitude
@@ -26,8 +26,8 @@ MODULATION TAXONOMY
                                  │    OFDM    │
                                  │(multicarrier│
                                  │ modulation) │
-                                 │ LTE, WiFi   │
-                                 │ 5G, cable   │
+                                 │ LTE, WiFi  │
+                                 │ 5G, cable  │
                                  └────────────┘
 ```
 
@@ -178,12 +178,12 @@ IFFT/FFT IMPLEMENTATION:
   OFDM is implemented with IFFT at transmitter, FFT at receiver. O(N log N).
 
   ┌──────────────────────────────────────────────────────────────────┐
-  │ OFDM TRANSMITTER                                                  │
-  │                                                                   │
+  │ OFDM TRANSMITTER                                                 │
+  │                                                                  │
   │ Bits → [QAM map] → [S/P] → [N-point IFFT] → [P/S] → [Add CP] → │
-  │                                                                   │
-  │ OFDM RECEIVER                                                     │
-  │                                                                   │
+  │                                                                  │
+  │ OFDM RECEIVER                                                    │
+  │                                                                  │
   │ → [Remove CP] → [S/P] → [N-point FFT] → [1-tap equalizer per SC] → [QAM demod] → Bits │
   └──────────────────────────────────────────────────────────────────┘
 

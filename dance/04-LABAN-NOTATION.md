@@ -6,26 +6,26 @@ Rudolf Laban (1879-1958) created two distinct but related systems: Labanotation 
 
 ```
 +-------------------------------------------------------------------+
-|                LABAN'S TWO SYSTEMS                                 |
+|                LABAN'S TWO SYSTEMS                                |
 |                                                                   |
 |  LABANOTATION              LABAN MOVEMENT ANALYSIS (LMA)          |
 |  (Kinetography Laban)                                             |
 |                                                                   |
 |  PURPOSE: Write down a           PURPOSE: Analyze movement quality |
-|  specific dance sequence         regardless of specific sequence   |
+|  specific dance sequence         regardless of specific sequence  |
 |                                                                   |
 |  WHAT IT RECORDS:                WHAT IT DESCRIBES:               |
-|  -- Which body part              -- Effort (dynamic quality)       |
-|  -- Which direction              -- Space (spatial intent)         |
-|  -- At what level                -- Shape (body form change)       |
-|  -- For how long                 -- Body (body organization)       |
+|  -- Which body part              -- Effort (dynamic quality)      |
+|  -- Which direction              -- Space (spatial intent)        |
+|  -- At what level                -- Shape (body form change)      |
+|  -- For how long                 -- Body (body organization)      |
 |  -- With what path                                                |
 |                                                                   |
 |  OUTPUT: A score you can         OUTPUT: A description of HOW     |
-|  reproduce exactly               movement feels and functions      |
+|  reproduce exactly               movement feels and functions     |
 |                                                                   |
-|  ANALOG: Musical notation        ANALOG: Music theory terminology  |
-|  (write what notes/when)         (describe timbre, tension, arc)   |
+|  ANALOG: Musical notation        ANALOG: Music theory terminology |
+|  (write what notes/when)         (describe timbre, tension, arc)  |
 +-------------------------------------------------------------------+
 ```
 
@@ -176,7 +176,7 @@ LMA provides a vocabulary for describing HOW movement happens -- its qualities, 
 
 ```
 +----------------------------------------------------------+
-|                    LMA FRAMEWORK                          |
+|                    LMA FRAMEWORK                         |
 |                                                          |
 |  BODY              EFFORT              SPACE              SHAPE  |
 |  (What moves)      (How it feels)      (Where it goes)    (Form) |

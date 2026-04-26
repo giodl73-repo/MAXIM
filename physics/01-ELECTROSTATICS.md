@@ -16,7 +16,7 @@ It is the foundation everything else builds on.
 |   charge q  ──>  force on           E(x,y,z)       ∇·E  = ρ/ε₀       |
 |   (scalar)        other charges     vector field    ∇×E  = 0           |
 |                                          │                             |
-|                                          │ E = -∇V                    |
+|                                          │ E = -∇V                     |
 |                                          ▼                             |
 |                                     V(x,y,z)       ∇²V = -ρ/ε₀       |
 |                                     scalar field   (Poisson)           |

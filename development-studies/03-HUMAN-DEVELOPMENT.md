@@ -6,7 +6,7 @@ The capabilities approach is a fundamental critique of income-based development 
 
 ```
 +--------------------------------------------------------------------------+
-|                    HUMAN DEVELOPMENT FRAMEWORK                            |
+|                    HUMAN DEVELOPMENT FRAMEWORK                           |
 +--------------------------------------------------------------------------+
 |                                                                          |
 |  QUESTION: What is development FOR?                                      |

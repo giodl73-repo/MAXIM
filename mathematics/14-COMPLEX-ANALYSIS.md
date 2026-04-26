@@ -242,10 +242,10 @@ singularities at z₀:
 │  g(z) = (z−z₀)^m f(z) is holomorphic at z₀.                         │
 │                                                                         │
 │  Essential singularity                                                  │
-│  Infinitely many negative terms.                                       │
+│  Infinitely many negative terms.                                        │
 │  Example: e^(1/z) at z=0.                                             │
-│  Picard's Great Theorem: in any punctured neighborhood of an           │
-│  essential singularity, f takes every complex value (with at most      │
+│  Picard's Great Theorem: in any punctured neighborhood of an            │
+│  essential singularity, f takes every complex value (with at most       │
 │  one exception) infinitely often.                                       │
 └─────────────────────────────────────────────────────────────────────────┘
 ```

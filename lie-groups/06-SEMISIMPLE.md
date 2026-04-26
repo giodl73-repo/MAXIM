@@ -9,7 +9,7 @@ combinatorial bridge.
 
 ```
 +----------------------------------------------------------------------+
-|         COMPLETE CLASSIFICATION OF SIMPLE LIE ALGEBRAS OVER C       |
+|         COMPLETE CLASSIFICATION OF SIMPLE LIE ALGEBRAS OVER C        |
 +----------------------------------------------------------------------+
 |                                                                      |
 |  CLASSICAL SERIES (infinite families):                               |

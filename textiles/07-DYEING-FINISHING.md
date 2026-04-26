@@ -187,16 +187,16 @@ Wet processing is the most chemistry-intensive part of textile manufacturing and
   ┌──────────────────────────────────────────────────────────────┐
   │  COMMON MORDANTS                                             │
   │  Alum (KAl(SO₄)₂·12H₂O):  Most common; bright colors;      │
-  │                             safe; "mineral alum"            │
-  │  Iron (FeSO₄, copperas):   Darkens, saddens colors;         │
-  │                             "iron mordanting" shifts hue    │
-  │  Copper (CuSO₄):           Greens; some health concern      │
-  │  Tin (SnCl₂):              Brightens, "moons";              │
+  │                             safe; "mineral alum"             │
+  │  Iron (FeSO₄, copperas):   Darkens, saddens colors;          │
+  │                             "iron mordanting" shifts hue     │
+  │  Copper (CuSO₄):           Greens; some health concern       │
+  │  Tin (SnCl₂):              Brightens, "moons";               │
   │                             can damage protein fibers        │
-  │  Tannin (plant-based):     For cellulosic fibers —          │
+  │  Tannin (plant-based):     For cellulosic fibers —           │
   │                             required pre-mordant step        │
-  │                             (cotton needs tannin to bind    │
-  │                             metallic mordants)              │
+  │                             (cotton needs tannin to bind     │
+  │                             metallic mordants)               │
   └──────────────────────────────────────────────────────────────┘
 
   PROCESS:

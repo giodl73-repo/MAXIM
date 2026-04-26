@@ -352,11 +352,11 @@ ISLAMIC COMMERCIAL INSTRUMENTS
 
 1. MUDARABA (Commenda Partnership)
    +--------------------------------------------+
-   | Investor (rabb al-mal)                      |
-   |   Provides: capital (100 dinars)            |
-   |   Provides: nothing else -- no labor        |
+   | Investor (rabb al-mal)                     |
+   |   Provides: capital (100 dinars)           |
+   |   Provides: nothing else -- no labor       |
    |   Receives: agreed share of PROFIT (e.g. 40%)|
-   |   Liability: loss of capital only           |
+   |   Liability: loss of capital only          |
    +------------------+--------------------------+
                       |
    +------------------v--------------------------+

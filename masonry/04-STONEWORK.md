@@ -11,18 +11,18 @@ STONE MASONRY CLASSIFICATION
   BY UNIT DRESSING:
   ┌─────────────────────────────────────────────────────────────────┐
   │  ASHLAR (dressed)                                               │
-  │  ├── Coursed ashlar: cut to equal height courses               │
-  │  ├── Random coursed: cut, but courses vary in height           │
-  │  └── Random rubble (semi-dressed): irregular faces, dressed    │
+  │  ├── Coursed ashlar: cut to equal height courses                │
+  │  ├── Random coursed: cut, but courses vary in height            │
+  │  └── Random rubble (semi-dressed): irregular faces, dressed     │
   │                                     edges only                  │
   │                                                                   │
   │  RUBBLE (undressed or minimally dressed)                        │
-  │  ├── Coursed rubble: uncut stones laid in approximate courses  │
-  │  └── Random rubble: no courses, stones as found                │
+  │  ├── Coursed rubble: uncut stones laid in approximate courses   │
+  │  └── Random rubble: no courses, stones as found                 │
   │                                                                   │
   │  DRY-STONE (no mortar)                                          │
-  │  ├── Dry-stone wall (agricultural boundary)                    │
-  │  └── Cyclopean masonry (prehistoric large blocks)              │
+  │  ├── Dry-stone wall (agricultural boundary)                     │
+  │  └── Cyclopean masonry (prehistoric large blocks)               │
   └─────────────────────────────────────────────────────────────────┘
 
   PRECISION SPECTRUM:
@@ -45,7 +45,7 @@ ASHLAR CLASSIFICATION
 
   COURSED ASHLAR
   ┌──────────────────────────────────────────────────────────────────┐
-  │  ┌──────────────────┬──────────────────┬──────────────────────┐ │
+  │  ┌──────────────────┬──────────────────┬──────────────────────┐  │
   │  │                  │                  │                      │ │  Course 3 (same height)
   │  ├────────┬─────────┴────────┬─────────┴──────┬──────────────┤ │
   │  │        │                  │                 │              │ │  Course 2
@@ -60,7 +60,7 @@ ASHLAR CLASSIFICATION
   │  ┌────────────┬──────┬────────────────┬──────┐                 │
   │  │  8" course │      │   8" course     │      │ ← vary heights  │
   │  ├────────────┤  6"  ├────────────────┤  6"  │                 │
-  │  │  6" course │      │   6" course     │      │                 │
+  │  │  6" course │      │   6" course    │      │                 │
   │  └────────────┴──────┴────────────────┴──────┘                 │
   │  Stones cut and dressed; courses vary in height but each        │
   │  course is consistent in its own height range                   │
@@ -103,12 +103,12 @@ RUBBLE MASONRY TYPES
   │  ◇◆◇◆◆◇◆◇◆◆◆◇◆◆◇◆                                           │
   │  ◆◆◇◇◆◆◆◇◆◆◆◇◆◆◆◇◆                                          │
   │  ◇◆◆◇◆◆◆◇◆◆◇◆◆◆◇◆◆                                          │
-  │  No courses; stones placed as they fit; most rubble work        │
+  │  No courses; stones placed as they fit; most rubble work         │
   └──────────────────────────────────────────────────────────────────┘
 
   COURSED RUBBLE:
   ┌──────────────────────────────────────────────────────────────────┐
-  │  ┌──────────────────────────────────────────────────────────┐   │
+  │  ┌──────────────────────────────────────────────────────────┐    │
   │  │ ◇◆◇◆◆◇◆◇◆◆◆◇◆◆◇◆◆◇◆◆◆◇◆◆◇◆◆◆◇◆◆◇◆ │  ← leveled every 4-6" │
   │  ├──────────────────────────────────────────────────────────┤   │
   │  │ ◆◆◇◇◆◆◆◇◆◆◆◇◆◆◆◇◆◆◆◇◆◆◇◆◆◆◇◆◆◆◇◆◆ │                   │
@@ -134,16 +134,16 @@ DRY-STONE WALL ANATOMY
   ┌─────────────────────────────────────────────────────────────────┐
   │                    COPING STONES (cap)                          │
   │  ///////////////////////////////////////////////////            │
-  │  ┌──────────────────────────────────────────────┐              │
+  │  ┌──────────────────────────────────────────────┐               │
   │  │          THROUGH-STONE (tie stone)           │              │
   │  │  ┌──────┬───────────────────────┬───────┐   │              │
-  │  │  │FACE  │   HEARTING (fill)      │ FACE  │   │              │
+  │  │  │FACE  │   HEARTING (fill)     │ FACE  │   │              │
   │  │  │STONES│  (smaller stones,     │STONES │   │              │
   │  │  │      │   packed tight)       │       │   │              │
   │  │  └──────┴───────────────────────┴───────┘   │              │
   │  │          THROUGH-STONE                       │              │
   │  │  ┌──────┬───────────────────────┬───────┐   │              │
-  │  │  │FACE  │   HEARTING             │ FACE  │   │              │
+  │  │  │FACE  │   HEARTING            │ FACE  │   │              │
   │  │  └──────┴───────────────────────┴───────┘   │              │
   │  └──────────────────────────────────────────────┘              │
   │                    FOUNDATION COURSE                            │
@@ -151,22 +151,22 @@ DRY-STONE WALL ANATOMY
 
   KEY ELEMENTS:
   ┌──────────────────────────────────────────────────────────────────┐
-  │  BATTER: Wall leans slightly inward on both faces               │
+  │  BATTER: Wall leans slightly inward on both faces                │
   │    Typical: 1" in 2 feet (1:24) per face                       │
-  │    Purpose: Lowers center of gravity, increases stability       │
-  │                                                                   │
-  │  THROUGH-STONE (bond stone, tie stone):                         │
-  │    Spans full wall width at intervals                           │
+  │    Purpose: Lowers center of gravity, increases stability        │
+  │                                                                  │
+  │  THROUGH-STONE (bond stone, tie stone):                          │
+  │    Spans full wall width at intervals                            │
   │    Frequency: Every 3–4 sq ft of face area                     │
-  │    Critical: Without through-stones, two separate stacks form   │
-  │                                                                   │
+  │    Critical: Without through-stones, two separate stacks form    │
+  │                                                                  │
   │  HEARTING:                                                       │
-  │    Small stones filling the core between face stones            │
-  │    Must be packed tight — loose hearting compresses/settles     │
-  │                                                                   │
+  │    Small stones filling the core between face stones             │
+  │    Must be packed tight — loose hearting compresses/settles      │
+  │                                                                  │
   │  COPING:                                                         │
   │    Top course: flat or rounded stones protecting joint from rain │
-  │    Often set on edge (pitching stones) or large flat slabs      │
+  │    Often set on edge (pitching stones) or large flat slabs       │
   └──────────────────────────────────────────────────────────────────┘
 ```
 
@@ -211,11 +211,11 @@ CYCLOPEAN EXAMPLES
 
   WHY CYCLOPEAN SURVIVES EARTHQUAKES:
   ┌──────────────────────────────────────────────────────────────────┐
-  │  Mortared masonry: rigid assembly → seismic force = shear →     │
-  │    joints crack at mortar → catastrophic failure                │
-  │                                                                   │
-  │  Cyclopean masonry: blocks rock and reseat on polyhedral fits → │
-  │    absorbs seismic energy in friction → reseat by gravity →     │
+  │  Mortared masonry: rigid assembly → seismic force = shear →      │
+  │    joints crack at mortar → catastrophic failure                 │
+  │                                                                  │
+  │  Cyclopean masonry: blocks rock and reseat on polyhedral fits →  │
+  │    absorbs seismic energy in friction → reseat by gravity →      │
   │    survives 8.0+ earthquakes that destroy modern buildings       │
   └──────────────────────────────────────────────────────────────────┘
 ```
@@ -233,11 +233,11 @@ QUARRYING PROCESS
 
   PLUG-AND-FEATHER (traditional):
   ┌──────────────────────────────────────────────────────────────────┐
-  │  1. Drill line of holes along desired break plane               │
-  │  2. Insert steel "feathers" (half-round channels) in each hole  │
-  │  3. Drive steel "plug" between feathers with hammer             │
-  │  4. Progressive tightening opens controlled fracture            │
-  │  5. Stone splits cleanly along natural grain or bedding plane   │
+  │  1. Drill line of holes along desired break plane                │
+  │  2. Insert steel "feathers" (half-round channels) in each hole   │
+  │  3. Drive steel "plug" between feathers with hammer              │
+  │  4. Progressive tightening opens controlled fracture             │
+  │  5. Stone splits cleanly along natural grain or bedding plane    │
   └──────────────────────────────────────────────────────────────────┘
 
 STONE DRESSING FINISHES

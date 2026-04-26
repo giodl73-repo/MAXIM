@@ -163,14 +163,14 @@ Physical cardioid capsule: omni + figure-8 = cardioid.
 DYNAMIC LOUDSPEAKER STRUCTURE:
 
             ┌─────────────────────────────────────────┐
-            │                                          │
+            │                                         │
     Input   │  Spider ─►[Voice coil]◄─ Spider         │
     (AC)   ─┤           Motor: B·l·I = Force          │
-            │  Force moves diaphragm (cone or dome)    │
-            │                                          │
-            │  [Cone/dome diaphragm]                   │
-            │  │                                       │
-            │  └──► Acoustic radiation                 │
+            │  Force moves diaphragm (cone or dome)   │
+            │                                         │
+            │  [Cone/dome diaphragm]                  │
+            │  │                                      │
+            │  └──► Acoustic radiation                │
             └─────────────────────────────────────────┘
 
 PARAMETERS (Thiele-Small parameters):

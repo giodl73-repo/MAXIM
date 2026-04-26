@@ -68,7 +68,7 @@ INTEGRATED MODULAR AVIONICS (IMA) — ARINC 651 / DO-297:
   ┌───────────────────────────────────────────────────────────┐
   │  COMMON COMPUTING RESOURCE (CCR / GPM — General Processing│
   │  Module)                                                  │
-  │  ┌──────────┐ ┌──────────┐ ┌──────────┐ ┌──────────┐     │
+  │  ┌──────────┐ ┌──────────┐ ┌──────────┐ ┌──────────┐      │
   │  │ FMS App  │ │ TCAS App │ │ FCC App  │ │ BITE App │     │
   │  │ (DAL B)  │ │ (DAL B)  │ │ (DAL A)  │ │ (DAL C)  │     │
   │  └──────────┘ └──────────┘ └──────────┘ └──────────┘     │
@@ -291,17 +291,17 @@ AUTOPILOT CONTROL LAW ARCHITECTURE:
 
   ┌──────────────────────────────────────────────────────────────────┐
   │  OUTER LOOP (AUTOPILOT)                                          │
-  │  Alt hold: altitude → VS → pitch command → inner loop           │
-  │  Hdg hold: heading → bank angle cmd → roll inner loop           │
-  │  Spd hold: airspeed error → pitch or throttle (VNAV)            │
-  │  ILS: localizer → roll; glideslope → pitch (inner coupling)     │
+  │  Alt hold: altitude → VS → pitch command → inner loop            │
+  │  Hdg hold: heading → bank angle cmd → roll inner loop            │
+  │  Spd hold: airspeed error → pitch or throttle (VNAV)             │
+  │  ILS: localizer → roll; glideslope → pitch (inner coupling)      │
   │                                                                  │
   │  INNER LOOP (FBW / attitude control)                             │
-  │  Pitch: θ_cmd → q_cmd → elevator; gains vary with Mach/alt      │
-  │  Roll: φ_cmd → p_cmd → aileron + rudder; roll/yaw coordination  │
+  │  Pitch: θ_cmd → q_cmd → elevator; gains vary with Mach/alt       │
+  │  Roll: φ_cmd → p_cmd → aileron + rudder; roll/yaw coordination   │
   │                                                                  │
   │  AUTOTHROTTLE (AT):                                              │
-  │  Speed mode: target CAS/Mach → throttle PID                     │
+  │  Speed mode: target CAS/Mach → throttle PID                      │
   │  Thrust mode: N1/EPR target → throttle PID (for CLMB, MCT, IDLE)│
   └──────────────────────────────────────────────────────────────────┘
 
@@ -528,7 +528,7 @@ ATTACK SURFACE (layered):
   │    Class 2 EFB: portable; software security concerns     │
   │    ACARS/datalink: FMS update via ACARS → verify/auth    │
   ├──────────────────────────────────────────────────────────┤
-  │  AVIONICS NETWORK (FMS, TCAS, ADS-B, AFDX)              │
+  │  AVIONICS NETWORK (FMS, TCAS, ADS-B, AFDX)               │
   │    ADS-B spoofing: GPS spoofing → false position in ADSB │
   │    GPS jamming: legitimate GNSS signal overwhelmed       │
   │    ACARS injection: FMS load via ACARS; data verification│

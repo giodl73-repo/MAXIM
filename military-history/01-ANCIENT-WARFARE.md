@@ -40,23 +40,23 @@ The hoplite phalanx (~700-300 BC) was the first mass infantry formation optimize
 +------------------------------------------------------------------+
 |                    HOPLITE EQUIPMENT                             |
 |                                                                  |
-|  Aspis (hoplon)   Large concave bronze-faced shield (~90 cm)    |
+|  Aspis (hoplon)   Large concave bronze-faced shield (~90 cm)     |
 |                   Weight: ~7-8 kg. Forearm grip through central  |
 |                   porpax, hand grip at rim. Covers left half of  |
 |                   bearer + right half of man to his left.        |
 |                   This is social technology: you carry the shield|
 |                   partly for your neighbor, not just yourself.   |
 |                                                                  |
-|  Doru             Ash-wood thrusting spear, 2-2.5m              |
+|  Doru             Ash-wood thrusting spear, 2-2.5m               |
 |                   Iron leaf-shaped head + bronze butt spike      |
 |                   (sauroter — can plant in ground or use as      |
 |                   secondary weapon when shaft breaks)            |
 |                                                                  |
-|  Xiphos           Short iron double-edged sword ~60cm           |
+|  Xiphos           Short iron double-edged sword ~60cm            |
 |                   Secondary weapon once spear breaks or mass     |
 |                   closes too tight for spear use                 |
 |                                                                  |
-|  Armor (varies)   Bronze cuirass or linen linothorax, greaves,  |
+|  Armor (varies)   Bronze cuirass or linen linothorax, greaves,   |
 |                   Corinthian helmet (reduces peripheral vision   |
 |                   intentionally — you're not supposed to run)    |
 +------------------------------------------------------------------+

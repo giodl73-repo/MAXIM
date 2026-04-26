@@ -23,7 +23,7 @@ Git is a **distributed version control system**. Every clone is a full copy of h
 |   +----------------------------------------------------------+   |
 |                                                                  |
 |   Each developer has their own full LOCAL copy of history.       |
-|   "origin" is a named pointer to the shared remote.             |
+|   "origin" is a named pointer to the shared remote.              |
 +------------------------------------------------------------------+
 ```
 

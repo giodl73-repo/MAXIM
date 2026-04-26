@@ -6,7 +6,7 @@ The ocean is the primary integrator of the Earth's geochemical cycles. It receiv
 
 ```
 +------------------------------------------------------------------+
-|                    OCEAN GEOCHEMICAL SYSTEM                       |
+|                    OCEAN GEOCHEMICAL SYSTEM                      |
 +------------------------------------------------------------------+
 |                                                                  |
 |  INPUTS                  CYCLING                OUTPUTS          |

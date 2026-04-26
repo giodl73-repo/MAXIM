@@ -6,25 +6,25 @@ Aquaculture surpassed wild-catch fishing as the primary source of fish for human
 
 ```
 +------------------------------------------------------------------+
-|              AQUACULTURE PRODUCTION OVERVIEW                      |
-|                                                                   |
+|              AQUACULTURE PRODUCTION OVERVIEW                     |
+|                                                                  |
 |  GLOBAL PRODUCTION (2022, FAO):                                  |
-|  Aquaculture total:   ~92 million tonnes (live weight)          |
+|  Aquaculture total:   ~92 million tonnes (live weight)           |
 |  Wild capture:        ~80 million tonnes                         |
-|  → Aquaculture now > wild-catch for human consumption           |
-|                                                                   |
-|  BY ENVIRONMENT:                                                  |
-|  Marine aquaculture: ~37 MT (seawater: salmon, shrimp, oysters) |
+|  → Aquaculture now > wild-catch for human consumption            |
+|                                                                  |
+|  BY ENVIRONMENT:                                                 |
+|  Marine aquaculture: ~37 MT (seawater: salmon, shrimp, oysters)  |
 |  Freshwater:         ~52 MT (rivers, ponds: carp, tilapia)     |
 |  Brackish:           ~3 MT (estuarine: shrimp, milkfish)       |
-|                                                                   |
+|                                                                  |
 |  TOP SPECIES GROUPS (by volume):                                 |
-|  Finfish (carp, tilapia, salmon): ~50 MT                        |
-|  Molluscs (oysters, clams, mussels): ~20 MT                     |
-|  Crustaceans (shrimp, prawns): ~12 MT                           |
-|  Seaweed/algae: ~35 MT (not counted in all totals)              |
-|                                                                   |
-|  TOP PRODUCER: China (~58% of global aquaculture)               |
+|  Finfish (carp, tilapia, salmon): ~50 MT                         |
+|  Molluscs (oysters, clams, mussels): ~20 MT                      |
+|  Crustaceans (shrimp, prawns): ~12 MT                            |
+|  Seaweed/algae: ~35 MT (not counted in all totals)               |
+|                                                                  |
+|  TOP PRODUCER: China (~58% of global aquaculture)                |
 +------------------------------------------------------------------+
 ```
 
@@ -345,7 +345,7 @@ RAS CONCEPT:
   WATER TREATMENT COMPONENTS:
   ┌─────────────────────────────────────────────────────┐
   │  FISH TANK                                          │
-  │  High stocking density (50-100 kg/m³)              │
+  │  High stocking density (50-100 kg/m³)               │
   └─────────────────┬───────────────────────────────────┘
                     ↓ water with waste
   ┌─────────────────────────────────────────────────────┐
@@ -354,20 +354,20 @@ RAS CONCEPT:
   └─────────────────┬───────────────────────────────────┘
                     ↓ dissolved ammonia (NH₃/NH₄⁺)
   ┌─────────────────────────────────────────────────────┐
-  │  BIOLOGICAL FILTER (biofilm on media)              │
+  │  BIOLOGICAL FILTER (biofilm on media)               │
   │  Nitrification: NH₄⁺ → NO₂⁻ → NO₃⁻               │
-  │  (Nitrosomonas + Nitrospira bacteria)              │
+  │  (Nitrosomonas + Nitrospira bacteria)               │
   └─────────────────┬───────────────────────────────────┘
                     ↓ NO₃⁻ accumulates
   ┌─────────────────────────────────────────────────────┐
   │  DENITRIFICATION or water exchange                  │
   │  Anoxic reactor: NO₃⁻ → N₂ (denitrification)      │
-  │  or: bleed NO₃⁻-rich water; replace with fresh     │
+  │  or: bleed NO₃⁻-rich water; replace with fresh      │
   └─────────────────┬───────────────────────────────────┘
                     ↓ degassed, oxygenated
   ┌─────────────────────────────────────────────────────┐
   │  UV/OZONE DISINFECTION                              │
-  │  Kill pathogens before water returns to tank       │
+  │  Kill pathogens before water returns to tank        │
   └─────────────────┬───────────────────────────────────┘
                     ↓ clean water returned
                BACK TO FISH TANK (95-99% water recycled)

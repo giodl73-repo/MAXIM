@@ -100,7 +100,7 @@ POLLEN TUBE arrives at OVULE:
   ┌──────────────────────────────────────────────────────────────────┐
   │  Egg cell (n)                                                    │
   │  2 Synergids (n): guide pollen tube (chemotropism signals)       │
-  │  2 Polar nuclei (n + n = 2n) — central cell                     │
+  │  2 Polar nuclei (n + n = 2n) — central cell                      │
   │  3 Antipodal cells (n): role unclear                             │
   └──────────────────────────────────────────────────────────────────┘
 

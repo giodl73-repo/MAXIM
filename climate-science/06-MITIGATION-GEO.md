@@ -11,7 +11,7 @@
 │                    MITIGATION + INTERVENTION LANDSCAPE                      │
 │                                                                             │
 │  MITIGATION (reduce emissions)                                              │
-│  ┌───────────────────────────────────────────────────────────────────────┐ │
+│  ┌───────────────────────────────────────────────────────────────────────┐  │
 │  │ ENERGY SUPPLY     TRANSPORT       INDUSTRY        LAND USE           │ │
 │  │                                                                       │ │
 │  │ Solar PV ─────    BEV cars ────   Green steel ─   Deforest. halt─    │ │
@@ -23,18 +23,18 @@
 │                                                                             │
 │  CARBON DIOXIDE REMOVAL (remove CO₂ from atmosphere)                       │
 │  ┌─────────────────────────────────────────────────────────────────────┐   │
-│  │ NATURAL                          │  ENGINEERED                     │   │
-│  │ Afforestation/Reforestation      │  Direct Air Capture (DAC)       │   │
-│  │ Soil carbon sequestration        │  BECCS                          │   │
-│  │ Peatland/wetland restoration     │  Enhanced weathering            │   │
-│  │ Ocean fertilization (speculative)│  Ocean alkalinization           │   │
+│  │ NATURAL                          │  ENGINEERED                      │   │
+│  │ Afforestation/Reforestation      │  Direct Air Capture (DAC)        │   │
+│  │ Soil carbon sequestration        │  BECCS                           │   │
+│  │ Peatland/wetland restoration     │  Enhanced weathering             │   │
+│  │ Ocean fertilization (speculative)│  Ocean alkalinization            │   │
 │  └─────────────────────────────────┴─────────────────────────────────┘   │
 │                                                                             │
 │  SOLAR RADIATION MANAGEMENT (reflect sunlight — buys time, does not remove │
 │  CO₂, does not address ocean acidification)                                 │
 │  ┌─────────────────────────────────────────────────────────────────────┐   │
-│  │ Stratospheric Aerosol Injection (SAI)  │  Marine Cloud Brightening │   │
-│  │ Cirrus cloud thinning                  │  Space reflectors (R&D)   │   │
+│  │ Stratospheric Aerosol Injection (SAI)  │  Marine Cloud Brightening  │   │
+│  │ Cirrus cloud thinning                  │  Space reflectors (R&D)    │   │
 │  └─────────────────────────────────────────────────────────────────────┘   │
 └─────────────────────────────────────────────────────────────────────────────┘
 ```
@@ -191,17 +191,17 @@ Wright's Law governs solar PV costs: every doubling of cumulative production yie
   │ Transmission  │ Geographic diversity — calm in one region,  │
   │ (HVDC links)  │ windy in another; smooths aggregate output  │
   ├───────────────┼──────────────────────────────────────────────┤
-  │ Storage       │ Time-shift surplus → cover deficit          │
-  │ (batteries,   │ Batteries: hours; pumped hydro: days;       │
-  │ pumped hydro) │ hydrogen: seasonal                          │
+  │ Storage       │ Time-shift surplus → cover deficit           │
+  │ (batteries,   │ Batteries: hours; pumped hydro: days;        │
+  │ pumped hydro) │ hydrogen: seasonal                           │
   ├───────────────┼──────────────────────────────────────────────┤
   │ Demand        │ Move flexible loads to times of surplus     │
   │ response      │ (EV charging, industrial processes)         │
   ├───────────────┼──────────────────────────────────────────────┤
-  │ Firm power    │ Nuclear, hydro, gas + CCS as backup         │
+  │ Firm power    │ Nuclear, hydro, gas + CCS as backup          │
   │ (dispatchable)│ "when the wind doesn't blow, sun doesn't   │
-  │               │ shine" — firm capacity required for         │
-  │               │ reliability                                 │
+  │               │ shine" — firm capacity required for          │
+  │               │ reliability                                  │
   └───────────────┴──────────────────────────────────────────────┘
 ```
 
@@ -217,7 +217,7 @@ Wright's Law governs solar PV costs: every doubling of cumulative production yie
   ├────────────────────┬──────────────┬──────────────┬───────────────────┤
   │ Technology         │ Scale        │ Duration     │ Best Use          │
   ├────────────────────┼──────────────┼──────────────┼───────────────────┤
-  │ Li-ion (LFP/NMC)  │ kWh-GWh      │ 2-8 hours    │ Daily cycling,    │
+  │ Li-ion (LFP/NMC)   │ kWh-GWh      │ 2-8 hours    │ Daily cycling,    │
   │                    │              │              │ frequency response │
   │                    │              │              │ Declining cost:   │
   │                    │              │              │ ~$150/kWh (2023)  │
@@ -228,7 +228,7 @@ Wright's Law governs solar PV costs: every doubling of cumulative production yie
   │                    │ existing     │              │ grid storage today│
   │                    │ systems)     │              │ Geography-limited │
   ├────────────────────┼──────────────┼──────────────┼───────────────────┤
-  │ Flow batteries     │ MWh-GWh      │ 4-12 hours   │ Long duration,   │
+  │ Flow batteries     │ MWh-GWh      │ 4-12 hours   │ Long duration,    │
   │ (vanadium redox)   │              │              │ 20,000+ cycles,   │
   │                    │              │              │ electrolyte reuse │
   ├────────────────────┼──────────────┼──────────────┼───────────────────┤
@@ -357,7 +357,7 @@ from hard-to-decarbonize sectors require compensation.
   │ Reforestation   │            │               │ (not      │ drought  │
   │                 │            │               │ permanent)│ land use │
   ├─────────────────┼────────────┼───────────────┼───────────┼──────────┤
-  │ Soil carbon     │1-3 GtCO₂/yr│ $10-100/tCO₂ │ Decades   │ Reversal │
+  │ Soil carbon     │1-3 GtCO₂/yr│ $10-100/tCO₂  │ Decades   │ Reversal │
   │ (regen ag)      │            │               │ (can      │ with land │
   │                 │            │               │ reverse)  │ mgmt chg │
   ├─────────────────┼────────────┼───────────────┼───────────┼──────────┤
@@ -572,10 +572,10 @@ smaller droplets → brighter clouds → higher albedo. More localized than SAI.
   IPCC AR6 — What's required for 1.5°C:
 
   ┌────────────────────────────────────────────────────────────────┐
-  │ BY 2030 (7-8 years from now):                                 │
+  │ BY 2030 (7-8 years from now):                                  │
   │ - Global CO₂ emissions ~43% below 2019 levels                │
-  │ - Roughly: eliminate all coal power, cut oil use ~20%,        │
-  │   triple renewables, major efficiency improvements            │
+  │ - Roughly: eliminate all coal power, cut oil use ~20%,         │
+  │   triple renewables, major efficiency improvements             │
   ├────────────────────────────────────────────────────────────────┤
   │ BY 2050:                                                       │
   │ - Net zero CO₂ globally (all sectors)                        │

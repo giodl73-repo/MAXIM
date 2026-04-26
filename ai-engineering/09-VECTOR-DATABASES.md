@@ -8,17 +8,17 @@
 
   ┌─────────────────────────────────────────────────────────────────────────┐
   │  DOCUMENTS / DATA SOURCE                                                │
-  │  PDFs · web pages · database records · code · emails                   │
+  │  PDFs · web pages · database records · code · emails                    │
   └────────────────────────────┬────────────────────────────────────────────┘
                                │ chunking strategy (fixed/semantic/hierarchical)
   ┌────────────────────────────▼────────────────────────────────────────────┐
   │  CHUNKS                                                                 │
-  │  ~512 token text segments with metadata (source, date, section)        │
+  │  ~512 token text segments with metadata (source, date, section)         │
   └────────────────────────────┬────────────────────────────────────────────┘
                                │ embedding model
   ┌────────────────────────────▼────────────────────────────────────────────┐
   │  DENSE VECTORS                                                          │
-  │  float32 or int8 arrays (256–3072 dimensions)                          │
+  │  float32 or int8 arrays (256–3072 dimensions)                           │
   └────────────────────────────┬────────────────────────────────────────────┘
                                │ ANN index (HNSW / IVF / PQ)
   ┌────────────────────────────▼────────────────────────────────────────────┐
@@ -28,12 +28,12 @@
                                │ query time: embed → search → rerank
   ┌────────────────────────────▼────────────────────────────────────────────┐
   │  RETRIEVAL PIPELINE                                                     │
-  │  Dense ANN + optional BM25 sparse → reciprocal rank fusion → reranker  │
+  │  Dense ANN + optional BM25 sparse → reciprocal rank fusion → reranker   │
   └────────────────────────────┬────────────────────────────────────────────┘
                                │
   ┌────────────────────────────▼────────────────────────────────────────────┐
   │  LLM GENERATION                                                         │
-  │  Context: [retrieved chunks] + [user query] → grounded response        │
+  │  Context: [retrieved chunks] + [user query] → grounded response         │
   └─────────────────────────────────────────────────────────────────────────┘
 ```
 
@@ -255,7 +255,7 @@ Embedding models convert text (or images) into dense vectors. The geometry of th
 
   ┌──────────────┬───────────────────────────────────────────────────────┐
   │  pgvector    │  PostgreSQL extension                                 │
-  │              │  HNSW + IVF indexes (v0.5+ supports HNSW)            │
+  │              │  HNSW + IVF indexes (v0.5+ supports HNSW)             │
   │              │  SQL-native: JOIN, filter, transaction semantics      │
   │              │  Exact and approximate search                         │
   │              │  Azure Database for PostgreSQL supports it natively   │
@@ -265,37 +265,37 @@ Embedding models convert text (or images) into dense vectors. The geometry of th
   ┌──────────────┬───────────────────────────────────────────────────────┐
   │  Pinecone    │  Managed, serverless or pod-based                     │
   │              │  Proprietary ANN algorithm (optimized for recall)     │
-  │              │  Serverless: pay per query, auto-scale               │
-  │              │  Native hybrid search (dense + sparse)               │
+  │              │  Serverless: pay per query, auto-scale                │
+  │              │  Native hybrid search (dense + sparse)                │
   │              │  Best for: teams that want zero ops; enterprise SaaS  │
-  │              │  Cost: serverless ~$0.08/1M query units              │
+  │              │  Cost: serverless ~$0.08/1M query units               │
   └──────────────┴───────────────────────────────────────────────────────┘
   ┌──────────────┬───────────────────────────────────────────────────────┐
   │  Weaviate    │  Open-source, cloud-managed available                 │
   │              │  HNSW index                                           │
-  │              │  Hybrid search: native BM25 + vector                 │
+  │              │  Hybrid search: native BM25 + vector                  │
   │              │  GraphQL and REST API                                 │
-  │              │  Modules: text2vec, qna, generative                  │
-  │              │  Best for: hybrid search; GraphQL preference         │
+  │              │  Modules: text2vec, qna, generative                   │
+  │              │  Best for: hybrid search; GraphQL preference          │
   └──────────────┴───────────────────────────────────────────────────────┘
   ┌──────────────┬───────────────────────────────────────────────────────┐
   │  Qdrant      │  Open-source, Rust, strong payload filtering          │
-  │              │  HNSW + scalar quantization                          │
-  │              │  Efficient filtered search (filter before ANN)       │
-  │              │  Named vectors (multiple per point)                  │
-  │              │  Best for: metadata-rich filtering + vector search   │
+  │              │  HNSW + scalar quantization                           │
+  │              │  Efficient filtered search (filter before ANN)        │
+  │              │  Named vectors (multiple per point)                   │
+  │              │  Best for: metadata-rich filtering + vector search    │
   └──────────────┴───────────────────────────────────────────────────────┘
   ┌──────────────┬───────────────────────────────────────────────────────┐
   │  Milvus      │  Open-source, distributed, enterprise                 │
   │              │  Multiple index types (HNSW, IVF, PQ, GPU indexes)  │
-  │              │  Scale: billions of vectors across cluster           │
+  │              │  Scale: billions of vectors across cluster            │
   │              │  Zilliz Cloud: managed Milvus                       │
-  │              │  Best for: massive scale; on-prem enterprise         │
+  │              │  Best for: massive scale; on-prem enterprise          │
   └──────────────┴───────────────────────────────────────────────────────┘
   ┌──────────────┬───────────────────────────────────────────────────────┐
-  │  Chroma      │  Open-source, embedded (in-process) or server mode   │
+  │  Chroma      │  Open-source, embedded (in-process) or server mode    │
   │              │  Simple Python API                                    │
-  │              │  No persistence tuning needed                        │
+  │              │  No persistence tuning needed                         │
   │              │  Best for: local prototyping, small-scale RAG POC   │
   └──────────────┴───────────────────────────────────────────────────────┘
 ```

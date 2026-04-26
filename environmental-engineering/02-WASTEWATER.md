@@ -56,7 +56,7 @@ Before sizing any unit process, quantify what you are treating.
   │ TSS              │ 200–250    │ Total suspended solids         │
   ├──────────────────┼────────────┼────────────────────────────────┤
   │ TKN              │ 35–50      │ Total Kjeldahl nitrogen        │
-  │                  │            │ (organic N + NH₃) —           │
+  │                  │            │ (organic N + NH₃) —            │
   │                  │            │ eutrophication driver          │
   ├──────────────────┼────────────┼────────────────────────────────┤
   │ TP (Total P)     │ 4–10       │ Phosphorus — eutrophication    │
@@ -88,7 +88,7 @@ Removes settleable and floatable solids by physical separation — no biology, n
   │              │ grit protects downstream equipment            │
   │              │ Mechanically raked; 3/4" to 2" openings       │
   ├──────────────┼────────────────────────────────────────────────┤
-  │ Fine screens │ 1–6 mm openings — alternative to primary      │
+  │ Fine screens │ 1–6 mm openings — alternative to primary       │
   │              │ clarifier at smaller plants                    │
   ├──────────────┼────────────────────────────────────────────────┤
   │ Grit chamber │ Removes sand/grit/gravel (ρ ≈ 2.65 g/cm³)    │
@@ -96,11 +96,11 @@ Removes settleable and floatable solids by physical separation — no biology, n
   │              │ Aerated grit chamber: differential settling   │
   │              │ Vortex grit: centrifugal separation           │
   ├──────────────┼────────────────────────────────────────────────┤
-  │ Primary      │ Gravity sedimentation:                        │
+  │ Primary      │ Gravity sedimentation:                         │
   │ clarifier    │ SOR: 400–600 gpd/ft² (16–24 m/d)             │
-  │              │ HRT: 1.5–2.5 hours                            │
+  │              │ HRT: 1.5–2.5 hours                             │
   │              │ Removal: 50–65% TSS, 25–40% BOD₅             │
-  │              │ Produces primary sludge (2–6% solids)         │
+  │              │ Produces primary sludge (2–6% solids)          │
   └──────────────┴────────────────────────────────────────────────┘
 ```
 
@@ -206,7 +206,7 @@ It is typically 50–70% of total WWTP energy consumption.
   │ diffusers      │ high efficiency (~2 kg O₂/kWh);            │
   │                │ most common for energy efficiency            │
   ├────────────────┼──────────────────────────────────────────────┤
-  │ Coarse bubble  │ 3–5% transfer efficiency; less fouling;     │
+  │ Coarse bubble  │ 3–5% transfer efficiency; less fouling;      │
   │ diffusers      │ less efficient — used where fouling risk     │
   │                │ is high (thickened sludge)                   │
   ├────────────────┼──────────────────────────────────────────────┤
@@ -258,8 +258,8 @@ Regulators increasingly require nutrient limits to prevent eutrophication.
   │ Ludzack-         │ Good TN removal; no P removal              │
   │ Ettinger)        │                                             │
   ├──────────────────┼─────────────────────────────────────────────┤
-  │ A²/O             │ Anaerobic → Anoxic → Aerobic               │
-  │                  │ TN + TP removal; most common BNR config    │
+  │ A²/O             │ Anaerobic → Anoxic → Aerobic                │
+  │                  │ TN + TP removal; most common BNR config     │
   ├──────────────────┼─────────────────────────────────────────────┤
   │ Bardenpho        │ 5-stage: Anaerobic/Anoxic/Aerobic/         │
   │ (5-stage)        │ Anoxic/Aerobic — very low effluent TN      │
@@ -314,7 +314,7 @@ Regulators increasingly require nutrient limits to prevent eutrophication.
   ├──────────────────┼──────────┼───────────────────────────────────┤
   │ Trickling filter │ Low      │ Fixed-film (biofilm on media);    │
   │                  │          │ robust; less operator attention;  │
-  │                  │          │ lower efficiency than AS;        │
+  │                  │          │ lower efficiency than AS;         │
   │                  │          │ odors; older technology           │
   ├──────────────────┼──────────┼───────────────────────────────────┤
   │ MBBR (moving bed │ Low-Mod  │ Plastic carriers provide biofilm  │
@@ -324,7 +324,7 @@ Regulators increasingly require nutrient limits to prevent eutrophication.
   ├──────────────────┼──────────┼───────────────────────────────────┤
   │ MBR (membrane    │ High     │ Activated sludge + UF membrane    │
   │ bioreactor)      │          │ replaces secondary clarifier;     │
-  │                  │          │ high MLSS (8–12 g/L);            │
+  │                  │          │ high MLSS (8–12 g/L);             │
   │                  │          │ excellent effluent quality;       │
   │                  │          │ reuse-ready; high energy + O&M    │
   └──────────────────┴──────────┴───────────────────────────────────┘

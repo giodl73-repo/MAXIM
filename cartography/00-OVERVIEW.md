@@ -60,9 +60,9 @@ GAUSSIAN CURVATURE — THE CORE PROBLEM
   Translation: You CANNOT preserve all of these simultaneously:
   ┌────────────────────────────────────────────────────────┐
   │  AREA      — regions have correct relative sizes       │
-  │  SHAPE     — angles preserved at every point          │
-  │  DISTANCE  — distances to/from one point correct      │
-  │  DIRECTION — bearing between any two points correct   │
+  │  SHAPE     — angles preserved at every point           │
+  │  DISTANCE  — distances to/from one point correct       │
+  │  DIRECTION — bearing between any two points correct    │
   └────────────────────────────────────────────────────────┘
 
   Every projection preserves some subset at cost of others.
@@ -152,7 +152,7 @@ CARTOGRAPHIC HISTORY — TIMELINE OF BREAKTHROUGHS
            ┌────────────────────────────────────────────────────────┐
            │ Jerusalem at center, East at top, Ocean surrounding    │
            │ Theological cosmography, not navigation                │
-           │ Hereford Mappa Mundi (~1300) — most famous example    │
+           │ Hereford Mappa Mundi (~1300) — most famous example     │
            └────────────────────────────────────────────────────────┘
 
   13th c.  Portolan Charts

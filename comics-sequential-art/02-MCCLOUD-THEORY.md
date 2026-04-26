@@ -19,7 +19,7 @@
 |  6. Icon vs. reality: abstraction amplifies identification       |
 |                                                                  |
 |  SIGNIFICANCE: First systematic theory of the medium             |
-|  Limitation: Written before manga globalization; internet comics  |
+|  Limitation: Written before manga globalization; internet comics |
 |  Sequels: "Reinventing Comics" (2000); "Making Comics" (2006)    |
 +------------------------------------------------------------------+
 ```

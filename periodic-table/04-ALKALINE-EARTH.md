@@ -103,12 +103,12 @@ CHLOROPHYLL MOLECULE:
   │  (4 nitrogen atoms coordinate to Mg)            │
   │  Long phytol tail provides hydrophobicity       │
   │  (anchors chlorophyll in thylakoid membrane)    │
-  │                                                  │
+  │                                                 │
   │  Chlorophyll a: absorption at ~430 nm + ~680 nm │
   │  Chlorophyll b: absorption at ~455 nm + ~645 nm │
   │  (together cover most of visible spectrum except│
   │   green → plants look green because they reflect│
-  │   what they don't absorb)                        │
+  │   what they don't absorb)                       │
   └─────────────────────────────────────────────────┘
 
 Mg role: coordinates axial ligand (His residue), facilitates delocalized π system
@@ -166,19 +166,19 @@ BONE STRUCTURE:
 
 CALCIUM SIGNALING (Ca²⁺ as second messenger):
   ┌──────────────────────────────────────────────────────────┐
-  │  Cytosolic Ca²⁺: ~100 nM resting (very low!)            │
-  │  Extracellular: ~2 mM (20,000× gradient maintained)     │
+  │  Cytosolic Ca²⁺: ~100 nM resting (very low!)             │
+  │  Extracellular: ~2 mM (20,000× gradient maintained)      │
   │  ER lumen: ~0.5 mM (internal Ca²⁺ store)               │
   │                                                          │
   │  Signal cascade:                                         │
   │    Hormone → receptor → IP₃ release → ER releases Ca²⁺ │
   │    OR                                                    │
-  │    Action potential → voltage-gated Ca²⁺ channel opens  │
+  │    Action potential → voltage-gated Ca²⁺ channel opens   │
   │    → Ca²⁺ floods in → calmodulin binds 4 Ca²⁺ → CaM   │
-  │      activates kinases → cell response                  │
+  │      activates kinases → cell response                   │
   │                                                          │
   │  Examples:                                               │
-  │    Muscle contraction: Ca²⁺ binds troponin C → exposes  │
+  │    Muscle contraction: Ca²⁺ binds troponin C → exposes   │
   │                        actin binding site → cross-bridge │
   │    Neurotransmitter release: Ca²⁺ triggers vesicle fusion│
   │    Fertilization: Ca²⁺ wave sweeps through egg → blocks  │

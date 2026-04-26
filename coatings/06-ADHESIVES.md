@@ -35,25 +35,25 @@ ADHESIVE BOND MECHANISMS:
 
   ALL adhesives use one or more of:
   ┌──────────────────────────────────────────────────────────────┐
-  │  MECHANICAL INTERLOCKING:                                   │
-  │    Adhesive flows into surface micro-pores and solidifies   │
+  │  MECHANICAL INTERLOCKING:                                    │
+  │    Adhesive flows into surface micro-pores and solidifies    │
   │    Physical anchor in substrate texture                      │
   │    Requires: wettable surface; porous enough for penetration│
   │                                                              │
-  │  CHEMICAL BONDING:                                          │
+  │  CHEMICAL BONDING:                                           │
   │    Covalent or ionic bonds with substrate surface atoms      │
   │    Reactive adhesives: epoxy, silane-based, some acrylics  │
   │    Strongest possible interface                              │
   │                                                              │
-  │  PHYSICAL FORCES:                                           │
-  │    van der Waals forces; electrostatic attraction           │
-  │    Operate at molecular scale; act on all surfaces          │
-  │    Maximized when: contact area maximized (flat, clean)     │
+  │  PHYSICAL FORCES:                                            │
+  │    van der Waals forces; electrostatic attraction            │
+  │    Operate at molecular scale; act on all surfaces           │
+  │    Maximized when: contact area maximized (flat, clean)      │
   └──────────────────────────────────────────────────────────────┘
 
   JOINT DESIGN DETERMINES FAILURE MODE:
   ┌──────────────────────────────────────────────────────────────┐
-  │  LOADING          │ ADHESIVE STRENGTH                       │
+  │  LOADING          │ ADHESIVE STRENGTH                        │
   ├──────────────────────────────────────────────────────────────┤
   │  Shear (parallel) │ STRONG — best loading mode              │
   │  Tension (pull)   │ Good — second best                      │
@@ -83,13 +83,13 @@ ADHESIVE BOND MECHANISMS:
     No clamping required: bond forms at contact
 
   ┌──────────────────────────────────────────────────────────────┐
-  │  APPLICATION SEQUENCE:                                      │
+  │  APPLICATION SEQUENCE:                                       │
   │  1. Apply adhesive to BOTH surfaces                        │
-  │  2. Allow solvent to flash off (~5-15 min)                  │
+  │  2. Allow solvent to flash off (~5-15 min)                   │
   │     Test: touch surface → no transfer to finger            │
-  │  3. Align carefully BEFORE contact                          │
-  │  4. Press together firmly                                   │
-  │  5. Roll or hammer for full contact                         │
+  │  3. Align carefully BEFORE contact                           │
+  │  4. Press together firmly                                    │
+  │  5. Roll or hammer for full contact                          │
   └──────────────────────────────────────────────────────────────┘
 
   APPLICATIONS:
@@ -123,11 +123,11 @@ ADHESIVE BOND MECHANISMS:
     Initiator: trace moisture (water molecules on surface or in air)
 
   ┌──────────────────────────────────────────────────────────────┐
-  │  REACTION:                                                  │
+  │  REACTION:                                                   │
   │  Trace OH⁻ from surface moisture initiates chain           │
-  │  → Monomer rapidly adds to growing chain                    │
+  │  → Monomer rapidly adds to growing chain                     │
   │  → Polymerizes to solid poly(ethyl cyanoacrylate)          │
-  │  Time: seconds (smooth metal, glass) to minutes (wood)      │
+  │  Time: seconds (smooth metal, glass) to minutes (wood)       │
   └──────────────────────────────────────────────────────────────┘
 
   WHY IT BONDS SKIN SO FAST:
@@ -176,7 +176,7 @@ ADHESIVE BOND MECHANISMS:
     Mixed → exothermic crosslinking reaction
 
   ┌──────────────────────────────────────────────────────────────┐
-  │  CURE CHEMISTRY:                                            │
+  │  CURE CHEMISTRY:                                             │
   │  Epoxide ring (strained 3-membered ring with oxygen)       │
   │  + Amine NH group → covalent bond (ring opens)             │
   │  Network grows → 3D crosslinked polymer matrix             │
@@ -240,7 +240,7 @@ ADHESIVE BOND MECHANISMS:
   │  IMPORTANT: EXPANSION CAUSES PART MOVEMENT                 │
   │  Clamp or weight parts FIRMLY during cure                  │
   │  Foaming can shift unclamped parts out of alignment        │
-  │  Pre-moisten one surface for better cure in dry conditions  │
+  │  Pre-moisten one surface for better cure in dry conditions   │
   └──────────────────────────────────────────────────────────────┘
 
   APPLICATIONS:
@@ -275,21 +275,21 @@ ADHESIVE BOND MECHANISMS:
 
   COMMON POLYMERS:
   ┌──────────────────────────────────────────────────────────────┐
-  │  EVA (Ethylene Vinyl Acetate): most common "glue gun"       │
+  │  EVA (Ethylene Vinyl Acetate): most common "glue gun"        │
   │    Application temp: ~250-375°F; moderate bond strength    │
-  │    Good: paper, cardboard, foam, wood, fabric               │
+  │    Good: paper, cardboard, foam, wood, fabric                │
   │    Weakness: heat creep (joint softens in hot car, etc.)   │
   │                                                              │
   │  Polyamide (PA): higher temperature versions               │
-  │    Bond strength: higher than EVA                           │
-  │    Heat resistance: better than EVA                         │
-  │    Used: automotive, electronics, industrial assembly       │
+  │    Bond strength: higher than EVA                            │
+  │    Heat resistance: better than EVA                          │
+  │    Used: automotive, electronics, industrial assembly        │
   │                                                              │
   │  Polyolefin (PO): bonds to polyolefin plastics (PE, PP)    │
   │    Specialty: bonds to notoriously difficult PE/PP substrates│
   │                                                              │
-  │  Polyester (PET): highest temperature HMA                   │
-  │    Industrial high-performance applications                 │
+  │  Polyester (PET): highest temperature HMA                    │
+  │    Industrial high-performance applications                  │
   └──────────────────────────────────────────────────────────────┘
 
   APPLICATIONS:
@@ -322,11 +322,11 @@ ADHESIVE BOND MECHANISMS:
     → rapid free-radical polymerization → solid thermoset
 
   ┌──────────────────────────────────────────────────────────────┐
-  │  LOCTITE COLOR CODE (THREADLOCKER):                         │
+  │  LOCTITE COLOR CODE (THREADLOCKER):                          │
   │  Purple (222): low strength; for small screws; removable   │
-  │  Blue (243):   medium strength; most common; hand-removable │
+  │  Blue (243):   medium strength; most common; hand-removable  │
   │  Red (262/271): permanent; requires 500°F+ heat to break   │
-  │  Green (290):   "wicking grade"; low viscosity; penetrates  │
+  │  Green (290):   "wicking grade"; low viscosity; penetrates   │
   │                 assembled threads (post-assembly application)│
   └──────────────────────────────────────────────────────────────┘
 
@@ -363,7 +363,7 @@ ADHESIVE BOND MECHANISMS:
   → free radicals → polymerization → solid in seconds under UV
 
   ┌──────────────────────────────────────────────────────────────┐
-  │  REQUIREMENT: at least one substrate must be UV-TRANSPARENT │
+  │  REQUIREMENT: at least one substrate must be UV-TRANSPARENT  │
   │  Light must reach adhesive bondline to cure                │
   │  → Glass + anything: works (glass transmits UV)            │
   │  → Metal + metal: UV can't penetrate → won't cure          │

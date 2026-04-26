@@ -42,7 +42,7 @@ Outside:
       │
   VASCULAR BUNDLES (arranged in ring in most dicots)
   ┌─────────────────────────────────────────────────────┐
-  │  Each vascular bundle:                               │
+  │  Each vascular bundle:                              │
   │  [Phloem — outer] ← sieve tubes + companion cells   │
   │  [Cambium — middle] ← divides to produce both       │
   │  [Xylem — inner] ← vessels + tracheids              │

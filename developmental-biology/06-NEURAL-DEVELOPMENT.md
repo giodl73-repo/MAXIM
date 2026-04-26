@@ -9,16 +9,16 @@ The nervous system is the most complex structure built by developmental biology.
 |              NEURAL DEVELOPMENT OVERVIEW                         |
 |                                                                  |
 |  NEURAL INDUCTION → NEURAL TUBE CLOSURE → REGIONALIZATION        |
-|  Week 3              Week 3-4               Week 4-8+           |
-|      ↓                    ↓                      ↓              |
-|  Neural plate        Primary NT + hindbrain   Brain vesicles    |
-|  forms               Secondary NT (caudal)    expand            |
-|                       Defects → NTDs          Cerebral cortex   |
+|  Week 3              Week 3-4               Week 4-8+            |
+|      ↓                    ↓                      ↓               |
+|  Neural plate        Primary NT + hindbrain   Brain vesicles     |
+|  forms               Secondary NT (caudal)    expand             |
+|                       Defects → NTDs          Cerebral cortex    |
 |                                               develops         |
 |                                                                  |
-|  NEUROGENESIS → MIGRATION → SYNAPTOGENESIS → PRUNING            |
-|  Week 6+           Week 8-29     Week 20-birth  Birth-adulthood |
-|  VZ/SVZ               Radial glia   Activity-       Experience  |
+|  NEUROGENESIS → MIGRATION → SYNAPTOGENESIS → PRUNING             |
+|  Week 6+           Week 8-29     Week 20-birth  Birth-adulthood  |
+|  VZ/SVZ               Radial glia   Activity-       Experience   |
 |  progenitors          guide         dependent        matters     |
 +──────────────────────────────────────────────────────────────────+
 ```

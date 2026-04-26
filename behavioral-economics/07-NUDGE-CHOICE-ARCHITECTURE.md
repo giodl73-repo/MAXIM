@@ -4,23 +4,23 @@
 
 ```
 ┌─────────────────────────────────────────────────────────────────────────────┐
-│                    CHOICE ARCHITECTURE LANDSCAPE                             │
+│                    CHOICE ARCHITECTURE LANDSCAPE                            │
 │                                                                               │
 │  THALER & SUNSTEIN "NUDGE" (2008):                                          │
 │  A nudge is any aspect of the choice architecture that alters people's      │
 │  behavior in a predictable way without forbidding any options or            │
-│  significantly changing their economic incentives.                           │
+│  significantly changing their economic incentives.                          │
 │                                                                               │
-│  LIBERTARIAN PATERNALISM:                                                    │
+│  LIBERTARIAN PATERNALISM:                                                   │
 │  Libertarian: preserve freedom of choice (don't mandate or forbid)          │
 │  Paternalist: steer choices toward outcomes that people would choose        │
-│    if they were paying full attention, fully informed, with self-control     │
+│    if they were paying full attention, fully informed, with self-control    │
 │                                                                               │
-│  RATIONALE:                                                                  │
+│  RATIONALE:                                                                 │
 │  Choice architecture is unavoidable — someone must decide defaults,         │
 │  information presentation, ordering, framing.                               │
 │  The status quo is itself a choice architecture.                            │
-│  If we must choose, choose thoughtfully.                                     │
+│  If we must choose, choose thoughtfully.                                    │
 │                                                                               │
 │  MECHANISM: Behavioral architecture exploits predictable cognitive          │
 │  patterns (default effects, loss aversion, anchoring) to guide choices      │

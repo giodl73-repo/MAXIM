@@ -214,7 +214,7 @@ K-space sampling obeys Nyquist: the sampling interval Delta_k = 1/FOV determines
   +------------------+-------------------------------------------+
   | SAR              | Specific Absorption Rate — RF heating     |
   |                  | FDA limit: 4 W/kg whole body, 8 W/kg head |
-  |                  | Higher field -> higher SAR for same        |
+  |                  | Higher field -> higher SAR for same       |
   |                  |   sequence -> sequence modification needed |
   +------------------+-------------------------------------------+
   | Implant heating  | Resonant antenna effect in RF field       |
@@ -485,7 +485,7 @@ no ionizing radiation — but limited by bone (reflects sound) and air (reflects
 
   +------------------+------------------------------------------+
   | SNR              | Signal-to-noise ratio                    |
-  | (Signal/Noise)   | MRI: proportional to B0^1.5, voxel vol  |
+  | (Signal/Noise)   | MRI: proportional to B0^1.5, voxel vol   |
   |                  | CT: inversely proportional to dose^0.5   |
   +------------------+------------------------------------------+
   | CNR              | Contrast-to-noise ratio                  |
@@ -494,9 +494,9 @@ no ionizing radiation — but limited by bone (reflects sound) and air (reflects
   +------------------+------------------------------------------+
   | Spatial          | MTF (modulation transfer function)       |
   | Resolution       | Described as line pairs per mm (lp/mm)   |
-  |                  | CT at 50% MTF: ~0.5 lp/mm (0.3mm pixel) |
+  |                  | CT at 50% MTF: ~0.5 lp/mm (0.3mm pixel)  |
   |                  | MRI: typically 0.3-1mm in-plane          |
-  |                  | PET: 4-8 mm FWHM                        |
+  |                  | PET: 4-8 mm FWHM                         |
   |                  | US: frequency-dependent (~0.3-1mm)       |
   +------------------+------------------------------------------+
   | Temporal         | How fast image updates                   |

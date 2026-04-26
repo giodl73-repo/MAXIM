@@ -6,10 +6,10 @@ Fingerspelling (using handshapes to spell words letter-by-letter) is a **subset*
 
 ```
 ┌──────────────────────────────────────────────────────────────────┐
-│                SIGN LANGUAGE SYSTEM MAP                           │
+│                SIGN LANGUAGE SYSTEM MAP                          │
 │                                                                  │
 │  FINGERSPELLING                                                  │
-│  ┌──────────────────────────────────────────────────────────┐   │
+│  ┌──────────────────────────────────────────────────────────┐    │
 │  │ One-handed (ASL, most European countries)                │   │
 │  │ — 26 handshapes, one per letter                          │   │
 │  │ — Used for: names, technical terms, initialisms          │   │
@@ -23,9 +23,9 @@ Fingerspelling (using handshapes to spell words letter-by-letter) is a **subset*
 │  FULL SIGN LANGUAGE                                              │
 │  ┌──────────────────────────────────────────────────────────┐   │
 │  │ ASL (American Sign Language)                             │   │
-│  │ — Natural language, NOT English on the hands            │   │
+│  │ — Natural language, NOT English on the hands             │   │
 │  │ — Spatial grammar (grammar encoded in 3D space)          │   │
-│  │ — Completely distinct from BSL, LSF, etc.               │   │
+│  │ — Completely distinct from BSL, LSF, etc.                │   │
 │  ├──────────────────────────────────────────────────────────┤   │
 │  │ ~200+ distinct sign languages worldwide                  │   │
 │  │ — BSL (British), LSF (French), DGS (German)             │   │
@@ -179,23 +179,23 @@ British Sign Language uses **both hands**, making it visually distinct from ASL:
 
 ```
 ┌──────────────────────────────────────────────────────────────┐
-│          BSL FINGERSPELLING — PRINCIPLES                      │
+│          BSL FINGERSPELLING — PRINCIPLES                     │
 │                                                              │
 │  Both hands cooperate to form each letter                    │
 │  Active hand = dominant hand (right for right-handed)        │
 │  Passive hand = non-dominant (left), often a reference       │
 │                                                              │
 │  Letter structure:                                           │
-│  — Some letters: one hand touches specific finger of other  │
-│  — Some letters: both hands form a shape together           │
-│  — Some letters: position on passive hand matters           │
+│  — Some letters: one hand touches specific finger of other   │
+│  — Some letters: both hands form a shape together            │
+│  — Some letters: position on passive hand matters            │
 │                                                              │
 │  Examples:                                                   │
-│  A: Active index touches tip of passive index               │
-│  B: Active hand touches base of passive index               │
-│  C: Two curved hands facing each other (C shape)            │
-│  D: Active index traces on palm of passive hand             │
-│  E: Active index on tip of passive little finger            │
+│  A: Active index touches tip of passive index                │
+│  B: Active hand touches base of passive index                │
+│  C: Two curved hands facing each other (C shape)             │
+│  D: Active index traces on palm of passive hand              │
+│  E: Active index on tip of passive little finger             │
 │                                                              │
 │  ASL vs. BSL are MUTUALLY UNINTELLIGIBLE:                    │
 │  — Different handshapes for most letters                     │
@@ -281,19 +281,19 @@ NMMs and their grammatical roles:
 │  Eyebrows raised + slight lean forward: Yes/No question  │
 │  "YOU DRIVE?" with raised brows = "Do you drive?"        │
 │                                                          │
-│  Eyebrows furrowed/down: Wh- question                   │
-│  "YOU GO WHERE?" with furrowed brows = "Where did go?"  │
+│  Eyebrows furrowed/down: Wh- question                    │
+│  "YOU GO WHERE?" with furrowed brows = "Where did go?"   │
 │                                                          │
-│  Head nod while signing: topic marker                   │
-│  HEAD SHAKE while signing: negation ("I don't...")      │
+│  Head nod while signing: topic marker                    │
+│  HEAD SHAKE while signing: negation ("I don't...")       │
 │                                                          │
-│  Puffed cheeks: "large" modifier                        │
-│  Sucked-in cheeks: "small/thin" modifier                │
+│  Puffed cheeks: "large" modifier                         │
+│  Sucked-in cheeks: "small/thin" modifier                 │
 │  Mouth pattern "CHA": intensifier ("really big/extreme")│
 │                                                          │
-│  Mouth patterns (mouthing): Some signs have associated  │
-│  mouth movements borrowed from English (not all do).    │
-│  Mouthing is not the same as lip-reading speech.        │
+│  Mouth patterns (mouthing): Some signs have associated   │
+│  mouth movements borrowed from English (not all do).     │
+│  Mouthing is not the same as lip-reading speech.         │
 └──────────────────────────────────────────────────────────┘
 ```
 
@@ -328,7 +328,7 @@ A key question in sign linguistics:
 
 ```
 ┌──────────────────────────────────────────────────────────────┐
-│  ICONICITY IN SIGN LANGUAGES                                  │
+│  ICONICITY IN SIGN LANGUAGES                                 │
 │                                                              │
 │  Iconic signs: form resembles meaning                        │
 │  TREE = one arm up (trunk + canopy shape)                    │
@@ -340,9 +340,9 @@ A key question in sign linguistics:
 │  Arbitrary signs: no visual resemblance to meaning           │
 │  MOTHER = 5-hand, tapped on chin (arbitrary)                 │
 │  FATHER = 5-hand, tapped on forehead (different convention)  │
-│  THINK = 1 to forehead (semi-iconic: "thinking in head")    │
+│  THINK = 1 to forehead (semi-iconic: "thinking in head")     │
 │                                                              │
-│  ~30–50% of ASL signs have some iconic motivation.          │
+│  ~30–50% of ASL signs have some iconic motivation.           │
 │  Iconicity fades with historical compression (like English   │
 │  etymology — "window" = "wind eye" in Old Norse, not         │
 │  transparent today).                                         │
@@ -389,21 +389,21 @@ For individuals who are both deaf and blind, communication is through **tactile 
 
 ```
 ┌──────────────────────────────────────────────────────────────┐
-│  DEAFBLIND MANUAL (Tactile Fingerspelling)                    │
+│  DEAFBLIND MANUAL (Tactile Fingerspelling)                   │
 │                                                              │
 │  Signer forms ASL (or BSL) handshapes                        │
 │  Receiver places their hand over the signer's hand           │
 │  Receiver feels the handshape being formed                   │
 │                                                              │
-│  Speed: slower than visual reading (50–80 words/min)        │
+│  Speed: slower than visual reading (50–80 words/min)         │
 │                                                              │
-│  Alternative: Malossi code (Italy), Lorm alphabet (Germany) │
+│  Alternative: Malossi code (Italy), Lorm alphabet (Germany)  │
 │  — Both map letters to touches on the palm of the hand       │
 │  — Different from fingerspelling handshapes                  │
 │                                                              │
 │  Protactile ASL (ProTactile): emerging full communication    │
-│  system developed by deafblind community, with touch-based  │
-│  backchannel ("I understand" = tap on leg/arm)              │
+│  system developed by deafblind community, with touch-based   │
+│  backchannel ("I understand" = tap on leg/arm)               │
 └──────────────────────────────────────────────────────────────┘
 ```
 

@@ -5,10 +5,10 @@
 ```
 RESPIRATORY SYSTEM: Two Jobs
 ┌──────────────────────────────────────────────────────────┐
-│  1. GAS EXCHANGE: O₂ in / CO₂ out                       │
-│  2. pH REGULATION: blow off CO₂ → raise pH              │
-│     (fastest pH regulator — renal is slower but more    │
-│     precise; respiratory: seconds-minutes)              │
+│  1. GAS EXCHANGE: O₂ in / CO₂ out                        │
+│  2. pH REGULATION: blow off CO₂ → raise pH               │
+│     (fastest pH regulator — renal is slower but more     │
+│     precise; respiratory: seconds-minutes)               │
 └──────────────────────────────────────────────────────────┘
 
 ANATOMY: Two Zones

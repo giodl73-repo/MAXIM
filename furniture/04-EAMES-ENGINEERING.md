@@ -9,11 +9,11 @@ EAMES DESIGN METHOD:
 
   PROBLEM DEFINITION         MATERIAL/PROCESS          OUTPUT
   +------------------+       +------------------+       +------------------+
-  | What does a      |       | What can this    |       | Prototype.        |
-  | good chair do?   | ----> | material/process | ----> | Test. Fail.       |
-  | (comfort, cost,  |       | actually do?     |       | Revise. Test.     |
-  | production,      |       | (bend radius,    |       | Ship when right.  |
-  | durability)      |       |  mold complexity,|       |                   |
+  | What does a      |       | What can this    |       | Prototype.       |
+  | good chair do?   | ----> | material/process | ----> | Test. Fail.      |
+  | (comfort, cost,  |       | actually do?     |       | Revise. Test.    |
+  | production,      |       | (bend radius,    |       | Ship when right. |
+  | durability)      |       |  mold complexity,|       |                  |
   +------------------+       |  fatigue cycles) |       +------------------+
                               +------------------+
                                       |

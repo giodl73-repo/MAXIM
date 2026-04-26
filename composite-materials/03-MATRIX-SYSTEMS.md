@@ -6,26 +6,26 @@
 +------------------------------------------------------------------+
 |              COMPOSITE MATRIX LANDSCAPE                          |
 |                                                                  |
-|   THERMOSET (dominant, ~70% of composites matrix)               |
+|   THERMOSET (dominant, ~70% of composites matrix)                |
 |   ────────────────────────────────────────────────               |
-|   Epoxy         Vinyl ester    Phenolic        Cyanate ester    |
-|   Benzoxazine   Bismaleimide   Polyimide (PMR-15)               |
+|   Epoxy         Vinyl ester    Phenolic        Cyanate ester     |
+|   Benzoxazine   Bismaleimide   Polyimide (PMR-15)                |
 |                                                                  |
-|   Advantages:                  Disadvantages:                   |
-|   Low viscosity (infusion)     Cannot re-melt or recycle        |
-|   Good fiber wet-out           Long cure cycles                 |
-|   High Tg possible             Brittle (toughening needed)      |
-|   Stable shelf life            Exotherm risk in thick parts     |
+|   Advantages:                  Disadvantages:                    |
+|   Low viscosity (infusion)     Cannot re-melt or recycle         |
+|   Good fiber wet-out           Long cure cycles                  |
+|   High Tg possible             Brittle (toughening needed)       |
+|   Stable shelf life            Exotherm risk in thick parts      |
 |                                                                  |
-|   THERMOPLASTIC (~30% and growing)                              |
+|   THERMOPLASTIC (~30% and growing)                               |
 |   ────────────────────────────────                               |
-|   PEEK, PPS    PP, PA          PEKK, PAEK                       |
+|   PEEK, PPS    PP, PA          PEKK, PAEK                        |
 |                                                                  |
-|   Advantages:                  Disadvantages:                   |
-|   Recyclable                   High processing T (>300°C)       |
-|   Toughness                    High melt viscosity              |
-|   Fast consolidation           Expensive (PEEK)                 |
-|   Weld-able parts              Fiber-matrix bonding challenge   |
+|   Advantages:                  Disadvantages:                    |
+|   Recyclable                   High processing T (>300°C)        |
+|   Toughness                    High melt viscosity               |
+|   Fast consolidation           Expensive (PEEK)                  |
+|   Weld-able parts              Fiber-matrix bonding challenge    |
 +------------------------------------------------------------------+
 ```
 

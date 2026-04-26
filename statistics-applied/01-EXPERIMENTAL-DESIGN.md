@@ -4,10 +4,10 @@
 
 ```
 +------------------------------------------------------------------+
-|              EXPERIMENTAL DESIGN DECISION TREE                  |
+|              EXPERIMENTAL DESIGN DECISION TREE                   |
 |                                                                  |
 |  ONE FACTOR, TWO LEVELS → two-sample t-test; power formula       |
-|  ONE FACTOR, 3+ LEVELS → one-way ANOVA; post-hoc comparison     |
+|  ONE FACTOR, 3+ LEVELS → one-way ANOVA; post-hoc comparison      |
 |  MULTIPLE FACTORS → factorial design (full or fractional)        |
 |  NUISANCE FACTORS KNOWN → block them (RCBD, Latin square)        |
 |  SUBJECT IS OWN CONTROL → within-subjects / crossover            |

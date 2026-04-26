@@ -6,9 +6,9 @@
 ALL PLANT FIBERS = CELLULOSE POLYMER
 +------------------------------------------------------------------+
 |                                                                  |
-|   β-D-glucose monomer    (C₆H₁₀O₅)                              |
+|   β-D-glucose monomer    (C₆H₁₀O₅)                               |
 |        ↓                                                         |
-|   β-1,4-glycosidic linkage (not α-1,4 like starch)              |
+|   β-1,4-glycosidic linkage (not α-1,4 like starch)               |
 |        ↓                                                         |
 |   Linear cellulose chains (degree of polymerization 1,000–15,000)|
 |        ↓                                                         |

@@ -4,24 +4,24 @@
 
 ```
 +------------------------------------------------------------------+
-|                    MOTORSPORT LANDSCAPE                           |
+|                    MOTORSPORT LANDSCAPE                          |
 |                                                                  |
 |  FORMULA ONE (open-wheel)    LE MANS (endurance)                 |
 |  FIA World Championship      24-hour race 1923-present           |
-|  1950-present                Top speed on Mulsanne              |
-|  Engineering laboratory      Diesel/hybrid evolution            |
-|  1,000+ bhp hybrid           GT40, Audi diesel, Toyota          |
+|  1950-present                Top speed on Mulsanne               |
+|  Engineering laboratory      Diesel/hybrid evolution             |
+|  1,000+ bhp hybrid           GT40, Audi diesel, Toyota           |
 |                                                                  |
 |  NASCAR (oval)               WRC (rally)                         |
-|  1948 (Bill France Sr.)      Rough roads, co-driver             |
+|  1948 (Bill France Sr.)      Rough roads, co-driver              |
 |  Daytona 500                 Group B era danger (1983-86)        |
-|  "Rubbing is racing"         Modern safety protocols            |
-|  Restrictor plates           Ogier/Loeb era dominance           |
+|  "Rubbing is racing"         Modern safety protocols             |
+|  Restrictor plates           Ogier/Loeb era dominance            |
 |                                                                  |
-|  MotoGP (motorcycle)         INDYCAR / F2 / F3                  |
-|  1,000cc premier class       Open-wheel, USA focus              |
-|  Valentino Rossi 9 championships  Indy 500 heritage             |
-|  Isle of Man TT (200+ deaths total)  Mixed oval + road          |
+|  MotoGP (motorcycle)         INDYCAR / F2 / F3                   |
+|  1,000cc premier class       Open-wheel, USA focus               |
+|  Valentino Rossi 9 championships  Indy 500 heritage              |
+|  Isle of Man TT (200+ deaths total)  Mixed oval + road           |
 +------------------------------------------------------------------+
 
 Motorsport as engineering laboratory: regulations create

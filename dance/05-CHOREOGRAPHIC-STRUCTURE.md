@@ -6,15 +6,15 @@ Choreographic structure is the syntax of dance -- how movement phrases are organ
 
 ```
 +-------------------------------------------------------------------+
-|              CHOREOGRAPHIC HIERARCHY                               |
+|              CHOREOGRAPHIC HIERARCHY                              |
 |                                                                   |
-|  SMALLEST UNIT                                  LARGEST UNIT     |
+|  SMALLEST UNIT                                  LARGEST UNIT      |
 |                                                                   |
-|  GESTURE    -->  MOTIF  -->  PHRASE  -->  SECTION  -->  WORK     |
+|  GESTURE    -->  MOTIF  -->  PHRASE  -->  SECTION  -->  WORK      |
 |                                                                   |
 |  Single         Smallest     Grammatical   Unified     Complete   |
 |  identifiable   meaningful   sentence      passage     piece      |
-|  movement       unit         (4-32 counts) (topic)     (20min+)  |
+|  movement       unit         (4-32 counts) (topic)     (20min+)   |
 |                                                                   |
 |  ANALOGY TO CODE:                                                 |
 |  Expression  -->  Variable  -->  Statement  -->  Function  --> Program |

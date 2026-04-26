@@ -8,7 +8,7 @@ social outcome, what rules should we impose so that rational agents produce that
 
 ```
 +------------------------------------------------------------------+
-|                  MECHANISM DESIGN FRAMEWORK                       |
+|                  MECHANISM DESIGN FRAMEWORK                      |
 |                                                                  |
 |  STANDARD GAME THEORY         MECHANISM DESIGN                   |
 |  --------------------         ----------------                   |
@@ -16,7 +16,7 @@ social outcome, what rules should we impose so that rational agents produce that
 |  equilibrium                  whose equilibrium achieves it      |
 |                                                                  |
 |  WHAT WE'RE DESIGNING:                                           |
-|  ┌─────────────────────────────────────────────────────────┐    |
+|  ┌─────────────────────────────────────────────────────────┐     |
 |  │  A social choice function f: Θ → X                      │    |
 |  │  Θ = type profiles (private info)                       │    |
 |  │  X = outcome space (allocations, prices, decisions)     │    |
@@ -141,7 +141,7 @@ DSIC for social choice functions implies the conditions of Arrow's theorem.
   │ 1. Add monetary transfers → Groves/VCG mechanisms   │
   │ 2. Restrict domain (single-peaked preferences)      │
   │    → Median voter rule is DSIC + efficient          │
-  │ 3. Weaken IC to Bayesian IC (BIC)                  │
+  │ 3. Weaken IC to Bayesian IC (BIC)                   │
   │    → Myerson-Satterthwaite impossibility theorem    │
   │      (bilateral trade has another impossibility)    │
   │ 4. Allow randomization (Gibbard 1977: random dicts) │

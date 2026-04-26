@@ -6,8 +6,8 @@ THE LANDSCAPE
 
   SETS                GROUPS              RINGS / FIELDS       LIE GROUPS
   ┌──────────┐        ┌──────────────┐    ┌──────────────┐     ┌──────────────┐
-  │ ∈, ⊆, ∪  │        │ closure      │    │ + and ×      │     │ group + mfld  │
-  │ ∩, \, ×  │   →    │ associative  │ →  │ distributive │  →  │ smooth sym.   │
+  │ ∈, ⊆, ∪  │        │ closure      │    │ + and ×      │     │ group + mfld │
+  │ ∩, \, ×  │   →    │ associative  │ →  │ distributive │  →  │ smooth sym.  │
   │ power set│        │ identity     │    │ inverses     │     │ U(1),SU(2)   │
   │ functions│        │ inverses     │    │ Fields: ÷    │     │ SU(3),SO(3)  │
   └──────────┘        └──────────────┘    └──────────────┘     └──────────────┘
@@ -216,8 +216,8 @@ A **group** (G, ·) is a set G with a binary operation · satisfying:
   │       φ(a+b) = e^(a+b) = eᵃeᵇ = φ(a)φ(b)  ✓  (isomorphism)       │
   │                                                                      │
   │  det: (GL(n,ℝ), ×) → (ℝ*, ×)                                       │
-  │       det(AB) = det(A)det(B)  ✓   (homomorphism, not isomorphism)   │
-  │       kernel = SL(n,ℝ) = {matrices with det=1}                      │
+  │       det(AB) = det(A)det(B)  ✓   (homomorphism, not isomorphism)    │
+  │       kernel = SL(n,ℝ) = {matrices with det=1}                       │
   └──────────────────────────────────────────────────────────────────────┘
 ```
 
@@ -346,12 +346,12 @@ You've read Artin. Here's the structure:
   ARTIN'S ALGEBRA ARCHITECTURE
   ┌──────────────────────────────────────────────────────────────────────┐
   │  Ch 1-2:  Matrix groups (GL, SL, O, U) — concrete examples first   │
-  │  Ch 3-6:  Abstract groups — cosets, normal subgroups, products      │
-  │  Ch 7:    More group theory — Jordan-Hölder, solvable groups        │
-  │  Ch 8:    Rings — ideals, quotient rings, ring homomorphisms        │
-  │  Ch 9-10: Fields and Galois theory                                  │
-  │  Ch 11:   Linear groups over fields                                 │
-  │  Ch 12-13: Modules, structure theorem for abelian groups            │
+  │  Ch 3-6:  Abstract groups — cosets, normal subgroups, products       │
+  │  Ch 7:    More group theory — Jordan-Hölder, solvable groups         │
+  │  Ch 8:    Rings — ideals, quotient rings, ring homomorphisms         │
+  │  Ch 9-10: Fields and Galois theory                                   │
+  │  Ch 11:   Linear groups over fields                                  │
+  │  Ch 12-13: Modules, structure theorem for abelian groups             │
   └──────────────────────────────────────────────────────────────────────┘
 
   GALOIS THEORY KEY IDEA:
@@ -408,17 +408,17 @@ You've read Artin. Here's the structure:
 
 ```
   ┌────────────────────────────────────────────────────────────────────────┐
-  │  U(1) — Electromagnetism                                              │
+  │  U(1) — Electromagnetism                                               │
   │  ─────────────────────────────────────────────────────────────────── │
   │  G = {e^(iθ) | θ ∈ ℝ} ≅ S¹                                          │
   │  𝔤 = iℝ (purely imaginary numbers)  [trivial: all elements commute]  │
-  │  Generator: Y (hypercharge) — one generator, one gauge boson (photon) │
-  │  Gauge field: Aμ (the EM 4-potential)                                 │
+  │  Generator: Y (hypercharge) — one generator, one gauge boson (photon)  │
+  │  Gauge field: Aμ (the EM 4-potential)                                  │
   │  Invariance of physics under ψ → e^(iα)ψ → conservation of charge    │
   └────────────────────────────────────────────────────────────────────────┘
 
   ┌────────────────────────────────────────────────────────────────────────┐
-  │  SU(2) — Weak Force / Spin                                            │
+  │  SU(2) — Weak Force / Spin                                             │
   │  ─────────────────────────────────────────────────────────────────── │
   │  G = {2×2 unitary matrices, det=1}  ≅ S³ (3-sphere)                  │
   │  𝔤 = 𝔰𝔲(2) = {traceless anti-Hermitian 2×2 matrices}                │
@@ -435,14 +435,14 @@ You've read Artin. Here's the structure:
   └────────────────────────────────────────────────────────────────────────┘
 
   ┌────────────────────────────────────────────────────────────────────────┐
-  │  SU(3) — Strong Force (QCD)                                           │
+  │  SU(3) — Strong Force (QCD)                                            │
   │  ─────────────────────────────────────────────────────────────────── │
-  │  G = {3×3 unitary matrices, det=1}                                    │
+  │  G = {3×3 unitary matrices, det=1}                                     │
   │  𝔤 = 𝔰𝔲(3) — 8-dimensional                                          │
-  │  Basis: Gell-Mann matrices λ₁,...,λ₈                                  │
-  │  8 generators → 8 gauge bosons: 8 gluons                              │
+  │  Basis: Gell-Mann matrices λ₁,...,λ₈                                   │
+  │  8 generators → 8 gauge bosons: 8 gluons                               │
   │  Quarks come in 3 "colors": (r, g, b) = fundamental representation   │
-  │  Gluons are in the adjoint (8D) representation                        │
+  │  Gluons are in the adjoint (8D) representation                         │
   └────────────────────────────────────────────────────────────────────────┘
 
   ┌────────────────────────────────────────────────────────────────────────┐
@@ -453,10 +453,10 @@ You've read Artin. Here's the structure:
   │                                                                        │
   │  There is a 2-to-1 homomorphism: SU(2) → SO(3)                       │
   │  Both +U and -U ∈ SU(2) map to the same rotation in SO(3)            │
-  │  SU(2) is the "double cover" of SO(3)                                 │
+  │  SU(2) is the "double cover" of SO(3)                                  │
   │                                                                        │
   │  Physical consequence: a spin-½ particle requires a 720° rotation    │
-  │  to return to its original state (not 360°)                           │
+  │  to return to its original state (not 360°)                            │
   │  This is DIRECTLY because SU(2) double covers SO(3).                 │
   │  Half-integer spin is not a mystery — it's representation theory.    │
   └────────────────────────────────────────────────────────────────────────┘
@@ -472,7 +472,7 @@ You've read Artin. Here's the structure:
 
   SU(2) representations:
   ┌──────────────────────────────────────────────────────────────────┐
-  │  Spin s  │  Dim = 2s+1  │  Particle type                        │
+  │  Spin s  │  Dim = 2s+1  │  Particle type                         │
   ├──────────┼──────────────┼───────────────────────────────────────┤
   │  s = 0   │  1D          │  Scalar (Higgs, pions)                │
   │  s = 1/2 │  2D (spinor) │  Electrons, quarks, neutrinos         │

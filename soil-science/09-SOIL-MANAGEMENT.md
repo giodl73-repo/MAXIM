@@ -167,7 +167,7 @@ Cover crops are non-cash crops grown between cash crop seasons (or interseeded i
   FUNCTION MATRIX:
   +--------------------+--------+---------+--------+----------+-----------+
   | Function           | Annual | Legume  | Brassica| Grass   | Mix       |
-  |                    | Grass  | (clover,| (radish | (rye,  |           |
+  |                    | Grass  | (clover,| (radish | (rye,  |            |
   |                    | (rye)  | vetch)  | turnip) | oat)   | (multi-sp)|
   +--------------------+--------+---------+--------+----------+-----------+
   | Erosion protection | *****  | ***     | ***     | ****   | *****     |
@@ -261,15 +261,15 @@ Cover crops are non-cash crops grown between cash crop seasons (or interseeded i
 
   SOC FRACTIONS BY PERSISTENCE:
   +---------------------+----------+----------+-------------------------------+
-  | Fraction            | Pool     | Turnover | Description                  |
+  | Fraction            | Pool     | Turnover | Description                   |
   +---------------------+----------+----------+-------------------------------+
   | Labile (active)     | 1–5% SOC | 1–5 yr   | Microbial biomass; recent     |
   |                     |          |          | residue inputs; hot water     |
   |                     |          |          | extractable C                 |
   +---------------------+----------+----------+-------------------------------+
-  | Slow (intermediate) | 20–40%   | 20–50 yr | Physically protected SOM;    |
-  |                     |          |          | aggregate-occluded; silt-    |
-  |                     |          |          | associated; humus compounds  |
+  | Slow (intermediate) | 20–40%   | 20–50 yr | Physically protected SOM;     |
+  |                     |          |          | aggregate-occluded; silt-     |
+  |                     |          |          | associated; humus compounds   |
   +---------------------+----------+----------+-------------------------------+
   | Passive (stable)    | 60–70%   | 100s–    | Mineral-associated organic   |
   |                     |          | 1000s yr | matter (MAOM); organo-       |
@@ -304,21 +304,21 @@ Cover crops are non-cash crops grown between cash crop seasons (or interseeded i
 
   CRITIQUE OF CLAIM:
   +--------------------------+----------------------------------------------+
-  | Issue                    | Detail                                        |
+  | Issue                    | Detail                                       |
   +--------------------------+----------------------------------------------+
   | Stock vs. flow problem   | SOC at 0.4%/yr requires NEW inputs, not just |
   |                          | slowing loss; needs biomass C inputs > C out  |
   +--------------------------+----------------------------------------------+
-  | Saturation               | Soils have a "saturation capacity" (MIMICS    |
-  |                          | and RothC models); high-SOC soils near        |
-  |                          | saturation cannot increase indefinitely       |
+  | Saturation               | Soils have a "saturation capacity" (MIMICS   |
+  |                          | and RothC models); high-SOC soils near       |
+  |                          | saturation cannot increase indefinitely      |
   +--------------------------+----------------------------------------------+
   | Permanence               | SOC is reversible; drought, tillage, warming  |
   |                          | can release sequestered C in months           |
   +--------------------------+----------------------------------------------+
   | Measurement              | SOC measurement at 0.4% precision is at the  |
-  |                          | edge of analytical capability; spatial        |
-  |                          | variability swamps signal                     |
+  |                          | edge of analytical capability; spatial       |
+  |                          | variability swamps signal                    |
   +--------------------------+----------------------------------------------+
   | Additionality            | Hard to prove SOC gain is from management    |
   |                          | change vs. natural variation                  |
@@ -351,20 +351,20 @@ Cover crops are non-cash crops grown between cash crop seasons (or interseeded i
 
   PYROLYSIS CONDITIONS:
   +------------------+----------+----------+-----------------------------------+
-  | Process          | Temp (°C)| Residence| Products                         |
+  | Process          | Temp (°C)| Residence| Products                          |
   +------------------+----------+----------+-----------------------------------+
   | Slow pyrolysis   | 300–500  | hours    | High biochar yield (35–40%)      |
   |                  |          |          | Bio-oil + syngas byproducts       |
   |                  |          |          | High fixed C in char              |
   +------------------+----------+----------+-----------------------------------+
-  | Fast pyrolysis   | 400–600  | < 2 sec  | High bio-oil yield (60–75%)      |
+  | Fast pyrolysis   | 400–600  | < 2 sec  | High bio-oil yield (60–75%)       |
   |                  |          |          | Low biochar yield (~10–15%)       |
   |                  |          |          | Used for liquid fuel production   |
   +------------------+----------+----------+-----------------------------------+
   | Gasification     | > 700    | seconds  | Mostly syngas (H2 + CO)          |
   |                  |          |          | Minimal biochar residue          |
   +------------------+----------+----------+-----------------------------------+
-  | Flash carboniz.  | 600–700  | < 30 min | High char yield; pressurized     |
+  | Flash carboniz.  | 600–700  | < 30 min | High char yield; pressurized      |
   +------------------+----------+----------+-----------------------------------+
 
   BIOCHAR STRUCTURE:
@@ -523,31 +523,31 @@ Cover crops are non-cash crops grown between cash crop seasons (or interseeded i
 
   SOIL HEALTH TEST SUITE (Cornell, NRCS Haney, Solvita, CASH):
   +------------------------------+------------------+-----------------------+
-  | Indicator                    | Method           | What It Measures     |
+  | Indicator                    | Method           | What It Measures      |
   +------------------------------+------------------+-----------------------+
   | Organic matter (% SOM)       | Loss on ignition | Total organic matter  |
   |                              | or Walkley-Black  | carbon stock         |
   +------------------------------+------------------+-----------------------+
-  | Respiration (CO2 burst)      | 24-hr CO2 flush  | Active microbial     |
-  |                              | post wetting      | activity; labile C   |
+  | Respiration (CO2 burst)      | 24-hr CO2 flush  | Active microbial      |
+  |                              | post wetting     | activity; labile C    |
   +------------------------------+------------------+-----------------------+
   | Potentially mineralizable N  | 28-day incubation| Organic N available  |
   | (PMN)                        | at 25°C          | to crops this season |
   +------------------------------+------------------+-----------------------+
-  | POXC (labile C, KMnO4 C)     | Permanganate     | Active C; sensitive  |
-  |                              | oxidizable C      | to management change |
+  | POXC (labile C, KMnO4 C)     | Permanganate     | Active C; sensitive   |
+  |                              | oxidizable C     | to management change  |
   +------------------------------+------------------+-----------------------+
   | Aggregate stability          | Wet sieve        | Structure; erosion   |
   | (MWD, WSA)                   |                  | resistance           |
   +------------------------------+------------------+-----------------------+
   | Earthworm counts             | Monolith method  | Macro-fauna activity;|
-  |                              | (0.25 m² × 20 cm)| aeration + casting   |
+  |                              | (0.25 m² × 20 cm)| aeration + casting    |
   +------------------------------+------------------+-----------------------+
   | Infiltration rate            | Single ring       | Macropore condition; |
   |                              | infiltrometer     | compaction indicator |
   +------------------------------+------------------+-----------------------+
-  | PLFA (phospholipid FA)       | Fatty acid       | Microbial community  |
-  |                              | extraction        | composition (F:B)    |
+  | PLFA (phospholipid FA)       | Fatty acid       | Microbial community   |
+  |                              | extraction       | composition (F:B)     |
   +------------------------------+------------------+-----------------------+
   | Compaction (penetrometer)    | Cone penetrometer| Root penetrability;  |
   |                              |                  | BD surrogate         |
@@ -607,19 +607,19 @@ Cover crops are non-cash crops grown between cash crop seasons (or interseeded i
 
   MAJOR PROTOCOLS:
   +------------------+------------------+----------------------------------+
-  | Protocol         | Operator         | Approach                        |
+  | Protocol         | Operator         | Approach                         |
   +------------------+------------------+----------------------------------+
   | Verra VCS VM0042 | Verra             | Improved cropland mgmt;         |
   |                  |                  | quantification via model (DNDC) |
   +------------------+------------------+----------------------------------+
-  | Gold Standard    | Gold Standard    | Multiple methodologies;         |
-  |                  |                  | strict additionality            |
+  | Gold Standard    | Gold Standard    | Multiple methodologies;          |
+  |                  |                  | strict additionality             |
   +------------------+------------------+----------------------------------+
   | CAR Soil         | Climate Action   | Soil sampling + modeling        |
   |                  | Reserve          | hybrid approach                 |
   +------------------+------------------+----------------------------------+
-  | Indigo Ag        | Indigo (private) | Direct soil sampling;           |
-  |                  |                  | verification by ISO labs        |
+  | Indigo Ag        | Indigo (private) | Direct soil sampling;            |
+  |                  |                  | verification by ISO labs         |
   +------------------+------------------+----------------------------------+
   | USDA RCPP/CSP    | USDA             | Payment for practice adoption   |
   |                  |                  | (not C credit per se; practice  |

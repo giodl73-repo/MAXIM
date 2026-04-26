@@ -10,7 +10,7 @@ This field draws on: Vladimir Propp's morphology of folk tales (1928), Algirdas 
 +-----------------------------------------------------------------------+
 |                    NARRATIVE SEMIOTICS MAP                            |
 |                                                                       |
-|  PROPP (1928)              GREIMAS (1966–87)         BARTHES (1966)  |
+|  PROPP (1928)              GREIMAS (1966–87)         BARTHES (1966)   |
 |  Russian folk tales        Structural semantics      Introduction to  |
 |  31 narrative functions    Actantial model           Structural       |
 |  7 character spheres       Narrative grammar         Analysis of      |
@@ -131,13 +131,13 @@ Algirdas Julien Greimas (1917–1992) developed Propp's insights into a general 
   |   (motivates the                      (benefits from  |
   |    quest; gives                        the object     |
   |    value to object)                    being obtained)|
-  |                       ↑                              |
-  |                    OBJECT                            |
+  |                       ↑                               |
+  |                    OBJECT                             |
   |                 (what is sought)                      |
-  |                       ↑                              |
-  |   HELPER ────────────→ SUBJECT ←──────── OPPONENT    |
-  |   (aids subject        (protagonist;    (opposes     |
-  |    in quest)           hero)            subject)     |
+  |                       ↑                               |
+  |   HELPER ────────────→ SUBJECT ←──────── OPPONENT     |
+  |   (aids subject        (protagonist;    (opposes      |
+  |    in quest)           hero)            subject)      |
   +-------------------------------------------------------+
 
   EXAMPLE (Cinderella):

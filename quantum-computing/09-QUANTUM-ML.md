@@ -6,23 +6,23 @@
 ┌─────────────────────────────────────────────────────────────────────┐
 │                 QML CLAIMS — CREDIBILITY SPECTRUM                   │
 │                                                                     │
-│   SOLID                PLAUSIBLE            SPECULATIVE  DEBUNKED  │
+│   SOLID                PLAUSIBLE            SPECULATIVE  DEBUNKED   │
 │   ─────────────────────────────────────────────────────────────────│
-│   Quantum              Quantum kernels       Quantum NNs  HHL for  │
+│   Quantum              Quantum kernels       Quantum NNs  HHL for   │
 │   simulation           (no dequantization)   speedup      classical │
-│   for molecular        over classical ML     over CNNs    data     │
+│   for molecular        over classical ML     over CNNs    data      │
 │   properties           verified                                     │
 │                                                                     │
-│   Quantum              QML for quantum       Quantum      Quantum  │
-│   sampling             data generated        speedup for  random   │
-│   (theoretically       by quantum systems    NLP/vision   forests  │
+│   Quantum              QML for quantum       Quantum      Quantum   │
+│   sampling             data generated        speedup for  random    │
+│   (theoretically       by quantum systems    NLP/vision   forests   │
 │   hard classically)                                                 │
 │                                                                     │
-│   VQE energies         Grover-based          Quantum      "Quantum │
-│   as ML features       speedup for           kernels beat GPU      │
-│                        database search       classical   training" │
+│   VQE energies         Grover-based          Quantum      "Quantum  │
+│   as ML features       speedup for           kernels beat GPU       │
+│                        database search       classical   training"  │
 │                        (polynomial only)     SVM on real          │
-│                                              data                  │
+│                                              data                   │
 └─────────────────────────────────────────────────────────────────────┘
 ```
 
@@ -277,12 +277,12 @@ HONEST ASSESSMENT:
 ├──────────────────────────────┼───────────┼─────────────────────────────┤
 │ Quantum kernels beat         │ NO        │ Dequantization (Tang-style) │
 │ classical SVM on real data   │ EVIDENCE  │ often matches; no benchmark │
-│                              │           │ showing real advantage       │
+│                              │           │ showing real advantage      │
 ├──────────────────────────────┼───────────┼─────────────────────────────┤
 │ QNNs outperform classical    │ NO        │ Barren plateaus; training   │
 │ NNs for image/NLP            │ EVIDENCE  │ harder; no GPU equivalent   │
 ├──────────────────────────────┼───────────┼─────────────────────────────┤
-│ Quantum speedup for          │ DEBUNKED  │ Grover: √N iterations —    │
+│ Quantum speedup for          │ DEBUNKED  │ Grover: √N iterations —     │
 │ database search (practical)  │ AS USEFUL │ need quantum RAM, advantage │
 │                              │           │ much smaller than expected  │
 ├──────────────────────────────┼───────────┼─────────────────────────────┤
@@ -354,7 +354,7 @@ BE SKEPTICAL IF:
 
 ```
 ┌──────────────────────────────────────────────────────────────────────┐
-│ SCENARIO                      │ RECOMMENDATION                      │
+│ SCENARIO                      │ RECOMMENDATION                       │
 ├───────────────────────────────┼─────────────────────────────────────┤
 │ Classical ML on classical data│ Use classical ML (torch, sklearn,   │
 │                               │ XGBoost) — no quantum advantage     │

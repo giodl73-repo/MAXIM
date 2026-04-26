@@ -51,7 +51,7 @@ HARDIN'S COMMONS (1968) applied to fisheries:
 
   ┌─────────────────────────────────────────────────────┐
   │  OPEN ACCESS FISHERY:                               │
-  │  Private benefit > Private cost until stock crashes  │
+  │  Private benefit > Private cost until stock crashes │
   │  No individual incentive to conserve                │
   │  Classic public goods problem (non-excludable,      │
   │   rival resource)                                   │
@@ -101,25 +101,25 @@ GLOBAL SCALE:
 
 GEAR-SPECIFIC BYCATCH:
   ┌────────────────────────────────────────────────────┐
-  │  Bottom trawl:      Highly non-selective            │
+  │  Bottom trawl:      Highly non-selective           │
   │                     Bycatch: benthic invertebrates │
-  │                     Habitat: damages seafloor       │
-  │                     community structure             │
-  │                                                     │
-  │  Longlines:         Seabird and turtle bycatch      │
-  │                     (albatrosses: 100,000+/year)    │
-  │                     Mitigation: streamer lines,     │
-  │                     circle hooks, night setting     │
-  │                                                     │
-  │  Drift gillnets:    Highly non-selective            │
-  │  (now banned in     Dolphins, sea turtles, sharks   │
-  │   international     Historical: Pacific drift nets  │
-  │   waters)           (~42 million animals/year)      │
-  │                                                     │
-  │  Purse seine:       Tuna fishing in ETP (Eastern    │
-  │                     Tropical Pacific) historically  │
-  │                     encircled dolphin schools       │
-  │                     to find yellowfin tuna below    │
+  │                     Habitat: damages seafloor      │
+  │                     community structure            │
+  │                                                    │
+  │  Longlines:         Seabird and turtle bycatch     │
+  │                     (albatrosses: 100,000+/year)   │
+  │                     Mitigation: streamer lines,    │
+  │                     circle hooks, night setting    │
+  │                                                    │
+  │  Drift gillnets:    Highly non-selective           │
+  │  (now banned in     Dolphins, sea turtles, sharks  │
+  │   international     Historical: Pacific drift nets │
+  │   waters)           (~42 million animals/year)     │
+  │                                                    │
+  │  Purse seine:       Tuna fishing in ETP (Eastern   │
+  │                     Tropical Pacific) historically │
+  │                     encircled dolphin schools      │
+  │                     to find yellowfin tuna below   │
   └────────────────────────────────────────────────────┘
 ```
 
@@ -186,17 +186,17 @@ OCEAN DISTRIBUTION:
   ┌────────────────────────────────────────────────────────┐
   │  SURFACE GYRES ("garbage patches"):                    │
   │  Ekman convergence accumulates buoyant debris          │
-  │  Great Pacific Garbage Patch: ~1.6 million km²        │
-  │  (NOT solid — low-density microplastic soup)          │
+  │  Great Pacific Garbage Patch: ~1.6 million km²         │
+  │  (NOT solid — low-density microplastic soup)           │
   │                                                        │
-  │  SEAFLOOR:                                            │
-  │  70%+ of plastic sinks or settles eventually          │
+  │  SEAFLOOR:                                             │
+  │  70%+ of plastic sinks or settles eventually           │
   │  Mariana Trench sediment: plastic bags, wrappers       │
-  │  found at 10,928 m — deepest confirmed plastic        │
+  │  found at 10,928 m — deepest confirmed plastic         │
   │                                                        │
-  │  ARCTIC/ANTARCTIC:                                    │
-  │  Ice concentrates microplastics                       │
-  │  Arctic sea ice: 12,000 microplastic particles/liter  │
+  │  ARCTIC/ANTARCTIC:                                     │
+  │  Ice concentrates microplastics                        │
+  │  Arctic sea ice: 12,000 microplastic particles/liter   │
   └────────────────────────────────────────────────────────┘
 
 BIOLOGICAL IMPACTS:
@@ -232,10 +232,10 @@ TARGET: POLYMETALLIC NODULES
   │  Composition: manganese, cobalt, nickel, copper,       │
   │    rare earth elements (REE)                           │
   │  Location: abyssal plains (4000-5500 m)                │
-  │  Key areas: Clarion-Clipperton Zone (CCZ) — Pacific   │
+  │  Key areas: Clarion-Clipperton Zone (CCZ) — Pacific    │
   │             Penrhyn Basin — Pacific                    │
-  │             Indian Ocean basin                        │
-  │  Estimate: 21+ billion tonnes in CCZ alone            │
+  │             Indian Ocean basin                         │
+  │  Estimate: 21+ billion tonnes in CCZ alone             │
   │  Market: Ni, Co, Cu critical for EV batteries          │
   └────────────────────────────────────────────────────────┘
 
@@ -376,14 +376,14 @@ AQUACULTURE — THE PROMISE AND THE REALITY:
   ┌────────────────────────────────────────────────────────┐
   │  FINFISH (salmon, tilapia, carp):                      │
   │    Atlantic salmon: dominant, Norway/Chile             │
-  │    Feed conversion: 1.2 kg feed → 1 kg salmon         │
+  │    Feed conversion: 1.2 kg feed → 1 kg salmon          │
   │    Problems: sea lice outbreaks (treat with pesticides)│
   │              escapees hybridize with wild fish         │
   │              waste accumulation under net pens         │
   │                                                        │
   │  BIVALVES (oysters, mussels, clams):                   │
   │    Positive: filter feeders improve water quality      │
-  │    No feed needed: extract food from seawater         │
+  │    No feed needed: extract food from seawater          │
   │    Low environmental footprint                         │
   │    Carbon-sequestering (calcification stores carbon)   │
   │    → Potentially BENEFICIAL aquaculture                │
@@ -391,7 +391,7 @@ AQUACULTURE — THE PROMISE AND THE REALITY:
   │  SHRIMP (Penaeus vannamei dominant):                   │
   │    High value, high demand                             │
   │    Problems: mangrove clearing for ponds               │
-  │              antibiotics use → resistance             │
+  │              antibiotics use → resistance              │
   │              effluent → coastal dead zones             │
   └────────────────────────────────────────────────────────┘
 

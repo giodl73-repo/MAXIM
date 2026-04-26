@@ -4,7 +4,7 @@
 
 ```
 +====================================================================+
-|              METRIC SPACES — THE CONCRETE FOUNDATION              |
+|              METRIC SPACES — THE CONCRETE FOUNDATION               |
 +====================================================================+
 |                                                                    |
 |  METRIC d: X × X → R satisfying:                                 |

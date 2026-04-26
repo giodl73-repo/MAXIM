@@ -12,32 +12,32 @@ AUTOIMMUNITY: WHEN TOLERANCE FAILS
 
   TOLERANCE MECHANISMS THAT FAIL:
   ┌──────────────────────────────────────────────────────────────┐
-  │ CENTRAL TOLERANCE                                             │
-  │   Thymus (T cells): Clonal deletion of self-reactive clones │
-  │   Bone marrow (B cells): Deletion + receptor editing        │
+  │ CENTRAL TOLERANCE                                            │
+  │   Thymus (T cells): Clonal deletion of self-reactive clones  │
+  │   Bone marrow (B cells): Deletion + receptor editing         │
   │   FAILURE: AIRE mutations → APECED (multi-organ autoimmunity)│
-  │                                                               │
+  │                                                              │
   │ PERIPHERAL TOLERANCE                                         │
   │   Anergy: Self-antigen without co-stimulation → T cell silent│
-  │   Treg suppression: FoxP3+ cells actively suppress          │
-  │   Deletion: Persistent antigen → activation-induced death   │
-  │   Ignorance: Sequestered self-antigens (eye, testis, brain) │
-  │   FAILURE: Loss of Treg, bystander activation, molecular    │
+  │   Treg suppression: FoxP3+ cells actively suppress           │
+  │   Deletion: Persistent antigen → activation-induced death    │
+  │   Ignorance: Sequestered self-antigens (eye, testis, brain)  │
+  │   FAILURE: Loss of Treg, bystander activation, molecular     │
   │             mimicry, epitope spreading                       │
   └──────────────────────────────────────────────────────────────┘
 
   AUTOIMMUNITY TRIGGERS:
   ┌──────────────────────────────────────────────────────────────┐
   │ Genetic predisposition (HLA + non-HLA genes)                 │
-  │          + Environmental trigger                              │
-  │                                                               │
-  │ Environmental triggers:                                       │
-  │   Infections: Molecular mimicry, bystander activation       │
-  │   Drugs: DILI, drug-induced SLE (procainamide, hydralazine) │
-  │   Microbiome changes: Dysbiosis associated with IBD, T1D    │
-  │   UV light: SLE flares; Vitamin D regulation                │
+  │          + Environmental trigger                             │
+  │                                                              │
+  │ Environmental triggers:                                      │
+  │   Infections: Molecular mimicry, bystander activation        │
+  │   Drugs: DILI, drug-induced SLE (procainamide, hydralazine)  │
+  │   Microbiome changes: Dysbiosis associated with IBD, T1D     │
+  │   UV light: SLE flares; Vitamin D regulation                 │
   │   Hormones: Explains female predominance                     │
-  │   Stress: Neuroendocrine → immune dysregulation             │
+  │   Stress: Neuroendocrine → immune dysregulation              │
   └──────────────────────────────────────────────────────────────┘
 ```
 
@@ -58,22 +58,22 @@ AUTOIMMUNITY: WHEN TOLERANCE FAILS
   ┌────────────────────────────────────────────────────────────────┐
   │ RHEUMATIC FEVER:                                               │
   │ Streptococcus M protein → antibodies cross-react with        │
-  │ cardiac myosin and valvular endothelium → rheumatic carditis  │
-  │ Prevention: Penicillin for strep throat (→ prevents RF)       │
-  │                                                                 │
-  │ GUILLAIN-BARRÉ SYNDROME (GBS):                                │
+  │ cardiac myosin and valvular endothelium → rheumatic carditis   │
+  │ Prevention: Penicillin for strep throat (→ prevents RF)        │
+  │                                                                │
+  │ GUILLAIN-BARRÉ SYNDROME (GBS):                                 │
   │ Campylobacter jejuni lipooligosaccharide resembles gangliosides│
-  │ (GM1, GD1a) on peripheral nerve axons                         │
-  │ Anti-ganglioside antibodies → motor nerve damage              │
-  │ Classic post-infectious ascending paralysis                   │
-  │                                                                 │
-  │ ANKYLOSING SPONDYLITIS (AS):                                  │
-  │ HLA-B27 + Klebsiella nitrogenase hypothesis (contested)       │
+  │ (GM1, GD1a) on peripheral nerve axons                          │
+  │ Anti-ganglioside antibodies → motor nerve damage               │
+  │ Classic post-infectious ascending paralysis                    │
+  │                                                                │
+  │ ANKYLOSING SPONDYLITIS (AS):                                   │
+  │ HLA-B27 + Klebsiella nitrogenase hypothesis (contested)        │
   │ HLA-B27 heavy chain → CD8 T cell response                    │
-  │                                                                 │
+  │                                                                │
   │ MULTIPLE SCLEROSIS:                                            │
   │ EBV infection → anti-GlialCAM × anti-EBNA1 cross-reaction    │
-  │ (2022 Bjornevik study: 32x increased MS risk after EBV)       │
+  │ (2022 Bjornevik study: 32x increased MS risk after EBV)        │
   └────────────────────────────────────────────────────────────────┘
 ```
 
@@ -113,15 +113,15 @@ AUTOIMMUNITY: WHEN TOLERANCE FAILS
 
   ┌─────────────────────────────────────────────────────────────────┐
   │ DISEASE           HLA ALLELE      RELATIVE RISK               │
-  │ Ankylosing spondylitis  B*27:05    ~30–100x (strongest known)  │
-  │ Type 1 Diabetes   DR3-DQ2          ~3x                         │
+  │ Ankylosing spondylitis  B*27:05    ~30–100x (strongest known)   │
+  │ Type 1 Diabetes   DR3-DQ2          ~3x                          │
   │                   DR4-DQ8          ~4x                          │
-  │                   DR3/DR4          ~20x (combined)             │
+  │                   DR3/DR4          ~20x (combined)              │
   │ Rheumatoid Arthritis DRB1*04:01    ~3–5x (shared epitope)     │
   │ Multiple sclerosis  DRB1*15:01     ~3x                          │
   │ SLE                DR2, DR3        ~2–3x                        │
   │ Celiac disease     DQ2, DQ8        ~Required (necessary not suf)│
-  │ Narcolepsy         DQB1*06:02      ~1,000x (strongest!)        │
+  │ Narcolepsy         DQB1*06:02      ~1,000x (strongest!)         │
   └─────────────────────────────────────────────────────────────────┘
 
   WHY HLA?
@@ -202,20 +202,20 @@ AUTOIMMUNITY: WHEN TOLERANCE FAILS
 
   TREATMENT LADDER:
   ┌────────────────────────────────────────────────────────────────┐
-  │ Low efficacy (injectable/oral):                                 │
-  │   IFN-β, glatiramer acetate: ~30% relapse reduction           │
-  │                                                                 │
+  │ Low efficacy (injectable/oral):                                │
+  │   IFN-β, glatiramer acetate: ~30% relapse reduction            │
+  │                                                                │
   │ Moderate efficacy (oral):                                      │
   │   Dimethyl fumarate (Tecfidera): Nrf2 activation               │
-  │   Teriflunomide: DHODH inhibitor → lymphocyte reduction       │
-  │   Cladribine: Lymphocyte depletion (pulse dosing)             │
+  │   Teriflunomide: DHODH inhibitor → lymphocyte reduction        │
+  │   Cladribine: Lymphocyte depletion (pulse dosing)              │
   │   Siponimod/ozanimod/ponesimod: S1P receptor modulators        │
-  │                                                                 │
+  │                                                                │
   │ High efficacy (IV/SC biologics):                               │
   │   Natalizumab: Anti-α4 integrin → prevents CNS traffic (risk: PML)│
-  │   Alemtuzumab: Anti-CD52 → lymphocyte depletion (potent)      │
-  │   Ocrelizumab/ofatumumab: Anti-CD20 → B cell depletion        │
-  │   Approved for PPMS: Ocrelizumab only                         │
+  │   Alemtuzumab: Anti-CD52 → lymphocyte depletion (potent)       │
+  │   Ocrelizumab/ofatumumab: Anti-CD20 → B cell depletion         │
+  │   Approved for PPMS: Ocrelizumab only                          │
   └────────────────────────────────────────────────────────────────┘
 ```
 
@@ -244,18 +244,18 @@ AUTOIMMUNITY: WHEN TOLERANCE FAILS
   TREATMENT PYRAMID:
   ┌────────────────────────────────────────────────────────────────┐
   │ 1st LINE: Methotrexate (MTX, anchor drug)                    │
-  │   Folate antagonist → anti-proliferative + anti-inflammatory  │
-  │   Weekly dose; required with most biologics                   │
-  │                                                                 │
-  │ 2nd LINE: Biologic DMARDs                                     │
-  │   Anti-TNF (adalimumab, etanercept): Most established         │
+  │   Folate antagonist → anti-proliferative + anti-inflammatory   │
+  │   Weekly dose; required with most biologics                    │
+  │                                                                │
+  │ 2nd LINE: Biologic DMARDs                                      │
+  │   Anti-TNF (adalimumab, etanercept): Most established          │
   │   Anti-IL-6R (tocilizumab, sarilumab): Alternative to anti-TNF│
   │   Anti-CD20 (rituximab): B cell depletion; seropositive RA   │
   │   CTLA-4-Ig (abatacept): Blocks T cell co-stimulation        │
-  │                                                                 │
-  │ 3rd LINE: JAK inhibitors (oral)                               │
+  │                                                                │
+  │ 3rd LINE: JAK inhibitors (oral)                                │
   │   Tofacitinib (JAK1/3), baricitinib (JAK1/2)                 │
-  │   Upadacitinib (selective JAK1)                               │
+  │   Upadacitinib (selective JAK1)                                │
   │   Boxed warning: Cardiovascular, thromboembolic (JAKis)      │
   └────────────────────────────────────────────────────────────────┘
 ```

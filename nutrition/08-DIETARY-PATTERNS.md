@@ -10,10 +10,10 @@ DIETARY PATTERNS — LANDSCAPE + EVIDENCE MAP
                         SHARED CORE PRINCIPLES
              ┌──────────────────────────────────────────┐
              │ High plants (veg/legume/whole grain/fruit) │
-             │ Minimal ultra-processed food              │
-             │ Adequate fiber (≥25–40g/day)              │
+             │ Minimal ultra-processed food             │
+             │ Adequate fiber (≥25–40g/day)             │
              │ Healthy fat (olive oil, nuts, fatty fish)  │
-             │ Low added sugar + refined carbs           │
+             │ Low added sugar + refined carbs          │
              └──────────────┬───────────────────────────┘
                             │ all evidence-based patterns share this core
           ┌─────────────────┼────────────────────────┬──────────────────────┐

@@ -8,14 +8,14 @@ THE WORLD WARS AS HISTORICAL RUPTURE
 
   PRE-1914 ORDER                      POST-1945 ORDER
   ┌──────────────────┐                ┌──────────────────────────┐
-  │ • Four empires   │                │ • Two superpowers         │
-  │   (German,       │  30 years of   │ • Decolonization          │
-  │   Habsburg,      │  catastrophe   │ • UN, IMF, World Bank     │
-  │   Russian,       │  ────────────▶ │ • Nuclear deterrence      │
-  │   Ottoman)       │  1914-1945     │ • Welfare state           │
-  │ • British        │                │ • Bretton Woods           │
-  │   hegemony       │                │ • Human rights norms      │
-  │ • Gold standard  │                │ • American hegemony       │
+  │ • Four empires   │                │ • Two superpowers        │
+  │   (German,       │  30 years of   │ • Decolonization         │
+  │   Habsburg,      │  catastrophe   │ • UN, IMF, World Bank    │
+  │   Russian,       │  ────────────▶ │ • Nuclear deterrence     │
+  │   Ottoman)       │  1914-1945     │ • Welfare state          │
+  │ • British        │                │ • Bretton Woods          │
+  │   hegemony       │                │ • Human rights norms     │
+  │ • Gold standard  │                │ • American hegemony      │
   │ • Liberal        │                │                          │
   │   international  │                └──────────────────────────┘
   │   economy        │
@@ -188,24 +188,24 @@ WWII CAUSATION DEBATE
 ══════════════════════════════════════════════════════════════════
   INTENTIONALIST          STRUCTURALIST          SYNTHESIS
   ┌─────────────────┐    ┌─────────────────┐    ┌─────────────────┐
-  │ Hitler's        │    │ Structural       │    │ Hitler's goals  │
+  │ Hitler's        │    │ Structural      │    │ Hitler's goals  │
   │ ideology drove  │    │ factors drove    │    │ interacted with │
-  │ everything:     │    │ outcomes:        │    │ structural      │
-  │                 │    │                  │    │ opportunities:  │
-  │ • Mein Kampf    │    │ • German         │    │                 │
+  │ everything:     │    │ outcomes:       │    │ structural      │
+  │                 │    │                 │    │ opportunities:  │
+  │ • Mein Kampf    │    │ • German        │    │                 │
   │   program       │    │   military-      │    │ • Without Hitler │
-  │   executed      │    │   industrial     │    │   no Holocaust  │
-  │   step by step  │    │   complex        │    │                 │
+  │   executed      │    │   industrial    │    │   no Holocaust  │
+  │   step by step  │    │   complex       │    │                 │
   │                 │    │ • Wehrmacht      │    │ • Without Great │
-  │ • Lebensraum    │    │   institutional  │    │   Depression +  │
-  │ • Racial        │    │   logic          │    │   Versailles,   │
-  │   hierarchy     │    │ • Economic       │    │   no Hitler in  │
-  │ • Jewish        │    │   crisis of      │    │   power         │
-  │   extermination │    │   capitalism     │    │                 │
-  │                 │    │   → war          │    │ Agency +        │
-  │ Key: Taylor     │    │   necessary      │    │ structure in    │
-  │ revisionism     │    │                  │    │ interaction     │
-  │ (wrong)         │    │                  │    │                 │
+  │ • Lebensraum    │    │   institutional │    │   Depression +  │
+  │ • Racial        │    │   logic         │    │   Versailles,   │
+  │   hierarchy     │    │ • Economic      │    │   no Hitler in  │
+  │ • Jewish        │    │   crisis of     │    │   power         │
+  │   extermination │    │   capitalism    │    │                 │
+  │                 │    │   → war         │    │ Agency +        │
+  │ Key: Taylor     │    │   necessary     │    │ structure in    │
+  │ revisionism     │    │                 │    │ interaction     │
+  │ (wrong)         │    │                 │    │                 │
   └─────────────────┘    └─────────────────┘    └─────────────────┘
 ```
 

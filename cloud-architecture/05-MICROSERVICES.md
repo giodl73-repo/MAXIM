@@ -11,15 +11,15 @@ AZURE MICROSERVICES REFERENCE ARCHITECTURE
 |  INTERNET / CLIENTS                                                   |
 |       |                                                               |
 |       v                                                               |
-|  Azure Front Door (global WAF + CDN + routing)                       |
+|  Azure Front Door (global WAF + CDN + routing)                        |
 |       |                                                               |
 |       v                                                               |
-|  Azure API Management (auth, rate limit, policy pipeline)            |
+|  Azure API Management (auth, rate limit, policy pipeline)             |
 |       |                                                               |
 |       v                                                               |
 |  AKS Ingress (nginx or AGIC - App Gateway Ingress Controller)       |
 |       |                                                               |
-|  +----+----+----+----+                                               |
+|  +----+----+----+----+                                                |
 |  |    |    |    |    |                                               |
 |  Svc  Svc  Svc  Svc  (microservices in pods, service mesh mTLS)     |
 |  A    B    C    D                                                     |

@@ -6,7 +6,7 @@ Interplanetary mission design is the art of finding trajectories from Earth to a
 
 ```
 +------------------------------------------------------------------+
-|              INTERPLANETARY TRAJECTORY FRAMEWORK                  |
+|              INTERPLANETARY TRAJECTORY FRAMEWORK                 |
 +------------------------------------------------------------------+
 |                                                                  |
 |  DESIGN PHASES:                                                  |

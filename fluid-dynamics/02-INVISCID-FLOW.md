@@ -18,7 +18,7 @@ INVISCID FLOW — CONCEPTUAL STRUCTURE
   │  Continuity: ∇·∇φ = 0  ⟹  ∇²φ = 0  (Laplace equation!)          │
   │                                                                      │
   │  In 2D: φ + iψ = W(z)  is HOLOMORPHIC                              │
-  │  (velocity potential = real part of complex potential)              │
+  │  (velocity potential = real part of complex potential)               │
   └──────────────────────────────────────────────────────────────────────┘
 
   BERNOULLI'S EQUATION:

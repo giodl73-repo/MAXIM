@@ -44,13 +44,13 @@ VON NEUMANN ARCHITECTURE (1945)
   │  │                    CENTRAL PROCESSING UNIT             │     │
   │  │                                                        │     │
   │  │   ┌──────────────────┐     ┌────────────────────────┐ │     │
-  │  │   │   CONTROL UNIT   │     │     ARITHMETIC LOGIC    │ │     │
-  │  │   │                  │←───→│         UNIT            │ │     │
-  │  │   │ Fetches, decodes, │     │                        │ │     │
-  │  │   │ sequences instrs  │     │ ADD, SUB, MUL, DIV     │ │     │
-  │  │   │                  │     │ AND, OR, NOT, XOR       │ │     │
-  │  │   │ PC (program ctr) │     │ Comparison, shifts      │ │     │
-  │  │   │ IR (instr reg)   │     │ Registers (fast storage)│ │     │
+  │  │   │   CONTROL UNIT   │     │     ARITHMETIC LOGIC   │ │     │
+  │  │   │                  │←───→│         UNIT           │ │     │
+  │  │   │ Fetches, decodes, │     │                        │ │    │
+  │  │   │ sequences instrs │     │ ADD, SUB, MUL, DIV     │ │     │
+  │  │   │                  │     │ AND, OR, NOT, XOR      │ │     │
+  │  │   │ PC (program ctr) │     │ Comparison, shifts     │ │     │
+  │  │   │ IR (instr reg)   │     │ Registers (fast storage)│ │    │
   │  │   └──────────────────┘     └────────────────────────┘ │     │
   │  └────────────────────────────────────────────────────────┘     │
   │                    ↑                                            │

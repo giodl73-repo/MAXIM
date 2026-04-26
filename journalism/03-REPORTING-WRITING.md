@@ -10,19 +10,19 @@ STORY FORM SELECTION
 
   WHAT TYPE OF STORY IS THIS?
   ┌──────────────────────────────────────────────────────────────────┐
-  │  BREAKING NEWS → Inverted Pyramid                               │
+  │  BREAKING NEWS → Inverted Pyramid                                │
   │  ("Mayor resigns amid corruption investigation")               │
-  │                                                                   │
-  │  FEATURE / HUMAN INTEREST → Narrative / Hourglass               │
+  │                                                                  │
+  │  FEATURE / HUMAN INTEREST → Narrative / Hourglass                │
   │  ("Inside the last week of the city's oldest bookstore")       │
-  │                                                                   │
-  │  ANALYSIS / EXPLAINER → Wall Street Journal Formula             │
+  │                                                                  │
+  │  ANALYSIS / EXPLAINER → Wall Street Journal Formula              │
   │  ("Why inflation persists despite Fed rate increases")         │
-  │                                                                   │
-  │  PROFILE → Biographical narrative                               │
-  │  ("How a refugee from Haiti became the city's top cardiac       │
+  │                                                                  │
+  │  PROFILE → Biographical narrative                                │
+  │  ("How a refugee from Haiti became the city's top cardiac        │
   │   surgeon")                                                      │
-  │                                                                   │
+  │                                                                  │
   │  DATA STORY → Context-forward + visualization                  │
   │  ("School test scores fell in 87% of districts this year")     │
   └──────────────────────────────────────────────────────────────────┘
@@ -52,9 +52,9 @@ INVERTED PYRAMID STRUCTURE
   └────────────────────────────────────────────────────────────┘
        ▼
   ┌──────────────────────────────────────────────────────┐
-  │  ████████████████████████████████████████████████   │
+  │  ████████████████████████████████████████████████    │
   │  ████ BACKGROUND / CONTEXT ████████████████████    │
-  │  ████████████████████████████████████████████████   │
+  │  ████████████████████████████████████████████████    │
   └──────────────────────────────────────────────────────┘
        ▼
   ┌────────────────────────────────────────────┐
@@ -97,22 +97,22 @@ LEAD CONSTRUCTION
 
   THE 5W+H LEAD (hard news):
   ┌──────────────────────────────────────────────────────────────────┐
-  │  WHO:   The actor (subject) of the story                        │
-  │  WHAT:  The action or event (verb and object)                   │
+  │  WHO:   The actor (subject) of the story                         │
+  │  WHAT:  The action or event (verb and object)                    │
   │  WHEN:  Time (but not first word — leads never start with time)│
-  │  WHERE: Location (briefly, not before the news)                 │
-  │  WHY:   Cause or motivation (briefly if known)                  │
-  │  HOW:   Method (briefly if newsworthy)                          │
-  │                                                                   │
-  │  EXAMPLE:                                                       │
-  │  "Mayor James Chen resigned Thursday, citing personal health    │
+  │  WHERE: Location (briefly, not before the news)                  │
+  │  WHY:   Cause or motivation (briefly if known)                   │
+  │  HOW:   Method (briefly if newsworthy)                           │
+  │                                                                  │
+  │  EXAMPLE:                                                        │
+  │  "Mayor James Chen resigned Thursday, citing personal health     │
   │   reasons, two weeks after the city council opened a formal    │
-  │   investigation into his campaign spending."                    │
-  │                                                                   │
-  │  WHO:   Mayor James Chen                                        │
-  │  WHAT:  resigned                                                │
-  │  WHEN:  Thursday                                                │
-  │  WHY:   "citing personal health reasons" (stated) /             │
+  │   investigation into his campaign spending."                     │
+  │                                                                  │
+  │  WHO:   Mayor James Chen                                         │
+  │  WHAT:  resigned                                                 │
+  │  WHEN:  Thursday                                                 │
+  │  WHY:   "citing personal health reasons" (stated) /              │
   │         investigation (context that complicates the stated why)│
   │  WHERE: [implied — city hall context established previously]   │
   └──────────────────────────────────────────────────────────────────┘
@@ -121,10 +121,10 @@ LEAD CONSTRUCTION
   ┌──────────────────────────────────────────────────────────────────┐
   │  BURIED LEAD: Most newsworthy info in paragraph 3 or later     │
   │  LABEL LEAD: Just a noun phrase, no verb ("The resignation of  │
-  │   Mayor James Chen...")                                         │
+  │   Mayor James Chen...")                                          │
   │  ATTRIBUTION LEAD: Quote at the start without context          │
-  │  NUMBER DUMP: Multiple statistics in first sentence             │
-  │  "IT WAS A..." lead: Weak, vague, says nothing                  │
+  │  NUMBER DUMP: Multiple statistics in first sentence              │
+  │  "IT WAS A..." lead: Weak, vague, says nothing                   │
   │  BLIND LEAD: Uses pronouns before establishing subjects        │
   └──────────────────────────────────────────────────────────────────┘
 ```
@@ -142,18 +142,18 @@ ATTRIBUTION IN NEWS WRITING
   │  SAID: Neutral attribution for direct statements               │
   │   "The governor said the plan would create 5,000 jobs."        │
   │   (Most common; doesn't imply truth or falsehood)             │
-  │                                                                   │
+  │                                                                  │
   │  CLAIMED: Implies the reporter has some doubt, or the claim    │
   │   is contested or unverifiable                                 │
   │   "The company claimed its product cured arthritis."           │
-  │                                                                   │
+  │                                                                  │
   │  ALLEGED: For criminal accusations before conviction           │
   │   "Smith allegedly struck the officer." / "The alleged thief." │
   │   Legal protection: Distinction between allegation and fact    │
-  │                                                                   │
+  │                                                                  │
   │  ACCORDING TO: Preferred for reports, documents, officials    │
   │   "According to the audit, $2 million was unaccounted for."   │
-  │                                                                   │
+  │                                                                  │
   │  REFUSED TO COMMENT: Accurate report of non-response          │
   │   "X did not respond to multiple requests for comment."        │
   └──────────────────────────────────────────────────────────────────┘
@@ -161,7 +161,7 @@ ATTRIBUTION IN NEWS WRITING
   ATTRIBUTION POSITION:
   ┌──────────────────────────────────────────────────────────────────┐
   │  Short quotes: Attribution at end → "The system is broken,"    │
-  │   said the director.                                            │
+  │   said the director.                                             │
   │  Long quotes: Attribution after first sentence of quote        │
   │  NEVER: "Said the director" → "the director said" (AP style)  │
   │  NEVER: Compound-verb attribution → "said and noted" (use one) │
@@ -180,7 +180,7 @@ NUT GRAF FUNCTION
 
   STORY STRUCTURE WITH NUT GRAF:
   ┌──────────────────────────────────────────────────────────────────┐
-  │  ANECDOTAL OPENING (draws reader in with specific scene)        │
+  │  ANECDOTAL OPENING (draws reader in with specific scene)         │
   │  ─────────────────────────────────────────────────────────────── │
   │  NUT GRAF: "Maria's story is one of thousands. Since January,  │
   │   more than 10,000 city residents have applied for emergency   │
@@ -270,7 +270,7 @@ DATA JOURNALISM WORKFLOW
 
   DATA ACQUISITION
   ┌──────────────────────────────────────────────────────────────────┐
-  │  FOIA request for databases (not just documents)                │
+  │  FOIA request for databases (not just documents)                 │
   │  Public databases: Census, BLS, BEA, state data portals       │
   │  Scraped data: Web scraping of public information              │
   │  Purchased data: Commercial data aggregators                   │
@@ -294,7 +294,7 @@ DATA JOURNALISM WORKFLOW
           ↓
   VERIFICATION
   ┌──────────────────────────────────────────────────────────────────┐
-  │  Expert review of methodology                                   │
+  │  Expert review of methodology                                    │
   │  Subject interview: Is the pattern explained by other factors? │
   │  Peer review within newsroom (another data journalist checks)  │
   └──────────────────────────────────────────────────────────────────┘

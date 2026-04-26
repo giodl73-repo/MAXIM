@@ -8,19 +8,19 @@ A pipelined in-order processor approaches 1 IPC (instruction per cycle). But sta
 +-----------------------------------------------------------------------+
 |                   EXECUTION ENGINE OVERVIEW                           |
 |                                                                       |
-|  FRONT-END                    EXECUTION ENGINE (OOO)                 |
-|  ---------                    --------------------                   |
-|  Fetch (4–8 instrs/cycle)     Reservation Stations (Tomasulo)        |
+|  FRONT-END                    EXECUTION ENGINE (OOO)                  |
+|  ---------                    --------------------                    |
+|  Fetch (4–8 instrs/cycle)     Reservation Stations (Tomasulo)         |
 |  Branch prediction            Issue queues per execution unit type    |
-|  Decode (CISC→µops on x86)    Reorder Buffer (ROB) — in-order commit |
-|  Micro-op cache (µop cache)   Register Alias Table (RAT) — renaming  |
+|  Decode (CISC→µops on x86)    Reorder Buffer (ROB) — in-order commit  |
+|  Micro-op cache (µop cache)   Register Alias Table (RAT) — renaming   |
 |  Rename/allocate              Multiple execution units in parallel    |
 |  Dispatch to reservation      Load/Store queues                       |
 |  stations                     Write-back to ROB                       |
 |                                                                       |
-|  IN ORDER:               OUT OF ORDER:                RETIRE:        |
+|  IN ORDER:               OUT OF ORDER:                RETIRE:         |
 |  Fetch → Decode          Issue → Execute               In-order       |
-|  → Rename → Dispatch     (when operands ready)         commit from   |
+|  → Rename → Dispatch     (when operands ready)         commit from    |
 |                                                          ROB head     |
 +-----------------------------------------------------------------------+
 ```
@@ -230,22 +230,22 @@ Robert Tomasulo described the out-of-order execution algorithm in 1967 for the I
 
 ```
 +------------------------------------------------------------------+
-| FEATURE           | Intel Golden | AMD Zen 4  | Apple Everest   |
-|                   | Cove (P-core)| (Raphael)  | (M2, ~est)      |
+| FEATURE           | Intel Golden | AMD Zen 4  | Apple Everest    |
+|                   | Cove (P-core)| (Raphael)  | (M2, ~est)       |
 |-------------------|--------------|------------|-----------------|
-| Decode width      | 6 µop/cycle  | 4 op/cycle | 8 op/cycle      |
-| Rename width      | 6            | 6          | 8               |
-| ROB entries       | 512          | 320        | ~630            |
-| INT phys regs     | 280+         | 224        | ~400 (est)      |
-| Scheduler (issue) | 160 entries  | 128 entries| ~300 (est)      |
-| Dispatch ports    | 10           | 6+         | 12+ (est)       |
-| Load bandwidth    | 2×256-bit    | 2×256-bit  | 2×128-bit (L1)  |
-|                   |              |            | 4×load AGU      |
-| Store bandwidth   | 2×256-bit    | 1×256-bit  | 2×store         |
-| L1D cache         | 48 KB        | 32 KB      | 192 KB          |
-| L1I cache         | 32 KB        | 32 KB      | 192 KB          |
-| L2 cache          | 2 MB         | 1 MB       | 12–16 MB        |
-| Clock (Boost)     | ~5.8 GHz     | ~5.7 GHz   | ~3.5 GHz        |
+| Decode width      | 6 µop/cycle  | 4 op/cycle | 8 op/cycle       |
+| Rename width      | 6            | 6          | 8                |
+| ROB entries       | 512          | 320        | ~630             |
+| INT phys regs     | 280+         | 224        | ~400 (est)       |
+| Scheduler (issue) | 160 entries  | 128 entries| ~300 (est)       |
+| Dispatch ports    | 10           | 6+         | 12+ (est)        |
+| Load bandwidth    | 2×256-bit    | 2×256-bit  | 2×128-bit (L1)   |
+|                   |              |            | 4×load AGU       |
+| Store bandwidth   | 2×256-bit    | 1×256-bit  | 2×store          |
+| L1D cache         | 48 KB        | 32 KB      | 192 KB           |
+| L1I cache         | 32 KB        | 32 KB      | 192 KB           |
+| L2 cache          | 2 MB         | 1 MB       | 12–16 MB         |
+| Clock (Boost)     | ~5.8 GHz     | ~5.7 GHz   | ~3.5 GHz         |
 +------------------------------------------------------------------+
 
 Apple's lower frequency + wider issue window + massive caches

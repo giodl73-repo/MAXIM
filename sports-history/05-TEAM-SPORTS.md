@@ -4,26 +4,26 @@
 
 ```
 +------------------------------------------------------------------+
-|                  MAJOR TEAM SPORT HISTORIES                       |
+|                  MAJOR TEAM SPORT HISTORIES                      |
 |                                                                  |
-|  ASSOCIATION FOOTBALL          AMERICAN FOOTBALL                  |
-|  FA 1863 -> Football League    Camp's rules 1880s               |
+|  ASSOCIATION FOOTBALL          AMERICAN FOOTBALL                 |
+|  FA 1863 -> Football League    Camp's rules 1880s                |
 |  1888 -> FIFA 1904 ->          NFL 1920 -> Super Bowl 1967       |
 |  World Cup 1930 -> PL 1992     CTE crisis (2000s-)               |
 |  211 FIFA members              Hard salary cap, draft            |
 |                                                                  |
 |  BASKETBALL                    BASEBALL                          |
-|  Naismith 1891 peach baskets   Knickerbocker 1845               |
-|  BAA 1946 -> NBA 1949          NL 1876 -> AL 1901               |
-|  Shot clock 1954 -> 3pt 1979   Integration 1947                 |
-|  Dream Team 1992               Moneyball revolution             |
-|  Three-point revolution        Statcast analytics               |
+|  Naismith 1891 peach baskets   Knickerbocker 1845                |
+|  BAA 1946 -> NBA 1949          NL 1876 -> AL 1901                |
+|  Shot clock 1954 -> 3pt 1979   Integration 1947                  |
+|  Dream Team 1992               Moneyball revolution              |
+|  Three-point revolution        Statcast analytics                |
 |                                                                  |
 |  ICE HOCKEY                    RUGBY                             |
-|  McGill 1870s codification     RFU 1871 (Union)                 |
+|  McGill 1870s codification     RFU 1871 (Union)                  |
 |  NHL 1917, Original Six        Northern Union 1895 (League)      |
-|  Gretzky era                   Open era 1995                    |
-|  Summit Series 1972            World Cup 1987                   |
+|  Gretzky era                   Open era 1995                     |
+|  Summit Series 1972            World Cup 1987                    |
 +------------------------------------------------------------------+
 ```
 

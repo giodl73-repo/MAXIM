@@ -6,22 +6,22 @@ Ecosystems change over time in predictable ways after disturbance — this is ec
 
 ```
 +---------------------------------------------------------------+
-|           SUCCESSION AND STABILITY FRAMEWORK                   |
-|                                                                |
-|  SUCCESSION:                                                   |
-|  Bare rock → Pioneer species → Early community →             |
+|           SUCCESSION AND STABILITY FRAMEWORK                  |
+|                                                               |
+|  SUCCESSION:                                                  |
+|  Bare rock → Pioneer species → Early community →              |
 |  Middle community → Late-successional state                   |
 |  (primary succession: rock → soil → full vegetation)          |
 |  (secondary succession: soil present → vegetation regrowth)   |
-|                                                                |
+|                                                               |
 |  STABILITY CONCEPTS:                                          |
-|  Resistance: ability to withstand perturbation               |
-|  Resilience: rate of recovery after perturbation             |
-|  Engineering resilience vs Ecological resilience             |
-|                                                                |
+|  Resistance: ability to withstand perturbation                |
+|  Resilience: rate of recovery after perturbation              |
+|  Engineering resilience vs Ecological resilience              |
+|                                                               |
 |  REGIME SHIFTS:                                               |
-|  Threshold → alternative stable state → hysteresis           |
-|  (difficult to reverse; ecosystem reorganizes)               |
+|  Threshold → alternative stable state → hysteresis            |
+|  (difficult to reverse; ecosystem reorganizes)                |
 +---------------------------------------------------------------+
 ```
 

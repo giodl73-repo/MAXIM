@@ -10,7 +10,7 @@
 ┌─────────────────────────────────────────────────────────────────────────────┐
 │                     SEALANT / CAULK LANDSCAPE                               │
 │                                                                             │
-│  ┌─────────────────────────────────────────────────────────────────────┐   │
+│  ┌─────────────────────────────────────────────────────────────────────┐    │
 │  │  FIRST SPLIT: Static joints vs. Dynamic joints                      │   │
 │  │                                                                     │   │
 │  │  CAULK  ──── fills static gaps (trim to wall, no movement)         │   │
@@ -63,8 +63,8 @@ temperature, stable at high temperature, UV-resistant (silicon doesn't absorb UV
 
 ```
 ┌─────────────────────────────────────────────────────────────────────────┐
-│ ACETOXY CURE                    │  NEUTRAL CURE                        │
-│ (most common, "acidic")         │  (oxime or alkoxy)                   │
+│ ACETOXY CURE                    │  NEUTRAL CURE                         │
+│ (most common, "acidic")         │  (oxime or alkoxy)                    │
 ├─────────────────────────────────┼──────────────────────────────────────┤
 │ Byproduct: acetic acid          │  Byproduct: oxime or alcohol         │
 │  → vinegar smell during cure    │   → mild or no odor                  │
@@ -256,7 +256,7 @@ Non-cured rubber — no mixing, no cure time, compression seals.
   Forms:
   ┌─────────────────────────────────────────────────────────┐
   │ Self-adhering tape    │ Butyl adhesive backing          │
-  │ (w/ butyl backing)   │ Exposed EPDM face               │
+  │ (w/ butyl backing)   │ Exposed EPDM face                │
   │                       │ Window pan flashing, pipe boots │
   ├───────────────────────┼─────────────────────────────────┤
   │ Sheet membrane laps   │ Seam tape for EPDM roofing      │

@@ -10,24 +10,24 @@
 │                                                                     │
 │  SCENARIO SPACE              SECTOR CONTRIBUTIONS                   │
 │  ─────────────────           ─────────────────────                  │
-│  SSP1-1.9: ~1.0°C ─┐         Energy/power:  ~34%                   │
-│  SSP1-2.6: ~1.8°C  │         Industry:      ~24%                   │
-│  SSP2-4.5: ~2.7°C  │─→ TCRE  AFOLU:         ~22%                   │
-│  SSP3-7.0: ~3.6°C  │  model  Transport:     ~16%                   │
-│  SSP5-8.5: ~4.4°C ─┘         Buildings:      ~6%                   │
+│  SSP1-1.9: ~1.0°C ─┐         Energy/power:  ~34%                    │
+│  SSP1-2.6: ~1.8°C  │         Industry:      ~24%                    │
+│  SSP2-4.5: ~2.7°C  │─→ TCRE  AFOLU:         ~22%                    │
+│  SSP3-7.0: ~3.6°C  │  model  Transport:     ~16%                    │
+│  SSP5-8.5: ~4.4°C ─┘         Buildings:      ~6%                    │
 │       ↑                                ↓                            │
 │  CARBON BUDGET MATH         POLICY MECHANISMS                       │
 │  ───────────────────        ─────────────────                       │
 │  TCRE ≈ 0.45°C/1000 GtCO₂  Carbon tax (price → quantity)          │
-│  1.5°C (50%): ~380 GtCO₂   Cap-and-trade (quantity → price)        │
-│  2.0°C (50%): ~1230 GtCO₂  Regulations / standards                 │
-│  at current ~40 GtCO₂/yr:  Technology mandates (BEV, RE %)         │
-│  1.5°C budget ≈ 9-10 yr            ↓                               │
+│  1.5°C (50%): ~380 GtCO₂   Cap-and-trade (quantity → price)         │
+│  2.0°C (50%): ~1230 GtCO₂  Regulations / standards                  │
+│  at current ~40 GtCO₂/yr:  Technology mandates (BEV, RE %)          │
+│  1.5°C budget ≈ 9-10 yr            ↓                                │
 │       ↓                    NET-ZERO MATH                            │
 │  IMPLEMENTATION GAP         ──────────────                          │
-│  Current policy: ~2.5-3°C  Gross residual + CDR = net zero         │
+│  Current policy: ~2.5-3°C  Gross residual + CDR = net zero          │
 │  Full NDCs:      ~2.0-2.4°C Hard sectors need ~5-10 GtCO₂/yr CDR  │
-│  Net-zero pledges: ~1.7°C   DAC / BECCS / natural CDR portfolio    │
+│  Net-zero pledges: ~1.7°C   DAC / BECCS / natural CDR portfolio     │
 └─────────────────────────────────────────────────────────────────────┘
 ```
 
@@ -71,7 +71,7 @@ EMISSIONS → TEMPERATURE: THE CAUSAL CHAIN
   Used in CMIP5 / IPCC AR5 (2013)
 
   ┌─────────────────────────────────────────────────────────────────┐
-  │  RCP    │ Forcing by 2100 │ CO₂ equiv. 2100 │ ~Temperature     │
+  │  RCP    │ Forcing by 2100 │ CO₂ equiv. 2100 │ ~Temperature      │
   ├─────────────────────────────────────────────────────────────────┤
   │  RCP 2.6│ 2.6 W/m²       │ ~450 ppm        │ ~1.6°C           │
   │  RCP 4.5│ 4.5 W/m²       │ ~650 ppm        │ ~2.4°C           │
@@ -122,7 +122,7 @@ EMISSIONS → TEMPERATURE: THE CAUSAL CHAIN
 
   REMAINING BUDGET (from Jan 2023, IPCC AR6):
   ┌──────────────────────────────────────────────────────────┐
-  │  Target    │ Probability │ Remaining budget (GtCO₂)     │
+  │  Target    │ Probability │ Remaining budget (GtCO₂)      │
   ├──────────────────────────────────────────────────────────┤
   │  1.5°C     │ 50%        │ ~380 GtCO₂                   │
   │  1.5°C     │ 67%        │ ~300 GtCO₂                   │
@@ -156,29 +156,29 @@ EMISSIONS → TEMPERATURE: THE CAUSAL CHAIN
   GLOBAL GHG EMISSIONS BY SECTOR (IPCC AR6, 2019 baseline):
 
   ┌───────────────────────────────────────────────────────────────┐
-  │  ENERGY SYSTEMS (electricity/heat production)   ~34%         │
+  │  ENERGY SYSTEMS (electricity/heat production)   ~34%          │
   │    Coal power plants: ~20%                                    │
   │    Oil and gas: remainder of energy sector                    │
   │    Decarbonization: fastest sector (solar/wind cost collapse) │
   │                                                               │
-  │  INDUSTRY                                       ~24%         │
-  │    Steel: ~8% (iron ore reduction with coking coal)          │
+  │  INDUSTRY                                       ~24%          │
+  │    Steel: ~8% (iron ore reduction with coking coal)           │
   │    Cement: ~4% (CaCO₃ → CaO + CO₂ — process emissions)      │
   │    Chemicals, petrochemicals, aluminum                        │
   │    Hard to decarbonize: process emissions, high-temp heat     │
   │                                                               │
-  │  AGRICULTURE, FORESTRY, LAND USE (AFOLU)        ~22%         │
+  │  AGRICULTURE, FORESTRY, LAND USE (AFOLU)        ~22%          │
   │    Livestock methane (enteric fermentation): ~5%              │
   │    Deforestation: ~12% (land use change flux)                 │
   │    Rice paddies, fertilizer N₂O                               │
   │    Hard: biological processes; food security constraints      │
   │                                                               │
-  │  TRANSPORT                                      ~16%         │
-  │    Road vehicles: ~12% (BEV transition underway)             │
-  │    Aviation: ~2.5% (growing; hard to decarbonize)            │
-  │    Shipping: ~1.7% (growing; exploring NH₃/methanol)         │
+  │  TRANSPORT                                      ~16%          │
+  │    Road vehicles: ~12% (BEV transition underway)              │
+  │    Aviation: ~2.5% (growing; hard to decarbonize)             │
+  │    Shipping: ~1.7% (growing; exploring NH₃/methanol)          │
   │                                                               │
-  │  BUILDINGS                                       ~6%         │
+  │  BUILDINGS                                       ~6%          │
   │    Mostly space heating and cooling                           │
   │    + hot water, cooking                                       │
   │    Solution: electrification + clean grid                     │
@@ -216,15 +216,15 @@ EMISSIONS → TEMPERATURE: THE CAUSAL CHAIN
     OFFSET by Carbon Dioxide Removal (CDR)
 
   ┌───────────────────────────────────────────────────────────────┐
-  │  NET ZERO 2050 (example pathway):                            │
-  │                                                              │
+  │  NET ZERO 2050 (example pathway):                             │
+  │                                                               │
   │  2050 Gross emissions:  ~5-10 GtCO₂/year residual           │
-  │  (from: aviation, shipping, agriculture, some industry)      │
+  │  (from: aviation, shipping, agriculture, some industry)       │
   │  CDR required:          ~5-10 GtCO₂/year removal            │
-  │  NET:                   ≈ 0                                  │
-  │                                                              │
+  │  NET:                   ≈ 0                                   │
+  │                                                               │
   │  For 1.5°C: this must be NET NEGATIVE after 2050:           │
-  │  CDR > gross emissions (withdrawing past cumulative)         │
+  │  CDR > gross emissions (withdrawing past cumulative)          │
   └───────────────────────────────────────────────────────────────┘
 
   TYPES OF CDR:
@@ -325,11 +325,11 @@ Carbon pricing is the Pigouvian tax from microeconomics applied at planetary sca
 
   CURRENT STATE (as of 2024):
   ┌───────────────────────────────────────────────────────────┐
-  │  UN Global Stocktake 2023 finding:                       │
-  │  World is NOT on track to meet Paris goals               │
-  │  Current NDC implementation → ~2.5°C                     │
-  │  Full NDC implementation → ~2.0°C                        │
-  │  Net-zero pledges (if met) → ~1.7°C                      │
+  │  UN Global Stocktake 2023 finding:                        │
+  │  World is NOT on track to meet Paris goals                │
+  │  Current NDC implementation → ~2.5°C                      │
+  │  Full NDC implementation → ~2.0°C                         │
+  │  Net-zero pledges (if met) → ~1.7°C                       │
   │  Gap between pledges and implementation: substantial      │
   └───────────────────────────────────────────────────────────┘
 

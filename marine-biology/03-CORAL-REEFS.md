@@ -122,15 +122,15 @@ ZOOXANTHELLAE IN TISSUE
   ┌────────────────────────────────────────────────┐
   │  Symbiodinium sp. (dinoflagellate)             │
   │  ~2–5 μm diameter; lives in gastrodermal cells │
-  │  ~1–2 million cells per cm² of coral tissue   │
+  │  ~1–2 million cells per cm² of coral tissue    │
   │                                                │
   │  Photosynthesis:                               │
   │  CO₂ + H₂O + light → glucose + O₂            │
   │                          │                     │
   │                          ▼                     │
   │              Translocates 90-99% of            │
-  │              photosynthate to coral host        │
-  │              (glucose, glycerol, amino acids)   │
+  │              photosynthate to coral host       │
+  │              (glucose, glycerol, amino acids)  │
   └────────────────────────────────────────────────┘
                   ↕ mutualism
   ┌────────────────────────────────────────────────┐
@@ -173,16 +173,16 @@ THERMAL STRESS (primary cause)
   │       │                                             │
   │       ▼                                             │
   │  Excess excitation energy → reactive oxygen         │
-  │  species (ROS) production                          │
+  │  species (ROS) production                           │
   │  (O₂⁻, H₂O₂, ·OH)                                │
   │       │                                             │
   │       ▼                                             │
   │  ROS damages both zooxanthellae and coral tissue    │
   │       │                                             │
   │       ▼                                             │
-  │  CORAL EXPELS ZOOXANTHELLAE                        │
-  │  (adaptive response? or damage response?           │
-  │   still debated — probably both)                   │
+  │  CORAL EXPELS ZOOXANTHELLAE                         │
+  │  (adaptive response? or damage response?            │
+  │   still debated — probably both)                    │
   │       │                                             │
   │       ▼                                             │
   │  WHITE SKELETON visible through transparent tissue  │

@@ -7,8 +7,8 @@ MESOAMERICAN WRITING SYSTEMS
 ==============================
 
 +------------------------------------------------------------------+
-|  WRITING SYSTEM    APPROX DATE    STATUS       LANGUAGE         |
-|  ---------------   -----------    --------     --------         |
+|  WRITING SYSTEM    APPROX DATE    STATUS       LANGUAGE          |
+|  ---------------   -----------    --------     --------          |
 |  Zapotec           500 BCE -       Partially    Zapotecan        |
 |  (Monte Alban)     900 CE          read         (Otomanguean)    |
 |                                                                  |

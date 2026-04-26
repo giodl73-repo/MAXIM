@@ -9,15 +9,15 @@ replicated across cultures, and predictively valid. MBTI is not this.
 
 ```
 +----------------------------------------------------------------------+
-|                    PERSONALITY MODEL LANDSCAPE                        |
+|                    PERSONALITY MODEL LANDSCAPE                       |
 |                                                                      |
 |  EMPIRICAL (research-based)     vs    POPULAR (untested)             |
 |  ─────────────────────────            ──────────────────────         |
 |  Big Five (OCEAN)                     MBTI (Myers-Briggs)            |
 |  Factor-analytically derived          Jungian typology               |
 |  Replicated cross-culturally          50% different type in 5 weeks  |
-|  Predicts job performance,            Weak predictive validity        |
-|  relationships, health, politics      Not used by researchers         |
+|  Predicts job performance,            Weak predictive validity       |
+|  relationships, health, politics      Not used by researchers        |
 |                                                                      |
 |  DARK TRIAD (applied)               HEXACO (extending Big Five)      |
 |  Narcissism + Machiavellianism      Adds Honesty-Humility dimension  |
@@ -58,10 +58,10 @@ replicated across cultures, and predictively valid. MBTI is not this.
   ┌────────────────────────────────────────────────────────────────────┐
   │ OPENNESS TO EXPERIENCE (O)                                         │
   │ High: intellectual curiosity, aesthetic sensitivity, novelty-seeking│
-  │       creativity, abstract thinking, broad interests              │
+  │       creativity, abstract thinking, broad interests               │
   │ Low:  practical, conventional, prefers familiar, concrete thinking │
   │                                                                    │
-  │ Facets: Fantasy, Aesthetics, Feelings, Actions, Ideas, Values     │
+  │ Facets: Fantasy, Aesthetics, Feelings, Actions, Ideas, Values      │
   │ Predicts: artistic achievement, political liberalism, drug use     │
   │ Biological: linked to dopamine function, D4DR polymorphism         │
   ├────────────────────────────────────────────────────────────────────┤
@@ -77,12 +77,12 @@ replicated across cultures, and predictively valid. MBTI is not this.
   ├────────────────────────────────────────────────────────────────────┤
   │ EXTRAVERSION (E)                                                   │
   │ High: sociable, energized by social interaction, assertive,        │
-  │       positive affect, talkative, excitement-seeking              │
-  │ Low:  reserved, prefer solitude, less assertive, lower base rate  │
-  │       positive affect (not negative — that's neuroticism)         │
+  │       positive affect, talkative, excitement-seeking               │
+  │ Low:  reserved, prefer solitude, less assertive, lower base rate   │
+  │       positive affect (not negative — that's neuroticism)          │
   │                                                                    │
-  │ Facets: Warmth, Gregariousness, Assertiveness, Activity,          │
-  │         Excitement Seeking, Positive Emotions                     │
+  │ Facets: Warmth, Gregariousness, Assertiveness, Activity,           │
+  │         Excitement Seeking, Positive Emotions                      │
   │ Predicts: leadership emergence (r~0.31), happiness, social network│
   │           size; NOT intelligence (common misconception)            │
   ├────────────────────────────────────────────────────────────────────┤
@@ -96,15 +96,15 @@ replicated across cultures, and predictively valid. MBTI is not this.
   │           (agreeable people negotiate less aggressively)           │
   ├────────────────────────────────────────────────────────────────────┤
   │ NEUROTICISM (N) [sometimes inverted as Emotional Stability]        │
-  │ High: emotional instability, anxiety, moodiness, irritability,    │
-  │       vulnerability, depression-proneness                         │
+  │ High: emotional instability, anxiety, moodiness, irritability,     │
+  │       vulnerability, depression-proneness                          │
   │ Low:  emotionally stable, calm, resilient                          │
   │                                                                    │
-  │ Facets: Anxiety, Angry Hostility, Depression, Self-Consciousness, │
+  │ Facets: Anxiety, Angry Hostility, Depression, Self-Consciousness,  │
   │         Impulsiveness, Vulnerability                               │
   │ Predicts: mental health problems, subjective unhappiness, physical│
-  │           health (psychosomatic pathways), negative relationship  │
-  │           outcomes; strongest predictor of psychological distress │
+  │           health (psychosomatic pathways), negative relationship   │
+  │           outcomes; strongest predictor of psychological distress  │
   └────────────────────────────────────────────────────────────────────┘
 ```
 
@@ -211,8 +211,8 @@ replicated across cultures, and predictively valid. MBTI is not this.
   PROBLEMS:
   ┌────────────────────────────────────────────────────────────────┐
   │ RELIABILITY:                                                   │
-  │ Test-retest after 5 weeks: ~50% receive different type        │
-  │ Forced dichotomies (E vs I) when underlying distributions     │
+  │ Test-retest after 5 weeks: ~50% receive different type         │
+  │ Forced dichotomies (E vs I) when underlying distributions      │
   │ are continuous → arbitrary cutpoints create artificial types   │
   │                                                                │
   │ VALIDITY:                                                      │
@@ -223,7 +223,7 @@ replicated across cultures, and predictively valid. MBTI is not this.
   │                                                                │
   │ SCIENTIFIC STATUS:                                             │
   │ Not used in personality research literature                    │
-  │ ~2,000 peer-reviewed publications use Big Five per year       │
+  │ ~2,000 peer-reviewed publications use Big Five per year        │
   │ ~10 use MBTI for trait prediction                              │
   └────────────────────────────────────────────────────────────────┘
 

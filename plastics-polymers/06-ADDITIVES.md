@@ -7,23 +7,23 @@
 |                 THE ADDITIVE UNIVERSE                            |
 |                                                                  |
 |   BASE POLYMER  +  ADDITIVES  =  COMPOUND                        |
-|   ───────────────────────────────────────────────────────────   |
+|   ───────────────────────────────────────────────────────────    |
 |                                                                  |
 |   STABILIZERS                                                    |
-|   Antioxidants · UV stabilizers · Heat stabilizers · Hydrolysis |
-|   → Prevent degradation during processing and service           |
+|   Antioxidants · UV stabilizers · Heat stabilizers · Hydrolysis  |
+|   → Prevent degradation during processing and service            |
 |                                                                  |
 |   PLASTICIZERS                                                   |
-|   Phthalates · Citrates · Adipates · Polymeric                  |
-|   → Soften and increase flexibility; lower Tg                   |
+|   Phthalates · Citrates · Adipates · Polymeric                   |
+|   → Soften and increase flexibility; lower Tg                    |
 |                                                                  |
 |   FILLERS AND REINFORCEMENTS                                     |
 |   Carbon black · Silica · Talc · CaCO3 · Glass fiber · Mica    |
-|   → Modify stiffness, strength, cost, color, conductivity       |
+|   → Modify stiffness, strength, cost, color, conductivity        |
 |                                                                  |
 |   FUNCTIONAL ADDITIVES                                           |
-|   Flame retardants · Colorants · Lubricants · Blowing agents    |
-|   Coupling agents · Antistatic · Antimicrobial                  |
+|   Flame retardants · Colorants · Lubricants · Blowing agents     |
+|   Coupling agents · Antistatic · Antimicrobial                   |
 +------------------------------------------------------------------+
 ```
 

@@ -26,7 +26,7 @@
 |                                                                  |
 |  MANY ANIMALS COMBINE ALL THREE:                                 |
 |  Peacock tail: melanin (dark bar) + thin-film (iridescent blue-  |
-|  green) + structural matrix → the total visual effect           |
+|  green) + structural matrix → the total visual effect            |
 +------------------------------------------------------------------+
 ```
 
