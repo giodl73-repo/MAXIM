@@ -310,47 +310,47 @@ GEOPOLYMER CHEMISTRY
 │                                                                              │
 │  WHAT ARE GEOPOLYMERS?                                                       │
 │  Aluminosilicate material activated by strong alkali                         │
-│  No Portland cement → no CaCO₃ calcination → major CO₂ savings            │
+│  No Portland cement → no CaCO₃ calcination → major CO₂ savings               │
 │                                                                              │
 │  PRECURSORS (must be reactive aluminosilicates):                             │
 │    Fly ash (Class F): low Ca; most studied; easy to activate                 │
 │    GGBS (ground granulated blast furnace slag): Ca-containing; fast setting  │
 │    Metakaolin (calcined kaolin): most reactive; white colour; pure           │
-│    Combinations of above: fly ash + GGBS common                            │
+│    Combinations of above: fly ash + GGBS common                              │
 │                                                                              │
 │  ACTIVATORS:                                                                 │
-│    NaOH solution + Na₂SiO₃ (sodium silicate/waterglass) — most common      │
-│    KOH + K₂SiO₃ (potassium-based: slower; better for high-strength)        │
-│    Typical molarity: 8–14 M NaOH; SiO₂/Na₂O ratio 1.0–2.0 in silicate     │
+│    NaOH solution + Na₂SiO₃ (sodium silicate/waterglass) — most common        │
+│    KOH + K₂SiO₃ (potassium-based: slower; better for high-strength)          │
+│    Typical molarity: 8–14 M NaOH; SiO₂/Na₂O ratio 1.0–2.0 in silicate        │
 │                                                                              │
 │  REACTION MECHANISM (simplified):                                            │
 │    1. Dissolution: NaOH dissolves aluminosilicate phases from precursor      │
 │    2. Polycondensation: dissolved Si-Al oligomers condense into              │
-│       Si-O-Al network (N-A-S-H or C-A-S-H with Ca-containing precursors)   │
-│    3. Hardening: 3D cross-linked aluminosilicate polymer → geopolymer gel  │
-│       Structure: polysialate (Si:Al = 1:1) or polysialate-siloxo (Si:Al = 2:1)│
+│       Si-O-Al network (N-A-S-H or C-A-S-H with Ca-containing precursors)     │
+│    3. Hardening: 3D cross-linked aluminosilicate polymer → geopolymer gel    │
+│       Structure: polysialate (Si:Al = 1:1) or polysialate-siloxo (Si:Al 2:1) │
 │                                                                              │
-│  MECHANICAL PROPERTIES (fly ash-based, 100°C curing):                      │
-│    f_c: 30–80 MPa  (compressive, similar to OPC C30–C80)                   │
+│  MECHANICAL PROPERTIES (fly ash-based, 100°C curing):                        │
+│    f_c: 30–80 MPa  (compressive, similar to OPC C30–C80)                     │
 │    f_t: 3–6 MPa    (tensile)                                                 │
-│    E:   15–30 GPa  (lower than OPC concrete)                               │
-│    Acid resistance: superior to OPC (no Ca(OH)₂ to dissolve)               │
-│    Thermal resistance: stable to 400–1000°C (depending on formulation)     │
+│    E:   15–30 GPa  (lower than OPC concrete)                                 │
+│    Acid resistance: superior to OPC (no Ca(OH)₂ to dissolve)                 │
+│    Thermal resistance: stable to 400–1000°C (depending on formulation)       │
 │                                                                              │
 │  CO₂ COMPARISON:                                                             │
-│    OPC concrete: 200–300 kgCO₂e/m³  (including aggregate/transport)        │
-│    Fly ash geopolymer: 80–140 kgCO₂e/m³  (40–60% reduction)               │
-│    Metakaolin geopolymer: 60–120 kgCO₂e/m³  (depends on calcination)      │
-│    NaOH/Na₂SiO₃ activators are energy-intensive: ~1.9 tCO₂/t NaOH        │
+│    OPC concrete: 200–300 kgCO₂e/m³  (including aggregate/transport)          │
+│    Fly ash geopolymer: 80–140 kgCO₂e/m³  (40–60% reduction)                  │
+│    Metakaolin geopolymer: 60–120 kgCO₂e/m³  (depends on calcination)         │
+│    NaOH/Na₂SiO₃ activators are energy-intensive: ~1.9 tCO₂/t NaOH            │
 │    → high activator dose erodes savings; optimize precursor/activator ratio  │
 │                                                                              │
 │  WHY STILL NICHE:                                                            │
 │  Supply: fly ash availability declining as coal plants close                 │
-│  Long-term durability database: limited field data vs 100+ yr OPC record   │
+│  Long-term durability database: limited field data vs 100+ yr OPC record     │
 │  Setting behaviour: variable; difficult to control open time                 │
-│  Standards: EN 197 doesn't cover geopolymers; bespoke approvals needed     │
-│  Codes: ACI, Eurocode 2 do not have geopolymer-specific design rules       │
-│  → every geopolymer project needs individual technical assessment          │
+│  Standards: EN 197 doesn't cover geopolymers; bespoke approvals needed       │
+│  Codes: ACI, Eurocode 2 do not have geopolymer-specific design rules         │
+│  → every geopolymer project needs individual technical assessment            │
 │                                                                              │
 └──────────────────────────────────────────────────────────────────────────────┘
 ```

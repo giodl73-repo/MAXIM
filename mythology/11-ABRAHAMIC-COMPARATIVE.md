@@ -179,15 +179,15 @@ THE CANAANITE CONNECTIONS:
 │                                                                  │
 │  JEWISH ANGELOLOGY:                                              │
 │  — Develops primarily in Second Temple period (500 BCE–70 CE)    │
-│  — Named angels: Michael, Gabriel, Raphael, Uriel (in          │
-│    Deuterocanonical books: 1 Enoch, Tobit)                     │
+│  — Named angels: Michael, Gabriel, Raphael, Uriel (in            │
+│    Deuterocanonical books: 1 Enoch, Tobit)                       │
 │  — In the Tanakh proper: angels are messengers (malakh); mostly  │
 │    unnamed; functional not hierarchical                          │
 │  — Seraphim (Isaiah 6): six-winged; "Holy, holy, holy"           │
-│  — Cherubim (Ezekiel 1, 10): four faces (human, lion, ox, eagle)│
+│  — Cherubim (Ezekiel 1, 10): four faces (human, lion, ox, eagle) │
 │    + four wings; the chariot-throne (Merkabah) vision            │
 │  — The Merkabah (chariot) tradition → Jewish mysticism           │
-│  — SATAN in the Tanakh: "the adversary" (ha-satan = the accuser)│
+│  — SATAN in the Tanakh: "the adversary" (ha-satan = the accuser) │
 │    — Job: a member of the divine council who challenges God;     │
 │      not evil, but a prosecuting attorney                        │
 │    — Not yet the ruler of hell or cosmic enemy of God            │
@@ -195,30 +195,30 @@ THE CANAANITE CONNECTIONS:
 │  CHRISTIAN ANGELOLOGY (elaborated):                              │
 │  — Pseudo-Dionysius the Areopagite (~5th c. CE): nine orders     │
 │    of angels in three triads:                                    │
-│    Upper triad: Seraphim → Cherubim → Thrones                  │
-│    Middle triad: Dominions → Powers → Virtues                  │
+│    Upper triad: Seraphim → Cherubim → Thrones                    │
+│    Middle triad: Dominions → Powers → Virtues                    │
 │    Lower triad: Principalities → Archangels → Angels             │
-│  — Satan transformed: the adversary becomes the cosmic enemy   │
+│  — Satan transformed: the adversary becomes the cosmic enemy     │
 │    — Conflation of multiple texts: Isaiah 14 ("How you have      │
-│      fallen from heaven, morning star, son of the dawn!") +    │
-│      Ezekiel 28 (king of Tyre as fallen celestial being) +     │
-│      Revelation's dragon = Satan/Lucifer as fallen archangel   │
+│      fallen from heaven, morning star, son of the dawn!") +     │
+│      Ezekiel 28 (king of Tyre as fallen celestial being) +       │
+│      Revelation's dragon = Satan/Lucifer as fallen archangel     │
 │    — This composite is not present in the Tanakh itself          │
 │  — The devil as ruler of hell: develops fully in medieval        │
-│    Christian thought (Dante's Inferno crystallizes the image)  │
+│    Christian thought (Dante's Inferno crystallizes the image)    │
 │                                                                  │
 │  ISLAMIC ANGELOLOGY:                                             │
 │  — Quran names four archangels: Jibril (Gabriel), Mikail         │
 │    (Michael), Israfil (blows the trumpet at Judgment), Izrail    │
-│    (Angel of Death)                                            │
-│  — Two recording angels accompany every human: Raqib (records  │
-│    good deeds) and Atid (records bad deeds) = "the two noble   │
-│    scribes" (Quran 82:10-12)                                   │
+│    (Angel of Death)                                              │
+│  — Two recording angels accompany every human: Raqib (records    │
+│    good deeds) and Atid (records bad deeds) = "the two noble     │
+│    scribes" (Quran 82:10-12)                                     │
 │  — Angels created from light; humans from clay; djinn from fire  │
 │  — Iblis (Satan): was among the angels (or djinn) commanded to   │
 │    bow to Adam; refused on grounds of superiority (created from  │
 │    fire vs. clay); cast out; granted respite until Judgment Day  │
-│    to tempt humanity → became Iblis / Shaytan (Satan)          │
+│    to tempt humanity → became Iblis / Shaytan (Satan)            │
 └──────────────────────────────────────────────────────────────────┘
 ```
 

@@ -172,32 +172,32 @@ LOAD TYPES AND STRUCTURAL ELEMENTS
 │                                                                              │
 │  E      Young's modulus (GPa) — stiffness, independent of strength           │
 │          E_steel = 200 GPa  (all grades — changing grade changes σ_y not E)  │
-│          E_concrete = 25–35 GPa  (≈ 4700√f'c MPa, US customary)            │
+│          E_concrete = 25–35 GPa  (≈ 4700√f'c MPa, US customary)              │
 │          E_timber (// grain) = 8–15 GPa                                      │
 │          E_CFRP (UD) = 70–300 GPa                                            │
 │          E_glass = 70 GPa                                                    │
 │                                                                              │
 │  ρ      Density (kg/m³)                                                      │
-│          Steel: 7,850  Concrete: 2,300–2,500  Timber: 400–700              │
-│          CFRP: 1,500–1,600  GFRP: 1,600–2,000  Aerogel: 100–200           │
+│          Steel: 7,850  Concrete: 2,300–2,500  Timber: 400–700                │
+│          CFRP: 1,500–1,600  GFRP: 1,600–2,000  Aerogel: 100–200              │
 │                                                                              │
-│  Specific strength = σ_u / ρ  (strength per unit weight)                   │
+│  Specific strength = σ_u / ρ  (strength per unit weight)                     │
 │          CFRP >> Steel >> Timber >> Concrete >> Masonry                      │
 │                                                                              │
 │  ν      Poisson's ratio — lateral strain per unit axial strain               │
-│          Steel: 0.30  Concrete: 0.15–0.20  Rubber: ~0.50  Cork: ~0.00      │
+│          Steel: 0.30  Concrete: 0.15–0.20  Rubber: ~0.50  Cork: ~0.00        │
 │                                                                              │
 │  G      Shear modulus = E / [2(1+ν)]                                         │
-│          Steel: 77 GPa  Concrete: 10–14 GPa  Timber (// grain): 0.5–1 GPa  │
+│          Steel: 77 GPa  Concrete: 10–14 GPa  Timber (// grain): 0.5–1 GPa    │
 │                                                                              │
 │  CREEP: time-dependent strain under sustained constant stress                │
-│          Significant in concrete: creep coefficient φ = 1.5–3.0            │
-│          Long-term deflection = elastic × (1 + φ) → pre-camber beams       │
-│          Timber: creep factor k_def = 0.6–1.5 per EC5                      │
+│          Significant in concrete: creep coefficient φ = 1.5–3.0              │
+│          Long-term deflection = elastic × (1 + φ) → pre-camber beams         │
+│          Timber: creep factor k_def = 0.6–1.5 per EC5                        │
 │                                                                              │
 │  SHRINKAGE: volume change without load                                       │
-│          Concrete drying shrinkage ε_cs ≈ 300–600 × 10⁻⁶                   │
-│          → crack control joints spaced ≤ 5–7 m                             │
+│          Concrete drying shrinkage ε_cs ≈ 300–600 × 10⁻⁶                     │
+│          → crack control joints spaced ≤ 5–7 m                               │
 │          → minimum ρ (reinforcement ratio) to distribute cracks              │
 │                                                                              │
 │  FATIGUE: repeated stress cycling reduces failure load                       │

@@ -94,29 +94,29 @@ LCA STAGES IN DETAIL (EN 15978 / EN ISO 14040/14044)
 │      For timber: forestry operations; transport to mill                      │
 │                                                                              │
 │  A2  TRANSPORT to manufacturing site                                         │
-│      Global supply chains → shipping CO₂ often significant                 │
+│      Global supply chains → shipping CO₂ often significant                   │
 │                                                                              │
 │  A3  MANUFACTURING:                                                          │
-│      Cement: kiln (1450°C); ~0.83 tCO₂/t OPC clinker                       │
+│      Cement: kiln (1450°C); ~0.83 tCO₂/t OPC clinker                         │
 │      Steel BOF: blast furnace + converter; ~1.9 tCO₂/t steel                 │
-│      Steel EAF: electric arc (scrap); ~0.4–0.6 tCO₂/t steel                │
-│      CLT: sawmill + adhesive + press; ~0.3–0.5 tCO₂/t CLT panel            │
-│      Glass: float line (1600°C); ~0.7–1.0 tCO₂/t glass                    │
+│      Steel EAF: electric arc (scrap); ~0.4–0.6 tCO₂/t steel                  │
+│      CLT: sawmill + adhesive + press; ~0.3–0.5 tCO₂/t CLT panel              │
+│      Glass: float line (1600°C); ~0.7–1.0 tCO₂/t glass                       │
 │                                                                              │
 │  A4  TRANSPORT to construction site                                          │
-│      Typically < 5–10% of total embodied carbon; varies                    │
+│      Typically < 5–10% of total embodied carbon; varies                      │
 │                                                                              │
 │  A5  CONSTRUCTION PROCESS:                                                   │
-│      Concrete waste: typically 2–5% of ordered volume wasted               │
-│      Temporary works: formwork (timber + reuse factor); scaffolding        │
-│      Energy: diesel plant, tower cranes, site lighting                     │
+│      Concrete waste: typically 2–5% of ordered volume wasted                 │
+│      Temporary works: formwork (timber + reuse factor); scaffolding          │
+│      Energy: diesel plant, tower cranes, site lighting                       │
 │                                                                              │
 │  B1  IN USE (carbon release from materials — e.g., adhesive VOC)             │
 │  B2  MAINTENANCE (repainting, recaulking, etc.)                              │
-│  B3  REPAIR (structural repair — uncommon in LCA)                          │
-│  B4  REPLACEMENT (replace short-life components: glazing seals, carpet)    │
+│  B3  REPAIR (structural repair — uncommon in LCA)                            │
+│  B4  REPLACEMENT (replace short-life components: glazing seals, carpet)      │
 │  B5  REFURBISHMENT (major building lifecycle event)                          │
-│  B6  OPERATIONAL ENERGY (heating, cooling, lighting, hot water)            │
+│  B6  OPERATIONAL ENERGY (heating, cooling, lighting, hot water)              │
 │  B7  OPERATIONAL WATER (embodied carbon in water treatment, pumping)         │
 │                                                                              │
 │  C1  DECONSTRUCTION/DEMOLITION                                               │
@@ -272,33 +272,33 @@ HEMPCRETE: MATERIAL AND PERFORMANCE
 ┌──────────────────────────────────────────────────────────────────────────────┐
 │                                                                              │
 │  COMPOSITION:                                                                │
-│  Hemp shiv (hurds): woody core of Cannabis sativa stem, after retting      │
-│    Particle size: 3–20 mm; density 100–140 kg/m³; ~50% hollow              │
-│  Lime binder: hydraulic lime (NHL 2 or NHL 3.5) + air lime putty           │
+│  Hemp shiv (hurds): woody core of Cannabis sativa stem, after retting        │
+│    Particle size: 3–20 mm; density 100–140 kg/m³; ~50% hollow                │
+│  Lime binder: hydraulic lime (NHL 2 or NHL 3.5) + air lime putty             │
 │  Water: mix to paste consistency                                             │
-│  Hemp:lime ratio: typically 1:1 to 1:2 by weight                          │
+│  Hemp:lime ratio: typically 1:1 to 1:2 by weight                             │
 │                                                                              │
 │  CURING:                                                                     │
-│  Carbonation (air lime): CO₂ + Ca(OH)₂ → CaCO₃; weeks to months           │
+│  Carbonation (air lime): CO₂ + Ca(OH)₂ → CaCO₃; weeks to months              │
 │  Hydraulic set (NHL): days to weeks                                          │
 │  Minimum cure before loading: 28 days                                        │
 │                                                                              │
 │  STRUCTURAL PROPERTIES:                                                      │
-│  Compressive strength: 0.2–1.5 MPa  ← NOT structural in bending/shear     │
-│  → hempcrete is an INFILL MATERIAL, not a load-bearing structural element  │
-│  → always used with timber frame or other structural system                │
+│  Compressive strength: 0.2–1.5 MPa  ← NOT structural in bending/shear        │
+│  → hempcrete is an INFILL MATERIAL, not a load-bearing structural element    │
+│  → always used with timber frame or other structural system                  │
 │                                                                              │
 │  THERMAL AND HYGRIC PROPERTIES:                                              │
-│    λ = 0.06–0.12 W/mK  (better than brick; worse than mineral wool)        │
-│    ρ = 200–400 kg/m³  (light; good specific heat)                          │
-│    c_p ≈ 1,700 J/kgK (similar to timber → decent thermal mass)             │
-│    Vapour resistance μ: 2–6 (highly breathable; moisture-buffering)        │
-│    → "hygric flywheel": absorbs/releases moisture → regulates interior RH  │
+│    λ = 0.06–0.12 W/mK  (better than brick; worse than mineral wool)          │
+│    ρ = 200–400 kg/m³  (light; good specific heat)                            │
+│    c_p ≈ 1,700 J/kgK (similar to timber → decent thermal mass)               │
+│    Vapour resistance μ: 2–6 (highly breathable; moisture-buffering)          │
+│    → "hygric flywheel": absorbs/releases moisture → regulates interior RH    │
 │                                                                              │
 │  CARBON ACCOUNTING:                                                          │
-│    Hemp growth: sequesters ~1.6–3 tCO₂/ha/year during growing season      │
-│    Hemp shiv embodied carbon: −0.3 to −0.5 kgCO₂/kg (biogenic credit)    │
-│    Lime binder: +0.4–0.6 kgCO₂/kg (calcination + carbonation net)         │
+│    Hemp growth: sequesters ~1.6–3 tCO₂/ha/year during growing season         │
+│    Hemp shiv embodied carbon: −0.3 to −0.5 kgCO₂/kg (biogenic credit)        │
+│    Lime binder: +0.4–0.6 kgCO₂/kg (calcination + carbonation net)            │
 │    Hempcrete panel 300 mm: potentially near carbon-neutral or net-negative   │
 │    Uncertainty: biogenic carbon accounting conventions (temporary storage)   │
 │                                                                              │

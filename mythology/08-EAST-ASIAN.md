@@ -348,7 +348,7 @@ attributed to those born in each year. Sixty-year cycle (5 elements
 │    Oldest surviving book in Japan                                │
 │  Nihon Shoki (720 CE) — "Chronicles of Japan"                    │
 │    More formally structured; some variant versions of myths      │
-│  Both written to legitimize imperial rule through divine lineage│
+│  Both written to legitimize imperial rule through divine lineage │
 │                                                                  │
 │  BEGINNING: THE LAND IS FORMLESS                                 │
 │  Seven generations of heavenly deities (Kotoamatsukami) emerge   │
@@ -357,44 +357,44 @@ attributed to those born in each year. Sixty-year cycle (5 elements
 │  IZANAGI AND IZANAMI:                                            │
 │  Sent to solidify the earth (which is like "floating oil")       │
 │  They stand on the "floating bridge of heaven" (rainbow?)        │
-│  Stir the ocean with the Jeweled Spear of Heaven (Amenonuhoko) │
-│  The drops that fall form Onogoro Island → they descend there  │
+│  Stir the ocean with the Jeweled Spear of Heaven (Amenonuhoko)   │
+│  The drops that fall form Onogoro Island → they descend there    │
 │                                                                  │
 │  They marry (circling a pillar — Izanagi clockwise, Izanami      │
 │  counter-clockwise); give birth to the islands of Japan and      │
 │  then to the gods of fire, water, earth, etc.                    │
 │                                                                  │
 │  IZANAMI'S DEATH:                                                │
-│  Giving birth to the fire god Kagutsuchi burns Izanami         │
-│  She dies and descends to Yomi (the underworld)                │
-│  Izanagi grieves; descends to Yomi to retrieve her             │
+│  Giving birth to the fire god Kagutsuchi burns Izanami           │
+│  She dies and descends to Yomi (the underworld)                  │
+│  Izanagi grieves; descends to Yomi to retrieve her               │
 │                                                                  │
 │  THE YOMI TABOO:                                                 │
 │  Izanami: "Do not look at me." (She has begun to decay)          │
-│  Izanagi, impatient, lights a tooth of his comb for light      │
-│  Sees Izanami putrefying; maggots and thunder gods writhe in   │
+│  Izanagi, impatient, lights a tooth of his comb for light        │
+│  Sees Izanami putrefying; maggots and thunder gods writhe in     │
 │  her body                                                        │
-│  He flees; she pursues, furious at being seen in her shameful  │
-│  state; sends the shikome (hags of Yomi) after him             │
+│  He flees; she pursues, furious at being seen in her shameful    │
+│  state; sends the shikome (hags of Yomi) after him               │
 │                                                                  │
 │  IZANAGI'S ESCAPE:                                               │
-│  He throws his black headdress → transforms to grapes          │
-│  He throws his comb → transforms to bamboo shoots (pursuing    │
+│  He throws his black headdress → transforms to grapes            │
+│  He throws his comb → transforms to bamboo shoots (pursuing      │
 │  shikome stop to eat them)                                       │
-│  At the pass of Yomi, he hurls three peaches at the 1,500      │
-│  soldiers pursuing him → they retreat                          │
-│  He rolls a giant rock across the entrance to Yomi             │
-│  Izanami: "I will kill 1,000 of your people each day."         │
-│  Izanagi: "Then I will build 1,500 birthing huts."             │
-│  → Mythological explanation of death and birth rates           │
+│  At the pass of Yomi, he hurls three peaches at the 1,500        │
+│  soldiers pursuing him → they retreat                            │
+│  He rolls a giant rock across the entrance to Yomi               │
+│  Izanami: "I will kill 1,000 of your people each day."           │
+│  Izanagi: "Then I will build 1,500 birthing huts."               │
+│  → Mythological explanation of death and birth rates             │
 │                                                                  │
 │  PURIFICATION (MISOGI):                                          │
-│  Izanagi purifies himself in the sea after Yomi                │
-│  As he removes his clothes and washes:                         │
-│    — Left eye → Amaterasu (sun goddess)                        │
-│    — Right eye → Tsukuyomi (moon god)                          │
-│    — Nose → Susanoo (storm god)                               │
-│  The three great deities are born from purification            │
+│  Izanagi purifies himself in the sea after Yomi                  │
+│  As he removes his clothes and washes:                           │
+│    — Left eye → Amaterasu (sun goddess)                          │
+│    — Right eye → Tsukuyomi (moon god)                            │
+│    — Nose → Susanoo (storm god)                                  │
+│  The three great deities are born from purification              │
 └──────────────────────────────────────────────────────────────────┘
 ```
 
