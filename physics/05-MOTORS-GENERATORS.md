@@ -8,15 +8,15 @@ Two laws from Maxwell. Two machines from those laws. One chain from fire to ligh
 +------------------------------------------------------------------------+
 |                  THE ELECTROMECHANICAL LANDSCAPE                       |
 |                                                                        |
-|   FARADAY'S LAW              LORENTZ FORCE LAW                        |
-|   ∮ E·dl = -dΦ_B/dt          F = IL × B                               |
-|   ─────────────────          ────────────────                         |
-|   changing flux → EMF        current in B field → force               |
-|         ↓                              ↓                              |
-|     GENERATOR                        MOTOR                            |
-|   (mechanical → electric)      (electric → mechanical)                |
-|         ↑                              ↑                              |
-|         └──────── same machine ────────┘                              |
+|   FARADAY'S LAW              LORENTZ FORCE LAW                         |
+|   ∮ E·dl = -dΦ_B/dt          F = IL × B                                |
+|   ─────────────────          ────────────────                          |
+|   changing flux → EMF        current in B field → force                |
+|         ↓                              ↓                               |
+|     GENERATOR                        MOTOR                             |
+|   (mechanical → electric)      (electric → mechanical)                 |
+|         ↑                              ↑                               |
+|         └──────── same machine ────────┘                               |
 |                                                                        |
 |   TRANSFORMER: Faraday's law between two coils (no moving parts)      |
 |                                                                        |

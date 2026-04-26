@@ -4,7 +4,7 @@
 
 ```
 +===========================================================================+
-|                  SEAWATER CHEMICAL STRUCTURE                               |
+|                  SEAWATER CHEMICAL STRUCTURE                              |
 +===========================================================================+
 |                                                                           |
 |  MAJOR IONS (> 1 mmol/kg)     CONSERVATIVE TRACERS                       |
@@ -337,16 +337,16 @@ DOC POOLS AND THEIR DYNAMICS:
 
   BIOAVAILABILITY SPECTRUM:
   ┌────────────────────────────────────────────────────────┐
-  │ Labile DOC          │ Remineralized hours-days        │
-  │                     │ ~1–10% of production            │
-  │                     │ Fuels microbial loop            │
+  │ Labile DOC          │ Remineralized hours-days         │
+  │                     │ ~1–10% of production             │
+  │                     │ Fuels microbial loop             │
   ├────────────────────────────────────────────────────────┤
   │ Semi-labile DOC     │ Remineralized months-decades    │
   │                     │ Seasonal accumulation/export    │
   ├────────────────────────────────────────────────────────┤
-  │ Refractory DOC      │ Millennial residence time       │
-  │ (RDOC)              │ ~6,000 yr average deep water    │
-  │                     │ ~94% of ocean DOC inventory     │
+  │ Refractory DOC      │ Millennial residence time        │
+  │ (RDOC)              │ ~6,000 yr average deep water     │
+  │                     │ ~94% of ocean DOC inventory      │
   └────────────────────────────────────────────────────────┘
 
 ORIGIN OF REFRACTORY DOC:

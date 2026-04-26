@@ -6,18 +6,18 @@ An air mass is a large body of air with horizontally uniform temperature and hum
 
 ```
 +------------------------------------------------------------------+
-|              AIR MASS AND FRONTAL FRAMEWORK                       |
-|                                                                   |
-|  SOURCE REGIONS  →  AIR MASSES  →  FRONTS  →  CYCLONES          |
-|                                                                   |
+|              AIR MASS AND FRONTAL FRAMEWORK                      |
+|                                                                  |
+|  SOURCE REGIONS  →  AIR MASSES  →  FRONTS  →  CYCLONES           |
+|                                                                  |
 |  Arctic Ocean/     cA, cP        Cold Front   Extratropical      |
 |  Siberia/Canada    (cold, dry)   Warm Front   cyclone develops   |
 |                                  Stationary   along polar front  |
 |  Gulf/Caribbean    mT            Occluded                        |
 |  (warm, moist)                                                   |
-|                                                                   |
+|                                                                  |
 |  Pacific           mP            Front = baroclinic zone =       |
-|  (maritime polar)  (cool, moist) strong horizontal T gradient   |
+|  (maritime polar)  (cool, moist) strong horizontal T gradient    |
 +------------------------------------------------------------------+
 ```
 

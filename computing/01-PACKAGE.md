@@ -27,7 +27,7 @@ Package managers exist at **different layers** of the software stack. The confus
         |           |           |           |           |
         v           v           v           v           v
    +---------+ +---------+ +---------+ +---------+ +---------+
-   |requests | | react   | |Newtonsoft| | serde   | | spring  |
+   |requests | | react   | |Newtonsoft| | serde   | | spring |
    |numpy    | | express | |EF Core  | | tokio   | | jackson |
    | LIBS    | | LIBS    | | LIBS    | | LIBS    | | LIBS    |
    +---------+ +---------+ +---------+ +---------+ +---------+

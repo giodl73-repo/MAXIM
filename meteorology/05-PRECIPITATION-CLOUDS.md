@@ -6,14 +6,14 @@ Clouds form when air cools to its dewpoint. But cloud droplets are too small (~1
 
 ```
 +---------------------------------------------------------------+
-|           PRECIPITATION FORMATION PATHWAYS                     |
-|                                                                |
+|           PRECIPITATION FORMATION PATHWAYS                    |
+|                                                               |
 |  Cloud forms (cooling → condensation on CCN)                  |
-|          |                                                     |
-|          v                                                     |
+|          |                                                    |
+|          v                                                    |
 |   DROPLETS ~10 μm (too small to fall)                         |
-|          |                                                     |
-|    [T > 0°C]           [T < 0°C mixed phase]                 |
+|          |                                                    |
+|    [T > 0°C]           [T < 0°C mixed phase]                  |
 |          |                      |                             |
 |          v                      v                             |
 |   COLLISION-            BERGERON-FINDEISEN                    |
@@ -22,10 +22,10 @@ Clouds form when air cools to its dewpoint. But cloud droplets are too small (~1
 |          |                      |                             |
 |          v                      v                             |
 |   Large droplets         Ice crystals grow                    |
-|   (tropical rain)        → aggregate → melt                  |
+|   (tropical rain)        → aggregate → melt                   |
 |          |               → fall as rain or snow               |
-|          v                                                     |
-|   PRECIPITATION (rain, snow, hail, sleet, freezing rain)     |
+|          v                                                    |
+|   PRECIPITATION (rain, snow, hail, sleet, freezing rain)      |
 +---------------------------------------------------------------+
 ```
 

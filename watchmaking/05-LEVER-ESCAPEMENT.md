@@ -102,7 +102,7 @@ LEVER ESCAPEMENT — COMPLETE GEOMETRY (Swiss lever)
               ┌────────────────────────────────────┐
               │                                    │
               │  entry pallet   fork   exit pallet │
-              │  ┌──────────┐   │   ┌──────────┐  │
+              │  ┌──────────┐   │   ┌──────────┐   │
               │  │ locking  │   │   │ locking  │  │
               │  │ face     │   │   │ face     │  │
               │  │ impulse  │   │   │ impulse  │  │

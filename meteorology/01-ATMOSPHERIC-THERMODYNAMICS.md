@@ -6,20 +6,20 @@ Atmospheric thermodynamics governs whether air parcels rise or sink — the fund
 
 ```
 +---------------------------------------------------------------+
-|              STABILITY DECISION FRAMEWORK                      |
-|                                                                |
+|              STABILITY DECISION FRAMEWORK                     |
+|                                                               |
 |  Take an air parcel, lift it by some amount dz                |
-|                                                                |
-|  Compare parcel temperature to environment temperature:        |
-|                                                                |
+|                                                               |
+|  Compare parcel temperature to environment temperature:       |
+|                                                               |
 |  T_parcel > T_environment  →  parcel WARMER than surroundings |
 |                               →  less dense, BUOYANT          |
 |                               →  UNSTABLE, rises freely       |
-|                                                                |
+|                                                               |
 |  T_parcel < T_environment  →  parcel COOLER than surroundings |
 |                               →  denser, negatively buoyant   |
 |                               →  STABLE, sinks back           |
-|                                                                |
+|                                                               |
 |  T_parcel = T_environment  →  NEUTRAL stability               |
 +---------------------------------------------------------------+
 ```

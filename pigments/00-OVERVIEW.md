@@ -34,7 +34,7 @@ PHYSICS THREAD: d-d transitions → charge transfer → π→π* → band gap �
 |              THE PIGMENT WORLD: PHYSICS → HISTORY → ART          |
 |                                                                  |
 |  WHY OBJECTS HAVE COLOR                                          |
-|  +------------------+  +------------------+  +----------------+ |
+|  +------------------+  +------------------+  +----------------+  |
 |  | Selective        |  | Charge transfer  |  | Band gap       | |
 |  | absorption       |  | (lapis lazuli,   |  | semiconductors | |
 |  | (d-d transitions)|  | Prussian blue)   |  | (CdS yellow,   | |
@@ -259,8 +259,8 @@ BINDER               DRYING MECHANISM           PROPERTIES
 |                 |  | coalescence       |       | water cleanup    |
 +-----------------+  +-------------------+       +------------------+
 | Lime (fresco)   |  | Carbonation       | →     | Pigment embedded |
-|                 |  | Ca(OH)₂ + CO₂    |       | in stone matrix. |
-|                 |  | → CaCO₃          |       | Extremely durable|
+|                 |  | Ca(OH)₂ + CO₂    |       | in stone matrix.  |
+|                 |  | → CaCO₃          |       | Extremely durable |
 +-----------------+  +-------------------+       +------------------+
 | Beeswax         |  | Cooling/          | →     | Encaustic.       |
 | (encaustic)     |  | solidification    |       | Ancient Greek.   |

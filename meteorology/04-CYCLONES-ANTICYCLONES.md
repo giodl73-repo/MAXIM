@@ -6,11 +6,11 @@ Cyclones (low pressure) and anticyclones (high pressure) are the dominant synopt
 
 ```
 +---------------------------------------------------------------+
-|         CYCLONE vs ANTICYCLONE COMPARISON                      |
-|                                                                |
+|         CYCLONE vs ANTICYCLONE COMPARISON                     |
+|                                                               |
 |  CYCLONE (LOW)               ANTICYCLONE (HIGH)               |
 |  Pressure decreasing         Pressure increasing inward       |
-|  inward                                                        |
+|  inward                                                       |
 |  NH: Counterclockwise        NH: Clockwise                    |
 |  SH: Clockwise               SH: Counterclockwise             |
 |  Surface convergence →       Surface divergence →             |

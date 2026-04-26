@@ -7,7 +7,7 @@
 |              MODERN PIGMENT CHEMISTRY (1916–PRESENT)             |
 |                                                                  |
 |  THE KEY TRANSITIONS:                                            |
-|  +----------------+  +----------------+  +------------------+   |
+|  +----------------+  +----------------+  +------------------+    |
 |  | Titanium white  |  | Phthalocyanine  |  | Quinacridone,   |   |
 |  | (TiO₂, 1916)   |  | (1928/1936)     |  | dioxazine,      |   |
 |  | Ends 2,000 yr   |  | Most lightfast  |  | isoindolinone   |   |

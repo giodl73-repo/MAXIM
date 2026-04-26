@@ -6,25 +6,25 @@ An NWP model is only as good as its initial conditions. Observations fill the at
 
 ```
 +------------------------------------------------------------------+
-|              GLOBAL ATMOSPHERIC OBSERVING SYSTEM                  |
-|                                                                   |
-|  SPACE-BASED                                                      |
+|              GLOBAL ATMOSPHERIC OBSERVING SYSTEM                 |
+|                                                                  |
+|  SPACE-BASED                                                     |
 |  Geostationary (GOES-East/West, Meteosat, Himawari)              |
 |  → Continuous imagery; lightning; AMVs                           |
-|  Polar orbiters (NOAA-20, MetOp, Suomi NPP)                     |
+|  Polar orbiters (NOAA-20, MetOp, Suomi NPP)                      |
 |  → Soundings, sea ice, ocean color, ozone                        |
 |  GPS Radio Occultation (COSMIC-2)                                |
 |  → Temperature/humidity profiles globally                        |
-|                                                                   |
-|  AIR-BASED                                                        |
+|                                                                  |
+|  AIR-BASED                                                       |
 |  Radiosondes (~800 sites, 2x/day)                                |
 |  Aircraft (AMDAR/ACARS; thousands of daily profiles)             |
 |  Dropsondes (hurricane reconnaissance)                           |
-|                                                                   |
-|  SURFACE-BASED                                                    |
-|  Weather radar (NEXRAD, C-band networks)                        |
-|  Surface stations (ASOS, SYNOP, AWS)                            |
-|  Ocean buoys (Argo floats, TRITON, TAO/TRITON array)            |
+|                                                                  |
+|  SURFACE-BASED                                                   |
+|  Weather radar (NEXRAD, C-band networks)                         |
+|  Surface stations (ASOS, SYNOP, AWS)                             |
+|  Ocean buoys (Argo floats, TRITON, TAO/TRITON array)             |
 |  Profilers (wind, RASS temperature)                              |
 +------------------------------------------------------------------+
 ```

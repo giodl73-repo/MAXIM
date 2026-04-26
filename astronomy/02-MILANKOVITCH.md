@@ -529,7 +529,7 @@ Deep tropics show ~11 kyr (half-precession) signal in speleothem records. The ex
   │ Why do African monsoons pulse at       │ Precession (~23 kyr) — controls    │
   │ ~21 kyr? (Green Sahara periods)        │ NH summer insolation and ITCZ      │
   ├────────────────────────────────────────┼────────────────────────────────────┤
-  │ Which parameter is most stable over   │ 413-kyr eccentricity cycle —        │
+  │ Which parameter is most stable over    │ 413-kyr eccentricity cycle —        │
   │ tens of millions of years?             │ Laskar: reliable to ±50 Myr        │
   ├────────────────────────────────────────┼────────────────────────────────────┤
   │ When is precession forcing strongest? │ When e is large (e·sin(λ̃) large)  │

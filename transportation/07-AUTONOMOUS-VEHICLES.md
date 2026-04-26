@@ -9,7 +9,7 @@ Autonomous vehicles are a real-time embedded systems problem at the intersection
 |                    AV SYSTEM ARCHITECTURE                        |
 |                                                                  |
 |  PERCEPTION                                                      |
-|  +----------+ +----------+ +----------+ +----------+            |
+|  +----------+ +----------+ +----------+ +----------+             |
 |  | LiDAR    | | Camera   | | Radar    | | Ultrasonic|           |
 |  | (point   | | (RGB,    | | (Doppler,| | (parking, |           |
 |  | cloud)   | | semantic)| | velocity)| | close)   |           |
@@ -29,8 +29,8 @@ Autonomous vehicles are a real-time embedded systems problem at the intersection
 |                         |                                       |
 |  PLANNING                                                        |
 |  +----------+ +----------+ +----------+ +----------+            |
-|  | Route    | | Behavioral| | Motion  | | Control  |           |
-|  | Planning | | Planning  | | Planning| | (actuators)|         |
+|  | Route    | | Behavioral| | Motion  | | Control  |            |
+|  | Planning | | Planning  | | Planning| | (actuators)|          |
 |  +----------+ +----------+ +----------+ +----------+            |
 |                                                                  |
 |  LOCALIZATION (runs in parallel)                                 |

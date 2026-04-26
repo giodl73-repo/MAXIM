@@ -9,7 +9,7 @@ Maritime shipping moves ~80% of global trade by volume and ~70% by value. It is 
 |                   MARITIME SYSTEM LAYERS                         |
 |                                                                  |
 |  SHIP TYPES (by cargo)                                           |
-|  +----------+ +----------+ +----------+ +----------+ +--------+ |
+|  +----------+ +----------+ +----------+ +----------+ +--------+  |
 |  | Container| | Bulk     | | Tanker   | | LNG/LPG  | | RoRo / | |
 |  | Ship     | | Carrier  | | (Crude/  | | Carrier  | | Ferry  | |
 |  | (TEU)    | | (Dry)    | | Product) | |          | |        | |
@@ -21,8 +21,8 @@ Maritime shipping moves ~80% of global trade by volume and ~70% by value. It is 
 |  | (Cb, Cp) | | (GM, GZ) | | (wave/   | | (diesel/ |           |
 |  |          | |          | | friction)| | propeller)|           |
 |  +----------+ +----------+ +----------+ +----------+            |
-|                                                                  |
-|  PORT OPERATIONS                                                 |
+|                                                                 |
+|  PORT OPERATIONS                                                |
 |  +----------+ +----------+ +----------+ +----------+            |
 |  | Berths   | | Cranes   | | Yard     | | Inland   |            |
 |  | (draft   | | (STS     | | (RTG/ASC)| | Connectivity|         |
@@ -181,7 +181,7 @@ The hull form determines resistance — the force that must be overcome to move 
   | Total resistance = Rf + Rw + Ra            |
   |                                            |
   | Rf = Frictional resistance                 |
-  |    = Dominated at low speeds              |
+  |    = Dominated at low speeds               |
   |    = Scales with wetted surface area       |
   |    = Reduced by anti-fouling paint         |
   |      (hull fouling adds 10-15% fuel/yr)    |
@@ -349,7 +349,7 @@ Chokepoints are where geography concentrates global trade into narrow passages. 
   |                     |        |                  | +1,200km; costly  |
   +---------------------+--------+------------------+------------------+
   | Suez Canal (Egypt)  | 313m   | ~20,000 ships/yr | Alt: Cape of     |
-  |                     | (new   | 12% global trade  | Good Hope        |
+  |                     | (new   | 12% global trade  | Good Hope       |
   |                     | canal) | 30% container    | +10 days; +$300k |
   |                     |        | traffic Europe-  | per voyage       |
   |                     |        | Asia             |                  |

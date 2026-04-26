@@ -247,9 +247,9 @@ The fundamental equation of non-relativistic quantum mechanics:
 ```
   ┌──────────────────────────────────────────────────┐
   │                                                  │
-  │   iℏ ∂ψ/∂t = Ĥψ                                 │
+  │   iℏ ∂ψ/∂t = Ĥψ                                  │
   │                                                  │
-  │   Ĥ = -ℏ²/2m ∇² + V(r,t)                        │
+  │   Ĥ = -ℏ²/2m ∇² + V(r,t)                         │
   │       ─────────   ──────                         │
   │       kinetic      potential                     │
   │                                                  │
@@ -546,7 +546,7 @@ This is the chain: Maxwell → QM → band theory → semiconductor devices → 
 | Photon momentum | p = h/λ = ℏk | Light has momentum |
 | de Broglie wavelength | λ = h/p | Particles have wave nature |
 | Uncertainty | ΔxΔp ≥ ℏ/2 | Bandwidth-time theorem for matter |
-| Wavefunction meaning | P = |ψ|² dV | Probability density |
+| Wavefunction meaning | P = | ψ | ² dV | Probability density |
 | Schrödinger | Ĥψ = Eψ | Eigenvalue problem for energy |
 | Hermitian operators | Â = Â† | Real eigenvalues (real measurement outcomes) |
 | Spin-1/2 generators | (ℏ/2)σᵢ | Fundamental rep of SU(2) (Artin!) |

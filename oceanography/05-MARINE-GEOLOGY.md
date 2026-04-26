@@ -4,7 +4,7 @@
 
 ```
 +===========================================================================+
-|                    OCEANIC PLATE LIFECYCLE                                 |
+|                    OCEANIC PLATE LIFECYCLE                                |
 |           Birth at ridge → aging across basin → death at trench           |
 +===========================================================================+
 |                                                                           |
@@ -69,16 +69,16 @@ SLOW RIDGE STRUCTURE (Mid-Atlantic):
   ┌──────────────────────────────────────────────────────────┐
   │        Axial Valley (1–3 km deep, 10–30 km wide)         │
   │  Rift flanks rise 1000–3000 m above valley floor         │
-  │  Serpentinized peridotite exposed (mantle at surface)     │
+  │  Serpentinized peridotite exposed (mantle at surface)    │
   │  Episodic: long quiescence → magmatic pulse → rapid build│
   └──────────────────────────────────────────────────────────┘
 
 FAST RIDGE STRUCTURE (East Pacific Rise):
   ┌──────────────────────────────────────────────────────────┐
   │  Axial Summit Trough (AST): narrow graben, <100 m wide   │
-  │  No major rift valley — continuous magma supply           │
+  │  No major rift valley — continuous magma supply          │
   │  Axial magma chamber (AMC): thin melt lens at ~2 km depth│
-  │  Smooth, broad dome morphology                            │
+  │  Smooth, broad dome morphology                           │
   └──────────────────────────────────────────────────────────┘
 ```
 

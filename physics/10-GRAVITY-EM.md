@@ -36,7 +36,7 @@ THE LANDSCAPE
   ┌─────────────────────────────────────────────────────────────────────────┐
   │  Podkletnov spinning disc  — not replicated (covered in module 07)      │
   │  Biefeld-Brown effect      — ion wind, not EM-gravity coupling          │
-  │  Mercury vortex / Vimana   — standard MHD, ~10⁻²³ T gravitomagnetic    │
+  │  Mercury vortex / Vimana   — standard MHD, ~10⁻²³ T gravitomagnetic     │
   │  Ning Li "ac-gravity"      — not published in peer-reviewed physics     │
   └─────────────────────────────────────────────────────────────────────────┘
 ```
@@ -305,7 +305,7 @@ THREE MAGLEV ARCHITECTURES
   EMS (Electromagnetic Suspension — Transrapid/Germany)
   ┌─────────────────────────────────────────────────────────────┐
   │  Electromagnets on vehicle pull UP toward iron rail         │
-  │  Inherently unstable → 1000 Hz active control loop         │
+  │  Inherently unstable → 1000 Hz active control loop          │
   │  Gap: ~10 mm, maintained by sensor feedback                 │
   │  Speed record (conventional): 501 km/h (2003)               │
   │  Shanghai maglev operates at 430 km/h commercially          │

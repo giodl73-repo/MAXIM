@@ -4,15 +4,15 @@
 
 ```
 +------------------------------------------------------------------+
-|              EARTH PIGMENTS: IRON OXIDE CHEMISTRY                 |
+|              EARTH PIGMENTS: IRON OXIDE CHEMISTRY                |
 |                                                                  |
 |  All major earth pigments = iron oxides / iron hydroxides        |
 |  Iron = 4th most abundant element in Earth's crust (~5%)         |
 |  → Ochre/sienna/umber available on every continent               |
-|  → Explains universal independent use in prehistoric art          |
+|  → Explains universal independent use in prehistoric art         |
 |                                                                  |
-|  IRON OXIDE FORM → COLOR                                        |
-|  +------------------+  +------------------+  +----------------+ |
+|  IRON OXIDE FORM → COLOR                                         |
+|  +------------------+  +------------------+  +----------------+  |
 |  | Goethite         |  | Hematite         |  | Limonite       | |
 |  | α-FeOOH          |  | α-Fe₂O₃          |  | FeO(OH)·nH₂O  | |
 |  | Yellow           |  | Red              |  | Yellow-brown   | |
@@ -202,7 +202,7 @@ MAJOR SITES AND DATES:
 
 PIGMENT APPLICATION TECHNIQUES:
   +--------------------------------------------------+
-  | TECHNIQUE          | EVIDENCE                   |
+  | TECHNIQUE          | EVIDENCE                    |
   +--------------------------------------------------+
   | Finger painting    | Fingerprint traces in ochre|
   | Brushes            | Plant fiber/hair/feather   |

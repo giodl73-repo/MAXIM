@@ -8,10 +8,10 @@ Earth is a heat engine wrapped in a thin rocky shell. Everything in geology — 
 
 ```
 +------------------------------------------------------------------+
-|                    EARTH AS A SYSTEM                              |
-|                                                                   |
-|  INTERNAL ENGINE              EXTERNAL ENGINE                     |
-|  +-----------------------+    +---------------------------+       |
+|                    EARTH AS A SYSTEM                             |
+|                                                                  |
+|  INTERNAL ENGINE              EXTERNAL ENGINE                    |
+|  +-----------------------+    +---------------------------+      |
 |  | Core heat +           |    | Solar radiation           |       |
 |  | radioactive decay     |    | Water cycle               |       |
 |  | +--> mantle convection|    | Atmosphere/biosphere      |       |

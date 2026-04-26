@@ -8,20 +8,20 @@ Teleconnections are statistical relationships between climate anomalies in geogr
 
 ```
 +------------------------------------------------------------------+
-|                    TELECONNECTION HIERARCHY                       |
-|                                                                   |
+|                    TELECONNECTION HIERARCHY                      |
+|                                                                  |
 |  TIMESCALE     PATTERN         ORIGIN         PREDICTABILITY     |
 |  ----------    -----------     ----------     ----------------   |
 |  30–90 days    MJO             Tropical       2–4 weeks          |
-|                                intraseasonal                      |
+|                                intraseasonal                     |
 |  Seasonal      ENSO            Ocean-atm      6–12 months        |
 |  (3–9 months)  (El Niño/La     coupling in    ahead              |
-|                 Niña)          tropical Pac.                      |
+|                 Niña)          tropical Pac.                     |
 |  Decadal       PDO, AMO        Ocean SST      Statistical        |
 |  (decades)     (Pacific/       variability    tendency only      |
-|                Atlantic deca.)                                    |
+|                Atlantic deca.)                                   |
 |  Weeks         NAO, AO         Jet stream/    1–3 weeks          |
-|                                stratosphere                       |
+|                                stratosphere                      |
 +------------------------------------------------------------------+
 ```
 

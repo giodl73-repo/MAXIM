@@ -157,8 +157,8 @@ Mylonite          Ductile shear zone    Any      Mylonite (fine-
 |  Scale: m to km aureole   |    |  Scale: 100s of km belt   |
 |  P: low (shallow)         |    |  P: high (deep burial)    |
 |  T: very high (contact)   |    |  T: moderate to high      |
-|  Result: HORNFELS          |    |  Result: SCHIST, GNEISS   |
-|  (non-foliated; no        |    |  (foliated; directed       |
+|  Result: HORNFELS          |    |  Result: SCHIST, GNEISS  |
+|  (non-foliated; no        |    |  (foliated; directed      |
 |   directed stress)        |    |   stress from tectonics)  |
 |  Zoning: spotted →        |    |  Zoning: Barrow zones     |
 |  hornfels near contact    |    |  mapped over hundreds km  |

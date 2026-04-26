@@ -6,25 +6,25 @@ Numerical weather prediction (NWP) is applied fluid dynamics: discretize the atm
 
 ```
 +------------------------------------------------------------------+
-|                    NWP SYSTEM OVERVIEW                            |
-|                                                                   |
-|  OBSERVATIONS                                                     |
+|                    NWP SYSTEM OVERVIEW                           |
+|                                                                  |
+|  OBSERVATIONS                                                    |
 |  (surface, radiosonde, radar, satellite, buoy, aircraft)         |
-|           |                                                       |
-|           v                                                       |
+|           |                                                      |
+|           v                                                      |
 |  DATA ASSIMILATION (4D-Var, EnKF)                                |
 |  Best estimate of atmospheric state (analysis)                   |
-|           |                                                       |
-|           v                                                       |
+|           |                                                      |
+|           v                                                      |
 |  INITIAL CONDITIONS (analysis + 0hr forecast)                    |
-|           |                                                       |
-|           v                                                       |
+|           |                                                      |
+|           v                                                      |
 |  NWP MODEL (step forward in time: 60s–10min timesteps)           |
 |  Dynamics: Primitive equations + physics parameterizations       |
-|           |                                                       |
-|           v                                                       |
+|           |                                                      |
+|           v                                                      |
 |  OUTPUT: T, P, wind, humidity, precipitation on grid             |
-|  Post-processing: Model output statistics (MOS), bias correction  |
+|  Post-processing: Model output statistics (MOS), bias correction |
 +------------------------------------------------------------------+
 ```
 

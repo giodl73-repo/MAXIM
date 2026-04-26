@@ -481,7 +481,7 @@ Blue/Green Deployment
   ┌─────────────────┐                ┌─────────────────┐
   │ Load Balancer   │                │ Load Balancer   │
   │ → Blue (v1) ✅  │                │ → Green (v2) ✅ │
-  │ → Green (v2) 💤│                │ → Blue (v1) 💤   │
+  │ → Green (v2) 💤 │                │ → Blue (v1) 💤   │
   └─────────────────┘                └─────────────────┘
 
   Green tested while Blue serves     Switch is instant (LB route change)

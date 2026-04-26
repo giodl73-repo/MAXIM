@@ -9,18 +9,18 @@ Rail is the oldest large-scale transportation technology still dominant in its n
 |                       RAIL SYSTEM LAYERS                         |
 |                                                                  |
 |  INFRASTRUCTURE                                                  |
-|  +---------+  +---------+  +---------+  +---------+             |
+|  +---------+  +---------+  +---------+  +---------+              |
 |  | Track   |  | Signals |  | Stations|  | Power   |             |
 |  | Geometry|  | & Safety|  | & Yards |  | Supply  |             |
 |  +---------+  +---------+  +---------+  +---------+             |
-|                                                                  |
-|  VEHICLE (rolling stock)                                         |
+|                                                                 |
+|  VEHICLE (rolling stock)                                        |
 |  +---------+  +---------+  +---------+  +---------+             |
 |  | Traction|  | Bogies  |  | Braking |  | Cab /   |             |
 |  | (motor) |  | (trucks)|  | system  |  | ETCS OBU|             |
 |  +---------+  +---------+  +---------+  +---------+             |
-|                                                                  |
-|  OPERATIONS                                                      |
+|                                                                 |
+|  OPERATIONS                                                     |
 |  +---------+  +---------+  +---------+  +---------+             |
 |  | Timetable  | Train   |  | Control |  | Incident|             |
 |  | planning|  | dispatch|  | Centre  |  | mgmt    |             |
@@ -45,7 +45,7 @@ The distance between inner faces of the running rails. Standardization is incomp
 
 ```
   +------------------------------------------+
-  |              RAIL GAUGES                  |
+  |              RAIL GAUGES                 |
   |                                          |
   |  Standard    1,435mm (4ft 8.5in)         |
   |  --------    UK, US, Canada, China,      |

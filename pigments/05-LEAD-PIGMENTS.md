@@ -311,8 +311,8 @@ PENTIMENTO:
 ```
 COMPARISON:
   +---------------------+  +---------------------+
-  | LEAD WHITE          |  | TITANIUM WHITE       |
-  | (2PbCO₃·Pb(OH)₂)   |  | (TiO₂, rutile)      |
+  | LEAD WHITE          |  | TITANIUM WHITE      |
+  | (2PbCO₃·Pb(OH)₂)   |  | (TiO₂, rutile)       |
   +---------------------+  +---------------------+
   | RI: ~2.0            |  | RI: 2.70–2.73        |
   | Less opaque/unit    |  | Max opacity           |

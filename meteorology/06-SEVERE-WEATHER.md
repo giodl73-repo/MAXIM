@@ -7,17 +7,17 @@ Severe weather requires three ingredients: instability (CAPE), moisture, and win
 ```
 +---------------------------------------------------------------+
 |              THUNDERSTORM ORGANIZATION SPECTRUM               |
-|                                                                |
-|  SHEAR    LOW ←————————————————→ HIGH                        |
-|           |                                                    |
-|   CAPE    |   Isolated            Squall        Supercell    |
-|   HIGH    |   single cell         line /        (rotating    |
-|           |   (pulse)             QLCS          mesocyclone) |
+|                                                               |
+|  SHEAR    LOW ←————————————————→ HIGH                         |
+|           |                                                   |
+|   CAPE    |   Isolated            Squall        Supercell     |
+|   HIGH    |   single cell         line /        (rotating     |
+|           |   (pulse)             QLCS          mesocyclone)  |
 |           |                                                   |
 |   CAPE    |   Stratus/            Organized     Supercell     |
-|   MOD     |   Stratiform          QLCS          less likely  |
+|   MOD     |   Stratiform          QLCS          less likely   |
 |           |                                                   |
-|  Short-lived →                     Organized,  ← Long-lived  |
+|  Short-lived →                     Organized,  ← Long-lived   |
 |  < 1 hour                           multi-hour                |
 +---------------------------------------------------------------+
 ```

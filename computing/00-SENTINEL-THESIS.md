@@ -127,18 +127,18 @@ The three directories in this volume each instantiate the same principle at a di
 
 ```
 ┌─────────────────┬──────────────────────┬──────────────────────────┐
-│  DOMAIN          │  THE QUESTION        │  THE SENTINEL'S ANSWER  │
+│  DOMAIN         │  THE QUESTION        │  THE SENTINEL'S ANSWER  │
 ├─────────────────┼──────────────────────┼──────────────────────────┤
 │  Distributed     │  Who has the         │  Nobody. Consensus       │
 │  Systems         │  authoritative       │  protocols among         │
 │                  │  state?              │  quorums hold the        │
 │                  │                      │  truth collectively.     │
 ├─────────────────┼──────────────────────┼──────────────────────────┤
-│  Security        │  Who is allowed      │  Nobody by default.     │
-│  Engineering     │  to act?             │  Every request is       │
-│                  │                      │  authenticated,         │
-│                  │                      │  authorized, encrypted, │
-│                  │                      │  and audited.           │
+│  Security       │  Who is allowed      │  Nobody by default.     │
+│  Engineering    │  to act?             │  Every request is       │
+│                 │                      │  authenticated,         │
+│                 │                      │  authorized, encrypted, │
+│                 │                      │  and audited.           │
 ├─────────────────┼──────────────────────┼──────────────────────────┤
 │  Cloud           │  Where does the      │  Nowhere permanently.    │
 │  Architecture    │  system run?         │  Cattle not pets.        │

@@ -302,8 +302,8 @@ Compensation balance: rim cut into two free-standing bimetallic arcs
            ↓
     ╭─────────╮    ╭─────────╮
    /  brass   \  /  brass   \
-  |  (outer)   ||  (outer)   |
-  |  steel     ||  steel     |
+  |  (outer)  ||  (outer)   |
+  |  steel    ||  steel     |
    \  (inner) /  \  (inner) /
     ╰─────────╯    ╰─────────╯
     bimetallic arc  bimetallic arc

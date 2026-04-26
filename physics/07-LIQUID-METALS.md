@@ -17,12 +17,12 @@ precise evaluation.
 |  Mercury Hg         σ ~ 10⁶ S/m           Industrial processing        |
 |  Gallium Ga         δ (skin depth)        EM pumping                   |
 |  Sodium Na          Rm << 1 (lab)         Induction heating            |
-|  Lead-Bismuth       η = 1/μ₀σ            EM stirring/forming          |
-|  Aluminum (melt)                          Liquid metal batteries        |
-|                                           Soft robotics (Ga)            |
-|                                           Levitation melting            |
+|  Lead-Bismuth       η = 1/μ₀σ            EM stirring/forming           |
+|  Aluminum (melt)                          Liquid metal batteries       |
+|                                           Soft robotics (Ga)           |
+|                                           Levitation melting           |
 |                                                                        |
-|  FRINGE TERRITORY (evaluated at end of this module):                  |
+|  FRINGE TERRITORY (evaluated at end of this module):                   |
 |  Rotating mercury + EM → anti-gravity?   What physics actually says.   |
 +------------------------------------------------------------------------+
 ```

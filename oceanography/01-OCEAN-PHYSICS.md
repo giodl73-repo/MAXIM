@@ -4,8 +4,8 @@
 
 ```
 +===========================================================================+
-|                  OCEAN WATER COLUMN STRUCTURE                              |
-|            Density stratification controls everything                      |
+|                  OCEAN WATER COLUMN STRUCTURE                             |
+|            Density stratification controls everything                     |
 +===========================================================================+
 |                                                                           |
 |  SURFACE MIXED LAYER (0–100 m)                                            |

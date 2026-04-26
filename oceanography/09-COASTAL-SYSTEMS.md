@@ -4,7 +4,7 @@
 
 ```
 +===========================================================================+
-|                  COASTAL ZONE TAXONOMY                                     |
+|                  COASTAL ZONE TAXONOMY                                    |
 |     Interface between terrestrial, freshwater, and marine systems         |
 +===========================================================================+
 |                                                                           |

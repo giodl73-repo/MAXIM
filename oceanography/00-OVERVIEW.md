@@ -19,12 +19,12 @@
 +==============================================================================+
 |                                                                              |
 |   OCEAN BASINS (5)                          DEPTH PROVINCES                  |
-|   ─────────────                             ────────────────                  |
-|   Pacific  165M km²  deepest mean          Epipelagic     0–200 m           |
-|   Atlantic  82M km²  saltiest              Mesopelagic    200–1,000 m       |
-|   Indian    73M km²  warmest mean          Bathypelagic   1,000–4,000 m     |
-|   Southern  21M km²  stormiest             Abyssopelagic  4,000–6,000 m     |
-|   Arctic    14M km²  shallowest mean       Hadalpelagic   6,000–11,000 m    |
+|   ─────────────                             ────────────────                 |
+|   Pacific  165M km²  deepest mean          Epipelagic     0–200 m            |
+|   Atlantic  82M km²  saltiest              Mesopelagic    200–1,000 m        |
+|   Indian    73M km²  warmest mean          Bathypelagic   1,000–4,000 m      |
+|   Southern  21M km²  stormiest             Abyssopelagic  4,000–6,000 m      |
+|   Arctic    14M km²  shallowest mean       Hadalpelagic   6,000–11,000 m     |
 |                                                                              |
 +==============================================================================+
 |  Global mean depth: 3,688 m     Max depth: 10,935 m (Challenger Deep)       |

@@ -9,19 +9,19 @@ Before the 20th century, geologists could only determine *relative* time (A is o
 ```
 +---------------------------------------------------------------+
 |           TWO PILLARS OF GEOLOGIC TIME                        |
-|                                                                |
+|                                                               |
 |  RELATIVE DATING              ABSOLUTE DATING                 |
 |  (sequence, not numbers)      (numbers from isotope decay)    |
-|                                                                |
-|  Steno's principles           Radiometric methods:            |
-|  Faunal succession            U-Pb, K-Ar, Rb-Sr              |
-|  Lithostratigraphy            Ar-Ar, Sm-Nd, Re-Os            |
-|  Biostratigraphy              U-series, C-14 (short times)   |
-|  Magnetostratigraphy                                          |
-|  Chemostratigraphy            RESULT: ages with error bars   |
 |                                                               |
-|  RESULT: sequence of          RESULT: absolute age in        |
-|  events, no numbers           Ma or Ga                       |
+|  Steno's principles           Radiometric methods:            |
+|  Faunal succession            U-Pb, K-Ar, Rb-Sr               |
+|  Lithostratigraphy            Ar-Ar, Sm-Nd, Re-Os             |
+|  Biostratigraphy              U-series, C-14 (short times)    |
+|  Magnetostratigraphy                                          |
+|  Chemostratigraphy            RESULT: ages with error bars    |
+|                                                               |
+|  RESULT: sequence of          RESULT: absolute age in         |
+|  events, no numbers           Ma or Ga                        |
 +---------------------------------------------------------------+
 ```
 

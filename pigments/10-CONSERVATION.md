@@ -4,10 +4,10 @@
 
 ```
 +------------------------------------------------------------------+
-|         CONSERVATION: MATERIALS SCIENCE MEETS ART HISTORY       |
+|         CONSERVATION: MATERIALS SCIENCE MEETS ART HISTORY        |
 |                                                                  |
 |  THREE DOMAINS:                                                  |
-|  +------------------+  +------------------+  +----------------+ |
+|  +------------------+  +------------------+  +----------------+  |
 |  | DEGRADATION      |  | ANALYTICAL       |  | AUTHENTICATION | |
 |  | SCIENCE          |  | METHODS          |  |                | |
 |  | Why pigments      |  | Non-destructive  |  | Pigment        | |
@@ -310,7 +310,7 @@ The most powerful forgery detection method: if a painting contains a pigment tha
 ```
 CHRONOLOGICAL CONSTRAINTS:
 +------------------+----------------------------------------+
-| Pigment          | Earliest possible date in work        |
+| Pigment          | Earliest possible date in work         |
 +------------------+----------------------------------------+
 | Prussian blue    | 1704 (accidental discovery, Berlin)   |
 | Synthetic ultra  | 1826 (Guimet + Gmelin)                |

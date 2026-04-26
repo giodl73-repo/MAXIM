@@ -9,16 +9,16 @@ Planetary geology applies terrestrial geologic principles to other bodies. The k
 ```
 +---------------------------------------------------------------+
 |          COMPARATIVE PLANETARY GEOLOGY                        |
-|                                                                |
-|  SIZE/HEAT               VOLCANISM?   TECTONICS?   EROSION?  |
+|                                                               |
+|  SIZE/HEAT               VOLCANISM?   TECTONICS?   EROSION?   |
 |  --------------------    -----------  -----------  ---------  |
 |  Small (Moon, Mercury)   Dead now     Dead now     Minimal    |
 |  Medium (Mars)           Dead? (0.1   Dead? (1-    Minimal    |
-|                           Ga recently) plate)       (ancient)  |
+|                           Ga recently) plate)       (ancient) |
 |  Large (Venus)           Active?      Stagnant lid Active     |
-|                                        (episodic?)  (no water) |
+|                                        (episodic?)  (no water)|
 |  Earth                   Active        Plate tect.  Active    |
-|                                        (unique?)               |
+|                                        (unique?)              |
 |  Jupiter/Saturn          Gas giants — no rocky surface        |
 |  Icy moons (Europa,      Sub-ice      Tidal flexing           |
 |   Enceladus)             oceans?      volcanism               |

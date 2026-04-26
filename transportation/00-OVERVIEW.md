@@ -6,24 +6,24 @@ Five modes move all people and freight on Earth. Each has distinct physics, econ
 
 ```
 +------------------------------------------------------------------+
-|                    TRANSPORTATION LANDSCAPE                       |
+|                    TRANSPORTATION LANDSCAPE                      |
 |                                                                  |
 |  INFRASTRUCTURE LAYER (fixed, capital-intensive, long-lived)     |
-|  +----------+ +---------+ +---------+ +---------+ +---------+   |
+|  +----------+ +---------+ +---------+ +---------+ +---------+    |
 |  |   RAIL   | |  ROAD   | |   AIR   | |MARITIME | |PIPELINE |   |
 |  | Track    | | Highway | | Airport | | Port    | | Pipe    |   |
 |  | $2-50M/km| | $1-10M  | | $500M+  | | $500M+  | | $1-5M/km|   |
 |  | 50-100yr | | 30-50yr | | 40yr    | | 50+yr   | | 40-50yr |   |
 |  +----------+ +---------+ +---------+ +---------+ +---------+   |
-|                                                                  |
-|  VEHICLE LAYER (mobile, replaceable, shorter-lived)              |
+|                                                                 |
+|  VEHICLE LAYER (mobile, replaceable, shorter-lived)             |
 |  +----------+ +---------+ +---------+ +---------+ +---------+   |
 |  | Loco/    | | Truck/  | | Aircraft| | Ship    | | Pump/   |   |
 |  | Railcar  | | Car/Bus | |         | |         | | Compress|   |
 |  | 25-40yr  | | 5-20yr  | | 20-25yr | | 20-30yr | | station |   |
 |  +----------+ +---------+ +---------+ +---------+ +---------+   |
-|                                                                  |
-|  OPERATIONS LAYER (schedules, routing, control)                  |
+|                                                                 |
+|  OPERATIONS LAYER (schedules, routing, control)                 |
 |  +----------+ +---------+ +---------+ +---------+ +---------+   |
 |  | Train    | | Traffic | | ATC /   | | Voyage  | | SCADA   |   |
 |  | Control  | | Mgmt    | | dispatch| | routing | | control |   |
@@ -217,11 +217,11 @@ Transport is **16% of global GHG emissions** (~7.5 GtCO2e/year). Harder to decar
 ```
   TRANSPORT GHG BY MODE (approximate)
   +-----------------------------------------+
-  |  Road (cars + trucks)  ████████████  72% |
-  |  Aviation              ████          12% |
-  |  Maritime              ████          11% |
-  |  Pipeline (fugitive)   ██             4% |
-  |  Rail                  █              1% |
+  |  Road (cars + trucks)  ████████████  72%|
+  |  Aviation              ████          12%|
+  |  Maritime              ████          11%|
+  |  Pipeline (fugitive)   ██             4%|
+  |  Rail                  █              1%|
   +-----------------------------------------+
 
   DECARBONIZATION PATHWAYS BY MODE:

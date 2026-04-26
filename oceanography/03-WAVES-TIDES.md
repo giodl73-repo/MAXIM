@@ -4,7 +4,7 @@
 
 ```
 +===========================================================================+
-|                  OCEAN WAVES — CLASSIFICATION BY PERIOD                    |
+|                  OCEAN WAVES — CLASSIFICATION BY PERIOD                   |
 +===========================================================================+
 |                                                                           |
 |  CAPILLARY     WIND     SWELL    INFRAGRAVITY  TIDES    TSUNAMIS          |

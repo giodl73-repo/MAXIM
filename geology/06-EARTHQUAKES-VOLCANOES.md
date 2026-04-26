@@ -9,21 +9,21 @@ Earthquakes and volcanoes are surface expressions of tectonic processes. Earthqu
 ```
 +---------------------------------------------------------------+
 |        EARTHQUAKE + VOLCANO GLOBAL DISTRIBUTION               |
-|                                                                |
+|                                                               |
 |  SUBDUCTION ZONES (Ring of Fire):                             |
 |    - Greatest earthquake hazard (megathrust M9+)              |
 |    - Explosive arc volcanoes (andesite/dacite/rhyolite)       |
 |    - Deep Wadati-Benioff seismicity to 700 km                 |
-|                                                                |
+|                                                               |
 |  DIVERGENT MARGINS (Mid-ocean ridges):                        |
 |    - Shallow (< 30 km) earthquakes, M ≤ 7                     |
 |    - Effusive basaltic eruptions                              |
-|                                                                |
+|                                                               |
 |  TRANSFORM FAULTS:                                            |
 |    - Shallow seismicity, can be large (M7–8)                  |
 |    - No associated volcanism                                  |
-|                                                                |
-|  INTRAPLATE:                                                   |
+|                                                               |
+|  INTRAPLATE:                                                  |
 |    - Less frequent, but large events possible                 |
 |    - New Madrid Seismic Zone, Yellowstone caldera             |
 +---------------------------------------------------------------+

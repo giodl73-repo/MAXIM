@@ -4,7 +4,7 @@
 
 ```
 +===========================================================================+
-|                  SEA LEVEL — COMPONENTS AND CAUSES                         |
+|                  SEA LEVEL — COMPONENTS AND CAUSES                        |
 +===========================================================================+
 |                                                                           |
 |  EUSTATIC (global absolute sea level change)                              |

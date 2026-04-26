@@ -4,7 +4,7 @@
 
 ```
 +===========================================================================+
-|                  OCEAN OBSERVING SYSTEM LANDSCAPE                          |
+|                  OCEAN OBSERVING SYSTEM LANDSCAPE                         |
 |     From single-ship surveys to globally integrated sensor networks       |
 +===========================================================================+
 |                                                                           |
@@ -217,17 +217,17 @@ ARGO CONCEPT:
 ARGO FLOAT OPERATING CYCLE:
   ┌─────────────────────────────────────────────────┐
   │  Surface: GPS fix + data transmission (6-12 hr) │
-  │       │                                          │
+  │       │                                         │
   │       ▼ Descend to "parking depth" (1000 m)     │
-  │  Drift at parking depth (9–10 days)              │
-  │       │                                          │
-  │       ▼ Descend to profiling depth (2000 m)      │
-  │  Ascend slowly through water column (6–10 hr)    │
-  │  Measure T + S continuously (CTD sensor)         │
-  │       │                                          │
-  │       ▼ Return to surface                        │
-  │  Transmit profile via Iridium satellite          │
-  │       Loop back to park depth                    │
+  │  Drift at parking depth (9–10 days)             │
+  │       │                                         │
+  │       ▼ Descend to profiling depth (2000 m)     │
+  │  Ascend slowly through water column (6–10 hr)   │
+  │  Measure T + S continuously (CTD sensor)        │
+  │       │                                         │
+  │       ▼ Return to surface                       │
+  │  Transmit profile via Iridium satellite         │
+  │       Loop back to park depth                   │
   └─────────────────────────────────────────────────┘
 
   Cycle duration: 10 days (standard)

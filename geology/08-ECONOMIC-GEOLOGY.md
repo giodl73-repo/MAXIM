@@ -8,16 +8,16 @@ Economic geology connects geologic processes to resource extraction. The core co
 
 ```
 +---------------------------------------------------------------+
-|              ECONOMIC GEOLOGY FRAMEWORK                        |
-|                                                                |
-|  GEOLOGIC PROCESS → CONCENTRATION MECHANISM → DEPOSIT TYPE   |
-|                                                                |
-|  Magmatic differentiation   → Magmatic deposits              |
-|  Hydrothermal fluid flow    → Hydrothermal veins, porphyry   |
-|  Weathering + residual      → Laterite, bauxite, placer      |
-|  Sedimentation              → Banded iron, phosphorite, coal |
-|  Diagenesis + burial        → Petroleum, coal                |
-|  Evaporation                → Evaporites (K, NaCl, gypsum)   |
+|              ECONOMIC GEOLOGY FRAMEWORK                       |
+|                                                               |
+|  GEOLOGIC PROCESS → CONCENTRATION MECHANISM → DEPOSIT TYPE    |
+|                                                               |
+|  Magmatic differentiation   → Magmatic deposits               |
+|  Hydrothermal fluid flow    → Hydrothermal veins, porphyry    |
+|  Weathering + residual      → Laterite, bauxite, placer       |
+|  Sedimentation              → Banded iron, phosphorite, coal  |
+|  Diagenesis + burial        → Petroleum, coal                 |
+|  Evaporation                → Evaporites (K, NaCl, gypsum)    |
 |  Metamorphism               → Some Au, graphite               |
 +---------------------------------------------------------------+
 ```
@@ -88,7 +88,7 @@ HYDROTHERMAL SYSTEM — FLUID FLOW ARCHITECTURE
         |                    |                    |
         v                    v                    v
   +---------------------------------------------+
-  |  HOT FLUID (150–500°C)                       |
+  |  HOT FLUID (150–500°C)                      |
   |  Metal-bearing, saline, acidic              |
   |  Migrates upward along pressure gradient    |
   +---------------------------------------------+

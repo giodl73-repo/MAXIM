@@ -4,7 +4,7 @@
 
 ```
 +===========================================================================+
-|                  DEEP OCEAN ECOSYSTEM STRUCTURE                            |
+|                  DEEP OCEAN ECOSYSTEM STRUCTURE                           |
 |           Sunless, cold, high-pressure — but far from lifeless            |
 +===========================================================================+
 |                                                                           |

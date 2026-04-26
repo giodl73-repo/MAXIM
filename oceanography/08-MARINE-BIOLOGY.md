@@ -4,7 +4,7 @@
 
 ```
 +===========================================================================+
-|                   MARINE ECOSYSTEM STRUCTURE                               |
+|                   MARINE ECOSYSTEM STRUCTURE                              |
 |              From photons to whales — energy flow in the ocean            |
 +===========================================================================+
 |                                                                           |
@@ -29,8 +29,8 @@
 |                                                                           |
 +===========================================================================+
 |  PARALLEL LOOP — MICROBIAL LOOP                                           |
-|  DOC ← exudation ← phytoplankton                                         |
-|  Bacteria → flagellates → ciliates → back to metazoa                     |
+|  DOC ← exudation ← phytoplankton                                          |
+|  Bacteria → flagellates → ciliates → back to metazoa                      |
 |  ~50% of primary production passes through microbial loop                 |
 +===========================================================================+
 ```
@@ -190,9 +190,9 @@ CORAL REEF PHYSICS AND CHEMISTRY:
 REEF ARCHITECTURE AND ZONES:
   ┌──────────────────────────────────────────────────────────┐
   │ FORE REEF (windward)  REEF CREST    BACK REEF  LAGOON    │
-  │ High wave energy       Algal ridge  Patch reefs Seagrass  │
-  │ Coral buttresses       (coralline   Coral heads Sandy     │
-  │ Spur-and-groove        algae)                  bottom     │
+  │ High wave energy       Algal ridge  Patch reefs Seagrass │
+  │ Coral buttresses       (coralline   Coral heads Sandy    │
+  │ Spur-and-groove        algae)                  bottom    │
   └──────────────────────────────────────────────────────────┘
 
   Great Barrier Reef: 2,300 km, >2,900 individual reefs, largest biogenic structure

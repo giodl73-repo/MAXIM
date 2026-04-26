@@ -4,21 +4,21 @@
 
 ```
 +------------------------------------------------------------------+
-|              THE POLITICS OF EXPENSIVE COLOR                      |
+|              THE POLITICS OF EXPENSIVE COLOR                     |
 |                                                                  |
-|  TYRIAN PURPLE (600 BCE – 1453 CE)                              |
-|  ~10,000 Murex snails → 1 gram dye                              |
-|  6,6'-Dibromoindigo → reddish purple                            |
-|  Roman imperial symbol; Byzantine "born to the purple"          |
+|  TYRIAN PURPLE (600 BCE – 1453 CE)                               |
+|  ~10,000 Murex snails → 1 gram dye                               |
+|  6,6'-Dibromoindigo → reddish purple                             |
+|  Roman imperial symbol; Byzantine "born to the purple"           |
 |                                                                  |
-|  COCHINEAL (1200s → present)                                    |
-|  ~70,000 Dactylopius coccus insects → 1 lb dye                  |
-|  Carminic acid (anthraquinone) → crimson/scarlet                |
+|  COCHINEAL (1200s → present)                                     |
+|  ~70,000 Dactylopius coccus insects → 1 lb dye                   |
+|  Carminic acid (anthraquinone) → crimson/scarlet                 |
 |  Aztec monopoly → Spanish New World monopoly                     |
 |  → Second most valuable New Spain export after silver            |
 |                                                                  |
 |  SHARED STRUCTURE: Red/purple luxury colorants as POWER SYMBOLS  |
-|  Sumptuary laws restrict access → color = status                |
+|  Sumptuary laws restrict access → color = status                 |
 |  Synthetic replacement = democratization + economic destruction  |
 |  Alizarin synthesis (1869) = madder collapse                     |
 |  Synthetic aniline dyes (1856+) = luxury color for everyone      |

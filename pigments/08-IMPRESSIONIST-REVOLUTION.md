@@ -8,15 +8,15 @@
 |                                                                  |
 |  THREE ENABLING TECHNOLOGIES:                                    |
 |                                                                  |
-|  1. TUBE PAINT (1841, John G. Rand)                             |
-|     → Painting outdoors (plein air) becomes practical           |
+|  1. TUBE PAINT (1841, John G. Rand)                              |
+|     → Painting outdoors (plein air) becomes practical            |
 |     → Observation of natural light from life, not imagination    |
 |                                                                  |
-|  2. SYNTHETIC ULTRAMARINE (1826, Guimet/Gmelin)                 |
-|     → Affordable blue for everyone; sky blues accessible          |
+|  2. SYNTHETIC ULTRAMARINE (1826, Guimet/Gmelin)                  |
+|     → Affordable blue for everyone; sky blues accessible         |
 |     → Stable, predictable — not turning green like azurite       |
 |                                                                  |
-|  3. NEW PIGMENT PALETTE (1840s–1870s)                           |
+|  3. NEW PIGMENT PALETTE (1840s–1870s)                            |
 |     Cadmium yellow/red (replacing chrome yellow, cinnabar)       |
 |     Viridian (replacing toxic emerald green)                     |
 |     Cerulean + cobalt blue (replacing smalt)                     |
@@ -234,10 +234,10 @@ COBALT BLUE (CoAl₂O₄):
 IMPRESSIONIST SKY PALETTE IN PRACTICE:
   Monet's serial sky studies required layers:
   +-------------------------------+
-  | Cerulean: high clouds, haze  |
-  | Cobalt: mid-sky              |
-  | Ultramarine: deep upper sky  |
-  | Prussian blue: shadows, water|
+  | Cerulean: high clouds, haze   |
+  | Cobalt: mid-sky               |
+  | Ultramarine: deep upper sky   |
+  | Prussian blue: shadows, water |
   +-------------------------------+
   The availability of four distinct, stable blues → unprecedented
   atmospheric nuance in painting

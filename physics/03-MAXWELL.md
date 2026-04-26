@@ -12,10 +12,10 @@ no optics required. One of the great moments in the history of science.
 |                    MAXWELL'S FOUR EQUATIONS                            |
 |                    (differential form, in vacuum)                      |
 |                                                                        |
-|   ∇·E  = ρ/ε₀           Gauss — charges create E field divergence     |
+|   ∇·E  = ρ/ε₀           Gauss — charges create E field divergence      |
 |   ∇·B  = 0               No monopoles — B has no sources               |
 |   ∇×E  = -∂B/∂t          Faraday — changing B creates curling E        |
-|   ∇×B  = μ₀J + μ₀ε₀∂E/∂t  Ampere-Maxwell — current + changing E       |
+|   ∇×B  = μ₀J + μ₀ε₀∂E/∂t  Ampere-Maxwell — current + changing E        |
 |                                               creates curling B        |
 |                                                                        |
 |   Four equations. Two fields (E, B). All of classical electrodynamics. |

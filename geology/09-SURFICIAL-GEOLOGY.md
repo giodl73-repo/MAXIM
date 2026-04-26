@@ -9,24 +9,24 @@ Surficial geology covers processes that shape Earth's surface by moving material
 ```
 +---------------------------------------------------------------+
 |           SURFICIAL PROCESSES — AGENT OVERVIEW                |
-|                                                                |
+|                                                               |
 |  AGENT        SCALE        PROCESS          LANDFORMS         |
 |  ----------   ----------   ---------------  ----------------  |
 |  Ice          1–3 km       Glacial erosion  U-valleys, cirques|
 |  (glaciers)   thick        + deposition     Drumlins, moraines|
-|                                                                |
+|                                                               |
 |  Water        Global       Fluvial erosion  River systems,    |
 |  (rivers)                  + transport      alluvial fans,    |
 |                            + deposition     floodplains,      |
 |                                             deltas            |
-|                                                                |
+|                                                               |
 |  Water        Soluble      Dissolution      Caves, sinkholes, |
 |  (chemical)   rock         (carbonate       karst terrain     |
-|                            dissolution)                        |
-|                                                                |
+|                            dissolution)                       |
+|                                                               |
 |  Wind         Arid regions Eolian erosion   Dunes, loess      |
 |                            + deposition     deposits          |
-|                                                                |
+|                                                               |
 |  Gravity      Slopes       Mass wasting     Landslides,       |
 |                                             talus, debris     |
 +---------------------------------------------------------------+

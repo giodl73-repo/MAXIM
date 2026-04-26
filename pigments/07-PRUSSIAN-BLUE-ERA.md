@@ -14,12 +14,12 @@
 |  Industrial chemistry (BASF, Bayer, Hoechst emerge from dyes)    |
 |  Chromium, cobalt, cadmium discoveries (1798–1817)               |
 |  Coal tar chemistry (anthracene, benzene, quinoline routes)      |
-|  Prussian blue accident (1704) → showed synthesis possible        |
+|  Prussian blue accident (1704) → showed synthesis possible       |
 |                                                                  |
 |  DARK SIDE:                                                      |
 |  Chrome yellow (Van Gogh darkening)                              |
-|  Scheele's green / Emerald green (arsenic toxicity)             |
-|  → Painters, wallpaper workers, children poisoned               |
+|  Scheele's green / Emerald green (arsenic toxicity)              |
+|  → Painters, wallpaper workers, children poisoned                |
 |  → Impressionist health casualties                               |
 +------------------------------------------------------------------+
 ```

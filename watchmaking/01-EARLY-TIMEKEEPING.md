@@ -11,8 +11,8 @@ Every pre-mechanical timekeeping system reduces to one of three physical phenome
 PRE-MECHANICAL TIMEKEEPING TAXONOMY
 
 ┌─────────────────────────────────────────────────────────────────┐
-│                    TIME MEASUREMENT METHODS                      │
-│                      (before ~1280 CE)                           │
+│                    TIME MEASUREMENT METHODS                     │
+│                      (before ~1280 CE)                          │
 └─────────────────────────────────────────────────────────────────┘
            │                    │                    │
            ▼                    ▼                    ▼
@@ -214,29 +214,29 @@ Su Song (1020–1101 CE), a government minister and polymath, built a 10-meter t
 SU SONG'S CLOCK TOWER — SCHEMATIC (~1088 CE)
 
 ┌─────────────────────────────────────────────────────┐
-│  TOP: Armillary sphere (bronze, ~30 cm diameter)     │
-│       Motor-driven to track celestial coordinates    │
-│       Astronomer could sight star positions          │
+│  TOP: Armillary sphere (bronze, ~30 cm diameter)    │
+│       Motor-driven to track celestial coordinates   │
+│       Astronomer could sight star positions         │
 ├─────────────────────────────────────────────────────┤
 │  MIDDLE: Celestial globe (bronze)                    │
 │          Rotated once per sidereal day               │
 │          Showed positions of sun, moon, planets      │
 ├─────────────────────────────────────────────────────┤
-│  FRONT: Five-story pagoda                            │
+│  FRONT: Five-story pagoda                           │
 │         36 wooden jacks on rotating platform        │
-│         Appeared at windows to announce:             │
-│           Hours (red tablets)                        │
-│           Watches (green tablets)                    │
-│           Quarter-hours (bells)                      │
-│           Special announcements (drums, gongs)       │
+│         Appeared at windows to announce:            │
+│           Hours (red tablets)                       │
+│           Watches (green tablets)                   │
+│           Quarter-hours (bells)                     │
+│           Special announcements (drums, gongs)      │
 ├─────────────────────────────────────────────────────┤
 │  CORE: Water-wheel escapement (the key innovation)   │
 │        36 scoops on wheel; each holds water          │
 │        When scoop fills to set weight: trips lever   │
 │        Wheel advances one step; timer resets         │
 ├─────────────────────────────────────────────────────┤
-│  BASE: Constant-head water supply (Ctesibius method) │
-│        Clepsydra feeds wheel scoops at constant rate │
+│  BASE: Constant-head water supply (Ctesibius method)│
+│        Clepsydra feeds wheel scoops at constant rate│
 └─────────────────────────────────────────────────────┘
 ```
 
@@ -274,8 +274,8 @@ Tray with carved groove:
 │                                              │
 │   ←──────── incense powder in groove ──────► │
 │                                              │
-│  start ●─────────────────────────────● end  │
-│        │← alarm thread (weight attached)    │
+│  start ●─────────────────────────────● end   │
+│        │← alarm thread (weight attached)     │
 │             burns at calibrated rate         │
 │                                              │
 │  When fire reaches thread: weight falls      │
@@ -315,7 +315,7 @@ Early tower clocks:
 │                                                             │
 │  Components:                                                │
 │  - Wrought iron frame (no brass — all iron)                 │
-│  - Two weight-driven trains:                               │
+│  - Two weight-driven trains:                                │
 │    1. Going train (drives escapement + tolls the hour)      │
 │    2. Quarter-striking train (was present; later removed)   │
 │  - Verge-and-foliot escapement (original; replaced 1790s)   │

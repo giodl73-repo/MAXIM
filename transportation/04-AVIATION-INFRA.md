@@ -9,26 +9,26 @@ Aviation is a system of extraordinary complexity operating to extraordinarily ti
 |                    AVIATION SYSTEM LAYERS                        |
 |                                                                  |
 |  AIRSPACE                                                        |
-|  +----------+  +----------+  +----------+  +----------+         |
+|  +----------+  +----------+  +----------+  +----------+          |
 |  | ICAO     |  | Airways  |  | RVSM     |  | RNAV/RNP |         |
 |  | Class A-G|  | Routes   |  | (1000ft  |  | (PBN     |         |
 |  |          |  |          |  | sep)     |  | operations)|        |
 |  +----------+  +----------+  +----------+  +----------+         |
-|                                                                  |
-|  ATC SYSTEMS                                                     |
+|                                                                 |
+|  ATC SYSTEMS                                                    |
 |  +----------+  +----------+  +----------+  +----------+         |
 |  | Primary  |  | Secondary|  | ADS-B    |  | TCAS II  |         |
 |  | Radar    |  | Radar    |  | Out      |  | (RA/TA)  |         |
 |  | (PSR)    |  | (SSR)    |  |          |  |          |         |
 |  +----------+  +----------+  +----------+  +----------+         |
-|                                                                  |
-|  AIRPORT                                                         |
+|                                                                 |
+|  AIRPORT                                                        |
 |  +----------+  +----------+  +----------+  +----------+         |
 |  | Runway   |  | Taxiway  |  | Terminal |  | Approach |         |
 |  | Design   |  | System   |  | & Apron  |  | Aids     |         |
 |  +----------+  +----------+  +----------+  +----------+         |
-|                                                                  |
-|  AIRLINE ECONOMICS                                               |
+|                                                                 |
+|  AIRLINE ECONOMICS                                              |
 |  +----------+  +----------+  +----------+  +----------+         |
 |  | Yield    |  | Hub vs   |  | CASM /   |  | Slot     |         |
 |  | Mgmt     |  | LCC      |  | RASM     |  | Coords   |         |
@@ -338,13 +338,13 @@ Airlines have notoriously thin margins. Warren Buffett famously said that a far-
   AIRLINE COST BREAKDOWN (approximate, US major carrier):
 
   +------------------------------------------+
-  | Labor                       28-35%        |
-  | Fuel                        20-30%        |
-  | Aircraft ownership/leasing  10-15%        |
-  | Maintenance                 10-15%        |
-  | Distribution/sales           5-10%        |
-  | Airport/navigation fees      8-12%        |
-  | Other                        5-10%        |
+  | Labor                       28-35%       |
+  | Fuel                        20-30%       |
+  | Aircraft ownership/leasing  10-15%       |
+  | Maintenance                 10-15%       |
+  | Distribution/sales           5-10%       |
+  | Airport/navigation fees      8-12%       |
+  | Other                        5-10%       |
   +------------------------------------------+
 
   KEY METRICS:

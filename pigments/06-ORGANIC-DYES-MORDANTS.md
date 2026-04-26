@@ -11,7 +11,7 @@
 |  Every organic colorant = constant fight against photodegradation|
 |                                                                  |
 |  THE THREE PRIMARY COLORS OF HISTORICAL TEXTILES:                |
-|  +-----------------+  +-----------------+  +-----------------+  |
+|  +-----------------+  +-----------------+  +-----------------+   |
 |  | BLUE            |  | RED             |  | YELLOW          |  |
 |  | Indigo/Woad     |  | Madder/Kermes/  |  | Weld/           |  |
 |  | (indigotin)     |  | Cochineal       |  | Quercitron      |  |
@@ -228,7 +228,7 @@ MORDANT DEFINITION:
 
 THE MOST IMPORTANT MORDANTS:
 +-------------------+------------------+-------------------------------+
-| MORDANT           | ION              | COLOR MODIFICATION             |
+| MORDANT           | ION              | COLOR MODIFICATION            |
 +-------------------+------------------+-------------------------------+
 | Alum              | Al³⁺ (potassium  | Bright, warm, saturated       |
 | (potash alum)     | aluminum sulfate)| Workhorse mordant             |
@@ -239,7 +239,7 @@ THE MOST IMPORTANT MORDANTS:
 | Tin mordant       | Sn²⁺ or Sn⁴⁺    | Brighter, more fluorescent-   |
 | (stannous chloride)                  | appearing; crimson → scarlet  |
 +-------------------+------------------+-------------------------------+
-| Copper sulfate    | Cu²⁺             | Greener, cooler tones        |
+| Copper sulfate    | Cu²⁺             | Greener, cooler tones         |
 | (blue vitriol)    |                  |                               |
 +-------------------+------------------+-------------------------------+
 | Chrome mordant    | Cr³⁺             | Darker, more reddish          |

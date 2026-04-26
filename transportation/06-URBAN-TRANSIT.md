@@ -9,7 +9,7 @@ Urban transit is fundamentally a network problem. Its value grows non-linearly w
 |                    URBAN TRANSIT SYSTEM                          |
 |                                                                  |
 |  MODE PERFORMANCE SPECTRUM                                       |
-|  +----------+  +----------+  +----------+  +----------+         |
+|  +----------+  +----------+  +----------+  +----------+          |
 |  | Metro    |  | LRT      |  | BRT      |  | Bus      |         |
 |  | (Heavy   |  | (Light   |  | (Rapid)  |  | (Local)  |         |
 |  | Rail)    |  | Rail)    |  |          |  |          |         |
@@ -18,15 +18,15 @@ Urban transit is fundamentally a network problem. Its value grows non-linearly w
 |  |$200-700M |  |$50-150M  |  |$2-20M/km |  |$0.5-2M   |         |
 |  | /km      |  |/km       |  |          |  |/km       |         |
 |  +----------+  +----------+  +----------+  +----------+         |
-|                                                                  |
-|  DEMAND MODELING                                                 |
+|                                                                 |
+|  DEMAND MODELING                                                |
 |  +----------+  +----------+  +----------+  +----------+         |
 |  | Trip gen |  | Mode     |  | Route    |  | Network  |         |
 |  | 4-step   |  | Choice   |  | Choice   |  | Assignment|         |
 |  | model    |  | (Logit)  |  |          |  |          |         |
 |  +----------+  +----------+  +----------+  +----------+         |
-|                                                                  |
-|  NETWORK DESIGN PRINCIPLES                                       |
+|                                                                 |
+|  NETWORK DESIGN PRINCIPLES                                      |
 |  +----------+  +----------+  +----------+  +----------+         |
 |  | Coverage |  | Frequency| | Transfer  |  | TOD/Land |         |
 |  | vs       |  | is       |  | design   |  | Value    |         |
@@ -286,7 +286,7 @@ Transit stations create value. Land near transit is worth more than equivalent l
   Station area                     Non-transit area
   +------------------+             +------------------+
   |  Property value  |             |  Property value  |
-  |  PREMIUM due to  |             |  BASE: car-     |
+  |  PREMIUM due to  |             |  BASE: car-      |
   |  transit access: |             |  dependent land  |
   |  +10-30% within  |             |  value           |
   |  800m of station |             |                  |

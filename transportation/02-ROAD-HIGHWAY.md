@@ -9,18 +9,18 @@ Roads are the default transportation infrastructure of the 20th and 21st centuri
 |                    ROAD SYSTEM LAYERS                            |
 |                                                                  |
 |  GEOMETRIC DESIGN                                                |
-|  +-----------+  +-----------+  +-----------+  +-----------+     |
+|  +-----------+  +-----------+  +-----------+  +-----------+      |
 |  | Horizontal|  | Vertical  |  | Cross-    |  | Sight     |     |
 |  | Alignment |  | Alignment |  | Section   |  | Distance  |     |
 |  +-----------+  +-----------+  +-----------+  +-----------+     |
-|                                                                  |
-|  PAVEMENT STRUCTURE                                              |
+|                                                                 |
+|  PAVEMENT STRUCTURE                                             |
 |  +-----------+  +-----------+  +-----------+  +-----------+     |
 |  | Flexible  |  | Rigid     |  | Composite |  | Distress  |     |
 |  | (Asphalt) |  | (Concrete)|  | (Overlay) |  | & Repair  |     |
 |  +-----------+  +-----------+  +-----------+  +-----------+     |
-|                                                                  |
-|  TRAFFIC FLOW                                                    |
+|                                                                 |
+|  TRAFFIC FLOW                                                   |
 |  +-----------+  +-----------+  +-----------+  +-----------+     |
 |  | Flow-     |  | LWR       |  | Level of  |  | Capacity  |     |
 |  | Density   |  | Waves     |  | Service   |  | Analysis  |     |
@@ -406,11 +406,11 @@ The Highway Capacity Manual (HCM) quantifies traffic operations quality as Level
 
   +------------------+     +------------------+
   | DETECTION        |     | CONTROL          |
-  | Loop detectors   | --> | Variable Message  |
-  | Radar sensors    |     | Signs (VMS)       |
-  | Bluetooth MAC    |     | Ramp Meters       |
-  | probe vehicles   |     | Variable Speed    |
-  |                  |     | Limits (VSL)      |
+  | Loop detectors   | --> | Variable Message |
+  | Radar sensors    |     | Signs (VMS)      |
+  | Bluetooth MAC    |     | Ramp Meters      |
+  | probe vehicles   |     | Variable Speed   |
+  |                  |     | Limits (VSL)     |
   +------------------+     +------------------+
            |                       |
            v                       v

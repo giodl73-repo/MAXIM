@@ -6,19 +6,19 @@
 +------------------------------------------------------------------+
 |          THE FIRST CHEMISTRY OF COLOR (~3100 BCE–1704 CE)        |
 |                                                                  |
-|  Before modern chemistry, humans discovered synthesis by          |
+|  Before modern chemistry, humans discovered synthesis by         |
 |  accident, empirical recipe-keeping, and trade secret            |
 |                                                                  |
 |  TIMELINE OF ANCIENT SYNTHETICS:                                 |
-|  ~3100 BCE: Egyptian blue (CaCuSi₂O₆) — intentional synthesis   |
-|  ~700 BCE:  Han blue/purple (BaCuSi) — Chinese, independent     |
+|  ~3100 BCE: Egyptian blue (CaCuSi₂O₆) — intentional synthesis    |
+|  ~700 BCE:  Han blue/purple (BaCuSi) — Chinese, independent      |
 |  ~100 BCE:  Synthetic vermilion (HgS) — alchemical recipe        |
-|  ~400 CE:   Orpiment (As₂S₃) — ground from mines, not yet synth |
+|  ~400 CE:   Orpiment (As₂S₃) — ground from mines, not yet synth  |
 |  ~1200 CE:  Azurite processing refined                           |
 |                                                                  |
 |  WHAT ALL THESE SHARE:                                           |
 |  High-temperature mineral synthesis (>700°C)                     |
-|  OR combination of toxic metals with acids/sulfur               |
+|  OR combination of toxic metals with acids/sulfur                |
 |  Recipe knowledge = economic and military power                  |
 |  Knowledge transmission failure = centuries of loss              |
 +------------------------------------------------------------------+

@@ -9,18 +9,18 @@ Sedimentary rocks cover ~75% of Earth's land surface but are only ~5% of the cru
 ```
 +---------------------------------------------------------------+
 |              SEDIMENTARY ROCK FORMATION PATHWAY               |
-|                                                                |
-|  SOURCE ROCK  -->  WEATHERING  -->  EROSION  -->  TRANSPORT  |
+|                                                               |
+|  SOURCE ROCK  -->  WEATHERING  -->  EROSION  -->  TRANSPORT   |
 |  (any rock)      (physical/         (rivers,       (water,    |
-|                   chemical)          glaciers,      wind,      |
-|                                      wind)          ice)       |
-|                                                                |
+|                   chemical)          glaciers,      wind,     |
+|                                      wind)          ice)      |
+|                                                               |
 |         --> DEPOSITION --> BURIAL --> DIAGENESIS --> ROCK     |
 |             (sediment       (deep    (compaction,             |
 |              accumulates)   burial)   cementation,            |
 |                                       lithification)          |
-|                                                                |
-|  TIME SEAL: strata = pages of Earth's history book           |
+|                                                               |
+|  TIME SEAL: strata = pages of Earth's history book            |
 +---------------------------------------------------------------+
 ```
 

@@ -350,10 +350,10 @@ The lattice: Sr atoms trapped in a 3D lattice of laser standing waves
   │   "Magic wavelength" trick:                         │
   │   Lattice laser wavelength chosen so that           │
   │   AC Stark shift is EQUAL for ground and excited    │
-  │   states → net shift on clock transition = 0         │
+  │   states → net shift on clock transition = 0        │
   │   → lattice trapping doesn't perturb clock frequency│
   │                                                     │
-  │   Magic wavelength for Sr: λ_magic ≈ 813 nm        │
+  │   Magic wavelength for Sr: λ_magic ≈ 813 nm         │
   └─────────────────────────────────────────────────────┘
 
 Number of atoms: ~10,000 in the lattice (more than fountain → better SNR)

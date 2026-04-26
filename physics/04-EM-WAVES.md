@@ -12,7 +12,7 @@ how they interact with matter, and why different frequencies behave so different
 |                                                                        |
 |  WAVE PARAMETERS          WAVE STRUCTURE          INTERACTIONS         |
 |  ───────────────          ──────────────          ────────────         |
-|  λ, f, k, ω, c            E ⊥ B ⊥ k              Reflection           |
+|  λ, f, k, ω, c            E ⊥ B ⊥ k              Reflection            |
 |  c = λf = ω/k             |E| = c|B|              Refraction           |
 |  in matter: v = c/n       Transverse              Absorption           |
 |                           Polarization            Diffraction          |
@@ -20,9 +20,9 @@ how they interact with matter, and why different frequencies behave so different
 |                                                                        |
 |  ENERGY                   SPECTRUM                                     |
 |  ──────                   ────────                                     |
-|  u = ε₀E² (avg)           Radio → Microwave → IR → Visible            |
-|  S = E×B/μ₀               → UV → X-ray → Gamma                        |
-|  I = cε₀E₀²/2             all same wave, different f                  |
+|  u = ε₀E² (avg)           Radio → Microwave → IR → Visible             |
+|  S = E×B/μ₀               → UV → X-ray → Gamma                         |
+|  I = cε₀E₀²/2             all same wave, different f                   |
 +------------------------------------------------------------------------+
 ```
 
