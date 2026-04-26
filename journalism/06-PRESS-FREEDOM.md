@@ -34,7 +34,7 @@ PRESS FREEDOM SPECTRUM
   ▼
   SYSTEMATIC SUPPRESSION (weak/absent)
   ┌──────────────────────────────────────────────────────────────────┐
-  │  Russia: Independent outlets shut, journalists imprisoned/killed│
+  │  Russia: Independent outlets shut, journalists imprisoned/killed │
   │  China: State-controlled media; foreign outlets blocked          │
   │  Iran, Saudi Arabia, North Korea: Comprehensive control          │
   └──────────────────────────────────────────────────────────────────┘
@@ -280,7 +280,7 @@ HOW AUTHORITARIAN STATES SUPPRESS PRESS
   │  Mexico: Deadliest non-conflict country (cartel violence)        │
   │  Russia: Politkovskaya (2006); numerous others                   │
   │  Saudi Arabia: Jamal Khashoggi (2018) — murdered in consulate    │
-  │  Pattern: Impunity for killers enables systemic self-censorship│
+  │  Pattern: Impunity for killers enables systemic self-censorship  │
   └──────────────────────────────────────────────────────────────────┘
 
   LEGAL HARASSMENT:

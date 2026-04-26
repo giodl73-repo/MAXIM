@@ -144,7 +144,7 @@ YELLOW JOURNALISM ERA
   │  → Congress declares war on Spain within months                  │
   │  Did Hearst "cause" the war? Historians debate this; press       │
   │    coverage contributed to war fever but didn't cause alone      │
-  │  Legacy: Yellow journalism as cautionary term for irresponsible│
+  │  Legacy: Yellow journalism as cautionary term for irresponsible  │
   └──────────────────────────────────────────────────────────────────┘
 ```
 

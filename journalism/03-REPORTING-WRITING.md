@@ -99,7 +99,7 @@ LEAD CONSTRUCTION
   ┌──────────────────────────────────────────────────────────────────┐
   │  WHO:   The actor (subject) of the story                         │
   │  WHAT:  The action or event (verb and object)                    │
-  │  WHEN:  Time (but not first word — leads never start with time)│
+  │  WHEN:  Time (but not first word — leads never start with time)  │
   │  WHERE: Location (briefly, not before the news)                  │
   │  WHY:   Cause or motivation (briefly if known)                   │
   │  HOW:   Method (briefly if newsworthy)                           │
@@ -113,7 +113,7 @@ LEAD CONSTRUCTION
   │  WHAT:  resigned                                                 │
   │  WHEN:  Thursday                                                 │
   │  WHY:   "citing personal health reasons" (stated) /              │
-  │         investigation (context that complicates the stated why)│
+  │         investigation (context that complicates the stated why)  │
   │  WHERE: [implied — city hall context established previously]     │
   └──────────────────────────────────────────────────────────────────┘
 

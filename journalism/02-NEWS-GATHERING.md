@@ -59,7 +59,7 @@ BEAT SYSTEM ANALYSIS
   │  Mitigation: Rotation, outside editor perspective, fresh eyes    │
   │                                                                  │
   │  INSTITUTIONAL BIAS:                                             │
-  │  Beats defined around institutions (police, courts, city hall)│
+  │  Beats defined around institutions (police, courts, city hall)   │
   │  → Institutionally powerful sources dominate coverage            │
   │  → Non-institutional perspectives systematically underrepresented│
   └──────────────────────────────────────────────────────────────────┘
@@ -115,7 +115,7 @@ CONFIDENTIAL SOURCE FRAMEWORK
   ┌──────────────────────────────────────────────────────────────────┐
   │  49 states + DC have some form of shield protection              │
   │  Shield laws: Reporters cannot be compelled to reveal sources    │
-  │  Variation: Absolute vs. qualified privilege; civil vs. criminal│
+  │  Variation: Absolute vs. qualified privilege; civil vs. criminal │
   │                                                                  │
   │  Federal level: No federal shield law (as of 2025)               │
   │  Federal courts: Qualified privilege from Branzburg v. Hayes     │

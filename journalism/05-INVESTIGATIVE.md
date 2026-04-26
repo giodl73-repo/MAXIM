@@ -241,7 +241,7 @@ CONFRONTING THE SUBJECT
   │  Fairness: Subject has right to respond to damaging claims       │
   │  Accuracy: Subject may have information that changes the story   │
   │  Legal protection: Cannot claim malice if subject was offered    │
-  │   opportunity to respond and declined or responded inadequately│
+  │   opportunity to respond and declined or responded inadequately  │
   └──────────────────────────────────────────────────────────────────┘
 
   STRUCTURE OF CONFRONTATION:

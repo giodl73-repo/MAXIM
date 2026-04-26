@@ -273,14 +273,14 @@ WAR PHOTOGRAPHY: HARM vs. PUBLIC INTEREST
   CONSENT IN CONFLICT ZONES:
   ┌──────────────────────────────────────────────────────────────────┐
   │  REALITY: Informed consent is rarely obtained in conflict zones  │
-  │  STANDARD PRACTICE: Photograph first; obtain consent if possible│
+  │  STANDARD PRACTICE: Photograph first; obtain consent if possible │
   │  LIMITS: Photographs of wounded, dying, dead — most contested    │
   │                                                                  │
   │  FACTORS IN PUBLICATION DECISION:                                │
   │  ① Deceased: family notified? national security?                 │
   │  ② Identifiability: can subject or family be harmed by I.D.?     │
   │  ③ Dignity: does image dehumanize or record reality?             │
-  │  ④ Public interest: does publication change anything meaningful?│
+  │  ④ Public interest: does publication change anything meaningful? │
   │  ⑤ Proportionality: is the harm commensurate with the value?     │
   └──────────────────────────────────────────────────────────────────┘
 ```
