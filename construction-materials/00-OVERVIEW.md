@@ -36,19 +36,19 @@ MATERIAL FAMILIES AND STRUCTURAL ROLES
 │                                                                              │
 │  CEMENTITIOUS              GLASS                  ENGINEERED WOOD           │
 │  ┌───────────────┐         ┌───────────────┐      ┌───────────────────────┐ │
-│  │ Portland OPC  │         │ Float glass   │      │ Plywood  LVL          │  │
-│  │ Fly ash blend │         │ Tempered      │      │ Glulam   CLT          │  │
-│  │ UHPC          │         │ Laminated     │      │ Mass timber hybrids   │  │
-│  │ Geopolymer    │         │ IGU systems   │      │                       │  │
+│  │ Portland OPC  │         │ Float glass   │      │ Plywood  LVL          │ │
+│  │ Fly ash blend │         │ Tempered      │      │ Glulam   CLT          │ │
+│  │ UHPC          │         │ Laminated     │      │ Mass timber hybrids   │ │
+│  │ Geopolymer    │         │ IGU systems   │      │                       │ │
 │  └───────────────┘         └───────────────┘      └───────────────────────┘ │
 │  Compression +++           Compression +          Compression + Tension +   │
 │  Tension poor (RC fixes)   Tension ~zero          Bending ++ biaxial (CLT)  │
 │                                                                              │
 │  POLYMERS / COMPOSITES     BIO-BASED              SMART / PHASE-CHANGE      │
 │  ┌───────────────┐         ┌───────────────┐      ┌───────────────────────┐ │
-│  │ GFRP/CFRP    │         │ Hempcrete     │      │ PCM wallboard        │ │
-│  │ AFRP tendons │         │ Straw bale    │      │ Self-healing conc.   │ │
-│  │ GRC panels   │         │ Bamboo        │      │ Aerogel insulation   │ │
+│  │ GFRP/CFRP     │         │ Hempcrete     │      │ PCM wallboard         │ │
+│  │ AFRP tendons  │         │ Straw bale    │      │ Self-healing conc.    │ │
+│  │ GRC panels    │         │ Bamboo        │      │ Aerogel insulation    │ │
 │  └───────────────┘         └───────────────┘      └───────────────────────┘ │
 │  Tension +++ (fiber)       Thermal mass ++        Thermal buffering +       │
 │  Tailored anisotropy       Insulation ++          Carbon-negative poss.     │
@@ -96,7 +96,7 @@ LOAD TYPES AND STRUCTURAL ELEMENTS
 │  GRAVITY LOADS: Dead (permanent) + Live (occupancy / snow / wind uplift)     │
 │                                                                              │
 │  Beam in bending:                                                            │
-│  Load → ↓ ↓ ↓ ↓ ↓ ↓ ↓ ↓ ↓ ↓ ↓                                              │
+│  Load → ↓ ↓ ↓ ↓ ↓ ↓ ↓ ↓ ↓ ↓ ↓                                                │
 │         ══════════════════════════                                           │
 │         ↑ support            support ↑                                       │
 │                                                                              │
@@ -202,16 +202,16 @@ LOAD TYPES AND STRUCTURAL ELEMENTS
 │                                                                              │
 │  FATIGUE: repeated stress cycling reduces failure load                       │
 │          S-N (Wöhler) curve: log stress vs log cycles to failure             │
-│          Steel: endurance limit ≈ 40% σ_u at ~10⁷ cycles                   │
+│          Steel: endurance limit ≈ 40% σ_u at ~10⁷ cycles                     │
 │          Concrete: no clear endurance limit; each cycle damages              │
 │          Composites: delamination fatigue — critical in aerospace            │
 │                                                                              │
-│  DUCTILITY: ratio of ultimate strain to yield strain (μ = ε_u / ε_y)       │
+│  DUCTILITY: ratio of ultimate strain to yield strain (μ = ε_u / ε_y)         │
 │          Steel: μ ≈ 10–20 — warning before collapse, absorbs seismic energy  │
-│          Masonry/glass: μ ≈ 1 — sudden brittle failure                     │
+│          Masonry/glass: μ ≈ 1 — sudden brittle failure                       │
 │          → seismic design explicitly requires ductility in primary elements  │
 │                                                                              │
-│  HARDNESS: resistance to surface indentation (Brinell/Vickers/Mohs)        │
+│  HARDNESS: resistance to surface indentation (Brinell/Vickers/Mohs)          │
 │          Relevant for wear, scratch resistance (flooring, worktops)          │
 │          Granite Mohs 6–7  Steel Vickers ~200 HV  Concrete ~100 HV         │
 │                                                                              │
