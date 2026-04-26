@@ -54,52 +54,52 @@ KEY JURISPRUDENTIAL PRINCIPLES
 
   NEAR v. MINNESOTA (1931):
   ┌──────────────────────────────────────────────────────────────────┐
-  │  Background: Minnesota law allowed courts to shut down         │
-  │   newspapers as "public nuisances" — prior restraint           │
-  │  Ruling: Prior restraint (government stopping publication      │
-  │   BEFORE it occurs) is presumptively unconstitutional          │
-  │  Exception: National security in extraordinary circumstances   │
-  │   (e.g., military ship sailing times during wartime)          │
-  │  LEGACY: Near establishes the near-absolute bar on             │
-  │   pre-publication censorship in US law                         │
+  │  Background: Minnesota law allowed courts to shut down           │
+  │   newspapers as "public nuisances" — prior restraint             │
+  │  Ruling: Prior restraint (government stopping publication        │
+  │   BEFORE it occurs) is presumptively unconstitutional            │
+  │  Exception: National security in extraordinary circumstances     │
+  │   (e.g., military ship sailing times during wartime)             │
+  │  LEGACY: Near establishes the near-absolute bar on               │
+  │   pre-publication censorship in US law                           │
   └──────────────────────────────────────────────────────────────────┘
 
   NYT v. SULLIVAN (1964):
   ┌──────────────────────────────────────────────────────────────────┐
-  │  Background: Montgomery AL police commissioner sued NYT over   │
-  │   full-page civil rights ad; some factual errors in ad        │
-  │  Ruling: Public officials cannot recover for defamation        │
-  │   unless they prove ACTUAL MALICE — knowing falsity or        │
-  │   reckless disregard for truth/falsity                        │
-  │  Extended: Gertz v. Welch (1974) → public figures same burden │
-  │  LEGACY: Makes robust political press coverage legally viable; │
-  │   without it, public officials could bankrupt papers through   │
-  │   litigation over minor errors                                 │
+  │  Background: Montgomery AL police commissioner sued NYT over     │
+  │   full-page civil rights ad; some factual errors in ad           │
+  │  Ruling: Public officials cannot recover for defamation          │
+  │   unless they prove ACTUAL MALICE — knowing falsity or           │
+  │   reckless disregard for truth/falsity                           │
+  │  Extended: Gertz v. Welch (1974) → public figures same burden    │
+  │  LEGACY: Makes robust political press coverage legally viable;   │
+  │   without it, public officials could bankrupt papers through     │
+  │   litigation over minor errors                                   │
   └──────────────────────────────────────────────────────────────────┘
 
   NYT v. US / US v. WASHINGTON POST (Pentagon Papers, 1971):
   ┌──────────────────────────────────────────────────────────────────┐
-  │  Background: Nixon administration sought injunctions           │
-  │   preventing publication of classified Vietnam War study       │
-  │  Ruling (6-3): Government failed to meet heavy burden for     │
-  │   prior restraint; publication could proceed                   │
-  │  Standard: Government must show direct, immediate, irreparable │
-  │   harm to national security — not just embarrassment          │
-  │  LEGACY: Strengthens Near; establishes that national security  │
-  │   claim alone insufficient for prior restraint                │
+  │  Background: Nixon administration sought injunctions             │
+  │   preventing publication of classified Vietnam War study         │
+  │  Ruling (6-3): Government failed to meet heavy burden for        │
+  │   prior restraint; publication could proceed                     │
+  │  Standard: Government must show direct, immediate, irreparable   │
+  │   harm to national security — not just embarrassment             │
+  │  LEGACY: Strengthens Near; establishes that national security    │
+  │   claim alone insufficient for prior restraint                   │
   └──────────────────────────────────────────────────────────────────┘
 
   BRANZBURG v. HAYES (1972):
   ┌──────────────────────────────────────────────────────────────────┐
-  │  Background: Reporter subpoenaed to testify about sources      │
-  │   before grand jury (drug investigation)                       │
-  │  Ruling (5-4): No First Amendment privilege to refuse grand   │
-  │   jury testimony about criminal conduct                        │
-  │  BUT: Justice Powell's concurrence created "qualified          │
-  │   privilege" doctrine used by lower courts                    │
-  │  LEGACY: Ambiguous — establishes no absolute privilege but    │
-  │   leaves room for case-by-case qualified protection           │
-  │  → Most states enacted shield laws to fill the gap            │
+  │  Background: Reporter subpoenaed to testify about sources        │
+  │   before grand jury (drug investigation)                         │
+  │  Ruling (5-4): No First Amendment privilege to refuse grand      │
+  │   jury testimony about criminal conduct                          │
+  │  BUT: Justice Powell's concurrence created "qualified            │
+  │   privilege" doctrine used by lower courts                       │
+  │  LEGACY: Ambiguous — establishes no absolute privilege but       │
+  │   leaves room for case-by-case qualified protection              │
+  │  → Most states enacted shield laws to fill the gap               │
   └──────────────────────────────────────────────────────────────────┘
 ```
 
@@ -115,25 +115,25 @@ SHIELD LAW LANDSCAPE
 
   US STATE SHIELD LAWS:
   ┌──────────────────────────────────────────────────────────────────┐
-  │  49 states + DC: Some form of shield protection               │
-  │  Absolute shield: Few states — protects even in criminal cases │
-  │  Qualified shield: Most states — balanced against prosecution  │
-  │   need; court can override if need compelling                  │
-  │                                                                   │
-  │  FEDERAL: No federal shield law (attempts have failed)        │
-  │  Federal journalists subject to grand jury subpoenas           │
-  │  Some protection from qualified privilege (post-Branzburg)    │
+  │  49 states + DC: Some form of shield protection                  │
+  │  Absolute shield: Few states — protects even in criminal cases   │
+  │  Qualified shield: Most states — balanced against prosecution    │
+  │   need; court can override if need compelling                    │
+  │                                                                  │
+  │  FEDERAL: No federal shield law (attempts have failed)           │
+  │  Federal journalists subject to grand jury subpoenas             │
+  │  Some protection from qualified privilege (post-Branzburg)       │
   └──────────────────────────────────────────────────────────────────┘
 
   WHO IS A "JOURNALIST" (shield law scope question):
   ┌──────────────────────────────────────────────────────────────────┐
-  │  Traditional: Employees of recognized news organizations       │
-  │  Modern problem: Bloggers? Citizen journalists? Newsletter     │
-  │   publishers? Podcast producers?                               │
-  │  States vary: Some require affiliation; others use functional  │
-  │   test (was the person gathering news for public dissemination?)│
-  │  IMPORTANCE: Shield law coverage determines whether           │
-  │   independent journalists have practical source protection    │
+  │  Traditional: Employees of recognized news organizations         │
+  │  Modern problem: Bloggers? Citizen journalists? Newsletter       │
+  │   publishers? Podcast producers?                                 │
+  │  States vary: Some require affiliation; others use functional    │
+  │   test (was the person gathering news for public dissemination?) │
+  │  IMPORTANCE: Shield law coverage determines whether              │
+  │   independent journalists have practical source protection       │
   └──────────────────────────────────────────────────────────────────┘
 ```
 
@@ -147,23 +147,23 @@ PRESS FREEDOM MONITORING
 
   CPJ (Committee to Protect Journalists):
   ┌──────────────────────────────────────────────────────────────────┐
-  │  Annual census of journalists imprisoned worldwide             │
-  │  Tracks: Imprisonment, killings, disappearances               │
-  │  2023 data: 67 journalists killed; 320 imprisoned              │
-  │  Top imprisoning nations: China, Myanmar, Belarus, Russia, Iran│
-  │  Advocacy: lobbies for release; evacuation assistance         │
-  │  Definition: Journalists including citizen journalists         │
+  │  Annual census of journalists imprisoned worldwide               │
+  │  Tracks: Imprisonment, killings, disappearances                  │
+  │  2023 data: 67 journalists killed; 320 imprisoned                │
+  │  Top imprisoning nations: China, Myanmar, Belarus, Russia, Iran  │
+  │  Advocacy: lobbies for release; evacuation assistance            │
+  │  Definition: Journalists including citizen journalists           │
   └──────────────────────────────────────────────────────────────────┘
 
   REPORTERS WITHOUT BORDERS (RSF — Reporters Sans Frontières):
   ┌──────────────────────────────────────────────────────────────────┐
-  │  World Press Freedom Index: Annual ranking of 180 countries    │
-  │  Methodology: Political, economic, legal, sociocultural        │
-  │   environment for journalism; pluralism                        │
-  │  2023 top 5: Norway, Ireland, Denmark, Sweden, Finland        │
-  │  US rank: 45th (2023) — down from 20s in 2000s               │
-  │  US concerns cited: Journalist arrests at protests, SLAPP      │
-  │   suits, concentrated ownership                                │
+  │  World Press Freedom Index: Annual ranking of 180 countries      │
+  │  Methodology: Political, economic, legal, sociocultural          │
+  │   environment for journalism; pluralism                          │
+  │  2023 top 5: Norway, Ireland, Denmark, Sweden, Finland           │
+  │  US rank: 45th (2023) — down from 20s in 2000s                   │
+  │  US concerns cited: Journalist arrests at protests, SLAPP        │
+  │   suits, concentrated ownership                                  │
   └──────────────────────────────────────────────────────────────────┘
 ```
 
@@ -179,13 +179,13 @@ SLAPP ANALYSIS
 
   HOW SLAPP WORKS:
   ┌──────────────────────────────────────────────────────────────────┐
-  │  Reporter publishes story on wrongdoing by powerful entity     │
-  │  Entity files defamation or tortious interference lawsuit      │
-  │  Even if lawsuit has no merit: Discovery costs hundreds of     │
-  │   thousands of dollars; journalist/outlet faces years of       │
-  │   litigation                                                    │
-  │  Effect: Settlement pressures; future self-censorship          │
-  │  Goal: Silence the reporter without winning in court           │
+  │  Reporter publishes story on wrongdoing by powerful entity       │
+  │  Entity files defamation or tortious interference lawsuit        │
+  │  Even if lawsuit has no merit: Discovery costs hundreds of       │
+  │   thousands of dollars; journalist/outlet faces years of         │
+  │   litigation                                                     │
+  │  Effect: Settlement pressures; future self-censorship            │
+  │  Goal: Silence the reporter without winning in court             │
   └──────────────────────────────────────────────────────────────────┘
 
   ANTI-SLAPP LAWS:
@@ -211,37 +211,37 @@ ESPIONAGE ACT AND JOURNALISM
 
   ESPIONAGE ACT (1917):
   ┌──────────────────────────────────────────────────────────────────┐
-  │  Original purpose: Prosecute spies and seditionists in WWI    │
-  │  Modern use: Prosecute leakers of national security information│
-  │  Text: Does not distinguish between spy and journalist         │
-  │  Cases involving press:                                        │
-  │                                                                   │
-  │  DANIEL ELLSBERG (Pentagon Papers): Indicted under EA 1971;   │
-  │   dismissed 1973 (government misconduct)                       │
-  │                                                                   │
-  │  JAMES RISEN CASE (2006–2015):                                 │
-  │  NYT reporter subpoenaed to identify source for CIA Iran story │
-  │  Refused to comply; DOJ eventually dropped demand              │
-  │  4th Circuit ruled: No privilege for Risen                    │
-  │  Obama DOJ was most aggressive Espionage Act user in history  │
-  │                                                                   │
-  │  JULIAN ASSANGE: WikiLeaks — EA charges for publishing         │
-  │   classified documents; 2024 plea deal; served ~5 years        │
-  │  Controversy: Is publishing classified information journalism?  │
-  │   Or is it different from traditional media reporting?         │
-  │                                                                   │
-  │  EDWARD SNOWDEN (2013): NSA surveillance revelations          │
-  │   Fled to Russia; charged under EA; no trial                  │
+  │  Original purpose: Prosecute spies and seditionists in WWI       │
+  │  Modern use: Prosecute leakers of national security information  │
+  │  Text: Does not distinguish between spy and journalist           │
+  │  Cases involving press:                                          │
+  │                                                                  │
+  │  DANIEL ELLSBERG (Pentagon Papers): Indicted under EA 1971;      │
+  │   dismissed 1973 (government misconduct)                         │
+  │                                                                  │
+  │  JAMES RISEN CASE (2006–2015):                                   │
+  │  NYT reporter subpoenaed to identify source for CIA Iran story   │
+  │  Refused to comply; DOJ eventually dropped demand                │
+  │  4th Circuit ruled: No privilege for Risen                       │
+  │  Obama DOJ was most aggressive Espionage Act user in history     │
+  │                                                                  │
+  │  JULIAN ASSANGE: WikiLeaks — EA charges for publishing           │
+  │   classified documents; 2024 plea deal; served ~5 years          │
+  │  Controversy: Is publishing classified information journalism?   │
+  │   Or is it different from traditional media reporting?           │
+  │                                                                  │
+  │  EDWARD SNOWDEN (2013): NSA surveillance revelations             │
+  │   Fled to Russia; charged under EA; no trial                     │
   └──────────────────────────────────────────────────────────────────┘
 
   POLICY TENSION:
   ┌──────────────────────────────────────────────────────────────────┐
-  │  Government claim: Classified info secrets protect lives       │
-  │  Press claim: Democratic accountability requires publishing    │
-  │   evidence of illegal government conduct                       │
-  │  Reality: No bright line; courts haven't resolved whether     │
-  │   journalists themselves could be prosecuted under EA for     │
-  │   publishing classified info (never charged successfully)      │
+  │  Government claim: Classified info secrets protect lives         │
+  │  Press claim: Democratic accountability requires publishing      │
+  │   evidence of illegal government conduct                         │
+  │  Reality: No bright line; courts haven't resolved whether        │
+  │   journalists themselves could be prosecuted under EA for        │
+  │   publishing classified info (never charged successfully)        │
   └──────────────────────────────────────────────────────────────────┘
 ```
 

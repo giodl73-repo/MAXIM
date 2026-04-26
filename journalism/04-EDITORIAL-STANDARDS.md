@@ -59,38 +59,38 @@ OBJECTIVITY — THREE ERAS
 
   ERA 2: OBJECTIVITY AS PROFESSIONAL NORM (1900s–1980s)
   ┌──────────────────────────────────────────────────────────────────┐
-  │  ORIGINS:                                                       │
-  │  Wire services needed neutral copy for politically diverse     │
-  │   clients → procedural neutrality as business necessity        │
-  │  Journalism schools (Columbia founded 1912) professionalized   │
-  │   the field → objectivity as ethical principle                 │
-  │  WWI propaganda awareness → suspicion of advocacy in news      │
-  │  Walter Lippmann: "Public Opinion" (1922) — journalists as     │
-  │   professional processors of fact                              │
-  │                                                                   │
-  │  OPERATIONAL DEFINITION:                                        │
-  │  Present multiple sides; attribute claims; do not editorialize │
-  │  in news pages (separate from editorial opinion pages)         │
-  │  Reporter's personal views invisible in news content          │
+  │  ORIGINS:                                                        │
+  │  Wire services needed neutral copy for politically diverse       │
+  │   clients → procedural neutrality as business necessity          │
+  │  Journalism schools (Columbia founded 1912) professionalized     │
+  │   the field → objectivity as ethical principle                   │
+  │  WWI propaganda awareness → suspicion of advocacy in news        │
+  │  Walter Lippmann: "Public Opinion" (1922) — journalists as       │
+  │   professional processors of fact                                │
+  │                                                                  │
+  │  OPERATIONAL DEFINITION:                                         │
+  │  Present multiple sides; attribute claims; do not editorialize   │
+  │  in news pages (separate from editorial opinion pages)           │
+  │  Reporter's personal views invisible in news content             │
   └──────────────────────────────────────────────────────────────────┘
 
   ERA 3: CRITIQUE AND ALTERNATIVES (1990s–present)
   ┌──────────────────────────────────────────────────────────────────┐
-  │  "VIEW FROM NOWHERE" CRITIQUE (Jay Rosen):                     │
-  │  Procedural objectivity creates false equivalence              │
-  │  Climate example: 97% scientists vs. 3% skeptics treated      │
-  │   as two legitimate "sides" → reader receives false picture    │
-  │   of scientific consensus                                       │
-  │                                                                   │
-  │  FALSE BALANCE / BOTH-SIDESISM:                                │
-  │  Pattern where every story requires "both sides" regardless    │
-  │   of whether both sides have equivalent evidence               │
-  │                                                                   │
-  │  ALTERNATIVES PROPOSED:                                         │
-  │  • "Fairness" rather than balance — weight evidence correctly  │
-  │  • Transparency: disclose reporter's perspective rather than   │
-  │    pretend to viewlessness                                      │
-  │  • "Evidence-based journalism" — let evidence calibrate weight │
+  │  "VIEW FROM NOWHERE" CRITIQUE (Jay Rosen):                       │
+  │  Procedural objectivity creates false equivalence                │
+  │  Climate example: 97% scientists vs. 3% skeptics treated         │
+  │   as two legitimate "sides" → reader receives false picture      │
+  │   of scientific consensus                                        │
+  │                                                                  │
+  │  FALSE BALANCE / BOTH-SIDESISM:                                  │
+  │  Pattern where every story requires "both sides" regardless      │
+  │   of whether both sides have equivalent evidence                 │
+  │                                                                  │
+  │  ALTERNATIVES PROPOSED:                                          │
+  │  • "Fairness" rather than balance — weight evidence correctly    │
+  │  • Transparency: disclose reporter's perspective rather than     │
+  │    pretend to viewlessness                                       │
+  │  • "Evidence-based journalism" — let evidence calibrate weight   │
   └──────────────────────────────────────────────────────────────────┘
 ```
 
@@ -142,28 +142,28 @@ CORRECTIONS STANDARDS
 
   PROMINENCE RULE:
   ┌──────────────────────────────────────────────────────────────────┐
-  │  Correction must appear at same prominence as the original error│
-  │  Front-page error → front-page correction (or close to it)    │
-  │  Lead story correction → at least top of A-section correction │
-  │  "Buried correction": Correction on page B6 for front-page    │
-  │   error → considered ethically inadequate                      │
-  │                                                                   │
-  │  Digital corrections: Original article updated with prominent  │
-  │   correction note at top; date and nature of correction listed │
+  │  Correction must appear at same prominence as the original error │
+  │  Front-page error → front-page correction (or close to it)       │
+  │  Lead story correction → at least top of A-section correction    │
+  │  "Buried correction": Correction on page B6 for front-page       │
+  │   error → considered ethically inadequate                        │
+  │                                                                  │
+  │  Digital corrections: Original article updated with prominent    │
+  │   correction note at top; date and nature of correction listed   │
   └──────────────────────────────────────────────────────────────────┘
 
   WHAT REQUIRES A FORMAL CORRECTION:
   ┌──────────────────────────────────────────────────────────────────┐
-  │  ERRORS OF FACT: Wrong name, wrong date, wrong number          │
-  │  ERRORS OF CONTEXT: Misleading omissions that change meaning   │
-  │  ERRORS OF ATTRIBUTION: Quote attributed to wrong person       │
-  │  PHOTO ERRORS: Wrong caption, misidentified person             │
+  │  ERRORS OF FACT: Wrong name, wrong date, wrong number            │
+  │  ERRORS OF CONTEXT: Misleading omissions that change meaning     │
+  │  ERRORS OF ATTRIBUTION: Quote attributed to wrong person         │
+  │  PHOTO ERRORS: Wrong caption, misidentified person               │
   └──────────────────────────────────────────────────────────────────┘
 
   WHAT REQUIRES CLARIFICATION (not full correction):
   ┌──────────────────────────────────────────────────────────────────┐
-  │  Story was accurate but unclear; could be read two ways        │
-  │  Additional context needed that doesn't change accuracy        │
+  │  Story was accurate but unclear; could be read two ways          │
+  │  Additional context needed that doesn't change accuracy          │
   └──────────────────────────────────────────────────────────────────┘
 
   WHAT DOES NOT REQUIRE CORRECTION:
@@ -192,22 +192,22 @@ CONFLICT OF INTEREST FRAMEWORK
 
   GIFTS AND FREEBIES:
   ┌──────────────────────────────────────────────────────────────────┐
-  │  SPJ standard: No gifts, favors, fees from sources              │
-  │  Common problem areas:                                          │
-  │  • Review copies of books/products (generally accepted)        │
-  │  • Press junkets paid by subject (reject or disclose)          │
-  │  • Meals paid by sources (modest OK; lavish → conflict)        │
-  │  • Free tickets to events covered (accept for coverage only;   │
-  │    pay for others, no personal use of comps)                   │
+  │  SPJ standard: No gifts, favors, fees from sources               │
+  │  Common problem areas:                                           │
+  │  • Review copies of books/products (generally accepted)          │
+  │  • Press junkets paid by subject (reject or disclose)            │
+  │  • Meals paid by sources (modest OK; lavish → conflict)          │
+  │  • Free tickets to events covered (accept for coverage only;     │
+  │    pay for others, no personal use of comps)                     │
   └──────────────────────────────────────────────────────────────────┘
 
   PERSONAL RELATIONSHIPS:
   ┌──────────────────────────────────────────────────────────────────┐
-  │  Family/friend connections to subjects → disclose + recuse     │
-  │  Romantic relationships with sources → serious conflict        │
-  │  Political activities by journalist → SPJ advises avoidance    │
-  │   of partisan activities that would compromise perceived       │
-  │   independence                                                  │
+  │  Family/friend connections to subjects → disclose + recuse       │
+  │  Romantic relationships with sources → serious conflict          │
+  │  Political activities by journalist → SPJ advises avoidance      │
+  │   of partisan activities that would compromise perceived         │
+  │   independence                                                   │
   └──────────────────────────────────────────────────────────────────┘
 
   SOURCE CAPTURE (structural):
@@ -229,27 +229,27 @@ ANONYMOUS SOURCE STANDARDS (expanded)
 
   NEW YORK TIMES POLICY (representative of major outlets):
   ┌──────────────────────────────────────────────────────────────────┐
-  │  Before granting anonymity, consider:                          │
-  │  ① Can the story be published without anonymous sources?       │
-  │  ② What is the source's motive for confidentiality?           │
-  │  ③ What is the source's reliability record?                    │
-  │  ④ Is the information vital enough to justify the grant?       │
-  │  ⑤ Will the source's identity be known to at least one        │
-  │     senior editor?                                              │
+  │  Before granting anonymity, consider:                            │
+  │  ① Can the story be published without anonymous sources?         │
+  │  ② What is the source's motive for confidentiality?              │
+  │  ③ What is the source's reliability record?                      │
+  │  ④ Is the information vital enough to justify the grant?         │
+  │  ⑤ Will the source's identity be known to at least one           │
+  │     senior editor?                                                │
   └──────────────────────────────────────────────────────────────────┘
 
   ANONYMOUS SOURCE LIMITATIONS:
   ┌──────────────────────────────────────────────────────────────────┐
-  │  Anonymous sources cannot make allegations of wrongdoing       │
-  │   against named individuals in most reputable outlet policies  │
-  │  Anonymous sources describing their own direct experience OK   │
-  │  Anonymous sources characterizing others' wrongdoing → need   │
-  │   corroboration (documents, named sources)                     │
-  │                                                                   │
-  │  PITFALLS:                                                      │
-  │  "Sources say" without characterization of what they know     │
-  │   → Can be a manipulation vehicle; source may be wrong or     │
-  │     lying; reader cannot evaluate credibility                  │
+  │  Anonymous sources cannot make allegations of wrongdoing         │
+  │   against named individuals in most reputable outlet policies    │
+  │  Anonymous sources describing their own direct experience OK     │
+  │  Anonymous sources characterizing others' wrongdoing → need      │
+  │   corroboration (documents, named sources)                       │
+  │                                                                  │
+  │  PITFALLS:                                                       │
+  │  "Sources say" without characterization of what they know        │
+  │   → Can be a manipulation vehicle; source may be wrong or        │
+  │     lying; reader cannot evaluate credibility                    │
   └──────────────────────────────────────────────────────────────────┘
 
   PRIOR REVIEW (what it covers):
@@ -272,30 +272,30 @@ OWNERSHIP INFLUENCE ON EDITORIAL INDEPENDENCE
 
   COMMERCIAL MEDIA:
   ┌──────────────────────────────────────────────────────────────────┐
-  │  Advertiser pressure:                                           │
-  │  Theory: Advertisers threaten to pull ads if covered negatively │
-  │  Reality: Direct threats rare at major outlets; more subtle:   │
-  │   publishers make investment decisions about investigative     │
-  │   capacity; beat priorities shift toward advertiser-friendly   │
-  │   topics                                                        │
-  │                                                                   │
-  │  Ownership influence:                                           │
-  │  Rupert Murdoch/News Corp: Wall Street Journal editorial page  │
-  │   widely seen as aligned with owner's views; news pages        │
-  │   operate with more independence                               │
-  │  Local newspaper chains: Staff cuts reduce investigative       │
-  │   capacity more than direct editorial control                  │
+  │  Advertiser pressure:                                            │
+  │  Theory: Advertisers threaten to pull ads if covered negatively  │
+  │  Reality: Direct threats rare at major outlets; more subtle:     │
+  │   publishers make investment decisions about investigative       │
+  │   capacity; beat priorities shift toward advertiser-friendly     │
+  │   topics                                                         │
+  │                                                                  │
+  │  Ownership influence:                                            │
+  │  Rupert Murdoch/News Corp: Wall Street Journal editorial page    │
+  │   widely seen as aligned with owner's views; news pages          │
+  │   operate with more independence                                 │
+  │  Local newspaper chains: Staff cuts reduce investigative         │
+  │   capacity more than direct editorial control                    │
   └──────────────────────────────────────────────────────────────────┘
 
   PUBLIC/NONPROFIT MEDIA:
   ┌──────────────────────────────────────────────────────────────────┐
-  │  BBC (UK): Government funds; editorial independence guaranteed  │
-  │   by Royal Charter; periodic pressure from government          │
-  │  NPR/PBS (US): Mix of public funding + donations + foundations │
-  │  ProPublica: Foundation-funded investigative nonprofit         │
-  │  Local news nonprofits: Foundation-funded, growing sector      │
-  │   Independence from commercial pressure; dependent on          │
-  │   foundation agendas (different risk of influence)            │
+  │  BBC (UK): Government funds; editorial independence guaranteed   │
+  │   by Royal Charter; periodic pressure from government            │
+  │  NPR/PBS (US): Mix of public funding + donations + foundations   │
+  │  ProPublica: Foundation-funded investigative nonprofit           │
+  │  Local news nonprofits: Foundation-funded, growing sector        │
+  │   Independence from commercial pressure; dependent on            │
+  │   foundation agendas (different risk of influence)               │
   └──────────────────────────────────────────────────────────────────┘
 ```
 
