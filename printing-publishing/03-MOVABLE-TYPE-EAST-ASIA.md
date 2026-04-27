@@ -95,19 +95,11 @@ THE REVOLVING TYPECASE (critical innovation):
 
   Problem: how do you find a specific character among 60,000?
 
-  Wang Zhen's solution: revolving circular tables
-
-         +----------+
-        /            \
-       /  Type cases  \
-      /  organized by  \
-     |  rhyme/phonetic  |
-     |  category        |   <- Compositor walks around
-     |                  |      rotating table to find
-      \                /       characters
-       \              /
-        \            /
-         +----------+
+  Wang Zhen's solution: revolving circular tables.
+    Type cases are arranged on a large round, rotating table.
+    Cases are organized by rhyme / phonetic category.
+    The compositor walks around the rotating table to find
+    each character, instead of searching the whole array.
 
   Two workers: one reads manuscript, one retrieves characters
   Characters sorted by "rime tables" (Chinese phonetic system)

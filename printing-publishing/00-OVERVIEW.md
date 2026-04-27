@@ -32,83 +32,58 @@ Each order-of-magnitude cost drop: new medium, new gatekeepers, new disruption
 
 ```
 RECORDING SUBSTRATE EVOLUTION
-+-----------------------------+    +-----------------------------+
-|  DURABLE, HEAVY             |    |  FLEXIBLE, PERISHABLE       |
-|  Clay tablets (cuneiform)   |    |  Papyrus scrolls            |
-|  Stone inscriptions         |    |  Palm leaves                |
-|  Mesopotamia ~3200 BCE      |    |  Egypt ~3000 BCE            |
-+-----------------------------+    +-----------------------------+
-              |                                  |
-              +------------------+---------------+
-                                 |
-              +------------------v---------------+
-              |         CODEX FORM FACTOR        |
-              |  Parchment/vellum folios          |
-              |  Rome ~1st c. CE                  |
-              |  Medieval manuscript culture      |
-              |  Monasteries as info hubs         |
-              +-----------------------------------+
-                    |               |
-        +-----------+               +-----------+
-        |                                       |
-+-------v--------+                   +----------v---------+
-|  PAPER WEST    |                   |  PAPER EAST        |
-|  Samarkand 793 |                   |  Cai Lun 105 CE    |
-|  Baghdad 793   |                   |  (recorded)        |
-|  Spain 1150    |                   |                    |
-|  Italy 1276    |                   |  BLOCK PRINTING    |
-|  Germany 1390  |                   |  China ~600 CE     |
-+----------------+                   +--------------------+
-        |                                       |
-        +-------------------+-------------------+
-                            |
-              +-------------v-----------+
-              |      MOVABLE TYPE       |
-     +--------+-------------------------+--------+
-     |                                           |
-+----v---------+                     +-----------v------+
-|  EAST ASIA   |                     |  GUTENBERG       |
-|  Bi Sheng    |                     |  ~1450 Mainz     |
-|  ~1040 CE    |                     |  oil ink, alloy  |
-|  ceramic,    |                     |  type, screw     |
-|  wood, bronze|                     |  press mechanic  |
-|  CJK char    |                     |  TRANSFORMS      |
-|  explosion   |                     |  EUROPE          |
-|  LIMITED     |                     |                  |
-|  ADOPTION    |                     +--+---+-------+---+
-+--------------+                        |   |       |
-                             +----------+   |    +--+--------+
-                             |              |    |           |
-                      +------v----+  +------v--+ | +--------v-+
-                      |INCUNABULA |  |REFORM-  | | |BOOK TRADE|
-                      |1455-1500  |  |ATION    | | |guilds -> |
-                      |~30,000    |  |1517     | | |publishers|
-                      |titles,    |  |Luther   | | |Statute   |
-                      |270 presses|  |pamphlet | | |of Anne   |
-                      |           |  |wars     | | |1710      |
-                      +-----------+  +---------+ | +----------+
-                                                 |
-                              +------------------v-----------+
-                              |       INDUSTRIAL ERA         |
-                              |  Steam press 1814 (Koenig)   |
-                              |  Rotary press 1843           |
-                              |  Linotype 1884 (Mergenthaler)|
-                              |  Penny press -> mass papers  |
-                              |  Offset lithography          |
-                              |  Phototypesetting            |
-                              +------------------+-----------+
-                                                 |
-                              +------------------v-----------+
-                              |        DIGITAL ERA           |
-                              |  Desktop publishing 1985     |
-                              |  PageMaker + PostScript +    |
-                              |  LaserWriter                 |
-                              |  PDF 1993                    |
-                              |  World Wide Web 1993         |
-                              |  Ebooks (Kindle 2007)        |
-                              |  Print-on-demand             |
-                              |  Open access disruption      |
-                              +------------------------------+
+
+  Durable, heavy:
+    Clay tablets (cuneiform).
+    Stone inscriptions.
+    Mesopotamia ~3200 BCE.
+
+  Flexible, perishable:
+    Papyrus scrolls.
+    Palm leaves.
+    Egypt ~3000 BCE.
+
+  Both feed into:
+
+  CODEX FORM FACTOR (~1st c. CE, Rome):
+    Parchment/vellum folios; medieval manuscript culture;
+    monasteries as info hubs.
+
+  Paper splits into two streams:
+    Paper West:   Samarkand 793, Baghdad 793, Spain 1150,
+                  Italy 1276, Germany 1390.
+    Paper East:   Cai Lun 105 CE (recorded);
+                  block printing in China ~600 CE.
+
+  Both streams feed into:
+
+  MOVABLE TYPE
+    East Asia (Bi Sheng ~1040 CE):
+      ceramic, wood, bronze type;
+      CJK character explosion → limited adoption.
+    Gutenberg (~1450 Mainz):
+      oil ink, alloy type, screw press mechanic;
+      TRANSFORMS Europe.
+
+  Gutenberg branch then leads to:
+    INCUNABULA (1455–1500): ~30,000 titles, 270 presses.
+    REFORMATION (1517): Luther, pamphlet wars.
+    BOOK TRADE: guilds → publishers; Statute of Anne 1710.
+
+  All converging into:
+
+  INDUSTRIAL ERA:
+    Steam press 1814 (Koenig); rotary press 1843;
+    Linotype 1884 (Mergenthaler);
+    penny press → mass papers; offset lithography; phototypesetting.
+
+  DIGITAL ERA:
+    Desktop publishing 1985 (PageMaker + PostScript + LaserWriter).
+    PDF 1993.
+    World Wide Web 1993.
+    Ebooks (Kindle 2007).
+    Print-on-demand.
+    Open access disruption.
 ```
 
 ---

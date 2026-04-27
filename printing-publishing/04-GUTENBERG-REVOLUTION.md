@@ -148,30 +148,17 @@ SKILL HIERARCHY:
 ```
 GUTENBERG PRESS OPERATION
 
-PRESS STRUCTURE:
-                   BEAM (overhead)
-                       |
-            +-----------v-----------+
-            |        SCREW          |
-            |     (wooden, later    |
-            |      iron)            |
-            +-----------+-----------+
-                        |
-                   +----v----+
-                   | PLATEN  |  (flat plate presses down)
-                   +---------+
-                       ^
-        +--------------+--------------+
-        |    TYPE FORME (CHASE)       |
-        |  [set type, inked, locked   |
-        |   in iron frame]            |
-        +-----------------------------+
-        |    TYMPAN/FRISKET           |
-        |  [paper holder, masking]    |
-        +-----------------------------+
-        |    COFFIN/BED               |
-        |  [slides in/out on rails]   |
-        +-----------------------------+
+PRESS STRUCTURE (top to bottom):
+
+  Overhead beam.
+
+  Screw (wooden, later iron).
+
+  Platen (flat plate that presses downward).
+
+  Type forme (chase): set type, inked, locked in an iron frame.
+  Tympan / frisket: paper holder, masking.
+  Coffin / bed: slides in and out on rails.
 
 PRINTING SEQUENCE:
   1. Ink type: inking balls (leather pads on sticks)

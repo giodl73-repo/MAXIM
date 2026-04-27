@@ -47,21 +47,14 @@ MECHANISM:
     Operator turns screw manually
 
   Koenig's cylinder press:
-    +---[STEAM ENGINE]---+
-    |                    |
-    |  CYLINDER (rotates)|
-    |  Paper wraps around|
-    |  cylinder          |
-    +--------------------+
-           |
-    +------v------+
-    |  TYPE FORME |  <- still flat, moves back/forth
-    |  (reciprocating bed)|
-    +--------------+
+  Layout: a STEAM ENGINE drives a rotating CYLINDER.
+    Paper wraps around the cylinder.
+    Below the cylinder, the TYPE FORME (still flat) sits on
+    a reciprocating bed that moves back and forth.
 
-  Type forme moves forward under rotating cylinder
-  Cylinder presses paper against type as it rotates
-  Forme returns as cylinder lifts slightly
+  Type forme moves forward under the rotating cylinder.
+  The cylinder presses paper against the type as it rotates.
+  The forme returns as the cylinder lifts slightly.
   Inking done by inking rollers on return stroke
   No manual inking required (rollers mechanized)
 

@@ -19,22 +19,17 @@ PRE-1985: Professional prepress workflow
   9 specialized roles -> 1 job with DTP
 
 1985 DESKTOP PUBLISHING REVOLUTION:
-  +------------------------+     +---------------------------+
-  |  Apple Macintosh 512K  |  +  |  Aldus PageMaker 1.0      |
-  |  (Sep 1984)            |     |  (July 1985)              |
-  +------------------------+     +---------------------------+
-  [Note: PageMaker required 512K minimum RAM; the original 128K Mac (Jan 1984)
-   could not run it. The Mac Plus (Jan 1986) became the more common DTP platform.]
-            +                               +
-  +------------------------+
-  |  Apple LaserWriter     |
-  |  (Jan 1985)            |
-  |  PostScript engine     |
-  +------------------------+
-            |
-            v
-  One person can do typesetting, layout, output
-  at ~1/10th the cost of professional prepress
+  Three pieces combined:
+    1. Apple Macintosh 512K (Sep 1984).
+    2. Aldus PageMaker 1.0 (July 1985).
+    3. Apple LaserWriter (Jan 1985) with PostScript engine.
+
+  Note: PageMaker required 512K minimum RAM. The original 128K Mac
+  (Jan 1984) could not run it. The Mac Plus (Jan 1986) became the
+  more common DTP platform.
+
+  Net effect: one person can do typesetting, layout, and output at
+  ~1/10th the cost of professional prepress.
 
 1993: PDF RELEASED
   Document portability across platforms

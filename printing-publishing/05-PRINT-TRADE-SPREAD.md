@@ -7,33 +7,34 @@ The printing press created an information industry in one generation. The 45 yea
 ```
 PRINT TRADE ECOSYSTEM (post-1455)
 
-RAW MATERIALS                   PRODUCTION                DISTRIBUTION
-+------------------+    +------------------------+    +------------------+
-| Paper mills      |    | PRINT SHOP             |    | Book fairs       |
-| (Germany, Italy) |    |                        |    | Frankfurt (1478) |
-| Type founders    |    | Master printer         |    | Lyon, Venice     |
-| (specialized)    |    | Compositors (setters)  |    |                  |
-| Ink suppliers    |    | Pressmen               |    | Retail colophons |
-+------------------+    | Correctors (editors)   |    | Traveling agents |
-                        | Rubricators (colorers) |    | Colporteurs      |
-                        +------------------------+    | (door-to-door)   |
-                                                      +------------------+
-                                |
-                    +-----------v-----------+
-                    | REGULATION / CONTROL  |
-                    | Church (Index 1559)   |
-                    | State licensing       |
-                    | Stationers' Company   |
-                    | (London, 1557)        |
-                    +-----------------------+
-                                |
-                    +-----------v-----------+
-                    |     READERS           |
-                    | Clergy (initially)    |
-                    | Universities          |
-                    | Merchants (growing)   |
-                    | Urban literate class  |
-                    +-----------------------+
+  RAW MATERIALS:
+    Paper mills (Germany, Italy).
+    Type founders (specialized).
+    Ink suppliers.
+
+  PRODUCTION — the PRINT SHOP:
+    Master printer.
+    Compositors (setters).
+    Pressmen.
+    Correctors (editors).
+    Rubricators (colorers).
+
+  DISTRIBUTION:
+    Book fairs: Frankfurt (1478), Lyon, Venice.
+    Retail colophons.
+    Traveling agents.
+    Colporteurs (door-to-door).
+
+  REGULATION / CONTROL:
+    Church: Index Librorum Prohibitorum (1559).
+    State licensing.
+    Stationers' Company (London, 1557).
+
+  READERS:
+    Clergy (initially).
+    Universities.
+    Merchants (growing).
+    Urban literate class.
 ```
 
 ---

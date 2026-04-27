@@ -152,14 +152,11 @@ LAID PAPER (traditional, pre-1750s)
   Mould screen: parallel wires (laid lines) spaced ~1mm
                 with widely spaced chain lines crossing them
 
-  Fiber deposition pattern:
-    +--+--+--+--+--+--+--+--+--+--+
-    |  |  |  |  |  |  |  |  |  |  | <- laid lines
-    |  |  |  |  |  |  |  |  |  |  |
-    +--+--+--+--+--+--+--+--+--+--+
-    |  |  |  |  |  |  |  |  |  |  |
-    +============================+   <- chain line (wider wire)
-    |  |  |  |  |  |  |  |  |  |  |
+  Fiber deposition pattern (schematic):
+    Closely spaced parallel laid lines (the wires of the mould),
+    crossed by widely spaced thicker chain lines (every ~25 mm).
+    The two wire systems leave a faint grid pattern visible
+    when the sheet is held to light.
 
   Result: parallel line texture visible when held to light
   Identification: holds paper to bright light -> see line pattern
