@@ -22,21 +22,11 @@ Current version: SysML 1.x (mature)
 
 SYSML DIAGRAM TAXONOMY
 ──────────────────────────────────────────────────────────────────
-                    ┌─────────────┐
-                    │   SysML     │
-                    │  Diagrams   │
-                    └──────┬──────┘
-           ┌───────────────┼───────────────┐
-           │               │               │
-    ┌──────▼──────┐  ┌──────▼──────┐ ┌────▼──────────┐
-    │  Behavior   │  │  Structure  │ │ Cross-Cutting │
-    │  Diagrams   │  │  Diagrams   │ │  Diagrams     │
-    └──────┬──────┘  └──────┬──────┘ └───────────────┘
-           │                │         Requirements (req)
-    ┌──────┤         ┌──────┤         Parametric (par)
-    │      │         │      │
-   act   seq       bdd    ibd
-   stm   uc        pkg
+  SysML diagrams partition into three families:
+
+  Behavior diagrams:   act, seq, stm, uc
+  Structure diagrams:  bdd, ibd, pkg
+  Cross-cutting:       req (requirements), par (parametric)
 ```
 
 ---
@@ -67,16 +57,8 @@ Shows: blocks (system elements), their properties, and relationships.
   │   transmission: Transmission [1]        │
   │   wheels: Wheel [4]                     │
   └─────────────────────────────────────────┘
-         │ composition             inheritance
-         ◆                              ◁
-    ┌────▼────┐                  ┌──────────────┐
-    │ Engine  │                  │  Vehicle     │
-    └─────────┘                  │  (general)   │
-                                  └──────────────┘
-                                        △
-                                  ┌─────┴──────┐
-                                  │  Car       │
-                                  └─────────────┘
+         |  composition (filled diamond) -> Engine
+         |  inheritance: Vehicle (general) -> Car (specialization)
 
 Composition ◆: part cannot exist without whole
 Aggregation ◇: part can exist independently
@@ -145,18 +127,16 @@ USE CASE DIAGRAM
 Same concept as UML use cases — actors and system interactions.
 
   uc [Package] MissionSystem [Mission Scenarios]
-  ┌─────────────────────────────────────────────────────┐
-  │                                                     │
-  │  ┌────────┐                                         │
-  │  │Operator├────► (Navigate to Target)               │
-  │  └────────┘      (Monitor System Health)            │
-  │                  (Communicate with HQ)              │
-  │  ┌────────┐                                         │
-  │  │  HQ   ├────► (Transmit Mission Orders)           │
-     │  └────────┘      (Receive Status Reports)        │
-     │                                                  │
-     │  Extend / Include relationships between use cases   │
-  └─────────────────────────────────────────────────────┘
+  Operator actor uses cases:
+    Navigate to target
+    Monitor system health
+    Communicate with HQ
+
+  HQ actor uses cases:
+    Transmit mission orders
+    Receive status reports
+
+  Extend / Include relationships connect related use cases.
 ```
 
 ### Activity Diagram (act) — Behavior / Process Flow
@@ -200,17 +180,11 @@ Shows time-ordered sequence of messages between system elements.
 Directly equivalent to UML sequence diagram.
 
   sd [Interaction] SensorDataFlow [GPS Update Cycle]
-  ┌────────────────────────────────────────────────────┐
-  │  :GPS      :NavProcessor    :FlightController      │
-  │  Sensor                                            │
-  │    │              │                   │            │
-  │    │──GPS frame──►│                   │            │
-  │    │              │──pos, vel, time──►│            │
-  │    │              │                   │─servo cmd──►│
-  │    │              │                   │            │
-  │    │ (every 1 Hz) │ (computed in <10ms)│           │
-  │                                                    │
-  └────────────────────────────────────────────────────┘
+  Lifelines: :GPSSensor, :NavProcessor, :FlightController.
+  Messages flow left to right:
+    GPSSensor   --(GPS frame)-->  NavProcessor       (every 1 Hz)
+    NavProcessor --(pos, vel, time)--> FlightController (computed in <10 ms)
+    FlightController internally issues servo commands.
 
 Combined fragments: loop, opt (optional), alt (conditional),
   par (parallel), break (exception exit)
@@ -227,30 +201,18 @@ Used for: lifecycle states, mode management, protocol modeling.
 
   stm [Block] Aircraft [Flight Mode States]
 
-          ┌─────────────┐
-       ●──► GROUND      │
-          │    (init,   │
-          │     check)  │
-          └──────┬──────┘
-                 │  takeoff clearance received / throttle up
-                 ▼
-          ┌─────────────┐   engine flame-out
-          │ CLIMB       ├─────────────────────────────────┐
-          └──────┬──────┘                                  │
-                 │ altitude reached                        │
-                 ▼                                        │
-          ┌─────────────┐                                  │
-          │ CRUISE      │                                  ▼
-          └──────┬──────┘                          ┌──────────────┐
-                 │ descent                         │  EMERGENCY   │
-                 ▼                                 └──────────────┘
-          ┌─────────────┐
-          │ APPROACH /  │
-          │ LANDING     │
-          └──────┬──────┘
-                 │ touchdown
-                 ▼
-               ● (terminal)
+  States and transitions:
+    GROUND (init, check)
+      -- takeoff clearance received / throttle up -->
+    CLIMB
+      -- altitude reached -->
+    CRUISE
+      -- descent -->
+    APPROACH / LANDING
+      -- touchdown -->
+    terminal.
+
+  Engine flame-out at any time -> EMERGENCY.
 
 Entry/exit actions on states
 Guard conditions [in brackets] on transitions
@@ -300,20 +262,10 @@ Used to capture performance models, equations, analyses.
 
   par [Block] VehicleDynamics [Range Equation]
   ┌─────────────────────────────────────────────────────────────┐
-  │  {Breguet Range Equation}                                   │
-  │                                                             │
-  │  ┌──────────┐  L/D  ┌────────────────┐   W0  ┌─────────┐    │
-  │  │L/D ratio ├──────►│ Range:         │◄──────│Initial  │  │
-  │  └──────────┘       │ R = (V/SFC)×   │       │weight W0│  │
-  │                     │  (L/D)×ln(W0/W1│       └─────────┘  │
-  │  ┌──────────┐  SFC  │                │   W1  ┌─────────┐  │
-  │  │SFC       ├──────►│                │◄──────│Final    │  │
-  │  └──────────┘       └───────┬────────┘       │weight W1│  │
-  │                              │ R              └─────────┘  │
-  │                     ┌────────▼────────┐                    │
-  │                     │  Range R: nmi   │                    │
-  │                     └─────────────────┘                    │
-  └─────────────────────────────────────────────────────────────┘
+  Breguet range equation links inputs to range R:
+    Inputs: L/D ratio, SFC, initial weight W0, final weight W1.
+    Equation: R = (V/SFC) * (L/D) * ln(W0/W1).
+    Output: range R in nautical miles.
 
 Connects value properties via constraint blocks
 Enables parametric analysis within the model

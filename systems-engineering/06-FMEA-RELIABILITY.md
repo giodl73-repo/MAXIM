@@ -198,28 +198,11 @@ TRANSFER:          △  (triangle)     Continuation on another page
 ```
 EXAMPLE: Aircraft Fuel System FTA
 ──────────────────────────────────────────────────────────────────
-          ┌──────────────────────────────────┐
-          │ TOP: Engine loses fuel supply    │
-          └──────────────┬───────────────────┘
-                         │
-                    ┌────┴────┐
-                    │   OR    │
-                    └────┬────┘
-          ┌──────────────┼──────────────┐
-          │              │              │
-    ┌─────▼─────┐  ┌─────▼─────┐ ┌─────▼──────────┐
-    │Pump A     │  │Pump A AND │ │Fuel line        │
-    │ fails     │  │Pump B fail│ │blockage         │
-    └───────────┘  └─────┬─────┘ └────────────────┘
-    P(pump_A_fail)       │
-         = λt      ┌────┴────┐
-                   │   AND   │
-                   └────┬────┘
-              ┌─────────┴──────────┐
-         ┌────▼────┐          ┌────▼────┐
-         │Pump A   │          │Pump B   │
-         │ fails   │          │ fails   │
-         └─────────┘          └─────────┘
+  TOP event: Engine loses fuel supply.
+  This is an OR of three sub-events:
+    (a) Pump A fails              (P = lambda * t)
+    (b) Pump A AND Pump B fail    (AND gate over independent failures)
+    (c) Fuel line blockage
 
 With AND gate and independent failures:
   P(both pumps fail) = P(A) × P(B) = λ²t²

@@ -13,20 +13,14 @@ Simple product:    One discipline → design → build → done
 Complex system:    Multiple disciplines, emergent behaviors,
                    interfaces between subsystems, long lifecycle.
 
-  ┌───────────────────────────────────────────────────────────────┐
-  │                 Aircraft example                               │
-  │  ┌───────────┐ ┌──────────┐ ┌──────────┐ ┌──────────────┐   │
-  │  │Structures │ │Avionics  │ │Propulsion│ │Flight Control│   │
-  │  └─────┬─────┘ └────┬─────┘ └─────┬────┘ └──────┬───────┘   │
-  │        │            │             │              │            │
-  │        └────────────┴─────────────┴──────────────┘           │
-  │                              │                                │
-  │                     INTERFACES                                │
-  │             (where failures actually happen)                  │
-  │        avionics weight → structural load budget               │
-  │        fuel system → propulsion + structures                  │
-  │        EMP → electronics → flight control stability           │
-  └───────────────────────────────────────────────────────────────┘
+  Aircraft example: four discipline subsystems plus their interfaces.
+
+  Subsystems:  Structures | Avionics | Propulsion | Flight Control
+
+  INTERFACES (where failures actually happen):
+    avionics weight   -> structural load budget
+    fuel system       -> propulsion + structures
+    EMP -> electronics -> flight control stability
 
   SE manages the interfaces that no single discipline owns.
 ```
@@ -41,7 +35,7 @@ Complex system:    Multiple disciplines, emergent behaviors,
 SYSTEMS ENGINEERING KNOWLEDGE AREAS (INCOSE Systems Engineering Handbook)
 ──────────────────────────────────────────────────────────────────
 ┌─────────────────────────────────────────────────────────────────┐
-│  PROCESS                                                         │
+│  PROCESS                                                        │
 │  Lifecycle models (waterfall, vee, spiral, agile hybrid)        │
 │  Technical processes (requirements, architecture, design, V&V)  │
 │  Project processes (planning, risk, configuration management)   │
@@ -54,11 +48,11 @@ SYSTEMS ENGINEERING KNOWLEDGE AREAS (INCOSE Systems Engineering Handbook)
 │  Interface management (ICD, ICDs, IMS)                         │
 │  Verification and validation (V&V) planning                     │
 ├─────────────────────────────────────────────────────────────────┤
-│  TOOLS                                                           │
-│  MBSE (Model-Based SE) — SysML, Cameo, Rhapsody                 │
-│  Simulation — MATLAB/Simulink, AMESim                           │
-│  Requirements management — DOORS, Jama, Polarion               │
-│  PLM — Windchill, Teamcenter, Enovia                            │
+│  TOOLS                                                          │
+│  MBSE (Model-Based SE) -- SysML, Cameo, Rhapsody                │
+│  Simulation -- MATLAB/Simulink, AMESim                          │
+│  Requirements management -- DOORS, Jama, Polarion               │
+│  PLM -- Windchill, Teamcenter, Enovia                           │
 │  SE-specific: SEAM, Vitech CORE, IBM Rational                   │
 └─────────────────────────────────────────────────────────────────┘
 ```

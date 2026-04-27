@@ -26,7 +26,7 @@ MODEL-BASED SE (MBSE)
                     │       SYSTEM MODEL           │
                     │                              │
                     │  Requirements + Architecture │
-                    │  + Behavior + ICDs + Analyses  │
+                    │  + Behavior + ICDs + Analyses│
                     │  All in one consistent model │
                     └──────────────────────────────┘
                          │           │           │
@@ -223,7 +223,7 @@ No data islands. No manual re-entry.
 │Customer │    │ System   │    │  CAD /  │    │ MES / Test  │
 │ Need    │───►│  Model   │───►│  CAM    │───►│ Results     │
 │ (CRM)   │    │ (MBSE)   │    │  (PLM)  │    │ (MES/QMS)   │
-└─────────┘    └──────────┘    └─────────┘    └──────────────┘
+└─────────┘    └──────────┘    └─────────┘    └─────────────┘
          single data model, bidirectional traceability
 
 DIGITAL TWIN (in SE context):
