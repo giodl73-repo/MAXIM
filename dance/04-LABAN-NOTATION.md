@@ -175,18 +175,18 @@ LMA provides a vocabulary for describing HOW movement happens -- its qualities, 
 ### The Four Components: BESS
 
 ```
-+----------------------------------------------------------+
-|                    LMA FRAMEWORK                         |
-|                                                          |
-|  BODY              EFFORT              SPACE              SHAPE  |
-|  (What moves)      (How it feels)      (Where it goes)    (Form) |
-|                                                          |
-|  Body organization  Motion factors:    Spatial intent:    Shape  |
-|  Body part          Weight            Near reach space    modes: |
-|  relationships      Space             Kinesphere         Modes of |
-|  Connectivity       Time              Directions         shape    |
-|  patterns           Flow              Diagonals          change   |
-+----------------------------------------------------------+
++------------------------------------------------------------------+
+|                          LMA FRAMEWORK                           |
+|                                                                  |
+|  BODY              EFFORT              SPACE             SHAPE   |
+|  (What moves)      (How it feels)      (Where it goes)   (Form)  |
+|                                                                  |
+|  Body organization  Motion factors:    Spatial intent:   Shape   |
+|  Body part          Weight             Near reach        modes:  |
+|  relationships      Space              Kinesphere        Modes   |
+|  Connectivity       Time               Directions        of      |
+|  patterns           Flow               Diagonals         change  |
++------------------------------------------------------------------+
 ```
 
 ### BODY: Organization and Connectivity

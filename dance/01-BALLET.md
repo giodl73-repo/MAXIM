@@ -307,14 +307,14 @@ Pointe shoes are not magic -- they are a narrow wooden or thermoplastic "box" pa
 ```
 POINTE SHOE ANATOMY
 
-  +-----------+
-  |  RIBBON   |  (stabilizes ankle, 2m of satin ribbon)
-  +-----------+
-  |  SHANK    |  (stiff insole; supports arch; stiffness grade 1-4)
-  +-----------+
-  |  BOX      |  (hardened toe cap; built from layers of paper/canvas/glue)
-  |    []     |  (modern: thermoplastic or Kevlar for pro shoes)
-  +-----------+
+  +-----------+----------------------------------------------+
+  |  RIBBON   |  stabilizes ankle, 2m of satin ribbon        |
+  +-----------+----------------------------------------------+
+  |  SHANK    |  stiff insole; supports arch; grade 1-4      |
+  +-----------+----------------------------------------------+
+  |  BOX      |  hardened toe cap; paper/canvas/glue layers  |
+  |    []     |  modern: thermoplastic or Kevlar (pro shoes) |
+  +-----------+----------------------------------------------+
 
 FORCES ON POINTE:
   Body weight: 50-80 kg

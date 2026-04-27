@@ -17,7 +17,7 @@ Choreographic structure is the syntax of dance -- how movement phrases are organ
 |  movement       unit         (4-32 counts) (topic)     (20min+)   |
 |                                                                   |
 |  ANALOGY TO CODE:                                                 |
-|  Expression  -->  Variable  -->  Statement  -->  Function  --> Program |
+|  Expression  --> Variable --> Statement --> Function --> Program  |
 +-------------------------------------------------------------------+
 
 COMPOSITIONAL OPERATIONS on movement material:
