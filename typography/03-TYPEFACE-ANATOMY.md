@@ -9,17 +9,16 @@ COMPLETE ANATOMICAL DIAGRAM
 ────────────────────────────────────────────────────────────────────────────────
 
                               ╔══ ASCENDER LINE
-     ┌───┐                ╔══╧══════════════════════
-     │   │                ║
-     │   │   ┌──┐  ┌──┐  ║         ╔══ MEAN LINE / X-HEIGHT LINE
-  ┌──┴───┘   │  │  │  │  ╚════════╧════════════════
-  │          │  ▼  │  ▼           ┌─────┐
-  │    b     │ bowl│ counter      │     │  ← BODY / BODY WIDTH (set width)
-  │          └──┘  └──┘  d        └─────┘
-  └───────────────────────────────────── BASELINE
-           │          │
-           │          ╚══ DESCENDER LINE
-           ╚═════════════════════════════
+  Vertical metrics (top to bottom):
+    ASCENDER LINE -- top of "b", "h", "k", "l", "f".
+    CAP HEIGHT    -- top of capitals.
+    MEAN LINE / X-HEIGHT LINE -- top of "x", "n", "o".
+    BASELINE      -- where letters sit.
+    DESCENDER LINE -- bottom of "g", "p", "y", "j".
+
+  Letterform parts:
+    Bowl, counter (in "b" and "d").
+    Body / body width (the set width of the type slug).
 
   More complete example with labeled parts:
 

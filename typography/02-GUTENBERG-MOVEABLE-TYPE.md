@@ -117,11 +117,14 @@ THE FIVE GUTENBERG INNOVATIONS
 2. THE ADJUSTABLE HAND MOLD (type casting)
    ──────────────────────────────────────────
                      ┌──────────┐
-                     │   TYPE   │  ← cast body
+                     │   TYPE   │
                      │  BODY    │
-   adjustable ──→   │  ███ ███ │  ← type face (the printing surface)
-   width             │          │
+                     │  ### ### │
+                     │          │
                      └──────────┘
+   The cast body is the column of metal; the printing surface
+   (the "type face") sits on top. The mold's adjustable width
+   controls how wide each cast body is.
 
    The mold has two L-shaped parts that slide to adjust width:
    - Narrow setting: casts 'i', 'l', 'r', 'f'

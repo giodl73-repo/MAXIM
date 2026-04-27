@@ -90,23 +90,23 @@ Hand kerning pairs             Visually perfect
 TYPE CLASSIFICATION TREE
 ────────────────────────────────────────────────────────────────────────────
 
-                        ALL TYPEFACES
-                             │
-              ┌──────────────┼──────────────┐
-              │              │              │
-           SERIF          SANS SERIF      OTHER
-              │              │              │
-    ┌─────────┼────────┐   ┌─┼──────────┐  ├── SLAB SERIF
-    │         │        │   │ │          │  ├── SCRIPT/CURSIVE
-Humanist  Transitional Didone │    │     │  ├── DISPLAY
-(Venetian) (Baskerville) (Bodoni)│    │     │  └── MONOSPACE
-(Garamond) (Times New  (Didot) │    │     │
-           Roman)         │    │     │
-                    Grotesque  Humanist  Geometric
-                    (Akzidenz- (Gill     (Futura,
-                    Grotesk,   Sans,     Avant Garde)
-                    Helvetica) Frutiger,
-                               Calibri)
+  ALL TYPEFACES split into three trunks:
+
+  SERIF:
+    Humanist (Venetian; Garamond)
+    Transitional (Baskerville; Times New Roman)
+    Didone (Bodoni; Didot)
+
+  SANS SERIF:
+    Grotesque (Akzidenz-Grotesk, Helvetica)
+    Humanist (Gill Sans, Frutiger, Calibri)
+    Geometric (Futura, Avant Garde)
+
+  OTHER:
+    Slab serif
+    Script / cursive
+    Display
+    Monospace
 
 ────────────────────────────────────────────────────────────────────────────
 ```

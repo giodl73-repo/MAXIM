@@ -457,8 +457,9 @@ GRAYSCALE ANTI-ALIASING:
 SUBPIXEL RENDERING (ClearType):
   LCD screen physical structure:
   ┌───┬───┬───┬───┬───┬───┬───┬───┐
-  │ R │ G │ B │ R │ G │ B │ R │ G │  (each pixel = 3 subpixels)
+  │ R │ G │ B │ R │ G │ B │ R │ G │
   └───┴───┴───┴───┴───┴───┴───┴───┘
+  (each pixel is three subpixels in R, G, B order)
 
   At 96 dpi: pixel pitch = 0.264mm; subpixel pitch = 0.088mm
   Horizontally: 3× resolution available by addressing R, G, B separately
