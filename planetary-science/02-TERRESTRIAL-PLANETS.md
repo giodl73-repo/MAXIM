@@ -48,15 +48,19 @@ INTERNAL STRUCTURE COMPARISON
   MERCURY              EARTH                MARS
   -------              -----                ----
   +--------+           +--------+           +--------+
-  | Crust  | ~100 km   | Crust  | 5-70 km   | Crust  | 30-60 km
+  | Crust  |           | Crust  |           | Crust  |
+  | ~100km |           | 5-70km |           | 30-60km|
   +--------+           +--------+           +--------+
-  | Mantle | thin      | Mantle | 2890 km   | Mantle | ~1800 km
+  | Mantle |           | Mantle |           | Mantle |
+  | thin   |           | 2890km |           | ~1800km|
   +--------+           +--------+           +--------+
-  |  Core  | HUGE      |  Core  | 3480 km r |  Core  | ~1800 km r
+  |  Core  |           |  Core  |           |  Core  |
+  |  HUGE  |           | 3480km |           | ~1800km|
   +--------+           | liquid |           | liquid?|
                        | outer  |           +--------+
                        | solid  |
                        | inner  |
+                       +--------+
 
 Mercury: largest core fraction (~85% by radius) — why?
   Early giant impact stripped much of the original mantle

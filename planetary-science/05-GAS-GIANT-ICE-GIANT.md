@@ -35,19 +35,17 @@ The four outer planets dominate the solar system's mass and angular momentum. Th
 JUPITER INTERIOR
 ================
 
-  +---------------------------+
-  | Atmosphere                |  H₂, He, CH₄, NH₃, H₂O clouds
-  | (top 1000 km)             |  Zone/belt structure; winds ±150 m/s
-  +---------------------------+
-  | Molecular H₂              |  ~10,000 km deep; liquid hydrogen
-  | (hydrogen layer)          |  Transitions gradually
-  +---------------------------+
-  | Metallic Hydrogen         |  >1 Mbar pressure → H becomes conductor
-  | (electron sea)            |  Depth: ~10,000-50,000 km
-  +---------------------------+  Source of Jupiter's massive B field
-  | Inner core               |  Rock + ice; ~10-20 M_Earth
-  | (dilute or compact)       |  Core may be "dilute" — dissolved
-  +---------------------------+  (Juno gravity data 2021)
+  +---------------------------+--------------------------------------------+
+  | Atmosphere (top 1000 km)  | H₂, He, CH₄, NH₃, H₂O clouds; zone/belts   |
+  +---------------------------+--------------------------------------------+
+  | Molecular H₂ layer        | ~10,000 km deep; liquid; transitions       |
+  +---------------------------+--------------------------------------------+
+  | Metallic Hydrogen         | >1 Mbar; H is conductor; ~10-50,000 km     |
+  | (electron sea)            | Source of Jupiter's massive B field        |
+  +---------------------------+--------------------------------------------+
+  | Inner core (dilute or     | Rock + ice; ~10-20 M_Earth; may be dilute  |
+  | compact)                  | (Juno gravity data 2021)                   |
+  +---------------------------+--------------------------------------------+
 
   TOTAL RADIUS: 71,492 km
   CENTRAL PRESSURE: ~40-70 Mbar
@@ -165,14 +163,14 @@ GAS GIANT vs ICE GIANT INTERIOR MODELS
   GAS GIANT (Jupiter/Saturn)     ICE GIANT (Uranus/Neptune)
   --------------------------     --------------------------
   +------------------+           +------------------+
-  | H/He atmosphere  |           | H/He atmosphere  | thin
+  | H/He atmosphere  |           | H/He atm (thin)  |
   +------------------+           +------------------+
-  | Molecular H      |           | "Icy" mantle     | H₂O+CH₄+NH₃
-  +------------------+           | (hot dense fluid)|
-  | Metallic H       |           +------------------+
-  +------------------+           | Rock/ice core    |
-  | Rock core (small)|           +------------------+
-  +------------------+
+  | Molecular H      |           | Icy mantle:      |
+  +------------------+           | H₂O + CH₄ + NH₃  |
+  | Metallic H       |           | (hot dense fluid)|
+  +------------------+           +------------------+
+  | Rock core (small)|           | Rock/ice core    |
+  +------------------+           +------------------+
 
   "Ice" in "ice giant" refers to bulk composition (water, methane,
   ammonia ices) — not temperature state. The interior is a hot,
