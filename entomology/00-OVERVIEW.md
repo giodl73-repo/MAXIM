@@ -6,7 +6,7 @@ Insects are the dominant animals on Earth by every metric that matters: species 
 
 ```
 +------------------------------------------------------------------+
-|                    ARTHROPOD TREE OF LIFE                         |
+|                    ARTHROPOD TREE OF LIFE                        |
 |                                                                  |
 |   ARTHROPODA (segmented exoskeleton + jointed legs)              |
 |   ├── CHELICERATA  (no antennae, chelicerae)                     |
@@ -204,19 +204,19 @@ Every number above is a lower bound. The collector counts, and the count is neve
 INSECT ECOSYSTEM FUNCTIONS
 +----------------------------------------------------------+
 | POLLINATION     | ~75% of flowering plants               |
-| PRIMARY SERVICE | Hymenoptera, Diptera, Lepidoptera       |
+| PRIMARY SERVICE | Hymenoptera, Diptera, Lepidoptera      |
 +----------------------------------------------------------+
 | DECOMPOSITION   | Nutrient cycling, soil formation        |
 |                 | Coleoptera, Diptera larvae              |
 +----------------------------------------------------------+
 | PREDATION       | Top-down population regulation         |
-| & PARASITISM    | Odonata, Mantodea, Hymenoptera          |
+| & PARASITISM    | Odonata, Mantodea, Hymenoptera         |
 +----------------------------------------------------------+
 | HERBIVORY       | Primary consumer biomass transfer       |
 |                 | ~40% of insect species phytophagous     |
 +----------------------------------------------------------+
-| FOOD WEB BASE   | ~60% of bird diet (breeding season)     |
-|                 | Most freshwater fish, amphibians        |
+| FOOD WEB BASE   | ~60% of bird diet (breeding season)    |
+|                 | Most freshwater fish, amphibians       |
 +----------------------------------------------------------+
 | SOIL ENGINEERNG | Termites, ants: aeration, mixing        |
 |                 | Nutrient redistribution                 |

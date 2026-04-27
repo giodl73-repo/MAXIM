@@ -8,22 +8,13 @@ Economic entomology is applied insect ecology: quantifying when insect populatio
 ECONOMIC ENTOMOLOGY FRAMEWORK
 ================================
 
-                    PEST POPULATION
-                         |
-            +------------+------------+
-            |                         |
-    Below threshold             Above threshold
-            |                         |
-    No intervention          INTERVENTION OPTIONS:
-                             +---------+-----------+
-                             |         |           |
-                         Cultural  Biological  Chemical
-                         control   control     control
-                             |         |           |
-                             +----+----+           |
-                                  |                |
-                             INTEGRATED PEST MANAGEMENT
-                             (IPM: combine intelligently)
+  PEST POPULATION
+    -> Below threshold: no intervention
+    -> Above threshold: choose intervention option
+         - Cultural control
+         - Biological control
+         - Chemical control
+       Combine intelligently => INTEGRATED PEST MANAGEMENT (IPM)
 
 ECONOMIC THRESHOLDS:
   EIL = Economic Injury Level: density at which crop loss = cost of control
@@ -273,7 +264,7 @@ IPM DECISION FRAMEWORK
 
 4. CONTROL SELECTION MATRIX
    +------------------+----------+----------+---------+---------+
-   | Control method   | Speed    | Specificity| Cost  | Risk    |
+   | Control method   | Speed    | Specif.  | Cost    | Risk    |
    +------------------+----------+----------+---------+---------+
    | Chemical (broad) | Fast     | Low      | Low     | High    |
    | Chemical (select)| Fast     | Moderate | Medium  | Medium  |

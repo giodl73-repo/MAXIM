@@ -169,10 +169,13 @@ INSECT NERVOUS SYSTEM
 
   BRAIN (supraesophageal ganglion)
   +------------------------+
-  | Protocerebrum          |  Compound eyes, mushroom bodies
-  | Deutocerebrum          |  Antennal lobes
-  | Tritocerebrum          |  Mouthparts, stomatogastric
+  | Protocerebrum          |
+  | Deutocerebrum          |
+  | Tritocerebrum          |
   +------------------------+
+   Protocerebrum: compound eyes, mushroom bodies
+   Deutocerebrum: antennal lobes
+   Tritocerebrum: mouthparts, stomatogastric
            |
   SUBESOPHAGEAL GANGLION (mouthparts, salivary glands)
            |
