@@ -11,7 +11,7 @@ Semantics is the study of linguistic meaning — what words and sentences mean, 
 |  TRUTH-CONDITIONAL          COMPOSITIONAL                         |
 |  SEMANTICS                  SEMANTICS                             |
 |  (Frege, Tarski,            (how word meanings                    |
-|   Montague)                  combine — Frege's               |
+|   Montague)                  combine — Frege's principle)        |
 |  Meaning = intension         principle: meaning of                |
 |  + extension                 whole from parts)                    |
 |                                                                   |

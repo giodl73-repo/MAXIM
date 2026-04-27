@@ -23,9 +23,8 @@ HABITAT   HUNTING   INVASIVE  CLIMATE   POLLUTION
 LOSS     (bushmeat) SPECIES   CHANGE   (pesticides)
    |          |          |          |          |
    +----------+----------+----------+----------+
-                         |
-                         v
-             RESPONSE FRAMEWORK
+
+   leads into RESPONSE FRAMEWORK:
    +-----------+----------+-----------+----------+
    |           |          |           |          |
 PROTECTED  EX SITU   REWILDING  LANDSCAPE  POLICY

@@ -156,9 +156,10 @@ ADAPTIVE IMMUNITY: LEARNED, SPECIFIC, REMEMBERED
   │ A │  │ B │  │ C │ ◄───X         │ D │  │ E │  │ F │
   └───┘  └───┘  └───┘               └───┘  └───┘  └───┘
                   ↓ CLONAL EXPANSION
-           ┌───┐ ┌───┐ ┌───┐ ┌───┐ ┌───┐ (1,000s of copies)
+           ┌───┐ ┌───┐ ┌───┐ ┌───┐ ┌───┐
            │ C │ │ C │ │ C │ │ C │ │ C │
            └───┘ └───┘ └───┘ └───┘ └───┘
+           (1,000s of copies)
            All identical clones — same receptor
            All become effector cells (fight infection)
            Some become memory cells

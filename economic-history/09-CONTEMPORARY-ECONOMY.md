@@ -464,13 +464,19 @@ SECURITIZATION: MBS (MORTGAGE-BACKED SECURITY)
   Pools them into a trust
   Issues securities backed by the pool's cash flows
   Tranches:
-  +------------------+  Senior tranche: AAA rated
-  |  SENIOR (70%)    |  First claim on cash flows; last to absorb losses
-  +------------------+  Yield: Treasury + 0.5%
-  |  MEZZANINE (20%) |  BBB-AA; higher yield; more loss exposure
   +------------------+
-  |  EQUITY (10%)    |  "First loss" piece; no rating; very high yield
-  +------------------+  Or held by originator as "skin in game"
+  |  SENIOR (70%)    |
+  +------------------+
+  |  MEZZANINE (20%) |
+  +------------------+
+  |  EQUITY (10%)    |
+  +------------------+
+
+  SENIOR    — AAA rated; first claim on cash flows; last to absorb losses;
+              yield: Treasury + 0.5%
+  MEZZANINE — BBB-AA; higher yield; more loss exposure
+  EQUITY    — "First loss" piece; no rating; very high yield;
+              or held by originator as "skin in game"
 
   TRANCHING LOGIC:
   Pool of 1,000 mortgages; if 5% default:

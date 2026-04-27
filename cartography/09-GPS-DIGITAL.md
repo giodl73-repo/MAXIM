@@ -119,7 +119,7 @@ GPS POSITIONING — STEP BY STEP
   │  Two spheres intersect in a circle                     │
   │  From satellite S3: receiver is at one of two points   │
   │  (one is usually in space — eliminated)                │
-  │  3 satellites → unique position (in 2D, or 3D if alt known)│
+  │  3 satellites → position (2D, or 3D if alt known)      │
   │                                                        │
   │  BUT: receiver clock error → need a 4th satellite      │
   │  4th satellite provides the equation needed to solve   │

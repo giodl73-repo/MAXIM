@@ -9,18 +9,14 @@ WOOD STAIN TAXONOMY — FULL LANDSCAPE
 ======================================
 
                          WOOD STAIN
-                             │
-          ┌──────────────────┴──────────────────┐
-          │                                     │
+                splits into two main types:
+
     PENETRATING                           FILM-FORMING
     (no surface film)                    (builds surface layer)
-          │                                     │
-    ┌─────┴─────┐                     ┌─────────┴─────────┐
-    │           │                     │                   │
- Interior   Exterior               THIN FILM           SOLID COLOR
- (oil/water  (oil-based;           Semi-transparent    (hides grain;
-  based)      fence/log)           (deck stains,       more like paint)
-                                    siding stains)
+
+      Interior or Exterior                 THIN FILM      or  SOLID COLOR
+      (oil/water based,                    Semi-transparent  (hides grain,
+       oil-based fence/log)                deck/siding        more like paint)
           │
   COLORANT TYPE (applies to both penetrating and film-forming)
   ─────────────────────────────────────────────────────────────

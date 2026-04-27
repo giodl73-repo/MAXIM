@@ -29,12 +29,15 @@ THE GEOTECHNICAL PROBLEM
 
 ```
        ┌─────┐
-       │  A  │  Air (volume V_a)
+       │  A  │
        │─────│
-       │  W  │  Water (volume V_w, mass M_w)
+       │  W  │
        │─────│
-       │  S  │  Solids (volume V_s, mass M_s)
+       │  S  │
        └─────┘
+       A = Air     (volume V_a)
+       W = Water   (volume V_w, mass M_w)
+       S = Solids  (volume V_s, mass M_s)
 
 Total volume: V = V_s + V_v   where V_v = V_a + V_w (void volume)
 Total mass:   M = M_s + M_w   (air mass neglected)

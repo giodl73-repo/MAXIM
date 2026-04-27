@@ -7,10 +7,10 @@ THERMAL & OPTICAL PROPERTIES LANDSCAPE
 ═══════════════════════════════════════════════════════════════════════════════
 
   ATOMIC CARRIERS
-  ┌─────────────────────┐    ┌────────────────────────┐
-  │  PHONONS             │    │  ELECTRONS            │
-  │  (lattice vibrations)│    │  (electronic excitations)│
-  └────────┬──────┬──────┘    └──────┬──────┬───────────┘
+  ┌─────────────────────┐    ┌──────────────────────────┐
+  │ PHONONS             │    │ ELECTRONS                │
+  │ (lattice vibrations)│    │ (electronic excitations) │
+  └────────┬──────┬─────┘    └──────┬──────┬────────────┘
            │      │                  │      │
     ┌──────▼──┐ ┌─▼──────────┐ ┌────▼───┐ ┌▼─────────────┐
     │ THERMAL │ │ IR PHONON   │ │THERMAL │ │ OPTICAL     │

@@ -46,9 +46,10 @@ STAGE CONFIGURATIONS
 PROSCENIUM (picture frame):
   +---------------------------+
   |   STAGE (performance)     |
-  +=============================+  <- proscenium arch
-  |         AUDIENCE           |
+  +===========================+
+  |         AUDIENCE          |
   +---------------------------+
+  (= = proscenium arch)
   Audience: ONE direction only
   Stage: behind the arch, like a picture
   Strengths: rich illusionistic scenic design; clear sightlines

@@ -206,7 +206,7 @@ Runes were the Germanic alphabet used for writing AND for magic. The Elder Futha
 │  ᚾ   │ Nauthiz│ N        │ Need, constraint, resistance, endurance│
 │  ᛁ   │ Isaz  │ I         │ Ice, stillness, clarity, blockage    │
 │  ᛃ   │ Jera  │ J/Y       │ Year, harvest, cyclical time, reward │
-│  ᛇ   │ Eihwaz│ Ei        │ Yew tree (Yggdrasil?), endurance, death-life│
+│  ᛇ   │ Eihwaz│ Ei        │ Yew tree, endurance, death-life      │
 │  ᛈ   │ Perthro│ P        │ Fate/lot-cup, mystery, chance        │
 │  ᛉ   │ Algiz │ Z/R       │ Elk-sedge, protection, defense       │
 │  ᛊ   │ Sowilo│ S         │ Sun, success, life force, victory    │

@@ -248,18 +248,13 @@ Gene duplication provides raw material for functional innovation without destroy
 existing function.
 
 ```
-  Duplication event
-         │
-         ├──────────────────────────────────────────────┐
-         │                                              │
-  Copy 1 (original function)                   Copy 2 (free to evolve)
-         │                                              │
-         │                                    ┌──────────┴──────────┐
-         │                               Neofunctionalization   Pseudogenization
-         │                               (new function)         (neutral evolution,
-         │                                                        nonfunctional)
-         │
-  Subfunctionalization: both copies retain partial ancestral functions
+  Duplication event splits into two copies:
+
+  Copy 1 (retains original function)
+  Copy 2 (free to evolve) — fates:
+      Neofunctionalization   — gains a new function
+      Pseudogenization       — neutral evolution, becomes nonfunctional
+  Subfunctionalization        — both copies retain partial ancestral functions
   (division of labor between paralogs)
 ```
 

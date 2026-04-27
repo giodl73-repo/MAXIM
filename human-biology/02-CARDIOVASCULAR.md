@@ -128,7 +128,7 @@ DIASTOLE (filling):
   ┌─────────────────────────────────────────────────────┐
   │  Isovolumetric relaxation: AV + semilunar valves    │
   │  both closed, pressure falls rapidly                │
-  │  → Mitral/tricuspid open when ventricular P < atrial P │
+  │  → Mitral/tricuspid open when ventricular P < atrial │
   │  Passive rapid filling → slow filling → atrial kick │
   │  End-diastolic volume (EDV) ~130 mL                 │
   └─────────────────────────────────────────────────────┘
@@ -203,14 +203,14 @@ Normal resting CO: ~5 L/min. Maximum (trained athlete during exercise): ~25–35
 ```
 ARTERY                    ARTERIOLE          CAPILLARY
 (large, elastic)          (resistance)       (exchange)
-┌──────────────┐         ┌─────────┐        ┌──────┐
+┌──────────────┐         ┌─────────┐        ┌───────┐
 │ Intima       │         │ Intima  │        │ 1-cell│
 │ (endothelium)│         │(endoth.)│        │ thick │
 │ Media        │         │ Media   │        │ ~10μm │
-│ (SM + elastin)│        │(thick SM│        │ dia. │
-│ Adventitia   │         │ layer)  │        └──────┘
-│ (collagen)   │         │Adventit.│
-└──────────────┘         └─────────┘
+│ (SM+elastin) │         │(thick SM│        │ dia.  │
+│ Adventitia   │         │ layer)  │        │       │
+│ (collagen)   │         │Adventit.│        │       │
+└──────────────┘         └─────────┘        └───────┘
 
 VEIN                     VENULE
 (capacitance vessel)     (post-capillary)

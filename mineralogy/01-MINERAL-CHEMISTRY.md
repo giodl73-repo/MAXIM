@@ -124,7 +124,7 @@ KEY SOLID SOLUTION SERIES
 |  Grossular (Ca-Al) ↔ Andradite (Ca-Fe) ↔ Uvarovite (Ca-Cr)       |
 |                                                                  |
 |  TOURMALINE: Most complex solid solution in common minerals      |
-|  X Y₃ Z₆ (BO₃)₃ Si₆O₁₈ (OH,F)₄   where X,Y,Z have many sub. |
+|  X Y₃ Z₆ (BO₃)₃ Si₆O₁₈ (OH,F)₄  with many X,Y,Z substitutions    |
 +------------------------------------------------------------------+
 ```
 

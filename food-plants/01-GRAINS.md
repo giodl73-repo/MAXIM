@@ -53,15 +53,19 @@ Multiple dispersal              Harvested and stored
 
 GRAIN STRUCTURE (same across all cereals):
 ┌────────────────────────────────────┐
-│  Bran (pericarp + seed coat)       │  ← Fiber, B vitamins, minerals
+│  Bran (pericarp + seed coat)       │
 │  ┌──────────────────────────────┐  │
-│  │  Endosperm (bulk)            │  │  ← Starch + storage proteins
-│  │  ~80-85% of grain weight     │  │     (gluten in wheat)
+│  │  Endosperm (bulk)            │  │
+│  │  ~80-85% of grain weight     │  │
 │  │  ┌──────────────────────┐    │  │
-│  │  │  Germ (embryo)       │    │  │  ← Fats, vitamins E/B, proteins
+│  │  │  Germ (embryo)       │    │  │
 │  │  └──────────────────────┘    │  │
 │  └──────────────────────────────┘  │
 └────────────────────────────────────┘
+
+  Bran      ← fiber, B vitamins, minerals
+  Endosperm ← starch + storage proteins (gluten in wheat)
+  Germ      ← fats, vitamins E/B, proteins
 White flour = endosperm only. Whole grain = all three layers.
 ```
 

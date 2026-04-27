@@ -224,14 +224,22 @@ For multiply connected domains with holes at a₁, ..., aₖ:
 A key technique: deform the contour without changing the integral, as long as f is holomorphic in the region between old and new contours.
 
 ```
-ORIGINAL CONTOUR C₁    →    DEFORMED CONTOUR C₂
+ORIGINAL CONTOUR C1
 
-  ┌──────────┐                    ┌──┐
-  │    D     │     f holomorphic  │  │
-  │  no sgts │  =============>    │  │
-  │          │    in between      └──┘
-  └──────────┘
-  ∫_{C₁} = ∫_{C₂}                smaller but same integral
+  +----------+
+  |    D     |
+  |  no sgts |
+  |          |
+  +----------+
+
+f holomorphic in between  ==>  DEFORMED CONTOUR C2 (smaller)
+
+  +--+
+  |  |
+  |  |
+  +--+
+
+  Int_{C1} = Int_{C2}                    same integral
 
 If you deform ACROSS a singularity at a:
   The integral changes by ±2πi · Res(f, a)
@@ -253,13 +261,13 @@ To evaluate ∫_{-∞}^{∞} f(x) dx:
 
 ```
      Im
-      │         large semicircle
-      │     ╭─────────────────╮
-      │   ╭╯                   ╰╮
-      │  ╭╯     × ×             ╰╮   ← residues here contribute
-      │──┼───────────────────────┼──── Re
-           ─R                   R
-           └─────────────────────┘
+      |         large semicircle
+      |     ,-----------------,
+      |   ,-'                 '-,
+      |  ,'      x x             ',     <- residues contribute
+      |--+-----------------------+----- Re
+           -R                   R
+           '---------------------'
                 real axis path
 ```
 

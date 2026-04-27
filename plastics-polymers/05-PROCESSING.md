@@ -210,9 +210,11 @@ compressed air (0.3–0.7 MPa) inflates parison to mold walls.
       │
       ↓ MOLD CLOSES (pinch bottom, seal top)
    ┌──────────┐
-   │ air →    │   Air inflates parison to mold shape
-   │ [bottle] │   Mold cooling water sets shape
+   │ air →    │
+   │ [bottle] │
    └──────────┘
+   Air inflates parison to mold shape
+   Mold cooling water sets shape
       │
       ↓ MOLD OPENS — part ejected
 ```

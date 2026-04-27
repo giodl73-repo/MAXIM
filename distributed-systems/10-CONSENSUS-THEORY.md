@@ -91,15 +91,12 @@ CONFIGURATION SPACE
                     │  configs    │
                     └──────┬──────┘
                            │
-              ┌────────────┼────────────┐
-              │            │            │
+              splits three ways:
               ▼            ▼            ▼
-         ┌─────────┐ ┌─────────┐ ┌─────────┐
-         │0-valent │ │BIVALENT │ │1-valent │
-         │(only 0  │ │(both 0  │ │(only 1  │
-         │reachable)│ │and 1    │ │reachable)│
-         └─────────┘ │reachable)│ └─────────┘
-                      └─────────┘
+          0-valent      BIVALENT      1-valent
+          (only 0       (both 0       (only 1
+          reachable)    and 1         reachable)
+                        reachable)
 ```
 
 Claim: at least one initial configuration is bivalent. Proof by contradiction: if all initial configurations were univalent (either 0-valent or 1-valent), then because initial configurations differ only in which process proposes which value, there must be two adjacent initial configurations C0 (0-valent) and C1 (1-valent) that differ only in one process p's proposed value. If p crashes immediately (before sending any message), the remaining processes see the same state in both C0 and C1. But C0 must decide 0 and C1 must decide 1 --- contradiction, since the remaining processes cannot distinguish the two cases.
@@ -824,20 +821,16 @@ CONSENSUS PROTOCOLS — TAXONOMY
                     CRASH FAULT                    BYZANTINE FAULT
                     TOLERANT                       TOLERANT
                     (2f+1 nodes)                   (3f+1 nodes)
-                    │                              │
-        ┌───────────┼───────────┐       ┌──────────┼──────────┐
-        │           │           │       │          │          │
-    SINGLE-VALUE  REPLICATED   STATE   CLASSICAL  LINEAR    NAKAMOTO
-                    LOG        MACHINE            (O(n))    (probab.)
-        │           │           │       │          │          │
-    ┌───┴───┐   ┌───┴───┐   ┌──┴──┐   ┌┴────┐  ┌─┴────┐   ┌┴───────┐
-    │Paxos  │   │Multi- │   │Raft │   │PBFT │  │Hot-  │   │Nakamoto│
-    │single │   │Paxos  │   │     │   │     │  │Stuff │   │(PoW)   │
-    │decree │   │       │   │     │   │     │  │      │   │        │
-    └───────┘   └───────┘   └─────┘   └─────┘  └──────┘   └────────┘
-        │           │           │       │          │          │
-    Academic    Chubby      etcd    Hyper-     Diem/      Bitcoin
-    (1989)      (Google)    K8s     ledger     Aptos      Ethereum
+
+        SINGLE-VALUE | REPLICATED | STATE      CLASSICAL | LINEAR  | NAKAMOTO
+                       LOG          MACHINE                (O(n))    (probab.)
+
+         Paxos      Multi-Paxos    Raft         PBFT      HotStuff   Nakamoto
+         single                                                      (PoW)
+         decree
+
+         Academic   Chubby         etcd         Hyper-    Diem/      Bitcoin
+         (1989)     (Google)       K8s          ledger    Aptos      Ethereum
                                     Cosmos               (pre-merge)
 
   PROPERTIES COMPARISON:

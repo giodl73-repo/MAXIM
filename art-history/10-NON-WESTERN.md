@@ -57,7 +57,7 @@ WENREN IDEAL vs PROFESSIONAL PAINTING
   ┌───────────────────────────┐   ┌───────────────────────────────┐
   │ Hired for skill            │   │ Paints as personal cultivation │
   │ Client sets the subject   │   │ Chooses subject for meaning   │
-  │ Technical virtuosity valued│   │ Technical ease APPEARS effortless│
+  │ Technical virtuosity valued│   │ Technical ease APPEARS easy  │
   │ Illusionistic rendering   │   │ Brushwork = moral character   │
   │ Color, decoration           │   │ Ink, not color (primarily)  │
   │ Work as product            │   │ Work as self-portrait of mind │

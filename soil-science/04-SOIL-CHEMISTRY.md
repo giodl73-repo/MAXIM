@@ -14,15 +14,13 @@ SOIL CHEMISTRY — FOUR INTERACTING SYSTEMS
   | nutrients        |        | Al/Fe solubility,|
   | (Ca,Mg,K,NH4+)   |        | microbial activity|
   +------------------+        +------------------+
-          |                           |
-          +---------------------------+
-          |
+                  all four interact
   REDOX (Eh)                  NUTRIENT CHEMISTRY
   +------------------+        +------------------+
-  | Saturated soils  |        | P sorption to Fe/Al|
-  | Fe/Mn reduction  | <----> | N mineralization  |
-  | N2O/N2 formation |        | Micronutrient     |
-  | Anaerobic zone   |        | availability      |
+  | Saturated soils  |        | P sorption Fe/Al |
+  | Fe/Mn reduction  | <----> | N mineralization |
+  | N2O/N2 formation |        | Micronutrient    |
+  | Anaerobic zone   |        | availability     |
   +------------------+        +------------------+
 ```
 

@@ -157,13 +157,17 @@ Every linguistic act operates on two structural dimensions simultaneously:
 
   +---------+
   | "big"   |
-  +---------+  ←— PARADIGMATIC AXIS (vertical — substitution)
-  | "small" |      elements NOT present but POTENTIALLY there
-  +---------+      related by substitutability in the same slot
-  | "ugly"  |      = synonym groups, antonyms, paradigm class
+  +---------+
+  | "small" |
+  +---------+
+  | "ugly"  |
   +---------+
   | "fat"   |
   +---------+
+  PARADIGMATIC AXIS (vertical — substitution):
+    elements NOT present but POTENTIALLY there
+    related by substitutability in the same slot
+    = synonym groups, antonyms, paradigm class
 
   SYNTAGMATIC relations: in praesentia (both terms present)
   PARADIGMATIC relations: in absentia (one term present, alternatives absent)

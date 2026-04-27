@@ -65,18 +65,24 @@ Sullivan's tripartite division for the tall office building:
 
 ```
   ┌─────────────────────────┐
-  │         ATTIC            │ ← Capping: different from shaft;
-  │   (different character)  │   ornamental expression of termination
+  │         ATTIC           │
+  │   (different character) │
   ├─────────────────────────┤
-  │                          │
-  │      OFFICE FLOORS       │ ← Shaft: repetitive cells; express
-  │   (identical repetition) │   the stacking of equal floors
-  │                          │   through identical treatment
-  │                          │
+  │                         │
+  │      OFFICE FLOORS      │
+  │   (identical repetition)│
+  │                         │
+  │                         │
   ├─────────────────────────┤
-  │      GROUND FLOOR        │ ← Base: entrance, lobby, street
-  │   (different character)  │   relationship — different program,
-  └─────────────────────────┘   different architectural treatment
+  │      GROUND FLOOR       │
+  │   (different character) │
+  └─────────────────────────┘
+
+  ATTIC  — Capping: different from shaft; ornamental termination
+  SHAFT  — Repetitive cells; express stacking of equal floors
+           through identical treatment
+  BASE   — Entrance, lobby, street relationship; different
+           program, different architectural treatment
 
   Sullivan's Wainwright Building (1891, St. Louis):
   This tripartite logic realized — the prototypical skyscraper type.

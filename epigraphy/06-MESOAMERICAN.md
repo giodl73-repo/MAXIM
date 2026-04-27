@@ -73,13 +73,16 @@ A "glyph block" = the unit of Maya writing (not a single sign)
 Each block = typically 2-3 signs combined
 
 +-------+
-|  MAIN | <- Main sign: usually the logogram or main syllable
+|  MAIN |
 | SIGN  |
 |  [T]  |
-+--+--+-+
-|Af|  |Af| <- Affixes: smaller signs attached to main sign
-+--+--+-+
-  Prefix (left/above)  Suffix (right/below)
++--+----+
+|Af|  Af|
++--+----+
+
+  MAIN SIGN — usually the logogram or main syllable
+  Affixes   — smaller signs attached to main sign
+              prefix (left/above) or suffix (right/below)
 
 Reading order within a glyph block:
   Prefix -> Main sign -> Suffix

@@ -129,7 +129,7 @@ The Ulster Cycle is the Irish equivalent of the Iliad: warrior heroics, geasa (s
 │           "The Cattle Raid of Cooley" — Irish national epic      │
 │                                                                  │
 │  CONTEXT: Queen Medb of Connacht argues with husband Ailill      │
-│  over who has more wealth. He has the White-Horned Bull (Finnbennach)│
+│  over wealth. He has the White-Horned Bull (Finnbennach).        │
 │  She wants the Brown Bull of Cooley (Donn Cúailnge, in Ulster)   │
 │  → demands it → rebuffed → invades Ulster with vast army         │
 │                                                                  │

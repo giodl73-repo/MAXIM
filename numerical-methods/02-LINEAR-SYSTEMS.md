@@ -27,7 +27,7 @@ Solving Ax = b is the most common operation in scientific computing. Every PDE s
 |  +---------------------+                                        |
    |                                                              |
    |  WHEN DIRECT:          n < 10^4, dense, need exact solution  |
-   |  WHEN ITERATIVE:       n > 10^4, sparse, structure exploitable  |
+   |  WHEN ITERATIVE:       n > 10^4, sparse, structured          |
 +------------------------------------------------------------------+
 ```
 

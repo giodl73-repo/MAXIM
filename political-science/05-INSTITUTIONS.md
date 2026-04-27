@@ -95,7 +95,7 @@ The most powerful body in international law — and the most dysfunctional:
   │ consent-based; Cold War model; observe ceasefires              │
   │                                                                │
   │ Post-Cold War: More complex mandates; civilian protection;     │
-  │ election monitoring; DDR (disarmament/demobilization/reintegration│
+  │ election monitoring; DDR (disarm/demobilize/reintegrate)       │
   │                                                                │
   │ Robust peacekeeping (Chapter VII element): MONUC/MONUSCO (DRC) │
   │ Force Intervention Brigade (offensive operations authorized)   │

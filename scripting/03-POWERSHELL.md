@@ -23,7 +23,7 @@
 │  │  ─────────────────────        ───────────────────────────────────────────────────────  │ │
 │  │  Windows Terminal             Azure Pipelines  — AzurePowerShell@5 task (pre-authed)   │ │
 │  │  VS Code integrated           GitHub Actions   — shell: pwsh step                      │ │
-│  │  Windows Terminal             Azure Functions  — PowerShell runtime (isolated process)  │ │
+│  │  Windows Terminal             Azure Functions  — PowerShell runtime (isolated proc)  │ │
 │  │  PowerShell ISE (5.1 only)    Azure Automation — runbooks (hosted PS 7 or 5.1)         │ │
 │  │  SSH remote sessions          Docker containers — mcr.microsoft.com/powershell image   │ │
 │  └────────────────────────────────────────────────────────────────────────────────────────┘ │

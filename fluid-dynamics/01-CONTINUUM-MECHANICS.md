@@ -12,7 +12,7 @@ CONTINUUM MECHANICS — STRUCTURE
   ┌──────────────────────────────────────────────────────────────────────┐
   │  Velocity field:  **v**(x, t)   Eulerian description                 │
   │  Material derivative: D/Dt = ∂/∂t + **v**·∇                          │
-  │  Strain rate tensor: e_{ij} = (1/2)(∂vᵢ/∂xⱼ + ∂vⱼ/∂xᵢ)          │
+  │  Strain rate tensor: e_{ij} = (1/2)(∂vᵢ/∂xⱼ + ∂vⱼ/∂xᵢ)               │
   │  Vorticity: **ω** = ∇ × **v**    (local rotation rate, 2ω)           │
   └──────────────────────────────────────────────────────────────────────┘
                               ↓
@@ -26,7 +26,7 @@ CONTINUUM MECHANICS — STRUCTURE
   CONSTITUTIVE RELATIONS (material-specific: what σ looks like)
   ┌──────────────────────────────────────────────────────────────────────┐
   │  Ideal fluid:    σ = −pI  (pressure only, no viscosity)              │
-  │  Newtonian:      σ = −pI + μ(∇**v** + ∇**v**ᵀ) + λ(∇·**v**)I    │
+  │  Newtonian:      σ = −pI + μ(∇**v** + ∇**v**ᵀ) + λ(∇·**v**)I         │
   │  Non-Newtonian:  σ = σ(strain rate tensor) — various models          │
   └──────────────────────────────────────────────────────────────────────┘
 ```

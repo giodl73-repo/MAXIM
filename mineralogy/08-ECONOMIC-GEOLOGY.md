@@ -141,7 +141,7 @@ HYDROTHERMAL ORE SYSTEM SCHEMATIC
 |  FLUID: groundwater or magmatic water, saline brines             |
 |  ↓                                                               |
 |  TRANSPORT: metals dissolved as chloride or sulfide complexes    |
-|  AuCl₂⁻, FeCl₂, ZnCl⁺, PbCl⁺ in high-T, acidic fluids       |
+|  AuCl₂⁻, FeCl₂, ZnCl⁺, PbCl⁺ — in high-T, acidic fluids          |
 |  ↓                                                               |
 |  DEPOSITION TRIGGERS:                                            |
 |  - Temperature drop (cooling)                                    |

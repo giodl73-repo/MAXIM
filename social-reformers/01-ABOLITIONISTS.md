@@ -9,7 +9,7 @@
   BRITISH ABOLITION (1787–1833):
   ┌──────────────────────────────────────────────────────────────┐
   │  1787: Society for Effecting the Abolition of the Slave Trade│
-  │         Clarkson (research+organizing) + Wilberforce (Parliament)
+  │         Clarkson (research/organizing) + Wilberforce (Parl.) │
   │  1792: House of Commons passes gradual abolition by 230–85   │
   │         → House of Lords kills it                            │
   │  1807: Slave Trade Act — trade abolished (not ownership)     │

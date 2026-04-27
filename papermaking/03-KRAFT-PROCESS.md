@@ -357,13 +357,12 @@ KRAFT RECOVERY CYCLE — CLOSED-LOOP ARCHITECTURE
               ▼
         DIGESTER (batch, 170°C, 2 hr)
          Lignin dissolved → "black liquor" (pulp + spent chemicals)
-              │
-       ┌──────┴──────┐
-       │             │
-    PULP           BLACK LIQUOR
-    (washed,        (25% solids: lignin + Na compounds)
-    bleached)              │
-                           ▼
+
+         Splits into two outputs:
+            PULP         (washed, bleached)
+            BLACK LIQUOR (25% solids: lignin + Na compounds)
+                                   │
+                                   ▼
                   MULTIPLE EFFECT EVAPORATORS
                   Concentrate to 65–80% solids
                            │

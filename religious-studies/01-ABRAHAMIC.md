@@ -269,7 +269,7 @@ against, and excluded by developing ecclesial consensus.
    |  Baptist (believer's baptism only, congregationalism)        |
    |  Methodist (Wesley — sanctification, Arminian)               |
    |  Pentecostal/Charismatic (Spirit gifts, glossolalia — 20th c)|
-   |  Evangelical (varied — biblical inerrancy, conversion emphasis) |
+   |  Evangelical (biblical inerrancy, conversion emphasis)       |
 +------------------------------------------------------------------+
 ```
 

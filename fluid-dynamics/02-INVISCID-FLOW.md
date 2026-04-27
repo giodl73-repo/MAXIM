@@ -15,7 +15,7 @@ INVISCID FLOW — CONCEPTUAL STRUCTURE
   IRROTATIONAL FLOW (∇ × **v** = 0):
   ┌──────────────────────────────────────────────────────────────────────┐
   │  ∇ × **v** = 0  ⟹  **v** = ∇φ  (velocity potential exists)           │
-  │  Continuity: ∇·∇φ = 0  ⟹  ∇²φ = 0  (Laplace equation!)          │
+  │  Continuity: ∇·∇φ = 0  ⟹  ∇²φ = 0  (Laplace equation!)               │
   │                                                                      │
   │  In 2D: φ + iψ = W(z)  is HOLOMORPHIC                                │
   │  (velocity potential = real part of complex potential)               │

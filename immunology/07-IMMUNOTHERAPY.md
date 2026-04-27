@@ -218,7 +218,7 @@ CANCER IMMUNOTHERAPY: USING THE IMMUNE SYSTEM TO FIGHT CANCER
   ┌────────────────────────────────────────────────────────────┐
   │  Bispecific antibody physically bridges:                   │
   │                                                            │
-  │  T cell ──── [CD3 arm] ──── Bispecific ──── [TAA arm] ──── Tumor│
+  │  T cell ── [CD3 arm] ── Bispecific ── [TAA arm] ── Tumor   │
   │                                                            │
   │  Creates "immunological synapse" between T cell and tumor  │
   │  TCR not involved → bypasses MHC restriction               │

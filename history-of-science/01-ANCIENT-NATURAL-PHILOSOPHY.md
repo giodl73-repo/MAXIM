@@ -137,7 +137,7 @@ Leucippus (~480-420 BCE) and Democritus (~460-370 BCE) proposed:
 DEMOCRITUS'S ONTOLOGY:
 
 +--------+    +--------+    +--------+
-| ATOMS  |    | ATOMS  |    | ATOMS  |    ...infinite variety
+| ATOMS  |    | ATOMS  |    | ATOMS  |
 | (solid)|    | (hooks)|    | (round)|
 +--------+    +--------+    +--------+
       \            |            /

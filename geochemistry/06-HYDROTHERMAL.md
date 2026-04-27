@@ -163,14 +163,19 @@ PORPHYRY COPPER-MOLYBDENUM-GOLD SYSTEM
 
   ZONATION MAP (plan view):
     +-----------+
-    |  Potassic |  ← Cu-Mo core
+    |  Potassic |
     | +-------+ |
-    | |Phyllic| |  ← transitional
+    | |Phyllic| |
     | +-------+ |
-    |  Argillic |  ← lower grade
+    |  Argillic |
     +-----------+
-    | Propylitic|  ← background
+    | Propylitic|
     +-----------+
+
+    Potassic   ← Cu-Mo core
+    Phyllic    ← transitional
+    Argillic   ← lower grade
+    Propylitic ← background
 
   FLUID SOURCE:
     Initially: magmatic (exsolved from crystallizing magma)

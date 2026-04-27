@@ -52,11 +52,11 @@ Probability of producing each diploid genotype by random combination:
 ```
   Gametes unite randomly:
 
-        A (prob p)    a (prob q)
+             A (p)         a (q)
        ┌────────────┬────────────┐
-  A    │  AA  p·p   │  Aa  p·q   │   (prob p)
+  A(p) │  AA  p·p   │  Aa  p·q   │
        ├────────────┼────────────┤
-  a    │  Aa  q·p   │  aa  q·q   │   (prob q)
+  a(q) │  Aa  q·p   │  aa  q·q   │
        └────────────┴────────────┘
 
   f(AA) = p²

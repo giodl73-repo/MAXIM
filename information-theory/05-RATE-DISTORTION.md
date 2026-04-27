@@ -123,13 +123,12 @@ Reverse waterfilling: allocate distortions Dᵢ to minimize total rate
 
   Dᵢ = min(λ, σᵢ²)     ← water level λ chosen so Σ Dᵢ = D_total
 
-     σᵢ²  ┌───┐                    Variance profile
-          │   │   ┌───┐
-          │   │   │   │   ┌───┐
-          │   │   │   │   │   │  ┌───┐
-λ ───────────────────────────────────────  "water level"
-          │   │   │   │   │   │  │///│  ← these get 0 bits (σ² ≤ λ)
-          └───┘   └───┘   └───┘  └───┘
+     σᵢ²  ###                        Variance profile
+          ###     ###
+          ###     ###     ###
+          ###     ###     ###    ###
+λ ----------------------------------------  "water level"
+          ###     ###     ###    ///   <- σ² <= λ get 0 bits
            i=1     i=2     i=3    i=4
         (allocate bits above λ)
 ```

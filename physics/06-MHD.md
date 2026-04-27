@@ -242,9 +242,10 @@ This is the wave equation for both v and b, with wave speed:
 ```
   ┌──────────────────────┐
   │        B₀            │
-  │  v_A = ─────────     │  ← ALFVÉN SPEED
+  │  v_A = ─────────     │
   │        √(μ₀ρ)        │
   └──────────────────────┘
+       ALFVÉN SPEED
 ```
 
 **Physical picture**: Alfvén waves are transverse waves propagating along B₀,

@@ -9,9 +9,10 @@
 |                                                                       |
 |  SETUP:                                                               |
 |  +-------------------+                                                |
-|  | Chinese input     | ---> [Person in room with rulebook] --> Chinese output |
+|  | Chinese input     |                                                |
 |  | (questions)       |                                                |
 |  +-------------------+                                                |
+|  ---> [Person in room with rulebook] --> Chinese output               |
 |  Person does not understand Chinese.                                  |
 |  System passes a Chinese Turing Test.                                  |
 |                                                                       |

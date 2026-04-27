@@ -106,11 +106,12 @@ WET ETCHING -- KOH (potassium hydroxide):
   +---------------+
   |   Si (100)    |
   |               |
-  | \           / |  <- {111} planes (slow etch)
+  | \           / |
   |  \         /  |
   |   \       /   |
-  |    -------    |  <- bottom (100) plane
+  |    -------    |
   +---------------+
+  diagonals = {111} planes (slow etch); bottom = (100) plane
 
   KOH etch of (100) Si: forms perfect pyramid or V-groove
   Etch rate (100): ~1-2 um/min at 80 C, KOH 30%

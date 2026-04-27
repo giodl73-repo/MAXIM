@@ -409,7 +409,7 @@ Lorentz force on carriers: F = q(v × B)
     │   For holes:     R_H = +1/(pe) > 0          │
     │                                             │
     │   → Sign of R_H tells carrier type!         │
-    │   → Magnitude gives carrier density n = 1/|R_H e| │
+    │   → Magnitude → carrier density n = 1/|R_H e|│
     └─────────────────────────────────────────────┘
 
     Hall mobility: μ_H = R_H · σ = |R_H|/ρ_e

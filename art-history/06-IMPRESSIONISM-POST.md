@@ -66,7 +66,7 @@ ACADEMIC PAINTING vs IMPRESSIONIST APPROACH
   │ controlled light              │  │ mixes the strokes optically   │
   │                               │  │                               │
   │ Photograph-like surface       │  │ The surface is loose, sketch- │
-  │ = technical mastery           │  │ like -- critics said "unfinished"│
+  │ = technical mastery           │  │ like — critics: "unfinished"  │
   └───────────────────────────────┘  └───────────────────────────────┘
 
   The Impressionists were not technically careless.

@@ -166,14 +166,16 @@ FLAX CROSS-SECTION:
   ┌──────────────────────────────┐
   │  Epidermis (outer skin)      │
   │  ┌────────────────────────┐  │
-  │  │  Cortex/Bast fibers    │← ← linen fibers are here
-  │  │  (10–40 long bundles,  │     in the stem cortex
-  │  │   20–30 fibers/bundle) │
+  │  │  Cortex/Bast fibers    │  │
+  │  │  (10–40 long bundles,  │  │
+  │  │   20–30 fibers/bundle) │  │
   │  ├────────────────────────┤  │
-  │  │  Woody core (shive)    │← ← what must be removed
-  │  │  (xylem/phloem)           │
+  │  │  Woody core (shive)    │  │
+  │  │  (xylem/phloem)        │  │
   │  └────────────────────────┘  │
   └──────────────────────────────┘
+  Cortex/Bast — linen fibers, in the stem cortex
+  Woody core  — what must be removed during retting
 
   Fiber bundle length: 25–35 mm (individual technical fibers)
   Long-line fiber: 50–90 cm (the valuable stuff)

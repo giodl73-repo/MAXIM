@@ -65,7 +65,7 @@ SPINNING = DRAFTING + TWISTING
 ```
   ANATOMY:
     ┌───────────────────────────────┐
-    │  Distaff (holds unspun fiber) │ ←← optional
+    │  Distaff (holds unspun fiber) │
     │        |                      │
     │  Spindle shaft (stick)        │
     │        |                      │

@@ -136,14 +136,18 @@ BWR vs PWR KEY DIFFERENCE: Steam generated INSIDE reactor vessel
 
 REACTOR VESSEL
   ┌─────────────────────────────┐
-  │  Steam separators/dryers    │ ← Steam 285°C, 70 bar exits here
+  │  Steam separators/dryers    │
   │  ─────────────────────      │
-  │  Core (fuel assemblies)     │ → BWR fuel: 10×10, ATRIUM-10 design
+  │  Core (fuel assemblies)     │
   │  ─────────────────────      │
-  │  Jet pumps (16 per vessel)  │ ← Recirculation pumps drive jet pumps
+  │  Jet pumps (16 per vessel)  │
   │  Lower plenum               │
   └─────────────────────────────┘
-           ↓ Recirculation → External pumps → Back up via jet pumps
+           ↓ Recirculation → External pumps → back up via jet pumps
+
+  Steam separators/dryers — steam 285°C, 70 bar exits here
+  Core                    — BWR fuel: 10×10, ATRIUM-10 design
+  Jet pumps               — driven by recirculation pumps
 ```
 
 ### BWR Parameters (GE BWR/6, ~1000 MWe)

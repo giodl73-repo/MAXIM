@@ -325,16 +325,14 @@ BERNOULLI FAMILY TREE (mathematical members)
 
 Nikolaus Bernoulli (1623-1708) — merchant, not mathematician
            |
-    +-------+-------+
-    |               |
-Jakob I         Johann I        ← The two great brothers
-(Jacques)       (Jean)
-(1654-1705)     (1667-1748)
-    |               |
-    |           +---+---+---+
-    |           |       |   |
- Nikolaus I  Nikolaus II  Daniel   Johann II
- (1687-1759) (1695-1726) (1700-1782) (1710-1790)
+    splits into two
+    Jakob I         Johann I        (the two great brothers)
+    (Jacques)       (Jean)
+    (1654-1705)     (1667-1748)
+                          |
+                Johann's three sons:
+ Nikolaus I  Nikolaus II  Daniel       Johann II
+ (1687-1759) (1695-1726)  (1700-1782)  (1710-1790)
                               |
                           Hydrodynamics
                           Bernoulli's principle

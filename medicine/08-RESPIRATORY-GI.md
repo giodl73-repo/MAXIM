@@ -15,7 +15,7 @@
 │  ┌──────────────────────────────────────────────────────────────────┐   │
 │  │  BRONCHOSPASM AXIS                                               │   │
 │  │    β2-agonist (SABAs/LABAs) → cAMP ↑ → smooth muscle relax     │     │
-│  │    Anticholinergic (SAMA/LAMA) → block M3 → reduce ACh-bronchoconstriction│
+│  │    Anticholinergic (SAMA/LAMA) → block M3 → ↓ ACh-bronch-cstr  │   │
 │  │    Xanthines → PDE inhibition → cAMP ↑ (weak); adenosine block   │   │
 │  ├──────────────────────────────────────────────────────────────────┤   │
 │  │  INFLAMMATION AXIS                                               │   │

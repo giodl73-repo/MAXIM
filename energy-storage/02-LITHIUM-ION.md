@@ -199,20 +199,23 @@ BMS ARCHITECTURE
 =================
 
                     +------------------+
-                    |   VEHICLE / EMS  |  (Higher-level energy management)
+                    |   VEHICLE / EMS  |
                     +--------+---------+
-                             | CAN / LIN / Ethernet
+                             |
                     +--------+---------+
-                    |    MASTER BMS    |  (Pack-level: SOC, SOH, thermal)
-                    +--+-------+---+--+
+                    |    MASTER BMS    |
+                    +--+-------+---+---+
                        |       |   |
-           Cell voltage| Cell  | Temperature sensors
-           monitoring  | balance| (NTC thermistors)
-                       |       |
-                    +--+---+ +-+-----+
-                    | SLAVE| | SLAVE |  (Module-level)
-                    | BMS  | | BMS   |
-                    +--+---+ +--+----+
+                       v       v   v
+                    +------+ +------+
+                    | SLAVE| | SLAVE|
+                    | BMS  | | BMS  |
+                    +--+---+ +--+---+
+
+  VEHICLE / EMS — higher-level energy management
+  Bus           — CAN / LIN / Ethernet
+  MASTER BMS    — pack-level SOC, SOH, thermal
+  SLAVE BMS     — module-level (cell voltage, balance, NTC temp sensors)
                        |        |
                +---+---+   +---+---+
                | Cell  | | | Cell  |

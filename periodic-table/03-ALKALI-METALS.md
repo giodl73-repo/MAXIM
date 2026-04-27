@@ -112,7 +112,8 @@ LITHIUM-ION CELL ARCHITECTURE:
   │  graphite           LiPF₆ in         LiCoO₂ / LiFePO₄       │
   │  (Li intercalated)  organic solvent   / NMC / NCA           │
   │                                                             │
-  │  LiC₆ → C₆ + Li⁺ + e⁻    Li⁺ migrates    Li₁₋ₓCoO₂ + xLi⁺ + xe⁻ → LiCoO₂
+  │  LiC6 -> C6 + Li+ + e-       Li+ migrates                  │
+  │  Li(1-x)CoO2 + xLi+ + xe- -> LiCoO2                         │
   │         e⁻ → external circuit                               │
   │                                                             │
   │  Nominal voltage: ~3.6-3.7 V                                │

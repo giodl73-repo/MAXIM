@@ -273,14 +273,16 @@ The wave equation allows plane wave solutions. For a wave traveling in the +x di
   direction of travel ──────────────────────────────→  x
 
        ↑E                    ↑E
-       │     ╭───╮           │     ╭───╮
-  ─────┼────╯     ╰──────────┼────╯     ╰───    E oscillates ±y
-       │         ╰───╯       │         ╰───╯
+       |     ,---.            |     ,---.
+  -----+----'     '-----------+----'     '----
+       |         '---'        |         '---'
                  ↓E                     ↓E
+                                        E oscillates ±y
 
        ·B  ·B  ·B            ·B  ·B  ·B
-  ─────────────────────────────────────────       B oscillates ±z (into/out of page)
+  ─────────────────────────────────────────
        ×B  ×B  ×B            ×B  ×B  ×B
+                                        B oscillates ±z (in/out of page)
 
   E ⊥ B ⊥ direction of travel — transverse wave
 ```

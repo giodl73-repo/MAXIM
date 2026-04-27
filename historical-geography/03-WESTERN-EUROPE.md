@@ -181,12 +181,15 @@ IBERIA c. 800 CE:
 
 IBERIA c. 1000 CE:
 +-----------+----------+--------+
-| Galicia   | León     | Castile| ← merged and split repeatedly
+| Galicia   | León     | Castile|
 +-----------+----------+--------+
-| Navarre | ARAGON    | BARCELONA (Count of Barcelona = Catalonia)
+| Navarre | ARAGON    | BARCELONA |
 +---------+-----------+-----------+
 | PORTUGAL (emerging 12th century)|
 +---------------------------------+
+
+  Galicia / León / Castile — merged and split repeatedly
+  BARCELONA — Count of Barcelona = Catalonia
 |   TAIFA KINGDOMS (after 1031):  |
 |   Caliphate of Córdoba collapsed |
 |   → 30+ small taifa kingdoms    |

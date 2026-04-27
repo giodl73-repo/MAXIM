@@ -15,9 +15,10 @@ DIGITAL JOURNALISM ECOSYSTEM MAP
   │   digital-     │       │  Search engines    │   │  Newsletter    │
   │   native)      │       │  News aggregators  │   │  Podcast app   │
   │                │       │  Newsletters       │   │  Push notif.   │
-  │  Individual    │       │  Podcast apps      │   └────────────────┘
-  │  journalists   │       └────────────────────┘
-  └────────────────┘                │
+  │  Individual    │       │  Podcast apps      │   │                │
+  │  journalists   │       │                    │   │                │
+  └────────────────┘       └────────────────────┘   └────────────────┘
+                                    │
                                     ▼
                           ALGORITHMIC FILTER
                           (platform determines

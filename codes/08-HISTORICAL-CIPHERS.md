@@ -188,7 +188,7 @@ Charles Wheatstone invented it; Lord Playfair popularized it. Encrypts **pairs**
 │                                                              │
 │  PREPROCESSING:                                              │
 │  — J → I (or Q → K, depends on variant)                      │
-│  — Double letters in a pair: insert X between (HELLO → HE LX LO)│
+│  — Double letters: insert X between (HELLO → HE LX LO)      │
 │  — Odd-length plaintext: add X at end                        │
 │                                                              │
 │  Security: breaks frequency analysis of single letters,      │

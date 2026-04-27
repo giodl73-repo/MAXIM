@@ -157,15 +157,17 @@ RULE OF THIRDS: DIVIDING THE BODY
 
   FLATTERING                    STATIC                     EXTREME
   1/3 top, 2/3 bottom          1/2 top, 1/2 bottom        1/4 top, 3/4 bottom
+
   ┌─────────┐                  ┌─────────┐                ┌─────────┐
-  │ cropped  │ 1/3             │         │                │ crop    │ 1/4
-  │ jacket  │                 │  tunic  │ 1/2            ├─────────┤
+  │ cropped │                  │         │                │  crop   │
+  │ jacket  │                  │  tunic  │                ├─────────┤
   ├─────────┤                  │         │                │         │
   │         │                  ├─────────┤                │         │
-  │  long   │ 2/3             │         │ 1/2            │  maxi   │ 3/4
+  │  long   │                  │         │                │  maxi   │
   │  skirt  │                  │  pants  │                │  skirt  │
   │         │                  │         │                │         │
   └─────────┘                  └─────────┘                └─────────┘
+  1/3 top, 2/3 bottom          1/2 / 1/2                  1/4 top, 3/4 bottom
   Eye moves upward.            Eye stalls at the          Eye drawn strongly
   Elongating effect.           halfway point.             to the long segment.
                                Visually heavy.            Dramatic.

@@ -65,9 +65,10 @@ Graphical representation of stress state: circle with center at (σx+σy)/2 and 
 τ
 │     ╭───────╮
 │    ╱         ╲
-│   │     C     │──── σ (horizontal axis)
+│   │     C     │
 │    ╲         ╱
 │     ╰───────╯
+│   (σ axis horizontal →)
 │
 └──────────────────► σ
      σ₂    C    σ₁

@@ -162,11 +162,11 @@ Solve K u = F:                   Distributed sparse solve:
                                    a contiguous block of rows
 
 FEM PIPELINE ON A CLUSTER (PETSc / FEniCS / DUNE):
-┌──────────┐   ┌──────────────┐   ┌───────────────┐   ┌──────────┐
-│ Mesh     │──▶│ Local element │──▶│ Global assembly│──▶│ Distributed
-│ partition│   │ assembly     │   │ (MPI comm)    │   │ solve    │
-│ (METIS)  │   │ (no comm)    │   │               │   │ (PETSc KSP)
-└──────────┘   └──────────────┘   └───────────────┘   └──────────┘
+┌──────────┐   ┌──────────────┐   ┌────────────────┐   ┌─────────────┐
+│ Mesh     │──▶│ Local element│──▶│ Global assembly│──▶│ Distributed │
+│ partition│   │ assembly     │   │ (MPI comm)     │   │ solve       │
+│ (METIS)  │   │ (no comm)    │   │                │   │ (PETSc KSP) │
+└──────────┘   └──────────────┘   └────────────────┘   └─────────────┘
   O(N/P)         O(N/P)             O(N^{2/3}/P)        O(N/P) per iter
   per rank       per rank           surface comm         with AMG precond
 ```

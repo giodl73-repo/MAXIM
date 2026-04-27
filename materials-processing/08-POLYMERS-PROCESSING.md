@@ -92,10 +92,11 @@ SINGLE-SCREW EXTRUDER ANATOMY
                │
                ▼
   ┌─────────────────────────────────────────────────┐
-  │  Feed zone  │  Compression zone  │  Metering zone│→ Die
-  │  (deep       │  (decreasing       │  (shallow,  │
-  │   channels)  │   channel depth)   │   pumping)  │
+  │  Feed zone  │  Compression zone  │ Metering zone │
+  │  (deep      │  (decreasing       │ (shallow,     │
+  │   channels) │   channel depth)   │  pumping)     │
   └─────────────────────────────────────────────────┘
+                                                  → Die
        Barrel heaters (multiple zones)
        Screw (L/D ratio: 20:1 to 30:1)
 

@@ -78,8 +78,9 @@ Lorentz force on current-carrying conductors in a magnetic field.
           ║
      ┌────║────┐
      │    ║    │
-     │  ──┼──  │   ← armature coil (current-carrying)
+     │  ──┼──  │
      │    ║    │
+     (── = armature coil, current-carrying)
      └────║────┘
           ║
          S pole

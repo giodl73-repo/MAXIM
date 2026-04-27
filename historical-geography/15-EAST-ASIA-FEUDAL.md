@@ -389,17 +389,17 @@ LY DYNASTY (1009–1225): Consolidation
 TRAN DYNASTY (1225–1400): The Mongol Wars
   THREE MONGOL INVASIONS — THREE REPULSIONS:
   +──────────────────────────────────────────────────────+
-  | 1257–58: Uriyangkhadai's forces enter Thang Long     |
-  |          → Vietnamese scorched earth; city abandoned |
-  |          → Mongols withdraw (supply lines overstretched)|
+  | 1257–58: Uriyangkhadai enters Thang Long             |
+  |          Vietnamese scorched earth; city abandoned   |
+  |          Mongols withdraw (supply lines stretched)   |
   +──────────────────────────────────────────────────────+
-  | 1284–85: Kublai Khan sends 500,000 troops (sources vary)|
-  |          Tran Hung Dao: guerrilla tactics in Red River  |
-  |          delta; naval ambush at Ham Tu; Mongols retreat |
+  | 1284–85: Kublai Khan sends 500,000 troops            |
+  |          Tran Hung Dao: guerrilla in Red River delta |
+  |          Naval ambush at Ham Tu; Mongols retreat     |
   +──────────────────────────────────────────────────────+
   | 1287–88: Third invasion; Tran Hung Dao repeats       |
-  |          Bach Dang River strategy (iron stakes in river)|
-  |          Mongol fleet destroyed; land forces withdraw  |
+  |          Bach Dang River (iron stakes in river)      |
+  |          Mongol fleet destroyed; land forces withdraw|
   +──────────────────────────────────────────────────────+
   Context: Mongols conquered Song China, Korea, Burma, Cambodia
            Dai Viet was one of very few to repel them, multiple times

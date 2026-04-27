@@ -163,10 +163,12 @@ SCENARIO:
   But our inner experiences are inverted.
 
   +--------+                    +--------+
-  | Your   |  apple --> "red"   | My     |  apple --> "red"
-  | qualia |  grass --> "green" | qualia |  grass --> "green"
+  | Your   |                    | My     |
+  | qualia |                    | qualia |
   +--------+                    +--------+
-  Verbally identical.           But subjectively inverted?
+   apple --> "red"               apple --> "red"
+   grass --> "green"             grass --> "green"
+  Verbally identical, but subjectively inverted?
 
 IMPLICATIONS:
   1. Against functionalism: same functional organization, different qualia.

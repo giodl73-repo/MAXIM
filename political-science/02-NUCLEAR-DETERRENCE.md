@@ -117,7 +117,7 @@ Thomas Schelling's contribution — the most important nuclear theorist after Hi
   WAYS TO MAKE THREATS CREDIBLE:
   ┌────────────────────────────────────────────────────────────────┐
   │ 1. COMMITMENT DEVICES: "Burning bridges"                       │
-  │    Trip wires: deploy own troops so attacking ally = attacking US │
+  │    Trip wires: own troops so attacking ally = attacking US     │
   │    (West Berlin — US troops as literal hostages)               │
   │                                                                │
   │ 2. REPUTATION: Establishing a record of following through      │

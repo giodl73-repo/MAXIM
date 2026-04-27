@@ -382,37 +382,22 @@ ACID RAIN:
 ```
 C/N/O/P/S METABOLIC WEB:
 
-  ATMOSPHERE
-  CO₂ (C+O)  ←──────────────────────────────────────────┐
-  N₂         ←──────────────────────────┐               │
-                                         │               │
-  Photosynthesis                         │ Respiration    │
-  (C+O: CO₂ → glucose)                  │ (C+O: glucose  │ Decomposition
-                                         │  → CO₂)       │ (all 5 elements
-  ┌─────────────────────────────────────┐│               │  released)
-  │          LIVING CELL                ││               │
-  │                                     ││               │
-  │  DNA/RNA ─────── C+N+O+P ─────────────────────→ DEAD ORGANIC
-  │  (phosphodiester │ backbone)         │            MATTER
-  │                  │                   │               │
-  │  Protein ─────── C+N+O+S  ──────→  │               │
-  │  (amino acids,    │ disulfides)       │            │
-  │  enzymes)         │                   │            │
-  │                   │                   │            │
-  │  ATP ──────────  C+N+O+P            │              │
-  │  (energy         phosphoanhydride    │               │
-  │   currency)      bonds               │               │
-  │                  │                   │               │
-  │  Membrane ─────  C+O+P              │               │
-  │  (phospholipid   polar head +        │               │
-  │   bilayer)       fatty acid tails    │               │
-  │                  │                   │               │
-  │  Redox ────────  S (Fe-S clusters), N (NAD+)         │
-  │  (electron       CoA thioester                       │
-  │   transport)                         │               │
-  └──────────────────────────────────────┘               │
-                │                                         │
-                └──────────────────── Decomposers (fungi, bacteria) ───┘
+  ATMOSPHERE: CO2 (C+O) and N2 reservoirs.
+
+  Photosynthesis: C+O fixed from CO2 -> glucose.
+  Respiration:    C+O released, glucose -> CO2.
+  Decomposition:  all five elements (C, N, O, P, S) released by
+                  decomposers (fungi, bacteria) acting on dead
+                  organic matter.
+
+  Inside the LIVING CELL the same elements appear in different roles:
+    DNA/RNA        : C+N+O+P (phosphodiester backbone)
+    Protein        : C+N+O+S (amino acids, enzymes; disulfide bridges)
+    ATP            : C+N+O+P (energy currency; phosphoanhydride bonds)
+    Membrane       : C+O+P   (phospholipid bilayer: polar head + fatty
+                              acid tails)
+    Redox carriers : S (Fe-S clusters), N (NAD+; CoA thioester)
+                              electron transport.
 
 KEY FLUX CONSTRAINTS:
   C: freely cycled via atmosphere (CO₂ ↔ organic carbon)

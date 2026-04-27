@@ -40,9 +40,10 @@ PHYSICAL CLASSIFICATION:
     Example: Mississippi River mouth
     ┌─────────────────────────────────────────┐
     │  FRESHWATER (S=0)  ───────────────────  │
-    │ ─────────────────────────────────────── │  sea
+    │ ─────────────────────────────────────── │
     │     SALTWATER (S=35) ──────────────►    │
     └─────────────────────────────────────────┘
+                         (towards sea →)
 
   Partially mixed estuary (moderate tidal mixing):
     Turbulent mixing at the salt-fresh interface

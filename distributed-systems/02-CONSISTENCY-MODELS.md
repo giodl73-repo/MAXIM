@@ -241,13 +241,11 @@ Client
   v
 Leader node
   |
-  +-------+-------+
-  |       |       |
+  fan out to replicas
   v       v       v
 Replica1 Replica2 Replica3
-  |       |       |
-  | ack   | ack   | ack
-  +-------+-------+
+   ack     ack     ack
+  acks fan back in
   |
   v
 Leader acks to Client

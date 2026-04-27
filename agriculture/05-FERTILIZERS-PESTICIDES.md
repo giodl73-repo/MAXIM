@@ -9,7 +9,8 @@ Synthetic fertilizers and pesticides are the two chemical pillars of industrial 
 |              CHEMICAL INPUTS TO AGRICULTURE                      |
 |                                                                  |
 |  FERTILIZERS                   PESTICIDES                        |
-|  ──────────────────────        ─────────────────────────────── |\n|  Provide macronutrients        Kill or repel organisms that   |
+|  ──────────────────────        ──────────────────────────────  |
+|  Provide macronutrients        Kill or repel organisms that     |
 |  (N, P, K) + secondaries      compete with or damage crops       |
 |                                                                  |
 |  SOURCES:                      CLASSES:                          |

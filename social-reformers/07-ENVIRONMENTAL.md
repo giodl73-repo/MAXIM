@@ -292,7 +292,7 @@ Maathai founded the Green Belt Movement in Kenya (1977) and won the Nobel Peace 
   │ Moi's authoritarian government sold forest reserves to  │
   │ cronies → deforestation                                 │
   │ Corrupt governance → resource extraction → poverty      │
-  │ Environmental protection requires democratic accountability│
+  │ Environmental protection needs democratic accountability│
   └─────────────────────────────────────────────────────────┘
 
   THE POLITICAL DIMENSION:

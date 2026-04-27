@@ -86,7 +86,7 @@ Implication: No computational system has genuine understanding — only *simulat
       ┌──────────────────────────────────┐
       │  Vision   Auditory  Language     │
       │  Memory   Emotion   Motor        │
-      └──────────────┬───────────────┘
+      └────────────────┬─────────────────┘
                      │ compete for access
                      ▼
          ┌───────────────────────────────┐

@@ -153,7 +153,7 @@ THE FORGOTTEN DOMAINS: ARCHAEA AND MICROBIAL EUKARYOTES
   │                                                                  │
   │ TRYPANOSOMA brucei (kinetoplastid)                               │
   │   African sleeping sickness; transmitted by tsetse fly           │
-  │   VSG coat: Hypervariable surface glycoprotein → antigenic variation│
+  │   VSG coat: Hypervariable surface glycoprotein → antigenic var. │
   │   Switches VSG gene every few generations → escapes immunity     │
   │   Large archive of silent VSG genes → millions of variants       │
   │                                                                  │

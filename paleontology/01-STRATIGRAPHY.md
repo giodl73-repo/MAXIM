@@ -234,12 +234,19 @@ SEQUENCE:
 
 SYSTEMS TRACTS:
   ┌─────────────────────────────────────────┐
-  │  Highstand Systems Tract (HST)          │ ← Building out seaward (regression)
-  ├─────────────────────────────────────────┤ ← Maximum Flooding Surface (MFS)
-  │  Transgressive Systems Tract (TST)      │ ← Backstepping landward (transgression)
-  ├─────────────────────────────────────────┤ ← Transgressive Surface
-  │  Lowstand Systems Tract (LST)           │ ← Basin floor fans, slope aprons
-  └─────────────────────────────────────────┘ ← Sequence Boundary (SB)
+  │  Highstand Systems Tract (HST)          │
+  ├─────────────────────────────────────────┤
+  │  Transgressive Systems Tract (TST)      │
+  ├─────────────────────────────────────────┤
+  │  Lowstand Systems Tract (LST)           │
+  └─────────────────────────────────────────┘
+
+  HST  — building out seaward (regression)
+  TST  — backstepping landward (transgression)
+  LST  — basin floor fans, slope aprons
+  Boundaries: top of TST = Maximum Flooding Surface (MFS);
+              top of LST = Transgressive Surface;
+              base of LST = Sequence Boundary (SB)
 
   LOWSTAND: incised valleys on shelf, submarine fan in deep water
   TRANSGRESSION: retrogradational stacking (shoreline moves landward)
