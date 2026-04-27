@@ -46,11 +46,16 @@ OUTPUT: Over 500 chair designs in 50 years.
 
 THE CHAIR (CH24, "Wishbone Chair," 1949):
   +---------+
-  |    Y    |  <-- Y-shaped back post (one piece, not two)
-  |         |      Supports woven paper cord seat
-  |         |  <-- Arms integrate with back in continuous curve
+  |    Y    |
+  |         |
+  |         |
   +--/ \----+
-    /   \      Curved legs (steam-bent solid wood)
+    /   \
+
+  Y-shaped back post (one piece, not two);
+  supports woven paper cord seat.
+  Arms integrate with back in continuous curve.
+  Curved legs (steam-bent solid wood).
 
   MANUFACTURING:
     The Y-back is steam-bent from a single piece of ash or beech.

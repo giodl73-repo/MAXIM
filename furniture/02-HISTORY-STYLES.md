@@ -71,12 +71,15 @@ KLISMOS ANATOMY:
   Low seat — occupant reclines slightly back
 
   +---------+
-  |  ~~~~~  | curved backrest
+  |  ~~~~~  |
   |         |
-  |    O    | seat
+  |    O    |
   +--/   \--+
-    /     \    sabre legs (curve matches backrest)
+    /     \
    /       \
+
+  Top: curved backrest. Middle: seat.
+  Bottom: sabre legs (curve matches backrest).
 ```
 
 The sabre leg is mechanically superior to straight legs: the curve acts as a spring, absorbing shock. The Greek designers probably observed this empirically; the physics is that the curved geometry distributes load through the curve rather than concentrating it at joints.

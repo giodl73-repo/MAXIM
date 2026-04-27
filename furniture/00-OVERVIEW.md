@@ -220,28 +220,21 @@ The word "chair" still carries this: we speak of department chairs, chairs of me
 ## How Furniture Connects to Adjacent Fields
 
 ```
-+----------------+     +------------------+
-| ARCHITECTURE   |---->| Interior volumes |
-| (shell)        |     | Room proportions |
-+----------------+     | Ceiling heights  |
-                        +------------------+
-                               |
-                               v
-+----------------+     +------------------+     +----------------+
-| INTERIOR       |---->| FURNITURE        |<----| PRODUCT        |
-| DESIGN         |     | (the objects)    |     | DESIGN         |
-| (composition)  |     +------------------+     | (the artifact) |
-+----------------+            |                 +----------------+
-                              |
-               +--------------+--------------+
-               |              |              |
-               v              v              v
-    +----------------+ +----------+ +------------------+
-    | MATERIALS      | | ERGON-   | | MANUFACTURING    |
-    | SCIENCE        | | OMICS    | | ENGINEERING      |
-    | (what it's     | | (how it  | | (how to make     |
-    | made of)       | | fits)    | | it at cost)      |
-    +----------------+ +----------+ +------------------+
+  ARCHITECTURE (shell)  ----> Interior volumes
+                                Room proportions
+                                Ceiling heights
+
+                                       |
+                                       v
+
+  INTERIOR DESIGN  ---->  FURNITURE  <----  PRODUCT DESIGN
+  (composition)           (the objects)     (the artifact)
+
+                                       |
+                                       v
+
+       MATERIALS SCIENCE  +  ERGONOMICS  +  MANUFACTURING ENG
+       (what it's made of)  (how it fits)  (how to make at cost)
 ```
 
 The best furniture designers are systems thinkers: hold material constraints, body geometry, visual language, manufacturing method, and price point in simultaneous tension. Same cognitive load as software architecture: performance, correctness, maintainability, cost, and team capability all constrained simultaneously.

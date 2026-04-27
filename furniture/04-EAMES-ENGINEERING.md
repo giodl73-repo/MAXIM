@@ -16,6 +16,7 @@ EAMES DESIGN METHOD:
   | durability)      |       |  mold complexity,|       |                  |
   +------------------+       |  fatigue cycles) |       +------------------+
                               +------------------+
+
                                       |
                                       v
                               +------------------+

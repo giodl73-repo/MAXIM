@@ -17,6 +17,7 @@ THE IKEA SYSTEM:
   | quality/sustain/ |      | simultaneously   |        |                  |
   | low price        |      +------------------+        +------------------+
   +------------------+               |
+
                                      |
                               +------------------+
                               | Flat-pack insight|
@@ -109,16 +110,18 @@ CAM LOCK (EKBY/RAFIX/generic):
   PART 1: Bolt (machine screw) in one panel:
   +---------+
   |         |
-  |   O-----|------->  bolt extends from edge
+  |   O--   |
   |         |
   +---------+
+  (bolt extends rightward from edge)
 
   PART 2: Cam (eccentric disc) in other panel:
   +---------+
   |         |
-  |  [CAM]  |    cam is a disc with off-center capture
+  |  [CAM]  |
   |         |
   +---------+
+  (cam is a disc with off-center capture)
 
   ASSEMBLY:
   Bolt from panel 1 enters hole in panel 2;
