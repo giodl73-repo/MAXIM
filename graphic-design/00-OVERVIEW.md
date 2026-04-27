@@ -149,7 +149,7 @@ CONCEPT / STRATEGY
       |
       v
 +-------------------------------------------+
-|  VISUAL COMMUNICATION                      |
+|  VISUAL COMMUNICATION                     |
 |                                           |
 |  What message? To whom? How?              |
 |  Audience, purpose, tone, medium          |
@@ -157,7 +157,7 @@ CONCEPT / STRATEGY
       |
       v
 +-------------------------------------------+
-|  DESIGN SYSTEMS                            |
+|  DESIGN SYSTEMS                           |
 |                                           |
 |  Typography   Color   Grid   Iconography  |
 |  (the repeatable structure)               |
@@ -165,7 +165,7 @@ CONCEPT / STRATEGY
       |
       v
 +-------------------------------------------+
-|  COMPOSITION / LAYOUT                      |
+|  COMPOSITION / LAYOUT                     |
 |                                           |
 |  Hierarchy  Contrast  Rhythm  White space |
 |  (how elements are arranged)              |
@@ -173,7 +173,7 @@ CONCEPT / STRATEGY
       |
       v
 +-------------------------------------------+
-|  PRODUCTION / OUTPUT                       |
+|  PRODUCTION / OUTPUT                      |
 |                                           |
 |  Print (CMYK, DPI, bleed, trim)           |
 |  Screen (RGB, px, vector, raster)         |
@@ -210,7 +210,7 @@ CONCEPT / STRATEGY
 |                  |        |  Moholy-Nagy)    | school as living experiment |
 +------------------+--------+------------------+-----------------------------+
 | Swiss / Intl     | 1950-  | Switzerland      | Grid, Helvetica, objectivity|
-|                  | 1970   | (Muller-Brockmann| photography over illustration|
+|                  | 1970   | (Muller-Brockmann| photography over illustr.   |
 |                  |        |  Ruder, Hofmann) | universal communication     |
 +------------------+--------+------------------+-----------------------------+
 | American Modern  | 1940-  | USA              | Corporate modernism; design |
@@ -218,7 +218,7 @@ CONCEPT / STRATEGY
 |                  |        |  Glaser)         | follows function with joy   |
 +------------------+--------+------------------+-----------------------------+
 | Post-Modern      | 1970-  | USA/Italy        | Rules are for breaking;     |
-|                  | 1990   | (Emigre, Cranbrook| multiple layers, irony,    |
+|                  | 1990   | (Emigre,Cranbrook| multiple layers, irony,     |
 |                  |        |  Memphis group)  | historical pastiche         |
 +------------------+--------+------------------+-----------------------------+
 | Digital Era      | 1990-  | Global           | Screen as primary medium;   |
@@ -234,7 +234,7 @@ CONCEPT / STRATEGY
 
 ```
 +------------------------------------------+
-|  PRINT DESIGN                             |
+|  PRINT DESIGN                            |
 |                                          |
 |  Editorial: books, magazines, newspapers |
 |  Identity: logos, stationery, packaging  |
@@ -254,7 +254,7 @@ CONCEPT / STRATEGY
 
 ```
 +------------------------------------------+
-|  SCREEN DESIGN                            |
+|  SCREEN DESIGN                           |
 |                                          |
 |  Web: responsive layouts, HTML/CSS aware |
 |  UI/App: components, states, interaction |
@@ -307,31 +307,20 @@ Gestalt          The whole exceeds its parts. Closure, continuation,
 ## How Graphic Design Relates to Adjacent Fields
 
 ```
-+-------------------+    shares         +---------------------+
-|  GRAPHIC DESIGN   |<----------------->|  FINE ART           |
-|                   |  visual language  |                      |
-+-------------------+                  +---------------------+
-        |
-        | shares grid, type
-        v
-+-------------------+    informs        +---------------------+
-|  TYPOGRAPHY       |<----------------->|  TYPE DESIGN        |
-|  (in use)         |                  |  (making letterforms)|
-+-------------------+                  +---------------------+
-        |
-        | expands into
-        v
-+-------------------+    evolves into   +---------------------+
-|  UI/UX DESIGN     |<----------------->|  PRODUCT DESIGN     |
-|                   |  interaction model|                      |
-+-------------------+                  +---------------------+
-        |
-        | combines with
-        v
-+-------------------+    uses           +---------------------+
-|  MOTION DESIGN    |<----------------->|  FILM / ANIMATION   |
-|                   |  time + sequence  |                      |
-+-------------------+                  +---------------------+
+  GRAPHIC DESIGN <-> FINE ART
+    Shared: visual language.
+
+  GRAPHIC DESIGN expands into TYPOGRAPHY (in use), which informs
+  TYPE DESIGN (making letterforms).
+    Shared: grid, type.
+
+  TYPOGRAPHY expands into UI/UX DESIGN, which evolves into
+  PRODUCT DESIGN.
+    Shared: interaction model.
+
+  UI/UX DESIGN combines with MOTION DESIGN, which uses
+  FILM / ANIMATION techniques.
+    Shared: time + sequence.
 ```
 
 ---
@@ -391,8 +380,8 @@ The Bauhaus was modernist but very much included color, craft, and playfulness.
 | Expressive, cultural, or editorial design | Post-Swiss (Weingart, Carson, Brody) or historical reference | Break the grid when the content demands emotional response over clarity |
 | Systematic corporate identity program | Standards manual approach (1960s tradition) | Define every application so consistency survives delegation to non-designers |
 | Digital/interactive design system | Component-based design system (Atomic Design model) | Reusable components compose like software modules; consistency at scale |
-| How type works in a design context      | 05-TYPOGRAPHY-DESIGN.md       |
-| Color theory applied to brand           | 06-COLOR-IN-DESIGN.md         |
-| How brand identity systems work         | 07-BRAND-IDENTITY.md          |
-| How print design became web design      | 08-DIGITAL-TRANSITION.md      |
-| What designers actually do today        | 09-CONTEMPORARY.md            |
+| How type works in a design context | 05-TYPOGRAPHY-DESIGN.md  | Cross-reference |
+| Color theory applied to brand | 06-COLOR-IN-DESIGN.md | Cross-reference |
+| How brand identity systems work | 07-BRAND-IDENTITY.md | Cross-reference |
+| How print design became web design | 08-DIGITAL-TRANSITION.md | Cross-reference |
+| What designers actually do today | 09-CONTEMPORARY.md | Cross-reference |

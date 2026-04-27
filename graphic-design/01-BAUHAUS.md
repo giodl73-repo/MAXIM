@@ -105,28 +105,31 @@ craftsman taught technique. Neither alone was sufficient.
 
 ```
 FOUNDER / DIRECTORS
-+---------------+--------------------------------------------------+
-| Walter Gropius | Architect; founding director; the thesis itself |
-|               | Left 1928; Hannes Meyer (Marxist) followed;      |
-|               | Mies van der Rohe directed final Berlin phase    |
-+---------------+--------------------------------------------------+
-| Ludwig Mies    | Brought rigor; "less is more"; steel + glass     |
-| van der Rohe   | architecture; moved to USA; IIT in Chicago       |
-+---------------+--------------------------------------------------+
+  Walter Gropius:
+    Architect; founding director; the thesis itself.
+    Left 1928; Hannes Meyer (Marxist) followed;
+    Mies van der Rohe directed final Berlin phase.
+
+  Ludwig Mies van der Rohe:
+    Brought rigor; "less is more"; steel + glass architecture.
+    Moved to USA; IIT in Chicago.
 
 TEACHERS
-+-------------------+-----------------------------------------------+
-| Johannes Itten    | First Foundation Course; color theory; mystical|
-|                   | left 1923 (clash with Gropius on direction)    |
-+-------------------+-----------------------------------------------+
-| Laszlo            | Photography, typography, light; replaced Itten |
-| Moholy-Nagy       | in Foundation Course; fled to Chicago 1937    |
-+-------------------+-----------------------------------------------+
-| Josef Albers      | Glass workshop; later taught at Black Mountain |
-|                   | College (USA); "Interaction of Color" (1963)   |
-+-------------------+-----------------------------------------------+
-| Paul Klee         | Painting; color and form theory; Weimar phase |
-+-------------------+-----------------------------------------------+
+
+  Johannes Itten:
+    First Foundation Course; color theory; mystical.
+    Left 1923 (clash with Gropius on direction).
+
+  Laszlo Moholy-Nagy:
+    Photography, typography, light; replaced Itten in
+    Foundation Course; fled to Chicago in 1937.
+
+  Josef Albers:
+    Glass workshop; later taught at Black Mountain College (USA).
+    "Interaction of Color" (1963).
+
+  Paul Klee:
+    Painting; color and form theory; Weimar phase.
 | Wassily Kandinsky | Painting; color/form synesthesia; Dessau phase |
 +-------------------+-----------------------------------------------+
 | Herbert Bayer     | Typography workshop; universal typeface; grid |

@@ -321,34 +321,26 @@ United Airlines  Saul Bass       1974   Tulip; geometric harmony
 ## The Institutions
 
 ```
-EDUCATION
-+----------------------------------------+
-| Yale School of Art                     |
-|  Alvin Eisenman built design dept      |
-|  Paul Rand taught there                |
-|  Massimo Vignelli, Ed Fella both passed |
-|  through this network                  |
-+----------------------------------------+
-| New York: SVA, Pratt, Cooper Union      |
-|  Training ground for NYC agency work    |
-+----------------------------------------+
+EDUCATION:
+  Yale School of Art:
+    Alvin Eisenman built the design department.
+    Paul Rand taught there.
+    Massimo Vignelli, Ed Fella both passed through this network.
+  New York: SVA, Pratt, Cooper Union:
+    Training ground for NYC agency work.
 
-INDUSTRY
-+----------------------------------------+
-| CBS (Columbia Broadcasting System)      |
-|  William Golden, then Lou Dorfsman      |
-|  TV network as design client            |
-|  Iconic eye logo (1951)                 |
-+----------------------------------------+
-| Container Corporation of America (CCA) |
-|  Walter Paepcke: industrialist patron  |
-|  Commissioned Herbert Bayer, others    |
-|  "Great Ideas of Western Man" series   |
-+----------------------------------------+
-| Push Pin Studios (Glaser + Chwast)      |
-|  Monthly Graphic (magazine)             |
-|  Counter-culture design                 |
-+----------------------------------------+
+INDUSTRY:
+  CBS (Columbia Broadcasting System):
+    William Golden, then Lou Dorfsman.
+    TV network as design client.
+    Iconic eye logo (1951).
+  Container Corporation of America (CCA):
+    Walter Paepcke: industrialist patron.
+    Commissioned Herbert Bayer and others.
+    "Great Ideas of Western Man" series.
+  Push Pin Studios (Glaser + Chwast):
+    Monthly Graphic (magazine).
+    Counter-culture design.
 ```
 
 ---

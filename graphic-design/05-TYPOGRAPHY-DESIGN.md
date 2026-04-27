@@ -59,8 +59,8 @@
 | (Futura, Avenir,          | Clean, modern, cold when overused.|
 |  Bauhaus-influenced)      |                                   |
 +---------------------------+-----------------------------------+
-| Script / Calligraphic     | Simulate handwriting. Low legibility
-| (various)                 | at small sizes. Invitation, luxury.|
+| Script / Calligraphic     | Simulate handwriting. Low legib.  |
+| (various)                 | at small sizes. Invitation/luxury.|
 +---------------------------+-----------------------------------+
 | Display / Decorative      | One job: headlines at large size. |
 | (hundreds of variants)    | Never use for body text.          |
@@ -198,11 +198,11 @@ KERNING
 
   Problem pairs: AV, WA, To, Te, FA, LT, PA, VA, Yo
 
-  +--+--+--+
-  |A |V |  |  Without kerning: gap looks large between A-V
-  +--+--+--+
-
-  |AV|   Optically kerned: visual center of mass balanced
+  Without kerning: A and V each occupy their default
+    advance width, leaving a visually large gap between them.
+  Optically kerned: A and V are pulled together so the visual
+    center of mass is balanced (the slanted strokes meet
+    closer than the bounding boxes would imply).
 
   Fonts include kerning tables; professional fonts have
   thousands of kern pairs. Bad fonts have few.

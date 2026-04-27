@@ -61,20 +61,18 @@ FLOWLINES  Horizontal lines dividing layout into bands
 The simplest grid. One content block per page.
 
 ```
-+---------------------------+
-|  MARGIN                   |
-|  +---------------------+  |
-|  |                     |  |
-|  |   TEXT BLOCK        |  |
-|  |                     |  |
-|  |   (One column)      |  |
-|  |                     |  |
-|  |   Books, reports,   |  |
-|  |   academic papers   |  |
-|  |                     |  |
-|  +---------------------+  |
-|  MARGIN                   |
-+---------------------------+
+  Single-column page layout: outer rectangle is the page,
+  with a margin frame surrounding a single TEXT BLOCK column.
+
+  +---------------------+
+  |   TEXT BLOCK        |
+  |   (One column)      |
+  |   Books, reports,   |
+  |   academic papers.  |
+  +---------------------+
+
+  The MARGIN region wraps the text block on all four sides
+  (inner, outer, top, bottom).
 
 KEY DECISIONS:
   Margin proportions (inner/outer/top/bottom)
@@ -98,15 +96,13 @@ CLASSICAL MARGIN PROPORTIONS (Van de Graaf canon):
 Multiple vertical columns. Content can span one or more.
 
 ```
-2-COLUMN                3-COLUMN              6-COLUMN
-+-----------+           +----+----+----+      (flexible)
-|     |     |           |    |    |    |
-| col | col |           | 1  | 2  | 3  |      Can combine:
-|     |     |           |    |    |    |      1+1+1 = narrow
-|     |     |           | OR |    |    |      2+1   = asymmetric
-+-----------+           |    | 1  +----+      3     = wide text
-                        | col| wide    |
-                        +----+---------+
+  2-COLUMN: two equal columns side by side.
+  3-COLUMN: three equal columns side by side.
+  6-COLUMN (flexible): six fine columns; common combinations:
+    1+1+1+1+1+1 = six narrow columns,
+    2+1         = asymmetric (wide + narrow),
+    3+3         = two equal columns,
+    6           = single wide text column spanning all six.
 
 ASYMMETRIC COLUMN GRIDS (common in Swiss design)
   2/3 + 1/3 split: main text left, notes/captions right
@@ -125,29 +121,27 @@ WHY MULTI-COLUMN:
 Columns PLUS horizontal divisions = a field of cells.
 
 ```
-+--+--+--+--+
-|  |  |  |  |   Each module = one unit
-+--+--+--+--+   Content occupies 1, 2, 3... modules
-|  |  |  |  |
-+--+--+--+--+   ADVANTAGES:
-|  |  |  |  |   - Images can be precisely sized
-+--+--+--+--+   - Consistent proportions throughout
-|  |  |  |  |   - Complex layouts remain coherent
-+--+--+--+--+
+  Picture a 4×4 grid of modules — four columns wide, four rows tall.
+  Each cell is one module.
+  Content occupies 1, 2, 3 ... modules in width and/or height.
+
+  ADVANTAGES:
+    - Images can be precisely sized.
+    - Consistent proportions throughout.
+    - Complex layouts remain coherent.
 
 FILLING A MODULAR GRID:
 
-+--+--+--+--+
-|XXXXXXXX|  |    X = image spanning 2x2 modules
-|XXXXXXXX|  |    o = small image (1x1)
-+--+--+--+--+    T = text block
-|T |o |T |T |
-+--+--+--+--+
-|T    |T |T |    Text spanning 2 modules
-+-----+--+--+
+  Imagine a 4-column × 3-row module grid.
 
-The grid IS the invisible structure.
-What the reader sees is the content, not the grid.
+    Row 1: a 2×2 image (X) occupies the top-left four modules,
+           remaining two modules at top-right are empty.
+    Row 2: text blocks (T) and a small 1×1 image (o)
+           interleave across the four columns.
+    Row 3: text spans 2 modules on the left, then 1 + 1 modules.
+
+  The grid IS the invisible structure.
+  What the reader sees is the content, not the grid.
 ```
 
 ---

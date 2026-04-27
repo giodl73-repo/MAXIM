@@ -42,8 +42,8 @@ COMPONENTS OF A BRAND IDENTITY SYSTEM
 |  2. Secondary marks (symbol, wordmark,   |
 |     submarks, co-brand versions)         |
 |  3. Color system (primary + secondary)   |
-|  4. Typography system (typefaces + rules) |
-|  5. Imagery style (photography direction) |
+|  4. Typography (typefaces + rules)       |
+|  5. Imagery style (photo direction)      |
 |  6. Iconography style                    |
 |  7. Motion guidelines (animation,        |
 |     transitions -- modern requirement)   |
@@ -148,24 +148,19 @@ COLOR INDEPENDENCE
   color won't save it.
   Must work: full color / black / white / reverse (white on dark)
 
-  +------+  +------+  +------+  +------+
-  |COLOR |  |BLACK |  |WHITE |  |REVERSED
-  |LOGO  |  |LOGO  |  | on   |  |white |
-  |      |  |      |  |black |  |on blk|
-  +------+  +------+  +------+  +------+
-  All four must work.
+  Four required versions, all of which must work:
+    Color logo (the full version).
+    Black logo (mark printed black on white background).
+    White logo on black (knockout).
+    Reversed (white-on-dark, with appropriate dark background).
 
 CLEAR SPACE (EXCLUSION ZONE)
   Defined area around logo that must remain clear.
   Often: 1x the cap height of the wordmark, or 1x the symbol width.
 
-  +--CLEAR SPACE------------------+
-  |                               |
-  |     +-------+                 |
-  |     | LOGO  |                 |
-  |     +-------+                 |
-  |                               |
-  +-------------------------------+
+  CLEAR SPACE region surrounds the LOGO on all sides.
+  No other graphics, text, or rules are permitted within
+  the clear-space margin.
 
 MINIMUM SIZE
   Define the smallest legal reproduction size.
