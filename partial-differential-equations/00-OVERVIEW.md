@@ -226,7 +226,7 @@ for x<0).
 |                   ANALYTICAL TOOLKIT                              |
 |                                                                  |
 |  SEPARATION OF VARIABLES                                         |
-|  Assumes u(x,t) = X(x)·T(t)  (or X(x)·Y(y) etc.)              |
+|  Assumes u(x,t) = X(x)·T(t)  (or X(x)·Y(y) etc.)                 |
 |  Reduces PDE → coupled system of ODEs                            |
 |  Works on: rectangular, cylindrical, spherical domains           |
 |  Produces: eigenfunction expansions                              |

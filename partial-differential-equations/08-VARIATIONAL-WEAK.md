@@ -247,35 +247,35 @@ FEM is the numerical method that directly discretizes the weak formulation.
 ## From Weak Formulation to Finite Element: Summary
 
 ```
-  +-------------------+
-  | STRONG PDE        |  −∇·(A∇u) + cu = f in Ω
-  +-------------------+
+  +-------------------+----------------------------------------+
+  | STRONG PDE        | −∇·(A∇u) + cu = f in Ω                 |
+  +-------------------+----------------------------------------+
           |
           | Multiply by test fn v, integrate by parts
           v
-  +-------------------+
-  | WEAK FORMULATION  |  a(u,v) = F(v)  ∀v ∈ H₀¹
-  +-------------------+
+  +-------------------+----------------------------------------+
+  | WEAK FORMULATION  | a(u,v) = F(v)  ∀v ∈ H₀¹                |
+  +-------------------+----------------------------------------+
           |
           | Abstract: Lax-Milgram → existence/uniqueness
           v
-  +-------------------+
-  | GAP: V_h ⊂ H₀¹   |  Finite-dimensional subspace
-  | Galerkin method   |  a(u_h,v_h) = F(v_h)  ∀v_h ∈ V_h
-  +-------------------+
+  +-------------------+----------------------------------------+
+  | GAP: V_h ⊂ H₀¹    | Finite-dimensional subspace            |
+  | Galerkin method   | a(u_h,v_h) = F(v_h)  ∀v_h ∈ V_h        |
+  +-------------------+----------------------------------------+
           |
           | Basis expansion: u_h = Σ U_j φ_j
           v
-  +-------------------+
-  | LINEAR SYSTEM     |  A U = b  (A sparse, SPD)
-  | Stiffness + load  |
-  +-------------------+
+  +-------------------+----------------------------------------+
+  | LINEAR SYSTEM     | A U = b  (A sparse, SPD)               |
+  | Stiffness + load  |                                        |
+  +-------------------+----------------------------------------+
           |
           | Céa's lemma → quasi-optimality
           v
-  +-------------------+
-  | ERROR ESTIMATE    |  ‖u−u_h‖_{H¹} = O(h^k)  for P_k elements
-  +-------------------+
+  +-------------------+----------------------------------------+
+  | ERROR ESTIMATE    | ‖u−u_h‖_{H¹} = O(h^k) for P_k elements |
+  +-------------------+----------------------------------------+
 ```
 
 ---

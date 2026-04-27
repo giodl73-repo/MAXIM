@@ -422,9 +422,11 @@ Learns the solution **operator** G: f → u in Fourier space (Li et al. 2020). K
        ↓
   ┌────────────────────────────────────┐
   │  FOURIER LAYER (repeat L times):   │
-  │  v_{l+1}(x) = σ( W·v_l(x)        │  ← local linear transform
-  │              + F⁻¹[R_l · F[v_l]] ) │  ← global: FFT → multiply R_l → IFFT
+  │  v_{l+1}(x) = σ( W·v_l(x)          │
+  │              + F⁻¹[R_l · F[v_l]] ) │
   └────────────────────────────────────┘
+       (W·v_l = local linear transform;
+        F⁻¹[R_l · F[v_l]] = global: FFT → multiply R_l → IFFT)
        ↓
   Project to output space  →  u(x)
 

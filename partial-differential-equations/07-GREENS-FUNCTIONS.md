@@ -66,10 +66,10 @@ To work rigorously with Green's functions requires the theory of distributions
   │ H(x):      ⟨H, φ⟩ = ∫₀^∞ φ(x) dx  (Heaviside step function)    │
   │ H'(x) = δ(x) in distribution sense                             │
   │                                                                │
-  │ P.V.(1/x): ⟨P.V.(1/x), φ⟩ = lim_{ε→0} ∫_{|x|>ε} φ(x)/x dx │
+  │ P.V.(1/x): ⟨P.V.(1/x), φ⟩ = lim_{ε→0} ∫_{|x|>ε} φ(x)/x dx      │
   │ (principal value, arises in Hilbert transform)                 │
   │                                                                │
-  │ ∂δ/∂x_i: ⟨∂δ/∂x_i, φ⟩ = −∂φ/∂x_i(0)  (dipole source)      │
+  │ ∂δ/∂x_i: ⟨∂δ/∂x_i, φ⟩ = −∂φ/∂x_i(0)  (dipole source)           │
   └────────────────────────────────────────────────────────────────┘
 
   FUNDAMENTAL IDENTITY:
