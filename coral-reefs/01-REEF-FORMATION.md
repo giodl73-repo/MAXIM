@@ -65,28 +65,41 @@ The polyp drives calcification by:
 REEF BUILDERS BY CONTRIBUTION
 ==============================
 
-PRIMARY FRAMEWORK BUILDERS
-+---------------------------+
-| Scleractinian corals      |  Bulk of reef architecture
-|  - Massive (brain, star)  |  Centuries-old heads, bulk CaCO₃
-|  - Branching (Acropora)   |  Fastest linear growth, complex structure
-|  - Plating/foliose        |  Low-light adapted, slope/wall zones
-+---------------------------+
-         +
-+---------------------------+
-| Crustose coralline algae  |  Bind the framework; cement loose rubble
-| (CCA: Lithothamnion,      |  Critical on reef crest (survives surge)
-|  Porolithon, Hydrolithon) |  Encrust dead coral, create hard substrate
-+---------------------------+
-         +
-SECONDARY CONTRIBUTORS
-+---------------------------+
-| Mollusks (giant clams,    |  Local aragonite additions
-|  serpulid tube worms)     |
-| Foraminifera              |  Major sand production (pink/white sand)
-| Halimeda green algae      |  Major sediment; segments calcified
-| Sponges                   |  Bioerode AND sometimes bind rubble
-+---------------------------+
+PRIMARY FRAMEWORK BUILDERS:
+
+  Scleractinian corals (bulk of reef architecture):
+  +---------------------------+
+  | - Massive (brain, star)   |
+  | - Branching (Acropora)    |
+  | - Plating/foliose         |
+  +---------------------------+
+    Massive: centuries-old heads, bulk CaCO₃.
+    Branching: fastest linear growth, complex structure.
+    Plating/foliose: low-light adapted, slope/wall zones.
+
+  Crustose coralline algae (CCA):
+  +---------------------------+
+  | Lithothamnion             |
+  | Porolithon                |
+  | Hydrolithon               |
+  +---------------------------+
+    Bind the framework; cement loose rubble.
+    Critical on reef crest (survives surge).
+    Encrust dead coral, create hard substrate.
+
+SECONDARY CONTRIBUTORS:
+
+  +---------------------------+
+  | Mollusks (giant clams,    |
+  |  serpulid tube worms)     |
+  | Foraminifera              |
+  | Halimeda green algae      |
+  | Sponges                   |
+  +---------------------------+
+    Mollusks: local aragonite additions.
+    Foraminifera: major sand production (pink/white sand).
+    Halimeda: major sediment; segments calcified.
+    Sponges: bioerode AND sometimes bind rubble.
 ```
 
 **Hermatypic vs. ahermatypic corals**:
@@ -225,11 +238,9 @@ GEOMORPHOLOGICAL CLASSIFICATION
 
 BY STRUCTURAL RELATIONSHIP TO LAND:
 
-  FRINGING REEF          BARRIER REEF         ATOLL
-  +-----------+          +--+ ~ +--+          +--+   +--+
-  | shore |reef|          |R |lag|R |          |R | L |R|
-  +-----------+          +--+ ~ +--+          +--+   +--+
-  No lagoon               Lagoon present       Ring; seamount
+  FRINGING REEF: shore -> reef (no lagoon).
+  BARRIER REEF:  reef -- lagoon -- reef (lagoon present).
+  ATOLL:         reef ring around central lagoon, on seamount.
 
 BY SUBSTRATE / SETTING:
 

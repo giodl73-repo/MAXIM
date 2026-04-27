@@ -63,45 +63,27 @@ Plating and foliose corals maximize surface area for light capture. Gorgonians, 
 REEF FOOD WEB (simplified)
 ============================
 
-                    APEX PREDATORS
-                    +-------------+
-                    | Sharks      |
-                    | Large jacks |
-                    | Barracuda   |
-                    +------+------+
-                           |
-              +------------+------------+
-              |                         |
-    MESOPREDATORS                  LARGE PISCIVORES
-    +-----------+                  +--------------+
-    | Grouper   |                  | Snapper      |
-    | Lionfish  |                  | Trevally     |
-    | Moray eel |                  +--------------+
-    +-----+-----+
-          |
-+---------+----------+
-|                    |
-PLANKTIVORES    INVERTIVORES
-+-----------+   +-----------+
-| Chromis   |   | Wrasse    |
-| Anthias   |   | Goatfish  |
-| Fusiliers |   | Triggerfish|
-+-----------+   +-----------+
-       |                    |
-ZOOPLANKTON        INVERTEBRATES
-(copepods,         (worms, crustaceans,
- amphipods)        mollusks, echinoderms)
-       |                    |
-       +--------------------+
-                |
-          BENTHOS / ALGAE
-          (benthic algae,
-           detritus, coral
-           mucus, bacteria)
-                |
-           HERBIVORES (critical!)
-           Parrotfish, surgeonfish,
-           urchins, rabbitfish
+  Top to bottom (top = top trophic level):
+
+  APEX PREDATORS:
+    Sharks, Large jacks, Barracuda
+
+  MESOPREDATORS:                   LARGE PISCIVORES:
+    Grouper, Lionfish, Moray eel    Snapper, Trevally
+
+  PLANKTIVORES:                    INVERTIVORES:
+    Chromis, Anthias, Fusiliers     Wrasse, Goatfish, Triggerfish
+
+  Feed on:
+    ZOOPLANKTON (copepods, amphipods)
+    INVERTEBRATES (worms, crustaceans, mollusks, echinoderms)
+
+  Both eventually trace back to:
+    BENTHOS / ALGAE (benthic algae, detritus,
+                     coral mucus, bacteria)
+
+  HERBIVORES (critical!):
+    Parrotfish, surgeonfish, urchins, rabbitfish
 
 ALSO: CORALLIVORES (direct coral predators)
       Crown-of-thorns starfish (Acanthaster)

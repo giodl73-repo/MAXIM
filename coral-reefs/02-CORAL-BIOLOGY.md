@@ -13,10 +13,11 @@ CORAL ORGANIZATIONAL HIERARCHY
   | Tentacles (nematocyst-bearing)   |
   | Oral disc + mouth                |
   | Gastrovascular cavity            |
-  | Mesenteries + mesenterial filaments|
-  | Calicoblastic epithelium         |  ← secretes skeleton
+  | Mesenteries + mesenterial fil.   |
+  | Calicoblastic epithelium         |
   | Aragonite corallite (cup)        |
   +----------------------------------+
+    Calicoblastic epithelium secretes the aragonite skeleton.
            |  connected by coenosarc
            |  (shared body tissue)
            v
@@ -41,29 +42,25 @@ CORAL ORGANIZATIONAL HIERARCHY
 CORAL POLYP — CROSS SECTION
 =============================
 
-                oral disc
-            _______________
-           |    MOUTH      |   ← surrounded by tentacles in ring(s)
-           |       |       |
-           |  pharynx      |
-           |       |       |
-+----------+-------+-------+----------+
-|  tentacle                 tentacle  |   ← nematocysts (stinging cells)
-|          GASTROVASCULAR             |
-|            CAVITY                   |
-|                                     |
-|  mesenteries                        |   ← vertical partitions
-|  (septal filaments hang off them)   |   ← mesenterial filaments: digest
-|                                     |      prey extra-orally
-+-------------------------------------+
-| basal disc / coenosarc              |   ← connects polyps in colony
-+-------------------------------------+
-| calicoblastic epithelium            |   ← key: secretes skeleton
-+-----++++++++++++++++++++++++++++----+
-      | aragonite corallite (CUP)     |
-      | septa (radial partitions)     |
-      | columella (central pillar)    |
-      | costae (external ridges)      |
+  Top to bottom (apex to base of polyp):
+
+    Oral disc with MOUTH (surrounded by tentacles in rings).
+      Tentacles bear nematocysts (stinging cells).
+    Pharynx descends into the body cavity.
+
+    Body wall encloses the GASTROVASCULAR CAVITY.
+      Mesenteries: vertical partitions inside the cavity.
+      Mesenterial filaments hang from the mesenteries
+        and digest prey extra-orally.
+
+    Basal disc / coenosarc connects polyps in a colony.
+
+    Calicoblastic epithelium (key: secretes the skeleton).
+
+  Skeletal CUP (aragonite corallite) sits beneath the polyp:
+    Septa: radial partitions.
+    Columella: central pillar.
+    Costae: external ridges.
 ```
 
 **Nematocysts**: Cnidocytes containing coiled tubules that evert explosively (one of fastest cellular events in biology — microseconds) to inject venom into prey or predators. Triggered by chemical + mechanical stimuli. Primary prey capture mechanism; tentacles retract prey into mouth.

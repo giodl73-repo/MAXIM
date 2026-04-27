@@ -15,10 +15,10 @@ Coral reef area:    ~284,300 km²   (0.079% of ocean floor)
                     BIODIVERSITY CONTRIBUTION
 +-------------------------------------------------------+
 |  Reef area fraction of ocean                          |
-|  ████░░░░░░░░░░░░░░░░░░░░░░░░░░░░  0.1%              |
+|  ████░░░░░░░░░░░░░░░░░░░░░░░░░░░░  0.1%               |
 |                                                       |
 |  Fraction of marine species on reefs                  |
-|  ████████████████████████████░░░░  25–35%            |
+|  ████████████████████████████░░░░  25–35%             |
 |                                                       |
 |  ~830 coral species (hard corals)                     |
 |  ~4,000 fish species associated with reefs            |
@@ -27,7 +27,7 @@ Coral reef area:    ~284,300 km²   (0.079% of ocean floor)
 
 REEF TYPE DISTRIBUTION (by area estimate)
 +------------------------------------------+
-| Indo-Pacific                  ~91.9%      |
+| Indo-Pacific                  ~91.9%     |
 |   Southeast Asia (Coral Triangle) ~30%   |
 |   Great Barrier Reef              ~14%   |
 |   Pacific island reefs            ~25%   |

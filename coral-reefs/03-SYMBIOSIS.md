@@ -81,25 +81,25 @@ Zooxanthellae are functionally just photoautotrophs living inside animal cells. 
 ZOOXANTHELLAE CELL BIOLOGY
 ===========================
 
-  HOST GASTRODERMAL CELL
-  +--------------------------------+
-  | ZOOXANTHELLA (in vacuole)      |
-  |  +----------------------------+|
-  |  | Chloroplast (peridinin-    ||   ← Peridinin is the
-  |  | chlorophyll a complex)     ||     dinoflagellate
-  |  | captures 400–700nm light   ||     accessory pigment
-  |  |                            ||     (gives brown color)
-  |  | Carbon fixation via        ||
-  |  | Calvin cycle               ||
-  |  +----------------------------+|
-  |                                |
-  | Vacuole (symbiosome):          |
-  |   - Isolates zooxanthella      |
-  |   - Controls nutrient exchange |
-  |   - Prevents lysosome fusion   |
-  |     (zooxanthella evades       |
-  |      normal digestion)         |
-  +--------------------------------+
+  HOST GASTRODERMAL CELL contains ZOOXANTHELLA in a vacuole.
+
+  Zooxanthella interior:
+  +-------------------------------+
+  | Chloroplast                   |
+  | (peridinin-chlorophyll a      |
+  |  complex)                     |
+  | captures 400–700 nm light     |
+  | Carbon fixation via the       |
+  | Calvin cycle                  |
+  +-------------------------------+
+    Peridinin is the dinoflagellate accessory pigment
+    (gives the brown color).
+
+  Vacuole (symbiosome):
+    - Isolates zooxanthella
+    - Controls nutrient exchange
+    - Prevents lysosome fusion (zooxanthella evades
+      normal digestion)
 ```
 
 **Carbon export mechanism**: Zooxanthellae translocate photosynthate as:
