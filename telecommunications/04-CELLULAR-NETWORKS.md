@@ -50,9 +50,10 @@ N = 7 (hexagonal cells):
   │  4   │  5   │  6   │
   │      │      │      │
   ├──────┼──────┼──────┤
-  │      │  7   │  1   │  ← frequency 1 reused here
+  │      │  7   │  1   │
   │      │      │      │
   └──────┴──────┴──────┘
+  (frequency 1 reused in the bottom-right cell)
 
 Co-channel reuse ratio: D/R = √(3N)  (D = distance to nearest co-channel cell, R = cell radius)
 For N=7: D/R = 4.58 → interference well-controlled

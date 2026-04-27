@@ -9,26 +9,20 @@ the channel's SNR, available bandwidth, and required robustness.
 MODULATION TAXONOMY
 ════════════════════════════════════════════════════════════════════
 
-                         MODULATION
-                              │
-              ┌───────────────┴───────────────┐
-           ANALOG                           DIGITAL
-           (continuous message)             (discrete symbols)
-              │                               │
-    ┌─────────┼─────────┐         ┌────────────┼────────────┐
-    AM        FM       PM         ASK         FSK          PSK/QAM
-  Amplitude  Freq     Phase    Amplitude    Frequency    Phase/Amplitude
-  variation  variation variation on-off     shift keying  shift keying
-   CW        FM radio  used in  keying                   (plus QAM)
-   AM radio  TV audio  FSK/PSK  (OOK)
+  MODULATION splits into:
 
-                                 ┌────────────┐
-                                 │    OFDM    │
-                                 │(multicarrier│
-                                 │ modulation) │
-                                 │ LTE, WiFi  │
-                                 │ 5G, cable  │
-                                 └────────────┘
+  ANALOG (continuous message):
+    AM  - amplitude variation - CW, AM radio
+    FM  - frequency variation - FM radio, TV audio
+    PM  - phase variation     - used in FSK/PSK
+
+  DIGITAL (discrete symbols):
+    ASK - amplitude shift keying  (on-off keying / OOK)
+    FSK - frequency shift keying
+    PSK - phase shift keying
+    QAM - phase + amplitude shift keying
+
+  OFDM (multicarrier modulation): LTE, WiFi, 5G, cable.
 ```
 
 ---
@@ -177,15 +171,12 @@ IFFT/FFT IMPLEMENTATION:
   Analysis:  FFT{x[n]} → [Y[0], Y[1], ..., Y[N-1]] (demodulated symbols)
   OFDM is implemented with IFFT at transmitter, FFT at receiver. O(N log N).
 
-  ┌──────────────────────────────────────────────────────────────────┐
-  │ OFDM TRANSMITTER                                                 │
-  │                                                                  │
-  │ Bits → [QAM map] → [S/P] → [N-point IFFT] → [P/S] → [Add CP] →   │
-  │                                                                  │
-  │ OFDM RECEIVER                                                    │
-  │                                                                  │
-  │ → [Remove CP] → [S/P] → [N-point FFT] → [1-tap equalizer per SC] → [QAM demod] → Bits │
-  └──────────────────────────────────────────────────────────────────┘
+  OFDM TRANSMITTER:
+    Bits -> QAM map -> S/P -> N-point IFFT -> P/S -> Add CP -> channel
+
+  OFDM RECEIVER:
+    channel -> Remove CP -> S/P -> N-point FFT -> 1-tap equalizer per SC
+            -> QAM demod -> Bits
 
 CYCLIC PREFIX (CP):
   Prepend last L samples of OFDM symbol to front.

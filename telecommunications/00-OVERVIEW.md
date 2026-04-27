@@ -17,12 +17,8 @@ Source          Encoder      (noisy)         Decoder
  Voice/        [Encrypt]      [Transmit]     [Filter]          [Correct
  Video]        [Channel-      over medium    [Amplify]          errors]
                 code]
-                  │               │                               │
-                  │         ┌─────┴─────┐                        │
-                  │         │  Noise N  │                        │
-                  │         └───────────┘                        │
-                  │               │                               │
-                  └───────────────┴───────────────────────────────
+  Noise N is added in the channel between modulator and demodulator.
+  Information rate <= Channel capacity C bounds the entire pipeline.
                          Information rate ≤ Channel capacity C
 
 SHANNON CAPACITY:
@@ -81,21 +77,17 @@ SNR-BANDWIDTH-RATE TRADE-OFF
 
 Given target rate R (bits/s):
 
-         ┌─────────────────────────────────────────────────────┐
-         │                                                      │
-         │  C = B · log₂(1 + S/N) ≥ R                        │
-         │                                                      │
-         │  To achieve higher rate R, you need:                │
-         │  • More bandwidth B (spectrum)                      │
-         │  • Higher S/N ratio (more power or less noise)      │
-         │  • OR both                                          │
-         │                                                      │
-         │  PRACTICAL LIMIT: Real-world SNR is limited by:     │
-         │  • Transmit power constraints (cell battery, satellite ERP) │
-         │  • Path loss (free space, foliage, buildings)       │
-         │  • Noise floor (thermal noise, interference)        │
-         │                                                      │
-         └─────────────────────────────────────────────────────┘
+  C = B * log2(1 + S/N) >= R
+
+  To achieve higher rate R, you need:
+    - More bandwidth B (spectrum)
+    - Higher S/N ratio (more power or less noise)
+    - OR both
+
+  PRACTICAL LIMIT: real-world SNR is limited by
+    - Transmit power constraints (cell battery, satellite ERP)
+    - Path loss (free space, foliage, buildings)
+    - Noise floor (thermal noise, interference)
 
 SPECTRAL EFFICIENCY (bits/s/Hz):
 η = C/B = log₂(1 + SNR)

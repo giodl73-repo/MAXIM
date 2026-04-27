@@ -36,10 +36,13 @@ FIBER CONSTRUCTION
 
 SINGLE-MODE FIBER (SMF):
   ┌─────────────────────────┐
-  │    Core (8-10 µm dia)   │  Refractive index n₁
-  │       cladding (125 µm) │  Refractive index n₂ < n₁
-  │         jacket (250 µm) │  Protective coating
+  │    Core (8-10 um dia)   │
+  │       cladding (125 um) │
+  │         jacket (250 um) │
   └─────────────────────────┘
+  Core: refractive index n1.
+  Cladding: refractive index n2 < n1.
+  Jacket: protective coating.
 
   Single mode: only one propagation mode → no modal dispersion
   Used for: long-distance (metro, long-haul, submarine)
