@@ -7,20 +7,14 @@ THE TETRAPOD TRANSITION
 
      SARCOPTERYGII
           |
-     +---------+----------+
-     |                    |
-  Coelacanth            Rhipidistia
-                          |
-                    +--------+--------+
-                    |                 |
-                Lungfish          TETRAPODA
-                (sister to         (4 limbs)
-                 tetrapods)            |
-                                  +----+----+
-                                  |         |
-                               AMPHIBIA   AMNIOTA
-                               (water-    (reptiles,
-                                dependent) birds, mammals)
+          +-- Coelacanth
+          +-- Rhipidistia
+                |
+                +-- Lungfish (sister to tetrapods)
+                +-- TETRAPODA (4 limbs)
+                       |
+                       +-- AMPHIBIA (water-dependent)
+                       +-- AMNIOTA (reptiles, birds, mammals)
 
 AMPHIBIA:
   Not a grade but a CLADE — all living amphibians
@@ -162,7 +156,7 @@ REPRODUCTIVE DIVERSITY:
 |   all caecilians, some frogs)                    |
 | Direct development (no free larva)               |
 |   Eleutherodactylus: eggs on land → tiny froglet |
-| Viviparous: some caecilians, some fire salamanders|
+| Viviparous: some caecilians, some fire salamandrs|
 | Marsupial frog: eggs in dorsal pouch             |
 | Gastric brooding (Rheobatrachus): EXTINCT        |
 |   Swallowed eggs → developed in stomach          |
@@ -412,7 +406,7 @@ NUMBERS (IUCN Red List 2024):
 CAUSES:
 +-------------------------------------------------------+
 | Chytridiomycosis   Bd fungus (see below)              |
-|                    ~90 species extinct or near-extinct |
+|                    ~90 species extinct or near-extct  |
 | Habitat loss       Wetland drainage, deforestation    |
 | Climate change     Desiccation, phenological mismatch |
 | Pollution          Pesticides disrupt hormones        |

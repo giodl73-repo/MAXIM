@@ -3,50 +3,40 @@
 ## The Big Picture
 
 ```
-DOMAINS OF LIFE
-+------------------------------------------------------------------+
-|  BACTERIA                    ARCHAEA               EUKARYOTA     |
-|  (most diversity)            (extremophiles,       (nucleus,     |
-|  E.coli, cyanobacteria       methanogens,          membrane-bound |
-|  Firmicutes, Proteobacteria  Thermophiles)         organelles)   |
-+------------------------------------------------------------------+
-                                                         |
-                              +--------------------------+
-                              |
-              +---------------+---------------+
-              |               |               |
-         Excavata         SAR clade        Archaeplastida
-         (Giardia,        (diatoms,        (red/green algae,
-          Trypanosoma)     forams,          land plants)
-                          ciliates)
-                              |
-                        Opisthokonta
-                     +----------+----------+
-                     |                     |
-                  Fungi              ANIMALIA
-                                   (this guide)
+DOMAINS OF LIFE:
 
-ANIMALIA TREE — simplified grade/clade ladder
-+------------------------------------------------------------------+
-| Non-bilaterian grade                                              |
-|   Porifera (sponges) ──── most ancient                           |
-|   Placozoa            ──── simplest body plan                    |
-|   Ctenophora          ──── comb jellies (position debated)       |
-|   Cnidaria            ──── jellyfish, corals, sea anemones       |
-+------------------------------------------------------------------+
+  BACTERIA  (most diversity; E.coli, cyanobacteria, Firmicutes, Proteobacteria)
+  ARCHAEA   (extremophiles, methanogens, thermophiles)
+  EUKARYOTA (nucleus, membrane-bound organelles)
+   |
+   +-- Excavata (Giardia, Trypanosoma)
+   +-- SAR clade (diatoms, forams, ciliates)
+   +-- Archaeplastida (red/green algae, land plants)
+   +-- Opisthokonta
+        |
+        +-- Fungi
+        +-- ANIMALIA (this guide)
+
+ANIMALIA TREE — simplified grade/clade ladder:
+
+  Non-bilaterian grade:
+    Porifera (sponges)  — most ancient
+    Placozoa            — simplest body plan
+    Ctenophora          — comb jellies (position debated)
+    Cnidaria            — jellyfish, corals, sea anemones
                               |
-                       BILATERIA (3 germ layers, bilateral symmetry)
-              +---------------+---------------+
-              |                               |
-       PROTOSTOMIA                    DEUTEROSTOMIA
-       (blastopore → mouth)           (blastopore → anus)
-       +----------+----------+         +----------+----------+
-       |                     |         |                     |
- Lophotrochozoa        Ecdysozoa   Echinodermata         Chordata
- (annelids,molluscs,   (molting)   (sea stars,          (vertebrates,
-  flatworms,           arthropods, sea urchins)          tunicates,
-  rotifers)            nematodes)                        lancelets)
-+------------------------------------------------------------------+
+                              v
+  BILATERIA (3 germ layers, bilateral symmetry)
+   |
+   +-- PROTOSTOMIA (blastopore → mouth)
+   |    |
+   |    +-- Lophotrochozoa (annelids, molluscs, flatworms, rotifers)
+   |    +-- Ecdysozoa (molting; arthropods, nematodes)
+   |
+   +-- DEUTEROSTOMIA (blastopore → anus)
+        |
+        +-- Echinodermata (sea stars, sea urchins)
+        +-- Chordata (vertebrates, tunicates, lancelets)
 ```
 
 ---
@@ -113,13 +103,12 @@ KEY CONCEPTS
 |   A related group used to determine which traits are ancestral|
 +---------------------------------------------------------------+
 
-CLADOGRAM READING
-         A        B        C        D
-         |        |        |        |
-         +--------+        +--------+
-              |                 |
-              +-----------------+
-                      |
+CLADOGRAM READING:
+
+  Taxa: A, B, C, D
+  (A,B) form sister-pair → joined first
+  (C,D) form sister-pair → joined first
+  Then (A,B) pair joins (C,D) pair at a deeper node.
 
 Interpretation:
 - (A,B) are sister taxa — share a more recent common ancestor
@@ -151,17 +140,17 @@ Interpretation:
 ```
 +-------------------------------------------------------------+
 |  No tissues      → Porifera (sponges)                       |
-|  Two germ layers → Cnidaria, Ctenophora (ectoderm + endoderm)|
+|  Two germ layers → Cnidaria, Ctenophora (ecto + endo)       |
 |  Radial symmetry → Cnidaria, Ctenophora                     |
-|  Three germ layers → BILATERIA (+ mesoderm = muscles, organs)|
+|  Three germ layers → BILATERIA (+ mesoderm = muscles)       |
 |  Bilateral symmetry → BILATERIA                             |
 |  True coelom     → Annelida, Mollusca, Arthropoda,          |
 |                    Echinodermata, Chordata                  |
 |  Segmentation    → Annelida, Arthropoda (Chordata too,      |
-|                    via somites)                               |
+|                    via somites)                             |
 |  Exoskeleton     → Arthropoda (chitin)                      |
 |  Endoskeleton    → Echinodermata (calcium carbonate),       |
-|                    Vertebrata (bone/cartilage)                |
+|                    Vertebrata (bone/cartilage)              |
 |  Pharyngeal slits → Chordata (including vertebrates)        |
 |  Notochord       → Chordata                                 |
 |  Vertebral column → Vertebrata                              |
@@ -221,20 +210,30 @@ BILATERIA
 ## The Cambrian Explosion
 
 ```
-Pre-Cambrian (~600 Ma)          Cambrian (~520–508 Ma)
-+---------------------+         +--------------------------------+
-| Soft-bodied Ediacara |  →→→→  | Hard parts: shells, exoskeleton|
-| Dickinsonia         |         | Mineralized teeth, armor       |
-| Charnia (frond)     |         |                                |
-| Kimberella (mobile) |         | BURGESS SHALE (508 Ma, Canada) |
-| No shells           |         | Anomalocaris (apex predator)   |
-| No eyes             |         | Opabinia (5 eyes, trunk)       |
-| No heads            |         | Hallucigenia (spiny)           |
-+---------------------+         | Pikaia (possible chordate)     |
-                                 |                               |
-                                 | CHENGJIANG FAUNA (520 Ma, China)|
-                                 | Yunnanozoon, Myllokunmingia   |
-                                 +--------------------------------+
+Pre-Cambrian (~600 Ma):
++----------------------+
+| Soft-bodied Ediacara |
+| Dickinsonia          |
+| Charnia (frond)      |
+| Kimberella (mobile)  |
+| No shells            |
+| No eyes              |
+| No heads             |
++----------------------+
+
+Cambrian (~520-508 Ma):
++--------------------------------+
+| Hard parts: shells, exoskeleton|
+| Mineralized teeth, armor       |
+|                                |
+| BURGESS SHALE (508 Ma, Canada) |
+| Anomalocaris (apex predator)   |
+| Opabinia (5 eyes, trunk)       |
+| Hallucigenia (spiny)           |
+| Pikaia (possible chordate)     |
+| CHENGJIANG FAUNA (520 Ma)      |
+| Yunnanozoon, Myllokunmingia    |
++--------------------------------+
 WHY the explosion?
 - Rising O₂ levels enabling larger active animals
 - Arms race dynamics (predation → defense → counter)
@@ -296,22 +295,20 @@ PROTOSTOMIA                    DEUTEROSTOMIA
 
 ```
 START: You have an animal specimen. What is it?
-                          |
-              +-----------+-----------+
-              |                       |
-        Has tissues?             No tissues?
-              |                       |
-              Yes                  → Porifera (sponge)
-              |
-     Bilateral symmetry?
-              |
-    +---------+---------+
-    |                   |
-  NO (radial or         YES → BILATERIA
-  no symmetry)
-    |
-    +-- Two germ layers → Cnidaria or Ctenophora
-    +-- Simplest body   → Placozoa
+
+  Has tissues?
+   |
+   +-- No  → Porifera (sponge)
+   +-- Yes
+        |
+        Bilateral symmetry?
+         |
+         +-- NO (radial)
+         +-- YES → BILATERIA
+
+  Non-bilaterian options:
+    Two germ layers → Cnidaria or Ctenophora
+    Simplest body   → Placozoa
 
 BILATERIA:
 Blastopore → mouth? → PROTOSTOMIA

@@ -5,35 +5,21 @@
 Aviation is a system of extraordinary complexity operating to extraordinarily tight tolerances. A 350-tonne aircraft must depart within minutes of schedule, navigate through 12,000 meters of atmosphere shared with thousands of other aircraft, and land within 30 metres of the centreline. The infrastructure — airports, airspace, ATC systems, and airline operations — makes this routine.
 
 ```
-+------------------------------------------------------------------+
-|                    AVIATION SYSTEM LAYERS                        |
-|                                                                  |
-|  AIRSPACE                                                        |
-|  +----------+  +----------+  +----------+  +----------+          |
-|  | ICAO     |  | Airways  |  | RVSM     |  | RNAV/RNP |         |
-|  | Class A-G|  | Routes   |  | (1000ft  |  | (PBN     |         |
-|  |          |  |          |  | sep)     |  | operations)|        |
-|  +----------+  +----------+  +----------+  +----------+         |
-   |                                                              |
-   |  ATC SYSTEMS                                                 |
-|  +----------+  +----------+  +----------+  +----------+         |
-|  | Primary  |  | Secondary|  | ADS-B    |  | TCAS II  |         |
-|  | Radar    |  | Radar    |  | Out      |  | (RA/TA)  |         |
-|  | (PSR)    |  | (SSR)    |  |          |  |          |         |
-|  +----------+  +----------+  +----------+  +----------+         |
-   |                                                              |
-   |  AIRPORT                                                     |
-|  +----------+  +----------+  +----------+  +----------+         |
-|  | Runway   |  | Taxiway  |  | Terminal |  | Approach |         |
-|  | Design   |  | System   |  | & Apron  |  | Aids     |         |
-|  +----------+  +----------+  +----------+  +----------+         |
-   |                                                              |
-   |  AIRLINE ECONOMICS                                           |
-|  +----------+  +----------+  +----------+  +----------+         |
-|  | Yield    |  | Hub vs   |  | CASM /   |  | Slot     |         |
-|  | Mgmt     |  | LCC      |  | RASM     |  | Coords   |         |
-|  +----------+  +----------+  +----------+  +----------+         |
-+------------------------------------------------------------------+
+                  AVIATION SYSTEM LAYERS
+
+  AIRSPACE:
+    ICAO Class A-G | Airways Routes | RVSM (1000ft sep)
+    RNAV/RNP (PBN operations)
+
+  ATC SYSTEMS:
+    Primary Radar (PSR) | Secondary Radar (SSR)
+    ADS-B Out | TCAS II (RA/TA)
+
+  AIRPORT:
+    Runway Design | Taxiway System | Terminal & Apron | Approach Aids
+
+  AIRLINE ECONOMICS:
+    Yield Mgmt | Hub vs LCC | CASM / RASM | Slot Coords
 ```
 
 ---

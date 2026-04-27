@@ -5,36 +5,22 @@
 Maritime shipping moves ~80% of global trade by volume and ~70% by value. It is the backbone of globalization — not the internet, not aviation. Every container of electronics, every tonne of iron ore, every barrel of crude oil crossing an ocean moves by ship. The economics are extraordinary: shipping a 40-foot container from Shanghai to Rotterdam costs roughly $1,500-3,000 in normal markets — less than the cost of a domestic courier delivery.
 
 ```
-+------------------------------------------------------------------+
-|                   MARITIME SYSTEM LAYERS                         |
-|                                                                  |
-|  SHIP TYPES (by cargo)                                           |
-|  +----------+ +----------+ +----------+ +----------+ +--------+  |
-|  | Container| | Bulk     | | Tanker   | | LNG/LPG  | | RoRo / | |
-|  | Ship     | | Carrier  | | (Crude/  | | Carrier  | | Ferry  | |
-|  | (TEU)    | | (Dry)    | | Product) | |          | |        | |
-|  +----------+ +----------+ +----------+ +----------+ +--------+ |
-|                                                                 |
-|  NAVAL ARCHITECTURE                                             |
-|  +----------+ +----------+ +----------+ +----------+            |
-|  | Hull Form| | Stability| | Resistance| | Propulsion|           |
-|  | (Cb, Cp) | | (GM, GZ) | | (wave/   | | (diesel/ |           |
-|  |          | |          | | friction)| | propeller)|           |
-|  +----------+ +----------+ +----------+ +----------+            |
-   |                                                              |
-   |  PORT OPERATIONS                                             |
-|  +----------+ +----------+ +----------+ +----------+            |
-|  | Berths   | | Cranes   | | Yard     | | Inland   |            |
-|  | (draft   | | (STS     | | (RTG/ASC)| | Connectivity|         |
-|  | limits)  | | gantry)  | |          | | (rail/   |            |
-|  +----------+ +----------+ +----------+ | truck)   |            |
-|                                         +----------+            |
-|  ROUTING AND NAVIGATION                                          |
-|  +----------+ +----------+ +----------+ +----------+            |
-|  | Weather  | | AIS      | | GMDSS    | | Chokepoint|           |
-|  | routing  | | tracking | | Safety   | | risk mgmt |           |
-|  +----------+ +----------+ +----------+ +----------+            |
-+------------------------------------------------------------------+
+                MARITIME SYSTEM LAYERS
+
+  SHIP TYPES (by cargo):
+    Container Ship (TEU) | Bulk Carrier (Dry)
+    Tanker (Crude/Product) | LNG/LPG Carrier | RoRo / Ferry
+
+  NAVAL ARCHITECTURE:
+    Hull Form (Cb, Cp) | Stability (GM, GZ)
+    Resistance (wave/friction) | Propulsion (diesel/propeller)
+
+  PORT OPERATIONS:
+    Berths (draft limits) | Cranes (STS gantry)
+    Yard (RTG/ASC) | Inland Connectivity (rail/truck)
+
+  ROUTING AND NAVIGATION:
+    Weather routing | AIS tracking | GMDSS Safety | Chokepoint risk mgmt
 ```
 
 ---
@@ -283,25 +269,19 @@ This cubic relationship is why slow steaming dominated the post-2008 shipping in
 ```
   CONTAINER TERMINAL LAYOUT:
 
-  SEA SIDE                           LAND SIDE
-  +---------+  +---------+           +---------+
-  |  Berth  |  |  Berth  |           |  Gate   | <- Truck entry/exit
-  |  STS    |  |  STS    |           +---------+
-  | Cranes  |  | Cranes  |                |
-  +---------+  +---------+           +---------+
-       |              |              | Rail    | <- Intermodal rail
-       v              v              | Terminal|
-  +-----------------------+          +---------+
-  |      YARD             |
-  | Stack storage:        |
-  | RTG (rubber-tyred     |
-  |   gantry cranes)      |
-  | or ASC (automated     |
-  |   stacking cranes)    |
-  | 4-6 containers high   |
-  |                       |
-  | Yard tractors + chassis|
-  +-----------------------+
+  SEA SIDE:
+    Berth | Berth        (STS Cranes)
+       |       |
+       v       v
+  YARD (Stack storage):
+    RTG (rubber-tyred gantry cranes)
+    or ASC (automated stacking cranes)
+    4-6 containers high
+    Yard tractors + chassis
+
+  LAND SIDE:
+    Gate (truck entry/exit)
+    Rail Terminal (intermodal rail)
 
   STS (Ship-to-Shore) gantry crane:
   - Outreach: 60-70m (spans width of ULCS)

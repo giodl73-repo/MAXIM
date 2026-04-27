@@ -34,47 +34,27 @@ MARS WATER EVIDENCE HIERARCHY
 ================================
 
 GEOMORPHOLOGICAL (orbital):
-+-----------------------------+
-| Valley networks             |  Dendritic drainage patterns
-|                             |  Consistent with rainfall/runoff
-|                             |  Mostly Noachian age (~3.7+ Ga)
-+-----------------------------+
-| Outflow channels            |  Catastrophic flood features
-|                             |  Ares Vallis, Kasei Vallis
-|                             |  Billion cubic km volumes
-+-----------------------------+
-| Deltaic deposits            |  Jezero Crater (Perseverance site)
-|                             |  River delta into ancient lake
-+-----------------------------+
+- Valley networks: dendritic drainage patterns. Consistent with
+  rainfall/runoff. Mostly Noachian age (~3.7+ Ga).
+- Outflow channels: catastrophic flood features. Ares Vallis,
+  Kasei Vallis. Billion cubic km volumes.
+- Deltaic deposits: Jezero Crater (Perseverance site). River delta
+  into ancient lake.
 
 MINERALOGICAL (CRISM spectrometer, Mars Reconnaissance Orbiter):
-+-----------------------------+
-| Phyllosilicates             |  Clay minerals (smectite, nontronite)
-| (clays)                     |  Require liquid water to form
-|                             |  ~3.8 Ga (Noachian-Hesperian)
-+-----------------------------+
-| Sulfates                    |  Jarosite, gypsum, kieserite
-|                             |  Form in acidic aqueous conditions
-|                             |  ~3.5-3.0 Ga (Hesperian)
-+-----------------------------+
-| Chlorides                   |  Evaporite deposits
-|                             |  Indicate standing water and evaporation
-+-----------------------------+
+- Phyllosilicates (clays): clay minerals (smectite, nontronite).
+  Require liquid water to form. ~3.8 Ga (Noachian-Hesperian).
+- Sulfates: jarosite, gypsum, kieserite. Form in acidic aqueous
+  conditions. ~3.5-3.0 Ga (Hesperian).
+- Chlorides: evaporite deposits. Indicate standing water and evaporation.
 
 IN-SITU (rovers):
-+-----------------------------+
-| Opportunity: Burns Fm.      |  Cross-bedded sulfate sediments
-|                             |  Hematite spherules (iron concretions)
-|                             |  "Blueberries" -- precipitate in water
-+-----------------------------+
-| Curiosity: Gale Crater      |  Mudstones, ancient lake sediments
-|                             |  Murray Formation -- 3.7 Ga lake
-|                             |  Phyllosilicates confirmed
-+-----------------------------+
-| Perseverance: Jezero        |  Deltaic sediments in ancient lake
-|                             |  Organic molecules detected (2023)
-|                             |  But abiotic vs. biotic origin unclear
-+-----------------------------+
+- Opportunity: Burns Fm. Cross-bedded sulfate sediments. Hematite
+  spherules (iron concretions). "Blueberries" — precipitate in water.
+- Curiosity: Gale Crater. Mudstones, ancient lake sediments. Murray
+  Formation — 3.7 Ga lake. Phyllosilicates confirmed.
+- Perseverance: Jezero. Deltaic sediments in ancient lake. Organic
+  molecules detected (2023). Abiotic vs biotic origin unclear.
 ```
 
 ### Present Habitability of Mars
@@ -154,17 +134,13 @@ OCEAN EVIDENCE (multiple independent lines):
    Not yet confirmed by JWST or other spacecraft
 
 OCEAN PARAMETERS (estimated):
-+--------------------------------+
-| Depth                          | ~100 km          |
-| Volume                         | ~3x Earth's ocean |
-| Total water                    | More than Earth  |
-| Temperature                    | ?-few C at base  |
-|                                | near freezing at top |
-| Salinity                       | Unknown; MgSO4?  |
-|                                | NaCl? Both?      |
-| pH                             | Unknown          |
-| Pressure at seafloor           | ~100-300 MPa     |
-+--------------------------------+
+- Depth: ~100 km
+- Volume: ~3x Earth's ocean
+- Total water: more than Earth
+- Temperature: few °C at base, near freezing at top
+- Salinity: unknown; MgSO4? NaCl? Both?
+- pH: unknown
+- Pressure at seafloor: ~100-300 MPa
 
 OCEAN-ROCK INTERFACE:
 - Critical for life: water-rock contact enables chemistry
@@ -236,14 +212,11 @@ conditions is sufficient to support methanogen-like metabolism.
 (Waite et al. 2017, Science)
 
 OCEAN PARAMETERS:
-+-------------------------+
-| pH                      | ~11 (alkaline)    |
-| Salinity                | ~0.5-2% NaCl     |
-| Temperature (ocean)     | ~0 C bulk,        |
-|                         | ~90 C at vents    |
-| Pressure                | moderate (~50 MPa)|
-| Depth                   | ~30-40 km         |
-+-------------------------+
+- pH: ~11 (alkaline)
+- Salinity: ~0.5-2% NaCl
+- Temperature: ~0 °C bulk, ~90 °C at vents
+- Pressure: moderate (~50 MPa)
+- Depth: ~30-40 km
 
 ASSESSMENT: Enceladus is the highest-confidence habitable
 environment in the solar system after Earth. Every key ingredient

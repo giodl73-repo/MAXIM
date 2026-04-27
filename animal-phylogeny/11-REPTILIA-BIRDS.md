@@ -6,16 +6,13 @@
 AMNIOTA — the land-independent vertebrates
 Defined by: AMNIOTIC EGG (or equivalent live birth)
 
-           TETRAPODA
-               |
-    +----------+----------+
-    |                     |
- AMPHIBIA              AMNIOTA
- (water-dependent)        |
-                   +-------+-------+
-                   |               |
-               REPTILIA         MAMMALIA
-               (includes BIRDS!) (next file)
+  TETRAPODA
+   |
+   +-- AMPHIBIA (water-dependent)
+   +-- AMNIOTA
+        |
+        +-- REPTILIA (includes BIRDS!)
+        +-- MAMMALIA (next file)
 
 TRADITIONAL "REPTILIA":
   Turtles + lizards + snakes + tuatara + crocs + birds
@@ -312,28 +309,21 @@ CROCODILE vs ALLIGATOR:
 ```
 DINOSAUR PHYLOGENY:
   ARCHOSAURIA
-      |
-  DINOSAURIA
-  +------+------+
-  |             |
-ORNITHISCHIA  SAURISCHIA
-(bird-hipped   (lizard-hipped —
- but NOT birds) but BIRDS are here!)
-                |
-            +------+------+
-            |             |
-        Sauropoda      Theropoda
-        (long-necked   (bipedal)
-         giants)           |
-                     +---------+
-                     |         |
-                T.rex &      MANIRAPTORA
-                relatives      |
-                            +---------+
-                            |         |
-                       Oviraptors   AVIALAE
-                       Dromaeosaurs  → AVES
-                       (Velociraptor)
+   |
+   +-- DINOSAURIA
+        |
+        +-- ORNITHISCHIA (bird-hipped but NOT birds)
+        +-- SAURISCHIA (lizard-hipped — but BIRDS are here!)
+             |
+             +-- Sauropoda (long-necked giants)
+             +-- Theropoda (bipedal)
+                  |
+                  +-- T.rex & relatives
+                  +-- MANIRAPTORA
+                       |
+                       +-- Oviraptors
+                       +-- Dromaeosaurs (Velociraptor)
+                       +-- AVIALAE → AVES
 
 VELOCIRAPTOR:
   NOT human-sized (Jurassic Park was wrong)

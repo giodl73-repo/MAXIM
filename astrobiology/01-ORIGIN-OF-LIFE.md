@@ -68,7 +68,7 @@ These must have been solved simultaneously or in close succession — that's wha
 ```
   CLASSIC PARADOX:
   +------------------+        +------------------+
-  | DNA encodes      |        | Proteins catalyze |
+  | DNA encodes      |        | Proteins catalyze|
   | proteins         | <----> | DNA replication  |
   +------------------+        +------------------+
   Each requires the other. Neither could arise first.
@@ -146,15 +146,18 @@ These must have been solved simultaneously or in close succession — that's wha
 ```
   SETUP:
   +------------------+
-  | Reducing atmos.  |  CH4, NH3, H2, H2O (Miller's assumption
-  | Flask + sparks   |  for early Earth atmosphere)
+  | Reducing atmos.  |
+  | Flask + sparks   |
   +------------------+
+   CH4, NH3, H2, H2O (Miller's assumption for early Earth atmosphere)
            |
            v (simulates lightning + UV)
   +------------------+
-  | Products:        |  Amino acids: glycine, alanine, aspartate
-  |                  |  Sugars, lipids, HCN precursors
+  | Products:        |
+  |                  |
   +------------------+
+   Amino acids: glycine, alanine, aspartate.
+   Sugars, lipids, HCN precursors.
 
   SIGNIFICANCE: Established abiotic organic synthesis in principle.
 

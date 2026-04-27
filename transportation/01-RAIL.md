@@ -5,34 +5,19 @@
 Rail is the oldest large-scale transportation technology still dominant in its niches. It wins on energy efficiency (steel wheel on steel rail rolling resistance is ~10x lower than rubber on asphalt), capacity (one track lane moves far more people or freight than one road lane), and safety. It loses on flexibility, capital cost, and the chicken-and-egg demand problem.
 
 ```
-+------------------------------------------------------------------+
-|                       RAIL SYSTEM LAYERS                         |
-|                                                                  |
-|  INFRASTRUCTURE                                                  |
-|  +---------+  +---------+  +---------+  +---------+              |
-|  | Track   |  | Signals |  | Stations|  | Power   |             |
-|  | Geometry|  | & Safety|  | & Yards |  | Supply  |             |
-|  +---------+  +---------+  +---------+  +---------+             |
-   |                                                              |
-   |  VEHICLE (rolling stock)                                     |
-|  +---------+  +---------+  +---------+  +---------+             |
-|  | Traction|  | Bogies  |  | Braking |  | Cab /   |             |
-|  | (motor) |  | (trucks)|  | system  |  | ETCS OBU|             |
-|  +---------+  +---------+  +---------+  +---------+             |
-   |                                                              |
-   |  OPERATIONS                                                  |
-|  +---------+  +---------+  +---------+  +---------+             |
-|  | Timetable  | Train   |  | Control |  | Incident|             |
-|  | planning|  | dispatch|  | Centre  |  | mgmt    |             |
-|  +---------+  +---------+  +---------+  +---------+             |
-   |                                                              |
-   |  APPLICATION SEGMENTS                                        |
-|  +----------+  +--------+  +---------+  +----------+            |
-|  | High-    |  | Inter- |  | Urban   |  | Heavy    |            |
-|  | Speed    |  | city   |  | Metro/  |  | Freight  |            |
-|  | Rail     |  | Rail   |  | LRT/BRT |  | Rail     |            |
-|  +----------+  +--------+  +---------+  +----------+            |
-+------------------------------------------------------------------+
+                  RAIL SYSTEM LAYERS
+
+  INFRASTRUCTURE:
+    Track Geometry | Signals & Safety | Stations & Yards | Power Supply
+
+  VEHICLE (rolling stock):
+    Traction (motor) | Bogies (trucks) | Braking system | Cab / ETCS OBU
+
+  OPERATIONS:
+    Timetable planning | Train dispatch | Control Centre | Incident mgmt
+
+  APPLICATION SEGMENTS:
+    High-Speed Rail | Inter-city Rail | Urban Metro/LRT/BRT | Heavy Freight Rail
 ```
 
 ---
@@ -173,16 +158,14 @@ This is the fundamental physics of rail. Everything else is built on it.
 ```
   ELECTRIC TRACTION SYSTEMS
 
-  +------------------------------------------------------+
-  |  System        | Voltage | Freq  | Collection | Use  |
-  |----------------|---------|-------|------------|------|
-  | DC 600/750V    | 750V DC | -     | Third rail | Urban metro |
-  | DC 1500V       | 1500V DC| -     | Overhead   | Commuter, some mainline |
-  | DC 3000V       | 3000V DC| -     | Overhead   | Italy, Czech, Poland |
-  | AC 25kV 50Hz   | 25kV AC | 50Hz  | Overhead   | Mainline, HSR — dominant |
-  | AC 15kV 16.7Hz | 15kV AC | 16.7Hz| Overhead   | Germany, Austria, Switzerland |
-  | AC 25kV 60Hz   | 25kV AC | 60Hz  | Overhead   | Japan HSR (Shinkansen) |
-  +------------------------------------------------------+
+| System         | Voltage  | Freq   | Collection | Use                           |
+|----------------|----------|--------|------------|-------------------------------|
+| DC 600/750V    | 750V DC  | -      | Third rail | Urban metro                   |
+| DC 1500V       | 1500V DC | -      | Overhead   | Commuter, some mainline       |
+| DC 3000V       | 3000V DC | -      | Overhead   | Italy, Czech, Poland          |
+| AC 25kV 50Hz   | 25kV AC  | 50Hz   | Overhead   | Mainline, HSR — dominant      |
+| AC 15kV 16.7Hz | 15kV AC  | 16.7Hz | Overhead   | Germany, Austria, Switzerland |
+| AC 25kV 60Hz   | 25kV AC  | 60Hz   | Overhead   | Japan HSR (Shinkansen)        |
 
   Higher voltage = lower current = thinner wire = cheaper infrastructure
   But more complex on-board transformers and converters

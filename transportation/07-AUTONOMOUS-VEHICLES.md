@@ -5,40 +5,26 @@
 Autonomous vehicles are a real-time embedded systems problem at the intersection of robotics, machine learning, and safety-critical software engineering. The perception-prediction-planning pipeline is well understood; the unsolved problem is long-tail edge cases and the statistical validation challenge of proving safety in a world where rare events matter most.
 
 ```
-+------------------------------------------------------------------+
-|                    AV SYSTEM ARCHITECTURE                        |
-|                                                                  |
-|  PERCEPTION                                                      |
-|  +----------+ +----------+ +----------+ +----------+             |
-|  | LiDAR    | | Camera   | | Radar    | | Ultrasonic|           |
-|  | (point   | | (RGB,    | | (Doppler,| | (parking, |           |
-|  | cloud)   | | semantic)| | velocity)| | close)   |           |
-|  +----------+ +----------+ +----------+ +----------+            |
-|       |            |           |              |                 |
-|       +------------+-----------+--------------+                 |
-|                         |                                       |
-|                   SENSOR FUSION                                  |
-|                   (Kalman filter,                               |
-|                   deep fusion)                                   |
-|                         |                                       |
-|  PREDICTION                                                      |
-|  +--------------------------------------------+                 |
-|  | Object detection + tracking + prediction   |                 |
-|  | "That car will turn left in 2 seconds"     |                 |
-|  +--------------------------------------------+                 |
-|                         |                                       |
-|  PLANNING                                                        |
-|  +----------+ +----------+ +----------+ +----------+            |
-|  | Route    | | Behavioral| | Motion  | | Control  |            |
-|  | Planning | | Planning  | | Planning| | (actuators)|          |
-|  +----------+ +----------+ +----------+ +----------+            |
-|                                                                  |
-|  LOCALIZATION (runs in parallel)                                 |
-|  +--------------------------------------------+                 |
-|  | HD Map + LiDAR/camera matching + GPS/IMU   |                 |
-|  | "I am at this exact position on the map"   |                 |
-|  +--------------------------------------------+                 |
-+------------------------------------------------------------------+
+                  AV SYSTEM ARCHITECTURE
+
+  PERCEPTION:
+    LiDAR (point cloud)
+    Camera (RGB, semantic)
+    Radar (Doppler, velocity)
+    Ultrasonic (parking, close range)
+        ↓
+  SENSOR FUSION (Kalman filter, deep fusion)
+        ↓
+  PREDICTION:
+    Object detection + tracking + prediction
+    "That car will turn left in 2 seconds"
+        ↓
+  PLANNING:
+    Route planning → Behavioral → Motion → Control (actuators)
+
+  LOCALIZATION (runs in parallel):
+    HD Map + LiDAR/camera matching + GPS/IMU
+    "I am at this exact position on the map"
 ```
 
 ---
@@ -121,20 +107,26 @@ LiDAR produces a 3D point cloud of the environment by measuring time-of-flight o
 
   Spinning/mechanical (Velodyne HDL-64E, Ouster OS1):
   +----------+
-  | 64 laser |  -> Rotates 360 degrees, 10-20 Hz
-  | channels |  -> 1.3M points/second
-  | 100m     |  -> Range: 0.1m to 120m (typical)
-  | range    |  -> Accuracy: ±2cm
+  | 64 laser |
+  | channels |
+  | 100m     |
+  | range    |
   +----------+
+   → Rotates 360 degrees, 10-20 Hz
+   → 1.3M points/second
+   → Range: 0.1m to 120m (typical), accuracy ±2cm
   Advantage: full 360-degree coverage
   Disadvantage: large, expensive ($75K in 2017), moving parts fail
 
   Solid-state (MEMS, OPA, Flash):
   +----------+
-  | No       |  -> Fixed field of view (120°x25° typical)
-  | moving   |  -> Lower cost ($500-5000)
-  | parts    |  -> More reliable
+  | No       |
+  | moving   |
+  | parts    |
   +----------+
+   → Fixed field of view (120°x25° typical)
+   → Lower cost ($500-5000)
+   → More reliable
   Advantage: cost, reliability, compact
   Disadvantage: limited FOV; need multiple units for 360°
   Examples: Luminar Iris, Mobileye EyeQ, Cepton MEMS
@@ -230,12 +222,15 @@ No single sensor is sufficient. Fusion combines their complementary strengths.
 ```
   SENSOR FUSION LEVELS:
 
-  EARLY FUSION (raw data):         LATE FUSION (detections):
-  +------+                         +------+
-  |LiDAR | -> raw points            |LiDAR | -> objects
-  |Camera| -> raw pixels   FUSE    |Camera| -> objects   FUSE
-  |Radar | -> raw signals   HERE   |Radar | -> objects    HERE
-  +------+                         +------+
+  EARLY FUSION (raw data):
+    LiDAR  → raw points
+    Camera → raw pixels   → FUSE HERE
+    Radar  → raw signals
+
+  LATE FUSION (detections):
+    LiDAR  → objects
+    Camera → objects      → FUSE HERE
+    Radar  → objects
 
   Early: richer representation, harder to train, larger compute
   Late: modular, easier to test, loses cross-modal features

@@ -318,13 +318,13 @@ INPUT FRAME
  Verify loop closure geometrically (RANSAC).
  Correct drift: pose graph optimization.
  Fuse duplicate map points.
-+------------------+
      |
      v
 +------------------+
-|  MAP REUSE       |   Save map. Reload and relocalize in saved map.
-|                  |   Multi-session mapping.
+|  MAP REUSE       |
 +------------------+
+ Save map. Reload and relocalize in saved map.
+ Multi-session mapping.
 ```
 
 ### ORB Features

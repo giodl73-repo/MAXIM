@@ -11,15 +11,14 @@ Defined by embryonic development:
   Coelom from enterocoely (gut pocketing)
 
 DEUTEROSTOME TREE:
-             DEUTEROSTOMIA
-         +--------+--------+
-         |                 |
-    Ambulacraria       CHORDATA
-         |              (next file)
-    +----+----+
-    |         |
-Echinodermata Hemichordata
-(~7,500 sp)   (~130 sp)
+  DEUTEROSTOMIA
+   |
+   +-- Ambulacraria
+   |    |
+   |    +-- Echinodermata (~7,500 sp)
+   |    +-- Hemichordata  (~130 sp)
+   |
+   +-- CHORDATA (next file)
 
 ECHINODERMATA SUBGROUPS:
   Asteroidea    (sea stars)         ~2,000 sp

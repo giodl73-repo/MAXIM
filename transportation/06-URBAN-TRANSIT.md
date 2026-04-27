@@ -5,34 +5,18 @@
 Urban transit is fundamentally a network problem. Its value grows non-linearly with coverage — a transit system that gets you to 90% of destinations is far more than 2× as useful as one covering 45%. This is Metcalfe's law applied to physical mobility. The challenge is that building a high-coverage network costs proportionally to coverage, while the utility benefit grows faster — which creates the political economy of transit: underinvestment is the stable equilibrium unless cities intervene.
 
 ```
-+------------------------------------------------------------------+
-|                    URBAN TRANSIT SYSTEM                          |
-|                                                                  |
-|  MODE PERFORMANCE SPECTRUM                                       |
-|  +----------+  +----------+  +----------+  +----------+          |
-|  | Metro    |  | LRT      |  | BRT      |  | Bus      |         |
-|  | (Heavy   |  | (Light   |  | (Rapid)  |  | (Local)  |         |
-|  | Rail)    |  | Rail)    |  |          |  |          |         |
-|  | 60-80k   |  | 20-40k   |  | 10-20k   |  | 5-10k    |         |
-|  | pphpd    |  | pphpd    |  | pphpd    |  | pphpd    |         |
-|  |$200-700M |  |$50-150M  |  |$2-20M/km |  |$0.5-2M   |         |
-|  | /km      |  |/km       |  |          |  |/km       |         |
-|  +----------+  +----------+  +----------+  +----------+         |
-   |                                                              |
-   |  DEMAND MODELING                                             |
-|  +----------+  +----------+  +----------+  +----------+         |
-|  | Trip gen |  | Mode     |  | Route    |  | Network  |         |
-|  | 4-step   |  | Choice   |  | Choice   |  | Assignment|         |
-|  | model    |  | (Logit)  |  |          |  |          |         |
-|  +----------+  +----------+  +----------+  +----------+         |
-   |                                                              |
-   |  NETWORK DESIGN PRINCIPLES                                   |
-|  +----------+  +----------+  +----------+  +----------+         |
-|  | Coverage |  | Frequency| | Transfer  |  | TOD/Land |         |
-|  | vs       |  | is       |  | design   |  | Value    |         |
-|  | Ridership|  | Freedom  |  |          |  | Capture  |         |
-|  +----------+  +----------+  +----------+  +----------+         |
-+------------------------------------------------------------------+
+                  URBAN TRANSIT SYSTEM
+
+  MODE PERFORMANCE SPECTRUM:
+    Metro (Heavy Rail) | LRT (Light Rail) | BRT (Rapid) | Bus (Local)
+    60-80k pphpd       | 20-40k pphpd     | 10-20k      | 5-10k
+    $200-700M /km      | $50-150M /km     | $2-20M /km  | $0.5-2M /km
+
+  DEMAND MODELING:
+    Trip gen (4-step model) | Mode Choice (Logit) | Route Choice | Network Assignment
+
+  NETWORK DESIGN PRINCIPLES:
+    Coverage vs Ridership | Frequency is Freedom | Transfer design | TOD/Land Value Capture
 ```
 
 ---
@@ -173,17 +157,22 @@ This is the fundamental design tension in transit networks (Jarrett Walker's fra
   COVERAGE OBJECTIVE:                 RIDERSHIP OBJECTIVE:
   Maximize geographic coverage.       Maximize riders per cost dollar.
 
-  +---------------------------+       +---------------------------+
-  | SERVE LOW-DENSITY AREAS   |       | CONCENTRATE ON HIGH-      |
-  | Many routes, low frequency|       | DEMAND CORRIDORS          |
-  | 30-60min headways        |       | Few routes, high frequency|
-  | 2-3 riders per bus       |       | 5-10 min headways          |
-  | High subsidy per trip    |       | 50+ riders per bus         |
-  | Social equity argument   |       | Lower subsidy per trip     |
-  |                          |       |                            |
-  | Serves transit-dependent |       | Maximizes overall system   |
-  | (no car) populations     |       | ridership and farebox      |
-  +---------------------------+       +---------------------------+
+  COVERAGE OBJECTIVE:
+    SERVE LOW-DENSITY AREAS
+    Many routes, low frequency
+    30-60min headways
+    2-3 riders per bus
+    High subsidy per trip
+    Social equity argument
+    Serves transit-dependent (no car) populations
+
+  RIDERSHIP OBJECTIVE:
+    CONCENTRATE ON HIGH-DEMAND CORRIDORS
+    Few routes, high frequency
+    5-10 min headways
+    50+ riders per bus
+    Lower subsidy per trip
+    Maximizes overall system ridership and farebox
 
   THE TENSION:
   Limited budget. You can't do both.

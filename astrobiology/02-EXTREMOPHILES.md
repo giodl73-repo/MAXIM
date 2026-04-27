@@ -16,7 +16,7 @@
 |  | extremes   |  | extremes |  | stresses |  | (suspended anim.) |   |
 |  | Temp,press.|  | pH, salt |  | Polyext. |  | Tardigrades,      |   |
 |  | radiation  |  | H2O activ|  | romophile|  | bacterial spores  |   |
-|  +------------+  +----------+  +----------+  +-------------------+   |
+|  +------------+  +----------+  +----------+  +-------------------+    |
 +-----------------------------------------------------------------------+
 ```
 
@@ -295,7 +295,7 @@ Can survive extreme stresses in this state that would kill active cells.
 
 TARDIGRADES ("water bears"):
 +----------------------------------------------+
-| Normal (active)    | Tun state (cryptobiosis) |
+| Normal (active)    | Tun state (cryptobiosis)|
 +----------------------------------------------+
 | Metabolic rate ~1  | Metabolic rate <0.01%    |
 | Water content ~85% | Water content ~3%        |

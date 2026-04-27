@@ -53,14 +53,14 @@ TUNICATE LIFE CYCLE
 
 LARVA (tadpole stage):          ADULT (sessile stage):
   Free-swimming, ~1 mm          Sessile, filter feeder
-  +-----------------------+     +-------------------+
-  |  Notochord ✓          | →→  | Notochord LOST    |
+  +-----------------------+     +----------------------+
+  |  Notochord ✓          |     | Notochord LOST       |
   |  Dorsal nerve cord ✓  |     | Nerve cord → ganglion|
-  |  Pharyngeal slits ✓   |     | Pharyngeal slits ✓|
-  |  Post-anal tail ✓     |     | Tail LOST         |
-  |  Simple eye (ocellus) |     | Tunic (test)      |
-  |  Statocyst (balance)  |     | Siphons (in/out)  |
-  +-----------------------+     +-------------------+
+  |  Pharyngeal slits ✓   |     | Pharyngeal slits ✓   |
+  |  Post-anal tail ✓     |     | Tail LOST            |
+  |  Simple eye (ocellus) |     | Tunic (test)         |
+  |  Statocyst (balance)  |     | Siphons (in/out)     |
+  +-----------------------+     +----------------------+
   Metamorphosis: seconds to minutes
   Larva finds substrate, attaches head-first
   Most chordate features RESORBED during metamorphosis
@@ -129,19 +129,16 @@ DOLIOLIDA + SALPIDA (salps)
 ~32 described species. The textbook chordate. Branchiostoma lanceolatum.
 
 ```
-BRANCHIOSTOMA (AMPHIOXUS) BODY PLAN
+BRANCHIOSTOMA (AMPHIOXUS) BODY PLAN:
 
- +=========================================================+
- ‖  Oral hood with cirri (tentacles)                       ‖
- ‖  ┌───────────────────────────────────────────────────┐  ‖
- ‖  │ Notochord (full length, persists as ADULT) ────── │  ‖
- ‖  │ Dorsal hollow nerve cord (above notochord) ─────  │  ‖
- ‖  │ Pharyngeal slits (>100 pairs!)         ──────────  │  ‖
- ‖  │ Myomeres (V-shaped muscle blocks, segmented) ─── │  ‖
- ‖  │ Hepatic cecum (liver homolog?)          ──────────│  ‖
- ‖  └───────────────────────────────────────────────────┘  ‖
- ‖  Post-anal tail ✓                                       ‖
- +=========================================================+
+  Oral hood with cirri (tentacles) at front.
+  Body axis features:
+    - Notochord (full length, persists as ADULT)
+    - Dorsal hollow nerve cord (above notochord)
+    - Pharyngeal slits (>100 pairs!)
+    - Myomeres (V-shaped muscle blocks, segmented)
+    - Hepatic cecum (liver homolog?)
+  Post-anal tail ✓ at rear.
 
 ALL FOUR CHORDATE FEATURES PRESENT IN ADULT — diagnostic.
 
@@ -294,25 +291,20 @@ CONSEQUENCE:
 ```
 VERTEBRATE PHYLOGENY:
 
-          VERTEBRATA
-              |
-    +---------+---------+
-    |                   |
-  AGNATHA             GNATHOSTOMATA
-  (jawless)           (jawed)
-  Lampreys              |
-  Hagfish             +--------+--------+
-                      |                 |
-                 CHONDRICHTHYES    OSTEICHTHYES
-                 (cartilaginous)   (bony fishes)
-                 Sharks, rays           |
-                                   +----+----+
-                                   |         |
-                              Actinopterygii Sarcopterygii
-                              (ray-finned)   (lobe-finned)
-                                             |
-                                           TETRAPODA
-                                (Amphibia + Amniota)
+  VERTEBRATA
+   |
+   +-- AGNATHA (jawless): Lampreys, Hagfish
+   |
+   +-- GNATHOSTOMATA (jawed)
+        |
+        +-- CHONDRICHTHYES (cartilaginous): Sharks, rays
+        |
+        +-- OSTEICHTHYES (bony fishes)
+             |
+             +-- Actinopterygii (ray-finned)
+             +-- Sarcopterygii (lobe-finned)
+                  |
+                  +-- TETRAPODA (Amphibia + Amniota)
 
 KEY TRANSITION POINTS:
   Agnatha → Gnathostomata: evolution of JAWS

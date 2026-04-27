@@ -5,36 +5,21 @@
 Transportation economics is applied welfare economics and industrial organization. The core questions: how much to invest (CBA), how to price (externalities and marginal cost), who should own and operate (natural monopoly theory), and how markets behave when competition is feasible. These questions apply directly to cloud infrastructure investment — the same NPV machinery evaluates a highway as evaluates an Azure data center expansion.
 
 ```
-+------------------------------------------------------------------+
-|                 TRANSPORTATION ECONOMICS MAP                     |
-|                                                                  |
-|  INVESTMENT APPRAISAL                                            |
-|  +----------+  +----------+  +----------+  +----------+          |
-|  | CBA      |  | NPV/BCR  |  | Wider    |  | Discount |         |
-|  | Benefits |  | IRR      |  | Economic |  | Rate     |         |
-|  | (travel  |  |          |  | Benefits |  | Debate   |         |
-|  | time...) |  |          |  |          |  |          |         |
-|  +----------+  +----------+  +----------+  +----------+         |
-   |                                                              |
-   |  EXTERNALITIES AND PRICING                                   |
-|  +----------+  +----------+  +----------+  +----------+         |
-|  | Congestion| | Emissions| | Accidents| | First-best|         |
-|  | external- | | pricing  | | external | | Pigouvian|          |
-|  | ity       | | (carbon) | | costs    | | tolls    |          |
-|  +----------+  +----------+  +----------+  +----------+         |
-   |                                                              |
-   |  ROAD PRICING CASES                                          |
-|  +----------+  +----------+  +----------+  +----------+         |
-|  | Singapore| | Stockholm| | London   | | SR91     |           |
-|  | ERP      | | Charge   | | CC       | | Express  |           |
-|  +----------+  +----------+  +----------+  +----------+         |
-   |                                                              |
-   |  PUBLIC VS PRIVATE PROVISION                                 |
-|  +----------+  +----------+  +----------+  +----------+         |
-|  | Natural  |  | PPP      |  | Port     |  | Aviation |         |
-|  | Monopoly |  | Models   |  | Competition| | Markets |         |
-|  +----------+  +----------+  +----------+  +----------+         |
-+------------------------------------------------------------------+
+                 TRANSPORTATION ECONOMICS MAP
+
+  INVESTMENT APPRAISAL:
+    CBA Benefits (travel time, etc.) | NPV/BCR/IRR
+    Wider Economic Benefits | Discount Rate Debate
+
+  EXTERNALITIES AND PRICING:
+    Congestion externality | Emissions pricing (carbon)
+    Accidents external costs | First-best Pigouvian tolls
+
+  ROAD PRICING CASES:
+    Singapore ERP | Stockholm Charge | London CC | SR91 Express
+
+  PUBLIC VS PRIVATE PROVISION:
+    Natural Monopoly | PPP Models | Port Competition | Aviation Markets
 ```
 
 ---

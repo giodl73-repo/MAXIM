@@ -112,14 +112,14 @@ CELL TYPES:
 
 ```
 ASCONOID          SYCONOID          LEUCONOID
-+--------+        +--------+        +--------+
-|        |        |        |        | Many   |
++--------+        +--------+        +---------+
+|        |        |        |        | Many    |
 | Simple |        | Folded |        | chambers|
-| tube   |        | wall   |        | High   |
+| tube   |        | wall   |        | High    |
 |        |        |        |        | pumping |
 | Low    |        | More   |        | capacity|
-| efficiency|     | cells  |        |        |
-+--------+        +--------+        +--------+
+| effic. |        | cells  |        |         |
++--------+        +--------+        +---------+
 Sycon sp.      Scypha sp.         Most demosponges
 ```
 

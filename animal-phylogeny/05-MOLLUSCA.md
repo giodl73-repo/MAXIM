@@ -16,10 +16,10 @@ MOLLUSCA TREE
 | Caudofoveata         (single cap     (snails,slugs)      |
 | Polyplacophora       shell)          ~70,000 sp          |
 |  (chitons, 8 plates)                                     |
-|                           +----------+----------+        |
-|                       Bivalvia    Scaphopoda  Cephalopoda|
-|                       (clams,     (tusk       (octopus,  |
-|                        oysters)    shells)     squid)    |
+|                                                          |
+|  Bivalvia    Scaphopoda  Cephalopoda                     |
+|  (clams,     (tusk       (octopus,                       |
+|   oysters)    shells)     squid)                         |
 +----------------------------------------------------------+
 
 THE MOLLUSCAN BODY PLAN (hypothetical ancestral mollusk):
@@ -63,7 +63,7 @@ THE MOLLUSCAN BODY PLAN (hypothetical ancestral mollusk):
    │ Ribbon of chitin teeth on muscular base    │
    │ Moves back and forth like rasp/file        │
    │ Tooth row patterns vary by feeding mode:   │
-   │   Herbivore: many small teeth (docoglossate)│
+   │   Herbivore: many small teeth (docoglossat)│
    │   Carnivore: fewer, larger teeth           │
    │   Boring (whelks): drill through shell     │
    │   Cone snail: harpoon-like (venomous)      │
@@ -82,7 +82,7 @@ THE MOLLUSCAN BODY PLAN (hypothetical ancestral mollusk):
 ```
 MOLLUSCAN SHELL CROSS-SECTION
 +------------------------------------------+
-|  Periostracum   Organic protein (quinone) |
+|  Periostracum   Organic protein (quinone)|
 |                 Outermost, protective    |
 +------------------------------------------+
 |  Prismatic     Calcite or aragonite       |
@@ -372,7 +372,7 @@ SIZE COMPARISON
 +----------------------------------------------+
 |  Architeuthis dux (Giant squid)              |
 |  Total: 13 m (body 2m + tentacles 11m)       |
-|  Eye diameter: 30 cm (largest in animal kingdom)|
+|  Eye diameter: 30 cm (largest in animals)    |
 |  Habitat: deep ocean 300–1000 m              |
 |  Predator: sperm whales (sucker scars found) |
 |                                              |

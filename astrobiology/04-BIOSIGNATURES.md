@@ -9,13 +9,13 @@
 |                                                                       |
 |  ATMOSPHERIC          SURFACE            CHEMICAL          TECHNICAL  |
 |  BIOSIGNATURES        BIOSIGNATURES      BIOSIGNATURES     SIGNATURES |
-|  +-----------+        +----------+       +----------+      +--------+ |
-|  | O2 / O3   |        | Veg. red |       | Chirality|      | Radio  | |
-|  | N2O       |        | edge     |       | Isotope  |      | Laser  | |
+|  +-----------+        +----------+       +-----------+     +--------+ |
+|  | O2 / O3   |        | Veg. red |       | Chirality |     | Radio  | |
+|  | N2O       |        | edge     |       | Isotope   |     | Laser  | |
 |  | CH4 + O2  |        | Circular |       | fractionat|     | IR     | |
 |  | DMS       |        | polar.   |       | Molecular |     | excess | |
 |  | isoprene  |        |          |       | complexity|     |        | |
-|  +-----------+        +----------+       +----------+      +--------+ |
+|  +-----------+        +----------+       +-----------+     +--------+ |
 |                                                                       |
 |  KEY PRINCIPLE: No single biosignature is sufficient.                 |
 |  Each has abiotic false positives. Ensemble approach required.        |
@@ -156,13 +156,13 @@ Chlorophyll absorption:
 - Reflects strongly in near-IR (~700-750 nm)
 - Sharp "cliff" in reflectance at ~700 nm
 
-    Reflectance
-    |                     +----------- NIR plateau
-    |          green bump |
-    |    +-+               |
-    |  __/ \______________/ ^-- sharp edge at ~700 nm
-    +--+----+----+----+----+----+--> wavelength
-       400   500  600  700  800  900 nm
+    Reflectance vs wavelength (nm):
+
+    400 nm  500 nm  600 nm  700 nm  800 nm  900 nm
+     low    bump    low    [SHARP]  HIGH    HIGH
+            green           edge    NIR plateau
+                             ↑
+                       sharp edge at ~700 nm
 
 EARTH FROM SPACE:
 VRE is detectable in Earth's disk-integrated spectrum.
@@ -293,15 +293,19 @@ Created by intelligent life; NOT life in general.
 
 RADIO SIGNALS:
 +---------------------------+
-| Narrow-band radio signals |  No natural source produces narrow-band
-|                           |  coherent signals at specific frequencies.
-|                           |  "Wow!" signal (1977): 1420 MHz = 21 cm
-|                           |  hydrogen line ("cosmic waterhole")
+| Narrow-band radio signals |
 +---------------------------+
-| Properties of a          |  Drifting frequency (Doppler from planet)
-| genuine technosignal:    |  Non-repeating (we haven't seen repeat)
-|                          |  Amplitude inconsistent with natural source
-+---------------------------+
+ No natural source produces narrow-band coherent signals
+ at specific frequencies.
+ "Wow!" signal (1977): 1420 MHz = 21 cm hydrogen line ("cosmic waterhole").
+
++----------------------------+
+| Properties of a            |
+| genuine technosignal:      |
++----------------------------+
+ Drifting frequency (Doppler from planet).
+ Non-repeating (we haven't seen repeat).
+ Amplitude inconsistent with natural source.
 
 DYSON SPHERES / MEGASTRUCTURES:
 Dyson (1960): advanced civilization builds shell around star

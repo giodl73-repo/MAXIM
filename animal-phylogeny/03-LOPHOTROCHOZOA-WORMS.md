@@ -10,13 +10,12 @@ LOPHOTROCHOZOA — defined by two synapomorphies:
 
                  BILATERIA
                      |
-          +----------+----------+
-          |                     |
-   PROTOSTOMIA            DEUTEROSTOMIA
-          |
-   +------+------+
-   |             |
-LOPHOTROCHOZOA  ECDYSOZOA (molting; next file)
+                     +-- PROTOSTOMIA
+                     |     |
+                     |     +-- LOPHOTROCHOZOA
+                     |     +-- ECDYSOZOA (molting; next file)
+                     |
+                     +-- DEUTEROSTOMIA
 
 LOPHOTROCHOZOA TREE:
   Platyhelminthes (flatworms)

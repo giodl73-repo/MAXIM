@@ -4,8 +4,8 @@
 
 ```
 +-----------------------------------------------------------------------+
-|                        ASTROBIOLOGY                                    |
-|          Origin, Evolution, and Distribution of Life in the Universe   |
+|                        ASTROBIOLOGY                                   |
+|         Origin, Evolution, and Distribution of Life in the Universe   |
 +-----------------------------------------------------------------------+
 |                                                                       |
 |  THREE CORE QUESTIONS                                                 |
@@ -32,19 +32,19 @@ Astrobiology is a *synthesis* discipline — it has no unique experimental metho
 
 ```
 +----------------------------------------------------------------------+
-|                   ASTROBIOLOGY INTEGRATION MAP                        |
+|                   ASTROBIOLOGY INTEGRATION MAP                       |
 |                                                                      |
 |  CHEMISTRY          BIOLOGY           GEOLOGY        ASTRONOMY       |
 |  ---------          -------           -------        ---------       |
-|  Prebiotic          Origin of life    Paleontology   Exoplanets       |
-|  chemistry          Extremophiles     Geochronology  Transit spec.    |
-|  Organic synthesis  Metabolism        Biosignatures  Stellar physics  |
-|  RNA world          Microbial         in rock        Habitable zones  |
-|                     ecology                                           |
-|        \                 \                /                /          |
-|         \                 \              /                /           |
-|          +---> ASTROBIOLOGY SYNTHESIS <---+                           |
-|               "Life in the Universe"                                  |
+|  Prebiotic          Origin of life    Paleontology   Exoplanets      |
+|  chemistry          Extremophiles     Geochronology  Transit spec.   |
+|  Organic synthesis  Metabolism        Biosignatures  Stellar physics |
+|  RNA world          Microbial         in rock        Habitable zones |
+|                     ecology                                          |
+|        \                 \                /                /         |
+|         \                 \              /                /          |
+|          +---> ASTROBIOLOGY SYNTHESIS <---+                          |
+|               "Life in the Universe"                                 |
 |                                                                      |
 |  PLANETARY SCIENCE        PHYSICS         COMPUTER SCIENCE           |
 |  ----------------         -------         ----------------           |
@@ -52,7 +52,7 @@ Astrobiology is a *synthesis* discipline — it has no unique experimental metho
 |  environments             Statistical     Genome analysis            |
 |  Mars, Europa,            mechanics       SETI signal proc.          |
 |  Enceladus, Titan         Information     Drake eq. modeling         |
-|                           theory                                      |
+|                           theory                                     |
 +----------------------------------------------------------------------+
 ```
 

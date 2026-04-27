@@ -5,33 +5,24 @@
 Five modes move all people and freight on Earth. Each has distinct physics, economics, and geography. They compete on some corridors and complement on others.
 
 ```
-+------------------------------------------------------------------+
-|                    TRANSPORTATION LANDSCAPE                      |
-|                                                                  |
-|  INFRASTRUCTURE LAYER (fixed, capital-intensive, long-lived)     |
-|  +----------+ +---------+ +---------+ +---------+ +---------+    |
-|  |   RAIL   | |  ROAD   | |   AIR   | |MARITIME | |PIPELINE |   |
-|  | Track    | | Highway | | Airport | | Port    | | Pipe    |   |
-|  | $2-50M/km| | $1-10M  | | $500M+  | | $500M+  | | $1-5M/km|   |
-|  | 50-100yr | | 30-50yr | | 40yr    | | 50+yr   | | 40-50yr |   |
-|  +----------+ +---------+ +---------+ +---------+ +---------+   |
-|                                                                 |
-|  VEHICLE LAYER (mobile, replaceable, shorter-lived)             |
-|  +----------+ +---------+ +---------+ +---------+ +---------+   |
-|  | Loco/    | | Truck/  | | Aircraft| | Ship    | | Pump/   |   |
-|  | Railcar  | | Car/Bus | |         | |         | | Compress|   |
-|  | 25-40yr  | | 5-20yr  | | 20-25yr | | 20-30yr | | station |   |
-|  +----------+ +---------+ +---------+ +---------+ +---------+   |
-|                                                                 |
-|  OPERATIONS LAYER (schedules, routing, control)                 |
-|  +----------+ +---------+ +---------+ +---------+ +---------+   |
-|  | Train    | | Traffic | | ATC /   | | Voyage  | | SCADA   |   |
-|  | Control  | | Mgmt    | | dispatch| | routing | | control |   |
-|  +----------+ +---------+ +---------+ +---------+ +---------+   |
-|                                                                 |
-|  DEMAND LAYER (people and freight needing to move)              |
-|  Commuters, tourists, freight shippers, energy consumers        |
-+------------------------------------------------------------------+
+                  TRANSPORTATION LANDSCAPE
+
+  INFRASTRUCTURE LAYER (fixed, capital-intensive, long-lived):
+    RAIL     — Track, $2-50M/km, 50-100yr
+    ROAD     — Highway, $1-10M, 30-50yr
+    AIR      — Airport, $500M+, 40yr
+    MARITIME — Port, $500M+, 50+yr
+    PIPELINE — Pipe, $1-5M/km, 40-50yr
+
+  VEHICLE LAYER (mobile, replaceable, shorter-lived):
+    Loco/Railcar (25-40yr) | Truck/Car/Bus (5-20yr)
+    Aircraft (20-25yr) | Ship (20-30yr) | Pump/Compressor station
+
+  OPERATIONS LAYER (schedules, routing, control):
+    Train Control | Traffic Mgmt | ATC/dispatch | Voyage routing | SCADA control
+
+  DEMAND LAYER (people and freight needing to move):
+    Commuters, tourists, freight shippers, energy consumers
 ```
 
 Any transportation system = Infrastructure + Vehicles + Operations + Demand. All four must align. A railway without trains is useless; trains without demand are uneconomic.

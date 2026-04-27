@@ -7,15 +7,18 @@ ECDYSOZOA — defined by one character:
   ECDYSIS (molting of a rigid cuticle)
   Cuticle secreted by hypodermis, shed to allow growth
 
-                    ECDYSOZOA
-             +----------+----------+
-             |                     |
-     CYCLONEURALIA               PANARTHROPODA
-    (no legs)                    (legs)
-         |                         |
-    +----+----+              +-------+-------+
-    |         |              |       |       |
-Nematoda  Kinorhyncha   Onychophora Tardigrada Arthropoda
+  ECDYSOZOA
+   |
+   +-- CYCLONEURALIA (no legs)
+   |    |
+   |    +-- Nematoda
+   |    +-- Kinorhyncha
+   |
+   +-- PANARTHROPODA (legs)
+        |
+        +-- Onychophora
+        +-- Tardigrada
+        +-- Arthropoda
 Nematomorpha Priapulida    (velvet     (water    (next file)
 Loricifera                  worms)     bears)
 
@@ -202,17 +205,19 @@ Normal state:           Cryptobiosis (tun stage):
   ~100% normal          DNA repair ongoing, no other activity
 
 WHAT TARDIGRADES SURVIVE:
-+--------------------------------------------------+
-| Condition          | Value          | Human limit |
-|--------------------|----------------|-------------|
-| Vacuum of space    | ~0 Pa          | ~1 Pa deadly|
-| Temperature high   | 150°C (briefly) | ~42°C lethal|
-| Temperature low    | -272°C (1°C > 0K!)| ~-1°C death|
-| Radiation          | 570,000 rad    | 1,000 rad lethal|
-| Pressure           | 6,000 atm      | ~60 atm lethal|
-| Desiccation        | 100% dehydrated| ~10% lethal |
-| Chemical           | Ethanol, HCl   | Very toxic |
-+--------------------------------------------------+
+```
+
+| Condition          | Value             | Human limit       |
+|--------------------|-------------------|-------------------|
+| Vacuum of space    | ~0 Pa             | ~1 Pa deadly      |
+| Temperature high   | 150°C (briefly)   | ~42°C lethal      |
+| Temperature low    | -272°C (1°C > 0K) | ~-1°C death       |
+| Radiation          | 570,000 rad       | 1,000 rad lethal  |
+| Pressure           | 6,000 atm         | ~60 atm lethal    |
+| Desiccation        | 100% dehydrated   | ~10% lethal       |
+| Chemical           | Ethanol, HCl      | Very toxic        |
+
+```
 
 MECHANISMS:
   Trehalose synthesis: sugar replaces water in cells

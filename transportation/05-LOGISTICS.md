@@ -5,35 +5,20 @@
 Logistics is the discipline of moving the right thing to the right place at the right time at the right cost. Supply chain management adds the upstream dimension: design the entire network of suppliers, manufacturers, distributors, and customers so that products flow efficiently. The 2020-2022 disruptions demonstrated that supply chains optimized purely for efficiency are fragile — resilience requires redundancy, which costs money.
 
 ```
-+------------------------------------------------------------------+
-|                    SUPPLY CHAIN LAYERS                           |
-|                                                                  |
-|  NETWORK DESIGN (strategic, multi-year)                          |
-|  +----------+ +----------+ +----------+ +----------+             |
-|  | Facility | | Mode     | | Inventory| | Make vs  |            |
-|  | Location | | Selection| | Placement| | Buy vs   |            |
-|  |          | |          | |          | | Outsource|            |
-|  +----------+ +----------+ +----------+ +----------+            |
-   |                                                              |
-   |  TRANSPORTATION (tactical, daily-weekly)                     |
-|  +----------+ +----------+ +----------+ +----------+            |
-|  | Ocean    | | Air      | | Truckload| | LTL/     |            |
-|  | Freight  | | Freight  | | (FTL)    | | Parcel   |            |
-|  +----------+ +----------+ +----------+ +----------+            |
-   |                                                              |
-   |  WAREHOUSING (execution, hourly)                             |
-|  +----------+ +----------+ +----------+ +----------+            |
-|  | Receiving| | Storage  | | Pick/Pack| | Shipping |            |
-|  | Cross-   | | Slotting | | Order    | | Sortation|            |
-|  | docking  | |          | | Mgmt     | |          |            |
-|  +----------+ +----------+ +----------+ +----------+            |
-   |                                                              |
-   |  LAST MILE (delivery to customer)                            |
-|  +----------+ +----------+ +----------+ +----------+            |
-|  | Route    | | Delivery | | Returns  | | Customer |            |
-|  | Optim.   | | density  | | (reverse)| | Experience|           |
-|  +----------+ +----------+ +----------+ +----------+            |
-+------------------------------------------------------------------+
+                  SUPPLY CHAIN LAYERS
+
+  NETWORK DESIGN (strategic, multi-year):
+    Facility Location | Mode Selection | Inventory Placement | Make vs Buy
+
+  TRANSPORTATION (tactical, daily-weekly):
+    Ocean Freight | Air Freight | Truckload (FTL) | LTL/Parcel
+
+  WAREHOUSING (execution, hourly):
+    Receiving / Cross-docking | Storage / Slotting
+    Pick/Pack / Order Mgmt | Shipping / Sortation
+
+  LAST MILE (delivery to customer):
+    Route Optim. | Delivery density | Returns (reverse) | Customer Experience
 ```
 
 ---
@@ -83,26 +68,17 @@ The strategic question: where to put warehouses, distribution centers, and facto
 ```
   ECHELON STRUCTURES:
 
-  Single-echelon (direct):           Multi-echelon (tiered):
-  +----------+                       +----------+
-  | Factory  |                       | Factory  |
-  +----+-----+                       +----+-----+
-       |                                  |
-    (direct)                              | (bulk)
-       |                             +----+------+
-  +----+----+                        |  Regional |
-  | Customer|                        |    DC      |
-  +---------+                        +---+-+------+
-                                         | |
-                                    (zone| |(zone)
-                                    +----+ +----+
-                                    |Local| |Local|
-                                    | DC  | | DC  |
-                                    +-----+ +-----+
-                                         |
-                                    +---------+
-                                    | Customer|
-                                    +---------+
+  Single-echelon (direct):
+    Factory → (direct) → Customer
+
+  Multi-echelon (tiered):
+    Factory
+      ↓ (bulk)
+    Regional DC
+      ↓ (zone)  ↓ (zone)
+    Local DC    Local DC
+      ↓
+    Customer
 
   SINGLE ECHELON: lower fixed cost, higher transport cost
                   (each customer farther from single DC)
@@ -286,20 +262,25 @@ The cold chain is a logistics system that maintains temperature-controlled condi
 
 ```
   ACTIVE (powered refrigeration):
-  +------------------+
-  | Refrigerated     | Diesel generator or electric shore power
-  | container (reefer)| Maintains temperature ±2°C
-  | Temperature log  | Data logger required (GDP)
-  +------------------+
-  Cost premium: ~3-5x standard container
-  Used for: bulk pharma, large food volumes, long duration
+  +-------------------+
+  | Refrigerated      |
+  | container (reefer)|
+  | Temperature log   |
+  +-------------------+
+   Diesel generator or electric shore power.
+   Maintains temperature ±2°C. Data logger required (GDP).
+  Cost premium: ~3-5x standard container.
+  Used for: bulk pharma, large food volumes, long duration.
 
   PASSIVE (thermal materials, no power):
-  +------------------+
-  | Insulated        | EPS/polyurethane foam or VIP (vacuum insulated panel)
-  | shipper          | Phase change material (PCM): wax at 2°C or 20°C
-  | Temperature log  | Absorbs/releases heat at phase transition
-  +------------------+
+  +-------------------+
+  | Insulated         |
+  | shipper           |
+  | Temperature log   |
+  +-------------------+
+   EPS/polyurethane foam or VIP (vacuum insulated panel).
+   Phase change material (PCM): wax at 2°C or 20°C.
+   Absorbs/releases heat at phase transition.
   Duration: 24-120 hours depending on design
   Used for: individual pharma doses, clinical trials, last-mile
   Validation: must be tested against worst-case ambient profiles
@@ -486,15 +467,15 @@ Last-mile is the final delivery leg from distribution center to customer. Dispro
   Performance measured by: network optimization, 3PL SLA compliance.
 
   WHEN TO USE WHAT:
-  +------------------+  Company stage  +------------------+
-  | Own everything   |  Large, stable  | 1PL for core,    |
-  | (Amazon)         |  predictable    | 3PL for overflow |
-  +------------------+  +---------+   +------------------+
-                         Growing or
-  +------------------+  seasonal vol  +------------------+
-  | Full outsource   |  Small-medium  | 3PL for ops,     |
-  | to 3PL           |  e-commerce    | 4PL if complex   |
-  +------------------+  +---------+   +------------------+
+
+  Large, stable, predictable companies:
+    Own everything (Amazon) — 1PL for core, 3PL for overflow
+
+  Growing or seasonal-volume companies:
+    Mix — 3PL for ops, 4PL if complex
+
+  Small-medium e-commerce:
+    Full outsource to 3PL
 ```
 
 ---

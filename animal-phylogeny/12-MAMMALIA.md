@@ -4,23 +4,20 @@
 
 ```
 MAMMAL PHYLOGENY:
-            AMNIOTA
-                |
-    +-----------+----------+
-    |                      |
- SYNAPSIDA              REPTILIA
- (your lineage!)        (previous file)
-     |
-  Pelycosaurs (stem)
-  Therapsids
-  Cynodonts
-     |
-  MAMMALIA
-  +--------+--------+
-  |        |        |
-Monotremata Marsupialia Placentalia
-(egg-laying) (pouch)    (placenta)
- 5 sp       ~350 sp    ~5,500 sp
+  AMNIOTA
+   |
+   +-- SYNAPSIDA (your lineage!)
+   |    |
+   |    +-- Pelycosaurs (stem)
+   |    +-- Therapsids
+   |    +-- Cynodonts
+   |    +-- MAMMALIA
+   |         |
+   |         +-- Monotremata (egg-laying) — 5 sp
+   |         +-- Marsupialia (pouch)      — ~350 sp
+   |         +-- Placentalia (placenta)   — ~5,500 sp
+   |
+   +-- REPTILIA (previous file)
 
 SPECIES BY SUPERORDER:
   Monotremata         5 sp
@@ -265,15 +262,17 @@ TASMANIAN DEVIL (Sarcophilus harrisii):
 PLACENTAL MAMMAL TREE:
   (Molecular phylogenetics; NOT traditional morphology)
 
-          PLACENTALIA
-               |
-    +----------+----------+
-    |                     |
-  ATLANTOGENATA        BOREOEUTHERIA
-    |                     |
-  +----+----+          +------+------+
-  |         |          |             |
-Afrotheria Xenarthra Laurasiatheria Euarchontoglires
+  PLACENTALIA
+   |
+   +-- ATLANTOGENATA
+   |    |
+   |    +-- Afrotheria
+   |    +-- Xenarthra
+   |
+   +-- BOREOEUTHERIA
+        |
+        +-- Laurasiatheria
+        +-- Euarchontoglires
 
 SPLIT TIMING (~100 Ma, Cretaceous):
   Atlantic Ocean opening → Africa/South America separate
@@ -293,10 +292,10 @@ Types by invasiveness:
 +--------------------------------------------------+
 | Epitheliochorial   Uterine lining intact         |
 |   Pigs, horses     Least invasive                |
-| Endotheliochorial  Maternal blood vessels exposed |
+| Endotheliochorial  Maternal blood vessels exposd |
 |   Carnivores       Moderate                      |
-| Hemochorial        Maternal blood directly bathes |
-|   Rodents, humans  Most invasive → most efficient  |
+| Hemochorial        Maternal blood directly bathes|
+|   Rodents, humans  Most invasive → most efficient|
 +--------------------------------------------------+
 
 Human placenta: ~500 ml blood flow/minute through
@@ -459,38 +458,31 @@ TREESHREWS + COLUGOS (flying lemurs):
 ```
 PRIMATE PHYLOGENY:
   Primates
-  +-------+--------+
-  |                |
-Strepsirrhini  Haplorhini
-(lemurs,       +-----+-----+
- lorises,      |           |
- galagos)    Tarsiers  Anthropoids
-                           |
-                    +------+------+
-                    |             |
-              New World        Old World
-              Monkeys         Monkeys + Apes
-              (Americas)          |
-                           +------+------+
-                           |             |
-                       Cercopithecidae HOMINOIDEA
-                       (macaques,        |
-                        baboons)    +------+------+
-                                    |             |
-                               Gibbons         HOMINIDAE
-                               (Hylobatidae)  (Great Apes)
-                                          +-----+-----+
-                                          |           |
-                                       Pongo     HOMININAE
-                                     (orangutans)   |
-                                               +-----+-----+
-                                               |           |
-                                            Gorilla     HOMININI
-                                                           |
-                                                   +-------+-------+
-                                                   |               |
-                                                  Pan           HOMO
-                                              (chimps +
+   |
+   +-- Strepsirrhini (lemurs, lorises, galagos)
+   +-- Haplorhini
+        |
+        +-- Tarsiers
+        +-- Anthropoids
+             |
+             +-- New World
+             +-- Old World
+  New World Monkeys (Americas)
+  Old World (Monkeys + Apes):
+   |
+   +-- Cercopithecidae (macaques, baboons)
+   +-- HOMINOIDEA
+        |
+        +-- Gibbons (Hylobatidae)
+        +-- HOMINIDAE (Great Apes)
+             |
+             +-- Pongo (orangutans)
+             +-- HOMININAE
+                  |
+                  +-- Gorilla
+                  +-- HOMININI
+                       |
+                       +-- Pan (chimps +
                                               bonobos)
 
 Chimp-human divergence: ~6 Ma
@@ -518,27 +510,21 @@ PRIMATE PHYLOGENY — KEY NODES
                 │      Fully carnivorous primate
                 │      Sister to anthropoids, not strepsirrhines
                 │
-~43 Ma          └─── ANTHROPOIDEA
-                        │
-                 ┌──────┴────────┐
-                 │               │
-~40 Ma    PLATYRRHINI        CATARRHINI
-          (New World          (Old World
-           monkeys)            monkeys + apes)
-          Broad flat nose      Narrow downward nose
-          3 premolars          2 premolars
-          Many: prehensile     No prehensile tails
-          tail                 (apes have no tails at all)
-          Americas only        Africa, Asia, Europe
-          (reached S.America
-           ~40 Ma via
-           Atlantic raft)
-                                 │
-                     ┌─────────┴─────────┐
-                     │                   │
-              CERCOPITHECIDAE        HOMINOIDEA (apes)
-              (Old World monkeys)     Gibbons, orangutans,
-              Baboons, macaques,      gorillas, chimps,
+~43 Ma  └─── ANTHROPOIDEA
+              │
+              +-- PLATYRRHINI (~40 Ma; New World monkeys)
+              |    Broad flat nose; 3 premolars; many prehensile tail.
+              |    Americas only (reached S.America ~40 Ma via Atlantic raft).
+              |
+              +-- CATARRHINI (Old World monkeys + apes)
+                   Narrow downward nose; 2 premolars; no prehensile tails.
+                   Africa, Asia, Europe.
+                   |
+                   +-- CERCOPITHECIDAE (Old World monkeys)
+                   |    Baboons, macaques.
+                   |
+                   +-- HOMINOIDEA (apes)
+                        Gibbons, orangutans, gorillas, chimps.
               colobines, vervets      bonobos, humans
 ```
 

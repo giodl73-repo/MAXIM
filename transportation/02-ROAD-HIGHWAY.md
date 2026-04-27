@@ -5,33 +5,19 @@
 Roads are the default transportation infrastructure of the 20th and 21st centuries. Every other mode feeds into the road network at origin and destination. Understanding the engineering determines what roads can and cannot do — and why adding capacity often fails to solve congestion.
 
 ```
-+------------------------------------------------------------------+
-|                    ROAD SYSTEM LAYERS                            |
-|                                                                  |
-|  GEOMETRIC DESIGN                                                |
-|  +-----------+  +-----------+  +-----------+  +-----------+      |
-|  | Horizontal|  | Vertical  |  | Cross-    |  | Sight     |     |
-|  | Alignment |  | Alignment |  | Section   |  | Distance  |     |
-|  +-----------+  +-----------+  +-----------+  +-----------+     |
-   |                                                              |
-   |  PAVEMENT STRUCTURE                                          |
-|  +-----------+  +-----------+  +-----------+  +-----------+     |
-|  | Flexible  |  | Rigid     |  | Composite |  | Distress  |     |
-|  | (Asphalt) |  | (Concrete)|  | (Overlay) |  | & Repair  |     |
-|  +-----------+  +-----------+  +-----------+  +-----------+     |
-   |                                                              |
-   |  TRAFFIC FLOW                                                |
-|  +-----------+  +-----------+  +-----------+  +-----------+     |
-|  | Flow-     |  | LWR       |  | Level of  |  | Capacity  |     |
-|  | Density   |  | Waves     |  | Service   |  | Analysis  |     |
-|  +-----------+  +-----------+  +-----------+  +-----------+     |
-   |                                                              |
-   |  INTELLIGENT TRANSPORTATION SYSTEMS                          |
-|  +-----------+  +-----------+  +-----------+  +-----------+     |
-|  | Signal    |  | Freeway   |  | Connected |  | Traffic   |     |
-|  | Control   |  | Mgmt      |  | Vehicles  |  | Data      |     |
-|  +-----------+  +-----------+  +-----------+  +-----------+     |
-+------------------------------------------------------------------+
+                  ROAD SYSTEM LAYERS
+
+  GEOMETRIC DESIGN:
+    Horizontal Alignment | Vertical Alignment | Cross-Section | Sight Distance
+
+  PAVEMENT STRUCTURE:
+    Flexible (Asphalt) | Rigid (Concrete) | Composite (Overlay) | Distress & Repair
+
+  TRAFFIC FLOW:
+    Flow-Density | LWR Waves | Level of Service | Capacity Analysis
+
+  INTELLIGENT TRANSPORTATION SYSTEMS:
+    Signal Control | Freeway Mgmt | Connected Vehicles | Traffic Data
 ```
 
 ---
@@ -147,19 +133,15 @@ Grade separation of intersecting highways. The choice of type balances cost, cap
 
   SPUI (Single-Point Urban Interchange):
   All ramp traffic merges at a single signalized intersection.
-  +--+--+
-  |  X  |  <- All movements at one point
-  +--+--+
+    [ X ]   ← all movements at one point
   High capacity in small footprint. Popular in urban areas.
   Unusual geometry confuses infrequent users.
 
   DDI (Diverging Diamond Interchange):
   Traffic crosses to opposite side of road between ramps.
   Eliminates left-turn conflicts with freeway ramps.
-  +--+--+
-  | /  \|  <- Cross-over between ramps
-  |X    X |
-  +--+--+
+    [ /  \ ]   ← cross-over between ramps
+    [ X  X ]
   Becoming popular in US: 10-30% capacity improvement over diamond.
   Initially confusing; studies show drivers adapt within a few trips.
 ```
@@ -171,19 +153,30 @@ Grade separation of intersecting highways. The choice of type balances cost, cap
 ### Pavement Structure Basics
 
 ```
-  FLEXIBLE (ASPHALT) PAVEMENT:      RIGID (CONCRETE) PAVEMENT:
-
-  +------------------+              +------------------+
-  | Surface course   | 40-75mm      | Concrete slab    | 200-300mm
-  +------------------+              | (JPCP or CRCP)   |
-  | Binder course    | 50-100mm     +------------------+
-  +------------------+              | Subbase          | 100-200mm
-  | Base course      | 100-200mm    +------------------+
-  +------------------+              | Subgrade         |
-  | Subbase          | 100-300mm    +------------------+
+  FLEXIBLE (ASPHALT) PAVEMENT:
+  +------------------+
+  | Surface course   |
+  +------------------+
+  | Binder course    |
+  +------------------+
+  | Base course      |
+  +------------------+
+  | Subbase          |
   +------------------+
   | Subgrade         |
   +------------------+
+  Layers: Surface 40-75mm, Binder 50-100mm, Base 100-200mm, Subbase 100-300mm.
+
+  RIGID (CONCRETE) PAVEMENT:
+  +------------------+
+  | Concrete slab    |
+  | (JPCP or CRCP)   |
+  +------------------+
+  | Subbase          |
+  +------------------+
+  | Subgrade         |
+  +------------------+
+  Layers: Concrete slab 200-300mm, Subbase 100-200mm.
 
   Flexible: deflects under load,     Rigid: distributes load via
   load spread by layers.             beam/slab action.
@@ -468,16 +461,17 @@ The Highway Capacity Manual (HCM) quantifies traffic operations quality as Level
 
   Traditional:
   +------------------+
-  | Loop detectors   | Inductive loops in pavement
-  | (point data)     | Count, speed, occupancy
-  |                  | Expensive to maintain; spot data only
+  | Loop detectors   |
+  | (point data)     |
   +------------------+
+   Inductive loops in pavement. Count, speed, occupancy.
+   Expensive to maintain; spot data only.
 
   Modern:
   +------------------+     +------------------+
   | Bluetooth / WiFi |     | Probe vehicle    |
   | MAC address      |     | data             |
-  | matching (privacy)| ... | Google/HERE/TomTom|
+  | matching         |     | Google/HERE/TomTm|
   +------------------+     | From smartphones |
                            | GPS tracks       |
                            | Near-real-time   |

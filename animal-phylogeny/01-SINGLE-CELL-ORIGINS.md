@@ -14,14 +14,16 @@
 |   |         |                                                  |
 |   |    (some Archaea + some Bacteria)                          |
 |   |         |                                                  |
-|   |    EUKARYOTA  (endosymbiotic merger)                       |
-|   |         |                                                  |
-|   |    +----+-------+--------+--------+                        |
-|   |    |            |        |        |                        |
-|   |  Plants       Fungi   Animals  Other protists              |
-|   |                                                            |
-|  (no nucleus)          (nucleus, membrane-bound organelles)    |
-+---------------------------------------------------------------+
+|   |    EUKARYOTA (endosymbiotic merger)                        |
+|   |         |                                                   |
+|   |         +-- Plants                                          |
+|   |         +-- Fungi                                           |
+|   |         +-- Animals                                         |
+|   |         +-- Other protists                                  |
+|   |                                                             |
+|   |  Bacteria/Archaea: no nucleus.                              |
+|   |  Eukaryota: nucleus, membrane-bound organelles.             |
++----------------------------------------------------------------+
 
 TIME
 4000 Ma  First prokaryotes (stromatolites 3500 Ma)
@@ -40,19 +42,20 @@ TIME
 
 ```
 PROKARYOTE (Bacteria / Archaea)
-+------------------------------------------------+
-|  Cell wall (peptidoglycan in Bacteria,         |
-|            pseudopeptidoglycan in Archaea)     |
-|  +-----------------------------------------+   |
-|  |  CYTOPLASM                              |  |
-|  |                                         |  |
-|  |  Nucleoid region  (DNA, no membrane)    |  |
-|  |  70S ribosomes    (not 80S like Euk.)   |  |
-|  |  Plasmids         (extra circular DNA)  |  |
-|  |  Flagella (different structure in Arch) |  |
-|  +-----------------------------------------+  |
-|  Plasma membrane                              |
-+------------------------------------------------+
+
+  Cell wall (peptidoglycan in Bacteria,
+             pseudopeptidoglycan in Archaea)
+
+  +-----------------------------------------+
+  |  CYTOPLASM                              |
+  |                                         |
+  |  Nucleoid region  (DNA, no membrane)    |
+  |  70S ribosomes    (not 80S like Euk.)   |
+  |  Plasmids         (extra circular DNA)  |
+  |  Flagella (different structure in Arch) |
+  +-----------------------------------------+
+
+  Plasma membrane (outer surface)
 SIZE: 0.1 – 10 μm  (compare eukaryote: 10–100 μm)
 ```
 
@@ -103,7 +106,7 @@ ARCHAEA ECOLOGICAL NICHES (extremophiles + mainstream)
 | Methanogens      Anaerobic, produce CH₄                 |
 |                  In cow guts, rice paddies, human colon |
 | Halophiles       High salt (Dead Sea, salt lakes)       |
-|                  Halobacterium uses light (bacteriorhodopsin)|
+|                  Halobacterium uses light (bact-rhod)   |
 | Thermophiles     90–121°C (deep sea hydrothermal vents) |
 |                  Sulfolobus, Pyrolobus fumarii          |
 | Acidophiles      pH < 3 (mine drainage)                 |
@@ -195,16 +198,15 @@ Step 3: Later, some eukaryote lineages engulf cyanobacterium
         Cyanobacterium → CHLOROPLAST
 
 EVIDENCE IT HAPPENED:
-+--------------------------------------------------+
-| Feature         | Mitochondria | Chloroplast     |
-|-----------------|-------------|-----------------|
-| Own DNA         | ✓ (circular)| ✓ (circular)     |
-| Double membrane | ✓           | ✓                |
-| 70S ribosomes   | ✓           | ✓                |
-| Binary fission  | ✓           | ✓                |
-| Sequence sim.   | α-proteo    | cyanobacteria    |
-| Gene transfer   | ✓ (to nucleus)| ✓ (to nucleus) |
-+--------------------------------------------------+
+
+| Feature         | Mitochondria   | Chloroplast    |
+|-----------------|----------------|----------------|
+| Own DNA         | ✓ (circular)   | ✓ (circular)   |
+| Double membrane | ✓              | ✓              |
+| 70S ribosomes   | ✓              | ✓              |
+| Binary fission  | ✓              | ✓              |
+| Sequence sim.   | α-proteo       | cyanobacteria  |
+| Gene transfer   | ✓ (to nucleus) | ✓ (to nucleus) |
 
 The eukaryotic cell is therefore a CHIMERA —
 part archaeal host, part bacterial endosymbiont(s)
@@ -227,7 +229,7 @@ SAR CLADE (Stramenopiles + Alveolata + Rhizaria)
 | Alveolata                                               |
 |   Dinoflagellates — marine, some bioluminescent,        |
 |     symbiotic as zooxanthellae in coral                 |
-|   Ciliates — Paramecium, Stentor (two nuclei: macro/micro)|
+|   Ciliates — Paramecium, Stentor (two nuclei)           |
 |   Apicomplexans — all parasitic: Plasmodium (malaria),  |
 |     Toxoplasma, Cryptosporidium                         |
 |                                                         |
