@@ -43,38 +43,18 @@ Ashlar means stone cut and dressed to specified dimensions. The face is smooth (
 ASHLAR CLASSIFICATION
 ======================
 
-  COURSED ASHLAR
-  ┌──────────────────────────────────────────────────────────────────┐
-  │  ┌──────────────────┬──────────────────┬──────────────────────┐  │
-  │  │                  │                  │                      │ │  Course 3 (same height)
-  │  ├────────┬─────────┴────────┬─────────┴──────┬──────────────┤ │
-  │  │        │                  │                 │              │ │  Course 2
-  │  ├────────┴─────┬────────────┴──────┬──────────┴─────────────┤ │
-  │  │              │                   │                         │ │  Course 1
-  │  └──────────────┴───────────────────┴─────────────────────────┘ │
-  │  All stones in a course are the same height; courses may vary   │
-  └──────────────────────────────────────────────────────────────────┘
+  COURSED ASHLAR:
+    All stones in a course are the same height; courses may vary
+    in height between courses.
 
-  RANDOM COURSED ASHLAR
-  ┌──────────────────────────────────────────────────────────────────┐
-  │  ┌────────────┬──────┬────────────────┬──────┐                   │
-  │  │  8" course │      │   8" course     │      │ ← vary heights  │
-  │  ├────────────┤  6"  ├────────────────┤  6"  │                 │
-  │  │  6" course │      │   6" course    │      │                 │
-  │  └────────────┴──────┴────────────────┴──────┘                 │
-  │  Stones cut and dressed; courses vary in height but each        │
-  │  course is consistent in its own height range                   │
-  └──────────────────────────────────────────────────────────────────┘
+  RANDOM COURSED ASHLAR:
+    Stones cut and dressed; courses vary in height (e.g., alternating
+    8" and 6" course heights), but each course is consistent within
+    its own height range.
 
-  RANDOM ASHLAR (non-coursed)
-  ┌──────────────────────────────────────────────────────────────────┐
-  │  ┌────────────┬──────────────┬──────┐                            │
-  │  │            │  ┌───────┬───┴──┐   │  ← no horizontal courses  │
-  │  │            │  │       │      │   │                           │
-  │  ├──────┬─────┴──┤       ├──────┤   │  ← dressed faces, flat   │
-  │  │      │        │       │      │   │    beds, random layout   │
-  │  └──────┴────────┴───────┴──────┴───┘                          │
-  └──────────────────────────────────────────────────────────────────┘
+  RANDOM ASHLAR (non-coursed):
+    No horizontal courses; dressed faces, flat beds, random layout.
+    Stones placed wherever they fit.
 ```
 
 ### Ashlar Joint Widths
@@ -99,25 +79,11 @@ RUBBLE MASONRY TYPES
 =====================
 
   RANDOM RUBBLE (uncoursed):
-  ┌──────────────────────────────────────────────────────────────────┐
-  │  ◇◆◇◆◆◇◆◇◆◆◆◇◆◆◇◆                                           │
-  │  ◆◆◇◇◆◆◆◇◆◆◆◇◆◆◆◇◆                                          │
-  │  ◇◆◆◇◆◆◆◇◆◆◇◆◆◆◇◆◆                                          │
-  │  No courses; stones placed as they fit; most rubble work         │
-  └──────────────────────────────────────────────────────────────────┘
+    No courses; stones placed as they fit. Most rubble work.
 
   COURSED RUBBLE:
-  ┌──────────────────────────────────────────────────────────────────┐
-  │  ┌──────────────────────────────────────────────────────────┐    │
-  │  │ ◇◆◇◆◆◇◆◇◆◆◆◇◆◆◇◆◆◇◆◆◆◇◆◆◇◆◆◆◇◆◆◇◆ │  ← leveled every 4-6" │
-  │  ├──────────────────────────────────────────────────────────┤   │
-  │  │ ◆◆◇◇◆◆◆◇◆◆◆◇◆◆◆◇◆◆◆◇◆◆◇◆◆◆◇◆◆◆◇◆◆ │                   │
-  │  ├──────────────────────────────────────────────────────────┤   │
-  │  │ ◇◆◆◇◆◆◆◇◆◆◇◆◆◆◇◆◆◆◇◆◆◆◇◆◆◆◇◆◆◆◇◆◆ │                   │
-  │  └──────────────────────────────────────────────────────────┘   │
-  │  Rubble stones laid in approximate horizontal lifts; roughly    │
-  │  coursed every 4–6 inches with leveling stones as needed        │
-  └──────────────────────────────────────────────────────────────────┘
+    Rubble stones laid in approximate horizontal lifts; roughly
+    coursed every 4–6 inches with leveling stones as needed.
 ```
 
 ---

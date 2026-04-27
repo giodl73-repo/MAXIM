@@ -30,7 +30,7 @@ MODERN MASONRY WALL SYSTEMS
   │  3/4" to 1-5/8" thick brick slices adhered to substrate          │
   │                                                                  │
   │  BRICK VENEER ON FRAME                                           │
-  │  4" brick + ties on steel/wood/CMU backup (most US residential)│
+  │  4" brick + ties on steel/wood/CMU backup (most US residential)  │
   └──────────────────────────────────────────────────────────────────┘
 ```
 
@@ -97,7 +97,7 @@ FLASHING LOCATIONS (critical — every horizontal mortar interruption):
 │  Shelf angle: copper or stainless steel (under shelf angle)      │
 │  End dams: upturned flashing ends prevent lateral water runout   │
 │                                                                  │
-│  WEEP HOLES: every other head joint at flashing level (16" O.C.)│
+│  WEEP HOLES: every other head joint at flashing level (16" O.C.) │
 │  Clear weep = 3/8" × 3/4" opening (do not mortar closed)         │
 │  Alternative: through-brick open head joint tube weeps           │
 └──────────────────────────────────────────────────────────────────┘
@@ -237,7 +237,7 @@ SEISMIC MASONRY REQUIREMENTS SUMMARY (SDC D/E/F)
   SPECIAL REINFORCED MASONRY (TMS 402 §7.4.6):
   ┌──────────────────────────────────────────────────────────────────┐
   │  Minimum vertical reinforcement:   #4 @ 48" max vertical O.C.    │
-  │  Minimum horizontal reinforcement: #4 @ 48" max horizontal O.C.│
+  │  Minimum horizontal reinforcement: #4 @ 48" max horizontal O.C.  │
   │  Min reinforcement ratio (ρ):      0.0007 in each direction      │
   │  Max reinforcement ratio (ρ_max):  governed by ductility calc    │
   │                                    (prevents over-reinforcement  │

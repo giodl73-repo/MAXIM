@@ -124,12 +124,15 @@ CMU ANATOMY
 
   SECTION VIEW (side):
   ┌──────────────────┐
-  │ ┌────────────┐   │  ← face shell 1-1/4" min (hollow units)
-  │ │  HOLLOW    │   │  ← webs connect face shells
+  │ ┌────────────┐   │
+  │ │  HOLLOW    │   │
   │ │  CORE(S)   │   │
   │ └────────────┘   │
-  │                  │  7-5/8" actual height
+  │                  │
   └──────────────────┘
+    Outer face shell: 1-1/4" min (hollow units).
+    Webs connect the face shells.
+    Total height: 7-5/8" actual.
 ```
 
 **Hollow percentage**: Standard 2-core CMU is ~46–48% hollow by cross-sectional area. This matters because:

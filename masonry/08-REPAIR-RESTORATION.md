@@ -173,18 +173,18 @@ CRACK PATTERN DIAGNOSIS
   DIAGONAL (STAIR-STEP) CRACKS:
   ┌──────────────────────────────────────────────────────────────────┐
   │  Pattern: steps along mortar joints diagonally                   │
-  │  ┌─┬─┬─┐                                                         │
-  │  │ │╲│ │                                                         │
-  │  ├─┴─┼─┤                                                         │
-  │  │  ╲│ │                                                         │
-  │  └───┴─┘                                                         │
-  │                                                                   │
-  │  DIFFERENTIAL SETTLEMENT: one end dropping faster              │
-  │  FOUNDATION MOVEMENT: corner settlement most common             │
-  │  THERMAL RACKING: long, low wall racking under thermal         │
-  │                                                                   │
-  │  FIX: Investigate and correct foundation. Do not repoint until │
-  │       movement has stopped (typically 2–5 years monitoring).   │
+  │  (zig-zag staircase pattern through the wall, following the      │
+  │   horizontal bed joints and vertical head joints alternately)    │
+  │                                                                  │
+  │                                                                  │
+  │                                                                  │
+  │                                                                  │
+  │  DIFFERENTIAL SETTLEMENT: one end dropping faster                │
+  │  FOUNDATION MOVEMENT: corner settlement most common              │
+  │  THERMAL RACKING: long, low wall racking under thermal           │
+  │                                                                  │
+  │  FIX: Investigate and correct foundation. Do not repoint until   │
+  │       movement has stopped (typically 2–5 years monitoring).     │
   └──────────────────────────────────────────────────────────────────┘
 
   HORIZONTAL CRACKS:
@@ -209,7 +209,7 @@ CRACK PATTERN DIAGNOSIS
   │    during curing, or differential thermal movement               │
   │  Less common: surface scaling of brick from freeze-thaw          │
   │  FIX: If in stucco, reapply with proper mesh reinforcement.      │
-  │       If in brick face, evaluate unit absorption and freeze-thaw│
+  │       If in brick face, evaluate unit absorption and freeze-thaw │
   └──────────────────────────────────────────────────────────────────┘
 ```
 
@@ -285,7 +285,7 @@ CLEANING METHOD SELECTION
   │  Good for historic limestone, terra cotta, decorative stone      │
   │  Slow; expensive; but gentle                                     │
   │  ──────────────────────────────────────────────────────────────  │
-  │  MICRO-ABRASIVE (controlled abrasive blast at very low pressure)│
+  │  MICRO-ABRASIVE (controlled abrasive blast at very low pressure) │
   │  TORC / Doff system / Jos system                                 │
   │  Acceptable for some historic stone when other methods fail      │
   │  Must be performed by specialist; test panel required            │

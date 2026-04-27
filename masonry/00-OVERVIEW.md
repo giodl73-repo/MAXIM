@@ -33,10 +33,10 @@ MASONRY MATERIAL HIERARCHY
                     ↓ governed by ↓
   STRUCTURAL BEHAVIOR
   ┌─────────────────────────────────────────────────────────────────┐
-  │  Compressive strength  f'm    (ASTM C1314 prism test)         │
-  │  Slenderness ratio     h/t    (empirical limits TMS 402)      │
-  │  Thrust lines                 (funicular geometry)            │
-  │  Seismic response             (reinforced masonry, SDC D/E/F) │
+  │  Compressive strength  f'm    (ASTM C1314 prism test)           │
+  │  Slenderness ratio     h/t    (empirical limits TMS 402)        │
+  │  Thrust lines                 (funicular geometry)              │
+  │  Seismic response             (reinforced masonry, SDC D/E/F)   │
   └─────────────────────────────────────────────────────────────────┘
 ```
 
@@ -50,14 +50,15 @@ Masonry units are strong in compression (brick: 3,000–20,000 psi), negligible 
 STRESS DIAGRAM: UNREINFORCED MASONRY WALL
 ==========================================
 
-  AXIAL LOAD (gravity)          LATERAL LOAD (wind/seismic)
-  ┌───┐                          ┌───┐
-  │ P ↓                          │ H →
-  ├───┤                          ├───┤
-  │   │ ← compression OK         │   │ ← bending → tension on leeward face
-  │   │                          │   │
-  │   │                          │   │ ← TENSION = CRACKING RISK
-  └───┘                          └───┘
+  AXIAL LOAD (gravity):
+    Force P points DOWN at the top of the wall.
+    The wall body is in pure compression — masonry handles
+    this fine.
+
+  LATERAL LOAD (wind/seismic):
+    Force H points HORIZONTAL at the top of the wall.
+    The wall bends; the LEEWARD face sees tension.
+    TENSION = CRACKING RISK in unreinforced masonry.
 
   Solution set:
   ① Geometry  — arch/vault redirects tension into compression
@@ -69,9 +70,9 @@ STRESS DIAGRAM: UNREINFORCED MASONRY WALL
   KERN CONCEPT (middle-third rule):
   ┌─────────────────────────────────────────────────────────────────┐
   │  Wall section thickness = t                                     │
-  │  ├──── t/3 ────┼──── t/3 ────┼──── t/3 ────┤                  │
-  │              [   KERN   ]                                        │
-  │                                                                   │
+  │  +---- t/3 ----+---- t/3 ----+---- t/3 ----+                    │
+  │                [   KERN   ]                                     │
+  │                                                                 │
   │  Resultant force within kern → no tension anywhere in section   │
   │  Resultant force outside kern → tension at one face → cracking  │
   └─────────────────────────────────────────────────────────────────┘
@@ -118,38 +119,35 @@ STRESS DIAGRAM: UNREINFORCED MASONRY WALL
 MASONRY TYPE MAP
 ================
 
-  BY UNIT:                      BY STRUCTURAL SYSTEM:
-  ┌───────────────────┐         ┌─────────────────────────────────┐
-  │ CLAY              │         │ UNREINFORCED MASONRY (URM)      │
-  │  Brick            │         │  Pre-code buildings             │
-  │  Structural tile  │         │  Low-seismic zones only         │
-  │  Terra cotta      │         │  Empirical h/t limits           │
-  ├───────────────────┤         ├─────────────────────────────────┤
-  │ CONCRETE          │         │ REINFORCED MASONRY (RM)         │
-  │  CMU (block)      │         │  Rebar in grouted cores         │
-  │  Precast panel    │         │  Steel takes tension            │
-  ├───────────────────┤         │  All seismic zones permitted    │
-  │ STONE             │         ├─────────────────────────────────┤
-  │  Ashlar (dressed) │         │ POST-TENSIONED (PTM)            │
-  │  Rubble           │         │  PT tendons in grout cores      │
-  │  Dry-stone        │         │  High slenderness possible      │
-  ├───────────────────┤         ├─────────────────────────────────┤
-  │ EARTH             │         │ CAVITY WALL                     │
-  │  Adobe            │         │  Outer wythe + air gap          │
-  │  Rammed earth     │         │  + insulation + inner wythe     │
-  └───────────────────┘         └─────────────────────────────────┘
+  BY UNIT:
+    CLAY:     Brick, Structural tile, Terra cotta
+    CONCRETE: CMU (block), Precast panel
+    STONE:    Ashlar (dressed), Rubble, Dry-stone
+    EARTH:    Adobe, Rammed earth
 
-  BY MORTAR JOINT:              BY HISTORICAL PERIOD:
-  ┌───────────────────┐         ┌─────────────────────────────────┐
-  │ MORTARED          │         │ Pre-Portland (classical)        │
-  │  Standard joints  │         │  Lime putty mortars             │
-  │  Repointing       │         │  Natural hydraulic lime (NHL)   │
-  ├───────────────────┤         │  Pozzolanic concrete            │
-  │ DRY-STACKED       │         ├─────────────────────────────────┤
-  │  No mortar        │         │ Portland era (modern)           │
-  │  Gravity + fit    │         │  Cement mortars Types M/S/N/O   │
-  └───────────────────┘         │  Reinforced/grouted systems     │
-                                 └─────────────────────────────────┘
+  BY STRUCTURAL SYSTEM:
+    UNREINFORCED MASONRY (URM):
+      Pre-code buildings; low-seismic zones only;
+      empirical h/t limits.
+    REINFORCED MASONRY (RM):
+      Rebar in grouted cores; steel takes tension;
+      all seismic zones permitted.
+    POST-TENSIONED (PTM):
+      PT tendons in grout cores; high slenderness possible.
+    CAVITY WALL:
+      Outer wythe + air gap + insulation + inner wythe.
+
+  BY MORTAR JOINT:
+    MORTARED:    Standard joints; repointing.
+    DRY-STACKED: No mortar; gravity + fit.
+
+  BY HISTORICAL PERIOD:
+    Pre-Portland (classical):
+      Lime putty mortars; natural hydraulic lime (NHL);
+      pozzolanic concrete.
+    Portland era (modern):
+      Cement mortars Types M/S/N/O;
+      reinforced/grouted systems.
 ```
 
 ---

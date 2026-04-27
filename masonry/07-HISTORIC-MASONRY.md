@@ -147,13 +147,13 @@ Medieval European construction (500–1400 CE) relied almost entirely on non-hyd
 THE LIME CYCLE
 ==============
 
-  GEOLOGY:          KILN:            SITE:              TIME:
-  ┌──────────┐    ┌──────────┐    ┌──────────┐    ┌──────────────┐
-  │Limestone │ →  │1650°F    │ →  │Slaking:  │ →  │CARBONATION:  │
-  │CaCO₃     │    │calcining │    │CaO+H₂O  │    │Ca(OH)₂+CO₂    │
-  └──────────┘    │CaO+CO₂↑ │    │→Ca(OH)₂  │    │→CaCO₃         │
-                   └──────────┘    └──────────┘    └──────────────┘
-                                   (violent!)        (months–years)
+  GEOLOGY: Limestone (CaCO₃)
+              →
+  KILN:    1650°F calcining; CaCO₃ → CaO + CO₂ (released)
+              →
+  SITE:    Slaking; CaO + H₂O → Ca(OH)₂  (violent reaction)
+              →
+  TIME:    Carbonation; Ca(OH)₂ + CO₂ → CaCO₃  (months–years)
 
   CARBONATION RATE:
   ┌──────────────────────────────────────────────────────────────────┐
@@ -267,15 +267,15 @@ MAYAN MASONRY SYSTEM
 
   CORBELLED "VAULT" vs. TRUE ARCH:
   ┌──────────────────────────────────────────────────────────────────┐
-  │  Corbelled vault:              True arch (Roman/Gothic):         │
-  │         ┌─┐                        ╭───╮                         │
-  │       ┌─┘ └─┐                    ╭╯   ╰╮                      │
-  │     ┌─┘     └─┐                ╭╯       ╰╮                    │
-  │  ───┘         └───            ─┘         └─                    │
-  │  Each stone cantilevers      Each voussoir in compression;     │
-  │  over the one below;         horizontal thrust resolved at     │
-  │  bending + tension in stone  springers — no bending            │
-  └──────────────────────────────────────────────────────────────────┘
+  Corbelled vault:
+    Each stone cantilevers over the one below.
+    Bending and tension develop in each stone (stone is weak in tension,
+    so corbelled spans are limited).
+
+  True arch (Roman / Gothic):
+    Each voussoir is in pure compression.
+    Horizontal thrust is resolved at the springers — no bending in the
+    stones.
   Maya never developed the true arch — corbelled vaults are
   structurally inefficient but serviceable for their spans
 ```

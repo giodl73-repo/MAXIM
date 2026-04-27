@@ -339,7 +339,7 @@ DESIGN METHOD COMPARISON
   │  Rules of thumb based on historical practice                     │
   │  No stress calculations required                                 │
   │  Limits: ≤3 stories OR ≤35 ft height, low seismic only           │
-  │  Wall thickness minimums, h/t limits, bearing width requirements│
+  │  Wall thickness minimums, h/t limits, bearing width requirements │
   │  Adequate for small, simple, low-seismic buildings               │
   └──────────────────────────────────────────────────────────────────┘
 

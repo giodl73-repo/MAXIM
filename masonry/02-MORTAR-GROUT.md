@@ -284,39 +284,21 @@ JOINT PROFILE CROSS-SECTIONS
 ==============================
 
   TOOLED (weathered) — BEST moisture resistance:
-  ┌────────────────────────────────┐
-  │  UNIT                          │
-  │         \_____/               │ ← concave, water sheds outward
-  │  UNIT                          │
-  └────────────────────────────────┘
+    Concave joint between two units; water sheds outward.
 
   FLUSH — good resistance:
-  ┌────────────────────────────────┐
-  │  UNIT                          │
-  │  ─────────────────────────    │ ← flat, sealed face
-  │  UNIT                          │
-  └────────────────────────────────┘
+    Flat joint sealed level with the unit faces.
 
   RAKED — poor moisture resistance (spec for interior only):
-  ┌────────────────────────────────┐
-  │  UNIT                          │
-  │    ┌─────────────────────┐    │ ← shadow line, water pockets
-  │  UNIT                          │
-  └────────────────────────────────┘
+    Joint recessed; creates a shadow line but water pockets
+    behind the recess.
 
   RODDED (rounded) — good:
-  ┌────────────────────────────────┐
-  │  UNIT                          │
-  │         ╰─────╯               │ ← rounded bead, sheds water
-  │  UNIT                          │
-  └────────────────────────────────┘
+    Rounded bead in joint sheds water.
 
-  STRUCK — moderate (overhanging unit edge pockets water on lower face):
-  ┌────────────────────────────────┐
-  │  UNIT          ←──────────     │
-  │   /                            │ ← angled inward at bottom
-  │  UNIT                          │
-  └────────────────────────────────┘
+  STRUCK — moderate:
+    Joint angled inward at the bottom; the overhanging
+    unit edge pockets water on the lower face.
 ```
 
 Tooled (concave) joints compress mortar, improving density and bond. Raked joints are purely decorative and should never be used on exterior masonry in wet climates.

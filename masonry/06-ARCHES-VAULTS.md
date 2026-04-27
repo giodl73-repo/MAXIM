@@ -78,23 +78,22 @@ A voussoir arch is built from wedge-shaped stones (voussoirs) that transfer load
 VOUSSOIR ARCH ANATOMY
 ======================
 
-  ┌──────────────────────────────────────────────────────────────────┐
-  │                                                                  │
-  │              KEYSTONE (crown)                                    │
-  │               ┌────┐                                             │
-  │            ╔══╝    ╚══╗                                          │
-  │  HAUNCH  ╔═╝          ╚═╗  HAUNCH                               │
-  │         ╔╝   VOUSSOIRS   ╚╗                                      │
-  │  SPRING ╝                  ╚ SPRINGER                            │
-  │        ╔╝                   ╚╗                                   │
-  │  ──────╝  SKEWBACK           ╚──────  SKEWBACK                   │
-  │  ABUTMENT ←                → ABUTMENT (must resist horiz. thrust) │
-  │                                                                  │
-  │  INTRADOS = inner curved face of arch (soffit)                   │
-  │  EXTRADOS = outer curved face of arch                            │
-  │  RISE = vertical distance from spring line to crown              │
-  │  SPAN = horizontal distance between springers                    │
-  └──────────────────────────────────────────────────────────────────┘
+  Arch parts (top to bottom):
+    KEYSTONE (crown):    central wedge at the top of the arch.
+    VOUSSOIRS:           wedge-shaped stones flanking the keystone.
+    HAUNCH:              the lower portion of the arch, between
+                         crown and springer.
+    SPRINGER:            first voussoir resting on the support.
+    SKEWBACK:            angled top of the abutment that the
+                         springer rests on.
+    ABUTMENT:            the wall or pier that resists horizontal
+                         thrust at each side of the arch.
+
+  Geometric terms:
+    INTRADOS:  inner curved face of the arch (soffit).
+    EXTRADOS:  outer curved face of the arch.
+    RISE:      vertical distance from spring line to crown.
+    SPAN:      horizontal distance between springers.
 
   JOINT ORIENTATION: voussoir joints are RADIAL (perpendicular to
   the arch curve). This ensures compression acts perpendicular to

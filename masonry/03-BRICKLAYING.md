@@ -45,13 +45,9 @@ RUNNING BOND (1/2 bond offset)
   Course 2:   |  1  |  2  |  3  |  4  |
   Course 1: |  A  |  B  |  C  |  D  |
 
-  ┌────┬────┬────┬────┬────┬────┐
-  │    │    │    │    │    │    │  Course 3
-  ├──┬─┴─┬──┴─┬──┴─┬──┴─┬──┴──┤
-  │  │   │   │   │   │   │   │  Course 2
-  ├──┴─┬──┴─┬──┴─┬──┴─┬──┴───┤
-  │    │    │    │    │    │     Course 1
-  └────┴────┴────┴────┴────┘
+  Course 3:  |    |    |    |    |    |    |
+  Course 2:    |   |   |   |   |   |   |       (offset 1/2 unit)
+  Course 1:  |    |    |    |    |    |    |   (aligned with course 3)
 
   Structural behavior: excellent load distribution
   Visual: uniform horizontal emphasis
@@ -72,14 +68,9 @@ FLEMISH BOND
   Course 2:  |S|H|S|H|S|H|S|H|
   Course 1:  |H|S|H|S|H|S|H|S|
 
-  ASCII representation:
-  ┌────┬──┬────┬──┬────┬──┬────┐
-  │    │  │    │  │    │  │    │  Course 4 (S H S H)
-  ├──┬─┴──┴─┬──┴──┴─┬──┴──┴──┤
-  │  │      │      │       │  │  Course 3 (H S H S)
-  ├──┴──┬───┴──┬────┴──┬────┴─┤
-  │     │      │       │      │  Course 2 (S H S H)
-  └─────┴──────┴───────┴──────┘
+  Course 4:  |S H|S H|S H|S H|     S=stretcher (long face)
+  Course 3:  |H S|H S|H S|H S|     H=header    (short face)
+  Course 2:  |S H|S H|S H|S H|     headers offset between courses
 
   Structural purpose: headers tie front and back wythes together
   Visual: elegant alternating pattern
@@ -101,14 +92,10 @@ ENGLISH BOND
   Course 2:  |S|S|S|S|S|S|S|  ← all stretchers
   Course 1:  |H|H|H|H|H|H|H|  ← all headers
 
-  ┌──┬──┬──┬──┬──┬──┬──┬──┬──┐
-  │  │  │  │  │  │  │  │  │  │  Course 4 (stretchers)
-  ├──┴──┴──┴──┴──┴──┴──┴──┴──┤
-  │                           │  Course 3 (headers — solid band)
-  ├──┬──┬──┬──┬──┬──┬──┬──┬──┤
-  │  │  │  │  │  │  │  │  │  │  Course 2 (stretchers)
-  ├──┴──┴──┴──┴──┴──┴──┴──┴──┤
-  │                           │  Course 1 (headers)
+  Course 4 (stretchers): |S|S|S|S|S|S|S|S|S|
+  Course 3 (headers):    |H|H|H|H|H|H|H|H|H|   solid band
+  Course 2 (stretchers): |S|S|S|S|S|S|S|S|S|
+  Course 1 (headers):    |H|H|H|H|H|H|H|H|H|   solid band
   └───────────────────────────┘
 
   Structural purpose: maximum wythe integration
@@ -124,13 +111,11 @@ No overlapping — all head joints align vertically. Zero lateral load distribut
 STACK BOND (STRUCTURAL WARNING)
 =================================
 
-  ┌──────┬──────┬──────┬──────┐
-  │      │      │      │      │
-  ├──────┼──────┼──────┼──────┤  ← continuous vertical joint = weakness
-  │      │      │      │      │
-  ├──────┼──────┼──────┼──────┤  ← no interlocking across joints
-  │      │      │      │      │
-  └──────┴──────┴──────┴──────┘
+  Course 3:  |  |  |  |  |   units stacked directly above
+  Course 2:  |  |  |  |  |   the course below — vertical joints
+  Course 1:  |  |  |  |  |   align continuously through the wall.
+
+  Continuous vertical joint = weakness; no interlocking across joints.
 
   Structural behavior: POOR — joints form continuous planes of weakness
   Required reinforcement: horizontal joint reinforcement (ladder or truss
