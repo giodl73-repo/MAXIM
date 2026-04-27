@@ -197,19 +197,11 @@ Bismarck unified the German states under Prussian leadership through *Realpoliti
   BISMARCK'S GERMANY (1871)
   ==========================
 
-  +---------------------+
-  | Kaiser (Wilhelm I)  | ← ceremonial but real authority
-  +---------------------+
-           |
-  +---------------------+
-  | Chancellor (Bismarck)| ← actual governing power
-  +---------------------+
-           |
-  +---------------------+        +-------------------+
-  | Reichstag (Parliament)        | Bundesrat        |
-  | Elected by universal          | (State governments)|
-  | male suffrage                 | Prussian-dominated |
-  +---------------------+        +-------------------+
+  Kaiser (Wilhelm I): ceremonial but holds real authority.
+  Chancellor (Bismarck): the actual governing power.
+  Below the chancellor sit two bodies:
+    Reichstag (Parliament): elected by universal male suffrage.
+    Bundesrat: state governments, Prussian-dominated.
 
   KEY FEATURE: Chancellor not responsible to Reichstag.
   Reichstag could reject legislation but couldn't remove

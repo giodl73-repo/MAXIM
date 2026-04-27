@@ -6,19 +6,23 @@
   ATHENIAN POLITICAL DEVELOPMENT (594–404 BCE)
   =============================================
 
-  Before Solon:                After Solon:           After Cleisthenes:
-  +------------------+         +------------------+    +------------------+
-  | Eupatridae       |         | Eupatridae (less)|    | DEMOS            |
-  | (aristocratic    |         | Areopagus (relic)|    | 10 phylai (tribes)|
-  |  clans)          |         +------------------+    | mixed geography  |
-  | owns land + debt |         | Council of 400   |    | Boule (500)      |
-  |  slaves (hektemoroi)       | (by property)    |    | ostracism added  |
-  | debt bondage     |  ──────>| 4 property       |<───| isonomia (equal  |
-  | no codified law  |  Solon  | classes          |    |  participation)  |
-  | crisis: debt     |  594BCE | Debt cancelled   |    +------------------+
-  |  leads to civil  |         | Bondage banned   |    Pericles:
-  |  war imminence   |         | Written laws     |    pay for jury service
-  +------------------+         +------------------+    radical democracy
+  Before Solon (pre-594 BCE):
+    Eupatridae (aristocratic clans) own land and debt slaves (hektemoroi).
+    Debt bondage; no codified law.
+    Crisis: debt-driven civil war imminent.
+
+  After Solon (594 BCE):
+    Eupatridae diminished; Areopagus retained as a relic.
+    Council of 400 added, organised by 4 property classes.
+    Debt cancelled; bondage banned; written laws.
+
+  After Cleisthenes:
+    DEMOS at the centre.
+    10 phylai (tribes) drawn across mixed geography.
+    Boule (500) replaces the 400; ostracism added.
+    Isonomia: equal participation.
+
+  Pericles: pay for jury service - radical democracy.
 
   Roman Parallel (Gracchi, 133–121 BCE):
   Senate oligarchy controls ager publicus (public land)
