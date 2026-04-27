@@ -156,18 +156,24 @@ The cognitive revolution (1950s) rejected behaviorism's black box. Mental repres
        | Sensory input
        v
   +-----------+
-  | SENSORY   |  Capacity: vast
-  | REGISTER  |  Duration: <1 second (iconic/echoic)
+  | SENSORY   |
+  | REGISTER  |
   +-----------+
+   Capacity: vast
+   Duration: <1 second (iconic/echoic)
        |
        | Attention selects
        v
   +-----------+
-  | SHORT-TERM|  Capacity: ~7 +/- 2 items (Miller, 1956)
-  | MEMORY    |  Duration: 15-30 seconds without rehearsal
-  | (Working  |  Rehearsal: maintenance vs. elaborative
-  |  Memory)  |  Entry gate to long-term memory
+  | SHORT-TERM|
+  | MEMORY    |
+  | (Working  |
+  |  Memory)  |
   +-----------+
+   Capacity: ~7 +/- 2 items (Miller, 1956)
+   Duration: 15-30 seconds without rehearsal
+   Rehearsal: maintenance vs. elaborative
+   Entry gate to long-term memory
        |                    ^
        | Encoding            | Retrieval
        v                    |

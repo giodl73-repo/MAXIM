@@ -56,16 +56,16 @@ Ralph Tyler's *Basic Principles of Curriculum and Instruction* defined the moder
      are being attained?
      (Assessment / evaluation)
 
-  +------------+          +--------------+
-  | OBJECTIVES |--------> | EXPERIENCES  |
-  +------------+          | (Instruction)|
-        ^                 +--------------+
-        |                       |
-        |                       v
-  +------------+          +--------------+
-  | EVALUATION |<-------- | ORGANIZATION |
-  +------------+          | (Sequence)   |
-                          +--------------+
+  +------------+                +--------------+
+  | OBJECTIVES | -------------> | EXPERIENCES  |
+  +------------+                | (Instruction)|
+        ^                       +--------------+
+        |                                |    
+        |                                v    
+  +------------+                +--------------+
+  | EVALUATION | <------------- | ORGANIZATION |
+  +------------+                | (Sequence)   |
+                                +--------------+
 
   This is Tyler's rationale: objectives drive everything.
   Assessment measures whether objectives were met.

@@ -60,7 +60,7 @@ EDUCATION SYSTEM: CAUSAL RELATIONSHIPS
           Education as democracy preparation.
           Experiential curriculum.
                  |
-          +------+--------+
+          .------+--------.
           |               |
           v               v
   1910s-  BEHAVIORISM     COGNITIVE DEVELOPMENT
@@ -76,7 +76,7 @@ EDUCATION SYSTEM: CAUSAL RELATIONSHIPS
           LEARNING           Schemas.
           Bloom taxonomy.    Long-term memory.
                 |            |
-                +---------+--+
+                '---------+--'
                           |
                           v
                   1990s-  COGNITIVE SCIENCE APPLIED
