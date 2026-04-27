@@ -77,9 +77,10 @@ CORAL POLYP ANATOMY
                  │   ZOOXANTHELLAE (Symbiodinium)
                  │
        ┌─────────┴─────────┐
-       │   Calicoblast      │      Secretes CaCO₃ skeleton below
-       │   epithelium       │      (calcium carbonate deposition)
+       │   Calicoblast     │
+       │   epithelium      │
        └─────────┬─────────┘
+       (Secretes CaCO3 skeleton below: calcium carbonate deposition)
                  │
     ┌────────────┴───────────────┐
     │  CALCIUM CARBONATE         │

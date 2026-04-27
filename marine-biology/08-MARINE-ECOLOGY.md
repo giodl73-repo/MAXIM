@@ -10,42 +10,26 @@ how efficiently energy moves between levels, which species hold entire systems t
 MARINE FOOD WEB — PELAGIC SYSTEM
 ==================================
 
-         SOLAR ENERGY / CHEMICAL ENERGY
-                    │
-                    ▼
-         ┌──────────────────────────────┐
-LEVEL 1  │  PRIMARY PRODUCERS           │  ~50 Pg C/yr
-         │  Phytoplankton, macroalgae,  │
-         │  chemosynthetic bacteria     │
-         └──────────────────┬───────────┘
-                            │ ~10% transferred
-                            ▼
-         ┌──────────────────────────────┐
-LEVEL 2  │  PRIMARY CONSUMERS           │  ~5 Pg C/yr
-         │  Zooplankton (copepods, krill)│
-         │  Herbivorous fish            │
-         └──────────────────┬───────────┘
-                            │ ~10%
-                            ▼
-         ┌──────────────────────────────┐
-LEVEL 3  │  SECONDARY CONSUMERS         │  ~0.5 Pg C/yr
-         │  Small predatory fish        │
-         │  Squid                       │
-         └──────────────────┬───────────┘
-                            │ ~10%
-                            ▼
-         ┌──────────────────────────────┐
-LEVEL 4  │  TERTIARY CONSUMERS          │  ~0.05 Pg C/yr
-         │  Tuna, sharks, dolphins      │
-         │  Large predatory fish        │
-         └──────────────────┬───────────┘
-                            │ ~10%
-                            ▼
-         ┌──────────────────────────────┐
-LEVEL 5  │  APEX PREDATORS              │  ~0.005 Pg C/yr
-         │  Orcas, great white sharks   │
-         │  Bluefin tuna, sperm whales  │
-         └──────────────────────────────┘
+  Solar / chemical energy enters the ocean.
+
+  LEVEL 1 -- PRIMARY PRODUCERS (~50 Pg C/yr):
+    Phytoplankton, macroalgae, chemosynthetic bacteria.
+    ~10% of energy transfers up.
+
+  LEVEL 2 -- PRIMARY CONSUMERS (~5 Pg C/yr):
+    Zooplankton (copepods, krill), herbivorous fish.
+    ~10% transfers up.
+
+  LEVEL 3 -- SECONDARY CONSUMERS (~0.5 Pg C/yr):
+    Small predatory fish, squid.
+    ~10% transfers up.
+
+  LEVEL 4 -- TERTIARY CONSUMERS (~0.05 Pg C/yr):
+    Tuna, sharks, dolphins, large predatory fish.
+    ~10% transfers up.
+
+  LEVEL 5 -- APEX PREDATORS (~0.005 Pg C/yr):
+    Orcas, great white sharks, bluefin tuna, sperm whales.
 
 TROPHIC EFFICIENCY: ~10% rule (Lindeman, 1942)
   Each level: ~90% of energy lost to respiration, egestion, decay
