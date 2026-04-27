@@ -10,22 +10,15 @@ at reasonable cost.
 ```
   REMEDIATION PROGRAM PATHWAYS
 
-  ┌─────────────────────────────────────────────────────────────────┐
-  │                  SITE DISCOVERY                                 │
-  └─────────────────────────────┬───────────────────────────────────┘
-                                 │
-            ┌────────────────────┴─────────────────────┐
-            │                                          │
-            v                                           v
-  ┌──────────────────────┐              ┌──────────────────────────┐
-  │  CERCLA (SUPERFUND)  │              │  RCRA CORRECTIVE ACTION  │
-  │  Federal program     │              │  (or State Superfund)    │
-  │  Historical releases │              │  Operating/closed RCRA   │
-  │  Any property        │              │  permitted facilities     │
-  │  NPL listed sites    │              │  Compliance-oriented      │
-  │  Strict/joint/sev.   │              │  State VCP: voluntary,   │
-  │  retroactive liab.   │              │  faster, more flexible    │
-  └─────────┬────────────┘              └──────────────────────────┘
+  SITE DISCOVERY routes to one of two programs:
+
+  CERCLA (SUPERFUND):
+    Federal program; historical releases; any property.
+    NPL-listed sites; strict / joint / several / retroactive liability.
+
+  RCRA CORRECTIVE ACTION (or State Superfund):
+    Operating or closed RCRA-permitted facilities; compliance-oriented.
+    State VCP: voluntary, faster, more flexible.
             │
    ┌────────+───────────────────────────────┐
    │  CERCLA PROCESS STAGES                 │

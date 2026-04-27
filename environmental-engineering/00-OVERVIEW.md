@@ -33,13 +33,9 @@ quantitative tool (mass balance).
 |  04-SOLID-        05-REMEDIATION    06-SUSTAINABILITY            |
 |  WASTE.md         .md               .md                          |
 +------------------------------------------------------------------+
-                              |
-              +---------------+---------------+
-              |  REGULATORY BACKBONE          |
-              |  EPA statutes: SDWA / CWA /   |
-              |  CAA / RCRA / CERCLA / TSCA   |
-              |  + state programs              |
-              +-------------------------------+
+  REGULATORY BACKBONE:
+    EPA statutes: SDWA / CWA / CAA / RCRA / CERCLA / TSCA
+    plus state programs.
 ```
 
 **The quantitative foundation**: mass balance runs through every domain.
@@ -256,17 +252,14 @@ Detailed coverage in 06-SUSTAINABILITY.md; introduced here because it cuts acros
 ```
   SYSTEM BOUNDARY
 
-  Raw material  →  Manufacturing  →  Use phase  →  End-of-life
-  extraction       + distribution     operation      disposal /
-  + processing                                       recycling
-       |                |                 |               |
-       +----------------+-----------------+---------------+
-                                 |
-                    Life Cycle Inventory (LCI)
-                    All inputs: energy, water, materials
-                    All outputs: air/water/soil emissions
-                                 |
-                    Life Cycle Impact Assessment (LCIA)
+  Pipeline: Raw material extraction + processing -> Manufacturing
+  + distribution -> Use-phase operation -> End-of-life disposal /
+  recycling. Each stage feeds into:
+
+    Life Cycle Inventory (LCI):
+      All inputs: energy, water, materials.
+      All outputs: air, water, soil emissions.
+    Life Cycle Impact Assessment (LCIA):
                     +----------------------------------+
                     | Climate change    (kg CO₂e)     |
                     | Acidification     (kg SO₂e)     |

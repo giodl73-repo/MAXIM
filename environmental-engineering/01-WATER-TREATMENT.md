@@ -7,23 +7,17 @@ Drinking water treatment is a **pipeline of composable unit operations** — eac
 ```
 SURFACE WATER TREATMENT TRAIN (conventional)
 
-  Source       Coagulation   Flocculation  Sedimentation  Filtration  Disinfection
-  Water        (rapid mix)   (slow mix)    (clarifier)    (sand/      (Cl₂, UV,
-  Intake                                                  anthracite) ozone)
-    |               |              |              |            |           |
-    v               v              v              v            v           v
-  +------+      +-------+      +-------+      +-------+   +------+   +------+
-  |Screen|  →   |Coag.  |  →   |Floccu-|  →   |Sedim. | → |Filter| → |Cl₂   | →  To
-  |Intake|      |Basin  |      |lation |      |Basin  |   |      |   |CT    |   Distrib.
-  |      |      |Alum/  |      |G=20-80|      |SOR    |   |2-5   |   |Residual   System
-  +------+      |FeCl₃  |      |Gθ=    |      |0.5-1.0|   |gpm/  |   |      |
-                |pH 6.5-|      |40k-   |      |gpm/ft²|   |ft²   |   +------+
-                |7.5    |      |100k   |      |       |   |      |
-                +-------+      +-------+      +-------+   +------+
+  Stages in order:
+    Source water intake -> screen
+    Coagulation (rapid mix): coag basin, alum or FeCl3, pH 6.5-7.5
+    Flocculation (slow mix): G = 20-80, Gtheta = 40k-100k
+    Sedimentation (clarifier): sedim basin, SOR 0.5-1.0 gpm/ft^2
+    Filtration: sand or anthracite, 2-5 gpm/ft^2
+    Disinfection: Cl2 (with CT residual), UV, or ozone
+  Then to the distribution system.
 
-                ←——— removes turbidity, colloids, algae ———→     → removes DBP
-                                                                    precursors,
-                                                                    pathogens
+  Coagulation through filtration removes turbidity, colloids,
+  algae; disinfection removes DBP precursors and pathogens.
 
 GROUNDWATER TREATMENT TRAIN (simpler — no turbidity burden)
 
@@ -201,16 +195,12 @@ Cryptosporidium oocysts that pass through sedimentation.
   RAPID SAND FILTRATION (most common)
 
   Media cross-section (dual media, top to bottom):
-  ┌──────────────────────────────────┐
-  │ Anthracite coal  18–24"          │ ES 0.8–1.4 mm, UC <1.6
-  │ (coarse, light)                  │ Captures large floc first
-  ├──────────────────────────────────┤
-  │ Sand             8–12"           │ ES 0.45–0.55 mm, UC <1.6
-  │ (fine, dense)                    │ Final polishing
-  ├──────────────────────────────────┤
-  │ Gravel support layers            │
-  └──────────────────────────────────┘
-  Underdrain (perforated laterals or nozzles)
+    Anthracite coal: 18-24" (coarse, light)
+      ES 0.8-1.4 mm, UC < 1.6; captures large floc first.
+    Sand: 8-12" (fine, dense)
+      ES 0.45-0.55 mm, UC < 1.6; final polishing.
+    Gravel support layers.
+    Underdrain (perforated laterals or nozzles).
 
   DESIGN PARAMETERS:
   ├── Loading rate: 2–5 gpm/ft² (5–12 m/h)
