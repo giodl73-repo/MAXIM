@@ -93,7 +93,7 @@ SONGBIRD BRAIN CIRCUITS (best studied, in Taeniopygia guttata -- zebra finch):
     Not needed for production of learned song in adults
     +----------+     +-----------+     +----------+
     |Area X    | --> | DLM (thal)| --> |LMAN      |
-    |(basal    |     |           |     |(lat. mag. |
+    |(basal    |     |           |     |(lat. mag.|
     | ganglia) |     |           |     | nucleus) |
     +----------+     +-----------+     +----------+
                                            |

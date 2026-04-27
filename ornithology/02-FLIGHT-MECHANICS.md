@@ -10,7 +10,7 @@ FLIGHT MECHANICS OVERVIEW
 
   FOUR FORCES:
   +----------------------------+
-  |          LIFT              |  (perpendicular to velocity)
+  |          LIFT              |
   |         /\                 |
   |         ||                 |
   |  DRAG   ||  THRUST         |
@@ -19,6 +19,7 @@ FLIGHT MECHANICS OVERVIEW
   |         \/                 |
   |        WEIGHT              |
   +----------------------------+
+  Lift: perpendicular to velocity.
 
   Flight condition:     LIFT = WEIGHT
                         THRUST = DRAG

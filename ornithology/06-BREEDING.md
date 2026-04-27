@@ -12,31 +12,27 @@ BREEDING SYSTEM LANDSCAPE
           Resource distribution, predation, altriciality
                           |
                           v
-+------------------------------------------------------------------+
-|                     MATING SYSTEM                                |
-|                                                                  |
-|  Monogamy (~90%)        Polygyny (~2%)      Polyandry (<1%)      |
-|  1M + 1F pair bond      1M + >1F            1F + >1M             |
-|  +/- extra-pair         resource/lek/       classic or           |
-|  copulation (EPC)       female defense      cooperative          |
-+--------+----------------+---------+---------+----+----------------+
-         |                          |               |
-         v                          v               v
-  PARENTAL CARE MODE          NEST TYPE        CHICK TYPE
-  +------------------+   +-------------+   +-------------+
-  | Biparental care  |   | Open cup    |   | Altricial   |
-  | (most monogamy)  |   | Cavity      |   | (helpless,  |
-  +------------------+   | Ground      |   |  eyes shut) |
-  | Uniparental male |   | Platform    |   +-------------+
-  | (polyandry;      |   | No nest     |   | Precocial   |
-  |  some polygamy)  |   | (megapodes) |   | (mobile,    |
-  +------------------+   +-------------+   |  eyes open) |
-  | Uniparental fem  |                     +-------------+
-  | (most polygyny)  |
-  +------------------+
-  | Helpers-at-nest  |   COOPERATIVE BREEDING
-  | (cooperative     |   ~3% of species; helpers are often
-  |  breeding)       |   non-breeding kin — kin selection
+  MATING SYSTEM:
+    Monogamy (~90%):  1M + 1F pair bond, +/- extra-pair copulation (EPC).
+    Polygyny (~2%):   1M + >1F, resource/lek/female-defense.
+    Polyandry (<1%):  1F + >1M, classic or cooperative.
+
+  Mating system shapes three downstream choices:
+
+  PARENTAL CARE MODE:
+    Biparental care (most monogamy)
+    Uniparental male (polyandry; some polygamy)
+    Uniparental female (most polygyny)
+    Helpers-at-nest (cooperative breeding)
+
+  NEST TYPE: open cup, cavity, ground, platform, no nest (megapodes).
+
+  CHICK TYPE:
+    Altricial: helpless, eyes shut.
+    Precocial: mobile, eyes open.
+
+  COOPERATIVE BREEDING (~3% of species):
+    Helpers are often non-breeding kin -- kin selection
   +------------------+
 
 BROOD PARASITISM (outlier — no parental investment by parasite):
