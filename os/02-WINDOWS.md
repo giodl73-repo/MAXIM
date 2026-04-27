@@ -1100,18 +1100,17 @@ Windows Event Log Architecture
   │                  Windows Event Log Service               │
   │   Manages .evtx files, subscriptions, forwarding         │
   └───────────────────────────┬──────────────────────────────┘
-              ┌───────────────┼───────────────┐
-              ▼               ▼               ▼
-  ┌────────────────┐  ┌────────────────┐  ┌────────────────────────────┐
-  │ Windows Logs   │  │ App & Services │  │ ETW Providers              │
-  │ ─────────────  │  │ Logs           │  │ ─────────────              │
-  │ Application    │  │ ─────────────  │  │ .NET CLR, ASPNET,          │
-  │ Security       │  │ Microsoft/     │  │ WinHTTP, DNS Client,       │
-  │ System         │  │ Windows/...    │  │ Kernel, Storage, etc.      │
-  │ Setup          │  │ PowerShell     │  │                            │
-  │ Forwarded      │  │ TaskScheduler  │  │ Write-EventLog /           │
-  │ Events         │  │ DHCP Client    │  │ EventSource (managed)      │
-  └────────────────┘  └────────────────┘  └────────────────────────────┘
+  Three log channel families:
+
+  Windows Logs:
+    Application, Security, System, Setup, Forwarded Events.
+
+  Applications and Services Logs:
+    Microsoft/Windows/...; PowerShell; TaskScheduler; DHCP Client.
+
+  ETW Providers:
+    .NET CLR, ASPNET, WinHTTP, DNS Client, Kernel, Storage, etc.
+    Write-EventLog / EventSource (managed APIs).
 
   .evtx file location: C:\Windows\System32\winevt\Logs\
   Security log size: check + set via Event Viewer → Log Properties

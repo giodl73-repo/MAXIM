@@ -1138,11 +1138,10 @@ integrityManager.requestIntegrityToken(
   Source code
       │
       ▼  R8 (enabled with isMinifyEnabled = true)
-  ┌──────────────────────────────┐
-  │  Shrinking: remove unused classes, methods, fields          │
-  │  Obfuscation: rename a.b.c → a.b.x (single letters)        │
-  │  Optimization: inlining, dead code elimination              │
-  └─────────────────────────────┘
+  R8 stages:
+    Shrinking: remove unused classes, methods, fields.
+    Obfuscation: rename a.b.c -> a.b.x (single letters).
+    Optimization: inlining, dead code elimination.
       │
       ▼  releases/mapping.txt
   Keep this file — required to decode obfuscated crash stack traces in Play Console
