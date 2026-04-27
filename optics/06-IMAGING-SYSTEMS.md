@@ -188,13 +188,16 @@ Corrects wavefront aberrations in real time — originally for astronomy, now ub
 
   Shack-Hartmann Wavefront Sensor:
   +----------------+
-  |  lenslet array |  <- grid of small lenses (subapertures)
+  |  lenslet array |
   +----------------+
         |
         v
   +----------------+
-  |  CCD/CMOS     |  <- each lenslet focuses its sub-aperture to a spot
+  |  CCD/CMOS      |
   +----------------+
+    Lenslet array: grid of small lenses (subapertures).
+    Each lenslet focuses its sub-aperture to a spot on the
+    CCD/CMOS sensor.
 
   Flat wavefront -> regular grid of spots
   Aberrated wavefront -> spots displaced from reference

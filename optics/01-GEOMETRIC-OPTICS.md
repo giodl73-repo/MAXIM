@@ -72,13 +72,15 @@ When light goes from a dense medium (n1 > n2) to a less dense one, there exists 
 
   At theta > theta_c:
   +------------------+
-  | Glass (n1=1.5)   |  All power reflects back.
-  |    \   reflected  |  No transmitted ray.
-  |     \ /           |  Used in: fiber optics,
-  |------X------------|  prism reflectors, TIR
-  |   (no refracted)  |  microscopy.
+  | Glass (n1=1.5)   |
+  |    \   reflected |
+  |     \ /          |
+  |------X-----------|
+  |   (no refracted) |
   | Air (n2=1.0)     |
   +------------------+
+    All power reflects back. No transmitted ray.
+    Used in: fiber optics, prism reflectors, TIR microscopy.
 ```
 
 TIR is the physical mechanism behind optical fiber waveguiding, corner-cube retroreflectors, and the brilliance of diamond (theta_c = 24.4 deg — far steeper than glass, so most rays TIR internally).
@@ -162,7 +164,7 @@ A ray is represented as a column vector:
 |  Thin lens            [ 1    0]       f > 0: converging          |
 |  (focal length f)     [-1/f  1]       u' = u - y/f               |
 |                                                                  |
-|  Flat interface       [1  0]          n1, n2 = refractive indices |
+|  Flat interface       [1  0]          n1, n2 = refractive index  |
 |  (refraction)         [0  n1/n2]      (using reduced angle nu)   |
 |                                                                  |
 |  Curved interface     [ 1      0   ]  R > 0: center to right     |
@@ -269,7 +271,7 @@ The paraxial approximation uses sin(theta) ~ theta. Third-order (Seidel) theory 
 |                                             (spherical surfaces) |
 |                                                                  |
 |  2. Coma              Comet-tail shape      Off-axis point       |
-|                       (off-axis)            sources, magnification|
+|                       (off-axis)            sources, magnif.     |
 |                                             varies with aperture |
 |                                                                  |
 |  3. Astigmatism       Lines instead of      Off-axis rays in two |
@@ -326,13 +328,15 @@ Refractive index varies with wavelength (dispersion). Two types:
 ```
   Keplerian (refracting):
 
-  Objective (f_obj)                 Eyepiece (f_eye)
-  +----+                            +----+
-  |    |                            |    |
-  |    |----( intermediate image )--|    |---> parallel rays to eye
-  |    |                            |    |
-  +----+                            +----+
-  <----------- f_obj + f_eye ----------->
+  Objective (f_obj):           Eyepiece (f_eye):
+    +----+                        +----+
+    |    |                        |    |
+    |    |                        |    |
+    +----+                        +----+
+  Light from objective forms an intermediate image
+  between the two lenses, then the eyepiece collimates
+  it into parallel rays for the eye.
+  Total length:  f_obj + f_eye
 
   Angular magnification: M = -f_obj / f_eye
   (negative = inverted image)

@@ -78,11 +78,11 @@ Characterized by the Fresnel number N:
   lambda = wavelength
   L = propagation distance
 
-  +---------+----------+------------------------------------------+
-  | N >> 1  | Geometric| Geometric optics valid                   |
-  | N ~ 1   | Fresnel   | Near-field diffraction; Fresnel integrals|
-  | N << 1  | Fraunhofer| Far-field diffraction; aperture FT      |
-  +---------+----------+------------------------------------------+
+  +---------+-----------+----------------------------------------+
+  | N >> 1  | Geometric | Geometric optics valid                 |
+  | N ~ 1   | Fresnel   | Near-field diffraction; Fresnel int.   |
+  | N << 1  | Fraunhof. | Far-field diffraction; aperture FT     |
+  +---------+-----------+----------------------------------------+
 
   Practical threshold for Fraunhofer (far field):
     L >> a^2 / lambda  (Fraunhofer condition)
@@ -374,9 +374,11 @@ A converging lens of focal length f performs a 2D FT:
          v                v
   +-----------------------------+
   |         Holographic         |
-  |         recording medium    |   <- interference pattern stored
-  |         (film, photorefractive)   as refractive index variation
+  |         recording medium    |
+  |     (film, photorefractive) |
   +-----------------------------+
+    Interference pattern is stored as a refractive-index
+    variation in the film or photorefractive material.
 
   Intensity pattern:
   I = |E_obj + E_ref|^2

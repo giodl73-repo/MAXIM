@@ -13,7 +13,7 @@ Light is a transverse electromagnetic wave: the electric field oscillates perpen
 |  Linear polarization      2x1 complex       4x1 real vector      |
 |  Circular polarization    Jones vector      Stokes vector        |
 |  Elliptical polarization  2x2 Jones matrix  4x4 Mueller matrix   |
-|  Partial polarization                       handles depolarization|
+|  Partial polarization                       handles depol.       |
 |  Unpolarized                                                     |
 |                                                                  |
 |  PHYSICAL MECHANISMS      APPLICATIONS                           |

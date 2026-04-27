@@ -18,7 +18,7 @@ Spectroscopy is the measurement of how matter interacts with light as a function
 |  Scattering           Any (Raman)        Molecular structure     |
 |  (photon energy shift) (elastic=Rayleigh)Surface chemistry(SERS) |
 |  Fluorescence         UV-Vis-NIR         Labeled molecules,      |
-|  (absorb then emit)                      environmental, biosensors|
+|  (absorb then emit)                      environmental, biosens. |
 +------------------------------------------------------------------+
 
   KEY RULE: The spectrum is a fingerprint.
@@ -350,22 +350,22 @@ FTIR is a Michelson interferometer-based spectrometer. Instead of dispersing lig
 |  (Atomic      (single elem.  (graphite         light by ground-  |
 |  Absorption)  at a time)     furnace: ppt)     state atoms       |
 |                                                                  |
-|  ICP-OES      Multi-element  ppb               Plasma (8000-10000K)|
-|  (Optical     metals,        simultaneous       excites atoms,   |
+|  ICP-OES      Multi-element  ppb               Plasma (~10000K)  |
+|  (Optical     metals,        simultaneous      excites atoms,    |
 |  Emission     metalloids     (30+ elements)    measure emission  |
-|  Spectroscopy)|                                                  |
+|  Spectroscopy)                                                   |
 |                                                                  |
 |  ICP-MS       Multi-element  ppt-ppq           Plasma + mass     |
 |  (Mass Spec)  isotope ratio  10^6x better      spectrometry      |
 |               analysis       than OES          (quadrupole/TOF)  |
 |                                                                  |
-|  XRF          Surface        ppm               X-ray fluorescence|
-|  (X-ray       elements,      (non-destructive) K/L shell emission|
-|  Fluorescence) coatings                        after X-ray excit.|
+|  XRF          Surface        ppm               X-ray fluoresc.   |
+|  (X-ray       elements,      (non-destructive) K/L shell emit.   |
+|  Fluorescence) coatings                        after X-ray exc.  |
 |                                                                  |
 |  LIBS         In-situ        ppm-ppb           Laser ablation +  |
 |  (Laser-      remote         (matrix-          plasma emission   |
-|  induced      analysis       dependent)        (portable, standoff)|
+|  induced      analysis       dependent)        (portable)        |
 |  breakdown)                                                      |
 +------------------------------------------------------------------+
 ```

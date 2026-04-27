@@ -5,30 +5,27 @@
 Optics is the physics of light — and "light" means electromagnetic waves spanning 18 orders of magnitude in frequency. The field splits into three regimes determined by what you're comparing to the wavelength of light:
 
 ```
-+-----------------------------------------------------------------------+
-|                        OPTICS LANDSCAPE                               |
-|                                                                       |
-|   REGIME         WHEN IT APPLIES            CORE TOOL                |
-|   --------       -------------------        ---------                |
-|   Geometric      object >> wavelength       Snell's law, ray tracing |
-|   Wave           object ~ wavelength        Maxwell's equations      |
-|   Quantum        single photon events       QED, photon statistics   |
-|                                                                       |
-|   +------------------+  +-------------------+  +------------------+ |
-|   |  GEOMETRIC       |  |   WAVE OPTICS     |  |  QUANTUM OPTICS  | |
-|   |  (Ray Optics)    |  |                   |  |                  | |
-|   |                  |  |  Diffraction      |  |  Photoelectric   | |
-|   |  Snell's law     |  |  Interference     |  |  effect          | |
-|   |  Lenses, mirrors |  |  Polarization     |  |  Lasers (gain)   | |
-|   |  Aberrations     |  |  Coherence        |  |  Photon counting | |
-|   |  Telescopes      |  |  Fourier optics   |  |  Entanglement    | |
-|   |  Cameras         |  |  Holography       |  |  Single-photon   | |
-|   |                  |  |                   |  |  detectors       | |
-|   +------------------+  +-------------------+  +------------------+ |
-|         |                       |                       |            |
-|         v                       v                       v            |
-|   Aperture >> lambda    Aperture ~ lambda       Individual quanta   |
-+-----------------------------------------------------------------------+
+OPTICS LANDSCAPE
+
+  REGIME         WHEN IT APPLIES               CORE TOOL
+  ---------      -------------------------     ---------------------------
+  Geometric      object >> wavelength          Snell's law, ray tracing
+  Wave           object ~ wavelength           Maxwell's equations
+  Quantum        single photon events          QED, photon statistics
+
+  GEOMETRIC (Ray Optics):
+    Snell's law; Lenses, mirrors; Aberrations; Telescopes; Cameras.
+    Applies when aperture >> lambda.
+
+  WAVE OPTICS:
+    Diffraction; Interference; Polarization; Coherence;
+    Fourier optics; Holography.
+    Applies when aperture ~ lambda.
+
+  QUANTUM OPTICS:
+    Photoelectric effect; Lasers (gain); Photon counting;
+    Entanglement; Single-photon detectors.
+    Applies when individual quanta dominate.
 ```
 
 **The regime hierarchy is like choosing a model of computation**: geometric optics is the finite automaton (fast, limited), wave optics is the Turing machine (complete but slower to apply), quantum optics is the quantum computer (necessary for certain phenomena, overkill for most).
@@ -67,7 +64,7 @@ The physics is identical outside this window — it's all Maxwell's equations �
 
 ```
 +------------------------------------------------------------------+
-|                     OPTICS APPLICATIONS                           |
+|                     OPTICS APPLICATIONS                          |
 |                                                                  |
 |  IMAGING          COMMUNICATIONS      SENSING          MFG       |
 |  -------          --------------      -------          ---       |

@@ -44,11 +44,8 @@ The workhorse detector for optical communications and instrumentation:
   3. Electric field (reverse bias) sweeps carriers apart
   4. Current flows in external circuit
 
-  +--------+       +--------+
-  |   p+   |  I   |   n+   |  <-- structure
-  +--------+-------+--------+
-              ^
-              photon absorbed here (thick I-layer for high QE)
+  Structure (left to right): p+ region | I (intrinsic) | n+ region.
+  Photon absorbed in the I-layer (thick I-layer for high QE).
 
   Key parameters:
     Responsivity R = I_photocurrent / P_optical  [A/W]
@@ -106,9 +103,9 @@ The workhorse detector for optical communications and instrumentation:
 |  Si APD       400-1000nm  10-100 Low noise, photon counting      |
 |  InGaAs APD   900-1700nm  10-40  Telecom, higher noise than Si   |
 |  Si SPAD      400-1000nm  10^6   Single photon, dead time        |
-|  PMT          200-800nm   10^6   Ultra-sensitive, fragile, bulky|
+|  PMT          200-800nm   10^6   Ultra-sensitive, fragile, bulky |
 |  Bolometer    1um-1mm     1      IR/THz uncooled thermal         |
-|  HgCdTe (MCT) 3-12um      varies Cooled IR, highest performance|
+|  HgCdTe (MCT) 3-12um      varies Cooled IR, highest performance  |
 +------------------------------------------------------------------+
 ```
 

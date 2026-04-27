@@ -15,16 +15,14 @@ A laser is a feedback oscillator for light — identical in architectural concep
 |  with population      population         selection               |
 |  inversion            inversion                                  |
 |                                                                  |
-|  +--------+           +---------+         +---+        +---+     |
-|  |        |<--pump----|  Energy |         | M1|        | M2|     |
-|  | Active |           |  source |         | R=|medium  | R=|     |
-|  | medium |---------->|  (elect,|-------> |1.0|  gain  |0.98|   |
-|  |        |  emit     |  opt,   |<------- |   |<------^|    |   |
-|  +--------+  photons  |  thermal|         +---+ (round+---+     |
-|                        +---------+              trip)           |
-|                                                                 |
-|  Threshold condition: round-trip gain = round-trip loss         |
-|  g(nu) * 2L >= alpha_loss + ln(1/(R1*R2)) / (2L)                |
+|  Active medium <-- pump from energy source                       |
+|  Energy source: electrical, optical, or thermal                  |
+|  Cavity: M1 (R=1.0)  --->  gain medium  --->  M2 (R=0.98)        |
+|  Photons bounce M1 <-> M2 on round-trip; small leakage at M2     |
+|  becomes the laser output beam.                                  |
+|                                                                  |
+|  Threshold condition: round-trip gain = round-trip loss          |
+|  g(nu) * 2L >= alpha_loss + ln(1/(R1*R2)) / (2L)                 |
 +------------------------------------------------------------------+
 ```
 
@@ -272,8 +270,8 @@ The fundamental TEM_00 mode has a Gaussian intensity profile. Key parameters:
 |                                        Highest power CW lasers   |
 |                                                                  |
 |  Excimer      193nm (ArF) Pulsed       Photolithography (Intel   |
-|  (rare gas +  248nm (KrF) high energy  7nm node: EUVL at 13.5nm)|
-|  halide)      308nm (XeCl) per pulse   LASIK eye surgery (193nm)|
+|  (rare gas +  248nm (KrF) high energy  7nm node: EUVL at 13.5nm) |
+|  halide)      308nm (XeCl) per pulse   LASIK eye surgery (193nm) |
 |                                                                  |
 |  SEMICONDUCTOR                                                   |
 |  Diode laser  780nm       mW to W      CD/DVD, telecom,          |
@@ -291,7 +289,7 @@ The fundamental TEM_00 mode has a Gaussian intensity profile. Key parameters:
 |  fiber laser  (EDFA       (CW)         high-power industrial,    |
 |               amplifier)               coherent comms            |
 |  Yb-doped     1030-1120nm             Industrial cutting/weld    |
-|  fiber laser              to 100kW    Best beam quality at power|
+|  fiber laser              to 100kW    Best beam quality at power |
 +------------------------------------------------------------------+
 ```
 
