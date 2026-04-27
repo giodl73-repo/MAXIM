@@ -7,24 +7,19 @@ Silviculture is the deliberate manipulation of forest composition, structure, an
 ```
 SILVICULTURAL SYSTEMS — DECISION SPACE
 
-  REGENERATION      STAND           CUTTING
-  METHOD            STRUCTURE       SYSTEM
-  +-------------+   +----------+   +------------------+
-  | Natural seed |   | Even-aged|   | Clearcut        |
-  | (from above) |   | one cohort|  | Seed tree       |
-  +-------------+   +----------+   | Shelterwood      |
-                                   +------------------+
-  +-------------+   +----------+   +------------------+
-  | Advance      |   |Uneven-aged|  | Single-tree sel.  |
-  | regeneration |   | multiple  |  | Group selection   |
-  | (established |   | cohorts   |  +------------------+
-  | before cut)  |   +----------+
-  +-------------+
-                                   +------------------+
-  +-------------+                  | Coppice/Pollard   |
-  | Vegetative   |                 | Conversion        |
-  | sprouts      |                 | Strip cutting     |
-  +-------------+                  +------------------+
+  REGENERATION METHOD:
+    Natural seed (from above)
+    Advance regeneration (established before cut)
+    Vegetative sprouts
+
+  STAND STRUCTURE:
+    Even-aged   — one cohort
+    Uneven-aged — multiple cohorts
+
+  CUTTING SYSTEM:
+    Even-aged stand:    Clearcut, Seed tree, Shelterwood
+    Uneven-aged stand:  Single-tree selection, Group selection
+    Specialty:          Coppice/Pollard, Conversion, Strip cutting
 
   KEY AXIS: Light-demanding (pioneer) species --> even-aged clearcut
             Shade-tolerant species --> uneven-aged selection
@@ -280,17 +275,15 @@ Plantations are intensively managed monocultures (or simple mixtures) of single 
 
 ```
   PLANTATION CHARACTERISTICS:
-  +----------------------------------------------+
-  | Species: typically 1–3 species per stand     |
-  | Origin: seedlings from seed orchards (bred   |
-  |         for growth rate, form, disease resist.)|
-  | Spacing: regular, designed for harvest machine|
-  | Thinning: 1–3 commercial thinnings scheduled |
-  | Rotation: short (eucalyptus: 7 yr; pine: 20 yr;|
-  |           hardwood: 25–40 yr)                |
-  | Yield: 2–10× natural forest (site-prepared,  |
-  |         fertilized, weed-controlled)         |
-  +----------------------------------------------+
+    Species: typically 1–3 species per stand.
+    Origin: seedlings from seed orchards (bred for growth
+            rate, form, disease resistance).
+    Spacing: regular, designed for harvest machine.
+    Thinning: 1–3 commercial thinnings scheduled.
+    Rotation: short (eucalyptus: 7 yr; pine: 20 yr;
+              hardwood: 25–40 yr).
+    Yield: 2–10× natural forest (site-prepared, fertilized,
+           weed-controlled).
 
   GLOBAL PLANTATION AREA: ~294 M ha (~7% of global forest area)
   Supplies ~40% of world's industrial timber from 7% of forest area

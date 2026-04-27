@@ -73,9 +73,9 @@ Figure = the visual pattern on the sawn surface. Determined by:
 ```
 SAWING ORIENTATION AFFECTS FIGURE:
 
-  LOG CROSS-SECTION:
+  LOG CROSS-SECTION (concentric growth rings):
   +---------------------------+
-  |          ))))             |  Growth rings
+  |          ))))             |
   |        )(   )(            |
   |       )(     )(           |
   |        )(   )(            |

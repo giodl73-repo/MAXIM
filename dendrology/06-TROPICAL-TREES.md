@@ -88,26 +88,24 @@ Epiphytes are plants that grow on other plants for structural support but derive
 ```
 EPIPHYTE LOAD ON TROPICAL TREE:
 
-  Crown
-  +---[Bromeliad tanks]----+   Water-storing leaf rosettes;
-  | (Tillandsia, Vriesea) |   miniature aquatic ecosystems
-  | accumulate water, debris|  (frogs, insects, bacteria)
-  +------------------------+
-  |
-  +---[Orchids]-----------+   ~20,000 epiphytic sp. globally
-  |                       |   dominant in mid-canopy
-  +------------------------+
-  |
-  +---[Ferns]-------------+   Including bird's-nest ferns;
-  | (Asplenium, Platycerium)|  accumulate detritus (humus pockets)
-  +------------------------+
-  |
-  +---[Mosses/Liverworts]--+   Dominant in high-humidity,
-  |   (Bryophytes)         |   high-altitude cloud forest
-  +------------------------+
-  |
-  TRUNK    -- typically bare of epiphytes in lowland;
-             colonized in montane/cloud forest (permanently wet)
+  Crown (top to bottom):
+
+    Bromeliad tanks (Tillandsia, Vriesea):
+      Water-storing leaf rosettes; accumulate water and debris.
+      Miniature aquatic ecosystems (frogs, insects, bacteria).
+
+    Orchids:
+      ~20,000 epiphytic sp. globally; dominant in mid-canopy.
+
+    Ferns (Asplenium, Platycerium, including bird's-nest ferns):
+      Accumulate detritus (humus pockets).
+
+    Mosses/Liverworts (Bryophytes):
+      Dominant in high-humidity, high-altitude cloud forest.
+
+  Trunk:
+    Typically bare of epiphytes in lowland;
+    colonized in montane/cloud forest (permanently wet).
 ```
 
 **Ecophysiology of epiphytes:**
@@ -147,27 +145,20 @@ Proposed independently by Daniel Janzen (1970) and Joseph Connell (1971): seeds 
 ### Diversity Drivers — Summary
 
 ```
-  HYPOTHESIS               MECHANISM                  EVIDENCE STATUS
-  +------------------+     +-------------------+      +-------------------+
-  | Janzen-Connell   |     | Host-specific pests|     | Strong field evidence|
-  |                  |     | and pathogens      |     | (many experimental  |
-  |                  |     | prevent local       |     | and observational   |
-  |                  |     | dominance          |     | support)          |
-  +------------------+     +-------------------+      +-------------------+
-  | Intermediate     |     | Moderate disturbance|    | Strong; gap dynamics|
-  | Disturbance      |     | (gaps) creates niche|    | clearly promote     |
-  |                  |     | heterogeneity       |    | diversity           |
-  +------------------+     +-------------------+      +-------------------+
-  | Resource         |     | Fine-scale variation|    | Strong for some   |
-  | Partitioning     |     | in light, water, P; |    | resources; less for |
-  |                  |     | species occupy diff |    | others            |
-  |                  |     | niches              |    |                   |
-  +------------------+     +-------------------+      +-------------------+
-  | Neutral Theory   |     | Species ecologically|    | Controversial; fits |
-  | (Hubbell 2001)   |     | equivalent; drift +|     | species-abundance   |
-  |                  |     | dispersal limitation|    | patterns; not       |
-  |                  |     | determines pattern  |    | mechanism           |
-  +------------------+     +-------------------+      +-------------------+
+  HYPOTHESIS                MECHANISM                              EVIDENCE STATUS
+  Janzen-Connell            Host-specific pests and pathogens      Strong field evidence
+                            prevent local dominance.               (many experimental and
+                                                                   observational support).
+
+  Intermediate Disturbance  Moderate disturbance (gaps) creates    Strong; gap dynamics
+                            niche heterogeneity.                   clearly promote diversity.
+
+  Resource Partitioning     Fine-scale variation in light, water,  Strong for some resources;
+                            P; species occupy different niches.    less for others.
+
+  Neutral Theory            Species ecologically equivalent;       Controversial; fits species-
+  (Hubbell 2001)            drift + dispersal limitation           abundance patterns; not
+                            determines pattern.                    mechanism.
 ```
 
 ---

@@ -70,32 +70,46 @@ MATERIAL FLOWS LINKING ALL FOUR SCALES
          | photosynthesis | respiration, transpiration
          v                |
   +========================+
-  | FOREST CANOPY          |  Fixes 5-15 t C/ha/yr
-  | dendrology/            |  Intercepts 20-40% of rainfall
+  | FOREST CANOPY          |
+  | dendrology/            |
   +========================+
+    Fixes 5-15 t C/ha/yr.
+    Intercepts 20-40% of rainfall.
+
          |                ^
          | litterfall     | nutrient uptake via
-         | 3-8 t/ha/yr   | mycorrhizal network
+         | 3-8 t/ha/yr    | mycorrhizal network
          v                |
+
   +========================+
-  | SOIL                   |  Stores 100-300 t C/ha (top 1m)
-  | soil-science/          |  Mineralizes N: 50-150 kg/ha/yr
+  | SOIL                   |
+  | soil-science/          |
   +========================+
+    Stores 100-300 t C/ha (top 1m).
+    Mineralizes N: 50-150 kg/ha/yr.
+
          |                ^
          | leachate,      | riparian roots stabilize
          | groundwater    | banks, shade stream
          v                |
+
   +========================+
-  | STREAM / RIVER         |  Transports 2-20 t sediment/km²/yr
-  | freshwater-biology/    |  Carries dissolved nutrients to coast
+  | STREAM / RIVER         |
+  | freshwater-biology/    |
   +========================+
+    Transports 2-20 t sediment/km²/yr.
+    Carries dissolved nutrients to coast.
+
          |
          | river discharge: dissolved Ca²⁺, HCO₃⁻, PO₄³⁻, SiO₂
          v
+
   +========================+
-  | CORAL REEF             |  Accretes 1-10 kg CaCO₃/m²/yr
-  | coral-reefs/           |  Builds 3D structure over millennia
+  | CORAL REEF             |
+  | coral-reefs/           |
   +========================+
+    Accretes 1-10 kg CaCO₃/m²/yr.
+    Builds 3D structure over millennia.
 
 The forest feeds the soil.
 The soil feeds the stream.

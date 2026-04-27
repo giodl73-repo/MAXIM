@@ -159,31 +159,29 @@ Birches are diffuse-porous pioneers with short-lived dominance after disturbance
 The largest conifer family: pines, spruces, firs, larches, hemlocks, Douglas-fir.
 
 ```
-  GENUS          KEY SPECIES              WOOD NOTES
-  +-----------+  +-------------------+   +---------------------------+
-  | Pinus     |  | P. strobus (EWP)  |   | Soft, stable, wide grain  |
-  | (Pines)   |  | P. sylvestris(Scots)| | Resin canals; often knotty|
-  |           |  | P. ponderosa      |   | Ponderosa: coarse; cabinets|
-  +-----------+  +-------------------+   +---------------------------+
-  | Picea     |  | P. abies (Norway) |   | Spruce: low density,       |
-  | (Spruces) |  | P. sitchensis     |   | excellent E/density ratio; |
-  |           |  | P. rubens (Red)   |   | Sitka: aircraft + violins  |
-  +-----------+  +-------------------+   +---------------------------+
-  | Abies     |  | A. balsamea (Bals)|   | Fir: clean white wood,    |
-  | (Firs)    |  | A. concolor (W W) |   | low resin, good structure |
-  |           |  | A. alba (Silver EU)|  |                           |
-  +-----------+  +-------------------+   +---------------------------+
-  | Pseudotsuga|  | P. menziesii      |   | Douglas-fir: most important|
-  | (Doug-fir) |  | (Douglas-fir)     |   | N.Am. structural timber    |
-  |           |  |                   |   | E: 13 GPa; MOR: 85 MPa    |
-  +-----------+  +-------------------+   +---------------------------+
-  | Larix     |  | L. decidua (EU)   |   | ONLY deciduous conifer;   |
-  | (Larches) |  | L. laricina (N.Am)|   | Dense, durable; cold bog  |
-  |           |  |                   |   | indicator; no spring frost  |
-  +-----------+  +-------------------+   +---------------------------+
-  | Tsuga     |  | T. canadensis     |   | Fine-textured; bark: high   |
-  | (Hemlocks)|  | T. heterophylla   |   | tannin; WH: major EU timber |
-  +-----------+  +-------------------+   +---------------------------+
+  GENUS         KEY SPECIES                WOOD NOTES
+  Pinus         P. strobus (EWP)           Soft, stable, wide grain.
+  (Pines)       P. sylvestris (Scots)      Resin canals; often knotty.
+                P. ponderosa               Ponderosa: coarse; cabinets.
+
+  Picea         P. abies (Norway)          Spruce: low density,
+  (Spruces)     P. sitchensis              excellent E/density ratio.
+                P. rubens (Red)            Sitka: aircraft + violins.
+
+  Abies         A. balsamea (Bals)         Fir: clean white wood,
+  (Firs)        A. concolor (W W)          low resin, good structure.
+                A. alba (Silver EU)
+
+  Pseudotsuga   P. menziesii               Douglas-fir: most important
+  (Doug-fir)    (Douglas-fir)              N.Am. structural timber.
+                                           E: 13 GPa; MOR: 85 MPa.
+
+  Larix         L. decidua (EU)            ONLY deciduous conifer.
+  (Larches)     L. laricina (N.Am)         Dense, durable; cold bog
+                                           indicator; no spring frost.
+
+  Tsuga         T. canadensis              Fine-textured; bark: high
+  (Hemlocks)    T. heterophylla            tannin; WH: major EU timber.
 ```
 
 ### Cupressaceae — The Cypress Family

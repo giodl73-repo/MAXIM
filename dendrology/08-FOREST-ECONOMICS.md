@@ -104,15 +104,25 @@ FOREST VALUE STREAMS
 ### Two Market Types
 
 ```
-  COMPLIANCE MARKET                    VOLUNTARY CARBON MARKET (VCM)
-  +----------------------------+       +----------------------------+
-  | Cap-and-trade systems      |       | No regulatory obligation   |
-  | EU ETS, CA-Quebec, RGGI    |       | Corporate net-zero targets |
-  | California forestry offsets|       | Biodiversity co-benefits   |
-  | Regulated by government    |       | Verra VCS, Gold Standard,  |
-  | Higher price stability     |       | CAR, ACS, ACR              |
-  | Limited to approved types  |       | Lower prices; quality varies|
-  +----------------------------+       +----------------------------+
+  COMPLIANCE MARKET:
+    +----------------------------+
+    | Cap-and-trade systems      |
+    | EU ETS, CA-Quebec, RGGI    |
+    | California forestry offsets|
+    | Regulated by government    |
+    | Higher price stability     |
+    | Limited to approved types  |
+    +----------------------------+
+
+  VOLUNTARY CARBON MARKET (VCM):
+    +-----------------------------+
+    | No regulatory obligation    |
+    | Corporate net-zero targets  |
+    | Biodiversity co-benefits    |
+    | Verra VCS, Gold Standard,   |
+    | CAR, ACS, ACR               |
+    | Lower prices; quality varies|
+    +-----------------------------+
 
   FORESTRY CREDITS PRIMARILY IN VCM
   Compliance markets accept limited forestry; often political constraints

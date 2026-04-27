@@ -7,33 +7,49 @@ A forest is not a stable assemblage — it is a system perpetually recovering fr
 ```
 FOREST ECOLOGY — ORGANIZING FRAMEWORKS
 
-  DISTURBANCE REGIME                  SUCCESSION
-  +--------------------+              +--------------------+
-  | Fire, wind, flood  |              | Pioneer --> seral  |
-  | Ice storm, insect  | -----------> | --> late-seral     |
-  | outbreak, drought  |              | (Clementsian or    |
-  | Canopy tree death  |              |  Gleasonian)       |
-  +--------------------+              +--------------------+
-           |                                  |
-           v                                  v
-  GAP DYNAMICS                        COMMUNITY STRUCTURE
-  +--------------------+              +--------------------+
-  | Gap size spectrum  |              | Shade tolerance    |
-  | Patch turnover rate|              | rankings           |
-  | Gap-phase regen.   |              | Canopy stratif.    |
-  | Advance regen.     |              | Species coexist.   |
-  +--------------------+              +--------------------+
-           |                                  |
-           +----------------------------------+
-                          |
-                          v
-               NUTRIENT CYCLING
-         +---------------------------+
-         | Ca/N/P biogeochemical     |
-         | loops; mycorrhizal        |
-         | networks; decomposition   |
-         | cascade; fire as reset    |
-         +---------------------------+
+  DISTURBANCE REGIME:
+  +--------------------+
+  | Fire, wind, flood  |
+  | Ice storm, insect  |
+  | outbreak, drought  |
+  | Canopy tree death  |
+  +--------------------+
+           |
+           v
+  SUCCESSION:
+  +--------------------+
+  | Pioneer --> seral  |
+  | --> late-seral     |
+  | (Clementsian or    |
+  |  Gleasonian)       |
+  +--------------------+
+           |
+           v
+  GAP DYNAMICS:
+  +--------------------+
+  | Gap size spectrum  |
+  | Patch turnover rate|
+  | Gap-phase regen.   |
+  | Advance regen.     |
+  +--------------------+
+           |
+           v
+  COMMUNITY STRUCTURE:
+  +--------------------+
+  | Shade tolerance    |
+  | rankings           |
+  | Canopy stratif.    |
+  | Species coexist.   |
+  +--------------------+
+           |
+           v
+  NUTRIENT CYCLING:
+  +---------------------------+
+  | Ca/N/P biogeochemical     |
+  | loops; mycorrhizal        |
+  | networks; decomposition   |
+  | cascade; fire as reset    |
+  +---------------------------+
 ```
 
 ---
@@ -144,17 +160,41 @@ Shade tolerance is an ecological syndrome, not just a response to one variable. 
 ```
 SHADE TOLERANCE SPECTRUM (N. American examples):
 
-  VERY TOLERANT          TOLERANT            INTERMEDIATE         INTOLERANT
-  +------------------+   +-------------+    +--------------+    +----------+
-  | Sugar maple      |   | White cedar |    | White pine   |    | Aspen    |
-  | American beech   |   | Red spruce  |    | Yellow birch |    | Paper birch|
-  | Eastern hemlock  |   | Balsam fir  |    | Red maple    |    | Pin cherry|
-  | Pacific yew      |   | White spruce|    | Douglas-fir  |    | Cottonwood|
-  | Flowering dogwood|   | White ash   |    | Ponderosa pine|   | Tamarack |
-  +------------------+   +-------------+    +--------------+    +----------+
-  Can establish under     Can persist       Mixed strategy;     Cannot persist
-  closed canopy           in partial shade  intermediate light  under closed canopy
-  FSC light <1%           1–3%              requirements        Need gap > 200 m²
+  VERY TOLERANT (FSC light <1%; can establish under closed canopy):
+  +------------------+
+  | Sugar maple      |
+  | American beech   |
+  | Eastern hemlock  |
+  | Pacific yew      |
+  | Flowering dogwood|
+  +------------------+
+
+  TOLERANT (1–3% light; can persist in partial shade):
+  +-------------+
+  | White cedar |
+  | Red spruce  |
+  | Balsam fir  |
+  | White spruce|
+  | White ash   |
+  +-------------+
+
+  INTERMEDIATE (mixed strategy; intermediate light requirements):
+  +---------------+
+  | White pine    |
+  | Yellow birch  |
+  | Red maple     |
+  | Douglas-fir   |
+  | Ponderosa pine|
+  +---------------+
+
+  INTOLERANT (need gap > 200 m²; cannot persist under closed canopy):
+  +-------------+
+  | Aspen       |
+  | Paper birch |
+  | Pin cherry  |
+  | Cottonwood  |
+  | Tamarack    |
+  +-------------+
 ```
 
 ---

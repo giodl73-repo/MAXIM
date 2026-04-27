@@ -5,28 +5,58 @@
 Dendrology sits at the intersection of plant biology, ecology, materials science, and earth history. A tree is simultaneously a hydraulic machine, a carbon factory, a structural engineer, and an ecological keystone. The field spans four interconnected domains:
 
 ```
-+------------------------------------------------------------------+
-|                    DENDROLOGY LANDSCAPE                          |
-+------------------------------------------------------------------+
-|                                                                  |
-|  TREE BIOLOGY          WOOD SCIENCE         FOREST ECOLOGY       |
-|  +-----------+         +----------+         +----------+         |
-|  | Cell types|         | Physical |         |Succession|         |
-|  | Meristems |  --->   | Mechanical  --->   | Gap dyn. |         |
-|  | Cambium   |         | Chemical |         | Nutrient |         |
-|  | Vascular  |         | Moisture |         | cycles   |         |
-|  +-----------+         +----------+         +----------+         |
-|        |                    |                    |               |
-|        v                    v                    v               |
-|  DENDROCHRONOLOGY    SILVICULTURE         FOREST ECONOMICS       |
-|  +-----------+       +----------+         +----------+           |
-|  |Ring counts|       | Harvest  |         | Stumpage |           |
-|  | Cross-date|       | systems  |         | Carbon   |           |
-|  | Climate   |       | Rotation |         | credits  |           |
-|  | proxy     |       | Certif.  |         | REDD+    |           |
-|  +-----------+       +----------+         +----------+           |
-|                                                                  |
-+------------------------------------------------------------------+
+                    DENDROLOGY LANDSCAPE
+
+  TREE BIOLOGY:
+  +-----------+
+  | Cell types|
+  | Meristems |
+  | Cambium   |
+  | Vascular  |
+  +-----------+
+        |
+        v
+  DENDROCHRONOLOGY:
+  +-----------+
+  |Ring counts|
+  | Cross-date|
+  | Climate   |
+  | proxy     |
+  +-----------+
+
+  WOOD SCIENCE:
+  +------------+
+  | Physical   |
+  | Mechanical |
+  | Chemical   |
+  | Moisture   |
+  +------------+
+        |
+        v
+  SILVICULTURE:
+  +-----------+
+  | Harvest   |
+  | systems   |
+  | Rotation  |
+  | Certif.   |
+  +-----------+
+
+  FOREST ECOLOGY:
+  +-----------+
+  |Succession |
+  | Gap dyn.  |
+  | Nutrient  |
+  | cycles    |
+  +-----------+
+        |
+        v
+  FOREST ECONOMICS:
+  +-----------+
+  | Stumpage  |
+  | Carbon    |
+  | credits   |
+  | REDD+     |
+  +-----------+
 ```
 
 ---
@@ -40,22 +70,35 @@ What a tree *is* at the cellular and tissue level.
 ```
 TREE CROSS-SECTION (schematic, not to scale):
 
-         BARK (periderm + phloem)
-      +----------------------------------+
-      |  OUTER BARK (periderm/cork)      |  <-- dead tissue; moisture barrier
-      |  INNER BARK (phloem)             |  <-- sugars move DOWN from leaves
-      +--+----------------------------+--+
-         |   VASCULAR CAMBIUM         |     <-- meristematic ring; 1 cell thick
-         |   (one cell layer thick)   |     <-- adds xylem inward, phloem outward
-      +--+----------------------------+--+
-      |  SAPWOOD (functional xylem)      |  <-- water + mineral transport upward
-      |  (outermost N growth rings)      |  <-- living ray parenchyma still active
-      |----------------------------------|
-      |  HEARTWOOD (non-functional)      |  <-- dead xylem; extractives deposited
-      |  (inner xylem)                   |  <-- denser, often darker, rot-resistant
-      +----------------------------------+
-              |
-          PITH (dead parenchyma, structural center — first year's growth)
+  BARK (periderm + phloem):
+  +----------------------------------+
+  |  OUTER BARK (periderm/cork)      |
+  |  INNER BARK (phloem)             |
+  +----------------------------------+
+    Outer bark: dead tissue; moisture barrier.
+    Inner bark: sugars move DOWN from leaves.
+
+  VASCULAR CAMBIUM:
+  +----------------------------------+
+  |   (one cell layer thick)         |
+  +----------------------------------+
+    Meristematic ring, 1 cell thick.
+    Adds xylem inward, phloem outward.
+
+  WOOD (xylem):
+  +----------------------------------+
+  |  SAPWOOD (functional xylem)      |
+  |  (outermost N growth rings)      |
+  +----------------------------------+
+  |  HEARTWOOD (non-functional)      |
+  |  (inner xylem)                   |
+  +----------------------------------+
+    Sapwood: water + mineral transport upward;
+             living ray parenchyma still active.
+    Heartwood: dead xylem; extractives deposited;
+               denser, often darker, rot-resistant.
+
+  PITH (dead parenchyma, structural center — first year's growth)
 ```
 
 Key cellular structures:

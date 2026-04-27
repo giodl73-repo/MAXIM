@@ -102,19 +102,36 @@ GYMNOSPERM (Softwood) XYLEM:        ANGIOSPERM (Hardwood) XYLEM:
 
   TRACHEID only                       VESSEL ELEMENT + FIBER + PARENCHYMA
 
-  [Tracheid]                          [Vessel element]  [Fiber]
-  +---------+                         +-----------+     +------+
-  |         |   Long, tapered cell    |           |     |  //  |
-  |    //   |   both conducts water   | open end  |     |  //  |
-  |    //   |   AND provides support  |  (perforation)| |  //  |
-  |    //   |                         |           |     |  //  |
-  +---------+                         +-----------+     +------+
-  ~1–8 mm long                        Short (0.1–1.2mm) ~1–2 mm long
-  Pit pairs connect                   Stack into vessels thick-walled
-  adjacent cells                      (can be meters long) no lumen
+  TRACHEID:
+  +---------+
+  |         |
+  |    //   |
+  |    //   |
+  |    //   |
+  +---------+
+    ~1–8 mm long. Long, tapered cell — both conducts water
+    AND provides support. Pit pairs connect adjacent cells.
+    Water crosses via bordered pits.
 
-  Water crosses via                   Water flows through  Mechanical
-  bordered pits                       open perforations    support only
+  VESSEL ELEMENT:
+  +-----------+
+  |           |
+  | open end  |
+  | with      |
+  | perfor-   |
+  | ation     |
+  +-----------+
+    Short (0.1–1.2 mm). Stack into vessels (can be meters long).
+    Water flows through open perforations.
+
+  FIBER:
+  +------+
+  |  //  |
+  |  //  |
+  |  //  |
+  |  //  |
+  +------+
+    ~1–2 mm long. Thick-walled, no lumen. Mechanical support only.
 ```
 
 ### Bordered Pits (Conifer Mechanism)
@@ -151,13 +168,14 @@ Rays are sheets of parenchyma running radially from the cambium inward (through 
 ```
 RADIAL VIEW (cross-cut tangential section):
 
-  RAY (horizontal plate of parenchyma cells)
-  +-------------------------------------------------------+
-  |  o  o  o  o  o  o  o  o  o  o  o  o  o  o  o  o  |  <-- uniseriate ray (1 cell wide)
-  +-------------------------------------------------------+
-  or
-  +===+===+===+===+===+===+===+===+===+===+===+===+===+  <-- multiseriate ray (oak: up to 30+ cells wide)
-  +===+===+===+===+===+===+===+===+===+===+===+===+===+
+  RAY (horizontal plate of parenchyma cells):
+
+    Uniseriate ray (1 cell wide):
+      o  o  o  o  o  o  o  o  o  o  o  o  o  o  o  o
+
+    Multiseriate ray (oak: up to 30+ cells wide):
+      [===][===][===][===][===][===][===][===][===]
+      [===][===][===][===][===][===][===][===][===]
 ```
 
 ### Ray Functions

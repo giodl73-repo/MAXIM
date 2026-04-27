@@ -7,15 +7,35 @@ Forest conservation spans three interconnected challenges: defining and protecti
 ```
 FOREST CONSERVATION FRAMEWORK
 
-  PROTECTION                  RESTORATION               REWILDING
-  +------------------+       +------------------+      +------------------+
-  | Define old-growth|       | Reforestation    |      | Passive: remove  |
-  | Structural metrics|      | (previously      |      | pressure; let    |
-  | Protected area   |       | forested land)   |      | forest return    |
-  | designations     |       | Afforestation    |      | Trophic cascades |
-  | Old-growth at    |       | (new forest on   |      | Apex predator    |
-  | global scale     |       | non-forested)    |      | reintroduction   |
-  +------------------+       +------------------+      +------------------+
+  PROTECTION:
+  +-------------------+
+  | Define old-growth |
+  | Structural metrics|
+  | Protected area    |
+  | designations      |
+  | Old-growth at     |
+  | global scale      |
+  +-------------------+
+
+  RESTORATION:
+  +------------------+
+  | Reforestation    |
+  | (previously      |
+  | forested land)   |
+  | Afforestation    |
+  | (new forest on   |
+  | non-forested)    |
+  +------------------+
+
+  REWILDING:
+  +------------------+
+  | Passive: remove  |
+  | pressure; let    |
+  | forest return    |
+  | Trophic cascades |
+  | Apex predator    |
+  | reintroduction   |
+  +------------------+
           |                         |                        |
           +-------------------------+------------------------+
                                     |

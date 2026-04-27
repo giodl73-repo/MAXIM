@@ -7,20 +7,40 @@ Dendrochronology is the science of using tree-ring sequences as a high-resolutio
 ```
 DENDROCHRONOLOGY FRAMEWORK
 
-  RING ANATOMY          CROSS-DATING           MASTER CHRONOLOGY
-  +------------+        +------------+         +----------------+
-  |Earlywood   |        |Living trees|-------->|Last ring = present|
-  |Latewood    | -----> |Dead trees  |-------->|Floating chrono.|
-  |Width       |        |Subfossil   |-------->|Extended back   |
-  |Density     |        |wood        |         |thousands of yr |
-  |Chemistry   |        +------------+         +----------------+
-  +------------+               |                      |
-         |                     |                      |
-         v                     v                      v
-  CLIMATE SIGNAL         CALENDAR YEAR          14C CALIBRATION
-  (temp, precip,         ASSIGNMENT             IntCal curves
-   drought, CO2)         (exact dates)          (archaeology,
-                                                geology, ecology)
+  RING ANATOMY:
+  +------------+
+  | Earlywood  |
+  | Latewood   |
+  | Width      |
+  | Density    |
+  | Chemistry  |
+  +------------+
+        |
+        v
+  CLIMATE SIGNAL (temp, precip, drought, CO2)
+
+  CROSS-DATING:
+  +-------------+
+  | Living trees|
+  | Dead trees  |
+  | Subfossil   |
+  | wood        |
+  +-------------+
+        |
+        v
+  CALENDAR YEAR ASSIGNMENT (exact dates)
+
+  MASTER CHRONOLOGY:
+  +-----------------------+
+  | Last ring = present   |
+  | Floating chrono.      |
+  | Extended back         |
+  | thousands of years    |
+  +-----------------------+
+        |
+        v
+  14C CALIBRATION — IntCal curves
+  (archaeology, geology, ecology)
 ```
 
 ---
@@ -87,8 +107,9 @@ CROSS-DATING LOGIC:
   The PATTERN of wide and narrow rings is unique to a climate period
 
   Cross-dating: slide B along A until patterns align
-  +--+--+-+--+--++--+--+-+-++--+--+--+   Tree A
-              +--+-+-++--+--+--+          Tree B
+
+    Tree A: --+--+-+--+--++--+--+-+-++--+--+--+
+    Tree B:             +--+-+-++--+--+--+
               ^                 ^
           year 1867           year 1923
           (beam felled after 1923)
