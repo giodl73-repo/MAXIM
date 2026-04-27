@@ -27,7 +27,7 @@ Functional analysis is linear algebra in infinite dimensions. The jump from ℝ�
 │  ────────────────────────────────────────────────────────────────────────── │
 │  PDEs (Sobolev spaces, weak solutions)   QM (observables, C*-algebras)      │
 │  ML (RKHS, kernel methods, SVMs)         Signal processing (Fourier in L²)  │
-│  Numerical methods (Krylov, FEM)         Neural operators (attention as op.) │
+│  Numerical methods (Krylov, FEM)         Neural operators (attention as op) │
 └─────────────────────────────────────────────────────────────────────────────┘
 ```
 

@@ -7,7 +7,7 @@ THE LANDSCAPE
   ORDINARY DEs (one variable)          PARTIAL DEs (multiple variables)
   ┌──────────────────────────┐          ┌────────────────────────────────┐
   │ 1st order                │          │ Elliptic:  ∇²u = f  (Laplace)  │
-  │  separable               │          │ Parabolic: ∂u/∂t = α∇²u (heat)│
+  │  separable               │          │ Parabolic: ∂u/∂t = α∇²u (heat) │
   │  linear (integrating μ)  │          │ Hyperbolic: ∂²u/∂t² = c²∇²u    │
   │  exact                   │          │            (wave equation)     │
   │ 2nd order                │          └────────────────────────────────┘
@@ -507,12 +507,12 @@ Every major equation from your physics modules decoded:
   STIFFNESS — why explicit methods fail:
   ┌──────────────────────────────────────────────────────────────────────┐
   │  Stiff system: solution has components with vastly different         │
-  │  timescales. Example: y' = -1000y + sin(t)  (fast decay, slow force)│
+  │  timescales. Example: y' = -1000y + sin(t)  (fast decay, slow force) │
   │                                                                      │
   │  STABILITY REGION of a method: the set of h·λ ∈ ℂ where              │
   │  applied to y' = λy, the method gives bounded solutions.             │
   │                                                                      │
-  │  RK4 stability region: roughly |hλ| < 2.8 (along negative real axis)│
+  │  RK4 stability region: roughly |hλ| < 2.8 (along negative real axis) │
   │  For λ = -1000: need h < 0.0028 — tiny steps for accurate solution   │
   │  even though the interesting dynamics happen at timescale O(1)!      │
   │                                                                      │

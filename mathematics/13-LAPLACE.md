@@ -444,11 +444,11 @@ transform of a sampled (impulse-train) signal:
 | x[n] | X(z) | ROC |
 |---|---|---|
 | δ[n] | 1 | All z |
-| u[n] | 1/(1-z⁻¹) = z/(z-1) | | z | > 1 |
-| aⁿ u[n] | 1/(1-az⁻¹) = z/(z-a) | | z | > | a | |
-| n·aⁿ u[n] | az⁻¹/(1-az⁻¹)² | | z | > | a | |
-| cos(ω₀n)u[n] | (1-cos(ω₀)z⁻¹)/(1-2cos(ω₀)z⁻¹+z⁻²) | | z | > 1 |
-| sin(ω₀n)u[n] | sin(ω₀)z⁻¹/(1-2cos(ω₀)z⁻¹+z⁻²) | | z | > 1 |
+| u[n] | 1/(1-z⁻¹) = z/(z-1) | \|z\| > 1 |
+| aⁿ u[n] | 1/(1-az⁻¹) = z/(z-a) | \|z\| > \|a\| |
+| n·aⁿ u[n] | az⁻¹/(1-az⁻¹)² | \|z\| > \|a\| |
+| cos(ω₀n)u[n] | (1-cos(ω₀)z⁻¹)/(1-2cos(ω₀)z⁻¹+z⁻²) | \|z\| > 1 |
+| sin(ω₀n)u[n] | sin(ω₀)z⁻¹/(1-2cos(ω₀)z⁻¹+z⁻²) | \|z\| > 1 |
 
 ```
   Delay: x[n-k] ←→ z^(-k)X(z)
@@ -528,7 +528,7 @@ transform of a sampled (impulse-train) signal:
 | Need to... | Use |
 |---|---|
 | Solve ODE with ICs, get time response | Laplace, partial fractions, table |
-| Analyze steady-state sinusoidal response | H(jω) = H(s) | _{s=jω} (Bode) |
+| Analyze steady-state sinusoidal response | H(jω) = H(s)\|\_{s=jω} (Bode) |
 | Design a filter for continuous circuit | H(s) poles/zeros, then realize as RLC/op-amp |
 | Check stability of continuous system | Routh-Hurwitz or: all poles in LHP? |
 | Check stability with loop gain known | Nyquist criterion: encirclements of -1 |
@@ -538,7 +538,7 @@ transform of a sampled (impulse-train) signal:
 | Model signal flow through LTI system | Transfer function H(s) or H(z) |
 | Convert analog prototype to digital | Bilinear transform: s = 2(z-1)/[T(z+1)] |
 | Find DC gain | H(0) (s→0) or H(1) (z→1, z-domain DC) |
-| Find bandwidth | Frequency where | H(jω) | drops to -3 dB |
+| Find bandwidth | Frequency where \|H(jω)\| drops to -3 dB |
 | Tune feedback controller | PM and GM from Bode, then adjust C(s) |
 | Compute E[X^n] of a distribution | MGF: M_X^(n)(0) = E[X^n] = bilateral Laplace at -t |
 

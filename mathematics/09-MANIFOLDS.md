@@ -341,12 +341,11 @@ An **n-dimensional manifold** M is a topological space that looks locally like �
 
   In index notation: F = ½ Fμν dxμ∧dxν
   where Fμν is the antisymmetric field tensor:
-  ┌               ┐
-  │  0  -Ex -Ey -Ez │
-  │  Ex   0  -Bz  By │
-  │  Ey   Bz   0  -Bx│
-  │  Ez  -By   Bx   0 │
-  └               ┘
+
+       0   -Ex  -Ey  -Ez
+       Ex   0   -Bz   By
+       Ey   Bz   0   -Bx
+       Ez  -By   Bx   0
 ```
 
 ### 8.2 Maxwell's Equations as Two Lines

@@ -285,16 +285,16 @@ These are the workhorses of PAC learning, VC-dimension bounds, and algorithm ana
   │  CONCENTRATION HIERARCHY (increasing generality)                        │
   │                                                                         │
   │  Chernoff (sums of independent {0,1} r.v., sharpest for Bernoullis):    │
-  │    P(Σ Xᵢ ≥ (1+δ)μ) ≤ e^(-μδ²/3)   for δ ∈ (0,1]                   │
+  │    P(Σ Xᵢ ≥ (1+δ)μ) ≤ e^(-μδ²/3)   for δ ∈ (0,1]                        │
   │    Derived from M_X(t) directly; exponentially tight.                   │
   │                                                                         │
   │  Hoeffding (bounded independent r.v., aᵢ ≤ Xᵢ ≤ bᵢ):                    │
-  │    P(Σ(Xᵢ - E[Xᵢ]) ≥ t) ≤ exp(-2t²/Σ(bᵢ-aᵢ)²)                    │
+  │    P(Σ(Xᵢ - E[Xᵢ]) ≥ t) ≤ exp(-2t²/Σ(bᵢ-aᵢ)²)                           │
   │    Replaces MGF bound with variance proxy from the range [aᵢ,bᵢ].       │
   │    Key use: uniform convergence in PAC learning over finite hypotheses  │
   │                                                                         │
   │  Azuma-Hoeffding (martingale differences, |Xᵢ - Xᵢ₋₁| ≤ cᵢ):            │
-  │    P(|Xₙ - X₀| ≥ t) ≤ 2 exp(-t²/(2Σcᵢ²))                           │
+  │    P(|Xₙ - X₀| ≥ t) ≤ 2 exp(-t²/(2Σcᵢ²))                                │
   │    Drops the independence requirement — only needs bounded increments.  │
   │    Doob martingale converts function of independent r.v. to martingale. │
   │                                                                         │

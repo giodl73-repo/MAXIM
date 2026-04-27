@@ -4,20 +4,20 @@
 THE LANDSCAPE
 ═══════════════════════════════════════════════════════════════════════════════
 
-  VECTOR SPACES          MATRICES               EIGENSTRUCTURE
-  ┌─────────────────┐    ┌─────────────────┐    ┌─────────────────┐
-  │ abstract spaces │    │ linear maps     │    │ Av = λv         │
-  │ span, basis     │ →  │ rank, null space │ →  │ diagonalization │
-  │ dimension       │    │ row reduction    │    │ spectral theorem │
-  └────────┬────────┘    └────────┬────────┘    └────────┬────────┘
-           │                     │                       │
-           ▼                     ▼                       ▼
-  INNER PRODUCTS         DECOMPOSITIONS          APPLICATIONS
-  ┌─────────────────┐    ┌─────────────────┐    ┌─────────────────┐
-  │ dot product     │    │ LU, QR, Cholesky│    │ QM: Hermitian   │
-  │ orthogonality   │    │ SVD — the king  │    │ PCA, least sq.  │
-  │ Gram-Schmidt    │    │ eigendecomp     │    │ DFT as matrix   │
-  └─────────────────┘    └─────────────────┘    └─────────────────┘
+  VECTOR SPACES           MATRICES                EIGENSTRUCTURE
+  ┌──────────────────┐    ┌──────────────────┐    ┌──────────────────┐
+  │ abstract spaces  │    │ linear maps      │    │ Av = λv          │
+  │ span, basis      │ →  │ rank, null space │ →  │ diagonalization  │
+  │ dimension        │    │ row reduction    │    │ spectral theorem │
+  └────────┬─────────┘    └────────┬─────────┘    └────────┬─────────┘
+           │                       │                       │
+           ▼                       ▼                       ▼
+  INNER PRODUCTS          DECOMPOSITIONS          APPLICATIONS
+  ┌──────────────────┐    ┌──────────────────┐    ┌──────────────────┐
+  │ dot product      │    │ LU, QR, Cholesky │    │ QM: Hermitian    │
+  │ orthogonality    │    │ SVD — the king   │    │ PCA, least sq.   │
+  │ Gram-Schmidt     │    │ eigendecomp      │    │ DFT as matrix    │
+  └──────────────────┘    └──────────────────┘    └──────────────────┘
 
   CENTRAL THESIS:
   A matrix is a linear map between vector spaces.
@@ -719,11 +719,11 @@ The Jordan form is the canonical answer.
   │                                                                  │
   │  For a Jordan block Jₖ(λ) = λI + N:                              │
   │  e^(Jₖ(λ)t) = e^(λt) · e^(Nt)                                    │
-  │             = e^(λt) · (I + Nt + N²t²/2! + ... + Nᵏ⁻¹tᵏ⁻¹/(k-1)!)
+  │             = e^(λt) · (I + Nt + N²t²/2! + ... + Nᵏ⁻¹tᵏ⁻¹/(k-1)!)│
   │             (series terminates because Nᵏ=0)                     │
   │                                                                  │
   │  Result: solutions contain terms  tʲ e^(λt) for j=0,1,...,k-1    │
-  │  This is why repeated eigenvalues produce "polynomial × exponential"│
+  │  This is why repeated eigenvalues produce polynomial × exp.      │
   │  solutions — the xe^(λx) term in ODE theory is Jordan structure! │
   └──────────────────────────────────────────────────────────────────┘
 
@@ -773,7 +773,7 @@ essential new phenomena that don't exist in finite dimensions.
   │                                                                     │
   │  CONTINUOUS SPECTRUM σ_c(T): (T-λI) injective but not surjective    │
   │  and range is dense. No eigenvector exists, but "approximate        │
-  │  eigenvectors" exist: ‖Txₙ - λxₙ‖→0 with ‖xₙ‖=1.               │
+  │  eigenvectors" exist: ‖Txₙ - λxₙ‖→0 with ‖xₙ‖=1.                    │
   │  Example: free particle momentum p̂ on L²(ℝ)                         │
   │  "Eigenfunctions" e^(ikx) are not in L² — they're distributions.    │
   │  Scattering states, continuous spectrum = physical continuum.       │

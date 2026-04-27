@@ -679,7 +679,7 @@ Before TDA, the algebraic machinery needs to be in place.
   (Covers of X up to isomorphism) ↔ (Subgroups of π₁(X, x₀))
 
   ┌─────────────────────────────────────────────────────────────────────┐
-  │  Cover p: X̃ → X        │  Subgroup H ≤ π₁(X, x₀)               │
+  │  Cover p: X̃ → X        │  Subgroup H ≤ π₁(X, x₀)                    │
   │  Universal cover        │  H = {e} (trivial subgroup)               │
   │  X itself (trivial)     │  H = π₁(X) (whole group)                  │
   │  n-sheeted cover        │  [π₁:H] = n (index n subgroup)            │
@@ -704,7 +704,7 @@ Before TDA, the algebraic machinery needs to be in place.
   │  Deck transformations: t ↦ t + n (integer translations)             │
   │  S¹ = ℝ/ℤ ✓                                                         │
   │                                                                     │
-  │  X = SO(3):  X̃ = SU(2) ≅ S³,  π₁(SO(3)) = ℤ/2ℤ                │
+  │  X = SO(3):  X̃ = SU(2) ≅ S³,  π₁(SO(3)) = ℤ/2ℤ                      │
   │  Deck transformations: {id, antipodal map on S³}                    │
   │  SO(3) = S³/(ℤ/2ℤ) = RP³ ✓                                          │
   │                                                                     │

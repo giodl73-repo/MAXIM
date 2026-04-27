@@ -425,13 +425,13 @@ You've read Artin. Here's the structure:
   │  Basis generators: Tₐ = σₐ/2  (a = 1,2,3)                              │
   │  where σ₁,σ₂,σ₃ are the Pauli matrices                                 │
   │                                                                        │
-  │  [T₁,T₂] = iT₃,  [T₂,T₃] = iT₁,  [T₃,T₁] = iT₂                    │
+  │  [T₁,T₂] = iT₃,  [T₂,T₃] = iT₁,  [T₃,T₁] = iT₂                         │
   │                                                                        │
   │  3 generators → 3 gauge bosons: W⁺, W⁻, W⁰ (→ Z⁰ after mixing)         │
   │                                                                        │
   │  AS SPIN: Jₓ, Jy, Jz satisfy same commutation relations                │
   │  [Jₓ,Jy] = iℏJz etc. — angular momentum algebra is SU(2) algebra       │
-  │  Spin-½ particles are in the fundamental (2D) representation of SU(2)│
+  │  Spin-½ particles are in the fundamental (2D) representation of SU(2)  │
   └────────────────────────────────────────────────────────────────────────┘
 
   ┌────────────────────────────────────────────────────────────────────────┐
@@ -473,13 +473,13 @@ You've read Artin. Here's the structure:
   SU(2) representations:
   ┌──────────────────────────────────────────────────────────────────┐
   │  Spin s  │  Dim = 2s+1  │  Particle type                         │
-  ├──────────┼──────────────┼───────────────────────────────────────┤
-  │  s = 0   │  1D          │  Scalar (Higgs, pions)                │
-  │  s = 1/2 │  2D (spinor) │  Electrons, quarks, neutrinos         │
-  │  s = 1   │  3D (vector) │  Photon, W±, Z (massive spin-1)       │
-  │  s = 3/2 │  4D          │  Delta baryon, gravitino (SUSY)       │
-  │  s = 2   │  5D          │  Graviton (theoretical)               │
-  └──────────┴──────────────┴───────────────────────────────────────┘
+  ├──────────┼──────────────┼────────────────────────────────────────┤
+  │  s = 0   │  1D          │  Scalar (Higgs, pions)                 │
+  │  s = 1/2 │  2D (spinor) │  Electrons, quarks, neutrinos          │
+  │  s = 1   │  3D (vector) │  Photon, W±, Z (massive spin-1)        │
+  │  s = 3/2 │  4D          │  Delta baryon, gravitino (SUSY)        │
+  │  s = 2   │  5D          │  Graviton (theoretical)                │
+  └──────────┴──────────────┴────────────────────────────────────────┘
 
   Irreducible representation (irrep): cannot be decomposed further
   Schur's Lemma: any map between two irreps is either 0 or an isomorphism
@@ -508,13 +508,12 @@ You've read Artin. Here's the structure:
   Entry = character value on that conjugacy class.
 
   S₃ character table:
-  ┌──────┬───┬─────┬──────┐
-  │ irrep│ e │(12) │(123) │  ← conjugacy class
-  ├──────┼───┼─────┼──────┤
-  │ triv │ 1 │  1  │  1   │  dim 1: trivial representation
-  │ sgn  │ 1 │ -1  │  1   │  dim 1: sign representation (even/odd perm)
-  │ std  │ 2 │  0  │ -1   │  dim 2: standard representation
-  └──────┴───┴─────┴──────┘
+
+      irrep │ e │(12) │(123)    ← conjugacy class
+      ──────┼───┼─────┼──────
+      triv  │ 1 │  1  │  1      dim 1: trivial representation
+      sgn   │ 1 │ -1  │  1      dim 1: sign representation (even/odd perm)
+      std   │ 2 │  0  │ -1      dim 2: standard representation
 
   Sum of squares of dimensions = |G|: 1² + 1² + 2² = 6 = |S₃| ✓
 

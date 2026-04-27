@@ -268,7 +268,7 @@ D_f(P||Q) = ∫ q(x) f(p(x)/q(x)) dx
 |------|------|-------|
 | KL (forward) | t log t | MLE |
 | KL (reverse) | −log t | Variational inference |
-| Total variation | ½ | t−1 | | Bounded in [0,1] |
+| Total variation | ½\|t−1\| | Bounded in [0,1] |
 | χ² | (t−1)² | Hypothesis testing |
 | Hellinger² | (√t−1)² | Symmetric, bounded |
 | Jensen-Shannon | Symmetrized KL | GAN objective (original) |
@@ -332,9 +332,9 @@ everything in information theory:
 | Result | Convex function used |
 |--------|---------------------|
 | H(X) ≥ 0 | φ = −log (concave) |
-| H(X) ≤ log | 𝒳 | | Jensen on log |
-| D(P || Q) ≥ 0 | φ = −log (applied to Q/P) |
-| H(Y | X) ≤ H(Y) | Conditioning reduces entropy |
+| H(X) ≤ log\|𝒳\| | Jensen on log |
+| D(P \|\| Q) ≥ 0 | φ = −log (applied to Q/P) |
+| H(Y \| X) ≤ H(Y) | Conditioning reduces entropy |
 | Data processing ineq | Repeated Jensen |
 
 ---

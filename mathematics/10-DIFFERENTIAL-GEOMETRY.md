@@ -79,13 +79,14 @@ THE LANDSCAPE
   Tangent vectors: rᵤ = ∂r/∂u,   rᵥ = ∂r/∂v
 
   FIRST FUNDAMENTAL FORM (metric tensor on surface):
-  gᵢⱼ = rᵢ · rⱼ   where r₁=rᵤ, r₂=rᵥ
+  gᵢⱼ = rᵢ · rⱼ   where r₁ = rᵤ, r₂ = rᵥ
 
-  ┌         ┐   ┌                  ┐
-  │ g₁₁ g₁₂│ = │ rᵤ·rᵤ  rᵤ·rᵥ   │ = ┌E  F┐
-  │ g₂₁ g₂₂│   │ rᵥ·rᵤ  rᵥ·rᵥ   │   └F  G┘
-  └         ┘   └                  ┘
-  E=|rᵤ|², F=rᵤ·rᵥ, G=|rᵥ|²   (classical notation)
+  In matrix form:
+    [ g₁₁  g₁₂ ]   [ rᵤ·rᵤ   rᵤ·rᵥ ]   [ E  F ]
+    [          ] = [               ] = [      ]
+    [ g₂₁  g₂₂ ]   [ rᵥ·rᵤ   rᵥ·rᵥ ]   [ F  G ]
+
+  E = |rᵤ|², F = rᵤ·rᵥ, G = |rᵥ|²   (classical notation).
 
   ARC LENGTH of curve u(t), v(t) on surface:
   ds² = E du² + 2F du dv + G dv²   (the line element)
@@ -118,10 +119,10 @@ THE LANDSCAPE
   SECOND FUNDAMENTAL FORM:
   Lᵢⱼ = r_{ij} · n   where r_{ij} = ∂²r/∂uⁱ∂uʲ
 
-  ┌         ┐   ┌                  ┐
-  │ L₁₁ L₁₂│ = │ rᵤᵤ·n  rᵤᵥ·n   │ = ┌ e  f ┐  (classical)
-  │ L₂₁ L₂₂│   │ rᵥᵤ·n  rᵥᵥ·n   │   └ f  g ┘
-  └         ┘   └                  ┘
+  In matrix form (classical notation e, f, g):
+    [ L₁₁  L₁₂ ]   [ rᵤᵤ·n   rᵤᵥ·n ]   [ e  f ]
+    [          ] = [               ] = [      ]
+    [ L₂₁  L₂₂ ]   [ rᵥᵤ·n   rᵥᵥ·n ]   [ f  g ]
 
   NORMAL CURVATURE in direction v: κₙ = Lᵢⱼvⁱvʲ / gᵢⱼvⁱvʲ
 
