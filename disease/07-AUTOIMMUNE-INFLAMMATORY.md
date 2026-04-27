@@ -11,7 +11,7 @@ MECHANISMS OF TOLERANCE FAILURE:
 │  Pathogen antigen similar to self-antigen → cross-reactive T/B   │
 │  cells initially activated against pathogen persist vs self      │
 │  Examples: GAS M protein → cardiac tissue (rheumatic fever)      │
-│            Campylobacter gangliosides → nerve gangliosides (GBS)│
+│            Campylobacter gangliosides → nerve gangliosides (GBS) │
 ├──────────────────────────────────────────────────────────────────┤
 │  BYSTANDER ACTIVATION                                            │
 │  Inflammation damages local tissue → releases self-antigens     │

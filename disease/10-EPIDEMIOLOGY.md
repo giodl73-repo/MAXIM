@@ -116,27 +116,14 @@ YEARS OF POTENTIAL LIFE LOST (YPLL):
 ### Evidence Hierarchy
 
 ```
-                         ┌──────────────────────────┐
-                         │   SYSTEMATIC REVIEW /    │  Highest
-                         │     META-ANALYSIS        │  evidence
-                         └───────────┬──────────────┘
-                                     │
-                         ┌───────────┴──────────────┐
-                         │   RANDOMIZED CONTROLLED  │
-                         │       TRIAL (RCT)        │
-                         └───────────┬──────────────┘
-                                     │
-              ┌──────────────────────┼─────────────────────┐
-              │                      │                     │
-   ┌──────────┴───────┐   ┌──────────┴───────┐   ┌─────────┴────────┐
-   │   COHORT study   │   │  CASE-CONTROL    │   │  CROSS-SECTIONAL │
-   │(prospective/retro│   │    study         │   │     study        │
-   └──────────────────┘   └──────────────────┘   └──────────────────┘
-              │
-   ┌──────────┴───────┐
-   │    ECOLOGICAL    │  Lowest evidence
-   │      study       │  (group-level data)
-   └──────────────────┘
+  Evidence hierarchy from highest to lowest:
+
+  1. SYSTEMATIC REVIEW / META-ANALYSIS  (highest evidence)
+  2. RANDOMIZED CONTROLLED TRIAL (RCT)
+  3. COHORT study (prospective or retrospective)
+  4. CASE-CONTROL study
+  5. CROSS-SECTIONAL study
+  6. ECOLOGICAL study  (lowest evidence; group-level data)
 ```
 
 ### Study Design Comparison

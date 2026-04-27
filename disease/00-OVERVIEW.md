@@ -5,18 +5,18 @@
 ```
 DISEASE
 ┌───────────────────────────────────────────────────────────────────┐
-│  INFECTIOUS                  │  NON-INFECTIOUS                   │
+│  INFECTIOUS                  │  NON-INFECTIOUS                    │
 │  Exogenous agent required    │  Endogenous or multifactorial      │
 │                              │                                    │
-│  Bacterial                   │  Neoplastic (cancer)              │
-│  Viral                       │  Cardiovascular                   │
-│  Fungal                      │  Metabolic / Endocrine            │
-│  Parasitic (protozoa +       │  Autoimmune / Inflammatory        │
-│    helminths)                │  Genetic / Developmental          │
-│  Prion                       │  Neurological / Psychiatric       │
-│                              │  Nutritional                      │
-│                              │  Iatrogenic (treatment-caused)    │
-│                              │  Idiopathic (unknown cause)       │
+│  Bacterial                   │  Neoplastic (cancer)               │
+│  Viral                       │  Cardiovascular                    │
+│  Fungal                      │  Metabolic / Endocrine             │
+│  Parasitic (protozoa +       │  Autoimmune / Inflammatory         │
+│    helminths)                │  Genetic / Developmental           │
+│  Prion                       │  Neurological / Psychiatric        │
+│                              │  Nutritional                       │
+│                              │  Iatrogenic (treatment-caused)     │
+│                              │  Idiopathic (unknown cause)        │
 └───────────────────────────────────────────────────────────────────┘
 ```
 
