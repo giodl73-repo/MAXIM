@@ -103,22 +103,21 @@ White-collar crime is crime committed by persons of respectability and high soci
 Cressey studied embezzlers and found three necessary conditions:
 
 ```
-  +------------------+
-  |  OPPORTUNITY     |
-  |  (access to      |
-  |  trusted position|
-  |  + weak controls)|
-  |       /\         |
-  |      /  \        |
-  |     /    \       |
-  |    / FRAUD\      |
-  |   /________\     |
-  | PRESSURE         RATIONALIZATION
-  | (financial       (neutralization:
-  |  need, debt,     "I'll pay it back"
-  |  lifestyle)      "They owe me"
-  |                  "Everyone does it")
-  +------------------+
+  +-------------------------------------------+
+  |  OPPORTUNITY                              |
+  |  (access to trusted position +            |
+  |   weak controls)                          |
+  |              /\                           |
+  |             /  \                          |
+  |            /    \                         |
+  |           / FRAUD\                        |
+  |          /________\                       |
+  |  PRESSURE          RATIONALIZATION        |
+  |  (financial        (neutralization:       |
+  |   need, debt,      "I'll pay it back"     |
+  |   lifestyle)       "They owe me"          |
+  |                    "Everyone does it")    |
+  +-------------------------------------------+
 
   Remove any vertex --> fraud less likely
   Corporate controls target OPPORTUNITY

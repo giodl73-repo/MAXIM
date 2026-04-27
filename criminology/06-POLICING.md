@@ -132,24 +132,24 @@ Policing is the front end of the criminal justice system -- the primary point of
   dispatches                     Tailor response to problem
 
   SARA MODEL:
-  +----------+
-  | SCAN     | Identify recurring problems
-  +----------+
+  +----------+----------------------------------+
+  | SCAN     | Identify recurring problems      |
+  +----------+----------------------------------+
        |
        v
-  +----------+
-  | ANALYZE  | Understand causes and contexts
-  +----------+
+  +----------+----------------------------------+
+  | ANALYZE  | Understand causes and contexts   |
+  +----------+----------------------------------+
        |
        v
-  +----------+
-  | RESPOND  | Design targeted intervention
-  +----------+
+  +----------+----------------------------------+
+  | RESPOND  | Design targeted intervention     |
+  +----------+----------------------------------+
        |
        v
-  +----------+
-  | ASSESS   | Evaluate effectiveness
-  +----------+
+  +----------+----------------------------------+
+  | ASSESS   | Evaluate effectiveness           |
+  +----------+----------------------------------+
 
   Example: Bar closing fights
     Problem: Assaults at 2am near bar district

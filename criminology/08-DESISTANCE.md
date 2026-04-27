@@ -277,7 +277,7 @@ The dominant evidence-based framework in corrections:
 
   The "Big Eight" criminogenic needs:
   +---------------------------+
-  | 1. Criminal history*      | (* static -- cannot change)
+  | 1. Criminal history*      |
   | 2. Procriminal attitudes  |
   | 3. Procriminal associates |
   | 4. Antisocial personality |

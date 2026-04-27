@@ -116,7 +116,7 @@ Bentham operationalized Beccaria through utilitarianism and the Panopticon.
   |        / | | | \          |
   |       /  | | |  \         |
   |      v   v v v   v        |
-  |    [C] [C] [C] [C] [C]    |  C = Cell
+  |    [C] [C] [C] [C] [C]    |
   |                           |
   |  Guard may or may not     |
   |  be watching any cell.    |
