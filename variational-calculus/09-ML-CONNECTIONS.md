@@ -327,7 +327,7 @@ IMPLICIT VARIATIONAL PROBLEM:
 | ML Problem | Variational Formulation | Key Object |
 |-----------|------------------------|-----------|
 | Gradient descent | Gradient flow dθ/dt = −∇L | Euler-Lagrange of L[θ(t)] |
-| Momentum optimization | Damped Hamiltonian dynamics | Lagrangian ½|θ̇|² − L |
+| Momentum optimization | Damped Hamiltonian dynamics | Lagrangian 0.5 \|theta-dot\|^2 - L |
 | Neural ODE training | Optimal control (Pontryagin) | Adjoint ODE (backward) |
 | Natural gradient | Riemannian gradient flow | Fisher information metric G |
 | Optimal transport | Monge-Kantorovich problem | Kantorovich dual (convex conjugate) |

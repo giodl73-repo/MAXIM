@@ -12,7 +12,7 @@ of the Hessian matrix.
 |                                                                       |
 |  FUNCTION f: R^n → R             FUNCTIONAL J: V → R                  |
 |  ─────────────────────────       ─────────────────────                |
-|  f(x+v) ≈ f(x) + ∇f·v + ½vᵀHv  J[u+εη] ≈ J[u] + εδJ + ½ε²δ²J   |
+|  Taylor: f(x+v) = f(x)+grad(f)v+0.5 v'Hv   J[u+eh]=J[u]+e dJ+0.5 e^2 d^2J |
 |  Stationary: ∇f = 0              Stationary: δJ = 0                   |
 |  Local min:  H ≻ 0               Local min: δ²J > 0  (all η≠0)        |
 |  (positive definite Hessian)     (positive second variation)          |
