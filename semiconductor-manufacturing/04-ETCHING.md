@@ -97,13 +97,15 @@ RIE CHAMBER:
               Gas inlet
                 │
   ┌─────────────────────────────┐
-  │    Upper electrode (grounded or RF)    │
+  │  Upper electrode (RF/gnd)   │
   │                             │
-  │         Plasma zone         │  ← RF plasma (13.56 MHz + 27.12 MHz)
-  │    (reactive radicals + ions)│
+  │         Plasma zone         │
+  │  (reactive radicals + ions) │
   │                             │
-  │    [  Wafer  ]              │  ← Lower electrode (powered, DC bias)
+  │       [  Wafer  ]           │
   └─────────────────────────────┘
+  Plasma: RF at 13.56 MHz + 27.12 MHz
+  Lower electrode: powered, DC bias
         Gas exhaust
         (vacuum pump)
 

@@ -23,12 +23,14 @@ PLANAR MOSFET (1960-2011, 10 µm → 22 nm):
 
 FINFET (2011-2022, 22 nm → 3 nm):
     ┌──────┐
-    │ Gate │  Gate wraps 3 sides of fin
-    │ ┌──┐ │  (top + two sides)
+    │ Gate │
+    │ ┌──┐ │
     │ │Fi│ │
-    │ │n │ │  Enhanced gate control
+    │ │n │ │
     │ └──┘ │
     └──────┘
+  Gate wraps 3 sides of fin (top + two sides)
+  Enhanced gate control
   Source ───── Drain through fin
 
 GAA NANOSHEET (2022+, 3 nm and below):

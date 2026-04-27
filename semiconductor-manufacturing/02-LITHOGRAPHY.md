@@ -125,13 +125,13 @@ SADP (Self-Aligned Double Patterning):
   Create features at half the litho pitch
 
   Step 1: Pattern "core" features by 193i litho at pitch P
-          ┌─┐   ┌─┐   ┌─┐   ┌─┐   spacing = P
+          (cores at spacing = P)
   Step 2: Deposit conformal spacer material (ALD)
-         ┌┼─┼┐ ┌┼─┼┐
+          (each core gets a thin spacer wrapped around it)
   Step 3: Etch spacer anisotropically — leaves spacers on core sidewalls
-           │ │   │ │ (spacers at P/2)
+          (spacers now at pitch P/2)
   Step 4: Remove core (etch selective to spacer)
-           │ │   │ │   final pitch = P/2
+          (only spacers remain — final pitch = P/2)
   Step 5: Etch underlying film using spacers as mask
 
   Net effect: half the pitch from one litho step
