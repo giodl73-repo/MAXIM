@@ -13,28 +13,21 @@ REVOLUTION THEORY — LANDSCAPE
          │  Structure alone doesn't explain variation │
          └────────────────────────────────────────────┘
                             │
-         ┌──────────────────┼──────────────────┐
-         ▼                  ▼                  ▼
-┌─────────────────┐ ┌──────────────────┐ ┌─────────────────┐
-│  STRUCTURAL     │ │  POLITICAL       │ │  PHENOMENO-     │
-│  THEORIES       │ │  PROCESS         │ │  LOGICAL        │
-│                 │ │  THEORIES        │ │  THEORIES       │
-│ Skocpol:        │ │                  │ │                 │
-│ state/class/    │ │ Tilly:           │ │ Arendt:         │
-│ international   │ │ contentious      │ │ public freedom, │
-│ triangle        │ │ repertoires,     │ │ new beginning,  │
-│                 │ │ WUNC             │ │ council form    │
-│ Goldstone:      │ │                  │ │                 │
-│ demographic-    │ │ McAdam:          │ │                 │
-│ structural      │ │ political        │ │                 │
-│ model           │ │ opportunity      │ │                 │
-└─────────────────┘ └──────────────────┘ └─────────────────┘
-         │                  │                  │
-         └──────────────────┼──────────────────┘
-                            ▼
-              WHY SOME REVOLUTIONS SUCCEED
-              AND OTHERS DON'T
-              (the selection problem)
+  Three theory clusters explain revolutionary outcomes:
+
+  STRUCTURAL THEORIES:
+    Skocpol: state / class / international triangle.
+    Goldstone: demographic-structural model.
+
+  POLITICAL PROCESS THEORIES:
+    Tilly: contentious repertoires, WUNC.
+    McAdam: political opportunity.
+
+  PHENOMENOLOGICAL THEORIES:
+    Arendt: public freedom, new beginning, council form.
+
+  All three try to answer: why do some revolutions succeed
+  and others don't (the selection problem)?
 ```
 
 ---
@@ -67,27 +60,19 @@ SKOCPOL'S CAUSAL TRIANGLE
           fiscal demands, war)
                 │
                 ▼
-    ┌───────────────────────┐
-    │     STATE CRISIS      │ ← State unable to meet fiscal/military
-    │   (fiscal breakdown,  │   demands of international competition
-    │    administrative     │   without extracting from landlords
-    │    incapacity)        │
-    └───────────────────────┘
-                │
-    ┌───────────┴────────────┐
-    │                        │
-    ▼                        ▼
-┌─────────────┐      ┌──────────────────┐
-│ LANDLORD    │      │   PEASANT        │
-│ ELITE       │      │   AUTONOMY       │
-│ DEFECTION   │      │   (strong village│
-│             │      │    communities)  │
-│ Old elites  │      │                  │
-│ block state │      │ Peasant revolt   │
-│ reform,     │      │ possible when    │
-│ paralyze    │      │ landlord-state   │
-│ center      │      │ alliance breaks  │
-└─────────────┘      └──────────────────┘
+  STATE CRISIS:
+    Fiscal breakdown and administrative incapacity. The state
+    cannot meet fiscal/military demands of international
+    competition without extracting from landlords.
+
+  Two coupled fault lines emerge from a state crisis:
+
+  LANDLORD ELITE DEFECTION:
+    Old elites block state reform and paralyze the center.
+
+  PEASANT AUTONOMY:
+    Strong village communities. Peasant revolt becomes possible
+    when the landlord-state alliance breaks.
                 │                │
                 └────────────────┘
                          │

@@ -12,29 +12,22 @@ POLITICAL HISTORY — FIELD MAP
   │  Treaties · Institutions · Leaders · Ideologies · Movements    │
   └────────────────────────────────────────────────────────────────┘
                               │
-            ┌─────────────────┼──────────────────┐
-            ▼                 ▼                  ▼
-   ┌─────────────────┐ ┌──────────────┐ ┌───────────────────┐
-   │  NARRATIVE /    │ │ INSTITUTIONAL│ │  SOCIAL /         │
-   │  POLITICAL      │ │ HISTORY      │ │  STRUCTURAL       │
-   │                 │ │              │ │                   │
-   │ • Great men     │ │ • State      │ │ • Class conflict  │
-   │ • Events as     │ │   formation  │ │ • Long-run        │
-   │   contingent    │ │ • Legal      │ │   causation       │
-   │ • Documents /   │ │   orders     │ │ • Demography      │
-   │   archives      │ │ • Bureaucracy│ │ • Economic base   │
-   └─────────────────┘ └──────────────┘ └───────────────────┘
-            │                 │                  │
-            └─────────────────┼──────────────────┘
-                              ▼
-                    ┌──────────────────────┐
-                    │  ADJACENT FIELDS     │
-                    │                      │
-                    │ Political Science    │ ← synchronic, causal
-                    │ Int'l Relations      │ ← systemic, theoretical
-                    │ Sociology            │ ← structural, quantitative
-                    │ Economic History     │ ← endowments, institutions
-                    └──────────────────────┘
+  Three approaches to political history:
+
+  NARRATIVE / POLITICAL:
+    Great men; events as contingent; documents and archives.
+
+  INSTITUTIONAL HISTORY:
+    State formation; legal orders; bureaucracy.
+
+  SOCIAL / STRUCTURAL:
+    Class conflict; long-run causation; demography; economic base.
+
+  ADJACENT FIELDS feed and consume this work:
+    Political science     -- synchronic, causal.
+    International relations -- systemic, theoretical.
+    Sociology             -- structural, quantitative.
+    Economic history      -- endowments, institutions.
 
 MAJOR PERIODIZATIONS
 ──────────────────────────────────────────────────────────────────────

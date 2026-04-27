@@ -192,7 +192,7 @@ BRITISH EMPIRE TIMELINE
   │ WWI: Empire mobilized (Indian Army, ANZAC, etc.)         │
   │ 1931: Statute of Westminster — Dominion autonomy         │
   │ Interwar: nationalist movements emerge everywhere        │
-  │ WWII: fall of Singapore (1942) shatters myth of invulnerability│
+  │ WWII: fall of Singapore (1942) shatters invulnerability myth │
   └──────────────────────────────────────────────────────────┘
                           │
                           ▼
