@@ -6,26 +6,26 @@ Storage in the cloud is not a single category — the right storage type depends
 
 ```
 STORAGE TYPE TAXONOMY
-+-----------------------------------------------------------------------+
-|                                                                       |
-|  OBJECT / BLOB         BLOCK               FILE                       |
-|  +-----------------+  +----------------+  +--------------------+      |
-|  | Azure Blob      |  | Managed Disk   |  | Azure Files        |    |
-|  | (S3, GCS equiv) |  | (EBS equiv)    |  | (EFS equiv)        |    |
-|  | Unstructured    |  | Raw block dev  |  | NFS / SMB share    |    |
-|  | HTTP API access |  | Mount to VM    |  | Mount to VM / pod  |    |
-|  | Cheap at scale  |  | High IOPS/BW   |  | Shared file access |    |
-|  | Eventual consist|  | Consistent     |  | AD auth (SMB)      |    |
-|  +--+-----------+--+  +----------------+  +--------------------+    |
-|     |           |                                                   |
-   |   Database                                                       |
-   |   services                                                       |
-|  +-----------------------+  +------------------+  +--------------+  |
-|  | Azure SQL Database    |  | Azure Cosmos DB  |  | Redis Cache  |   |
-|  | Structured, ACID      |  | NoSQL, global    |  | In-memory    |   |
-|  | SQL Server compatible |  | multi-model      |  | K/V cache    |   |
-|  +-----------------------+  +------------------+  +--------------+   |
-+-----------------------------------------------------------------------+
+
+  OBJECT / BLOB:
+    Azure Blob (S3, GCS equiv).
+    Unstructured; HTTP API access; cheap at scale;
+    eventual consistency.
+
+  BLOCK:
+    Managed Disk (EBS equiv).
+    Raw block device; mount to VM; high IOPS/BW;
+    consistent.
+
+  FILE:
+    Azure Files (EFS equiv).
+    NFS / SMB share; mount to VM or pod;
+    shared file access; AD auth (SMB).
+
+  DATABASE SERVICES:
+    Azure SQL Database:    structured, ACID, SQL Server compatible.
+    Azure Cosmos DB:       NoSQL, global, multi-model.
+    Redis Cache:           in-memory, K/V cache.
 ```
 
 ---
@@ -247,14 +247,14 @@ NoSQL
 |   APIs: SQL, MongoDB, Cassandra, Gremlin, Table          |
 |   Use: global distribution, variable consistency needs   |
 |   Pricing: RU/s (Request Units per second)               |
-|   Pitfall: RU capacity planning requires workload knowledge|
+|   Pitfall: RU capacity planning requires workload data   |
 +----------------------------------------------------------+
 
 CACHE / KEY-VALUE
 +----------------------------------------------------------+
 | Azure Cache for Redis                                    |
 |   In-memory, sub-millisecond latency                     |
-|   Clustering (C6/P5 tiers), persistence, geo-replication|
+|   Clustering (C6/P5 tiers), persistence, geo-replication |
 |   Use: session cache, result cache, pub/sub, rate limit  |
 +----------------------------------------------------------+
 

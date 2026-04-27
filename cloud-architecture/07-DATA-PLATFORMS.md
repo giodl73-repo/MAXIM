@@ -6,28 +6,26 @@ The lakehouse pattern combines a data lake (cheap, scalable storage) with data w
 
 ```
 DATA PLATFORM ARCHITECTURE EVOLUTION
-+-----------------------------------------------------------------------+
-|                                                                       |
-|  TRADITIONAL (2000s)      DATA LAKE ERA (2010s)   LAKEHOUSE (2020s)   |
-|  +-------------------+   +------------------+   +----------------+    |
-|  | Data Warehouse    |   | Data Lake        |   | Delta Lake     |  |
-|  | (Teradata, Netezza|   | (HDFS, S3/ADLS2) |   | / Iceberg /   |  |
-|  | SQL DW)           |   | Schema on read   |   | Hudi           |  |
-|  | Structured only   |   | Unstructured OK  |   | ACID on object |  |
-|  | Expensive storage |   | Cheap storage    |   | storage        |  |
-|  | Schema on write   |   | No transactions  |   | Schema+transact|  |
-|  | Good query perf   |   | Spark/Hive query |   | Good query perf|  |
-|  +-------------------+   +------------------+   +----------------+  |
-|                                                                     |
-|  AZURE SERVICES:                                                    |
-|  +------------------------------------------------------------------+ |
-|  |  ADLS Gen2      |  Delta Lake     |  Synapse        |            | |
-|  |  (storage)      |  (table format) |  Analytics      |            | |
-|  |                 |                 |  +Databricks     |            | |
-|  +------------------------------------------------------------------+ |
-|  |  Azure Data Factory (orchestration / ETL-ELT)                    | |
-|  +------------------------------------------------------------------+ |
-+-----------------------------------------------------------------------+
+
+  TRADITIONAL (2000s) — Data Warehouse:
+    Teradata, Netezza, SQL DW.
+    Structured only; expensive storage; schema on write; good query perf.
+
+  DATA LAKE ERA (2010s):
+    HDFS, S3, ADLS Gen2.
+    Schema on read; unstructured OK; cheap storage; no transactions;
+    Spark/Hive query.
+
+  LAKEHOUSE (2020s):
+    Delta Lake / Iceberg / Hudi.
+    ACID transactions on object storage; schema + transactions;
+    good query performance.
+
+  AZURE SERVICES:
+    ADLS Gen2:        storage.
+    Delta Lake:       table format on top of ADLS Gen2.
+    Synapse Analytics + Databricks: query and compute.
+    Azure Data Factory: orchestration / ETL-ELT.
 ```
 
 ---

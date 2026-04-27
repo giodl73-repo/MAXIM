@@ -6,36 +6,26 @@ Cloud networking provides the connectivity fabric between all other services. Th
 
 ```
 AZURE NETWORKING ARCHITECTURE LAYERS
-+-----------------------------------------------------------------------+
-|                                                                       |
-|  GLOBAL / EDGE LAYER                                                  |
-|  +------------------------------------------------------------------+ |
-|  | Azure Front Door    | Global HTTP/S load balancing + WAF + CDN   | |
-|  | Azure CDN           | Content caching at edge nodes              | |
-|  | Azure Traffic Mgr   | DNS-based global routing (non-HTTP)        | |
-|  +------------------------------------------------------------------+ |
-|                                                                       |
-|  REGIONAL ENTRY POINTS                                                |
-|  +------------------------------------------------------------------+ |
-|  | Application Gateway | L7 load balancer + WAF (regional)          | |
-|  | Azure Load Balancer | L4 (TCP/UDP) load balancer (regional)      | |
-|  +------------------------------------------------------------------+ |
-|                                                                       |
-|  VIRTUAL NETWORK LAYER                                                |
-|  +------------------------------------------------------------------+ |
-|  | VNet / Subnets / NSGs   | Private network space, micro-segment   | |
-|  | VNet Peering            | Connect VNets (same or cross-region)   | |
-|  | VPN Gateway             | Site-to-site VPN to on-premises        | |
-|  | ExpressRoute            | Dedicated private circuit to Azure      | |
-|  +------------------------------------------------------------------+ |
-|                                                                       |
-|  DNS LAYER                                                            |
-|  +------------------------------------------------------------------+ |
-|  | Azure DNS           | Authoritative DNS hosting                  | |
-|  | Private DNS Zones   | Internal DNS for VNet resources            | |
-|  | Azure Private Link  | Private endpoints, no public IP needed     | |
-|  +------------------------------------------------------------------+ |
-+-----------------------------------------------------------------------+
+
+  GLOBAL / EDGE LAYER:
+    Azure Front Door     — Global HTTP/S load balancing + WAF + CDN
+    Azure CDN            — Content caching at edge nodes
+    Azure Traffic Manager — DNS-based global routing (non-HTTP)
+
+  REGIONAL ENTRY POINTS:
+    Application Gateway  — L7 load balancer + WAF (regional)
+    Azure Load Balancer  — L4 (TCP/UDP) load balancer (regional)
+
+  VIRTUAL NETWORK LAYER:
+    VNet / Subnets / NSGs — Private network space, micro-segment
+    VNet Peering          — Connect VNets (same or cross-region)
+    VPN Gateway           — Site-to-site VPN to on-premises
+    ExpressRoute          — Dedicated private circuit to Azure
+
+  DNS LAYER:
+    Azure DNS             — Authoritative DNS hosting
+    Private DNS Zones     — Internal DNS for VNet resources
+    Azure Private Link    — Private endpoints, no public IP needed
 ```
 
 ---
@@ -82,14 +72,14 @@ BEST PRACTICE:
 
 ```
 CONNECTIVITY COMPARISON
-+-----------------------------------------------------------------------+
-| Option           | Bandwidth  | Latency  | Cost      | Use Case       |
++----------------------------------------------------------------------+
+| Option           | Bandwidth  | Latency  | Cost      | Use Case      |
 +------------------+------------+----------+-----------+---------------+
 | VNet Peering     | Up to VNet | ~1ms     | Per GB    | Same org,     |
-| (same region)    | limits     | (low)    | transferred| connect VNets |
+| (same region)    | limits     | (low)    | transferred|connect VNets |
 +------------------+------------+----------+-----------+---------------+
 | Global VNet      | Up to VNet | ~10-50ms | Per GB    | Multi-region  |
-| Peering          | limits     | (varies) | transferred| VNets        |
+| Peering          | limits     | (varies) | trans/GB  | VNets         |
 +------------------+------------+----------+-----------+---------------+
 | VPN Gateway      | 1-10 Gbps  | 10-50ms  | Gateway   | Small/medium  |
 | (site-to-site)   | (gen SKU)  |          | + per GB  | hybrid (VPN)  |
@@ -134,12 +124,10 @@ HUB-SPOKE TOPOLOGY
                     +--------------------+
                     /         |          \
                    /          |           \
-          +-------+    +------+-----+    +-------+
-          | Spoke |    |   Spoke    |    | Spoke |
-          | VNet  |    |   VNet     |    | VNet  |
-          | Dev   |    |   Prod     |    | Stage |
-          | 10.1  |    |   10.2     |    | 10.3  |
-          +-------+    +------------+    +-------+
+  Three spoke VNets connected to the hub:
+    Spoke VNet Dev   (10.1.x.x)
+    Spoke VNet Prod  (10.2.x.x)
+    Spoke VNet Stage (10.3.x.x)
 
 ALL TRAFFIC FLOWS THROUGH HUB:
   East-west: Spoke A → Hub Firewall → Spoke B

@@ -8,27 +8,26 @@ The cloud service model spectrum defines how much of the stack you manage vs. wh
 CLOUD SERVICE MODEL SPECTRUM
 +-----------------------------------------------------------------------+
 |                                                                       |
-|         YOU MANAGE                    CLOUD PROVIDER MANAGES          |
-|  +--+--+--+--+--+--+--+    +--+--+--+--+--+--+--+--+--+               |
-|  |  |  |  |  |  |  |  |    |  |  |  |  |  |  |  |  |  |             |
-|  +--+--+--+--+--+--+--+    +--+--+--+--+--+--+--+--+--+             |
-|  App|Data|RT|OS|VM|HW|DC    App|Data|RT|OS|VM|HW|DC|Net|Stor        |
-   |                                                                  |
-   |  ON-PREMISES:   You manage everything                            |
-|  IaaS:          You manage App+Data+Runtime+OS  | Cloud manages VM+ |
-|                                                   HW+DC+Network+Storage|
-|  PaaS:          You manage App+Data | Cloud manages everything below |
-|  CaaS:          You manage container images  | Cloud manages cluster |
-|  FaaS:          You manage function code only | Cloud manages all else|
-|  SaaS:          You use the application | Cloud manages everything  |
-   |                                                                  |
-   |  EXAMPLES:                                                       |
-   |  IaaS:   Azure VM, Amazon EC2, GCP Compute Engine                |
-   |  PaaS:   Azure App Service, Azure SQL, Google App Engine         |
-   |  CaaS:   AKS, Amazon EKS, Google GKE                             |
-   |  FaaS:   Azure Functions, AWS Lambda, Cloud Functions            |
-   |  SaaS:   Microsoft 365, Salesforce, GitHub                       |
-+-----------------------------------------------------------------------+
+  Stack from top to bottom:
+    App, Data, Runtime, OS, VM, Hardware, Datacenter, Network, Storage.
+
+  ON-PREMISES:   You manage everything.
+  IaaS:          You manage App + Data + Runtime + OS.
+                 Cloud manages VM + HW + DC + Network + Storage.
+  PaaS:          You manage App + Data.
+                 Cloud manages everything below.
+  CaaS:          You manage container images.
+                 Cloud manages the cluster.
+  FaaS:          You manage function code only.
+                 Cloud manages everything else.
+  SaaS:          You use the application; cloud manages everything.
+
+  EXAMPLES:
+    IaaS:   Azure VM, Amazon EC2, GCP Compute Engine
+    PaaS:   Azure App Service, Azure SQL, Google App Engine
+    CaaS:   AKS, Amazon EKS, Google GKE
+    FaaS:   Azure Functions, AWS Lambda, Cloud Functions
+    SaaS:   Microsoft 365, Salesforce, GitHub
 ```
 
 ---

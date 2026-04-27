@@ -239,38 +239,23 @@ ACR (Azure Container Registry) INTEGRATION:
 ## VM SKU Selection Decision Tree
 
 ```
-+------------------------+
-| What is the workload?  |
-+------------------------+
-          |
-   +------+------+------+------+------+
-   |      |      |      |      |      |
- Web    DB    Batch  ML   Legacy  Dev
- API  Server  Job   Train  App   Test
-   |      |      |      |      |      |
-D-ser  E-ser  D/F-  N-   Any + Bv2
-(balanced)(memory)(compute)(GPU) config (cheap)
-   |      |      |
-   +------+------+------+
-              |
-   What SLA do I need?
-              |
-   +----------+----------+
-   |                     |
-Single zone          Multi-zone (AZ)
-SLA 99.9%            SLA 99.99%
-   |                     |
-Pay-as-you-go      Multiple VMs with
-dev/test           Zone distribution
-   |
-Is it steady state?
-   |
-+--+--+
-|     |
-Yes   No
-|     |
-RI    On-demand
-(40-72% disc)
+VM SIZING DECISION TREE (top-down):
+
+  Step 1 — What is the workload?
+    Web API:       D-series (balanced)
+    DB Server:     E-series (memory-optimized)
+    Batch Job:     D/F-series (compute)
+    ML Train:      N-series (GPU)
+    Legacy App:    any + config
+    Dev/Test:      Bv2 (cheap, burstable)
+
+  Step 2 — What SLA do I need?
+    Single zone:   SLA 99.9%   (pay-as-you-go, dev/test)
+    Multi-zone:    SLA 99.99%  (multiple VMs across AZs)
+
+  Step 3 — Is it steady state?
+    Yes:           Reserved Instances (40–72% discount)
+    No:            On-demand
 ```
 
 ---

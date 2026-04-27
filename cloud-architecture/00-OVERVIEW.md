@@ -8,25 +8,21 @@ This directory is one of three in the Sentinel triad (K-Spade C-IV). The thesis:
 THE SENTINEL TRIAD — Cloud Architecture View
 ═══════════════════════════════════════════════════════════════════
 
-              CAP Theorem (2000)
-              "Every design choice picks a point
-               on the C-A-P trade-off surface."
-                         │
-        ┌────────────────┼────────────────┐
-        │                │                │
-        ▼                ▼                ▼
-  ┌────────────┐   ┌───────────┐   ╔══════════════╗
-  │ DISTRIBUTED│   │ SECURITY  │   ║ CLOUD        ║
-  │ SYSTEMS    │   │ ENG.      │   ║ ARCHITECTURE ║
-  │            │   │           │   ║              ║
-  │ "Who has   │   │ "Who do   │   ║ "Where do    ║
-  │  the       │   │  you      │   ║  you put     ║
-  │  truth?"   │   │  trust?"  │   ║  the truth?" ║
-  └─────┬──────┘   └─────┬─────┘   ╚══════╤═══════╝
-        │                │                │
-        └────────────────┴────────────────┘
-                         │
-              Infrastructure as the execution layer
+  CAP Theorem (2000):
+    "Every design choice picks a point on the C-A-P trade-off surface."
+
+  Three pillars of the Sentinel triad:
+
+  DISTRIBUTED SYSTEMS:
+    "Who has the truth?"
+
+  SECURITY ENGINEERING:
+    "Who do you trust?"
+
+  CLOUD ARCHITECTURE:
+    "Where do you put the truth?"
+
+  All three converge on infrastructure as the execution layer.
 ```
 
 Cloud architecture is the **execution layer** for the entire volume. The consensus protocols from distributed systems and the trust models from security engineering are theoretical until they run on actual infrastructure --- AZs, regions, load balancers, managed services. Cloud architecture answers the question of *where* and *how*: multi-AZ for partition tolerance, managed Kubernetes for consensus (etcd runs Raft), mTLS between services for zero-trust enforcement, health probes for failure detection. Every CAP trade-off, every quorum configuration, every security control from the other two domains materializes here as an infrastructure decision with cost, latency, and blast-radius consequences.
@@ -43,25 +39,26 @@ Cloud architecture is the **execution layer** for the entire volume. The consens
 Cloud architecture is the discipline of designing systems that run on cloud infrastructure — exploiting the economics of shared, elastic infrastructure while managing the distributed systems complexity it introduces.
 
 ```
-CLOUD ARCHITECTURE LANDSCAPE
-+-----------------------------------------------------------------------+
-|                                                                       |
-|  ABSTRACTION LAYERS (you choose where to sit)                         |
-|  +------------------------------------------------------------------+ |
-|  | Your Code                                                        | |
-|  +------------------------------------------------------------------+ |
-|  | FaaS/Serverless  | Containers | VMs      | Bare Metal          | |
-|  | Azure Functions  | AKS        | VMs      | (IaaS dedicated)    | |
-|  +------------------------------------------------------------------+ |
-|  | Managed PaaS     | Container  | OS       | Firmware            | |
-|  | App Service      | Runtime    | Kernel   |                     | |
-|  +------------------------------------------------------------------+ |
-|  | Network, Storage, Compute (IaaS)                                 | |
-|  +------------------------------------------------------------------+ |
-|  | Physical: Servers, Switches, Storage Arrays, Power, Cooling     | |
-|  +------------------------------------------------------------------+ |
-|  ↑ You manage this      ↑ Cloud provider manages this →            |  |
-+-----------------------------------------------------------------------+
+CLOUD ARCHITECTURE LANDSCAPE — abstraction layers (you choose where to sit):
+
+  Your Code
+
+  FaaS / Serverless:    Azure Functions, etc.
+  Containers:           AKS, EKS, GKE
+  VMs:                  Azure VMs, EC2
+  Bare Metal:           IaaS dedicated
+
+  Managed PaaS:         App Service, etc.
+  Container Runtime:    Docker, containerd
+  OS Kernel
+  Firmware
+
+  Network, Storage, Compute (IaaS)
+
+  Physical: Servers, Switches, Storage Arrays, Power, Cooling
+
+  Boundary: you manage layers above your chosen abstraction;
+  the cloud provider manages everything below.
 
 CLOUD-NATIVE PRINCIPLES (CNCF):
   Microservices   Containers   Dynamic orchestration   DevOps practices

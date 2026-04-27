@@ -6,26 +6,21 @@ Serverless means you write function code; the platform handles provisioning, sca
 
 ```
 AZURE SERVERLESS SPECTRUM
-+-----------------------------------------------------------------------+
-|                                                                       |
-|  STATELESS COMPUTE       STATEFUL WORKFLOWS        INTEGRATION        |
-|  +-------------------+  +--------------------+  +----------------+    |
-|  | Azure Functions   |  | Durable Functions  |  | Logic Apps     |  |
-|  | (code-first)      |  | (orchestrator +    |  | (low-code,     |  |
-|  |                   |  |  activities)       |  |  200+ connectors|  |
-|  | Triggers:         |  |                    |  |                |  |
-|  | HTTP, Timer,      |  | Patterns:          |  | Designer:      |  |
-|  | Queue, Blob,      |  | Function chaining  |  | Visual flow    |  |
-|  | Event Hub,        |  | Fan-out/fan-in     |  | canvas         |  |
-|  | Cosmos, etc.      |  | Async HTTP API     |  |                |  |
-|  +-------------------+  | Monitor            |  +----------------+  |
-|                          | Human interaction  |                     |
-|  HOSTING PLANS:          +--------------------+  Container Apps     |
-|  Consumption             Storage: Azure         (KEDA-based         |
-|  Elastic Premium         Storage queues +       scale-to-zero       |
-|  Dedicated (ASP)         Table (Durable task    containers)         |
-|                          framework)                                 |
-+-----------------------------------------------------------------------+
+
+  STATELESS COMPUTE — Azure Functions (code-first):
+    Triggers: HTTP, Timer, Queue, Blob, Event Hub, Cosmos, etc.
+    Hosting plans: Consumption, Elastic Premium, Dedicated (ASP).
+
+  STATEFUL WORKFLOWS — Durable Functions (orchestrator + activities):
+    Patterns: function chaining, fan-out/fan-in, async HTTP API,
+              monitor, human interaction.
+    Storage: Azure Storage queues + Table (Durable task framework).
+
+  INTEGRATION — Logic Apps (low-code, 200+ connectors):
+    Designer: visual flow canvas.
+
+  CONTAINER APPS:
+    KEDA-based scale-to-zero containers.
 ```
 
 ---

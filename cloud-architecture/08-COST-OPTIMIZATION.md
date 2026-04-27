@@ -15,25 +15,32 @@ PRINCIPLES:
   Decisions driven by business value of cloud
 
 THREE PHASES (continuous cycle):
+
   +-------------------+
-  |  INFORM           |  ← Visibility: what are we spending and why?
-  |  Cost allocation  |     Tagging, cost analysis, unit economics
+  |  INFORM           |
+  |  Cost allocation  |
   |  Reporting        |
   +-------------------+
+    Visibility: what are we spending and why?
+    Tagging, cost analysis, unit economics.
           |
           v
   +-------------------+
-  |  OPTIMIZE         |  ← Reduce waste: rightsizing, reservations, spot
-  |  Rightsizing      |     Idle resources, unused licenses, oversized
+  |  OPTIMIZE         |
+  |  Rightsizing      |
   |  Reservations     |
   +-------------------+
+    Reduce waste: rightsizing, reservations, spot.
+    Idle resources, unused licenses, oversized.
           |
           v
   +-------------------+
-  |  OPERATE          |  ← Continuous improvement: budgets, alerts, culture
-  |  Budgets          |     Engineering accountability, governance
+  |  OPERATE          |
+  |  Budgets          |
   |  Anomaly detect   |
   +-------------------+
+    Continuous improvement: budgets, alerts, culture.
+    Engineering accountability, governance.
           |
           (feeds back to Inform)
 ```
