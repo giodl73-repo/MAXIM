@@ -231,13 +231,13 @@ each have >$1B annual revenue.
   =======================
 
   Subcutaneous sensor (7-15 day wear)
-  +----------------------------------+
-  | Outer membrane (glucose limiting)|  Rate-limiting diffusion
-  | Enzyme layer (GOx immobilized)   |  Enzymatic oxidation
-  | Inner membrane (H2O2 limiting)   |  (1st gen systems)
-  | Working electrode (Pt or C)      |  Amperometric detection
-  | Reference electrode (Ag/AgCl)    |  vs. reference
-  +----------------------------------+
+  +----------------------------------+----------------------------+
+  | Outer membrane (glucose limiting)| Rate-limiting diffusion    |
+  | Enzyme layer (GOx immobilized)   | Enzymatic oxidation        |
+  | Inner membrane (H2O2 limiting)   | (1st gen systems)          |
+  | Working electrode (Pt or C)      | Amperometric detection     |
+  | Reference electrode (Ag/AgCl)    | vs. reference              |
+  +----------------------------------+----------------------------+
            |  (transcutaneous wire)
            v
   Electronics patch (worn on skin)

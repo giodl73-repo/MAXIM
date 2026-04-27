@@ -493,7 +493,7 @@ Design History File (DHF) at any time.
   MODES OF VENTILATION:
   +---------------------+----------------------------------------------+
   | Volume Control (VC) | Set tidal volume VT delivered each breath    |
-  |                     | Pressure varies (risk: high pressure = barotrauma)|
+  |                     | Pressure varies (risk: barotrauma)           |
   |                     | Set: VT, RR, FiO2, PEEP                      |
   +---------------------+----------------------------------------------+
   | Pressure Control    | Set inspiratory pressure (PC above PEEP)     |

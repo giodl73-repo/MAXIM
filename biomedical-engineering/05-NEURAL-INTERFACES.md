@@ -115,10 +115,11 @@ The most commonly used intracortical recording array in human BCI research.
   +-------+-------+-------+-------+
   |   o   |   o   |   o   |   o   |
   +-------+-------+-------+-------+
-  |   o   |   o   |   o   |   o   |  Each dot = electrode
-  +-------+-------+-------+-------+  400 μm pitch
   |   o   |   o   |   o   |   o   |
   +-------+-------+-------+-------+
+  |   o   |   o   |   o   |   o   |
+  +-------+-------+-------+-------+
+  Each dot = electrode; 400 μm pitch.
   10x10 grid (96 functional electrodes)
 
   RECORDING QUALITY:
