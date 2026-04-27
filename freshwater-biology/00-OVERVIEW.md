@@ -5,35 +5,21 @@
 Freshwater covers less than 1% of Earth's surface and holds only 0.01% of its water, yet supports ~10% of all described species and provides drinking water, food, and water regulation for billions of people. Limnology (the science of inland waters) spans physical, chemical, and biological dimensions across four habitat types: lakes, rivers, wetlands, and groundwater.
 
 ```
-+----------------------------------------------------------------------+
-|                   FRESHWATER BIOLOGY LANDSCAPE                       |
-+----------------------------------------------------------------------+
-|                                                                      |
-|  HABITAT TYPES           PHYSICAL             BIOLOGICAL            |
-|  +-----------+           +---------+          +---------+           |
-|  | Lakes     |           |Thermal  |          | Primary |           |
-|  | Reservoirs|  ----->   |Stratifi-|  ----->  | produc- |           |
-|  | Ponds     |           |cation   |          | tion    |           |
-|  +-----------+           +---------+          +---------+           |
-|  +-----------+           +---------+          +---------+           |
-|  | Rivers    |           |Hydraulic|          | Food    |           |
-|  | Streams   |  ----->   |geometry |  ----->  | webs    |           |
-|  | Brooks    |           |Continuum|          | Cascades|           |
-|  +-----------+           +---------+          +---------+           |
-|  +-----------+           +---------+          +---------+           |
-|  | Wetlands  |           |Hydro-   |          | Carbon  |           |
-|  | Marshes   |  ----->   |period   |  ----->  | sequen- |           |
-|  | Bogs/Fens |           |Hydric   |          | tration |           |
-|  +-----------+           |soils    |          +---------+           |
-|                          +---------+                                 |
-|  +-----------+                              THREATS                  |
-|  |Groundwater|           NUTRIENT CYCLES    +---------+             |
-|  |Aquifers   |  ----->   N/P/Si/C loops --> | Eutrophi-|            |
-|  |Hyporheic  |           Redfield analog    | cation  |            |
-|  +-----------+                              | Invasives|            |
-|                                             | Dams    |            |
-|                                             +---------+            |
-+----------------------------------------------------------------------+
+FRESHWATER BIOLOGY LANDSCAPE
+============================
+
+HABITAT TYPES        PHYSICAL DRIVERS      BIOLOGICAL OUTCOMES
+  Lakes/Reservoirs   Thermal stratific.    Primary production
+   /Ponds            (epi/meta/hypolimn.)
+  Rivers/Streams     Hydraulic geometry,   Food webs, cascades
+   /Brooks           river continuum
+  Wetlands/Marshes   Hydroperiod, hydric   Carbon sequestration
+   /Bogs/Fens        soils
+  Groundwater/       Nutrient cycles       Productivity coupling
+   Aquifers/         (N/P/Si/C loops,
+   Hyporheic zones    Redfield analog)
+
+THREATS:  Eutrophication, invasive species, dams/flow alteration
 ```
 
 ---

@@ -7,24 +7,22 @@ Water quality monitoring translates complex ecological and chemical information 
 ```
 WATER QUALITY MONITORING FRAMEWORK
 
-  PHYSICAL/CHEMICAL           BIOLOGICAL               COMBINED INDICES
-  MONITORING                  INDICATORS               +------------------+
-  +------------------+        +------------------+     | EPT Index        |
-  | Dissolved O2     |        | Macroinvertebrates|     | IBI (fish)      |
-  | BOD / COD        |  --->  | Algae (diatoms)  |  -> | Diatom Index     |
-  | Nutrients (N, P) |        | Fish             |     | WQI (composite)  |
-  | Temperature      |        | Macrophytes      |     | EU WFD classes   |
-  | pH, conductivity |        | Amphibians       |     +------------------+
-  | Turbidity        |        +------------------+
-  | Metals / toxics  |
-  +------------------+
+  PHYSICAL/CHEMICAL MONITORING:
+    Dissolved O2, BOD/COD, nutrients (N, P), temperature,
+    pH/conductivity, turbidity, metals and toxics.
+  BIOLOGICAL INDICATORS:
+    Macroinvertebrates, algae (diatoms), fish, macrophytes,
+    amphibians.
+  COMBINED INDICES:
+    EPT Index, IBI (fish), Diatom Index, WQI (composite),
+    EU WFD classes.
           |
           v
-  REGULATORY STANDARDS
-  WHO Guidelines (drinking water)
-  EPA Primary/Secondary Standards (US)
-  EU Water Framework Directive
-  National surface water quality criteria
+  REGULATORY STANDARDS:
+    WHO Guidelines (drinking water),
+    EPA Primary/Secondary Standards (US),
+    EU Water Framework Directive,
+    National surface water quality criteria.
 ```
 
 ---

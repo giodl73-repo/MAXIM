@@ -155,12 +155,10 @@ The riparian zone is the transitional terrestrial-aquatic strip flanking a strea
   Upland          Riparian zone          Channel          Riparian          Upland
                   (terrestrial-          (stream)          zone
   Crops/Forest    aquatic interface)
-                  +-----------------+
-                  | Root network    |    ════════════    | Trees/Shrubs |
-                  | Soil moisture   |    ~~~~water~~~~    | Filter inputs|
-                  | Flood deposit   |                     |              |
-                  | Buffer zone     |
-                  +-----------------+
+  Riparian zone (left bank): root network, soil moisture, flood
+    deposits, buffer zone.
+  Channel: water flow.
+  Riparian zone (right bank): trees/shrubs that filter inputs.
                       |       |
                       v       v
               Shade input  Organic matter input

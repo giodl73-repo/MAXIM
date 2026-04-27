@@ -5,28 +5,16 @@
 Freshwater ecosystems support disproportionate biodiversity relative to their area but face the sharpest biodiversity declines of any ecosystem type. The three dominant threats are biological invasion, physical alteration by dams, and altered flow regimes — all of which interact with eutrophication and climate change.
 
 ```
-FRESHWATER CONSERVATION — THREAT MATRIX
+FRESHWATER CONSERVATION - THREAT MATRIX
 
-  THREAT              PRIMARY MECHANISM        SCALE           REVERSIBILITY
-  +---------------+   +------------------+    +----------+    +------------+
-  | Invasive spp. |   | Competition,     |    | Local to |    | Low; often |
-  |               |   | predation,       |    | regional |    | irreversible|
-  |               |   | disease vector   |    |          |    |            |
-  +---------------+   +------------------+    +----------+    +------------+
-  | Dam/barrier   |   | Thermal change,  |    | Watershed|    | Moderate;  |
-  |               |   | sediment trap,   |    | to river |    | dam removal|
-  |               |   | migration block  |    | basin    |    | works      |
-  +---------------+   +------------------+    +----------+    +------------+
-  | Flow regime   |   | Altered timing,  |    | Watershed|    | Moderate;  |
-  | alteration    |   | volume, flashiness|   | to river |    | flow release|
-  |               |   |                  |    | basin    |    | can help   |
-  +---------------+   +------------------+    +----------+    +------------+
-  | Eutrophication|   | Nutrient loading |    | Watershed|    | Slow;      |
-  |               |   | oxygen depletion |    | to lake  |    | decades    |
-  +---------------+   +------------------+    +----------+    +------------+
-  | Climate change|   | Temperature,     |    | Global   |    | None within|
-  |               |   | drought, flood   |    |          |    | management |
-  +---------------+   +------------------+    +----------+    +------------+
+  Threat            | Primary mechanism                  | Scale          | Reversibility
+  Invasive species  | Competition, predation, disease    | Local-regional | Low; often irreversible
+  Dam / barrier     | Thermal change, sediment trap,     | Watershed-     | Moderate; dam removal
+                    | migration block                    |  river basin   |  works
+  Flow regime       | Altered timing, volume, flashiness | Watershed-     | Moderate; flow release
+   alteration       |                                    |  river basin   |  can help
+  Eutrophication    | Nutrient loading, oxygen depletion | Watershed-lake | Slow; decades
+  Climate change    | Temperature, drought, flood        | Global         | None within management
 ```
 
 ---

@@ -7,16 +7,13 @@ Freshwater nutrient cycles differ fundamentally from marine biogeochemistry in t
 ```
 FRESHWATER NUTRIENT SYSTEM
 
-  WATERSHED INPUT                   IN-LAKE PROCESSES            EXPORT
-  +------------------+              +------------------+          +------+
-  | Atmospheric dep. |              | Primary prod.    |          | To   |
-  | Agricultural     | --> N, P --> | Nutrient uptake  | --> -->  | outlet|
-  | Runoff           |     Si       | Internal loading |          | stream|
-  | Point sources    |              | Sedimentation    |          +------+
-  | Groundwater      |              | Denitrification  |
-  +------------------+              | Nutrient cycling |
-                                    | (biotic + abiotic)|
-                                    +------------------+
+  WATERSHED INPUT  -->  IN-LAKE PROCESSES  -->  EXPORT
+  Watershed input:    atmospheric deposition, agricultural runoff,
+                      point sources, groundwater (deliver N, P, Si).
+  In-lake processes:  primary production, nutrient uptake, internal
+                      loading, sedimentation, denitrification,
+                      nutrient cycling (biotic + abiotic).
+  Export:             flow to outlet stream.
 
   MASTER QUESTION FOR EACH LAKE:
   What is limiting primary production: N, P, or light?
