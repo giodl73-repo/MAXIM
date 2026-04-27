@@ -226,11 +226,14 @@ CHACHA20 (Bernstein 2008):
   ARX design: Add-Rotate-XOR only; no S-boxes → no lookup table → no timing side-channel
   State: 4×4 matrix of 32-bit words (512-bit state):
   ┌──────┬──────┬──────┬──────┐
-  │ "exp"│ "and"│ "d s"│ "ixe"│  ← constants "expand 32-byte k"
-  │ k0   │ k1   │ k2   │ k3   │  ← key (256-bit = 8 words)
-  │ k4   │ k5   │ k6   │ k7   │  ← key continued
-  │ ctr  │ n0   │ n1   │ n2   │  ← counter (32-bit) + nonce (96-bit)
+  │ "exp"│ "and"│ "d s"│ "ixe"│
+  │ k0   │ k1   │ k2   │ k3   │
+  │ k4   │ k5   │ k6   │ k7   │
+  │ ctr  │ n0   │ n1   │ n2   │
   └──────┴──────┴──────┴──────┘
+   Row 1: constants "expand 32-byte k"
+   Rows 2-3: key (256-bit = 8 words)
+   Row 4: counter (32-bit) + nonce (96-bit)
 
 QUARTER ROUND (core operation):
   a += b; d ^= a; d <<<= 16;
