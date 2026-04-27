@@ -115,13 +115,17 @@ OPEN-AREA (HORIZONTAL) EXCAVATION:
   Used for: settlements, houses, public buildings, complex sites
 
   +--------------+
-  |              |  Sondage (test pit): earlier, to check stratigraphy
-  |   Excavation |  Baulks (sections): left at intervals for section recording
-  |     area     |  Units: 5×5 m or 10×10 m grid squares
+  |              |
+  |   Excavation |
+  |     area     |
   |   /     \    |
   |  /       \   |
-  | / baulks  \  |  Sections kept until the relevant context understood
+  | / baulks  \  |
   +--------------+
+  Sondage (test pit): earlier, to check stratigraphy.
+  Baulks (sections): left at intervals for section recording.
+  Units: 5x5 m or 10x10 m grid squares.
+  Sections kept until the relevant context is understood.
 
 ADVANTAGE: understand spatial relationships within a period
 DISADVANTAGE: deeper earlier levels hard to expose simultaneously
