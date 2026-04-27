@@ -14,7 +14,7 @@ CLIMATE HAZARD EXPOSURE TAXONOMY
 
                         CLIMATE HAZARD
                               |
-          +-------------------+-------------------+
+          .-------------------+-------------------.
           |                   |                   |
     ACUTE (extreme events)    |             CHRONIC (slow-onset)
           |                   |                   |
@@ -25,7 +25,7 @@ CLIMATE HAZARD EXPOSURE TAXONOMY
    Wildfire                   |         Coastal erosion
    Ice storms                 |         Salinization
           |                   |                   |
-          +-------------------+-------------------+
+          '-------------------+-------------------'
                               |
                    INFRASTRUCTURE VULNERABILITY
                               |

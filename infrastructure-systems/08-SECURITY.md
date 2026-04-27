@@ -74,11 +74,12 @@ LEVEL 4: SITE BUSINESS PLANNING / LOGISTICS
                          |    (often poorly implemented; many exceptions poke holes)
 LEVEL 3: MANUFACTURING OPERATIONS MANAGEMENT (IT/OT BOUNDARY)
 +-------------------------------------------------------+
-| Historian servers (OSIsoft PI, GE Historian)          |  ← HIGHEST-RISK COMPONENT
-| MES (Manufacturing Execution System)                  |  aggregates OT data to IT
+| Historian servers (OSIsoft PI, GE Historian)          |
+| MES (Manufacturing Execution System)                  |
 | Remote access termination (vendor VPN gateway)        |
 | Data diode or unidirectional security gateway         |
 +-------------------------------------------------------+
+   ↑ HIGHEST-RISK COMPONENT (aggregates OT data to IT)
                          |  ← OT FIREWALL
 LEVEL 2: SUPERVISORY CONTROL
 +-------------------------------------------------------+
