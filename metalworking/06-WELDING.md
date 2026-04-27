@@ -292,10 +292,9 @@ DISTORTION MECHANISMS:
     Top of weld shrinks more than bottom (more heat at surface)
     → Joint closes at top → angular change
 
-                    before              after welding
-                    ┌────┬────┐         ┌────/────┐
-                    │    │    │    →    │   /     │  ← angle change
-                    └────┴────┘         └──/──────┘
+    Before welding: two flat plates butted together at a square joint.
+    After welding:  the top of the joint closes inward, producing an
+                    angular change (V-shape distortion).
 
   TRANSVERSE SHRINKAGE: weld metal cools → joint pulls inward
   LONGITUDINAL SHRINKAGE: along weld axis → bowing of long members

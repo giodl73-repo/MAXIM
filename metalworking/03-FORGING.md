@@ -9,14 +9,22 @@ FORGING: FORCE → PLASTIC DEFORMATION → GRAIN FLOW → SUPERIOR PROPERTIES
 
 WHY FORGING BEATS CASTING FOR CRITICAL APPLICATIONS:
 
-  CASTING:                          FORGING:
-  ┌──────────────┐                 ┌──────────────┐
-  │ ○ ○ ○ ○ ○ ○  │                 │ ──────────── │
-  │ ○ ○ ○ ○ ○ ○ │   forge it →   │ ──────────── │ ← grain flow
-  │ ○ ○ ○ ○ ○ ○ │                 │ ──────────── │   follows shape
-  └──────────────┘                 └──────────────┘
-  Random equiaxed grains            Elongated grains aligned
-                                    with stress direction
+  CASTING:
+  ┌──────────────┐
+  │ ○ ○ ○ ○ ○ ○  │
+  │ ○ ○ ○ ○ ○ ○  │
+  │ ○ ○ ○ ○ ○ ○  │
+  └──────────────┘
+  Random equiaxed grains.
+
+  FORGING (after working the casting):
+  ┌──────────────┐
+  │ ──────────── │
+  │ ──────────── │
+  │ ──────────── │
+  └──────────────┘
+  Elongated grains aligned with stress direction;
+  grain flow follows the shape.
 
   Fatigue life: forgings 2–3× better than castings for same alloy
   Impact resistance: forgings significantly better
@@ -209,17 +217,22 @@ Example: a crankshaft cheek
 
   MACHINED FROM BAR:
   ┌─────────────────┐
-  │ ─────────────── │  grain runs straight through bar
-  │ ─────────────── │  machining cuts across grains at fillets
-  │ ─────────────── │  ← grain boundary cut perpendicular to stress = weakness
+  │ ─────────────── │
+  │ ─────────────── │
+  │ ─────────────── │
   └─────────────────┘
+    Grain runs straight through the bar.
+    Machining cuts across grains at fillets — grain boundary cut
+    perpendicular to stress = weakness.
 
   CLOSED-DIE FORGED:
   ┌─────────────────┐
-  │   ╭─────────╮   │  grain follows contour
-  │ ──╯         ╰── │  grain flow wraps around fillet
-  │                 │  ← stress runs along grain boundary = maximum strength
+  │      ___        │
+  │  ___/   \___    │
+  │                 │
   └─────────────────┘
+    Grain follows the contour. Grain flow wraps around the fillet,
+    so stress runs along the grain boundary = maximum strength.
 
 WHY GRAIN BOUNDARIES MATTER:
   Fatigue crack initiation prefers: grain boundaries cut perpendicular to stress

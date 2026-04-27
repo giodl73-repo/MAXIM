@@ -236,15 +236,15 @@ TOOL MATERIAL EVOLUTION (hardness → wear resistance → allows higher Vc):
 
   HIGH-SPEED STEEL (HSS) → Tungsten Carbide (WC) → Ceramics/Cermets → CBN → Diamond
 
-  ┌──────────────────────────────────────────────────────────────────┐
-  │                                               CUBIC BORON NITRIDE│ ← hardened steel
-  │                                  CERAMICS     (CBN)              │
-  │                 WC/CO CARBIDE    Al₂O₃/Si₃N₄  3500 HV            │
-  │   HSS            400–1800 HV    1600–3000HV    Vc: 200–600m/min  │
-  │   700–900HV       Vc: 100–400     coated:      for hard turning  │
-  │   Vc: 15–50m/min   m/min (steel)  up to 1000m/min                │
-  │                                                           DIAMOND│ ← non-ferrous
-  └──────────────────────────────────────────────────────────────────┘
+  Tool material progression (left to right = harder, faster Vc):
+
+    HSS:                700–900 HV;     Vc 15–50 m/min.
+    WC/Co carbide:      400–1800 HV;    Vc 100–400 m/min on steel.
+    Ceramics (Al₂O₃ / Si₃N₄):
+                        1600–3000 HV;   coated: up to 1000 m/min.
+    CBN:                3500 HV;        Vc 200–600 m/min;
+                        used for hard turning of hardened steel.
+    Diamond:            non-ferrous applications.
 
 HSS (High-Speed Steel, ~1900):
   Alloyed tool steel: W, Mo, V, Co, Cr additions

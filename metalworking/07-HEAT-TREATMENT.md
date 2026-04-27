@@ -40,20 +40,19 @@ STEEL HEAT TREATMENT SEQUENCE:
 ## Iron-Carbon Phase Diagram
 
 ```
-Fe-C PHASE DIAGRAM (simplified, 0–2.1% C, 0–1000°C):
+Fe-C PHASE DIAGRAM (simplified, 0–2.1% C, 0–1000 °C):
 
-  Temperature (°C)
-    1000 ─                      γ (austenite)
-          │             ┌────────────────────────┐
-     912 ─│  α+γ region │   A₃ line              │
-          │             │ (eutectoid: 0.77% C)   │
-     727 ─│─────────────┼───────────────────────── A₁ line (eutectoid temp)
-          │    α        │ α + Fe₃C (pearlite)     │ γ + Fe₃C (upper)
-          │  (ferrite)  └────────────────────────┘
-           ─────────────────────────────────────────►
-          0     0.2    0.4    0.6    0.8    1.0    1.2    %C
-                             ↑
-                           0.77%C — eutectoid composition
+  Vertical axis: temperature in °C.
+  Horizontal axis: carbon content (%C), 0 to ~1.2.
+
+  Key isotherms and regions:
+    1000 °C and above:     γ (austenite) phase region.
+    912 °C (A₃ line):      boundary between α+γ region (left) and γ region.
+    727 °C (A₁ line):      eutectoid temperature.
+                           Below A₁: α + Fe₃C (pearlite) on the left;
+                                     γ + Fe₃C (upper) on the right.
+    Below 727 °C, low %C:  α (ferrite).
+    Eutectoid composition: 0.77 %C.
 
 CRITICAL TEMPERATURES:
   A₁ (eutectoid): 727°C — lower critical; below = no austenite stable

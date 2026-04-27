@@ -11,8 +11,8 @@ ORE IN THE GROUND
         ▼
 ┌────────────────────────────────────────────────────────────────┐
 │  STAGE 1: EXTRACTION & REFINING                                │
-│  Blast furnace / BOF / EAF (steel)                            │
-│  Hall-Héroult (aluminum)   Flash smelting (copper)            │
+│  Blast furnace / BOF / EAF (steel)                             │
+│  Hall-Héroult (aluminum)   Flash smelting (copper)             │
 │  Output: ingots, billets, slabs, cathodes                      │
 └────────────────────────────────────────────────────────────────┘
         │

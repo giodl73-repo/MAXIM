@@ -132,12 +132,12 @@ Turbine blade casting: directionally solidified (DS) and single-crystal (SX):
 │ SINGLE CRYSTAL (SX): no grain boundaries at all                │
 │   Process: withdraw slowly from melt → crystal grows upward    │
 │   All modern high-temperature gas turbine stage-1 blades are SX│
-│   Gas path temperature: 1700°C+ (above nickel melting point ~1340°C)│
+│   Gas path temp: 1700°C+ (above Ni melting point ~1340°C)      │
 │   Metal temperature: ~950-1050°C — kept below melting by:      │
 │     (a) ceramic TBC (ZrO2-based, ~150μm) on blade surface      │
 │     (b) internal cooling passages: compressor bleed air flows  │
 │         through channels and film-cooling holes in blade wall  │
-│   Enabled by: TBC + internal convective + film cooling combined   │
+│   Enabled by TBC + internal convective + film cooling combined │
 └────────────────────────────────────────────────────────────────┘
 ```
 
