@@ -289,14 +289,17 @@ SAFE YIELD OF RESERVOIR:
     Flood control pool: empty space reserved for flood storage at top of reservoir
     Conservation pool: stored water for supply
     Dead storage: below outlets (sedimentation sink)
-    ┌──────────────────────┐ ← Top of dam (emergency spillway crest)
-    │ Flood control pool   │ ← Empty in winter, can store flood
-    ├──────────────────────┤ ← Conservation (full) pool
-    │ Conservation pool    │ ← Water supply, hydropower, recreation
+    Top of dam (emergency spillway crest)
+    ┌──────────────────────┐
+    │ Flood control pool   │
     │                      │
-    ├──────────────────────┤ ← Minimum pool
-    │ Dead storage         │ ← Below outlets, fills with sediment
+    │ Conservation pool    │
+    │                      │
+    │ Dead storage         │
     └──────────────────────┘
+      Flood control pool: empty in winter, can store flood.
+      Conservation pool:  water supply, hydropower, recreation.
+      Dead storage:       below outlets, fills with sediment.
 ```
 
 ### Water Distribution Systems

@@ -4,7 +4,7 @@
 
 ```
 +===========================================================================+
-|                    THE GLOBAL HYDROLOGICAL CYCLE                           |
+|                    THE GLOBAL HYDROLOGICAL CYCLE                          |
 |          Water movement through atmosphere, land, and ocean               |
 +===========================================================================+
 |                                                                           |
@@ -26,12 +26,12 @@
 |                                                                           |
 +===========================================================================+
 |  ANNUAL FLUXES (approximate):                                             |
-|  Ocean evaporation:  ~436,000 km³/yr                                     |
-|  Land evapotranspiration: ~69,000 km³/yr                                 |
-|  Ocean precipitation: ~391,000 km³/yr                                    |
-|  Land precipitation: ~111,000 km³/yr                                     |
-|  River discharge to ocean: ~42,000 km³/yr                                |
-|  Net P-E imbalance drives freshwater from land to ocean                  |
+|  Ocean evaporation:  ~436,000 km³/yr                                      |
+|  Land evapotranspiration: ~69,000 km³/yr                                  |
+|  Ocean precipitation: ~391,000 km³/yr                                     |
+|  Land precipitation: ~111,000 km³/yr                                      |
+|  River discharge to ocean: ~42,000 km³/yr                                 |
+|  Net P-E imbalance drives freshwater from land to ocean                   |
 +===========================================================================+
 ```
 

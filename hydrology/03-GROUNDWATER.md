@@ -275,22 +275,28 @@ SLUG TEST (for low-K formations):
 ## Well Design and Protection
 
 ```
-WELL CONSTRUCTION:
-  ┌───────────────────┐  ← Ground surface
-  │   Grout seal      │  ← Prevent contamination from surface
-  ├───────────────────┤
-  │   Casing (steel   │  ← Structural support, keeps hole open
+WELL CONSTRUCTION (top to bottom):
+
+  Ground surface
+  ┌───────────────────┐
+  │   Grout seal      │
+  │                   │
+  │   Casing (steel   │
   │   or PVC pipe)    │
-  ├───────────────────┤  ← Top of screen
-  │   Well screen     │  ← Allows water in, keeps sand out
+  │                   │
+  │   Well screen     │
   │   (slotted pipe)  │
   │                   │
-  ├───────────────────┤  ← Bottom of screen
-  │   Filter pack     │  ← Graded gravel around screen
+  │                   │
+  │   Filter pack     │
   │   (gravel)        │
-  └───────────────────┘  ← Bottom plug
-         ↑
-      Pump intake (typically in middle of screen section)
+  └───────────────────┘
+    Grout seal:   prevents contamination from surface.
+    Casing:       structural support, keeps hole open.
+    Well screen:  allows water in, keeps sand out;
+                  pump intake typically in middle.
+    Filter pack:  graded gravel around screen.
+    Bottom plug:  closes the casing at the base.
 
 WELL DESIGN PARAMETERS:
   Screen slot size: retain 90% of filter pack material

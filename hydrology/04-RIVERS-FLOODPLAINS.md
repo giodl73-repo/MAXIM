@@ -271,14 +271,23 @@ FLOODPLAIN FORMATION:
      → Fine silt and clay layers settling from floodwater
      → Rates: 0.5–5 mm/yr in actively aggrading floodplains
 
-FLOODPLAIN STRATIGRAPHY:
-  ┌───────────────────────────────────┐  ← flood levee (coarsest overbank)
-  │  Vertical accretion (fine)        │  ← overbank silt/clay
-  ├───────────────────────────────────┤
-  │  Point bar (fining-upward)        │  ← lateral accretion (coarse to fine)
-  ├───────────────────────────────────┤
-  │  Basal gravel lag                 │  ← scour lag (coarsest)
+FLOODPLAIN STRATIGRAPHY (top to bottom):
+
+  Flood levee zone:
+  ┌───────────────────────────────────┐
+  │  Vertical accretion (fine)        │
   └───────────────────────────────────┘
+    Coarsest overbank above; finer overbank silt/clay below.
+
+  ┌───────────────────────────────────┐
+  │  Point bar (fining-upward)        │
+  └───────────────────────────────────┘
+    Lateral accretion (coarse at base, fining toward top).
+
+  ┌───────────────────────────────────┐
+  │  Basal gravel lag                 │
+  └───────────────────────────────────┘
+    Scour lag (coarsest).
   This "fining-upward sequence" is a diagnostic signature of meandering river deposits
   Preserved in rock record → paleofluvial facies analysis
 
