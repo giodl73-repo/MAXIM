@@ -235,24 +235,28 @@ Everything below the ISA is the microarchitecture — invisible to correctly-wri
 ```
   MODERN x86 EXECUTION:
 
-  +------------------+
-  | x86-64 CISC ISA  |  "What the programmer / compiler sees"
-  +------------------+
+  +-----------------------------------------------------+
+  | x86-64 CISC ISA                                     |
+  | "What the programmer / compiler sees"               |
+  +-----------------------------------------------------+
            |
            | DECODE (Front-end: complex, power-hungry)
            v
-  +------------------+
-  | MICRO-OPS (μops) |  Simple, RISC-like internal operations
-  +------------------+  Intel calls these "uops" (micro-operations)
-  | ADD rax, rbx     |  → 1 uop
-  | IMUL [mem], rcx  |  → 2 uops (load + multiply)
-  | REP MOVS         |  → microcode (many uops)
+  +-----------------------------------------------------+
+  | MICRO-OPS (μops)                                    |
+  | Simple, RISC-like internal operations               |
+  | Intel calls these "uops" (micro-operations)         |
+  | ADD rax, rbx     → 1 uop                            |
+  | IMUL [mem], rcx  → 2 uops (load + multiply)         |
+  | REP MOVS         → microcode (many uops)            |
+  +-----------------------------------------------------+
            |
            | ISSUE (Out-of-order engine)
            v
-  +------------------+
-  | EXECUTION UNITS  |  Integer, FP, Load, Store, Branch
-  +------------------+
+  +-----------------------------------------------------+
+  | EXECUTION UNITS                                     |
+  | Integer, FP, Load, Store, Branch                    |
+  +-----------------------------------------------------+
 
   The conversion to micro-ops is the DECODE step.
   After that, the execution engine is essentially RISC.

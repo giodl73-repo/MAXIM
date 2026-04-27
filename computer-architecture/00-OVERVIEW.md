@@ -84,34 +84,35 @@ Computer architecture describes the interface between hardware and software. Und
 ## Memory Hierarchy: The Numbers That Drive Everything
 
 ```
-  STORAGE           LATENCY     BANDWIDTH    SIZE (typical)
-  +-------------+   ~0 cycles   ----         ~1 KB total
-  | REGISTERS   |
-  +-------------+
+  STORAGE         LATENCY        BANDWIDTH    SIZE (typical)
+
+  +-------------+--------------+-------------+----------------+
+  | REGISTERS   |  ~0 cycles   |  ----       | ~1 KB total    |
+  +-------------+--------------+-------------+----------------+
          |
-  +-------------+   ~4 cycles   ~1 TB/s      32–64 KB/core
-  | L1 CACHE    |
-  +-------------+
+  +-------------+--------------+-------------+----------------+
+  | L1 CACHE    |  ~4 cycles   |  ~1 TB/s    | 32-64 KB/core  |
+  +-------------+--------------+-------------+----------------+
          |
-  +-------------+   ~12 cycles  ~500 GB/s    256 KB–1 MB/core
-  | L2 CACHE    |
-  +-------------+
+  +-------------+--------------+-------------+----------------+
+  | L2 CACHE    |  ~12 cycles  |  ~500 GB/s  | 256KB-1MB/core |
+  +-------------+--------------+-------------+----------------+
          |
-  +-------------+   ~40 cycles  ~200 GB/s    8–64 MB (shared)
-  | L3 CACHE    |
-  +-------------+
+  +-------------+--------------+-------------+----------------+
+  | L3 CACHE    |  ~40 cycles  |  ~200 GB/s  | 8-64 MB shared |
+  +-------------+--------------+-------------+----------------+
          |
-  +-------------+   ~100 cycles ~100 GB/s    8–256 GB
-  | DRAM        |
-  +-------------+
+  +-------------+--------------+-------------+----------------+
+  | DRAM        |  ~100 cycles |  ~100 GB/s  | 8-256 GB       |
+  +-------------+--------------+-------------+----------------+
          |
-  +-------------+   ~50K cycles ~5 GB/s      256 GB–8 TB
-  | NVMe SSD    |
-  +-------------+
+  +-------------+--------------+-------------+----------------+
+  | NVMe SSD    |  ~50K cycles |  ~5 GB/s    | 256 GB-8 TB    |
+  +-------------+--------------+-------------+----------------+
          |
-  +-------------+   millions    ~1 GB/s      unlimited
-  | HDD/Network |
-  +-------------+
+  +-------------+--------------+-------------+----------------+
+  | HDD/Network |  millions    |  ~1 GB/s    | unlimited      |
+  +-------------+--------------+-------------+----------------+
 
   RULE: L1 hit = fast. L3 miss → DRAM = 25x slower. Page fault = catastrophic.
   The memory wall: CPUs got faster than DRAM much faster.

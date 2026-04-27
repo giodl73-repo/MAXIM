@@ -267,9 +267,9 @@ RISC-V is an open ISA developed at UC Berkeley starting 2010. "Open" means anyon
 | Atomics            | LOCK prefix     | LDXR/STXR       | LR/SC, AMO  |
 | Vector/SIMD        | AVX-512         | NEON/SVE        | V extension |
 | Royalties          | x86 IP required | Arm license fee | Free        |
-| Major impls        | Intel, AMD      | Apple, Cortex,  | SiFive,     |
-|                    |                 | Graviton        | Alibaba, T-Head |
-| Dominant use       | Server/desktop  | Mobile, Mac, HPC| IoT, embedded|
+| Major impls        | Intel, AMD      | Apple, Cortex   | SiFive      |
+|                    |                 | Graviton        | T-Head      |
+| Dominant use       | Server/desktop  | Mobile, Mac, HPC| IoT, embed  |
 +----------------------------------------------------------------------+
 ```
 

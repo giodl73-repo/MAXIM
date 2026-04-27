@@ -105,10 +105,15 @@ All caches use Static RAM (SRAM), which holds a bit stably as long as power is a
   Each address maps to exactly ONE cache line slot.
   Address → cache index via (address >> 6) % num_lines
 
-  +───+───+───+───+───+───+───+───+   Slot 0
-  |tag|v|d| data (64 bytes)         |  (maps to addr 0, 64, 128...)
-  +───+───+───+───+───+───+───+───+
-  |tag|v|d| data (64 bytes)         |  Slot 1
+  Slot 0 (maps to addr 0, 64, 128, ...):
+  +-----+---+---+---------------------+
+  | tag | v | d | data (64 bytes)     |
+  +-----+---+---+---------------------+
+
+  Slot 1:
+  +-----+---+---+---------------------+
+  | tag | v | d | data (64 bytes)     |
+  +-----+---+---+---------------------+
   ...
 
   Problem: Two "hot" addresses that map to the same slot thrash each other.
