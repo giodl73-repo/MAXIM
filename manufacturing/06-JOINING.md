@@ -45,8 +45,9 @@ Shielding gas protects molten metal from atmosphere.
                               Wire electrode (0.030"–0.045")
                                        │
                               ┌────────▼────────┐
-                              │   Arc / Pool    │ ← Shielding gas
+                              │   Arc / Pool    │
                               └─────────────────┘
+                                  ↑ Shielding gas
                                    │
                                Solidified weld bead
 
@@ -76,8 +77,9 @@ Higher operator skill. Much better control and quality.
          Tungsten electrode
               │
          ┌────▼────┐
-         │  Arc    │ ← 100% Argon shielding
+         │  Arc    │
          └────┬────┘
+            ↑ 100% Argon shielding
               │                  Filler rod (optional)
           Weld pool ◄────────────────────────
               │
@@ -145,8 +147,9 @@ Metals forge together behind tool.
      Shoulder (heats and forges surface)
          │
     ┌────▼────┐
-    │  Tool   │ → rotates + translates
+    │  Tool   │
     └────┬────┘
+         → rotates + translates
          │
          Pin (plasticizes and stirs)
          │

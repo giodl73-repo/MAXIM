@@ -118,9 +118,10 @@ Result: 6 DOF fully constrained.
 Inspection Fixture:
                         ┌─────────────────────────┐
                         │         Part            │
-         Datum A ───────┤  (rests flat on plate)  │── 3-2-1 setup
-         (bottom face)  │                         │
+                        │  (rests flat on plate)  │
+                        │                         │
                         └─────┬─────────┬─────────┘
+         Datum A: bottom face   (3-2-1 setup)
                               │         │
                         Datum B      Datum C
                        (back edge)  (side stop)
@@ -248,9 +249,10 @@ Bilateral profile: tolerance zone extends equally each side of nominal
   └──────────────┘    profile relative to datum A
 
 Unilateral profile (Y14.5-2018):
-  ┌──────────────────────┐
-  │  0.030 ⌓ A  U 0.010 │  → 0.010 outside nominal, 0.020 inside
-  └──────────────────────┘
+  ┌──────────────────────────────────────────────────────────┐
+  │  0.030 ⌓ A  U 0.010   → 0.010 outside nominal,           │
+  │                         0.020 inside                     │
+  └──────────────────────────────────────────────────────────┘
 ```
 
 Profile replaces separate size + form + location callouts for complex surfaces (airfoils, cam profiles, freeform geometry). It's the right tool when coordinate tolerancing becomes unmanageable.

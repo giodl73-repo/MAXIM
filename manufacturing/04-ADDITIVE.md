@@ -44,14 +44,16 @@ Filament spool → heated nozzle (180–300°C) → melted material
                     │ (1.75mm or 2.85mm filament)
                     ▼
            ┌─────────────────┐
-           │  Extruder/Motor │  (Bowden or direct drive)
+           │  Extruder/Motor │
            └────────┬────────┘
-                    │
+                    │     (Bowden or direct drive)
                     ▼
            ┌─────────────────┐
-           │  Hot End        │  250°C melt zone
-           │  0.4mm nozzle   │  (hardened for abrasive)
+           │  Hot End        │
+           │  0.4mm nozzle   │
            └────────┬────────┘
+                    │     (250°C melt zone; hardened nozzle
+                    │      for abrasive filaments)
                     │
                     ▼
                   Part  (layer by layer, bottom up)
