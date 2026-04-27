@@ -10,24 +10,36 @@ FURNITURE CONSTRUCTION SYSTEMS
 
 CASEWORK (box construction)
   +-----------------+
-  | FACE FRAME      |  Solid wood face frame glued to
-  |   STYLE         |  engineered core (plywood, MDF)
-  |                 |  Movement: face frame moves; core stable
+  | FACE FRAME      |
+  |   STYLE         |
+  |                 |
   +-----------------+
-  | FRAMELESS       |  European 32mm system; all engineered
-  | (European)      |  sheet goods; no solid wood large panels
-  |                 |  Movement: minimal (ply/MDF stable)
+    Solid wood face frame glued to engineered core
+    (plywood, MDF). Movement: face frame moves;
+    core stable.
+
   +-----------------+
+  | FRAMELESS       |
+  | (European)      |
+  |                 |
+  +-----------------+
+    European 32mm system; all engineered sheet goods;
+    no solid wood large panels. Movement: minimal
+    (ply/MDF stable).
 
 FRAME AND PANEL (solid wood panels)
   +-----------+
-  |  stile    |  Rails and stiles (solid wood frame)
-  |   +-----+ |  Panel floats in groove (not glued)
-  |   |panel| |  Panel moves freely with humidity
-  |   |float| |  Frame stays square and stable
-  |   +-----+ |
+  |  stile    |
+  |           |
+  |  panel    |
+  |  floats   |
+  |           |
   |  stile    |
   +-----------+
+    Rails and stiles (solid wood frame).
+    Panel floats in groove (not glued).
+    Panel moves freely with humidity.
+    Frame stays square and stable.
 
 SOLID WOOD PANEL (tabletop, bench)
   Panel glued up edge-to-edge
@@ -52,11 +64,14 @@ FACE FRAME (American traditional):
   Core: plywood carcass (no face shown on front)
   Face: solid wood stiles and rails glued to carcass front
   +---------+
-  |  PLYW.  |  ← plywood sides
+  |  PLYW.  |
   |  CARCS  |
-  | [door]  |  ← doors/drawers overlay or inset in face frame
-  |  FRAME  |  ← solid wood applied to front
+  | [door]  |
+  |  FRAME  |
   +---------+
+    PLYW./CARCS = plywood sides
+    [door] = doors/drawers overlay or inset in face frame
+    FRAME = solid wood applied to front
 
   Advantages: hides plywood edge; traditional look; good for inset doors
   Disadvantages: narrower interior opening (face frame eats width)
@@ -67,10 +82,12 @@ FRAMELESS (European/32mm):
   Core: plywood or melamine-coated particleboard
   Front: NO face frame; cabinet edge exposed (banded or edge-tape)
   +---------+
-  |         |  ← sides are finished face; edge tape on front edge
   |         |
-  | [drawer]|  ← full-overlay doors/drawers cover entire front
+  |         |
+  | [drawer]|
   +---------+
+    Sides are finished face; edge tape on front edge.
+    [drawer] = full-overlay doors/drawers cover entire front.
 
   32mm system: hardware mounting holes on 32mm centers (standard)
                all European hardware (Blum, Hafele) based on this
@@ -126,10 +143,12 @@ HAUNCHED TENON on frame corners:
   Rail tenon has a step (haunch) to fill the panel groove in stile
   Without haunch: open groove visible at joint
   +---+---+
-  |   | H |  ← haunch fills groove
+  |   | H |
   |   +---+
-  |   tenon|  ← tenon enters mortise
-  +--------+
+  |       |
+  +-------+
+    H = haunch (fills groove)
+    Lower extension = tenon (enters mortise)
 ```
 
 ---
@@ -199,16 +218,17 @@ TENON LAYOUT:
   Multiple aprons meeting at one leg: tenons must NOT overlap in mortises
   Solution: miter the inner ends of tenons in shared leg mortises
   Standard rule: tenon goes 2/3 of the way to leg center from each face
+  Top-down view of leg with two adjacent tenons:
+
   +-------+
   | LEG   |
-  |  +-+  |
-  | /   \ |  ← tenons meet at 45° miter inside leg
-  |/     \ |
-  |\     / |
-  | \   / |
-  |  +-+  |
+  |       |
+  |  /\   |
+  |  \/   |
   |       |
   +-------+
+    The tenons from two aprons meet at a 45-deg miter
+    inside the leg, so neither tenon hits the other.
 
 TABLETOP ATTACHMENT (wood movement accommodation):
   Problem: solid wood tabletop moves 1/4"–3/4" seasonally

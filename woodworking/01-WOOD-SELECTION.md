@@ -178,7 +178,7 @@ WARP TYPES:
   | BOW            | CUP              | TWIST            |
   | End-to-end     | Across width     | Propeller shape  |
   | curve along    | (tangential      | (corners at      |
-  | face           | shrinkage in     | different heights)|
+  | face           | shrinkage in     | diff. heights)   |
   |                | flat-sawn)       |                  |
   +----------------+------------------+------------------+
   | CROOK          | KINK             |                  |

@@ -8,48 +8,65 @@ Woodworking is the craft of shaping wood into objects through a combination of s
 WOODWORKING KNOWLEDGE MAP
 ===========================
 
-              MATERIAL KNOWLEDGE
-              (the irreducible foundation)
-              +---------------------------+
-              | Wood species selection    |
-              | Grain direction           |
-              | Moisture content / EMC    |
-              | Movement and seasonal     |
-              | dimensional change        |
-              +---------------------------+
-                      |
-          +-----------+------------+
-          |                        |
-    STOCK PREPARATION         JOINERY
-    +-----------------+    +-------------------+
-    | Flattening /    |    | Mortise & tenon   |
-    | milling rough   |    | Dovetail          |
-    | lumber          |    | Box joint         |
-    | Hand planing    |    | Floating tenon    |
-    | Scrapers        |    | Frame and panel   |
-    | Sanding         |    | (movement-accom.) |
-    +-----------------+    +-------------------+
-          |                        |
-          +------+        +--------+
-                 |        |
-            CONSTRUCTION
-            +-----------+
-            | Casework  |
-            | Chairs    |
-            | Tables    |
-            | Cabinets  |
-            | Turning   |
-            | Carving   |
-            +-----------+
-                 |
-            FINISHING
-            +------------------+
-            | Film finishes    |
-            | Penetrating oils |
-            | Shellac          |
-            | Lacquer          |
-            | Water-based      |
-            +------------------+
+  MATERIAL KNOWLEDGE  (the irreducible foundation)
+  +---------------------------+
+  | Wood species selection    |
+  | Grain direction           |
+  | Moisture content / EMC    |
+  | Movement and seasonal     |
+  | dimensional change        |
+  +---------------------------+
+                |
+                v
+       (branches into two parallel tracks)
+                |
+   +------------+------------+
+   v                         v
+
+  STOCK PREPARATION
+  +-----------------+
+  | Flattening /    |
+  | milling rough   |
+  | lumber          |
+  | Hand planing    |
+  | Scrapers        |
+  | Sanding         |
+  +-----------------+
+
+  JOINERY
+  +-------------------+
+  | Mortise & tenon   |
+  | Dovetail          |
+  | Box joint         |
+  | Floating tenon    |
+  | Frame and panel   |
+  | (movement-accom.) |
+  +-------------------+
+
+   (both tracks converge)
+                |
+                v
+
+  CONSTRUCTION
+  +-----------+
+  | Casework  |
+  | Chairs    |
+  | Tables    |
+  | Cabinets  |
+  | Turning   |
+  | Carving   |
+  +-----------+
+                |
+                v
+
+  FINISHING
+  +------------------+
+  | Film finishes    |
+  | Penetrating oils |
+  | Shellac          |
+  | Lacquer          |
+  | Water-based      |
+  +------------------+
 ```
 
 ---
@@ -68,12 +85,17 @@ WOOD MOVEMENT AXES
      CROSS-SECTION:
      +------------------+
      |                  |
-     |   RADIAL         |  Changes: 2–5% per 4% MC change
-     |  (center to bark)|  (quarter-sawn boards move this way)
+     |   RADIAL         |
+     |  (center to bark)|
      |                  |
      +------------------+
-     TANGENTIAL          Changes: 4–12% per 4% MC change
-     (rings / bark dir.) (flat-sawn boards move this way)
+     TANGENTIAL
+     (rings / bark dir.)
+
+     RADIAL: Changes: 2–5% per 4% MC change
+             (quarter-sawn boards move this way)
+     TANGENTIAL: Changes: 4–12% per 4% MC change
+                 (flat-sawn boards move this way)
 
 EXAMPLE (4% MC change; going from 12% to 8% MC — typical seasonal):
   10" wide flatsawn oak:

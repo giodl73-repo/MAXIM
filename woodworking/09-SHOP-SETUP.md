@@ -49,16 +49,15 @@ WORKBENCH TRADITIONS
 =====================
 
 ROUBO (French, 18th century — André Roubo, 1769):
-  +--------------------------------------------+
-  |           THICK TOP (3–4" solid wood)      |
-  |  +-+                              +------+ |
-  |  |L|                              | TAIL |  |
-  |  |E|  LEG VISE                    | VISE |  |
-  |  |G|  (on left face, front leg)   +------+  |
-  |  | |                                      |  |
-  |  | |  STRETCHER                           |  |
-  |  +-+--------------------------------------+  |
-  +--------------------------------------------+
+  +-------------------------------------------------+
+  |   THICK TOP (3–4" solid wood)                   |
+  +-------------------------------------------------+
+  | LEG    LEG VISE                       TAIL VISE |
+  |        (on left face,                           |
+  |         front leg)                              |
+  |                                                 |
+  |        STRETCHER                                |
+  +-------------------------------------------------+
   Legs: massive; 4–5" thick; direct to floor
   Leg vise: large wooden vise on left front leg
   Tail vise: sliding vise at right end; extends top face
@@ -263,17 +262,17 @@ STICKERING:
   Allow 1" minimum between boards side-by-side (airflow)
 
   +-------------+
-  | BOARD       |   ← top board
-  +------+------+
-         | ← sticker (3/4" × 3/4")
-  +------+------+
-  | BOARD       |   ← middle board
-  +------+------+
-         | ← sticker
-  +------+------+
-  | BOARD       |   ← bottom board
+  | BOARD (top) |
   +-------------+
-  | FLOOR       |   ← 4" minimum above floor (airflow; rodents)
+       sticker (3/4" × 3/4")
+  +-------------+
+  | BOARD (mid) |
+  +-------------+
+       sticker
+  +-------------+
+  | BOARD (bot) |
+  +-------------+
+  | FLOOR       |   (4" minimum above floor — airflow; rodents)
 
 LOCATION:
   Indoors: acclimate to shop humidity (2–4 weeks for most thicknesses)

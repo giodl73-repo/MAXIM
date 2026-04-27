@@ -55,15 +55,16 @@ BENCH PLANE ANATOMY
       |
       |    blade (iron)
       |      |
-    +-+------+---------+
-    |  \_____/         |
-    |   frog           |
-    |  adjustable angle |
-    |  Y-adjustment rod |
-    +-------------------+
-    |    body (sole)    |
-    |    mouth          |   ← the gap between sole and blade
-    +-------------------+
+    +------------------+
+    |   ===frog===     |
+    |   adjustable     |
+    |   angle and      |
+    |   Y-adjustment   |
+    +------------------+
+    |   body (sole)    |
+    |   mouth          |
+    +------------------+
+    (mouth = the gap between sole and blade)
 
 ADJUSTMENTS:
   Frog position: controls mouth opening (narrower = finer cut; tighter = harder to clear shavings)

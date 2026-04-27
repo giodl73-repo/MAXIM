@@ -21,16 +21,18 @@ PENETRATING FINISHES (absorbed into wood; no film on surface)
 → Repair: easy (reapply)
 
 FILM-BUILDING FINISHES (form a film on wood surface)
-+-------+----------------+-----------------------------+
-| Shell-| Evaporative     | Shellac (alcohol-dissolved) |
-| ac    | (re-dissolves  | NC lacquer (solvent-diss.)  |
-|       | in own solvent) | CAB-acrylic lacquer        |
-+-------+                 +-----------------------------+
-|       | Reactive (cross-| Oil-based varnish           |
-|       | linked; does NOT| Polyurethane (varnish type) |
-|       | re-dissolve)    | Catalyzed lacquer           |
-|       |                 | Epoxy                       |
-+-------+-----------------+-----------------------------+
+
+EVAPORATIVE (re-dissolves in own solvent):
+  - Shellac (alcohol-dissolved)
+  - NC lacquer (solvent-dissolved)
+  - CAB-acrylic lacquer
+
+REACTIVE (cross-linked; does NOT re-dissolve):
+  - Oil-based varnish
+  - Polyurethane (varnish type)
+  - Catalyzed lacquer
+  - Epoxy
+
 → Feel: on the surface; visible as film
 → Protection: high (if thick enough)
 → Repair: harder (must blend into existing film)
@@ -188,7 +190,7 @@ POLYURETHANE:
 
 VARNISH TYPES:
 +------------------+----------------+---------------+-----------+
-| Type             | Sheen Control  | Water Resist  | Flexibility|
+| Type             | Sheen Control  | Water Resist  | Flex      |
 +------------------+----------------+---------------+-----------+
 | Alkyd varnish    | Any (adjust)   | Good          | Moderate  |
 | Spar varnish     | Semi-gloss only| Excellent     | HIGH (UV) |

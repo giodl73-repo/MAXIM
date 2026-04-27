@@ -48,16 +48,25 @@ WINDING STICKS
 
 Two identical parallel sticks placed across the board:
 
-FLAT BOARD:                    TWISTED BOARD:
-  ┌─────────┐                    ┌────────────────┐
-  │   ════   │ ← near stick      │   ════          │ ← near stick
-  │         │                    │                │
-  │         │                    │         ════   │
-  │   ════   │ ← far stick       │   ════          │ ← far stick
-  └─────────┘                    └────────────────┘
+FLAT BOARD:
+  ┌─────────┐
+  │   ════  │
+  │         │
+  │         │
+  │   ════  │
+  └─────────┘
+  Top stick = near stick; bottom stick = far stick.
+  Sticks appear parallel → board is flat.
 
-  Sticks appear parallel        Sticks are out of parallel
-  → Board is flat               → Board is twisted (in winding)
+TWISTED BOARD:
+  ┌────────────────┐
+  │   ════         │
+  │                │
+  │         ════   │
+  │   ════         │
+  └────────────────┘
+  Top = near stick; bottom = far stick; middle slash shows offset.
+  Sticks are out of parallel → board is twisted (in winding).
 
 SETUP:
   Sticks: any two straight, parallel pieces of wood (same width, same height)

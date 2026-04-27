@@ -46,16 +46,24 @@ The most important joint in furniture making. Used wherever a rail meets a leg, 
 MORTISE AND TENON GEOMETRY
 ============================
 
-           ┌──────────────┐
-           │    TENON     │  ← fits into mortise
-           │   +------+   │
-           │   |      |   │
-     RAIL  │   |      |   │  STILE /
-           │   | MORT.|   │  LEG
-           │   |      |   │
-           │   +------+   │
-           │              │
-           └──────────────┘
+  STILE / LEG (outer); MORTISE (inner) — cut into the stile.
+  TENON projects from the rail and slots into MORT.
+
+     STILE / LEG:
+     +--------------+
+     |              |
+     |              |
+     |    [mortise  |
+     |     cut into |
+     |     stile]   |
+     |              |
+     +--------------+
+
+     MORTISE detail (cut into the stile):
+     +------+
+     | MORT.|
+     |      |
+     +------+
 
 PROPORTIONS (rules of thumb):
   Tenon thickness: 1/3 of rail thickness
@@ -73,10 +81,14 @@ HAUNCHED TENON:
   Tenon with a step ("haunch") to fill groove in stile
   Used in frame-and-panel: panel groove continues through mortise area;
   haunch fills that portion of groove
+  HAUNCH (fills groove):
   +---+
-  |   |  haunch fills groove
-  |   +------+
-  |          |  tenon proper
+  |   |
+  +---+
+
+  TENON proper (extends below haunch):
+  +----------+
+  |          |
   +----------+
 
 DRAW-BORING:
@@ -119,15 +131,15 @@ TYPES:
   Sliding dovetail:      Single tapered key; drawer assembly; shelf joints
 
 HALF-BLIND DOVETAIL (drawer front):
-  +----------------------+
-  | | | | <- tails        | ← drawer side (tail board)
-  |                       |
-  +--+---+               |
-     |   |  pin board     | ← drawer front (pin board)
-     | . |  pins don't    |
-     |   |  go all the    |
-     +---+  way through   |
-  ←pin board face hidden from outside→
+
+  Tail board (drawer side):
+    Tails project from the end (visible on side, not on front).
+
+  Pin board (drawer front):
+    Pins are blind — they don't go all the way through, so the
+    drawer front face shows no end-grain.
+
+  Pin-board face is hidden from outside.
 
 HAND-CUTTING SEQUENCE:
   1. Mark baselines (knife line): equal to thickness of mating board
@@ -189,17 +201,33 @@ Modern alternative to the hand-cut mortise and tenon: both members get a mortise
 FLOATING TENON SYSTEM
 ======================
 
-TRADITIONAL M&T:        FLOATING TENON:
-  Member A              Member A   Member B
-  +------+              +------+   +------+
-  |      |              |      |   |      |
-  | [tenon integral]    | [SLOT]   [SLOT] |
-  |      |              |      |   |      |
-  +------+              +------+   +------+
-       ↕                     ↕ ↕ ↕
-  Member B               Separate tenon piece
-  +------+               goes in both slots
-  | [M]  |
+TRADITIONAL M&T:
+  Member A (with integral tenon):
+  +------+
+  |      |
+  | TENON|
+  |      |
+  +------+
+       ↕
+  Member B (with mortise):
+  +------+
+  | MORT |
+  +------+
+
+FLOATING TENON:
+  Member A (slot only):
+  +------+
+  |      |
+  | SLOT |
+  |      |
+  +------+
+       ↕ ↕ ↕
+  Separate tenon piece goes into both slots.
+  Member B (slot only):
+  +------+
+  |      |
+  | SLOT |
+  |      |
   +------+
 
 Festool Domino machine:
@@ -236,12 +264,15 @@ Biscuits vs. Domino:
 BRIDLE JOINT (OPEN MORTISE AND TENON):
 ========================================
 
-  SLOT  +--------+
-  (fork)|        | ← fork piece (like open mortise)
-        +--------+
-              +------+
-              | TENON|  ← tenon slides into fork
-              +------+
+  Fork piece (like open mortise):
+  +--------+
+  |        |
+  +--------+
+
+  Tenon slides into the fork:
+  +------+
+  | TENON|
+  +------+
 
   Proportions: same as M&T (1/3 stock thickness)
   Used for: trestle joints; frame corners where face is visible
@@ -251,15 +282,15 @@ BRIDLE JOINT (OPEN MORTISE AND TENON):
 HALF-LAP (cross-lap / corner-lap):
 ========================================
 
-  CORNER LAP:              CROSS LAP:
-  +----+                   +---+---+
-  |    |--------+    +-----|   |   |------+
-  |    | HALF   |    |     +---+---+      |
-  +----+ LAP    |    +--------------------+
-       +--------+          each piece cut
-  Each piece cut to        halfway through
-  halfway through;         they nest flat
-  they overlap flat
+  CORNER LAP:
+    Each piece cut to halfway through; they overlap flat
+    at the corner (L-shape). Two pieces, each removing
+    half their thickness, meet flush.
+
+  CROSS LAP:
+    Each piece cut halfway through; they nest flat where
+    they cross. Two pieces, each removing half their
+    thickness in the overlap zone, end up coplanar.
 
   Both pieces maintain full face width at overlap:
   lap thickness = 1/2 board thickness on each piece
