@@ -48,18 +48,23 @@ ASTRAGALUS ANATOMY
 Cross-section of a sheep/goat astragalus:
 
            ┌─────────────┐
-           │  CONVEX     │  broad convex side
-           │  BROAD      │  most common landing ~40%
+           │  CONVEX     │
+           │  BROAD      │
            └─────────────┘
+              broad convex side; most common ~40%
+
      ┌─────┐         ┌─────┐
      │     │         │     │
-     │ FLAT│         │ FLAT│  flat sides ~40% combined
-     │     │         │     │  (approximately equal)
+     │ FLAT│         │ FLAT│
+     │     │         │     │
      └─────┘         └─────┘
+              flat sides ~40% combined (approximately equal)
+
            ┌─────────────┐
-           │  CONCAVE    │  concave narrow side
-           │  NARROW     │  least common ~10-20%
+           │  CONCAVE    │
+           │  NARROW     │
            └─────────────┘
+              concave narrow side; least common ~10-20%
 
 Four sides, NOT equally probable.
 Different cultures assigned different values to each side.

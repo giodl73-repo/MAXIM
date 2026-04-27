@@ -221,15 +221,18 @@ Stones placed ON intersections (grid lines cross).
 Black plays first.
 
 Basic capture example (liberties):
-  ┌─┬─┬─┐     ┌─┬─┬─┐
-  │ │B│ │     │ │B│ │
-  ├─┼─┼─┤     ├─┼─┼─┤    B = Black stone
-  │B│B│ │     │B│B│W│    W = White stone
-  ├─┼─┼─┤     ├─┼─┼─┤
-  │ │B│ │     │ │B│ │
-  └─┴─┴─┘     └─┴─┴─┘
-  Group has 4   W fills last liberty = Black group
-  liberties     captured and removed from board
+
+  Before                After (W fills last liberty)
+  ┌─┬─┬─┐               ┌─┬─┬─┐
+  │ │B│ │               │ │B│ │
+  ├─┼─┼─┤               ├─┼─┼─┤
+  │B│B│ │               │B│B│W│
+  ├─┼─┼─┤               ├─┼─┼─┤
+  │ │B│ │               │ │B│ │
+  └─┴─┴─┘               └─┴─┴─┘
+  4 liberties           Black group captured
+                        and removed from board.
+  (B = Black stone, W = White stone)
 
 SPECIAL RULES:
   Ko: Cannot recreate the immediately previous board position.

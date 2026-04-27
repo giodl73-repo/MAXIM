@@ -15,15 +15,15 @@ INDOOR TABLE (~1470s, France/England)
   Louis XI of France first documented table (~1470).
   Cloth-covered surface. Still using maces (not cues).
          │
-         ├────────────────────────────────────────┐
-         │                                        │
-         ▼                                        ▼
+         '----------------------------------------.
+         |                                        |
+         v                                        v
 CAROM BILLIARDS                         POCKET BILLIARDS
 (No pockets — continental)              (With pockets — British)
 ~1600s-present                          ~1600s-present
          │                                        │
-    ┌────┴────┐                        ┌──────────┴──────────┐
-    │         │                        │                      │
+    .----+----.                        .----------+----------.
+    |         |                        |                     |
 French     Italian                  English               American
 billard    carambola                Billiards             Pool
 (3-ball    (same game)              (hybrid: pockets       (pocket billiards
