@@ -46,29 +46,35 @@ is the most common configuration installed over the past 40 years.
        |
        v
   ┌─────────────┐
-  │   Filter    │  (owner-maintained; often neglected)
+  │   Filter    │
   └──────┬──────┘
-         |
+         |    (owner-maintained; often neglected)
   ┌──────┴──────┐
-  │  Evaporator │  (AC coil — not part of furnace, downstream of HX)
-  │  Coil (AC)  │  (see 05-HEAT-PUMPS for heat pump coil)
+  │  Evaporator │
+  │  Coil (AC)  │
   └──────┬──────┘
-         |
+         |    (AC coil; downstream of HX; see 05-HEAT-PUMPS)
   ┌──────┴──────┐
-  │  Heat       │  Primary heat exchanger
-  │  Exchanger  │  Combustion gases INSIDE (stainless or steel)
-  │  (primary)  │  Supply air over OUTSIDE (never mix)
+  │  Heat       │
+  │  Exchanger  │
+  │  (primary)  │
   └──────┬──────┘
-         |         (Condensing furnace only:)
+         |    (Combustion gases INSIDE stainless/steel;
+         |     supply air over OUTSIDE — never mix.
+         |     Condensing furnace only:)
   ┌──────┴──────┐
-  │  Secondary  │  Extracts remaining heat; flue gases cool below dew point
-  │  Heat       │  → water condenses → condensate drain
-  │  Exchanger  │  Enables 90–98% AFUE
+  │  Secondary  │
+  │  Heat       │
+  │  Exchanger  │
   └──────┬──────┘
-         |
+         |    (Extracts remaining heat; flue gases cool below
+         |     dew point → water condenses → condensate drain.
+         |     Enables 90-98% AFUE.)
   ┌──────┴──────┐
-  │   Blower    │  ECM (electronically commutated motor) = variable speed
-  └─────────────┘  PSC = permanent split capacitor = single speed (older)
+  │   Blower    │
+  └─────────────┘
+         (ECM motor = variable speed (modern).
+          PSC = single speed (older).)
 
   Combustion path:
   Gas valve → burners → heat exchanger → (secondary HX) → draft inducer → flue

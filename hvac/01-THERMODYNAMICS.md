@@ -77,7 +77,7 @@ proportional to thickness.
 
   Material conductivities (approximate):
   +--------------------------+------------------+
-  | Material                 | k (BTU·in/hr·ft²·°F) |
+  | Material                 | k (BTU/hr/ft/F)  |
   +--------------------------+------------------+
   | Copper                   | 2,900            |
   | Steel                    | 314              |
