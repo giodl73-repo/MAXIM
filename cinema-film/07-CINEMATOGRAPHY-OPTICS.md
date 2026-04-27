@@ -19,14 +19,14 @@ OPTICAL SYSTEM OVERVIEW
      (spatial intensity distribution on recording medium)
 
 EXPOSURE TRIANGLE:
-     +-------------------+
-     |   EXPOSURE        |
-     |                   |
-     |   Aperture  <--+  |
-     |   Shutter   <--+--+-- All three determine
-     |   ISO/ASA   <--+  |   TOTAL LIGHT on sensor
-     |                   |   One up = another down
-     +-------------------+   for same exposure
+     +---------------------------------------------+
+     |   EXPOSURE                                  |
+     |                                             |
+     |   Aperture  <-+   All three determine       |
+     |   Shutter   <-+   TOTAL LIGHT on sensor     |
+     |   ISO/ASA   <-+   One up = another down     |
+     |                   for same exposure         |
+     +---------------------------------------------+
 
 Each variable has a SIDE EFFECT beyond exposure:
   Aperture -> depth of field

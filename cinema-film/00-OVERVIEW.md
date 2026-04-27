@@ -11,7 +11,7 @@ OPTICS                    CHEMISTRY               PSYCHOPHYSICS
 (lenses, aperture,        (light-sensitive         (phi phenomenon,
  depth of field)          materials)               flicker fusion)
      |                        |                         |
-     +------------------------+-------------------------+
+     '------------------------'-------------------------'
                               |
                     +--------------------+
                     |  STILL PHOTOGRAPHY |
@@ -21,7 +21,7 @@ OPTICS                    CHEMISTRY               PSYCHOPHYSICS
                     |  Roll film 1888    |
                     +--------------------+
                               |
-                   +----------+-----------+
+                   .----------'-----------.
                    |                      |
           +--------v-------+    +---------v--------+
           | CAPTURE DEVICE |    | DISPLAY DEVICE   |
@@ -33,7 +33,7 @@ OPTICS                    CHEMISTRY               PSYCHOPHYSICS
           | 35mm standard  |    | 1895             |
           +----------------+    +------------------+
                    |                      |
-                   +----------+-----------+
+                   '----------.-----------'
                               |
                     +---------v----------+
                     |  CINEMA AS SYSTEM  |
@@ -43,7 +43,7 @@ OPTICS                    CHEMISTRY               PSYCHOPHYSICS
                     | Patent wars        |
                     +--------------------+
                               |
-               +--------------+---------------+
+               .--------------+---------------.
                |              |               |
         +------v-----+ +------v-----+ +-------v-----+
         |  NARRATIVE  | |  SOUND     | |  COLOR      |
@@ -52,15 +52,15 @@ OPTICS                    CHEMISTRY               PSYCHOPHYSICS
         | 1908-1915   | |  Jazz Singer| |  3-strip    |
         +-------------+ +------------+ +-------------+
                |
-        +------v---------+
-        |  STUDIO SYSTEM |
-        |  Classical      |
-        |  Hollywood      |
-        |  1930-1948      |
-        |  (Big Five)     |
-        +------+---------+
+        +----------------+
+        | STUDIO SYSTEM  |
+        | Classical      |
+        | Hollywood      |
+        | 1930-1948      |
+        | (Big Five)     |
+        +----------------+
                |
-    +----------+-----------+
+    .----------+-----------.
     |                      |
 +---v--------+    +--------v---------+
 | WORLD      |    | DIGITAL          |
@@ -119,23 +119,19 @@ Digital intermediate (2000s)           | Color grading as expressive tool
 FILM INDUSTRY STRUCTURE (Classical Hollywood Model, 1930s-1948)
 
 VERTICAL INTEGRATION:
-  +-------------------+
-  |  MAJOR STUDIO     |
-  |  (Big Five)       |
-  |                   |
-  | Production:       |  <- Makes films
-  |   Lot, equipment  |
-  |   Under-contract  |
-  |   stars, directors|
-  |                   |
-  | Distribution:     |  <- Controls who sees films
-  |   International   |
-  |   regional sales  |
-  |                   |
-  | Exhibition:       |  <- Owns theaters
-  |   First-run       |
-  |   theater chains  |
-  +-------------------+
+  +---------------------------------------------+
+  |  MAJOR STUDIO (Big Five)                    |
+  |                                             |
+  | Production:    Makes films                  |
+  |   Lot, equipment                            |
+  |   Under-contract stars, directors           |
+  |                                             |
+  | Distribution:  Controls who sees films      |
+  |   International regional sales              |
+  |                                             |
+  | Exhibition:    Owns theaters                |
+  |   First-run theater chains                  |
+  +---------------------------------------------+
 
   Big Five: Paramount, MGM, RKO, Warner Bros, 20th Century Fox
   Little Three: Universal, Columbia, United Artists

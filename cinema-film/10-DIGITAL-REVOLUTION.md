@@ -7,23 +7,35 @@ The digital revolution in film is a complete replacement of the photochemical pi
 ```
 DIGITAL CINEMA PIPELINE (Current)
 
-CAPTURE          VISUAL          EDITORIAL      COLOR          DELIVERY
-+----------+   EFFECTS          +---------+   GRADE          +---------+
-|Digital   | +----------+  +--> | Avid /  |   +---------+    | DCP     |
-|Cinema    | |3D / CGI  |  |    | Premiere|-->| DaVinci |    | (4K,    |
-|Camera    | |Animation |  |    | Resolve |   | Resolve |    | HDR)    |
-|(ARRI,RED,| |VFX       |  |    | (NLE)   |   +---------+    | or      |
-|Sony)     | |Compositing   |    +---------+        |         | Stream  |
-+----------+ +----------+  |                        v         +---------+
-     |              |      |               +--------+--+
-     v              v      |               | MASTERING |
-+----+----+   +-----+--+   |               | DELIVERABLES
-| RAW     |   | VFX    |  |               | 4K HDR      |
-| MEDIA   |   | MEDIA  |  |               | SDR         |
-| (on-set | + | (render |--+               | IMAX       |
-| drives) |   | farm)  |                  | Dolby       |
-+---------+   +---------+                  | Vision     |
-                                           +-----------+
+CAPTURE  ->  VISUAL EFFECTS  ->  EDITORIAL  ->  COLOR GRADE  ->  DELIVERY
+
+  +-----------------+      +-------------------+      +------------------+
+  | Digital Cinema  |      | 3D / CGI          |      | Avid / Premiere  |
+  | Camera          | -->  | Animation         | -->  | Resolve (NLE)    |
+  | (ARRI, RED,     |      | VFX, Compositing  |      |                  |
+  |  Sony)          |      |                   |      |                  |
+  +-----------------+      +-------------------+      +------------------+
+            |                       |                          |
+            v                       v                          v
+  +-----------------+      +-------------------+      +------------------+
+  | RAW MEDIA       |      | VFX MEDIA         |      | DaVinci Resolve  |
+  | (on-set drives) |      | (render farm)     |      | (color grade)    |
+  +-----------------+      +-------------------+      +------------------+
+                                                               |
+                                                               v
+                                                     +------------------+
+                                                     | MASTERING        |
+                                                     | DELIVERABLES:    |
+                                                     | 4K HDR, SDR,     |
+                                                     | IMAX, Dolby      |
+                                                     | Vision           |
+                                                     +------------------+
+                                                               |
+                                                               v
+                                                     +------------------+
+                                                     | DCP (4K, HDR)    |
+                                                     | or Streaming     |
+                                                     +------------------+
 
 Previous pipeline (pre-2000):
   35mm negative -> telecine -> edit -> opticals -> answer print -> distribution prints

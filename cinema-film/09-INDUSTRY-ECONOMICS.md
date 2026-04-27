@@ -9,53 +9,53 @@ FILM REVENUE WATERFALL
 
 PRODUCTION              DISTRIBUTION               EXHIBITION
 (Make the film)         (Get it to theaters)       (Show it)
-    |                        |                         |
+    .                        .                         .
 $100M cost              $50M P&A                  Ticket sales
-    |                        |                         |
-    +------------------------+                         |
-                             |                         |
-                   +---------v---------+               |
-                   |   THEATRICAL      |               |
-                   |   Box Office      | <- 50% to     |
-                   |   (Week 1-12)     |    distributor |
-                   |   $200M gross     |    50% to exhibitor
-                   +---------+---------+               |
-                             |
-                   +---------v---------+
-                   |   HOME VIDEO      |
-                   |   (Weeks 12-20)   |
-                   |   Physical: DVD/  |
-                   |   Blu-ray         |
-                   |   (declining)     |
-                   +---------+---------+
-                             |
-                   +---------v---------+
-                   |   SVOD/PVOD       |
-                   |   (Months 3-6)    |
-                   |   Netflix license |
-                   |   Or: studio      |
-                   |   streaming (D+,  |
-                   |   Max, etc.)      |
-                   +---------+---------+
-                             |
-                   +---------v---------+
-                   |   PAY TV          |
-                   |   (Year 1-2)      |
-                   |   HBO, Starz, etc.|
-                   +---------+---------+
-                             |
-                   +---------v---------+
-                   |   FREE TV / SVOD  |
-                   |   (Year 2+)       |
-                   |   Broadcast + all |
-                   |   streaming tiers |
-                   +---------+---------+
-                             |
-                   +---------v---------+
-                   |   ANCILLARY       |
-                   |   Airline, hotel, |
-                   |   foreign, etc.  |
-                   +---------+---------+
+
+                   +---------------------+
+                   |   THEATRICAL        |
+                   |   Box Office        |
+                   |   (Week 1-12)       |
+                   |   $200M gross       |
+                   |   50% distributor,  |
+                   |   50% exhibitor     |
+                   +---------+-----------+
+                             v
+                   +---------------------+
+                   |   HOME VIDEO        |
+                   |   (Weeks 12-20)     |
+                   |   Physical: DVD/    |
+                   |   Blu-ray           |
+                   |   (declining)       |
+                   +---------+-----------+
+                             v
+                   +---------------------+
+                   |   SVOD/PVOD         |
+                   |   (Months 3-6)      |
+                   |   Netflix license   |
+                   |   Or: studio        |
+                   |   streaming (D+,    |
+                   |   Max, etc.)        |
+                   +---------+-----------+
+                             v
+                   +---------------------+
+                   |   PAY TV            |
+                   |   (Year 1-2)        |
+                   |   HBO, Starz, etc.  |
+                   +---------+-----------+
+                             v
+                   +---------------------+
+                   |   FREE TV / SVOD    |
+                   |   (Year 2+)         |
+                   |   Broadcast + all   |
+                   |   streaming tiers   |
+                   +---------+-----------+
+                             v
+                   +---------------------+
+                   |   ANCILLARY         |
+                   |   Airline, hotel,   |
+                   |   foreign, etc.     |
+                   +---------------------+
 ```
 
 ---
