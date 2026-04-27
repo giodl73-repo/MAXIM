@@ -231,14 +231,18 @@ L1 ADAPTIVE CONTROL (Hovakimyan & Cao, 2010):
   Separates adaptation bandwidth from control bandwidth via low-pass filter
 
 ARCHITECTURE:
-  ┌────────────────────────────────────────────────────────────────┐
-  │  State predictor:  x̂̇ = A_m x̂ + B(u + σ̂(t))               │
-  │                   (fast, uses current θ̂)                       │
-  │  Adaptation law:  σ̂̇ = ΓProj(σ̂, -Bᵀ P ẽ)  (fast, Γ → ∞)   │
-  │                   ẽ = x̂ - x  (prediction error)                │
-  │  Control signal:  u(s) = -C(s)σ̂(s)  (LPF of adaptive signal)   │
-  │                   C(s) = ω/(s + ω)  (low-pass filter)          │
-  └────────────────────────────────────────────────────────────────┘
+  State predictor:
+    x_hat_dot = A_m * x_hat + B * (u + sigma_hat(t))
+    Fast inner loop, uses the current parameter estimate theta_hat.
+
+  Adaptation law:
+    sigma_hat_dot = Gamma * Proj(sigma_hat, -B' P e_tilde)
+    Fast (Gamma -> infinity).
+    e_tilde = x_hat - x  (prediction error).
+
+  Control signal:
+    u(s) = -C(s) * sigma_hat(s)  (low-pass filter of the adaptive signal)
+    C(s) = omega / (s + omega).
 
 KEY PROPERTY:
   Γ → ∞ (arbitrarily fast adaptation) → σ̂ → σ (exact disturbance estimation)

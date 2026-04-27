@@ -157,10 +157,9 @@ H∞ PROBLEM: find C(s) stabilizing P such that
 
 ```
 TYPICAL WEIGHTING STRUCTURE:
-  ┌───┐           ┌────┐
-r ─►│ W₁│──► e ──►│ C  │──► u ──►┌───┐──► y
-  └───┘     ↑    └────┘         │ G │
-            │─────────────────────└───┘
+  Reference r enters a weighting filter W1, then the controller C
+  generates control input u, which drives the plant G whose output y
+  feeds back and forms the error signal e for C.
 
   Minimize: ‖[W₁S]‖   where S = (1 + GC)⁻¹  (sensitivity)
             ‖[W₂T]‖∞       T = GC(1 + GC)⁻¹ (complementary sensitivity)
