@@ -133,9 +133,9 @@ Mass absorbs heat during the day, releasing it at night. This phase shift damps 
   CROSS-VENTILATION:
   ┌─────────────────────────────────────────┐
   │                                         │
-  │ INLET   →→→ wind-driven air →→→  OUTLET│
-  │ (low    →→→ cross the floor →→→  (high  │
-  │  pressure)                    pressure) │
+  │ INLET    →→→ wind-driven air →→→  OUTLET│
+  │ (low     →→→ cross the floor →→→  (high │
+  │  pressure)                     pressure)│
   └─────────────────────────────────────────┘
 
   Requirements:
@@ -279,17 +279,16 @@ Daylight is not just about energy savings (though they are significant — light
   - Great for: art galleries, atriums, top-floor offices
   - Heat loss / gain penalty in insulated roofs
 
-  LIGHT SHELF:
-  ┌──────────────┬─────────────────────────────────┐
-  │   EXTERIOR   │        INTERIOR ROOM            │
-  │              │                                 │
-  │    ──────────┤  light shelf (horizontal)       │
-  │     upper    │       bounces light             │
-  │     glazing  │    ↗  to ceiling                │
-  │    ──────────┤────────────────────             │
-  │     lower    │        deep                     │
-  │     glazing  │        penetration              │
-  └──────────────┴─────────────────────────────────┘
+  LIGHT SHELF (cross-section, EXTERIOR on left, INTERIOR on right):
+
+  EXTERIOR | INTERIOR ROOM
+  ---------+------------------------------------
+  upper    | light shelf (horizontal) bounces
+  glazing  | light up to the ceiling, then
+  ---------+ diffuse light penetrates deep
+  lower    | (the line between upper/lower
+  glazing  | glazing is the light-shelf level)
+  ---------+------------------------------------
   Light shelf shades direct sun at lower glazing (glare control)
   while bouncing diffuse light off ceiling (depth penetration).
 

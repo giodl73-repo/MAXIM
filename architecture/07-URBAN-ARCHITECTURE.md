@@ -82,14 +82,17 @@ Le Corbusier's Radiant City (1930s): demolish the perimeter block, replace with 
   TOWER IN PARK TYPOLOGY
   =======================
 
-  STREET
-  ──────────────────────────────────────────────
-          .          .          .
+  STREET (level: ─── ─── ─── ─── ─── ─── ─── )
+
+  Three towers (each 20–40 stories) rise above the street,
+  with separations between them admitting light to the
+  street-level public realm.
+
          ┌┐         ┌┐         ┌┐
-         │││        │││        │││
-         │││        │││        │││    towers
-         │││        │││        │││    (20–40 stories)
-         │││        │││        │││
+         ││         ││         ││
+         ││         ││         ││
+         ││         ││         ││
+         ││         ││         ││
          └┘         └┘         └┘
 
          ░░░ park ░░░░░░░░░░ park ░░░ ground plane
@@ -134,15 +137,20 @@ The dominant contemporary typology for high-density urban development, particula
 
                     ┌────┐
                     │    │
-                    │    │   tower
-                    │    │   (residential / hotel / office)
                     │    │
-              ──────┤    ├──────
-              │ P  O  D  I  U  M │   (4–8 stories)
+                    │    │
+                    │    │
+                    └────┘
+              ┌───────────────────┐
+              │ P  O  D  I  U  M  │
               │ retail / office   │
               │ amenity / parking │
               └───────────────────┘
               ░░░░░ ground activation ░░░░░
+
+  Tower above: residential / hotel / office.
+  Podium (4–8 stories): retail, office, amenity, parking;
+  podium typically wider than the tower footprint.
 
   RATIONALE:
   Podium: large floor plates (commercial, parking, amenity)
@@ -250,18 +258,29 @@ Jacobs's *The Death and Life of Great American Cities* (1961) remains the founda
   People who can see the street from windows and stoops.
   Ground-floor activation creates these eyes.
 
-  UNSAFE:                        SAFE:
-  ┌────────────────┐             ┌────────────────┐
-  │ BLANK WALL     │             │ RETAIL / CAFE  │ ← eyes
-  │                │             │ ────────────── │
-  │ (parking,      │             │ STOOP / ENTRY  │ ← eyes
-  │  loading,      │             │ ────────────── │
-  │  service)      │             │ RESIDENTIAL    │ ← eyes
-  │                │             │ WINDOWS        │
-  └────────────────┘             └────────────────┘
-       ↓ STREET ↓                      ↓ STREET ↓
-  No surveillance.               Continuous surveillance.
-  No activity.                   Activity at multiple hours.
+  UNSAFE (blank-wall frontage):
+  ┌────────────────┐
+  │ BLANK WALL     │
+  │                │
+  │ (parking,      │
+  │  loading,      │
+  │  service)      │
+  │                │
+  └────────────────┘
+       ↓ STREET ↓
+  No surveillance. No activity.
+
+  SAFE (active frontage; each level provides "eyes"):
+  ┌────────────────┐
+  │ RETAIL / CAFE  │
+  │ ────────────── │
+  │ STOOP / ENTRY  │
+  │ ────────────── │
+  │ RESIDENTIAL    │
+  │ WINDOWS        │
+  └────────────────┘
+       ↓ STREET ↓
+  Continuous surveillance. Activity at multiple hours.
   Unsafe at night.               Safer at all hours.
 
   ARCHITECTURAL DESIGN IMPLICATION:

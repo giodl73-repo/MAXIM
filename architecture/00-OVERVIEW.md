@@ -5,19 +5,39 @@
 Architecture sits at the intersection of three domains that rarely collaborate well. The tension between them is the discipline.
 
 ```
-                    +---------------------------+
-                    |       ARCHITECTURE        |
-                    |                           |
-         +----------+------+         +----------+----------+
-         |                 |         |                     |
-   +-----+------+   +------+-------+ +----------+  +-------+------+
-   |    ART     |   | ENGINEERING  | |  SOCIAL  |  | ECONOMICS    |
-   |            |   |              | |  SCIENCE |  |              |
-   | proportion |   | structure    | | behavior |  | budget       |
-   | light      |   | thermal      | | culture  |  | schedule     |
-   | beauty     |   | acoustics    | | use      |  | ROI          |
-   | meaning    |   | fire/safety  | | equity   |  | real estate  |
-   +------------+   +--------------+ +----------+  +--------------+
+  ARCHITECTURE sits at the intersection of four domains:
+
+  ART:
+  +------------+
+  | proportion |
+  | light      |
+  | beauty     |
+  | meaning    |
+  +------------+
+
+  ENGINEERING:
+  +--------------+
+  | structure    |
+  | thermal      |
+  | acoustics    |
+  | fire/safety  |
+  +--------------+
+
+  SOCIAL SCIENCE:
+  +----------+
+  | behavior |
+  | culture  |
+  | use      |
+  | equity   |
+  +----------+
+
+  ECONOMICS:
+  +--------------+
+  | budget       |
+  | schedule     |
+  | ROI          |
+  | real estate  |
+  +--------------+
 
   None of these alone makes architecture.
   All four simultaneously is the architect's job.
@@ -51,42 +71,32 @@ The triad has not been improved on in 2,000 years because it is complete: remove
 Every building project involves the same five roles regardless of scale.
 
 ```
-+--------------------------------------------------------------------+
-|                       THE PROJECT TEAM                             |
-|                                                                    |
-|  +-----------+  +------------+  +------------+  +------------+    |
-|  | ARCHITECT |  | STRUCTURAL |  |    MEP     |  | CONTRACTOR |    |
-|  |           |  |  ENGINEER  |  |  ENGINEER  |  |            |    |
-|  | Leads     |  |            |  |            |  |            |    |
-|  | design.   |  | Sizes      |  | Mechanical |  | Builds.    |    |
-|  | Integrates|  | members:   |  | Electrical |  | Manages    |    |
-|  | all       |  | columns,   |  | Plumbing.  |  | subs,      |    |
-|  | disciplines.  beams,      |  | 40-60% of  |  | schedule,  |    |
-|  | Licensed, |  | foundations|  | building   |  | cost.      |    |
-|  | stamps    |  | PE-stamps  |  | cost. PE-  |  |            |    |
-|  | drawings. |  | struct'l   |  | stamps MEP |  |            |    |
-|  +-----------+  +------------+  +------------+  +------------+    |
-|       |               |               |               |           |
-|       +---------------+---------------+---------------+           |
-|                               |                                    |
-|                        +-----------+                               |
-|                        |  CLIENT   |                               |
-|                        |           |                               |
-|                        | Pays.     |                               |
-|                        | Sets      |                               |
-|                        | program.  |                               |
-|                        | NOT the   |                               |
-|                        | end user. |                               |
-|                        +-----------+                               |
-|                               |                                    |
-|                        +-----------+                               |
-|                        | END USER  |                               |
-|                        |           |                               |
-|                        | Occupies. |                               |
-|                        | Often not |                               |
-|                        | consulted.|                               |
-|                        +-----------+                               |
-+--------------------------------------------------------------------+
+THE PROJECT TEAM
+
+  ARCHITECT:
+    Leads design. Integrates all disciplines.
+    Licensed, stamps drawings.
+
+  STRUCTURAL ENGINEER:
+    Sizes members: columns, beams, foundations.
+    PE-stamps structural drawings.
+
+  MEP ENGINEER:
+    Mechanical, Electrical, Plumbing.
+    40-60% of building cost. PE-stamps MEP drawings.
+
+  CONTRACTOR:
+    Builds. Manages subs, schedule, cost.
+
+  All four feed into:
+
+  CLIENT:
+    Pays. Sets program. NOT the end user.
+
+  Which serves:
+
+  END USER:
+    Occupies. Often not consulted.
 
   The client-user gap is architecture's most persistent failure mode.
   A developer builds offices for tenants they have never met.

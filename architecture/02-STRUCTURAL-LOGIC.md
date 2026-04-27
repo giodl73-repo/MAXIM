@@ -198,8 +198,9 @@ The arch is a fundamentally different structural logic: it converts bending into
 
   GOTHIC CATHEDRAL LOGIC:
   ┌─────┐         ┌─────┐
-  │Nave │ →THRUST→│Aisle│ →THRUST→[Flying Buttress]→[Pier]→[Ground]
+  │Nave │         │Aisle│
   └─────┘         └─────┘
+    Nave -> THRUST -> Aisle -> THRUST -> Flying Buttress -> Pier -> Ground
   The flying buttress is the arch thrust management system.
 
   ARCH EFFICIENCY: pure axial compression, no bending.
@@ -216,12 +217,14 @@ A truss is a triangulated frame. Triangles are inherently rigid (unlike squares,
   ════════════════════════════════════════════════════
 
   ┌─────────────────────────────────────────────────┐
-  │  ─────────────────────────────────────────────  │  ← top chord (C)
+  │  ─────────────────────────────────────────────  │
   │   \    |    /    |    \    |    /    |    \  /  │
   │    \   |   /     |     \   |   /     |     X    │
   │     \  |  /      |      \  |  /      |    / \   │
-  │  ────────────────────────────────────────────    │  ← bottom chord (T)
+  │  ────────────────────────────────────────────   │
   └─────────────────────────────────────────────────┘
+    Top horizontal line = top chord (in compression).
+    Bottom horizontal line = bottom chord (in tension).
 
   C = compression members (diagonals slope toward center)
   T = tension members (verticals, bottom chord)
@@ -484,11 +487,14 @@ Discontinuous compression members floating in a continuous tension network. Buck
   between beams             wall or masonry.          in triangulated
   and columns.              Very stiff.               pattern.
 
-  ┌─┐  ┌─┐  ┌─┐           ┌────────────────┐        ┌─┐╲ ┌─┐
-  │ │  │ │  │ │            │████████████████│        │ │ ╲│ │
-  ─┤ ├──┤ ├──┤ ├─          │████████████████│        ─┤ ├─╳─┤ ├─
-  │ │  │ │  │ │            │████████████████│        │ │╱ ╲│ │
-  └─┘  └─┘  └─┘           └────────────────┘        └─┘   └─┘
+  Moment frame: rigid beam-column joints at every grid intersection;
+                each joint resists rotation.
+
+  Shear wall:   solid concrete or masonry wall acts as deep beam;
+                very high in-plane stiffness.
+
+  Braced frame: diagonal X- or K-bracing in selected bays converts
+                lateral load to axial force in the diagonal members.
 
   Ductile (seismic       Stiff (minimal drift)     Stiffer than MF,
   energy absorption)     Concentrates force         but less ductile

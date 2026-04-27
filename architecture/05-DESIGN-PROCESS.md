@@ -10,7 +10,7 @@ The architecture design process is not linear. It spirals: each phase revisits e
 |                                                                    |
 |  PRE-DESIGN        SD         DD            CDs         CA         |
 |  ─────────       ──────     ──────        ──────      ──────       |
-|  Programming     15%        35%            65%        construction|
+|  Programming     15%        35%            65%        construction |
 |  Site analysis   design     design         design     admin        |
 |  Feasibility     complete   complete       complete                |
 |                                                                    |

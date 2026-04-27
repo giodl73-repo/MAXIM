@@ -5,36 +5,33 @@
 MEP (Mechanical, Electrical, Plumbing) is typically 40–60% of a commercial building's construction cost and is where most of the complexity lives. The architect does not design MEP — but the architect allocates space for it, coordinates it with structure, and must understand it well enough to resolve conflicts before they become field problems.
 
 ```
-+--------------------------------------------------------------------+
-|                    BUILDING SYSTEMS MAP                            |
-|                                                                    |
-|  ┌─────────────────────────────────────────────────────────────┐   |
-|  │                    STRUCTURAL GRID                           │  |
-|  │  (column spacing drives everything else)                    │  |
-|  └─────────────────────────────────────────────────────────────┘  |
-|                          │                                         |
-|         ┌────────────────┼─────────────────┐                      |
-|         ▼                ▼                 ▼                      |
-|  ┌─────────────┐  ┌────────────┐  ┌──────────────┐                |
-|  │ MECHANICAL  │  │ ELECTRICAL │  │  PLUMBING /  │               |
-|  │             │  │            │  │  FIRE PROT.  │               |
-|  │ HVAC ducts  │  │ Panels     │  │ Drain stacks │               |
-|  │ AHUs        │  │ Risers     │  │ Supply risers│               |
-|  │ Chilled     │  │ UPS rooms  │  │ Sprinkler    │               |
-|  │  water      │  │ Lighting   │  │ Gas service  │               |
-|  │ Boilers     │  │ BAS/DDC    │  │              │               |
-|  └─────────────┘  └────────────┘  └──────────────┘               |
-|         │                │                │                        |
-|         └────────────────┼────────────────┘                       |
-|                          ▼                                         |
-|               CEILING PLENUM (the battleground)                   |
-|               Ducts + conduit + pipes + sprinklers                |
-|               + structure ALL compete for the same space           |
-|                          │                                         |
-|                          ▼                                         |
-|               BIM CLASH DETECTION                                  |
-|               (resolves conflicts in design, not field)           |
-+--------------------------------------------------------------------+
+BUILDING SYSTEMS MAP
+
+  STRUCTURAL GRID
+  (column spacing drives everything else)
+                    |
+    +---------------+---------------+
+    v               v               v
+
+  MECHANICAL:        ELECTRICAL:      PLUMBING / FIRE PROT.:
+  - HVAC ducts        - Panels         - Drain stacks
+  - AHUs              - Risers         - Supply risers
+  - Chilled water     - UPS rooms      - Sprinkler
+  - Lighting          - BAS/DDC        - Gas service
+  - Boilers
+
+    All three converge at:
+                    |
+                    v
+
+  CEILING PLENUM (the battleground):
+    Ducts + conduit + pipes + sprinklers
+    + structure ALL compete for the same space.
+                    |
+                    v
+
+  BIM CLASH DETECTION
+    (resolves conflicts in design, not field)
 ```
 
 ---
@@ -279,21 +276,25 @@ The facade is the building's primary environmental filter — it mediates betwee
   The key insight: you cannot keep ALL rain off a wall.
   Instead, manage it: drain, dry, and protect.
 
-  WRONG (face-sealed):               RIGHT (rainscreen):
-  ┌──────────────────┐               ┌───────────────────┐
-  │ CLADDING         │               │ CLADDING          │ ← 1. Rain hits
-  │ (sealant at      │               │ (open joints ok)  │
-  │  every joint —   │               ├──────────── ──────┤
-  │  any failure     │               │  DRAINAGE CAVITY  │ ← 2. Water drains
-  │  = water         │               │  (25–50mm air gap)│    (not sealed)
-  │  intrusion)      │               ├───────────────────┤
-  │                  │               │  AIR BARRIER      │ ← 3. Air barrier
-  │                  │               │  (airtight)       │    is the real
-  └──────────────────┘               │                   │    weather line
-                                     │  INSULATION       │
-                                     ├───────────────────┤
-                                     │  STRUCTURE        │
-                                     └───────────────────┘
+  WRONG (face-sealed):
+  ┌──────────────────┐
+  │ CLADDING         │
+  │ (sealant at      │
+  │  every joint —   │
+  │  any failure     │
+  │  = water         │
+  │  intrusion)      │
+  └──────────────────┘
+
+  RIGHT (rainscreen) — layered from outside in:
+
+    1. CLADDING (open joints ok) — primary rain deflector,
+       doesn't need to be perfect.
+    2. DRAINAGE CAVITY (25–50mm air gap) — water drains
+       (not sealed).
+    3. AIR BARRIER (airtight) — the real weather line.
+    4. INSULATION
+    5. STRUCTURE
 
   AIR BARRIER controls: air infiltration (dominant heat loss)
   WATER-RESISTIVE BARRIER beneath cladding controls: bulk water

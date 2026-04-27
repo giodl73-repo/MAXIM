@@ -297,13 +297,12 @@ Frei Otto (1925–2015) developed physical form-finding experiments that presage
   CLT (Cross-Laminated Timber)
   ────────────────────────────
   Layers of dimensional lumber at 90° angles, glued.
-  ┌────────────────────────┐
-  │ → → → → → → → → → →  │ layer 1 (0°)
-  │ ↑ ↑ ↑ ↑ ↑ ↑ ↑ ↑ ↑ ↑  │ layer 2 (90°)
-  │ → → → → → → → → → →  │ layer 3 (0°)
-  │ ↑ ↑ ↑ ↑ ↑ ↑ ↑ ↑ ↑ ↑  │ layer 4 (90°)
-  │ → → → → → → → → → →  │ layer 5 (0°)
-  └────────────────────────┘
+  Layer stack (5-ply CLT):
+    layer 1: grain runs 0  deg ( ──────────── )
+    layer 2: grain runs 90 deg ( |  |  |  |  )
+    layer 3: grain runs 0  deg ( ──────────── )
+    layer 4: grain runs 90 deg ( |  |  |  |  )
+    layer 5: grain runs 0  deg ( ──────────── )
   Two-way spanning (like a concrete slab)
   Panels: typically 3, 5, or 7 layers
   Panel sizes: up to 3.5m wide × 20m long
