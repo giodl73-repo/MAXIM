@@ -217,13 +217,17 @@ Problem: Individual trees have different lifespans
 CROSSDATING:
 Living tree (known dates)                 Overlapping ring patterns
       ┌──────────────────┐
-      │ 1900 — present   │── ring pattern ──┐
-      └──────────────────┘                  │
-                                  Dead log (from old building)
+      │ 1900 — present   │
+      └──────────────────┘
+              |  ring pattern overlap
+              v
+      Dead log (from old building)
                               ┌──────────────────┐
-                              │ ~1700 — 1920     │── ring pattern ──┐
-                              └──────────────────┘                  │
-                                                            Ancient timber
+                              │ ~1700 — 1920     │
+                              └──────────────────┘
+                                      |  ring pattern overlap
+                                      v
+                              Ancient timber
                                                         ┌──────────────────┐
                                                         │ ~1000 — 1750 CE  │
                                                         └──────────────────┘

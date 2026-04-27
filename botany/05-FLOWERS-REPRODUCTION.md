@@ -31,16 +31,21 @@ COMPLETE FLOWER ANATOMY
 ──────────────────────────────────────────────────────────────────────────────
                     PISTIL (female)
                     ┌──────────────────┐
-                    │ Stigma           │ ← Receives pollen; sticky surface
-                    │ Style            │ ← Pollen tube grows through this
-                    │ Ovary            │ ← Contains ovules (future seeds)
+                    │ Stigma           │
+                    │ Style            │
+                    │ Ovary            │
                     └──────────────────┘
+                      Stigma  -- receives pollen; sticky surface
+                      Style   -- pollen tube grows through this
+                      Ovary   -- contains ovules (future seeds)
 
    STAMEN (male)
    ┌───────────────┐
-   │ Anther        │ ← Pollen production; 2 × 2 pollen sacs (microsporangia)
-   │ Filament      │ ← Stalk supporting anther
+   │ Anther        │
+   │ Filament      │
    └───────────────┘
+     Anther    -- pollen production; 2 x 2 pollen sacs (microsporangia)
+     Filament  -- stalk supporting anther
 
 PETALS (corolla):   Attract pollinators; color, shape, UV patterns
 SEPALS (calyx):     Protect flower bud; often green, leaf-like
