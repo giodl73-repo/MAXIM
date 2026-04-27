@@ -234,7 +234,7 @@ CIRCULAR ECONOMY PRINCIPLES IN CONSTRUCTION
 │  3. Standardized components: designed to current standards for future reuse  │
 │  4. Documented: material passports; as-built drawings; QR codes on elements│
 │  5. Separation of layers: structure / envelope / fit-out at different lifespans│
-│     (Brand's shearing layers: Site 0–∞; Structure 30–300yr; Skin 20yr; Services 7–15yr)│
+│     (Brand's shearing layers: Structure 30-300yr; Skin 20yr; Services 7-15yr)│
 │                                                                              │
 │  MATERIAL RECYCLABILITY:                                                     │
 │    Steel: 97%+ theoretically recyclable; in practice ~86% collected from     │
