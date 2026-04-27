@@ -7,22 +7,15 @@ LiDAR (Light Detection and Ranging) measures range by timing laser pulses. Unlik
 ```
 LIDAR TAXONOMY
 
-                    LIDAR
-                      |
-        +-------------+-------------+
-        |             |             |
-   AIRBORNE      TERRESTRIAL     SPACE-BASED
-   (ALB)         (TLS/MLS)       (ICESat-2,
-                                  GEDI)
-        |
-   +---------+----------+
-   |         |          |
- Discrete  Full       Photon
- return    waveform   counting
-   |         |
- 1-5 pulses Entire    ICESat-2: single photon
- per pulse  return    events. ~20 photons/m
- recorded   digitized
+  LIDAR splits three ways by platform:
+    AIRBORNE (ALB)
+    TERRESTRIAL (TLS / MLS)
+    SPACE-BASED (ICESat-2, GEDI)
+
+  Airborne further splits by recording mode:
+    Discrete return:  1-5 pulses recorded per outgoing pulse.
+    Full waveform:    entire return waveform digitized.
+    Photon counting:  ICESat-2; single-photon events, ~20 photons/m.
 ```
 
 ---
@@ -65,30 +58,18 @@ RANGE RESOLUTION:
 ```
 AIRBORNE LIDAR SYSTEM (ALS / ALB)
 
-+-------+   +--------+   +-------+   +-------------+
-| Laser | ->| Scanner|-> | Optics|-> | Detector    |
-| (1064 |   |(rotating    | beam  |   | (APD: Avalanche
-|  nm)  |   | mirror,|   | expand|   | PhotoDiode) |
-+-------+   | polygon|   +-------+   +-------------+
-            | or MEMS|                     |
-            +--------+                     v
-                                    +-------------+
-+-------+   +-------+              | Waveform    |
-| GNSS  | ->| IMU   |              | digitizer   |
-| (GPS/ |   |(3-axis|              | (discrete   |
-| GLONASS   | accel +              |  return OR  |
-+-------+   | gyro) |             | full waform)|
-            +-------+             +-------------+
-                |                       |
-                v                       v
-         +-------------------------------+
-         |    Direct Georeferencing      |
-         |  Position + Attitude -> X,Y,Z |
-         +-------------------------------+
-                        |
-                        v
-                   POINT CLOUD
-              (x, y, z, intensity, return#)
+  Optical chain:
+    Laser (1064 nm) -> Scanner (rotating mirror, polygon, or MEMS)
+                    -> Optics (beam expand) -> Detector (APD: avalanche
+                    photodiode) -> Waveform digitizer (discrete return
+                    or full waveform).
+
+  Position chain:
+    GNSS (GPS / GLONASS) -> IMU (3-axis accel + gyro)
+      -> position and attitude.
+
+  Direct georeferencing combines position + attitude with the digitized
+  waveform to produce a POINT CLOUD: (x, y, z, intensity, return#).
 ```
 
 ### Survey Design Parameters

@@ -171,38 +171,30 @@ Airborne/UAV: precision agriculture, LiDAR surveys. Best detail, no repeat.
 Raw sensor output is meaningless without calibration. Each processing level removes one category of artifact, progressively isolating the Earth-surface signal from instrument and atmospheric contamination.
 
 ```
-  ┌───────────────┐
-  │ Raw DN        │  Digital numbers from detector — uncalibrated integers.
-  │ (Level 0)     │  No physical meaning without sensor-specific gain/offset.
-  └───────┬───────┘
-          │  RADIOMETRIC CALIBRATION
-          v
-  ┌───────────────┐
-  │ At-sensor     │  DN → radiance (W/m²/sr/μm) using lab-measured gain/offset.
-  │ Radiance      │  Removes detector non-uniformity, dead pixels, striping.
-  │ (Level 1)     │
-  └───────┬───────┘
-          │  GEOMETRIC CORRECTION + ORTHORECTIFICATION
-          v
-  ┌───────────────┐
-  │ Geolocated    │  Sensor model + GCPs + DEM → map projection.
-  │ Imagery       │  Removes terrain parallax, platform jitter, Earth curvature.
-  │ (Level 1T)    │
-  └───────┬───────┘
-          │  ATMOSPHERIC CORRECTION
-          v
-  ┌───────────────┐
-  │ Surface       │  Remove atmospheric path radiance and absorption.
-  │ Reflectance   │  Methods: DOS (dark object subtraction, simple), 6S/MODTRAN
-  │ (Level 2)     │  (radiative transfer, physics-based), LaSRC (Landsat).
-  └───────┬───────┘
-          │  ANALYSIS + PRODUCT GENERATION
-          v
-  ┌───────────────┐
-  │ ARD /         │  Band math (NDVI, NBR), classification (land cover),
-  │ Products      │  temperature retrieval, deformation maps, flood extent.
-  │ (Level 3+)    │
-  └───────────────┘
+  Level 0 -- Raw DN:
+    Digital numbers from detector; uncalibrated integers.
+    No physical meaning without sensor-specific gain/offset.
+    --[ RADIOMETRIC CALIBRATION ]-->
+
+  Level 1 -- At-sensor radiance:
+    DN -> radiance (W/m^2/sr/um) using lab-measured gain/offset.
+    Removes detector non-uniformity, dead pixels, striping.
+    --[ GEOMETRIC CORRECTION + ORTHORECTIFICATION ]-->
+
+  Level 1T -- Geolocated imagery:
+    Sensor model + GCPs + DEM -> map projection.
+    Removes terrain parallax, platform jitter, Earth curvature.
+    --[ ATMOSPHERIC CORRECTION ]-->
+
+  Level 2 -- Surface reflectance:
+    Remove atmospheric path radiance and absorption.
+    Methods: DOS (dark object subtraction, simple); 6S/MODTRAN
+    (radiative transfer, physics-based); LaSRC (Landsat).
+    --[ ANALYSIS + PRODUCT GENERATION ]-->
+
+  Level 3+ -- ARD / products:
+    Band math (NDVI, NBR), classification (land cover),
+    temperature retrieval, deformation maps, flood extent.
 ```
 
 **Why atmospheric correction matters**: Without it, you cannot compare images from different dates, different sensors, or even different parts of the same scene (the atmosphere is a different "filter" at every pixel depending on path length, aerosol load, and water vapor). Atmospheric correction is the equivalent of **normalizing your telemetry** so that metrics from different hosts, different SDKs, and different time zones are comparable.
