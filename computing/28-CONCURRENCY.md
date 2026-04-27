@@ -11,9 +11,9 @@ Concurrency correctness is hard because the interleaving of operations from mult
 │  Correctness Properties          Progress Properties                        │
 │  ───────────────────────────     ─────────────────────────────              │
 │  Safety: nothing bad happens     Deadlock-freedom: some thread progresses   │
-│  Linearizability: atomic ops     Starvation-freedom: every thread progresses │
-│  Sequential consistency          Lock-freedom: some op completes in O(steps) │
-│  Serializability (transactions)  Wait-freedom: every op completes in O(steps)│
+│  Linearizability: atomic ops     Starvation-freedom: every thread progresses│
+│  Sequential consistency          Lock-freedom: some op completes in O(steps)│
+│  Serializability (transactions)  Wait-freedom: every op completes O(steps)  │
 │                                                                             │
 │  Synchronization Models         Hardware Concerns                           │
 │  ───────────────────────────     ──────────────────────────────             │
@@ -87,9 +87,9 @@ Multi-core CPU:
   │ L1 cache │        │ L1 cache │        │ L1 cache │
   └────┬─────┘        └────┬─────┘        └────┬─────┘
        │                   │                   │
-  ┌────┴───────────────────┴───────────────────┴────┐
-  │                  L3 cache (shared)              │
-  └─────────────────────────┬───────────────────────┘
+  ┌──────────────────────────────────────────────────┐
+  │                  L3 cache (shared)               │
+  └──────────────────────────────────────────────────┘
                              │
                            DRAM
 

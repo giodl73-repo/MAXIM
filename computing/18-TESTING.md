@@ -23,18 +23,22 @@ The Testing Trophy (modern take on the pyramid)
 ================================================
 
           ┌─────────────┐
-          │   E2E       │  few — slow, brittle, expensive
-          │  Playwright │  but: only thing that catches full-stack issues
+          │   E2E       │
+          │  Playwright │
           ├─────────────┤
-          │ Integration │  most — test modules working together
-          │  + API      │  realistic, catches contract issues
+          │ Integration │
+          │  + API      │
           ├─────────────┤
-          │    Unit     │  many — fast, isolated
-          │   Vitest    │  but: don't test integration assumptions
+          │    Unit     │
+          │   Vitest    │
           ├─────────────┤
-          │   Static    │  always — TypeScript + ESLint
-          │  Analysis   │  catches bugs before tests run
+          │   Static    │
+          │  Analysis   │
           └─────────────┘
+  E2E (Playwright):       few — slow, brittle, expensive; catches full-stack issues
+  Integration + API:      most — modules working together; realistic, catches contracts
+  Unit (Vitest):          many — fast, isolated; don't test integration assumptions
+  Static Analysis:        always — TypeScript + ESLint; catches bugs before tests run
 
   Classic pyramid inverted the ratio.
   Trophy: lean on integration tests more than pure unit tests.

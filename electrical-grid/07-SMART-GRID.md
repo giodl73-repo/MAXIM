@@ -388,7 +388,7 @@ MICROGRID ARCHITECTURE:
 
      MAIN GRID
          │
-   ┌─────┴──────────────────────────────────────────────────────┐
+   ┌────────────────────────────────────────────────────────────┐
    │  POINT OF COMMON COUPLING (PCC)                            │
    │  Smart switch / static transfer switch                     │
    │  Normal: connected to main grid (import/export possible)   │
@@ -406,7 +406,7 @@ MICROGRID ARCHITECTURE:
    │  │       └───────────────┴──────────────────┘          │   │
    │  │                    LOCAL BUS                         │   │
    │  │                       │                              │   │
-   │  │              ┌────────┴────────┐                    │   │
+   │  │              ┌─────────────────┐                    │   │
    │  │              │ Critical Loads  │                    │   │
    │  │              │ (hospital wing, │                    │   │
    │  │              │ command center, │                    │   │

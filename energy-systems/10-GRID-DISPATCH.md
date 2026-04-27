@@ -94,29 +94,19 @@ MERIT ORDER STACK (traditional fossil grid):
   → Infra-marginal units earn profits (dispatch cost < SMP)
   → Marginal unit earns zero economic profit
 
-  HIGH-VRE MERIT ORDER (modern grid):
+  HIGH-VRE MERIT ORDER (modern grid) — Marginal cost ($/MWh) by capacity (GW):
 
-  Marginal
-  cost
-  ($/MWh)
-  │
-  150│                                          ┌──────┐
-     │                                    ┌─────┤ Gas  │
-  100│                              ┌─────┤OCGT │peaker│
-     │                              │ Gas ├─────┘      │
-   50│                        ┌─────┤CCGT │            │
-     │                  ┌─────┤Coal │     │            │
-   30│            ┌─────┤base ├─────┘     │            │
-     │      ┌─────┤Nucl │load │           │            │
-    5│ ┌────┤     │     │     │           │            │
-     │ │    │     │     │     │           │            │
-    0│─┘    │     │     │     │           │            │
-     │ Solar│Wind │     │     │           │            │
-     │ (massive    ──────┘    │           │            │
-   -5│  at zero marginal)     │           │            │
-     │                        │           │            │
-  ───┴────────────────────────┴───────────┴────────────── Capacity (GW)
-     0         40         60       80      100     120
+   Capacity   0────40────60───80───100───120
+   Tech       Solar+Wind  Nuclear  Coal  CCGT  OCGT  Gas peaker
+   Cost ($)    -5 to 5     30      50    70    100   150
+
+  Key features:
+   - Solar + Wind: very low / negative marginal (zero fuel)
+   - Nuclear: ~$30/MWh baseload
+   - Coal: ~$50/MWh
+   - CCGT: ~$70/MWh
+   - OCGT (open-cycle gas): ~$100/MWh
+   - Gas peakers: ~$150/MWh (highest marginal)
 
   MERIT ORDER EFFECT:
   Cheap VRE pushes gas/coal out of the stack → SMP drops
@@ -295,25 +285,13 @@ BESS REVENUE STREAMS (stacked):
 BESS DAILY DISPATCH — PRICE ARBITRAGE:
 
   Wholesale
-  price
-  ($/MWh)
-  │
-  100│                                       ╭──╮
-     │                                    ╭──╯  ╰──╮
-   80│                                 ╭──╯        ╰──╮
-     │                              ╭──╯              ╰──
-   60│                           ╭──╯                    ──╮
-     │                        ╭──╯                         ╰──
-   40│  ──────────────────╮╭──╯
-     │                    ╰╯
-   20│        ╭─────╮ ←CHARGE HERE (buy at <$20)
-     │     ╭──╯     ╰──╮
-   10│  ╭──╯            ╰───╮
-     │──╯                    ╰──                     DISCHARGE
-    0│──────────────────────────────                  HERE →
-     │        CHARGE↓              ↓DISCHARGE        (sell at >$60)
-  ───┴─────────────────────────────────────────────────── Hour
-     0  2  4  6  8  10 12 14 16 18 20 22 24
+  price ($/MWh) by hour:
+
+  Hour:   0   2   4   6   8  10  12  14  16  18  20  22  24
+  Price:  5   3  10  15  20  35  40  60  80 100  80  60  40
+
+  CHARGE HERE: buy at <$20 (early morning)
+  DISCHARGE HERE: sell at >$60 (evening peak)
 
   OPTIMAL DISPATCH FORMULATION:
 
@@ -492,7 +470,7 @@ DEMAND RESPONSE (DR) — MAKING LOAD FOLLOW SUPPLY:
   │  Smart thermostat:   Pre-heat/cool + coast (Nest, Ecobee)        │
   │  EV smart charging:  Charge overnight or midday (not 6pm peak)   │
   │  Water heater:       Pre-heat tank, coast for hours              │
-  │  Dishwasher/dryer:   Delay start to off-peak (mild convenience)│
+  │  Dishwasher/dryer:   Delay start to off-peak (convenience hit)   │
   │                                                                  │
   │  Potential: 30-100 GW in US (mostly EV charging, growing)        │
   └──────────────────────────────────────────────────────────────────┘

@@ -15,36 +15,44 @@ SOLAR PV STACK — From Photon to Grid
    |  Photons (AM1.5G spectrum at ground level)
    v
 +------------------+
-|  PV CELL         |  Semiconductor p-n junction; converts photons → electrons
-|  Si monocrystal  |  Cell efficiency: 20-26% (commercial monocrystalline)
-|  or thin-film    |  Perovskite/tandem: 26-33%
+|  PV CELL         |
+|  Si monocrystal  |
+|  or thin-film    |
 +------------------+
+  Semiconductor p-n junction; converts photons → electrons
+  Cell efficiency: 20-26% (commercial monocrystalline)
+  Perovskite/tandem: 26-33%
    |
    |  Series/parallel cell strings
    v
 +------------------+
-|  PV MODULE       |  60-72+ cells encapsulated; module efficiency ~19-22%
-|  (panel)         |  Losses vs cell: reflection, cell gaps, series resistance
+|  PV MODULE       |
+|  (panel)         |
 +------------------+
+  60-72+ cells encapsulated; module efficiency ~19-22%
+  Losses vs cell: reflection, cell gaps, series resistance
    |
    |  String wiring (600-1500V DC)
    v
 +------------------+
-|  DC COMBINER     |  Aggregates multiple module strings
-|  (utility scale) |  String fusing, monitoring
+|  DC COMBINER     |
+|  (utility scale) |
 +------------------+
+  Aggregates multiple module strings; string fusing, monitoring
    |
    v
 +------------------+
-|  INVERTER        |  DC → AC conversion; MPPT tracking; grid sync
-|  (string/central)|  Efficiency ~97-99%
+|  INVERTER        |
+|  (string/central)|
 +------------------+
+  DC → AC conversion; MPPT tracking; grid sync; efficiency ~97-99%
    |
    |  AC output (LV or MV)
    v
 +------------------+
-|  TRANSFORMER     |  Step up to distribution voltage (typically 34.5 kV or 138 kV)
+|  TRANSFORMER     |
 +------------------+
+  Step up to distribution voltage (typically 34.5 kV or 138 kV)
    |
    v
   GRID
@@ -64,7 +72,7 @@ not exotic. The engineering challenge is maximizing photon absorption and minimi
   │                p-type silicon (boron-doped)         │
   │  Majority carriers: holes (+)                       │
   │                                                     │
-  │─────────────── DEPLETION REGION ───────────────────│
+  ├──────────────── DEPLETION REGION ───────────────────┤
   │  Built-in electric field ←────────────────          │
   │                                                     │
   │                n-type silicon (phosphorus-doped)    │
@@ -497,20 +505,15 @@ Active research area; some crops (shade-tolerant vegetables, berries) show yield
 ```
   CALIFORNIA ISO DUCK CURVE (net load = total load minus solar generation)
 
-  Load (GW)
-  30 │                                     ╭────╮
-     │                                  ╭──╯    ╰──╮
-  25 │                               ╭──╯          ╰──────╮
-     │                         ─────╯                     ╰──
-  20 │  ────────────────╮──────╯                              ────
-     │                  ╰─────  (belly of the duck)
-  15 │          ────────╯     ╰─────────────────────────────
-     │                              This is "curtailment zone"
-  10 │                              when solar overproduces
-     │
-   0 │────────────────────────────────────────────────────────────
-        0  2  4  6  8  10  12  14  16  18  20  22  24
-        Midnight         Noon                Midnight
+  Load (GW) by hour:
+
+  Hour:    0   2   4   6   8  10  12  14  16  18  20  22  24
+  Net GW: 20  20  20  20  20  15  10  12  20  28  30  25  20
+
+  Shape: morning baseline ~20 GW
+         drops at midday (the "belly of the duck") to ~10 GW (solar fills it)
+         climbs steeply 17:00–20:00 to peak ~30 GW (sun setting, demand high)
+         drops back overnight
 
   The problem: steep evening ramp from ~17:00 to 20:00
   Grid must ramp up 10-15 GW in 3 hours as solar drops

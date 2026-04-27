@@ -12,43 +12,43 @@
 THE SENTINEL'S DOMAIN
 ======================================================================================
 
-                        FLP IMPOSSIBILITY (1985)
-                    "No deterministic async protocol
-                     solves consensus with one crash."
-                               │
-                    ┌──────────┴──────────┐
-                    │   THEORETICAL FLOOR │
-                    └──────────┬──────────┘
-                               │
-          ┌────────────────────┼────────────────────┐
-          │                    │                    │
-          ▼                    ▼                     ▼
-┌──────────────────┐ ┌──────────────────┐ ┌──────────────────────┐
-│  DISTRIBUTED     │ │  SECURITY        │ │  CLOUD               │
-│  SYSTEMS         │ │  ENGINEERING     │ │  ARCHITECTURE        │
-│                  │ │                  │ │                      │
-│  "Who has the    │ │  "Who do you     │ │  "Where do you       │
-│   truth?"        │ │   trust?"        │ │   put the truth?"    │
-│                  │ │                  │ │                      │
-│  Consensus       │ │  Trust models    │ │  Redundancy          │
-│  Replication     │ │  Verification    │ │  Isolation            │
-│  Consistency     │ │  Zero-trust      │ │  Elasticity          │
-│  Fault tolerance │ │  Threat modeling │ │  Shared-nothing      │
-└────────┬─────────┘ └────────┬─────────┘ └──────────┬───────────┘
-         │                    │                       │
-         └────────────────────┼───────────────────────┘
-                              │
-                    ┌─────────┴─────────┐
-                    │  THE SENTINEL'S   │
-                    │  PRINCIPLE:       │
-                    │                   │
-                    │  No single point  │
-                    │  of truth.        │
-                    │  No single point  │
-                    │  of trust.        │
-                    │  No single point  │
-                    │  of failure.      │
-                    └───────────────────┘
+                  FLP IMPOSSIBILITY (1985)
+              "No deterministic async protocol
+               solves consensus with one crash."
+                          │
+                          ▼
+                ┌─────────────────────┐
+                │   THEORETICAL FLOOR │
+                └─────────────────────┘
+                          │
+        ┌─────────────────┼─────────────────┐
+        ▼                 ▼                 ▼
+
+  ┌──────────────────┐ ┌──────────────────┐ ┌──────────────────────┐
+  │  DISTRIBUTED     │ │  SECURITY        │ │  CLOUD               │
+  │  SYSTEMS         │ │  ENGINEERING     │ │  ARCHITECTURE        │
+  │                  │ │                  │ │                      │
+  │  "Who has the    │ │  "Who do you     │ │  "Where do you       │
+  │   truth?"        │ │   trust?"        │ │   put the truth?"    │
+  │                  │ │                  │ │                      │
+  │  Consensus       │ │  Trust models    │ │  Redundancy          │
+  │  Replication     │ │  Verification    │ │  Isolation           │
+  │  Consistency     │ │  Zero-trust      │ │  Elasticity          │
+  │  Fault tolerance │ │  Threat modeling │ │  Shared-nothing      │
+  └──────────────────┘ └──────────────────┘ └──────────────────────┘
+
+                        ▼  combined yield:
+                ┌───────────────────┐
+                │  THE SENTINEL'S   │
+                │  PRINCIPLE:       │
+                │                   │
+                │  No single point  │
+                │  of truth.        │
+                │  No single point  │
+                │  of trust.        │
+                │  No single point  │
+                │  of failure.      │
+                └───────────────────┘
 
 CONSTRAINT FLOW:
   FLP impossibility ──► CAP theorem ──► Byzantine fault tolerance ──► Zero trust
@@ -170,26 +170,29 @@ The three directories in this volume each instantiate the same principle at a di
 The simplest example of this volume's principle is one you already lived through.
 
 ```
-SOURCE DEPOT (centralized)              GIT (distributed)
-┌────────────────────────┐              ┌────────────────────────┐
-│    CENTRAL SERVER      │              │    EVERY CLONE IS A    │
-│    holds THE truth      │              │    FULL REPLICA       │
-│                         │              │                       │
-│  ┌─────────────────┐   │              │  ┌───────┐ ┌───────┐   │
-│  │  master history  │   │              │  │clone A│ │clone B│   │
-│  │  (authoritative) │   │              │  │(full) │ │(full) │   │
-│  └─────────────────┘   │              │  └───┬───┘ └───┬───┘   │
-│         │               │              │      │         │       │
-│    ┌────┴────┐          │              │      └────┬────┘       │
-│    ▼         ▼          │              │           ▼            │
-│  client   client        │              │     merge/rebase       │
-│  (thin)   (thin)        │              │     (consensus)        │
-│                         │              │                        │
-│  Single point of        │              │  No single point of    │
-│  failure.               │              │  failure. Any clone    │
-│  Single point of        │              │  can reconstruct the   │
-│  trust.                 │              │  full history.         │
-└────────────────────────┘              └────────────────────────┘
+SOURCE DEPOT (centralized):
+
+  CENTRAL SERVER holds THE truth
+    [ master history (authoritative) ]
+              │
+       ┌──────┴──────┐
+       ▼             ▼
+    client        client
+    (thin)        (thin)
+
+  Single point of failure. Single point of trust.
+
+GIT (distributed):
+
+  EVERY CLONE IS A FULL REPLICA
+    [ clone A (full) ]   [ clone B (full) ]
+            │                    │
+            └────────┬───────────┘
+                     ▼
+              merge/rebase (consensus)
+
+  No single point of failure. Any clone can
+  reconstruct the full history.
 
 SENTINEL LENS:
   Source Depot = trust a single server       (cathedral)

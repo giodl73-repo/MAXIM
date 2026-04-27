@@ -5,26 +5,24 @@
 Git is a **distributed version control system**. Every clone is a full copy of history. There is no "server" from Git's perspective — the server is just another clone that everyone agrees to treat as canonical.
 
 ```
-+------------------------------------------------------------------+
-|                     GIT MENTAL MODEL                             |
-|                                                                  |
-|   REMOTE (GitHub / Azure DevOps / GitLab)                        |
-|   +----------------------------------------------------------+   |
-|   | origin/main      origin/feat-auth    origin/feat-ui     |   |
-|   +----------------------------------------------------------+   |
-|              ^                  ^                 ^              |
-|              |  push/pull       |  push/pull      |              |
-|   LOCAL CLONE (your machine)                                     |
-|   +----------------------------------------------------------+   |
-|   |  main         feat-auth       feat-ui                   |   |
-|   |                                                          |   |
-|   |  WORKING      STAGING         COMMIT                    |   |
-|   |  TREE    -->  AREA (index) --> HISTORY (.git/)          |   |
-|   +----------------------------------------------------------+   |
-|                                                                  |
-|   Each developer has their own full LOCAL copy of history.       |
-|   "origin" is a named pointer to the shared remote.              |
-+------------------------------------------------------------------+
+                     GIT MENTAL MODEL
+
+  REMOTE (GitHub / Azure DevOps / GitLab):
+  +----------------------------------------------------------+
+  | origin/main      origin/feat-auth    origin/feat-ui      |
+  +----------------------------------------------------------+
+        ↑ ↓  push / pull
+
+  LOCAL CLONE (your machine):
+  +----------------------------------------------------------+
+  |  main         feat-auth       feat-ui                    |
+  |                                                          |
+  |  WORKING      STAGING         COMMIT                     |
+  |  TREE    -->  AREA (index) --> HISTORY (.git/)           |
+  +----------------------------------------------------------+
+
+  Each developer has their own full LOCAL copy of history.
+  "origin" is a named pointer to the shared remote.
 ```
 
 **Key insight vs Source Depot / TFS**: There is no check-out lock. Multiple people can edit the same file simultaneously. Merging is the norm, not the exception. The repository lives entirely on your machine — you don't need the server to commit, branch, or view history.

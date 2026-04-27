@@ -438,7 +438,7 @@ HTTP/2 over TCP:
 ├────────────────────────────────────────────┤
 │  TLS 1.3 Record Layer                      │
 ├────────────────────────────────────────────┤
-│  TCP (ordered, reliable byte stream)       │  ← single lost packet blocks ALL streams
+│  TCP (ordered, reliable byte stream)       │
 └────────────────────────────────────────────┘
 
 HTTP/3 over QUIC:
@@ -644,7 +644,7 @@ After `101`, the TCP connection is no longer HTTP. Frames flow in both direction
  |I|S|S|S|  (4)  |A|     (7)     |             (16/64)           |
  |N|V|V|V|       |S|             |  (if payload len==126/127)    |
  | |1|2|3|       |K|             |                               |
- +-+-+-+-+-------+-+-------------+ - - - - - - - - - - - - - - -+
+ +-+-+-+-+-------+-+-------------+ - - - - - - - - - - - - - - - +
 ```
 
 | Opcode | Meaning                        |
@@ -803,17 +803,22 @@ Server interceptor chain:
 ### How a CDN Works
 
 ```
-                    ┌──────────────────────────────────────────────┐
-Client (Paris)      │  CDN                                         │
-  │                 │  PoP Paris ──────────── PoP NYC              │
-  │──► DNS query    │  PoP London             PoP Tokyo            │
-  │◄── 104.18.5.1   │       │                                      │
-  │    (Anycast)    │  Origin Shield (optional, one per region)    │
-  │                 │       │                                      │
-  │──► HTTPS ──────►  Edge cache at Paris PoP                      │
-  │                 │  HIT: serve from cache                       │
-  │                 │  MISS: forward to origin shield → origin     │
-  └────────────────└──────────────────────────────────────────────-┘
+  Client (Paris)
+    │
+    │──► DNS query
+    │◄── 104.18.5.1 (Anycast)
+    │
+    │──► HTTPS ──► Edge cache at Paris PoP
+    │
+                ┌──────────────────────────────────────────────┐
+                │  CDN                                         │
+                │  PoP Paris ──────────── PoP NYC              │
+                │  PoP London             PoP Tokyo            │
+                │                                              │
+                │  Origin Shield (optional, one per region)    │
+                │  HIT: serve from cache                       │
+                │  MISS: forward to origin shield → origin     │
+                └──────────────────────────────────────────────┘
 
 Anycast: multiple PoPs share the same IP. BGP routes client to nearest PoP.
 GeoDNS: different CNAME/A records returned based on client's geographic location.
@@ -886,18 +891,26 @@ Origin: changed   → 200 OK with new body + new ETag
 ## 9. Load Balancers
 
 ```
-                    ┌──────────────────────────────────────────────────┐
-                    │                                                  │
-Client ────────────►│  L4 Load Balancer                                │
-                    │  Sees: TCP/UDP (IP, port)                        │──► Backend 1: 10.0.1.4:8080
-                    │  Cannot: inspect HTTP path/headers               │──► Backend 2: 10.0.1.5:8080
-                    │  Algorithms: hash(src_ip+dst_ip+ports)           │──► Backend 3: 10.0.1.6:8080
-                    │                                                  │
-                    │  L7 Load Balancer (Application Gateway, ALB)     │
-                    │  Sees: HTTP headers, URL, cookies, TLS SNI       │──► /api/* → API backends
-                    │  Can: path routing, host routing, rewrite URL    │──► /static/* → CDN
-                    │       header insert, WAF, auth, rate limit       │──► gRPC → gRPC backends
-                    └──────────────────────────────────────────────────┘
+  Client ──►
+            ┌──────────────────────────────────────────────────┐
+            │                                                  │
+            │  L4 Load Balancer                                │
+            │  Sees: TCP/UDP (IP, port)                        │
+            │  Cannot: inspect HTTP path/headers               │
+            │  Algorithms: hash(src_ip+dst_ip+ports)           │
+            │                                                  │
+            │  L7 Load Balancer (Application Gateway, ALB)     │
+            │  Sees: HTTP headers, URL, cookies, TLS SNI       │
+            │  Can: path routing, host routing, rewrite URL    │
+            │       header insert, WAF, auth, rate limit       │
+            └──────────────────────────────────────────────────┘
+                                ↓
+              L4 backends: Backend 1: 10.0.1.4:8080
+                           Backend 2: 10.0.1.5:8080
+                           Backend 3: 10.0.1.6:8080
+              L7 routing:  /api/*    → API backends
+                           /static/* → CDN
+                           gRPC      → gRPC backends
 ```
 
 ### L4 vs L7

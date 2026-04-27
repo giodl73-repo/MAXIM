@@ -27,15 +27,15 @@ THE COMPILER ECOSYSTEM — WHO SHARES WHAT
 
   LLVM-based (shared backend)
   ┌─────────────────────────────────────────────────────────────────┐
-  │  clang   → Clang AST → LLVM IR ──────────────────────┐          │
-  │  rustc   → HIR → THIR → MIR → LLVM IR ───────────────┤          │
-  │  swiftc  → Swift AST → SIL → LLVM IR ─────────────────┤         │
-  │  kotlin/native → Kotlin IR → LLVM IR ──────────────────┤        │
-  │  zig     → Zig IR → LLVM IR ────────────────────────────┼──→  LLVM
-  │  clangd  (language server uses clang frontend)          │    backend
-  └─────────────────────────────────────────────────────────┘       │
-                                                               x86 / ARM /
-                                                               WASM / RISC-V
+  │  clang   → Clang AST → LLVM IR                                  │
+  │  rustc   → HIR → THIR → MIR → LLVM IR                           │
+  │  swiftc  → Swift AST → SIL → LLVM IR                            │
+  │  kotlin/native → Kotlin IR → LLVM IR                            │
+  │  zig     → Zig IR → LLVM IR                                     │
+  │  clangd  (language server uses clang frontend)                  │
+  └─────────────────────────────────────────────────────────────────┘
+                ↓
+            LLVM backend → x86 / ARM / WASM / RISC-V
 
   Standalone JIT (own backend, no LLVM)
   ┌────────────────────────────────────────────────────────────────┐

@@ -27,7 +27,7 @@ Package managers exist at **different layers** of the software stack. The confus
         |           |           |           |           |
         v           v           v           v           v
    +---------+ +---------+ +---------+ +---------+ +---------+
-   |requests | | react   | |Newtonsoft| | serde   | | spring |
+   |requests | | react   | |Newtonsft| | serde   | | spring  |
    |numpy    | | express | |EF Core  | | tokio   | | jackson |
    | LIBS    | | LIBS    | | LIBS    | | LIBS    | | LIBS    |
    +---------+ +---------+ +---------+ +---------+ +---------+
@@ -211,23 +211,27 @@ Python has the most package managers because the ecosystem evolved messily over 
                     ==============
 
   +-------------+
-  | dotnet CLI  |    dotnet add package Newtonsoft.Json
-  +-------------+    The one and only. Simple.
+  | dotnet CLI  |
+  +-------------+
+  Command: dotnet add package Newtonsoft.Json — The one and only. Simple.
          |
          v
   +-------------+
-  |  nuget.org  |    The registry. Like PyPI or npmjs.
+  |  nuget.org  |
   +-------------+
+  The registry. Like PyPI or npmjs.
          |
          v
   +-------------+
-  |   .csproj   |    Project file. Lists dependencies.
-  +-------------+    <PackageReference Include="..." />
+  |   .csproj   |
+  +-------------+
+  Project file. Lists dependencies. <PackageReference Include="..." />
          |
          v
-  +------------------+
-  | packages.lock.json|  Lock file (opt-in).
-  +------------------+
+  +-------------------+
+  | packages.lock.json|
+  +-------------------+
+  Lock file (opt-in).
 ```
 
 .NET is refreshingly simple — one CLI (`dotnet`), one registry (nuget.org), one project format (`.csproj`). The older `nuget.exe` CLI still exists but `dotnet` handles it all now.
@@ -275,16 +279,18 @@ These don't install packages — they install **different versions of runtimes**
 
   Solution: Version managers.
 
+  For Node.js:
   +-------+     +---------+     +--------+
-  |  nvm  | or  |  volta  | or  |  fnm   |    (for Node.js)
+  |  nvm  | or  |  volta  | or  |  fnm   |
   +-------+     +---------+     +--------+
        |
        v
   Switches which `node` is on your PATH
   based on the project you're in.
 
+  For Python:
   +--------+     +-------+
-  | pyenv  | or  |  uv   |    (for Python)
+  | pyenv  | or  |  uv   |
   +--------+     +-------+
        |
        v

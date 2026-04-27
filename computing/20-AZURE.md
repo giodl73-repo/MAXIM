@@ -46,7 +46,7 @@ How Services Nest in Practice
        ┌───────┴────────┐
    Azure SQL          Cosmos DB
    PostgreSQL         Redis Cache
-       └───────────────┘
+       └────────────────┘
                ↓
            Key Vault   (secrets, certs)
            Entra ID    (auth/authz)

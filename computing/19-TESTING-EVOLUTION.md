@@ -103,12 +103,15 @@ The Testing Pyramid (Martin Fowler / Mike Cohn, ~2009)
 =======================================================
 
           ┌───────────┐
-          │    E2E    │  few (slow, expensive)
+          │    E2E    │
           ├───────────┤
-          │Integration│  some
+          │Integration│
           ├───────────┤
-          │   Unit    │  many (fast, cheap)
+          │   Unit    │
           └───────────┘
+          E2E: few (slow, expensive)
+          Integration: some
+          Unit: many (fast, cheap)
 
   The insight: different test types have different
   cost/value tradeoffs. Optimize the portfolio.

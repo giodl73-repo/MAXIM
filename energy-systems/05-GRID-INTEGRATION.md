@@ -54,13 +54,15 @@ GRID ARCHITECTURE — The Stack
   Wind (variable)       ──────►│            │◄────────── BESS
   Offshore wind         ──────►└────┬───────┘
                                     │
-                              ┌─────▼──────┐
-                              │ Substation  │  (step down: 115kV → 34.5kV → 12kV)
+                              ┌────────────┐
+                              │ Substation │
                               └─────┬──────┘
+                                    │  (step down: 115kV → 34.5kV → 12kV)
                                     │
-                              ┌─────▼──────┐
-                              │Distribution│  (12 kV → 240/120 V)
+                              ┌────────────┐
+                              │Distribution│
                               └─────┬──────┘
+                                    │  (12 kV → 240/120 V)
                                     │
                               Homes / Businesses / DERs (rooftop solar, EVs, small BESS)
 
@@ -161,13 +163,13 @@ GRID ARCHITECTURE — The Stack
 
   GRID-FOLLOWING (GFL):                  GRID-FORMING (GFM):
   ┌──────────────────┐                   ┌──────────────────┐
-  │  Measure grid V,f │                  │  Create internal │
-  │  Lock PLL to grid │                  │  voltage source  │
-  │  Inject current   │                  │  with defined V,f │
-  │  per setpoint    │                   │  Act as voltage  │
-  │                   │                  │  source, not just │
-  │  Like a current  │                   │  current source  │
-  │  source          │                   │                  │
+  │ Measure grid V,f │                   │  Create internal │
+  │ Lock PLL to grid │                   │  voltage source  │
+  │ Inject current   │                   │  with defined V,f│
+  │ per setpoint     │                   │  Act as voltage  │
+  │                  │                   │  source, not just│
+  │ Like a current   │                   │  current source  │
+  │ source           │                   │                  │
   └──────────────────┘                   └──────────────────┘
 
   GFL: 90%+ of deployed inverters today
@@ -402,7 +404,7 @@ is producing (calm, cloudy winter weeks in high-latitude continental climates).
   PJM CAPACITY MARKET:
   ┌─────────────────────────────────────────────────────────────────┐
   │  ISO identifies "Reliability Period" (hottest peak demand day)  │
-  │  Calculates: how much firm capacity needed for N-1-1 reliability │
+  │  Calculates: how much firm capacity needed for N-1-1 reliabty   │
   │  Procures 1 year in advance (3-year forward in PJM)             │
   │  Generators bid: "$X/MW-day to be available during peak"        │
   │  ISO clears at price that meets reliability requirement         │

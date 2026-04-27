@@ -150,7 +150,7 @@ PRETERITE (completed past):
 | tú        | habl-aste | com-iste | viv-iste  |
 | él/ella   | habl-ó    | com-ió   | viv-ió    |
 | nosotros  | habl-amos | com-imos | viv-imos  |
-| vosotros  | habl-asteis|com-isteis|viv-isteis|
+| vosotros  | habl-astei| com-istei| viv-istei |
 | ellos     | habl-aron | com-ieron| viv-ieron |
 +-----------+-----------+----------+-----------+
 

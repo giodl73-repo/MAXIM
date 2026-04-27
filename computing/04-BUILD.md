@@ -185,15 +185,11 @@ Understanding why each tool exists requires the timeline:
   MSBuild topologically sorts targets   Bundler topologically sorts files
   and executes leaf-to-root.            and emits leaf-to-root.
 
-  +--------+                            +--------+
-  |        |  DependsOnTargets          |        | import './router'
-  | Build  | ----> Compile              | app.ts | -----> router.ts
-  +--------+       |                    +--------+        |
-                   v                                      v
-               +--------+                            +--------+
-               | Compile| DependsOnTargets           |router.ts| import 'express'
-               +--------+ ----> Restore              +--------+ -----> express/
-                                                               (node_modules)
+  MSBuild side:
+    [ Build ] -- DependsOnTargets --> [ Compile ] -- DependsOnTargets --> [ Restore ]
+
+  Bundler side:
+    [ app.ts ] -- import './router' --> [ router.ts ] -- import 'express' --> express/ (node_modules)
 
   Incremental build:                    Vite HMR invalidation:
   MSBuild checks Inputs/Outputs         Vite tracks the module graph;

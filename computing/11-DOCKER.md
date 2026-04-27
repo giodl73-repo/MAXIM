@@ -12,7 +12,7 @@ Old World                          New World
   Dev machine                        Container Image
   ┌──────────────────┐               ┌──────────────────┐
   │ Windows 10       │               │ App code         │
-  │ IIS 10           │               │ Runtime (Node 20) │
+  │ IIS 10           │               │ Runtime (Node 20)│
   │ .NET 6 (GAC)     │   ────────►   │ OS libs          │
   │ App code         │               │ Config           │
   │ web.config       │               └──────────────────┘
@@ -63,21 +63,26 @@ How Docker Image Layers Work (Union FS / OverlayFS)
   Layers are shared across images on the same host
 
   ┌─────────────────────────────────────────────────────────┐
-  │  Writable Container Layer                               │ ← ephemeral
-  │  (created per running container — gone on stop)         │   (unless volume)
+  │  Writable Container Layer                               │
+  │  (created per running container — gone on stop)         │
   ├─────────────────────────────────────────────────────────┤
-  │  Layer 4: COPY . .                                      │ ← your app code
+  │  Layer 4: COPY . .                                      │
   │  SHA256: a3f2c1...   changes every code edit            │
   ├─────────────────────────────────────────────────────────┤
-  │  Layer 3: RUN npm install                               │ ← deps
+  │  Layer 3: RUN npm install                               │
   │  SHA256: 9d8b47...   cached until package*.json changes │
   ├─────────────────────────────────────────────────────────┤
-  │  Layer 2: RUN apt-get install ...                       │ ← OS libs
+  │  Layer 2: RUN apt-get install ...                       │
   │  SHA256: 4e1a88...   rarely changes                     │
   ├─────────────────────────────────────────────────────────┤
-  │  Layer 1: FROM node:20-alpine                           │ ← base image
+  │  Layer 1: FROM node:20-alpine                           │
   │  SHA256: 7c3f09...   pulled once, shared by many images │
   └─────────────────────────────────────────────────────────┘
+  Writable layer: ephemeral (unless volume)
+  Layer 4: your app code
+  Layer 3: deps
+  Layer 2: OS libs
+  Layer 1: base image
 
   At runtime, OverlayFS merges all layers into one coherent filesystem view.
   The NTFS/filesystem analogy: like a read-only base volume with a
@@ -183,18 +188,23 @@ Built by: docker build             Created by: docker run
 
   Image layers (read-only, cached)
   ┌──────────────────────────┐
-  │  Your app code (COPY)    │  ← layer 4
+  │  Your app code (COPY)    │
   ├──────────────────────────┤
-  │  npm install (RUN)       │  ← layer 3 (cached if package.json unchanged)
+  │  npm install (RUN)       │
   ├──────────────────────────┤
-  │  OS libs (RUN apt-get)   │  ← layer 2 (rarely changes)
+  │  OS libs (RUN apt-get)   │
   ├──────────────────────────┤
-  │  Base: node:20-alpine    │  ← layer 1 (pulled once, shared by many images)
+  │  Base: node:20-alpine    │
   └──────────────────────────┘
             +
   ┌──────────────────────────┐
-  │  Writable container layer│  ← ephemeral — gone when container stops
-  └──────────────────────────┘   (unless you mount a volume)
+  │  Writable container layer│
+  └──────────────────────────┘
+  Layer 4: your app code
+  Layer 3: npm install (cached if package.json unchanged)
+  Layer 2: OS libs (rarely changes)
+  Layer 1: base image (pulled once, shared by many images)
+  Writable: ephemeral — gone when container stops (unless you mount a volume)
 ```
 
 **The OverlayFS "why":** Each layer is stored as a directory diff on the host filesystem. Docker's OverlayFS driver mounts them in a stack — lower layers are `lowerdir`, the writable container layer is `upperdir`, and the merged view is `merged`. This is why layers are shared across images: if two images both use `node:20-alpine` as their base, the host stores one copy of those layers and mounts them into both containers. Equivalent to the GAC for shared DLLs — but content-addressed by SHA256 instead of strong name.

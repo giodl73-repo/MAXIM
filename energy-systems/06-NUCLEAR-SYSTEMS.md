@@ -193,7 +193,7 @@ for potential commercialization by 2030-2040. Status varies widely.
   │  Fuel breeding: can breed Pu from U-238 (extends fuel supply)    │
   │  Waste: burns long-lived actinides → less radiotoxic waste       │
   │  Safety: sodium fire risk (water reaction) — passive cooling     │
-  │  Examples: TerraPower Natrium (US), China CFR-600, Russia BN-800│
+  │  Examples: TerraPower Natrium (US), China CFR-600, Russia BN-800 │
   │                                                                  │
   │  MOLTEN SALT REACTOR (MSR) — fuel dissolved in coolant           │
   │  Coolant: fluoride salt (FLiBe or other) at 600-750°C            │

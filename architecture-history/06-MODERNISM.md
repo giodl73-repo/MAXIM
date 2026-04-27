@@ -186,39 +186,52 @@ The five points derive from the technical capabilities of the
 reinforced concrete (domino) frame, where slab is supported by
 columns and not by walls.
 
-+--+--+--+--+--+--+
-|  1. PILOTIS      |   Building raised on columns.
-|                  |   Ground floor freed (pass through, park).
-|  • • • • • • •   |   Columns → ground open for pedestrians/nature.
-+--+--+--+--+--+--+
++------------------+
+|  1. PILOTIS      |
+|                  |
+|  • • • • • • •   |
++------------------+
+  Building raised on columns. Ground floor freed (pass through, park).
+  Columns → ground open for pedestrians/nature.
 
-+--+--+--+--+--+--+
-|  2. FREE PLAN    |   No loadbearing walls.
-|                  |   Columns carry structure.
-| |  | | | | |    |   Partitions can be placed anywhere.
-| __ __ _____     |   Each floor can be completely different.
-+--+--+--+--+--+--+
++------------------+
+|  2. FREE PLAN    |
+|                  |
+| |  | | | | |     |
+| __ __ _____      |
++------------------+
+  No loadbearing walls. Columns carry structure.
+  Partitions can be placed anywhere. Each floor can be different.
 
-+--+--+--+--+--+--+
-|  3. FREE FAÇADE  |   Exterior wall carries no load.
-|                  |   Windows can be placed anywhere.
-|  ====  ====      |   Wall can be entirely glass if desired.
-|  ====  ====      |   Façade is a design decision, not a
-+--+--+--+--+--+--+   structural necessity.
++------------------+
+|  3. FREE FAÇADE  |
+|                  |
+|  ====  ====      |
+|  ====  ====      |
++------------------+
+  Exterior wall carries no load. Windows can be placed anywhere.
+  Wall can be entirely glass if desired.
+  Façade is a design decision, not a structural necessity.
 
-+--+--+--+--+--+--+
-|  4. HORIZONTAL   |   Windows full width of facade.
-|     WINDOWS      |   Strip of glass from column to column.
-|                  |   Maximum light, panoramic view.
-| [===============]|   More light per unit of wall than
-+--+--+--+--+--+--+   traditional punched windows.
++------------------+
+|  4. HORIZONTAL   |
+|     WINDOWS      |
+|                  |
+| [===============]|
++------------------+
+  Windows full width of facade. Strip of glass from column to column.
+  Maximum light, panoramic view.
+  More light per unit of wall than traditional punched windows.
 
-+--+--+--+--+--+--+
-|  5. ROOF GARDEN  |   Flat roof → usable roof terrace.
-|                  |   Replaces the garden area lost by
-| ~~~~~ ~~~~~ ~~~~ |   building on the ground.
-| (grass/terrace)  |   Insulation for the floor below.
-+--+--+--+--+--+--+   Health benefits (sun, air).
++------------------+
+|  5. ROOF GARDEN  |
+|                  |
+| ~~~~~ ~~~~~ ~~~~ |
+| (grass/terrace)  |
++------------------+
+  Flat roof → usable roof terrace. Replaces garden area lost by
+  building on the ground. Insulation for the floor below. Health
+  benefits (sun, air).
 
 These five points only work because concrete slabs can cantilever —
 no need for load path at the edge of the building.
@@ -237,13 +250,16 @@ SECTION:
          ROOF GARDEN (pt. 5) + solarium
          ~~~~~~~~~~~~~~~~~
          +-----------------+
-         |  Piano nobile   |  ← main living floor
-         |  FREE PLAN (2)  |     ribbon windows (4)
-         |  FREE FACADE(3) |     horizontal glazing
-         +-+---+---+---+-+-+
-           |   |   |   |     ← PILOTIS (1)
-           |   |   |   |       columns let ground pass through
-           •   •   •   •       entry and garage under building
+         |  Piano nobile   |
+         |  FREE PLAN (2)  |
+         |  FREE FACADE(3) |
+         +-----------------+
+           |   |   |   |
+           |   |   |   |
+           •   •   •   •
+
+  Piano nobile: main living floor; ribbon windows (4); horizontal glazing.
+  PILOTIS (1): columns let ground pass through; entry and garage under.
 
 PLAN of piano nobile:
   No structural walls (columns only)

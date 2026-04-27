@@ -18,29 +18,35 @@ WIND ENERGY STACK
         │  Cut-out wind speed (~25 m/s): turbine shuts down (storm protection)
         v
   +---------------------+
-  |  ROTOR SYSTEM        |  Blades capture kinetic energy from wind
-  |  Blades (3-blade)    |  Lift-based aerodynamics (not drag)
-  |  Hub                 |  Pitch control: adjust blade angle
+  |  ROTOR SYSTEM       |
+  |  Blades (3-blade)   |
+  |  Hub                |
   +---------------------+
+  Blades capture kinetic energy from wind
+  Lift-based aerodynamics; pitch control adjusts blade angle
         │  Shaft rotation (low-speed, ~10-20 RPM)
         v
   +---------------------+
-  |  DRIVETRAIN          |  Gearbox (steps up to ~1500 RPM)
-  |  Gearbox or          |  OR direct-drive (no gearbox, large PMSG)
+  |  DRIVETRAIN         |
+  |  Gearbox or         |
   |  Direct-drive       |
   +---------------------+
+  Gearbox steps up to ~1500 RPM, OR direct-drive (no gearbox, large PMSG)
         │  High-speed shaft (gearbox) or direct connection
         v
   +---------------------+
-  |  GENERATOR           |  DFIG (doubly-fed induction) or PMSG (permanent magnet)
-  |  + Power Electronics |  Full-scale converter (PMSG) or partial-scale (DFIG)
+  |  GENERATOR          |
+  |  + Power Electronics|
   +---------------------+
+  DFIG (doubly-fed induction) or PMSG (permanent magnet)
+  Full-scale converter (PMSG) or partial-scale (DFIG)
         │  Variable-frequency AC → grid-frequency AC
         v
   +---------------------+
-  |  TRANSFORMER +       |  Step up to collection voltage (33 kV onshore,
-  |  TOWER SWITCHGEAR    |  66 kV offshore increasingly)
+  |  TRANSFORMER +      |
+  |  TOWER SWITCHGEAR   |
   +---------------------+
+  Step up to collection voltage (33 kV onshore, 66 kV offshore increasingly)
         │
         v
   GRID (via collection cable or overhead line → substation → transmission)
@@ -279,22 +285,26 @@ The derivation is actuator disk theory — a classic fluid mechanics result.
   │  Turbine on top     │
   │                     │
   │  Transition piece   │
-  │  ──────────────────  │  ← waterline
+  │  ─────────────────  │
   │                     │
-  │  ▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓   │  steel monopile, ~8-12 m diameter
-  │  ▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓   │  driven into seabed
+  │  ▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓   │
+  │  ▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓   │
   └─────────────────────┘
+  Waterline at transition piece; steel monopile, ~8-12 m diameter,
+  driven into seabed.
 
   20-60 m: JACKET (lattice frame)
   ┌─────────────────────┐
   │  Turbine on top     │
   │  Transition piece   │
-  │  ──────────────────  │  ← waterline
+  │  ─────────────────  │
   │     /  │  \         │
-  │    /   │   \         │  3 or 4-leg jacket
-  │   /    │    \        │  heavier, more expensive than monopile
-  │  /─────┼─────\       │  used for larger turbines and deeper water
+  │    /   │   \        │
+  │   /    │    \       │
+  │  /─────┼─────\      │
   └─────────────────────┘
+  3 or 4-leg jacket; heavier, more expensive than monopile;
+  used for larger turbines and deeper water.
 
   >60 m: FLOATING (emerging, first commercial projects 2024+)
   Three main concepts:

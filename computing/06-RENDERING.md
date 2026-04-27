@@ -77,7 +77,7 @@ RSC        Server (component-   Full HTML (server       Only "use client"  Fast
 | KEY TRADEOFFS                                                      |
 |                                                                    |
 | Mode  | TTFB      | FCP   | TTI   | Fresh data | SEO | Hosting     |
-|-------|-----------|-------|-------|------------|-----|------------|
+|-------|-----------|-------|-------|------------|-----|-------------|
 | CSR   | Fast(CDN) | Slow  | Slow  | Always     | ⚠️  | CDN only     |
 | SSR   | Med-slow  | Fast  | Med   | Always     | ✅  | Server req  |
 | SSG   | Fast(CDN) | Fast  | Med   | Build-time | ✅  | CDN only    |
@@ -387,22 +387,23 @@ Don't wait for ALL data before sending HTML. Stream it in chunks as it's ready.
   Wait for ALL data → render ALL HTML → send all at once
 
   +-----------+
-  | Server    |  fetchUser()   — 50ms
-  |           |  fetchPosts()  — 200ms  ← blocks everything
-  |           |  fetchAds()    — 100ms
-  |           |
-  |           |  All done: send HTML at 200ms
+  | Server    |
   +-----------+
+    fetchUser()   — 50ms
+    fetchPosts()  — 200ms  ← blocks everything
+    fetchAds()    — 100ms
+    All done: send HTML at 200ms
 
   STREAMING SSR (React 18 / Next.js App Router):
   Send HTML in chunks as each piece is ready.
 
   +-----------+
-  | Server    |  Send <html><head>... immediately
-  |           |  fetchUser() done (50ms) → stream <header>
-  |           |  fetchAds() done (100ms) → stream <sidebar>
-  |           |  fetchPosts() done (200ms) → stream <main>
+  | Server    |
   +-----------+
+    Send <html><head>... immediately
+    fetchUser() done (50ms)  → stream <header>
+    fetchAds() done (100ms)  → stream <sidebar>
+    fetchPosts() done (200ms) → stream <main>
 
   User sees the page filling in progressively.
   FCP is at 50ms, not 200ms.
@@ -486,16 +487,16 @@ Popularized by Astro. The logical extension of partial hydration.
   Most of the page is static HTML.
   Only specific "islands" of interactivity are hydrated.
 
-  +----------------------------------------------+
-  |          STATIC HTML (no JS)                 |
-  |  +----------+  +---------------------------+ |
-  |  | ISLAND   |  | ISLAND                    |  |
-  |  | Search   |  | Shopping Cart             |  |
-  |  | (React)  |  | (React)                   |  |
-  |  | hydrated |  | hydrated lazily            |  |
-  |  +----------+  +---------------------------+  |
-  |          STATIC HTML (no JS)                  |
-  +----------------------------------------------+
+  STATIC HTML (no JS) wraps interactive islands:
+
+      +----------+   +---------------------------+
+      | ISLAND   |   | ISLAND                    |
+      | Search   |   | Shopping Cart             |
+      | (React)  |   | (React)                   |
+      | hydrated |   | hydrated lazily           |
+      +----------+   +---------------------------+
+
+  Static HTML continues around the islands.
 
   // Astro component
   ---

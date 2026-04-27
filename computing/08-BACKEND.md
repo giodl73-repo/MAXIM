@@ -448,21 +448,18 @@ tRPC (TypeScript Remote Procedure Call) takes a different approach: no schema la
   GraphQL: Define SDL schema → generate TypeScript types
   tRPC:    Define TypeScript functions → types flow automatically
 
-  +----------------+         +-------------------+
-  | server/router.ts|         | client/component.tsx|
-  |                |         |                   |
-  | const appRouter |         | const result =   |
-  |  = router({    |  types  |   trpc.users      |
-  |   users: {     | ~~~~~~> |     .getById      |
-  |    getById:     |         |     .useQuery(123)|
-  |     procedure  |         |                   |
-  |      .input(    |         | result.data?.name |
-  |       z.number()| ←───────|   ↑ TypeScript   |
-  |      )          |         |   knows the shape |
-  |      .query(...)| ─────── |   of this!       |
-  |   }            |         |                   |
-  | })             |         |                   |
-  +----------------+         +-------------------+
+  server/router.ts                       client/component.tsx
+  ----------------                       --------------------
+  const appRouter = router({             const result =
+    users: {                               trpc.users
+      getById:                               .getById
+        procedure                              .useQuery(123)
+          .input(z.number())
+          .query(...)                    result.data?.name
+    }                                      ↑ TypeScript knows the shape of this
+  })
+
+  Types flow automatically server → client (~~~> compile-time).
 ```
 
 ```typescript
@@ -779,26 +776,32 @@ Validation at the API boundary is mandatory. Zod is the standard in TypeScript b
 ```
   TRADITIONAL SERVER:
   +------------------+
-  | Node.js process  |  Always running
-  | (Express/Fastify)|  You pay 24/7
-  | Azure App Service|  You manage scaling
+  | Node.js process  |
+  | (Express/Fastify)|
+  | Azure App Service|
   +------------------+
+  Always running. You pay 24/7. You manage scaling.
 
   SERVERLESS FUNCTION:
   +------------------+
-  | Function (code)  |  Spins up per request
-  | Azure Functions  |  Scales to zero (pay per execution)
-  | AWS Lambda       |  Cloud manages scaling
-  | Vercel Functions |  Cold start: 100-500ms on first request
+  | Function (code)  |
+  | Azure Functions  |
+  | AWS Lambda       |
+  | Vercel Functions |
   +------------------+
+  Spins up per request. Scales to zero (pay per execution).
+  Cloud manages scaling. Cold start: 100-500ms on first request.
 
   EDGE FUNCTION:
   +------------------+
-  | Function (code)  |  Runs at CDN edge (close to user)
-  | Cloudflare       |  ~0ms cold start (V8 isolates, not Node.js)
-  | Vercel Edge      |  Restricted APIs (no Node.js built-ins)
-  | Deno Deploy      |  ~5-50ms globally
+  | Function (code)  |
+  | Cloudflare       |
+  | Vercel Edge      |
+  | Deno Deploy      |
   +------------------+
+  Runs at CDN edge (close to user).
+  ~0ms cold start (V8 isolates, not Node.js).
+  Restricted APIs (no Node.js built-ins). ~5-50ms globally.
 
   Next.js route handlers can run as:
   export const runtime = 'nodejs'   // default, full Node.js

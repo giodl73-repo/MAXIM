@@ -12,11 +12,11 @@ THE FUNDAMENTAL GRID PROBLEM (revisited):
   Mismatches → frequency deviation → cascade risk.
 
 WITHOUT STORAGE:          WITH STORAGE:
-  Demand curve             Demand curve
-  ╭─────────────╮           ╭─────────────╮
- ╭╯             ╰╮          │             │  ← Storage absorbs peak
- │               │    →     │  smoothed   │  ← Storage supplies valley
- ╰───────────────╯          ╰─────────────╯
+  Demand curve              Demand curve
+   ___________               _____________
+  /           \             |             |   ← Storage absorbs peak
+ |             |    →       |  smoothed   |   ← Storage supplies valley
+ |_____________|            |_____________|
 
 HISTORICALLY: Storage wasn't economical, so the grid was designed around
   dispatchable thermal generators that could match demand.
@@ -36,26 +36,18 @@ NOW: High-penetration renewables (variable output) need storage to:
 ```
 STORAGE TECHNOLOGIES: POWER vs ENERGY DURATION
 
-Power
-(MW)      10,000│                     ┌───────────────────────────────┐
-                │                     │     PUMPED HYDRO              │
-          5,000 │                     │  (Bath County: 3,000 MW)      │
-                │                     │  Hours to days duration       │
-          1,000 │                     └─────────────────────────┐     │
-                │                ┌─────────────────────────────┐│     │
-            500 │                │    LI-ION BESS              ││     │
-                │                │  (Hornsdale: 150 MW/193MWh) │└─────┘
-            100 │    ┌───────────┤  (Moss Landing: 182.5 MW)   │
-                │    │ COMPRESSED├─────────────────────────────┘
-             50 │    │  AIR      │
-                │ ┌──┤  CAES     │ FLOW BATTERIES (vanadium redox)
-             10 │ │  └───────────┘
-                │ │ FLYWHEEL │
-              1 │─┘          │ SUPERCAPACITOR
-                │             │
-              0 └─────────────────────────────────────────────────▶
-                  0.01s 1s 1min 10min  1h    4h   8h   24h  1wk
-                                     ← Discharge Duration →
+Power (MW)        Discharge Duration → 0.01s ... 1s ... 1min ... 1h ... 4h ... 24h ... 1wk
+
+  10,000          PUMPED HYDRO (Bath County: 3,000 MW; hours to days)
+   5,000          PUMPED HYDRO
+   1,000          PUMPED HYDRO + LI-ION BESS
+     500          LI-ION BESS (Hornsdale: 150 MW/193 MWh)
+     500          LI-ION BESS (Moss Landing: 182.5 MW)
+     100          COMPRESSED AIR (CAES)
+      50          CAES + FLOW BATTERIES (vanadium redox)
+      10          FLYWHEEL
+       1          FLYWHEEL + SUPERCAPACITOR
+       0          SUPERCAPACITOR (sub-second)
 ```
 
 ---
@@ -244,26 +236,30 @@ COMMERCIAL SYSTEMS (2024):
 FLOW BATTERY CONCEPT:
 
           ┌─────────────────────┐
-          │    POSITIVE         │   VO²⁺/VO₂⁺
-          │    ELECTROLYTE      │   (vanadium in higher oxidation states)
+          │    POSITIVE         │
+          │    ELECTROLYTE      │
           │    TANK             │
-          └──────┬──────────────┘
-                 │ pump
-                 ▼
-          ┌─────────────────────┐      ┌─────────────────────┐
-          │   ELECTROCHEMICAL   │◀────▶│   EXTERNAL CIRCUIT  │
-          │   CELL (STACK)      │      │   (AC system)       │
+          └──────────┬──────────┘
+                     │ pump
+                     ▼
+          ┌─────────────────────┐
+          │   ELECTROCHEMICAL   │
+          │   CELL (STACK)      │
           │   carbon electrodes │
           │   ion-exchange      │
           │   membrane          │
           └─────────────────────┘
-                 │ pump
-                 ▼
+                     │ pump
+                     ▼
           ┌─────────────────────┐
-          │    NEGATIVE         │   V²⁺/V³⁺
-          │    ELECTROLYTE      │   (vanadium in lower oxidation states)
+          │    NEGATIVE         │
+          │    ELECTROLYTE      │
           │    TANK             │
           └─────────────────────┘
+
+  Positive electrolyte: VO²⁺/VO₂⁺ (vanadium, higher oxidation states)
+  Negative electrolyte: V²⁺/V³⁺ (vanadium, lower oxidation states)
+  Cell stack connects to EXTERNAL CIRCUIT (AC system)
 
 CHARGING:   Oxidize positive tank (VO²⁺ → VO₂⁺), reduce negative (V³⁺ → V²⁺)
 DISCHARGING: Reverse; energy extracted as current flows through external circuit

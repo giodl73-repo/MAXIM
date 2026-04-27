@@ -183,12 +183,16 @@ RIBBED VAULT (Gothic):
   Web panels can be THIN (50–80mm at Chartres).
 
   +----------+
-  |  \  /  /|      Ribs: thick, carry loads
-  | r  \/  r|      Web: thin, self-supporting only
-  | i  /\  i|      Ribs deliver loads to PIER CAPITALS
-  | b /__\ b|      Ribs act as concentrated load paths
+  |  \  /  / |
+  | r  \/  r |
+  | i  /\  i |
+  | b /__\ b |
   |  /    \  |
   +----------+
+
+  Ribs: thick, carry loads. Web: thin, self-supporting only.
+  Ribs deliver loads to PIER CAPITALS.
+  Ribs act as concentrated load paths.
 
 Load path:
 Vault self-weight + snow + maintenance
@@ -245,17 +249,20 @@ PINNACLE FUNCTION:
   Pinnacle = structural element, not just decoration.
   Gothic pinnacles that look ornamental are doing real work.
 
-  +-+                  +-+
-  |P|  ← pinnacle      |P|
-  |I|     weight       |I|  F = resultant
-  |N|                  |N| /
-  |N|                  |N|/
-  |A| ← thrust →       |A+--
-  |C|                  |C|
-  |L|                  |L|
-  |E|                  |E|
-  +-+                  +-+
-  Without pinnacle: thrust goes outside kern → failure
+  Without pinnacle:        With pinnacle:
+  +-+                      +-+
+  |P|                      |P|
+  |I|                      |I|
+  |N|                      |N|
+  |N|                      |N|
+  |A|                      |A|
+  |C|                      |C|
+  |L|                      |L|
+  |E|                      |E|
+  +-+                      +-+
+
+  Without pinnacle: thrust goes outside kern → failure.
+  With pinnacle: pinnacle weight pulls resultant force back inside kern.
   With pinnacle: resultant stays inside kern → safe
 ```
 
@@ -393,11 +400,13 @@ TRACERY TYPOLOGY
 1. PLATE TRACERY (early, ~1200):
    Solid stone wall with holes cut through it.
    The "tracery" is the residual stone between openings.
-   +--+--+
-   |  O  |    O = circular openings
-   +--+--+
-   |  |  |    | = pointed arch openings
-   +--+--+
+   +-----+
+   |  O  |
+   +-----+
+   |  |  |
+   +-----+
+
+   O = circular openings; | = pointed arch openings.
    Structurally conservative — stone plate still doing work.
 
 2. BAR TRACERY (~1230, Reims):

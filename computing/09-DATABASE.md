@@ -132,10 +132,11 @@ The difference surfaces in **serverless deployments** and is the most common pro
 
   SERVERLESS (each invocation may be a new instance):
   +------------------+  +------------------+  +------------------+
-  | Function inst. 1 |  | Function inst. 2 |  | Function inst. 3 |  ...100 instances
+  | Function inst. 1 |  | Function inst. 2 |  | Function inst. 3 |
   | PrismaClient     |  | PrismaClient     |  | PrismaClient     |
   | Pool: 10 conns   |  | Pool: 10 conns   |  | Pool: 10 conns   |
   +------------------+  +------------------+  +------------------+
+  ...up to 100 instances
         10                     10                     10          = 1000 connections
                                                                     Postgres default max: 100
                                                                     → CONNECTION EXHAUSTION
@@ -488,11 +489,11 @@ Drizzle is gaining fast on Prisma. Different philosophy: write SQL-like TypeScri
 
   +------------------+         +------------------+
   | App instances    |         | PostgreSQL       |
-  | (many)           |         | max_connections  |
-  |                  |         | = 100 (default)  |
-  | instance 1 ×10 --+----+--> | Accepts 100      |
-  | instance 2 ×10 --+    |    | simultaneous     |
-  | instance 3 ×10 --+    +--> | connections      |
+  | (many)           |  -----> | max_connections  |
+  |                  |  -----> | = 100 (default)  |
+  | instance 1 ×10   |  -----> | Accepts 100      |
+  | instance 2 ×10   |  -----> | simultaneous     |
+  | instance 3 ×10   |  -----> | connections      |
   | ...              |         |                  |
   +------------------+         +------------------+
   100 instances = 1000 connections = CRASH

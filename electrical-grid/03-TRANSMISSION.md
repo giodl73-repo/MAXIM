@@ -126,13 +126,11 @@ Power conservation: V₁I₁ ≈ V₂I₂ (ignoring losses) → current transfor
 ```
 TRANSFORMER INTERNALS:
 
-           Primary winding               Secondary winding
-           (N₁ turns)                   (N₂ turns)
-           ┌──────────┐                 ┌──────────┐
-V₁ ───────▶│ xxxxxxxx │──── Core ───────│ xxxxxxxx │──────── V₂
-           │          │   (silicon      │          │
-I₁ ←───────│ xxxxxxxx │    steel        │ xxxxxxxx │──────── I₂
-           └──────────┘    laminations) └──────────┘
+    Primary winding         Secondary winding
+    (N₁ turns)              (N₂ turns)
+
+    V₁ ──▶ [ xxxx ] ── Core (silicon steel laminations) ──▶ [ xxxx ] ──▶ V₂
+    I₁ ◀── [ xxxx ] ──                                  ── [ xxxx ] ──▶ I₂
 
 V₁/V₂ = N₁/N₂
 I₂/I₁ = N₁/N₂ (current transforms inversely)
@@ -322,25 +320,32 @@ MMC ARCHITECTURE (one phase, one arm):
 
   DC Bus +
      │
-  ┌──┴──┐  Sub-module 1: half-bridge (IGBT + diode + capacitor)
-  │ SM1 │  Each SM: ~1-2 kV DC voltage step
-  ├──┴──┤
-  │ SM2 │  Hundreds of SMs in series → smooth staircase waveform
-  ├──┴──┤  approximating AC sinusoid
-  │ SM3 │  → Very low harmonics without heavy filtering
-  ├──┴──┤
-  │ ... │  (30-400 SMs per arm depending on voltage level)
+  ┌─────┐
+  │ SM1 │
+  ├─────┤
+  │ SM2 │
+  ├─────┤
+  │ SM3 │
+  ├─────┤
+  │ ... │
   └──┬──┘
      │
   AC output (to transformer/grid)
      │
-  ┌──┴──┐  Lower arm SMs
+  ┌─────┐
   │ SM  │
-  ├──┴──┤
+  ├─────┤
   │ SM  │
   └──┬──┘
      │
   DC Bus -
+
+  Sub-module 1: half-bridge (IGBT + diode + capacitor)
+  Each SM: ~1-2 kV DC voltage step
+  Hundreds of SMs in series → smooth staircase waveform approximating AC sinusoid
+  → Very low harmonics without heavy filtering
+  (30-400 SMs per arm depending on voltage level)
+  Lower arm SMs in second stack
 
   Key MMC advantage: synthesizes very high quality AC waveform from DC
                      without need for large filters
@@ -448,27 +453,30 @@ Substations are where transformers, circuit breakers, and protective equipment c
 ```
 BULK TRANSMISSION SUBSTATION (simplified):
 
-    From 500 kV line ─────────────────────────────────── To 500 kV line
-                      │                           │
-                    ┌─┴─┐                       ┌─┴─┐
-                    │CB │ 500 kV circuit         │CB │  (SF₆ gas insulated)
-                    └─┬─┘ breaker               └─┬─┘
-                      │                           │
-               500 kV Bus ─────────────────────────
-                      │
-                    ┌─┴──────┐
-                    │500/230 │ Autotransformer
-                    │  kV    │ (e.g., 500 MVA)
-                    │AutoTX  │
-                    └─┬──────┘
-                      │
-               230 kV Bus ─────────────────────────
-                      │                           │
-                    ┌─┴─┐                       ┌─┴─┐
-                    │CB │                       │CB │
-                    └─┬─┘                       └─┬─┘
-                      │                           │
-               To 230 kV line               To distribution substation
+    From 500 kV line ──────────────────── To 500 kV line
+                      │                       │
+                    ┌─────┐                 ┌─────┐
+                    │ CB  │                 │ CB  │
+                    └──┬──┘                 └──┬──┘
+                       │                       │
+               500 kV Bus ─────────────────────┘
+                       │
+                    ┌─────────┐
+                    │ 500/230 │
+                    │   kV    │
+                    │ AutoTX  │
+                    └────┬────┘
+                         │
+               230 kV Bus ──────────────────────┐
+                       │                        │
+                    ┌─────┐                  ┌─────┐
+                    │ CB  │                  │ CB  │
+                    └──┬──┘                  └──┬──┘
+                       │                        │
+               To 230 kV line           To distribution substation
+
+  500 kV CB: 500 kV circuit breaker (SF₆ gas insulated)
+  AutoTX: Autotransformer (e.g., 500 MVA)
 
 KEY EQUIPMENT:
   SF₆ Circuit Breakers: Sulfur hexafluoride gas as arc-quenching medium

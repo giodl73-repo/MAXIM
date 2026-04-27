@@ -40,17 +40,22 @@ SOLAR CELL (simplified cross-section):
 Sunlight (photons)
 ↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓
 ┌───────────────────────────────────┐
-│  Anti-reflection coating          │ (silicon nitride, reduces reflection)
-│  Metal grid contact (top)         │ (collects electrons)
+│  Anti-reflection coating          │
+│  Metal grid contact (top)         │
 ├───────────────────────────────────┤
-│  n-type silicon layer             │ (phosphorus doped, electron-rich)
+│  n-type silicon layer             │
 │  (~0.5 μm)                        │
-├ ─ ─ ─ ─ p-n junction ─ ─ ─ ─ ─ ─┤
-│  p-type silicon layer             │ (boron doped, hole-rich)
-│  (~200 μm)                      │
+├──────── p-n junction ─────────────┤
+│  p-type silicon layer             │
+│  (~200 μm)                        │
 ├───────────────────────────────────┤
 │  Metal contact (back)             │
 └───────────────────────────────────┘
+
+  Anti-reflection coating: silicon nitride, reduces reflection
+  Metal grid contact (top): collects electrons
+  n-type silicon: phosphorus doped, electron-rich
+  p-type silicon: boron doped, hole-rich
           │
           ▼ DC current flows in external circuit
 
@@ -86,19 +91,16 @@ Current: proportional to cell area and irradiance
 UTILITY-SCALE ARRAY TOPOLOGY:
 
   String architecture (residential/commercial):
-  ┌────┐  ┌────┐  ┌────┐
-  │ M1 │──│ M2 │──│ M3 │── ... ──┐  String ~600V DC
-  └────┘  └────┘  └────┘         │
-                                  ├──▶ String Inverter ──▶ AC (120/240V or 208/480V)
-  ┌────┐  ┌────┐  ┌────┐         │    (4-10 kW typical)
-  │ M4 │──│ M5 │──│ M6 │── ... ──┘
-  └────┘  └────┘  └────┘
+    [M1] - [M2] - [M3] - ... -+   String ~600V DC
+                              |
+                              +--> String Inverter --> AC (120/240V or 208/480V)
+    [M4] - [M5] - [M6] - ... -+    (4-10 kW typical)
+
   Problem: one shaded/failed panel degrades entire string
 
   Microinverter (residential):
-  ┌────┐    ┌────┐    ┌────┐
-  │ M1 ├─∿─▶│ M2 ├─∿─▶│ M3 ├─∿─▶ Combined AC output
-  └────┘    └────┘    └────┘
+    [M1] -∿-> [M2] -∿-> [M3] -∿-> Combined AC output
+
   Each panel has own inverter underneath
   Independence: one panel's failure/shading doesn't affect others
   Higher cost, easier monitoring, better harvest in partial shade
@@ -213,17 +215,16 @@ THE CUBE LAW IS CRITICAL:
 
 WIND TURBINE POWER CURVE:
 
-Power
-(MW)
-  6 │                    ╭──────────────────────── (rated power — pitch control)
-    │                   ╭╯
-  4 │               ╭───╯
-    │           ╭───╯
-  2 │       ╭───╯   (cube relationship — output grows steeply with wind speed)
-    │   ╭───╯
-  0 │───╯
-    └──────────────────────────────────────────────────────────▶ wind speed (m/s)
-     0   3   6   9  12  15  18  21  24  27  (cut-out)
+Power (MW)
+
+  6                       _______________________  (rated power — pitch control)
+                       __/
+  4                __/
+                __/
+  2          __/  (cube relationship: output grows steeply with wind speed)
+          __/
+  0    __/
+       0   3   6   9  12  15  18  21  24  27  (cut-out)        wind speed (m/s)
 
   Cut-in speed:  ~3.5 m/s (below this: not enough torque to turn)
   Rated speed:  ~12-15 m/s (above this: pitch blades to limit power)
@@ -317,19 +318,16 @@ Offshore wind capacity factors 40-55% vs onshore 25-45% — higher and more cons
 OFFSHORE FOUNDATION OPTIONS (by water depth):
 
   0-30m: Monopile
-         ┌──────────┐
-         │  Turbine │
-     ┌───┴───┐
-     │       │ tower
-   ┌─┴─────┐
-   │Transition piece│
-   │                │
-   │=================│  sea surface
-   │                │
-   │ Steel pipe      │  ~2-8m diameter
-   │ driven/drilled  │
-   │ into seabed     │
-   └─────────────────┘
+
+         [  Turbine  ]
+         [   tower   ]
+         [Transition ]
+         [   piece   ]
+         ===============  sea surface
+         [Steel pipe ]    ~2-8m diameter
+         [driven into]
+         [  seabed   ]
+
    Cheapest; 70% of installed offshore
 
   30-60m: Jacket / Tripod

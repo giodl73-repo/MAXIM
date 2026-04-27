@@ -33,16 +33,22 @@ VOLTAGE LADDER:
 
 Every other large distributed system has caching and queues. The electrical grid has none at the wire level.
 
-```
-Traditional Distributed System:              The Electrical Grid:
+Traditional Distributed System:
 
-┌──────────┐    ┌─────────┐                 ┌──────────┐    ╔══════════════════╗
-│ Producer │───▶│  Queue  │───▶ Consumer    │Generator │───▶║ WIRE — no buffer ║───▶ Load
-└──────────┘    └─────────┘                 └──────────┘    ╚══════════════════╝
+```
+Producer ──▶ [ Queue (buffer) ] ──▶ Consumer
                     ↑
-           Buffer absorbs mismatches         Supply MUST equal demand at every instant.
-                                             Imbalance → frequency drifts
-                                             Uncorrected drift → cascading failure
+           Buffer absorbs mismatches
+```
+
+The Electrical Grid:
+
+```
+Generator ──▶ [ WIRE — no buffer ] ──▶ Load
+
+Supply MUST equal demand at every instant.
+Imbalance → frequency drifts
+Uncorrected drift → cascading failure
 ```
 
 **The governing constraint:** At 60.0 Hz (North America), every synchronous generator in the Eastern Interconnection rotates at exactly 3600 RPM (2-pole) or 1800 RPM (4-pole). All generators are electromagnetically coupled through the transmission network — they must all agree on this single value. This is mandatory distributed consensus without a protocol layer; it emerges from physics.
@@ -72,17 +78,17 @@ This real-time balance requirement is what makes the grid fundamentally differen
 │  ┌────────────────────────────▼───────────────────────────────────────────┐  │
 │  │                   WESTERN INTERCONNECTION                              │  │
 │  │   ~300 GW installed capacity                                           │  │
-│  │   11 western US states + 2 Canadian provinces + N. Baja Mexico        │   │
-│  │   ISOs/RTOs: CAISO, WECC-coordinated areas, BPA (Bonneville)          │   │
+│  │   11 western US states + 2 Canadian provinces + N. Baja Mexico         │  │
+│  │   ISOs/RTOs: CAISO, WECC-coordinated areas, BPA (Bonneville)           │  │
 │  └────────────────────────────┬───────────────────────────────────────────┘  │
 │                               │  DC ties only                                │
 │  ┌────────────────────────────▼───────────────────────────────────────────┐  │
 │  │                   ERCOT (Texas)                                        │  │
 │  │   ~90 GW installed capacity                                            │  │
-│  │   Most of Texas (not El Paso, Panhandle — those are in EI/WI)         │   │
+│  │   Most of Texas (not El Paso, Panhandle — those are in EI/WI)          │  │
 │  │   Single control area — unique in North America                        │  │
 │  │   Intentionally isolated: avoids federal FERC jurisdiction             │  │
-│  │   Consequence: minimal mutual aid during ERCOT-wide emergency         │   │
+│  │   Consequence: minimal mutual aid during ERCOT-wide emergency          │  │
 │  └────────────────────────────────────────────────────────────────────────┘  │
 │                                                                              │
 │  KEY: The interconnections are NOT synchronously connected to each other.    │
@@ -170,17 +176,16 @@ TYPICAL WEEKDAY LOAD CURVE (Eastern US, Summer weekday)
 
 Demand
 (GW)
- 550 │                         ╭──────────────────╮
-     │                    ╭───╯  Afternoon AC     ╰──╮
- 500 │             ╭──────╯      peak (~3pm)          ╰─╮
-     │      ╭─────╯  Morning                            ╰─╮
- 450 │  ╭───╯       ramp                                  ╰───╮
-     │╭─╯                                                      ╰─────╮
- 400 │╯  Overnight minimum                                           ╰─
-     │   (hydro + nuclear + some coal)
- 350 │
-     └────────────────────────────────────────────────────────────────▶
-      12am  3am  6am  9am  12pm  3pm  6pm  9pm  12am
+ 550                              ____________________
+                              ___/  Afternoon AC      \__
+ 500                  _______/      peak (~3pm)           \__
+                  ___/   Morning                              \__
+ 450        _____/        ramp                                    \___
+        ___/                                                          \_____
+ 400  _/    Overnight minimum                                                \_
+            (hydro + nuclear + some coal)
+ 350
+       12am  3am  6am  9am  12pm  3pm  6pm  9pm  12am
 
 DISPATCH STACK (how generators are called in order of marginal cost):
 

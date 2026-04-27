@@ -142,9 +142,11 @@ PLAN VIEW OF BADGIR:
 
   +---+---+
   |   |   |
-  | A | B |   A = facing prevailing wind
-  |   |   |   B = opposite
+  | A | B |
+  |   |   |
   +---+---+
+  A = facing prevailing wind
+  B = opposite
      |||
    (house below)
 
@@ -193,14 +195,19 @@ TROPICAL STILT HOUSE LOGIC
 ============================
 
 CROSS-SECTION:
-            +===========+
-            |  LIVING   |    ← Main floor (elevated 1–3m)
-            |  SPACE    |
-     ====+===========+====   ← Floor platform (raised)
-    /    |           |    \
-   / STILTS (timber or  \   ← Raised on posts
-  /   concrete piles)    \
- +---------------------------+  ← Ground (often floods)
+
+            ===========
+            ' LIVING  '
+            ' SPACE   '
+            ===========
+            ||       ||
+            ||stilts ||
+            ||       ||
+        =========================
+        Ground (often floods)
+
+  Main floor: elevated 1-3m on stilts.
+  Floor platform sits on stilts (timber or concrete piles).
 
 FUNCTIONS OF RAISING:
   1. FLOOD PROTECTION: seasonal flooding (monsoon, tidal, coastal)
@@ -288,17 +295,22 @@ SHOTGUN HOUSE PLAN
 
        STREET
          |
-  +------+------+
-  | front room  |  ← Often: parlor / commercial
-  +------+------+
-  | second room |  ← Bedroom 1
-  +------+------+
-  | third room  |  ← Bedroom 2
-  +------+------+
-  | back room   |  ← Kitchen
-  +------+------+
+  +-------------+
+  | front room  |
+  +-------------+
+  | second room |
+  +-------------+
+  | third room  |
+  +-------------+
+  | back room   |
+  +-------------+
          |
       YARD
+
+  Front room: often parlor or commercial.
+  Second room: bedroom 1.
+  Third room: bedroom 2.
+  Back room: kitchen.
 
 DIMENSIONS: typically 3.5–4.5m wide, 12–20m deep
 

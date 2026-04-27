@@ -15,12 +15,12 @@ knowing exactly where the losses hide, why each one is there, and which are nego
 ```
 PRIMARY ENERGY SOURCES                            EXERGY CONTENT
 ┌────────────────────────────────────────────────────────────────────────────┐
-│  CHEMICAL (fossil, biomass)   ΔG_rxn of combustion      ~100% of LHV     │
-│  NUCLEAR  (fission, fusion)   Q-value × (1 - T₀/T_rad)  ~70% of thermal │
-│  SOLAR    (photons, 5778 K)   Petela limit: 93%         ~93% of flux     │
+│  CHEMICAL (fossil, biomass)   ΔG_rxn of combustion      ~100% of LHV       │
+│  NUCLEAR  (fission, fusion)   Q-value × (1 - T₀/T_rad)  ~70% of thermal    │
+│  SOLAR    (photons, 5778 K)   Petela limit: 93%         ~93% of flux       │
 │  GRAVITATIONAL (hydro, tidal) mgh — already work         ~100%             │
-│  GEOTHERMAL   (T_reservoir)   1 - T₀/T_res              ~15-30%          │
-│  WIND     (kinetic, ½ρAv³)   Betz limit: 59.3%          ~59% of KE      │
+│  GEOTHERMAL   (T_reservoir)   1 - T₀/T_res              ~15-30%            │
+│  WIND     (kinetic, ½ρAv³)   Betz limit: 59.3%          ~59% of KE         │
 └────────────────────────────────────────────────────────────────────────────┘
         │
         │  ① Extraction / harvesting losses
@@ -32,22 +32,22 @@ PRIMARY ENERGY SOURCES                            EXERGY CONTENT
 │  CONVERSION — where the Carnot tax is collected                            │
 │                                                                            │
 │  Heat engines (coal, gas, nuclear)                                         │
-│    η_Carnot = 1 - T_cold/T_hot     ← the ceiling nobody escapes          │
-│    η_actual = η_Carnot × η_internal (friction, mixing, finite ΔT)        │
+│    η_Carnot = 1 - T_cold/T_hot     ← the ceiling nobody escapes            │
+│    η_actual = η_Carnot × η_internal (friction, mixing, finite ΔT)          │
 │                                                                            │
 │  Electrochemical (fuel cell, battery)                                      │
-│    η = ΔG/ΔH = 1 - TΔS/ΔH         ← Carnot does NOT apply              │
+│    η = ΔG/ΔH = 1 - TΔS/ΔH         ← Carnot does NOT apply                  │
 │    direct chemical→electrical; no thermal bottleneck                       │
 │                                                                            │
 │  Photovoltaic (solar PV)                                                   │
-│    η_SQ = 33.7% (single junction)  ← Shockley-Queisser limit            │
+│    η_SQ = 33.7% (single junction)  ← Shockley-Queisser limit               │
 │    thermalization + sub-bandgap = main exergy destruction                  │
 │                                                                            │
 │  Turbomachinery (wind, hydro)                                              │
 │    η_turbine = 85-95% of available KE/PE                                   │
-│    Betz limit (wind): 16/27 of kinetic energy flux                       │
-│  ─────────────────────────────────────────────────────────────────────── │
-│  EXERGY DESTROYED: 40-70% (thermal), 5-15% (direct conversion)          │
+│    Betz limit (wind): 16/27 of kinetic energy flux                         │
+│  ──────────────────────────────────────────────────────────────────────    │
+│  EXERGY DESTROYED: 40-70% (thermal), 5-15% (direct conversion)             │
 └────────────────────────────────────────────────────────────────────────────┘
         │
         │  ② Transmission / distribution
@@ -59,7 +59,7 @@ PRIMARY ENERGY SOURCES                            EXERGY CONTENT
 │  FINAL ENERGY — what arrives at the meter/nozzle                           │
 │  ~400 EJ/yr globally (~67% of primary)                                     │
 │                                                                            │
-│  Electricity  ~20%    Heat  ~50%    Transport fuel  ~28%    Other  ~2%   │
+│  Electricity  ~20%    Heat  ~50%    Transport fuel  ~28%    Other  ~2%     │
 └────────────────────────────────────────────────────────────────────────────┘
         │
         │  ③ End-use conversion
@@ -73,7 +73,7 @@ PRIMARY ENERGY SOURCES                            EXERGY CONTENT
 │  USEFUL ENERGY SERVICES — motion, warmth, light, computation               │
 │  ~200 EJ/yr globally (~35% of primary energy)                              │
 │                                                                            │
-│  THE REST IS WASTE HEAT → radiated to the 2.7 K cosmic background        │
+│  THE REST IS WASTE HEAT → radiated to the 2.7 K cosmic background          │
 │  Entropy has increased. The universe has aged. The Alchemist's tax is paid.│
 └────────────────────────────────────────────────────────────────────────────┘
 ```
@@ -363,7 +363,7 @@ separate infrastructure. Decarbonization forces them to merge.
     │  ←elec→H₂  │  │  District│  │  Green H₂    │
     │            │  │  heat    │  │  ←elec→H₂    │
     │  E-fuels   │  │  ←waste  │  │              │
-    │  ←elec→H₂  │  │   heat  │  │  E-fuels      │
+    │  ←elec→H₂  │  │   heat   │  │  E-fuels     │
     │   →synfuel │  │          │  │  ←elec→H₂→NH₃│
     └────────────┘  └──────────┘  └──────────────┘
 
@@ -392,30 +392,30 @@ TARGET (IEA NZE 2050): net zero
 THE REDUCTION WEDGES:
 ┌──────────────────────────────────────────────────────────────────────┐
 │  Electricity decarbonization         (~40% of the job)               │
-│    Solar + wind build-out: 2,400 GW/yr by 2030 (vs ~500 GW 2023)  │
+│    Solar + wind build-out: 2,400 GW/yr by 2030 (vs ~500 GW 2023)     │
 │    Nuclear fleet: maintain + extend + new SMRs                       │
-│    Coal phase-out: advanced economies by 2030, global by 2040      │
-│    CCS on remaining fossil: 5-10 GtCO₂/yr capture capacity         │
+│    Coal phase-out: advanced economies by 2030, global by 2040        │
+│    CCS on remaining fossil: 5-10 GtCO₂/yr capture capacity           │
 ├──────────────────────────────────────────────────────────────────────┤
-│  Transport electrification           (~20% of the job)              │
-│    Passenger EVs: 60% of sales by 2030, ~100% by 2040              │
-│    Trucking: BEV for short/medium; H₂ fuel cell for long-haul      │
-│    Aviation: SAF 50% by 2035; e-fuels for remainder                │
-│    Shipping: ammonia, methanol, LNG (bridge fuel)                  │
+│  Transport electrification           (~20% of the job)               │
+│    Passenger EVs: 60% of sales by 2030, ~100% by 2040                │
+│    Trucking: BEV for short/medium; H₂ fuel cell for long-haul        │
+│    Aviation: SAF 50% by 2035; e-fuels for remainder                  │
+│    Shipping: ammonia, methanol, LNG (bridge fuel)                    │
 ├──────────────────────────────────────────────────────────────────────┤
 │  Building heat electrification       (~15% of the job)               │
-│    Heat pumps replace gas/oil boilers (COP 3-4 = 300-400%)         │
+│    Heat pumps replace gas/oil boilers (COP 3-4 = 300-400%)           │
 │    District heating from waste heat / large heat pumps               │
 │    Building envelope: insulation, triple glazing                     │
 ├──────────────────────────────────────────────────────────────────────┤
-│  Industrial decarbonization          (~20% of the job)              │
-│    Steel: DRI with green H₂ replaces blast furnace coke            │
-│    Cement: CCS on process emissions (CaCO₃ → CaO + CO₂ = chemistry)│
-│    Chemicals: green H₂ for ammonia (Haber-Bosch); electrification  │
+│  Industrial decarbonization          (~20% of the job)               │
+│    Steel: DRI with green H₂ replaces blast furnace coke              │
+│    Cement: CCS on process emissions (CaCO₃→CaO+CO₂ chemistry)        │
+│    Chemicals: green H₂ for ammonia (Haber-Bosch); electrification    │
 │    Low-temp heat: industrial heat pumps (<200°C)                    │
 ├──────────────────────────────────────────────────────────────────────┤
 │  Negative emissions                  (~5% of the job, post-2040)     │
-│    DAC (direct air capture): 1-5 GtCO₂/yr by 2050                  │
+│    DAC (direct air capture): 1-5 GtCO₂/yr by 2050                    │
 │    BECCS (biomass energy + CCS)                                      │
 │    Afforestation / soil carbon                                       │
 │    Cost: $100-600/tCO₂ for DAC (declining)                           │
@@ -466,8 +466,8 @@ retrofit cost, cold-climate heat pump performance — is where the engineering h
 
 ```
 ┌──────────────────────────────────────────────────────────────────────┐
-│  1 EJ  = 10¹⁸ J = 277.8 TWh = 23.88 Mtoe = 0.948 quad             │
-│  1 TWh = 3.6 PJ = 0.0860 Mtoe = 3.41 TBtu                         │
+│  1 EJ  = 10¹⁸ J = 277.8 TWh = 23.88 Mtoe = 0.948 quad                │
+│  1 TWh = 3.6 PJ = 0.0860 Mtoe = 3.41 TBtu                            │
 │  1 Mtoe = 41.87 PJ = 11.63 TWh                                       │
 │  1 kWh = 3.6 MJ = 3,412 BTU                                          │
 │  1 quad = 1.055 EJ (used in US EIA reports)                          │

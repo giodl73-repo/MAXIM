@@ -438,10 +438,10 @@ THE TIT RACE — Efficiency vs Materials:
 
   ┌────────────────────────────────────────────────────┐
   │  Gas path: 1600°C                                  │
-  │  ▓▓▓▓▓▓▓▓▓▓▓ TBC (ceramic, yttria-stabilized ZrO₂)│
+  │  ▓▓▓▓▓▓▓ TBC (ceramic, yttria-stabilized ZrO₂)     │
   │  ─── Bond coat (MCrAlY)                            │
-  │  ████████████ Ni-base superalloy blade (single crystal) │
-  │  ○○○○○○○○○○○ Internal cooling passages (compressed air) │
+  │  █████████ Ni-base superalloy blade (single xtl)   │
+  │  ○○○○○○○○○ Internal cooling passages (comp. air)   │
   │  Metal temp: ~1000-1050°C                          │
   │  Blade temp limit: ~1100°C (creep life)            │
   └────────────────────────────────────────────────────┘
@@ -553,11 +553,10 @@ COMBINED CYCLE GAS TURBINE — SYSTEM DIAGRAM:
   │  GAS TURBINE (Brayton topping cycle)                │
   │                                                     │
   │  [Compressor] → [Combustor] → [Turbine] → Generator │
-  │                                    │                │
-  │  Exhaust gas: ~550-650°C           │                │
-  └────────────────────────────────────┼──────────────────┘
-                                       │
-                                       ▼
+  │  Exhaust gas: ~550-650°C                            │
+  └─────────────────────────┬───────────────────────────┘
+                            │
+                            ▼
   ┌─────────────────────────────────────────────────────┐
   │  HRSG (Heat Recovery Steam Generator)               │
   │                                                     │
@@ -571,17 +570,16 @@ COMBINED CYCLE GAS TURBINE — SYSTEM DIAGRAM:
   │  IP steam: ~565°C / 40 bar                          │
   │  LP steam: ~250°C / 5 bar                           │
   │                                                     │
-  │  Stack gas exit: ~80-100°C (nearly all heat captured)│
-  └────────────┬─────────────────────────────────────────┘
-               │  Steam at three pressures
-               ▼
+  │  Stack gas exit: ~80-100°C (nearly all heat captrd) │
+  └─────────────────────────┬───────────────────────────┘
+                            │  Steam at three pressures
+                            ▼
   ┌─────────────────────────────────────────────────────┐
   │  STEAM TURBINE (Rankine bottoming cycle)            │
   │                                                     │
   │  HP turbine → IP turbine → LP turbine → Condenser   │
-  │                                              │      │
-  │                                           Generator │
-  └──────────────────────────────────────────────────────┘
+  │                                       → Generator   │
+  └─────────────────────────────────────────────────────┘
 
   EFFICIENCY ARITHMETIC:
   Gas turbine (Brayton): η_GT ≈ 40%
@@ -835,25 +833,30 @@ ORC PRINCIPLE:
         │
         ▼
   ┌──────────────────┐
-  │  EVAPORATOR       │  Organic fluid boils at low temperature
-  │  (heat exchanger) │
+  │  EVAPORATOR      │
+  │ (heat exchanger) │
   └────────┬─────────┘
+  Organic fluid boils at low temperature
            │ Organic vapor
            ▼
   ┌──────────────────┐
-  │  TURBINE / EXPANDER │  Vapor expands → shaft work → generator
-  │  (single-stage)     │  (simpler than multi-stage steam turbine)
-  └────────┬────────────┘
+  │ TURBINE/EXPANDER │
+  │  (single-stage)  │
+  └────────┬─────────┘
+  Vapor expands → shaft work → generator
+  (simpler than multi-stage steam turbine)
            │ Low-pressure vapor
            ▼
   ┌──────────────────┐
-  │  CONDENSER        │  Vapor condenses at ~25-40°C
+  │  CONDENSER       │
   └────────┬─────────┘
+  Vapor condenses at ~25-40°C
            │ Liquid
            ▼
   ┌──────────────────┐
-  │  PUMP             │  Pressurize liquid back to evaporator
+  │  PUMP            │
   └──────────────────┘
+  Pressurize liquid back to evaporator
 
   KEY ORC PROPERTY — "DRY EXPANSION":
   Most organic fluids are "dry" — their saturation curve slopes right
@@ -917,7 +920,7 @@ ALLAM-FETVEDT CYCLE SCHEMATIC:
   ┌──────────────────────────────────────────────┐
   │  COMBUSTOR                                   │
   │  Oxy-combustion: CH₄ + 2O₂ → CO₂ + 2H₂O      │
-  │  Working fluid: supercritical CO₂ at ~300 bar │
+  │  Working fluid: supercritical CO₂ at ~300 bar│
   │  T_combustor: ~1150°C                        │
   └────────┬─────────────────────────────────────┘
            │  sCO₂ + H₂O at 1150°C, 300 bar

@@ -170,17 +170,24 @@ DOUBLE SHELL CROSS-SECTION
          ||
          \/
    +-----------+          ← OUTER SHELL (lighter, protective, visible)
-   |  /     \  |            Brick + sandstone, ~50–80cm thick
-   | / void  \ |            Supported by ribs that connect both shells
-   |/         \|          ← VOID SPACE (man can walk in it)
+   |  /     \  |
+   | / void  \ |
+   |/         \|
    +-----------+
-   |/    S    \|          ← INNER SHELL (structural, thicker ~1.2m)
-   |     T    |             Brick in herringbone pattern
-   |     R    |             Carries dome weight
-   +     U    +
-   |     C    |           ← DRUM (existing, 1.6m thick)
-   |     T    |
-   +-----+----+
+   |/    S    \|
+   |     T     |
+   |     R     |
+   +     U     +
+   |     C     |
+   |     T     |
+   +-----+-----+
+
+  Outer shell: brick + sandstone, ~50-80cm thick. Supported by ribs that
+   connect both shells.
+  Void space: man can walk in it.
+  Inner shell: structural, thicker ~1.2m. Brick in herringbone pattern.
+   Carries dome weight.
+  Drum: existing, 1.6m thick.
 
 EIGHT MAIN RIBS (marble, visible as white ribs on exterior):
   Run from drum to lantern, visible outside
@@ -255,23 +262,40 @@ classical elements but recomposing them in a purely classical spirit.
 TEMPIETTO COMPOSITION
 ======================
 
-PLAN:                          ELEVATION:
-                                  +-+
-                                  | | ← lantern
-    [CYLINDER CELLA]           +--+-+--+
-    [PERISTYLE]                | DRUM  |
-                               +--+ +--+
-                               |  | |  |  ← DOME
-                               |  |P|  |
-   Circular cella              |  |E|  |  ← Drum with
-   surrounded by               |  |R|  |    entablature
-   Doric peristyle             |  |I|  |
-   (16 columns)                |  |S|  |
-   Set in circular             |  |T|  |  ← PERISTYLE
-   courtyard                   |  |Y|  |    (Doric order)
-   (the courtyard was          |  |L|  |
-   never finished)             |  |E|  |
-                               +--+ +--+
+PLAN:
+
+  [CYLINDER CELLA]
+  [PERISTYLE]
+
+  Circular cella surrounded by Doric peristyle (16 columns).
+  Set in circular courtyard (the courtyard was never finished).
+
+ELEVATION (top → bottom):
+
+   .-.        lantern
+  /   \
+   | |        drum
+   ===
+  /   \
+ |     |      dome
+  \   /
+   ===
+  |   |       drum with entablature
+   ===
+  | P |
+  | E |
+  | R |
+  | I |       peristyle (Doric order)
+  | S |
+  | T |
+  | Y |
+  | L |
+  | E |
+  =====
+
+   Lantern at top.
+   Drum with entablature.
+   DOME above peristyle (Doric order).
 
    Diameter: only 4.5m
    Bramante intended it to sit in a circular courtyard,

@@ -382,7 +382,7 @@ Apply to the applications where alternatives are hardest.
   │    Every kg of green H₂ directly displaces grey                 │
   │                                                                 │
   │  Steel DRI (direct reduction):                                  │
-  │    H₂ replaces coking coal as reductant: Fe₂O₃ + 3H₂ → 2Fe + 3H₂O│
+  │    H₂ replaces coking coal: Fe₂O₃ + 3H₂ → 2Fe + 3H₂O            │
   │    ~7-8% of global CO₂ emissions from steel                     │
   │    HYBRIT (Sweden), H2 Green Steel — commercial scale 2025+     │
   │                                                                 │
@@ -412,7 +412,7 @@ Apply to the applications where alternatives are hardest.
   │    Infrastructure cost: H₂ station ~$2M vs EV charger ~$50K     │
   │                                                                 │
   │  Building heating (H₂ boiler):                                  │
-  │    Heat pump wins on energy efficiency (COP 3 vs 1 for H₂ boiler)│
+  │    Heat pump wins on efficiency (COP 3 vs 1 for H₂ boiler)      │
   │    Blending H₂ into gas grid: safety issues, >20% limited       │
   └─────────────────────────────────────────────────────────────────┘
 ```

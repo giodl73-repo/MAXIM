@@ -33,32 +33,38 @@ Modern plants fight hard to raise T_hot and lower T_cold to approach this limit.
 
 ```
          HIGH PRESSURE/TEMP STEAM
-              ↑
-    ┌─────────┴──────────┐
-    │   Steam Turbine    │──────────────────────────────▶ Generator
-    │  (expands steam,   │                                  (rotor shaft turns
-    │   extracts work)   │                                   at 3600 or 1800 RPM)
-    └─────────┬──────────┘
-              │ Low-pressure exhaust steam
-              ↓
-    ┌─────────┴──────────┐
-    │    Condenser       │ ← Cooling water (river, lake, cooling tower)
+              │
+              ▼
+    ┌────────────────────┐
+    │   Steam Turbine    │
+    │  (expands steam,   │
+    │   extracts work)   │
+    └──────────┬─────────┘
+               │  ──▶ Generator (rotor at 3600 or 1800 RPM)
+               │ Low-pressure exhaust steam
+               ▼
+    ┌────────────────────┐
+    │    Condenser       │
     │  (condenses steam  │
     │   to liquid water) │
-    └─────────┬──────────┘
-              │ Liquid water
-              ↓
-    ┌─────────┴──────────┐
-    │  Feedwater Pump    │ (small work input to raise pressure)
-    └─────────┬──────────┘
-              │ High-pressure liquid
-              ↓
-    ┌─────────┴──────────┐
-    │  Boiler/Steam      │ ← Heat input Q_in
-    │  Generator         │   (coal combustion, nuclear fission,
-    └─────────┬──────────┘    gas heat recovery, concentrated solar)
-              ↑
-              (cycle repeats)
+    └──────────┬─────────┘
+               │  ◀── Cooling water (river, lake, cooling tower)
+               │ Liquid water
+               ▼
+    ┌────────────────────┐
+    │  Feedwater Pump    │
+    │  (small work input │
+    │   to raise pres.)  │
+    └──────────┬─────────┘
+               │ High-pressure liquid
+               ▼
+    ┌────────────────────┐
+    │  Boiler/Steam      │
+    │  Generator         │
+    └──────────┬─────────┘
+               │  ◀── Heat input Q_in (coal, nuclear, gas, solar)
+               │
+               (cycle repeats — back to top)
 
 η_Rankine = W_net / Q_in = (W_turbine - W_pump) / Q_in
 ```
@@ -90,26 +96,34 @@ The dominant new natural gas technology since the 1990s. Combines Brayton cycle 
 
 ```
 CCGT CONFIGURATION:
-                                    ┌─────────────┐
-  Compressed air ──▶ Combustion ──▶ │ Gas Turbine │──▶ Generator 1
-                       chamber       │ (Brayton)   │    (≈35-40% of output)
-                    (natural gas)    └──────┬──────┘
-                                           │ Exhaust gas ~600°C
-                                           ↓
-                                    ┌─────────────┐
-                                    │    HRSG     │  Heat Recovery Steam Generator
-                                    │ (boiler in  │  extracts heat from exhaust
-                                    │  exhaust    │  to make steam
-                                    │  duct)      │
-                                    └──────┬──────┘
-                                           │ High-pressure steam
-                                           ↓
-                                    ┌─────────────┐
-                                    │   Steam     │──▶ Generator 2
-                                    │  Turbine    │    (≈20-25% of output)
-                                    │  (Rankine)  │
-                                    └──────┬──────┘
-                                           │ Condensed water → back to HRSG
+
+  Compressed air + natural gas ──▶ Combustion chamber
+                                          │
+                                          ▼
+                                  ┌─────────────┐
+                                  │ Gas Turbine │
+                                  │ (Brayton)   │
+                                  └──────┬──────┘
+                                         │  ──▶ Generator 1 (≈35-40% of output)
+                                         │ Exhaust gas ~600°C
+                                         ▼
+                                  ┌─────────────┐
+                                  │    HRSG     │
+                                  │ (boiler in  │
+                                  │  exhaust    │
+                                  │  duct)      │
+                                  └──────┬──────┘
+                                         │ High-pressure steam
+                                         ▼
+                                  ┌─────────────┐
+                                  │   Steam     │
+                                  │  Turbine    │
+                                  │  (Rankine)  │
+                                  └──────┬──────┘
+                                         │  ──▶ Generator 2 (≈20-25% of output)
+                                         │ Condensed water → back to HRSG
+
+  HRSG: Heat Recovery Steam Generator — extracts heat from exhaust to make steam
 
 Total efficiency ≈ 58–62%  (sum of both cycles, minus losses)
 Best-in-class (GE 9HA, Siemens SGT5-9000HL): 63-64% LHV efficiency
@@ -168,21 +182,40 @@ At $2/MMBtu gas: CCGT fuel cost drops to $12.6/MWh → pushes coal off merit ord
 ```
 PRIMARY LOOP (radioactive):                    SECONDARY LOOP (steam, non-radioactive):
 
-Reactor Pressure         Steam Generator        Turbine
-Vessel (RPV)             (heat exchanger)
-┌──────────┐             ┌────────────┐         ┌────────────┐
-│ UO₂ fuel │◀── control  │ Primary:   │         │  Steam     │
-│  rods     │    rods     │ 325°C/155  │◀steam   │  Turbine   │──▶ Generator
-│          │             │ bar water  │         │            │
-│ Fission: │──hot water  │           │         └─────┬──────┘
-│ U-235 +   │──────────▶  │ Secondary:│               │
-│ neutron → │             │ steam gen │         Condenser
-│ 2 fission │             │ (not in   │ water   └─────┬──────┘
-│ products  │◀── coolant  │ contact   │               │
-│ + 2-3    │    return   │ with      │         Feedwater pump
-│ neutrons │             │ primary)  │         └─────┬──────┘
-│ + heat    │             └────────────┘               │
-└──────────┘                                    back to steam generator
+Reactor Pressure Vessel (RPV):
+  ┌───────────────────────┐
+  │ UO₂ fuel rods         │
+  │ Fission: U-235 +      │
+  │   neutron →           │
+  │   2 fission products  │
+  │   + 2-3 neutrons      │
+  │   + heat              │
+  │ Hot water out / cold  │
+  │ coolant return        │
+  │ Control rods inserted │
+  └───────────┬───────────┘
+              │ hot primary water
+              ▼
+Steam Generator (heat exchanger):
+  ┌───────────────────────┐
+  │ Primary loop:         │
+  │   325°C / 155 bar     │
+  │   subcooled water     │
+  │ Secondary loop:       │
+  │   steam generated     │
+  │   (not in contact     │
+  │   with primary)       │
+  └───────────┬───────────┘
+              │ secondary steam
+              ▼
+Turbine + Generator:
+  ┌───────────────────────┐
+  │  Steam Turbine        │
+  │  → Condenser          │
+  │  → Feedwater pump     │
+  │  → back to steam gen  │
+  └───────────────────────┘
+  Steam Turbine ──▶ Generator
 
 Primary loop conditions: 325°C, 155 bar (subcooled — doesn't boil despite temperature
                          because high pressure keeps it liquid)

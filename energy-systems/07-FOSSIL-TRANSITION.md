@@ -414,7 +414,7 @@ backlash that slows or reverses transition (see German coal phase-out politics).
   │  Compare: clean energy (2023):                                 │
   │  Solar: ~270,000; Wind: ~130,000; EV: ~30,000 (growing)        │
   │  Net job trajectory: MORE total jobs in clean energy           │
-  │  Problem: jobs are in different places, require different skills │
+  │  Problem: jobs in different places, different skills required  │
   └────────────────────────────────────────────────────────────────┘
 
   CONCENTRATED COMMUNITIES:

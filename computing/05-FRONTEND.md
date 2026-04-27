@@ -5,29 +5,27 @@
 Frontend frameworks solve one problem: **keeping the UI in sync with data**. Without them, you write imperative DOM manipulation. With them, you declare what the UI *should look like* and the framework figures out how to get there.
 
 ```
-+------------------------------------------------------------------+
-|                    FRONTEND FRAMEWORK LANDSCAPE                  |
-|                                                                  |
-|  THE PROBLEM:  Data changes → UI must update                     |
-|  THE SOLUTION: Declare UI as a function of state                 |
-|                                                                  |
-|  +------------+  +------------+  +------------+  +----------+    |
-|  |   REACT    |  |    VUE     |  |  ANGULAR   |  |  SVELTE  |   |
-|  +------------+  +------------+  +------------+  +----------+   |
-|  | Virtual    |  | Reactive   |  | Zone.js    |  | Compile- |   |
-|  | DOM diffing|  | system     |  | change     |  | time     |   |
-|  | (runtime)  |  | (runtime)  |  | detection  |  | (no VDOM)|   |
-|  +------------+  +------------+  +------------+  +----------+   |
-|  | ~46% usage |  | ~18% usage |  | ~17% usage |  | ~6% usage|   |
-|  | Meta/Vercel|  | Evan You   |  | Google     |  | Rich     |   |
-|  |            |  |            |  |            |  | Harris   |   |
-|  +------------+  +------------+  +------------+  +----------+   |
-|                                                                 |
-|  ECOSYSTEM LAYER (built on top of frameworks)                   |
-|  React: Next.js, Remix, Gatsby, Expo (React Native)             |
-|  Vue:   Nuxt.js                                                 |
-|  Angular: Angular itself (full framework, no separate meta)     |
-+------------------------------------------------------------------+
+                  FRONTEND FRAMEWORK LANDSCAPE
+
+  THE PROBLEM:  Data changes → UI must update
+  THE SOLUTION: Declare UI as a function of state
+
+  +------------+  +------------+  +------------+  +----------+
+  |   REACT    |  |    VUE     |  |  ANGULAR   |  |  SVELTE  |
+  +------------+  +------------+  +------------+  +----------+
+  | Virtual    |  | Reactive   |  | Zone.js    |  | Compile- |
+  | DOM diffing|  | system     |  | change     |  | time     |
+  | (runtime)  |  | (runtime)  |  | detection  |  | (no VDOM)|
+  +------------+  +------------+  +------------+  +----------+
+  | ~46% usage |  | ~18% usage |  | ~17% usage |  | ~6% usage|
+  | Meta/Vercel|  | Evan You   |  | Google     |  | Rich     |
+  |            |  |            |  |            |  | Harris   |
+  +------------+  +------------+  +------------+  +----------+
+
+  ECOSYSTEM LAYER (built on top of frameworks):
+  React: Next.js, Remix, Gatsby, Expo (React Native)
+  Vue:   Nuxt.js
+  Angular: Angular itself (full framework, no separate meta)
 ```
 
 **Which one matters most**: React has ~46% market share and dominates hiring, libraries, and job descriptions in 2026. This guide covers all four but goes deepest on React. Angular is the most familiar to .NET developers — if you're evaluating enterprise choices, Angular is worth understanding in full.
@@ -252,22 +250,25 @@ The virtual DOM is the mechanism that makes `UI = f(state)` practical. Without i
          |
          v
   +------------------+
-  | Component fn     |  Re-runs to produce new JSX tree
+  | Component fn     |
   | re-executes      |
   +------------------+
+  Re-runs to produce new JSX tree
          |
          v
   +------------------+     +------------------+
-  | New Virtual DOM  | --> | Previous Virtual |
-  | (JS object tree) | diff| DOM (stored by   |
-  +------------------+     | React in memory) |
-                           +------------------+
+  | New Virtual DOM  |     | Previous Virtual |
+  | (JS object tree) |     | DOM (in memory)  |
+  +------------------+     +------------------+
+
+  Diff: new vs previous virtual DOM
          |
          v  (reconciliation)
   +------------------+
-  | Minimal DOM      |  Only changed nodes updated
-  | patch applied    |  (~10x cheaper than full re-render)
+  | Minimal DOM      |
+  | patch applied    |
   +------------------+
+  Only changed nodes updated (~10x cheaper than full re-render).
 
   Re-renders propagate DOWN the tree.
   A parent re-rendering always re-renders its children (unless memoized).
@@ -837,10 +838,10 @@ Different approach: the compiler eliminates the runtime. No virtual DOM, no reac
   | Meta-framework| Next.js  | Nuxt     | Built-in | SvelteKit|
   |               | Remix    |          | Router   |          |
   +---------------+----------+----------+----------+----------+
-  | Job market    | ★★★★★   | ★★★☆☆   | ★★★★☆   | ★★☆☆☆   |
+  | Job market    | ★★★★★    | ★★★☆☆    | ★★★★☆    | ★★☆☆☆    |
   +---------------+----------+----------+----------+----------+
   | Best for      | Anything | Medium   | Large    | Perf-    |
-  |               |          | apps,    | enterprise| sensitive|
+  |               |          | apps,    | enterprz | sensitive|
   |               |          | fast DX  | teams    | apps     |
   +---------------+----------+----------+----------+----------+
 ```
@@ -869,7 +870,7 @@ React is a *library*, not a framework. It handles components and rendering. Ever
   | UI components     | shadcn/ui, MUI, Radix, Chakra            |
   | Animation         | Framer Motion                            |
   | Testing           | React Testing Library + Vitest/Jest      |
-  | Styling           | Tailwind CSS, CSS Modules, styled-components |
+  | Styling           | Tailwind CSS, CSS Modules, styled-comps  |
   +-------------------+------------------------------------------+
 
   This is both the strength (composable, flexible) and the weakness

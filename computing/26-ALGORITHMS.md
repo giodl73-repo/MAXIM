@@ -9,7 +9,7 @@ You have MIT 6.006 and 6.046 under your belt. This is not a tutorial — it is a
 │  ALGORITHMIC COMPLEXITY LANDSCAPE                                           │
 │                                                                             │
 │  Provably Efficient                    Practically Efficient                │
-│  ───────────────────────────────           ─────────────────────────────────────         │
+│  ───────────────────────────────       ───────────────────────────────────  │
 │  Sorting:      O(n log n) optimal      TimSort, Introsort (real constants)  │
 │  Shortest path: O(E log V)             Dijkstra with binary heap            │
 │  MST:          O(E log V) or E α(n)    Kruskal + union-find                 │

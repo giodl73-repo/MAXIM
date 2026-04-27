@@ -13,26 +13,23 @@ here is friction, turbulence, and the ecological cost of interrupting a river.*
 ```
 HYDROPOWER LANDSCAPE
 
-                          DISPATCHABLE?    CF       SCALE        ROLE IN GRID
-  ┌──────────────────────────────────────────────────────────────────────────────┐
-  │  RESERVOIR HYDRO        Yes (hours-     30-60%   100 MW-     Baseload + peak
-  │  (dam + storage)        months of        (avg    22 GW       + ancillary
-  │                         stored energy)   45%)    (Three      services
-  │                                                  Gorges)
-  ├──────────────────────────────────────────────────────────────────────────────┤
-  │  RUN-OF-RIVER (ROR)     No (follows     25-50%   1-500 MW   Baseload only
-  │  (weir/diversion,       river flow)                          (limited storage)
-  │  no large reservoir)
-  ├──────────────────────────────────────────────────────────────────────────────┤
-  │  PUMPED HYDRO (PHS)     Yes (daily      N/A      100 MW-    Storage + grid
-  │  (upper + lower         cycle; charges   (net     3.6 GW     balancing
-  │  reservoir)             off-peak)       consumer) (Bath      (see 03-ENERGY
-  │                                                   County)    -STORAGE)
-  ├──────────────────────────────────────────────────────────────────────────────┤
-  │  MICRO / SMALL HYDRO    Partly          30-60%   <1-10 MW   Rural/remote
-  │  (<10 MW)               (limited        (site-              electrification
-  │                         storage)         dependent)
-  └──────────────────────────────────────────────────────────────────────────────┘
+  TYPE                  DISPATCHABLE?    CF       SCALE         ROLE IN GRID
+  ─────────────────     ─────────────    ──────   ───────────   ─────────────────
+  RESERVOIR HYDRO       Yes (hours-      30-60%   100 MW-       Baseload + peak +
+  (dam + storage)       months stored)   (~45%)   22 GW (Three  ancillary services
+                                                  Gorges)
+
+  RUN-OF-RIVER (ROR)    No (follows      25-50%   1-500 MW      Baseload only
+  (weir/diversion,      river flow)                              (limited storage)
+   no large reservoir)
+
+  PUMPED HYDRO (PHS)    Yes (daily       N/A      100 MW-       Storage + grid
+  (upper + lower        cycle; charges   (net      3.6 GW (Bath  balancing
+   reservoir)           off-peak)        consumer) County)       (see 03-ENERGY-STORAGE)
+
+  MICRO / SMALL HYDRO   Partly           30-60%   <1-10 MW      Rural/remote
+  (<10 MW)              (limited         (site-                  electrification
+                         storage)         dependent)
 
 GLOBAL HYDRO CAPACITY AND GENERATION (2024):
   Installed capacity:   ~1,400 GW (conventional) + ~170 GW (pumped storage)
@@ -159,43 +156,34 @@ PELTON TURBINE:
 ```
 FRANCIS TURBINE:
 
-  ┌───────────────────────────────────────────────────────┐
-  │                                                       │
-  │  PENSTOCK                                             │
-  │       │                                               │
-  │       ▼                                               │
-  │  ┌───────────────────────────────────┐                │
-  │  │  SPIRAL CASING (scroll)            │               │
-  │  │  Distributes flow evenly around    │               │
-  │  │  the runner circumference          │               │
-  │  │          ╭───────────╮             │               │
-  │  │    ──►  ╱ Guide vanes ╲   ──►     │                │
-  │  │        │   (wicket     │          │                │
-  │  │    ──►   │    gates)    │   ──►    │               │
-  │  │         ╲  adjustable ╱           │                │
-  │  │          ╰─────┬─────╯            │                │
-  │  └────────────────┼──────────────────┘               │
-  │                   ▼                                   │
-  │  ┌────────────────────────────────────┐              │
-  │  │  RUNNER                            │              │
-  │  │  Mixed-flow: water enters radially, │             │
-  │  │  exits axially                     │              │
-  │  │  REACTION turbine: pressure drops  │              │
-  │  │  across BOTH guide vanes AND runner │             │
-  │  │  Runner is SUBMERGED (not in air)  │              │
-  │  └────────────┬───────────────────────┘              │
-  │               │                                       │
-  │               ▼                                       │
-  │  ┌────────────────────────────────────┐              │
-  │  │  DRAFT TUBE                        │              │
-  │  │  Diffuser: recovers kinetic energy │              │
-  │  │  from runner exit, converts back   │              │
-  │  │  to pressure → increases effective │              │
-  │  │  head (enables setting runner above │             │
-  │  │  tailwater without losing head)    │              │
-  │  └────────────────────────────────────┘              │
-  │                                                       │
-  └───────────────────────────────────────────────────────┘
+  PENSTOCK
+       │
+       ▼
+  ┌────────────────────────────────────┐
+  │  SPIRAL CASING (scroll)            │
+  │  Distributes flow evenly around    │
+  │  the runner circumference          │
+  │  Guide vanes (wicket gates)        │
+  │  adjustable for flow control       │
+  └─────────────────┬──────────────────┘
+                    ▼
+  ┌────────────────────────────────────┐
+  │  RUNNER                            │
+  │  Mixed-flow: water enters radially,│
+  │  exits axially                     │
+  │  REACTION turbine: pressure drops  │
+  │  across BOTH guide vanes AND runner│
+  │  Runner is SUBMERGED (not in air)  │
+  └─────────────────┬──────────────────┘
+                    ▼
+  ┌────────────────────────────────────┐
+  │  DRAFT TUBE                        │
+  │  Diffuser: recovers kinetic energy │
+  │  from runner exit, converts back   │
+  │  to pressure → increases effective │
+  │  head (enables setting runner abv  │
+  │  tailwater without losing head)    │
+  └────────────────────────────────────┘
 
   OPERATING RANGE:
   Head:        30-700 m (most versatile range)
@@ -230,29 +218,21 @@ FRANCIS TURBINE:
 ```
 KAPLAN TURBINE:
 
-  ┌───────────────────────────────────────────────────────┐
-  │                                                       │
-  │  Flow enters scroll casing → guide vanes → runner     │
-  │                                                       │
-  │  ┌────────────────────────────────────────┐           │
-  │  │  RUNNER: axial flow (propeller-type)    │          │
-  │  │                                         │          │
-  │  │    ───►  ┌──────────┐  ───►            │          │
-  │  │          │ Adjustable│                  │         │
-  │  │    ───►  │  blades  │  ───►            │          │
-  │  │          │ (4-8 per │                  │          │
-  │  │    ───►  │  runner) │  ───►            │          │
-  │  │          └──────────┘                   │         │
-  │  │                                         │          │
-  │  │  DOUBLE REGULATION:                     │          │
-  │  │  Both guide vanes AND runner blades     │          │
-  │  │  adjust → optimal efficiency across     │          │
-  │  │  wide flow range                        │          │
-  │  └─────────────────────────┬──────────────┘          │
-  │                            ▼                          │
-  │                   DRAFT TUBE (diffuser)               │
-  │                                                       │
-  └───────────────────────────────────────────────────────┘
+  Flow enters scroll casing → guide vanes → runner
+
+  RUNNER: axial flow (propeller-type)
+
+    ───►  [ Adjustable blades ]  ───►
+    ───►  [ (4-8 per runner)  ]  ───►
+    ───►                           ───►
+
+  DOUBLE REGULATION:
+  Both guide vanes AND runner blades
+  adjust → optimal efficiency across
+  wide flow range
+                  │
+                  ▼
+          DRAFT TUBE (diffuser)
 
   OPERATING RANGE:
   Head:        2-80 m (low head rivers, tidal)
@@ -337,26 +317,11 @@ TURBINE TYPE SELECTION — HEAD vs FLOW:
 ```
 EFFICIENCY vs LOAD — ALL THREE TURBINE TYPES:
 
-  η (%)
-  │
-  95│                    ╭─────╮ Francis (peak)
-  │                   ╱       ╲
-  93│    ╭────────────╱         ╲── Francis
-  │    │           ╱             ╲
-  91│    │ Pelton ─╱               ╲
-  │    │  (flat efficiency          ╲
-  89│    │   across load range)      ╲ Francis drops at part-load
-  │    │                              ╲
-  87│  ──╯                             ╲
-  │       ╭──────────────────────────╮ ╲
-  85│      │  Kaplan (double-regulated)│  ╲
-  │       │  stays high across range  │   ╲
-  83│       ╰──────────────────────────╯
-  │
-  80│
-  │
-  └────┼─────┼──────┼──────┼──────┼──────── % of design flow
-       20    40     60     80    100
+  η (%) by % of design flow:
+  Flow:    20    40    60    80   100
+  Pelton:  91    91    91    90    89    (flat across load range)
+  Francis: 87    91    94    95    93    (peak ~95%, falls at part load)
+  Kaplan:  85    87    89    90    90    (stays high across range)
 
   KEY OBSERVATIONS:
   Pelton:  Flattest efficiency curve (multi-jet operation)
@@ -394,13 +359,13 @@ RESERVOIR HYDROPOWER — SYSTEM DIAGRAM:
   │           │  INTAKE (with trash rack + gate)                │
   │           ▼                                                 │
   │  ┌─────────────────┐                                       │
-  │  │    PENSTOCK      │  Pressure conduit: steel-lined tunnel │
-  │  │  (water tunnel) │  or surface pipe. Length: 100m-10km+  │
+  │  │   PENSTOCK      │  Pressure conduit: steel-lined tunnel │
+  │  │ (water tunnel)  │  or surface pipe. Length: 100m-10km+  │
   │  └────────┬────────┘                                       │
   │           ▼                                                 │
   │  ┌─────────────────────────────────────┐                   │
   │  │  POWERHOUSE                         │                   │
-  │  │  Turbines + generators + transformers│                  │
+  │  │  Turbines + generators + xfmrs      │                   │
   │  │  Surface, underground, or cavern    │                   │
   │  └────────┬────────────────────────────┘                   │
   │           ▼                                                 │
@@ -604,7 +569,7 @@ PUMPED HYDRO IN THE VRE GRID:
   │                (consuming 1,200-1,500 MWh)               │
   │                                                          │
   │  Evening (5pm-9pm):   Solar gone, demand peak            │
-  │    TURBINE MODE: release water, generate 1,000-1,200 MWh│
+  │    TURBINE MODE: release water, generate 1,000-1,200 MWh │
   │                  (round-trip efficiency: 78-85%)         │
   │                                                          │
   │  Revenue = (peak price × generation) - (off-peak × pump) │

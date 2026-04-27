@@ -10,17 +10,17 @@ ELECTRICITY MARKET STRUCTURE (US):
 
 ┌────────────────────────────────────────────────────────────────────────────┐
 │                    WHOLESALE ELECTRICITY MARKETS                           │
-├──────────────────────────────────────────────────────────────────────────── │
+├────────────────────────────────────────────────────────────────────────────┤
 │  ISO/RTO Competitive Markets          Non-ISO Regulated Utility Areas      │
 │  (PJM, MISO, CAISO, ERCOT, etc.)      (Southeast, Pacific NW)              │
 │                                                                            │
 │  ┌───────────────────────────────┐    ┌──────────────────────────────────┐ │
 │  │  ENERGY MARKETS               │    │  TRADITIONAL VERTICALLY          │ │
-│  │  • Day-ahead (DA) market       │    │  INTEGRATED UTILITY              │ │
-│  │  • Real-time (RT) market       │    │  • Owns generation + T + D       │ │
-│  │  • Price mechanism: LMP        │    │  • Rate-of-return regulation     │ │
-│  │    (nodal pricing)             │    │  • State PUC sets retail rates   │ │
-│  │                                │    │  • No competitive energy market  │ │
+│  │  • Day-ahead (DA) market      │    │  INTEGRATED UTILITY              │ │
+│  │  • Real-time (RT) market      │    │  • Owns generation + T + D       │ │
+│  │  • Price mechanism: LMP       │    │  • Rate-of-return regulation     │ │
+│  │    (nodal pricing)            │    │  • State PUC sets retail rates   │ │
+│  │                               │    │  • No competitive energy market  │ │
 │  ├───────────────────────────────┤    └──────────────────────────────────┘ │
 │  │  CAPACITY MARKETS             │                                         │
 │  │  • Forward capacity auctions  │    Examples: Duke Energy Carolinas,     │
@@ -28,9 +28,9 @@ ELECTRICITY MARKET STRUCTURE (US):
 │  │    3 years forward            │    Pacific Gas & Electric (hybrid)      │
 │  ├───────────────────────────────┤                                         │
 │  │  ANCILLARY SERVICES MARKETS   │                                         │
-│  │  • Regulation (frequency)      │                                         │
-│  │  • Spinning reserve            │                                         │
-│  │  • Voltage support             │                                         │
+│  │  • Regulation (frequency)     │                                         │
+│  │  • Spinning reserve           │                                         │
+│  │  • Voltage support            │                                         │
 │  └───────────────────────────────┘                                         │
 └────────────────────────────────────────────────────────────────────────────┘
 ```
@@ -413,13 +413,24 @@ Not an ISO market product — PPAs are bilateral contracts between generator and
 ```
 PHYSICAL PPA STRUCTURE:
 
-  Generator (wind farm)         PPA Contract              Offtaker (utility)
-  ┌────────────────────┐        $/MWh, 15-25 years        ┌───────────────┐
-  │ Nameplate: 200 MW  │  ←──── Fixed price: $35/MWh ───── │ Utility LSE  │
-  │ CF: ~35%           │  ←──── Delivery point: grid ────── │ (or corporate)│
-  │ Annual output:     │        All energy physically       └───────────────┘
-  │  ~613 GWh/yr       │        delivered                   Physically buys
-  └────────────────────┘                                    and uses the energy
+  Generator (wind farm)
+  ┌────────────────────┐
+  │ Nameplate: 200 MW  │
+  │ CF: ~35%           │
+  │ Annual output:     │
+  │  ~613 GWh/yr       │
+  └────────────────────┘
+           ↕  PPA Contract: $/MWh, 15-25 years
+           ↕  Fixed price: $35/MWh
+           ↕  Delivery point: grid
+           ↕  All energy physically delivered
+
+  Offtaker (utility)
+  ┌────────────────┐
+  │ Utility LSE    │
+  │ (or corporate) │
+  └────────────────┘
+  Physically buys and uses the energy
 
 TERMS:
   Duration: 10-25 years (long-term certainty enables project finance)
@@ -440,12 +451,22 @@ Corporate renewable procurement (Amazon, Google, Microsoft, Meta) often uses VPP
 ```
 VPPA STRUCTURE:
 
-  Wind farm in Texas (ERCOT)        Financial settlement      Microsoft data center
-  ┌────────────────────────┐        Contract for Differences  ┌─────────────────┐
-  │ Generate electricity   │  ←──── Strike price: $30/MWh ─── │  Buys local     │
-  │ Sell into ERCOT spot   │        Duration: 20 years        │  grid power at  │
-  │ market at market price │                                  │  market rate    │
-  └────────────────────────┘                                   └─────────────────┘
+  Wind farm in Texas (ERCOT)
+  ┌────────────────────────┐
+  │ Generate electricity   │
+  │ Sell into ERCOT spot   │
+  │ market at market price │
+  └────────────────────────┘
+           ↕  Financial settlement (Contract for Differences)
+           ↕  Strike price: $30/MWh
+           ↕  Duration: 20 years
+
+  Microsoft data center
+  ┌─────────────────┐
+  │  Buys local     │
+  │  grid power at  │
+  │  market rate    │
+  └─────────────────┘
            │                                                           │
            │ Settle difference with Microsoft:                        │
            │ If ERCOT spot = $25 (below strike):                     │
