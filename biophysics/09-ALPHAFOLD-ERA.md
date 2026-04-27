@@ -221,7 +221,7 @@ Released 2021 (v1), expanded 2022 (v4):
   │  Molecular replacement in X-ray│ Use AF2 models as MR search models│
   │  Machine learning             │  Training data for downstream tasks│
   │  Function annotation          │  Map sequence → structure → function│
-  │  Orphan drug targets          │  Get structure for "undruggable" targets│
+  │  Orphan drug targets          │  Structure for "undruggable" targets│
   └────────────────────────────────────────────────────────────────────┘
 ```
 
@@ -281,7 +281,7 @@ Many proteins function through multiple conformations:
   │                               │  of folding change + function    │
   │  Drug efficacy                │  ΔG_binding → ΔΔG_binding (FEP)  │
   │                               │  → in vitro potency → ADMET      │
-  │                               │  → clinical efficacy: very long chain│
+  │                               │  → clinical efficacy: long chain │
   └──────────────────────────────────────────────────────────────────┘
 ```
 

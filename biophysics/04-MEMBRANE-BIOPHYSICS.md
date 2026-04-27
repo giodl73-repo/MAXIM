@@ -350,12 +350,12 @@ Biological curvature generation:
   │                         │  (banana-shaped)    │  tubulation     │
   │  Amphipathic helix ins. │  ENTH, ANTH, ALPS   │  Sensing and    │
   │                         │  N-BAR H0 helix     │  generating curv. │
-  │  Lipid asymmetry        │  Flippases (ATP dep.)│  PS inner leaflet │
-  │                         │  Scramblases        │  apoptosis signal │
-  │  Dynamin GTPase         │  Helical polymer     │  Vesicle scission │
-  │                         │  around neck        │  (endocytosis)  │
-  │  Clathrin coat          │  Triskelion lattice  │  Clathrin-coated  │
-  │                         │  geometry           │  pits           │
+  │  Lipid asymmetry        │  Flippases (ATP)    │  PS inner leaflet│
+  │                         │  Scramblases        │  apoptosis signal│
+  │  Dynamin GTPase         │  Helical polymer    │  Vesicle scission│
+  │                         │  around neck        │  (endocytosis)   │
+  │  Clathrin coat          │  Triskelion lattice │  Clathrin-coated │
+  │                         │  geometry           │  pits            │
   └─────────────────────────────────────────────────────────────────┘
 ```
 

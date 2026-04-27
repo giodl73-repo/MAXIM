@@ -12,8 +12,8 @@
 │  THE FOLDING PROBLEM (three distinct questions):                         │
 │  ─────────────────────────────────────────────                           │
 │  1. Prediction: Given sequence, what is the 3D structure?  ← AlphaFold2  │
-│  2. Mechanism: How does folding happen in time?             ← energy funnels│
-│  3. Design: Given desired function, what sequence folds to it? ← RFdiffusion│
+│  2. Mechanism: How does folding happen in time?     ← energy funnels     │
+│  3. Design: Given function, what sequence folds to it?  ← RFdiffusion    │
 │                                                                          │
 │  LEVINTHAL'S PARADOX                                                     │
 │  ──────────────────                                                      │
@@ -93,13 +93,13 @@ The conformational free energy G(q) is a function of collective coordinates q
   G(Q) landscape for a two-state folder:
 
       G
-      │
-      │  ┌─────┐
-      │  │     │         ← unfolded basin: high entropy, high energy
-      │  │     │   ┌──┐
-      │  │     └───┘  │  ← transition state: narrow bottleneck
-      │  │             │
-      │  │             └────  ← folded basin: low entropy, low energy
+      |
+      |   ___
+      |  /   \         (unfolded basin: high entropy, high energy)
+      |  |   |   ___
+      |  |   |__/   \  (transition state: narrow bottleneck)
+      |  |           |
+      |  |           \___    (folded basin: low entropy, low energy)
       │
       └────────────────── Q (native contacts, 0 to 1)
 
