@@ -508,10 +508,10 @@ The CNN convolution layer is exactly 2D DSP convolution with learned kernels —
     - Each level ½ the resolution
 
   ┌────────────────────────────────────┐
-  │  ████████████████  ← level 0 (full res)
-  │      ████████      ← level 1 (½ res)
-  │        ████        ← level 2 (¼ res)
-  │         ██         ← level 3 (⅛ res)
+  │  ████████████████   level 0 (full) │
+  │      ████████       level 1 (1/2)  │
+  │        ████         level 2 (1/4)  │
+  │         ██          level 3 (1/8)  │
   └────────────────────────────────────┘
 
   Used in: image blending, optical flow, feature detection at multiple scales.
@@ -538,15 +538,21 @@ The CNN convolution layer is exactly 2D DSP convolution with learned kernels —
     HL: high-low (vertical edges, horizontal oscillation)
     HH: high-high (diagonal features, noise)
 
-  ┌──────┬──────┐   After one 2D DWT:
+  ┌──────┬──────┐
   │      │      │
-  │  LL  │  LH  │   LL = coarse, blurry
-  │      │      │   LH = horizontal detail
-  ├──────┼──────┤   HL = vertical detail
-  │      │      │   HH = diagonal detail
+  │  LL  │  LH  │
+  │      │      │
+  ├──────┼──────┤
+  │      │      │
   │  HL  │  HH  │
   │      │      │
   └──────┴──────┘
+
+  After one 2D DWT:
+    LL = coarse, blurry
+    LH = horizontal detail
+    HL = vertical detail
+    HH = diagonal detail
 
   Apply recursively to LL subband → full multi-resolution decomposition.
 ```

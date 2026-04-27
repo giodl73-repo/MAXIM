@@ -57,12 +57,14 @@ AMPLIFIER LANDSCAPE
   For AC analysis: replace BJT with linear equivalent at operating point.
 
            B        C
-           │        │
-           ├──r_π───┤
-           │        ├── g_m·v_π (current source)
-           │        │
-           └────────┴── r_o
-                    │
+           o        o
+           |        |
+           [r_pi]   [g_m * v_pi]   (current source)
+           |        |
+           |        [r_o]          (output resistance)
+           |        |
+           o========o
+                    |
                     E
 
   r_π = β/g_m = V_T·β/I_C   (input resistance)
@@ -106,13 +108,13 @@ AMPLIFIER LANDSCAPE
 
 ```
          G          D
-         │          │
-         ├──────────┤
-         │     g_m·v_gs (current source)
-         │          │
-         │          r_o
-         │          │
-         └──────────┴
+         o          o
+         |          |
+         |     [g_m * v_gs]  (current source)
+         |          |
+         |          [r_o]
+         |          |
+         o==========o
                     S
 
   g_m = dI_D/dV_GS = μnCox(W/L)(V_GS-V_th) = √(2μnCox(W/L)I_D)
@@ -378,7 +380,7 @@ Every amplifier adds noise to the signal, setting a fundamental limit on recover
   │  NF = 0 dB → noiseless amplifier (impossible; ≥ 0.5 dB for best LNAs)      │
   │                                                                            │
   │  Friis cascade formula (N stages):                                         │
-  │    NF_total = NF₁ + (NF₂-1)/G₁ + (NF₃-1)/(G₁G₂) + ...                 │
+  │    NF_total = NF₁ + (NF₂-1)/G₁ + (NF₃-1)/(G₁G₂) + ...                     │
   │    → First stage dominates! Low-noise amplifier (LNA) must be first.       │
   │                                                                            │
   │  Information-theoretic connection:                                         │

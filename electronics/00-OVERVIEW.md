@@ -324,10 +324,10 @@ Above ~300 MHz, circuit dimensions approach the signal wavelength and the lumped
   │  Smith chart: graphical tool mapping complex S₁₁ to impedance plane.   │
   │                                                                         │
   │  Modern wireless relevance:                                             │
-  │  WiFi 6E (6 GHz):   antenna S₁₁ < -10 dB over 5.925–7.125 GHz band   │
+  │  WiFi 6E (6 GHz):   antenna S₁₁ < -10 dB over 5.925–7.125 GHz band      │
   │  5G FR2 (mmWave):   phased array with per-element S-param calibration  │
   │  Bluetooth (2.4 GHz): matching network designed via Smith chart         │
-  │  PCIe 5.0 (32 GT/s): S₂₁ insertion loss budget < 30 dB at 16 GHz     │
+  │  PCIe 5.0 (32 GT/s): S₂₁ insertion loss budget < 30 dB at 16 GHz        │
   └─────────────────────────────────────────────────────────────────────────┘
 ```
 
