@@ -82,7 +82,7 @@ Memorize these. Everything else is derived from them.
 ```
   ┌─────────────────────────────────────────────────────────────────────────┐
   │                                                                         │
-  │  eˣ   = 1 + x + x²/2! + x³/3! + x⁴/4! + ...    all x               │
+  │  eˣ   = 1 + x + x²/2! + x³/3! + x⁴/4! + ...    all x                    │
   │                                                                         │
   │  sin x = x − x³/3! + x⁵/5! − x⁷/7! + ...        all x                   │
   │                                                                         │
@@ -92,7 +92,7 @@ Memorize these. Everything else is derived from them.
   │                                                                         │
   │  1/(1−x) = 1 + x + x² + x³ + ...                 |x| < 1  (geometric)   │
   │                                                                         │
-  │  (1+x)ᵅ = 1 + αx + α(α−1)x²/2! + α(α−1)(α−2)x³/3! + ...  |x| < 1  │
+  │  (1+x)ᵅ = 1 + αx + α(α−1)x²/2! + α(α−1)(α−2)x³/3! + ...  |x| < 1        │
   │           (binomial series — α need not be integer)                     │
   │                                                                         │
   │  arctan x = x − x³/3 + x⁵/5 − x⁷/7 + ...        |x| ≤ 1                 │

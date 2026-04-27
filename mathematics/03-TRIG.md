@@ -4,18 +4,39 @@
 THE LANDSCAPE
 ═══════════════════════════════════════════════════════════════════════════════
 
-  GEOMETRIC DEFINITION          UNIT CIRCLE                COMPLEX PLANE
-  ┌──────────────────┐          ┌──────────────────┐        ┌──────────────────┐
-  │   hyp            │          │      (0,1)        │        │  e^(iθ) = cos+i·sin│
-  │   ╱|             │          │        │         │        │                  │
-  │  ╱ |opp          │          │  (-1,0)┼──(1,0)  │        │  eiπ + 1 = 0     │
-  │ ╱θ |             │          │        │          │        │  (Euler's formula│
-  │╱___|             │          │      (0,-1)      │        │  = everything)   │
-  │    adj           │          └──────────────────┘        └──────────────────┘
+  GEOMETRIC DEFINITION:
+  ┌──────────────────┐
+  │   hyp            │
+  │   ╱|             │
+  │  ╱ |opp          │
+  │ ╱θ |             │
+  │╱___|             │
+  │    adj           │
   └──────────────────┘
-  sin θ = opp/hyp              P = (cos θ, sin θ)          z = r·e^(iθ)
-  cos θ = adj/hyp              for any angle θ
-  tan θ = opp/adj = sin/cos    UNIT CIRCLE IS THE MASTER DEFINITION
+    sin θ = opp/hyp
+    cos θ = adj/hyp
+    tan θ = opp/adj = sin/cos
+
+  UNIT CIRCLE:
+  ┌──────────────────┐
+  │      (0,1)       │
+  │        │         │
+  │  (-1,0)┼──(1,0)  │
+  │        │         │
+  │      (0,-1)      │
+  └──────────────────┘
+    P = (cos θ, sin θ) for any angle θ.
+    UNIT CIRCLE IS THE MASTER DEFINITION.
+
+  COMPLEX PLANE:
+  ┌──────────────────────┐
+  │ e^(iθ) = cos + i·sin │
+  │                      │
+  │ e^(iπ) + 1 = 0       │
+  │ (Euler's formula =   │
+  │  everything)         │
+  └──────────────────────┘
+    z = r·e^(iθ)
 
   WHY THIS MATTERS FOR YOU:
   Fourier transform, Laplace, phasors, EM waves, quantum states —
@@ -50,8 +71,8 @@ UNIT CIRCLE
   Point at angle θ: P(θ) = (cos θ, sin θ)
 
   Key values — memorize these, derive the rest:
-  ┌────────────────────────────────────────────────────────────────┐
-  │  θ (rad)  │  θ (deg)  │  cos θ      │  sin θ      │  tan θ     │
+  ┌──────────────────────────────────────────────────────────────┐
+  │  θ (rad)  │  θ (deg)  │  cos θ    │  sin θ    │  tan θ       │
   ├───────────┼───────────┼─────────────┼─────────────┼──────────┤
   │  0        │    0°     │  1          │  0          │  0       │
   │  π/6      │   30°     │  √3/2       │  1/2        │  1/√3    │
@@ -105,11 +126,10 @@ UNIT CIRCLE
   tan(A + B) = (tan A + tan B) / (1 − tan A tan B)
 
   Proof via rotation matrices (the "real" proof):
-  ┌          ┐   ┌          ┐   ┌              ┐
-  │ cos(A+B) │   │ cos A  -sin A│   │ cos B  -sin B│
-  │          │ = │              │ × │          │
-  │ sin(A+B) │   │ sin A   cos A│   │ sin B   cos B│
-  └          ┘   └              ┘   └              ┘
+
+      [ cos(A+B) ]     [ cos A   -sin A ]   [ cos B   -sin B ]
+      [          ]  =  [                ] × [                ]
+      [ sin(A+B) ]     [ sin A    cos A ]   [ sin B    cos B ]
 
   Expanding top-left: cos A cos B - sin A sin B ✓
   Expanding bottom-left: sin A cos B + cos A sin B ✓

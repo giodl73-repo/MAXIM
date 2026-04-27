@@ -14,30 +14,59 @@
 THE MATHEMATICAL LANDSCAPE — DEPENDENCY ARCHITECTURE
 ═══════════════════════════════════════════════════════════════════════════════════
 
-  FOUNDATIONS                          ANALYSIS                  TRANSFORMS
-  ┌──────────────────────┐             ┌────────────────────┐    ┌──────────────┐
-  │ 03 Trigonometry      │             │ 01 Vector Calculus  │    │ 12 Fourier  │
-  │ 04 Power Series      │             │ 02 Integral Thms    │    │ 13 Laplace  │
-  │ 05 Groups/Sets/Alg.  │             │ 07 DiffEq           │    └──────┬───────┘
-  │ 06 Linear Algebra    │             │ 14 Complex Analysis │           │
-  └──────────┬───────────┘             │ 21 Measure Theory   │           │
-             │                         │ 23 Functional Anal. │           │
-             │                         └────────┬───────────┘           │
-             │                                  │                       │
-             │          GEOMETRY / TOPOLOGY      │        APPLIED       │
-             │          ┌────────────────────┐   │    ┌────────────────┐│
-             ├────────→ │ 08 Topology        │   │    │ 11 Probability ││
-             │          │ 09 Manifolds       │   ├──→ │ 15 Optimization││
-             │          │ 10 Diff. Geometry  │   │    │ 17 Combinatorics│
-             │          └────────────────────┘   │    │ 19 Numerical   ││
-             │                                   │    │ 20 Statistics  ││
-             │          ALGEBRA (ADVANCED)        │    └────────────────┘│
-             │          ┌────────────────────┐   │                      │
-             └────────→ │ 18 Number Theory   │   │    STRUCTURE         │
-                        │ 22 Category Theory │   │    ┌────────────────┐│
-                        │ 24 Representation  │   └──→ │ 16 Info Theory ││
-                        └────────────────────┘        └────────────────┘│
-                                                                        │
+  FOUNDATIONS:
+    ┌──────────────────────┐
+    │ 03 Trigonometry      │
+    │ 04 Power Series      │
+    │ 05 Groups/Sets/Alg.  │
+    │ 06 Linear Algebra    │
+    └──────────────────────┘
+    Feeds: Analysis, Geometry/Topology, Advanced Algebra.
+
+  ANALYSIS:
+    ┌──────────────────────┐
+    │ 01 Vector Calculus   │
+    │ 02 Integral Thms     │
+    │ 07 DiffEq            │
+    │ 14 Complex Analysis  │
+    │ 21 Measure Theory    │
+    │ 23 Functional Anal.  │
+    └──────────────────────┘
+    Feeds: Applied, Structure.
+
+  TRANSFORMS:
+    ┌──────────────┐
+    │ 12 Fourier   │
+    │ 13 Laplace   │
+    └──────────────┘
+
+  GEOMETRY / TOPOLOGY:
+    ┌──────────────────────┐
+    │ 08 Topology          │
+    │ 09 Manifolds         │
+    │ 10 Diff. Geometry    │
+    └──────────────────────┘
+
+  ALGEBRA (ADVANCED):
+    ┌──────────────────────┐
+    │ 18 Number Theory     │
+    │ 22 Category Theory   │
+    │ 24 Representation    │
+    └──────────────────────┘
+
+  APPLIED:
+    ┌──────────────────────┐
+    │ 11 Probability       │
+    │ 15 Optimization      │
+    │ 17 Combinatorics     │
+    │ 19 Numerical         │
+    │ 20 Statistics        │
+    └──────────────────────┘
+
+  STRUCTURE:
+    ┌──────────────────────┐
+    │ 16 Info Theory       │
+    └──────────────────────┘
 ═══════════════════════════════════════════════════════════════════════════════════
 ```
 
@@ -58,75 +87,45 @@ is not drawn).
 
 ```
 PREREQUISITE DAG — READ BOTTOM TO TOP
-═══════════════════════════════════════════════════════════════════════════════════
 
-                        ┌──────────────────┐
-                        │  22 CATEGORY     │  (reads all other modules as examples)
-                        │     THEORY       │
-                        └──────────────────┘
+  Each entry below lists prerequisites in (parens). Bottom of
+  the chart is the foundation; later modules build on earlier ones.
 
-        ┌──────────────────┐          ┌──────────────────┐
-        │  24 REPRESENTATION│          │  23 FUNCTIONAL  │
-        │     THEORY        │          │     ANALYSIS    │
-        └────────┬─────────┘          └────┬─────┬───────┘
-                 │                         │     │
-    ┌────────────┤              ┌──────────┘     │
-    │            │              │                │
-    │   ┌────────┴────────┐    │    ┌────────────┴──────────┐
-    │   │ 05 GROUPS/SETS  │    │    │   21 MEASURE THEORY   │
-    │   │    ALGEBRA       │    │    └────────────┬──────────┘
-    │   └────────┬────────┘    │                 │
-    │            │              │                 │
-    │            │    ┌────────┴────────┐        │
-    │            │    │ 10 DIFF. GEOM.  │         │
-    │            │    └────┬───────────┘         │
-    │            │         │                    │
-    │            │    ┌────┴───────────┐        │
-    │            │    │  09 MANIFOLDS  │        │
-    │            │    └────┬───────────┘        │
-    │            │         │                    │
-    │   ┌────────┴────┐   │    ┌───────────────┴─────┐
-    │   │ 08 TOPOLOGY │   │    │ 14 COMPLEX ANALYSIS │
-    │   └─────────────┘   │    └──────────┬──────────┘
-    │                      │               │
-    │   ┌─────────────┐   │    ┌──────────┴──────────┐
-    │   │ 18 NUMBER   │   │    │  04 POWER SERIES    │
-    │   │    THEORY    │   │    └──────────┬──────────┘
-    │   └──────┬──────┘   │               │
-    │          │          │               │
-    │   ┌──────┴─────────┐│    ┌──────────┴──────────┐
-    │   │ 17 COMBIN. /   ││    │  07 DIFFEQ          │
-    │   │    GRAPHS       ││    └──────────┬──────────┘
-    │   └──────┬─────────┘│               │
-    │          │           │    ┌──────────┴──────────┐
-    │          │           │    │ 02 INTEGRAL THMS    │
-    │          │           │    └──────────┬──────────┘
-    │          │           │               │
-    │          │           │    ┌──────────┴──────────┐
-    │          │           │    │ 01 VECTOR CALC      │
-    │          │           │    └──────────┬──────────┘
-    │          │           │               │
-    ├──────────┴───────────┴───────────────┤
-    │                                      │
-    │        ┌──────────────────────┐      │
-    │        │  06 LINEAR ALGEBRA   │       │
-    │        └──────────┬──────────┘       │
-    │                   │                   │
-    │        ┌──────────┴──────────┐       │
-    │        │  03 TRIGONOMETRY     │      │
-    │        └─────────────────────┘       │
-    │                                       │
-    ═════════════════════════════════════════
+  Foundation tier:
+    03 TRIGONOMETRY               (no prerequisites)
+    06 LINEAR ALGEBRA             (03)
+
+  Analysis spine:
+    01 VECTOR CALC                (06)
+    02 INTEGRAL THMS              (01)
+    07 DIFFEQ                     (02)
+    04 POWER SERIES               (07)
+    14 COMPLEX ANALYSIS           (04)
+    21 MEASURE THEORY             (14)
+    23 FUNCTIONAL ANALYSIS        (21, 06)
+
+  Algebraic spine:
+    05 GROUPS/SETS/ALGEBRA        (06)
+    08 TOPOLOGY                   (05)
+    09 MANIFOLDS                  (08, 10 advanced)
+    10 DIFF. GEOMETRY             (09)
+    24 REPRESENTATION THEORY      (05, 10)
+
+  Number-theory branch:
+    18 NUMBER THEORY              (05)
+    17 COMBINATORICS / GRAPHS     (18)
+
+  Top-tier (read after several spines):
+    22 CATEGORY THEORY            (reads all other modules as examples)
 
   PARALLEL TRACKS (each depends on subsets above):
-
-  ┌───────────┐  ┌───────────┐  ┌───────────┐  ┌───────────┐  ┌───────────┐
-  │11 PROB.   │  │12 FOURIER │  │13 LAPLACE │  │15 OPTIM.  │  │16 INFO    │
-  │ ← 21,06  │  │ ← 14,06  │  │ ← 14,07  │  │ ← 06,01  │  │ ← 11,21  │
-  │           │  │           │  │           │  │           │  │           │
-  │20 STATS   │  │           │  │           │  │19 NUMER.  │  │           │
-  │ ← 11,06  │  │           │  │           │  │ ← 06,07  │  │           │
-  └───────────┘  └───────────┘  └───────────┘  └───────────┘  └───────────┘
+    11 PROBABILITY                (21, 06)
+    20 STATISTICS                 (11, 06)
+    12 FOURIER                    (14, 06)
+    13 LAPLACE                    (14, 07)
+    15 OPTIMIZATION               (06, 01)
+    19 NUMERICAL                  (06, 07)
+    16 INFO THEORY                (11, 21)
 ```
 
 ### Deepest Dependency Chains
