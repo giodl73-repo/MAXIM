@@ -154,12 +154,12 @@ very high oversampling to achieve 16-24 bit equivalent SQNR in the audio band.
 ```
 SIGMA-DELTA MODULATOR (1-bit)
 
-         ┌──────────────────────────────────────┐
-         │                                      │
-x(t) ──►+──► [Loop filter H(z)] ──► [1-bit] ──►+──► Digital stream
-         ▲-                              │      │    at M·fs
-         │                              └──────┘
-         └─────── feedback ─────────────────────
+         .--------------------------------------.
+         |                                      |
+x(t) ---►+--► [Loop filter H(z)] --► [1-bit] --►+--► Digital stream
+         ^-                                          (at M·fs)
+         |
+         '------- feedback ---------------------'
 
 Quantizer noise E(z) sees transfer function: NTF(z) = 1 - H(z)
 Design H(z) as integrator → NTF = highpass → noise shaped away from DC

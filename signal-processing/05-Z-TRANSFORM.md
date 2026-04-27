@@ -148,14 +148,13 @@ An LTI system is stable iff all its poles are inside the unit circle: |pₖ| < 1
 STABILITY REGIONS IN Z-PLANE
 
 Im(z)
-  │         × (unstable pole, |z|>1)
-  │       ╱
-  │──────╱──────── unit circle
-  │    ╱  ┌─────┐
-  │──╱───|  ○ ×  |────── Re(z)
-  │      └─────┘
-  │   stable poles  ← |z| < 1
-  │   (inside circle)
+  │         x  (unstable pole, |z|>1)
+  │       /
+  │------/----- unit circle
+  │    /
+  │   /  o x ----- Re(z)
+  │
+  │   stable poles inside circle: |z| < 1
 
 Marginally stable: poles ON unit circle → oscillates forever (not practical)
 Unstable: any pole outside → grows without bound

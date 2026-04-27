@@ -161,11 +161,12 @@ X[k] =   Σ  x[2m]·W_{N/2}^{mk}  +  W_N^k · Σ  x[2m+1]·W_{N/2}^{mk}
               E[k] (even DFT)          W_N^k · O[k] (odd DFT)
 
 BUTTERFLY OPERATION:
-        ┌───┐       ┌────────────┐
-  a ───►│   │───►  a + W·b
-        │ × │
-  b ───►│ W │───►  a - W·b
-        └───┘
+
+  a -----+
+         |
+       [× W]  -----► a + W·b
+         |    -----► a - W·b
+  b -----+
 ```
 
 **Recursion**: Split N → N/2 → N/4 → ... → 1. At each level: N/2 butterfly ops.

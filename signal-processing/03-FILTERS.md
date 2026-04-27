@@ -275,14 +275,17 @@ Adaptive filters adjust their coefficients in real time to minimize an error sig
 
 ```
 ADAPTIVE FILTER STRUCTURE
-                    ┌──────────────────┐
-  x[n] ──────────► │  FIR filter w[n]  │──► y[n] = wᵀx
-                    └──────────────────┘       │
-                           ▲                    ▼
-                    weight update          e[n] = d[n] - y[n]
-                    w[n+1] = w[n] + μ·e[n]·x[n]     (LMS)
-                           ▲
-                    d[n] (desired signal)
+                    +------------------+
+                    |  FIR filter w[n] |
+                    +------------------+
+                       ^             |
+  x[n] ----------------+             +-----> y[n] = wᵀx
+                                           |
+                       weight update       v
+                       w[n+1] = w[n]    e[n] = d[n] - y[n]
+                                + μ·e[n]·x[n]   (LMS)
+                       ^
+                       d[n] (desired signal)
 
 LMS (Least Mean Squares, Widrow-Hoff 1960):
   w[n+1] = w[n] + μ · e[n] · x[n]
