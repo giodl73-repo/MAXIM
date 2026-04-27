@@ -9,24 +9,12 @@ THE SENTINEL TRIAD — Security Engineering View
 ═══════════════════════════════════════════════════════════════════
 
               Byzantine Fault Tolerance (1982)
-              "A compromised node is indistinguishable
-               from a Byzantine fault."
-                         │
-        ┌────────────────┼────────────────┐
-        │                │                │
-        ▼                ▼                ▼
-  ┌────────────┐   ╔═══════════╗   ┌──────────────┐
-  │ DISTRIBUTED│   ║ SECURITY  ║   │ CLOUD        │
-  │ SYSTEMS    │   ║ ENG.      ║   │ ARCHITECTURE │
-  │            │   ║           ║   │              │
-  │ "Who has   │   ║ "Who do   ║   │ "Where do    │
-  │  the       │   ║  you      ║   │  you put     │
-  │  truth?"   │   ║  trust?"  ║   │  the truth?" │
-  └─────┬──────┘   ╚═════╤═════╝   └──────┬───────┘
-        │                │                │
-        └────────────────┴────────────────┘
-                         │
-              Zero trust as design posture
+  "A compromised node is indistinguishable from a Byzantine fault."
+
+  Three sibling concerns sit under one design posture (zero trust):
+    DISTRIBUTED SYSTEMS:  "Who has the truth?"
+    SECURITY ENGINEERING: "Who do you trust?"
+    CLOUD ARCHITECTURE:   "Where do you put the truth?"
 ```
 
 Security engineering provides the **adversary model** for the entire volume. Distributed systems assumes crash faults or Byzantine faults in the abstract; security engineering names the actual adversaries --- nation-states, criminal orgs, insider threats, supply-chain attacks --- and builds the verification, authentication, and authorization controls that make consensus meaningful in a hostile world. Zero-trust architecture is the security posture that treats every component as potentially Byzantine: verify every call, encrypt every channel, audit every action. Without this layer, the consensus protocols from distributed systems and the infrastructure patterns from cloud architecture operate on blind faith.
