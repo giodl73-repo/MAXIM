@@ -5,27 +5,20 @@
 Bayesian statistics treats parameters as random variables and updates beliefs using data via Bayes' theorem.
 
 ```
-+------------------------------------------------------------------+
-|                    BAYESIAN WORKFLOW                             |
-+------------------------------------------------------------------+
-|                                                                  |
-|  1. PRIOR                    2. LIKELIHOOD              3. POSTERIOR           |
-|     p(theta)                    p(x | theta)               p(theta | x)        |
-|  "What do I believe          "How probable is           "Updated beliefs       |
-|   before seeing data?"        data given theta?"         after data"           |
-|          |                          |                          |                |
-|          +----------x--------------+                          |                |
-|                     |                                          |               |
-|             BAYES' THEOREM                                      |              |
-|             p(theta|x) = p(x|theta) p(theta) / p(x)           |                |
-|                          = p(x|theta) p(theta) /               |               |
-|                            Integral p(x|theta) p(theta) dtheta |               |
-|                                                                  |
-|  4. PREDICTION                                                  |
-|     p(x_new | x) = Integral p(x_new| theta) p(theta | x) dtheta                |
-|     "Integrate out uncertainty in theta"                        |
-|                                                                  |
-+------------------------------------------------------------------+
+  BAYESIAN WORKFLOW
+  =================
+
+  1. PRIOR p(theta): "What do I believe before seeing data?"
+  2. LIKELIHOOD p(x | theta): "How probable is data given theta?"
+  3. POSTERIOR p(theta | x): "Updated beliefs after data."
+
+  Combine via BAYES' THEOREM:
+    p(theta | x) = p(x | theta) p(theta) / p(x)
+                 = p(x | theta) p(theta) / Integral p(x | theta) p(theta) dtheta.
+
+  4. PREDICTION:
+       p(x_new | x) = Integral p(x_new | theta) p(theta | x) dtheta
+       "Integrate out uncertainty in theta."
 ```
 
 ---

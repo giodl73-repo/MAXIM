@@ -343,7 +343,7 @@ If nu is absolutely continuous with respect to mu (nu << mu — nu assigns zero 
 | Random variable | Measurable function X: Omega -> R | The object we compute with |
 | Distribution | Pushforward measure P_X on (R, B(R)) | What we usually work with |
 | Independence | P(A intersect B) = P(A)P(B) | Factoring joint distributions |
-| Conditional expectation | E[X|G]: L^1 -> L^1(G) | Bayesian updates, martingales |
+| Conditional expectation | E[X\|G]: L^1 -> L^1(G) | Bayesian updates, martingales |
 | a.s. convergence | P(lim X_n = X) = 1 | LLN (strong) conclusion |
 | Convergence in distribution | E[f(X_n)] -> E[f(X)] | CLT conclusion |
 | Radon-Nikodym | dnu/dmu = f iff nu = int f dmu | Defines densities rigorously |

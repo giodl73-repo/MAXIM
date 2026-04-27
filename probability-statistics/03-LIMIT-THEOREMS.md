@@ -428,8 +428,8 @@ The MIT TCS background makes this precise:
 
 | Theorem | What It Gives | Conditions |
 |---|---|---|
-| Weak LLN | X_bar -> mu in probability | E|X| < inf |
-| Strong LLN | X_bar -> mu a.s. | E|X| < inf |
+| Weak LLN | X_bar -> mu in probability | E\|X\| < inf |
+| Strong LLN | X_bar -> mu a.s. | E\|X\| < inf |
 | CLT (iid) | Gaussian fluctuations at rate 1/sqrt(n) | Finite variance |
 | Berry-Esseen | CLT error O(1/sqrt(n)) | Finite 3rd moment |
 | Lindeberg-Feller | CLT for non-iid | Lindeberg condition |
