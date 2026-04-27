@@ -271,17 +271,24 @@ Vertical farms stack multiple growing layers in climate-controlled buildings, re
 
 ```
 VERTICAL FARM ARCHITECTURE:
-  +------------------+  Layer N (top)   LED above
+  Layer N (top) — LED above
+  +------------------+
   |  growing layer   |
   +------------------+
-  +------------------+  Layer N-1
+
+  Layer N-1
+  +------------------+
   |  growing layer   |
   +------------------+
-  +------------------+  Layer N-2
+
+  Layer N-2
+  +------------------+
   |  growing layer   |
   +------------------+
   ...
-  +------------------+  Layer 1 (bottom)
+
+  Layer 1 (bottom)
+  +------------------+
   |  growing layer   |
   +------------------+
 

@@ -80,7 +80,7 @@ MS MEDIUM COMPONENTS:
   ┌─────────────────────────────────────────────────────────────────┐
   │ MACRONUTRIENTS (mM range):                                      │
   │   NH₄NO₃ (ammonium nitrate)    1650 mg/L — nitrogen source      │
-  │   KNO₃ (potassium nitrate)      1900 mg/L — nitrogen + potassium │
+  │   KNO₃ (potassium nitrate)      1900 mg/L — nitrogen + potassium│
   │   CaCl₂·2H₂O                    440 mg/L  — calcium             │
   │   MgSO₄·7H₂O                    370 mg/L  — magnesium + sulfur  │
   │   KH₂PO₄                        170 mg/L  — phosphorus          │

@@ -74,7 +74,7 @@ The rootstock's root system connects to the soil; its vascular system feeds the 
 ```
 ROOTSTOCK EFFECTS:
   +------------------+------------------------------------------+
-  | SIZE CONTROL     | Dwarfing rootstocks produce smaller trees |
+  | SIZE CONTROL     | Dwarfing rootstocks produce smaller trees|
   |                  | by restricting water/nutrient delivery   |
   |                  | and through graft union restriction.     |
   +------------------+------------------------------------------+

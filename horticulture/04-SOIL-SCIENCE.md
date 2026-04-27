@@ -8,16 +8,23 @@ Soil is a three-phase system — solid (minerals + organic matter), liquid (soil
 SOIL SYSTEM:
 
   SOLID PHASE (~50% by volume):
-    +-----------------+
-    | MINERAL PARTICLES|  Sand (2.0–0.05mm), Silt (0.05–0.002mm),
-    | 45% of total     |  Clay (<0.002mm)
-    | volume           |  Originate from rock weathering
-    +-----------------+
-    +-----------------+
-    | ORGANIC MATTER  |  Fresh debris → humus → stabilized OM
-    | 5% of total     |  Living: 1% (roots, organisms)
-    | volume          |  Non-living: 4% (decomposed material)
-    +-----------------+
+    +------------------+
+    | MINERAL PARTICLES|
+    | 45% of total     |
+    | volume           |
+    +------------------+
+      Sand (2.0–0.05mm), Silt (0.05–0.002mm),
+      Clay (<0.002mm)
+      Originate from rock weathering
+
+    +------------------+
+    | ORGANIC MATTER   |
+    | 5% of total      |
+    | volume           |
+    +------------------+
+      Fresh debris → humus → stabilized OM
+      Living: 1% (roots, organisms)
+      Non-living: 4% (decomposed material)
 
   LIQUID PHASE (~25% of volume when at field capacity):
     Soil water contains dissolved ions: NO₃⁻, H₂PO₄⁻, K⁺, Ca²⁺, Mg²⁺, etc.
@@ -257,10 +264,11 @@ THE PERCHED WATER TABLE PROBLEM:
   CONTAINER:
   +-------------------+
   |                   |
-  |   SOIL/MEDIA      |  <- Here, water drains by gravity
+  |   SOIL/MEDIA      |
   |                   |
   +-------------------+
   |  DRAINAGE HOLE    |
+  (water drains by gravity through the SOIL/MEDIA layer)
 
   In a container, a column of saturated soil sits at the bottom.
   The height of this saturated zone = "perched water table."

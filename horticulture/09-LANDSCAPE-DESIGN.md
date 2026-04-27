@@ -7,23 +7,43 @@ Landscape design is the art and science of designing outdoor space to serve huma
 ```
 LANDSCAPE DESIGN PROCESS:
 
-  SITE ANALYSIS          PROGRAM              DESIGN
-  +------------------+   +------------------+  +------------------+
-  | Sun/shade mapping |   | Who uses it?     |  | Concept (parti) |
-  | Soil assessment  |   | What activities? |  | Master plan      |
-  | Drainage/water   |   | What budget?     |  | Planting plan    |
-  | Existing plants  |   | Maintenance level|  | Hardscape plan   |
-  | Views (keep/hide)|   | Style preference |  | Lighting plan    |
-  | Climate zone     |   | Long-term vision |  | Irrigation plan  |
-  | Microclimate     |   |                  |  |                  |
-  +------------------+   +------------------+  +------------------+
-          |                      |                      |
-          +------------- --------+--------------------- +
-                                 |
-                                 v
-                    CONSTRUCTION DOCUMENTS
-                    (grading plans, planting specs,
-                     irrigation drawings, details)
+  SITE ANALYSIS
+  +-------------------+
+  | Sun/shade mapping |
+  | Soil assessment   |
+  | Drainage/water    |
+  | Existing plants   |
+  | Views (keep/hide) |
+  | Climate zone      |
+  | Microclimate      |
+  +-------------------+
+            |
+            v
+  PROGRAM
+  +-------------------+
+  | Who uses it?      |
+  | What activities?  |
+  | What budget?      |
+  | Maintenance level |
+  | Style preference  |
+  | Long-term vision  |
+  +-------------------+
+            |
+            v
+  DESIGN
+  +-------------------+
+  | Concept (parti)   |
+  | Master plan       |
+  | Planting plan     |
+  | Hardscape plan    |
+  | Lighting plan     |
+  | Irrigation plan   |
+  +-------------------+
+            |
+            v
+  CONSTRUCTION DOCUMENTS
+  (grading plans, planting specs,
+   irrigation drawings, details)
                                  |
                                  v
                     IMPLEMENTATION + MANAGEMENT
@@ -206,14 +226,14 @@ PARTERRE:
 ```
 KEY JAPANESE PRINCIPLES:
 
-  MA (間) — Negative space:
+  MA — Negative space:
     Emptiness is as important as fullness.
     The gravel raked in a karesansui (dry rock garden) is "water"
     not because it looks like water but because the empty space
     creates the experience of water.
     In design: don't fill every space. Let voids define solids.
 
-  WABI-SABI (侘び寂び) — Transience and imperfection:
+  WABI-SABI — Transience and imperfection:
     Beauty in impermanence; beauty in weathering.
     The moss-covered stone; the asymmetric bent pine.
     Handmade irregularity preferred over machine perfection.
@@ -224,7 +244,7 @@ KEY JAPANESE PRINCIPLES:
     Balance achieved through asymmetric composition (different weights).
     Tripartite composition: tall/medium/small elements.
 
-  SHAKKEI (借景) — Borrowed scenery:
+  SHAKKEI — Borrowed scenery:
     Deliberately include distant views as part of the composition.
     A mountain framed by garden trees; a distant grove included in the view.
     The garden extends beyond its boundaries into the landscape.
@@ -333,10 +353,13 @@ PIET OUDOLF'S MATRIX PLANTING:
                    feature plants emerge from within the matrix.
 
   +--------+--------+--------+--------+
-  |  g  g  |  g  F  |  g  g  |  g  g  |  g = grass matrix
-  |  g  g  |  g  g  |  g  F  |  g  g  |  F = feature perennial
-  |  g  F  |  g  g  |  g  g  |  g  F  |  Pattern: scattered, not rigidly spaced
+  |  g  g  |  g  F  |  g  g  |  g  g  |
+  |  g  g  |  g  g  |  g  F  |  g  g  |
+  |  g  F  |  g  g  |  g  g  |  g  F  |
   +--------+--------+--------+--------+
+  g = grass matrix
+  F = feature perennial
+  Pattern: scattered, not rigidly spaced
 
   Benefits:
     Plants support each other; grass matrix reduces weed pressure.

@@ -8,18 +8,26 @@ IPM is a decision-making framework for pest control that uses ecological princip
 THE IPM PYRAMID (hierarchy of interventions):
 
   +--------------------------+
-  |   CHEMICAL (last resort) |   Pesticides; only when all else fails
+  |   CHEMICAL (last resort) |
   +--------------------------+
+    Pesticides; only when all else fails
+
   +------------------------------+
-  | MECHANICAL / PHYSICAL        |   Exclusion, traps, steam sterilization
+  | MECHANICAL / PHYSICAL        |
   +------------------------------+
+    Exclusion, traps, steam sterilization
+
   +------------------------------------+
-  | BIOLOGICAL CONTROL                 |   Predators, parasitoids, pathogens
+  | BIOLOGICAL CONTROL                 |
   +------------------------------------+
+    Predators, parasitoids, pathogens
+
   +------------------------------------------+
-  | CULTURAL / PREVENTIVE                     |   Resistant varieties, sanitation,
-  | (foundation; always operating)            |   crop rotation, timing, habitat
+  | CULTURAL / PREVENTIVE                    |
+  | (foundation; always operating)           |
   +------------------------------------------+
+    Resistant varieties, sanitation,
+    crop rotation, timing, habitat
 
 PHILOSOPHY:
   Not "zero pest" (impossible at practical cost).
