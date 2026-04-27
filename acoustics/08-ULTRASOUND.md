@@ -18,7 +18,7 @@ Frequency:  20 kHz    200 kHz    2 MHz     20 MHz     200 MHz
          │welding,  │(HIFU,    │(cardiac/ │(vascular/│(SAM)     │
          │sonication│lithotrip)│obstetric)│skin)     │          │
          │          │          │          │          │          │
-         │Industrial│Therapy   │Diagnosis │Superficial│Research │
+         │Industrial│Therapy   │Diagnosis │Surface   │Research  │
          │NDT       │          │          │ tissue   │          │
          └──────────┴──────────┴──────────┴──────────┴──────────┘
 

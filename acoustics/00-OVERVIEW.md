@@ -108,7 +108,7 @@ ACOUSTICS — DEPENDENCY MAP
 ═══════════════════════════════════════════════════════════════════
 
     ┌─────────────────────────────────────────┐
-    │        01-WAVE-PHYSICS (Foundation)      │
+    │       01-WAVE-PHYSICS (Foundation)      │
     │  Wave equation, impedance, reflection,  │
     │  diffraction, standing waves, resonance │
     └──────────┬──────────────┬───────────────┘

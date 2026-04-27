@@ -164,14 +164,15 @@ DYNAMIC LOUDSPEAKER STRUCTURE:
 
             ┌─────────────────────────────────────────┐
             │                                         │
-    Input   │  Spider ─►[Voice coil]◄─ Spider         │
-    (AC)   ─┤           Motor: B·l·I = Force          │
+            │  Spider ─►[Voice coil]◄─ Spider         │
+            │           Motor: B·l·I = Force          │
             │  Force moves diaphragm (cone or dome)   │
             │                                         │
             │  [Cone/dome diaphragm]                  │
             │  │                                      │
             │  └──► Acoustic radiation                │
             └─────────────────────────────────────────┘
+  Input AC drives the voice coil from the left.
 
 PARAMETERS (Thiele-Small parameters):
   fs: free-air resonance frequency

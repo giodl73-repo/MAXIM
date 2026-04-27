@@ -28,12 +28,9 @@ IDIOPHONES (body vibration):
 ELECTROPHONES: electronic instruments (not included here)
 
 GENERAL PRINCIPLE FOR ALL:
-┌──────────┐    coupling    ┌──────────┐    radiation    ┌──────────┐
-│  Driver  │ ─────────────► │ Resonator│ ──────────────► │  Sound   │
-│(energy   │                │ (selects │                 │  Field   │
-│ source)  │                │ harmonics)│                 │         │
-└──────────┘               └──────────┘                 └──────────┘
-  Bow/pluck/blow             Strings/tube/membrane/plate   Air radiation
+  Driver (energy source: bow/pluck/blow)
+    --coupling--> Resonator (strings/tube/membrane/plate; selects harmonics)
+    --radiation--> Sound field (air radiation)
 ```
 
 ---

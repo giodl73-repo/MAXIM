@@ -8,29 +8,19 @@ or workplace privacy.
 
 ```
 ARCHITECTURAL ACOUSTICS DESIGN SPACE
-════════════════════════════════════════════════════════════════════
+====================================================================
 
-                     SHORT RT60                    LONG RT60
-                     (dry, clear)                  (reverberant)
-                           │                            │
-                           ▼                            ▼
-High speech            ┌──────────┐             ┌──────────────┐
-intelligibility        │Classroom │             │  Cathedral   │
-                       │ Office   │             │  Large Church│
-                       │Recording │             └──────────────┘
-                       │ Booth    │
-                       └──────────┘
-                                     ┌──────────────────┐
-                                     │  Concert Hall    │
-                                     │  RT60 = 1.8-2.2s │
-                                     │  Optimized for   │
-Mid-range (both        ┌──────────┐  │  orchestral music│  ┌───────────┐
-speech + music)        │ Theater  │  └──────────────────┘  │Opera House│
-                       │ RT60~1.0s│                         │ RT60~1.4s │
-                       └──────────┘                         └───────────┘
+  Two axes: RT60 (reverberation time) and use case.
 
-             Background         ───────────────────────────────►
-             noise floor        Low NC          High NC
+  SHORT RT60 (dry, clear) - high speech intelligibility:
+    - Classroom, office, recording booth
+    - Theater (RT60 ~1.0s)
+  LONG RT60 (reverberant) - musical resonance:
+    - Cathedral, large church
+    - Concert hall (RT60 = 1.8-2.2s, optimized for orchestral music)
+    - Opera house (RT60 ~1.4s)
+
+  Background noise floor runs orthogonal: low NC -> high NC.
 ```
 
 ---
@@ -74,14 +64,14 @@ CONCERT HALL ACOUSTIC PARAMETERS
 ```
 CONCERT HALL SHAPES
 
-SHOEBOX (Rectangular):         VINEYARD (Terraced):
-┌─────────────────────┐        ┌────────────────────────────┐
-│ ▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓  │        │         ╭──────────────╮   │
-│ ▓ AUDIENCE AREA   ▓ │        │      ╭──┤  AUDIENCE    ├──╮ │
-│ ▓                 ▓ │        │   ╭──┤  ╰──────────────╯  ││
-│ ▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓ │        │   │  ╰──────────────────╯  │ │
-│       STAGE         │        │       STAGE               │ │
-└─────────────────────┘        └───────────────────────────┘
+SHOEBOX (Rectangular):
+  Audience area in a single rectangle, stage at one end,
+  long parallel side walls.
+
+VINEYARD (Terraced):
+  Audience seating arranged in stepped terraces around the
+  stage on multiple sides; angled walls and balcony fronts
+  scatter sound rather than reflecting it parallel.
 
 Shoebox advantages:            Vineyard advantages:
 • Long parallel side walls     • More seats within similar RT60

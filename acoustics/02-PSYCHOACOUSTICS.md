@@ -129,15 +129,10 @@ SPL (dB)
 TEMPORAL MASKING WINDOW
 
 SPL of masked signal:
-  │      ┌──────────────────┐
-  │      │   MASKER         │
-  │      │   (e.g. 80 dB)   │
-  │      │                  │
-60├──────┼──────────────────┼───────────
-  │◄─50ms│                  │  ◄─200ms►
-  │pre-  │                  │  post-masking
-  │mask  │                  │  (forward masking)
-  └──────┴──────────────────┴────────────► time
+  Masker block (e.g. 80 dB) sits in the middle of a time axis.
+  Pre-masking window ~50 ms before the masker (backward masking).
+  Post-masking window ~200 ms after the masker ends (forward masking).
+  Masking threshold drops back to ~60 dB outside both windows.
 
 Pre-masking (backward): ~10–20 ms before masker (perceptual lookahead?)
 Post-masking (forward): 50–200 ms after masker ends (neurons still firing)
