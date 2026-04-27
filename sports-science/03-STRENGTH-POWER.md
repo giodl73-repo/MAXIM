@@ -115,9 +115,11 @@ MUSCLE ARCHITECTURE:
     Fibers run parallel to force production axis.
     +---------+
     |   | | | |
-    |   | | | |  Force = N_fibers × force_per_fiber
-    |   | | | |  Velocity = Vmax of individual fiber (fast)
+    |   | | | |
+    |   | | | |
     +---------+
+    Force    = N_fibers × force_per_fiber
+    Velocity = Vmax of individual fiber (fast)
     Examples: biceps brachii, sartorius
     Best for: velocity and range of motion.
 
@@ -125,9 +127,11 @@ MUSCLE ARCHITECTURE:
     Fibers at an angle to the force production axis.
       +----------+
       |  /  /  / |
-      | /  /  /  |  Force = N_fibers × force_per_fiber × cos(θ)
-      |/  /  /   |  Velocity = reduced (angle effect)
+      | /  /  /  |
+      |/  /  /   |
       +----------+
+      Force    = N_fibers × force_per_fiber × cos(θ)
+      Velocity = reduced (angle effect)
     Pennation angle θ: typically 5–25° at rest; increases with load.
     Examples: vastus lateralis, gastrocnemius, tibialis anterior
     Best for: high force production.

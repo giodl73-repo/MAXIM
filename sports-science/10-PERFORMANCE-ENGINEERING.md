@@ -167,9 +167,10 @@ CENTER OF MASS (CoM) AND BASE OF SUPPORT (BoS)
   ┌─────────────┐           ┌──────────┐             ┌───┐
   │             │           │          │             │   │
   │      ●      │           │    ●     │             │ ● │
-  │    (CoM)    │           │  (CoM)   │             │   │←CoM outside
-  │             │           │          │             │   │  base
+  │    (CoM)    │           │  (CoM)   │             │   │
+  │             │           │          │             │   │
   └─────────────┘           └──────────┘             └───┘
+                                                       ↑ CoM outside base
   Wide BoS, CoM             CoM alternates            CoM deliberately
   centered. Maximum          inside/outside BoS.       outside BoS.
   stability. Hard to         Controlled falling.       Rotational.
@@ -531,13 +532,13 @@ PERIODIZATION ARCHITECTURES
 
   BLOCK PERIODIZATION (Issurin, 2008)
   ────────────────────────────────────────────────────────────
-  ┌──────────┐ ┌──────────┐ ┌──────────┐ ┌──────────┐
-  │ACCUMULATE│→│ TRANSMUTE│→│ REALIZE  │→│ACCUMULATE│→ ...
-  │ (volume, │  │(convert  │  │(taper +  │  │       │
-  │  base    │  │ base to  │  │ compete) │  │       │
-  │  fitness)│  │ specific)│  │          │  │       │
-  └──────────┘ └──────────┘ └──────────┘ └──────────┘
-    2-4 weeks    2-4 weeks    1-2 weeks    2-4 weeks
+  ┌──────────┐  ┌──────────┐  ┌──────────┐  ┌──────────┐
+  │ACCUMULATE│→ │TRANSMUTE │→ │ REALIZE  │→ │ACCUMULATE│
+  │(volume,  │  │(convert  │  │(taper +  │  │          │
+  │ base     │  │ base to  │  │ compete) │  │          │
+  │ fitness) │  │ specific)│  │          │  │          │
+  └──────────┘  └──────────┘  └──────────┘  └──────────┘
+    2-4 weeks     2-4 weeks     1-2 weeks     2-4 weeks
   ────────────────────────────────────────────────────────────
   Best for: Multiple peaks per year; team sports with many competitions.
   Advantage: Each block focuses on one quality → stronger stimulus.

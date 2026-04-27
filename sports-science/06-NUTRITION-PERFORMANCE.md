@@ -14,11 +14,11 @@ SPORTS NUTRITION FRAMEWORK:
   | EA <30 kcal/kg FFM/day → RED-S risk      |
   +------------------------------------------+
              |
-    +---------+----------+
-    |                    |
-    v                    v
-  MACRONUTRIENT         MICRONUTRIENT
-  PERIODIZATION         STATUS
+    .--------+--------.
+    |                 |
+    v                 v
+  MACRONUTRIENT     MICRONUTRIENT
+  PERIODIZATION     STATUS
   +------------------+  +------------------+
   | CHO availability |  | Iron, Vitamin D, |
   | Protein timing   |  | Calcium, B12...  |
