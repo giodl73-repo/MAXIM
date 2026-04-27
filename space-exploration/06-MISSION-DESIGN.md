@@ -184,20 +184,29 @@ USING ATMOSPHERE FOR ORBIT INSERTION
 
   CURIOSITY/PERSEVERANCE EDL SEQUENCE:
     +-----------------------------+
-    |  10 km altitude: 900 m/s    | ← Parachute deploy (Mach 1.7)
+    |  10 km altitude: 900 m/s    |
     |  atmospheric entry: 5.8 km/s|
     |  heat shield peak heating   |
+    +-----------------------------+
+        Parachute deploy at Mach 1.7.
+
     +-----------------------------+
     |  1 km: heat shield jettison |
     |  parachute deployed         |
     +-----------------------------+
-    |  6.4 km: powered descent    | ← Backshell + parachute separate
+
+    +-----------------------------+
+    |  6.4 km: powered descent    |
     |  sky crane: 8 rocket engines|
     +-----------------------------+
-    |  20 m: sky crane deploys    | ← Lowers rover on tethers
+        Backshell + parachute separate.
+
+    +-----------------------------+
+    |  20 m: sky crane deploys    |
     |  rover lands: 2.7 m/s       |
     |  sky crane flies away       |
     +-----------------------------+
+        Sky crane lowers rover on tethers.
 
   PROBLEM WITH DIRECT LANDING ON MARS:
     Falcon 9-style retropropulsion: works on Moon (no atmosphere)

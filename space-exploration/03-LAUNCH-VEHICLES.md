@@ -52,17 +52,21 @@ WHY STAGING?
 
   EXAMPLE: FALCON 9 (2 stages + payload)
     +------------------------+
-    |        Payload         | ~22.8 t to LEO capacity
+    |        Payload         |
     | (fairing or Dragon)    |
     +------------------------+
-    |    STAGE 2 (upper)     | Single Merlin Vacuum (MVac)
-    |    LOX/RP-1            | Δv ~ 5-6 km/s (varies)
+    |    STAGE 2 (upper)     |
+    |    LOX/RP-1            |
     |    ~113 kN thrust      |
     +------------------------+
-    |    STAGE 1 (booster)   | 9 × Merlin (890 kN each)
-    |    LOX/RP-1            | Total ~8 MN sea level
+    |    STAGE 1 (booster)   |
+    |    LOX/RP-1            |
     |    Landing legs + fins |
     +------------------------+
+      Payload:  ~22.8 t to LEO capacity.
+      Stage 2:  single Merlin Vacuum (MVac);
+                Δv ~ 5–6 km/s (varies).
+      Stage 1:  9 × Merlin (890 kN each); total ~8 MN sea level.
 
   STAGING MASS FRACTIONS (approximate for two-stage):
     Propellant mass: 85-90% of total stage mass

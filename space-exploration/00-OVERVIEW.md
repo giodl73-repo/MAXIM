@@ -6,7 +6,7 @@ Space exploration is the application of physics, engineering, and systems design
 
 ```
 +------------------------------------------------------------------+
-|                    SPACE EXPLORATION LANDSCAPE                    |
+|                    SPACE EXPLORATION LANDSCAPE                   |
 +------------------------------------------------------------------+
 |                                                                  |
 |  GOVERNING PHYSICS                                               |

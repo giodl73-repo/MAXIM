@@ -150,15 +150,18 @@ HOHMANN TRANSFER ORBIT
 
   GEOMETRY:
   +--------------+
-  | Initial      |          Transfer Ellipse
-  | Orbit r₁     |          (touches both orbits)
-  |              |
-  |  [BURN 1: Δv₁ at periapsis]
-  |      ↓
-  |  +---- Transfer Ellipse (semi-major axis a = (r₁+r₂)/2) ----+
-  |      ↓
-  |  [BURN 2: Δv₂ at apoapsis]
-  |              |
+  | Initial      |
+  | Orbit r₁     |
+  +--------------+
+
+    BURN 1: Δv₁ at periapsis.
+
+    Transfer ellipse (semi-major axis a = (r₁ + r₂) / 2)
+    touches both orbits.
+
+    BURN 2: Δv₂ at apoapsis.
+
+  +--------------+
   | Final        |
   | Orbit r₂     |
   +--------------+
