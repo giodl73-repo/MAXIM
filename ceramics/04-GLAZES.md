@@ -13,17 +13,19 @@ GLAZE STRUCTURE
 FIRED GLAZE CROSS-SECTION:
                    ┌───────────────────────────────┐
                    │ ATMOSPHERE / AIR              │
-                   ├───────────────────────────────┤ ← surface (gloss/matte/texture)
+                   ├───────────────────────────────┤
                    │                               │
                    │    GLASS LAYER                │
-                   │    (fused silicate + flux      │
-                   │     + colorants)               │
+                   │    (fused silicate + flux     │
+                   │     + colorants)              │
                    │                               │
-                   ├───────────────────────────────┤ ← clay-glaze interface
-                   │                               │   (interdiffusion zone)
+                   ├───────────────────────────────┤
+                   │                               │
                    │    CLAY BODY                  │
                    │                               │
                    └───────────────────────────────┘
+  Top interface: surface (gloss / matte / texture).
+  Lower interface: clay-glaze interface (interdiffusion zone).
 
 THREE REQUIRED COMPONENTS (Unity Molecular Formula / Seger formula):
  R₂O/RO (flux oxides): lower silica's melting point
