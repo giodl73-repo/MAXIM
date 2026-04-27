@@ -33,15 +33,15 @@ SLR OPTICAL PATH:
 
 Lens → 45° mirror → Pentaprism/Pentamirror → Eye
 
-         ┌─────────────────────────────────────────────────────┐
-         │                                                     │
- LENS →  │         ╱ mirror (raised for exposure)              │
-         │  ┌───╱ mirror (down for viewing) ──────────────────►│
-         │  │                                                  │ Pentaprism
-         │  ▼                                                  │    │
-         │ Focus screen (shows image projected by lens)        │    ▼
-         │                                                     │ Eyepiece
-         └─────────────────────────────────────────────────────┘
+         ┌────────────────────────────────────────────────────────┐
+         │                                                        │
+ LENS →  │         ╱ mirror (raised for exposure)                 │
+         │  ┌───╱ mirror (down for viewing) ─────────► Pentaprism │
+         │  │                                                  │  │
+         │  ▼                                                  ▼  │
+         │ Focus screen (shows image projected by lens)  Eyepiece │
+         │                                                        │
+         └────────────────────────────────────────────────────────┘
                                 ↓ (at exposure)
                           Film / Sensor plane
 

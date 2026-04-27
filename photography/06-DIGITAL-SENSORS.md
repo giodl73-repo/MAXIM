@@ -56,11 +56,12 @@ CCD OPERATION:
   Single output amplifier → low noise, uniform → historically superior quality
 
   ┌──────────────────────────────────┐
-  │  Row 1: ●●●●●●●●●●●●●●●●●●●●●●   │
-  │  Row 2: ●●●●●●●●●●●●●●●●●●●●●●  │  → clock ↓
+  │  Row 1: ●●●●●●●●●●●●●●●●●●●●●●    │
+  │  Row 2: ●●●●●●●●●●●●●●●●●●●●●●    │
   │  ...                             │
-  │  Output register ← ← ← ← ← ← ←│  → single ADC
+  │  Output register ← ← ← ← ← ← ←   │
   └──────────────────────────────────┘
+  (rows clocked downward; output to single ADC)
 
 ADVANTAGES:
   Low noise (single, optimized output amplifier)
@@ -89,13 +90,15 @@ CMOS ACTIVE PIXEL SENSOR:
   Each pixel contains: photodiode + amplifier + select transistor (3T or 4T design)
 
   PIXEL CIRCUIT (4T):
-    ┌────────────────────────────┐
-    │  PD → Transfer gate → FD  │  FD = floating diffusion (charge → voltage)
-    │        (TX)          │     │
-    │                      ▼     │
-    │               Source follower amplifier
-    │               → Row select → Column bus → Column ADC
-    └────────────────────────────┘
+    +-----------------------------------------------------+
+    |  PD --> Transfer gate (TX) --> FD                   |
+    |                                |                    |
+    |                                v                    |
+    |                       Source follower amplifier     |
+    |                       --> Row select                |
+    |                       --> Column bus --> Column ADC |
+    +-----------------------------------------------------+
+    (FD = floating diffusion: charge -> voltage)
 
   Each row can be read independently → parallel readout
   Each pixel has its own amplifier → potentially noisier (fixed-pattern noise)
