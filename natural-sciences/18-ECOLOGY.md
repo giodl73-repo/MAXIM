@@ -448,14 +448,14 @@ PLANETARY BOUNDARIES (Rockström et al. 2009, updated 2023):
   Boundary                    Pre-industrial  2023 Status
   ───────────────────────────────────────────────────────
   Climate change (CO₂ ppm)    280            421 ⚠️ BREACHED
-  Biosphere integrity (BII%)  >90%           ~80% 🔴 BREACHED
-  Biogeochemical flows (P)    ~1 TgP/yr      22 TgP/yr 🔴 BREACHED
-  Biogeochemical flows (N)    ~62 TgN/yr     ~190 TgN/yr 🔴 BREACHED
+  Biosphere integrity (BII%)  >90%           ~80% !! BREACHED
+  Biogeochemical flows (P)    ~1 TgP/yr      22 TgP/yr !! BREACHED
+  Biogeochemical flows (N)    ~62 TgN/yr     ~190 TgN/yr !! BREACHED
   Land-system change (forest) >75% remaining 60% remaining ⚠️ BREACHED
-  Freshwater use (km³/yr)     ~415           ~2600 🔴 BREACHED (blue water)
+  Freshwater use (km³/yr)     ~415           ~2600 !! BREACHED (blue water)
   Ocean acidification (Ω_a)   2.7-3.3        2.8 (marginal zone)
   Stratospheric ozone         277-280 DU      293 DU (recovering)
-  Novel entities (plastic,    0               exceeded definition 🔴
+  Novel entities (plastic,    0               exceeded definition !!
     synthetic chemicals)
   Aerosol loading             regional        regionally breached
 

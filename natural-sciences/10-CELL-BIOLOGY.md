@@ -36,14 +36,14 @@ EUKARYOTIC CELL:
   ┌─────────────────────────────────────────────────────────────┐
   │  NUCLEUS: DNA storage, transcription, pre-mRNA processing   │
   │    Nucleolus: rRNA synthesis (RNA Pol I), ribosome assembly │
-  │    Nuclear pores (~120 MDa): selective bidirectional transport│
+  │    Nuclear pores (~120 MDa): selective bidir. transport     │
   ├─────────────────────────────────────────────────────────────┤
   │  ENDOPLASMIC RETICULUM (ER):                                │
-  │    Rough ER: ribosomes on surface → secretory/membrane proteins│
+  │    Rough ER: ribosomes → secretory/membrane proteins       │
   │    Smooth ER: lipid synthesis, Ca²⁺ storage, drug metabolism │
   ├─────────────────────────────────────────────────────────────┤
   │  GOLGI APPARATUS: protein modification, sorting, secretion  │
-  │    cis (receives from ER) → medial → trans (sorts to destinations)│
+  │    cis (from ER) → medial → trans (sorts to destinations)   │
   │    Modifications: glycosylation, sulfation, phosphorylation │
   │    Sorts to: lysosomes, plasma membrane, secretion          │
   ├─────────────────────────────────────────────────────────────┤

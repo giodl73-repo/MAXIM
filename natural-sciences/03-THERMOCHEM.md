@@ -12,35 +12,35 @@
 ┌──────────────────────────────────────────────────────────────────┐
 │               THERMOCHEMISTRY & CHEMICAL THERMODYNAMICS          │
 │                                                                  │
-│  THE FOUR LAWS (foundations)                                     │
-│  ────────────────────────────                                    │
-│  0th: temperature defined    → measurement framework             │
-│  1st: ΔU = q + w             → enthalpy H, Hess's law            │
-│  2nd: ΔS_universe ≥ 0        → spontaneity criterion             │
-│  3rd: S(0K) = 0              → absolute entropy S° tables        │
-│         │           │                                            │
-│         ▼           ▼                                            │
-│  ENTHALPY (ΔH)   ENTROPY (ΔS)                                    │
-│  ─────────────   ─────────────                                   │
-│  Hess's law      Boltzmann S=k ln W                              │
-│  Bond enthalpies Trouton's rule                                  │
-│  Kirchhoff T-dep Colligative props (particle count)              │
-│         │           │                                            │
-│         └─────┬─────┘                                            │
-│               ▼                                                    │
-│  GIBBS FREE ENERGY  ΔG = ΔH − TΔS      ← master criterion        │
-│  ─────────────────────────────────                                 │
-│  ΔG < 0: spontaneous   ΔG° = −RT ln K                            │
-│  ΔG = ΔG° + RT ln Q    links to equilibrium                       │
-│         │                                                          │
-│    ┌────┴────┐                                                     │
-│    ▼         ▼                                                     │
-│  EQUILIBRIUM  PHASE DIAGRAMS                                       │
-│  ──────────── ─────────────                                        │
-│  Kc, Kp, Ksp  P-T phase boundaries                                 │
-│  Le Chatelier Clausius-Clapeyron                                   │
-│  Van't Hoff   Critical / triple points                             │
-└──────────────────────────────────────────────────────────────────┘
+  THE FOUR LAWS (foundations):
+    0th: temperature defined      → measurement framework
+    1st: ΔU = q + w               → enthalpy H, Hess's law
+    2nd: ΔS_universe ≥ 0          → spontaneity criterion
+    3rd: S(0K) = 0                → absolute entropy S° tables
+
+  Two state functions emerge:
+
+  ENTHALPY (ΔH):
+    Hess's law; bond enthalpies; Kirchhoff T-dep.
+
+  ENTROPY (ΔS):
+    Boltzmann S = k ln W; Trouton's rule;
+    colligative properties (particle count).
+
+  Combined into the master criterion:
+
+  GIBBS FREE ENERGY:  ΔG = ΔH − TΔS
+    ΔG < 0: spontaneous.       ΔG° = −RT ln K
+    ΔG = ΔG° + RT ln Q         links to equilibrium.
+
+  Application domains:
+
+  EQUILIBRIUM:
+    Kc, Kp, Ksp; Le Chatelier; Van't Hoff.
+
+  PHASE DIAGRAMS:
+    P-T phase boundaries; Clausius-Clapeyron;
+    critical / triple points.
 ```
 
 The Four Laws set the axioms; enthalpy and entropy are the operands; Gibbs
@@ -326,20 +326,20 @@ Endothermic reaction (ΔH° > 0): K increases as T rises
 ```
 WATER (anomalous)                  CO₂ (typical)
 
-    P                               P
-    │        Liquid                 │         Liquid
-    │  ┌─────────────── Critical    │   ┌───────────────── Critical
-    │  │                point       │   │                  point
-    │  │   Solid                    │   │   Solid
-    │  │ /                          │   │  /
-1atm│──┼────────────→ Gas          │   │ /
-    │  │ Triple pt                  │   │/ Triple pt (5.1 atm)
-    │  └──────────→ T               │   └──────────────→ T
-    │  0°C 100°C                    │   −78.5°C
-    │                               │
-    │ Water solid/liquid line has   │ CO₂ solid/liquid line has
-    │ NEGATIVE slope (anomalous):   │ POSITIVE slope (normal):
-    │ ice melts under pressure      │ pressure raises melting point
+  Water phase diagram (P vs T, schematic):
+    Liquid region above the solid/liquid line; Gas region above the
+    liquid/gas line ending at the critical point. At 1 atm, the
+    liquid/gas line crosses at 100 °C and the solid/liquid line
+    crosses near 0 °C. Triple point is just below 1 atm.
+    Solid/liquid line has NEGATIVE slope (anomalous):
+      ice melts under pressure.
+
+  CO₂ phase diagram (P vs T, schematic):
+    Solid, Liquid, and Gas regions arranged similarly, with the
+    triple point at 5.1 atm and –78.5 °C; below 5.1 atm, CO₂
+    sublimes (no liquid phase at atmospheric pressure).
+    Solid/liquid line has POSITIVE slope (normal):
+      pressure raises the melting point.
 ```
 
 **Triple point:** unique T, P where all three phases coexist.

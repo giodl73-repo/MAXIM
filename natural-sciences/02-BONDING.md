@@ -211,17 +211,19 @@ Antibonding MO: ψ_a = (1/√2)(ψ_A − ψ_B)    higher energy, nodal plane bet
 ### MO Diagram for O₂ (Period 2, Z > 7)
 
 ```
-           AOs (O)    MOs           AOs (O)
-               ┌─────────────────────┐
-               │         σ*2p        │    ← antibonding
-         2p ──┤──  π*2p  π*2p       ├── 2p
-               │         ─────────── │    ← nonbonding
-               │──  π2p   π2p  ──── │    ← bonding
-               │         σ2p         │    ← bonding
-               │         σ*2s        │    ← antibonding
-         2s ──┤──                   ├── 2s
-               │         σ2s         │    ← bonding
-               └─────────────────────┘
+  Atomic Orbitals (left) — Molecular Orbitals (middle) — Atomic Orbitals (right)
+
+  Energy levels, top (highest energy / antibonding) to bottom (lowest):
+
+    σ*2p        antibonding
+    π*2p, π*2p  (nonbonding pair)
+    π2p,  π2p   bonding
+    σ2p         bonding
+    σ*2s        antibonding
+    σ2s         bonding
+
+  The 2p AOs of each oxygen atom feed into the π* / π / σ MOs.
+  The 2s AOs of each oxygen atom feed into the σ*2s and σ2s MOs.
 
 Fill 16 electrons (2×8): σ2s² σ*2s² σ2p² π2p⁴ π*2p²
 

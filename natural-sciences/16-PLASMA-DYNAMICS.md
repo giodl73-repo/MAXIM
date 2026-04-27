@@ -12,43 +12,44 @@
 ┌─────────────────────────────────────────────────────────────────────┐
 │                    PLASMA DYNAMICS & CONFINEMENT                    │
 │                                                                     │
-│  MHD EQUILIBRIUM                                                    │
-│  ─────────────────                                                  │
-│  J × B = ∇p (force balance)    β = p / (B²/2µ₀)                     │
-│  Grad-Shafranov equation        Flux surfaces, q safety factor      │
-│          │                                                          │
-│          ▼                                                          │
-│  MHD INSTABILITIES (perturbation grows if energy is released)       │
-│  ─────────────────────────────────────────────────────────────      │
-│  Interchange / RT:  bad curvature → density finger penetrates       │
-│  Kink (m=1):        current column bends → j×B amplifies bend       │
-│  Tearing:           resistive layer → magnetic island formation     │
-│  NTM:               bootstrap current loss → self-reinforcing island│
-│  Disruption:        catastrophic confinement loss (ms timescale)    │
-│          │                                                          │
-│          ▼                                                          │
-│  MAGNETIC RECONNECTION                                              │
-│  ────────────────────────                                           │
-│  Topology change at X-point     Sweet-Parker vs. Petschek rate      │
-│  Converts B-field energy → heat + jets + particle acceleration      │
-│          │                                                          │
-│     ┌────┴──────────────────────────────────┐                       │
-│     ▼                                        ▼                       │
-│  MAGNETIC CONFINEMENT               INERTIAL CONFINEMENT            │
-│  ─────────────────────               ────────────────────           │
-│  Tokamak: helical B, plasma current  ICF: compress D-T capsule      │
-│  Stellarator: external helicity only fast → fusion before disassem  │
-│  Lawson criterion: nTτ_E threshold  RT instability is key challenge │
-│          │                                                           │
-│     ┌────┴──────────────────────────────────┐                       │
-│     ▼                                        ▼                      │
-│  ASTROPHYSICAL PLASMAS              INDUSTRIAL APPLICATIONS         │
-│  ──────────────────────              ────────────────────────       │
-│  Solar flares, CMEs, substorms       Plasma etching (chips)         │
-│  Accretion disks (MRI transport)     Sputtering deposition          │
-│  Pulsar/AGN jets                     Ion thrusters (SpaceX, Dawn)   │
-│  Radiation belts                     Arc furnaces                   │
-└─────────────────────────────────────────────────────────────────────┘
+  MHD EQUILIBRIUM:
+    J × B = ∇p (force balance);  β = p / (B² / 2µ₀).
+    Grad-Shafranov equation; flux surfaces; q safety factor.
+
+  MHD INSTABILITIES (perturbation grows if energy is released):
+    Interchange / RT:   bad curvature → density finger penetrates.
+    Kink (m=1):         current column bends → j×B amplifies bend.
+    Tearing:            resistive layer → magnetic island formation.
+    NTM:                bootstrap current loss → self-reinforcing island.
+    Disruption:         catastrophic confinement loss (ms timescale).
+
+  MAGNETIC RECONNECTION:
+    Topology change at X-point.
+    Sweet-Parker vs. Petschek rate.
+    Converts B-field energy → heat + jets + particle acceleration.
+
+  Confinement strategies:
+
+  MAGNETIC CONFINEMENT:
+    Tokamak: helical B, plasma current.
+    Stellarator: external helicity only.
+    Lawson criterion: nTτ_E threshold.
+
+  INERTIAL CONFINEMENT (ICF):
+    Compress D-T capsule fast → fusion before disassembly.
+    RT instability is the key challenge.
+
+  ASTROPHYSICAL PLASMAS:
+    Solar flares, CMEs, substorms.
+    Accretion disks (MRI transport).
+    Pulsar / AGN jets.
+    Radiation belts.
+
+  INDUSTRIAL APPLICATIONS:
+    Plasma etching (chips).
+    Sputtering deposition.
+    Ion thrusters (SpaceX, Dawn).
+    Arc furnaces.
 
 Reading path: equilibrium → what breaks it (instabilities) →
 catastrophic topology change (reconnection) → confinement strategies →

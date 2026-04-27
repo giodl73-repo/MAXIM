@@ -215,31 +215,32 @@ CODON TABLE (standard genetic code):
     G34 pairs with U or C; I (inosine, modified A) pairs with U, C, or A
 
                         STANDARD GENETIC CODE
-                        ─────────────────────
-              2nd position
-              U           C           A           G
-       ┌─────────── ─────────── ─────────── ───────────┐
-       │ UUU Phe (F) UCU Ser (S) UAU Tyr (Y) UGU Cys (C) │
-   U   │ UUC Phe (F) UCC Ser (S) UAC Tyr (Y) UGC Cys (C) │
-       │ UUA Leu (L) UCA Ser (S) UAA Stop     UGA Stop │
-       │ UUG Leu (L) UCG Ser (S) UAG Stop     UGG Trp (W) │
-       ├─────────── ─────────── ─────────── ───────────┤
-       │ CUU Leu (L) CCU Pro (P) CAU His (H) CGU Arg (R) │
-   C   │ CUC Leu (L) CCC Pro (P) CAC His (H) CGC Arg (R) │
-       │ CUA Leu (L) CCA Pro (P) CAA Gln (Q) CGA Arg (R) │
- 1     │ CUG Leu (L) CCG Pro (P) CAG Gln (Q) CGG Arg (R) │
- s     ├─────────── ─────────── ─────────── ───────────┤
- t     │ AUU Ile (I) ACU Thr (T) AAU Asn (N) AGU Ser (S) │
-       │ AUC Ile (I) ACC Thr (T) AAC Asn (N) AGC Ser (S) │
- p  A  │ AUA Ile (I) ACA Thr (T) AAA Lys (K) AGA Arg (R) │
- o     │ AUG Met (M) ACG Thr (T) AAG Lys (K) AGG Arg (R) │
- s     ├─────────── ─────────── ─────────── ───────────┤
- i     │ GUU Val (V) GCU Ala (A) GAU Asp (D) GGU Gly (G) │
- t  G  │ GUC Val (V) GCC Ala (A) GAC Asp (D) GGC Gly (G) │
- i     │ GUA Val (V) GCA Ala (A) GAA Glu (E) GGA Gly (G) │
- o     │ GUG Val (V) GCG Ala (A) GAG Glu (E) GGG Gly (G) │
- n     └─────────── ─────────── ─────────── ───────────┘
 
+  1st U:
+    UUU Phe (F)   UCU Ser (S)   UAU Tyr (Y)   UGU Cys (C)
+    UUC Phe (F)   UCC Ser (S)   UAC Tyr (Y)   UGC Cys (C)
+    UUA Leu (L)   UCA Ser (S)   UAA Stop      UGA Stop
+    UUG Leu (L)   UCG Ser (S)   UAG Stop      UGG Trp (W)
+
+  1st C:
+    CUU Leu (L)   CCU Pro (P)   CAU His (H)   CGU Arg (R)
+    CUC Leu (L)   CCC Pro (P)   CAC His (H)   CGC Arg (R)
+    CUA Leu (L)   CCA Pro (P)   CAA Gln (Q)   CGA Arg (R)
+    CUG Leu (L)   CCG Pro (P)   CAG Gln (Q)   CGG Arg (R)
+
+  1st A:
+    AUU Ile (I)   ACU Thr (T)   AAU Asn (N)   AGU Ser (S)
+    AUC Ile (I)   ACC Thr (T)   AAC Asn (N)   AGC Ser (S)
+    AUA Ile (I)   ACA Thr (T)   AAA Lys (K)   AGA Arg (R)
+    AUG Met (M)   ACG Thr (T)   AAG Lys (K)   AGG Arg (R)
+
+  1st G:
+    GUU Val (V)   GCU Ala (A)   GAU Asp (D)   GGU Gly (G)
+    GUC Val (V)   GCC Ala (A)   GAC Asp (D)   GGC Gly (G)
+    GUA Val (V)   GCA Ala (A)   GAA Glu (E)   GGA Gly (G)
+    GUG Val (V)   GCG Ala (A)   GAG Glu (E)   GGG Gly (G)
+
+  Within each block, columns are 2nd position = U, C, A, G (left to right).
   Read each codon left to right: 1st position → 2nd position → 3rd position.
   Start codon: AUG (Met).  Stop codons: UAA, UAG, UGA.
 ```

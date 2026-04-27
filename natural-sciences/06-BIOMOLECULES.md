@@ -316,11 +316,13 @@ Phosphatidylcholine (PC):
 
 Amphiphilic structure → self-assembly into bilayer:
   ┌────────────────────────────────┐
-  │ ●●●●●●●●●●●●●●●●●●●●●●●●●●●● │  polar heads (outward, face water)
-  │ |||||||||||||||||||||||||||||| │  nonpolar tails (inward, face each other)
+  │ ●●●●●●●●●●●●●●●●●●●●●●●●●●●●   │
+  │ |||||||||||||||||||||||||||||| │
   │ |||||||||||||||||||||||||||||| │
   │ ●●●●●●●●●●●●●●●●●●●●●●●●●●●●   │
   └────────────────────────────────┘
+    Top and bottom rows of "●": polar heads (outward, face water).
+    Two middle rows of "|":     nonpolar tails (inward, face each other).
 
 Bilayer thickness: ~4 nm
 Lateral diffusion: fast (μm²/s); flip-flop: slow (hours, requires flippase)

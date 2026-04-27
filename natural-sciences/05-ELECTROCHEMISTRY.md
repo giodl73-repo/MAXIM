@@ -12,35 +12,36 @@
 ┌───────────────────────────────────────────────────────────────────┐
 │                       ELECTROCHEMISTRY                            │
 │                                                                   │
-│  REDOX FOUNDATIONS                                                │
-│  ─────────────────                                                │
-│  Oxidation states      Half-reaction balancing                    │
-│  Reduction potentials  Standard hydrogen electrode (SHE = 0 V)    │
-│          │                                                        │
-│     ┌────┴──────────────────┐                                     │
-│     ▼                       ▼                                      │
-│  GALVANIC CELL             ELECTROLYTIC CELL                      │
-│  ─────────────             ─────────────────                       │
-│  Spontaneous (ΔG < 0)      Driven (ΔG > 0, external power)       │
-│  Produces current          Consumes current                        │
-│  E°cell = E°cath − E°an    Faraday's laws: m = MIt/nF             │
-│          │                                                         │
-│     ┌────┴──────────────────┐                                      │
-│     ▼                       ▼                                      │
-│  THERMODYNAMIC LINKS       ELECTRODE KINETICS                      │
-│  ─────────────────         ──────────────────                      │
-│  ΔG° = −nFE°               Butler-Volmer equation                  │
-│  K = 10^(nE°/0.05916)      Overpotential η                         │
-│  Nernst: E = E°−(RT/nF)lnQ Tafel slope / exchange current j₀       │
-│          │                                                         │
-│     ┌────┴───────────────────────┐                                 │
-│     ▼                            ▼                                 │
-│  APPLICATIONS                  CORROSION / POURBAIX               │
-│  ────────────                  ─────────────────────               │
-│  Lead-acid, Li-ion batteries   E vs pH stability diagram           │
-│  Fuel cells (H₂/O₂)           Immunity / corrosion / passivation  │
-│  Electroplating / Hall-Héroult Sacrificial anodes, Cr passivation │
-└───────────────────────────────────────────────────────────────────┘
+  REDOX FOUNDATIONS:
+    Oxidation states; half-reaction balancing.
+    Reduction potentials; Standard hydrogen electrode (SHE = 0 V).
+
+  GALVANIC CELL:
+    Spontaneous (ΔG < 0); produces current.
+    E°cell = E°cath − E°an.
+
+  ELECTROLYTIC CELL:
+    Driven (ΔG > 0, external power); consumes current.
+    Faraday's laws: m = MIt / nF.
+
+  THERMODYNAMIC LINKS:
+    ΔG° = −nFE°.
+    K = 10^(nE° / 0.05916).
+    Nernst: E = E° − (RT / nF) ln Q.
+
+  ELECTRODE KINETICS:
+    Butler-Volmer equation; overpotential η.
+    Tafel slope / exchange current j₀.
+
+  APPLICATIONS:
+    Lead-acid and Li-ion batteries.
+    Fuel cells (H₂ / O₂).
+    Electroplating / Hall-Héroult.
+
+  CORROSION / POURBAIX:
+    E vs pH stability diagram.
+    Immunity / corrosion / passivation.
+    Sacrificial anodes, Cr passivation.
 ```
 
 ---
