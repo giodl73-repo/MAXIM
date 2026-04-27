@@ -712,17 +712,15 @@ Evolution of the carrack for the Atlantic and Pacific trades. Lower forecastle (
 CARRACK → GALLEON EVOLUTION
 ==============================
 
-  CARRACK (1450–1550):        GALLEON (1550–1700):
-  ┌──┐                        ┌──┐
-  │  │╲    High forecastle     │  │     Lower forecastle
-  │  │ ╲                       │  │╲    (better seakeeping)
-  │  │  ╲____                  │  │ ╲___
-  │  │       ╲                 │  │      ╲
-  │  │   hull ╲   High after   │  │ hull  ╲  Lower, longer
-  │  │         ╲  castle       │  │        ╲ aftercastle
-  └──┘          ╲──┐           └──┘         ╲──┐
-  ~~~~~~~~~~~~~~~~╲│           ~~~~~~~~~~~~~~~~╲│
-   waterline                    waterline
+  CARRACK (1450-1550):
+    Steep, tall forecastle and a high aftercastle rising sharply
+    from a relatively short hull; rounded silhouette above the
+    waterline.
+
+  GALLEON (1550-1700):
+    Lower forecastle (better seakeeping), longer hull, and a
+    lower, longer aftercastle. Sleeker, faster, more weatherly
+    than the carrack.
 
   KEY CHANGES:
     Forecastle lowered → less windage, better into the wind.
