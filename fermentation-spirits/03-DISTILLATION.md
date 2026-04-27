@@ -187,28 +187,15 @@ Decision:     Discard      KEEP          Discard
 ```
 COLUMN STILL (Patent Still / Coffey Still / Continuous Still)
 
-              VAPOR OUT (to condenser)
-                   ^
-                   |
-         +----+---------+----+
-         |    |         |    |
-         | RECTIFIER  COLUMN  | <- continuous rectification
-         |    |         |    |
-         | PLATES (bubblecap, sieve, valve)
-         |    |         |    |    Each plate = theoretical stage of separation
-         |    |         |    |    Vapor rises, liquid falls
-         |    |         |    |    Vapor enriches as it rises
-         +----+---------+----+
-                   |
-              BEER/WINE FEED (pre-heated, enters partway up)
-                   |
-         +----+---------+----+
-         |    |         |    |
-         |      STRIPPER      | <- strips ethanol from liquid
-         |    |         |    |
-         +----+---------+----+
-                   |
-              STILLAGE OUT (spent liquid, mostly water + dissolved solids)
+  Vapor out at the top -> to condenser.
+  RECTIFIER COLUMN (upper section): continuous rectification.
+    Plates (bubblecap, sieve, valve) -- each plate is a
+    theoretical stage of separation.
+    Vapor rises, liquid falls; vapor enriches as it rises.
+  BEER/WINE FEED enters partway up, pre-heated.
+  STRIPPER COLUMN (lower section): strips ethanol from liquid.
+  STILLAGE OUT at the bottom: spent liquid, mostly water plus
+  dissolved solids.
                    |
               HEAT INPUT (steam)
 ```

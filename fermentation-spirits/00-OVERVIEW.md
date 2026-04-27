@@ -13,15 +13,10 @@
 |   fructose, etc.)    cerevisiae, etc.)  (flavor compounds)       |
 +------------------------------------------------------------------+
                               |
-              +---------------+---------------+
-              |               |               |
-              v               v               v
-    +-----------------+ +-----------+ +------------------+
-    | BEER & WINE     | | DISTILLED | | FERMENTED-NOT-   |
-    | (undistilled,   | | SPIRITS   | | DISTILLED        |
-    |  3-15% ABV)     | | (15-95%)  | | (sake, kvass,    |
-    +-----------------+ +-----------+ | kombucha, kefir) |
-                                       +------------------+
+  Three product families:
+    - BEER & WINE (undistilled, 3-15% ABV)
+    - DISTILLED SPIRITS (15-95% ABV)
+    - FERMENTED-NOT-DISTILLED (sake, kvass, kombucha, kefir)
               |
     +---------+----------+-----------+-----------+----------+
     |         |          |           |           |          |
@@ -50,32 +45,19 @@ GLUCOSE (C6H12O6)
          v
    PYRUVATE (x2) + 2 ATP + 2 NADH
          |
-    +----+----+
-    |         |
-AEROBIC   ANAEROBIC
-(O2 present)  (no O2)
-    |         |
-    v         v
-TCA cycle  Need to regenerate NAD+
-+ ETC         |
-= 36-38 ATP   +---> Two pathways:
-              |
-       +------+------+
-       |             |
-    YEAST          LACTIC ACID
-    pathway        BACTERIA
-       |             |
-       v             v
-  Pyruvate       Pyruvate
-  decarboxylase  reductase
-       |             |
-  Acetaldehyde   Lactate
-  + CO2               |
-       |          NAD+ regenerated
-  Alcohol         (yogurt, sourdough,
-  dehydrogenase    cheese, etc.)
-       |
-  ETHANOL + NAD+
+  Pyruvate goes one of two ways:
+
+  AEROBIC (O2 present): TCA cycle + ETC, yielding 36-38 ATP.
+
+  ANAEROBIC (no O2): need to regenerate NAD+. Two pathways:
+    YEAST pathway:
+      Pyruvate -> pyruvate decarboxylase -> acetaldehyde
+    LACTIC ACID BACTERIA:
+      Pyruvate -> pyruvate reductase -> lactate
+      NAD+ regenerated (yogurt, sourdough, cheese, etc.)
+
+  YEAST output continues:
+    Acetaldehyde + CO2 -> alcohol dehydrogenase -> ETHANOL + NAD+
 ```
 
 **Why 2 ATP vs 36-38?**
