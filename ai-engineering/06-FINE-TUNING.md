@@ -326,33 +326,21 @@ The structural analog: LoRA is the Adapter pattern. The frozen base model is a s
 ## Fine-Tune vs. RAG — The Decision Tree
 
 ```
-  START: I want to adapt model behavior for my use case
-             │
-             ▼
-  Does the task require access to specific, frequently-updated
-  facts, documents, or private data?
-             │
-       ┌─────┴──────┐
-      YES            NO
-       │            │
-       ▼              ▼
-  Use RAG          Is the task about consistent
-  (09-VECTOR)      behavior, style, or format?
-  (stop here)            │
-                   ┌─────┴──────┐
-                  YES            NO
-                   │              │
-                   ▼              ▼
-              Fine-tune        Is the model currently
-              (SFT / LoRA)     failing at the core
-                               task with good prompting?
-                                     │
-                               ┌─────┴──────┐
-                              YES            NO
-                               │              │
-                               ▼              ▼
-                         Fine-tune          Improve
-                         (task-specific)    prompts / CoT
+  START: I want to adapt model behavior for my use case.
+
+  1. Does the task require access to specific, frequently-updated
+     facts, documents, or private data?
+       YES -> Use RAG (see 09-VECTOR-DBS.md). Stop here.
+       NO  -> Continue.
+
+  2. Is the task about consistent behavior, style, or format?
+       YES -> Fine-tune (SFT / LoRA).
+       NO  -> Continue.
+
+  3. Is the model currently failing at the core task with good
+     prompting?
+       YES -> Fine-tune (task-specific).
+       NO  -> Improve prompts / chain-of-thought.
 ```
 
 ### Quantified Decision Guide

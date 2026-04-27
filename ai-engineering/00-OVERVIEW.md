@@ -173,44 +173,26 @@ These three roles share vocabulary but solve different problems.
 ## Build vs. Buy vs. Fine-Tune vs. RAG — Architecture Decision Tree
 
 ```
-  START: I need an LLM capability in my application
-         │
-         ▼
-  Is this a commodity task? (summarization, classification,
-  question answering over known documents, code generation)
-         │
-    ┌────┴────────┐
-   YES            NO (novel task, specialized domain)
-    │             │
-    ▼              ▼
-  USE API       Does the task require knowledge
-  (OpenAI,      from proprietary documents / live data?
-  Anthropic,         │
-  Azure AOAI)   ┌────┴────────┐
-                YES            NO
-                │              │
-                ▼              ▼
-             Use RAG        Is it a style/format/persona
-             (09-VECTOR)    consistency issue or a
-                            knowledge/capability gap?
-                              │
-                         ┌────┴────────┐
-                      STYLE         KNOWLEDGE /
-                      /FORMAT       CAPABILITY
-                        │              │
-                        ▼              ▼
-                   Fine-tune       Does the task require
-                   (06-FINE-       very specialized
-                   TUNING.md)      domain reasoning?
-                                      │
-                                 ┌────┴────────┐
-                                YES            NO
-                                 │              │
-                                 ▼              ▼
-                           Fine-tune +      Prompt
-                           RAG combined     engineering
-                                            (few-shot,
-                                            CoT, etc.)
+  START: I need an LLM capability in my application.
+
+  1. Is this a commodity task (summarization, classification, QA over
+     known documents, code generation)?
+       YES -> USE API (OpenAI, Anthropic, Azure AOAI). Done.
+       NO  -> novel task / specialized domain. Continue.
+
+  2. Does the task require knowledge from proprietary documents
+     or live data?
+       YES -> Use RAG (see 09-VECTOR-DBS.md). Done.
+       NO  -> Continue.
+
+  3. Is the gap a style / format / persona consistency issue,
+     or a knowledge / capability gap?
+       STYLE / FORMAT  -> Fine-tune (see 06-FINE-TUNING.md). Done.
+       KNOWLEDGE / CAPABILITY -> Continue.
+
+  4. Does the task require very specialized domain reasoning?
+       YES -> Fine-tune + RAG combined.
+       NO  -> Prompt engineering (few-shot, CoT, etc.).
 ```
 
 ### Build vs. Buy Decision Matrix

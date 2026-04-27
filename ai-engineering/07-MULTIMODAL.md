@@ -47,18 +47,12 @@
   maximize similarity of matching pairs, minimize similarity of
   N²-N non-matching pairs.
 
-  Architecture:
-  ┌──────────────┐         ┌──────────────────────┐
-  │  Image       │         │  Image encoder       │
-  │  (224×224)   │────────►│  (ViT or ResNet)     │────────┐
-  └──────────────┘         │  Projects to d-dim   │        │
-                           └──────────────────────┘        │
-                                                    cosine  │
-                           ┌──────────────────────┐ sim.  ├──► (match or not)
-  ┌──────────────┐         │  Text encoder        │        │
-  │  Caption     │────────►│  (Transformer)       │────────┘
-  │  "a dog..."  │         │  Projects to d-dim   │
-  └──────────────┘         └──────────────────────┘
+  Architecture (two-tower contrastive model):
+    Image (224 x 224) -> Image encoder (ViT or ResNet)
+                         projects to d-dimensional embedding.
+    Caption ("a dog...") -> Text encoder (Transformer)
+                            projects to d-dimensional embedding.
+    Compare with cosine similarity -> match or not.
 
   Training data: 400M (image, text) pairs from the internet
   Vocabulary: the shared d-dimensional embedding space
