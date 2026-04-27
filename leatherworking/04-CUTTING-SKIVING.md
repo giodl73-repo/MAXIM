@@ -129,9 +129,10 @@ ADJUSTABLE STRAP CUTTER (steel or wood):
   Limitation: requires perfectly straight starting edge
 
   +---FENCE---+
-  |           |   blade at right angle to fence
-  |  →→→→→→  |   leather passes beneath fence
+  |           |
+  |  >>>>>>>  |
   +-----blade-+
+  (blade at right angle to fence; leather passes beneath fence)
 
 APPLICATIONS:
   Belts: typically 1.25", 1.5", 2" widths
@@ -176,12 +177,11 @@ WHY SKIVE:
      Skive the outer leather's edges where lining will meet → seamless transition
 
 SKIVE TYPES:
-  +---+----------+----+
-  EDGE SKIVE:         Wedge from full thickness to near-zero at edge
-  (most common)       +─────────────────┐
-                      │ full thickness   \  ← skive removes this wedge
-                      +──────────────────┘
-                                         edge (near zero thickness)
+
+  EDGE SKIVE (most common): Wedge from full thickness to near-zero at edge
+    Cross-section: full thickness on the inside tapers along an angled
+    cut down to near-zero at the edge. The skive removes a wedge so the
+    leather can fold flat without bunching at the fold line.
 
   HORIZONTAL SKIVE:   Reduce to half thickness uniformly across a zone
                       Used for overlap areas; entire zone thinned equally
