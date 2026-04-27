@@ -277,11 +277,10 @@ The VAE is variational inference with neural network amortization.
   Generative model:   z ~ p(z) = N(0,I),  x|z ~ p_θ(x|z) = N(f_θ(z), σ²I)
   Inference model:    q_φ(z|x) = N(μ_φ(x), diag(σ²_φ(x)))   ← encoder
 
-  ┌──────────────────────────────────────────────┐
-  │  x  →  [Encoder q_φ]  →  μ,σ  →  z  →  [Decoder p_θ]  →  x̂  │
-  │                              ↑                                  │
-  │                    reparameterize: z = μ + σ⊙ε, ε~N(0,I)      │
-  └──────────────────────────────────────────────┘
+  Pipeline:
+    x  ->  Encoder q_phi  ->  mu, sigma  ->  z  ->  Decoder p_theta  ->  x_hat
+  Reparameterize the bottleneck so gradients flow through:
+    z = mu + sigma .* epsilon,   epsilon ~ N(0, I).
 
   ELBO = E_{q_φ(z|x)}[log p_θ(x|z)] - KL(q_φ(z|x) ‖ p(z))
               ↑ reconstruction loss           ↑ KL regularization (closed form for Gaussians)

@@ -333,10 +333,10 @@ Feature selection: mutual information         sklearn: mutual_info_classif()
 | Entropy H(X) | -E[log p(X)] | Measuring uncertainty; compression bound |
 | Cross-entropy H(P,Q) | -E_P[log Q] | Classification loss function |
 | KL divergence D(P‖Q) | E_P[log P/Q] | VAE, distillation, measuring distribution shift |
-| Mutual info I(X;Y) | H(X) - H(X|Y) | Feature selection, representation quality |
+| Mutual info I(X;Y) | H(X) - H(X\|Y) | Feature selection, representation quality |
 | Channel capacity C | max_p I(X;Y) | Theoretical communication/compression limit |
 | Fisher info I(θ) | E[(∂ log p/∂θ)²] | Cramér-Rao, natural gradient, TRPO |
-| MDL | L(H) + L(D|H) | Model selection, learning as compression |
+| MDL | L(H) + L(D\|H) | Model selection, learning as compression |
 
 ---
 
