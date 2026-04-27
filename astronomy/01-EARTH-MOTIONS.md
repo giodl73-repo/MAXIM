@@ -20,17 +20,21 @@ TIMESCALE          MOTION                      TYPE          CAUSE
 
                     HIERARCHY OF REFERENCE FRAMES
                     ┌──────────────────────────────────────┐
-                    │  Ecliptic frame (Sun + planets)      │ ← obliquity oscillates here
+                    │  Ecliptic frame (Sun + planets)      │
                     │    ┌────────────────────────────┐    │
-                    │    │  Mean equatorial frame     │    │ ← precession runs here
+                    │    │  Mean equatorial frame     │    │
                     │    │    ┌──────────────────┐    │    │
-                    │    │    │  True equatorial │    │    │ ← nutation wobbles here
+                    │    │    │  True equatorial │    │    │
                     │    │    │    ┌──────────┐  │    │    │
-                    │    │    │    │  Body    │  │    │    │ ← Chandler wobble in here
+                    │    │    │    │  Body    │  │    │    │
                     │    │    │    └──────────┘  │    │    │
                     │    │    └──────────────────┘    │    │
                     │    └────────────────────────────┘    │
                     └──────────────────────────────────────┘
+  Ecliptic frame: obliquity oscillates here.
+  Mean equatorial: precession runs here.
+  True equatorial: nutation wobbles here.
+  Body frame: Chandler wobble in here.
 
 Each inner frame oscillates relative to the next outer one.
 All of them together determine where Polaris appears in the sky.
@@ -43,28 +47,43 @@ All of them together determine where Polaris appears in the sky.
 Every rotational anomaly traces back to one fact: **Earth is not a sphere**.
 
 ```
-              POLAR VIEW                     MERIDIONAL CROSS-SECTION
+  POLAR VIEW:
               ┌─────────────┐
-              │  equatorial │                      N pole
-              │    bulge    │                        │
-              │  ┌───────┐  │              ──────────┼──────────  ← oblate top
-              │  │       │  │             /          │          \
-              │ ─┤ Earth ├─ │            │     b=6356│km         │
-              │  │       │  │            │           │           │
-              │  └───────┘  │             \          │          /
-              │             │              ──────────┼──────────  ← oblate bottom
-              └─────────────┘                        │
-                                                   S pole
+              │  equatorial │
+              │    bulge    │
+              │  ┌───────┐  │
+              │  │       │  │
+              │ ─┤ Earth ├─ │
+              │  │       │  │
+              │  └───────┘  │
+              │             │
+              └─────────────┘
 
-     a = equatorial radius = 6,378.137 km      ┌──────────────────────────────┐
-     b = polar radius      = 6,356.752 km      │ KEY NUMBERS                  │
-     flattening: f = (a-b)/a = 1/298.257       │ J₂ = 1.08263 × 10⁻³         │
-     bulge height: a - b ≈ 21.4 km             │    oblateness coefficient    │
-                                               │ Hd = (C-A)/C ≈ 1/305.457    │
-                                               │    dynamical ellipticity     │
-     Moments of inertia:                       │ C/MR² ≈ 0.3307 (not 0.4,    │
-       C = polar    (rotation axis) > A = B    │    not homogeneous sphere)   │
-       C - A = excess equatorial inertia       └──────────────────────────────┘
+  MERIDIONAL CROSS-SECTION:
+                                  N pole
+                                    │
+                          ──────────┼──────────  ← oblate top
+                         /          │          \
+                        │     b=6356│km         │
+                        │           │           │
+                         \          │          /
+                          ──────────┼──────────  ← oblate bottom
+                                    │
+                                  S pole
+
+     a = equatorial radius = 6,378.137 km
+     b = polar radius      = 6,356.752 km
+     flattening: f = (a-b)/a = 1/298.257
+     bulge height: a - b ≈ 21.4 km
+
+     Moments of inertia:
+       C = polar    (rotation axis) > A = B
+       C - A = excess equatorial inertia
+
+  KEY NUMBERS:
+     J₂ = 1.08263 × 10⁻³            (oblateness coefficient)
+     Hd = (C-A)/C ≈ 1/305.457        (dynamical ellipticity)
+     C/MR² ≈ 0.3307 (not 0.4 — not homogeneous sphere)
 ```
 
 **J₂** is the second zonal harmonic of Earth's gravitational potential. It appears in the precession rate, satellite orbit nodal regression, and every geoid calculation. The equatorial bulge is the engine of everything that follows.
@@ -84,11 +103,16 @@ The Moon and Sun pull harder on the near side of the equatorial bulge than the f
           ecliptic pole ●                       ↑ torque τ
                          \                      │
                           \←ε                   │
-                  ┌────────\──────────┐   ┌─────┴──────────────────┐
-                  │  Earth's equator  │   │  torque = ∂F/∂r × bulge │
-                  └───────────────────┘   │  τ = 3GM·J₂·R²·sin(ε)  │
-                                          │       r³        cos(ε)  │
-                          ↑                └────────────────────────┘
+                  ┌────────\──────────┐
+                  │  Earth's equator  │
+                  └───────────────────┘
+
+                          ↑
+                                                ┌────────────────────────┐
+                                                │  torque = ∂F/∂r × bulge│
+                                                │  τ = 3GM·J₂·R²·sin(ε)  │
+                                                │       r³       cos(ε)  │
+                                                └────────────────────────┘
                      rotation axis L
                      tilted at ε to ecliptic normal
 
@@ -308,14 +332,16 @@ Precession holds ε approximately constant on the precession timescale. But over
 ```
   OBLIQUITY OVER TIME
 
-  ε (degrees)
-  25 ─────────────────────────────────────────────────────────
-         ╭──╮       ╭──╮       ╭──╮       ╭──╮       ╭──
-  24 ─ ─╯  ╰─╮   ╭─╯  ╰─╮   ╭─╯  ╰─╮   ╭─╯  ╰─╮   ╭─╯
-              ╰─╮╭─╯      ╰─╮╭─╯      ╰─╮╭─╯      ╰─╮╭─
-  23 ─          ╰╯           ╰╯           ╰╯           ╰╯
-              ←────────── ~41,000 yr ─────────────→
-  22 ─────────────────────────────────────────────────────────
+  ε (degrees) over time:
+
+  25 ─── upper bound ──────────────────────────────────────
+                ___          ___          ___          ___
+  24       ___/   \___    __/   \__    __/   \__    __/   \__
+       ___/           \___/         \__/         \__/         \__
+  23                                                              \
+  22 ─── lower bound ──────────────────────────────────────
+
+  Period: ~41,000 years
 
   Range:     22.1° to 24.5°
   Current:   23.436° (J2000.0), decreasing at ~47"/century
@@ -431,11 +457,11 @@ Precession creates different definitions of "year" depending on reference frame:
   │ Anomalistic        │ 365.25964        │ Perihelion → perihelion              │
   │ Draconic           │ 346.62000        │ Node → node (eclipse seasons)        │
   │ Julian (calendar)  │ 365.25 (exact)   │ Definition, not a physical year      │
-  ├────────────────────┼──────────────────┼──────────────────────────────────────┤
-  │ Tropical vs Sidereal difference: ~20.4 minutes (precession)                  │
-  │ Anomalistic longer: perihelion precesses eastward at ~11.45"/yr              │
-  │ Draconic shorter: Moon's nodes regress (18.6 yr cycle)                       │
   └────────────────────┴──────────────────┴──────────────────────────────────────┘
+
+  Tropical vs Sidereal difference: ~20.4 minutes (precession)
+  Anomalistic longer: perihelion precesses eastward at ~11.45"/yr
+  Draconic shorter: Moon's nodes regress (18.6 yr cycle)
 
   CALENDAR CONSEQUENCE:
   The Gregorian calendar tracks the TROPICAL year (seasons), not sidereal.

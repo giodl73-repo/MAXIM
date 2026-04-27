@@ -155,12 +155,12 @@ ANCHOR ESCAPEMENT — GEOMETRY
           │           └──────┬───────┘              │
           │                  │ impulse face          │
           │                  │                      │
-          │           ┌──────┴───────┐              │
+          │           ┌──────────────┐              │
           │           │  ESCAPE      │              │
-          │           │  WHEEL       │◄── going     │
-          │           │  (ratchet    │    train     │
+          │           │  WHEEL       │              │
+          │           │  (ratchet    │              │
           │           │   teeth)     │              │
-          │           └─────────────┘               │
+          │           └──────────────┘              │
           └─────────────────────────────────────────┘
 
 Pendulum swings left:  entry pallet catches escape wheel tooth
@@ -253,20 +253,21 @@ GRIDIRON PENDULUM
            │
            │ ← steel rod (lower thermal expansion: 11.7×10⁻⁶/°C)
            │
-    ┌──────┴──────┐
+    ┌─────────────┐
     │             │
-    │ brass rods  │  ← brass expands MORE than steel (18.7×10⁻⁶/°C)
-    │ (expand     │    → pushes the lower framework UP relative to
-    │  upward)    │      the upper framework
+    │ brass rods  │
+    │ (expand     │
+    │  upward)    │
     │             │
-    └──────┬──────┘
+    └─────────────┘
+           │
            │ ← steel rod
            │
-    ┌──────┴──────┐
+    ┌─────────────┐
     │             │
-    │ brass rods  │  ← same effect, second stage
+    │ brass rods  │
     │             │
-    └──────┬──────┘
+    └─────────────┘
            │ ← central steel rod
            │
            ○ bob
@@ -296,13 +297,17 @@ MERCURY PENDULUM
            │
            │ ← steel or brass rod
            │
-      ┌────┴────┐
+      ┌─────────┐
       │         │
-      │ mercury │  ← contained in a glass/metal cylinder
-      │ in      │    mercury expands upward as temperature rises
-      │ cylinder│    → raises center of mass of bob
-      │         │    → partially compensates for rod lengthening
+      │ mercury │
+      │ in      │
+      │ cylinder│
+      │         │
       └─────────┘
+      Mercury contained in glass/metal cylinder.
+      Mercury expands upward as temperature rises
+      → raises center of mass of bob
+      → partially compensates for rod lengthening.
            bob assembly
 
 Mercury: α_volume = 182×10⁻⁶/°C (very high)

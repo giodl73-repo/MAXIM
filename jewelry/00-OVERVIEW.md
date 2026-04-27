@@ -22,32 +22,24 @@ Earth's crust                      Earth's crust               Solder alloys
  18k/14k gold                  GIA certification                    |
  Pt950                                    |                         |
       |                                   |                         |
-      v                                   v                         |
-[Mill products]               [Graded melee + singles]             |
- Sheet, wire, tube,            Dealer / broker                      |
- castings, findings                       |                         |
-      |                                   +-------------------------+
-      |                                             |
-      +---------------------------------------------+
-                                                    |
-                                                    v
-                                        +-----------------------+
-                                        |    JEWELER'S BENCH    |
-                                        |  Fabrication / Cast   |
-                                        |  Setting / Finishing  |
-                                        +-----------------------+
-                                                    |
-                                                    v
-                                        +-----------------------+
-                                        | ASSAY / HALLMARKING   |
-                                        | Legal purity marks    |
-                                        +-----------------------+
-                                                    |
-                                                    v
-                                        +-----------------------+
-                                        |   RETAIL / AUCTION    |
-                                        | Boutique / Grey mkt   |
-                                        +-----------------------+
+      v                                   v
+[Mill products]               [Graded melee + singles]
+ Sheet, wire, tube,            Dealer / broker
+ castings, findings
+      |                                   |
+      v                                   v
+
+                JEWELER'S BENCH
+                Fabrication / Cast
+                Setting / Finishing
+                       |
+                       v
+                ASSAY / HALLMARKING
+                Legal purity marks
+                       |
+                       v
+                RETAIL / AUCTION
+                Boutique / Grey mkt
 ```
 
 ---

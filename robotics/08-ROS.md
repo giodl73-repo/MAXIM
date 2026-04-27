@@ -312,13 +312,15 @@ NAV2 ARCHITECTURE:
   Goal (x, y, theta)
         |
   +------------------+
-  |  BT NAVIGATOR    |  Behavior Tree-based task execution.
-  |  (BT.cpp)        |  Handles: navigate, recovery behaviors, cancel.
+  |  BT NAVIGATOR    |
+  |  (BT.cpp)        |
   +------------------+
+   Behavior Tree-based task execution.
+   Handles: navigate, recovery behaviors, cancel.
         |
   +------------------+   +------------------+
   |  GLOBAL PLANNER  |   |  LOCALIZATION    |
-  |  NavFn (A*)       |   |  AMCL (particle |
+  |  NavFn (A*)      |   |  AMCL (particle  |
   |  SMAC (lattice)  |   |  filter), or     |
   |  Theta* (any-ang)|   |  SLAM Toolbox    |
   +------------------+   +------------------+
@@ -361,20 +363,23 @@ MOVEIT2 ARCHITECTURE:
   User request: "move to pose X"
         |
   +---------------------+
-  |  MOVE GROUP INTERFACE|  High-level API: plan, execute, query state.
+  |  MOVE GROUP IFACE   |
   +---------------------+
+   High-level API: plan, execute, query state.
         |
   +---------------------+   +---------------------+
-  |  MOTION PLANNING     |   |  PLANNING SCENE    |
-  |  FRAMEWORK (OMPL)    |   |  Collision objects |
-  |  RRTConnect default  |   |  ACM (allowed      |
-  |  PILZ (industrial)   |   |  collision matrix) |
-  +---------------------+   | Robot model (URDF)  |
-        |                   +---------------------+
+  |  MOTION PLANNING    |   |  PLANNING SCENE     |
+  |  FRAMEWORK (OMPL)   |   |  Collision objects  |
+  |  RRTConnect default |   |  ACM (allowed       |
+  |  PILZ (industrial)  |   |  collision matrix)  |
+  |                     |   |  Robot model (URDF) |
+  +---------------------+   +---------------------+
+        |
+        v
   +---------------------+
-  |  TRAJECTORY EXECUTION|
-  |  JointTrajectoryCtrl |
-  |  follow_joint_traj   |
+  |  TRAJECTORY EXEC    |
+  |  JointTrajectoryCtrl|
+  |  follow_joint_traj  |
   +---------------------+
         |
   ros2_control (hardware interface)

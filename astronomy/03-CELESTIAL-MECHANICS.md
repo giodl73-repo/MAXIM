@@ -68,8 +68,9 @@ Two masses m₁ and m₂ under mutual gravity:
 
   Equation of motion reduces to:
   ┌─────────────────────────────────────────────┐
-  │  μ r̈ = −G m₁ m₂ r / r³  =  −μ GM r / r³  │   M = m₁ + m₂
+  │  μ r̈ = −G m₁ m₂ r / r³  =  −μ GM r / r³     │
   └─────────────────────────────────────────────┘
+  where M = m₁ + m₂
 
   One particle, mass μ, in a central force field with GM = G(m₁+m₂).
   For M >> m (planet orbiting star): μ ≈ m, the star barely moves.
@@ -709,40 +710,28 @@ Covered in 02-MILANKOVITCH.md but worth connecting here:
 ## Decision Cheat Sheet
 
 ```
-  ┌────────────────────────────────────────────────────────────────────────────┐
-  │ Problem                             │ Tool / Formula                       │
-  ├────────────────────────────────────────┼────────────────────────────────────┤
-  │ Speed at any point in orbit         │ Vis-viva: v² = GM(2/r − 1/a)       │
-  ├────────────────────────────────────────┼────────────────────────────────────┤
-  │ Orbit period                        │ T = 2π √(a³/GM)                       │
-  ├────────────────────────────────────────┼────────────────────────────────────┤
-  │ Position at time t                  │ Kepler's equation: M = E − e sin E  │
-  ├────────────────────────────────────────┼────────────────────────────────────┤
-  │ Will satellite orbit precess?        │ J₂ nodal regression: dΩ/dt ∝ cos i   │
-  │ Need sun-synchronous?                │ i ≈ 97–98° (retrograde, dΩ/dt =      │
-  │                                      │ +360°/yr)                            │
-  ├────────────────────────────────────────┼────────────────────────────────────┤
-  │ Want apogee frozen over latitude?    │ Molniya: i = 63.43°, ω = 270°      │
-  ├────────────────────────────────────────┼────────────────────────────────────┤
-  │ Is a resonance stable or clearing?   │ Check critical angle libration vs    │
-  │                                      │ circulation; check forced e growth   │
-  ├────────────────────────────────────────┼────────────────────────────────────┤
-  │ Lagrange point choice for mission    │ L1: Sun-monitoring, continuous view │
-  │                                      │ L2: deep-space observation, thermal │
-  │                                      │ L4/L5: debris/Trojans, station-keep │
-  ├────────────────────────────────────────┼────────────────────────────────────┤
-  │ Does object get tidally disrupted?   │ Check if r < d_Roche                 │
-  │                                      │ d_Roche ≈ 2.44 R (ρ₁/ρ₂)^(1/3)       │
-  ├────────────────────────────────────────┼────────────────────────────────────┤
-  │ Is tidal locking expected?           │ τ ∝ a⁶ Q m / (M² R⁵)             │
-  │                                      │ Small a → locked fast               │
-  ├────────────────────────────────────────┼────────────────────────────────────┤
-  │ Minimum-ΔV transfer between orbits   │ Hohmann (two burns); bi-elliptic     │
-  │                                      │ if r₂/r₁ > ~12 (three burns)         │
-  ├────────────────────────────────────────┼────────────────────────────────────┤
-  │ Getting to outer solar system fast   │ Gravity assist; plan alignment     │
-  │                                      │ windows years in advance            │
-  └────────────────────────────────────────┴────────────────────────────────────┘
+  | Problem                              | Tool / Formula                      |
+  |--------------------------------------|-------------------------------------|
+  | Speed at any point in orbit          | Vis-viva: v² = GM(2/r − 1/a)        |
+  | Orbit period                         | T = 2π √(a³/GM)                     |
+  | Position at time t                   | Kepler's equation: M = E − e sin E  |
+  | Will satellite orbit precess?        | J₂ nodal regression: dΩ/dt ∝ cos i  |
+  | Need sun-synchronous?                | i ≈ 97-98° (retrograde, dΩ/dt =     |
+  |                                      | +360°/yr)                           |
+  | Want apogee frozen over latitude?    | Molniya: i = 63.43°, ω = 270°       |
+  | Is a resonance stable or clearing?   | Check critical angle libration vs   |
+  |                                      | circulation; check forced e growth  |
+  | Lagrange point choice for mission    | L1: Sun-monitoring, continuous view |
+  |                                      | L2: deep-space observation, thermal |
+  |                                      | L4/L5: debris/Trojans, station-keep |
+  | Does object get tidally disrupted?   | Check if r < d_Roche                |
+  |                                      | d_Roche ≈ 2.44 R (ρ₁/ρ₂)^(1/3)      |
+  | Is tidal locking expected?           | τ ∝ a⁶ Q m / (M² R⁵)                |
+  |                                      | Small a → locked fast               |
+  | Minimum-ΔV transfer between orbits   | Hohmann (two burns); bi-elliptic    |
+  |                                      | if r₂/r₁ > ~12 (three burns)        |
+  | Getting to outer solar system fast   | Gravity assist; plan alignment      |
+  |                                      | windows years in advance            |
 ```
 
 ---

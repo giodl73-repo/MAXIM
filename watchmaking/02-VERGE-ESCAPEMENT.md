@@ -57,14 +57,14 @@ VERGE-AND-FOLIOT ESCAPEMENT — SIDE VIEW
                     pallet B (lower)        ← fits between crown wheel teeth
                           │                   on the front side
                           │
-               ┌──────────┴──────────┐
+               ┌─────────────────────┐
                │   CROWN WHEEL       │
                │   (escape wheel)    │
                │   teeth project     │
                │   perpendicular     │
                │   to wheel plane    │
                │   (like a crown)    │
-               └──────────┬──────────┘
+               └─────────────────────┘
                           │
                    going train
                           │
@@ -243,17 +243,26 @@ This torque variation directly causes rate variation in a verge watch.
 ```
 FUSEE MECHANISM
 
-Mainspring barrel          Fusee (conical pulley)
-┌──────────────┐          ╱╲
-│   mainspring │ ─chain─ /  \  ← large radius (spring fully wound)
-│   (provides  │        /    \
-│   decreasing │       /      \ ← medium radius (mid-winding)
-│   torque as  │      /        \
-│   it unwinds)│     /          \ ← small radius (spring nearly run down)
-└──────────────┘    ╲____________╱
-                           │
-                      great wheel
-                      (constant torque)
+Mainspring barrel:
+┌──────────────┐
+│   mainspring │
+│   (provides  │
+│   decreasing │
+│   torque as  │
+│   it unwinds)│
+└──────────────┘
+       │
+     chain
+       │
+       v
+Fusee (conical pulley):
+   /\         (top: large radius, spring fully wound)
+  /  \
+ /    \       (middle: medium radius, mid-winding)
+/______\      (bottom: small radius, spring nearly run down)
+   |
+   v
+great wheel (constant torque)
 ```
 
 Chain wraps from bottom of fusee (small radius) when spring is fully wound → maximum mechanical advantage compensates for maximum spring torque. As spring unwinds, chain moves to larger radius → less mechanical advantage, but spring is also weaker → approximately constant torque delivered to going train.

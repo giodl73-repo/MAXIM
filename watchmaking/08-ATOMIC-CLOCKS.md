@@ -170,10 +170,11 @@ CESIUM FOUNTAIN CLOCK — SCHEMATIC
           ↑ detection zone
           │  laser fluorescence counts F=3 atoms after cavity
           │
-     ┌────┴────┐
-     │microwave│ ← cavity (atoms pass through twice: up and down)
+     ┌─────────┐
+     │microwave│
      │ cavity  │
      └────┬────┘
+     Cavity: atoms pass through twice (up and down).
           │  ↑ atom fountaining up and down
           │  ↓
      ┌────┴────┐

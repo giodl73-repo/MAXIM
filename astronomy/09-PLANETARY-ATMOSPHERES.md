@@ -235,7 +235,7 @@ Titan's N₂ atmosphere (95%) + CH₄ (5%) mirrors Earth's water cycle:
 │  ─────────        ─────          ─────          ────                         │
 │  P_surface        92 bar         1 bar          0.006 bar                    │
 │  T_surface        737 K          288 K          210 K (mean)                 │
-│  Composition      96% CO₂, 3.5% N₂ 78% N₂, 21% O₂ 96% CO₂, 2.6% N₂      │
+│  Composition      96% CO₂,3.5% N₂ 78% N₂, 21% O₂ 96% CO₂, 2.6% N₂            │
 │  Greenhouse ΔT    +505 K         +33 K          +5 K                         │
 │  Albedo           0.77           0.30           0.25                         │
 │  T_eq (calc)      232 K          255 K          210 K                        │

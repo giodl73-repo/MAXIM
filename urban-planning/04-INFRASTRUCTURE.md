@@ -47,39 +47,46 @@ CIP DEVELOPMENT PROCESS:
   STEP 1: NEEDS ASSESSMENT
   +-----------------------+
   | Asset inventory       |
-  | Condition assessment  |  --> Which assets are failing?
-  | Level of service gaps |      Which LOS standards are unmet?
-  | Growth projections    |      What capacity is needed?
+  | Condition assessment  |
+  | Level of service gaps |
+  | Growth projections    |
   +-----------------------+
+  Which assets are failing? Which LOS standards are unmet?
+  What capacity is needed?
           |
           v
   STEP 2: PROJECT DEVELOPMENT
   +-----------------------+
   | Scope definition      |
-  | Preliminary cost est. |  --> What does it cost?
-  | Phasing options       |      When can it be done?
-  | Alternatives analysis |      What are the alternatives?
+  | Preliminary cost est. |
+  | Phasing options       |
+  | Alternatives analysis |
   +-----------------------+
+  What does it cost? When can it be done?
+  What are the alternatives?
           |
           v
   STEP 3: PRIORITIZATION
   +-----------------------+
   | Scoring criteria:     |
-  |  - Safety/risk        |  Weighted score matrix.
-  |  - LOS impact         |  Like a sprint backlog
-  |  - Strategic fit      |  prioritization -- but with
-  |  - Equity/access      |  $50M consequences.
+  |  - Safety/risk        |
+  |  - LOS impact         |
+  |  - Strategic fit      |
+  |  - Equity/access      |
   |  - Leverage (grants)  |
   +-----------------------+
+  Weighted score matrix. Like a sprint backlog
+  prioritization — but with $50M consequences.
           |
           v
   STEP 4: FUNDING ASSIGNMENT
   +-----------------------+
   | Match projects to     |
-  | funding sources.      |  --> Which fund pays?
-  | Identify gaps.        |      What can be bonded?
-  | Grant applications    |      Are grants available?
+  | funding sources.      |
+  | Identify gaps.        |
+  | Grant applications    |
   +-----------------------+
+  Which fund pays? What can be bonded? Are grants available?
           |
           v
   STEP 5: ADOPTION
@@ -118,17 +125,14 @@ Modern infrastructure asset management uses exactly the kind of data systems, co
 ```
 ASSET MANAGEMENT LIFECYCLE:
 
-  INVENTORY           CONDITION           DETERIORATION
-  (what do we own?)   (what state?)       (how fast failing?)
-       |                   |                     |
-       v                   v                     v
-  +----------+      +----------+         +----------+
-  | GIS asset|      | Field     |         | Deterior-|
-  | registry |      | inspection|         | ation   |
-  | (geometry|      | PCI/BCI  |         | curves   |
-  | + attribs|      | sensor    |         | (empirical|
-  |          |      | data      |         | or model)|
-  +----------+      +----------+         +----------+
+  INVENTORY (what do we own?):
+    GIS asset registry (geometry + attribs)
+
+  CONDITION (what state?):
+    Field inspection (PCI/BCI), sensor data
+
+  DETERIORATION (how fast failing?):
+    Deterioration curves (empirical or model)
                          |                     |
                          v                     v
                    +--------------------------------+
@@ -137,7 +141,7 @@ ASSET MANAGEMENT LIFECYCLE:
                    | = Risk score                   |
                    | High consequence failures      |
                    | (water main under freeway)     |
-                   | prioritized over low consequence|
+                   | prioritized over low conseqnce |
                    | (water main in park)           |
                    +--------------------------------+
                               |

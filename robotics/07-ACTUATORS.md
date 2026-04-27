@@ -196,20 +196,23 @@ CASCADED CONTROL LOOPS:
            | position setpoint (q_d)       -- e.g., 1 kHz from ROS
            v
   +------------------+
-  |  POSITION LOOP   |  Kp*(q_d - q_measured) -> velocity reference
+  |  POSITION LOOP   |
   +------------------+
+   Kp*(q_d - q_measured) → velocity reference
            |
-           | velocity setpoint (omega_d)    -- 1-4 kHz typically
+           | velocity setpoint (omega_d) — 1-4 kHz typically
            v
   +------------------+
-  |  VELOCITY LOOP   |  Kp*(omega_d - omega) -> current reference
+  |  VELOCITY LOOP   |
   +------------------+
+   Kp*(omega_d - omega) → current reference
            |
-           | current setpoint (I_d)         -- 5-20 kHz
+           | current setpoint (I_d) — 5-20 kHz
            v
   +------------------+
-  |  CURRENT LOOP    |  FOC: Id/Iq PI + Park/Clarke + PWM
+  |  CURRENT LOOP    |
   +------------------+
+   FOC: Id/Iq PI + Park/Clarke + PWM
            |
   PWM to motor  (20-100 kHz switching)
            |

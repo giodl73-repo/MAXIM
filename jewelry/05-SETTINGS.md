@@ -144,16 +144,20 @@ Small stones set tightly together to create a surface of continuous sparkle. The
 PAVÉ CONSTRUCTION
 ==================
 
-Top view:                   Cross-section:
-                                ┌─┬─┬─┬─┐
- ○ ○ ○ ○ ○ ○                   │o│o│o│o│  stones
- ○ ○ ○ ○ ○ ○                   ├─┴─┴─┴─┤
- ○ ○ ○ ○ ○ ○                    │  METAL │
-                                └────────┘
- Metal barely visible
- between stones                 Tiny beads raised from metal
-                                 between stones hold each stone
-                                 (bead setting)
+Top view:
+ ○ ○ ○ ○ ○ ○
+ ○ ○ ○ ○ ○ ○
+ ○ ○ ○ ○ ○ ○
+ Metal barely visible between stones.
+
+Cross-section:
+  ┌─────────┐
+  │o o o o o│
+  ├─────────┤
+  │  METAL  │
+  └─────────┘
+  Top row: stones. Bottom: metal.
+ Tiny beads raised from metal between stones hold each stone (bead setting).
 
 STONE SIZES
  Pavé:       0.02–0.05 ct per stone (roughly 1.7–2.3mm diameter)
@@ -180,14 +184,19 @@ Stones set in a groove between two parallel rails. No metal between stones.
 ```
 CHANNEL SETTING
 ================
-Side view:                      Top view:
+Side view:
+ ┌──────────────────────┐
+ │  ┌────────────────┐  │
+ │  │                │  │
+ │  └────────────────┘  │
+ └──────────────────────┘
 
- ┌──────────────────────┐        ─────────────────────
- │  ┌──┬──┬──┬──┬──┐   │             □  □  □  □  □
- │  │  │  │  │  │  │   │        ─────────────────────
- │  └──┴──┴──┴──┴──┘   │
- └──────────────────────┘        Stones flush in channel;
-                                  no prongs visible
+Top view:
+ ─────────────────────
+      □  □  □  □  □
+ ─────────────────────
+
+ Stones flush in channel; no prongs visible.
 
 SUITABLE STONE SHAPES:
  Baguettes: rectangular step-cut; classic channel set in Art Deco
@@ -217,15 +226,18 @@ Stone held by compression from the metal band. No prongs, no bezel — stone app
 TENSION SETTING
 ================
 
-Cross-section:            Face view:
-
+Cross-section:
    ┌────┐  ┌────┐
-   │    │  │    │              ──┐
-   │ ←  │○ │  → │            ○○ │← stone floating
-   │    │  │    │              ──┘
+   │    │  │    │
+   │ ←  │○ │  → │
+   │    │  │    │
    └────┘  └────┘
-    Metal springback
-    holds stone by compression
+    Metal springback holds stone by compression.
+
+Face view:
+                ──┐
+              ○○ │← stone floating
+                ──┘
 
 MECHANICS: metal band has precise slot cut for stone;
            band is opened slightly to insert stone;
@@ -302,10 +314,11 @@ Calibré-cut stones with grooves on their girdles, placed on a metal grid rail s
 
 ```
   ┌────────────────┐
-  │ □□□□□□□□□□□□□ │  ← stones appear seamless from top
-  │ □□□□□□□□□□□□□ │  ← metal hidden below
+  │ □□□□□□□□□□□□□  │
+  │ □□□□□□□□□□□□□  │
   │ □□□□□□□□□□□□□  │
   └────────────────┘
+  Stones appear seamless from top; metal hidden below.
 
 Patented by Van Cleef & Arpels; requires precision calibration;
 stones must be cut to exact tolerances; extremely expensive labor

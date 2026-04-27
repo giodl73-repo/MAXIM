@@ -6,12 +6,12 @@ Urban planning is the discipline of managing complex adaptive systems where thou
 
 ```
 +------------------------------------------------------------------+
-|                    URBAN PLANNING LANDSCAPE                       |
+|                    URBAN PLANNING LANDSCAPE                      |
 |                                                                  |
 |  WHAT CITIES ARE          WHAT PLANNERS MANAGE                   |
 |  -----------------        -------------------------              |
 |  Complex adaptive         Land Use & Zoning ---------> 01        |
-|  systems where            Urban Form & Morphology ----> 02        |
+|  systems where            Urban Form & Morphology ---> 02        |
 |  individual decisions     Housing Policy ------------> 03        |
 |  aggregate into           Infrastructure & Finance --> 04        |
 |  emergent outcomes        Smart Cities & Technology -> 05        |
@@ -98,7 +98,7 @@ Industrialization drove massive rural-to-urban migration. Cities grew faster tha
 |                                          |
 | Edwin Chadwick (UK, 1842):               |
 |   "Sanitary Report" -- disease linked    |
-|   to filth. Triggered sewer systems,    |
+|   to filth. Triggered sewer systems,     |
 |   piped water.                           |
 |                                          |
 | Baron Haussmann (Paris, 1853-1870):      |
@@ -108,7 +108,7 @@ Industrialization drove massive rural-to-urban migration. Cities grew faster tha
 |     cannot be barricaded)                |
 |   - Sewer and water systems              |
 |   - Uniform building heights/setbacks    |
-|   - Parks (Bois de Boulogne)            |
+|   - Parks (Bois de Boulogne)             |
 |   Cost: 350,000 displaced working class  |
 |                                          |
 | NYC 1811 Commissioners' Plan:            |
@@ -239,9 +239,9 @@ JACOBS' FOUR CONDITIONS FOR URBAN VITALITY:
 1. MIXED PRIMARY USES
    +-----------------------------------------------+
    | Office + housing + retail + culture =         |
-   | activity at different times of day.            |
-   | Single-use zones = dead streets                |
-   | after 5pm (or 9am on weekends).                |
+   | activity at different times of day.           |
+   | Single-use zones = dead streets               |
+   | after 5pm (or 9am on weekends).               |
    +-----------------------------------------------+
 
 2. SHORT BLOCKS

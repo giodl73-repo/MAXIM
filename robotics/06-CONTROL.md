@@ -48,13 +48,13 @@ exception. Every industrial servo runs PID (or PI for velocity loops).
 ### PID Structure
 
 ```
-                    +------ I (integral) ------+
-                    |                          |
-  e(t) -+-> P -----+---> u(t) -> Plant -> y(t)
-        |   |      |                     |
-        |   +-> D -+                     |
-        |                                |
-        +--------------------------------+
+  PID feedback loop:
+
+  reference r(t) ─→ (sum) ─→ e(t) ─┬─→ P ──→
+                     ↑              ├─→ I ──→ (sum) ──→ u(t) ──→ Plant ──→ y(t)
+                     │              └─→ D ──→             |
+                     └──────────────── y(t) ──────────────┘
+
         error: e(t) = r(t) - y(t)
         r(t): reference (desired q_d)
         y(t): measurement (actual q)
@@ -419,21 +419,28 @@ LIMITATIONS:
 ros2_control ARCHITECTURE:
 
   +------------------+
-  | ros2_control     |   Framework for writing hardware-agnostic controllers.
+  | ros2_control     |
   | (controller_mgr) |
   +------------------+
+   Framework for writing hardware-agnostic controllers.
           |
   +------------------+
-  | Controllers       |   Plugins implementing a controller interface.
-  |  JointPositionCtrl|   JointTrajectoryController: position control with
-  |  JointEffortCtrl  |     trajectory interpolation.
-  |  ForwardCtrl      |   ForwardCommandController: pass-through torques.
-  +------------------+   CartesianMotionController (Franka): Cartesian PID.
+  | Controllers      |
+  | JointPositionCtl |
+  | JointEffortCtl   |
+  | ForwardCtl       |
+  +------------------+
+   Plugins implementing a controller interface.
+   JointTrajectoryController: position control with trajectory interpolation.
+   ForwardCommandController: pass-through torques.
+   CartesianMotionController (Franka): Cartesian PID.
           |
   +------------------+
-  | Hardware Interface|   URDF-defined joint interfaces: position, velocity,
-  |  (robot driver)  |   effort. Real or simulated (Gazebo plugin).
+  | Hardware Iface   |
+  | (robot driver)   |
   +------------------+
+   URDF-defined joint interfaces: position, velocity, effort.
+   Real or simulated (Gazebo plugin).
           |
       Real robot or Gazebo/Isaac Sim
 ```

@@ -154,14 +154,13 @@ BULK REGULATION SYSTEM:
   +------------------------------------------------------------+
   |                        LOT                                 |
   |     [FRONT SETBACK]                                        |
-  |   +---------------------------+                            |
-  |   |                           |                            |
-  | [S|         BUILDING          |S]  <-- height limit        |
-  | I |         ENVELOPE          |I      (storeys or feet)    |
-  | D |                           |D                           |
-  | E |                           |E                           |
-  |   +---------------------------+                            |
-      |     [REAR SETBACK]                                     |
+  |                                                            |
+  |   [S]    BUILDING ENVELOPE        [S]                      |
+  |   [I]    (height limit:           [I]                      |
+  |   [D]     storeys or feet)        [D]                      |
+  |   [E]                             [E]                      |
+  |                                                            |
+  |       [REAR SETBACK]                                       |
   +------------------------------------------------------------+
 
   KEY CONTROLS:

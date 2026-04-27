@@ -337,7 +337,7 @@ The critical test of Milankovitch theory:
   RESULT — Three dominant periods found in data:
   ┌────────────────────────────────────────────────────────────────┐
   │  Observed in δ¹⁸O   Predicted by orbital theory  Parameter     │
-  │  ~100 kyr           ~95–125 kyr eccentricity beat eccentricity│
+  │  ~100 kyr           ~95-125 kyr eccentricity beat eccentricity │
   │  ~41 kyr            ~41 kyr                       obliquity    │
   │  ~23 kyr            ~23 + ~19 kyr                 precession   │
   └────────────────────────────────────────────────────────────────┘
@@ -519,7 +519,7 @@ Deep tropics show ~11 kyr (half-precession) signal in speleothem records. The ex
 
   ┌────────────────────────────────────────────────────────────────────────────┐
   │ Question                              │ Parameter                          │
-  ├────────────────────────────────────────┼────────────────────────────────────┤
+  ├───────────────────────────────────────┼────────────────────────────────────┤
   │ Why did ice ages occur every 41 kyr   │ Obliquity — high latitude summer   │
   │ in early Pleistocene?                  │ insolation pacing                  │
   ├────────────────────────────────────────┼────────────────────────────────────┤

@@ -172,9 +172,9 @@ DOUBLE SHELL CROSS-SECTION
    +-----------+          ← OUTER SHELL (lighter, protective, visible)
    |  /     \  |
    | / void  \ |
-   |/         \|
+   |/         \ |
    +-----------+
-   |/    S    \|
+   |/    S    \ |
    |     T     |
    |     R     |
    +     U     +

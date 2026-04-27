@@ -279,7 +279,7 @@ PHYSICAL MEANING: Near a singularity,
 
 TYPES FOR A 6R ARM:
 +--------------+------------------------------------------+-------------+
-| Type         | Description                              | Configuration|
+| Type         | Description                              | Configurtn  |
 +--------------+------------------------------------------+-------------+
 | Shoulder     | Wrist center crosses shoulder joint axis | Arm fully    |
 |              |                                          | extended     |

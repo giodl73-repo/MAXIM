@@ -17,33 +17,33 @@ sense → plan → act, continuously. Every subsystem maps to a well-defined eng
 |            |  forces, light, distance             ^ forces, motion        |
 |            v                                      |                       |
 |   +-----------------+                   +-------------------+             |
-|   |   SENSING        |                  |   ACTUATION        |            |
-|   |  (Ch 03)        |                  |  (Ch 07)           |            |
-|   |  LiDAR, cams    |                  |  Motors, drives    |            |
-|   |  IMU, encoders  |                  |  Hydraulic, soft   |            |
-|   |  Force/torque   |                  |  Harmonic gears    |            |
-|   +-----------------+                  +-------------------+             |
+|   |  SENSING        |                   |  ACTUATION        |             |
+|   |  (Ch 03)        |                   |  (Ch 07)          |             |
+|   |  LiDAR, cams    |                   |  Motors, drives   |             |
+|   |  IMU, encoders  |                   |  Hydraulic, soft  |             |
+|   |  Force/torque   |                   |  Harmonic gears   |             |
+|   +-----------------+                   +-------------------+             |
 |            |  raw data                          ^ joint torques           |
 |            v                                    |                         |
 |   +-----------------+                   +-------------------+             |
-|   |  STATE ESTIMATION|                  |   CONTROL          |            |
-|   |  (Ch 03, 04)    |                  |  (Ch 06)           |            |
-|   |  SLAM, Kalman   |                  |  PID, computed-t   |            |
-|   |  Odometry, AMCL |                  |  Impedance, force  |            |
-|   +-----------------+                  +-------------------+             |
+|   |  STATE ESTIMATN |                   |  CONTROL          |             |
+|   |  (Ch 03, 04)    |                   |  (Ch 06)          |             |
+|   |  SLAM, Kalman   |                   |  PID, computed-t  |             |
+|   |  Odometry, AMCL |                   |  Impedance, force |             |
+|   +-----------------+                   +-------------------+             |
 |            |  pose + map                        ^ trajectory              |
 |            v                                    |                         |
 |   +--------------------------------------------------+                   |
-|   |              PLANNING (Ch 05)                     |                   |
-|   |  Task planning -> path planning -> trajectory gen  |                  |
-|   |  A*, RRT, RRT*, CHOMP, PDDL                       |                   |
+|   |              PLANNING (Ch 05)                    |                   |
+|   |  Task planning -> path planning -> trajectory gen|                   |
+|   |  A*, RRT, RRT*, CHOMP, PDDL                      |                   |
 |   +--------------------------------------------------+                   |
 |            |  goal, constraints                                           |
 |            v                                                              |
 |   +--------------------------------------------------+                   |
-|   |           AI / REASONING (Ch 09)                  |                   |
-|   |  RL policies, imitation learning, foundation LLMs |                   |
-|   |  Perception (6-DOF pose est.), task understanding  |                  |
+|   |           AI / REASONING (Ch 09)                 |                   |
+|   |  RL policies, imitation learning, foundation LLMs|                   |
+|   |  Perception (6-DOF pose est.), task understanding|                   |
 |   +--------------------------------------------------+                   |
 |                                                                           |
 |   MIDDLEWARE: ROS 2 / DDS (Ch 08) -- wires all subsystems together        |
@@ -103,9 +103,11 @@ SERIAL (open-chain)              PARALLEL (closed-chain)
 ```
 MOBILE                           AERIAL
 +-------+                        +-rotors-+
-| drive |-- chassis -- sensors   | body   |
-| wheels/tracks/legs             | IMU    |
+| drive |                        | body   |
+| wheels|                        | IMU    |
 +-------+                        +-rotors-+
+chassis -- sensors --
+wheels/tracks/legs
   Differential drive             Multirotor (quad/hex/octo)
   Ackermann (car steering)       Fixed-wing UAV
   Omnidirectional (mecanum)      VTOL hybrid
@@ -241,7 +243,7 @@ latency budgets.
                         |
 +----------------------------------------------------------+
 |  TRAJECTORY / MOTION LEVEL                               |
-|  "Follow this Cartesian path at 0.5 m/s"                |
+|  "Follow this Cartesian path at 0.5 m/s"                 |
 |  CHOMP, minimum-snap, trajectory interpolation           |
 |  Rate: 100-500 Hz                                        |
 +----------------------------------------------------------+

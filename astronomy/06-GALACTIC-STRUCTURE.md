@@ -44,25 +44,16 @@
 ```
   MILKY WAY FACE-ON (schematic, looking down from north Galactic pole)
 
-                                N
-                                |
-                          ╭─────┴──────╮
-                   ╭─────╮│  Perseus   │╭─────╮
-                ╭──╯  ╭──╯│   Arm      │╰──╮  ╰──╮
-              ╭─╯   ╭─╯   ╰────────────╯   ╰─╮   ╰─╮
-            ─────────────────────────────────────────────── Cygnus
-           |  Norma  |    ╔══════════════╗   |  Outer |   ←  GC dir
-           |  Arm    |    ║     BAR      ║   |  Arm   |
-           |         |    ║   ~3.5 kpc   ║   |        |
-           |         |    ║   ↗ 27° from ║   |        |
-            ─────────────╫──Sun-GC line──╫───────────────
-                          ║     Sgr A*   ║
-                          ╚══════════════╝
-              ╰─╮   ╰─╮   ╭────────────╮   ╭─╯   ╭─╯
-                ╰──╮  ╰──╮│Carina-Sag  │╭──╯  ╭──╯
-                   ╰─────╯│   Arm      │╰─────╯
-                          ╰─────┬──────╯
-                                S
+  Top-down schematic of Milky Way (north up):
+
+      Perseus Arm (north quadrant)
+            \
+             \
+   Norma     [BAR ~3.5 kpc, ↗ 27° from Sun-GC line]    Outer Arm
+   Arm       [    Sgr A*                          ]    (toward Cygnus)
+            /
+           /
+      Carina-Sag Arm (south quadrant)
 
   ★ = Sun (R☉ ~ 8.178 kpc)   We are in the LOCAL (Orion) SPUR
   Orion Spur is an inter-arm bridge between Perseus and Carina-Sag arms
@@ -435,21 +426,21 @@ The local rotation curve is characterized by two constants from Oort (1927):
 
   THE "ALPHA KNEE" at [Fe/H] ~ −1:
   ┌───────────────────────────────────────────────────────────────────┐
-  │  CCSN (core-collapse SNe, M > 8 M☉):                            │
-  │    Timescale: ~10 Myr after SF episode begins                    │
-  │    Products: α-elements (O, Mg, Si, Ca, Ti) + some Fe           │
-  │    Effect: drives [α/Fe] HIGH, [Fe/H] rising                    │
+  │  CCSN (core-collapse SNe, M > 8 M☉):                              │
+  │    Timescale: ~10 Myr after SF episode begins                     │
+  │    Products: α-elements (O, Mg, Si, Ca, Ti) + some Fe             │
+  │    Effect: drives [α/Fe] HIGH, [Fe/H] rising                      │
   │                                                                   │
-  │  SNe Ia (thermonuclear, WD+companion):                           │
-  │    Timescale: ~1 Gyr delay (DTD peaks at ~1 Gyr, tail to ~10 Gyr)│
-  │    Products: Fe-peak elements (Fe, Ni, Co)                       │
-  │    Effect: when they "turn on," [Fe/H] rises faster than [α/Fe] │
-  │            → [α/Fe] drops → the knee                            │
+  │  SNe Ia (thermonuclear, WD+companion):                            │
+  │    Timescale: ~1 Gyr delay (DTD peak ~1 Gyr, tail to ~10 Gyr)     │
+  │    Products: Fe-peak elements (Fe, Ni, Co)                        │
+  │    Effect: when they "turn on," [Fe/H] rises faster than [α/Fe]   │
+  │            → [α/Fe] drops → the knee                              │
   │                                                                   │
   │  READING HISTORY:                                                 │
-  │  High [α/Fe] at given [Fe/H] → fast SF (no time for Ia delay)   │
-  │  Low [α/Fe] at given [Fe/H] → slow SF or quenching+resumption   │
-  │  Two distinct sequences in MW → thick+thin disk had DISTINCT SF  │
+  │  High [α/Fe] at given [Fe/H] → fast SF (no time for Ia delay)     │
+  │  Low [α/Fe] at given [Fe/H] → slow SF or quenching+resumption     │
+  │  Two sequences in MW → thick+thin disk had DISTINCT SF            │
   └───────────────────────────────────────────────────────────────────┘
 ```
 
@@ -579,7 +570,7 @@ The most direct BH mass determination comes from stellar orbits in the S-star cl
   │  Pericenter:   r_p = a(1−e) = 119 AU = 1430 r_S                 │
   │                                                                 │
   │  KEPLER → BH MASS:                                              │
-  │  M = 4π²a³/(GP²) = 4π²(1025×1.496×10¹³)³/(6.67×10⁻⁸×(16×3.15×10⁷)²) │
+  │  M = 4π²a³/(GP²)                                                │
   │  ~ 4.15×10⁶ M☉                                                  │
   │                                                                 │
   │  GR EFFECTS DETECTED (GRAVITY Collaboration 2020):              │
@@ -597,22 +588,19 @@ The most direct BH mass determination comes from stellar orbits in the S-star cl
 
 ```
   FERMI BUBBLE MORPHOLOGY:
-  ┌─────────────────────────────────────────────────────────────────────┐
-  │                                                                     │
-  │        ╭───────────────╮   north bubble                             │
-  │       ╭╯               ╰╮  ~10 kpc tall                           │
-  │       │  uniform hard   │  (= 10 kpc above GC plane)              │
-  │       │  γ-ray spectrum │  γ-ray: E > 1 GeV                       │
-  │       │  E^−2 power law │  microwave excess (WMAP "haze"):        │
-  │       │                 │  ~ 1–3 GHz synchrotron from             │
-  │       ╰╮               ╭╯  high-energy electrons                  │
-  │    ────╰───────────────╯──────────── Galactic plane ──────        │
-  │        ╭───────────────╮   south bubble                           │
-  │       ╭╯               ╰╮  symmetric counterpart                  │
-  │       │  ~10 kpc tall   │                                         │
-  │       ╰╮               ╭╯  Total energy ~ 10⁵⁵ J                  │
-  │        ╰───────────────╯                                          │
-  └─────────────────────────────────────────────────────────────────────┘
+
+      [ NORTH BUBBLE ]
+      uniform hard γ-ray spectrum
+      E^−2 power law
+                     ~10 kpc tall (above GC plane)
+                     γ-ray: E > 1 GeV
+                     microwave excess (WMAP "haze")
+                     ~1-3 GHz synchrotron from high-energy electrons
+   ──────────────────────── Galactic plane ──────────
+      [ SOUTH BUBBLE ]
+      symmetric counterpart, ~10 kpc tall
+
+  Total energy ~ 10⁵⁵ J
 
   ORIGIN DEBATE:
   Hypothesis 1: Past AGN outburst from Sgr A*
@@ -791,16 +779,12 @@ Take velocity moments of the CBE to get equations for observable quantities:
   ZEROTH MOMENT: ∂ρ/∂t + ∇·(ρ v̄) = 0    [continuity equation]
 
   FIRST MOMENT (radial, cylindrical coords, steady state ∂/∂t=0):
-  ┌─────────────────────────────────────────────────────────────────┐
-  │  ρ ∂Φ/∂R = ρ(v̄_φ²/R − v̄_R²/R) − ∂(ρ σ_RR²)/∂R             │
-  │           − (σ_RR² − σ_φφ²) ρ/R − ∂(ρ σ_Rz²)/∂z                 │
-  └─────────────────────────────────────────────────────────────────┘
+  ρ ∂Φ/∂R = ρ(v̄_φ²/R − v̄_R²/R) − ∂(ρ σ_RR²)/∂R
+           − (σ_RR² − σ_φφ²) ρ/R − ∂(ρ σ_Rz²)/∂z
   where σ_ij² = velocity dispersion tensor components.
 
   VERTICAL JEANS EQUATION (more commonly used):
-  ┌─────────────────────────────────────────────────────────────────┐
-  │  ∂(ρ σ_zz²)/∂z = −ρ ∂Φ/∂z = −ρ K_z                         │
-  └─────────────────────────────────────────────────────────────────┘
+  ∂(ρ σ_zz²)/∂z = −ρ ∂Φ/∂z = −ρ K_z
   K_z = vertical restoring force
 
   PRACTICAL APPLICATION (Oort 1932 / Kuijken & Gilmore 1989):
@@ -827,7 +811,7 @@ Stars on nearly circular orbits undergo small oscillations — this is the epicy
   │                                                                    │
   │  SOLUTION:                                                         │
   │    R(t) = R_g + A cos(κt + φ₀)                                     │
-  │    φ(t) = Ω_g t − (2A Ω_g)/(κ R_g) sin(κt + φ₀)               │
+  │    φ(t) = Ω_g t − (2A Ω_g)/(κ R_g) sin(κt + φ₀)                    │
   │                                                                    │
   │  The orbit traces an ELLIPSE (epicycle) about the guiding center.  │
   │  In the guiding center frame: the star moves on an ellipse with    │
@@ -903,7 +887,7 @@ Stars on nearly circular orbits undergo small oscillations — this is the epicy
   │                                                                  │
   │  EXAMPLE: Sagittarius dwarf (M_Sgr ~ 10⁸ M☉) at R = 20 kpc:      │
   │  M_MW(20 kpc) ~ 10¹¹ M☉                                          │
-  │  r_t = 20 × (10⁸/3×10¹¹)^{1/3} = 20 × (3.3×10⁻⁴)^{1/3}      │
+  │  r_t = 20 × (10⁸/3×10¹¹)^(1/3) = 20 × (3.3×10⁻⁴)^(1/3)           │
   │      = 20 × 0.069 ~ 1.4 kpc                                      │
   │  → Stars beyond ~1.4 kpc from Sgr center get tidally stripped    │
   └──────────────────────────────────────────────────────────────────┘
@@ -957,7 +941,7 @@ The LMC is not a typical small satellite. Its mass (~10% of the MW disk mass) ma
 ```
   LMC INFALL DYNAMICS:
   ┌─────────────────────────────────────────────────────────────────────┐
-  │  LMC mass: M_LMC ~ 1.5×10¹⁰ M☉ (from stellar mass + subhalos)  │
+  │  LMC mass: M_LMC ~ 1.5×10¹⁰ M☉ (from stellar mass + subhalos)       │
   │  Pericenter: ~50 kpc, 50 Myr ago (FIRST pericenter — not on a       │
   │  long-bound orbit, just arrived on cosmological infall trajectory)  │
   │                                                                     │
@@ -1058,14 +1042,15 @@ The LMC is not a typical small satellite. Its mass (~10% of the MW disk mass) ma
   HUBBLE TUNING FORK:
 
                               Sa   Sb   Sc   Sd
-                         ╭───┬────┬────┬────┬────╮ Spirals (S)
-     Ellipticals         │   │    │    │    │    │
-     E0 E1 E2 ... E7 ───S0──╪────╪────╪────╪────╪ (S0 = lenticular)
-                         │   │    │    │    │    │
-                         ╰───┴────┴────┴────┴────╯ Barred Spirals (SB)
+                         +---+----+----+----+----+
+     Ellipticals         |   |    |    |    |    |
+     E0 E1 E2 ... E7 ─── S0 (lenticular)
+                         |   |    |    |    |    |
+                         +---+----+----+----+----+
                               SBa  SBb  SBc  SBd
-                                        \
-                                         └── Irr (irregular)
+
+  Top: Spirals (S). Bottom: Barred Spirals (SB).
+  Trailing → Irr (irregular).
                                               (Magellanic, HII-dominated)
 
   CLASSIFICATION AXES (along Hubble sequence S→Sd):
@@ -1139,7 +1124,7 @@ The LMC is not a typical small satellite. Its mass (~10% of the MW disk mass) ma
   │                                                                 │
   │  DERIVATION SKETCH:                                             │
   │  Assume: M ∝ v_c² R (virial), Σ ~ const (Freeman), L ∝ M_*:     │
-  │  M ~ v_c² R, R ∝ M^{1/2}/Σ^{1/2} → M ∝ v_c^4/Σ             │
+  │  M ~ v_c² R, R ∝ M^(1/2)/Σ^(1/2) → M ∝ v_c^4/Σ                  │
   │  For constant Σ: M ∝ v_c^4                                      │
   │                                                                 │
   │  USE: Standard ruler/candle for distances to spiral galaxies    │
@@ -1441,7 +1426,7 @@ The classic result: a thermally stratified gas in pressure equilibrium can be un
   │                                                                 │
   │  Turbulent:  P_turb = ½ ρ σ²_turb                               │
   │    σ_turb ~ 10 km/s, n_WNM ~ 0.4 cm⁻³                           │
-  │    ~ ½ × 0.4 × 1.67×10⁻²⁴ × (10⁶)² ~ 3×10⁻¹³ erg/cm³       │
+  │    ~ ½ × 0.4 × 1.67×10⁻²⁴ × (10⁶)² ~ 3×10⁻¹³ erg/cm³            │
   │                                                                 │
   │  Magnetic:  P_B = B²/8π                                         │
   │    B ~ 4 μG = 4×10⁻⁶ G                                          │

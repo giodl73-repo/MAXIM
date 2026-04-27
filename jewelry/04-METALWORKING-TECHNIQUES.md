@@ -39,78 +39,96 @@ casting
 ```
 1. MASTER MODEL
    +-----------+
-   | Wax carve |  or  3D print → resin model
-   | or sculpt |       (SLA/DLP printers standard now)
+   | Wax carve |
+   | or sculpt |
    +-----------+
+   Or 3D print → resin model (SLA/DLP printers standard now).
          |
          v
 2. MOLD MAKING
    +-----------+
-   | Vulcanize |  Surround master in rubber → heat cure
-   | rubber    |  Cut mold in half to extract master
-   | mold      |  Mold reusable thousands of times
+   | Vulcanize |
+   | rubber    |
+   | mold      |
    +-----------+
+   Surround master in rubber → heat cure.
+   Cut mold in half to extract master. Mold reusable thousands of times.
          |
          v
 3. WAX INJECTION
    +-----------+
-   | Inject    |  Heated wax injected under pressure
-   | wax into  |  into rubber mold
-   | mold      |  Multiple wax copies produced
+   | Inject    |
+   | wax into  |
+   | mold      |
    +-----------+
+   Heated wax injected under pressure into rubber mold.
+   Multiple wax copies produced.
          |
          v
 4. SPRUE TREE
    +-----------+
-   | Attach    |  Wax gates (sprues) connect wax pieces
-   | wax pieces|  to central wax sprue/button
-   | to tree   |  "Christmas tree" of multiple wax pieces
+   | Attach    |
+   | wax pieces|
+   | to tree   |
    +-----------+
+   Wax gates (sprues) connect wax pieces to central wax sprue/button.
+   "Christmas tree" of multiple wax pieces.
          |
          v
 5. INVESTING
    +-----------+
-   | Place in  |  Metal flask; pour investment plaster
-   | flask;    |  (calcium sulfate hemihydrate + silica)
-   | pour      |  Vacuum to remove air bubbles
-   | investment|  Set at room temperature 2–4 hours
+   | Place in  |
+   | flask;    |
+   | pour      |
+   | investment|
    +-----------+
+   Metal flask; pour investment plaster (calcium sulfate hemihydrate + silica).
+   Vacuum to remove air bubbles. Set at room temperature 2-4 hours.
          |
          v
 6. BURNOUT (WAX ELIMINATION)
    +-----------+
-   | Kiln      |  Ramp: room temp → 300°F → 700°F → 1350°F
-   | burnout   |  Wax melts and burns out → cavity remains
-   | schedule  |  Hold at 1350°F for 2+ hours
-   | 4–12 hrs  |  "Lost wax" = the wax is gone
+   | Kiln      |
+   | burnout   |
+   | schedule  |
+   | 4-12 hrs  |
    +-----------+
+   Ramp: room temp → 300°F → 700°F → 1350°F.
+   Wax melts and burns out → cavity remains.
+   Hold at 1350°F for 2+ hours. "Lost wax" = the wax is gone.
          |
          v
 7. CASTING
    +-----------+
-   | Centrifugal:  Molten metal in crucible on rotating arm
-   | or Vacuum:    Flask inverted over vacuum chamber;
-   | cast metal    atmospheric pressure pushes metal in
-   | into hot      Gravity: simple pour (large pieces)
-   | investment    Steam: steam pressure (simple, low-tech)
+   | cast metal|
+   | into hot  |
+   | investment|
    +-----------+
+   Centrifugal: molten metal in crucible on rotating arm.
+   Vacuum: flask inverted over vacuum chamber; atmospheric pressure pushes metal in.
+   Gravity: simple pour (large pieces).
+   Steam: steam pressure (simple, low-tech).
          |
          v
 8. QUENCH + DEVEST
    +-----------+
-   | Quench hot|  Plunge hot flask into water →
-   | flask in  |  investment disintegrates (steam explosion)
-   | water     |  Retrieve casting on tree
+   | Quench hot|
+   | flask in  |
+   | water     |
    +-----------+
+   Plunge hot flask into water → investment disintegrates (steam explosion).
+   Retrieve casting on tree.
          |
          v
 9. FINISHING
    +-----------+
-   | Cut sprues|  Snip/saw off gates; file sprue marks
-   | clean,    |  Pickle to remove oxides
-   | file,     |  File, sand through grits
-   | polish    |  Polishing compounds (tripoli then rouge)
+   | Cut sprues|
+   | clean,    |
+   | file,     |
+   | polish    |
    +-----------+
+   Snip/saw off gates; file sprue marks. Pickle to remove oxides.
+   File, sand through grits. Polishing compounds (tripoli then rouge).
 ```
 
 ### Wax Types

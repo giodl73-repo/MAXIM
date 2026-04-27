@@ -146,14 +146,17 @@ The fundamental engineering problem:
 OUTFLOW CLEPSYDRA — PRESSURE PROBLEM
 
 ┌─────────────────────────┐
-│ ████████████████████   │ h₁  full: flow rate Q₁ = Cd·A·√(2g·h₁)
+│ ████████████████████    │
 │                         │
-│ ████████████            │ h₂  half full: Q₂ = Cd·A·√(2g·h₂)
-│                         │     Q₂ = Q₁ × √(h₂/h₁) = Q₁/√2
-│ ██                      │       = 71% of original rate
+│ ████████████            │
 │                         │
-│         ─┼─             │  orifice (area A)
+│ ██                      │
+│                         │
+│         ─┼─             │
 └─────────────────────────┘
+  h₁ full: flow rate Q₁ = Cd·A·√(2g·h₁)
+  h₂ half full: Q₂ = Cd·A·√(2g·h₂) = Q₁ × √(h₂/h₁) = Q₁/√2 ≈ 71%
+  Orifice (area A) at bottom.
            │
            ▼
         outflow
@@ -187,15 +190,27 @@ This is the **first known gear train** in history. The gear was not invented for
 ```
 CTESIBIUS CLEPSYDRA (~270 BCE)
 
-Supply vessel          Measuring vessel
-┌──────────┐          ┌──────────────┐
-│          │          │              │
-│ overflow │──────────│ float ──────┬┼── gear train ──► rotating drum
-│ level    │  orifice │ (rises as   │                   with hour marks
-│          │  (const  │  water       │
-│ drain    │   head)  │  rises)     │                   indicator pointer
-└──────────┘          └─────────────┘
+Supply vessel:
+┌──────────┐
+│          │
+│ overflow │
+│ level    │
+│          │
+│ drain    │
+└──────────┘
    supply
+
+Measuring vessel:
+┌──────────────┐
+│              │
+│ float        │
+│ (rises as    │
+│  water       │
+│  rises)      │
+└──────────────┘
+
+Connected via orifice (constant head). Float rises → gear train →
+rotating drum with hour marks → indicator pointer.
 ```
 
 Accuracy improvement over simple outflow: substantial. A well-built Ctesibius clepsydra could achieve approximately ±15 minutes per day — comparable to early mechanical verge clocks 1500 years later.
@@ -342,18 +357,21 @@ An astrolabe is a **stereographic projection** of the celestial sphere onto a fl
 ```
 ASTROLABE STRUCTURE
 
-         rete (rotatable)
+         rete (rotatable):
            ┌──────────┐
-           │  *    *  │  star positions (pierced fretwork)
-           │    ☉    │  ecliptic ring (sun path)
+           │  *    *  │
+           │    ☉     │
            │  *       │
            └──────────┘
+           Star positions (pierced fretwork). Ecliptic ring (sun path).
                 |
-           mater (fixed base)
+         mater (fixed base):
            ┌──────────┐
-           │  tympan  │  horizon + hour lines for specific latitude
-           │          │  (swappable for different latitudes)
+           │  tympan  │
+           │          │
            └──────────┘
+           Horizon + hour lines for specific latitude
+           (swappable for different latitudes).
 
 By rotating the rete until a star is at the observed altitude,
 you read off the local sidereal time from the hour circle.

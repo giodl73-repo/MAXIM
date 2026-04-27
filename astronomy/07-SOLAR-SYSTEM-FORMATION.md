@@ -415,7 +415,7 @@ After disk dispersal (~5 Myr), ~10-20 planetary embryos remain in the inner sola
   │  ● Earth's obliquity (23.5°): impact tilt                            │
   │                                                                      │
   │  TIMING (Hf-W chronometer):                                          │
-  │  ¹⁸²Hf → ¹⁸²W (t₁/₂ = 8.9 Myr): W goes to core, Hf stays in mantle│
+  │  ¹⁸²Hf → ¹⁸²W (t₁/₂=8.9 Myr): W to core, Hf stays in mantle          │
   │  Compare W isotope ratio in lunar mantle vs Earth mantle             │
   │  → Moon-forming impact: 50–150 Myr after CAI formation               │
   └──────────────────────────────────────────────────────────────────────┘

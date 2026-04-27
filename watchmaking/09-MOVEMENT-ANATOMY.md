@@ -26,7 +26,7 @@ ENERGY FLOW: MAINSPRING TO HANDS
 │       │                         ▼                                    │
 │       │              ┌──────────────────────┐                       │
 │       │              │   ESCAPEMENT         │                       │
-│       │              │   Lever + escape wheel│                      │
+│       │              │   Lever + esc wheel  │                       │
 │       │              │   Controls energy    │                       │
 │       │              │   release            │                       │
 │       │              └──────────────────────┘                       │
@@ -38,10 +38,11 @@ ENERGY FLOW: MAINSPRING TO HANDS
 │       │              │   Sets the tempo     │                       │
 │       │              └──────────────────────┘                       │
 │       │                                                              │
-│  ┌────┴──────┐                                                       │
-│  │KEYLESS    │   (winding + setting mechanism)                       │
+│  ┌───────────┐                                                       │
+│  │KEYLESS    │                                                       │
 │  │WORKS      │                                                       │
 │  └───────────┘                                                       │
+│  (winding + setting mechanism)                                        │
 └──────────────────────────────────────────────────────────────────────┘
 ```
 
@@ -121,16 +122,16 @@ The barrel is a cylindrical container with an outer toothed rim that functions a
 BARREL ANATOMY
 
       barrel lid (covers mainspring)
-         ┌─────────────────────────────┐
-        /│  toothed outer rim           │\
-       / │  (= first wheel of train)    │ \
-      │  │                              │  │
-      │  │   ████████ mainspring ██████ │  │
-      │  │                              │  │
-      │  │       arbor (central shaft)  │  │
-       \ │       (= ratchet wheel axle) │ /
-        \│                              │/
-         └─────────────────────────────┘
+         +-----------------------------+
+         |  toothed outer rim          |
+         |  (= first wheel of train)   |
+         |                             |
+         |   ████████ mainspring ████  |
+         |                             |
+         |       arbor (central shaft) |
+         |       (= ratchet wheel axle)|
+         |                             |
+         +-----------------------------+
                         │
                     barrel arbor
                         │
@@ -237,9 +238,9 @@ OIL RESERVOIR:
   a tiny enclosed space that holds lubricant:
   ┌────────────────────────────────┐
   │  cap jewel (flat)              │
-  │  ─────────────────── ← oil     │
+  │  ─────────────────── (oil)     │
   │  hole jewel (cup-shaped)       │
-  │  ──── ─ ─ ── ─ ──── pivot rotating inside
+  │  ──── ─ ─ ── ─ ──── (pivot)    │
   └────────────────────────────────┘
   The cup shape of the hole jewel seat capillary-holds
   a tiny drop of watch oil (0.01–0.001 µL)
@@ -282,17 +283,14 @@ The balance wheel and hairspring together are the oscillator that determines the
 ```
 BALANCE WHEEL GEOMETRY
 
-Top view:
-        ╭────────────────────────────╮
-       /   rim (heavy; most mass here) \
-      /  ┌─────────────────────────┐   \
-     /   │   spokes (light)        │    \
-    │    │    ┌───────────────┐    │ │
-    │    │    │ hub/arbor     │    │     │
-    │    │    └───────────────┘    │     │
-     \   └─────────────────────────┘   /
-      \                               /
-       ╰────────────────────────────╯
+Top view (concentric rings):
+
+   Outer rim (heavy; most mass here)
+        Inner section: spokes (light)
+                Hub/arbor at center
+
+   The balance wheel is essentially a flywheel —
+   inertia stores oscillation energy.
 
 Period of oscillation:
   T = 2π × √(I / k)
@@ -327,18 +325,14 @@ The hairspring is a flat coil of metal alloy attached at its inner end to the ba
 HAIRSPRING PROFILES
 
 Standard flat coil:
-  ╭──────────────────────────╮
- /  ╭──────────────────────╮  \
-│  /  ╭────────────────╮   \ │
-│ │  /  ╭──────────╮   \    │  │
-│ │     │  /   ╭────╮  \    │   │  │
-│ │ │   │   center │   │  │   ││
-│ │     │  \   ╰────╯  /    │   │  │
-│ │  \  ╰──────────╯   /    │  │
-│  \  ╰────────────────╯   /   │
- \  ╰──────────────────────╯  /
-  ╰──────────────────────────╯
-  stud (outer end fixed here)
+  Hairspring is a flat (or Breguet-curved) spiral
+  with several concentric coils:
+
+      [outer coil — fixed at stud (outer end)]
+        [inner coil — attached to balance staff (center)]
+
+  When balance rotates, hairspring winds/unwinds.
+  The outer end is fixed; the inner end rotates with the balance.
 
 Problem: as spring expands/contracts, its "breathing center"
 doesn't coincide with the balance pivot → slightly elliptical motion

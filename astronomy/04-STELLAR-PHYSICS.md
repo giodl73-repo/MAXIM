@@ -63,7 +63,7 @@ A star in spherical hydrostatic equilibrium is described by four coupled ODEs:
   ENERGY TRANSPORT:
   ┌───────────────────────────────────────────────────────────────────────┐
   │  dT/dr = − (3 κ ρ L(r)) / (64π r² σ_SB T³)   [radiative]              │
-  │  dT/dr = − (1 − 1/γ) T/P · dP/dr              [convective/adiabatic]│
+  │  dT/dr = − (1 − 1/γ) T/P · dP/dr                [convective/adiabatic]│
   └───────────────────────────────────────────────────────────────────────┘
   κ = opacity [cm²/g]; σ_SB = Stefan-Boltzmann constant.
   The steeper gradient applies — if radiative gradient exceeds adiabatic,
@@ -333,14 +333,16 @@ After He exhaustion, the core contracts, heats further:
   → core collapses when Fe mass > Chandrasekhar limit (~1.4 M☉)
 
   ONION SHELL STRUCTURE just before collapse:
-         ┌──────────────┐  ← H envelope
+         ┌───────────────┐
+         │    H envelope │
          │    He shell   │
          │   C/O shell   │
          │   Ne/Mg shell │
          │   O/Si shell  │
-         │  Si/S shell   │
-         │   Fe core     │  ← ~1.4 M☉, Earth-sized, about to collapse
-         └──────────────┘
+         │   Si/S shell  │
+         │   Fe core     │
+         └───────────────┘
+  Fe core: ~1.4 M☉, Earth-sized, about to collapse.
 ```
 
 ---
@@ -405,7 +407,7 @@ After He exhaustion, the core contracts, heats further:
 
   CHANDRASEKHAR LIMIT:
   ┌─────────────────────────────────────────────────────────────────────────┐
-  │  M_Ch = 5.83 / μ_e² × M☉ ≈ 1.44 M☉    (μ_e ≈ 2 for He/C/O)        │
+  │  M_Ch = 5.83 / μ_e² × M☉ ≈ 1.44 M☉    (μ_e ≈ 2 for He/C/O)              │
   └─────────────────────────────────────────────────────────────────────────┘
   At M > M_Ch: electrons become ultra-relativistic → P ∝ ρ^(4/3) → pressure
   cannot balance gravity → no equilibrium → collapse or Type Ia SN
@@ -459,7 +461,7 @@ After He exhaustion, the core contracts, heats further:
 
   TOV EQUATION (GR hydrostatic equilibrium):
   ┌────────────────────────────────────────────────────────────────────────┐
-  │  dP/dr = −(ε + P)(m + 4πr³P/c²)  ×  G / (r²c² (1 − 2Gm/rc²))      │
+  │  dP/dr = −(ε + P)(m + 4πr³P/c²)  ×  G / (r²c² (1 − 2Gm/rc²))           │
   │                                                                        │
   │  Newtonian: dP/dr = −Gm ρ/r²                                           │
   │  GR additions: (ε+P) instead of ρ  [energy density + pressure]         │

@@ -121,10 +121,10 @@ GRASSHOPPER ESCAPEMENT — PRINCIPLE
                    (locking face)              (locking face)
                     ↙                          ↘
            ╭──────────────╮              ╭──────────────╮
-           │  entry pallet │              │  exit pallet│
-           │  (pivots on  │              │  (pivots on  │
-           │   spring     │              │   spring     │
-           │   tension)   │              │   tension)   │
+           │ entry pallet │              │ exit pallet  │
+           │ (pivots on   │              │ (pivots on   │
+           │  spring      │              │  spring      │
+           │  tension)    │              │  tension)    │
            ╰──────────────╯              ╰──────────────╯
                     \                   /
                      \                 /
@@ -300,12 +300,13 @@ Compensation balance: rim cut into two free-standing bimetallic arcs
        compensation
          screws
            ↓
-    ╭─────────╮    ╭─────────╮
-   /  brass   \  /  brass   \
-  |  (outer)  ||  (outer)    |
-  |  steel    ||  steel      |
-   \  (inner) /  \  (inner) /
-    ╰─────────╯    ╰─────────╯
+    Two bimetallic arcs (free ends face inward):
+
+       brass (outer)                brass (outer)
+       steel (inner)                steel (inner)
+
+    Heat → brass expands more than steel → arc curls inward,
+    moving compensation screws toward axis.
     bimetallic arc  bimetallic arc
     (free ends)     (free ends)
 

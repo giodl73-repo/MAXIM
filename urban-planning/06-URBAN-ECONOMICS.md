@@ -222,11 +222,13 @@ URBAN SCALING RELATIONSHIPS:
   +-------------------------------+
   |  2x population                |
   |                               |
-  |  Economic output: 2.3x       |  (superlinear)
-  |  Infrastructure cost: 1.8x   |  (sublinear)
+  |  Economic output: 2.3x        |
+  |  Infrastructure cost: 1.8x    |
   |  NET: 2.3/1.8 = cities are    |
   |  economically efficient       |
   +-------------------------------+
+  Economic output: 2.3x  (superlinear)
+  Infrastructure cost: 1.8x  (sublinear)
 
   THE 15% RULE:
   Every time you double city size:
@@ -385,7 +387,7 @@ FLORIDA'S CREATIVE CLASS THEORY:
   3 T's FRAMEWORK:
   +------------------------------------------+
   |  TECHNOLOGY: High-tech industry presence |
-  |  TALENT: % of workforce with college degree|
+  |  TALENT: % workforce with college degree |
   |  TOLERANCE: Gay Index, Bohemian Index    |
   |  (open, diverse, tolerant culture)       |
   +------------------------------------------+

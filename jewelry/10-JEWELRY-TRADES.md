@@ -21,17 +21,16 @@ Metal Refiner                   Rough dealer
       |                          - Faceting, polishing
       v                          - Cabochon cutting
                                  - Gem carving (glyptics)
-      +-------- BENCH JEWELER --------+
+              [ BENCH JEWELER ]
                     |
-             +------+------+
-             |             |
-         GOLDSMITH     SILVERSMITH
-         (gold, Pt)    (silver, hollow ware)
+                    v
+        ----- GOLDSMITH -----  (gold, Pt)
+        ----- SILVERSMITH ---  (silver, hollow ware)
                     |
-             +------+------+
-             |      |      |
-         STONE    ENGRAVER  ENAMELLIST
-         SETTER              (enamel colors)
+                    v
+        ----- STONE SETTER --
+        ----- ENGRAVER ------
+        ----- ENAMELLIST ----  (enamel colors)
                     |
                     v
                GEMOLOGIST

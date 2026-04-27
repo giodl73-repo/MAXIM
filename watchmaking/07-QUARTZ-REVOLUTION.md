@@ -128,9 +128,10 @@ The quartz oscillator circuit is a Pierce oscillator topology (inverter + crysta
 TUNING FORK CRYSTAL DIMENSIONS (typical wristwatch)
 
      ┌──┐  ┌──┐
-     │  │  │  │  ← tines (2 mm long, 0.1 mm wide, 0.1 mm thick)
+     │  │  │  │
      │  │  │  │
      └──┘  └──┘
+     Tines: 2 mm long, 0.1 mm wide, 0.1 mm thick.
         \  /
          \/
          /\

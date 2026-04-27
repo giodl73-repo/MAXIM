@@ -120,7 +120,7 @@ Comet nuclei: "dirty snowballs" (Whipple 1950) or better "icy dirtballs" — DII
 ┌─────────────────────────────────────────────────────────┐
 │                  COMET ANATOMY                          │
 │                                                         │
-│   Nucleus: 0.5–50 km; irregularly shaped; dark (A~0.04)│
+│   Nucleus: 0.5-50 km; irregularly shaped; dark (A~0.04) │
 │   ───────────────────────────────────────────────────── │
 │   Active sublimation zone (sunlit):                     │
 │     H₂O ice sublimates at r < 3 AU (T > 180 K)          │

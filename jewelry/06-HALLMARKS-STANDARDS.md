@@ -13,7 +13,7 @@ MARKS ON A PIECE (UK example — most comprehensive)
 │  Sponsor's  │  Standard  │  Assay Office  │  Date       │
 │  Mark       │  Mark      │  Mark          │  Letter     │
 │  (maker)    │  (purity)  │  (which office)│  (year)     │
-│  ABC▲       │  ♦750♦     │  anchor (Birm.)│  'f' (2024)│
+│  ABC▲       │  ♦750♦     │  anchor (Birm.)│  'f' (2024) │
 └─────────────────────────────────────────────────────────┘
 
 OPTIONAL / ADDITIONAL MARKS

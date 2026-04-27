@@ -289,7 +289,7 @@ Variables: g = 10 m/s², α (thermal expansion) ~ 2×10⁻⁵ K⁻¹, ΔT ~ 3000
 │   DRIVER            MECHANISM              MAGNITUDE            │
 │   ──────            ─────────              ─────────            │
 │   Ridge push    ──► Elevated ridge → GP    ~10¹² N/m            │
-│   Slab pull     ──► Cold dense slab sinks  ~10¹³ N/m ← dominant│
+│   Slab pull     ──► Cold dense slab sinks  ~10¹³ N/m (dominant) │
 │   Mantle drag   ──► Viscous coupling       variable             │
 │                                                                 │
 │   PLATE BOUNDARIES:                                             │
@@ -302,7 +302,7 @@ Variables: g = 10 m/s², α (thermal expansion) ~ 2×10⁻⁵ K⁻¹, ΔT ~ 3000
 │   • Water in mantle → lowered solidus → partial melt            │
 │   • Weak oceanic crust (basalt) dense enough to subduct         │
 │   • Plate boundaries as weak zones (damage rheology)            │
-│   Venus: no subduction (hot/dry crust too buoyant?), stagnant lid│
+│   Venus: no subduction (crust too buoyant?), stagnant lid       │
 └─────────────────────────────────────────────────────────────────┘
 ```
 

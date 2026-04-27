@@ -50,15 +50,25 @@ fundamental robot sensor — every joint needs one for closed-loop control.
 ENCODER TYPES:
 ===============
 
-INCREMENTAL ENCODER                   ABSOLUTE ENCODER
-+------------------+                  +------------------+
-| Counts pulses as | Loses count      | Outputs absolute | Retains position
-| disk rotates.    | on power cycle.  | angle (Gray code | through power
-| Requires homing  | Homing routine   | or SSI/BiSS      | cycle. No homing
-| after power-on.  | on startup.      | protocol).       | needed.
-+------------------+                  +------------------+
-  Cheaper.                              More expensive.
-  Most industrial servos use this.      Surgical robots, cobots.
+INCREMENTAL ENCODER:
++------------------+
+| Counts pulses as |
+| disk rotates.    |
+| Requires homing  |
+| after power-on.  |
++------------------+
+ Loses count on power cycle. Homing routine on startup.
+ Cheaper. Most industrial servos use this.
+
+ABSOLUTE ENCODER:
++------------------+
+| Outputs absolute |
+| angle (Gray code |
+| or SSI/BiSS      |
+| protocol).       |
++------------------+
+ Retains position through power cycle. No homing needed.
+ More expensive. Surgical robots, cobots.
 
 OPTICAL ENCODER: LED + photodetector array reads slots in disk.
   Resolution: 512 to 1,000,000 counts/rev (10-20 bit).

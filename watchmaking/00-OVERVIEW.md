@@ -45,8 +45,8 @@ Every clock is built on the same architecture:
 |   ENERGY SOURCE  | --> |    OSCILLATOR    | --> |   COUNTER/DISPLAY|
 |                  |     |                  |     |                  |
 | Gravity (weight) |     | Foliot (inertia) |     | Gear train       |
-| Spring (mainspring)    | Pendulum (gravity)|    | Hands / digits   |
-| Battery (quartz) |     | Balance wheel    |     | Electronic display|
+| Spring (mainspr) |     | Pendulum (gravty)|     | Hands / digits   |
+| Battery (quartz) |     | Balance wheel    |     | Electronic disp  |
 | Mains power      |     | Quartz crystal   |     | RF output        |
 | Laser cooling    |     | Atomic transition|     | PPS signal       |
 +------------------+     +------------------+     +------------------+

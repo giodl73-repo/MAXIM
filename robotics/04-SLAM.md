@@ -165,11 +165,13 @@ COMPLEXITY:
   Covariance matrix P for n=3 landmarks:
   (3+2*3) x (3+2*3) = 9x9
 
-  +--+--+--+--+--+--+--+--+--+
-  |Rr Rl1 Rl2 Rl3|   <- robot-robot, robot-landmark correlations
-  |   L1  L1L2 ..|   <- landmark-landmark correlations
-  |              |
-  +--+--+--+--+--+
+  +-------------------------------+
+  | Rr  Rl1  Rl2  Rl3 ...         |
+  |     L1   L1L2  ...            |
+  |                               |
+  +-------------------------------+
+  Top row: robot-robot, robot-landmark correlations.
+  Other rows: landmark-landmark correlations.
   All entries are correlated!
   Every landmark observation updates EVERY landmark covariance.
   n=100 landmarks: 200x200 = 40,000 matrix entries.
@@ -279,37 +281,43 @@ INPUT FRAME
      |
      v
 +------------------+
-|  ORB EXTRACTION  |   Extract ORB (Oriented FAST + Rotated BRIEF) features.
-|                  |   ~1000-3000 keypoints per frame. Scale-invariant.
+|  ORB EXTRACTION  |
 +------------------+
+ Extract ORB (Oriented FAST + Rotated BRIEF) features.
+ ~1000-3000 keypoints per frame. Scale-invariant.
      |
      v
 +------------------+
-|    TRACKING      |   Match current frame features to map points.
-|                  |   Pose optimization (minimize reprojection error).
-|                  |   Motion model: constant velocity assumption for init.
+|    TRACKING      |
 +------------------+
+ Match current frame features to map points.
+ Pose optimization (minimize reprojection error).
+ Motion model: constant velocity assumption for init.
      |
      v
 +------------------+
-|  KEYFRAME SELECT |   Insert keyframe if: translation > threshold OR
-|                  |   insufficient map points tracked.
-|                  |   Keyframes keep a sparse set of "good" frames.
+|  KEYFRAME SELECT |
 +------------------+
+ Insert keyframe if: translation > threshold OR
+ insufficient map points tracked.
+ Keyframes keep a sparse set of "good" frames.
      |
      v
 +------------------+
-|  LOCAL MAPPING   |   Triangulate new map points from keyframe pairs.
-|                  |   Bundle adjustment: optimize local keyframe poses
-|                  |   + map points jointly. (Schur complement for speed.)
+|  LOCAL MAPPING   |
 +------------------+
+ Triangulate new map points from keyframe pairs.
+ Bundle adjustment: optimize local keyframe poses
+ + map points jointly. (Schur complement for speed.)
      |
      v
 +------------------+
-|  LOOP CLOSING    |   Detect revisited places using DBoW2 (bag-of-words).
-|                  |   Verify loop closure geometrically (RANSAC).
-|                  |   Correct drift: pose graph optimization.
-|                  |   Fuse duplicate map points.
+|  LOOP CLOSING    |
++------------------+
+ Detect revisited places using DBoW2 (bag-of-words).
+ Verify loop closure geometrically (RANSAC).
+ Correct drift: pose graph optimization.
+ Fuse duplicate map points.
 +------------------+
      |
      v

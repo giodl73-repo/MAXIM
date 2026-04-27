@@ -5,27 +5,23 @@
 Urban morphology is the study of city form — how streets, plots, and buildings combine to create the physical fabric of cities. Form shapes behavior: where people walk, whether retail survives, whether streets feel safe, how heat builds up. Understanding form is understanding the hidden geometry that produces urban life.
 
 ```
-+------------------------------------------------------------------+
-|                      URBAN FORM SYSTEM                           |
-|                                                                  |
-|  THREE BASIC ELEMENTS (Conzen school):                           |
-|                                                                  |
-|  STREET NETWORK          PLOT PATTERN           BUILDING FABRIC  |
-|  (persistent)            (persistent)           (most volatile)  |
-|                                                                  |
-|  Streets rarely change.  Plot boundaries        Buildings are    |
-|  Manhattan grid from     change slowly.         replaced over    |
-|  1811 still defines      Subdivisions and       centuries while  |
-|  movement.               consolidations occur   the street and   |
-|                          over decades.          plot pattern     |
-|  Grid --> permeability   Fine-grained = many    persists beneath.|
-|  Organic --> local       small owners =         |
-|  efficiency              diversity.             |
-|  Radial --> center focus Coarse-grained =       |
-|                          fewer owners =         |
-|  SPACE SYNTAX measures   uniformity.            |
-|  network connectivity.                          |
-+------------------------------------------------------------------+
+                      URBAN FORM SYSTEM
+
+  THREE BASIC ELEMENTS (Conzen school):
+
+  STREET NETWORK (persistent):
+    Streets rarely change. Manhattan grid from 1811 still defines movement.
+    Grid → permeability. Organic → local efficiency. Radial → center focus.
+    SPACE SYNTAX measures network connectivity.
+
+  PLOT PATTERN (persistent):
+    Plot boundaries change slowly. Subdivisions and consolidations occur
+    over decades. Fine-grained = many small owners = diversity.
+    Coarse-grained = fewer owners = uniformity.
+
+  BUILDING FABRIC (most volatile):
+    Buildings are replaced over centuries while the street and plot
+    pattern persists beneath.
          |                    |                    |
          v                    v                    v
 +------------------------------------------------------------------+
@@ -128,21 +124,21 @@ BLOCK SIZE COMPARISON:
 
   PORTLAND, OREGON: 200ft x 200ft
   +------+------+------+------+
-  |      |      |      |      |  Each block:
-  | 200ft|      |      |      |  40,000 sq ft
-  +------+------+------+------|  Many intersections
-  |      |      |      |      |  per mile
+  |      |      |      |      |
+  | 200ft|      |      |      |
   +------+------+------+------+
-  High intersection density = many route
-  choices = more pedestrian traffic
-  distributed across network.
+  |      |      |      |      |
+  +------+------+------+------+
+  Each block: 40,000 sq ft. Many intersections per mile.
+  High intersection density = many route choices = more
+  pedestrian traffic distributed across network.
 
   TYPICAL US BLOCK: 400ft x 200ft
   +------------------------------------------+
-  |                                          |  Each block:
-  |                 400ft                    |  80,000 sq ft
+  |                                          |
+  |                 400ft                    |
   +------------------------------------------+
-  Standard American subdivision block.
+  Each block: 80,000 sq ft. Standard American subdivision block.
 
   SUPERBLOCK: 600ft-1200ft
   +--------------------------------------------------------------------------+
@@ -251,12 +247,13 @@ SPACE SYNTAX MEASURES:
   attracts more people.
 
   +---+---+---+---+---+
-  |   | * |   | * |   |  * = high integration
-  +---+*--+---+--*+---+  (many routes pass through)
+  |   | * |   | * |   |
+  +---+---+---+---+---+
   |   |   |   |   |   |
   +---+---+---+---+---+
   | * |   |   |   | * |
   +---+---+---+---+---+
+  * = high integration (many routes pass through)
 
   Correlation: high integration streets
   attract retail. Retail placement on
@@ -337,10 +334,11 @@ MISSING MIDDLE SPECTRUM:
   FAMILY         (typically illegal in    APARTMENT
                  most US R-1 zones)
 
-  +----+   +--+--+  +--+--+--+  +---------+  ++++++++++
-  |    |   |  |  |  |  |  |  |  |         |  +        +
-  | SF |   |duplex|  |triplex|  | apt bldg|  + tower  +
-  +----+   +--+--+  +--+--+--+  +---------+  ++++++++++
+  SF      Duplex      Triplex      Apt bldg     Tower
+  +----+  +--------+  +-----------+ +---------+ +-------+
+  |    |  |   ||   |  |   |    |  | |         | |       |
+  | SF |  | duplex |  | triplex   | | apt bldg| | tower |
+  +----+  +--------+  +-----------+ +---------+ +-------+
 
   2-8 unit buildings at single-family scale:
   - Duplex, triplex, fourplex

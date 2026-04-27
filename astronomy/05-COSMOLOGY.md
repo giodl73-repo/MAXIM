@@ -73,7 +73,7 @@ From Einstein's field equations G_μν + Λg_μν = 8πG/c⁴ T_μν with FLRW m
 ```
   FIRST FRIEDMANN EQUATION  (energy-like):
   ┌──────────────────────────────────────────────────────────────────────┐
-  │  H² = (ȧ/a)² = 8πGρ/3 − kc²/a² + Λc²/3                          │
+  │  H² = (ȧ/a)² = 8πGρ/3 − kc²/a² + Λc²/3                               │
   │                 ────────  ───────  ──────                            │
   │                 matter    curvature dark energy                      │
   └──────────────────────────────────────────────────────────────────────┘
@@ -332,7 +332,7 @@ Before inflation was proposed, ΛCDM had three unresolved problems:
      ┌──────────────────────────────────────────────────────────────┐
      │  Hot gas (X-ray):   slowed by ram pressure → sits between    │
      │  Galaxies + DM:     collisionless → passed through each other│
-     │  Gravitational lens: mass peak coincides with galaxies, NOT gas│
+     │  Grav lens: mass peak coincides with galaxies, NOT gas       │
      └──────────────────────────────────────────────────────────────┘
      → DM is collisionless (no electromagnetic interaction)
      → Best direct evidence against MOND (modified gravity alternatives)
@@ -712,7 +712,7 @@ How we measure cosmic distances — each rung calibrates the next:
   │ What did it predict?                   │ n_s ≈ 0.96, primordial GWs (B-mode│
   ├────────────────────────────────────────┼───────────────────────────────────┤
   │ What is the Hubble tension?            │ CMB: H₀=67.4 vs Cepheids: 73.0    │
-  │                                        │ ~5σ; unresolved; may be new physics│
+  │                                        │ ~5σ; unresolved; new physics?     │
   ├────────────────────────────────────────┼───────────────────────────────────┤
   │ What did GW170817 confirm?             │ NS mergers → r-process (gold!)    │
   │                                        │ Short GRBs = NS mergers           │

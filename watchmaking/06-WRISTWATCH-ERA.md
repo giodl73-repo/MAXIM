@@ -103,7 +103,7 @@ SWISS WATCH GEOGRAPHY
                      │  Vallée de Joux:                │
                      │    Audemars Piguet (Le Brassus) │
                      │    Jaeger-LeCoultre (Le Sentier)│
-                     │    some Breguet complication work│
+                     │    some Breguet complication wk │
                      │                                 │
                      │  La Chaux-de-Fonds:             │
                      │    Tag Heuer HQ                 │
@@ -116,7 +116,7 @@ SWISS WATCH GEOGRAPHY
                      │                                 │
 LAKE GENEVA REGION → │  Geneva:                        │
                      │    Patek Philippe               │
-                     │    Rolex (also Biel manufacturing│
+                     │    Rolex (also Biel mfg)        │
                      │    Cartier, Piaget, Vacheron    │
                      └─────────────────────────────────┘
 
