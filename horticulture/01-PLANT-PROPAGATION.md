@@ -40,17 +40,22 @@ PROPAGATION SPECTRUM:
 ```
 SEED ANATOMY:
   +----------------------------------+
-  |  SEED COAT (testa)               |  Protection; may be hard (impermeable)
+  |  SEED COAT (testa)               |
   |  +----------------------------+  |
-  |  | ENDOSPERM (storage tissue) |  |  Starch, proteins, oils — food reserve
+  |  | ENDOSPERM (storage tissue) |  |
   |  |  +---------------------+  |  |
   |  |  |     EMBRYO          |  |  |
   |  |  | Radicle (root tip)  |  |  |
   |  |  | Plumule (shoot tip) |  |  |
-  |  |  | Cotyledon(s)        |  |  |  Seed leaves — often storage + absorption
+  |  |  | Cotyledon(s)        |  |  |
   |  |  +---------------------+  |  |
   |  +----------------------------+  |
   +----------------------------------+
+
+  Seed coat:  Protection; may be hard (impermeable)
+  Endosperm:  Starch, proteins, oils — food reserve
+  Cotyledons: Seed leaves — often storage + absorption
+
   Monocots: 1 cotyledon (grasses, onions, palms)
   Dicots: 2 cotyledons (most vegetables, trees, shrubs)
 ```

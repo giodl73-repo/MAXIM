@@ -17,9 +17,10 @@ GRAFTING COMPONENTS AND TERMINOLOGY:
 
            [SCION - Honeycrisp apple variety]
                     |
-           +--------+--------+
-           | GRAFT UNION     |  <-- vascular reconnection zone
-           +--------+--------+
+           +-----------------+
+           | GRAFT UNION     |
+           +-----------------+
+           (vascular reconnection zone)
                     |
            [ROOTSTOCK - M.9 dwarfing rootstock]
                     |

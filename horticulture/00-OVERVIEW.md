@@ -7,16 +7,27 @@ Horticulture is the science and practice of growing plants for human use and enj
 ```
 HORTICULTURE vs AGRICULTURE DISTINCTION:
 
-  AGRICULTURE                          HORTICULTURE
-  +----------------------------------+ +----------------------------------+
-  | Field crops: grain, oilseed, hay | | Fruits, vegetables, flowers,     |
-  | Large-scale, extensive            | | ornamentals, nursery stock       |
-  | Commodity production              | | Intensive, high-value per acre   |
-  | Mechanized, low labor/acre        | | High labor/acre, skilled work    |
-  | Few species per farm              | | Many species per operation       |
-  | Long shelf life (grain)           | | Perishable (hours to weeks)      |
-  | Price-taker (commodity market)    | | Price-maker (direct market)      |
-  +----------------------------------+ +----------------------------------+
+  AGRICULTURE
+  +----------------------------------+
+  | Field crops: grain, oilseed, hay |
+  | Large-scale, extensive           |
+  | Commodity production             |
+  | Mechanized, low labor/acre       |
+  | Few species per farm             |
+  | Long shelf life (grain)          |
+  | Price-taker (commodity market)   |
+  +----------------------------------+
+
+  HORTICULTURE
+  +----------------------------------+
+  | Fruits, vegetables, flowers,     |
+  | ornamentals, nursery stock       |
+  | Intensive, high-value per acre   |
+  | High labor/acre, skilled work    |
+  | Many species per operation       |
+  | Perishable (hours to weeks)      |
+  | Price-maker (direct market)      |
+  +----------------------------------+
                         |
                         v
                SHARED BIOLOGY:
@@ -70,39 +81,58 @@ HORTICULTURE
 
 ```
 +------------------+
-| PROPAGATION      |  Seeds / cuttings / grafting / tissue culture
-| Plant origin     |  This is where genetic material is multiplied
+| PROPAGATION      |
+| Plant origin     |
 +------------------+
+  Seeds / cuttings / grafting / tissue culture
+  This is where genetic material is multiplied
+
          |
          v
 +------------------+
-| GROWING          |  Field / greenhouse / container
-| Vegetative phase |  Soil management, irrigation, nutrition,
-| to marketable    |  pest management, climate control
+| GROWING          |
+| Vegetative phase |
+| to marketable    |
 | state            |
 +------------------+
+  Field / greenhouse / container
+  Soil management, irrigation, nutrition,
+  pest management, climate control
+
          |
          v
 +------------------+
-| HARVEST          |  Timing: maturity indices
-|                  |  Method: hand vs. mechanical
-|                  |  Quality grading at harvest
+| HARVEST          |
+|                  |
+|                  |
 +------------------+
+  Timing: maturity indices
+  Method: hand vs. mechanical
+  Quality grading at harvest
+
          |
          v
 +------------------+
-| POST-HARVEST     |  Cooling (field heat removal — critical for perishables)
-| Physiology       |  Atmosphere modification (CA storage)
-| and handling     |  Transportation, packaging, quality maintenance
+| POST-HARVEST     |
+| Physiology       |
+| and handling     |
 +------------------+
+  Cooling (field heat removal — critical for perishables)
+  Atmosphere modification (CA storage)
+  Transportation, packaging, quality maintenance
+
          |
          v
 +------------------+
-| RETAIL/MARKET    |  Direct (farmers market, CSA, u-pick)
-|                  |  Wholesale to distribution
-|                  |  Supermarket supply chain
-|                  |  Export
+| RETAIL/MARKET    |
+|                  |
+|                  |
+|                  |
 +------------------+
+  Direct (farmers market, CSA, u-pick)
+  Wholesale to distribution
+  Supermarket supply chain
+  Export
 ```
 
 ---
