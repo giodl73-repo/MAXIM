@@ -1,3 +1,22 @@
+---
+maxim_schema: maxim.frontmatter.v1
+id: maxim:development-studies:trade
+kind: guide
+module: development-studies
+section: development-studies
+title: Trade and Industrialization: Export-Led Growth, Industrial Policy, China Model
+status: source-custody
+source_custody: partial
+current_path: development-studies/07-TRADE.md
+canonical_path: development-studies/07-TRADE.md
+backsource_ids: [proof-backfill:development-studies:07-trade, git-history:development-studies:07-trade]
+concepts: [trade]
+root_concepts: [trade]
+index_roles: [guide, root-concept]
+remap_from: []
+remap_to: []
+updated: null
+---
 # Trade and Industrialization: Export-Led Growth, Industrial Policy, China Model
 
 ## The Big Picture

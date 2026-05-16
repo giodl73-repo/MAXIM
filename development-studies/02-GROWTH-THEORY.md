@@ -1,3 +1,22 @@
+---
+maxim_schema: maxim.frontmatter.v1
+id: maxim:development-studies:growth-theory
+kind: guide
+module: development-studies
+section: development-studies
+title: Growth Theory: Harrod-Domar, Solow, Endogenous Growth, Convergence
+status: source-custody
+source_custody: partial
+current_path: development-studies/02-GROWTH-THEORY.md
+canonical_path: development-studies/02-GROWTH-THEORY.md
+backsource_ids: [proof-backfill:development-studies:02-growth-theory, git-history:development-studies:02-growth-theory]
+concepts: [growth, theory]
+root_concepts: [growth, theory]
+index_roles: [guide, root-concept]
+remap_from: []
+remap_to: []
+updated: null
+---
 # Growth Theory: Harrod-Domar, Solow, Endogenous Growth, Convergence
 
 ## The Big Picture

@@ -1,0 +1,50 @@
+{
+  "schema_version": "1",
+  "source_markdown": "geotechnical-engineering\\03-CONSOLIDATION.md",
+  "blocks": [
+    {
+      "id": "block-1",
+      "kind": "ascii_table_candidate",
+      "line": 26,
+      "heading_context": "## The Big Picture",
+      "confidence": "candidate",
+      "text": "+------------------------------------------------------------------+\n|               CONSOLIDATION — TWO DISTINCT PROBLEMS              |\n+------------------------------------------------------------------+\n|                                                                  |\n|  PROBLEM 1: HOW MUCH will it settle?                            |\n|  = consolidation magnitude                                       |\n|  = governed by compressibility parameters (Cc, Cs)              |\n|  = determined from oedometer (consolidation) test               |\n|                                                                  |\n|  PROBLEM 2: HOW LONG until it settles?                          |\n|  = rate of consolidation                                         |\n|  = governed by drainage length and permeability (Cv)            |\n|  = Terzaghi's diffusion equation solution                        |\n|                                                                  |\n|  BOTH PROBLEMS needed for:                                       |\n|  - Predicting total settlement (structural design)               |\n|  - Predicting differential settlement (structural damage)        |\n|  - Designing preloading schedules                                |\n|  - Sizing prefabricated vertical drains                          |\n|                                                                  |\n+------------------------------------------------------------------+",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-2",
+      "kind": "ascii_table_candidate",
+      "line": 67,
+      "heading_context": "## The e - log σ' Curve",
+      "confidence": "candidate",
+      "text": "e (void ratio)\n|\n|  Virgin compression line (VCL)\n|  (slope = Cc — compression index)\n| *\n|   *\n|     *  ← Preconsolidation pressure σ'p (peak past stress)\n|       *                                   ↓\n|       |*  Recompression range            ---\n|       |  * (slope = Cs — swelling index)  |\n|       |    *                              Cc = Δe / Δ(log σ'v)\n|       |      *                            typically 0.1–0.8\n|       |    ↑  * ← Current stress σ'vo\n|       | Cs/Cc ≈ 1/5 to 1/10\n|       |\n+─────────────────────────────── log σ'v\n        σ'p  σ'vo\n\n  OCR = σ'p / σ'vo\n  OCR = 1: normally consolidated (NC)\n  OCR > 1: overconsolidated (OC) — soil has experienced higher stress in past",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-3",
+      "kind": "ascii_table_candidate",
+      "line": 119,
+      "heading_context": "### Stress Increase with Depth",
+      "confidence": "candidate",
+      "text": "- **2:1 method** (simplified): stress spreads at 2V:1H → Δσ'v = Q / (B+z)(L+z)",
+      "notes": [
+        "detected from ASCII table borders or pipe-aligned rows"
+      ]
+    },
+    {
+      "id": "block-4",
+      "kind": "diagram_like",
+      "line": 247,
+      "heading_context": "### Prefabricated Vertical Drains (PVDs)",
+      "confidence": "candidate",
+      "text": "PVD INSTALLATION PATTERN:\n\n  Plan view (square or triangular pattern):\n\n  ○  ○  ○  ○  ○     ← each ○ = PVD (typically at 1-2m spacing)\n  ○  ○  ○  ○  ○\n  ○  ○  ○  ○  ○\n  ○  ○  ○  ○  ○\n\n  PVD typically: 100mm wide × 3-5mm thick band drain\n  Depth: 10-30m depending on weak layer thickness\n\n  Barron's radial consolidation theory:\n  Tr = Cv-radial × t / de²\n  where de = 1.13s (square pattern) or 1.05s (triangular)\n              s = drain spacing\n\n  With PVDs: drainage path = half drain spacing (1-2m)\n  vs. without PVDs: drainage path = half clay layer (5-15m)\n  Time to 90% consolidation reduced by factor of (Hdr/re)²\n  → From years to months",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    }
+  ]
+}

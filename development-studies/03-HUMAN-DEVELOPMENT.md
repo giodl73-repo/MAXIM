@@ -1,3 +1,22 @@
+---
+maxim_schema: maxim.frontmatter.v1
+id: maxim:development-studies:human-development
+kind: guide
+module: development-studies
+section: development-studies
+title: Human Development: Sen Capabilities Approach, HDI, IHDI, MPI
+status: source-custody
+source_custody: partial
+current_path: development-studies/03-HUMAN-DEVELOPMENT.md
+canonical_path: development-studies/03-HUMAN-DEVELOPMENT.md
+backsource_ids: [proof-backfill:development-studies:03-human-development, git-history:development-studies:03-human-development]
+concepts: [human, development]
+root_concepts: [human, development]
+index_roles: [guide, root-concept]
+remap_from: []
+remap_to: []
+updated: null
+---
 # Human Development: Sen Capabilities Approach, HDI, IHDI, MPI
 
 ## The Big Picture

@@ -1,3 +1,22 @@
+---
+maxim_schema: maxim.frontmatter.v1
+id: maxim:development-studies:gender
+kind: guide
+module: development-studies
+section: development-studies
+title: Gender and Development: Boserup, Women in Development, Care Economy
+status: source-custody
+source_custody: partial
+current_path: development-studies/08-GENDER.md
+canonical_path: development-studies/08-GENDER.md
+backsource_ids: [proof-backfill:development-studies:08-gender, git-history:development-studies:08-gender]
+concepts: [gender]
+root_concepts: [gender]
+index_roles: [guide, root-concept]
+remap_from: []
+remap_to: []
+updated: null
+---
 # Gender and Development: Boserup, Women in Development, Care Economy
 
 ## The Big Picture

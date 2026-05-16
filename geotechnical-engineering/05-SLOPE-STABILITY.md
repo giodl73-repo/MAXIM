@@ -1,3 +1,22 @@
+---
+maxim_schema: maxim.frontmatter.v1
+id: maxim:geotechnical-engineering:slope-stability
+kind: guide
+module: geotechnical-engineering
+section: geotechnical-engineering
+title: Slope Stability: Limit Equilibrium, Bishop Method, Seismic Stability
+status: source-custody
+source_custody: partial
+current_path: geotechnical-engineering/05-SLOPE-STABILITY.md
+canonical_path: geotechnical-engineering/05-SLOPE-STABILITY.md
+backsource_ids: [proof-backfill:geotechnical-engineering:05-slope-stability, git-history:geotechnical-engineering:05-slope-stability]
+concepts: [slope, stability]
+root_concepts: [slope, stability]
+index_roles: [guide, root-concept]
+remap_from: []
+remap_to: []
+updated: null
+---
 # Slope Stability: Limit Equilibrium, Bishop Method, Seismic Stability
 
 ## The Big Picture

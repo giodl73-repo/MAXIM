@@ -1,3 +1,22 @@
+---
+maxim_schema: maxim.frontmatter.v1
+id: maxim:development-studies:overview
+kind: guide
+module: development-studies
+section: development-studies
+title: Development Studies: Growth, Human Development, Institutions - Landscape
+status: source-custody
+source_custody: partial
+current_path: development-studies/00-OVERVIEW.md
+canonical_path: development-studies/00-OVERVIEW.md
+backsource_ids: [proof-backfill:development-studies:00-overview, git-history:development-studies:00-overview]
+concepts: [overview]
+root_concepts: [overview]
+index_roles: [guide, root-concept]
+remap_from: []
+remap_to: []
+updated: null
+---
 # Development Studies: Growth, Human Development, Institutions — Landscape
 
 ## The Big Picture
@@ -5,39 +24,24 @@
 Development studies is the field that asks: *why are some countries rich and others poor, and what can be done about it?* It spans economics, political science, sociology, and history — and its answers have changed dramatically over 75 years of theory and practice.
 
 ```
-+--------------------------------------------------------------------------+
-|                    DEVELOPMENT STUDIES LANDSCAPE                          |
-+--------------------------------------------------------------------------+
-|                                                                          |
-|  THE QUESTION: Why do living standards differ so dramatically across     |
-|  nations, and what are the mechanisms of change?                         |
-|                                                                          |
-|  WHAT TO MEASURE                                                         |
-|  ┌─────────────────────────────────────────────────────────────────┐    |
-|  │  GDP / GNI          Income per capita (production/income)       │    |
-|  │  ──── → ──────────────────────────────────────────────────────  │    |
-|  │  HDI                Health + Education + Income composite        │    |
-|  │  ──── → ──────────────────────────────────────────────────────  │    |
-|  │  MPI                Multidimensional poverty (10 indicators)     │    |
-|  │  ──── → ──────────────────────────────────────────────────────  │    |
-|  │  Planetary          Biophysical limits: are gains sustainable?   │    |
-|  └─────────────────────────────────────────────────────────────────┘    |
-|                                                                          |
-|  THEORY LINEAGE (chronological)                                          |
-|  1940s–60s: MODERNIZATION — linear stages, Rostow, Cold War framing     |
-|      ↓ critique: ignores power, history, colonialism                     |
-|  1960s–80s: DEPENDENCY / WORLD SYSTEMS — Frank, Wallerstein              |
-|      ↓ critique: too structural, ignores agency, empirically weak        |
-|  1980s–90s: STRUCTURAL ADJUSTMENT — Washington Consensus, IMF/World Bank |
-|      ↓ critique: growth but inequality + social cost; Asia vs. Africa    |
-|  1990s–00s: POST-WASHINGTON CONSENSUS — institutions, Stiglitz           |
-|      ↓ parallel: SEN CAPABILITIES — development as freedom               |
-|  2000s–10s: RCT REVOLUTION — Banerjee/Duflo, rigorous micro-evaluation  |
-|      ↓ parallel: INSTITUTIONAL TURN — Acemoglu/Robinson                  |
-|  2010s–:   SUSTAINABILITY SYNTHESIS — SDGs, planetary boundaries,       |
-|             degrowth challenge, China model, post-development              |
-|                                                                          |
-+--------------------------------------------------------------------------+
+DEVELOPMENT STUDIES LANDSCAPE
+
+THE QUESTION
+Why do living standards differ so dramatically across nations, and what are the mechanisms of change?
+
+WHAT TO MEASURE
+- GDP / GNI: income per capita (production/income)
+- HDI: health + education + income composite
+- MPI: multidimensional poverty (10 indicators)
+- Planetary limits: are gains sustainable?
+
+THEORY LINEAGE
+1940s–60s: modernization — linear stages, Rostow, Cold War framing
+1960s–80s: dependency / world systems — Frank, Wallerstein
+1980s–90s: structural adjustment — Washington Consensus, IMF/World Bank
+1990s–00s: post-Washington Consensus — institutions, Stiglitz; Sen capabilities
+2000s–10s: RCT revolution — Banerjee/Duflo; institutional turn — Acemoglu/Robinson
+2010s–: sustainability synthesis — SDGs, planetary boundaries, degrowth challenge, China model, post-development
 ```
 
 ---
@@ -183,24 +187,18 @@ TIMELINE OF GENDER IN DEVELOPMENT:
 The tension at the heart of 21st-century development:
 
 ```
-+-----------------------------------------------------------+
-|                    THE TENSION                             |
-|                                                           |
-|   DEVELOPMENT IMPERATIVE          PLANETARY LIMITS        |
-|   "Lift 700M out of extreme  vs.  We are already above    |
-|   poverty — requires growth,      several planetary       |
-|   energy, industrialization"      boundaries (climate,    |
-|                                   biodiversity, P/N)      |
-+-----------------------------------------------------------+
-              ↓                              ↓
-     SDGs (2015–2030):              Planetary Boundaries
-     17 goals, 169 targets          (Rockström 2009):
-     "Comprehensiveness"            9 Earth system limits,
-     vs. coherence                  4 already transgressed
-              ↓                              ↓
-         DOUGHNUT ECONOMICS (Raworth):
-         Social foundation (SDG floor) + planetary ceiling
-         The space between = safe and just space for humanity
+THE TENSION
+
+Development imperative:
+  "Lift 700M out of extreme poverty — requires growth, energy, industrialization"
+
+Planetary limits:
+  We are already above several planetary boundaries (climate, biodiversity, P/N)
+
+SDGs (2015–2030): 17 goals, 169 targets; comprehensiveness vs. coherence
+Planetary boundaries (Rockström 2009): 9 Earth system limits, 4 already transgressed
+Doughnut economics (Raworth): social foundation (SDG floor) + planetary ceiling
+The space between = safe and just space for humanity
 ```
 
 The **degrowth challenge** (Latouche, Kallis): is steady-state or declining GDP compatible with poverty reduction? The standard assumption — growth is necessary for development — is contested by advocates of post-growth economics.
@@ -210,38 +208,17 @@ The **degrowth challenge** (Latouche, Kallis): is steady-state or declining GDP 
 ## Field Map: What Each Module Covers
 
 ```
-+-----------------------------------------------------------------------+
-|                    DEVELOPMENT STUDIES MODULE MAP                      |
-+-----------------------------------------------------------------------+
-|                                                                       |
-|  01-HISTORY          Post-WWII paradigms: modernization →             |
-|                      dependency → Washington Consensus →              |
-|                      post-development; China model                    |
-|                                                                       |
-|  02-GROWTH-THEORY    Formal models: Harrod-Domar, Solow,             |
-|                      endogenous growth (Romer, AK), Schumpeter        |
-|                                                                       |
-|  03-HUMAN-DEV        Sen capabilities, HDI, IHDI, MPI,               |
-|                      Nussbaum, outliers                               |
-|                                                                       |
-|  04-INSTITUTIONS     North, Acemoglu/Robinson, Ostrom,               |
-|                      property rights, Varieties of Capitalism         |
-|                                                                       |
-|  05-AID-EFFECTIVENESS Sachs vs. Easterly, RCT revolution,           |
-|                      CCTs, Paris Declaration, modalities              |
-|                                                                       |
-|  06-MICROFINANCE     Grameen, impact evidence, crisis,               |
-|                      mobile money (M-Pesa), savings vs. credit        |
-|                                                                       |
-|  07-TRADE            East Asian miracle, industrial policy,          |
-|                      China shock, Lewis model, Rodrik trilemma        |
-|                                                                       |
-|  08-GENDER           Boserup, WID/GAD, care economy,                |
-|                      CCTs, land rights, returns to education          |
-|                                                                       |
-|  09-SUSTAINABILITY   SDGs, planetary boundaries, doughnut,           |
-|                      degrowth, green growth, MDG lessons              |
-+-----------------------------------------------------------------------+
+DEVELOPMENT STUDIES MODULE MAP
+
+01-HISTORY: Post-WWII paradigms; modernization, dependency, Washington Consensus, post-development, China model
+02-GROWTH-THEORY: Harrod-Domar, Solow, endogenous growth (Romer, AK), Schumpeter
+03-HUMAN-DEV: Sen capabilities, HDI, IHDI, MPI, Nussbaum, outliers
+04-INSTITUTIONS: North, Acemoglu/Robinson, Ostrom, property rights, Varieties of Capitalism
+05-AID-EFFECTIVENESS: Sachs vs. Easterly, RCT revolution, CCTs, Paris Declaration, modalities
+06-MICROFINANCE: Grameen, impact evidence, crisis, mobile money (M-Pesa), savings vs. credit
+07-TRADE: East Asian miracle, industrial policy, China shock, Lewis model, Rodrik trilemma
+08-GENDER: Boserup, WID/GAD, care economy, CCTs, land rights, returns to education
+09-SUSTAINABILITY: SDGs, planetary boundaries, doughnut, degrowth, green growth, MDG lessons
 ```
 
 ---

@@ -1,0 +1,72 @@
+{
+  "schema_version": "1",
+  "source_markdown": "development-studies\\03-HUMAN-DEVELOPMENT.md",
+  "blocks": [
+    {
+      "id": "block-1",
+      "kind": "ascii_table_candidate",
+      "line": 26,
+      "heading_context": "## The Big Picture",
+      "confidence": "candidate",
+      "text": "+--------------------------------------------------------------------------+\n|                    HUMAN DEVELOPMENT FRAMEWORK                           |\n+--------------------------------------------------------------------------+\n|                                                                          |\n|  QUESTION: What is development FOR?                                      |\n|                                                                          |\n|  INCOME-BASED ANSWER         CAPABILITIES ANSWER (Sen)                  |\n|  ──────────────────          ──────────────────────────                  |\n|  GDP per capita              Real freedoms / capabilities                |\n|  GNI per capita              What people can be and do                  |\n|  Consumption expenditure     Set of achievable functionings              |\n|                                                                          |\n|  THE PROBLEM: Income-to-wellbeing conversion is unequal                 |\n|                                                                          |\n|  Same income → different capabilities depending on:                     |\n|   - Age (elderly need more for same health)                             |\n|   - Disability (wheelchairs, care are expensive)                        |\n|   - Gender (women may lack control over household income)               |\n|   - Disease environment (malaria area → more needed for same health)    |\n|   - Social norms (discrimination → income converts poorly)              |\n|                                                                          |\n|  MEASUREMENT HIERARCHY:                                                  |\n|  GDP/GNI → income only                                                  |\n|  HDI     → income + health + education (3-dimension index)              |\n|  IHDI    → HDI adjusted for within-country inequality                   |\n|  GDI     → HDI disaggregated by gender                                  |\n|  MPI     → 10-indicator deprivation index (who lacks what)              |\n+--------------------------------------------------------------------------+",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-2",
+      "kind": "diagram_like",
+      "line": 167,
+      "heading_context": "## 3. Human Development Index (HDI)",
+      "confidence": "candidate",
+      "text": "  Two countries:\n  A: Health=0.9, Education=0.9, Income=0.1 → Arithmetic=0.633, Geometric=0.490\n  B: Health=0.6, Education=0.6, Income=0.6 → Arithmetic=0.600, Geometric=0.600\n\n  Geometric HDI ranks B above A — penalizes extreme imbalance.\n  Arithmetic HDI would rank A above B — allows income to compensate\n  for terrible education.",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-3",
+      "kind": "diagram_like",
+      "line": 193,
+      "heading_context": "## 4. Inequality-Adjusted HDI (IHDI)",
+      "confidence": "candidate",
+      "text": "IHDI FORMULA:\n\n  For each dimension X:\n    I_X = X̄ × (1 - A_X)\n\n  where A_X = Atkinson inequality measure for dimension X\n\n  Atkinson measure: A_X = 1 - (geometric mean of X) / (arithmetic mean of X)\n  If perfectly equal: geometric mean = arithmetic mean → A_X = 0, no discount\n  If very unequal: geometric mean << arithmetic mean → large discount\n\n  IHDI = (I_health × I_education × I_income)^(1/3)\n\n  Loss from inequality = (HDI - IHDI) / HDI\n\n  Global average loss ~20%, higher in unequal countries (Southern Africa,\n  Latin America, South Asia)",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-4",
+      "kind": "diagram_like",
+      "line": 241,
+      "heading_context": "## 6. Multidimensional Poverty Index (MPI)",
+      "confidence": "candidate",
+      "text": "STEP 1: Choose dimensions, indicators, weights\n\n  DIMENSION      INDICATOR                    WEIGHT\n  ─────────────────────────────────────────────────────\n  Health         Child mortality              1/6\n                 Nutrition                   1/6\n  Education      Years of schooling          1/6\n                 School attendance           1/6\n  Living         Cooking fuel                1/18\n  Standards      Sanitation                  1/18\n                 Drinking water              1/18\n                 Electricity                 1/18\n                 Housing                     1/18\n                 Assets                      1/18\n  ─────────────────────────────────────────────────────\n  TOTAL                                      1.0\n\nSTEP 2: Identify deprived persons and dimensions\n\n  Person is deprived in dimension d if below threshold:\n    Child mortality: any child under 5 has died in family\n    Nutrition: any adult/child is undernourished\n    Years of schooling: no one in household has 6+ years\n    etc.\n\nSTEP 3: Count deprivations per person\n\n  c_i = weighted sum of deprivations for person i\n  Person is MULTIDIMENSIONALLY POOR if c_i ≥ k (cutoff, typically k=1/3)\n\nSTEP 4: MPI = H × A\n\n  H = incidence: share of population that is MPI poor\n  A = intensity: average share of deprivations among the poor\n  MPI = H × A (ranges 0 to 1)",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-5",
+      "kind": "ascii_table_candidate",
+      "line": 302,
+      "heading_context": "## 7. Comparing the Measures",
+      "confidence": "candidate",
+      "text": "+------------------+----------+----------+----------+----------+\n| Measure          | Captures | Ignores  | Best for | Updated  |\n+------------------+----------+----------+----------+----------+\n| GDP per capita   | Income   | Non-     | Macro    | Annual   |\n|                  | (mean)   | market   | trends,  |          |\n|                  |          | goods,   | debt     |          |\n|                  |          | distrib. | capacity |          |\n+------------------+----------+----------+----------+----------+\n| HDI              | Health+  | Distrib. | Broad    | Annual   |\n|                  | Educ+    | within   | country  |          |\n|                  | Income   | dims,    | rankings |          |\n|                  |          | sustain. |          |          |\n+------------------+----------+----------+----------+----------+\n| IHDI             | HDI +    | Sustain. | Equality | Annual   |\n|                  | within-  | Voice,   | analysis |          |\n|                  | country  | agency   |          |          |\n|                  | inequal. |          |          |          |\n+------------------+----------+----------+----------+----------+\n| MPI              | Direct   | Subjec-  | Targeting| ~2 years |\n|                  | depriva- | tive     | policy,  | (survey  |\n|                  | tions ×  | wellbeing| finding  | based)   |\n|                  | 10 indic.| inequal. | poorest  |          |\n|                  | who/what | of the   |          |          |\n|                  |          | poor     |          |          |\n+------------------+----------+----------+----------+----------+",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-6",
+      "kind": "diagram_like",
+      "line": 338,
+      "heading_context": "## 8. Capabilities in Practice: The Kerala Model",
+      "confidence": "candidate",
+      "text": "KERALA METRICS (approx. 2020):\n  GDP per capita: ~$2,500 (well below Indian average)\n  Life expectancy: 75+ years (comparable to US in 1980)\n  Female literacy: 96%+ (highest in India)\n  Infant mortality: ~6/1000 (lower than some US states)\n  Total fertility rate: 1.6 (below replacement, like Europe)\n\nHOW:\n  - Communist party governments (1957, 1967, recurring) invested heavily\n    in public health and education\n  - Land reform: redistribution broke feudal tenancy\n  - Women's education: high female literacy → lower fertility → health dividend\n  - Strong union movement → labor standards despite low industrial base\n  - Large remittances from Gulf migrants → income floor\n\nLESSON: Human development does not require high income first.\n        Social investment can deliver capabilities ahead of income growth.\n        (But Kerala's manufacturing stagnation is a real cost.)",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    }
+  ]
+}

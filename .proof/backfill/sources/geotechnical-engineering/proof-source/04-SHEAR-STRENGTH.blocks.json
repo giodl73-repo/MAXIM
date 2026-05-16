@@ -1,0 +1,39 @@
+{
+  "schema_version": "1",
+  "source_markdown": "geotechnical-engineering\\04-SHEAR-STRENGTH.md",
+  "blocks": [
+    {
+      "id": "block-1",
+      "kind": "ascii_table_candidate",
+      "line": 26,
+      "heading_context": "## The Big Picture",
+      "confidence": "candidate",
+      "text": "+------------------------------------------------------------------+\n|               SHEAR STRENGTH — CONCEPTUAL MAP                    |\n+------------------------------------------------------------------+\n|                                                                  |\n|  MOHR-COULOMB FAILURE CRITERION                                  |\n|  τ_f = c' + σ'_n × tan(φ')     [effective stress parameters]   |\n|  τ_f = cu (= Su)               [total stress for undrained]     |\n|                                                                  |\n|  KEY DISTINCTION:                                                |\n|  DRAINED analysis: stresses change slowly; pore pressure        |\n|  ≈ hydrostatic throughout loading; use c', φ'                   |\n|                                                                  |\n|  UNDRAINED analysis: stresses change faster than drainage;      |\n|  excess pore pressure develops; use Su = cu (φ=0 analysis)      |\n|                                                                  |\n|  WHEN DOES EACH APPLY?                                           |\n|  Sand: always drained (high k → pore pressure dissipates fast)  |\n|  Soft clay: short-term = undrained; long-term = drained         |\n|  Stiff clay: often drained controls (swells long-term)          |\n|                                                                  |\n+------------------------------------------------------------------+",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-2",
+      "kind": "diagram_like",
+      "line": 64,
+      "heading_context": "### Effective Stress Form",
+      "confidence": "candidate",
+      "text": "MOHR CIRCLE AND FAILURE ENVELOPE:\n\n  τ\n  |               Failure envelope\n  |              /   τ = c' + σ'tanφ'\n  |             /\n  |            /   *\n  |           / *     (σ'3, 0) ... (σ'1, 0) Mohr circle\n  |          /*          ^\n  |         *           failure if circle tangent to envelope\n  |        /\n  +──────────────────────── σ'\n  0     c'/tanφ'\n\n  Each Mohr circle = one test (different confining pressure)\n  Failure envelope = best-fit line tangent to circles\n  Slope = tanφ', intercept = c'",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-3",
+      "kind": "diagram_like",
+      "line": 180,
+      "heading_context": "### The Critical State",
+      "confidence": "candidate",
+      "text": "CRITICAL STATE IN e - log p' SPACE:\n\n  e (void ratio)\n  |   VCL (virgin compression line)\n  |  \\\n  |   \\      CSL (critical state line, parallel to VCL)\n  |    \\    \\\n  |     \\    \\  Dense sample (low e) → DILATES toward CSL\n  |      \\    \\\n  |       \\    \\   Loose sample (high e) → CONTRACTS toward CSL\n  |        \\    \\\n  +──────────────── log p'\n\n  DENSE SAND (left of CSL):\n  Shear → volume increases (dilation) → negative Δu (undrained)\n  → reaches CSL from below\n\n  LOOSE SAND (right of CSL):\n  Shear → volume decreases (contraction) → positive Δu (undrained)\n  → reaches CSL from above (can liquefy if undrained)",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    }
+  ]
+}

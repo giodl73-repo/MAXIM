@@ -1,3 +1,22 @@
+---
+maxim_schema: maxim.frontmatter.v1
+id: maxim:geotechnical-engineering:soil-classification
+kind: guide
+module: geotechnical-engineering
+section: geotechnical-engineering
+title: Soil Classification: USCS, Atterberg Limits, Sieve Analysis
+status: source-custody
+source_custody: partial
+current_path: geotechnical-engineering/01-SOIL-CLASSIFICATION.md
+canonical_path: geotechnical-engineering/01-SOIL-CLASSIFICATION.md
+backsource_ids: [proof-backfill:geotechnical-engineering:01-soil-classification, git-history:geotechnical-engineering:01-soil-classification]
+concepts: [soil, classification]
+root_concepts: [soil, classification]
+index_roles: [guide, root-concept]
+remap_from: []
+remap_to: []
+updated: null
+---
 # Soil Classification: USCS, Atterberg Limits, Sieve Analysis
 
 ## The Big Picture
@@ -81,25 +100,15 @@ Poorly graded = narrow range, looser packing, higher void ratio.
 Fine-grained soils (silts and clays) change behavior dramatically with water content. The Atterberg limits define the water content boundaries between behavioral states.
 
 ```
-+------------------------------------------------------------------+
-|                    ATTERBERG LIMITS                              |
-+------------------------------------------------------------------+
-|                                                                  |
-|  SL (shrinkage limit)    PL (plastic limit)    LL (liquid limit) |
-|        |                       |                       |         |
-|        v                       v                       v         |
-|  ------+--------+--------------+-------+--------------+------  |
-|  SOLID |  SEMI- |   SEMI-SOLID |       |   PLASTIC    |LIQUID  |
-|        | SOLID  |              |       |   STATE      |STATE   |
-|  Soil  |        |              |       |              |        |
-|  rigid,|        |Soil deforms  |       |Soil deforms  |Soil    |
-|  non-  |        |but doesn't   |       |like plasticine|flows  |
-|  plastic        |spring back   |       |              |        |
-|  ------+--------+--------------+-------+--------------+------  |
-|                                                                  |
-|  Increasing water content →                                     |
-|                                                                  |
-+------------------------------------------------------------------+
+ATTERBERG LIMITS
+
+Increasing water content ->
+SOLID -- SL -- SEMI-SOLID -- PL -- PLASTIC STATE -- LL -- LIQUID STATE
+
+Below SL: soil is rigid and non-plastic.
+Between SL and PL: soil deforms but does not spring back.
+Between PL and LL: soil deforms like plasticine.
+Above LL: soil flows.
 ```
 
 ### Liquid Limit (LL)

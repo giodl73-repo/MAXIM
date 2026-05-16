@@ -1,0 +1,72 @@
+{
+  "schema_version": "1",
+  "source_markdown": "geotechnical-engineering\\05-SLOPE-STABILITY.md",
+  "blocks": [
+    {
+      "id": "block-1",
+      "kind": "ascii_table_candidate",
+      "line": 26,
+      "heading_context": "## The Big Picture",
+      "confidence": "candidate",
+      "text": "+------------------------------------------------------------------+\n|               SLOPE STABILITY — ANALYSIS HIERARCHY               |\n+------------------------------------------------------------------+\n|                                                                  |\n|  CHARACTERIZE SLOPE AND GEOMETRY                                 |\n|  Soil profile, shear strength parameters, water levels          |\n|              |                                                    |\n|              v                                                   |\n|  SELECT ANALYSIS TYPE                                            |\n|  +------------------+  +------------------+  +--------------+  |\n|  |  INFINITE SLOPE  |  | CIRCULAR FAILURE |  | NON-CIRCULAR |  |\n|  |  Shallow, long   |  | Homogeneous soil |  | Layered soils|  |\n|  |  translational   |  | or weak layer    |  | Hard base    |  |\n|  |  failures        |  |                  |  | Complex geo  |  |\n|  +------------------+  +------------------+  +--------------+  |\n|              |                   |                   |          |\n|              v                   v                   v          |\n|  Infinite slope     Bishop simplified    Janbu or Spencer        |\n|  equation           (most common)        (complex geometry)      |\n|              |                                                   |\n|              v                                                   |\n|  COMPUTE F = resisting moment / driving moment                  |\n|  (or resisting forces / driving forces)                         |\n|              |                                                   |\n|              v                                                   |\n|  Minimum F over all trial surfaces → governing failure mode     |\n|                                                                  |\n+------------------------------------------------------------------+",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-2",
+      "kind": "diagram_like",
+      "line": 76,
+      "heading_context": "## Infinite Slope Analysis",
+      "confidence": "candidate",
+      "text": "INFINITE SLOPE MODEL:\n\n  Surface of slope → β angle\n  ─────────────────────────────────────────\n    ↗ β                          failure\n  ─────────────────────────────────────────\n  depth z                        plane\n  ─────────────────────────────────────────\n\n  Stresses on failure plane:\n  Normal: σ'n = γ'z cos²β  (using buoyant γ' if below water table)\n  Shear:  τ = γ'z sinβ cosβ",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-3",
+      "kind": "ascii_table_candidate",
+      "line": 165,
+      "heading_context": "## Janbu's Generalized Method",
+      "confidence": "candidate",
+      "text": "**F = f0 × Σ[(c' × b + (W - u × b) tanφ') / (cosα + sinα × tanφ'/F)] / Σ(W tanα)**",
+      "notes": [
+        "detected from ASCII table borders or pipe-aligned rows"
+      ]
+    },
+    {
+      "id": "block-4",
+      "kind": "ascii_table_candidate",
+      "line": 202,
+      "heading_context": "### Pseudostatic Approach",
+      "confidence": "candidate",
+      "text": "**F = Σ[(c' × b + (W cos α - u × b - kh × W × sin α) × tanφ') / mα_seismic] / Σ(W sin α + kh × W × cos α)**",
+      "notes": [
+        "detected from ASCII table borders or pipe-aligned rows"
+      ]
+    },
+    {
+      "id": "block-5",
+      "kind": "chart_like",
+      "line": 208,
+      "heading_context": "### Pseudostatic Approach",
+      "confidence": "candidate",
+      "text": "### Newmark Sliding Block Method (1965)",
+      "notes": [
+        "detected from bar/chart glyph density with numeric labels"
+      ]
+    },
+    {
+      "id": "block-6",
+      "kind": "diagram_like",
+      "line": 216,
+      "heading_context": "### Newmark Sliding Block Method (1965)",
+      "confidence": "candidate",
+      "text": "NEWMARK SLIDING BLOCK CONCEPT:\n\n  Ground acceleration history: ─────/\\──/\\/\\──/\\────\n  Yield acceleration ay:       ─────────────────────  ← threshold\n\n  When ground accel > ay: block slides (accumulates displacement)\n\n  Double integration of (accel - ay) × dt² for exceedance periods\n  = permanent displacement\n\n  Rough correlation (Jibson 2007):\n  log Dn = 0.215 + log[(1-ay/PGA)^2.341 × (ay/PGA)^-1.438]\n  where PGA = peak ground acceleration, Dn in cm",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    }
+  ]
+}

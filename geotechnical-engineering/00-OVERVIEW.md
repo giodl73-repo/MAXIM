@@ -1,3 +1,22 @@
+---
+maxim_schema: maxim.frontmatter.v1
+id: maxim:geotechnical-engineering:overview
+kind: guide
+module: geotechnical-engineering
+section: geotechnical-engineering
+title: Geotechnical Engineering - Landscape
+status: source-custody
+source_custody: partial
+current_path: geotechnical-engineering/00-OVERVIEW.md
+canonical_path: geotechnical-engineering/00-OVERVIEW.md
+backsource_ids: [proof-backfill:geotechnical-engineering:00-overview, git-history:geotechnical-engineering:00-overview]
+concepts: [overview]
+root_concepts: [overview]
+index_roles: [guide, root-concept]
+remap_from: []
+remap_to: []
+updated: null
+---
 # Geotechnical Engineering — Landscape
 
 ## The Big Picture
@@ -5,40 +24,17 @@
 Geotechnical engineering is the discipline concerned with the engineering behavior of earth materials. Every structure sits on or in the ground. Before you can design a foundation, a slope, a retaining wall, or an underground excavation, you need to understand what the ground is made of, how it behaves under load, and how it changes over time.
 
 ```
-+------------------------------------------------------------------+
-|               GEOTECHNICAL ENGINEERING — SYSTEM MAP             |
-+------------------------------------------------------------------+
-|                                                                  |
-|  THE LOAD PATH: Structure → Foundation → Soil/Rock              |
-|                                                                  |
-|  +------------+     +-------------------+     +---------------+ |
-|  |  STRUCTURE |     |    FOUNDATION     |     |  GROUND       | |
-|  |  (gravity, |     |  (transfers load  |     |  (resists     | |
-|  |  wind, EQ  |---->|  to ground via    |---->|  load through | |
-|  |  loads)    |     |  shallow or deep  |     |  bearing,     | |
-|  +------------+     |  elements)        |     |  friction,    | |
-|                      +-------------------+     |  compression) | |
-|                                                +---------------+ |
-|                                                                  |
-|  WHAT GEOTECHNICAL ENGINEERS MUST KNOW:                         |
-|  +-----------------------+  +---------------------------------+ |
-|  |  SOIL/ROCK            |  |  ANALYSIS                      | |
-|  |  CHARACTERIZATION     |  |  Effective stress, seepage,    | |
-|  |  Field investigation  |  |  consolidation, shear strength,| |
-|  |  Lab testing          |  |  bearing capacity, stability   | |
-|  |  Classification       |  |                                 | |
-|  +-----------------------+  +---------------------------------+ |
-|                                        |                         |
-|              +-------------------------+                         |
-|              v                                                   |
-|  +--------------------------------------------------+           |
-|  |  ENGINEERING JUDGMENT                            |           |
-|  |  Terzaghi: "soil is nature's most erratic        |           |
-|  |  material." Testing gives samples; judgment      |           |
-|  |  fills the gaps.                                 |           |
-|  +--------------------------------------------------+           |
-|                                                                  |
-+------------------------------------------------------------------+
+GEOTECHNICAL ENGINEERING — SYSTEM MAP
+
+LOAD PATH
+Structure (gravity, wind, EQ loads)
+  -> Foundation (transfers load to ground via shallow or deep elements)
+  -> Ground (resists load through bearing, friction, and compression)
+
+WHAT GEOTECHNICAL ENGINEERS MUST KNOW
+- Soil/rock characterization: field investigation, lab testing, classification
+- Analysis: effective stress, seepage, consolidation, shear strength, bearing capacity, stability
+- Engineering judgment: testing gives samples; judgment fills the gaps
 ```
 
 ---
@@ -62,32 +58,25 @@ Terzaghi also coined the famous warning: "We must not forget that it is nature w
 The discipline rests on three equally important pillars. Weakness in any one causes failure — literally:
 
 ```
-+------------------------------------------------------------------+
-|               THE GEOTECHNICAL TRIANGLE                          |
-|                                                                  |
-|                    SOIL CHARACTERIZATION                         |
-|                    /\                                            |
-|                   /  \                                           |
-|                  /    \                                          |
-|                 /      \                                         |
-|                /        \                                        |
-|               /          \                                       |
-|              /    Good    \                                       |
-|             /  geotechnical\                                      |
-|            /   engineering  \                                     |
-|           /    requires all  \                                    |
-|          /       three        \                                   |
-|         /____________________\                                   |
-|        ANALYSIS               JUDGMENT                           |
-|        (theory &              (experience,                       |
-|         computation)          precedent,                         |
-|                               uncertainty mgmt)                  |
-|                                                                  |
-|  Characterization without analysis = empiricism without theory   |
-|  Analysis without characterization = precision without accuracy  |
-|  Both without judgment = false certainty                         |
-|                                                                  |
-+------------------------------------------------------------------+
+THE GEOTECHNICAL TRIANGLE
+
+                  SOIL CHARACTERIZATION
+                          /\
+                         /  \
+                        /    \
+                       / Good \
+                      / geotech\
+                     / requires\
+                    / all three\
+                   /____________\
+              ANALYSIS        JUDGMENT
+             (theory &       (experience,
+             computation)     precedent,
+                              uncertainty management)
+
+Characterization without analysis = empiricism without theory
+Analysis without characterization = precision without accuracy
+Both without judgment = false certainty
 ```
 
 ---
@@ -136,7 +125,7 @@ SITE INVESTIGATION SEQUENCE:
   |  Split-spoon      |  |  SPT (N-value)   |  |  Seismic       |
   |  sampling (SPT)   |  |  CPT (cone tip   |  |  refraction    |
   |  Thin-wall        |  |  resistance,     |  |  MASW (shear   |
-  |  Shelby tubes     |  |  sleeve friction)|  |  wave velocity)|
+  |  Shelby tubes     |  | sleeve friction) |  | wave velocity) |
   |  (undisturbed     |  |  Vane shear      |  |  ERT (ground-  |
   |  clay)            |  |  (undrained Su)  |  |  water table)  |
   |  Rock cores (NX,  |  |  Pressuremeter   |  |  GPR           |

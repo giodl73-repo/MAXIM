@@ -1,0 +1,61 @@
+{
+  "schema_version": "1",
+  "source_markdown": "geotechnical-engineering\\01-SOIL-CLASSIFICATION.md",
+  "blocks": [
+    {
+      "id": "block-1",
+      "kind": "ascii_table_candidate",
+      "line": 26,
+      "heading_context": "## The Big Picture",
+      "confidence": "candidate",
+      "text": "+------------------------------------------------------------------+\n|              SOIL CLASSIFICATION — DECISION FLOW                 |\n+------------------------------------------------------------------+\n|                                                                  |\n|  START: Collect soil sample                                      |\n|                    |                                             |\n|                    v                                             |\n|         Is soil highly organic? (dark, fibrous, odor)           |\n|         YES → Pt (Peat) — special treatment required            |\n|         NO  ↓                                                    |\n|                    v                                             |\n|         What fraction passes #200 sieve?                        |\n|         < 50% fines → COARSE-GRAINED SOIL                       |\n|         > 50% fines → FINE-GRAINED SOIL                         |\n|                    |                     |                       |\n|                    v                     v                       |\n|          COARSE: gravel or sand  FINE: silt or clay             |\n|          based on > #4 sieve?    based on Atterberg limits       |\n|          G vs. S based on >50%   and position on A-line         |\n|          retained on #4          (Casagrande plasticity chart)  |\n|                    |                     |                       |\n|                    v                     v                       |\n|          Quality modifier: W, P, M, C   Descriptor: M, C, O     |\n|          based on gradation (Cu, Cc)     H vs. L from LL=50      |\n|          or Atterberg limits                                     |\n|                                                                  |\n+------------------------------------------------------------------+",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-2",
+      "kind": "chart_like",
+      "line": 144,
+      "heading_context": "## USCS Classification (ASTM D2487)",
+      "confidence": "candidate",
+      "text": "### Coarse-Grained Soils (< 50% passing #200)",
+      "notes": [
+        "detected from bar/chart glyph density with numeric labels"
+      ]
+    },
+    {
+      "id": "block-3",
+      "kind": "diagram_like",
+      "line": 146,
+      "heading_context": "### Coarse-Grained Soils (< 50% passing #200)",
+      "confidence": "candidate",
+      "text": "COARSE-GRAINED CLASSIFICATION TREE:\n\n  < 50% passing #200 → COARSE\n              |\n              v\n  > 50% retained on #4 → GRAVEL (G_)\n  < 50% retained on #4 → SAND (S_)\n              |\n              +--- Fines < 5%:\n              |    Cu and Cc determine W (well-graded) vs. P (poorly-graded)\n              |    GW: Cu≥4, 1≤Cc≤3   SW: Cu≥6, 1≤Cc≤3\n              |    GP: doesn't meet W criteria  SP: doesn't meet W criteria\n              |\n              +--- Fines > 12%:\n              |    Run Atterberg limits on fines\n              |    Fines plot below A-line (low plasticity): GM or SM\n              |    Fines plot above A-line (high plasticity): GC or SC\n              |\n              +--- Fines 5-12%: dual symbol (e.g., GW-GM)",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-4",
+      "kind": "chart_like",
+      "line": 168,
+      "heading_context": "### Coarse-Grained Soils (< 50% passing #200)",
+      "confidence": "candidate",
+      "text": "### Fine-Grained Soils (> 50% passing #200)",
+      "notes": [
+        "detected from bar/chart glyph density with numeric labels"
+      ]
+    },
+    {
+      "id": "block-5",
+      "kind": "diagram_like",
+      "line": 262,
+      "heading_context": "## Correlations: What Classification Predicts",
+      "confidence": "candidate",
+      "text": "ENGINEERING PROPERTIES FROM CLASSIFICATION:\n\n  PI → Shrink/swell potential:\n  PI < 10:  Low expansion\n  PI 10-20: Medium\n  PI 20-40: High\n  PI > 40:  Very high (montmorillonite clays)\n\n  PI → Undrained shear strength (rough):\n  Su/σ'v ≈ 0.11 + 0.0037 × PI (Skempton, normally consolidated)\n\n  LL → Compressibility:\n  Cc ≈ 0.009(LL - 10)  (Terzaghi/Peck correlation for remolded)\n  Higher LL → more compressible\n\n  Classification → Permeability (order of magnitude):\n  GW: 10^-1 to 10^-2 cm/s\n  SW: 10^-2 to 10^-3 cm/s\n  ML: 10^-4 to 10^-5 cm/s\n  CL: 10^-6 to 10^-8 cm/s\n  CH: 10^-7 to 10^-9 cm/s\n\n  SP: susceptible to liquefaction (D10 < 0.5 mm, FC < 15%)\n  ML: susceptible to frost heave\n  CH: high swelling, low allowable bearing",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    }
+  ]
+}
