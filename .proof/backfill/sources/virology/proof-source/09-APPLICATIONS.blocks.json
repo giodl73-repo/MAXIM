@@ -1,0 +1,94 @@
+{
+  "schema_version": "1",
+  "source_markdown": "virology\\09-APPLICATIONS.md",
+  "blocks": [
+    {
+      "id": "block-1",
+      "kind": "diagram_like",
+      "line": 28,
+      "heading_context": "## The Big Picture",
+      "confidence": "candidate",
+      "text": "┌──────────────────────────────────────────────────────────────────┐\n│                  VIRUSES AS TOOLS — LANDSCAPE                    │\n│                                                                  │\n│  GENE THERAPY VECTORS:       RESEARCH TOOLS:                     │\n│  ─────────────────────       ────────────────                    │\n│  AAV: in vivo gene delivery  Phage lambda: genetic engineering   │\n│  Lentivirus: stable insert   Phage T4/T7: protein expression     │\n│  Adenovirus: transient       CRISPR delivery                     │\n│  expression, vaccines        Reporter gene systems               │\n│                                                                  │\n│  PHAGE THERAPY:              ONCOLYTIC VIRUSES:                  │\n│  ──────────────              ─────────────────                   │\n│  Bacteriophage kill           Engineered viruses that            │\n│  specific bacteria            selectively kill tumor cells       │\n│  Alternative to antibiotics   T-Vec (oncolytic HSV) approved     │\n│                                                                  │\n│  mRNA VACCINES:              VIRAL DIAGNOSTICS:                  │\n│  ─────────────               ──────────────────                  │\n│  Lipid nanoparticle (not      qRT-PCR, serology                  │\n│  viral but virus-inspired)    Phage display                      │\n│  COVID-19 vaccines                                               │\n└──────────────────────────────────────────────────────────────────┘",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-2",
+      "kind": "diagram_like",
+      "line": 65,
+      "heading_context": "### Adeno-Associated Virus (AAV) — The Workhorse",
+      "confidence": "candidate",
+      "text": "  BIOLOGY:\n  ─────────\n  Baltimore Class II (ssDNA)\n  Small (~25 nm, ~4.7 kb genome)\n  Non-pathogenic in humans\n  Requires helper virus (adenovirus, herpesvirus) for productive infection\n  Naturally integrates at AAVS1 locus on chromosome 19 (rarely in therapeutic context)\n  For gene therapy: recombinant AAV (rAAV) does NOT integrate — forms episomal circles\n  → Not permanently integrated (limitation for dividing cells; advantage for safety)\n\n  SEROTYPES AND TROPISM:\n  ───────────────────────\n  Different AAV serotypes (AAV1-13+) have different capsid proteins → different tropism\n  AAV2:  broad; retina, muscle, liver\n  AAV5:  CNS, retina\n  AAV8:  liver (very efficient)\n  AAV9:  CNS (crosses blood-brain barrier); muscle, heart\n  AAVrh10: CNS\n  Selection of serotype determines which tissues are targeted\n\n  MANUFACTURING:\n  ───────────────\n  HEK293 cells + transfection with:\n  1. Transfer plasmid (therapeutic gene flanked by ITRs — inverted terminal repeats)\n  2. Rep/Cap plasmid (replication + capsid proteins)\n  3. Helper plasmid (adenoviral helper genes E2A, E4, VA)\n  → Three-plasmid transient transfection\n  Purification: CsCl ultracentrifugation, iodixanol gradients, ion exchange\n  Vector genome (vg) titer: by qPCR, ddPCR, capsid ELISA\n\n  APPROVED AAV GENE THERAPIES (as of 2024):\n  ────────────────────────────────────────────\n  Glybera (2012, EU only): lipoprotein lipase deficiency; AAV1-LPL; first approved\n  Luxturna (2017): RPE65 mutation → Leber congenital amaurosis; AAV2-RPE65; subretinal\n  Zolgensma (2019): SMA type 1 (spinal muscular atrophy); AAV9-SMN1; IV; ~$2.1M/dose\n  Hemgenix (2022): hemophilia B; AAV5-FIX; liver-targeted; ~$3.5M/dose (one-time)\n  Roctavian (2023): hemophilia A; AAVhu37-FVIII\n  Elevidys (2023): Duchenne muscular dystrophy; AAV-rh74-microdystrophin\n\n  LIMITATIONS:\n  ─────────────\n  4.7 kb packaging limit (large genes cannot fit: DMD full-length FVIII)\n  Solutions: dual-vector split-intein trans-splicing; mini-genes; high-capacity capsids\n  Pre-existing anti-AAV antibodies: ~30-60% of humans have NAbs → exclusion criteria\n  Re-dosing: neutralizing antibodies after first dose block repeat administration\n  Episomal maintenance: lost in rapidly dividing cells (not suitable for liver\n                          in neonates; dividing stem cells)",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-3",
+      "kind": "diagram_like",
+      "line": 117,
+      "heading_context": "### Lentiviral Vectors",
+      "confidence": "candidate",
+      "text": "  BASIS: HIV genome stripped of pathogenic genes; retains integration machinery\n  KEY ADVANTAGE over AAV: stable integration → permanent gene expression in\n                           dividing cells\n\n  VECTOR DESIGN:\n  ───────────────\n  Self-inactivating (SIN) design:\n  - 3'-LTR U3 deleted → after integration, LTR promoter inactive\n  - Transgene driven by internal promoter (EF1α, PGK, etc.)\n  - Cannot produce replication-competent virus (RCL) — safety requirement\n\n  Production: HEK293T cells; four-plasmid (or three-plasmid) system:\n  1. Gag/Pol plasmid (structural proteins)\n  2. Rev plasmid (RRE-CRM1 export)\n  3. VSV-G envelope plasmid (pseudotyped with vesicular stomatitis G protein)\n     VSV-G: very broad tropism; infects virtually all mammalian cells\n  4. Transfer plasmid (therapeutic gene + ψ packaging signal)\n\n  Pseudotyping with VSV-G:\n  Replaces HIV envelope (CD4/CCR5 tropic) with VSV-G\n  → Broad tropism; infects many cell types\n  → Can be tropism-modified by using other envelopes (Cocal, BaEV, measles env)\n    for targeting specific cell types (e.g., hematopoietic stem cells)\n\n  CLINICAL APPLICATIONS:\n  ───────────────────────\n  Ex vivo gene therapy for:\n  - Adenosine deaminase SCID (ADA-SCID): Strimvelis (γ-retroviral vector, not lentiviral);\n    Libmeldy (lentiviral) — approved EU\n  - β-thalassemia: betibeglogene autotemcel (Zynteglo) — approved 2022\n  - Sickle cell disease: lovotibeglogene autotemcel (Lyfgenia) — approved 2023\n  - Metachromatic leukodystrophy: atidarsagene autotemcel (Libmeldy)\n  - CAR-T cell therapy: lentiviral delivery of chimeric antigen receptor\n    (Yescarta, Kymriah, Breyanzi, etc.)\n\n  INSERTIONAL MUTAGENESIS RISK:\n  ───────────────────────────────\n  Historical: γ-retroviral vector (Moloney MLV-based) trials for ADA-SCID in France\n  (2000): 5 of 10 patients developed T-cell leukemia due to integration near LMO2\n  (proto-oncogene); promoter-less SIN design dramatically reduces this risk\n  Lentiviral SIN vectors: integration not near oncogene promoters;\n  integration sites favor gene bodies (less oncogenic potential than γ-retroviruses)",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-4",
+      "kind": "diagram_like",
+      "line": 164,
+      "heading_context": "### Adenoviral Vectors",
+      "confidence": "candidate",
+      "text": "  BASIS: Adenovirus genome, typically Ad5 or chimp adenovirus (ChAd)\n  KEY FEATURE: Transient expression (does not integrate); very high efficiency\n\n  Applications:\n  - Vaccines: ChAdOx1 (AstraZeneca COVID-19 vaccine); Ad26.COV2.S (Janssen)\n              Ebola vaccine (VSV-EBOLA, rVSV platform); Merck Ad5-HIV\n  - Cancer gene therapy: transient expression of therapeutic gene in tumor\n  - Research: transient protein expression\n\n  Safety concern: pre-existing anti-Ad5 antibodies (high prevalence globally)\n  → Chimp adenovirus serotypes (ChAd63, ChAdOx) avoid human anti-Ad5 immunity\n  Rare complication: vaccine-induced immune thrombocytopenia and thrombosis (VITT)\n  associated with ChAdOx1-S (AstraZeneca COVID vaccine) — ~1/100,000 cases",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-5",
+      "kind": "diagram_like",
+      "line": 187,
+      "heading_context": "## mRNA Vaccines — Virus-Inspired, Not Viral",
+      "confidence": "candidate",
+      "text": "  DESIGN:\n  ────────\n  Synthetic mRNA: encodes viral antigen (SARS-CoV-2 spike, modified)\n  5' cap: N1-methylpseudouridine substituted for uridine → reduced innate immune\n           activation (TLR7/8 do not recognize N1-meΨ RNA efficiently)\n           → increased translation efficiency\n  Codon optimization: human codon usage for maximum expression\n  2P mutation in spike: K986P + V987P → stabilizes prefusion conformation\n                        (more immunogenic than postfusion spike)\n\n  LNP COMPOSITION:\n  ─────────────────\n  Ionizable lipid: DSPC analog; forms particles; releases mRNA endosomally\n  Helper lipid: DSPC (1,2-distearoyl-sn-glycero-3-phosphocholine)\n  Cholesterol: membrane stability\n  PEG-lipid: PEGylated lipid; reduces aggregation; extends circulation time\n\n  PFIZER-BIONTECH BNT162b2:\n  ──────────────────────────\n  Effective particle size: ~80-100 nm\n  Ionizable lipid: ALC-0315\n  mRNA: 4,284 nucleotides; N1-meΨ modified\n  Encoding: full-length SARS-CoV-2 spike with 2P stabilization + furin site removed\n  Efficacy (original strain): ~95% against symptomatic disease\n  Efficacy (Omicron): lower against infection; maintained ~70-80% vs. severe disease\n\n  ADVANTAGES OF mRNA APPROACH:\n  ──────────────────────────────\n  Speed: sequence → clinical trial < 100 days possible\n  Flexibility: any protein can be encoded; swap insert for new variant\n  Safety: mRNA does not integrate; degrades within days\n  Manufacturing: cell-free synthesis; scalable",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-6",
+      "kind": "diagram_like",
+      "line": 228,
+      "heading_context": "## Phage Therapy",
+      "confidence": "candidate",
+      "text": "  RATIONALE:\n  ──────────\n  Antibiotic resistance crisis: >700,000 deaths/year attributable to resistant bacteria\n  Phages co-evolved with bacteria over billions of years:\n  Each phage strain has a defined host range (usually narrow: one or few bacterial species)\n  Phages multiply at site of infection (self-amplifying, unlike antibiotics)\n  Resistance can develop, but phages can also evolve\n\n  PHAGE THERAPY HISTORY:\n  ───────────────────────\n  1917-1920s: d'Herelle; used in WWI; fell out of favor after antibiotics\n  Soviet Union: continued development; ELIAVA Institute (Tbilisi) — largest\n                phage library in world; commercial phage products available in\n                former Soviet states since 1960s\n  Western revival: 2010s-present; driven by antibiotic resistance crisis\n\n  KEY CHALLENGES:\n  ────────────────\n  1. Host range: need to identify phage(s) that kill the specific strain\n     (personalized phage therapy: isolate patient's bacteria, find or engineer matching phage)\n  2. Phage resistance: bacteria develop resistance rapidly\n     Solution: phage cocktails (multiple phages targeting different receptors)\n     + adaptive phage therapy (co-evolve phage with patient's bacteria)\n  3. Immune system: antibodies can neutralize phages; phages may trigger inflammation\n  4. Biofilm penetration: phages need to penetrate biofilm to reach bacteria\n  5. Regulatory: no approved phage therapy products in US or EU (compassionate use only)\n\n  NOTABLE CASES:\n  ──────────────\n  2017: UC San Diego patient with Acinetobacter baumannii (pan-resistant)\n        Phage cocktail from UC San Diego + US Navy + Tufts → survival\n        First documented successful phage therapy in US modern era\n  2019: UK patient with Mycobacterium abscessus (cystic fibrosis patient)\n        Engineered phage + 2 natural phages; partial lung recovery\n\n  PHAGE COCKTAIL DESIGN:\n  ───────────────────────\n  Targets: LPS (O-antigen), capsid proteins, flagella, type IV pili\n  Each target: different receptor → phage resistance at target A does not\n               confer resistance at target B\n  If target is also a virulence factor (e.g., Type IV pili): phage resistance =\n  loss of virulence → evolutionary trap for bacteria",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-7",
+      "kind": "diagram_like",
+      "line": 279,
+      "heading_context": "## Oncolytic Viruses",
+      "confidence": "candidate",
+      "text": "  RATIONALE:\n  ──────────\n  Many tumors have defects in antiviral signaling (IFN pathway mutations)\n  → Viruses that are sensitive to IFN-mediated restriction will only replicate\n    in cells with defective IFN response (i.e., tumor cells in many cases)\n\n  TALIMOGENE LAHERPAREPVEC (T-VEC, IMLYGIC) — FDA APPROVED 2015:\n  ──────────────────────────────────────────────────────────────────\n  Attenuated HSV-1 with:\n  - ICP34.5 deleted (×2): ICP34.5 (RL1) is key neurovirulence + IFN evasion factor\n    Tumor cells with PKRI pathway defects still support replication\n    Normal neurons cannot be infected (safety)\n  - ICP47 deleted: allows MHC-I antigen presentation of viral + tumor antigens\n    → Improved CD8 T cell response to tumor\n  - GM-CSF inserted: granulocyte-macrophage colony stimulating factor\n    → Promotes dendritic cell maturation → anti-tumor immune response\n\n  Indication: unresectable melanoma; direct intratumoral injection\n  Mechanism: direct oncolysis + systemic anti-tumor immune response (\"abscopal effect\")\n  Efficacy: ~16% durable response rate; modest OS benefit\n\n  OTHER ONCOLYTIC PLATFORMS:\n  ───────────────────────────\n  Oncolytic NDV (Newcastle Disease Virus): IV administration; selectively kills\n  certain tumors; no approved product yet\n  Oncolytic adenovirus: DNX-2401, Delta-24-RGD → glioblastoma trials\n  Oncolytic vaccinia: GL-ONC1, JX-594 → various tumors\n  Coxsackievirus A21: CAVATAK → melanoma, bladder cancer trials",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-8",
+      "kind": "diagram_like",
+      "line": 314,
+      "heading_context": "## Phage Display — Protein Engineering Tool",
+      "confidence": "candidate",
+      "text": "  PRINCIPLE:\n  ──────────\n  Protein of interest (e.g., antibody fragment) fused to a phage coat protein\n  (typically pIII or pVIII of filamentous phage M13)\n  → Each phage \"displays\" the protein on its surface\n  → Phage genome contains the gene encoding that protein\n  → Genotype-phenotype linkage: select for binding properties, recover the gene\n\n  BIOPANNING:\n  ────────────\n  1. Library: 10¹⁰-10¹² different sequences displayed on phage\n  2. Incubate with target antigen (protein, cell, whole organism)\n  3. Wash away non-binders\n  4. Elute bound phage\n  5. Amplify by infecting E. coli\n  6. Repeat 3-5 rounds\n  → Enriches phage displaying high-affinity binders\n\n  APPLICATIONS:\n  ─────────────\n  Antibody discovery: starting point for therapeutic antibody development\n                       Adalimumab (Humira, first fully human antibody drug)\n                       discovered by phage display (Nobel-associated, Winter group)\n  Peptide library screening: find peptide binders to any target\n  Enzyme evolution: select for catalytic activity\n  Vaccine antigen identification: biopan against patient sera → find antigens\n  Epitope mapping: determine antibody binding sites\n\n  PHAGE DISPLAY IMPACT:\n  ──────────────────────\n  2018 Nobel Prize in Chemistry: George Smith (phage display) + Gregory Winter\n  (therapeutic antibodies via phage display)\n  >10 approved antibody drugs discovered by phage display",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    }
+  ]
+}

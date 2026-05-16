@@ -1,3 +1,22 @@
+---
+maxim_schema: maxim.frontmatter.v1
+id: maxim:evolutionary-biology:natural-selection
+kind: guide
+module: evolutionary-biology
+section: evolutionary-biology
+title: Natural Selection: Mechanism and Evidence
+status: source-custody
+source_custody: partial
+current_path: evolutionary-biology/01-NATURAL-SELECTION.md
+canonical_path: evolutionary-biology/01-NATURAL-SELECTION.md
+backsource_ids: [proof-backfill:evolutionary-biology:01-natural-selection, git-history:evolutionary-biology:01-natural-selection]
+concepts: [natural, selection]
+root_concepts: [natural, selection]
+index_roles: [guide, root-concept]
+remap_from: []
+remap_to: []
+updated: null
+---
 # Natural Selection: Mechanism and Evidence
 
 ## The Big Picture
@@ -13,7 +32,7 @@ respect to function. Selection alone links environment to heritable change.
 │  PREREQUISITES (all three required simultaneously):            │
 │  ─────────────                                                 │
 │  1. VARIATION         Individuals differ in some trait         │
-│  2. HERITABILITY      Offspring resemble parents for that trait │
+│  2. HERITABILITY      Offspring resemble parents for trait     │
 │  3. FITNESS EFFECT    Variants differ in survival/reproduction │
 │                              │                                 │
 │                              ▼                                 │

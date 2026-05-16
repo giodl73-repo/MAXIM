@@ -1,3 +1,22 @@
+---
+maxim_schema: maxim.frontmatter.v1
+id: maxim:evolutionary-biology:molecular-evolution
+kind: guide
+module: evolutionary-biology
+section: evolutionary-biology
+title: Molecular Evolution and Neutral Theory
+status: source-custody
+source_custody: partial
+current_path: evolutionary-biology/03-MOLECULAR-EVOLUTION.md
+canonical_path: evolutionary-biology/03-MOLECULAR-EVOLUTION.md
+backsource_ids: [proof-backfill:evolutionary-biology:03-molecular-evolution, git-history:evolutionary-biology:03-molecular-evolution]
+concepts: [molecular, evolution]
+root_concepts: [molecular, evolution]
+index_roles: [guide, root-concept]
+remap_from: []
+remap_to: []
+updated: null
+---
 # Molecular Evolution and Neutral Theory
 
 ## The Big Picture
@@ -12,7 +31,7 @@ evolution is selectively neutral, driven by drift rather than selection.
 │                                                                  │
 │  INPUT                  FORCES                OUTPUT             │
 │  ─────                  ──────                ──────             │
-│  Mutation               Purifying selection   Sequence divergence │
+│  Mutation               Purifying selection   Seq divergence     │
 │  Recombination          Positive selection    Polymorphism level │
 │  Gene duplication       Neutral drift         Gene family size   │
 │  Horizontal transfer    Codon usage bias      GC content         │

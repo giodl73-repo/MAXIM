@@ -1,0 +1,127 @@
+{
+  "schema_version": "1",
+  "source_markdown": "virology\\04-HOST-INTERACTIONS.md",
+  "blocks": [
+    {
+      "id": "block-1",
+      "kind": "diagram_like",
+      "line": 28,
+      "heading_context": "## The Big Picture",
+      "confidence": "candidate",
+      "text": "┌──────────────────────────────────────────────────────────────────┐\n│               VIRUS-HOST INTERACTION LAYERS                      │\n│                                                                  │\n│  MOLECULAR LEVEL:    Receptor recognition → entry mechanism      │\n│  CELLULAR LEVEL:     Restriction factors, innate sensors         │\n│  TISSUE LEVEL:       Barrier crossing, cell type specificity     │\n│  ORGANISM LEVEL:     Immune response, pathogenesis               │\n│  POPULATION LEVEL:   Transmission, herd immunity, evolution      │\n│                                                                  │\n│  TROPISM DETERMINANTS:                                           │\n│  1. Receptor expression (necessary)                              │\n│  2. Co-receptor expression (necessary for some)                  │\n│  3. Cellular replication machinery compatibility                 │\n│  4. Restriction factor landscape                                 │\n│  5. Innate immune signaling in that cell type                    │\n└──────────────────────────────────────────────────────────────────┘",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-2",
+      "kind": "diagram_like",
+      "line": 54,
+      "heading_context": "## Receptor Usage — The First Gate",
+      "confidence": "candidate",
+      "text": "  VIRUS             RECEPTOR              CO-RECEPTOR       CELL TYPE TARGETED\n  ─────             ────────              ───────────       ──────────────────\n  HIV-1             CD4                   CCR5 / CXCR4      CD4+ T cells, macrophages\n  SARS-CoV-2        ACE2                  TMPRSS2           Type II pneumocytes, gut\n  Influenza A/B     Sialic acid (α-2,6)   —                 Upper resp. epithelium\n  Influenza (avian) Sialic acid (α-2,3)   —                 Lower resp., waterfowl gut\n  Rabies            AChR (nAChR), NCAM,   —                 Neurons, muscle\n                    p75NTR\n  Poliovirus        PVR (CD155)           —                 Motor neurons, gut epithelium\n  EBV               CR2 (CD21)            —                 B lymphocytes\n  CMV               PDGFR-α, integrins    NRP2              Fibroblasts, endothelium\n  HSV-1             Nectin-1, HVEM        —                 Epithelium, neurons\n  Rhinovirus C      CDHR3                 —                 Ciliated airway epithelium\n  Measles           CD46 (vaccine)        —                 Immune cells, epithelium\n                    CD150 (SLAM) (wild)\n  HPV               α6 integrin, HSPG     L2-EGFR           Keratinocytes\n  Ebola             NPC1                  (endosomal)       Dendritic cells, macrophages\n  Adeno-assoc virus AAVR (KIAA0319L)      various           Broad (type depends on capsid)",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-3",
+      "kind": "chart_like",
+      "line": 75,
+      "heading_context": "## Receptor Usage — The First Gate",
+      "confidence": "candidate",
+      "text": "### ACE2 and SARS-CoV-2 Tropism",
+      "notes": [
+        "detected from bar/chart glyph density with numeric labels"
+      ]
+    },
+    {
+      "id": "block-4",
+      "kind": "diagram_like",
+      "line": 77,
+      "heading_context": "### ACE2 and SARS-CoV-2 Tropism",
+      "confidence": "candidate",
+      "text": "  ACE2 expression levels across tissues (human):\n  ────────────────────────────────────────────────\n  Very high: small intestine enterocytes, kidney tubular cells\n  High:      nasal goblet cells, type II alveolar cells, colon enterocytes\n  Moderate:  heart, liver, testis\n  Low:       brain, immune cells\n\n  This distribution explains:\n  - Respiratory entry (nasal + alveolar ACE2)\n  - GI symptoms (intestinal ACE2)\n  - Multi-organ complications (cardiac, renal involvement)\n  - Male reproductive outcomes (testicular ACE2 — still studied)\n\n  TMPRSS2 co-factor:\n  ─────────────────\n  Serine protease; cleaves S at S2' site enabling direct plasma membrane fusion\n  High in airways (where S entry is most efficient)\n  Camostat (TMPRSS2 inhibitor) tested as antiviral — limited clinical success\n  Cells without TMPRSS2 use endosomal cathepsins (slower, less efficient)",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-5",
+      "kind": "diagram_like",
+      "line": 106,
+      "heading_context": "## Receptor Evolution — The Red Queen at the Molecular Level",
+      "confidence": "candidate",
+      "text": "  EXAMPLE: HIV and CCR5\n  ──────────────────────\n  CCR5Δ32: 32-nucleotide deletion in CCR5 gene → truncated protein\n  Homozygous CCR5Δ32 (1-2% North Europeans): highly resistant to HIV-1 infection\n  Heterozygous: slower progression\n  CCR5Δ32 frequency elevated in Northern Europe:\n    Possible positive selection: unclear agent (plague? smallpox?)\n    Genetic drift also possible (founder effect)\n\n  Timothy Ray Brown (\"Berlin patient\"): cured of HIV by bone marrow transplant\n  from CCR5Δ32/Δ32 donor → CCR5-negative immune system → HIV reservoir eliminated\n  (Two subsequent patients: City of Hope and London patient similarly treated)\n\n  EXAMPLE: TRIM5α\n  ────────────────\n  TRIM5α: cytoplasmic restriction factor; recognizes retroviral capsids in cytoplasm\n  → Premature uncoating → abortive infection\n  Human TRIM5α: blocks N-MLV (murine virus) but NOT HIV-1\n  Rhesus TRIM5α: blocks HIV-1 efficiently\n  → Single amino acid differences in the capsid-binding SPRY domain determine specificity\n  → Ongoing arms race between retroviral capsids and TRIM5α",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-6",
+      "kind": "ascii_table_candidate",
+      "line": 136,
+      "heading_context": "## Innate Immune Sensing — The Second Gate",
+      "confidence": "candidate",
+      "text": "  PATTERN RECOGNITION RECEPTORS (PRRs):\n  ────────────────────────────────────────\n  RIG-I (DDX58):    cytoplasmic; detects 5'-triphosphorylated dsRNA/ssRNA\n                    Activated by: influenza, Sendai virus, RNA viruses generally\n  MDA5 (IFIH1):     cytoplasmic; detects long dsRNA\n                    Activated by: picornaviruses, coronaviruses\n  cGAS-STING:       cytoplasmic; detects dsDNA\n                    Activated by: HSV, HIV (reverse transcription products)\n                    HIV capsid normally shields DNA from cGAS until after integration\n  TLR7/8:           endosomal; detects ssRNA → activated in plasmacytoid DCs\n  TLR9:             endosomal; detects unmethylated CpG DNA (herpesvirus)\n  TLR3:             endosomal; detects dsRNA\n\n  SIGNALING OUTCOME:\n  ───────────────────\n  RIG-I/MDA5 → MAVS (mitochondrial) → IRF3/IRF7 → type I IFN (IFN-α/β)\n  cGAS-STING → IRF3/IRF7 + NF-κB → type I IFN + inflammatory cytokines\n  TLR signaling → MyD88 or TRIF → IRF3/IRF7, NF-κB → IFN + TNF + IL-6, etc.\n\n  TYPE I INTERFERON RESPONSE:\n  ────────────────────────────\n  IFN-α/β secreted → binds IFNAR on self and neighboring cells\n  → JAK-STAT → ISGF3 (STAT1-STAT2-IRF9) → ISRE promoters → hundreds of ISGs\n  (interferon-stimulated genes)\n\n  Key ISGs:\n  ISG15:    ubiquitin-like modifier; ISGylates viral and host proteins\n  Mx1:      GTPase; blocks nuclear export of influenza RNPs (major antiviral)\n  OAS/RNaseL: 2'-5'-oligoadenylate synthetase activates RNase L → RNA degradation\n  PKR:      dsRNA-dependent kinase → phosphorylates eIF2α → global translation shutoff\n  IFIT1-3:  bind viral RNA caps, impair translation\n  TRIM56:   ubiquitin ligase; restricts STING signaling\n  APOBEC3G: cytidine deaminase; mutates HIV reverse transcripts\n  Tetherin:  prevents release of enveloped viruses from cell surface",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-7",
+      "kind": "diagram_like",
+      "line": 179,
+      "heading_context": "## Restriction Factors — Intrinsic Cellular Antiviral Proteins",
+      "confidence": "candidate",
+      "text": "  RESTRICTION FACTOR   TARGET         MECHANISM               VIRAL COUNTERMEASURE\n  ─────────────────   ──────         ─────────               ────────────────────\n  TRIM5α              Retroviral     Capsid recognition →     Capsid evolution\n                      capsids        premature uncoating\n  APOBEC3G/H          HIV, others    C→U deamination in       Vif (targets APOBEC3\n                                     ssDNA → hypermutation     for proteasomal\n                                                               degradation)\n  Tetherin (BST-2)    Enveloped      Anchors virus to cell    Vpu (HIV), K5 (KSHV),\n                      viruses        surface after budding     ORF3a candidates\n  SAMHD1              HIV in         dNTP pool depletion       Vpx (HIV-2/SIV mac)\n                      macrophages    → RT can't replicate      induces SAMHD1\n                      & DCs                                    degradation\n  MxA                 Influenza,     Sequesters viral RNPs    M1 protein co-opt/\n                      others                                   evolve around Mx\n  IFITM1/2/3          Enveloped      Inhibits membrane fusion  Overcame in H1N1\n                      viruses        in endosomes              (2009 H1N1 less\n                                                               sensitive to IFITM)\n  ZAP (ZC3HAV1)       RNA viruses    Binds CpG-rich RNA →     CpG suppression in\n                                     RNA degradation           viral genomes",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-8",
+      "kind": "chart_like",
+      "line": 205,
+      "heading_context": "## Tropism and Disease: Case Studies",
+      "confidence": "candidate",
+      "text": "### HIV — CD4 T Cell Depletion",
+      "notes": [
+        "detected from bar/chart glyph density with numeric labels"
+      ]
+    },
+    {
+      "id": "block-9",
+      "kind": "ascii_table_candidate",
+      "line": 207,
+      "heading_context": "### HIV — CD4 T Cell Depletion",
+      "confidence": "candidate",
+      "text": "  HIV specifically infects CD4+ T helper cells (and macrophages, DCs)\n  CD4 T cells are the coordinators of adaptive immunity:\n  - Help B cells make antibodies (T follicular helper)\n  - Activate cytotoxic CD8 T cells\n  - Recruit neutrophils, macrophages to infection sites\n\n  Depletion below 200 cells/μL → AIDS (acquired immunodeficiency syndrome)\n  → Opportunistic infections: PCP (Pneumocystis), toxoplasma, CMV, Cryptosporidium\n  → AIDS-defining cancers: Kaposi's sarcoma (KSHV), Primary CNS lymphoma (EBV)\n\n  Mechanism of CD4 decline: direct killing + bystander apoptosis + activation-\n  induced cell death + CTL killing of infected cells\n  Pyroptosis (caspase-1-mediated) in resting CD4 T cells that abortively replicate HIV\n  accounts for most CD4 depletion in lymphoid tissue",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-10",
+      "kind": "diagram_like",
+      "line": 226,
+      "heading_context": "### Poliovirus — Neurotropism",
+      "confidence": "candidate",
+      "text": "  Poliovirus enters orally → gut epithelium (primary replication)\n  Most infections: asymptomatic GI infection (>90%)\n  In ~1% cases: viremia → crosses blood-brain barrier\n  → Infects motor neurons in anterior horn of spinal cord\n  PVR (poliovirus receptor, CD155) expressed on motor neurons\n  Poliovirus replication → cytolysis → flaccid paralysis\n\n  WHY motor neurons specifically?\n  CD155 is expressed broadly BUT viral replication is most effective in neurons\n  + neural spread via retrograde axonal transport from gut\n  Spinal cord anterior horn: high CD155, susceptible to lytic replication",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-11",
+      "kind": "diagram_like",
+      "line": 244,
+      "heading_context": "## Transmission Routes and Tropism Link",
+      "confidence": "candidate",
+      "text": "  TRANSMISSION ROUTE          ENTRY SITE                 VIRUS EXAMPLE\n  ──────────────────          ──────────                 ─────────────\n  Respiratory droplets/aer.   Nasal/bronchial epithelium  Influenza, SARS-CoV-2,\n                                                           measles, rhinovirus\n  Fecal-oral                  GI epithelium              Poliovirus, norovirus,\n                                                           rotavirus, HAV\n  Sexual / mucosal            Genital mucosa             HIV, HSV-2, HPV, HBV\n  Blood-borne                 Monocytes, hepatocytes     HIV, HCV, HBV\n  Vector-borne (arthropod)    Skin → bloodstream         Dengue, Zika, West Nile,\n                                                           Yellow fever\n  Direct contact (skin)       Keratinocytes              HSV-1, HPV (warts)\n  Neurological (animal bite)  Peripheral nerve → CNS     Rabies",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    }
+  ]
+}

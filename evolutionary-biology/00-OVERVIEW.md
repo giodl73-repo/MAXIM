@@ -1,3 +1,22 @@
+---
+maxim_schema: maxim.frontmatter.v1
+id: maxim:evolutionary-biology:overview
+kind: guide
+module: evolutionary-biology
+section: evolutionary-biology
+title: Evolutionary Biology - Landscape and Taxonomy
+status: source-custody
+source_custody: partial
+current_path: evolutionary-biology/00-OVERVIEW.md
+canonical_path: evolutionary-biology/00-OVERVIEW.md
+backsource_ids: [proof-backfill:evolutionary-biology:00-overview, git-history:evolutionary-biology:00-overview]
+concepts: [overview]
+root_concepts: [overview]
+index_roles: [guide, root-concept]
+remap_from: []
+remap_to: []
+updated: null
+---
 # Evolutionary Biology — Landscape and Taxonomy
 
 ## The Big Picture
@@ -7,7 +26,7 @@ one axis of the full framework:
 
 ```
 +------------------------------------------------------------------+
-|                  EVOLUTIONARY BIOLOGY LANDSCAPE                   |
+|                  EVOLUTIONARY BIOLOGY LANDSCAPE                  |
 +------------------------------------------------------------------+
 |                                                                    |
 |  FORCES ACTING ON ALLELE FREQUENCIES IN A POPULATION             |
@@ -78,7 +97,7 @@ Darwinian selection with Mendelian genetics. Subsequent decades added layers:
 
 ```
 ┌─────────────────────────────────────────────────────────────────┐
-│                    EVOLUTIONARY BIOLOGY                          │
+│                    EVOLUTIONARY BIOLOGY                         │
 ├──────────────────┬──────────────────┬────────────────────────── ┤
 │  POPULATION      │  MOLECULAR        │  COMPARATIVE / MACRO      │
 │  GENETICS        │  EVOLUTION        │  EVOLUTION                │
@@ -89,13 +108,13 @@ Darwinian selection with Mendelian genetics. Subsequent decades added layers:
 │  Selection       │  Gene families    │  Biogeography             │
 │  coefficients    │  Horizontal GT    │  Mass extinctions         │
 ├──────────────────┼──────────────────┼───────────────────────────┤
-│  EVO-DEVO        │  BEHAVIORAL /     │  SPECIATION               │
-│                  │  ECOLOGICAL       │                           │
-│  HOX genes       │  Sexual selection │  Allopatric               │
-│  Toolkit genes   │  Kin selection    │  Sympatric                │
-│  Modularity      │  Life history     │  Hybrid zones             │
-│  Heterochrony    │  Coevolution      │  Reproductive isolation   │
-│  Deep homology   │  Arms races       │  Ring species             │
+│  EVO-DEVO        │  BEHAVIORAL /    │  SPECIATION               │
+│                  │  ECOLOGICAL      │                           │
+│  HOX genes       │  Sex selection   │  Allopatric               │
+│  Toolkit genes   │  Kin selection   │  Sympatric                │
+│  Modularity      │  Life history    │  Hybrid zones             │
+│  Heterochrony    │  Coevolution     │  Reproductive isolation   │
+│  Deep homology   │  Arms races      │  Ring species             │
 └──────────────────┴──────────────────┴───────────────────────────┘
 ```
 

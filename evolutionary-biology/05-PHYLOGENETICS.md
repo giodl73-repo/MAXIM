@@ -1,3 +1,22 @@
+---
+maxim_schema: maxim.frontmatter.v1
+id: maxim:evolutionary-biology:phylogenetics
+kind: guide
+module: evolutionary-biology
+section: evolutionary-biology
+title: Phylogenetics and Molecular Clocks
+status: source-custody
+source_custody: partial
+current_path: evolutionary-biology/05-PHYLOGENETICS.md
+canonical_path: evolutionary-biology/05-PHYLOGENETICS.md
+backsource_ids: [proof-backfill:evolutionary-biology:05-phylogenetics, git-history:evolutionary-biology:05-phylogenetics]
+concepts: [phylogenetics]
+root_concepts: [phylogenetics]
+index_roles: [guide, root-concept]
+remap_from: []
+remap_to: []
+updated: null
+---
 # Phylogenetics and Molecular Clocks
 
 ## The Big Picture

@@ -1,0 +1,127 @@
+{
+  "schema_version": "1",
+  "source_markdown": "virology\\05-IMMUNE-EVASION.md",
+  "blocks": [
+    {
+      "id": "block-1",
+      "kind": "diagram_like",
+      "line": 29,
+      "heading_context": "## The Big Picture",
+      "confidence": "candidate",
+      "text": "┌──────────────────────────────────────────────────────────────────┐\n│                IMMUNE EVASION — FULL LANDSCAPE                   │\n│                                                                  │\n│  TARGET         EVASION STRATEGY                  EXAMPLES       │\n│  ─────────      ─────────────────                 ────────       │\n│  Innate         Block IFN induction               Flu NS1        │\n│  sensing        Degrade sensing molecules         SARS PLpro     │\n│                 Sequester dsRNA from RIG-I        Corona DMVs    │\n│                 cGAS/STING inhibition             Adenovirus E1A │\n│                                                                  │\n│  IFN signaling  Block JAK-STAT pwy               Paramyxovirus V │\n│                 Degrade STAT1/STAT2               Simian virus 5 │\n│                                                                  │\n│  MHC-I          Downregulate MHC-I                HIV Nef, HCMV  │\n│  presentation   Block TAP (peptide transport)     HSV ICP47      │\n│                 Retain MHC-I in ER/Golgi          HCMV US2/US11  │\n│                                                                  │\n│  CTL killing    Prevent apoptosis                 EBV BHRF1/FLIP │\n│                 Target NK cell sensors            HCMV UL18      │\n│                                                                  │\n│  Antibodies     Antigenic variation               gp120 glycan   │\n│                 Decoy antigens                    HIV shed gp120 │\n│                 Structural shielding              Sialylation    │\n│                                                                  │\n│  Complement     Complement regulators             HSV gC, EBV    │\n│                                                                  │\n│  Latency        Hide genome in resting cells      HSV, EBV, HIV  │\n└──────────────────────────────────────────────────────────────────┘",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-2",
+      "kind": "diagram_like",
+      "line": 67,
+      "heading_context": "### Blocking IFN Induction",
+      "confidence": "candidate",
+      "text": "  NS1 (non-structural protein 1, 26 kDa) is the major innate antagonist of influenza.\n\n  Mechanisms:\n  1. RNA binding: NS1 sequesters dsRNA, preventing RIG-I and PKR activation\n  2. TRIM25 inhibition: TRIM25 ubiquitinates RIG-I for activation; NS1 binds\n     TRIM25 and blocks RIG-I ubiquitination → no IFN signaling\n  3. CPSF30 binding: NS1 blocks host mRNA 3'-processing → prevents ISG mRNA\n     from being polyadenylated and exported (host cell shutoff)\n  4. PI3K activation: NS1 activates PI3K → Akt → prevents premature apoptosis\n\n  Pandemic strains often have NS1 mutations affecting effector binding:\n  1918 pandemic H1N1 NS1: highly effective IFN antagonist\n  Avian H5N1 NS1: hyperinduces cytokines (overcomes IFN block paradoxically)",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-3",
+      "kind": "diagram_like",
+      "line": 84,
+      "heading_context": "### Blocking IFN Induction",
+      "confidence": "candidate",
+      "text": "  Multiple evasion mechanisms:\n  nsp3 (PLpro): deubiquitinase activity strips ISG15/ubiquitin from\n                signaling proteins → blocks IFN signaling\n  nsp14 ExoN:   removes dsRNA markers → less RIG-I/MDA5 activation\n  nsp15 EndoU:  cleaves viral dsRNA within DMVs before it escapes\n  nsp1:         binds ribosome; blocks host mRNA translation\n  ORF6:         blocks nuclear import by binding KPNA2 (importin-α)\n  ORF3b, ORF9c: additional IFN pathway inhibitors\n  DMV formation: sequesters dsRNA from cytoplasmic sensors",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-4",
+      "kind": "diagram_like",
+      "line": 100,
+      "heading_context": "### Blocking IFN Signaling",
+      "confidence": "candidate",
+      "text": "  Paramyxoviruses (V protein):\n  Mumps V binds STAT1 and STAT2 → prevents phosphorylation\n  PIV2 V: targets STAT2 for proteasomal degradation\n  Simian virus 5: degrades STAT1\n  Nipah V: nuclear STAT sequestration\n\n  Adenovirus:\n  E1A: binds histone deacetylase complexes → represses ISG promoters\n  VA RNA I: decoy dsRNA → saturates PKR without activating it\n\n  Result: even if IFN is made, the JAK-STAT cascade is blocked in\n  virus-infected cells (autocrine protection) and sometimes neighboring cells",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-5",
+      "kind": "diagram_like",
+      "line": 124,
+      "heading_context": "### Downregulation Mechanisms",
+      "confidence": "candidate",
+      "text": "  HIV Nef:\n  ─────────\n  Nef (negative regulatory factor, ~27 kDa):\n  1. Downregulates MHC-I from cell surface: binds AP-1 clathrin adaptor →\n     endocytosis of MHC-I → lysosomal degradation\n  2. Downregulates CD4 (prevents superinfection, promotes viral release)\n  3. Activates infected cell (promotes viral replication)\n\n  Effect: HIV-infected cells present fewer viral peptides → CTL surveillance reduced\n  Nef is required for high viral loads and AIDS progression in SIV model\n  Nef-deleted SIV: low viral load, no AIDS in macaques\n\n  HCMV (Cytomegalovirus):\n  ──────────────────────\n  Encodes 4 separate MHC-I evasion genes:\n  US2: E3 ubiquitin ligase → retrotranslocates MHC-I from ER to cytoplasm\n       → proteasomal degradation\n  US3: retains MHC-I in ER (blocks transport to Golgi)\n  US6: blocks TAP (transporter associated with antigen processing) →\n       peptides cannot enter ER to load onto MHC-I\n  US11: similar to US2; different E3 activity; different HLA allele specificity\n\n  HSV ICP47:\n  ──────────\n  ICP47 binds TAP with very high affinity (Kd ~100 nM for human TAP)\n  → Blocks peptide transport into ER → empty MHC-I molecules unstable\n  → MHC-I does not reach cell surface\n  Murine ICP47 is much weaker — HSV TAP block is human-specific",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-6",
+      "kind": "diagram_like",
+      "line": 157,
+      "heading_context": "### NK Cell Escape and the \"Missing Self\" Problem",
+      "confidence": "candidate",
+      "text": "  NK CELLS: MISSING SELF SURVEILLANCE\n  ─────────────────────────────────────\n  NK cells have activating and inhibitory receptors\n  Inhibitory receptors (KIR, NKG2A): bind MHC-I → inhibit killing\n  \"Missing self\": when virus downregulates MHC-I, NK inhibitory signal lost\n  → NK cells kill the MHC-I-low cells\n\n  This creates a dilemma for viruses:\n  Keep MHC-I high → CTL can see viral peptides\n  Reduce MHC-I → NK cells kill the cell\n\n  HCMV SOLUTION — MHC-I DECOYS:\n  ───────────────────────────────\n  HCMV UL18: viral MHC-I homolog; binds inhibitory receptor LIR-1 on NK cells\n             → NK inhibition maintained without presenting viral peptides\n  HCMV UL40: encodes peptide that binds HLA-E (non-classical MHC-I) →\n             HLA-E inhibits NK cells via NKG2A\n  Net effect: HCMV simultaneously downregulates HLA-A/B/C (avoids CTL)\n              while providing decoy MHC-I signals (avoids NK)",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-7",
+      "kind": "chart_like",
+      "line": 183,
+      "heading_context": "## Antibody Evasion",
+      "confidence": "candidate",
+      "text": "### HIV gp120 Glycan Shield",
+      "notes": [
+        "detected from bar/chart glyph density with numeric labels"
+      ]
+    },
+    {
+      "id": "block-8",
+      "kind": "diagram_like",
+      "line": 185,
+      "heading_context": "### HIV gp120 Glycan Shield",
+      "confidence": "candidate",
+      "text": "  HIV gp120 OUTER DOMAIN:\n  ─────────────────────────\n  gp120 is covered in N-linked glycans (~50% of molecular weight)\n  These glycans are host-derived (added in ER/Golgi of infected cell)\n  → Immune system tolerates \"self\" glycans\n  → gp120 is \"camouflaged\" by host glycans\n\n  Neutralization epitopes accessible: only the CD4-binding site and a few others\n  Key: broadly neutralizing antibodies (bnAbs) can access:\n  - CD4 binding site (CD4bs): deep pocket, not easily glycan-shielded\n  - MPER (gp41 membrane proximal external region)\n  - V2 apex (quaternary epitope on trimer)\n  - V3-glycan supersite\n\n  Most antibodies raised during natural infection: strain-specific\n  (bind hypervariable loops on gp120 → easy for virus to mutate)\n  HIV vaccine challenge: generating bnAbs that access shielded conserved epitopes",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-9",
+      "kind": "diagram_like",
+      "line": 207,
+      "heading_context": "### Antigenic Variation",
+      "confidence": "candidate",
+      "text": "  INFLUENZA ANTIGENIC DRIFT:\n  ───────────────────────────\n  Mutations in HA and NA accumulate over time:\n  - Random mutations (RdRp error rate ~10⁻⁴)\n  - Neutral mutations tolerated on surface loops\n  - Mutations at antibody contact residues positively selected (immune escape)\n\n  Key HA antigenic sites (Sa, Sb, Ca1, Ca2, Cb):\n  Mutations in these sites prevent antibody binding → seasonal flu vaccine\n  needs annual updating\n\n  Antigenic cartography (Smith et al. 2004):\n  Map antibody cross-reactivity → visualize antigenic evolution\n  H3N2 drift: ~8 amino acid changes per year in antigenic sites\n  → Vaccine updated annually by WHO consensus\n\n  INFLUENZA ANTIGENIC SHIFT:\n  ───────────────────────────\n  Reassortment brings entirely new HA and/or NA subtype\n  No pre-existing antibody immunity in population\n  → Pandemic potential (see 08-PANDEMIC-BIOLOGY)",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-10",
+      "kind": "diagram_like",
+      "line": 238,
+      "heading_context": "## Latency as Immune Evasion",
+      "confidence": "candidate",
+      "text": "  HSV LATENCY:\n  ─────────────\n  Genome: episomal circular dsDNA in sensory neuron nuclei\n  Expression: only LAT (latency-associated transcript)\n  LAT: sponge for miRNAs that would induce apoptosis? Stabilizes latency?\n       Exact function debated\n  No viral proteins on cell surface → no CTL recognition\n  Neurons: MHC-I expression naturally low → further reduces CTL visibility\n\n  EBV LATENCY:\n  ─────────────\n  Multiple latency programs:\n  Latency 0: no viral gene expression (memory B cells)\n  Latency I: only EBNA1 (EBNA1 evades proteasomal processing → no MHC-I presentation)\n  Latency II: EBNA1 + LMP1/LMP2 (in germinal center B cells)\n  Latency III: all EBV latency antigens expressed (immunoblastic lymphoma profile)\n  Switching between programs mediates EBV biology\n\n  HIV LATENCY:\n  ─────────────\n  Integrated provirus in resting memory CD4+ T cells: transcriptionally silent\n  Mechanism: epigenetic repression of LTR (H3K27me3, DNA methylation)\n  Low levels of NF-κB and P-TEFb in resting cells → no Tat → no viral transcription\n  T cell memory: decades-long lifespan → latent reservoir\n  \"Shock and kill\": HDAC inhibitors or PKC agonists to reactivate + immune clearance\n  (Not yet clinically successful at curing HIV)",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-11",
+      "kind": "diagram_like",
+      "line": 273,
+      "heading_context": "## Cytokine Storm — When Evasion Overdrives the Response",
+      "confidence": "candidate",
+      "text": "  CYTOKINE STORM MECHANISM:\n  ──────────────────────────\n  Virus replicates extensively (early evasion of innate response)\n  → Large viral antigen load accumulates\n  → Innate immune sensors eventually triggered en masse\n  → Massive cytokine/chemokine secretion: TNF-α, IL-1β, IL-6, IL-18, IFN-γ\n  → Positive feedback loops (cytokines induce more cytokines)\n  → Vascular leak, DIC (disseminated intravascular coagulation), multi-organ failure\n\n  Examples where this occurs:\n  H5N1 avian influenza: high virus titer in lower respiratory tract\n                         before immune response responds → cytokine storm in lung\n  COVID-19 severe disease: hyperinflammatory syndrome in some patients\n                            IL-6 blocking (tocilizumab) moderately effective\n  Ebola: massive viremia → macrophage activation → cytokine storm → shock\n  MAS (macrophage activation syndrome): secondary to severe infections generally\n\n  Why? Viruses that evolved to suppress innate immune signaling may trigger\n  compensatory responses that overshoot when the innate block is eventually\n  overcome or when the adaptive response amplifies.",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    }
+  ]
+}

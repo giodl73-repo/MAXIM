@@ -1,0 +1,105 @@
+{
+  "schema_version": "1",
+  "source_markdown": "virology\\02-BALTIMORE-CLASSIFICATION.md",
+  "blocks": [
+    {
+      "id": "block-1",
+      "kind": "diagram_like",
+      "line": 28,
+      "heading_context": "## The Big Picture",
+      "confidence": "candidate",
+      "text": "┌──────────────────────────────────────────────────────────────────┐\n│              BALTIMORE CLASSIFICATION — ALL 7 CLASSES            │\n│                                                                  │\n│  The Central Question:                                           │\n│  \"How does the virus produce mRNA from its genome?\"              │\n│                                                                  │\n│  Class I   dsDNA    → mRNA  (like host; use host or viral pol)   │\n│  Class II  ssDNA    → dsDNA → mRNA                               │\n│  Class III dsRNA    → mRNA  (viral RdRp required)                │\n│  Class IV  +ssRNA   = mRNA  (genome IS the mRNA)                 │\n│  Class V   -ssRNA   → mRNA  (viral RdRp required for first step) │\n│  Class VI  ssRNA-RT → DNA   → mRNA  (reverse transcription)      │\n│  Class VII dsDNA-RT → mRNA  (with RT in replication cycle)       │\n│                                                                  │\n│  KEY DIVISION: RNA vs DNA genome                                 │\n│  DNA viruses: generally lower mutation rate, larger genomes      │\n│  RNA viruses: very high mutation rate, smaller genomes           │\n│  Retroviruses: RNA genome → DNA intermediate → integrates        │\n└──────────────────────────────────────────────────────────────────┘",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-2",
+      "kind": "diagram_like",
+      "line": 57,
+      "heading_context": "## Class I: dsDNA Viruses",
+      "confidence": "candidate",
+      "text": "  GENOME → TRANSCRIPTION → mRNA → PROTEIN\n   (dsDNA)      (cellular RNA pol)\n\n  EXAMPLES AND PROPERTIES:\n  ─────────────────────────\n  Herpesviruses:\n    HSV-1/2 (oral/genital herpes), VZV (chickenpox/shingles),\n    EBV (Epstein-Barr, mononucleosis, Burkitt's lymphoma),\n    CMV (cytomegalovirus), KSHV (Kaposi's)\n    Genome: 125-240 kb linear dsDNA\n    Feature: LATENCY — genome maintained as episome in nucleus\n    HSV-1 in sensory ganglia, EBV in B cells — can reactivate\n\n  Poxviruses:\n    Smallpox (Variola), vaccinia (vaccine strain), monkeypox\n    Genome: 130-375 kb; brick-shaped virion\n    Cytoplasmic replication (unique for dsDNA) — carries own RNA pol\n    Variola: eradicated by vaccination 1980; only natural human disease\n    ever eradicated\n\n  Adenoviruses:\n    Common cold, epidemic keratoconjunctivitis, hemorrhagic cystitis\n    Genome: 26-45 kb; icosahedral, non-enveloped\n    Used extensively as gene therapy/vaccine vectors (ChAdOx in COVID vaccines)\n\n  Papillomaviruses:\n    HPV; circular dsDNA ~8 kb; integrate into host genome → cervical cancer\n    E7 oncoprotein inactivates Rb (cell cycle brake)\n    Vaccine (Gardasil) prevents HPV types 16/18 → >95% cervical cancer prevention",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-3",
+      "kind": "diagram_like",
+      "line": 96,
+      "heading_context": "## Class II: ssDNA Viruses",
+      "confidence": "candidate",
+      "text": "  GENOME (ssDNA) → dsDNA intermediate → mRNA\n                   (host DNA pol in nucleus)\n\n  EXAMPLES:\n  ─────────\n  Parvoviruses:\n    B19 (fifth disease in children, aplastic crisis in sickle cell)\n    AAV (adeno-associated virus): most used gene therapy vector\n    Small: ~5 kb; icosahedral, non-enveloped\n    Require host cell in S phase for replication\n\n  Circoviruses:\n    PCV2 (porcine circovirus 2): economically important in pigs\n    TTV (Torque teno virus): infects essentially all humans, no known disease\n    Smallest known viral genomes (~1.7-2.1 kb)\n    Circular ssDNA; rolling circle replication",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-4",
+      "kind": "diagram_like",
+      "line": 122,
+      "heading_context": "## Class III: dsRNA Viruses",
+      "confidence": "candidate",
+      "text": "  GENOME (dsRNA segments) → mRNA (via viral RdRp inside capsid)\n\n  KEY POINT: Transcription occurs INSIDE the intact capsid particle.\n  If dsRNA were exposed in cytoplasm, RIG-I/MDA5 would detect it → type I IFN.\n  The capsid is a transcription factory that hides the dsRNA from innate sensors.\n\n  EXAMPLES:\n  ─────────\n  Reoviruses: respiratory/enteric; icosahedral; generally benign\n  Rotaviruses: leading cause of pediatric diarrhea worldwide\n    11 segments; responsible for ~200,000 deaths/year in children\n    Oral vaccine (Rotarix, RotaTeq) effective\n  Bluetongue virus: livestock pathogen; 10 segments; vector: Culicoides midges",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-5",
+      "kind": "ascii_table_candidate",
+      "line": 146,
+      "heading_context": "## Class IV: +ssRNA Viruses",
+      "confidence": "candidate",
+      "text": "  GENOME (+ssRNA) → Translation (directly) → Proteins (including RdRp)\n                 ↘ RdRp produces -strand\n                 ↘ -strand template → new +strand genomes\n\n  ADVANTAGE: Fast replication — ribosomes translate immediately after entry\n             No need to carry RdRp in virion (unlike Class V)\n             But: means infected cell starts making protein before innate immune\n             response can mobilize\n\n  MAJOR EXAMPLES:\n  ────────────────\n  Coronaviruses:\n    SARS-CoV-2, SARS-CoV-1, MERS-CoV, seasonal HCoV-229E, NL63, OC43, HKU1\n    ~30 kb genome — largest known RNA genome (near theoretical limit for RNA)\n    Encodes proofreading exonuclease (nsp14 ExoN): unusually low error rate\n    for an RNA virus (~10⁻⁶ per base — 10-100× lower than typical RNA viruses)\n    Replication occurs in ER-derived double-membrane vesicles (DMVs)\n\n  Flaviviruses:\n    Dengue (~390 million infections/year), Zika, West Nile, Yellow fever, HCV\n    Positive-sense; icosahedral nucleocapsid + envelope\n    Single polyprotein → cleaved by viral + host proteases\n\n  Picornaviruses:\n    Poliovirus, rhinovirus (cold), HAV, enterovirus D68, foot-and-mouth\n    ~7.5 kb; IRES-mediated cap-independent translation\n    Single polyprotein (2A/3C protease cleavage) → 11-13 functional proteins\n    Poliovirus replication cycle is only ~6 hours\n\n  Togaviruses/Alphaviruses:\n    Rubella, Chikungunya, Ross River\n    +ssRNA with 5' cap; non-structural polyprotein + structural polyprotein\n    from two ORFs\n\n  Caliciviruses:\n    Norovirus (cruise ship vomiting disease), Sapovirus\n    Non-enveloped; very stable; low infectious dose (~18 virions for norovirus)\n    Major foodborne illness pathogen",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-6",
+      "kind": "diagram_like",
+      "line": 195,
+      "heading_context": "## Class V: -ssRNA Viruses",
+      "confidence": "candidate",
+      "text": "  VIRION contains: Genome (-ssRNA) + RdRp (packaged in virion)\n  Upon entry: RdRp transcribes -genome → +mRNA immediately\n  +mRNA → viral proteins → replicate genome\n\n  SEGMENTED vs. NON-SEGMENTED:\n  ──────────────────────────────\n  Non-segmented (Mononegavirales):\n    Single -ssRNA molecule, 10-30 kb\n    Examples: Rabies virus, Ebola/Marburg, Measles, Mumps, RSV, Nipah\n    Linear genome; replication in cytoplasm\n\n  Segmented (Orthomyxoviruses, Bunyaviruses):\n    Genome in multiple pieces\n    Influenza A/B/C: 8, 8, 7 segments respectively\n    Replication in nucleus (unlike most RNA viruses)\n    Hantavirus, Rift Valley fever: 3 segments\n\n  INFLUENZA SEGMENTATION — KEY EVOLUTIONARY CONSEQUENCE:\n  ────────────────────────────────────────────────────────\n  When two different influenza strains infect the same cell:\n  → 8 segments from strain A + 8 segments from strain B\n  → Random assortment during packaging\n  → Up to 2⁸ = 256 possible segment combinations\n  → This is REASSORTMENT: antigenic shift (major)\n\n  The 1918, 1957, 1968, 2009 pandemic strains all arose by reassortment\n  between human and avian (or swine) influenza strains.",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-7",
+      "kind": "diagram_like",
+      "line": 232,
+      "heading_context": "## Class VI: ssRNA-RT Viruses (Retroviruses)",
+      "confidence": "candidate",
+      "text": "  GENOME (+ssRNA) → Reverse transcription → dsDNA → Integration → mRNA + new genomes\n\n  TWO COPIES of RNA genome per virion (diploid genome)\n\n  REVERSE TRANSCRIPTION STEPS:\n  ──────────────────────────────\n  1. tRNA primer anneals to PBS (primer binding site) on genomic RNA\n  2. RT synthesizes −strand DNA (using RNA as template), with RNase H activity\n     destroying the RNA template behind the growing DNA strand\n  3. DNA synthesis jumps via LTR sequences (strand transfer)\n  4. Second strand DNA synthesis → dsDNA (proviral DNA)\n  5. Integrase (IN) catalyzes integration into host chromosome → PROVIRUS\n\n  SIGNIFICANCE OF INTEGRATION:\n  ──────────────────────────────\n  Once integrated, HIV provirus is part of the host genome.\n  Every time the cell divides, the provirus is replicated.\n  In latently infected cells: no viral gene expression → invisible to immune system\n  → This is why HIV cannot be cured by current antiretrovirals:\n    drugs suppress replication but do not eliminate the latent reservoir (resting CD4+ T cells)\n\n  EXAMPLES:\n  ─────────\n  Lentiviruses: HIV-1, HIV-2, SIV, feline immunodeficiency virus (FIV)\n  Simple retroviruses: MLV (mouse leukemia virus), HTLV-1/2 (T-cell leukemia)\n  Endogenous retroviruses (ERVs): ~8% of human genome are remnants of ancient\n    retroviral integrations; most are defective; some co-opted for host functions\n    (syncytins: placental fusion proteins derived from retroviral env genes)",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-8",
+      "kind": "diagram_like",
+      "line": 270,
+      "heading_context": "## Class VII: dsDNA-RT Viruses (Hepadnaviruses)",
+      "confidence": "candidate",
+      "text": "  REPLICATION CYCLE:\n  ───────────────────\n  dsDNA genome → nucleus → complete dsDNA (cccDNA) → mRNA + pgRNA\n  pgRNA → RT → new dsDNA (relaxed circular) → packaged into new virion\n\n  cccDNA (covalently closed circular DNA): persists in nucleus\n  → Very hard to eliminate; basis of chronic hepatitis B\n\n  EXAMPLES:\n  ─────────\n  Hepatitis B virus (HBV):\n    3.2 kb; partially dsDNA with a nick\n    Infects hepatocytes specifically (NTCP receptor)\n    Chronic infection → cirrhosis, hepatocellular carcinoma\n    ~250 million people chronically infected worldwide\n    Effective vaccine available (recombinant HBsAg)\n\n  Duck hepatitis B, Ground squirrel hepatitis B: animal models",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-9",
+      "kind": "diagram_like",
+      "line": 295,
+      "heading_context": "## Baltimore Classification — Antiviral Implications",
+      "confidence": "candidate",
+      "text": "  DRUG TARGET       CLASSES AFFECTED      EXAMPLES\n  ──────────────    ─────────────         ─────────────────\n  Viral RdRp        III, IV, V            Remdesivir (SARS-CoV-2, Ebola)\n                                          Sofosbuvir (HCV)\n                                          Baloxavir (influenza)\n  Viral protease    IV (polyprotein)      HIV PI, HCV NS3/4A inhibitors\n                    VI (Gag-Pol)          Ritonavir, nirmatrelvir (Paxlovid)\n  Reverse           VI, VII               Zidovudine, tenofovir (HIV)\n  transcriptase                           Entecavir, tenofovir (HBV)\n  Integrase         VI                    Raltegravir, dolutegravir (HIV)\n  Capsid assembly   I (herpesviruses)     Letermovir (CMV)\n  Neuraminidase     V (influenza)         Oseltamivir, zanamivir\n  Viral entry       IV (SARS-CoV-2)       Remdesivir, ritonavir-boosted, bebtelovimab\n\n  RNA virus RNA polymerases: no cellular counterpart → good drug targets\n  Reverse transcriptase: no cellular counterpart → good drug target\n  DNA viruses using host pol: harder to target selectively (cytotoxic)",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    }
+  ]
+}

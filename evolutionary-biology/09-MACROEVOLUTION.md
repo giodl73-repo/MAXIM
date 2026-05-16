@@ -1,3 +1,22 @@
+---
+maxim_schema: maxim.frontmatter.v1
+id: maxim:evolutionary-biology:macroevolution
+kind: guide
+module: evolutionary-biology
+section: evolutionary-biology
+title: Macroevolution, Mass Extinctions, and the Fossil Record
+status: source-custody
+source_custody: partial
+current_path: evolutionary-biology/09-MACROEVOLUTION.md
+canonical_path: evolutionary-biology/09-MACROEVOLUTION.md
+backsource_ids: [proof-backfill:evolutionary-biology:09-macroevolution, git-history:evolutionary-biology:09-macroevolution]
+concepts: [macroevolution]
+root_concepts: [macroevolution]
+index_roles: [guide, root-concept]
+remap_from: []
+remap_to: []
+updated: null
+---
 # Macroevolution, Mass Extinctions, and the Fossil Record
 
 ## The Big Picture
@@ -20,7 +39,7 @@ The fossil record is the primary data source.
 │  TEMPO:                                                          │
 │  ──────                                                          │
 │  Gradualism: Darwin — slow, continuous change                    │
-│  Punctuated equilibrium: Gould & Eldredge — stasis + rapid bursts│
+│  Punctuated equilibrium: Gould & Eldredge — stasis + bursts      │
 │                                                                  │
 │  EXTINCTION:                                                     │
 │  ──────────                                                      │

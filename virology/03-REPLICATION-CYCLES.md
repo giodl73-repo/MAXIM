@@ -1,3 +1,22 @@
+---
+maxim_schema: maxim.frontmatter.v1
+id: maxim:virology:replication-cycles
+kind: guide
+module: virology
+section: virology
+title: Viral Replication Cycles
+status: source-custody
+source_custody: partial
+current_path: virology/03-REPLICATION-CYCLES.md
+canonical_path: virology/03-REPLICATION-CYCLES.md
+backsource_ids: [proof-backfill:virology:03-replication-cycles, git-history:virology:03-replication-cycles]
+concepts: [replication, cycles]
+root_concepts: [replication, cycles]
+index_roles: [guide, root-concept]
+remap_from: []
+remap_to: []
+updated: null
+---
 # Viral Replication Cycles
 
 ## The Big Picture

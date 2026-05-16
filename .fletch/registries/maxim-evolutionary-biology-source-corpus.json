@@ -1,0 +1,2340 @@
+{
+  "schema_version": "fletch.registry.v1",
+  "generated_by": "MAXIM source-corpus backfill",
+  "registry_id": "maxim-evolutionary-biology-source-corpus",
+  "fletches": [
+    {
+      "id": "maxim.evolutionary-biology.source-corpus.pebble",
+      "node_kind": "fletch",
+      "shafts": [
+        {
+          "kind": "file",
+          "url": ".pebble/packs/maxim-evolutionary-biology-source-corpus.pebble.json"
+        }
+      ],
+      "edges": [
+        {
+          "to": "maxim-evolutionary-biology-source-corpus",
+          "kind": "derived-from",
+          "label": "CROP view recipe",
+          "metadata": {
+            "view": ".crop/views/maxim-evolutionary-biology-source-corpus.json",
+            "module": "evolutionary-biology",
+            "custody": "partial"
+          }
+        }
+      ],
+      "format": {
+        "media_type": "application/json",
+        "encoding": "utf-8",
+        "compression": null,
+        "container": null,
+        "schema": "pebble.v1",
+        "record_shape": "corpus-slice",
+        "preferred_local": ".pebble/packs/maxim-evolutionary-biology-source-corpus.pebble.json"
+      },
+      "tags": [
+        "source-corpus",
+        "crop",
+        "pebble",
+        "partial-custody"
+      ],
+      "metadata": {
+        "source_repo": "MAXIM",
+        "module": "evolutionary-biology",
+        "distribution": "FLETCH fetch/cache surface for downstream repos",
+        "publication_state": "partial-source-custody"
+      }
+    },
+    {
+      "id": "maxim.evolutionary-biology.overview.view",
+      "node_kind": "fletch",
+      "shafts": [
+        {
+          "kind": "file",
+          "url": ".crop/views/maxim-evolutionary-biology-overview.json"
+        }
+      ],
+      "edges": [
+        {
+          "to": "maxim.evolutionary-biology.source-corpus.pebble",
+          "kind": "derived-from",
+          "label": "Guide-level CROP view recipe",
+          "metadata": {
+            "module": "evolutionary-biology",
+            "guide": "evolutionary-biology/00-OVERVIEW.md",
+            "custody": "partial"
+          }
+        }
+      ],
+      "format": {
+        "media_type": "application/json",
+        "encoding": "utf-8",
+        "compression": null,
+        "container": null,
+        "schema": "crop.view.v1",
+        "record_shape": "view-recipe",
+        "preferred_local": ".crop/views/maxim-evolutionary-biology-overview.json"
+      },
+      "tags": [
+        "source-corpus",
+        "crop",
+        "view",
+        "partial-custody",
+        "guide"
+      ],
+      "metadata": {
+        "source_repo": "MAXIM",
+        "module": "evolutionary-biology",
+        "guide": "evolutionary-biology/00-OVERVIEW.md",
+        "publication_state": "partial-source-custody"
+      }
+    },
+    {
+      "id": "maxim.evolutionary-biology.overview.pebble",
+      "node_kind": "fletch",
+      "shafts": [
+        {
+          "kind": "file",
+          "url": ".pebble/packs/maxim-evolutionary-biology-overview.pebble.json"
+        }
+      ],
+      "edges": [
+        {
+          "to": "maxim.evolutionary-biology.overview.view",
+          "kind": "derived-from",
+          "label": "Guide-level CROP view recipe",
+          "metadata": {
+            "module": "evolutionary-biology",
+            "custody": "partial"
+          }
+        },
+        {
+          "to": "maxim.evolutionary-biology.source-corpus.pebble",
+          "kind": "derived-from",
+          "label": "Guide-level CROP view",
+          "metadata": {
+            "view": ".crop/views/maxim-evolutionary-biology-overview.json",
+            "module": "evolutionary-biology",
+            "custody": "partial"
+          }
+        }
+      ],
+      "format": {
+        "media_type": "application/json",
+        "encoding": "utf-8",
+        "compression": null,
+        "container": null,
+        "schema": "pebble.v1",
+        "record_shape": "corpus-slice",
+        "preferred_local": ".pebble/packs/maxim-evolutionary-biology-overview.pebble.json"
+      },
+      "tags": [
+        "source-corpus",
+        "crop",
+        "pebble",
+        "partial-custody",
+        "guide"
+      ],
+      "metadata": {
+        "source_repo": "MAXIM",
+        "module": "evolutionary-biology",
+        "guide": "evolutionary-biology/00-OVERVIEW.md",
+        "publication_state": "partial-source-custody"
+      }
+    },
+    {
+      "id": "maxim.evolutionary-biology.overview.proof-source",
+      "node_kind": "fletch",
+      "shafts": [
+        {
+          "kind": "file",
+          "url": ".proof/backfill/sources/evolutionary-biology/proof-source/00-OVERVIEW.source.md"
+        }
+      ],
+      "edges": [
+        {
+          "to": "maxim.evolutionary-biology.overview.view",
+          "kind": "derived-from",
+          "label": "Literal PROOF source for guide view",
+          "metadata": {
+            "module": "evolutionary-biology",
+            "guide": "evolutionary-biology/00-OVERVIEW.md",
+            "custody": "partial"
+          }
+        }
+      ],
+      "format": {
+        "media_type": "text/markdown",
+        "encoding": "utf-8",
+        "compression": null,
+        "container": null,
+        "schema": "proof.source.literal_markdown.v1",
+        "record_shape": "literal-source",
+        "preferred_local": ".proof/backfill/sources/evolutionary-biology/proof-source/00-OVERVIEW.source.md"
+      },
+      "tags": [
+        "source-corpus",
+        "proof",
+        "source",
+        "partial-custody",
+        "guide"
+      ],
+      "metadata": {
+        "source_repo": "MAXIM",
+        "module": "evolutionary-biology",
+        "guide": "evolutionary-biology/00-OVERVIEW.md",
+        "publication_state": "partial-source-custody"
+      }
+    },
+    {
+      "id": "maxim.evolutionary-biology.overview.tables",
+      "node_kind": "fletch",
+      "shafts": [
+        {
+          "kind": "file",
+          "url": ".proof/backfill/sources/evolutionary-biology/proof-source/00-OVERVIEW.tables.json"
+        }
+      ],
+      "edges": [
+        {
+          "to": "maxim.evolutionary-biology.overview.proof-source",
+          "kind": "derived-from",
+          "label": "PROOF markdown table sidecar",
+          "metadata": {
+            "module": "evolutionary-biology",
+            "guide": "evolutionary-biology/00-OVERVIEW.md",
+            "custody": "partial"
+          }
+        }
+      ],
+      "format": {
+        "media_type": "application/json",
+        "encoding": "utf-8",
+        "compression": null,
+        "container": null,
+        "schema": "proof.backfill.tables.v1",
+        "record_shape": "table-sidecar",
+        "preferred_local": ".proof/backfill/sources/evolutionary-biology/proof-source/00-OVERVIEW.tables.json"
+      },
+      "tags": [
+        "source-corpus",
+        "proof",
+        "tables",
+        "partial-custody",
+        "guide"
+      ],
+      "metadata": {
+        "source_repo": "MAXIM",
+        "module": "evolutionary-biology",
+        "guide": "evolutionary-biology/00-OVERVIEW.md",
+        "publication_state": "partial-source-custody"
+      }
+    },
+    {
+      "id": "maxim.evolutionary-biology.overview.blocks",
+      "node_kind": "fletch",
+      "shafts": [
+        {
+          "kind": "file",
+          "url": ".proof/backfill/sources/evolutionary-biology/proof-source/00-OVERVIEW.blocks.json"
+        }
+      ],
+      "edges": [
+        {
+          "to": "maxim.evolutionary-biology.overview.proof-source",
+          "kind": "derived-from",
+          "label": "PROOF structured block sidecar",
+          "metadata": {
+            "module": "evolutionary-biology",
+            "guide": "evolutionary-biology/00-OVERVIEW.md",
+            "custody": "partial"
+          }
+        }
+      ],
+      "format": {
+        "media_type": "application/json",
+        "encoding": "utf-8",
+        "compression": null,
+        "container": null,
+        "schema": "proof.backfill.blocks.v1",
+        "record_shape": "structured-block-sidecar",
+        "preferred_local": ".proof/backfill/sources/evolutionary-biology/proof-source/00-OVERVIEW.blocks.json"
+      },
+      "tags": [
+        "source-corpus",
+        "proof",
+        "blocks",
+        "partial-custody",
+        "guide"
+      ],
+      "metadata": {
+        "source_repo": "MAXIM",
+        "module": "evolutionary-biology",
+        "guide": "evolutionary-biology/00-OVERVIEW.md",
+        "publication_state": "partial-source-custody"
+      }
+    },
+    {
+      "id": "maxim.evolutionary-biology.natural-selection.view",
+      "node_kind": "fletch",
+      "shafts": [
+        {
+          "kind": "file",
+          "url": ".crop/views/maxim-evolutionary-biology-natural-selection.json"
+        }
+      ],
+      "edges": [
+        {
+          "to": "maxim.evolutionary-biology.source-corpus.pebble",
+          "kind": "derived-from",
+          "label": "Guide-level CROP view recipe",
+          "metadata": {
+            "module": "evolutionary-biology",
+            "guide": "evolutionary-biology/01-NATURAL-SELECTION.md",
+            "custody": "partial"
+          }
+        }
+      ],
+      "format": {
+        "media_type": "application/json",
+        "encoding": "utf-8",
+        "compression": null,
+        "container": null,
+        "schema": "crop.view.v1",
+        "record_shape": "view-recipe",
+        "preferred_local": ".crop/views/maxim-evolutionary-biology-natural-selection.json"
+      },
+      "tags": [
+        "source-corpus",
+        "crop",
+        "view",
+        "partial-custody",
+        "guide"
+      ],
+      "metadata": {
+        "source_repo": "MAXIM",
+        "module": "evolutionary-biology",
+        "guide": "evolutionary-biology/01-NATURAL-SELECTION.md",
+        "publication_state": "partial-source-custody"
+      }
+    },
+    {
+      "id": "maxim.evolutionary-biology.natural-selection.pebble",
+      "node_kind": "fletch",
+      "shafts": [
+        {
+          "kind": "file",
+          "url": ".pebble/packs/maxim-evolutionary-biology-natural-selection.pebble.json"
+        }
+      ],
+      "edges": [
+        {
+          "to": "maxim.evolutionary-biology.natural-selection.view",
+          "kind": "derived-from",
+          "label": "Guide-level CROP view recipe",
+          "metadata": {
+            "module": "evolutionary-biology",
+            "custody": "partial"
+          }
+        },
+        {
+          "to": "maxim.evolutionary-biology.source-corpus.pebble",
+          "kind": "derived-from",
+          "label": "Guide-level CROP view",
+          "metadata": {
+            "view": ".crop/views/maxim-evolutionary-biology-natural-selection.json",
+            "module": "evolutionary-biology",
+            "custody": "partial"
+          }
+        }
+      ],
+      "format": {
+        "media_type": "application/json",
+        "encoding": "utf-8",
+        "compression": null,
+        "container": null,
+        "schema": "pebble.v1",
+        "record_shape": "corpus-slice",
+        "preferred_local": ".pebble/packs/maxim-evolutionary-biology-natural-selection.pebble.json"
+      },
+      "tags": [
+        "source-corpus",
+        "crop",
+        "pebble",
+        "partial-custody",
+        "guide"
+      ],
+      "metadata": {
+        "source_repo": "MAXIM",
+        "module": "evolutionary-biology",
+        "guide": "evolutionary-biology/01-NATURAL-SELECTION.md",
+        "publication_state": "partial-source-custody"
+      }
+    },
+    {
+      "id": "maxim.evolutionary-biology.natural-selection.proof-source",
+      "node_kind": "fletch",
+      "shafts": [
+        {
+          "kind": "file",
+          "url": ".proof/backfill/sources/evolutionary-biology/proof-source/01-NATURAL-SELECTION.source.md"
+        }
+      ],
+      "edges": [
+        {
+          "to": "maxim.evolutionary-biology.natural-selection.view",
+          "kind": "derived-from",
+          "label": "Literal PROOF source for guide view",
+          "metadata": {
+            "module": "evolutionary-biology",
+            "guide": "evolutionary-biology/01-NATURAL-SELECTION.md",
+            "custody": "partial"
+          }
+        }
+      ],
+      "format": {
+        "media_type": "text/markdown",
+        "encoding": "utf-8",
+        "compression": null,
+        "container": null,
+        "schema": "proof.source.literal_markdown.v1",
+        "record_shape": "literal-source",
+        "preferred_local": ".proof/backfill/sources/evolutionary-biology/proof-source/01-NATURAL-SELECTION.source.md"
+      },
+      "tags": [
+        "source-corpus",
+        "proof",
+        "source",
+        "partial-custody",
+        "guide"
+      ],
+      "metadata": {
+        "source_repo": "MAXIM",
+        "module": "evolutionary-biology",
+        "guide": "evolutionary-biology/01-NATURAL-SELECTION.md",
+        "publication_state": "partial-source-custody"
+      }
+    },
+    {
+      "id": "maxim.evolutionary-biology.natural-selection.tables",
+      "node_kind": "fletch",
+      "shafts": [
+        {
+          "kind": "file",
+          "url": ".proof/backfill/sources/evolutionary-biology/proof-source/01-NATURAL-SELECTION.tables.json"
+        }
+      ],
+      "edges": [
+        {
+          "to": "maxim.evolutionary-biology.natural-selection.proof-source",
+          "kind": "derived-from",
+          "label": "PROOF markdown table sidecar",
+          "metadata": {
+            "module": "evolutionary-biology",
+            "guide": "evolutionary-biology/01-NATURAL-SELECTION.md",
+            "custody": "partial"
+          }
+        }
+      ],
+      "format": {
+        "media_type": "application/json",
+        "encoding": "utf-8",
+        "compression": null,
+        "container": null,
+        "schema": "proof.backfill.tables.v1",
+        "record_shape": "table-sidecar",
+        "preferred_local": ".proof/backfill/sources/evolutionary-biology/proof-source/01-NATURAL-SELECTION.tables.json"
+      },
+      "tags": [
+        "source-corpus",
+        "proof",
+        "tables",
+        "partial-custody",
+        "guide"
+      ],
+      "metadata": {
+        "source_repo": "MAXIM",
+        "module": "evolutionary-biology",
+        "guide": "evolutionary-biology/01-NATURAL-SELECTION.md",
+        "publication_state": "partial-source-custody"
+      }
+    },
+    {
+      "id": "maxim.evolutionary-biology.natural-selection.blocks",
+      "node_kind": "fletch",
+      "shafts": [
+        {
+          "kind": "file",
+          "url": ".proof/backfill/sources/evolutionary-biology/proof-source/01-NATURAL-SELECTION.blocks.json"
+        }
+      ],
+      "edges": [
+        {
+          "to": "maxim.evolutionary-biology.natural-selection.proof-source",
+          "kind": "derived-from",
+          "label": "PROOF structured block sidecar",
+          "metadata": {
+            "module": "evolutionary-biology",
+            "guide": "evolutionary-biology/01-NATURAL-SELECTION.md",
+            "custody": "partial"
+          }
+        }
+      ],
+      "format": {
+        "media_type": "application/json",
+        "encoding": "utf-8",
+        "compression": null,
+        "container": null,
+        "schema": "proof.backfill.blocks.v1",
+        "record_shape": "structured-block-sidecar",
+        "preferred_local": ".proof/backfill/sources/evolutionary-biology/proof-source/01-NATURAL-SELECTION.blocks.json"
+      },
+      "tags": [
+        "source-corpus",
+        "proof",
+        "blocks",
+        "partial-custody",
+        "guide"
+      ],
+      "metadata": {
+        "source_repo": "MAXIM",
+        "module": "evolutionary-biology",
+        "guide": "evolutionary-biology/01-NATURAL-SELECTION.md",
+        "publication_state": "partial-source-custody"
+      }
+    },
+    {
+      "id": "maxim.evolutionary-biology.population-genetics.view",
+      "node_kind": "fletch",
+      "shafts": [
+        {
+          "kind": "file",
+          "url": ".crop/views/maxim-evolutionary-biology-population-genetics.json"
+        }
+      ],
+      "edges": [
+        {
+          "to": "maxim.evolutionary-biology.source-corpus.pebble",
+          "kind": "derived-from",
+          "label": "Guide-level CROP view recipe",
+          "metadata": {
+            "module": "evolutionary-biology",
+            "guide": "evolutionary-biology/02-POPULATION-GENETICS.md",
+            "custody": "partial"
+          }
+        }
+      ],
+      "format": {
+        "media_type": "application/json",
+        "encoding": "utf-8",
+        "compression": null,
+        "container": null,
+        "schema": "crop.view.v1",
+        "record_shape": "view-recipe",
+        "preferred_local": ".crop/views/maxim-evolutionary-biology-population-genetics.json"
+      },
+      "tags": [
+        "source-corpus",
+        "crop",
+        "view",
+        "partial-custody",
+        "guide"
+      ],
+      "metadata": {
+        "source_repo": "MAXIM",
+        "module": "evolutionary-biology",
+        "guide": "evolutionary-biology/02-POPULATION-GENETICS.md",
+        "publication_state": "partial-source-custody"
+      }
+    },
+    {
+      "id": "maxim.evolutionary-biology.population-genetics.pebble",
+      "node_kind": "fletch",
+      "shafts": [
+        {
+          "kind": "file",
+          "url": ".pebble/packs/maxim-evolutionary-biology-population-genetics.pebble.json"
+        }
+      ],
+      "edges": [
+        {
+          "to": "maxim.evolutionary-biology.population-genetics.view",
+          "kind": "derived-from",
+          "label": "Guide-level CROP view recipe",
+          "metadata": {
+            "module": "evolutionary-biology",
+            "custody": "partial"
+          }
+        },
+        {
+          "to": "maxim.evolutionary-biology.source-corpus.pebble",
+          "kind": "derived-from",
+          "label": "Guide-level CROP view",
+          "metadata": {
+            "view": ".crop/views/maxim-evolutionary-biology-population-genetics.json",
+            "module": "evolutionary-biology",
+            "custody": "partial"
+          }
+        }
+      ],
+      "format": {
+        "media_type": "application/json",
+        "encoding": "utf-8",
+        "compression": null,
+        "container": null,
+        "schema": "pebble.v1",
+        "record_shape": "corpus-slice",
+        "preferred_local": ".pebble/packs/maxim-evolutionary-biology-population-genetics.pebble.json"
+      },
+      "tags": [
+        "source-corpus",
+        "crop",
+        "pebble",
+        "partial-custody",
+        "guide"
+      ],
+      "metadata": {
+        "source_repo": "MAXIM",
+        "module": "evolutionary-biology",
+        "guide": "evolutionary-biology/02-POPULATION-GENETICS.md",
+        "publication_state": "partial-source-custody"
+      }
+    },
+    {
+      "id": "maxim.evolutionary-biology.population-genetics.proof-source",
+      "node_kind": "fletch",
+      "shafts": [
+        {
+          "kind": "file",
+          "url": ".proof/backfill/sources/evolutionary-biology/proof-source/02-POPULATION-GENETICS.source.md"
+        }
+      ],
+      "edges": [
+        {
+          "to": "maxim.evolutionary-biology.population-genetics.view",
+          "kind": "derived-from",
+          "label": "Literal PROOF source for guide view",
+          "metadata": {
+            "module": "evolutionary-biology",
+            "guide": "evolutionary-biology/02-POPULATION-GENETICS.md",
+            "custody": "partial"
+          }
+        }
+      ],
+      "format": {
+        "media_type": "text/markdown",
+        "encoding": "utf-8",
+        "compression": null,
+        "container": null,
+        "schema": "proof.source.literal_markdown.v1",
+        "record_shape": "literal-source",
+        "preferred_local": ".proof/backfill/sources/evolutionary-biology/proof-source/02-POPULATION-GENETICS.source.md"
+      },
+      "tags": [
+        "source-corpus",
+        "proof",
+        "source",
+        "partial-custody",
+        "guide"
+      ],
+      "metadata": {
+        "source_repo": "MAXIM",
+        "module": "evolutionary-biology",
+        "guide": "evolutionary-biology/02-POPULATION-GENETICS.md",
+        "publication_state": "partial-source-custody"
+      }
+    },
+    {
+      "id": "maxim.evolutionary-biology.population-genetics.tables",
+      "node_kind": "fletch",
+      "shafts": [
+        {
+          "kind": "file",
+          "url": ".proof/backfill/sources/evolutionary-biology/proof-source/02-POPULATION-GENETICS.tables.json"
+        }
+      ],
+      "edges": [
+        {
+          "to": "maxim.evolutionary-biology.population-genetics.proof-source",
+          "kind": "derived-from",
+          "label": "PROOF markdown table sidecar",
+          "metadata": {
+            "module": "evolutionary-biology",
+            "guide": "evolutionary-biology/02-POPULATION-GENETICS.md",
+            "custody": "partial"
+          }
+        }
+      ],
+      "format": {
+        "media_type": "application/json",
+        "encoding": "utf-8",
+        "compression": null,
+        "container": null,
+        "schema": "proof.backfill.tables.v1",
+        "record_shape": "table-sidecar",
+        "preferred_local": ".proof/backfill/sources/evolutionary-biology/proof-source/02-POPULATION-GENETICS.tables.json"
+      },
+      "tags": [
+        "source-corpus",
+        "proof",
+        "tables",
+        "partial-custody",
+        "guide"
+      ],
+      "metadata": {
+        "source_repo": "MAXIM",
+        "module": "evolutionary-biology",
+        "guide": "evolutionary-biology/02-POPULATION-GENETICS.md",
+        "publication_state": "partial-source-custody"
+      }
+    },
+    {
+      "id": "maxim.evolutionary-biology.population-genetics.blocks",
+      "node_kind": "fletch",
+      "shafts": [
+        {
+          "kind": "file",
+          "url": ".proof/backfill/sources/evolutionary-biology/proof-source/02-POPULATION-GENETICS.blocks.json"
+        }
+      ],
+      "edges": [
+        {
+          "to": "maxim.evolutionary-biology.population-genetics.proof-source",
+          "kind": "derived-from",
+          "label": "PROOF structured block sidecar",
+          "metadata": {
+            "module": "evolutionary-biology",
+            "guide": "evolutionary-biology/02-POPULATION-GENETICS.md",
+            "custody": "partial"
+          }
+        }
+      ],
+      "format": {
+        "media_type": "application/json",
+        "encoding": "utf-8",
+        "compression": null,
+        "container": null,
+        "schema": "proof.backfill.blocks.v1",
+        "record_shape": "structured-block-sidecar",
+        "preferred_local": ".proof/backfill/sources/evolutionary-biology/proof-source/02-POPULATION-GENETICS.blocks.json"
+      },
+      "tags": [
+        "source-corpus",
+        "proof",
+        "blocks",
+        "partial-custody",
+        "guide"
+      ],
+      "metadata": {
+        "source_repo": "MAXIM",
+        "module": "evolutionary-biology",
+        "guide": "evolutionary-biology/02-POPULATION-GENETICS.md",
+        "publication_state": "partial-source-custody"
+      }
+    },
+    {
+      "id": "maxim.evolutionary-biology.molecular-evolution.view",
+      "node_kind": "fletch",
+      "shafts": [
+        {
+          "kind": "file",
+          "url": ".crop/views/maxim-evolutionary-biology-molecular-evolution.json"
+        }
+      ],
+      "edges": [
+        {
+          "to": "maxim.evolutionary-biology.source-corpus.pebble",
+          "kind": "derived-from",
+          "label": "Guide-level CROP view recipe",
+          "metadata": {
+            "module": "evolutionary-biology",
+            "guide": "evolutionary-biology/03-MOLECULAR-EVOLUTION.md",
+            "custody": "partial"
+          }
+        }
+      ],
+      "format": {
+        "media_type": "application/json",
+        "encoding": "utf-8",
+        "compression": null,
+        "container": null,
+        "schema": "crop.view.v1",
+        "record_shape": "view-recipe",
+        "preferred_local": ".crop/views/maxim-evolutionary-biology-molecular-evolution.json"
+      },
+      "tags": [
+        "source-corpus",
+        "crop",
+        "view",
+        "partial-custody",
+        "guide"
+      ],
+      "metadata": {
+        "source_repo": "MAXIM",
+        "module": "evolutionary-biology",
+        "guide": "evolutionary-biology/03-MOLECULAR-EVOLUTION.md",
+        "publication_state": "partial-source-custody"
+      }
+    },
+    {
+      "id": "maxim.evolutionary-biology.molecular-evolution.pebble",
+      "node_kind": "fletch",
+      "shafts": [
+        {
+          "kind": "file",
+          "url": ".pebble/packs/maxim-evolutionary-biology-molecular-evolution.pebble.json"
+        }
+      ],
+      "edges": [
+        {
+          "to": "maxim.evolutionary-biology.molecular-evolution.view",
+          "kind": "derived-from",
+          "label": "Guide-level CROP view recipe",
+          "metadata": {
+            "module": "evolutionary-biology",
+            "custody": "partial"
+          }
+        },
+        {
+          "to": "maxim.evolutionary-biology.source-corpus.pebble",
+          "kind": "derived-from",
+          "label": "Guide-level CROP view",
+          "metadata": {
+            "view": ".crop/views/maxim-evolutionary-biology-molecular-evolution.json",
+            "module": "evolutionary-biology",
+            "custody": "partial"
+          }
+        }
+      ],
+      "format": {
+        "media_type": "application/json",
+        "encoding": "utf-8",
+        "compression": null,
+        "container": null,
+        "schema": "pebble.v1",
+        "record_shape": "corpus-slice",
+        "preferred_local": ".pebble/packs/maxim-evolutionary-biology-molecular-evolution.pebble.json"
+      },
+      "tags": [
+        "source-corpus",
+        "crop",
+        "pebble",
+        "partial-custody",
+        "guide"
+      ],
+      "metadata": {
+        "source_repo": "MAXIM",
+        "module": "evolutionary-biology",
+        "guide": "evolutionary-biology/03-MOLECULAR-EVOLUTION.md",
+        "publication_state": "partial-source-custody"
+      }
+    },
+    {
+      "id": "maxim.evolutionary-biology.molecular-evolution.proof-source",
+      "node_kind": "fletch",
+      "shafts": [
+        {
+          "kind": "file",
+          "url": ".proof/backfill/sources/evolutionary-biology/proof-source/03-MOLECULAR-EVOLUTION.source.md"
+        }
+      ],
+      "edges": [
+        {
+          "to": "maxim.evolutionary-biology.molecular-evolution.view",
+          "kind": "derived-from",
+          "label": "Literal PROOF source for guide view",
+          "metadata": {
+            "module": "evolutionary-biology",
+            "guide": "evolutionary-biology/03-MOLECULAR-EVOLUTION.md",
+            "custody": "partial"
+          }
+        }
+      ],
+      "format": {
+        "media_type": "text/markdown",
+        "encoding": "utf-8",
+        "compression": null,
+        "container": null,
+        "schema": "proof.source.literal_markdown.v1",
+        "record_shape": "literal-source",
+        "preferred_local": ".proof/backfill/sources/evolutionary-biology/proof-source/03-MOLECULAR-EVOLUTION.source.md"
+      },
+      "tags": [
+        "source-corpus",
+        "proof",
+        "source",
+        "partial-custody",
+        "guide"
+      ],
+      "metadata": {
+        "source_repo": "MAXIM",
+        "module": "evolutionary-biology",
+        "guide": "evolutionary-biology/03-MOLECULAR-EVOLUTION.md",
+        "publication_state": "partial-source-custody"
+      }
+    },
+    {
+      "id": "maxim.evolutionary-biology.molecular-evolution.tables",
+      "node_kind": "fletch",
+      "shafts": [
+        {
+          "kind": "file",
+          "url": ".proof/backfill/sources/evolutionary-biology/proof-source/03-MOLECULAR-EVOLUTION.tables.json"
+        }
+      ],
+      "edges": [
+        {
+          "to": "maxim.evolutionary-biology.molecular-evolution.proof-source",
+          "kind": "derived-from",
+          "label": "PROOF markdown table sidecar",
+          "metadata": {
+            "module": "evolutionary-biology",
+            "guide": "evolutionary-biology/03-MOLECULAR-EVOLUTION.md",
+            "custody": "partial"
+          }
+        }
+      ],
+      "format": {
+        "media_type": "application/json",
+        "encoding": "utf-8",
+        "compression": null,
+        "container": null,
+        "schema": "proof.backfill.tables.v1",
+        "record_shape": "table-sidecar",
+        "preferred_local": ".proof/backfill/sources/evolutionary-biology/proof-source/03-MOLECULAR-EVOLUTION.tables.json"
+      },
+      "tags": [
+        "source-corpus",
+        "proof",
+        "tables",
+        "partial-custody",
+        "guide"
+      ],
+      "metadata": {
+        "source_repo": "MAXIM",
+        "module": "evolutionary-biology",
+        "guide": "evolutionary-biology/03-MOLECULAR-EVOLUTION.md",
+        "publication_state": "partial-source-custody"
+      }
+    },
+    {
+      "id": "maxim.evolutionary-biology.molecular-evolution.blocks",
+      "node_kind": "fletch",
+      "shafts": [
+        {
+          "kind": "file",
+          "url": ".proof/backfill/sources/evolutionary-biology/proof-source/03-MOLECULAR-EVOLUTION.blocks.json"
+        }
+      ],
+      "edges": [
+        {
+          "to": "maxim.evolutionary-biology.molecular-evolution.proof-source",
+          "kind": "derived-from",
+          "label": "PROOF structured block sidecar",
+          "metadata": {
+            "module": "evolutionary-biology",
+            "guide": "evolutionary-biology/03-MOLECULAR-EVOLUTION.md",
+            "custody": "partial"
+          }
+        }
+      ],
+      "format": {
+        "media_type": "application/json",
+        "encoding": "utf-8",
+        "compression": null,
+        "container": null,
+        "schema": "proof.backfill.blocks.v1",
+        "record_shape": "structured-block-sidecar",
+        "preferred_local": ".proof/backfill/sources/evolutionary-biology/proof-source/03-MOLECULAR-EVOLUTION.blocks.json"
+      },
+      "tags": [
+        "source-corpus",
+        "proof",
+        "blocks",
+        "partial-custody",
+        "guide"
+      ],
+      "metadata": {
+        "source_repo": "MAXIM",
+        "module": "evolutionary-biology",
+        "guide": "evolutionary-biology/03-MOLECULAR-EVOLUTION.md",
+        "publication_state": "partial-source-custody"
+      }
+    },
+    {
+      "id": "maxim.evolutionary-biology.speciation.view",
+      "node_kind": "fletch",
+      "shafts": [
+        {
+          "kind": "file",
+          "url": ".crop/views/maxim-evolutionary-biology-speciation.json"
+        }
+      ],
+      "edges": [
+        {
+          "to": "maxim.evolutionary-biology.source-corpus.pebble",
+          "kind": "derived-from",
+          "label": "Guide-level CROP view recipe",
+          "metadata": {
+            "module": "evolutionary-biology",
+            "guide": "evolutionary-biology/04-SPECIATION.md",
+            "custody": "partial"
+          }
+        }
+      ],
+      "format": {
+        "media_type": "application/json",
+        "encoding": "utf-8",
+        "compression": null,
+        "container": null,
+        "schema": "crop.view.v1",
+        "record_shape": "view-recipe",
+        "preferred_local": ".crop/views/maxim-evolutionary-biology-speciation.json"
+      },
+      "tags": [
+        "source-corpus",
+        "crop",
+        "view",
+        "partial-custody",
+        "guide"
+      ],
+      "metadata": {
+        "source_repo": "MAXIM",
+        "module": "evolutionary-biology",
+        "guide": "evolutionary-biology/04-SPECIATION.md",
+        "publication_state": "partial-source-custody"
+      }
+    },
+    {
+      "id": "maxim.evolutionary-biology.speciation.pebble",
+      "node_kind": "fletch",
+      "shafts": [
+        {
+          "kind": "file",
+          "url": ".pebble/packs/maxim-evolutionary-biology-speciation.pebble.json"
+        }
+      ],
+      "edges": [
+        {
+          "to": "maxim.evolutionary-biology.speciation.view",
+          "kind": "derived-from",
+          "label": "Guide-level CROP view recipe",
+          "metadata": {
+            "module": "evolutionary-biology",
+            "custody": "partial"
+          }
+        },
+        {
+          "to": "maxim.evolutionary-biology.source-corpus.pebble",
+          "kind": "derived-from",
+          "label": "Guide-level CROP view",
+          "metadata": {
+            "view": ".crop/views/maxim-evolutionary-biology-speciation.json",
+            "module": "evolutionary-biology",
+            "custody": "partial"
+          }
+        }
+      ],
+      "format": {
+        "media_type": "application/json",
+        "encoding": "utf-8",
+        "compression": null,
+        "container": null,
+        "schema": "pebble.v1",
+        "record_shape": "corpus-slice",
+        "preferred_local": ".pebble/packs/maxim-evolutionary-biology-speciation.pebble.json"
+      },
+      "tags": [
+        "source-corpus",
+        "crop",
+        "pebble",
+        "partial-custody",
+        "guide"
+      ],
+      "metadata": {
+        "source_repo": "MAXIM",
+        "module": "evolutionary-biology",
+        "guide": "evolutionary-biology/04-SPECIATION.md",
+        "publication_state": "partial-source-custody"
+      }
+    },
+    {
+      "id": "maxim.evolutionary-biology.speciation.proof-source",
+      "node_kind": "fletch",
+      "shafts": [
+        {
+          "kind": "file",
+          "url": ".proof/backfill/sources/evolutionary-biology/proof-source/04-SPECIATION.source.md"
+        }
+      ],
+      "edges": [
+        {
+          "to": "maxim.evolutionary-biology.speciation.view",
+          "kind": "derived-from",
+          "label": "Literal PROOF source for guide view",
+          "metadata": {
+            "module": "evolutionary-biology",
+            "guide": "evolutionary-biology/04-SPECIATION.md",
+            "custody": "partial"
+          }
+        }
+      ],
+      "format": {
+        "media_type": "text/markdown",
+        "encoding": "utf-8",
+        "compression": null,
+        "container": null,
+        "schema": "proof.source.literal_markdown.v1",
+        "record_shape": "literal-source",
+        "preferred_local": ".proof/backfill/sources/evolutionary-biology/proof-source/04-SPECIATION.source.md"
+      },
+      "tags": [
+        "source-corpus",
+        "proof",
+        "source",
+        "partial-custody",
+        "guide"
+      ],
+      "metadata": {
+        "source_repo": "MAXIM",
+        "module": "evolutionary-biology",
+        "guide": "evolutionary-biology/04-SPECIATION.md",
+        "publication_state": "partial-source-custody"
+      }
+    },
+    {
+      "id": "maxim.evolutionary-biology.speciation.tables",
+      "node_kind": "fletch",
+      "shafts": [
+        {
+          "kind": "file",
+          "url": ".proof/backfill/sources/evolutionary-biology/proof-source/04-SPECIATION.tables.json"
+        }
+      ],
+      "edges": [
+        {
+          "to": "maxim.evolutionary-biology.speciation.proof-source",
+          "kind": "derived-from",
+          "label": "PROOF markdown table sidecar",
+          "metadata": {
+            "module": "evolutionary-biology",
+            "guide": "evolutionary-biology/04-SPECIATION.md",
+            "custody": "partial"
+          }
+        }
+      ],
+      "format": {
+        "media_type": "application/json",
+        "encoding": "utf-8",
+        "compression": null,
+        "container": null,
+        "schema": "proof.backfill.tables.v1",
+        "record_shape": "table-sidecar",
+        "preferred_local": ".proof/backfill/sources/evolutionary-biology/proof-source/04-SPECIATION.tables.json"
+      },
+      "tags": [
+        "source-corpus",
+        "proof",
+        "tables",
+        "partial-custody",
+        "guide"
+      ],
+      "metadata": {
+        "source_repo": "MAXIM",
+        "module": "evolutionary-biology",
+        "guide": "evolutionary-biology/04-SPECIATION.md",
+        "publication_state": "partial-source-custody"
+      }
+    },
+    {
+      "id": "maxim.evolutionary-biology.speciation.blocks",
+      "node_kind": "fletch",
+      "shafts": [
+        {
+          "kind": "file",
+          "url": ".proof/backfill/sources/evolutionary-biology/proof-source/04-SPECIATION.blocks.json"
+        }
+      ],
+      "edges": [
+        {
+          "to": "maxim.evolutionary-biology.speciation.proof-source",
+          "kind": "derived-from",
+          "label": "PROOF structured block sidecar",
+          "metadata": {
+            "module": "evolutionary-biology",
+            "guide": "evolutionary-biology/04-SPECIATION.md",
+            "custody": "partial"
+          }
+        }
+      ],
+      "format": {
+        "media_type": "application/json",
+        "encoding": "utf-8",
+        "compression": null,
+        "container": null,
+        "schema": "proof.backfill.blocks.v1",
+        "record_shape": "structured-block-sidecar",
+        "preferred_local": ".proof/backfill/sources/evolutionary-biology/proof-source/04-SPECIATION.blocks.json"
+      },
+      "tags": [
+        "source-corpus",
+        "proof",
+        "blocks",
+        "partial-custody",
+        "guide"
+      ],
+      "metadata": {
+        "source_repo": "MAXIM",
+        "module": "evolutionary-biology",
+        "guide": "evolutionary-biology/04-SPECIATION.md",
+        "publication_state": "partial-source-custody"
+      }
+    },
+    {
+      "id": "maxim.evolutionary-biology.phylogenetics.view",
+      "node_kind": "fletch",
+      "shafts": [
+        {
+          "kind": "file",
+          "url": ".crop/views/maxim-evolutionary-biology-phylogenetics.json"
+        }
+      ],
+      "edges": [
+        {
+          "to": "maxim.evolutionary-biology.source-corpus.pebble",
+          "kind": "derived-from",
+          "label": "Guide-level CROP view recipe",
+          "metadata": {
+            "module": "evolutionary-biology",
+            "guide": "evolutionary-biology/05-PHYLOGENETICS.md",
+            "custody": "partial"
+          }
+        }
+      ],
+      "format": {
+        "media_type": "application/json",
+        "encoding": "utf-8",
+        "compression": null,
+        "container": null,
+        "schema": "crop.view.v1",
+        "record_shape": "view-recipe",
+        "preferred_local": ".crop/views/maxim-evolutionary-biology-phylogenetics.json"
+      },
+      "tags": [
+        "source-corpus",
+        "crop",
+        "view",
+        "partial-custody",
+        "guide"
+      ],
+      "metadata": {
+        "source_repo": "MAXIM",
+        "module": "evolutionary-biology",
+        "guide": "evolutionary-biology/05-PHYLOGENETICS.md",
+        "publication_state": "partial-source-custody"
+      }
+    },
+    {
+      "id": "maxim.evolutionary-biology.phylogenetics.pebble",
+      "node_kind": "fletch",
+      "shafts": [
+        {
+          "kind": "file",
+          "url": ".pebble/packs/maxim-evolutionary-biology-phylogenetics.pebble.json"
+        }
+      ],
+      "edges": [
+        {
+          "to": "maxim.evolutionary-biology.phylogenetics.view",
+          "kind": "derived-from",
+          "label": "Guide-level CROP view recipe",
+          "metadata": {
+            "module": "evolutionary-biology",
+            "custody": "partial"
+          }
+        },
+        {
+          "to": "maxim.evolutionary-biology.source-corpus.pebble",
+          "kind": "derived-from",
+          "label": "Guide-level CROP view",
+          "metadata": {
+            "view": ".crop/views/maxim-evolutionary-biology-phylogenetics.json",
+            "module": "evolutionary-biology",
+            "custody": "partial"
+          }
+        }
+      ],
+      "format": {
+        "media_type": "application/json",
+        "encoding": "utf-8",
+        "compression": null,
+        "container": null,
+        "schema": "pebble.v1",
+        "record_shape": "corpus-slice",
+        "preferred_local": ".pebble/packs/maxim-evolutionary-biology-phylogenetics.pebble.json"
+      },
+      "tags": [
+        "source-corpus",
+        "crop",
+        "pebble",
+        "partial-custody",
+        "guide"
+      ],
+      "metadata": {
+        "source_repo": "MAXIM",
+        "module": "evolutionary-biology",
+        "guide": "evolutionary-biology/05-PHYLOGENETICS.md",
+        "publication_state": "partial-source-custody"
+      }
+    },
+    {
+      "id": "maxim.evolutionary-biology.phylogenetics.proof-source",
+      "node_kind": "fletch",
+      "shafts": [
+        {
+          "kind": "file",
+          "url": ".proof/backfill/sources/evolutionary-biology/proof-source/05-PHYLOGENETICS.source.md"
+        }
+      ],
+      "edges": [
+        {
+          "to": "maxim.evolutionary-biology.phylogenetics.view",
+          "kind": "derived-from",
+          "label": "Literal PROOF source for guide view",
+          "metadata": {
+            "module": "evolutionary-biology",
+            "guide": "evolutionary-biology/05-PHYLOGENETICS.md",
+            "custody": "partial"
+          }
+        }
+      ],
+      "format": {
+        "media_type": "text/markdown",
+        "encoding": "utf-8",
+        "compression": null,
+        "container": null,
+        "schema": "proof.source.literal_markdown.v1",
+        "record_shape": "literal-source",
+        "preferred_local": ".proof/backfill/sources/evolutionary-biology/proof-source/05-PHYLOGENETICS.source.md"
+      },
+      "tags": [
+        "source-corpus",
+        "proof",
+        "source",
+        "partial-custody",
+        "guide"
+      ],
+      "metadata": {
+        "source_repo": "MAXIM",
+        "module": "evolutionary-biology",
+        "guide": "evolutionary-biology/05-PHYLOGENETICS.md",
+        "publication_state": "partial-source-custody"
+      }
+    },
+    {
+      "id": "maxim.evolutionary-biology.phylogenetics.tables",
+      "node_kind": "fletch",
+      "shafts": [
+        {
+          "kind": "file",
+          "url": ".proof/backfill/sources/evolutionary-biology/proof-source/05-PHYLOGENETICS.tables.json"
+        }
+      ],
+      "edges": [
+        {
+          "to": "maxim.evolutionary-biology.phylogenetics.proof-source",
+          "kind": "derived-from",
+          "label": "PROOF markdown table sidecar",
+          "metadata": {
+            "module": "evolutionary-biology",
+            "guide": "evolutionary-biology/05-PHYLOGENETICS.md",
+            "custody": "partial"
+          }
+        }
+      ],
+      "format": {
+        "media_type": "application/json",
+        "encoding": "utf-8",
+        "compression": null,
+        "container": null,
+        "schema": "proof.backfill.tables.v1",
+        "record_shape": "table-sidecar",
+        "preferred_local": ".proof/backfill/sources/evolutionary-biology/proof-source/05-PHYLOGENETICS.tables.json"
+      },
+      "tags": [
+        "source-corpus",
+        "proof",
+        "tables",
+        "partial-custody",
+        "guide"
+      ],
+      "metadata": {
+        "source_repo": "MAXIM",
+        "module": "evolutionary-biology",
+        "guide": "evolutionary-biology/05-PHYLOGENETICS.md",
+        "publication_state": "partial-source-custody"
+      }
+    },
+    {
+      "id": "maxim.evolutionary-biology.phylogenetics.blocks",
+      "node_kind": "fletch",
+      "shafts": [
+        {
+          "kind": "file",
+          "url": ".proof/backfill/sources/evolutionary-biology/proof-source/05-PHYLOGENETICS.blocks.json"
+        }
+      ],
+      "edges": [
+        {
+          "to": "maxim.evolutionary-biology.phylogenetics.proof-source",
+          "kind": "derived-from",
+          "label": "PROOF structured block sidecar",
+          "metadata": {
+            "module": "evolutionary-biology",
+            "guide": "evolutionary-biology/05-PHYLOGENETICS.md",
+            "custody": "partial"
+          }
+        }
+      ],
+      "format": {
+        "media_type": "application/json",
+        "encoding": "utf-8",
+        "compression": null,
+        "container": null,
+        "schema": "proof.backfill.blocks.v1",
+        "record_shape": "structured-block-sidecar",
+        "preferred_local": ".proof/backfill/sources/evolutionary-biology/proof-source/05-PHYLOGENETICS.blocks.json"
+      },
+      "tags": [
+        "source-corpus",
+        "proof",
+        "blocks",
+        "partial-custody",
+        "guide"
+      ],
+      "metadata": {
+        "source_repo": "MAXIM",
+        "module": "evolutionary-biology",
+        "guide": "evolutionary-biology/05-PHYLOGENETICS.md",
+        "publication_state": "partial-source-custody"
+      }
+    },
+    {
+      "id": "maxim.evolutionary-biology.evo-devo.view",
+      "node_kind": "fletch",
+      "shafts": [
+        {
+          "kind": "file",
+          "url": ".crop/views/maxim-evolutionary-biology-evo-devo.json"
+        }
+      ],
+      "edges": [
+        {
+          "to": "maxim.evolutionary-biology.source-corpus.pebble",
+          "kind": "derived-from",
+          "label": "Guide-level CROP view recipe",
+          "metadata": {
+            "module": "evolutionary-biology",
+            "guide": "evolutionary-biology/06-EVO-DEVO.md",
+            "custody": "partial"
+          }
+        }
+      ],
+      "format": {
+        "media_type": "application/json",
+        "encoding": "utf-8",
+        "compression": null,
+        "container": null,
+        "schema": "crop.view.v1",
+        "record_shape": "view-recipe",
+        "preferred_local": ".crop/views/maxim-evolutionary-biology-evo-devo.json"
+      },
+      "tags": [
+        "source-corpus",
+        "crop",
+        "view",
+        "partial-custody",
+        "guide"
+      ],
+      "metadata": {
+        "source_repo": "MAXIM",
+        "module": "evolutionary-biology",
+        "guide": "evolutionary-biology/06-EVO-DEVO.md",
+        "publication_state": "partial-source-custody"
+      }
+    },
+    {
+      "id": "maxim.evolutionary-biology.evo-devo.pebble",
+      "node_kind": "fletch",
+      "shafts": [
+        {
+          "kind": "file",
+          "url": ".pebble/packs/maxim-evolutionary-biology-evo-devo.pebble.json"
+        }
+      ],
+      "edges": [
+        {
+          "to": "maxim.evolutionary-biology.evo-devo.view",
+          "kind": "derived-from",
+          "label": "Guide-level CROP view recipe",
+          "metadata": {
+            "module": "evolutionary-biology",
+            "custody": "partial"
+          }
+        },
+        {
+          "to": "maxim.evolutionary-biology.source-corpus.pebble",
+          "kind": "derived-from",
+          "label": "Guide-level CROP view",
+          "metadata": {
+            "view": ".crop/views/maxim-evolutionary-biology-evo-devo.json",
+            "module": "evolutionary-biology",
+            "custody": "partial"
+          }
+        }
+      ],
+      "format": {
+        "media_type": "application/json",
+        "encoding": "utf-8",
+        "compression": null,
+        "container": null,
+        "schema": "pebble.v1",
+        "record_shape": "corpus-slice",
+        "preferred_local": ".pebble/packs/maxim-evolutionary-biology-evo-devo.pebble.json"
+      },
+      "tags": [
+        "source-corpus",
+        "crop",
+        "pebble",
+        "partial-custody",
+        "guide"
+      ],
+      "metadata": {
+        "source_repo": "MAXIM",
+        "module": "evolutionary-biology",
+        "guide": "evolutionary-biology/06-EVO-DEVO.md",
+        "publication_state": "partial-source-custody"
+      }
+    },
+    {
+      "id": "maxim.evolutionary-biology.evo-devo.proof-source",
+      "node_kind": "fletch",
+      "shafts": [
+        {
+          "kind": "file",
+          "url": ".proof/backfill/sources/evolutionary-biology/proof-source/06-EVO-DEVO.source.md"
+        }
+      ],
+      "edges": [
+        {
+          "to": "maxim.evolutionary-biology.evo-devo.view",
+          "kind": "derived-from",
+          "label": "Literal PROOF source for guide view",
+          "metadata": {
+            "module": "evolutionary-biology",
+            "guide": "evolutionary-biology/06-EVO-DEVO.md",
+            "custody": "partial"
+          }
+        }
+      ],
+      "format": {
+        "media_type": "text/markdown",
+        "encoding": "utf-8",
+        "compression": null,
+        "container": null,
+        "schema": "proof.source.literal_markdown.v1",
+        "record_shape": "literal-source",
+        "preferred_local": ".proof/backfill/sources/evolutionary-biology/proof-source/06-EVO-DEVO.source.md"
+      },
+      "tags": [
+        "source-corpus",
+        "proof",
+        "source",
+        "partial-custody",
+        "guide"
+      ],
+      "metadata": {
+        "source_repo": "MAXIM",
+        "module": "evolutionary-biology",
+        "guide": "evolutionary-biology/06-EVO-DEVO.md",
+        "publication_state": "partial-source-custody"
+      }
+    },
+    {
+      "id": "maxim.evolutionary-biology.evo-devo.tables",
+      "node_kind": "fletch",
+      "shafts": [
+        {
+          "kind": "file",
+          "url": ".proof/backfill/sources/evolutionary-biology/proof-source/06-EVO-DEVO.tables.json"
+        }
+      ],
+      "edges": [
+        {
+          "to": "maxim.evolutionary-biology.evo-devo.proof-source",
+          "kind": "derived-from",
+          "label": "PROOF markdown table sidecar",
+          "metadata": {
+            "module": "evolutionary-biology",
+            "guide": "evolutionary-biology/06-EVO-DEVO.md",
+            "custody": "partial"
+          }
+        }
+      ],
+      "format": {
+        "media_type": "application/json",
+        "encoding": "utf-8",
+        "compression": null,
+        "container": null,
+        "schema": "proof.backfill.tables.v1",
+        "record_shape": "table-sidecar",
+        "preferred_local": ".proof/backfill/sources/evolutionary-biology/proof-source/06-EVO-DEVO.tables.json"
+      },
+      "tags": [
+        "source-corpus",
+        "proof",
+        "tables",
+        "partial-custody",
+        "guide"
+      ],
+      "metadata": {
+        "source_repo": "MAXIM",
+        "module": "evolutionary-biology",
+        "guide": "evolutionary-biology/06-EVO-DEVO.md",
+        "publication_state": "partial-source-custody"
+      }
+    },
+    {
+      "id": "maxim.evolutionary-biology.evo-devo.blocks",
+      "node_kind": "fletch",
+      "shafts": [
+        {
+          "kind": "file",
+          "url": ".proof/backfill/sources/evolutionary-biology/proof-source/06-EVO-DEVO.blocks.json"
+        }
+      ],
+      "edges": [
+        {
+          "to": "maxim.evolutionary-biology.evo-devo.proof-source",
+          "kind": "derived-from",
+          "label": "PROOF structured block sidecar",
+          "metadata": {
+            "module": "evolutionary-biology",
+            "guide": "evolutionary-biology/06-EVO-DEVO.md",
+            "custody": "partial"
+          }
+        }
+      ],
+      "format": {
+        "media_type": "application/json",
+        "encoding": "utf-8",
+        "compression": null,
+        "container": null,
+        "schema": "proof.backfill.blocks.v1",
+        "record_shape": "structured-block-sidecar",
+        "preferred_local": ".proof/backfill/sources/evolutionary-biology/proof-source/06-EVO-DEVO.blocks.json"
+      },
+      "tags": [
+        "source-corpus",
+        "proof",
+        "blocks",
+        "partial-custody",
+        "guide"
+      ],
+      "metadata": {
+        "source_repo": "MAXIM",
+        "module": "evolutionary-biology",
+        "guide": "evolutionary-biology/06-EVO-DEVO.md",
+        "publication_state": "partial-source-custody"
+      }
+    },
+    {
+      "id": "maxim.evolutionary-biology.sexual-selection.view",
+      "node_kind": "fletch",
+      "shafts": [
+        {
+          "kind": "file",
+          "url": ".crop/views/maxim-evolutionary-biology-sexual-selection.json"
+        }
+      ],
+      "edges": [
+        {
+          "to": "maxim.evolutionary-biology.source-corpus.pebble",
+          "kind": "derived-from",
+          "label": "Guide-level CROP view recipe",
+          "metadata": {
+            "module": "evolutionary-biology",
+            "guide": "evolutionary-biology/07-SEXUAL-SELECTION.md",
+            "custody": "partial"
+          }
+        }
+      ],
+      "format": {
+        "media_type": "application/json",
+        "encoding": "utf-8",
+        "compression": null,
+        "container": null,
+        "schema": "crop.view.v1",
+        "record_shape": "view-recipe",
+        "preferred_local": ".crop/views/maxim-evolutionary-biology-sexual-selection.json"
+      },
+      "tags": [
+        "source-corpus",
+        "crop",
+        "view",
+        "partial-custody",
+        "guide"
+      ],
+      "metadata": {
+        "source_repo": "MAXIM",
+        "module": "evolutionary-biology",
+        "guide": "evolutionary-biology/07-SEXUAL-SELECTION.md",
+        "publication_state": "partial-source-custody"
+      }
+    },
+    {
+      "id": "maxim.evolutionary-biology.sexual-selection.pebble",
+      "node_kind": "fletch",
+      "shafts": [
+        {
+          "kind": "file",
+          "url": ".pebble/packs/maxim-evolutionary-biology-sexual-selection.pebble.json"
+        }
+      ],
+      "edges": [
+        {
+          "to": "maxim.evolutionary-biology.sexual-selection.view",
+          "kind": "derived-from",
+          "label": "Guide-level CROP view recipe",
+          "metadata": {
+            "module": "evolutionary-biology",
+            "custody": "partial"
+          }
+        },
+        {
+          "to": "maxim.evolutionary-biology.source-corpus.pebble",
+          "kind": "derived-from",
+          "label": "Guide-level CROP view",
+          "metadata": {
+            "view": ".crop/views/maxim-evolutionary-biology-sexual-selection.json",
+            "module": "evolutionary-biology",
+            "custody": "partial"
+          }
+        }
+      ],
+      "format": {
+        "media_type": "application/json",
+        "encoding": "utf-8",
+        "compression": null,
+        "container": null,
+        "schema": "pebble.v1",
+        "record_shape": "corpus-slice",
+        "preferred_local": ".pebble/packs/maxim-evolutionary-biology-sexual-selection.pebble.json"
+      },
+      "tags": [
+        "source-corpus",
+        "crop",
+        "pebble",
+        "partial-custody",
+        "guide"
+      ],
+      "metadata": {
+        "source_repo": "MAXIM",
+        "module": "evolutionary-biology",
+        "guide": "evolutionary-biology/07-SEXUAL-SELECTION.md",
+        "publication_state": "partial-source-custody"
+      }
+    },
+    {
+      "id": "maxim.evolutionary-biology.sexual-selection.proof-source",
+      "node_kind": "fletch",
+      "shafts": [
+        {
+          "kind": "file",
+          "url": ".proof/backfill/sources/evolutionary-biology/proof-source/07-SEXUAL-SELECTION.source.md"
+        }
+      ],
+      "edges": [
+        {
+          "to": "maxim.evolutionary-biology.sexual-selection.view",
+          "kind": "derived-from",
+          "label": "Literal PROOF source for guide view",
+          "metadata": {
+            "module": "evolutionary-biology",
+            "guide": "evolutionary-biology/07-SEXUAL-SELECTION.md",
+            "custody": "partial"
+          }
+        }
+      ],
+      "format": {
+        "media_type": "text/markdown",
+        "encoding": "utf-8",
+        "compression": null,
+        "container": null,
+        "schema": "proof.source.literal_markdown.v1",
+        "record_shape": "literal-source",
+        "preferred_local": ".proof/backfill/sources/evolutionary-biology/proof-source/07-SEXUAL-SELECTION.source.md"
+      },
+      "tags": [
+        "source-corpus",
+        "proof",
+        "source",
+        "partial-custody",
+        "guide"
+      ],
+      "metadata": {
+        "source_repo": "MAXIM",
+        "module": "evolutionary-biology",
+        "guide": "evolutionary-biology/07-SEXUAL-SELECTION.md",
+        "publication_state": "partial-source-custody"
+      }
+    },
+    {
+      "id": "maxim.evolutionary-biology.sexual-selection.tables",
+      "node_kind": "fletch",
+      "shafts": [
+        {
+          "kind": "file",
+          "url": ".proof/backfill/sources/evolutionary-biology/proof-source/07-SEXUAL-SELECTION.tables.json"
+        }
+      ],
+      "edges": [
+        {
+          "to": "maxim.evolutionary-biology.sexual-selection.proof-source",
+          "kind": "derived-from",
+          "label": "PROOF markdown table sidecar",
+          "metadata": {
+            "module": "evolutionary-biology",
+            "guide": "evolutionary-biology/07-SEXUAL-SELECTION.md",
+            "custody": "partial"
+          }
+        }
+      ],
+      "format": {
+        "media_type": "application/json",
+        "encoding": "utf-8",
+        "compression": null,
+        "container": null,
+        "schema": "proof.backfill.tables.v1",
+        "record_shape": "table-sidecar",
+        "preferred_local": ".proof/backfill/sources/evolutionary-biology/proof-source/07-SEXUAL-SELECTION.tables.json"
+      },
+      "tags": [
+        "source-corpus",
+        "proof",
+        "tables",
+        "partial-custody",
+        "guide"
+      ],
+      "metadata": {
+        "source_repo": "MAXIM",
+        "module": "evolutionary-biology",
+        "guide": "evolutionary-biology/07-SEXUAL-SELECTION.md",
+        "publication_state": "partial-source-custody"
+      }
+    },
+    {
+      "id": "maxim.evolutionary-biology.sexual-selection.blocks",
+      "node_kind": "fletch",
+      "shafts": [
+        {
+          "kind": "file",
+          "url": ".proof/backfill/sources/evolutionary-biology/proof-source/07-SEXUAL-SELECTION.blocks.json"
+        }
+      ],
+      "edges": [
+        {
+          "to": "maxim.evolutionary-biology.sexual-selection.proof-source",
+          "kind": "derived-from",
+          "label": "PROOF structured block sidecar",
+          "metadata": {
+            "module": "evolutionary-biology",
+            "guide": "evolutionary-biology/07-SEXUAL-SELECTION.md",
+            "custody": "partial"
+          }
+        }
+      ],
+      "format": {
+        "media_type": "application/json",
+        "encoding": "utf-8",
+        "compression": null,
+        "container": null,
+        "schema": "proof.backfill.blocks.v1",
+        "record_shape": "structured-block-sidecar",
+        "preferred_local": ".proof/backfill/sources/evolutionary-biology/proof-source/07-SEXUAL-SELECTION.blocks.json"
+      },
+      "tags": [
+        "source-corpus",
+        "proof",
+        "blocks",
+        "partial-custody",
+        "guide"
+      ],
+      "metadata": {
+        "source_repo": "MAXIM",
+        "module": "evolutionary-biology",
+        "guide": "evolutionary-biology/07-SEXUAL-SELECTION.md",
+        "publication_state": "partial-source-custody"
+      }
+    },
+    {
+      "id": "maxim.evolutionary-biology.coevolution.view",
+      "node_kind": "fletch",
+      "shafts": [
+        {
+          "kind": "file",
+          "url": ".crop/views/maxim-evolutionary-biology-coevolution.json"
+        }
+      ],
+      "edges": [
+        {
+          "to": "maxim.evolutionary-biology.source-corpus.pebble",
+          "kind": "derived-from",
+          "label": "Guide-level CROP view recipe",
+          "metadata": {
+            "module": "evolutionary-biology",
+            "guide": "evolutionary-biology/08-COEVOLUTION.md",
+            "custody": "partial"
+          }
+        }
+      ],
+      "format": {
+        "media_type": "application/json",
+        "encoding": "utf-8",
+        "compression": null,
+        "container": null,
+        "schema": "crop.view.v1",
+        "record_shape": "view-recipe",
+        "preferred_local": ".crop/views/maxim-evolutionary-biology-coevolution.json"
+      },
+      "tags": [
+        "source-corpus",
+        "crop",
+        "view",
+        "partial-custody",
+        "guide"
+      ],
+      "metadata": {
+        "source_repo": "MAXIM",
+        "module": "evolutionary-biology",
+        "guide": "evolutionary-biology/08-COEVOLUTION.md",
+        "publication_state": "partial-source-custody"
+      }
+    },
+    {
+      "id": "maxim.evolutionary-biology.coevolution.pebble",
+      "node_kind": "fletch",
+      "shafts": [
+        {
+          "kind": "file",
+          "url": ".pebble/packs/maxim-evolutionary-biology-coevolution.pebble.json"
+        }
+      ],
+      "edges": [
+        {
+          "to": "maxim.evolutionary-biology.coevolution.view",
+          "kind": "derived-from",
+          "label": "Guide-level CROP view recipe",
+          "metadata": {
+            "module": "evolutionary-biology",
+            "custody": "partial"
+          }
+        },
+        {
+          "to": "maxim.evolutionary-biology.source-corpus.pebble",
+          "kind": "derived-from",
+          "label": "Guide-level CROP view",
+          "metadata": {
+            "view": ".crop/views/maxim-evolutionary-biology-coevolution.json",
+            "module": "evolutionary-biology",
+            "custody": "partial"
+          }
+        }
+      ],
+      "format": {
+        "media_type": "application/json",
+        "encoding": "utf-8",
+        "compression": null,
+        "container": null,
+        "schema": "pebble.v1",
+        "record_shape": "corpus-slice",
+        "preferred_local": ".pebble/packs/maxim-evolutionary-biology-coevolution.pebble.json"
+      },
+      "tags": [
+        "source-corpus",
+        "crop",
+        "pebble",
+        "partial-custody",
+        "guide"
+      ],
+      "metadata": {
+        "source_repo": "MAXIM",
+        "module": "evolutionary-biology",
+        "guide": "evolutionary-biology/08-COEVOLUTION.md",
+        "publication_state": "partial-source-custody"
+      }
+    },
+    {
+      "id": "maxim.evolutionary-biology.coevolution.proof-source",
+      "node_kind": "fletch",
+      "shafts": [
+        {
+          "kind": "file",
+          "url": ".proof/backfill/sources/evolutionary-biology/proof-source/08-COEVOLUTION.source.md"
+        }
+      ],
+      "edges": [
+        {
+          "to": "maxim.evolutionary-biology.coevolution.view",
+          "kind": "derived-from",
+          "label": "Literal PROOF source for guide view",
+          "metadata": {
+            "module": "evolutionary-biology",
+            "guide": "evolutionary-biology/08-COEVOLUTION.md",
+            "custody": "partial"
+          }
+        }
+      ],
+      "format": {
+        "media_type": "text/markdown",
+        "encoding": "utf-8",
+        "compression": null,
+        "container": null,
+        "schema": "proof.source.literal_markdown.v1",
+        "record_shape": "literal-source",
+        "preferred_local": ".proof/backfill/sources/evolutionary-biology/proof-source/08-COEVOLUTION.source.md"
+      },
+      "tags": [
+        "source-corpus",
+        "proof",
+        "source",
+        "partial-custody",
+        "guide"
+      ],
+      "metadata": {
+        "source_repo": "MAXIM",
+        "module": "evolutionary-biology",
+        "guide": "evolutionary-biology/08-COEVOLUTION.md",
+        "publication_state": "partial-source-custody"
+      }
+    },
+    {
+      "id": "maxim.evolutionary-biology.coevolution.tables",
+      "node_kind": "fletch",
+      "shafts": [
+        {
+          "kind": "file",
+          "url": ".proof/backfill/sources/evolutionary-biology/proof-source/08-COEVOLUTION.tables.json"
+        }
+      ],
+      "edges": [
+        {
+          "to": "maxim.evolutionary-biology.coevolution.proof-source",
+          "kind": "derived-from",
+          "label": "PROOF markdown table sidecar",
+          "metadata": {
+            "module": "evolutionary-biology",
+            "guide": "evolutionary-biology/08-COEVOLUTION.md",
+            "custody": "partial"
+          }
+        }
+      ],
+      "format": {
+        "media_type": "application/json",
+        "encoding": "utf-8",
+        "compression": null,
+        "container": null,
+        "schema": "proof.backfill.tables.v1",
+        "record_shape": "table-sidecar",
+        "preferred_local": ".proof/backfill/sources/evolutionary-biology/proof-source/08-COEVOLUTION.tables.json"
+      },
+      "tags": [
+        "source-corpus",
+        "proof",
+        "tables",
+        "partial-custody",
+        "guide"
+      ],
+      "metadata": {
+        "source_repo": "MAXIM",
+        "module": "evolutionary-biology",
+        "guide": "evolutionary-biology/08-COEVOLUTION.md",
+        "publication_state": "partial-source-custody"
+      }
+    },
+    {
+      "id": "maxim.evolutionary-biology.coevolution.blocks",
+      "node_kind": "fletch",
+      "shafts": [
+        {
+          "kind": "file",
+          "url": ".proof/backfill/sources/evolutionary-biology/proof-source/08-COEVOLUTION.blocks.json"
+        }
+      ],
+      "edges": [
+        {
+          "to": "maxim.evolutionary-biology.coevolution.proof-source",
+          "kind": "derived-from",
+          "label": "PROOF structured block sidecar",
+          "metadata": {
+            "module": "evolutionary-biology",
+            "guide": "evolutionary-biology/08-COEVOLUTION.md",
+            "custody": "partial"
+          }
+        }
+      ],
+      "format": {
+        "media_type": "application/json",
+        "encoding": "utf-8",
+        "compression": null,
+        "container": null,
+        "schema": "proof.backfill.blocks.v1",
+        "record_shape": "structured-block-sidecar",
+        "preferred_local": ".proof/backfill/sources/evolutionary-biology/proof-source/08-COEVOLUTION.blocks.json"
+      },
+      "tags": [
+        "source-corpus",
+        "proof",
+        "blocks",
+        "partial-custody",
+        "guide"
+      ],
+      "metadata": {
+        "source_repo": "MAXIM",
+        "module": "evolutionary-biology",
+        "guide": "evolutionary-biology/08-COEVOLUTION.md",
+        "publication_state": "partial-source-custody"
+      }
+    },
+    {
+      "id": "maxim.evolutionary-biology.macroevolution.view",
+      "node_kind": "fletch",
+      "shafts": [
+        {
+          "kind": "file",
+          "url": ".crop/views/maxim-evolutionary-biology-macroevolution.json"
+        }
+      ],
+      "edges": [
+        {
+          "to": "maxim.evolutionary-biology.source-corpus.pebble",
+          "kind": "derived-from",
+          "label": "Guide-level CROP view recipe",
+          "metadata": {
+            "module": "evolutionary-biology",
+            "guide": "evolutionary-biology/09-MACROEVOLUTION.md",
+            "custody": "partial"
+          }
+        }
+      ],
+      "format": {
+        "media_type": "application/json",
+        "encoding": "utf-8",
+        "compression": null,
+        "container": null,
+        "schema": "crop.view.v1",
+        "record_shape": "view-recipe",
+        "preferred_local": ".crop/views/maxim-evolutionary-biology-macroevolution.json"
+      },
+      "tags": [
+        "source-corpus",
+        "crop",
+        "view",
+        "partial-custody",
+        "guide"
+      ],
+      "metadata": {
+        "source_repo": "MAXIM",
+        "module": "evolutionary-biology",
+        "guide": "evolutionary-biology/09-MACROEVOLUTION.md",
+        "publication_state": "partial-source-custody"
+      }
+    },
+    {
+      "id": "maxim.evolutionary-biology.macroevolution.pebble",
+      "node_kind": "fletch",
+      "shafts": [
+        {
+          "kind": "file",
+          "url": ".pebble/packs/maxim-evolutionary-biology-macroevolution.pebble.json"
+        }
+      ],
+      "edges": [
+        {
+          "to": "maxim.evolutionary-biology.macroevolution.view",
+          "kind": "derived-from",
+          "label": "Guide-level CROP view recipe",
+          "metadata": {
+            "module": "evolutionary-biology",
+            "custody": "partial"
+          }
+        },
+        {
+          "to": "maxim.evolutionary-biology.source-corpus.pebble",
+          "kind": "derived-from",
+          "label": "Guide-level CROP view",
+          "metadata": {
+            "view": ".crop/views/maxim-evolutionary-biology-macroevolution.json",
+            "module": "evolutionary-biology",
+            "custody": "partial"
+          }
+        }
+      ],
+      "format": {
+        "media_type": "application/json",
+        "encoding": "utf-8",
+        "compression": null,
+        "container": null,
+        "schema": "pebble.v1",
+        "record_shape": "corpus-slice",
+        "preferred_local": ".pebble/packs/maxim-evolutionary-biology-macroevolution.pebble.json"
+      },
+      "tags": [
+        "source-corpus",
+        "crop",
+        "pebble",
+        "partial-custody",
+        "guide"
+      ],
+      "metadata": {
+        "source_repo": "MAXIM",
+        "module": "evolutionary-biology",
+        "guide": "evolutionary-biology/09-MACROEVOLUTION.md",
+        "publication_state": "partial-source-custody"
+      }
+    },
+    {
+      "id": "maxim.evolutionary-biology.macroevolution.proof-source",
+      "node_kind": "fletch",
+      "shafts": [
+        {
+          "kind": "file",
+          "url": ".proof/backfill/sources/evolutionary-biology/proof-source/09-MACROEVOLUTION.source.md"
+        }
+      ],
+      "edges": [
+        {
+          "to": "maxim.evolutionary-biology.macroevolution.view",
+          "kind": "derived-from",
+          "label": "Literal PROOF source for guide view",
+          "metadata": {
+            "module": "evolutionary-biology",
+            "guide": "evolutionary-biology/09-MACROEVOLUTION.md",
+            "custody": "partial"
+          }
+        }
+      ],
+      "format": {
+        "media_type": "text/markdown",
+        "encoding": "utf-8",
+        "compression": null,
+        "container": null,
+        "schema": "proof.source.literal_markdown.v1",
+        "record_shape": "literal-source",
+        "preferred_local": ".proof/backfill/sources/evolutionary-biology/proof-source/09-MACROEVOLUTION.source.md"
+      },
+      "tags": [
+        "source-corpus",
+        "proof",
+        "source",
+        "partial-custody",
+        "guide"
+      ],
+      "metadata": {
+        "source_repo": "MAXIM",
+        "module": "evolutionary-biology",
+        "guide": "evolutionary-biology/09-MACROEVOLUTION.md",
+        "publication_state": "partial-source-custody"
+      }
+    },
+    {
+      "id": "maxim.evolutionary-biology.macroevolution.tables",
+      "node_kind": "fletch",
+      "shafts": [
+        {
+          "kind": "file",
+          "url": ".proof/backfill/sources/evolutionary-biology/proof-source/09-MACROEVOLUTION.tables.json"
+        }
+      ],
+      "edges": [
+        {
+          "to": "maxim.evolutionary-biology.macroevolution.proof-source",
+          "kind": "derived-from",
+          "label": "PROOF markdown table sidecar",
+          "metadata": {
+            "module": "evolutionary-biology",
+            "guide": "evolutionary-biology/09-MACROEVOLUTION.md",
+            "custody": "partial"
+          }
+        }
+      ],
+      "format": {
+        "media_type": "application/json",
+        "encoding": "utf-8",
+        "compression": null,
+        "container": null,
+        "schema": "proof.backfill.tables.v1",
+        "record_shape": "table-sidecar",
+        "preferred_local": ".proof/backfill/sources/evolutionary-biology/proof-source/09-MACROEVOLUTION.tables.json"
+      },
+      "tags": [
+        "source-corpus",
+        "proof",
+        "tables",
+        "partial-custody",
+        "guide"
+      ],
+      "metadata": {
+        "source_repo": "MAXIM",
+        "module": "evolutionary-biology",
+        "guide": "evolutionary-biology/09-MACROEVOLUTION.md",
+        "publication_state": "partial-source-custody"
+      }
+    },
+    {
+      "id": "maxim.evolutionary-biology.macroevolution.blocks",
+      "node_kind": "fletch",
+      "shafts": [
+        {
+          "kind": "file",
+          "url": ".proof/backfill/sources/evolutionary-biology/proof-source/09-MACROEVOLUTION.blocks.json"
+        }
+      ],
+      "edges": [
+        {
+          "to": "maxim.evolutionary-biology.macroevolution.proof-source",
+          "kind": "derived-from",
+          "label": "PROOF structured block sidecar",
+          "metadata": {
+            "module": "evolutionary-biology",
+            "guide": "evolutionary-biology/09-MACROEVOLUTION.md",
+            "custody": "partial"
+          }
+        }
+      ],
+      "format": {
+        "media_type": "application/json",
+        "encoding": "utf-8",
+        "compression": null,
+        "container": null,
+        "schema": "proof.backfill.blocks.v1",
+        "record_shape": "structured-block-sidecar",
+        "preferred_local": ".proof/backfill/sources/evolutionary-biology/proof-source/09-MACROEVOLUTION.blocks.json"
+      },
+      "tags": [
+        "source-corpus",
+        "proof",
+        "blocks",
+        "partial-custody",
+        "guide"
+      ],
+      "metadata": {
+        "source_repo": "MAXIM",
+        "module": "evolutionary-biology",
+        "guide": "evolutionary-biology/09-MACROEVOLUTION.md",
+        "publication_state": "partial-source-custody"
+      }
+    }
+  ]
+}

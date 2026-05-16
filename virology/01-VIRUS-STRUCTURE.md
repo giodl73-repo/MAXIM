@@ -1,3 +1,22 @@
+---
+maxim_schema: maxim.frontmatter.v1
+id: maxim:virology:virus-structure
+kind: guide
+module: virology
+section: virology
+title: Virus Structure and Genome Organization
+status: source-custody
+source_custody: partial
+current_path: virology/01-VIRUS-STRUCTURE.md
+canonical_path: virology/01-VIRUS-STRUCTURE.md
+backsource_ids: [proof-backfill:virology:01-virus-structure, git-history:virology:01-virus-structure]
+concepts: [virus, structure]
+root_concepts: [virus, structure]
+index_roles: [guide, root-concept]
+remap_from: []
+remap_to: []
+updated: null
+---
 # Virus Structure and Genome Organization
 
 ## The Big Picture
