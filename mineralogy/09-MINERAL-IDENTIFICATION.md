@@ -1,3 +1,22 @@
+---
+maxim_schema: maxim.frontmatter.v1
+id: maxim:mineralogy:mineral-identification
+kind: guide
+module: mineralogy
+section: mineralogy
+title: Mineral Identification Methods
+status: source-custody
+source_custody: partial
+current_path: mineralogy/09-MINERAL-IDENTIFICATION.md
+canonical_path: mineralogy/09-MINERAL-IDENTIFICATION.md
+backsource_ids: [proof-backfill:mineralogy:09-mineral-identification, git-history:mineralogy:09-mineral-identification]
+concepts: [mineral, identification]
+root_concepts: [mineral, identification]
+index_roles: [guide, root-concept]
+remap_from: []
+remap_to: []
+updated: null
+---
 # Mineral Identification Methods
 
 ## The Big Picture
@@ -34,40 +53,40 @@ The field geologist's toolkit: observation and a few simple tests.
 
 ```
 HAND SPECIMEN IDENTIFICATION WORKFLOW
-+------------------------------------------------------------------+
-|                                                                  |
-|  1. LUSTER                                                       |
-|     Metallic/opaque → go to sulfides/oxides/native metals        |
-|     Non-metallic → silicates/carbonates/phosphates/sulfates      |
-|                                                                  |
-|  2. HARDNESS (carry: fingernail, penny, knife, quartz piece)     |
-|     <2.5: talc, gypsum, graphite, sulfur                         |
-|     2.5–3.5: calcite, halite, argentite                          |
-|     3.5–5.5: fluorite, apatite, chalcopyrite                     |
-|     5.5–7: pyroxene, amphibole, feldspar                         |
-|     >7: quartz, topaz, corundum, garnet                          |
-|                                                                  |
-|  3. CLEAVAGE/FRACTURE                                            |
-|     1 perfect basal: mica                                        |
-|     3 planes ≈90°: halite, galena, orthoclase                    |
-|     3 planes rhombohedral: calcite, dolomite                     |
-|     2 planes ≈90°: pyroxene (also feldspar)                      |
-|     2 planes ≈60°/120°: amphibole                                |
-|     Conchoidal: quartz, obsidian, flint                          |
-|                                                                  |
-|  4. STREAK (on unglazed porcelain if H < 7)                      |
-|     Red-brown: hematite       Greenish-black: pyrite, chalcopyrite|
-|     Black: magnetite          Yellow: gold                       |
-|                                                                  |
-|  5. SPECIFIC GRAVITY ("heft" test)                               |
-|     Very dense for size: galena, barite, native metals           |
-|                                                                  |
-|  6. SPECIAL TESTS                                                |
-|     Magnet: magnetite (strongly), pyrrhotite (weakly)            |
-|     HCl fizz: calcite (cold), dolomite (hot/powder)              |
-|     Taste: halite (salty), sylvite (bitter)                      |
-|     UV light: scheelite (bright blue-white), willemite (green)   |
-+------------------------------------------------------------------+
++--------------------------------------------------------------------+
+|                                                                    |
+|  1. LUSTER                                                         |
+|     Metallic/opaque → go to sulfides/oxides/native metals          |
+|     Non-metallic → silicates/carbonates/phosphates/sulfates        |
+|                                                                    |
+|  2. HARDNESS (carry: fingernail, penny, knife, quartz piece)       |
+|     <2.5: talc, gypsum, graphite, sulfur                           |
+|     2.5–3.5: calcite, halite, argentite                            |
+|     3.5–5.5: fluorite, apatite, chalcopyrite                       |
+|     5.5–7: pyroxene, amphibole, feldspar                           |
+|     >7: quartz, topaz, corundum, garnet                            |
+|                                                                    |
+|  3. CLEAVAGE/FRACTURE                                              |
+|     1 perfect basal: mica                                          |
+|     3 planes ≈90°: halite, galena, orthoclase                      |
+|     3 planes rhombohedral: calcite, dolomite                       |
+|     2 planes ≈90°: pyroxene (also feldspar)                        |
+|     2 planes ≈60°/120°: amphibole                                  |
+|     Conchoidal: quartz, obsidian, flint                            |
+|                                                                    |
+|  4. STREAK (on unglazed porcelain if H < 7)                        |
+|     Red-brown: hematite       Greenish-black: pyrite, chalcopyrite |
+|     Black: magnetite          Yellow: gold                         |
+|                                                                    |
+|  5. SPECIFIC GRAVITY ("heft" test)                                 |
+|     Very dense for size: galena, barite, native metals             |
+|                                                                    |
+|  6. SPECIAL TESTS                                                  |
+|     Magnet: magnetite (strongly), pyrrhotite (weakly)              |
+|     HCl fizz: calcite (cold), dolomite (hot/powder)                |
+|     Taste: halite (salty), sylvite (bitter)                        |
+|     UV light: scheelite (bright blue-white), willemite (green)     |
++--------------------------------------------------------------------+
 ```
 
 **Field databases and apps**:
@@ -87,16 +106,16 @@ POLARIZING MICROSCOPE SETUP
 +------------------------------------------------------------------+
 |                                                                  |
 |    [Analyzer] ← (can insert/remove)                              |
-|    +---------+                                                   |
-|    |         |   ← Upper polarizer (analyzer): N-S             |
-|    | UPPER   |       perpendicular to lower                     |
-|    +---------+                                                   |
+|    [---------]                                                   |
+|    :         :   ← Upper polarizer (analyzer): N-S               |
+|    : UPPER   :       perpendicular to lower                      |
+|    [---------]                                                   |
 |         |                                                        |
 |  MINERAL IN THIN SECTION  (30 µm thick)                          |
 |         |                                                        |
-|    +---------+                                                   |
-|    | LOWER   |   ← Lower polarizer (polarizer): E-W            |
-|    +---------+                                                   |
+|    [---------]                                                   |
+|    : LOWER   :   ← Lower polarizer (polarizer): E-W              |
+|    [---------]                                                   |
 |    [Light source]                                                |
 |                                                                  |
 |  PPL: Plane Polarized Light (analyzer out)                       |
@@ -235,19 +254,19 @@ OUTPUTS:
 
 ```
 LA-ICP-MS WORKFLOW
-+------------------------------------------------------------------+
-|  Pulsed UV laser (193 nm ArF excimer) → mineral surface          |
-|  Ablation spot: 10–200 µm diameter; ~50 µm deep pit              |
-|       |                                                          |
-|  Ablated material transported in He carrier gas                  |
-|       |                                                          |
-|  ICP (inductively coupled plasma): 6000–8000 K → full ionization|
-|       |                                                          |
-|  Mass spectrometer: separates ions by m/z → measures each isotope|
-|       |                                                          |
-|  Calibration against glass standards (NIST SRM 610, 612)         |
-|  Internal standard: usually a major element from EPMA            |
-+------------------------------------------------------------------+
++-------------------------------------------------------------------+
+|  Pulsed UV laser (193 nm ArF excimer) → mineral surface           |
+|  Ablation spot: 10–200 µm diameter; ~50 µm deep pit               |
+|       |                                                           |
+|  Ablated material transported in He carrier gas                   |
+|       |                                                           |
+|  ICP (inductively coupled plasma): 6000–8000 K → full ionization  |
+|       |                                                           |
+|  Mass spectrometer: separates ions by m/z → measures each isotope |
+|       |                                                           |
+|  Calibration against glass standards (NIST SRM 610, 612)          |
+|  Internal standard: usually a major element from EPMA             |
++-------------------------------------------------------------------+
 
 WHAT LA-ICP-MS CAN DO:
   Trace elements (to <1 ppb for many elements)

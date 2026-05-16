@@ -1,3 +1,22 @@
+---
+maxim_schema: maxim.frontmatter.v1
+id: maxim:rhetoric:five-canons
+kind: guide
+module: rhetoric
+section: rhetoric
+title: The Five Canons of Rhetoric
+status: source-custody
+source_custody: partial
+current_path: rhetoric/03-FIVE-CANONS.md
+canonical_path: rhetoric/03-FIVE-CANONS.md
+backsource_ids: [proof-backfill:rhetoric:03-five-canons, git-history:rhetoric:03-five-canons]
+concepts: [five, canons]
+root_concepts: [five, canons]
+index_roles: [guide, root-concept]
+remap_from: []
+remap_to: []
+updated: null
+---
 # The Five Canons of Rhetoric
 
 ## The Big Picture

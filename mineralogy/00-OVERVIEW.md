@@ -1,23 +1,42 @@
+---
+maxim_schema: maxim.frontmatter.v1
+id: maxim:mineralogy:overview
+kind: guide
+module: mineralogy
+section: mineralogy
+title: Mineralogy - Overview and Landscape
+status: source-custody
+source_custody: partial
+current_path: mineralogy/00-OVERVIEW.md
+canonical_path: mineralogy/00-OVERVIEW.md
+backsource_ids: [proof-backfill:mineralogy:00-overview, git-history:mineralogy:00-overview]
+concepts: [overview]
+root_concepts: [overview]
+index_roles: [guide, root-concept]
+remap_from: []
+remap_to: []
+updated: null
+---
 # Mineralogy — Overview and Landscape
 
 ## The Big Picture
 
 ```
-+------------------------------------------------------------------+
-|                    THE MINERAL KINGDOM                           |
-|                                                                  |
-|  A mineral: naturally occurring, inorganic, crystalline solid    |
-|  with a defined chemical composition                             |
-+------------------------------------------------------------------+
-                              |
-          +-------------------+-------------------+
-          |                   |                   |
++--------------------------------------------------------------------+
+|                    THE MINERAL KINGDOM                             |
+|                                                                    |
+|  A mineral: naturally occurring, inorganic, crystalline solid      |
+|  with a defined chemical composition                               |
++--------------------------------------------------------------------+
+                                                                   | |
+          .-------------------.-------------------.
+          |                   |                                      |
           v                   v                   v
-   +-------------+    +-------------+    +-------------+
-   |   MINERAL   |    |    ROCK     |    |   CRYSTAL   |
-   | (specific   |    | (aggregate  |    | (structural |
-   |  compound)  |    | of minerals)|    |  form)      |
-   +-------------+    +-------------+    +-------------+
+   .-------------.    .-------------.    .-------------.
+   |   MINERAL   |    |    ROCK     |    |   CRYSTAL                 |
+   | (specific   |    | (aggregate  |    | (structural               |
+   |  compound)  |    | of minerals)|    |  form)                    |
+   .-------------.    .-------------.    .-------------.
    Quartz = SiO₂     Granite = quartz    Quartz crystal =
    always            + feldspar +        quartz with
                      mica                hexagonal habit
@@ -34,25 +53,25 @@ MINERAL CLASSES (by dominant anion group)
 +------------------------------------------------------------------+
 |                                                                  |
 |  SILICATES          ~1,000 species       Rock-forming backbone   |
-|  SiO₄ tetrahedra    Quartz, feldspar, mica, pyroxene, olivine  |
+|  SiO₄ tetrahedra    Quartz, feldspar, mica, pyroxene, olivine    |
 |                                                                  |
 |  CARBONATES           ~200 species       Sedimentary record      |
-|  CO₃²⁻              Calcite, dolomite, aragonite, malachite    |
+|  CO₃²⁻              Calcite, dolomite, aragonite, malachite      |
 |                                                                  |
 |  OXIDES               ~500 species       Economic ores           |
-|  O²⁻                 Hematite, magnetite, corundum, rutile     |
+|  O²⁻                 Hematite, magnetite, corundum, rutile       |
 |                                                                  |
 |  SULFIDES             ~600 species       Ore minerals            |
-|  S²⁻                 Pyrite, galena, sphalerite, chalcopyrite  |
+|  S²⁻                 Pyrite, galena, sphalerite, chalcopyrite    |
 |                                                                  |
 |  PHOSPHATES           ~700 species       Bones, fertilizer       |
-|  PO₄³⁻               Apatite, turquoise, monazite              |
+|  PO₄³⁻               Apatite, turquoise, monazite                |
 |                                                                  |
 |  SULFATES             ~400 species       Evaporites              |
-|  SO₄²⁻               Gypsum, barite, celestite                 |
+|  SO₄²⁻               Gypsum, barite, celestite                   |
 |                                                                  |
 |  HALIDES              ~100 species       Evaporites, fluxes      |
-|  F⁻, Cl⁻             Halite, fluorite, sylvite                 |
+|  F⁻, Cl⁻             Halite, fluorite, sylvite                   |
 |                                                                  |
 |  NATIVE ELEMENTS       ~50 species       Pure metals/metalloids  |
 |                        Gold, silver, copper, diamond, graphite   |
@@ -155,21 +174,21 @@ MINERALS IN THE MODERN ECONOMY
 ```
 GEOLOGY / PETROLOGY
 (rock types, formation processes)
-         |
+         |          |
          v
 MINERALOGY  ←————————→  MATERIALS SCIENCE
 (mineral identity,          (crystal structure = engineering
  structure, chemistry)       properties of metals, ceramics)
-         |
-    +----+--------+
-    |             |
+         |          |
+    +---------------+
+    |               |
     v             v
 CRYSTAL         GEOCHEMISTRY
 CHEMISTRY       (trace elements,
 (bonding,        isotopes, ore
  defects,        deposit models)
  symmetry)
-         |
+                  | |
          v
    ECONOMIC GEOLOGY
    (ore deposit types,

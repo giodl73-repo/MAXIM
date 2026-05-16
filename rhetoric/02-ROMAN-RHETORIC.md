@@ -1,3 +1,22 @@
+---
+maxim_schema: maxim.frontmatter.v1
+id: maxim:rhetoric:roman-rhetoric
+kind: guide
+module: rhetoric
+section: rhetoric
+title: Roman Rhetoric
+status: source-custody
+source_custody: partial
+current_path: rhetoric/02-ROMAN-RHETORIC.md
+canonical_path: rhetoric/02-ROMAN-RHETORIC.md
+backsource_ids: [proof-backfill:rhetoric:02-roman-rhetoric, git-history:rhetoric:02-roman-rhetoric]
+concepts: [roman, rhetoric]
+root_concepts: [roman, rhetoric]
+index_roles: [guide, root-concept]
+remap_from: []
+remap_to: []
+updated: null
+---
 # Roman Rhetoric
 
 ## The Big Picture

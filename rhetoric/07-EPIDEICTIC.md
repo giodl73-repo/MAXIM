@@ -1,3 +1,22 @@
+---
+maxim_schema: maxim.frontmatter.v1
+id: maxim:rhetoric:epideictic
+kind: guide
+module: rhetoric
+section: rhetoric
+title: Epideictic Rhetoric
+status: source-custody
+source_custody: partial
+current_path: rhetoric/07-EPIDEICTIC.md
+canonical_path: rhetoric/07-EPIDEICTIC.md
+backsource_ids: [proof-backfill:rhetoric:07-epideictic, git-history:rhetoric:07-epideictic]
+concepts: [epideictic]
+root_concepts: [epideictic]
+index_roles: [guide, root-concept]
+remap_from: []
+remap_to: []
+updated: null
+---
 # Epideictic Rhetoric
 
 ## The Big Picture

@@ -1,3 +1,22 @@
+---
+maxim_schema: maxim.frontmatter.v1
+id: maxim:mineralogy:mineral-chemistry
+kind: guide
+module: mineralogy
+section: mineralogy
+title: Mineral Chemistry and Bonding
+status: source-custody
+source_custody: partial
+current_path: mineralogy/01-MINERAL-CHEMISTRY.md
+canonical_path: mineralogy/01-MINERAL-CHEMISTRY.md
+backsource_ids: [proof-backfill:mineralogy:01-mineral-chemistry, git-history:mineralogy:01-mineral-chemistry]
+concepts: [mineral, chemistry]
+root_concepts: [mineral, chemistry]
+index_roles: [guide, root-concept]
+remap_from: []
+remap_to: []
+updated: null
+---
 # Mineral Chemistry and Bonding
 
 ## The Big Picture
@@ -76,11 +95,11 @@ CATION/ANION RADIUS RATIO → COORDINATION NUMBER
 +--------------------------------------------------+
 | r_c/r_a ratio  | Coord. # | Geometry             |
 +--------------------------------------------------+
-| 0.155–0.225    |    3     | Triangular (CO₃²⁻)  |
-| 0.225–0.414    |    4     | Tetrahedral (SiO₄)  |
-| 0.414–0.732    |    6     | Octahedral (MgO₆)   |
-| 0.732–1.000    |    8     | Cubic               |
-| ≥ 1.000        |   12     | Cuboctahedral       |
+| 0.155–0.225    |    3     | Triangular (CO₃²⁻)   |
+| 0.225–0.414    |    4     | Tetrahedral (SiO₄)   |
+| 0.414–0.732    |    6     | Octahedral (MgO₆)    |
+| 0.732–1.000    |    8     | Cubic                |
+| ≥ 1.000        |   12     | Cuboctahedral        |
 +--------------------------------------------------+
 
 Si⁴⁺ in O²⁻: r_c/r_a ≈ 0.26 → tetrahedral coordination
@@ -138,37 +157,37 @@ Same composition, different unit cell geometry — and the physical properties d
 
 ```
 POLYMORPHIC PAIRS AND TRIPLETS
-+------------------------------------------------------------------+
-|  CARBON (C)                                                      |
-|  Diamond: cubic, each C bonded to 4 others in 3D tetrahedral     |
-|    → Hardest natural substance (Mohs 10), electrically insulating|
-|  Graphite: hexagonal layers, each C bonded to 3 in plane         |
-|    → Softest sheet structure (Mohs 1–2), electrically conducting |
-|  Lonsdaleite: hexagonal diamond — meteorite impacts only         |
-|  Fullerene/nanotube: non-mineral but same element                |
-|                                                                  |
-|  CALCIUM CARBONATE (CaCO₃)                                       |
-|  Calcite: trigonal; stable at Earth surface conditions           |
-|    → Limestone, chalk, marble; biogenic shells                   |
-|  Aragonite: orthorhombic; stable at high pressure                |
-|    → Nacre (mother of pearl), some shells; converts to calcite   |
-|    → Fossil shells: preservation means Ca-carbonate survived,    |
-|       recrystallized form tells P-T history                      |
-|                                                                  |
-|  SILICON DIOXIDE (SiO₂)                                          |
-|  Quartz: stable below 573°C, hexagonal; common everywhere        |
-|  Tridymite: 573°C–870°C, hexagonal with different topology       |
-|  Cristobalite: 870°C–1723°C (melting point)                      |
-|  Coesite: very high pressure (>3 GPa); marker of meteor impact   |
-|  Stishovite: >10 GPa; Si in 6-fold coordination (not 4-fold)     |
-|  Opal: amorphous (non-crystalline) — technically a mineraloid    |
-|                                                                  |
-|  ALUMINUM SILICATE (Al₂SiO₅)                                     |
-|  Kyanite: high P/low T → bladed blue crystals                    |
-|  Sillimanite: high P/high T → fibrous needles                    |
-|  Andalusite: low P/low T → blocky prismatic crystals             |
-|  Stability fields map directly to metamorphic P-T conditions     |
-+------------------------------------------------------------------+
++-------------------------------------------------------------------+
+|  CARBON (C)                                                       |
+|  Diamond: cubic, each C bonded to 4 others in 3D tetrahedral      |
+|    → Hardest natural substance (Mohs 10), electrically insulating |
+|  Graphite: hexagonal layers, each C bonded to 3 in plane          |
+|    → Softest sheet structure (Mohs 1–2), electrically conducting  |
+|  Lonsdaleite: hexagonal diamond — meteorite impacts only          |
+|  Fullerene/nanotube: non-mineral but same element                 |
+|                                                                   |
+|  CALCIUM CARBONATE (CaCO₃)                                        |
+|  Calcite: trigonal; stable at Earth surface conditions            |
+|    → Limestone, chalk, marble; biogenic shells                    |
+|  Aragonite: orthorhombic; stable at high pressure                 |
+|    → Nacre (mother of pearl), some shells; converts to calcite    |
+|    → Fossil shells: preservation means Ca-carbonate survived,     |
+|       recrystallized form tells P-T history                       |
+|                                                                   |
+|  SILICON DIOXIDE (SiO₂)                                           |
+|  Quartz: stable below 573°C, hexagonal; common everywhere         |
+|  Tridymite: 573°C–870°C, hexagonal with different topology        |
+|  Cristobalite: 870°C–1723°C (melting point)                       |
+|  Coesite: very high pressure (>3 GPa); marker of meteor impact    |
+|  Stishovite: >10 GPa; Si in 6-fold coordination (not 4-fold)      |
+|  Opal: amorphous (non-crystalline) — technically a mineraloid     |
+|                                                                   |
+|  ALUMINUM SILICATE (Al₂SiO₅)                                      |
+|  Kyanite: high P/low T → bladed blue crystals                     |
+|  Sillimanite: high P/high T → fibrous needles                     |
+|  Andalusite: low P/low T → blocky prismatic crystals              |
+|  Stability fields map directly to metamorphic P-T conditions      |
++-------------------------------------------------------------------+
 ```
 
 The Al₂SiO₅ polymorphs are metamorphic P-T indicators — which one is present tells you the pressure and temperature of metamorphism.

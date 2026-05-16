@@ -1,3 +1,22 @@
+---
+maxim_schema: maxim.frontmatter.v1
+id: maxim:mineralogy:crystal-systems
+kind: guide
+module: mineralogy
+section: mineralogy
+title: Crystal Systems and Crystallography
+status: source-custody
+source_custody: partial
+current_path: mineralogy/02-CRYSTAL-SYSTEMS.md
+canonical_path: mineralogy/02-CRYSTAL-SYSTEMS.md
+backsource_ids: [proof-backfill:mineralogy:02-crystal-systems, git-history:mineralogy:02-crystal-systems]
+concepts: [crystal, systems]
+root_concepts: [crystal, systems]
+index_roles: [guide, root-concept]
+remap_from: []
+remap_to: []
+updated: null
+---
 # Crystal Systems and Crystallography
 
 ## The Big Picture
@@ -141,20 +160,20 @@ The 14 Bravais lattices are the complete enumeration of distinct ways to tile 3D
 
 ```
 CRYSTAL HABITS AND WHAT CONTROLS THEM
-+--------------------------------------------------+
-|  Habit Name    | Shape         | Example         |
-+--------------------------------------------------+
-|  Cubic         | 6 square faces | Halite, pyrite |
-|  Octahedral    | 8 triangular   | Diamond, spinel|
-|  Prismatic     | elongated prism| Quartz, beryl  |
-|  Tabular       | flat tablet    | Mica, graphite |
-|  Acicular      | needle-like    | Rutile, natrolite|
-|  Bladed        | flat blades    | Kyanite, gypsum|
-|  Reniform      | kidney-shaped  | Hematite       |
-|  Botryoidal    | grape clusters | Malachite      |
-|  Dendritic     | tree-like      | Native copper  |
-|  Massive       | no crystal faces| Chalcedony    |
-+--------------------------------------------------+
++-----------------------------------------------------+
+|  Habit Name    | Shape         | Example            |
++-----------------------------------------------------+
+|  Cubic         | 6 square faces | Halite, pyrite    |
+|  Octahedral    | 8 triangular   | Diamond, spinel   |
+|  Prismatic     | elongated prism| Quartz, beryl     |
+|  Tabular       | flat tablet    | Mica, graphite    |
+|  Acicular      | needle-like    | Rutile, natrolite |
+|  Bladed        | flat blades    | Kyanite, gypsum   |
+|  Reniform      | kidney-shaped  | Hematite          |
+|  Botryoidal    | grape clusters | Malachite         |
+|  Dendritic     | tree-like      | Native copper     |
+|  Massive       | no crystal faces| Chalcedony       |
++-----------------------------------------------------+
 
 Growth conditions override ideal habit:
 → Fast growth → skeletal crystals with incomplete faces
@@ -171,23 +190,23 @@ A twin is a single crystal in which two or more parts are related by a symmetry 
 
 ```
 TYPES OF TWINNING
-+------------------------------------------------------------------+
-|  CONTACT TWINS: two individuals joined by a flat twin plane      |
-|  Example: Gypsum butterfly twins, staurolite cross twins         |
-|                                                                  |
-|  PENETRATION TWINS: individuals interpenetrate                   |
-|  Example: Orthoclase Carlsbad twin, fluorite penetration twin    |
-|                                                                  |
-|  POLYSYNTHETIC TWINS: many repeated fine lamellae                |
-|  Example: Plagioclase — alternating twin orientations visible    |
-|    under microscope (key identification feature)                 |
-|  Example: Calcite — deformation twinning under stress            |
-|                                                                  |
-|  IMPORTANCE:                                                     |
-|  Plagioclase polysynthetic twinning = definitive ID in thin section
-|  Magnetite twinning → magnetic domain structure                  |
-|  Silicon semiconductor: twinning = manufacturing defect          |
-+------------------------------------------------------------------+
++---------------------------------------------------------------------+
+|  CONTACT TWINS: two individuals joined by a flat twin plane         |
+|  Example: Gypsum butterfly twins, staurolite cross twins            |
+|                                                                     |
+|  PENETRATION TWINS: individuals interpenetrate                      |
+|  Example: Orthoclase Carlsbad twin, fluorite penetration twin       |
+|                                                                     |
+|  POLYSYNTHETIC TWINS: many repeated fine lamellae                   |
+|  Example: Plagioclase — alternating twin orientations visible       |
+|    under microscope (key identification feature)                    |
+|  Example: Calcite — deformation twinning under stress               |
+|                                                                     |
+|  IMPORTANCE:                                                        |
+|  Plagioclase polysynthetic twinning = definitive ID in thin section |
+|  Magnetite twinning → magnetic domain structure                     |
+|  Silicon semiconductor: twinning = manufacturing defect             |
++---------------------------------------------------------------------+
 ```
 
 ---
@@ -240,7 +259,7 @@ XRD WORKFLOW
 |  Peak intensities → atom positions within unit cell              |
 |  Peak widths → crystallite size (Scherrer equation)              |
 |       |                                                          |
-|  MINERAL IDENTIFICATION: match d-spacings to JCPDS/ICDD database|
+|  MINERAL IDENTIFICATION: match d-spacings to JCPDS/ICDD database |
 |  (every mineral has a unique XRD fingerprint)                    |
 +------------------------------------------------------------------+
 ```
@@ -264,10 +283,10 @@ MILLER INDEX EXAMPLES
 +--------------------------------------------------+
 |  Plane       | h k l | Description               |
 +--------------------------------------------------+
-|  (100)       | 1 0 0 | perpendicular to a-axis  |
-|  (110)       | 1 1 0 | diagonal plane           |
-|  (111)       | 1 1 1 | diagonal through corners |
-|  (001)       | 0 0 1 | basal plane (horizontal) |
+|  (100)       | 1 0 0 | perpendicular to a-axis   |
+|  (110)       | 1 1 0 | diagonal plane            |
+|  (111)       | 1 1 1 | diagonal through corners  |
+|  (001)       | 0 0 1 | basal plane (horizontal)  |
 +--------------------------------------------------+
 
 Cleavage in calcite: {1011} — the rhombohedral cleavage
@@ -300,7 +319,7 @@ The notation {hkl} means all symmetrically equivalent planes (the whole family).
 | How many space groups? | 230 |
 | Why no 5-fold symmetry? | Crystallographic restriction theorem — 5-fold can't tile periodic 3D space |
 | What does XRD measure? | d-spacings (via Bragg's law) → unit cell parameters → mineral identity |
-| What's the phase problem? | You measure |F|² from XRD, not F; recovering phases requires direct methods or isomorphous replacement |
+| What's the phase problem? | You measure \|F\|² from XRD, not F; recovering phases requires direct methods or isomorphous replacement |
 | What are Bravais lattices? | 14 distinct translational symmetry frameworks for 3D periodic structures |
 
 ---

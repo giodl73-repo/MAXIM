@@ -1,3 +1,22 @@
+---
+maxim_schema: maxim.frontmatter.v1
+id: maxim:mineralogy:economic-geology
+kind: guide
+module: mineralogy
+section: mineralogy
+title: Economic Geology and Ore Deposits
+status: source-custody
+source_custody: partial
+current_path: mineralogy/08-ECONOMIC-GEOLOGY.md
+canonical_path: mineralogy/08-ECONOMIC-GEOLOGY.md
+backsource_ids: [proof-backfill:mineralogy:08-economic-geology, git-history:mineralogy:08-economic-geology]
+concepts: [economic, geology]
+root_concepts: [economic, geology]
+index_roles: [guide, root-concept]
+remap_from: []
+remap_to: []
+updated: null
+---
 # Economic Geology and Ore Deposits
 
 ## The Big Picture
@@ -336,7 +355,7 @@ TECH SUPPLY CHAINS: MINERAL TO DEVICE
 |  TANTALUM AND NIOBIUM                                            |
 |  Columbite-tantalite ("coltan"): DRC, Rwanda, Australia          |
 |  Ta → capacitors (85% of capacitors in electronics)              |
-|  Nb → high-strength steel, superconducting magnets (NbTi, Nb₃Sn)|
+|  Nb → high-strength steel, superconducting magnets (NbTi, Nb₃Sn) |
 |  SIGNIFICANT SUPPLY CHAIN RISK: DRC conflict history             |
 +------------------------------------------------------------------+
 ```
@@ -405,21 +424,21 @@ CRITICAL SUPPLY CONCENTRATIONS:
 
 ```
 MINING METHODS vs. DEPOSIT TYPE
-+------------------------------------------------------------------+
-|  OPEN PIT: flat-lying or large, low-grade deposits               |
-|  Strip ratio determines economics                                |
-|  Bingham Canyon: world's largest open pit (1.2 km deep, 4 km wide)|
-|                                                                  |
-|  UNDERGROUND: narrow veins, high-grade, deep                     |
-|  Block caving (mass caving): large low-grade bodies underground  |
-|  Cut and fill: narrow high-grade veins                           |
-|                                                                  |
-|  PLACER: alluvial/beach mining; gold, Ti, Sn                     |
-|  Dredging, sluicing, hydraulic mining (environmental damage)     |
-|                                                                  |
-|  IN-SITU LEACHING: inject solution, pump out dissolved metals    |
-|  Copper (heap leach), uranium (ISL)                              |
-+------------------------------------------------------------------+
++--------------------------------------------------------------------+
+|  OPEN PIT: flat-lying or large, low-grade deposits                 |
+|  Strip ratio determines economics                                  |
+|  Bingham Canyon: world's largest open pit (1.2 km deep, 4 km wide) |
+|                                                                    |
+|  UNDERGROUND: narrow veins, high-grade, deep                       |
+|  Block caving (mass caving): large low-grade bodies underground    |
+|  Cut and fill: narrow high-grade veins                             |
+|                                                                    |
+|  PLACER: alluvial/beach mining; gold, Ti, Sn                       |
+|  Dredging, sluicing, hydraulic mining (environmental damage)       |
+|                                                                    |
+|  IN-SITU LEACHING: inject solution, pump out dissolved metals      |
+|  Copper (heap leach), uranium (ISL)                                |
++--------------------------------------------------------------------+
 
 ENVIRONMENTAL ISSUES:
   Acid mine drainage (AMD): sulfide oxidation → H₂SO₄ → heavy metal mobilization

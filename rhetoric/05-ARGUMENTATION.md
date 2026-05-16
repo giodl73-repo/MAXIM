@@ -1,3 +1,22 @@
+---
+maxim_schema: maxim.frontmatter.v1
+id: maxim:rhetoric:argumentation
+kind: guide
+module: rhetoric
+section: rhetoric
+title: Argumentation and Informal Logic
+status: source-custody
+source_custody: partial
+current_path: rhetoric/05-ARGUMENTATION.md
+canonical_path: rhetoric/05-ARGUMENTATION.md
+backsource_ids: [proof-backfill:rhetoric:05-argumentation, git-history:rhetoric:05-argumentation]
+concepts: [argumentation]
+root_concepts: [argumentation]
+index_roles: [guide, root-concept]
+remap_from: []
+remap_to: []
+updated: null
+---
 # Argumentation and Informal Logic
 
 ## The Big Picture

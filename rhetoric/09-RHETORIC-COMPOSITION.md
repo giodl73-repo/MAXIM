@@ -1,3 +1,22 @@
+---
+maxim_schema: maxim.frontmatter.v1
+id: maxim:rhetoric:rhetoric-composition
+kind: guide
+module: rhetoric
+section: rhetoric
+title: Rhetoric and Composition
+status: source-custody
+source_custody: partial
+current_path: rhetoric/09-RHETORIC-COMPOSITION.md
+canonical_path: rhetoric/09-RHETORIC-COMPOSITION.md
+backsource_ids: [proof-backfill:rhetoric:09-rhetoric-composition, git-history:rhetoric:09-rhetoric-composition]
+concepts: [rhetoric, composition]
+root_concepts: [rhetoric, composition]
+index_roles: [guide, root-concept]
+remap_from: []
+remap_to: []
+updated: null
+---
 # Rhetoric and Composition
 
 ## The Big Picture

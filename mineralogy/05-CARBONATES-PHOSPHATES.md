@@ -1,3 +1,22 @@
+---
+maxim_schema: maxim.frontmatter.v1
+id: maxim:mineralogy:carbonates-phosphates
+kind: guide
+module: mineralogy
+section: mineralogy
+title: Carbonates and Phosphates
+status: source-custody
+source_custody: partial
+current_path: mineralogy/05-CARBONATES-PHOSPHATES.md
+canonical_path: mineralogy/05-CARBONATES-PHOSPHATES.md
+backsource_ids: [proof-backfill:mineralogy:05-carbonates-phosphates, git-history:mineralogy:05-carbonates-phosphates]
+concepts: [carbonates, phosphates]
+root_concepts: [carbonates, phosphates]
+index_roles: [guide, root-concept]
+remap_from: []
+remap_to: []
+updated: null
+---
 # Carbonates and Phosphates
 
 ## The Big Picture

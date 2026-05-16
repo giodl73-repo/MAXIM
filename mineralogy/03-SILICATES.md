@@ -1,3 +1,22 @@
+---
+maxim_schema: maxim.frontmatter.v1
+id: maxim:mineralogy:silicates
+kind: guide
+module: mineralogy
+section: mineralogy
+title: Silicate Minerals
+status: source-custody
+source_custody: partial
+current_path: mineralogy/03-SILICATES.md
+canonical_path: mineralogy/03-SILICATES.md
+backsource_ids: [proof-backfill:mineralogy:03-silicates, git-history:mineralogy:03-silicates]
+concepts: [silicates]
+root_concepts: [silicates]
+index_roles: [guide, root-concept]
+remap_from: []
+remap_to: []
+updated: null
+---
 # Silicate Minerals
 
 ## The Big Picture
