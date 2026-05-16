@@ -1,3 +1,22 @@
+---
+maxim_schema: maxim.frontmatter.v1
+id: maxim:fermentation-spirits:whiskey
+kind: guide
+module: fermentation-spirits
+section: fermentation-spirits
+title: Whiskey - The World's Great Grain Spirits
+status: source-custody
+source_custody: partial
+current_path: fermentation-spirits/04-WHISKEY.md
+canonical_path: fermentation-spirits/04-WHISKEY.md
+backsource_ids: [proof-backfill:fermentation-spirits:04-whiskey, git-history:fermentation-spirits:04-whiskey]
+concepts: [whiskey]
+root_concepts: [whiskey]
+index_roles: [guide, root-concept]
+remap_from: []
+remap_to: []
+updated: null
+---
 # Whiskey — The World's Great Grain Spirits
 
 ## The Big Picture
@@ -213,7 +232,7 @@ BOURBON LEGAL DEFINITION
 |   (age statement required if under 4 years)                      |
 |                                                                  |
 | "BOTTLED IN BOND": 4 years minimum, one distillation season,     |
-|   one distillery, 100 proof (50% ABV) -- Bottled in Bond Act 1897|
+|   one distillery, 100 proof (50% ABV) -- Bottled in Bond Act 1897 |
 +------------------------------------------------------------------+
 ```
 

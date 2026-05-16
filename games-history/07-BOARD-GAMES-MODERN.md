@@ -1,3 +1,22 @@
+---
+maxim_schema: maxim.frontmatter.v1
+id: maxim:games-history:board-games-modern
+kind: guide
+module: games-history
+section: games-history
+title: Modern Board Games - From Monopoly to the Eurogame Revolution
+status: source-custody
+source_custody: partial
+current_path: games-history/07-BOARD-GAMES-MODERN.md
+canonical_path: games-history/07-BOARD-GAMES-MODERN.md
+backsource_ids: [proof-backfill:games-history:07-board-games-modern, git-history:games-history:07-board-games-modern]
+concepts: [board, games, modern]
+root_concepts: [board, games]
+index_roles: [guide, root-concept]
+remap_from: []
+remap_to: []
+updated: null
+---
 # Modern Board Games — From Monopoly to the Eurogame Revolution
 
 ## The Big Picture

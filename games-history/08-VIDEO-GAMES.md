@@ -1,3 +1,22 @@
+---
+maxim_schema: maxim.frontmatter.v1
+id: maxim:games-history:video-games
+kind: guide
+module: games-history
+section: games-history
+title: 08 - Video Games
+status: source-custody
+source_custody: partial
+current_path: games-history/08-VIDEO-GAMES.md
+canonical_path: games-history/08-VIDEO-GAMES.md
+backsource_ids: [proof-backfill:games-history:08-video-games, git-history:games-history:08-video-games]
+concepts: [video, games]
+root_concepts: [video, games]
+index_roles: [guide, root-concept]
+remap_from: []
+remap_to: []
+updated: null
+---
 # 08 — Video Games
 ## Spacewar! to Esports: The Complete Technical and Cultural History
 
@@ -110,7 +129,7 @@ ODYSSEY ARCHITECTURE — PURE ANALOG
           ▼
   ┌──────────────────────────────────┐
   │  Plastic screen overlays         │
-  │  (transparent sheets taped to TV)│
+  │  (transparent sheets taped to TV) │
   │  12 games = 12 overlays          │
   │  Tennis overlay, ski slope, etc. │
   └──────────────────────────────────┘
@@ -407,7 +426,7 @@ CONSOLE GENEALOGY: HARDWARE → MARKET IMPACT
       │    Motion controls (Wiimote/MotionPlus)             │
       │    1/5 the GPU power of competitors                 │
       │    100M units: casual gaming revolution             │
-      │    Grandparents playing Wii Sports = cultural moment│
+      │    Grandparents playing Wii Sports = cultural moment │
       └─────────────────────────────────────────────────────┘
               │
               ▼

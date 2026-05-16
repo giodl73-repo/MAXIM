@@ -1,3 +1,22 @@
+---
+maxim_schema: maxim.frontmatter.v1
+id: maxim:games-history:poker
+kind: guide
+module: games-history
+section: games-history
+title: Poker - From Riverboats to Game Theory Optimal
+status: source-custody
+source_custody: partial
+current_path: games-history/04-POKER.md
+canonical_path: games-history/04-POKER.md
+backsource_ids: [proof-backfill:games-history:04-poker, git-history:games-history:04-poker]
+concepts: [poker]
+root_concepts: [poker]
+index_roles: [guide, root-concept]
+remap_from: []
+remap_to: []
+updated: null
+---
 # Poker — From Riverboats to Game Theory Optimal
 
 ## The Big Picture

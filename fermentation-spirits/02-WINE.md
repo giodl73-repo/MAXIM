@@ -1,3 +1,22 @@
+---
+maxim_schema: maxim.frontmatter.v1
+id: maxim:fermentation-spirits:wine
+kind: guide
+module: fermentation-spirits
+section: fermentation-spirits
+title: Wine - Viticulture, Vinification, and Classification
+status: source-custody
+source_custody: partial
+current_path: fermentation-spirits/02-WINE.md
+canonical_path: fermentation-spirits/02-WINE.md
+backsource_ids: [proof-backfill:fermentation-spirits:02-wine, git-history:fermentation-spirits:02-wine]
+concepts: [wine]
+root_concepts: [wine]
+index_roles: [guide, root-concept]
+remap_from: []
+remap_to: []
+updated: null
+---
 # Wine — Viticulture, Vinification, and Classification
 
 ## The Big Picture

@@ -1,0 +1,116 @@
+{
+  "schema_version": "1",
+  "source_markdown": "fermentation-spirits\\01-BEER.md",
+  "blocks": [
+    {
+      "id": "block-1",
+      "kind": "ascii_table_candidate",
+      "line": 24,
+      "heading_context": "## The Big Picture",
+      "confidence": "candidate",
+      "text": "+------------------------------------------------------------------+\n|                    BEER PRODUCTION FLOW                          |\n|                                                                  |\n|  MALTHOUSE              BREWHOUSE              FERMENTATION      |\n|  ---------              ---------              -----------       |\n|  Barley                 Mash Tun               Fermentation Vessel |\n|  -> Steep               (mashing)              (7-14 days)       |\n|  -> Germinate           -> Lauter Tun           -> Conditioning  |\n|  -> Kiln                (lautering)             -> Packaging     |\n|  MALT                   -> Kettle               -> BEER          |\n|                         (boiling + hops)                         |\n+------------------------------------------------------------------+\n\nKEY INPUTS AT EACH STAGE:\n  Malthouse: Water, temperature, time\n  Mash Tun: Hot water (strike water), enzyme activity, temperature rests\n  Kettle: Hops (bittering + aroma), heat (Maillard, DMS volatilization)\n  Fermenter: Yeast strain, temperature, oxygen (initially)",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-2",
+      "kind": "diagram_like",
+      "line": 51,
+      "heading_context": "## Stage 1: Malting",
+      "confidence": "candidate",
+      "text": "RAW BARLEY\n     |\n     | STEEP (48-72 hrs, 12-18 degrees C)\n     | Water absorption to ~42-45% moisture\n     | Activates gibberellin -> aleurone layer activation\n     v\nGERMINATING BARLEY (3-6 days at 15-20 degrees C)\n     |\n     | ACROSPIRE grows to 3/4 grain length\n     | Enzymes synthesized:\n     |   alpha-amylase    -> cleaves starch internally (dextrins)\n     |   beta-amylase     -> cleaves from starch ends (maltose)\n     |   proteases        -> modify proteins (head retention, clarity)\n     |   beta-glucanase   -> breaks gummy beta-glucans\n     |   limit dextrinase -> debranches starch\n     v\nKILNING (50-105+ degrees C, 24-48 hrs)\n     |\n     | Dries grain to <5% moisture (stable for storage)\n     | Temperature determines malt character\n     v\nMALT (enzymes preserved or destroyed depending on kiln temp)",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-3",
+      "kind": "diagram_like",
+      "line": 99,
+      "heading_context": "## Stage 2: Mashing",
+      "confidence": "candidate",
+      "text": "MASH TUN (infusion or decoction)\n\nStrike water at target temperature -> add crushed malt -> stabilizes at mash temp\n                                                          (grist ratio ~3-4 L/kg)\n\nTEMPERATURE RESTS (enzyme activity windows):\n\n  40-45 degrees C    beta-glucanase rest\n  |                  Breaks beta-glucans -> reduces viscosity\n  |                  5-20 min (skip in most modern malts)\n  |\n  50-55 degrees C    Protein rest\n  |                  Proteases digest proteins\n  |                  -> foam-positive fraction (FAN for yeast nutrition)\n  |                  -> skip in modern well-modified malts\n  |\n  62-65 degrees C    beta-amylase optimum\n  |                  Cleaves maltose from starch chain ends\n  |                  -> highly fermentable wort (dry beer)\n  |                  Denatures ~75 degrees C\n  |\n  68-72 degrees C    alpha-amylase optimum\n  |                  Random internal cleavage -> dextrins + shorter chains\n  |                  -> fuller body, less fermentable (sweet beer)\n  |                  Stable to ~80 degrees C\n  |\n  77 degrees C       Mash out\n                     Denatures all enzymes, locks in fermentability profile\n                     Reduces viscosity for lautering",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-4",
+      "kind": "diagram_like",
+      "line": 135,
+      "heading_context": "## Stage 2: Mashing",
+      "confidence": "candidate",
+      "text": "  -> Maillard reactions in mash itself -> melanoidins -> flavor complexity",
+      "notes": [
+        "detected from arrows or box-drawing glyphs"
+      ]
+    },
+    {
+      "id": "block-5",
+      "kind": "diagram_like",
+      "line": 149,
+      "heading_context": "## Stage 3: Lautering",
+      "confidence": "candidate",
+      "text": "LAUTER TUN (false bottom or manifold)\n\n  Mash -> Vorlauf (recirculate until wort runs clear)\n       -> First runnings (concentrated wort)\n       -> Sparge (hot water rinse, 75-78 degrees C)\n          rinse sugars from grain bed\n       -> Collect to pre-boil volume\n\nSTUCK SPARGE: grain bed compacts -> flow stops\n  Causes: too-fine crush, too much protein, high adjunct content\n  Fix: stir, raise bed, reduce sparge rate\n\nPre-boil specific gravity measured here (hydrometer or refractometer)\nBrewers calculate extract efficiency (typically 70-80% homebrew, 85-95% commercial)",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-6",
+      "kind": "diagram_like",
+      "line": 172,
+      "heading_context": "## Stage 4: Boiling",
+      "confidence": "candidate",
+      "text": "KETTLE BOIL (60-90 min, rolling boil)\n\n1. STERILIZATION\n   Kills bacteria from mashing process\n   -> Wort is not sterile until post-boil\n\n2. DMS VOLATILIZATION\n   DMS = Dimethyl sulfide (cooked corn/vegetables)\n   SMM (S-methylmethionine) in malt -> DMS when heated\n   Vigorous boil with open kettle vents DMS\n   -> NEVER cover kettle during boil (DMS redissolves)\n\n3. MAILLARD REACTION\n   Reducing sugars + amino acids + heat\n   -> Melanoidins -> color, flavor complexity\n   -> Not caramelization (sugars alone) -- it's Maillard\n   -> Darker wort, slight toast notes\n\n4. PROTEIN COAGULATION (Hot break)\n   Proteins + polyphenols aggregate -> cold/hot trub\n   -> Clearer wort, longer shelf life\n\n5. HOP ISOMERIZATION (see Hop Chemistry section)",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-7",
+      "kind": "ascii_table_candidate",
+      "line": 202,
+      "heading_context": "## Hop Chemistry",
+      "confidence": "candidate",
+      "text": "HOP (Humulus lupulus) CHEMISTRY OVERVIEW\n\n+------------------+------------------+------------------+\n|   ALPHA-ACIDS    |   BETA-ACIDS     |  ESSENTIAL OILS  |\n|   (bittering)    |   (antimicrobial) |  (aroma)         |\n|                  |                  |                  |\n| Humulone         | Lupulone         | Myrcene          |\n| Cohumulone       | (not isomerized, | (pungent, earthy)|\n| Adhumulone       |  contributes     | Linalool         |\n|                  |  to foam and     | (floral)         |\n| ISOMERIZED by    |  antimicrobial   | Geraniol         |\n| boiling:         |  properties)     | (rose, floral)   |\n| -> iso-alpha-    |                  | Beta-caryophyllene|\n|    acids         |                  | (spicy, woody)   |\n| -> BITTERNESS    |                  |                  |\n+------------------+------------------+------------------+\n\nIBU FORMULA (simplified):\n  IBUs = (oz_hops x %AAU x utilization%) / gallons_wort x 74.89\n\nUtilization depends on:\n  - Boil time: 60 min = ~30%; 15 min = ~15%; 5 min = ~5%\n  - Wort gravity: higher gravity = lower utilization\n  - Form: pellets vs whole hops",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-8",
+      "kind": "diagram_like",
+      "line": 252,
+      "heading_context": "## Stage 5: Fermentation",
+      "confidence": "candidate",
+      "text": "YEAST LIFECYCLE IN FERMENTATION\n\nPitch yeast (active, healthy)\n     |\n     | LAG PHASE (1-12 hrs)\n     | Yeast adapts, takes up oxygen, synthesizes sterols\n     | -> AERATE wort before pitching (or oxygenate with O2)\n     | -> Sterols required for healthy cell membrane at fermentation temps\n     v\nEXPONENTIAL GROWTH (12-36 hrs)\n     |\n     | Rapid cell division\n     | Glycolysis active\n     | High ester production (ester synthase + ethanol + organic acids)\n     | -> Temperature control critical here for flavor development\n     v\nSTATIONARY/ATTENUATION PHASE (3-10 days)\n     |\n     | Sugars depleted in order: glucose -> fructose -> maltose -> maltotriose\n     | Alcohol accumulates\n     | Diacetyl produced (acetolactate -> diacetyl via oxidation)\n     | -> Yeast reabsorbs diacetyl (reduce by VDK rest at end)\n     v\nFLOCCULATION (yeast drops out or rises)\n     |\n     | S. cerevisiae (ale): top-flocculant, 15-24 degrees C\n     | S. pastorianus (lager): bottom-flocculant, 4-12 degrees C\n     v\nCONDITIONING (lagering/dry conditioning)\n     |\n     | Cold conditioning (lagering): 0-4 degrees C, 3-6+ weeks\n     | -> Flavor smooths, CO2 absorbs, haze proteins precipitate\n     v\nBEER (packaged: kegged, bottled, canned)",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-9",
+      "kind": "ascii_table_candidate",
+      "line": 318,
+      "heading_context": "## Beer Style Taxonomy",
+      "confidence": "candidate",
+      "text": "+------------------------------------------------------------------+\n|                    BEER STYLE TREE                               |\n|                                                                  |\n|  LAGER                          ALE                              |\n|  -----                          ---                              |\n|  Pale                           British                          |\n|  +-Pilsner (Czech/German)       +-Pale Ale / Bitter              |\n|  +-Helles (Munich)              +-IPA (English)                  |\n|  +-Kolsch (ale, lagered)        +-Porter / Stout                 |\n|  +-American Light               +-Barleywine                     |\n|                                                                  |\n|  Amber/Dark                     American                         |\n|  +-Vienna                       +-American Pale Ale              |\n|  +-Märzen/Oktoberfest            +-American IPA (West Coast)     |\n|  +-Dunkel                       +-Double/Imperial IPA            |\n|  +-Schwarzbier                  +-New England/Hazy IPA           |\n|                                 +-American Stout                 |\n|  Strong                                                          |\n|  +-Bock                         Belgian                          |\n|  +-Doppelbock                   +-Witbier (wheat, coriander)     |\n|  +-Eisbock                      +-Saison (rustic, farmhouse)     |\n|                                 +-Tripel / Dubbel / Quad         |\n|  German Wheat                   +-Lambic / Gueuze (spontaneous)  |\n|  +-Hefeweizen (S. cerevisiae    +-Krieken (cherry lambic)        |\n|    with Weizen character)                                        |\n|  +-Dunkelweizen                 Sour/Wild                        |\n|  +-Weizenbock                   +-Berliner Weisse (Lactobacillus) |\n|                                 +-Gose (salt + coriander)        |\n|                                 +-Flanders Red (Roeselare blend) |\n+------------------------------------------------------------------+",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-10",
+      "kind": "diagram_like",
+      "line": 382,
+      "heading_context": "## Craft Beer Renaissance",
+      "confidence": "candidate",
+      "text": "TIMELINE\n\n1959  Anchor Brewing near-closes (San Francisco)\n1965  Fritz Maytag buys Anchor, saves it, begins quality focus\n1971  CAMRA founded (UK, Campaign for Real Ale) -- reaction to big brewery\n1977  New Albion Brewing -- first modern US microbrewery\n1978  US homebrewing legalized (Carter signs HR 1337)\n      -> Amateur experimentation explodes\n1980s Sierra Nevada Pale Ale (1980) -- defines American Pale Ale style\n      Boston Beer Company / Samuel Adams (1984)\n      Cascade hop becomes signature of American craft\n1990s Belgian styles rediscovered; extreme beer begins\n      (Dogfish Head, Rogue, Stone Brewing)\n2000s Craft brewery count: 1,000 -> 3,000+ in USA\n2010s Hazy/New England IPA dominates (Heady Topper 2011 as inflection)\n      Craft sour/wild ales (Cantillon influence)\n2020s Hard seltzer, non-alcoholic beer (Athletic Brewing)\n      10,000+ US craft breweries\n      Major acquisitions: ABInBev buys Goose Island, Wicked Weed, etc.",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    }
+  ]
+}

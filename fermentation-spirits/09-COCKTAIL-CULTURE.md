@@ -1,3 +1,22 @@
+---
+maxim_schema: maxim.frontmatter.v1
+id: maxim:fermentation-spirits:cocktail-culture
+kind: guide
+module: fermentation-spirits
+section: fermentation-spirits
+title: Cocktail Culture - From Punch Bowls to Craft Bars
+status: source-custody
+source_custody: partial
+current_path: fermentation-spirits/09-COCKTAIL-CULTURE.md
+canonical_path: fermentation-spirits/09-COCKTAIL-CULTURE.md
+backsource_ids: [proof-backfill:fermentation-spirits:09-cocktail-culture, git-history:fermentation-spirits:09-cocktail-culture]
+concepts: [cocktail, culture]
+root_concepts: [cocktail, culture]
+index_roles: [guide, root-concept]
+remap_from: []
+remap_to: []
+updated: null
+---
 # Cocktail Culture — From Punch Bowls to Craft Bars
 
 ## The Big Picture

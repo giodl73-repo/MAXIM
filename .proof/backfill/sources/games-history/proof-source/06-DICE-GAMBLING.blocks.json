@@ -1,0 +1,116 @@
+{
+  "schema_version": "1",
+  "source_markdown": "games-history\\06-DICE-GAMBLING.md",
+  "blocks": [
+    {
+      "id": "block-1",
+      "kind": "diagram_like",
+      "line": 24,
+      "heading_context": "## The Big Picture",
+      "confidence": "candidate",
+      "text": "GAMBLING AND MATHEMATICS — MUTUAL ORIGIN\n═════════════════════════════════════════\n\nANCIENT GAMBLING           PROBABILITY THEORY           MODERN MATHEMATICS\n3000 BCE – 1650 CE         1650 – 1820                  1820 – present\n──────────────────         ──────────────               ──────────────────\nAstragali (ankle bones)    Pascal–Fermat 1654:          Kolmogorov axioms\n  used as dice               Problem of Points          Measure theory\nCubic dice ~3000 BCE         (divide stakes)            Stochastic processes\n  (Mesopotamia, Egypt)     Huygens 1657:               Martingales\nRoman tesserae               De ratiociniis             Random variables\n  (often loaded)             in ludo aleae             Central limit theorem\nHazard (dice game)         Bernoulli 1713:              Kelly criterion\n  → Craps                    Ars Conjectandi            Information theory\nBackgammon lineage:          (LLN, EV formalized)       (Shannon 1948)\n  Senet → Tabula           Moivre 1718:\n  → Tables → Backgammon      Doctrine of Chances\n                           Laplace 1812:               THE DIRECTION:\n                             Théorie Analytique        Gambling → Probability\n                             des Probabilités          Probability → Statistics\n                                                       Statistics → Decision Theory\n                                                       Decision Theory → AI\n\nGambling is not a social problem that happened to\nproduce mathematics. Gambling IS the original\nempirical laboratory for probability theory.\nThe demand was: \"what is a fair division of stakes?\"\nThe mathematics existed to answer that demand.",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-2",
+      "kind": "diagram_like",
+      "line": 63,
+      "heading_context": "### What They Are",
+      "confidence": "candidate",
+      "text": "ASTRAGALUS ANATOMY\n═══════════════════\n\nCross-section of a sheep/goat astragalus:\n\n           ┌─────────────┐\n           │  CONVEX     │\n           │  BROAD      │\n           └─────────────┘\n              broad convex side; most common ~40%\n\n     ┌─────┐         ┌─────┐\n     │     │         │     │\n     │ FLAT│         │ FLAT│\n     │     │         │     │\n     └─────┘         └─────┘\n              flat sides ~40% combined (approximately equal)\n\n           ┌─────────────┐\n           │  CONCAVE    │\n           │  NARROW     │\n           └─────────────┘\n              concave narrow side; least common ~10-20%\n\nFour sides, NOT equally probable.\nDifferent cultures assigned different values to each side.\n\nGREEK VALUES (one documented system):\n  Concave narrow (χίον/chion): 1 — lowest\n  Convex broad (κύων/kyon):    3 or 4 (dog, unlucky)\n  Flat A (βασιλεύς):          4 (king)\n  Flat B (various):            6\n  (Systems varied by region and period)\n\nROMAN VALUES:\n  One system: knucklebone (narrow concave) = 1\n  Others = 3, 4, 6\n  \"Venus throw\" (set of 4): one of each different face\n  = highest, most prized.",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-3",
+      "kind": "diagram_like",
+      "line": 208,
+      "heading_context": "### The Problem of Points",
+      "confidence": "candidate",
+      "text": "THE PROBLEM OF POINTS\n══════════════════════\n\nSCENARIO:\n  Two players, equal skill, bet $100 each ($200 total pot).\n  First to win 3 rounds takes the pot.\n  Game interrupted with Player A leading 2-1.\n\n  How should the $200 be divided?\n\nWRONG ANSWER (naive): 2/3 to A, 1/3 to B (ratio of wins).\n  But A needs 1 more win; B needs 2 more wins.\n  If each round is 50/50, what's the probability each\n  wins the match from this point?\n\nPASCAL'S SOLUTION:\n  From 2-1, at most 2 more rounds needed (either A wins\n  the next one, or B wins the next two).\n  Consider all possible 2-round outcomes (exhaustive):\n\n  Round 3: A wins (prob 1/2) → A wins match regardless\n  Round 3: B wins (prob 1/2)\n    Round 4: A wins (prob 1/4) → A wins match\n    Round 4: B wins (prob 1/4) → B wins match\n             (B has won both remaining rounds, reaching 3)\n\n  Actually from 2-1 (A needs 1, B needs 2):\n  P(A wins match) = P(A wins next round)\n                  + P(B wins next, A wins round after)\n                = 1/2 + (1/2)(1/2) = 1/2 + 1/4 = 3/4\n\n  P(B wins match) = P(B wins both next rounds)\n                = (1/2)(1/2) = 1/4\n\n  FAIR DIVISION: A gets (3/4) × $200 = $150\n                 B gets (1/4) × $200 = $50\n\nFERMAT'S APPROACH: Enumerated all possible game completions.\n  Pascal and Fermat agreed on the answer by different methods.\n  Their correspondence (July-October 1654) is the founding\n  document of probability theory.",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-4",
+      "kind": "diagram_like",
+      "line": 256,
+      "heading_context": "### The Mathematical Harvest",
+      "confidence": "candidate",
+      "text": "PROBABILITY THEORY FROM GAMBLING\n═══════════════════════════════════\n\nCHRISTIAAN HUYGENS (1629-1695):\n  \"De ratiociniis in ludo aleae\" (1657) — first published\n  probability textbook. Formalized expected value (EV):\n    E[X] = sum(x_i × P(x_i))\n  Derived from the gambling principle: \"a fair price for\n  a game is the expected outcome.\"\n\nJACOB BERNOULLI (1655-1705):\n  \"Ars Conjectandi\" (1713, posthumous):\n  - Law of Large Numbers (first formal proof):\n    Sample average converges to E[X] as n → ∞.\n  - Bernoulli trials (repeated independent experiments).\n  - Binomial distribution formalized.\n  Quote: \"Even a stupid person... after observing many\n  trials... can satisfy himself as to the probability.\"\n\nABRAHAM DE MOIVRE (1667-1754):\n  \"The Doctrine of Chances\" (1718, with later editions):\n  - Normal distribution as limit of binomial distribution\n    (precursor to Central Limit Theorem).\n  - Birthday problem (approximate first formulation).\n  - Stirling's formula (collaboration with Stirling).\n  He earned his living partly by answering gamblers'\n  probability questions for payment in London coffee houses.\n\nPIERRE-SIMON LAPLACE (1749-1827):\n  \"Théorie analytique des probabilités\" (1812):\n  - Classical definition of probability: P = favorable/total\n  - Bayesian probability formalized (though Bayes 1763 first)\n  - Central Limit Theorem (formal proof)\n  - Moment generating functions\n\nTHE LINEAGE:\n  Gambling problem → Pascal/Fermat 1654\n  → Huygens 1657 (EV formalized)\n  → Bernoulli 1713 (LLN, binomial distribution)\n  → De Moivre 1718 (normal approximation)\n  → Laplace 1812 (CLT, classical probability)\n  → Kolmogorov 1933 (axiomatic probability theory)\n  → Modern statistics, machine learning, AI",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-5",
+      "kind": "ascii_table_candidate",
+      "line": 373,
+      "heading_context": "### Modern Craps Mathematics",
+      "confidence": "candidate",
+      "text": "CRAPS BETTING ANALYSIS\n════════════════════════\n\nPASS LINE BET (most basic):\n  Win: come-out 7 or 11 = P(7) + P(11) = 6/36 + 2/36 = 8/36\n  Lose: come-out 2,3,12 = 1/36 + 2/36 + 1/36 = 4/36\n  Point: 4,5,6,8,9,10 = 24/36\n\n  P(win given point = 4): P(4)/[P(4)+P(7)] = 3/9 = 1/3\n  P(win given point = 5): P(5)/[P(5)+P(7)] = 4/10 = 2/5\n  P(win given point = 6): P(6)/[P(6)+P(7)] = 5/11\n  P(win given point = 8): same as 6 = 5/11\n  P(win given point = 9): same as 5 = 2/5\n  P(win given point = 10): same as 4 = 1/3\n\n  Overall P(pass line wins):\n  = 8/36 + (6/36)(1/3) + (8/36)(2/5) + (10/36)(5/11)\n    come-out win  point 4+10      point 5+9      point 6+8\n  = 8/36 + 2/36 × 2 + (8/36)(2/5) × 2 + (10/36)(5/11) × 2\n    (accounting for both point values that share win prob)\n  ≈ 0.4929 = 49.29%\n\n  House edge = 50% - 49.29% = 1.41% (standard published figure)\n\nBETS AND THEIR EDGES:\n  Pass/Come line:          1.41% house edge\n  Don't Pass/Come:         1.36% (slightly better)\n  Free Odds (behind line): 0.00% house edge (true odds payout!)\n  Place 6 or 8:            1.52%\n  Place 5 or 9:            4.00%\n  Place 4 or 10:           6.67%\n  Hardways 6 or 8:         9.09%\n  Hardways 4 or 10:       11.11%\n  Proposition \"any 7\":    16.67%\n  Proposition \"any craps\": 11.11%\n\nFREE ODDS: The unique zero-edge bet.\n  After establishing a point, you can bet \"free odds\"\n  behind your pass line bet. These pay TRUE odds:\n    Point 4 or 10: pays 2:1\n    Point 5 or 9: pays 3:2\n    Point 6 or 8: pays 6:5\n  No house edge — casino offers this because it's covered\n  by the 1.41% edge on the required pass line bet.\n  The more odds you take, the lower your overall edge.\n  3-4-5× odds tables (common): effective overall edge ~0.37%.\n  100× odds tables (rare): overall edge → near 0.",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-6",
+      "kind": "diagram_like",
+      "line": 429,
+      "heading_context": "### Historical Lineage",
+      "confidence": "candidate",
+      "text": "BACKGAMMON LINEAGE\n═══════════════════\n\n3100 BCE: SENET (Egypt) — race game, throw sticks\n                │\n2600 BCE: ROYAL GAME OF UR (Mesopotamia) — race, tetrahedral dice\n                │\n~500 BCE: TABLES family — various European race games\n                │\n100 CE:  TABULA (Rome) — 3 dice, 24 points, 15 checkers each\n         Emperor Zeno's bad position documented (~480 CE)\n                │\n~600 CE: NARD — Persian/Arab game (possibly influenced by\n         backgammon, or variant of Tabula)\n                │\n~1600 CE: TABLES → BACKGAMMON (English name first documented 1645)\n                │\n1920s:   DOUBLING CUBE ADDED — transformed strategy fundamentally\n                │\nPresent: WORLD BACKGAMMON CHAMPIONSHIP\n         TD-Gammon AI (1992), GNU Backgammon (open source)",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-7",
+      "kind": "diagram_like",
+      "line": 455,
+      "heading_context": "### Backgammon Rules",
+      "confidence": "candidate",
+      "text": "BACKGAMMON BOARD\n═════════════════\n\n     13  14  15  16  17  18     19  20  21  22  23  24\n   +─────────────────────────+──+─────────────────────────+\n   │  ▼   ▼   ▼   ▼   ▼   ▼   │  │  ▲   ▲         ▲   ▲   │\n   │ ●●  ●   ●         ○○○  │  │  ●●●●● ●         ○○      │\n   │                         │  │                         │\n   │ BAR                     │  │                         │\n   │                         │  │                         │\n   │  ▼      ▼   ▼      ▼   │  │   ▼         ▼            │\n   │ ●● ○○  ○   ●●●  ○○  │  │  ●●        ●●●●●            │\n   +─────────────────────────+──+─────────────────────────+\n     12  11  10   9   8   7      6   5   4   3   2   1\n\n● = Black (moves from 24→1), ○ = White (moves 1→24)\nBoth try to bear off all checkers from their home board.\n\nBASIC RULES:\n  Roll 2 dice, move one or two checkers exactly those amounts.\n  Can land on empty point or own point (multiple checkers ok).\n  If you land on opponent's lone checker (blot): BAR that checker.\n  Barred checkers re-enter from opponent's home (points 19-24 for Black).\n  Must re-enter all checkers before moving others.\n  Once all checkers in home board: bear off (roll to remove them).\n  First player to bear off all 15 checkers: wins.\n\nGAMMON: opponent has borne off 0 checkers = 2× stake.\nBACKGAMMON: opponent has checker on bar or in your home = 3× stake.",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-8",
+      "kind": "ascii_table_candidate",
+      "line": 536,
+      "heading_context": "## Engineering Bridge: TD-Gammon as MDP Policy Evaluation",
+      "confidence": "candidate",
+      "text": "DOMAIN CONCEPT                CS / ENGINEERING EQUIVALENT\n──────────────────────────────────────────────────────────────────────────────\nBackgammon board position     State s in a Markov Decision Process (MDP)\n  + whose turn + dice roll      next state depends only on current state +\n                                action + dice (Markov property)\n\nTD(λ) update rule             Bellman equation for policy evaluation:\n  V(s) ← V(s) + α[r + γV(s') - V(s)]    V(s) = r + γ · E[V(s')]\n  temporal difference error               Bellman residual driven to zero\n\nNeural network V(s)           Function approximator for the value function\n  (2 hidden layers, 80 units)   replaces tabular V(s) — necessary because\n                                backgammon has ~10^20 states\n\nSelf-play training            On-policy evaluation: the MDP's transition\n                                probabilities are defined by the current\n                                policy (which is being learned simultaneously)",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-9",
+      "kind": "ascii_table_candidate",
+      "line": 558,
+      "heading_context": "## Engineering Bridge: TD-Gammon as MDP Policy Evaluation",
+      "confidence": "candidate",
+      "text": "TD-GAMMON (Gerald Tesauro, IBM, 1992)\n═══════════════════════════════════════\n\nWHY IT MATTERS HISTORICALLY:\n  TD-Gammon was the FIRST game AI to achieve near-expert\n  play using neural networks + self-play reinforcement\n  learning. Predates Deep Blue. Predates AlphaGo by 24 years.\n\nMETHOD:\n  Temporal Difference Learning (TD(λ)) applied to backgammon.\n  Neural network: 2 hidden layers, 80 hidden units.\n  Training: played against itself from random initialization.\n  No backgammon knowledge encoded.\n  No human game data in training.\n  Only supervised signal: win/lose at end of game.\n\n  TD(λ) update rule:\n    V(s_t) ← V(s_t) + α[r_t+1 + γV(s_t+1) - V(s_t)]\n  where V(s) = estimated value of state s,\n        α = learning rate, γ = discount factor.\n  After each game, update all states in the trajectory.\n\nRESULT:\n  After 1.5 million self-play games: near world-champion level.\n  Human players examined TD-Gammon's moves and found them\n  remarkably sound. Some TD-Gammon moves influenced human\n  backgammon theory (revised opening book recommendations).\n\nSIGNIFICANCE FOR AI:\n  Self-play + RL can generate expert-level play without\n  human knowledge. This insight directly inspired:\n  - AlphaGo (2016): same architecture concept with MCTS\n  - AlphaZero (2017): same tabula rasa self-play for chess/go/shogi\n\n\"TD-Gammon is to game AI what the ENIAC is to computing —\nyou can see the modern lineage from it.\" — AI historian perspective",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-10",
+      "kind": "ascii_table_candidate",
+      "line": 690,
+      "heading_context": "## Section 7: The Gambler's Ruin and Bankroll Theory",
+      "confidence": "candidate",
+      "text": "GAMBLER'S RUIN PROBLEM\n═══════════════════════\n\nSETUP: Two players, A and B.\n  A starts with $a, B starts with $b.\n  Each round: A wins $1 with prob p, loses $1 with prob q=1-p.\n  Game ends when one player is ruined (reaches $0).\n\n  This is a random walk on {0, 1, ..., a+b} with absorbing\n  barriers at 0 and a+b.\n\n  Martingale derivation (Doob's optional stopping theorem):\n    If p ≠ q: M_t = (q/p)^X_t is a martingale.\n    If p = q: M_t = X_t itself is a martingale.\n    Apply optional stopping at the hitting time of\n    {0, a+b}. Since M_0 = E[M_τ]:\n      (q/p)^a = P(ruin) · (q/p)^0 + (1-P(ruin)) · (q/p)^(a+b)\n    Solve for P(ruin) to recover the formula below.\n    This is a cleaner derivation than the difference-\n    equation approach and generalizes to asymmetric walks.\n\nPROBABILITY OF RUIN (player A is ruined):\n  If p ≠ q:  P(A ruined) = [(q/p)^a - (q/p)^(a+b)] / [1 - (q/p)^(a+b)]\n  If p = q:  P(A ruined) = b / (a+b)\n\n  Specifically, P(A eventually ruins B) =\n  If p ≠ q:  P(A wins) = [1 - (q/p)^a] / [1 - (q/p)^(a+b)]\n  If p = q:  P(A wins) = a / (a+b)\n\nAPPLICATION: Casino vs. Gambler\n  Casino has essentially infinite bankroll (b → ∞).\n  Even if p > 0.5 (favorable game for gambler!), as b → ∞:\n    P(gambler ruined) → 1 if p < 0.5 (unfavorable)\n    P(gambler ruined) → exp(−2ka) if p > 0.5 (favorable game)\n  With any house edge (p < 0.5), the gambler is\n  GUARANTEED to eventually be ruined.\n\n  The only way to \"beat\" the casino: win your target amount\n  and leave immediately (finite session, don't play forever).\n  But even then: expected loss is fixed at house_edge × wagered.",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    }
+  ]
+}

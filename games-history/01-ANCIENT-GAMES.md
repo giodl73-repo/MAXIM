@@ -1,3 +1,22 @@
+---
+maxim_schema: maxim.frontmatter.v1
+id: maxim:games-history:ancient-games
+kind: guide
+module: games-history
+section: games-history
+title: Ancient Games - From Senet to the Mesoamerican Ball Court
+status: source-custody
+source_custody: partial
+current_path: games-history/01-ANCIENT-GAMES.md
+canonical_path: games-history/01-ANCIENT-GAMES.md
+backsource_ids: [proof-backfill:games-history:01-ancient-games, git-history:games-history:01-ancient-games]
+concepts: [ancient, games]
+root_concepts: [ancient, games]
+index_roles: [guide, root-concept]
+remap_from: []
+remap_to: []
+updated: null
+---
 # Ancient Games — From Senet to the Mesoamerican Ball Court
 
 ## The Big Picture
@@ -59,11 +78,11 @@ Direction of movement:
   Row 3: left to right (squares 21-30, exit)
 
 +────┬────┬────┬────┬────┬────┬────┬────┬────┬────+
-│ 1  │ 2  │ 3  │ 4  │ 5  │ 6  │ 7  │ 8  │ 9  │10  │
+│ 1  │ 2  │ 3  │ 4  │ 5  │ 6  │ 7  │ 8  │ 9  │ 10 │
 +────┼────┼────┼────┼────┼────┼────┼────┼────┼────+
-│ 20 │ 19 │ 18 │ 17 │ 16 │ 15 │ 14 │ 13 │ 12 │11  │
+│ 20 │ 19 │ 18 │ 17 │ 16 │ 15 │ 14 │ 13 │ 12 │ 11 │
 +────┼────┼────┼────┼────┼────┼────┼────┼────┼────+
-│ 21 │ 22 │ 23 │ 24 │ 25 │ 26 │ 27 │ 28 │ 29 │30  │
+│ 21 │ 22 │ 23 │ 24 │ 25 │ 26 │ 27 │ 28 │ 29 │ 30 │
 +────┴────┴────┴────┴────┴────┴────┴────┴────┴────+
        ^              ^    ^    ^    ^    ^    ^
       Nfr           Special squares (inferred):

@@ -1,3 +1,22 @@
+---
+maxim_schema: maxim.frontmatter.v1
+id: maxim:fermentation-spirits:rum-sugarcane
+kind: guide
+module: fermentation-spirits
+section: fermentation-spirits
+title: Rum and Sugarcane Spirits
+status: source-custody
+source_custody: partial
+current_path: fermentation-spirits/07-RUM-SUGARCANE.md
+canonical_path: fermentation-spirits/07-RUM-SUGARCANE.md
+backsource_ids: [proof-backfill:fermentation-spirits:07-rum-sugarcane, git-history:fermentation-spirits:07-rum-sugarcane]
+concepts: [rum, sugarcane]
+root_concepts: [rum, sugarcane]
+index_roles: [guide, root-concept]
+remap_from: []
+remap_to: []
+updated: null
+---
 # Rum and Sugarcane Spirits
 
 ## The Big Picture

@@ -1,3 +1,22 @@
+---
+maxim_schema: maxim.frontmatter.v1
+id: maxim:games-history:overview
+kind: guide
+module: games-history
+section: games-history
+title: Games History - Overview
+status: source-custody
+source_custody: partial
+current_path: games-history/00-OVERVIEW.md
+canonical_path: games-history/00-OVERVIEW.md
+backsource_ids: [proof-backfill:games-history:00-overview, git-history:games-history:00-overview]
+concepts: [overview]
+root_concepts: [overview]
+index_roles: [guide, root-concept]
+remap_from: []
+remap_to: []
+updated: null
+---
 # Games History — Overview
 
 ## The Big Picture

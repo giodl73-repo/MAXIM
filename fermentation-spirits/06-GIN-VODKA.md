@@ -1,3 +1,22 @@
+---
+maxim_schema: maxim.frontmatter.v1
+id: maxim:fermentation-spirits:gin-vodka
+kind: guide
+module: fermentation-spirits
+section: fermentation-spirits
+title: Gin and Vodka - Neutral Spirits and Their Transformations
+status: source-custody
+source_custody: partial
+current_path: fermentation-spirits/06-GIN-VODKA.md
+canonical_path: fermentation-spirits/06-GIN-VODKA.md
+backsource_ids: [proof-backfill:fermentation-spirits:06-gin-vodka, git-history:fermentation-spirits:06-gin-vodka]
+concepts: [gin, vodka]
+root_concepts: [gin, vodka]
+index_roles: [guide, root-concept]
+remap_from: []
+remap_to: []
+updated: null
+---
 # Gin and Vodka — Neutral Spirits and Their Transformations
 
 ## The Big Picture
