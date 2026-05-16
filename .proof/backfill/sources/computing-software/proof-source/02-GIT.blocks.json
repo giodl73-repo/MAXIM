@@ -111,28 +111,6 @@
       "notes": [
         "fenced visual/source block"
       ]
-    },
-    {
-      "id": "block-11",
-      "kind": "diagram_like",
-      "line": 627,
-      "heading_context": "### Azure DevOps Branch Policies → GitHub Branch Protection Rules",
-      "confidence": "candidate",
-      "text": "You built branch policies in VSTS/ADO. GitHub calls them \"branch protection rules\" and configures them in repo **Settings → Branches → Add rule** rather than in the pipeline. The concepts map directly:",
-      "notes": [
-        "detected from arrows or box-drawing glyphs"
-      ]
-    },
-    {
-      "id": "block-12",
-      "kind": "diagram_like",
-      "line": 814,
-      "heading_context": "### \"git rebase vs git merge — just tell me what to use\"",
-      "confidence": "candidate",
-      "text": "  For feature branches before PR:     git rebase main\n    -> Clean, linear history for reviewers.\n    -> Your branch replays on top of latest main.\n\n  For integrating after PR approval:  Let the platform do it.\n    -> GitHub/Azure DevOps handles the merge strategy.\n    -> Configure \"squash merge\" for clean main history.\n\n  For long-lived integration branch:  git merge\n    -> Preserves the real history of what happened.\n    -> Merge commits show integration points.\n\n  Never rebase shared/remote branches.",
-      "notes": [
-        "fenced visual/source block"
-      ]
     }
   ]
 }

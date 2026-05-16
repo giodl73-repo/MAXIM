@@ -1,0 +1,170 @@
+{
+  "schema_version": "1",
+  "source_markdown": "computing\\04-BUILD.md",
+  "tables": [
+    {
+      "id": "table-1",
+      "line": 803,
+      "heading_context": "## Old World → New World Bridge",
+      "headers": [
+        ".NET / MSBuild concept",
+        "Frontend build equivalent",
+        "Notes"
+      ],
+      "rows": [
+        [
+          "MSBuild",
+          "Webpack / Vite / Rollup",
+          "The build orchestrator"
+        ],
+        [
+          "`.csproj` targets",
+          "`package.json` scripts",
+          "Where build steps are defined"
+        ],
+        [
+          "`bin/Release/`",
+          "`dist/`",
+          "Output directory"
+        ],
+        [
+          "Assembly linker",
+          "Bundler",
+          "Combines modules into outputs"
+        ],
+        [
+          "`web.config` bundling (System.Web.Optimization)",
+          "Webpack / Vite",
+          "Same concept: bundle+minify"
+        ],
+        [
+          "T4 templates",
+          "Vite plugins / code generators",
+          "Transform files at build time"
+        ],
+        [
+          "Conditional compilation `#if DEBUG`",
+          "`import.meta.env.MODE`, `process.env.NODE_ENV`",
+          "`\"development\"` vs `\"production\"`"
+        ],
+        [
+          "`dotnet watch`",
+          "Vite dev server / `webpack serve`",
+          "Watch + rebuild on change"
+        ],
+        [
+          "Strong-named assemblies / GAC",
+          "npm packages / node_modules",
+          "Dependency resolution"
+        ],
+        [
+          "ILMerge (merge assemblies)",
+          "Bundle all deps into one output",
+          "Rollup UMD for single-file libs"
+        ],
+        [
+          "Source step-through debugging",
+          "Source maps + DevTools",
+          "Same intent, different mechanism"
+        ],
+        [
+          "PDB files",
+          "`.map` files",
+          "\"Where in source does this output line correspond to?\""
+        ],
+        [
+          "`csc.exe` (C# compiler)",
+          "`tsc` / `esbuild` / `swc`",
+          "The actual code transformer"
+        ],
+        [
+          "Roslyn analyzers",
+          "ESLint / TypeScript strict mode",
+          "Static analysis during build"
+        ],
+        [
+          "NuGet restore → `packages/`",
+          "`npm install` → `node_modules/`",
+          "Dependency materialization step"
+        ],
+        [
+          "MSBuild Target (named unit of work with inputs/outputs)",
+          "Vite/Rollup plugin hook (buildStart, transform, generateBundle)",
+          "Plugin hooks are the extensibility model"
+        ],
+        [
+          "MSBuild incremental build (skip target if outputs newer than inputs)",
+          "Vite module graph invalidation (only re-transform changed files and their dependents)",
+          "Same concept: skip unchanged work"
+        ],
+        [
+          "MSBuild dependency between targets (DependsOnTargets)",
+          "Module graph edges (import statements drive rebuild order)",
+          "The import graph IS the dependency graph"
+        ]
+      ]
+    },
+    {
+      "id": "table-2",
+      "line": 906,
+      "heading_context": "## Decision Cheat Sheet",
+      "headers": [
+        "If you need to diagnose...",
+        "Start With",
+        "Key Caveat"
+      ],
+      "rows": [
+        [
+          "New SPA build stack",
+          "Compare Vite, framework plugin, dev-server speed, SSR need, test setup, and deployment target.",
+          "Vite is ideal for many SPAs, not a full application framework by itself."
+        ],
+        [
+          "Next.js app choice",
+          "Check SSR/SSG, routing, API routes, caching model, hosting, and team React maturity.",
+          "Framework defaults become architecture."
+        ],
+        [
+          "Library publishing",
+          "Use Rollup or Vite library mode, package exports, type declarations, CJS/ESM targets, and tree-shaking.",
+          "App bundling and library bundling optimize different consumers."
+        ],
+        [
+          "Existing Webpack system",
+          "Inspect entry, output, module rules, plugins, loaders, aliases, and migration cost.",
+          "Working Webpack may be cheaper to stabilize than rewrite."
+        ],
+        [
+          "TypeScript build speed",
+          "Split emit from type check with esbuild/SWC plus `tsc --noEmit`.",
+          "Fast transpilers can ship code that fails type checking."
+        ],
+        [
+          "Babel replacement",
+          "Compare SWC plugin coverage, target browsers, JSX transform, macros, and sourcemaps.",
+          "Babel ecosystem compatibility can matter more than speed."
+        ],
+        [
+          "Bundle-size problem",
+          "Use analyzer output, dependency graph, code splitting, tree-shaking, and polyfill audit.",
+          "The biggest bundle is often an accidental dependency boundary."
+        ],
+        [
+          "Lazy loading",
+          "Use dynamic `import()`, route boundaries, suspense/loading UX, and chunk naming.",
+          "Splitting too much can trade bytes for network waterfalls."
+        ],
+        [
+          "Path alias setup",
+          "Align bundler alias, tsconfig paths, test runner, IDE, and runtime resolution.",
+          "One resolver mismatch creates \"works in dev, fails in CI.\""
+        ],
+        [
+          "Inherited config",
+          "Read scripts, devDependencies, entry/output, loaders/rules, plugins, and environment modes.",
+          "Build configs are executable architecture; change them cautiously."
+        ]
+      ]
+    }
+  ]
+}

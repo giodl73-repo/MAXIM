@@ -1,0 +1,215 @@
+{
+  "schema_version": "1",
+  "source_markdown": "computing\\04-BUILD.md",
+  "blocks": [
+    {
+      "id": "block-1",
+      "kind": "ascii_table_candidate",
+      "line": 27,
+      "heading_context": "## The Big Picture",
+      "confidence": "candidate",
+      "text": "+------------------------------------------------------------------+\n|                    THE BUILD TOOL LANDSCAPE                      |\n|                                                                  |\n|  SOURCE (what you write)       OUTPUT (what the browser gets)    |\n|  ----------------------        ------------------------------    |\n|  TypeScript                    Minified JavaScript bundles       |\n|  JSX / TSX                     Hashed filenames (cache busting)  |\n|  CSS Modules / SASS            Optimized CSS                     |\n|  Images, fonts, SVG            Base64-inlined or hashed assets   |\n|  ES Modules (hundreds)         A few large bundles               |\n|  node_modules deps             Tree-shaken (dead code removed)   |\n|                                                                  |\n|                        BUILD TOOL                                |\n|                      (the transform)                             |\n|                                                                  |\n|  TRANSPILERS          BUNDLERS           DEV SERVERS             |\n|  ----------           --------           -----------             |\n|  tsc                  Webpack            Vite dev server         |\n|  esbuild              Rollup             Webpack DevServer       |\n|  SWC                  esbuild            Turbopack               |\n|  Babel                Vite (uses         parcel                  |\n|                        Rollup in prod,                           |\n|                        esbuild in dev)                           |\n+------------------------------------------------------------------+",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-2",
+      "kind": "ascii_table_candidate",
+      "line": 62,
+      "heading_context": "### The HTTP Problem",
+      "confidence": "candidate",
+      "text": "  Without a bundler:\n  Your app has 300 JS files. Browser makes 300 HTTP requests.\n  Even with HTTP/2 multiplexing, this has overhead.\n  Each module resolution requires a round trip.\n\n  +--------+     GET /src/app.js           +--------+\n  |        | --> GET /src/router.js     -->|        |\n  | Browser|     GET /src/auth.js          | Server |\n  |        |     GET /src/utils.js         |        |\n  |        |     ...×300                   |        |\n  +--------+                               +--------+\n\n  With a bundler:\n  +--------+     GET /dist/app.a3f1c9.js   +--------+\n  | Browser| --> GET /dist/vendor.82be4a.js| Server |\n  +--------+     GET /dist/styles.cf2d1e.css +------+\n\n  2-3 HTTP requests. Cached aggressively (hashed filenames).",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-3",
+      "kind": "diagram_like",
+      "line": 102,
+      "heading_context": "### The Assets Problem",
+      "confidence": "candidate",
+      "text": "  Modern frontend isn't just JS. A React component might import:\n\n  import styles from './Button.module.css'   // CSS\n  import logo from './logo.svg'              // image\n  import data from './config.json'           // data\n\n  None of these are valid JS imports.\n  Bundlers transform them:\n  - CSS Modules → inject <style> at runtime, export class name map\n  - SVG → inline as React component OR as a URL string\n  - JSON → inline as a JS object\n  - Images → URL reference or base64-encoded string",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-4",
+      "kind": "diagram_like",
+      "line": 179,
+      "heading_context": "### Entry Point and the Module Graph",
+      "confidence": "candidate",
+      "text": "  ENTRY POINT\n  app.ts\n     |\n     ├── import router from './router'\n     │       ├── import { Link } from './components/Link'\n     │       └── import express from 'node_modules/express'\n     │\n     ├── import { auth } from './auth'\n     │       └── import jwt from 'node_modules/jsonwebtoken'\n     │\n     └── import './styles/main.css'\n             └── @import './variables.css'\n\n  Bundler follows every import recursively → MODULE GRAPH\n  Then bundles leaf-to-root → OUTPUT BUNDLE(S)",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-5",
+      "kind": "diagram_like",
+      "line": 199,
+      "heading_context": "### Entry Point and the Module Graph",
+      "confidence": "candidate",
+      "text": "  MSBUILD TARGET GRAPH                  BUNDLER MODULE GRAPH\n  ====================                  ====================\n\n  Targets = nodes.                      Files = nodes.\n  DependsOnTargets = edges.             import statements = edges.\n  MSBuild topologically sorts targets   Bundler topologically sorts files\n  and executes leaf-to-root.            and emits leaf-to-root.\n\n  MSBuild side:\n    [ Build ] -- DependsOnTargets --> [ Compile ] -- DependsOnTargets --> [ Restore ]\n\n  Bundler side:\n    [ app.ts ] -- import './router' --> [ router.ts ] -- import 'express' --> express/ (node_modules)\n\n  Incremental build:                    Vite HMR invalidation:\n  MSBuild checks Inputs/Outputs         Vite tracks the module graph;\n  timestamps. Skip target if            when a file changes, it walks\n  outputs are newer than all inputs.    UP the import graph and marks\n                                        only affected modules stale.\n                                        Unchanged subtrees stay cached.\n\n  Both: skip unchanged work by          Both: O(changed nodes + their\n  tracking dependency timestamps.       dependents), not O(all nodes).",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-6",
+      "kind": "diagram_like",
+      "line": 229,
+      "heading_context": "### Tree Shaking",
+      "confidence": "candidate",
+      "text": "  Dead code elimination based on static import analysis.\n\n  // math.ts — exports 3 functions\n  export function add(a, b) { return a + b }\n  export function subtract(a, b) { return a - b }\n  export function multiply(a, b) { return a * b }\n\n  // app.ts — only uses one\n  import { add } from './math'\n\n  WEBPACK / ROLLUP / ESBUILD analyze the import graph.\n  subtract and multiply are never imported anywhere.\n  They are EXCLUDED from the bundle (\"shaken out\").\n\n  Requires ESM (import/export). CJS (require) is not tree-shakeable\n  because require() is dynamic — can't be analyzed statically.\n\n  This is why the ecosystem migrated from CJS to ESM.\n  A 10KB utility library you use one function from → stays 10KB\n  unless it ships ESM and your bundler tree-shakes.",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-7",
+      "kind": "ascii_table_candidate",
+      "line": 254,
+      "heading_context": "### Code Splitting",
+      "confidence": "candidate",
+      "text": "  Instead of one giant bundle, split into multiple chunks.\n  Load only what's needed for the current route/page.\n\n  STATIC SPLIT (vendor chunk):\n  +--------------+    +-----------------+\n  | app.abc123.js|    | vendor.def456.js|\n  | Your code    |    | react, lodash,  |\n  | ~50 KB       |    | big libraries   |\n  +--------------+    | ~300 KB, cached |\n                      +-----------------+\n  app bundle changes on every deploy.\n  vendor bundle stays cached in browser across deploys.\n\n  DYNAMIC SPLIT (route-based lazy loading):\n  import('./pages/Dashboard')   // loaded only when user visits /dashboard\n  import('./pages/Settings')    // loaded only when user visits /settings\n\n  Result: initial page load is small. Route chunks load on demand.",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-8",
+      "kind": "diagram_like",
+      "line": 277,
+      "heading_context": "### Hashed Filenames (Cache Busting)",
+      "confidence": "candidate",
+      "text": "  Every output file gets a content hash in its filename:\n  app.a3f1c9d2.js    (hash changes only when content changes)\n\n  WHY:\n  Browser caches files by URL. If the URL is always app.js,\n  the browser might serve stale cached JS after a deploy.\n\n  With content hashes:\n  - File content unchanged → same hash → browser uses cache ✓\n  - File content changed  → new hash → browser fetches new version ✓\n  - Vendor libs rarely change → vendor hash stable → long-cached ✓",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-9",
+      "kind": "diagram_like",
+      "line": 309,
+      "heading_context": "### Hot Module Replacement (HMR)",
+      "confidence": "candidate",
+      "text": "  Traditional dev workflow:\n  Edit file → bundler rebuilds EVERYTHING → browser hard-reloads\n  React app loses state: you navigated to a nested page,\n  now you're back at root.\n\n  HMR:\n  Edit file → only that module is re-executed → state preserved\n  Change the color of a button → button updates in place.\n  No full reload. No lost state.\n\n  Vite's HMR is native ESM based — surgical updates.\n  Webpack's HMR requires more configuration.",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-10",
+      "kind": "ascii_table_candidate",
+      "line": 330,
+      "heading_context": "## Vite — The Modern Default",
+      "confidence": "candidate",
+      "text": "  ARCHITECTURE: DEV vs PROD are fundamentally different\n\n  DEVELOPMENT MODE\n  +--------------------------------------------------+\n  | Browser requests http://localhost:5173/app.ts    |\n  |                                                  |\n  | Vite dev server intercepts:                      |\n  | 1. Transforms file on demand (esbuild, <10ms)    |\n  | 2. Serves as native ES module                    |\n  | 3. Browser handles module graph resolution       |\n  |                                                  |\n  | No bundling. Each file served individually.      |\n  | Startup is instant regardless of project size.   |\n  | HMR is fast because only changed modules update. |\n  +--------------------------------------------------+\n\n  PRODUCTION BUILD\n  +--------------------------------------------------+\n  | vite build                                       |\n  |                                                  |\n  | Uses Rollup internally:                          |\n  | - Full bundle optimization                       |\n  | - Tree shaking                                   |\n  | - Code splitting                                 |\n  | - Asset hashing                                  |\n  | - CSS extraction                                 |\n  | Output: dist/ ready for deployment               |\n  +--------------------------------------------------+",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-11",
+      "kind": "diagram_like",
+      "line": 403,
+      "heading_context": "### Vite Project Structure",
+      "confidence": "candidate",
+      "text": "  project/\n  ├── index.html          Entry point (Vite serves from root, not /public)\n  ├── vite.config.ts\n  ├── src/\n  │   ├── main.tsx        App entry (referenced in index.html)\n  │   ├── App.tsx\n  │   └── ...\n  ├── public/             Static assets served as-is (no hashing)\n  │   └── favicon.ico\n  └── dist/               Build output (gitignored)\n      ├── index.html\n      ├── assets/\n      │   ├── app.a3f1c9.js\n      │   └── vendor.82be4a.js\n      └── ...",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-12",
+      "kind": "diagram_like",
+      "line": 501,
+      "heading_context": "### Webpack Loaders vs Plugins",
+      "confidence": "candidate",
+      "text": "  LOADERS                           PLUGINS\n  -------                           -------\n  Transform individual files        Operate on the full bundle\n  Applied per file type             Applied during build lifecycle\n  Configured in module.rules        Configured in plugins array\n\n  ts-loader     TS → JS             HtmlWebpackPlugin    inject script tags\n  css-loader    CSS → JS module     MiniCssExtractPlugin extract CSS file\n  file-loader   copy asset, return  DefinePlugin         replace constants\n                URL string          BundleAnalyzerPlugin visualize bundle",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-13",
+      "kind": "ascii_table_candidate",
+      "line": 551,
+      "heading_context": "## SWC — The Rust Transpiler",
+      "confidence": "candidate",
+      "text": "  SWC vs Babel:\n  +-------------------+-------------------+\n  | Babel             | SWC               |\n  +-------------------+-------------------+\n  | Written in JS     | Written in Rust   |\n  | Slow              | 20x faster        |\n  | Huge plugin eco   | Growing eco       |\n  | The original      | The replacement   |\n  | transform tool    |                   |\n  +-------------------+-------------------+\n\n  WHO USES IT:\n  - Next.js (replaced Babel with SWC in v12)\n  - Vite can use it via @vitejs/plugin-react-swc\n  - Jest via @swc/jest for fast test transforms\n\n  NOTE: SWC transforms only. No type checking. Still pair with tsc --noEmit.",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-14",
+      "kind": "diagram_like",
+      "line": 577,
+      "heading_context": "## Rollup — Library Bundling",
+      "confidence": "candidate",
+      "text": "  APP BUNDLER (Webpack/Vite)     LIBRARY BUNDLER (Rollup)\n  ----------------------         -----------------------\n  Output: 1-3 large bundles      Output: multiple formats\n  Includes all deps              Marks deps as \"external\"\n  (react bundled in)             (react NOT bundled — consumer provides it)\n  Hashed filenames               Clean filenames (lib.js, lib.cjs)\n  Optimized for browser          Optimized for npm consumers\n\n  Rollup output formats:\n  esm    → import/export (for bundlers consuming your lib)\n  cjs    → require/module.exports (for Node.js)\n  umd    → works in browser script tag AND require() AND import\n  iife   → self-executing, for direct browser <script> include\n\n  vite build --mode lib    uses Rollup under the hood for lib mode",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-15",
+      "kind": "diagram_like",
+      "line": 601,
+      "heading_context": "## Babel — The Legacy Transpiler",
+      "confidence": "candidate",
+      "text": "  WHAT BABEL DOES:\n  - Transforms modern JS syntax to older JS\n  - Transforms JSX to React.createElement() calls\n  - Plugins for every proposal/syntax\n  - Does NOT type-check TypeScript (just strips types)\n\n  STATUS IN 2026:\n  - Still widely used in legacy Webpack setups\n  - Create React App uses it\n  - Being replaced by SWC and esbuild (10-20x faster)\n  - New projects should not reach for Babel first\n\n  .babelrc / babel.config.json:\n  {\n    \"presets\": [\n      [\"@babel/preset-env\", { \"targets\": \"defaults\" }],\n      \"@babel/preset-typescript\",\n      [\"@babel/preset-react\", { \"runtime\": \"automatic\" }]\n    ]\n  }\n\n  @babel/preset-env       Modern JS → target browser JS\n  @babel/preset-typescript  Strip TS types\n  @babel/preset-react     JSX → React calls",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-16",
+      "kind": "diagram_like",
+      "line": 668,
+      "heading_context": "## npm Scripts — The Glue",
+      "confidence": "candidate",
+      "text": "  package.json scripts wire build tools to simple commands:\n\n  {\n    \"scripts\": {\n      \"dev\":     \"vite\",                        // start dev server\n      \"build\":   \"tsc --noEmit && vite build\",  // type-check then bundle\n      \"preview\": \"vite preview\",                // preview prod build locally\n      \"test\":    \"vitest\",\n      \"lint\":    \"eslint src --ext .ts,.tsx\"\n    }\n  }\n\n  npm run dev       -> starts Vite dev server on localhost:5173\n  npm run build     -> produces dist/\n  npm run preview   -> serves dist/ locally for QA\n\n  \"prebuild\" and \"postbuild\" hooks run automatically:\n  \"prebuild\": \"rimraf dist\"    cleans dist before every build",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-17",
+      "kind": "diagram_like",
+      "line": 693,
+      "heading_context": "## Bundle Analysis — Finding What's Big",
+      "confidence": "candidate",
+      "text": "  When your bundle is unexpectedly large, visualize it:\n\n  Vite:\n  npm install --save-dev rollup-plugin-visualizer\n  // vite.config.ts: plugins: [visualizer({ open: true })]\n  vite build   -> opens treemap in browser\n\n  Webpack:\n  npm install --save-dev webpack-bundle-analyzer\n\n  You'll find:\n  - A library included twice (CJS + ESM versions)\n  - A huge utility library where you only use one function\n  - Unintentionally bundled server-only code\n  - moment.js with all 160KB of locale data",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-18",
+      "kind": "diagram_like",
+      "line": 750,
+      "heading_context": "### \"What's the difference between a loader and a plugin in Webpack?\"",
+      "confidence": "candidate",
+      "text": "  Loader: transforms ONE file's content.\n    input: file bytes → output: JS string\n    e.g., ts-loader transforms myComponent.ts into JS\n\n  Plugin: hooks into the BUILD PROCESS.\n    Can access the full module graph, modify output, inject assets.\n    e.g., HtmlWebpackPlugin creates index.html with script tags injected.\n\n  Rule of thumb: if it transforms a file type, it's a loader.\n  If it does something more broad, it's a plugin.",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-19",
+      "kind": "diagram_like",
+      "line": 828,
+      "heading_context": "### MSBuild Target Lifecycle → Rollup/Vite Plugin Hooks",
+      "confidence": "candidate",
+      "text": "  MSBUILD LIFECYCLE                   ROLLUP/VITE PLUGIN HOOKS\n  =================                   ========================\n\n  BeforeBuild target                  options(opts)\n    (project-level setup)               Modify Rollup options before build starts.\n\n  ResolveReferences target            resolveId(source, importer)\n    (locate assemblies/files)           Resolve a bare specifier to a file path.\n                                        Return null to defer to next plugin.\n\n  Compile target                      load(id)\n    (read source files)                 Read the file contents given its resolved id.\n                                        Return null to use default file system read.\n\n  CoreCompile / Csc task              transform(code, id)\n    (transform source → IL)             Transform file contents (TS→JS, JSX→JS, etc.)\n                                        Equivalent to MSBuild Task (ITask.Execute()).\n\n  AfterCompile target                 moduleParsed(info)\n    (post-compile hooks)                Called after a module's AST is parsed.\n\n  Build target                        buildEnd()\n    (full build complete)               Called when all modules are processed.\n\n  GeneratePackage target              generateBundle(options, bundle)\n    (emit output artifacts)             Final bundle object available; add/modify chunks.\n\n  AfterBuild target                   writeBundle(options, bundle)\n    (post-output steps)                 Output written to disk. Post-build steps here.\n\n  ─────────────────────               ─────────────────────────────────────────────\n  MSBuild Task = ITask                Plugin hook function = the Task's Execute()\n  (Execute() does the work)           (each hook function does one unit of work)\n\n  Multiple ITask implementations      Multiple plugins: each plugin's hook fires\n  per target, executed in order.      in order (plugin array order in config).",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    }
+  ]
+}
