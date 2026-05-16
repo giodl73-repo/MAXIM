@@ -1,3 +1,22 @@
+---
+maxim_schema: maxim.frontmatter.v1
+id: maxim:nanotechnology:carbon-nanostructures
+kind: guide
+module: nanotechnology
+section: nanotechnology
+title: Carbon Nanostructures: Fullerenes, Nanotubes, Graphene
+status: source-custody
+source_custody: partial
+current_path: nanotechnology/05-CARBON-NANOSTRUCTURES.md
+canonical_path: nanotechnology/05-CARBON-NANOSTRUCTURES.md
+backsource_ids: [proof-backfill:nanotechnology:05-carbon-nanostructures, git-history:nanotechnology:05-carbon-nanostructures]
+concepts: [carbon, nanostructures]
+root_concepts: [carbon, nanostructures]
+index_roles: [guide, root-concept]
+remap_from: []
+remap_to: []
+updated: null
+---
 # Carbon Nanostructures: Fullerenes, Nanotubes, Graphene
 
 ## The Big Picture

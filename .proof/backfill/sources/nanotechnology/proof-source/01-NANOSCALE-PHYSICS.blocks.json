@@ -1,0 +1,72 @@
+{
+  "schema_version": "1",
+  "source_markdown": "nanotechnology\\01-NANOSCALE-PHYSICS.md",
+  "blocks": [
+    {
+      "id": "block-1",
+      "kind": "ascii_table_candidate",
+      "line": 60,
+      "heading_context": "### Particle-in-a-Box: The Fundamental Model",
+      "confidence": "candidate",
+      "text": "PARTICLE-IN-A-BOX ENERGY LEVELS\n=================================\n\n       E_n = n^2 * h^2 / (8 * m * L^2)\n\nwhere:\n  n = quantum number (1, 2, 3, ...)\n  h = Planck constant (6.626e-34 J*s)\n  m = electron mass (9.109e-31 kg)\n  L = box size (confinement dimension)\n\nEnergy level spacing: delta_E = E_(n+1) - E_n = (2n+1) * h^2 / (8mL^2)\n\nAt L = 10 nm (quantum dot size):\n  E_1 = (1)^2 * (6.626e-34)^2 / (8 * 9.109e-31 * (10e-9)^2)\n      = 6.0e-21 J = 0.038 eV\n\nAt L = 5 nm:\n  E_1 = 0.15 eV  (4x larger -- inverse square scaling)\n\nAt L = 2 nm:\n  E_1 = 0.94 eV  (25x larger -- visible photon energy)",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-2",
+      "kind": "chart_like",
+      "line": 88,
+      "heading_context": "### Particle-in-a-Box: The Fundamental Model",
+      "confidence": "candidate",
+      "text": "### Quantum Confinement in 1D, 2D, 3D",
+      "notes": [
+        "detected from bar/chart glyph density with numeric labels"
+      ]
+    },
+    {
+      "id": "block-3",
+      "kind": "ascii_table_candidate",
+      "line": 117,
+      "heading_context": "### Quantum Dot Emission Wavelength → Bandgap → Size Relationship",
+      "confidence": "candidate",
+      "text": "CdSe QUANTUM DOT: SIZE → BANDGAP → EMISSION\n=============================================\n\nThe effective bandgap (Eg_eff) is the bulk bandgap plus confinement energy:\n\n  Eg_eff = Eg_bulk + E_confinement\n\nBrus equation (simplified):\n  Eg_eff = Eg_bulk + (h^2 / 8R^2) * (1/m_e* + 1/m_h*) - 1.8e^2 / (4*pi*epsilon*epsilon_0*R)\n\nwhere R = nanocrystal radius, m_e*/m_h* = effective masses, epsilon = dielectric constant\n\nPRACTICAL RESULT FOR CdSe:\n\n  Diameter    Eg_eff    Emission    Color\n  --------    ------    --------    -----\n  2.0 nm      2.8 eV    ~460 nm     Blue\n  2.5 nm      2.5 eV    ~500 nm     Green-blue\n  3.0 nm      2.2 eV    ~550 nm     Green\n  4.0 nm      1.9 eV    ~620 nm     Orange\n  5.0 nm      1.8 eV    ~660 nm     Red\n  7.0 nm      1.7 eV    ~710 nm     Near-IR\n\nCdSe bulk Eg = 1.74 eV (715 nm, near-IR)\nConfinement blue-shifts emission: SMALLER dot = BLUER light\nThis is directly tunable via synthesis temperature and time.",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-4",
+      "kind": "diagram_like",
+      "line": 153,
+      "heading_context": "### The Core Scaling Law",
+      "confidence": "candidate",
+      "text": "  Surface area = pi * d^2\n  Volume       = pi * d^3 / 6\n  SA/V         = 6 / d\n\n  d = 1 cm  -> SA/V = 600 m^-1     (bulk material, surface negligible)\n  d = 1 um  -> SA/V = 6e6 m^-1     (microparticle, surface matters)\n  d = 100 nm -> SA/V = 6e7 m^-1    (nanoparticle, surface dominates)\n  d = 10 nm  -> SA/V = 6e8 m^-1    (quantum dot, mostly surface atoms)\n  d = 1 nm   -> SA/V = 6e9 m^-1    (cluster, ~every atom is surface)",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-5",
+      "kind": "diagram_like",
+      "line": 323,
+      "heading_context": "### Localized Surface Plasmon Resonance (LSPR)",
+      "confidence": "candidate",
+      "text": "GOLD NANOPARTICLE PLASMONICS\n==============================\n\nBulk gold: appears gold/yellow (interband absorption ~2.3 eV)\n\nGold nanoparticle:\n  Conduction electrons form plasma\n  External EM field drives collective oscillation\n  Resonance condition (dipole mode, Mie theory, quasistatic approx):\n    epsilon_1(omega) = -2 * epsilon_medium   (Frohlich condition)\n\nFor gold in water:\n  ~20 nm sphere: LSPR ~ 520 nm (green absorbed -> red/purple transmitted)\n  ~100 nm sphere: LSPR ~ 570 nm (red shift with size)\n  Gold nanorods: LSPR 600-900 nm (tunable by aspect ratio)\n  Gold nanocages/shells: LSPR into NIR (tissue transparent window)\n\nGold nanoparticle colors:\n  2 nm: bulk-like, slightly brown\n  5 nm: orange-red\n  20 nm: red (wine red -- classic colloidal gold, used in pregnancy tests)\n  80 nm: blue-purple\n  200 nm: dark blue\n\nWavelength red-shifts with increasing size; shape controls it further.\n\nLSPR field enhancement near particle surface: |E|^2 / |E_0|^2 ~ 10^2 to 10^4\nUsed in: Surface-Enhanced Raman Spectroscopy (SERS), single-molecule detection,\n         solar cell enhancement, photothermal therapy",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-6",
+      "kind": "diagram_like",
+      "line": 359,
+      "heading_context": "## Summary: Physical Laws at the Nanoscale",
+      "confidence": "candidate",
+      "text": "NANOTECHNOLOGY PHYSICS CHEAT SHEET\n=====================================\n\nQUANTUM CONFINEMENT:\n  Energy levels: E_n = n^2 * h^2 / (8mL^2)\n  Smaller box -> higher energy -> larger bandgap -> shorter wavelength\n  CdSe: 2 nm = blue, 5 nm = red\n\nSURFACE-TO-VOLUME:\n  SA/V = 6/d for sphere\n  At d < 10 nm: surface atoms dominate thermodynamics\n  Melting point drops, reactivity rises, strength rises\n\nVAN DER WAALS:\n  Atom-atom: F ~ 1/r^7\n  Body-body: F ~ A_H * R / D^2 (sphere-flat)\n  Dominates gravity at <100 nm by 6+ orders of magnitude\n  Enables gecko adhesion, causes MEMS stiction\n\nCASIMIR EFFECT:\n  F/A ~ hbar*c / D^4\n  Attractive; stiction risk at <10 nm separation in NEMS\n\nTHERMAL:\n  Phonon MFP in Si ~ 300 nm\n  Below MFP: k_eff << k_bulk (boundary scattering)\n  Used in thermoelectrics; challenge in transistor heat dissipation\n\nPLASMONICS:\n  Collective electron oscillation in metal NP\n  LSPR wavelength tunable by size, shape, material\n  Au: 520-900 nm (sphere to rod); field enhancement 100-10000x",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    }
+  ]
+}

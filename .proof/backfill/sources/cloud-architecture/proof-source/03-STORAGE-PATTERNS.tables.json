@@ -1,0 +1,78 @@
+{
+  "schema_version": "1",
+  "source_markdown": "cloud-architecture\\03-STORAGE-PATTERNS.md",
+  "tables": [
+    {
+      "id": "table-1",
+      "line": 291,
+      "heading_context": "## Storage Selection Decision Table",
+      "headers": [
+        "Requirement",
+        "Storage Type",
+        "Azure Service"
+      ],
+      "rows": [
+        [
+          "Static web content / CDN origin",
+          "Object",
+          "Blob (Hot tier)"
+        ],
+        [
+          "Application binary artifacts / backups",
+          "Object",
+          "Blob (Cool tier)"
+        ],
+        [
+          "Data lake for analytics (Spark/Databricks)",
+          "Object (hierarchical)",
+          "ADLS Gen2"
+        ],
+        [
+          "Long-term compliance archives",
+          "Object",
+          "Blob (Archive tier)"
+        ],
+        [
+          "Database storage (high IOPS)",
+          "Block",
+          "Premium SSD v2 / Ultra Disk"
+        ],
+        [
+          "VM OS disk",
+          "Block",
+          "Standard/Premium SSD"
+        ],
+        [
+          "Windows file server replacement (SMB, AD auth)",
+          "File",
+          "Azure Files (Hot, AD join)"
+        ],
+        [
+          "Shared volume across Kubernetes pods",
+          "File (NFS)",
+          "Azure Files (Premium NFS)"
+        ],
+        [
+          "OLTP web application database",
+          "Relational",
+          "Azure SQL (General Purpose)"
+        ],
+        [
+          "SQL Server lift-and-shift",
+          "Relational",
+          "Azure SQL Managed Instance"
+        ],
+        [
+          "Global multi-region distributed database",
+          "NoSQL",
+          "Cosmos DB"
+        ],
+        [
+          "Session cache, leaderboard, rate limiting",
+          "KV cache",
+          "Azure Cache for Redis"
+        ]
+      ]
+    }
+  ]
+}

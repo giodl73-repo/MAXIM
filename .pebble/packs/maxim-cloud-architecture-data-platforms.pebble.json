@@ -1,0 +1,1973 @@
+{
+  "schema": "pebble.v1",
+  "kind": "corpus-slice",
+  "title": "maxim-cloud-architecture-data-platforms",
+  "source": "../../cloud-architecture",
+  "format": "markdown",
+  "metadata": {},
+  "sections": [
+    {
+      "id": "07-DATA-PLATFORMS.md#000",
+      "path": [
+        "07-DATA-PLATFORMS.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:cloud-architecture:07-data-platforms, git-history:cloud-architecture:07-data-platforms]",
+        "canonical_path": "cloud-architecture/07-DATA-PLATFORMS.md",
+        "concepts": "[data, platforms]",
+        "current_path": "cloud-architecture/07-DATA-PLATFORMS.md",
+        "id": "maxim:cloud-architecture:data-platforms",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "cloud-architecture",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[data, platforms]",
+        "section": "cloud-architecture",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Cloud Data Platforms: Synapse, Databricks, ADF, Delta Lake, Lakehouse",
+        "updated": "null"
+      },
+      "text": "# Cloud Data Platforms: Synapse, Databricks, ADF, Delta Lake, Lakehouse"
+    },
+    {
+      "id": "07-DATA-PLATFORMS.md#001",
+      "path": [
+        "07-DATA-PLATFORMS.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:cloud-architecture:07-data-platforms, git-history:cloud-architecture:07-data-platforms]",
+        "canonical_path": "cloud-architecture/07-DATA-PLATFORMS.md",
+        "concepts": "[data, platforms]",
+        "current_path": "cloud-architecture/07-DATA-PLATFORMS.md",
+        "id": "maxim:cloud-architecture:data-platforms",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "cloud-architecture",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[data, platforms]",
+        "section": "cloud-architecture",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Cloud Data Platforms: Synapse, Databricks, ADF, Delta Lake, Lakehouse",
+        "updated": "null"
+      },
+      "text": "## The Big Picture"
+    },
+    {
+      "id": "07-DATA-PLATFORMS.md#002",
+      "path": [
+        "07-DATA-PLATFORMS.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:cloud-architecture:07-data-platforms, git-history:cloud-architecture:07-data-platforms]",
+        "canonical_path": "cloud-architecture/07-DATA-PLATFORMS.md",
+        "concepts": "[data, platforms]",
+        "current_path": "cloud-architecture/07-DATA-PLATFORMS.md",
+        "id": "maxim:cloud-architecture:data-platforms",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "cloud-architecture",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[data, platforms]",
+        "section": "cloud-architecture",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Cloud Data Platforms: Synapse, Databricks, ADF, Delta Lake, Lakehouse",
+        "updated": "null"
+      },
+      "text": "The lakehouse pattern combines a data lake (cheap, scalable storage) with data warehouse capabilities (ACID transactions, schema enforcement, query performance) on top of the same storage."
+    },
+    {
+      "id": "07-DATA-PLATFORMS.md#003",
+      "path": [
+        "07-DATA-PLATFORMS.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:cloud-architecture:07-data-platforms, git-history:cloud-architecture:07-data-platforms]",
+        "canonical_path": "cloud-architecture/07-DATA-PLATFORMS.md",
+        "concepts": "[data, platforms]",
+        "current_path": "cloud-architecture/07-DATA-PLATFORMS.md",
+        "id": "maxim:cloud-architecture:data-platforms",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "cloud-architecture",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[data, platforms]",
+        "section": "cloud-architecture",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Cloud Data Platforms: Synapse, Databricks, ADF, Delta Lake, Lakehouse",
+        "updated": "null"
+      },
+      "text": "```\nDATA PLATFORM ARCHITECTURE EVOLUTION"
+    },
+    {
+      "id": "07-DATA-PLATFORMS.md#004",
+      "path": [
+        "07-DATA-PLATFORMS.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:cloud-architecture:07-data-platforms, git-history:cloud-architecture:07-data-platforms]",
+        "canonical_path": "cloud-architecture/07-DATA-PLATFORMS.md",
+        "concepts": "[data, platforms]",
+        "current_path": "cloud-architecture/07-DATA-PLATFORMS.md",
+        "id": "maxim:cloud-architecture:data-platforms",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "cloud-architecture",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[data, platforms]",
+        "section": "cloud-architecture",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Cloud Data Platforms: Synapse, Databricks, ADF, Delta Lake, Lakehouse",
+        "updated": "null"
+      },
+      "text": "TRADITIONAL (2000s) — Data Warehouse:\n    Teradata, Netezza, SQL DW.\n    Structured only; expensive storage; schema on write; good query perf."
+    },
+    {
+      "id": "07-DATA-PLATFORMS.md#005",
+      "path": [
+        "07-DATA-PLATFORMS.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:cloud-architecture:07-data-platforms, git-history:cloud-architecture:07-data-platforms]",
+        "canonical_path": "cloud-architecture/07-DATA-PLATFORMS.md",
+        "concepts": "[data, platforms]",
+        "current_path": "cloud-architecture/07-DATA-PLATFORMS.md",
+        "id": "maxim:cloud-architecture:data-platforms",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "cloud-architecture",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[data, platforms]",
+        "section": "cloud-architecture",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Cloud Data Platforms: Synapse, Databricks, ADF, Delta Lake, Lakehouse",
+        "updated": "null"
+      },
+      "text": "DATA LAKE ERA (2010s):\n    HDFS, S3, ADLS Gen2.\n    Schema on read; unstructured OK; cheap storage; no transactions;\n    Spark/Hive query."
+    },
+    {
+      "id": "07-DATA-PLATFORMS.md#006",
+      "path": [
+        "07-DATA-PLATFORMS.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:cloud-architecture:07-data-platforms, git-history:cloud-architecture:07-data-platforms]",
+        "canonical_path": "cloud-architecture/07-DATA-PLATFORMS.md",
+        "concepts": "[data, platforms]",
+        "current_path": "cloud-architecture/07-DATA-PLATFORMS.md",
+        "id": "maxim:cloud-architecture:data-platforms",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "cloud-architecture",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[data, platforms]",
+        "section": "cloud-architecture",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Cloud Data Platforms: Synapse, Databricks, ADF, Delta Lake, Lakehouse",
+        "updated": "null"
+      },
+      "text": "LAKEHOUSE (2020s):\n    Delta Lake / Iceberg / Hudi.\n    ACID transactions on object storage; schema + transactions;\n    good query performance."
+    },
+    {
+      "id": "07-DATA-PLATFORMS.md#007",
+      "path": [
+        "07-DATA-PLATFORMS.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:cloud-architecture:07-data-platforms, git-history:cloud-architecture:07-data-platforms]",
+        "canonical_path": "cloud-architecture/07-DATA-PLATFORMS.md",
+        "concepts": "[data, platforms]",
+        "current_path": "cloud-architecture/07-DATA-PLATFORMS.md",
+        "id": "maxim:cloud-architecture:data-platforms",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "cloud-architecture",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[data, platforms]",
+        "section": "cloud-architecture",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Cloud Data Platforms: Synapse, Databricks, ADF, Delta Lake, Lakehouse",
+        "updated": "null"
+      },
+      "text": "AZURE SERVICES:\n    ADLS Gen2:        storage.\n    Delta Lake:       table format on top of ADLS Gen2.\n    Synapse Analytics + Databricks: query and compute.\n    Azure Data Factory: orchestration / ETL-ELT.\n```"
+    },
+    {
+      "id": "07-DATA-PLATFORMS.md#008",
+      "path": [
+        "07-DATA-PLATFORMS.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:cloud-architecture:07-data-platforms, git-history:cloud-architecture:07-data-platforms]",
+        "canonical_path": "cloud-architecture/07-DATA-PLATFORMS.md",
+        "concepts": "[data, platforms]",
+        "current_path": "cloud-architecture/07-DATA-PLATFORMS.md",
+        "id": "maxim:cloud-architecture:data-platforms",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "cloud-architecture",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[data, platforms]",
+        "section": "cloud-architecture",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Cloud Data Platforms: Synapse, Databricks, ADF, Delta Lake, Lakehouse",
+        "updated": "null"
+      },
+      "text": "---"
+    },
+    {
+      "id": "07-DATA-PLATFORMS.md#009",
+      "path": [
+        "07-DATA-PLATFORMS.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:cloud-architecture:07-data-platforms, git-history:cloud-architecture:07-data-platforms]",
+        "canonical_path": "cloud-architecture/07-DATA-PLATFORMS.md",
+        "concepts": "[data, platforms]",
+        "current_path": "cloud-architecture/07-DATA-PLATFORMS.md",
+        "id": "maxim:cloud-architecture:data-platforms",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "cloud-architecture",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[data, platforms]",
+        "section": "cloud-architecture",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Cloud Data Platforms: Synapse, Databricks, ADF, Delta Lake, Lakehouse",
+        "updated": "null"
+      },
+      "text": "## Medallion Architecture (Bronze/Silver/Gold)"
+    },
+    {
+      "id": "07-DATA-PLATFORMS.md#010",
+      "path": [
+        "07-DATA-PLATFORMS.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:cloud-architecture:07-data-platforms, git-history:cloud-architecture:07-data-platforms]",
+        "canonical_path": "cloud-architecture/07-DATA-PLATFORMS.md",
+        "concepts": "[data, platforms]",
+        "current_path": "cloud-architecture/07-DATA-PLATFORMS.md",
+        "id": "maxim:cloud-architecture:data-platforms",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "cloud-architecture",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[data, platforms]",
+        "section": "cloud-architecture",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Cloud Data Platforms: Synapse, Databricks, ADF, Delta Lake, Lakehouse",
+        "updated": "null"
+      },
+      "text": "The standard pattern for organizing data in a lakehouse:"
+    },
+    {
+      "id": "07-DATA-PLATFORMS.md#011",
+      "path": [
+        "07-DATA-PLATFORMS.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:cloud-architecture:07-data-platforms, git-history:cloud-architecture:07-data-platforms]",
+        "canonical_path": "cloud-architecture/07-DATA-PLATFORMS.md",
+        "concepts": "[data, platforms]",
+        "current_path": "cloud-architecture/07-DATA-PLATFORMS.md",
+        "id": "maxim:cloud-architecture:data-platforms",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "cloud-architecture",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[data, platforms]",
+        "section": "cloud-architecture",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Cloud Data Platforms: Synapse, Databricks, ADF, Delta Lake, Lakehouse",
+        "updated": "null"
+      },
+      "text": "```\nRAW DATA SOURCES → [Bronze] → [Silver] → [Gold] → CONSUMERS"
+    },
+    {
+      "id": "07-DATA-PLATFORMS.md#012",
+      "path": [
+        "07-DATA-PLATFORMS.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:cloud-architecture:07-data-platforms, git-history:cloud-architecture:07-data-platforms]",
+        "canonical_path": "cloud-architecture/07-DATA-PLATFORMS.md",
+        "concepts": "[data, platforms]",
+        "current_path": "cloud-architecture/07-DATA-PLATFORMS.md",
+        "id": "maxim:cloud-architecture:data-platforms",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "cloud-architecture",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[data, platforms]",
+        "section": "cloud-architecture",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Cloud Data Platforms: Synapse, Databricks, ADF, Delta Lake, Lakehouse",
+        "updated": "null"
+      },
+      "text": "BRONZE LAYER (raw, immutable):\n  Exact copy of source data, as received\n  No transformation, no cleaning\n  Format: often Parquet or Delta (preserves source schema)\n  Append-only: never overwrite, never delete\n  Use: reprocessing from scratch when logic changes\n  Location: ADLS Gen2 / bronze container"
+    },
+    {
+      "id": "07-DATA-PLATFORMS.md#013",
+      "path": [
+        "07-DATA-PLATFORMS.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:cloud-architecture:07-data-platforms, git-history:cloud-architecture:07-data-platforms]",
+        "canonical_path": "cloud-architecture/07-DATA-PLATFORMS.md",
+        "concepts": "[data, platforms]",
+        "current_path": "cloud-architecture/07-DATA-PLATFORMS.md",
+        "id": "maxim:cloud-architecture:data-platforms",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "cloud-architecture",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[data, platforms]",
+        "section": "cloud-architecture",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Cloud Data Platforms: Synapse, Databricks, ADF, Delta Lake, Lakehouse",
+        "updated": "null"
+      },
+      "text": "SILVER LAYER (cleansed, conformed):\n  Validated, cleaned, deduped data\n  Common data types, column names normalized\n  Joins across source systems (e.g., customer from CRM + from ERP)\n  Filtering of invalid records\n  PII tokenization applied\n  Format: Delta Lake (ACID, schema enforcement, time travel)\n  Location: ADLS Gen2 / silver container"
+    },
+    {
+      "id": "07-DATA-PLATFORMS.md#014",
+      "path": [
+        "07-DATA-PLATFORMS.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:cloud-architecture:07-data-platforms, git-history:cloud-architecture:07-data-platforms]",
+        "canonical_path": "cloud-architecture/07-DATA-PLATFORMS.md",
+        "concepts": "[data, platforms]",
+        "current_path": "cloud-architecture/07-DATA-PLATFORMS.md",
+        "id": "maxim:cloud-architecture:data-platforms",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "cloud-architecture",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[data, platforms]",
+        "section": "cloud-architecture",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Cloud Data Platforms: Synapse, Databricks, ADF, Delta Lake, Lakehouse",
+        "updated": "null"
+      },
+      "text": "GOLD LAYER (business-ready, aggregated):\n  Star schema or flat aggregates for specific use cases\n  Pre-computed metrics (daily sales by region, weekly user cohort)\n  Optimized for query performance (partitioning, Z-ordering, clustering)\n  Multiple gold tables for different domains (Marketing Gold, Finance Gold)\n  Consumed by: Power BI, Synapse dedicated pool, ML feature stores\n  Format: Delta Lake"
+    },
+    {
+      "id": "07-DATA-PLATFORMS.md#015",
+      "path": [
+        "07-DATA-PLATFORMS.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:cloud-architecture:07-data-platforms, git-history:cloud-architecture:07-data-platforms]",
+        "canonical_path": "cloud-architecture/07-DATA-PLATFORMS.md",
+        "concepts": "[data, platforms]",
+        "current_path": "cloud-architecture/07-DATA-PLATFORMS.md",
+        "id": "maxim:cloud-architecture:data-platforms",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "cloud-architecture",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[data, platforms]",
+        "section": "cloud-architecture",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Cloud Data Platforms: Synapse, Databricks, ADF, Delta Lake, Lakehouse",
+        "updated": "null"
+      },
+      "text": "PIPELINE FLOW:\n  ADF ingests from source → writes Bronze\n  Databricks/Synapse Spark job → reads Bronze, cleans → writes Silver\n  Databricks/Synapse → aggregates Silver → writes Gold\n  Power BI / Synapse dedicated pool → reads Gold\n```"
+    },
+    {
+      "id": "07-DATA-PLATFORMS.md#016",
+      "path": [
+        "07-DATA-PLATFORMS.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:cloud-architecture:07-data-platforms, git-history:cloud-architecture:07-data-platforms]",
+        "canonical_path": "cloud-architecture/07-DATA-PLATFORMS.md",
+        "concepts": "[data, platforms]",
+        "current_path": "cloud-architecture/07-DATA-PLATFORMS.md",
+        "id": "maxim:cloud-architecture:data-platforms",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "cloud-architecture",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[data, platforms]",
+        "section": "cloud-architecture",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Cloud Data Platforms: Synapse, Databricks, ADF, Delta Lake, Lakehouse",
+        "updated": "null"
+      },
+      "text": "---"
+    },
+    {
+      "id": "07-DATA-PLATFORMS.md#017",
+      "path": [
+        "07-DATA-PLATFORMS.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:cloud-architecture:07-data-platforms, git-history:cloud-architecture:07-data-platforms]",
+        "canonical_path": "cloud-architecture/07-DATA-PLATFORMS.md",
+        "concepts": "[data, platforms]",
+        "current_path": "cloud-architecture/07-DATA-PLATFORMS.md",
+        "id": "maxim:cloud-architecture:data-platforms",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "cloud-architecture",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[data, platforms]",
+        "section": "cloud-architecture",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Cloud Data Platforms: Synapse, Databricks, ADF, Delta Lake, Lakehouse",
+        "updated": "null"
+      },
+      "text": "## Azure Synapse Analytics"
+    },
+    {
+      "id": "07-DATA-PLATFORMS.md#018",
+      "path": [
+        "07-DATA-PLATFORMS.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:cloud-architecture:07-data-platforms, git-history:cloud-architecture:07-data-platforms]",
+        "canonical_path": "cloud-architecture/07-DATA-PLATFORMS.md",
+        "concepts": "[data, platforms]",
+        "current_path": "cloud-architecture/07-DATA-PLATFORMS.md",
+        "id": "maxim:cloud-architecture:data-platforms",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "cloud-architecture",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[data, platforms]",
+        "section": "cloud-architecture",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Cloud Data Platforms: Synapse, Databricks, ADF, Delta Lake, Lakehouse",
+        "updated": "null"
+      },
+      "text": "Synapse is Azure's unified analytics service — part data warehouse, part Spark platform, part data integration."
+    },
+    {
+      "id": "07-DATA-PLATFORMS.md#019",
+      "path": [
+        "07-DATA-PLATFORMS.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:cloud-architecture:07-data-platforms, git-history:cloud-architecture:07-data-platforms]",
+        "canonical_path": "cloud-architecture/07-DATA-PLATFORMS.md",
+        "concepts": "[data, platforms]",
+        "current_path": "cloud-architecture/07-DATA-PLATFORMS.md",
+        "id": "maxim:cloud-architecture:data-platforms",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "cloud-architecture",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[data, platforms]",
+        "section": "cloud-architecture",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Cloud Data Platforms: Synapse, Databricks, ADF, Delta Lake, Lakehouse",
+        "updated": "null"
+      },
+      "text": "### Compute Engines in Synapse"
+    },
+    {
+      "id": "07-DATA-PLATFORMS.md#020",
+      "path": [
+        "07-DATA-PLATFORMS.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:cloud-architecture:07-data-platforms, git-history:cloud-architecture:07-data-platforms]",
+        "canonical_path": "cloud-architecture/07-DATA-PLATFORMS.md",
+        "concepts": "[data, platforms]",
+        "current_path": "cloud-architecture/07-DATA-PLATFORMS.md",
+        "id": "maxim:cloud-architecture:data-platforms",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "cloud-architecture",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[data, platforms]",
+        "section": "cloud-architecture",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Cloud Data Platforms: Synapse, Databricks, ADF, Delta Lake, Lakehouse",
+        "updated": "null"
+      },
+      "text": "```\nSYNAPSE ENGINES"
+    },
+    {
+      "id": "07-DATA-PLATFORMS.md#021",
+      "path": [
+        "07-DATA-PLATFORMS.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:cloud-architecture:07-data-platforms, git-history:cloud-architecture:07-data-platforms]",
+        "canonical_path": "cloud-architecture/07-DATA-PLATFORMS.md",
+        "concepts": "[data, platforms]",
+        "current_path": "cloud-architecture/07-DATA-PLATFORMS.md",
+        "id": "maxim:cloud-architecture:data-platforms",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "cloud-architecture",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[data, platforms]",
+        "section": "cloud-architecture",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Cloud Data Platforms: Synapse, Databricks, ADF, Delta Lake, Lakehouse",
+        "updated": "null"
+      },
+      "text": "1. DEDICATED SQL POOL (formerly SQL DW):\n   Massively Parallel Processing (MPP) SQL engine\n   Data: stored in Synapse-managed distributed storage (not ADLS)\n   Architecture: 60 distributions (shards) across DWUs\n   Best for: complex analytical queries over large structured datasets\n   Pricing: pay per DWU-hour (pause when idle!)\n   Scale: 100 DWUs to 30,000 DWUs\n   Limitations: no ACID (no row-level locks), batch loads only,\n                not Spark-compatible natively"
+    },
+    {
+      "id": "07-DATA-PLATFORMS.md#022",
+      "path": [
+        "07-DATA-PLATFORMS.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:cloud-architecture:07-data-platforms, git-history:cloud-architecture:07-data-platforms]",
+        "canonical_path": "cloud-architecture/07-DATA-PLATFORMS.md",
+        "concepts": "[data, platforms]",
+        "current_path": "cloud-architecture/07-DATA-PLATFORMS.md",
+        "id": "maxim:cloud-architecture:data-platforms",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "cloud-architecture",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[data, platforms]",
+        "section": "cloud-architecture",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Cloud Data Platforms: Synapse, Databricks, ADF, Delta Lake, Lakehouse",
+        "updated": "null"
+      },
+      "text": "2. SERVERLESS SQL POOL (built-in, always on):\n   Query ADLS Gen2 files directly with SQL (no data loading)\n   Supports: Parquet, Delta (preview→GA), CSV, JSON\n   Pricing: per TB scanned\n   Best for: ad hoc exploration, schema discovery, light analytics\n   Limitations: no updates/deletes, reads from lake only\n   Use: \"show me the schema of this parquet file\" or \"what's in this folder\""
+    },
+    {
+      "id": "07-DATA-PLATFORMS.md#023",
+      "path": [
+        "07-DATA-PLATFORMS.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:cloud-architecture:07-data-platforms, git-history:cloud-architecture:07-data-platforms]",
+        "canonical_path": "cloud-architecture/07-DATA-PLATFORMS.md",
+        "concepts": "[data, platforms]",
+        "current_path": "cloud-architecture/07-DATA-PLATFORMS.md",
+        "id": "maxim:cloud-architecture:data-platforms",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "cloud-architecture",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[data, platforms]",
+        "section": "cloud-architecture",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Cloud Data Platforms: Synapse, Databricks, ADF, Delta Lake, Lakehouse",
+        "updated": "null"
+      },
+      "text": "3. APACHE SPARK POOL:\n   Managed Spark clusters (auto-start, auto-terminate)\n   Spark 3.x, Delta Lake support\n   Languages: Scala, PySpark, Spark SQL, .NET Spark\n   Use: data transformation (Bronze→Silver), ML, streaming\n   vs. Databricks: Synapse Spark has tighter Azure integration;\n     Databricks has more features (MLflow native, Unity Catalog, DLT)\n```"
+    },
+    {
+      "id": "07-DATA-PLATFORMS.md#024",
+      "path": [
+        "07-DATA-PLATFORMS.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:cloud-architecture:07-data-platforms, git-history:cloud-architecture:07-data-platforms]",
+        "canonical_path": "cloud-architecture/07-DATA-PLATFORMS.md",
+        "concepts": "[data, platforms]",
+        "current_path": "cloud-architecture/07-DATA-PLATFORMS.md",
+        "id": "maxim:cloud-architecture:data-platforms",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "cloud-architecture",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[data, platforms]",
+        "section": "cloud-architecture",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Cloud Data Platforms: Synapse, Databricks, ADF, Delta Lake, Lakehouse",
+        "updated": "null"
+      },
+      "text": "### Synapse Link"
+    },
+    {
+      "id": "07-DATA-PLATFORMS.md#025",
+      "path": [
+        "07-DATA-PLATFORMS.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:cloud-architecture:07-data-platforms, git-history:cloud-architecture:07-data-platforms]",
+        "canonical_path": "cloud-architecture/07-DATA-PLATFORMS.md",
+        "concepts": "[data, platforms]",
+        "current_path": "cloud-architecture/07-DATA-PLATFORMS.md",
+        "id": "maxim:cloud-architecture:data-platforms",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "cloud-architecture",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[data, platforms]",
+        "section": "cloud-architecture",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Cloud Data Platforms: Synapse, Databricks, ADF, Delta Lake, Lakehouse",
+        "updated": "null"
+      },
+      "text": "```\nSYNAPSE LINK:\n  Zero-ETL: analytical query against Cosmos DB or Azure SQL\n  Change feed replicates data to ADLS Gen2 (near-real-time)\n  Synapse Serverless SQL or Spark reads it\n  No impact on operational database performance\n  Use: avoid extracting operational data into separate ETL pipeline\n```"
+    },
+    {
+      "id": "07-DATA-PLATFORMS.md#026",
+      "path": [
+        "07-DATA-PLATFORMS.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:cloud-architecture:07-data-platforms, git-history:cloud-architecture:07-data-platforms]",
+        "canonical_path": "cloud-architecture/07-DATA-PLATFORMS.md",
+        "concepts": "[data, platforms]",
+        "current_path": "cloud-architecture/07-DATA-PLATFORMS.md",
+        "id": "maxim:cloud-architecture:data-platforms",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "cloud-architecture",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[data, platforms]",
+        "section": "cloud-architecture",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Cloud Data Platforms: Synapse, Databricks, ADF, Delta Lake, Lakehouse",
+        "updated": "null"
+      },
+      "text": "---"
+    },
+    {
+      "id": "07-DATA-PLATFORMS.md#027",
+      "path": [
+        "07-DATA-PLATFORMS.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:cloud-architecture:07-data-platforms, git-history:cloud-architecture:07-data-platforms]",
+        "canonical_path": "cloud-architecture/07-DATA-PLATFORMS.md",
+        "concepts": "[data, platforms]",
+        "current_path": "cloud-architecture/07-DATA-PLATFORMS.md",
+        "id": "maxim:cloud-architecture:data-platforms",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "cloud-architecture",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[data, platforms]",
+        "section": "cloud-architecture",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Cloud Data Platforms: Synapse, Databricks, ADF, Delta Lake, Lakehouse",
+        "updated": "null"
+      },
+      "text": "## Azure Databricks"
+    },
+    {
+      "id": "07-DATA-PLATFORMS.md#028",
+      "path": [
+        "07-DATA-PLATFORMS.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:cloud-architecture:07-data-platforms, git-history:cloud-architecture:07-data-platforms]",
+        "canonical_path": "cloud-architecture/07-DATA-PLATFORMS.md",
+        "concepts": "[data, platforms]",
+        "current_path": "cloud-architecture/07-DATA-PLATFORMS.md",
+        "id": "maxim:cloud-architecture:data-platforms",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "cloud-architecture",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[data, platforms]",
+        "section": "cloud-architecture",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Cloud Data Platforms: Synapse, Databricks, ADF, Delta Lake, Lakehouse",
+        "updated": "null"
+      },
+      "text": "Databricks is a managed Spark platform with additional capabilities (MLflow, Unity Catalog, Delta Live Tables)."
+    },
+    {
+      "id": "07-DATA-PLATFORMS.md#029",
+      "path": [
+        "07-DATA-PLATFORMS.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:cloud-architecture:07-data-platforms, git-history:cloud-architecture:07-data-platforms]",
+        "canonical_path": "cloud-architecture/07-DATA-PLATFORMS.md",
+        "concepts": "[data, platforms]",
+        "current_path": "cloud-architecture/07-DATA-PLATFORMS.md",
+        "id": "maxim:cloud-architecture:data-platforms",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "cloud-architecture",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[data, platforms]",
+        "section": "cloud-architecture",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Cloud Data Platforms: Synapse, Databricks, ADF, Delta Lake, Lakehouse",
+        "updated": "null"
+      },
+      "text": "```\nDATABRICKS ARCHITECTURE"
+    },
+    {
+      "id": "07-DATA-PLATFORMS.md#030",
+      "path": [
+        "07-DATA-PLATFORMS.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:cloud-architecture:07-data-platforms, git-history:cloud-architecture:07-data-platforms]",
+        "canonical_path": "cloud-architecture/07-DATA-PLATFORMS.md",
+        "concepts": "[data, platforms]",
+        "current_path": "cloud-architecture/07-DATA-PLATFORMS.md",
+        "id": "maxim:cloud-architecture:data-platforms",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "cloud-architecture",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[data, platforms]",
+        "section": "cloud-architecture",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Cloud Data Platforms: Synapse, Databricks, ADF, Delta Lake, Lakehouse",
+        "updated": "null"
+      },
+      "text": "WORKSPACE:\n  Notebooks (collaborative, like Jupyter, with revision history)\n  Jobs: scheduled notebook or JAR execution\n  Clusters: interactive (notebooks) or job (automated)\n  Libraries: shared libraries per cluster or per notebook"
+    },
+    {
+      "id": "07-DATA-PLATFORMS.md#031",
+      "path": [
+        "07-DATA-PLATFORMS.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:cloud-architecture:07-data-platforms, git-history:cloud-architecture:07-data-platforms]",
+        "canonical_path": "cloud-architecture/07-DATA-PLATFORMS.md",
+        "concepts": "[data, platforms]",
+        "current_path": "cloud-architecture/07-DATA-PLATFORMS.md",
+        "id": "maxim:cloud-architecture:data-platforms",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "cloud-architecture",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[data, platforms]",
+        "section": "cloud-architecture",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Cloud Data Platforms: Synapse, Databricks, ADF, Delta Lake, Lakehouse",
+        "updated": "null"
+      },
+      "text": "CLUSTER TYPES:\n  All-purpose: interactive development, collaborative notebooks\n  Job: automated, isolated, terminated after job completion\n  SQL Warehouse: Databricks SQL endpoint for BI tools (JDBC/ODBC)"
+    },
+    {
+      "id": "07-DATA-PLATFORMS.md#032",
+      "path": [
+        "07-DATA-PLATFORMS.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:cloud-architecture:07-data-platforms, git-history:cloud-architecture:07-data-platforms]",
+        "canonical_path": "cloud-architecture/07-DATA-PLATFORMS.md",
+        "concepts": "[data, platforms]",
+        "current_path": "cloud-architecture/07-DATA-PLATFORMS.md",
+        "id": "maxim:cloud-architecture:data-platforms",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "cloud-architecture",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[data, platforms]",
+        "section": "cloud-architecture",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Cloud Data Platforms: Synapse, Databricks, ADF, Delta Lake, Lakehouse",
+        "updated": "null"
+      },
+      "text": "DELTA LIVE TABLES (DLT):\n  Declarative pipeline framework (like DBT but for Spark)\n  Define: @dlt.table decorator + transformation SQL/Python\n  DLT manages: ordering, retry, schema evolution, data quality\n  Medallion enforcement: declare table quality expectations as constraints"
+    },
+    {
+      "id": "07-DATA-PLATFORMS.md#033",
+      "path": [
+        "07-DATA-PLATFORMS.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:cloud-architecture:07-data-platforms, git-history:cloud-architecture:07-data-platforms]",
+        "canonical_path": "cloud-architecture/07-DATA-PLATFORMS.md",
+        "concepts": "[data, platforms]",
+        "current_path": "cloud-architecture/07-DATA-PLATFORMS.md",
+        "id": "maxim:cloud-architecture:data-platforms",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "cloud-architecture",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[data, platforms]",
+        "section": "cloud-architecture",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Cloud Data Platforms: Synapse, Databricks, ADF, Delta Lake, Lakehouse",
+        "updated": "null"
+      },
+      "text": "UNITY CATALOG:\n  Centralized governance for all Databricks assets\n  Catalogs → Schemas → Tables (3-level namespace)\n  Cross-workspace access: one catalog, multiple workspaces\n  Column-level security, row-level security, data lineage\n  vs. Synapse: Purview for governance (different product)"
+    },
+    {
+      "id": "07-DATA-PLATFORMS.md#034",
+      "path": [
+        "07-DATA-PLATFORMS.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:cloud-architecture:07-data-platforms, git-history:cloud-architecture:07-data-platforms]",
+        "canonical_path": "cloud-architecture/07-DATA-PLATFORMS.md",
+        "concepts": "[data, platforms]",
+        "current_path": "cloud-architecture/07-DATA-PLATFORMS.md",
+        "id": "maxim:cloud-architecture:data-platforms",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "cloud-architecture",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[data, platforms]",
+        "section": "cloud-architecture",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Cloud Data Platforms: Synapse, Databricks, ADF, Delta Lake, Lakehouse",
+        "updated": "null"
+      },
+      "text": "MLFLOW INTEGRATION:\n  Experiment tracking: log params, metrics, artifacts per run\n  Model registry: version models, promote to staging/production\n  Auto-logging: sklearn, TF, PyTorch auto-log hyperparams + metrics\n  Azure ML can use MLflow as tracking server\n```"
+    },
+    {
+      "id": "07-DATA-PLATFORMS.md#035",
+      "path": [
+        "07-DATA-PLATFORMS.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:cloud-architecture:07-data-platforms, git-history:cloud-architecture:07-data-platforms]",
+        "canonical_path": "cloud-architecture/07-DATA-PLATFORMS.md",
+        "concepts": "[data, platforms]",
+        "current_path": "cloud-architecture/07-DATA-PLATFORMS.md",
+        "id": "maxim:cloud-architecture:data-platforms",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "cloud-architecture",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[data, platforms]",
+        "section": "cloud-architecture",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Cloud Data Platforms: Synapse, Databricks, ADF, Delta Lake, Lakehouse",
+        "updated": "null"
+      },
+      "text": "### Databricks vs. Synapse Spark"
+    },
+    {
+      "id": "07-DATA-PLATFORMS.md#036",
+      "path": [
+        "07-DATA-PLATFORMS.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:cloud-architecture:07-data-platforms, git-history:cloud-architecture:07-data-platforms]",
+        "canonical_path": "cloud-architecture/07-DATA-PLATFORMS.md",
+        "concepts": "[data, platforms]",
+        "current_path": "cloud-architecture/07-DATA-PLATFORMS.md",
+        "id": "maxim:cloud-architecture:data-platforms",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "cloud-architecture",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[data, platforms]",
+        "section": "cloud-architecture",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Cloud Data Platforms: Synapse, Databricks, ADF, Delta Lake, Lakehouse",
+        "updated": "null"
+      },
+      "text": "| Dimension | Databricks | Synapse Spark |\n|-----------|-----------|---------------|\n| Unity Catalog | Yes (centralized governance) | No (Purview separate) |\n| Delta Live Tables | Yes | No |\n| MLflow native | Yes | Via Azure ML |\n| Azure AD integration | Yes | Tighter Azure RBAC |\n| Cost | Add-on cost to Azure Spark | Included in Synapse |\n| Collaborative notebooks | Better (real-time collab) | Basic |\n| Ecosystem | Leading OSS Spark distrib | Azure-integrated |\n| Best for | ML + analytics, heavy Spark | Azure-native analytics + SQL DW |"
+    },
+    {
+      "id": "07-DATA-PLATFORMS.md#037",
+      "path": [
+        "07-DATA-PLATFORMS.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:cloud-architecture:07-data-platforms, git-history:cloud-architecture:07-data-platforms]",
+        "canonical_path": "cloud-architecture/07-DATA-PLATFORMS.md",
+        "concepts": "[data, platforms]",
+        "current_path": "cloud-architecture/07-DATA-PLATFORMS.md",
+        "id": "maxim:cloud-architecture:data-platforms",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "cloud-architecture",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[data, platforms]",
+        "section": "cloud-architecture",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Cloud Data Platforms: Synapse, Databricks, ADF, Delta Lake, Lakehouse",
+        "updated": "null"
+      },
+      "text": "---"
+    },
+    {
+      "id": "07-DATA-PLATFORMS.md#038",
+      "path": [
+        "07-DATA-PLATFORMS.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:cloud-architecture:07-data-platforms, git-history:cloud-architecture:07-data-platforms]",
+        "canonical_path": "cloud-architecture/07-DATA-PLATFORMS.md",
+        "concepts": "[data, platforms]",
+        "current_path": "cloud-architecture/07-DATA-PLATFORMS.md",
+        "id": "maxim:cloud-architecture:data-platforms",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "cloud-architecture",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[data, platforms]",
+        "section": "cloud-architecture",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Cloud Data Platforms: Synapse, Databricks, ADF, Delta Lake, Lakehouse",
+        "updated": "null"
+      },
+      "text": "## Delta Lake"
+    },
+    {
+      "id": "07-DATA-PLATFORMS.md#039",
+      "path": [
+        "07-DATA-PLATFORMS.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:cloud-architecture:07-data-platforms, git-history:cloud-architecture:07-data-platforms]",
+        "canonical_path": "cloud-architecture/07-DATA-PLATFORMS.md",
+        "concepts": "[data, platforms]",
+        "current_path": "cloud-architecture/07-DATA-PLATFORMS.md",
+        "id": "maxim:cloud-architecture:data-platforms",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "cloud-architecture",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[data, platforms]",
+        "section": "cloud-architecture",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Cloud Data Platforms: Synapse, Databricks, ADF, Delta Lake, Lakehouse",
+        "updated": "null"
+      },
+      "text": "Delta Lake is an open-source storage layer that adds reliability to data lakes."
+    },
+    {
+      "id": "07-DATA-PLATFORMS.md#040",
+      "path": [
+        "07-DATA-PLATFORMS.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:cloud-architecture:07-data-platforms, git-history:cloud-architecture:07-data-platforms]",
+        "canonical_path": "cloud-architecture/07-DATA-PLATFORMS.md",
+        "concepts": "[data, platforms]",
+        "current_path": "cloud-architecture/07-DATA-PLATFORMS.md",
+        "id": "maxim:cloud-architecture:data-platforms",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "cloud-architecture",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[data, platforms]",
+        "section": "cloud-architecture",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Cloud Data Platforms: Synapse, Databricks, ADF, Delta Lake, Lakehouse",
+        "updated": "null"
+      },
+      "text": "```\nDELTA LAKE FEATURES"
+    },
+    {
+      "id": "07-DATA-PLATFORMS.md#041",
+      "path": [
+        "07-DATA-PLATFORMS.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:cloud-architecture:07-data-platforms, git-history:cloud-architecture:07-data-platforms]",
+        "canonical_path": "cloud-architecture/07-DATA-PLATFORMS.md",
+        "concepts": "[data, platforms]",
+        "current_path": "cloud-architecture/07-DATA-PLATFORMS.md",
+        "id": "maxim:cloud-architecture:data-platforms",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "cloud-architecture",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[data, platforms]",
+        "section": "cloud-architecture",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Cloud Data Platforms: Synapse, Databricks, ADF, Delta Lake, Lakehouse",
+        "updated": "null"
+      },
+      "text": "ACID TRANSACTIONS:\n  Write-ahead log (_delta_log/ directory)\n  Each commit = JSON file listing file additions + deletions\n  Readers always see a consistent snapshot\n  Concurrent writers: optimistic concurrency, conflict resolution"
+    },
+    {
+      "id": "07-DATA-PLATFORMS.md#042",
+      "path": [
+        "07-DATA-PLATFORMS.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:cloud-architecture:07-data-platforms, git-history:cloud-architecture:07-data-platforms]",
+        "canonical_path": "cloud-architecture/07-DATA-PLATFORMS.md",
+        "concepts": "[data, platforms]",
+        "current_path": "cloud-architecture/07-DATA-PLATFORMS.md",
+        "id": "maxim:cloud-architecture:data-platforms",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "cloud-architecture",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[data, platforms]",
+        "section": "cloud-architecture",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Cloud Data Platforms: Synapse, Databricks, ADF, Delta Lake, Lakehouse",
+        "updated": "null"
+      },
+      "text": "TIME TRAVEL:\n  SELECT * FROM table TIMESTAMP AS OF '2024-01-01'\n  SELECT * FROM table VERSION AS OF 42\n  Each version = a snapshot of the table at that commit\n  Retention: configurable (default 7 days of logs preserved)\n  Use: auditing, reproducing historical model training data, debugging"
+    },
+    {
+      "id": "07-DATA-PLATFORMS.md#043",
+      "path": [
+        "07-DATA-PLATFORMS.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:cloud-architecture:07-data-platforms, git-history:cloud-architecture:07-data-platforms]",
+        "canonical_path": "cloud-architecture/07-DATA-PLATFORMS.md",
+        "concepts": "[data, platforms]",
+        "current_path": "cloud-architecture/07-DATA-PLATFORMS.md",
+        "id": "maxim:cloud-architecture:data-platforms",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "cloud-architecture",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[data, platforms]",
+        "section": "cloud-architecture",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Cloud Data Platforms: Synapse, Databricks, ADF, Delta Lake, Lakehouse",
+        "updated": "null"
+      },
+      "text": "SCHEMA ENFORCEMENT:\n  Inserts with extra/missing columns → rejected by default\n  Schema evolution: MERGE SCHEMA option to evolve when needed\n  DDL changes logged: ALTER TABLE ADD COLUMN tracked in log"
+    },
+    {
+      "id": "07-DATA-PLATFORMS.md#044",
+      "path": [
+        "07-DATA-PLATFORMS.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:cloud-architecture:07-data-platforms, git-history:cloud-architecture:07-data-platforms]",
+        "canonical_path": "cloud-architecture/07-DATA-PLATFORMS.md",
+        "concepts": "[data, platforms]",
+        "current_path": "cloud-architecture/07-DATA-PLATFORMS.md",
+        "id": "maxim:cloud-architecture:data-platforms",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "cloud-architecture",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[data, platforms]",
+        "section": "cloud-architecture",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Cloud Data Platforms: Synapse, Databricks, ADF, Delta Lake, Lakehouse",
+        "updated": "null"
+      },
+      "text": "UPSERT (MERGE):\n  MERGE INTO target USING source ON condition\n  WHEN MATCHED THEN UPDATE\n  WHEN NOT MATCHED THEN INSERT\n  Full SQL MERGE support (not available in plain Parquet/CSV lakes)"
+    },
+    {
+      "id": "07-DATA-PLATFORMS.md#045",
+      "path": [
+        "07-DATA-PLATFORMS.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:cloud-architecture:07-data-platforms, git-history:cloud-architecture:07-data-platforms]",
+        "canonical_path": "cloud-architecture/07-DATA-PLATFORMS.md",
+        "concepts": "[data, platforms]",
+        "current_path": "cloud-architecture/07-DATA-PLATFORMS.md",
+        "id": "maxim:cloud-architecture:data-platforms",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "cloud-architecture",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[data, platforms]",
+        "section": "cloud-architecture",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Cloud Data Platforms: Synapse, Databricks, ADF, Delta Lake, Lakehouse",
+        "updated": "null"
+      },
+      "text": "Z-ORDER (OPTIMIZE):\n  OPTIMIZE table ZORDER BY (date, user_id)\n  Co-locates related data in same files\n  Reduces data scan for filters on those columns\n  Equivalent: clustering in traditional DW\n  Should run periodically (daily/weekly) on large tables"
+    },
+    {
+      "id": "07-DATA-PLATFORMS.md#046",
+      "path": [
+        "07-DATA-PLATFORMS.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:cloud-architecture:07-data-platforms, git-history:cloud-architecture:07-data-platforms]",
+        "canonical_path": "cloud-architecture/07-DATA-PLATFORMS.md",
+        "concepts": "[data, platforms]",
+        "current_path": "cloud-architecture/07-DATA-PLATFORMS.md",
+        "id": "maxim:cloud-architecture:data-platforms",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "cloud-architecture",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[data, platforms]",
+        "section": "cloud-architecture",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Cloud Data Platforms: Synapse, Databricks, ADF, Delta Lake, Lakehouse",
+        "updated": "null"
+      },
+      "text": "DELETION VECTORS:\n  Delta 3.0: soft-delete (mark deleted rows without rewriting files)\n  Faster DELETEs and UPDATEs on large tables\n```"
+    },
+    {
+      "id": "07-DATA-PLATFORMS.md#047",
+      "path": [
+        "07-DATA-PLATFORMS.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:cloud-architecture:07-data-platforms, git-history:cloud-architecture:07-data-platforms]",
+        "canonical_path": "cloud-architecture/07-DATA-PLATFORMS.md",
+        "concepts": "[data, platforms]",
+        "current_path": "cloud-architecture/07-DATA-PLATFORMS.md",
+        "id": "maxim:cloud-architecture:data-platforms",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "cloud-architecture",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[data, platforms]",
+        "section": "cloud-architecture",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Cloud Data Platforms: Synapse, Databricks, ADF, Delta Lake, Lakehouse",
+        "updated": "null"
+      },
+      "text": "---"
+    },
+    {
+      "id": "07-DATA-PLATFORMS.md#048",
+      "path": [
+        "07-DATA-PLATFORMS.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:cloud-architecture:07-data-platforms, git-history:cloud-architecture:07-data-platforms]",
+        "canonical_path": "cloud-architecture/07-DATA-PLATFORMS.md",
+        "concepts": "[data, platforms]",
+        "current_path": "cloud-architecture/07-DATA-PLATFORMS.md",
+        "id": "maxim:cloud-architecture:data-platforms",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "cloud-architecture",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[data, platforms]",
+        "section": "cloud-architecture",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Cloud Data Platforms: Synapse, Databricks, ADF, Delta Lake, Lakehouse",
+        "updated": "null"
+      },
+      "text": "## Azure Data Factory (ADF)"
+    },
+    {
+      "id": "07-DATA-PLATFORMS.md#049",
+      "path": [
+        "07-DATA-PLATFORMS.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:cloud-architecture:07-data-platforms, git-history:cloud-architecture:07-data-platforms]",
+        "canonical_path": "cloud-architecture/07-DATA-PLATFORMS.md",
+        "concepts": "[data, platforms]",
+        "current_path": "cloud-architecture/07-DATA-PLATFORMS.md",
+        "id": "maxim:cloud-architecture:data-platforms",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "cloud-architecture",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[data, platforms]",
+        "section": "cloud-architecture",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Cloud Data Platforms: Synapse, Databricks, ADF, Delta Lake, Lakehouse",
+        "updated": "null"
+      },
+      "text": "You know ADF deeply — you worked on it. This is context for how it fits the modern data platform:"
+    },
+    {
+      "id": "07-DATA-PLATFORMS.md#050",
+      "path": [
+        "07-DATA-PLATFORMS.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:cloud-architecture:07-data-platforms, git-history:cloud-architecture:07-data-platforms]",
+        "canonical_path": "cloud-architecture/07-DATA-PLATFORMS.md",
+        "concepts": "[data, platforms]",
+        "current_path": "cloud-architecture/07-DATA-PLATFORMS.md",
+        "id": "maxim:cloud-architecture:data-platforms",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "cloud-architecture",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[data, platforms]",
+        "section": "cloud-architecture",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Cloud Data Platforms: Synapse, Databricks, ADF, Delta Lake, Lakehouse",
+        "updated": "null"
+      },
+      "text": "```\nADF POSITION IN DATA PLATFORM:\n  ADF is the orchestration + ingestion layer\n  It is NOT for complex transformation (use Spark/SQL for that)\n  ADF is best for: moving data, scheduling pipelines, connecting to\n                   100+ source connectors"
+    },
+    {
+      "id": "07-DATA-PLATFORMS.md#051",
+      "path": [
+        "07-DATA-PLATFORMS.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:cloud-architecture:07-data-platforms, git-history:cloud-architecture:07-data-platforms]",
+        "canonical_path": "cloud-architecture/07-DATA-PLATFORMS.md",
+        "concepts": "[data, platforms]",
+        "current_path": "cloud-architecture/07-DATA-PLATFORMS.md",
+        "id": "maxim:cloud-architecture:data-platforms",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "cloud-architecture",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[data, platforms]",
+        "section": "cloud-architecture",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Cloud Data Platforms: Synapse, Databricks, ADF, Delta Lake, Lakehouse",
+        "updated": "null"
+      },
+      "text": "MODERN PATTERN (ADF vs. Databricks Jobs vs. Synapse Pipelines):\n  ADF:         Ingest from 100+ external sources (SAP, Salesforce, REST APIs)\n               Orchestrate across services (trigger ADB job after ingest)\n               Simple transformations in Mapping Data Flows (visual Spark)\n               Good for non-engineer built pipelines\n  Databricks:  Complex transformations (Spark code), ML, medallion\n               Prefer when code control matters\n  Synapse:     Pipelines (ADF-identical UI/runtime), Spark, SQL DW together\n               Good for Azure-only shops preferring single pane of glass"
+    },
+    {
+      "id": "07-DATA-PLATFORMS.md#052",
+      "path": [
+        "07-DATA-PLATFORMS.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:cloud-architecture:07-data-platforms, git-history:cloud-architecture:07-data-platforms]",
+        "canonical_path": "cloud-architecture/07-DATA-PLATFORMS.md",
+        "concepts": "[data, platforms]",
+        "current_path": "cloud-architecture/07-DATA-PLATFORMS.md",
+        "id": "maxim:cloud-architecture:data-platforms",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "cloud-architecture",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[data, platforms]",
+        "section": "cloud-architecture",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Cloud Data Platforms: Synapse, Databricks, ADF, Delta Lake, Lakehouse",
+        "updated": "null"
+      },
+      "text": "ADF DATA FLOW:\n  Mapping Data Flows: visual ETL with Spark backend\n  No code needed for most transformations\n  Generates Spark code; runs on ADF-managed cluster\n  Debug mode: runs on live cluster with sample data"
+    },
+    {
+      "id": "07-DATA-PLATFORMS.md#053",
+      "path": [
+        "07-DATA-PLATFORMS.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:cloud-architecture:07-data-platforms, git-history:cloud-architecture:07-data-platforms]",
+        "canonical_path": "cloud-architecture/07-DATA-PLATFORMS.md",
+        "concepts": "[data, platforms]",
+        "current_path": "cloud-architecture/07-DATA-PLATFORMS.md",
+        "id": "maxim:cloud-architecture:data-platforms",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "cloud-architecture",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[data, platforms]",
+        "section": "cloud-architecture",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Cloud Data Platforms: Synapse, Databricks, ADF, Delta Lake, Lakehouse",
+        "updated": "null"
+      },
+      "text": "INTEGRATION RUNTIME TYPES:\n  Azure IR: cloud-hosted, no management\n  Self-hosted IR: on-premises or other clouds, installed on VM\n  Azure-SSIS IR: lift-and-shift SSIS packages to Azure\n```"
+    },
+    {
+      "id": "07-DATA-PLATFORMS.md#054",
+      "path": [
+        "07-DATA-PLATFORMS.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:cloud-architecture:07-data-platforms, git-history:cloud-architecture:07-data-platforms]",
+        "canonical_path": "cloud-architecture/07-DATA-PLATFORMS.md",
+        "concepts": "[data, platforms]",
+        "current_path": "cloud-architecture/07-DATA-PLATFORMS.md",
+        "id": "maxim:cloud-architecture:data-platforms",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "cloud-architecture",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[data, platforms]",
+        "section": "cloud-architecture",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Cloud Data Platforms: Synapse, Databricks, ADF, Delta Lake, Lakehouse",
+        "updated": "null"
+      },
+      "text": "---"
+    },
+    {
+      "id": "07-DATA-PLATFORMS.md#055",
+      "path": [
+        "07-DATA-PLATFORMS.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:cloud-architecture:07-data-platforms, git-history:cloud-architecture:07-data-platforms]",
+        "canonical_path": "cloud-architecture/07-DATA-PLATFORMS.md",
+        "concepts": "[data, platforms]",
+        "current_path": "cloud-architecture/07-DATA-PLATFORMS.md",
+        "id": "maxim:cloud-architecture:data-platforms",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "cloud-architecture",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[data, platforms]",
+        "section": "cloud-architecture",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Cloud Data Platforms: Synapse, Databricks, ADF, Delta Lake, Lakehouse",
+        "updated": "null"
+      },
+      "text": "## BigQuery and Snowflake (Cross-Cloud Context)"
+    },
+    {
+      "id": "07-DATA-PLATFORMS.md#056",
+      "path": [
+        "07-DATA-PLATFORMS.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:cloud-architecture:07-data-platforms, git-history:cloud-architecture:07-data-platforms]",
+        "canonical_path": "cloud-architecture/07-DATA-PLATFORMS.md",
+        "concepts": "[data, platforms]",
+        "current_path": "cloud-architecture/07-DATA-PLATFORMS.md",
+        "id": "maxim:cloud-architecture:data-platforms",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "cloud-architecture",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[data, platforms]",
+        "section": "cloud-architecture",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Cloud Data Platforms: Synapse, Databricks, ADF, Delta Lake, Lakehouse",
+        "updated": "null"
+      },
+      "text": "```\nBIGQUERY (Google):\n  Serverless (no cluster management): query any size, pay per TB scanned\n  Columnar storage: Capacitor format internally\n  Dremel query engine: petabyte-scale interactive SQL\n  Built-in ML: BQML, create ML models in SQL\n  Separation of storage + compute: always-on, no pausing clusters\n  Best for: GCP-native, serverless analytics, extreme ad hoc scale"
+    },
+    {
+      "id": "07-DATA-PLATFORMS.md#057",
+      "path": [
+        "07-DATA-PLATFORMS.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:cloud-architecture:07-data-platforms, git-history:cloud-architecture:07-data-platforms]",
+        "canonical_path": "cloud-architecture/07-DATA-PLATFORMS.md",
+        "concepts": "[data, platforms]",
+        "current_path": "cloud-architecture/07-DATA-PLATFORMS.md",
+        "id": "maxim:cloud-architecture:data-platforms",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "cloud-architecture",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[data, platforms]",
+        "section": "cloud-architecture",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Cloud Data Platforms: Synapse, Databricks, ADF, Delta Lake, Lakehouse",
+        "updated": "null"
+      },
+      "text": "SNOWFLAKE (cloud-agnostic, runs on Azure/AWS/GCP):\n  Multi-cloud, multi-account data sharing (Snowflake Marketplace)\n  Near-zero copy data sharing: share live data across accounts\n  Time travel + cloning: zero-copy table clones for dev/test\n  Semi-structured: VARIANT type for JSON/Avro/Parquet natively\n  Separate compute + storage: virtual warehouses (X-Small to 6X-Large)\n  Best for: multi-cloud organizations, data sharing externally,\n            enterprise SQL DW with JSON/semi-structured needs"
+    },
+    {
+      "id": "07-DATA-PLATFORMS.md#058",
+      "path": [
+        "07-DATA-PLATFORMS.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:cloud-architecture:07-data-platforms, git-history:cloud-architecture:07-data-platforms]",
+        "canonical_path": "cloud-architecture/07-DATA-PLATFORMS.md",
+        "concepts": "[data, platforms]",
+        "current_path": "cloud-architecture/07-DATA-PLATFORMS.md",
+        "id": "maxim:cloud-architecture:data-platforms",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "cloud-architecture",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[data, platforms]",
+        "section": "cloud-architecture",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Cloud Data Platforms: Synapse, Databricks, ADF, Delta Lake, Lakehouse",
+        "updated": "null"
+      },
+      "text": "AZURE EQUIVALENT:\n  Synapse Dedicated SQL Pool ≈ Snowflake (managed MPP SQL DW)\n  Synapse Serverless SQL ≈ BigQuery (scan files in lake, pay per scan)\n  Databricks ≈ Databricks (same product on Azure/AWS/GCP)\n```"
+    },
+    {
+      "id": "07-DATA-PLATFORMS.md#059",
+      "path": [
+        "07-DATA-PLATFORMS.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:cloud-architecture:07-data-platforms, git-history:cloud-architecture:07-data-platforms]",
+        "canonical_path": "cloud-architecture/07-DATA-PLATFORMS.md",
+        "concepts": "[data, platforms]",
+        "current_path": "cloud-architecture/07-DATA-PLATFORMS.md",
+        "id": "maxim:cloud-architecture:data-platforms",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "cloud-architecture",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[data, platforms]",
+        "section": "cloud-architecture",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Cloud Data Platforms: Synapse, Databricks, ADF, Delta Lake, Lakehouse",
+        "updated": "null"
+      },
+      "text": "---"
+    },
+    {
+      "id": "07-DATA-PLATFORMS.md#060",
+      "path": [
+        "07-DATA-PLATFORMS.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:cloud-architecture:07-data-platforms, git-history:cloud-architecture:07-data-platforms]",
+        "canonical_path": "cloud-architecture/07-DATA-PLATFORMS.md",
+        "concepts": "[data, platforms]",
+        "current_path": "cloud-architecture/07-DATA-PLATFORMS.md",
+        "id": "maxim:cloud-architecture:data-platforms",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "cloud-architecture",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[data, platforms]",
+        "section": "cloud-architecture",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Cloud Data Platforms: Synapse, Databricks, ADF, Delta Lake, Lakehouse",
+        "updated": "null"
+      },
+      "text": "## Common Confusion Points"
+    },
+    {
+      "id": "07-DATA-PLATFORMS.md#061",
+      "path": [
+        "07-DATA-PLATFORMS.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:cloud-architecture:07-data-platforms, git-history:cloud-architecture:07-data-platforms]",
+        "canonical_path": "cloud-architecture/07-DATA-PLATFORMS.md",
+        "concepts": "[data, platforms]",
+        "current_path": "cloud-architecture/07-DATA-PLATFORMS.md",
+        "id": "maxim:cloud-architecture:data-platforms",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "cloud-architecture",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[data, platforms]",
+        "section": "cloud-architecture",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Cloud Data Platforms: Synapse, Databricks, ADF, Delta Lake, Lakehouse",
+        "updated": "null"
+      },
+      "text": "**\"ADF and Synapse Pipelines are different\"**\nSynapse Pipelines is ADF embedded inside Synapse. The pipeline authoring experience, activities, connectors, and integration runtimes are identical. If you're in Synapse workspace and need pipelines, use Synapse Pipelines (no context switch needed)."
+    },
+    {
+      "id": "07-DATA-PLATFORMS.md#062",
+      "path": [
+        "07-DATA-PLATFORMS.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:cloud-architecture:07-data-platforms, git-history:cloud-architecture:07-data-platforms]",
+        "canonical_path": "cloud-architecture/07-DATA-PLATFORMS.md",
+        "concepts": "[data, platforms]",
+        "current_path": "cloud-architecture/07-DATA-PLATFORMS.md",
+        "id": "maxim:cloud-architecture:data-platforms",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "cloud-architecture",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[data, platforms]",
+        "section": "cloud-architecture",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Cloud Data Platforms: Synapse, Databricks, ADF, Delta Lake, Lakehouse",
+        "updated": "null"
+      },
+      "text": "**\"Delta Lake = Databricks proprietary\"**\nDelta Lake is an open-source project (under the Linux Foundation Delta Lake project). It runs on any Spark distribution — Synapse, open-source Spark, Amazon EMR, and Databricks. Databricks created it and maintains it, but it is not proprietary."
+    },
+    {
+      "id": "07-DATA-PLATFORMS.md#063",
+      "path": [
+        "07-DATA-PLATFORMS.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:cloud-architecture:07-data-platforms, git-history:cloud-architecture:07-data-platforms]",
+        "canonical_path": "cloud-architecture/07-DATA-PLATFORMS.md",
+        "concepts": "[data, platforms]",
+        "current_path": "cloud-architecture/07-DATA-PLATFORMS.md",
+        "id": "maxim:cloud-architecture:data-platforms",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "cloud-architecture",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[data, platforms]",
+        "section": "cloud-architecture",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Cloud Data Platforms: Synapse, Databricks, ADF, Delta Lake, Lakehouse",
+        "updated": "null"
+      },
+      "text": "**\"Dedicated SQL Pool is always running\"**\nDedicated SQL Pool must be paused when not in use — otherwise you pay even when idle. A common cost mistake: forgetting to pause dev/test pools overnight. Use ADF pipeline or PowerShell to auto-pause."
+    },
+    {
+      "id": "07-DATA-PLATFORMS.md#064",
+      "path": [
+        "07-DATA-PLATFORMS.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:cloud-architecture:07-data-platforms, git-history:cloud-architecture:07-data-platforms]",
+        "canonical_path": "cloud-architecture/07-DATA-PLATFORMS.md",
+        "concepts": "[data, platforms]",
+        "current_path": "cloud-architecture/07-DATA-PLATFORMS.md",
+        "id": "maxim:cloud-architecture:data-platforms",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "cloud-architecture",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[data, platforms]",
+        "section": "cloud-architecture",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Cloud Data Platforms: Synapse, Databricks, ADF, Delta Lake, Lakehouse",
+        "updated": "null"
+      },
+      "text": "**\"Serverless SQL Pool = Dedicated SQL Pool\"**\nThey are fundamentally different engines. Serverless SQL: query files in ADLS, pay per scan, no loading required. Dedicated SQL Pool: load data into distributed storage, fast for repeated queries, pay per DWU-hour. Use Serverless for exploration; Dedicated for production high-performance queries."
+    },
+    {
+      "id": "07-DATA-PLATFORMS.md#065",
+      "path": [
+        "07-DATA-PLATFORMS.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:cloud-architecture:07-data-platforms, git-history:cloud-architecture:07-data-platforms]",
+        "canonical_path": "cloud-architecture/07-DATA-PLATFORMS.md",
+        "concepts": "[data, platforms]",
+        "current_path": "cloud-architecture/07-DATA-PLATFORMS.md",
+        "id": "maxim:cloud-architecture:data-platforms",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "cloud-architecture",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[data, platforms]",
+        "section": "cloud-architecture",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Cloud Data Platforms: Synapse, Databricks, ADF, Delta Lake, Lakehouse",
+        "updated": "null"
+      },
+      "text": "---"
+    },
+    {
+      "id": "07-DATA-PLATFORMS.md#066",
+      "path": [
+        "07-DATA-PLATFORMS.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:cloud-architecture:07-data-platforms, git-history:cloud-architecture:07-data-platforms]",
+        "canonical_path": "cloud-architecture/07-DATA-PLATFORMS.md",
+        "concepts": "[data, platforms]",
+        "current_path": "cloud-architecture/07-DATA-PLATFORMS.md",
+        "id": "maxim:cloud-architecture:data-platforms",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "cloud-architecture",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[data, platforms]",
+        "section": "cloud-architecture",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Cloud Data Platforms: Synapse, Databricks, ADF, Delta Lake, Lakehouse",
+        "updated": "null"
+      },
+      "text": "## Cross-References"
+    },
+    {
+      "id": "07-DATA-PLATFORMS.md#067",
+      "path": [
+        "07-DATA-PLATFORMS.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:cloud-architecture:07-data-platforms, git-history:cloud-architecture:07-data-platforms]",
+        "canonical_path": "cloud-architecture/07-DATA-PLATFORMS.md",
+        "concepts": "[data, platforms]",
+        "current_path": "cloud-architecture/07-DATA-PLATFORMS.md",
+        "id": "maxim:cloud-architecture:data-platforms",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "cloud-architecture",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[data, platforms]",
+        "section": "cloud-architecture",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Cloud Data Platforms: Synapse, Databricks, ADF, Delta Lake, Lakehouse",
+        "updated": "null"
+      },
+      "text": "- `cloud-architecture/05-MICROSERVICES.md` — service data ownership and integration.\n- `data-science/01-NUMPY.md` — analytical compute context downstream of data platforms.\n- `query-languages/01-SQL.md` — query interface foundations."
+    },
+    {
+      "id": "07-DATA-PLATFORMS.md#068",
+      "path": [
+        "07-DATA-PLATFORMS.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:cloud-architecture:07-data-platforms, git-history:cloud-architecture:07-data-platforms]",
+        "canonical_path": "cloud-architecture/07-DATA-PLATFORMS.md",
+        "concepts": "[data, platforms]",
+        "current_path": "cloud-architecture/07-DATA-PLATFORMS.md",
+        "id": "maxim:cloud-architecture:data-platforms",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "cloud-architecture",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[data, platforms]",
+        "section": "cloud-architecture",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Cloud Data Platforms: Synapse, Databricks, ADF, Delta Lake, Lakehouse",
+        "updated": "null"
+      },
+      "text": "## Decision Cheat Sheet"
+    },
+    {
+      "id": "07-DATA-PLATFORMS.md#069",
+      "path": [
+        "07-DATA-PLATFORMS.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:cloud-architecture:07-data-platforms, git-history:cloud-architecture:07-data-platforms]",
+        "canonical_path": "cloud-architecture/07-DATA-PLATFORMS.md",
+        "concepts": "[data, platforms]",
+        "current_path": "cloud-architecture/07-DATA-PLATFORMS.md",
+        "id": "maxim:cloud-architecture:data-platforms",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "cloud-architecture",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[data, platforms]",
+        "section": "cloud-architecture",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Cloud Data Platforms: Synapse, Databricks, ADF, Delta Lake, Lakehouse",
+        "updated": "null"
+      },
+      "text": "| If you need to diagnose... | Start With | Key Caveat |\n|---|---|---|\n| Whether ingestion breadth is the hard part | Azure Data Factory | Connectors and scheduling help, but schema drift and integration runtime ownership remain. |\n| Whether transformations need complex Spark ecosystem | Databricks or Synapse Spark | Databricks usually has stronger ecosystem; Synapse may fit Azure-integrated estates. |\n| Whether lake data needs ad hoc SQL | Synapse Serverless SQL | Pay-per-scan rewards partitioning and file pruning; sloppy layout becomes cost. |\n| Whether repetitive SQL needs predictable performance | Synapse Dedicated SQL Pool | Dedicated capacity should pause when idle or it burns money. |\n| Whether ML needs training plus experiment tracking | Databricks MLflow plus Azure ML | Split ownership carefully: notebooks, registry, deployment, and governance can fragment. |\n| Whether sharing crosses clouds or companies | Snowflake, or Azure Data Share for simpler Azure cases | Data sharing is also contract, lineage, and access governance. |\n| Whether lineage/governance is the missing layer | Microsoft Purview | Scanning tools need naming, ownership, and stewardship processes to be useful. |\n| Whether the lake needs ACID table semantics | Delta Lake | ACID helps reliability but does not fix bad partitioning or modeling. |\n| Whether streams should land in the lake in near-real time | Event Hubs plus Spark Streaming, or Stream Analytics to ADLS | Streaming pipelines need replay, watermarking, and backpressure design. |"
+    }
+  ],
+  "refs": [
+    "07-DATA-PLATFORMS.md"
+  ]
+}

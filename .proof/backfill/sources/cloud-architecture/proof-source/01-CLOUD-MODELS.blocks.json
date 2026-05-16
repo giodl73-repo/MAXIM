@@ -1,0 +1,50 @@
+{
+  "schema_version": "1",
+  "source_markdown": "cloud-architecture\\01-CLOUD-MODELS.md",
+  "blocks": [
+    {
+      "id": "block-1",
+      "kind": "ascii_table_candidate",
+      "line": 26,
+      "heading_context": "## The Big Picture",
+      "confidence": "candidate",
+      "text": "CLOUD SERVICE MODEL SPECTRUM\n+-----------------------------------------------------------------------+\n|                                                                       |\n  Stack from top to bottom:\n    App, Data, Runtime, OS, VM, Hardware, Datacenter, Network, Storage.\n\n  ON-PREMISES:   You manage everything.\n  IaaS:          You manage App + Data + Runtime + OS.\n                 Cloud manages VM + HW + DC + Network + Storage.\n  PaaS:          You manage App + Data.\n                 Cloud manages everything below.\n  CaaS:          You manage container images.\n                 Cloud manages the cluster.\n  FaaS:          You manage function code only.\n                 Cloud manages everything else.\n  SaaS:          You use the application; cloud manages everything.\n\n  EXAMPLES:\n    IaaS:   Azure VM, Amazon EC2, GCP Compute Engine\n    PaaS:   Azure App Service, Azure SQL, Google App Engine\n    CaaS:   AKS, Amazon EKS, Google GKE\n    FaaS:   Azure Functions, AWS Lambda, Cloud Functions\n    SaaS:   Microsoft 365, Salesforce, GitHub",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-2",
+      "kind": "diagram_like",
+      "line": 134,
+      "heading_context": "## PaaS: Platform as a Service",
+      "confidence": "candidate",
+      "text": "AZURE PAAS EXAMPLES\n\nAZURE APP SERVICE:\n  Deploy web apps (ASP.NET, Node, Python, Java, PHP, Ruby)\n  SKUs: Free, Shared, Basic, Standard, Premium, Isolated\n  Built-in: custom domain + SSL, deployment slots (staging),\n            autoscaling, Azure AD auth, deployment from GitHub/ADO\n  App Service Plan: the underlying VM pool (scale up/out the plan)\n  One plan → multiple apps (cost sharing)\n\nAZURE SQL DATABASE:\n  Managed SQL Server (PaaS): automatic patching, backup, HA\n  vCore model: General Purpose, Business Critical, Hyperscale\n  Business Critical: in-memory OLTP, local SSD, replicated\n  Hyperscale: up to 100TB, fast snapshot backups, read scale-out\n  DTU model: legacy, pre-bundled compute+I/O units\n  Elastic Pool: multiple DBs share a pool of DTUs or vCores\n    → Good for SaaS multi-tenant where DBs have uneven load\n\nAZURE CACHE FOR REDIS:\n  Managed Redis cluster with HA (replication, failover)\n  C0-C6: basic cache sizes; P-tiers: Premium with cluster/geo-replication\n  Used for: session cache, distributed cache, Pub/Sub, rate limiting",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-3",
+      "kind": "diagram_like",
+      "line": 166,
+      "heading_context": "## CaaS: Containers as a Service",
+      "confidence": "candidate",
+      "text": "AKS (Azure Kubernetes Service):\n  Azure manages: control plane (API server, etcd, scheduler, controllers)\n    → Free (you pay only for agent nodes)\n  You manage: node pools, workload deployment, RBAC\n  Integration: Azure AD auth, Azure CNI networking, Azure Monitor, ACR\n\nAZURE CONTAINER APPS:\n  Serverless containers (no cluster management)\n  Based on Kubernetes + KEDA (event-driven autoscaling)\n  Scale to zero: no cost when idle\n  Ideal: event-driven microservices, background jobs, APIs\n  vs. AKS: less control, less complexity, scale-to-zero, no cluster management\n\nAZURE CONTAINER INSTANCES (ACI):\n  Single container, on-demand (seconds to start)\n  No orchestration overhead\n  Ideal: batch jobs, one-off tasks, burst compute\n  Pricing: per-second billing while running",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-4",
+      "kind": "diagram_like",
+      "line": 215,
+      "heading_context": "## Deployment Models",
+      "confidence": "candidate",
+      "text": "PUBLIC CLOUD:\n  Shared infrastructure, managed by Azure/AWS/GCP\n  Multi-tenant (logical isolation)\n  Maximum scale, global reach, lowest management overhead\n\nPRIVATE CLOUD:\n  Azure Stack Hub: Azure software running in your datacenter\n    → Same Azure APIs, same portal experience, disconnected mode possible\n    → Regulatory: data must stay on-premises (air-gapped)\n    → Latency: manufacturing systems needing sub-1ms response\n  Azure Stack Edge: Azure AI/ML capabilities at the edge (no full cloud)\n\nHYBRID CLOUD:\n  Public cloud + on-premises connected (VPN or ExpressRoute)\n  Consistent identity: Azure AD extends to on-premises via AD Connect\n  Consistent management: Azure Arc manages on-premises VMs and K8s\n  Most enterprise architectures are hybrid during migration\n\nMULTI-CLOUD:\n  Using Azure + AWS and/or GCP simultaneously\n  See 09-MULTI-CLOUD.md for trade-offs",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    }
+  ]
+}

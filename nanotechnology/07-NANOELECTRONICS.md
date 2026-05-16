@@ -1,3 +1,22 @@
+---
+maxim_schema: maxim.frontmatter.v1
+id: maxim:nanotechnology:nanoelectronics
+kind: guide
+module: nanotechnology
+section: nanotechnology
+title: Nanoelectronics: Transistor Limits, Single-Electron Devices, and Quantum Substrates
+status: source-custody
+source_custody: partial
+current_path: nanotechnology/07-NANOELECTRONICS.md
+canonical_path: nanotechnology/07-NANOELECTRONICS.md
+backsource_ids: [proof-backfill:nanotechnology:07-nanoelectronics, git-history:nanotechnology:07-nanoelectronics]
+concepts: [nanoelectronics]
+root_concepts: [nanoelectronics]
+index_roles: [guide, root-concept]
+remap_from: []
+remap_to: []
+updated: null
+---
 # Nanoelectronics: Transistor Limits, Single-Electron Devices, and Quantum Substrates
 
 ## The Big Picture
@@ -145,11 +164,11 @@ NANOSHEET (or nanowire):
   Cross-section through gate:
   +-----------------------------+
   |         Gate metal          |
-  | +--+  +----------+  +--+    |
-  | |  |  | Nanosheet |  |  |  | <- gate dielectric wraps nanosheet
-  | +--+  +----------+  +--+   |
-  |        (another)           |
-  |         Gate metal         |
+  | [--]  [Nanosheet]  [--]     |
+  |  gate dielectric wraps it   |
+  | [--]  [Nanosheet]  [--]     |
+  |        (another)            |
+  |         Gate metal          |
   +-----------------------------+
 
 STACKED NANOSHEETS:

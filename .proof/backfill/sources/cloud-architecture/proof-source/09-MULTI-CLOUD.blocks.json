@@ -1,0 +1,50 @@
+{
+  "schema_version": "1",
+  "source_markdown": "cloud-architecture\\09-MULTI-CLOUD.md",
+  "blocks": [
+    {
+      "id": "block-1",
+      "kind": "diagram_like",
+      "line": 53,
+      "heading_context": "## Why Multi-Cloud?",
+      "confidence": "candidate",
+      "text": "LEGITIMATE MOTIVATIONS:\n\n1. AVOID VENDOR LOCK-IN\n   Business: single provider outage affects all customers\n   Negotiation: competing contracts keep pricing competitive\n   Reality: most services with strong SLAs don't need redundancy\n   across providers (adds complexity, doesn't always add reliability)\n\n2. REGULATORY / DATA RESIDENCY\n   \"Customer data for EU customers must stay in EU\"\n   One provider may not have required region\n   Specific services may need in-country provider (China, Russia)\n\n3. BEST-OF-BREED SERVICES\n   Google BigQuery for analytics (serverless scale)\n   Azure OpenAI for AI (enterprise compliance, Microsoft ecosystem)\n   AWS for specific services (AWS Comprehend NLP, AWS SageMaker)\n   Reality: each cloud's services are 80% similar; differentiation at edges\n\n4. MERGERS AND ACQUISITIONS\n   Acquired company runs AWS; acquirer runs Azure\n   Multi-cloud by accident → plan to consolidate or manage permanently\n\n5. GEOGRAPHIC COVERAGE\n   Edge cases: specific regions only available on one provider\n   Latency optimization per geographic area\n\nPREMATURE OPTIMIZATION RISKS:\n  Operational overhead: 2x platforms to monitor, patch, train on\n  Security surface: 2x IAM systems, 2x network policies\n  Cost: egress charges, cross-cloud network costs\n  Engineering tax: developers must know 2+ cloud platforms\n  Data gravity: moving data between clouds is expensive (see below)",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-2",
+      "kind": "diagram_like",
+      "line": 232,
+      "heading_context": "## Data Gravity Problem",
+      "confidence": "candidate",
+      "text": "DATA GRAVITY:\n  Data has \"gravity\": other services are attracted to where data lives\n  Moving data between clouds is expensive (egress charges)\n\nEGRESS PRICING (approximate, 2024):\n  Azure: first 5 GB free, then ~$0.05-0.08/GB\n  AWS: first 100 GB free, then ~$0.09/GB\n  GCP: first 200 GB free, then ~$0.08/GB\n\n  10 TB of data: ~$700-900 to egress from one cloud to another\n  Real-time replication: ongoing cost + latency\n\nIMPLICATIONS:\n  Primary data store → process near data → minimize cross-cloud copies\n  \"Run analytics in AWS on data stored in Azure\" → expensive + latency\n  Data sharing services: Azure Data Share, Snowflake Data Marketplace,\n                         Google Analytics Hub → share without copying\n\nPRACTICAL LIMITS:\n  AI/ML training on petabytes → data must be in same cloud as compute\n  Hot data (millisecond access) → cannot be in different cloud\n  Replication costs are ongoing → erode multi-cloud economic benefit",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-3",
+      "kind": "ascii_table_candidate",
+      "line": 261,
+      "heading_context": "## Multi-Cloud Governance",
+      "confidence": "candidate",
+      "text": "GOVERNANCE APPROACHES\n\nAZURE POLICY (Azure + Arc):\n  Policies defined in Azure, enforced on:\n    Azure resources: native\n    Arc-enabled servers: via Connected Machine agent\n    Arc-enabled Kubernetes: via Policy add-on (OPA Gatekeeper)\n  Policy effect: Audit (report only), Deny (block), DeployIfNotExists\n  Initiatives: group multiple policies (e.g., CIS benchmark)\n\nOPA GATEKEEPER (cross-cloud):\n  Open Policy Agent running as Kubernetes admission controller\n  Rego policy language: enforce any K8s constraint\n  Same policies apply to AKS, EKS, GKE\n  Policies as code → git-managed, auditable\n\nLANDING ZONES:\n  Pre-configured Azure subscription structure + policies + RBAC\n  Microsoft Cloud Adoption Framework (CAF) landing zones:\n    Management Group hierarchy\n    Azure Policy assignments\n    Monitoring configuration\n    Network topology (hub-spoke or WAN)\n    Identity configuration (Azure AD)\n  Terraform: Azure Landing Zones module (Terraform/Bicep)\n  Goal: every new subscription starts compliant, secure, cost-tagged\n\nPOLICY AS CODE (cross-cloud):\n  Define policies in version-controlled repositories\n  Apply via CI/CD pipeline\n  Tools: Azure Policy Bicep/Terraform, OPA, Checkov, TFSec\n  Audit: pipeline shows policy violations before apply",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-4",
+      "kind": "diagram_like",
+      "line": 300,
+      "heading_context": "## When Multi-Cloud Is Premature Optimization",
+      "confidence": "candidate",
+      "text": "SIGNS MULTI-CLOUD IS PREMATURE:\n  \"We want vendor lock-in insurance\"\n    → Azure SLAs cover most failure scenarios; provider redundancy adds\n      complexity without proportional reliability benefit for most apps\n\n  \"We want to use the best service from each cloud\"\n    → True differentiation is narrow; integration complexity grows quickly\n    → Engineering skill split across platforms reduces depth in each\n\n  \"Single cloud is a single point of failure\"\n    → Multi-region within Azure provides zone + region redundancy\n    → If a global Azure outage is your risk model: design for degraded mode,\n      not full failover to another cloud (that SLA gap is orders of magnitude\n      less likely than component failures you're already handling)\n\nWHEN MULTI-CLOUD IS LEGITIMATE:\n  Regulatory: specific data must be in country with only one provider available\n  M&A: two organizations, two different cloud commitments, consolidating\n  Specific services: Azure OpenAI (Microsoft partnership), BigQuery (serverless analytics),\n                    AWS Lambda@Edge (specific CDN compute pattern)\n  Negotiation leverage: meaningful committed spend on both platforms",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    }
+  ]
+}

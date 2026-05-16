@@ -1,0 +1,127 @@
+{
+  "schema_version": "1",
+  "source_markdown": "cloud-architecture\\04-NETWORKING.md",
+  "blocks": [
+    {
+      "id": "block-1",
+      "kind": "diagram_like",
+      "line": 56,
+      "heading_context": "## Virtual Network (VNet)",
+      "confidence": "candidate",
+      "text": "VNET STRUCTURE\n  VNet: 10.0.0.0/16  (you choose the address space)\n    |\n    +-- Subnet: 10.0.1.0/24  web-tier\n    |     NSG: allow inbound 443 from Internet\n    |\n    +-- Subnet: 10.0.2.0/24  app-tier\n    |     NSG: allow inbound 8080 from web-tier only\n    |\n    +-- Subnet: 10.0.3.0/24  data-tier\n    |     NSG: allow inbound 1433 from app-tier only\n    |\n    +-- Subnet: 10.0.4.0/24  private-endpoints\n    |     Private endpoints for Storage, SQL, Key Vault\n    |\n    +-- Subnet: 10.0.5.0/24  AzureBastionSubnet\n          (required for Azure Bastion, specific naming)\n\nRESERVED ADDRESSES IN EVERY SUBNET:\n  .0  - Network address\n  .1  - Azure default gateway\n  .2  - Azure DNS\n  .3  - Azure reserved\n  .255 - Broadcast\n  → A /29 gives you 3 usable IPs; plan subnet size appropriately\n\nBEST PRACTICE:\n  Use /8 or /16 for VNet address space (room for subnets)\n  Use /24 or smaller per subnet (avoid waste)\n  Reserve separate subnet for GatewaySubnet, AzureBastionSubnet\n  Do NOT overlap with on-premises network (VPN/ExpressRoute peering requires non-overlapping)",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-2",
+      "kind": "ascii_table_candidate",
+      "line": 92,
+      "heading_context": "### VNet Peering vs. VPN Gateway vs. ExpressRoute",
+      "confidence": "candidate",
+      "text": "CONNECTIVITY COMPARISON\n+----------------------------------------------------------------------+\n| Option           | Bandwidth  | Latency  | Cost      | Use Case      |\n+------------------+------------+----------+-----------+---------------+\n| VNet Peering     | Up to VNet | ~1ms     | Per GB    | Same org,     |\n| (same region)    | limits     | (low)    | transferred|connect VNets |\n+------------------+------------+----------+-----------+---------------+\n| Global VNet      | Up to VNet | ~10-50ms | Per GB    | Multi-region  |\n| Peering          | limits     | (varies) | trans/GB  | VNets         |\n+------------------+------------+----------+-----------+---------------+\n| VPN Gateway      | 1-10 Gbps  | 10-50ms  | Gateway   | Small/medium  |\n| (site-to-site)   | (gen SKU)  |          | + per GB  | hybrid (VPN)  |\n+------------------+------------+----------+-----------+---------------+\n| ExpressRoute     | 50Mbps–    | ~5-10ms  | Circuit   | Large hybrid, |\n| Standard         | 10Gbps     | (private)| + port    | latency-sens  |\n+------------------+------------+----------+-----------+---------------+\n| ExpressRoute     | 10Gbps–    | ~5ms     | High      | Global enter- |\n| Global Reach     | 100Gbps    |          | premium   | prise, DC-DC  |\n+------------------+------------+----------+-----------+---------------+\n\nVNET PEERING PROPERTIES:\n  Non-transitive: VNet A peers with B, B peers with C ≠ A can reach C\n  Solution: Hub-Spoke topology (all spokes peer with hub; hub routes)\n  Or: Azure Virtual WAN (managed hub-spoke at scale)\n\nEXPRESSROUTE:\n  Dedicated private circuit from your datacenter to Azure\n  Does NOT traverse public internet\n  Partners: AT&T, Equinix, Verizon, etc. (colocation required or via partner)\n  BGP routing: you announce your on-premises prefixes; Azure announces its\n  Redundant by design: two circuits in different peering locations",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-3",
+      "kind": "ascii_table_candidate",
+      "line": 132,
+      "heading_context": "## Hub-Spoke Network Topology",
+      "confidence": "candidate",
+      "text": "HUB-SPOKE TOPOLOGY\n\n                    +--------------------+\n                    |   HUB VNet         |\n                    |   10.0.0.0/16      |\n                    |                    |\n                    |  Azure Firewall    |\n                    |  VPN/ER Gateway    |\n                    |  Bastion           |\n                    |  Shared Services   |\n                    +--------------------+\n                    /         |          \\\n                   /          |           \\\n  Three spoke VNets connected to the hub:\n    Spoke VNet Dev   (10.1.x.x)\n    Spoke VNet Prod  (10.2.x.x)\n    Spoke VNet Stage (10.3.x.x)\n\nALL TRAFFIC FLOWS THROUGH HUB:\n  East-west: Spoke A → Hub Firewall → Spoke B\n    (inspect, log, control all inter-spoke traffic)\n  North-south: Spoke → Hub Firewall → Internet\n    (single egress point, URL filtering, threat intelligence)\n  Hybrid: On-premises → Hub VPN/ER Gateway → Spokes\n    (single on-premises-to-cloud connection point)\n\nAZURE VIRTUAL WAN (managed hub-spoke at scale):\n  Microsoft manages hub infrastructure\n  Automated routing tables, branch connectivity, security\n  Use: many spoke VNets, global connectivity, simplified ops",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-4",
+      "kind": "chart_like",
+      "line": 169,
+      "heading_context": "## Load Balancers",
+      "confidence": "candidate",
+      "text": "### Azure Load Balancer (L4)",
+      "notes": [
+        "detected from bar/chart glyph density with numeric labels"
+      ]
+    },
+    {
+      "id": "block-5",
+      "kind": "chart_like",
+      "line": 190,
+      "heading_context": "### Azure Load Balancer (L4)",
+      "confidence": "candidate",
+      "text": "### Application Gateway (L7)",
+      "notes": [
+        "detected from bar/chart glyph density with numeric labels"
+      ]
+    },
+    {
+      "id": "block-6",
+      "kind": "diagram_like",
+      "line": 192,
+      "heading_context": "### Application Gateway (L7)",
+      "confidence": "candidate",
+      "text": "APPLICATION GATEWAY:\n  Layer 7: HTTP/HTTPS application delivery controller\n  Features:\n    SSL offload: terminate TLS at gateway, HTTP to backends\n    URL-based routing: /api/* → api-pool, /static/* → static-pool\n    Multi-site hosting: host multiple domains on single gateway\n    WAF (Web Application Firewall): OWASP Core Rule Set\n    Autoscaling: v2 SKU scales based on traffic\n    Cookie-based session affinity\n    Health probes: HTTP(S) endpoint probing\n  Use: single-region HTTPS ingress with WAF\n\nWAF MODES:\n  Detection: logs threats but allows traffic (test/audit)\n  Prevention: blocks malicious requests (production)\n  OWASP CRS (Core Rule Set) 3.x protects against:\n    SQL injection, XSS, command injection, path traversal,\n    CSRF, protocol violations",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-7",
+      "kind": "chart_like",
+      "line": 213,
+      "heading_context": "### Application Gateway (L7)",
+      "confidence": "candidate",
+      "text": "### Azure Front Door (Global L7 + CDN)",
+      "notes": [
+        "detected from bar/chart glyph density with numeric labels"
+      ]
+    },
+    {
+      "id": "block-8",
+      "kind": "ascii_table_candidate",
+      "line": 215,
+      "heading_context": "### Azure Front Door (Global L7 + CDN)",
+      "confidence": "candidate",
+      "text": "AZURE FRONT DOOR:\n  Global, multi-region HTTP/S load balancer + WAF + CDN\n  Anycast: traffic routed to nearest Front Door PoP (150+ globally)\n  Health probes: actively probe backends; failover in <1min\n\n  FEATURES:\n    Global load balancing: route to closest healthy backend\n    WAF at the edge (closer to users, before traffic hits region)\n    TLS offload at edge\n    URL rewrite and redirect\n    CDN caching (Azure CDN is being merged into Front Door)\n    Private link origin: connect to backends without public IP\n\n  USE: Multi-region active-active, global latency optimization,\n       globally consistent WAF policy\n\n  vs. Application Gateway:\n    App Gateway: regional, inside VNet, standard enterprise L7 LB\n    Front Door: global, edge-based, CDN + WAF + global routing",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-9",
+      "kind": "diagram_like",
+      "line": 241,
+      "heading_context": "## DNS Architecture",
+      "confidence": "candidate",
+      "text": "AZURE DNS (authoritative):\n  Host your public DNS zones in Azure\n  Integrated with Azure RBAC\n  Anycast: queries resolved at nearest Azure nameserver\n  Use: host public DNS for your domains (contoso.com)\n\nPRIVATE DNS ZONES:\n  Internal DNS resolution within VNets\n  Auto-registration: Azure services automatically register\n    e.g., Private endpoint for SQL: sqlserver.privatelink.database.windows.net\n         resolves to 10.0.4.10 inside VNet (public IP outside)\n  VNet link: must link Private DNS Zone to each VNet that needs to resolve it\n  Naming: typically *.privatelink.<service>.azure.com\n\nDNS FORWARDING FOR HYBRID:\n  On-premises DNS → Azure DNS Resolver (inbound endpoint)\n    → Resolves Azure Private DNS zones from on-premises\n  Azure DNS Resolver (outbound endpoint) → On-premises DNS\n    → Resolves on-premises hostnames from Azure\n  Conditional forwarders: define which zones go to which resolvers\n  Azure DNS Private Resolver (GA 2022): managed service for this pattern",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-10",
+      "kind": "diagram_like",
+      "line": 271,
+      "heading_context": "### Azure CDN / Front Door CDN",
+      "confidence": "candidate",
+      "text": "CDN BENEFIT:\n  Cache static content at edge PoPs (~150 globally)\n  User hits nearest PoP → cache hit → <10ms response\n  Without CDN → request to origin region → 50-200ms\n  Cache rules: by URL pattern, headers, query string\n\nCONTENT TO CACHE:\n  Static: images, CSS, JS, fonts → high cache-hit ratio\n  Dynamic: personalized HTML, API responses → usually don't cache\n    (or cache with very short TTL for partial acceleration)\n\nAZURE CDN OPTIONS:\n  Azure CDN from Akamai/Verizon (legacy, being deprecated)\n  Azure Front Door (Standard/Premium): recommended modern CDN\n    + WAF, global LB, private link all in one service",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-11",
+      "kind": "diagram_like",
+      "line": 291,
+      "heading_context": "### Private Endpoints vs. Service Endpoints",
+      "confidence": "candidate",
+      "text": "SERVICE ENDPOINT:\n  Extends VNet identity to Azure service (Storage, SQL, etc.)\n  Service sees traffic as coming from VNet\n  But: the traffic may still traverse public IP (route to Azure backbone)\n  Access control: allow traffic only from specific VNet/subnet\n  Simpler: no private IP needed\n\nPRIVATE ENDPOINT:\n  Creates a network interface in your VNet with a private IP\n  DNS resolution: private endpoint IP returned for service FQDN\n  Traffic NEVER leaves the Azure network (no public internet)\n  More secure than service endpoint\n  Required for: zero-trust, no public access scenarios\n  DNS: auto-updates Private DNS Zone (or manual configuration)\n\nEXAMPLE:\n  Storage account: storageaccount.blob.core.windows.net\n  Without private endpoint: resolves to public IP (52.x.x.x)\n  With private endpoint in VNet: resolves to 10.0.4.10 (private IP)\n  → From VNet, all traffic stays on Azure network\n\n  NSG on private endpoint subnet: traffic to private endpoint\n    is only from authorized subnets/service tags",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    }
+  ]
+}

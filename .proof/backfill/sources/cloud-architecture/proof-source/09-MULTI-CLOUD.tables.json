@@ -1,0 +1,58 @@
+{
+  "schema_version": "1",
+  "source_markdown": "cloud-architecture\\09-MULTI-CLOUD.md",
+  "tables": [
+    {
+      "id": "table-1",
+      "line": 352,
+      "heading_context": "## Decision Cheat Sheet",
+      "headers": [
+        "If you need to diagnose...",
+        "Start With",
+        "Key Caveat"
+      ],
+      "rows": [
+        [
+          "On-prem VM management through cloud tooling",
+          "Check inventory, agent trust, policy scope, patching, identity, network path, and Azure Arc fit.",
+          "Management-plane extension is not workload portability."
+        ],
+        [
+          "Kubernetes across on-prem and cloud",
+          "Compare cluster lifecycle, GitOps, ingress, secrets, storage, observability, and platform ownership.",
+          "Same YAML rarely means same operational behavior."
+        ],
+        [
+          "AWS primary with Azure identity/governance",
+          "Separate identity federation, policy intent, Arc on EKS, logging, RBAC, and blast radius.",
+          "Cross-cloud management adds another failure and authority plane."
+        ],
+        [
+          "Local-data regulatory need",
+          "Evaluate data residency, latency, control-plane dependency, Outposts/sovereign options, and audit evidence.",
+          "Local hardware does not automatically satisfy sovereignty."
+        ],
+        [
+          "GCP-centered hybrid Kubernetes",
+          "Compare Anthos, cluster fleet management, service mesh, identity, cost, and operator skill.",
+          "Multi-cloud platforms can become a proprietary layer above clouds."
+        ],
+        [
+          "Extending policy to on-prem SQL",
+          "Check Arc-enabled SQL, inventory, assessment, patching, backups, licensing, and monitoring.",
+          "Governance visibility is not the same as managed database service semantics."
+        ],
+        [
+          "Business-unit cloud fragmentation",
+          "Start with landing zones, tagging, identity, network segmentation, chargeback, and exception governance.",
+          "Organizational multi-cloud is usually a governance problem before a technical one."
+        ],
+        [
+          "Whether to go multi-cloud",
+          "Require a specific driver: regulation, M&A, vendor risk, regional reach, service fit, or resilience.",
+          "Default to one cloud unless the extra complexity has a named owner and payoff."
+        ]
+      ]
+    }
+  ]
+}

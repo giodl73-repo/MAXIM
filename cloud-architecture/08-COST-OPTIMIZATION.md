@@ -1,3 +1,22 @@
+---
+maxim_schema: maxim.frontmatter.v1
+id: maxim:cloud-architecture:cost-optimization
+kind: guide
+module: cloud-architecture
+section: cloud-architecture
+title: Cost Optimization: FinOps, Reserved Capacity, Autoscaling, Tagging
+status: source-custody
+source_custody: partial
+current_path: cloud-architecture/08-COST-OPTIMIZATION.md
+canonical_path: cloud-architecture/08-COST-OPTIMIZATION.md
+backsource_ids: [proof-backfill:cloud-architecture:08-cost-optimization, git-history:cloud-architecture:08-cost-optimization]
+concepts: [cost, optimization]
+root_concepts: [cost, optimization]
+index_roles: [guide, root-concept]
+remap_from: []
+remap_to: []
+updated: null
+---
 # Cost Optimization: FinOps, Reserved Capacity, Autoscaling, Tagging
 
 ## The Big Picture

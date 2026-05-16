@@ -1,3 +1,22 @@
+---
+maxim_schema: maxim.frontmatter.v1
+id: maxim:cloud-architecture:compute-patterns
+kind: guide
+module: cloud-architecture
+section: cloud-architecture
+title: Compute Patterns: VMs, Containers, Kubernetes, Spot/Reserved/On-Demand
+status: source-custody
+source_custody: partial
+current_path: cloud-architecture/02-COMPUTE-PATTERNS.md
+canonical_path: cloud-architecture/02-COMPUTE-PATTERNS.md
+backsource_ids: [proof-backfill:cloud-architecture:02-compute-patterns, git-history:cloud-architecture:02-compute-patterns]
+concepts: [compute, patterns]
+root_concepts: [compute, patterns]
+index_roles: [guide, root-concept]
+remap_from: []
+remap_to: []
+updated: null
+---
 # Compute Patterns: VMs, Containers, Kubernetes, Spot/Reserved/On-Demand
 
 ## The Big Picture

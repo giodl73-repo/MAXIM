@@ -1,3 +1,22 @@
+---
+maxim_schema: maxim.frontmatter.v1
+id: maxim:cloud-architecture:cloud-models
+kind: guide
+module: cloud-architecture
+section: cloud-architecture
+title: Cloud Models: IaaS/PaaS/SaaS/FaaS, Shared Responsibility, Deployment Models
+status: source-custody
+source_custody: partial
+current_path: cloud-architecture/01-CLOUD-MODELS.md
+canonical_path: cloud-architecture/01-CLOUD-MODELS.md
+backsource_ids: [proof-backfill:cloud-architecture:01-cloud-models, git-history:cloud-architecture:01-cloud-models]
+concepts: [cloud, models]
+root_concepts: [cloud, models]
+index_roles: [guide, root-concept]
+remap_from: []
+remap_to: []
+updated: null
+---
 # Cloud Models: IaaS/PaaS/SaaS/FaaS, Shared Responsibility, Deployment Models
 
 ## The Big Picture

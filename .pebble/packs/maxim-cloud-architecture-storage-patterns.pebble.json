@@ -1,0 +1,1385 @@
+{
+  "schema": "pebble.v1",
+  "kind": "corpus-slice",
+  "title": "maxim-cloud-architecture-storage-patterns",
+  "source": "../../cloud-architecture",
+  "format": "markdown",
+  "metadata": {},
+  "sections": [
+    {
+      "id": "03-STORAGE-PATTERNS.md#000",
+      "path": [
+        "03-STORAGE-PATTERNS.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:cloud-architecture:03-storage-patterns, git-history:cloud-architecture:03-storage-patterns]",
+        "canonical_path": "cloud-architecture/03-STORAGE-PATTERNS.md",
+        "concepts": "[storage, patterns]",
+        "current_path": "cloud-architecture/03-STORAGE-PATTERNS.md",
+        "id": "maxim:cloud-architecture:storage-patterns",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "cloud-architecture",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[storage, patterns]",
+        "section": "cloud-architecture",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Storage Patterns: Object, Block, File, Database - Azure Blob, Managed Disk, Files",
+        "updated": "null"
+      },
+      "text": "# Storage Patterns: Object, Block, File, Database — Azure Blob, Managed Disk, Files"
+    },
+    {
+      "id": "03-STORAGE-PATTERNS.md#001",
+      "path": [
+        "03-STORAGE-PATTERNS.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:cloud-architecture:03-storage-patterns, git-history:cloud-architecture:03-storage-patterns]",
+        "canonical_path": "cloud-architecture/03-STORAGE-PATTERNS.md",
+        "concepts": "[storage, patterns]",
+        "current_path": "cloud-architecture/03-STORAGE-PATTERNS.md",
+        "id": "maxim:cloud-architecture:storage-patterns",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "cloud-architecture",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[storage, patterns]",
+        "section": "cloud-architecture",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Storage Patterns: Object, Block, File, Database - Azure Blob, Managed Disk, Files",
+        "updated": "null"
+      },
+      "text": "## The Big Picture"
+    },
+    {
+      "id": "03-STORAGE-PATTERNS.md#002",
+      "path": [
+        "03-STORAGE-PATTERNS.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:cloud-architecture:03-storage-patterns, git-history:cloud-architecture:03-storage-patterns]",
+        "canonical_path": "cloud-architecture/03-STORAGE-PATTERNS.md",
+        "concepts": "[storage, patterns]",
+        "current_path": "cloud-architecture/03-STORAGE-PATTERNS.md",
+        "id": "maxim:cloud-architecture:storage-patterns",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "cloud-architecture",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[storage, patterns]",
+        "section": "cloud-architecture",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Storage Patterns: Object, Block, File, Database - Azure Blob, Managed Disk, Files",
+        "updated": "null"
+      },
+      "text": "Storage in the cloud is not a single category — the right storage type depends on access pattern, latency requirement, throughput, and data structure."
+    },
+    {
+      "id": "03-STORAGE-PATTERNS.md#003",
+      "path": [
+        "03-STORAGE-PATTERNS.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:cloud-architecture:03-storage-patterns, git-history:cloud-architecture:03-storage-patterns]",
+        "canonical_path": "cloud-architecture/03-STORAGE-PATTERNS.md",
+        "concepts": "[storage, patterns]",
+        "current_path": "cloud-architecture/03-STORAGE-PATTERNS.md",
+        "id": "maxim:cloud-architecture:storage-patterns",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "cloud-architecture",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[storage, patterns]",
+        "section": "cloud-architecture",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Storage Patterns: Object, Block, File, Database - Azure Blob, Managed Disk, Files",
+        "updated": "null"
+      },
+      "text": "```\nSTORAGE TYPE TAXONOMY"
+    },
+    {
+      "id": "03-STORAGE-PATTERNS.md#004",
+      "path": [
+        "03-STORAGE-PATTERNS.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:cloud-architecture:03-storage-patterns, git-history:cloud-architecture:03-storage-patterns]",
+        "canonical_path": "cloud-architecture/03-STORAGE-PATTERNS.md",
+        "concepts": "[storage, patterns]",
+        "current_path": "cloud-architecture/03-STORAGE-PATTERNS.md",
+        "id": "maxim:cloud-architecture:storage-patterns",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "cloud-architecture",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[storage, patterns]",
+        "section": "cloud-architecture",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Storage Patterns: Object, Block, File, Database - Azure Blob, Managed Disk, Files",
+        "updated": "null"
+      },
+      "text": "OBJECT / BLOB:\n    Azure Blob (S3, GCS equiv).\n    Unstructured; HTTP API access; cheap at scale;\n    eventual consistency."
+    },
+    {
+      "id": "03-STORAGE-PATTERNS.md#005",
+      "path": [
+        "03-STORAGE-PATTERNS.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:cloud-architecture:03-storage-patterns, git-history:cloud-architecture:03-storage-patterns]",
+        "canonical_path": "cloud-architecture/03-STORAGE-PATTERNS.md",
+        "concepts": "[storage, patterns]",
+        "current_path": "cloud-architecture/03-STORAGE-PATTERNS.md",
+        "id": "maxim:cloud-architecture:storage-patterns",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "cloud-architecture",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[storage, patterns]",
+        "section": "cloud-architecture",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Storage Patterns: Object, Block, File, Database - Azure Blob, Managed Disk, Files",
+        "updated": "null"
+      },
+      "text": "BLOCK:\n    Managed Disk (EBS equiv).\n    Raw block device; mount to VM; high IOPS/BW;\n    consistent."
+    },
+    {
+      "id": "03-STORAGE-PATTERNS.md#006",
+      "path": [
+        "03-STORAGE-PATTERNS.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:cloud-architecture:03-storage-patterns, git-history:cloud-architecture:03-storage-patterns]",
+        "canonical_path": "cloud-architecture/03-STORAGE-PATTERNS.md",
+        "concepts": "[storage, patterns]",
+        "current_path": "cloud-architecture/03-STORAGE-PATTERNS.md",
+        "id": "maxim:cloud-architecture:storage-patterns",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "cloud-architecture",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[storage, patterns]",
+        "section": "cloud-architecture",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Storage Patterns: Object, Block, File, Database - Azure Blob, Managed Disk, Files",
+        "updated": "null"
+      },
+      "text": "FILE:\n    Azure Files (EFS equiv).\n    NFS / SMB share; mount to VM or pod;\n    shared file access; AD auth (SMB)."
+    },
+    {
+      "id": "03-STORAGE-PATTERNS.md#007",
+      "path": [
+        "03-STORAGE-PATTERNS.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:cloud-architecture:03-storage-patterns, git-history:cloud-architecture:03-storage-patterns]",
+        "canonical_path": "cloud-architecture/03-STORAGE-PATTERNS.md",
+        "concepts": "[storage, patterns]",
+        "current_path": "cloud-architecture/03-STORAGE-PATTERNS.md",
+        "id": "maxim:cloud-architecture:storage-patterns",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "cloud-architecture",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[storage, patterns]",
+        "section": "cloud-architecture",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Storage Patterns: Object, Block, File, Database - Azure Blob, Managed Disk, Files",
+        "updated": "null"
+      },
+      "text": "DATABASE SERVICES:\n    Azure SQL Database:    structured, ACID, SQL Server compatible.\n    Azure Cosmos DB:       NoSQL, global, multi-model.\n    Redis Cache:           in-memory, K/V cache.\n```"
+    },
+    {
+      "id": "03-STORAGE-PATTERNS.md#008",
+      "path": [
+        "03-STORAGE-PATTERNS.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:cloud-architecture:03-storage-patterns, git-history:cloud-architecture:03-storage-patterns]",
+        "canonical_path": "cloud-architecture/03-STORAGE-PATTERNS.md",
+        "concepts": "[storage, patterns]",
+        "current_path": "cloud-architecture/03-STORAGE-PATTERNS.md",
+        "id": "maxim:cloud-architecture:storage-patterns",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "cloud-architecture",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[storage, patterns]",
+        "section": "cloud-architecture",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Storage Patterns: Object, Block, File, Database - Azure Blob, Managed Disk, Files",
+        "updated": "null"
+      },
+      "text": "---"
+    },
+    {
+      "id": "03-STORAGE-PATTERNS.md#009",
+      "path": [
+        "03-STORAGE-PATTERNS.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:cloud-architecture:03-storage-patterns, git-history:cloud-architecture:03-storage-patterns]",
+        "canonical_path": "cloud-architecture/03-STORAGE-PATTERNS.md",
+        "concepts": "[storage, patterns]",
+        "current_path": "cloud-architecture/03-STORAGE-PATTERNS.md",
+        "id": "maxim:cloud-architecture:storage-patterns",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "cloud-architecture",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[storage, patterns]",
+        "section": "cloud-architecture",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Storage Patterns: Object, Block, File, Database - Azure Blob, Managed Disk, Files",
+        "updated": "null"
+      },
+      "text": "## Azure Blob Storage"
+    },
+    {
+      "id": "03-STORAGE-PATTERNS.md#010",
+      "path": [
+        "03-STORAGE-PATTERNS.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:cloud-architecture:03-storage-patterns, git-history:cloud-architecture:03-storage-patterns]",
+        "canonical_path": "cloud-architecture/03-STORAGE-PATTERNS.md",
+        "concepts": "[storage, patterns]",
+        "current_path": "cloud-architecture/03-STORAGE-PATTERNS.md",
+        "id": "maxim:cloud-architecture:storage-patterns",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "cloud-architecture",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[storage, patterns]",
+        "section": "cloud-architecture",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Storage Patterns: Object, Block, File, Database - Azure Blob, Managed Disk, Files",
+        "updated": "null"
+      },
+      "text": "Blob Storage is Azure's object store — the equivalent of Amazon S3. It is the foundation for data lakes, backups, content delivery, and analytical workloads."
+    },
+    {
+      "id": "03-STORAGE-PATTERNS.md#011",
+      "path": [
+        "03-STORAGE-PATTERNS.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:cloud-architecture:03-storage-patterns, git-history:cloud-architecture:03-storage-patterns]",
+        "canonical_path": "cloud-architecture/03-STORAGE-PATTERNS.md",
+        "concepts": "[storage, patterns]",
+        "current_path": "cloud-architecture/03-STORAGE-PATTERNS.md",
+        "id": "maxim:cloud-architecture:storage-patterns",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "cloud-architecture",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[storage, patterns]",
+        "section": "cloud-architecture",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Storage Patterns: Object, Block, File, Database - Azure Blob, Managed Disk, Files",
+        "updated": "null"
+      },
+      "text": "### Access Tiers"
+    },
+    {
+      "id": "03-STORAGE-PATTERNS.md#012",
+      "path": [
+        "03-STORAGE-PATTERNS.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:cloud-architecture:03-storage-patterns, git-history:cloud-architecture:03-storage-patterns]",
+        "canonical_path": "cloud-architecture/03-STORAGE-PATTERNS.md",
+        "concepts": "[storage, patterns]",
+        "current_path": "cloud-architecture/03-STORAGE-PATTERNS.md",
+        "id": "maxim:cloud-architecture:storage-patterns",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "cloud-architecture",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[storage, patterns]",
+        "section": "cloud-architecture",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Storage Patterns: Object, Block, File, Database - Azure Blob, Managed Disk, Files",
+        "updated": "null"
+      },
+      "text": "```\nBLOB ACCESS TIERS\n+----------------------------------------------------------+\n| HOT tier                                                 |\n|   Storage cost: highest                                  |\n|   Access cost:  lowest (per read/write operation)        |\n|   Use: frequently accessed data, active web content      |\n|   Latency: single-digit milliseconds                     |\n+----------------------------------------------------------+\n| COOL tier                                                |\n|   Storage cost: ~50% of Hot                             |\n|   Access cost: higher than Hot                          |\n|   Minimum retention: 30 days                            |\n|   Use: infrequently accessed (30 days+), backups,       |\n|        monthly reports                                   |\n+----------------------------------------------------------+\n| COLD tier (preview 2023)                                 |\n|   Storage cost: lower than Cool                          |\n|   Minimum retention: 90 days                             |\n|   Use: rarely accessed, long-term backup                 |\n+----------------------------------------------------------+\n| ARCHIVE tier                                             |\n|   Storage cost: lowest (~90% less than Hot)             |\n|   Access cost: very high                                |\n|   Rehydration: 1–15 hours to access                    |\n|   Minimum retention: 180 days                           |\n|   Use: long-term retention, compliance archives,        |\n|        rarely accessed data                             |\n+----------------------------------------------------------+"
+    },
+    {
+      "id": "03-STORAGE-PATTERNS.md#013",
+      "path": [
+        "03-STORAGE-PATTERNS.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:cloud-architecture:03-storage-patterns, git-history:cloud-architecture:03-storage-patterns]",
+        "canonical_path": "cloud-architecture/03-STORAGE-PATTERNS.md",
+        "concepts": "[storage, patterns]",
+        "current_path": "cloud-architecture/03-STORAGE-PATTERNS.md",
+        "id": "maxim:cloud-architecture:storage-patterns",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "cloud-architecture",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[storage, patterns]",
+        "section": "cloud-architecture",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Storage Patterns: Object, Block, File, Database - Azure Blob, Managed Disk, Files",
+        "updated": "null"
+      },
+      "text": "LIFECYCLE MANAGEMENT RULES:\n  Automatically transition blobs between tiers:\n    After 30 days: Hot → Cool\n    After 90 days: Cool → Archive\n  Delete after 365 days\n  Apply to entire container or by blob prefix\n```"
+    },
+    {
+      "id": "03-STORAGE-PATTERNS.md#014",
+      "path": [
+        "03-STORAGE-PATTERNS.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:cloud-architecture:03-storage-patterns, git-history:cloud-architecture:03-storage-patterns]",
+        "canonical_path": "cloud-architecture/03-STORAGE-PATTERNS.md",
+        "concepts": "[storage, patterns]",
+        "current_path": "cloud-architecture/03-STORAGE-PATTERNS.md",
+        "id": "maxim:cloud-architecture:storage-patterns",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "cloud-architecture",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[storage, patterns]",
+        "section": "cloud-architecture",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Storage Patterns: Object, Block, File, Database - Azure Blob, Managed Disk, Files",
+        "updated": "null"
+      },
+      "text": "### Redundancy Options"
+    },
+    {
+      "id": "03-STORAGE-PATTERNS.md#015",
+      "path": [
+        "03-STORAGE-PATTERNS.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:cloud-architecture:03-storage-patterns, git-history:cloud-architecture:03-storage-patterns]",
+        "canonical_path": "cloud-architecture/03-STORAGE-PATTERNS.md",
+        "concepts": "[storage, patterns]",
+        "current_path": "cloud-architecture/03-STORAGE-PATTERNS.md",
+        "id": "maxim:cloud-architecture:storage-patterns",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "cloud-architecture",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[storage, patterns]",
+        "section": "cloud-architecture",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Storage Patterns: Object, Block, File, Database - Azure Blob, Managed Disk, Files",
+        "updated": "null"
+      },
+      "text": "```\nLRS (Locally Redundant Storage):\n  3 copies in same datacenter\n  Protects: disk failure, rack failure\n  Does NOT protect: datacenter failure\n  Cost: cheapest\n  SLA: 99.999999999% (11 9s) durability"
+    },
+    {
+      "id": "03-STORAGE-PATTERNS.md#016",
+      "path": [
+        "03-STORAGE-PATTERNS.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:cloud-architecture:03-storage-patterns, git-history:cloud-architecture:03-storage-patterns]",
+        "canonical_path": "cloud-architecture/03-STORAGE-PATTERNS.md",
+        "concepts": "[storage, patterns]",
+        "current_path": "cloud-architecture/03-STORAGE-PATTERNS.md",
+        "id": "maxim:cloud-architecture:storage-patterns",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "cloud-architecture",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[storage, patterns]",
+        "section": "cloud-architecture",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Storage Patterns: Object, Block, File, Database - Azure Blob, Managed Disk, Files",
+        "updated": "null"
+      },
+      "text": "ZRS (Zone Redundant Storage):\n  3 copies across 3 AZs in same region\n  Protects: datacenter failure within region\n  Cost: moderate\n  SLA: 12 9s durability"
+    },
+    {
+      "id": "03-STORAGE-PATTERNS.md#017",
+      "path": [
+        "03-STORAGE-PATTERNS.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:cloud-architecture:03-storage-patterns, git-history:cloud-architecture:03-storage-patterns]",
+        "canonical_path": "cloud-architecture/03-STORAGE-PATTERNS.md",
+        "concepts": "[storage, patterns]",
+        "current_path": "cloud-architecture/03-STORAGE-PATTERNS.md",
+        "id": "maxim:cloud-architecture:storage-patterns",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "cloud-architecture",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[storage, patterns]",
+        "section": "cloud-architecture",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Storage Patterns: Object, Block, File, Database - Azure Blob, Managed Disk, Files",
+        "updated": "null"
+      },
+      "text": "GRS (Geo-Redundant Storage):\n  LRS in primary + LRS in secondary (paired) region\n  Secondary is read-only normally; readable only after failover\n  Protects: entire region failure\n  Cost: ~2x LRS\n  SLA: 16 9s durability"
+    },
+    {
+      "id": "03-STORAGE-PATTERNS.md#018",
+      "path": [
+        "03-STORAGE-PATTERNS.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:cloud-architecture:03-storage-patterns, git-history:cloud-architecture:03-storage-patterns]",
+        "canonical_path": "cloud-architecture/03-STORAGE-PATTERNS.md",
+        "concepts": "[storage, patterns]",
+        "current_path": "cloud-architecture/03-STORAGE-PATTERNS.md",
+        "id": "maxim:cloud-architecture:storage-patterns",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "cloud-architecture",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[storage, patterns]",
+        "section": "cloud-architecture",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Storage Patterns: Object, Block, File, Database - Azure Blob, Managed Disk, Files",
+        "updated": "null"
+      },
+      "text": "GZRS (Geo-Zone Redundant Storage):\n  ZRS in primary + LRS in secondary\n  Best protection + read access\n  Cost: highest"
+    },
+    {
+      "id": "03-STORAGE-PATTERNS.md#019",
+      "path": [
+        "03-STORAGE-PATTERNS.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:cloud-architecture:03-storage-patterns, git-history:cloud-architecture:03-storage-patterns]",
+        "canonical_path": "cloud-architecture/03-STORAGE-PATTERNS.md",
+        "concepts": "[storage, patterns]",
+        "current_path": "cloud-architecture/03-STORAGE-PATTERNS.md",
+        "id": "maxim:cloud-architecture:storage-patterns",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "cloud-architecture",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[storage, patterns]",
+        "section": "cloud-architecture",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Storage Patterns: Object, Block, File, Database - Azure Blob, Managed Disk, Files",
+        "updated": "null"
+      },
+      "text": "RA-GRS / RA-GZRS:\n  \"Read-Access\" variants: secondary is always readable\n  (no failover required to read from secondary)\n  Use: geo-distributed reads, CDN-like pattern, disaster recovery\n```"
+    },
+    {
+      "id": "03-STORAGE-PATTERNS.md#020",
+      "path": [
+        "03-STORAGE-PATTERNS.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:cloud-architecture:03-storage-patterns, git-history:cloud-architecture:03-storage-patterns]",
+        "canonical_path": "cloud-architecture/03-STORAGE-PATTERNS.md",
+        "concepts": "[storage, patterns]",
+        "current_path": "cloud-architecture/03-STORAGE-PATTERNS.md",
+        "id": "maxim:cloud-architecture:storage-patterns",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "cloud-architecture",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[storage, patterns]",
+        "section": "cloud-architecture",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Storage Patterns: Object, Block, File, Database - Azure Blob, Managed Disk, Files",
+        "updated": "null"
+      },
+      "text": "### Data Lake Gen2 (ADLS Gen2)"
+    },
+    {
+      "id": "03-STORAGE-PATTERNS.md#021",
+      "path": [
+        "03-STORAGE-PATTERNS.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:cloud-architecture:03-storage-patterns, git-history:cloud-architecture:03-storage-patterns]",
+        "canonical_path": "cloud-architecture/03-STORAGE-PATTERNS.md",
+        "concepts": "[storage, patterns]",
+        "current_path": "cloud-architecture/03-STORAGE-PATTERNS.md",
+        "id": "maxim:cloud-architecture:storage-patterns",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "cloud-architecture",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[storage, patterns]",
+        "section": "cloud-architecture",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Storage Patterns: Object, Block, File, Database - Azure Blob, Managed Disk, Files",
+        "updated": "null"
+      },
+      "text": "Azure Data Lake Storage Gen2 is Blob Storage with a hierarchical namespace enabled. The key difference: it supports real directory semantics (rename is O(1) not O(n) as in flat blob), POSIX permissions, and HDFS-compatible APIs for Spark/Hadoop workloads."
+    },
+    {
+      "id": "03-STORAGE-PATTERNS.md#022",
+      "path": [
+        "03-STORAGE-PATTERNS.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:cloud-architecture:03-storage-patterns, git-history:cloud-architecture:03-storage-patterns]",
+        "canonical_path": "cloud-architecture/03-STORAGE-PATTERNS.md",
+        "concepts": "[storage, patterns]",
+        "current_path": "cloud-architecture/03-STORAGE-PATTERNS.md",
+        "id": "maxim:cloud-architecture:storage-patterns",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "cloud-architecture",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[storage, patterns]",
+        "section": "cloud-architecture",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Storage Patterns: Object, Block, File, Database - Azure Blob, Managed Disk, Files",
+        "updated": "null"
+      },
+      "text": "```\nADLS GEN2 vs. BLOB:\n  Blob:      flat namespace (paths are just key prefixes)\n             rename a \"directory\" = copy all files + delete originals = expensive\n  ADLS Gen2: true directory tree; rename = metadata operation = fast\n             POSIX ACLs: owner/group/other permissions per file/directory\n             Hadoop ABFS driver: native Azure access from Spark/Databricks"
+    },
+    {
+      "id": "03-STORAGE-PATTERNS.md#023",
+      "path": [
+        "03-STORAGE-PATTERNS.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:cloud-architecture:03-storage-patterns, git-history:cloud-architecture:03-storage-patterns]",
+        "canonical_path": "cloud-architecture/03-STORAGE-PATTERNS.md",
+        "concepts": "[storage, patterns]",
+        "current_path": "cloud-architecture/03-STORAGE-PATTERNS.md",
+        "id": "maxim:cloud-architecture:storage-patterns",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "cloud-architecture",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[storage, patterns]",
+        "section": "cloud-architecture",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Storage Patterns: Object, Block, File, Database - Azure Blob, Managed Disk, Files",
+        "updated": "null"
+      },
+      "text": "Azure Databricks, Synapse Analytics → use ADLS Gen2 as data lake\n```"
+    },
+    {
+      "id": "03-STORAGE-PATTERNS.md#024",
+      "path": [
+        "03-STORAGE-PATTERNS.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:cloud-architecture:03-storage-patterns, git-history:cloud-architecture:03-storage-patterns]",
+        "canonical_path": "cloud-architecture/03-STORAGE-PATTERNS.md",
+        "concepts": "[storage, patterns]",
+        "current_path": "cloud-architecture/03-STORAGE-PATTERNS.md",
+        "id": "maxim:cloud-architecture:storage-patterns",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "cloud-architecture",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[storage, patterns]",
+        "section": "cloud-architecture",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Storage Patterns: Object, Block, File, Database - Azure Blob, Managed Disk, Files",
+        "updated": "null"
+      },
+      "text": "---"
+    },
+    {
+      "id": "03-STORAGE-PATTERNS.md#025",
+      "path": [
+        "03-STORAGE-PATTERNS.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:cloud-architecture:03-storage-patterns, git-history:cloud-architecture:03-storage-patterns]",
+        "canonical_path": "cloud-architecture/03-STORAGE-PATTERNS.md",
+        "concepts": "[storage, patterns]",
+        "current_path": "cloud-architecture/03-STORAGE-PATTERNS.md",
+        "id": "maxim:cloud-architecture:storage-patterns",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "cloud-architecture",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[storage, patterns]",
+        "section": "cloud-architecture",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Storage Patterns: Object, Block, File, Database - Azure Blob, Managed Disk, Files",
+        "updated": "null"
+      },
+      "text": "## Azure Managed Disk (Block Storage)"
+    },
+    {
+      "id": "03-STORAGE-PATTERNS.md#026",
+      "path": [
+        "03-STORAGE-PATTERNS.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:cloud-architecture:03-storage-patterns, git-history:cloud-architecture:03-storage-patterns]",
+        "canonical_path": "cloud-architecture/03-STORAGE-PATTERNS.md",
+        "concepts": "[storage, patterns]",
+        "current_path": "cloud-architecture/03-STORAGE-PATTERNS.md",
+        "id": "maxim:cloud-architecture:storage-patterns",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "cloud-architecture",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[storage, patterns]",
+        "section": "cloud-architecture",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Storage Patterns: Object, Block, File, Database - Azure Blob, Managed Disk, Files",
+        "updated": "null"
+      },
+      "text": "Block storage is raw storage attached to a VM as a device — the cloud equivalent of a physical SAN volume."
+    },
+    {
+      "id": "03-STORAGE-PATTERNS.md#027",
+      "path": [
+        "03-STORAGE-PATTERNS.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:cloud-architecture:03-storage-patterns, git-history:cloud-architecture:03-storage-patterns]",
+        "canonical_path": "cloud-architecture/03-STORAGE-PATTERNS.md",
+        "concepts": "[storage, patterns]",
+        "current_path": "cloud-architecture/03-STORAGE-PATTERNS.md",
+        "id": "maxim:cloud-architecture:storage-patterns",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "cloud-architecture",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[storage, patterns]",
+        "section": "cloud-architecture",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Storage Patterns: Object, Block, File, Database - Azure Blob, Managed Disk, Files",
+        "updated": "null"
+      },
+      "text": "```\nMANAGED DISK TYPES (Azure)\n+----------------------------------------------------------+\n| Standard HDD                                             |\n|   Max IOPS: 2,000 (per disk)                             |\n|   Max throughput: 500 MB/s                               |\n|   Use: dev/test, non-critical, archive                   |\n|   Cost: cheapest                                         |\n+----------------------------------------------------------+\n| Standard SSD                                             |\n|   Max IOPS: 6,000                                       |\n|   Max throughput: 750 MB/s                              |\n|   Use: lightly loaded production, web servers           |\n|   Better latency than HDD                               |\n+----------------------------------------------------------+\n| Premium SSD v2                                           |\n|   Max IOPS: 80,000 per disk                              |\n|   Max throughput: 1,200 MB/s                             |\n|   Configurable IOPS/throughput independently             |\n|   Use: production databases, SAP, SQL Server             |\n|   SLA: 99.9% on single VM                                |\n+----------------------------------------------------------+\n| Ultra Disk                                               |\n|   Max IOPS: 160,000 per disk                           |\n|   Max throughput: 4,000 MB/s                           |\n|   Sub-millisecond latency                               |\n|   Use: mission-critical databases, IO-intensive apps    |\n|   Constraint: must be in Availability Zone             |\n+----------------------------------------------------------+"
+    },
+    {
+      "id": "03-STORAGE-PATTERNS.md#028",
+      "path": [
+        "03-STORAGE-PATTERNS.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:cloud-architecture:03-storage-patterns, git-history:cloud-architecture:03-storage-patterns]",
+        "canonical_path": "cloud-architecture/03-STORAGE-PATTERNS.md",
+        "concepts": "[storage, patterns]",
+        "current_path": "cloud-architecture/03-STORAGE-PATTERNS.md",
+        "id": "maxim:cloud-architecture:storage-patterns",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "cloud-architecture",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[storage, patterns]",
+        "section": "cloud-architecture",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Storage Patterns: Object, Block, File, Database - Azure Blob, Managed Disk, Files",
+        "updated": "null"
+      },
+      "text": "VM DISK LIMITS:\n  Each VM size has max uncached IOPS and throughput limits\n  (VM throttle: e.g., Standard_D4s_v5 = 12,800 uncached IOPS)\n  Adding more disks does NOT exceed VM limit\n  → IOPS bottleneck may be VM, not disk\n  → Stripe multiple disks (RAID 0 in OS) to exceed single disk limits\n```"
+    },
+    {
+      "id": "03-STORAGE-PATTERNS.md#029",
+      "path": [
+        "03-STORAGE-PATTERNS.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:cloud-architecture:03-storage-patterns, git-history:cloud-architecture:03-storage-patterns]",
+        "canonical_path": "cloud-architecture/03-STORAGE-PATTERNS.md",
+        "concepts": "[storage, patterns]",
+        "current_path": "cloud-architecture/03-STORAGE-PATTERNS.md",
+        "id": "maxim:cloud-architecture:storage-patterns",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "cloud-architecture",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[storage, patterns]",
+        "section": "cloud-architecture",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Storage Patterns: Object, Block, File, Database - Azure Blob, Managed Disk, Files",
+        "updated": "null"
+      },
+      "text": "### Disk Snapshot and Backup"
+    },
+    {
+      "id": "03-STORAGE-PATTERNS.md#030",
+      "path": [
+        "03-STORAGE-PATTERNS.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:cloud-architecture:03-storage-patterns, git-history:cloud-architecture:03-storage-patterns]",
+        "canonical_path": "cloud-architecture/03-STORAGE-PATTERNS.md",
+        "concepts": "[storage, patterns]",
+        "current_path": "cloud-architecture/03-STORAGE-PATTERNS.md",
+        "id": "maxim:cloud-architecture:storage-patterns",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "cloud-architecture",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[storage, patterns]",
+        "section": "cloud-architecture",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Storage Patterns: Object, Block, File, Database - Azure Blob, Managed Disk, Files",
+        "updated": "null"
+      },
+      "text": "```\nMANAGED DISK SNAPSHOTS:\n  Full or incremental snapshots\n  Incremental: only changed blocks since last snapshot (cost-efficient)\n  Cross-region copy: copy snapshot to another region for DR"
+    },
+    {
+      "id": "03-STORAGE-PATTERNS.md#031",
+      "path": [
+        "03-STORAGE-PATTERNS.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:cloud-architecture:03-storage-patterns, git-history:cloud-architecture:03-storage-patterns]",
+        "canonical_path": "cloud-architecture/03-STORAGE-PATTERNS.md",
+        "concepts": "[storage, patterns]",
+        "current_path": "cloud-architecture/03-STORAGE-PATTERNS.md",
+        "id": "maxim:cloud-architecture:storage-patterns",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "cloud-architecture",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[storage, patterns]",
+        "section": "cloud-architecture",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Storage Patterns: Object, Block, File, Database - Azure Blob, Managed Disk, Files",
+        "updated": "null"
+      },
+      "text": "AZURE BACKUP FOR VMs:\n  Application-consistent backup (VSS integration for Windows, freeze for Linux)\n  Recovery Services Vault stores backups\n  Restore: entire VM, individual disk, or individual file\n```"
+    },
+    {
+      "id": "03-STORAGE-PATTERNS.md#032",
+      "path": [
+        "03-STORAGE-PATTERNS.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:cloud-architecture:03-storage-patterns, git-history:cloud-architecture:03-storage-patterns]",
+        "canonical_path": "cloud-architecture/03-STORAGE-PATTERNS.md",
+        "concepts": "[storage, patterns]",
+        "current_path": "cloud-architecture/03-STORAGE-PATTERNS.md",
+        "id": "maxim:cloud-architecture:storage-patterns",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "cloud-architecture",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[storage, patterns]",
+        "section": "cloud-architecture",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Storage Patterns: Object, Block, File, Database - Azure Blob, Managed Disk, Files",
+        "updated": "null"
+      },
+      "text": "---"
+    },
+    {
+      "id": "03-STORAGE-PATTERNS.md#033",
+      "path": [
+        "03-STORAGE-PATTERNS.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:cloud-architecture:03-storage-patterns, git-history:cloud-architecture:03-storage-patterns]",
+        "canonical_path": "cloud-architecture/03-STORAGE-PATTERNS.md",
+        "concepts": "[storage, patterns]",
+        "current_path": "cloud-architecture/03-STORAGE-PATTERNS.md",
+        "id": "maxim:cloud-architecture:storage-patterns",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "cloud-architecture",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[storage, patterns]",
+        "section": "cloud-architecture",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Storage Patterns: Object, Block, File, Database - Azure Blob, Managed Disk, Files",
+        "updated": "null"
+      },
+      "text": "## Azure Files (File Storage)"
+    },
+    {
+      "id": "03-STORAGE-PATTERNS.md#034",
+      "path": [
+        "03-STORAGE-PATTERNS.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:cloud-architecture:03-storage-patterns, git-history:cloud-architecture:03-storage-patterns]",
+        "canonical_path": "cloud-architecture/03-STORAGE-PATTERNS.md",
+        "concepts": "[storage, patterns]",
+        "current_path": "cloud-architecture/03-STORAGE-PATTERNS.md",
+        "id": "maxim:cloud-architecture:storage-patterns",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "cloud-architecture",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[storage, patterns]",
+        "section": "cloud-architecture",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Storage Patterns: Object, Block, File, Database - Azure Blob, Managed Disk, Files",
+        "updated": "null"
+      },
+      "text": "Azure Files provides fully managed file shares accessible via SMB 3.0/2.1 and NFS 4.1."
+    },
+    {
+      "id": "03-STORAGE-PATTERNS.md#035",
+      "path": [
+        "03-STORAGE-PATTERNS.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:cloud-architecture:03-storage-patterns, git-history:cloud-architecture:03-storage-patterns]",
+        "canonical_path": "cloud-architecture/03-STORAGE-PATTERNS.md",
+        "concepts": "[storage, patterns]",
+        "current_path": "cloud-architecture/03-STORAGE-PATTERNS.md",
+        "id": "maxim:cloud-architecture:storage-patterns",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "cloud-architecture",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[storage, patterns]",
+        "section": "cloud-architecture",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Storage Patterns: Object, Block, File, Database - Azure Blob, Managed Disk, Files",
+        "updated": "null"
+      },
+      "text": "```\nUSE CASES FOR AZURE FILES:\n  Lift-and-shift: apps using file shares, replace on-premises file server\n  Home directory shares: Windows AD integration, per-user quotas\n  Container volumes: mount shared read/write storage across pods (NFS)\n  Configuration files: shared config without deploying to every instance\n  Development: common file share for dev team"
+    },
+    {
+      "id": "03-STORAGE-PATTERNS.md#036",
+      "path": [
+        "03-STORAGE-PATTERNS.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:cloud-architecture:03-storage-patterns, git-history:cloud-architecture:03-storage-patterns]",
+        "canonical_path": "cloud-architecture/03-STORAGE-PATTERNS.md",
+        "concepts": "[storage, patterns]",
+        "current_path": "cloud-architecture/03-STORAGE-PATTERNS.md",
+        "id": "maxim:cloud-architecture:storage-patterns",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "cloud-architecture",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[storage, patterns]",
+        "section": "cloud-architecture",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Storage Patterns: Object, Block, File, Database - Azure Blob, Managed Disk, Files",
+        "updated": "null"
+      },
+      "text": "TIERS:\n  Premium (SSD): sub-millisecond latency, high IOPS, provisioned capacity\n  Transaction optimized: frequent reads, standard SSD\n  Hot: frequently accessed, standard HDD\n  Cool: rarely accessed, archive"
+    },
+    {
+      "id": "03-STORAGE-PATTERNS.md#037",
+      "path": [
+        "03-STORAGE-PATTERNS.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:cloud-architecture:03-storage-patterns, git-history:cloud-architecture:03-storage-patterns]",
+        "canonical_path": "cloud-architecture/03-STORAGE-PATTERNS.md",
+        "concepts": "[storage, patterns]",
+        "current_path": "cloud-architecture/03-STORAGE-PATTERNS.md",
+        "id": "maxim:cloud-architecture:storage-patterns",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "cloud-architecture",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[storage, patterns]",
+        "section": "cloud-architecture",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Storage Patterns: Object, Block, File, Database - Azure Blob, Managed Disk, Files",
+        "updated": "null"
+      },
+      "text": "AD INTEGRATION (SMB):\n  Join Azure Files share to on-premises AD or Azure AD DS\n  Users authenticate with their domain credentials\n  → Map network drive in Windows with AD credentials\n  → No local password required; permissions via AD groups"
+    },
+    {
+      "id": "03-STORAGE-PATTERNS.md#038",
+      "path": [
+        "03-STORAGE-PATTERNS.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:cloud-architecture:03-storage-patterns, git-history:cloud-architecture:03-storage-patterns]",
+        "canonical_path": "cloud-architecture/03-STORAGE-PATTERNS.md",
+        "concepts": "[storage, patterns]",
+        "current_path": "cloud-architecture/03-STORAGE-PATTERNS.md",
+        "id": "maxim:cloud-architecture:storage-patterns",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "cloud-architecture",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[storage, patterns]",
+        "section": "cloud-architecture",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Storage Patterns: Object, Block, File, Database - Azure Blob, Managed Disk, Files",
+        "updated": "null"
+      },
+      "text": "NFS FOR CONTAINERS:\n  Mount Azure Files NFS share as Kubernetes persistent volume\n  ReadWriteMany access mode: multiple pods read/write same share\n  Use: shared upload directory, logging, shared configuration\n  Limitation: NFS shares require Premium tier\n```"
+    },
+    {
+      "id": "03-STORAGE-PATTERNS.md#039",
+      "path": [
+        "03-STORAGE-PATTERNS.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:cloud-architecture:03-storage-patterns, git-history:cloud-architecture:03-storage-patterns]",
+        "canonical_path": "cloud-architecture/03-STORAGE-PATTERNS.md",
+        "concepts": "[storage, patterns]",
+        "current_path": "cloud-architecture/03-STORAGE-PATTERNS.md",
+        "id": "maxim:cloud-architecture:storage-patterns",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "cloud-architecture",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[storage, patterns]",
+        "section": "cloud-architecture",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Storage Patterns: Object, Block, File, Database - Azure Blob, Managed Disk, Files",
+        "updated": "null"
+      },
+      "text": "---"
+    },
+    {
+      "id": "03-STORAGE-PATTERNS.md#040",
+      "path": [
+        "03-STORAGE-PATTERNS.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:cloud-architecture:03-storage-patterns, git-history:cloud-architecture:03-storage-patterns]",
+        "canonical_path": "cloud-architecture/03-STORAGE-PATTERNS.md",
+        "concepts": "[storage, patterns]",
+        "current_path": "cloud-architecture/03-STORAGE-PATTERNS.md",
+        "id": "maxim:cloud-architecture:storage-patterns",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "cloud-architecture",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[storage, patterns]",
+        "section": "cloud-architecture",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Storage Patterns: Object, Block, File, Database - Azure Blob, Managed Disk, Files",
+        "updated": "null"
+      },
+      "text": "## Database Service Selection"
+    },
+    {
+      "id": "03-STORAGE-PATTERNS.md#041",
+      "path": [
+        "03-STORAGE-PATTERNS.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:cloud-architecture:03-storage-patterns, git-history:cloud-architecture:03-storage-patterns]",
+        "canonical_path": "cloud-architecture/03-STORAGE-PATTERNS.md",
+        "concepts": "[storage, patterns]",
+        "current_path": "cloud-architecture/03-STORAGE-PATTERNS.md",
+        "id": "maxim:cloud-architecture:storage-patterns",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "cloud-architecture",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[storage, patterns]",
+        "section": "cloud-architecture",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Storage Patterns: Object, Block, File, Database - Azure Blob, Managed Disk, Files",
+        "updated": "null"
+      },
+      "text": "```\nDATABASE SELECTION BY ACCESS PATTERN"
+    },
+    {
+      "id": "03-STORAGE-PATTERNS.md#042",
+      "path": [
+        "03-STORAGE-PATTERNS.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:cloud-architecture:03-storage-patterns, git-history:cloud-architecture:03-storage-patterns]",
+        "canonical_path": "cloud-architecture/03-STORAGE-PATTERNS.md",
+        "concepts": "[storage, patterns]",
+        "current_path": "cloud-architecture/03-STORAGE-PATTERNS.md",
+        "id": "maxim:cloud-architecture:storage-patterns",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "cloud-architecture",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[storage, patterns]",
+        "section": "cloud-architecture",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Storage Patterns: Object, Block, File, Database - Azure Blob, Managed Disk, Files",
+        "updated": "null"
+      },
+      "text": "RELATIONAL (SQL)\n+----------------------------------------------------------+\n| Azure SQL Database                                       |\n|   SQL Server compatible (T-SQL, ADO.NET, EF Core)        |\n|   vCore: General Purpose (standard), Business Critical   |\n|   (in-memory OLTP, local SSD), Hyperscale (100TB)        |\n|   Elastic Pool: shared resources for multi-tenant SaaS   |\n+----------------------------------------------------------+\n| Azure SQL Managed Instance                               |\n|   100% SQL Server compatibility                          |\n|   Agent, cross-DB queries, CLR, Service Broker          |\n|   Use: migrate SQL Server to cloud with minimal changes |\n+----------------------------------------------------------+\n| Azure DB for PostgreSQL Flexible Server                  |\n|   Managed PostgreSQL (up to v16)                         |\n|   Zone redundant HA, read replicas, built-in Citus       |\n|   Use: open source preference, PostGIS, JSONB workloads  |\n+----------------------------------------------------------+"
+    },
+    {
+      "id": "03-STORAGE-PATTERNS.md#043",
+      "path": [
+        "03-STORAGE-PATTERNS.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:cloud-architecture:03-storage-patterns, git-history:cloud-architecture:03-storage-patterns]",
+        "canonical_path": "cloud-architecture/03-STORAGE-PATTERNS.md",
+        "concepts": "[storage, patterns]",
+        "current_path": "cloud-architecture/03-STORAGE-PATTERNS.md",
+        "id": "maxim:cloud-architecture:storage-patterns",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "cloud-architecture",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[storage, patterns]",
+        "section": "cloud-architecture",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Storage Patterns: Object, Block, File, Database - Azure Blob, Managed Disk, Files",
+        "updated": "null"
+      },
+      "text": "NoSQL\n+----------------------------------------------------------+\n| Azure Cosmos DB                                          |\n|   Multi-model, multi-region, 5 consistency levels        |\n|   APIs: SQL, MongoDB, Cassandra, Gremlin, Table          |\n|   Use: global distribution, variable consistency needs   |\n|   Pricing: RU/s (Request Units per second)               |\n|   Pitfall: RU capacity planning requires workload data   |\n+----------------------------------------------------------+"
+    },
+    {
+      "id": "03-STORAGE-PATTERNS.md#044",
+      "path": [
+        "03-STORAGE-PATTERNS.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:cloud-architecture:03-storage-patterns, git-history:cloud-architecture:03-storage-patterns]",
+        "canonical_path": "cloud-architecture/03-STORAGE-PATTERNS.md",
+        "concepts": "[storage, patterns]",
+        "current_path": "cloud-architecture/03-STORAGE-PATTERNS.md",
+        "id": "maxim:cloud-architecture:storage-patterns",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "cloud-architecture",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[storage, patterns]",
+        "section": "cloud-architecture",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Storage Patterns: Object, Block, File, Database - Azure Blob, Managed Disk, Files",
+        "updated": "null"
+      },
+      "text": "CACHE / KEY-VALUE\n+----------------------------------------------------------+\n| Azure Cache for Redis                                    |\n|   In-memory, sub-millisecond latency                     |\n|   Clustering (C6/P5 tiers), persistence, geo-replication |\n|   Use: session cache, result cache, pub/sub, rate limit  |\n+----------------------------------------------------------+"
+    },
+    {
+      "id": "03-STORAGE-PATTERNS.md#045",
+      "path": [
+        "03-STORAGE-PATTERNS.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:cloud-architecture:03-storage-patterns, git-history:cloud-architecture:03-storage-patterns]",
+        "canonical_path": "cloud-architecture/03-STORAGE-PATTERNS.md",
+        "concepts": "[storage, patterns]",
+        "current_path": "cloud-architecture/03-STORAGE-PATTERNS.md",
+        "id": "maxim:cloud-architecture:storage-patterns",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "cloud-architecture",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[storage, patterns]",
+        "section": "cloud-architecture",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Storage Patterns: Object, Block, File, Database - Azure Blob, Managed Disk, Files",
+        "updated": "null"
+      },
+      "text": "ANALYTICS\n+----------------------------------------------------------+\n| Azure Synapse Analytics / Azure Databricks               |\n|   See 07-DATA-PLATFORMS.md                               |\n+----------------------------------------------------------+\n```"
+    },
+    {
+      "id": "03-STORAGE-PATTERNS.md#046",
+      "path": [
+        "03-STORAGE-PATTERNS.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:cloud-architecture:03-storage-patterns, git-history:cloud-architecture:03-storage-patterns]",
+        "canonical_path": "cloud-architecture/03-STORAGE-PATTERNS.md",
+        "concepts": "[storage, patterns]",
+        "current_path": "cloud-architecture/03-STORAGE-PATTERNS.md",
+        "id": "maxim:cloud-architecture:storage-patterns",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "cloud-architecture",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[storage, patterns]",
+        "section": "cloud-architecture",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Storage Patterns: Object, Block, File, Database - Azure Blob, Managed Disk, Files",
+        "updated": "null"
+      },
+      "text": "---"
+    },
+    {
+      "id": "03-STORAGE-PATTERNS.md#047",
+      "path": [
+        "03-STORAGE-PATTERNS.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:cloud-architecture:03-storage-patterns, git-history:cloud-architecture:03-storage-patterns]",
+        "canonical_path": "cloud-architecture/03-STORAGE-PATTERNS.md",
+        "concepts": "[storage, patterns]",
+        "current_path": "cloud-architecture/03-STORAGE-PATTERNS.md",
+        "id": "maxim:cloud-architecture:storage-patterns",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "cloud-architecture",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[storage, patterns]",
+        "section": "cloud-architecture",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Storage Patterns: Object, Block, File, Database - Azure Blob, Managed Disk, Files",
+        "updated": "null"
+      },
+      "text": "## Storage Selection Decision Table"
+    },
+    {
+      "id": "03-STORAGE-PATTERNS.md#048",
+      "path": [
+        "03-STORAGE-PATTERNS.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:cloud-architecture:03-storage-patterns, git-history:cloud-architecture:03-storage-patterns]",
+        "canonical_path": "cloud-architecture/03-STORAGE-PATTERNS.md",
+        "concepts": "[storage, patterns]",
+        "current_path": "cloud-architecture/03-STORAGE-PATTERNS.md",
+        "id": "maxim:cloud-architecture:storage-patterns",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "cloud-architecture",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[storage, patterns]",
+        "section": "cloud-architecture",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Storage Patterns: Object, Block, File, Database - Azure Blob, Managed Disk, Files",
+        "updated": "null"
+      },
+      "text": "| Requirement | Storage Type | Azure Service |\n|-------------|-------------|---------------|\n| Static web content / CDN origin | Object | Blob (Hot tier) |\n| Application binary artifacts / backups | Object | Blob (Cool tier) |\n| Data lake for analytics (Spark/Databricks) | Object (hierarchical) | ADLS Gen2 |\n| Long-term compliance archives | Object | Blob (Archive tier) |\n| Database storage (high IOPS) | Block | Premium SSD v2 / Ultra Disk |\n| VM OS disk | Block | Standard/Premium SSD |\n| Windows file server replacement (SMB, AD auth) | File | Azure Files (Hot, AD join) |\n| Shared volume across Kubernetes pods | File (NFS) | Azure Files (Premium NFS) |\n| OLTP web application database | Relational | Azure SQL (General Purpose) |\n| SQL Server lift-and-shift | Relational | Azure SQL Managed Instance |\n| Global multi-region distributed database | NoSQL | Cosmos DB |\n| Session cache, leaderboard, rate limiting | KV cache | Azure Cache for Redis |"
+    }
+  ],
+  "refs": [
+    "03-STORAGE-PATTERNS.md"
+  ]
+}

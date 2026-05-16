@@ -1,3 +1,22 @@
+---
+maxim_schema: maxim.frontmatter.v1
+id: maxim:nanotechnology:mems-nems
+kind: guide
+module: nanotechnology
+section: nanotechnology
+title: MEMS and NEMS: Accelerometers, Pressure Sensors, Resonators, Fabrication
+status: source-custody
+source_custody: partial
+current_path: nanotechnology/03-MEMS-NEMS.md
+canonical_path: nanotechnology/03-MEMS-NEMS.md
+backsource_ids: [proof-backfill:nanotechnology:03-mems-nems, git-history:nanotechnology:03-mems-nems]
+concepts: [mems, nems]
+root_concepts: [mems, nems]
+index_roles: [guide, root-concept]
+remap_from: []
+remap_to: []
+updated: null
+---
 # MEMS and NEMS: Accelerometers, Pressure Sensors, Resonators, Fabrication
 
 ## The Big Picture
@@ -171,7 +190,7 @@ Plan view (top-down):
     | finger |        |  poly-  |        | finger |
     +--------+        |  Si     |        +--------+
     +--------+        | plate)  |        +--------+
-    | fixed  |--------+----+----+--------| fixed  |
+    | fixed  |--------*----*----*--------| fixed  |
     | finger |             |             | finger |
     +--------+         MOVABLE           +--------+
                         COMB FINGERS
@@ -257,10 +276,10 @@ PIEZORESISTIVE TYPE:
   Membrane cross-section:
   +----------------------------------------+
   |  Si bulk (handle wafer)                |
-  |         +----------------+             |
-  |         |  cavity (etch) |             |
-  |         +----------------+             |
-  | [membrane: 10 um thin, max stress here]|
+  |         [ cavity (etch) ]              |
+  |         cavity (etch)                  |
+  |         [ cavity (etch) ]              |
+  | [membrane: 10 um thin, max stress]     |
   +----------------------------------------+
 
   Gauge pressure: cavity open to atmosphere, measures differential

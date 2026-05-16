@@ -1,3 +1,22 @@
+---
+maxim_schema: maxim.frontmatter.v1
+id: maxim:cloud-architecture:data-platforms
+kind: guide
+module: cloud-architecture
+section: cloud-architecture
+title: Cloud Data Platforms: Synapse, Databricks, ADF, Delta Lake, Lakehouse
+status: source-custody
+source_custody: partial
+current_path: cloud-architecture/07-DATA-PLATFORMS.md
+canonical_path: cloud-architecture/07-DATA-PLATFORMS.md
+backsource_ids: [proof-backfill:cloud-architecture:07-data-platforms, git-history:cloud-architecture:07-data-platforms]
+concepts: [data, platforms]
+root_concepts: [data, platforms]
+index_roles: [guide, root-concept]
+remap_from: []
+remap_to: []
+updated: null
+---
 # Cloud Data Platforms: Synapse, Databricks, ADF, Delta Lake, Lakehouse
 
 ## The Big Picture

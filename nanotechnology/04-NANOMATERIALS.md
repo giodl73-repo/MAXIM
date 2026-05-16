@@ -1,3 +1,22 @@
+---
+maxim_schema: maxim.frontmatter.v1
+id: maxim:nanotechnology:nanomaterials
+kind: guide
+module: nanotechnology
+section: nanotechnology
+title: Nanomaterials: Quantum Dots, Nanoparticles, and Size-Dependent Properties
+status: source-custody
+source_custody: partial
+current_path: nanotechnology/04-NANOMATERIALS.md
+canonical_path: nanotechnology/04-NANOMATERIALS.md
+backsource_ids: [proof-backfill:nanotechnology:04-nanomaterials, git-history:nanotechnology:04-nanomaterials]
+concepts: [nanomaterials]
+root_concepts: [nanomaterials]
+index_roles: [guide, root-concept]
+remap_from: []
+remap_to: []
+updated: null
+---
 # Nanomaterials: Quantum Dots, Nanoparticles, and Size-Dependent Properties
 
 ## The Big Picture

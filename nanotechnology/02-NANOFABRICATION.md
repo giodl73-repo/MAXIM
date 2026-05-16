@@ -1,3 +1,22 @@
+---
+maxim_schema: maxim.frontmatter.v1
+id: maxim:nanotechnology:nanofabrication
+kind: guide
+module: nanotechnology
+section: nanotechnology
+title: Nanofabrication: Top-Down Lithography and Bottom-Up Deposition
+status: source-custody
+source_custody: partial
+current_path: nanotechnology/02-NANOFABRICATION.md
+canonical_path: nanotechnology/02-NANOFABRICATION.md
+backsource_ids: [proof-backfill:nanotechnology:02-nanofabrication, git-history:nanotechnology:02-nanofabrication]
+concepts: [nanofabrication]
+root_concepts: [nanofabrication]
+index_roles: [guide, root-concept]
+remap_from: []
+remap_to: []
+updated: null
+---
 # Nanofabrication: Top-Down Lithography and Bottom-Up Deposition
 
 ## The Big Picture
@@ -140,8 +159,8 @@ Resolution:
 PROXIMITY EFFECT:
   +------------------+        +------------------+
   |  isolated dot    |        |  dense array     |
-  |  (low dose)      |        |  (high local dose|
-  |                  |        |   from backscatter|
+  |  (low dose)      |        | (high dose)      |
+  |                  |        | from backscatter |
   |    *             |        |  **   **   **    |
   |                  |        |  dose overlap    |
   +------------------+        +------------------+

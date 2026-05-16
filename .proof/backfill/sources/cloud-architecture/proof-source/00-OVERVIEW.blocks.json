@@ -1,0 +1,39 @@
+{
+  "schema_version": "1",
+  "source_markdown": "cloud-architecture\\00-OVERVIEW.md",
+  "blocks": [
+    {
+      "id": "block-1",
+      "kind": "diagram_like",
+      "line": 60,
+      "heading_context": "## The Big Picture",
+      "confidence": "candidate",
+      "text": "CLOUD ARCHITECTURE LANDSCAPE — abstraction layers (you choose where to sit):\n\n  Your Code\n\n  FaaS / Serverless:    Azure Functions, etc.\n  Containers:           AKS, EKS, GKE\n  VMs:                  Azure VMs, EC2\n  Bare Metal:           IaaS dedicated\n\n  Managed PaaS:         App Service, etc.\n  Container Runtime:    Docker, containerd\n  OS Kernel\n  Firmware\n\n  Network, Storage, Compute (IaaS)\n\n  Physical: Servers, Switches, Storage Arrays, Power, Cooling\n\n  Boundary: you manage layers above your chosen abstraction;\n  the cloud provider manages everything below.\n\nCLOUD-NATIVE PRINCIPLES (CNCF):\n  Microservices   Containers   Dynamic orchestration   DevOps practices\n\nECONOMICS:\n  CapEx → OpEx: no data center, no hardware refresh cycle\n  Elasticity: scale in minutes, not procurement quarters\n  Global reach: regions available in minutes\n  Pay-per-use: idle capacity costs nothing (serverless model)",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-2",
+      "kind": "diagram_like",
+      "line": 142,
+      "heading_context": "## Why You Built What You Built — The Azure Insider View",
+      "confidence": "candidate",
+      "text": "ADF (Azure Data Factory): you know this deeply\n  → Pipeline orchestration = the ETL/ELT equivalent of distributed workflow\n  → The integration runtimes, trigger types, dataflow execution\n  → This maps directly to modern cloud-native patterns:\n    - ADF triggers → Azure Functions triggers\n    - ADF pipeline = Durable Functions orchestrator\n    - ADF IR (Integration Runtime) = compute layer abstraction\n    - ADF connected services = service connections with managed identity\n\nAZURE SQL / ADO.NET: you know this deeply\n  → DTU vs. vCore model, elastic pools, read replicas, geo-replication\n  → This is the same \"single-leader, async replication\" pattern (04-REPLICATION.md)\n  → Elastic pools = resource sharing across databases (multi-tenancy pattern)\n  → Geo-replication = follower replicas with async lag\n\nAZURE DEVOPS (VSTS): you built this\n  → Build/release pipelines = what every engineering team uses now\n  → The service itself is a distributed system (consistent with this library)\n  → Your scale challenges are the distributed systems problems in this library",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-3",
+      "kind": "diagram_like",
+      "line": 168,
+      "heading_context": "## Cloud Economics",
+      "confidence": "candidate",
+      "text": "CAPEX vs. OPEX SHIFT\n  Traditional:\n    Purchase servers → 3-5 year depreciation\n    Buy capacity for peak, waste during off-peak\n    Hardware refresh cycles: plan 18 months ahead\n    Data center: power, cooling, physical security, staff\n\n  Cloud:\n    Pay per use: compute, storage, network by the second/GB\n    Reserve capacity for discount (1 or 3 year commitments)\n    Spot/preemptible for fault-tolerant workloads (70-90% discount)\n    No data center overhead: 100% operational expense\n\nSCALE ECONOMICS:\n  Azure, AWS, GCP buy hardware at a scale that provides\n  30-50% cost advantage over individual enterprise purchasing\n  Pass savings partially to customers; keep remainder as margin\n\nRESERVED CAPACITY:\n  Commitment to use (not \"pay whether you use it or not\")\n  Azure Reserved VM Instances: 1 or 3 year, 40-72% discount vs. pay-as-you-go\n  Azure Hybrid Benefit: use existing Windows Server/SQL Server licenses in Azure\n  Savings Plans (Azure): flexible usage commitment (not instance-specific)",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    }
+  ]
+}

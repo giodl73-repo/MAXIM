@@ -1,3 +1,22 @@
+---
+maxim_schema: maxim.frontmatter.v1
+id: maxim:cloud-architecture:storage-patterns
+kind: guide
+module: cloud-architecture
+section: cloud-architecture
+title: Storage Patterns: Object, Block, File, Database - Azure Blob, Managed Disk, Files
+status: source-custody
+source_custody: partial
+current_path: cloud-architecture/03-STORAGE-PATTERNS.md
+canonical_path: cloud-architecture/03-STORAGE-PATTERNS.md
+backsource_ids: [proof-backfill:cloud-architecture:03-storage-patterns, git-history:cloud-architecture:03-storage-patterns]
+concepts: [storage, patterns]
+root_concepts: [storage, patterns]
+index_roles: [guide, root-concept]
+remap_from: []
+remap_to: []
+updated: null
+---
 # Storage Patterns: Object, Block, File, Database — Azure Blob, Managed Disk, Files
 
 ## The Big Picture

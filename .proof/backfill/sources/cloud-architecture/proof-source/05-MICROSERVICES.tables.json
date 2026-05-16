@@ -1,0 +1,63 @@
+{
+  "schema_version": "1",
+  "source_markdown": "cloud-architecture\\05-MICROSERVICES.md",
+  "tables": [
+    {
+      "id": "table-1",
+      "line": 369,
+      "heading_context": "## Decision Cheat Sheet",
+      "headers": [
+        "If you need to diagnose...",
+        "Start With",
+        "Key Caveat"
+      ],
+      "rows": [
+        [
+          "Whether container orchestration needs full control",
+          "AKS",
+          "Cluster control brings node, upgrade, policy, and platform ownership."
+        ],
+        [
+          "Whether containerized apps can avoid cluster operations",
+          "Container Apps",
+          "Great for app teams; less suitable when you need low-level Kubernetes control."
+        ],
+        [
+          "Whether external APIs need productized access",
+          "API Management",
+          "Gateway policy does not fix poor service boundaries or versioning."
+        ],
+        [
+          "Whether service-to-service traffic needs mesh policy",
+          "Istio AKS add-on",
+          "mTLS and routing power add operational complexity and debugging surface."
+        ],
+        [
+          "Whether Azure resource events should trigger reactions",
+          "Event Grid",
+          "Notifications require idempotent handlers; delivery is not business workflow state."
+        ],
+        [
+          "Whether telemetry or IoT needs high-throughput streaming",
+          "Event Hubs",
+          "Streaming ingestion is not durable command processing."
+        ],
+        [
+          "Whether business processes need reliable messaging",
+          "Service Bus",
+          "Queues/topics preserve business semantics but are not raw event firehoses."
+        ],
+        [
+          "Whether cross-language service plumbing is the hard part",
+          "Dapr",
+          "Sidecars standardize patterns but do not remove distributed-system failure modes."
+        ],
+        [
+          "Whether multi-region HTTP edge routing is needed",
+          "Azure Front Door",
+          "Edge routing and WAF do not replace regional service health design."
+        ]
+      ]
+    }
+  ]
+}

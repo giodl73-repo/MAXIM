@@ -1,0 +1,115 @@
+{
+  "schema_version": "1",
+  "source_markdown": "cloud-architecture\\07-DATA-PLATFORMS.md",
+  "tables": [
+    {
+      "id": "table-1",
+      "line": 182,
+      "heading_context": "## Azure Databricks",
+      "headers": [
+        "Dimension",
+        "Databricks",
+        "Synapse Spark"
+      ],
+      "rows": [
+        [
+          "Unity Catalog",
+          "Yes (centralized governance)",
+          "No (Purview separate)"
+        ],
+        [
+          "Delta Live Tables",
+          "Yes",
+          "No"
+        ],
+        [
+          "MLflow native",
+          "Yes",
+          "Via Azure ML"
+        ],
+        [
+          "Azure AD integration",
+          "Yes",
+          "Tighter Azure RBAC"
+        ],
+        [
+          "Cost",
+          "Add-on cost to Azure Spark",
+          "Included in Synapse"
+        ],
+        [
+          "Collaborative notebooks",
+          "Better (real-time collab)",
+          "Basic"
+        ],
+        [
+          "Ecosystem",
+          "Leading OSS Spark distrib",
+          "Azure-integrated"
+        ],
+        [
+          "Best for",
+          "ML + analytics, heavy Spark",
+          "Azure-native analytics + SQL DW"
+        ]
+      ]
+    },
+    {
+      "id": "table-2",
+      "line": 327,
+      "heading_context": "## Decision Cheat Sheet",
+      "headers": [
+        "If you need to diagnose...",
+        "Start With",
+        "Key Caveat"
+      ],
+      "rows": [
+        [
+          "Whether ingestion breadth is the hard part",
+          "Azure Data Factory",
+          "Connectors and scheduling help, but schema drift and integration runtime ownership remain."
+        ],
+        [
+          "Whether transformations need complex Spark ecosystem",
+          "Databricks or Synapse Spark",
+          "Databricks usually has stronger ecosystem; Synapse may fit Azure-integrated estates."
+        ],
+        [
+          "Whether lake data needs ad hoc SQL",
+          "Synapse Serverless SQL",
+          "Pay-per-scan rewards partitioning and file pruning; sloppy layout becomes cost."
+        ],
+        [
+          "Whether repetitive SQL needs predictable performance",
+          "Synapse Dedicated SQL Pool",
+          "Dedicated capacity should pause when idle or it burns money."
+        ],
+        [
+          "Whether ML needs training plus experiment tracking",
+          "Databricks MLflow plus Azure ML",
+          "Split ownership carefully: notebooks, registry, deployment, and governance can fragment."
+        ],
+        [
+          "Whether sharing crosses clouds or companies",
+          "Snowflake, or Azure Data Share for simpler Azure cases",
+          "Data sharing is also contract, lineage, and access governance."
+        ],
+        [
+          "Whether lineage/governance is the missing layer",
+          "Microsoft Purview",
+          "Scanning tools need naming, ownership, and stewardship processes to be useful."
+        ],
+        [
+          "Whether the lake needs ACID table semantics",
+          "Delta Lake",
+          "ACID helps reliability but does not fix bad partitioning or modeling."
+        ],
+        [
+          "Whether streams should land in the lake in near-real time",
+          "Event Hubs plus Spark Streaming, or Stream Analytics to ADLS",
+          "Streaming pipelines need replay, watermarking, and backpressure design."
+        ]
+      ]
+    }
+  ]
+}

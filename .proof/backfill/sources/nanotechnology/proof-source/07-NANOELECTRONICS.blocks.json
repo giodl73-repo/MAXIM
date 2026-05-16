@@ -1,0 +1,94 @@
+{
+  "schema_version": "1",
+  "source_markdown": "nanotechnology\\07-NANOELECTRONICS.md",
+  "blocks": [
+    {
+      "id": "block-1",
+      "kind": "chart_like",
+      "line": 50,
+      "heading_context": "## MOSFET Scaling: From Dennard to the End of Classical Scaling",
+      "confidence": "candidate",
+      "text": "### Dennard Scaling (1974-2005)",
+      "notes": [
+        "detected from bar/chart glyph density with numeric labels"
+      ]
+    },
+    {
+      "id": "block-2",
+      "kind": "chart_like",
+      "line": 74,
+      "heading_context": "### Dennard Scaling (1974-2005)",
+      "confidence": "candidate",
+      "text": "### Dennard Scaling Breakdown (~2005)",
+      "notes": [
+        "detected from bar/chart glyph density with numeric labels"
+      ]
+    },
+    {
+      "id": "block-3",
+      "kind": "chart_like",
+      "line": 114,
+      "heading_context": "## FinFET and Gate-All-Around",
+      "confidence": "candidate",
+      "text": "### FinFET (3D Transistor)",
+      "notes": [
+        "detected from bar/chart glyph density with numeric labels"
+      ]
+    },
+    {
+      "id": "block-4",
+      "kind": "ascii_table_candidate",
+      "line": 116,
+      "heading_context": "### FinFET (3D Transistor)",
+      "confidence": "candidate",
+      "text": "FINFET STRUCTURE\n=================\n\nPLANAR MOSFET (pre-2011):\n  Gate electrode above channel\n  Gate controls channel from one side only\n  At short channel: drain electric field penetrates to source (DIBL -- drain-induced\n    barrier lowering) -> leakage, threshold shift\n\nFINFET:\n  Channel raised as a vertical fin\n  Gate wraps around three sides (top + two sidewalls)\n  Better electrostatic control: gate sees channel from 3 sides\n\n  Side view:              Top view (looking down):\n  +----------+            +---------+---------+---------+\n  |   Gate   |            |  Source |  Gate   |  Drain  |\n  +----+--+--+            +---------+---------+---------+\n       | fin |                      | Fin |\n       |     |                      +-----+\n  [Source] [Drain]\n\nAdvantages:\n  Higher Ion/Ioff ratio (better off-state control)\n  Lower leakage current at same Vth\n  Enables continued scaling where planar fails\n  Width quantized by fin pitch (you add fins, not continuous width)\n\nIntel Ivy Bridge (2012): first production FinFET, 22nm node\n  All advanced nodes since then (Apple, TSMC, Samsung, Intel): FinFET\n\nLimitations at sub-5nm:\n  Fin width becomes too small for desired conductance\n  Variability: few-nm variation in fin dimensions -> threshold variation",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-5",
+      "kind": "ascii_table_candidate",
+      "line": 155,
+      "heading_context": "### Gate-All-Around (GAA) Transistors",
+      "confidence": "candidate",
+      "text": "GATE-ALL-AROUND (NANOSHEET) TRANSISTOR\n========================================\n\nNANOSHEET (or nanowire):\n  Horizontal sheets of Si stacked\n  Gate wraps entirely around each sheet (360 degrees)\n  Better control than FinFET (4 sides vs. 3 sides)\n\n  Cross-section through gate:\n  +-----------------------------+\n  |         Gate metal          |\n  | [--]  [Nanosheet]  [--]     |\n  |  gate dielectric wraps it   |\n  | [--]  [Nanosheet]  [--]     |\n  |        (another)            |\n  |         Gate metal          |\n  +-----------------------------+\n\nSTACKED NANOSHEETS:\n  Multiple (2-5) nanosheets stacked vertically\n  All driven by same gate\n  Equivalent width without horizontal area\n\nTSMC 3nm N3 (2022): still FinFET\nSAMSUNG 3nm SF3E (2022): first production GAA (nanosheet), 3nm node\nTSMC N2 (2025): GAA transition\nIntel 20A/18A: RibbonFET (Intel's name for GAA nanosheet)\n\nCFET (Complementary FET):\n  Stack n-type nanosheet DIRECTLY on top of p-type nanosheet\n  Same gate contact drives both\n  50% footprint reduction for CMOS inverter vs. side-by-side\n  Research: Samsung, Imec demonstrating; production 2028+",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-6",
+      "kind": "diagram_like",
+      "line": 195,
+      "heading_context": "## Single-Electron Transistor (SET)",
+      "confidence": "candidate",
+      "text": "SINGLE-ELECTRON TRANSISTOR\n============================\n\nPRINCIPLE: Coulomb blockade\n\nA tiny metallic or semiconductor \"island\" connected to source and drain\nvia tunnel junctions (thin insulators). Gate capacitively coupled.\n\n   Source ---[tunnel]--- ISLAND ---[tunnel]--- Drain\n                             |\n                           Gate (capacitive only, no tunnel)\n\nEnergy to ADD one electron to island:\n  E_C = e^2 / (2 * C_total)\n  where C_total = sum of all capacitances to island\n\nFor very small islands (C_total ~ 10^-18 F = 1 aF):\n  E_C = (1.6e-19)^2 / (2 * 10^-18) ~ 13 meV\n\nCOULOMB BLOCKADE CONDITION:\n  If E_C >> kT: electrons cannot tunnel onto island at random\n  kT at 300K = 26 meV\n  kT at 4K   = 0.34 meV\n  kT at 100 mK = 0.0086 meV\n\n  For room temperature SET: need E_C >> 26 meV -> C < ~3 aF -> island < ~3 nm\n\nOPERATION:\n  With gate voltage: tune electrostatic potential of island\n  At Vg such that N and N+1 electrons are degenerate in energy:\n    Coulomb blockade lifted; current flows (one electron at a time)\n  Periodic Coulomb blockade oscillations as Vg increases:\n    Period = e/C_gate\n\nCURRENT STATUS:\n  Room-temperature SET: demonstrated in research (Si nanoparticle, NiO junctions)\n  Practical room-T SET: requires island <5 nm -- hard to fabricate reproducibly\n  Cryo-T SET (4K, 20 mK): standard tool in quantum transport research\n  Used as: extremely sensitive electrometer (attocoulomb sensitivity)\n           qubit readout in spin qubit circuits\n           fundamental physics (shot noise, Cooper pair tunneling)\n  NOT in production logic (thermal noise and fabrication variability problems)",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-7",
+      "kind": "chart_like",
+      "line": 244,
+      "heading_context": "## Molecular Electronics",
+      "confidence": "candidate",
+      "text": "### The Aviram-Ratner Proposal (1974)",
+      "notes": [
+        "detected from bar/chart glyph density with numeric labels"
+      ]
+    },
+    {
+      "id": "block-8",
+      "kind": "diagram_like",
+      "line": 299,
+      "heading_context": "## Memristors",
+      "confidence": "candidate",
+      "text": "MEMRISTOR: RESISTANCE-SWITCHING MEMORY\n========================================\n\nHP Labs (2008): Stanley Williams, Dmitri Strukov\nTiO2-based device: resistance switches between high (Roff) and low (Ron) state\nNon-volatile: state retained without power\n\nMECHANISM (TiO2):\n  TiO2 with oxygen vacancy profile:\n  TiO2-x (conducting, vacancy-rich) | TiO2 (insulating)\n  Applied field: moves oxygen vacancies\n    +V: vacancies move toward interface -> conducting region grows -> Ron\n    -V: vacancies move away -> insulating region grows -> Roff\n\n  State equation: dw/dt = mu_v * Ron * I / D\n    (drift equation for vacancy front position w)\n\nPROPERTIES:\n  On/off ratio: 10 to 10^3 (chemistry-dependent)\n  Switching time: ns to us\n  Endurance: 10^5 to 10^12 cycles (material-dependent)\n  Non-volatile retention: >10 years at room temp\n\nAPPLICATIONS:\n  Crossbar memory array (ReRAM: Resistive RAM):\n    4F^2 cell (minimum possible 2D area)\n    Multi-level cell (MLC): store 2-4 bits per device via analog resistance levels\n    Products: Intel Optane (PCM, not exactly memristor but similar), SK Hynix, Weebit Nano\n\n  Neuromorphic computing:\n    Memristor as artificial synapse: weight = resistance value\n    Spike timing: write pulses modify resistance (Hebbian learning)\n    In-memory computing: matrix-vector multiply in O(1) time (physics computes it)\n    Intel Loihi, IBM TrueNorth: use CMOS but target memristor for next generation\n\nCURRENT LIMITATION:\n  Variability: resistance states variable across cells\n  Sneak current paths in crossbar (half-select problem)\n  Multi-level reliability: difficult to maintain 4+ distinct states over lifetime",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    }
+  ]
+}
