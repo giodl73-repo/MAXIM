@@ -1,0 +1,788 @@
+{
+  "schema_version": "1",
+  "source_markdown": "query-languages\\04-MYSQL.md",
+  "tables": [
+    {
+      "id": "table-1",
+      "line": 108,
+      "heading_context": "## 1. Dialect Snapshot",
+      "headers": [
+        "Attribute",
+        "Value"
+      ],
+      "rows": [
+        [
+          "Origin",
+          "MySQL AB (1995) → Sun Microsystems (2008) → Oracle (2010); MariaDB fork by Monty Widenius (2009)"
+        ],
+        [
+          "License",
+          "MySQL: GPL v2 + commercial / MariaDB: GPL v2"
+        ],
+        [
+          "Current versions",
+          "MySQL 8.0, 8.4 (LTS); MariaDB 11.x"
+        ],
+        [
+          "ACID compliance",
+          "Full with InnoDB (default engine)"
+        ],
+        [
+          "Strengths",
+          "Read-heavy OLTP, replication simplicity, ubiquity, LAMP/LEMP stack, AWS Aurora"
+        ],
+        [
+          "Weaknesses",
+          "Weaker analytics than PostgreSQL, older optimizer, Oracle stewardship concerns"
+        ],
+        [
+          "Cloud managed",
+          "AWS RDS MySQL, AWS Aurora (MySQL-compatible), Azure Database for MySQL, GCP Cloud SQL, PlanetScale"
+        ]
+      ]
+    },
+    {
+      "id": "table-2",
+      "line": 136,
+      "heading_context": "## 2. InnoDB — The Only Engine You Should Use",
+      "headers": [
+        "Behavior",
+        "Detail"
+      ],
+      "rows": [
+        [
+          "MVCC",
+          "Readers don't block writers (same model as SQL Server snapshot isolation)"
+        ],
+        [
+          "Row-level locking",
+          "Not table-level like MyISAM — concurrent DML scales"
+        ],
+        [
+          "Clustered index",
+          "EVERY InnoDB table IS a clustered B+ tree on the primary key — not the same as SQL Server's optional clustered index. SQL Server allows heaps (no CI); InnoDB does not. No PK defined → InnoDB synthesizes a hidden 6-byte rowid."
+        ],
+        [
+          "Secondary index storage",
+          "Stores PK value as row pointer — not a physical RID. Every non-covering secondary lookup traverses two B-trees: secondary index seek → PK B-tree seek. In SQL Server terms: it always does a bookmark lookup, even on a CI table, unless the index is covering."
+        ],
+        [
+          "Secondary index size",
+          "Wide PKs bloat every secondary index — each secondary index entry embeds the full PK value. UUID PK = 16 bytes per secondary index entry. SQL Server stores the CI key in NCIs too, but you can choose a narrow surrogate. In InnoDB, you're stuck with whatever the PK is."
+        ],
+        [
+          "Foreign key enforcement",
+          "InnoDB enforces; MyISAM silently ignores FK declarations"
+        ],
+        [
+          "Auto-increment gaps",
+          "Gaps occur on rollback and crash recovery — never assume sequence continuity"
+        ],
+        [
+          "UUID as PK",
+          "Random-write fragmentation: InnoDB must maintain physical sort order, so UUID PKs cause page splits on every insert. SQL Server has this too for clustered indexes, but you can use a heap as escape hatch. InnoDB has no escape hatch. Use `UUID_TO_BIN(UUID(), 1)` (version 1, time-sorted) or an AUTO_INCREMENT surrogate instead."
+        ]
+      ]
+    },
+    {
+      "id": "table-3",
+      "line": 196,
+      "heading_context": "## 2. InnoDB — The Only Engine You Should Use",
+      "headers": [
+        "Dimension",
+        "InnoDB",
+        "SQL Server"
+      ],
+      "rows": [
+        [
+          "Page size",
+          "16 KB default (configurable: 4/8/16/32/64 KB)",
+          "8 KB (fixed)"
+        ],
+        [
+          "Clustered index",
+          "Always — every table is a B+ tree on PK",
+          "Optional — developer chooses CI or heap"
+        ],
+        [
+          "No PK defined",
+          "Hidden 6-byte rowid synthesized",
+          "Heap (RID-based NCI pointers)"
+        ],
+        [
+          "Secondary index pointer",
+          "PK value embedded in every secondary index entry",
+          "CI key (if CI table) or 8-byte RID (if heap)"
+        ],
+        [
+          "Undo log location",
+          "Undo tablespace within the data directory (undo001, undo002)",
+          "tempdb version store (shared across all databases)"
+        ],
+        [
+          "Undo persistence",
+          "Persistent across restarts; purge thread reclaims space",
+          "Cleared on SQL Server restart; new version store starts empty"
+        ],
+        [
+          "Redo log",
+          "Circular ib_logfile0 / ib_logfile1 (WAL)",
+          "Sequential .ldf with VLF segments; grows/shrinks"
+        ],
+        [
+          "MVCC row versions",
+          "Undo log in tablespace (not in row)",
+          "Version store in tempdb (or PVS in user DB with ADR)"
+        ],
+        [
+          "Change buffer",
+          "Yes — defers writes to secondary index pages not in buffer pool",
+          "No direct equivalent; write-ahead log + async checkpoint"
+        ],
+        [
+          "Version store bloat symptom",
+          "Undo tablespace grows; purge thread falls behind",
+          "tempdb grows (RCSI/SI); ADR PVS grows in user DB"
+        ]
+      ]
+    },
+    {
+      "id": "table-4",
+      "line": 213,
+      "heading_context": "## 3. Core Syntax Differences from T-SQL",
+      "headers": [
+        "Operation",
+        "T-SQL (SQL Server)",
+        "MySQL"
+      ],
+      "rows": [
+        [
+          "Top N rows",
+          "`SELECT TOP 10 * FROM t`",
+          "`SELECT * FROM t LIMIT 10`"
+        ],
+        [
+          "Top N with offset",
+          "`OFFSET 20 ROWS FETCH NEXT 10`",
+          "`LIMIT 10 OFFSET 20`"
+        ],
+        [
+          "Identity column",
+          "`IDENTITY(1,1)`",
+          "`AUTO_INCREMENT`"
+        ],
+        [
+          "Current timestamp",
+          "`GETDATE()` / `SYSDATETIME()`",
+          "`NOW()` / `CURRENT_TIMESTAMP`"
+        ],
+        [
+          "Null coalesce",
+          "`ISNULL(a, b)`",
+          "`IFNULL(a, b)` or `COALESCE(a, b)`"
+        ],
+        [
+          "String length (chars)",
+          "`LEN(str)`",
+          "`CHAR_LENGTH(str)`"
+        ],
+        [
+          "String length (bytes)",
+          "`DATALENGTH(str)`",
+          "`LENGTH(str)`"
+        ],
+        [
+          "String concat",
+          "`'a' + 'b'` or `CONCAT()`",
+          "`CONCAT(a, b, c)` (+ is addition)"
+        ],
+        [
+          "Find in string",
+          "`CHARINDEX(needle, hay)`",
+          "`LOCATE(needle, hay)`"
+        ],
+        [
+          "Substring replace",
+          "`STUFF(str, pos, len, rep)`",
+          "`INSERT(str, pos, len, rep)`"
+        ],
+        [
+          "Date diff",
+          "`DATEDIFF(unit, start, end)`",
+          "`DATEDIFF(date1, date2)` (days only!)"
+        ],
+        [
+          "Date add",
+          "`DATEADD(unit, n, date)`",
+          "`DATE_ADD(date, INTERVAL n unit)`"
+        ],
+        [
+          "Aggregate to string",
+          "`STRING_AGG(col, ',')`",
+          "`GROUP_CONCAT(col ORDER BY col SEPARATOR ',')`"
+        ],
+        [
+          "XML output",
+          "`FOR XML PATH(...)`",
+          "`JSON_ARRAYAGG()` or `GROUP_CONCAT`"
+        ],
+        [
+          "Lateral join",
+          "`CROSS APPLY`",
+          "`LATERAL` (MySQL 8.0+)"
+        ],
+        [
+          "Full outer join",
+          "Native `FULL OUTER JOIN`",
+          "No native — emulate (see below)"
+        ],
+        [
+          "Identifier quoting",
+          "`[column_name]`",
+          "`` `column_name` `` (backticks)"
+        ],
+        [
+          "Boolean type",
+          "`BIT`",
+          "`TINYINT(1)` (TRUE/FALSE = aliases for 1/0)"
+        ]
+      ]
+    },
+    {
+      "id": "table-5",
+      "line": 398,
+      "heading_context": "## 7. JSON Support (MySQL 5.7.8+)",
+      "headers": [
+        "Dimension",
+        "MySQL 5.7.8+",
+        "SQL Server 2016+",
+        "PostgreSQL (JSONB)"
+      ],
+      "rows": [
+        [
+          "Storage format",
+          "Binary (internal optimized binary format)",
+          "NVARCHAR text — no binary type",
+          "Binary (JSONB), decomposed and indexed"
+        ],
+        [
+          "Dedicated type",
+          "Yes — `JSON` column type, validated on insert",
+          "No — stored as `NVARCHAR(MAX)` or `VARCHAR(MAX)`",
+          "Yes — `JSON` (text) and `JSONB` (binary)"
+        ],
+        [
+          "Native JSON index",
+          "No GIN/GiST equivalent — workaround: generated column + B-tree index",
+          "Computed column + index (same workaround as MySQL)",
+          "Yes — `CREATE INDEX ON t USING GIN(data)` enables containment queries"
+        ],
+        [
+          "Containment query",
+          "`JSON_CONTAINS(data, '{\"key\":\"val\"}')`",
+          "No containment operator — must use `JSON_VALUE()` predicates",
+          "`data @> '{\"key\":\"val\"}'` — GIN-accelerated"
+        ],
+        [
+          "Array aggregation",
+          "`JSON_ARRAYAGG(col ORDER BY col)`",
+          "`FOR JSON PATH` or `JSON_ARRAY()` (2022+)",
+          "`json_agg(col)` / `jsonb_agg(col)`"
+        ],
+        [
+          "Shred JSON to rows",
+          "`JSON_TABLE(data, '$[*]' COLUMNS (...))` (8.0+)",
+          "`OPENJSON(data) WITH (...)`",
+          "`jsonb_to_recordset(data)`"
+        ],
+        [
+          "Modify in place",
+          "`JSON_SET`, `JSON_INSERT`, `JSON_REPLACE`, `JSON_REMOVE`",
+          "`JSON_MODIFY(col, path, value)`",
+          "`jsonb_set(col, path, value)`"
+        ],
+        [
+          "Path syntax",
+          "JSONPath `$.key.nested`",
+          "JSONPath `$.key.nested` (same style)",
+          "`{key,nested}` (different syntax)"
+        ]
+      ]
+    },
+    {
+      "id": "table-6",
+      "line": 495,
+      "heading_context": "## 10. EXPLAIN",
+      "headers": [
+        "Column",
+        "What to Look For"
+      ],
+      "rows": [
+        [
+          "`type`",
+          "`system` > `const` > `eq_ref` > `ref` > `range` > `index` > **`ALL`** — ALL = full table scan, bad"
+        ],
+        [
+          "`key`",
+          "Which index was used (`NULL` = no index used)"
+        ],
+        [
+          "`key_len`",
+          "Bytes used of the index — shorter may mean partial composite index usage"
+        ],
+        [
+          "`rows`",
+          "Estimated rows examined (not returned)"
+        ],
+        [
+          "`filtered`",
+          "Estimated percentage of rows that pass the WHERE filter"
+        ],
+        [
+          "`Extra`",
+          "`Using filesort` = ORDER BY not satisfied by index; `Using temporary` = temp table; `Using index` = covering index (fast)"
+        ]
+      ]
+    },
+    {
+      "id": "table-7",
+      "line": 506,
+      "heading_context": "## 10. EXPLAIN",
+      "headers": [
+        "SQL Server Tool",
+        "MySQL Equivalent",
+        "Gap"
+      ],
+      "rows": [
+        [
+          "SSMS graphical execution plan (estimated)",
+          "`EXPLAIN FORMAT=JSON` + MySQL Workbench Visual Explain",
+          "No operator cost %/bars; must read cost fields in JSON"
+        ],
+        [
+          "SSMS graphical execution plan (actual)",
+          "`EXPLAIN ANALYZE` (MySQL 8.0.18+) — executes query, shows actual vs. estimated rows + loop times",
+          "ANALYZE runs the query; no dry-run option"
+        ],
+        [
+          "`SET STATISTICS IO ON` (logical reads per table)",
+          "No direct equivalent — `EXPLAIN ANALYZE` shows rows, not page reads. Use `SHOW STATUS LIKE 'Handler_%'` for handler call counts",
+          "No page-read counter exposed per statement"
+        ],
+        [
+          "`SET STATISTICS TIME ON`",
+          "`EXPLAIN ANALYZE` includes execution time per node",
+          "Less granular than SQL Server's compile + execute split"
+        ],
+        [
+          "Query Store — plan history, regressed queries",
+          "`slow_query_log` + Percona `pt-query-digest` — aggregates slow log into query digests with stats",
+          "No built-in plan history; no plan forcing. pt-query-digest is a separate tool"
+        ],
+        [
+          "Query Store plan forcing (`sp_query_store_force_plan`)",
+          "No equivalent — MySQL has no plan forcing mechanism. Use index hints or query rewrites",
+          "This is a genuine MySQL gap vs SQL Server"
+        ],
+        [
+          "Missing index DMVs (`sys.dm_db_missing_index_details`)",
+          "`sys.schema_unused_indexes` (unused indexes); no \"missing index\" advisor built-in. pt-query-digest surfaces slow queries for manual index analysis",
+          "No automated index recommendation"
+        ],
+        [
+          "Extended Events / SQL Trace",
+          "Performance Schema (`performance_schema.events_statements_*`) — fine-grained but complex to query",
+          "More verbose than XE; no GUI equivalent to SSMS XE sessions"
+        ]
+      ]
+    },
+    {
+      "id": "table-8",
+      "line": 525,
+      "heading_context": "## 11. Replication and Binlog",
+      "headers": [
+        "SQL Server Concept",
+        "MySQL Equivalent",
+        "Key Differences"
+      ],
+      "rows": [
+        [
+          "Log Shipping (async, manual failover)",
+          "Async binlog replication (primary → replica, one-directional)",
+          "MySQL uses binlog events (logical or row-level); SQL Server ships log blocks (physical). Both are async with potential data loss on failover."
+        ],
+        [
+          "Always On AG (synchronous commit, automatic failover)",
+          "MySQL Group Replication / InnoDB Cluster (Paxos-based)",
+          "SQL Server AG uses WSFC (Windows Server Failover Cluster) as the membership/quorum layer. MySQL Group Replication is built-in Paxos — no external cluster dependency."
+        ],
+        [
+          "AG readable secondary (ApplicationIntent=ReadOnly)",
+          "MySQL async read replica — `ApplicationIntent` not a concept; use separate connection string to replica host",
+          "MySQL read replicas have replication lag (typically <1s on fast hardware); SQL Server synchronous AG secondaries have near-zero lag."
+        ],
+        [
+          "Distributed AG (async, spans regions/domains)",
+          "MySQL async replica chain or replication from replica to replica",
+          "Both are async fan-out. MySQL's equivalent is simpler operationally but lacks the listener/DNS abstraction."
+        ],
+        [
+          "WSFC quorum (cluster votes)",
+          "InnoDB Cluster uses MySQL Router + Group Replication Paxos quorum",
+          "No external quorum service needed in MySQL 8.0+ InnoDB Cluster."
+        ]
+      ]
+    },
+    {
+      "id": "table-9",
+      "line": 574,
+      "heading_context": "## 11. Replication and Binlog",
+      "headers": [
+        "",
+        "Position-based (classic)",
+        "GTID-based (MySQL 5.6+)"
+      ],
+      "rows": [
+        [
+          "Replica positioning",
+          "Must specify `MASTER_LOG_FILE` + `MASTER_LOG_POS`",
+          "Auto — replica tracks `@@gtid_purged`"
+        ],
+        [
+          "Failover complexity",
+          "Manual: find new primary's log position, reconfigure replicas",
+          "Automatic: `CHANGE MASTER TO MASTER_AUTO_POSITION=1`"
+        ],
+        [
+          "Error recovery",
+          "Complex — mismatched positions cause silent divergence",
+          "Easier — GTID gaps are detectable"
+        ],
+        [
+          "Recommendation",
+          "Legacy systems only",
+          "All new deployments"
+        ]
+      ]
+    },
+    {
+      "id": "table-10",
+      "line": 609,
+      "heading_context": "## 12. Charset / Collation Gotchas",
+      "headers": [
+        "Collation",
+        "Behavior",
+        "Use When"
+      ],
+      "rows": [
+        [
+          "`utf8mb4_unicode_ci`",
+          "Case+accent insensitive, Unicode 5.2 rules",
+          "Good default for MySQL 5.7 and earlier"
+        ],
+        [
+          "`utf8mb4_0900_ai_ci`",
+          "Case+accent insensitive, Unicode 9.0 rules, faster",
+          "Default in MySQL 8.0 — use this"
+        ],
+        [
+          "`utf8mb4_0900_as_cs`",
+          "Case+accent sensitive",
+          "Need exact case matching"
+        ],
+        [
+          "`utf8mb4_bin`",
+          "Binary comparison",
+          "Maximum strictness, case-sensitive"
+        ]
+      ]
+    },
+    {
+      "id": "table-11",
+      "line": 622,
+      "heading_context": "## 13. Gotchas from T-SQL",
+      "headers": [
+        "T-SQL Assumption",
+        "MySQL Reality"
+      ],
+      "rows": [
+        [
+          "`FULL OUTER JOIN`",
+          "Not supported — emulate with `LEFT JOIN UNION ALL RIGHT JOIN WHERE IS NULL`"
+        ],
+        [
+          "`DATEDIFF(unit, start, end)`",
+          "MySQL `DATEDIFF(d1, d2)` returns **days only** — no unit parameter"
+        ],
+        [
+          "`STRING_AGG(col, sep)`",
+          "MySQL: `GROUP_CONCAT(col ORDER BY col SEPARATOR ',')`"
+        ],
+        [
+          "`[column]` quoting",
+          "MySQL uses `` `column` `` backticks"
+        ],
+        [
+          "Brackets for reserved words",
+          "Backticks: `` `order` ``, `` `select` ``"
+        ],
+        [
+          "`BIT` boolean",
+          "MySQL: `TINYINT(1)`; `TRUE`/`FALSE` = aliases for 1/0"
+        ],
+        [
+          "`DATETIME2` accuracy",
+          "MySQL `DATETIME(6)` for microseconds; default `DATETIME` = seconds only"
+        ],
+        [
+          "`DATETIME` stores UTC",
+          "MySQL `DATETIME` stores literal — no timezone conversion. `TIMESTAMP` converts to UTC"
+        ],
+        [
+          "Non-aggregate GROUP BY rejected",
+          "MySQL 5.6 allowed non-aggregate cols in SELECT with GROUP BY (non-ANSI). 5.7+ enforces `ONLY_FULL_GROUP_BY`"
+        ],
+        [
+          "String + number type safety",
+          "`'123abc' = 123` evaluates TRUE — implicit coercion, dangerous in WHERE"
+        ],
+        [
+          "`AUTO_INCREMENT` = IDENTITY",
+          "Gaps occur on rollback — never rely on continuity"
+        ],
+        [
+          "`CROSS APPLY`",
+          "Use `LATERAL` in MySQL 8.0+"
+        ]
+      ]
+    },
+    {
+      "id": "table-12",
+      "line": 643,
+      "heading_context": "## 14. MariaDB Differences",
+      "headers": [
+        "Feature",
+        "MariaDB",
+        "MySQL"
+      ],
+      "rows": [
+        [
+          "Sync replication",
+          "Galera Cluster (synchronous multi-master)",
+          "Group Replication (Paxos-based)"
+        ],
+        [
+          "Extra engines",
+          "Aria (crash-safe MyISAM), ColumnStore (HTAP), Spider (sharding)",
+          "InnoDB, NDB (MySQL Cluster)"
+        ],
+        [
+          "Sequence objects",
+          "`CREATE SEQUENCE s START WITH 1 INCREMENT BY 1`",
+          "AUTO_INCREMENT only"
+        ],
+        [
+          "System-versioned tables",
+          "Built-in temporal table syntax (SQL:2011)",
+          "No native equivalent"
+        ],
+        [
+          "JSON",
+          "Some function naming differences from MySQL JSON",
+          "MySQL JSON (binary format, different internals)"
+        ],
+        [
+          "PCRE regex",
+          "`REGEXP_REPLACE`, `REGEXP_SUBSTR` with Perl-compatible regex",
+          "Limited regex support"
+        ],
+        [
+          "Thread pooling",
+          "Built-in, production-ready",
+          "Enterprise license only"
+        ],
+        [
+          "Oracle ABI",
+          "Does not track MySQL 8.0 exactly — diverged in 10.x",
+          "Oracle-controlled"
+        ]
+      ]
+    },
+    {
+      "id": "table-13",
+      "line": 658,
+      "heading_context": "## 15. Ecosystem",
+      "headers": [
+        "Tool",
+        "Purpose"
+      ],
+      "rows": [
+        [
+          "`mysql` CLI",
+          "Official CLI client — `mysql -u root -p dbname`"
+        ],
+        [
+          "MySQL Workbench",
+          "Official GUI: ER diagrams, visual query explain, schema designer"
+        ],
+        [
+          "DBeaver / TablePlus / DataGrip",
+          "Cross-database GUI clients"
+        ],
+        [
+          "Prisma",
+          "Node.js ORM with type-safe query builder, migrations"
+        ],
+        [
+          "Drizzle",
+          "Lightweight TypeScript ORM, SQL-first"
+        ],
+        [
+          "TypeORM / Sequelize",
+          "Node.js ORMs (older, more verbose)"
+        ],
+        [
+          "SQLAlchemy",
+          "Python ORM — full MySQL/MariaDB support"
+        ],
+        [
+          "Eloquent (Laravel)",
+          "PHP ORM — MySQL-native heritage"
+        ],
+        [
+          "MySQL Connector/NET",
+          "ADO.NET driver — `MySql.Data` NuGet package"
+        ],
+        [
+          "MySqlConnector (NuGet)",
+          "Alternative .NET driver — fully async, more active development"
+        ],
+        [
+          "ProxySQL",
+          "Connection proxy, query routing, load balancing"
+        ],
+        [
+          "MaxScale (MariaDB)",
+          "Smart proxy with read/write splitting"
+        ],
+        [
+          "Percona Toolkit",
+          "DBA tools: `pt-query-digest` (slow query analysis), `pt-online-schema-change` (zero-downtime ALTER)"
+        ],
+        [
+          "Percona XtraBackup",
+          "Hot physical backup without locking"
+        ],
+        [
+          "Atlas / Flyway / Liquibase",
+          "Schema migration management"
+        ]
+      ]
+    },
+    {
+      "id": "table-14",
+      "line": 682,
+      "heading_context": "## 16. Decision Cheat Sheet",
+      "headers": [
+        "Choose MySQL over SQL Server when",
+        "Keep SQL Server when"
+      ],
+      "rows": [
+        [
+          "Cost/licensing is the driver — open-source GPL with no per-core licensing",
+          "You need Query Store (plan history, regression detection, plan forcing)"
+        ],
+        [
+          "The stack is PHP/Laravel/WordPress and the team owns MySQL",
+          "Temporal tables (system-versioned, native AS OF queries) — MySQL has none"
+        ],
+        [
+          "Deploying on AWS and want Aurora MySQL (managed, no replication ops)",
+          "Always On AG with synchronous secondary + readable replica + automatic failover"
+        ],
+        [
+          "Read-heavy OLTP with simple query patterns, no analytics",
+          "SSRS / SSAS / Power BI integration — the BI stack is SQL Server-native"
+        ],
+        [
+          "Linux-first deployment without Windows licensing overhead",
+          "ADO.NET / Entity Framework workloads already deeply invested in SQL Server types"
+        ],
+        [
+          "Team is migrating away from Microsoft stack entirely",
+          "Columnstore indexes (HTAP — OLTP + analytics on same table)"
+        ],
+        [
+          "The workload is pure OLTP with well-defined PKs and covering indexes",
+          "In-memory OLTP (Hekaton) for extreme-throughput scenarios"
+        ],
+        [
+          "You want AWS Aurora MySQL for near-zero read replica lag at scale",
+          "Ledger tables (tamper-evident audit trail)"
+        ],
+        [
+          "Operator expertise: team is MySQL-native and SQL Server ops is a cost",
+          "Full-text search integrated with SQL — MySQL FTS is limited vs SQL Server"
+        ]
+      ]
+    },
+    {
+      "id": "table-15",
+      "line": 694,
+      "heading_context": "## 16. Decision Cheat Sheet",
+      "headers": [
+        "Choose MySQL when",
+        "Choose PostgreSQL instead when"
+      ],
+      "rows": [
+        [
+          "WordPress / Laravel / PHP stack",
+          "Complex analytics, JSONB queries"
+        ],
+        [
+          "AWS Aurora (MySQL-compatible)",
+          "Extensions needed (pgvector, PostGIS)"
+        ],
+        [
+          "Read-heavy OLTP, simple queries",
+          "Strict ANSI SQL compliance required"
+        ],
+        [
+          "PlanetScale (global distributed)",
+          "Full OUTER JOINs are common"
+        ],
+        [
+          "Existing MySQL operational expertise",
+          "Need advanced window/analytical functions"
+        ],
+        [
+          "Team knows MySQL replication patterns",
+          "Geospatial (PostGIS) data"
+        ]
+      ]
+    },
+    {
+      "id": "table-16",
+      "line": 703,
+      "heading_context": "## 16. Decision Cheat Sheet",
+      "headers": [
+        "Choose MySQL 8.0+ when",
+        "Avoid MySQL 5.7 and earlier when"
+      ],
+      "rows": [
+        [
+          "Window functions needed",
+          "CTEs are in the query patterns"
+        ],
+        [
+          "CTEs in the codebase",
+          "Recursive queries required"
+        ],
+        [
+          "LATERAL joins needed",
+          "utf8mb4 charset is uncertain"
+        ]
+      ]
+    }
+  ]
+}

@@ -1,0 +1,83 @@
+{
+  "schema_version": "1",
+  "source_markdown": "query-languages\\07-ANALYTICAL.md",
+  "blocks": [
+    {
+      "id": "block-1",
+      "kind": "diagram_like",
+      "line": 28,
+      "heading_context": "## 1. BIG PICTURE — The Cloud DW Landscape",
+      "confidence": "candidate",
+      "text": "┌──────────────────────────────────────────────────────────────────────────────┐\n│                         Data Warehouse Evolution                             │\n│                                                                              │\n│  ON-PREM ERA (the old world)                                                 │\n│  ──────────────────────────                                                  │\n│  SQL Server DW ──► SSIS (ETL) ──► SSAS (cubes/tabular) ──► SSRS / Excel      │\n│  Fixed capacity. Scale up (bigger box). MOLAP cubes pre-aggregate.           │\n│                                                                              │\n│  HADOOP ERA                                                                  │\n│  ──────────                                                                  │\n│  HDFS ──► MapReduce ──► Hive ──► Impala / Presto                             │\n│  Cheap commodity hardware. Disk-based. Slow. Good for raw archive.           │\n│                                                                              │\n│  CLOUD DW ERA (now)                                                          │\n│  ──────────────────                                                          │\n│  Object Storage (S3 / ADLS Gen2 / GCS)                                       │\n│       │                                                                      │\n│       ├──► BigQuery (Google)       ─ serverless, on-demand                   │\n│       ├──► Snowflake                ─ virtual warehouses, multi-cloud        │\n│       ├──► Databricks (Delta Lake) ─ Spark + SQL unified                     │\n│       └──► Synapse Analytics       ─ Azure-native, T-SQL familiar            │\n│                                                                              │\n│  KEY SHIFT: Storage and compute are SEPARATED and scaled independently.      │\n│  No more \"buy bigger SQL Server.\" Pay for compute when you use it.           │\n│                                                                              │\n│  MODERN DATA PATTERN (Medallion Architecture)                                │\n│  ─────────────────────────────────────────────                               │\n│  Raw Sources ──► BRONZE (raw) ──► SILVER (clean) ──► GOLD (biz layer)        │\n│                                                            │                 │\n│                                              Power BI / Tableau / Looker     │\n│                                              ML / AI / Feature Stores        │\n└──────────────────────────────────────────────────────────────────────────────┘",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-2",
+      "kind": "diagram_like",
+      "line": 71,
+      "heading_context": "## 2. WHY COLUMNAR STORAGE IS FAST",
+      "confidence": "candidate",
+      "text": "ROW-ORIENTED (SQL Server heap / clustered index page)\n─────────────────────────────────────────────────────\nPage: [id|name|email|addr|dob|dept|salary|hire_date|mgr_id|...]\n      [id|name|email|addr|dob|dept|salary|hire_date|mgr_id|...]\n      ...\n\nQuery: SELECT dept, SUM(salary) FROM employees GROUP BY dept\n ► Must read EVERY column on EVERY page even though only 2 columns needed\n ► I/O = O(rows × row_width)\n\nCOLUMNAR (Parquet / cloud DW internal format)\n─────────────────────────────────────────────\nColumn chunk \"dept\":   [Sales|Eng|Sales|Eng|HR|Sales|...]   ← compressed RLE\nColumn chunk \"salary\": [80000|120000|85000|...]              ← delta-encoded\nColumn chunks skipped: name, email, addr, dob, hire_date, mgr_id, ...\n\n ► I/O = O(rows × 2_columns_wide)   — read only what you touched\n ► This is projection pushdown.",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-3",
+      "kind": "diagram_like",
+      "line": 341,
+      "heading_context": "### Snowflake — VARIANT type",
+      "confidence": "candidate",
+      "text": "-- VARIANT: any JSON/XML/Avro stored natively\nCREATE TABLE events (\n    id   BIGINT,\n    data VARIANT\n);\n\n-- Path notation with :: cast operator\nSELECT\n    data:user:name::STRING         AS username,\n    data:user:id::INTEGER          AS user_id,\n    data:items[0]:price::FLOAT     AS first_item_price,\n    data:metadata:created_at::TIMESTAMP AS created_at\nFROM events;\n\n-- FLATTEN: lateral explode for nested arrays (= UNNEST for VARIANT)\nSELECT\n    e.id,\n    f.value:product_id::STRING  AS product_id,\n    f.value:quantity::INTEGER   AS quantity\nFROM events e,\n     LATERAL FLATTEN(input => e.data:items) f;\n\n-- PARSE_JSON for inline construction\nSELECT PARSE_JSON('{\"name\":\"Alice\",\"score\":99}'):name::STRING;\n\n-- Object construction\nSELECT OBJECT_CONSTRUCT('name', username, 'email', email) AS user_json FROM users;",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-4",
+      "kind": "chart_like",
+      "line": 375,
+      "heading_context": "## 8. TIME TRAVEL",
+      "confidence": "candidate",
+      "text": "### Snowflake (up to 90 days, configurable per table)",
+      "notes": [
+        "detected from bar/chart glyph density with numeric labels"
+      ]
+    },
+    {
+      "id": "block-5",
+      "kind": "diagram_like",
+      "line": 618,
+      "heading_context": "## 12. EXTERNAL TABLES AND QUERYING FILES DIRECTLY",
+      "confidence": "candidate",
+      "text": "-- BigQuery — query GCS files directly (no load required)\nSELECT * FROM `project.dataset.external_table`;\n\n-- Ad-hoc file query (BigQuery 2024)\nSELECT * FROM READ_CSV('gs://bucket/path/*.csv',\n    skip_leading_rows => 1,\n    schema => [('id', 'INT64'), ('name', 'STRING')]);\n\n-- Snowflake — external stage + query\nCREATE STAGE my_s3_stage\n    URL = 's3://bucket/data/'\n    CREDENTIALS = (AWS_KEY_ID='...' AWS_SECRET_KEY='...');\n\n-- Query files directly from stage\nSELECT $1::INTEGER AS id, $2::STRING AS name\nFROM @my_s3_stage/orders.parquet (FILE_FORMAT => my_parquet_fmt);\n\n-- External table (schema on read, auto-refreshed)\nCREATE EXTERNAL TABLE ext_orders\n    WITH LOCATION = @my_s3_stage\n    FILE_FORMAT = (TYPE = PARQUET)\n    AUTO_REFRESH = true;\n\n-- Databricks — Unity Catalog external location\nSELECT * FROM delta.`abfss://container@account.dfs.core.windows.net/path/`;\n\n-- Or read files with explicit format\nSELECT * FROM read_files(\n    'abfss://container@account.dfs.core.windows.net/path/',\n    format => 'parquet',\n    schema => 'id BIGINT, name STRING'\n);\n\n-- Synapse Serverless — query ADLS without loading (no cluster required)\nSELECT *\nFROM OPENROWSET(\n    BULK 'https://account.dfs.core.windows.net/container/data/*.parquet',\n    FORMAT = 'PARQUET'\n) WITH (\n    id   BIGINT,\n    name NVARCHAR(200)\n) AS rows;",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-6",
+      "kind": "diagram_like",
+      "line": 669,
+      "heading_context": "## 13. MEDALLION ARCHITECTURE",
+      "confidence": "candidate",
+      "text": "┌──────────────────────────────────────────────────────────────────────────────┐\n│                    Medallion Architecture (Delta Lake / All DWs)             │\n│                                                                              │\n│  Raw Sources                                                                 │\n│  ─────────────────────────────────────────────────────────────────────────   │\n│  App Databases │ REST APIs │ Event Streams │ File Drops │ CDC (Debezium)     │\n│                │                                                             │\n│                ▼                                                             │\n│  ┌─────────────────┐    ┌─────────────────┐    ┌─────────────────┐           │\n│  │    BRONZE        │    │     SILVER       │    │      GOLD        │        │\n│  │  (Raw / Ingest)  │───►│  (Clean / Valid) │───►│  (Biz / Serve)   │       │\n│  │                  │    │                  │    │                  │        │\n│  │ • Raw as-landed  │    │ • Validated      │    │ • Aggregated     │        │\n│  │ • No transforms  │    │ • Deduped        │    │ • Joined dims    │        │\n│  │ • Full history   │    │ • Typed/cast     │    │ • KPI-ready      │        │\n│  │ • Parquet/Delta  │    │ • Conformed      │    │ • Star / flat    │        │\n│  │ • Append-only    │    │ • Schema enforced│    │ • SLA: < 1 hr    │        │\n│  └─────────────────┘    └─────────────────┘    └─────────────────┘         │\n│                                                          │                   │\n│                                                          ▼                   │\n│                                      BI Tools: Power BI / Looker / Tableau  │\n│                                      ML/AI: Feature Store / RAG pipeline     │\n└──────────────────────────────────────────────────────────────────────────────┘",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-7",
+      "kind": "diagram_like",
+      "line": 789,
+      "heading_context": "### Ranking Functions",
+      "confidence": "candidate",
+      "text": "SELECT\n    employee_id,\n    dept,\n    salary,\n\n    -- ROW_NUMBER: unique sequential integer, no ties\n    -- Arbitrary tie-breaking (which tied row gets which number is non-deterministic)\n    ROW_NUMBER() OVER (PARTITION BY dept ORDER BY salary DESC) AS rn,\n\n    -- RANK: same rank for ties, then gaps\n    -- Salary: 100k, 90k, 90k, 80k → ranks: 1, 2, 2, 4\n    RANK() OVER (PARTITION BY dept ORDER BY salary DESC) AS rnk,\n\n    -- DENSE_RANK: same rank for ties, no gaps\n    -- Salary: 100k, 90k, 90k, 80k → ranks: 1, 2, 2, 3\n    DENSE_RANK() OVER (PARTITION BY dept ORDER BY salary DESC) AS drnk,\n\n    -- NTILE(n): distribute rows into n roughly-equal buckets\n    -- NTILE(4) = quartiles; NTILE(10) = deciles\n    NTILE(4) OVER (PARTITION BY dept ORDER BY salary DESC) AS quartile\n\nFROM employees;",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    }
+  ]
+}

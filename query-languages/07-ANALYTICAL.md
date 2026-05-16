@@ -1,3 +1,22 @@
+---
+maxim_schema: maxim.frontmatter.v1
+id: maxim:query-languages:analytical
+kind: guide
+module: query-languages
+section: query-languages
+title: Cloud Analytical SQL - BigQuery, Snowflake, Databricks, Synapse
+status: source-custody
+source_custody: partial
+current_path: query-languages/07-ANALYTICAL.md
+canonical_path: query-languages/07-ANALYTICAL.md
+backsource_ids: [proof-backfill:query-languages:07-analytical, git-history:query-languages:07-analytical]
+concepts: [analytical]
+root_concepts: [analytical]
+index_roles: [guide, root-concept]
+remap_from: []
+remap_to: []
+updated: null
+---
 # Cloud Analytical SQL — BigQuery, Snowflake, Databricks, Synapse
 
 Cloud data warehouses replaced on-prem Hadoop clusters and SQL Server Analysis Services. The query language is SQL with analytical extensions — but the execution model is distributed columnar at petabyte scale. These four dominate: BigQuery (Google), Snowflake (AWS/Azure/GCP), Databricks (Delta Lake), Synapse Analytics (Azure). All speak SQL. All have proprietary extensions.

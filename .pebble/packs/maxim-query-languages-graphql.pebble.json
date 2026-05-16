@@ -1,0 +1,181 @@
+{
+  "schema": "pebble.v1",
+  "kind": "corpus-slice",
+  "title": "maxim-query-languages-graphql",
+  "source": "../../query-languages",
+  "format": "markdown",
+  "metadata": {},
+  "sections": [
+    {
+      "id": "12-GRAPHQL.md#000",
+      "path": [
+        "12-GRAPHQL.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:query-languages:12-graphql, git-history:query-languages:12-graphql]",
+        "canonical_path": "query-languages/12-GRAPHQL.md",
+        "concepts": "[graphql]",
+        "current_path": "query-languages/12-GRAPHQL.md",
+        "id": "maxim:query-languages:graphql",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "query-languages",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[graphql]",
+        "section": "query-languages",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "GraphQL - Schema, Query Language, and API Patterns",
+        "updated": "null"
+      },
+      "text": "# GraphQL — Schema, Query Language, and API Patterns"
+    },
+    {
+      "id": "12-GRAPHQL.md#001",
+      "path": [
+        "12-GRAPHQL.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:query-languages:12-graphql, git-history:query-languages:12-graphql]",
+        "canonical_path": "query-languages/12-GRAPHQL.md",
+        "concepts": "[graphql]",
+        "current_path": "query-languages/12-GRAPHQL.md",
+        "id": "maxim:query-languages:graphql",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "query-languages",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[graphql]",
+        "section": "query-languages",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "GraphQL - Schema, Query Language, and API Patterns",
+        "updated": "null"
+      },
+      "text": "GraphQL is a typed API query language and runtime. This guide covers it at the level that matters for production use: SDL design decisions, the resolver execution model, the N+1 problem, federation for enterprise microservices, and operational gotchas — introspection security, schema evolution without versioning, and WebSocket infrastructure for subscriptions."
+    },
+    {
+      "id": "12-GRAPHQL.md#002",
+      "path": [
+        "12-GRAPHQL.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:query-languages:12-graphql, git-history:query-languages:12-graphql]",
+        "canonical_path": "query-languages/12-GRAPHQL.md",
+        "concepts": "[graphql]",
+        "current_path": "query-languages/12-GRAPHQL.md",
+        "id": "maxim:query-languages:graphql",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "query-languages",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[graphql]",
+        "section": "query-languages",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "GraphQL - Schema, Query Language, and API Patterns",
+        "updated": "null"
+      },
+      "text": "**WCF bridge (read this before the SDL syntax):** WCF `[ServiceContract]` + `[OperationContract]` is contract-first IDL — the annotated interface IS the contract, `Add Service Reference` generates the client proxy, and the WSDL describes the full type system. GraphQL SDL is the same pattern at the HTTP API boundary: the SDL IS the contract, `graphql-codegen` generates typed client operations, and the schema is the WSDL equivalent. The structural difference: WCF is server-driven shape (client gets what the server defines); GraphQL is client-driven projection (client selects exactly which fields from the schema). `[DataContract]` types → SDL object types. `[DataMember]` fields → SDL fields. Input/output type separation (`[MessageParameter]` direction) → SDL's explicit `input` vs `type` distinction."
+    },
+    {
+      "id": "12-GRAPHQL.md#003",
+      "path": [
+        "12-GRAPHQL.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:query-languages:12-graphql, git-history:query-languages:12-graphql]",
+        "canonical_path": "query-languages/12-GRAPHQL.md",
+        "concepts": "[graphql]",
+        "current_path": "query-languages/12-GRAPHQL.md",
+        "id": "maxim:query-languages:graphql",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "query-languages",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[graphql]",
+        "section": "query-languages",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "GraphQL - Schema, Query Language, and API Patterns",
+        "updated": "null"
+      },
+      "text": "---"
+    },
+    {
+      "id": "12-GRAPHQL.md#004",
+      "path": [
+        "12-GRAPHQL.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:query-languages:12-graphql, git-history:query-languages:12-graphql]",
+        "canonical_path": "query-languages/12-GRAPHQL.md",
+        "concepts": "[graphql]",
+        "current_path": "query-languages/12-GRAPHQL.md",
+        "id": "maxim:query-languages:graphql",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "query-languages",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[graphql]",
+        "section": "query-languages",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "GraphQL - Schema, Query Language, and API Patterns",
+        "updated": "null"
+      },
+      "text": "## 1. Big Picture — GraphQL vs REST vs tRPC vs OData"
+    },
+    {
+      "id": "12-GRAPHQL.md#005",
+      "path": [
+        "12-GRAPHQL.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:query-languages:12-graphql, git-history:query-languages:12-graphql]",
+        "canonical_path": "query-languages/12-GRAPHQL.md",
+        "concepts": "[graphql]",
+        "current_path": "query-languages/12-GRAPHQL.md",
+        "id": "maxim:query-languages:graphql",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "query-languages",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[graphql]",
+        "section": "query-languages",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "GraphQL - Schema, Query Language, and API Patterns",
+        "updated": "null"
+      },
+      "text": "```\n┌──────────────────────────────────────────────────────────────────────────┐\n│                   API Query Language Landscape                           │\n│                                                                          │\n│  REST (resource-based, URL-per-resource):                                │\n│    GET /users/1           → returns ALL user fields (maybe 30 fields)    │\n│    GET /users/1/orders    → second round-trip for orders                 │\n│    Problem: over-fetching + N round trips for N related resources        │\n│                                                                          │\n│  GraphQL (field-based, single endpoint):                                 │\n│    POST /graphql                                                         │\n│    { user(id: 1) { name, orders { id, total } } }                        │\n│    → exactly these fields, one request, client drives shape              │\n│                                                                          │\n│  tRPC (TypeScript-first RPC):                                            │\n│    No schema language — TypeScript IS the schema                         │\n│    Type-safe without codegen, but TypeScript/Node-only ecosystem         │\n│                                                                          │\n│  OData (Microsoft's URL-based query):                                    │\n│    GET /users?$select=name,email&$expand=orders&$filter=age gt 18        │\n│    Query params in URL — REST + filter language                          │\n│    Used in: Azure REST APIs, Dynamics 365, Power BI datasets             │\n│    T-SQL bridge: if you've used Azure REST APIs or ADO.NET OData         │\n│    adapters, you've already used OData                                   │\n│                                                                          │\n│  Where GraphQL fits architecturally:                                     │\n│                                                                          │\n│  ┌──────────┐     ┌─────────────────┐     ┌────────────────────────┐     │\n│  │  Client  │────►│  GraphQL Layer  │────►│  Backing Data Sources  │   │\n│  │ (mobile/ │     │  (schema +      │     │  - PostgreSQL / SQL Srv │   │\n│  │  web/IoT)│◄────│   resolvers)    │◄────│  - REST microservices  │   │\n│  └──────────┘     └─────────────────┘     │  - Redis / caches      │   │\n│                                            │  - gRPC services       │   │\n│                                            └────────────────────────┘   │\n└──────────────────────────────────────────────────────────────────────────┘\n```"
+    }
+  ],
+  "refs": [
+    "12-GRAPHQL.md"
+  ]
+}

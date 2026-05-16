@@ -1,0 +1,285 @@
+{
+  "schema_version": "1",
+  "source_markdown": "query-languages\\01-SQL-CORE.md",
+  "tables": [
+    {
+      "id": "table-1",
+      "line": 767,
+      "heading_context": "## 11. MERGE (SQL:2003)",
+      "headers": [
+        "Operation",
+        "PostgreSQL",
+        "T-SQL",
+        "MySQL"
+      ],
+      "rows": [
+        [
+          "Upsert",
+          "`INSERT ... ON CONFLICT DO UPDATE`",
+          "`MERGE`",
+          "`INSERT ... ON DUPLICATE KEY UPDATE`"
+        ],
+        [
+          "Insert or ignore",
+          "`INSERT ... ON CONFLICT DO NOTHING`",
+          "`INSERT OR IGNORE`",
+          "`INSERT IGNORE`"
+        ],
+        [
+          "Full upsert with complex logic",
+          "CTE + `INSERT ... ON CONFLICT`",
+          "`MERGE`",
+          "`REPLACE INTO` (delete+insert, not update)"
+        ]
+      ]
+    },
+    {
+      "id": "table-2",
+      "line": 813,
+      "heading_context": "## 12. Transactions",
+      "headers": [
+        "Isolation Level",
+        "Dirty Read",
+        "Non-Repeatable Read",
+        "Phantom Read",
+        "Notes"
+      ],
+      "rows": [
+        [
+          "READ UNCOMMITTED",
+          "possible",
+          "possible",
+          "possible",
+          "Reads uncommitted data; almost never appropriate"
+        ],
+        [
+          "READ COMMITTED",
+          "prevented",
+          "possible",
+          "possible",
+          "**Default**: PostgreSQL, SQL Server, Oracle"
+        ],
+        [
+          "REPEATABLE READ",
+          "prevented",
+          "prevented",
+          "possible",
+          "**Default**: MySQL InnoDB; re-read rows = same values"
+        ],
+        [
+          "SERIALIZABLE",
+          "prevented",
+          "prevented",
+          "prevented",
+          "Appears as if transactions ran serially; highest lock contention"
+        ]
+      ]
+    },
+    {
+      "id": "table-3",
+      "line": 894,
+      "heading_context": "## 14. Indexes",
+      "headers": [
+        "Index Type",
+        "Data Structure",
+        "Good For",
+        "Bad For",
+        "Notes"
+      ],
+      "rows": [
+        [
+          "B-tree (default)",
+          "Balanced tree",
+          "Equality, range, ORDER BY, LIKE 'prefix%'",
+          "Full-text, multi-value elements",
+          "Default for most columns"
+        ],
+        [
+          "Hash",
+          "Hash table",
+          "Equality only (`=`)",
+          "Range, ORDER BY",
+          "In-memory often; PostgreSQL disk hash index available"
+        ],
+        [
+          "GIN",
+          "Inverted index",
+          "Arrays, JSONB, tsvector full-text",
+          "Point lookups",
+          "High write cost; use for multi-value types"
+        ],
+        [
+          "GiST",
+          "Generalized search tree",
+          "Geometric, full-text (tsvector), exclusion constraints",
+          "Simple equality",
+          "Supports `&&` overlap, `<->` distance"
+        ],
+        [
+          "BRIN",
+          "Block range index",
+          "Very large tables with natural ordering (time-series append)",
+          "Random inserts, updates",
+          "Tiny index; trades I/O for accuracy"
+        ],
+        [
+          "SP-GiST",
+          "Space-partitioned GiST",
+          "Non-balanced structures (quadtrees, tries)",
+          "General use",
+          "Specialized"
+        ]
+      ]
+    },
+    {
+      "id": "table-4",
+      "line": 946,
+      "heading_context": "## 15. Query Plan Basics",
+      "headers": [
+        "Node",
+        "Meaning",
+        "When it appears"
+      ],
+      "rows": [
+        [
+          "Seq Scan",
+          "Full table scan",
+          "No usable index, or table too small to bother with index"
+        ],
+        [
+          "Index Scan",
+          "Use index + heap fetch per matching row",
+          "Index found, low selectivity (few matching rows)"
+        ],
+        [
+          "Index Only Scan",
+          "Use index, skip heap entirely",
+          "Covering index satisfies all needed columns"
+        ],
+        [
+          "Bitmap Index Scan",
+          "Phase 1: scan index, build bitmap of matching heap pages",
+          "Moderate selectivity — too many hits for Index Scan, too few for Seq Scan"
+        ],
+        [
+          "Bitmap Heap Scan",
+          "Phase 2: use bitmap to fetch heap pages in physical order",
+          "Always paired with Bitmap Index Scan above it in the plan"
+        ],
+        [
+          "Nested Loop",
+          "For each outer row, probe inner",
+          "Small inner set, indexed inner lookup"
+        ],
+        [
+          "Hash Join",
+          "Build hash table on smaller side, probe with larger",
+          "Large unsorted sets"
+        ],
+        [
+          "Merge Join",
+          "Merge two sorted inputs",
+          "Both inputs already sorted on join key"
+        ],
+        [
+          "Sort",
+          "Explicit sort",
+          "ORDER BY, GROUP BY without index, Merge Join setup"
+        ],
+        [
+          "Hash Aggregate",
+          "Aggregate via hash table",
+          "GROUP BY on unsorted data"
+        ],
+        [
+          "GroupAggregate",
+          "Aggregate pre-sorted stream",
+          "GROUP BY on sorted data"
+        ]
+      ]
+    },
+    {
+      "id": "table-5",
+      "line": 1035,
+      "heading_context": "## 17. Decision Cheat Sheet",
+      "headers": [
+        "You need to...",
+        "Use"
+      ],
+      "rows": [
+        [
+          "Running total / cumulative sum",
+          "`SUM(col) OVER (ORDER BY date ROWS UNBOUNDED PRECEDING)`"
+        ],
+        [
+          "Rank rows within a group",
+          "`ROW_NUMBER() / RANK() / DENSE_RANK() OVER (PARTITION BY ...)`"
+        ],
+        [
+          "Compare a row to the previous/next",
+          "`LAG(col) / LEAD(col) OVER (ORDER BY ...)`"
+        ],
+        [
+          "Department average alongside each row (no collapse)",
+          "`AVG(col) OVER (PARTITION BY dept)`"
+        ],
+        [
+          "Top-1 record per group",
+          "`ROW_NUMBER() OVER (PARTITION BY g ORDER BY ...)` in CTE, `WHERE rn = 1`"
+        ],
+        [
+          "Reuse a subquery expression multiple times",
+          "CTE (`WITH name AS (...)`)"
+        ],
+        [
+          "Traverse a tree / hierarchy",
+          "Recursive CTE (`WITH RECURSIVE`)"
+        ],
+        [
+          "Pivot rows into columns",
+          "`CASE WHEN + GROUP BY` or `PIVOT` (T-SQL / BigQuery)"
+        ],
+        [
+          "Multi-level subtotals (dept + region + total)",
+          "`GROUP BY GROUPING SETS / ROLLUP / CUBE`"
+        ],
+        [
+          "Count distinct without full scan (approximate)",
+          "`approx_count_distinct()` (BigQuery) / `HLL_COUNT` (Snowflake)"
+        ],
+        [
+          "Upsert (insert or update)",
+          "PostgreSQL: `INSERT ... ON CONFLICT DO UPDATE` / T-SQL: `MERGE`"
+        ],
+        [
+          "Delete or update rows matching another table",
+          "`DELETE USING` / `UPDATE FROM` (PostgreSQL) / `UPDATE JOIN`"
+        ],
+        [
+          "Conditional aggregation",
+          "`SUM(col) FILTER (WHERE condition)` or `SUM(CASE WHEN ... END)`"
+        ],
+        [
+          "Avoid nested subqueries for readability",
+          "CTE — always prefer over nested `(SELECT ... FROM (SELECT ...))`"
+        ],
+        [
+          "Find rows that exist in A but not B",
+          "`EXCEPT` / `NOT EXISTS (SELECT ...)`"
+        ],
+        [
+          "Find customers with no matching orders",
+          "`LEFT JOIN ... WHERE right_side.id IS NULL`"
+        ],
+        [
+          "Check if a JSON key exists",
+          "PostgreSQL: `metadata ? 'key'` with GIN index"
+        ],
+        [
+          "Track row history automatically",
+          "System-versioned temporal table"
+        ]
+      ]
+    }
+  ]
+}

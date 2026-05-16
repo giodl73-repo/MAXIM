@@ -1,0 +1,218 @@
+{
+  "schema_version": "1",
+  "source_markdown": "query-languages\\08-SPARKSQL.md",
+  "tables": [
+    {
+      "id": "table-1",
+      "line": 180,
+      "heading_context": "## 2. DIALECT SNAPSHOT",
+      "headers": [
+        "Attribute",
+        "Value"
+      ],
+      "rows": [
+        [
+          "Origin",
+          "UC Berkeley AMPLab (2009), Apache top-level (2013)"
+        ],
+        [
+          "License",
+          "Apache 2.0"
+        ],
+        [
+          "Current version",
+          "Apache Spark 3.5.x (2024); Databricks Runtime 14.x"
+        ],
+        [
+          "SQL dialect",
+          "HiveQL-compatible + ANSI SQL extensions"
+        ],
+        [
+          "Execution runtime",
+          "JVM (Scala/Java core) + Python (PySpark) + R (SparkR)"
+        ],
+        [
+          "Managed services",
+          "Databricks, AWS EMR, Azure HDInsight, GCP Dataproc"
+        ],
+        [
+          "Delta Lake",
+          "Open-source; default format on Databricks; Linux Foundation project"
+        ],
+        [
+          "Metastore",
+          "Hive Metastore (legacy) or Unity Catalog (Databricks, 2022+)"
+        ]
+      ]
+    },
+    {
+      "id": "table-2",
+      "line": 678,
+      "heading_context": "## 11. STRUCTURED STREAMING",
+      "headers": [
+        "Mode",
+        "What is written each trigger",
+        "When to use"
+      ],
+      "rows": [
+        [
+          "`append`",
+          "Only new rows (immutable; no update to past rows)",
+          "Append-only sinks (Kafka, Delta)"
+        ],
+        [
+          "`update`",
+          "Only rows that changed since last trigger",
+          "Aggregation with no late data"
+        ],
+        [
+          "`complete`",
+          "Full aggregation result every trigger",
+          "Small result sets; global top-N"
+        ]
+      ]
+    },
+    {
+      "id": "table-3",
+      "line": 697,
+      "heading_context": "## 12. EXPLAIN — READING THE EXECUTION PLAN",
+      "headers": [
+        "Operation",
+        "What it means",
+        "Performance signal"
+      ],
+      "rows": [
+        [
+          "`FileScan`",
+          "Reading source files",
+          "Look for `PartitionFilters` — means pruning is working"
+        ],
+        [
+          "`Filter`",
+          "WHERE predicate applied",
+          "Should be pushed down before Scan"
+        ],
+        [
+          "`Exchange`",
+          "Network shuffle",
+          "Expensive — minimize; each wide transformation adds one"
+        ],
+        [
+          "`HashAggregate`",
+          "GROUP BY via hash table",
+          "Check `partial` vs `final` (two-phase agg)"
+        ],
+        [
+          "`SortMergeJoin`",
+          "Join requiring sort + merge phase",
+          "Shuffle-heavy; replace with BroadcastHashJoin for small tables"
+        ],
+        [
+          "`BroadcastHashJoin`",
+          "Small table replicated, join in memory",
+          "Cheap — no shuffle; what you want"
+        ],
+        [
+          "`WholeStageCodegen`",
+          "JVM bytecode generated for multiple operations",
+          "Good — means vectorized execution"
+        ],
+        [
+          "`AQE`",
+          "Adaptive Query Execution (Spark 3+)",
+          "Runtime optimization (skew handling, join strategy changes)"
+        ]
+      ]
+    },
+    {
+      "id": "table-4",
+      "line": 728,
+      "heading_context": "## 14. GOTCHAS FROM T-SQL AND MAPREDUCE",
+      "headers": [
+        "Habit / expectation",
+        "Spark reality"
+      ],
+      "rows": [
+        [
+          "SQL executes immediately on submit",
+          "Spark is **lazy**: builds a plan, executes only on action (`.show()`, `.write()`, `.count()`)"
+        ],
+        [
+          "All joins shuffle (MapReduce default)",
+          "Broadcast joins avoid shuffle for small tables — use them aggressively"
+        ],
+        [
+          "Partition = database partition concept",
+          "Spark partitions = in-memory/file chunks, not keyed ranges; different abstraction"
+        ],
+        [
+          "200 shuffle partitions is fine",
+          "`spark.sql.shuffle.partitions=200` default is often wrong; tune to data size"
+        ],
+        [
+          "Schema is always known",
+          "`inferSchema=True` reads all files to guess types — expensive and sometimes wrong in prod"
+        ],
+        [
+          "OOM = need more RAM",
+          "Often caused by data skew (one partition 100x larger); fix by salting or repartitioning"
+        ],
+        [
+          "EXPLODE = UNNEST",
+          "Same operation; Spark uses `EXPLODE` (HiveQL), ANSI SQL uses `UNNEST`"
+        ],
+        [
+          "Dropping a table removes only catalog entry",
+          "Managed Delta tables: drop = **deletes data**. External tables: drop = catalog entry only"
+        ],
+        [
+          "OPTIMIZE runs automatically",
+          "No. Must be scheduled. Streaming writes create small files; OPTIMIZE compacts them"
+        ],
+        [
+          "Z-ordering is like an index",
+          "It's file-level co-location, not row-level. Still a scan, just fewer files scanned"
+        ],
+        [
+          "Watermarks optional in streaming",
+          "Required for stateful aggregations; without watermark Spark keeps all state → OOM"
+        ]
+      ]
+    },
+    {
+      "id": "table-5",
+      "line": 746,
+      "heading_context": "## 15. DECISION CHEAT SHEET",
+      "headers": [
+        "Use Spark SQL when",
+        "Use something else when"
+      ],
+      "rows": [
+        [
+          "Data > several GB (where a single-node DW struggles)",
+          "Small data (< 10 GB): DuckDB or PostgreSQL is faster"
+        ],
+        [
+          "Need Python + SQL mixed in the same pipeline",
+          "Pure SQL transformation: dbt on Snowflake/BigQuery"
+        ],
+        [
+          "ML pipeline (MLlib, Pandas UDFs, MLflow) alongside SQL",
+          "Real-time OLTP queries (Spark has high startup latency)"
+        ],
+        [
+          "Streaming + batch unified (Structured Streaming)",
+          "Interactive BI (Spark cold-start; use Databricks SQL WH)"
+        ],
+        [
+          "Delta Lake ACID on top of open object storage",
+          "True serverless pay-per-query: BigQuery or Synapse"
+        ],
+        [
+          "You need MERGE, time travel, schema evolution on files",
+          "Simple ad-hoc CSV exploration: DuckDB"
+        ]
+      ]
+    }
+  ]
+}

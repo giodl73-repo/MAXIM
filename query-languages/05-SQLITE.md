@@ -1,3 +1,22 @@
+---
+maxim_schema: maxim.frontmatter.v1
+id: maxim:query-languages:sqlite
+kind: guide
+module: query-languages
+section: query-languages
+title: SQLite
+status: source-custody
+source_custody: partial
+current_path: query-languages/05-SQLITE.md
+canonical_path: query-languages/05-SQLITE.md
+backsource_ids: [proof-backfill:query-languages:05-sqlite, git-history:query-languages:05-sqlite]
+concepts: [sqlite]
+root_concepts: [sqlite]
+index_roles: [guide, root-concept]
+remap_from: []
+remap_to: []
+updated: null
+---
 # SQLite
 
 SQLite is in every smartphone, every browser, and every Python installation. It is not a client-server database — it is a C library that reads and writes a single file. The design constraints are completely different from SQL Server: no separate server process, no network, no users/permissions, one writer at a time. But it is full SQL, ACID-compliant, and the right tool for an enormous number of use cases.
@@ -91,7 +110,7 @@ Is this a single application with a single concurrent writer?
 │
 ├── Yes — Is the dataset > 1TB, or do many separate processes write simultaneously?
 │   │
-│   ├── No  → SQLite is probably the right choice ✅
+│   ├── No  → SQLite is probably the right choice [OK]
 │   │         Mobile app, desktop app, test harness, config storage,
 │   │         edge device, CLI tool, single-user web app, prototyping
 │   │

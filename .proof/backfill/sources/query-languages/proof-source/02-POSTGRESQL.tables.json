@@ -1,0 +1,593 @@
+{
+  "schema_version": "1",
+  "source_markdown": "query-languages\\02-POSTGRESQL.md",
+  "tables": [
+    {
+      "id": "table-1",
+      "line": 28,
+      "heading_context": "## DIALECT SNAPSHOT",
+      "headers": [
+        "Attribute",
+        "Value"
+      ],
+      "rows": [
+        [
+          "Origin",
+          "UC Berkeley POSTGRES (1986) → PostgreSQL (1996)"
+        ],
+        [
+          "License",
+          "PostgreSQL License (MIT-like, permissive)"
+        ],
+        [
+          "Current version",
+          "PostgreSQL 17 (September 2024)"
+        ],
+        [
+          "ACID compliance",
+          "Full"
+        ],
+        [
+          "Isolation model",
+          "MVCC — readers never block writers; no dirty reads possible"
+        ],
+        [
+          "Strengths",
+          "JSONB, full-text search, extensions ecosystem, standards compliance, complex queries"
+        ],
+        [
+          "Weaknesses",
+          "Write scaling vs NoSQL; no built-in sharding (Citus extension adds it)"
+        ],
+        [
+          "Cloud managed",
+          "AWS RDS/Aurora, Google Cloud SQL/AlloyDB, Azure Database for PostgreSQL, Supabase, Neon"
+        ]
+      ]
+    },
+    {
+      "id": "table-2",
+      "line": 78,
+      "heading_context": "## CORE SYNTAX: T-SQL vs PostgreSQL",
+      "headers": [
+        "Operation",
+        "T-SQL (SQL Server)",
+        "PostgreSQL"
+      ],
+      "rows": [
+        [
+          "String concatenation",
+          "`'a' + 'b'`",
+          "`'a' \\|\\| 'b'` or `concat('a','b')`"
+        ],
+        [
+          "Limit rows",
+          "`SELECT TOP 10 ...`",
+          "`SELECT ... LIMIT 10`"
+        ],
+        [
+          "Current timestamp",
+          "`GETDATE()`",
+          "`NOW()` or `CURRENT_TIMESTAMP`"
+        ],
+        [
+          "NULL coalesce",
+          "`ISNULL(x, 0)`",
+          "`COALESCE(x, 0)` (also works in T-SQL)"
+        ],
+        [
+          "Date difference",
+          "`DATEDIFF(day, d1, d2)`",
+          "`(d2 - d1)` or `EXTRACT(epoch FROM d2-d1)`"
+        ],
+        [
+          "Date parts",
+          "`DATEPART(year, d)`",
+          "`EXTRACT(year FROM d)` or `date_part('year', d)`"
+        ],
+        [
+          "Type cast",
+          "`CONVERT(INT, x)` or `CAST(x AS INT)`",
+          "`CAST(x AS INT)` or `x::INT` (shorthand)"
+        ],
+        [
+          "Auto-increment",
+          "`IDENTITY(1,1)`",
+          "`GENERATED ALWAYS AS IDENTITY` or `SERIAL` (old)"
+        ],
+        [
+          "String length",
+          "`LEN(str)`",
+          "`LENGTH(str)` or `char_length(str)`"
+        ],
+        [
+          "Find in string",
+          "`CHARINDEX('x', str)`",
+          "`POSITION('x' IN str)` or `strpos(str, 'x')`"
+        ],
+        [
+          "Substring",
+          "`SUBSTRING(str, 1, 5)`",
+          "`substring(str, 1, 5)` — identical"
+        ],
+        [
+          "Unlimited string",
+          "`VARCHAR(MAX)`",
+          "`TEXT` (no length limit, same storage)"
+        ],
+        [
+          "Temp table",
+          "`#temp_name`",
+          "`CREATE TEMP TABLE temp_name (...)`"
+        ],
+        [
+          "Table variable",
+          "`DECLARE @t TABLE (...)`",
+          "CTE or `CREATE TEMP TABLE`"
+        ],
+        [
+          "Dynamic SQL",
+          "`EXEC sp_executesql @sql, @params`",
+          "`EXECUTE format(...)` or `EXECUTE sql_string`"
+        ],
+        [
+          "Unicode string",
+          "`NVARCHAR`",
+          "`TEXT` or `VARCHAR` — always UTF-8"
+        ],
+        [
+          "Dirty read hint",
+          "`WITH(NOLOCK)`",
+          "No equivalent — MVCC prevents dirty reads"
+        ],
+        [
+          "Correlated subquery in FROM",
+          "`CROSS APPLY`",
+          "`JOIN LATERAL ... ON TRUE`"
+        ],
+        [
+          "Left outer correlated",
+          "`OUTER APPLY`",
+          "`LEFT JOIN LATERAL ... ON TRUE`"
+        ],
+        [
+          "Rows to XML/JSON",
+          "`FOR XML PATH`",
+          "`json_agg()`, `array_agg()`, `jsonb_build_object()`"
+        ],
+        [
+          "Boolean literals",
+          "`1` / `0` (context-dependent)",
+          "`TRUE` / `FALSE`"
+        ],
+        [
+          "Schema default",
+          "`dbo`",
+          "`public`"
+        ]
+      ]
+    },
+    {
+      "id": "table-3",
+      "line": 500,
+      "heading_context": "## EXPLAIN ANALYZE",
+      "headers": [
+        "Node",
+        "Meaning",
+        "When to worry"
+      ],
+      "rows": [
+        [
+          "`Seq Scan`",
+          "Full table scan",
+          "Missing index, or table is small (fine)"
+        ],
+        [
+          "`Index Scan`",
+          "Index lookup + heap fetch per row",
+          "Good for low selectivity"
+        ],
+        [
+          "`Index Only Scan`",
+          "All needed cols in index — no heap",
+          "Best case"
+        ],
+        [
+          "`Bitmap Heap Scan`",
+          "Batches index hits, then heap",
+          "Moderate selectivity — normal"
+        ],
+        [
+          "`Hash Join`",
+          "Builds hash table on smaller side",
+          "Good for large unsorted inputs"
+        ],
+        [
+          "`Merge Join`",
+          "Both sides sorted, zipper merge",
+          "Good when inputs pre-sorted"
+        ],
+        [
+          "`Nested Loop`",
+          "Outer × inner row",
+          "Best when inner side is tiny/indexed"
+        ]
+      ]
+    },
+    {
+      "id": "table-4",
+      "line": 512,
+      "heading_context": "## EXPLAIN ANALYZE",
+      "headers": [
+        "Field",
+        "What it means",
+        "Action if wrong"
+      ],
+      "rows": [
+        [
+          "`actual rows` vs `rows` estimate",
+          "Large gap = stale stats",
+          "`ANALYZE table_name`"
+        ],
+        [
+          "`actual time=X..Y`",
+          "X = first row ms, Y = last row ms",
+          "High Y = full scan"
+        ],
+        [
+          "`Buffers: hit=N`",
+          "Pages served from shared_buffers",
+          "More hits = better"
+        ],
+        [
+          "`Buffers: read=N`",
+          "Pages read from disk",
+          "High = cache miss"
+        ]
+      ]
+    },
+    {
+      "id": "table-5",
+      "line": 630,
+      "heading_context": "## VACUUM AND AUTOVACUUM",
+      "headers": [
+        "Parameter",
+        "Default",
+        "Meaning"
+      ],
+      "rows": [
+        [
+          "`autovacuum_vacuum_scale_factor`",
+          "0.2 (20%)",
+          "Trigger VACUUM when dead tuples exceed 20% of live tuples"
+        ],
+        [
+          "`autovacuum_vacuum_threshold`",
+          "50",
+          "Minimum dead tuples before scale_factor kicks in"
+        ],
+        [
+          "`autovacuum_analyze_scale_factor`",
+          "0.1 (10%)",
+          "Trigger ANALYZE when modified rows exceed 10%"
+        ],
+        [
+          "`autovacuum_analyze_threshold`",
+          "50",
+          "Minimum modified rows before analyze triggers"
+        ],
+        [
+          "`autovacuum_vacuum_cost_limit`",
+          "200",
+          "Throttle: cost units autovacuum can use before sleeping"
+        ],
+        [
+          "`autovacuum_vacuum_cost_delay`",
+          "2ms",
+          "Sleep duration between cost-limit bursts"
+        ]
+      ]
+    },
+    {
+      "id": "table-6",
+      "line": 789,
+      "heading_context": "## EXTENSIONS ECOSYSTEM",
+      "headers": [
+        "Extension",
+        "Capability",
+        "Notes"
+      ],
+      "rows": [
+        [
+          "`pgvector`",
+          "Vector similarity search (cosine, L2, inner product)",
+          "AI/ML embedding storage; IVFFlat and HNSW indexes"
+        ],
+        [
+          "`PostGIS`",
+          "Geospatial types, `ST_Distance`, `ST_Within`, coordinate transforms",
+          "Industry standard; used in every GIS context"
+        ],
+        [
+          "`TimescaleDB`",
+          "Hypertables, continuous aggregates, data retention policies",
+          "Time-series on PostgreSQL; auto-partitions by time"
+        ],
+        [
+          "`pg_cron`",
+          "Cron scheduler inside PostgreSQL",
+          "Run `REFRESH MATERIALIZED VIEW`, maintenance jobs"
+        ],
+        [
+          "`pg_stat_statements`",
+          "Per-query execution statistics",
+          "Essential for identifying slow queries in production"
+        ],
+        [
+          "`pg_partman`",
+          "Automates partition creation and maintenance",
+          "Set-and-forget partition management"
+        ],
+        [
+          "`uuid-ossp`",
+          "`uuid_generate_v4()`, etc.",
+          "PG 13+ has `gen_random_uuid()` built-in"
+        ],
+        [
+          "`pg_trgm`",
+          "Trigram similarity, `%` operator, fuzzy `LIKE` indexes",
+          "LIKE/ILIKE with GIN/GiST index support"
+        ],
+        [
+          "`hstore`",
+          "Key-value storage",
+          "Largely superseded by JSONB"
+        ],
+        [
+          "`Citus`",
+          "Distributed PostgreSQL (horizontal sharding)",
+          "Used in Azure Database for PostgreSQL Flexible Server"
+        ]
+      ]
+    },
+    {
+      "id": "table-7",
+      "line": 862,
+      "heading_context": "## GOTCHAS FROM T-SQL",
+      "headers": [
+        "T-SQL habit",
+        "PostgreSQL reality"
+      ],
+      "rows": [
+        [
+          "`WITH(NOLOCK)` for performance",
+          "No equivalent. MVCC means readers never block writers — dirty reads are impossible. Remove all NOLOCK hints."
+        ],
+        [
+          "`IDENTITY(1,1)`",
+          "Use `GENERATED ALWAYS AS IDENTITY` (ANSI SQL). `SERIAL` is old shorthand — still works but deprecated."
+        ],
+        [
+          "`SELECT TOP 10 * FROM t`",
+          "`SELECT * FROM t LIMIT 10` — LIMIT goes at the end, TOP goes after SELECT"
+        ],
+        [
+          "`'a' + 'b'` string concat",
+          "`'a' \\|\\| 'b'` or `concat('a','b')` — `+` on strings is a type error in PG"
+        ],
+        [
+          "`DATEDIFF(day, d1, d2)`",
+          "`(d2::date - d1::date)` returns integer days; `age(d2, d1)` returns interval"
+        ],
+        [
+          "`GETDATE()`",
+          "`NOW()` or `CURRENT_TIMESTAMP`"
+        ],
+        [
+          "`VARCHAR(MAX)`",
+          "`TEXT` — no length limit, same storage, same performance"
+        ],
+        [
+          "`NVARCHAR(200)`",
+          "`VARCHAR(200)` or `TEXT` — PostgreSQL is always UTF-8"
+        ],
+        [
+          "`#temp` table",
+          "`CREATE TEMP TABLE t (...)` — auto-dropped at session end"
+        ],
+        [
+          "`@table TABLE (...)`",
+          "CTE (`WITH t AS (...)`) or `CREATE TEMP TABLE`"
+        ],
+        [
+          "`CROSS APPLY`",
+          "`JOIN LATERAL ... ON TRUE`"
+        ],
+        [
+          "`OUTER APPLY`",
+          "`LEFT JOIN LATERAL ... ON TRUE`"
+        ],
+        [
+          "`FOR XML PATH('')` aggregation",
+          "`string_agg(col, ',')` or `jsonb_agg(col)`"
+        ],
+        [
+          "`ISNULL(x, default)`",
+          "`COALESCE(x, default)` — ANSI, works in both"
+        ],
+        [
+          "`dbo.TableName`",
+          "`public.table_name` — schemas real namespaces; `public` is default"
+        ],
+        [
+          "`sp_executesql`",
+          "`EXECUTE format('... %I ...', identifier)` or `EXECUTE sql_string`"
+        ],
+        [
+          "`1` / `0` for booleans",
+          "`TRUE` / `FALSE` literals — `BOOLEAN` is a real type"
+        ],
+        [
+          "`arr[0]` first element",
+          "`arr[1]` — PostgreSQL arrays are 1-indexed"
+        ],
+        [
+          "`TIMESTAMP` (assume UTC)",
+          "Use `TIMESTAMPTZ` always — stores UTC, displays in session timezone"
+        ],
+        [
+          "CTE optimization",
+          "CTEs are materialized by default — add `NOT MATERIALIZED` to match SQL Server inlining behavior"
+        ]
+      ]
+    },
+    {
+      "id": "table-8",
+      "line": 889,
+      "heading_context": "## ECOSYSTEM / TOOLING",
+      "headers": [
+        "Tool",
+        "Category",
+        "Notes"
+      ],
+      "rows": [
+        [
+          "`psql`",
+          "CLI client",
+          "`\\d table`, `\\dt`, `\\timing`, `\\copy` — powerful once learned"
+        ],
+        [
+          "pgAdmin 4",
+          "GUI admin",
+          "Open source, browser-based, official PostgreSQL tool"
+        ],
+        [
+          "DBeaver",
+          "Cross-DB GUI",
+          "Free, supports everything including PG, SQL Server, MySQL"
+        ],
+        [
+          "DataGrip",
+          "Cross-DB GUI",
+          "JetBrains, best SQL intelligence, paid"
+        ],
+        [
+          "TablePlus",
+          "Cross-DB GUI",
+          "Mac/Windows, fast native UI"
+        ],
+        [
+          "Prisma",
+          "Node.js ORM",
+          "Type-safe, schema-first, migrations built-in"
+        ],
+        [
+          "Drizzle",
+          "Node.js ORM",
+          "Lightweight, SQL-like, TypeScript-first"
+        ],
+        [
+          "TypeORM",
+          "Node.js ORM",
+          "Decorator-based, more traditional ActiveRecord style"
+        ],
+        [
+          "SQLAlchemy",
+          "Python ORM",
+          "Industry standard Python ORM"
+        ],
+        [
+          "`pg` (node-postgres)",
+          "Node.js driver",
+          "Low-level, battle-tested, direct SQL"
+        ],
+        [
+          "asyncpg",
+          "Python async driver",
+          "Fastest Python PG driver"
+        ],
+        [
+          "Npgsql",
+          ".NET driver",
+          "ADO.NET provider for PostgreSQL — drop-in for your ADO.NET knowledge"
+        ],
+        [
+          "pgBouncer",
+          "Connection pooler",
+          "Transaction-mode pooling — essential for high-concurrency apps"
+        ],
+        [
+          "Supabase",
+          "PG-as-a-service",
+          "Auto-generated REST/GraphQL API, Auth, Realtime, Storage"
+        ],
+        [
+          "Neon",
+          "Serverless PG",
+          "Branching (like git for DB), scale-to-zero, instant DB copies"
+        ],
+        [
+          "AWS RDS / Aurora",
+          "Managed cloud",
+          "Aurora PG is wire-compatible PG with AWS clustering"
+        ],
+        [
+          "Azure DB for PostgreSQL",
+          "Managed cloud",
+          "Flexible Server is current offering; has Citus extension"
+        ]
+      ]
+    },
+    {
+      "id": "table-9",
+      "line": 913,
+      "heading_context": "## DECISION CHEAT SHEET",
+      "headers": [
+        "Need",
+        "Why PostgreSQL wins"
+      ],
+      "rows": [
+        [
+          "JSONB + relational queries",
+          "Best of both — indexed JSON operators, JOIN with relational tables, no document DB needed"
+        ],
+        [
+          "Full-text search (moderate scale)",
+          "`tsvector`/`tsquery` + GIN — cheaper than Elasticsearch for < ~50M docs"
+        ],
+        [
+          "Geospatial",
+          "PostGIS is the industry standard for spatial queries"
+        ],
+        [
+          "Time-series",
+          "TimescaleDB extension — hypertables auto-partition by time, continuous aggregates"
+        ],
+        [
+          "AI/ML embedding storage",
+          "pgvector — HNSW/IVFFlat indexes for ANN search, stays in your relational DB"
+        ],
+        [
+          "ANSI SQL compliance",
+          "Most standards-compliant open-source RDBMS — porting from Oracle easier than MySQL"
+        ],
+        [
+          "Open-source / no license cost",
+          "PostgreSQL License (permissive) — zero cost at any scale"
+        ],
+        [
+          "Audit / row history",
+          "Temporal tables not built-in (use `pg_audit` + trigger pattern or temporal extension)"
+        ],
+        [
+          "ETL / analytics",
+          "Good for moderate scale; for TBs, consider Synapse or BigQuery externally"
+        ],
+        [
+          "High-concurrency OLTP",
+          "pgBouncer for connection pooling; Citus for sharding; excellent at high read concurrency"
+        ]
+      ]
+    }
+  ]
+}

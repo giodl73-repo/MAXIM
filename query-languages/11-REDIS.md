@@ -1,3 +1,22 @@
+---
+maxim_schema: maxim.frontmatter.v1
+id: maxim:query-languages:redis
+kind: guide
+module: query-languages
+section: query-languages
+title: Redis - Commands, Data Structures, and Modules
+status: source-custody
+source_custody: partial
+current_path: query-languages/11-REDIS.md
+canonical_path: query-languages/11-REDIS.md
+backsource_ids: [proof-backfill:query-languages:11-redis, git-history:query-languages:11-redis]
+concepts: [redis]
+root_concepts: [redis]
+index_roles: [guide, root-concept]
+remap_from: []
+remap_to: []
+updated: null
+---
 # Redis — Commands, Data Structures, and Modules
 
 Redis is not a query language in the SQL sense — it's a command-based interface to in-memory data structures. It's the standard ephemeral store: cache, session store, rate limiter, pub/sub bus, distributed lock, leaderboard. Redis Stack adds modules: RediSearch (full-text + vector search), RedisJSON, RedisTimeSeries, RedisBloom. The "query language" is the combination of commands + Lua scripting for atomicity.
@@ -59,7 +78,7 @@ Redis is not a query language in the SQL sense — it's a command-based interfac
 │  ├──────────────┼───────────────────────────────────────────────────┤   │
 │  │  Set         │ Unordered unique members. SADD/SINTER/SUNION.     │   │
 │  │              │ O(1) add/member. Use: tags, unique visitors,      │   │
-│  │              │ follow graphs                                       │ │
+│  │              │ follow graphs                                     │   │
 │  ├──────────────┼───────────────────────────────────────────────────┤   │
 │  │  Sorted Set  │ Members + float score, sorted. ZADD/ZRANGE.        │   │
 │  │  (ZSET)      │ O(log N). Use: leaderboards, priority queues       │   │
@@ -72,7 +91,7 @@ Redis is not a query language in the SQL sense — it's a command-based interfac
 │  ├──────────────┼───────────────────────────────────────────────────┤   │
 │  │  Stream      │ Append-only log with consumer groups + ACK.       │   │
 │  │              │ XADD/XREADGROUP. O(1) append. Use: event log,     │   │
-│  │              │ durable queue                                       │ │
+│  │              │ durable queue                                     │   │
 │  └──────────────┴───────────────────────────────────────────────────┘   │
 └──────────────────────────────────────────────────────────────────────────┘
 ```
@@ -741,14 +760,12 @@ Sentinel provides automatic failover for a standalone Redis instance (one master
 │       └──────────────┼──────────────┘                          │
 │                      │ monitors + elects                        │
 │                      ▼                                          │
-│              ┌───────────────┐                                  │
-│              │  Master Redis │◄── clients connect via           │
-│              └───────┬───────┘    Sentinel-aware client         │
-│                      │ async replication                        │
-│              ┌───────┴────────┐                                 │
-│         ┌────┴────┐      ┌────┴────┐                           │
-│         │Replica 1│      │Replica 2│                           │
-│         └─────────┘      └─────────┘                           │
+│                      Master Redis <- clients connect via        │
+│                      Sentinel-aware client                      │
+│                      | async replication                        │
+│                      split to replicas                              │
+│                      v              v                           │
+│                   Replica 1       Replica 2                     │
 │                                                                 │
 │  On master failure: Sentinels reach quorum → elect new master   │
 │  → reconfigure replicas → notify clients via Sentinel API       │

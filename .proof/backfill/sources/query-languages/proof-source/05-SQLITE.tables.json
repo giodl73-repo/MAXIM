@@ -1,0 +1,373 @@
+{
+  "schema_version": "1",
+  "source_markdown": "query-languages\\05-SQLITE.md",
+  "tables": [
+    {
+      "id": "table-1",
+      "line": 52,
+      "heading_context": "## 1. Dialect Snapshot",
+      "headers": [
+        "Attribute",
+        "Value"
+      ],
+      "rows": [
+        [
+          "Created by",
+          "D. Richard Hipp, 2000 — originally for U.S. Navy destroyers (no server to crash)"
+        ],
+        [
+          "License",
+          "Public domain — no copyright, no attribution required, no license to manage"
+        ],
+        [
+          "Current version",
+          "SQLite 3.x (continuous point releases, stable ABI)"
+        ],
+        [
+          "Architecture",
+          "Serverless, file-based, zero-config, embedded C library"
+        ],
+        [
+          "ACID compliance",
+          "Full — WAL mode enables concurrent reads + single writer"
+        ],
+        [
+          "Deployment surface",
+          "iOS, Android, macOS, Chrome, Firefox, Python stdlib, .NET, Node.js, R, every browser"
+        ],
+        [
+          "Binary size",
+          "~600KB compiled"
+        ]
+      ]
+    },
+    {
+      "id": "table-2",
+      "line": 350,
+      "heading_context": "## 6. Core Syntax Differences from T-SQL",
+      "headers": [
+        "Operation",
+        "T-SQL",
+        "SQLite"
+      ],
+      "rows": [
+        [
+          "Top N rows",
+          "`SELECT TOP 10 *`",
+          "`SELECT * ... LIMIT 10`"
+        ],
+        [
+          "Top N with offset",
+          "`OFFSET 20 ROWS FETCH NEXT 10`",
+          "`LIMIT 10 OFFSET 20`"
+        ],
+        [
+          "Identity column",
+          "`IDENTITY(1,1)`",
+          "`INTEGER PRIMARY KEY` (implicit rowid alias)"
+        ],
+        [
+          "Auto-increment strict",
+          "`IDENTITY` (no reuse)",
+          "`INTEGER PRIMARY KEY AUTOINCREMENT` (no rowid reuse)"
+        ],
+        [
+          "Current timestamp",
+          "`GETDATE()`",
+          "`datetime('now')` / `CURRENT_TIMESTAMP`"
+        ],
+        [
+          "String concat",
+          "`'a' + 'b'`",
+          "`'a' \\|\\| 'b'` (pipe concat)"
+        ],
+        [
+          "Date difference",
+          "`DATEDIFF(unit, s, e)`",
+          "No DATEDIFF — use `julianday()` arithmetic"
+        ],
+        [
+          "Date add",
+          "`DATEADD(unit, n, d)`",
+          "`date('now', '+7 days')`"
+        ],
+        [
+          "Stored procedures",
+          "Full T-SQL procs",
+          "No stored procedures (SQL only)"
+        ],
+        [
+          "User-defined functions",
+          "T-SQL or CLR functions",
+          "Register via host language API (Python/C/etc.)"
+        ],
+        [
+          "Boolean type",
+          "`BIT`",
+          "`INTEGER` (0/1); `TRUE`/`FALSE` = aliases"
+        ],
+        [
+          "Identifier quoting",
+          "`[column]`",
+          "`\"column\"` (ANSI) or `` `column` `` (MySQL-compatible)"
+        ],
+        [
+          "Schema prefix",
+          "`database.schema.table`",
+          "`schema.table` (ATTACH DATABASE for multi-file)"
+        ],
+        [
+          "Permissions / users",
+          "Full grant/revoke",
+          "None — file system controls access"
+        ],
+        [
+          "ALTER COLUMN",
+          "`ALTER TABLE t ALTER COLUMN`",
+          "NOT SUPPORTED — recreate table"
+        ],
+        [
+          "FULL OUTER JOIN",
+          "Native",
+          "Not supported natively (3.39+ has RIGHT JOIN; emulate FULL with UNION)"
+        ]
+      ]
+    },
+    {
+      "id": "table-3",
+      "line": 655,
+      "heading_context": "## 12. In-Memory Databases — Testing Pattern",
+      "headers": [
+        "Capability",
+        "SQL Server Provider",
+        "SQLite Provider"
+      ],
+      "rows": [
+        [
+          "`ALTER COLUMN` in migrations",
+          "Native",
+          "Not supported — EF Core rewrites as table-rebuild"
+        ],
+        [
+          "`DROP COLUMN`",
+          "Native",
+          "EF Core 6+ rewrites as table-rebuild"
+        ],
+        [
+          "Server-generated defaults",
+          "`GETDATE()`, sequences, etc.",
+          "Must use `datetime('now')` — no SQL Server functions"
+        ],
+        [
+          "`HasDefaultValueSql(\"GETDATE()\")`",
+          "Works",
+          "Fails at runtime — rewrite as `datetime('now')`"
+        ],
+        [
+          "Computed columns",
+          "`HasComputedColumnSql(...)`",
+          "Supported in SQLite 3.31+ (`GENERATED ALWAYS AS`)"
+        ],
+        [
+          "`IDENTITY` / `UseIdentityColumn()`",
+          "Full control",
+          "Ignored — SQLite uses `INTEGER PRIMARY KEY` autoincrement"
+        ],
+        [
+          "`decimal` precision/scale",
+          "Enforced",
+          "Not enforced — SQLite stores as REAL or TEXT"
+        ],
+        [
+          "`ROWVERSION` / concurrency tokens",
+          "Native",
+          "Must use manual timestamp column"
+        ],
+        [
+          "Row-level security",
+          "Yes (SQL Server RLS)",
+          "None"
+        ],
+        [
+          "Always Encrypted",
+          "Yes",
+          "None"
+        ],
+        [
+          "Full-text search from EF",
+          "Not directly modeled",
+          "Not directly modeled (use raw SQL for FTS5)"
+        ],
+        [
+          "`EnableSensitiveDataLogging()`",
+          "Parameter values in logs",
+          "Works — but SQLite uses positional `?` params, not named"
+        ]
+      ]
+    },
+    {
+      "id": "table-4",
+      "line": 839,
+      "heading_context": "## 16. Gotchas from T-SQL",
+      "headers": [
+        "T-SQL Assumption",
+        "SQLite Reality"
+      ],
+      "rows": [
+        [
+          "`ALTER TABLE t ALTER COLUMN`",
+          "NOT SUPPORTED in SQLite. Workaround: `CREATE TABLE t_new (...); INSERT INTO t_new SELECT ...; DROP TABLE t; ALTER TABLE t_new RENAME TO t;` (or use `pragma writable_schema` — avoid)"
+        ],
+        [
+          "FK constraints enforced",
+          "`PRAGMA foreign_keys = OFF` by default. Must `SET PRAGMA foreign_keys = ON` per connection"
+        ],
+        [
+          "`DATEDIFF(unit, start, end)`",
+          "No `DATEDIFF`. Use `julianday(d1) - julianday(d2)` for days"
+        ],
+        [
+          "`DATEADD(unit, n, date)`",
+          "No `DATEADD`. Use `date(d, '+7 days')` / `datetime(d, '+1 hour')`"
+        ],
+        [
+          "Stored procedures",
+          "No stored procedures. Logic lives in application code"
+        ],
+        [
+          "User permissions / GRANT",
+          "No permission system. File system ACLs are the only access control"
+        ],
+        [
+          "`FULL OUTER JOIN`",
+          "Not supported. Emulate with `LEFT JOIN UNION ALL LEFT JOIN with tables swapped WHERE first_table.id IS NULL`"
+        ],
+        [
+          "`IDENTITY` reuses no values",
+          "`INTEGER PRIMARY KEY` reuses deleted max rowid. Add `AUTOINCREMENT` to prevent reuse (slower, rarely needed)"
+        ],
+        [
+          "Type-safe columns",
+          "Dynamic typing by default — `'hello'` inserts into `INTEGER` column without error. Use `STRICT` tables (3.37+)"
+        ],
+        [
+          "`BOOLEAN` type",
+          "Stored as `INTEGER` — 0 is false, 1 is true. `TRUE`/`FALSE` are aliases"
+        ],
+        [
+          "Multiple databases per connection",
+          "SQLite opens one file per connection; use `ATTACH DATABASE 'other.db' AS other` for cross-file queries"
+        ]
+      ]
+    },
+    {
+      "id": "table-5",
+      "line": 857,
+      "heading_context": "## 17. Decision Cheat Sheet",
+      "headers": [
+        "Use SQLite when",
+        "Do NOT use SQLite when"
+      ],
+      "rows": [
+        [
+          "Single application, single writer",
+          "Multiple unrelated processes writing concurrently"
+        ],
+        [
+          "Mobile app local storage",
+          "Need fine-grained user/role permissions"
+        ],
+        [
+          "Desktop application state",
+          "Horizontal scaling or replication required"
+        ],
+        [
+          "Unit/integration test harness",
+          "High-throughput concurrent write workloads"
+        ],
+        [
+          "< ~35GB local data file",
+          "Dataset exceeds local storage capacity"
+        ],
+        [
+          "Offline-first with sync-to-server",
+          "Need stored procedures or server-side triggers at scale"
+        ],
+        [
+          "Config / cache / queue / log storage",
+          "Need complex user-defined functions in pure SQL"
+        ],
+        [
+          "Prototyping (zero setup)",
+          "Network-accessible shared database required"
+        ],
+        [
+          "IoT / edge / embedded devices",
+          "HTAP or analytics workloads > a few GB (use DuckDB instead)"
+        ]
+      ]
+    },
+    {
+      "id": "table-6",
+      "line": 873,
+      "heading_context": "## 17. Decision Cheat Sheet",
+      "headers": [
+        "Factor",
+        "SQL Server LocalDB",
+        "SQLite"
+      ],
+      "rows": [
+        [
+          "Architecture",
+          "Full SQL Server engine, lightweight process",
+          "Library embedded in your application process — no separate process"
+        ],
+        [
+          "Installation",
+          "Requires SQL Server LocalDB install (`sqllocaldb` runtime)",
+          "Zero install — one NuGet package or system lib"
+        ],
+        [
+          "T-SQL compatibility",
+          "100% — stored procs, TVFs, columnstore, full type system",
+          "Subset of SQL — no stored procs, no ALTER COLUMN, no permissions"
+        ],
+        [
+          "EF Core migrations",
+          "Full support including ALTER COLUMN, computed columns",
+          "Table-rebuild workaround for schema changes"
+        ],
+        [
+          "FK enforcement",
+          "On by default",
+          "Off by default — must set `PRAGMA foreign_keys = ON` per connection"
+        ],
+        [
+          "Deployment / CI",
+          "Requires LocalDB install on CI agent",
+          "Zero setup — SQLite ships in-process, file or `:memory:`"
+        ],
+        [
+          "File portability",
+          "Tied to SQL Server data format, attached via `(LocalDB)\\instance`",
+          "Single `.db` file — copy it anywhere"
+        ],
+        [
+          "Network access",
+          "Named pipes — other local processes can connect",
+          "None — file locking only"
+        ],
+        [
+          "Performance tooling",
+          "Query Store, execution plans, SQL Profiler",
+          "`EXPLAIN QUERY PLAN`, `sqlite_stat1`"
+        ],
+        [
+          "**Use when**",
+          "Need T-SQL parity: stored procs, TVFs, columnstore, complex migrations",
+          "Need a relational store in tests with zero infrastructure overhead"
+        ]
+      ]
+    }
+  ]
+}

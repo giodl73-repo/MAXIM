@@ -1,0 +1,298 @@
+{
+  "schema_version": "1",
+  "source_markdown": "query-languages\\03-TSQL.md",
+  "tables": [
+    {
+      "id": "table-1",
+      "line": 28,
+      "heading_context": "## DIALECT SNAPSHOT",
+      "headers": [
+        "Attribute",
+        "Value"
+      ],
+      "rows": [
+        [
+          "Origin",
+          "Sybase SQL Server (1987) → Microsoft SQL Server (1989)"
+        ],
+        [
+          "License",
+          "Commercial / Azure subscription"
+        ],
+        [
+          "Current versions",
+          "SQL Server 2022, Azure SQL Database, Azure SQL Managed Instance, Azure Synapse Analytics"
+        ],
+        [
+          "ACID compliance",
+          "Full"
+        ],
+        [
+          "Isolation model",
+          "Lock-based (default) + snapshot isolation (opt-in per-database)"
+        ],
+        [
+          "Strengths",
+          "Windows/.NET integration, enterprise features, Azure ecosystem, BI stack (SSRS/SSAS/Power BI), temporal tables, query store, DMVs"
+        ],
+        [
+          "Related services",
+          "Azure Synapse Analytics (distributed T-SQL, MPP), Azure SQL Edge (IoT/embedded)"
+        ]
+      ]
+    },
+    {
+      "id": "table-2",
+      "line": 232,
+      "heading_context": "## TABLE-VALUED PARAMETERS (TVPs)",
+      "headers": [
+        "",
+        "TVP",
+        "Temp Table",
+        "JSON (NVARCHAR)"
+      ],
+      "rows": [
+        [
+          "Schema enforced",
+          "Yes (CREATE TYPE)",
+          "Yes (CREATE TABLE #t)",
+          "No — parse at runtime"
+        ],
+        [
+          "Statistics",
+          "No — optimizer guesses ~1 row",
+          "Yes — auto-created",
+          "No"
+        ],
+        [
+          "Indexable inside proc",
+          "No (READONLY; can't ALTER)",
+          "Yes",
+          "No"
+        ],
+        [
+          "Usable across calls",
+          "No — scope = call",
+          "Yes (same session)",
+          "Yes (pass around as string)"
+        ],
+        [
+          "ADO.NET binding",
+          "`SqlDbType.Structured`",
+          "Insert rows first",
+          "Single string param"
+        ],
+        [
+          "Ideal row count",
+          "1 – ~10K",
+          "Any",
+          "Small payloads only"
+        ],
+        [
+          "Network overhead",
+          "Streamed (SqlDataRecord)",
+          "Round-trip insert",
+          "Single string"
+        ]
+      ]
+    },
+    {
+      "id": "table-3",
+      "line": 937,
+      "heading_context": "## ACCELERATED DATABASE RECOVERY (ADR — SQL Server 2019+)",
+      "headers": [
+        "Behavior",
+        "Classic Recovery",
+        "ADR"
+      ],
+      "rows": [
+        [
+          "Rollback time",
+          "O(transaction size) — can be minutes",
+          "Near-instant — O(1) logical revert"
+        ],
+        [
+          "Crash recovery time",
+          "Long if aborted transactions at crash",
+          "Fast — PVS available immediately"
+        ],
+        [
+          "Long-running transactions",
+          "Hold log tail, block truncation",
+          "Log can be truncated independently"
+        ],
+        [
+          "Version store location",
+          "tempdb (affects all databases)",
+          "User database (PVS, isolated)"
+        ],
+        [
+          "Storage overhead",
+          "Low (tempdb cleared on restart)",
+          "Ongoing PVS size; cleanup agent needed"
+        ],
+        [
+          "Backup/restore",
+          "Standard",
+          "Backup must capture PVS; slightly larger"
+        ]
+      ]
+    },
+    {
+      "id": "table-4",
+      "line": 1106,
+      "heading_context": "## AZURE SQL SPECIFICS",
+      "headers": [
+        "Tier",
+        "What it is",
+        "Key difference"
+      ],
+      "rows": [
+        [
+          "Azure SQL Database",
+          "Fully managed PaaS",
+          "No SA access, no SQL Agent (Basic/Standard), auto-backup"
+        ],
+        [
+          "Azure SQL Managed Instance",
+          "Managed PaaS + VNet injection",
+          "Near-100% SQL Server compat; SQL Agent, linked servers, CLR"
+        ],
+        [
+          "Azure SQL Hyperscale",
+          "vCore tier of Azure SQL DB",
+          "Read scale-out replicas; near-instant backup/restore up to 100TB"
+        ],
+        [
+          "Azure SQL Serverless",
+          "Compute tier of Azure SQL DB",
+          "Auto-pause + auto-resume; bill per vCore-second; cold start ~1s"
+        ],
+        [
+          "Elastic Pools",
+          "Shared resource pool",
+          "Multiple databases share DTUs/vCores; cost optimization"
+        ]
+      ]
+    },
+    {
+      "id": "table-5",
+      "line": 1163,
+      "heading_context": "## AZURE SQL SPECIFICS",
+      "headers": [
+        "Feature",
+        "Standard Azure SQL",
+        "Azure SQL Hyperscale"
+      ],
+      "rows": [
+        [
+          "Max database size",
+          "4TB (General Purpose)",
+          "100TB+"
+        ],
+        [
+          "Backup time",
+          "Proportional to DB size",
+          "Near-instant (log position snapshot)"
+        ],
+        [
+          "Restore time",
+          "Hours for large DBs",
+          "Minutes regardless of size"
+        ],
+        [
+          "Read scale-out",
+          "Not available (General Purpose)",
+          "Up to 4 named read replicas"
+        ],
+        [
+          "`DBCC SHRINKFILE`",
+          "Works normally",
+          "Supported, but shrink behavior differs — page servers reclaim space asynchronously"
+        ],
+        [
+          "Log truncation",
+          "Standard checkpoint/backup cycle",
+          "Log Service manages truncation; VLF model still visible but less operator-controllable"
+        ],
+        [
+          "IO latency",
+          "Remote storage, ~1-5ms",
+          "Page servers + local buffer; first fetch may be higher, subsequent hits are local"
+        ],
+        [
+          "Scaling compute",
+          "Requires storage scale as well",
+          "Compute scales independently — storage stays, new compute node attaches to same page servers"
+        ]
+      ]
+    },
+    {
+      "id": "table-6",
+      "line": 1286,
+      "heading_context": "## DECISION CHEAT SHEET",
+      "headers": [
+        "Scenario",
+        "T-SQL Pattern"
+      ],
+      "rows": [
+        [
+          "UPSERT — guaranteed atomic",
+          "`MERGE ... WITH (HOLDLOCK)` or `INSERT ... ON CONFLICT` (Azure SQL 2022+)"
+        ],
+        [
+          "Audit trail / row history",
+          "Temporal tables — zero application code change"
+        ],
+        [
+          "ETL: stage → target with change tracking",
+          "`MERGE` with `OUTPUT` to log `$action`"
+        ],
+        [
+          "Correlated top-N per group",
+          "`CROSS APPLY (SELECT TOP n ... WHERE correlated) `"
+        ],
+        [
+          "Parameterized dynamic SQL",
+          "`sp_executesql` — always; never `EXEC(string)`"
+        ],
+        [
+          "Dynamic identifiers (table/column names)",
+          "`QUOTENAME()` + `sp_executesql`"
+        ],
+        [
+          "Performance regression",
+          "Query Store: find old plan, `sp_query_store_force_plan`"
+        ],
+        [
+          "What's blocking right now",
+          "`sys.dm_exec_requests` + `blocking_session_id`"
+        ],
+        [
+          "Index recommendations",
+          "`sys.dm_db_missing_index_details`"
+        ],
+        [
+          "Per-user row filtering",
+          "Row-Level Security + `SESSION_CONTEXT`"
+        ],
+        [
+          "Cross-database analytics on Azure",
+          "Synapse Serverless pool + External Tables over ADLS"
+        ],
+        [
+          "Large analytics transforms",
+          "Synapse Dedicated pool + CTAS"
+        ],
+        [
+          "Full JSON document storage",
+          "Consider PostgreSQL; T-SQL JSON is text-based, no native indexes"
+        ],
+        [
+          "Tamper-evident audit log",
+          "Ledger tables (SQL Server 2022 / Azure SQL)"
+        ]
+      ]
+    }
+  ]
+}

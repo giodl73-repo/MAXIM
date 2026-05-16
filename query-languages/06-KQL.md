@@ -1,3 +1,22 @@
+---
+maxim_schema: maxim.frontmatter.v1
+id: maxim:query-languages:kql
+kind: guide
+module: query-languages
+section: query-languages
+title: KQL - Kusto Query Language
+status: source-custody
+source_custody: partial
+current_path: query-languages/06-KQL.md
+canonical_path: query-languages/06-KQL.md
+backsource_ids: [proof-backfill:query-languages:06-kql, git-history:query-languages:06-kql]
+concepts: [kql]
+root_concepts: [kql]
+index_roles: [guide, root-concept]
+remap_from: []
+remap_to: []
+updated: null
+---
 # KQL — Kusto Query Language
 
 KQL is Microsoft's pipe-based query language for log analytics and telemetry at scale. It powers Azure Monitor, Log Analytics, Application Insights, Azure Data Explorer (ADX), and Microsoft Sentinel. This guide focuses on what matters for practitioners who already write KQL daily: ADX-specific features (materialized views, update policies, partitioning, cross-cluster federation), the behavioral differences between LA and ADX that affect query design, the optimizer's rewrite rules and when pipe order matters vs when it doesn't, and the advanced operators that distinguish expert KQL from intermediate KQL.
@@ -7,22 +26,12 @@ KQL is Microsoft's pipe-based query language for log analytics and telemetry at 
 ## 1. BIG PICTURE — KQL in the Azure Ecosystem
 
 ```
-┌─────────────────────────────────────────────────────────────────────────────┐
-│                       KQL-Powered Azure Services                            │
-├───────────────────┬───────────────────┬────────────────┬───────────────────┤
-│  Azure Monitor    │  Application      │   Microsoft    │   Azure Data      │
-│  Log Analytics    │  Insights         │   Sentinel     │   Explorer (ADX)  │
-│                   │                   │                │                   │
-│  • AzureActivity  │  • requests       │  • Security-   │  • Custom tables  │
-│  • AzureDiag-     │  • dependencies   │    Event       │  • IoT telemetry  │
-│    nostics        │  • exceptions     │  • SignIn-      │  • Clickstream    │
-│  • Heartbeat      │  • traces         │    Logs        │  • Time series    │
-│  • SecurityEvent  │  • customEvents   │  • Defender    │  • Parquet import │
-│  • Perf           │  • availResults   │    alerts      │                   │
-│  • ContainerLog   │  • pageViews      │                │                   │
-│  • KubeEvents     │  • browser-       │                │                   │
-│                   │    Timings        │                │                   │
-└───────────────────┴───────────────────┴────────────────┴───────────────────┘
+KQL-powered Azure services:
+
+- Azure Monitor / Log Analytics: AzureActivity, AzureDiagnostics, Heartbeat, SecurityEvent, Perf, ContainerLog, KubeEvents.
+- Application Insights: requests, dependencies, exceptions, traces, customEvents, availResults, pageViews, browserTimings.
+- Microsoft Sentinel: SecurityEvent, SignInLogs, Defender alerts.
+- Azure Data Explorer (ADX): custom tables, IoT telemetry, clickstream, time series, Parquet import.
 
 All use the same KQL syntax. Differences:
 Per-context behavioral differences — same KQL syntax, different capabilities:
@@ -48,11 +57,11 @@ Per-context behavioral differences — same KQL syntax, different capabilities:
 │                                                              │
 │  Azure Portal → Log Analytics workspace → Logs blade         │
 │  Azure Portal → App Insights resource  → Logs / Metrics      │
-│  Azure Portal → Sentinel               → Hunting / Analytics│
+│  Azure Portal → Sentinel               → Hunting / Analytics │
 │  ADX Web UI   → cluster.region.kusto.windows.net             │
 │  Grafana       → Azure Monitor data source (KQL queries)     │
 │  VS Code       → Kusto extension                             │
-│  SDK/API       → kusto-ingest / Azure.Data.Kusto (C#/Python)│
+│  SDK/API       → kusto-ingest / Azure.Data.Kusto (C#/Python) │
 └──────────────────────────────────────────────────────────────┘
 ```
 

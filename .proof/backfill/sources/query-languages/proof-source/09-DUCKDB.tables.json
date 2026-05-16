@@ -1,0 +1,179 @@
+{
+  "schema_version": "1",
+  "source_markdown": "query-languages\\09-DUCKDB.md",
+  "tables": [
+    {
+      "id": "table-1",
+      "line": 76,
+      "heading_context": "## 2. Dialect Snapshot",
+      "headers": [
+        "Attribute",
+        "Value"
+      ],
+      "rows": [
+        [
+          "Created by",
+          "CWI Amsterdam (Mark Raasveldt, Hannes Mühleisen), 2019"
+        ],
+        [
+          "License",
+          "MIT"
+        ],
+        [
+          "Current version",
+          "DuckDB 1.x (2024)"
+        ],
+        [
+          "Architecture",
+          "In-process, single file or in-memory, multi-threaded"
+        ],
+        [
+          "Execution model",
+          "Vectorized columnar — SIMD batches of 2048 rows"
+        ],
+        [
+          "SQL dialect",
+          "PostgreSQL-compatible (mostly) + DuckDB extensions"
+        ],
+        [
+          "Unique strengths",
+          "Direct file query (Parquet/CSV/JSON), PIVOT auto-detect, lambdas, nested types"
+        ],
+        [
+          "Python",
+          "`duckdb.sql(\"...\").df()` → pandas, `.pl()` → Polars, zero-copy DataFrame query"
+        ],
+        [
+          "Concurrency",
+          "Single writer, multiple readers — same constraint as SQLite"
+        ],
+        [
+          "Best fit",
+          "Local analytics, ETL pre-processing, data exploration, pipeline testing"
+        ]
+      ]
+    },
+    {
+      "id": "table-2",
+      "line": 629,
+      "heading_context": "## 13. DuckDB vs SQLite vs Spark",
+      "headers": [
+        "Attribute",
+        "DuckDB",
+        "SQLite",
+        "Spark"
+      ],
+      "rows": [
+        [
+          "Orientation",
+          "Columnar (OLAP)",
+          "Row-based (OLTP)",
+          "Columnar (OLAP)"
+        ],
+        [
+          "Deployment",
+          "In-process, single file",
+          "In-process, single file",
+          "Distributed cluster"
+        ],
+        [
+          "Data scale",
+          "GB–TB (single node)",
+          "KB–GB",
+          "TB–PB"
+        ],
+        [
+          "Direct file query",
+          "Parquet / CSV / JSON / S3",
+          "No",
+          "Yes (with catalog)"
+        ],
+        [
+          "SQL dialect",
+          "PostgreSQL-like + extensions",
+          "Most ANSI",
+          "Spark SQL (HiveQL base)"
+        ],
+        [
+          "Concurrent writers",
+          "1 (same as SQLite)",
+          "1 (WAL: 1W + N readers)",
+          "Many (Spark partitions)"
+        ],
+        [
+          "Python integration",
+          "Native, zero-copy",
+          "Built-in",
+          "PySpark (serialization overhead)"
+        ],
+        [
+          "PIVOT",
+          "Auto-detect values",
+          "No native PIVOT",
+          "Manual CASE/pivot UDF"
+        ],
+        [
+          "Lambdas in SQL",
+          "`list_transform(x, x -> ...)`",
+          "No",
+          "`transform(array, x -> ...)`"
+        ],
+        [
+          "Startup overhead",
+          "Milliseconds",
+          "Microseconds",
+          "Seconds to minutes (cluster)"
+        ],
+        [
+          "Typical use case",
+          "Local analytics, ETL, notebook",
+          "Embedded OLTP, test fixtures",
+          "Big data batch pipelines"
+        ]
+      ]
+    },
+    {
+      "id": "table-3",
+      "line": 647,
+      "heading_context": "## 14. Decision Cheat Sheet",
+      "headers": [
+        "Use DuckDB when",
+        "Use something else when"
+      ],
+      "rows": [
+        [
+          "Replacing pandas `.groupby().agg()` chains",
+          "Need multi-user concurrent writes → PostgreSQL"
+        ],
+        [
+          "Local ETL: read CSV/Parquet → transform → write Parquet",
+          "Data doesn't fit on a single machine → Spark"
+        ],
+        [
+          "Testing data pipelines without spinning up Spark",
+          "Need a network-accessible server → PostgreSQL"
+        ],
+        [
+          "Data exploration in Jupyter notebooks",
+          "Multi-tenant app with row-level security → PostgreSQL"
+        ],
+        [
+          "Querying S3/ADLS Parquet without a running cluster",
+          "OLTP with many small writes → SQLite or PostgreSQL"
+        ],
+        [
+          "Lightweight analytics feature inside a Python app",
+          "Production web app backend → PostgreSQL"
+        ],
+        [
+          "Inspecting / validating ADF pipeline Parquet output on ADLS Gen2",
+          "Orchestrated multi-stage pipeline movement → stay in ADF"
+        ],
+        [
+          "Benchmarking / profiling a new dataset",
+          ""
+        ]
+      ]
+    }
+  ]
+}

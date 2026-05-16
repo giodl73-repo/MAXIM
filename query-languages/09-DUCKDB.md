@@ -1,3 +1,22 @@
+---
+maxim_schema: maxim.frontmatter.v1
+id: maxim:query-languages:duckdb
+kind: guide
+module: query-languages
+section: query-languages
+title: DuckDB
+status: source-custody
+source_custody: partial
+current_path: query-languages/09-DUCKDB.md
+canonical_path: query-languages/09-DUCKDB.md
+backsource_ids: [proof-backfill:query-languages:09-duckdb, git-history:query-languages:09-duckdb]
+concepts: [duckdb]
+root_concepts: [duckdb]
+index_roles: [guide, root-concept]
+remap_from: []
+remap_to: []
+updated: null
+---
 # DuckDB
 
 DuckDB is SQLite for analytics — an in-process OLAP database. Single binary, no server, embeds into Python/Node/R/.NET. But unlike SQLite (row-oriented, OLTP), DuckDB uses vectorized columnar execution designed for aggregations over millions of rows. The killer feature: query Parquet, CSV, and JSON files directly without loading them first. It's rapidly replacing pandas for local data analysis.
@@ -496,7 +515,7 @@ VertiPaq (SSAS Tabular / Power BI Import):
   ┌──────────────────────────────────────────────────────┐
   │  Column segments, compressed, dictionary-encoded     │
   │  Run-length encoding on sorted segments              │
-  │  All data in RAM — queries read from memory, not disk│
+  │  All data in RAM; reads come from memory, not disk   │
   └──────────────────────────────────────────────────────┘
        │
        ▼  DAX / MDX query
@@ -507,7 +526,7 @@ DuckDB:
        │
        ▼  query-time column read, no persistent cache
   ┌──────────────────────────────────────────────────────┐
-  │  Vectorized columnar execution (SIMD, 2048-row batch)│
+  │  Vectorized execution (SIMD, 2048-row batch)         │
   │  Lightweight compression on columnar data in Parquet │
   │  Data NOT fully loaded into RAM — streaming reads    │
   └──────────────────────────────────────────────────────┘

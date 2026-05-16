@@ -1,0 +1,83 @@
+{
+  "schema_version": "1",
+  "source_markdown": "query-languages\\04-MYSQL.md",
+  "blocks": [
+    {
+      "id": "block-1",
+      "kind": "diagram_like",
+      "line": 28,
+      "heading_context": "## Ecosystem Position",
+      "confidence": "candidate",
+      "text": "┌─────────────────────────────────────────────────────────────────────────────┐\n│                       MySQL / MariaDB Architecture                          │\n├─────────────────────────────────────────────────────────────────────────────┤\n│  CONNECTION LAYER                                                            │\n│  Thread-per-connection model (or thread pool with ProxySQL / MariaDB TP)   │\n│  Authentication · SSL/TLS · Connection cache                                │\n├─────────────────────────────────────────────────────────────────────────────┤\n│  SQL LAYER                                                                  │\n│  ┌──────────────┐  ┌─────────────────────────┐  ┌─────────────────────┐     │\n│  │   Parser      │  │   Query Optimizer        │  │  Query Cache        │   │\n│  │  ─────────── │  │  ───────────────────────│  │  ─────────────────  │   │\n│  │  Lexer+parser│  │  Cost-based (index dives │  │  REMOVED in 8.0     │   │\n│  │  AST → plan  │  │  + InnoDB stats)         │  │  Was a severe        │   │\n│  │  Privilege   │  │  Execution plan cache     │  │  scalability        │   │\n│  │  check here  │  │  (prepared stmt cache)   │  │  bottleneck         │   │\n│  └──────────────┘  └─────────────────────────┘  └─────────────────────┘   │\n├─────────────────────────────────────────────────────────────────────────────┤\n│  STORAGE ENGINE API (pluggable interface)                                   │\n│  ── This is architecturally unlike SQL Server, which has one storage engine │\n│  ── The SQL layer calls engine API: ha_write_row(), ha_read_next(), etc.    │\n├─────────────────────────────────────────────────────────────────────────────┤\n│  InnoDB (USE THIS)                    │  Other engines (mostly avoid)       │\n│  ┌────────────────────────────────┐   │  MyISAM — no transactions, legacy   │\n│  │  Buffer Pool (default 128MB;   │   │  Memory — RAM-only, no persistence  │\n│  │  set innodb_buffer_pool_size   │   │  CSV — flat file, no indexes        │\n│  │  to 70-80% of RAM)             │   │  Archive — append-only, compressed  │\n│  ├────────────────────────────────┤   │  NDB — MySQL Cluster (shared-nothin │\n│  │  Change Buffer                 │   │        distributed; niche)          │\n│  │  Defers writes to secondary    │   │                                     │\n│  │  index pages not in buffer     │   │                                     │\n│  │  pool — merged on read         │   │                                     │\n│  ├────────────────────────────────┤   │                                     │\n│  │  Redo Log (iblogfile0/1)       │   │                                     │\n│  │  WAL — sequential write before │   │                                     │\n│  │  data pages; crash recovery    │   │                                     │\n│  │  Single circular log file      │   │                                     │\n│  │  (cf. SQL Server: multiple VLFs│   │                                     │\n│  │  in .ldf, grows/shrinks)       │   │                                     │\n│  ├────────────────────────────────┤   │                                     │\n│  │  Undo Log (in tablespace)      │   │                                     │\n│  │  Row versions for MVCC         │   │                                     │\n│  │  NOT in tempdb — in-file       │   │                                     │\n│  │  Purge thread reclaims space   │   │                                     │\n│  │  (cf. SQL Server: version store│   │                                     │\n│  │  in tempdb, cleared on restart)│   │                                     │\n│  ├────────────────────────────────┤   │                                     │\n│  │  Data Files (.ibd per table)   │   │                                     │\n│  │  Every table = clustered B+tree│   │                                     │\n│  │  NO HEAP option exists         │   │                                     │\n│  │  (cf. SQL Server: heap or CI)  │   │                                     │\n│  └────────────────────────────────┘   │                                     │\n└─────────────────────────────────────────────────────────────────────────────┘",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-2",
+      "kind": "diagram_like",
+      "line": 83,
+      "heading_context": "## Ecosystem Position",
+      "confidence": "candidate",
+      "text": "┌──────────────────────────────────────┐  ┌──────────────────────────────────┐\n│  SQL Server Table Storage Options    │  │  InnoDB Table Storage (always)   │\n│  ──────────────────────────────────  │  │  ──────────────────────────────  │\n│  Option A: Heap                      │  │  Every table IS a clustered      │\n│  No clustered index                  │  │  B+ tree on the primary key.     │\n│  NCI stores 8-byte RID               │  │  No heap option.                 │\n│  (file:page:slot pointer)            │  │                                  │\n│  Direct row fetch from RID           │  │  No PK defined?                  │\n│                                      │  │  → InnoDB generates hidden       │\n│  Option B: Clustered Index           │  │    6-byte rowid as PK.           │\n│  Table sorted by CI key              │  │                                  │\n│  NCI stores CI key value             │  │  Secondary index stores PK       │\n│  Lookup = NCI seek + CI seek         │  │  value, not a row pointer.       │\n│  (bookmark lookup)                   │  │  Secondary lookup always costs   │\n│                                      │  │  2 B-tree traversals unless      │\n│  Developer CHOOSES heap or CI.       │  │  index is covering.              │\n│  Escape hatch exists.                │  │  No escape hatch.                │\n└──────────────────────────────────────┘  └──────────────────────────────────┘",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-3",
+      "kind": "diagram_like",
+      "line": 122,
+      "heading_context": "## 2. InnoDB — The Only Engine You Should Use",
+      "confidence": "candidate",
+      "text": "MySQL Storage Engines\n├── InnoDB (USE THIS)  — ACID, row-level locking, FK constraints, MVCC\n├── MyISAM (AVOID)     — no transactions, table-level locks, no FK, legacy only\n├── MEMORY             — hash/btree in RAM, lost on restart (use Redis instead)\n├── CSV                — flat CSV files, no indexes (special use only)\n└── ARCHIVE            — compressed append-only (log archival)\n\nInnoDB is the default since MySQL 5.5 (2010).\nIf you see ENGINE=MyISAM in old code, treat it as technical debt.",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-4",
+      "kind": "diagram_like",
+      "line": 147,
+      "heading_context": "### InnoDB Key Behaviors",
+      "confidence": "candidate",
+      "text": "InnoDB B-Tree Layout vs SQL Server Index Structures\n─────────────────────────────────────────────────────────────────────────────\n\n  InnoDB — table with PK (id INT)\n  ┌─────────────────────────────────────────────────────────────────────┐\n  │  PK Clustered Index (the table itself)                              │\n  │  Leaf pages: id=1 | email | name | ...all columns...                │\n  │              id=2 | email | name | ...all columns...                │\n  │              id=3 | email | name | ...all columns...                │\n  └─────────────────────────────────────────────────────────────────────┘\n  ┌─────────────────────────────────────────────────────────────────────┐\n  │  Secondary Index on email                                           │\n  │  Leaf pages: 'a@b.com' → PK=1    ← PK value, NOT a row pointer      │\n  │              'c@d.com' → PK=3    ← must go back to PK tree          │\n  └─────────────────────────────────────────────────────────────────────┘\n  Query: SELECT name FROM users WHERE email = 'a@b.com'\n  Step 1: secondary index seek on 'a@b.com' → returns PK=1\n  Step 2: PK clustered index seek on id=1 → returns full row\n  (2 B-tree traversals unless index covers all needed columns)\n\n  SQL Server — heap table (no clustered index)\n  ┌─────────────────────────────────────────────────────────────────────┐\n  │  Heap (IAM pages → data pages, unordered)                           │\n  │  Row at RID=(file=1, page=73, slot=4): email | name | ...           │\n  │  Row at RID=(file=1, page=73, slot=5): email | name | ...           │\n  └─────────────────────────────────────────────────────────────────────┘\n  ┌─────────────────────────────────────────────────────────────────────┐\n  │  Nonclustered Index on email                                        │\n  │  Leaf pages: 'a@b.com' → RID=(1,73,4)  ← 8-byte physical pointer    │\n  │              'c@d.com' → RID=(1,73,5)  ← direct fetch               │\n  └─────────────────────────────────────────────────────────────────────┘\n  Query: SELECT name FROM users WHERE email = 'a@b.com'\n  Step 1: NCI seek on 'a@b.com' → RID=(1,73,4)\n  Step 2: direct heap fetch by RID (single page, O(1))\n\n  SQL Server — clustered index table (CI on id)\n  ┌─────────────────────────────────────────────────────────────────────┐\n  │  NCI on email: 'a@b.com' → CI key (id=1)  ← CI key, not RID         │\n  └─────────────────────────────────────────────────────────────────────┘\n  → same 2-lookup pattern as InnoDB secondary: NCI seek + CI seek\n\n  Bottom line: InnoDB always behaves like \"SQL Server with a CI on every table\n  and no heap option.\" Every NCI is a bookmark lookup unless covering.\n  Optimize for covering indexes aggressively in MySQL.",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-5",
+      "kind": "diagram_like",
+      "line": 355,
+      "heading_context": "## 7. JSON Support (MySQL 5.7.8+)",
+      "confidence": "candidate",
+      "text": "-- JSON column type: validates on insert, stored as binary optimized format\nCREATE TABLE events (\n    id   INT AUTO_INCREMENT PRIMARY KEY,\n    data JSON NOT NULL\n);\n\nINSERT INTO events (data) VALUES ('{\"user\":{\"id\":42,\"name\":\"Alice\"},\"action\":\"login\"}');\n\n-- ── Extraction ──────────────────────────────────────────────────────────────\ndata->'$.user.name'              -- JSON_EXTRACT() shorthand — returns JSON (quoted string)\ndata->>'$.user.name'             -- JSON_UNQUOTE(JSON_EXTRACT()) — returns unquoted string\nJSON_VALUE(data, '$.user.name')  -- SQL:2016 standard syntax (MySQL 8.0.21+), returns scalar\n\n-- Example\nSELECT data->>'$.user.name' AS name FROM events WHERE data->>'$.action' = 'login';\n\n-- ── Modification ────────────────────────────────────────────────────────────\nJSON_SET(data, '$.status', 'active')     -- set (insert if missing, replace if exists)\nJSON_INSERT(data, '$.new_key', 'value')  -- insert only (won't overwrite existing key)\nJSON_REPLACE(data, '$.key', 'value')     -- replace only (won't insert missing key)\nJSON_REMOVE(data, '$.key')               -- remove key\n\nUPDATE events SET data = JSON_SET(data, '$.status', 'processed') WHERE id = 1;\n\n-- ── Array operations ─────────────────────────────────────────────────────────\nJSON_ARRAY(1, 'two', true)                    -- build array\nJSON_ARRAYAGG(col ORDER BY col)               -- aggregate column to JSON array\nJSON_OBJECTAGG(key_col, val_col)              -- aggregate to JSON object\nJSON_CONTAINS(data, '\"active\"', '$.status')   -- returns 1/0\nJSON_OVERLAPS(json1, json2)                   -- any values in common (MySQL 8.0)\nJSON_SEARCH(data, 'one', 'Alice')             -- find path to value\n\n-- ── Generated columns: index into JSON ───────────────────────────────────────\nALTER TABLE events\n    ADD COLUMN user_id INT GENERATED ALWAYS AS (data->>'$.user.id') VIRTUAL;\nCREATE INDEX idx_events_user_id ON events (user_id);\n-- VIRTUAL: computed on read, no extra storage\n-- STORED:  computed on write, takes storage, can be indexed directly",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-6",
+      "kind": "diagram_like",
+      "line": 442,
+      "heading_context": "## 9. Fulltext Indexes",
+      "confidence": "candidate",
+      "text": "-- InnoDB supports FULLTEXT since MySQL 5.6\nCREATE TABLE articles (\n    id    INT AUTO_INCREMENT PRIMARY KEY,\n    title TEXT    NOT NULL,\n    body  LONGTEXT NOT NULL,\n    FULLTEXT INDEX ft_article (title, body)\n) ENGINE=InnoDB;\n\n-- Add FULLTEXT index to existing table\nALTER TABLE articles ADD FULLTEXT INDEX ft_article (title, body);\n\n-- ── Natural language mode (default) ──────────────────────────────────────────\n-- Returns results ranked by relevance; common words (stopwords) ignored\nSELECT id, title,\n       MATCH(title, body) AGAINST ('database performance tuning') AS relevance\nFROM articles\nWHERE MATCH(title, body) AGAINST ('database performance tuning')\nORDER BY relevance DESC;\n\n-- ── Boolean mode ──────────────────────────────────────────────────────────────\n-- +word: required  -word: excluded  \"phrase\": exact  word*: prefix  ~word: lower rank\nSELECT * FROM articles\nWHERE MATCH(title, body) AGAINST (\n    '+database -slow \"query optimization\" index*'\n    IN BOOLEAN MODE\n);\n\n-- ── Query expansion ───────────────────────────────────────────────────────────\n-- First pass: find top results. Second pass: expand using words from those results.\nSELECT * FROM articles\nWHERE MATCH(title, body) AGAINST ('database' WITH QUERY EXPANSION);",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-7",
+      "kind": "diagram_like",
+      "line": 533,
+      "heading_context": "### SQL Server HA/DR Topology → MySQL Equivalents",
+      "confidence": "candidate",
+      "text": "MySQL Replication Topologies\n─────────────────────────────────────────────────────────────────────────────\n\nAsync Replication (SQL Server log shipping equivalent):\n┌──────────────┐  binlog stream  ┌──────────────┐  ┌──────────────┐\n│   Primary    │ ──────────────► │  Replica 1   │  │  Replica 2   │\n│  (binlog ON) │                 │ (read-only)  │  │ (read-only)  │\n└──────────────┘                 └──────────────┘  └──────────────┘\n  - ROW format binlog: safest, default since 5.7\n  - STATEMENT format: compact, dangerous with non-deterministic functions (NOW(), UUID())\n  - Replica applies via SQL thread; lag is real and measurable\n  - GTID-based: replica self-positions, no MASTER_LOG_FILE/MASTER_LOG_POS bookkeeping\n\nGroup Replication / InnoDB Cluster (SQL Server Always On AG equivalent):\n┌──────────────┐   Paxos      ┌──────────────┐   ┌──────────────┐\n│  Member 1    │◄────────────►│  Member 2    │◄─►│  Member 3    │\n│  (primary or │  consensus   │  (secondary  │   │  (secondary  │\n│   multi-prim │              │   or primary │   │   or primary │\n└──────────────┘              └──────────────┘   └──────────────┘\n       │                             │\n       └──── MySQL Router ───────────┘\n             (connection routing, AG listener equivalent)\n\n  Single-primary mode: one writer, others read-only (like SQL Server AG)\n  Multi-primary mode:  all members accept writes; conflicts detected + rolled back\n                       (no SQL Server AG equivalent — SQL Server AG is always single-writer)\n  Quorum: majority (2 of 3, 3 of 5) — same majority quorum as SQL Server WSFC\n  Difference from AG: no shared storage; each node has a full copy; no Windows dependency\n\nBinlog Format Decision:\n  STATEMENT → compact log, replicates SQL text; unsafe with: NOW(), RAND(), UUID(),\n              non-deterministic stored procs — replicas may diverge silently\n  ROW       → replicates actual before/after row images; larger binlog but deterministic;\n              use this for any production system\n  MIXED     → engine chooses STATEMENT for safe queries, ROW for unsafe — good default\n              but harder to reason about",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    }
+  ]
+}
