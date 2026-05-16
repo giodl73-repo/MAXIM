@@ -1,3 +1,22 @@
+---
+maxim_schema: maxim.frontmatter.v1
+id: maxim:developmental-biology:overview
+kind: guide
+module: developmental-biology
+section: developmental-biology
+title: Developmental Biology - Landscape and Taxonomy
+status: source-custody
+source_custody: partial
+current_path: developmental-biology/00-OVERVIEW.md
+canonical_path: developmental-biology/00-OVERVIEW.md
+backsource_ids: [proof-backfill:developmental-biology:00-overview, git-history:developmental-biology:00-overview]
+concepts: [overview]
+root_concepts: [overview]
+index_roles: [guide, root-concept]
+remap_from: []
+remap_to: []
+updated: null
+---
 # Developmental Biology — Landscape and Taxonomy
 
 ## The Big Picture
@@ -11,21 +30,21 @@ Developmental biology is the science of how a single cell — a fertilized egg �
 |  STARTING POINT          PROCESS              ENDPOINT           |
 |  Fertilized egg (1 cell) → Patterning         → ~37 trillion     |
 |  ~50 μm diameter           Signaling           cells, ~200 types |
-|  Complete genome           Differentiation     organized into     |
-|  (2n, ~3 billion bp)       Morphogenesis       tissues and organs |
+|  Complete genome           Differentiation     organized into    |
+|  (2n, ~3B bp)             Morphogenesis       tissues and organs |
 |                                                                  |
 |  DEVELOPMENTAL PROGRAMS (vertebrate embryo)                      |
 |                                                                  |
 |  FERTILIZATION → CLEAVAGE → BLASTULATION → GASTRULATION          |
 |  Day 0            0-3 days   3-5 days         5-14 days          |
 |       ↓                                           ↓              |
-|  NEURULATION   ← ORGANOGENESIS ← THREE GERM LAYERS FORM         |
+|  NEURULATION   ← ORGANOGENESIS ← THREE GERM LAYERS FORM          |
 |  Week 3-4         Week 4-8        Ectoderm/Mesoderm/Endoderm     |
 |                                                                  |
 |  CONTROLLING MECHANISMS                                          |
-|  Signaling pathways (Wnt, Notch, Hedgehog, BMP, FGF, Retinoic acid)|
+|  Signaling pathways (Wnt, Notch, Hh, BMP, FGF, Retinoic acid)    |
 |  Transcription factor networks (HOX genes, master regulators)    |
-|  Cell-cell communication, morphogen gradients, mechanical forces  |
+|  Cell-cell communication, morphogen gradients, mechanical forces |
 +──────────────────────────────────────────────────────────────────+
 ```
 

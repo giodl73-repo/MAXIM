@@ -1,3 +1,22 @@
+---
+maxim_schema: maxim.frontmatter.v1
+id: maxim:political-history:world-wars
+kind: guide
+module: political-history
+section: political-history
+title: The World Wars as Historical Rupture
+status: source-custody
+source_custody: partial
+current_path: political-history/03-WORLD-WARS.md
+canonical_path: political-history/03-WORLD-WARS.md
+backsource_ids: [proof-backfill:political-history:03-world-wars, git-history:political-history:03-world-wars]
+concepts: [world, wars]
+root_concepts: [world, wars]
+index_roles: [guide, root-concept]
+remap_from: []
+remap_to: []
+updated: null
+---
 # The World Wars as Historical Rupture
 
 ## The Big Picture

@@ -1,3 +1,22 @@
+---
+maxim_schema: maxim.frontmatter.v1
+id: maxim:developmental-biology:fertilization-cleavage
+kind: guide
+module: developmental-biology
+section: developmental-biology
+title: Fertilization, Cleavage, and Blastulation
+status: source-custody
+source_custody: partial
+current_path: developmental-biology/01-FERTILIZATION-CLEAVAGE.md
+canonical_path: developmental-biology/01-FERTILIZATION-CLEAVAGE.md
+backsource_ids: [proof-backfill:developmental-biology:01-fertilization-cleavage, git-history:developmental-biology:01-fertilization-cleavage]
+concepts: [fertilization, cleavage]
+root_concepts: [fertilization, cleavage]
+index_roles: [guide, root-concept]
+remap_from: []
+remap_to: []
+updated: null
+---
 # Fertilization, Cleavage, and Blastulation
 
 ## The Big Picture

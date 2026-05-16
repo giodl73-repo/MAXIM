@@ -1,3 +1,22 @@
+---
+maxim_schema: maxim.frontmatter.v1
+id: maxim:political-history:decolonization
+kind: guide
+module: political-history
+section: political-history
+title: Decolonization: 1947 to 1975
+status: source-custody
+source_custody: partial
+current_path: political-history/04-DECOLONIZATION.md
+canonical_path: political-history/04-DECOLONIZATION.md
+backsource_ids: [proof-backfill:political-history:04-decolonization, git-history:political-history:04-decolonization]
+concepts: [decolonization]
+root_concepts: [decolonization]
+index_roles: [guide, root-concept]
+remap_from: []
+remap_to: []
+updated: null
+---
 # Decolonization: 1947 to 1975
 
 ## The Big Picture

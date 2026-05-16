@@ -1,3 +1,22 @@
+---
+maxim_schema: maxim.frontmatter.v1
+id: maxim:political-history:authoritarian-resurgence
+kind: guide
+module: political-history
+section: political-history
+title: Authoritarian Resurgence in the 21st Century
+status: source-custody
+source_custody: partial
+current_path: political-history/08-AUTHORITARIAN-RESURGENCE.md
+canonical_path: political-history/08-AUTHORITARIAN-RESURGENCE.md
+backsource_ids: [proof-backfill:political-history:08-authoritarian-resurgence, git-history:political-history:08-authoritarian-resurgence]
+concepts: [authoritarian, resurgence]
+root_concepts: [authoritarian, resurgence]
+index_roles: [guide, root-concept]
+remap_from: []
+remap_to: []
+updated: null
+---
 # Authoritarian Resurgence in the 21st Century
 
 ## The Big Picture

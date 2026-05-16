@@ -1,0 +1,105 @@
+{
+  "schema_version": "1",
+  "source_markdown": "developmental-biology\\08-IPSCS.md",
+  "blocks": [
+    {
+      "id": "block-1",
+      "kind": "ascii_table_candidate",
+      "line": 26,
+      "heading_context": "## The Big Picture",
+      "confidence": "candidate",
+      "text": "+──────────────────────────────────────────────────────────────────+\n|              iPSC REPROGRAMMING OVERVIEW                         |\n|                                                                  |\n|  NORMAL DEVELOPMENT (one way)                                    |\n|  Zygote → ESC → Progenitors → Differentiated cells               |\n|                                                                  |\n|  YAMANAKA (reversed the arrow, 2006)                             |\n|  Fibroblast + Oct4 + Sox2 + Klf4 + cMyc → iPSC                   |\n|  Any somatic cell → pluripotent stem cell                        |\n|                                                                  |\n|  iPSC PROPERTIES                                                 |\n|  • Pluripotent (can make all cell types)                         |\n|  • Self-renewing                                                 |\n|  • Patient-specific (avoid immune rejection)                     |\n|  • Ethical alternative to ESCs (no embryo destruction)           |\n|                                                                  |\n|  iPSC → Neurons, cardiomyocytes, hepatocytes, beta cells, etc.   |\n|         Disease modeling, drug screening, cell therapy           |\n+──────────────────────────────────────────────────────────────────+",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-2",
+      "kind": "diagram_like",
+      "line": 54,
+      "heading_context": "## Engineering Bridge: Reprogramming as State Machine Reset",
+      "confidence": "candidate",
+      "text": "  IPSCS                         CS / ENGINEERING PARALLEL\n  ──────────────────────────────────────────────────────────────────────\n  Yamanaka reprogramming        Factory reset to firmware:\n  (OSKM → fibroblast becomes    The differentiation state (fibroblast\n  pluripotent)                  identity) is erased; the cell converges\n                                to the pluripotent ground state. The four\n                                factors are not random — each targets a\n                                specific epigenetic barrier:\n                                Oct4 + Sox2: activate pluripotency network\n                                Klf4: repress lineage commitment genes\n                                c-Myc: open chromatin (enable access)\n\n  Stochastic, low-efficiency    Probabilistic state machine convergence:\n  reprogramming (~0.01-0.1%)    Most cells receiving OSKM never reprogram.\n                                The system has many local minima (partially\n                                reprogrammed states — \"pre-iPSC states\").\n                                Only rare trajectories reach the global\n                                minimum (true pluripotency). Barrier\n                                heights determine probability: epigenetic\n                                barriers → rare events.\n\n  Epigenetic barriers to        State machine transition with high energy\n  reprogramming                 barriers: DNA methylation at pluripotency\n                                loci (OCT4 promoter: highly methylated in\n                                fibroblasts) → must be removed by TET\n                                or passive dilution. Histone marks\n                                (H3K9me3 via SETDB1) → block TF binding.\n                                c-Myc partly lowers these barriers by\n                                opening chromatin globally.\n\n  Direct reprogramming          Transpilation without intermediate\n  (fibroblast → neuron          representation:\n  via ASCL1/BRN2/MYT1L)        Skip the pluripotent state entirely —\n                                convert one differentiated cell type to\n                                another by expressing the destination's\n                                master TFs. Avoids the iPSC intermediate\n                                (less risk of oncogenesis from c-Myc;\n                                faster; less epigenetic drift). Equivalent\n                                to compiling source_A → output_B without\n                                going through IR first.\n\n  iPSC disease modeling         Digital twin at cellular level:\n  (patient-specific)            Take patient's somatic cells → reprogram\n                                → derive the cell type of interest\n                                → the disease phenotype appears in the dish.\n                                Drug screen on the patient's own cells →\n                                personalized pharmacology.\n\n  Universal donor iPSC          Shared infrastructure / platform:\n  (HLA-edited, immune-           HLA-null or HLA-minimized iPSC line:\n  evasive)                       can be used for any patient without immune\n                                rejection. The \"base image\" that can be\n                                differentiated into any therapeutic cell type\n                                and distributed across patients. Multi-tenant\n                                cell therapy platform.\n  ──────────────────────────────────────────────────────────────────────",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-3",
+      "kind": "ascii_table_candidate",
+      "line": 117,
+      "heading_context": "## The Yamanaka Factors",
+      "confidence": "candidate",
+      "text": "THE FOUR FACTORS (OSKM)\n────────────────────────\n  Oct4 (POU5F1): Core pluripotency TF. Activates Sox2, Nanog.\n                 Cannot be replaced by other Oct family members.\n                 Critical in all reprogramming protocols.\n\n  Sox2:          HMG-box TF. Partners with Oct4 on many enhancers.\n                 In neural reprogramming: Sox2 can be replaced by Sox1, Sox3.\n\n  Klf4:          Zinc-finger TF. Activates pluripotency genes, represses p21.\n                 Can be replaced by Klf2 or Klf5.\n\n  c-Myc:         Proto-oncogene TF; not a pluripotency factor per se.\n                 Increases global histone acetylation → opens chromatin.\n                 Enhances efficiency ~10-fold.\n                 Can be OMITTED (Thomson factors use Nanog + Lin28 instead).\n                 c-Myc deletion → lower efficiency but safer (less oncogenic risk).\n\nALTERNATIVE FACTOR SETS\n  Thomson (2007): Oct4 + Sox2 + Nanog + Lin28 → iPSC from human cells.\n  3-Factor (without cMyc): Oct4 + Sox2 + Klf4 → iPSC (very low efficiency).\n  Direct conversion: Skip iPSC; convert fibroblast → neuron using Ascl1 + Brn2 + Myt1l.\n\nEFFICIENCY\n  Original protocol: ~0.01-0.001% efficiency (1 in 10,000-100,000 cells).\n  Modern optimized: 1-5% efficiency.\n  The bottleneck: incomplete epigenetic reprogramming; stochastic.",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-4",
+      "kind": "diagram_like",
+      "line": 151,
+      "heading_context": "## Reprogramming Mechanism",
+      "confidence": "candidate",
+      "text": "REPROGRAMMING STAGES\n─────────────────────\n  Yamanaka factors are introduced → days to weeks until iPSC colonies emerge.\n  Three phases:\n\n  PHASE 1: INITIATION (Days 0-5)\n    Factors bind chromatin.\n    c-Myc/Klf4 open closed chromatin globally.\n    Mesenchymal-to-epithelial transition (MET) begins (opposite of EMT).\n    Fibroblast genes begin to shut down (vimentin, N-cadherin).\n    Cell cycle accelerates.\n\n  PHASE 2: MATURATION (Days 5-14)\n    Partial silencing of somatic genes.\n    Sequential binding to pluripotency loci.\n    SSEA-1/SSEA-4 surface markers appear.\n    Alkaline phosphatase activity.\n    Many cells stall here (partial reprogramming, failed iPSCs).\n\n  PHASE 3: STABILIZATION (Days 14+)\n    Endogenous Oct4/Nanog/Sox2 activate (autoregulatory loop established).\n    Transgenes no longer needed (silenced by de novo methylation).\n    X-reactivation (in female cells): previously silenced X reactivates.\n    Complete epigenetic reset.\n    Colony morphology = ESC-like.\n\nEPIGENETIC REPROGRAMMING\n  Somatic chromatin state:\n    High DNA methylation at pluripotency loci (Oct4, Nanog promoters)\n    Heterochromatin at pluripotency genes\n    Low histone acetylation globally\n\n  iPSC state:\n    DNA demethylation at pluripotency loci (TET enzymes)\n    Bivalent chromatin (H3K4me3 + H3K27me3) at developmental genes\n    Telomere elongation (telomerase reactivated)\n\nBOTTLENECK: INCOMPLETE REPROGRAMMING\n  Most cells: Early changes but fail to reach pluripotency.\n  Barriers:\n    p53/p21 activation: DNA damage response; must overcome to proliferate.\n    Mesenchymal-to-epithelial transition: Slow; requires Klf4.\n    Ink4a/Arf: Senescence pathway; reprogramming-incompatible cells.\n    Incomplete DNA demethylation: Some pluripotency genes stay silenced.",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-5",
+      "kind": "diagram_like",
+      "line": 202,
+      "heading_context": "## Reprogramming Methods",
+      "confidence": "candidate",
+      "text": "DELIVERY METHODS (increasing safety over time)\n─────────────────────────────────────────────────\n  METHOD              INTEGRATION   EFFICIENCY    STATUS\n  ─────────────────   ───────────   ──────────    ────────────────────────\n  Retroviral          Yes           Moderate      Original; oncogenic risk\n  (Yamanaka 2006)\n  Lentiviral          Yes           Higher        Improved; still integrating\n  Doxycycline-        Yes           High          Inducible; controlled\n  inducible lentiviral\n  Adenoviral          No            Low           Transient; non-integrating\n  Plasmid             No            Very low      No integration; inefficient\n  Episomal (Oriβ)     No (lost)     Moderate      Used clinically; Addgene plasmids\n  mRNA                No            High          Transient; expensive; multiple doses\n  Sendai virus        No            High          RNA virus; no DNA integration\n  (SeV)                                           Current clinical-grade gold standard\n  Protein/Small mol   No            Very low      Proof-of-concept; all-small-mol iPSC possible\n\nSMALL MOLECULE REPROGRAMMING\n  Chemical iPSCs (CiPSCs): 7 small molecules + culture conditions.\n  First achieved in mice (Hou et al. 2013); human CiPSCs achieved 2022.\n  Advantage: completely xeno-free; no genetic material.\n  Current limitation: efficiency and reliability.\n\nCURRENT CLINICAL-GRADE PROTOCOL\n  1. Sendai virus or episomal vector delivery of OSKM (or OSK or OSNL)\n  2. Reprogramming in defined, xeno-free conditions (no mouse feeder cells)\n  3. Selection of bona fide iPSC colonies (morphology + marker staining)\n  4. Expansion + quality control\n  5. Differentiation to target cell type",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-6",
+      "kind": "diagram_like",
+      "line": 238,
+      "heading_context": "## Quality Control and Characterization",
+      "confidence": "candidate",
+      "text": "VALIDATION OF iPSCs\n────────────────────\n  Must confirm:\n  (1) Pluripotency markers: Oct4, Sox2, Nanog (immunostaining/qPCR)\n  (2) Exogenous factor silencing (no persistent transgene expression)\n  (3) Karyotype (chromosomal integrity)\n  (4) Pluripotency assay:\n      Teratoma formation: inject into nude mouse → tumor with all 3 germ layers\n      Embryoid body: in vitro differentiation → 3 germ layers\n      Chimera contribution (mouse): contributes to embryo (gold standard; not for human)\n  (5) DNA fingerprinting: same as donor cell (not contaminated)\n  (6) Epigenetic markers: H3K4me3, H3K27me3 at pluripotency/developmental loci\n  (7) RNA-seq or ATAC-seq: Compare to ESC reference\n\nCOMMON PROBLEMS\n  Partial reprogramming: Partial factor silencing; some somatic markers retained.\n  Chromosomal instability: Aneuploidy during reprogramming (especially c-Myc).\n  Residual epigenetic memory: Biased differentiation toward donor cell type.\n  Genetic mutations: Acquired during reprogramming (driver mutations may be selected).\n    → Whole-genome sequencing recommended for clinical-grade lines.",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-7",
+      "kind": "diagram_like",
+      "line": 265,
+      "heading_context": "## Disease Modeling with iPSCs",
+      "confidence": "candidate",
+      "text": "iPSC DISEASE MODELING PLATFORM\n────────────────────────────────\n  Patient with genetic disease → skin biopsy → fibroblasts → iPSCs\n  → Differentiate to disease-relevant cell type → study disease mechanism\n\n  ADVANTAGES\n  • Patient-specific: carries all disease-causing mutations\n  • Cell types otherwise inaccessible (neurons, cardiomyocytes)\n  • Can compare patient vs isogenic control (CRISPR correction)\n  • High-throughput screening possible\n\n  DISEASES MODELED (selected examples)\n  ─────────────────────────────────────\n  NEUROLOGICAL\n    ALS (amyotrophic lateral sclerosis): SOD1, TDP-43, FUS iPSC neurons\n      → Protein aggregation, neuronal death in vitro\n    Parkinson's: LRRK2, PINK1, α-synuclein neurons → mitochondrial dysfunction\n    Alzheimer's: APP duplication, PSEN1/2 neurons → ↑Aβ42 production\n    Schizophrenia: DISC1 iPSC neurons → synaptic defects\n\n  CARDIAC\n    Long QT syndrome: KCNQ1, KCNH2 iPSC-CMs → action potential prolongation\n      → Drug screening for QT-shortening compounds\n    Hypertrophic cardiomyopathy: MYH7, MYBPC3 → enlarged, disorganized sarcomeres\n    Arrhythmias: Brugada, ARVC modeled\n\n  METABOLIC\n    MODY (maturity-onset diabetes): iPSC → beta cells → insulin deficiency\n    Fatty liver: iPSC hepatocytes + NASH patient mutations\n\n  MONOGENIC DISEASE\n    Cystic fibrosis: iPSC → airway organoids → CFTR function assay → drug screen\n    IPEX syndrome: FOXP3 mutation → Treg deficiency modeled\n    Sickle cell disease: iPSC → erythrocytes → sickling in hypoxia\n\nISOGENIC CONTROLS (CRISPR + iPSC)\n  Best experimental design: Same genetic background, only mutation differs.\n  Correct mutation in patient iPSC with CRISPR → isogenic control.\n  OR introduce mutation into healthy iPSC → isogenic disease model.\n  Eliminates clonal variation and genetic background effects.",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-8",
+      "kind": "diagram_like",
+      "line": 312,
+      "heading_context": "## Cell Therapy Applications",
+      "confidence": "candidate",
+      "text": "iPSC → CELL THERAPY PIPELINE\n──────────────────────────────\n\n  AUTOLOGOUS (patient's own cells)\n    + No immune rejection\n    - Expensive (~$500K+ per patient); time-consuming; patient must wait\n    - Patient's cells may carry mutations (aging, cancer)\n    Example: Parkinson's trial (Kyoto Univ, 2018): autologous iPSC-derived\n    dopaminergic neurons transplanted into 1 patient; ongoing safety monitoring.\n\n  ALLOGENEIC (universal donor or HLA-matched)\n    + Economical (mass-produce from one line)\n    + Ready off-the-shelf\n    - Immune rejection risk → requires immunosuppression OR immune evasion\n    IMMUNE EVASION STRATEGIES:\n      HLA-null iPSC: CRISPR knockout of HLA class I and II → immune-invisible\n      \"Universal donor\" cells (B2M-/-, CIITA-/- + CD47, PD-L1 expression)\n      HLA homozygous iPSC banks: Match major HLA types (100 homozygous lines → cover 90%+ population)\n\nCLINICAL PROGRAMS (selected, 2024)\n  Age-related macular degeneration (AMD):\n    iPSC → retinal pigment epithelium (RPE) → implanted as patch under retina.\n    Multiple trials (Masayo Takahashi/RIKEN, Lineage Cell Therapeutics, Astellas):\n    safety established in Phase I; limited visual recovery so far.\n  Type 1 Diabetes:\n    iPSC/hESC → beta cells → Vertex VX-880 (naked infusion): immunosuppression\n    required; Phase I/II completed 2024 with insulin independence achieved in\n    first responders. Vertex VX-264 (encapsulated device; no immunosuppression):\n    Phase I/II ongoing 2025. CRISPR-edited stem cell-derived islets (Phase I).\n  Heart Failure:\n    iPSC-CMs → purified cardiomyocytes → injection into infarcted heart.\n    Non-human primate models: improved function but graft arrhythmia a concern.\n    Human Phase I trials (multiple institutions) ongoing as of 2025.\n  CAR-iPSC:\n    iPSC → iPSC-NK or iPSC-T cells → allogeneic CAR cell therapy\n    Fate Therapeutics: FT596, FT819 (iPSC-NK → CAR-NK); B-cell malignancy trials.\n    Allogene, Editas, and others: iPSC-derived CAR-T programs in Phase I.",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-9",
+      "kind": "ascii_table_candidate",
+      "line": 356,
+      "heading_context": "## Direct Reprogramming (Transdifferentiation)",
+      "confidence": "candidate",
+      "text": "BYPASSING iPSC: DIRECT CELL CONVERSION\n────────────────────────────────────────\n  Instead of going through iPSC state, convert directly:\n  Fibroblast → Neuron (without ever becoming pluripotent)\n  Faster, safer (no pluripotency = no teratoma risk).\n\n  KEY EXAMPLES\n  ─────────────\n  NEURON (iN): Ascl1 + Brn2 + Myt1l → functional neurons in 10-15 days\n    (Vierbuchen et al. 2010)\n    Induced neurons (iN) not fully identical to normal neurons.\n    Age-retained: iN retain donor's epigenetic age (unlike iPSC-neurons which reset age).\n    USEFUL for aging studies.\n\n  DOPAMINERGIC NEURON: + FOXA2 + LMX1A → dopaminergic iN; Parkinson's modeling.\n\n  CARDIOMYOCYTE: GATA4 + MEF2C + TBX5 → beating cardiomyocytes.\n    In vivo direct reprogramming: inject retrovirus into heart → convert fibroblasts\n    directly in damaged heart → improve heart function in mouse infarct model.\n\n  HEPATOCYTE: FOXA3 + GATA4 + HNF4A → induced hepatocytes.\n\n  BETA CELLS: Pdx1 + Ngn3 + MafA → exocrine pancreas → beta cells IN VIVO (mouse).\n    The \"pancreatic reprogramming\" strategy.\n\nADVANTAGES vs iPSC-BASED DIFFERENTIATION\n  No pluripotency intermediate: No teratoma risk.\n  Faster: Days to weeks vs months.\n  In vivo feasibility: Can be done in situ (cardiac, neural, pancreatic).\n  Age retention: Preserves age-related epigenetic state (good for aging research).\nDISADVANTAGES\n  Less mature: Induced cells often not as functional as their normal counterparts.\n  No expandable intermediary: Cannot amplify a progenitor state for large-scale production.\n  Incomplete conversion: Partial phenotype possible.",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    }
+  ]
+}

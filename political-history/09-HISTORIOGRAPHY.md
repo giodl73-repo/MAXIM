@@ -1,3 +1,22 @@
+---
+maxim_schema: maxim.frontmatter.v1
+id: maxim:political-history:historiography
+kind: guide
+module: political-history
+section: political-history
+title: Historiography: How Political History Is Written
+status: source-custody
+source_custody: partial
+current_path: political-history/09-HISTORIOGRAPHY.md
+canonical_path: political-history/09-HISTORIOGRAPHY.md
+backsource_ids: [proof-backfill:political-history:09-historiography, git-history:political-history:09-historiography]
+concepts: [historiography]
+root_concepts: [historiography]
+index_roles: [guide, root-concept]
+remap_from: []
+remap_to: []
+updated: null
+---
 # Historiography: How Political History Is Written
 
 ## The Big Picture

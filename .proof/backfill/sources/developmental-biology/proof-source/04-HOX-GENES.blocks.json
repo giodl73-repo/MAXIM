@@ -1,0 +1,105 @@
+{
+  "schema_version": "1",
+  "source_markdown": "developmental-biology\\04-HOX-GENES.md",
+  "blocks": [
+    {
+      "id": "block-1",
+      "kind": "ascii_table_candidate",
+      "line": 26,
+      "heading_context": "## The Big Picture",
+      "confidence": "candidate",
+      "text": "+──────────────────────────────────────────────────────────────────+\n|              HOX GENE LANDSCAPE                                  |\n|                                                                  |\n|  CHROMOSOMAL ARRANGEMENT                                         |\n|  (3' end → 5' end on chromosome)                                 |\n|  3' ─────────────────────────────────────────────── 5'           |\n|     Hox1 Hox2 Hox3 Hox4 Hox5 Hox6 Hox7 Hox8 Hox9 Hox10-13        |\n|     ──────────────────────────────────────────────────────────   |\n|     ANTERIOR                                         POSTERIOR   |\n|     (expressed                                       (expressed  |\n|     in head/neck)                                    in lumbar/  |\n|                                                      tail)       |\n|                                                                  |\n|  COLINEARITY: Position on chromosome = position of expression    |\n|  3'-most gene → most anterior expression                         |\n|  5'-most gene → most posterior expression                        |\n|                                                                  |\n|  HUMANS: 4 clusters (HOXA, B, C, D) on chromosomes 7, 17, 12, 2  |\n|  39 genes total (some lost in vertebrate evolution)              |\n+──────────────────────────────────────────────────────────────────+",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-2",
+      "kind": "diagram_like",
+      "line": 55,
+      "heading_context": "## Engineering Bridge: HOX as Positional Address Space",
+      "confidence": "candidate",
+      "text": "  HOX GENES                     CS / HARDWARE PARALLEL\n  ──────────────────────────────────────────────────────────────────────\n  Colinearity                   Memory-mapped I/O / address space layout:\n  (3' → 5' = anterior → posterior)  The physical order of genes on the\n                                chromosome IS the spatial coordinate system\n                                of the body. 3'-most gene → most anterior\n                                expression; 5'-most → most posterior.\n                                This is not metaphorical — the\n                                cis-regulatory logic that produces\n                                colinearity is chromatin-structural, linked\n                                to how the locus opens sequentially.\n\n  HOX code (combinatorial TF    Positional address bus:\n  expression)                   Each segment is defined by the combination\n                                of HOX genes expressed there — a binary\n                                address. 4 clusters × ~13 paralogs → 52\n                                possible \"addresses\" (most partially\n                                overlapping). Change one bit → homeotic\n                                transformation (wrong segment identity).\n\n  Posterior prevalence          Priority encoding / override logic:\n  (5' HOX genes override 3')    More posterior HOX genes are \"dominant\"\n                                — a posterior Hox expressed ectopically\n                                converts anterior segments to posterior\n                                identity. This is interrupt priority:\n                                higher-address (posterior) HOX genes take\n                                precedence over lower-address ones.\n                                Gain-of-function of posterior Hox in\n                                anterior → phenotype = anterior deleted\n                                (Antennapedia: head segment replaced by\n                                leg-segment identity).\n\n  HOX gene conservation         Interface contract preserved across\n  (fly → mouse → human,         evolutionary distance: same gene family,\n  same role)                    same chromosomal architecture, same\n                                colinearity principle. The \"API\" has been\n                                maintained for ~600 million years. Minor\n                                changes in cis-regulatory deployment\n                                (not the TF protein itself) are how\n                                body plan diversity evolved — the library\n                                was preserved; the call sites changed.\n\n  Retinoic acid gradient →      Continuous parameter → discrete address:\n  HOX expression thresholds     RA concentration encodes posterior position.\n                                Different HOX genes have different RA\n                                response element thresholds → they turn on\n                                at different positions. The gradient is\n                                A/D converted into discrete HOX domain\n                                boundaries — a threshold decoder.\n  ──────────────────────────────────────────────────────────────────────",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-3",
+      "kind": "diagram_like",
+      "line": 112,
+      "heading_context": "## The Discovery: Homeotic Transformations",
+      "confidence": "candidate",
+      "text": "LEWIS EXPERIMENT (Drosophila, 1978) — Nobel Prize 1995\n────────────────────────────────────────────────────────\n  Homeotic mutation: One body part transformed into the identity\n  of another body part.\n\n  ANTENNAPEDIA MUTATION\n  Antennae → legs growing out of the head.\n  Gain-of-function: Antennapedia Hox gene expressed in the head (wrong region).\n  This Hox gene specifies \"leg\" identity; when it's where antennapedia should be,\n  the cell uses \"leg\" instructions in an antenna position.\n\n  BITHORAX MUTATION\n  Normal fly: 1 pair of wings (T2 segment) + halteres (balancing organs, T3).\n  Bithorax mutant: 2 pairs of wings (T3 transformed into T2 identity).\n  Loss-of-function of Bithorax complex Hox genes in T3 → T3 adopts T2 identity.\n\n  LESSON: Hox genes encode \"address codes\" — they tell cells WHERE THEY ARE\n  in the body, not just what to build.\n\nTHE HOMEODOMAIN\n  All Hox proteins contain a HOMEODOMAIN: 60-amino-acid helix-turn-helix DNA-binding domain.\n  Encoded by HOMEOBOX DNA sequence (~180 bp).\n  Homeodomain binds specific DNA motifs (TAAT core) → regulates downstream genes.\n  First homeobox in Antennapedia → found same sequence in mouse → \"evo-devo\" was born.",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-4",
+      "kind": "diagram_like",
+      "line": 143,
+      "heading_context": "## HOX Colinearity",
+      "confidence": "candidate",
+      "text": "SPATIAL COLINEARITY\n─────────────────────\n  Gene order on chromosome matches spatial domain of expression along body axis.\n  3'-most gene → expressed in most anterior region.\n  5'-most gene → expressed in most posterior region.\n\n  Why? Not fully understood.\n  Evidence: Long-range enhancers in the gene cluster control temporal + spatial expression.\n  The 3D topology of the cluster (Topologically Associated Domain, TAD) changes\n  as genes are progressively activated along the axis.\n  \"Opening\" of the locus from 3' to 5' as the embryo elongates.\n\nTEMPORAL COLINEARITY\n  3'-most gene → activated first during development.\n  5'-most gene → activated last.\n  This correlates with spatial colinearity because trunk elaboration occurs\n  anterior-to-posterior.\n\nPOSTERIOR PREVALENCE (DOMINANCE)\n  When two Hox genes are co-expressed, the more posterior one\n  (5' on chromosome, higher Hox number) tends to dominate.\n  Hox10 represses rib formation → why thoracic (Hox4-9) has ribs but\n  lumbar (Hox10+) does not.\n  Mechanism: posterior Hox proteins outcompete anterior ones for\n  binding Pbx cofactors (nuclear competition).",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-5",
+      "kind": "ascii_table_candidate",
+      "line": 175,
+      "heading_context": "## HOX Clusters in Vertebrates",
+      "confidence": "candidate",
+      "text": "VERTEBRATE HOX GENE CLUSTERS\n───────────────────────────────\n\n  Drosophila (1 cluster, HOM-C):\n  ──────────────────────────────\n  |lab|pb|Dfd|Scr|Antp|Ubx|Abd-A|Abd-B|\n   ←────────────────────────────────────\n   head         thorax/abdomen         tail\n\n  Vertebrates (4 clusters via WGD):\n  ───────────────────────────────────\n  HOXA: chromosome 7  (HOXA1-A13)\n  HOXB: chromosome 17 (HOXB1-B13)\n  HOXC: chromosome 12 (HOXC4-C13)\n  HOXD: chromosome 2  (HOXD1-D13)\n\n  39 genes total (some paralogs lost).\n  Paralog groups: HOXA1 + HOXB1 + HOXD1 = Paralog Group 1, etc.\n  Paralog redundancy: single Hox knockouts often mild; triple knockouts severe.\n\nVERTEBRAL IDENTITY\n  PARALOG GROUP    VERTEBRAL REGION        IDENTITY SPECIFIED\n  ──────────────── ────────────────────    ──────────────────────────────\n  1-4              Hindbrain + cervical    C1-C7 (Atlas, Axis, cervicals)\n  4-5              Cervical                C3-C7\n  6-8              Thoracic                T1-T12 (ribs present)\n  9-10             Thoracic/Lumbar         T-L boundary; ribs → no ribs\n  10-11            Lumbar                  L1-L5\n  11-13            Sacral/Caudal           S1-S5, coccyx\n\n  CRITICAL BOUNDARY: Hox9/Hox10 boundary = rib/no-rib boundary\n  Hox9: rib-forming identity\n  Hox10: represses rib formation (Hox10 knockout → rib-like processes on lumbar)\n  This is why humans have ribs on T1-T12 but not L1-L5.",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-6",
+      "kind": "diagram_like",
+      "line": 216,
+      "heading_context": "## HOX Morphogen Gradients",
+      "confidence": "candidate",
+      "text": "RETINOIC ACID (RA) GRADIENT CONTROLS HOX EXPRESSION\n──────────────────────────────────────────────────────\n  Retinoic acid (vitamin A derivative):\n    Synthesized posteriorly by RALDH2\n    Degraded anteriorly by CYP26\n    Result: HIGH RA posteriorly, LOW RA anteriorly\n\n  RA RESPONSE ELEMENTS (RARE) in Hox genes:\n    3'-Hox genes (anterior-expressed): high RARE sensitivity → activated at low RA\n    5'-Hox genes (posterior-expressed): low RARE sensitivity → activated at high RA\n    This implements the colinear gradient interpretation.\n\n  RA gradient in presomitic mesoderm:\n    High RA → activate anterior Hox genes (low threshold)\n    As cells move posteriorly into higher RA → successive Hox genes activated\n    Creates the progressive Hox code along the AP axis.\n\nFGF8 COUNTER-GRADIENT\n  FGF8: secreted from tail bud → HIGH posteriorly, LOW anteriorly.\n  FGF8 and RA are antagonistic:\n    RA promotes anterior structures, somite maturation.\n    FGF8 maintains posterior/tail identity, progenitor state.\n  The RA/FGF8 balance controls where the \"wavefront\" of somitogenesis occurs.\n\nWNT GRADIENT\n  Wnt3a: posterior expression → tail identity.\n  Wnt/RA/FGF8: three-way interaction controls AP axis elongation.",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-7",
+      "kind": "diagram_like",
+      "line": 250,
+      "heading_context": "## HOX in Limb Development",
+      "confidence": "candidate",
+      "text": "HOX GENES IN LIMB PATTERNING\n──────────────────────────────\n  HOXA and HOXD clusters control limb development in overlapping domains.\n  Three temporal phases of HOXD/HOXA expression (Duboulé dual-phase model):\n\n  PHASE 1 (early limb bud): Proximal arm/thigh\n    HOXD9-D11 expressed\n  PHASE 2 (mid-bud): Radius/ulna, tibia/fibula\n    HOXD11-D12, HOXA11\n  PHASE 3 (late bud/digit plate): Digits\n    HOXD12-D13, HOXA13\n    ZPA (Zone of Polarizing Activity) Shh gradient → modulates HOXD expression\n\n  HOXD13 MUTATIONS IN HUMANS\n    Synpolydactyly: HOXD13 polyalanine expansion → extra partial digit between 3rd and 4th\n    Brachydactyly E: HOXD13 heterozygous LOF → short metacarpals\n    HOXA13: Hand-foot-genital syndrome → small feet, uterine defects\n\n  DIGIT IDENTITY\n  Digit number: 1 (thumb) → 5 (little finger)\n  Posterior digits (4,5): high HOXD13, high HOXD12 expression (from Shh/ZPA)\n  Anterior digits (1,2): lower HOXD expression\n  The gradient of Shh from ZPA → ↑HOXD expression posteriorly → posterior digit identity",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-8",
+      "kind": "diagram_like",
+      "line": 280,
+      "heading_context": "## HOX in Hindbrain Segmentation (Rhombomeres)",
+      "confidence": "candidate",
+      "text": "HINDBRAIN RHOMBOMERES AND HOX PARALOGS\n────────────────────────────────────────\n  Hindbrain transiently divided into segments: rhombomeres (r1-r8)\n  Each rhombomere has distinct Hox expression domain.\n\n  r1:  No Hox expression (cerebellum precursors)\n  r2:  HOXA2/HOXB2\n  r3:  HOXA2/HOXB2/HOXA3/HOXB3\n  r4:  HOXA2/HOXB2/HOXB4/...\n  ...and so on\n\n  Each Hox code → distinct cranial nerve precursors:\n  r2: Trigeminal (V) neurons\n  r3: none survive (Bax-dependent apoptosis)\n  r4: Facial (VII) + part of Vestibulocochlear (VIII)\n  r5: none survive\n  r6: Glossopharyngeal (IX)\n\n  NEURAL CREST FROM RHOMBOMERES → FACIAL BONES\n  r1+r2 crest → jaw, middle ear\n  r4 crest → second branchial arch (hyoid, stapes)\n  r6+ crest → lower jaw, throat cartilage\n  HOX expression of crest cells specifies the skeletal identity of the face.\n  Hoxa2 knockout: r2/r4 neural crest re-specified → skeletal duplications.",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-9",
+      "kind": "diagram_like",
+      "line": 311,
+      "heading_context": "## HOX Genes and Cancer",
+      "confidence": "candidate",
+      "text": "HOX DYSREGULATION IN CANCER\n──────────────────────────────\n  HOX genes are frequently dysregulated in cancer.\n  This makes sense: Hox genes control cell identity → dysregulation → wrong identity.\n\n  HEMATOPOIETIC CANCERS\n  HOXA9: Most commonly overexpressed Hox gene in AML.\n    Normal: expressed in hematopoietic stem/progenitor cells.\n    AML: HOXA9 overexpression → blocked differentiation → leukemia.\n    NUP98-HOXA9 fusion: translocation creates constitutively active HOXA9.\n    HOXA9 target: MEIS1 cofactor (both required for leukemia; therapeutic target).\n\n  BREAST CANCER\n  HOXC6, HOXD3: overexpressed → promote invasion/angiogenesis.\n  HOXA5: often silenced by methylation (tumor suppressor function here).\n\n  CERVICAL CANCER\n  HOXC8: overexpressed; associated with HPV-transformed cervical cells.\n\n  MLL (KMT2A) TRANSLOCATIONS\n  Mixed Lineage Leukemia (MLL) gene encodes H3K4 methyltransferase.\n  Normally: MLL methylates H3K4 → activates HOX genes → HSC maintenance.\n  MLL translocation fusions: constitute active HOX gene activation\n  → ALL and AML especially in infants.\n  DOT1L inhibitors: target the complex → clinical trials.",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    }
+  ]
+}

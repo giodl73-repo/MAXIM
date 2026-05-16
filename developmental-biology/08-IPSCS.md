@@ -1,3 +1,22 @@
+---
+maxim_schema: maxim.frontmatter.v1
+id: maxim:developmental-biology:ipscs
+kind: guide
+module: developmental-biology
+section: developmental-biology
+title: iPSCs: Yamanaka Factors and Reprogramming
+status: source-custody
+source_custody: partial
+current_path: developmental-biology/08-IPSCS.md
+canonical_path: developmental-biology/08-IPSCS.md
+backsource_ids: [proof-backfill:developmental-biology:08-ipscs, git-history:developmental-biology:08-ipscs]
+concepts: [ipscs]
+root_concepts: [ipscs]
+index_roles: [guide, root-concept]
+remap_from: []
+remap_to: []
+updated: null
+---
 # iPSCs: Yamanaka Factors and Reprogramming
 
 ## The Big Picture

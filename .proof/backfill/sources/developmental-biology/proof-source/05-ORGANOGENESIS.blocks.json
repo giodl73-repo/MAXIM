@@ -1,0 +1,105 @@
+{
+  "schema_version": "1",
+  "source_markdown": "developmental-biology\\05-ORGANOGENESIS.md",
+  "blocks": [
+    {
+      "id": "block-1",
+      "kind": "ascii_table_candidate",
+      "line": 26,
+      "heading_context": "## The Big Picture",
+      "confidence": "candidate",
+      "text": "+──────────────────────────────────────────────────────────────────+\n|              ORGANOGENESIS OVERVIEW                              |\n|                                                                  |\n|  GERM LAYER → ORGAN SYSTEM DERIVATION                            |\n|                                                                  |\n|  ECTODERM ──────────────────────────────────────────────────►    |\n|  (outer)    Brain, spinal cord, PNS, skin, eye lens, ear         |\n|             Neural crest → PNS, craniofacial, melanocytes        |\n|                                                                  |\n|  MESODERM ──────────────────────────────────────────────────►    |\n|  (middle)   Heart, blood vessels, kidneys, skeleton, muscle,     |\n|             spleen, gonads, connective tissue (dermis)           |\n|             ↑ receives inductive signals from endoderm (heart)   |\n|             ↑ and from ectoderm (limb)                           |\n|                                                                  |\n|  ENDODERM ──────────────────────────────────────────────────►    |\n|  (inner)    Gut epithelium, liver, pancreas, lungs, thyroid,     |\n|             thymus, bladder lining                               |\n|                                                                  |\n|  CORE PRINCIPLES (shared across all organs)                      |\n|  1. INDUCTION: epithelium ↔ mesenchyme reciprocal signaling      |\n|  2. PATTERNING: morphogen gradients encode positional identity   |\n|  3. BRANCHING: recursive bifurcation (FGF/Wnt on, BMP off tip)   |\n|  4. APOPTOSIS: sculpts cavities, digit separation, valves        |\n|  5. MECHANICS: ECM stiffness, actomyosin tension shape 3D form   |\n|                                                                  |\n|  TIMELINE: Week 4 = rudiments form; Week 5-8 = morphogenesis;    |\n|            Week 8 = embryo→fetus; Week 9-40 = growth+maturation  |\n+──────────────────────────────────────────────────────────────────+",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-2",
+      "kind": "diagram_like",
+      "line": 64,
+      "heading_context": "## Engineering Bridge: Organogenesis as Protocol Handshakes and Recursive Algorithms",
+      "confidence": "candidate",
+      "text": "  ORGANOGENESIS                 CS / ENGINEERING PARALLEL\n  ──────────────────────────────────────────────────────────────────────\n  Reciprocal induction          Two-way handshake protocol:\n  (ureteric bud ↔ metanephric   Each side waits for the other's signal\n  mesenchyme)                   before committing and proceeding.\n    UB → GDNF receptor (RET)    1. Mesenchyme secretes GDNF\n    Mesenchyme → FGF signals    2. UB binds GDNF → branches (ACK)\n    → UB branches (ACK)         3. UB secretes FGF, WNT → mesenchyme\n    → Mesenchyme condenses (ACK)   condenses (ACK)\n                                If either signal is absent → both sides\n                                abort (renal agenesis). Classic 3-way\n                                handshake with mutual dependency.\n\n  Branching morphogenesis       Recursive tree construction:\n  (lung: ~23 generations)       Base case: airway sac (alveolus).\n  FGF10 at tip → grow;          Recursive case: tip cell receives FGF10\n  BMP4 at tip → inhibit         → branches into two daughter buds.\n  adjacent; stalk stable        Termination condition: FGF10 decreases\n                                below threshold (BMP4 inhibition) → stop.\n                                The 23-generation binary tree of airways\n                                is built from this 3-rule L-system.\n\n  Digit formation by apoptosis  Sculpting by selective deletion:\n  (interdigital web removal)    Not: grow fingers separately. Instead:\n                                grow a solid limb paddle, then delete the\n                                web between digits via BMP-induced apoptosis.\n                                This is rendering by subtraction — like\n                                sculpting from a block by removing material,\n                                not by additive construction.\n\n  Morphogen gradient → organ    Spatial lookup table → module assignment:\n  size control (organ stopping  Growth terminates when cells sense they\n  at correct size)              have filled their positional domain.\n                                Hippo pathway: cell density → YAP/TAZ\n                                nuclear exit → growth arrest. Mechanical\n                                sensing of organ boundary.\n  ──────────────────────────────────────────────────────────────────────",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-3",
+      "kind": "ascii_table_candidate",
+      "line": 108,
+      "heading_context": "## Heart Development",
+      "confidence": "candidate",
+      "text": "HEART: FIRST ORGAN TO FUNCTION (Week 4)\n─────────────────────────────────────────\n  Origin: Lateral plate mesoderm (splanchnic layer) — two sources:\n    First Heart Field (FHF): left ventricle, atria, part of right ventricle\n    Second Heart Field (SHF): right ventricle, outflow tract, great vessels\n\n  TIMELINE\n  Day 18-19: Cardiac crescent forms (horseshoe-shaped cardiac progenitors)\n  Day 19-20: Cardiac progenitors migrate to midline → linear heart tube\n  Day 20-22: Heart tube beats (FIRST CARDIAC CONTRACTIONS)\n  Day 22-28: Heart looping: tube loops RIGHT (rightward = d-loop = normal)\n             Left-right asymmetry from Nodal signaling (Module 02)\n  Week 4-7:  Septation: atrial + ventricular septa form\n             Four chambers + outflow tract separation\n\n  SEPTATION MECHANISMS\n  ─────────────────────\n  ATRIAL SEPTUM:\n    Septum primum grows down → foramen primum (closes)\n    Fenestrations in septum primum → foramen secundum (stays open)\n    Septum secundum grows alongside → leaves foramen ovale (fetal shunt)\n    At birth: ↑left atrial pressure → closes foramen ovale\n\n  VENTRICULAR SEPTUM:\n    Muscular septum grows up from apex\n    Membranous septum closes last (neural crest contribution)\n    VSD (ventricular septal defect): most common CHD; often membranous\n\n  ENDOCARDIAL CUSHIONS:\n    Form atrioventricular (AV) valves and outflow tract valves\n    Neural crest cells critical for conotruncal septation\n\n  CONGENITAL HEART DISEASE MECHANISMS\n  - TGA (transposition): Outflow tract doesn't spiral correctly → aorta/PA reversed\n  - Tetralogy of Fallot: VSD + pulmonary stenosis + RV hypertrophy + overriding aorta\n  - DiGeorge syndrome: 22q11 deletion → neural crest → conotruncal defects",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-4",
+      "kind": "diagram_like",
+      "line": 151,
+      "heading_context": "## Lung Development",
+      "confidence": "candidate",
+      "text": "LUNG DEVELOPMENT STAGES\n──────────────────────────\n  Origin: Respiratory diverticulum from ventral foregut endoderm (Week 4)\n  Signaling: FGF10 from mesenchyme → FGFR2b on endoderm → branching\n\n  STAGE               TIMING      KEY EVENTS\n  ──────────────────  ──────────  ──────────────────────────────────────\n  Embryonic           Week 4-7    Respiratory diverticulum branches 1-4×\n                                  Primary bronchi, lobar bronchi, segmental\n  Pseudoglandular     Week 7-16   Conducting airways form; gland-like appearance\n                                  No alveoli yet; not viable\n  Canalicular         Week 16-26  Air sacs canalize; capillary invasion\n                                  Gas exchange becomes possible at ~22-24 weeks\n  Saccular            Week 26-36  Terminal sacs multiply; surfactant production begins\n  Alveolar            Week 36-   True alveoli form; most alveolar development\n                      2-3 yr     occurs AFTER birth\n\n  SURFACTANT (Module relevant to neonatal medicine)\n  Type II pneumocytes produce surfactant (dipalmitoyl-phosphatidylcholine, DPPC).\n  Onset: ~Week 22-24; adequate levels: ~Week 34-36.\n  Function: Reduce alveolar surface tension → prevent alveolar collapse.\n  Deficiency → Respiratory Distress Syndrome (RDS) in premature infants.\n  Treatment: Maternal betamethasone (induces surfactant) + postnatal surfactant therapy.\n\nBRANCHING MORPHOGENESIS (lungs)\n  FGF10 from mesenchyme → tip of endodermal bud\n  BMP4 in tip → Sprouty inhibitor → restrains FGF response\n  Net: FGF10 drives tip extension; BMP4 limits branching\n  Result: stereotyped branching tree → ~23 generations of airways\n  Mouse lungs: 3D light-sheet imaging shows completely stereotyped branching\n  Human lungs: similar program with minor variations",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-5",
+      "kind": "diagram_like",
+      "line": 189,
+      "heading_context": "## Kidney Development",
+      "confidence": "candidate",
+      "text": "KIDNEY: THREE SUCCESSIVE KIDNEY FORMS\n────────────────────────────────────────\n  Three kidney structures form sequentially in humans:\n\n  PRONEPHROS (Week 4): Rudimentary; involutes; functional in fish/frogs.\n  MESONEPHROS (Week 4-8): Transient kidney of the embryo. Contributes to\n    male genital ducts (Wolffian/mesonephric duct → vas deferens, epididymis).\n    Regresses in females.\n  METANEPHROS (Week 5 → permanent kidney):\n    Ureteric bud from Wolffian duct + metanephric mesenchyme.\n    Reciprocal inductive interaction is the classic case study.\n\nURETERIC BUD ↔ METANEPHRIC MESENCHYME INDUCTION\n  ─────────────────────────────────────────────────\n  Metanephric mesenchyme secretes GDNF (Glial cell-derived neurotrophic factor)\n  → GDNF binds RET receptor on Wolffian duct epithelium\n  → Ureteric bud branches out toward mesenchyme.\n\n  Ureteric bud secretes WNT9b + FGF\n  → WNT9b activates β-catenin in mesenchyme\n  → Mesenchyme-to-epithelium transition (MET)\n  → Mesenchymal cells condense → form renal vesicle → nephron epithelium\n\n  NEPHRON NUMBER\n  Each branching event of ureteric bud can induce new nephrons from surrounding mesenchyme.\n  Humans: ~800,000 to 1,000,000 nephrons/kidney.\n  Determined by the branching period + mesenchyme availability.\n  Low nephron number (born premature, poor maternal nutrition) → CKD risk in adulthood.\n\nKIDNEY DEFECTS\n  Renal agenesis: GDNF or RET mutation → no ureteric bud outgrowth → no kidney.\n  Bilateral renal agenesis → Potter sequence (oligohydramnios → limb compression,\n    pulmonary hypoplasia) → lethal.\n  Horseshoe kidney: Lower poles fuse across midline during ascent.\n    Migration arrested at inferior mesenteric artery.\n    Usually asymptomatic but higher risk of ureteropelvic junction obstruction.\n  Polycystic kidney disease (ADPKD): PKD1/PKD2 (polycystins in primary cilia)\n    → cyst formation; progressive.",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-6",
+      "kind": "diagram_like",
+      "line": 234,
+      "heading_context": "## Limb Development",
+      "confidence": "candidate",
+      "text": "LIMB BUD FORMATION AND PATTERNING\n────────────────────────────────────\n  Lateral plate mesoderm + surface ectoderm → limb bud (Week 4)\n  Position: determined by Hox gene expression in lateral plate mesoderm\n\n  THREE ORGANIZING REGIONS:\n\n  1. APICAL ECTODERMAL RIDGE (AER)\n     Thickened epithelium at distal tip of limb bud.\n     Secretes FGF4, FGF8 → maintains progress zone (rapidly dividing mesenchyme)\n     AER-removal experiment: proximal limb forms, distal limb truncated.\n     AER = required for distal outgrowth.\n\n  2. ZONE OF POLARIZING ACTIVITY (ZPA)\n     Posterior mesenchyme of limb bud.\n     Secretes Shh → anterior-posterior positional identity.\n     High Shh (posterior) → digit 4/5 (little finger)\n     Low Shh (anterior) → digit 1 (thumb)\n     ZPA transplant → mirror image limb (already discussed in HOX module).\n\n  3. DORSAL ECTODERM\n     Wnt7a from dorsal ectoderm → LMX1B in dorsal mesenchyme → dorsal fate (back of hand)\n     BMP from ventral ectoderm → Engrailed-1 → ventral fate (palm)\n     Dorsal-ventral axis = Wnt7a gradient.\n\nDIGIT SEPARATION: APOPTOSIS\n  Interdigital mesenchyme: programmed apoptosis removes tissue between digits.\n  Signals: BMP2/4/7 → Caspase-3 activation → death of interdigital mesenchyme.\n  BMP inhibition (Noggin) → syndactyly (fused digits).\n  Programmed death is required for normal digit separation.\n\n  WEBBED FINGERS (syndactyly): Failure of interdigital apoptosis.\n  Extra fingers (polydactyly): ZPA or SHH gain-of-function.\n  Thalidomide: disrupts limb bud FGF signaling Week 4-8 → phocomelia.",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-7",
+      "kind": "diagram_like",
+      "line": 275,
+      "heading_context": "## Pancreas Development",
+      "confidence": "candidate",
+      "text": "PANCREAS: ENDOCRINE + EXOCRINE FROM FOREGUT\n──────────────────────────────────────────────\n  Two buds from foregut endoderm (Week 4-5):\n    Dorsal bud: body and tail → most islets + acinar cells\n    Ventral bud: head of pancreas → fuses with dorsal bud (Week 7)\n    Annular pancreas: ventral bud wraps around duodenum → obstruction.\n\n  MASTER TRANSCRIPTION FACTORS\n  Pdx1 (IPF1): marks all pancreatic progenitors (dorsal + ventral bud).\n    Pdx1-/- mouse: no pancreas.\n    Pdx1 haploinsufficiency in humans: MODY4 (maturity-onset diabetes of young).\n  Ptf1a: required for exocrine (acinar) fate.\n    Ptf1a-/- mouse: no exocrine pancreas; islets form but mislocated.\n  Ngn3 (Neurogenin3): endocrine progenitor marker.\n    Ngn3+ cells → all islet cell types (α, β, δ, ε, PP cells).\n    Ngn3-/- mouse: no endocrine cells → diabetic.\n\n  ENDOCRINE CELL FATE SPECIFICATION\n  Beta cells: Pdx1 + Nkx6.1 + Nkx2.2 → insulin+\n  Alpha cells: Arx + Pax6 → glucagon+\n  Delta cells: Sst → somatostatin+\n  Notch off → Ngn3 → endocrine fate\n  Notch on → keep acinar/ductal progenitor state\n\n  CLINICAL RELEVANCE: iPSC TO BETA CELLS\n  Successful protocol (Pagliuca et al. 2014; Rezania et al. 2014):\n    iPSC → definitive endoderm → posterior foregut → pancreatic progenitors\n    → endocrine progenitors → beta cells\n    Uses: ActivinA/Wnt (endoderm) → FGF10/RA/SB431542 (pancreatic bud)\n    → Noggin/EGF/Nicotinamide (endocrine induction) → many more steps\n    Result: \"SC-beta cells\" that can glucose-respond and rescue diabetes in mice.\n    Clinical: Vertex's VX-880 / VX-264 clinical trials — encapsulated SC-beta cells.",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-8",
+      "kind": "diagram_like",
+      "line": 314,
+      "heading_context": "## Tooth Development: Classic EMT Induction",
+      "confidence": "candidate",
+      "text": "TOOTH DEVELOPMENT: EPITHELIAL-MESENCHYMAL INDUCTION\n──────────────────────────────────────────────────────\nWhy here: Tooth development is the canonical multi-stage induction example,\nwith ~20 reciprocal signaling events between oral epithelium and neural\ncrest-derived mesenchyme. Each stage uses a different signaling pathway.\n\nSTAGES (human: Week 6 through childhood)\n  1. INITIATION (dental placode):\n     BMP4 from mesenchyme + FGF8 from epithelium → thickening of oral epithelium\n     Where placode forms: determined by Runx2 expression boundary\n\n  2. BUD STAGE:\n     Placode invaginates into underlying mesenchyme.\n     Mesenchyme condenses around epithelial bud (like kidney reciprocal induction).\n     Wnt pathway specifies number of teeth (Wnt gain → extra teeth;\n     loss → tooth agenesis)\n\n  3. CAP STAGE:\n     Inner enamel epithelium (IEE) forms → becomes enamel-forming cells (ameloblasts)\n     Mesenchyme → dental papilla → dentin-forming cells (odontoblasts)\n     Enamel knot forms: signaling center (FGF, BMP, Wnt) that defines cusp number/position\n     Enamel knot cells undergo apoptosis after use — consumed signal center\n\n  4. BELL STAGE:\n     Cytodifferentiation: ameloblasts vs odontoblasts\n     Reciprocal induction: odontoblasts begin dentin → signals ameloblasts to form enamel\n     Ameloblasts produce enamel (hardest substance in body: 96% HAP crystal)\n     Odontoblasts produce dentin (70% mineral; collagen scaffold)\n\n  5. ROOT FORMATION:\n     Hertwig's epithelial root sheath (HERS) shapes root form\n     Cementoblasts (neural crest origin) form cementum → anchors to periodontal ligament\n\nDENTAL STEM CELLS AND CLINICAL IMPLICATIONS\n  Dental pulp stem cells (DPSCs): can differentiate into odontoblasts, neural cells,\n  adipocytes. Potential for bioengineered tooth replacement.\n  Stem cells from apical papilla (SCAP): progenitors for root formation.\n  Periodontal ligament stem cells (PDLSCs): for attachment apparatus regeneration.\n\n  Congenital tooth anomalies:\n    Hypodontia: tooth agenesis (PAX9, MSX1, AXIN2 mutations)\n    Supernumerary teeth: excess Wnt signaling\n    Amelogenesis imperfecta: enamel defect (AMELX, ENAM mutations)\n    Dentinogenesis imperfecta: dentin defect (DSPP mutation)",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-9",
+      "kind": "diagram_like",
+      "line": 365,
+      "heading_context": "## Eye Development: Classic Induction Example",
+      "confidence": "candidate",
+      "text": "EYE DEVELOPMENT: THE TEXTBOOK INDUCTION\n──────────────────────────────────────────\n  OPTIC VESICLE INDUCTION (Spemann 1901, before organizer work)\n  Neural tube evaginates → optic vesicle contacts surface ectoderm.\n  Optic vesicle secretes signals (FGF, BMP) → induces lens placode in ectoderm.\n  Lens placode invaginates → lens vesicle.\n  Simultaneously: optic vesicle invaginates → optic cup (double-walled).\n    Outer layer → retinal pigment epithelium (RPE)\n    Inner layer → neural retina\n\n  KEY TFs:\n  Pax6: Master eye specification gene.\n    \"Eyeless\" in Drosophila = Pax6 equivalent.\n    Pax6 ectopic expression → ectopic eye anywhere (fly legs, wings).\n    Aniridia (human): PAX6 heterozygous → iris absence, corneal disease.\n\n  WNT9b, FGF signals from optic vesicle → lens placode induction.\n  Without optic vesicle contact: no lens forms.\n  The induced lens then sends signals BACK to influence retina patterning.\n  Reciprocal induction.\n\n  CLINICAL: Organoids\n  Retinal organoids: differentiated from iPSCs using sequential Wnt/BMP/FGF signals.\n  Reproduce early eye layers; used for disease modeling (Stargardt, RP) and drug screening.\n  Cerebral organoids have spontaneously formed optic cup-like structures (Lancaster 2022).",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    }
+  ]
+}

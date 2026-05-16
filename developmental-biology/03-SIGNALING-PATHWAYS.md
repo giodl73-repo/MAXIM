@@ -1,3 +1,22 @@
+---
+maxim_schema: maxim.frontmatter.v1
+id: maxim:developmental-biology:signaling-pathways
+kind: guide
+module: developmental-biology
+section: developmental-biology
+title: Signaling Pathways: Wnt, Notch, Hedgehog
+status: source-custody
+source_custody: partial
+current_path: developmental-biology/03-SIGNALING-PATHWAYS.md
+canonical_path: developmental-biology/03-SIGNALING-PATHWAYS.md
+backsource_ids: [proof-backfill:developmental-biology:03-signaling-pathways, git-history:developmental-biology:03-signaling-pathways]
+concepts: [signaling, pathways]
+root_concepts: [signaling, pathways]
+index_roles: [guide, root-concept]
+remap_from: []
+remap_to: []
+updated: null
+---
 # Signaling Pathways: Wnt, Notch, Hedgehog
 
 ## The Big Picture

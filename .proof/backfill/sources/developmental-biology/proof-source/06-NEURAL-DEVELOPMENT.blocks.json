@@ -1,0 +1,116 @@
+{
+  "schema_version": "1",
+  "source_markdown": "developmental-biology\\06-NEURAL-DEVELOPMENT.md",
+  "blocks": [
+    {
+      "id": "block-1",
+      "kind": "ascii_table_candidate",
+      "line": 26,
+      "heading_context": "## The Big Picture",
+      "confidence": "candidate",
+      "text": "+──────────────────────────────────────────────────────────────────+\n|              NEURAL DEVELOPMENT OVERVIEW                         |\n|                                                                  |\n|  NEURAL INDUCTION → NEURAL TUBE CLOSURE → REGIONALIZATION        |\n|  Week 3              Week 3-4               Week 4-8+            |\n|      ↓                    ↓                      ↓               |\n|  Neural plate        Primary NT + hindbrain   Brain vesicles     |\n|  forms               Secondary NT (caudal)    expand             |\n|                       Defects → NTDs          Cerebral cortex    |\n|                                               develops           |\n|                                                                  |\n|  NEUROGENESIS → MIGRATION → SYNAPTOGENESIS → PRUNING             |\n|  Week 6+           Week 8-29     Week 20-birth  Birth-adulthood  |\n|  VZ/SVZ               Radial glia   Activity-       Experience   |\n|  progenitors          guide         dependent        matters     |\n+──────────────────────────────────────────────────────────────────+",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-2",
+      "kind": "diagram_like",
+      "line": 51,
+      "heading_context": "## Engineering Bridge: Neural Development as Distributed Computing Infrastructure",
+      "confidence": "candidate",
+      "text": "  NEURAL DEVELOPMENT            CS / NETWORKING PARALLEL\n  ──────────────────────────────────────────────────────────────────────\n  Inside-out cortical layering  Stack push model:\n  (deep layers born first, each  Progenitors in the VZ push neurons\n  later cohort migrates past     outward. Later-born neurons migrate\n  earlier)                       past earlier ones using radial glia as\n                                guide rails. The cortical layers are a\n                                LIFO stack: layer VI at the bottom (first\n                                pushed), layer II/III at top (last pushed).\n                                Stack grows from bottom to surface.\n\n  Axon guidance (Netrin,        Routing with attract/repel metrics:\n  Slit, Semaphorin, Ephrin)     Growth cone integrates attractive (Netrin,\n                                BDNF) and repulsive (Slit/Robo, Semaphorin)\n                                cues from the environment. Like BGP path\n                                selection: prefer paths with lower repulsion,\n                                higher attraction; each guidance molecule\n                                is a route preference metric. The final\n                                axon trajectory is the least-cost path\n                                through a gradient vector field.\n\n  Retinotopic mapping           Spatial hash function:\n  (nasal-temporal → posterior-  Retinal position → tectal/cortical position.\n  anterior in tectum)           EphA/EphrinA gradient: graded complementary\n                                gradients across both structures → topographic\n                                match. High EphA in temporal retina → repelled\n                                by high EphrinA in posterior tectum → maps\n                                to anterior tectum. Continuous bijective\n                                mapping preserving spatial topology.\n\n  Synaptic pruning              Garbage collection of underused connections:\n  (complement, BDNF,            Unused synapses are tagged by complement\n  activity-dependent)           proteins (C1q, C3) → phagocytosed by\n                                microglia (mark → sweep). Active synapses\n                                protected by BDNF signaling. Final\n                                connectivity = activity-selected subgraph\n                                of the initial overconnected network.\n                                Reference counting: connections not used\n                                → count drops to zero → GC.\n\n  Cortical oscillations and     Distributed synchronization protocol:\n  critical periods              During critical periods, the cortex is in\n                                a state of high plasticity — Hebbian\n                                learning (\"fire together, wire together\").\n                                After critical period: plasticity locked.\n                                Analogous to distributed consensus that\n                                is easy during setup (plasticity) but\n                                requires expensive override to change\n                                once committed (adult plasticity).\n\n  Neural tube closure           Mechanical topology change:\n  (flat plate → sealed tube)    The neural plate folds (convergent\n                                extension narrows it) and the edges\n                                meet and fuse. The Rho/ROCK/myosin\n                                contractility machine is pulling the\n                                edges together — cytoskeletal actomyosin\n                                as a mechanical zipper.\n  ──────────────────────────────────────────────────────────────────────",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-3",
+      "kind": "diagram_like",
+      "line": 116,
+      "heading_context": "## Neural Induction and Neural Plate Formation",
+      "confidence": "candidate",
+      "text": "NEURAL INDUCTION\n─────────────────\n  The organizer (Hensen's node) secretes BMP antagonists:\n  Chordin, Noggin, Follistatin → block BMP signaling in dorsal ectoderm.\n  Low BMP → \"default neural state\" → ectoderm adopts neural fate.\n\n  SOX2 + SOX1: First neural plate markers; maintained throughout neurogenesis.\n  Neural plate: thickened neuroepithelium (columnar pseudostratified).\n\nNEURAL PLATE SHAPING\n  CONVERGENT EXTENSION:\n    Cells intercalate mediolaterally → plate narrows (A-P) and elongates.\n    Wnt/PCP pathway (Module 03) drives this movement.\n    Failure → wide, short neural plate → neural tube defects.\n\n  BENDING OF NEURAL PLATE:\n    Hinge points form at floor plate (median hinge point) and\n    dorsolateral hinge points.\n    Actomyosin contraction + cell shape changes → folds rise.\n    Regulated by Shh (floor plate), BMP (lateral ectoderm drives closure).\n\nNEURAL TUBE CLOSURE (Week 3-4)\n  Starts in cervical region, zips both anteriorly and posteriorly.\n  Closure sites:\n    Multiple closure initiation sites (at least 5 in mouse, 3-4 in human).\n    Anterior neuropore: closes Day 25 → anencephaly if fails.\n    Posterior neuropore: closes Day 27 → spina bifida if fails.\n  Caudal neural tube: secondary neurulation (condensation + cavitation, not folding).\n\nNEURAL TUBE DEFECTS (NTDs)\n  Anencephaly: Failure of anterior neuropore → no brain; lethal.\n  Spina bifida aperta (myelomeningocele): Failure of posterior neuropore.\n    Neural tissue + meninges protrude through vertebral defect.\n    Hydrocephalus (Arnold-Chiari malformation) in 80-90%.\n    Motor/sensory defects below level of lesion.\n  Folic acid (vitamin B9): Required for neural tube closure.\n    Mechanism: One-carbon transfer reactions (purine, thymidylate synthesis)\n    → DNA synthesis for rapidly dividing neuroepithelium.\n    Folate supplementation 0.4-4 mg/day BEFORE conception → 50-70% reduction in NTDs.\n    This is why folate is added to grain products (US FDA mandate since 1998).",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-4",
+      "kind": "diagram_like",
+      "line": 163,
+      "heading_context": "## Brain Regionalization",
+      "confidence": "candidate",
+      "text": "THREE PRIMARY BRAIN VESICLES (Week 4)\n───────────────────────────────────────\n  Prosencephalon (forebrain) → telencephalon + diencephalon\n  Mesencephalon (midbrain)   → midbrain structures\n  Rhombencephalon (hindbrain) → metencephalon (pons + cerebellum) + myelencephalon (medulla)\n\n  5 SECONDARY BRAIN VESICLES (Week 5)\n  Telencephalon → cerebral cortex, basal ganglia, hippocampus, amygdala\n  Diencephalon → thalamus, hypothalamus, optic cup (retina)\n  Mesencephalon → superior/inferior colliculi, substantia nigra, VTA\n  Metencephalon → pons, cerebellum\n  Myelencephalon → medulla oblongata\n\nAP REGIONALIZATION SIGNALS\n  Anterior → Posterior gradient: secreted factors from anterior neural ridge\n\n  REGION      SIGNAL          TRANSCRIPTION FACTORS\n  ──────────  ──────────────  ──────────────────────────────────────\n  Forebrain   FGF8 from ANR   Foxg1, Nkx2.1, Pax6, Emx2\n              + Wnt inhibitor\n  Midbrain    FGF8 from IsO   En1/2, Otx2/Gbx2 boundary\n  Hindbrain   Retinoic acid   HOX genes (r1-r8, Module 04)\n  Spinal cord RA + Wnt        Cdx genes, Hox genes\n\nISTHMIC ORGANIZER (IsO)\n  Junction between midbrain (Otx2+) and hindbrain (Gbx2+) = Isthmus.\n  This boundary secretes FGF8 (into hindbrain → cerebellum) + Wnt1 (into midbrain).\n  Crucial for cerebellum and colliculi formation.\n  IsO deletion → cerebellum and midbrain structures absent.\n\nDV PATTERNING OF SPINAL CORD\n  Floor plate (ventral) → Shh gradient:\n    V3: Nkx2.2 → motor neuron subtypes (interneurons)\n    V2/V1: Dbx1/2 → interneurons\n    V0: Dbx1 → excitatory interneurons\n  Dorsal → BMP4/7 + Wnt:\n    dI1: Atoh1 → deep dorsal horn\n    dI4-6: Pax2 → inhibitory interneurons\n    Roof plate: sensory relay neurons",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-5",
+      "kind": "diagram_like",
+      "line": 209,
+      "heading_context": "## Neurogenesis: Making Neurons and Glia",
+      "confidence": "candidate",
+      "text": "NEURAL PROGENITOR TYPES\n────────────────────────\n  VENTRICULAR ZONE (VZ): Adjacent to ventricle\n    Radial glia: apical progenitors; bipolar; soma at ventricular surface\n    Functions: Progenitor cell + scaffold for migration\n\n  SUBVENTRICULAR ZONE (SVZ): Secondary progenitor zone\n    Intermediate progenitors (IPs): basal progenitors; non-apical\n    Expanded SVZ in primates → more neurons → bigger cortex\n\nCELL CYCLE AND NEUROGENESIS\n  Early cortical development: Symmetric divisions → expand progenitor pool\n  Later: Asymmetric division → one progenitor + one neuron (or IP)\n  Asymmetry mechanism:\n    Apical vs basal cell fate determinants (Numb, Notch, TRIM32)\n    unequal segregation between daughter cells\n    Daughter touching ventricle → progenitor fate\n    Daughter moving away → neuron fate (or IP)\n\nNEURONAL BIRTH ORDER\n  \"Inside-out\" cortical layering:\n    First-born neurons → deepest layers (layers 5, 6)\n    Later-born neurons → superficial layers (layers 2, 3)\n    Each wave must MIGRATE PAST all previously born neurons.\n    Layer 6 TF: Tbr1\n    Layer 5 TF: Ctip2 (Bcl11b)\n    Layer 4 TF: Rorβ\n    Layer 2/3 TF: Satb2, Brn2\n\nGLIOGENESIS\n  After peak neurogenesis: same progenitors switch to gliogenesis.\n  Timing controlled by: ↑EGFR, ↑CNTF/LIF, JAK-STAT signaling.\n  Oligodendrocyte progenitors (OPCs): from ventral subpallium, migrate dorsally.\n  Astrocytes: from VZ/SVZ; notch → Hes5 → astrocyte fate.\n  Timing: mouse: mostly postnatal; human: mostly 3rd trimester-early postnatal.",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-6",
+      "kind": "diagram_like",
+      "line": 251,
+      "heading_context": "## Neuronal Migration",
+      "confidence": "candidate",
+      "text": "RADIAL MIGRATION (cortical neurons)\n─────────────────────────────────────\n  Neurons climb radial glial fibers from VZ/SVZ to cortical plate.\n  LOCOMOTION MODE: Nucleus moves in saltatory steps (nucleokinesis).\n    Leading process extends (actin/microtubule)\n    Centrosome moves first\n    Nucleus pulled forward (ACTG1, LIS1 dynein complex)\n  Radial glia fiber = the track; neuron = the train.\n\n  REELIN SIGNAL (stopping)\n    Cajal-Retzius cells in marginal zone secrete Reelin.\n    Reelin → DAB1 → stops migration in correct layer.\n    Reeler mutant mouse: cortical layers INVERTED (new neurons stop below old ones)\n    → \"Scrambled\" cortex.\n\nTANGENTIAL MIGRATION (interneurons)\n  Cortical interneurons originate in GANGLIONIC EMINENCES (GE) in subpallium.\n  Lateral GE (LGE) → striatal interneurons + olfactory neurons\n  Medial GE (MGE) → PV+ and SST+ cortical interneurons (most abundant)\n  Caudal GE (CGE) → Reelin+, VIP+ interneurons\n\n  Tangential migration: long-range, over many days, along multiple routes.\n  Chemoattractants: NRG1/ErbB4, CXCL12/CXCR4.\n  Chemorepellents: Slit/Robo, Ephrin/Eph.\n\nMIGRATION DISORDERS\n  Lissencephaly (\"smooth brain\"): absent gyri\n    LIS1 (PAFAH1B1): component of dynein complex; haploinsufficiency → lissencephaly\n    DCX (Doublecortin): X-linked; microtubule-binding; males → lissencephaly, females → band heterotopia\n  Periventricular heterotopia: neurons fail to migrate, remain near ventricle\n    FLNA (Filamin A): X-linked; females affected; mutations → heterotopia, epilepsy\n  Polymicrogyria: too many small gyri; usually COL4A1, PIK3R2, GPR56 mutations",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-7",
+      "kind": "diagram_like",
+      "line": 290,
+      "heading_context": "## Axon Guidance",
+      "confidence": "candidate",
+      "text": "AXON NAVIGATION TO TARGET\n───────────────────────────\n  Growth cone: motile tip of growing axon.\n    Structure: central domain (microtubules) + peripheral (actin-rich filopodia)\n    Function: Integrates attractive + repulsive signals → steers axon.\n\n  GUIDANCE CUE TYPES\n  ────────────────────\n  ATTRACTIVE:  Filopodia extend toward attractive cue.\n    Netrin-1/DCC: Midline crossing cue (commissural axons)\n    GDNF/GFRα1: Motor axon → NMJ guidance\n    BDNF/TrkB: Cortical axon → hippocampus\n    Semaphorin/Plexin (some): Can be attractive\n\n  REPULSIVE:   Filopodia retract; axon turns away.\n    Ephrin/Eph: Topographic mapping (retina → superior colliculus)\n    Slit/Robo: Midline repulsive (prevents re-crossing after first cross)\n    Semaphorin3A/NP1: Olfactory axon repulsion\n    Netrin-1/UNC5: Long-range repulsion\n\nSPINAL CORD COMMISSURAL AXON MODEL\n  Classic model for midline crossing (floor plate):\n\n    Commissural axon:\n    DORSAL → attracted by Netrin-1 from floor plate (via DCC receptor)\n    CROSSING midline → floor plate\n    CROSSED → Slit from floor plate now repels via Robo receptor\n               (Robo was silenced during approach; now activated)\n    POST-CROSSING → repelled; cannot re-cross → turns anteriorly\n\n  RETINOTOPIC MAPPING (topographic projection)\n  Retinal ganglion cells (temporal → EphA high, nasal → EphA low)\n  → Project to superior colliculus\n  SC: posterior → EphrinA high, anterior → EphrinA low\n  High EphA retinal axon = repelled by high EphrinA = projects anteriorly in SC\n  Creates point-to-point topographic map.",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-8",
+      "kind": "diagram_like",
+      "line": 333,
+      "heading_context": "## Synaptogenesis and Synaptic Pruning",
+      "confidence": "candidate",
+      "text": "SYNAPTOGENESIS\n───────────────\n  Neurons reach approximate target → form synapses.\n  Initial synapses: activity-independent (driven by molecular matching).\n  Molecular recognition: Neuroligin (post) / Neurexin (pre) — \"synaptic velcro\"\n  More specificity: LRRTMs, Cadherins, Teneurins, Slit/Robo at synapse\n\n  TIMELINE (human cortex):\n    Week 23: First synapses\n    Week 34-birth: Rapid synapse formation\n    Birth-2 years: Peak synaptic density\n    Peak: ~15,000 synapses/neuron (much more than adult)\n\nSYNAPTIC PRUNING (activity-dependent)\n  Excess synapses eliminated by:\n  (1) Complement-mediated: C1q tags \"weak\" synapses → microglia phagocytose via C3/CR3\n  (2) \"Use it or lose it\": Synapses with low/correlated activity → pruned\n      High-frequency firing synapses → strengthened (LTP-like mechanism)\n  (3) BDNF/TrkB: Supports strong synapses; withdrawal from weak ones\n\n  PRUNING TIMELINE\n  Visual system: Primary visual cortex — pruning after critical period (Module below)\n  Prefrontal cortex: Pruning continues into early adulthood (>25 years)\n  This is why adolescent/young adult brain is susceptible to psychiatric illness\n  (schizophrenia onset during peak prefrontal pruning)\n\n  AUTISM SPECTRUM DISORDER\n  Theories: Aberrant synaptic pruning, altered synapse maturation.\n  SHANK3, NRXN1, NLGN3/4: synaptic scaffold and adhesion proteins → autism.\n  Excess synapse density observed in some ASD post-mortem brains.\n  Pruning as a potential mechanism: mTOR pathway mutations reduce autophagy → synapses over-retained.",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-9",
+      "kind": "diagram_like",
+      "line": 371,
+      "heading_context": "## Neural Crest: The Fourth Germ Layer",
+      "confidence": "candidate",
+      "text": "NEURAL CREST CELLS\n────────────────────\n  Often called the \"fourth germ layer\" — has such broad fate and unique properties.\n  Origin: Border between neural plate and surface ectoderm.\n  Undergo EMT → delaminate from dorsal neural tube → MIGRATE throughout embryo.\n\n  CRANIAL NEURAL CREST → craniofacial bones, cartilage, teeth, skull vault,\n                          meninges, peripheral glia of cranial nerves.\n  TRUNK NEURAL CREST → dorsal root ganglia, sympathetic ganglia,\n                        adrenal medulla, melanocytes (all pigment cells).\n  VAGAL/SACRAL CREST → enteric nervous system (ENS = \"gut brain\")\n\n  CELL TYPES DERIVED FROM NEURAL CREST (partial list)\n  ─────────────────────────────────────────────────────\n  Neurons: DRG (pain/proprioception), sympathetic, parasympathetic ganglia\n  Glia: Schwann cells (peripheral myelin), satellite glia\n  Endocrine: Adrenal medulla chromaffin cells (adrenaline producers)\n  Melanocytes: All skin/hair/iris pigment cells\n  Craniofacial: Jaw, orbital bones, skull vault, middle ear ossicles\n  Smooth muscle: Cardiac outflow tract, great vessel walls\n\nNEUROCRISTOPATHIES\n  Waardenburg syndrome: PAX3 or MITF mutations → pigmentation + hearing defects\n  DiGeorge/22q11.2: TBX1 + neural crest → craniofacial + cardiovascular + immune\n  Hirschsprung disease: GDNF/RET mutations → ENS fails to colonize colon → no peristalsis\n                        Nerve cells absent from segment of colon → functional obstruction\n                        Treatment: surgical resection of aganglionic colon segment\n  CHARGE syndrome: CHD7 mutations → coloboma, heart, choanal atresia, retardation, GE, ears\n  Melanoma: cancer of melanocytes; EMT → reactivation of neural crest migration program",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-10",
+      "kind": "diagram_like",
+      "line": 407,
+      "heading_context": "## Myelination",
+      "confidence": "candidate",
+      "text": "MYELINATION: OPTIMIZING CONDUCTION VELOCITY\n──────────────────────────────────────────────\nMyelination dramatically increases conduction velocity and reduces ATP cost —\nthe canonical engineering optimization of the nervous system.\n\nMECHANISM\n  Oligodendrocytes (CNS) and Schwann cells (PNS) wrap axons in lipid-rich myelin.\n  Each oligodendrocyte: myelinates up to 50 axon segments simultaneously.\n  Each Schwann cell: myelinates one segment.\n\n  Key molecular interactions:\n    Axonal NEUREGULIN-1 → ErbB3/ErbB4 on Schwann cell → triggers myelination\n    MBP (myelin basic protein), PLP, MAG, MOG: major structural myelin proteins\n    Nodes of Ranvier: unmyelinated gaps (~1 μm) every 1-2 mm\n    Na+ channels (Nav1.6) concentrated at nodes → saltatory conduction\n\nPHYSICS OF SALTATORY CONDUCTION\n  Myelinated: action potential \"jumps\" from node to node.\n  Unmyelinated: AP propagates as continuous wave (entire membrane).\n\n  Conduction velocity:\n    Unmyelinated: v ∝ sqrt(d) — 0.5-2 m/s\n    Myelinated: v ∝ d — 5-100 m/s\n    Myelin increases resistance (r_m↑) and decreases capacitance (c_m↓)\n    → Increases space constant λ = sqrt(r_m/r_a) → AP spreads farther per node\n\nDEVELOPMENTAL TIMELINE\n  CNS myelination begins: ~Week 14 in utero (brainstem first)\n  Corpus callosum: not fully myelinated until age ~20-25\n  Prefrontal cortex: last to myelinate (explains adolescent executive function)\n  \"The brain is not fully myelinated until the mid-20s.\"\n\nCLINICAL RELEVANCE\n  Multiple sclerosis (MS): autoimmune demyelination of CNS axons.\n    T-cells attack myelin antigens (MBP, MOG, PLP) → demyelinating plaques.\n    Slowed conduction → sensory loss, weakness, optic neuritis, Uhthoff's sign.\n    Remyelination can partially restore function; axonal loss → permanent deficit.\n\n  Leukodystrophies: genetic defects in myelin synthesis.\n    Krabbe disease: GALC deficiency → psychosine accumulation → oligodendrocyte death\n    Metachromatic leukodystrophy: ARSA deficiency → sulfatide accumulation\n    Pelizaeus-Merzbacher: PLP1 mutation (X-linked) → nystagmus, ataxia in infancy\n    PMD treatment: antisense oligonucleotides targeting PLP1 duplication (trials)\n\n  Guillain-Barré syndrome: peripheral nerve demyelination (post-infectious autoimmune)\n    Ascending paralysis; CSF: albumin-cytologic dissociation.\n    IVIG + plasmapheresis treatment.",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    }
+  ]
+}

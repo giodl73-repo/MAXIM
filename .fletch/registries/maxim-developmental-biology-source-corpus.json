@@ -1,0 +1,2340 @@
+{
+  "schema_version": "fletch.registry.v1",
+  "generated_by": "MAXIM source-corpus backfill",
+  "registry_id": "maxim-developmental-biology-source-corpus",
+  "fletches": [
+    {
+      "id": "maxim.developmental-biology.source-corpus.pebble",
+      "node_kind": "fletch",
+      "shafts": [
+        {
+          "kind": "file",
+          "url": ".pebble/packs/maxim-developmental-biology-source-corpus.pebble.json"
+        }
+      ],
+      "edges": [
+        {
+          "to": "maxim-developmental-biology-source-corpus",
+          "kind": "derived-from",
+          "label": "CROP view recipe",
+          "metadata": {
+            "view": ".crop/views/maxim-developmental-biology-source-corpus.json",
+            "module": "developmental-biology",
+            "custody": "partial"
+          }
+        }
+      ],
+      "format": {
+        "media_type": "application/json",
+        "encoding": "utf-8",
+        "compression": null,
+        "container": null,
+        "schema": "pebble.v1",
+        "record_shape": "corpus-slice",
+        "preferred_local": ".pebble/packs/maxim-developmental-biology-source-corpus.pebble.json"
+      },
+      "tags": [
+        "source-corpus",
+        "crop",
+        "pebble",
+        "partial-custody"
+      ],
+      "metadata": {
+        "source_repo": "MAXIM",
+        "module": "developmental-biology",
+        "distribution": "FLETCH fetch/cache surface for downstream repos",
+        "publication_state": "partial-source-custody"
+      }
+    },
+    {
+      "id": "maxim.developmental-biology.overview.view",
+      "node_kind": "fletch",
+      "shafts": [
+        {
+          "kind": "file",
+          "url": ".crop/views/maxim-developmental-biology-overview.json"
+        }
+      ],
+      "edges": [
+        {
+          "to": "maxim.developmental-biology.source-corpus.pebble",
+          "kind": "derived-from",
+          "label": "Guide-level CROP view recipe",
+          "metadata": {
+            "module": "developmental-biology",
+            "guide": "developmental-biology/00-OVERVIEW.md",
+            "custody": "partial"
+          }
+        }
+      ],
+      "format": {
+        "media_type": "application/json",
+        "encoding": "utf-8",
+        "compression": null,
+        "container": null,
+        "schema": "crop.view.v1",
+        "record_shape": "view-recipe",
+        "preferred_local": ".crop/views/maxim-developmental-biology-overview.json"
+      },
+      "tags": [
+        "source-corpus",
+        "crop",
+        "view",
+        "partial-custody",
+        "guide"
+      ],
+      "metadata": {
+        "source_repo": "MAXIM",
+        "module": "developmental-biology",
+        "guide": "developmental-biology/00-OVERVIEW.md",
+        "publication_state": "partial-source-custody"
+      }
+    },
+    {
+      "id": "maxim.developmental-biology.overview.pebble",
+      "node_kind": "fletch",
+      "shafts": [
+        {
+          "kind": "file",
+          "url": ".pebble/packs/maxim-developmental-biology-overview.pebble.json"
+        }
+      ],
+      "edges": [
+        {
+          "to": "maxim.developmental-biology.overview.view",
+          "kind": "derived-from",
+          "label": "Guide-level CROP view recipe",
+          "metadata": {
+            "module": "developmental-biology",
+            "custody": "partial"
+          }
+        },
+        {
+          "to": "maxim.developmental-biology.source-corpus.pebble",
+          "kind": "derived-from",
+          "label": "Guide-level CROP view",
+          "metadata": {
+            "view": ".crop/views/maxim-developmental-biology-overview.json",
+            "module": "developmental-biology",
+            "custody": "partial"
+          }
+        }
+      ],
+      "format": {
+        "media_type": "application/json",
+        "encoding": "utf-8",
+        "compression": null,
+        "container": null,
+        "schema": "pebble.v1",
+        "record_shape": "corpus-slice",
+        "preferred_local": ".pebble/packs/maxim-developmental-biology-overview.pebble.json"
+      },
+      "tags": [
+        "source-corpus",
+        "crop",
+        "pebble",
+        "partial-custody",
+        "guide"
+      ],
+      "metadata": {
+        "source_repo": "MAXIM",
+        "module": "developmental-biology",
+        "guide": "developmental-biology/00-OVERVIEW.md",
+        "publication_state": "partial-source-custody"
+      }
+    },
+    {
+      "id": "maxim.developmental-biology.overview.proof-source",
+      "node_kind": "fletch",
+      "shafts": [
+        {
+          "kind": "file",
+          "url": ".proof/backfill/sources/developmental-biology/proof-source/00-OVERVIEW.source.md"
+        }
+      ],
+      "edges": [
+        {
+          "to": "maxim.developmental-biology.overview.view",
+          "kind": "derived-from",
+          "label": "Literal PROOF source for guide view",
+          "metadata": {
+            "module": "developmental-biology",
+            "guide": "developmental-biology/00-OVERVIEW.md",
+            "custody": "partial"
+          }
+        }
+      ],
+      "format": {
+        "media_type": "text/markdown",
+        "encoding": "utf-8",
+        "compression": null,
+        "container": null,
+        "schema": "proof.source.literal_markdown.v1",
+        "record_shape": "literal-source",
+        "preferred_local": ".proof/backfill/sources/developmental-biology/proof-source/00-OVERVIEW.source.md"
+      },
+      "tags": [
+        "source-corpus",
+        "proof",
+        "source",
+        "partial-custody",
+        "guide"
+      ],
+      "metadata": {
+        "source_repo": "MAXIM",
+        "module": "developmental-biology",
+        "guide": "developmental-biology/00-OVERVIEW.md",
+        "publication_state": "partial-source-custody"
+      }
+    },
+    {
+      "id": "maxim.developmental-biology.overview.tables",
+      "node_kind": "fletch",
+      "shafts": [
+        {
+          "kind": "file",
+          "url": ".proof/backfill/sources/developmental-biology/proof-source/00-OVERVIEW.tables.json"
+        }
+      ],
+      "edges": [
+        {
+          "to": "maxim.developmental-biology.overview.proof-source",
+          "kind": "derived-from",
+          "label": "PROOF markdown table sidecar",
+          "metadata": {
+            "module": "developmental-biology",
+            "guide": "developmental-biology/00-OVERVIEW.md",
+            "custody": "partial"
+          }
+        }
+      ],
+      "format": {
+        "media_type": "application/json",
+        "encoding": "utf-8",
+        "compression": null,
+        "container": null,
+        "schema": "proof.backfill.tables.v1",
+        "record_shape": "table-sidecar",
+        "preferred_local": ".proof/backfill/sources/developmental-biology/proof-source/00-OVERVIEW.tables.json"
+      },
+      "tags": [
+        "source-corpus",
+        "proof",
+        "tables",
+        "partial-custody",
+        "guide"
+      ],
+      "metadata": {
+        "source_repo": "MAXIM",
+        "module": "developmental-biology",
+        "guide": "developmental-biology/00-OVERVIEW.md",
+        "publication_state": "partial-source-custody"
+      }
+    },
+    {
+      "id": "maxim.developmental-biology.overview.blocks",
+      "node_kind": "fletch",
+      "shafts": [
+        {
+          "kind": "file",
+          "url": ".proof/backfill/sources/developmental-biology/proof-source/00-OVERVIEW.blocks.json"
+        }
+      ],
+      "edges": [
+        {
+          "to": "maxim.developmental-biology.overview.proof-source",
+          "kind": "derived-from",
+          "label": "PROOF structured block sidecar",
+          "metadata": {
+            "module": "developmental-biology",
+            "guide": "developmental-biology/00-OVERVIEW.md",
+            "custody": "partial"
+          }
+        }
+      ],
+      "format": {
+        "media_type": "application/json",
+        "encoding": "utf-8",
+        "compression": null,
+        "container": null,
+        "schema": "proof.backfill.blocks.v1",
+        "record_shape": "structured-block-sidecar",
+        "preferred_local": ".proof/backfill/sources/developmental-biology/proof-source/00-OVERVIEW.blocks.json"
+      },
+      "tags": [
+        "source-corpus",
+        "proof",
+        "blocks",
+        "partial-custody",
+        "guide"
+      ],
+      "metadata": {
+        "source_repo": "MAXIM",
+        "module": "developmental-biology",
+        "guide": "developmental-biology/00-OVERVIEW.md",
+        "publication_state": "partial-source-custody"
+      }
+    },
+    {
+      "id": "maxim.developmental-biology.fertilization-cleavage.view",
+      "node_kind": "fletch",
+      "shafts": [
+        {
+          "kind": "file",
+          "url": ".crop/views/maxim-developmental-biology-fertilization-cleavage.json"
+        }
+      ],
+      "edges": [
+        {
+          "to": "maxim.developmental-biology.source-corpus.pebble",
+          "kind": "derived-from",
+          "label": "Guide-level CROP view recipe",
+          "metadata": {
+            "module": "developmental-biology",
+            "guide": "developmental-biology/01-FERTILIZATION-CLEAVAGE.md",
+            "custody": "partial"
+          }
+        }
+      ],
+      "format": {
+        "media_type": "application/json",
+        "encoding": "utf-8",
+        "compression": null,
+        "container": null,
+        "schema": "crop.view.v1",
+        "record_shape": "view-recipe",
+        "preferred_local": ".crop/views/maxim-developmental-biology-fertilization-cleavage.json"
+      },
+      "tags": [
+        "source-corpus",
+        "crop",
+        "view",
+        "partial-custody",
+        "guide"
+      ],
+      "metadata": {
+        "source_repo": "MAXIM",
+        "module": "developmental-biology",
+        "guide": "developmental-biology/01-FERTILIZATION-CLEAVAGE.md",
+        "publication_state": "partial-source-custody"
+      }
+    },
+    {
+      "id": "maxim.developmental-biology.fertilization-cleavage.pebble",
+      "node_kind": "fletch",
+      "shafts": [
+        {
+          "kind": "file",
+          "url": ".pebble/packs/maxim-developmental-biology-fertilization-cleavage.pebble.json"
+        }
+      ],
+      "edges": [
+        {
+          "to": "maxim.developmental-biology.fertilization-cleavage.view",
+          "kind": "derived-from",
+          "label": "Guide-level CROP view recipe",
+          "metadata": {
+            "module": "developmental-biology",
+            "custody": "partial"
+          }
+        },
+        {
+          "to": "maxim.developmental-biology.source-corpus.pebble",
+          "kind": "derived-from",
+          "label": "Guide-level CROP view",
+          "metadata": {
+            "view": ".crop/views/maxim-developmental-biology-fertilization-cleavage.json",
+            "module": "developmental-biology",
+            "custody": "partial"
+          }
+        }
+      ],
+      "format": {
+        "media_type": "application/json",
+        "encoding": "utf-8",
+        "compression": null,
+        "container": null,
+        "schema": "pebble.v1",
+        "record_shape": "corpus-slice",
+        "preferred_local": ".pebble/packs/maxim-developmental-biology-fertilization-cleavage.pebble.json"
+      },
+      "tags": [
+        "source-corpus",
+        "crop",
+        "pebble",
+        "partial-custody",
+        "guide"
+      ],
+      "metadata": {
+        "source_repo": "MAXIM",
+        "module": "developmental-biology",
+        "guide": "developmental-biology/01-FERTILIZATION-CLEAVAGE.md",
+        "publication_state": "partial-source-custody"
+      }
+    },
+    {
+      "id": "maxim.developmental-biology.fertilization-cleavage.proof-source",
+      "node_kind": "fletch",
+      "shafts": [
+        {
+          "kind": "file",
+          "url": ".proof/backfill/sources/developmental-biology/proof-source/01-FERTILIZATION-CLEAVAGE.source.md"
+        }
+      ],
+      "edges": [
+        {
+          "to": "maxim.developmental-biology.fertilization-cleavage.view",
+          "kind": "derived-from",
+          "label": "Literal PROOF source for guide view",
+          "metadata": {
+            "module": "developmental-biology",
+            "guide": "developmental-biology/01-FERTILIZATION-CLEAVAGE.md",
+            "custody": "partial"
+          }
+        }
+      ],
+      "format": {
+        "media_type": "text/markdown",
+        "encoding": "utf-8",
+        "compression": null,
+        "container": null,
+        "schema": "proof.source.literal_markdown.v1",
+        "record_shape": "literal-source",
+        "preferred_local": ".proof/backfill/sources/developmental-biology/proof-source/01-FERTILIZATION-CLEAVAGE.source.md"
+      },
+      "tags": [
+        "source-corpus",
+        "proof",
+        "source",
+        "partial-custody",
+        "guide"
+      ],
+      "metadata": {
+        "source_repo": "MAXIM",
+        "module": "developmental-biology",
+        "guide": "developmental-biology/01-FERTILIZATION-CLEAVAGE.md",
+        "publication_state": "partial-source-custody"
+      }
+    },
+    {
+      "id": "maxim.developmental-biology.fertilization-cleavage.tables",
+      "node_kind": "fletch",
+      "shafts": [
+        {
+          "kind": "file",
+          "url": ".proof/backfill/sources/developmental-biology/proof-source/01-FERTILIZATION-CLEAVAGE.tables.json"
+        }
+      ],
+      "edges": [
+        {
+          "to": "maxim.developmental-biology.fertilization-cleavage.proof-source",
+          "kind": "derived-from",
+          "label": "PROOF markdown table sidecar",
+          "metadata": {
+            "module": "developmental-biology",
+            "guide": "developmental-biology/01-FERTILIZATION-CLEAVAGE.md",
+            "custody": "partial"
+          }
+        }
+      ],
+      "format": {
+        "media_type": "application/json",
+        "encoding": "utf-8",
+        "compression": null,
+        "container": null,
+        "schema": "proof.backfill.tables.v1",
+        "record_shape": "table-sidecar",
+        "preferred_local": ".proof/backfill/sources/developmental-biology/proof-source/01-FERTILIZATION-CLEAVAGE.tables.json"
+      },
+      "tags": [
+        "source-corpus",
+        "proof",
+        "tables",
+        "partial-custody",
+        "guide"
+      ],
+      "metadata": {
+        "source_repo": "MAXIM",
+        "module": "developmental-biology",
+        "guide": "developmental-biology/01-FERTILIZATION-CLEAVAGE.md",
+        "publication_state": "partial-source-custody"
+      }
+    },
+    {
+      "id": "maxim.developmental-biology.fertilization-cleavage.blocks",
+      "node_kind": "fletch",
+      "shafts": [
+        {
+          "kind": "file",
+          "url": ".proof/backfill/sources/developmental-biology/proof-source/01-FERTILIZATION-CLEAVAGE.blocks.json"
+        }
+      ],
+      "edges": [
+        {
+          "to": "maxim.developmental-biology.fertilization-cleavage.proof-source",
+          "kind": "derived-from",
+          "label": "PROOF structured block sidecar",
+          "metadata": {
+            "module": "developmental-biology",
+            "guide": "developmental-biology/01-FERTILIZATION-CLEAVAGE.md",
+            "custody": "partial"
+          }
+        }
+      ],
+      "format": {
+        "media_type": "application/json",
+        "encoding": "utf-8",
+        "compression": null,
+        "container": null,
+        "schema": "proof.backfill.blocks.v1",
+        "record_shape": "structured-block-sidecar",
+        "preferred_local": ".proof/backfill/sources/developmental-biology/proof-source/01-FERTILIZATION-CLEAVAGE.blocks.json"
+      },
+      "tags": [
+        "source-corpus",
+        "proof",
+        "blocks",
+        "partial-custody",
+        "guide"
+      ],
+      "metadata": {
+        "source_repo": "MAXIM",
+        "module": "developmental-biology",
+        "guide": "developmental-biology/01-FERTILIZATION-CLEAVAGE.md",
+        "publication_state": "partial-source-custody"
+      }
+    },
+    {
+      "id": "maxim.developmental-biology.gastrulation.view",
+      "node_kind": "fletch",
+      "shafts": [
+        {
+          "kind": "file",
+          "url": ".crop/views/maxim-developmental-biology-gastrulation.json"
+        }
+      ],
+      "edges": [
+        {
+          "to": "maxim.developmental-biology.source-corpus.pebble",
+          "kind": "derived-from",
+          "label": "Guide-level CROP view recipe",
+          "metadata": {
+            "module": "developmental-biology",
+            "guide": "developmental-biology/02-GASTRULATION.md",
+            "custody": "partial"
+          }
+        }
+      ],
+      "format": {
+        "media_type": "application/json",
+        "encoding": "utf-8",
+        "compression": null,
+        "container": null,
+        "schema": "crop.view.v1",
+        "record_shape": "view-recipe",
+        "preferred_local": ".crop/views/maxim-developmental-biology-gastrulation.json"
+      },
+      "tags": [
+        "source-corpus",
+        "crop",
+        "view",
+        "partial-custody",
+        "guide"
+      ],
+      "metadata": {
+        "source_repo": "MAXIM",
+        "module": "developmental-biology",
+        "guide": "developmental-biology/02-GASTRULATION.md",
+        "publication_state": "partial-source-custody"
+      }
+    },
+    {
+      "id": "maxim.developmental-biology.gastrulation.pebble",
+      "node_kind": "fletch",
+      "shafts": [
+        {
+          "kind": "file",
+          "url": ".pebble/packs/maxim-developmental-biology-gastrulation.pebble.json"
+        }
+      ],
+      "edges": [
+        {
+          "to": "maxim.developmental-biology.gastrulation.view",
+          "kind": "derived-from",
+          "label": "Guide-level CROP view recipe",
+          "metadata": {
+            "module": "developmental-biology",
+            "custody": "partial"
+          }
+        },
+        {
+          "to": "maxim.developmental-biology.source-corpus.pebble",
+          "kind": "derived-from",
+          "label": "Guide-level CROP view",
+          "metadata": {
+            "view": ".crop/views/maxim-developmental-biology-gastrulation.json",
+            "module": "developmental-biology",
+            "custody": "partial"
+          }
+        }
+      ],
+      "format": {
+        "media_type": "application/json",
+        "encoding": "utf-8",
+        "compression": null,
+        "container": null,
+        "schema": "pebble.v1",
+        "record_shape": "corpus-slice",
+        "preferred_local": ".pebble/packs/maxim-developmental-biology-gastrulation.pebble.json"
+      },
+      "tags": [
+        "source-corpus",
+        "crop",
+        "pebble",
+        "partial-custody",
+        "guide"
+      ],
+      "metadata": {
+        "source_repo": "MAXIM",
+        "module": "developmental-biology",
+        "guide": "developmental-biology/02-GASTRULATION.md",
+        "publication_state": "partial-source-custody"
+      }
+    },
+    {
+      "id": "maxim.developmental-biology.gastrulation.proof-source",
+      "node_kind": "fletch",
+      "shafts": [
+        {
+          "kind": "file",
+          "url": ".proof/backfill/sources/developmental-biology/proof-source/02-GASTRULATION.source.md"
+        }
+      ],
+      "edges": [
+        {
+          "to": "maxim.developmental-biology.gastrulation.view",
+          "kind": "derived-from",
+          "label": "Literal PROOF source for guide view",
+          "metadata": {
+            "module": "developmental-biology",
+            "guide": "developmental-biology/02-GASTRULATION.md",
+            "custody": "partial"
+          }
+        }
+      ],
+      "format": {
+        "media_type": "text/markdown",
+        "encoding": "utf-8",
+        "compression": null,
+        "container": null,
+        "schema": "proof.source.literal_markdown.v1",
+        "record_shape": "literal-source",
+        "preferred_local": ".proof/backfill/sources/developmental-biology/proof-source/02-GASTRULATION.source.md"
+      },
+      "tags": [
+        "source-corpus",
+        "proof",
+        "source",
+        "partial-custody",
+        "guide"
+      ],
+      "metadata": {
+        "source_repo": "MAXIM",
+        "module": "developmental-biology",
+        "guide": "developmental-biology/02-GASTRULATION.md",
+        "publication_state": "partial-source-custody"
+      }
+    },
+    {
+      "id": "maxim.developmental-biology.gastrulation.tables",
+      "node_kind": "fletch",
+      "shafts": [
+        {
+          "kind": "file",
+          "url": ".proof/backfill/sources/developmental-biology/proof-source/02-GASTRULATION.tables.json"
+        }
+      ],
+      "edges": [
+        {
+          "to": "maxim.developmental-biology.gastrulation.proof-source",
+          "kind": "derived-from",
+          "label": "PROOF markdown table sidecar",
+          "metadata": {
+            "module": "developmental-biology",
+            "guide": "developmental-biology/02-GASTRULATION.md",
+            "custody": "partial"
+          }
+        }
+      ],
+      "format": {
+        "media_type": "application/json",
+        "encoding": "utf-8",
+        "compression": null,
+        "container": null,
+        "schema": "proof.backfill.tables.v1",
+        "record_shape": "table-sidecar",
+        "preferred_local": ".proof/backfill/sources/developmental-biology/proof-source/02-GASTRULATION.tables.json"
+      },
+      "tags": [
+        "source-corpus",
+        "proof",
+        "tables",
+        "partial-custody",
+        "guide"
+      ],
+      "metadata": {
+        "source_repo": "MAXIM",
+        "module": "developmental-biology",
+        "guide": "developmental-biology/02-GASTRULATION.md",
+        "publication_state": "partial-source-custody"
+      }
+    },
+    {
+      "id": "maxim.developmental-biology.gastrulation.blocks",
+      "node_kind": "fletch",
+      "shafts": [
+        {
+          "kind": "file",
+          "url": ".proof/backfill/sources/developmental-biology/proof-source/02-GASTRULATION.blocks.json"
+        }
+      ],
+      "edges": [
+        {
+          "to": "maxim.developmental-biology.gastrulation.proof-source",
+          "kind": "derived-from",
+          "label": "PROOF structured block sidecar",
+          "metadata": {
+            "module": "developmental-biology",
+            "guide": "developmental-biology/02-GASTRULATION.md",
+            "custody": "partial"
+          }
+        }
+      ],
+      "format": {
+        "media_type": "application/json",
+        "encoding": "utf-8",
+        "compression": null,
+        "container": null,
+        "schema": "proof.backfill.blocks.v1",
+        "record_shape": "structured-block-sidecar",
+        "preferred_local": ".proof/backfill/sources/developmental-biology/proof-source/02-GASTRULATION.blocks.json"
+      },
+      "tags": [
+        "source-corpus",
+        "proof",
+        "blocks",
+        "partial-custody",
+        "guide"
+      ],
+      "metadata": {
+        "source_repo": "MAXIM",
+        "module": "developmental-biology",
+        "guide": "developmental-biology/02-GASTRULATION.md",
+        "publication_state": "partial-source-custody"
+      }
+    },
+    {
+      "id": "maxim.developmental-biology.signaling-pathways.view",
+      "node_kind": "fletch",
+      "shafts": [
+        {
+          "kind": "file",
+          "url": ".crop/views/maxim-developmental-biology-signaling-pathways.json"
+        }
+      ],
+      "edges": [
+        {
+          "to": "maxim.developmental-biology.source-corpus.pebble",
+          "kind": "derived-from",
+          "label": "Guide-level CROP view recipe",
+          "metadata": {
+            "module": "developmental-biology",
+            "guide": "developmental-biology/03-SIGNALING-PATHWAYS.md",
+            "custody": "partial"
+          }
+        }
+      ],
+      "format": {
+        "media_type": "application/json",
+        "encoding": "utf-8",
+        "compression": null,
+        "container": null,
+        "schema": "crop.view.v1",
+        "record_shape": "view-recipe",
+        "preferred_local": ".crop/views/maxim-developmental-biology-signaling-pathways.json"
+      },
+      "tags": [
+        "source-corpus",
+        "crop",
+        "view",
+        "partial-custody",
+        "guide"
+      ],
+      "metadata": {
+        "source_repo": "MAXIM",
+        "module": "developmental-biology",
+        "guide": "developmental-biology/03-SIGNALING-PATHWAYS.md",
+        "publication_state": "partial-source-custody"
+      }
+    },
+    {
+      "id": "maxim.developmental-biology.signaling-pathways.pebble",
+      "node_kind": "fletch",
+      "shafts": [
+        {
+          "kind": "file",
+          "url": ".pebble/packs/maxim-developmental-biology-signaling-pathways.pebble.json"
+        }
+      ],
+      "edges": [
+        {
+          "to": "maxim.developmental-biology.signaling-pathways.view",
+          "kind": "derived-from",
+          "label": "Guide-level CROP view recipe",
+          "metadata": {
+            "module": "developmental-biology",
+            "custody": "partial"
+          }
+        },
+        {
+          "to": "maxim.developmental-biology.source-corpus.pebble",
+          "kind": "derived-from",
+          "label": "Guide-level CROP view",
+          "metadata": {
+            "view": ".crop/views/maxim-developmental-biology-signaling-pathways.json",
+            "module": "developmental-biology",
+            "custody": "partial"
+          }
+        }
+      ],
+      "format": {
+        "media_type": "application/json",
+        "encoding": "utf-8",
+        "compression": null,
+        "container": null,
+        "schema": "pebble.v1",
+        "record_shape": "corpus-slice",
+        "preferred_local": ".pebble/packs/maxim-developmental-biology-signaling-pathways.pebble.json"
+      },
+      "tags": [
+        "source-corpus",
+        "crop",
+        "pebble",
+        "partial-custody",
+        "guide"
+      ],
+      "metadata": {
+        "source_repo": "MAXIM",
+        "module": "developmental-biology",
+        "guide": "developmental-biology/03-SIGNALING-PATHWAYS.md",
+        "publication_state": "partial-source-custody"
+      }
+    },
+    {
+      "id": "maxim.developmental-biology.signaling-pathways.proof-source",
+      "node_kind": "fletch",
+      "shafts": [
+        {
+          "kind": "file",
+          "url": ".proof/backfill/sources/developmental-biology/proof-source/03-SIGNALING-PATHWAYS.source.md"
+        }
+      ],
+      "edges": [
+        {
+          "to": "maxim.developmental-biology.signaling-pathways.view",
+          "kind": "derived-from",
+          "label": "Literal PROOF source for guide view",
+          "metadata": {
+            "module": "developmental-biology",
+            "guide": "developmental-biology/03-SIGNALING-PATHWAYS.md",
+            "custody": "partial"
+          }
+        }
+      ],
+      "format": {
+        "media_type": "text/markdown",
+        "encoding": "utf-8",
+        "compression": null,
+        "container": null,
+        "schema": "proof.source.literal_markdown.v1",
+        "record_shape": "literal-source",
+        "preferred_local": ".proof/backfill/sources/developmental-biology/proof-source/03-SIGNALING-PATHWAYS.source.md"
+      },
+      "tags": [
+        "source-corpus",
+        "proof",
+        "source",
+        "partial-custody",
+        "guide"
+      ],
+      "metadata": {
+        "source_repo": "MAXIM",
+        "module": "developmental-biology",
+        "guide": "developmental-biology/03-SIGNALING-PATHWAYS.md",
+        "publication_state": "partial-source-custody"
+      }
+    },
+    {
+      "id": "maxim.developmental-biology.signaling-pathways.tables",
+      "node_kind": "fletch",
+      "shafts": [
+        {
+          "kind": "file",
+          "url": ".proof/backfill/sources/developmental-biology/proof-source/03-SIGNALING-PATHWAYS.tables.json"
+        }
+      ],
+      "edges": [
+        {
+          "to": "maxim.developmental-biology.signaling-pathways.proof-source",
+          "kind": "derived-from",
+          "label": "PROOF markdown table sidecar",
+          "metadata": {
+            "module": "developmental-biology",
+            "guide": "developmental-biology/03-SIGNALING-PATHWAYS.md",
+            "custody": "partial"
+          }
+        }
+      ],
+      "format": {
+        "media_type": "application/json",
+        "encoding": "utf-8",
+        "compression": null,
+        "container": null,
+        "schema": "proof.backfill.tables.v1",
+        "record_shape": "table-sidecar",
+        "preferred_local": ".proof/backfill/sources/developmental-biology/proof-source/03-SIGNALING-PATHWAYS.tables.json"
+      },
+      "tags": [
+        "source-corpus",
+        "proof",
+        "tables",
+        "partial-custody",
+        "guide"
+      ],
+      "metadata": {
+        "source_repo": "MAXIM",
+        "module": "developmental-biology",
+        "guide": "developmental-biology/03-SIGNALING-PATHWAYS.md",
+        "publication_state": "partial-source-custody"
+      }
+    },
+    {
+      "id": "maxim.developmental-biology.signaling-pathways.blocks",
+      "node_kind": "fletch",
+      "shafts": [
+        {
+          "kind": "file",
+          "url": ".proof/backfill/sources/developmental-biology/proof-source/03-SIGNALING-PATHWAYS.blocks.json"
+        }
+      ],
+      "edges": [
+        {
+          "to": "maxim.developmental-biology.signaling-pathways.proof-source",
+          "kind": "derived-from",
+          "label": "PROOF structured block sidecar",
+          "metadata": {
+            "module": "developmental-biology",
+            "guide": "developmental-biology/03-SIGNALING-PATHWAYS.md",
+            "custody": "partial"
+          }
+        }
+      ],
+      "format": {
+        "media_type": "application/json",
+        "encoding": "utf-8",
+        "compression": null,
+        "container": null,
+        "schema": "proof.backfill.blocks.v1",
+        "record_shape": "structured-block-sidecar",
+        "preferred_local": ".proof/backfill/sources/developmental-biology/proof-source/03-SIGNALING-PATHWAYS.blocks.json"
+      },
+      "tags": [
+        "source-corpus",
+        "proof",
+        "blocks",
+        "partial-custody",
+        "guide"
+      ],
+      "metadata": {
+        "source_repo": "MAXIM",
+        "module": "developmental-biology",
+        "guide": "developmental-biology/03-SIGNALING-PATHWAYS.md",
+        "publication_state": "partial-source-custody"
+      }
+    },
+    {
+      "id": "maxim.developmental-biology.hox-genes.view",
+      "node_kind": "fletch",
+      "shafts": [
+        {
+          "kind": "file",
+          "url": ".crop/views/maxim-developmental-biology-hox-genes.json"
+        }
+      ],
+      "edges": [
+        {
+          "to": "maxim.developmental-biology.source-corpus.pebble",
+          "kind": "derived-from",
+          "label": "Guide-level CROP view recipe",
+          "metadata": {
+            "module": "developmental-biology",
+            "guide": "developmental-biology/04-HOX-GENES.md",
+            "custody": "partial"
+          }
+        }
+      ],
+      "format": {
+        "media_type": "application/json",
+        "encoding": "utf-8",
+        "compression": null,
+        "container": null,
+        "schema": "crop.view.v1",
+        "record_shape": "view-recipe",
+        "preferred_local": ".crop/views/maxim-developmental-biology-hox-genes.json"
+      },
+      "tags": [
+        "source-corpus",
+        "crop",
+        "view",
+        "partial-custody",
+        "guide"
+      ],
+      "metadata": {
+        "source_repo": "MAXIM",
+        "module": "developmental-biology",
+        "guide": "developmental-biology/04-HOX-GENES.md",
+        "publication_state": "partial-source-custody"
+      }
+    },
+    {
+      "id": "maxim.developmental-biology.hox-genes.pebble",
+      "node_kind": "fletch",
+      "shafts": [
+        {
+          "kind": "file",
+          "url": ".pebble/packs/maxim-developmental-biology-hox-genes.pebble.json"
+        }
+      ],
+      "edges": [
+        {
+          "to": "maxim.developmental-biology.hox-genes.view",
+          "kind": "derived-from",
+          "label": "Guide-level CROP view recipe",
+          "metadata": {
+            "module": "developmental-biology",
+            "custody": "partial"
+          }
+        },
+        {
+          "to": "maxim.developmental-biology.source-corpus.pebble",
+          "kind": "derived-from",
+          "label": "Guide-level CROP view",
+          "metadata": {
+            "view": ".crop/views/maxim-developmental-biology-hox-genes.json",
+            "module": "developmental-biology",
+            "custody": "partial"
+          }
+        }
+      ],
+      "format": {
+        "media_type": "application/json",
+        "encoding": "utf-8",
+        "compression": null,
+        "container": null,
+        "schema": "pebble.v1",
+        "record_shape": "corpus-slice",
+        "preferred_local": ".pebble/packs/maxim-developmental-biology-hox-genes.pebble.json"
+      },
+      "tags": [
+        "source-corpus",
+        "crop",
+        "pebble",
+        "partial-custody",
+        "guide"
+      ],
+      "metadata": {
+        "source_repo": "MAXIM",
+        "module": "developmental-biology",
+        "guide": "developmental-biology/04-HOX-GENES.md",
+        "publication_state": "partial-source-custody"
+      }
+    },
+    {
+      "id": "maxim.developmental-biology.hox-genes.proof-source",
+      "node_kind": "fletch",
+      "shafts": [
+        {
+          "kind": "file",
+          "url": ".proof/backfill/sources/developmental-biology/proof-source/04-HOX-GENES.source.md"
+        }
+      ],
+      "edges": [
+        {
+          "to": "maxim.developmental-biology.hox-genes.view",
+          "kind": "derived-from",
+          "label": "Literal PROOF source for guide view",
+          "metadata": {
+            "module": "developmental-biology",
+            "guide": "developmental-biology/04-HOX-GENES.md",
+            "custody": "partial"
+          }
+        }
+      ],
+      "format": {
+        "media_type": "text/markdown",
+        "encoding": "utf-8",
+        "compression": null,
+        "container": null,
+        "schema": "proof.source.literal_markdown.v1",
+        "record_shape": "literal-source",
+        "preferred_local": ".proof/backfill/sources/developmental-biology/proof-source/04-HOX-GENES.source.md"
+      },
+      "tags": [
+        "source-corpus",
+        "proof",
+        "source",
+        "partial-custody",
+        "guide"
+      ],
+      "metadata": {
+        "source_repo": "MAXIM",
+        "module": "developmental-biology",
+        "guide": "developmental-biology/04-HOX-GENES.md",
+        "publication_state": "partial-source-custody"
+      }
+    },
+    {
+      "id": "maxim.developmental-biology.hox-genes.tables",
+      "node_kind": "fletch",
+      "shafts": [
+        {
+          "kind": "file",
+          "url": ".proof/backfill/sources/developmental-biology/proof-source/04-HOX-GENES.tables.json"
+        }
+      ],
+      "edges": [
+        {
+          "to": "maxim.developmental-biology.hox-genes.proof-source",
+          "kind": "derived-from",
+          "label": "PROOF markdown table sidecar",
+          "metadata": {
+            "module": "developmental-biology",
+            "guide": "developmental-biology/04-HOX-GENES.md",
+            "custody": "partial"
+          }
+        }
+      ],
+      "format": {
+        "media_type": "application/json",
+        "encoding": "utf-8",
+        "compression": null,
+        "container": null,
+        "schema": "proof.backfill.tables.v1",
+        "record_shape": "table-sidecar",
+        "preferred_local": ".proof/backfill/sources/developmental-biology/proof-source/04-HOX-GENES.tables.json"
+      },
+      "tags": [
+        "source-corpus",
+        "proof",
+        "tables",
+        "partial-custody",
+        "guide"
+      ],
+      "metadata": {
+        "source_repo": "MAXIM",
+        "module": "developmental-biology",
+        "guide": "developmental-biology/04-HOX-GENES.md",
+        "publication_state": "partial-source-custody"
+      }
+    },
+    {
+      "id": "maxim.developmental-biology.hox-genes.blocks",
+      "node_kind": "fletch",
+      "shafts": [
+        {
+          "kind": "file",
+          "url": ".proof/backfill/sources/developmental-biology/proof-source/04-HOX-GENES.blocks.json"
+        }
+      ],
+      "edges": [
+        {
+          "to": "maxim.developmental-biology.hox-genes.proof-source",
+          "kind": "derived-from",
+          "label": "PROOF structured block sidecar",
+          "metadata": {
+            "module": "developmental-biology",
+            "guide": "developmental-biology/04-HOX-GENES.md",
+            "custody": "partial"
+          }
+        }
+      ],
+      "format": {
+        "media_type": "application/json",
+        "encoding": "utf-8",
+        "compression": null,
+        "container": null,
+        "schema": "proof.backfill.blocks.v1",
+        "record_shape": "structured-block-sidecar",
+        "preferred_local": ".proof/backfill/sources/developmental-biology/proof-source/04-HOX-GENES.blocks.json"
+      },
+      "tags": [
+        "source-corpus",
+        "proof",
+        "blocks",
+        "partial-custody",
+        "guide"
+      ],
+      "metadata": {
+        "source_repo": "MAXIM",
+        "module": "developmental-biology",
+        "guide": "developmental-biology/04-HOX-GENES.md",
+        "publication_state": "partial-source-custody"
+      }
+    },
+    {
+      "id": "maxim.developmental-biology.organogenesis.view",
+      "node_kind": "fletch",
+      "shafts": [
+        {
+          "kind": "file",
+          "url": ".crop/views/maxim-developmental-biology-organogenesis.json"
+        }
+      ],
+      "edges": [
+        {
+          "to": "maxim.developmental-biology.source-corpus.pebble",
+          "kind": "derived-from",
+          "label": "Guide-level CROP view recipe",
+          "metadata": {
+            "module": "developmental-biology",
+            "guide": "developmental-biology/05-ORGANOGENESIS.md",
+            "custody": "partial"
+          }
+        }
+      ],
+      "format": {
+        "media_type": "application/json",
+        "encoding": "utf-8",
+        "compression": null,
+        "container": null,
+        "schema": "crop.view.v1",
+        "record_shape": "view-recipe",
+        "preferred_local": ".crop/views/maxim-developmental-biology-organogenesis.json"
+      },
+      "tags": [
+        "source-corpus",
+        "crop",
+        "view",
+        "partial-custody",
+        "guide"
+      ],
+      "metadata": {
+        "source_repo": "MAXIM",
+        "module": "developmental-biology",
+        "guide": "developmental-biology/05-ORGANOGENESIS.md",
+        "publication_state": "partial-source-custody"
+      }
+    },
+    {
+      "id": "maxim.developmental-biology.organogenesis.pebble",
+      "node_kind": "fletch",
+      "shafts": [
+        {
+          "kind": "file",
+          "url": ".pebble/packs/maxim-developmental-biology-organogenesis.pebble.json"
+        }
+      ],
+      "edges": [
+        {
+          "to": "maxim.developmental-biology.organogenesis.view",
+          "kind": "derived-from",
+          "label": "Guide-level CROP view recipe",
+          "metadata": {
+            "module": "developmental-biology",
+            "custody": "partial"
+          }
+        },
+        {
+          "to": "maxim.developmental-biology.source-corpus.pebble",
+          "kind": "derived-from",
+          "label": "Guide-level CROP view",
+          "metadata": {
+            "view": ".crop/views/maxim-developmental-biology-organogenesis.json",
+            "module": "developmental-biology",
+            "custody": "partial"
+          }
+        }
+      ],
+      "format": {
+        "media_type": "application/json",
+        "encoding": "utf-8",
+        "compression": null,
+        "container": null,
+        "schema": "pebble.v1",
+        "record_shape": "corpus-slice",
+        "preferred_local": ".pebble/packs/maxim-developmental-biology-organogenesis.pebble.json"
+      },
+      "tags": [
+        "source-corpus",
+        "crop",
+        "pebble",
+        "partial-custody",
+        "guide"
+      ],
+      "metadata": {
+        "source_repo": "MAXIM",
+        "module": "developmental-biology",
+        "guide": "developmental-biology/05-ORGANOGENESIS.md",
+        "publication_state": "partial-source-custody"
+      }
+    },
+    {
+      "id": "maxim.developmental-biology.organogenesis.proof-source",
+      "node_kind": "fletch",
+      "shafts": [
+        {
+          "kind": "file",
+          "url": ".proof/backfill/sources/developmental-biology/proof-source/05-ORGANOGENESIS.source.md"
+        }
+      ],
+      "edges": [
+        {
+          "to": "maxim.developmental-biology.organogenesis.view",
+          "kind": "derived-from",
+          "label": "Literal PROOF source for guide view",
+          "metadata": {
+            "module": "developmental-biology",
+            "guide": "developmental-biology/05-ORGANOGENESIS.md",
+            "custody": "partial"
+          }
+        }
+      ],
+      "format": {
+        "media_type": "text/markdown",
+        "encoding": "utf-8",
+        "compression": null,
+        "container": null,
+        "schema": "proof.source.literal_markdown.v1",
+        "record_shape": "literal-source",
+        "preferred_local": ".proof/backfill/sources/developmental-biology/proof-source/05-ORGANOGENESIS.source.md"
+      },
+      "tags": [
+        "source-corpus",
+        "proof",
+        "source",
+        "partial-custody",
+        "guide"
+      ],
+      "metadata": {
+        "source_repo": "MAXIM",
+        "module": "developmental-biology",
+        "guide": "developmental-biology/05-ORGANOGENESIS.md",
+        "publication_state": "partial-source-custody"
+      }
+    },
+    {
+      "id": "maxim.developmental-biology.organogenesis.tables",
+      "node_kind": "fletch",
+      "shafts": [
+        {
+          "kind": "file",
+          "url": ".proof/backfill/sources/developmental-biology/proof-source/05-ORGANOGENESIS.tables.json"
+        }
+      ],
+      "edges": [
+        {
+          "to": "maxim.developmental-biology.organogenesis.proof-source",
+          "kind": "derived-from",
+          "label": "PROOF markdown table sidecar",
+          "metadata": {
+            "module": "developmental-biology",
+            "guide": "developmental-biology/05-ORGANOGENESIS.md",
+            "custody": "partial"
+          }
+        }
+      ],
+      "format": {
+        "media_type": "application/json",
+        "encoding": "utf-8",
+        "compression": null,
+        "container": null,
+        "schema": "proof.backfill.tables.v1",
+        "record_shape": "table-sidecar",
+        "preferred_local": ".proof/backfill/sources/developmental-biology/proof-source/05-ORGANOGENESIS.tables.json"
+      },
+      "tags": [
+        "source-corpus",
+        "proof",
+        "tables",
+        "partial-custody",
+        "guide"
+      ],
+      "metadata": {
+        "source_repo": "MAXIM",
+        "module": "developmental-biology",
+        "guide": "developmental-biology/05-ORGANOGENESIS.md",
+        "publication_state": "partial-source-custody"
+      }
+    },
+    {
+      "id": "maxim.developmental-biology.organogenesis.blocks",
+      "node_kind": "fletch",
+      "shafts": [
+        {
+          "kind": "file",
+          "url": ".proof/backfill/sources/developmental-biology/proof-source/05-ORGANOGENESIS.blocks.json"
+        }
+      ],
+      "edges": [
+        {
+          "to": "maxim.developmental-biology.organogenesis.proof-source",
+          "kind": "derived-from",
+          "label": "PROOF structured block sidecar",
+          "metadata": {
+            "module": "developmental-biology",
+            "guide": "developmental-biology/05-ORGANOGENESIS.md",
+            "custody": "partial"
+          }
+        }
+      ],
+      "format": {
+        "media_type": "application/json",
+        "encoding": "utf-8",
+        "compression": null,
+        "container": null,
+        "schema": "proof.backfill.blocks.v1",
+        "record_shape": "structured-block-sidecar",
+        "preferred_local": ".proof/backfill/sources/developmental-biology/proof-source/05-ORGANOGENESIS.blocks.json"
+      },
+      "tags": [
+        "source-corpus",
+        "proof",
+        "blocks",
+        "partial-custody",
+        "guide"
+      ],
+      "metadata": {
+        "source_repo": "MAXIM",
+        "module": "developmental-biology",
+        "guide": "developmental-biology/05-ORGANOGENESIS.md",
+        "publication_state": "partial-source-custody"
+      }
+    },
+    {
+      "id": "maxim.developmental-biology.neural-development.view",
+      "node_kind": "fletch",
+      "shafts": [
+        {
+          "kind": "file",
+          "url": ".crop/views/maxim-developmental-biology-neural-development.json"
+        }
+      ],
+      "edges": [
+        {
+          "to": "maxim.developmental-biology.source-corpus.pebble",
+          "kind": "derived-from",
+          "label": "Guide-level CROP view recipe",
+          "metadata": {
+            "module": "developmental-biology",
+            "guide": "developmental-biology/06-NEURAL-DEVELOPMENT.md",
+            "custody": "partial"
+          }
+        }
+      ],
+      "format": {
+        "media_type": "application/json",
+        "encoding": "utf-8",
+        "compression": null,
+        "container": null,
+        "schema": "crop.view.v1",
+        "record_shape": "view-recipe",
+        "preferred_local": ".crop/views/maxim-developmental-biology-neural-development.json"
+      },
+      "tags": [
+        "source-corpus",
+        "crop",
+        "view",
+        "partial-custody",
+        "guide"
+      ],
+      "metadata": {
+        "source_repo": "MAXIM",
+        "module": "developmental-biology",
+        "guide": "developmental-biology/06-NEURAL-DEVELOPMENT.md",
+        "publication_state": "partial-source-custody"
+      }
+    },
+    {
+      "id": "maxim.developmental-biology.neural-development.pebble",
+      "node_kind": "fletch",
+      "shafts": [
+        {
+          "kind": "file",
+          "url": ".pebble/packs/maxim-developmental-biology-neural-development.pebble.json"
+        }
+      ],
+      "edges": [
+        {
+          "to": "maxim.developmental-biology.neural-development.view",
+          "kind": "derived-from",
+          "label": "Guide-level CROP view recipe",
+          "metadata": {
+            "module": "developmental-biology",
+            "custody": "partial"
+          }
+        },
+        {
+          "to": "maxim.developmental-biology.source-corpus.pebble",
+          "kind": "derived-from",
+          "label": "Guide-level CROP view",
+          "metadata": {
+            "view": ".crop/views/maxim-developmental-biology-neural-development.json",
+            "module": "developmental-biology",
+            "custody": "partial"
+          }
+        }
+      ],
+      "format": {
+        "media_type": "application/json",
+        "encoding": "utf-8",
+        "compression": null,
+        "container": null,
+        "schema": "pebble.v1",
+        "record_shape": "corpus-slice",
+        "preferred_local": ".pebble/packs/maxim-developmental-biology-neural-development.pebble.json"
+      },
+      "tags": [
+        "source-corpus",
+        "crop",
+        "pebble",
+        "partial-custody",
+        "guide"
+      ],
+      "metadata": {
+        "source_repo": "MAXIM",
+        "module": "developmental-biology",
+        "guide": "developmental-biology/06-NEURAL-DEVELOPMENT.md",
+        "publication_state": "partial-source-custody"
+      }
+    },
+    {
+      "id": "maxim.developmental-biology.neural-development.proof-source",
+      "node_kind": "fletch",
+      "shafts": [
+        {
+          "kind": "file",
+          "url": ".proof/backfill/sources/developmental-biology/proof-source/06-NEURAL-DEVELOPMENT.source.md"
+        }
+      ],
+      "edges": [
+        {
+          "to": "maxim.developmental-biology.neural-development.view",
+          "kind": "derived-from",
+          "label": "Literal PROOF source for guide view",
+          "metadata": {
+            "module": "developmental-biology",
+            "guide": "developmental-biology/06-NEURAL-DEVELOPMENT.md",
+            "custody": "partial"
+          }
+        }
+      ],
+      "format": {
+        "media_type": "text/markdown",
+        "encoding": "utf-8",
+        "compression": null,
+        "container": null,
+        "schema": "proof.source.literal_markdown.v1",
+        "record_shape": "literal-source",
+        "preferred_local": ".proof/backfill/sources/developmental-biology/proof-source/06-NEURAL-DEVELOPMENT.source.md"
+      },
+      "tags": [
+        "source-corpus",
+        "proof",
+        "source",
+        "partial-custody",
+        "guide"
+      ],
+      "metadata": {
+        "source_repo": "MAXIM",
+        "module": "developmental-biology",
+        "guide": "developmental-biology/06-NEURAL-DEVELOPMENT.md",
+        "publication_state": "partial-source-custody"
+      }
+    },
+    {
+      "id": "maxim.developmental-biology.neural-development.tables",
+      "node_kind": "fletch",
+      "shafts": [
+        {
+          "kind": "file",
+          "url": ".proof/backfill/sources/developmental-biology/proof-source/06-NEURAL-DEVELOPMENT.tables.json"
+        }
+      ],
+      "edges": [
+        {
+          "to": "maxim.developmental-biology.neural-development.proof-source",
+          "kind": "derived-from",
+          "label": "PROOF markdown table sidecar",
+          "metadata": {
+            "module": "developmental-biology",
+            "guide": "developmental-biology/06-NEURAL-DEVELOPMENT.md",
+            "custody": "partial"
+          }
+        }
+      ],
+      "format": {
+        "media_type": "application/json",
+        "encoding": "utf-8",
+        "compression": null,
+        "container": null,
+        "schema": "proof.backfill.tables.v1",
+        "record_shape": "table-sidecar",
+        "preferred_local": ".proof/backfill/sources/developmental-biology/proof-source/06-NEURAL-DEVELOPMENT.tables.json"
+      },
+      "tags": [
+        "source-corpus",
+        "proof",
+        "tables",
+        "partial-custody",
+        "guide"
+      ],
+      "metadata": {
+        "source_repo": "MAXIM",
+        "module": "developmental-biology",
+        "guide": "developmental-biology/06-NEURAL-DEVELOPMENT.md",
+        "publication_state": "partial-source-custody"
+      }
+    },
+    {
+      "id": "maxim.developmental-biology.neural-development.blocks",
+      "node_kind": "fletch",
+      "shafts": [
+        {
+          "kind": "file",
+          "url": ".proof/backfill/sources/developmental-biology/proof-source/06-NEURAL-DEVELOPMENT.blocks.json"
+        }
+      ],
+      "edges": [
+        {
+          "to": "maxim.developmental-biology.neural-development.proof-source",
+          "kind": "derived-from",
+          "label": "PROOF structured block sidecar",
+          "metadata": {
+            "module": "developmental-biology",
+            "guide": "developmental-biology/06-NEURAL-DEVELOPMENT.md",
+            "custody": "partial"
+          }
+        }
+      ],
+      "format": {
+        "media_type": "application/json",
+        "encoding": "utf-8",
+        "compression": null,
+        "container": null,
+        "schema": "proof.backfill.blocks.v1",
+        "record_shape": "structured-block-sidecar",
+        "preferred_local": ".proof/backfill/sources/developmental-biology/proof-source/06-NEURAL-DEVELOPMENT.blocks.json"
+      },
+      "tags": [
+        "source-corpus",
+        "proof",
+        "blocks",
+        "partial-custody",
+        "guide"
+      ],
+      "metadata": {
+        "source_repo": "MAXIM",
+        "module": "developmental-biology",
+        "guide": "developmental-biology/06-NEURAL-DEVELOPMENT.md",
+        "publication_state": "partial-source-custody"
+      }
+    },
+    {
+      "id": "maxim.developmental-biology.stem-cells.view",
+      "node_kind": "fletch",
+      "shafts": [
+        {
+          "kind": "file",
+          "url": ".crop/views/maxim-developmental-biology-stem-cells.json"
+        }
+      ],
+      "edges": [
+        {
+          "to": "maxim.developmental-biology.source-corpus.pebble",
+          "kind": "derived-from",
+          "label": "Guide-level CROP view recipe",
+          "metadata": {
+            "module": "developmental-biology",
+            "guide": "developmental-biology/07-STEM-CELLS.md",
+            "custody": "partial"
+          }
+        }
+      ],
+      "format": {
+        "media_type": "application/json",
+        "encoding": "utf-8",
+        "compression": null,
+        "container": null,
+        "schema": "crop.view.v1",
+        "record_shape": "view-recipe",
+        "preferred_local": ".crop/views/maxim-developmental-biology-stem-cells.json"
+      },
+      "tags": [
+        "source-corpus",
+        "crop",
+        "view",
+        "partial-custody",
+        "guide"
+      ],
+      "metadata": {
+        "source_repo": "MAXIM",
+        "module": "developmental-biology",
+        "guide": "developmental-biology/07-STEM-CELLS.md",
+        "publication_state": "partial-source-custody"
+      }
+    },
+    {
+      "id": "maxim.developmental-biology.stem-cells.pebble",
+      "node_kind": "fletch",
+      "shafts": [
+        {
+          "kind": "file",
+          "url": ".pebble/packs/maxim-developmental-biology-stem-cells.pebble.json"
+        }
+      ],
+      "edges": [
+        {
+          "to": "maxim.developmental-biology.stem-cells.view",
+          "kind": "derived-from",
+          "label": "Guide-level CROP view recipe",
+          "metadata": {
+            "module": "developmental-biology",
+            "custody": "partial"
+          }
+        },
+        {
+          "to": "maxim.developmental-biology.source-corpus.pebble",
+          "kind": "derived-from",
+          "label": "Guide-level CROP view",
+          "metadata": {
+            "view": ".crop/views/maxim-developmental-biology-stem-cells.json",
+            "module": "developmental-biology",
+            "custody": "partial"
+          }
+        }
+      ],
+      "format": {
+        "media_type": "application/json",
+        "encoding": "utf-8",
+        "compression": null,
+        "container": null,
+        "schema": "pebble.v1",
+        "record_shape": "corpus-slice",
+        "preferred_local": ".pebble/packs/maxim-developmental-biology-stem-cells.pebble.json"
+      },
+      "tags": [
+        "source-corpus",
+        "crop",
+        "pebble",
+        "partial-custody",
+        "guide"
+      ],
+      "metadata": {
+        "source_repo": "MAXIM",
+        "module": "developmental-biology",
+        "guide": "developmental-biology/07-STEM-CELLS.md",
+        "publication_state": "partial-source-custody"
+      }
+    },
+    {
+      "id": "maxim.developmental-biology.stem-cells.proof-source",
+      "node_kind": "fletch",
+      "shafts": [
+        {
+          "kind": "file",
+          "url": ".proof/backfill/sources/developmental-biology/proof-source/07-STEM-CELLS.source.md"
+        }
+      ],
+      "edges": [
+        {
+          "to": "maxim.developmental-biology.stem-cells.view",
+          "kind": "derived-from",
+          "label": "Literal PROOF source for guide view",
+          "metadata": {
+            "module": "developmental-biology",
+            "guide": "developmental-biology/07-STEM-CELLS.md",
+            "custody": "partial"
+          }
+        }
+      ],
+      "format": {
+        "media_type": "text/markdown",
+        "encoding": "utf-8",
+        "compression": null,
+        "container": null,
+        "schema": "proof.source.literal_markdown.v1",
+        "record_shape": "literal-source",
+        "preferred_local": ".proof/backfill/sources/developmental-biology/proof-source/07-STEM-CELLS.source.md"
+      },
+      "tags": [
+        "source-corpus",
+        "proof",
+        "source",
+        "partial-custody",
+        "guide"
+      ],
+      "metadata": {
+        "source_repo": "MAXIM",
+        "module": "developmental-biology",
+        "guide": "developmental-biology/07-STEM-CELLS.md",
+        "publication_state": "partial-source-custody"
+      }
+    },
+    {
+      "id": "maxim.developmental-biology.stem-cells.tables",
+      "node_kind": "fletch",
+      "shafts": [
+        {
+          "kind": "file",
+          "url": ".proof/backfill/sources/developmental-biology/proof-source/07-STEM-CELLS.tables.json"
+        }
+      ],
+      "edges": [
+        {
+          "to": "maxim.developmental-biology.stem-cells.proof-source",
+          "kind": "derived-from",
+          "label": "PROOF markdown table sidecar",
+          "metadata": {
+            "module": "developmental-biology",
+            "guide": "developmental-biology/07-STEM-CELLS.md",
+            "custody": "partial"
+          }
+        }
+      ],
+      "format": {
+        "media_type": "application/json",
+        "encoding": "utf-8",
+        "compression": null,
+        "container": null,
+        "schema": "proof.backfill.tables.v1",
+        "record_shape": "table-sidecar",
+        "preferred_local": ".proof/backfill/sources/developmental-biology/proof-source/07-STEM-CELLS.tables.json"
+      },
+      "tags": [
+        "source-corpus",
+        "proof",
+        "tables",
+        "partial-custody",
+        "guide"
+      ],
+      "metadata": {
+        "source_repo": "MAXIM",
+        "module": "developmental-biology",
+        "guide": "developmental-biology/07-STEM-CELLS.md",
+        "publication_state": "partial-source-custody"
+      }
+    },
+    {
+      "id": "maxim.developmental-biology.stem-cells.blocks",
+      "node_kind": "fletch",
+      "shafts": [
+        {
+          "kind": "file",
+          "url": ".proof/backfill/sources/developmental-biology/proof-source/07-STEM-CELLS.blocks.json"
+        }
+      ],
+      "edges": [
+        {
+          "to": "maxim.developmental-biology.stem-cells.proof-source",
+          "kind": "derived-from",
+          "label": "PROOF structured block sidecar",
+          "metadata": {
+            "module": "developmental-biology",
+            "guide": "developmental-biology/07-STEM-CELLS.md",
+            "custody": "partial"
+          }
+        }
+      ],
+      "format": {
+        "media_type": "application/json",
+        "encoding": "utf-8",
+        "compression": null,
+        "container": null,
+        "schema": "proof.backfill.blocks.v1",
+        "record_shape": "structured-block-sidecar",
+        "preferred_local": ".proof/backfill/sources/developmental-biology/proof-source/07-STEM-CELLS.blocks.json"
+      },
+      "tags": [
+        "source-corpus",
+        "proof",
+        "blocks",
+        "partial-custody",
+        "guide"
+      ],
+      "metadata": {
+        "source_repo": "MAXIM",
+        "module": "developmental-biology",
+        "guide": "developmental-biology/07-STEM-CELLS.md",
+        "publication_state": "partial-source-custody"
+      }
+    },
+    {
+      "id": "maxim.developmental-biology.ipscs.view",
+      "node_kind": "fletch",
+      "shafts": [
+        {
+          "kind": "file",
+          "url": ".crop/views/maxim-developmental-biology-ipscs.json"
+        }
+      ],
+      "edges": [
+        {
+          "to": "maxim.developmental-biology.source-corpus.pebble",
+          "kind": "derived-from",
+          "label": "Guide-level CROP view recipe",
+          "metadata": {
+            "module": "developmental-biology",
+            "guide": "developmental-biology/08-IPSCS.md",
+            "custody": "partial"
+          }
+        }
+      ],
+      "format": {
+        "media_type": "application/json",
+        "encoding": "utf-8",
+        "compression": null,
+        "container": null,
+        "schema": "crop.view.v1",
+        "record_shape": "view-recipe",
+        "preferred_local": ".crop/views/maxim-developmental-biology-ipscs.json"
+      },
+      "tags": [
+        "source-corpus",
+        "crop",
+        "view",
+        "partial-custody",
+        "guide"
+      ],
+      "metadata": {
+        "source_repo": "MAXIM",
+        "module": "developmental-biology",
+        "guide": "developmental-biology/08-IPSCS.md",
+        "publication_state": "partial-source-custody"
+      }
+    },
+    {
+      "id": "maxim.developmental-biology.ipscs.pebble",
+      "node_kind": "fletch",
+      "shafts": [
+        {
+          "kind": "file",
+          "url": ".pebble/packs/maxim-developmental-biology-ipscs.pebble.json"
+        }
+      ],
+      "edges": [
+        {
+          "to": "maxim.developmental-biology.ipscs.view",
+          "kind": "derived-from",
+          "label": "Guide-level CROP view recipe",
+          "metadata": {
+            "module": "developmental-biology",
+            "custody": "partial"
+          }
+        },
+        {
+          "to": "maxim.developmental-biology.source-corpus.pebble",
+          "kind": "derived-from",
+          "label": "Guide-level CROP view",
+          "metadata": {
+            "view": ".crop/views/maxim-developmental-biology-ipscs.json",
+            "module": "developmental-biology",
+            "custody": "partial"
+          }
+        }
+      ],
+      "format": {
+        "media_type": "application/json",
+        "encoding": "utf-8",
+        "compression": null,
+        "container": null,
+        "schema": "pebble.v1",
+        "record_shape": "corpus-slice",
+        "preferred_local": ".pebble/packs/maxim-developmental-biology-ipscs.pebble.json"
+      },
+      "tags": [
+        "source-corpus",
+        "crop",
+        "pebble",
+        "partial-custody",
+        "guide"
+      ],
+      "metadata": {
+        "source_repo": "MAXIM",
+        "module": "developmental-biology",
+        "guide": "developmental-biology/08-IPSCS.md",
+        "publication_state": "partial-source-custody"
+      }
+    },
+    {
+      "id": "maxim.developmental-biology.ipscs.proof-source",
+      "node_kind": "fletch",
+      "shafts": [
+        {
+          "kind": "file",
+          "url": ".proof/backfill/sources/developmental-biology/proof-source/08-IPSCS.source.md"
+        }
+      ],
+      "edges": [
+        {
+          "to": "maxim.developmental-biology.ipscs.view",
+          "kind": "derived-from",
+          "label": "Literal PROOF source for guide view",
+          "metadata": {
+            "module": "developmental-biology",
+            "guide": "developmental-biology/08-IPSCS.md",
+            "custody": "partial"
+          }
+        }
+      ],
+      "format": {
+        "media_type": "text/markdown",
+        "encoding": "utf-8",
+        "compression": null,
+        "container": null,
+        "schema": "proof.source.literal_markdown.v1",
+        "record_shape": "literal-source",
+        "preferred_local": ".proof/backfill/sources/developmental-biology/proof-source/08-IPSCS.source.md"
+      },
+      "tags": [
+        "source-corpus",
+        "proof",
+        "source",
+        "partial-custody",
+        "guide"
+      ],
+      "metadata": {
+        "source_repo": "MAXIM",
+        "module": "developmental-biology",
+        "guide": "developmental-biology/08-IPSCS.md",
+        "publication_state": "partial-source-custody"
+      }
+    },
+    {
+      "id": "maxim.developmental-biology.ipscs.tables",
+      "node_kind": "fletch",
+      "shafts": [
+        {
+          "kind": "file",
+          "url": ".proof/backfill/sources/developmental-biology/proof-source/08-IPSCS.tables.json"
+        }
+      ],
+      "edges": [
+        {
+          "to": "maxim.developmental-biology.ipscs.proof-source",
+          "kind": "derived-from",
+          "label": "PROOF markdown table sidecar",
+          "metadata": {
+            "module": "developmental-biology",
+            "guide": "developmental-biology/08-IPSCS.md",
+            "custody": "partial"
+          }
+        }
+      ],
+      "format": {
+        "media_type": "application/json",
+        "encoding": "utf-8",
+        "compression": null,
+        "container": null,
+        "schema": "proof.backfill.tables.v1",
+        "record_shape": "table-sidecar",
+        "preferred_local": ".proof/backfill/sources/developmental-biology/proof-source/08-IPSCS.tables.json"
+      },
+      "tags": [
+        "source-corpus",
+        "proof",
+        "tables",
+        "partial-custody",
+        "guide"
+      ],
+      "metadata": {
+        "source_repo": "MAXIM",
+        "module": "developmental-biology",
+        "guide": "developmental-biology/08-IPSCS.md",
+        "publication_state": "partial-source-custody"
+      }
+    },
+    {
+      "id": "maxim.developmental-biology.ipscs.blocks",
+      "node_kind": "fletch",
+      "shafts": [
+        {
+          "kind": "file",
+          "url": ".proof/backfill/sources/developmental-biology/proof-source/08-IPSCS.blocks.json"
+        }
+      ],
+      "edges": [
+        {
+          "to": "maxim.developmental-biology.ipscs.proof-source",
+          "kind": "derived-from",
+          "label": "PROOF structured block sidecar",
+          "metadata": {
+            "module": "developmental-biology",
+            "guide": "developmental-biology/08-IPSCS.md",
+            "custody": "partial"
+          }
+        }
+      ],
+      "format": {
+        "media_type": "application/json",
+        "encoding": "utf-8",
+        "compression": null,
+        "container": null,
+        "schema": "proof.backfill.blocks.v1",
+        "record_shape": "structured-block-sidecar",
+        "preferred_local": ".proof/backfill/sources/developmental-biology/proof-source/08-IPSCS.blocks.json"
+      },
+      "tags": [
+        "source-corpus",
+        "proof",
+        "blocks",
+        "partial-custody",
+        "guide"
+      ],
+      "metadata": {
+        "source_repo": "MAXIM",
+        "module": "developmental-biology",
+        "guide": "developmental-biology/08-IPSCS.md",
+        "publication_state": "partial-source-custody"
+      }
+    },
+    {
+      "id": "maxim.developmental-biology.regeneration.view",
+      "node_kind": "fletch",
+      "shafts": [
+        {
+          "kind": "file",
+          "url": ".crop/views/maxim-developmental-biology-regeneration.json"
+        }
+      ],
+      "edges": [
+        {
+          "to": "maxim.developmental-biology.source-corpus.pebble",
+          "kind": "derived-from",
+          "label": "Guide-level CROP view recipe",
+          "metadata": {
+            "module": "developmental-biology",
+            "guide": "developmental-biology/09-REGENERATION.md",
+            "custody": "partial"
+          }
+        }
+      ],
+      "format": {
+        "media_type": "application/json",
+        "encoding": "utf-8",
+        "compression": null,
+        "container": null,
+        "schema": "crop.view.v1",
+        "record_shape": "view-recipe",
+        "preferred_local": ".crop/views/maxim-developmental-biology-regeneration.json"
+      },
+      "tags": [
+        "source-corpus",
+        "crop",
+        "view",
+        "partial-custody",
+        "guide"
+      ],
+      "metadata": {
+        "source_repo": "MAXIM",
+        "module": "developmental-biology",
+        "guide": "developmental-biology/09-REGENERATION.md",
+        "publication_state": "partial-source-custody"
+      }
+    },
+    {
+      "id": "maxim.developmental-biology.regeneration.pebble",
+      "node_kind": "fletch",
+      "shafts": [
+        {
+          "kind": "file",
+          "url": ".pebble/packs/maxim-developmental-biology-regeneration.pebble.json"
+        }
+      ],
+      "edges": [
+        {
+          "to": "maxim.developmental-biology.regeneration.view",
+          "kind": "derived-from",
+          "label": "Guide-level CROP view recipe",
+          "metadata": {
+            "module": "developmental-biology",
+            "custody": "partial"
+          }
+        },
+        {
+          "to": "maxim.developmental-biology.source-corpus.pebble",
+          "kind": "derived-from",
+          "label": "Guide-level CROP view",
+          "metadata": {
+            "view": ".crop/views/maxim-developmental-biology-regeneration.json",
+            "module": "developmental-biology",
+            "custody": "partial"
+          }
+        }
+      ],
+      "format": {
+        "media_type": "application/json",
+        "encoding": "utf-8",
+        "compression": null,
+        "container": null,
+        "schema": "pebble.v1",
+        "record_shape": "corpus-slice",
+        "preferred_local": ".pebble/packs/maxim-developmental-biology-regeneration.pebble.json"
+      },
+      "tags": [
+        "source-corpus",
+        "crop",
+        "pebble",
+        "partial-custody",
+        "guide"
+      ],
+      "metadata": {
+        "source_repo": "MAXIM",
+        "module": "developmental-biology",
+        "guide": "developmental-biology/09-REGENERATION.md",
+        "publication_state": "partial-source-custody"
+      }
+    },
+    {
+      "id": "maxim.developmental-biology.regeneration.proof-source",
+      "node_kind": "fletch",
+      "shafts": [
+        {
+          "kind": "file",
+          "url": ".proof/backfill/sources/developmental-biology/proof-source/09-REGENERATION.source.md"
+        }
+      ],
+      "edges": [
+        {
+          "to": "maxim.developmental-biology.regeneration.view",
+          "kind": "derived-from",
+          "label": "Literal PROOF source for guide view",
+          "metadata": {
+            "module": "developmental-biology",
+            "guide": "developmental-biology/09-REGENERATION.md",
+            "custody": "partial"
+          }
+        }
+      ],
+      "format": {
+        "media_type": "text/markdown",
+        "encoding": "utf-8",
+        "compression": null,
+        "container": null,
+        "schema": "proof.source.literal_markdown.v1",
+        "record_shape": "literal-source",
+        "preferred_local": ".proof/backfill/sources/developmental-biology/proof-source/09-REGENERATION.source.md"
+      },
+      "tags": [
+        "source-corpus",
+        "proof",
+        "source",
+        "partial-custody",
+        "guide"
+      ],
+      "metadata": {
+        "source_repo": "MAXIM",
+        "module": "developmental-biology",
+        "guide": "developmental-biology/09-REGENERATION.md",
+        "publication_state": "partial-source-custody"
+      }
+    },
+    {
+      "id": "maxim.developmental-biology.regeneration.tables",
+      "node_kind": "fletch",
+      "shafts": [
+        {
+          "kind": "file",
+          "url": ".proof/backfill/sources/developmental-biology/proof-source/09-REGENERATION.tables.json"
+        }
+      ],
+      "edges": [
+        {
+          "to": "maxim.developmental-biology.regeneration.proof-source",
+          "kind": "derived-from",
+          "label": "PROOF markdown table sidecar",
+          "metadata": {
+            "module": "developmental-biology",
+            "guide": "developmental-biology/09-REGENERATION.md",
+            "custody": "partial"
+          }
+        }
+      ],
+      "format": {
+        "media_type": "application/json",
+        "encoding": "utf-8",
+        "compression": null,
+        "container": null,
+        "schema": "proof.backfill.tables.v1",
+        "record_shape": "table-sidecar",
+        "preferred_local": ".proof/backfill/sources/developmental-biology/proof-source/09-REGENERATION.tables.json"
+      },
+      "tags": [
+        "source-corpus",
+        "proof",
+        "tables",
+        "partial-custody",
+        "guide"
+      ],
+      "metadata": {
+        "source_repo": "MAXIM",
+        "module": "developmental-biology",
+        "guide": "developmental-biology/09-REGENERATION.md",
+        "publication_state": "partial-source-custody"
+      }
+    },
+    {
+      "id": "maxim.developmental-biology.regeneration.blocks",
+      "node_kind": "fletch",
+      "shafts": [
+        {
+          "kind": "file",
+          "url": ".proof/backfill/sources/developmental-biology/proof-source/09-REGENERATION.blocks.json"
+        }
+      ],
+      "edges": [
+        {
+          "to": "maxim.developmental-biology.regeneration.proof-source",
+          "kind": "derived-from",
+          "label": "PROOF structured block sidecar",
+          "metadata": {
+            "module": "developmental-biology",
+            "guide": "developmental-biology/09-REGENERATION.md",
+            "custody": "partial"
+          }
+        }
+      ],
+      "format": {
+        "media_type": "application/json",
+        "encoding": "utf-8",
+        "compression": null,
+        "container": null,
+        "schema": "proof.backfill.blocks.v1",
+        "record_shape": "structured-block-sidecar",
+        "preferred_local": ".proof/backfill/sources/developmental-biology/proof-source/09-REGENERATION.blocks.json"
+      },
+      "tags": [
+        "source-corpus",
+        "proof",
+        "blocks",
+        "partial-custody",
+        "guide"
+      ],
+      "metadata": {
+        "source_repo": "MAXIM",
+        "module": "developmental-biology",
+        "guide": "developmental-biology/09-REGENERATION.md",
+        "publication_state": "partial-source-custody"
+      }
+    }
+  ]
+}

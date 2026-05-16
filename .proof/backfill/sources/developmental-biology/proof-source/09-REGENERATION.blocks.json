@@ -1,0 +1,116 @@
+{
+  "schema_version": "1",
+  "source_markdown": "developmental-biology\\09-REGENERATION.md",
+  "blocks": [
+    {
+      "id": "block-1",
+      "kind": "ascii_table_candidate",
+      "line": 26,
+      "heading_context": "## The Big Picture",
+      "confidence": "candidate",
+      "text": "+──────────────────────────────────────────────────────────────────+\n|              REGENERATION CAPACITY SPECTRUM                      |\n+──────────────────────────────────────────────────────────────────+\n|                                                                  |\n|  HIGHEST                                                LOWEST   |\n|  ◄──────────────────────────────────────────────────────────►   |\n|                                                                  |\n|  Planaria     Hydra      Axolotl   Zebrafish  Mouse    Human    |\n|  (flatworm)   (polyp)    (salamdr) (fish)     (mammal) (mammal) |\n|                                                                  |\n|  Whole-body   Any        Limbs,    Heart,     Liver,   Liver    |\n|  from 1/279   fragment   heart,    retina,    skin,    only     |\n|  piece                   lens,     fins       blood            |\n|                          tail                                    |\n|                                                                  |\n|  MECHANISM                                                       |\n|  Neoblasts    Cell       Blastema  Blastema   Compen-  Minimal  |\n|  (true stem)  turnover   from      formation  satory   fibrosis |\n|                          dediff.   w/reserves hyperpla default  |\n+──────────────────────────────────────────────────────────────────+",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-2",
+      "kind": "diagram_like",
+      "line": 53,
+      "heading_context": "## Engineering Bridge: Regeneration as Fault Tolerance Strategies",
+      "confidence": "candidate",
+      "text": "  REGENERATION STRATEGY         FAULT TOLERANCE PARALLEL\n  ──────────────────────────────────────────────────────────────────────\n  Planaria (full body from       Full state reconstruction from checkpoint:\n  1/279th fragment)              Every neoblast contains the complete\n                                blueprint. Any surviving fragment has enough\n                                state to rebuild the whole system. Like RAID-6:\n                                can reconstruct from any two surviving disks.\n                                Cost: maintaining a large population of\n                                totipotent stem cells (neoblasts = ~20-30%\n                                of cells). Very expensive but maximally\n                                fault-tolerant.\n\n  Axolotl limb regeneration     Full state reset with partial reconstruction:\n  (blastema from dedifferentiated  Surviving cells near the amputation plane\n  cells)                         dedifferentiate → form a blastema → rebuild.\n                                This is not just stem cells proliferating —\n                                it's committed cells REVERTING to a\n                                progenitor state. Like a partial factory\n                                reset: committed workers un-commit and\n                                relearn. Expensive epigenetically.\n\n  Zebrafish heart regeneration   Hot-standby with cardiomyocyte proliferation:\n                                Adult zebrafish cardiomyocytes can re-enter\n                                the cell cycle after injury (humans cannot).\n                                Regeneration is complete within 60 days.\n                                Like a hot-standby failover: the reserve\n                                capacity exists and can be activated.\n\n  Mammalian liver regeneration   Compensatory autoscaling:\n  (partial hepatectomy → full    70% hepatectomy → remaining hepatocytes\n  mass restoration in 2 weeks)   proliferate to restore mass.\n                                Controlled by: HGF, TGF-α, IL-6, TNF-α.\n                                Termination: TGF-β feedback + restored\n                                portal blood flow → growth arrest.\n                                Exactly: health-check-based autoscaling\n                                with a setpoint metric (liver mass/function).\n\n  Mammalian wound healing        Fail-fast with degraded service (scar):\n  (fibrotic default)             Inflammatory response → fibroblast\n                                activation → collagen III deposition →\n                                scar. Scar tissue: structurally stable,\n                                functionally inferior (no hair follicles,\n                                reduced elasticity). System is restored\n                                to a degraded-service mode quickly rather\n                                than waiting for full repair.\n                                Why: evolutionary pressure favors fast\n                                closure over perfect repair (prevent\n                                infection > restore function).\n\n  Intercalation rule             Gap-fill interpolation:\n  (polar coordinate model)       Missing tissue between positions 3 and 7\n                                → cells interpolate values 4, 5, 6.\n                                Not \"regenerate from scratch\" but \"fill\n                                the gap by interpolation.\" Positional\n                                information is an address space; missing\n                                addresses are filled by counting between\n                                neighbors.\n  ──────────────────────────────────────────────────────────────────────",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-3",
+      "kind": "ascii_table_candidate",
+      "line": 118,
+      "heading_context": "## Engineering Bridge: Regeneration as Fault Tolerance Strategies",
+      "confidence": "candidate",
+      "text": "+────────────────────────────────────────────────────────────────+\n|  EPIMORPHIC        MORPHALLACTIC      COMPENSATORY             |\n|  ───────────────   ──────────────     ─────────────────────    |\n|  New tissue        Existing tissue    Remaining cells          |\n|  grows from        remodels into      proliferate to           |\n|  wound surface     missing part       restore mass             |\n|                                                                |\n|  Examples:         Examples:          Examples:                |\n|  Limb regen        Hydra (mostly)     Liver after              |\n|  (salamander)      Planaria (partly)  partial hepatectomy      |\n|                                                                |\n|  Requires:         Requires:          Requires:                |\n|  Blastema          Pattern-level      Functional               |\n|  formation         respecification    compensation             |\n+────────────────────────────────────────────────────────────────+",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-4",
+      "kind": "ascii_table_candidate",
+      "line": 142,
+      "heading_context": "## Planaria: The Gold Standard",
+      "confidence": "candidate",
+      "text": "+──────────────────────────────────────────────────────────────────+\n|              PLANARIAN REGENERATION MECHANISM                    |\n+──────────────────────────────────────────────────────────────────+\n|                                                                  |\n|  1. WOUND RESPONSE (0–6 hr)                                      |\n|     Muscle cells contract → wound epidermis forms               |\n|     ROS burst (hydrogen peroxide) activates neoblasts           |\n|                                                                  |\n|  2. NEOBLAST RESPONSE (6–24 hr)                                  |\n|     Neoblasts proliferate, migrate toward wound                 |\n|     Neoblast subtypes (sigma, zeta, gamma classes) specified     |\n|                                                                  |\n|  3. BLASTEMA FORMATION (1–3 days)                                |\n|     Accumulation of undifferentiated proliferating cells        |\n|     WNT posterior signal / NOTUM anterior signal re-established |\n|                                                                  |\n|  4. PATTERNING (3–7 days)                                        |\n|     Positional information re-read from body-wall muscles        |\n|     Muscle cells express positional transcription factors        |\n|     HOX-like collinear system defines AP axis                   |\n|                                                                  |\n|  5. MORPHALLAXIS (ongoing)                                       |\n|     Old tissue remodeled proportionally                         |\n|     Final size reflects food-dependent stem cell balance        |\n+──────────────────────────────────────────────────────────────────+",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-5",
+      "kind": "ascii_table_candidate",
+      "line": 180,
+      "heading_context": "## Hydra: Continuous Regeneration",
+      "confidence": "candidate",
+      "text": "+────────────────────────────────────────────────────────────────+\n|  HYDRA BODY AXIS MAINTENANCE                                   |\n|                                                                |\n|  HEAD ──── WNT gradient ────────────────────── FOOT            |\n|            High WNT at head organizer                          |\n|            β-catenin nuclear at tip                            |\n|            Gradient maintained by DKK inhibitor gradient       |\n|                                                                |\n|  Remove head → WNT re-activates at cut end → new head forms    |\n|  (within 3 days in decapitated animals)                        |\n|                                                                |\n|  Bisect → anterior half: re-establishes foot polarity          |\n|         → posterior half: re-establishes head polarity         |\n|  Morphallactic: no new cell mass needed, remodels existing     |\n+────────────────────────────────────────────────────────────────+",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-6",
+      "kind": "ascii_table_candidate",
+      "line": 206,
+      "heading_context": "## Salamander/Axolotl: Vertebrate Epimorphic Regeneration",
+      "confidence": "candidate",
+      "text": "+──────────────────────────────────────────────────────────────────+\n|              AXOLOTL LIMB REGENERATION STAGES                    |\n+──────────────────────────────────────────────────────────────────+\n|                                                                  |\n|  AMPUTATION                                                      |\n|       ↓                                                          |\n|  WOUND HEALING (0–48 hr)                                         |\n|  Epidermal cells migrate (not fibroblasts) → Wound Epidermis    |\n|  No blood clot or scar — key difference from mammals            |\n|       ↓                                                          |\n|  HISTOLYSIS & DEDIFFERENTIATION (2–5 days)                       |\n|  Mature cells near stump dedifferentiate → proliferating        |\n|  progenitor pool. Muscle satellite cells, periosteal cells,     |\n|  Schwann cells all contribute. Lineage-restricted (not         |\n|  fully pluripotent — muscle gives muscle, not cartilage)        |\n|       ↓                                                          |\n|  BLASTEMA FORMATION (5–10 days)                                  |\n|  Wound Epidermis → Apical Epithelial Cap (AEC)                  |\n|  AEC signals FGF8/10 → sustains blastema proliferation         |\n|  Nerves supply nAG (newt Anterior Gradient protein) — critical  |\n|  Denervation = no blastema                                       |\n|       ↓                                                          |\n|  PATTERNING (10–30 days)                                         |\n|  Positional identity retained in blastema cells                 |\n|  RA (retinoic acid) proximalizes identity                       |\n|  WNT/FGF gradient re-establishes PD axis                       |\n|  Meis/Hoxa/Hoxd re-expressed collinearly                       |\n|       ↓                                                          |\n|  REDIFFERENTIATION & GROWTH (30–60 days)                         |\n|  Blastema redifferentiates into muscle, bone, skin, nerves      |\n|  Perfect positional fidelity — right fingers regenerate on     |\n|  right hand, regardless of blastema mixing experiments         |\n+──────────────────────────────────────────────────────────────────+",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-7",
+      "kind": "ascii_table_candidate",
+      "line": 252,
+      "heading_context": "## Zebrafish Heart Regeneration",
+      "confidence": "candidate",
+      "text": "+────────────────────────────────────────────────────────────────+\n|  ZEBRAFISH CARDIAC REGENERATION                                |\n+────────────────────────────────────────────────────────────────+\n|                                                                 |\n|  INJURY (resection or cryoinjury)                               |\n|       ↓                                                         |\n|  Epicardial activation (within hours)                           |\n|  Epicardium upregulates EPDC markers, releases FGF/PDGF        |\n|       ↓                                                         |\n|  Cardiomyocyte dedifferentiation + proliferation               |\n|  Sarcomere disassembly, re-entry into cell cycle               |\n|  Source: pre-existing cardiomyocytes (lineage-traced)          |\n|  NOT cardiac stem cells (controversial field in mammals)       |\n|       ↓                                                         |\n|  Transient fibrin clot (≠ permanent scar)                       |\n|  Fibrinolytic remodeling coupled to CM migration               |\n|       ↓                                                         |\n|  New myocardium — normal electrophysiology restored            |\n|                                                                 |\n|  KEY SIGNALS: PDGF, FGF, BMP, NRG1, Notch, Hippo pathway      |\n|  HIPPO OFF → YAP nuclear → cardiomyocyte proliferation         |\n|  In mammals: Hippo pathway constitutively active → no prolif.  |\n+────────────────────────────────────────────────────────────────+",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-8",
+      "kind": "ascii_table_candidate",
+      "line": 286,
+      "heading_context": "## Why Mammals Can't (Mostly)",
+      "confidence": "candidate",
+      "text": "+──────────────────────────────────────────────────────────────────+\n|              WHY MAMMALIAN REGENERATION IS LIMITED               |\n+──────────────────────────────────────────────────────────────────+\n|                                                                  |\n|  IMMUNE SYSTEM MISMATCH                                          |\n|  Mammals: robust adaptive + innate immunity                     |\n|  Blastema formation requires suppressing immune rejection of     |\n|  \"dedifferentiated self\" — evolutionarily difficult             |\n|  Salamander: complement system suppressed at wound site         |\n|                                                                  |\n|  FIBROSIS DEFAULT                                                |\n|  Mammalian wound healing: myofibroblasts deposit collagen I/III |\n|  Rapid closure > perfect restoration (evolutionary priority     |\n|  for warm-blooded, high-metabolic-cost organisms)               |\n|  TGF-β → fibrosis; in salamander TGF-β → regeneration          |\n|                                                                  |\n|  OXIDATIVE STRESS & TERMINAL DIFFERENTIATION                    |\n|  High oxygen → ROS → p21/p16 → permanent G1 arrest             |\n|  Cardiomyocytes, neurons: post-mitotic in adult mammals         |\n|  Cell cycle re-entry = cancer risk at high metabolic rate       |\n|                                                                  |\n|  POSITIONAL INFORMATION LOSS                                     |\n|  Mammalian connective tissue cells lose positional identity     |\n|  faster than salamander equivalents                             |\n|  HOX gene expression not maintained in adult fibroblasts        |\n|                                                                  |\n|  EVOLUTIONARY COST-BENEFIT                                       |\n|  Regeneration is metabolically expensive and slow               |\n|  Mammals: endothermic, high metabolic rate → scar faster,       |\n|  keep moving, survive predation                                  |\n|  Axolotl: ectothermic, aquatic, less predation pressure,        |\n|  can afford 60-day limb regeneration                            |\n+──────────────────────────────────────────────────────────────────+",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-9",
+      "kind": "ascii_table_candidate",
+      "line": 334,
+      "heading_context": "## Molecular Machinery: Shared Themes",
+      "confidence": "candidate",
+      "text": "+────────────────────────────────────────────────────────────────+\n|  CONSERVED REGENERATION SIGNALS                                |\n+─────────────────────────────────┬──────────────────────────────+\n|  PATHWAY          ROLE          |  NOTES                       |\n+─────────────────────────────────┼──────────────────────────────+\n|  WNT/β-catenin    AP axis,      |  Posterior in planaria;      |\n|                   proliferation |  blastema in axolotl         |\n+─────────────────────────────────┼──────────────────────────────+\n|  BMP              DV axis,      |  Agonist in some contexts,   |\n|                   differentiation| antagonist in others        |\n+─────────────────────────────────┼──────────────────────────────+\n|  FGF              Blastema      |  FGF8/10 from AEC in limb;   |\n|                   proliferation |  FGF from epicardium in heart|\n+─────────────────────────────────┼──────────────────────────────+\n|  Notch            Boundary      |  Somite boundaries, retinal  |\n|                   formation     |  progenitors                 |\n+─────────────────────────────────┼──────────────────────────────+\n|  Hippo/YAP        Organ size    |  YAP nuclear → proliferation |\n|                   control       |  Hippo-ON stops it           |\n+─────────────────────────────────┼──────────────────────────────+\n|  Retinoic Acid    Proximal-     |  Proximalizes blastema       |\n|                   distal        |  identity; too much RA →     |\n|                   identity      |  duplicate proximal elements |\n+─────────────────────────────────┼──────────────────────────────+\n|  Reactive Oxygen  Wound         |  H₂O₂ gradient required for  |\n|  Species          signaling     |  neoblast activation;        |\n|                                 |  also blocks mammalian regen |\n+────────────────────────────────────────────────────────────────+",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-10",
+      "kind": "ascii_table_candidate",
+      "line": 372,
+      "heading_context": "## Regenerative Medicine Implications",
+      "confidence": "candidate",
+      "text": "+──────────────────────────────────────────────────────────────────+\n|              FROM SALAMANDER TO CLINIC                           |\n+──────────────────────────────────────────────────────────────────+\n|                                                                  |\n|  APPROACH                  STRATEGY                  STATUS      |\n|  ─────────────────────────────────────────────────────────────  |\n|  Fibrosis inhibition       TGF-β blockade to         Trials     |\n|                            shift wound toward        (pirfeni-  |\n|                            regeneration              done, etc.)|\n|                                                                  |\n|  Hippo pathway             YAP activation in         Preclin.   |\n|  manipulation              cardiac CM → prolif.                  |\n|                                                                  |\n|  Macrophage                M1→M2 transition          Emerging   |\n|  polarization              suppresses fibrosis                   |\n|                                                                  |\n|  Extracellular matrix      ECM scaffolds provide     Clinical   |\n|  scaffolds                 positional template       (bladder,  |\n|                            (Badylak lab)             esophagus) |\n|                                                                  |\n|  mRNA + small molecule     Transiently reprogram     Preclin.   |\n|  reprogramming             fibroblasts in situ       (Yamanaka  |\n|                            (partial reprogramming)   factors    |\n|                                                                  |\n|  iPSC-derived              Generate organ-specific  Clinical:   |\n|  organoids                 tissue in vitro           limited     |\n+──────────────────────────────────────────────────────────────────+",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    }
+  ]
+}
