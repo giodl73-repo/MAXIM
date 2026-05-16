@@ -1,3 +1,22 @@
+---
+maxim_schema: maxim.frontmatter.v1
+id: maxim:sports-science:nutrition-performance
+kind: guide
+module: sports-science
+section: sports-science
+title: Sports Nutrition and Ergogenic Aids
+status: source-custody
+source_custody: partial
+current_path: sports-science/06-NUTRITION-PERFORMANCE.md
+canonical_path: sports-science/06-NUTRITION-PERFORMANCE.md
+backsource_ids: [proof-backfill:sports-science:06-nutrition-performance, git-history:sports-science:06-nutrition-performance]
+concepts: [nutrition, performance]
+root_concepts: [nutrition, performance]
+index_roles: [guide, root-concept]
+remap_from: []
+remap_to: []
+updated: null
+---
 # Sports Nutrition and Ergogenic Aids
 
 ## The Big Picture

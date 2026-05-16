@@ -1,3 +1,22 @@
+---
+maxim_schema: maxim.frontmatter.v1
+id: maxim:sports-science:training-periodization
+kind: guide
+module: sports-science
+section: sports-science
+title: Training Theory and Periodization
+status: source-custody
+source_custody: partial
+current_path: sports-science/05-TRAINING-PERIODIZATION.md
+canonical_path: sports-science/05-TRAINING-PERIODIZATION.md
+backsource_ids: [proof-backfill:sports-science:05-training-periodization, git-history:sports-science:05-training-periodization]
+concepts: [training, periodization]
+root_concepts: [training, periodization]
+index_roles: [guide, root-concept]
+remap_from: []
+remap_to: []
+updated: null
+---
 # Training Theory and Periodization
 
 ## The Big Picture

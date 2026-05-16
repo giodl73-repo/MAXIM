@@ -1,3 +1,22 @@
+---
+maxim_schema: maxim.frontmatter.v1
+id: maxim:sports-science:overview
+kind: guide
+module: sports-science
+section: sports-science
+title: Sports Science - Landscape and Taxonomy
+status: source-custody
+source_custody: partial
+current_path: sports-science/00-OVERVIEW.md
+canonical_path: sports-science/00-OVERVIEW.md
+backsource_ids: [proof-backfill:sports-science:00-overview, git-history:sports-science:00-overview]
+concepts: [overview]
+root_concepts: [overview]
+index_roles: [guide, root-concept]
+remap_from: []
+remap_to: []
+updated: null
+---
 # Sports Science — Landscape and Taxonomy
 
 ## The Big Picture

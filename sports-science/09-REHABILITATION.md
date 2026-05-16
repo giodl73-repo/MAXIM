@@ -1,3 +1,22 @@
+---
+maxim_schema: maxim.frontmatter.v1
+id: maxim:sports-science:rehabilitation
+kind: guide
+module: sports-science
+section: sports-science
+title: Injury, Rehabilitation, and Return-to-Play
+status: source-custody
+source_custody: partial
+current_path: sports-science/09-REHABILITATION.md
+canonical_path: sports-science/09-REHABILITATION.md
+backsource_ids: [proof-backfill:sports-science:09-rehabilitation, git-history:sports-science:09-rehabilitation]
+concepts: [rehabilitation]
+root_concepts: [rehabilitation]
+index_roles: [guide, root-concept]
+remap_from: []
+remap_to: []
+updated: null
+---
 # Injury, Rehabilitation, and Return-to-Play
 
 ## The Big Picture

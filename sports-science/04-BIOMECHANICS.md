@@ -1,3 +1,22 @@
+---
+maxim_schema: maxim.frontmatter.v1
+id: maxim:sports-science:biomechanics
+kind: guide
+module: sports-science
+section: sports-science
+title: Biomechanics and Movement Analysis
+status: source-custody
+source_custody: partial
+current_path: sports-science/04-BIOMECHANICS.md
+canonical_path: sports-science/04-BIOMECHANICS.md
+backsource_ids: [proof-backfill:sports-science:04-biomechanics, git-history:sports-science:04-biomechanics]
+concepts: [biomechanics]
+root_concepts: [biomechanics]
+index_roles: [guide, root-concept]
+remap_from: []
+remap_to: []
+updated: null
+---
 # Biomechanics and Movement Analysis
 
 ## The Big Picture

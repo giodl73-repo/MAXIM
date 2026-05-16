@@ -1,3 +1,22 @@
+---
+maxim_schema: maxim.frontmatter.v1
+id: maxim:sports-science:strength-power
+kind: guide
+module: sports-science
+section: sports-science
+title: Strength and Power: Neuromuscular Adaptations
+status: source-custody
+source_custody: partial
+current_path: sports-science/03-STRENGTH-POWER.md
+canonical_path: sports-science/03-STRENGTH-POWER.md
+backsource_ids: [proof-backfill:sports-science:03-strength-power, git-history:sports-science:03-strength-power]
+concepts: [strength, power]
+root_concepts: [strength, power]
+index_roles: [guide, root-concept]
+remap_from: []
+remap_to: []
+updated: null
+---
 # Strength and Power: Neuromuscular Adaptations
 
 ## The Big Picture

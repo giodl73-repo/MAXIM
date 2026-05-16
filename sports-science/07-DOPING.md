@@ -1,3 +1,22 @@
+---
+maxim_schema: maxim.frontmatter.v1
+id: maxim:sports-science:doping
+kind: guide
+module: sports-science
+section: sports-science
+title: Doping Biochemistry: Mechanisms and Detection
+status: source-custody
+source_custody: partial
+current_path: sports-science/07-DOPING.md
+canonical_path: sports-science/07-DOPING.md
+backsource_ids: [proof-backfill:sports-science:07-doping, git-history:sports-science:07-doping]
+concepts: [doping]
+root_concepts: [doping]
+index_roles: [guide, root-concept]
+remap_from: []
+remap_to: []
+updated: null
+---
 # Doping Biochemistry: Mechanisms and Detection
 
 ## The Big Picture

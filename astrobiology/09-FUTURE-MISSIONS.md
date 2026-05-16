@@ -1,3 +1,22 @@
+---
+maxim_schema: maxim.frontmatter.v1
+id: maxim:astrobiology:future-missions
+kind: guide
+module: astrobiology
+section: astrobiology
+title: Future Missions: Europa, Enceladus, and Beyond
+status: source-custody
+source_custody: partial
+current_path: astrobiology/09-FUTURE-MISSIONS.md
+canonical_path: astrobiology/09-FUTURE-MISSIONS.md
+backsource_ids: [proof-backfill:astrobiology:09-future-missions, git-history:astrobiology:09-future-missions]
+concepts: [future, missions]
+root_concepts: [future, missions]
+index_roles: [guide, root-concept]
+remap_from: []
+remap_to: []
+updated: null
+---
 # Future Missions: Europa, Enceladus, and Beyond
 
 ## The Big Picture
