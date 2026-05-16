@@ -1,0 +1,83 @@
+{
+  "schema_version": "1",
+  "source_markdown": "hvac\\09-EFFICIENCY-CODES.md",
+  "blocks": [
+    {
+      "id": "block-1",
+      "kind": "ascii_table_candidate",
+      "line": 30,
+      "heading_context": "## The Big Picture",
+      "confidence": "candidate",
+      "text": "+----------------------------------------------------------------------+\n|                    EFFICIENCY REGULATION HIERARCHY                   |\n|                                                                      |\n|  FEDERAL DOE MINIMUMS (mandatory floor)                              |\n|  └── National Appliance Energy Conservation Act (NAECA)              │\n|      └── Updated 2023: SEER2/EER2/HSPF2 test procedures              │\n|                                                                      |\n|  VOLUNTARY ABOVE-CODE PROGRAMS                                       |\n|  ├── ENERGY STAR (EPA/DOE co-program)                                │\n|  ├── AHRI Certified (equipment rating certification)                 │\n|  └── NEEP Cold Climate ASHP Specification                            │\n|                                                                      |\n|  BUILDING CODES (new construction + replacements)                    |\n|  ├── IECC (International Energy Conservation Code)                   │\n|  │   ├── Climate zones 1–8                                           │\n|  │   ├── Insulation minimums                                         │\n|  │   ├── Air sealing requirements                                    │\n|  │   └── Mechanical system minimums                                  │\n|  └── State amendments (states adopt/modify IECC)                     │\n|                                                                      |\n|  INCENTIVE PROGRAMS                                                  |\n|  ├── IRA 2022 §25C tax credits (residential)                         │\n|  ├── IRA 2022 HEERA rebates (income-qualified)                       │\n|  └── Utility rebate programs                                         │\n+----------------------------------------------------------------------+",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-2",
+      "kind": "diagram_like",
+      "line": 65,
+      "heading_context": "## Section 1: The 2023 DOE Test Procedure Change",
+      "confidence": "candidate",
+      "text": "  WHY THE CHANGE:\n  Old SEER test conditions were easy — low external static pressure,\n  controlled lab conditions that didn't reflect real installation.\n  New SEER2 test uses:\n  - Higher external static pressure (0.5\" w.c. → 0.1\" above old for cooling)\n  - Lower outdoor temp for heat pump heating test\n  - More realistic of how equipment actually performs\n\n  NUMERICAL IMPACT:\n  Old SEER → New SEER2: ~4–7% lower (same equipment)\n  Old HSPF → New HSPF2: ~4–11% lower (same equipment)\n\n  Rule of thumb: SEER2 ≈ SEER × 0.95\n                 HSPF2 ≈ HSPF × 0.85 (larger adjustment for heating)\n\n  EXAMPLES:\n  ┌────────────────────────────────┬────────┬────────┐\n  │ Equipment Example              │  SEER  │ SEER2  │\n  ├────────────────────────────────┼────────┼────────┤\n  │ Standard efficiency AC         │ 14.0   │ 13.4   │\n  │ Mid-efficiency AC              │ 16.0   │ 15.2   │\n  │ High-efficiency variable speed │ 22.0   │ 21.0   │\n  │ Mini-split single zone         │ 25.0   │ 24.0+  │\n  └────────────────────────────────┴────────┴────────┘\n\n  NEVER compare old SEER to SEER2 directly.\n  \"Old equipment was 16 SEER; new is 15.2 SEER2\" → new is actually better.",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-3",
+      "kind": "diagram_like",
+      "line": 99,
+      "heading_context": "## Section 2: Federal Minimum Efficiency Standards (2023)",
+      "confidence": "candidate",
+      "text": "  CENTRAL AIR CONDITIONERS:\n  ┌─────────────────────────────────────────────────────────────────┐\n  │ North (states 1): 13.4 SEER2 minimum                            │\n  │ South/Southwest (states 2): 14.3 SEER2 minimum                  │\n  │ (Different because AC runs more in hot climates → bigger impact) │\n  └─────────────────────────────────────────────────────────────────┘\n\n  HEAT PUMPS (ASHP):\n  ┌─────────────────────────────────────────────────────────────────┐\n  │ National: 14.3 SEER2, 7.5 HSPF2 minimum                         │\n  └─────────────────────────────────────────────────────────────────┘\n\n  GAS FURNACES:\n  ┌─────────────────────────────────────────────────────────────────┐\n  │ National: 80% AFUE minimum                                      │\n  │ (2023 DOE attempt at 92% AFUE national minimum was blocked      │\n  │ by court challenge from furnace industry and northern states)   │\n  │ Some northern utilities require 95% for rebates                 │\n  └─────────────────────────────────────────────────────────────────┘\n\n  OIL FURNACES: 80% AFUE\n  GAS BOILERS: 82% AFUE (hot water), 82% AFUE (steam)\n  HEAT PUMP WATER HEATERS: Separately regulated; UEF (Uniform Energy Factor)\n\n  INVENTORY RULE:\n  Equipment manufactured before 2023 with old SEER ratings can still be\n  installed after Jan 1, 2023 from existing inventory. This created a\n  stockpile rush in late 2022 and inventory irregularities into 2024.",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-4",
+      "kind": "diagram_like",
+      "line": 136,
+      "heading_context": "## Section 3: Energy Star Thresholds",
+      "confidence": "candidate",
+      "text": "  ENERGY STAR THRESHOLDS (current):\n  ┌─────────────────────────────────────────────────────────────────┐\n  │ CENTRAL AC:                                                     │\n  │ Split: ≥ 16.0 SEER2 (variable speed)                            │\n  │        ≥ 15.2 SEER2 (two-stage)                                 │\n  │                                                                 │\n  │ HEAT PUMPS:                                                     │\n  │ ≥ 15.2 SEER2 (cooling) AND ≥ 8.1 HSPF2 (heating)                │\n  │                                                                 │\n  │ GAS FURNACES:                                                   │\n  │ ≥ 95% AFUE                                                      │\n  │                                                                 │\n  │ BOILERS:                                                        │\n  │ ≥ 90% AFUE (oil), ≥ 90% AFUE (gas)                              │\n  │                                                                 │\n  │ HEAT PUMP WATER HEATERS:                                        │\n  │ ≥ 2.0 UEF (Energy Factor); best are 3.5+ UEF                    │\n  └─────────────────────────────────────────────────────────────────┘\n\n  WHY ENERGY STAR MATTERS:\n  - Required for most IRA §25C tax credits\n  - Required for many utility rebate programs\n  - Signals commitment to above-code performance\n  - Not all Energy Star equipment is the same — SEER2 16 barely qualifies;\n    SEER2 26 greatly exceeds it",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-5",
+      "kind": "diagram_like",
+      "line": 171,
+      "heading_context": "## Section 4: IRA 2022 Tax Credits (§25C)",
+      "confidence": "candidate",
+      "text": "  §25C ENERGY EFFICIENT HOME IMPROVEMENT CREDIT:\n  30% of cost up to per-category annual caps\n\n  ┌────────────────────────────────────┬────────────────────────────┐\n  │ Category                           │ Annual Credit Cap          │\n  ├────────────────────────────────────┼────────────────────────────┤\n  │ Heat pump (ASHP) — Energy Star     │ $2,000/year                │\n  │ Heat pump water heater — Energy Star│ $2,000/year (shared cap)  │\n  │                                    │ ($2,000 total for both)    │\n  ├────────────────────────────────────┼────────────────────────────┤\n  │ Central AC — highest efficiency    │ $600/year                  │\n  │ Gas furnace — 95% AFUE             │ $600/year (shared with AC) │\n  │ Gas boiler — 95% AFUE              │ $600/year (shared)         │\n  ├────────────────────────────────────┼────────────────────────────┤\n  │ Insulation + air sealing           │ $1,200/year                │\n  │ Windows + skylights                │ $600/year                  │\n  │ Exterior doors                     │ $500/year                  │\n  │ Home energy audit                  │ $150/year                  │\n  ├────────────────────────────────────┼────────────────────────────┤\n  │ TOTAL ANNUAL CAP                   │ $3,200/year                │\n  │ (sum of all categories combined)   │                            │\n  └────────────────────────────────────┴────────────────────────────┘\n\n  KEY NUANCES:\n  - Non-refundable credit (applies against tax liability; no refund if $0 tax due)\n  - Annual cap — can spread improvements across years to maximize benefit\n  - GSHP (geothermal heat pump): SEPARATE 30% credit (§25D) — NO annual cap\n    (also covers solar, fuel cells, battery storage)\n  - Must be primary residence\n  - Manufacturer Certificate needed for compliance\n\n  HEERA (High-Efficiency Electric Home Rebate Act):\n  - Separate program from §25C; upfront rebates at point of sale\n  - Income-qualified: full rebate for ≤80% area median income;\n    50% rebate for 80–150% AMI; none above 150% AMI\n  - Rolled out through state energy offices starting 2024\n  - Heat pump rebate: up to $8,000 for heat pump (+ $4,000 for panel upgrade)",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-6",
+      "kind": "diagram_like",
+      "line": 219,
+      "heading_context": "## Section 5: IECC Climate Zones",
+      "confidence": "candidate",
+      "text": "  CLIMATE ZONE MAP:\n  ┌─────┬──────────────────────────────────────────────────────────┐\n  │ Zone│ Description / Example Cities                             │\n  ├─────┼──────────────────────────────────────────────────────────┤\n  │  1  │ Very Hot/Humid — Miami, Honolulu                         │\n  │  2  │ Hot/Humid — Houston, Tampa, Phoenix (2B = hot/dry)       │\n  │  3  │ Warm/Mixed — Atlanta, Dallas, Los Angeles (3B = hot/dry) │\n  │  4  │ Mixed — Seattle, DC, Baltimore, Denver (4B = marine)     │\n  │  5  │ Cool — Chicago, Minneapolis (southern), Boston           │\n  │  6  │ Cold — Minneapolis, Billings, Burlington                 │\n  │  7  │ Very Cold — International Falls, Duluth (subarctic US)   │\n  │  8  │ Subarctic — Fairbanks, AK                               │\n  └─────┴──────────────────────────────────────────────────────────┘\n\n  IECC REQUIREMENTS VARY BY ZONE:\n  ┌─────────────────────────┬────────────────────────────────────────┐\n  │ Requirement             │ Zone 3 vs Zone 6                       │\n  ├─────────────────────────┼────────────────────────────────────────┤\n  │ Wall cavity insulation  │ R-13 vs R-13+10ci                      │\n  │ Ceiling insulation      │ R-38 vs R-49                           │\n  │ Window U-factor         │ 0.35 vs 0.30                           │\n  │ Window SHGC             │ 0.25 vs no requirement (want solar gain)│\n  │ Air sealing (ACH50)     │ 3.0 vs 3.0 (same)                     │\n  │ Duct sealing            │ ≤4 CFM25/100 sqft (all zones)         │\n  └─────────────────────────┴────────────────────────────────────────┘\n\n  STATE ADOPTION:\n  States adopt IECC on their own schedule; amendments are common\n  Many states still on 2015 or 2018 IECC (current is 2021)\n  California: Title 24 (more stringent than IECC in many areas)\n  Florida: Florida Building Code (IECC basis + amendments)\n  Local jurisdiction further amends state code",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-7",
+      "kind": "diagram_like",
+      "line": 258,
+      "heading_context": "## Section 6: Manual J/D/S Triad — The Design Standards",
+      "confidence": "candidate",
+      "text": "  ACCA MANUAL TRIAD:\n  ┌─────────────────────────────────────────────────────────────────┐\n  │                                                                 │\n  │  MANUAL J (Load Calculation)                                    │\n  │  \"How much heating/cooling does this building need?\"            │\n  │  → Room-by-room sensible and latent BTU/hr loads                │\n  │  → Design day outdoor conditions                                │\n  │  → Output: required equipment capacity range                    │\n  │                                                                 │\n  │           ↓                                                     │\n  │                                                                 │\n  │  MANUAL S (Equipment Selection)                                 │\n  │  \"What specific equipment matches the Manual J loads?\"          │\n  │  → Select equipment at AHRI-certified conditions                │\n  │  → Overcapacity limits: typically no more than 15% for AC,      │\n  │    40% for heating (allows some oversizing for design day)      │\n  │  → Matches equipment SHR to building SHR                        │\n  │                                                                 │\n  │           ↓                                                     │\n  │                                                                 │\n  │  MANUAL D (Duct Design)                                         │\n  │  \"How do we distribute that heating/cooling to each room?\"      │\n  │  → Duct sizes based on Manual J room-by-room airflow needs      │\n  │  → Friction rate calculation from available static pressure     │\n  │  → Supply and return sizing; register/grille sizing             │\n  │                                                                 │\n  └─────────────────────────────────────────────────────────────────┘\n\n  REALITY CHECK:\n  - New construction: increasingly required by IECC; most contractors do it\n  - Replacement equipment: rarely performed (rule of thumb prevails)\n  - Result: most replacement equipment in US is oversized by 30–100%\n  - Most replacement ductwork is never evaluated\n  - Most occupants never know because they compare to worse old equipment\n\n  CODES REQUIRING MANUAL J:\n  IECC 2018+ requires Manual J for new construction in adopting states\n  Some AHJs (local building departments) require for replacements\n  Energy Star Certified Homes program requires all three\n  Energy Star HVAC Design Credit requires Manual J + S + D",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    }
+  ]
+}

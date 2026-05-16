@@ -1,0 +1,105 @@
+{
+  "schema_version": "1",
+  "source_markdown": "hvac\\05-HEAT-PUMPS.md",
+  "blocks": [
+    {
+      "id": "block-1",
+      "kind": "ascii_table_candidate",
+      "line": 29,
+      "heading_context": "## The Big Picture",
+      "confidence": "candidate",
+      "text": "+----------------------------------------------------------------------+\n|                    HEAT PUMP OPERATING MODES                         |\n|                                                                      |\n|  COOLING MODE (Summer)          HEATING MODE (Winter)                |\n|  -----------------------        -----------------------              |\n|  Indoor coil = EVAPORATOR       Indoor coil = CONDENSER              |\n|  Absorbs heat from room         Releases heat to room                |\n|  Cools + dehumidifies           Warms the space                      |\n|                                                                      |\n|  Outdoor coil = CONDENSER       Outdoor coil = EVAPORATOR            |\n|  Rejects heat to outside        Absorbs heat from outdoor air        |\n|                                                                      |\n|                    REVERSING VALVE switches direction                |\n|                    (four-way valve in refrigerant circuit)           |\n|                                                                      |\n|  COP (cooling): 3–5             COP (heating): 2–4 at 47°F           |\n|  = more efficient than AC       = more efficient than gas furnace    |\n|    vs. gas furnace (COP < 1)    in most conditions                   |\n+----------------------------------------------------------------------+",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-2",
+      "kind": "diagram_like",
+      "line": 57,
+      "heading_context": "## Section 1: The Physics — Why COP > 1",
+      "confidence": "candidate",
+      "text": "  GAS FURNACE:                  HEAT PUMP:\n  ┌──────────────────┐          ┌──────────────────────────────────┐\n  │ Chemical energy  │          │ Electrical energy (work) in:     │\n  │ (gas) burned     │          │ W = 1 BTU                        │\n  │ → heat directly  │          └──────────────────────────────────┘\n  │ AFUE 80–98%      │                      |\n  │ COP ≤ 0.98       │                      v Compressor work\n  └──────────────────┘          ┌──────────────────────────────────┐\n                                │ Outdoor air at 20°F contains     │\n  ENERGY IN = ENERGY OUT        │ heat (absolute zero = -459°F;    │\n  (some lost up flue)           │ 20°F = 479°F above absolute zero)│\n                                │ → Heat absorbed from outdoor air │\n                                │   by evaporating refrigerant     │\n                                └──────────────────────────────────┘\n                                              |\n                                              v\n                                ┌──────────────────────────────────┐\n                                │ Heat delivered indoors:          │\n                                │ Q = W + Q_outdoor                │\n                                │   = 1 + 2 = 3 BTU                │\n                                │ COP = Q/W = 3.0                  │\n                                │ (300% \"efficiency\")              │\n                                └──────────────────────────────────┘\n\n  Not magic — work moves ambient heat uphill against ΔT\n  Second law: work required is proportional to temperature lift\n  Smaller temperature difference (mild outdoor) → higher COP\n  Larger temperature difference (very cold outdoor) → lower COP",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-3",
+      "kind": "diagram_like",
+      "line": 92,
+      "heading_context": "## Section 2: Air-Source Heat Pump (ASHP) — Standard",
+      "confidence": "candidate",
+      "text": "  BASIC ASHP:\n  - Same components as AC + reversing valve\n  - Outdoor unit handles both condensing (cooling) and evaporating (heating)\n  - Balance point: outdoor temp where heat pump output = building heat loss\n  - Below balance point: auxiliary electric resistance strips supplement\n\n  TRADITIONAL BALANCE POINT: ~25–30°F\n  Below 25°F: COP drops, aux strips kick in (COP = 1.0)\n  → Operating cost penalty; efficiency advantage disappears in deep cold\n  → Traditional ASHP problematic in climate zones 5+\n\n  R-VALUE BRIDGE:\n  Better-insulated building → lower heat loss → lower balance point\n  → Heat pump can handle more of the load without aux heat\n  → Envelope improvements directly extend heat pump viability",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-4",
+      "kind": "diagram_like",
+      "line": 135,
+      "heading_context": "## Section 3: Cold-Climate ASHP",
+      "confidence": "candidate",
+      "text": "  COLD-CLIMATE ASHP TECHNOLOGIES:\n  ┌─────────────────────────────────────────────────────────────────┐\n  │ Variable-speed/inverter compressor                              │\n  │ → Runs at higher speed in cold (compensates for less heat       │\n  │   in air) → maintains capacity at low temperatures              │\n  │                                                                 │\n  │ Enhanced Vapor Injection (EVI) / Intermediate Injection         │\n  │ → Injects additional refrigerant vapor mid-compression          │\n  │ → Increases refrigerant mass flow → more capacity in cold       │\n  │ → Reduces discharge temperature → protects compressor           │\n  │                                                                 │\n  │ Flash tank / Economizer cycle                                   │\n  │ → Intermediate pressure stage for additional heat exchange      │\n  └─────────────────────────────────────────────────────────────────┘\n\n  MAJOR COLD-CLIMATE BRANDS:\n  ┌──────────────────┬────────────────────────────────────────────────┐\n  │ Mitsubishi       │ Hyper Heat (H2i) line; rated to -13°F; some    │\n  │                  │ models to -22°F; pioneered the market          │\n  ├──────────────────┼────────────────────────────────────────────────┤\n  │ Daikin           │ Aurora series; rated to -13°F; extensive mini- │\n  │                  │ split and ducted options                        │\n  ├──────────────────┼────────────────────────────────────────────────┤\n  │ Bosch            │ IDS series; rated to -13°F; strong US market   │\n  ├──────────────────┼────────────────────────────────────────────────┤\n  │ Fujitsu          │ Halcyon series; -15°F rated                   │\n  ├──────────────────┼────────────────────────────────────────────────┤\n  │ LG, Samsung      │ Various cold-climate options to -13°F          │\n  └──────────────────┴────────────────────────────────────────────────┘\n\n  NEEP (Northeast Energy Efficiency Partnerships) cold-climate database:\n  Lists tested performance at 5°F and 17°F for enrolled products\n  → Use this, not marketing specs alone",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-5",
+      "kind": "diagram_like",
+      "line": 177,
+      "heading_context": "## Section 4: Mini-Split (Ductless) Systems",
+      "confidence": "candidate",
+      "text": "  MINI-SPLIT ARCHITECTURE:\n  ┌───────────────────────────────────────────────────────────────────┐\n  │                                                                   │\n  │  OUTDOOR UNIT (\"condenser\")                                       │\n  │  ┌──────────────────────┐                                         │\n  │  │ Compressor (inverter)│                                         │\n  │  │ Outdoor coil         │                                         │\n  │  │ Fan                  │                                         │\n  │  └──────────┬───────────┘                                         │\n  │             │ Refrigerant line set (3/8\" liquid + 5/8\" suction)   │\n  │             │ + control wire + power                              │\n  │             │ Max line length: ~100 ft (model-dependent)          │\n  │             │                                                     │\n  │         ┌───┴────┐                                                │\n  │         │ Indoor │  Wall-mounted cassette (most common)           │\n  │         │ unit 1 │  OR ceiling cassette, floor console,           │\n  │         │ (\"air  │     concealed ducted air handler               │\n  │         │ handler│  Each indoor unit = independent zone           │\n  │         └────────┘  with its own remote/app control               │\n  │         │                                                         │\n  │         ┌───┴────┐                                                │\n  │         │ Indoor │  Multi-zone: one outdoor, multiple indoors     │\n  │         │ unit 2 │  (capacity shared — each indoor sized          │\n  │         └────────┘   appropriately)                              │\n  │                                                                   │\n  └───────────────────────────────────────────────────────────────────┘\n\n  EFFICIENCY: SEER2 up to 42 (single-zone, optimal conditions)\n              Typical cold-climate mini-split: SEER2 18–30\n              HSPF2: 10–14 for quality systems\n\n  LINE SET RULES:\n  - Maximum line length varies by model (typically 25–100 ft)\n  - Excessive line length → refrigerant charge correction needed\n  - Elevation difference (indoor above/below outdoor) → manufacturer limits\n  - Never kink the refrigerant lines",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-6",
+      "kind": "diagram_like",
+      "line": 218,
+      "heading_context": "### Mini-Split Indoor Unit Types",
+      "confidence": "candidate",
+      "text": "  ┌──────────────────┬────────────────────────────────────────────────┐\n  │ Wall-mounted     │ Most common; installed high on wall; typical   │\n  │ cassette         │ rooms, bedrooms, living areas                  │\n  ├──────────────────┼────────────────────────────────────────────────┤\n  │ Ceiling cassette │ 4-way airflow; center of room; commercial feel;│\n  │                  │ minimal wall space impact; requires ceiling     │\n  │                  │ access for installation                        │\n  ├──────────────────┼────────────────────────────────────────────────┤\n  │ Floor console    │ Low on wall; good for rooms with windows on    │\n  │                  │ all walls or where high mount impractical      │\n  ├──────────────────┼────────────────────────────────────────────────┤\n  │ Concealed ducted │ Air handler in ceiling/closet; short duct runs; │\n  │ air handler      │ no visible indoor unit; aesthetically seamless; │\n  │                  │ less efficient than ductless; ~50 ft max duct  │\n  └──────────────────┴────────────────────────────────────────────────┘",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-7",
+      "kind": "ascii_table_candidate",
+      "line": 243,
+      "heading_context": "## Section 5: Ground-Source Heat Pump (GSHP / Geothermal)",
+      "confidence": "candidate",
+      "text": "  WHY GROUND SOURCE:\n  - Ground temp constant ~50–55°F regardless of outdoor air temp\n  - In winter (heating): 50°F >> -10°F → much easier to extract heat\n  - In summer (cooling): 50°F << 90°F → much easier to reject heat\n  - Seasonal COP averages 3.5–5.0 (vs 2.0–3.5 for air-source)\n  - Higher upfront cost (ground loop installation); lower operating cost\n\n  LOOP TYPES:\n  ┌───────────────────┬──────────────────────────────────────────────┐\n  │ Horizontal closed │ 2–6 ft deep trenches; 400–600 ft pipe/ton;   │\n  │ loop              │ large lot required; lowest drilling cost     │\n  ├───────────────────┼──────────────────────────────────────────────┤\n  │ Vertical closed   │ Boreholes 150–300 ft deep; ~200–250 ft/ton; │\n  │ loop              │ smaller lot OK; higher drilling cost         │\n  ├───────────────────┼──────────────────────────────────────────────┤\n  │ Pond/lake closed  │ Coiled pipe sunk in pond; lowest cost if     │\n  │ loop              │ water body available and accessible          │\n  ├───────────────────┼──────────────────────────────────────────────┤\n  │ Open loop         │ Pump groundwater through HX, return to ground│\n  │                   │ Highest COP (large thermal reservoir);      │\n  │                   │ water rights, reinjection requirements       │\n  └───────────────────┴──────────────────────────────────────────────┘\n\n  COSTS:\n  - Horizontal bore: $10,000–15,000 for 3-ton system (trenching)\n  - Vertical bore: $20,000–35,000+ (drilling is expensive)\n  - Equipment + installation total: $25,000–45,000+ installed\n  - Federal tax credit (IRA 2022): 30% (no cap for GSHP)\n  - Operating savings: 40–70% vs conventional; 5–10 year payback typical",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-8",
+      "kind": "diagram_like",
+      "line": 279,
+      "heading_context": "## Section 6: Heat Pump Water Heaters",
+      "confidence": "candidate",
+      "text": "  PRINCIPLE: Heat pump evaporates refrigerant → absorbs heat from room air →\n             compresses → condenses inside water storage tank → heats water\n             COP 3.5–4.0 (vs. electric resistance COP 1.0)\n\n  REQUIREMENTS:\n  - Unconditioned or semi-conditioned space (basement, garage)\n  - Draws heat FROM space → slightly cools/dehumidifies the room\n    (benefit in summer, slight penalty in winter if in conditioned space)\n  - Min. ~750 sq ft air space around unit (air source)\n  - Ambient temp: 40–120°F for efficient operation\n  - Fan + compressor noise (60–65 dB) — don't install in bedroom above\n\n  BRANDS: Rheem ProTerra, A.O. Smith Voltex, Stiebel Eltron, Bradford White\n\n  FEDERAL TAX CREDIT (IRA 2022): $300 (§25C, Energy Star certified)\n\n  ECONOMICS:\n  Electric resistance WH: ~$600–800/yr operating cost\n  HPWH at COP 3.5:        ~$175–225/yr\n  Annual savings: ~$400/yr → ~2–3 year payback on $300 upcharge",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-9",
+      "kind": "diagram_like",
+      "line": 308,
+      "heading_context": "## Section 7: Defrost Cycle",
+      "confidence": "candidate",
+      "text": "  WHEN FROST FORMS:\n  - Outdoor coil operating in heating mode: coil surface is below outdoor air temp\n  - When outdoor temp < 35°F AND coil surface < 32°F\n  - Moisture in air freezes on coil → frost buildup\n  - Frost insulates coil → reduces heat transfer → reduced heating capacity\n\n  DEFROST CYCLE:\n  1. Triggered by timer + temperature sensor, or differential pressure sensor\n     (pressure drop across frosted coil)\n  2. System briefly reverses to cooling mode\n     → Outdoor coil becomes condenser (hot refrigerant melts frost)\n  3. Backup resistance heat runs during defrost\n     → Prevents cold air delivery to house\n  4. After ~2–5 minutes: defrost complete, returns to heating mode\n\n  VISIBLE TO HOMEOWNER:\n  - Steam or water dripping from outdoor unit\n  - Cold air from vents briefly (if backup heat slow to respond)\n  - Outdoor unit fan stops during defrost (to retain heat)\n  → All NORMAL — not a malfunction\n  → Common homeowner complaint: \"my heat pump doesn't heat on cold days\"\n     Reality: it's running defrost cycles every 30–90 min in icy conditions",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    }
+  ]
+}

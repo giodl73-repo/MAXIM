@@ -1,3 +1,22 @@
+---
+maxim_schema: maxim.frontmatter.v1
+id: maxim:hvac:controls
+kind: guide
+module: hvac
+section: hvac
+title: HVAC Controls
+status: source-custody
+source_custody: partial
+current_path: hvac/08-CONTROLS.md
+canonical_path: hvac/08-CONTROLS.md
+backsource_ids: [proof-backfill:hvac:08-controls, git-history:hvac:08-controls]
+concepts: [controls]
+root_concepts: [controls]
+index_roles: [guide, root-concept]
+remap_from: []
+remap_to: []
+updated: null
+---
 # HVAC Controls
 
 ## The Big Picture

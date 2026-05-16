@@ -1,3 +1,22 @@
+---
+maxim_schema: maxim.frontmatter.v1
+id: maxim:hvac:ductwork
+kind: guide
+module: hvac
+section: hvac
+title: Ductwork
+status: source-custody
+source_custody: partial
+current_path: hvac/07-DUCTWORK.md
+canonical_path: hvac/07-DUCTWORK.md
+backsource_ids: [proof-backfill:hvac:07-ductwork, git-history:hvac:07-ductwork]
+concepts: [ductwork]
+root_concepts: [ductwork]
+index_roles: [guide, root-concept]
+remap_from: []
+remap_to: []
+updated: null
+---
 # Ductwork
 
 ## The Big Picture

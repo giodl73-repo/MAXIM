@@ -1,3 +1,22 @@
+---
+maxim_schema: maxim.frontmatter.v1
+id: maxim:political-science:ir-theory
+kind: guide
+module: political-science
+section: political-science
+title: International Relations Theory
+status: source-custody
+source_custody: partial
+current_path: political-science/01-IR-THEORY.md
+canonical_path: political-science/01-IR-THEORY.md
+backsource_ids: [proof-backfill:political-science:01-ir-theory, git-history:political-science:01-ir-theory]
+concepts: [ir, theory]
+root_concepts: [ir, theory]
+index_roles: [guide, root-concept]
+remap_from: []
+remap_to: []
+updated: null
+---
 # International Relations Theory
 
 ## The Big Picture
@@ -251,19 +270,19 @@ produce Hobbesian enemies or Kantian friends depending on the culture that inter
   The "logic of anarchy" depends on the culture of that anarchy
 
   THREE CULTURES OF ANARCHY:
-  ┌─────────────────┬──────────────────────────────────────────────┐
-  │ Hobbesian       │ Enemies: treat each other as existential     │
-  │                 │ threats; no limits on violence               │
-  │                 │ (pre-state of nature, some IR subsystems)    │
-  ├─────────────────┼──────────────────────────────────────────────┤
-  │ Lockean         │ Rivals: compete but accept right to exist;   │
-  │                 │ don't try to eliminate each other            │
-  │                 │ (most current international relations)       │
-  ├─────────────────┼──────────────────────────────────────────────┤
+  ┌─────────────────┬───────────────────────────────────────────────┐
+  │ Hobbesian       │ Enemies: treat each other as existential      │
+  │                 │ threats; no limits on violence                │
+  │                 │ (pre-state of nature, some IR subsystems)     │
+  ├─────────────────┼───────────────────────────────────────────────┤
+  │ Lockean         │ Rivals: compete but accept right to exist;    │
+  │                 │ don't try to eliminate each other             │
+  │                 │ (most current international relations)        │
+  ├─────────────────┼───────────────────────────────────────────────┤
   │ Kantian         │ Friends: collective security, help each other │
-  │                 │ against threats from outside the community   │
-  │                 │ (NATO allies, EU members)                    │
-  └─────────────────┴──────────────────────────────────────────────┘
+  │                 │ against threats from outside the community    │
+  │                 │ (NATO allies, EU members)                     │
+  └─────────────────┴───────────────────────────────────────────────┘
 
   IMPLICATION: Change is possible by changing the culture, not just power
   Material power is real; identity and norms are also real

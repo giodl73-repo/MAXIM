@@ -1,0 +1,83 @@
+{
+  "schema_version": "1",
+  "source_markdown": "hvac\\00-OVERVIEW.md",
+  "blocks": [
+    {
+      "id": "block-1",
+      "kind": "diagram_like",
+      "line": 28,
+      "heading_context": "## The Big Picture",
+      "confidence": "candidate",
+      "text": "CARNOT COP BOUNDS (temperatures in Kelvin):\n  Cooling:  COP_max = T_cold / (T_hot − T_cold)\n  Heating:  COP_max = T_hot / (T_hot − T_cold)\n\n  Example — residential AC:\n  Cooling to 45°F (280K), rejecting heat at 95°F (308K):\n  COP_max = 280 / (308 − 280) = 10.0\n  Real split-system AC: COP 3–5 → 30–50% of Carnot\n\n  Key insight: COP_max ∝ 1/ΔT — as outdoor T rises (hotter day),\n  ΔT increases, Carnot COP falls, equipment works harder for less effect.\n  This is why sizing and economizer strategies matter.",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-2",
+      "kind": "ascii_table_candidate",
+      "line": 45,
+      "heading_context": "## The Big Picture",
+      "confidence": "candidate",
+      "text": "+------------------------------------------------------------------+\n|                    THE HVAC PROBLEM SPACE                         |\n|                                                                  |\n|  OUTDOOR CONDITIONS          BUILDING ENVELOPE          INDOORS  |\n|  ----------------            -----------------          -------- |\n|  Temperature (hot/cold)  --> Conduction, Convection --> 68–76°F  |\n|  Humidity (humid/dry)    --> Air infiltration     --> 30–60% RH  |\n|  Air quality (pollutants)--> Openings, cracks     --> <1000ppm   |\n|  Solar radiation         --> Windows, mass        --> CO₂        |\n|  Wind                    --> Stack effect         --> No mold     |\n|                                                                  |\n|                    HVAC RESPONDS TO ALL OF THIS                  |\n+------------------------------------------------------------------+\n         |                    |                    |\n         v                    v                    v\n+----------------+  +------------------+  +------------------+\n|   HEATING &    |  |   VENTILATION    |  |   AIR QUALITY    |\n|   COOLING      |  |                  |  |   CONTROL        |\n|                |  |                  |  |                  |\n| Move heat in   |  | Bring in fresh   |  | Filter particles |\n| or out of the  |  | air, exhaust     |  | dilute CO₂, VOCs |\n| conditioned    |  | stale air,       |  | control humidity |\n| space          |  | recover energy   |  | (mold prevention)|\n+----------------+  +------------------+  +------------------+",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-3",
+      "kind": "diagram_like",
+      "line": 76,
+      "heading_context": "## Load vs. Capacity — The Fundamental Sizing Relationship",
+      "confidence": "candidate",
+      "text": "  LOAD                          CAPACITY\n  ----                          --------\n  How much heat (BTU/hr)        How much heat (BTU/hr)\n  flows through the building    the equipment can move\n  envelope from outside          in or out\n  to inside (or vice versa)\n\n  Summer: outdoor heat flows IN  → cooling load (remove it)\n  Winter: indoor heat flows OUT  → heating load (replace it)\n\n  OVERSIZED equipment:          UNDERSIZED equipment:\n  - Short-cycles                - Runs constantly\n  - Poor dehumidification       - Can't reach setpoint on\n  - High humidity in summer       design day\n  - Premature wear              - Fine for mild days only\n  - Wasted energy\n\n  Rule: size to load, not to \"bigger is safer\"\n  Tool: Manual J (residential load calculation)",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-4",
+      "kind": "ascii_table_candidate",
+      "line": 100,
+      "heading_context": "### Load Components",
+      "confidence": "candidate",
+      "text": "+----------------------------------------------------------+\n|              TOTAL BUILDING LOAD                          |\n|                                                          |\n|  ENVELOPE LOADS (heat flows through structure)           |\n|  ├── Walls (U-value × area × ΔT)                        |\n|  ├── Roof/ceiling (usually largest surface area)         |\n|  ├── Windows (high U-value + solar gain)                 |\n|  ├── Floor (slab or crawlspace)                          |\n|  └── Infiltration (air leakage × ΔT)                    |\n|                                                          |\n|  INTERNAL GAINS (heat generated inside)                  |\n|  ├── People (~250 BTU/hr sensible + 200 BTU/hr latent)  |\n|  ├── Lighting (3.41 BTU/hr per watt)                     |\n|  └── Appliances (refrigerator, oven, electronics)        |\n|                                                          |\n|  VENTILATION LOADS (conditioning outdoor air)            |\n|  └── Code-required fresh air (ASHRAE 62.2 / 62.1)       |\n|                                                          |\n|  SENSIBLE vs LATENT SPLIT                                |\n|  ├── Sensible: changes temperature (dry bulb)            |\n|  └── Latent: changes moisture content (humidity)         |\n|      → Latent load = dehumidification requirement        |\n+----------------------------------------------------------+",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-5",
+      "kind": "ascii_table_candidate",
+      "line": 130,
+      "heading_context": "## Residential vs. Commercial",
+      "confidence": "candidate",
+      "text": "+-------------------------------+-------------------------------+\n|        RESIDENTIAL            |         COMMERCIAL            |\n+-------------------------------+-------------------------------+\n| Manual J load calc            | HAP / eQUEST energy model     |\n| Single zone or 2-3 zones      | Dozens to hundreds of zones   |\n| 1–5 ton equipment             | 5 ton to 1,000+ ton chillers  |\n| Split system or heat pump     | Chiller + AHU + VAV boxes     |\n| Forced air or mini-split      | Chilled water, fan-coil units |\n| 24V thermostat control        | BAS (BACnet/Modbus)           |\n| Homeowner-accessible          | Facilities engineer + BMS     |\n| SEER2/HSPF2 ratings           | IPLV/NPLV for chillers        |\n| $3,000–$20,000 install        | $50/sqft commercial build-out |\n+-------------------------------+-------------------------------+",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-6",
+      "kind": "diagram_like",
+      "line": 150,
+      "heading_context": "## System Taxonomy",
+      "confidence": "candidate",
+      "text": "                    HVAC SYSTEM TYPES\n                    =================\n\nHEATING ONLY\n├── Gas furnace (forced air)\n├── Boiler (hydronic — hot water or steam)\n├── Electric resistance (baseboard, radiant floor)\n└── Wood/pellet stove\n\nCOOLING ONLY\n└── Central air conditioner (split system)\n    ├── Condensing unit (outdoor)\n    └── Evaporator coil (indoor, on furnace)\n\nHEATING + COOLING\n├── Heat pump (air-source or ground-source)\n│   ├── Ducted (central)\n│   └── Ductless mini-split\n└── Packaged unit (all-in-one, rooftop — common commercial)\n\nVENTILATION\n├── Exhaust-only (bath fans, range hood)\n├── Supply-only (less common)\n└── Balanced\n    ├── ERV (Energy Recovery Ventilator — heat + moisture)\n    └── HRV (Heat Recovery Ventilator — heat only)\n\nAIR DISTRIBUTION\n├── Forced air (ductwork)\n│   ├── Trunk-and-branch\n│   └── Extended plenum\n├── Hydronic (water pipes → radiators, radiant floor)\n└── Ductless (refrigerant lines to air handlers)",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-7",
+      "kind": "ascii_table_candidate",
+      "line": 190,
+      "heading_context": "## Energy Flow Through a Cooling System",
+      "confidence": "candidate",
+      "text": "  OUTDOORS (115°F)                              INDOORS (75°F)\n\n  Condenser coil                                Evaporator coil\n  (rejects heat to outdoor air)                 (absorbs heat from room air)\n       |                                                  |\n       |  Refrigerant at high pressure/temp              |\n       |<-------------------------------------------------|\n       |  Compressor raises pressure → work input        |\n       |                                                  |\n       |  Refrigerant at low pressure/temp               |\n       |------------------------------------------------->|\n       |  Expansion valve drops pressure → cold refrigerant\n\n  Heat flows:  Building heat → refrigerant → outdoor air\n  Work input:  Compressor electricity\n  COP:         3.0 = 3 BTU moved per 1 BTU of electricity",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    }
+  ]
+}

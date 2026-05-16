@@ -1,3 +1,22 @@
+---
+maxim_schema: maxim.frontmatter.v1
+id: maxim:hvac:efficiency-codes
+kind: guide
+module: hvac
+section: hvac
+title: HVAC Efficiency and Codes
+status: source-custody
+source_custody: partial
+current_path: hvac/09-EFFICIENCY-CODES.md
+canonical_path: hvac/09-EFFICIENCY-CODES.md
+backsource_ids: [proof-backfill:hvac:09-efficiency-codes, git-history:hvac:09-efficiency-codes]
+concepts: [efficiency, codes]
+root_concepts: [efficiency, codes]
+index_roles: [guide, root-concept]
+remap_from: []
+remap_to: []
+updated: null
+---
 # HVAC Efficiency & Codes
 
 ## The Big Picture

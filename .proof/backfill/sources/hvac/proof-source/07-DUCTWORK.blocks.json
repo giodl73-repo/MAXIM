@@ -1,0 +1,94 @@
+{
+  "schema_version": "1",
+  "source_markdown": "hvac\\07-DUCTWORK.md",
+  "blocks": [
+    {
+      "id": "block-1",
+      "kind": "ascii_table_candidate",
+      "line": 30,
+      "heading_context": "## The Big Picture",
+      "confidence": "candidate",
+      "text": "+----------------------------------------------------------------------+\n|                    DUCT SYSTEM PERFORMANCE CHAIN                     |\n|                                                                      |\n|  Equipment    → Supply plenum → Supply trunk → Branch ducts → Rooms  |\n|  (designed     (pressurized)   (main artery)  (per room)   (delivery)|\n|  for 400 CFM/                                                        |\n|  ton airflow)                                                        |\n|                                                                      |\n|  Failure mode 1: Duct leakage → conditioned air into attic (lost)    |\n|  Failure mode 2: Undersized ducts → high static pressure → low flow  |\n|  Failure mode 3: Poorly designed → unbalanced delivery per room      |\n|  Failure mode 4: Compressed flex duct → massive pressure loss        |\n|                                                                      |\n|  Result: 3-ton equipment delivering 1.5-ton performance              |\n+----------------------------------------------------------------------+",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-2",
+      "kind": "diagram_like",
+      "line": 58,
+      "heading_context": "## Section 1: Manual D — Duct Design Standard",
+      "confidence": "candidate",
+      "text": "  MANUAL D WORKFLOW:\n  ┌─────────────────────────────────────────────────────────────────┐\n  │ INPUT: Manual J room-by-room loads + airflow requirements       │\n  │        Equipment specs (blower performance curve, TESP rating)  │\n  └──────────────────────────┬──────────────────────────────────────┘\n                             |\n                             v\n  ┌─────────────────────────────────────────────────────────────────┐\n  │ CALCULATE: Available static pressure for ducts                  │\n  │  TESP available = Equipment fan capacity at design CFM          │\n  │  Minus: filter pressure drop (0.08–0.15\" w.c.)                  │\n  │  Minus: coil pressure drop (0.10–0.20\" w.c.)                    │\n  │  = Remaining for supply + return ductwork                       │\n  └──────────────────────────┬──────────────────────────────────────┘\n                             |\n                             v\n  ┌─────────────────────────────────────────────────────────────────┐\n  │ FRICTION RATE: Pressure available / total effective length (TEL)│\n  │  TEL = straight duct length + equivalent lengths of all fittings│\n  │  Friction rate (FR) = inches w.c. per 100 ft                    │\n  │  Used to enter duct sizing chart → diameter per CFM per branch  │\n  └──────────────────────────┬──────────────────────────────────────┘\n                             |\n                             v\n  ┌─────────────────────────────────────────────────────────────────┐\n  │ OUTPUT: Diameter of each duct run, sized to deliver Manual J    │\n  │         CFM to each room at acceptable velocity (<900 FPM)      │\n  └─────────────────────────────────────────────────────────────────┘",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-3",
+      "kind": "diagram_like",
+      "line": 95,
+      "heading_context": "## Section 2: Static Pressure",
+      "confidence": "candidate",
+      "text": "  PRESSURE DIAGRAM OF DUCT SYSTEM:\n                    |\n               [AIR HANDLER]\n               FAN (blower)\n                    |\n    (+) SUPPLY SIDE          (-) RETURN SIDE\n    ├── Supply plenum         ├── Return plenum\n    ├── Supply trunk          ├── Return trunk\n    ├── Branch supply ducts   └── Return grilles\n    └── Supply registers                │\n                                   [FILTER]\n                                   [COIL]\n\n  TESP (Total External Static Pressure):\n  = pressure measured at supply + return plenums\n\n  Equipment rated at, e.g., 0.5\" w.c. at 1,200 CFM\n  Meaning: at 0.5 inches of water column back-pressure, blower\n  delivers 1,200 CFM (check blower curve for exact numbers)\n\n  COMPONENTS OF PRESSURE DROP:\n  ┌────────────────────────┬────────────────────────────────────┐\n  │ Filter (clean, MERV 8) │ 0.05–0.08\" w.c.                    │\n  │ Filter (MERV 13)       │ 0.10–0.15\" w.c.                    │\n  │ Filter (dirty)         │ 0.20–0.40\" w.c. (can double TESP!)│\n  │ AC evaporator coil     │ 0.10–0.20\" w.c.                    │\n  │ Supply duct system     │ 0.10–0.20\" w.c.                    │\n  │ Return duct system     │ 0.05–0.15\" w.c.                    │\n  ├────────────────────────┼────────────────────────────────────┤\n  │ Typical total TESP     │ 0.35–0.70\" w.c.                   │\n  └────────────────────────┴────────────────────────────────────┘\n\n  CONSEQUENCE OF HIGH STATIC PRESSURE:\n  - Reduced airflow → reduced sensible capacity\n  - Reduced airflow → potential evaporator coil freeze-up\n  - Reduced airflow → latent capacity loss (poor dehumidification)\n  - Fan motor works harder → higher electricity use + heat → shorter life",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-4",
+      "kind": "diagram_like",
+      "line": 142,
+      "heading_context": "## Section 3: Equivalent Length — Fittings Matter",
+      "confidence": "candidate",
+      "text": "  EQUIVALENT LENGTHS (approximate values):\n  ┌─────────────────────────────┬───────────────────────────────────┐\n  │ Fitting                     │ Equivalent Length (ft)            │\n  ├─────────────────────────────┼───────────────────────────────────┤\n  │ 90° sharp elbow (square)    │ 50–75 ft                         │\n  │ 90° smooth radius elbow     │ 10–20 ft                         │\n  │ 45° elbow                   │ 5–10 ft                          │\n  │ Tee (branch takeoff)        │ 20–50 ft                         │\n  │ Transition (constriction)   │ 5–20 ft                          │\n  │ Supply boot (register box)  │ 25–50 ft                         │\n  │ Return grille               │ 15–30 ft                         │\n  └─────────────────────────────┴───────────────────────────────────┘\n\n  A duct run with 3 sharp 90° elbows → adds 150–225 ft of equivalent length\n  On a 15-ft physical run, the fittings dominate the pressure drop\n\n  Rule: minimize elbows, use sweep turns, keep trunk-to-branch angles gradual",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-5",
+      "kind": "diagram_like",
+      "line": 166,
+      "heading_context": "## Section 4: Duct Types and Materials",
+      "confidence": "candidate",
+      "text": "  SHEET METAL (GALVANIZED STEEL):\n  ┌──────────────────────────────────────────────────────────────────┐\n  │ Best performance: smooth interior → lowest friction loss         │\n  │ Most durable: lasts decades                                      │\n  │ No compression degradation                                       │\n  │ Round or rectangular; fabricated to size                         │\n  │ Requires sheet metal shop or skilled fabrication                 │\n  │ Seams must be sealed with mastic or foil tape                    │\n  │ Most expensive; most labor-intensive                             │\n  └──────────────────────────────────────────────────────────────────┘\n\n  FLEX DUCT (INSULATED FLEXIBLE DUCT):\n  ┌──────────────────────────────────────────────────────────────────┐\n  │ Construction: wire helix (shape) + plastic inner liner +         │\n  │ fiberglass insulation (R-6 or R-8) + outer vapor barrier jacket  │\n  │                                                                  │\n  │ Advantages: easy to install around obstacles, lower cost         │\n  │                                                                  │\n  │ CRITICAL INSTALLATION REQUIREMENT:                               │\n  │ Must be FULLY EXTENDED — zero compression, no sag, no kinks      │\n  │                                                                  │\n  │ What installers often do:           What happens:                │\n  │ Leave slack in flex duct          →  Accordion compression       │\n  │ Drape over framing with sag       →  Low-point restriction       │\n  │ Route around obstacle with kink   →  Major pressure spike        │\n  │                                                                  │\n  │ 5% compression of flex duct → doubles pressure loss              │\n  │ 15% compression → 5× pressure loss                               │\n  │                                                                  │\n  │ Properly installed: only slightly worse than sheet metal         │\n  │ Improperly installed (common): massive airflow reduction         │\n  └──────────────────────────────────────────────────────────────────┘\n\n  DUCT BOARD (FIBERGLASS DUCT BOARD):\n  ┌──────────────────────────────────────────────────────────────────┐\n  │ Rigid fiberglass panels fabricated into rectangular ductwork     │\n  │ Built-in insulation (no separate wrap needed)                    │\n  │ Slightly higher friction than sheet metal (rougher interior)     │\n  │ Requires sealing at all joints (mastic or foil tape)             │\n  │ Cannot handle high static pressure applications                  │\n  │ Common in light commercial; some residential                     │\n  └──────────────────────────────────────────────────────────────────┘",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-6",
+      "kind": "diagram_like",
+      "line": 218,
+      "heading_context": "## Section 5: Duct Sealing",
+      "confidence": "candidate",
+      "text": "  SEALING METHODS:\n  ┌─────────────────┬────────────────────────────────────────────────┐\n  │ Mastic sealant  │ Gray paste applied with brush; dries flexible  │\n  │ (recommended)   │ Best for: rigid duct seams, boot connections,  │\n  │                 │ register boxes; permanent; code-approved       │\n  ├─────────────────┼────────────────────────────────────────────────┤\n  │ Metal (foil)    │ Aluminum foil tape with aggressive adhesive    │\n  │ tape, UL181-    │ (UL181B-FX listed — not generic hardware tape) │\n  │ rated           │ Good for: clean metal-to-metal connections     │\n  │                 │ Will fail if applied over dust/dirt            │\n  ├─────────────────┼────────────────────────────────────────────────┤\n  │ \"Duct tape\"     │ NEVER use gray fabric duct tape for ductwork   │\n  │ (DO NOT USE)    │ Fails at temperature cycling in <5 years       │\n  │                 │ Not code-compliant; adhesive melts             │\n  ├─────────────────┼────────────────────────────────────────────────┤\n  │ Aeroseal        │ Spray-from-inside polymer sealing method       │\n  │ (injection)     │ System is pressurized; particles blown through │\n  │                 │ leaks → accumulate → seal from inside         │\n  │                 │ Ideal for: inaccessible attic/crawlspace ducts │\n  │                 │ Can seal holes up to ~5/8\" diameter            │\n  │                 │ Professional installation required ($1,500–3k) │\n  └─────────────────┴────────────────────────────────────────────────┘\n\n  LEAKAGE TESTING — DUCT BLASTER:\n  Similar principle to blower door but for duct system\n  - Connect to return plenum; seal supply registers\n  - Pressurize to 25 Pa; measure CFM25 (airflow at 25 Pa)\n  - Compare to floor area → CFM25/100 sq ft\n\n  STANDARDS:\n  IECC new construction:  ≤ 4 CFM25/100 sq ft total leakage\n  Energy Star:             ≤ 3 CFM25/100 sq ft to outside\n  Passive House:           essentially zero leakage (no ducts preferred)\n\n  Total leakage vs. leakage to outside:\n  - Total: all duct leaks including inside conditioned space (less harmful)\n  - To outside: only leaks to unconditioned space (attic, crawl, garage)\n  - \"To outside\" is what actually wastes energy; the harder metric",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-7",
+      "kind": "diagram_like",
+      "line": 263,
+      "heading_context": "## Section 6: Supply and Return Balance",
+      "confidence": "candidate",
+      "text": "  COMMON INSTALLER SHORTCUT: central return only\n  - Single large return at hallway; no return in bedrooms\n  - Result: closed bedroom door = no airflow path\n  → Bedroom becomes positive pressure (supply air, no return)\n  → Hallway becomes negative pressure\n  → Pressure difference = 3–5 Pa across door\n  → Building now operates like an exhaust-only ventilation system\n  → Duct leakage to outdoors dramatically increases (pressure drives it)\n\n  SOLUTIONS:\n  ┌──────────────────────┬────────────────────────────────────────────┐\n  │ Return in each room  │ Best: balanced flow in every room          │\n  ├──────────────────────┼────────────────────────────────────────────┤\n  │ Jump ducts           │ Short duct from ceiling to hallway;        │\n  │                      │ hidden above ceiling; low-cost balance     │\n  ├──────────────────────┼────────────────────────────────────────────┤\n  │ Transfer grilles     │ Grille from room to hallway (no duct);     │\n  │                      │ works with open doors; visible             │\n  ├──────────────────────┼────────────────────────────────────────────┤\n  │ Undercut doors       │ 3/4\" to 1\" gap under door; partial remedy; │\n  │                      │ less effective than dedicated path         │\n  └──────────────────────┴────────────────────────────────────────────┘",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-8",
+      "kind": "diagram_like",
+      "line": 292,
+      "heading_context": "## Section 7: Zoning",
+      "confidence": "candidate",
+      "text": "  ZONING APPROACHES:\n  ┌──────────────────────┬────────────────────────────────────────────┐\n  │ Multiple equipment   │ Each zone = separate system (mini-splits   │\n  │ (mini-split model)   │ or separate ducted units); no duct issues; │\n  │                      │ independent control; best solution         │\n  ├──────────────────────┼────────────────────────────────────────────┤\n  │ Motorized dampers    │ Duct dampers open/close per thermostat;    │\n  │ + single system      │ complex; requires bypass damper when zones │\n  │                      │ close (or static pressure spikes)          │\n  │                      │ Variable-speed air handler helps (reduces  │\n  │                      │ airflow as zones close)                    │\n  └──────────────────────┴────────────────────────────────────────────┘\n\n  BYPASS DAMPER (required for damper zoning):\n  When zone dampers close, static pressure rises.\n  Bypass damper: connects supply plenum to return plenum\n  → excess air recirculates; static pressure stays controlled\n  → inefficient (conditioning and reconditioning same air)\n  → variable-speed air handler is better approach (modulates fan speed)",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    }
+  ]
+}

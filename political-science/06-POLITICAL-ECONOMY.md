@@ -1,3 +1,22 @@
+---
+maxim_schema: maxim.frontmatter.v1
+id: maxim:political-science:political-economy
+kind: guide
+module: political-science
+section: political-science
+title: Political Economy
+status: source-custody
+source_custody: partial
+current_path: political-science/06-POLITICAL-ECONOMY.md
+canonical_path: political-science/06-POLITICAL-ECONOMY.md
+backsource_ids: [proof-backfill:political-science:06-political-economy, git-history:political-science:06-political-economy]
+concepts: [political, economy]
+root_concepts: [political, economy]
+index_roles: [guide, root-concept]
+remap_from: []
+remap_to: []
+updated: null
+---
 # Political Economy
 
 ## The Big Picture
@@ -9,20 +28,20 @@ choices, not just comparative advantage. Understanding IPE (International Politi
 means holding economic and political logic simultaneously.
 
 ```
-+----------------------------------------------------------------------+
-|                    POLITICAL ECONOMY FRAMEWORK                       |
-|                                                                      |
-|  TRADE          FINANCE         DEVELOPMENT     SANCTIONS            |
-|  ─────          ───────         ───────────     ────────             |
-|  Who gains?     Capital flows   Which models    Economic coercion    |
-|  Distributional Exchange rates  work?           Effectiveness        |
-|  politics       Crisis contagion Washington vs  Dollar weaponization |
-|  Strategic      Trilemma        Beijing         Evasion paths        |
-|  trade policy                   Consensus                            |
-|                                                                      |
++-----------------------------------------------------------------------+
+|                    POLITICAL ECONOMY FRAMEWORK                        |
+|                                                                       |
+|  TRADE          FINANCE         DEVELOPMENT     SANCTIONS             |
+|  ─────          ───────         ───────────     ────────              |
+|  Who gains?     Capital flows   Which models    Economic coercion     |
+|  Distributional Exchange rates  work?           Effectiveness         |
+|  politics       Crisis contagion Washington vs  Dollar weaponization  |
+|  Strategic      Trilemma        Beijing         Evasion paths         |
+|  trade policy                   Consensus                             |
+|                                                                       |
 |  RESOURCE POLITICS:  Oil, rare earths, food, water as political levers|
-|  GLOBAL GOVERNANCE:  G7/G20, IMF, WTO, OECD tax rules                |
-+----------------------------------------------------------------------+
+|  GLOBAL GOVERNANCE:  G7/G20, IMF, WTO, OECD tax rules                 |
++-----------------------------------------------------------------------+
 ```
 
 ---
@@ -263,14 +282,14 @@ means holding economic and political logic simultaneously.
 
   EAST ASIAN DEVELOPMENTAL STATE:
   Korea, Japan, Taiwan — rapid industrialization WITHOUT following Washington Consensus
-  ┌────────────────────────────────────────────────────────────────┐
-  │ Industrial policy: government picked sectors to develop        │
+  ┌─────────────────────────────────────────────────────────────────┐
+  │ Industrial policy: government picked sectors to develop         │
   │ Directed credit: state banks channeled finance to target sectors│
-  │ Export discipline: subsidies conditional on export performance │
-  │ Trade protection: infant industry protection while developing  │
-  │ Technology acquisition: import + reverse engineer + develop    │
-  │ Strong state capacity: Weberian bureaucracy, not predatory     │
-  └────────────────────────────────────────────────────────────────┘
+  │ Export discipline: subsidies conditional on export performance  │
+  │ Trade protection: infant industry protection while developing   │
+  │ Technology acquisition: import + reverse engineer + develop     │
+  │ Strong state capacity: Weberian bureaucracy, not predatory      │
+  └─────────────────────────────────────────────────────────────────┘
   "Getting prices wrong deliberately" (Amsden) — the opposite of WC
 
   CHINA'S STATE CAPITALISM:

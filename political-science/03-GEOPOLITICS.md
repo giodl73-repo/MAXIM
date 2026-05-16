@@ -1,3 +1,22 @@
+---
+maxim_schema: maxim.frontmatter.v1
+id: maxim:political-science:geopolitics
+kind: guide
+module: political-science
+section: political-science
+title: Geopolitics
+status: source-custody
+source_custody: partial
+current_path: political-science/03-GEOPOLITICS.md
+canonical_path: political-science/03-GEOPOLITICS.md
+backsource_ids: [proof-backfill:political-science:03-geopolitics, git-history:political-science:03-geopolitics]
+concepts: [geopolitics]
+root_concepts: [geopolitics]
+index_roles: [guide, root-concept]
+remap_from: []
+remap_to: []
+updated: null
+---
 # Geopolitics
 
 ## The Big Picture
@@ -40,7 +59,7 @@ of extended commitments — you generally cannot simultaneously maximize all thr
 |         │    │    Asia, Siberia)   │           │                     |
 |         │    └─────────────────────┘           │                     |
 |         │ ←── RIMLAND (coastal Eurasia) ──→    │                     |
-|         └─────────────────────────────────────┘                     |
+|         └─────────────────────────────────────┘                      |
 +----------------------------------------------------------------------+
 ```
 
@@ -205,13 +224,13 @@ of extended commitments — you generally cannot simultaneously maximize all thr
   Sectors: transport, energy, digital (digital Silk Road)
 
   GEOPOLITICAL INTERPRETATION:
-  ┌────────────────────────────────────────────────────────────────┐
-  │ CHINA'S STATED GOALS:       STRATEGIC CRITICS' INTERPRETATION:│
-  │ South-South cooperation     Create debt-dependent clients      │
-  │ Mutual development          Build military logistics network   │
-  │ Connectivity                Encirclement of India              │
+  ┌─────────────────────────────────────────────────────────────────┐
+  │ CHINA'S STATED GOALS:       STRATEGIC CRITICS' INTERPRETATION:  │
+  │ South-South cooperation     Create debt-dependent clients       │
+  │ Mutual development          Build military logistics network    │
+  │ Connectivity                Encirclement of India               │
   │ Trade facilitation          Dollar-alternative financial system │
-  └────────────────────────────────────────────────────────────────┘
+  └─────────────────────────────────────────────────────────────────┘
 
   DEBT-TRAP DIPLOMACY DEBATE:
   Hambantota Port (Sri Lanka): 99-year lease to China after debt default (2017)
@@ -339,21 +358,21 @@ of extended commitments — you generally cannot simultaneously maximize all thr
 
 ```
   SANCTIONS EVOLUTION:
-  ┌────────────────────────────────────────────────────────────────┐
-  │ 1990s: COMPREHENSIVE sanctions (Cuba, Iraq, Iran)              │
-  │ Total import/export bans; hurt civilian population             │
-  │ Result: humanitarian disasters; didn't change regime behavior  │
-  │                                                                │
-  │ 2000s: SMART/TARGETED sanctions                                │
+  ┌─────────────────────────────────────────────────────────────────┐
+  │ 1990s: COMPREHENSIVE sanctions (Cuba, Iraq, Iran)               │
+  │ Total import/export bans; hurt civilian population              │
+  │ Result: humanitarian disasters; didn't change regime behavior   │
+  │                                                                 │
+  │ 2000s: SMART/TARGETED sanctions                                 │
   │ Individual-level (oligarchs, officials), asset freeze/travel ban│
-  │ Less humanitarian damage; still limited effectiveness          │
-  │                                                                │
-  │ 2010s: FINANCIAL WARFARE                                       │
-  │ SWIFT exclusion (Iran 2012, Russia 2022)                       │
-  │ Correspondent banking restrictions                             │
-  │ Dollar clearing denial                                         │
-  │ Export controls (technology denial)                            │
-  └────────────────────────────────────────────────────────────────┘
+  │ Less humanitarian damage; still limited effectiveness           │
+  │                                                                 │
+  │ 2010s: FINANCIAL WARFARE                                        │
+  │ SWIFT exclusion (Iran 2012, Russia 2022)                        │
+  │ Correspondent banking restrictions                              │
+  │ Dollar clearing denial                                          │
+  │ Export controls (technology denial)                             │
+  └─────────────────────────────────────────────────────────────────┘
 
   RUSSIA 2022 CASE:
   Largest sanctions package in history:

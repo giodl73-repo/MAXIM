@@ -1,3 +1,22 @@
+---
+maxim_schema: maxim.frontmatter.v1
+id: maxim:hvac:thermodynamics
+kind: guide
+module: hvac
+section: hvac
+title: HVAC Thermodynamics and Load Calculation
+status: source-custody
+source_custody: partial
+current_path: hvac/01-THERMODYNAMICS.md
+canonical_path: hvac/01-THERMODYNAMICS.md
+backsource_ids: [proof-backfill:hvac:01-thermodynamics, git-history:hvac:01-thermodynamics]
+concepts: [thermodynamics]
+root_concepts: [thermodynamics]
+index_roles: [guide, root-concept]
+remap_from: []
+remap_to: []
+updated: null
+---
 # HVAC Thermodynamics & Load Calculation
 
 ## The Big Picture

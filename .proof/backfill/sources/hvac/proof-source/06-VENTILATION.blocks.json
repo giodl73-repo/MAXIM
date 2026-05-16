@@ -1,0 +1,94 @@
+{
+  "schema_version": "1",
+  "source_markdown": "hvac\\06-VENTILATION.md",
+  "blocks": [
+    {
+      "id": "block-1",
+      "kind": "ascii_table_candidate",
+      "line": 28,
+      "heading_context": "## The Big Picture",
+      "confidence": "candidate",
+      "text": "+----------------------------------------------------------------------+\n|               THE TIGHT BUILDING DILEMMA                             |\n|                                                                      |\n|  OLD LEAKY HOUSE           NEW TIGHT HOUSE                           |\n|  (>10 ACH50)               (<3 ACH50)                                |\n|                                                                      |\n|  Natural infiltration      Minimal infiltration                      |\n|  keeps air \"fresh\"         saves energy                              |\n|  (accidentally)            BUT indoor air quality                    |\n|                            degrades without                          |\n|  Large heating/cooling     intentional ventilation                   |\n|  energy waste                                                        |\n|                            Solution: mechanical                      |\n|  No mold risk from         ventilation with                          |\n|  tight air pockets         energy recovery                           |\n+----------------------------------------------------------------------+\n         |                                    |\n         v                                    v\n  Rule: tighter is better for energy;  tighter requires ventilation\n  build tight, ventilate right",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-2",
+      "kind": "diagram_like",
+      "line": 55,
+      "heading_context": "## Section 1: Infiltration vs. Ventilation",
+      "confidence": "candidate",
+      "text": "  INFILTRATION (uncontrolled):\n  - Air leakage through cracks, gaps, penetrations, electrical outlets\n  - Driven by: wind pressure + stack effect (warm air rises, creates\n    positive pressure at ceiling, negative at floor)\n  - Unpredictable, variable, unfiltered\n  - Can draw radon from soil, moisture from crawlspace,\n    exhaust from garage, pollen from outdoors\n  - Measured by blower door: ACH50\n\n  VENTILATION (controlled):\n  - Intentional introduction of outdoor air\n  - Measured, filtered, often conditioned\n  - Can be paired with heat recovery\n\n  STACK EFFECT:\n  ┌──────────────────────────────────────────────────────┐\n  │                    ROOF                              │\n  │          +P  warm air exits ↑                        │\n  │                                                      │\n  │ NEUTRAL  ←─────────────────────────────── neutral    │\n  │ PLANE    no pressure differential                    │\n  │                                                      │\n  │          -P  cold air enters ↓                       │\n  │                    SLAB                              │\n  └──────────────────────────────────────────────────────┘\n  Warm air in house rises → exits through upper gaps →\n  replacement air drawn in at bottom\n  Effect is larger: taller buildings, larger ΔT inside/outside",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-3",
+      "kind": "diagram_like",
+      "line": 92,
+      "heading_context": "## Section 2: ASHRAE 62.2 — Residential Ventilation Standard",
+      "confidence": "candidate",
+      "text": "  ASHRAE 62.2 FORMULA:\n  Q_total = 0.01 × A_floor + 7.5 × (N_br + 1)\n\n  Where:\n  A_floor = conditioned floor area (ft²)\n  N_br    = number of bedrooms\n\n  EXAMPLES:\n  ┌──────────┬────────┬────────┬────────────┐\n  │ House    │ Sq Ft  │ Beds   │ Required   │\n  ├──────────┼────────┼────────┼────────────┤\n  │ Small    │ 1,000  │ 2      │ 10+22=32   │\n  │ Typical  │ 1,500  │ 3      │ 15+30=45   │\n  │ Large    │ 2,500  │ 4      │ 25+37=62   │\n  └──────────┴────────┴────────┴────────────┘\n\n  These are in CFM (cubic feet per minute)\n\n  COMPLIANCE:\n  - Any combination of exhaust, supply, or balanced that achieves\n    the required CFM over time (intermittent allowed with boost factor)\n  - Spot ventilation (bath, kitchen) separate requirement",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-4",
+      "kind": "diagram_like",
+      "line": 121,
+      "heading_context": "## Section 3: Ventilation Strategies",
+      "confidence": "candidate",
+      "text": "  EXHAUST-ONLY:\n  ┌──────────────────────────────────────────────────────────────────┐\n  │ Bath fan or dedicated exhaust fan runs continuously              │\n  │ Slightly negative house pressure                                 │\n  │ Fresh air infiltrates through leakage paths                      │\n  │                                                                  │\n  │ PROS: Cheapest; simplest; uses existing bath fans                │\n  │ CONS: Air path uncontrolled (may draw radon, garage fumes)       │\n  │       Slightly negative pressure may pull from bad sources       │\n  │       Cold climate: infiltrating air unfiltered                  │\n  └──────────────────────────────────────────────────────────────────┘\n\n  SUPPLY-ONLY:\n  ┌──────────────────────────────────────────────────────────────────┐\n  │ Fresh air fan forces outdoor air into return duct or directly    │\n  │ Slightly positive house pressure                                 │\n  │ Stale air exfiltrates through leakage paths                      │\n  │                                                                  │\n  │ PROS: Cleaner air source; positive pressure keeps pollutants out │\n  │ CONS: Pushing humid air into walls in cold climates (condensation│\n  │       risk inside wall assembly); filtration quality varies      │\n  └──────────────────────────────────────────────────────────────────┘\n\n  BALANCED (ERV/HRV):\n  ┌──────────────────────────────────────────────────────────────────┐\n  │ Equal exhaust + supply airflow; no pressure imbalance            │\n  │ Dedicated intake + exhaust pathways                              │\n  │ Heat exchanger core recovers energy                              │\n  │                                                                  │\n  │ PROS: Controlled; filtered; energy efficient; no pressure issues │\n  │ CONS: Higher equipment cost; installation complexity             │\n  └──────────────────────────────────────────────────────────────────┘",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-5",
+      "kind": "diagram_like",
+      "line": 162,
+      "heading_context": "## Section 4: HRV vs. ERV",
+      "confidence": "candidate",
+      "text": "  HRV (Heat Recovery Ventilator):\n  ┌──────────────────────────────────────────────────────────────────┐\n  │ Transfers SENSIBLE HEAT only between exhaust and supply streams  │\n  │                                                                  │\n  │ Exhaust air: 70°F, 50% RH  ──────── HRV core ──────── exits      │\n  │ Supply air: -10°F outdoor   ──────── HRV core ──────── 55°F in   │\n  │                                                                  │\n  │ 70–80% sensible heat recovery                                    │\n  │ Moisture: does NOT transfer → exhaust moisture exits building    │\n  │                                                                  │\n  │ WHEN TO USE:                                                     │\n  │ Cold, dry climates (zones 5–8)                                   │\n  │ - Don't want to bring in outdoor humidity in humid summers       │\n  │ - Winter: some say prefer to expel indoor moisture (tight homes  │\n  │   can have excess humidity from cooking, showers, occupants)     │\n  │ - HRV expels moisture → prevents condensation on cold surfaces   │\n  └──────────────────────────────────────────────────────────────────┘\n\n  ERV (Energy Recovery Ventilator):\n  ┌──────────────────────────────────────────────────────────────────┐\n  │ Transfers BOTH sensible heat AND moisture (enthalpy exchange)    │\n  │ Desiccant wheel or semi-permeable membrane core                  │\n  │                                                                  │\n  │ Summer mode: incoming hot humid air → ERV core → moisture        │\n  │              transferred to cooler exhaust stream → enters       │\n  │              house cooler AND drier                              │\n  │ Winter mode: outgoing humid exhaust air → ERV core → moisture    │\n  │              partially retained → incoming air gains humidity    │\n  │                                                                  │\n  │ 70–80% of both sensible AND latent energy recovered              │\n  │                                                                  │\n  │ WHEN TO USE:                                                     │\n  │ Hot/humid climates (zones 1–3)                                   │\n  │ Mixed humid climates (zone 4)                                    │\n  │ - Summer: reduces latent load on AC by pre-dehumidifying         │\n  │ - Winter: retains humidity (combats dry air issues)              │\n  └──────────────────────────────────────────────────────────────────┘\n\n  CLIMATE DECISION:\n  Zone 1–3 (humid): ERV\n  Zone 4 (mixed): either; lean ERV for humid summers\n  Zone 5–8 (dry/cold): HRV (dump excess winter moisture)\n  Exception: very dry cold climates (Denver, Phoenix in winter): ERV\n             to retain moisture",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-6",
+      "kind": "diagram_like",
+      "line": 215,
+      "heading_context": "## Section 5: Filtration — MERV Ratings",
+      "confidence": "candidate",
+      "text": "  MERV RATINGS (Minimum Efficiency Reporting Value):\n  ┌──────────┬──────────────────────────────────────────────────────┐\n  │ MERV 1–4 │ Fiberglass, washable; pollen (>10 μm); dust mites    │\n  │          │ Basic equipment protection only                      │\n  ├──────────┼──────────────────────────────────────────────────────┤\n  │ MERV 5–8 │ Mold spores, dust, pet dander (3–10 μm)             │\n  │          │ Minimum recommended for residential comfort           │\n  ├──────────┼──────────────────────────────────────────────────────┤\n  │ MERV 9–12│ Legionella, auto emissions, lead dust (1–3 μm)       │\n  │          │ Good residential; some commercial; hospital waiting  │\n  ├──────────┼──────────────────────────────────────────────────────┤\n  │ MERV 13  │ Bacteria, virus-carrying droplets (0.3–1 μm)         │\n  │          │ Recommended upgrade post-COVID; residential feasible │\n  │          │ with proper system design; some pressure drop penalty │\n  ├──────────┼──────────────────────────────────────────────────────┤\n  │ MERV 14–16│ Similar to HEPA efficiency; hospital, OR, clean room │\n  │          │ High pressure drop — must verify system fan capacity │\n  ├──────────┼──────────────────────────────────────────────────────┤\n  │ MERV 17+ │ HEPA: ≥99.97% at 0.3 μm; cleanroom, OR, IC fab     │\n  │          │ Standalone HEPA units bypass main HVAC (separate unit)│\n  └──────────┴──────────────────────────────────────────────────────┘\n\n  PRESSURE DROP TRADEOFF:\n  Higher MERV → higher pressure drop across filter\n  → reduced airflow → reduced equipment capacity\n  → possible coil freeze-up (low airflow = low suction pressure)\n  → check external static pressure spec before upgrading\n\n  MERV 13 in residential: usually fine with proper duct sizing;\n  verify TESP (total external static pressure) headroom",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-7",
+      "kind": "diagram_like",
+      "line": 252,
+      "heading_context": "## Section 6: IAQ — Key Pollutants",
+      "confidence": "candidate",
+      "text": "  POLLUTANT    SOURCE              HEALTH EFFECT        STANDARD/ACTION\n  ---------    ------              -------------        ---------------\n  CO₂          Occupants,          Cognitive impairment 400 ppm outdoor baseline\n               combustion          at >1000 ppm;        800–1000 ppm = poor IAQ\n                                   drowsiness, focus    1500+ = significant impairment\n                                   decline              Proxy for ventilation adequacy\n\n  CO           Combustion          Toxic at 70+ ppm;    UL2034: alarm at 70 ppm\n               appliances          lethal at 400+ ppm   CO detector mandatory\n               malfunction         No warning signs     (no color, no smell)\n\n  PM2.5        Outdoor pollution,  Lung disease, CV     EPA: 12 μg/m³ annual avg\n               cooking, wildfire,  disease, cancer      35 μg/m³ 24-hr average\n               candles, smoking    (fine particles       HEPA + ERV/HRV filtration\n                                   penetrate deepest)\n\n  VOCs         Off-gassing from    Eye/nose irritation, No single standard\n               materials, paint,   headaches, long-term Source control first;\n               cleaners, plastics  carcinogen risk      ventilation + activated carbon\n\n  Radon        Soil radioactive    2nd leading cause of EPA action level: 4 pCi/L\n               decay (uranium)     lung cancer in US    Mitigation: sub-slab\n               → basements                              depressurization fan\n\n  Humidity     Occupants,          Mold >60% RH         30–60% RH optimal\n  (RH%)        cooking, showers    Virus survival <30%  Monitor; control with\n                                   Dust mites >50%      HVAC + dehumidifier\n\n  Formaldehyde Composite wood,     Carcinogen            Low-emission materials;\n               insulation, carpet  (IARC Group 1)        ventilation; activated carbon",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-8",
+      "kind": "diagram_like",
+      "line": 289,
+      "heading_context": "## Section 7: Demand-Controlled Ventilation (DCV)",
+      "confidence": "candidate",
+      "text": "  PRINCIPLE: Vary ventilation rate based on actual CO₂ concentration\n  → Ventilate more when occupied (CO₂ rising), less when empty (save energy)\n\n  IMPLEMENTATION:\n  CO₂ sensor → BAS or ERV controller → damper or fan speed modulation\n\n  ASHRAE 62.1: explicitly allows DCV for commercial spaces\n  Residential: emerging; smart ERV/HRV controllers (Broan, Fantech, Panasonic)\n\n  TARGET CO₂ SETPOINTS:\n  700–800 ppm: well-ventilated\n  800–1000 ppm: acceptable; slight cognitive impact\n  1000–1200 ppm: trigger increased ventilation\n  >1200 ppm: fully open ventilation; occupancy load exceeds design\n\n  PM2.5 DCV: AQI sensors from outdoor network → close HRV/ERV fresh\n             air intake during wildfire smoke events (recirculate + HEPA)",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    }
+  ]
+}

@@ -1,0 +1,105 @@
+{
+  "schema_version": "1",
+  "source_markdown": "hvac\\08-CONTROLS.md",
+  "blocks": [
+    {
+      "id": "block-1",
+      "kind": "ascii_table_candidate",
+      "line": 29,
+      "heading_context": "## The Big Picture",
+      "confidence": "candidate",
+      "text": "+----------------------------------------------------------------------+\n|                    HVAC CONTROLS HIERARCHY                           |\n|                                                                      |\n|  RESIDENTIAL                         COMMERCIAL                      |\n|  -----------                         ----------                      |\n|  Occupant comfort preference         Building management requirement |\n|         |                                      |                     |\n|  ┌──────┴──────┐                     ┌─────────┴──────────┐          |\n|  │ Thermostat  │                     │ BAS (Building       │         |\n|  │ (smart/prog)│                     │ Automation System)  │         |\n|  └──────┬──────┘                     └─────────┬──────────┘         |\n|         |                                      |                     |\n|  24V control wiring                  DDC controllers (BACnet/Modbus) |\n|         |                                      |                     |\n|  ┌──────┴──────┐                     ┌─────────┴──────────┐         |\n|  │ Air handler │                     │ AHU, VAV boxes,    │         |\n|  │ + Outdoor   │                     │ Chiller, Boiler    │         |\n|  │ unit        │                     │ Pumps, Fans (VFD)  │         |\n|  └─────────────┘                     └────────────────────┘         |\n+----------------------------------------------------------------------+",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-2",
+      "kind": "diagram_like",
+      "line": 56,
+      "heading_context": "## Section 1: Thermostat Evolution",
+      "confidence": "candidate",
+      "text": "  GENERATION 1 — Bimetal strip (1880s–1960s):\n  Two metals bonded (different thermal expansion → bends with temperature)\n  Contact makes → sends power to furnace; breaks → shuts off\n  Very simple; no settings; maintains average temperature in one room\n\n  GENERATION 2 — Mercury tilt switch (1950s–1990s):\n  Bimetal strip + glass tube containing mercury\n  Tilts with temperature → mercury slides → makes/breaks contact\n  Quieter than snap contacts; very accurate; mercury disposal issue\n  Now banned in many states; still found in older homes\n\n  GENERATION 3 — Electronic programmable (1980s–2000s):\n  Digital temperature sensor; LCD display; 7-day scheduling\n  Setback setpoints: lower at night/when away → significant energy savings\n  Studies show: rarely programmed by homeowners (same as gen 1 in practice)\n  Honeywell T87, T6360 → Honeywell RTH series → millions installed\n\n  GENERATION 4 — Smart/learning (2011+):\n  Nest (2011): learned occupancy patterns from adjustments\n  Ecobee (2012): remote occupancy sensors, room averaging\n  Features: geofencing (phone GPS → away mode); remote app; energy reports;\n            demand response (utility pricing); integration with home automation\n  Better adoption of setback schedules (app vs. menu-button)\n  Energy savings studies: 10–15% average vs generation 3\n\n  GENERATION 5 — Cloud-connected + room sensors:\n  Ecobee SmartSensor; remote room sensors average temperatures\n  Corrects for thermostat location issue (thermostat in hallway ≠ bedroom comfort)\n  Integration: Google Home, Amazon Alexa, Apple HomeKit",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-3",
+      "kind": "ascii_table_candidate",
+      "line": 96,
+      "heading_context": "## Section 2: 24V Control Wiring",
+      "confidence": "candidate",
+      "text": "  TERMINAL REFERENCE:\n  ┌────┬────────────────────────────────────────────────────────────┐\n  │ R  │ 24VAC power (hot from transformer)                         │\n  │ Rh │ Heating transformer power (separate transformer systems)   │\n  │ Rc │ Cooling transformer power (separate transformer systems)   │\n  │ C  │ Common — 24VAC return; needed by smart thermostats         │\n  │    │ for continuous power; many old systems lack C wire         │\n  ├────┼────────────────────────────────────────────────────────────┤\n  │ G  │ Fan (air handler blower — runs fan without heating/cooling)│\n  │ Y  │ Cooling (energizes compressor contactor on outdoor unit)   │\n  │ W  │ Heating (energizes gas valve OR heat strips)               │\n  ├────┼────────────────────────────────────────────────────────────┤\n  │ O  │ Heat pump reversing valve — energize for COOLING mode      │\n  │    │ (most manufacturers: Carrier, Trane, Lennox, York)         │\n  │ B  │ Heat pump reversing valve — energize for HEATING mode      │\n  │    │ (Carrier/Bryant convention — opposite of O)                │\n  ├────┼────────────────────────────────────────────────────────────┤\n  │ E  │ Emergency heat — bypasses heat pump, resistance strips only│\n  │ Aux│ Auxiliary heat — resistance strips ON with heat pump       │\n  ├────┼────────────────────────────────────────────────────────────┤\n  │ Y2 │ Second-stage cooling (two-stage compressor)                │\n  │ W2 │ Second-stage heating                                       │\n  │ G2 │ Second-speed fan                                           │\n  └────┴────────────────────────────────────────────────────────────┘\n\n  BASIC COOLING CALL:\n  Thermostat closes: R → Y (compressor) + R → G (fan)\n  → Outdoor unit starts; blower runs\n\n  BASIC HEATING CALL (gas furnace):\n  Thermostat closes: R → W (gas valve) + R → G (fan after ignition)\n\n  HEAT PUMP COOLING CALL:\n  Thermostat closes: R → Y + R → G + R → O (or not-B)\n  → Reversing valve energized for cooling mode\n\n  HEAT PUMP HEATING CALL:\n  Thermostat closes: R → Y + R → G (O or B not energized/energized)\n  → Reversing valve in heating position",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-4",
+      "kind": "diagram_like",
+      "line": 156,
+      "heading_context": "## Section 3: Staging and Variable-Speed Control",
+      "confidence": "candidate",
+      "text": "  SINGLE-STAGE (conventional):\n  Thermostat simple on/off → 100% or nothing\n  Short-cycles → poor humidity control → temperature swings\n\n  TWO-STAGE:\n  Thermostat sends Y1 → first stage (65% capacity typically)\n  If temperature doesn't recover → delay (10 min) → Y1 + Y2 → full capacity\n  Longer run times → better dehumidification → more stable temperatures\n  Two separate compressor unloaders or two compressor scrolls\n\n  VARIABLE-SPEED (COMMUNICATING SYSTEMS):\n  Proprietary digital communication between thermostat and equipment\n  ┌────────────────────┬────────────────────────────────────────────┐\n  │ Carrier ComfortLink│ iStat series thermostats; Infinity equipment│\n  ├────────────────────┼────────────────────────────────────────────┤\n  │ Trane ComfortLink  │ Nexia integration                          │\n  ├────────────────────┼────────────────────────────────────────────┤\n  │ Lennox iComfort    │ iHarmony zoning system                     │\n  ├────────────────────┼────────────────────────────────────────────┤\n  │ Ecobee/Nest        │ With inverter equipment: uses standard 2-  │\n  │ (generic)          │ stage wiring; equipment self-modulates;    │\n  │                    │ thermostat just sets demand level          │\n  └────────────────────┴────────────────────────────────────────────┘\n\n  Variable-speed advantages:\n  - Compressor runs at precisely the load required\n  - 25% speed on mild days → quiet, highly efficient, excellent humidity control\n  - 100-120% speed on design day → full capacity\n  - SEER2 and HSPF2 rating assumes variable-speed operation profile",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-5",
+      "kind": "diagram_like",
+      "line": 195,
+      "heading_context": "## Section 4: Heat Pump Thermostat Logic",
+      "confidence": "candidate",
+      "text": "  GAS FURNACE THERMOSTAT:\n  Heat call → turn on furnace (W) → heat up fast → shut off\n  Efficiency is insensitive to how long it runs\n\n  HEAT PUMP THERMOSTAT (correct):\n  Heat call → turn on heat pump (Y + G + O/B)\n  Monitor outdoor temp and heat pump performance\n  If ΔT (setpoint minus actual) growing slowly → supplemental strip heat (Aux)\n  Strips should run ONLY when heat pump genuinely insufficient\n\n  HEAT PUMP THERMOSTAT (wrong):\n  Treats heat pump like furnace — ramps up strips quickly\n  → Strips run frequently → COP drops to 1.0 → high utility bills\n  → Homeowner thinks \"heat pump doesn't work\" → replaces with gas\n\n  \"INTELLIGENT\" RECOVERY:\n  Smart heat pump thermostats calculate when to start heating in advance\n  → Gradual ramp → heat pump runs longer at COP 3.0 vs strips at COP 1.0\n  → \"Pre-conditioning\" timer accounts for outdoor temp\n\n  OUTDOOR TEMP LOCKOUT:\n  Some thermostats lock out heat pump below a certain outdoor temp (e.g., 25°F)\n  and switch to resistance-only (emergency heat mode)\n  → WRONG for cold-climate heat pumps rated to -13°F to -22°F\n  → Must configure lockout correctly or disable (use heat pump down to rated temp)",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-6",
+      "kind": "diagram_like",
+      "line": 229,
+      "heading_context": "### PID Control",
+      "confidence": "candidate",
+      "text": "  PID (Proportional-Integral-Derivative) control:\n  The standard algorithm for continuous modulation in commercial HVAC.\n  Not on/off — continuously adjusts output to maintain setpoint.\n\n  ERROR = Setpoint - Measured value\n\n  P (Proportional):  output ∝ error\n                     Large error → large correction; small error → small correction\n                     Alone: causes offset (never exactly reaches setpoint)\n\n  I (Integral):      output += integral of error over time\n                     Eliminates steady-state offset; eliminates persistent error\n                     Too much I → windup → overshoot\n\n  D (Derivative):    output += rate of change of error\n                     Anticipates overshoot; applies braking force\n                     Helps on fast-responding systems; risky with noisy sensors\n\n  HVAC PID applications:\n  - VAV box damper position (maintains room temperature)\n  - AHU supply air temperature (maintains discharge setpoint)\n  - Chilled water valve position (maintains zone temperature)\n  - Building static pressure (supply fan VFD speed control)",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-7",
+      "kind": "diagram_like",
+      "line": 259,
+      "heading_context": "### Building Automation System (BAS)",
+      "confidence": "candidate",
+      "text": "  BAS HIERARCHY:\n  ┌──────────────────────────────────────────────────────────────────┐\n  │ SUPERVISORY LAYER (Server/cloud)                                 │\n  │ Honeywell Niagara Framework; Siemens Desigo; JCI Metasys         │\n  │ Scheduling, reporting, alarming, energy analytics, maintenance   │\n  └──────────────────────────────────┬───────────────────────────────┘\n                                     |\n  ┌──────────────────────────────────┴───────────────────────────────┐\n  │ AUTOMATION LAYER (DDC Controllers)                               │\n  │ Field panels with PLC-like processors; run PID loops locally     │\n  │ Continue operating if network fails (local intelligence)         │\n  └──────────────────────────────────┬───────────────────────────────┘\n                                     |\n  ┌──────────────────────────────────┴───────────────────────────────┐\n  │ FIELD LAYER (Sensors and Actuators)                              │\n  │ Temperature sensors, pressure sensors, CO₂ sensors               │\n  │ Damper actuators, valve actuators, VFD speed references          │\n  └──────────────────────────────────────────────────────────────────┘\n\n  PROTOCOLS:\n  BACnet (ASHRAE 135): open standard; IP-based (BACnet/IP) or MS/TP serial\n                       vendor-neutral; most commercial BAS supports it\n  Modbus RTU/TCP:      simple serial protocol from industrial automation\n                       most devices support it; read/write registers\n  LonWorks:            older proprietary protocol; still in field\n  Proprietary:         each major vendor (Siemens, Honeywell, JCI) has native\n                       protocol; gateways needed for cross-vendor integration",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-8",
+      "kind": "diagram_like",
+      "line": 322,
+      "heading_context": "### Datacenter Free Cooling — The Dominant Application",
+      "confidence": "candidate",
+      "text": "  CONCEPT: When outdoor air is cool/dry enough, use it directly for cooling\n  instead of running refrigeration. \"Free cooling.\"\n\n  WHEN IT WORKS:\n  Summer night: outdoor 65°F, setpoint 72°F → use outdoor air (no compressor)\n  Spring/fall: outdoor 55°F during occupied hours → economizer hours possible\n\n  TYPES:\n  ┌──────────────────┬────────────────────────────────────────────────┐\n  │ Dry-bulb         │ Open outdoor air damper when outdoor temp      │\n  │ economizer       │ below setpoint (e.g., 65°F)                    │\n  │                  │ Simple; problem: may bring in humid air at low │\n  │                  │ dry-bulb (enthalpy might be too high)          │\n  ├──────────────────┼────────────────────────────────────────────────┤\n  │ Enthalpy         │ Measures outdoor + indoor enthalpy (BTU/lb)    │\n  │ economizer       │ Open only when outdoor enthalpy < indoor        │\n  │                  │ Avoids humid days; more accurate; higher cost   │\n  └──────────────────┴────────────────────────────────────────────────┘\n\n  DOE REQUIREMENT: Economizers required in most commercial climate zones\n  RESIDENTIAL: Rarely cost-justified (complex controls, modest savings in home)\n\n  FAILURE MODE: Stuck open economizer damper in summer\n  → Massive humidity load from outdoor air → comfort problems\n  → One of most common BAS diagnostic findings",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-9",
+      "kind": "diagram_like",
+      "line": 354,
+      "heading_context": "## Section 7: Defrost Control (Revisit)",
+      "confidence": "candidate",
+      "text": "  DEFROST TRIGGERS:\n  Timer only: runs defrost every 30–90 min regardless\n  → Unnecessary defrost cycles in mild conditions = inefficiency\n\n  Demand defrost (preferred): combined logic\n  → Timer provides maximum interval\n  → Temperature differential across coil indicates frost buildup\n  → OR pressure drop sensor (differential pressure across coil)\n  → Defrost only when needed → more efficient\n\n  DEFROST SEQUENCE:\n  1. Reversing valve → cooling mode (outdoor coil = condenser = hot)\n  2. Outdoor fan OFF (retain heat at outdoor coil)\n  3. Aux heat strips ON (prevent cold air to house)\n  4. Run ~2–5 minutes; coil temp sensor confirms thaw\n  5. Return to heating mode; outdoor fan back on\n\n  Homeowner visible: water/steam from outdoor unit, outdoor fan stops\n  Duration: 2–5 minutes every 30–90 minutes in icing conditions (normal)",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    }
+  ]
+}
