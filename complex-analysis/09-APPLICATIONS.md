@@ -1,3 +1,22 @@
+---
+maxim_schema: maxim.frontmatter.v1
+id: maxim:complex-analysis:applications
+kind: guide
+module: complex-analysis
+section: complex-analysis
+title: Applications of Complex Analysis to Physics and Engineering
+status: source-custody
+source_custody: partial
+current_path: complex-analysis/09-APPLICATIONS.md
+canonical_path: complex-analysis/09-APPLICATIONS.md
+backsource_ids: [proof-backfill:complex-analysis:09-applications, git-history:complex-analysis:09-applications]
+concepts: [applications]
+root_concepts: [applications]
+index_roles: [guide, root-concept]
+remap_from: []
+remap_to: []
+updated: null
+---
 # Applications of Complex Analysis to Physics and Engineering
 
 ## The Big Picture
@@ -197,9 +216,9 @@ By residue theorem:
 
 | Pole location | Time behavior | Stable? |
 |--------------|--------------|---------|
-| |zₖ| < 1  (inside unit circle) | Decays | Yes |
-| |zₖ| = 1  (on unit circle) | Oscillatory | Marginal |
-| |zₖ| > 1  (outside unit circle) | Grows | No |
+| \|zₖ\| < 1  (inside unit circle) | Decays | Yes |
+| \|zₖ\| = 1  (on unit circle) | Oscillatory | Marginal |
+| \|zₖ\| > 1  (outside unit circle) | Grows | No |
 
 This is the discrete-time counterpart of s-plane stability. The unit circle in the z-plane corresponds to the imaginary axis in the s-plane, connected via z = e^{sT}.
 

@@ -1,0 +1,86 @@
+{
+  "schema_version": "1",
+  "source_markdown": "fluid-dynamics\\01-CONTINUUM-MECHANICS.md",
+  "tables": [
+    {
+      "id": "table-1",
+      "line": 264,
+      "heading_context": "## Cross-References",
+      "headers": [
+        "To deepen...",
+        "See"
+      ],
+      "rows": [
+        [
+          "Inviscid limits and Bernoulli reasoning",
+          "`fluid-dynamics/02-INVISCID-FLOW.md`"
+        ],
+        [
+          "Viscous stresses and Navier-Stokes solutions",
+          "`fluid-dynamics/03-VISCOUS-FLOW.md`"
+        ],
+        [
+          "Boundary layers from no-slip walls",
+          "`fluid-dynamics/04-BOUNDARY-LAYERS.md`"
+        ]
+      ]
+    },
+    {
+      "id": "table-2",
+      "line": 274,
+      "heading_context": "## Decision Cheat Sheet",
+      "headers": [
+        "If you need to diagnose...",
+        "Start With",
+        "Key Caveat"
+      ],
+      "rows": [
+        [
+          "Fluid-parcel change",
+          "Material derivative `D/Dt`",
+          "Different from fixed-point Eulerian partial time derivative."
+        ],
+        [
+          "Mass balance",
+          "Continuity `partial rho/partial t + div(rho v) = 0`",
+          "Incompressible flow can still have spatially varying density."
+        ],
+        [
+          "Incompressibility",
+          "`div v = 0` for parcel volume conservation",
+          "It is a velocity constraint, not a statement that density is uniform."
+        ],
+        [
+          "Vorticity",
+          "`omega = curl v`",
+          "Vorticity is twice local angular velocity, not streamline curvature."
+        ],
+        [
+          "Irrotationality",
+          "`omega = 0` and possible velocity potential `phi`",
+          "Global potential may fail on domains with holes or singular cores."
+        ],
+        [
+          "Inviscid momentum",
+          "Euler equation",
+          "Neglects viscous stress and cannot explain boundary-layer drag."
+        ],
+        [
+          "Viscous momentum",
+          "Navier-Stokes with viscous term such as `mu laplacian v`",
+          "Newtonian, constant-viscosity simplification is not universal."
+        ],
+        [
+          "Integral-to-field derivation",
+          "Reynolds transport theorem plus divergence theorem",
+          "Requires smoothness/control-volume assumptions."
+        ],
+        [
+          "Vorticity evolution",
+          "Vorticity equation and stretching term",
+          "Stretching is a 3D mechanism; 2D dynamics differ sharply."
+        ]
+      ]
+    }
+  ]
+}

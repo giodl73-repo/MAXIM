@@ -1,3 +1,22 @@
+---
+maxim_schema: maxim.frontmatter.v1
+id: maxim:fluid-dynamics:compressible-flow
+kind: guide
+module: fluid-dynamics
+section: fluid-dynamics
+title: Compressible Flow and Shock Waves
+status: source-custody
+source_custody: partial
+current_path: fluid-dynamics/06-COMPRESSIBLE-FLOW.md
+canonical_path: fluid-dynamics/06-COMPRESSIBLE-FLOW.md
+backsource_ids: [proof-backfill:fluid-dynamics:06-compressible-flow, git-history:fluid-dynamics:06-compressible-flow]
+concepts: [compressible, flow]
+root_concepts: [compressible, flow]
+index_roles: [guide, root-concept]
+remap_from: []
+remap_to: []
+updated: null
+---
 # Compressible Flow and Shock Waves
 
 ## The Big Picture

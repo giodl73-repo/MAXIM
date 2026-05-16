@@ -1,3 +1,22 @@
+---
+maxim_schema: maxim.frontmatter.v1
+id: maxim:fluid-dynamics:boundary-layers
+kind: guide
+module: fluid-dynamics
+section: fluid-dynamics
+title: Boundary Layer Theory
+status: source-custody
+source_custody: partial
+current_path: fluid-dynamics/04-BOUNDARY-LAYERS.md
+canonical_path: fluid-dynamics/04-BOUNDARY-LAYERS.md
+backsource_ids: [proof-backfill:fluid-dynamics:04-boundary-layers, git-history:fluid-dynamics:04-boundary-layers]
+concepts: [boundary, layers]
+root_concepts: [boundary, layers]
+index_roles: [guide, root-concept]
+remap_from: []
+remap_to: []
+updated: null
+---
 # Boundary Layer Theory
 
 ## The Big Picture

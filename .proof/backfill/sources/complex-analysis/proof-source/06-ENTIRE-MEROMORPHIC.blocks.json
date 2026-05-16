@@ -1,0 +1,83 @@
+{
+  "schema_version": "1",
+  "source_markdown": "complex-analysis\\06-ENTIRE-MEROMORPHIC.md",
+  "blocks": [
+    {
+      "id": "block-1",
+      "kind": "diagram_like",
+      "line": 26,
+      "heading_context": "## The Big Picture",
+      "confidence": "candidate",
+      "text": "ENTIRE AND MEROMORPHIC FUNCTIONS — MAP\n═══════════════════════════════════════════════════════════════════════════════\n\n  ENTIRE (no singularities anywhere in ℂ):\n  ┌──────────────────────────────────────────────────────────────────────┐\n  │  Polynomials    Growth: |f(z)| ~ |z|ⁿ         Zeros: finite          │\n  │  e^z, sin z    Growth: exponential              Zeros: discrete      │\n  │  e^{e^z}       Growth: superexponential         Zeros: none?         │\n  └──────────────────────────────────────────────────────────────────────┘\n\n  GROWTH RATE — ORDER ρ:\n  ρ = limsup_{r→∞}  log log M(r) / log r     M(r) = max_{|z|=r} |f(z)|\n\n  ┌──────────────┬──────────────┬────────────────────────────────────────┐\n  │  Function    │  Order ρ     │  Notes                                 │\n  ├──────────────┼──────────────┼────────────────────────────────────────┤\n  │  Polynomial  │  0           │  Hadamard: finitely many zeros         │\n  │  e^z         │  1           │  No zeros                              │\n  │  sin z       │  1           │  Zeros at nπ                           │\n  │  e^{z²}      │  2           │  No zeros                              │\n  │  e^{e^z}     │  ∞           │  Not of finite order                   │\n  └──────────────┴──────────────┴────────────────────────────────────────┘\n\n  MEROMORPHIC (entire except isolated poles):\n  Every meromorphic function on ℂ ∪ {∞} is a rational function.\n  On ℂ: quotient of two entire functions f = g/h",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-2",
+      "kind": "diagram_like",
+      "line": 63,
+      "heading_context": "## Order and Type of Entire Functions",
+      "confidence": "candidate",
+      "text": "    ρ = limsup_{r→∞} log log M(r) / log r",
+      "notes": [
+        "detected from arrows or box-drawing glyphs"
+      ]
+    },
+    {
+      "id": "block-3",
+      "kind": "diagram_like",
+      "line": 70,
+      "heading_context": "## Order and Type of Entire Functions",
+      "confidence": "candidate",
+      "text": "    τ = limsup_{r→∞} log M(r) / rρ",
+      "notes": [
+        "detected from arrows or box-drawing glyphs"
+      ]
+    },
+    {
+      "id": "block-4",
+      "kind": "diagram_like",
+      "line": 127,
+      "heading_context": "## Hadamard Factorization Theorem",
+      "confidence": "candidate",
+      "text": "HADAMARD FACTORIZATION STRUCTURE:\n  f(z) = [power of z] × [exponential of polynomial] × [Weierstrass product over zeros]\n          ─────────────   ─────────────────────────    ─────────────────────────────────\n          zero at origin   \"background growth\"          zeros at aₙ",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-5",
+      "kind": "ascii_table_candidate",
+      "line": 164,
+      "heading_context": "### Gamma Function",
+      "confidence": "candidate",
+      "text": "Here γ = Euler-Mascheroni constant = lim_{n→∞} (1 + 1/2 + ... + 1/n − ln n) ≈ 0.5772.",
+      "notes": [
+        "detected from ASCII table borders or pipe-aligned rows"
+      ]
+    },
+    {
+      "id": "block-6",
+      "kind": "diagram_like",
+      "line": 204,
+      "heading_context": "## Picard's Theorems",
+      "confidence": "candidate",
+      "text": "HIERARCHY:\n  f has a removable singularity at a   →  f extends holomorphically, bounded near a\n  f has a pole of order n at a         →  |f(z)| → ∞ as z→a\n  f has an essential singularity at a  →  Picard: f dense near a  (Casorati-Weierstrass)",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-7",
+      "kind": "ascii_table_candidate",
+      "line": 247,
+      "heading_context": "## Infinite Products",
+      "confidence": "candidate",
+      "text": "**From Hadamard product to prime distribution.** The Hadamard factorization of ξ(s) is not merely a structural result — it is the engine of the explicit formula for primes. Taking logarithmic derivatives of the product gives −ζ'/ζ(s) = ... + Σ_ρ [1/(s−ρ) + 1/ρ] + ..., where the sum runs over non-trivial zeros. Feeding this into Perron's formula (contour integration, see 07-ANALYTIC-CONTINUATION.md) yields the von Mangoldt explicit formula: ψ(x) = x − Σ_ρ x^ρ/ρ − log(2π) − (1/2)log(1 − x^{−2}). Each zero ρ contributes an oscillatory correction x^ρ/ρ to the prime counting function. The PNT follows because the zero-free region forces Re(ρ) < 1, making the sum o(x). RH (all Re(ρ) = 1/2) would give the optimal error O(√x log x).",
+      "notes": [
+        "detected from ASCII table borders or pipe-aligned rows"
+      ]
+    }
+  ]
+}

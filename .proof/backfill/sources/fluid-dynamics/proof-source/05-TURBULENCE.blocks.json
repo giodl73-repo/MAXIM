@@ -1,0 +1,61 @@
+{
+  "schema_version": "1",
+  "source_markdown": "fluid-dynamics\\05-TURBULENCE.md",
+  "blocks": [
+    {
+      "id": "block-1",
+      "kind": "diagram_like",
+      "line": 26,
+      "heading_context": "## The Big Picture",
+      "confidence": "candidate",
+      "text": "TURBULENCE — CONCEPTUAL MAP\n═══════════════════════════════════════════════════════════════════════════════\n\n  WHAT TURBULENCE IS:\n  ┌──────────────────────────────────────────────────────────────────────┐\n  │  Irregular, chaotic, deterministic (N-S solution at high Re)         │\n  │  3D (vortex stretching requires 3D — 2D \"turbulence\" is different)   │\n  │  Multi-scale (eddies from meters to millimeters simultaneously)      │\n  │  Dissipative (converts KE to heat at small scales)                   │\n  │  Diffusive (turbulent mixing >> molecular diffusion)                 │\n  └──────────────────────────────────────────────────────────────────────┘\n\n  KOLMOGOROV ENERGY CASCADE:\n  Large scales (energy input)                                            Energy in\n  ─────────────────────────────────────────────────────────────────── ↓\n  L_integral ~ 0.1 m   (large eddies, most energy)\n                ↓ inertial cascade (scale-by-scale energy transfer)\n                ↓ E(k) ~ k^{-5/3}   (Kolmogorov spectrum, k = wavenumber)\n                ↓\n  η ~ 1 mm     (Kolmogorov scale — viscosity stops the cascade)        ↓ Energy dissipated\n  ─────────────────────────────────────────────────────────────────── as heat",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-2",
+      "kind": "diagram_like",
+      "line": 68,
+      "heading_context": "## Reynolds Decomposition and RANS",
+      "confidence": "candidate",
+      "text": "REYNOLDS STRESS TENSOR:\n  τᵢⱼ_R = −ρ⟨u_i'u_j'⟩\n\n  3×3 symmetric tensor:\n  [⟨u'u'⟩  ⟨u'v'⟩  ⟨u'w'⟩]\n  [⟨v'u'⟩  ⟨v'v'⟩  ⟨v'w'⟩]\n  [⟨w'u'⟩  ⟨w'v'⟩  ⟨w'w'⟩]\n\n  Diagonal: turbulent normal stresses (= turbulent kinetic energy)\n  Off-diagonal: turbulent shear stresses (cause mixing)\n\n  PROBLEM: 6 new unknowns, no new equations → CLOSURE PROBLEM",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-3",
+      "kind": "diagram_like",
+      "line": 163,
+      "heading_context": "## Kolmogorov Theory (K41)",
+      "confidence": "candidate",
+      "text": "TURBULENT ENERGY SPECTRUM:\n\n  E(k)\n  (energy   ↑\n  per unit   │  energy-containing range\n  wavenumber)│  (large eddies)\n             │\\\n             │ \\\n             │  \\  k^{-5/3} inertial range\n             │   \\_______\n             │           \\_____\n             │                 \\___  dissipation range\n             └──────────────────────── k (wavenumber, 1/m)\n             k_L            k_η\n            (integral scale)  (Kolmogorov scale)\n\n  Region            Scale          Physics\n  ─────────────────────────────────────────\n  Large eddies       L             energy input from mean flow\n  Inertial range     L > l > η    energy cascade, E ~ k^{-5/3}\n  Dissipation        η            viscosity converts KE to heat",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-4",
+      "kind": "diagram_like",
+      "line": 195,
+      "heading_context": "## Turbulent Kinetic Energy Budget",
+      "confidence": "candidate",
+      "text": "    Production:    P = −⟨u_i'u_j'⟩ ∂U_i/∂x_j    (mean flow → turbulence)\n    Dissipation:   ε = ν⟨(∂u_i'/∂x_j)²⟩            (small scales → heat)",
+      "notes": [
+        "detected from arrows or box-drawing glyphs"
+      ]
+    },
+    {
+      "id": "block-5",
+      "kind": "diagram_like",
+      "line": 234,
+      "heading_context": "### LES (Large Eddy Simulation)",
+      "confidence": "candidate",
+      "text": "SIMULATION METHOD COMPARISON:\n  Method    Resolved    Modeled      Cost          Accuracy\n  ──────────────────────────────────────────────────────────\n  DNS       all scales  nothing      Re^{11/4}    exact (for N-S)\n  LES       L >> l > Δ  l < Δ        Re^{1.8}    good, Δ-dependent\n  RANS      mean only   all turb.    cheap        model-dependent\n  hybrid    outer BL    inner BL     moderate     RANS near wall\n  (DES,DDES)  (LES)    (RANS)",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    }
+  ]
+}

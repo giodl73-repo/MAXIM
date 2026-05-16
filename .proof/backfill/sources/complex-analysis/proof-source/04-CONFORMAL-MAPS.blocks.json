@@ -1,0 +1,72 @@
+{
+  "schema_version": "1",
+  "source_markdown": "complex-analysis\\04-CONFORMAL-MAPS.md",
+  "blocks": [
+    {
+      "id": "block-1",
+      "kind": "diagram_like",
+      "line": 26,
+      "heading_context": "## The Big Picture",
+      "confidence": "candidate",
+      "text": "CONFORMAL MAPS — LANDSCAPE\n═══════════════════════════════════════════════════════════════════════════════\n\n  CONFORMAL MAP: f holomorphic, f'(z) ≠ 0\n  Preserves: angles (including orientation)\n  Maps: circles and lines → circles and lines (for Möbius)\n         regions → regions (biholomorphically for bijective maps)\n\n  KEY CLASSES\n  ┌─────────────────────────────────────────────────────────────────────┐\n  │  Möbius (linear fractional)   f = (az+b)/(cz+d),  ad−bc ≠ 0         │\n  │  Power maps                   f = zⁿ, f = z^{1/n}                   │\n  │  Exponential/logarithm        f = e^z, f = log z                    │\n  │  Joukowski                    f = z + 1/z   (circles → airfoils)    │\n  │  Schwarz-Christoffel          maps to polygons                      │\n  └─────────────────────────────────────────────────────────────────────┘\n\n  RIEMANN MAPPING THEOREM\n  ┌─────────────────────────────────────────────────────────────────────┐\n  │  Ω ⊂ ℂ simply connected and Ω ≠ ℂ                                   │\n  │  ⟹  ∃ unique biholomorphic f: Ω → D (unit disk)                     │\n  │      with f(z₀) = 0 and f'(z₀) > 0 for any fixed z₀ ∈ Ω             │\n  └─────────────────────────────────────────────────────────────────────┘\n\n  APPLICATIONS\n  ┌──────────────┬────────────────────────────────────────────────────┐\n  │ Laplace PDE  │ Map complex domain to disk; solve; map back        │\n  │ Fluid flow   │ Map airfoil to disk; solve potential flow          │\n  │ Airfoil      │ Joukowski transform: circle → wing profile         │\n  │ Electrostatic│ Potential on Ω = real part of holomorphic f on Ω   │\n  └──────────────┴────────────────────────────────────────────────────┘",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-2",
+      "kind": "diagram_like",
+      "line": 93,
+      "heading_context": "## Möbius Transformations (Linear Fractional Transformations)",
+      "confidence": "candidate",
+      "text": "1. Bijection ℂ ∪ {∞} → ℂ ∪ {∞}\n   Maps circles and lines to circles and lines\n   (lines = circles through ∞ on Riemann sphere)\n\n2. Composition of Möbius transformations is Möbius\n   (closed under composition — they form a group)\n\n3. Determined by THREE points: given z₁,z₂,z₃ and their images w₁,w₂,w₃,\n   there is a unique Möbius transformation sending zⱼ → wⱼ\n\n4. Fixed points: solve f(z) = z  →  quadratic  →  0, 1, or 2 fixed pts\n   (on Riemann sphere, always exactly 2 counting multiplicity)\n\n5. Cross-ratio invariant:\n   (z−z₁)(z₂−z₃) / [(z−z₃)(z₂−z₁)] is preserved under Möbius maps",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-3",
+      "kind": "diagram_like",
+      "line": 122,
+      "heading_context": "### Standard Möbius Maps",
+      "confidence": "candidate",
+      "text": "    Maps ℍ = {Im(z) > 0} → D = {|w| < 1}",
+      "notes": [
+        "detected from arrows or box-drawing glyphs"
+      ]
+    },
+    {
+      "id": "block-4",
+      "kind": "ascii_table_candidate",
+      "line": 184,
+      "heading_context": "## Joukowski Transform",
+      "confidence": "candidate",
+      "text": "JOUKOWSKI TRANSFORMATION: w = z + 1/z = z + z^{-1}\n\n  CRITICAL POINTS: w'(z) = 1 − 1/z² = 0  →  z = ±1\n  (Not conformal at z = ±1 — these become cusps)\n\n  ACTION ON CIRCLES:\n  Circle |z| = 1 (unit circle):\n    z = e^{iθ}:  w = e^{iθ} + e^{-iθ} = 2cos θ  → real segment [−2, 2]\n    The unit circle maps to the interval [−2, 2] on the real axis\n    (degenerate: circle → line segment)\n\n  Circle |z| = R > 1:\n    z = Re^{iθ}:  w = Re^{iθ} + (1/R)e^{-iθ}\n    x = (R + 1/R)cos θ,  y = (R − 1/R)sin θ  → ELLIPSE\n    semi-axes:  a = R + 1/R,  b = R − 1/R\n\n  Circle through z = 1 (offset circle):\n    → JOUKOWSKI AIRFOIL (realistic wing profile)",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-5",
+      "kind": "diagram_like",
+      "line": 221,
+      "heading_context": "## Schwarz-Christoffel Transform",
+      "confidence": "candidate",
+      "text": "POLYGON SHAPES AND THEIR SCHWARZ-CHRISTOFFEL MAPS:\n\n  Rectangle:       angles π/2 each     → elliptic integral\n  Triangle:        angles α, β, γ      → hypergeometric function\n  Strip (degenerate polygon):           → e^z or log z\n  Right-angle wedge:                    → z²\n  Slit (degenerate):                    → z^{1/2}",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-6",
+      "kind": "ascii_table_candidate",
+      "line": 235,
+      "heading_context": "## Schwarz-Christoffel Transform",
+      "confidence": "candidate",
+      "text": "**The upper half-plane as moduli space.** Beyond signal processing, ℍ plays a deeper role in number theory and algebraic geometry. The automorphisms of ℍ form SL(2, ℝ) acting by Möbius transformations τ ↦ (aτ+b)/(cτ+d). The discrete subgroup SL(2, ℤ) (integer entries, determinant 1) acts on ℍ, and the quotient ℍ/SL(2, ℤ) is the **moduli space of elliptic curves**: each point τ ∈ ℍ/SL(2, ℤ) parametrizes a conformally distinct torus ℂ/(ℤ + τℤ). The j-invariant j(τ) is the map ℍ/SL(2, ℤ) → ℂ that classifies tori. Modular forms — holomorphic functions on ℍ with prescribed transformation behavior under SL(2, ℤ) — are central to number theory (modularity theorem, Langlands program).",
+      "notes": [
+        "detected from ASCII table borders or pipe-aligned rows"
+      ]
+    }
+  ]
+}

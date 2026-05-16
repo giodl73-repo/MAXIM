@@ -1,0 +1,2340 @@
+{
+  "schema_version": "fletch.registry.v1",
+  "generated_by": "MAXIM source-corpus backfill",
+  "registry_id": "maxim-fluid-dynamics-source-corpus",
+  "fletches": [
+    {
+      "id": "maxim.fluid-dynamics.source-corpus.pebble",
+      "node_kind": "fletch",
+      "shafts": [
+        {
+          "kind": "file",
+          "url": ".pebble/packs/maxim-fluid-dynamics-source-corpus.pebble.json"
+        }
+      ],
+      "edges": [
+        {
+          "to": "maxim-fluid-dynamics-source-corpus",
+          "kind": "derived-from",
+          "label": "CROP view recipe",
+          "metadata": {
+            "view": ".crop/views/maxim-fluid-dynamics-source-corpus.json",
+            "module": "fluid-dynamics",
+            "custody": "partial"
+          }
+        }
+      ],
+      "format": {
+        "media_type": "application/json",
+        "encoding": "utf-8",
+        "compression": null,
+        "container": null,
+        "schema": "pebble.v1",
+        "record_shape": "corpus-slice",
+        "preferred_local": ".pebble/packs/maxim-fluid-dynamics-source-corpus.pebble.json"
+      },
+      "tags": [
+        "source-corpus",
+        "crop",
+        "pebble",
+        "partial-custody"
+      ],
+      "metadata": {
+        "source_repo": "MAXIM",
+        "module": "fluid-dynamics",
+        "distribution": "FLETCH fetch/cache surface for downstream repos",
+        "publication_state": "partial-source-custody"
+      }
+    },
+    {
+      "id": "maxim.fluid-dynamics.overview.view",
+      "node_kind": "fletch",
+      "shafts": [
+        {
+          "kind": "file",
+          "url": ".crop/views/maxim-fluid-dynamics-overview.json"
+        }
+      ],
+      "edges": [
+        {
+          "to": "maxim.fluid-dynamics.source-corpus.pebble",
+          "kind": "derived-from",
+          "label": "Guide-level CROP view recipe",
+          "metadata": {
+            "module": "fluid-dynamics",
+            "guide": "fluid-dynamics/00-OVERVIEW.md",
+            "custody": "partial"
+          }
+        }
+      ],
+      "format": {
+        "media_type": "application/json",
+        "encoding": "utf-8",
+        "compression": null,
+        "container": null,
+        "schema": "crop.view.v1",
+        "record_shape": "view-recipe",
+        "preferred_local": ".crop/views/maxim-fluid-dynamics-overview.json"
+      },
+      "tags": [
+        "source-corpus",
+        "crop",
+        "view",
+        "partial-custody",
+        "guide"
+      ],
+      "metadata": {
+        "source_repo": "MAXIM",
+        "module": "fluid-dynamics",
+        "guide": "fluid-dynamics/00-OVERVIEW.md",
+        "publication_state": "partial-source-custody"
+      }
+    },
+    {
+      "id": "maxim.fluid-dynamics.overview.pebble",
+      "node_kind": "fletch",
+      "shafts": [
+        {
+          "kind": "file",
+          "url": ".pebble/packs/maxim-fluid-dynamics-overview.pebble.json"
+        }
+      ],
+      "edges": [
+        {
+          "to": "maxim.fluid-dynamics.overview.view",
+          "kind": "derived-from",
+          "label": "Guide-level CROP view recipe",
+          "metadata": {
+            "module": "fluid-dynamics",
+            "custody": "partial"
+          }
+        },
+        {
+          "to": "maxim.fluid-dynamics.source-corpus.pebble",
+          "kind": "derived-from",
+          "label": "Guide-level CROP view",
+          "metadata": {
+            "view": ".crop/views/maxim-fluid-dynamics-overview.json",
+            "module": "fluid-dynamics",
+            "custody": "partial"
+          }
+        }
+      ],
+      "format": {
+        "media_type": "application/json",
+        "encoding": "utf-8",
+        "compression": null,
+        "container": null,
+        "schema": "pebble.v1",
+        "record_shape": "corpus-slice",
+        "preferred_local": ".pebble/packs/maxim-fluid-dynamics-overview.pebble.json"
+      },
+      "tags": [
+        "source-corpus",
+        "crop",
+        "pebble",
+        "partial-custody",
+        "guide"
+      ],
+      "metadata": {
+        "source_repo": "MAXIM",
+        "module": "fluid-dynamics",
+        "guide": "fluid-dynamics/00-OVERVIEW.md",
+        "publication_state": "partial-source-custody"
+      }
+    },
+    {
+      "id": "maxim.fluid-dynamics.overview.proof-source",
+      "node_kind": "fletch",
+      "shafts": [
+        {
+          "kind": "file",
+          "url": ".proof/backfill/sources/fluid-dynamics/proof-source/00-OVERVIEW.source.md"
+        }
+      ],
+      "edges": [
+        {
+          "to": "maxim.fluid-dynamics.overview.view",
+          "kind": "derived-from",
+          "label": "Literal PROOF source for guide view",
+          "metadata": {
+            "module": "fluid-dynamics",
+            "guide": "fluid-dynamics/00-OVERVIEW.md",
+            "custody": "partial"
+          }
+        }
+      ],
+      "format": {
+        "media_type": "text/markdown",
+        "encoding": "utf-8",
+        "compression": null,
+        "container": null,
+        "schema": "proof.source.literal_markdown.v1",
+        "record_shape": "literal-source",
+        "preferred_local": ".proof/backfill/sources/fluid-dynamics/proof-source/00-OVERVIEW.source.md"
+      },
+      "tags": [
+        "source-corpus",
+        "proof",
+        "source",
+        "partial-custody",
+        "guide"
+      ],
+      "metadata": {
+        "source_repo": "MAXIM",
+        "module": "fluid-dynamics",
+        "guide": "fluid-dynamics/00-OVERVIEW.md",
+        "publication_state": "partial-source-custody"
+      }
+    },
+    {
+      "id": "maxim.fluid-dynamics.overview.tables",
+      "node_kind": "fletch",
+      "shafts": [
+        {
+          "kind": "file",
+          "url": ".proof/backfill/sources/fluid-dynamics/proof-source/00-OVERVIEW.tables.json"
+        }
+      ],
+      "edges": [
+        {
+          "to": "maxim.fluid-dynamics.overview.proof-source",
+          "kind": "derived-from",
+          "label": "PROOF markdown table sidecar",
+          "metadata": {
+            "module": "fluid-dynamics",
+            "guide": "fluid-dynamics/00-OVERVIEW.md",
+            "custody": "partial"
+          }
+        }
+      ],
+      "format": {
+        "media_type": "application/json",
+        "encoding": "utf-8",
+        "compression": null,
+        "container": null,
+        "schema": "proof.backfill.tables.v1",
+        "record_shape": "table-sidecar",
+        "preferred_local": ".proof/backfill/sources/fluid-dynamics/proof-source/00-OVERVIEW.tables.json"
+      },
+      "tags": [
+        "source-corpus",
+        "proof",
+        "tables",
+        "partial-custody",
+        "guide"
+      ],
+      "metadata": {
+        "source_repo": "MAXIM",
+        "module": "fluid-dynamics",
+        "guide": "fluid-dynamics/00-OVERVIEW.md",
+        "publication_state": "partial-source-custody"
+      }
+    },
+    {
+      "id": "maxim.fluid-dynamics.overview.blocks",
+      "node_kind": "fletch",
+      "shafts": [
+        {
+          "kind": "file",
+          "url": ".proof/backfill/sources/fluid-dynamics/proof-source/00-OVERVIEW.blocks.json"
+        }
+      ],
+      "edges": [
+        {
+          "to": "maxim.fluid-dynamics.overview.proof-source",
+          "kind": "derived-from",
+          "label": "PROOF structured block sidecar",
+          "metadata": {
+            "module": "fluid-dynamics",
+            "guide": "fluid-dynamics/00-OVERVIEW.md",
+            "custody": "partial"
+          }
+        }
+      ],
+      "format": {
+        "media_type": "application/json",
+        "encoding": "utf-8",
+        "compression": null,
+        "container": null,
+        "schema": "proof.backfill.blocks.v1",
+        "record_shape": "structured-block-sidecar",
+        "preferred_local": ".proof/backfill/sources/fluid-dynamics/proof-source/00-OVERVIEW.blocks.json"
+      },
+      "tags": [
+        "source-corpus",
+        "proof",
+        "blocks",
+        "partial-custody",
+        "guide"
+      ],
+      "metadata": {
+        "source_repo": "MAXIM",
+        "module": "fluid-dynamics",
+        "guide": "fluid-dynamics/00-OVERVIEW.md",
+        "publication_state": "partial-source-custody"
+      }
+    },
+    {
+      "id": "maxim.fluid-dynamics.continuum-mechanics.view",
+      "node_kind": "fletch",
+      "shafts": [
+        {
+          "kind": "file",
+          "url": ".crop/views/maxim-fluid-dynamics-continuum-mechanics.json"
+        }
+      ],
+      "edges": [
+        {
+          "to": "maxim.fluid-dynamics.source-corpus.pebble",
+          "kind": "derived-from",
+          "label": "Guide-level CROP view recipe",
+          "metadata": {
+            "module": "fluid-dynamics",
+            "guide": "fluid-dynamics/01-CONTINUUM-MECHANICS.md",
+            "custody": "partial"
+          }
+        }
+      ],
+      "format": {
+        "media_type": "application/json",
+        "encoding": "utf-8",
+        "compression": null,
+        "container": null,
+        "schema": "crop.view.v1",
+        "record_shape": "view-recipe",
+        "preferred_local": ".crop/views/maxim-fluid-dynamics-continuum-mechanics.json"
+      },
+      "tags": [
+        "source-corpus",
+        "crop",
+        "view",
+        "partial-custody",
+        "guide"
+      ],
+      "metadata": {
+        "source_repo": "MAXIM",
+        "module": "fluid-dynamics",
+        "guide": "fluid-dynamics/01-CONTINUUM-MECHANICS.md",
+        "publication_state": "partial-source-custody"
+      }
+    },
+    {
+      "id": "maxim.fluid-dynamics.continuum-mechanics.pebble",
+      "node_kind": "fletch",
+      "shafts": [
+        {
+          "kind": "file",
+          "url": ".pebble/packs/maxim-fluid-dynamics-continuum-mechanics.pebble.json"
+        }
+      ],
+      "edges": [
+        {
+          "to": "maxim.fluid-dynamics.continuum-mechanics.view",
+          "kind": "derived-from",
+          "label": "Guide-level CROP view recipe",
+          "metadata": {
+            "module": "fluid-dynamics",
+            "custody": "partial"
+          }
+        },
+        {
+          "to": "maxim.fluid-dynamics.source-corpus.pebble",
+          "kind": "derived-from",
+          "label": "Guide-level CROP view",
+          "metadata": {
+            "view": ".crop/views/maxim-fluid-dynamics-continuum-mechanics.json",
+            "module": "fluid-dynamics",
+            "custody": "partial"
+          }
+        }
+      ],
+      "format": {
+        "media_type": "application/json",
+        "encoding": "utf-8",
+        "compression": null,
+        "container": null,
+        "schema": "pebble.v1",
+        "record_shape": "corpus-slice",
+        "preferred_local": ".pebble/packs/maxim-fluid-dynamics-continuum-mechanics.pebble.json"
+      },
+      "tags": [
+        "source-corpus",
+        "crop",
+        "pebble",
+        "partial-custody",
+        "guide"
+      ],
+      "metadata": {
+        "source_repo": "MAXIM",
+        "module": "fluid-dynamics",
+        "guide": "fluid-dynamics/01-CONTINUUM-MECHANICS.md",
+        "publication_state": "partial-source-custody"
+      }
+    },
+    {
+      "id": "maxim.fluid-dynamics.continuum-mechanics.proof-source",
+      "node_kind": "fletch",
+      "shafts": [
+        {
+          "kind": "file",
+          "url": ".proof/backfill/sources/fluid-dynamics/proof-source/01-CONTINUUM-MECHANICS.source.md"
+        }
+      ],
+      "edges": [
+        {
+          "to": "maxim.fluid-dynamics.continuum-mechanics.view",
+          "kind": "derived-from",
+          "label": "Literal PROOF source for guide view",
+          "metadata": {
+            "module": "fluid-dynamics",
+            "guide": "fluid-dynamics/01-CONTINUUM-MECHANICS.md",
+            "custody": "partial"
+          }
+        }
+      ],
+      "format": {
+        "media_type": "text/markdown",
+        "encoding": "utf-8",
+        "compression": null,
+        "container": null,
+        "schema": "proof.source.literal_markdown.v1",
+        "record_shape": "literal-source",
+        "preferred_local": ".proof/backfill/sources/fluid-dynamics/proof-source/01-CONTINUUM-MECHANICS.source.md"
+      },
+      "tags": [
+        "source-corpus",
+        "proof",
+        "source",
+        "partial-custody",
+        "guide"
+      ],
+      "metadata": {
+        "source_repo": "MAXIM",
+        "module": "fluid-dynamics",
+        "guide": "fluid-dynamics/01-CONTINUUM-MECHANICS.md",
+        "publication_state": "partial-source-custody"
+      }
+    },
+    {
+      "id": "maxim.fluid-dynamics.continuum-mechanics.tables",
+      "node_kind": "fletch",
+      "shafts": [
+        {
+          "kind": "file",
+          "url": ".proof/backfill/sources/fluid-dynamics/proof-source/01-CONTINUUM-MECHANICS.tables.json"
+        }
+      ],
+      "edges": [
+        {
+          "to": "maxim.fluid-dynamics.continuum-mechanics.proof-source",
+          "kind": "derived-from",
+          "label": "PROOF markdown table sidecar",
+          "metadata": {
+            "module": "fluid-dynamics",
+            "guide": "fluid-dynamics/01-CONTINUUM-MECHANICS.md",
+            "custody": "partial"
+          }
+        }
+      ],
+      "format": {
+        "media_type": "application/json",
+        "encoding": "utf-8",
+        "compression": null,
+        "container": null,
+        "schema": "proof.backfill.tables.v1",
+        "record_shape": "table-sidecar",
+        "preferred_local": ".proof/backfill/sources/fluid-dynamics/proof-source/01-CONTINUUM-MECHANICS.tables.json"
+      },
+      "tags": [
+        "source-corpus",
+        "proof",
+        "tables",
+        "partial-custody",
+        "guide"
+      ],
+      "metadata": {
+        "source_repo": "MAXIM",
+        "module": "fluid-dynamics",
+        "guide": "fluid-dynamics/01-CONTINUUM-MECHANICS.md",
+        "publication_state": "partial-source-custody"
+      }
+    },
+    {
+      "id": "maxim.fluid-dynamics.continuum-mechanics.blocks",
+      "node_kind": "fletch",
+      "shafts": [
+        {
+          "kind": "file",
+          "url": ".proof/backfill/sources/fluid-dynamics/proof-source/01-CONTINUUM-MECHANICS.blocks.json"
+        }
+      ],
+      "edges": [
+        {
+          "to": "maxim.fluid-dynamics.continuum-mechanics.proof-source",
+          "kind": "derived-from",
+          "label": "PROOF structured block sidecar",
+          "metadata": {
+            "module": "fluid-dynamics",
+            "guide": "fluid-dynamics/01-CONTINUUM-MECHANICS.md",
+            "custody": "partial"
+          }
+        }
+      ],
+      "format": {
+        "media_type": "application/json",
+        "encoding": "utf-8",
+        "compression": null,
+        "container": null,
+        "schema": "proof.backfill.blocks.v1",
+        "record_shape": "structured-block-sidecar",
+        "preferred_local": ".proof/backfill/sources/fluid-dynamics/proof-source/01-CONTINUUM-MECHANICS.blocks.json"
+      },
+      "tags": [
+        "source-corpus",
+        "proof",
+        "blocks",
+        "partial-custody",
+        "guide"
+      ],
+      "metadata": {
+        "source_repo": "MAXIM",
+        "module": "fluid-dynamics",
+        "guide": "fluid-dynamics/01-CONTINUUM-MECHANICS.md",
+        "publication_state": "partial-source-custody"
+      }
+    },
+    {
+      "id": "maxim.fluid-dynamics.inviscid-flow.view",
+      "node_kind": "fletch",
+      "shafts": [
+        {
+          "kind": "file",
+          "url": ".crop/views/maxim-fluid-dynamics-inviscid-flow.json"
+        }
+      ],
+      "edges": [
+        {
+          "to": "maxim.fluid-dynamics.source-corpus.pebble",
+          "kind": "derived-from",
+          "label": "Guide-level CROP view recipe",
+          "metadata": {
+            "module": "fluid-dynamics",
+            "guide": "fluid-dynamics/02-INVISCID-FLOW.md",
+            "custody": "partial"
+          }
+        }
+      ],
+      "format": {
+        "media_type": "application/json",
+        "encoding": "utf-8",
+        "compression": null,
+        "container": null,
+        "schema": "crop.view.v1",
+        "record_shape": "view-recipe",
+        "preferred_local": ".crop/views/maxim-fluid-dynamics-inviscid-flow.json"
+      },
+      "tags": [
+        "source-corpus",
+        "crop",
+        "view",
+        "partial-custody",
+        "guide"
+      ],
+      "metadata": {
+        "source_repo": "MAXIM",
+        "module": "fluid-dynamics",
+        "guide": "fluid-dynamics/02-INVISCID-FLOW.md",
+        "publication_state": "partial-source-custody"
+      }
+    },
+    {
+      "id": "maxim.fluid-dynamics.inviscid-flow.pebble",
+      "node_kind": "fletch",
+      "shafts": [
+        {
+          "kind": "file",
+          "url": ".pebble/packs/maxim-fluid-dynamics-inviscid-flow.pebble.json"
+        }
+      ],
+      "edges": [
+        {
+          "to": "maxim.fluid-dynamics.inviscid-flow.view",
+          "kind": "derived-from",
+          "label": "Guide-level CROP view recipe",
+          "metadata": {
+            "module": "fluid-dynamics",
+            "custody": "partial"
+          }
+        },
+        {
+          "to": "maxim.fluid-dynamics.source-corpus.pebble",
+          "kind": "derived-from",
+          "label": "Guide-level CROP view",
+          "metadata": {
+            "view": ".crop/views/maxim-fluid-dynamics-inviscid-flow.json",
+            "module": "fluid-dynamics",
+            "custody": "partial"
+          }
+        }
+      ],
+      "format": {
+        "media_type": "application/json",
+        "encoding": "utf-8",
+        "compression": null,
+        "container": null,
+        "schema": "pebble.v1",
+        "record_shape": "corpus-slice",
+        "preferred_local": ".pebble/packs/maxim-fluid-dynamics-inviscid-flow.pebble.json"
+      },
+      "tags": [
+        "source-corpus",
+        "crop",
+        "pebble",
+        "partial-custody",
+        "guide"
+      ],
+      "metadata": {
+        "source_repo": "MAXIM",
+        "module": "fluid-dynamics",
+        "guide": "fluid-dynamics/02-INVISCID-FLOW.md",
+        "publication_state": "partial-source-custody"
+      }
+    },
+    {
+      "id": "maxim.fluid-dynamics.inviscid-flow.proof-source",
+      "node_kind": "fletch",
+      "shafts": [
+        {
+          "kind": "file",
+          "url": ".proof/backfill/sources/fluid-dynamics/proof-source/02-INVISCID-FLOW.source.md"
+        }
+      ],
+      "edges": [
+        {
+          "to": "maxim.fluid-dynamics.inviscid-flow.view",
+          "kind": "derived-from",
+          "label": "Literal PROOF source for guide view",
+          "metadata": {
+            "module": "fluid-dynamics",
+            "guide": "fluid-dynamics/02-INVISCID-FLOW.md",
+            "custody": "partial"
+          }
+        }
+      ],
+      "format": {
+        "media_type": "text/markdown",
+        "encoding": "utf-8",
+        "compression": null,
+        "container": null,
+        "schema": "proof.source.literal_markdown.v1",
+        "record_shape": "literal-source",
+        "preferred_local": ".proof/backfill/sources/fluid-dynamics/proof-source/02-INVISCID-FLOW.source.md"
+      },
+      "tags": [
+        "source-corpus",
+        "proof",
+        "source",
+        "partial-custody",
+        "guide"
+      ],
+      "metadata": {
+        "source_repo": "MAXIM",
+        "module": "fluid-dynamics",
+        "guide": "fluid-dynamics/02-INVISCID-FLOW.md",
+        "publication_state": "partial-source-custody"
+      }
+    },
+    {
+      "id": "maxim.fluid-dynamics.inviscid-flow.tables",
+      "node_kind": "fletch",
+      "shafts": [
+        {
+          "kind": "file",
+          "url": ".proof/backfill/sources/fluid-dynamics/proof-source/02-INVISCID-FLOW.tables.json"
+        }
+      ],
+      "edges": [
+        {
+          "to": "maxim.fluid-dynamics.inviscid-flow.proof-source",
+          "kind": "derived-from",
+          "label": "PROOF markdown table sidecar",
+          "metadata": {
+            "module": "fluid-dynamics",
+            "guide": "fluid-dynamics/02-INVISCID-FLOW.md",
+            "custody": "partial"
+          }
+        }
+      ],
+      "format": {
+        "media_type": "application/json",
+        "encoding": "utf-8",
+        "compression": null,
+        "container": null,
+        "schema": "proof.backfill.tables.v1",
+        "record_shape": "table-sidecar",
+        "preferred_local": ".proof/backfill/sources/fluid-dynamics/proof-source/02-INVISCID-FLOW.tables.json"
+      },
+      "tags": [
+        "source-corpus",
+        "proof",
+        "tables",
+        "partial-custody",
+        "guide"
+      ],
+      "metadata": {
+        "source_repo": "MAXIM",
+        "module": "fluid-dynamics",
+        "guide": "fluid-dynamics/02-INVISCID-FLOW.md",
+        "publication_state": "partial-source-custody"
+      }
+    },
+    {
+      "id": "maxim.fluid-dynamics.inviscid-flow.blocks",
+      "node_kind": "fletch",
+      "shafts": [
+        {
+          "kind": "file",
+          "url": ".proof/backfill/sources/fluid-dynamics/proof-source/02-INVISCID-FLOW.blocks.json"
+        }
+      ],
+      "edges": [
+        {
+          "to": "maxim.fluid-dynamics.inviscid-flow.proof-source",
+          "kind": "derived-from",
+          "label": "PROOF structured block sidecar",
+          "metadata": {
+            "module": "fluid-dynamics",
+            "guide": "fluid-dynamics/02-INVISCID-FLOW.md",
+            "custody": "partial"
+          }
+        }
+      ],
+      "format": {
+        "media_type": "application/json",
+        "encoding": "utf-8",
+        "compression": null,
+        "container": null,
+        "schema": "proof.backfill.blocks.v1",
+        "record_shape": "structured-block-sidecar",
+        "preferred_local": ".proof/backfill/sources/fluid-dynamics/proof-source/02-INVISCID-FLOW.blocks.json"
+      },
+      "tags": [
+        "source-corpus",
+        "proof",
+        "blocks",
+        "partial-custody",
+        "guide"
+      ],
+      "metadata": {
+        "source_repo": "MAXIM",
+        "module": "fluid-dynamics",
+        "guide": "fluid-dynamics/02-INVISCID-FLOW.md",
+        "publication_state": "partial-source-custody"
+      }
+    },
+    {
+      "id": "maxim.fluid-dynamics.viscous-flow.view",
+      "node_kind": "fletch",
+      "shafts": [
+        {
+          "kind": "file",
+          "url": ".crop/views/maxim-fluid-dynamics-viscous-flow.json"
+        }
+      ],
+      "edges": [
+        {
+          "to": "maxim.fluid-dynamics.source-corpus.pebble",
+          "kind": "derived-from",
+          "label": "Guide-level CROP view recipe",
+          "metadata": {
+            "module": "fluid-dynamics",
+            "guide": "fluid-dynamics/03-VISCOUS-FLOW.md",
+            "custody": "partial"
+          }
+        }
+      ],
+      "format": {
+        "media_type": "application/json",
+        "encoding": "utf-8",
+        "compression": null,
+        "container": null,
+        "schema": "crop.view.v1",
+        "record_shape": "view-recipe",
+        "preferred_local": ".crop/views/maxim-fluid-dynamics-viscous-flow.json"
+      },
+      "tags": [
+        "source-corpus",
+        "crop",
+        "view",
+        "partial-custody",
+        "guide"
+      ],
+      "metadata": {
+        "source_repo": "MAXIM",
+        "module": "fluid-dynamics",
+        "guide": "fluid-dynamics/03-VISCOUS-FLOW.md",
+        "publication_state": "partial-source-custody"
+      }
+    },
+    {
+      "id": "maxim.fluid-dynamics.viscous-flow.pebble",
+      "node_kind": "fletch",
+      "shafts": [
+        {
+          "kind": "file",
+          "url": ".pebble/packs/maxim-fluid-dynamics-viscous-flow.pebble.json"
+        }
+      ],
+      "edges": [
+        {
+          "to": "maxim.fluid-dynamics.viscous-flow.view",
+          "kind": "derived-from",
+          "label": "Guide-level CROP view recipe",
+          "metadata": {
+            "module": "fluid-dynamics",
+            "custody": "partial"
+          }
+        },
+        {
+          "to": "maxim.fluid-dynamics.source-corpus.pebble",
+          "kind": "derived-from",
+          "label": "Guide-level CROP view",
+          "metadata": {
+            "view": ".crop/views/maxim-fluid-dynamics-viscous-flow.json",
+            "module": "fluid-dynamics",
+            "custody": "partial"
+          }
+        }
+      ],
+      "format": {
+        "media_type": "application/json",
+        "encoding": "utf-8",
+        "compression": null,
+        "container": null,
+        "schema": "pebble.v1",
+        "record_shape": "corpus-slice",
+        "preferred_local": ".pebble/packs/maxim-fluid-dynamics-viscous-flow.pebble.json"
+      },
+      "tags": [
+        "source-corpus",
+        "crop",
+        "pebble",
+        "partial-custody",
+        "guide"
+      ],
+      "metadata": {
+        "source_repo": "MAXIM",
+        "module": "fluid-dynamics",
+        "guide": "fluid-dynamics/03-VISCOUS-FLOW.md",
+        "publication_state": "partial-source-custody"
+      }
+    },
+    {
+      "id": "maxim.fluid-dynamics.viscous-flow.proof-source",
+      "node_kind": "fletch",
+      "shafts": [
+        {
+          "kind": "file",
+          "url": ".proof/backfill/sources/fluid-dynamics/proof-source/03-VISCOUS-FLOW.source.md"
+        }
+      ],
+      "edges": [
+        {
+          "to": "maxim.fluid-dynamics.viscous-flow.view",
+          "kind": "derived-from",
+          "label": "Literal PROOF source for guide view",
+          "metadata": {
+            "module": "fluid-dynamics",
+            "guide": "fluid-dynamics/03-VISCOUS-FLOW.md",
+            "custody": "partial"
+          }
+        }
+      ],
+      "format": {
+        "media_type": "text/markdown",
+        "encoding": "utf-8",
+        "compression": null,
+        "container": null,
+        "schema": "proof.source.literal_markdown.v1",
+        "record_shape": "literal-source",
+        "preferred_local": ".proof/backfill/sources/fluid-dynamics/proof-source/03-VISCOUS-FLOW.source.md"
+      },
+      "tags": [
+        "source-corpus",
+        "proof",
+        "source",
+        "partial-custody",
+        "guide"
+      ],
+      "metadata": {
+        "source_repo": "MAXIM",
+        "module": "fluid-dynamics",
+        "guide": "fluid-dynamics/03-VISCOUS-FLOW.md",
+        "publication_state": "partial-source-custody"
+      }
+    },
+    {
+      "id": "maxim.fluid-dynamics.viscous-flow.tables",
+      "node_kind": "fletch",
+      "shafts": [
+        {
+          "kind": "file",
+          "url": ".proof/backfill/sources/fluid-dynamics/proof-source/03-VISCOUS-FLOW.tables.json"
+        }
+      ],
+      "edges": [
+        {
+          "to": "maxim.fluid-dynamics.viscous-flow.proof-source",
+          "kind": "derived-from",
+          "label": "PROOF markdown table sidecar",
+          "metadata": {
+            "module": "fluid-dynamics",
+            "guide": "fluid-dynamics/03-VISCOUS-FLOW.md",
+            "custody": "partial"
+          }
+        }
+      ],
+      "format": {
+        "media_type": "application/json",
+        "encoding": "utf-8",
+        "compression": null,
+        "container": null,
+        "schema": "proof.backfill.tables.v1",
+        "record_shape": "table-sidecar",
+        "preferred_local": ".proof/backfill/sources/fluid-dynamics/proof-source/03-VISCOUS-FLOW.tables.json"
+      },
+      "tags": [
+        "source-corpus",
+        "proof",
+        "tables",
+        "partial-custody",
+        "guide"
+      ],
+      "metadata": {
+        "source_repo": "MAXIM",
+        "module": "fluid-dynamics",
+        "guide": "fluid-dynamics/03-VISCOUS-FLOW.md",
+        "publication_state": "partial-source-custody"
+      }
+    },
+    {
+      "id": "maxim.fluid-dynamics.viscous-flow.blocks",
+      "node_kind": "fletch",
+      "shafts": [
+        {
+          "kind": "file",
+          "url": ".proof/backfill/sources/fluid-dynamics/proof-source/03-VISCOUS-FLOW.blocks.json"
+        }
+      ],
+      "edges": [
+        {
+          "to": "maxim.fluid-dynamics.viscous-flow.proof-source",
+          "kind": "derived-from",
+          "label": "PROOF structured block sidecar",
+          "metadata": {
+            "module": "fluid-dynamics",
+            "guide": "fluid-dynamics/03-VISCOUS-FLOW.md",
+            "custody": "partial"
+          }
+        }
+      ],
+      "format": {
+        "media_type": "application/json",
+        "encoding": "utf-8",
+        "compression": null,
+        "container": null,
+        "schema": "proof.backfill.blocks.v1",
+        "record_shape": "structured-block-sidecar",
+        "preferred_local": ".proof/backfill/sources/fluid-dynamics/proof-source/03-VISCOUS-FLOW.blocks.json"
+      },
+      "tags": [
+        "source-corpus",
+        "proof",
+        "blocks",
+        "partial-custody",
+        "guide"
+      ],
+      "metadata": {
+        "source_repo": "MAXIM",
+        "module": "fluid-dynamics",
+        "guide": "fluid-dynamics/03-VISCOUS-FLOW.md",
+        "publication_state": "partial-source-custody"
+      }
+    },
+    {
+      "id": "maxim.fluid-dynamics.boundary-layers.view",
+      "node_kind": "fletch",
+      "shafts": [
+        {
+          "kind": "file",
+          "url": ".crop/views/maxim-fluid-dynamics-boundary-layers.json"
+        }
+      ],
+      "edges": [
+        {
+          "to": "maxim.fluid-dynamics.source-corpus.pebble",
+          "kind": "derived-from",
+          "label": "Guide-level CROP view recipe",
+          "metadata": {
+            "module": "fluid-dynamics",
+            "guide": "fluid-dynamics/04-BOUNDARY-LAYERS.md",
+            "custody": "partial"
+          }
+        }
+      ],
+      "format": {
+        "media_type": "application/json",
+        "encoding": "utf-8",
+        "compression": null,
+        "container": null,
+        "schema": "crop.view.v1",
+        "record_shape": "view-recipe",
+        "preferred_local": ".crop/views/maxim-fluid-dynamics-boundary-layers.json"
+      },
+      "tags": [
+        "source-corpus",
+        "crop",
+        "view",
+        "partial-custody",
+        "guide"
+      ],
+      "metadata": {
+        "source_repo": "MAXIM",
+        "module": "fluid-dynamics",
+        "guide": "fluid-dynamics/04-BOUNDARY-LAYERS.md",
+        "publication_state": "partial-source-custody"
+      }
+    },
+    {
+      "id": "maxim.fluid-dynamics.boundary-layers.pebble",
+      "node_kind": "fletch",
+      "shafts": [
+        {
+          "kind": "file",
+          "url": ".pebble/packs/maxim-fluid-dynamics-boundary-layers.pebble.json"
+        }
+      ],
+      "edges": [
+        {
+          "to": "maxim.fluid-dynamics.boundary-layers.view",
+          "kind": "derived-from",
+          "label": "Guide-level CROP view recipe",
+          "metadata": {
+            "module": "fluid-dynamics",
+            "custody": "partial"
+          }
+        },
+        {
+          "to": "maxim.fluid-dynamics.source-corpus.pebble",
+          "kind": "derived-from",
+          "label": "Guide-level CROP view",
+          "metadata": {
+            "view": ".crop/views/maxim-fluid-dynamics-boundary-layers.json",
+            "module": "fluid-dynamics",
+            "custody": "partial"
+          }
+        }
+      ],
+      "format": {
+        "media_type": "application/json",
+        "encoding": "utf-8",
+        "compression": null,
+        "container": null,
+        "schema": "pebble.v1",
+        "record_shape": "corpus-slice",
+        "preferred_local": ".pebble/packs/maxim-fluid-dynamics-boundary-layers.pebble.json"
+      },
+      "tags": [
+        "source-corpus",
+        "crop",
+        "pebble",
+        "partial-custody",
+        "guide"
+      ],
+      "metadata": {
+        "source_repo": "MAXIM",
+        "module": "fluid-dynamics",
+        "guide": "fluid-dynamics/04-BOUNDARY-LAYERS.md",
+        "publication_state": "partial-source-custody"
+      }
+    },
+    {
+      "id": "maxim.fluid-dynamics.boundary-layers.proof-source",
+      "node_kind": "fletch",
+      "shafts": [
+        {
+          "kind": "file",
+          "url": ".proof/backfill/sources/fluid-dynamics/proof-source/04-BOUNDARY-LAYERS.source.md"
+        }
+      ],
+      "edges": [
+        {
+          "to": "maxim.fluid-dynamics.boundary-layers.view",
+          "kind": "derived-from",
+          "label": "Literal PROOF source for guide view",
+          "metadata": {
+            "module": "fluid-dynamics",
+            "guide": "fluid-dynamics/04-BOUNDARY-LAYERS.md",
+            "custody": "partial"
+          }
+        }
+      ],
+      "format": {
+        "media_type": "text/markdown",
+        "encoding": "utf-8",
+        "compression": null,
+        "container": null,
+        "schema": "proof.source.literal_markdown.v1",
+        "record_shape": "literal-source",
+        "preferred_local": ".proof/backfill/sources/fluid-dynamics/proof-source/04-BOUNDARY-LAYERS.source.md"
+      },
+      "tags": [
+        "source-corpus",
+        "proof",
+        "source",
+        "partial-custody",
+        "guide"
+      ],
+      "metadata": {
+        "source_repo": "MAXIM",
+        "module": "fluid-dynamics",
+        "guide": "fluid-dynamics/04-BOUNDARY-LAYERS.md",
+        "publication_state": "partial-source-custody"
+      }
+    },
+    {
+      "id": "maxim.fluid-dynamics.boundary-layers.tables",
+      "node_kind": "fletch",
+      "shafts": [
+        {
+          "kind": "file",
+          "url": ".proof/backfill/sources/fluid-dynamics/proof-source/04-BOUNDARY-LAYERS.tables.json"
+        }
+      ],
+      "edges": [
+        {
+          "to": "maxim.fluid-dynamics.boundary-layers.proof-source",
+          "kind": "derived-from",
+          "label": "PROOF markdown table sidecar",
+          "metadata": {
+            "module": "fluid-dynamics",
+            "guide": "fluid-dynamics/04-BOUNDARY-LAYERS.md",
+            "custody": "partial"
+          }
+        }
+      ],
+      "format": {
+        "media_type": "application/json",
+        "encoding": "utf-8",
+        "compression": null,
+        "container": null,
+        "schema": "proof.backfill.tables.v1",
+        "record_shape": "table-sidecar",
+        "preferred_local": ".proof/backfill/sources/fluid-dynamics/proof-source/04-BOUNDARY-LAYERS.tables.json"
+      },
+      "tags": [
+        "source-corpus",
+        "proof",
+        "tables",
+        "partial-custody",
+        "guide"
+      ],
+      "metadata": {
+        "source_repo": "MAXIM",
+        "module": "fluid-dynamics",
+        "guide": "fluid-dynamics/04-BOUNDARY-LAYERS.md",
+        "publication_state": "partial-source-custody"
+      }
+    },
+    {
+      "id": "maxim.fluid-dynamics.boundary-layers.blocks",
+      "node_kind": "fletch",
+      "shafts": [
+        {
+          "kind": "file",
+          "url": ".proof/backfill/sources/fluid-dynamics/proof-source/04-BOUNDARY-LAYERS.blocks.json"
+        }
+      ],
+      "edges": [
+        {
+          "to": "maxim.fluid-dynamics.boundary-layers.proof-source",
+          "kind": "derived-from",
+          "label": "PROOF structured block sidecar",
+          "metadata": {
+            "module": "fluid-dynamics",
+            "guide": "fluid-dynamics/04-BOUNDARY-LAYERS.md",
+            "custody": "partial"
+          }
+        }
+      ],
+      "format": {
+        "media_type": "application/json",
+        "encoding": "utf-8",
+        "compression": null,
+        "container": null,
+        "schema": "proof.backfill.blocks.v1",
+        "record_shape": "structured-block-sidecar",
+        "preferred_local": ".proof/backfill/sources/fluid-dynamics/proof-source/04-BOUNDARY-LAYERS.blocks.json"
+      },
+      "tags": [
+        "source-corpus",
+        "proof",
+        "blocks",
+        "partial-custody",
+        "guide"
+      ],
+      "metadata": {
+        "source_repo": "MAXIM",
+        "module": "fluid-dynamics",
+        "guide": "fluid-dynamics/04-BOUNDARY-LAYERS.md",
+        "publication_state": "partial-source-custody"
+      }
+    },
+    {
+      "id": "maxim.fluid-dynamics.turbulence.view",
+      "node_kind": "fletch",
+      "shafts": [
+        {
+          "kind": "file",
+          "url": ".crop/views/maxim-fluid-dynamics-turbulence.json"
+        }
+      ],
+      "edges": [
+        {
+          "to": "maxim.fluid-dynamics.source-corpus.pebble",
+          "kind": "derived-from",
+          "label": "Guide-level CROP view recipe",
+          "metadata": {
+            "module": "fluid-dynamics",
+            "guide": "fluid-dynamics/05-TURBULENCE.md",
+            "custody": "partial"
+          }
+        }
+      ],
+      "format": {
+        "media_type": "application/json",
+        "encoding": "utf-8",
+        "compression": null,
+        "container": null,
+        "schema": "crop.view.v1",
+        "record_shape": "view-recipe",
+        "preferred_local": ".crop/views/maxim-fluid-dynamics-turbulence.json"
+      },
+      "tags": [
+        "source-corpus",
+        "crop",
+        "view",
+        "partial-custody",
+        "guide"
+      ],
+      "metadata": {
+        "source_repo": "MAXIM",
+        "module": "fluid-dynamics",
+        "guide": "fluid-dynamics/05-TURBULENCE.md",
+        "publication_state": "partial-source-custody"
+      }
+    },
+    {
+      "id": "maxim.fluid-dynamics.turbulence.pebble",
+      "node_kind": "fletch",
+      "shafts": [
+        {
+          "kind": "file",
+          "url": ".pebble/packs/maxim-fluid-dynamics-turbulence.pebble.json"
+        }
+      ],
+      "edges": [
+        {
+          "to": "maxim.fluid-dynamics.turbulence.view",
+          "kind": "derived-from",
+          "label": "Guide-level CROP view recipe",
+          "metadata": {
+            "module": "fluid-dynamics",
+            "custody": "partial"
+          }
+        },
+        {
+          "to": "maxim.fluid-dynamics.source-corpus.pebble",
+          "kind": "derived-from",
+          "label": "Guide-level CROP view",
+          "metadata": {
+            "view": ".crop/views/maxim-fluid-dynamics-turbulence.json",
+            "module": "fluid-dynamics",
+            "custody": "partial"
+          }
+        }
+      ],
+      "format": {
+        "media_type": "application/json",
+        "encoding": "utf-8",
+        "compression": null,
+        "container": null,
+        "schema": "pebble.v1",
+        "record_shape": "corpus-slice",
+        "preferred_local": ".pebble/packs/maxim-fluid-dynamics-turbulence.pebble.json"
+      },
+      "tags": [
+        "source-corpus",
+        "crop",
+        "pebble",
+        "partial-custody",
+        "guide"
+      ],
+      "metadata": {
+        "source_repo": "MAXIM",
+        "module": "fluid-dynamics",
+        "guide": "fluid-dynamics/05-TURBULENCE.md",
+        "publication_state": "partial-source-custody"
+      }
+    },
+    {
+      "id": "maxim.fluid-dynamics.turbulence.proof-source",
+      "node_kind": "fletch",
+      "shafts": [
+        {
+          "kind": "file",
+          "url": ".proof/backfill/sources/fluid-dynamics/proof-source/05-TURBULENCE.source.md"
+        }
+      ],
+      "edges": [
+        {
+          "to": "maxim.fluid-dynamics.turbulence.view",
+          "kind": "derived-from",
+          "label": "Literal PROOF source for guide view",
+          "metadata": {
+            "module": "fluid-dynamics",
+            "guide": "fluid-dynamics/05-TURBULENCE.md",
+            "custody": "partial"
+          }
+        }
+      ],
+      "format": {
+        "media_type": "text/markdown",
+        "encoding": "utf-8",
+        "compression": null,
+        "container": null,
+        "schema": "proof.source.literal_markdown.v1",
+        "record_shape": "literal-source",
+        "preferred_local": ".proof/backfill/sources/fluid-dynamics/proof-source/05-TURBULENCE.source.md"
+      },
+      "tags": [
+        "source-corpus",
+        "proof",
+        "source",
+        "partial-custody",
+        "guide"
+      ],
+      "metadata": {
+        "source_repo": "MAXIM",
+        "module": "fluid-dynamics",
+        "guide": "fluid-dynamics/05-TURBULENCE.md",
+        "publication_state": "partial-source-custody"
+      }
+    },
+    {
+      "id": "maxim.fluid-dynamics.turbulence.tables",
+      "node_kind": "fletch",
+      "shafts": [
+        {
+          "kind": "file",
+          "url": ".proof/backfill/sources/fluid-dynamics/proof-source/05-TURBULENCE.tables.json"
+        }
+      ],
+      "edges": [
+        {
+          "to": "maxim.fluid-dynamics.turbulence.proof-source",
+          "kind": "derived-from",
+          "label": "PROOF markdown table sidecar",
+          "metadata": {
+            "module": "fluid-dynamics",
+            "guide": "fluid-dynamics/05-TURBULENCE.md",
+            "custody": "partial"
+          }
+        }
+      ],
+      "format": {
+        "media_type": "application/json",
+        "encoding": "utf-8",
+        "compression": null,
+        "container": null,
+        "schema": "proof.backfill.tables.v1",
+        "record_shape": "table-sidecar",
+        "preferred_local": ".proof/backfill/sources/fluid-dynamics/proof-source/05-TURBULENCE.tables.json"
+      },
+      "tags": [
+        "source-corpus",
+        "proof",
+        "tables",
+        "partial-custody",
+        "guide"
+      ],
+      "metadata": {
+        "source_repo": "MAXIM",
+        "module": "fluid-dynamics",
+        "guide": "fluid-dynamics/05-TURBULENCE.md",
+        "publication_state": "partial-source-custody"
+      }
+    },
+    {
+      "id": "maxim.fluid-dynamics.turbulence.blocks",
+      "node_kind": "fletch",
+      "shafts": [
+        {
+          "kind": "file",
+          "url": ".proof/backfill/sources/fluid-dynamics/proof-source/05-TURBULENCE.blocks.json"
+        }
+      ],
+      "edges": [
+        {
+          "to": "maxim.fluid-dynamics.turbulence.proof-source",
+          "kind": "derived-from",
+          "label": "PROOF structured block sidecar",
+          "metadata": {
+            "module": "fluid-dynamics",
+            "guide": "fluid-dynamics/05-TURBULENCE.md",
+            "custody": "partial"
+          }
+        }
+      ],
+      "format": {
+        "media_type": "application/json",
+        "encoding": "utf-8",
+        "compression": null,
+        "container": null,
+        "schema": "proof.backfill.blocks.v1",
+        "record_shape": "structured-block-sidecar",
+        "preferred_local": ".proof/backfill/sources/fluid-dynamics/proof-source/05-TURBULENCE.blocks.json"
+      },
+      "tags": [
+        "source-corpus",
+        "proof",
+        "blocks",
+        "partial-custody",
+        "guide"
+      ],
+      "metadata": {
+        "source_repo": "MAXIM",
+        "module": "fluid-dynamics",
+        "guide": "fluid-dynamics/05-TURBULENCE.md",
+        "publication_state": "partial-source-custody"
+      }
+    },
+    {
+      "id": "maxim.fluid-dynamics.compressible-flow.view",
+      "node_kind": "fletch",
+      "shafts": [
+        {
+          "kind": "file",
+          "url": ".crop/views/maxim-fluid-dynamics-compressible-flow.json"
+        }
+      ],
+      "edges": [
+        {
+          "to": "maxim.fluid-dynamics.source-corpus.pebble",
+          "kind": "derived-from",
+          "label": "Guide-level CROP view recipe",
+          "metadata": {
+            "module": "fluid-dynamics",
+            "guide": "fluid-dynamics/06-COMPRESSIBLE-FLOW.md",
+            "custody": "partial"
+          }
+        }
+      ],
+      "format": {
+        "media_type": "application/json",
+        "encoding": "utf-8",
+        "compression": null,
+        "container": null,
+        "schema": "crop.view.v1",
+        "record_shape": "view-recipe",
+        "preferred_local": ".crop/views/maxim-fluid-dynamics-compressible-flow.json"
+      },
+      "tags": [
+        "source-corpus",
+        "crop",
+        "view",
+        "partial-custody",
+        "guide"
+      ],
+      "metadata": {
+        "source_repo": "MAXIM",
+        "module": "fluid-dynamics",
+        "guide": "fluid-dynamics/06-COMPRESSIBLE-FLOW.md",
+        "publication_state": "partial-source-custody"
+      }
+    },
+    {
+      "id": "maxim.fluid-dynamics.compressible-flow.pebble",
+      "node_kind": "fletch",
+      "shafts": [
+        {
+          "kind": "file",
+          "url": ".pebble/packs/maxim-fluid-dynamics-compressible-flow.pebble.json"
+        }
+      ],
+      "edges": [
+        {
+          "to": "maxim.fluid-dynamics.compressible-flow.view",
+          "kind": "derived-from",
+          "label": "Guide-level CROP view recipe",
+          "metadata": {
+            "module": "fluid-dynamics",
+            "custody": "partial"
+          }
+        },
+        {
+          "to": "maxim.fluid-dynamics.source-corpus.pebble",
+          "kind": "derived-from",
+          "label": "Guide-level CROP view",
+          "metadata": {
+            "view": ".crop/views/maxim-fluid-dynamics-compressible-flow.json",
+            "module": "fluid-dynamics",
+            "custody": "partial"
+          }
+        }
+      ],
+      "format": {
+        "media_type": "application/json",
+        "encoding": "utf-8",
+        "compression": null,
+        "container": null,
+        "schema": "pebble.v1",
+        "record_shape": "corpus-slice",
+        "preferred_local": ".pebble/packs/maxim-fluid-dynamics-compressible-flow.pebble.json"
+      },
+      "tags": [
+        "source-corpus",
+        "crop",
+        "pebble",
+        "partial-custody",
+        "guide"
+      ],
+      "metadata": {
+        "source_repo": "MAXIM",
+        "module": "fluid-dynamics",
+        "guide": "fluid-dynamics/06-COMPRESSIBLE-FLOW.md",
+        "publication_state": "partial-source-custody"
+      }
+    },
+    {
+      "id": "maxim.fluid-dynamics.compressible-flow.proof-source",
+      "node_kind": "fletch",
+      "shafts": [
+        {
+          "kind": "file",
+          "url": ".proof/backfill/sources/fluid-dynamics/proof-source/06-COMPRESSIBLE-FLOW.source.md"
+        }
+      ],
+      "edges": [
+        {
+          "to": "maxim.fluid-dynamics.compressible-flow.view",
+          "kind": "derived-from",
+          "label": "Literal PROOF source for guide view",
+          "metadata": {
+            "module": "fluid-dynamics",
+            "guide": "fluid-dynamics/06-COMPRESSIBLE-FLOW.md",
+            "custody": "partial"
+          }
+        }
+      ],
+      "format": {
+        "media_type": "text/markdown",
+        "encoding": "utf-8",
+        "compression": null,
+        "container": null,
+        "schema": "proof.source.literal_markdown.v1",
+        "record_shape": "literal-source",
+        "preferred_local": ".proof/backfill/sources/fluid-dynamics/proof-source/06-COMPRESSIBLE-FLOW.source.md"
+      },
+      "tags": [
+        "source-corpus",
+        "proof",
+        "source",
+        "partial-custody",
+        "guide"
+      ],
+      "metadata": {
+        "source_repo": "MAXIM",
+        "module": "fluid-dynamics",
+        "guide": "fluid-dynamics/06-COMPRESSIBLE-FLOW.md",
+        "publication_state": "partial-source-custody"
+      }
+    },
+    {
+      "id": "maxim.fluid-dynamics.compressible-flow.tables",
+      "node_kind": "fletch",
+      "shafts": [
+        {
+          "kind": "file",
+          "url": ".proof/backfill/sources/fluid-dynamics/proof-source/06-COMPRESSIBLE-FLOW.tables.json"
+        }
+      ],
+      "edges": [
+        {
+          "to": "maxim.fluid-dynamics.compressible-flow.proof-source",
+          "kind": "derived-from",
+          "label": "PROOF markdown table sidecar",
+          "metadata": {
+            "module": "fluid-dynamics",
+            "guide": "fluid-dynamics/06-COMPRESSIBLE-FLOW.md",
+            "custody": "partial"
+          }
+        }
+      ],
+      "format": {
+        "media_type": "application/json",
+        "encoding": "utf-8",
+        "compression": null,
+        "container": null,
+        "schema": "proof.backfill.tables.v1",
+        "record_shape": "table-sidecar",
+        "preferred_local": ".proof/backfill/sources/fluid-dynamics/proof-source/06-COMPRESSIBLE-FLOW.tables.json"
+      },
+      "tags": [
+        "source-corpus",
+        "proof",
+        "tables",
+        "partial-custody",
+        "guide"
+      ],
+      "metadata": {
+        "source_repo": "MAXIM",
+        "module": "fluid-dynamics",
+        "guide": "fluid-dynamics/06-COMPRESSIBLE-FLOW.md",
+        "publication_state": "partial-source-custody"
+      }
+    },
+    {
+      "id": "maxim.fluid-dynamics.compressible-flow.blocks",
+      "node_kind": "fletch",
+      "shafts": [
+        {
+          "kind": "file",
+          "url": ".proof/backfill/sources/fluid-dynamics/proof-source/06-COMPRESSIBLE-FLOW.blocks.json"
+        }
+      ],
+      "edges": [
+        {
+          "to": "maxim.fluid-dynamics.compressible-flow.proof-source",
+          "kind": "derived-from",
+          "label": "PROOF structured block sidecar",
+          "metadata": {
+            "module": "fluid-dynamics",
+            "guide": "fluid-dynamics/06-COMPRESSIBLE-FLOW.md",
+            "custody": "partial"
+          }
+        }
+      ],
+      "format": {
+        "media_type": "application/json",
+        "encoding": "utf-8",
+        "compression": null,
+        "container": null,
+        "schema": "proof.backfill.blocks.v1",
+        "record_shape": "structured-block-sidecar",
+        "preferred_local": ".proof/backfill/sources/fluid-dynamics/proof-source/06-COMPRESSIBLE-FLOW.blocks.json"
+      },
+      "tags": [
+        "source-corpus",
+        "proof",
+        "blocks",
+        "partial-custody",
+        "guide"
+      ],
+      "metadata": {
+        "source_repo": "MAXIM",
+        "module": "fluid-dynamics",
+        "guide": "fluid-dynamics/06-COMPRESSIBLE-FLOW.md",
+        "publication_state": "partial-source-custody"
+      }
+    },
+    {
+      "id": "maxim.fluid-dynamics.aerodynamics.view",
+      "node_kind": "fletch",
+      "shafts": [
+        {
+          "kind": "file",
+          "url": ".crop/views/maxim-fluid-dynamics-aerodynamics.json"
+        }
+      ],
+      "edges": [
+        {
+          "to": "maxim.fluid-dynamics.source-corpus.pebble",
+          "kind": "derived-from",
+          "label": "Guide-level CROP view recipe",
+          "metadata": {
+            "module": "fluid-dynamics",
+            "guide": "fluid-dynamics/07-AERODYNAMICS.md",
+            "custody": "partial"
+          }
+        }
+      ],
+      "format": {
+        "media_type": "application/json",
+        "encoding": "utf-8",
+        "compression": null,
+        "container": null,
+        "schema": "crop.view.v1",
+        "record_shape": "view-recipe",
+        "preferred_local": ".crop/views/maxim-fluid-dynamics-aerodynamics.json"
+      },
+      "tags": [
+        "source-corpus",
+        "crop",
+        "view",
+        "partial-custody",
+        "guide"
+      ],
+      "metadata": {
+        "source_repo": "MAXIM",
+        "module": "fluid-dynamics",
+        "guide": "fluid-dynamics/07-AERODYNAMICS.md",
+        "publication_state": "partial-source-custody"
+      }
+    },
+    {
+      "id": "maxim.fluid-dynamics.aerodynamics.pebble",
+      "node_kind": "fletch",
+      "shafts": [
+        {
+          "kind": "file",
+          "url": ".pebble/packs/maxim-fluid-dynamics-aerodynamics.pebble.json"
+        }
+      ],
+      "edges": [
+        {
+          "to": "maxim.fluid-dynamics.aerodynamics.view",
+          "kind": "derived-from",
+          "label": "Guide-level CROP view recipe",
+          "metadata": {
+            "module": "fluid-dynamics",
+            "custody": "partial"
+          }
+        },
+        {
+          "to": "maxim.fluid-dynamics.source-corpus.pebble",
+          "kind": "derived-from",
+          "label": "Guide-level CROP view",
+          "metadata": {
+            "view": ".crop/views/maxim-fluid-dynamics-aerodynamics.json",
+            "module": "fluid-dynamics",
+            "custody": "partial"
+          }
+        }
+      ],
+      "format": {
+        "media_type": "application/json",
+        "encoding": "utf-8",
+        "compression": null,
+        "container": null,
+        "schema": "pebble.v1",
+        "record_shape": "corpus-slice",
+        "preferred_local": ".pebble/packs/maxim-fluid-dynamics-aerodynamics.pebble.json"
+      },
+      "tags": [
+        "source-corpus",
+        "crop",
+        "pebble",
+        "partial-custody",
+        "guide"
+      ],
+      "metadata": {
+        "source_repo": "MAXIM",
+        "module": "fluid-dynamics",
+        "guide": "fluid-dynamics/07-AERODYNAMICS.md",
+        "publication_state": "partial-source-custody"
+      }
+    },
+    {
+      "id": "maxim.fluid-dynamics.aerodynamics.proof-source",
+      "node_kind": "fletch",
+      "shafts": [
+        {
+          "kind": "file",
+          "url": ".proof/backfill/sources/fluid-dynamics/proof-source/07-AERODYNAMICS.source.md"
+        }
+      ],
+      "edges": [
+        {
+          "to": "maxim.fluid-dynamics.aerodynamics.view",
+          "kind": "derived-from",
+          "label": "Literal PROOF source for guide view",
+          "metadata": {
+            "module": "fluid-dynamics",
+            "guide": "fluid-dynamics/07-AERODYNAMICS.md",
+            "custody": "partial"
+          }
+        }
+      ],
+      "format": {
+        "media_type": "text/markdown",
+        "encoding": "utf-8",
+        "compression": null,
+        "container": null,
+        "schema": "proof.source.literal_markdown.v1",
+        "record_shape": "literal-source",
+        "preferred_local": ".proof/backfill/sources/fluid-dynamics/proof-source/07-AERODYNAMICS.source.md"
+      },
+      "tags": [
+        "source-corpus",
+        "proof",
+        "source",
+        "partial-custody",
+        "guide"
+      ],
+      "metadata": {
+        "source_repo": "MAXIM",
+        "module": "fluid-dynamics",
+        "guide": "fluid-dynamics/07-AERODYNAMICS.md",
+        "publication_state": "partial-source-custody"
+      }
+    },
+    {
+      "id": "maxim.fluid-dynamics.aerodynamics.tables",
+      "node_kind": "fletch",
+      "shafts": [
+        {
+          "kind": "file",
+          "url": ".proof/backfill/sources/fluid-dynamics/proof-source/07-AERODYNAMICS.tables.json"
+        }
+      ],
+      "edges": [
+        {
+          "to": "maxim.fluid-dynamics.aerodynamics.proof-source",
+          "kind": "derived-from",
+          "label": "PROOF markdown table sidecar",
+          "metadata": {
+            "module": "fluid-dynamics",
+            "guide": "fluid-dynamics/07-AERODYNAMICS.md",
+            "custody": "partial"
+          }
+        }
+      ],
+      "format": {
+        "media_type": "application/json",
+        "encoding": "utf-8",
+        "compression": null,
+        "container": null,
+        "schema": "proof.backfill.tables.v1",
+        "record_shape": "table-sidecar",
+        "preferred_local": ".proof/backfill/sources/fluid-dynamics/proof-source/07-AERODYNAMICS.tables.json"
+      },
+      "tags": [
+        "source-corpus",
+        "proof",
+        "tables",
+        "partial-custody",
+        "guide"
+      ],
+      "metadata": {
+        "source_repo": "MAXIM",
+        "module": "fluid-dynamics",
+        "guide": "fluid-dynamics/07-AERODYNAMICS.md",
+        "publication_state": "partial-source-custody"
+      }
+    },
+    {
+      "id": "maxim.fluid-dynamics.aerodynamics.blocks",
+      "node_kind": "fletch",
+      "shafts": [
+        {
+          "kind": "file",
+          "url": ".proof/backfill/sources/fluid-dynamics/proof-source/07-AERODYNAMICS.blocks.json"
+        }
+      ],
+      "edges": [
+        {
+          "to": "maxim.fluid-dynamics.aerodynamics.proof-source",
+          "kind": "derived-from",
+          "label": "PROOF structured block sidecar",
+          "metadata": {
+            "module": "fluid-dynamics",
+            "guide": "fluid-dynamics/07-AERODYNAMICS.md",
+            "custody": "partial"
+          }
+        }
+      ],
+      "format": {
+        "media_type": "application/json",
+        "encoding": "utf-8",
+        "compression": null,
+        "container": null,
+        "schema": "proof.backfill.blocks.v1",
+        "record_shape": "structured-block-sidecar",
+        "preferred_local": ".proof/backfill/sources/fluid-dynamics/proof-source/07-AERODYNAMICS.blocks.json"
+      },
+      "tags": [
+        "source-corpus",
+        "proof",
+        "blocks",
+        "partial-custody",
+        "guide"
+      ],
+      "metadata": {
+        "source_repo": "MAXIM",
+        "module": "fluid-dynamics",
+        "guide": "fluid-dynamics/07-AERODYNAMICS.md",
+        "publication_state": "partial-source-custody"
+      }
+    },
+    {
+      "id": "maxim.fluid-dynamics.hydrodynamics.view",
+      "node_kind": "fletch",
+      "shafts": [
+        {
+          "kind": "file",
+          "url": ".crop/views/maxim-fluid-dynamics-hydrodynamics.json"
+        }
+      ],
+      "edges": [
+        {
+          "to": "maxim.fluid-dynamics.source-corpus.pebble",
+          "kind": "derived-from",
+          "label": "Guide-level CROP view recipe",
+          "metadata": {
+            "module": "fluid-dynamics",
+            "guide": "fluid-dynamics/08-HYDRODYNAMICS.md",
+            "custody": "partial"
+          }
+        }
+      ],
+      "format": {
+        "media_type": "application/json",
+        "encoding": "utf-8",
+        "compression": null,
+        "container": null,
+        "schema": "crop.view.v1",
+        "record_shape": "view-recipe",
+        "preferred_local": ".crop/views/maxim-fluid-dynamics-hydrodynamics.json"
+      },
+      "tags": [
+        "source-corpus",
+        "crop",
+        "view",
+        "partial-custody",
+        "guide"
+      ],
+      "metadata": {
+        "source_repo": "MAXIM",
+        "module": "fluid-dynamics",
+        "guide": "fluid-dynamics/08-HYDRODYNAMICS.md",
+        "publication_state": "partial-source-custody"
+      }
+    },
+    {
+      "id": "maxim.fluid-dynamics.hydrodynamics.pebble",
+      "node_kind": "fletch",
+      "shafts": [
+        {
+          "kind": "file",
+          "url": ".pebble/packs/maxim-fluid-dynamics-hydrodynamics.pebble.json"
+        }
+      ],
+      "edges": [
+        {
+          "to": "maxim.fluid-dynamics.hydrodynamics.view",
+          "kind": "derived-from",
+          "label": "Guide-level CROP view recipe",
+          "metadata": {
+            "module": "fluid-dynamics",
+            "custody": "partial"
+          }
+        },
+        {
+          "to": "maxim.fluid-dynamics.source-corpus.pebble",
+          "kind": "derived-from",
+          "label": "Guide-level CROP view",
+          "metadata": {
+            "view": ".crop/views/maxim-fluid-dynamics-hydrodynamics.json",
+            "module": "fluid-dynamics",
+            "custody": "partial"
+          }
+        }
+      ],
+      "format": {
+        "media_type": "application/json",
+        "encoding": "utf-8",
+        "compression": null,
+        "container": null,
+        "schema": "pebble.v1",
+        "record_shape": "corpus-slice",
+        "preferred_local": ".pebble/packs/maxim-fluid-dynamics-hydrodynamics.pebble.json"
+      },
+      "tags": [
+        "source-corpus",
+        "crop",
+        "pebble",
+        "partial-custody",
+        "guide"
+      ],
+      "metadata": {
+        "source_repo": "MAXIM",
+        "module": "fluid-dynamics",
+        "guide": "fluid-dynamics/08-HYDRODYNAMICS.md",
+        "publication_state": "partial-source-custody"
+      }
+    },
+    {
+      "id": "maxim.fluid-dynamics.hydrodynamics.proof-source",
+      "node_kind": "fletch",
+      "shafts": [
+        {
+          "kind": "file",
+          "url": ".proof/backfill/sources/fluid-dynamics/proof-source/08-HYDRODYNAMICS.source.md"
+        }
+      ],
+      "edges": [
+        {
+          "to": "maxim.fluid-dynamics.hydrodynamics.view",
+          "kind": "derived-from",
+          "label": "Literal PROOF source for guide view",
+          "metadata": {
+            "module": "fluid-dynamics",
+            "guide": "fluid-dynamics/08-HYDRODYNAMICS.md",
+            "custody": "partial"
+          }
+        }
+      ],
+      "format": {
+        "media_type": "text/markdown",
+        "encoding": "utf-8",
+        "compression": null,
+        "container": null,
+        "schema": "proof.source.literal_markdown.v1",
+        "record_shape": "literal-source",
+        "preferred_local": ".proof/backfill/sources/fluid-dynamics/proof-source/08-HYDRODYNAMICS.source.md"
+      },
+      "tags": [
+        "source-corpus",
+        "proof",
+        "source",
+        "partial-custody",
+        "guide"
+      ],
+      "metadata": {
+        "source_repo": "MAXIM",
+        "module": "fluid-dynamics",
+        "guide": "fluid-dynamics/08-HYDRODYNAMICS.md",
+        "publication_state": "partial-source-custody"
+      }
+    },
+    {
+      "id": "maxim.fluid-dynamics.hydrodynamics.tables",
+      "node_kind": "fletch",
+      "shafts": [
+        {
+          "kind": "file",
+          "url": ".proof/backfill/sources/fluid-dynamics/proof-source/08-HYDRODYNAMICS.tables.json"
+        }
+      ],
+      "edges": [
+        {
+          "to": "maxim.fluid-dynamics.hydrodynamics.proof-source",
+          "kind": "derived-from",
+          "label": "PROOF markdown table sidecar",
+          "metadata": {
+            "module": "fluid-dynamics",
+            "guide": "fluid-dynamics/08-HYDRODYNAMICS.md",
+            "custody": "partial"
+          }
+        }
+      ],
+      "format": {
+        "media_type": "application/json",
+        "encoding": "utf-8",
+        "compression": null,
+        "container": null,
+        "schema": "proof.backfill.tables.v1",
+        "record_shape": "table-sidecar",
+        "preferred_local": ".proof/backfill/sources/fluid-dynamics/proof-source/08-HYDRODYNAMICS.tables.json"
+      },
+      "tags": [
+        "source-corpus",
+        "proof",
+        "tables",
+        "partial-custody",
+        "guide"
+      ],
+      "metadata": {
+        "source_repo": "MAXIM",
+        "module": "fluid-dynamics",
+        "guide": "fluid-dynamics/08-HYDRODYNAMICS.md",
+        "publication_state": "partial-source-custody"
+      }
+    },
+    {
+      "id": "maxim.fluid-dynamics.hydrodynamics.blocks",
+      "node_kind": "fletch",
+      "shafts": [
+        {
+          "kind": "file",
+          "url": ".proof/backfill/sources/fluid-dynamics/proof-source/08-HYDRODYNAMICS.blocks.json"
+        }
+      ],
+      "edges": [
+        {
+          "to": "maxim.fluid-dynamics.hydrodynamics.proof-source",
+          "kind": "derived-from",
+          "label": "PROOF structured block sidecar",
+          "metadata": {
+            "module": "fluid-dynamics",
+            "guide": "fluid-dynamics/08-HYDRODYNAMICS.md",
+            "custody": "partial"
+          }
+        }
+      ],
+      "format": {
+        "media_type": "application/json",
+        "encoding": "utf-8",
+        "compression": null,
+        "container": null,
+        "schema": "proof.backfill.blocks.v1",
+        "record_shape": "structured-block-sidecar",
+        "preferred_local": ".proof/backfill/sources/fluid-dynamics/proof-source/08-HYDRODYNAMICS.blocks.json"
+      },
+      "tags": [
+        "source-corpus",
+        "proof",
+        "blocks",
+        "partial-custody",
+        "guide"
+      ],
+      "metadata": {
+        "source_repo": "MAXIM",
+        "module": "fluid-dynamics",
+        "guide": "fluid-dynamics/08-HYDRODYNAMICS.md",
+        "publication_state": "partial-source-custody"
+      }
+    },
+    {
+      "id": "maxim.fluid-dynamics.cfd.view",
+      "node_kind": "fletch",
+      "shafts": [
+        {
+          "kind": "file",
+          "url": ".crop/views/maxim-fluid-dynamics-cfd.json"
+        }
+      ],
+      "edges": [
+        {
+          "to": "maxim.fluid-dynamics.source-corpus.pebble",
+          "kind": "derived-from",
+          "label": "Guide-level CROP view recipe",
+          "metadata": {
+            "module": "fluid-dynamics",
+            "guide": "fluid-dynamics/09-CFD.md",
+            "custody": "partial"
+          }
+        }
+      ],
+      "format": {
+        "media_type": "application/json",
+        "encoding": "utf-8",
+        "compression": null,
+        "container": null,
+        "schema": "crop.view.v1",
+        "record_shape": "view-recipe",
+        "preferred_local": ".crop/views/maxim-fluid-dynamics-cfd.json"
+      },
+      "tags": [
+        "source-corpus",
+        "crop",
+        "view",
+        "partial-custody",
+        "guide"
+      ],
+      "metadata": {
+        "source_repo": "MAXIM",
+        "module": "fluid-dynamics",
+        "guide": "fluid-dynamics/09-CFD.md",
+        "publication_state": "partial-source-custody"
+      }
+    },
+    {
+      "id": "maxim.fluid-dynamics.cfd.pebble",
+      "node_kind": "fletch",
+      "shafts": [
+        {
+          "kind": "file",
+          "url": ".pebble/packs/maxim-fluid-dynamics-cfd.pebble.json"
+        }
+      ],
+      "edges": [
+        {
+          "to": "maxim.fluid-dynamics.cfd.view",
+          "kind": "derived-from",
+          "label": "Guide-level CROP view recipe",
+          "metadata": {
+            "module": "fluid-dynamics",
+            "custody": "partial"
+          }
+        },
+        {
+          "to": "maxim.fluid-dynamics.source-corpus.pebble",
+          "kind": "derived-from",
+          "label": "Guide-level CROP view",
+          "metadata": {
+            "view": ".crop/views/maxim-fluid-dynamics-cfd.json",
+            "module": "fluid-dynamics",
+            "custody": "partial"
+          }
+        }
+      ],
+      "format": {
+        "media_type": "application/json",
+        "encoding": "utf-8",
+        "compression": null,
+        "container": null,
+        "schema": "pebble.v1",
+        "record_shape": "corpus-slice",
+        "preferred_local": ".pebble/packs/maxim-fluid-dynamics-cfd.pebble.json"
+      },
+      "tags": [
+        "source-corpus",
+        "crop",
+        "pebble",
+        "partial-custody",
+        "guide"
+      ],
+      "metadata": {
+        "source_repo": "MAXIM",
+        "module": "fluid-dynamics",
+        "guide": "fluid-dynamics/09-CFD.md",
+        "publication_state": "partial-source-custody"
+      }
+    },
+    {
+      "id": "maxim.fluid-dynamics.cfd.proof-source",
+      "node_kind": "fletch",
+      "shafts": [
+        {
+          "kind": "file",
+          "url": ".proof/backfill/sources/fluid-dynamics/proof-source/09-CFD.source.md"
+        }
+      ],
+      "edges": [
+        {
+          "to": "maxim.fluid-dynamics.cfd.view",
+          "kind": "derived-from",
+          "label": "Literal PROOF source for guide view",
+          "metadata": {
+            "module": "fluid-dynamics",
+            "guide": "fluid-dynamics/09-CFD.md",
+            "custody": "partial"
+          }
+        }
+      ],
+      "format": {
+        "media_type": "text/markdown",
+        "encoding": "utf-8",
+        "compression": null,
+        "container": null,
+        "schema": "proof.source.literal_markdown.v1",
+        "record_shape": "literal-source",
+        "preferred_local": ".proof/backfill/sources/fluid-dynamics/proof-source/09-CFD.source.md"
+      },
+      "tags": [
+        "source-corpus",
+        "proof",
+        "source",
+        "partial-custody",
+        "guide"
+      ],
+      "metadata": {
+        "source_repo": "MAXIM",
+        "module": "fluid-dynamics",
+        "guide": "fluid-dynamics/09-CFD.md",
+        "publication_state": "partial-source-custody"
+      }
+    },
+    {
+      "id": "maxim.fluid-dynamics.cfd.tables",
+      "node_kind": "fletch",
+      "shafts": [
+        {
+          "kind": "file",
+          "url": ".proof/backfill/sources/fluid-dynamics/proof-source/09-CFD.tables.json"
+        }
+      ],
+      "edges": [
+        {
+          "to": "maxim.fluid-dynamics.cfd.proof-source",
+          "kind": "derived-from",
+          "label": "PROOF markdown table sidecar",
+          "metadata": {
+            "module": "fluid-dynamics",
+            "guide": "fluid-dynamics/09-CFD.md",
+            "custody": "partial"
+          }
+        }
+      ],
+      "format": {
+        "media_type": "application/json",
+        "encoding": "utf-8",
+        "compression": null,
+        "container": null,
+        "schema": "proof.backfill.tables.v1",
+        "record_shape": "table-sidecar",
+        "preferred_local": ".proof/backfill/sources/fluid-dynamics/proof-source/09-CFD.tables.json"
+      },
+      "tags": [
+        "source-corpus",
+        "proof",
+        "tables",
+        "partial-custody",
+        "guide"
+      ],
+      "metadata": {
+        "source_repo": "MAXIM",
+        "module": "fluid-dynamics",
+        "guide": "fluid-dynamics/09-CFD.md",
+        "publication_state": "partial-source-custody"
+      }
+    },
+    {
+      "id": "maxim.fluid-dynamics.cfd.blocks",
+      "node_kind": "fletch",
+      "shafts": [
+        {
+          "kind": "file",
+          "url": ".proof/backfill/sources/fluid-dynamics/proof-source/09-CFD.blocks.json"
+        }
+      ],
+      "edges": [
+        {
+          "to": "maxim.fluid-dynamics.cfd.proof-source",
+          "kind": "derived-from",
+          "label": "PROOF structured block sidecar",
+          "metadata": {
+            "module": "fluid-dynamics",
+            "guide": "fluid-dynamics/09-CFD.md",
+            "custody": "partial"
+          }
+        }
+      ],
+      "format": {
+        "media_type": "application/json",
+        "encoding": "utf-8",
+        "compression": null,
+        "container": null,
+        "schema": "proof.backfill.blocks.v1",
+        "record_shape": "structured-block-sidecar",
+        "preferred_local": ".proof/backfill/sources/fluid-dynamics/proof-source/09-CFD.blocks.json"
+      },
+      "tags": [
+        "source-corpus",
+        "proof",
+        "blocks",
+        "partial-custody",
+        "guide"
+      ],
+      "metadata": {
+        "source_repo": "MAXIM",
+        "module": "fluid-dynamics",
+        "guide": "fluid-dynamics/09-CFD.md",
+        "publication_state": "partial-source-custody"
+      }
+    }
+  ]
+}

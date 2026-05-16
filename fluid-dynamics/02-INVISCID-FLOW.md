@@ -1,3 +1,22 @@
+---
+maxim_schema: maxim.frontmatter.v1
+id: maxim:fluid-dynamics:inviscid-flow
+kind: guide
+module: fluid-dynamics
+section: fluid-dynamics
+title: Ideal and Inviscid Flow
+status: source-custody
+source_custody: partial
+current_path: fluid-dynamics/02-INVISCID-FLOW.md
+canonical_path: fluid-dynamics/02-INVISCID-FLOW.md
+backsource_ids: [proof-backfill:fluid-dynamics:02-inviscid-flow, git-history:fluid-dynamics:02-inviscid-flow]
+concepts: [inviscid, flow]
+root_concepts: [inviscid, flow]
+index_roles: [guide, root-concept]
+remap_from: []
+remap_to: []
+updated: null
+---
 # Ideal and Inviscid Flow
 
 ## The Big Picture

@@ -1,0 +1,72 @@
+{
+  "schema_version": "1",
+  "source_markdown": "complex-analysis\\05-RIEMANN-SURFACES.md",
+  "blocks": [
+    {
+      "id": "block-1",
+      "kind": "diagram_like",
+      "line": 26,
+      "heading_context": "## The Big Picture",
+      "confidence": "candidate",
+      "text": "RIEMANN SURFACES — CONCEPTUAL MAP\n═══════════════════════════════════════════════════════════════════════════════\n\n  PROBLEM: log z, √z, z^{1/3} are multi-valued in ℂ\n           Forcing a single value requires branch cuts with discontinuities\n\n  SOLUTION: Build a surface S where f: S → ℂ is single-valued\n            S looks like ℂ near every point but wraps around globally\n\n  ┌─────────────────────────────────────────────────────────────────────┐\n  │  RIEMANN SURFACE FOR √z                                             │\n  │                                                                     │\n  │  Two sheets: Sheet 1 (√z > 0), Sheet 2 (−√z)                        │\n  │  Glued along branch cut (−∞, 0]                                     │\n  │  Topology: cylinder ≅ ℂ* (punctured plane)                          │\n  │  One loop in ℂ \\ {0} → need to go around TWICE to return to start   │\n  └─────────────────────────────────────────────────────────────────────┘\n\n  CLASSIFICATION BY GENUS:\n  g = 0   Riemann sphere ℙ¹ ≅ S²  (compact, simply connected)\n  g = 1   Torus ℂ/Λ  (elliptic curves; doubly periodic functions)\n  g ≥ 2   Higher genus (hyperbolic, universal cover = upper half-plane)\n\n  KEY THEOREM: Every compact Riemann surface is algebraic\n               (given by a polynomial equation F(w, z) = 0)",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-2",
+      "kind": "diagram_like",
+      "line": 64,
+      "heading_context": "## What is a Riemann Surface?",
+      "confidence": "candidate",
+      "text": "RIEMANN SURFACE ATLAS:\n        Uᵢ ──φᵢ──→ Vᵢ ⊂ ℂ\n        ↑                      transition map φⱼ∘φᵢ⁻¹\n        Uᵢ∩Uⱼ ──→ φᵢ(Uᵢ∩Uⱼ) ──holomorphic──→ φⱼ(Uᵢ∩Uⱼ)",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-3",
+      "kind": "diagram_like",
+      "line": 109,
+      "heading_context": "### The Square Root: √z",
+      "confidence": "candidate",
+      "text": "RIEMANN SURFACE FOR √z (two sheets):\n\n  Sheet 1  ══════════════╗\n           (cut along ℝ₋) ║\n  Sheet 2  ══════════════╝  glued along negative real axis\n\n  Going around z=0 once: Sheet 1 → Sheet 2\n  Going around twice:    Sheet 2 → Sheet 1  (back to start)\n\n  Branch points: z=0 and z=∞  (monodromy permutes the two values)\n  Topology: ℂ ∪ {∞} with two branch points removed, then compactified\n            → Riemann sphere (genus 0)",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-4",
+      "kind": "diagram_like",
+      "line": 151,
+      "heading_context": "## Branch Points and Branch Cuts",
+      "confidence": "candidate",
+      "text": "    π₁(ℂ \\ {branch points}, z₀) → Sₙ   (permutation group)",
+      "notes": [
+        "detected from arrows or box-drawing glyphs"
+      ]
+    },
+    {
+      "id": "block-5",
+      "kind": "diagram_like",
+      "line": 202,
+      "heading_context": "## The Uniformization Theorem",
+      "confidence": "candidate",
+      "text": "DECK TRANSFORMATIONS:\n  S̃ = ℙ¹:  only trivial deck group → S = ℙ¹  (Riemann sphere)\n  S̃ = ℂ:   deck group ⊂ translations → S = ℂ or ℂ/Λ (torus)\n  S̃ = ℍ:   deck group = Fuchsian group → all other cases (hyperbolic)",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-6",
+      "kind": "ascii_table_candidate",
+      "line": 240,
+      "heading_context": "## Elliptic Functions (Torus Surfaces)",
+      "confidence": "candidate",
+      "text": "**The cryptography bridge: torus → Weierstrass equation → ECC.** The equation (℘')² = 4℘³ − g₂℘ − g₃ is a Weierstrass cubic — the *same* form Y² = X³ + aX + b used in elliptic curve cryptography (ECC) over finite fields 𝔽ₚ. The group law is identical in both settings: on the complex torus ℂ/Λ, addition is z₁ + z₂ mod Λ; on the cubic curve, this corresponds exactly to the chord-and-tangent construction (draw a line through P₁, P₂; it hits the curve at a third point; reflect to get P₁ + P₂). Over ℂ the group is a torus (S¹ × S¹). Over 𝔽ₚ the group is finite, and the discrete logarithm problem in this group is the basis for ECDH and ECDSA. The complex-analytic structure (lattice, j-invariant, complex multiplication) directly informs which curves over 𝔽ₚ are cryptographically strong.",
+      "notes": [
+        "detected from ASCII table borders or pipe-aligned rows"
+      ]
+    }
+  ]
+}

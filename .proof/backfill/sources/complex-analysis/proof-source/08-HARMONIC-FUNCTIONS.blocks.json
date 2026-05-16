@@ -1,0 +1,72 @@
+{
+  "schema_version": "1",
+  "source_markdown": "complex-analysis\\08-HARMONIC-FUNCTIONS.md",
+  "blocks": [
+    {
+      "id": "block-1",
+      "kind": "diagram_like",
+      "line": 26,
+      "heading_context": "## The Big Picture",
+      "confidence": "candidate",
+      "text": "HARMONIC FUNCTIONS — LANDSCAPE\n═══════════════════════════════════════════════════════════════════════════════\n\n  DEFINITION:  u: Ω ⊂ ℝ² → ℝ  harmonic  ↔  ∇²u = ∂²u/∂x² + ∂²u/∂y² = 0\n\n  ┌─────────────────────────────────────────────────────────────────────┐\n  │  COMPLEX ANALYSIS CONNECTION                                        │\n  │  f = u + iv  holomorphic  ⟹  u harmonic,  v harmonic                │\n  │  Converse: given u harmonic on simply connected Ω,                  │\n  │            ∃ harmonic conjugate v: u + iv holomorphic on Ω          │\n  └─────────────────────────────────────────────────────────────────────┘\n\n  KEY PROPERTIES (flow from Cauchy theory):\n  ─ Mean value property: u(z₀) = average of u on any circle centered at z₀\n  ─ Maximum principle: u achieves max/min on boundary, not interior\n  ─ Real-analyticity: harmonic ⟹ C^∞, in fact real-analytic\n  ─ Unique determination by boundary values (Dirichlet problem)\n  ─ Preserved by conformal maps\n\n  DIRICHLET PROBLEM:\n  Given: boundary values u = g on ∂Ω\n  Find: harmonic u on Ω with those boundary values\n  Solution: Poisson formula (explicit on disk and half-plane)",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-2",
+      "kind": "chart_like",
+      "line": 56,
+      "heading_context": "## Harmonic Functions — Basic Properties",
+      "confidence": "candidate",
+      "text": "### Laplace's Equation in 2D",
+      "notes": [
+        "detected from bar/chart glyph density with numeric labels"
+      ]
+    },
+    {
+      "id": "block-3",
+      "kind": "ascii_table_candidate",
+      "line": 66,
+      "heading_context": "### Laplace's Equation in 2D",
+      "confidence": "candidate",
+      "text": "- Degree 2: x² − y², xy, ax + by + c (not x² + y²)",
+      "notes": [
+        "detected from ASCII table borders or pipe-aligned rows"
+      ]
+    },
+    {
+      "id": "block-4",
+      "kind": "diagram_like",
+      "line": 135,
+      "heading_context": "### Poisson Formula on the Unit Disk",
+      "confidence": "candidate",
+      "text": "POISSON KERNEL PROPERTIES:\n\n  P_r(ψ) > 0  for r < 1  (positive — no cancellation)\n  (1/2π) ∫_0^{2π} P_r(ψ) dψ = 1  (normalized — it's a probability kernel)\n  P_r(ψ) → δ(ψ)  as r → 1⁻  (concentrates at the boundary point)\n\n  ↑  These three properties make P_r(ψ) an \"approximate identity\" (Dirac delta approximation)",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-5",
+      "kind": "diagram_like",
+      "line": 151,
+      "heading_context": "### Poisson Formula on the Unit Disk",
+      "confidence": "candidate",
+      "text": "    f(z) = (1/2πi) ∮_{|ζ|=1} f(ζ) · [1/(ζ−z) + 1/(ζ(1/z̄−ζ))] dζ/2 → Poisson formula",
+      "notes": [
+        "detected from arrows or box-drawing glyphs"
+      ]
+    },
+    {
+      "id": "block-6",
+      "kind": "ascii_table_candidate",
+      "line": 157,
+      "heading_context": "### Poisson Formula on the Upper Half-Plane",
+      "confidence": "candidate",
+      "text": "    u(x + iy) = (y/π) ∫_{-∞}^{∞} g(t)/((x−t)² + y²) dt    for y > 0",
+      "notes": [
+        "detected from ASCII table borders or pipe-aligned rows"
+      ]
+    }
+  ]
+}

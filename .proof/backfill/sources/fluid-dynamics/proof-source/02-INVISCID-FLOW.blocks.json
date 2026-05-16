@@ -1,0 +1,94 @@
+{
+  "schema_version": "1",
+  "source_markdown": "fluid-dynamics\\02-INVISCID-FLOW.md",
+  "blocks": [
+    {
+      "id": "block-1",
+      "kind": "diagram_like",
+      "line": 26,
+      "heading_context": "## The Big Picture",
+      "confidence": "candidate",
+      "text": "INVISCID FLOW — CONCEPTUAL STRUCTURE\n═══════════════════════════════════════════════════════════════════════════════\n\n  EULER EQUATIONS:\n  ρ(∂**v**/∂t + (**v**·∇)**v**) = −∇p + ρ**g**\n  ∇·**v** = 0  (incompressible)\n\n  IRROTATIONAL FLOW (∇ × **v** = 0):\n  ┌──────────────────────────────────────────────────────────────────────┐\n  │  ∇ × **v** = 0  ⟹  **v** = ∇φ  (velocity potential exists)           │\n  │  Continuity: ∇·∇φ = 0  ⟹  ∇²φ = 0  (Laplace equation!)               │\n  │                                                                      │\n  │  In 2D: φ + iψ = W(z)  is HOLOMORPHIC                                │\n  │  (velocity potential = real part of complex potential)               │\n  └──────────────────────────────────────────────────────────────────────┘\n\n  BERNOULLI'S EQUATION:\n  Steady, incompressible, inviscid, along a streamline:\n  p/ρ + v²/2 + gz = constant  (total energy per unit mass conserved)",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-2",
+      "kind": "chart_like",
+      "line": 73,
+      "heading_context": "## Bernoulli's Equation — Three Forms",
+      "confidence": "candidate",
+      "text": "### Form 1: Along a Streamline (Steady, Any Inviscid Flow)",
+      "notes": [
+        "detected from bar/chart glyph density with numeric labels"
+      ]
+    },
+    {
+      "id": "block-3",
+      "kind": "chart_like",
+      "line": 90,
+      "heading_context": "### Form 1: Along a Streamline (Steady, Any Inviscid Flow)",
+      "confidence": "candidate",
+      "text": "### Form 2: Irrotational Steady Flow (Entire Domain)",
+      "notes": [
+        "detected from bar/chart glyph density with numeric labels"
+      ]
+    },
+    {
+      "id": "block-4",
+      "kind": "chart_like",
+      "line": 96,
+      "heading_context": "### Form 2: Irrotational Steady Flow (Entire Domain)",
+      "confidence": "candidate",
+      "text": "### Form 3: Unsteady Irrotational",
+      "notes": [
+        "detected from bar/chart glyph density with numeric labels"
+      ]
+    },
+    {
+      "id": "block-5",
+      "kind": "diagram_like",
+      "line": 117,
+      "heading_context": "## Potential Flow — The Holomorphic Framework",
+      "confidence": "candidate",
+      "text": "POTENTIAL FLOW ↔ HOLOMORPHIC FUNCTION DICTIONARY:\n  ─────────────────────────────────────────────────────\n  Complex potential W(z)     ↔  holomorphic function\n  Real part φ = Re(W)        ↔  velocity potential  (equipotentials)\n  Imag part ψ = Im(W)        ↔  stream function     (streamlines)\n  dW/dz = u − iv             ↔  complex velocity\n  |dW/dz|                    ↔  flow speed\n  dW/dz = 0                  ↔  stagnation point\n  Conformal map of W         ↔  maps one flow to another flow",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-6",
+      "kind": "chart_like",
+      "line": 141,
+      "heading_context": "### Uniform Flow",
+      "confidence": "candidate",
+      "text": "### Source/Sink at Origin (strength m, m > 0 = source)",
+      "notes": [
+        "detected from bar/chart glyph density with numeric labels"
+      ]
+    },
+    {
+      "id": "block-7",
+      "kind": "diagram_like",
+      "line": 251,
+      "heading_context": "### Pitot Tube (measuring airspeed)",
+      "confidence": "candidate",
+      "text": "   STAGNATION POINT                FREE STREAM\n        ×                         →→→→→→→→→\n      p = p_stag                  p = p_∞,  v = V\n   (velocity = 0)\n\n   Bernoulli: p_stag = p_∞ + (1/2)ρV²\n   V = √(2(p_stag − p_∞)/ρ)",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-8",
+      "kind": "diagram_like",
+      "line": 263,
+      "heading_context": "### Venturi Meter (measuring flow rate in a pipe)",
+      "confidence": "candidate",
+      "text": "   Area A₁        Area A₂ < A₁       Area A₁\n   →→→→            →→→→→→             →→→→\n   v₁, p₁         v₂ > v₁, p₂ < p₁   v₁, p₁\n\n   Continuity: A₁v₁ = A₂v₂\n   Bernoulli:  p₁ + ½ρv₁² = p₂ + ½ρv₂²\n   Flow rate: Q = A₁A₂ √(2(p₁−p₂)/(ρ(A₁²−A₂²)))",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    }
+  ]
+}

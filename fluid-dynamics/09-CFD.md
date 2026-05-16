@@ -1,3 +1,22 @@
+---
+maxim_schema: maxim.frontmatter.v1
+id: maxim:fluid-dynamics:cfd
+kind: guide
+module: fluid-dynamics
+section: fluid-dynamics
+title: Computational Fluid Dynamics
+status: source-custody
+source_custody: partial
+current_path: fluid-dynamics/09-CFD.md
+canonical_path: fluid-dynamics/09-CFD.md
+backsource_ids: [proof-backfill:fluid-dynamics:09-cfd, git-history:fluid-dynamics:09-cfd]
+concepts: [cfd]
+root_concepts: [cfd]
+index_roles: [guide, root-concept]
+remap_from: []
+remap_to: []
+updated: null
+---
 # Computational Fluid Dynamics
 
 ## The Big Picture
@@ -150,8 +169,8 @@ DOMAIN DECOMPOSITION IN PARALLEL CFD:
 
   Process 0          Process 1          Process 2
   ┌──────────┐      ┌──────────┐      ┌──────────┐
-  │          ←halo→→│          ←halo→→│          │
-  │  subdomain 0    │  subdomain 1    │  subdomain 2
+  │          │      │          │      │          │
+  │ subdom 0 │      │ subdom 1 │      │ subdom 2 │
   │          │      │          │      │          │
   └──────────┘      └──────────┘      └──────────┘
 

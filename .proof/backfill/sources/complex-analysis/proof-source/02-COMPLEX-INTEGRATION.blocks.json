@@ -1,0 +1,61 @@
+{
+  "schema_version": "1",
+  "source_markdown": "complex-analysis\\02-COMPLEX-INTEGRATION.md",
+  "blocks": [
+    {
+      "id": "block-1",
+      "kind": "diagram_like",
+      "line": 26,
+      "heading_context": "## The Big Picture",
+      "confidence": "candidate",
+      "text": "COMPLEX INTEGRATION — CONCEPTUAL FLOW\n═══════════════════════════════════════════════════════════════════════════════\n\n  CONTOUR INTEGRAL:  ∮_C f(z) dz  where C is a curve, f holomorphic on/inside C\n\n  ┌─────────────────────────────────────────────────────────────────────┐\n  │  CAUCHY'S THEOREM (Green's theorem + CR)                            │\n  │                                                                     │\n  │  f holomorphic on simply connected domain Ω, C closed curve in Ω    │\n  │                                                                     │\n  │  ⟹   ∮_C f(z) dz = 0                                                │\n  │                                                                     │\n  │  Consequence: path integrals ∫_γ f dz are PATH INDEPENDENT          │\n  │  (depend only on endpoints, not on the specific path)               │\n  └─────────────────────────────────────────────────────────────────────┘\n                              │\n                              ▼\n  ┌─────────────────────────────────────────────────────────────────────┐\n  │  CAUCHY INTEGRAL FORMULA                                            │\n  │                                                                     │\n  │  f holomorphic on/inside simple closed curve C                      │\n  │  z₀ in the interior of C                                            │\n  │                                                                     │\n  │  f(z₀) = (1/2πi) ∮_C f(z)/(z − z₀) dz                               │\n  │                                                                     │\n  │  For derivatives:                                                   │\n  │  f^(n)(z₀) = (n!/2πi) ∮_C f(z)/(z − z₀)^{n+1} dz                    │\n  └─────────────────────────────────────────────────────────────────────┘\n                              │\n                              ▼\n  ┌─────────────────────────────────────────────────────────────────────┐\n  │  RESIDUE THEOREM (see 03-RESIDUES-POLES.md)                         │\n  │  If f has isolated singularities inside C:                          │\n  │  ∮_C f dz = 2πi × Σ Res(f, aₖ)                                      │\n  └─────────────────────────────────────────────────────────────────────┘",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-2",
+      "kind": "diagram_like",
+      "line": 175,
+      "heading_context": "## Cauchy Integral Formula — Proof",
+      "confidence": "candidate",
+      "text": "    |∮_{Cₑ} [f(z)−f(z₀)]/(z−z₀) dz| ≤ (δ(ε)/ε) · 2πε = 2π δ(ε) → 0",
+      "notes": [
+        "detected from arrows or box-drawing glyphs"
+      ]
+    },
+    {
+      "id": "block-3",
+      "kind": "diagram_like",
+      "line": 219,
+      "heading_context": "## Simply Connected vs Multiply Connected",
+      "confidence": "candidate",
+      "text": "SIMPLY CONNECTED (no holes)          MULTIPLY CONNECTED (has holes)\n┌────────────────────┐                ┌────────────────────┐\n│                    │                │   ┌──┐      ┌──┐   │\n│   any closed curve │                │   │h₁│      │h₂│  │\n│   bounds a disk    │                │   └──┘      └──┘  │\n│   inside the domain │                │  holes = topological │\n│                    │                │  obstacles to shrinking│\n└────────────────────┘                └────────────────────┘\n  ∮_C f dz = 0 always                ∮_C f dz depends on which\n  for holomorphic f                   holes C encircles\n                                      → need residue theorem",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-4",
+      "kind": "ascii_table_candidate",
+      "line": 245,
+      "heading_context": "## Contour Deformation",
+      "confidence": "candidate",
+      "text": "ORIGINAL CONTOUR C1\n\n  +----------+\n  |    D     |\n  |  no sgts |\n  |          |\n  +----------+\n\nf holomorphic in between  ==>  DEFORMED CONTOUR C2 (smaller)\n\n  +--+\n  |  |\n  |  |\n  +--+\n\n  Int_{C1} = Int_{C2}                    same integral\n\nIf you deform ACROSS a singularity at a:\n  The integral changes by ±2πi · Res(f, a)",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-5",
+      "kind": "ascii_table_candidate",
+      "line": 281,
+      "heading_context": "### Closing in the Upper Half-Plane",
+      "confidence": "candidate",
+      "text": "     Im\n      |         large semicircle\n      |     ,-----------------,\n      |   ,-'                 '-,\n      |  ,'      x x             ',     <- residues contribute\n      |--+-----------------------+----- Re\n           -R                   R\n           '---------------------'\n                real axis path",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    }
+  ]
+}

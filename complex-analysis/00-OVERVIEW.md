@@ -1,3 +1,22 @@
+---
+maxim_schema: maxim.frontmatter.v1
+id: maxim:complex-analysis:overview
+kind: guide
+module: complex-analysis
+section: complex-analysis
+title: Complex Analysis - Landscape and Taxonomy
+status: source-custody
+source_custody: partial
+current_path: complex-analysis/00-OVERVIEW.md
+canonical_path: complex-analysis/00-OVERVIEW.md
+backsource_ids: [proof-backfill:complex-analysis:00-overview, git-history:complex-analysis:00-overview]
+concepts: [overview]
+root_concepts: [overview]
+index_roles: [guide, root-concept]
+remap_from: []
+remap_to: []
+updated: null
+---
 # Complex Analysis — Landscape and Taxonomy
 
 ## The Big Picture
@@ -14,9 +33,9 @@ COMPLEX ANALYSIS — FULL LANDSCAPE
 
 FOUNDATIONS
 ┌─────────────────────────────────────────────────────────────────────────┐
-│  Complex Numbers: z = x + iy,  |z| = √(x²+y²),  arg(z) = arctan(y/x) │
-│  Euler: e^(iθ) = cos θ + i sin θ   ←  ties algebra to geometry        │
-│  Riemann Sphere: ℂ ∪ {∞}  (compactification, adds a point at ∞)       │
+│  Complex Numbers: z = x + iy,  |z| = √(x²+y²),  arg(z) = arctan(y/x)    │
+│  Euler: e^(iθ) = cos θ + i sin θ   ←  ties algebra to geometry          │
+│  Riemann Sphere: ℂ ∪ {∞}  (compactification, adds a point at ∞)         │
 └─────────────────────────────────────────────────────────────────────────┘
                               │
                     ┌─────────┴─────────┐
@@ -33,26 +52,26 @@ FOUNDATIONS
 
 CORE THEOREMS (ordered by depth)
 ┌─────────────────────────────────────────────────────────────────────────┐
-│  Cauchy-Riemann         ∂u/∂x = ∂v/∂y,  ∂u/∂y = −∂v/∂x              │
-│  Cauchy's Theorem       ∮_C f(z)dz = 0  for holomorphic f in region   │
-│  Cauchy Integral Formula  f(z₀) = (1/2πi) ∮ f(z)/(z−z₀) dz          │
-│  Residue Theorem        ∮_C f dz = 2πi × Σ Res(f, aₖ)                │
+│  Cauchy-Riemann         ∂u/∂x = ∂v/∂y,  ∂u/∂y = −∂v/∂x                  │
+│  Cauchy's Theorem       ∮_C f(z)dz = 0  for holomorphic f in region     │
+│  Cauchy Integral Formula  f(z₀) = (1/2πi) ∮ f(z)/(z−z₀) dz              │
+│  Residue Theorem        ∮_C f dz = 2πi × Σ Res(f, aₖ)                   │
 │  Liouville's Theorem    bounded entire function → constant              │
 │  Maximum Modulus        |f| achieves max on boundary, not interior      │
-│  Riemann Mapping        simply-connected ≠ ℂ → conformally ≅ disk      │
+│  Riemann Mapping        simply-connected ≠ ℂ → conformally ≅ disk       │
 │  Schwarz-Pick           conformal self-maps of disk are contractions    │
 │  Weierstrass, Hadamard  products for entire functions with prescribed   │
 │                         zeros                                           │
-│  Riemann Hypothesis     zeros of ζ(s) on Re(s) = 1/2? (unsolved)      │
+│  Riemann Hypothesis     zeros of ζ(s) on Re(s) = 1/2? (unsolved)        │
 └─────────────────────────────────────────────────────────────────────────┘
 
 SINGULARITY TAXONOMY
 ┌──────────────┬───────────────────────────────────────────────────────────┐
-│ Removable    │  lim f(z) exists  (e.g., sin(z)/z at z=0)               │
-│ Pole order n │  Laurent series: finitely many negative-power terms      │
-│ Essential    │  Laurent: infinitely many negative-power terms           │
-│              │  Picard: f takes every value ∞ times near essential sg.  │
-│ Branch point │  f multi-valued: need a branch cut (e.g., log, √)       │
+│ Removable    │  lim f(z) exists  (e.g., sin(z)/z at z=0)                 │
+│ Pole order n │  Laurent series: finitely many negative-power terms       │
+│ Essential    │  Laurent: infinitely many negative-power terms            │
+│              │  Picard: f takes every value ∞ times near essential sg.   │
+│ Branch point │  f multi-valued: need a branch cut (e.g., log, √)         │
 └──────────────┴───────────────────────────────────────────────────────────┘
 
 MAJOR APPLICATIONS

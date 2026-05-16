@@ -1,3 +1,22 @@
+---
+maxim_schema: maxim.frontmatter.v1
+id: maxim:complex-analysis:residues-poles
+kind: guide
+module: complex-analysis
+section: complex-analysis
+title: Residues, Poles, and Laurent Series
+status: source-custody
+source_custody: partial
+current_path: complex-analysis/03-RESIDUES-POLES.md
+canonical_path: complex-analysis/03-RESIDUES-POLES.md
+backsource_ids: [proof-backfill:complex-analysis:03-residues-poles, git-history:complex-analysis:03-residues-poles]
+concepts: [residues, poles]
+root_concepts: [residues, poles]
+index_roles: [guide, root-concept]
+remap_from: []
+remap_to: []
+updated: null
+---
 # Residues, Poles, and Laurent Series
 
 ## The Big Picture

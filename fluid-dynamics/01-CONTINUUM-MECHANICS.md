@@ -1,3 +1,22 @@
+---
+maxim_schema: maxim.frontmatter.v1
+id: maxim:fluid-dynamics:continuum-mechanics
+kind: guide
+module: fluid-dynamics
+section: fluid-dynamics
+title: Continuum Mechanics and Governing Equations
+status: source-custody
+source_custody: partial
+current_path: fluid-dynamics/01-CONTINUUM-MECHANICS.md
+canonical_path: fluid-dynamics/01-CONTINUUM-MECHANICS.md
+backsource_ids: [proof-backfill:fluid-dynamics:01-continuum-mechanics, git-history:fluid-dynamics:01-continuum-mechanics]
+concepts: [continuum, mechanics]
+root_concepts: [continuum, mechanics]
+index_roles: [guide, root-concept]
+remap_from: []
+remap_to: []
+updated: null
+---
 # Continuum Mechanics and Governing Equations
 
 ## The Big Picture

@@ -1,3 +1,22 @@
+---
+maxim_schema: maxim.frontmatter.v1
+id: maxim:complex-analysis:analytic-functions
+kind: guide
+module: complex-analysis
+section: complex-analysis
+title: Analytic Functions and Cauchy-Riemann Equations
+status: source-custody
+source_custody: partial
+current_path: complex-analysis/01-ANALYTIC-FUNCTIONS.md
+canonical_path: complex-analysis/01-ANALYTIC-FUNCTIONS.md
+backsource_ids: [proof-backfill:complex-analysis:01-analytic-functions, git-history:complex-analysis:01-analytic-functions]
+concepts: [analytic, functions]
+root_concepts: [analytic, functions]
+index_roles: [guide, root-concept]
+remap_from: []
+remap_to: []
+updated: null
+---
 # Analytic Functions and Cauchy-Riemann Equations
 
 ## The Big Picture
@@ -282,7 +301,7 @@ The proof uses a clever argument: approximate the integral ∮_C f dz over any s
 |---------|------|
 | Is f(z) holomorphic? | Check CR: ∂u/∂x = ∂v/∂y, ∂u/∂y = −∂v/∂x |
 | Where does f fail to be holomorphic? | Where CR fails, or partials don't exist |
-| What is the radius of convergence? | Cauchy-Hadamard: 1/R = limsup |aₙ|^{1/n} |
+| What is the radius of convergence? | Cauchy-Hadamard: 1/R = limsup \|aₙ\|^{1/n} |
 | Does a harmonic conjugate exist? | Yes, if domain is simply connected |
 | Is f conformal? | Yes, at points where f'(z) ≠ 0 |
 | What does f'(z₀) = 0 mean geometrically? | Angles multiplied by order of zero |

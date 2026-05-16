@@ -1,0 +1,116 @@
+{
+  "schema_version": "1",
+  "source_markdown": "fluid-dynamics\\09-CFD.md",
+  "blocks": [
+    {
+      "id": "block-1",
+      "kind": "ascii_table_candidate",
+      "line": 24,
+      "heading_context": "## The Big Picture",
+      "confidence": "candidate",
+      "text": "CFD is the numerical solution of the governing equations of fluid dynamics. It is the \"third pillar\" of fluid mechanics alongside theory and experiment. The field connects fluid physics to algorithm design: different equation types require different discretization strategies, and the nonlinearity of Navier-Stokes imposes unique stability constraints. From the MIT TCS background, CFD is applied numerical linear algebra + time-stepping algorithms + domain decomposition — running at petascale and beyond.",
+      "notes": [
+        "detected from ASCII table borders or pipe-aligned rows"
+      ]
+    },
+    {
+      "id": "block-2",
+      "kind": "diagram_like",
+      "line": 27,
+      "heading_context": "## The Big Picture",
+      "confidence": "candidate",
+      "text": "CFD PIPELINE\n═══════════════════════════════════════════════════════════════════════════════\n\n  PHYSICS PROBLEM                  NUMERICAL APPROACH\n  ─────────────────────────────    ─────────────────────────────────────────\n  Continuous domain Ω              Mesh (grid): discretize Ω into cells/nodes\n  PDE: ∂φ/∂t + N(φ) = 0          Discrete equations: Σ aᵢⱼφⱼ = bᵢ\n  Boundary conditions              Boundary condition enforcement\n  Initial conditions               Time integration: explicit or implicit\n  Analytical solution (rare)       Iterative solver: AMG, Krylov, Newton\n\n  MAIN DISCRETIZATION METHODS:\n  ┌────────────────────────────────────────────────────────────────────┐\n  │  FDM  Finite Difference Method   (structured grids, simple)        │\n  │  FVM  Finite Volume Method       (conservation, unstructured OK)   │\n  │  FEM  Finite Element Method      (variational, complex geometry)   │\n  │  SM   Spectral Methods           (smooth problems, high accuracy)  │\n  └────────────────────────────────────────────────────────────────────┘",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-3",
+      "kind": "diagram_like",
+      "line": 64,
+      "heading_context": "## Finite Difference Method (FDM)",
+      "confidence": "candidate",
+      "text": "    ∇²u = 0  →  (uᵢ₊₁,ⱼ + uᵢ₋₁,ⱼ + uᵢ,ⱼ₊₁ + uᵢ,ⱼ₋₁ − 4uᵢ,ⱼ) / Δx² = 0",
+      "notes": [
+        "detected from arrows or box-drawing glyphs"
+      ]
+    },
+    {
+      "id": "block-4",
+      "kind": "diagram_like",
+      "line": 88,
+      "heading_context": "## Finite Volume Method (FVM)",
+      "confidence": "candidate",
+      "text": "FVM CONTROL VOLUME:\n\n     N (north)\n      │\n  W ──●── E    ● = cell center  (where unknowns are stored)\n      │         face fluxes computed between adjacent cells\n     S (south)\n\n  Flux through East face = ρ_E u_E A_E\n  Net flux ≠ 0 → cell value changes",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-5",
+      "kind": "diagram_like",
+      "line": 149,
+      "heading_context": "## Spectral Methods",
+      "confidence": "candidate",
+      "text": "ACCURACY COMPARISON:\n  FDM/FVM, order p:   error ~ Δx^p   (algebraic decay)\n  Spectral:           error ~ e^{-αN}  (exponential decay, for smooth f)\n\n  For 6-digit accuracy:\n  FDM 2nd order:  need N ~ 10^3 points per dimension  → 10^9 in 3D\n  Spectral:       need N ~ 50 points per dimension     → 10^5 in 3D  (!!)\n\n  But: spectral fails for non-smooth problems (shocks → Gibbs phenomenon)",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-6",
+      "kind": "diagram_like",
+      "line": 167,
+      "heading_context": "## Parallel CFD and Scaling",
+      "confidence": "candidate",
+      "text": "DOMAIN DECOMPOSITION IN PARALLEL CFD:\n\n  Process 0          Process 1          Process 2\n  ┌──────────┐      ┌──────────┐      ┌──────────┐\n  │          │      │          │      │          │\n  │ subdom 0 │      │ subdom 1 │      │ subdom 2 │\n  │          │      │          │      │          │\n  └──────────┘      └──────────┘      └──────────┘\n\n  Each timestep:\n  1. Compute local fluxes (embarrassingly parallel)\n  2. Exchange halo cells with neighbors (point-to-point MPI)\n  3. Solve pressure Poisson: ∇²p = RHS  (GLOBAL operation — bottleneck)\n     → requires all-reduce or global sparse solve\n     → communication scales as O(N^{2/3}) for 3D domain of N cells\n  4. Update velocities (local)",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-7",
+      "kind": "ascii_table_candidate",
+      "line": 222,
+      "heading_context": "## Time Integration",
+      "confidence": "candidate",
+      "text": "    u^{n+1} = u^n + Δt F(u^n, tⁿ)  [RK4 is 4-stage]",
+      "notes": [
+        "detected from ASCII table borders or pipe-aligned rows"
+      ]
+    },
+    {
+      "id": "block-8",
+      "kind": "diagram_like",
+      "line": 244,
+      "heading_context": "## Turbulence Modeling in CFD",
+      "confidence": "candidate",
+      "text": "TURBULENCE MODELING OPTIONS IN CFD:\n  Method     What's resolved  What's modeled   Cost ratio\n  ─────────────────────────────────────────────────────────\n  DNS        Everything       Nothing          Re^{11/4}\n  LES        l > Δ            l < Δ           Re^{1.8}\n  RANS       Mean only        All turbulence   1 (baseline)\n  DES/DDES   LES far from wall  RANS near wall   moderate\n\n  Industrial standard: k-ω SST RANS for most engineering problems\n  Research trend: wall-modeled LES as computing power grows",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-9",
+      "kind": "ascii_table_candidate",
+      "line": 287,
+      "heading_context": "## CFD Software Landscape",
+      "confidence": "candidate",
+      "text": "OPEN SOURCE:\n  OpenFOAM      FVM, C++, everything, widely used in academia and industry\n  SU2           FVM/FEM, unstructured, aerospace focus, gradient-based optimization\n  FEniCS        FEM, Python, research\n  Nek5000       Spectral element, DNS/LES, high performance\n\nCOMMERCIAL:\n  ANSYS Fluent  FVM, dominant industrial CFD\n  ANSYS CFX     FVM, element-based FVM, strong for turbomachinery\n  STAR-CCM+     FVM, strong for vehicle aerodynamics, Siemens\n  Comsol        FEM, multiphysics, simulation + design\n\nSPECIALIZED:\n  OpenLB        Lattice Boltzmann (mesoscale physics)\n  PALM          Atmospheric boundary layer LES\n  AMREX/PeleC   Adaptive mesh refinement, reacting flows\n  NEKTAR++      Spectral/hp element, high-order",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-10",
+      "kind": "ascii_table_candidate",
+      "line": 318,
+      "heading_context": "## Verification and Validation (V&V)",
+      "confidence": "candidate",
+      "text": "- Assess uncertainty: numerical error + modeling error + measurement error",
+      "notes": [
+        "detected from ASCII table borders or pipe-aligned rows"
+      ]
+    }
+  ]
+}
