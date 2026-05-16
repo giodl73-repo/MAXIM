@@ -1,3 +1,22 @@
+---
+maxim_schema: maxim.frontmatter.v1
+id: maxim:economics:game-theory
+kind: guide
+module: economics
+section: economics
+title: Game Theory - Strategic Interaction
+status: source-custody
+source_custody: partial
+current_path: economics/02-GAME-THEORY.md
+canonical_path: economics/02-GAME-THEORY.md
+backsource_ids: [proof-backfill:economics:02-game-theory, git-history:economics:02-game-theory]
+concepts: [game, theory]
+root_concepts: [game, theory]
+index_roles: [guide, root-concept]
+remap_from: []
+remap_to: []
+updated: null
+---
 # Game Theory — Strategic Interaction
 
 ---

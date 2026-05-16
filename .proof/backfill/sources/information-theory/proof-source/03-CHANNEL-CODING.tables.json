@@ -1,0 +1,62 @@
+{
+  "schema_version": "1",
+  "source_markdown": "information-theory\\03-CHANNEL-CODING.md",
+  "tables": [
+    {
+      "id": "table-1",
+      "line": 316,
+      "heading_context": "## Decision Cheat Sheet",
+      "headers": [
+        "Code family",
+        "Rate vs capacity",
+        "Encode",
+        "Decode",
+        "Use case"
+      ],
+      "rows": [
+        [
+          "Hamming [7,4,3]",
+          "Far (t=1)",
+          "O(n)",
+          "O(n)",
+          "DRAM ECC, simple logic"
+        ],
+        [
+          "Reed-Solomon",
+          "MDS (optimal d)",
+          "O(n log n)",
+          "O(n²) or O(n log n)",
+          "CDs, QR codes, RAID6"
+        ],
+        [
+          "LDPC",
+          "Near-Shannon",
+          "O(n)",
+          "O(n) iter.",
+          "WiFi, 5G data, satellite"
+        ],
+        [
+          "Turbo",
+          "Near-Shannon",
+          "O(n)",
+          "O(n) iter.",
+          "LTE, 3G, deep-space"
+        ],
+        [
+          "Polar",
+          "Shannon-achieving",
+          "O(n log n)",
+          "O(n log n)",
+          "5G NR control channels"
+        ],
+        [
+          "Fountain (LT, Raptor)",
+          "Rate-less, ≈ 1",
+          "O(n log n)",
+          "O(n log n)",
+          "File broadcast, MBMS"
+        ]
+      ]
+    }
+  ]
+}

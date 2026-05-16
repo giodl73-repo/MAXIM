@@ -1,3 +1,22 @@
+---
+maxim_schema: maxim.frontmatter.v1
+id: maxim:information-theory:network-information-theory
+kind: guide
+module: information-theory
+section: information-theory
+title: Network Information Theory
+status: source-custody
+source_custody: partial
+current_path: information-theory/06-NETWORK-INFORMATION-THEORY.md
+canonical_path: information-theory/06-NETWORK-INFORMATION-THEORY.md
+backsource_ids: [proof-backfill:information-theory:06-network-information-theory, git-history:information-theory:06-network-information-theory]
+concepts: [network, information, theory]
+root_concepts: [network, information]
+index_roles: [guide, root-concept]
+remap_from: []
+remap_to: []
+updated: null
+---
 # Network Information Theory
 
 ## The Big Picture

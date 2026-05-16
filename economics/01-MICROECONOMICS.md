@@ -1,3 +1,22 @@
+---
+maxim_schema: maxim.frontmatter.v1
+id: maxim:economics:microeconomics
+kind: guide
+module: economics
+section: economics
+title: Microeconomics - Markets, Equilibrium, Welfare
+status: source-custody
+source_custody: partial
+current_path: economics/01-MICROECONOMICS.md
+canonical_path: economics/01-MICROECONOMICS.md
+backsource_ids: [proof-backfill:economics:01-microeconomics, git-history:economics:01-microeconomics]
+concepts: [microeconomics]
+root_concepts: [microeconomics]
+index_roles: [guide, root-concept]
+remap_from: []
+remap_to: []
+updated: null
+---
 # Microeconomics — Markets, Equilibrium, Welfare
 
 ---

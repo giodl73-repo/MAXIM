@@ -1,0 +1,78 @@
+{
+  "schema_version": "1",
+  "source_markdown": "information-theory\\04-ML-CRYPTOGRAPHY-BRIDGE.md",
+  "tables": [
+    {
+      "id": "table-1",
+      "line": 338,
+      "heading_context": "## Decision Cheat Sheet",
+      "headers": [
+        "If you need to diagnose...",
+        "Start With",
+        "Key Caveat"
+      ],
+      "rows": [
+        [
+          "Whether cross-entropy is an information objective",
+          "`H(p,q) = H(p) + KL(p||q)`",
+          "The empirical distribution and model class define what is minimized"
+        ],
+        [
+          "Whether a VAE objective is compression-like",
+          "ELBO as reconstruction plus KL rate term",
+          "Posterior collapse and decoder strength can hide latent information"
+        ],
+        [
+          "Whether contrastive learning estimates mutual information",
+          "InfoNCE lower bound",
+          "The bound can be loose and batch-size dependent"
+        ],
+        [
+          "Whether model selection is compression",
+          "MDL/BIC and Kolmogorov intuition",
+          "Kolmogorov complexity is uncomputable; MDL is an approximation"
+        ],
+        [
+          "Whether representation learning is an information bottleneck",
+          "`I(T;X)` versus `I(T;Y)`",
+          "Deep-network compression claims are architecture/training dependent"
+        ],
+        [
+          "Whether GAN theory is divergence minimization",
+          "Jensen-Shannon game at optimal discriminator",
+          "Practical training rarely keeps the discriminator optimal"
+        ],
+        [
+          "Whether diffusion training is variational likelihood",
+          "DDPM ELBO / weighted denoising objective",
+          "The practical loss is a reweighted surrogate"
+        ],
+        [
+          "Whether score models learn distributions through gradients",
+          "Score matching across noise levels",
+          "Score accuracy is local and depends on noise schedule"
+        ],
+        [
+          "Whether cryptographic secrecy is information-theoretic",
+          "Perfect secrecy `I(M;C)=0`",
+          "One-time-pad secrecy requires key entropy at least message entropy"
+        ],
+        [
+          "Whether computational secrecy is comparable",
+          "Semantic security / indistinguishability",
+          "It is bounded-adversary security, not small mutual information"
+        ],
+        [
+          "Whether block-cipher design echoes Shannon",
+          "Confusion and diffusion layers",
+          "These are design principles, not proofs of security"
+        ],
+        [
+          "Whether QKD error rates bound adversary information",
+          "QBER threshold plus Fano-style reasoning",
+          "Device assumptions and finite-key effects matter"
+        ]
+      ]
+    }
+  ]
+}

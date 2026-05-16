@@ -1,0 +1,349 @@
+{
+  "schema": "pebble.v1",
+  "kind": "corpus-slice",
+  "title": "maxim-information-theory-channel-coding",
+  "source": "../../information-theory",
+  "format": "markdown",
+  "metadata": {},
+  "sections": [
+    {
+      "id": "03-CHANNEL-CODING.md#000",
+      "path": [
+        "03-CHANNEL-CODING.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:information-theory:03-channel-coding, git-history:information-theory:03-channel-coding]",
+        "canonical_path": "information-theory/03-CHANNEL-CODING.md",
+        "concepts": "[channel, coding]",
+        "current_path": "information-theory/03-CHANNEL-CODING.md",
+        "id": "maxim:information-theory:channel-coding",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "information-theory",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[channel, coding]",
+        "section": "information-theory",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Channel Coding - Capacity and Error-Correcting Codes",
+        "updated": "null"
+      },
+      "text": "# Channel Coding — Capacity and Error-Correcting Codes"
+    },
+    {
+      "id": "03-CHANNEL-CODING.md#001",
+      "path": [
+        "03-CHANNEL-CODING.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:information-theory:03-channel-coding, git-history:information-theory:03-channel-coding]",
+        "canonical_path": "information-theory/03-CHANNEL-CODING.md",
+        "concepts": "[channel, coding]",
+        "current_path": "information-theory/03-CHANNEL-CODING.md",
+        "id": "maxim:information-theory:channel-coding",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "information-theory",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[channel, coding]",
+        "section": "information-theory",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Channel Coding - Capacity and Error-Correcting Codes",
+        "updated": "null"
+      },
+      "text": "---"
+    },
+    {
+      "id": "03-CHANNEL-CODING.md#002",
+      "path": [
+        "03-CHANNEL-CODING.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:information-theory:03-channel-coding, git-history:information-theory:03-channel-coding]",
+        "canonical_path": "information-theory/03-CHANNEL-CODING.md",
+        "concepts": "[channel, coding]",
+        "current_path": "information-theory/03-CHANNEL-CODING.md",
+        "id": "maxim:information-theory:channel-coding",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "information-theory",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[channel, coding]",
+        "section": "information-theory",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Channel Coding - Capacity and Error-Correcting Codes",
+        "updated": "null"
+      },
+      "text": "## Big Picture"
+    },
+    {
+      "id": "03-CHANNEL-CODING.md#003",
+      "path": [
+        "03-CHANNEL-CODING.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:information-theory:03-channel-coding, git-history:information-theory:03-channel-coding]",
+        "canonical_path": "information-theory/03-CHANNEL-CODING.md",
+        "concepts": "[channel, coding]",
+        "current_path": "information-theory/03-CHANNEL-CODING.md",
+        "id": "maxim:information-theory:channel-coding",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "information-theory",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[channel, coding]",
+        "section": "information-theory",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Channel Coding - Capacity and Error-Correcting Codes",
+        "updated": "null"
+      },
+      "text": "```\nCODE FAMILY TAXONOMY — STRUCTURE AND TRADEOFFS"
+    },
+    {
+      "id": "03-CHANNEL-CODING.md#004",
+      "path": [
+        "03-CHANNEL-CODING.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:information-theory:03-channel-coding, git-history:information-theory:03-channel-coding]",
+        "canonical_path": "information-theory/03-CHANNEL-CODING.md",
+        "concepts": "[channel, coding]",
+        "current_path": "information-theory/03-CHANNEL-CODING.md",
+        "id": "maxim:information-theory:channel-coding",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "information-theory",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[channel, coding]",
+        "section": "information-theory",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Channel Coding - Capacity and Error-Correcting Codes",
+        "updated": "null"
+      },
+      "text": "BY STRUCTURE:\n- Block codes: (n,k,d) fixed, rate = k/n\n- Convolutional: sliding window, (n,k,K) memory\n- Rateless: Fountain/LT/Raptor"
+    },
+    {
+      "id": "03-CHANNEL-CODING.md#005",
+      "path": [
+        "03-CHANNEL-CODING.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:information-theory:03-channel-coding, git-history:information-theory:03-channel-coding]",
+        "canonical_path": "information-theory/03-CHANNEL-CODING.md",
+        "concepts": "[channel, coding]",
+        "current_path": "information-theory/03-CHANNEL-CODING.md",
+        "id": "maxim:information-theory:channel-coding",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "information-theory",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[channel, coding]",
+        "section": "information-theory",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Channel Coding - Capacity and Error-Correcting Codes",
+        "updated": "null"
+      },
+      "text": "BY DESIGN PHILOSOPHY:\n- Algebraic: Hamming, BCH, Reed-Solomon, Golay; exact math\n- Probabilistic: Turbo, LDPC, Polar; random-like graphs and iterative decode"
+    },
+    {
+      "id": "03-CHANNEL-CODING.md#006",
+      "path": [
+        "03-CHANNEL-CODING.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:information-theory:03-channel-coding, git-history:information-theory:03-channel-coding]",
+        "canonical_path": "information-theory/03-CHANNEL-CODING.md",
+        "concepts": "[channel, coding]",
+        "current_path": "information-theory/03-CHANNEL-CODING.md",
+        "id": "maxim:information-theory:channel-coding",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "information-theory",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[channel, coding]",
+        "section": "information-theory",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Channel Coding - Capacity and Error-Correcting Codes",
+        "updated": "null"
+      },
+      "text": "BY BLOCK LENGTH:\n- Short (n<256): Hamming, BCH; strong guarantees\n- Medium (256-10K): LDPC, Polar; near-Shannon\n- Long (10K+): LDPC, Turbo; capacity-approach"
+    },
+    {
+      "id": "03-CHANNEL-CODING.md#007",
+      "path": [
+        "03-CHANNEL-CODING.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:information-theory:03-channel-coding, git-history:information-theory:03-channel-coding]",
+        "canonical_path": "information-theory/03-CHANNEL-CODING.md",
+        "concepts": "[channel, coding]",
+        "current_path": "information-theory/03-CHANNEL-CODING.md",
+        "id": "maxim:information-theory:channel-coding",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "information-theory",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[channel, coding]",
+        "section": "information-theory",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Channel Coding - Capacity and Error-Correcting Codes",
+        "updated": "null"
+      },
+      "text": "RATE VS COMPLEXITY:\n- Algebraic: O(n log n) decoding\n- Iterative: O(n) per iteration\n- Polar: O(n log n) exact\n```"
+    },
+    {
+      "id": "03-CHANNEL-CODING.md#008",
+      "path": [
+        "03-CHANNEL-CODING.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:information-theory:03-channel-coding, git-history:information-theory:03-channel-coding]",
+        "canonical_path": "information-theory/03-CHANNEL-CODING.md",
+        "concepts": "[channel, coding]",
+        "current_path": "information-theory/03-CHANNEL-CODING.md",
+        "id": "maxim:information-theory:channel-coding",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "information-theory",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[channel, coding]",
+        "section": "information-theory",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Channel Coding - Capacity and Error-Correcting Codes",
+        "updated": "null"
+      },
+      "text": "```\nNOISY CHANNEL CODING THEOREM (Shannon, 1948):\n  For any channel with capacity C bits/use:\n  • If R < C: ∃ a code such that P_e → 0 as block length n → ∞\n  • If R > C: P_e → 1 for all codes (unavoidable error)"
+    },
+    {
+      "id": "03-CHANNEL-CODING.md#009",
+      "path": [
+        "03-CHANNEL-CODING.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:information-theory:03-channel-coding, git-history:information-theory:03-channel-coding]",
+        "canonical_path": "information-theory/03-CHANNEL-CODING.md",
+        "concepts": "[channel, coding]",
+        "current_path": "information-theory/03-CHANNEL-CODING.md",
+        "id": "maxim:information-theory:channel-coding",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "information-theory",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[channel, coding]",
+        "section": "information-theory",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Channel Coding - Capacity and Error-Correcting Codes",
+        "updated": "null"
+      },
+      "text": "C = max_{p(x)} I(X;Y)"
+    },
+    {
+      "id": "03-CHANNEL-CODING.md#010",
+      "path": [
+        "03-CHANNEL-CODING.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:information-theory:03-channel-coding, git-history:information-theory:03-channel-coding]",
+        "canonical_path": "information-theory/03-CHANNEL-CODING.md",
+        "concepts": "[channel, coding]",
+        "current_path": "information-theory/03-CHANNEL-CODING.md",
+        "id": "maxim:information-theory:channel-coding",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "information-theory",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[channel, coding]",
+        "section": "information-theory",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Channel Coding - Capacity and Error-Correcting Codes",
+        "updated": "null"
+      },
+      "text": "IMPLICATIONS:\n  • Can communicate reliably at ANY rate below capacity — but not above\n  • The theorem is EXISTENCE — doesn't say HOW to construct the code\n  • 70 years of coding theory = constructing codes that approach C efficiently"
+    },
+    {
+      "id": "03-CHANNEL-CODING.md#011",
+      "path": [
+        "03-CHANNEL-CODING.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:information-theory:03-channel-coding, git-history:information-theory:03-channel-coding]",
+        "canonical_path": "information-theory/03-CHANNEL-CODING.md",
+        "concepts": "[channel, coding]",
+        "current_path": "information-theory/03-CHANNEL-CODING.md",
+        "id": "maxim:information-theory:channel-coding",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "information-theory",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[channel, coding]",
+        "section": "information-theory",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Channel Coding - Capacity and Error-Correcting Codes",
+        "updated": "null"
+      },
+      "text": "PRACTICAL CODES vs SHANNON LIMIT:\n  1950: Hamming codes — first error-correcting, far from capacity\n  1960: Reed-Solomon — algebraic, excellent burst error correction (CDs, QR codes)\n  1993: Turbo codes — within 0.5 dB of Shannon limit (3GPP LTE data)\n  1997: LDPC rediscovered — within 0.01 dB (5G NR data channels)\n  2009: Polar codes — provably capacity-achieving, O(n log n) complexity (5G NR control)\n```"
+    }
+  ],
+  "refs": [
+    "03-CHANNEL-CODING.md"
+  ]
+}

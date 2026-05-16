@@ -1,0 +1,94 @@
+{
+  "schema_version": "1",
+  "source_markdown": "information-theory\\06-NETWORK-INFORMATION-THEORY.md",
+  "blocks": [
+    {
+      "id": "block-1",
+      "kind": "diagram_like",
+      "line": 24,
+      "heading_context": "## The Big Picture",
+      "confidence": "candidate",
+      "text": "FROM POINT-TO-POINT TO NETWORKS\n\nSingle link (Shannon):         X ──[Channel]──> Y     C = max I(X;Y)  SOLVED\n\nNetwork primitives:\n  MAC  (many → one):   X₁ ─┐\n                            ├──[Channel]──> Y\n                       X₂ ─┘\n  BC   (one → many):        ┌──> Y₁\n                   X ──────┤\n                            └──> Y₂\n  IC   (two pairs):   X₁ ──> Y₁ (+ interference from X₂)\n                      X₂ ──> Y₂ (+ interference from X₁)\n  Relay:             X ──[Channel]──> Z (relay) ──> Y\n                      └──────────────────────────> Y\n\nSolved: MAC (1970s), degraded BC, degraded relay\nOpen: general IC capacity region (decades-old open problem)",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-2",
+      "kind": "diagram_like",
+      "line": 51,
+      "heading_context": "## 1. Multiple Access Channel (MAC)",
+      "confidence": "candidate",
+      "text": "X₁ ~ p(x₁)  ─────────────────────────────┐\n                                           ├──> p(y|x₁,x₂) ──> Y ──> [Decoder] ──> (M₁, M₂)\nX₂ ~ p(x₂)  ─────────────────────────────┘\n\nCapacity region: set of (R₁, R₂) simultaneously achievable\n\nConstraints:\n  R₁       ≤ I(X₁; Y | X₂)          ← X₁ alone vs Y, X₂ known\n  R₂       ≤ I(X₂; Y | X₁)          ← X₂ alone vs Y, X₁ known\n  R₁ + R₂  ≤ I(X₁,X₂; Y)            ← sum rate constraint\n\n    R₂\n    │  ●─────────────────●\n    │   \\                │\n    │    \\   Capacity    │\n    │     \\   region     │\n    │      \\  (pentagon) │\n    │       \\            │\n    │        ●───────────● ──────── R₁\n    │\n    Sum capacity: I(X₁X₂;Y) = I(X₁;Y) + I(X₂;Y|X₁)",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-3",
+      "kind": "diagram_like",
+      "line": 109,
+      "heading_context": "## 2. Broadcast Channel (BC)",
+      "confidence": "candidate",
+      "text": "                        ┌──> p(y₁|x) ──> Y₁ ──> [Dec₁] ──> M₁\nX ~ p(x)  ──[Channel]──┤\n                        └──> p(y₂|x) ──> Y₂ ──> [Dec₂] ──> M₂",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-4",
+      "kind": "diagram_like",
+      "line": 154,
+      "heading_context": "## 3. Relay Channel",
+      "confidence": "candidate",
+      "text": "X ─────────────────────────────────────────────> [Dec] ─> M\n│                                                 ↑\n└──> p(y_R,y|x) ──> Y_R ──> [Relay Z] ──> Z ───┘\n\nRelay strategies:\n\n  ┌─────────────────────────────────────────────────────────┐\n  │  Decode-and-Forward (DF):                               │\n  │    Relay fully decodes M, re-encodes, forwards          │\n  │    Rate ≤ min{I(X;Y_R), I(X,Z;Y)}                       │\n  │    Best when: relay closer to source than destination   │\n  │                                                         │\n  │  Compress-and-Forward (CF):                             │\n  │    Relay compresses Y_R, forwards compressed version    │\n  │    Applies Wyner-Ziv coding (Y at destination is SI)    │\n  │    Rate ≤ I(X; Y, Y̌_R) - I(Y_R; Y̌_R | X, Y)             │\n  │    Best when: relay closer to destination               │\n  │                                                         │\n  │  Amplify-and-Forward (AF):                              │\n  │    Relay scales and forwards (analog)                   │\n  │    No decoding; noise amplified too                     │\n  │    SNR_eff = (SNR_SR · SNR_RD) / (SNR_SR + SNR_RD + 1)  │\n  │    Best for: low complexity, full-duplex systems        │\n  └─────────────────────────────────────────────────────────┘",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-5",
+      "kind": "diagram_like",
+      "line": 193,
+      "heading_context": "## 4. Interference Channel",
+      "confidence": "candidate",
+      "text": "X₁ ──────────────────────────────────> Y₁  (wants M₁)\n  └────[cross interference]──────────> Y₂\nX₂ ──────────────────────────────────> Y₂  (wants M₂)\n  └────[cross interference]──────────> Y₁",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-6",
+      "kind": "diagram_like",
+      "line": 226,
+      "heading_context": "## 5. MIMO Capacity",
+      "confidence": "candidate",
+      "text": "TX (nT antennas) ──[H + noise]──> RX (nR antennas)\n\nY = Hx + Z,   H ∈ ℝ^{nR × nT},  Z ~ N(0, N₀I)\n\nSVD: H = UΣVᴴ  →  r = min(nT, nR) parallel channels with gains σᵢ\n\nCapacity with total power P:\n  C = Σᵢ log(1 + Pᵢσᵢ²/N₀)\n\n  where Pᵢ solves waterfilling:  Pᵢ = (μ - N₀/σᵢ²)⁺,  Σ Pᵢ = P\n\n┌──────────────────────────────────────────────────────────────┐\n│  Waterfilling across singular values:                        │\n│                                                              │\n│     μ ─────────────────────────────── water level            │\n│         ┌───┐   ┌───┐                                        │\n│         │P₁ │   │P₂ │                                       │\n│   σᵢ² ──┼───┼───┼───┼──────────────── noise floor N₀/σᵢ²  │\n│         │   │   │   │   ┌───┐   ┌───┐                     │\n│         │   │   │   │   │ 0 │   │ 0 │  ← silent channels   │\n│         └───┘   └───┘   └───┘   └───┘                      │\n│          i=1     i=2     i=3     i=4                        │\n└──────────────────────────────────────────────────────────────┘\n\nMIMO = r parallel AWGN channels; gains from SVD; power from waterfilling",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-7",
+      "kind": "diagram_like",
+      "line": 265,
+      "heading_context": "## 6. Network Coding",
+      "confidence": "candidate",
+      "text": "Butterfly network:            s\n                            /   \\\n   (unicast wouldn't work) a     b\n                            \\  X /       ← node mixes a and b\n                              c\n                            / | \\\n                           d  e  f\n                          (d wants s, e wants s, f wants s)\n\nLinear network coding achieves min-cut capacity for multicast.",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-8",
+      "kind": "diagram_like",
+      "line": 294,
+      "heading_context": "## 7. Key Theorems and Open Problems",
+      "confidence": "candidate",
+      "text": "┌────────────────────────────────────────────────────────────────────┐\n│ SOLVED                              OPEN                           │\n├────────────────────────────────────────────────────────────────────┤\n│ MAC capacity region                 General BC capacity (non-degrad)│\n│ Degraded BC capacity                General IC capacity region      │\n│ Gaussian BC capacity (via DPC)      Gaussian IC beyond 1-bit gap   │\n│ Degraded relay capacity             General relay capacity         │\n│ MIMO point-to-point (waterfilling)  Interference networks          │\n│ Multicast min-cut via net coding    Distributed source coding      │\n│ Wyner-Ziv source coding             Secrecy capacity (generally)   │\n│ MAC with common message             Compute-and-forward capacity    │\n└────────────────────────────────────────────────────────────────────┘",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    }
+  ]
+}

@@ -1,0 +1,2340 @@
+{
+  "schema_version": "fletch.registry.v1",
+  "generated_by": "MAXIM source-corpus backfill",
+  "registry_id": "maxim-information-theory-source-corpus",
+  "fletches": [
+    {
+      "id": "maxim.information-theory.source-corpus.pebble",
+      "node_kind": "fletch",
+      "shafts": [
+        {
+          "kind": "file",
+          "url": ".pebble/packs/maxim-information-theory-source-corpus.pebble.json"
+        }
+      ],
+      "edges": [
+        {
+          "to": "maxim-information-theory-source-corpus",
+          "kind": "derived-from",
+          "label": "CROP view recipe",
+          "metadata": {
+            "view": ".crop/views/maxim-information-theory-source-corpus.json",
+            "module": "information-theory",
+            "custody": "partial"
+          }
+        }
+      ],
+      "format": {
+        "media_type": "application/json",
+        "encoding": "utf-8",
+        "compression": null,
+        "container": null,
+        "schema": "pebble.v1",
+        "record_shape": "corpus-slice",
+        "preferred_local": ".pebble/packs/maxim-information-theory-source-corpus.pebble.json"
+      },
+      "tags": [
+        "source-corpus",
+        "crop",
+        "pebble",
+        "partial-custody"
+      ],
+      "metadata": {
+        "source_repo": "MAXIM",
+        "module": "information-theory",
+        "distribution": "FLETCH fetch/cache surface for downstream repos",
+        "publication_state": "partial-source-custody"
+      }
+    },
+    {
+      "id": "maxim.information-theory.overview.view",
+      "node_kind": "fletch",
+      "shafts": [
+        {
+          "kind": "file",
+          "url": ".crop/views/maxim-information-theory-overview.json"
+        }
+      ],
+      "edges": [
+        {
+          "to": "maxim.information-theory.source-corpus.pebble",
+          "kind": "derived-from",
+          "label": "Guide-level CROP view recipe",
+          "metadata": {
+            "module": "information-theory",
+            "guide": "information-theory/00-OVERVIEW.md",
+            "custody": "partial"
+          }
+        }
+      ],
+      "format": {
+        "media_type": "application/json",
+        "encoding": "utf-8",
+        "compression": null,
+        "container": null,
+        "schema": "crop.view.v1",
+        "record_shape": "view-recipe",
+        "preferred_local": ".crop/views/maxim-information-theory-overview.json"
+      },
+      "tags": [
+        "source-corpus",
+        "crop",
+        "view",
+        "partial-custody",
+        "guide"
+      ],
+      "metadata": {
+        "source_repo": "MAXIM",
+        "module": "information-theory",
+        "guide": "information-theory/00-OVERVIEW.md",
+        "publication_state": "partial-source-custody"
+      }
+    },
+    {
+      "id": "maxim.information-theory.overview.pebble",
+      "node_kind": "fletch",
+      "shafts": [
+        {
+          "kind": "file",
+          "url": ".pebble/packs/maxim-information-theory-overview.pebble.json"
+        }
+      ],
+      "edges": [
+        {
+          "to": "maxim.information-theory.overview.view",
+          "kind": "derived-from",
+          "label": "Guide-level CROP view recipe",
+          "metadata": {
+            "module": "information-theory",
+            "custody": "partial"
+          }
+        },
+        {
+          "to": "maxim.information-theory.source-corpus.pebble",
+          "kind": "derived-from",
+          "label": "Guide-level CROP view",
+          "metadata": {
+            "view": ".crop/views/maxim-information-theory-overview.json",
+            "module": "information-theory",
+            "custody": "partial"
+          }
+        }
+      ],
+      "format": {
+        "media_type": "application/json",
+        "encoding": "utf-8",
+        "compression": null,
+        "container": null,
+        "schema": "pebble.v1",
+        "record_shape": "corpus-slice",
+        "preferred_local": ".pebble/packs/maxim-information-theory-overview.pebble.json"
+      },
+      "tags": [
+        "source-corpus",
+        "crop",
+        "pebble",
+        "partial-custody",
+        "guide"
+      ],
+      "metadata": {
+        "source_repo": "MAXIM",
+        "module": "information-theory",
+        "guide": "information-theory/00-OVERVIEW.md",
+        "publication_state": "partial-source-custody"
+      }
+    },
+    {
+      "id": "maxim.information-theory.overview.proof-source",
+      "node_kind": "fletch",
+      "shafts": [
+        {
+          "kind": "file",
+          "url": ".proof/backfill/sources/information-theory/proof-source/00-OVERVIEW.source.md"
+        }
+      ],
+      "edges": [
+        {
+          "to": "maxim.information-theory.overview.view",
+          "kind": "derived-from",
+          "label": "Literal PROOF source for guide view",
+          "metadata": {
+            "module": "information-theory",
+            "guide": "information-theory/00-OVERVIEW.md",
+            "custody": "partial"
+          }
+        }
+      ],
+      "format": {
+        "media_type": "text/markdown",
+        "encoding": "utf-8",
+        "compression": null,
+        "container": null,
+        "schema": "proof.source.literal_markdown.v1",
+        "record_shape": "literal-source",
+        "preferred_local": ".proof/backfill/sources/information-theory/proof-source/00-OVERVIEW.source.md"
+      },
+      "tags": [
+        "source-corpus",
+        "proof",
+        "source",
+        "partial-custody",
+        "guide"
+      ],
+      "metadata": {
+        "source_repo": "MAXIM",
+        "module": "information-theory",
+        "guide": "information-theory/00-OVERVIEW.md",
+        "publication_state": "partial-source-custody"
+      }
+    },
+    {
+      "id": "maxim.information-theory.overview.tables",
+      "node_kind": "fletch",
+      "shafts": [
+        {
+          "kind": "file",
+          "url": ".proof/backfill/sources/information-theory/proof-source/00-OVERVIEW.tables.json"
+        }
+      ],
+      "edges": [
+        {
+          "to": "maxim.information-theory.overview.proof-source",
+          "kind": "derived-from",
+          "label": "PROOF markdown table sidecar",
+          "metadata": {
+            "module": "information-theory",
+            "guide": "information-theory/00-OVERVIEW.md",
+            "custody": "partial"
+          }
+        }
+      ],
+      "format": {
+        "media_type": "application/json",
+        "encoding": "utf-8",
+        "compression": null,
+        "container": null,
+        "schema": "proof.backfill.tables.v1",
+        "record_shape": "table-sidecar",
+        "preferred_local": ".proof/backfill/sources/information-theory/proof-source/00-OVERVIEW.tables.json"
+      },
+      "tags": [
+        "source-corpus",
+        "proof",
+        "tables",
+        "partial-custody",
+        "guide"
+      ],
+      "metadata": {
+        "source_repo": "MAXIM",
+        "module": "information-theory",
+        "guide": "information-theory/00-OVERVIEW.md",
+        "publication_state": "partial-source-custody"
+      }
+    },
+    {
+      "id": "maxim.information-theory.overview.blocks",
+      "node_kind": "fletch",
+      "shafts": [
+        {
+          "kind": "file",
+          "url": ".proof/backfill/sources/information-theory/proof-source/00-OVERVIEW.blocks.json"
+        }
+      ],
+      "edges": [
+        {
+          "to": "maxim.information-theory.overview.proof-source",
+          "kind": "derived-from",
+          "label": "PROOF structured block sidecar",
+          "metadata": {
+            "module": "information-theory",
+            "guide": "information-theory/00-OVERVIEW.md",
+            "custody": "partial"
+          }
+        }
+      ],
+      "format": {
+        "media_type": "application/json",
+        "encoding": "utf-8",
+        "compression": null,
+        "container": null,
+        "schema": "proof.backfill.blocks.v1",
+        "record_shape": "structured-block-sidecar",
+        "preferred_local": ".proof/backfill/sources/information-theory/proof-source/00-OVERVIEW.blocks.json"
+      },
+      "tags": [
+        "source-corpus",
+        "proof",
+        "blocks",
+        "partial-custody",
+        "guide"
+      ],
+      "metadata": {
+        "source_repo": "MAXIM",
+        "module": "information-theory",
+        "guide": "information-theory/00-OVERVIEW.md",
+        "publication_state": "partial-source-custody"
+      }
+    },
+    {
+      "id": "maxim.information-theory.entropy-information.view",
+      "node_kind": "fletch",
+      "shafts": [
+        {
+          "kind": "file",
+          "url": ".crop/views/maxim-information-theory-entropy-information.json"
+        }
+      ],
+      "edges": [
+        {
+          "to": "maxim.information-theory.source-corpus.pebble",
+          "kind": "derived-from",
+          "label": "Guide-level CROP view recipe",
+          "metadata": {
+            "module": "information-theory",
+            "guide": "information-theory/01-ENTROPY-INFORMATION.md",
+            "custody": "partial"
+          }
+        }
+      ],
+      "format": {
+        "media_type": "application/json",
+        "encoding": "utf-8",
+        "compression": null,
+        "container": null,
+        "schema": "crop.view.v1",
+        "record_shape": "view-recipe",
+        "preferred_local": ".crop/views/maxim-information-theory-entropy-information.json"
+      },
+      "tags": [
+        "source-corpus",
+        "crop",
+        "view",
+        "partial-custody",
+        "guide"
+      ],
+      "metadata": {
+        "source_repo": "MAXIM",
+        "module": "information-theory",
+        "guide": "information-theory/01-ENTROPY-INFORMATION.md",
+        "publication_state": "partial-source-custody"
+      }
+    },
+    {
+      "id": "maxim.information-theory.entropy-information.pebble",
+      "node_kind": "fletch",
+      "shafts": [
+        {
+          "kind": "file",
+          "url": ".pebble/packs/maxim-information-theory-entropy-information.pebble.json"
+        }
+      ],
+      "edges": [
+        {
+          "to": "maxim.information-theory.entropy-information.view",
+          "kind": "derived-from",
+          "label": "Guide-level CROP view recipe",
+          "metadata": {
+            "module": "information-theory",
+            "custody": "partial"
+          }
+        },
+        {
+          "to": "maxim.information-theory.source-corpus.pebble",
+          "kind": "derived-from",
+          "label": "Guide-level CROP view",
+          "metadata": {
+            "view": ".crop/views/maxim-information-theory-entropy-information.json",
+            "module": "information-theory",
+            "custody": "partial"
+          }
+        }
+      ],
+      "format": {
+        "media_type": "application/json",
+        "encoding": "utf-8",
+        "compression": null,
+        "container": null,
+        "schema": "pebble.v1",
+        "record_shape": "corpus-slice",
+        "preferred_local": ".pebble/packs/maxim-information-theory-entropy-information.pebble.json"
+      },
+      "tags": [
+        "source-corpus",
+        "crop",
+        "pebble",
+        "partial-custody",
+        "guide"
+      ],
+      "metadata": {
+        "source_repo": "MAXIM",
+        "module": "information-theory",
+        "guide": "information-theory/01-ENTROPY-INFORMATION.md",
+        "publication_state": "partial-source-custody"
+      }
+    },
+    {
+      "id": "maxim.information-theory.entropy-information.proof-source",
+      "node_kind": "fletch",
+      "shafts": [
+        {
+          "kind": "file",
+          "url": ".proof/backfill/sources/information-theory/proof-source/01-ENTROPY-INFORMATION.source.md"
+        }
+      ],
+      "edges": [
+        {
+          "to": "maxim.information-theory.entropy-information.view",
+          "kind": "derived-from",
+          "label": "Literal PROOF source for guide view",
+          "metadata": {
+            "module": "information-theory",
+            "guide": "information-theory/01-ENTROPY-INFORMATION.md",
+            "custody": "partial"
+          }
+        }
+      ],
+      "format": {
+        "media_type": "text/markdown",
+        "encoding": "utf-8",
+        "compression": null,
+        "container": null,
+        "schema": "proof.source.literal_markdown.v1",
+        "record_shape": "literal-source",
+        "preferred_local": ".proof/backfill/sources/information-theory/proof-source/01-ENTROPY-INFORMATION.source.md"
+      },
+      "tags": [
+        "source-corpus",
+        "proof",
+        "source",
+        "partial-custody",
+        "guide"
+      ],
+      "metadata": {
+        "source_repo": "MAXIM",
+        "module": "information-theory",
+        "guide": "information-theory/01-ENTROPY-INFORMATION.md",
+        "publication_state": "partial-source-custody"
+      }
+    },
+    {
+      "id": "maxim.information-theory.entropy-information.tables",
+      "node_kind": "fletch",
+      "shafts": [
+        {
+          "kind": "file",
+          "url": ".proof/backfill/sources/information-theory/proof-source/01-ENTROPY-INFORMATION.tables.json"
+        }
+      ],
+      "edges": [
+        {
+          "to": "maxim.information-theory.entropy-information.proof-source",
+          "kind": "derived-from",
+          "label": "PROOF markdown table sidecar",
+          "metadata": {
+            "module": "information-theory",
+            "guide": "information-theory/01-ENTROPY-INFORMATION.md",
+            "custody": "partial"
+          }
+        }
+      ],
+      "format": {
+        "media_type": "application/json",
+        "encoding": "utf-8",
+        "compression": null,
+        "container": null,
+        "schema": "proof.backfill.tables.v1",
+        "record_shape": "table-sidecar",
+        "preferred_local": ".proof/backfill/sources/information-theory/proof-source/01-ENTROPY-INFORMATION.tables.json"
+      },
+      "tags": [
+        "source-corpus",
+        "proof",
+        "tables",
+        "partial-custody",
+        "guide"
+      ],
+      "metadata": {
+        "source_repo": "MAXIM",
+        "module": "information-theory",
+        "guide": "information-theory/01-ENTROPY-INFORMATION.md",
+        "publication_state": "partial-source-custody"
+      }
+    },
+    {
+      "id": "maxim.information-theory.entropy-information.blocks",
+      "node_kind": "fletch",
+      "shafts": [
+        {
+          "kind": "file",
+          "url": ".proof/backfill/sources/information-theory/proof-source/01-ENTROPY-INFORMATION.blocks.json"
+        }
+      ],
+      "edges": [
+        {
+          "to": "maxim.information-theory.entropy-information.proof-source",
+          "kind": "derived-from",
+          "label": "PROOF structured block sidecar",
+          "metadata": {
+            "module": "information-theory",
+            "guide": "information-theory/01-ENTROPY-INFORMATION.md",
+            "custody": "partial"
+          }
+        }
+      ],
+      "format": {
+        "media_type": "application/json",
+        "encoding": "utf-8",
+        "compression": null,
+        "container": null,
+        "schema": "proof.backfill.blocks.v1",
+        "record_shape": "structured-block-sidecar",
+        "preferred_local": ".proof/backfill/sources/information-theory/proof-source/01-ENTROPY-INFORMATION.blocks.json"
+      },
+      "tags": [
+        "source-corpus",
+        "proof",
+        "blocks",
+        "partial-custody",
+        "guide"
+      ],
+      "metadata": {
+        "source_repo": "MAXIM",
+        "module": "information-theory",
+        "guide": "information-theory/01-ENTROPY-INFORMATION.md",
+        "publication_state": "partial-source-custody"
+      }
+    },
+    {
+      "id": "maxim.information-theory.source-coding.view",
+      "node_kind": "fletch",
+      "shafts": [
+        {
+          "kind": "file",
+          "url": ".crop/views/maxim-information-theory-source-coding.json"
+        }
+      ],
+      "edges": [
+        {
+          "to": "maxim.information-theory.source-corpus.pebble",
+          "kind": "derived-from",
+          "label": "Guide-level CROP view recipe",
+          "metadata": {
+            "module": "information-theory",
+            "guide": "information-theory/02-SOURCE-CODING.md",
+            "custody": "partial"
+          }
+        }
+      ],
+      "format": {
+        "media_type": "application/json",
+        "encoding": "utf-8",
+        "compression": null,
+        "container": null,
+        "schema": "crop.view.v1",
+        "record_shape": "view-recipe",
+        "preferred_local": ".crop/views/maxim-information-theory-source-coding.json"
+      },
+      "tags": [
+        "source-corpus",
+        "crop",
+        "view",
+        "partial-custody",
+        "guide"
+      ],
+      "metadata": {
+        "source_repo": "MAXIM",
+        "module": "information-theory",
+        "guide": "information-theory/02-SOURCE-CODING.md",
+        "publication_state": "partial-source-custody"
+      }
+    },
+    {
+      "id": "maxim.information-theory.source-coding.pebble",
+      "node_kind": "fletch",
+      "shafts": [
+        {
+          "kind": "file",
+          "url": ".pebble/packs/maxim-information-theory-source-coding.pebble.json"
+        }
+      ],
+      "edges": [
+        {
+          "to": "maxim.information-theory.source-coding.view",
+          "kind": "derived-from",
+          "label": "Guide-level CROP view recipe",
+          "metadata": {
+            "module": "information-theory",
+            "custody": "partial"
+          }
+        },
+        {
+          "to": "maxim.information-theory.source-corpus.pebble",
+          "kind": "derived-from",
+          "label": "Guide-level CROP view",
+          "metadata": {
+            "view": ".crop/views/maxim-information-theory-source-coding.json",
+            "module": "information-theory",
+            "custody": "partial"
+          }
+        }
+      ],
+      "format": {
+        "media_type": "application/json",
+        "encoding": "utf-8",
+        "compression": null,
+        "container": null,
+        "schema": "pebble.v1",
+        "record_shape": "corpus-slice",
+        "preferred_local": ".pebble/packs/maxim-information-theory-source-coding.pebble.json"
+      },
+      "tags": [
+        "source-corpus",
+        "crop",
+        "pebble",
+        "partial-custody",
+        "guide"
+      ],
+      "metadata": {
+        "source_repo": "MAXIM",
+        "module": "information-theory",
+        "guide": "information-theory/02-SOURCE-CODING.md",
+        "publication_state": "partial-source-custody"
+      }
+    },
+    {
+      "id": "maxim.information-theory.source-coding.proof-source",
+      "node_kind": "fletch",
+      "shafts": [
+        {
+          "kind": "file",
+          "url": ".proof/backfill/sources/information-theory/proof-source/02-SOURCE-CODING.source.md"
+        }
+      ],
+      "edges": [
+        {
+          "to": "maxim.information-theory.source-coding.view",
+          "kind": "derived-from",
+          "label": "Literal PROOF source for guide view",
+          "metadata": {
+            "module": "information-theory",
+            "guide": "information-theory/02-SOURCE-CODING.md",
+            "custody": "partial"
+          }
+        }
+      ],
+      "format": {
+        "media_type": "text/markdown",
+        "encoding": "utf-8",
+        "compression": null,
+        "container": null,
+        "schema": "proof.source.literal_markdown.v1",
+        "record_shape": "literal-source",
+        "preferred_local": ".proof/backfill/sources/information-theory/proof-source/02-SOURCE-CODING.source.md"
+      },
+      "tags": [
+        "source-corpus",
+        "proof",
+        "source",
+        "partial-custody",
+        "guide"
+      ],
+      "metadata": {
+        "source_repo": "MAXIM",
+        "module": "information-theory",
+        "guide": "information-theory/02-SOURCE-CODING.md",
+        "publication_state": "partial-source-custody"
+      }
+    },
+    {
+      "id": "maxim.information-theory.source-coding.tables",
+      "node_kind": "fletch",
+      "shafts": [
+        {
+          "kind": "file",
+          "url": ".proof/backfill/sources/information-theory/proof-source/02-SOURCE-CODING.tables.json"
+        }
+      ],
+      "edges": [
+        {
+          "to": "maxim.information-theory.source-coding.proof-source",
+          "kind": "derived-from",
+          "label": "PROOF markdown table sidecar",
+          "metadata": {
+            "module": "information-theory",
+            "guide": "information-theory/02-SOURCE-CODING.md",
+            "custody": "partial"
+          }
+        }
+      ],
+      "format": {
+        "media_type": "application/json",
+        "encoding": "utf-8",
+        "compression": null,
+        "container": null,
+        "schema": "proof.backfill.tables.v1",
+        "record_shape": "table-sidecar",
+        "preferred_local": ".proof/backfill/sources/information-theory/proof-source/02-SOURCE-CODING.tables.json"
+      },
+      "tags": [
+        "source-corpus",
+        "proof",
+        "tables",
+        "partial-custody",
+        "guide"
+      ],
+      "metadata": {
+        "source_repo": "MAXIM",
+        "module": "information-theory",
+        "guide": "information-theory/02-SOURCE-CODING.md",
+        "publication_state": "partial-source-custody"
+      }
+    },
+    {
+      "id": "maxim.information-theory.source-coding.blocks",
+      "node_kind": "fletch",
+      "shafts": [
+        {
+          "kind": "file",
+          "url": ".proof/backfill/sources/information-theory/proof-source/02-SOURCE-CODING.blocks.json"
+        }
+      ],
+      "edges": [
+        {
+          "to": "maxim.information-theory.source-coding.proof-source",
+          "kind": "derived-from",
+          "label": "PROOF structured block sidecar",
+          "metadata": {
+            "module": "information-theory",
+            "guide": "information-theory/02-SOURCE-CODING.md",
+            "custody": "partial"
+          }
+        }
+      ],
+      "format": {
+        "media_type": "application/json",
+        "encoding": "utf-8",
+        "compression": null,
+        "container": null,
+        "schema": "proof.backfill.blocks.v1",
+        "record_shape": "structured-block-sidecar",
+        "preferred_local": ".proof/backfill/sources/information-theory/proof-source/02-SOURCE-CODING.blocks.json"
+      },
+      "tags": [
+        "source-corpus",
+        "proof",
+        "blocks",
+        "partial-custody",
+        "guide"
+      ],
+      "metadata": {
+        "source_repo": "MAXIM",
+        "module": "information-theory",
+        "guide": "information-theory/02-SOURCE-CODING.md",
+        "publication_state": "partial-source-custody"
+      }
+    },
+    {
+      "id": "maxim.information-theory.channel-coding.view",
+      "node_kind": "fletch",
+      "shafts": [
+        {
+          "kind": "file",
+          "url": ".crop/views/maxim-information-theory-channel-coding.json"
+        }
+      ],
+      "edges": [
+        {
+          "to": "maxim.information-theory.source-corpus.pebble",
+          "kind": "derived-from",
+          "label": "Guide-level CROP view recipe",
+          "metadata": {
+            "module": "information-theory",
+            "guide": "information-theory/03-CHANNEL-CODING.md",
+            "custody": "partial"
+          }
+        }
+      ],
+      "format": {
+        "media_type": "application/json",
+        "encoding": "utf-8",
+        "compression": null,
+        "container": null,
+        "schema": "crop.view.v1",
+        "record_shape": "view-recipe",
+        "preferred_local": ".crop/views/maxim-information-theory-channel-coding.json"
+      },
+      "tags": [
+        "source-corpus",
+        "crop",
+        "view",
+        "partial-custody",
+        "guide"
+      ],
+      "metadata": {
+        "source_repo": "MAXIM",
+        "module": "information-theory",
+        "guide": "information-theory/03-CHANNEL-CODING.md",
+        "publication_state": "partial-source-custody"
+      }
+    },
+    {
+      "id": "maxim.information-theory.channel-coding.pebble",
+      "node_kind": "fletch",
+      "shafts": [
+        {
+          "kind": "file",
+          "url": ".pebble/packs/maxim-information-theory-channel-coding.pebble.json"
+        }
+      ],
+      "edges": [
+        {
+          "to": "maxim.information-theory.channel-coding.view",
+          "kind": "derived-from",
+          "label": "Guide-level CROP view recipe",
+          "metadata": {
+            "module": "information-theory",
+            "custody": "partial"
+          }
+        },
+        {
+          "to": "maxim.information-theory.source-corpus.pebble",
+          "kind": "derived-from",
+          "label": "Guide-level CROP view",
+          "metadata": {
+            "view": ".crop/views/maxim-information-theory-channel-coding.json",
+            "module": "information-theory",
+            "custody": "partial"
+          }
+        }
+      ],
+      "format": {
+        "media_type": "application/json",
+        "encoding": "utf-8",
+        "compression": null,
+        "container": null,
+        "schema": "pebble.v1",
+        "record_shape": "corpus-slice",
+        "preferred_local": ".pebble/packs/maxim-information-theory-channel-coding.pebble.json"
+      },
+      "tags": [
+        "source-corpus",
+        "crop",
+        "pebble",
+        "partial-custody",
+        "guide"
+      ],
+      "metadata": {
+        "source_repo": "MAXIM",
+        "module": "information-theory",
+        "guide": "information-theory/03-CHANNEL-CODING.md",
+        "publication_state": "partial-source-custody"
+      }
+    },
+    {
+      "id": "maxim.information-theory.channel-coding.proof-source",
+      "node_kind": "fletch",
+      "shafts": [
+        {
+          "kind": "file",
+          "url": ".proof/backfill/sources/information-theory/proof-source/03-CHANNEL-CODING.source.md"
+        }
+      ],
+      "edges": [
+        {
+          "to": "maxim.information-theory.channel-coding.view",
+          "kind": "derived-from",
+          "label": "Literal PROOF source for guide view",
+          "metadata": {
+            "module": "information-theory",
+            "guide": "information-theory/03-CHANNEL-CODING.md",
+            "custody": "partial"
+          }
+        }
+      ],
+      "format": {
+        "media_type": "text/markdown",
+        "encoding": "utf-8",
+        "compression": null,
+        "container": null,
+        "schema": "proof.source.literal_markdown.v1",
+        "record_shape": "literal-source",
+        "preferred_local": ".proof/backfill/sources/information-theory/proof-source/03-CHANNEL-CODING.source.md"
+      },
+      "tags": [
+        "source-corpus",
+        "proof",
+        "source",
+        "partial-custody",
+        "guide"
+      ],
+      "metadata": {
+        "source_repo": "MAXIM",
+        "module": "information-theory",
+        "guide": "information-theory/03-CHANNEL-CODING.md",
+        "publication_state": "partial-source-custody"
+      }
+    },
+    {
+      "id": "maxim.information-theory.channel-coding.tables",
+      "node_kind": "fletch",
+      "shafts": [
+        {
+          "kind": "file",
+          "url": ".proof/backfill/sources/information-theory/proof-source/03-CHANNEL-CODING.tables.json"
+        }
+      ],
+      "edges": [
+        {
+          "to": "maxim.information-theory.channel-coding.proof-source",
+          "kind": "derived-from",
+          "label": "PROOF markdown table sidecar",
+          "metadata": {
+            "module": "information-theory",
+            "guide": "information-theory/03-CHANNEL-CODING.md",
+            "custody": "partial"
+          }
+        }
+      ],
+      "format": {
+        "media_type": "application/json",
+        "encoding": "utf-8",
+        "compression": null,
+        "container": null,
+        "schema": "proof.backfill.tables.v1",
+        "record_shape": "table-sidecar",
+        "preferred_local": ".proof/backfill/sources/information-theory/proof-source/03-CHANNEL-CODING.tables.json"
+      },
+      "tags": [
+        "source-corpus",
+        "proof",
+        "tables",
+        "partial-custody",
+        "guide"
+      ],
+      "metadata": {
+        "source_repo": "MAXIM",
+        "module": "information-theory",
+        "guide": "information-theory/03-CHANNEL-CODING.md",
+        "publication_state": "partial-source-custody"
+      }
+    },
+    {
+      "id": "maxim.information-theory.channel-coding.blocks",
+      "node_kind": "fletch",
+      "shafts": [
+        {
+          "kind": "file",
+          "url": ".proof/backfill/sources/information-theory/proof-source/03-CHANNEL-CODING.blocks.json"
+        }
+      ],
+      "edges": [
+        {
+          "to": "maxim.information-theory.channel-coding.proof-source",
+          "kind": "derived-from",
+          "label": "PROOF structured block sidecar",
+          "metadata": {
+            "module": "information-theory",
+            "guide": "information-theory/03-CHANNEL-CODING.md",
+            "custody": "partial"
+          }
+        }
+      ],
+      "format": {
+        "media_type": "application/json",
+        "encoding": "utf-8",
+        "compression": null,
+        "container": null,
+        "schema": "proof.backfill.blocks.v1",
+        "record_shape": "structured-block-sidecar",
+        "preferred_local": ".proof/backfill/sources/information-theory/proof-source/03-CHANNEL-CODING.blocks.json"
+      },
+      "tags": [
+        "source-corpus",
+        "proof",
+        "blocks",
+        "partial-custody",
+        "guide"
+      ],
+      "metadata": {
+        "source_repo": "MAXIM",
+        "module": "information-theory",
+        "guide": "information-theory/03-CHANNEL-CODING.md",
+        "publication_state": "partial-source-custody"
+      }
+    },
+    {
+      "id": "maxim.information-theory.ml-cryptography-bridge.view",
+      "node_kind": "fletch",
+      "shafts": [
+        {
+          "kind": "file",
+          "url": ".crop/views/maxim-information-theory-ml-cryptography-bridge.json"
+        }
+      ],
+      "edges": [
+        {
+          "to": "maxim.information-theory.source-corpus.pebble",
+          "kind": "derived-from",
+          "label": "Guide-level CROP view recipe",
+          "metadata": {
+            "module": "information-theory",
+            "guide": "information-theory/04-ML-CRYPTOGRAPHY-BRIDGE.md",
+            "custody": "partial"
+          }
+        }
+      ],
+      "format": {
+        "media_type": "application/json",
+        "encoding": "utf-8",
+        "compression": null,
+        "container": null,
+        "schema": "crop.view.v1",
+        "record_shape": "view-recipe",
+        "preferred_local": ".crop/views/maxim-information-theory-ml-cryptography-bridge.json"
+      },
+      "tags": [
+        "source-corpus",
+        "crop",
+        "view",
+        "partial-custody",
+        "guide"
+      ],
+      "metadata": {
+        "source_repo": "MAXIM",
+        "module": "information-theory",
+        "guide": "information-theory/04-ML-CRYPTOGRAPHY-BRIDGE.md",
+        "publication_state": "partial-source-custody"
+      }
+    },
+    {
+      "id": "maxim.information-theory.ml-cryptography-bridge.pebble",
+      "node_kind": "fletch",
+      "shafts": [
+        {
+          "kind": "file",
+          "url": ".pebble/packs/maxim-information-theory-ml-cryptography-bridge.pebble.json"
+        }
+      ],
+      "edges": [
+        {
+          "to": "maxim.information-theory.ml-cryptography-bridge.view",
+          "kind": "derived-from",
+          "label": "Guide-level CROP view recipe",
+          "metadata": {
+            "module": "information-theory",
+            "custody": "partial"
+          }
+        },
+        {
+          "to": "maxim.information-theory.source-corpus.pebble",
+          "kind": "derived-from",
+          "label": "Guide-level CROP view",
+          "metadata": {
+            "view": ".crop/views/maxim-information-theory-ml-cryptography-bridge.json",
+            "module": "information-theory",
+            "custody": "partial"
+          }
+        }
+      ],
+      "format": {
+        "media_type": "application/json",
+        "encoding": "utf-8",
+        "compression": null,
+        "container": null,
+        "schema": "pebble.v1",
+        "record_shape": "corpus-slice",
+        "preferred_local": ".pebble/packs/maxim-information-theory-ml-cryptography-bridge.pebble.json"
+      },
+      "tags": [
+        "source-corpus",
+        "crop",
+        "pebble",
+        "partial-custody",
+        "guide"
+      ],
+      "metadata": {
+        "source_repo": "MAXIM",
+        "module": "information-theory",
+        "guide": "information-theory/04-ML-CRYPTOGRAPHY-BRIDGE.md",
+        "publication_state": "partial-source-custody"
+      }
+    },
+    {
+      "id": "maxim.information-theory.ml-cryptography-bridge.proof-source",
+      "node_kind": "fletch",
+      "shafts": [
+        {
+          "kind": "file",
+          "url": ".proof/backfill/sources/information-theory/proof-source/04-ML-CRYPTOGRAPHY-BRIDGE.source.md"
+        }
+      ],
+      "edges": [
+        {
+          "to": "maxim.information-theory.ml-cryptography-bridge.view",
+          "kind": "derived-from",
+          "label": "Literal PROOF source for guide view",
+          "metadata": {
+            "module": "information-theory",
+            "guide": "information-theory/04-ML-CRYPTOGRAPHY-BRIDGE.md",
+            "custody": "partial"
+          }
+        }
+      ],
+      "format": {
+        "media_type": "text/markdown",
+        "encoding": "utf-8",
+        "compression": null,
+        "container": null,
+        "schema": "proof.source.literal_markdown.v1",
+        "record_shape": "literal-source",
+        "preferred_local": ".proof/backfill/sources/information-theory/proof-source/04-ML-CRYPTOGRAPHY-BRIDGE.source.md"
+      },
+      "tags": [
+        "source-corpus",
+        "proof",
+        "source",
+        "partial-custody",
+        "guide"
+      ],
+      "metadata": {
+        "source_repo": "MAXIM",
+        "module": "information-theory",
+        "guide": "information-theory/04-ML-CRYPTOGRAPHY-BRIDGE.md",
+        "publication_state": "partial-source-custody"
+      }
+    },
+    {
+      "id": "maxim.information-theory.ml-cryptography-bridge.tables",
+      "node_kind": "fletch",
+      "shafts": [
+        {
+          "kind": "file",
+          "url": ".proof/backfill/sources/information-theory/proof-source/04-ML-CRYPTOGRAPHY-BRIDGE.tables.json"
+        }
+      ],
+      "edges": [
+        {
+          "to": "maxim.information-theory.ml-cryptography-bridge.proof-source",
+          "kind": "derived-from",
+          "label": "PROOF markdown table sidecar",
+          "metadata": {
+            "module": "information-theory",
+            "guide": "information-theory/04-ML-CRYPTOGRAPHY-BRIDGE.md",
+            "custody": "partial"
+          }
+        }
+      ],
+      "format": {
+        "media_type": "application/json",
+        "encoding": "utf-8",
+        "compression": null,
+        "container": null,
+        "schema": "proof.backfill.tables.v1",
+        "record_shape": "table-sidecar",
+        "preferred_local": ".proof/backfill/sources/information-theory/proof-source/04-ML-CRYPTOGRAPHY-BRIDGE.tables.json"
+      },
+      "tags": [
+        "source-corpus",
+        "proof",
+        "tables",
+        "partial-custody",
+        "guide"
+      ],
+      "metadata": {
+        "source_repo": "MAXIM",
+        "module": "information-theory",
+        "guide": "information-theory/04-ML-CRYPTOGRAPHY-BRIDGE.md",
+        "publication_state": "partial-source-custody"
+      }
+    },
+    {
+      "id": "maxim.information-theory.ml-cryptography-bridge.blocks",
+      "node_kind": "fletch",
+      "shafts": [
+        {
+          "kind": "file",
+          "url": ".proof/backfill/sources/information-theory/proof-source/04-ML-CRYPTOGRAPHY-BRIDGE.blocks.json"
+        }
+      ],
+      "edges": [
+        {
+          "to": "maxim.information-theory.ml-cryptography-bridge.proof-source",
+          "kind": "derived-from",
+          "label": "PROOF structured block sidecar",
+          "metadata": {
+            "module": "information-theory",
+            "guide": "information-theory/04-ML-CRYPTOGRAPHY-BRIDGE.md",
+            "custody": "partial"
+          }
+        }
+      ],
+      "format": {
+        "media_type": "application/json",
+        "encoding": "utf-8",
+        "compression": null,
+        "container": null,
+        "schema": "proof.backfill.blocks.v1",
+        "record_shape": "structured-block-sidecar",
+        "preferred_local": ".proof/backfill/sources/information-theory/proof-source/04-ML-CRYPTOGRAPHY-BRIDGE.blocks.json"
+      },
+      "tags": [
+        "source-corpus",
+        "proof",
+        "blocks",
+        "partial-custody",
+        "guide"
+      ],
+      "metadata": {
+        "source_repo": "MAXIM",
+        "module": "information-theory",
+        "guide": "information-theory/04-ML-CRYPTOGRAPHY-BRIDGE.md",
+        "publication_state": "partial-source-custody"
+      }
+    },
+    {
+      "id": "maxim.information-theory.rate-distortion.view",
+      "node_kind": "fletch",
+      "shafts": [
+        {
+          "kind": "file",
+          "url": ".crop/views/maxim-information-theory-rate-distortion.json"
+        }
+      ],
+      "edges": [
+        {
+          "to": "maxim.information-theory.source-corpus.pebble",
+          "kind": "derived-from",
+          "label": "Guide-level CROP view recipe",
+          "metadata": {
+            "module": "information-theory",
+            "guide": "information-theory/05-RATE-DISTORTION.md",
+            "custody": "partial"
+          }
+        }
+      ],
+      "format": {
+        "media_type": "application/json",
+        "encoding": "utf-8",
+        "compression": null,
+        "container": null,
+        "schema": "crop.view.v1",
+        "record_shape": "view-recipe",
+        "preferred_local": ".crop/views/maxim-information-theory-rate-distortion.json"
+      },
+      "tags": [
+        "source-corpus",
+        "crop",
+        "view",
+        "partial-custody",
+        "guide"
+      ],
+      "metadata": {
+        "source_repo": "MAXIM",
+        "module": "information-theory",
+        "guide": "information-theory/05-RATE-DISTORTION.md",
+        "publication_state": "partial-source-custody"
+      }
+    },
+    {
+      "id": "maxim.information-theory.rate-distortion.pebble",
+      "node_kind": "fletch",
+      "shafts": [
+        {
+          "kind": "file",
+          "url": ".pebble/packs/maxim-information-theory-rate-distortion.pebble.json"
+        }
+      ],
+      "edges": [
+        {
+          "to": "maxim.information-theory.rate-distortion.view",
+          "kind": "derived-from",
+          "label": "Guide-level CROP view recipe",
+          "metadata": {
+            "module": "information-theory",
+            "custody": "partial"
+          }
+        },
+        {
+          "to": "maxim.information-theory.source-corpus.pebble",
+          "kind": "derived-from",
+          "label": "Guide-level CROP view",
+          "metadata": {
+            "view": ".crop/views/maxim-information-theory-rate-distortion.json",
+            "module": "information-theory",
+            "custody": "partial"
+          }
+        }
+      ],
+      "format": {
+        "media_type": "application/json",
+        "encoding": "utf-8",
+        "compression": null,
+        "container": null,
+        "schema": "pebble.v1",
+        "record_shape": "corpus-slice",
+        "preferred_local": ".pebble/packs/maxim-information-theory-rate-distortion.pebble.json"
+      },
+      "tags": [
+        "source-corpus",
+        "crop",
+        "pebble",
+        "partial-custody",
+        "guide"
+      ],
+      "metadata": {
+        "source_repo": "MAXIM",
+        "module": "information-theory",
+        "guide": "information-theory/05-RATE-DISTORTION.md",
+        "publication_state": "partial-source-custody"
+      }
+    },
+    {
+      "id": "maxim.information-theory.rate-distortion.proof-source",
+      "node_kind": "fletch",
+      "shafts": [
+        {
+          "kind": "file",
+          "url": ".proof/backfill/sources/information-theory/proof-source/05-RATE-DISTORTION.source.md"
+        }
+      ],
+      "edges": [
+        {
+          "to": "maxim.information-theory.rate-distortion.view",
+          "kind": "derived-from",
+          "label": "Literal PROOF source for guide view",
+          "metadata": {
+            "module": "information-theory",
+            "guide": "information-theory/05-RATE-DISTORTION.md",
+            "custody": "partial"
+          }
+        }
+      ],
+      "format": {
+        "media_type": "text/markdown",
+        "encoding": "utf-8",
+        "compression": null,
+        "container": null,
+        "schema": "proof.source.literal_markdown.v1",
+        "record_shape": "literal-source",
+        "preferred_local": ".proof/backfill/sources/information-theory/proof-source/05-RATE-DISTORTION.source.md"
+      },
+      "tags": [
+        "source-corpus",
+        "proof",
+        "source",
+        "partial-custody",
+        "guide"
+      ],
+      "metadata": {
+        "source_repo": "MAXIM",
+        "module": "information-theory",
+        "guide": "information-theory/05-RATE-DISTORTION.md",
+        "publication_state": "partial-source-custody"
+      }
+    },
+    {
+      "id": "maxim.information-theory.rate-distortion.tables",
+      "node_kind": "fletch",
+      "shafts": [
+        {
+          "kind": "file",
+          "url": ".proof/backfill/sources/information-theory/proof-source/05-RATE-DISTORTION.tables.json"
+        }
+      ],
+      "edges": [
+        {
+          "to": "maxim.information-theory.rate-distortion.proof-source",
+          "kind": "derived-from",
+          "label": "PROOF markdown table sidecar",
+          "metadata": {
+            "module": "information-theory",
+            "guide": "information-theory/05-RATE-DISTORTION.md",
+            "custody": "partial"
+          }
+        }
+      ],
+      "format": {
+        "media_type": "application/json",
+        "encoding": "utf-8",
+        "compression": null,
+        "container": null,
+        "schema": "proof.backfill.tables.v1",
+        "record_shape": "table-sidecar",
+        "preferred_local": ".proof/backfill/sources/information-theory/proof-source/05-RATE-DISTORTION.tables.json"
+      },
+      "tags": [
+        "source-corpus",
+        "proof",
+        "tables",
+        "partial-custody",
+        "guide"
+      ],
+      "metadata": {
+        "source_repo": "MAXIM",
+        "module": "information-theory",
+        "guide": "information-theory/05-RATE-DISTORTION.md",
+        "publication_state": "partial-source-custody"
+      }
+    },
+    {
+      "id": "maxim.information-theory.rate-distortion.blocks",
+      "node_kind": "fletch",
+      "shafts": [
+        {
+          "kind": "file",
+          "url": ".proof/backfill/sources/information-theory/proof-source/05-RATE-DISTORTION.blocks.json"
+        }
+      ],
+      "edges": [
+        {
+          "to": "maxim.information-theory.rate-distortion.proof-source",
+          "kind": "derived-from",
+          "label": "PROOF structured block sidecar",
+          "metadata": {
+            "module": "information-theory",
+            "guide": "information-theory/05-RATE-DISTORTION.md",
+            "custody": "partial"
+          }
+        }
+      ],
+      "format": {
+        "media_type": "application/json",
+        "encoding": "utf-8",
+        "compression": null,
+        "container": null,
+        "schema": "proof.backfill.blocks.v1",
+        "record_shape": "structured-block-sidecar",
+        "preferred_local": ".proof/backfill/sources/information-theory/proof-source/05-RATE-DISTORTION.blocks.json"
+      },
+      "tags": [
+        "source-corpus",
+        "proof",
+        "blocks",
+        "partial-custody",
+        "guide"
+      ],
+      "metadata": {
+        "source_repo": "MAXIM",
+        "module": "information-theory",
+        "guide": "information-theory/05-RATE-DISTORTION.md",
+        "publication_state": "partial-source-custody"
+      }
+    },
+    {
+      "id": "maxim.information-theory.network-information-theory.view",
+      "node_kind": "fletch",
+      "shafts": [
+        {
+          "kind": "file",
+          "url": ".crop/views/maxim-information-theory-network-information-theory.json"
+        }
+      ],
+      "edges": [
+        {
+          "to": "maxim.information-theory.source-corpus.pebble",
+          "kind": "derived-from",
+          "label": "Guide-level CROP view recipe",
+          "metadata": {
+            "module": "information-theory",
+            "guide": "information-theory/06-NETWORK-INFORMATION-THEORY.md",
+            "custody": "partial"
+          }
+        }
+      ],
+      "format": {
+        "media_type": "application/json",
+        "encoding": "utf-8",
+        "compression": null,
+        "container": null,
+        "schema": "crop.view.v1",
+        "record_shape": "view-recipe",
+        "preferred_local": ".crop/views/maxim-information-theory-network-information-theory.json"
+      },
+      "tags": [
+        "source-corpus",
+        "crop",
+        "view",
+        "partial-custody",
+        "guide"
+      ],
+      "metadata": {
+        "source_repo": "MAXIM",
+        "module": "information-theory",
+        "guide": "information-theory/06-NETWORK-INFORMATION-THEORY.md",
+        "publication_state": "partial-source-custody"
+      }
+    },
+    {
+      "id": "maxim.information-theory.network-information-theory.pebble",
+      "node_kind": "fletch",
+      "shafts": [
+        {
+          "kind": "file",
+          "url": ".pebble/packs/maxim-information-theory-network-information-theory.pebble.json"
+        }
+      ],
+      "edges": [
+        {
+          "to": "maxim.information-theory.network-information-theory.view",
+          "kind": "derived-from",
+          "label": "Guide-level CROP view recipe",
+          "metadata": {
+            "module": "information-theory",
+            "custody": "partial"
+          }
+        },
+        {
+          "to": "maxim.information-theory.source-corpus.pebble",
+          "kind": "derived-from",
+          "label": "Guide-level CROP view",
+          "metadata": {
+            "view": ".crop/views/maxim-information-theory-network-information-theory.json",
+            "module": "information-theory",
+            "custody": "partial"
+          }
+        }
+      ],
+      "format": {
+        "media_type": "application/json",
+        "encoding": "utf-8",
+        "compression": null,
+        "container": null,
+        "schema": "pebble.v1",
+        "record_shape": "corpus-slice",
+        "preferred_local": ".pebble/packs/maxim-information-theory-network-information-theory.pebble.json"
+      },
+      "tags": [
+        "source-corpus",
+        "crop",
+        "pebble",
+        "partial-custody",
+        "guide"
+      ],
+      "metadata": {
+        "source_repo": "MAXIM",
+        "module": "information-theory",
+        "guide": "information-theory/06-NETWORK-INFORMATION-THEORY.md",
+        "publication_state": "partial-source-custody"
+      }
+    },
+    {
+      "id": "maxim.information-theory.network-information-theory.proof-source",
+      "node_kind": "fletch",
+      "shafts": [
+        {
+          "kind": "file",
+          "url": ".proof/backfill/sources/information-theory/proof-source/06-NETWORK-INFORMATION-THEORY.source.md"
+        }
+      ],
+      "edges": [
+        {
+          "to": "maxim.information-theory.network-information-theory.view",
+          "kind": "derived-from",
+          "label": "Literal PROOF source for guide view",
+          "metadata": {
+            "module": "information-theory",
+            "guide": "information-theory/06-NETWORK-INFORMATION-THEORY.md",
+            "custody": "partial"
+          }
+        }
+      ],
+      "format": {
+        "media_type": "text/markdown",
+        "encoding": "utf-8",
+        "compression": null,
+        "container": null,
+        "schema": "proof.source.literal_markdown.v1",
+        "record_shape": "literal-source",
+        "preferred_local": ".proof/backfill/sources/information-theory/proof-source/06-NETWORK-INFORMATION-THEORY.source.md"
+      },
+      "tags": [
+        "source-corpus",
+        "proof",
+        "source",
+        "partial-custody",
+        "guide"
+      ],
+      "metadata": {
+        "source_repo": "MAXIM",
+        "module": "information-theory",
+        "guide": "information-theory/06-NETWORK-INFORMATION-THEORY.md",
+        "publication_state": "partial-source-custody"
+      }
+    },
+    {
+      "id": "maxim.information-theory.network-information-theory.tables",
+      "node_kind": "fletch",
+      "shafts": [
+        {
+          "kind": "file",
+          "url": ".proof/backfill/sources/information-theory/proof-source/06-NETWORK-INFORMATION-THEORY.tables.json"
+        }
+      ],
+      "edges": [
+        {
+          "to": "maxim.information-theory.network-information-theory.proof-source",
+          "kind": "derived-from",
+          "label": "PROOF markdown table sidecar",
+          "metadata": {
+            "module": "information-theory",
+            "guide": "information-theory/06-NETWORK-INFORMATION-THEORY.md",
+            "custody": "partial"
+          }
+        }
+      ],
+      "format": {
+        "media_type": "application/json",
+        "encoding": "utf-8",
+        "compression": null,
+        "container": null,
+        "schema": "proof.backfill.tables.v1",
+        "record_shape": "table-sidecar",
+        "preferred_local": ".proof/backfill/sources/information-theory/proof-source/06-NETWORK-INFORMATION-THEORY.tables.json"
+      },
+      "tags": [
+        "source-corpus",
+        "proof",
+        "tables",
+        "partial-custody",
+        "guide"
+      ],
+      "metadata": {
+        "source_repo": "MAXIM",
+        "module": "information-theory",
+        "guide": "information-theory/06-NETWORK-INFORMATION-THEORY.md",
+        "publication_state": "partial-source-custody"
+      }
+    },
+    {
+      "id": "maxim.information-theory.network-information-theory.blocks",
+      "node_kind": "fletch",
+      "shafts": [
+        {
+          "kind": "file",
+          "url": ".proof/backfill/sources/information-theory/proof-source/06-NETWORK-INFORMATION-THEORY.blocks.json"
+        }
+      ],
+      "edges": [
+        {
+          "to": "maxim.information-theory.network-information-theory.proof-source",
+          "kind": "derived-from",
+          "label": "PROOF structured block sidecar",
+          "metadata": {
+            "module": "information-theory",
+            "guide": "information-theory/06-NETWORK-INFORMATION-THEORY.md",
+            "custody": "partial"
+          }
+        }
+      ],
+      "format": {
+        "media_type": "application/json",
+        "encoding": "utf-8",
+        "compression": null,
+        "container": null,
+        "schema": "proof.backfill.blocks.v1",
+        "record_shape": "structured-block-sidecar",
+        "preferred_local": ".proof/backfill/sources/information-theory/proof-source/06-NETWORK-INFORMATION-THEORY.blocks.json"
+      },
+      "tags": [
+        "source-corpus",
+        "proof",
+        "blocks",
+        "partial-custody",
+        "guide"
+      ],
+      "metadata": {
+        "source_repo": "MAXIM",
+        "module": "information-theory",
+        "guide": "information-theory/06-NETWORK-INFORMATION-THEORY.md",
+        "publication_state": "partial-source-custody"
+      }
+    },
+    {
+      "id": "maxim.information-theory.algorithmic-information.view",
+      "node_kind": "fletch",
+      "shafts": [
+        {
+          "kind": "file",
+          "url": ".crop/views/maxim-information-theory-algorithmic-information.json"
+        }
+      ],
+      "edges": [
+        {
+          "to": "maxim.information-theory.source-corpus.pebble",
+          "kind": "derived-from",
+          "label": "Guide-level CROP view recipe",
+          "metadata": {
+            "module": "information-theory",
+            "guide": "information-theory/07-ALGORITHMIC-INFORMATION.md",
+            "custody": "partial"
+          }
+        }
+      ],
+      "format": {
+        "media_type": "application/json",
+        "encoding": "utf-8",
+        "compression": null,
+        "container": null,
+        "schema": "crop.view.v1",
+        "record_shape": "view-recipe",
+        "preferred_local": ".crop/views/maxim-information-theory-algorithmic-information.json"
+      },
+      "tags": [
+        "source-corpus",
+        "crop",
+        "view",
+        "partial-custody",
+        "guide"
+      ],
+      "metadata": {
+        "source_repo": "MAXIM",
+        "module": "information-theory",
+        "guide": "information-theory/07-ALGORITHMIC-INFORMATION.md",
+        "publication_state": "partial-source-custody"
+      }
+    },
+    {
+      "id": "maxim.information-theory.algorithmic-information.pebble",
+      "node_kind": "fletch",
+      "shafts": [
+        {
+          "kind": "file",
+          "url": ".pebble/packs/maxim-information-theory-algorithmic-information.pebble.json"
+        }
+      ],
+      "edges": [
+        {
+          "to": "maxim.information-theory.algorithmic-information.view",
+          "kind": "derived-from",
+          "label": "Guide-level CROP view recipe",
+          "metadata": {
+            "module": "information-theory",
+            "custody": "partial"
+          }
+        },
+        {
+          "to": "maxim.information-theory.source-corpus.pebble",
+          "kind": "derived-from",
+          "label": "Guide-level CROP view",
+          "metadata": {
+            "view": ".crop/views/maxim-information-theory-algorithmic-information.json",
+            "module": "information-theory",
+            "custody": "partial"
+          }
+        }
+      ],
+      "format": {
+        "media_type": "application/json",
+        "encoding": "utf-8",
+        "compression": null,
+        "container": null,
+        "schema": "pebble.v1",
+        "record_shape": "corpus-slice",
+        "preferred_local": ".pebble/packs/maxim-information-theory-algorithmic-information.pebble.json"
+      },
+      "tags": [
+        "source-corpus",
+        "crop",
+        "pebble",
+        "partial-custody",
+        "guide"
+      ],
+      "metadata": {
+        "source_repo": "MAXIM",
+        "module": "information-theory",
+        "guide": "information-theory/07-ALGORITHMIC-INFORMATION.md",
+        "publication_state": "partial-source-custody"
+      }
+    },
+    {
+      "id": "maxim.information-theory.algorithmic-information.proof-source",
+      "node_kind": "fletch",
+      "shafts": [
+        {
+          "kind": "file",
+          "url": ".proof/backfill/sources/information-theory/proof-source/07-ALGORITHMIC-INFORMATION.source.md"
+        }
+      ],
+      "edges": [
+        {
+          "to": "maxim.information-theory.algorithmic-information.view",
+          "kind": "derived-from",
+          "label": "Literal PROOF source for guide view",
+          "metadata": {
+            "module": "information-theory",
+            "guide": "information-theory/07-ALGORITHMIC-INFORMATION.md",
+            "custody": "partial"
+          }
+        }
+      ],
+      "format": {
+        "media_type": "text/markdown",
+        "encoding": "utf-8",
+        "compression": null,
+        "container": null,
+        "schema": "proof.source.literal_markdown.v1",
+        "record_shape": "literal-source",
+        "preferred_local": ".proof/backfill/sources/information-theory/proof-source/07-ALGORITHMIC-INFORMATION.source.md"
+      },
+      "tags": [
+        "source-corpus",
+        "proof",
+        "source",
+        "partial-custody",
+        "guide"
+      ],
+      "metadata": {
+        "source_repo": "MAXIM",
+        "module": "information-theory",
+        "guide": "information-theory/07-ALGORITHMIC-INFORMATION.md",
+        "publication_state": "partial-source-custody"
+      }
+    },
+    {
+      "id": "maxim.information-theory.algorithmic-information.tables",
+      "node_kind": "fletch",
+      "shafts": [
+        {
+          "kind": "file",
+          "url": ".proof/backfill/sources/information-theory/proof-source/07-ALGORITHMIC-INFORMATION.tables.json"
+        }
+      ],
+      "edges": [
+        {
+          "to": "maxim.information-theory.algorithmic-information.proof-source",
+          "kind": "derived-from",
+          "label": "PROOF markdown table sidecar",
+          "metadata": {
+            "module": "information-theory",
+            "guide": "information-theory/07-ALGORITHMIC-INFORMATION.md",
+            "custody": "partial"
+          }
+        }
+      ],
+      "format": {
+        "media_type": "application/json",
+        "encoding": "utf-8",
+        "compression": null,
+        "container": null,
+        "schema": "proof.backfill.tables.v1",
+        "record_shape": "table-sidecar",
+        "preferred_local": ".proof/backfill/sources/information-theory/proof-source/07-ALGORITHMIC-INFORMATION.tables.json"
+      },
+      "tags": [
+        "source-corpus",
+        "proof",
+        "tables",
+        "partial-custody",
+        "guide"
+      ],
+      "metadata": {
+        "source_repo": "MAXIM",
+        "module": "information-theory",
+        "guide": "information-theory/07-ALGORITHMIC-INFORMATION.md",
+        "publication_state": "partial-source-custody"
+      }
+    },
+    {
+      "id": "maxim.information-theory.algorithmic-information.blocks",
+      "node_kind": "fletch",
+      "shafts": [
+        {
+          "kind": "file",
+          "url": ".proof/backfill/sources/information-theory/proof-source/07-ALGORITHMIC-INFORMATION.blocks.json"
+        }
+      ],
+      "edges": [
+        {
+          "to": "maxim.information-theory.algorithmic-information.proof-source",
+          "kind": "derived-from",
+          "label": "PROOF structured block sidecar",
+          "metadata": {
+            "module": "information-theory",
+            "guide": "information-theory/07-ALGORITHMIC-INFORMATION.md",
+            "custody": "partial"
+          }
+        }
+      ],
+      "format": {
+        "media_type": "application/json",
+        "encoding": "utf-8",
+        "compression": null,
+        "container": null,
+        "schema": "proof.backfill.blocks.v1",
+        "record_shape": "structured-block-sidecar",
+        "preferred_local": ".proof/backfill/sources/information-theory/proof-source/07-ALGORITHMIC-INFORMATION.blocks.json"
+      },
+      "tags": [
+        "source-corpus",
+        "proof",
+        "blocks",
+        "partial-custody",
+        "guide"
+      ],
+      "metadata": {
+        "source_repo": "MAXIM",
+        "module": "information-theory",
+        "guide": "information-theory/07-ALGORITHMIC-INFORMATION.md",
+        "publication_state": "partial-source-custody"
+      }
+    },
+    {
+      "id": "maxim.information-theory.quantum-information.view",
+      "node_kind": "fletch",
+      "shafts": [
+        {
+          "kind": "file",
+          "url": ".crop/views/maxim-information-theory-quantum-information.json"
+        }
+      ],
+      "edges": [
+        {
+          "to": "maxim.information-theory.source-corpus.pebble",
+          "kind": "derived-from",
+          "label": "Guide-level CROP view recipe",
+          "metadata": {
+            "module": "information-theory",
+            "guide": "information-theory/08-QUANTUM-INFORMATION.md",
+            "custody": "partial"
+          }
+        }
+      ],
+      "format": {
+        "media_type": "application/json",
+        "encoding": "utf-8",
+        "compression": null,
+        "container": null,
+        "schema": "crop.view.v1",
+        "record_shape": "view-recipe",
+        "preferred_local": ".crop/views/maxim-information-theory-quantum-information.json"
+      },
+      "tags": [
+        "source-corpus",
+        "crop",
+        "view",
+        "partial-custody",
+        "guide"
+      ],
+      "metadata": {
+        "source_repo": "MAXIM",
+        "module": "information-theory",
+        "guide": "information-theory/08-QUANTUM-INFORMATION.md",
+        "publication_state": "partial-source-custody"
+      }
+    },
+    {
+      "id": "maxim.information-theory.quantum-information.pebble",
+      "node_kind": "fletch",
+      "shafts": [
+        {
+          "kind": "file",
+          "url": ".pebble/packs/maxim-information-theory-quantum-information.pebble.json"
+        }
+      ],
+      "edges": [
+        {
+          "to": "maxim.information-theory.quantum-information.view",
+          "kind": "derived-from",
+          "label": "Guide-level CROP view recipe",
+          "metadata": {
+            "module": "information-theory",
+            "custody": "partial"
+          }
+        },
+        {
+          "to": "maxim.information-theory.source-corpus.pebble",
+          "kind": "derived-from",
+          "label": "Guide-level CROP view",
+          "metadata": {
+            "view": ".crop/views/maxim-information-theory-quantum-information.json",
+            "module": "information-theory",
+            "custody": "partial"
+          }
+        }
+      ],
+      "format": {
+        "media_type": "application/json",
+        "encoding": "utf-8",
+        "compression": null,
+        "container": null,
+        "schema": "pebble.v1",
+        "record_shape": "corpus-slice",
+        "preferred_local": ".pebble/packs/maxim-information-theory-quantum-information.pebble.json"
+      },
+      "tags": [
+        "source-corpus",
+        "crop",
+        "pebble",
+        "partial-custody",
+        "guide"
+      ],
+      "metadata": {
+        "source_repo": "MAXIM",
+        "module": "information-theory",
+        "guide": "information-theory/08-QUANTUM-INFORMATION.md",
+        "publication_state": "partial-source-custody"
+      }
+    },
+    {
+      "id": "maxim.information-theory.quantum-information.proof-source",
+      "node_kind": "fletch",
+      "shafts": [
+        {
+          "kind": "file",
+          "url": ".proof/backfill/sources/information-theory/proof-source/08-QUANTUM-INFORMATION.source.md"
+        }
+      ],
+      "edges": [
+        {
+          "to": "maxim.information-theory.quantum-information.view",
+          "kind": "derived-from",
+          "label": "Literal PROOF source for guide view",
+          "metadata": {
+            "module": "information-theory",
+            "guide": "information-theory/08-QUANTUM-INFORMATION.md",
+            "custody": "partial"
+          }
+        }
+      ],
+      "format": {
+        "media_type": "text/markdown",
+        "encoding": "utf-8",
+        "compression": null,
+        "container": null,
+        "schema": "proof.source.literal_markdown.v1",
+        "record_shape": "literal-source",
+        "preferred_local": ".proof/backfill/sources/information-theory/proof-source/08-QUANTUM-INFORMATION.source.md"
+      },
+      "tags": [
+        "source-corpus",
+        "proof",
+        "source",
+        "partial-custody",
+        "guide"
+      ],
+      "metadata": {
+        "source_repo": "MAXIM",
+        "module": "information-theory",
+        "guide": "information-theory/08-QUANTUM-INFORMATION.md",
+        "publication_state": "partial-source-custody"
+      }
+    },
+    {
+      "id": "maxim.information-theory.quantum-information.tables",
+      "node_kind": "fletch",
+      "shafts": [
+        {
+          "kind": "file",
+          "url": ".proof/backfill/sources/information-theory/proof-source/08-QUANTUM-INFORMATION.tables.json"
+        }
+      ],
+      "edges": [
+        {
+          "to": "maxim.information-theory.quantum-information.proof-source",
+          "kind": "derived-from",
+          "label": "PROOF markdown table sidecar",
+          "metadata": {
+            "module": "information-theory",
+            "guide": "information-theory/08-QUANTUM-INFORMATION.md",
+            "custody": "partial"
+          }
+        }
+      ],
+      "format": {
+        "media_type": "application/json",
+        "encoding": "utf-8",
+        "compression": null,
+        "container": null,
+        "schema": "proof.backfill.tables.v1",
+        "record_shape": "table-sidecar",
+        "preferred_local": ".proof/backfill/sources/information-theory/proof-source/08-QUANTUM-INFORMATION.tables.json"
+      },
+      "tags": [
+        "source-corpus",
+        "proof",
+        "tables",
+        "partial-custody",
+        "guide"
+      ],
+      "metadata": {
+        "source_repo": "MAXIM",
+        "module": "information-theory",
+        "guide": "information-theory/08-QUANTUM-INFORMATION.md",
+        "publication_state": "partial-source-custody"
+      }
+    },
+    {
+      "id": "maxim.information-theory.quantum-information.blocks",
+      "node_kind": "fletch",
+      "shafts": [
+        {
+          "kind": "file",
+          "url": ".proof/backfill/sources/information-theory/proof-source/08-QUANTUM-INFORMATION.blocks.json"
+        }
+      ],
+      "edges": [
+        {
+          "to": "maxim.information-theory.quantum-information.proof-source",
+          "kind": "derived-from",
+          "label": "PROOF structured block sidecar",
+          "metadata": {
+            "module": "information-theory",
+            "guide": "information-theory/08-QUANTUM-INFORMATION.md",
+            "custody": "partial"
+          }
+        }
+      ],
+      "format": {
+        "media_type": "application/json",
+        "encoding": "utf-8",
+        "compression": null,
+        "container": null,
+        "schema": "proof.backfill.blocks.v1",
+        "record_shape": "structured-block-sidecar",
+        "preferred_local": ".proof/backfill/sources/information-theory/proof-source/08-QUANTUM-INFORMATION.blocks.json"
+      },
+      "tags": [
+        "source-corpus",
+        "proof",
+        "blocks",
+        "partial-custody",
+        "guide"
+      ],
+      "metadata": {
+        "source_repo": "MAXIM",
+        "module": "information-theory",
+        "guide": "information-theory/08-QUANTUM-INFORMATION.md",
+        "publication_state": "partial-source-custody"
+      }
+    },
+    {
+      "id": "maxim.information-theory.information-geometry.view",
+      "node_kind": "fletch",
+      "shafts": [
+        {
+          "kind": "file",
+          "url": ".crop/views/maxim-information-theory-information-geometry.json"
+        }
+      ],
+      "edges": [
+        {
+          "to": "maxim.information-theory.source-corpus.pebble",
+          "kind": "derived-from",
+          "label": "Guide-level CROP view recipe",
+          "metadata": {
+            "module": "information-theory",
+            "guide": "information-theory/09-INFORMATION-GEOMETRY.md",
+            "custody": "partial"
+          }
+        }
+      ],
+      "format": {
+        "media_type": "application/json",
+        "encoding": "utf-8",
+        "compression": null,
+        "container": null,
+        "schema": "crop.view.v1",
+        "record_shape": "view-recipe",
+        "preferred_local": ".crop/views/maxim-information-theory-information-geometry.json"
+      },
+      "tags": [
+        "source-corpus",
+        "crop",
+        "view",
+        "partial-custody",
+        "guide"
+      ],
+      "metadata": {
+        "source_repo": "MAXIM",
+        "module": "information-theory",
+        "guide": "information-theory/09-INFORMATION-GEOMETRY.md",
+        "publication_state": "partial-source-custody"
+      }
+    },
+    {
+      "id": "maxim.information-theory.information-geometry.pebble",
+      "node_kind": "fletch",
+      "shafts": [
+        {
+          "kind": "file",
+          "url": ".pebble/packs/maxim-information-theory-information-geometry.pebble.json"
+        }
+      ],
+      "edges": [
+        {
+          "to": "maxim.information-theory.information-geometry.view",
+          "kind": "derived-from",
+          "label": "Guide-level CROP view recipe",
+          "metadata": {
+            "module": "information-theory",
+            "custody": "partial"
+          }
+        },
+        {
+          "to": "maxim.information-theory.source-corpus.pebble",
+          "kind": "derived-from",
+          "label": "Guide-level CROP view",
+          "metadata": {
+            "view": ".crop/views/maxim-information-theory-information-geometry.json",
+            "module": "information-theory",
+            "custody": "partial"
+          }
+        }
+      ],
+      "format": {
+        "media_type": "application/json",
+        "encoding": "utf-8",
+        "compression": null,
+        "container": null,
+        "schema": "pebble.v1",
+        "record_shape": "corpus-slice",
+        "preferred_local": ".pebble/packs/maxim-information-theory-information-geometry.pebble.json"
+      },
+      "tags": [
+        "source-corpus",
+        "crop",
+        "pebble",
+        "partial-custody",
+        "guide"
+      ],
+      "metadata": {
+        "source_repo": "MAXIM",
+        "module": "information-theory",
+        "guide": "information-theory/09-INFORMATION-GEOMETRY.md",
+        "publication_state": "partial-source-custody"
+      }
+    },
+    {
+      "id": "maxim.information-theory.information-geometry.proof-source",
+      "node_kind": "fletch",
+      "shafts": [
+        {
+          "kind": "file",
+          "url": ".proof/backfill/sources/information-theory/proof-source/09-INFORMATION-GEOMETRY.source.md"
+        }
+      ],
+      "edges": [
+        {
+          "to": "maxim.information-theory.information-geometry.view",
+          "kind": "derived-from",
+          "label": "Literal PROOF source for guide view",
+          "metadata": {
+            "module": "information-theory",
+            "guide": "information-theory/09-INFORMATION-GEOMETRY.md",
+            "custody": "partial"
+          }
+        }
+      ],
+      "format": {
+        "media_type": "text/markdown",
+        "encoding": "utf-8",
+        "compression": null,
+        "container": null,
+        "schema": "proof.source.literal_markdown.v1",
+        "record_shape": "literal-source",
+        "preferred_local": ".proof/backfill/sources/information-theory/proof-source/09-INFORMATION-GEOMETRY.source.md"
+      },
+      "tags": [
+        "source-corpus",
+        "proof",
+        "source",
+        "partial-custody",
+        "guide"
+      ],
+      "metadata": {
+        "source_repo": "MAXIM",
+        "module": "information-theory",
+        "guide": "information-theory/09-INFORMATION-GEOMETRY.md",
+        "publication_state": "partial-source-custody"
+      }
+    },
+    {
+      "id": "maxim.information-theory.information-geometry.tables",
+      "node_kind": "fletch",
+      "shafts": [
+        {
+          "kind": "file",
+          "url": ".proof/backfill/sources/information-theory/proof-source/09-INFORMATION-GEOMETRY.tables.json"
+        }
+      ],
+      "edges": [
+        {
+          "to": "maxim.information-theory.information-geometry.proof-source",
+          "kind": "derived-from",
+          "label": "PROOF markdown table sidecar",
+          "metadata": {
+            "module": "information-theory",
+            "guide": "information-theory/09-INFORMATION-GEOMETRY.md",
+            "custody": "partial"
+          }
+        }
+      ],
+      "format": {
+        "media_type": "application/json",
+        "encoding": "utf-8",
+        "compression": null,
+        "container": null,
+        "schema": "proof.backfill.tables.v1",
+        "record_shape": "table-sidecar",
+        "preferred_local": ".proof/backfill/sources/information-theory/proof-source/09-INFORMATION-GEOMETRY.tables.json"
+      },
+      "tags": [
+        "source-corpus",
+        "proof",
+        "tables",
+        "partial-custody",
+        "guide"
+      ],
+      "metadata": {
+        "source_repo": "MAXIM",
+        "module": "information-theory",
+        "guide": "information-theory/09-INFORMATION-GEOMETRY.md",
+        "publication_state": "partial-source-custody"
+      }
+    },
+    {
+      "id": "maxim.information-theory.information-geometry.blocks",
+      "node_kind": "fletch",
+      "shafts": [
+        {
+          "kind": "file",
+          "url": ".proof/backfill/sources/information-theory/proof-source/09-INFORMATION-GEOMETRY.blocks.json"
+        }
+      ],
+      "edges": [
+        {
+          "to": "maxim.information-theory.information-geometry.proof-source",
+          "kind": "derived-from",
+          "label": "PROOF structured block sidecar",
+          "metadata": {
+            "module": "information-theory",
+            "guide": "information-theory/09-INFORMATION-GEOMETRY.md",
+            "custody": "partial"
+          }
+        }
+      ],
+      "format": {
+        "media_type": "application/json",
+        "encoding": "utf-8",
+        "compression": null,
+        "container": null,
+        "schema": "proof.backfill.blocks.v1",
+        "record_shape": "structured-block-sidecar",
+        "preferred_local": ".proof/backfill/sources/information-theory/proof-source/09-INFORMATION-GEOMETRY.blocks.json"
+      },
+      "tags": [
+        "source-corpus",
+        "proof",
+        "blocks",
+        "partial-custody",
+        "guide"
+      ],
+      "metadata": {
+        "source_repo": "MAXIM",
+        "module": "information-theory",
+        "guide": "information-theory/09-INFORMATION-GEOMETRY.md",
+        "publication_state": "partial-source-custody"
+      }
+    }
+  ]
+}

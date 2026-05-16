@@ -1,0 +1,50 @@
+{
+  "schema_version": "1",
+  "source_markdown": "information-theory\\09-INFORMATION-GEOMETRY.md",
+  "blocks": [
+    {
+      "id": "block-1",
+      "kind": "diagram_like",
+      "line": 24,
+      "heading_context": "## The Big Picture",
+      "confidence": "candidate",
+      "text": "THE GEOMETRIC STRUCTURE OF STATISTICS\n\nProbability distributions form a manifold.\nThe natural metric is the Fisher information matrix.\nThe natural \"straight lines\" are exponential families.\nThe natural notion of distance is KL divergence.\n\n┌───────────────────────────────────────────────────────────────────┐\n│  Statistical manifold M = {p(x;θ) : θ ∈ Θ ⊆ ℝᵈ}                   │\n│                                                                   │\n│  Tangent vector at θ = score function ∂_i log p(x;θ)              │\n│                                                                   │\n│  Riemannian metric = Fisher information: g_{ij}(θ) = I(θ)_{ij}    │\n│                                                                   │\n│  Two natural connections (not the Levi-Civita connection):        │\n│    e-connection (exponential):  α = +1                            │\n│    m-connection (mixture):      α = −1                            │\n│                                                                   │\n│  Exponential families are FLAT in both e and m coordinates        │\n│  → \"dually flat\" structure is the key geometric fact              │\n└───────────────────────────────────────────────────────────────────┘",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-2",
+      "kind": "diagram_like",
+      "line": 159,
+      "heading_context": "## 4. Pythagorean Theorem for KL Divergence",
+      "confidence": "candidate",
+      "text": "Let M be an e-flat submanifold (closed under exponential mixture).\nLet q* = argmin_{q ∈ M} KL(p‖q)  [e-projection of p onto M]\n\nPythagorean theorem:\n  KL(p‖r) = KL(p‖q*) + KL(q*‖r)    ∀r ∈ M\n\n  p\n  │╲\n  │  ╲  KL(p‖r)\n  │    ╲\n  q* ──── r      (q* is the \"right angle\" on M)\n  ∈ M\n\nAnalogously for m-flat M and m-projection:\n  KL(r‖q*) + KL(q*‖p) = KL(r‖p)    where q* = argmin_{q∈M} KL(q‖p)",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-3",
+      "kind": "diagram_like",
+      "line": 224,
+      "heading_context": "## 6. EM Algorithm as Alternating Projections",
+      "confidence": "candidate",
+      "text": "Complete data: (X, Z) where Z is latent\nObserved data: X\nParameter: θ ∈ Θ\n\nGeometric picture:\n  S = {p(x,z;θ) : θ ∈ Θ}     [model manifold, e-flat for exp families]\n  M = {r(x,z) : marginal_z r = p_observed(x)}   [data constraint, m-flat]\n\nE-step: m-projection of current model onto M\n  → q(x,z) = p(x,z;θ_old) updated to match observed marginal\n  Equivalently: q(z|x) = p(z|x;θ_old)  [posterior]\n\nM-step: e-projection of q back onto S\n  → θ_new = argmax_θ E_q[log p(x,z;θ)]   [maximize expected complete log-likelihood]\n\nPythagorean theorem ensures KL(target‖p_θ) decreases monotonically:\n  KL(p*‖p_{θ_new}) ≤ KL(p*‖p_{θ_old})\n\n┌─────────────────────────────────────────────────────────────────┐\n│  E-step = m-projection:  q ← best model matching observed data  │\n│  M-step = e-projection:  θ ← best exponential family at q       │\n│  Alternate projections converge to intersection point           │\n│  (if S ∩ M ≠ ∅) or to closest point on S to M                   │\n└─────────────────────────────────────────────────────────────────┘",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-4",
+      "kind": "diagram_like",
+      "line": 297,
+      "heading_context": "## 7. Optimal Transport and Wasserstein Geometry",
+      "confidence": "candidate",
+      "text": "W_ε(p,q) = min_{γ ∈ Π(p,q)} E_γ[c] + ε·KL(γ‖p⊗q)\n\nSinkhorn iterations (Bregman projections):\n  γ ← argmin_{γ' with row marginal p} KL(γ'‖γ)   [project onto row constraint]\n  γ ← argmin_{γ' with col marginal q} KL(γ'‖γ)   [project onto col constraint]\n\nConverges geometrically; ε→0 recovers Wasserstein distance\nO(n²/ε²) vs O(n³ log n) for exact OT — preferred in practice",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    }
+  ]
+}

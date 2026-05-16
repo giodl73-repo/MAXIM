@@ -1,0 +1,90 @@
+{
+  "schema_version": "1",
+  "source_markdown": "information-theory\\06-NETWORK-INFORMATION-THEORY.md",
+  "tables": [
+    {
+      "id": "table-1",
+      "line": 205,
+      "heading_context": "## 4. Interference Channel",
+      "headers": [
+        "Regime",
+        "Condition",
+        "Capacity",
+        "Strategy"
+      ],
+      "rows": [
+        [
+          "Strong IC",
+          "Each RX decodes both TXs",
+          "C = MAC capacity (ignore interference)",
+          "Treat as MAC, decode both"
+        ],
+        [
+          "Very strong IC",
+          "I(X₁;Y₁\\|X₂) ≥ I(X₁;Y₂) etc.",
+          "Full single-user rates",
+          "Each pair ignores interference"
+        ],
+        [
+          "Weak IC",
+          "Interference is negligible",
+          "Treat as two independent channels",
+          "Treat interference as noise (TIN)"
+        ],
+        [
+          "Z-channel",
+          "One-sided interference",
+          "Known (El Gamal-Costa)",
+          "Precoding"
+        ]
+      ]
+    },
+    {
+      "id": "table-2",
+      "line": 323,
+      "heading_context": "## Decision Cheat Sheet",
+      "headers": [
+        "If you need to diagnose...",
+        "Start With",
+        "Key Caveat"
+      ],
+      "rows": [
+        [
+          "Whether several uplink users share a receiver",
+          "Multiple-access channel",
+          "SIC-achievable pentagons assume receiver coordination and code design"
+        ],
+        [
+          "Whether one transmitter serves many receivers",
+          "Broadcast channel",
+          "Dirty-paper capacity is powerful but model-specific"
+        ],
+        [
+          "Whether two users interfere symmetrically",
+          "Interference channel",
+          "General capacity is open; Han-Kobayashi is approximate"
+        ],
+        [
+          "Whether a relay should decode or compress",
+          "Relay channel",
+          "Decode-forward needs relay decodability; compress-forward needs side information"
+        ],
+        [
+          "Whether antennas create parallel channels",
+          "MIMO SVD and waterfilling",
+          "CSI and hardware constraints control the gain"
+        ],
+        [
+          "Whether multicast can exploit coding inside the network",
+          "Network coding on a DAG",
+          "Max-flow/min-cut statements need idealized network models"
+        ],
+        [
+          "Whether a rate-limited relay should quantize observations",
+          "Wyner-Ziv / compress-forward",
+          "Compression quality depends on decoder side information"
+        ]
+      ]
+    }
+  ]
+}

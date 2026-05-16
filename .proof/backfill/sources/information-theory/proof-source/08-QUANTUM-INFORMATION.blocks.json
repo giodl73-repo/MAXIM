@@ -1,0 +1,72 @@
+{
+  "schema_version": "1",
+  "source_markdown": "information-theory\\08-QUANTUM-INFORMATION.md",
+  "blocks": [
+    {
+      "id": "block-1",
+      "kind": "diagram_like",
+      "line": 24,
+      "heading_context": "## The Big Picture",
+      "confidence": "candidate",
+      "text": "QUANTUM VS CLASSICAL INFORMATION\n\nClassical bit:       0 or 1  (definite state)\nQubit:               α|0⟩ + β|1⟩,  |α|² + |β|² = 1  (superposition)\n\nClassical channel:   p(y|x) — probability of output given input\nQuantum channel:     ε(ρ) — completely positive trace-preserving (CPTP) map on density matrix\n\nClassical entropy:   H(X) = -Σ p(x) log p(x)\nVon Neumann entropy: S(ρ) = -Tr(ρ log ρ)\n\n┌─────────────────────────────────────────────────────────────────────┐\n│  Density matrix ρ:                                                  │\n│    Pure state:  ρ = |ψ⟩⟨ψ|,   ρ² = ρ,   Tr(ρ²) = 1                  │\n│    Mixed state: ρ = Σᵢ pᵢ|ψᵢ⟩⟨ψᵢ|,  ρ² ≠ ρ,  Tr(ρ²) < 1             │\n│    Maximally mixed: ρ = I/d  (S = log d,  maximum entropy)          │\n│                                                                     │\n│  Eigendecomposition: ρ = Σᵢ λᵢ|eᵢ⟩⟨eᵢ|,  λᵢ ≥ 0,  Σ λᵢ = 1          │\n│  Von Neumann entropy: S(ρ) = -Σᵢ λᵢ log λᵢ   [0 ≤ S ≤ log d]        │\n└─────────────────────────────────────────────────────────────────────┘",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-2",
+      "kind": "diagram_like",
+      "line": 51,
+      "heading_context": "## 1. Von Neumann Entropy",
+      "confidence": "candidate",
+      "text": "S(ρ) = -Tr(ρ log ρ) = H({λᵢ})   [Shannon entropy of eigenvalues]\n\nKey values:\n  Pure state  |ψ⟩⟨ψ|:    eigenvalues {1,0,...,0} → S = 0\n  Qubit ρ = I/2:          eigenvalues {½,½}      → S = 1\n  d-dimensional I/d:      eigenvalues {1/d,...}  → S = log d",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-3",
+      "kind": "diagram_like",
+      "line": 110,
+      "heading_context": "## 3. Entanglement Entropy",
+      "confidence": "candidate",
+      "text": "Schmidt decomposition: |ψ⟩ = Σᵢ √λᵢ |aᵢ⟩|bᵢ⟩\n\nEntanglement entropy: E(ψ) = S(ρ_A) = S(ρ_B) = H({λᵢ})\n\n  λᵢ: Schmidt coefficients (eigenvalues of reduced density matrix ρ_A)\n\n  Product state |ψ⟩ = |a⟩⊗|b⟩:     λ = {1,0,...}  → E = 0\n  Bell state (|00⟩+|11⟩)/√2:         λ = {½,½}     → E = 1 ebit\n  Maximally entangled d×d:            λ = {1/d,...} → E = log d ebits",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-4",
+      "kind": "diagram_like",
+      "line": 138,
+      "heading_context": "## 4. Quantum Channel Capacities",
+      "confidence": "candidate",
+      "text": "┌─────────────────────────────────────────────────────────────────────┐\n│  Classical capacity C:  max bits/channel use                        │\n│    Holevo bound (single use): χ = S(Σᵢ pᵢ ε(ρᵢ)) - Σᵢ pᵢ S(ε(ρᵢ))   │\n│    HSW theorem: C = lim_{n→∞} χ(ε^{⊗n})/n                           │\n│    Superadditivity: χ(ε⊗ε) may exceed 2χ(ε) for some channels       │\n│                                                                     │\n│  Quantum capacity Q:  max qubits/channel use                        │\n│    Coherent information: Ic(ρ,ε) = S(ε(ρ)) - S((id⊗ε)(|φ⟩⟨φ|))      │\n│      where |φ⟩ is purification of ρ in reference system             │\n│    LSD theorem: Q = lim_{n→∞} max_ρ Ic(ρ,ε^{⊗n})/n                  │\n│    Superadditivity: Q > single-use coherent info for some channels  │\n│                                                                     │\n│  Entanglement-assisted capacity C_E:                                │\n│    C_E = max_{ρ} I(A:B) = max_{ρ} [S(ρ) + Ic(ρ,ε)]                  │\n│    No superadditivity: single-letter formula suffices               │\n│    C_E ≥ C, Q  (pre-shared entanglement only helps)                 │\n└─────────────────────────────────────────────────────────────────────┘",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-5",
+      "kind": "diagram_like",
+      "line": 206,
+      "heading_context": "## 6. Holographic Principle and Ryu-Takayanagi Formula",
+      "confidence": "candidate",
+      "text": "Anti-de Sitter / Conformal Field Theory correspondence (Maldacena 1997):\n\n  CFT on boundary  ←→  gravity in bulk AdS space\n\n  ┌─────────────────────────────────────────────────────────┐\n  │     Bulk (AdS)                                          │\n  │        ·    ·                                           │\n  │      ·        ·                                         │\n  │     ·  γ_A ·   ·     γ_A = minimal surface              │\n  │     ·   ╔══╗   ·            anchored to ∂A              │\n  │     ·   ╚══╝   ·                                        │\n  │      ·        ·                                         │\n  │        ·    ·                                           │\n  │  A ═══════════════ Ā   (boundary CFT split)             │\n  └─────────────────────────────────────────────────────────┘\n\n  Ryu-Takayanagi formula (2006):\n    S(ρ_A) = Area(γ_A) / (4G_N)\n\n  Entanglement entropy of boundary region A =\n  Area of minimal bulk surface homologous to A,\n  measured in Planck units",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-6",
+      "kind": "diagram_like",
+      "line": 252,
+      "heading_context": "## 7. Quantum Data Compression",
+      "confidence": "candidate",
+      "text": "Quantum typical subspace: span of typical eigenstates of ρ^{⊗n}\n  Dimension ≈ 2^{nS(ρ)}\n\nSchumacher's theorem:\n  Rate S(ρ) qubits/symbol is achievable and necessary for faithful compression\n\n  Compress: project onto typical subspace (dim 2^{nS(ρ)})\n  Decompress: embed back in original Hilbert space\n\nFidelity: F(ρ^{⊗n}, decompress(compress(ρ^{⊗n}))) → 1\n  as n → ∞ for rate > S(ρ)",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    }
+  ]
+}

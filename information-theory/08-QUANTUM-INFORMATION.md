@@ -1,3 +1,22 @@
+---
+maxim_schema: maxim.frontmatter.v1
+id: maxim:information-theory:quantum-information
+kind: guide
+module: information-theory
+section: information-theory
+title: Quantum Information Theory
+status: source-custody
+source_custody: partial
+current_path: information-theory/08-QUANTUM-INFORMATION.md
+canonical_path: information-theory/08-QUANTUM-INFORMATION.md
+backsource_ids: [proof-backfill:information-theory:08-quantum-information, git-history:information-theory:08-quantum-information]
+concepts: [quantum, information]
+root_concepts: [quantum, information]
+index_roles: [guide, root-concept]
+remap_from: []
+remap_to: []
+updated: null
+---
 # Quantum Information Theory
 
 ## The Big Picture

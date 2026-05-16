@@ -1,0 +1,149 @@
+{
+  "schema_version": "1",
+  "source_markdown": "information-theory\\04-ML-CRYPTOGRAPHY-BRIDGE.md",
+  "blocks": [
+    {
+      "id": "block-1",
+      "kind": "diagram_like",
+      "line": 26,
+      "heading_context": "## The Big Picture",
+      "confidence": "candidate",
+      "text": "INFORMATION THEORY\n        │\n        ├──→ MACHINE LEARNING\n        │    Cross-entropy loss = negative log-likelihood = expected code length\n        │    KL divergence = training objective (VAE, RNVP, EM)\n        │    Mutual information = feature relevance, IB principle\n        │    MDL = model selection criterion\n        │\n        ├──→ CRYPTOGRAPHY\n        │    Perfect secrecy = H(key) ≥ H(plaintext) (Shannon 1949)\n        │    Computational secrecy = poly-time distinguishability\n        │    Entropy as randomness source (key generation, IV)\n        │    AES: Shannon's confusion+diffusion, modern standard\n        │\n        └──→ QUANTUM INFORMATION\n             von Neumann entropy S(ρ) = -Tr(ρ log ρ)\n             Holevo bound: I(X;Y_quantum) ≤ S(ρ) − Σ pᵢ S(ρᵢ)\n             Quantum channel capacity, quantum error correction\n             BB84 key distribution: information-theoretically secure",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-2",
+      "kind": "diagram_like",
+      "line": 54,
+      "heading_context": "### Cross-Entropy Loss = Optimal Code Length",
+      "confidence": "candidate",
+      "text": "MODEL: q_θ(y|x) = neural network output (softmax probabilities)\nTRUE DIST: p(y|x)\n\nCROSS-ENTROPY LOSS:\n  L(θ) = E_{(x,y)~data} [-log q_θ(y|x)]\n        = H(p, q_θ) = H(p) + KL(p||q_θ)\n\nINTERPRETATION:\n  H(p): irreducible entropy of true distribution (cannot optimize)\n  KL(p||q_θ): extra bits from using model q instead of true p\n  → Minimizing cross-entropy = minimizing KL(p||q_θ) = MLE!\n\n  Optimal code: assign -log q_θ(y|x) bits to label y → Huffman-optimal\n  Neural network training = finding optimal compressor for labels given inputs\n\nCATEGORICAL CROSS-ENTROPY (classification):\n  L = -Σ_c y_c log q_c   (y = one-hot, q = softmax outputs)\n  = -log q_{true class}   (just the log prob of correct class)\n\nBINARY CROSS-ENTROPY:\n  L = -y log q - (1-y) log(1-q)   (y ∈ {0,1})\n  = h(y,q) = binary cross-entropy",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-3",
+      "kind": "diagram_like",
+      "line": 81,
+      "heading_context": "### KL Divergence in Generative Models",
+      "confidence": "candidate",
+      "text": "MAXIMUM LIKELIHOOD:\n  max_{θ} E[log p_θ(x)] = min_{θ} KL(p_data || p_θ)   (forward KL)\n  → mode-averaging: p_θ spreads to cover all modes of p_data\n\nVARIATIONAL INFERENCE (VI):\n  Want: p(z|x) = p(x|z)p(z)/p(x)   (intractable posterior)\n  Approximate: q_φ(z|x) ≈ p(z|x)\n  Minimize: KL(q_φ(z|x) || p(z|x)) → maximize ELBO\n\nELBO (Evidence Lower BOund):\n  log p(x) ≥ E_q[log p(x|z)] - KL(q_φ(z|x) || p(z))\n               └──────────────┘   └───────────────────┘\n               Reconstruction        Regularization\n               (accuracy)            (complexity)\n\nVAE (Variational Autoencoder, Kingma & Welling 2014):\n  Encoder: q_φ(z|x) = N(μ_φ(x), σ_φ(x)²)  (amortized inference)\n  Decoder: p_θ(x|z)\n  Loss: reconstruction + KL to N(0,I)\n  KL = ½ Σ (μ² + σ² - log σ² - 1)  (Gaussian-Gaussian KL, closed form)\n  Reparameterization: z = μ + σ·ε, ε~N(0,I) → differentiable sampling",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-4",
+      "kind": "diagram_like",
+      "line": 107,
+      "heading_context": "### Mutual Information in ML",
+      "confidence": "candidate",
+      "text": "FEATURE SELECTION:\n  Select features X₁,...,Xk that maximize I(X₁...Xk ; Y)\n  mRMR (max Relevance Min Redundancy):\n    Score(Xᵢ) = I(Xᵢ;Y) - (1/|S|)Σ_{Xⱼ∈S} I(Xᵢ;Xⱼ)\n\nINFORMATION BOTTLENECK (IB, Tishby et al. 1999):\n  Find compressed representation T of X that maximizes I(T;Y) while minimizing I(T;X)\n  max I(T;Y) - β I(T;X)\n  β controls compression vs accuracy tradeoff\n  Deep network layers as information bottleneck (Tishby & Schwartz-Ziv 2017):\n    Claim: early layers = representation, later = compression toward labels\n    Controversy: result depends on activation function, not universally accepted\n\nCONTRASTIVE LEARNING (SimCLR, MoCo):\n  InfoNCE loss ≈ lower bound on mutual information I(z₁;z₂) between views\n  L_InfoNCE = -log [exp(z₁·z₂/τ) / Σⱼ exp(z₁·zⱼ/τ)]\n  = -I(z₁;z₂) + log(N)   (N = batch size, positive pair vs negatives)\n  Training: maximize MI between augmented views → learn invariant representations",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-5",
+      "kind": "diagram_like",
+      "line": 130,
+      "heading_context": "### Minimum Description Length (MDL)",
+      "confidence": "candidate",
+      "text": "MDL PRINCIPLE: Best model = one that compresses data most\n  MDL(M, D) = L(M) + L(D|M)   [total description length in bits]\n  = |model| + |data given model|\n\nTWO-PART MDL: encode model + encode residuals with model\n  Optimal model minimizes sum → Occam's razor formalized\n\nRELATION TO BIC:\n  MDL ≈ -log L(θ̂) + (p/2) log n   (for smooth models, p parameters)\n  BIC = -2 log L(θ̂) + p log n\n  → MDL = BIC/2 + const: same model selection criterion\n\nNORMALIZED MAXIMUM LIKELIHOOD (NML):\n  \"Ideal\" MDL: encode x as -log[p(x|θ̂(x)) / Σ_{x'} p(x'|θ̂(x'))]\n  Minimax regret: NML minimizes worst-case regret over all sequences\n  COMP (complexity of model class): -log Z_n where Z_n = normalizing constant\n\nSTOCHASTIC COMPLEXITY (Rissanen):\n  MDL unifies model selection, compression, and Bayesian inference\n  MDL ≈ MAP with Jeffrey's prior for regular models",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-6",
+      "kind": "chart_like",
+      "line": 157,
+      "heading_context": "## Information Theory → Cryptography",
+      "confidence": "candidate",
+      "text": "### Shannon's Perfect Secrecy (1949)",
+      "notes": [
+        "detected from bar/chart glyph density with numeric labels"
+      ]
+    },
+    {
+      "id": "block-7",
+      "kind": "diagram_like",
+      "line": 159,
+      "heading_context": "### Shannon's Perfect Secrecy (1949)",
+      "confidence": "candidate",
+      "text": "SYSTEM: plaintext M, key K, ciphertext C = E_K(M)\n\nPERFECT SECRECY: I(M;C) = 0  (ciphertext reveals nothing about plaintext)\n  Equivalent: p(M=m | C=c) = p(M=m) for all m, c\n\nTHEOREM (Shannon): Perfect secrecy requires H(K) ≥ H(M)\n  Proof: H(M|C) = H(M) (perfect secrecy)\n         H(K) ≥ H(M|C) = H(M)  (key uniquely determines plaintext from ciphertext)\n\nONE-TIME PAD: K = uniform random bits, C = M ⊕ K\n  • Perfect secrecy (I(M;C) = 0): proved by Shannon\n  • Key must be: (1) truly random, (2) as long as M, (3) never reused\n  • Two-time pad attack: C₁⊕C₂ = M₁⊕M₂ → statistical attacks break both messages\n\nCOMPUTATIONAL SECRECY: relax to \"polynomial-time indistinguishable\"\n  PRF (pseudo-random function): computationally indistinguishable from random\n  Semantic security: I(M;C) not exactly 0, but no poly-time adversary can distinguish\n  → AES-256 is computationally secure (no known attack better than brute force)",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-8",
+      "kind": "diagram_like",
+      "line": 182,
+      "heading_context": "### Entropy in Cryptographic Systems",
+      "confidence": "candidate",
+      "text": "KEY GENERATION: keys must have sufficient entropy\n  AES-256: requires 256 bits of TRUE entropy from OS random source\n  CSPRNG (cryptographically secure PRNG): /dev/urandom, CryptGenRandom\n  Entropy sources: hardware interrupts, thermal noise, quantum noise (QRNG)\n\nENTROPY STARVATION: Low-entropy keys → catastrophic\n  Debian OpenSSL bug (2008): removed entropy seeding code → only 32K possible keys\n  Predictable IVs: Android Bitcoin wallets (2013) → reused k in ECDSA → private key leaked\n  Low-entropy nonces in NIST Dual EC DRBG: suspected NSA backdoor\n\nDIFFERENTIAL ENTROPY and SECURITY:\n  Uniform key K over {0,1}^n: H(K) = n bits → maximum entropy\n  Password entropy: H(\"password\") ≈ 20 bits (not 64 despite 8 chars)\n  → Entropy estimate requires proper character distribution model\n\nHASH FUNCTIONS and ENTROPY:\n  SHA-256: 256-bit output → collision resistance: 2^128 operations (birthday)\n  Preimage resistance: 2^256 operations\n  Entropy compression: SHA-256(x) has at most H(x) bits of entropy (data processing)\n  → Hash cannot create entropy, only transform/mix it",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-9",
+      "kind": "diagram_like",
+      "line": 207,
+      "heading_context": "### Confusion and Diffusion (Shannon)",
+      "confidence": "candidate",
+      "text": "Two design principles for block ciphers (Shannon 1949):\n\nCONFUSION: Each ciphertext bit depends complexly on several key bits\n  Implementation: non-linear S-boxes\n  AES S-box: x → x^{-1} in GF(2^8) + affine transformation\n             8-bit input → 8-bit output, nonlinear, no fixed points, no opposite fixed points\n\nDIFFUSION: Each plaintext bit affects many ciphertext bits\n  Implementation: permutation + mixing operations\n  AES MixColumns: each output byte = linear combination of 4 input bytes over GF(2^8)\n  AES ShiftRows: permute bytes across columns\n\nAES-128 ROUND FUNCTION:\n  AddRoundKey → SubBytes (S-box, confusion) → ShiftRows (diffusion) → MixColumns (diffusion)\n  × 10 rounds\n  Avalanche effect: 1 bit change → ~50% of output bits change (Shannon diffusion achieved)",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-10",
+      "kind": "diagram_like",
+      "line": 253,
+      "heading_context": "### Holevo Bound",
+      "confidence": "candidate",
+      "text": "QUESTION: How much classical information in n qubits?\n\nSUPERDENSE CODING: Alice and Bob share 1 EPR pair (2 qubits entangled)\n  Alice sends 1 qubit → Bob receives 2 classical bits\n  → 1 qubit + 1 ebit (entanglement) = 2 classical bits\n\nHOLEVO BOUND: Without entanglement, n qubits can convey at most n classical bits\n  χ(ε) = S(Σᵢ pᵢ ρᵢ) - Σᵢ pᵢ S(ρᵢ)   (Holevo χ quantity)\n  I(X;Y) ≤ χ(ε)   (classical info from quantum ensemble)\n\nQUANTUM CHANNEL CAPACITY:\n  C₁ = max χ(ε)   (classical capacity)\n  Q = coherent information   (quantum capacity)\n  EA-C = max [I(X;Y)] with entanglement-assisted = log d (full entanglement)",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-11",
+      "kind": "chart_like",
+      "line": 270,
+      "heading_context": "### Holevo Bound",
+      "confidence": "candidate",
+      "text": "### BB84 Quantum Key Distribution",
+      "notes": [
+        "detected from bar/chart glyph density with numeric labels"
+      ]
+    },
+    {
+      "id": "block-12",
+      "kind": "diagram_like",
+      "line": 272,
+      "heading_context": "### BB84 Quantum Key Distribution",
+      "confidence": "candidate",
+      "text": "PROTOCOL (Bennett & Brassard 1984):\n\n1. Alice sends qubits in one of 4 states: {|0⟩, |1⟩, |+⟩, |−⟩}\n   Two bases: Z-basis {|0⟩,|1⟩} and X-basis {|+⟩,|−⟩}\n\n2. Bob measures each qubit in random Z or X basis\n\n3. Sieve: Alice and Bob compare bases (public) → keep bits where bases match\n   → Raw key: 50% of original bits (random basis agreement)\n\n4. Error correction + privacy amplification\n   → Final key: H_∞(K|Eve) bits long\n\nSECURITY:\n  No-cloning theorem: Eve cannot copy quantum states → any measurement disturbs state\n  Error rate threshold: if QBER > 11%: abort (eavesdropping detected)\n  Information-theoretic security: based on quantum mechanics laws, not computational hardness\n  → Secure against quantum computers!\n\nKEY RATE: r ≥ 1 - 2h(e)  where e = quantum bit error rate (QBER)\n  At e=0.05: r ≥ 1 - 2×0.286 = 0.43 bits per sieved bit\n\nPRACTICAL DEPLOYMENTS:\n  ID Quantique, Toshiba: fiber-based QKD\n  Chinese Micius satellite (2016): intercontinental QKD over 4600 km\n  Limitations: distance (~100 km without quantum repeater), cost, complexity",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-13",
+      "kind": "diagram_like",
+      "line": 303,
+      "heading_context": "### Quantum Error Correction",
+      "confidence": "candidate",
+      "text": "PROBLEM: Quantum states are fragile (decoherence, noise)\n  Cannot clone: no backup copies (no-cloning theorem)\n  Continuous errors: bit flip, phase flip, both, arbitrary rotation\n\nSOLUTION: Encode logical qubit into multiple physical qubits\n\nSHOR CODE (1995): [[9,1,3]] code\n  Encodes 1 logical qubit into 9 physical qubits\n  Protects against arbitrary single-qubit errors (bit flip + phase flip)\n  First quantum error-correcting code\n\nSTABILIZER CODES (CSS framework):\n  Calderbank-Shor-Steane codes\n  Encode k logical qubits into n physical qubits\n  Error detection: measure stabilizer generators (commuting Pauli operators)\n  → Syndrome tells you error without measuring logical state\n\nSURFACE CODE (topological):\n  Arranges qubits in 2D grid, local parity checks\n  Threshold: ~1% physical error rate → scales to fault-tolerant quantum computing\n  Most promising path to large-scale QC (Google Sycamore, IBM Heron)\n  Overhead: ~1000 physical qubits per logical qubit at threshold → enormous cost",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    }
+  ]
+}

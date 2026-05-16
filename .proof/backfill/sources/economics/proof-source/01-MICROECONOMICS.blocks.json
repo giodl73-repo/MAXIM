@@ -1,0 +1,160 @@
+{
+  "schema_version": "1",
+  "source_markdown": "economics\\01-MICROECONOMICS.md",
+  "blocks": [
+    {
+      "id": "block-1",
+      "kind": "diagram_like",
+      "line": 26,
+      "heading_context": "## Big Picture",
+      "confidence": "candidate",
+      "text": "AGENTS:\n\nCONSUMERS                      FIRMS\nmaximize U(x₁,x₂)             maximize π = Revenue - Cost\nsubject to p₁x₁+p₂x₂ ≤ W     choose Q to maximize profit\n\n      │                              │\n      ▼                              ▼\n  DEMAND CURVE                 SUPPLY CURVE\n  x*(p₁,p₂,W)                 Q*(p, costs)\n\n                  ↘       ↙\n                MARKET EQUILIBRIUM\n                Supply = Demand\n                    │\n                    ▼\n              PRICES AND QUANTITIES\n              Resource allocation",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-2",
+      "kind": "diagram_like",
+      "line": 53,
+      "heading_context": "### Preferences and Utility",
+      "confidence": "candidate",
+      "text": "PREFERENCE RELATION ≻ on bundle space X:\n  x ≻ y: x strictly preferred to y\n  x ~ y: indifferent\n  x ≽ y: at least as good\n\nAXIOMS (for \"rational\" preferences):\n  Completeness: x ≽ y OR y ≽ x (can always compare)\n  Transitivity: x ≽ y, y ≽ z → x ≽ z\n  Continuity: {x: x ≽ y} is closed (technical)\n  Monotonicity: more is better (≥ x component-wise → ≽)\n  Convexity: mixtures preferred to extremes (convex indifference curves)\n\nUTILITY FUNCTION: u: X → R representing ≽\n  u(x) ≥ u(y) iff x ≽ y\n  Exists under completeness + transitivity + continuity\n\nORDINAL: only ordering matters, not magnitude\n  u and f(u) for any strictly increasing f represent same preferences\n  → Cannot compare utility across people (interpersonal comparisons require cardinal utility)",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-3",
+      "kind": "diagram_like",
+      "line": 97,
+      "heading_context": "### Common Utility Functions",
+      "confidence": "candidate",
+      "text": "COBB-DOUGLAS: u = x₁^α x₂^β  (α+β=1 WLOG)\n  MRS = (αx₂)/(βx₁)\n  Demand: x₁* = αW/p₁,  x₂* = βW/p₂\n  Spends fixed fractions α, β of income on each good\n  Price elasticity: -1 (unit elastic)\n\nPERFECT SUBSTITUTES: u = x₁ + x₂\n  MRS = 1 → buy only cheaper good\n\nPERFECT COMPLEMENTS: u = min(x₁, x₂)\n  Always consume in fixed ratio → L-shaped indifference curves\n  Demand: x₁* = x₂* = W/(p₁+p₂)\n\nQUASI-LINEAR: u = v(x₁) + x₂ (x₂ = numeraire)\n  No income effect on x₁: x₁*(p₁) doesn't depend on W\n  Useful in theory: allows welfare analysis without distributional concerns\n\nCES (Constant Elasticity of Substitution):\n  u = [x₁^ρ + x₂^ρ]^{1/ρ}\n  Elasticity of substitution: σ = 1/(1-ρ)\n  ρ→1: perfect substitutes; ρ→-∞: perfect complements; ρ→0: Cobb-Douglas",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-4",
+      "kind": "diagram_like",
+      "line": 123,
+      "heading_context": "### Demand and Elasticity",
+      "confidence": "candidate",
+      "text": "OWN-PRICE ELASTICITY:\n  ε = (∂x/∂p) × (p/x)   (always ≤ 0 for normal goods)\n  |ε| > 1: elastic (demand very responsive to price)\n  |ε| < 1: inelastic (demand not responsive)\n  |ε| = 1: unit elastic\n\nINCOME ELASTICITY:\n  η = (∂x/∂W) × (W/x)\n  η > 0: normal good (demand increases with income)\n  η > 1: luxury good\n  η < 0: inferior good (demand decreases with income; e.g., cheap food)\n\nCROSS-PRICE ELASTICITY:\n  ε₁₂ = (∂x₁/∂p₂) × (p₂/x₁)\n  ε₁₂ > 0: substitutes (higher p₂ → more x₁)\n  ε₁₂ < 0: complements (higher p₂ → less x₁)\n\nSLUTSKY EQUATION:\n  ∂x/∂p = (∂h/∂p)|_{utility} - x × ∂x/∂W\n  Total price effect = Substitution effect (move along IC) + Income effect\n\nGIFFEN GOOD: ε > 0 (demand increases with price!)\n  Requires strongly inferior good (income effect > substitution effect)\n  Irish potato famine example: potatoes so inferior that price rise → eat more potatoes",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-5",
+      "kind": "diagram_like",
+      "line": 156,
+      "heading_context": "### Production Function",
+      "confidence": "candidate",
+      "text": "f(K, L) = output (given capital K and labor L)\n\nRETURNS TO SCALE:\n  f(tK, tL) = t·f(K,L): constant returns (CRTS)\n  f(tK, tL) > t·f(K,L): increasing returns (IRS) → natural monopoly\n  f(tK, tL) < t·f(K,L): decreasing returns (DRS) → diseconomies of scale\n\nMARGINAL PRODUCT: MP_K = ∂f/∂K, MP_L = ∂f/∂L\nMARGINAL RATE OF TECHNICAL SUBSTITUTION: MRTS = MP_L/MP_K\n  = slope of isoquant = rate at which K substitutes for L to keep output constant\n\nCOBB-DOUGLAS: f = K^α L^{1-α}\n  MP_K = αK^{α-1}L^{1-α} = α(f/K)   (∝ average product)\n  MRTS = [(1-α)/α] × (K/L)\n  Returns: α+(1-α) = 1 → CRTS",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-6",
+      "kind": "diagram_like",
+      "line": 176,
+      "heading_context": "### Cost Minimization",
+      "confidence": "candidate",
+      "text": "MIN w_K K + w_L L   subject to f(K,L) = Q\n\nFOC: MP_L/w_L = MP_K/w_K   (MRTS = factor price ratio)\n\nCOST FUNCTION: C(Q, w_K, w_L) = min cost to produce Q\n\nMARGINAL COST: MC = ∂C/∂Q\nAVERAGE COST: AC = C/Q\nAVERAGE VARIABLE COST: AVC = VC/Q (exclude fixed cost)\n\nCOST CURVES:\n  U-shaped AC: Initially falls (fixed cost spread over Q), then rises (diminishing MP)\n  MC intersects AC at AC minimum\n  Short run: capital fixed → diminishing returns → MC rises\n  Long run: all inputs variable → constant or decreasing AC possible",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-7",
+      "kind": "diagram_like",
+      "line": 218,
+      "heading_context": "### Competitive Equilibrium",
+      "confidence": "candidate",
+      "text": "SUPPLY: Q_S = S(p)  (upward sloping: higher p → more production)\nDEMAND: Q_D = D(p)  (downward sloping: higher p → less consumption)\nEQUILIBRIUM: Q_S = Q_D at price p*\n\nFIRST WELFARE THEOREM:\n  Competitive equilibrium is Pareto efficient\n  (cannot make anyone better off without making someone worse off)\n  Conditions needed: no externalities, no market power, complete markets, full information\n\nSECOND WELFARE THEOREM:\n  Any Pareto efficient allocation can be achieved by competitive equilibrium\n  with appropriate lump-sum transfers (redistribute endowments, let market allocate)\n  → Efficiency and distribution can be separated in principle (not in practice)",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-8",
+      "kind": "diagram_like",
+      "line": 236,
+      "heading_context": "### Welfare Measures",
+      "confidence": "candidate",
+      "text": "CONSUMER SURPLUS: CS = ∫₀^{Q*} [D(Q) - p*] dQ = area under demand, above price\n\nPRODUCER SURPLUS: PS = ∫₀^{Q*} [p* - S(Q)] dQ = area above supply, below price\n\nTOTAL SURPLUS (SOCIAL WELFARE): W = CS + PS\n\nDEADWEIGHT LOSS: W_max - W(policy) = efficiency loss from distortions\n\nTAX INCIDENCE:\n  Per-unit tax t → shifts supply up by t → new equilibrium\n  Price buyers pay: p_b = p* + t × E_S/(E_S + |E_D|)\n  Price sellers receive: p_s = p* - t × |E_D|/(E_S + |E_D|)\n  Incidence borne by side with less elastic demand/supply\n  (Inelastic side cannot avoid the tax by changing quantity)",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-9",
+      "kind": "ascii_table_candidate",
+      "line": 259,
+      "heading_context": "### Monopoly",
+      "confidence": "candidate",
+      "text": "MONOPOLIST: price-setter → MR < p (must lower price on all units to sell more)\n\nMR = p + Q × (dp/dQ) = p[1 + 1/ε]   (ε = own-price elasticity, negative)\n\nProfit max: MR = MC → p[1 + 1/ε] = MC\n\nLERNER INDEX: (p - MC)/p = -1/ε = 1/|ε|\n  Measures markup over marginal cost\n  L = 0: competitive; L > 0: market power\n\nDEADWEIGHT LOSS: Monopolist restricts output below competitive Q*\n  → Rectangle of lost surplus (buyer's willingness > MC but no trade)\n\nPRICE DISCRIMINATION:\n  1st degree: charge each customer their WTP → zero CS, no DWL (perfect info required)\n  2nd degree: quantity discounts, versioning → partial discrimination (self-selection)\n  3rd degree: different prices for different groups (students, seniors, geography)\n              → increases output to low-value groups, reduces to high-value; may increase welfare",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-10",
+      "kind": "diagram_like",
+      "line": 282,
+      "heading_context": "### Network Effects and Platforms",
+      "confidence": "candidate",
+      "text": "TWO-SIDED MARKETS (Rochet-Tirole):\n  Platform serves two groups (buyers and sellers, drivers and riders)\n  Externality: each side benefits from size of other side\n  Pricing: may subsidize one side heavily (charge the other side)\n  Chicken-and-egg: need both sides simultaneously → first-mover advantage\n\nNETWORK EFFECTS:\n  Direct: more users of same product = more valuable (fax machines, phones)\n  Indirect: more sellers → cheaper → more buyers → more sellers (platforms)\n\nWINNER-TAKE-ALL: Network effects + economies of scale → concentrated markets\n  Switching costs: multi-homing reduces lock-in\n  Antitrust tension: scale necessary for efficiency but creates monopoly power",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-11",
+      "kind": "diagram_like",
+      "line": 304,
+      "heading_context": "### Adverse Selection",
+      "confidence": "candidate",
+      "text": "AKERLOF \"MARKET FOR LEMONS\" (1970, Nobel 2001):\n\nSetup: Used cars of quality q ~ Uniform[0,1]\n  Seller knows q; buyer doesn't → buyer pays expected value\n  Seller only sells if price ≥ q (opportunity cost)\n\nAt price p: only cars with q ≤ p sell → E[q|sell] = p/2 < p\nBuyer's WTP: E[q|sell] × 1.5 = 0.75p (assume buyer values at 1.5× seller)\nEquilibrium: p = 0.75p → p = 0 (market collapses!)\n\nGENERAL: Information asymmetry can destroy mutually beneficial trade\n  Bad quality drives out good (adverse selection by informed party)\n\nSOLUTIONS:\n  Screening: uninformed party designs contract menu (insurance: deductibles)\n  Signaling: informed party credibly signals type (education, warranties)\n  Certification: third party verifies quality (CARFAX, doctors board certification)\n  Government mandate: make everyone participate (health insurance mandate → ACA)",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-12",
+      "kind": "diagram_like",
+      "line": 327,
+      "heading_context": "### Moral Hazard",
+      "confidence": "candidate",
+      "text": "SETUP: After contract, agent takes hidden action that affects outcome\n  Principal (employer/insurer) cannot observe agent's effort\n  Agent's effort is costly → may shirk under full insurance\n\nPRINCIPAL-AGENT PROBLEM:\n  Agent: max U(w) - c(e)   (utility of wage - cost of effort e)\n  Principal: max E[y(e)] - E[w]  (expected output - expected wage)\n  Optimal contract: balance risk-sharing vs incentive provision\n\n  First-best (observable effort): risk-neutral agent bears all risk, max effort\n  Second-best (unobservable effort): partial insurance + incentive pay\n  → Higher-powered incentives (bonuses, equity) → more effort, more agent risk\n  → Tension: risk-averse agent dislikes variance, so pure performance pay is inefficient\n\nEXAMPLES:\n  Health insurance: fully insured patients consume more care (moral hazard)\n  Flat-fee software consulting: developer may deliver minimum viable\n  Manager equity: stock options align incentives (but volatility also borne by mgr)\n  Banking: \"too big to fail\" guarantee → excessive risk-taking (systemic moral hazard)",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-13",
+      "kind": "diagram_like",
+      "line": 351,
+      "heading_context": "### Signaling (Spence)",
+      "confidence": "candidate",
+      "text": "SETUP: Workers have ability θ ∈ {H, L}; firms can't observe θ\n  Education e: costly for all, more costly for low types (c(e,H) < c(e,L))\n\nSEPARATING EQUILIBRIUM:\n  High type chooses e* such that low type would not mimic:\n  w(H) - c(e*,H) ≥ w(L)    (high type benefits from education)\n  w(H) - c(e*,L) < w(L)    (low type would not mimic)\n\n  → Education as pure signal (content irrelevant, just costly)\n  → Separating equilibrium if e* ∈ [(w(H)-w(L))/c_L, (w(H)-w(L))/c_H]\n\nPOOLING EQUILIBRIUM: All types choose same education\n  → Cannot distinguish types; wage = E[θ]\n\nHUMAN CAPITAL vs PURE SIGNAL debate:\n  Pure signal (Spence): education has zero productivity value, just sorts\n  Human capital (Mincer): education genuinely raises productivity\n  Reality: probably both (credential + skill formation)\n  Policy implication: if pure signal, subsidizing education is wasteful",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-14",
+      "kind": "diagram_like",
+      "line": 377,
+      "heading_context": "## Externalities and Market Failures",
+      "confidence": "candidate",
+      "text": "EXTERNALITY: cost or benefit to third party not in the transaction\n  Negative: carbon emissions, noise, congestion, overuse of antibiotics\n  Positive: vaccination, research spillovers, infrastructure\n\nPIGOUVIAN CORRECTION:\n  Tax negative externalities by the social cost: t = MEC (marginal external cost)\n  Subsidy positive externalities by the social benefit\n  → Forces private decisions to internalize social cost\n  Carbon tax: t = social cost of carbon (~$50-200/tonne CO₂)\n\nCOASE THEOREM (1960):\n  If property rights are well-defined and transactions are costless,\n  private bargaining leads to efficient outcome regardless of initial assignment.\n  → No need for regulation if bargaining is possible\n  REAL WORLD: transaction costs exist, property rights often unclear\n  Coase = useful theoretical baseline, not always practical prescription\n\nPUBLIC GOODS: non-rival + non-excludable\n  Non-rival: consumption by one doesn't reduce availability to others (broadcast TV)\n  Non-excludable: cannot prevent non-payers from consuming\n  FREE RIDER PROBLEM: everyone waits for others to provide public good\n  → Government provision, Lindahl prices, assurance contracts (mechanism design solutions)\n\nCOMMON POOL RESOURCES (TRAGEDY OF THE COMMONS):\n  Non-excludable, rival (fisheries, groundwater, highway congestion)\n  Overuse without governance → Hardin (1968)\n  Solutions: Privatize (assign property rights), Regulate (quotas), Ostrom institutions\n  Ostrom (Nobel 2009): community governance can solve commons without privatization",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    }
+  ]
+}

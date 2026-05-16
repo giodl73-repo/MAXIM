@@ -1,0 +1,127 @@
+{
+  "schema_version": "1",
+  "source_markdown": "economics\\02-GAME-THEORY.md",
+  "blocks": [
+    {
+      "id": "block-1",
+      "kind": "diagram_like",
+      "line": 26,
+      "heading_context": "## Big Picture",
+      "confidence": "candidate",
+      "text": "GAME THEORY: mathematical study of strategic interaction among rational agents\n\nREPRESENTATION FORMS AND THEIR RELATIONSHIP:\n  Normal form:    players, action sets, payoff functions — simultaneous play\n  Extensive form: game tree with information sets — adds timing and information\n  Bayesian game:  types θᵢ drawn from prior; payoffs depend on type profile\n        │\n        │  complete info + simultaneous → Normal form\n        │  complete info + sequential   → Extensive form\n        │  incomplete info              → Bayesian game (normal or extensive)\n        ▼\nSOLUTION CONCEPT HIERARCHY (each refines the one above):\n\n  CORRELATED EQUILIBRIUM        ← weakest; allows coordination device\n        │  contains all Nash equilibria as special cases\n        ▼\n  NASH EQUILIBRIUM              ← no unilateral deviation profitable\n        │  applied to extensive form:\n        ▼\n  SUBGAME PERFECT EQUILIBRIUM   ← NE in every subgame; eliminates empty threats\n        │  with incomplete information:\n        ▼\n  PERFECT BAYESIAN EQUILIBRIUM  ← SPE + consistent beliefs via Bayes' rule\n\n  Bayesian NE = NE of the Bayesian game (incomplete info, simultaneous)\n  PBE = SPE analog for sequential games with incomplete info\n\nREFINEMENT DIRECTION: more restrictive → fewer equilibria → stronger predictions\n  CE ⊇ NE ⊇ SPE ⊇ PBE  (each set ⊆ the one to its left)\n  Nash always exists (mixed); SPE always exists in finite games\n\nAPPLICATIONS IN TECH:\n  • Auctions (Google Ads, spectrum) — Bayesian NE, VCG\n  • Platform competition (winner-take-all) — repeated games, folk theorem\n  • Security (adversarial settings) — minimax, zero-sum\n  • Multi-agent RL (Nash as fixed point of best-response dynamics)\n  • P2P protocols (BitTorrent) — incentive design, mechanism design\n  • Cryptoeconomics (blockchain consensus) — repeated game with fork threat",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-2",
+      "kind": "diagram_like",
+      "line": 78,
+      "heading_context": "### Prisoner's Dilemma",
+      "confidence": "candidate",
+      "text": "              PLAYER 2\n              Cooperate  Defect\nPLAYER 1  Cooperate  (3, 3)    (0, 4)\n          Defect     (4, 0)    (1, 1)\n\nDOMINANT STRATEGY: Defect (D) regardless of what other does\n  If P2 cooperates: D gives 4 > 3 (cooperate)\n  If P2 defects: D gives 1 > 0 (cooperate)\n  → D is strictly dominant for both → unique NE = (D,D)\n\nPARETO INEFFICIENCY: (D,D) payoff = (1,1) < (C,C) payoff = (3,3)\n  Individual rationality → collective irrationality\n  Captures: arms races, environmental agreements, open-source contribution",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-3",
+      "kind": "diagram_like",
+      "line": 96,
+      "heading_context": "### Nash Equilibrium",
+      "confidence": "candidate",
+      "text": "DEFINITION: A profile (a₁*,...,aₙ*) is a Nash Equilibrium if:\n  For all i, for all aᵢ ∈ Aᵢ:\n  uᵢ(aᵢ*, a₋ᵢ*) ≥ uᵢ(aᵢ, a₋ᵢ*)\n\n  No player can profitably deviate given others' strategies.\n\nEXISTENCE (Nash 1950):\n  Every finite game has at least one Nash equilibrium (in mixed strategies).\n  Proof: fixed-point theorem (Brouwer or Kakutani)\n  ← Also a certificate of computational hardness: finding NE is PPAD-complete\n\nMIXED STRATEGY: probability distribution over actions\n  σᵢ ∈ Δ(Aᵢ): randomize to keep opponent indifferent\n  At mixed NE: each player mixes only over best responses\n  → Mixing is rational iff all mixed strategies give equal expected payoff",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-4",
+      "kind": "diagram_like",
+      "line": 116,
+      "heading_context": "### Battle of the Sexes and Coordination Games",
+      "confidence": "candidate",
+      "text": "              PLAYER 2\n              Opera   Football\nPLAYER 1  Opera    (2,1)    (0,0)\n          Football  (0,0)    (1,2)\n\nPURE NE: (Opera,Opera) and (Football,Football) — coordination required\nMIXED NE: P1 plays Opera with prob 2/3; P2 plays Opera with prob 1/3\n  (verify: P2 is indifferent when P1 mixes 2/3: 1×2/3 + 0×1/3 = 2/3 = 0×2/3 + 2×1/3)\n  Expected payoffs in mixed NE: both get 2/3 (less than either pure NE)\n\nFOCAL POINTS (Schelling): In practice, players coordinate on \"salient\" NE\n  Even without communication, most players choose the same prominent option\n  → Game theory + psychology: culture, salience, preplay communication matter",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-5",
+      "kind": "diagram_like",
+      "line": 134,
+      "heading_context": "### Dominant Strategies",
+      "confidence": "candidate",
+      "text": "STRICTLY DOMINANT: aᵢ is strictly dominant if uᵢ(aᵢ, a₋ᵢ) > uᵢ(a'ᵢ, a₋ᵢ) for all a₋ᵢ, a'ᵢ ≠ aᵢ\nWEAKLY DOMINANT: ≥ with at least one strict\n\nITERATED ELIMINATION OF STRICTLY DOMINATED STRATEGIES (IESDS):\n  Remove all strictly dominated strategies, update opponents' beliefs, repeat\n  Result: rationalization of strategies for common knowledge of rationality\n  If IESDS converges to unique profile → that's the unique NE (e.g., Prisoner's Dilemma)\n  Requires: common knowledge of rationality (all rational, all know all rational, ...)\n\nRATIONALIZABLE STRATEGIES:\n  Strategies that survive iterated dominance = rationalizable\n  NE ⊂ rationalizable strategies (NE is subset of rationalizable)",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-6",
+      "kind": "diagram_like",
+      "line": 157,
+      "heading_context": "### Backward Induction",
+      "confidence": "candidate",
+      "text": "PRINCIPLE: Start from end nodes, work backwards\n  At each decision node, player chooses action that maximizes their payoff\n  Given optimal future play\n\nEXAMPLE: Centipede Game\n  P1 →(Go down: 1,0)  →(Go down: 0,2)  →(Go down: 3,1)  ... (6,5)\n  ↓stay              ↓stay              ↓stay\n  P1 gets 1          P2 gets 2          P1 gets 3\n\n  Backward induction: P1 takes 3 at last node; P2 anticipates → takes 2 at node before; ...\n  → P1 takes 1 at first node! Both get 1 even though cooperation gives 6,5.\n  Experimental: people cooperate for many rounds (violates backward induction)\n  → Limited rationality, altruism, reputation",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-7",
+      "kind": "diagram_like",
+      "line": 175,
+      "heading_context": "### Subgame Perfect Equilibrium (SPE)",
+      "confidence": "candidate",
+      "text": "SUBGAME: subtree of game starting at an information set (player knows they're in this subgame)\nSUBGAME PERFECT NE: Nash equilibrium in every subgame\n  Eliminates incredible threats (Nash NE allows empty threats off the equilibrium path)\n\nENTRY DETERRENCE GAME:\n  Incumbent threatens \"Fight\" if Entrant enters.\n  Nash NE allows (Stay Out, Fight) — Entrant stays out fearing fight.\n  BUT: If Entrant enters, Incumbent's payoff: Fight=-1 < Accommodate=1 → Won't fight!\n  SPE: (Enter, Accommodate) — Entrant correctly anticipates incumbent won't fight\n  → Strategic commitment (investing in capacity) can make threat credible\n     (Dixit 1980: commitment changes payoff matrix → threat becomes credible)",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-8",
+      "kind": "diagram_like",
+      "line": 191,
+      "heading_context": "### Repeated Games",
+      "confidence": "candidate",
+      "text": "SETUP: Same stage game G played for T periods (or infinitely)\n  History: all past actions observable (perfect monitoring)\n  Strategy: function from history to action\n\nFINITE HORIZON: Backward induction → NE of stage game played each period\n  Unique stage game NE (e.g., Prisoner's Dilemma) → iterated → same NE each period\n\nINFINITE HORIZON (Folk Theorem):\n  With δ = discount factor (patience):\n  Any payoff vector that is feasible AND individually rational (≥ minmax payoffs)\n  can be supported as subgame perfect NE for δ sufficiently close to 1.\n\nGRIM TRIGGER STRATEGY:\n  \"Cooperate until anyone defects; then defect forever\"\n  Supports cooperation in Prisoner's Dilemma if:\n  Gain from defection one period ≤ Cost of punishment (lose cooperation forever)\n  δ/(1-δ) × (3-1) ≥ (4-3) → δ ≥ 1/3\n  → Sufficiently patient players can cooperate → \"shadow of the future\"\n\nTIT-FOR-TAT (Axelrod 1984):\n  Cooperate on round 1; copy opponent's last action thereafter\n  Won repeated prisoner's dilemma tournaments\n  Properties: nice (cooperates first), retaliatory, forgiving, clear",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-9",
+      "kind": "diagram_like",
+      "line": 238,
+      "heading_context": "### Signaling Games",
+      "confidence": "candidate",
+      "text": "SENDER (informed) → sends message m ∈ M → RECEIVER (uninformed) → takes action a ∈ A\nPayoffs depend on sender's type θ, message m, and receiver's action\n\nPERFECT BAYESIAN EQUILIBRIUM (PBE):\n  Combines: strategies + beliefs (receiver's posterior p(θ|m))\n  Beliefs updated by Bayes' rule on equilibrium path\n\nSEPARATING EQUILIBRIUM: Different types send different messages\n  → Receiver can infer type perfectly → first-best information\n\nPOOLING EQUILIBRIUM: All types send same message\n  → Receiver learns nothing → posterior = prior\n\nCHEAP TALK (Crawford-Sobel):\n  Sender has no cost for messages → cannot fully separate (only partitional)\n  More aligned interests → more information transmitted\n  → Basis for AI assistant alignment: AI's incentives must align to give useful advice",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-10",
+      "kind": "ascii_table_candidate",
+      "line": 262,
+      "heading_context": "## Evolutionary Game Theory",
+      "confidence": "candidate",
+      "text": "SETUP: Large population, players drawn randomly to play game,\n       strategies heritable, payoff = fitness (reproductive success)\n\nEVOLUTIONARY STABLE STRATEGY (ESS):\n  Strategy σ* is ESS if for any mutant σ ≠ σ*:\n  u(σ*, εσ + (1-ε)σ*) > u(σ, εσ + (1-ε)σ*)  for small ε > 0\n\n  \"Invasion proof\": a small mutant population cannot grow\n  ESS → NE (not vice versa; ESS is refinement)\n\nHAWK-DOVE GAME:\n              Dove    Hawk\n  Dove:      (3,3)   (1,4)\n  Hawk:      (4,1)   (0,0)  (V=4, C=8 → V<C → mixed ESS)\n\n  ESS: mix Hawk with probability p = V/C = 1/2\n\nREPLICATOR DYNAMICS:\n  ẋᵢ = xᵢ[fᵢ(x) - f̄(x)]   (fraction of strategy i grows if above-average fitness)\n  Fixed points = NE; stable fixed points ≈ ESS\n  Connects game theory to evolutionary biology and multi-agent RL (policy gradient dynamics)",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-11",
+      "kind": "diagram_like",
+      "line": 314,
+      "heading_context": "## Correlated Equilibrium",
+      "confidence": "candidate",
+      "text": "DEFINITION (Aumann 1974, 1987):\n  A correlation device (mediator) draws a signal profile (s₁,...,sₙ) from\n  distribution p over S = S₁×...×Sₙ and privately tells each player i their\n  signal sᵢ. Players choose actions based on sᵢ.\n\n  Profile is a correlated equilibrium if no player benefits from deviating\n  given their signal:\n  For all i, all sᵢ, all alternative action a'ᵢ:\n  Σ_{s₋ᵢ} p(s₋ᵢ|sᵢ) u_i(a(sᵢ), a(s₋ᵢ)) ≥ Σ_{s₋ᵢ} p(s₋ᵢ|sᵢ) u_i(a'ᵢ, a(s₋ᵢ))\n\n  (Following the signal is a best response given what following the signal\n  reveals about others' signals.)\n\nRELATIONSHIP TO NASH:\n  Every Nash equilibrium is a correlated equilibrium (set p = product of\n  mixed strategy distributions; signals are independent).\n  CE contains NE as a special case.\n  CE may achieve higher social welfare than any Nash equilibrium.\n\nEXAMPLE: Battle of the Sexes\n  Pure NE: (Opera,Opera) = (2,1) or (Football,Football) = (1,2).\n  Mixed NE payoffs: both get 2/3.\n  CE: mediator tosses coin → tells P1 \"Opera\" or \"Football,\" tells P2 same.\n  Expected payoffs: (1.5, 1.5) — Pareto-dominates the mixed NE.\n  This CE is achieved by both following a public random signal.\n\nWHY CE MATTERS FOR CS/ENGINEERING:\n  CE is easier to compute than Nash: CE is a linear program (O(|A|² constraints).\n  NE is PPAD-complete.\n  In multi-agent RL: no-regret learning algorithms (multiplicative weights,\n  online gradient descent) converge to CE in self-play, not Nash.\n  → In practice, distributed agents learning independently converge to CE.\n\n  Regret minimization → CE: if all players minimize their own regret\n  (achievable by algorithms), the empirical distribution of play\n  converges to the set of correlated equilibria.",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    }
+  ]
+}

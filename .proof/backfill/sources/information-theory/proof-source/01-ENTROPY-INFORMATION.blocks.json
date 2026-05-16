@@ -1,0 +1,138 @@
+{
+  "schema_version": "1",
+  "source_markdown": "information-theory\\01-ENTROPY-INFORMATION.md",
+  "blocks": [
+    {
+      "id": "block-1",
+      "kind": "ascii_table_candidate",
+      "line": 24,
+      "heading_context": "## The Full Entropy Toolbox",
+      "confidence": "candidate",
+      "text": "    MEASURES LANDSCAPE — RELATIONSHIP DIAGRAM\n    ══════════════════════════════════════════════════════════\n\n    ENTROPY H(X) = -Σ p(x) log p(x)         ← base measure\n         │\n         ├──► H(X,Y) = H(X) + H(Y|X)        ← joint (chain rule)\n         │         │\n         │         └──► H(Y|X) = H(X,Y) - H(X)  ← conditional\n         │\n         ├──► I(X;Y) = H(X) - H(X\\|Y)        ← mutual information\n         │         = H(X) + H(Y) - H(X,Y)\n         │         = D_KL(p(x,y) || p(x)p(y))  ← MI IS the KL from joint to product\n         │\n         ├──► D_KL(P\\|\\|Q) = Σ p(x) log(p/q)  ← KL divergence (always ≥ 0)\n         │         │\n         │         └──► H(P,Q) = H(P) + D_KL(P\\|\\|Q)  ← cross-entropy = entropy + KL\n         │              = -Σ p(x) log q(x)\n         │              (minimizing cross-entropy = minimizing KL = MLE)\n         │\n         ├──► h(X) = -∫ p(x) log p(x) dx    ← differential entropy (continuous)\n         │         (can be negative; not a simple limit of discrete H)\n         │\n         └──► I(θ) = E[(∂log p/∂θ)²]        ← Fisher information (score variance)\n              Cramér-Rao: Var(θ̂) ≥ 1/I(θ)    (precision bound for estimators)",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-2",
+      "kind": "diagram_like",
+      "line": 94,
+      "heading_context": "### Binary Entropy Function",
+      "confidence": "candidate",
+      "text": "    Properties:\n    H_b(0) = 0, H_b(1) = 0 (deterministic → no uncertainty)\n    H_b(1/2) = 1 bit (maximum)\n    Symmetric: H_b(p) = H_b(1-p)\n    Concave: d²H_b/dp² < 0\n\n    Values:\n    p=0.01: H_b = 0.081 bits (mostly certain)\n    p=0.1:  H_b = 0.469 bits\n    p=0.3:  H_b = 0.881 bits\n    p=0.5:  H_b = 1.000 bit (max)\n    p=0.9:  H_b = 0.469 bits (same as p=0.1 by symmetry)\n\n    CRITICAL IN CHANNEL CODING:\n    BSC capacity: C = 1 - H_b(p) bits/use\n    BSC rate-distortion: R(D) = H_b(p) - H_b(D) for D ≤ min(p,1-p)\n    Hamming code rate: k/n = 1 - log(n+1)/n → C_BSC(p=1/7) from Hamming [7,4]",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-3",
+      "kind": "diagram_like",
+      "line": 126,
+      "heading_context": "## Mutual Information I(X;Y)",
+      "confidence": "candidate",
+      "text": "    Venn diagram:\n    ┌───────────────────────────────────────┐\n    │         H(X,Y)                        │\n    │  ┌─────────────────────┐              │\n    │  │  H(X) ┌─────────────┐──────┐       │\n    │  │       │    I(X;Y)   │H(Y)  │       │\n    │  │H(X|Y) │             │H(Y|X)│       │\n    │  └───────┴─────────────┴──────┘       │\n    └───────────────────────────────────────┘\n\n    I(X;Y) = overlap region\n    H(X|Y) = part of H(X) not in H(Y)\n    H(Y|X) = part of H(Y) not in H(X)\n    H(X,Y) = all of both circles\n\n    PROPERTIES:\n    1. Symmetry: I(X;Y) = I(Y;X)\n    2. Non-negativity: I(X;Y) ≥ 0 with equality iff X,Y independent\n    3. I(X;X) = H(X) (X tells you everything about itself)\n    4. I(X;Y|Z) = H(X|Z) - H(X|Y,Z) ≥ 0 (conditional MI also ≥ 0)\n    5. Chain rule: I(X;Y₁Y₂) = I(X;Y₁) + I(X;Y₂|Y₁)",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-4",
+      "kind": "diagram_like",
+      "line": 169,
+      "heading_context": "### Data Processing Inequality",
+      "confidence": "candidate",
+      "text": "    Applications:\n    1. Sufficient statistics: T(X) is sufficient for X iff I(θ;T(X)) = I(θ;X)\n       (no loss of information about parameter θ from compressing to T(X))\n    2. Bottleneck principle: any lossy representation T must satisfy I(T;Y) ≤ I(X;Y)\n       Can't recover lost information about Y from intermediate representation\n    3. Feature extraction: features F = f(X) must satisfy I(F;Y) ≤ I(X;Y)\n       → Upper bounds the achievable accuracy of any classifier using features F\n    4. Encryption: cipher C = enc(M,K) must satisfy I(C;M) ≥ I(M;M) = H(M)\n       if C is to allow recovery of M (by data processing on C→M)\n       Perfect secrecy: I(C;M) = 0 → OTP (key masks all information)",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-5",
+      "kind": "diagram_like",
+      "line": 195,
+      "heading_context": "### Non-negativity Proof (Gibbs' Inequality / Jensen)",
+      "confidence": "candidate",
+      "text": "    Key properties:\n    D_KL(P\\|\\|Q) ≥ 0  (non-negative)\n    D_KL(P\\|\\|Q) = 0 iff P = Q\n    D_KL(P\\|\\|Q) ≠ D_KL(Q||P)  (asymmetric!)\n    D_KL(P\\|\\|Q) = ∞ if Q(x)=0 but P(x)>0 for some x\n\n    Interpretation:\n    D_KL(P\\|\\|Q) = extra bits needed per symbol when using code optimized for Q\n                 but actual distribution is P.\n    Average code length under P using Q-optimal code = H(P) + D_KL(P\\|\\|Q) = H(P,Q) (cross-entropy)\n    vs. optimal average code length = H(P)\n    → D_KL = inefficiency from using wrong distribution\n\n    Forward vs reverse KL:\n    min D_KL(P\\|\\|Q) over Q: q covers all of p (zero-forcing, mean-seeking behavior)\n    min D_KL(Q||P) over Q: q concentrates on modes of p (mode-seeking behavior)\n    → VAEs minimize KL(q(z|x)||p(z)) = forward direction → approximate posterior covers prior\n    → GAN uses reverse KL implicitly in some formulations",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-6",
+      "kind": "diagram_like",
+      "line": 222,
+      "heading_context": "### Pinsker's Inequality",
+      "confidence": "candidate",
+      "text": "    → If KL is small, distributions are close in TV distance\n    → TV controls probability of any event: |P(A) - Q(A)| ≤ ||P-Q||_TV\n    → Pinsker: small KL → can't distinguish P from Q by any statistical test\n    Constant 1/2 is tight; better constants: Bretagnole-Huber (1978): tighter for small KL",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-7",
+      "kind": "diagram_like",
+      "line": 235,
+      "heading_context": "## Cross-Entropy H(P,Q)",
+      "confidence": "candidate",
+      "text": "    The ML CONNECTION:\n    Training a model with parameters θ:\n    - True data distribution: p(x) (empirical: 1/n for each training example)\n    - Model distribution: q_θ(x) = p_θ(x)\n\n    Maximum likelihood = minimize negative log-likelihood:\n    L(θ) = -1/n Σ_i log p_θ(x_i) = -E_p[log q_θ(x)] = H(p, q_θ)\n\n    Cross-entropy loss = H(p, q_θ) = H(p) + D_KL(p||q_θ)\n\n    Since H(p) is fixed (doesn't depend on θ):\n    Minimizing CE loss = minimizing KL(p||q_θ) = making model match true distribution\n\n    WHY THIS IS THE RIGHT LOSS:\n    1. Maximum likelihood = maximum entropy principle = MLE\n    2. Minimizing KL = information-theoretically optimal\n    3. CE is the unique proper scoring rule satisfying locality\n    4. Gradient of CE is better-conditioned than squared error for classification\n\n    PERPLEXITY:\n    Perplexity = 2^{H(p,q)} = 2^{CE}\n    For a language model on text with entropy h bits/token:\n    Perplexity = 2^h\n    Interpretation: effective vocabulary size if all tokens equally likely\n    → Good LM: perplexity 15-30 on held-out text\n    → Random unigram model on 50K vocab: perplexity = 50000\n    → Human: ~30-100 depending on text domain",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-8",
+      "kind": "diagram_like",
+      "line": 273,
+      "heading_context": "## Differential Entropy h(X) for Continuous Distributions",
+      "confidence": "candidate",
+      "text": "    KEY DIFFERENCES from discrete H(X):\n    1. h(X) CAN BE NEGATIVE (unlike discrete H(X))\n    2. Not invariant under reparametrization: h(aX) = h(X) + log|a|\n    3. Not directly interpretable as \"bits\" (but differences h(Y) - h(X) are valid)\n\n    Key results:\n    Uniform on [0,a]: h = log a (negative if a < 1)\n    Gaussian N(μ,σ²): h = ½log(2πeσ²)  ← maximum for given variance\n    Exponential(λ): h = 1 - log λ\n    Laplace(0,b): h = 1 + log(2b)\n\n    GAUSSIAN MAXIMIZES DIFFERENTIAL ENTROPY:\n    Among all distributions with fixed variance σ²:\n    h(X) ≤ ½log(2πeσ²)  with equality iff X ~ N(μ,σ²)\n\n    Proof via Lagrange multipliers:\n    Maximize -∫f log f subject to: ∫f = 1, ∫(x-μ)²f = σ²\n    Lagrangian: -∫f log f - λ₀∫f - λ₂∫(x-μ)²f → f(x) ∝ exp(-λ₂(x-μ)²) → Gaussian ✓\n\n    AWGN channel capacity uses this: h(Y|X) = h(N) = ½log(2πeN₀)\n    h(Y) ≤ ½log(2πe(P+N₀)) with equality iff X ~ Gaussian\n    → Gaussian input achieves AWGN capacity",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-9",
+      "kind": "diagram_like",
+      "line": 310,
+      "heading_context": "## Fisher Information and Cramér-Rao Bound",
+      "confidence": "candidate",
+      "text": "    Efficient estimator: achieves the Cramér-Rao bound.\n    MLE is asymptotically efficient under regularity conditions.\n    (MLE → N(θ, 1/nI(θ)) as n → ∞ by CLT + delta method)\n\n    Fisher matrix F_ij = E[∂ log p/∂θ_i × ∂ log p/∂θ_j]\n    For Gaussian N(0,Σ): F = Σ⁻¹ (Fisher matrix = inverse covariance)\n    Rao-Cramér for vectors: Var(θ̂) - F⁻¹ ≥ 0 (positive semi-definite)\n\n    NATURAL GRADIENT:\n    Standard gradient: ∇L in Euclidean parameter space\n    Natural gradient: F⁻¹∇L → steepest descent in information geometry\n    Fisher information matrix defines Riemannian metric on parameter space\n    (Amari's information geometry)\n\n    Natural gradient = parameter update in the \"manifold\" of distributions\n    More efficient: ignores parameter redundancy (e.g., different parameterizations of same distribution)\n    Used in: actor-critic RL (natural policy gradient), K-FAC optimizer",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-10",
+      "kind": "diagram_like",
+      "line": 338,
+      "heading_context": "## Entropy Rate for Stochastic Processes",
+      "confidence": "candidate",
+      "text": "    MARKOV CHAIN:\n    Transition matrix P, stationary distribution π.\n    H(X_n|X_{n-1}) = -Σ_{i,j} π_i P_{ij} log P_{ij}\n    Entropy rate = H(X|X_prev) (conditional on one previous state, since Markov)\n\n    ENGLISH TEXT:\n    Shannon (1951): estimated ~1-1.5 bits/letter for English\n    LM perplexity 30 ≈ 5 bits/token; assume 4 chars/token → 1.25 bits/char ✓\n    GPT-4 class models: < 1 bit/char for English text\n    → Modern LLMs are near Shannon limit for English text compression!\n\n    ERGODIC THEOREM (McMillan / AEP):\n    For ergodic source: -(1/n)log p(X₁,...,Xₙ) → H(X) almost surely\n    → Probability of typical sequence ≈ 2^{-nH(X)}\n    → Number of typical sequences ≈ 2^{nH(X)} (AEP = Asymptotic Equipartition Property)\n    This is the foundation of both source coding and channel coding proofs.",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-11",
+      "kind": "diagram_like",
+      "line": 361,
+      "heading_context": "## Connection to Thermodynamics (for Physics Background)",
+      "confidence": "candidate",
+      "text": "    BOLTZMANN ENTROPY:\n    S = k_B ln W\n    where W = number of microstates consistent with macrostate\n\n    For equiprobable microstates (microcanonical ensemble):\n    S = k_B ln W = k_B log₂ W / log₂ e = k_B ln 2 × H  [H in bits]\n\n    For non-equiprobable: S = -k_B Σ p_i ln p_i = k_B ln 2 × H [nats→bits]\n\n    SECOND LAW as information principle:\n    Entropy can only increase in isolated systems\n    = Information about fine-grained microstate can only be lost, never gained\n    = D_KL(p_current || p_uniform) is non-decreasing → erasure toward equilibrium\n\n    MAXWELL'S DEMON:\n    Demon measures molecule position (bit of information gained)\n    Sorts molecules → reduces thermodynamic entropy of gas\n    RESOLUTION: Demon's memory must be erased to run in a cycle\n    Erasing 1 bit costs k_B T ln 2 Joules → exactly compensates entropy reduction\n    Information erasure → thermodynamic entropy increase → 2nd law preserved\n\n    LANDAUER + SZILARD = MAXWELL'S DEMON RESOLUTION:\n    Bit erasure: ΔS ≥ k_B ln 2 per bit (Landauer 1961)\n    Bit extraction from thermal: W ≤ k_B T ln 2 (Szilard engine)\n    These are inverse processes → consistent, no contradiction",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-12",
+      "kind": "ascii_table_candidate",
+      "line": 419,
+      "heading_context": "## Common Confusion Points",
+      "confidence": "candidate",
+      "text": "The Jensen-Shannon divergence JSD(P,Q) = ½D_KL(P||M) + ½D_KL(Q||M), M=(P+Q)/2, IS symmetric.",
+      "notes": [
+        "detected from ASCII table borders or pipe-aligned rows"
+      ]
+    }
+  ]
+}

@@ -1,0 +1,61 @@
+{
+  "schema_version": "1",
+  "source_markdown": "information-theory\\00-OVERVIEW.md",
+  "blocks": [
+    {
+      "id": "block-1",
+      "kind": "diagram_like",
+      "line": 24,
+      "heading_context": "## The Big Picture",
+      "confidence": "candidate",
+      "text": "    INFORMATION THEORY — FIELD LANDSCAPE\n    ==========================================================\n\n    SHANNON'S CORE (1948)\n    - Entropy H(X), mutual information I(X;Y), channel capacity C\n    - Three problems: compression, noisy transmission, rate distortion\n\n    MODULE MAP\n    - 01-ENTROPY: measures H, KL, MI, cross-entropy\n    - 02-SOURCE-CODING: Huffman, arithmetic, LZ, source coding theorem\n    - 03-CHANNEL-CODING: capacity theorem, LDPC, turbo, polar\n    - 04-ML-CRYPTOGRAPHY-BRIDGE: cross-entropy loss, VAE/ELBO,\n      InfoNCE, perfect secrecy\n    - 05-RATE-DISTORTION: R(D) curve, lossy compression limits\n    - 06-NETWORK-IT: Slepian-Wolf, CEO, interference channels,\n      relay channels\n    - 07-ALGORITHMIC-IT: Kolmogorov K(x), MDL, randomness\n    - 08-QUANTUM-INFORMATION: von Neumann entropy, Holevo,\n      quantum capacity, entanglement\n    - 09-INFORMATION-GEOMETRY: Fisher metric, exponential families,\n      natural gradient\n\n    FUNDAMENTAL QUESTION: How much \"information\" is in a message?\n    And what does that mean physically?\n\n    SHANNON'S THREE PROBLEMS (1948):\n    1. LOSSLESS COMPRESSION\n       Source -> Source Encoder -> Compressed bits\n       Limit: entropy H(X) bits/symbol\n       Theorem: cannot compress below H(X) on average\n\n    2. RELIABLE COMMUNICATION OVER NOISY CHANNEL\n       Source -> Channel Encoder -> Noisy Channel -> Channel Decoder -> Sink\n       Limit: channel capacity C bits/use\n       Theorem: can communicate reliably iff R < C\n\n    3. CRYPTOGRAPHY (1949 paper)\n       Perfect secrecy: H(M|C) = H(M) -> OTP\n       Key length lower bound: |K| >= |M|\n\n    SYSTEM DIAGRAM:\n    Source → [Source Encoder] → [Channel Encoder] →\n    → [Channel: p(y|x)] → [Channel Decoder] → [Source Decoder] → Sink\n\n    Each block corresponds to a fundamental theorem.\n    The source encoder compresses to H(X).\n    The channel encoder adds redundancy to approach C.\n    They're separate operations (source-channel separation theorem).",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-2",
+      "kind": "diagram_like",
+      "line": 149,
+      "heading_context": "## Information Has Physical Reality",
+      "confidence": "candidate",
+      "text": "    Physical interpretation:\n    Information is NOT free. Every irreversible computation (erasure) costs energy.\n    Reversible computation (Toffoli gate, etc.) can in principle be free.\n    Modern CPU: ~10⁻¹⁸ J per bit operation (10³× above Landauer limit)\n    → Enormous room for improvement toward physical limits\n\n    The connection:\n    Thermodynamic entropy S = k_B ln W (Boltzmann)\n    Shannon entropy H = -Σ p log p (nats if ln; bits if log₂)\n    S = k_B ln 2 × H (in bits)\n    → Shannon entropy and thermodynamic entropy are the same quantity in different units\n    → Erasing 1 bit: ΔS ≥ k_B ln 2 → ΔE = T·ΔS ≥ k_B T ln 2 ✓\n\n    Maxwell's demon resolution (Brillouin 1956, Landauer 1961, Bennett 1982):\n    Demon must erase its measurement record each cycle\n    → Erasure of k_B T ln 2 entropy per bit → 2nd law preserved\n    → Information IS entropy; there is no free thermodynamic lunch",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-3",
+      "kind": "diagram_like",
+      "line": 177,
+      "heading_context": "### Kolmogorov Complexity",
+      "confidence": "candidate",
+      "text": "    MINIMUM DESCRIPTION LENGTH (MDL):\n    Occam's razor formalized: best model = shortest program (theory + data)\n    MDL model selection: choose model M that minimizes L(M) + L(data|M)\n    where L = description length\n    → Equivalent to Bayesian model selection (Rissanen 1978)\n\n    CIRCUIT COMPLEXITY LOWER BOUNDS via entropy:\n    If computing f(x) requires C gates, then H(f(x)) ≤ C (rough argument)\n    → Information-theoretic arguments give lower bounds on circuit size\n    → Razborov/Rudich natural proofs barrier: entropy arguments cannot give\n      super-polynomial lower bounds against P/poly (under certain crypto assumptions)",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-4",
+      "kind": "diagram_like",
+      "line": 193,
+      "heading_context": "### Communication Complexity",
+      "confidence": "candidate",
+      "text": "    Two players (Alice and Bob) have inputs x and y.\n    Goal: compute f(x,y) by exchanging bits on a shared channel.\n    Min bits exchanged = communication complexity CC(f).\n\n    Lower bounds via entropy:\n    CC(f) ≥ H(f(x,y)) - min(H(f(x,y)|x), H(f(x,y)|y))\n    → Equality function f(x,y) = [x=y]: CC = Θ(n) by entropy argument\n\n    Information complexity:\n    IC_μ(f) = min protocol P: I(X;Π_{Alice}) + I(Y;Π_{Bob}) subject to μ,ε\n    Π = transcript, μ = input distribution\n    CC ≥ IC ≥ H(output)\n\n    Amortized: CC_amortized(f^n) → IC(f) per copy (direct sum theorem)",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-5",
+      "kind": "ascii_table_candidate",
+      "line": 214,
+      "heading_context": "## Modern Applications",
+      "confidence": "candidate",
+      "text": "    APPLICATION MAP\n\n    SOURCE CODING (compression):\n    - ZIP/gzip: LZ77 + Huffman -> 2-3:1 on text\n    - brotli (Google): LZ + Huffman -> web compression\n    - JPEG: DCT + quantization + Huffman -> image 10:1\n    - H.264/HEVC/AV1: motion prediction + residual + entropy\n      -> 200:1 compression ratio on video\n\n    CHANNEL CODING (error correction):\n    - HDD: Reed-Solomon, LDPC -> read-after-write verification\n    - SSD (NAND flash): BCH, LDPC -> handle flash cell errors\n    - WiFi (802.11n+): LDPC, BCC\n    - 5G NR: LDPC (data), polar codes (control) — 2019 standard\n    - Deep space (Voyager, Cassini): convolutional + Reed-Solomon\n    - Satellite (DVB-S2): LDPC + BCH\n\n    CRYPTOGRAPHY:\n    - OTP: provably perfect secrecy (keypad in WWII, Kremlin hotline)\n    - Shamir secret sharing: IT-secure threshold sharing\n    - BB84 QKD: quantum key distribution (security from QM)\n\n    MACHINE LEARNING:\n    - Cross-entropy loss <- H(p,q) = H(p) + KL(p||q)\n    - VAE ELBO <- variational inference (same as FEP!)\n    - Information bottleneck <- I(X;Z) vs I(Y;Z) tradeoff\n    - Perplexity = 2^{H} <- model quality measure\n    - LLM compression = arithmetic coding with LM probs",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    }
+  ]
+}
