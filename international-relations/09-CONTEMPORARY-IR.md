@@ -1,3 +1,22 @@
+---
+maxim_schema: maxim.frontmatter.v1
+id: maxim:international-relations:contemporary-ir
+kind: guide
+module: international-relations
+section: international-relations
+title: Contemporary IR: China, US, and the New Order
+status: source-custody
+source_custody: partial
+current_path: international-relations/09-CONTEMPORARY-IR.md
+canonical_path: international-relations/09-CONTEMPORARY-IR.md
+backsource_ids: [proof-backfill:international-relations:09-contemporary-ir, git-history:international-relations:09-contemporary-ir]
+concepts: [contemporary, ir]
+root_concepts: [contemporary, ir]
+index_roles: [guide, root-concept]
+remap_from: []
+remap_to: []
+updated: null
+---
 # Contemporary IR: China, US, and the New Order
 
 ## The Big Picture
@@ -11,22 +30,22 @@ CONTEMPORARY IR — THE STRUCTURAL LANDSCAPE
   If so, what comes next?
 
   THREE ANALYTICAL POSITIONS:
-  ┌──────────────────┬───────────────────┬────────────────────┐
-  │  LIBERAL ORDER   │  GREAT POWER      │  POLYCRISIS /      │
-  │  CONTINUITY      │  COMPETITION      │  DISORDER          │
-  │                  │                   │                    │
-  │  Mearsheimer     │  Mearsheimer      │  Tooze, Runciman   │
-  │  wrong; liberals │  right; US-China  │  The world faces   │
+  ┌──────────────────┬───────────────────┬─────────────────────┐
+  │  LIBERAL ORDER   │  GREAT POWER      │  POLYCRISIS /       │
+  │  CONTINUITY      │  COMPETITION      │  DISORDER           │
+  │                  │                   │                     │
+  │  Mearsheimer     │  Mearsheimer      │  Tooze, Runciman    │
+  │  wrong; liberals │  right; US-China  │  The world faces    │
   │  right; democra- │  structural       │  compounding crises │
-  │  cies adapting   │  conflict coming  │  with no adequate  │
-  │                  │                   │  governance        │
-  │  Biden's "US is  │  Allison's        │                    │
+  │  cies adapting   │  conflict coming  │  with no adequate   │
+  │                  │                   │  governance         │
+  │  Biden's "US is  │  Allison's        │                     │
   │  back" thesis    │  Thucydides Trap  │  Climate + pandemic │
-  │                  │                   │  + AI + democratic │
+  │                  │                   │  + AI + democratic  │
   │  Institutions    │  Tech decoupling, │  backsliding + geop │
-  │  survive; norms  │  military buildup,│  olitical conflict │
-  │  persist         │  Taiwan risk      │  = systemic stress │
-  └──────────────────┴───────────────────┴────────────────────┘
+  │  survive; norms  │  mil. buildup,    │  olitical conflict  │
+  │  persist         │  Taiwan risk      │  = systemic stress  │
+  └──────────────────┴───────────────────┴─────────────────────┘
 
   STRUCTURAL FORCES SHAPING CONTEMPORARY IR:
   1. US-China strategic competition (technology, military, economy)
@@ -541,12 +560,12 @@ AI IN IR — MILITARY, INTELLIGENCE, AND EPISTEMIC SECURITY
   │                                                          │
   │ DEBATE:                                                  │
   │ FOR lethal autonomous weapons:                           │
-  │ • Faster decision loop (sub-second; human can't keep up)│
+  │ • Faster decision loop (sub-second; human can't keep up) │
   │ • Remove humans from harm                                │
   │ • More precise (no anger, no fear, no panic)             │
   │                                                          │
   │ AGAINST (Campaign to Stop Killer Robots):                │
-  │ • Accountability gap (who is responsible for a war crime│
+  │ • Accountability gap (who is responsible for a war crime │
   │   by an autonomous weapon?)                              │
   │ • Lowering threshold for conflict (no human casualties   │
   │   on deploying side = no political cost)                 │

@@ -1,0 +1,1021 @@
+{
+  "schema": "pebble.v1",
+  "kind": "corpus-slice",
+  "title": "maxim-translation-bleu-nmt",
+  "source": "../../translation",
+  "format": "markdown",
+  "metadata": {},
+  "sections": [
+    {
+      "id": "09-BLEU-NMT.md#000",
+      "path": [
+        "09-BLEU-NMT.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:translation:09-bleu-nmt, git-history:translation:09-bleu-nmt]",
+        "canonical_path": "translation/09-BLEU-NMT.md",
+        "concepts": "[bleu, nmt]",
+        "current_path": "translation/09-BLEU-NMT.md",
+        "id": "maxim:translation:bleu-nmt",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "translation",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[bleu, nmt]",
+        "section": "translation",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Neural MT Evaluation and What BLEU Misses",
+        "updated": "null"
+      },
+      "text": "# Neural MT Evaluation and What BLEU Misses"
+    },
+    {
+      "id": "09-BLEU-NMT.md#001",
+      "path": [
+        "09-BLEU-NMT.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:translation:09-bleu-nmt, git-history:translation:09-bleu-nmt]",
+        "canonical_path": "translation/09-BLEU-NMT.md",
+        "concepts": "[bleu, nmt]",
+        "current_path": "translation/09-BLEU-NMT.md",
+        "id": "maxim:translation:bleu-nmt",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "translation",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[bleu, nmt]",
+        "section": "translation",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Neural MT Evaluation and What BLEU Misses",
+        "updated": "null"
+      },
+      "text": "## The Big Picture"
+    },
+    {
+      "id": "09-BLEU-NMT.md#002",
+      "path": [
+        "09-BLEU-NMT.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:translation:09-bleu-nmt, git-history:translation:09-bleu-nmt]",
+        "canonical_path": "translation/09-BLEU-NMT.md",
+        "concepts": "[bleu, nmt]",
+        "current_path": "translation/09-BLEU-NMT.md",
+        "id": "maxim:translation:bleu-nmt",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "translation",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[bleu, nmt]",
+        "section": "translation",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Neural MT Evaluation and What BLEU Misses",
+        "updated": "null"
+      },
+      "text": "```\nMT EVALUATION — THE QUALITY MEASUREMENT PROBLEM\n════════════════════════════════════════════════════════════════════"
+    },
+    {
+      "id": "09-BLEU-NMT.md#003",
+      "path": [
+        "09-BLEU-NMT.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:translation:09-bleu-nmt, git-history:translation:09-bleu-nmt]",
+        "canonical_path": "translation/09-BLEU-NMT.md",
+        "concepts": "[bleu, nmt]",
+        "current_path": "translation/09-BLEU-NMT.md",
+        "id": "maxim:translation:bleu-nmt",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "translation",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[bleu, nmt]",
+        "section": "translation",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Neural MT Evaluation and What BLEU Misses",
+        "updated": "null"
+      },
+      "text": "THE FUNDAMENTAL PROBLEM:\n  Translation quality has multiple orthogonal dimensions.\n  Any single automated metric captures at most a projection."
+    },
+    {
+      "id": "09-BLEU-NMT.md#004",
+      "path": [
+        "09-BLEU-NMT.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:translation:09-bleu-nmt, git-history:translation:09-bleu-nmt]",
+        "canonical_path": "translation/09-BLEU-NMT.md",
+        "concepts": "[bleu, nmt]",
+        "current_path": "translation/09-BLEU-NMT.md",
+        "id": "maxim:translation:bleu-nmt",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "translation",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[bleu, nmt]",
+        "section": "translation",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Neural MT Evaluation and What BLEU Misses",
+        "updated": "null"
+      },
+      "text": "DIMENSIONS OF TRANSLATION QUALITY:\n  ┌─────────────────────────────────────────────────────────┐\n  │ • Adequacy: is the meaning transferred?                 │\n  │ • Fluency: does it read naturally in the target?        │\n  │ • Faithfulness: are all source elements represented?    │\n  │ • Pragmatics: is register, tone, illocution preserved?  │\n  │ • Cultural adequacy: appropriate cultural adaptation?   │\n  │ • Terminology: domain-appropriate terms used?           │\n  └─────────────────────────────────────────────────────────┘"
+    },
+    {
+      "id": "09-BLEU-NMT.md#005",
+      "path": [
+        "09-BLEU-NMT.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:translation:09-bleu-nmt, git-history:translation:09-bleu-nmt]",
+        "canonical_path": "translation/09-BLEU-NMT.md",
+        "concepts": "[bleu, nmt]",
+        "current_path": "translation/09-BLEU-NMT.md",
+        "id": "maxim:translation:bleu-nmt",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "translation",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[bleu, nmt]",
+        "section": "translation",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Neural MT Evaluation and What BLEU Misses",
+        "updated": "null"
+      },
+      "text": "METRICS CHART:\n  BLEU ──────────────────── n-gram overlap (surface)\n  METEOR ────────────────── n-gram + synonyms + stems\n  chrF ──────────────────── character n-gram overlap\n  TER ───────────────────── edit distance\n  BERTScore ─────────────── embedding similarity (contextual)\n  COMET ─────────────────── trained regression model\n  MQM ───────────────────── human annotation framework\n  (Human eval) ──────────── ground truth, expensive\n```"
+    },
+    {
+      "id": "09-BLEU-NMT.md#006",
+      "path": [
+        "09-BLEU-NMT.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:translation:09-bleu-nmt, git-history:translation:09-bleu-nmt]",
+        "canonical_path": "translation/09-BLEU-NMT.md",
+        "concepts": "[bleu, nmt]",
+        "current_path": "translation/09-BLEU-NMT.md",
+        "id": "maxim:translation:bleu-nmt",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "translation",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[bleu, nmt]",
+        "section": "translation",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Neural MT Evaluation and What BLEU Misses",
+        "updated": "null"
+      },
+      "text": "---"
+    },
+    {
+      "id": "09-BLEU-NMT.md#007",
+      "path": [
+        "09-BLEU-NMT.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:translation:09-bleu-nmt, git-history:translation:09-bleu-nmt]",
+        "canonical_path": "translation/09-BLEU-NMT.md",
+        "concepts": "[bleu, nmt]",
+        "current_path": "translation/09-BLEU-NMT.md",
+        "id": "maxim:translation:bleu-nmt",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "translation",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[bleu, nmt]",
+        "section": "translation",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Neural MT Evaluation and What BLEU Misses",
+        "updated": "null"
+      },
+      "text": "## BLEU: How It Works"
+    },
+    {
+      "id": "09-BLEU-NMT.md#008",
+      "path": [
+        "09-BLEU-NMT.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:translation:09-bleu-nmt, git-history:translation:09-bleu-nmt]",
+        "canonical_path": "translation/09-BLEU-NMT.md",
+        "concepts": "[bleu, nmt]",
+        "current_path": "translation/09-BLEU-NMT.md",
+        "id": "maxim:translation:bleu-nmt",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "translation",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[bleu, nmt]",
+        "section": "translation",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Neural MT Evaluation and What BLEU Misses",
+        "updated": "null"
+      },
+      "text": "BLEU (Bilingual Evaluation Understudy, Papineni et al., 2002) is the most widely used automated MT metric and has been since its introduction."
+    },
+    {
+      "id": "09-BLEU-NMT.md#009",
+      "path": [
+        "09-BLEU-NMT.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:translation:09-bleu-nmt, git-history:translation:09-bleu-nmt]",
+        "canonical_path": "translation/09-BLEU-NMT.md",
+        "concepts": "[bleu, nmt]",
+        "current_path": "translation/09-BLEU-NMT.md",
+        "id": "maxim:translation:bleu-nmt",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "translation",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[bleu, nmt]",
+        "section": "translation",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Neural MT Evaluation and What BLEU Misses",
+        "updated": "null"
+      },
+      "text": "### The Mechanics"
+    },
+    {
+      "id": "09-BLEU-NMT.md#010",
+      "path": [
+        "09-BLEU-NMT.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:translation:09-bleu-nmt, git-history:translation:09-bleu-nmt]",
+        "canonical_path": "translation/09-BLEU-NMT.md",
+        "concepts": "[bleu, nmt]",
+        "current_path": "translation/09-BLEU-NMT.md",
+        "id": "maxim:translation:bleu-nmt",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "translation",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[bleu, nmt]",
+        "section": "translation",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Neural MT Evaluation and What BLEU Misses",
+        "updated": "null"
+      },
+      "text": "```\nBLEU SCORE COMPUTATION\n════════════════════════════════════════════════════════════════"
+    },
+    {
+      "id": "09-BLEU-NMT.md#011",
+      "path": [
+        "09-BLEU-NMT.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:translation:09-bleu-nmt, git-history:translation:09-bleu-nmt]",
+        "canonical_path": "translation/09-BLEU-NMT.md",
+        "concepts": "[bleu, nmt]",
+        "current_path": "translation/09-BLEU-NMT.md",
+        "id": "maxim:translation:bleu-nmt",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "translation",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[bleu, nmt]",
+        "section": "translation",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Neural MT Evaluation and What BLEU Misses",
+        "updated": "null"
+      },
+      "text": "INPUT:\n  • Candidate translation (MT output)\n  • Reference translation(s) (1+ human translations)"
+    },
+    {
+      "id": "09-BLEU-NMT.md#012",
+      "path": [
+        "09-BLEU-NMT.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:translation:09-bleu-nmt, git-history:translation:09-bleu-nmt]",
+        "canonical_path": "translation/09-BLEU-NMT.md",
+        "concepts": "[bleu, nmt]",
+        "current_path": "translation/09-BLEU-NMT.md",
+        "id": "maxim:translation:bleu-nmt",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "translation",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[bleu, nmt]",
+        "section": "translation",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Neural MT Evaluation and What BLEU Misses",
+        "updated": "null"
+      },
+      "text": "STEP 1: N-GRAM PRECISION (for n = 1, 2, 3, 4)\n  Count how many n-grams in the candidate appear in\n  any reference translation.\n  Clip count: an n-gram can only match as many times\n  as it appears in the reference."
+    },
+    {
+      "id": "09-BLEU-NMT.md#013",
+      "path": [
+        "09-BLEU-NMT.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:translation:09-bleu-nmt, git-history:translation:09-bleu-nmt]",
+        "canonical_path": "translation/09-BLEU-NMT.md",
+        "concepts": "[bleu, nmt]",
+        "current_path": "translation/09-BLEU-NMT.md",
+        "id": "maxim:translation:bleu-nmt",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "translation",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[bleu, nmt]",
+        "section": "translation",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Neural MT Evaluation and What BLEU Misses",
+        "updated": "null"
+      },
+      "text": "EXAMPLE:\n  Candidate: \"the cat the cat sat on the mat\"\n  Reference: \"the cat sat on the mat\"\n  1-gram \"the\" appears 3 times in candidate;\n  only 2 times in reference → clipped count = 2.\n  Without clipping: naive system could repeat \"the\"\n  indefinitely and get high 1-gram precision."
+    },
+    {
+      "id": "09-BLEU-NMT.md#014",
+      "path": [
+        "09-BLEU-NMT.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:translation:09-bleu-nmt, git-history:translation:09-bleu-nmt]",
+        "canonical_path": "translation/09-BLEU-NMT.md",
+        "concepts": "[bleu, nmt]",
+        "current_path": "translation/09-BLEU-NMT.md",
+        "id": "maxim:translation:bleu-nmt",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "translation",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[bleu, nmt]",
+        "section": "translation",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Neural MT Evaluation and What BLEU Misses",
+        "updated": "null"
+      },
+      "text": "STEP 2: BREVITY PENALTY\n  If candidate is shorter than reference: penalize.\n  (Otherwise a system that outputs one correct word\n   gets 100% precision)"
+    },
+    {
+      "id": "09-BLEU-NMT.md#015",
+      "path": [
+        "09-BLEU-NMT.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:translation:09-bleu-nmt, git-history:translation:09-bleu-nmt]",
+        "canonical_path": "translation/09-BLEU-NMT.md",
+        "concepts": "[bleu, nmt]",
+        "current_path": "translation/09-BLEU-NMT.md",
+        "id": "maxim:translation:bleu-nmt",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "translation",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[bleu, nmt]",
+        "section": "translation",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Neural MT Evaluation and What BLEU Misses",
+        "updated": "null"
+      },
+      "text": "BP = 1 if c > r\n  BP = e^(1 - r/c) if c ≤ r\n  (c = candidate length, r = reference length)"
+    },
+    {
+      "id": "09-BLEU-NMT.md#016",
+      "path": [
+        "09-BLEU-NMT.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:translation:09-bleu-nmt, git-history:translation:09-bleu-nmt]",
+        "canonical_path": "translation/09-BLEU-NMT.md",
+        "concepts": "[bleu, nmt]",
+        "current_path": "translation/09-BLEU-NMT.md",
+        "id": "maxim:translation:bleu-nmt",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "translation",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[bleu, nmt]",
+        "section": "translation",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Neural MT Evaluation and What BLEU Misses",
+        "updated": "null"
+      },
+      "text": "STEP 3: GEOMETRIC MEAN OF N-GRAM PRECISIONS\n  BLEU = BP × exp(Σ wₙ × log pₙ)\n  where wₙ = 1/4 (equal weights for n=1,2,3,4)\n  and pₙ is the modified n-gram precision for order n"
+    },
+    {
+      "id": "09-BLEU-NMT.md#017",
+      "path": [
+        "09-BLEU-NMT.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:translation:09-bleu-nmt, git-history:translation:09-bleu-nmt]",
+        "canonical_path": "translation/09-BLEU-NMT.md",
+        "concepts": "[bleu, nmt]",
+        "current_path": "translation/09-BLEU-NMT.md",
+        "id": "maxim:translation:bleu-nmt",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "translation",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[bleu, nmt]",
+        "section": "translation",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Neural MT Evaluation and What BLEU Misses",
+        "updated": "null"
+      },
+      "text": "RANGE: 0 to 1 (sometimes reported as 0-100)\n  INTERPRETATION:\n  ~0.0: random or completely wrong\n  ~0.3: understandable; significant errors\n  ~0.5-0.6: close to professional quality (rough guideline)\n  ~0.6+: generally professional quality (language-pair dependent)\n  1.0: identical to reference (impossible in practice with one reference)\n```"
+    },
+    {
+      "id": "09-BLEU-NMT.md#018",
+      "path": [
+        "09-BLEU-NMT.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:translation:09-bleu-nmt, git-history:translation:09-bleu-nmt]",
+        "canonical_path": "translation/09-BLEU-NMT.md",
+        "concepts": "[bleu, nmt]",
+        "current_path": "translation/09-BLEU-NMT.md",
+        "id": "maxim:translation:bleu-nmt",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "translation",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[bleu, nmt]",
+        "section": "translation",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Neural MT Evaluation and What BLEU Misses",
+        "updated": "null"
+      },
+      "text": "---"
+    },
+    {
+      "id": "09-BLEU-NMT.md#019",
+      "path": [
+        "09-BLEU-NMT.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:translation:09-bleu-nmt, git-history:translation:09-bleu-nmt]",
+        "canonical_path": "translation/09-BLEU-NMT.md",
+        "concepts": "[bleu, nmt]",
+        "current_path": "translation/09-BLEU-NMT.md",
+        "id": "maxim:translation:bleu-nmt",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "translation",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[bleu, nmt]",
+        "section": "translation",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Neural MT Evaluation and What BLEU Misses",
+        "updated": "null"
+      },
+      "text": "## BLEU's Known Failures"
+    },
+    {
+      "id": "09-BLEU-NMT.md#020",
+      "path": [
+        "09-BLEU-NMT.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:translation:09-bleu-nmt, git-history:translation:09-bleu-nmt]",
+        "canonical_path": "translation/09-BLEU-NMT.md",
+        "concepts": "[bleu, nmt]",
+        "current_path": "translation/09-BLEU-NMT.md",
+        "id": "maxim:translation:bleu-nmt",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "translation",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[bleu, nmt]",
+        "section": "translation",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Neural MT Evaluation and What BLEU Misses",
+        "updated": "null"
+      },
+      "text": "BLEU has been extensively critiqued since its introduction. The critique is not that it's useless — it correlates reasonably well with human judgment for ranking systems — but that it fails in systematic and important ways:"
+    },
+    {
+      "id": "09-BLEU-NMT.md#021",
+      "path": [
+        "09-BLEU-NMT.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:translation:09-bleu-nmt, git-history:translation:09-bleu-nmt]",
+        "canonical_path": "translation/09-BLEU-NMT.md",
+        "concepts": "[bleu, nmt]",
+        "current_path": "translation/09-BLEU-NMT.md",
+        "id": "maxim:translation:bleu-nmt",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "translation",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[bleu, nmt]",
+        "section": "translation",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Neural MT Evaluation and What BLEU Misses",
+        "updated": "null"
+      },
+      "text": "```\nBLEU FAILURE MODES\n════════════════════════════════════════════════════════════════"
+    },
+    {
+      "id": "09-BLEU-NMT.md#022",
+      "path": [
+        "09-BLEU-NMT.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:translation:09-bleu-nmt, git-history:translation:09-bleu-nmt]",
+        "canonical_path": "translation/09-BLEU-NMT.md",
+        "concepts": "[bleu, nmt]",
+        "current_path": "translation/09-BLEU-NMT.md",
+        "id": "maxim:translation:bleu-nmt",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "translation",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[bleu, nmt]",
+        "section": "translation",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Neural MT Evaluation and What BLEU Misses",
+        "updated": "null"
+      },
+      "text": "1. DOES NOT CAPTURE FLUENCY\n  Candidate: \"sat cat the mat the on the\"\n  Reference: \"the cat sat on the mat\"\n  BLEU score: high (all unigrams match, several bigrams)\n  Human judgment: completely unintelligible"
+    },
+    {
+      "id": "09-BLEU-NMT.md#023",
+      "path": [
+        "09-BLEU-NMT.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:translation:09-bleu-nmt, git-history:translation:09-bleu-nmt]",
+        "canonical_path": "translation/09-BLEU-NMT.md",
+        "concepts": "[bleu, nmt]",
+        "current_path": "translation/09-BLEU-NMT.md",
+        "id": "maxim:translation:bleu-nmt",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "translation",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[bleu, nmt]",
+        "section": "translation",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Neural MT Evaluation and What BLEU Misses",
+        "updated": "null"
+      },
+      "text": "2. ONE CORRECT TRANSLATION PENALIZES OTHERS\n  Reference: \"the cat sat on the mat\"\n  Candidate: \"the cat was sitting on the mat\"\n  BLEU: lower than reference match\n  Human judgment: acceptable paraphrase\n  The problem: BLEU doesn't know about paraphrase"
+    },
+    {
+      "id": "09-BLEU-NMT.md#024",
+      "path": [
+        "09-BLEU-NMT.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:translation:09-bleu-nmt, git-history:translation:09-bleu-nmt]",
+        "canonical_path": "translation/09-BLEU-NMT.md",
+        "concepts": "[bleu, nmt]",
+        "current_path": "translation/09-BLEU-NMT.md",
+        "id": "maxim:translation:bleu-nmt",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "translation",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[bleu, nmt]",
+        "section": "translation",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Neural MT Evaluation and What BLEU Misses",
+        "updated": "null"
+      },
+      "text": "3. IGNORES PRAGMATICS AND REGISTER\n  Source (formal): \"Veuillez agréer l'expression de mes sentiments distingués\"\n  Reference: \"Yours sincerely,\"\n  Candidate (literal): \"Please accept the expression of my distinguished sentiments\"\n  BLEU: candidate scores low (different from reference)\n  Human judgment: candidate is technically accurate but pragmatically wrong —\n  no one ends an English business letter that way.\n  BLEU cannot detect pragmatic failure."
+    },
+    {
+      "id": "09-BLEU-NMT.md#025",
+      "path": [
+        "09-BLEU-NMT.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:translation:09-bleu-nmt, git-history:translation:09-bleu-nmt]",
+        "canonical_path": "translation/09-BLEU-NMT.md",
+        "concepts": "[bleu, nmt]",
+        "current_path": "translation/09-BLEU-NMT.md",
+        "id": "maxim:translation:bleu-nmt",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "translation",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[bleu, nmt]",
+        "section": "translation",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Neural MT Evaluation and What BLEU Misses",
+        "updated": "null"
+      },
+      "text": "4. IGNORES CULTURAL ADEQUACY\n  Source mentions \"a rice cooker\" (culturally familiar in Japan)\n  Reference: \"a rice cooker\"\n  Candidate: \"a special pot\" (culturally adapted)\n  BLEU: candidate scores low\n  Human judgment: may depend on audience —\n  for a Japanese-culture text for a Japanese audience, wrong;\n  for explaining the concept to Western readers, possibly right."
+    },
+    {
+      "id": "09-BLEU-NMT.md#026",
+      "path": [
+        "09-BLEU-NMT.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:translation:09-bleu-nmt, git-history:translation:09-bleu-nmt]",
+        "canonical_path": "translation/09-BLEU-NMT.md",
+        "concepts": "[bleu, nmt]",
+        "current_path": "translation/09-BLEU-NMT.md",
+        "id": "maxim:translation:bleu-nmt",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "translation",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[bleu, nmt]",
+        "section": "translation",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Neural MT Evaluation and What BLEU Misses",
+        "updated": "null"
+      },
+      "text": "5. IGNORES HALLUCINATION\n  Source: \"The meeting was on Tuesday.\"\n  Candidate: \"The meeting was on Tuesday, and the chairman resigned.\"\n  BLEU: candidate may score normally or low (depending on reference)\n  Human judgment: the added information is fabricated —\n  critical error in any high-stakes domain.\n  BLEU has no mechanism to detect additions that weren't in the source."
+    },
+    {
+      "id": "09-BLEU-NMT.md#027",
+      "path": [
+        "09-BLEU-NMT.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:translation:09-bleu-nmt, git-history:translation:09-bleu-nmt]",
+        "canonical_path": "translation/09-BLEU-NMT.md",
+        "concepts": "[bleu, nmt]",
+        "current_path": "translation/09-BLEU-NMT.md",
+        "id": "maxim:translation:bleu-nmt",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "translation",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[bleu, nmt]",
+        "section": "translation",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Neural MT Evaluation and What BLEU Misses",
+        "updated": "null"
+      },
+      "text": "6. GENDER BIAS\n  Source (generic masculine in Spanish): \"El médico llegó tarde\"\n  Reference (English): \"The doctor arrived late\"\n  Candidate (gendered): \"He arrived late\" (male default)\n  BLEU: may score fine against \"The doctor arrived late\"\n  Feminist MT critique: NMT systematically defaults to male\n  for professional roles, female for service roles.\n  BLEU is blind to this.\n```"
+    },
+    {
+      "id": "09-BLEU-NMT.md#028",
+      "path": [
+        "09-BLEU-NMT.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:translation:09-bleu-nmt, git-history:translation:09-bleu-nmt]",
+        "canonical_path": "translation/09-BLEU-NMT.md",
+        "concepts": "[bleu, nmt]",
+        "current_path": "translation/09-BLEU-NMT.md",
+        "id": "maxim:translation:bleu-nmt",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "translation",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[bleu, nmt]",
+        "section": "translation",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Neural MT Evaluation and What BLEU Misses",
+        "updated": "null"
+      },
+      "text": "---"
+    },
+    {
+      "id": "09-BLEU-NMT.md#029",
+      "path": [
+        "09-BLEU-NMT.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:translation:09-bleu-nmt, git-history:translation:09-bleu-nmt]",
+        "canonical_path": "translation/09-BLEU-NMT.md",
+        "concepts": "[bleu, nmt]",
+        "current_path": "translation/09-BLEU-NMT.md",
+        "id": "maxim:translation:bleu-nmt",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "translation",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[bleu, nmt]",
+        "section": "translation",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Neural MT Evaluation and What BLEU Misses",
+        "updated": "null"
+      },
+      "text": "## Alternative Metrics"
+    },
+    {
+      "id": "09-BLEU-NMT.md#030",
+      "path": [
+        "09-BLEU-NMT.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:translation:09-bleu-nmt, git-history:translation:09-bleu-nmt]",
+        "canonical_path": "translation/09-BLEU-NMT.md",
+        "concepts": "[bleu, nmt]",
+        "current_path": "translation/09-BLEU-NMT.md",
+        "id": "maxim:translation:bleu-nmt",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "translation",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[bleu, nmt]",
+        "section": "translation",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Neural MT Evaluation and What BLEU Misses",
+        "updated": "null"
+      },
+      "text": "```\nMT EVALUATION METRICS — COMPARISON\n════════════════════════════════════════════════════════════════"
+    },
+    {
+      "id": "09-BLEU-NMT.md#031",
+      "path": [
+        "09-BLEU-NMT.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:translation:09-bleu-nmt, git-history:translation:09-bleu-nmt]",
+        "canonical_path": "translation/09-BLEU-NMT.md",
+        "concepts": "[bleu, nmt]",
+        "current_path": "translation/09-BLEU-NMT.md",
+        "id": "maxim:translation:bleu-nmt",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "translation",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[bleu, nmt]",
+        "section": "translation",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Neural MT Evaluation and What BLEU Misses",
+        "updated": "null"
+      },
+      "text": "METEOR (Banerjee & Lavie, 2005):\n  ┌──────────────────────────────────────────────────────────┐\n  │ Adds to BLEU: synonym matching, stemming, recall         │\n  │ Correlates better with human judgment than BLEU          │\n  │ More computationally expensive                           │\n  │ Language-specific modules (worse for low-resource)       │\n  └──────────────────────────────────────────────────────────┘"
+    },
+    {
+      "id": "09-BLEU-NMT.md#032",
+      "path": [
+        "09-BLEU-NMT.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:translation:09-bleu-nmt, git-history:translation:09-bleu-nmt]",
+        "canonical_path": "translation/09-BLEU-NMT.md",
+        "concepts": "[bleu, nmt]",
+        "current_path": "translation/09-BLEU-NMT.md",
+        "id": "maxim:translation:bleu-nmt",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "translation",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[bleu, nmt]",
+        "section": "translation",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Neural MT Evaluation and What BLEU Misses",
+        "updated": "null"
+      },
+      "text": "TER (Translation Error Rate):\n  ┌──────────────────────────────────────────────────────────┐\n  │ Edit distance: how many edits needed to go from          │\n  │ candidate to reference?                                  │\n  │ Allows reordering (with additional cost)                 │\n  │ Lower = better; 0 = perfect match; >1 = very bad         │\n  │ Good for post-editing time estimation                    │\n  └──────────────────────────────────────────────────────────┘"
+    },
+    {
+      "id": "09-BLEU-NMT.md#033",
+      "path": [
+        "09-BLEU-NMT.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:translation:09-bleu-nmt, git-history:translation:09-bleu-nmt]",
+        "canonical_path": "translation/09-BLEU-NMT.md",
+        "concepts": "[bleu, nmt]",
+        "current_path": "translation/09-BLEU-NMT.md",
+        "id": "maxim:translation:bleu-nmt",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "translation",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[bleu, nmt]",
+        "section": "translation",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Neural MT Evaluation and What BLEU Misses",
+        "updated": "null"
+      },
+      "text": "chrF (Popovic, 2015):\n  ┌──────────────────────────────────────────────────────────┐\n  │ Character n-gram F-score                                 │\n  │ Better for morphologically rich languages                │\n  │ (Turkish, Finnish, Czech)                                │\n  │ No tokenization required — language-neutral              │\n  │ Correlates well with human for many languages            │\n  └──────────────────────────────────────────────────────────┘"
+    },
+    {
+      "id": "09-BLEU-NMT.md#034",
+      "path": [
+        "09-BLEU-NMT.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:translation:09-bleu-nmt, git-history:translation:09-bleu-nmt]",
+        "canonical_path": "translation/09-BLEU-NMT.md",
+        "concepts": "[bleu, nmt]",
+        "current_path": "translation/09-BLEU-NMT.md",
+        "id": "maxim:translation:bleu-nmt",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "translation",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[bleu, nmt]",
+        "section": "translation",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Neural MT Evaluation and What BLEU Misses",
+        "updated": "null"
+      },
+      "text": "BERTScore (Zhang et al., 2019):\n  ┌──────────────────────────────────────────────────────────┐\n  │ Compare candidate and reference using BERT contextual    │\n  │ embeddings rather than surface n-gram overlap            │\n  │ Captures semantic similarity even when paraphrased       │\n  │ \"cat sat on mat\" ≈ \"feline rested on carpet\" (higher     │\n  │ score than BLEU would give)                              │\n  │ Requires BERT model; computationally heavier             │\n  │ Still doesn't capture pragmatics, hallucination          │\n  └──────────────────────────────────────────────────────────┘"
+    },
+    {
+      "id": "09-BLEU-NMT.md#035",
+      "path": [
+        "09-BLEU-NMT.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:translation:09-bleu-nmt, git-history:translation:09-bleu-nmt]",
+        "canonical_path": "translation/09-BLEU-NMT.md",
+        "concepts": "[bleu, nmt]",
+        "current_path": "translation/09-BLEU-NMT.md",
+        "id": "maxim:translation:bleu-nmt",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "translation",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[bleu, nmt]",
+        "section": "translation",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Neural MT Evaluation and What BLEU Misses",
+        "updated": "null"
+      },
+      "text": "COMET (Rei et al., 2020):\n  ┌──────────────────────────────────────────────────────────┐\n  │ Trained neural model that takes source + candidate +     │\n  │ reference and predicts human quality judgment score      │\n  │ Trained on direct assessment (DA) human annotations      │\n  │ Currently best correlation with human judgments          │\n  │ Multiple variants: COMET-DA, COMET-QE (no reference)     │\n  │ Requires source sentence (unlike BLEU/METEOR which       │\n  │ only need reference)                                     │\n  └──────────────────────────────────────────────────────────┘\n```"
+    }
+  ],
+  "refs": [
+    "09-BLEU-NMT.md"
+  ]
+}

@@ -1,3 +1,22 @@
+---
+maxim_schema: maxim.frontmatter.v1
+id: maxim:translation:overview
+kind: guide
+module: translation
+section: translation
+title: Translation - Landscape and Taxonomy
+status: source-custody
+source_custody: partial
+current_path: translation/00-OVERVIEW.md
+canonical_path: translation/00-OVERVIEW.md
+backsource_ids: [proof-backfill:translation:00-overview, git-history:translation:00-overview]
+concepts: [overview]
+root_concepts: [overview]
+index_roles: [guide, root-concept]
+remap_from: []
+remap_to: []
+updated: null
+---
 # Translation — Landscape and Taxonomy
 
 ## The Big Picture
@@ -23,8 +42,8 @@ TRANSLATION STUDIES — FIELD MAP
                THE CENTRAL TENSION:
                EQUIVALENCE PROBLEM
                ┌──────────────────────────────┐
-               │ Can meaning transfer          │
-               │ across languages?             │
+               │ Can meaning transfer         │
+               │ across languages?            │
                │                              │
                │ What is preserved?           │
                │ What is necessarily lost?    │

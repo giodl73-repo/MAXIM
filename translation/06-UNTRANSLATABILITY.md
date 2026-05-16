@@ -1,3 +1,22 @@
+---
+maxim_schema: maxim.frontmatter.v1
+id: maxim:translation:untranslatability
+kind: guide
+module: translation
+section: translation
+title: Untranslatability and the Limits of Language
+status: source-custody
+source_custody: partial
+current_path: translation/06-UNTRANSLATABILITY.md
+canonical_path: translation/06-UNTRANSLATABILITY.md
+backsource_ids: [proof-backfill:translation:06-untranslatability, git-history:translation:06-untranslatability]
+concepts: [untranslatability]
+root_concepts: [untranslatability]
+index_roles: [guide, root-concept]
+remap_from: []
+remap_to: []
+updated: null
+---
 # Untranslatability and the Limits of Language
 
 ## The Big Picture
@@ -18,7 +37,7 @@ UNTRANSLATABILITY — CONCEPTUAL MAP
   │  what is communicated.                                  │
   │                                                         │
   │  ALMOST NOBODY HOLDS THE STRONG CLAIM in its            │
-  │  purest form. The interesting debates are in the middle.│
+  │  purest form. Most debates are in the middle.           │
   └─────────────────────────────────────────────────────────┘
                               │
           ┌────────────────────┼────────────────────┐
@@ -169,7 +188,7 @@ COLOR TERM STRUCTURE — RUSSIAN vs. ENGLISH
   basic-level category).
 
   OTHER LANGUAGES WITH UNUSUAL COLOR SYSTEMS:
-  Japanese: ao (青) = both blue and green (context-dependent)
+  Japanese: ao = both blue and green (context-dependent)
   Vietnamese: xanh = blue/green (same word)
   Pirahã (Amazonia): only two color terms (light and dark)
   Japanese translating "traffic light is green" must

@@ -1,3 +1,22 @@
+---
+maxim_schema: maxim.frontmatter.v1
+id: maxim:translation:equivalence-problem
+kind: guide
+module: translation
+section: translation
+title: The Equivalence Problem: What Is Translation?
+status: source-custody
+source_custody: partial
+current_path: translation/01-EQUIVALENCE-PROBLEM.md
+canonical_path: translation/01-EQUIVALENCE-PROBLEM.md
+backsource_ids: [proof-backfill:translation:01-equivalence-problem, git-history:translation:01-equivalence-problem]
+concepts: [equivalence, problem]
+root_concepts: [equivalence, problem]
+index_roles: [guide, root-concept]
+remap_from: []
+remap_to: []
+updated: null
+---
 # The Equivalence Problem: What Is Translation?
 
 ## The Big Picture

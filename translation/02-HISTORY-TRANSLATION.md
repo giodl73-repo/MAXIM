@@ -1,3 +1,22 @@
+---
+maxim_schema: maxim.frontmatter.v1
+id: maxim:translation:history-translation
+kind: guide
+module: translation
+section: translation
+title: History of Translation: Cicero to Jerome to Luther
+status: source-custody
+source_custody: partial
+current_path: translation/02-HISTORY-TRANSLATION.md
+canonical_path: translation/02-HISTORY-TRANSLATION.md
+backsource_ids: [proof-backfill:translation:02-history-translation, git-history:translation:02-history-translation]
+concepts: [history, translation]
+root_concepts: [history, translation]
+index_roles: [guide, root-concept]
+remap_from: []
+remap_to: []
+updated: null
+---
 # History of Translation: Cicero to Jerome to Luther
 
 ## The Big Picture

@@ -1,3 +1,22 @@
+---
+maxim_schema: maxim.frontmatter.v1
+id: maxim:international-relations:realism
+kind: guide
+module: international-relations
+section: international-relations
+title: Realism: Morgenthau, Waltz, and Mearsheimer
+status: source-custody
+source_custody: partial
+current_path: international-relations/01-REALISM.md
+canonical_path: international-relations/01-REALISM.md
+backsource_ids: [proof-backfill:international-relations:01-realism, git-history:international-relations:01-realism]
+concepts: [realism]
+root_concepts: [realism]
+index_roles: [guide, root-concept]
+remap_from: []
+remap_to: []
+updated: null
+---
 # Realism: Morgenthau, Waltz, and Mearsheimer
 
 ## The Big Picture

@@ -1,3 +1,22 @@
+---
+maxim_schema: maxim.frontmatter.v1
+id: maxim:translation:bleu-nmt
+kind: guide
+module: translation
+section: translation
+title: Neural MT Evaluation and What BLEU Misses
+status: source-custody
+source_custody: partial
+current_path: translation/09-BLEU-NMT.md
+canonical_path: translation/09-BLEU-NMT.md
+backsource_ids: [proof-backfill:translation:09-bleu-nmt, git-history:translation:09-bleu-nmt]
+concepts: [bleu, nmt]
+root_concepts: [bleu, nmt]
+index_roles: [guide, root-concept]
+remap_from: []
+remap_to: []
+updated: null
+---
 # Neural MT Evaluation and What BLEU Misses
 
 ## The Big Picture

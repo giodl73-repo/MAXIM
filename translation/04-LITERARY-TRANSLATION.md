@@ -1,3 +1,22 @@
+---
+maxim_schema: maxim.frontmatter.v1
+id: maxim:translation:literary-translation
+kind: guide
+module: translation
+section: translation
+title: Literary Translation: Fidelity and Freedom
+status: source-custody
+source_custody: partial
+current_path: translation/04-LITERARY-TRANSLATION.md
+canonical_path: translation/04-LITERARY-TRANSLATION.md
+backsource_ids: [proof-backfill:translation:04-literary-translation, git-history:translation:04-literary-translation]
+concepts: [literary, translation]
+root_concepts: [literary, translation]
+index_roles: [guide, root-concept]
+remap_from: []
+remap_to: []
+updated: null
+---
 # Literary Translation: Fidelity and Freedom
 
 ## The Big Picture
@@ -195,7 +214,7 @@ Literary texts are dense with culturally specific references:
 UNTRANSLATABLES IN LITERARY CONTEXT
 ════════════════════════════════════════════════════════════════
 
-  Japanese: mono no aware (物の哀れ)
+  Japanese: mono no aware
   "Pathos of things" — sensitivity to impermanence;
   the bittersweet feeling of fleeting beauty.
   Core to Japanese aesthetics (The Tale of Genji).

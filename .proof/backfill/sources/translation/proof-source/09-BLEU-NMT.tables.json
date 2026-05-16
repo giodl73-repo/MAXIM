@@ -1,0 +1,55 @@
+{
+  "schema_version": "1",
+  "source_markdown": "translation\\09-BLEU-NMT.md",
+  "tables": [
+    {
+      "id": "table-1",
+      "line": 509,
+      "heading_context": "## Decision Cheat Sheet",
+      "headers": [
+        "Metric",
+        "What it measures",
+        "Misses",
+        "Best for"
+      ],
+      "rows": [
+        [
+          "BLEU",
+          "Surface n-gram overlap with reference",
+          "Fluency, pragmatics, hallucination, synonyms",
+          "Ranking systems in development; rough comparison"
+        ],
+        [
+          "METEOR",
+          "N-gram + synonyms + stems + recall",
+          "Pragmatics, hallucination, cultural",
+          "Better than BLEU for system development"
+        ],
+        [
+          "chrF",
+          "Character n-gram F-score",
+          "Pragmatics, hallucination",
+          "Morphologically rich languages"
+        ],
+        [
+          "BERTScore",
+          "Semantic similarity via embeddings",
+          "Pragmatics, hallucination, cultural",
+          "Paraphrase-tolerant evaluation"
+        ],
+        [
+          "COMET",
+          "Learned quality model",
+          "Domain shift; new error types",
+          "Best automated metric; WMT evaluation"
+        ],
+        [
+          "MQM",
+          "Human error annotation taxonomy",
+          "Nothing (it's the ground truth)",
+          "Production quality assurance; post-editing"
+        ]
+      ]
+    }
+  ]
+}
