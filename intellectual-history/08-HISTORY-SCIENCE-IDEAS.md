@@ -1,3 +1,22 @@
+---
+maxim_schema: maxim.frontmatter.v1
+id: maxim:intellectual-history:history-science-ideas
+kind: guide
+module: intellectual-history
+section: intellectual-history
+title: History of Science as Intellectual History
+status: source-custody
+source_custody: partial
+current_path: intellectual-history/08-HISTORY-SCIENCE-IDEAS.md
+canonical_path: intellectual-history/08-HISTORY-SCIENCE-IDEAS.md
+backsource_ids: [proof-backfill:intellectual-history:08-history-science-ideas, git-history:intellectual-history:08-history-science-ideas]
+concepts: [history, science, ideas]
+root_concepts: [history, science]
+index_roles: [guide, root-concept]
+remap_from: []
+remap_to: []
+updated: null
+---
 # History of Science as Intellectual History
 
 ## The Big Picture
@@ -8,38 +27,38 @@ and has gone through multiple methodological revolutions — from hagiography an
 through internalist-externalist debates, to contextual, sociological, and postcolonial approaches.
 
 ```
-+-------------------------------------------------------------------+
-|           HISTORY OF SCIENCE AS INTELLECTUAL HISTORY              |
-|                                                                   |
-|  PHASES OF THE FIELD                                              |
-|  +----------------------+                                         |
-|  | WHIG / HAGIOGRAPHIC  |  19th C - 1950s                        |
-|  | (Sarton: heroes of   |  March of reason toward truth          |
-|  |  science; progress)  |                                         |
-|  +----------------------+                                         |
-   |           |                                                    |
-   |           v                                                    |
-|  +----------------------+                                         |
-|  | INTERNALIST          |  1950s-1970s                           |
-|  | (Koyré, Hall:        |  Internal logic of ideas               |
-|  |  conceptual history) |  Mathematization of nature             |
-|  +----------------------+                                         |
-   |           |                                                    |
-   |           v                                                    |
-|  +----------------------+                                         |
-|  | SOCIAL/CONTEXTUAL    |  1970s-present                        |
-|  | (Merton, Edinburgh,  |  Social conditions of science          |
-|  |  Shapin, Schaffer)   |  Institutional history                 |
-|  +----------------------+                                         |
-   |           |                                                    |
-   |           v                                                    |
-|  +----------------------+                                         |
-|  | POSTCOLONIAL /       |  1990s-present                        |
-|  | GLOBAL               |  Non-Western science                   |
-|  | (Needham, Brotton,   |  Science and colonialism               |
-|  |  Raj, Chakrabarty)   |                                         |
-|  +----------------------+                                         |
-+-------------------------------------------------------------------+
+.===================================================================.
+!           HISTORY OF SCIENCE AS INTELLECTUAL HISTORY              !
+!                                                                   !
+!  PHASES OF THE FIELD                                              !
+!  .======================.                                         !
+!  ! WHIG / HAGIOGRAPHIC  !  19th C - 1950s                        !
+!  ! (Sarton: heroes of   !  March of reason toward truth          !
+!  !  science; progress)  !                                         !
+!  .======================.                                         !
+   !           !                                                    !
+   !           v                                                    !
+!  .======================.                                         !
+!  ! INTERNALIST          !  1950s-1970s                           !
+!  ! (Koyré, Hall:        !  Internal logic of ideas               !
+!  !  conceptual history) !  Mathematization of nature             !
+!  .======================.                                         !
+   !           !                                                    !
+   !           v                                                    !
+!  .======================.                                         !
+!  ! SOCIAL/CONTEXTUAL    !  1970s-present                        !
+!  ! (Merton, Edinburgh,  !  Social conditions of science          !
+!  !  Shapin, Schaffer)   !  Institutional history                 !
+!  .======================.                                         !
+   !           !                                                    !
+   !           v                                                    !
+!  .======================.                                         !
+!  ! POSTCOLONIAL /       !  1990s-present                        !
+!  ! GLOBAL               !  Non-Western science                   !
+!  ! (Needham, Brotton,   !  Science and colonialism               !
+!  !  Raj, Chakrabarty)   !                                         !
+!  .======================.                                         !
+.===================================================================.
 ```
 
 ---
@@ -239,7 +258,7 @@ through internalist-externalist debates, to contextual, sociological, and postco
   THE GALILEAN IDEALIZATION:
   Free-fall on a frictionless inclined plane.
   These conditions never exist in nature; yet the law holds.
-  Mathematical abstraction + idealization = new form of knowledge.
+  Mathematical abstraction . idealization = new form of knowledge.
 
   KOYRÉ'S INTERNALISM:
   The mathematization of nature was a CONCEPTUAL revolution.
@@ -272,31 +291,31 @@ through internalist-externalist debates, to contextual, sociological, and postco
   "Objectivity" is a historical concept, not a timeless value.
   Each epistemic virtue emerged in response to specific problems in scientific practice:
 
-  +-------------------------------------------------------------------+
-  |               THREE EPISTEMIC VIRTUES (Daston & Galison)          |
-  |                                                                   |
-  |  ERA          VIRTUE             PROBLEM IT SOLVED                |
-  |  +-----------+-----------------+--------------------------------+ |
-  |  | 18th C    | TRUTH-TO-NATURE | Individual specimens are       |  |
-  |  |           | Idealized images| imperfect; the type must be    |  |
-  |  |           | that represent  | extracted by expert judgment.  |  |
-  |  |           | the ideal type  | The ideal fern, the ideal      |  |
-  |  |           | (atlas images)  | crystal: not any one specimen. |  |
-  |  +-----------+-----------------+--------------------------------+  |
-  |  | 19th C    | MECHANICAL      | Human observers introduce      |  |
-  |  |           | OBJECTIVITY     | bias; trained judgment cannot  |  |
-  |  |           | Suppress the    | be trusted. Let instruments    |  |
-  |  |           | self; let the   | speak: photography, self-      |  |
-  |  |           | instrument speak| recording devices, automatic   |  |
-  |  |           |                 | tracing machines.              |  |
-  |  +-----------+-----------------+--------------------------------+  |
-  |  | Late 19th | TRAINED         | Instruments produce noise;     |  |
-  |  | C - 20th C| JUDGMENT        | data requires interpretation.  |  |
-  |  |           | Expert pattern  | The radiologist, the particle  |  |
-  |  |           | recognition as  | physicist, the geologist must  |  |
-  |  |           | epistemic virtue| learn to "see" what matters.   |  |
-  |  +-----------+-----------------+--------------------------------+  |
-  +-------------------------------------------------------------------+
+  .===================================================================.
+  !               THREE EPISTEMIC VIRTUES (Daston & Galison)          !
+  !                                                                   !
+  !  ERA          VIRTUE             PROBLEM IT SOLVED                !
+  !  .===========.=================.================================. !
+  !  ! 18th C    ! TRUTH-TO-NATURE ! Individual specimens are       !  !
+  !  !           ! Idealized images! imperfect; the type must be    !  !
+  !  !           ! that represent  ! extracted by expert judgment.  !  !
+  !  !           ! the ideal type  ! The ideal fern, the ideal      !  !
+  !  !           ! (atlas images)  ! crystal: not any one specimen. !  !
+  !  .===========.=================.================================.  !
+  !  ! 19th C    ! MECHANICAL      ! Human observers introduce      !  !
+  !  !           ! OBJECTIVITY     ! bias; trained judgment cannot  !  !
+  !  !           ! Suppress the    ! be trusted. Let instruments    !  !
+  !  !           ! self; let the   ! speak: photography, self-      !  !
+  !  !           ! instrument speak! recording devices, automatic   !  !
+  !  !           !                 ! tracing machines.              !  !
+  !  .===========.=================.================================.  !
+  !  ! Late 19th ! TRAINED         ! Instruments produce noise;     !  !
+  !  ! C - 20th C! JUDGMENT        ! data requires interpretation.  !  !
+  !  !           ! Expert pattern  ! The radiologist, the particle  !  !
+  !  !           ! recognition as  ! physicist, the geologist must  !  !
+  !  !           ! epistemic virtue! learn to "see" what matters.   !  !
+  !  .===========.=================.================================.  !
+  .===================================================================.
 
   ML / DATA SCIENCE PARALLEL:
   The three virtues map exactly onto the phases of the machine learning

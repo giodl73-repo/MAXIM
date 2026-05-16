@@ -1,3 +1,22 @@
+---
+maxim_schema: maxim.frontmatter.v1
+id: maxim:intellectual-history:scientific-revolutions
+kind: guide
+module: intellectual-history
+section: intellectual-history
+title: Scientific Revolutions: Kuhn and Critics
+status: source-custody
+source_custody: partial
+current_path: intellectual-history/03-SCIENTIFIC-REVOLUTIONS.md
+canonical_path: intellectual-history/03-SCIENTIFIC-REVOLUTIONS.md
+backsource_ids: [proof-backfill:intellectual-history:03-scientific-revolutions, git-history:intellectual-history:03-scientific-revolutions]
+concepts: [scientific, revolutions]
+root_concepts: [scientific, revolutions]
+index_roles: [guide, root-concept]
+remap_from: []
+remap_to: []
+updated: null
+---
 # Scientific Revolutions: Kuhn and Critics
 
 ## The Big Picture
@@ -8,35 +27,35 @@ Thomas Kuhn's Structure of Scientific Revolutions (1962) is the most influential
 Feyerabend, Popper, and Laudan all responded.
 
 ```
-+-------------------------------------------------------------------+
-|              MODELS OF SCIENTIFIC CHANGE                          |
-|                                                                   |
-|  CLASSICAL (Cumulative)       KUHN (Revolutionary)                |
-|  +---------------------+      +-------------------------+         |
-|  | Science adds to a   |      | Normal science within   |         |
-|  | growing body of     |      | paradigm -> anomalies   |         |
-|  | knowledge           |      | -> crisis -> revolution |         |
-|  | Errors corrected;   |      | Paradigm shift:         |         |
-|  | truths accumulate   |      | incommensurable worlds  |         |
-|  +---------------------+      +-------------------------+         |
-   |                                                                |
-   |  POPPER (Falsificationism)    LAKATOS (Research Programmes)    |
-|  +---------------------+      +-------------------------+         |
-|  | Science progresses  |      | Hard core protected by  |         |
-|  | by bold conjectures |      | auxiliary belt          |         |
-|  | and ruthless        |      | Progressive vs.         |         |
-|  | refutations         |      | degenerative programmes |         |
-|  +---------------------+      +-------------------------+         |
-   |                                                                |
-   |  FEYERABEND                   LAUDAN (Problem-Solving)         |
-|  +---------------------+      +-------------------------+         |
-|  | "Against Method":   |      | Science solves          |         |
-|  | No single method    |      | conceptual and          |         |
-|  | works for all       |      | empirical problems      |         |
-|  | science; "anything  |      | No convergence to truth |         |
-|  | goes" rhetorically  |      |                         |         |
-|  +---------------------+      +-------------------------+         |
-+-------------------------------------------------------------------+
+.===================================================================.
+!              MODELS OF SCIENTIFIC CHANGE                          !
+!                                                                   !
+!  CLASSICAL (Cumulative)       KUHN (Revolutionary)                !
+!  .=====================.      .=========================.         !
+!  ! Science adds to a   !      ! Normal science within   !         !
+!  ! growing body of     !      ! paradigm -> anomalies   !         !
+!  ! knowledge           !      ! -> crisis -> revolution !         !
+!  ! Errors corrected;   !      ! Paradigm shift:         !         !
+!  ! truths accumulate   !      ! incommensurable worlds  !         !
+!  .=====================.      .=========================.         !
+   !                                                                !
+   !  POPPER (Falsificationism)    LAKATOS (Research Programmes)    !
+!  .=====================.      .=========================.         !
+!  ! Science progresses  !      ! Hard core protected by  !         !
+!  ! by bold conjectures !      ! auxiliary belt          !         !
+!  ! and ruthless        !      ! Progressive vs.         !         !
+!  ! refutations         !      ! degenerative programmes !         !
+!  .=====================.      .=========================.         !
+   !                                                                !
+   !  FEYERABEND                   LAUDAN (Problem-Solving)         !
+!  .=====================.      .=========================.         !
+!  ! "Against Method":   !      ! Science solves          !         !
+!  ! No single method    !      ! conceptual and          !         !
+!  ! works for all       !      ! empirical problems      !         !
+!  ! science; "anything  !      ! No convergence to truth !         !
+!  ! goes" rhetorically  !      !                         !         !
+!  .=====================.      .=========================.         !
+.===================================================================.
 ```
 
 ---
@@ -99,13 +118,13 @@ Feyerabend, Popper, and Laudan all responded.
   REVOLUTION STRUCTURE:
 
   Normal science
-       |
+       !
        v  Accumulation of anomalies
   Crisis (anomalies resist resolution)
-       |
+       !
        v  Proliferation of competing theories
   Revolution (paradigm replaced)
-       |
+       !
        v  New normal science
 
   WHAT TRIGGERS REVOLUTION:
@@ -181,21 +200,21 @@ Popper is the foil and interlocutor Kuhn most directly challenges.
   A middle ground between Kuhn and Popper.
 
   SCIENTIFIC RESEARCH PROGRAMME:
-  +-----------------------------------------------+
-  |                   HARD CORE                   |
-  |   Central assumptions; not to be refuted      |
-  |   (by methodological fiat: negative heuristic)|
-  +-----------------------------------------------+
-  |               PROTECTIVE BELT                 |
-  |   Auxiliary hypotheses; can be modified       |
-  |   (positive heuristic: direct development)   |
-  +-----------------------------------------------+
-  |             POSITIVE HEURISTIC                |
-  |   Programme's research agenda; what to do next|
-  +-----------------------------------------------+
+  .===============================================.
+  !                   HARD CORE                   !
+  !   Central assumptions; not to be refuted      !
+  !   (by methodological fiat: negative heuristic)!
+  .===============================================.
+  !               PROTECTIVE BELT                 !
+  !   Auxiliary hypotheses; can be modified       !
+  !   (positive heuristic: direct development)   !
+  .===============================================.
+  !             POSITIVE HEURISTIC                !
+  !   Programme's research agenda; what to do next!
+  .===============================================.
 
   HARD CORE:
-  Newton's three laws + gravitational law.
+  Newton's three laws . gravitational law.
   Cannot be refuted without abandoning the programme.
 
   PROTECTIVE BELT:
@@ -389,7 +408,7 @@ Lakatos's model is more useful than Kuhn's for evaluating active engineering dec
 
 ```
   SCIENTIFIC RESEARCH PROGRAMME         CODEBASE / ARCHITECTURAL PROGRAMME
-  ─────────────────────────────         ──────────────────────────────────
+  =============================         ==================================
   Hard core                             Architectural invariants: the core
   (Newton's laws — not negotiable)      assumptions you will not abandon
                                         (e.g., "all state in Postgres,"

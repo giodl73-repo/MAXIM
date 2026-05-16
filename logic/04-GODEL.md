@@ -1,3 +1,22 @@
+---
+maxim_schema: maxim.frontmatter.v1
+id: maxim:logic:godel
+kind: guide
+module: logic
+section: logic
+title: Gödel's Incompleteness Theorems
+status: source-custody
+source_custody: partial
+current_path: logic/04-GODEL.md
+canonical_path: logic/04-GODEL.md
+backsource_ids: [proof-backfill:logic:04-godel, git-history:logic:04-godel]
+concepts: [godel]
+root_concepts: [godel]
+index_roles: [guide, root-concept]
+remap_from: []
+remap_to: []
+updated: null
+---
 # Gödel's Incompleteness Theorems
 
 ## The Big Picture
@@ -8,35 +27,35 @@ Every sufficiently strong consistent formal system is incomplete — and cannot 
 consistency.
 
 ```
-+-------------------------------------------------------------------+
-|                 GODEL'S RESULTS IN CONTEXT                        |
-|                                                                   |
-|  Godel Completeness (1929):     FOL proof system is complete.     |
-|  Godel Incompleteness (1931):   PA is incomplete.                 |
-|                                                                   |
-|  TIMELINE OF FOUNDATIONAL RESULTS                                 |
-|  +-----------------------------------------------------------+    |
-|  | 1900  Hilbert's program: axiomatize all math, prove       |    |
-|  |        consistency by finitary means.                     |    |
-|  | 1902  Russell's Paradox: naive set theory is inconsistent.|    |
-|  | 1910  Principia Mathematica: type theory to fix paradox.  |    |
-|  | 1929  Godel Completeness: FOL is complete.                |    |
-|  | 1931  Godel Incompleteness I: G is undecidable in PA.     |    |
-|  | 1931  Godel Incompleteness II: PA cannot prove Con(PA).   |    |
-|  | 1936  Church-Turing: FOL validity is undecidable.         |    |
-|  | 1936  Tarski: Truth is undefinable within the system.     |    |
-|  | 1963  Cohen: CH is independent of ZFC (completing ZF).    |    |
-|  +-----------------------------------------------------------+    |
-   |                                                                |
-   |  WHAT THEY REQUIRE              WHAT THEY CONCLUDE             |
-|  +----------------------+       +---------------------------+     |
-|  | T is consistent      |       | T is incomplete (G1)      |     |
-|  | T is recursively     |       | T cannot prove Con(T)(G2) |     |
-|  |  axiomatizable       |       |                           |     |
-|  | T interprets         |       |                           |     |
-|  |  Robinson Arithmetic |       |                           |     |
-|  +----------------------+       +---------------------------+     |
-+-------------------------------------------------------------------+
+.===================================================================.
+!                 GODEL'S RESULTS IN CONTEXT                        !
+!                                                                   !
+!  Godel Completeness (1929):     FOL proof system is complete.     !
+!  Godel Incompleteness (1931):   PA is incomplete.                 !
+!                                                                   !
+!  TIMELINE OF FOUNDATIONAL RESULTS                                 !
+!  .===========================================================.    !
+!  ! 1900  Hilbert's program: axiomatize all math, prove       !    !
+!  !        consistency by finitary means.                     !    !
+!  ! 1902  Russell's Paradox: naive set theory is inconsistent.!    !
+!  ! 1910  Principia Mathematica: type theory to fix paradox.  !    !
+!  ! 1929  Godel Completeness: FOL is complete.                !    !
+!  ! 1931  Godel Incompleteness I: G is undecidable in PA.     !    !
+!  ! 1931  Godel Incompleteness II: PA cannot prove Con(PA).   !    !
+!  ! 1936  Church-Turing: FOL validity is undecidable.         !    !
+!  ! 1936  Tarski: Truth is undefinable within the system.     !    !
+!  ! 1963  Cohen: CH is independent of ZFC (completing ZF).    !    !
+!  .===========================================================.    !
+   !                                                                !
+   !  WHAT THEY REQUIRE              WHAT THEY CONCLUDE             !
+!  .======================.       .===========================.     !
+!  ! T is consistent      !       ! T is incomplete (G1)      !     !
+!  ! T is recursively     !       ! T cannot prove Con(T)(G2) !     !
+!  !  axiomatizable       !       !                           !     !
+!  ! T interprets         !       !                           !     !
+!  !  Robinson Arithmetic !       !                           !     !
+!  .======================.       .===========================.     !
+.===================================================================.
 ```
 
 ---
@@ -67,7 +86,7 @@ The key technical trick: encode formulas and proofs as natural numbers.
   GODEL NUMBERING:
 
   Assign each symbol a unique number:
-    0 -> 1, s -> 2, + -> 3, * -> 4, = -> 5, ( -> 6, ) -> 7,
+    0 => 1, s => 2, . => 3, * => 4, = => 5, ( => 6, ) => 7,
     neg -> 8, land -> 9, lor -> 10, -> -> 11, Forall -> 12, ...
     Variable_n -> prime(n)
 
@@ -89,8 +108,8 @@ that can be expressed inside PA.
 
 A relation R(x1,...,xk) on naturals is **representable** in T if there is a formula phi such that:
 ```
-  R(n1,...,nk)  =>  T |- phi(n1,...,nk)
-  not R(n1,...,nk)  =>  T |- neg phi(n1,...,nk)
+  R(n1,...,nk)  =>  T !- phi(n1,...,nk)
+  not R(n1,...,nk)  =>  T !- neg phi(n1,...,nk)
 ```
 
 Key fact: all recursive (computable) functions and relations are representable in PA.
@@ -115,7 +134,7 @@ Before the main theorem, Gödel proved:
 ```
   DIAGONAL LEMMA (Godel):
   For any formula phi(x) with one free variable, there exists a sentence G such that:
-    T |- G <-> phi(gn(G))
+    T !- G <-> phi(gn(G))
 
   G "talks about itself" by referring to its own Godel number.
 ```
@@ -136,25 +155,25 @@ Apply the Diagonal Lemma to phi(x) = neg Provable(x):
 ### The Argument
 
 ```
-  CASE 1: T |- G  (T proves G)
+  CASE 1: T !- G  (T proves G)
     Then G is provable, so Provable(gn(G)) is true.
     But G says neg Provable(gn(G)).
-    So T |- neg G.
+    So T !- neg G.
     T proves both G and neg G: T is INCONSISTENT.
     Contradiction with our assumption that T is consistent.
 
-  CASE 2: T |- neg G  (T proves neg G)
+  CASE 2: T !- neg G  (T proves neg G)
     Then neg G is provable.
     neg G says: G is provable.
-    So T |- G. Again, T proves G and neg G: INCONSISTENT.
+    So T !- G. Again, T proves G and neg G: INCONSISTENT.
     Contradiction.
 
-  [Under omega-consistency, Case 2 argument is: if T |- neg G then
-   T |- Exists p. Proof(p, gn(G)), so T |- Proof(0, gn(G)) or
-   T |- Proof(1, gn(G)) or ..., but none of these are true.
+  [Under omega-consistency, Case 2 argument is: if T !- neg G then
+   T !- Exists p. Proof(p, gn(G)), so T !- Proof(0, gn(G)) or
+   T !- Proof(1, gn(G)) or ..., but none of these are true.
    Rosser 1936 used a cleverer construction to get T-consistency alone.]
 
-  CONCLUSION: G is independent of T. Neither T |- G nor T |- neg G.
+  CONCLUSION: G is independent of T. Neither T !- G nor T !- neg G.
               T is INCOMPLETE.
 ```
 
@@ -193,7 +212,7 @@ The proof of G1 (within T-meta-reasoning) can be formalized inside T:
   But G <-> neg Provable(gn(G)), so:
   T can prove: Con(T) -> G
 
-  Now if T |- Con(T), then T |- G (by modus ponens).
+  Now if T !- Con(T), then T !- G (by modus ponens).
   But G is unprovable in T (by G1, assuming consistency).
   Contradiction.
 
@@ -228,7 +247,7 @@ Common misreadings, corrected:
 
 ```
   MYTH: "There are truths mathematics can never prove."
-  FACT: G is unprovable in T, but provable in T + Con(T), or in stronger systems.
+  FACT: G is unprovable in T, but provable in T . Con(T), or in stronger systems.
         From outside T, we can prove G. There is no absolute unprovability.
 
   MYTH: "Human minds can do things computers cannot."
@@ -258,11 +277,11 @@ A companion result (Tarski 1936):
 ```
   TARSKI UNDEFINABILITY:
   There is no formula True(x) in the language of PA such that for all sentences phi:
-    PA |- True(gn(phi))  iff  phi is true in the standard model.
+    PA !- True(gn(phi))  iff  phi is true in the standard model.
 
   PROOF:
   Suppose True(x) exists. By Diagonal Lemma, there exists L with:
-    PA |- L <-> neg True(gn(L))
+    PA !- L <-> neg True(gn(L))
   L says "I am not true" (Liar Paradox).
   If L is true: True(gn(L)) holds, so neg True(gn(L)) holds. Contradiction.
   If L is false: neg True(gn(L)) holds, so True(gn(L)) holds. Contradiction.
@@ -283,7 +302,7 @@ A further result that shows how little provability can say about truth:
 
 ```
   LOB'S THEOREM:
-  If T |- (Provable(gn(phi)) -> phi), then T |- phi.
+  If T !- (Provable(gn(phi)) -> phi), then T !- phi.
 
   Equivalently: T cannot "trust its own provability predicate" without actually proving.
   The hypothesis "if this is provable then it is true" is only provable when phi is provable.
@@ -357,7 +376,7 @@ beyond comprehension in height.
 | Can G be proved in a stronger system? | Yes — G is provable in T + Con(T). |
 | Does G2 prove PA is inconsistent? | No — it says PA cannot prove its own consistency. |
 | What is Tarski undefinability? | No formula in PA can serve as its own truth predicate. |
-| What is Löb's theorem? | T | - Box phi -> phi only when T | - phi. |
+| What is Löb's theorem? | T \|- Box phi -> phi only when T \|- phi. |
 
 ---
 

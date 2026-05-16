@@ -1,0 +1,125 @@
+{
+  "schema": "pebble.v1",
+  "kind": "corpus-slice",
+  "title": "maxim-logic-temporal-logic",
+  "source": "../../logic",
+  "format": "markdown",
+  "metadata": {},
+  "sections": [
+    {
+      "id": "07-TEMPORAL-LOGIC.md#000",
+      "path": [
+        "07-TEMPORAL-LOGIC.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:logic:07-temporal-logic, git-history:logic:07-temporal-logic]",
+        "canonical_path": "logic/07-TEMPORAL-LOGIC.md",
+        "concepts": "[temporal, logic]",
+        "current_path": "logic/07-TEMPORAL-LOGIC.md",
+        "id": "maxim:logic:temporal-logic",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "logic",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[temporal, logic]",
+        "section": "logic",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Temporal Logic and Model Checking",
+        "updated": "null"
+      },
+      "text": "# Temporal Logic and Model Checking"
+    },
+    {
+      "id": "07-TEMPORAL-LOGIC.md#001",
+      "path": [
+        "07-TEMPORAL-LOGIC.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:logic:07-temporal-logic, git-history:logic:07-temporal-logic]",
+        "canonical_path": "logic/07-TEMPORAL-LOGIC.md",
+        "concepts": "[temporal, logic]",
+        "current_path": "logic/07-TEMPORAL-LOGIC.md",
+        "id": "maxim:logic:temporal-logic",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "logic",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[temporal, logic]",
+        "section": "logic",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Temporal Logic and Model Checking",
+        "updated": "null"
+      },
+      "text": "## The Big Picture"
+    },
+    {
+      "id": "07-TEMPORAL-LOGIC.md#002",
+      "path": [
+        "07-TEMPORAL-LOGIC.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:logic:07-temporal-logic, git-history:logic:07-temporal-logic]",
+        "canonical_path": "logic/07-TEMPORAL-LOGIC.md",
+        "concepts": "[temporal, logic]",
+        "current_path": "logic/07-TEMPORAL-LOGIC.md",
+        "id": "maxim:logic:temporal-logic",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "logic",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[temporal, logic]",
+        "section": "logic",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Temporal Logic and Model Checking",
+        "updated": "null"
+      },
+      "text": "Temporal logic adds a **time axis** to modal logic. LTL (Linear Temporal Logic) reasons\nabout infinite traces. CTL/CTL* reason about branching trees of states. Model checking\nautomatically verifies whether a finite-state system satisfies a temporal specification."
+    },
+    {
+      "id": "07-TEMPORAL-LOGIC.md#003",
+      "path": [
+        "07-TEMPORAL-LOGIC.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:logic:07-temporal-logic, git-history:logic:07-temporal-logic]",
+        "canonical_path": "logic/07-TEMPORAL-LOGIC.md",
+        "concepts": "[temporal, logic]",
+        "current_path": "logic/07-TEMPORAL-LOGIC.md",
+        "id": "maxim:logic:temporal-logic",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "logic",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[temporal, logic]",
+        "section": "logic",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Temporal Logic and Model Checking",
+        "updated": "null"
+      },
+      "text": "```\n.===================================================================.\n!                 TEMPORAL LOGIC AND MODEL CHECKING                 !\n!                                                                   !\n!  LOGICS              STRUCTURES             ALGORITHMS            !\n!  .============.      .==================.   .==================.  !\n!  ! LTL        !      ! Kripke structure !   ! Explicit-state   !  !\n!  ! (linear,   !      ! M = (S, T, L):   !   ! (SPIN: DFS,      !  !\n!  ! paths)     !      ! S = states       !   !  Buchi automata)  !  !\n!  !            !      ! T = transitions  !   ! Symbolic (BDD)   !  !\n!  ! CTL        !      ! L = labels       !   ! SAT-based (BMC)  !  !\n!  ! (branching,!      !                  !   ! CEGAR            !  !\n!  ! trees)     !      ! Computation path:!   ! IC3/PDR          !  !\n!  !            !      ! s0 -> s1 -> s2...!   .==================.  !\n!  ! CTL*       !      .==================.                         !\n!  ! (both)     !                                                   !\n!  .============.      TOOLS                                        !\n!                      .==========================================. !\n!  MU-CALCULUS         ! SPIN (LTL)  NuSMV/nuXmv (CTL, BDD, SAT)  ! !\n!  .============.      ! Uppaal (timed automata)                   ! !\n!  ! Least/     !      ! PRISM (probabilistic)                     ! !\n!  ! Greatest   !      ! TLA+ (Lamport, industrial use at AWS)     ! !\n!  ! fixpoints  !      ! nuXmv, ABC, Cadence JasperGold            ! !\n!  .============.      .==========================================. !\n.===================================================================.\n```"
+    }
+  ],
+  "refs": [
+    "07-TEMPORAL-LOGIC.md"
+  ]
+}

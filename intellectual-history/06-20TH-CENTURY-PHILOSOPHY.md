@@ -1,3 +1,22 @@
+---
+maxim_schema: maxim.frontmatter.v1
+id: maxim:intellectual-history:20th-century-philosophy
+kind: guide
+module: intellectual-history
+section: intellectual-history
+title: 20th Century Philosophy and Science
+status: source-custody
+source_custody: partial
+current_path: intellectual-history/06-20TH-CENTURY-PHILOSOPHY.md
+canonical_path: intellectual-history/06-20TH-CENTURY-PHILOSOPHY.md
+backsource_ids: [proof-backfill:intellectual-history:06-20th-century-philosophy, git-history:intellectual-history:06-20th-century-philosophy]
+concepts: [20th, century, philosophy]
+root_concepts: [20th, century]
+index_roles: [guide, root-concept]
+remap_from: []
+remap_to: []
+updated: null
+---
 # 20th Century Philosophy and Science
 
 ## The Big Picture
@@ -9,35 +28,35 @@ direction. By mid-century, both traditions were wrestling with the limits of the
 methods.
 
 ```
-+-------------------------------------------------------------------+
-|              20TH CENTURY PHILOSOPHY LANDSCAPE                    |
-|                                                                   |
-|  ANALYTIC TRADITION           CONTINENTAL TRADITION               |
-|  +---------------------+      +---------------------------+       |
-|  | Vienna Circle:      |      | Phenomenology:            |       |
-|  | logical positivism  |      | Husserl, Heidegger,       |       |
-|  | (Schlick, Carnap,   |      | Merleau-Ponty, Sartre     |       |
-|  | Neurath, Ayer)      |      |                           |       |
-|  |                     |      | Existentialism:           |       |
-|  | Cambridge:          |      | Heidegger, Sartre,        |       |
-|  | Russell, Moore,     |      | Camus, de Beauvoir        |       |
-|  | early Wittgenstein  |      |                           |       |
-|  |                     |      | Frankfurt School:         |       |
-|  | Oxford:             |      | Horkheimer, Adorno,       |       |
-|  | late Wittgenstein,  |      | Marcuse, Habermas         |       |
-|  | Austin, Ryle, Ayer  |      |                           |       |
-|  |                     |      | Hermeneutics:             |       |
-|  | Late 20th century:  |      | Gadamer, Ricoeur          |       |
-|  | Quine, Rawls,       |      |                           |       |
-|  | Kripke, Chalmers    |      |                           |       |
-|  +---------------------+      +---------------------------+       |
-   |                                                                |
-   |  PHILOSOPHY OF SCIENCE                                         |
-|  +-----------------------------------------------------------+    |
-|  | Logical empiricism -> Popper -> Kuhn -> Lakatos ->        |    |
-|  | Feyerabend -> Laudan -> Scientific realism debate         |    |
-|  +-----------------------------------------------------------+    |
-+-------------------------------------------------------------------+
+.===================================================================.
+!              20TH CENTURY PHILOSOPHY LANDSCAPE                    !
+!                                                                   !
+!  ANALYTIC TRADITION           CONTINENTAL TRADITION               !
+!  .=====================.      .===========================.       !
+!  ! Vienna Circle:      !      ! Phenomenology:            !       !
+!  ! logical positivism  !      ! Husserl, Heidegger,       !       !
+!  ! (Schlick, Carnap,   !      ! Merleau-Ponty, Sartre     !       !
+!  ! Neurath, Ayer)      !      !                           !       !
+!  !                     !      ! Existentialism:           !       !
+!  ! Cambridge:          !      ! Heidegger, Sartre,        !       !
+!  ! Russell, Moore,     !      ! Camus, de Beauvoir        !       !
+!  ! early Wittgenstein  !      !                           !       !
+!  !                     !      ! Frankfurt School:         !       !
+!  ! Oxford:             !      ! Horkheimer, Adorno,       !       !
+!  ! late Wittgenstein,  !      ! Marcuse, Habermas         !       !
+!  ! Austin, Ryle, Ayer  !      !                           !       !
+!  !                     !      ! Hermeneutics:             !       !
+!  ! Late 20th century:  !      ! Gadamer, Ricoeur          !       !
+!  ! Quine, Rawls,       !      !                           !       !
+!  ! Kripke, Chalmers    !      !                           !       !
+!  .=====================.      .===========================.       !
+   !                                                                !
+   !  PHILOSOPHY OF SCIENCE                                         !
+!  .===========================================================.    !
+!  ! Logical empiricism -> Popper -> Kuhn -> Lakatos ->        !    !
+!  ! Feyerabend -> Laudan -> Scientific realism debate         !    !
+!  .===========================================================.    !
+.===================================================================.
 ```
 
 ---
@@ -285,7 +304,7 @@ The Vienna Circle's verification principle — "a statement is meaningful iff it
 
 ```
   ANALYTIC                          CONTINENTAL
-  ────────                          ────────────
+  ========                          ============
   Clarity, rigor, formal precision  Historical, hermeneutic, phenomenological
   Logic as tool                     Language as constitutive
   Problems: truth, reference,       Problems: existence, power, embodiment,

@@ -1,0 +1,72 @@
+{
+  "schema_version": "1",
+  "source_markdown": "logic\\07-TEMPORAL-LOGIC.md",
+  "blocks": [
+    {
+      "id": "block-1",
+      "kind": "diagram_like",
+      "line": 71,
+      "heading_context": "### Syntax",
+      "confidence": "candidate",
+      "text": "  phi ::= p              (atomic proposition)\n        ! top ! bot\n        ! neg phi\n        ! phi land psi\n        ! phi lor psi\n        ! phi -> psi\n        ! X phi           (neXt: phi holds at next position)\n        ! G phi           (Globally: phi holds at ALL future positions)\n        ! F phi           (Finally: phi holds at SOME future position)\n        ! phi U psi       (Until: phi holds until psi; psi eventually holds)\n        ! phi W psi       (Weak Until: phi U psi or G phi)\n        ! phi R psi       (Release: psi holds until and including when phi holds)",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-2",
+      "kind": "diagram_like",
+      "line": 121,
+      "heading_context": "### LTL Examples",
+      "confidence": "candidate",
+      "text": "  System properties expressed in LTL (p = request, q = grant):\n\n  \"Every request is eventually granted\":\n    G(p -> F q)\n\n  \"Between request and grant, no second request\":\n    G(p -> (neg p U q))\n\n  \"Grant never occurs without a preceding request\":\n    neg q U (p land neg q)\n\n  \"The system never deadlocks\" (no deadlock = some transition available):\n    G(available)\n\n  \"Property p holds infinitely often\":\n    G F p\n\n  \"Property p holds from some point on\":\n    F G p\n\n  Mutual exclusion (c1, c2 = in critical section):\n    G(neg(c1 land c2))",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-3",
+      "kind": "chart_like",
+      "line": 233,
+      "heading_context": "## Model Checking Algorithms",
+      "confidence": "candidate",
+      "text": "### CTL Model Checking (Clarke, Emerson, Sifakis — Turing Award 2007)",
+      "notes": [
+        "detected from bar/chart glyph density with numeric labels"
+      ]
+    },
+    {
+      "id": "block-4",
+      "kind": "chart_like",
+      "line": 290,
+      "heading_context": "### LTL Model Checking via Büchi Automata (SPIN)",
+      "confidence": "candidate",
+      "text": "### Symbolic Model Checking (McMillan 1993)",
+      "notes": [
+        "detected from bar/chart glyph density with numeric labels"
+      ]
+    },
+    {
+      "id": "block-5",
+      "kind": "chart_like",
+      "line": 308,
+      "heading_context": "### Symbolic Model Checking (McMillan 1993)",
+      "confidence": "candidate",
+      "text": "### Bounded Model Checking (SAT-based, Biere et al. 1999)",
+      "notes": [
+        "detected from bar/chart glyph density with numeric labels"
+      ]
+    },
+    {
+      "id": "block-6",
+      "kind": "diagram_like",
+      "line": 361,
+      "heading_context": "## TLA+ (Temporal Logic of Actions)",
+      "confidence": "candidate",
+      "text": "  TLA+ = Set theory . temporal logic\n\n  SPECIFICATION STRUCTURE:\n    Init: initial state predicate\n    Next: state transition relation\n    Spec: Init and G[Next]_vars  (\"G\" is \"always,\" subscript for stuttering)\n\n  PROPERTIES:\n    Safety: AG(phi)     -- \"nothing bad happens\"\n    Liveness: AG(p -> AF q)  -- \"something good eventually happens\"\n    Fairness: WF_vars(Next) -- \"the system doesn't stutter forever\"\n\n  TLC MODEL CHECKER: explicit state model checker for TLA+ specs.\n  Apalache: symbolic model checker for TLA+ (SMT=based).\n\n  INDUSTRIAL USE:\n  Amazon uses TLA+ for S3, DynamoDB, EC2 protocols.\n  Microsoft uses it for internal distributed systems specs.\n  Leslie Lamport: Turing Award 2013.",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    }
+  ]
+}

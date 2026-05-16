@@ -1,0 +1,53 @@
+{
+  "schema_version": "1",
+  "source_markdown": "logic\\07-TEMPORAL-LOGIC.md",
+  "tables": [
+    {
+      "id": "table-1",
+      "line": 387,
+      "heading_context": "## Decision Cheat Sheet",
+      "headers": [
+        "I want to...",
+        "Use"
+      ],
+      "rows": [
+        [
+          "Specify \"always eventually\" (response)",
+          "LTL: G(p -> F q)"
+        ],
+        [
+          "Specify \"there exists a safe path\"",
+          "CTL: EG safe"
+        ],
+        [
+          "Specify \"every path is safe\"",
+          "CTL: AG safe"
+        ],
+        [
+          "Specify \"globally infinitely often\"",
+          "LTL: G F p (not in CTL)"
+        ],
+        [
+          "Model check a small finite system",
+          "Explicit-state (SPIN for LTL, NuSMV for CTL)"
+        ],
+        [
+          "Model check with huge state space",
+          "Symbolic BDD (NuSMV) or BMC (SAT-based)"
+        ],
+        [
+          "Find counterexample quickly",
+          "BMC (SAT-based bounded model checking)"
+        ],
+        [
+          "Prove safety without bound",
+          "IC3/PDR algorithm"
+        ],
+        [
+          "Specify distributed protocols",
+          "TLA+ with TLC model checker"
+        ]
+      ]
+    }
+  ]
+}

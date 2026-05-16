@@ -1,3 +1,22 @@
+---
+maxim_schema: maxim.frontmatter.v1
+id: maxim:logic:proof-theory
+kind: guide
+module: logic
+section: logic
+title: Proof Theory: Natural Deduction and Sequent Calculus
+status: source-custody
+source_custody: partial
+current_path: logic/03-PROOF-THEORY.md
+canonical_path: logic/03-PROOF-THEORY.md
+backsource_ids: [proof-backfill:logic:03-proof-theory, git-history:logic:03-proof-theory]
+concepts: [proof, theory]
+root_concepts: [proof, theory]
+index_roles: [guide, root-concept]
+remap_from: []
+remap_to: []
+updated: null
+---
 # Proof Theory: Natural Deduction and Sequent Calculus
 
 ## The Big Picture
@@ -7,32 +26,32 @@ proofs as mathematical objects, analyzes their structure, and uses that structur
 meta-theorems (consistency, decidability, proof lengths).
 
 ```
-+-------------------------------------------------------------------+
-|                    PROOF SYSTEMS LANDSCAPE                        |
-|                                                                   |
-|  HILBERT SYSTEMS          NATURAL DEDUCTION      SEQUENT CALCULUS |
-|  +-----------------+      +----------------+     +-------------+  |
-|  | Many axioms,    |      | Few axioms,    |     | Symmetric,  |  |
-|  | few rules       |      | many rules     |     | best for    |  |
-|  | (Modus Ponens   |      | Intro/Elim     |     | meta-proofs |  |
-|  | only)           |      | per connective |     | LK (Gentzen)|  |
-|  | Awkward to use  |      | Readable       |     | LJ (intuit.)|  |
-|  | Easy to analyze |      | Curry-Howard   |     |             |  |
-|  +-----------------+      +----------------+     +-------------+  |
-|                                                                   |
-|  RESOLUTION               TABLEAU                AUTOMATED        |
-|  +-----------------+      +----------------+     +-------------+  |
-|  | Clause-based    |      | Semantic tree  |     | SAT/SMT     |  |
-|  | Single rule     |      | Branch-closing |     | Lean/Coq    |  |
-|  | Basis of Prolog |      | Used in ATP     |     | Isabelle    |  |
-|  +-----------------+      +----------------+     +-------------+  |
-|                                                                   |
-|  META-THEOREMS                                                    |
-|  +-----------------------------------------------------------+    |
-|  | Soundness  Completeness  Cut Elimination  Normalization   |    |
-|  | Curry-Howard  Gentzen's Hauptsatz  Ordinal Analysis       |    |
-|  +-----------------------------------------------------------+    |
-+-------------------------------------------------------------------+
+.===================================================================.
+!                    PROOF SYSTEMS LANDSCAPE                        !
+!                                                                   !
+!  HILBERT SYSTEMS          NATURAL DEDUCTION      SEQUENT CALCULUS !
+!  .=================.      .================.     .=============.  !
+!  ! Many axioms,    !      ! Few axioms,    !     ! Symmetric,  !  !
+!  ! few rules       !      ! many rules     !     ! best for    !  !
+!  ! (Modus Ponens   !      ! Intro/Elim     !     ! meta-proofs !  !
+!  ! only)           !      ! per connective !     ! LK (Gentzen)!  !
+!  ! Awkward to use  !      ! Readable       !     ! LJ (intuit.)!  !
+!  ! Easy to analyze !      ! Curry-Howard   !     !             !  !
+!  .=================.      .================.     .=============.  !
+!                                                                   !
+!  RESOLUTION               TABLEAU                AUTOMATED        !
+!  .=================.      .================.     .=============.  !
+!  ! Clause-based    !      ! Semantic tree  !     ! SAT/SMT     !  !
+!  ! Single rule     !      ! Branch-closing !     ! Lean/Coq    !  !
+!  ! Basis of Prolog !      ! Used in ATP     !     ! Isabelle    !  !
+!  .=================.      .================.     .=============.  !
+!                                                                   !
+!  META-THEOREMS                                                    !
+!  .===========================================================.    !
+!  ! Soundness  Completeness  Cut Elimination  Normalization   !    !
+!  ! Curry-Howard  Gentzen's Hauptsatz  Ordinal Analysis       !    !
+!  .===========================================================.    !
+.===================================================================.
 ```
 
 ---
@@ -75,7 +94,7 @@ Natural deduction proofs are **trees** with hypotheses at leaves and conclusion 
   [phi]   [psi]               [phi]
     ...     ...                ...
     chi     chi                psi
-   ───────────── (lor-E)      ────── (->-I, discharging [phi])
+   ============= (lor-E)      ====== (->-I, discharging [phi])
    phi lor psi  chi           phi -> psi
 ```
 
@@ -86,32 +105,32 @@ Hypotheses in brackets [...] are discharged (cancelled) by certain rules.
 ```
   CONJUNCTION:
     phi   psi                  phi land psi           phi land psi
-   ──────────── (land-I)       ──────────── (land-E1)  ──────────── (land-E2)
+   ============ (land-I)       ============ (land-E1)  ============ (land-E2)
    phi land psi                   phi                     psi
 
   DISJUNCTION:
      phi                psi          [phi] [psi]
-   ──────────── (lor-I1) ──────────── (lor-I2)    phi lor psi  chi  chi
-   phi lor psi         phi lor psi                ─────────────────────── (lor-E)
+   ============ (lor-I1) ============ (lor-I2)    phi lor psi  chi  chi
+   phi lor psi         phi lor psi                ======================= (lor-E)
                                                           chi
 
   IMPLICATION:
     [phi]
      ...
      psi                      phi    phi -> psi
-   ──────── (->-I, discharge phi)   ──────────────── (->-E = Modus Ponens)
+   ======== (->-I, discharge phi)   ================ (->-E = Modus Ponens)
    phi -> psi                              psi
 
   NEGATION:
     [phi]
      ...               phi   neg phi
-     bot               ─────────────── (neg-E = ex falso)
-   ──────── (neg-I)         psi
+     bot               =============== (neg-E = ex falso)
+   ======== (neg-I)         psi
    neg phi
 
   DOUBLE NEGATION (classical only):
      neg neg phi
-    ──────────── (DNE)
+    ============ (DNE)
        phi
 ```
 
@@ -120,16 +139,16 @@ Hypotheses in brackets [...] are discharged (cancelled) by certain rules.
 ```
   UNIVERSAL:
     phi[t/x]                          [x arbitrary, not free in hypotheses]
-   ──────────── (Forall-E, t any term)        ...
+   ============ (Forall-E, t any term)        ...
   Forall x. phi                              phi
-                                       ──────────── (Forall-I)
+                                       ============ (Forall-I)
                                        Forall x. phi
 
   EXISTENTIAL:
   phi[t/x]                     [Exists x. phi]  [phi[c/x]]
-  ──────────────── (Exists-I)        ...              ...
+  ================ (Exists-I)        ...              ...
   Exists x. phi                        psi             psi
-                               ─────────────────────── (Exists-E)
+                               ======================= (Exists-E)
                                          psi
 ```
 
@@ -137,15 +156,15 @@ Hypotheses in brackets [...] are discharged (cancelled) by certain rules.
 
 ```
   [A -> B]  [A]
-  ───────────── (->-E)
+  ============= (->-E)
        B         [B -> C]
-       ────────────── (->-E)
+       ============== (->-E)
              C
-           ──────────── (->-I, discharging [A])
+           ============ (->-I, discharging [A])
            A -> C
-         ──────────────────── (->-I, discharging [B -> C])
+         ==================== (->-I, discharging [B -> C])
          (B -> C) -> (A -> C)
-       ──────────────────────────── (->-I, discharging [A -> B])
+       ============================ (->-I, discharging [A -> B])
        (A -> B) -> (B -> C) -> (A -> C)
 ```
 
@@ -164,65 +183,65 @@ Gentzen's LK system. More symmetric than natural deduction. Better for meta-proo
 
 ### Sequents
 
-A sequent is:  Gamma |- Delta
+A sequent is:  Gamma \|- Delta
 
 where Gamma (antecedent) and Delta (succedent) are sets/multisets of formulas.
 
 ```
   Intuition:
-    Gamma |- Delta  means:
+    Gamma !- Delta  means:
     "Assuming all of Gamma, at least one of Delta holds."
 
   Or equivalently:
     "The conjunction of Gamma implies the disjunction of Delta."
 
   Special cases:
-    phi |- psi          means phi implies psi
-    |- phi              means phi is a tautology (no assumptions needed)
-    phi |-              means phi is contradictory
-    |-                  means absurdity (empty antecedent and succedent)
+    phi !- psi          means phi implies psi
+    !- phi              means phi is a tautology (no assumptions needed)
+    phi !-              means phi is contradictory
+    !-                  means absurdity (empty antecedent and succedent)
 ```
 
 ### Structural Rules
 
 ```
-  IDENTITY:      phi |- phi   (axiom)
+  IDENTITY:      phi !- phi   (axiom)
 
-  CUT:           Gamma |- Delta, phi    phi, Gamma' |- Delta'
-                 ─────────────────────────────────────────────
-                         Gamma, Gamma' |- Delta, Delta'
+  CUT:           Gamma !- Delta, phi    phi, Gamma' !- Delta'
+                 =============================================
+                         Gamma, Gamma' !- Delta, Delta'
 
   WEAKENING:
-    Gamma |- Delta              Gamma |- Delta
-   ─────────────── (W-L)      ─────────────── (W-R)
-   phi, Gamma |- Delta         Gamma |- Delta, phi
+    Gamma !- Delta              Gamma !- Delta
+   =============== (W-L)      =============== (W-R)
+   phi, Gamma !- Delta         Gamma !- Delta, phi
 
   CONTRACTION:
-   phi, phi, Gamma |- Delta   Gamma |- Delta, phi, phi
-   ─────────────────── (C-L)  ─────────────────────── (C-R)
-     phi, Gamma |- Delta          Gamma |- Delta, phi
+   phi, phi, Gamma !- Delta   Gamma !- Delta, phi, phi
+   =================== (C-L)  ======================= (C-R)
+     phi, Gamma !- Delta          Gamma !- Delta, phi
 ```
 
 ### Logical Rules (Left and Right for each connective)
 
 ```
   CONJUNCTION:
-   phi, Gamma |- Delta        psi, Gamma |- Delta
-  ─────────────────── (L1)   ─────────────────── (L2)
-  phi land psi, G |- D       phi land psi, G |- D
+   phi, Gamma !- Delta        psi, Gamma !- Delta
+  =================== (L1)   =================== (L2)
+  phi land psi, G !- D       phi land psi, G !- D
 
-  Gamma |- Delta, phi    Gamma |- Delta, psi
-  ────────────────────────────────────────── (R)
-           Gamma |- Delta, phi land psi
+  Gamma !- Delta, phi    Gamma !- Delta, psi
+  ========================================== (R)
+           Gamma !- Delta, phi land psi
 
   IMPLICATION:
-  Gamma |- Delta, phi    psi, Gamma' |- Delta'
-  ──────────────────────────────────────────── (L)
-   phi -> psi, Gamma, Gamma' |- Delta, Delta'
+  Gamma !- Delta, phi    psi, Gamma' !- Delta'
+  ============================================ (L)
+   phi -> psi, Gamma, Gamma' !- Delta, Delta'
 
-  phi, Gamma |- Delta, psi
-  ─────────────────────── (R)
-  Gamma |- Delta, phi -> psi
+  phi, Gamma !- Delta, psi
+  ======================= (R)
+  Gamma !- Delta, phi -> psi
 ```
 
 ### The Cut Elimination Theorem (Gentzen's Hauptsatz)
@@ -251,11 +270,11 @@ The most important theorem in proof theory:
 ```
 
 Cut elimination gives:
-1. **Consistency**: If bot is provable from empty, the cut-free proof of |- bot would require
-   an axiom phi |- phi where phi is a subformula of bot — but bot has no subformulas.
+1. **Consistency**: If bot is provable from empty, the cut-free proof of \|- bot would require
+   an axiom phi \|- phi where phi is a subformula of bot — but bot has no subformulas.
 2. **Decidability** (for propositional logic): proof search is finite (bottom-up).
-3. **Interpolation** (Craig interpolation): if phi |- psi then there exists chi over their
-   common language such that phi |- chi and chi |- psi.
+3. **Interpolation** (Craig interpolation): if phi \|- psi then there exists chi over their
+   common language such that phi \|- chi and chi \|- psi.
 
 ---
 
@@ -268,9 +287,9 @@ The natural deduction analog of cut elimination.
 
   Example:
     A    B
-   ────────── (land-I)
+   ========== (land-I)
    A land B
-   ────────── (land-E1)
+   ========== (land-E1)
        A
 
   This can be reduced to:
@@ -300,7 +319,7 @@ The connection between proof theory and type theory, covered in depth in Module 
 
 ```
   PROOF THEORY (Natural Deduction)    TYPE THEORY (Lambda Calculus)
-  ──────────────────────────────────  ────────────────────────────
+  ==================================  ============================
   Formula phi                    <--> Type A
   Proof of phi                   <--> Term of type A
   Hypothesis [phi]               <--> Variable of type A
@@ -337,7 +356,7 @@ Proof theory measures the "strength" of formal systems using ordinals. This is n
   PROOF-THEORETIC ORDINALS (strength hierarchy):
 
   System                              Ordinal          What it measures
-  ─────────────────────────────────────────────────────────────────────
+  =====================================================================
   PRA (Primitive Recursive Arithmetic) omega^omega     Finitary arithmetic;
                                                        Hilbert's "safe" base
   PA (Peano Arithmetic)               epsilon_0        Full first-order arithmetic
@@ -402,7 +421,7 @@ Both eliminate "detours." Cut elimination is for sequent calculus; normalization
 natural deduction. They are equivalent by the Curry-Howard-de Bruijn correspondence.
 
 **Intuitionistic vs. classical.**
-Classical logic adds either double negation elimination (in ND) or the rule Gamma |- Delta, phi, neg phi
+Classical logic adds either double negation elimination (in ND) or the rule Gamma \|- Delta, phi, neg phi
 (excluded middle sequent rule). Everything intuitionistic is also classically valid; the
 converse fails. Intuitionistic proofs are constructive — they contain witnesses.
 

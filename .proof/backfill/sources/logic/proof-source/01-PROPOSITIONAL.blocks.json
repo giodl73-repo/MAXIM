@@ -1,0 +1,72 @@
+{
+  "schema_version": "1",
+  "source_markdown": "logic\\01-PROPOSITIONAL.md",
+  "blocks": [
+    {
+      "id": "block-1",
+      "kind": "diagram_like",
+      "line": 65,
+      "heading_context": "### Language",
+      "confidence": "candidate",
+      "text": "phi ::= p                   (atom)\n      ! top ! bot           (constants)\n      ! neg phi             (negation)\n      ! phi land phi        (conjunction)\n      ! phi lor phi         (disjunction)\n      ! phi -> phi          (implication)\n      ! phi <-> phi         (biconditional)\n      ! (phi)               (parentheses)",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-2",
+      "kind": "diagram_like",
+      "line": 78,
+      "heading_context": "### Operator Precedence (high to low)",
+      "confidence": "candidate",
+      "text": "  neg       (highest — tightest binding)\n  land\n  lor\n  ->        (right-associative: p -> q -> r means p -> (q -> r))\n  <->       (lowest)",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-3",
+      "kind": "diagram_like",
+      "line": 105,
+      "heading_context": "### Truth Table for Core Connectives",
+      "confidence": "candidate",
+      "text": "  p   q  ! neg p  p land q  p lor q  p -> q  p <-> q\n  --------!--------------------------------------------------\n  0   0  !   1       0         0        1        1\n  0   1  !   1       0         1        1        0\n  1   0  !   0       0         1        0        0\n  1   1  !   0       1         1        1        1",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-4",
+      "kind": "diagram_like",
+      "line": 126,
+      "heading_context": "### Negation Normal Form (NNF)",
+      "confidence": "candidate",
+      "text": "  neg(phi land psi)  ===  (neg phi lor neg psi)\n  neg(phi lor psi)   ===  (neg phi land neg psi)\n  neg neg phi        ===  phi\n  neg(phi -> psi)    ===  (phi land neg psi)",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-5",
+      "kind": "diagram_like",
+      "line": 159,
+      "heading_context": "### Tseitin Transformation",
+      "confidence": "candidate",
+      "text": "  For each subformula psi, introduce variable x_psi.\n  Add clauses encoding: x_psi <-> [definition of psi in terms of subformulas].\n\n  Example: phi = p land (q lor neg r)\n  x1 = q lor neg r   => add: (neg x1 lor q lor neg r) land (neg q lor x1) land (r lor x1)\n  x2 = p land x1     => add: (neg x2 lor p) land (neg x2 lor x1) land (neg p lor neg x1 lor x2)\n  Add: x2   (top-level must be true)\n\n  Result: linear in size of original formula (vs. exponential for naive CNF).",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-6",
+      "kind": "diagram_like",
+      "line": 305,
+      "heading_context": "## Functional Completeness",
+      "confidence": "candidate",
+      "text": "  {neg, land}:         Complete  (De Morgan: lor = neg(neg p land neg q))\n  {neg, lor}:          Complete\n  {neg, ->}:           Complete  (NAND = Sheffer stroke, NOR = Peirce arrow)\n  {NAND} alone:        Complete  (neg p = p NAND p)\n  {NOR} alone:         Complete  (neg p = p NOR p)\n  {land, lor}:         NOT complete (can't express negation)\n  {->}:                NOT complete (p->q->p is always true but p is not)\n  {land, lor, ->}:     NOT complete (all always monotone)",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    }
+  ]
+}
