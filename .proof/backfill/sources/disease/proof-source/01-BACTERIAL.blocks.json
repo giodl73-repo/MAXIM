@@ -1,0 +1,83 @@
+{
+  "schema_version": "1",
+  "source_markdown": "disease\\01-BACTERIAL.md",
+  "blocks": [
+    {
+      "id": "block-1",
+      "kind": "diagram_like",
+      "line": 24,
+      "heading_context": "## The Big Picture",
+      "confidence": "candidate",
+      "text": "BACTERIA\n┌──────────────────────────────┬────────────────────────────────┐\n│  GRAM-POSITIVE               │  GRAM-NEGATIVE                 │\n│  Crystal violet retained     │  Counterstain (safranin) pink  │\n│  Thick peptidoglycan (PG)    │  Thin PG + outer membrane (OM) │\n│  No outer membrane           │  OM: LPS (lipopolysaccharide)  │\n│  Teichoic acids in PG        │  = endotoxin                   │\n│                              │                                │\n│  Target of β-lactams,        │  OM barrier: excludes many     │\n│  vancomycin, daptomycin      │  antibiotics; efflux pumps     │\n│                              │                                │\n│  Examples:                   │  Examples:                     │\n│  Staph, Strep, Bacillus,     │  E. coli, Salmonella, N. gonor-│\n│  Clostridium, Listeria,      │  rhoeae, Pseudomonas, H. pylori│\n│  Enterococcus, Actinomyces   │  Klebsiella, H. influenzae,    │\n│                              │  Bordetella, Campylobacter     │\n└──────────────────────────────┴────────────────────────────────┘\n\nNEITHER (atypical — no cell wall or unique structure):\n  Mycobacteria: acid-fast (mycolic acid-rich waxy wall; neither Gram+/−)\n  Mycoplasma: NO cell wall at all → β-lactams useless\n  Spirochetes: coiled (Treponema, Leptospira, Borrelia) — too thin to Gram stain well\n  Rickettsia/Chlamydia/Coxiella: obligate intracellular",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-2",
+      "kind": "ascii_table_candidate",
+      "line": 52,
+      "heading_context": "## The Big Picture",
+      "confidence": "candidate",
+      "text": "**Systems Bridge:** Gram staining (Hans Christian Gram, 1884) is one of the oldest classification systems in biology — and it works because cell wall architecture is a reliable proxy for a whole cluster of properties: antibiotic susceptibility spectrum, endotoxin presence (Gram-negative LPS), natural permeability barriers, and evolutionary lineage. This is the same principle as any well-designed type system: the type (Gram+/−) encodes permitted operations (which antibiotics bind which targets), data representation (thick PG vs thin PG + outer membrane), and interface contracts (what virulence factors are available). Misclassification has consequences: treating a Gram-negative infection with vancomycin (Gram-positive–only coverage) is a type error that the system cannot catch at runtime — it requires knowing the type up front. The \"atypical\" organisms (Mycobacteria, Mycoplasma, Chlamydia) are untyped — they don't participate in the classification at all, which forces different drug selection logic entirely.",
+      "notes": [
+        "detected from ASCII table borders or pipe-aligned rows"
+      ]
+    },
+    {
+      "id": "block-3",
+      "kind": "diagram_like",
+      "line": 58,
+      "heading_context": "### Cell Envelope",
+      "confidence": "candidate",
+      "text": "GRAM-POSITIVE:\n  Cytoplasm → Plasma membrane → Thick PG (20–80 nm) → surface proteins\n  Teichoic acids: interspersed in PG → facilitate biofilm, drug binding\n  Some have capsule (outer, polysaccharide) — antiphagocytic\n\nGRAM-NEGATIVE:\n  Cytoplasm → Plasma membrane → Thin PG (2–7 nm) → Periplasm → Outer membrane\n  Outer membrane:\n    Inner leaflet: phospholipid\n    Outer leaflet: LPS (lipopolysaccharide)\n      Lipid A: embedded in OM, toxic endotoxin moiety — triggers TLR4 → TNF/IL-1 cascade → sepsis\n      Core polysaccharide: structural\n      O-antigen: highly variable polysaccharide chain → serotyping target (O antigen in E. coli O157:H7)\n  Porins (OmpC, OmpF): protein channels in OM for small molecule diffusion\n  Efflux pumps: span OM + PG + PM → pump out antibiotics",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-4",
+      "kind": "diagram_like",
+      "line": 95,
+      "heading_context": "### A-B Toxins (most important class)",
+      "confidence": "candidate",
+      "text": "Structure: B subunit (Binding) + A subunit (Active enzymatic moiety)\nB binds host receptor → endocytosis → A subunit translocates into cytoplasm → action\n\nCHOLERA TOXIN (Vibrio cholerae):\n  A subunit: ADP-ribosylates Gsα (locks Gs in \"always on\" state)\n  → Adenylyl cyclase constitutively active → ↑↑↑ cAMP\n  → PKA → CFTR Cl⁻ channel open → massive Cl⁻ (+ Na⁺, water) secretion into gut lumen\n  → Rice-water diarrhea (up to 20 L/day) → dehydration/death if untreated\n  Mechanism: same as \"activating mutation\" in GPCR pathway\n\nDIPHTHERIA TOXIN (Corynebacterium diphtheriae):\n  A subunit: ADP-ribosylates EF-2 (elongation factor 2)\n  → Protein synthesis stops → cell death\n  → Pseudomembrane in pharynx + myocarditis + neuropathy\n\nBOTULINUM TOXIN (Clostridium botulinum):\n  A subunit: Zn²⁺-dependent protease → cleaves SNARE proteins (synaptobrevin/SNAP-25)\n  → ACh vesicles cannot fuse at NMJ → flaccid paralysis (descending, cranial nerves first)\n  Most potent toxin known (~1 ng/kg lethal)\n  Clinical use: therapeutic (cosmetic, dystonia, migraine, achalasia)\n\nTETANUS TOXIN (Clostridium tetani):\n  Also cleaves SNARE proteins — but retrograde transport to spinal cord\n  Blocks GABA/glycine release from inhibitory interneurons → disinhibition\n  → Spastic paralysis (risus sardonicus, opisthotonus) — opposite of botulism\n  Lock jaw (trismus), risus sardonicus, arched back\n\nANTHRAX TOXIN (Bacillus anthracis):\n  Three components: PA (protective antigen) + EF (edema factor) + LF (lethal factor)\n  PA (B component) binds ANTXR → pore → delivers EF or LF\n  EF: adenylyl cyclase → ↑ cAMP → edema\n  LF: MAPKK protease → disrupts MAPK signaling → macrophage apoptosis, tissue destruction\n\nPERTUSSIS TOXIN (Bordetella pertussis):\n  ADP-ribosylates Giα → Gi locked \"off\" → Gs unopposed → ↑ cAMP in multiple cells\n  Also: tracheal cytotoxin destroys ciliated cells → classic \"whoop\" + inability to clear secretions",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-5",
+      "kind": "diagram_like",
+      "line": 136,
+      "heading_context": "### Pore-Forming Toxins",
+      "confidence": "candidate",
+      "text": "Staphylococcal α-toxin (alpha-hemolysin): heptameric pore in RBC/leukocyte membranes → lysis\nStreptococcal streptolysin O/S: cholesterol-dependent cytolysins → RBC + immune cell lysis\n  → Antistreptolysin O (ASO) titer: marker of recent Strep pyogenes infection\nClostridium perfringens α-toxin: phospholipase C → hydrolyzes membrane phospholipids → gas gangrene",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-6",
+      "kind": "diagram_like",
+      "line": 197,
+      "heading_context": "## Antibiotic Resistance Mechanisms",
+      "confidence": "candidate",
+      "text": "FOUR MAIN MECHANISMS:\n\n1. ENZYMATIC INACTIVATION:\n   β-lactamases: hydrolyze β-lactam ring → penicillins/cephalosporins/carbapenems inactive\n     ESBL (extended-spectrum β-lactamase): destroys 3rd-gen cephalosporins (E. coli, Klebsiella)\n     KPC (Klebsiella pneumoniae carbapenemase): destroys carbapenems — \"last resort\" antibiotics\n     MBL (metallo-β-lactamase): e.g., NDM-1 — destroys almost all β-lactams\n   Aminoglycoside-modifying enzymes: acetylation, phosphorylation, adenylation\n\n2. TARGET MODIFICATION:\n   PBP2a (mecA gene in MRSA): altered penicillin-binding protein → β-lactams can't bind → no cell wall inhibition\n   Ribosome methylation (erm genes): 23S rRNA methylated → macrolides + clindamycin can't bind\n   DNA gyrase mutation (gyrA): quinolones can't bind → fluoroquinolone resistance\n   VanA/VanB (vancomycin-resistant Enterococcus — VRE): D-Ala-D-Ala changed to D-Ala-D-Lac → vancomycin can't bind\n\n3. REDUCED PERMEABILITY:\n   Loss/downregulation of outer membrane porins in Gram-negatives → carbapenem resistance\n   Especially P. aeruginosa (OprD loss) + Acinetobacter\n\n4. ACTIVE EFFLUX:\n   MexAB-OprM (Pseudomonas): multi-drug efflux pump spanning OM → pumps out β-lactams, fluoroquinolones, tetracyclines\n   AcrAB-TolC (E. coli): similar broad-spectrum efflux\n\nPLASMID TRANSFER:\n  Resistance genes on plasmids → horizontal gene transfer via conjugation (F-pilus)\n  Single plasmid can carry multiple resistance determinants → pan-resistance in one step",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-7",
+      "kind": "diagram_like",
+      "line": 243,
+      "heading_context": "## Bacterial Genetics: Resistance Spread",
+      "confidence": "candidate",
+      "text": "VERTICAL TRANSMISSION: mutation → selection by antibiotics\nHORIZONTAL GENE TRANSFER (more clinically important):\n  Conjugation: physical contact via pilus → plasmid transfer (resistance plasmids)\n  Transduction: bacteriophage carries DNA between bacteria\n  Transformation: naked DNA uptake from environment (competent bacteria)\n  Transposons (\"jumping genes\"): move resistance genes between chromosomes/plasmids\n\nANTIBIOTIC STEWARDSHIP:\n  Antibiotic exposure is evolutionary pressure for resistance\n  Narrow-spectrum preferred when possible\n  Duration: shortest effective course (reduces selection pressure)\n  De-escalation: broad → narrow once culture + sensitivities known",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    }
+  ]
+}

@@ -1,0 +1,127 @@
+{
+  "schema_version": "1",
+  "source_markdown": "medicine\\06-CANCER-DRUGS.md",
+  "blocks": [
+    {
+      "id": "block-1",
+      "kind": "ascii_table_candidate",
+      "line": 30,
+      "heading_context": "## The Big Picture",
+      "confidence": "candidate",
+      "text": "┌──────────────────────────────────────────────────────────────────────────┐\n│                   CANCER DRUG MECHANISMS                                 │\n├─────────────────────┬────────────────────────────────────────────────────┤\n│ CYTOTOXIC           │ DNA damage (alkylating, platinum, topo inhibitors) │\n│ CHEMOTHERAPY        │ Antimetabolites (S-phase specific)                  │\n│                     │ Microtubule poisons (mitosis block)                 │\n├─────────────────────┼────────────────────────────────────────────────────┤\n│ TARGETED THERAPY    │ Small molecule kinase inhibitors (-nibs)           │\n│                     │ Monoclonal antibodies (-mabs)                      │\n│                     │ PARP inhibitors (synthetic lethality)              │\n│                     │ BCL-2 inhibitors (apoptosis restoration)           │\n│                     │ CDK inhibitors (cell cycle)                        │\n├─────────────────────┼────────────────────────────────────────────────────┤\n│ IMMUNOTHERAPY       │ Checkpoint inhibitors (PD-1/PD-L1/CTLA-4)          │\n│                     │ CAR-T cells                                         │\n│                     │ Bispecific antibodies                               │\n│                     │ Cancer vaccines (sipuleucel-T, mRNA-based)         │\n├─────────────────────┼────────────────────────────────────────────────────┤\n│ HORMONE THERAPY     │ Breast: SERMs, AIs, CDK4/6i, HER2-targeted         │\n│                     │ Prostate: LHRH agonists, enzalutamide, abiraterone │\n├─────────────────────┼────────────────────────────────────────────────────┤\n│ ADC                 │ Antibody-Drug Conjugates: mAb + linker + payload   │\n└─────────────────────┴────────────────────────────────────────────────────┘\n\nSELECTIVITY problem: most cytotoxics = narrow TI; affect all dividing cells\n  → Bone marrow, GI mucosa, hair follicles = most affected normal tissues\n  Targeted therapy: broader TI but still toxicity (on-target, off-tumor)\n  Immunotherapy: immune-related adverse events (irAEs) = collateral immune attack",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-2",
+      "kind": "diagram_like",
+      "line": 67,
+      "heading_context": "### Alkylating Agents",
+      "confidence": "candidate",
+      "text": "Mechanism: form covalent adducts with DNA nucleophiles (N7-guanine most common)\n  → Intrastrand cross-links → blocks replication/transcription\n  → Interstrand cross-links → DNA double strand breaks\n  → Phase-nonspecific (kill in any cell cycle phase)\n\nCYCLOPHOSPHAMIDE:\n  Prodrug: activated by CYP2B6/3A4 → phosphoramide mustard (active alkylator) + acrolein\n  Use: lymphomas, autoimmune (lupus nephritis, vasculitis), HSCT conditioning\n  Acrolein → hemorrhagic cystitis → must co-administer MESNA (2-mercaptoethane sulfonate Na)\n    or aggressive hydration to prevent bladder toxicity\n  Myelosuppression, alopecia, teratogenic, secondary malignancies (leukemia 5–10yr later)\n  SIADH at high doses\n\nIFOSFAMIDE: similar to cyclophosphamide; higher encephalopathy (chloroacetaldehyde metabolite)\nMELPHALAN: multiple myeloma conditioning\nCHLORAMBUCIL: CLL (oral); single agent\nBUSULFAN: HSCT conditioning; pulmonary fibrosis with chronic use\n\nPLATINUM COMPOUNDS (produce intrastrand cross-links, unlike nitrogen mustards):\n  CISPLATIN:\n    Cross-links: 60–65% 1,2-GpG intrastrand; ↑ DNA repair complex assembly → p53 apoptosis\n    Toxicities: NEPHROTOXICITY (irreversible tubular injury; pre-hydrate with NS; N-acetylcysteine);\n      NEUROTOXICITY (glove-stocking neuropathy, ototoxicity — irreversible); myelosuppression; emetogenic\n    Use: testicular (curative), bladder, lung (NSCLC), ovarian, head/neck\n  CARBOPLATIN: less nephrotoxic/neurotoxic; more myelosuppression (thrombocytopenia);\n    doses by AUC (Calvert formula using CrCl — \"AUC dosing\")\n  OXALIPLATIN: colorectal cancer (FOLFOX); cold-triggered peripheral neuropathy (acute dysesthesia);\n    cumulative neuropathy (limits dose)",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-3",
+      "kind": "ascii_table_candidate",
+      "line": 100,
+      "heading_context": "### Antimetabolites (S-Phase Specific)",
+      "confidence": "candidate",
+      "text": "METHOTREXATE (MTX):\n  Folate analog → competes with DHF for DHFR → ↓ THF → ↓ nucleotide synthesis\n  Also inhibits TYMS → ↓ dTMP synthesis\n  Uses: oncology (high-dose MTX in ALL, lymphoma, osteosarcoma), RA/psoriasis (low-dose anti-inflammatory)\n  Leucovorin rescue: folinic acid (reduced folate) bypasses DHFR → rescues normal cells after high-dose MTX\n    Timing critical: leucovorin 24h after MTX; monitor MTX levels\n  Toxicity: mucositis, myelosuppression, hepatotoxicity (cirrhosis with chronic use), nephrotoxicity (high dose),\n    pulmonary toxicity (pneumonitis), teratogenic (NTD, abort)\n\n5-FLUOROURACIL (5-FU):\n  Fluoropyrimidine → 5-FdUMP inhibits TYMS (covalent with folate cofactor)\n  → ↓ dTMP → ↓ DNA synthesis (S-phase specific)\n  Also incorporated into RNA as FUTP → disrupts RNA processing\n  Leucovorin: stabilizes 5-FdUMP-TYMS-mTHF ternary complex → enhances inhibition (FOLFOX/FOLFIRI use leucovorin + 5-FU)\n  Capecitabine (Xeloda): oral prodrug → 5-FU in tumor (tumor-specific thymidine phosphorylase)\n  Toxicity: mucositis, diarrhea, myelosuppression, hand-foot syndrome (palmar-plantar erythrodysesthesia),\n    cardiotoxicity (coronary vasospasm — rare, CI with recent MI)\n  DPD (dihydropyrimidine dehydrogenase) deficiency → ↑ 5-FU levels → severe toxicity; test before prescribing\n\nGEMCITABINE:\n  Nucleoside analog → triphosphate incorporated → chain termination + RRNA inhibition\n  S-phase specific; broad solid tumor use (pancreatic, lung, bladder, breast)\n  Radiation sensitizer; capillary leak syndrome (hemolytic uremic syndrome variant) rare\n\nCYTARABINE (ARA-C):\n  Cytosine arabinoside; S-phase specific; AML cornerstone (\"7+3\" induction = cytarabine 7 days + daunorubicin 3 days)\n  Ara-CTP inhibits DNA polymerase + chain termination\n  High-dose: cerebellar toxicity, conjunctivitis (prophylaxis with steroid eye drops)\n  \"7+3\" AML induction: standard of care for decades\n\nPEMETREXED: multi-targeted antifolate (DHFR + TYMS + GARFT); lung adenocarcinoma; mesothelioma\n  Supplement with folic acid + B12 before/during to ↓ toxicity (folate pathway disruption → myelosuppression/mucositis)",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-4",
+      "kind": "ascii_table_candidate",
+      "line": 137,
+      "heading_context": "### Topoisomerase Inhibitors",
+      "confidence": "candidate",
+      "text": "TOPOISOMERASE I INHIBITORS (camptothecins):\n  Mechanism: stabilize Topo I cleavable complex → \"collision model\" with replication fork\n    → DNA single-strand breaks → converted to double-strand breaks when replication fork hits\n  S-phase specific\n  Irinotecan (CPT-11): FOLFIRI (5-FU + leucovorin + irinotecan); colorectal, lung, pancreatic\n    Prodrug → SN-38 (active) via carboxylesterase; SN-38 glucuronidated by UGT1A1 → bile excretion\n    UGT1A1*28 polymorphism (reduced glucuronidation → ↑ SN-38 → severe diarrhea + myelosuppression)\n    Diarrhea: early (cholinergic — atropine) vs late (secretory — loperamide)\n  Topotecan: ovarian, cervical, SCLC\n\nTOPOISOMERASE II INHIBITORS (anthracyclines + others):\n  Anthracyclines — mechanism:\n    DNA intercalation → Topo II poison → DNA double-strand breaks\n    Free radical generation (redox cycling of quinone group)\n    Topoisomerase II inhibition (same as Topo I: stabilize cleavable complex)\n  Drugs: doxorubicin (DOX), daunorubicin, epirubicin, idarubicin\n  CARDIOTOXICITY: cumulative dose-dependent (>450mg/m² doxorubicin → ↑ cardiomyopathy risk)\n    Mechanism: free radicals in cardiomyocytes (no superoxide dismutase) → oxidative damage\n    Dexrazoxane: iron chelator → ↓ anthracycline cardiotoxicity; used in high-cumulative-dose patients\n    Monitoring: baseline echo → q3 months during; liposomal formulation (less cardiotoxic)\n  Etoposide (VP-16): Topo II poison; testicular, lymphoma, SCLC, HSCT conditioning\n    Secondary AML (11q23/MLL rearrangement) with prolonged use\n  Teniposide: similar to etoposide",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-5",
+      "kind": "diagram_like",
+      "line": 165,
+      "heading_context": "### Microtubule Agents",
+      "confidence": "candidate",
+      "text": "TAXANES — stabilize (prevent depolymerization):\n  Bind β-tubulin → lock microtubules in polymerized state → mitotic arrest (M-phase)\n  Paclitaxel (Taxol): CREMOPHOR solvent → hypersensitivity (premedicate with steroids + diphenhydramine)\n    Peripheral neuropathy (sensory > motor); myelosuppression; alopecia\n    Use: breast, ovarian, lung\n  Docetaxel: more potent; fluid retention syndrome (premedicate dex 3 days)\n  Cabazitaxel: prostate cancer (docetaxel-resistant); ↑ CNS penetration\n  Nab-paclitaxel (Abraxane): albumin-bound → no cremophor → no premedication; better tumor delivery\n  Carbazitaxel vs paclitaxel P-gp resistance: cabazitaxel avoids MDR1 efflux → useful in resistant disease\n\nVINCA ALKALOIDS — destabilize (prevent polymerization):\n  Vincristine, vinblastine, vinorelbine: bind β-tubulin → prevent polymerization → disrupted spindle → mitotic arrest\n  PERIPHERAL NEUROPATHY: vincristine predominant (dose-limiting); foot drop, cranial nerve palsies, autonomic\n  Vincristine: ALL, lymphoma; NOT myelosuppressive (unusual among cytotoxics)\n  Vinblastine: Hodgkin's (ABVD regimen); testicular\n  Vinorelbine: NSCLC, breast\n  VESICANT: severe tissue damage if extravasated; verify IV patency before administration",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-6",
+      "kind": "ascii_table_candidate",
+      "line": 191,
+      "heading_context": "### Kinase Inhibitors (-nibs)",
+      "confidence": "candidate",
+      "text": "IMATINIB (Gleevec) — the first successful targeted therapy:\n  BCR-ABL (CML): Philadelphia chromosome t(9;22) → BCR-ABL fusion kinase → constitutive tyrosine kinase\n  Imatinib: ATP-competitive; binds inactive ABL conformation; also inhibits PDGFR, c-KIT\n  CML: response rates >90%; converted CML from median survival 3y → near-normal lifespan\n  GIST: c-KIT or PDGFRA mutations → imatinib; continuation until progression\n  T315I \"gatekeeper\" mutation: imatinib + 2nd-gen TKIs resistant → ponatinib (3rd-gen)\n\nSecond-generation BCR-ABL inhibitors:\n  Dasatinib, nilotinib, bosutinib: ↑ potency vs most BCR-ABL mutations; CI T315I\n  Ponatinib: active vs T315I; CV toxicity (arterial thrombosis) limits use\n\nEGFR inhibitors:\n  Erlotinib/gefitinib: EGFR exon 19 deletion or L858R mutation → NSCLC\n  Afatinib, dacomitinib: irreversible 2nd/3rd-gen; wider EGFR mutation coverage\n  Osimertinib: 3rd-gen; T790M resistance mutation → also 1st-line (FLAURA); CNS penetration\n  Adverse: acneiform rash (paradoxically predicts response), diarrhea, paronychia, ILD\n\nBRAF V600E inhibitors:\n  Vemurafenib, dabrafenib: BRAF V600E (melanoma ~50%, thyroid, CRC ~5-10%)\n  Paradoxical activation: BRAF inhibitor in BRAF WT cells → RAS activation → CRAF → ↑ MAPK\n    → Paradoxical cutaneous squamous cell carcinomas; also need MEK inhibitor co-treatment\n  Dabrafenib + trametinib (MEK inhibitor): standard; ↓ paradoxical SCC, improved response\n\nMEK inhibitors: trametinib, cobimetinib, binimetinib — always in combination with BRAF-i\n\nALK/ROS1 inhibitors:\n  Crizotinib (1st-gen): ALK+ NSCLC (~5%), ROS1 rearrangement; CNS escape common\n  Alectinib, brigatinib, lorlatinib: 2nd/3rd-gen; better CNS penetration; lorlatinib even covers ALK G1202R\n\nVEGFR inhibitors:\n  Sorafenib, sunitinib: multi-kinase (VEGFR + PDGFR + RAF); HCC, RCC, GIST\n  Axitinib, cabozantinib, lenvatinib: more selective VEGFR-2 focus\n  Adverse: HTN (VEGF ↓ → endothelial NOS ↓ → vasoconstriction), hand-foot syndrome, thyroid dysfunction\n\nBTK inhibitors:\n  Ibrutinib (1st-gen): irreversible BTK inhibition (Cys481); CLL, MCL, WM, marginal zone lymphoma\n    Adverse: atrial fibrillation (BTK in cardiomyocytes), bleeding (BTK in platelets), arthralgias\n  Acalabrutinib, zanubrutinib: more selective → ↓ AF, ↓ bleeding vs ibrutinib\n\nCDK4/6 inhibitors:\n  Palbociclib, ribociclib, abemaciclib: ↓ CDK4/6 → ↓ Rb phosphorylation → G1/S block\n  HR+ HER2- breast cancer: in combination with AI or fulvestrant → ↓ progression\n  Myelosuppression (especially palbociclib); QTc (ribociclib); diarrhea (abemaciclib)\n\nPI3K/AKT/mTOR pathway:\n  mTOR inhibitors: everolimus (rapalog), temsirolimus — RCC, breast cancer, PNET\n  PI3K inhibitors: idelalisib (PI3Kδ — CLL, follicular lymphoma); copanlisib; alpelisib (PI3Kα — PIK3CA-mutated HR+ BC)\n  PTEN loss → pathway hyperactivation → resistance to many targeted therapies\n\nPARP inhibitors (PARPi):\n  Olaparib, rucaparib, niraparib, talazoparib: inhibit PARP1/2 → ↓ single-strand break repair\n  SYNTHETIC LETHALITY: BRCA1/2 mutation → ↓ homologous recombination → rely on PARP for repair\n    Double block (BRCA loss + PARP inhibition) → catastrophic DNA damage → cell death\n    Cancer cells with BRCA deficiency are much more sensitive than normal BRCA+/+ cells\n  FDA-approved: ovarian (BRCA and HRD), breast (BRCA1/2 germline), prostate (HRRm), pancreatic\n  PARP trapping (olaparib > others): PARP-DNA complex stuck → more toxic than PARP catalytic inhibition\n  Adverse: myelosuppression, nausea, fatigue; secondary MDS/AML (uncommon)\n\nBCL-2 inhibitors:\n  Venetoclax: BH3-mimetic → displaces pro-apoptotic proteins from BCL-2 → BAX/BAK activation → cytochrome c release → apoptosis\n  CLL (especially with ibrutinib or obinutuzumab), AML (with azacitidine)\n  TUMOR LYSIS SYNDROME (TLS): massive cell death → hyperuricemia, hyperkalemia, hyperphosphatemia, hypocalcemia → AKI/arrhythmia\n    RAMP-UP dosing (5mg → 20 → 50 → 100 → 200 → 400mg over 5 weeks) to ↓ TLS risk\n    Prophylaxis: allopurinol + hydration; hospitalize for first dose",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-7",
+      "kind": "diagram_like",
+      "line": 278,
+      "heading_context": "### Checkpoint Inhibitors",
+      "confidence": "candidate",
+      "text": "NORMAL T-CELL ACTIVATION CHECKPOINTS:\n  CTLA-4: expressed on T cells after activation → competes with CD28 for B7 (CD80/86) on APCs\n    → limits T-cell expansion (brake on early activation)\n  PD-1: expressed on T cells in chronic stimulation → binds PD-L1/PD-L2 on APCs or tumor cells\n    → tumor cells exploit this → T-cell exhaustion → tumor immune escape\n\nCHECKPOINT INHIBITORS: remove these brakes → unleash anti-tumor T cells\n\nANTI-CTLA-4:\n  Ipilimumab (Yervoy): fully human IgG1; melanoma (1st approved checkpoint inhibitor, 2011)\n  Higher irAE rate vs anti-PD-1; robust activation of early immune response\n  Combination ipilimumab + nivolumab: ↑ efficacy, ↑ irAEs\n\nANTI-PD-1:\n  Nivolumab (Opdivo): human IgG4; melanoma, NSCLC, RCC, HNSCC, MSI-H tumors, HCC, bladder\n  Pembrolizumab (Keytruda): humanized IgG4; FDA-approved >20 solid tumor types\n    PD-L1 testing: some indications require >50% tumor proportion score (TPS) for approval\n    TMB (tumor mutational burden): high TMB → ↑ neoantigens → ↑ T cell recognition → ↑ response\n    MSI-H (microsatellite instability-high) / dMMR: tumor-agnostic approval (any MSI-H solid tumor) — 2017\n\nANTI-PD-L1:\n  Atezolizumab: IgG1 (Fc-modified to ↓ ADCC); bladder, NSCLC, TNBC, HCC\n  Durvalumab: bladder, NSCLC (unresectable stage III)\n  Avelumab: Merkel cell carcinoma, bladder\n\nIMMUNE-RELATED ADVERSE EVENTS (irAEs):\n  Mechanism: off-tumor T-cell activation → autoimmune attack of normal tissues\n  Any organ, any time (even months after stopping)\n  Most common: dermatologic (rash, vitiligo), GI (colitis — especially ipilimumab), endocrine (thyroid,\n    adrenal, pituitary — hypophysitis), hepatitis, pneumonitis, nephritis\n  Grade 1–2: continue checkpoint + symptomatic management\n  Grade 3–4: hold checkpoint + high-dose corticosteroids (prednisone 1–2mg/kg/day)\n    Grade 4 or steroid-refractory: infliximab (anti-TNF) for colitis; cyclophosphamide for others\n  Endocrine irAEs: often permanent → replace hormones long-term even after steroids taper\n  Hypophysitis: ↓ ACTH, TSH, LH/FSH → adrenal insufficiency (dangerous), hypothyroidism, hypogonadism\n  Timing of irAEs: dermatologic early (2–4 weeks), GI/hepatic (6–12 weeks), endocrine (variable, can be late)",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-8",
+      "kind": "ascii_table_candidate",
+      "line": 319,
+      "heading_context": "### CAR-T Cells",
+      "confidence": "candidate",
+      "text": "Process:\n  1. Leukapheresis: collect patient's T cells\n  2. Ex vivo engineering: lentiviral transduction → chimeric antigen receptor (CAR) gene\n  3. CAR structure: extracellular single-chain antibody (scFv) + hinge + transmembrane domain +\n     intracellular CD3ζ signaling domain + co-stimulatory domains (CD28 or 4-1BB/CD137)\n  4. Ex vivo expansion → infusion back into patient\n  5. CAR-T cells bind target antigen (no MHC restriction) → T-cell activation → tumor killing\n\nCurrent approvals:\n  CD19 (B-cell malignancies): tisagenlecleucel (Kymriah — ALL, DLBCL), axicabtagene ciloleucel (Yescarta — DLBCL),\n    brexucabtagene autoleucel (Tecartus — MCL), lisocabtagene maraleucel (Breyanzi — DLBCL)\n  BCMA (multiple myeloma): idecabtagene vicleucel (Abecma), ciltacabtagene autoleucel (Carvykti)\n\nTOXICITIES:\n  CRS (cytokine release syndrome):\n    Massive cytokine release from activated T cells + macrophages\n    Onset: 1–14 days; fever → hypotension → hypoxia → multiorgan failure\n    Key mediator: IL-6 → treatment: tocilizumab (anti-IL-6R) + steroids\n    Graded by ASTCT criteria (grade 1 = fever only; grade 4 = life-threatening)\n  ICANS (immune effector cell-associated neurotoxicity syndrome):\n    Confusion, aphasia, seizures, cerebral edema\n    BBB disruption → cytokines cross → endothelial activation\n    Treatment: dexamethasone (not tocilizumab — IL-6R not on brain endothelium)\n  Cytopenias: prolonged (months) after CAR-T; infectious complications\n  Hypogammaglobulinemia: if prolonged B-cell aplasia → IVIg replacement",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-9",
+      "kind": "ascii_table_candidate",
+      "line": 361,
+      "heading_context": "### Breast Cancer",
+      "confidence": "candidate",
+      "text": "ER+ (estrogen receptor positive) breast cancer: estrogen drives proliferation → deprivation = treatment\n\nSERMS:\n  Tamoxifen: competitive ER antagonist in breast (+ agonist in uterus/bone)\n    → ↓ recurrence/mortality in early + advanced ER+ breast cancer\n    Metabolized by CYP2D6 → endoxifen (active); CYP2D6 PMs → ↓ benefit (avoid paroxetine/fluoxetine)\n    Adverse: hot flashes, thromboembolism (DVT/PE), endometrial cancer (agonist effect on uterus)\n    Pre- and post-menopausal women\n\nAROMATASE INHIBITORS (AIs): anastrozole, letrozole, exemestane\n  Block CYP19A1 (aromatase) → ↓ peripheral androgen→estrogen conversion → ↓ estrogen in postmenopausal women\n  Postmenopausal only (ovaries still producing estrogen in premenopausal → AIs insufficient alone)\n  Adverse: musculoskeletal symptoms (arthralgias/myalgias, \"AI arthralgia\"), osteoporosis, vaginal dryness\n  Exemestane: steroidal (irreversible); anastrozole/letrozole: non-steroidal (reversible)\n  Superior to tamoxifen for post-menopausal ER+ breast cancer\n\nFULVESTRANT: SERD (selective estrogen receptor degrader) — binds ER → ↓ receptor protein expression\n  Pure antagonist (no agonist effects); IM injection; post-menopausal + ESR1 mutation resistance\n\nELACESTRANT, CAMIZESTRANT: oral SERDs; ESR1-mutated (resistance to AIs); improved delivery vs IM fulvestrant\n\nCDK4/6 inhibitors + AI: first-line standard for HR+ HER2- metastatic breast cancer\n  Palbociclib, ribociclib, abemaciclib + letrozole/anastrozole or fulvestrant → doubled PFS\n  MONARCH E (abemaciclib): benefit in early-stage high-risk HR+ BC\n\nALPELISIB: PIK3CA inhibitor; HR+ BC + PIK3CA mutation (>40% of HR+ BC); + fulvestrant\n  Adverse: hyperglycemia (PI3Kα in pancreatic β-cells and insulin signaling), rash\n\nHER2-targeted (breast):\n  Trastuzumab → pertuzumab → trastuzumab-emtansine (T-DM1 = ADC) → trastuzumab-deruxtecan (T-DXd)\n  Lapatinib: oral dual EGFR/HER2 TKI; CNS activity\n  Neratinib, tucatinib: irreversible or more selective HER2 TKIs; CNS penetration (tucatinib)",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-10",
+      "kind": "diagram_like",
+      "line": 398,
+      "heading_context": "### Prostate Cancer",
+      "confidence": "candidate",
+      "text": "ANDROGEN DEPRIVATION THERAPY (ADT):\n  Testosterone drives prostate cancer growth (AR signaling)\n\nLHRH agonists (GnRH agonists): leuprolide, goserelin, triptorelin\n  Initial: ↑ LH/FSH surge (\"flare\") → transient ↑ testosterone (weeks) → add anti-androgen at start\n  Continuous: pituitary GnRH receptor downregulation → ↓ LH → ↓ testosterone (castrate level <50 ng/dL)\n  Depot formulations (monthly/3-monthly/yearly)\n\nLHRH antagonists (GnRH antagonists): degarelix, relugolix\n  Direct GnRH receptor blockade → no testosterone flare; faster castration\n  Relugolix (oral): ↓ CV events vs LHRH agonists (relugolix pivotal trial)\n\nANTI-ANDROGENS (AR antagonists):\n  1st gen: bicalutamide, flutamide, nilutamide (partial agonist at high AR — cause resistance)\n  2nd gen: enzalutamide, apalutamide, darolutamide (no CNS penetration → less CNS toxicity)\n    Mechanism: ↓ AR translocation, ↓ DNA binding, ↓ co-activator recruitment; no agonist activity\n\nABIRATERONE:\n  Irreversible inhibitor of CYP17A1 (17α-hydroxylase/17,20-lyase) → ↓ androgen synthesis in adrenals + tumor\n  ↓ ALL androgens including precursor pathways\n  Combined with prednisone (↑ mineralocorticoid precursors → HTN/hypokalemia → corticosteroid needed)\n  Oral; hepatic metabolism; food-dependent absorption (take fasted or with low-fat meal)",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-11",
+      "kind": "ascii_table_candidate",
+      "line": 427,
+      "heading_context": "## 5. Antibody-Drug Conjugates (ADCs)",
+      "confidence": "candidate",
+      "text": "STRUCTURE: Antibody → linker → cytotoxic payload\n\nAntibody: targeting component (selectivity to tumor antigen)\nLinker: cleavable (lysosomal pH/protease) or non-cleavable (metabolism)\n  Cleavable linkers release payload inside tumor cell (or neighborhood — bystander effect)\n  Non-cleavable: payload released only in cell, no bystander effect (need high target expression)\nPayload: ultra-potent cytotoxin (can't use systemically due to TI)\n  DM1/DM4 (maytansinoids → tubulin): T-DM1 (ado-trastuzumab emtansine)\n  MMAE (monomethyl auristatin E → tubulin): brentuximab vedotin (anti-CD30), polatuzumab vedotin\n  Dxd (deruxtecan = camptothecin derivative → Topo I): T-DXd, enfortumab vedotin in development\n  Calicheamicin (DNA alkylator): gemtuzumab ozogamicin, inotuzumab ozogamicin\n\nKey ADCs:\n  T-DM1 (ado-trastuzumab emtansine, Kadcyla): anti-HER2 + DM1; HER2+ breast cancer\n  T-DXd (trastuzumab deruxtecan, Enhertu): anti-HER2 + DXd; HER2+ and HER2-low breast/gastric/lung\n    \"HER2-low\" (IHC 1+ or 2+/ISH-): previously untreatable with HER2-targeted therapy\n    Interstitial lung disease (ILD) → important toxicity; bystander effect (membrane-permeable payload)\n  Brentuximab vedotin (Adcetris): anti-CD30 + MMAE; Hodgkin lymphoma, ALCL\n  Enfortumab vedotin (Padcev): anti-Nectin-4 + MMAE; urothelial carcinoma\n  Sacituzumab govitecan (Trodelvy): anti-TROP2 + SN-38 (irinotecan metabolite); TNBC, urothelial\n  Inotuzumab ozogamicin (Besylomib): anti-CD22 + calicheamicin; B-cell ALL",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    }
+  ]
+}

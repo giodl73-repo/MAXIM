@@ -1,3 +1,22 @@
+---
+maxim_schema: maxim.frontmatter.v1
+id: maxim:medicine:diagnostics-imaging
+kind: guide
+module: medicine
+section: medicine
+title: 10 - Diagnostics and Imaging
+status: source-custody
+source_custody: partial
+current_path: medicine/10-DIAGNOSTICS-IMAGING.md
+canonical_path: medicine/10-DIAGNOSTICS-IMAGING.md
+backsource_ids: [proof-backfill:medicine:10-diagnostics-imaging, git-history:medicine:10-diagnostics-imaging]
+concepts: [diagnostics, imaging]
+root_concepts: [diagnostics, imaging]
+index_roles: [guide, root-concept]
+remap_from: []
+remap_to: []
+updated: null
+---
 # 10 — Diagnostics & Imaging
 
 ## Laboratory Panels, Imaging Physics and Clinical Applications, Diagnostic Reasoning
@@ -25,7 +44,7 @@
 │  ┌──────────────────────────────────────────────────────────────────┐   │
 │  │  X-ray: ionizing; bone/air/soft tissue contrast                  │   │
 │  │  CT: Hounsfield units; rapid; excellent detail; radiation dose   │   │
-│  │  MRI: T1/T2/DWI/FLAIR; soft tissue; no radiation               │     │
+│  │  MRI: T1/T2/DWI/FLAIR; soft tissue; no radiation                 │   │
 │  │  Ultrasound: real-time; no radiation; bedside POCUS              │   │
 │  │  Nuclear/PET: functional imaging; tracers; FDG/sestamibi         │   │
 │  └──────────────────────────────────────────────────────────────────┘   │

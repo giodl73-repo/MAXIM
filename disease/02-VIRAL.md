@@ -1,3 +1,22 @@
+---
+maxim_schema: maxim.frontmatter.v1
+id: maxim:disease:viral
+kind: guide
+module: disease
+section: disease
+title: Viral Disease
+status: source-custody
+source_custody: partial
+current_path: disease/02-VIRAL.md
+canonical_path: disease/02-VIRAL.md
+backsource_ids: [proof-backfill:disease:02-viral, git-history:disease:02-viral]
+concepts: [viral]
+root_concepts: [viral]
+index_roles: [guide, root-concept]
+remap_from: []
+remap_to: []
+updated: null
+---
 # Viral Disease
 
 ## The Big Picture

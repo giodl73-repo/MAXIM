@@ -1,3 +1,22 @@
+---
+maxim_schema: maxim.frontmatter.v1
+id: maxim:medicine:antibiotics
+kind: guide
+module: medicine
+section: medicine
+title: 01 - Antibiotics
+status: source-custody
+source_custody: partial
+current_path: medicine/01-ANTIBIOTICS.md
+canonical_path: medicine/01-ANTIBIOTICS.md
+backsource_ids: [proof-backfill:medicine:01-antibiotics, git-history:medicine:01-antibiotics]
+concepts: [antibiotics]
+root_concepts: [antibiotics]
+index_roles: [guide, root-concept]
+remap_from: []
+remap_to: []
+updated: null
+---
 # 01 — Antibiotics
 
 ## Antibiotic Targets, Drug Classes, Resistance Mechanisms, Stewardship

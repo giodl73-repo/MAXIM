@@ -1,3 +1,22 @@
+---
+maxim_schema: maxim.frontmatter.v1
+id: maxim:medicine:antivirals-vaccines
+kind: guide
+module: medicine
+section: medicine
+title: 02 - Antivirals and Vaccines
+status: source-custody
+source_custody: partial
+current_path: medicine/02-ANTIVIRALS-VACCINES.md
+canonical_path: medicine/02-ANTIVIRALS-VACCINES.md
+backsource_ids: [proof-backfill:medicine:02-antivirals-vaccines, git-history:medicine:02-antivirals-vaccines]
+concepts: [antivirals, vaccines]
+root_concepts: [antivirals, vaccines]
+index_roles: [guide, root-concept]
+remap_from: []
+remap_to: []
+updated: null
+---
 # 02 — Antivirals & Vaccines
 
 ## Antiviral Drug Classes, HIV/Influenza/Herpes/HCV/HBV, Vaccine Platforms

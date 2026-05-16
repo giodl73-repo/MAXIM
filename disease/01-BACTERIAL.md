@@ -1,3 +1,22 @@
+---
+maxim_schema: maxim.frontmatter.v1
+id: maxim:disease:bacterial
+kind: guide
+module: disease
+section: disease
+title: Bacterial Disease
+status: source-custody
+source_custody: partial
+current_path: disease/01-BACTERIAL.md
+canonical_path: disease/01-BACTERIAL.md
+backsource_ids: [proof-backfill:disease:01-bacterial, git-history:disease:01-bacterial]
+concepts: [bacterial]
+root_concepts: [bacterial]
+index_roles: [guide, root-concept]
+remap_from: []
+remap_to: []
+updated: null
+---
 # Bacterial Disease
 
 ## The Big Picture

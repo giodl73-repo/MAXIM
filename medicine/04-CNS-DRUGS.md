@@ -1,3 +1,22 @@
+---
+maxim_schema: maxim.frontmatter.v1
+id: maxim:medicine:cns-drugs
+kind: guide
+module: medicine
+section: medicine
+title: 04 - CNS Drugs
+status: source-custody
+source_custody: partial
+current_path: medicine/04-CNS-DRUGS.md
+canonical_path: medicine/04-CNS-DRUGS.md
+backsource_ids: [proof-backfill:medicine:04-cns-drugs, git-history:medicine:04-cns-drugs]
+concepts: [cns, drugs]
+root_concepts: [cns, drugs]
+index_roles: [guide, root-concept]
+remap_from: []
+remap_to: []
+updated: null
+---
 # 04 — CNS Drugs
 
 ## Antidepressants, Antipsychotics, Mood Stabilizers, Anxiolytics, Opioids, Anticonvulsants

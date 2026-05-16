@@ -1,0 +1,105 @@
+{
+  "schema_version": "1",
+  "source_markdown": "medicine\\02-ANTIVIRALS-VACCINES.md",
+  "blocks": [
+    {
+      "id": "block-1",
+      "kind": "diagram_like",
+      "line": 30,
+      "heading_context": "## Antiviral Drug Classes, HIV/Influenza/Herpes/HCV/HBV, Vaccine Platforms",
+      "confidence": "candidate",
+      "text": "Platform          Analogy                         Mechanism\n──────────────────────────────────────────────────────────────────────────\nLive-attenuated   Full build, reduced privileges  Whole pathogen, weakened\n(MMR, varicella,  — runs the full program but     (live replication → broad\noral polio)       throttled; can revert           cellular + humoral immunity)\n\nInactivated       Snapshot / read-only image      Killed pathogen (no\n(flu shot, IPV,   — cannot replicate or evolve;   replication); less durable\nHep A)            very stable                     immunity; often need boosters\n\nSubunit/protein   API surface only — just the     Antigen protein alone (no\n(Hep B, HPV,      interface that triggers the     genome, no replication);\npertussis acell.) response, no internal state     highly specific, safe\n\nmRNA (COVID-19    JIT-compiled instruction set:   mRNA delivered → host cells\nPfizer/Moderna)   ship the code, let the host     manufacture the antigen\n                  run it; transient, no           transiently → immune response\n                  persistence after execution\n\nViral vector      Container-based delivery:       Adenovirus vector carries\n(COVID-19 J&J,    pack your payload in a          antigen gene; vector is\nEbola)            standard container that the     the delivery mechanism, not\n                  host already knows how to       the antigen itself\n                  execute",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-2",
+      "kind": "diagram_like",
+      "line": 59,
+      "heading_context": "## The Big Picture",
+      "confidence": "candidate",
+      "text": "┌──────────────────────────────────────────────────────────────────────────┐\n│              ANTIVIRAL DRUG TARGETS (by viral life cycle stage)          │\n├──────────────────────────────────────────────────────────────────────────┤\n│                                                                          │\n│  ENTRY / ATTACHMENT                                                      │\n│    Fusion inhibitors: enfuvirtide (HIV gp41), maraviroc (CCR5 antagonist)│\n│    Neuraminidase inhibitors: prevent release + re-entry (influenza)      │\n│    Omalizumab/REGN-COV2: antibodies blocking receptor binding           │\n│                                                                          │\n│  REVERSE TRANSCRIPTASE (RNA → DNA)                                      │\n│    NRTIs: chain terminators (lack 3'-OH for extension)                  │\n│    NNRTIs: allosteric, non-competitive RT inhibitors                     │\n│    (HIV-specific; also HBV uses RT to synthesize pgRNA → DNA)           │\n│                                                                          │\n│  INTEGRATION (HIV integrase)                                             │\n│    INSTIs: block strand transfer into host chromosome                   │\n│                                                                          │\n│  VIRAL PROTEASE                                                          │\n│    HIV protease inhibitors (PIs): polyprotein cleavage blockade         │\n│    HCV NS3/4A protease inhibitors (-previr)                             │\n│    SARS-CoV-2 3CL protease: nirmatrelvir                               │\n│                                                                          │\n│  POLYMERASE / REPLICATION                                                │\n│    Nucleoside/tide analogs: acyclovir (HSV TK-activated), ganciclovir   │\n│    HCV NS5B: sofosbuvir (-buvir)                                        │\n│    Influenza PB2: baloxavir                                             │\n│    COVID-19 RdRp: remdesivir                                            │\n│                                                                          │\n│  NS5A PROTEIN (HCV replication complex)                                 │\n│    NS5A inhibitors (-asvir): daclatasvir, ledipasvir, velpatasvir       │\n└──────────────────────────────────────────────────────────────────────────┘",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-3",
+      "kind": "diagram_like",
+      "line": 148,
+      "heading_context": "### ART Regimens",
+      "confidence": "candidate",
+      "text": "Current standard (DHHS Guidelines):\n  PREFERRED regimens (2024):\n    BIC/TAF/FTC (Biktarvy): single-tablet, once daily, high barrier to resistance\n    DTG + TAF/FTC (Symtuza-equivalent): dolutegravir-based\n    CAB/RPV long-acting (Cabenuva): monthly IM injections — adherence alternative\n\n  2-drug regimens (maintenance):\n    DTG + 3TC: virologically suppressed patients; avoid if HBV co-infection (3TC alone insufficient)\n\nResistance mutations:\n  M184V: NRTI (emtricitabine/lamivudine resistance) → also ↑ susceptibility to TDF (advantageous)\n  K103N: NNRTI class resistance (efavirenz)\n  T315I: \"gatekeeper\" mutation → INSTI + some other class resistance\n  High barrier drugs (DTG/BIC) require multiple mutations → rarely fail virologically\n\nU=U (Undetectable = Untransmittable):\n  Virologically suppressed person on ART → zero sexual transmission risk\n  PARTNER, PARTNER2, Opposites Attract studies confirmation",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-4",
+      "kind": "diagram_like",
+      "line": 174,
+      "heading_context": "## 2. Influenza Antivirals",
+      "confidence": "candidate",
+      "text": "Influenza surface: HA (hemagglutinin, attachment) + NA (neuraminidase, release)\n\nNA function: cleaves sialic acid on host cell surface → releases progeny virions\n  If blocked → virus stuck, can't spread to new cells\n\nDrugs: oseltamivir (oral), zanamivir (inhaled), peramivir (IV)\n  oseltamivir = Tamiflu: prodrug (ethyl ester) → oseltamivir carboxylate\n  Effective vs influenza A and B\n  Resistance: H275Y mutation (oseltamivir-specific; zanamivir usually retained)\n  Treatment window: within 48h of symptom onset (modest benefit)\n  Prophylaxis: close contact exposure, institutional outbreaks\n  High-risk indications: elderly, immunocompromised, severe illness, hospitalized",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-5",
+      "kind": "ascii_table_candidate",
+      "line": 201,
+      "heading_context": "### Acyclovir — Mechanism (Viral TK Activation)",
+      "confidence": "candidate",
+      "text": "Acyclovir (guanosine analog, no 3'-OH):\n\n1. Enter infected cell\n2. Herpes viral thymidine kinase (TK) phosphorylates acyclovir → acyclovir monophosphate\n   (HSV/VZV TK is far more efficient than cellular TK → selective toxicity)\n3. Cellular kinases phosphorylate to triphosphate → acyclovir-TP\n4. Acyclovir-TP:\n   a. Competes with dGTP for viral DNA polymerase (much higher affinity than cellular polymerase)\n   b. Incorporated → chain termination (no 3'-OH)\n   c. Dead-end complex: polymerase + template + acyclovir-TP → irreversible inactivation\n\nSelectivity: depends on viral TK for initial phosphorylation\n  TK-deficient mutants → acyclovir resistance (reduced activation)\n  TK-intact + DNA polymerase mutation (less common, more virulent)",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-6",
+      "kind": "diagram_like",
+      "line": 235,
+      "heading_context": "## 4. HCV Direct-Acting Antivirals (DAAs)",
+      "confidence": "candidate",
+      "text": "HCV genome (single-strand + RNA):\n  5'UTR → core → E1 → E2 → p7 → NS2 → NS3/4A → NS4B → NS5A → NS5B → 3'UTR\n\nDrug targets:\n  NS3/4A protease inhibitors (-previr): cleave viral polyprotein; simeprevir, grazoprevir, glecaprevir, voxilaprevir\n  NS5B nucleotide polymerase inhibitor (-buvir): sofosbuvir; chain terminator; high barrier to resistance\n  NS5A inhibitor (-asvir): replication complex; ledipasvir, velpatasvir, pibrentasvir; low barrier to resistance alone\n\nPan-genotypic regimens (cover all 6 HCV genotypes):\n  SOF/VEL (Epclusa): sofosbuvir + velpatasvir; 12 weeks; all genotypes; cirrhosis OK\n  GLE/PIB (Mavyret): glecaprevir + pibrentasvir; 8 weeks (non-cirrhotic GT1–6); renal-safe\n  SOF/VEL/VOX (Vosevi): + voxilaprevir; for DAA-experienced patients\n\nCure rates: >95% with pan-genotypic regimens\n  \"Cure\" = SVR12 (sustained virologic response at 12 weeks post-treatment = undetectable HCV RNA)\n  SVR = hepatic fibrosis regression, ↓ HCC risk, ↓ all-cause mortality\n\nKey drug interactions:\n  Sofosbuvir is P-gp substrate → rifampin (P-gp inducer) → ↓ SOF → DAA failure\n  NS5A inhibitors have significant drug interactions with HIV ART (integrase inhibitors mostly compatible)",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-7",
+      "kind": "diagram_like",
+      "line": 278,
+      "heading_context": "## 6. SARS-CoV-2 Antivirals",
+      "confidence": "candidate",
+      "text": "Nirmatrelvir/ritonavir (Paxlovid):\n  Nirmatrelvir: peptidomimetic inhibitor of 3CL (main) protease (Mpro)\n    → Blocks polyprotein cleavage → abortive viral replication\n  Ritonavir: pharmacokinetic booster (CYP3A4 inhibitor) → ↑ nirmatrelvir exposure\n  Indication: high-risk COVID-19, non-hospitalized, within 5 days of symptom onset\n  Efficacy: 89% reduction in hospitalization (EPIC-HR trial in unvaccinated)\n  Drug interactions: major (CYP3A4 substrates — statins, immunosuppressants, anticoagulants)\n  Rebound: ~10–15% clinical rebound after completing 5-day course (virologic basis unclear)\n\nRemdesivir (Veklury):\n  Adenosine nucleotide analog → inhibits viral RdRp (RNA-dependent RNA polymerase)\n  Incorporated → premature chain termination + delayed chain termination\n  Indication: hospitalized COVID-19 (reduces time to clinical improvement)\n  IV formulation limits outpatient use (inhaled form in development)\n  Also: approved for COVID-19 outpatient (3-day IV infusion at infusion centers)\n\nMolnupiravir (Lagevrio):\n  Ribonucleoside analog (prodrug of N-hydroxycytidine → NHC-TP)\n  Incorporated into viral RNA → lethal mutagenesis (error catastrophe)\n  Lower efficacy vs Paxlovid; limited to when Paxlovid unavailable\n  Theoretical concern: mutagenic to host cells (genotoxicity studies reassuring in practice)\n\nMonoclonal antibodies (COVID):\n  Rapidly outdated as variants emerge (immune evasion of spike epitopes)\n  Bamlanivimab, casirivimab/imdevimab — inactive vs Omicron and beyond\n  Current status: limited/no authorized mAbs for Omicron subvariants (2024)",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-8",
+      "kind": "ascii_table_candidate",
+      "line": 313,
+      "heading_context": "### Mechanism by Type",
+      "confidence": "candidate",
+      "text": "LIVE-ATTENUATED:\n  Pathogen grown under non-optimal conditions → reduced virulence\n  Replicates in host → robust innate + T + B response → durable immunity\n  Often single dose; mimics natural infection without disease\n  Risks: reversion to virulence (rare; OPV → VDPV), contraindicated in immunocompromised\n  Examples: MMR (measles/mumps/rubella), VZV (varicella/zoster), BCG, yellow fever, OPV, rotavirus\n\nINACTIVATED (KILLED):\n  Whole pathogen killed by chemical or heat\n  Humoral response; weaker cellular immunity; no replication risk\n  Requires adjuvant + boosters\n  Examples: IPV (Salk), influenza (IIV), hepatitis A, rabies\n\nSUBUNIT/RECOMBINANT:\n  Specific protein(s) only — no live pathogen\n  Recombinant protein expressed in yeast/insect cells/mammalian cells\n  VLPs (virus-like particles): assembled protein shells — no nucleic acid; mimic virus structure\n  Examples: Hep B (HBsAg in yeast), HPV (VLPs: L1 protein), pertussis (acellular = specific proteins)\n  Adjuvants essential: AS04 (alum + MPL) in Cervarix; AS01B (MPL + QS-21) in Shingrix → enhanced response\n\nCONJUGATE:\n  Polysaccharide antigens poorly immunogenic (T-independent response only → no memory, no booster effect)\n  Conjugated to carrier protein (CRM197 = diphtheria toxoid mutant) → T-dependent response → memory\n  Examples: Hib (PRP-T/PRP-CRM), PCV (pneumococcal), MenACWY (meningococcal)\n\nTOXOID:\n  Inactivated exotoxin → neutralizing antibodies (anti-toxin, not anti-bacterial)\n  Examples: tetanus (TT), diphtheria (DT), Tdap\n\nmRNA VACCINES:\n  mRNA encapsulated in lipid nanoparticles (LNPs)\n  LNPs → endosomal uptake → mRNA enters cytoplasm → translated by ribosomes → antigen expressed\n  Host cells present antigen on MHC I + II → CD8+ and CD4+ T cell + B cell response\n  mRNA: degraded within days; does NOT integrate into DNA (no nuclear entry mechanism)\n  Pseudouridine modification (Karikó/Weissman Nobel 2023): ↓ innate immune recognition → ↑ stability/translation\n  Examples: BNT162b2 (Pfizer-BioNTech), mRNA-1273 (Moderna) — COVID-19; mRNA influenza in trials\n\nVIRAL VECTOR:\n  Adenovirus (replication-defective) carries insert gene for antigen\n  Infects cells → antigen expressed → immune response\n  Examples: ChAdOx1 (Oxford/AstraZeneca COVID-19), Ad26.COV2.S (J&J), rVSV-ZEBOV (Ebola)\n  Limitation: pre-existing adenovirus immunity can reduce effectiveness\n  Advantage: potent T-cell response\n\nADJUVANTS — mechanism:\n  Alum (aluminum salts): depot effect + NALP3 inflammasome activation → IL-1β → ↑ innate response\n  AS04 (alum + MPL): MPL (monophosphoryl lipid A) = TLR4 agonist → NF-κB → T helper activation\n  AS01B: MPL + QS-21 (saponin) → Th1-biased response; used in Shingrix, malaria vaccine (RTS,S)\n  MF59 (squalene oil-in-water emulsion): DAMP release at injection site → innate activation\n  CpG (ODN 1018): TLR9 agonist; Heplisav-B (HBV vaccine for adults) → stronger/faster response",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-9",
+      "kind": "ascii_table_candidate",
+      "line": 400,
+      "heading_context": "### Travel Vaccines",
+      "confidence": "candidate",
+      "text": "Yellow Fever: required for some countries (endemic equatorial Africa/Americas); live attenuated; long-lasting; viscerotropic/neurotropic adverse events (rare but severe)\nTyphoid: Ty21a (live oral, 4 doses) or Vi polysaccharide (IM, single dose, booster q2y)\nJapanese Encephalitis: Asia travelers; Ixiaro (inactivated, 2-dose)\nMeningococcal (ACWY + B): required for Saudi Arabia (Hajj); college freshmen; asplenic patients\nRabies: pre-exposure for wildlife workers/lab; post-exposure requires wound care + RIG + vaccine series\nCholera: Vaxchora (live oral, CVD 103-HgR strain); travelers to endemic areas\nHepatitis A: any traveler to endemic area; 2-dose series (Havrix/Vaqta)",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    }
+  ]
+}

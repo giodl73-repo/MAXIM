@@ -1,3 +1,22 @@
+---
+maxim_schema: maxim.frontmatter.v1
+id: maxim:medicine:cardiovascular-drugs
+kind: guide
+module: medicine
+section: medicine
+title: 03 - Cardiovascular Drugs
+status: source-custody
+source_custody: partial
+current_path: medicine/03-CARDIOVASCULAR-DRUGS.md
+canonical_path: medicine/03-CARDIOVASCULAR-DRUGS.md
+backsource_ids: [proof-backfill:medicine:03-cardiovascular-drugs, git-history:medicine:03-cardiovascular-drugs]
+concepts: [cardiovascular, drugs]
+root_concepts: [cardiovascular, drugs]
+index_roles: [guide, root-concept]
+remap_from: []
+remap_to: []
+updated: null
+---
 # 03 — Cardiovascular Drugs
 
 ## Lipid-Lowering, Antihypertensives, Anticoagulants, Antiarrhythmics, Heart Failure

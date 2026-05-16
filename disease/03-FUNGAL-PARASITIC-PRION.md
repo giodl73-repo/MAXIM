@@ -1,3 +1,22 @@
+---
+maxim_schema: maxim.frontmatter.v1
+id: maxim:disease:fungal-parasitic-prion
+kind: guide
+module: disease
+section: disease
+title: Fungal, Parasitic, and Prion Disease
+status: source-custody
+source_custody: partial
+current_path: disease/03-FUNGAL-PARASITIC-PRION.md
+canonical_path: disease/03-FUNGAL-PARASITIC-PRION.md
+backsource_ids: [proof-backfill:disease:03-fungal-parasitic-prion, git-history:disease:03-fungal-parasitic-prion]
+concepts: [fungal, parasitic, prion]
+root_concepts: [fungal, parasitic]
+index_roles: [guide, root-concept]
+remap_from: []
+remap_to: []
+updated: null
+---
 # Fungal, Parasitic, and Prion Disease
 
 ## The Big Picture

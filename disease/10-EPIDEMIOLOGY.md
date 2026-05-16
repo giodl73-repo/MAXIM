@@ -1,3 +1,22 @@
+---
+maxim_schema: maxim.frontmatter.v1
+id: maxim:disease:epidemiology
+kind: guide
+module: disease
+section: disease
+title: 10 - Epidemiology and Public Health
+status: source-custody
+source_custody: partial
+current_path: disease/10-EPIDEMIOLOGY.md
+canonical_path: disease/10-EPIDEMIOLOGY.md
+backsource_ids: [proof-backfill:disease:10-epidemiology, git-history:disease:10-epidemiology]
+concepts: [epidemiology]
+root_concepts: [epidemiology]
+index_roles: [guide, root-concept]
+remap_from: []
+remap_to: []
+updated: null
+---
 # 10 — Epidemiology & Public Health
 
 ## Study Design, Transmission, R₀, Outbreak Investigation, Screening, Global Burden
