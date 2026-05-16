@@ -1,3 +1,22 @@
+---
+maxim_schema: maxim.frontmatter.v1
+id: maxim:chemical-eng:reaction-engineering
+kind: guide
+module: chemical-eng
+section: chemical-eng
+title: 02 - Chemical Reaction Engineering
+status: source-custody
+source_custody: partial
+current_path: chemical-eng/02-REACTION-ENGINEERING.md
+canonical_path: chemical-eng/02-REACTION-ENGINEERING.md
+backsource_ids: [proof-backfill:chemical-eng:02-reaction-engineering, git-history:chemical-eng:02-reaction-engineering]
+concepts: [reaction, engineering]
+root_concepts: [reaction, engineering]
+index_roles: [guide, root-concept]
+remap_from: []
+remap_to: []
+updated: null
+---
 # 02 — Chemical Reaction Engineering
 
 ## Kinetics, Reactor Design, Selectivity, Catalysis

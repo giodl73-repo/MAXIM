@@ -1,0 +1,127 @@
+{
+  "schema_version": "1",
+  "source_markdown": "chemical-eng\\02-REACTION-ENGINEERING.md",
+  "blocks": [
+    {
+      "id": "block-1",
+      "kind": "diagram_like",
+      "line": 24,
+      "heading_context": "## Kinetics, Reactor Design, Selectivity, Catalysis",
+      "confidence": "candidate",
+      "text": "REACTION ENGINEERING WORKFLOW\n\n  KINETICS           REACTOR TYPE         DESIGN EQUATION\n  ─────────          ────────────         ───────────────\n  -r_A = f(C,T)  →   Batch              → N_A0 dX/dt = -r_A V\n                      CSTR (mixed)       → τ = C_A0 X / (-r_A)_exit\n                      PFR (plug flow)    → τ = C_A0 ∫dX/(-r_A)\n                      Non-ideal          → RTD + model",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-2",
+      "kind": "diagram_like",
+      "line": 55,
+      "heading_context": "### Rate Laws",
+      "confidence": "candidate",
+      "text": "Power-law:    -r_A = k C_A^m C_B^n\n  m = order in A, n = order in B, (m+n) = overall order\n  k = rate constant [units depend on order]\n\nDetermine experimentally:\n  Initial rate method: vary C_A (hold C_B const) → ln(-r_A₀) vs ln(C_A₀) → slope = m\n  Integral method: assume order → integrate → fit concentration-time data",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-3",
+      "kind": "diagram_like",
+      "line": 93,
+      "heading_context": "### Engineering Bridge: Reactor Types as Processing Architectures",
+      "confidence": "candidate",
+      "text": "REACTOR TYPE        PROCESSING ARCHITECTURE EQUIVALENT\n──────────────────────────────────────────────────────────────────────────\nBatch               Batch/MapReduce processing\n  all material in     → all data in, process, all results out\n  react, drain out    → no flow during processing; downtime between batches\n\nCSTR                Perfectly mixed message queue\n  continuous flow     → continuous ingest, every item sees same conditions\n  exit = interior     → exit state = queue state (no ordering preserved)\n\nPFR                 Streaming pipeline / FIFO\n  continuous flow     → each item processed in sequence\n  no axial mixing     → order preserved; no item \"sees\" any other\n  each element reacts → each message processed independently in transit\n  for time τ = V/v₀",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-4",
+      "kind": "diagram_like",
+      "line": 115,
+      "heading_context": "### Batch Reactor (BR)",
+      "confidence": "candidate",
+      "text": "Mole balance: N_A0 dX/dt = (-r_A) V\nFor constant volume: dX/dt = (-r_A)/C_A0\n\nReaction time for conversion X:\n  t = C_A0 ∫₀^X dX/(-r_A(X))    ← Levenspiel integral\n\nAdvantages: flexible (different products in same vessel), small scale\nDisadvantages: batch time + downtime, non-steady product quality",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-5",
+      "kind": "ascii_table_candidate",
+      "line": 130,
+      "heading_context": "### Continuous Stirred Tank Reactor (CSTR)",
+      "confidence": "candidate",
+      "text": "Design equation (steady state):\n  V/F_A0 = τ/C_A0 = X/(-r_A)_exit\n\n  F_A0 = inlet molar flow [mol/s]\n  τ = V/v₀ = space time [s]\n  (-r_A)_exit = rate evaluated at exit composition (lowest rate = worst case)\n\nCSTR performance for first-order: C_A0/C_A = 1 + kτ → X = kτ/(1+kτ)",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-6",
+      "kind": "diagram_like",
+      "line": 145,
+      "heading_context": "### Plug Flow Reactor (PFR)",
+      "confidence": "candidate",
+      "text": "Design equation:\n  V/F_A0 = ∫₀^X dX/(-r_A(X))    ← Levenspiel integral, same form as batch\n\nPFR performance for first-order: C_A/C_A0 = e^(-kτ) → X = 1 − e^(-kτ)",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-7",
+      "kind": "diagram_like",
+      "line": 154,
+      "heading_context": "### PFR vs CSTR Comparison",
+      "confidence": "candidate",
+      "text": "For equal V and same X:\n  Elementary A → B (first order, positive order kinetics):\n    PFR always outperforms CSTR (CSTR operates at lowest rate; PFR at all rates)\n    Ratio: V_CSTR/V_PFR → 1 as X→0, grows as X→1\n\nFor non-monotonic rates (autocatalytic):\n  CSTR can outperform PFR at low conversions\n  Optimal: CSTR to optimum X_opt, then PFR to final X\n\nCSTR in series → approaches PFR performance as N → ∞",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-8",
+      "kind": "diagram_like",
+      "line": 208,
+      "heading_context": "## Multiple Reactions: Selectivity",
+      "confidence": "candidate",
+      "text": "A → D  (desired),   rate r_D\nA → U  (undesired), rate r_U\n\nInstantaneous selectivity: S_D/U = r_D/r_U\n\nMaximize selectivity:\n  If order of D > order of U in A: high [A] favors D → PFR or batch (not CSTR)\n  If order of D < order of U in A: low [A] favors D → CSTR or differential PFR\n  Temperature effects: high T if E_D > E_U (D has higher activation energy)\n\nOverall yield: Y_D = (moles D formed) / (moles A fed initially)\nOverall selectivity: S_D = (moles D formed) / (moles A reacted)",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-9",
+      "kind": "ascii_table_candidate",
+      "line": 229,
+      "heading_context": "### Langmuir Adsorption Isotherm",
+      "confidence": "candidate",
+      "text": "θ_A = K_A p_A / (1 + K_A p_A + K_B p_B + ...)\n\nθ_A = fraction of surface sites occupied by A\nK_A = adsorption equilibrium constant (dimensionless or 1/pressure)\n\nLangmuir-Hinshelwood mechanism (bimolecular):\n  -r_A = k K_A K_B p_A p_B / (1 + K_A p_A + K_B p_B)²\n  Common in catalytic reactions (NH₃ synthesis, CO oxidation)\n\nEley-Rideal mechanism:\n  -r_A = k K_A p_A p_B / (1 + K_A p_A)\n  One species adsorbed, other from gas phase",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-10",
+      "kind": "diagram_like",
+      "line": 248,
+      "heading_context": "### Diffusion Limitations (Pore Diffusion)",
+      "confidence": "candidate",
+      "text": "Thiele modulus:\n  φ = R √(k/D_eff)   [R = pellet radius, k = rate const, D_eff = effective diffusivity]\n  φ ≪ 1: diffusion fast (kinetic control)\n  φ ≫ 1: diffusion slow (diffusion limited, rate ∝ 1/R)\n\nEffectiveness factor η:\n  η = actual rate / rate if no diffusion limitation = tanh(φ)/φ   (slab geometry)\n  η → 1 as φ → 0 (kinetic control)\n  η → 1/φ as φ → ∞ (diffusion limited)\n\nWeisz-Prater criterion (no diffusion limitation if):\n  C_WP = (-r_A)_obs ρ_c R² / (D_eff C_As) < 1",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-11",
+      "kind": "diagram_like",
+      "line": 294,
+      "heading_context": "## Residence Time Distribution (RTD) — Non-Ideal Reactors",
+      "confidence": "candidate",
+      "text": "∂C/∂t = D_a ∂²C/∂z² − v ∂C/∂z\nPeclet number: Pe = vL/D_a\n  Pe → ∞: ideal PFR; Pe → 0: ideal CSTR",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    }
+  ]
+}

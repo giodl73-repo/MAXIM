@@ -1,3 +1,22 @@
+---
+maxim_schema: maxim.frontmatter.v1
+id: maxim:nuclear:thermal-hydraulics
+kind: guide
+module: nuclear
+section: nuclear
+title: 03 - Nuclear Thermal Hydraulics
+status: source-custody
+source_custody: partial
+current_path: nuclear/03-THERMAL-HYDRAULICS.md
+canonical_path: nuclear/03-THERMAL-HYDRAULICS.md
+backsource_ids: [proof-backfill:nuclear:03-thermal-hydraulics, git-history:nuclear:03-thermal-hydraulics]
+concepts: [thermal, hydraulics]
+root_concepts: [thermal, hydraulics]
+index_roles: [guide, root-concept]
+remap_from: []
+remap_to: []
+updated: null
+---
 # 03 — Nuclear Thermal Hydraulics
 
 ## Heat Generation, Coolant Flow, DNB, Reactivity Feedback

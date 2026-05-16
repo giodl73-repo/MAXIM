@@ -1,0 +1,270 @@
+{
+  "schema_version": "1",
+  "source_markdown": "nuclear\\04-REACTOR-TYPES.md",
+  "blocks": [
+    {
+      "id": "block-1",
+      "kind": "diagram_like",
+      "line": 24,
+      "heading_context": "## PWR, BWR, CANDU, Advanced Designs, SMRs, Gen IV",
+      "confidence": "candidate",
+      "text": "REACTOR CLASSIFICATION MATRIX\n\n                   Moderator\n                   ┌──────────┬───────────┬──────────┬──────────┐\nCoolant            │  H₂O     │   D₂O     │ Graphite │  None    │\n───────────────────┼──────────┼───────────┼──────────┼──────────┤\nH₂O (light)        │ PWR, BWR │  —        │  RBMK*   │  —       │\nD₂O (heavy)        │  —       │  CANDU    │  —       │  —       │\nLiquid Na (sodium) │  —       │  —        │  —       │  SFR     │ ← Fast spectrum\nMolten salt        │  —       │  —        │  —       │  MSR     │ ← Liquid fuel\nHe gas             │  —       │  —        │  —       │  VHTR/GFR│ ← High temp\nPb / Pb-Bi         │  —       │  —        │  —       │  LFR     │ ← Fast spectrum\nSupercritical H₂O  │ SCWR     │  —        │  —       │  —       │ ← Future\n───────────────────┴──────────┴───────────┴──────────┴──────────┘\n\nThermal spectrum: moderated reactors (max fissions at 0.025 eV)\nFast spectrum: no moderation (max fissions at 0.1–1 MeV)\n*RBMK: graphite moderator + water coolant — unusual combination",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-2",
+      "kind": "diagram_like",
+      "line": 57,
+      "heading_context": "### System Architecture",
+      "confidence": "candidate",
+      "text": "PRIMARY LOOP:                          SECONDARY LOOP:\n                                         (no radioactivity under normal conditions)\nReactor                Steam\nVessel   →  Primary   Generator  →   Turbine → Generator\n  ↑          Pump      (U-tube)         ↑\n  │                      ↓              │\n  │           Pres-    Feedwater ←   Condenser ← Cooling water\n  └── fuel ───surizer   Pump\n  core\n\nKey: PRIMARY and SECONDARY are separated by steam generator tubes\n     → radioactive primary water NEVER contacts turbine\n     → allows turbine maintenance without decontamination",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-3",
+      "kind": "chart_like",
+      "line": 73,
+      "heading_context": "### System Architecture",
+      "confidence": "candidate",
+      "text": "### PWR Parameters (Westinghouse 4-Loop, ~1100 MWe)",
+      "notes": [
+        "detected from bar/chart glyph density with numeric labels"
+      ]
+    },
+    {
+      "id": "block-4",
+      "kind": "diagram_like",
+      "line": 75,
+      "heading_context": "### PWR Parameters (Westinghouse 4-Loop, ~1100 MWe)",
+      "confidence": "candidate",
+      "text": "Parameter                   Value\n──────────────────────────────────────────────────────\nThermal power               3411 MWt\nElectrical output           ~1150 MWe (efficiency ~33.5%)\nPrimary pressure            155.1 bar (15.51 MPa)\nPrimary coolant temp (in)   291°C\nPrimary coolant temp (out)  325°C\nT_sat at 155 bar            345°C  (35°C subcooling margin)\nSecondary steam pressure    ~68 bar\nSteam temperature           ~285°C (saturated)\nNumber of fuel assemblies   193\nFuel: 17×17 array, 264 fuel rods + 24 guide tubes + 1 instrumentation tube\nFuel type                   UO₂ pellets, 3.1–4.8% enrichment\nCladding                    Zircaloy-4 or ZIRLO\nActive fuel length           3.66 m (12 ft)\nNumber of RCPs              4 (Reactor Coolant Pumps)\nNumber of steam generators  4\nControl system              RCCA (Rod Cluster Control Assemblies) + soluble boron",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-5",
+      "kind": "diagram_like",
+      "line": 98,
+      "heading_context": "### PWR Control Methods",
+      "confidence": "candidate",
+      "text": "1. Soluble boron (chemical shim):\n   H₃BO₃ dissolved in primary coolant\n   Worth: ~8–11 pcm/ppm\n   Used for: slow reactivity changes (cycle burnup compensation, cold shutdown)\n   Concentration: 0 ppm (HFP, end of cycle) → ~1200 ppm (HFP, BOC) → ~2000 ppm (cold)\n\n   Advantage: no power peaking (uniform poison distribution)\n   Disadvantage: takes hours to dilute/borate; cannot respond to rapid transients\n\n2. Control Rod Cluster Assemblies (RCCA):\n   Ag-In-Cd (typical) or B₄C\n   Banks: 4 shutdown banks (full insertion for trip) + regulating banks (modulated)\n   Worth: total ~7000–10000 pcm; shutdown requires top bank value >> largest worth rod\n   Fast response: rods drop by gravity in 1–2 seconds when tripped\n\n3. Burnable absorbers (fixed in fuel):\n   Gadolinia (Gd₂O₃) mixed in fuel pellets\n   or IFBA (integral fuel burnable absorber: ZrB₂ coating on pellets)\n   Burns out over cycle → compensates initial excess reactivity without boron",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-6",
+      "kind": "diagram_like",
+      "line": 150,
+      "heading_context": "### Single-Loop Design",
+      "confidence": "candidate",
+      "text": "BWR vs PWR KEY DIFFERENCE: Steam generated INSIDE reactor vessel\n  → no steam generators\n  → steam (slightly radioactive N-16 from O-16(n,p) reaction) goes directly to turbine\n  → turbine and condenser are radiologically controlled areas\n\nREACTOR VESSEL\n  ┌─────────────────────────────┐\n  │  Steam separators/dryers    │\n  │  ─────────────────────      │\n  │  Core (fuel assemblies)     │\n  │  ─────────────────────      │\n  │  Jet pumps (16 per vessel)  │\n  │  Lower plenum               │\n  └─────────────────────────────┘\n           ↓ Recirculation → External pumps → back up via jet pumps\n\n  Steam separators/dryers — steam 285°C, 70 bar exits here\n  Core                    — BWR fuel: 10×10, ATRIUM-10 design\n  Jet pumps               — driven by recirculation pumps",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-7",
+      "kind": "chart_like",
+      "line": 172,
+      "heading_context": "### Single-Loop Design",
+      "confidence": "candidate",
+      "text": "### BWR Parameters (GE BWR/6, ~1000 MWe)",
+      "notes": [
+        "detected from bar/chart glyph density with numeric labels"
+      ]
+    },
+    {
+      "id": "block-8",
+      "kind": "diagram_like",
+      "line": 174,
+      "heading_context": "### BWR Parameters (GE BWR/6, ~1000 MWe)",
+      "confidence": "candidate",
+      "text": "Parameter                   Value\n──────────────────────────────────────────────────────\nThermal power               3579 MWt\nElectrical output           ~1200 MWe (efficiency ~33.5%)\nPrimary pressure            ~72 bar (7.2 MPa)  ← lower than PWR!\nCore inlet temp             ~278°C\nCore exit quality           ~12–15%\nFuel type                   UO₂, 2.5–4.0% enrichment (lower than PWR — fewer epithermal captures)\nCladding                    Zircaloy-2\nActive fuel length           3.7 m\nControl system              CRD (Control Rod Drives) from below + jet pump flow\nNo soluble boron in coolant during operation",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-9",
+      "kind": "diagram_like",
+      "line": 191,
+      "heading_context": "### BWR Control",
+      "confidence": "candidate",
+      "text": "BWR control methods:\n  1. Control rods from BELOW (unusual! necessitated by steam separators at top)\n     → hydraulically driven CRDs (not gravity-drop; must overcome buoyancy)\n     → SCRAM: high-pressure nitrogen drives rods in rapidly\n\n  2. Recirculation flow control:\n     Reduce recirculation pump speed → less coolant flow → more steam → negative void → power DOWN\n     This allows ~25% power range control WITHOUT moving control rods\n     Faster response than chemical changes\n\n  3. No soluble boron during power operation:\n     Simplifies chemistry management, avoids MTC complications\n     But: critical with pure water means no chemical backup for scram\n\nStability concern:\n  Density-wave oscillations (thermal-hydraulic coupling) at low-flow/high-power\n  BWROG stability solution: oscillation power range monitors (OPRM) + operating limits",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-10",
+      "kind": "diagram_like",
+      "line": 236,
+      "heading_context": "### Unique Design Philosophy",
+      "confidence": "candidate",
+      "text": "PRESSURE TUBE DESIGN (vs monolithic pressure vessel in LWR):\n\n  Calandria vessel (low pressure, ~1 bar)  ← D₂O moderator at ~70°C, low pressure\n    contains thousands of pressure tubes\n    Each pressure tube:\n      ← D₂O coolant at high pressure (~104 bar) and ~310°C\n      ← 37-element fuel bundle (natural UO₂, 0.711% U-235!)\n\n  NO PRESSURE VESSEL: eliminates PWR/BWR large-break LOCA vulnerability\n  Individual tube failure: isolated, does not cascade to full core",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-11",
+      "kind": "diagram_like",
+      "line": 251,
+      "heading_context": "### CANDU Characteristics",
+      "confidence": "candidate",
+      "text": "Parameter                   CANDU 6     ACR-1000\n──────────────────────────────────────────────────────────────\nPower (MWe)                 ~700        ~1200\nFuel                        Natural UO₂  Slightly enriched (~2%)\nModerator                   D₂O         D₂O\nCoolant                     D₂O         Light water (H₂O)\nPressure (bar)              104          ~130\nOn-power refueling          YES          YES  ← continuous fueling!\nCapacity factor             ~90%+       projected high\n\nKey advantages:\n  - Natural uranium fuel (no enrichment required) → no enrichment dependence\n  - Continuous on-power refueling: no refueling outages → high capacity factor\n  - High neutron economy (D₂O, few parasitic absorptions)\n  - Can burn thorium, recycled uranium, MOX\n\nD₂O cost: ~$700/kg → significant capital cost; must contain carefully\nD₂O leaks: tritium (H-3) content makes D₂O radiologically controlled material",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-12",
+      "kind": "diagram_like",
+      "line": 274,
+      "heading_context": "### CANDU Safety Considerations",
+      "confidence": "candidate",
+      "text": "Positive void coefficient: CANDU has α_void > 0\n  Reason: coolant is D₂O (but not the moderator — moderator is separate cold D₂O)\n  If coolant voids: less D₂O absorption in hot channels → slight power increase\n  BUT: much smaller effect than RBMK because moderator and coolant are separate\n\nMitigated by:\n  Two independent safety systems: Shutoff Rod System (28 rods) + Liquid Poison Injection\n  Both operate on 2-of-3 logic; highly reliable\n  Negative temperature coefficient provides additional stability\n\nPressure tube degradation: key life-limiting issue\n  Hydrogen uptake → zirconium hydride → embrittlement\n  Pressure tube replacement programs (expensive) at 25–30 years",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-13",
+      "kind": "diagram_like",
+      "line": 294,
+      "heading_context": "## RBMK (Soviet Graphite-Moderated Channel Reactor)",
+      "confidence": "candidate",
+      "text": "Design: graphite moderator, boiling water coolant, individual pressure tubes\n  Similar concept to CANDU in channel design; DIFFERENT in physics\n\nFatal flaw: LARGE POSITIVE VOID COEFFICIENT at low power\n  Reason: graphite moderates neutrons; water acts as ABSORBER (not moderator)\n  When water boils (voids): less absorption → MORE multiplication → more power → more boiling\n  At low power: instability amplified (positive feedback runaway)\n\n  At HIGH power: negative Doppler and temperature coefficients stabilize\n  At LOW power (<20%): positive void coefficient dominates → UNSTABLE\n\nChernobyl Unit 4 (April 26, 1986):\n  - Running safety test at low power (~200 MWt, design 3200 MWt)\n  - Power excursion: positive void coefficient + reactor in unstable regime\n  - AZ-5 (SCRAM): positive \"steamroller\" effect of graphite tips at rod bottom\n    → brief positive reactivity insertion at start of SCRAM → power spike\n  - Power excursion to >30,000 MWt → steam explosion + graphite fire\n  - No containment → large release of fission products\n\nPost-Chernobyl RBMK modifications:\n  - Increased enrichment from 2% to 2.8% (reduces positive void coefficient)\n  - Added absorbers to reduce positive steam void coefficient\n  - Added graphite displacers to rod ends (eliminates positive scram effect)\n  - Reduced minimum power limit from 10% to 20%\n  - Currently operating: ~8 units in Russia (Smolensk, Leningrad, Kursk)\n  - All new designs globally now require negative void coefficient",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-14",
+      "kind": "diagram_like",
+      "line": 329,
+      "heading_context": "### Design Philosophy Shift",
+      "confidence": "candidate",
+      "text": "Generation I (1950s–60s): proof-of-concept, low safety margins, short lives\nGeneration II (1970s–90s): operating fleet today, active safety systems\n  → PWR, BWR, CANDU 6, VVER — most of 440 currently operating reactors\n\nGeneration III (1990s): evolutionary improvements\n  → Better fuel economy, higher capacity factors, lower operating costs\n  → 60-year design life (vs 40 years for Gen II)\n  → ABWR, System 80+, AP-600\n\nGeneration III+ (2000s–present): PASSIVE safety revolution\n  KEY CHANGE: passive safety systems require NO AC POWER, NO OPERATOR ACTION\n  → Gravity-driven, natural circulation, stored water tank drainage\n  → AP1000 (Westinghouse), EPR (Framatome), APR-1400 (KEPCO)\n\n  Fukushima validation: AP1000 passive systems would have prevented accident\n  (72-hour coping capability without external power)",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-15",
+      "kind": "chart_like",
+      "line": 348,
+      "heading_context": "### Design Philosophy Shift",
+      "confidence": "candidate",
+      "text": "### AP1000 Passive Safety Features",
+      "notes": [
+        "detected from bar/chart glyph density with numeric labels"
+      ]
+    },
+    {
+      "id": "block-16",
+      "kind": "diagram_like",
+      "line": 350,
+      "heading_context": "### AP1000 Passive Safety Features",
+      "confidence": "candidate",
+      "text": "Core:\n  ADS (Automatic Depressurization System): 4-stage pressure relief → depressurize quickly\n  CMT (Core Makeup Tanks): 2 × 70 m³ tanks, pressurized with N₂ → inject on SIAS\n\n  Accumulators: 2 × large → passive injection at intermediate pressure\n  IRWST (In-containment Refueling Water Storage Tank): 1700 m³ above core\n    → passive injection once pressure drops to near atmospheric\n    → provides 72 hours of core cooling by gravity\n\nContainment cooling:\n  PCS (Passive Containment Cooling): baffle + air chimney + water from roof tank\n    → condensation on steel containment shell → water flows down → air cooling\n    → no pumps or fans → lasts 72 hours on stored water, indefinitely on air alone\n\nFukushima comparison:\n  All AP1000 passive safety function without ANY external power or operator action\n  72+ hour grace period before any operator action required",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-17",
+      "kind": "diagram_like",
+      "line": 376,
+      "heading_context": "### Definition and Motivation",
+      "confidence": "candidate",
+      "text": "SMR: < 300 MWe per module (typical definition)\n  Some sources say < 1000 MWe (broader)\n\nWhy SMRs?\n  Large conventional plants: ~$10B, 10+ year construction → major financial risk\n  SMRs: factory fabrication → learning curve → serial production cost reduction\n  Modular deployment: start small, add modules as demand grows\n  Siting flexibility: smaller site, lower water needs, remote/isolated locations\n\n  Current status (2024):\n    NuScale NRC certification: first SMR design approved (2022); BUT\n    NuScale VOYGR project cancelled (2023) due to cost escalation\n    Many designs in development; commercial viability still unproven at scale",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-18",
+      "kind": "diagram_like",
+      "line": 394,
+      "heading_context": "### Key SMR Designs",
+      "confidence": "candidate",
+      "text": "NuScale Power Module (LWR SMR):\n  77 MWe per module, up to 12 modules per plant (924 MWe total)\n  Integral design: steam generators inside reactor pressure vessel\n  Fully passive: no pumps needed — natural circulation in primary loop\n  Underground pool: modules sit in shared water pool (passive heat sink)\n  Status: design certified; economic challenges paused initial deployment\n\nBWRX-300 (GE-Hitachi):\n  300 MWe, simplified ESBWR (boiling water design)\n  10× material reduction vs standard BWR\n  Natural circulation core cooling (no recirculation pumps)\n  Progress: agreements with Ontario Power Generation, TVA\n\nKairos KP-FHR (Kairos Power):\n  140 MWe, fluoride salt coolant + TRISO pebble fuel\n  Low pressure (1 bar), high temperature → very different from LWRs\n  First-of-kind regulatory path in US; demonstration plant permitted\n\nTerrestrial Energy IMSR (Molten Salt SMR):\n  195 MWe, integral design, 7-year operational cassette, clean MSR approach\n\nHoltec SMR-300:\n  300 MWe, PWR-type integral, passive safety\n  UK and other market targets",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-19",
+      "kind": "diagram_like",
+      "line": 431,
+      "heading_context": "### Sodium-cooled Fast Reactor (SFR)",
+      "confidence": "candidate",
+      "text": "Coolant: liquid sodium (Na), ~500°C, near atmospheric pressure\nSpectrum: fast neutrons (no moderation — Na has some moderating effect but small)\nFuel: mixed oxide (MOX) or metal alloy (U-Pu-Zr)\n\nAdvantages:\n  Breeder potential: converts fertile U-238 → fissile Pu-239 (BR > 1.0)\n  Actinide burning: can fission long-lived minor actinides (Np, Am, Cm)\n    → reduces waste radiotoxicity timescale from 300,000 → ~1000 years\n  Higher efficiency: ~40% (vs ~33% LWR) due to higher temperatures\n\nChallenges:\n  Sodium chemistry: reactive with water → Na-H₂O explosions; opaque → difficult inspection\n  Intermediate loop: primary Na → intermediate Na → steam generator (prevents Na-water contact)\n  Positive void coefficient possible: must design carefully\n\nOperating:\n  BN-800 (Russia): 800 MWe, operating since 2016, MOX fuel\n  BN-1200: planned, commercial-scale Russian SFR\n  China CFR-600: under construction, 600 MWe\n\n  Historical: EBR-II (US, 1964-1994), Phenix/SuperPhenix (France), Monju (Japan, closed)\n  IFR (Integral Fast Reactor): EBR-II metal fuel + pyroprocessing; cancelled 1994 by Clinton",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-20",
+      "kind": "diagram_like",
+      "line": 458,
+      "heading_context": "### Molten Salt Reactor (MSR)",
+      "confidence": "candidate",
+      "text": "Key innovation: LIQUID FUEL — uranium dissolved in fluoride salt (LiF-BeF₂-UF₄ = FLiBe)\n  → No fuel fabrication costs, no fuel damage from radiation\n  → Online fission product removal (volatile gases bubble out)\n  → Strongly negative void/temperature coefficient (liquid fuel expands when hot → less dense)\n  → Drains safely on loss of power (\"drain tank\" freeze plug melts)\n\nConfigurations:\n  Thermal MSR (MSRE Oak Ridge 1965-1969): graphite moderated, well-characterized\n  Fast-spectrum MSR: no moderator, higher actinide utilization\n  Chloride fast reactor (TerraPower): NaCl-UCl₃ fuel, fast spectrum\n\nThorium potential: MSR suited for thorium cycle\n  Th-232 + n → Pa-233 → U-233 (fissile) → can run on thorium\n  India's AHWR program; ThorCon (Indonesia contract)\n\nChallenges:\n  Tritium production (from Li-6 in FLiBe) → permeation through heat exchangers\n  Materials: fluoride salts highly corrosive, especially hot and irradiated\n  Hastelloy-N, new alloys needed\n  Online reprocessing: proliferation concern (continuous fissile material processing)\n\nCommercial players: Terrestrial Energy, Thorcon, Moltex Energy, Elysium Industries",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-21",
+      "kind": "diagram_like",
+      "line": 485,
+      "heading_context": "### Very High Temperature Reactor (VHTR)",
+      "confidence": "candidate",
+      "text": "Coolant: helium gas (inert, no activation problem)\nOutlet temperature: 850–1000°C (vs ~325°C LWR) → MUCH higher efficiency + process heat\n\nTRISO fuel: TRistructural ISOtropic particle\n  UO₂ or UCO kernel (0.5 mm) surrounded by:\n    Buffer layer (porous carbon)\n    Inner PyC (pyrolytic carbon)\n    SiC layer (primary fission product barrier, melts at 2800°C)\n    Outer PyC\n  Packed in graphite sphere (pebble bed) or cylindrical compact\n\n  Fission product retention: TRISO particles retain FPs up to 1600°C\n  Pebble bed: ~20,000 pebbles per m³, gravity flow, continuous fueling possible\n  → \"Walk-away safe\": passive decay heat removal by radiation + conduction → never melt\n\nApplications beyond electricity:\n  Process heat: >900°C enables hydrogen production (thermochemical H₂S-I cycle)\n  Steel, petrochemical, cement industries\n\n  X-Energy Xe-100: 80 MWe pebble bed HTGR, US DOE ARDP funding, TVA site agreement\n  HTR-PM (China): two 250 MWt modules at Shidao Bay → operating 2021\n  PBMR (South Africa): cancelled 2010 due to funding",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-22",
+      "kind": "diagram_like",
+      "line": 512,
+      "heading_context": "### Other Gen IV Concepts",
+      "confidence": "candidate",
+      "text": "Gas-cooled Fast Reactor (GFR):\n  He coolant + fast spectrum → breed + burn actinides like SFR but with He\n  Challenge: He provides almost NO emergency cooling (unlike sodium or water)\n  → requires dedicated decay heat removal systems\n\nLead-cooled Fast Reactor (LFR):\n  Pb or Pb-Bi coolant: high boiling point (1743°C), low pressure, near-transparent\n  Natural circulation decay heat removal feasible\n  BREST-OD-300 (Russia): lead-cooled, under construction at Seversk\n  Lead bismuth used in Russian Alpha-class submarine reactors (operational experience)\n\nSupercritical Water-cooled Reactor (SCWR):\n  Water above critical point (374°C, 221 bar) → single-phase fluid (no boiling crisis)\n  Efficiency ~44% (vs 33% LWR)\n  Challenge: extremely harsh environment for materials; corrosion very difficult",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-23",
+      "kind": "ascii_table_candidate",
+      "line": 536,
+      "heading_context": "### ITER and the Lawson Criterion",
+      "confidence": "candidate",
+      "text": "D-T fusion:  D + T → ⁴He (3.5 MeV) + n (14.1 MeV)   Q = 17.6 MeV\n\nLawson criterion for breakeven: n τ_E T > 3×10²¹ m⁻³·s·keV\n  n = plasma density [m⁻³]\n  τ_E = energy confinement time [s]\n  T = plasma temperature [keV]\n\nITER (International Thermonuclear Experimental Reactor):\n  Purpose: demonstrate Q = 10 (fusion power / heating power)\n  n ≈ 10²⁰ m⁻³,  τ_E ≈ 3–4 s,  T ≈ 150 million K (10 keV)\n  Plasma current: 15 MA; B_toroidal = 5.3 T (superconducting REBCO magnets)\n  Expected first plasma: 2025–2027; Q ≥ 10 experiments: ~2035\n  Tritium breeding: Li-6 blanket → T must be bred (no natural supply)\n\nSPARC (Commonwealth Fusion Systems + MIT):\n  High-field compact tokamak: B = 12 T (REBCO HTS magnets — 3× ITER field!)\n  Net fusion power demonstration target: Q > 2; smaller, faster, cheaper\n  Target: commercial first-of-kind ~2040\n\nNIF (National Ignition Facility) — Inertial Confinement Fusion:\n  December 2022: first ignition achieved (3.15 MJ out / 2.05 MJ laser in → Q=1.5)\n  But: laser requires ~400 MJ from grid → overall Q << 1\n  Path to commercial: need driver efficiency ×100 improvement + rep rate ×1,000,000\n  IFE remains research-stage; no credible commercial timeline",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-24",
+      "kind": "diagram_like",
+      "line": 567,
+      "heading_context": "## Fuel Cycles",
+      "confidence": "candidate",
+      "text": "Fuel cycle options:\n\n\"Once-through\" (open cycle):\n  Mine U → Enrich → Fabricate → Reactor → Spent fuel storage → Permanent repository\n  US, Canada, Sweden, Finland\n  ~96% of spent fuel is unfissioned U-238 + ~1% Pu — all \"wasted\"\n\nLimited reprocessing:\n  Mine U → Enrich → Reactor → Reprocessing (PUREX) → MOX fuel + HLW vitrification\n  France, UK, Japan, Russia\n  ~25% reduction in waste volume; Pu recycled as MOX (one pass)\n  Proliferation concern: separated Pu (weapons-usable material)\n\nThorium cycle (potential):\n  Th-232 (abundant, monoisotopic) + n → Pa-233 → U-233 (fissile)\n  U-233 contains U-232 (hard gamma) → proliferation-resistant (self-protecting)\n  India AHWR (Advanced Heavy Water Reactor): designed for Th-U-233 cycle\n  MSR-based thorium: online reprocessing enables continuous Pa-233 removal + thorium economy\n\nFull actinide recycling (advanced fuel cycle):\n  SFR + pyroprocessing → breed Pu from U-238, burn minor actinides (Np, Am, Cm)\n  → converts long-lived waste to shorter-lived fission products\n  IFR concept: 300,000 year → 500 year waste radiotoxicity reduction (claimed)",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    }
+  ]
+}

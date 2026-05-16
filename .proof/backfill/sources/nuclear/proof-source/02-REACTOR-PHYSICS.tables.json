@@ -1,0 +1,63 @@
+{
+  "schema_version": "1",
+  "source_markdown": "nuclear\\02-REACTOR-PHYSICS.md",
+  "tables": [
+    {
+      "id": "table-1",
+      "line": 531,
+      "heading_context": "## Decision Cheat Sheet",
+      "headers": [
+        "Reactor physics question",
+        "Tool/Concept",
+        "Key relation"
+      ],
+      "rows": [
+        [
+          "Is this composition critical?",
+          "Six-factor formula + buckling",
+          "B²_m = B²_g at criticality"
+        ],
+        [
+          "What size is critical?",
+          "Geometric buckling for shape",
+          "R_crit = π/B_m (sphere)"
+        ],
+        [
+          "How fast will power change?",
+          "Point kinetics + inhour equation",
+          "T ≈ β_eff/(ρ λ_eff) for small ρ"
+        ],
+        [
+          "Will this be inherently safe?",
+          "Reactivity coefficients",
+          "Need α_Doppler < 0, α_MTC < 0 at HFP"
+        ],
+        [
+          "How much boron to shut down?",
+          "Boron worth × required ρ",
+          "~10 pcm/ppm → ~1000 ppm for 10,000 pcm"
+        ],
+        [
+          "Xenon restart possible?",
+          "Xe reactivity vs available override",
+          "Peak Xe ~2500–3500 pcm at t≈8h"
+        ],
+        [
+          "Burnup calculation",
+          "Bateman equations + ORIGEN",
+          "Track actinides + fission products"
+        ],
+        [
+          "Accurate critical calculation",
+          "Monte Carlo transport",
+          "MCNP/OpenMC with continuous energy XS"
+        ],
+        [
+          "Moderator selection",
+          "Moderating ratio ξΣ_s/Σ_a",
+          "D₂O: 5,670 vs H₂O: 72"
+        ]
+      ]
+    }
+  ]
+}

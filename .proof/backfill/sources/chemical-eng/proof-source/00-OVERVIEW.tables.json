@@ -1,0 +1,228 @@
+{
+  "schema_version": "1",
+  "source_markdown": "chemical-eng\\00-OVERVIEW.md",
+  "tables": [
+    {
+      "id": "table-1",
+      "line": 58,
+      "heading_context": "## Module Map",
+      "headers": [
+        "Module",
+        "Core Topic",
+        "Governing Equations",
+        "Example Systems"
+      ],
+      "rows": [
+        [
+          "`01-THERMO`",
+          "Phase equilibrium, EOS",
+          "Gibbs phase rule, VLE",
+          "Distillation, flash drums"
+        ],
+        [
+          "`02-REACTION-ENGINEERING`",
+          "Kinetics, reactor design",
+          "CSTR/PFR design equations",
+          "Ammonia synthesis, polymerization"
+        ],
+        [
+          "`03-TRANSPORT`",
+          "Momentum/heat/mass transfer",
+          "N-S, Fourier, Fick, analogies",
+          "Packed beds, heat exchangers"
+        ],
+        [
+          "`04-SEPARATIONS`",
+          "Unit ops for separation",
+          "McCabe-Thiele, NTU/HTU",
+          "Distillation columns, membranes"
+        ],
+        [
+          "`05-PROCESS-DESIGN`",
+          "Flowsheets, control, safety",
+          "Pinch, PID, HAZOP",
+          "Full plant design"
+        ]
+      ]
+    },
+    {
+      "id": "table-2",
+      "line": 92,
+      "heading_context": "## Key Dimensionless Groups in ChE",
+      "headers": [
+        "Number",
+        "Formula",
+        "Meaning"
+      ],
+      "rows": [
+        [
+          "Reynolds (Re)",
+          "ρvD/μ",
+          "Inertia/viscous"
+        ],
+        [
+          "Prandtl (Pr)",
+          "c_p μ/k = ν/α",
+          "Momentum/thermal diffusivity"
+        ],
+        [
+          "Schmidt (Sc)",
+          "ν/D_AB",
+          "Momentum/mass diffusivity"
+        ],
+        [
+          "Nusselt (Nu)",
+          "hL/k",
+          "Convective/conductive heat"
+        ],
+        [
+          "Sherwood (Sh)",
+          "k_c L/D_AB",
+          "Convective/diffusive mass"
+        ],
+        [
+          "Lewis (Le)",
+          "α/D_AB = Sc/Pr",
+          "Thermal/mass diffusivity"
+        ],
+        [
+          "Damköhler (Da)",
+          "τ_flow/τ_rxn",
+          "Residence time/reaction time"
+        ],
+        [
+          "Thiele (φ)",
+          "L√(k/D_eff)",
+          "Reaction/diffusion in catalyst"
+        ]
+      ]
+    },
+    {
+      "id": "table-3",
+      "line": 111,
+      "heading_context": "## Connection to Computing / Data Systems",
+      "headers": [
+        "ChE Concept",
+        "Software/Architecture Analogy"
+      ],
+      "rows": [
+        [
+          "Batch reactor",
+          "MapReduce / batch processing: all data processed together, then output"
+        ],
+        [
+          "CSTR (continuous stirred)",
+          "Perfectly mixed message queue: every item sees the same processing state"
+        ],
+        [
+          "PFR (plug flow)",
+          "Streaming pipeline: each item processed in sequence, no mixing"
+        ],
+        [
+          "Distillation (staged separation)",
+          "Staged sorting algorithm: each tray is a comparison/partition step"
+        ],
+        [
+          "Reflux ratio",
+          "Re-examination passes: more passes = higher purity, lower throughput"
+        ],
+        [
+          "PID control loop",
+          "Software rate limiter / autoscaler: P=proportional, I=cumulative, D=predictive"
+        ],
+        [
+          "Integral windup in PID",
+          "Queue accumulation under sustained overload — same anti-windup logic"
+        ],
+        [
+          "HAZOP guide words",
+          "Chaos engineering fault categories: NO=drop, MORE=overload, REVERSE=deadlock"
+        ],
+        [
+          "Material balance (recycle)",
+          "Graph with feedback loops (same convergence challenges)"
+        ],
+        [
+          "Process simulation (ASPEN)",
+          "ODE/algebraic system solving: same sparse Newton methods"
+        ],
+        [
+          "Pinch analysis",
+          "Optimization under linear constraints"
+        ]
+      ]
+    },
+    {
+      "id": "table-4",
+      "line": 129,
+      "heading_context": "## Decision Cheat Sheet",
+      "headers": [
+        "Design question",
+        "Use this",
+        "Because"
+      ],
+      "rows": [
+        [
+          "Reactor: liquid-phase, flexible, small batch",
+          "Batch reactor",
+          "Easy cleanup between products; handles variable demand"
+        ],
+        [
+          "Reactor: continuous, well-mixed, liquid",
+          "CSTR",
+          "Simple control; good for autocatalytic or highly exothermic (heat removal easier)"
+        ],
+        [
+          "Reactor: continuous, gas-phase, high conversion",
+          "PFR (tubular)",
+          "Higher conversion per volume for positive-order kinetics"
+        ],
+        [
+          "Separation: components differ in boiling point",
+          "Distillation",
+          "Workhorse; α > 1.05 required; most mature technology"
+        ],
+        [
+          "Separation: components form azeotrope",
+          "Extractive distillation or liquid-liquid extraction",
+          "Azeotrope breaks the volatility-based approach"
+        ],
+        [
+          "Separation: heat-sensitive products (pharma, food)",
+          "Membrane or vacuum distillation",
+          "Avoids thermal degradation"
+        ],
+        [
+          "Separation: dilute solute from large volume",
+          "Adsorption (PSA, TSA) or absorption",
+          "Efficient at low concentrations"
+        ],
+        [
+          "Flowsheet documentation: early design",
+          "PFD (Process Flow Diagram)",
+          "Shows major equipment, streams, mass/energy balances"
+        ],
+        [
+          "Flowsheet documentation: construction/ops",
+          "P&ID (Piping & Instrumentation Diagram)",
+          "Shows every valve, instrument, interlock — the construction blueprint"
+        ],
+        [
+          "Control: fast process variable (flow)",
+          "PI controller (tight tuning)",
+          "Fast dynamics; D-action unnecessary"
+        ],
+        [
+          "Control: slow process variable (composition)",
+          "Cascade: fast inner + slow outer loop",
+          "Compensates for analyzer delay"
+        ],
+        [
+          "Safety review: systematic hazard identification",
+          "HAZOP with full team",
+          "Structured, auditable, covers all failure modes per guide word"
+        ]
+      ]
+    }
+  ]
+}

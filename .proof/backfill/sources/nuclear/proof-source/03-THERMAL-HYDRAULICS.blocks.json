@@ -1,0 +1,171 @@
+{
+  "schema_version": "1",
+  "source_markdown": "nuclear\\03-THERMAL-HYDRAULICS.md",
+  "blocks": [
+    {
+      "id": "block-1",
+      "kind": "diagram_like",
+      "line": 24,
+      "heading_context": "## Heat Generation, Coolant Flow, DNB, Reactivity Feedback",
+      "confidence": "candidate",
+      "text": "TEMPERATURE GRADIENT: FUEL CENTER → COOLANT BULK\n\n   UO₂ Fuel          Gap    Clad         Coolant\n   (ceramic)          │      │            │\n                      │      │            │\n   T_center ~1800°C   │      │            │ T_bulk ~300°C\n       │              │      │            │\n       │ parabolic     │      │ linear     │ log\n       │ profile       │ jump │ profile    │ decay\n       │              │      │            │\n   T_surface ~400°C   │  300°C│ 330°C→350°C│ ──── T_sat (subcooled)\n                      │      │            │\n       ← k_fuel ~2W/mK→←k_gap→←k_clad ~15→←h·(T_clad-T_bulk)→\n\nTotal ΔT center-to-coolant: ~1400°C for typical PWR conditions",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-2",
+      "kind": "diagram_like",
+      "line": 73,
+      "heading_context": "### Axial Flux and Power Profile",
+      "confidence": "candidate",
+      "text": "Axial power shape ≈ cosine (for unrodded, uniform fuel):\n  q'(z) = q'₀ cos(πz/H_eff)   where H_eff = H + 2δ (extrapolation distance)\n  q'₀ = peak linear heat rate at core midplane\n\nPeak-to-average factor F_Δ (axial):\n  For cosine: F_Δ = π/2 ≈ 1.57 → peak is 57% above average\n  Rod insertion, xenon tilts, burnup all modify axial shape\n\nEnthalpy rise hottest channel:\n  ΔH = q' · L / (ṁ Cp)   q' = peak rod, L = channel length",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-3",
+      "kind": "diagram_like",
+      "line": 118,
+      "heading_context": "### Gap Conductance",
+      "confidence": "candidate",
+      "text": "The UO₂-Zircaloy gap (~0.07 mm initially) is the largest thermal resistance:\n\n1/h_gap = d_gap/k_gas + 2σ_σ/(σ₁ + σ₂ − σ₁σ₂) (roughness terms)\n\nGas composition:\n  Fresh fuel: He fill gas → k_He ≈ 0.25 W/m·K at 400°C\n  After burnup: fission gas release (Kr, Xe) → k_mix decreases\n  → ΔT across gap increases with burnup → higher fuel temperatures at end of life\n\nContact pressure effects:\n  Pellet swells with burnup + thermal expansion → gap closes\n  Contact → h_gap increases dramatically (solid conduction)\n  At ~15 GWd/tU: gap closure begins; hot-spot fuel temp may DECREASE despite higher burnup",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-4",
+      "kind": "diagram_like",
+      "line": 136,
+      "heading_context": "### Cladding Temperature",
+      "confidence": "candidate",
+      "text": "Cladding (Zircaloy-4 or ZIRLO):\n  Thickness: ~0.57 mm\n  k_clad ≈ 13–20 W/m·K (temperature dependent)\n\nΔT across cladding:\n  ΔT_clad = q'' · δ_clad / k_clad   where q'' = surface heat flux [W/m²]\n  For typical q'' = 0.6 MW/m²: ΔT_clad ≈ 0.6×10⁶ × 5.7×10⁻⁴ / 15 ≈ 23°C\n\nOuter cladding temperature limit:\n  Operational limit: T_clad,outer < ~350°C (PWR coolant at ~310–340°C → small ΔT)\n  Accident limit: T_clad < 1204°C (10 CFR 50.46 peak cladding temperature — PCT)\n  Above ~1000°C: Zircaloy oxidizes rapidly: Zr + 2H₂O → ZrO₂ + 2H₂ (exothermic!)\n  Above 1204°C: rapid oxidation + embrittlement → rod failure → fission gas release",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-5",
+      "kind": "diagram_like",
+      "line": 158,
+      "heading_context": "### Single-Phase Forced Convection",
+      "confidence": "candidate",
+      "text": "Energy balance on coolant channel:\n  ṁ Cp (dT_b/dz) = q''(z) · P_heated   [W/m]\n\nwhere:\n  ṁ = mass flow rate [kg/s]\n  Cp = specific heat at constant pressure\n  T_b = bulk coolant temperature (mixed mean)\n  P_heated = heated perimeter of channel\n\nIntegrating from inlet (z=0) to height z:\n  T_b(z) = T_in + ∫₀^z q''(z') P_h/(ṁ Cp) dz'\n\nFor cosine power shape:\n  T_b(H) = T_in + q'₀ H/(ṁ Cp/P_h) × (2/π) sin(πz/H)\n\nPWR typical values:\n  T_in ≈ 291°C, T_out ≈ 327°C → ΔT_coolant ≈ 36°C\n  Pressure ≈ 155 bar → T_sat ≈ 345°C (stays subcooled!)\n  Flow velocity ≈ 4–5 m/s",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-6",
+      "kind": "diagram_like",
+      "line": 182,
+      "heading_context": "### Convection Coefficient",
+      "confidence": "candidate",
+      "text": "Dittus-Boelter: Nu = 0.023 Re^0.8 Pr^0.4   (turbulent, Pr > 0.6)\n\nFor PWR coolant (pressurized water, ~310°C):\n  Re ≈ 5×10⁵  (turbulent flow in rod bundle subchannel)\n  Pr ≈ 1.0\n  Nu ≈ 0.023 × (5×10⁵)^0.8 × (1.0)^0.4 ≈ 700\n  h = Nu × k/D_h ≈ 700 × 0.56 / 0.012 ≈ 33,000 W/m²K\n\nClad surface temp:  T_clad = T_bulk + q''/h ≈ 310 + 600,000/33,000 ≈ 328°C\n  → well below T_sat = 345°C → no significant boiling in nominal operation",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-7",
+      "kind": "diagram_like",
+      "line": 201,
+      "heading_context": "### Flow Regimes in Heated Channel",
+      "confidence": "candidate",
+      "text": "SUBCOOLED          SATURATED BOILING         POST-CHF\nREGION             (quality increases)        REGION\n  │                     │                        │\n  ▼                     ▼                        ▼\nForced    → Onset of → Bubbly → Slug → Annular → Film boiling /\nconvection  Nucleate     flow    flow    flow     dispersed flow\n(liquid)    Boiling\n            (ONB)\n              │                    ↑                    ↑\n              │                    │                    │\n              │               DEPARTURE            BURNOUT\n              │               from NB              (CHF)\n\nONB: when T_wall > T_sat locally → bubbles nucleate on surface\n  Subcooled nucleate boiling: vapor bubbles condense back into subcooled liquid\n  Beneficial: enhanced heat transfer (h increases dramatically)\n\nNucleate boiling regime:\n  q'' = h_nb × (T_wall − T_sat)^n   (highly nonlinear, n ≈ 2–3)\n  Heat transfer enhanced 3–10× compared to forced convection",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-8",
+      "kind": "diagram_like",
+      "line": 226,
+      "heading_context": "### Critical Heat Flux (CHF) and DNB",
+      "confidence": "candidate",
+      "text": "Critical Heat Flux (CHF): the heat flux above which film boiling occurs\n  → vapor film blankets surface → sudden temperature excursion → fuel damage\n\nCHF mechanisms:\n  Subcooled/low-quality: departure from nucleate boiling (DNB) — Leidenfrost-like crisis\n  High-quality: dryout — liquid film on annular flow walls evaporates\n\nW-3 Correlation (PWR DNB):\n  q''_CHF = {(2.022 − 0.0004302 P) + (0.1722 − 0.0000984 P) exp(18.177 − 0.004129 P)x}\n           × [(0.1484 − 1.596x + 0.1729 x|x|) G/10⁶ + 1.037]\n           × (1.157 − 0.869x) × [0.2664 + 0.8357 exp(−3.151 D_e)]\n           × [0.8258 + 0.000794(H_f − H_in)]\n\n  (P = pressure, x = quality, G = mass flux, D_e = hydraulic diameter, H = enthalpy)\n\nDNBR is a rate-limiter with a hard threshold: the system operates safely in the nucleate boiling regime (sustainable heat transfer), and DNB is the catastrophic phase transition where the heat transfer coefficient drops by orders of magnitude — the thermal equivalent of connection pool exhaustion where throughput collapses rather than degrades gracefully. The DNBR >= 1.3 design limit is deliberately above 1.0 for the same reason circuit breakers open before the actual failure threshold: trigger the safety response before the physical limit is reached. The minimum DNBR occurs at the axial point of maximum heat flux — a hot-spot analysis (find the worst-case node, not the average).\n\nDeparture from Nucleate Boiling Ratio:\n  DNBR = q''_CHF / q''_actual ≥ 1.3 (NRC design limit for PWR)\n  Typical design: DNBR ≈ 1.7–2.0 at rated power\n  Minimum DNBR (MDNBR) occurs at axial point of maximum heat flux\n\nSafety significance: if DNBR < 1, fuel clad temperature spikes to ~700°C+\n  → cladding fails → fission product release → loss of first barrier",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-9",
+      "kind": "diagram_like",
+      "line": 257,
+      "heading_context": "## Hot Channel Factors",
+      "confidence": "candidate",
+      "text": "F_Q (total power peaking factor) = max local power / average power\n  F_Q = F_N_Q × F_E_Q × uncertainty factors\n\n  F_N_Q = nuclear factor (flux peaking from enrichment + rod patterns + burnup)\n  F_E_Q = engineering factor (fuel pellet mass variations, clad eccentricity)\n\n  F_Q ≤ 2.5 (typical PWR technical specification limit)\n  → limits total peaking: no single location more than 2.5× average power\n\nF_ΔH (enthalpy rise hot channel factor):\n  = ratio of max-to-average enthalpy rise across the core\n  F_ΔH = F_N_ΔH × engineering uncertainty\n  F_ΔH ≤ 1.65 (typical limit)\n  → limits DNBR exceedance in highest-enthalpy channel\n\nRelationship:  F_Q = F_ΔH × F_Z (axial factor)\n  F_Z depends on axial peaking — typically F_Z ≈ 1.5 for cosine distribution",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-10",
+      "kind": "diagram_like",
+      "line": 302,
+      "heading_context": "### Two-Phase Pressure Drop",
+      "confidence": "candidate",
+      "text": "Lockhart-Martinelli correlation:\n  ΔP_TP = ΔP_liquid × Φ²_L   (two-phase multiplier)\n\n  Φ²_L = 1 + C/X + 1/X²   (Martinelli parameter X)\n  X² = (ΔP/dz)_liquid / (ΔP/dz)_gas\n\n  For turbulent-turbulent:  X = [(1−x)/x]^0.9 × (ρ_g/ρ_f)^0.5 × (μ_f/μ_g)^0.1\n\nTwo-phase pressure drop matters for:\n  → BWR stability analysis (density-wave oscillations)\n  → LOCA blowdown calculation\n  → Natural circulation loop driving head calculation",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-11",
+      "kind": "diagram_like",
+      "line": 343,
+      "heading_context": "### Decay Heat and Natural Circulation Capacity",
+      "confidence": "candidate",
+      "text": "Decay heat after shutdown (way-et al. correlation):\n  P_decay(t) ≈ 0.066 P₀ [(t−t_s)^−0.2 − t^−0.2]  (seconds after shutdown at t_s)\n\n  At t = 1 s after shutdown: P_decay ≈ 6–7% of full power\n  At t = 1 hr: P_decay ≈ 1.5%\n  At t = 1 day: P_decay ≈ 0.5%\n  At t = 1 week: P_decay ≈ 0.1%\n\n  → Must remove decay heat even with no coolant pumps\n  Natural circulation typically provides 5–7% of forced flow rate\n  → adequate for decay heat removal (need ~1–3% of rated flow)\n\nFukushima lesson: natural circulation and RCIC worked initially; failure of ECCS/AC power\n  ultimately prevented adequate long-term decay heat removal",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-12",
+      "kind": "diagram_like",
+      "line": 366,
+      "heading_context": "### LOCA Phases",
+      "confidence": "candidate",
+      "text": "LARGE-BREAK LOCA (double-ended guillotine break of large-diameter pipe):\n\n  Phase 1: BLOWDOWN (0 – ~30 s)\n    → primary pressure drops from ~155 bar to saturation\n    → bulk flashing → rapid void formation → flow reversal\n    → core uncovery begins → decay heat with no cooling\n    → peak cladding temperature starts to rise\n\n  Phase 2: REFILL (~30 – ~200 s)\n    → ECCS injection begins (accumulators ~10 bar)\n    → lower plenum fills with ECCS water\n    → core still uncovered → continued heatup\n    → Peak Cladding Temperature (PCT) occurs during this phase\n\n  Phase 3: REFLOOD (~200 s onward)\n    → water front moves up through core → quenching\n    → steam binding can slow reflood (steam must vent upward through core)\n    → eventually core fully covered → normal decay heat removal resumes\n\n  PCT LIMIT: ≤ 1204°C (10 CFR 50.46)\n  Max oxidation: ≤ 17% of cladding thickness as ZrO₂ (embrittlement limit)\n  Coolable geometry: core must remain coolable (no rod swelling/blockage)",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-13",
+      "kind": "diagram_like",
+      "line": 393,
+      "heading_context": "### SMALL-BREAK LOCA (SB-LOCA)",
+      "confidence": "candidate",
+      "text": "Small pipe break (2-6\" diameter): slower depressurization\n  Pressurizer heaters keep primary subcooled initially\n  Break flow rate < MFP (makeup pump) capacity → slow level decrease\n\n  Challenge: Loss of natural circulation (loop seal clearing)\n    Steam accumulates in u-tube bends of steam generators\n    → flow stagnates → hotter core temperatures\n    IMPORTANT: Three Mile Island was an SB-LOCA (stuck-open PORV)\n\n  SB-LOCA mitigated by:\n    High-pressure injection\n    Pressurizer pressure control (PORV blocking, pressurizer heaters)\n    Operator action to depressurize if HPIS inadequate",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-14",
+      "kind": "diagram_like",
+      "line": 415,
+      "heading_context": "### Pellet-Cladding Interaction (PCI)",
+      "confidence": "candidate",
+      "text": "PCI: rapid power increase → pellet expands faster than cladding → mechanical + chemical attack\n\nMechanism: fission products (I, Cs) stress-corrosion cracking of Zircaloy\n  Critical: rapid ramp rates (> 0.5 kW/m·hr for some conditions)\n\nPrevention:\n  Conditioning: ramp up slowly → pellet and clad creep together\n  Liner cladding: Zr or Cu liner on inner surface\n  Technical specification limits: limited power ramp rates during startup/reload",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-15",
+      "kind": "diagram_like",
+      "line": 429,
+      "heading_context": "### Fission Gas Release",
+      "confidence": "candidate",
+      "text": "Kr, Xe generated by fission → initially trapped in UO₂ grains\nAt high temp (> ~1100°C): diffuse to grain boundaries → collected in pores → plenum\n\nFuel rod internal pressure limit: rod pressure ≤ primary coolant pressure\n  (to prevent gap opening → gap conductance decrease → higher fuel temps → more gas)\n\nAt high burnup (>45 GWd/tU): significant gas accumulation → pressure buildup\n  Design: rod plenum sized for expected gas release over lifetime\n  Thermal cycling: gas can pressurize beyond design if fuel runs hot\n\nSignificance: fission gas release:\n  → Indicator of fuel damage (detected in coolant activity monitors)\n  → Increases rod pressure\n  → Increases thermal resistance across gap (Xe is poor conductor)",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    }
+  ]
+}

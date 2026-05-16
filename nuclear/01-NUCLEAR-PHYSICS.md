@@ -1,3 +1,22 @@
+---
+maxim_schema: maxim.frontmatter.v1
+id: maxim:nuclear:nuclear-physics
+kind: guide
+module: nuclear
+section: nuclear
+title: 01 - Nuclear Physics for Engineers
+status: source-custody
+source_custody: partial
+current_path: nuclear/01-NUCLEAR-PHYSICS.md
+canonical_path: nuclear/01-NUCLEAR-PHYSICS.md
+backsource_ids: [proof-backfill:nuclear:01-nuclear-physics, git-history:nuclear:01-nuclear-physics]
+concepts: [nuclear, physics]
+root_concepts: [nuclear, physics]
+index_roles: [guide, root-concept]
+remap_from: []
+remap_to: []
+updated: null
+---
 # 01 — Nuclear Physics for Engineers
 
 ## The Big Picture

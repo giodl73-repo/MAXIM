@@ -1,3 +1,22 @@
+---
+maxim_schema: maxim.frontmatter.v1
+id: maxim:nuclear:safety-systems
+kind: guide
+module: nuclear
+section: nuclear
+title: 05 - Nuclear Safety Systems
+status: source-custody
+source_custody: partial
+current_path: nuclear/05-SAFETY-SYSTEMS.md
+canonical_path: nuclear/05-SAFETY-SYSTEMS.md
+backsource_ids: [proof-backfill:nuclear:05-safety-systems, git-history:nuclear:05-safety-systems]
+concepts: [safety, systems]
+root_concepts: [safety, systems]
+index_roles: [guide, root-concept]
+remap_from: []
+remap_to: []
+updated: null
+---
 # 05 — Nuclear Safety Systems
 
 ## Defense in Depth, LOCA, Passive Safety, Accident Lessons
@@ -10,7 +29,7 @@ DEFENSE IN DEPTH — FIVE BARRIERS TO FISSION PRODUCT RELEASE
   │     ┌────────────────────────────────────────────────────────────┐   │
   │     │  4. Reactor Pressure Vessel (12 cm steel, 155 bar)         │   │
   │     │     ┌──────────────────────────────────────────────────┐   │   │
-  │     │     │  3. Primary Coolant Boundary (piping, pumps, SGs) │   │  │
+  │     │     │  3. Primary Coolant Barrier (piping, pumps, SGs) │   │   │
   │     │     │     ┌──────────────────────────────────────────┐  │   │  │
   │     │     │     │  2. Fuel Cladding (Zircaloy, 0.57 mm)    │  │   │   │
   │     │     │     │     ┌────────────────────────────────┐   │  │   │   │

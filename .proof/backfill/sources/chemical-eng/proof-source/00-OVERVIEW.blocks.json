@@ -1,0 +1,39 @@
+{
+  "schema_version": "1",
+  "source_markdown": "chemical-eng\\00-OVERVIEW.md",
+  "blocks": [
+    {
+      "id": "block-1",
+      "kind": "diagram_like",
+      "line": 29,
+      "heading_context": "## The Big Picture",
+      "confidence": "candidate",
+      "text": "RAW MATERIALS\n      │\n      ▼\n┌─────────────────────────────────────────────────────────────────────────┐\n│  THERMODYNAMICS                                                         │\n│  What is possible? Energy/equilibrium constraints, phase behavior       │\n├─────────────────────────────────────────────────────────────────────────┤\n│  TRANSPORT PHENOMENA (Bird-Stewart-Lightfoot)                           │\n│  How fast? Momentum (flow), energy (heat), mass (diffusion) - unified   │\n├─────────────────────────────────────────────────────────────────────────┤\n│  REACTION ENGINEERING                                                   │\n│  How does chemistry happen at scale? Kinetics, reactor design           │\n├─────────────────────────────────────────────────────────────────────────┤\n│  SEPARATIONS                                                            │\n│  How do we get pure products? Distillation, absorption, membranes       │\n├─────────────────────────────────────────────────────────────────────────┤\n│  PROCESS DESIGN & SAFETY                                                │\n│  Integration: flowsheets, economics, control, HAZOP                     │\n└─────────────────────────────────────────────────────────────────────────┘\n        │\n        ▼\n   USEFUL PRODUCTS at scale: fuels, plastics, drugs, fertilizers, chips",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-2",
+      "kind": "diagram_like",
+      "line": 72,
+      "heading_context": "## The BSL Unification: Transport Phenomena",
+      "confidence": "candidate",
+      "text": "TRANSFER TYPE   DRIVING FORCE    TRANSPORT LAW        DIFFUSIVITY\n──────────────────────────────────────────────────────────────────────\nMomentum        Velocity grad.   Newton's law         ν = μ/ρ  [m²/s]\n                τ = −μ dv/dy\n\nHeat            Temp. gradient   Fourier's law        α = k/(ρcp) [m²/s]\n                q = −k dT/dz\n\nMass            Conc. gradient   Fick's first law     D_AB [m²/s]\n                J_A = −D_AB dC_A/dz",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-3",
+      "kind": "diagram_like",
+      "line": 148,
+      "heading_context": "## Decision Guide",
+      "confidence": "candidate",
+      "text": "WHAT'S YOUR ChE QUESTION?\n        │\n        ├─ What phase/composition at equilibrium?\n        │   └─► 01-THERMO (VLE, flash, EOS)\n        │\n        ├─ How fast is the reaction? What reactor type/size?\n        │   └─► 02-REACTION-ENGINEERING\n        │\n        ├─ How does transport limit the process?\n        │   └─► 03-TRANSPORT\n        │\n        ├─ How do we purify the product?\n        │   └─► 04-SEPARATIONS\n        │\n        └─ How do we design/operate/control the whole plant safely?\n            └─► 05-PROCESS-DESIGN",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    }
+  ]
+}

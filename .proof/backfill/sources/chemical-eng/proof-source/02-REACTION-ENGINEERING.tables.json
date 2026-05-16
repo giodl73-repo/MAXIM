@@ -1,0 +1,89 @@
+{
+  "schema_version": "1",
+  "source_markdown": "chemical-eng\\02-REACTION-ENGINEERING.md",
+  "tables": [
+    {
+      "id": "table-1",
+      "line": 81,
+      "heading_context": "## Reaction Kinetics",
+      "headers": [
+        "Order",
+        "-r_A",
+        "Integrated",
+        "Half-life t₁/₂"
+      ],
+      "rows": [
+        [
+          "Zero",
+          "k",
+          "C_A = C_A0 − kt",
+          "C_A0/(2k)"
+        ],
+        [
+          "First",
+          "kC_A",
+          "C_A = C_A0 e^(-kt), or ln(C_A0/C_A) = kt",
+          "ln2/k"
+        ],
+        [
+          "Second",
+          "kC_A²",
+          "1/C_A − 1/C_A0 = kt",
+          "1/(kC_A0)"
+        ]
+      ]
+    },
+    {
+      "id": "table-2",
+      "line": 318,
+      "heading_context": "## Decision Cheat Sheet",
+      "headers": [
+        "Design question",
+        "Tool",
+        "Key formula"
+      ],
+      "rows": [
+        [
+          "Reactor size for conversion X",
+          "Levenspiel integral",
+          "V = F_A0 ∫dX/(-r_A)"
+        ],
+        [
+          "CSTR vs PFR?",
+          "Compare Levenspiel plots",
+          "PFR = area, CSTR = rectangle"
+        ],
+        [
+          "Temperature effect on rate",
+          "Arrhenius",
+          "k = A exp(−Ea/RT)"
+        ],
+        [
+          "Optimal T for exothermic rxn",
+          "Balance equilibrium + kinetics",
+          "Start high, cool down"
+        ],
+        [
+          "Maximize selectivity",
+          "Compare orders in A, T effects",
+          "See selectivity section"
+        ],
+        [
+          "Check diffusion limitation",
+          "Weisz-Prater criterion",
+          "C_WP < 1 for no limitation"
+        ],
+        [
+          "Non-ideal reactor",
+          "RTD + model",
+          "E(t) from tracer experiment"
+        ],
+        [
+          "Number of CSTR stages needed",
+          "Tanks-in-series",
+          "N = τ²/σ² from RTD"
+        ]
+      ]
+    }
+  ]
+}

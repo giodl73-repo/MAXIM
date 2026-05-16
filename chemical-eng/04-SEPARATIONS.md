@@ -1,3 +1,22 @@
+---
+maxim_schema: maxim.frontmatter.v1
+id: maxim:chemical-eng:separations
+kind: guide
+module: chemical-eng
+section: chemical-eng
+title: 04 - Separation Processes
+status: source-custody
+source_custody: partial
+current_path: chemical-eng/04-SEPARATIONS.md
+canonical_path: chemical-eng/04-SEPARATIONS.md
+backsource_ids: [proof-backfill:chemical-eng:04-separations, git-history:chemical-eng:04-separations]
+concepts: [separations]
+root_concepts: [separations]
+index_roles: [guide, root-concept]
+remap_from: []
+remap_to: []
+updated: null
+---
 # 04 — Separation Processes
 
 ## Distillation, Absorption, Extraction, Membranes, Adsorption

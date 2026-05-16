@@ -1,3 +1,22 @@
+---
+maxim_schema: maxim.frontmatter.v1
+id: maxim:chemical-eng:transport
+kind: guide
+module: chemical-eng
+section: chemical-eng
+title: 03 - Transport Phenomena
+status: source-custody
+source_custody: partial
+current_path: chemical-eng/03-TRANSPORT.md
+canonical_path: chemical-eng/03-TRANSPORT.md
+backsource_ids: [proof-backfill:chemical-eng:03-transport, git-history:chemical-eng:03-transport]
+concepts: [transport]
+root_concepts: [transport]
+index_roles: [guide, root-concept]
+remap_from: []
+remap_to: []
+updated: null
+---
 # 03 — Transport Phenomena
 
 ## Momentum, Energy, and Mass Transfer (Bird-Stewart-Lightfoot Framework)
