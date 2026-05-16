@@ -1,3 +1,22 @@
+---
+maxim_schema: maxim.frontmatter.v1
+id: maxim:anthropology:cultural-anthropology
+kind: guide
+module: anthropology
+section: anthropology
+title: Cultural Anthropology
+status: source-custody
+source_custody: partial
+current_path: anthropology/05-CULTURAL-ANTHROPOLOGY.md
+canonical_path: anthropology/05-CULTURAL-ANTHROPOLOGY.md
+backsource_ids: [proof-backfill:anthropology:05-cultural-anthropology, git-history:anthropology:05-cultural-anthropology]
+concepts: [cultural, anthropology]
+root_concepts: [cultural, anthropology]
+index_roles: [guide, root-concept]
+remap_from: []
+remap_to: []
+updated: null
+---
 # Cultural Anthropology
 
 ## The Big Picture

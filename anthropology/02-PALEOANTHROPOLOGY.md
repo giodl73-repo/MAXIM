@@ -1,3 +1,22 @@
+---
+maxim_schema: maxim.frontmatter.v1
+id: maxim:anthropology:paleoanthropology
+kind: guide
+module: anthropology
+section: anthropology
+title: Paleoanthropology
+status: source-custody
+source_custody: partial
+current_path: anthropology/02-PALEOANTHROPOLOGY.md
+canonical_path: anthropology/02-PALEOANTHROPOLOGY.md
+backsource_ids: [proof-backfill:anthropology:02-paleoanthropology, git-history:anthropology:02-paleoanthropology]
+concepts: [paleoanthropology]
+root_concepts: [paleoanthropology]
+index_roles: [guide, root-concept]
+remap_from: []
+remap_to: []
+updated: null
+---
 # Paleoanthropology
 
 ## The Big Picture

@@ -1,3 +1,22 @@
+---
+maxim_schema: maxim.frontmatter.v1
+id: maxim:energy-systems:thermal-cycles
+kind: guide
+module: energy-systems
+section: energy-systems
+title: Thermal Power Cycles - Where the Alchemist Pays the Carnot Tax
+status: source-custody
+source_custody: partial
+current_path: energy-systems/08-THERMAL-CYCLES.md
+canonical_path: energy-systems/08-THERMAL-CYCLES.md
+backsource_ids: [proof-backfill:energy-systems:08-thermal-cycles, git-history:energy-systems:08-thermal-cycles]
+concepts: [thermal, cycles]
+root_concepts: [thermal, cycles]
+index_roles: [guide, root-concept]
+remap_from: []
+remap_to: []
+updated: null
+---
 # Thermal Power Cycles — Where the Alchemist Pays the Carnot Tax
 
 *Every thermal power plant is a heat engine. Every heat engine is a machine for partially

@@ -1,3 +1,22 @@
+---
+maxim_schema: maxim.frontmatter.v1
+id: maxim:anthropology:physical-anthropology
+kind: guide
+module: anthropology
+section: anthropology
+title: Physical (Biological) Anthropology
+status: source-custody
+source_custody: partial
+current_path: anthropology/01-PHYSICAL-ANTHROPOLOGY.md
+canonical_path: anthropology/01-PHYSICAL-ANTHROPOLOGY.md
+backsource_ids: [proof-backfill:anthropology:01-physical-anthropology, git-history:anthropology:01-physical-anthropology]
+concepts: [physical, anthropology]
+root_concepts: [physical, anthropology]
+index_roles: [guide, root-concept]
+remap_from: []
+remap_to: []
+updated: null
+---
 # Physical (Biological) Anthropology
 
 ## The Big Picture

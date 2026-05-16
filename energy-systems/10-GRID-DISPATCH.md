@@ -1,3 +1,22 @@
+---
+maxim_schema: maxim.frontmatter.v1
+id: maxim:energy-systems:grid-dispatch
+kind: guide
+module: energy-systems
+section: energy-systems
+title: Grid Dispatch and Storage Operations - The Scheduler's Dilemma
+status: source-custody
+source_custody: partial
+current_path: energy-systems/10-GRID-DISPATCH.md
+canonical_path: energy-systems/10-GRID-DISPATCH.md
+backsource_ids: [proof-backfill:energy-systems:10-grid-dispatch, git-history:energy-systems:10-grid-dispatch]
+concepts: [grid, dispatch]
+root_concepts: [grid, dispatch]
+index_roles: [guide, root-concept]
+remap_from: []
+remap_to: []
+updated: null
+---
 # Grid Dispatch and Storage Operations — The Scheduler's Dilemma
 
 *Grid dispatch is real-time optimization under uncertainty. Every five minutes, the grid

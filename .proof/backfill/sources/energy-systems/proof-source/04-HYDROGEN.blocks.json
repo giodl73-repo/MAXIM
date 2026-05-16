@@ -1,0 +1,127 @@
+{
+  "schema_version": "1",
+  "source_markdown": "energy-systems\\04-HYDROGEN.md",
+  "blocks": [
+    {
+      "id": "block-1",
+      "kind": "diagram_like",
+      "line": 30,
+      "heading_context": "## The Big Picture",
+      "confidence": "candidate",
+      "text": "HYDROGEN VALUE CHAIN\n\n  PRODUCTION                STORAGE/TRANSPORT           END USE\n  ──────────                 ────────────────           ────────\n\n  Steam Methane              700 bar tank               Ammonia synthesis\n  Reforming (SMR)   grey ──► (vehicle, small scale)     (fertilizer)\n  Fossil feedstock           │\n                             │  Liquid H₂ (-253°C)      Steel DRI\n  SMR + CCS         blue ──► │  (ship transport)        (direct reduction)\n                             │\n  Electrolysis               │  Ammonia (NH₃)           Heavy transport\n  (renewable elec.) green──► │  (carrier for shipping)  (shipping, aviation)\n                             │\n  Methane pyrolysis turq ──► │  Pipeline (blending       Power generation\n  (solid carbon bp)          │  or pure H₂)             (fuel cells, turbines)\n                             │\n  Nuclear + electrolysis pink│  LOHC (liquid organic     Industrial heat\n  (nuclear powered)     ────►│  hydrogen carriers)      (hard-to-abate)\n                             │\n                             v\n                         Fuel cell or combustion → useful energy",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-2",
+      "kind": "diagram_like",
+      "line": 62,
+      "heading_context": "## Color Taxonomy",
+      "confidence": "candidate",
+      "text": "  COLOR    PRODUCTION METHOD                  CO₂ INTENSITY    STATUS\n  ───────  ─────────────────────────────────  ───────────────  ──────────\n  GREY     SMR (steam methane reforming)       ~10 kg CO₂/kg H₂  95% of today's H₂\n           Natural gas + steam → H₂ + CO₂      (plus upstream CH₄ leakage)\n\n  BLUE     SMR + CCS                           ~1-3 kg CO₂/kg H₂  Small, growing\n           Capture CO₂ from SMR flue gas        (debate: actual capture ~85-90%)\n           \"Blue credibility\" debate:\n           upstream methane leakage + CCS imperfection =\n           lifecycle better than grey, worse than green\n\n  GREEN    Electrolysis from renewable elec.   ~0.3-1 kg CO₂/kg H₂  <1% today\n           Water + electricity → H₂ + O₂       (depends on grid carbon intensity)\n           Near-zero if electricity is clean\n\n  TURQUOISE Methane pyrolysis                  ~0 (solid carbon bp)  Pilot stage\n           CH₄ → H₂ + C(solid)                No CO₂ produced; carbon stored/sold\n           Challenge: carbon must be sequestered (not burned as fuel)\n           HyTech Energy, Monolith Materials have pilot plants\n\n  PINK     Nuclear-powered electrolysis        ~0 emissions        Small pilot\n           Nuclear electricity → electrolysis  Steady baseload suits electrolyzers\n\n  YELLOW   Grid electrolysis                  Depends on grid mix  Accounting category\n  (or mixed)  Average grid electricity                              (not zero-carbon)\n\n  GOLD     Biomass gasification                Negative (biogenic)  R&D stage\n           + CCS\n\n  Rule of thumb for lifecycle:\n  Grey:    10 kg CO₂/kg H₂ (combustion) + upstream leakage\n  Blue:    2-3 kg CO₂/kg H₂ (best case, with real CCS accounting)\n  Green:   0.5-1 kg CO₂/kg H₂ (using current EU grid average)\n           ~0.3 kg CO₂/kg H₂ (dedicated renewables, additionality)",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-3",
+      "kind": "diagram_like",
+      "line": 108,
+      "heading_context": "### Alkaline Electrolysis (AEC)",
+      "confidence": "candidate",
+      "text": "  ALKALINE ELECTROLYSIS CELL:\n\n  ┌────────────────────────────────────────────────────────────────┐\n  │  DC Power Supply                                               │\n  │      +              −                                          │\n  │      │              │                                          │\n  │  ┌───▼───┐      ┌───▼───┐                                      │\n  │  │Anode  │      │Cathode│                                    │\n  │  │ (Ni)  │      │  (Ni) │                                    │\n  │  │       │ KOH  │       │                                    │\n  │  │ O₂ ↑  │ soln │ H₂ ↑  │    Diaphragm separates gases     │\n  │  │       │ 25-30%│       │                                   │\n  │  │4OH⁻→O₂│      │2H₂O→H₂│                                  │\n  │  │+2H₂O+4e⁻     │+2OH⁻  │                                   │\n  └────────────────────────────────────────────────────────────────┘\n\n  Electrolyte: aqueous KOH (25-30 wt%) or NaOH\n  Temperature: 70-90°C\n  Pressure: 1-30 bar (some up to 60 bar)\n  Current density: 200-500 mA/cm² (lower than PEM)\n\n  Characteristics:\n  Efficiency: ~63-70% (LHV H₂ / electricity consumed)\n  Degradation: ~0.25-1% per 1,000 hours\n  Dynamic response: SLOW (minutes to ramp; not ideal for following VRE)\n  CAPEX: ~$400-700/kW (2024) — cheapest electrolyzer\n  Stack life: 60,000-100,000 hours\n  Purity: 99.5-99.9% H₂ (post drying)\n\n  Ideal for: large baseload production, steady electricity supply\n  Manufacturers: NEL Hydrogen, ThyssenKrupp, McPhy",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-4",
+      "kind": "diagram_like",
+      "line": 144,
+      "heading_context": "### PEM Electrolysis (PEMEC)",
+      "confidence": "candidate",
+      "text": "  PEM ELECTROLYSIS CELL:\n\n  ┌────────────────────────────────────────────────────────────────┐\n  │  DC Power Supply                                               │\n  │      +                      −                                  │\n  │      │                      │                                  │\n  │  ┌───▼───────────────────────▼───┐                             │\n  │  │  Anode │ Nafion membrane│Cathode │                         │\n  │  │  (IrO₂)│  (solid polymer)│(Pt/C) │                        │\n  │  │         │                 │        │                        │\n  │  │ O₂ + 4H⁺+ 4e⁻← │H⁺ crosses│→ 2H⁺+2e⁻→H₂ │              │\n  │  │ 2H₂O →O₂+4H⁺+4e⁻│ membrane │               │              │\n  └────────────────────────────────────────────────────────────────┘\n\n  Electrolyte: Nafion solid polymer (proton exchange membrane)\n  Temperature: 50-80°C\n  Pressure: up to 80-150 bar (compact H₂ output; less compression needed)\n  Current density: 1,000-3,000 mA/cm² (much higher than AEC)\n\n  Characteristics:\n  Efficiency: ~65-75% LHV (slightly better than AEC at full load)\n  Dynamic response: FAST (seconds; ideal for coupling to solar/wind)\n  CAPEX: ~$700-1,200/kW (2024) — more expensive than AEC\n  Stack life: 40,000-80,000 hours\n  Purity: 99.99%+ H₂ (very pure, suited for fuel cells)\n\n  Critical materials:\n  • Iridium (Ir): anode catalyst — only ~7 tonnes/yr global production\n    Each MW of PEM uses ~1-3 g/kW Ir → supply constraint at GW scale\n  • Platinum (Pt): cathode catalyst — also scarce but less limiting\n\n  Ideal for: variable renewable coupling, where dynamic response matters\n  Manufacturers: Siemens Energy (Silyzer), ITM Power, Plug Power, Nel",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-5",
+      "kind": "diagram_like",
+      "line": 182,
+      "heading_context": "### Solid Oxide Electrolysis (SOEC)",
+      "confidence": "candidate",
+      "text": "  SOEC CHEMISTRY (reversed SOFC):\n\n  Temperature: 700-900°C (high-temperature operation)\n  Input: steam (water vapor) + electricity\n  Cathode: H₂O + 2e⁻ → H₂ + O²⁻\n  Anode:   O²⁻ → ½O₂ + 2e⁻\n\n  Efficiency: ~80-90% LHV at high temp (best of any electrolysis)\n  WHY so efficient: thermal energy from steam input + high-T thermodynamics\n    ΔG (electrical work needed) decreases with temperature\n    at 800°C, ~20-25% of energy comes from heat rather than electricity\n\n  REVERSIBLE SOFC/SOEC:\n  Same cell can operate in both modes:\n  Electrolysis mode (store): electricity → H₂\n  Fuel cell mode (generate): H₂ → electricity\n  Round-trip: 60-65% (vs 30-40% for separate units)\n\n  Challenges:\n  • Slow startup (30-60 min to reach operating temperature)\n  • Thermal cycling degrades cells (prefer steady operation)\n  • Stack durability: improving but still less proven than AEC/PEM\n  • Cost: ~$1,000-2,000/kW (immature)\n\n  Ideal for: industrial processes with waste heat (steel, cement); nuclear integration\n  Manufacturers: Haldor Topsøe (Electrofuel), Bloom Energy, Sunfire",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-6",
+      "kind": "ascii_table_candidate",
+      "line": 215,
+      "heading_context": "### Cost Structure and Green H₂ Economics",
+      "confidence": "candidate",
+      "text": "  LCOH (Levelized Cost of Hydrogen) FORMULA:\n\n              Capex_annualized + Opex + Electricity_cost\n  LCOH $/kg = ─────────────────────────────────────────────\n                   Annual H₂ production (kg/yr)\n\n  COST SENSITIVITY (2024):\n\n  Electricity cost dominates. Rule of thumb:\n    Each $10/MWh of electricity ≈ $0.50-0.60/kg H₂ produced\n    (PEM at 55 kWh/kg H₂, 70% stack efficiency)\n\n  Electricity  Electrolyzer CF  LCOH (approximate)\n  ─────────    ────────────────  ──────────────────\n  $10/MWh     30% (solar)       $2.5-4/kg\n  $20/MWh     30% (solar)       $3.5-5.5/kg\n  $30/MWh     50% (wind+solar)  $3-5/kg\n  $50/MWh     90% (grid)        $5-8/kg\n  $70/MWh     90% (grid)        $7-11/kg\n\n  Grey H₂ (SMR) today: ~$1.0-1.5/kg at US gas prices\n  Green H₂ target (IEA): $1-2/kg by 2030 (requires $20-30/MWh electricity)\n\n  WHY $1-2/kg is hard to hit by 2030:\n  1. Electrolysis capital must fall 50-70% (possible with scale)\n  2. Electricity must be $15-25/MWh (achievable in Atacama/Gulf)\n  3. Capacity factor must be high (50-60%+) → requires hybrid solar+wind\n  4. Financing must be low (5-7% WACC in stable jurisdictions)\n\n  Optimistic markets: Chile (Atacama solar), Saudi Arabia, Namibia, Australia\n  Challenging markets: Germany, Northeast US, UK (expensive electricity)",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-7",
+      "kind": "diagram_like",
+      "line": 256,
+      "heading_context": "## Storage and Transport",
+      "confidence": "candidate",
+      "text": "  H₂ STORAGE OPTIONS COMPARED:\n\n  Method          Volumetric  Gravimetric  Energy penalty  Maturity\n                  (MJ/L)      (MJ/kg)      for storage\n  ─────────────── ──────────  ───────────  ───────────────  ─────────\n  350 bar gas     ~3.5        ~120         ~7% (compression)  Commercial\n  700 bar gas     ~5.0        ~120         ~15%               Commercial (vehicles)\n  Liquid H₂       ~10.0       ~120         ~30-35% (liquefaction) Niche (space, aviation)\n  Liquid NH₃      ~13.5 (H₂eq)~17 (H₂eq)  ~20% (synthesis/crack) Mature for synthesis\n  LOHC (MCH)      ~6.2 (H₂eq) ~6.2 (H₂eq) ~35-40%          Pilot (Chiyoda)\n  Metal hydride   ~5-15       ~2-10         ~15-20%          R&D/niche\n  Underground H₂  very large  varies        ~5%              Pilot (salt caverns)",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-8",
+      "kind": "diagram_like",
+      "line": 273,
+      "heading_context": "### Ammonia as Hydrogen Carrier",
+      "confidence": "candidate",
+      "text": "  THE AMMONIA PATHWAY:\n\n  Green H₂ (electrolysis)    +    N₂ (from air)\n         │                              │\n         └──────────────────────────────┘\n                          │\n                   Haber-Bosch reactor\n                   (400-500°C, 150-300 bar, Fe catalyst)\n                          │\n                          v\n                        NH₃ (liquid at -33°C or 10 bar)\n                   volumetric density: 13.5 MJ/L H₂eq\n                          │\n                   Ship / pipeline (global trade infrastructure exists)\n                          │\n                   Import terminal — cracking: NH₃ → N₂ + H₂\n                   (requires ~15% of energy content)\n                          │\n                          v\n                    H₂ for end use\n\n  Ammonia advantages:\n  • Mature global logistics (shipping, ports — ammonia already traded)\n  • Higher volumetric density than compressed or liquid H₂\n  • No cryogenic cooling needed (10 bar or -33°C, much easier than -253°C for LH₂)\n\n  Ammonia disadvantages:\n  • Toxic (50 ppm IDLH); needs safety protocols\n  • Cracking losses (~15%) + energy for cracking\n  • Haber-Bosch synthesis: Capex intensive, requires steady H₂ input\n  • Direct NH₃ use (without cracking): marine fuel cells, co-firing (avoids losses)\n\n  Leading projects:\n  • NEOM (Saudi Arabia): 4 GW electrolyzer, NH₃ for export to Europe\n  • Australia to Japan ammonia corridors (multiple projects)\n  • H2Global (Germany): government-backed NH₃ import auctions",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-9",
+      "kind": "diagram_like",
+      "line": 321,
+      "heading_context": "### PEMFC (Proton Exchange Membrane Fuel Cell)",
+      "confidence": "candidate",
+      "text": "  PEMFC OPERATION:\n\n  Anode:   H₂ → 2H⁺ + 2e⁻  (oxidation)\n  Cathode: ½O₂ + 2H⁺ + 2e⁻ → H₂O  (reduction)\n  Net:     H₂ + ½O₂ → H₂O + electricity + heat\n\n  Stack: individual cells stacked in series (like battery cells)\n  Operating temperature: 60-80°C\n  Electrolyte: Nafion membrane (same as PEM electrolyzer)\n\n  EFFICIENCY:\n  Thermodynamic limit (fuel cell): ~83% (vs Carnot ~60% for heat engines)\n  Practical PEMFC: 50-65% electrical efficiency\n  With heat recovery (CHP): up to 80-90% total efficiency\n\n  PLATINUM CATALYST:\n  Both anode and cathode need Pt catalyst\n  Toyota Mirai: ~32 g Pt per vehicle\n  Degradation mechanism: Pt dissolution, agglomeration over time\n  Cost target: reduce Pt to <10 g/vehicle\n\n  Applications:\n  • Transportation: Toyota Mirai, Hyundai Nexo (passenger cars)\n  • Heavy transport: Hyundai Xcient (trucks), Stadler Coradia iLint (trains)\n  • Forklifts: large deployments in Amazon, Walmart warehouses\n  • Backup power: data centers, telecom (replacing diesel)\n\n  Toyota Mirai (Gen 2):\n  • 174 kW fuel cell stack\n  • 5.6 kg H₂ storage (700 bar composite tanks)\n  • Range: ~650 km\n  • Refuel time: ~5 minutes",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-10",
+      "kind": "diagram_like",
+      "line": 392,
+      "heading_context": "## End Uses — Where Green H₂ Makes Sense",
+      "confidence": "candidate",
+      "text": "  H₂ APPLICATION PRIORITY MATRIX:\n\n  ┌─────────────────────────────────────────────────────────────────┐\n  │  HIGH PRIORITY (alternatives expensive or unavailable):         │\n  │                                                                 │\n  │  Ammonia synthesis (fertilizer):                                │\n  │    Already uses H₂ (grey). Drop-in green H₂.                    │\n  │    35% of global H₂ demand (~70 Mt H₂ total)                    │\n  │    Every kg of green H₂ directly displaces grey                 │\n  │                                                                 │\n  │  Steel DRI (direct reduction):                                  │\n  │    H₂ replaces coking coal: Fe₂O₃ + 3H₂ → 2Fe + 3H₂O            │\n  │    ~7-8% of global CO₂ emissions from steel                     │\n  │    HYBRIT (Sweden), H2 Green Steel — commercial scale 2025+     │\n  │                                                                 │\n  │  Heavy shipping (via NH₃):                                      │\n  │    No viable battery alternative for 20,000 km ocean voyages    │\n  │    IMO 2050: net zero shipping → NH₃/methanol pilots active     │\n  │                                                                 │\n  │  Long-haul trucking (fuel cell):                                │\n  │    Marginal (BEV + megacharger is competition)                  │\n  │    Fuel cell wins for heavy gross vehicle weight, long range    │\n  └─────────────────────────────────────────────────────────────────┘\n\n  ┌─────────────────────────────────────────────────────────────────┐\n  │  MEDIUM PRIORITY (viable, but competition from direct electrif):│\n  │                                                                 │\n  │  Seasonal grid storage (see 03-ENERGY-STORAGE.md)               │\n  │  Industrial high-temp heat (>800°C kilns)                       │\n  │  Aviation (SAF route likely cheaper near-term)                  │\n  └─────────────────────────────────────────────────────────────────┘\n\n  ┌─────────────────────────────────────────────────────────────────┐\n  │  LOW PRIORITY (direct electrification is much better):          │\n  │                                                                 │\n  │  Passenger cars (fuel cell vs BEV):                             │\n  │    BEV wins on efficiency: 77% vs 25-30% for FCEV               │\n  │    H₂ has energy penalty at every step                          │\n  │    Infrastructure cost: H₂ station ~$2M vs EV charger ~$50K     │\n  │                                                                 │\n  │  Building heating (H₂ boiler):                                  │\n  │    Heat pump wins on efficiency (COP 3 vs 1 for H₂ boiler)      │\n  │    Blending H₂ into gas grid: safety issues, >20% limited       │\n  └─────────────────────────────────────────────────────────────────┘",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-11",
+      "kind": "ascii_table_candidate",
+      "line": 443,
+      "heading_context": "## The Hype vs Reality Check (2024)",
+      "confidence": "candidate",
+      "text": "  HYPE: \"Hydrogen will power everything by 2030\"\n  REALITY CHECK:\n\n  Green H₂ cost today:   $4-8/kg\n  Grey H₂ cost today:    $1-1.5/kg\n  IEA NZE 2030 green H₂: $1-2/kg (optimistic)\n\n  To reach $2/kg green H₂:\n  • Electricity: $20/MWh (requires best solar resources globally)\n  • Electrolyzer: $200-300/kW installed (from $700-1,200/kW today)\n  • Capacity factor: 50-60%+ (requires hybrid solar+wind)\n  → Plausible in Chile, Saudi Arabia, Namibia, Australia — not Europe, US Northeast\n\n  EU hydrogen production target (REPowerEU):\n  10 Mt/yr domestic green H₂ by 2030\n  Status (2024): ~0.3 Mt/yr capacity announced\n  Gap: 30× shortfall vs target with 6 years remaining\n\n  US IRA hydrogen production credit:\n  $3/kg clean H₂ (Tier 1, <0.45 kg CO₂/kg H₂) — essentially green H₂ only\n  $1/kg (Tier 2), $0.60/kg (Tier 3) for progressively higher emissions\n  Domestic electrolyzer manufacturing credit: 10% additional (Section 45X)\n\n  REALISTIC TIMELINE:\n  2025-2030: Green H₂ for ammonia and niche applications\n             Industrial pilots for DRI steel\n             Heavy transport demonstrations\n  2030-2040: Cost competitive green H₂ in best resource zones\n             NH₃-powered shipping pilots → commercial\n  2040-2050: Scale up for hard-to-abate, seasonal storage\n             H₂ turbines for grid reliability",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    }
+  ]
+}

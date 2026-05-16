@@ -1,3 +1,22 @@
+---
+maxim_schema: maxim.frontmatter.v1
+id: maxim:energy-systems:hydropower
+kind: guide
+module: energy-systems
+section: energy-systems
+title: Hydropower - Gravity's Gift to the Grid
+status: source-custody
+source_custody: partial
+current_path: energy-systems/09-HYDROPOWER.md
+canonical_path: energy-systems/09-HYDROPOWER.md
+backsource_ids: [proof-backfill:energy-systems:09-hydropower, git-history:energy-systems:09-hydropower]
+concepts: [hydropower]
+root_concepts: [hydropower]
+index_roles: [guide, root-concept]
+remap_from: []
+remap_to: []
+updated: null
+---
 # Hydropower — Gravity's Gift to the Grid
 
 *Hydropower is the oldest large-scale electricity source and the dominant

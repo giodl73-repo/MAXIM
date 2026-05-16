@@ -1,0 +1,171 @@
+{
+  "schema_version": "1",
+  "source_markdown": "energy-systems\\05-GRID-INTEGRATION.md",
+  "blocks": [
+    {
+      "id": "block-1",
+      "kind": "diagram_like",
+      "line": 26,
+      "heading_context": "## The Big Picture",
+      "confidence": "candidate",
+      "text": "ENGINEERING BRIDGE: GRID STABILITY AS DISTRIBUTED CONSENSUS\n══════════════════════════════════════════════════════════════════════\n\nGRID RESPONSE LAYER             DISTRIBUTED SYSTEMS ANALOG\n──────────────────────────────────────────────────────────────────────\nInertial response (0–5 s)      Local retry / hardware fault tolerance\n  Spinning mass resists Δf       → physics-based, automatic, no software\n\nPrimary freq regulation (5–30s) Circuit breaker pattern\n  Governor droop response         → local node adjusts autonomously\n\nAGC / secondary (30s–15min)     Orchestrator intervention\n  Centralized dispatch signal     → consensus coordinator rebalances\n\nEconomic dispatch (15min–1hr)   Load balancer / autoscaler\n  Optimal generator scheduling    → minimize cost subject to constraints\n\nCapacity markets (months–years) Capacity planning / reserved instances\n  Ensure enough future capacity   → long-term provisioning\n\nTRANSITION INSIGHT:\nSynchronous generators → inverter-based resources =\nHardware-enforced ordering → software-enforced ordering.\nGrid-forming inverters synthesize virtual inertia in firmware:\na software replica of a physical invariant — like implementing\nlogical clocks to replace hardware timestamp counters.\n══════════════════════════════════════════════════════════════════════",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-2",
+      "kind": "diagram_like",
+      "line": 62,
+      "heading_context": "## The Big Picture",
+      "confidence": "candidate",
+      "text": "GRID ARCHITECTURE — The Stack\n\n  GENERATION                   TRANSMISSION              DISTRIBUTION / LOAD\n\n  Nuclear (baseload)           ┌────────────┐            Residential\n  Coal (baseload)       ──────►│            │──────────► Commercial\n  Gas CCGT (mid-load)   ──────►│ 115-765 kV │            Industrial\n  Gas peaker (peak)     ──────►│            │            Data centers ←─ you\n  Hydro (dispatchable)  ──────►│ HV Network │\n  Solar PV (variable)   ──────►│            │◄────────── Pumped Hydro\n  Wind (variable)       ──────►│            │◄────────── BESS\n  Offshore wind         ──────►└────┬───────┘\n                                    │\n                              ┌────────────┐\n                              │ Substation │\n                              └─────┬──────┘\n                                    │  (step down: 115kV → 34.5kV → 12kV)\n                                    │\n                              ┌────────────┐\n                              │Distribution│\n                              └─────┬──────┘\n                                    │  (12 kV → 240/120 V)\n                                    │\n                              Homes / Businesses / DERs (rooftop solar, EVs, small BESS)\n\n  CONTROL HIERARCHY:\n  Real-time (seconds): Automatic (frequency/voltage response)\n  Minutes:             Automatic generation control (AGC)\n  Hours:               Economic dispatch, unit commitment\n  Day-ahead:           Day-ahead market clearing\n  Year-ahead:          Capacity market, resource planning",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-3",
+      "kind": "diagram_like",
+      "line": 102,
+      "heading_context": "### Frequency — The Grid's Heartbeat",
+      "confidence": "candidate",
+      "text": "  WHY 60 Hz (USA) / 50 Hz (Europe):\n  AC grids standardized early (50 Hz in Europe 1899, 60 Hz in USA by GE).\n  No deep physics reason; 50/60 Hz are both practical.\n\n  FREQUENCY AS POWER BALANCE SIGNAL:\n  ┌──────────────────────────────────────────────────────────┐\n  │  Generation = Load  →  f = 60.00 Hz  (balanced)          │\n  │  Generation > Load  →  f rises       (excess power)      │\n  │  Generation < Load  →  f falls       (deficit)           │\n  └──────────────────────────────────────────────────────────┘\n\n  Rate of Change of Frequency (ROCOF):\n  df/dt = (P_gen - P_load) / (2H × S_rated)\n\n  H = inertia constant (seconds of stored rotational energy)\n  S_rated = total synchronized generation capacity\n\n  Example: 1 GW of load suddenly connected to a grid with:\n  • H = 4 seconds (typical thermal-heavy grid)\n  • S = 100 GW synchronized\n  • ROCOF = 1 GW / (2 × 4s × 100 GW) = 0.00125 Hz/s → slow, manageable\n\n  If H falls to 1 second (high VRE penetration, many synchronous generators offline):\n  • ROCOF = 1 GW / (2 × 1s × 100 GW) = 0.005 Hz/s → 4× faster → harder to arrest\n\n  Protective relay thresholds:\n  UFLS (under-frequency load shedding): starts at ~59.3 Hz in ERCOT, 59.0 Hz NERC\n  Under-frequency disconnect (generators): trips at ~57.5 Hz\n  Target: arrest frequency decline before reaching protection thresholds",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-4",
+      "kind": "diagram_like",
+      "line": 136,
+      "heading_context": "### Inertia — The Grid's Momentum",
+      "confidence": "candidate",
+      "text": "  SYNCHRONOUS MACHINE INERTIA:\n  Large spinning generators (turbines, motors) store kinetic energy:\n    E_kinetic = ½ J ω²  (J = moment of inertia, ω = angular velocity)\n\n  When grid frequency deviates, synchronous machines naturally resist (F = ma analog):\n  • Frequency drops → generators momentarily slow → release stored KE → current flows\n  • This is automatic, physics-based, requires no controls\n\n  INERTIA CONSTANT H:\n  H = E_kinetic (MWs) / S_rated (MVA)\n  Typical values:\n    Steam turbine (nuclear/coal):  H = 4-8 seconds\n    Combined cycle gas turbine:    H = 4-6 seconds\n    Gas peaker (simple cycle):     H = 2-4 seconds\n    Hydro turbine:                 H = 2-6 seconds\n    Solar PV inverter:             H = 0 (no rotating mass)\n    Wind turbine (type 4 full converter): H ≈ 0 (decoupled from grid)\n    Wind turbine (type 3 DFIG):    H = 2-6s but electrically decoupled\n\n  THE PROBLEM:\n  As coal/nuclear retire and wind/solar grow:\n  → Fewer synchronous machines online\n  → H_total falls\n  → ROCOF increases for same disturbance\n  → Harder to prevent cascade events\n  → More sensitive to large generator trips (N-1 events)\n\n  MEASURED EXAMPLES:\n  Great Britain grid H: ~9s in 2010 → ~5s in 2022 (solar + wind growth)\n  ROCOF record in GB: +1 Hz/s (Aug 2019 outage — offshore wind + gas trips)\n    → 1 million customers lost power; ROCOF relays tripped inappropriately\n    → Led to revised ROCOF standards (±1 Hz/s ride-through required)",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-5",
+      "kind": "diagram_like",
+      "line": 173,
+      "heading_context": "### Synthetic Inertia and Grid-Forming Inverters",
+      "confidence": "candidate",
+      "text": "  TRADITIONAL GRID:          INVERTER-BASED RESOURCE GRID:\n  ─────────────────          ────────────────────────────────\n  Synchronous generators     Inverters measure grid voltage\n  automatically provide      and frequency → synthesize\n  inertial response          \"virtual\" inertial response via\n  (physics, no control)      rapid power injection (milliseconds)\n\n  TWO INVERTER CONTROL ARCHITECTURES:\n\n  GRID-FOLLOWING (GFL):                  GRID-FORMING (GFM):\n  ┌──────────────────┐                   ┌──────────────────┐\n  │ Measure grid V,f │                   │  Create internal │\n  │ Lock PLL to grid │                   │  voltage source  │\n  │ Inject current   │                   │  with defined V,f│\n  │ per setpoint     │                   │  Act as voltage  │\n  │                  │                   │  source, not just│\n  │ Like a current   │                   │  current source  │\n  │ source           │                   │                  │\n  └──────────────────┘                   └──────────────────┘\n\n  GFL: 90%+ of deployed inverters today\n       Needs grid voltage reference to lock onto (can't form black-start)\n       Fast frequency response (FFR) possible — inject power when f drops\n       But FFR is programmed response, not physics-based\n\n  GFM: active area of research and deployment\n       Can form a grid (enable black start)\n       Provides authentic inertia-like response\n       Better stability at high IBR (inverter-based resource) penetration\n       AEMO (Australia), National Grid ESO (UK): require GFM for new BESS above threshold\n\n  VIRTUAL SYNCHRONOUS MACHINE (VSM):\n  GFM variant that explicitly emulates synchronous machine dynamics\n  Includes: virtual inertia (emulated H), virtual damping, droop control\n  Allows tunable \"virtual inertia\" to compensate for declining real inertia",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-6",
+      "kind": "diagram_like",
+      "line": 218,
+      "heading_context": "## Ancillary Services",
+      "confidence": "candidate",
+      "text": "  FREQUENCY REGULATION TIMESCALES:\n\n  ─────────────────────────────────────────────────────────────────\n  Inertial response    0-1 sec    Physics (synchronous machines)\n                                  OR grid-forming inverters\n  ─────────────────────────────────────────────────────────────────\n  Primary frequency    1-30 sec   Governor droop response\n  regulation (PFR)               Batteries FFR (faster)\n                                  NADIR (lowest frequency point)\n  ─────────────────────────────────────────────────────────────────\n  Secondary frequency  30 sec-    Automatic Generation Control (AGC)\n  regulation (SFR)     15 min     Restores frequency to 60.00 Hz\n  / AGC                           LFC (load frequency control)\n  ─────────────────────────────────────────────────────────────────\n  Tertiary /           15 min-    Economic dispatch re-optimization\n  Economic dispatch    1 hr       Replaces reserves that were used\n  ─────────────────────────────────────────────────────────────────\n  Unit commitment      1-12 hr    Day-ahead scheduling\n                                  Which plants start/stop\n  ─────────────────────────────────────────────────────────────────\n  Resource adequacy    Months-yr  Capacity markets\n  planning                        Ensure enough capacity for peak demand\n  ─────────────────────────────────────────────────────────────────\n\n  ANCILLARY SERVICE PRODUCTS (ERCOT example):\n  ECRS: ERCOT Contingency Reserve Service (900 MW required, 10-min response)\n  RRS:  Responsive Reserve Service (2,300 MW, includes FFR requirement)\n  REGUP/REGDN: Regulation Up/Down (online, fastest response, AGC-capable)\n  NSPIN: Non-spinning reserve (30 min, can start offline)\n  ORDC: Operating Reserve Demand Curve (scarcity pricing when reserves thin)\n\n  BATTERY BESS FOR FREQUENCY REGULATION:\n  Response time: 200ms (vs 10-30s for gas turbine governor)\n  High cycle count required (may be 365 × 2 cycles/day = 730 cycles/yr)\n  High-cycle service wears batteries faster → LFP preferred (cycle life)\n  Revenue: $20-80/MWh equivalent (frequency reg premium over energy arbitrage)",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-7",
+      "kind": "diagram_like",
+      "line": 259,
+      "heading_context": "### Voltage — The Other Stability Dimension",
+      "confidence": "candidate",
+      "text": "  FREQUENCY: real power balance (P)\n  VOLTAGE:   reactive power balance (Q)\n\n  Reactive power:\n  • Does no net work (90° out of phase with current)\n  • Essential for maintaining voltage levels\n  • Must be produced locally (can't be transmitted long distances efficiently)\n\n  REACTIVE POWER SOURCES:\n  Synchronous generators: continuously adjustable Q\n  Synchronous condensers: spinning generator producing no real power, only Q\n  STATCOM (static synchronous compensator): power electronics equivalent of synchronous condenser\n  SVC (static VAr compensator): thyristor-switched capacitors/reactors\n  Capacitor banks: fixed Q injection\n\n  THE IBIR REACTIVE POWER CHALLENGE:\n  Inverter-based resources can produce reactive power,\n  but often operate at unity power factor by default (no Q).\n  High VRE penetration → fewer synchronous machines online → less Q support\n  → voltage instability risk, especially at grid periphery (distribution feeders)\n\n  IEEE 1547-2018: Standard for interconnection of DERs\n  Requires: voltage-reactive power (volt-VAR) response from new solar/storage",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-8",
+      "kind": "diagram_like",
+      "line": 289,
+      "heading_context": "## The Duck Curve and Curtailment",
+      "confidence": "candidate",
+      "text": "  CALIFORNIA CAISO DUCK CURVE (March days, net load):\n\n  Net Load (GW)  = Total Load - Behind-the-meter Solar Generation\n  30 │\n     │ ─────────────────────────╮   ╭─────────── 2018 actual\n  25 │           ╭──────────────╯   ╰──╮ ←Evening ramp: ~5 GW/hr\n     │       ╭───╯  (duck's back)       ╰──────\n  20 │──────╯                  ←belly→    ────╮\n     │                                        ╰── Night/morning\n  15 │\n     │  2024: belly gets deeper (more rooftop solar)\n  10 │  Even negative net load on low-demand spring days\n     │\n   0 │──────────────────────────────────────────────────────\n       0   4   8   12   16   20   24\n       Midnight        Noon            Midnight\n\n  THREE PROBLEMS:\n  1. Belly: Midday overgeneration → low/negative prices → curtailment\n  2. Evening ramp: Sun sets → need 5-10 GW in 2-3 hours → gas peakers, storage\n  3. Neck: Overnight minimum → baseload plants must run (economics suffer)\n\n  CURTAILMENT:\n  California 2022: ~2.7 million MWh curtailed\n  California 2023: ~3+ million MWh curtailed\n  Economic loss: ~$150-200M at $50/MWh\n\n  Solutions:\n  • 4-hour BESS: store midday solar for evening peak\n  • Demand flexibility: shift industrial loads to midday (desalination, EV charging)\n  • Transmission to neighboring states (export surplus)\n  • Longer duration storage (addresses overnight minimum)\n\n  DATA CENTER OPPORTUNITY:\n  Large, controllable, predictable loads\n  Some workloads (batch training, backups) flexible by hours\n  \"Demand response\" — reduce load or shift during high-price periods\n  Microsoft/Google: exploring demand flexibility for HPC workloads\n  FERC Order 2222: allows aggregated DERs (including demand response) to participate in markets",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-9",
+      "kind": "diagram_like",
+      "line": 337,
+      "heading_context": "### AC vs HVDC",
+      "confidence": "candidate",
+      "text": "  HVAC (High Voltage AC) — standard grid:\n  ┌────────────────────────────────────────────────────────┐\n  │  Pros:                                                 │\n  │  • Transformers work (change voltage easily)           │\n  │  • Interconnected mesh (n-1 security, rerouting)       │\n  │  • Simple substations                                  │\n  │                                                        │\n  │  Cons:                                                 │\n  │  • Reactive power (Q) must be managed along line       │\n  │  • Charging current limits distance (~1,000 km max)    │\n  │  • Synchronous interconnect (frequency must match)     │\n  └────────────────────────────────────────────────────────┘\n\n  HVDC (High Voltage DC) — for long-distance or asynchronous links:\n  ┌────────────────────────────────────────────────────────┐\n  │  Pros:                                                 │\n  │  • Lower losses for distances > 600-800 km (land)      │\n  │    or > 50-100 km (submarine cable)                    │\n  │  • Asynchronous link: connects different grids         │\n  │    (ERCOT to Eastern Interconnect, Norway to UK)       │\n  │  • Fully controllable power flow (no loop flows)       │\n  │  • No reactive charging current in cable               │\n  │                                                        │\n  │  Cons:                                                 │\n  │  • Converter stations expensive (~$200-300M each end)  │\n  │  • No meshed HVDC standard (until VSC-MTDC emerging)   │\n  │  • Fault protection harder for DC faults               │\n  └────────────────────────────────────────────────────────┘\n\n  HVDC applications (key examples):\n  • NorNed (Norway-Netherlands): 580 km, 700 MW, ±450 kV\n  • BritNed (UK-Netherlands): 260 km submarine, 1,000 MW\n  • Western HVDC Link (UK): 2,200 MW, Scotland to Wales\n  • NorthConnect (Norway-UK proposed): 1,400 MW\n  • US: HVDC ties between WECC, Eastern, ERCOT interconnections",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-10",
+      "kind": "diagram_like",
+      "line": 377,
+      "heading_context": "### Locational Marginal Pricing (LMP)",
+      "confidence": "candidate",
+      "text": "  LMP = the price of electricity at a specific node on the grid\n\n  LMP_node = LMP_energy + LMP_congestion + LMP_loss\n\n  Where:\n  LMP_energy:     System-wide energy price (what it costs to serve\n                  one more MWh of demand if no congestion)\n  LMP_congestion: Cost of transmission constraints\n                  (negative if export-constrained, positive if import-needed)\n  LMP_loss:       Marginal transmission loss\n\n  WHY LMPs MATTER:\n  • Generator in congested area: lower LMP (can't export all output)\n  • Load in import-constrained area: higher LMP (pays more for power)\n  • Price can differ by 2-10× across nodes during congestion\n\n  EXAMPLE — Solar-heavy grid at noon:\n  Solar zone LMP:  -$10/MWh (negative! overgeneration, no way to export)\n  Load center LMP: +$30/MWh (transmission capacity limited into city)\n  Congestion cost: $40/MWh — value of a new transmission line\n\n  IMPLICATIONS FOR RENEWABLES SITING:\n  Build solar in a congested zone → low (or negative) realized prices\n  \"Merchant curtailment\" — solar generator turns off, no incentive to generate at -$10\n  Transmission buildout or demand response needed to unclog",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-11",
+      "kind": "diagram_like",
+      "line": 413,
+      "heading_context": "## Capacity Markets",
+      "confidence": "candidate",
+      "text": "  ENERGY MARKET ALONE PROBLEM:\n\n  Solar at 30% penetration → midday prices collapse → solar revenue falls\n  At 60% solar: many hours at $0-5/MWh → solar can't recover capital costs\n  → \"Missing money\" problem: no investment signal for new capacity needed for reliability\n\n  CAPACITY MARKET SOLUTION:\n  Grid operator separately procures \"capacity\" (ability to produce, not just energy):\n\n  PJM CAPACITY MARKET:\n  ┌─────────────────────────────────────────────────────────────────┐\n  │  ISO identifies \"Reliability Period\" (hottest peak demand day)  │\n  │  Calculates: how much firm capacity needed for N-1-1 reliabty   │\n  │  Procures 1 year in advance (3-year forward in PJM)             │\n  │  Generators bid: \"$X/MW-day to be available during peak\"        │\n  │  ISO clears at price that meets reliability requirement         │\n  │  Generator receives capacity payment regardless of dispatch     │\n  │  (plus energy market revenue when actually running)             │\n  └─────────────────────────────────────────────────────────────────┘\n\n  CAPACITY MARKET DESIGN ISSUES WITH VRE:\n  • Solar at 4pm peak: high capacity value (~85% ELCC)\n  • Solar at 7pm peak (new duck curve): lower ELCC (~15%)\n  • Wind in summer peak: location-dependent ELCC (10-30% in SE US)\n  • As solar grows, its capacity value falls (it shows up when everyone else does)\n\n  ELCC (Effective Load Carrying Capability):\n  Statistical measure of how much firm capacity a VRE unit effectively provides\n  More solar on grid → marginal ELCC of next solar unit → approaches zero\n  → Storage becomes critical to \"firm up\" VRE's capacity contribution",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-12",
+      "kind": "ascii_table_candidate",
+      "line": 453,
+      "heading_context": "## 100% Renewable Grid Studies",
+      "confidence": "candidate",
+      "text": "  KEY RESULTS FROM HOURLY GRID MODELING STUDIES:\n\n  For 80-90% VRE (US-scale):\n  • 4-12 hours of storage is the central requirement (not 24-hour)\n  • Transmission expansion (2-3× current capacity) reduces storage needs\n  • Geographic diversity of wind (East Coast + Midwest + West) critical\n  • Demand flexibility (industrial loads, EV charging) helps substantially\n  • Nuclear or firm clean capacity fills the remaining 10-20%\n\n  For 100% clean electricity:\n  • \"The last 10%\" is very expensive\n  • Requires: LDSS (long-duration storage) OR nuclear/geothermal/firm\n                OR massive overbuilding + curtailment + international trade\n  • No proven pathway without either nuclear or long-duration storage\n    at utility scale in high-latitude continental markets\n\n  DARK DOLDRUMS:\n  Northern Europe in January: potentially 2-3 weeks of calm, cloudy weather\n  Wind production: ~10% of capacity\n  Solar production: ~5% of capacity\n  Heating load: peak demand\n  Without nuclear/firm capacity: would require months of storage\n  European solution: maintain nuclear + gas CCS + cross-border import (Norway hydro)\n\n  MICROSOFT/HYPERSCALER RELEVANCE:\n  Data centers = large predictable loads\n  Potential demand response: shift batch workloads to match VRE availability\n  Could reduce peak demand by 10-20%\n  Azure's global footprint = natural geographic diversity (run workloads where power is clean)\n  Microsoft 24/7 CFE commitment requires firm clean power for every hour\n  → drives nuclear, geothermal PPA interest (e.g., Helion fusion, SMR discussions)",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-13",
+      "kind": "chart_like",
+      "line": 491,
+      "heading_context": "## Grid Codes and Interconnection",
+      "confidence": "candidate",
+      "text": "### IEEE 1547 — The DER Standard",
+      "notes": [
+        "detected from bar/chart glyph density with numeric labels"
+      ]
+    },
+    {
+      "id": "block-14",
+      "kind": "chart_like",
+      "line": 501,
+      "heading_context": "### IEEE 1547 — The DER Standard",
+      "confidence": "candidate",
+      "text": "### FERC Order 2222 — Aggregated DERs",
+      "notes": [
+        "detected from bar/chart glyph density with numeric labels"
+      ]
+    },
+    {
+      "id": "block-15",
+      "kind": "diagram_like",
+      "line": 503,
+      "heading_context": "### FERC Order 2222 — Aggregated DERs",
+      "confidence": "candidate",
+      "text": "  PROBLEM IT SOLVES:\n  Grid operators' market rules required > 1 MW minimum bid\n  Rooftop solar = 5-10 kW; home BESS = 5-15 kWh\n  Individual DERs too small to participate in wholesale markets\n\n  ORDER 2222 (2020, effective 2022-2024):\n  Requires RTOs/ISOs to allow aggregated DERs to participate\n  VPP (virtual power plant): aggregator bundles 1,000s of DERs\n    → acts as a single dispatchable unit in wholesale market\n    → DER owners get market revenue; grid gets flexible resource\n\n  EXAMPLES IN PRACTICE:\n  AutoGrid, Sunrun, Tesla Autobidder: aggregate residential BESS\n  Voltus, Enel X: aggregate commercial/industrial demand response\n  OhmConnect (California): 300,000 households act as virtual 200 MW resource\n\n  DATA CENTER OPPORTUNITY:\n  A large data center cluster (100-500 MW) is easily >1 MW\n  Controllable load → direct participation in demand response markets\n  Already done in some markets (Microsoft, Google, Amazon have demand response programs)",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    }
+  ]
+}

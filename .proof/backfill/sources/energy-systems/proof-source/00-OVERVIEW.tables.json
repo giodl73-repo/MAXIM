@@ -1,0 +1,337 @@
+{
+  "schema_version": "1",
+  "source_markdown": "energy-systems\\00-OVERVIEW.md",
+  "tables": [
+    {
+      "id": "table-1",
+      "line": 152,
+      "heading_context": "## Module Map — This Directory",
+      "headers": [
+        "Module",
+        "Topic",
+        "Exergy Angle"
+      ],
+      "rows": [
+        [
+          "`01-SOLAR-PV`",
+          "Photovoltaic systems",
+          "Shockley-Queisser: where photon exergy dies"
+        ],
+        [
+          "`02-WIND-POWER`",
+          "Wind energy",
+          "Betz limit: the kinetic energy ceiling"
+        ],
+        [
+          "`03-ENERGY-STORAGE`",
+          "Batteries, pumped hydro, CAES, hydrogen",
+          "Round-trip losses: exergy cost of time-shifting"
+        ],
+        [
+          "`04-HYDROGEN`",
+          "H₂ production, transport, end use",
+          "Electrolyzer + fuel cell: two conversions, two taxes"
+        ],
+        [
+          "`05-GRID-INTEGRATION`",
+          "Dispatch, frequency, VRE integration",
+          "The orchestration problem: reliability vs. waste"
+        ],
+        [
+          "`06-NUCLEAR-SYSTEMS`",
+          "Reactor designs in energy context",
+          "Carnot at 550K: the safety-efficiency trade"
+        ],
+        [
+          "`07-FOSSIL-TRANSITION`",
+          "Coal, gas, CCS, phase-out pathways",
+          "Stranded assets: exergy of sunk capital"
+        ],
+        [
+          "`08-THERMAL-CYCLES`",
+          "Rankine, Brayton, combined cycle, sCO₂, ORC",
+          "Where the Carnot tax is collected: cycle-by-cycle"
+        ],
+        [
+          "`09-HYDROPOWER`",
+          "Turbines, reservoir ops, ROR, pumped storage",
+          "Gravity's gift: PE → work with no Carnot limit"
+        ],
+        [
+          "`10-GRID-DISPATCH`",
+          "Merit order, unit commitment, BESS dispatch",
+          "Scheduling exergy destruction in real time"
+        ]
+      ]
+    },
+    {
+      "id": "table-2",
+      "line": 240,
+      "heading_context": "## Key Numbers — Thermal Efficiencies, LCOE, Capacity Factors",
+      "headers": [
+        "Technology",
+        "Thermal / System Efficiency",
+        "Why"
+      ],
+      "rows": [
+        [
+          "Coal subcritical",
+          "33-36%",
+          "T_hot limited by steam pressure (~540°C)"
+        ],
+        [
+          "Coal supercritical",
+          "40-42%",
+          "Higher steam parameters (600°C, 250+ bar)"
+        ],
+        [
+          "Coal ultra-supercritical",
+          "44-47%",
+          "700°C+ steam; materials at the edge"
+        ],
+        [
+          "CCGT (combined cycle gas)",
+          "58-63%",
+          "Gas turbine (Brayton) + steam bottoming (Rankine)"
+        ],
+        [
+          "OCGT (open cycle gas)",
+          "35-42%",
+          "Peaker duty; no heat recovery"
+        ],
+        [
+          "Nuclear PWR/BWR",
+          "32-34%",
+          "T_hot deliberately low (~320°C steam)"
+        ],
+        [
+          "Nuclear HTGR (Gen IV)",
+          "45-48%",
+          "Helium at 750-950°C → higher Carnot ceiling"
+        ],
+        [
+          "Solar PV (module)",
+          "20-23%",
+          "Shockley-Queisser: thermalization + sub-bandgap"
+        ],
+        [
+          "Solar PV (system, AC)",
+          "17-20%",
+          "Inverter, wiring, soiling, temperature derating"
+        ],
+        [
+          "Wind turbine (rotor)",
+          "35-48% of KE",
+          "Betz limit is 59.3%; best rotors reach ~80% of Betz"
+        ],
+        [
+          "Fuel cell (PEM, H₂)",
+          "50-60% (LHV)",
+          "Electrochemical: no Carnot limit"
+        ],
+        [
+          "Fuel cell (SOFC)",
+          "55-65% (LHV)",
+          "Higher T → better kinetics, CHP potential"
+        ],
+        [
+          "Electrolysis (PEM)",
+          "60-70% (LHV)",
+          "Overpotential losses at electrodes"
+        ],
+        [
+          "Battery round-trip",
+          "85-92% (Li-ion)",
+          "Ohmic, activation, concentration losses"
+        ],
+        [
+          "Pumped hydro round-trip",
+          "75-82%",
+          "Turbine + pump + friction + evaporation"
+        ],
+        [
+          "Heat pump COP",
+          "2.5-4.5",
+          "Not an \"efficiency\" — moves heat, doesn't create it"
+        ]
+      ]
+    },
+    {
+      "id": "table-3",
+      "line": 280,
+      "heading_context": "## Key Numbers — Thermal Efficiencies, LCOE, Capacity Factors",
+      "headers": [
+        "Technology",
+        "LCOE ($/MWh)",
+        "Dispatchable?",
+        "Notes"
+      ],
+      "rows": [
+        [
+          "Onshore wind",
+          "25-50",
+          "No",
+          "Best sites < $30"
+        ],
+        [
+          "Utility solar PV",
+          "30-55",
+          "No",
+          "Steepest cost decline in history"
+        ],
+        [
+          "Large hydro",
+          "25-90",
+          "Yes (reservoir)",
+          "Site-dependent; very long-lived"
+        ],
+        [
+          "CCGT",
+          "45-75",
+          "Yes",
+          "Fuel-price sensitive"
+        ],
+        [
+          "Offshore wind (fixed)",
+          "70-120",
+          "No",
+          "Declining; higher CF partly compensates"
+        ],
+        [
+          "Nuclear (new build, OECD)",
+          "100-200",
+          "Yes",
+          "Vogtle: ~$180/MWh all-in"
+        ],
+        [
+          "Nuclear (existing fleet)",
+          "25-40",
+          "Yes",
+          "Very low marginal cost"
+        ],
+        [
+          "Coal (new build)",
+          "65-150",
+          "Yes",
+          "Economically uncompetitive in most markets"
+        ],
+        [
+          "Battery storage (4h Li-ion)",
+          "LCOS: 100-200",
+          "Enables VRE",
+          "Declining ~15%/yr"
+        ]
+      ]
+    },
+    {
+      "id": "table-4",
+      "line": 569,
+      "heading_context": "## Bridges — Energy Systems to Computing",
+      "headers": [
+        "Energy Systems Concept",
+        "Computing / Distributed Systems Parallel"
+      ],
+      "rows": [
+        [
+          "Grid frequency regulation (50/60 Hz ± 0.5 Hz)",
+          "Distributed consensus: all nodes must agree on a shared clock within tight tolerance"
+        ],
+        [
+          "Energy dispatch (merit order, unit commitment)",
+          "Job scheduling (priority queue, bin packing, cost minimization)"
+        ],
+        [
+          "Capacity factor (actual output / nameplate)",
+          "System utilization (actual throughput / peak capacity); same ratio, same misleading headlines"
+        ],
+        [
+          "LCOE (levelized cost of energy)",
+          "TCO (total cost of ownership): amortize capital + ops over lifetime output"
+        ],
+        [
+          "Baseload vs peaker plants",
+          "Always-on services vs autoscaled burst instances"
+        ],
+        [
+          "Duck curve (solar midday surplus → evening ramp)",
+          "Diurnal traffic pattern: low overnight, spike at business hours, autoscaler lag"
+        ],
+        [
+          "Curtailment (wasted renewable output)",
+          "Request shedding / load shedding under excess supply/demand mismatch"
+        ],
+        [
+          "N-1 contingency (grid survives any single failure)",
+          "N+1 redundancy (system survives any single node failure)"
+        ],
+        [
+          "Spinning reserve (generators idling, ready to ramp)",
+          "Hot standby (instances warmed up, ready to serve)"
+        ],
+        [
+          "Storage round-trip efficiency",
+          "Cache hit rate: the overhead of the indirection layer"
+        ],
+        [
+          "Transmission losses (I²R)",
+          "Network latency and serialization overhead"
+        ],
+        [
+          "Sector coupling (electricity ↔ heat ↔ transport)",
+          "Platform integration (breaking silos between services)"
+        ],
+        [
+          "Renewable energy certificate (REC)",
+          "Offset accounting: the delta between \"we paid for it\" and \"we actually used it\""
+        ]
+      ]
+    },
+    {
+      "id": "table-5",
+      "line": 589,
+      "heading_context": "## Decision Cheat Sheet",
+      "headers": [
+        "If you need to diagnose...",
+        "Start With",
+        "Key Caveat"
+      ],
+      "rows": [
+        [
+          "An energy-unit claim",
+          "Convert consistently between EJ, TWh, primary energy, final energy, and useful work.",
+          "Primary-energy accounting can make fossil systems look larger because rejected heat is counted."
+        ],
+        [
+          "A \"cheapest generation\" claim",
+          "Compare LCOE, capacity factor, dispatchability, interconnection, curtailment, financing, and local resource quality.",
+          "Cheap MWh are not automatically valuable MWh at the hour and node needed."
+        ],
+        [
+          "A thermal-efficiency claim",
+          "Identify thermodynamic cycle, temperature limits, materials, safety margin, heat sink, and combined-cycle recovery.",
+          "Efficiency is constrained by physics and engineering, not just turbine quality."
+        ],
+        [
+          "An electrification claim",
+          "Compare direct electric efficiency, heat-pump COP, grid emissions, equipment turnover, peak load, and end-use temperature.",
+          "Electrification benefits depend on both device efficiency and marginal electricity supply."
+        ],
+        [
+          "A carbon-budget or NZE claim",
+          "Check probability level, non-CO2 gases, land-use assumptions, overshoot, and update vintage.",
+          "Budget numbers are scenario-dependent and decay with every year of emissions."
+        ],
+        [
+          "A hydrogen or storage claim",
+          "Match duration and end use: daily shifting, seasonal storage, industrial feedstock, shipping fuel, or steel reduction.",
+          "Low round-trip efficiency can be acceptable only when the alternative is worse or impossible."
+        ],
+        [
+          "A capacity-factor comparison",
+          "Multiply nameplate by 8,760 hours and capacity factor, then ask whether the output is dispatchable.",
+          "Annual energy equivalence does not imply equal reliability contribution."
+        ]
+      ]
+    }
+  ]
+}

@@ -1,3 +1,22 @@
+---
+maxim_schema: maxim.frontmatter.v1
+id: maxim:anthropology:evolutionary-anthropology
+kind: guide
+module: anthropology
+section: anthropology
+title: Evolutionary Anthropology
+status: source-custody
+source_custody: partial
+current_path: anthropology/04-EVOLUTIONARY-ANTHROPOLOGY.md
+canonical_path: anthropology/04-EVOLUTIONARY-ANTHROPOLOGY.md
+backsource_ids: [proof-backfill:anthropology:04-evolutionary-anthropology, git-history:anthropology:04-evolutionary-anthropology]
+concepts: [evolutionary, anthropology]
+root_concepts: [evolutionary, anthropology]
+index_roles: [guide, root-concept]
+remap_from: []
+remap_to: []
+updated: null
+---
 # Evolutionary Anthropology
 
 ## The Big Picture

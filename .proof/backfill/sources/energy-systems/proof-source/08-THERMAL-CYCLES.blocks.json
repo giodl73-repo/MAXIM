@@ -1,0 +1,248 @@
+{
+  "schema_version": "1",
+  "source_markdown": "energy-systems\\08-THERMAL-CYCLES.md",
+  "blocks": [
+    {
+      "id": "block-1",
+      "kind": "ascii_table_candidate",
+      "line": 31,
+      "heading_context": "## The Big Picture — Cycle Landscape",
+      "confidence": "candidate",
+      "text": "THERMAL POWER CYCLE FAMILY TREE\n                                                         η_actual\nHEAT ENGINE CYCLES                                       (typical)\n═══════════════════════════════════════════════════════════════════\n\n  CARNOT CYCLE (theoretical ceiling)                     ← unachievable\n  │\n  ├── RANKINE FAMILY (external combustion → working fluid phase change)\n  │   │\n  │   ├── Subcritical Rankine                             33-38%\n  │   │   Coal, biomass, nuclear PWR/BWR\n  │   │   Steam at 540°C / 165 bar\n  │   │\n  │   ├── Supercritical Rankine                           40-45%\n  │   │   Advanced coal, Gen III+ nuclear\n  │   │   Steam at 600°C / 250+ bar (above critical point)\n  │   │\n  │   ├── Ultra-Supercritical Rankine                     45-47%\n  │   │   Cutting-edge coal (700°C+ / 300+ bar)\n  │   │   Materials limit: nickel superalloys\n  │   │\n  │   └── Organic Rankine Cycle (ORC)                     10-20%\n  │       Low-grade waste heat, geothermal (80-350°C)\n  │       Working fluid: pentane, R245fa, siloxanes\n  │\n  ├── BRAYTON FAMILY (internal combustion → gas-phase working fluid)\n  │   │\n  │   ├── Open-Cycle Gas Turbine (OCGT)                   35-42%\n  │   │   Peaker plants, aero-derivative turbines\n  │   │   Exhaust at ~500-600°C → wasted to atmosphere\n  │   │\n  │   ├── Closed-Cycle Brayton                            25-40%\n  │   │   Helium cycle (nuclear HTGR)\n  │   │   External heat source, inert working fluid\n  │   │\n  │   └── Supercritical CO₂ Brayton (sCO₂)               45-55%\n  │       Next-generation: compact, high efficiency\n  │       Near-critical-point CO₂ — extreme density\n  │       Nuclear Gen IV, CSP, waste heat\n  │\n  ├── COMBINED CYCLE (Brayton topping + Rankine bottoming)\n  │   │\n  │   └── CCGT (Combined Cycle Gas Turbine)                58-64%\n  │       Gas turbine exhaust → HRSG → steam turbine\n  │       Highest thermal efficiency of any deployed cycle\n  │\n  └── EXOTIC / EMERGING\n      ├── Kalina Cycle (ammonia-water binary mixture)       12-18%\n      │   Low-grade heat, geothermal\n      ├── Stirling Cycle (external combustion, closed)      25-35%\n      │   Solar dish, micro-CHP, submarine AIP\n      └── Allam-Fetvedt Cycle (sCO₂ oxy-combustion)        51-54%\n          Inherent CO₂ capture, near-zero emissions\n\n═══════════════════════════════════════════════════════════════════",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-2",
+      "kind": "diagram_like",
+      "line": 101,
+      "heading_context": "## Thermodynamic Foundations — The Four Processes",
+      "confidence": "candidate",
+      "text": "THE FOUR BUILDING BLOCKS:\n\n  Process           Ideal (reversible)         Real (irreversible)\n  ────────────────  ──────────────────────     ──────────────────────────\n  Compression       Isentropic (s = const)     Polytropic; friction, heat\n                    w_in = h₂s - h₁            leak → η_c = 0.85-0.92\n                                                (isentropic efficiency)\n\n  Heat addition     Isobaric (p = const)       Finite ΔT across heat\n                    or isothermal               exchanger → entropy\n                                                generation → exergy loss\n\n  Expansion         Isentropic (s = const)     Blade friction, tip leakage,\n                    w_out = h₃ - h₄s           moisture erosion (LP stages)\n                                                η_t = 0.88-0.95\n\n  Heat rejection    Isobaric / isothermal      Condenser approach ΔT\n                    (condenser)                 (pinch = 3-10°C above\n                                                ambient) → sets actual T_cold\n\n  ───────────────────────────────────────────────────────────────────────\n  BRIDGE: Irreversible losses in a power cycle are analogous to overhead\n  in a software pipeline. Each stage has parasitic costs (serialization\n  overhead, context switches, GC pauses). The \"ideal throughput\" assumes\n  zero overhead; the actual throughput is the ideal minus the sum of all\n  stage losses. Optimization targets the biggest loss first.",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-3",
+      "kind": "diagram_like",
+      "line": 132,
+      "heading_context": "### The Carnot Cycle — The Ceiling Nobody Reaches",
+      "confidence": "candidate",
+      "text": "CARNOT CYCLE ON T-s DIAGRAM:\n\n  T (Temperature)\n  │\n  │    T_H ─────────── ① ─────────────── ②\n  │                    │                  │\n  │                    │   Q_in           │\n  │                    │   (isothermal    │\n  │                    │    heat add)     │\n  │                    │                  │\n  │    T_C ─────────── ④ ─────────────── ③\n  │                    │                  │\n  │                    │   Q_out          │\n  │                    │   (isothermal    │\n  │                    │    heat reject)  │\n  │\n  └────────────────────────────────────────── s (entropy)\n\n  η_Carnot = 1 - T_C / T_H    (temperatures in Kelvin)\n\n  WHY CARNOT IS UNREACHABLE:\n  1. Isothermal heat addition at T_H requires infinite heat exchanger area\n     (ΔT → 0 means infinite area per Fourier's law: Q = UAΔTlm)\n  2. Isothermal compression of a two-phase fluid is impractical\n  3. Reversible processes require infinite time (zero entropy production)\n  4. Real working fluids have phase boundaries, critical points, material limits\n\n  WHAT CARNOT TELLS US:\n  → The only way to raise efficiency: increase T_H or decrease T_C\n  → T_C is bounded by ambient (~288-310 K) — limited room\n  → T_H is bounded by materials: 870 K (steam), 1600 K (gas turbine),\n    1900 K (theoretical ceramic limit)\n  → CCGT achieves 58-64% because it uses gas at 1600 K AND steam at 870 K",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-4",
+      "kind": "diagram_like",
+      "line": 178,
+      "heading_context": "### Ideal Rankine Cycle",
+      "confidence": "candidate",
+      "text": "IDEAL RANKINE CYCLE — T-s DIAGRAM:\n\n  T (K)\n  │\n  │         Critical point (647 K, 221 bar for H₂O)\n  │              ╱╲\n  │            ╱    ╲           Saturation dome\n  │          ╱        ╲\n  │        ╱     ③──────╲──── ③  Superheated steam (T_max)\n  │       ╱     ╱        ╲   │\n  │      │     ╱          ╲  │  TURBINE: ③→④\n  │      │    ② Boiling    ╲ │  (isentropic expansion)\n  │      │   ╱   at const   ╲│\n  │      │  ╱     pressure    ④  Wet steam exits turbine\n  │      │ ╱                  │\n  T_cond ─①──────────────────╱── ④ condenser (isobaric heat rejection)\n  │      ↑                     │\n  │    PUMP                    │\n  │    ①→② (isentropic         │\n  │    compression of liquid)  │\n  │\n  └─────────────────────────────────── s (entropy)\n\n  THE FOUR STEPS:\n  ① → ②  PUMP:       Compress liquid water (very little work — liquid is\n                      nearly incompressible). w_pump = v(P₂ - P₁)\n\n  ② → ③  BOILER:     Heat water → steam at constant pressure.\n                      Preheating + evaporation + superheating.\n                      Q_in = h₃ - h₂\n\n  ③ → ④  TURBINE:    Expand steam through turbine → shaft work.\n                      w_turbine = h₃ - h₄\n\n  ④ → ①  CONDENSER:  Reject heat at constant pressure.\n                      Cool/condense exhaust steam back to liquid.\n                      Q_out = h₄ - h₁\n\n  η_Rankine = (w_turbine - w_pump) / Q_in\n            = [(h₃ - h₄) - (h₂ - h₁)] / (h₃ - h₂)\n\n  RANKINE ADVANTAGE OVER CARNOT:\n  Pump work is tiny (compressing a liquid ≈ 1-3% of turbine work)\n  Carnot requires compressing a two-phase mixture — impractical\n  Rankine avoids this by condensing fully, then pumping pure liquid",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-5",
+      "kind": "ascii_table_candidate",
+      "line": 231,
+      "heading_context": "### Subcritical vs Supercritical vs Ultra-Supercritical",
+      "confidence": "candidate",
+      "text": "RANKINE TIERS — STEAM CONDITIONS AND EFFICIENCY:\n\n  Tier              P_boiler    T_main    T_reheat    η_plant    Materials\n  ────────────────  ────────    ──────    ────────    ───────    ──────────\n  Subcritical       165 bar     540°C     540°C       33-38%     Ferritic steel\n  (pre-2000s)                                                     (T22, T91)\n\n  Supercritical     250 bar     600°C     600-610°C   40-43%     Austenitic steel\n  (SC, 2000s+)                                                    (TP347HFG, Super304)\n\n  Ultra-SC (USC)    300+ bar    700°C+    720°C+      45-47%     Ni-base superalloy\n  (demo/pilot)                                                    (Inconel 740H)\n\n  Advanced USC      350+ bar    760°C+    760°C+      47-50%     Under development\n  (A-USC, R&D)                                                    (ceramics, coatings)\n\n\n  T-s COMPARISON (schematic):\n\n  T (K)\n  │\n  │  USC ───────────────────── ③''     (highest T_max = 973+ K)\n  │                           ╱\n  │  SC ────────────────── ③'          (T_max = 873 K)\n  │                       ╱\n  │  Sub ──────────── ③              (T_max = 813 K)\n  │                 ╱\n  │               ╱  All share similar T_cold (~310 K condenser)\n  │             ╱\n  │  ④───④'──④''                       (same condenser conditions)\n  │\n  └─────────────────────────────── s\n\n  Each tier raises T_H → raises Carnot ceiling → captures more exergy\n  Diminishing returns: 540→600°C = +5% points; 600→700°C = +4% points\n  Materials cost and risk escalate nonlinearly with temperature",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-6",
+      "kind": "diagram_like",
+      "line": 275,
+      "heading_context": "### Reheat and Regeneration — Wringing Out More Work",
+      "confidence": "candidate",
+      "text": "REHEAT — Expand in two stages, reheat between them:\n\n  T (K)\n  │\n  │    T_max ──── ③─────────── ③'    (reheat to original T after partial expansion)\n  │              ╱               ╲\n  │             ╱                 ╲\n  │            ╱                   ╲\n  │   ② ─────╱                     ╲\n  │   │                              ④  (final expansion to condenser)\n  │   │                              │\n  T_c ①──────────────────────────────╱\n  │\n  └────────────────────────────────── s\n\n  WHY REHEAT:\n  1. Prevents excessive moisture in LP turbine stages\n     (moisture > 10-12% causes blade erosion → mechanical failure)\n  2. Increases average temperature of heat addition → higher η\n  3. Single reheat: +3-4% efficiency gain\n  4. Double reheat: additional +1.5-2% (used in largest USC plants)\n\n  DOUBLE REHEAT STATIONS:\n  Few examples: Nordjylland 3 (Denmark, 410 MW, 580°C/580°C/580°C, η=47%)\n  Complexity and cost favor single reheat for most plants\n\n────────────────────────────────────────────────────────────────────\n\nREGENERATIVE FEEDWATER HEATING — Use bleed steam to preheat feedwater:\n\n  ┌────────────────────────────────────────────────────────────┐\n  │                                                            │\n  │  Turbine: HP ──►[bleed]──► IP ──►[bleed]──► LP ──► Cond.   │\n  │                   │                │                       │\n  │                   ▼                ▼                       │\n  │              [FWH #1]         [FWH #2]                     │\n  │              (closed or       (open /                      │\n  │               open)           deaerator)                   │\n  │                   │                │                       │\n  │                   ▼                ▼                       │\n  │              ───── Feedwater heated from ~35°C to ~250°C   │\n  │                    before entering the boiler              │\n  └────────────────────────────────────────────────────────────┘\n\n  WHY REGENERATION:\n  Heating feedwater with bleed steam replaces low-grade heat addition\n  in the boiler (where fuel is burned). The extracted steam would have\n  produced some work in the remaining turbine stages — but less work\n  than the exergy gain from raising feedwater temperature.\n\n  Net effect: raises the average temperature of external heat addition\n  → closer to Carnot → typically +4-7% efficiency gain\n\n  Modern coal plant: 6-8 feedwater heaters\n  Nuclear plant: 4-6 feedwater heaters (lower pressures)\n\n  DEAERATOR:\n  One feedwater heater is \"open\" (direct contact) — also removes\n  dissolved O₂ and CO₂ from feedwater (prevents boiler corrosion).\n  Operating at ~1-3 bar, ~120-150°C.",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-7",
+      "kind": "diagram_like",
+      "line": 340,
+      "heading_context": "### Rankine Cycle Losses — Where the Exergy Dies",
+      "confidence": "candidate",
+      "text": "EXERGY DESTRUCTION BREAKDOWN — Typical 600 MW Supercritical Coal Plant:\n\n  Component           Exergy destroyed    % of fuel exergy    Why\n  ──────────────────  ──────────────────  ──────────────────  ──────────────\n  Combustion          ~25-30%             Largest single      Flame at ~2000 K\n  (boiler furnace)                        loss                transfers to steam\n                                                              at 600°C → huge ΔT\n\n  Heat transfer       ~5-8%              Finite ΔT across    Pinch points in\n  (boiler tubes)                          tube walls          superheater, reheater\n\n  Turbine             ~4-6%              Blade friction,      LP stages worst\n  (expansion)                             tip leakage,        (large volume,\n                                          moisture            wet steam)\n\n  Condenser           ~3-5%              Reject heat at       T_cold > T_ambient\n  (heat rejection)                        ~35-45°C not 15°C   approach ΔT = 10-15°C\n\n  Auxiliaries         ~3-5%              Fans, pumps, mills,  Feed pump = biggest\n  (plant parasitic)                       coal handling        single aux load\n\n  Stack gas           ~3-5%              Flue gas exits at    Acid dew point limits\n  (sensible heat)                         120-150°C            how cool you can go\n\n  Generator + elec    ~1-2%              I²R, magnetic,       Minor\n                                          transformer\n\n  TOTAL DESTROYED:    ~45-60%\n  η_plant (net):      ~40-43% (SC), ~45-47% (USC)\n\n  THE DOMINANT LOSS: Combustion irreversibility (~25-30%)\n  Burning fuel at ~2000 K to heat steam to 600 K is a massive voluntary\n  exergy destruction. The Alchemist's response: raise T_H (USC, A-USC)\n  or skip combustion entirely (fuel cells convert chemical → electrical\n  directly, bypassing the Carnot tax on the thermal intermediate).",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-8",
+      "kind": "diagram_like",
+      "line": 388,
+      "heading_context": "### Ideal Brayton Cycle",
+      "confidence": "candidate",
+      "text": "IDEAL BRAYTON CYCLE — T-s DIAGRAM:\n\n  T (K)\n  │\n  │        ③ ──────────────── T_max (~1500-1700 K)\n  │       ╱ ╲\n  │      ╱   ╲\n  │     ╱     ╲   TURBINE: ③→④ (isentropic expansion)\n  │    ╱       ╲\n  │   ╱         ╲\n  │  ②           ④  (~800-900 K exhaust)\n  │   ╲         ╱\n  │    ╲       ╱\n  │     ╲     ╱\n  │      ╲   ╱   COMPRESSOR: ①→② (isentropic compression)\n  │       ╲ ╱\n  │        ① ────────────── T_ambient (~288-310 K)\n  │\n  └─────────────────────── s (entropy)\n\n  THE FOUR STEPS:\n  ① → ②  COMPRESSOR:    Compress ambient air (pressure ratio 15-25:1)\n                         w_comp = h₂ - h₁ = cp(T₂ - T₁)\n                         THIS IS EXPENSIVE: 50-60% of turbine output\n\n  ② → ③  COMBUSTOR:     Burn fuel (natural gas) with compressed air\n                         Q_in = h₃ - h₂ = cp(T₃ - T₂)\n                         T₃ = 1500-1700 K (turbine inlet temperature, TIT)\n\n  ③ → ④  TURBINE:       Expand hot gas through turbine\n                         w_turb = h₃ - h₄ = cp(T₃ - T₄)\n                         Net work = w_turb - w_comp\n\n  ④ → ①  EXHAUST:       Hot gas exhausted to atmosphere\n                         (open cycle) or cooled (closed cycle)\n                         T₄ ≈ 500-650°C — this is the \"leftover\" the\n                         Rankine bottoming cycle will capture in CCGT\n\n  η_Brayton = 1 - (T₁/T₂) = 1 - 1/r^((γ-1)/γ)\n\n  where r = pressure ratio (P₂/P₁), γ = cp/cv ≈ 1.4 for air\n\n  AT r = 20:  η_ideal = 1 - 1/20^(0.4/1.4) = 1 - 1/2.35 = 57.5%\n  AT r = 30:  η_ideal = 1 - 1/30^(0.286) = 1 - 1/2.68 = 62.7%\n\n  Actual η = 35-42% (OCGT) due to compressor/turbine irreversibilities,\n  combustion losses, cooling air diversion, and pressure drops.",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-9",
+      "kind": "ascii_table_candidate",
+      "line": 440,
+      "heading_context": "### Why Turbine Inlet Temperature (TIT) Is Everything",
+      "confidence": "candidate",
+      "text": "THE TIT RACE — Efficiency vs Materials:\n\n  Decade     TIT (°C)    TIT (K)    OCGT η    Key technology enabler\n  ─────────  ──────────  ─────────  ────────  ─────────────────────────\n  1960s       900        1173       25-28%    Forged nickel alloys\n  1970s      1050        1323       28-32%    Vacuum-cast blades\n  1980s      1200        1473       32-36%    Directional solidification\n  1990s      1350        1623       36-39%    Single-crystal blades (CMSX-4)\n  2000s      1400        1673       38-40%    Film cooling, TBC coatings\n  2010s      1500        1773       40-42%    Advanced TBCs, cooling designs\n  2020s      1600+       1873+      42-44%    Ceramic matrix composites (CMC)\n\n  BLADE COOLING:\n  HP turbine blades operate in gas hotter than their melting point.\n  Internal cooling channels + film cooling + thermal barrier coating (TBC)\n  keep metal temperature ~200-300°C below gas temperature.\n\n  ┌────────────────────────────────────────────────────┐\n  │  Gas path: 1600°C                                  │\n  │  ▓▓▓▓▓▓▓ TBC (ceramic, yttria-stabilized ZrO₂)     │\n  │  ─── Bond coat (MCrAlY)                            │\n  │  █████████ Ni-base superalloy blade (single xtl)   │\n  │  ○○○○○○○○○ Internal cooling passages (comp. air)   │\n  │  Metal temp: ~1000-1050°C                          │\n  │  Blade temp limit: ~1100°C (creep life)            │\n  └────────────────────────────────────────────────────┘\n\n  Cooling air = parasitic load: 15-25% of compressor air diverted to cooling\n  → reduces net work output\n  → there is an optimal TIT beyond which more cooling negates the efficiency gain\n\n  CMC REVOLUTION:\n  Ceramic matrix composites (SiC/SiC) can operate at ~1300°C without cooling\n  vs Ni superalloy at ~1050°C with cooling\n  → Reduces or eliminates cooling air → net efficiency gain\n  GE and Safran using CMC in aviation (LEAP engine) and power (HA turbines)",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-10",
+      "kind": "diagram_like",
+      "line": 481,
+      "heading_context": "### Open-Cycle Gas Turbine (OCGT) — The Peaker",
+      "confidence": "candidate",
+      "text": "OCGT IN POWER GENERATION:\n\n  Natural gas + air → [COMPRESSOR] → [COMBUSTOR] → [TURBINE] → exhaust\n                                                       │\n                                                    Generator\n                                                       │\n                                                    → Grid\n\n  ROLE:    Peaker plant. Starts in 5-15 minutes. Runs 500-2000 hours/yr.\n  η:       35-42%\n  CAPEX:   $400-700/kW (low — simple, fast to build)\n  OPEX:    High fuel cost (gas) + moderate maintenance\n  CF:      10-30% (runs only during peak demand)\n  Ramp:    10-30 MW/min (fast response for grid needs)\n\n  GE LM6000 (aero-derivative):  46 MW, η=42%, 10-min start\n  GE 7HA.03 (heavy-duty):       375-430 MW, η=44%, 30-min start\n  Siemens SGT-800:              62 MW, η=41%, 15-min start\n\n  WHY STILL BUILT:\n  At high VRE penetration, the grid needs fast-start capacity for:\n  1. Evening ramp (duck curve neck)\n  2. Unexpected wind/solar shortfall\n  3. Cold snaps and heat waves (extreme demand events)\n  BESS is replacing peakers for <4h duration; gas peakers remain\n  for longer events until long-duration storage materializes.\n\n  BRIDGE: OCGT in the grid = on-demand compute instance.\n  Low utilization (CF 10-30%), high marginal cost, but critical for peak.\n  Cloud spot instances serve a similar function — available on demand,\n  higher price per unit, essential for burst capacity.",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-11",
+      "kind": "diagram_like",
+      "line": 517,
+      "heading_context": "### Brayton with Regeneration (Recuperation)",
+      "confidence": "candidate",
+      "text": "RECUPERATED BRAYTON CYCLE:\n\n  T (K)\n  │\n  │        ③ ─────────── T_max\n  │       ╱ ╲\n  │      ╱   ╲\n  │     ╱     ╲\n  │    ╱       ╲\n  │   ②'        ④    exhaust T₄ still hot (~500°C)\n  │   ╱ ↑       │ ↓\n  │  ②  │regen  ④'   exhaust cooled after recuperator\n  │   ╲ │       ╱\n  │    ╲│      ╱\n  │     ①─────╱\n  │\n  └──────────────── s\n\n  REGENERATOR (recuperator): heat exchanger between hot exhaust (④)\n  and compressed air (②), preheating air before combustor entry.\n\n  ②→②': compressed air heated by exhaust (saves fuel)\n  ④→④': exhaust cooled (waste heat recovered)\n\n  η_regen = 1 - (T₁/T₃) × r^((γ-1)/γ)\n\n  When r is LOW and T₃/T₁ is HIGH, regeneration helps most.\n  At high pressure ratios, compressor exit T₂ approaches turbine\n  exit T₄ → no temperature gradient → regenerator useless.\n\n  APPLICATION: nuclear HTGR (helium Brayton with regenerator)\n  Helium at 950°C from reactor → turbine → recuperator → cooler\n  η ≈ 45-48% (vs 33% for Rankine at same heat source)\n  No steam, no phase change, compact turbomachinery",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-12",
+      "kind": "diagram_like",
+      "line": 565,
+      "heading_context": "### How CCGT Works",
+      "confidence": "candidate",
+      "text": "COMBINED CYCLE GAS TURBINE — SYSTEM DIAGRAM:\n\n  Natural gas + air\n        │\n        ▼\n  ┌─────────────────────────────────────────────────────┐\n  │  GAS TURBINE (Brayton topping cycle)                │\n  │                                                     │\n  │  [Compressor] → [Combustor] → [Turbine] → Generator │\n  │  Exhaust gas: ~550-650°C                            │\n  └─────────────────────────┬───────────────────────────┘\n                            │\n                            ▼\n  ┌─────────────────────────────────────────────────────┐\n  │  HRSG (Heat Recovery Steam Generator)               │\n  │                                                     │\n  │  Exhaust gas passes through:                        │\n  │    HP superheater → HP evaporator → HP economizer   │\n  │    IP superheater → IP evaporator → IP economizer   │\n  │    LP superheater → LP evaporator → LP economizer   │\n  │                                                     │\n  │  Three pressure levels extract maximum heat         │\n  │  HP steam: ~565°C / 170 bar                         │\n  │  IP steam: ~565°C / 40 bar                          │\n  │  LP steam: ~250°C / 5 bar                           │\n  │                                                     │\n  │  Stack gas exit: ~80-100°C (nearly all heat captrd) │\n  └─────────────────────────┬───────────────────────────┘\n                            │  Steam at three pressures\n                            ▼\n  ┌─────────────────────────────────────────────────────┐\n  │  STEAM TURBINE (Rankine bottoming cycle)            │\n  │                                                     │\n  │  HP turbine → IP turbine → LP turbine → Condenser   │\n  │                                       → Generator   │\n  └─────────────────────────────────────────────────────┘\n\n  EFFICIENCY ARITHMETIC:\n  Gas turbine (Brayton): η_GT ≈ 40%\n  Of the 60% waste heat, HRSG captures ~90%: available = 54%\n  Steam turbine (Rankine): η_ST ≈ 33% of available heat = 18%\n\n  η_combined = η_GT + (1 - η_GT) × η_HRSG × η_ST\n             = 0.40 + 0.60 × 0.90 × 0.33\n             = 0.40 + 0.18 = 0.58\n\n  Best modern CCGT: 62-64% (GE 9HA.02, Siemens SGT5-9000HL)\n  The extra 4-6% comes from higher TIT, better cooling, optimized HRSG",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-13",
+      "kind": "diagram_like",
+      "line": 618,
+      "heading_context": "### T-s Diagram of Combined Cycle",
+      "confidence": "candidate",
+      "text": "COMBINED CYCLE — COMPOSITE T-s DIAGRAM:\n\n  T (K)\n  │\n  │ 1700│       ③_gas ────── TIT (gas turbine peak)\n  │     │      ╱ ╲\n  │ 1400│     ╱   ╲         BRAYTON CYCLE (gas)\n  │     │    ╱     ╲\n  │ 1100│   ╱       ╲\n  │     │  ②         ╲\n  │  800│              ④_gas ── exhaust enters HRSG\n  │     │              │\n  │     │              │  HEAT TRANSFER (gas → steam)\n  │     │              │\n  │  600│       ③_stm ─── HP steam (superheated)\n  │     │      ╱ ╲\n  │  450│     ╱   ╲        RANKINE CYCLE (steam)\n  │     │    ╱     ╲\n  │  310│   ╱       ④_stm ── condenser\n  │     │  ①_stm ───╱\n  │\n  └──────────────────────────────────── s (entropy)\n\n  THE TWO CYCLES SHARE NO WORKING FLUID — only heat.\n  Gas cycle working fluid: air/combustion products\n  Steam cycle working fluid: H₂O\n  HRSG is the thermal bridge between them.\n\n  THE PINCH POINT:\n  In the HRSG, the minimum temperature difference between gas and steam\n  (the \"pinch\") must be maintained (typically ΔT_pinch ≥ 8-15°C).\n  If pinch is too small: infinite heat exchanger area (cost).\n  If pinch is too large: lost efficiency (exergy destruction).\n  Optimal pinch ≈ 8-12°C — engineering trade between cost and performance.\n\n  THREE-PRESSURE HRSG:\n  Multiple pressure levels allow steam to be generated at different\n  temperatures, better matching the gas cooling curve.\n  This reduces the average ΔT → less exergy destruction.\n  Triple-pressure with reheat is standard for large CCGT (>400 MW).",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-14",
+      "kind": "diagram_like",
+      "line": 663,
+      "heading_context": "### The CCGT Fleet — Key Machines",
+      "confidence": "candidate",
+      "text": "WORLD'S MOST EFFICIENT CCGT UNITS (2024):\n\n  Model                    GT Output   CC Output   CC η (LHV)   TIT\n  ───────────────────────  ─────────   ─────────   ──────────   ─────\n  GE 9HA.02 + D650 ST     382 MW GT   >680 MW CC   64.0%       1600°C+\n  Siemens SGT5-9000HL     375 MW GT   >650 MW CC   63.5%       1600°C\n  MHPS M701JAC            360 MW GT   >630 MW CC   63.0%       1600°C\n  GE 7HA.03               375-430 GT  >640 MW CC   64.2%       1600°C+\n\n  OPERATIONAL CHARACTERISTICS:\n  Cold start:      2-4 hours (GT ready in 30 min; steam system needs soak)\n  Hot start:       <1 hour (if shut down <8 hours ago)\n  Ramp rate:       30-50 MW/min (GT section)\n  Minimum load:    30-40% (GT can turn down, but efficiency drops sharply)\n  Fuel:            Natural gas (primary); fuel oil (backup, rare)\n  Lifetime:        25-30 years; major overhaul every 4-6 years\n  CAPEX:           $700-1,100/kW (vs $400-700 for OCGT)\n\n  WHY CCGT EFFICIENCY BEATS EVERYTHING ELSE:\n  η_Carnot at TIT=1600°C, T_cold=35°C = 1 - 308/1873 = 83.6%\n  η_actual = 64% → realizes 76% of Carnot limit\n  No other deployed thermal cycle comes close to this ratio.",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-15",
+      "kind": "diagram_like",
+      "line": 690,
+      "heading_context": "### CCGT Operating Modes",
+      "confidence": "candidate",
+      "text": "CCGT DISPATCH MODES IN HIGH-VRE GRIDS:\n\n  MODE         HOURS/YR    REASON                 η IMPACT\n  ───────────  ─────────   ─────────────────────  ─────────────\n  Baseload     5000-7000   Cheap gas, high CF     Peak η ~63%\n  (traditional)\n\n  Mid-merit    3000-5000   VRE displaces midday   η drops at\n  (2020s)                  → CCGT morning/evening  part-load\n\n  Cycling      1000-3000   Frequent start/stop    Thermal stress\n  (high VRE)               overnight shutdowns    + lower avg η\n\n  Peaking      500-1500    Only during \"dark      OCGT mode (GT\n  (future?)                doldrums\" or peaks     only) — η ~40%\n\n  THE FLEXIBILITY PROBLEM:\n  CCGT was designed for continuous baseload operation.\n  High-VRE grids demand frequent cycling → thermal stress on HRSG,\n  steam turbine, and GT hot section → higher maintenance costs.\n  Modern \"flex-CCGT\" designs (Siemens Flex-Plant, GE TrueChoice Flex)\n  optimize for cycling: faster starts, wider turn-down, better part-load η.\n\n  BRIDGE: CCGT operational transition mirrors the shift from\n  dedicated on-prem servers (always-on, high utilization) to\n  cloud instances that scale up/down. The infrastructure was designed\n  for steady-state; the workload became bursty. Both domains respond\n  with architectures optimized for variable load (auto-scaling / flex plants).",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-16",
+      "kind": "diagram_like",
+      "line": 729,
+      "heading_context": "## Supercritical CO₂ (sCO₂) Brayton Cycle — Next Generation",
+      "confidence": "candidate",
+      "text": "sCO₂ CRITICAL POINT AND PROPERTIES:\n\n  Property              Near critical       Far from critical     Water (steam)\n                        (35°C, 80 bar)      (500°C, 200 bar)\n  ──────────────────    ────────────────    ──────────────────    ─────────────\n  Density (kg/m³)       ~500-700            ~100-150              ~25 (at 250 bar)\n  Cp (kJ/kg·K)         ~10-50 (peaks!)     ~1.2                  ~2.5\n  Compressibility       Very low (liquid-   Moderate              Moderate\n                        like)\n\n  WHY THIS MATTERS FOR TURBOMACHINERY:\n  High density near critical point → compression requires very little work\n  (compressing a dense fluid is cheap — same reason Rankine pump work is tiny)\n  → Net cycle work = turbine - compressor is a larger fraction of turbine work\n  → Higher cycle efficiency for the same temperature ratio\n\n  sCO₂ SIMPLE RECUPERATED BRAYTON CYCLE:\n\n  T (K)\n  │\n  │  T_max ──── ③───────── (700-1000 K, depending on heat source)\n  │            ╱   ╲\n  │           ╱     ╲     TURBINE: ③→④\n  │          ╱       ╲\n  │  ②' ───╱    REGEN  ④   exhaust\n  │  ↑               │ ↓\n  │  ②               ④'   cooled exhaust\n  │   ╲             ╱\n  │    ╲           ╱\n  │     ① ───────╱          near critical point (~35°C, 80 bar)\n  │\n  └──────────────────── s\n\n  COMPRESSION NEAR CRITICAL POINT:\n  ① → ② is near the critical point → density is high → w_comp is small\n  Compressor work = ∫v dP ≈ v × ΔP (v is tiny near critical → tiny work)\n  Compare to ideal gas Brayton: w_comp can be 50-60% of w_turb\n  In sCO₂: w_comp can be only 25-30% of w_turb → more net output\n\n  RECUPERATION IS ESSENTIAL:\n  Without recuperation, sCO₂ cycle is mediocre (~25% for low T_max)\n  With recuperation (preheating compressed CO₂ from turbine exhaust):\n  η can reach 45-55% depending on T_max\n\n  HEAT SOURCE COMPATIBILITY:\n  Nuclear (HTGR, MSR):      700-900°C → sCO₂ η ~45-48%\n  CSP (solar tower):        600-800°C → sCO₂ η ~42-48%\n  Fossil (coal/gas):        700-1000°C → sCO₂ η ~50-55%\n  Waste heat recovery:      300-600°C → sCO₂ η ~25-35%",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-17",
+      "kind": "ascii_table_candidate",
+      "line": 783,
+      "heading_context": "### Why sCO₂ Is a Big Deal",
+      "confidence": "candidate",
+      "text": "sCO₂ vs STEAM RANKINE — COMPARISON:\n\n  Property                sCO₂ Brayton          Steam Rankine\n  ──────────────────────  ──────────────────    ──────────────────\n  Turbine size            10× smaller           Large (multi-stage)\n  (for same power)        (high density, compact) (low density steam)\n\n  Compressor work         25-30% of turbine     1-3% (pump, liquid)\n  (relative to turbine)\n\n  Working fluid toxicity  Non-toxic, inert      Non-toxic (steam)\n  Pressure                80-300 bar            150-300 bar (SC steam)\n  Phase change            None (always sCO₂)    Yes (water → steam)\n  Heat source temp range  300-1000°C+           200-760°C+\n  Cycle η at 700°C        ~47%                  ~42% (SC Rankine)\n  Footprint               ~1/10 of steam plant  Large turbine hall\n\n  THE COMPACT TURBINE ADVANTAGE:\n  sCO₂ at 200 bar, 700°C has density ~80 kg/m³\n  Steam at 250 bar, 600°C has density ~45 kg/m³\n  → sCO₂ turbine blades see much denser working fluid\n  → Same mass flow rate through smaller annulus\n  → Turbine diameter: ~1 m for 10 MW sCO₂ vs ~3 m for 10 MW steam\n  → Enormous implications for nuclear (compact, modular) and CSP\n\n  DEVELOPMENT STATUS (2024):\n  Sandia National Labs: 1 MW test loop (operational since 2016)\n  GE/SwRI/GTI: 10 MW pilot (DOE STEP program, San Antonio TX)\n  Echogen: EPS100 (8 MW waste heat recovery, commercial)\n  Korean KIER: 250 kW test loop for nuclear application\n  Full commercial: 2028-2035 expected for first utility-scale deployment\n\n  BRIDGE: sCO₂ turbomachinery compactness vs steam is analogous to\n  the RISC vs CISC revolution in processors. Same function, radically\n  smaller/simpler hardware, higher throughput per unit volume. The\n  physical footprint shrinks by an order of magnitude while performance\n  improves — enabling deployment in previously space-constrained\n  environments (submarines, space reactors, modular nuclear).",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-18",
+      "kind": "diagram_like",
+      "line": 831,
+      "heading_context": "## Organic Rankine Cycle (ORC) — Harvesting Low-Grade Heat",
+      "confidence": "candidate",
+      "text": "ORC PRINCIPLE:\n\n  Standard Rankine (water):  boils at 100°C (1 atm), 311°C (100 bar)\n  → Needs heat source > 350°C for reasonable efficiency\n\n  ORC fluids:\n  ┌──────────────┬──────────────┬───────────────────────┬────────────┐\n  │ Fluid        │ T_boil (1atm)│ Typical heat source   │ η_cycle    │\n  ├──────────────┼──────────────┼───────────────────────┼────────────┤\n  │ n-Pentane    │  36°C        │ 120-200°C             │ 10-16%     │\n  │ R245fa       │  15°C        │ 80-170°C              │  8-14%     │\n  │ Toluene      │ 111°C        │ 200-350°C             │ 18-24%     │\n  │ Siloxane MDM │ 153°C        │ 250-400°C             │ 20-26%     │\n  │ Cyclopentane │  49°C        │ 150-250°C             │ 12-18%     │\n  └──────────────┴──────────────┴───────────────────────┴────────────┘\n\n  ORC SYSTEM DIAGRAM:\n\n  LOW-GRADE HEAT SOURCE (80-400°C)\n  (geothermal, waste heat, biomass, solar thermal)\n        │\n        ▼\n  ┌──────────────────┐\n  │  EVAPORATOR      │\n  │ (heat exchanger) │\n  └────────┬─────────┘\n  Organic fluid boils at low temperature\n           │ Organic vapor\n           ▼\n  ┌──────────────────┐\n  │ TURBINE/EXPANDER │\n  │  (single-stage)  │\n  └────────┬─────────┘\n  Vapor expands → shaft work → generator\n  (simpler than multi-stage steam turbine)\n           │ Low-pressure vapor\n           ▼\n  ┌──────────────────┐\n  │  CONDENSER       │\n  └────────┬─────────┘\n  Vapor condenses at ~25-40°C\n           │ Liquid\n           ▼\n  ┌──────────────────┐\n  │  PUMP            │\n  └──────────────────┘\n  Pressurize liquid back to evaporator\n\n  KEY ORC PROPERTY — \"DRY EXPANSION\":\n  Most organic fluids are \"dry\" — their saturation curve slopes right\n  on the T-s diagram. Expansion from saturated vapor ends in the\n  superheated region, not in the two-phase region.\n  → No moisture in the turbine → no blade erosion → simpler turbine\n  → Can use single-stage radial turbines (vs multi-stage axial for steam)",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-19",
+      "kind": "diagram_like",
+      "line": 890,
+      "heading_context": "### ORC Applications",
+      "confidence": "candidate",
+      "text": "ORC DEPLOYMENT:\n\n  APPLICATION           HEAT SOURCE T    SCALE       INSTALLED (2024)\n  ────────────────────  ────────────     ──────      ────────────────\n  Geothermal binary     80-180°C         1-50 MW     ~3 GW globally\n  (most common ORC)                                  (60%+ of ORC market)\n\n  Industrial waste heat 150-400°C        0.5-10 MW   ~1 GW\n  (cement, glass, steel)\n\n  Biomass CHP           250-350°C        0.5-5 MW    ~2 GW\n  (wood, biogas)\n\n  Solar thermal (small) 150-300°C        50 kW-5 MW  ~0.3 GW\n  (parabolic trough)\n\n  Engine waste heat     350-500°C        10-500 kW    Pilot stage\n  (marine diesel, truck) (exhaust gas)                (Cummins, MAN)\n\n  TOTAL ORC INSTALLED: ~6-7 GW globally\n  MARKET LEADERS: Turboden (Mitsubishi), ORMAT, Enertime, Atlas Copco\n\n  EFFICIENCY REALITY CHECK:\n  ORC η = 10-25%, which sounds terrible. But the alternative is often:\n  • Geothermal at 120°C: Rankine impossible (T < boiling point of water\n    at economical pressures). ORC at 12% vs nothing = infinite improvement.\n  • Industrial waste heat at 200°C: currently dumped to atmosphere.\n    ORC at 15% converts free heat → electricity. Payback: 3-5 years.\n\n  The Alchemist's perspective: ORC doesn't violate thermodynamics —\n  it obeys it honestly. Low T_H → low Carnot ceiling → low η.\n  But any exergy recovered from waste heat is pure profit.",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-20",
+      "kind": "ascii_table_candidate",
+      "line": 933,
+      "heading_context": "## The Allam-Fetvedt Cycle — Carbon Capture Built In",
+      "confidence": "candidate",
+      "text": "ALLAM-FETVEDT CYCLE SCHEMATIC:\n\n  Natural gas + PURE O₂ (from ASU)\n        │\n        ▼\n  ┌──────────────────────────────────────────────┐\n  │  COMBUSTOR                                   │\n  │  Oxy-combustion: CH₄ + 2O₂ → CO₂ + 2H₂O      │\n  │  Working fluid: supercritical CO₂ at ~300 bar│\n  │  T_combustor: ~1150°C                        │\n  └────────┬─────────────────────────────────────┘\n           │  sCO₂ + H₂O at 1150°C, 300 bar\n           ▼\n  ┌──────────────────────────────────────────────┐\n  │  sCO₂ TURBINE                                │\n  │  Expansion: 300 bar → 30 bar                 │\n  │  Power output: generator                     │\n  └────────┬─────────────────────────────────────┘\n           │  Exhaust: ~700°C, 30 bar\n           ▼\n  ┌──────────────────────────────────────────────┐\n  │  RECUPERATOR (multi-stream heat exchanger)   │\n  │  Hot exhaust preheats recycled CO₂           │\n  │  Cooled exhaust → water separator            │\n  └────────┬─────────────────────────────────────┘\n           │\n           ├──► H₂O separated (condensed out)\n           │\n           ├──► CO₂ stream splits:\n           │      95% → recompressed → recycled to combustor\n           │       5% → pipeline/storage (the NET CO₂ produced)\n           │\n           └──► Recycled CO₂ → compressor → recuperator → combustor\n                (closed loop with 5% bleed-off)\n\n  KEY INNOVATION:\n  sCO₂ is both the working fluid AND the combustion product.\n  No N₂ in the combustor (pure O₂) → exhaust is CO₂ + H₂O.\n  Condense the water → nearly pure CO₂ stream.\n  No amine scrubbing, no post-combustion capture equipment.\n\n  EFFICIENCY:   ~51-54% net (after ASU and CO₂ compressor parasitic loads)\n                (comparable to CCGT's ~60-64%, but with 97%+ CO₂ capture)\n\n  CO₂ CAPTURE:  Inherent — the CO₂ IS the working fluid.\n                Capture rate: 97-99% (the small bleed stream)\n                vs amine scrubbing: 85-90% capture with 20%+ energy penalty\n\n  STATUS:\n  NET Power 50 MW thermal demo (La Porte, TX): operated 2018-2022\n  NET Power commercial plant: 280 MWe proposed, Occidental partnership\n  Timeline: first commercial operation ~2026-2028\n  Economic target: LCOE competitive with CCGT + CCS\n\n  THE ALCHEMIST'S TAKE:\n  The Allam cycle is elegant because it makes the pollution product\n  (CO₂) into the working fluid. The thermodynamic penalty of capture\n  is absorbed into the cycle design rather than bolted on afterward.\n  It is not magic — the air separation unit (ASU) for pure O₂ consumes\n  ~10-15% of gross power. But the NET penalty is far lower than\n  post-combustion CCS because no amine regeneration heat is needed.",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-21",
+      "kind": "diagram_like",
+      "line": 1001,
+      "heading_context": "## Cycle Comparison — The Alchemist's Scoreboard",
+      "confidence": "candidate",
+      "text": "THERMAL CYCLE HEAD-TO-HEAD:\n\n  Cycle             T_H range     η_actual   Fuel/Source        Maturity\n  ────────────────  ──────────    ────────   ─────────────      ────────\n  Subcrit. Rankine  540°C         33-38%     Coal, nuclear PWR  Mature\n  SC Rankine        600°C         40-43%     Coal, nuclear      Mature\n  USC Rankine       700°C+        45-47%     Coal (advanced)    Demo\n  ORC               80-350°C      10-25%     Waste heat, geo    Mature\n  OCGT (Brayton)    1500-1700°C   35-42%     Natural gas        Mature\n  CCGT (Combined)   1600°C+GT     58-64%     Natural gas        Mature\n  sCO₂ Brayton      700-1000°C    45-55%     Nuclear, CSP, WH   Pilot\n  Allam-Fetvedt     1150°C        51-54%     Natural gas+O₂     Demo\n  Helium Brayton    950°C         45-48%     Nuclear HTGR       Design\n  Stirling          700-1000°C    25-35%     Any external heat  Niche\n\n  EXERGY EFFICIENCY (2nd law — what fraction of available work is captured):\n\n  Cycle                η_exergy (η_actual / η_Carnot)\n  ────────────────     ──────────────────────────────\n  Subcrit. Rankine      55-62%\n  SC Rankine            62-68%\n  OCGT                  44-52%\n  CCGT                  74-80%   ← best deployed\n  sCO₂ (projected)     70-78%\n  ORC (at 150°C)        35-45%\n\n  BRIDGE: Exergy efficiency is to thermal cycles what algorithmic efficiency\n  is to computation. A sort algorithm's actual time vs the Θ(n log n) lower\n  bound gives you \"how close to optimal.\" An η_exergy of 76% means the CCGT\n  realizes 76% of the thermodynamically possible work — the remaining 24%\n  is the sum of all internal irreversibilities. Optimizing a power cycle is\n  literally the same mathematical structure as profiling and optimizing code:\n  identify the largest loss terms and attack them in order.",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-22",
+      "kind": "diagram_like",
+      "line": 1044,
+      "heading_context": "## Heat Rejection — The Condenser Problem",
+      "confidence": "candidate",
+      "text": "HEAT REJECTION METHODS:\n\n  METHOD              T_cold ACHIEVED   WATER USE        ENVIRONMENTAL\n  ──────────────────  ────────────────  ───────────────  ───────────────\n  Once-through        ~20-25°C          HIGH             Thermal discharge\n  (river/sea water)   (ambient water T) ~100 L/MWh       to water body\n                      Best η (lowest    (USGS: 41% of\n                      T_cold)           US freshwater\n                                        withdrawal!)\n\n  Wet cooling tower   ~25-35°C          MODERATE         Evaporative plume\n  (evaporative)       (approaches       ~2-3 L/MWh       visible in winter\n                      wet-bulb T)       consumed (evap)\n\n  Dry cooling         ~35-50°C          ZERO             No water use; large\n  (air-cooled)        (approaches       (fans only)      fan arrays, noisy\n                      dry-bulb T)                        η penalty: 2-5%\n\n  Hybrid              ~30-40°C          LOW              Best of both;\n  (wet + dry)                           ~0.5-1 L/MWh    expensive\n\n  EFFICIENCY IMPACT OF CONDENSER TEMPERATURE:\n  For a Rankine cycle with T_H = 600°C (873 K):\n\n  T_cond (°C)   T_cond (K)   η_Carnot    Δη vs 25°C baseline\n  ───────────   ──────────   ────────    ────────────────────\n  25            298          65.9%        (baseline)\n  30            303          65.3%        -0.6%\n  35            308          64.7%        -1.2%\n  40            313          64.1%        -1.8%\n  50            323          63.0%        -2.9%\n\n  Each 10°C increase in condenser temperature costs ~1.2% η_Carnot\n  Actual impact is ~0.5-0.8% net plant efficiency per 10°C\n  On a 1 GW plant at CF 85%: 0.5% = ~37 GWh/yr lost = ~$1.5M/yr revenue\n\n  WHY DESERT PLANTS USE DRY COOLING:\n  Water scarcity (Atacama, Middle East, Australian outback) →\n  dry cooling despite 2-5% efficiency penalty.\n  Solar PV has zero water footprint → inherent advantage over\n  thermal plants in water-scarce regions.",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    }
+  ]
+}

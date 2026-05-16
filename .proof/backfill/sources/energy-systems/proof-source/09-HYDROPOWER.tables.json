@@ -1,0 +1,109 @@
+{
+  "schema_version": "1",
+  "source_markdown": "energy-systems\\09-HYDROPOWER.md",
+  "tables": [
+    {
+      "id": "table-1",
+      "line": 666,
+      "heading_context": "## Bridges — Hydropower to Computing",
+      "headers": [
+        "Hydropower Concept",
+        "Computing/Distributed Systems Parallel"
+      ],
+      "rows": [
+        [
+          "Reservoir (stored PE)",
+          "Buffer/queue (stored work units) — smooth variable supply into steady demand"
+        ],
+        [
+          "Head (driving force)",
+          "Voltage / pressure differential in a pipeline — the potential that drives flow"
+        ],
+        [
+          "Turbine selection by head/flow",
+          "Data structure selection by access pattern — wrong choice works but wastes performance"
+        ],
+        [
+          "Run-of-river (no storage)",
+          "Streaming pipeline (process data as it arrives, no buffering)"
+        ],
+        [
+          "Spillway (safety overflow)",
+          "Backpressure / circuit breaker — controlled overflow when input exceeds capacity"
+        ],
+        [
+          "Francis \"rough zone\" at 35-50% load",
+          "Garbage collector pauses in throughput \"dead zone\" — certain operating ranges are unstable"
+        ],
+        [
+          "Double regulation (Kaplan)",
+          "Two-level load balancing — coarse (guide vanes = admission control) + fine (blade angle = per-request routing)"
+        ],
+        [
+          "Fish ladder (passage around dam)",
+          "Bypass route around a bottleneck — lets some traffic through at reduced throughput"
+        ],
+        [
+          "Dam removal (Elwha, Klamath)",
+          "Technical debt removal — decommissioning infrastructure that no longer justifies its cost"
+        ],
+        [
+          "Variable-speed PHS",
+          "Auto-scaling consumer — adjusts consumption rate to match available supply (VRE)"
+        ]
+      ]
+    },
+    {
+      "id": "table-2",
+      "line": 683,
+      "heading_context": "## Decision Cheat Sheet",
+      "headers": [
+        "If you need to diagnose...",
+        "Start With",
+        "Key Caveat"
+      ],
+      "rows": [
+        [
+          "Hydro grid value",
+          "Reservoir storage, ramp rate, and synchronous-machine services",
+          "Run-of-river has much less dispatch freedom"
+        ],
+        [
+          "Turbine choice",
+          "Head and flow first",
+          "Pelton/Francis/Kaplan are site-fit decisions, not a quality ranking"
+        ],
+        [
+          "Cheap existing hydro",
+          "Paid-off civil works and zero fuel",
+          "Refurbishment, sediment, relicensing, and dam safety still cost money"
+        ],
+        [
+          "New hydro claim",
+          "Site quality, social license, river ecology, and resettlement",
+          "Best sites are already used in many OECD systems"
+        ],
+        [
+          "Pumped hydro claim",
+          "Round-trip efficiency, duration, elevation, and permitting",
+          "Long-lived and cheap per cycle, but geography and lead time dominate"
+        ],
+        [
+          "Reservoir methane claim",
+          "Climate zone, flooded biomass, depth, and area/power ratio",
+          "Tropical shallow reservoirs can be high-emission outliers"
+        ],
+        [
+          "Fish-passage claim",
+          "Species, life stage, dam height, and downstream mortality",
+          "Passage structures do not recreate a free-flowing river"
+        ],
+        [
+          "Climate-risk claim",
+          "Snowpack, glacier, monsoon, drought, and flood regime",
+          "Hydro is renewable but not climate-invariant"
+        ]
+      ]
+    }
+  ]
+}

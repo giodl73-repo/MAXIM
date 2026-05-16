@@ -1,0 +1,171 @@
+{
+  "schema_version": "1",
+  "source_markdown": "energy-systems\\00-OVERVIEW.md",
+  "blocks": [
+    {
+      "id": "block-1",
+      "kind": "diagram_like",
+      "line": 34,
+      "heading_context": "## The Big Picture — Exergy Destruction Chain",
+      "confidence": "candidate",
+      "text": "PRIMARY ENERGY SOURCES                            EXERGY CONTENT\n┌────────────────────────────────────────────────────────────────────────────┐\n│  CHEMICAL (fossil, biomass)   ΔG_rxn of combustion      ~100% of LHV       │\n│  NUCLEAR  (fission, fusion)   Q-value × (1 - T₀/T_rad)  ~70% of thermal    │\n│  SOLAR    (photons, 5778 K)   Petela limit: 93%         ~93% of flux       │\n│  GRAVITATIONAL (hydro, tidal) mgh — already work         ~100%             │\n│  GEOTHERMAL   (T_reservoir)   1 - T₀/T_res              ~15-30%            │\n│  WIND     (kinetic, ½ρAv³)   Betz limit: 59.3%          ~59% of KE         │\n└────────────────────────────────────────────────────────────────────────────┘\n        │\n        │  ① Extraction / harvesting losses\n        │     mining energy, drilling, refining parasitic loads\n        │     solar: reflection, sub-bandgap photons, thermalization\n        │     EXERGY DESTROYED: 2-15%\n        ▼\n┌────────────────────────────────────────────────────────────────────────────┐\n│  CONVERSION — where the Carnot tax is collected                            │\n│                                                                            │\n│  Heat engines (coal, gas, nuclear)                                         │\n│    η_Carnot = 1 - T_cold/T_hot     ← the ceiling nobody escapes            │\n│    η_actual = η_Carnot × η_internal (friction, mixing, finite ΔT)          │\n│                                                                            │\n│  Electrochemical (fuel cell, battery)                                      │\n│    η = ΔG/ΔH = 1 - TΔS/ΔH         ← Carnot does NOT apply                  │\n│    direct chemical→electrical; no thermal bottleneck                       │\n│                                                                            │\n│  Photovoltaic (solar PV)                                                   │\n│    η_SQ = 33.7% (single junction)  ← Shockley-Queisser limit               │\n│    thermalization + sub-bandgap = main exergy destruction                  │\n│                                                                            │\n│  Turbomachinery (wind, hydro)                                              │\n│    η_turbine = 85-95% of available KE/PE                                   │\n│    Betz limit (wind): 16/27 of kinetic energy flux                         │\n│  ──────────────────────────────────────────────────────────────────────    │\n│  EXERGY DESTROYED: 40-70% (thermal), 5-15% (direct conversion)             │\n└────────────────────────────────────────────────────────────────────────────┘\n        │\n        │  ② Transmission / distribution\n        │     electrical: I²R losses in lines + transformers (5-8%)\n        │     fuel transport: pipeline compression, tanker fuel\n        │     EXERGY DESTROYED: 3-8%\n        ▼\n┌────────────────────────────────────────────────────────────────────────────┐\n│  FINAL ENERGY — what arrives at the meter/nozzle                           │\n│  ~400 EJ/yr globally (~67% of primary)                                     │\n│                                                                            │\n│  Electricity  ~20%    Heat  ~50%    Transport fuel  ~28%    Other  ~2%     │\n└────────────────────────────────────────────────────────────────────────────┘\n        │\n        │  ③ End-use conversion\n        │     ICE drivetrain: 20% of fuel → motion (80% waste heat)\n        │     Electric motor: 90-95% of electricity → shaft work\n        │     Heat pump: COP 3 → 300% of electricity → useful heat\n        │     Gas furnace: 90% of fuel → heat (but fuel exergy >> heat exergy)\n        │     EXERGY DESTROYED: 20-80% depending on end use\n        ▼\n┌────────────────────────────────────────────────────────────────────────────┐\n│  USEFUL ENERGY SERVICES — motion, warmth, light, computation               │\n│  ~200 EJ/yr globally (~35% of primary energy)                              │\n│                                                                            │\n│  THE REST IS WASTE HEAT → radiated to the 2.7 K cosmic background          │\n│  Entropy has increased. The universe has aged. The Alchemist's tax is paid.│\n└────────────────────────────────────────────────────────────────────────────┘",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-2",
+      "kind": "diagram_like",
+      "line": 112,
+      "heading_context": "## Three Directories, One Exergy Story",
+      "confidence": "candidate",
+      "text": "┌──────────────────────────────────────────────────────────────────────┐\n│  chemical-eng/         THE FEEDSTOCK TRANSFORMER                     │\n│                                                                      │\n│  Transforms raw materials into products at scale.                    │\n│  Exergy lens: Gibbs free energy of mixing and reaction.              │\n│  Destroys exergy via: finite-rate heat/mass transfer, mixing,        │\n│    reaction irreversibility, separation work (distillation,          │\n│    membranes — always costs more than the reversible minimum).       │\n│  Key ratio: actual separation work / minimum reversible work         │\n│    (thermodynamic efficiency of separation ≈ 5-20% for distillation) │\n├──────────────────────────────────────────────────────────────────────┤\n│  nuclear/              THE FISSION TRANSFORMER                       │\n│                                                                      │\n│  Transforms nuclear binding energy into thermal energy.              │\n│  Exergy lens: 200 MeV per fission event → radiation → coolant heat  │\n│    → Carnot-limited steam cycle. The exergy of fission products      │\n│    (high-energy gamma, neutrons) degrades to ~550°C steam — a        │\n│    massive voluntary exergy destruction in the name of containment.  │\n│  PWR thermal efficiency: ~33%. Not because nuclear is inefficient —  │\n│    because T_hot is deliberately kept low for materials/safety.      │\n│  Key ratio: 200 MeV fission → 66 MeV electricity → 134 MeV waste   │\n├──────────────────────────────────────────────────────────────────────┤\n│  energy-systems/       THE INTEGRATION LAYER (this directory)        │\n│                                                                      │\n│  Connects primary sources to final energy services.                  │\n│  Exergy lens: the orchestration of conversion, storage, transport,   │\n│    and dispatch. Every storage cycle destroys exergy (round-trip     │\n│    efficiency < 100%). Every transmission line dissipates I²R heat.  │\n│    Grid dispatch is a real-time optimization: minimize total exergy  │\n│    destruction subject to demand, reliability, and cost constraints. │\n│  Key ratio: primary energy in / useful energy services out           │\n│    (global average: ~35%)                                            │\n└──────────────────────────────────────────────────────────────────────┘",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-3",
+      "kind": "diagram_like",
+      "line": 171,
+      "heading_context": "## Primary / Secondary / Final — The Energy Cascade",
+      "confidence": "candidate",
+      "text": "PRIMARY ENERGY                  SECONDARY ENERGY               FINAL ENERGY\n(as extracted from nature)      (after first conversion)       (as delivered to user)\n───────────────────────────     ────────────────────────       ──────────────────────\nCrude oil                  →    Gasoline, diesel, jet fuel →   Fuel in your tank\nCoal                       →    Electricity (power plant)  →   kWh at your meter\nUranium ore                →    Enriched UO₂ → heat → elec →  kWh at your meter\nSunlight on panel          →    DC electricity → AC (inv.)  →  kWh at your meter\nNatural gas at wellhead    →    Pipeline gas / LNG          →  Gas at your burner\nBiomass (wood, crop)       →    Bioethanol / biogas         →  Fuel or heat\n\nGlobal totals (2024):\n  Primary:     ~600 EJ/yr     (what we extract)\n  Secondary:   ~450 EJ/yr     (after refining/conversion)\n  Final:       ~400 EJ/yr     (what reaches the door)\n  Useful:      ~200 EJ/yr     (actual energy services)\n\n  Missing ~400 EJ = waste heat. That is two-thirds of everything we extract.",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-4",
+      "kind": "diagram_like",
+      "line": 203,
+      "heading_context": "## The Carnot Limit — Why It Matters and Where It Doesn't",
+      "confidence": "candidate",
+      "text": "η_Carnot = 1 - T_cold / T_hot      (temperatures in Kelvin)\n\nTECHNOLOGY          T_HOT      T_COLD    η_CARNOT    η_ACTUAL    GAP\n────────────────────────────────────────────────────────────────────────\nCoal subcritical    810 K      310 K      61.7%       33-36%     ~28%\nCoal supercritical  870 K      310 K      64.4%       40-42%     ~23%\nCCGT (gas turbine)  1600 K     310 K      80.6%       58-63%     ~19%\nNuclear PWR         590 K      310 K      47.5%       32-34%     ~14%\nNuclear HTGR        1200 K     310 K      74.2%       45-48%     ~27%\nGeothermal          420 K      310 K      26.2%       10-15%     ~13%\nOcean thermal       298 K      278 K       6.7%        3-4%      ~3%\n────────────────────────────────────────────────────────────────────────\n\nWhere Carnot does NOT apply:\n  Fuel cell:    η = ΔG/ΔH (can exceed Carnot for same temperatures)\n  Solar PV:     photon → electron-hole pair (quantum, not thermal)\n  Wind turbine: kinetic energy → shaft work (Betz limit, not Carnot)\n  Heat pump:    COP = T_hot/(T_hot - T_cold) — the Carnot cycle in reverse\n\nThe \"gap\" column is where the Alchemist earns a living: finite-ΔT heat\ntransfer, turbine blade friction, generator losses, auxiliaries, condenser\napproach temperature. Every percentage point recovered is real money.",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-5",
+      "kind": "diagram_like",
+      "line": 261,
+      "heading_context": "### Capacity Factors (actual output / nameplate maximum)",
+      "confidence": "candidate",
+      "text": "TECHNOLOGY               TYPICAL CF      ANNUAL OUTPUT PER GW INSTALLED\n──────────────────────────────────────────────────────────────────────────\nNuclear                  90-95%          7,900 - 8,300 GWh/yr\nCoal (baseload)          70-85%          6,100 - 7,400 GWh/yr\nCCGT                     40-60%          3,500 - 5,300 GWh/yr\nOffshore wind            40-55%          3,500 - 4,800 GWh/yr\nOnshore wind             25-40%          2,200 - 3,500 GWh/yr\nUtility solar PV         15-30%          1,300 - 2,600 GWh/yr\nRooftop solar PV         10-18%            880 - 1,600 GWh/yr\nHydro (run-of-river)     30-50%          2,600 - 4,400 GWh/yr\n\n  \"China added 200 GW of solar in 2023\" → at 15% CF that is ~263 TWh/yr\n  ≈ equivalent to ~30 GW nuclear at 90% CF (237 TWh/yr).\n  Capacity without capacity factor is a meaningless headline.",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-6",
+      "kind": "chart_like",
+      "line": 278,
+      "heading_context": "### Capacity Factors (actual output / nameplate maximum)",
+      "confidence": "candidate",
+      "text": "### LCOE Ranges (2024, global average, utility scale)",
+      "notes": [
+        "detected from bar/chart glyph density with numeric labels"
+      ]
+    },
+    {
+      "id": "block-7",
+      "kind": "ascii_table_candidate",
+      "line": 302,
+      "heading_context": "## Dispatchable vs. Intermittent — The Grid's Central Tension",
+      "confidence": "candidate",
+      "text": "DISPATCHABLE                              VARIABLE / INTERMITTENT\n(produces on demand)                      (produces when nature allows)\n─────────────────                         ──────────────────────────────\nCoal, gas, nuclear, hydro (reservoir),    Solar PV, onshore/offshore wind,\nbiomass, geothermal                       run-of-river hydro\n\nOperator says: \"give me 500 MW at 3pm\"    Output depends on: sun, wind, rain\nPlant responds: ramp to 500 MW            Grid operator must: forecast, store,\n                                            curtail, or find backup\n\nThe grid equation (every second):\n  Generation = Demand + Losses\n  If generation > demand → frequency rises (>50/60 Hz) → curtail or store\n  If generation < demand → frequency drops (<50/60 Hz) → shed load or start peakers\n\nMismatch tolerance: ±0.5 Hz before equipment damage\nResponse time budget: primary response <10s, secondary <30s, tertiary <15min\n\nAt low VRE penetration (<20%):  fossil/nuclear fleet handles variability easily\nAt medium (20-40%):             need flexible gas + some storage + better forecasting\nAt high (40-60%):               need significant storage + grid interconnection\nAt very high (60-80%+):         need seasonal storage + sector coupling + overbuild",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-8",
+      "kind": "diagram_like",
+      "line": 339,
+      "heading_context": "## Energy Storage — The Exergy Cost of Time-Shifting",
+      "confidence": "candidate",
+      "text": "STORAGE TECHNOLOGY       ROUND-TRIP η   ENERGY DENSITY   DURATION    SCALE\n──────────────────────────────────────────────────────────────────────────────\nLi-ion (NMC/LFP)        85-92%         200-700 Wh/L     1-4 hours   MW-GW\nPumped hydro (PHS)       75-82%         0.3 Wh/L (res.)  6-24 hours  GW\nCompressed air (CAES)    50-70%         3-6 Wh/L (cav.)  4-24 hours  100MW-GW\nFlow batteries (VRFB)    65-75%         20-35 Wh/L       4-12 hours  MW-100MW\nHydrogen (P2G2P)         30-42%         700 Wh/L @700bar seasonal    GW\nThermal (molten salt)    40-50% (→elec) 200-300 kWh/m³   6-12 hours  100MW\nGravity (tower/mine)     80-85%         low               4-8 hours   MW-GW\nFlywheel                 85-95%         high, low cap.    seconds-min MW\n\nTHE STORAGE HIERARCHY (by response time):\n  Flywheels / supercaps        → frequency regulation (seconds)\n  Li-ion batteries             → peak shifting (hours)\n  Pumped hydro / CAES          → daily load balancing (hours-day)\n  Hydrogen / ammonia           → seasonal storage (weeks-months)\n  No single technology covers all timescales. The portfolio is the answer.",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-9",
+      "kind": "diagram_like",
+      "line": 371,
+      "heading_context": "## Sector Coupling — Where the Boundaries Dissolve",
+      "confidence": "candidate",
+      "text": "                    ELECTRICITY GRID\n                   ╱       │        ╲\n                  ╱        │         ╲\n    ┌────────────┐  ┌──────────┐  ┌──────────────┐\n    │  TRANSPORT │  │  HEAT    │  │  INDUSTRY    │\n    │            │  │          │  │              │\n    │  EVs       │  │  Heat    │  │  Electric    │\n    │  ←elec     │  │  pumps   │  │  arc furnace │\n    │            │  │  ←elec   │  │  ←elec       │\n    │  H₂ trucks │  │          │  │              │\n    │  ←elec→H₂  │  │  District│  │  Green H₂    │\n    │            │  │  heat    │  │  ←elec→H₂    │\n    │  E-fuels   │  │  ←waste  │  │              │\n    │  ←elec→H₂  │  │   heat   │  │  E-fuels     │\n    │   →synfuel │  │          │  │  ←elec→H₂→NH₃│\n    └────────────┘  └──────────┘  └──────────────┘\n\nSECTOR COUPLING MECHANISMS:\n  Power-to-Heat (P2H):     Heat pumps, resistive heating, industrial electric boilers\n  Power-to-Gas (P2G):      Electrolysis → H₂; optionally + CO₂ → synthetic methane\n  Power-to-Liquid (P2L):   H₂ + CO₂ → Fischer-Tropsch → synthetic jet fuel / diesel\n  Vehicle-to-Grid (V2G):   EV batteries as distributed storage (discharge to grid)\n  Combined Heat & Power:   Gas turbine/fuel cell waste heat → district heating\n\nWHY IT MATTERS:\n  Electricity is ~20% of final energy today; must reach ~50% by 2050 (IEA NZE).\n  The other 80% — industrial heat, transport fuel, building heat — currently runs\n  on direct combustion. Electrification + hydrogen covers most of it. The sectors\n  that resist electrification (aviation, cement, steel) need hydrogen or CCS.",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-10",
+      "kind": "diagram_like",
+      "line": 407,
+      "heading_context": "## Decarbonization Pathways — The Wedge Analysis",
+      "confidence": "candidate",
+      "text": "GLOBAL CO₂ EMISSIONS: ~37 Gt/yr (2024)\nTARGET (IEA NZE 2050): net zero\n\nTHE REDUCTION WEDGES:\n┌──────────────────────────────────────────────────────────────────────┐\n│  Electricity decarbonization         (~40% of the job)               │\n│    Solar + wind build-out: 2,400 GW/yr by 2030 (vs ~500 GW 2023)     │\n│    Nuclear fleet: maintain + extend + new SMRs                       │\n│    Coal phase-out: advanced economies by 2030, global by 2040        │\n│    CCS on remaining fossil: 5-10 GtCO₂/yr capture capacity           │\n├──────────────────────────────────────────────────────────────────────┤\n│  Transport electrification           (~20% of the job)               │\n│    Passenger EVs: 60% of sales by 2030, ~100% by 2040                │\n│    Trucking: BEV for short/medium; H₂ fuel cell for long-haul        │\n│    Aviation: SAF 50% by 2035; e-fuels for remainder                  │\n│    Shipping: ammonia, methanol, LNG (bridge fuel)                    │\n├──────────────────────────────────────────────────────────────────────┤\n│  Building heat electrification       (~15% of the job)               │\n│    Heat pumps replace gas/oil boilers (COP 3-4 = 300-400%)           │\n│    District heating from waste heat / large heat pumps               │\n│    Building envelope: insulation, triple glazing                     │\n├──────────────────────────────────────────────────────────────────────┤\n│  Industrial decarbonization          (~20% of the job)               │\n│    Steel: DRI with green H₂ replaces blast furnace coke              │\n│    Cement: CCS on process emissions (CaCO₃→CaO+CO₂ chemistry)        │\n│    Chemicals: green H₂ for ammonia (Haber-Bosch); electrification    │\n│    Low-temp heat: industrial heat pumps (<200°C)                    │\n├──────────────────────────────────────────────────────────────────────┤\n│  Negative emissions                  (~5% of the job, post-2040)     │\n│    DAC (direct air capture): 1-5 GtCO₂/yr by 2050                    │\n│    BECCS (biomass energy + CCS)                                      │\n│    Afforestation / soil carbon                                       │\n│    Cost: $100-600/tCO₂ for DAC (declining)                           │\n└──────────────────────────────────────────────────────────────────────┘\n\nCARBON BUDGET (IPCC AR6):\n  1.5°C (50% prob):  ~250 GtCO₂ remaining → exhausted ~2031 at current pace\n  2.0°C (50% prob): ~1,150 GtCO₂ remaining → exhausted ~2055 at current pace",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-11",
+      "kind": "diagram_like",
+      "line": 454,
+      "heading_context": "## The Efficiency Argument for Electrification",
+      "confidence": "candidate",
+      "text": "HEATING: Gas Furnace vs Heat Pump\n─────────────────────────────────────────────────────────────────\n  Gas furnace:   1 GJ gas → 0.90 GJ heat        (η = 90%)\n  Heat pump:     1 GJ elec → 3.0 GJ heat         (COP = 3.0)\n\n  Even if electricity comes from a 50%-efficient gas plant:\n    0.50 (plant η) × 3.0 (COP) = 1.50 GJ heat per GJ gas\n    vs 0.90 GJ heat per GJ gas from direct combustion\n    → Heat pump path delivers 67% more useful heat per unit of fuel.\n\nTRANSPORT: ICE vs Electric Drivetrain\n─────────────────────────────────────────────────────────────────\n  ICE:    1 GJ gasoline → 0.20 GJ motion + 0.80 GJ waste heat\n  EV:     1 GJ elec     → 0.85 GJ motion + 0.15 GJ waste heat\n\n  Tank-to-wheel ratio: 4.25× (EV uses 4.25× less energy per km)\n\nCOOKING: Gas Burner vs Induction\n─────────────────────────────────────────────────────────────────\n  Gas burner:    ~40% of fuel energy reaches the pot\n  Induction:     ~85% of electricity reaches the pot\n  Ratio: 2.1× in favor of induction",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-12",
+      "kind": "diagram_like",
+      "line": 486,
+      "heading_context": "## Energy Units — The Rosetta Stone",
+      "confidence": "candidate",
+      "text": "┌──────────────────────────────────────────────────────────────────────┐\n│  1 EJ  = 10¹⁸ J = 277.8 TWh = 23.88 Mtoe = 0.948 quad                │\n│  1 TWh = 3.6 PJ = 0.0860 Mtoe = 3.41 TBtu                            │\n│  1 Mtoe = 41.87 PJ = 11.63 TWh                                       │\n│  1 kWh = 3.6 MJ = 3,412 BTU                                          │\n│  1 quad = 1.055 EJ (used in US EIA reports)                          │\n│                                                                      │\n│  Who uses what:                                                      │\n│    IEA / IPCC:        EJ, Mtoe                                       │\n│    Power sector:      TWh (energy), GW (capacity), GWh (storage)     │\n│    US EIA, Congress:  quads, BTU                                     │\n│    Utility bills:     kWh                                            │\n│    Industrial heat:   GJ, MMBtu                                      │\n│    Physics papers:    J, eV                                          │\n└──────────────────────────────────────────────────────────────────────┘\n\nANCHOR NUMBERS (2024):\n  Global primary energy:           ~600 EJ/yr (~167,000 TWh)\n  Global electricity generation:   ~30,000 TWh/yr (~108 EJ)\n  Electricity as % of final:       ~20%\n  USA primary energy:              ~100 EJ/yr (~95 quads)\n  1 GW nuclear @ 90% CF:          ~7.9 TWh/yr\n  1 GW solar @ 20% CF:            ~1.75 TWh/yr",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-13",
+      "kind": "diagram_like",
+      "line": 516,
+      "heading_context": "## Energy Density — Why Storage and Transport Substitution Are Hard",
+      "confidence": "candidate",
+      "text": "GRAVIMETRIC (MJ/kg)                     VOLUMETRIC (MJ/L)\n───────────────────────                 ──────────────────────\nUranium-235        80,000,000           Diesel               37\nHydrogen (LHV)           120           Gasoline              34\nNatural gas               55           LNG                   23\nGasoline                  44           Liquid H₂ (-253°C)    10\nDiesel                    43           H₂ at 700 bar          5\nCoal (bituminous)         25           Li-ion NMC (cell)     2.5\nWood (dry)                18           Li-ion LFP (cell)     1.5\nLi-ion NMC (cell)        0.7           Lead-acid             0.36\nLi-ion LFP (cell)        0.5\nLead-acid                0.14\nPumped hydro (100m)      0.001\n\nTHE GAP: Gasoline holds ~60× more energy per kg than the best Li-ion cell.\n  → Long-haul aviation: battery-electric not viable for decades\n  → Long-haul trucking: marginal (BEV for some routes, H₂ for others)\n  → Passenger cars: BEV works (range anxiety is psychological)\n  → Grid storage (4h): Li-ion works well at current cost curves\n  → Seasonal storage: requires chemistry (H₂) or geography (pumped hydro)",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-14",
+      "kind": "ascii_table_candidate",
+      "line": 543,
+      "heading_context": "## Global Energy Mix — Where We Are",
+      "confidence": "candidate",
+      "text": "PRIMARY ENERGY BY SOURCE (2024, ~600 EJ):\n  Oil          ~31%     Coal         ~25%     Natural gas  ~23%\n  Hydro         ~7%     Nuclear       ~5%     Wind          ~4%\n  Solar         ~4%     Biomass/other ~2%\n\n  Fossil total: ~79%. Down from ~85% a decade ago. Declining, but slowly.\n\nELECTRICITY GENERATION BY SOURCE (2024, ~30,000 TWh):\n  Coal         ~34%     Gas          ~22%     Hydro        ~15%\n  Nuclear      ~10%     Wind          ~8%     Solar         ~6%\n  Other RE      ~5%\n\n  Low-carbon electricity: ~39% (nuclear + hydro + wind + solar + other RE)\n  Fossil electricity:     ~56%\n  Other:                   ~5%\n\nIEA NZE 2050 ELECTRICITY TARGET:\n  ~90,000 TWh (3× today). ~90% low-carbon. Electricity = ~50% of final energy.\n  Tripling driven by: EV charging + heat pumps + green H₂ electrolysis + industry.",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-15",
+      "kind": "diagram_like",
+      "line": 650,
+      "heading_context": "## Decision Guide",
+      "confidence": "candidate",
+      "text": "WHAT ENERGY SYSTEMS QUESTION?\n        │\n        ├── How does solar/wind convert energy and what limits efficiency?\n        │   └──► 01-SOLAR-PV / 02-WIND-POWER\n        │\n        ├── How do we store energy and what does each cycle cost in exergy?\n        │   └──► 03-ENERGY-STORAGE\n        │\n        ├── When does hydrogen make sense vs direct electrification?\n        │   └──► 04-HYDROGEN\n        │\n        ├── How does the grid balance supply/demand in real time?\n        │   └──► 05-GRID-INTEGRATION\n        │\n        ├── How do nuclear reactors fit into the energy system?\n        │   └──► 06-NUCLEAR-SYSTEMS (+ nuclear/ directory for reactor physics)\n        │\n        ├── How do fossil plants transition and what replaces them?\n        │   └──► 07-FOSSIL-TRANSITION\n        │\n        ├── How do thermal power cycles work and where does exergy die?\n        │   └──► 08-THERMAL-CYCLES (Rankine, Brayton, CCGT, sCO₂, ORC)\n        │\n        ├── How does hydropower work and which turbine for which site?\n        │   └──► 09-HYDROPOWER (Pelton, Francis, Kaplan, reservoir ops)\n        │\n        ├── How does the grid dispatch generators and storage in real time?\n        │   └──► 10-GRID-DISPATCH (merit order, unit commitment, BESS ops)\n        │\n        ├── How do chemical processes transform feedstock at scale?\n        │   └──► chemical-eng/ directory (reaction, separation, transport)\n        │\n        └── What is the physics of fission and reactor design?\n            └──► nuclear/ directory (neutronics, thermal hydraulics, safety)",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    }
+  ]
+}

@@ -1,3 +1,22 @@
+---
+maxim_schema: maxim.frontmatter.v1
+id: maxim:energy-systems:overview
+kind: guide
+module: energy-systems
+section: energy-systems
+title: Energy Systems - The Alchemist's Question
+status: source-custody
+source_custody: partial
+current_path: energy-systems/00-OVERVIEW.md
+canonical_path: energy-systems/00-OVERVIEW.md
+backsource_ids: [proof-backfill:energy-systems:00-overview, git-history:energy-systems:00-overview]
+concepts: [overview]
+root_concepts: [overview]
+index_roles: [guide, root-concept]
+remap_from: []
+remap_to: []
+updated: null
+---
 # Energy Systems — The Alchemist's Question
 
 *Where does availability die?*

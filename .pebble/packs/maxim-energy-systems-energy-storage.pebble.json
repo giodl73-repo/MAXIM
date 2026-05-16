@@ -1,0 +1,853 @@
+{
+  "schema": "pebble.v1",
+  "kind": "corpus-slice",
+  "title": "maxim-energy-systems-energy-storage",
+  "source": "../../energy-systems",
+  "format": "markdown",
+  "metadata": {},
+  "sections": [
+    {
+      "id": "03-ENERGY-STORAGE.md#000",
+      "path": [
+        "03-ENERGY-STORAGE.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:energy-systems:03-energy-storage, git-history:energy-systems:03-energy-storage]",
+        "canonical_path": "energy-systems/03-ENERGY-STORAGE.md",
+        "concepts": "[energy, storage]",
+        "current_path": "energy-systems/03-ENERGY-STORAGE.md",
+        "id": "maxim:energy-systems:energy-storage",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "energy-systems",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[energy, storage]",
+        "section": "energy-systems",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Energy Storage",
+        "updated": "null"
+      },
+      "text": "# Energy Storage"
+    },
+    {
+      "id": "03-ENERGY-STORAGE.md#001",
+      "path": [
+        "03-ENERGY-STORAGE.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:energy-systems:03-energy-storage, git-history:energy-systems:03-energy-storage]",
+        "canonical_path": "energy-systems/03-ENERGY-STORAGE.md",
+        "concepts": "[energy, storage]",
+        "current_path": "energy-systems/03-ENERGY-STORAGE.md",
+        "id": "maxim:energy-systems:energy-storage",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "energy-systems",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[energy, storage]",
+        "section": "energy-systems",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Energy Storage",
+        "updated": "null"
+      },
+      "text": "## The Big Picture"
+    },
+    {
+      "id": "03-ENERGY-STORAGE.md#002",
+      "path": [
+        "03-ENERGY-STORAGE.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:energy-systems:03-energy-storage, git-history:energy-systems:03-energy-storage]",
+        "canonical_path": "energy-systems/03-ENERGY-STORAGE.md",
+        "concepts": "[energy, storage]",
+        "current_path": "energy-systems/03-ENERGY-STORAGE.md",
+        "id": "maxim:energy-systems:energy-storage",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "energy-systems",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[energy, storage]",
+        "section": "energy-systems",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Energy Storage",
+        "updated": "null"
+      },
+      "text": "Storage is the linchpin technology for high-penetration renewable grids. The problem\nis that \"storage\" spans 9 orders of magnitude in duration (milliseconds to months)\nand the dominant technology changes completely depending on the application.\nNo single technology covers the full range."
+    },
+    {
+      "id": "03-ENERGY-STORAGE.md#003",
+      "path": [
+        "03-ENERGY-STORAGE.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:energy-systems:03-energy-storage, git-history:energy-systems:03-energy-storage]",
+        "canonical_path": "energy-systems/03-ENERGY-STORAGE.md",
+        "concepts": "[energy, storage]",
+        "current_path": "energy-systems/03-ENERGY-STORAGE.md",
+        "id": "maxim:energy-systems:energy-storage",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "energy-systems",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[energy, storage]",
+        "section": "energy-systems",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Energy Storage",
+        "updated": "null"
+      },
+      "text": "```\nENGINEERING BRIDGE: ENERGY STORAGE ≡ MEMORY/CACHE HIERARCHY\n══════════════════════════════════════════════════════════════════════"
+    },
+    {
+      "id": "03-ENERGY-STORAGE.md#004",
+      "path": [
+        "03-ENERGY-STORAGE.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:energy-systems:03-energy-storage, git-history:energy-systems:03-energy-storage]",
+        "canonical_path": "energy-systems/03-ENERGY-STORAGE.md",
+        "concepts": "[energy, storage]",
+        "current_path": "energy-systems/03-ENERGY-STORAGE.md",
+        "id": "maxim:energy-systems:energy-storage",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "energy-systems",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[energy, storage]",
+        "section": "energy-systems",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Energy Storage",
+        "updated": "null"
+      },
+      "text": "ENERGY TIER                     COMPUTING ANALOG\n──────────────────────────────────────────────────────────────────────\nFlywheels / supercapacitors     CPU L1/L2 cache\n  ms–seconds, expensive/W       → fast, small, expensive/byte\n  Power quality, freq response  → register/cache for hot-path data"
+    },
+    {
+      "id": "03-ENERGY-STORAGE.md#005",
+      "path": [
+        "03-ENERGY-STORAGE.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:energy-systems:03-energy-storage, git-history:energy-systems:03-energy-storage]",
+        "canonical_path": "energy-systems/03-ENERGY-STORAGE.md",
+        "concepts": "[energy, storage]",
+        "current_path": "energy-systems/03-ENERGY-STORAGE.md",
+        "id": "maxim:energy-systems:energy-storage",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "energy-systems",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[energy, storage]",
+        "section": "energy-systems",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Energy Storage",
+        "updated": "null"
+      },
+      "text": "Li-ion BESS (4–12 hours)        RAM / SSD buffer\n  Daily cycling, moderate cost   → medium-speed, medium-cost\n  Duck curve peak shifting       → temporal locality (daily patterns)"
+    },
+    {
+      "id": "03-ENERGY-STORAGE.md#006",
+      "path": [
+        "03-ENERGY-STORAGE.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:energy-systems:03-energy-storage, git-history:energy-systems:03-energy-storage]",
+        "canonical_path": "energy-systems/03-ENERGY-STORAGE.md",
+        "concepts": "[energy, storage]",
+        "current_path": "energy-systems/03-ENERGY-STORAGE.md",
+        "id": "maxim:energy-systems:energy-storage",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "energy-systems",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[energy, storage]",
+        "section": "energy-systems",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Energy Storage",
+        "updated": "null"
+      },
+      "text": "Pumped hydro (days–weeks)       Distributed object storage\n  Geography-constrained, cheap   → large, slow, geo-distributed\n  100,000+ cycle lifetime        → durable, low-cost per unit"
+    },
+    {
+      "id": "03-ENERGY-STORAGE.md#007",
+      "path": [
+        "03-ENERGY-STORAGE.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:energy-systems:03-energy-storage, git-history:energy-systems:03-energy-storage]",
+        "canonical_path": "energy-systems/03-ENERGY-STORAGE.md",
+        "concepts": "[energy, storage]",
+        "current_path": "energy-systems/03-ENERGY-STORAGE.md",
+        "id": "maxim:energy-systems:energy-storage",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "energy-systems",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[energy, storage]",
+        "section": "energy-systems",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Energy Storage",
+        "updated": "null"
+      },
+      "text": "Hydrogen seasonal (weeks–months) Tape / cold archive\n  30% round-trip efficiency       → high latency, low cost per TB\n  Only justified for bulk/season  → only justified for bulk archival"
+    },
+    {
+      "id": "03-ENERGY-STORAGE.md#008",
+      "path": [
+        "03-ENERGY-STORAGE.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:energy-systems:03-energy-storage, git-history:energy-systems:03-energy-storage]",
+        "canonical_path": "energy-systems/03-ENERGY-STORAGE.md",
+        "concepts": "[energy, storage]",
+        "current_path": "energy-systems/03-ENERGY-STORAGE.md",
+        "id": "maxim:energy-systems:energy-storage",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "energy-systems",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[energy, storage]",
+        "section": "energy-systems",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Energy Storage",
+        "updated": "null"
+      },
+      "text": "KEY INSIGHT: No single tier covers the full range. Optimal systems\nlayer multiple tiers — the same lesson as the memory hierarchy.\nA 4-hour BESS handles temporal locality (solar peaks daily);\nseasonal hydrogen handles global temporal gaps (winter dark doldrums).\n══════════════════════════════════════════════════════════════════════\n```"
+    },
+    {
+      "id": "03-ENERGY-STORAGE.md#009",
+      "path": [
+        "03-ENERGY-STORAGE.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:energy-systems:03-energy-storage, git-history:energy-systems:03-energy-storage]",
+        "canonical_path": "energy-systems/03-ENERGY-STORAGE.md",
+        "concepts": "[energy, storage]",
+        "current_path": "energy-systems/03-ENERGY-STORAGE.md",
+        "id": "maxim:energy-systems:energy-storage",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "energy-systems",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[energy, storage]",
+        "section": "energy-systems",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Energy Storage",
+        "updated": "null"
+      },
+      "text": "```\nSTORAGE APPLICATION LANDSCAPE (duration vs power)"
+    },
+    {
+      "id": "03-ENERGY-STORAGE.md#010",
+      "path": [
+        "03-ENERGY-STORAGE.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:energy-systems:03-energy-storage, git-history:energy-systems:03-energy-storage]",
+        "canonical_path": "energy-systems/03-ENERGY-STORAGE.md",
+        "concepts": "[energy, storage]",
+        "current_path": "energy-systems/03-ENERGY-STORAGE.md",
+        "id": "maxim:energy-systems:energy-storage",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "energy-systems",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[energy, storage]",
+        "section": "energy-systems",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Energy Storage",
+        "updated": "null"
+      },
+      "text": "Duration\n  │\n  Seasonal│  ╔═══════════════════════════════════╗\n  (weeks) │  ║  Pumped hydro (large, geography)  ║\n          │  ║  H₂ (electrolysis + fuel cell)    ║\n          │  ║  Iron-air battery (Form Energy)   ║\n  4-24 hr │  ╠═══════════════════════════════════╬═══════════════╗\n          │  ║  Li-ion BESS (4h standard)        ║               ║\n          │  ║  Vanadium flow battery            ║  Pumped hydro ║\n          │  ║  Compressed air (CAES)            ║  (4-8h daily) ║\n  1-4 hr  │  ╠═══════════════════════════════════╬═══════════════╣\n          │  ║  Li-ion (2h peak shaving)         ║               ║\n          │  ║  Thermal storage (ice/molten salt)║               ║\n  minutes │  ╠═══════════════════════════════════╣               ║\n          │  ║  Flywheel                         ║               ║\n          │  ║  Supercapacitor                   ║               ║\n  seconds │  ╠═══════════════════════════════════╣               ║\n          │  ║  Battery FFR (fast freq response) ║               ║\n          └──╨───────────────────────────────────╨───────────────╨──\n             kW          MW          GW                   Power"
+    },
+    {
+      "id": "03-ENERGY-STORAGE.md#011",
+      "path": [
+        "03-ENERGY-STORAGE.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:energy-systems:03-energy-storage, git-history:energy-systems:03-energy-storage]",
+        "canonical_path": "energy-systems/03-ENERGY-STORAGE.md",
+        "concepts": "[energy, storage]",
+        "current_path": "energy-systems/03-ENERGY-STORAGE.md",
+        "id": "maxim:energy-systems:energy-storage",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "energy-systems",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[energy, storage]",
+        "section": "energy-systems",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Energy Storage",
+        "updated": "null"
+      },
+      "text": "Frequency regulation:   MW × seconds\n  Peak shifting:          GW × 4 hours\n  Seasonal storage:       TW × weeks\n```"
+    },
+    {
+      "id": "03-ENERGY-STORAGE.md#012",
+      "path": [
+        "03-ENERGY-STORAGE.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:energy-systems:03-energy-storage, git-history:energy-systems:03-energy-storage]",
+        "canonical_path": "energy-systems/03-ENERGY-STORAGE.md",
+        "concepts": "[energy, storage]",
+        "current_path": "energy-systems/03-ENERGY-STORAGE.md",
+        "id": "maxim:energy-systems:energy-storage",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "energy-systems",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[energy, storage]",
+        "section": "energy-systems",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Energy Storage",
+        "updated": "null"
+      },
+      "text": "---"
+    },
+    {
+      "id": "03-ENERGY-STORAGE.md#013",
+      "path": [
+        "03-ENERGY-STORAGE.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:energy-systems:03-energy-storage, git-history:energy-systems:03-energy-storage]",
+        "canonical_path": "energy-systems/03-ENERGY-STORAGE.md",
+        "concepts": "[energy, storage]",
+        "current_path": "energy-systems/03-ENERGY-STORAGE.md",
+        "id": "maxim:energy-systems:energy-storage",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "energy-systems",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[energy, storage]",
+        "section": "energy-systems",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Energy Storage",
+        "updated": "null"
+      },
+      "text": "## Pumped Hydro — The Incumbent"
+    },
+    {
+      "id": "03-ENERGY-STORAGE.md#014",
+      "path": [
+        "03-ENERGY-STORAGE.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:energy-systems:03-energy-storage, git-history:energy-systems:03-energy-storage]",
+        "canonical_path": "energy-systems/03-ENERGY-STORAGE.md",
+        "concepts": "[energy, storage]",
+        "current_path": "energy-systems/03-ENERGY-STORAGE.md",
+        "id": "maxim:energy-systems:energy-storage",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "energy-systems",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[energy, storage]",
+        "section": "energy-systems",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Energy Storage",
+        "updated": "null"
+      },
+      "text": "Pumped hydro stores 93% of global installed grid storage capacity (by GWh). It works\nby moving water uphill (off-peak, cheap electricity) and generating downhill (on-peak)."
+    },
+    {
+      "id": "03-ENERGY-STORAGE.md#015",
+      "path": [
+        "03-ENERGY-STORAGE.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:energy-systems:03-energy-storage, git-history:energy-systems:03-energy-storage]",
+        "canonical_path": "energy-systems/03-ENERGY-STORAGE.md",
+        "concepts": "[energy, storage]",
+        "current_path": "energy-systems/03-ENERGY-STORAGE.md",
+        "id": "maxim:energy-systems:energy-storage",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "energy-systems",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[energy, storage]",
+        "section": "energy-systems",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Energy Storage",
+        "updated": "null"
+      },
+      "text": "```\n  PUMPED HYDRO SCHEMATIC:"
+    },
+    {
+      "id": "03-ENERGY-STORAGE.md#016",
+      "path": [
+        "03-ENERGY-STORAGE.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:energy-systems:03-energy-storage, git-history:energy-systems:03-energy-storage]",
+        "canonical_path": "energy-systems/03-ENERGY-STORAGE.md",
+        "concepts": "[energy, storage]",
+        "current_path": "energy-systems/03-ENERGY-STORAGE.md",
+        "id": "maxim:energy-systems:energy-storage",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "energy-systems",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[energy, storage]",
+        "section": "energy-systems",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Energy Storage",
+        "updated": "null"
+      },
+      "text": "┌─────────────────────────────────────────────────────────────┐\n  │                 UPPER RESERVOIR                             │\n  │                 ~100-500 m elevation                        │\n  └─────────────┬───────────────────────────────────────────────┘\n                │  Penstock (high-pressure pipe)\n                │\n  ┌─────────────▼───────────────────────────────────────────────┐\n  │  POWERHOUSE                                                 │\n  │  ┌────────────────────────────────────────────────────────┐ │\n  │  │  Pump-turbine (reversible Francis turbine)             │ │\n  │  │  Motor-generator (reversible)                          │ │\n  │  └────────────────────────────────────────────────────────┘ │\n  └─────────────┬───────────────────────────────────────────────┘\n                │\n  ┌─────────────▼───────────────────────────────────────────────┐\n  │                 LOWER RESERVOIR                             │\n  └─────────────────────────────────────────────────────────────┘"
+    },
+    {
+      "id": "03-ENERGY-STORAGE.md#017",
+      "path": [
+        "03-ENERGY-STORAGE.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:energy-systems:03-energy-storage, git-history:energy-systems:03-energy-storage]",
+        "canonical_path": "energy-systems/03-ENERGY-STORAGE.md",
+        "concepts": "[energy, storage]",
+        "current_path": "energy-systems/03-ENERGY-STORAGE.md",
+        "id": "maxim:energy-systems:energy-storage",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "energy-systems",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[energy, storage]",
+        "section": "energy-systems",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Energy Storage",
+        "updated": "null"
+      },
+      "text": "Operation:\n    Charging (pump mode):   Cheap electricity → pump water uphill → store PE\n    Discharging (turbine):  Water flows down → drives turbine → generates electricity"
+    },
+    {
+      "id": "03-ENERGY-STORAGE.md#018",
+      "path": [
+        "03-ENERGY-STORAGE.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:energy-systems:03-energy-storage, git-history:energy-systems:03-energy-storage]",
+        "canonical_path": "energy-systems/03-ENERGY-STORAGE.md",
+        "concepts": "[energy, storage]",
+        "current_path": "energy-systems/03-ENERGY-STORAGE.md",
+        "id": "maxim:energy-systems:energy-storage",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "energy-systems",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[energy, storage]",
+        "section": "energy-systems",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Energy Storage",
+        "updated": "null"
+      },
+      "text": "Round-trip efficiency: ~78-85%\n    Pump efficiency: ~85-92%\n    Turbine efficiency: ~92-95%\n    Combined: 0.88 × 0.93 = ~82%"
+    },
+    {
+      "id": "03-ENERGY-STORAGE.md#019",
+      "path": [
+        "03-ENERGY-STORAGE.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:energy-systems:03-energy-storage, git-history:energy-systems:03-energy-storage]",
+        "canonical_path": "energy-systems/03-ENERGY-STORAGE.md",
+        "concepts": "[energy, storage]",
+        "current_path": "energy-systems/03-ENERGY-STORAGE.md",
+        "id": "maxim:energy-systems:energy-storage",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "energy-systems",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[energy, storage]",
+        "section": "energy-systems",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Energy Storage",
+        "updated": "null"
+      },
+      "text": "Key metrics:\n    Energy stored: E = m × g × h × η\n      where m = mass of water (kg), g = 9.8 m/s², h = head (m), η = efficiency\n    Specific energy: ~0.001 MJ/L (water at 100m head) — very low volumetric density\n    Asset life: 50-100 years (the longest-lived energy infrastructure)\n    LCOS: $5-15/MWh (at scale, already-built) — very competitive for 8+ hour storage"
+    },
+    {
+      "id": "03-ENERGY-STORAGE.md#020",
+      "path": [
+        "03-ENERGY-STORAGE.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:energy-systems:03-energy-storage, git-history:energy-systems:03-energy-storage]",
+        "canonical_path": "energy-systems/03-ENERGY-STORAGE.md",
+        "concepts": "[energy, storage]",
+        "current_path": "energy-systems/03-ENERGY-STORAGE.md",
+        "id": "maxim:energy-systems:energy-storage",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "energy-systems",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[energy, storage]",
+        "section": "energy-systems",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Energy Storage",
+        "updated": "null"
+      },
+      "text": "Geography constraint: requires significant elevation difference AND water supply\n    Closed-loop: no river connection, circulates same water (less environmental impact)\n    Open-loop: uses river flow (regulated as water right)"
+    },
+    {
+      "id": "03-ENERGY-STORAGE.md#021",
+      "path": [
+        "03-ENERGY-STORAGE.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:energy-systems:03-energy-storage, git-history:energy-systems:03-energy-storage]",
+        "canonical_path": "energy-systems/03-ENERGY-STORAGE.md",
+        "concepts": "[energy, storage]",
+        "current_path": "energy-systems/03-ENERGY-STORAGE.md",
+        "id": "maxim:energy-systems:energy-storage",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "energy-systems",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[energy, storage]",
+        "section": "energy-systems",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Energy Storage",
+        "updated": "null"
+      },
+      "text": "Global installed: ~170 GW (~1,500 GWh at 9h average)\n  Pipeline: ~150 GW under development (mostly China, Australia, EU)\n```"
+    },
+    {
+      "id": "03-ENERGY-STORAGE.md#022",
+      "path": [
+        "03-ENERGY-STORAGE.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:energy-systems:03-energy-storage, git-history:energy-systems:03-energy-storage]",
+        "canonical_path": "energy-systems/03-ENERGY-STORAGE.md",
+        "concepts": "[energy, storage]",
+        "current_path": "energy-systems/03-ENERGY-STORAGE.md",
+        "id": "maxim:energy-systems:energy-storage",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "energy-systems",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[energy, storage]",
+        "section": "energy-systems",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Energy Storage",
+        "updated": "null"
+      },
+      "text": "---"
+    },
+    {
+      "id": "03-ENERGY-STORAGE.md#023",
+      "path": [
+        "03-ENERGY-STORAGE.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:energy-systems:03-energy-storage, git-history:energy-systems:03-energy-storage]",
+        "canonical_path": "energy-systems/03-ENERGY-STORAGE.md",
+        "concepts": "[energy, storage]",
+        "current_path": "energy-systems/03-ENERGY-STORAGE.md",
+        "id": "maxim:energy-systems:energy-storage",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "energy-systems",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[energy, storage]",
+        "section": "energy-systems",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Energy Storage",
+        "updated": "null"
+      },
+      "text": "## Lithium-Ion Batteries — The Grid-Scale Workhorse"
+    },
+    {
+      "id": "03-ENERGY-STORAGE.md#024",
+      "path": [
+        "03-ENERGY-STORAGE.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:energy-systems:03-energy-storage, git-history:energy-systems:03-energy-storage]",
+        "canonical_path": "energy-systems/03-ENERGY-STORAGE.md",
+        "concepts": "[energy, storage]",
+        "current_path": "energy-systems/03-ENERGY-STORAGE.md",
+        "id": "maxim:energy-systems:energy-storage",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "energy-systems",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[energy, storage]",
+        "section": "energy-systems",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Energy Storage",
+        "updated": "null"
+      },
+      "text": "Li-ion dominates 2-4 hour grid storage and all behind-the-meter applications.\nCost has fallen from ~$1,200/kWh (2010) to ~$150-250/kWh (2024, system level),\nfollowing a learning rate of ~18-20% per doubling — slightly slower than solar but\nstill unprecedented for any electro-chemical storage."
+    },
+    {
+      "id": "03-ENERGY-STORAGE.md#025",
+      "path": [
+        "03-ENERGY-STORAGE.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:energy-systems:03-energy-storage, git-history:energy-systems:03-energy-storage]",
+        "canonical_path": "energy-systems/03-ENERGY-STORAGE.md",
+        "concepts": "[energy, storage]",
+        "current_path": "energy-systems/03-ENERGY-STORAGE.md",
+        "id": "maxim:energy-systems:energy-storage",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "energy-systems",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[energy, storage]",
+        "section": "energy-systems",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Energy Storage",
+        "updated": "null"
+      },
+      "text": "### Cathode Chemistry Comparison"
+    },
+    {
+      "id": "03-ENERGY-STORAGE.md#026",
+      "path": [
+        "03-ENERGY-STORAGE.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:energy-systems:03-energy-storage, git-history:energy-systems:03-energy-storage]",
+        "canonical_path": "energy-systems/03-ENERGY-STORAGE.md",
+        "concepts": "[energy, storage]",
+        "current_path": "energy-systems/03-ENERGY-STORAGE.md",
+        "id": "maxim:energy-systems:energy-storage",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "energy-systems",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[energy, storage]",
+        "section": "energy-systems",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Energy Storage",
+        "updated": "null"
+      },
+      "text": "The cathode determines the tradeoffs. The separator and electrolyte are important but\nthe cathode is where the energy density, safety, and cycle life differences live."
+    },
+    {
+      "id": "03-ENERGY-STORAGE.md#027",
+      "path": [
+        "03-ENERGY-STORAGE.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:energy-systems:03-energy-storage, git-history:energy-systems:03-energy-storage]",
+        "canonical_path": "energy-systems/03-ENERGY-STORAGE.md",
+        "concepts": "[energy, storage]",
+        "current_path": "energy-systems/03-ENERGY-STORAGE.md",
+        "id": "maxim:energy-systems:energy-storage",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "energy-systems",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[energy, storage]",
+        "section": "energy-systems",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Energy Storage",
+        "updated": "null"
+      },
+      "text": "```\n  Li-ion cell: cathode | separator (electrolyte) | anode (graphite usually)"
+    },
+    {
+      "id": "03-ENERGY-STORAGE.md#028",
+      "path": [
+        "03-ENERGY-STORAGE.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:energy-systems:03-energy-storage, git-history:energy-systems:03-energy-storage]",
+        "canonical_path": "energy-systems/03-ENERGY-STORAGE.md",
+        "concepts": "[energy, storage]",
+        "current_path": "energy-systems/03-ENERGY-STORAGE.md",
+        "id": "maxim:energy-systems:energy-storage",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "energy-systems",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[energy, storage]",
+        "section": "energy-systems",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Energy Storage",
+        "updated": "null"
+      },
+      "text": "CATHODE CHEMISTRIES:"
+    },
+    {
+      "id": "03-ENERGY-STORAGE.md#029",
+      "path": [
+        "03-ENERGY-STORAGE.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:energy-systems:03-energy-storage, git-history:energy-systems:03-energy-storage]",
+        "canonical_path": "energy-systems/03-ENERGY-STORAGE.md",
+        "concepts": "[energy, storage]",
+        "current_path": "energy-systems/03-ENERGY-STORAGE.md",
+        "id": "maxim:energy-systems:energy-storage",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "energy-systems",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[energy, storage]",
+        "section": "energy-systems",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Energy Storage",
+        "updated": "null"
+      },
+      "text": "┌────────────┬──────────────────────────────────────────────────────────┐\n  │  NMC       │  LiNiMnCoO₂ (Nickel Manganese Cobalt)                    │\n  │            │  Energy density: HIGH (200-250 Wh/kg cell)               │\n  │            │  NMC 811 (80% Ni, 10% Mn, 10% Co): highest density       │\n  │            │  NMC 622, 532: lower Ni, more stable, less energy        │\n  │            │  Cycle life: 1,000-3,000 cycles                          │\n  │            │  Thermal runway: moderate risk (above ~150°C)            │\n  │            │  Use: EVs (most Tesla, BMW, Hyundai), some grid storage  │\n  ├────────────┼──────────────────────────────────────────────────────────┤\n  │  LFP        │  LiFePO₄ (Lithium Iron Phosphate)                       │\n  │            │  Energy density: LOWER (140-160 Wh/kg cell)              │\n  │            │  Thermal runaway: very hard to trigger (>250°C)          │\n  │            │  Cycle life: 3,000-10,000+ cycles                        │\n  │            │  Cost: cheaper (no Ni, no Co)                            │\n  │            │  Use: DOMINANT for utility-scale BESS; Tesla LFP EV packs│\n  │            │  China: ~85% of grid BESS is LFP                         │\n  ├────────────┼──────────────────────────────────────────────────────────┤\n  │  NCA       │  LiNiCoAlO₂ (Nickel Cobalt Aluminum)                     │\n  │            │  Energy density: HIGHEST (250-300 Wh/kg cell)            │\n  │            │  Tesla 4680 cells use NCA variant                        │\n  │            │  Thermal stability: lower (careful BMS required)         │\n  │            │  Use: cylindrical cells for premium EVs                  │\n  ├────────────┼──────────────────────────────────────────────────────────┤\n  │  LMFP       │  LiMnFePO₄ (Manganese-enhanced LFP)                    │\n  │            │  Energy density: ~30% higher than LFP (190-200 Wh/kg)   │\n  │            │  Safety: similar to LFP                                  │\n  │            │  Status: entering production 2024-2025 (CATL, BYD)       │\n  └────────────┴──────────────────────────────────────────────────────────┘"
+    }
+  ],
+  "refs": [
+    "03-ENERGY-STORAGE.md"
+  ]
+}

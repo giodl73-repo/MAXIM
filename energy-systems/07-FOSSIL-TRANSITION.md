@@ -1,3 +1,22 @@
+---
+maxim_schema: maxim.frontmatter.v1
+id: maxim:energy-systems:fossil-transition
+kind: guide
+module: energy-systems
+section: energy-systems
+title: Fossil Fuels and the Transition
+status: source-custody
+source_custody: partial
+current_path: energy-systems/07-FOSSIL-TRANSITION.md
+canonical_path: energy-systems/07-FOSSIL-TRANSITION.md
+backsource_ids: [proof-backfill:energy-systems:07-fossil-transition, git-history:energy-systems:07-fossil-transition]
+concepts: [fossil, transition]
+root_concepts: [fossil, transition]
+index_roles: [guide, root-concept]
+remap_from: []
+remap_to: []
+updated: null
+---
 # Fossil Fuels and the Transition
 
 ## The Big Picture

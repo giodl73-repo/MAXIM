@@ -1,3 +1,22 @@
+---
+maxim_schema: maxim.frontmatter.v1
+id: maxim:anthropology:sage-frame
+kind: guide
+module: anthropology
+section: anthropology
+title: Volume 6 Diamond - History and Ideas II
+status: source-custody
+source_custody: partial
+current_path: anthropology/00-SAGE-FRAME.md
+canonical_path: anthropology/00-SAGE-FRAME.md
+backsource_ids: [proof-backfill:anthropology:00-sage-frame, git-history:anthropology:00-sage-frame]
+concepts: [sage, frame]
+root_concepts: [sage, frame]
+index_roles: [guide, root-concept]
+remap_from: []
+remap_to: []
+updated: null
+---
 # Volume 6 Diamond — History & Ideas II
 
 ## The Sage's Frame
