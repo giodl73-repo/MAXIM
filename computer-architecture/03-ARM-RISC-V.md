@@ -1,3 +1,22 @@
+---
+maxim_schema: maxim.frontmatter.v1
+id: maxim:computer-architecture:arm-risc-v
+kind: guide
+module: computer-architecture
+section: computer-architecture
+title: ARM and RISC-V: Modern RISC Designs
+status: source-custody
+source_custody: partial
+current_path: computer-architecture/03-ARM-RISC-V.md
+canonical_path: computer-architecture/03-ARM-RISC-V.md
+backsource_ids: [proof-backfill:computer-architecture:03-arm-risc-v, git-history:computer-architecture:03-arm-risc-v]
+concepts: [arm, risc, v]
+root_concepts: [arm, risc]
+index_roles: [guide, root-concept]
+remap_from: []
+remap_to: []
+updated: null
+---
 # ARM and RISC-V: Modern RISC Designs
 
 ## Overview

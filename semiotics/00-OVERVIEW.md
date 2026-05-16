@@ -1,3 +1,22 @@
+---
+maxim_schema: maxim.frontmatter.v1
+id: maxim:semiotics:overview
+kind: guide
+module: semiotics
+section: semiotics
+title: Semiotics - Landscape and Taxonomy
+status: source-custody
+source_custody: partial
+current_path: semiotics/00-OVERVIEW.md
+canonical_path: semiotics/00-OVERVIEW.md
+backsource_ids: [proof-backfill:semiotics:00-overview, git-history:semiotics:00-overview]
+concepts: [overview]
+root_concepts: [overview]
+index_roles: [guide, root-concept]
+remap_from: []
+remap_to: []
+updated: null
+---
 # Semiotics — Landscape and Taxonomy
 
 ## The Big Picture
@@ -17,21 +36,17 @@ Semiotics is the study of signs and sign systems — how meaning is produced, tr
 |  Led to:                           Led to:                            |
 |  Structuralism                     Pragmatism                         |
 |  Post-structuralism                Formal semiotics                   |
-|  Barthes, Lévi-Strauss, Lacan      Morris: syntax/semantics/pragmatics|
+|  Barthes, Lévi-Strauss, Lacan     Morris: syntax/semantics/pragmatics |
 |                                    (the triad CS inherited)           |
 |                                                                       |
-|  +-----------------------------+  +------------------------------+    |
-|  | STRUCTURAL BRANCH           |  | LOGICAL BRANCH               |    |
-|  | codes, oppositions,         |  | sign types, abduction,       |    |
-|  | paradigm/syntagm, myth      |  | icon/index/symbol            |    |
-|  +-----------------------------+  +------------------------------+    |
+|  [STRUCTURAL BRANCH]              [LOGICAL BRANCH]                    |
+|  codes, oppositions,              sign types, abduction,              |
+|  paradigm/syntagm, myth           icon/index/symbol                   |
 |                    \                          /                       |
 |                     \                        /                        |
-|                      +--------------------+                           |
-|                      | CULTURAL SEMIOTICS |                           |
-|                      | Lotman, semiosphere|                           |
-|                      | Eco: sign production|                          |
-|                      +--------------------+                           |
+|                      [CULTURAL SEMIOTICS]                             |
+|                      Lotman, semiosphere                              |
+|                      Eco: sign production                             |
 +-----------------------------------------------------------------------+
 ```
 
@@ -51,7 +66,7 @@ These are NOT the same and are often conflated:
 |  Signifier =            via Interpretant                              |
 |  acoustic image                                  No direct line from  |
 |  (sound-form)           R: Representamen         symbol to referent!  |
-|                         O: Object                (mediated by thought) |
+|                         O: Object               (mediated by thought) |
 |  Signified =            I: Interpretant                               |
 |  concept / content      (sign for the sign;                           |
 |                          can trigger further                          |
@@ -96,12 +111,12 @@ Peirce's most analytically useful contribution: three types of sign relation.
 
 ```
   THE LINGUISTIC SIGN
-  +------------------------------------------+
+  +-------------------------------------------+
   |  SIGNIFIER ←—(arbitrary bond)—→ SIGNIFIED |
   |  (acoustic image / written form)          |
   |  "arbre" [arbr]                           |
   |                   mental concept of tree  |
-  +------------------------------------------+
+  +-------------------------------------------+
 
   Three foundational principles:
 
@@ -133,18 +148,24 @@ Peirce's most analytically useful contribution: three types of sign relation.
 ```
   FIRST ORDER — DENOTATION
   +---------------------------+
-  |  Signifier  |  Signified  |   "rose" (word) → rose (flower)
-  +---------------------------+   Photo of steak → steak (food)
+  |  Signifier  |  Signified  |
+  +---------------------------+
+  Examples: "rose" (word) → rose (flower)
+            Photo of steak → steak (food)
            |
            | whole first-order sign becomes a new Signifier
            v
   SECOND ORDER — CONNOTATION / MYTH
   +---------------------------+
-  |  Sign₁     |  New         |   rose → ROMANCE / PASSION
-  |  (first    |  Signified   |   steak → FRENCHNESS (Barthes)
-  |  order)    |  (cultural,  |   white coat → MEDICAL AUTHORITY
-  |            |  ideological)|   cowboy → AMERICAN FREEDOM
+  |  Sign₁     |  New         |
+  |  (first    |  Signified   |
+  |  order)    |  (cultural,  |
+  |            |  ideological)|
   +---------------------------+
+  Examples: rose → ROMANCE / PASSION
+            steak → FRENCHNESS (Barthes)
+            white coat → MEDICAL AUTHORITY
+            cowboy → AMERICAN FREEDOM
 
   MYTH (Barthes): operates at second order.
   Takes historically contingent connotations and
@@ -201,10 +222,11 @@ Essential framework: every communicative act orients toward one of six factors, 
 
 ```
   +---------------------+
-  |      CONTEXT        |   → REFERENTIAL function
-  |  (what the message  |     (pointing to the world; informational)
+  |      CONTEXT        |
+  |  (what the message  |
   |    is about)        |
   +---------------------+
+  REFERENTIAL function: pointing to the world; informational
            |
   SENDER ——————→ MESSAGE ——————→ RECEIVER
   (EMOTIVE      (POETIC          (CONATIVE
@@ -216,14 +238,16 @@ Essential framework: every communicative act orients toward one of six factors, 
                                  appeals)
            |
   +---------------------+
-  |       CONTACT        |   → PHATIC function
-  |   (channel/medium)   |     (maintaining contact: "Hello?",
-  +---------------------+      "You know what I mean?")
+  |       CONTACT       |
+  |   (channel/medium)  |
+  +---------------------+
+  PHATIC function: maintaining contact ("Hello?", "You know what I mean?")
 
   +---------------------+
-  |       CODE           |   → METALINGUAL function
-  |  (shared language)   |     (talking about the code itself:
-  +---------------------+      "What do you mean by X?")
+  |        CODE         |
+  |  (shared language)  |
+  +---------------------+
+  METALINGUAL function: talking about the code itself ("What do you mean by X?")
 ```
 
 ---

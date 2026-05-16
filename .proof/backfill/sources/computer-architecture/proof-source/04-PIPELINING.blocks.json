@@ -1,0 +1,83 @@
+{
+  "schema_version": "1",
+  "source_markdown": "computer-architecture\\04-PIPELINING.md",
+  "blocks": [
+    {
+      "id": "block-1",
+      "kind": "diagram_like",
+      "line": 26,
+      "heading_context": "## The Core Idea",
+      "confidence": "candidate",
+      "text": "  NON-PIPELINED (5-cycle instructions):\n  Instr 1: [IF ID EX MEM WB]\n  Instr 2:                   [IF ID EX MEM WB]\n  Instr 3:                               [IF ID EX MEM WB]\n  Time:     1  2  3   4   5   6   7   8   9  10  11  12  13  14  15\n  = 15 cycles for 3 instructions = 5 CPI\n\n  PIPELINED (5-stage):\n  Instr 1: IF  ID  EX  MEM WB\n  Instr 2:     IF  ID  EX  MEM WB\n  Instr 3:         IF  ID  EX  MEM WB\n  Time:     1   2   3   4   5   6   7\n  = 7 cycles for 3 instructions → approaches 1 CPI at steady state\n  = 5 + (N-1) cycles for N instructions",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-2",
+      "kind": "ascii_table_candidate",
+      "line": 49,
+      "heading_context": "## The Classic 5-Stage Pipeline",
+      "confidence": "candidate",
+      "text": "  +------+   +------+   +------+   +------+   +------+\n  |  IF  | → |  ID  | → |  EX  | → | MEM  | → |  WB  |\n  +------+   +------+   +------+   +------+   +------+\n  Instruction Instruction  Execute  Memory   Write\n  Fetch      Decode      (ALU op)   Access   Back\n  (PC → Mem) (Read regs)            (Load/   (Result\n              (decode    (compute    Store)    to reg)\n              opcode)    address)\n\n  IF: Use Program Counter to fetch instruction from instruction cache.\n  ID: Decode the instruction; read source register values from register file.\n  EX: Execute ALU operation. Compute effective address for memory ops.\n  MEM: Access data cache (for loads/stores). Non-memory ops pass through.\n  WB: Write the result back to the destination register.\n\n  PIPELINE REGISTERS: Between each stage, a register holds the\n  intermediate results. This is what enables overlap.\n  IF/ID register, ID/EX register, EX/MEM register, MEM/WB register.",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-3",
+      "kind": "diagram_like",
+      "line": 99,
+      "heading_context": "### Data Hazards",
+      "confidence": "candidate",
+      "text": "  DEFINITION: An instruction depends on the result of a\n  prior instruction that hasn't completed yet.\n\n  EXAMPLE: RAW (Read After Write) — true dependency\n  ADD R1, R2, R3    ; R1 = R2 + R3     (computed in EX)\n  SUB R4, R1, R5    ; R4 = R1 - R5     (needs R1 in ID)\n\n  Timeline:\n  ADD:  IF  ID  EX  MEM WB\n  SUB:      IF  ID  EX  MEM WB\n               ↑\n               SUB needs R1 here (ID stage reads registers)\n               But ADD hasn't written R1 yet (WB is 2 cycles later)\n               → RAW HAZARD\n\n  THREE APPROACHES:\n  1. STALL (\"bubble\"): insert NOP cycles until value is ready\n  2. FORWARDING (bypassing): route result from EX output directly\n     to EX input of next instruction\n  3. REORDER: compiler reorders code to interleave independent instr.",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-4",
+      "kind": "diagram_like",
+      "line": 124,
+      "heading_context": "### Data Hazard Types",
+      "confidence": "candidate",
+      "text": "  RAW (Read After Write) — true dependency\n  SUB R1, R2, R3       ; R1 = R2 - R3\n  ADD R4, R1, R5       ; Needs R1 ← hazard!\n\n  WAR (Write After Read) — anti-dependency\n  SUB R4, R1, R5       ; Reads R1\n  ADD R1, R2, R3       ; Writes R1 ← \"hazard\" only in\n                         out-of-order; in-order: no problem\n                         (SUB reads R1 before ADD writes it)\n\n  WAW (Write After Write) — output dependency\n  ADD R1, R2, R3       ; Writes R1\n  SUB R1, R4, R5       ; Also writes R1 ← only a problem\n                         if SUB finishes before ADD\n                         (OOO execution issue)\n\n  IN-ORDER PIPELINES: Only RAW hazards are dangerous.\n  OOO PIPELINES: WAR and WAW become dangerous too.\n  SOLUTION FOR WAR/WAW: REGISTER RENAMING (see 07-SUPERSCALAR-OOO.md)",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-5",
+      "kind": "diagram_like",
+      "line": 152,
+      "heading_context": "## Forwarding (Data Bypassing)",
+      "confidence": "candidate",
+      "text": "  WITHOUT FORWARDING (3 stalls for ADD→SUB):\n\n  ADD R1, R2, R3:  IF  ID  EX  MEM  WB\n  SUB R4, R1, R5:      IF  ID  **   **   **  EX  MEM  WB\n                                ↑wait 3 cycles for WB\n\n  WITH FORWARDING:\n  The result of ADD is available at the END of EX stage.\n  SUB needs R1 at the START of EX stage.\n  We can ADD a bypass path from EX output → EX input:\n\n  ADD R1, R2, R3:  IF  ID  EX──────┐  MEM  WB\n  SUB R4, R1, R5:      IF  ID   EX─┘  MEM  WB\n                                ↑\n                           Forwarded from previous EX stage\n                           No stall needed!\n\n  FORWARDING PATHS NEEDED:\n  EX/MEM register → EX input  (1-cycle old result)\n  MEM/WB register → EX input  (2-cycle old result)\n\n  LOAD-USE HAZARD (cannot be fully forwarded):\n  LDR R1, [R2]     ; R1 loaded from memory — result at END of MEM\n  ADD R3, R1, R5   ; Needs R1 at START of EX — 1 cycle too early!\n\n  LDR:             IF  ID  EX  MEM──┐  WB\n  ADD:                 IF  ID  *** EX─┘  MEM  WB\n                                ↑\n                           1-cycle stall required (load-use stall)\n                           Compiler can hide this with reordering",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-6",
+      "kind": "diagram_like",
+      "line": 226,
+      "heading_context": "## Branch Prediction",
+      "confidence": "candidate",
+      "text": "  STATIC PREDICTION:\n  Compiler sets a \"branch hint\" bit in the instruction.\n  Predict backward branches as taken (loops: usually loop back).\n  Predict forward branches as not taken.\n  x86: segment override prefix 0x2E = branch not-taken hint\n                                0x3E = branch taken hint (rarely used)\n\n  DYNAMIC PREDICTION (hardware):\n\n  1-BIT PREDICTOR:\n  Per-branch: store 1 bit — \"last outcome.\"\n  Predict same as last time.\n  Problem: loops mispredict on last iteration AND first of next loop.\n\n  2-BIT SATURATING COUNTER (Smith predictor):\n  States: Strongly Not Taken | Weakly Not Taken | Weakly Taken | Strongly Taken\n  Must mispredict TWICE before changing prediction direction.\n  Handles nested loops much better.\n\n        NT ──→ WNT ──→ WT ──→ T\n        ←─────────────────────\n        (transition on each outcome)\n\n  GLOBAL HISTORY PREDICTOR:\n  Use last N branch outcomes to index a pattern table.\n  A conditional branch inside a loop often correlates with the\n  loop counter — global history can capture this.\n\n  PERCEPTRON PREDICTOR:\n  Use a dot product of weights × history bits.\n  Positive result → predict taken. Train on outcomes.\n  Modern Intel and AMD use neural-network-inspired predictors.\n\n  TOURNAMENT PREDICTOR:\n  Combine multiple predictors and a meta-predictor that\n  learns which predictor is better for each branch.\n\n  MISPREDICTION PENALTY:\n  Modern CPUs: 14–20 pipeline stages deep.\n  Branch target unknown until resolve at stage 8–10.\n  Misprediction = flush ~10–15 instructions of speculative work.\n  = 10–15 cycles wasted.\n  A branch that mispredicts every 10 times = 1–1.5 cycles/branch overhead.\n  This is why branchless code can be faster for unpredictable conditions.",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-7",
+      "kind": "diagram_like",
+      "line": 339,
+      "heading_context": "## Deeper Pipelines: Tradeoffs",
+      "confidence": "candidate",
+      "text": "  MORE STAGES → HIGHER CLOCK RATE\n  Shorter work per stage → shorter cycle time → higher GHz.\n\n  MORE STAGES → HIGHER MISPREDICTION PENALTY\n  The branch is resolved later → more speculatively fetched\n  instructions must be flushed on a miss.\n\n  Intel Pentium 4 (Prescott, 2004): 31-stage pipeline\n  Could reach 3.8 GHz (for its era, very fast clock).\n  But: 31-stage pipeline = 31-cycle misprediction penalty.\n  Real-world IPC was poor. The design was abandoned.\n\n  Intel Core 2 (2006): Back to ~14 stages.\n  Lower clock, much better IPC → better real-world performance.\n\n  MODERN BALANCE:\n  Intel Golden Cove (Alder Lake P-core): ~14–16 stages\n  AMD Zen 4: similar depth\n  Apple M2 Everest core: ~14 stages (estimated)\n\n  THE POWER WALL:\n  Deeper pipelines → higher frequency → O(f^n) dynamic power.\n  Modern CPUs are frequency-limited by power, not by transistor count.\n  Intel's \"megahertz myth\" era (Pentium 4) was the lesson learned.",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    }
+  ]
+}

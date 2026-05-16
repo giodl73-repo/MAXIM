@@ -1,3 +1,22 @@
+---
+maxim_schema: maxim.frontmatter.v1
+id: maxim:computer-architecture:x86-architecture
+kind: guide
+module: computer-architecture
+section: computer-architecture
+title: x86 and x86-64 Architecture
+status: source-custody
+source_custody: partial
+current_path: computer-architecture/02-X86-ARCHITECTURE.md
+canonical_path: computer-architecture/02-X86-ARCHITECTURE.md
+backsource_ids: [proof-backfill:computer-architecture:02-x86-architecture, git-history:computer-architecture:02-x86-architecture]
+concepts: [x86, architecture]
+root_concepts: [x86, architecture]
+index_roles: [guide, root-concept]
+remap_from: []
+remap_to: []
+updated: null
+---
 # x86 and x86-64 Architecture
 
 ## Overview

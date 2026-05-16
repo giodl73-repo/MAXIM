@@ -1,3 +1,22 @@
+---
+maxim_schema: maxim.frontmatter.v1
+id: maxim:computer-architecture:overview
+kind: guide
+module: computer-architecture
+section: computer-architecture
+title: Computer Architecture - Landscape and Taxonomy
+status: source-custody
+source_custody: partial
+current_path: computer-architecture/00-OVERVIEW.md
+canonical_path: computer-architecture/00-OVERVIEW.md
+backsource_ids: [proof-backfill:computer-architecture:00-overview, git-history:computer-architecture:00-overview]
+concepts: [overview]
+root_concepts: [overview]
+index_roles: [guide, root-concept]
+remap_from: []
+remap_to: []
+updated: null
+---
 # Computer Architecture — Landscape and Taxonomy
 
 ## The Big Picture

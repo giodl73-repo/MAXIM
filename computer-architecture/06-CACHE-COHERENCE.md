@@ -1,3 +1,22 @@
+---
+maxim_schema: maxim.frontmatter.v1
+id: maxim:computer-architecture:cache-coherence
+kind: guide
+module: computer-architecture
+section: computer-architecture
+title: Cache Coherence and Memory Consistency
+status: source-custody
+source_custody: partial
+current_path: computer-architecture/06-CACHE-COHERENCE.md
+canonical_path: computer-architecture/06-CACHE-COHERENCE.md
+backsource_ids: [proof-backfill:computer-architecture:06-cache-coherence, git-history:computer-architecture:06-cache-coherence]
+concepts: [cache, coherence]
+root_concepts: [cache, coherence]
+index_roles: [guide, root-concept]
+remap_from: []
+remap_to: []
+updated: null
+---
 # Cache Coherence and Memory Consistency
 
 ## The Problem

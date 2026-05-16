@@ -1,3 +1,22 @@
+---
+maxim_schema: maxim.frontmatter.v1
+id: maxim:semiotics:post-structuralism
+kind: guide
+module: semiotics
+section: semiotics
+title: Derrida and Deconstruction
+status: source-custody
+source_custody: partial
+current_path: semiotics/05-POST-STRUCTURALISM.md
+canonical_path: semiotics/05-POST-STRUCTURALISM.md
+backsource_ids: [proof-backfill:semiotics:05-post-structuralism, git-history:semiotics:05-post-structuralism]
+concepts: [post, structuralism]
+root_concepts: [post, structuralism]
+index_roles: [guide, root-concept]
+remap_from: []
+remap_to: []
+updated: null
+---
 # Derrida and Deconstruction
 
 ## What Post-Structuralism Is
@@ -20,7 +39,7 @@ Jacques Derrida (1930–2004) is the central figure. His project: close reading 
 |                                                                       |
 |  Binary oppositions are clear:    Oppositions are hierarchical and    |
 |  speech/writing, presence/absence self-undermining — the excluded     |
-|  male/female, culture/nature      term contaminates the privileged one|
+|  male/female, culture/nature     term contaminates the privileged one |
 |                                                                       |
 |  The system has a center          Any "center" is itself a construct  |
 |  (a ground, a foundation)         — there is no transcendental        |

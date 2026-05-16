@@ -1,0 +1,45 @@
+{
+  "schema_version": "1",
+  "source_markdown": "computer-architecture\\07-SUPERSCALAR-OOO.md",
+  "tables": [
+    {
+      "id": "table-1",
+      "line": 385,
+      "heading_context": "## Decision Cheat Sheet",
+      "headers": [
+        "Question",
+        "Answer"
+      ],
+      "rows": [
+        [
+          "What is the ROB?",
+          "Reorder Buffer — holds in-flight instructions in program order, enables in-order commit"
+        ],
+        [
+          "What does register renaming eliminate?",
+          "WAR (Write After Read) and WAW (Write After Write) name dependencies"
+        ],
+        [
+          "What is the physical register file?",
+          "The actual hardware register file — much larger than the ISA's architectural registers"
+        ],
+        [
+          "What determines OOO window size?",
+          "ROB entries + reservation station depth + physical register count"
+        ],
+        [
+          "Why does Apple M-series beat Intel at lower frequency?",
+          "Wider decode (8 vs 6), massive caches (192 KB L1D), larger ROB/scheduler — more parallelism visible"
+        ],
+        [
+          "What is Spectre?",
+          "A side-channel attack exploiting the microarchitectural effects (cache warming) of speculative execution"
+        ],
+        [
+          "What is a dispatch port?",
+          "Hardware connection from the scheduler to an execution unit; sets maximum throughput"
+        ]
+      ]
+    }
+  ]
+}

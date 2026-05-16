@@ -1,0 +1,83 @@
+{
+  "schema_version": "1",
+  "source_markdown": "computer-architecture\\07-SUPERSCALAR-OOO.md",
+  "blocks": [
+    {
+      "id": "block-1",
+      "kind": "ascii_table_candidate",
+      "line": 26,
+      "heading_context": "## Beyond 1 IPC",
+      "confidence": "candidate",
+      "text": "+-----------------------------------------------------------------------+\n|                   EXECUTION ENGINE OVERVIEW                           |\n|                                                                       |\n|  FRONT-END                    EXECUTION ENGINE (OOO)                  |\n|  ---------                    --------------------                    |\n|  Fetch (4–8 instrs/cycle)     Reservation Stations (Tomasulo)         |\n|  Branch prediction            Issue queues per execution unit type    |\n|  Decode (CISC→µops on x86)    Reorder Buffer (ROB) — in-order commit  |\n|  Micro-op cache (µop cache)   Register Alias Table (RAT) — renaming   |\n|  Rename/allocate              Multiple execution units in parallel    |\n|  Dispatch to reservation      Load/Store queues                       |\n|  stations                     Write-back to ROB                       |\n|                                                                       |\n|  IN ORDER:               OUT OF ORDER:                RETIRE:         |\n|  Fetch → Decode          Issue → Execute               In-order       |\n|  → Rename → Dispatch     (when operands ready)         commit from    |\n|                                                          ROB head     |\n+-----------------------------------------------------------------------+",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-2",
+      "kind": "diagram_like",
+      "line": 78,
+      "heading_context": "### Tomasulo Example",
+      "confidence": "candidate",
+      "text": "  PROGRAM (floating point):\n  1. FADD F1, F2, F3       ; F1 = F2 + F3\n  2. FMUL F4, F1, F5       ; F4 = F1 * F5  (WAR on F1 from instr 1)\n  3. FADD F1, F6, F7       ; F1 = F6 + F7  (WAW on F1 from instr 1)\n  4. FMUL F8, F1, F9       ; F8 = F1 * F9  (WAR on F1 from instr 3)\n\n  WITHOUT RENAMING: 3 and 4 must wait for 1 to complete.\n  True dependency: 2 waits for 1 (F1 is actually needed).\n  Name dependencies: 3 and 4 appear to depend on 1 but don't REALLY.\n\n  WITH RENAMING:\n  1. FADD P1, F2, F3       ; P1 (physical) = F2+F3  (F1 → P1)\n  2. FMUL P4, P1, F5       ; P4 = P1*F5 (waits for P1 — real dep)\n  3. FADD P10, F6, F7      ; P10 = F6+F7 (F1 → P10, different physical)\n  4. FMUL P8, P10, F9      ; P8 = P10*F9 (waits for P10 — real dep)\n\n  Instructions 1 and 3 can execute SIMULTANEOUSLY (independent physical regs)\n  Instructions 2 and 4 each wait only for their real dependency.\n  The WAW and WAR hazards are eliminated.",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-3",
+      "kind": "ascii_table_candidate",
+      "line": 104,
+      "heading_context": "## The Reorder Buffer (ROB)",
+      "confidence": "candidate",
+      "text": "  PROBLEM: Instructions execute out of order.\n  But EXCEPTIONS and INTERRUPTS must be handled precisely —\n  the machine state must reflect program order up to the point\n  of the exception.\n  Also: branch mispredictions require flushing speculative work.\n\n  SOLUTION: The Reorder Buffer.\n\n  ROB is a circular buffer holding all in-flight instructions\n  in PROGRAM ORDER.\n\n  +---+---+---+---+---+---+---+---+---+---+---+---+\n  | 1 | 2 | 3 | 4 | 5 | 6 | 7 | 8 |   |   |   |   |\n  +---+---+---+---+---+---+---+---+---+---+---+---+\n    ↑                               ↑\n   HEAD (oldest)                  TAIL (newest)\n   (next to commit)               (last allocated)\n\n  ENTRIES: instruction, result value, destination register/memory,\n           status (issued / executing / completed / ready-to-commit)\n\n  COMMIT (RETIRE): The HEAD instruction commits when:\n  1. It has completed execution (result ready)\n  2. No earlier instruction has raised an exception\n  Commits in-order, one or more per cycle.\n  Result written to architectural register file.\n\n  FLUSH: On misprediction or exception:\n  All instructions from mispredicted branch onward are FLUSHED.\n  ROB tail rewinds to the branch.\n  Renamed physical registers are freed.\n  Front-end redirected to correct path.",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-4",
+      "kind": "diagram_like",
+      "line": 143,
+      "heading_context": "## Register Renaming: The RAT",
+      "confidence": "candidate",
+      "text": "  ARCHITECTURAL REGISTERS: The ISA's visible registers.\n  x86-64: RAX, RBX... R15 (16 regs)\n  ARM64: X0-X30 + SP (32 regs)\n\n  PHYSICAL REGISTERS: The actual hardware register file.\n  Many more than architectural: 180–200+ physical regs (Intel)\n  (Intel Golden Cove: 280+ integer physical regs)\n\n  REGISTER ALIAS TABLE (RAT):\n  Maps: architectural register → physical register currently holding its value.\n\n  EXAMPLE (x86-64, 4-wide rename):\n\n  Cycle N: Rename 4 instructions:\n  ADD RAX, RBX    RAX → P42 (new physical reg allocated)\n  ADD RAX, RCX    RAX → P43 (new physical reg for RAX)\n  ADD RDX, P42    RDX → P44 (reads P42 = old RAX value)\n  MOV RSI, P43    RSI → P45 (reads P43 = RAX after first ADD)\n\n  At this point:\n  The four instructions are INDEPENDENT (different physical regs).\n  Instructions 3 and 4 only need to wait for their producers.\n  Instructions 1 and 2 can proceed in parallel.\n\n  The RAT is updated every cycle for each renamed instruction.\n  On flush (misprediction): the ROB-based architectural state is\n  used to restore the RAT to the correct committed state.",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-5",
+      "kind": "diagram_like",
+      "line": 177,
+      "heading_context": "## The Superscalar Front-End",
+      "confidence": "candidate",
+      "text": "  INSTRUCTION FETCH:\n  Modern CPUs fetch 16–32 bytes per cycle.\n  x86-64: 16 bytes = potentially 1–15 instructions (variable width)\n  ARM64: 16 bytes = 4 instructions exactly (fixed 4-byte)\n\n  BRANCH PREDICTION (integrated at fetch):\n  The BTB predicts next fetch address before decode reveals branches.\n  If BTB says this fetch contains a branch to target T:\n  Next cycle fetches from T (not sequential).\n  This is the \"predict the branch at fetch time\" optimization.\n\n  DECODE:\n  x86: 4–6 complex decoders (one complex decoder + N simple)\n  The complex decoder handles multi-µop instructions.\n  Simple decoders handle 1-µop instructions.\n  Intel Golden Cove: 6 decoders total → up to 6 µops/cycle\n\n  MICRO-OP CACHE (µop cache / decode cache):\n  Intel: \"Loop Stream Detector\" (Nehalem) → \"µop cache\" (Sandy Bridge+)\n  AMD: \"Op cache\"\n  Stores already-decoded µops. Bypasses decode stage for hot loops.\n  Intel Sandy Bridge µop cache: 1536 µops, ~32 KB effective.\n  Benefits: hot loops often fit entirely in µop cache;\n            decode bandwidth no longer the bottleneck.\n\n  ALLOCATION + RENAME:\n  After decode: allocate ROB entries + RS entries + physical regs.\n  Update RAT. This is the rename stage.\n  Width: same as decode width (4–8 µops/cycle).",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-6",
+      "kind": "ascii_table_candidate",
+      "line": 250,
+      "heading_context": "## Intel vs AMD vs Apple Microarchitecture",
+      "confidence": "candidate",
+      "text": "+------------------------------------------------------------------+\n| FEATURE           | Intel Golden | AMD Zen 4  | Apple Everest    |\n|                   | Cove (P-core)| (Raphael)  | (M2, ~est)       |\n|-------------------|--------------|------------|-----------------|\n| Decode width      | 6 µop/cycle  | 4 op/cycle | 8 op/cycle       |\n| Rename width      | 6            | 6          | 8                |\n| ROB entries       | 512          | 320        | ~630             |\n| INT phys regs     | 280+         | 224        | ~400 (est)       |\n| Scheduler (issue) | 160 entries  | 128 entries| ~300 (est)       |\n| Dispatch ports    | 10           | 6+         | 12+ (est)        |\n| Load bandwidth    | 2×256-bit    | 2×256-bit  | 2×128-bit (L1)   |\n|                   |              |            | 4×load AGU       |\n| Store bandwidth   | 2×256-bit    | 1×256-bit  | 2×store          |\n| L1D cache         | 48 KB        | 32 KB      | 192 KB           |\n| L1I cache         | 32 KB        | 32 KB      | 192 KB           |\n| L2 cache          | 2 MB         | 1 MB       | 12–16 MB         |\n| Clock (Boost)     | ~5.8 GHz     | ~5.7 GHz   | ~3.5 GHz         |\n+------------------------------------------------------------------+\n\nApple's lower frequency + wider issue window + massive caches\n= comparable or superior single-thread performance at lower power.\nThe OOO window (ROB, scheduler, physical regs) determines\nhow far ahead the processor can look for parallelism.\nApple's wide window is a deliberate design choice.",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-7",
+      "kind": "diagram_like",
+      "line": 325,
+      "heading_context": "## Meltdown (CVE-2017-5754)",
+      "confidence": "candidate",
+      "text": "  THE MELTDOWN EXPLOIT:\n\n  1. An unprivileged process reads a kernel virtual address.\n     Architecturally: this is illegal — a page fault will be raised.\n\n  2. HOWEVER: the OOO engine speculatively completes the load\n     BEFORE the permission check causes the fault.\n     The load result (kernel data) flows into the physical register file\n     and is used by subsequent instructions — all still speculative.\n\n  3. The attacker uses the secret kernel byte to index an array:\n     x = kernel_mem[secret_addr];\n     y = probe_array[x * 4096];       ← cache-load a specific line\n\n  4. The fault arrives and flushes the speculative state.\n     Architectural registers are clean. The kernel byte is gone.\n     BUT: probe_array[x * 4096] is still warm in the cache.\n\n  5. Time every probe_array slot. The fast one reveals x.\n\n  WHY MELTDOWN ≠ SPECTRE:\n  Spectre:  manipulates BRANCH PREDICTION to execute the wrong path.\n            The CPU was working correctly; the predictor was deceived.\n            Requires JIT or Spectre gadget in victim code.\n  Meltdown: the load and dependent instructions run before\n            the EXCEPTION is raised — exception ordering bug.\n            Any kernel memory readable by any process (in theory).\n            Simpler to exploit; no branch training required.\n\n  HARDWARE FIX vs SOFTWARE MITIGATION:\n  Meltdown — HARDWARE FIXED on newer CPUs:\n    Intel: fixed on Tiger Lake+ (Ice Lake server+) and Cascade Lake+\n    AMD: Zen 2+ is not vulnerable (AMD handled exception ordering\n         differently — fault delivered before dependent instruction)\n    On older hardware: KPTI (Kernel Page Table Isolation) required.\n\n  KPTI (Linux) / KVA Shadow (Windows):\n    Maintain SEPARATE page tables for user and kernel mode.\n    Kernel addresses are unmapped from user-mode page tables entirely.\n    Cost: TLB flush on every syscall/interrupt → 5–30% overhead\n          on syscall-heavy workloads.\n    Mitigated with PCID (Process-Context IDs) to tag TLB entries.\n\n  Spectre — NOT FULLY HARDWARE FIXED (ongoing):\n    Requires software mitigations per-generation (retpoline, IBRS,\n    IBPB, eIBRS, BHI mitigations).\n    Even Alder Lake / Zen 4 require software patching for new\n    Spectre variants as they are discovered.\n\n  COMBINED PICTURE (2024):\n  Tiger Lake / Zen 2+ desktop: Meltdown hardware-fixed, KPTI optional.\n  Pre-Ice Lake Intel server: KPTI required for Meltdown protection.\n  All generations: Spectre retpoline + eIBRS still active.",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    }
+  ]
+}

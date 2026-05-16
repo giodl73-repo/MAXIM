@@ -1,3 +1,22 @@
+---
+maxim_schema: maxim.frontmatter.v1
+id: maxim:semiotics:peirce
+kind: guide
+module: semiotics
+section: semiotics
+title: Peirce: Icon, Index, Symbol
+status: source-custody
+source_custody: partial
+current_path: semiotics/02-PEIRCE.md
+canonical_path: semiotics/02-PEIRCE.md
+backsource_ids: [proof-backfill:semiotics:02-peirce, git-history:semiotics:02-peirce]
+concepts: [peirce]
+root_concepts: [peirce]
+index_roles: [guide, root-concept]
+remap_from: []
+remap_to: []
+updated: null
+---
 # Peirce: Icon, Index, Symbol
 
 ## Why Peirce Matters
@@ -295,25 +314,25 @@ Charles Morris (1938) adapted Peirce into a framework that programming language 
 ```
 +----------------------------------------------------------------------+
 | ATTRIBUTE           | SAUSSURE              | PEIRCE                 |
-|---------------------|-----------------------|-----------------------|
+|---------------------|-----------------------|------------------------|
 | Sign structure      | Binary (Signifier/    | Triadic (Rep/Object/   |
 |                     | Signified)            | Interpretant)          |
-|---------------------|-----------------------|-----------------------|
+|---------------------|-----------------------|------------------------|
 | Sign-object link    | Always arbitrary      | Three types: icon,     |
 |                     | (for linguistic signs)| index, symbol          |
-|---------------------|-----------------------|-----------------------|
+|---------------------|-----------------------|------------------------|
 | Scope               | Linguistic signs      | All signs (including   |
 |                     | primarily             | non-linguistic)        |
-|---------------------|-----------------------|-----------------------|
+|---------------------|-----------------------|------------------------|
 | Historical moment   | 1916 (posthumous)     | 1867–1914              |
-|---------------------|-----------------------|-----------------------|
+|---------------------|-----------------------|------------------------|
 | Influence           | European structuralism| American pragmatism,   |
 |                     | Post-structuralism    | formal semiotics,      |
 |                     | Literary theory       | cognitive science      |
-|---------------------|-----------------------|-----------------------|
+|---------------------|-----------------------|------------------------|
 | Meaning in context  | Bracketed (langue)    | Central (interpretant  |
 |                     |                       | is always contextual)  |
-|---------------------|-----------------------|-----------------------|
+|---------------------|-----------------------|------------------------|
 | Logic of inference  | Not addressed         | Deduction, induction,  |
 |                     |                       | abduction              |
 +----------------------------------------------------------------------+

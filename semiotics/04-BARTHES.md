@@ -1,3 +1,22 @@
+---
+maxim_schema: maxim.frontmatter.v1
+id: maxim:semiotics:barthes
+kind: guide
+module: semiotics
+section: semiotics
+title: Barthes: Myth, Connotation, and Cultural Signs
+status: source-custody
+source_custody: partial
+current_path: semiotics/04-BARTHES.md
+canonical_path: semiotics/04-BARTHES.md
+backsource_ids: [proof-backfill:semiotics:04-barthes, git-history:semiotics:04-barthes]
+concepts: [barthes]
+root_concepts: [barthes]
+index_roles: [guide, root-concept]
+remap_from: []
+remap_to: []
+updated: null
+---
 # Barthes: Myth, Connotation, and Cultural Signs
 
 ## Roland Barthes and His Project

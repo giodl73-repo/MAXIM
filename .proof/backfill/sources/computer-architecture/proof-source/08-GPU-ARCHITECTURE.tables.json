@@ -1,0 +1,45 @@
+{
+  "schema_version": "1",
+  "source_markdown": "computer-architecture\\08-GPU-ARCHITECTURE.md",
+  "tables": [
+    {
+      "id": "table-1",
+      "line": 400,
+      "heading_context": "## Decision Cheat Sheet",
+      "headers": [
+        "Question",
+        "Answer"
+      ],
+      "rows": [
+        [
+          "What is a warp?",
+          "32 threads executing the same instruction simultaneously (SIMT)"
+        ],
+        [
+          "What is thread divergence?",
+          "Threads in a warp taking different branches — GPU serializes both paths"
+        ],
+        [
+          "Why launch thousands of threads?",
+          "To hide ~600-cycle DRAM latency via warp switching"
+        ],
+        [
+          "What is memory coalescing?",
+          "32 threads in a warp accessing contiguous addresses → 1 memory transaction"
+        ],
+        [
+          "What is shared memory?",
+          "Fast, user-managed per-block cache (~128 KB per SM); must be explicitly used"
+        ],
+        [
+          "What are tensor cores?",
+          "Specialized hardware for matrix multiply: 16×16×16 matmul per cycle"
+        ],
+        [
+          "Why does Apple Silicon GPU differ?",
+          "Unified memory — CPU and GPU share the same physical RAM, no PCIe transfer"
+        ]
+      ]
+    }
+  ]
+}

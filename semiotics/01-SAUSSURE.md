@@ -1,3 +1,22 @@
+---
+maxim_schema: maxim.frontmatter.v1
+id: maxim:semiotics:saussure
+kind: guide
+module: semiotics
+section: semiotics
+title: Saussure: Sign, Signifier, Signified
+status: source-custody
+source_custody: partial
+current_path: semiotics/01-SAUSSURE.md
+canonical_path: semiotics/01-SAUSSURE.md
+backsource_ids: [proof-backfill:semiotics:01-saussure, git-history:semiotics:01-saussure]
+concepts: [saussure]
+root_concepts: [saussure]
+index_roles: [guide, root-concept]
+remap_from: []
+remap_to: []
+updated: null
+---
 # Saussure: Sign, Signifier, Signified
 
 ## Who Was Saussure
@@ -50,7 +69,7 @@ The linguistic sign is the central unit of analysis.
   |  | / written |      | thing     |         |
   |  | form.     |      | itself.   |         |
   |  +-----------+      +-----------+         |
-  +------------------------------------------+
+  +-------------------------------------------+
 
   IMPORTANT:
   The signified is NOT the external object/thing.
@@ -75,7 +94,7 @@ The linguistic sign is the central unit of analysis.
   "tree" (English) ──→ concept of tree
   "arbre" (French) ──→ concept of tree      same concept,
   "Baum" (German)  ──→ concept of tree      different forms
-  "木" mù (Chinese) ──→ concept of tree
+  "mu" (Chinese)  ──→ concept of tree
 
   There is nothing tree-like about the sounds /triː/, /arbr/, /baʊm/.
   The link is purely CONVENTIONAL.

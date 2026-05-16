@@ -1,0 +1,49 @@
+{
+  "schema_version": "1",
+  "source_markdown": "computer-architecture\\04-PIPELINING.md",
+  "tables": [
+    {
+      "id": "table-1",
+      "line": 370,
+      "heading_context": "## Decision Cheat Sheet",
+      "headers": [
+        "Question",
+        "Answer"
+      ],
+      "rows": [
+        [
+          "How many pipeline stages in a classic RISC CPU?",
+          "5: IF, ID, EX, MEM, WB"
+        ],
+        [
+          "What is a RAW hazard?",
+          "Read After Write — instruction reads a value being written by a prior instruction"
+        ],
+        [
+          "How does forwarding fix RAW hazards?",
+          "Routes result from EX output directly to EX input of next instruction"
+        ],
+        [
+          "What is a load-use stall?",
+          "1-cycle stall when an instruction uses a value loaded by the immediately preceding load"
+        ],
+        [
+          "What is the branch misprediction penalty?",
+          "10–20 cycles depending on pipeline depth and stage at which branch resolves"
+        ],
+        [
+          "What is a BTB?",
+          "Branch Target Buffer — caches branch PC → predicted target address for fast fetch redirection"
+        ],
+        [
+          "When should you use CMOV instead of JE?",
+          "When the branch is data-dependent and unpredictable — branchless code avoids misprediction"
+        ],
+        [
+          "Why did the Pentium 4 fail?",
+          "31-stage pipeline → high GHz but huge misprediction penalty → poor IPC"
+        ]
+      ]
+    }
+  ]
+}
