@@ -1,3 +1,22 @@
+---
+maxim_schema: maxim.frontmatter.v1
+id: maxim:oral-tradition:homeric-tradition
+kind: guide
+module: oral-tradition
+section: oral-tradition
+title: Homeric Tradition: Iliad and Odyssey as Oral Composition - Evidence
+status: source-custody
+source_custody: partial
+current_path: oral-tradition/02-HOMERIC-TRADITION.md
+canonical_path: oral-tradition/02-HOMERIC-TRADITION.md
+backsource_ids: [proof-backfill:oral-tradition:02-homeric-tradition, git-history:oral-tradition:02-homeric-tradition]
+concepts: [homeric, tradition]
+root_concepts: [homeric, tradition]
+index_roles: [guide, root-concept]
+remap_from: []
+remap_to: []
+updated: null
+---
 # Homeric Tradition: Iliad and Odyssey as Oral Composition — Evidence
 
 ## The Big Picture

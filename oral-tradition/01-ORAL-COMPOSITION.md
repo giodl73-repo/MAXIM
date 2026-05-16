@@ -1,3 +1,22 @@
+---
+maxim_schema: maxim.frontmatter.v1
+id: maxim:oral-tradition:oral-composition
+kind: guide
+module: oral-tradition
+section: oral-tradition
+title: Oral Composition: Parry-Lord Theory, Formula, and Theme
+status: source-custody
+source_custody: partial
+current_path: oral-tradition/01-ORAL-COMPOSITION.md
+canonical_path: oral-tradition/01-ORAL-COMPOSITION.md
+backsource_ids: [proof-backfill:oral-tradition:01-oral-composition, git-history:oral-tradition:01-oral-composition]
+concepts: [oral, composition]
+root_concepts: [oral, composition]
+index_roles: [guide, root-concept]
+remap_from: []
+remap_to: []
+updated: null
+---
 # Oral Composition: Parry-Lord Theory, Formula, and Theme
 
 ## The Big Picture

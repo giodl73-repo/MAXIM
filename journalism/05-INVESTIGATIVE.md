@@ -1,3 +1,22 @@
+---
+maxim_schema: maxim.frontmatter.v1
+id: maxim:journalism:investigative
+kind: guide
+module: journalism
+section: journalism
+title: Investigative Journalism: Documents, Sources, Legal Exposure
+status: source-custody
+source_custody: partial
+current_path: journalism/05-INVESTIGATIVE.md
+canonical_path: journalism/05-INVESTIGATIVE.md
+backsource_ids: [proof-backfill:journalism:05-investigative, git-history:journalism:05-investigative]
+concepts: [investigative]
+root_concepts: [investigative]
+index_roles: [guide, root-concept]
+remap_from: []
+remap_to: []
+updated: null
+---
 # Investigative Journalism: Documents, Sources, Legal Exposure
 
 ## The Big Picture

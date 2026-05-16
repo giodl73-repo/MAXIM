@@ -1,3 +1,22 @@
+---
+maxim_schema: maxim.frontmatter.v1
+id: maxim:oral-tradition:folklore
+kind: guide
+module: oral-tradition
+section: oral-tradition
+title: Folklore and Myth: Propp Morphology, Tale Types, Urban Legend, Rumor
+status: source-custody
+source_custody: partial
+current_path: oral-tradition/05-FOLKLORE.md
+canonical_path: oral-tradition/05-FOLKLORE.md
+backsource_ids: [proof-backfill:oral-tradition:05-folklore, git-history:oral-tradition:05-folklore]
+concepts: [folklore]
+root_concepts: [folklore]
+index_roles: [guide, root-concept]
+remap_from: []
+remap_to: []
+updated: null
+---
 # Folklore and Myth: Propp Morphology, Tale Types, Urban Legend, Rumor
 
 ## The Big Picture

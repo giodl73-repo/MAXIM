@@ -1,33 +1,44 @@
+---
+maxim_schema: maxim.frontmatter.v1
+id: maxim:oral-tradition:overview
+kind: guide
+module: oral-tradition
+section: oral-tradition
+title: Oral Tradition: Memory, Performance, and Transmission - Landscape
+status: source-custody
+source_custody: partial
+current_path: oral-tradition/00-OVERVIEW.md
+canonical_path: oral-tradition/00-OVERVIEW.md
+backsource_ids: [proof-backfill:oral-tradition:00-overview, git-history:oral-tradition:00-overview]
+concepts: [overview]
+root_concepts: [overview]
+index_roles: [guide, root-concept]
+remap_from: []
+remap_to: []
+updated: null
+---
 # Oral Tradition: Memory, Performance, and Transmission — Landscape
 
 ## The Big Picture
 
 ```
-+------------------------------------------------------------------+
-|                    ORAL TRADITION LANDSCAPE                       |
-|                                                                  |
-|  COMPOSITION        TRANSMISSION         RECEPTION               |
-|  -----------        ------------         ---------               |
-|  Formula system     Performance          Audience co-creation    |
-|  Theme clusters     Variation/drift      Ritual context          |
-|  Improvisation      Memory techniques    Communal authority      |
-|  Meter as scaffold  Community gatekeep   Genre expectations      |
-|                                                                  |
-|  +-----------------+   +----------------+   +-----------------+  |
-|  | ORAL CULTURES   |   | TRANSITIONAL   |   | LITERATE WITH   |  |
-|  |                 |   | (oral-derived  |   | ORAL RESIDUE    |  |
-|  | Primary orality |   |  texts)        |   |                 |  |
-|  | Walter Ong's    |   | Homer, Beowulf |   | Folklore, rumor |  |
-|  | "psychodynamics"|   | medieval epic  |   | urban legend    |  |
-|  +-----------------+   +----------------+   +-----------------+  |
-|           |                    |                    |            |
-|           v                    v                    v            |
-|  +------------------------------------------------------------------+
-|  |                PARRY-LORD ORAL-FORMULAIC THEORY                  |
-|  |   The master framework: composition IS performance               |
-|  |   Formula = metrically useful phrase in fixed syntactic slot     |
-|  +------------------------------------------------------------------+
-+------------------------------------------------------------------+
+ORAL TRADITION LANDSCAPE
+========================
+
+COMPOSITION        TRANSMISSION         RECEPTION
+-----------        ------------         ---------
+Formula system     Performance          Audience co-creation
+Theme clusters     Variation/drift      Ritual context
+Improvisation      Memory techniques    Communal authority
+Meter as scaffold  Community gatekeep   Genre expectations
+
+Oral cultures (primary orality; Walter Ong psychodynamics)
+  -> Transitional oral-derived texts (Homer, Beowulf, medieval epic)
+  -> Literate cultures with oral residue (folklore, rumor, urban legend)
+
+PARRY-LORD ORAL-FORMULAIC THEORY
+Master framework: composition IS performance.
+Formula = metrically useful phrase in a fixed syntactic slot.
 ```
 
 **The core insight of oral-formulaic theory**: oral epic poetry is not memorized and recited; it is recomposed at each performance using a systematic toolkit of formulas and themes. The singer is composer, not memorizer.
@@ -109,39 +120,13 @@ Russian fairy tales reduce to **31 invariant functions** in fixed sequence order
 ## Structural Architecture of Oral Tradition
 
 ```
-+------------------------+
-|    ORAL TRADITION      |
-|    TRANSMISSION STACK  |
-+------------------------+
-           |
-    +------+------+
-    |             |
-    v             v
-+--------+   +---------+
-| EPIC   |   | SHORTER |
-| GENRES |   | FORMS   |
-+--------+   +---------+
-|        |   |         |
-| Heroic | | Folktale  |
-| Mythol.| | Proverb   |
-| Cosmog.| | Riddle    |
-| Geneal.| | Ballad    |
-+--------+   | Legend  |
-             | Rumor   |
-             +---------+
-                  |
-          +-------+-------+
-          |               |
-          v               v
-    +-----------+   +-----------+
-    | SACRED    |   | SECULAR   |
-    | TRADITION |   | TRADITION |
-    +-----------+   +-----------+
-    | Myth      |   | Epic      |
-    | Ritual    |   | Ballad    |
-    | Cosmogony |   | Folktale  |
-    | Prophecy  |   | Gossip    |
-    +-----------+   +-----------+
+ORAL TRADITION TRANSMISSION STACK
+================================
+
+- Epic genres: heroic, mythological, cosmogonic, genealogical
+- Shorter forms: folktale, proverb, riddle, ballad, legend, rumor
+- Sacred tradition: myth, ritual, cosmogony, prophecy
+- Secular tradition: epic, ballad, folktale, gossip
 ```
 
 ---
@@ -247,43 +232,46 @@ ORAL TRADITION TRANSMISSION CHAIN
 ====================================
 
   ┌─────────────┐    ┌─────────────┐    ┌─────────────┐
-  │ COMPOSITION │    │ PERFORMANCE │    │  AUDIENCE    │
+  │ COMPOSITION │    │ PERFORMANCE │    │ AUDIENCE    │
   │             │    │             │    │             │
   │ Singer draws│ →  │ Real-time   │ →  │ Co-creates  │
   │ on formula  │    │ assembly of │    │ via response│
   │ stock +     │    │ formulas +  │    │ (call-back, │
-  │ theme stock │    │ themes into │    │  attention,  │
-  │ (Parry-Lord)│    │ narrative   │    │  ritual)     │
+  │ theme stock │    │ themes into │    │ attention   │
+  │ Parry-Lord  │    │ narrative   │    │ + ritual)   │
   └─────────────┘    └─────────────┘    └─────────────┘
-        ↑                                      │
-        │         ┌──────────────────┐         │
-        │         │     MEMORY       │         │
-        │         │                  │ ←───────┘
-        │         │ Audience members │  what resonated
-        │         │ retain schema +  │  is remembered;
-        │         │ key episodes;    │  what didn't is
-        │         │ surface detail   │  forgotten
-        │         │ drifts           │  (homeostasis)
+        ↑
+        │         ┌──────────────────┐
+        │         │     MEMORY       │
+        │         │                  │
+        │         │ Audience members │
+        │         │ retain schema +  │
+        │         │ key episodes;    │
+        │         │ surface detail   │
+        │         │ drifts           │
         │         └──────────────────┘
         │                  │
         │                  v
         │         ┌──────────────────┐
         └─────────│ RE-PERFORMANCE   │
-  next singer     │                  │
-  draws on what   │ New singer or    │
-  survived in     │ same singer at   │
-  communal        │ next occasion    │
-  memory          │ recomposes from  │
+                  │                  │
+                  │ New singer or    │
+                  │ same singer at   │
+                  │ next occasion    │
+                  │ recomposes from  │
                   │ remembered stock │
                   └──────────────────┘
+
+  Memory note: what resonated is remembered; what did not is forgotten
+  through homeostasis. The next singer draws on communal memory.
 
   MECHANISM (Parry-Lord):
   ┌──────────────────────────────────────────────────┐
   │ Composition IS performance. There is no "original│
   │ text" behind the performances. Each performance  │
-  │ is the text. Formula = metrically useful phrase   │
-  │ in a syntactic slot. Theme = narrative block      │
-  │ (arming, feasting, voyage) assembled from         │
+  │ is the text. Formula = metrically useful phrase  │
+  │ in a syntactic slot. Theme = narrative block     │
+  │ (arming, feasting, voyage) assembled from        │
   │ formulas. The system is generative, not rote.    │
   └──────────────────────────────────────────────────┘
 ```

@@ -1,3 +1,22 @@
+---
+maxim_schema: maxim.frontmatter.v1
+id: maxim:journalism:news-gathering
+kind: guide
+module: journalism
+section: journalism
+title: News Gathering: Beat Reporting, Source Cultivation, FOIA, Verification
+status: source-custody
+source_custody: partial
+current_path: journalism/02-NEWS-GATHERING.md
+canonical_path: journalism/02-NEWS-GATHERING.md
+backsource_ids: [proof-backfill:journalism:02-news-gathering, git-history:journalism:02-news-gathering]
+concepts: [news, gathering]
+root_concepts: [news, gathering]
+index_roles: [guide, root-concept]
+remap_from: []
+remap_to: []
+updated: null
+---
 # News Gathering: Beat Reporting, Source Cultivation, FOIA, Verification
 
 ## The Gathering Framework
@@ -166,7 +185,7 @@ FOIA PROCESS (FEDERAL)
   │  Not too specific: "All emails from X about Y" → 0 records       │
   │                    if Y never named in emails                    │
   │                                                                  │
-  │  Include fee waiver request (news media qualify for reduced fee)│
+  │  Include fee waiver request (news media qualify for reduced fee) │
   │  Include expedited processing request if time-sensitive          │
   │  Send by certified mail (creates evidence of submission)         │
   └──────────────────────────────────────────────────────────────────┘
@@ -266,12 +285,12 @@ VERIFICATION FRAMEWORK
   │  One source + documentary corroboration                          │
   │                                                                  │
   │  "Independent" means sources who don't know each other's info    │
-  │  Two sources repeating the same rumor ≠ two independent sources│
+  │  Two sources repeating the same rumor ≠ two independent sources  │
   └──────────────────────────────────────────────────────────────────┘
 
   FIVE-QUESTION VERIFICATION CHECKLIST:
   ┌──────────────────────────────────────────────────────────────────┐
-  │  ① Is the source in a position to know what they claim to know?│
+  │  ① Is the source in a position to know what they claim to know?  │
   │  ② Is the source reliable (track record of accuracy)?            │
   │  ③ Does the source have a motive to distort or mislead?          │
   │  ④ Can the claim be corroborated by document or other source?    │
@@ -282,7 +301,7 @@ VERIFICATION FRAMEWORK
   PRE-PUBLICATION FACT-CHECKING:
   ┌──────────────────────────────────────────────────────────────────┐
   │  Call-back checks: Contact every named person in story           │
-  │  Numerical checks: Verify all figures, calculations, statistics│
+  │  Numerical checks: Verify all figures, calculations, statistics  │
   │  Quote checks: Read back direct quotes to sources for accuracy   │
   │   (NOT for approval — for accuracy)                              │
   │  Date/title checks: Official titles, exact dates verified        │

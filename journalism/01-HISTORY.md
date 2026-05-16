@@ -1,3 +1,22 @@
+---
+maxim_schema: maxim.frontmatter.v1
+id: maxim:journalism:history
+kind: guide
+module: journalism
+section: journalism
+title: History of Journalism: From Gazette to Digital
+status: source-custody
+source_custody: partial
+current_path: journalism/01-HISTORY.md
+canonical_path: journalism/01-HISTORY.md
+backsource_ids: [proof-backfill:journalism:01-history, git-history:journalism:01-history]
+concepts: [history]
+root_concepts: [history]
+index_roles: [guide, root-concept]
+remap_from: []
+remap_to: []
+updated: null
+---
 # History of Journalism: From Gazette to Digital
 
 ## The Big Picture

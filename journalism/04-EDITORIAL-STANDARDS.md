@@ -1,3 +1,22 @@
+---
+maxim_schema: maxim.frontmatter.v1
+id: maxim:journalism:editorial-standards
+kind: guide
+module: journalism
+section: journalism
+title: Editorial Standards: Ethics, Objectivity, Corrections, Conflicts of Interest
+status: source-custody
+source_custody: partial
+current_path: journalism/04-EDITORIAL-STANDARDS.md
+canonical_path: journalism/04-EDITORIAL-STANDARDS.md
+backsource_ids: [proof-backfill:journalism:04-editorial-standards, git-history:journalism:04-editorial-standards]
+concepts: [editorial, standards]
+root_concepts: [editorial, standards]
+index_roles: [guide, root-concept]
+remap_from: []
+remap_to: []
+updated: null
+---
 # Editorial Standards: Ethics, Objectivity, Corrections, Conflicts of Interest
 
 ## The Big Picture

@@ -1,3 +1,22 @@
+---
+maxim_schema: maxim.frontmatter.v1
+id: maxim:journalism:broadcast
+kind: guide
+module: journalism
+section: journalism
+title: Broadcast Journalism: Television News, Radio, Live Reporting, Chyrons
+status: source-custody
+source_custody: partial
+current_path: journalism/08-BROADCAST.md
+canonical_path: journalism/08-BROADCAST.md
+backsource_ids: [proof-backfill:journalism:08-broadcast, git-history:journalism:08-broadcast]
+concepts: [broadcast]
+root_concepts: [broadcast]
+index_roles: [guide, root-concept]
+remap_from: []
+remap_to: []
+updated: null
+---
 # Broadcast Journalism: Television News, Radio, Live Reporting, Chyrons
 
 ## The Big Picture

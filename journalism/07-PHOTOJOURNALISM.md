@@ -1,3 +1,22 @@
+---
+maxim_schema: maxim.frontmatter.v1
+id: maxim:journalism:photojournalism
+kind: guide
+module: journalism
+section: journalism
+title: Photojournalism: Ethics of Image, Decisive Moment, Staged vs. Candid
+status: source-custody
+source_custody: partial
+current_path: journalism/07-PHOTOJOURNALISM.md
+canonical_path: journalism/07-PHOTOJOURNALISM.md
+backsource_ids: [proof-backfill:journalism:07-photojournalism, git-history:journalism:07-photojournalism]
+concepts: [photojournalism]
+root_concepts: [photojournalism]
+index_roles: [guide, root-concept]
+remap_from: []
+remap_to: []
+updated: null
+---
 # Photojournalism: Ethics of Image, Decisive Moment, Staged vs. Candid
 
 ## The Big Picture
