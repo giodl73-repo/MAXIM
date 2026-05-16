@@ -1,0 +1,57 @@
+{
+  "schema_version": "1",
+  "source_markdown": "genomics\\04-GENE-EXPRESSION.md",
+  "tables": [
+    {
+      "id": "table-1",
+      "line": 395,
+      "heading_context": "## Decision Cheat Sheet",
+      "headers": [
+        "Goal",
+        "Tool"
+      ],
+      "rows": [
+        [
+          "Align RNA-seq to genome",
+          "STAR (most common) or HISAT2"
+        ],
+        [
+          "Quantify transcript abundance fast",
+          "kallisto or salmon (pseudo-alignment)"
+        ],
+        [
+          "Differential expression (bulk)",
+          "DESeq2 (negative binomial, recommended)"
+        ],
+        [
+          "Differential expression (large dataset)",
+          "edgeR (similar model, sometimes faster)"
+        ],
+        [
+          "Report expression levels",
+          "TPM (normalized, cross-sample comparable)"
+        ],
+        [
+          "Single-cell analysis",
+          "Seurat (R) or Scanpy/AnnData (Python)"
+        ],
+        [
+          "Pathway enrichment",
+          "GSEA (ranked) or g:Profiler (ORA)"
+        ],
+        [
+          "Visualize DE results",
+          "Volcano plot (effect + significance)"
+        ],
+        [
+          "Correct for technical variation",
+          "DESeq2 design formula (batch as covariate)"
+        ],
+        [
+          "Detect doublets in scRNA-seq",
+          "Scrublet or DoubletFinder"
+        ]
+      ]
+    }
+  ]
+}

@@ -1,0 +1,68 @@
+{
+  "schema_version": "1",
+  "source_markdown": "numerical-methods\\08-OPTIMIZATION.md",
+  "tables": [
+    {
+      "id": "table-1",
+      "line": 405,
+      "heading_context": "## Decision Cheat Sheet",
+      "headers": [
+        "Problem",
+        "Method",
+        "Notes"
+      ],
+      "rows": [
+        [
+          "Small-scale unconstrained, smooth",
+          "BFGS",
+          "Full Hessian approximation"
+        ],
+        [
+          "Large-scale unconstrained, smooth",
+          "L-BFGS",
+          "5-20 vector pairs stored"
+        ],
+        [
+          "Very large scale (ML), noisy",
+          "Adam / AdamW",
+          "Default for deep learning"
+        ],
+        [
+          "Convex, unconstrained",
+          "Nesterov accelerated GD",
+          "Optimal first-order method"
+        ],
+        [
+          "LP",
+          "Simplex or Interior Point",
+          "Both in scipy, GLPK, Gurobi"
+        ],
+        [
+          "QP",
+          "Active set or IPM",
+          "Quadprog, OSQP, Gurobi"
+        ],
+        [
+          "SDP",
+          "Interior Point",
+          "MOSEK, SeDuMi"
+        ],
+        [
+          "L1 regularized",
+          "Proximal gradient or ADMM",
+          "ISTA, FISTA, ADMM"
+        ],
+        [
+          "Expensive black-box (hyperparams)",
+          "Bayesian optimization",
+          "Optuna, GPyOpt"
+        ],
+        [
+          "Combinatorial, non-convex",
+          "Simulated annealing or GA",
+          "No guarantees"
+        ]
+      ]
+    }
+  ]
+}

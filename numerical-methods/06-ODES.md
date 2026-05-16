@@ -1,3 +1,22 @@
+---
+maxim_schema: maxim.frontmatter.v1
+id: maxim:numerical-methods:odes
+kind: guide
+module: numerical-methods
+section: numerical-methods
+title: Ordinary Differential Equations
+status: source-custody
+source_custody: partial
+current_path: numerical-methods/06-ODES.md
+canonical_path: numerical-methods/06-ODES.md
+backsource_ids: [proof-backfill:numerical-methods:06-odes, git-history:numerical-methods:06-odes]
+concepts: [odes]
+root_concepts: [odes]
+index_roles: [guide, root-concept]
+remap_from: []
+remap_to: []
+updated: null
+---
 # Ordinary Differential Equations
 
 ## The Big Picture
@@ -16,7 +35,7 @@ ODE solvers advance a system state forward in time. The key challenges: accuracy
 |  +---------------------+           +-------------------+        |
 |  | Runge-Kutta family  |           | BDF methods       |        |
 |  | RK4: O(h^4)         |           | (VODE, LSODE)     |        |
-|  | Dormand-Prince (RK45)|          | Rosenbrock        |        |
+|  | Dormand-Prince RK45 |           | Rosenbrock        |        |
 |  | Adaptive step size  |           | Implicit RK       |        |
 |  +---------------------+           +-------------------+        |
 |                                                                  |
@@ -24,8 +43,8 @@ ODE solvers advance a system state forward in time. The key challenges: accuracy
 |  +---------------------+           +-------------------+        |
 |  | Shooting method     |           | DAE solvers       |        |
 |  | Collocation         |           | Index reduction   |        |
-|  | BVP4C (MATLAB/scipy)|           +-------------------+        |
-|  +---------------------+                                        |
+|  | BVP4C (MATLAB)      |           +-------------------+        |
+|  -----------------------                                        |
 +------------------------------------------------------------------+
 ```
 

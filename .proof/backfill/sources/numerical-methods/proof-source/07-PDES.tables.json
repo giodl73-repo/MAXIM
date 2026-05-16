@@ -1,0 +1,68 @@
+{
+  "schema_version": "1",
+  "source_markdown": "numerical-methods\\07-PDES.md",
+  "tables": [
+    {
+      "id": "table-1",
+      "line": 376,
+      "heading_context": "## Decision Cheat Sheet",
+      "headers": [
+        "PDE Type",
+        "Geometry",
+        "Preferred Method"
+      ],
+      "rows": [
+        [
+          "Elliptic (Poisson, Laplace)",
+          "Simple (rectangle)",
+          "Finite differences + multigrid"
+        ],
+        [
+          "Elliptic",
+          "Complex/unstructured",
+          "Finite element method"
+        ],
+        [
+          "Parabolic (heat), small to medium",
+          "Regular",
+          "FD with Crank-Nicolson"
+        ],
+        [
+          "Parabolic, complex geometry",
+          "Any",
+          "FEM + implicit time integration"
+        ],
+        [
+          "Hyperbolic (wave), smooth",
+          "Periodic",
+          "Spectral (Fourier)"
+        ],
+        [
+          "Hyperbolic, conservation law",
+          "Any",
+          "Finite volume + Riemann solver"
+        ],
+        [
+          "Navier-Stokes (turbulence)",
+          "Simple, turbulence",
+          "Spectral / pseudo-spectral"
+        ],
+        [
+          "Navier-Stokes, engineering",
+          "Complex geometry",
+          "FVM (OpenFOAM, Fluent)"
+        ],
+        [
+          "Elasticity, structural",
+          "Complex 3D",
+          "FEM (ANSYS, Abaqus, FEniCS)"
+        ],
+        [
+          "High accuracy, smooth solution",
+          "Simple",
+          "Spectral element method"
+        ]
+      ]
+    }
+  ]
+}

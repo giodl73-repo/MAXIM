@@ -1,0 +1,72 @@
+{
+  "schema_version": "1",
+  "source_markdown": "numerical-methods\\04-INTERPOLATION.md",
+  "blocks": [
+    {
+      "id": "block-1",
+      "kind": "ascii_table_candidate",
+      "line": 26,
+      "heading_context": "## The Big Picture",
+      "confidence": "candidate",
+      "text": "+------------------------------------------------------------------+\n|              INTERPOLATION AND APPROXIMATION LANDSCAPE           |\n+------------------------------------------------------------------+\n|                                                                  |\n|  DATA: (x_0, y_0), ..., (x_n, y_n)                             |\n|                                                                  |\n|  POLYNOMIAL INTERPOLATION          PIECEWISE / SPLINES           |\n|  +------------------------+        +--------------------+        |\n|  | Lagrange interpolation |        | Cubic splines      |        |\n|  | Newton's divided diff  |        | B-splines          |        |\n|  | Runge's phenomenon!    |        | NURBS              |        |\n|  +------------------------+        +--------------------+        |\n|                                                                  |\n|  CHEBYSHEV APPROXIMATION           SCATTERED DATA                |\n|  +------------------------+        +--------------------+        |\n|  | Minimax approximation  |        | Radial basis funcs |        |\n|  | Exponential convergence|        | Kriging / GPs      |        |\n|  | for smooth functions   |        | Natural neighbor   |        |\n|  +------------------------+        +--------------------+        |\n|                                                                  |\n|  BEST APPROXIMATION (L^2)          REGRESSION (noisy data)      |\n|  Least squares polynomial          (see 07-REGRESSION-MODELS)   |\n|  Fourier series, wavelets                                       |\n+------------------------------------------------------------------+",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-2",
+      "kind": "ascii_table_candidate",
+      "line": 72,
+      "heading_context": "## Polynomial Interpolation",
+      "confidence": "candidate",
+      "text": "  p_n(x) = c_0 + c_1(x-x_0) + c_2(x-x_0)(x-x_1) + ... + c_n Product_{i=0}^{n-1}(x-x_i)\n\n  Divided differences:\n  c_0 = y_0\n  c_1 = [y_0, y_1] = (y_1 - y_0) / (x_1 - x_0)\n  c_2 = [[y_0, y_1], [y_1, y_2]] = ([y_1,y_2] - [y_0,y_1]) / (x_2 - x_0)\n  ...\n\n  ADVANTAGE: Adding a new data point adds one new term — O(n) update.\n  Horner's method evaluates in O(n) operations.",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-3",
+      "kind": "ascii_table_candidate",
+      "line": 87,
+      "heading_context": "## Polynomial Interpolation",
+      "confidence": "candidate",
+      "text": "  If f is (n+1)-times differentiable and p_n is the interpolating polynomial:\n  f(x) - p_n(x) = f^{(n+1)}(xi) / (n+1)! * Product_{i=0}^n (x - x_i)\n\n  For some xi between min(x_i) and max(x_i).\n\n  The term omega(x) = Product_{i=0}^n (x - x_i) depends on the node placement.\n  Minimizing max |omega(x)| over [a,b] leads to CHEBYSHEV NODES.",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-4",
+      "kind": "ascii_table_candidate",
+      "line": 126,
+      "heading_context": "## Chebyshev Nodes and Approximation",
+      "confidence": "candidate",
+      "text": "  Chebyshev nodes on [-1, 1]:\n  x_k = cos((2k+1)pi / (2(n+1)))   for k = 0, 1, ..., n\n\n  These are the extrema of the Chebyshev polynomial T_{n+1}(x).\n  They cluster near +/-1 (denser sampling near endpoints where polynomials oscillate).\n\n  Chebyshev error bound:\n  max|f - p_n| <= (1/(n+1)!) * (1/2)^n * max|f^{(n+1)}|  (on [-1,1])\n\n  For analytic f (infinitely smooth): SPECTRAL CONVERGENCE (exponential in n).\n  This is much faster than any algebraic rate.",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-5",
+      "kind": "ascii_table_candidate",
+      "line": 165,
+      "heading_context": "## Splines — Piecewise Polynomial Interpolation",
+      "confidence": "candidate",
+      "text": "  Given nodes a = x_0 < x_1 < ... < x_n = b and values y_0, ..., y_n:\n\n  On each interval [x_i, x_{i+1}]: a cubic S_i(x) = a_i + b_i(x-x_i) + c_i(x-x_i)^2 + d_i(x-x_i)^3\n\n  CONDITIONS:\n  Interpolation: S_i(x_i) = y_i, S_i(x_{i+1}) = y_{i+1}   (2n conditions)\n  C^1 continuity: S_i'(x_{i+1}) = S_{i+1}'(x_{i+1})        (n-1 conditions)\n  C^2 continuity: S_i''(x_{i+1}) = S_{i+1}''(x_{i+1})      (n-1 conditions)\n  Total: 4n unknowns, 4n-2 conditions => 2 free conditions.\n\n  NATURAL SPLINE: S''(x_0) = S''(x_n) = 0  (zero curvature at endpoints)\n  NOT-A-KNOT: third derivative continuous at x_1 and x_{n-1}\n  PERIODIC: for periodic data\n\n  SOLUTION: Tridiagonal system for the second derivatives (O(n) by banded Cholesky).",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-6",
+      "kind": "diagram_like",
+      "line": 195,
+      "heading_context": "## Splines — Piecewise Polynomial Interpolation",
+      "confidence": "candidate",
+      "text": "  B-SPLINES IN THIS MODULE          B-SPLINES IN FEM (07-PDES)\n  ──────────────────────────────────────────────────────────────────────\n  B_{i,p}(x): basis function        φ_i(x): FEM basis function (same object)\n  Interpolant: S(x) = Σ c_i B_i    FEM approx: u_h(x) = Σ U_j φ_j\n  Coefficients c_i: fit data        Coefficients U_j: solve K U = F\n  Local support on (x_i, x_{i+p+1}) Local support → sparse stiffness K\n  K_{ij} = ∫ B_i' B_j' dx          Stiffness matrix (same integral!)",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    }
+  ]
+}

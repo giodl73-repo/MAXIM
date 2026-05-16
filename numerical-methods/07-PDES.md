@@ -1,3 +1,22 @@
+---
+maxim_schema: maxim.frontmatter.v1
+id: maxim:numerical-methods:pdes
+kind: guide
+module: numerical-methods
+section: numerical-methods
+title: Partial Differential Equations
+status: source-custody
+source_custody: partial
+current_path: numerical-methods/07-PDES.md
+canonical_path: numerical-methods/07-PDES.md
+backsource_ids: [proof-backfill:numerical-methods:07-pdes, git-history:numerical-methods:07-pdes]
+concepts: [pdes]
+root_concepts: [pdes]
+index_roles: [guide, root-concept]
+remap_from: []
+remap_to: []
+updated: null
+---
 # Partial Differential Equations
 
 ## The Big Picture

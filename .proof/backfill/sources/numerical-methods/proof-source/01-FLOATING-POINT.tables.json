@@ -1,0 +1,49 @@
+{
+  "schema_version": "1",
+  "source_markdown": "numerical-methods\\01-FLOATING-POINT.md",
+  "tables": [
+    {
+      "id": "table-1",
+      "line": 351,
+      "heading_context": "## Decision Cheat Sheet",
+      "headers": [
+        "Situation",
+        "Solution"
+      ],
+      "rows": [
+        [
+          "Subtraction of nearby numbers",
+          "Reformulate to avoid cancellation (expm1, log1p, hypot)"
+        ],
+        [
+          "Ill-conditioned linear system",
+          "Cannot fix; report condition number, use regularization"
+        ],
+        [
+          "Sum of many numbers with varying signs",
+          "Compensated summation (Kahan) or pairwise summation"
+        ],
+        [
+          "Equality comparison of floats",
+          "Use tolerance-based comparison; never use =="
+        ],
+        [
+          "Need guaranteed bounds on error",
+          "Interval arithmetic"
+        ],
+        [
+          "Overflow/underflow concerns",
+          "Scale inputs; use log-space computation; check exponent range"
+        ],
+        [
+          "Scientific computing speed",
+          "Use float32 or mixed precision deliberately"
+        ],
+        [
+          "Need reproducible results",
+          "Fix rounding mode; use deterministic algorithms; avoid parallelism"
+        ]
+      ]
+    }
+  ]
+}

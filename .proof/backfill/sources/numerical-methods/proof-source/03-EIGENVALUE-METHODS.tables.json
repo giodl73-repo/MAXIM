@@ -1,0 +1,67 @@
+{
+  "schema_version": "1",
+  "source_markdown": "numerical-methods\\03-EIGENVALUE-METHODS.md",
+  "tables": [
+    {
+      "id": "table-1",
+      "line": 374,
+      "heading_context": "## Decision Cheat Sheet",
+      "headers": [
+        "Problem",
+        "Algorithm",
+        "Complexity",
+        "Notes"
+      ],
+      "rows": [
+        [
+          "All eigenvalues, dense symmetric",
+          "QR algorithm (DSYEV)",
+          "O(n^3)",
+          "Stable, complete"
+        ],
+        [
+          "All eigenvalues, dense general",
+          "QR algorithm (DGEEV)",
+          "O(n^3)",
+          "Complex eigenvalues"
+        ],
+        [
+          "Full SVD, dense",
+          "DGESVD / DGESDD",
+          "O(mn^2)",
+          "m >= n"
+        ],
+        [
+          "k largest eigenvalues, sparse",
+          "Lanczos (ARPACK)",
+          "O(k * nnz)",
+          "Reorthogonalize"
+        ],
+        [
+          "k largest singular values, large A",
+          "Randomized SVD",
+          "O(mnk)",
+          "Near-optimal"
+        ],
+        [
+          "Single largest eigenvalue",
+          "Power iteration",
+          "O(nnz) per iter",
+          "Simple, slow convergence"
+        ],
+        [
+          "Eigenvalue near target mu",
+          "Shifted inverse iteration",
+          "O(n^2-3) per iter",
+          "Cubic convergence"
+        ],
+        [
+          "Generalized A v = lambda B v",
+          "Cholesky reduce + QR",
+          "O(n^3)",
+          "B must be SPD"
+        ]
+      ]
+    }
+  ]
+}

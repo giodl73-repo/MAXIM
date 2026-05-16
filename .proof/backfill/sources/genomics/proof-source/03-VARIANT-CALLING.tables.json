@@ -1,0 +1,57 @@
+{
+  "schema_version": "1",
+  "source_markdown": "genomics\\03-VARIANT-CALLING.md",
+  "tables": [
+    {
+      "id": "table-1",
+      "line": 367,
+      "heading_context": "## Decision Cheat Sheet",
+      "headers": [
+        "Goal",
+        "Tool/Method"
+      ],
+      "rows": [
+        [
+          "Call germline SNPs/indels",
+          "GATK HaplotypeCaller → VQSR"
+        ],
+        [
+          "Call somatic variants (cancer)",
+          "GATK Mutect2 (tumor-normal)"
+        ],
+        [
+          "Call structural variants (Illumina)",
+          "Manta, DELLY"
+        ],
+        [
+          "Call structural variants (long-read)",
+          "Sniffles2 (ONT), PBSV (PacBio)"
+        ],
+        [
+          "Call copy number variants",
+          "GATK CNV pipeline, CNVkit"
+        ],
+        [
+          "Annotate variant consequence",
+          "VEP (Ensembl), ANNOVAR"
+        ],
+        [
+          "Filter by population frequency",
+          "gnomAD (AF filter, pLI)"
+        ],
+        [
+          "Classify clinical variants",
+          "ACMG/AMP 5-tier framework"
+        ],
+        [
+          "Large-scale cohort genotyping",
+          "GATK joint calling + GenomicsDB"
+        ],
+        [
+          "Cancer mutational signatures",
+          "SigProfilerExtractor (COSMIC)"
+        ]
+      ]
+    }
+  ]
+}

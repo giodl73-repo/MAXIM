@@ -1,0 +1,63 @@
+{
+  "schema_version": "1",
+  "source_markdown": "numerical-methods\\02-LINEAR-SYSTEMS.md",
+  "tables": [
+    {
+      "id": "table-1",
+      "line": 351,
+      "heading_context": "## Decision Cheat Sheet",
+      "headers": [
+        "Matrix Type",
+        "Preferred Method",
+        "Cost"
+      ],
+      "rows": [
+        [
+          "Dense, general",
+          "LU with partial pivoting",
+          "O(n^3)"
+        ],
+        [
+          "Dense, SPD",
+          "Cholesky",
+          "O(n^3/3)"
+        ],
+        [
+          "Dense, symmetric indefinite",
+          "Bunch-Kaufman",
+          "O(n^3/3)"
+        ],
+        [
+          "Dense, overdetermined Ax≈b (least sq.)",
+          "QR factorization",
+          "O(mn^2)"
+        ],
+        [
+          "Sparse, SPD, structured (PDE)",
+          "Multigrid",
+          "O(n)"
+        ],
+        [
+          "Sparse, SPD, unstructured",
+          "CG + AMG preconditioner",
+          "O(n log n) typical"
+        ],
+        [
+          "Sparse, non-symmetric",
+          "GMRES + ILU preconditioner",
+          "Problem-dependent"
+        ],
+        [
+          "Tridiagonal / banded",
+          "Banded LU",
+          "O(nb^2)"
+        ],
+        [
+          "Toeplitz",
+          "FFT-based solver",
+          "O(n log^2 n)"
+        ]
+      ]
+    }
+  ]
+}

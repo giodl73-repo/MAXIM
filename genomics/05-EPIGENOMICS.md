@@ -1,3 +1,22 @@
+---
+maxim_schema: maxim.frontmatter.v1
+id: maxim:genomics:epigenomics
+kind: guide
+module: genomics
+section: genomics
+title: Epigenomics
+status: source-custody
+source_custody: partial
+current_path: genomics/05-EPIGENOMICS.md
+canonical_path: genomics/05-EPIGENOMICS.md
+backsource_ids: [proof-backfill:genomics:05-epigenomics, git-history:genomics:05-epigenomics]
+concepts: [epigenomics]
+root_concepts: [epigenomics]
+index_roles: [guide, root-concept]
+remap_from: []
+remap_to: []
+updated: null
+---
 # Epigenomics
 
 ## The Big Picture
@@ -184,10 +203,10 @@ EPIGENOMICS: THE CHEMICAL LAYER ABOVE THE SEQUENCE
   │    Target: ~200 bp fragments                         │
   │                                                      │
   │ 3. IMMUNOPRECIPITATE: Add antibody against target    │
-  │    (e.g., anti-H3K27ac; or anti-CTCF; or anti-RNA-Pol2)│
+  │    (anti-H3K27ac; anti-CTCF; anti-RNA-Pol2)          │
   │    Antibody binds protein → protein pulls down DNA   │
   │                                                      │
-  │ 4. REVERSE CROSSLINK: Heat to release DNA from protein│
+  │ 4. REVERSE CROSSLINK: Heat releases DNA from protein │
   │                                                      │
   │ 5. SEQUENCE: Standard Illumina library prep          │
   │    Single-end 50 bp is usually sufficient            │

@@ -1,0 +1,63 @@
+{
+  "schema_version": "1",
+  "source_markdown": "numerical-methods\\06-ODES.md",
+  "tables": [
+    {
+      "id": "table-1",
+      "line": 347,
+      "heading_context": "## Decision Cheat Sheet",
+      "headers": [
+        "Problem Type",
+        "Method",
+        "Notes"
+      ],
+      "rows": [
+        [
+          "Non-stiff, smooth",
+          "Dormand-Prince (RK45)",
+          "Default choice"
+        ],
+        [
+          "Non-stiff, high accuracy",
+          "Runge-Kutta-Fehlberg 7(8)",
+          "More evaluations, better accuracy"
+        ],
+        [
+          "Stiff, general",
+          "BDF (scipy Radau or BDF)",
+          "Implicit, adaptive order"
+        ],
+        [
+          "Mildly stiff",
+          "Rosenbrock (ode23s)",
+          "Cheaper than full implicit"
+        ],
+        [
+          "Very stiff, tight accuracy",
+          "Gauss-Legendre IRK",
+          "A-stable, high-order"
+        ],
+        [
+          "Conservative system (Hamiltonian)",
+          "Symplectic integrator (Verlet, Leapfrog)",
+          "Preserves energy long-term"
+        ],
+        [
+          "BVP, well-behaved",
+          "Collocation (bvp4c)",
+          "Reliable, mesh-adaptive"
+        ],
+        [
+          "BVP, shooting OK",
+          "Shooting + Newton",
+          "Simple, fast if stable"
+        ],
+        [
+          "DAE index 1",
+          "IDA / DASSL",
+          "State-of-art"
+        ]
+      ]
+    }
+  ]
+}

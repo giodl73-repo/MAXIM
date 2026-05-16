@@ -1,0 +1,94 @@
+{
+  "schema_version": "1",
+  "source_markdown": "numerical-methods\\07-PDES.md",
+  "blocks": [
+    {
+      "id": "block-1",
+      "kind": "ascii_table_candidate",
+      "line": 26,
+      "heading_context": "## The Big Picture",
+      "confidence": "candidate",
+      "text": "+------------------------------------------------------------------+\n|                    PDE NUMERICAL METHODS                         |\n+------------------------------------------------------------------+\n|                                                                  |\n|  PDE CLASSIFICATION                                             |\n|  +-------------------------------------------------------------+ |\n|  | ELLIPTIC: -nabla^2 u = f  (steady state, e.g., Poisson)     | |\n|  | PARABOLIC: u_t = nabla^2 u  (diffusion, heat equation)      | |\n|  | HYPERBOLIC: u_tt = c^2 nabla^2 u  (waves, advection)        | |\n|  +-------------------------------------------------------------+ |\n|                                                                  |\n|  DISCRETIZATION METHODS                                         |\n|  +---------------------+  +------------------+  +-----------+  |\n|  | FINITE DIFFERENCES  |  | FINITE ELEMENTS  |  | SPECTRAL  |  |\n|  | Simple, structured  |  | Complex geom.    |  | High acc. |  |\n|  | grids only          |  | Variational form |  | smooth f  |  |\n|  | O(h^2) standard     |  | Flexible mesh    |  | O(e^{-n}) |  |\n|  +---------------------+  +------------------+  +-----------+  |\n|                                                                  |\n|  FINITE VOLUME: Conservation laws, unstructured grids           |\n|  MESHLESS: SPH, RKPM -- for large deformations                 |\n+------------------------------------------------------------------+",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-2",
+      "kind": "ascii_table_candidate",
+      "line": 59,
+      "heading_context": "## Finite Differences",
+      "confidence": "candidate",
+      "text": "  Grid: x_i = a + i h,  i = 0, 1, ..., N+1,  h = (b-a)/(N+1)\n\n  FIRST DERIVATIVE:\n  u'(x_i) ≈ (u_{i+1} - u_{i-1}) / (2h)      (central, O(h^2))\n  u'(x_i) ≈ (u_{i+1} - u_i) / h              (forward, O(h))\n  u'(x_i) ≈ (u_i - u_{i-1}) / h              (backward, O(h))\n\n  SECOND DERIVATIVE:\n  u''(x_i) ≈ (u_{i-1} - 2u_i + u_{i+1}) / h^2   (central, O(h^2))\n\n  DERIVATION via Taylor: u(x+h) = u + hu' + h^2u''/2 + h^3u'''/6 + ...\n  u(x-h) = u - hu' + h^2u''/2 - h^3u'''/6 + ...\n  Subtract: u(x+h) - u(x-h) = 2h u' + O(h^3)  -> first central difference\n  Add: u(x+h) + u(x-h) = 2u + h^2 u'' + O(h^4) -> second central difference",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-3",
+      "kind": "ascii_table_candidate",
+      "line": 78,
+      "heading_context": "## Finite Differences",
+      "confidence": "candidate",
+      "text": "  -(u_{i-1} - 2u_i + u_{i+1}) / h^2 = f_i   for i = 1, ..., N\n\n  In matrix form: (1/h^2) * T * u = f\n  where T = tridiag(-1, 2, -1) (tridiagonal matrix)\n\n  STRUCTURE:\n  T is symmetric positive definite.\n  Eigenvalues: lambda_k = 4/h^2 sin^2(k pi h / 2) for k=1,...,N\n  Condition number: kappa(T) = O(h^{-2}) = O(N^2) -- grows with grid refinement!\n  This is why multigrid or direct solvers are needed for fine grids.\n\n  HIGHER ORDER: O(h^4) scheme uses 5 points:\n  u'' ≈ (-u_{i+2} + 16u_{i+1} - 30u_i + 16u_{i-1} - u_{i-2}) / (12h^2)",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-4",
+      "kind": "ascii_table_candidate",
+      "line": 102,
+      "heading_context": "## Stability: CFL Condition",
+      "confidence": "candidate",
+      "text": "  (u_i^{n+1} - u_i^n) / dt + c (u_i^n - u_{i-1}^n) / h = 0\n  (for c > 0; upwind = backward difference in x)\n\n  u_i^{n+1} = u_i^n - (c dt / h)(u_i^n - u_{i-1}^n)\n\n  Define CFL number: nu = c dt / h\n\n  VON NEUMANN STABILITY ANALYSIS:\n  Substitute u_j^n = lambda^n e^{i k j h} (Fourier mode)\n  lambda = 1 - nu(1 - e^{-ikh})\n  |lambda|^2 = 1 - 2 nu(1-nu)(1 - cos kh)\n\n  STABILITY: |lambda| <= 1 for all k requires nu <= 1.\n  CFL CONDITION: dt <= h / c   (time step <= spatial step / wave speed)\n\n  Physical interpretation: information travels at speed c; one time step\n  should not move information more than one spatial cell.\n\n  GENERAL CFL:  dt <= h / max_speed  (must respect the fastest wave in the system)",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-5",
+      "kind": "ascii_table_candidate",
+      "line": 126,
+      "heading_context": "## Stability: CFL Condition",
+      "confidence": "candidate",
+      "text": "  u_i^{n+1} = u_i^n + D dt/h^2 (u_{i-1}^n - 2u_i^n + u_{i+1}^n)\n\n  CFL-like stability: D dt / h^2 <= 1/2   (more restrictive than advection!)\n\n  For d-dimensions: dt <= h^2 / (2d D)\n\n  CONSEQUENCE: To halve h (double resolution) and keep stable:\n  must divide dt by 4 (in 2D: by 8). Work scales as h^{-4} in 2D.\n  VERY EXPENSIVE for fine grids with explicit methods.\n  IMPLICIT METHODS (Crank-Nicolson, BDF): no stability restriction on dt.",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-6",
+      "kind": "ascii_table_candidate",
+      "line": 145,
+      "heading_context": "## Crank-Nicolson (Time Discretization)",
+      "confidence": "candidate",
+      "text": "  Heat equation: u_t = D u_xx\n\n  EXPLICIT EULER:   (u^{n+1} - u^n)/dt = D u^n_xx         (O(dt), O(h^2))\n  IMPLICIT EULER:   (u^{n+1} - u^n)/dt = D u^{n+1}_xx      (O(dt), O(h^2), A-stable)\n  CRANK-NICOLSON:   (u^{n+1} - u^n)/dt = D/2 (u^n_xx + u^{n+1}_xx)  (O(dt^2), O(h^2))\n\n  Crank-Nicolson in matrix form:\n  (I - dt D/(2h^2) T) u^{n+1} = (I + dt D/(2h^2) T) u^n\n\n  Solve tridiagonal system at each time step.\n  STABILITY: UNCONDITIONALLY STABLE for any dt > 0.\n  ACCURACY: Second order in both space and time.\n  DRAWBACK: Can exhibit oscillations for discontinuous initial data.\n             (Crank-Nicolson is A-stable but not L-stable; doesn't damp oscillations.)",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-7",
+      "kind": "diagram_like",
+      "line": 166,
+      "heading_context": "## Engineering Bridge: FEM as Distributed Computation on Grids",
+      "confidence": "candidate",
+      "text": "FEM CONCEPT                      DISTRIBUTED SYSTEMS PARALLEL\n──────────────────────────────────────────────────────────────────────\nMesh: divide domain into         Partition: divide data across\n  triangles/tets                   MPI ranks / compute nodes\nElement stiffness k_e:           Local computation: each rank\n  computed independently           processes its partition\n  per element (embarrassingly      (no communication needed\n  parallel)                        during assembly)\nGlobal assembly K = Σ k_e:       MPI scatter/gather: ranks\n  scatter local k_e into           contribute to shared rows/cols\n  global K via connectivity        at partition boundaries\nSolve K u = F:                   Distributed sparse solve:\n  PETSc / MUMPS / Trilinos        PETSc distributes rows of K\n  distribute K across ranks        across MPI ranks, each owns\n                                   a contiguous block of rows\n\nFEM PIPELINE ON A CLUSTER (PETSc / FEniCS / DUNE):\n┌──────────┐   ┌──────────────┐   ┌────────────────┐   ┌─────────────┐\n│ Mesh     │──▶│ Local element│──▶│ Global assembly│──▶│ Distributed │\n│ partition│   │ assembly     │   │ (MPI comm)     │   │ solve       │\n│ (METIS)  │   │ (no comm)    │   │                │   │ (PETSc KSP) │\n└──────────┘   └──────────────┘   └────────────────┘   └─────────────┘\n  O(N/P)         O(N/P)             O(N^{2/3}/P)        O(N/P) per iter\n  per rank       per rank           surface comm         with AMG precond",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-8",
+      "kind": "diagram_like",
+      "line": 292,
+      "heading_context": "## Finite Element Method",
+      "confidence": "candidate",
+      "text": "  PDE METHOD        DOMINANT OPERATION     GPU LIBRARY     TYPICAL SPEEDUP\n  ──────────────────────────────────────────────────────────────────────────\n  Spectral (Fourier) FFT                   cuFFT           5-20× (large N)\n  Finite Differences SpMV (stencil apply)  cuSPARSE        10-50× (HBM BW)\n  Finite Volume      SpMV + flux compute   cuSPARSE        10-30×\n  FEM (assembly)     Batched small GEMM    cuBLAS batched  20-100× (many elements)\n  FEM (solve)        SpMV (CG/GMRES)      cuSPARSE        10-50×\n  DG methods         Element-local GEMM    cuBLAS batched  50-200× (high arithmetic intensity)",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    }
+  ]
+}

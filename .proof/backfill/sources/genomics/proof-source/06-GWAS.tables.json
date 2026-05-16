@@ -1,0 +1,57 @@
+{
+  "schema_version": "1",
+  "source_markdown": "genomics\\06-GWAS.md",
+  "tables": [
+    {
+      "id": "table-1",
+      "line": 327,
+      "heading_context": "## Decision Cheat Sheet",
+      "headers": [
+        "Goal",
+        "Method/Tool"
+      ],
+      "rows": [
+        [
+          "Run GWAS for complex disease",
+          "PLINK2 + SAIGE (for imbalanced case-control)"
+        ],
+        [
+          "Impute genotype array to genome",
+          "Michigan Imputation Server / TOPMed"
+        ],
+        [
+          "Correct for population stratification",
+          "PCA covariates (flashpca2)"
+        ],
+        [
+          "Find independent signals at locus",
+          "Conditional analysis (GCTA-COJO)"
+        ],
+        [
+          "Fine-map to credible set",
+          "SuSiE or FINEMAP"
+        ],
+        [
+          "Compute polygenic risk score",
+          "LDpred2 or PRSice2"
+        ],
+        [
+          "Causal inference from GWAS",
+          "Two-sample MR (TwoSampleMR R package)"
+        ],
+        [
+          "Find eQTLs for GWAS colocalization",
+          "coloc R package"
+        ],
+        [
+          "LD calculation / score regression",
+          "LDSC (LD score regression)"
+        ],
+        [
+          "Visualize GWAS results",
+          "qqman, CMplot, LocusZoom"
+        ]
+      ]
+    }
+  ]
+}

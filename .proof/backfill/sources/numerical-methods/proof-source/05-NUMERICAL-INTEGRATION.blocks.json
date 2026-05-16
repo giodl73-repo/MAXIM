@@ -1,0 +1,72 @@
+{
+  "schema_version": "1",
+  "source_markdown": "numerical-methods\\05-NUMERICAL-INTEGRATION.md",
+  "blocks": [
+    {
+      "id": "block-1",
+      "kind": "ascii_table_candidate",
+      "line": 26,
+      "heading_context": "## The Big Picture",
+      "confidence": "candidate",
+      "text": "+------------------------------------------------------------------+\n|              NUMERICAL INTEGRATION LANDSCAPE                     |\n+------------------------------------------------------------------+\n|                                                                  |\n|  NEWTON-COTES (equally-spaced)    GAUSSIAN QUADRATURE            |\n|  +------------------------+        +-----------------------+     |\n|  | Midpoint: O(h^2)       |        | n points: O(h^{2n})   |     |\n|  | Trapezoid: O(h^2)      |        | (degree 2n-1 exact)   |     |\n|  | Simpson's: O(h^4)      |        | OPTIMAL node placement|     |\n|  | Composite rules        |        | Gauss-Legendre, etc.  |     |\n|  +------------------------+        +-----------------------+     |\n|                                                                  |\n|  ADAPTIVE INTEGRATION              MONTE CARLO                  |\n|  +------------------------+        +-----------------------+     |\n|  | Refine where f complex |        | Dim-independent rate  |     |\n|  | Error control          |        | O(n^{-1/2})           |     |\n|  | scipy.integrate.quad   |        | High-dimensional ints |     |\n|  +------------------------+        +-----------------------+     |\n|                                                                  |\n|  ROMBERG / EXTRAPOLATION                                        |\n|  +------------------------+                                      |\n|  | Richardson extrapol.   |                                      |\n|  | Higher from lower      |                                      |\n|  +------------------------+                                      |\n+------------------------------------------------------------------+",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-2",
+      "kind": "ascii_table_candidate",
+      "line": 71,
+      "heading_context": "## Newton-Cotes Rules",
+      "confidence": "candidate",
+      "text": "  Integral_a^b f(x) dx ≈ (b-a)/2 * (f(a) + f(b))\n\n  Error: -(b-a)^3/12 f''(xi)\n  Composite trapezoid: (h/2)(f(x_0) + 2f(x_1) + ... + 2f(x_{n-1}) + f(x_n))\n  Global error: O(h^2)\n\n  Note: trapezoid and midpoint have similar accuracy. For smooth periodic functions\n  on [0, 2pi] with the full period: trapezoid rule is SPECTRALLY accurate (exponential).\n  This is the Euler-Maclaurin formula: error terms cancel.",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-3",
+      "kind": "ascii_table_candidate",
+      "line": 85,
+      "heading_context": "## Newton-Cotes Rules",
+      "confidence": "candidate",
+      "text": "  Integral_a^b f(x) dx ≈ (b-a)/6 * (f(a) + 4f((a+b)/2) + f(b))\n\n  Exact for polynomials up to degree 3 (despite using only 3 points — \"superconvergence\").\n  Error: -(b-a)^5/90 f^{(4)}(xi)\n  Composite Simpson's (n even subintervals):\n  (h/3)(f_0 + 4f_1 + 2f_2 + 4f_3 + 2f_4 + ... + 4f_{n-1} + f_n)\n  Global error: O(h^4)\n\n  \"Free\" order gain: Simpson's has 3 points and O(h^4) — better than 3-point formula\n  naively gives. This is because Simpson's is the Newton-Cotes rule for degree 3\n  but integrated exactly when evaluated at midpoints.",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-4",
+      "kind": "ascii_table_candidate",
+      "line": 127,
+      "heading_context": "## Gaussian Quadrature",
+      "confidence": "candidate",
+      "text": "  x = ((b-a)t + (a+b)) / 2   maps t in [-1,1] to x in [a,b]\n  Integral_a^b f(x) dx = (b-a)/2 * Integral_{-1}^1 f(((b-a)t+(a+b))/2) dt",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-5",
+      "kind": "ascii_table_candidate",
+      "line": 155,
+      "heading_context": "## Romberg Integration and Richardson Extrapolation",
+      "confidence": "candidate",
+      "text": "  If Q(h) = Q_exact + C h^p + O(h^{p+2}):\n  Q(h/2) = Q_exact + C (h/2)^p + O(h^{p+2})\n\n  Combining: Q_exact = (2^p Q(h/2) - Q(h)) / (2^p - 1) + O(h^{p+2})\n\n  One extrapolation step: order p -> order p+2.\n\n  ROMBERG INTEGRATION:\n  Start with trapezoid rule at h = b-a (2 function evaluations).\n  Halve h repeatedly, computing composite trapezoid T(h/2^k).\n  Apply Richardson extrapolation at each level.\n\n  Romberg table:\n  T(h)\n  T(h/2)    R(1)\n  T(h/4)    R(2)    R(3)\n  ...\n\n  R(k) values converge quickly. For smooth f: spectral convergence.\n  Cost: n = 2^k + 1 function evaluations for level k.",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-6",
+      "kind": "diagram_like",
+      "line": 238,
+      "heading_context": "## Monte Carlo Integration",
+      "confidence": "candidate",
+      "text": "  BASIC MONTE CARLO:\n  Integral_{[0,1]^d} f(x) dx ≈ (1/N) Sum_{i=1}^N f(X_i)\n  where X_i ~ Uniform([0,1]^d) i.i.d.\n\n  By LLN: converges to the true integral.\n  By CLT: error ~ Normal(0, Var(f)/N) -> RMSE = sigma_f / sqrt(N)\n\n  RATE: O(N^{-1/2}) -- INDEPENDENT OF DIMENSION d.\n  This is why MC is used for high-dimensional problems.\n\n  DRAWBACK: Slow rate O(N^{-1/2}).\n  For 3 decimal digits: N = 10^6 evaluations.\n  For 6 decimal digits: N = 10^{12} evaluations.\n  MC is impractical for low-dimensional, high-precision integration.\n\n  VARIANCE REDUCTION TECHNIQUES:\n  1. Antithetic variables: pair X_i with 1-X_i. Negative correlation reduces variance.\n  2. Control variates: if g(X) ≈ f(X) and Integral g is known analytically:\n     f_controlled = f(X) - c*(g(X) - E[g])  (choose c to minimize variance)\n  3. Importance sampling (see below)\n  4. Stratified sampling: divide [0,1]^d into subregions, sample each proportionally.",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    }
+  ]
+}

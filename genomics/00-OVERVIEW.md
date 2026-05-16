@@ -1,3 +1,22 @@
+---
+maxim_schema: maxim.frontmatter.v1
+id: maxim:genomics:overview
+kind: guide
+module: genomics
+section: genomics
+title: Genomics - Landscape Overview
+status: source-custody
+source_custody: partial
+current_path: genomics/00-OVERVIEW.md
+canonical_path: genomics/00-OVERVIEW.md
+backsource_ids: [proof-backfill:genomics:00-overview, git-history:genomics:00-overview]
+concepts: [overview]
+root_concepts: [overview]
+index_roles: [guide, root-concept]
+remap_from: []
+remap_to: []
+updated: null
+---
 # Genomics — Landscape Overview
 
 ## The Big Picture

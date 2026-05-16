@@ -1,3 +1,22 @@
+---
+maxim_schema: maxim.frontmatter.v1
+id: maxim:numerical-methods:scientific-computing
+kind: guide
+module: numerical-methods
+section: numerical-methods
+title: Scientific Computing Ecosystem
+status: source-custody
+source_custody: partial
+current_path: numerical-methods/09-SCIENTIFIC-COMPUTING.md
+canonical_path: numerical-methods/09-SCIENTIFIC-COMPUTING.md
+backsource_ids: [proof-backfill:numerical-methods:09-scientific-computing, git-history:numerical-methods:09-scientific-computing]
+concepts: [scientific, computing]
+root_concepts: [scientific, computing]
+index_roles: [guide, root-concept]
+remap_from: []
+remap_to: []
+updated: null
+---
 # Scientific Computing Ecosystem
 
 ## The Big Picture
@@ -31,8 +50,8 @@ Scientific computing is the software layer that makes the algorithms from module
 |                          |                                       |
 |  VENDOR BLAS             | (architecture-specific tuning)       |
 |  +---------------------+ | +----------------------------------+  |
-|  | Intel MKL            | | | OpenBLAS (open-source)          |  |
-|  | (AVX-512, cache opt) | | | (multi-platform, near-MKL)      |  |
+|  | Intel MKL           | | | OpenBLAS (open-source)           |  |
+|  | (AVX-512, cache)    | | | (multi-platform, near-MKL)       |  |
 |  +---------------------+ | +----------------------------------+  |
 |                          |                                       |
 |  HARDWARE                                                        |
@@ -378,19 +397,19 @@ cuSPARSE — SPARSE MATRIX OPERATIONS ON GPU:
   ┌────────────────────────────────────────────────────────────────┐
   │  // Setup: CSR matrix A on device (cusparseCreate, csrmv desc) │
   │  // Vectors r, p, x, w all on device (cudaMalloc)              │
-  │                                                                 │
-  │  while (residual > tol):                                        │
+  │                                                                │
+  │  while (residual > tol):                                       │
   │    cusparseSpMV(A, p, w)           // w = A*p   (cuSPARSE)     │
   │    cublasDdot(p, w, &alpha_denom)  // p^T w     (cuBLAS)       │
-  │    alpha = rtr / alpha_denom                                    │
+  │    alpha = rtr / alpha_denom                                   │
   │    cublasDaxpy(alpha, p, x)        // x += α*p  (cuBLAS)       │
   │    cublasDaxpy(-alpha, w, r)       // r -= α*w  (cuBLAS)       │
   │    cublasDdot(r, r, &rtr_new)      // r^T r     (cuBLAS)       │
-  │    beta = rtr_new / rtr                                         │
+  │    beta = rtr_new / rtr                                        │
   │    cublasDscal(beta, p)            // p = β*p   (cuBLAS)       │
   │    cublasDaxpy(1.0, r, p)          // p += r    (cuBLAS)       │
-  │    rtr = rtr_new                                                │
-  │  // No CPU-GPU transfer in the loop — all data stays on device  │
+  │    rtr = rtr_new                                               │
+  │  // No CPU-GPU transfers in loop; data stays on device         │
   └────────────────────────────────────────────────────────────────┘
 
   KEY cuSPARSE FUNCTIONS:
@@ -711,7 +730,7 @@ REVERSE-MODE AD → ADJOINT METHOD (the cross-module bridge):
   │    chain rule backward      integrate t=T → 0 (backward!)       │
   │                                                                 │
   │  Gradient: ∂L/∂θ         Gradient: dJ/dp = ∫₀ᵀ λ^T ∂f/∂p dt     │
-  │  Cost: O(forward pass)   Cost: O(forward solve + adjoint solve)│
+  │  Cost: O(forward pass)   Cost: O(forward solve + adjoint solve) │
   └─────────────────────────────────────────────────────────────────┘
 
   Neural ODEs (Chen et al. 2018) make this explicit:

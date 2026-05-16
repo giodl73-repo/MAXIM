@@ -1,3 +1,22 @@
+---
+maxim_schema: maxim.frontmatter.v1
+id: maxim:numerical-methods:numerical-integration
+kind: guide
+module: numerical-methods
+section: numerical-methods
+title: Numerical Integration (Quadrature)
+status: source-custody
+source_custody: partial
+current_path: numerical-methods/05-NUMERICAL-INTEGRATION.md
+canonical_path: numerical-methods/05-NUMERICAL-INTEGRATION.md
+backsource_ids: [proof-backfill:numerical-methods:05-numerical-integration, git-history:numerical-methods:05-numerical-integration]
+concepts: [numerical, integration]
+root_concepts: [numerical, integration]
+index_roles: [guide, root-concept]
+remap_from: []
+remap_to: []
+updated: null
+---
 # Numerical Integration (Quadrature)
 
 ## The Big Picture
@@ -26,8 +45,8 @@ Numerical integration approximates Integral_a^b f(x) dx when the antiderivative 
 |                                                                  |
 |  ROMBERG / EXTRAPOLATION                                        |
 |  +------------------------+                                      |
-|  | Richardson extrapolation|                                     |
-|  | Higher order from lower |                                     |
+|  | Richardson extrapol.   |                                      |
+|  | Higher from lower      |                                      |
 |  +------------------------+                                      |
 +------------------------------------------------------------------+
 ```

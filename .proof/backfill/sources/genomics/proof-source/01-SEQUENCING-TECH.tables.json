@@ -1,0 +1,152 @@
+{
+  "schema_version": "1",
+  "source_markdown": "genomics\\01-SEQUENCING-TECH.md",
+  "tables": [
+    {
+      "id": "table-1",
+      "line": 308,
+      "heading_context": "## Technology Comparison",
+      "headers": [
+        "Attribute",
+        "Sanger",
+        "Illumina",
+        "ONT (PromethION)",
+        "PacBio HiFi"
+      ],
+      "rows": [
+        [
+          "Read length",
+          "600–1,000 bp",
+          "150 bp",
+          "10 kb–4 Mb",
+          "15–25 kb"
+        ],
+        [
+          "Accuracy",
+          ">99.99%",
+          "~99.9%",
+          "~95–98% raw",
+          ">99.9%"
+        ],
+        [
+          "Throughput",
+          "~1 kb/run",
+          "~3.2B reads/run",
+          "~290 Gb/run",
+          "~360 Gb/run"
+        ],
+        [
+          "Cost/Gb",
+          "~$500",
+          "~$6–10",
+          "~$50–100",
+          "~$10–20"
+        ],
+        [
+          "Time to result",
+          "4–8 hr",
+          "1–3 days",
+          "Real-time",
+          "1–2 days"
+        ],
+        [
+          "Detect methylation",
+          "No",
+          "No (separate assay)",
+          "Yes (direct)",
+          "Yes (with kinetics)"
+        ],
+        [
+          "De novo assembly",
+          "Poor",
+          "Poor (short)",
+          "Excellent",
+          "Excellent"
+        ],
+        [
+          "SNP/indel calling",
+          "Good",
+          "Excellent",
+          "Good (with depth)",
+          "Excellent"
+        ],
+        [
+          "Structural variants",
+          "No",
+          "Poor",
+          "Excellent",
+          "Excellent"
+        ],
+        [
+          "Portability",
+          "No",
+          "No",
+          "MinION: Yes",
+          "No"
+        ]
+      ]
+    },
+    {
+      "id": "table-2",
+      "line": 331,
+      "heading_context": "## Decision Cheat Sheet",
+      "headers": [
+        "If you need to diagnose...",
+        "Start With",
+        "Key Caveat"
+      ],
+      "rows": [
+        [
+          "Population-scale SNPs/indels",
+          "Illumina WGS or WES",
+          "Short reads miss many structural and repetitive regions."
+        ],
+        [
+          "Specific variant validation",
+          "Sanger sequencing",
+          "Low-level mosaicism can be missed."
+        ],
+        [
+          "De novo genome assembly",
+          "PacBio HiFi plus ONT hybrid",
+          "Repeat resolution still depends on coverage and haplotype complexity."
+        ],
+        [
+          "Structural variants",
+          "ONT or PacBio HiFi",
+          "Caller choice and breakpoint validation matter."
+        ],
+        [
+          "Field sequencing",
+          "ONT MinION",
+          "Portability trades off raw accuracy and sample-prep control."
+        ],
+        [
+          "Direct methylation detection",
+          "ONT native DNA sequencing",
+          "Signal models and basecalling versions affect calls."
+        ],
+        [
+          "Single-cell transcriptomics",
+          "10x Genomics plus Illumina",
+          "Dropout and dissociation bias shape the result."
+        ],
+        [
+          "Spatial expression",
+          "Visium or Xenium",
+          "Resolution and panel design constrain interpretation."
+        ],
+        [
+          "Telomere-to-telomere assembly",
+          "ONT ultra-long plus PacBio HiFi",
+          "Centromeres remain coverage- and haplotype-sensitive."
+        ],
+        [
+          "RNA sequencing",
+          "Illumina RNA-seq or ONT direct RNA",
+          "Isoform accuracy and quantification require different tradeoffs."
+        ]
+      ]
+    }
+  ]
+}

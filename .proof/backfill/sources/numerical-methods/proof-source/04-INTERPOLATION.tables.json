@@ -1,0 +1,63 @@
+{
+  "schema_version": "1",
+  "source_markdown": "numerical-methods\\04-INTERPOLATION.md",
+  "tables": [
+    {
+      "id": "table-1",
+      "line": 332,
+      "heading_context": "## Decision Cheat Sheet",
+      "headers": [
+        "Situation",
+        "Method",
+        "Notes"
+      ],
+      "rows": [
+        [
+          "Few points, smooth f, 1D",
+          "Cubic spline",
+          "C^2, O(h^4) error"
+        ],
+        [
+          "Few points, analytic f, 1D",
+          "Chebyshev interpolation",
+          "Spectral convergence"
+        ],
+        [
+          "High-degree polynomial, 1D",
+          "Chebyshev nodes",
+          "Avoid Runge phenomenon"
+        ],
+        [
+          "Equal-spaced nodes, smooth f",
+          "Cubic spline",
+          "Not high-degree polynomial"
+        ],
+        [
+          "CAD / geometric curves",
+          "B-spline / NURBS",
+          "Local control, stable"
+        ],
+        [
+          "Scattered data, moderate n",
+          "Thin plate spline / RBF",
+          "Works in any dim"
+        ],
+        [
+          "Scattered data with uncertainty",
+          "Gaussian process (kriging)",
+          "Provides uncertainty"
+        ],
+        [
+          "High-dimensional function, d<=15",
+          "Sparse grids",
+          "Avoid curse of dim"
+        ],
+        [
+          "High-dimensional function, d>20",
+          "Monte Carlo or neural surrogate",
+          "Curse wins otherwise"
+        ]
+      ]
+    }
+  ]
+}

@@ -1,0 +1,73 @@
+{
+  "schema_version": "1",
+  "source_markdown": "genomics\\08-BIOINFORMATICS-PIPELINE.md",
+  "tables": [
+    {
+      "id": "table-1",
+      "line": 501,
+      "heading_context": "## Decision Cheat Sheet",
+      "headers": [
+        "Need",
+        "Tool"
+      ],
+      "rows": [
+        [
+          "Align Illumina reads to reference",
+          "BWA-MEM2 (DNA) or STAR (RNA)"
+        ],
+        [
+          "Align long reads",
+          "minimap2 (both ONT and PacBio)"
+        ],
+        [
+          "Mark PCR duplicates",
+          "Picard MarkDuplicates or samtools markdup"
+        ],
+        [
+          "Convert/sort/index SAM/BAM",
+          "samtools view, sort, index"
+        ],
+        [
+          "QC raw reads",
+          "FastQC + MultiQC"
+        ],
+        [
+          "QC aligned data",
+          "Picard CollectWgsMetrics / CollectRnaSeqMetrics"
+        ],
+        [
+          "Run GATK pipeline",
+          "nf-core/sarek or GATK Best Practices WDL"
+        ],
+        [
+          "Workflow orchestration (local/HPC)",
+          "Snakemake"
+        ],
+        [
+          "Workflow orchestration (cloud)",
+          "Nextflow + nf-core"
+        ],
+        [
+          "Cloud execution on Terra",
+          "WDL + Cromwell"
+        ],
+        [
+          "Cloud GPU acceleration",
+          "NVIDIA Parabricks (GATK on GPU)"
+        ],
+        [
+          "Intersect genomic intervals",
+          "bedtools intersect"
+        ],
+        [
+          "Create coverage tracks",
+          "deeptools bamCoverage"
+        ],
+        [
+          "Visualize alignments",
+          "IGV (Integrative Genomics Viewer)"
+        ]
+      ]
+    }
+  ]
+}

@@ -1,0 +1,63 @@
+{
+  "schema_version": "1",
+  "source_markdown": "numerical-methods\\05-NUMERICAL-INTEGRATION.md",
+  "tables": [
+    {
+      "id": "table-1",
+      "line": 357,
+      "heading_context": "## Decision Cheat Sheet",
+      "headers": [
+        "Situation",
+        "Method",
+        "Notes"
+      ],
+      "rows": [
+        [
+          "1D, smooth f, high accuracy",
+          "Gauss-Legendre (n=5-20)",
+          "Spectral convergence"
+        ],
+        [
+          "1D, smooth f, error control",
+          "scipy.integrate.quad",
+          "Adaptive Gauss-Kronrod"
+        ],
+        [
+          "1D, general/unknown f",
+          "Composite Simpson or Romberg",
+          "Reliable, automatic"
+        ],
+        [
+          "1D, periodic function",
+          "Composite trapezoid (full period)",
+          "Spectral accuracy"
+        ],
+        [
+          "d <= 5, smooth f",
+          "Sparse grids",
+          "Better than MC per eval"
+        ],
+        [
+          "d > 10, any f",
+          "Monte Carlo",
+          "Dim-independent rate"
+        ],
+        [
+          "High precision needed, high-d",
+          "Quasi-Monte Carlo (Sobol)",
+          "Better constant than MC"
+        ],
+        [
+          "E_p[f(X)] with rare events",
+          "Importance sampling",
+          "Variance reduction"
+        ],
+        [
+          "f has singularities",
+          "Adaptive quadrature",
+          "Handles splits automatically"
+        ]
+      ]
+    }
+  ]
+}

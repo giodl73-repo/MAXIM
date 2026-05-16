@@ -1,3 +1,22 @@
+---
+maxim_schema: maxim.frontmatter.v1
+id: maxim:genomics:variant-calling
+kind: guide
+module: genomics
+section: genomics
+title: Variant Calling and Population Genomics
+status: source-custody
+source_custody: partial
+current_path: genomics/03-VARIANT-CALLING.md
+canonical_path: genomics/03-VARIANT-CALLING.md
+backsource_ids: [proof-backfill:genomics:03-variant-calling, git-history:genomics:03-variant-calling]
+concepts: [variant, calling]
+root_concepts: [variant, calling]
+index_roles: [guide, root-concept]
+remap_from: []
+remap_to: []
+updated: null
+---
 # Variant Calling and Population Genomics
 
 ## The Big Picture
@@ -92,9 +111,9 @@ The Genome Analysis Toolkit (GATK) from the Broad Institute is the field standar
 
   STEP 4: VARIANT QUALITY SCORE RECALIBRATION (VQSR)
   ┌─────────────────────────────────────────────────────────┐
-  │ Problem: Single quality threshold → poor precision/recall│
-  │ Solution: Train Gaussian mixture model on known variants │
-  │ Training data: HapMap, 1000G, dbSNP (known true positives)│
+  │ Problem: Quality threshold alone hurts precision/recall │
+  │ Solution: Train Gaussian mixture model on known variants│
+  │ Training: HapMap, 1000G, dbSNP (true positives)         │
   │ Features: QD, MQ, FS, SOR, MQRankSum, ReadPosRankSum    │
   │ Output: VQSLOD score + PASS/FILTER labels               │
   │ For small cohorts (<30 samples): use CNN-based scoring  │

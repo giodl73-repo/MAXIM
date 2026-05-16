@@ -1,3 +1,22 @@
+---
+maxim_schema: maxim.frontmatter.v1
+id: maxim:numerical-methods:floating-point
+kind: guide
+module: numerical-methods
+section: numerical-methods
+title: Floating-Point Arithmetic
+status: source-custody
+source_custody: partial
+current_path: numerical-methods/01-FLOATING-POINT.md
+canonical_path: numerical-methods/01-FLOATING-POINT.md
+backsource_ids: [proof-backfill:numerical-methods:01-floating-point, git-history:numerical-methods:01-floating-point]
+concepts: [floating, point]
+root_concepts: [floating, point]
+index_roles: [guide, root-concept]
+remap_from: []
+remap_to: []
+updated: null
+---
 # Floating-Point Arithmetic
 
 ## The Big Picture

@@ -1,0 +1,72 @@
+{
+  "schema_version": "1",
+  "source_markdown": "numerical-methods\\06-ODES.md",
+  "blocks": [
+    {
+      "id": "block-1",
+      "kind": "ascii_table_candidate",
+      "line": 26,
+      "heading_context": "## The Big Picture",
+      "confidence": "candidate",
+      "text": "+------------------------------------------------------------------+\n|                    ODE SOLVER TAXONOMY                           |\n+------------------------------------------------------------------+\n|                                                                  |\n|  PROBLEM: y' = f(t, y),  y(t_0) = y_0                          |\n|                                                                  |\n|  NON-STIFF                         STIFF                        |\n|  (time scales similar)             (fast + slow scales mixed)   |\n|  +---------------------+           +-------------------+        |\n|  | Runge-Kutta family  |           | BDF methods       |        |\n|  | RK4: O(h^4)         |           | (VODE, LSODE)     |        |\n|  | Dormand-Prince RK45 |           | Rosenbrock        |        |\n|  | Adaptive step size  |           | Implicit RK       |        |\n|  +---------------------+           +-------------------+        |\n|                                                                  |\n|  BOUNDARY VALUE PROBLEMS           DIFFERENTIAL-ALGEBRAIC       |\n|  +---------------------+           +-------------------+        |\n|  | Shooting method     |           | DAE solvers       |        |\n|  | Collocation         |           | Index reduction   |        |\n|  | BVP4C (MATLAB)      |           +-------------------+        |\n|  -----------------------                                        |\n+------------------------------------------------------------------+",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-2",
+      "kind": "ascii_table_candidate",
+      "line": 57,
+      "heading_context": "## Euler's Method and Basic Analysis",
+      "confidence": "candidate",
+      "text": "  y_{n+1} = y_n + h f(t_n, y_n)\n\n  Derivation: Taylor expand y(t+h) = y(t) + h y'(t) + O(h^2) = y(t) + h f(t, y(t)) + O(h^2)\n\n  LOCAL TRUNCATION ERROR: e_{n+1} = y(t_{n+1}) - y_{n+1} = h^2/2 * y''(xi) = O(h^2)\n  (error at one step, assuming y_n is exact)\n\n  GLOBAL ERROR: sum over n = T/h steps:\n  E(T) = O(T/h * h^2) = O(h)   (first-order method)\n\n  Halving h: halves the global error, doubles the work.\n  For 10^{-6} accuracy: h ~ 10^{-6} -> O(10^6) steps.\n  RK4: h ~ 10^{-2} -> O(100) steps. Huge difference.\n\n  STABILITY: For y' = lambda y (test equation, lambda complex):\n  y_{n+1} = (1 + h lambda) y_n\n  Stability requires |1 + h lambda| <= 1.\n  For lambda = -1/tau (stable physical system):\n  Requires h <= 2 tau  (step size bounded by time constant of the ODE)",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-3",
+      "kind": "ascii_table_candidate",
+      "line": 182,
+      "heading_context": "## BDF Methods (Backward Differentiation Formula)",
+      "confidence": "candidate",
+      "text": "  BDF-1 (implicit Euler):\n  y_{n+1} = y_n + h f(t_{n+1}, y_{n+1})\n  Solve nonlinear: g(y_{n+1}) = y_{n+1} - y_n - h f(t_{n+1}, y_{n+1}) = 0\n  Using Newton's method: J g delta = -g(y), y <- y + delta.\n  STABILITY: A-stable, L-stable.\n\n  BDF-2:\n  y_{n+1} = (4/3) y_n - (1/3) y_{n-1} + (2/3) h f(t_{n+1}, y_{n+1})\n  A-stable for orders 1-2. Conditionally A-stable for orders 3-6.\n\n  GENERAL BDF-k (k = 1,...,6):\n  Linear combination of k past values + implicit evaluation at t_{n+1}.\n  Requires k starting values (use Runge-Kutta to start).\n  Orders 1-2: A-stable. Orders 3-6: A(alpha)-stable (stable in a cone of the left half-plane).\n\n  SCIPY: solve_ivp with method='Radau' or method='BDF'.\n  MATLAB: ode15s (variable-order BDF), ode23s (Rosenbrock), ode23t (trapezoidal).",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-4",
+      "kind": "diagram_like",
+      "line": 204,
+      "heading_context": "## BDF Methods (Backward Differentiation Formula)",
+      "confidence": "candidate",
+      "text": "  METHOD                  COST              ACCURACY\n  ──────────────────────────────────────────────────────────────────────\n  Finite differences      O(n) evaluations  O(√eps_mach) — truncation vs. roundoff\n  Forward-mode AD         O(n) forward      Machine-precision exact\n    (dual numbers)          passes           One pass per column of J\n  Reverse-mode AD         O(n) backward     Machine-precision exact\n    (backprop)              passes           One pass per row of J\n  Sparse Jacobian +       O(p) passes       Exact, where p = graph coloring number\n    coloring (AD)           (p << n)          of the sparsity pattern",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-5",
+      "kind": "ascii_table_candidate",
+      "line": 237,
+      "heading_context": "## Rosenbrock Methods",
+      "confidence": "candidate",
+      "text": "  ROSENBROCK-WANNER 3(2):\n  k1: (I - h gamma J) k1 = h f(t_n, y_n)\n  k2: (I - h gamma J) k2 = h f(t_n + a21 h, y_n + a21 h k1) + c21 k1\n  y_{n+1} = y_n + m1 k1 + m2 k2\n  Error estimate: y_{n+1} - y_est = e1 k1 + e2 k2\n\n  COST: One LU factorization per step (vs. multiple for Newton-based BDF).\n  ORDER: 3rd order accuracy.\n  A-stable: entire left half-plane stable.\n  GOOD FOR: moderately stiff problems, cheap Jacobian computation.\n\n  scipy: solve_ivp method='Radau' (implicit Runge-Kutta, higher accuracy for stiff)\n  MATLAB: ode23s",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-6",
+      "kind": "ascii_table_candidate",
+      "line": 310,
+      "heading_context": "## Symplectic Integrators (Hamiltonian Systems)",
+      "confidence": "candidate",
+      "text": "  HAMILTONIAN SYSTEM:\n  q' = ∂H/∂p    (position evolution)\n  p' = -∂H/∂q   (momentum evolution)\n  H(q, p) = T(p) + V(q)   (kinetic + potential energy)\n\n  STÖRMER-VERLET (LEAPFROG) — the standard symplectic method:\n  p_{n+1/2} = p_n - (h/2) ∂V/∂q(q_n)            (half-step momentum)\n  q_{n+1}   = q_n + h ∂T/∂p(p_{n+1/2})           (full-step position)\n  p_{n+1}   = p_{n+1/2} - (h/2) ∂V/∂q(q_{n+1})   (half-step momentum)\n\n  ORDER: 2nd (local error O(h^3), global error O(h^2))\n  COST: 1 force evaluation per step (same as explicit Euler!)\n\n  WHY SYMPLECTIC?\n  Symplecticity = area-preserving map in (q,p) phase space.\n  Consequence: energy oscillates but does NOT drift. Over 10^9 steps:\n    RK4:     energy drift grows linearly (error accumulates)\n    Verlet:  energy bounded within O(h^2) of true energy (no drift)\n\n  This is NOT conservation of energy — it is conservation of a\n  \"shadow Hamiltonian\" H_tilde = H + O(h^2), which stays close to H.\n  For solar system simulations, molecular dynamics, and any long-time\n  integration where energy drift is catastrophic, symplectic wins.\n\n  HIGHER-ORDER SYMPLECTIC:\n  Yoshida composition: combine Verlet steps with different dt to get\n  4th, 6th, 8th order symplectic integrators.\n  Cost: 3 force evaluations for 4th order (vs. 4 for RK4).",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    }
+  ]
+}
