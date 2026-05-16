@@ -1,0 +1,397 @@
+{
+  "schema_version": "1",
+  "source_markdown": "query-languages\\06-KQL.md",
+  "tables": [
+    {
+      "id": "table-1",
+      "line": 150,
+      "heading_context": "## 3. DATA TYPES",
+      "headers": [
+        "KQL Type",
+        "SQL Equivalent",
+        "Notes"
+      ],
+      "rows": [
+        [
+          "`string`",
+          "NVARCHAR",
+          "UTF-8, always Unicode"
+        ],
+        [
+          "`int`",
+          "INT (32-bit)",
+          "32-bit signed"
+        ],
+        [
+          "`long`",
+          "BIGINT (64-bit)",
+          "Default for integer literals"
+        ],
+        [
+          "`real`",
+          "FLOAT",
+          "64-bit IEEE 754"
+        ],
+        [
+          "`decimal`",
+          "DECIMAL",
+          "High-precision, slower than real"
+        ],
+        [
+          "`bool`",
+          "BIT",
+          "`true` / `false` (lowercase)"
+        ],
+        [
+          "`datetime`",
+          "DATETIME2 (UTC)",
+          "Always UTC, ISO 8601"
+        ],
+        [
+          "`timespan`",
+          "No direct equivalent",
+          "Duration: `1d`, `2h`, `30m`, `45s`, `100ms`"
+        ],
+        [
+          "`guid`",
+          "UNIQUEIDENTIFIER",
+          "GUID/UUID"
+        ],
+        [
+          "`dynamic`",
+          "JSON / NVARCHAR + JSON path",
+          "JSON-like bag — arrays and objects. Very powerful."
+        ]
+      ]
+    },
+    {
+      "id": "table-2",
+      "line": 240,
+      "heading_context": "## 4. CORE OPERATORS — Reference Card",
+      "headers": [
+        "Function",
+        "Description"
+      ],
+      "rows": [
+        [
+          "`count()`",
+          "Row count"
+        ],
+        [
+          "`countif(pred)`",
+          "Conditional count"
+        ],
+        [
+          "`sum(col)`",
+          "Sum"
+        ],
+        [
+          "`avg(col)`",
+          "Average"
+        ],
+        [
+          "`min(col)` / `max()`",
+          "Min / max"
+        ],
+        [
+          "`percentile(col, p)`",
+          "Single percentile"
+        ],
+        [
+          "`percentiles(col, ...)`",
+          "Multiple percentiles in one pass"
+        ],
+        [
+          "`dcount(col)`",
+          "Approximate distinct count (fast, HyperLogLog)"
+        ],
+        [
+          "`dcountif(col, pred)`",
+          "Conditional approximate distinct count"
+        ],
+        [
+          "`stdev(col)`",
+          "Standard deviation"
+        ],
+        [
+          "`variance(col)`",
+          "Variance"
+        ],
+        [
+          "`any(col)`",
+          "Any value from group (arbitrary, not random)"
+        ],
+        [
+          "`make_list(col)`",
+          "Aggregate column values into dynamic array"
+        ],
+        [
+          "`make_set(col)`",
+          "Aggregate distinct values into dynamic array"
+        ],
+        [
+          "`arg_max(col, *)`",
+          "Row where col is max (returns whole row)"
+        ],
+        [
+          "`arg_min(col, *)`",
+          "Row where col is min"
+        ]
+      ]
+    },
+    {
+      "id": "table-3",
+      "line": 1263,
+      "heading_context": "## 20. SQL → KQL TRANSLATION TABLE",
+      "headers": [
+        "SQL",
+        "KQL"
+      ],
+      "rows": [
+        [
+          "`SELECT col1, col2 FROM T`",
+          "`T \\| project col1, col2`"
+        ],
+        [
+          "`SELECT * FROM T`",
+          "`T` (or `T \\| take 1000` to limit)"
+        ],
+        [
+          "`SELECT col, expr AS alias FROM T`",
+          "`T \\| extend alias = expr \\| project col, alias`"
+        ],
+        [
+          "`WHERE condition`",
+          "`\\| where condition`"
+        ],
+        [
+          "`AND` / `OR` / `NOT`",
+          "`and` / `or` / `not` (lowercase)"
+        ],
+        [
+          "`LIKE '%text%'`",
+          "`contains \"text\"`"
+        ],
+        [
+          "`LIKE 'text%'`",
+          "`startswith \"text\"`"
+        ],
+        [
+          "`IS NULL`",
+          "`isnull(col)`"
+        ],
+        [
+          "`IS NOT NULL`",
+          "`isnotnull(col)` or `isnotempty(col)`"
+        ],
+        [
+          "`NOT (col IN (...))`",
+          "`col !in (...)`"
+        ],
+        [
+          "`GROUP BY col, SUM(val)`",
+          "`\\| summarize sum(val) by col`"
+        ],
+        [
+          "`COUNT(*)`",
+          "`count()`"
+        ],
+        [
+          "`COUNT(DISTINCT col)`",
+          "`dcount(col)` (approximate)"
+        ],
+        [
+          "`HAVING count > 5`",
+          "`\\| where count_ > 5` (after summarize)"
+        ],
+        [
+          "`ORDER BY col DESC`",
+          "`\\| order by col desc`"
+        ],
+        [
+          "`TOP 10`",
+          "`\\| take 10` (or `\\| top 10 by col`)"
+        ],
+        [
+          "`INNER JOIN ... ON`",
+          "`\\| join kind=inner (...) on key`"
+        ],
+        [
+          "`LEFT JOIN ... ON`",
+          "`\\| join kind=leftouter (...) on key`"
+        ],
+        [
+          "`WHERE NOT EXISTS (...)`",
+          "`\\| join kind=leftanti (...) on key`"
+        ],
+        [
+          "`UNION ALL`",
+          "`union T1, T2`"
+        ],
+        [
+          "`WITH cte AS (...)`",
+          "`let cte = ...;`"
+        ],
+        [
+          "`CAST(x AS INT)`",
+          "`toint(x)`"
+        ],
+        [
+          "`CAST(x AS VARCHAR)`",
+          "`tostring(x)`"
+        ],
+        [
+          "`CAST(x AS FLOAT)`",
+          "`toreal(x)` or `todouble(x)`"
+        ],
+        [
+          "`GETDATE()` / `NOW()`",
+          "`now()`"
+        ],
+        [
+          "`DATEPART(hour, ts)`",
+          "`hourofday(ts)`"
+        ],
+        [
+          "`DATEPART(day, ts)`",
+          "`dayofmonth(ts)`"
+        ],
+        [
+          "`DATEDIFF(day, d1, d2)`",
+          "`(d2 - d1) / 1d`"
+        ],
+        [
+          "`GETDATE() - INTERVAL '1 day'`",
+          "`ago(1d)`"
+        ],
+        [
+          "`FLOOR(val / bucket) * bucket`",
+          "`bin(val, bucket)`"
+        ],
+        [
+          "`CASE WHEN ... THEN ... END`",
+          "`case(pred1, val1, pred2, val2, default)`"
+        ],
+        [
+          "`COALESCE(a, b)`",
+          "`coalesce(a, b)`"
+        ],
+        [
+          "`NULLIF(a, b)`",
+          "`iff(a == b, null, a)`"
+        ],
+        [
+          "`IIF(pred, a, b)` (T-SQL)",
+          "`iff(pred, a, b)` or `iif(pred, a, b)`"
+        ],
+        [
+          "`STRING_AGG(col, ',')`",
+          "`make_list(col)` then `strcat_array(...)`"
+        ],
+        [
+          "`SUBSTRING(s, 1, 5)` (1-indexed)",
+          "`substring(s, 0, 5)` (0-indexed)"
+        ],
+        [
+          "`LEN(s)`",
+          "`strlen(s)`"
+        ],
+        [
+          "`UPPER(s)` / `LOWER(s)`",
+          "`toupper(s)` / `tolower(s)`"
+        ],
+        [
+          "`TRIM(s)`",
+          "`trim(\" \", s)`"
+        ],
+        [
+          "`CHARINDEX(find, s)`",
+          "`indexof(s, find)` (-1 if not found)"
+        ],
+        [
+          "`REPLACE(s, old, new)`",
+          "`replace_string(s, old, new)`"
+        ],
+        [
+          "`ROW_NUMBER() OVER (ORDER BY ...)`",
+          "`row_number()` after `serialize`"
+        ],
+        [
+          "`LAG(col, 1) OVER (...)`",
+          "`prev(col, 1)` after `serialize`"
+        ],
+        [
+          "`LEAD(col, 1) OVER (...)`",
+          "`next(col, 1)` after `serialize`"
+        ]
+      ]
+    },
+    {
+      "id": "table-4",
+      "line": 1314,
+      "heading_context": "## 21. DECISION CHEAT SHEET",
+      "headers": [
+        "Scenario",
+        "Use KQL?",
+        "Notes"
+      ],
+      "rows": [
+        [
+          "App Insights telemetry analysis",
+          "Yes",
+          "Native — requests, exceptions, dependencies, traces"
+        ],
+        [
+          "Azure Monitor log analysis",
+          "Yes",
+          "Native — Perf, SecurityEvent, AzureActivity, etc."
+        ],
+        [
+          "Sentinel security hunting",
+          "Yes",
+          "Detection rules, hunting queries, playbooks"
+        ],
+        [
+          "Grafana dashboards on Azure logs",
+          "Yes",
+          "Azure Monitor data source uses KQL"
+        ],
+        [
+          "ADX time-series analytics at scale",
+          "Yes",
+          "ADX is purpose-built for this"
+        ],
+        [
+          "Transactional OLTP queries",
+          "No",
+          "Use T-SQL / PostgreSQL"
+        ],
+        [
+          "Relational data with FK constraints",
+          "No",
+          "KQL has no FK model"
+        ],
+        [
+          "Sub-millisecond latency from application code",
+          "No",
+          "KQL queries have cold-start overhead"
+        ],
+        [
+          "Data needing ACID guarantees",
+          "No",
+          "Use a transactional store"
+        ],
+        [
+          "SQL Server or Azure SQL analytics",
+          "No",
+          "Use T-SQL, Query Store, DMVs"
+        ],
+        [
+          "Anything outside Azure/ADX ecosystem",
+          "No",
+          "KQL engines are Microsoft-specific"
+        ]
+      ]
+    }
+  ]
+}

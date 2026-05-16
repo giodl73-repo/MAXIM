@@ -1,0 +1,555 @@
+{
+  "schema_version": "1",
+  "source_markdown": "query-languages\\07-ANALYTICAL.md",
+  "tables": [
+    {
+      "id": "table-1",
+      "line": 96,
+      "heading_context": "## 2. WHY COLUMNAR STORAGE IS FAST",
+      "headers": [
+        "Technique",
+        "What it does",
+        "Benefit"
+      ],
+      "rows": [
+        [
+          "Dictionary encoding",
+          "Replace repeated string values with small int codes",
+          "\"United States\" → 2 bytes instead of 13"
+        ],
+        [
+          "RLE (Run-Length Encoding)",
+          "Repeated consecutive values: `[Sales, Sales, Sales, Sales]` → `(Sales × 4)`",
+          "Sorted data compresses 10–50x"
+        ],
+        [
+          "Bit-packing",
+          "Store small-range integers in fewer bits (status enum 0–3 needs 2 bits not 32)",
+          "Dense integer columns shrink dramatically"
+        ],
+        [
+          "Delta encoding",
+          "Store differences between consecutive sorted values",
+          "Timestamps and IDs: store deltas, not absolutes"
+        ],
+        [
+          "Snappy / Zstd",
+          "Final byte-level compression on top",
+          "3–5x additional"
+        ]
+      ]
+    },
+    {
+      "id": "table-2",
+      "line": 126,
+      "heading_context": "## 3. PLATFORM COMPARISON",
+      "headers": [
+        "Attribute",
+        "BigQuery",
+        "Snowflake",
+        "Databricks SQL",
+        "Synapse Analytics"
+      ],
+      "rows": [
+        [
+          "Creator",
+          "Google",
+          "Snowflake Inc",
+          "Databricks",
+          "Microsoft"
+        ],
+        [
+          "Pricing model",
+          "Serverless on-demand",
+          "Virtual warehouse (credits)",
+          "SQL warehouse (DBUs)",
+          "DWU / serverless DPU"
+        ],
+        [
+          "Storage",
+          "Google Cloud Storage",
+          "Internal (S3/ADLS/GCS)",
+          "Delta Lake on ADLS / S3",
+          "ADLS Gen2"
+        ],
+        [
+          "SQL dialect",
+          "Standard SQL (ANSI)",
+          "Snowflake SQL",
+          "Spark SQL / Delta",
+          "T-SQL subset"
+        ],
+        [
+          "Streaming ingest",
+          "Pub/Sub, Storage Write",
+          "Snowpipe (S3/Event Grid)",
+          "Delta Streaming / Kafka",
+          "Event Hubs / Synapse Link"
+        ],
+        [
+          "Ecosystem",
+          "dbt, Looker native",
+          "dbt, Sigma, Cortex AI",
+          "dbt, MLflow, Unity Cat",
+          "Power BI native, Purview"
+        ],
+        [
+          "Unique strength",
+          "Petabyte serverless, ML.PREDICT",
+          "Time travel, data sharing",
+          "Python + SQL unified, ML",
+          "Azure-native, T-SQL, Purview"
+        ],
+        [
+          "Multi-cloud",
+          "No (GCP only)",
+          "Yes (AWS, Azure, GCP)",
+          "Yes",
+          "No (Azure only)"
+        ]
+      ]
+    },
+    {
+      "id": "table-3",
+      "line": 550,
+      "heading_context": "## 11. DBT INTEGRATION — The Standard Transformation Layer",
+      "headers": [
+        "Power Query M",
+        "SQL equivalent",
+        "Mental model shift"
+      ],
+      "rows": [
+        [
+          "`Table.Group(tbl, {\"dept\"}, {{\"count\", each Table.RowCount(_), type number}})`",
+          "`SELECT dept, COUNT(*) FROM tbl GROUP BY dept`",
+          "M folds a function over each group; SQL declares the aggregation"
+        ],
+        [
+          "`Table.AddColumn(tbl, \"adjusted\", each [salary] * 1.1)`",
+          "`SELECT *, salary * 1.1 AS adjusted FROM tbl`",
+          "M applies a row function; SQL computes a column expression"
+        ],
+        [
+          "`Table.AddColumn(tbl, \"rank\", each ...)` with partition logic",
+          "`SELECT *, ROW_NUMBER() OVER (PARTITION BY dept ORDER BY salary DESC) AS rank`",
+          "M has no native window functions — you'd write a nested group; SQL window functions are idiomatic here"
+        ],
+        [
+          "`Table.NestedJoin(orders, {\"cust_id\"}, customers, {\"id\"}, \"cust\", JoinKind.LeftOuter)`",
+          "`SELECT * FROM orders LEFT JOIN customers ON orders.cust_id = customers.id`",
+          "M returns a column of tables; SQL returns a flat result"
+        ],
+        [
+          "`List.Accumulate(amounts, 0, (acc, x) => acc + x)`",
+          "`SUM(amount) OVER (ORDER BY date ROWS UNBOUNDED PRECEDING AND CURRENT ROW)`",
+          "M fold = SQL running aggregate window function"
+        ],
+        [
+          "`Table.SelectColumns(tbl, {\"id\", \"name\"})`",
+          "`SELECT id, name FROM tbl`",
+          "Identical — projection"
+        ],
+        [
+          "`Table.SelectRows(tbl, each [status] = \"active\")`",
+          "`WHERE status = 'active'`",
+          "Identical — filter predicate"
+        ]
+      ]
+    },
+    {
+      "id": "table-4",
+      "line": 587,
+      "heading_context": "## 11. DBT INTEGRATION — The Standard Transformation Layer",
+      "headers": [
+        "Type",
+        "Creates",
+        "When to use"
+      ],
+      "rows": [
+        [
+          "`table`",
+          "`CREATE TABLE` each run",
+          "Small-medium; needs re-computation each run"
+        ],
+        [
+          "`view`",
+          "`CREATE VIEW`",
+          "Fast, always fresh, no storage cost"
+        ],
+        [
+          "`incremental`",
+          "`MERGE` / `INSERT` new rows",
+          "Large tables; append or upsert pattern"
+        ],
+        [
+          "`ephemeral`",
+          "CTE inlined into caller",
+          "Intermediate logic; no storage needed"
+        ],
+        [
+          "`materialized view`",
+          "DB-managed auto-refresh",
+          "Automatic freshness without full rebuild"
+        ]
+      ]
+    },
+    {
+      "id": "table-5",
+      "line": 599,
+      "heading_context": "## 11. DBT INTEGRATION — The Standard Transformation Layer",
+      "headers": [
+        "ADF concept",
+        "dbt equivalent",
+        "Note"
+      ],
+      "rows": [
+        [
+          "Pipeline",
+          "dbt job / `dbt run`",
+          "The orchestration unit — triggers execution"
+        ],
+        [
+          "Activity",
+          "dbt model",
+          "A single step in the pipeline"
+        ],
+        [
+          "Dataset",
+          "`source()` or `ref()`",
+          "Data contract (schema + location)"
+        ],
+        [
+          "Data Flow (visual transform)",
+          "dbt SQL model (`.sql` file)",
+          "Paradigm shift: visual canvas → SELECT statement"
+        ],
+        [
+          "Integration Runtime",
+          "dbt adapter + `profiles.yml`",
+          "Compute connection config"
+        ],
+        [
+          "Incremental copy (watermark)",
+          "`is_incremental()` filter",
+          "`WHERE updated_at > (SELECT MAX(updated_at) FROM {{ this }})`"
+        ],
+        [
+          "Linked Service",
+          "dbt target connection",
+          "Credential/endpoint config"
+        ],
+        [
+          "Trigger (schedule / tumbling window)",
+          "dbt Cloud schedule / Airflow DAG",
+          "dbt itself has no scheduler"
+        ]
+      ]
+    },
+    {
+      "id": "table-6",
+      "line": 703,
+      "heading_context": "## 13. MEDALLION ARCHITECTURE",
+      "headers": [
+        "SSAS concept",
+        "Modern equivalent",
+        "Notes"
+      ],
+      "rows": [
+        [
+          "MOLAP cube (pre-aggregated)",
+          "Materialized views / BigQuery MV / Snowflake dynamic tables",
+          "Same idea: pre-compute aggregates so query time is fast. Engine rewrites base-table queries to use the pre-compute automatically."
+        ],
+        [
+          "Tabular model (VertiPaq in-memory columnar)",
+          "Power BI semantic model (Import mode)",
+          "Same engine: VertiPaq / xVelocity. Same DAX. Different deployment topology."
+        ],
+        [
+          "SSAS Tabular + Direct Query",
+          "Power BI Direct Lake (Fabric)",
+          "Direct Lake reads Delta Parquet files from OneLake directly — no import, no DirectQuery overhead. Columnar reads at storage layer, not row-by-row SQL passthrough."
+        ],
+        [
+          "MDX tuple navigation (`[Date].[Year].[2024]`)",
+          "DAX `CALCULATE(SUM(Revenue), YEAR(Date[Date]) = 2024)`",
+          "MDX thinks in tuples and coordinates. DAX thinks in filter contexts. Functionally equivalent for most aggregations; DAX is more compositional."
+        ],
+        [
+          "MDX `NON EMPTY`, `CROSSJOIN`",
+          "DAX `SUMMARIZECOLUMNS`, `FILTER`",
+          "The \"which cells have data\" pruning is automatic in DAX via filter context; in MDX you had to be explicit."
+        ],
+        [
+          "Calculated measures in `.bim`",
+          "dbt metrics layer / Looker LookML measures",
+          "The \"single definition of a metric\" problem. SSAS solved it in the cube. dbt metrics + semantic layer (dbt Cloud) or Looker LookML solve it in the transformation layer. The metric travels downstream to any BI tool, not locked to SSAS."
+        ],
+        [
+          "SSAS role-based security (dimension security, cell security)",
+          "Unity Catalog row/column filters + Power BI RLS",
+          "Unity Catalog enforces at query time; Power BI RLS enforces at the semantic model layer. Both are token-based identity propagation."
+        ],
+        [
+          "Processing a dimension (full / incremental)",
+          "dbt incremental model run",
+          "Incremental processing = `is_incremental()` filter + MERGE. Full processing = `dbt run --full-refresh`."
+        ]
+      ]
+    },
+    {
+      "id": "table-7",
+      "line": 906,
+      "heading_context": "## 14. WINDOW FUNCTIONS",
+      "headers": [
+        "Feature",
+        "T-SQL (SQL Server 2012+)",
+        "BigQuery",
+        "Snowflake",
+        "Databricks",
+        "MySQL 8+",
+        "DuckDB"
+      ],
+      "rows": [
+        [
+          "ROW_NUMBER / RANK / DENSE_RANK",
+          "Yes",
+          "Yes",
+          "Yes",
+          "Yes",
+          "Yes",
+          "Yes"
+        ],
+        [
+          "LAG / LEAD",
+          "Yes",
+          "Yes",
+          "Yes",
+          "Yes",
+          "Yes",
+          "Yes"
+        ],
+        [
+          "FIRST_VALUE / LAST_VALUE",
+          "Yes",
+          "Yes",
+          "Yes",
+          "Yes",
+          "Yes",
+          "Yes"
+        ],
+        [
+          "NTH_VALUE",
+          "Yes (2012+)",
+          "Yes",
+          "Yes",
+          "Yes",
+          "8.0.2+",
+          "Yes"
+        ],
+        [
+          "IGNORE NULLS (LAG/LEAD)",
+          "No",
+          "Yes",
+          "Yes",
+          "Yes",
+          "No",
+          "Yes"
+        ],
+        [
+          "QUALIFY",
+          "No",
+          "Yes",
+          "Yes",
+          "Yes",
+          "No",
+          "Yes"
+        ],
+        [
+          "Frame clause (ROWS/RANGE)",
+          "Yes",
+          "Yes",
+          "Yes",
+          "Yes",
+          "Yes (8.0)",
+          "Yes"
+        ],
+        [
+          "GROUPS frame mode (ANSI)",
+          "No",
+          "No",
+          "No",
+          "No",
+          "No",
+          "Yes"
+        ]
+      ]
+    },
+    {
+      "id": "table-8",
+      "line": 921,
+      "heading_context": "## 15. ANALYTICAL FUNCTIONS BEYOND ANSI SQL",
+      "headers": [
+        "Function",
+        "BigQuery",
+        "Snowflake",
+        "Databricks",
+        "Purpose"
+      ],
+      "rows": [
+        [
+          "Approx distinct count",
+          "`HLL_COUNT.MERGE`",
+          "`APPROX_COUNT_DISTINCT`",
+          "`APPROX_COUNT_DISTINCT`",
+          "HyperLogLog — fast ~1% error"
+        ],
+        [
+          "Exact percentile",
+          "`PERCENTILE_CONT`",
+          "`PERCENTILE_CONT`",
+          "`PERCENTILE_CONT`",
+          "Linear interpolation"
+        ],
+        [
+          "Nearest-value percentile",
+          "`PERCENTILE_DISC`",
+          "`PERCENTILE_DISC`",
+          "`PERCENTILE_DISC`",
+          "Returns actual row value"
+        ],
+        [
+          "Statistical correlation",
+          "`CORR`",
+          "`CORR`",
+          "`CORR`",
+          "Pearson correlation coefficient"
+        ],
+        [
+          "Covariance",
+          "`COVAR_POP/SAMP`",
+          "`COVAR_POP/SAMP`",
+          "`COVAR_POP/SAMP`",
+          "Covariance (population/sample)"
+        ],
+        [
+          "Linear regression",
+          "`REGR_SLOPE/INTERCEPT`",
+          "`REGR_SLOPE/INTERCEPT`",
+          "`REGR_SLOPE/INTERCEPT`",
+          "In-SQL regression"
+        ],
+        [
+          "Date truncation",
+          "`DATE_TRUNC`",
+          "`DATE_TRUNC`",
+          "`DATE_TRUNC`",
+          "Truncate to year/month/week/day/hour"
+        ],
+        [
+          "Date series generation",
+          "`GENERATE_DATE_ARRAY`",
+          "`DATEADD` + recursive CTE",
+          "`SEQUENCE` + `EXPLODE`",
+          "Generate date spine"
+        ],
+        [
+          "Statistical sampling",
+          "`TABLESAMPLE`",
+          "`SAMPLE`",
+          "`TABLESAMPLE`",
+          "Random % sample of table"
+        ],
+        [
+          "ML inference",
+          "`ML.PREDICT`",
+          "`SNOWFLAKE.CORTEX.COMPLETE`",
+          "`ai_query()`",
+          "LLM/ML model inference in SQL"
+        ]
+      ]
+    },
+    {
+      "id": "table-9",
+      "line": 938,
+      "heading_context": "## 16. GOTCHAS FROM T-SQL",
+      "headers": [
+        "T-SQL habit",
+        "Cloud DW reality"
+      ],
+      "rows": [
+        [
+          "`SELECT TOP 10`",
+          "Use `LIMIT 10` (BigQuery/Snowflake/Databricks) or `FETCH FIRST 10 ROWS ONLY`"
+        ],
+        [
+          "Nested subquery for window filters",
+          "Use `QUALIFY` — it's cleaner and exists for this exact reason"
+        ],
+        [
+          "Case sensitivity (SQL Server = CI)",
+          "BigQuery: CI columns; Snowflake: CI by default, CS if quoted; Databricks: CS"
+        ],
+        [
+          "Semicolons optional",
+          "BigQuery requires `;` between statements; Snowflake/Databricks: required in scripts"
+        ],
+        [
+          "`database.schema.table`",
+          "BigQuery: `project.dataset.table`; Snowflake: `db.schema.table`; Databricks: `catalog.schema.table`"
+        ],
+        [
+          "Stored procedures for ETL",
+          "Replaced by dbt models (SQL) or Databricks notebooks (Python + SQL)"
+        ],
+        [
+          "Fixed compute cost (license + HW)",
+          "BigQuery: per byte scanned; Snowflake: per second of warehouse uptime; costs real money per bad query"
+        ],
+        [
+          "`GETDATE()` / `SYSDATETIME()`",
+          "`CURRENT_TIMESTAMP()` (ANSI), or platform-specific: `NOW()`, `CURRENT_DATE()`"
+        ],
+        [
+          "`ISNULL(x, default)`",
+          "`COALESCE(x, default)` (ANSI — works everywhere)"
+        ],
+        [
+          "`DATEDIFF(day, start, end)`",
+          "BigQuery: `DATE_DIFF(end, start, DAY)`; Snowflake: `DATEDIFF('day', start, end)`"
+        ]
+      ]
+    },
+    {
+      "id": "table-10",
+      "line": 955,
+      "heading_context": "## 17. DECISION CHEAT SHEET",
+      "headers": [
+        "Choose",
+        "When"
+      ],
+      "rows": [
+        [
+          "**BigQuery**",
+          "Google Cloud shop; largest-scale serverless; no cluster sizing; `ML.PREDICT` integration; Looker native"
+        ],
+        [
+          "**Snowflake**",
+          "Multi-cloud required; cleanest SQL UX; data sharing / marketplace features; 90-day time travel; Cortex AI"
+        ],
+        [
+          "**Databricks**",
+          "Python/ML-heavy team; streaming + batch unified; Unity Catalog governance; Delta Lake open format"
+        ],
+        [
+          "**Synapse**",
+          "Azure-native; T-SQL muscle memory; Power BI Direct Lake; Purview governance; existing Azure investment"
+        ],
+        [
+          "**dbt + any**",
+          "SQL-first transformation layer; replaces stored proc ETL on all four platforms"
+        ]
+      ]
+    }
+  ]
+}

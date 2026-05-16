@@ -1,0 +1,253 @@
+{
+  "schema_version": "1",
+  "source_markdown": "query-languages\\12-GRAPHQL.md",
+  "tables": [
+    {
+      "id": "table-1",
+      "line": 71,
+      "heading_context": "## 2. Snapshot",
+      "headers": [
+        "Attribute",
+        "Value"
+      ],
+      "rows": [
+        [
+          "Created",
+          "Facebook (2012 internal), open-sourced 2015"
+        ],
+        [
+          "Specification",
+          "graphql.org — language spec, not an implementation"
+        ],
+        [
+          "Reference impl",
+          "graphql-js (JavaScript)"
+        ],
+        [
+          "Server libraries",
+          "Apollo Server, graphql-js, Hasura, Strawberry (Python), Hot Chocolate (.NET), gqlgen (Go), graphql-ruby"
+        ],
+        [
+          "Client libraries",
+          "Apollo Client, urql, Relay, graphql-request"
+        ],
+        [
+          "Transport",
+          "Usually HTTP POST (single endpoint); WebSocket for subscriptions"
+        ],
+        [
+          "Schema language",
+          "SDL (Schema Definition Language) — the IDL for your API"
+        ],
+        [
+          "T-SQL bridge",
+          "SDL is to GraphQL what a database schema is to SQL — defines the type contract. REST is \"stored procedures with URLs\"; GraphQL is \"dynamic SELECT from a typed schema with the client writing the projection.\""
+        ],
+        [
+          "WCF bridge",
+          "SDL is GraphQL's WSDL. `[ServiceContract]` + `[OperationContract]` = SDL `type Query`/`type Mutation`. `[DataContract]` types = SDL object types. `Add Service Reference` generated proxy = `graphql-codegen` output. Key difference: WCF is server-driven shape; GraphQL is client-driven projection."
+        ]
+      ]
+    },
+    {
+      "id": "table-2",
+      "line": 175,
+      "heading_context": "## 3. Schema — SDL (Schema Definition Language)",
+      "headers": [
+        "WSDL concept",
+        "GraphQL SDL equivalent"
+      ],
+      "rows": [
+        [
+          "`xs:string`, `xs:int`, `xs:boolean`",
+          "`String`, `Int`, `Boolean` scalars"
+        ],
+        [
+          "`xs:anyURI`, opaque identity",
+          "`ID` scalar"
+        ],
+        [
+          "`complexType` (concrete)",
+          "`type` (object type)"
+        ],
+        [
+          "`complexType` (abstract, extended)",
+          "`interface`"
+        ],
+        [
+          "`choice` (one-of)",
+          "`union`"
+        ],
+        [
+          "`simpleType restriction` (enumeration)",
+          "`enum`"
+        ],
+        [
+          "`message` part (operation input payload)",
+          "`input` type"
+        ],
+        [
+          "`portType` / `[ServiceContract]`",
+          "`type Query` / `type Mutation`"
+        ],
+        [
+          "`operation` / `[OperationContract]`",
+          "field on `Query` or `Mutation`"
+        ],
+        [
+          "WSDL itself",
+          "SDL (`.graphql` schema file)"
+        ],
+        [
+          "WSDL import",
+          "SDL `extend type` / Federation subgraph composition"
+        ]
+      ]
+    },
+    {
+      "id": "table-3",
+      "line": 197,
+      "heading_context": "## 3. Schema — SDL (Schema Definition Language)",
+      "headers": [
+        "Change",
+        "Breaking?"
+      ],
+      "rows": [
+        [
+          "Add field to type",
+          "No"
+        ],
+        [
+          "Add type",
+          "No"
+        ],
+        [
+          "Add argument with default value",
+          "No"
+        ],
+        [
+          "Add enum value",
+          "Potentially — exhaustive `switch` consumers break"
+        ],
+        [
+          "Remove field",
+          "Yes"
+        ],
+        [
+          "Rename field",
+          "Yes (equivalent to remove + add)"
+        ],
+        [
+          "Change field type",
+          "Yes"
+        ],
+        [
+          "Add required argument (no default)",
+          "Yes"
+        ],
+        [
+          "Tighten nullable → non-null",
+          "Yes"
+        ],
+        [
+          "Relax non-null → nullable",
+          "No"
+        ]
+      ]
+    },
+    {
+      "id": "table-4",
+      "line": 1028,
+      "heading_context": "## 16. Decision Cheat Sheet",
+      "headers": [
+        "Use GraphQL When",
+        "Use REST When"
+      ],
+      "rows": [
+        [
+          "Multiple clients with different data needs (mobile vs web vs IoT)",
+          "Simple CRUD with uniform response shapes"
+        ],
+        [
+          "Complex nested / relational data in one request",
+          "File uploads (REST handles multipart naturally)"
+        ],
+        [
+          "Frontend teams need autonomy over data shape",
+          "CDN caching is the primary concern"
+        ],
+        [
+          "Real-time subscriptions over WebSocket",
+          "Simple webhook integrations"
+        ],
+        [
+          "API evolution without versioning (add fields freely; deprecate instead of remove)",
+          "External public API (REST is more universally understood)"
+        ],
+        [
+          "Rapid backend with Hasura/Postgraphile auto-generation",
+          "Team has no GraphQL experience and deadline is tight"
+        ],
+        [
+          "Schema-enforced contract between frontend and backend",
+          "Microservices-to-microservices communication (gRPC is better)"
+        ]
+      ]
+    },
+    {
+      "id": "table-5",
+      "line": 1038,
+      "heading_context": "## 16. Decision Cheat Sheet",
+      "headers": [
+        "Use Apollo Federation When",
+        "Use a Monolithic Schema When"
+      ],
+      "rows": [
+        [
+          "Multiple teams own separate services",
+          "Single team, single service"
+        ],
+        [
+          "Microservices each have GraphQL endpoints",
+          "Schema complexity is manageable in one codebase"
+        ],
+        [
+          "Need to compose a unified graph from services",
+          "Operational overhead of Federation isn't justified"
+        ]
+      ]
+    },
+    {
+      "id": "table-6",
+      "line": 1045,
+      "heading_context": "## 16. Decision Cheat Sheet",
+      "headers": [
+        "Use WebSocket Subscriptions When",
+        "Use SSE (graphql-sse) When",
+        "Use Polling When"
+      ],
+      "rows": [
+        [
+          "Bidirectional channel needed",
+          "Server-push only",
+          "Low-frequency updates (> 5s tolerance)"
+        ],
+        [
+          "Native apps / persistent SPA connections",
+          "HTTP proxies / CDNs / load balancers in path",
+          "Simplest deployment, no persistent connection"
+        ],
+        [
+          "Near-real-time latency required",
+          "Sticky sessions not viable",
+          "Existing query infrastructure, no new infra"
+        ],
+        [
+          "Apollo Router / Apollo Gateway with WebSocket support",
+          "Simpler ops preferred over raw WebSocket",
+          "Short-term or prototype setup"
+        ]
+      ]
+    }
+  ]
+}

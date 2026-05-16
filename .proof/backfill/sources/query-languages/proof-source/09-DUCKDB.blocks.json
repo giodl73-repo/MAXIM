@@ -1,0 +1,83 @@
+{
+  "schema_version": "1",
+  "source_markdown": "query-languages\\09-DUCKDB.md",
+  "blocks": [
+    {
+      "id": "block-1",
+      "kind": "diagram_like",
+      "line": 28,
+      "heading_context": "## 1. Ecosystem Position",
+      "confidence": "candidate",
+      "text": "┌──────────────────────────────────────────────────────────────────────────────┐\n│                    DuckDB vs SQLite vs Spark — Positioning                   │\n│                                                                              │\n│  SQLite ──── row-oriented ──── OLTP/transactional ──── tiny data (KB-GB)     │\n│                                                                              │\n│  DuckDB ──── column-oriented ── OLAP/analytical ──── local data (GB-TB)      │\n│                                                                              │\n│  Spark ───── distributed ────── OLAP/batch ────────── cluster data (TB-PB)   │\n│                                                                              │\n│  ┌─────────────────────────────────────────────────────────────────────┐     │\n│  │                        Your Application                             │   │\n│  │    Python  /  Node.js  /  R  /  C#  /  Java  /  CLI               │   │\n│  └───────────────────────────────┬─────────────────────────────────────┘   │\n│                                  │  in-process call (no network)           │\n│  ┌───────────────────────────────▼─────────────────────────────────────┐   │\n│  │                        DuckDB Engine                                │   │\n│  │  ┌──────────────────────────────────────────────────────────────┐  │    │\n│  │  │  SQL Parser → Binder → Optimizer → Physical Planner          │  │   │\n│  │  │  → Vectorized Execution (SIMD, batch = 2048 rows)            │  │   │\n│  │  └──────────────────────────────────────────────────────────────┘  │   │\n│  │  ┌────────────┐  ┌────────────┐  ┌────────────┐  ┌─────────────┐  │   │\n│  │  │  .duckdb   │  │  Parquet   │  │    CSV     │  │    JSON     │  │   │\n│  │  │  (file or  │  │   files    │  │   files    │  │   files     │  │   │\n│  │  │  in-memory)│  │ (local/S3) │  │(local/S3)  │  │(local/HTTP) │  │   │\n│  │  └────────────┘  └────────────┘  └────────────┘  └─────────────┘  │   │\n│  └─────────────────────────────────────────────────────────────────────┘   │\n└──────────────────────────────────────────────────────────────────────────────┘\n\nBridge: think of SQLite → DuckDB as same deployment model (in-process, single file,\nno server), opposite workload orientation (OLTP row-store vs OLAP column-store).",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-2",
+      "kind": "diagram_like",
+      "line": 93,
+      "heading_context": "## 3. Why It's Fast — Execution Model",
+      "confidence": "candidate",
+      "text": "Row-oriented store (SQLite / SQL Server heap):\n  Row 1: [id=1 | name=\"Alice\" | dept=\"Eng\" | salary=90000 | email=\"a@b.com\" | ...]\n  Row 2: [id=2 | name=\"Bob\"   | dept=\"Eng\" | salary=85000 | email=\"b@b.com\" | ...]\n  ...\n  SELECT AVG(salary) → must read every byte of every row to get salary column\n\nColumn-oriented store (DuckDB / Parquet):\n  id col:     [1, 2, 3, 4, 5, ...]\n  name col:   [\"Alice\", \"Bob\", ...]\n  salary col: [90000, 85000, 72000, ...]   ← only this column is read from disk\n\n  SELECT AVG(salary) → reads ONLY the salary column, skips all others\n\nVectorized execution:\n  Row-at-a-time (SQLite, row-store):   loop { process one row; advance cursor }\n  Vectorized (DuckDB):                 load 2048 salary values into CPU registers\n                                       execute SIMD AVG across all 2048 at once\n                                       → single CPU instruction for 2048 values\n\nResult: GROUP BY / aggregation on millions of rows → 10–100× faster than SQLite\n\nvs pandas: pandas iterates over NumPy arrays at Python interpreter speed (one\n          operation dispatched per Python bytecode); DuckDB executes compiled\n          C++ SIMD loops that process 2048 values per CPU instruction. The\n          10–100× advantage over pandas on aggregation workloads comes from\n          eliminating the Python dispatch overhead, not from columnar layout alone.",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-3",
+      "kind": "chart_like",
+      "line": 178,
+      "heading_context": "### Remote Files — httpfs extension",
+      "confidence": "candidate",
+      "text": "### ADF + ADLS Gen2 Integration — Querying Pipeline Output Directly",
+      "notes": [
+        "detected from bar/chart glyph density with numeric labels"
+      ]
+    },
+    {
+      "id": "block-4",
+      "kind": "diagram_like",
+      "line": 277,
+      "heading_context": "## 7. Nested Types — LIST, STRUCT, MAP",
+      "confidence": "candidate",
+      "text": "-- LIST (like PostgreSQL ARRAY / BigQuery ARRAY)\nSELECT [1, 2, 3] AS nums;\n\nSELECT list_transform([1,2,3,4,5], x -> x * x)       AS squares;   -- map\nSELECT list_filter([1,2,3,4,5],   x -> x % 2 = 0)    AS evens;     -- filter\nSELECT list_aggregate([10,20,30], 'sum')               AS total;     -- reduce\nSELECT list_sort([3,1,2])                              AS sorted;\nSELECT unnest([1,2,3])                                 AS val;       -- explode to rows\n\n-- STRUCT (named fields — like a record type)\nSELECT {'name': 'Alice', 'age': 30}                    AS person;\nSELECT person.name\nFROM   (SELECT {'name': 'Alice', 'age': 30} AS person);\n\nSELECT struct_pack(name := 'Alice', age := 30)         AS person;\n\n-- MAP (dictionary)\nSELECT map(['a','b'], [1,2])                            AS m;\nSELECT m['a']\nFROM   (SELECT map(['a','b'], [1,2]) AS m);\n\n-- Practical: nested line_items in an orders table\nSELECT\n    order_id,\n    list_transform(line_items, li -> li.quantity * li.unit_price)      AS item_totals,\n    list_aggregate(\n        list_transform(line_items, li -> li.quantity * li.unit_price),\n        'sum'\n    )                                                                   AS order_total\nFROM orders_with_nested_items;",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-5",
+      "kind": "diagram_like",
+      "line": 509,
+      "heading_context": "### SSAS VertiPaq (Columnar/In-Memory) → DuckDB Columnar Execution",
+      "confidence": "candidate",
+      "text": "VertiPaq (SSAS Tabular / Power BI Import):\n  Source DB / ADLS / ...\n       │\n       ▼  full data refresh\n  VertiPaq in-memory store\n  ┌──────────────────────────────────────────────────────┐\n  │  Column segments, compressed, dictionary-encoded     │\n  │  Run-length encoding on sorted segments              │\n  │  All data in RAM; reads come from memory, not disk   │\n  └──────────────────────────────────────────────────────┘\n       │\n       ▼  DAX / MDX query\n  Formula Engine → Storage Engine → result\n\nDuckDB:\n  Parquet / CSV / ADLS / S3 files (on disk or remote)\n       │\n       ▼  query-time column read, no persistent cache\n  ┌──────────────────────────────────────────────────────┐\n  │  Vectorized execution (SIMD, 2048-row batch)         │\n  │  Lightweight compression on columnar data in Parquet │\n  │  Data NOT fully loaded into RAM — streaming reads    │\n  └──────────────────────────────────────────────────────┘\n       │\n       ▼  SQL query\n  Optimizer → Physical Plan → result",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-6",
+      "kind": "chart_like",
+      "line": 551,
+      "heading_context": "### SSAS VertiPaq (Columnar/In-Memory) → DuckDB Columnar Execution",
+      "confidence": "candidate",
+      "text": "### Parquet + ADLS Gen2 — Full Integration Reference",
+      "notes": [
+        "detected from bar/chart glyph density with numeric labels"
+      ]
+    },
+    {
+      "id": "block-7",
+      "kind": "diagram_like",
+      "line": 555,
+      "heading_context": "### Parquet + ADLS Gen2 — Full Integration Reference",
+      "confidence": "candidate",
+      "text": "-- First-time setup\nINSTALL azure;\nLOAD azure;\n\n-- Auth option 1: connection string (development)\nSET azure_storage_connection_string =\n    'DefaultEndpointsProtocol=https;AccountName=myadls;AccountKey=<key>;EndpointSuffix=core.windows.net';\n\n-- Auth option 2: service principal (CI / automated scripts)\nSET azure_tenant_id     = '<tenant-guid>';\nSET azure_client_id     = '<app-registration-client-id>';\nSET azure_client_secret = '<secret>';\n\n-- Auth option 3: managed identity (when running on Azure VM / ACI / AKS)\n-- No explicit credentials — uses the VM's assigned identity\nSET azure_use_managed_identity = true;\n\n-- ── Basic reads ──────────────────────────────────────────────────────────────\n\n-- Single file\nSELECT * FROM read_parquet('azure://mycontainer/exports/orders_2024.parquet');\n\n-- Glob: all Parquet files in directory\nSELECT * FROM read_parquet('azure://mycontainer/exports/*.parquet');\n\n-- ── Hive-style partitioned directories (ADF standard sink layout) ────────────\n\n-- ADF typically writes: container/pipeline-output/year=2024/month=01/day=15/*.parquet\n-- hive_partitioning = true surfaces year/month/day as virtual columns\nSELECT year, month, SUM(revenue)\nFROM read_parquet(\n    'azure://mycontainer/pipeline-output/**/*.parquet',\n    hive_partitioning = true\n)\nWHERE year = 2024\nGROUP BY year, month\nORDER BY year, month;\n\n-- DuckDB pushes the year/month predicates into the file scan — it reads only the\n-- matching partition directories, skipping the rest entirely (partition pruning).\n-- Same behavior as Spark partition pruning or Synapse serverless predicate pushdown.\n\n-- ── Practical ADF workflow integration ──────────────────────────────────────\n\n-- 1. Confirm ADF pipeline wrote expected row count\nSELECT COUNT(*) AS row_count\nFROM 'azure://mycontainer/pipeline-output/year=2024/month=01/**/*.parquet';\n\n-- 2. Schema check — did ADF output the right column types?\nDESCRIBE SELECT * FROM 'azure://mycontainer/pipeline-output/latest/*.parquet';\n\n-- 3. Data quality spot check\nSELECT customer_id, COUNT(*) AS cnt\nFROM 'azure://mycontainer/pipeline-output/latest/*.parquet'\nGROUP BY customer_id\nHAVING COUNT(*) > 1   -- check for duplicates\nORDER BY cnt DESC\nLIMIT 20;\n\n-- 4. Cross-partition delta — rows in Jan but not Feb (disappeared records)\nSELECT a.customer_id\nFROM read_parquet('azure://mycontainer/output/year=2024/month=01/*.parquet') a\nLEFT JOIN read_parquet('azure://mycontainer/output/year=2024/month=02/*.parquet') b\n    ON a.customer_id = b.customer_id\nWHERE b.customer_id IS NULL;",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    }
+  ]
+}

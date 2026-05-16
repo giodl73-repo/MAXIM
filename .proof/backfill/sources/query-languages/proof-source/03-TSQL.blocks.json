@@ -1,0 +1,248 @@
+{
+  "schema_version": "1",
+  "source_markdown": "query-languages\\03-TSQL.md",
+  "blocks": [
+    {
+      "id": "block-1",
+      "kind": "diagram_like",
+      "line": 62,
+      "heading_context": "## THE 25-YEAR REFRESH — What Changed",
+      "confidence": "candidate",
+      "text": " 2005 ──── CTEs · APPLY · ROW_NUMBER() · PIVOT/UNPIVOT · TRY/CATCH · DMVs\n           XML data type · Service Broker · Snapshot isolation (RCSI)\n           Table-valued functions (multi-statement + inline)\n\n 2008 ──── MERGE · GROUPING SETS · DATE / TIME / DATETIME2 / DATETIMEOFFSET\n           GEOGRAPHY / GEOMETRY types · Table-valued parameters (TVPs)\n           Filtered indexes · Sparse columns · Change Data Capture\n\n 2012 ──── Full ANSI window functions (ROWS/RANGE BETWEEN, LEAD/LAG)\n           THROW · SEQUENCES · IIF() · CHOOSE()\n           CONCAT() · EOMONTH() · FORMAT()\n           AlwaysOn Availability Groups\n\n 2014 ──── In-memory OLTP (\"Hekaton\") · Incremental statistics\n           Buffer pool extension · Delayed durability\n\n 2016 ──── JSON (JSON_VALUE, JSON_QUERY, OPENJSON, FOR JSON)\n           Row-Level Security · Temporal tables (system-versioned)\n           Dynamic Data Masking · Query Store · Always Encrypted\n           STRING_SPLIT() · COMPRESS() / DECOMPRESS() · R Services\n           Stretch Database (deprecated)\n\n 2017 ──── STRING_AGG() · CONCAT_WS() · TRIM()\n           Graph tables (NODE/EDGE, MATCH()) · Python Services\n           Automatic plan correction (Query Store integration)\n\n 2019 ──── UTF-8 collation support · APPROX_COUNT_DISTINCT()\n           Accelerated Database Recovery (ADR) · Java extensibility\n           Intelligent Query Processing (Adaptive Joins, Batch Mode for rowstore)\n\n 2022 ──── IS [NOT] DISTINCT FROM · LEAST() / GREATEST()\n           GENERATE_SERIES() · DATE_BUCKET() · DATETRUNC()\n           JSON_ARRAY() · JSON_OBJECT() · ISJSON improvements\n           Azure Synapse Link · Ledger tables (tamper-evident)\n           Parameter Sensitive Plan optimization",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-2",
+      "kind": "diagram_like",
+      "line": 106,
+      "heading_context": "## CROSS APPLY / OUTER APPLY",
+      "confidence": "candidate",
+      "text": "-- ── CROSS APPLY: inner lateral ─────────────────────────────────────────────\n-- Returns only outer rows that produce at least one row from the subquery\nSELECT c.name, o.order_date, o.total\nFROM   customers c\nCROSS APPLY (\n    SELECT TOP 3 order_date, total\n    FROM   orders\n    WHERE  customer_id = c.id      -- correlated to outer row c\n    ORDER BY order_date DESC\n) AS o;\n-- PostgreSQL equivalent: JOIN LATERAL ... ON TRUE\n\n-- ── OUTER APPLY: left lateral ──────────────────────────────────────────────\n-- Keeps all outer rows; NULLs if subquery returns nothing\nSELECT c.name, last_order.order_date\nFROM   customers c\nOUTER APPLY (\n    SELECT TOP 1 order_date\n    FROM   orders\n    WHERE  customer_id = c.id\n    ORDER BY order_date DESC\n) AS last_order;\n\n-- ── APPLY with inline TVF ──────────────────────────────────────────────────\nSELECT e.name, dept_stats.avg_salary, dept_stats.headcount\nFROM   employees e\nCROSS APPLY dbo.fn_dept_stats(e.department_id) AS dept_stats;\n-- TVF is called once per employee row — not possible with a JOIN\n\n-- ── APPLY to parse comma-separated values (pre-STRING_SPLIT) ──────────────\nSELECT p.id, s.value AS tag\nFROM   products p\nCROSS APPLY STRING_SPLIT(p.tags, ',') AS s;",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-3",
+      "kind": "diagram_like",
+      "line": 150,
+      "heading_context": "## TABLE-VALUED PARAMETERS (TVPs)",
+      "confidence": "candidate",
+      "text": "-- ── 1. DEFINE THE TYPE ─────────────────────────────────────────────────────\nCREATE TYPE dbo.OrderLineType AS TABLE (\n    ProductID  INT           NOT NULL,\n    Quantity   INT           NOT NULL,\n    UnitPrice  DECIMAL(10,2) NOT NULL,\n    PRIMARY KEY (ProductID)   -- optional; affects plan inside proc\n);\n\n-- ── 2. USE IT IN A STORED PROCEDURE ────────────────────────────────────────\n-- TVP parameter is always READONLY — no DML against it inside the proc\nCREATE PROCEDURE dbo.usp_InsertOrderLines\n    @OrderID   INT,\n    @Lines     dbo.OrderLineType READONLY   -- READONLY is mandatory\nAS\nBEGIN\n    SET NOCOUNT ON;\n\n    INSERT INTO dbo.OrderLines (OrderID, ProductID, Quantity, UnitPrice, LineTotal)\n    SELECT @OrderID, ProductID, Quantity, UnitPrice, Quantity * UnitPrice\n    FROM   @Lines;                          -- TVP used as a normal table\n\n    -- Can join TVP against real tables\n    UPDATE inv\n    SET    inv.QuantityOnHand -= l.Quantity\n    FROM   dbo.Inventory inv\n    JOIN   @Lines l ON inv.ProductID = l.ProductID;\nEND;",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-4",
+      "kind": "diagram_like",
+      "line": 180,
+      "heading_context": "## TABLE-VALUED PARAMETERS (TVPs)",
+      "confidence": "candidate",
+      "text": "// ── 3. ADO.NET: SqlDataRecord pattern (preferred for IEnumerable<T>) ────────\n// Define schema matching CREATE TYPE\nvar metaData = new SqlMetaData[]\n{\n    new SqlMetaData(\"ProductID\",  SqlDbType.Int),\n    new SqlMetaData(\"Quantity\",   SqlDbType.Int),\n    new SqlMetaData(\"UnitPrice\",  SqlDbType.Decimal, 10, 2)\n};\n\n// Stream rows — no DataTable allocation, suitable for large sets\nIEnumerable<SqlDataRecord> ToSqlRecords(IEnumerable<OrderLine> lines)\n{\n    var rec = new SqlDataRecord(metaData);\n    foreach (var line in lines)\n    {\n        rec.SetInt32(0,   line.ProductID);\n        rec.SetInt32(1,   line.Quantity);\n        rec.SetDecimal(2, line.UnitPrice);\n        yield return rec;   // streaming — not buffered\n    }\n}\n\nusing var cmd = new SqlCommand(\"dbo.usp_InsertOrderLines\", conn)\n    { CommandType = CommandType.StoredProcedure };\n\ncmd.Parameters.AddWithValue(\"@OrderID\", orderId);\n\nvar tvpParam = cmd.Parameters.AddWithValue(\"@Lines\", ToSqlRecords(lines));\ntvpParam.SqlDbType    = SqlDbType.Structured;\ntvpParam.TypeName     = \"dbo.OrderLineType\";   // must match CREATE TYPE name\n\nawait cmd.ExecuteNonQueryAsync();",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-5",
+      "kind": "diagram_like",
+      "line": 215,
+      "heading_context": "## TABLE-VALUED PARAMETERS (TVPs)",
+      "confidence": "candidate",
+      "text": "// ── DataTable pattern (simpler, buffered) ───────────────────────────────────\nvar dt = new DataTable();\ndt.Columns.Add(\"ProductID\", typeof(int));\ndt.Columns.Add(\"Quantity\",  typeof(int));\ndt.Columns.Add(\"UnitPrice\", typeof(decimal));\n\nforeach (var line in lines)\n    dt.Rows.Add(line.ProductID, line.Quantity, line.UnitPrice);\n\nvar tvpParam = cmd.Parameters.AddWithValue(\"@Lines\", dt);\ntvpParam.SqlDbType = SqlDbType.Structured;\ntvpParam.TypeName  = \"dbo.OrderLineType\";",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-6",
+      "kind": "ascii_table_candidate",
+      "line": 255,
+      "heading_context": "## MERGE",
+      "confidence": "candidate",
+      "text": "-- ── FULL MERGE: insert + update + delete ───────────────────────────────────\nMERGE INTO dbo.Products AS target\nUSING (\n    SELECT product_id, name, price, updated_at\n    FROM   dbo.StagingProducts\n) AS source\nON target.product_id = source.product_id\n\nWHEN MATCHED AND target.price <> source.price THEN\n    UPDATE SET\n        target.name       = source.name,\n        target.price      = source.price,\n        target.updated_at = GETDATE()\n\nWHEN NOT MATCHED BY TARGET THEN\n    INSERT (product_id, name, price, created_at)\n    VALUES (source.product_id, source.name, source.price, GETDATE())\n\nWHEN NOT MATCHED BY SOURCE THEN\n    DELETE\n\n-- OUTPUT: capture what happened (like trigger-level CDC)\nOUTPUT\n    $action                 AS action_taken,   -- 'INSERT', 'UPDATE', or 'DELETE'\n    inserted.product_id     AS new_id,\n    deleted.product_id      AS old_id,\n    inserted.price          AS new_price,\n    deleted.price           AS old_price\nINTO @ChangeLog (action_taken, new_id, old_id, new_price, old_price);",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-7",
+      "kind": "diagram_like",
+      "line": 298,
+      "heading_context": "## OUTPUT CLAUSE",
+      "confidence": "candidate",
+      "text": "-- ── INSERT with OUTPUT ─────────────────────────────────────────────────────\nDECLARE @Inserted TABLE (\n    id         INT,\n    name       VARCHAR(100),\n    created_at DATETIME2\n);\n\nINSERT INTO dbo.Products (name, price, category)\nOUTPUT inserted.id, inserted.name, inserted.created_at\nINTO @Inserted\nSELECT name, price, category FROM dbo.StagingProducts;\n\nSELECT * FROM @Inserted;  -- all the new IDs and timestamps\n\n-- ── UPDATE with OUTPUT: before AND after ──────────────────────────────────\n-- deleted.col = value BEFORE update; inserted.col = value AFTER update\nUPDATE dbo.Orders\nSET    status = 'shipped', shipped_at = GETDATE()\nOUTPUT\n    deleted.status  AS old_status,\n    inserted.status AS new_status,\n    inserted.id,\n    inserted.shipped_at\nWHERE  fulfillment_confirmed = 1 AND status = 'pending';\n\n-- ── DELETE with OUTPUT ─────────────────────────────────────────────────────\nDELETE FROM dbo.ExpiredSessions\nOUTPUT\n    deleted.session_id,\n    deleted.user_id,\n    deleted.expires_at\nWHERE expires_at < GETDATE();\n-- PostgreSQL equivalent: DELETE ... RETURNING (simpler syntax, same semantics)",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-8",
+      "kind": "diagram_like",
+      "line": 340,
+      "heading_context": "## JSON SUPPORT (SQL Server 2016+)",
+      "confidence": "candidate",
+      "text": "-- ── SCALAR EXTRACTION ─────────────────────────────────────────────────────\nSELECT JSON_VALUE(metadata, '$.user.name')    AS username,    -- returns NVARCHAR scalar\n       JSON_VALUE(metadata, '$.amount')       AS amount_str   -- always text — cast manually\nFROM   events;\n\n-- ── OBJECT/ARRAY EXTRACTION ───────────────────────────────────────────────\nSELECT JSON_QUERY(metadata, '$.tags')         AS tags_json,   -- returns JSON fragment\n       JSON_QUERY(metadata, '$.address')      AS address_json\nFROM   events;\n-- JSON_VALUE for scalars; JSON_QUERY for objects/arrays — mixing them silently returns NULL\n\n-- ── MODIFICATION ──────────────────────────────────────────────────────────\nUPDATE events\nSET    metadata = JSON_MODIFY(metadata, '$.processed', CAST(1 AS BIT))\nWHERE  JSON_VALUE(metadata, '$.type') = 'purchase';\n\n-- Append to array\nSET metadata = JSON_MODIFY(metadata, 'append $.tags', 'reviewed');\n\n-- ── OPENJSON: shred JSON to relational rows ────────────────────────────────\n-- Without schema (key/value/type columns)\nSELECT [key], [value], [type]\nFROM   OPENJSON('[\"alpha\",\"beta\",\"gamma\"]');\n-- 0  alpha  1 (1=string)\n-- 1  beta   1\n-- 2  gamma  1\n\n-- With explicit schema (typed result set)\nSELECT id, name, email, city\nFROM   OPENJSON(@users_json, '$.users')\nWITH (\n    id    INT            '$.user_id',\n    name  NVARCHAR(100)  '$.display_name',\n    email NVARCHAR(200)  '$.contact.email',\n    city  NVARCHAR(100)  '$.address.city'\n);\n\n-- ── FOR JSON: serialize rows to JSON ──────────────────────────────────────\n-- PATH mode: explicit nesting via dot notation in column aliases\nSELECT\n    u.id                     AS [user.id],\n    u.name                   AS [user.name],\n    o.id                     AS [orders.id],\n    o.total                  AS [orders.total]\nFROM   users u\nLEFT JOIN orders o ON u.id = o.user_id\nFOR JSON PATH, ROOT('result');\n\n-- AUTO mode: nesting inferred from JOIN structure\nSELECT u.id, u.name, o.order_date, o.total\nFROM   users u LEFT JOIN orders o ON u.id = o.user_id\nFOR JSON AUTO;\n\n-- SQL Server 2022: JSON_ARRAY() and JSON_OBJECT() as expressions\nSELECT JSON_OBJECT('id': id, 'name': name, 'active': is_active) AS json_row\nFROM   users;\n\nSELECT JSON_ARRAY(1, 'two', TRUE, NULL) AS arr;   -- [1,\"two\",true,null]",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-9",
+      "kind": "diagram_like",
+      "line": 409,
+      "heading_context": "## TEMPORAL TABLES (SQL:2011, SQL Server 2016+)",
+      "confidence": "candidate",
+      "text": "-- ── CREATE A TEMPORAL TABLE ───────────────────────────────────────────────\nCREATE TABLE dbo.Products (\n    ProductID   INT              NOT NULL PRIMARY KEY,\n    Name        NVARCHAR(100)    NOT NULL,\n    Price       DECIMAL(10, 2)   NOT NULL,\n    CategoryID  INT              NOT NULL,\n    -- System-managed period columns: SQL Server maintains these\n    ValidFrom   DATETIME2 (7)    GENERATED ALWAYS AS ROW START NOT NULL,\n    ValidTo     DATETIME2 (7)    GENERATED ALWAYS AS ROW END   NOT NULL,\n    PERIOD FOR SYSTEM_TIME (ValidFrom, ValidTo)\n)\nWITH (\n    SYSTEM_VERSIONING = ON (HISTORY_TABLE = dbo.ProductsHistory)\n);\n-- ProductsHistory is auto-created and auto-maintained\n\n-- ── TIME TRAVEL QUERIES ───────────────────────────────────────────────────\n-- Current state (normal query)\nSELECT * FROM dbo.Products WHERE ProductID = 42;\n\n-- State as of a specific point in time\nSELECT * FROM dbo.Products\nFOR SYSTEM_TIME AS OF '2023-06-15 12:00:00.000';\n\n-- All versions within a time range (ValidFrom, ValidTo overlap the range)\nSELECT * FROM dbo.Products\nFOR SYSTEM_TIME BETWEEN '2023-01-01' AND '2023-12-31'\nWHERE ProductID = 42\nORDER BY ValidFrom;\n\n-- Entire history ever\nSELECT * FROM dbo.Products\nFOR SYSTEM_TIME ALL\nWHERE ProductID = 42\nORDER BY ValidFrom;\n\n-- FROM/TO variant: rows whose period overlaps [start, end)\nSELECT * FROM dbo.Products\nFOR SYSTEM_TIME FROM '2023-06-01' TO '2023-07-01';\n\n-- ── TURN OFF VERSIONING (for bulk loads) ──────────────────────────────────\nALTER TABLE dbo.Products SET (SYSTEM_VERSIONING = OFF);\n-- ... bulk operations ...\nALTER TABLE dbo.Products SET (\n    SYSTEM_VERSIONING = ON (HISTORY_TABLE = dbo.ProductsHistory, DATA_CONSISTENCY_CHECK = ON)\n);",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-10",
+      "kind": "diagram_like",
+      "line": 466,
+      "heading_context": "## TRY/CATCH AND ERROR HANDLING",
+      "confidence": "candidate",
+      "text": "BEGIN TRY\n    BEGIN TRANSACTION;\n\n    INSERT INTO dbo.Orders (customer_id, total, status)\n    VALUES (42, 199.99, 'pending');\n\n    UPDATE dbo.Inventory\n    SET    quantity -= 1\n    WHERE  product_id = 7;\n\n    IF @@ROWCOUNT = 0\n        THROW 50001, 'Product 7 not found in inventory', 1;\n\n    COMMIT TRANSACTION;\nEND TRY\nBEGIN CATCH\n    IF @@TRANCOUNT > 0\n        ROLLBACK TRANSACTION;\n\n    -- Capture error context\n    SELECT\n        ERROR_NUMBER()    AS ErrorNumber,\n        ERROR_SEVERITY()  AS Severity,     -- 1-10: informational; 11-16: user; 17+: resource/server\n        ERROR_STATE()     AS State,\n        ERROR_PROCEDURE() AS Procedure,\n        ERROR_LINE()      AS Line,\n        ERROR_MESSAGE()   AS Message;\n\n    -- Re-throw (SQL Server 2012+): preserves original error number/message/line\n    THROW;\n\n    -- Old way: RAISERROR — loses original error info\n    -- RAISERROR (ERROR_MESSAGE(), ERROR_SEVERITY(), ERROR_STATE());\nEND CATCH;\n\n-- ── USER-DEFINED ERRORS ───────────────────────────────────────────────────\n-- THROW: simpler syntax, always severity 16, re-throwable\nTHROW 50001, 'Custom business rule violated', 1;\n\n-- RAISERROR: more control over severity, can log to Windows event log\nRAISERROR ('Custom error: %s failed at step %d', 16, 1, @step_name, @step_num) WITH LOG;",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-11",
+      "kind": "diagram_like",
+      "line": 516,
+      "heading_context": "## DYNAMIC SQL — Safe Patterns",
+      "confidence": "candidate",
+      "text": "-- ── BAD: SQL injection vector ─────────────────────────────────────────────\nEXEC('SELECT * FROM ' + @tableName + ' WHERE status = ''' + @status + '''');\n-- @tableName = '; DROP TABLE orders; --' works here\n\n-- ── GOOD: sp_executesql with parameters ───────────────────────────────────\nDECLARE @sql    NVARCHAR(MAX);\nDECLARE @status NVARCHAR(20) = N'active';\nDECLARE @cutoff DATETIME2    = '2024-01-01';\n\nSET @sql = N'\n    SELECT id, name, created_at\n    FROM   dbo.Users\n    WHERE  status  = @status_param\n      AND  created_at >= @cutoff_param\n';\n\nEXEC sp_executesql\n    @sql,\n    N'@status_param NVARCHAR(20), @cutoff_param DATETIME2',  -- param definition\n    @status_param = @status,                                   -- param binding\n    @cutoff_param = @cutoff;\n\n-- ── DYNAMIC TABLE/COLUMN NAMES: can't parameterize — use QUOTENAME ─────────\nDECLARE @schema    SYSNAME = N'dbo';\nDECLARE @tableName SYSNAME = N'Orders';\n\nSET @sql = N'SELECT TOP 100 * FROM '\n         + QUOTENAME(@schema) + N'.' + QUOTENAME(@tableName);\n-- QUOTENAME wraps in [] and escapes embedded brackets\n-- dbo.Orders → [dbo].[Orders]\n-- dbo.O]rders → [dbo].[O]]rders]  (safe)\n\nEXEC sp_executesql @sql;\n\n-- ── DYNAMIC PIVOT ─────────────────────────────────────────────────────────\nDECLARE @cols NVARCHAR(MAX);\n\nSELECT @cols = STRING_AGG(QUOTENAME(quarter), ', ')\n               WITHIN GROUP (ORDER BY quarter)\nFROM (SELECT DISTINCT quarter FROM dbo.Sales) q;\n\nSET @sql = N'\n    SELECT *\n    FROM (SELECT product_id, quarter, revenue FROM dbo.Sales) src\n    PIVOT (SUM(revenue) FOR quarter IN (' + @cols + N')) pvt\n';\nEXEC sp_executesql @sql;",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-12",
+      "kind": "diagram_like",
+      "line": 620,
+      "heading_context": "## PIVOT / UNPIVOT",
+      "confidence": "candidate",
+      "text": "-- ── STATIC PIVOT ──────────────────────────────────────────────────────────\nSELECT product_id, [Q1], [Q2], [Q3], [Q4]\nFROM (\n    SELECT product_id, quarter, revenue\n    FROM   dbo.Sales\n) AS src\nPIVOT (\n    SUM(revenue)\n    FOR quarter IN ([Q1], [Q2], [Q3], [Q4])\n) AS pvt;\n\n-- ── DYNAMIC PIVOT (column values not known at compile time) ────────────────\nDECLARE @cols NVARCHAR(MAX);\nDECLARE @sql  NVARCHAR(MAX);\n\nSELECT @cols = STRING_AGG(QUOTENAME(quarter), ', ')\n               WITHIN GROUP (ORDER BY quarter)\nFROM (SELECT DISTINCT quarter FROM dbo.Sales) q;\n\nSET @sql = N'\n    SELECT product_id, ' + @cols + N'\n    FROM (SELECT product_id, quarter, revenue FROM dbo.Sales) src\n    PIVOT (SUM(revenue) FOR quarter IN (' + @cols + N')) pvt\n';\nEXEC sp_executesql @sql;\n\n-- ── UNPIVOT: wide-to-long ─────────────────────────────────────────────────\nSELECT product_id, quarter, revenue\nFROM (\n    SELECT product_id, [Q1], [Q2], [Q3], [Q4]\n    FROM   dbo.SalesPivoted\n) AS src\nUNPIVOT (\n    revenue FOR quarter IN ([Q1], [Q2], [Q3], [Q4])\n) AS unpvt;\n\n-- Alternative: CROSS APPLY VALUES (more flexible, handles NULLs better)\nSELECT p.product_id, v.quarter, v.revenue\nFROM   dbo.SalesPivoted p\nCROSS APPLY (VALUES\n    ('Q1', p.Q1),\n    ('Q2', p.Q2),\n    ('Q3', p.Q3),\n    ('Q4', p.Q4)\n) AS v(quarter, revenue)\nWHERE v.revenue IS NOT NULL;",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-13",
+      "kind": "ascii_table_candidate",
+      "line": 675,
+      "heading_context": "## MODERN STRING FUNCTIONS",
+      "confidence": "candidate",
+      "text": "-- ── SQL Server 2017+ ──────────────────────────────────────────────────────\nSTRING_AGG(name, ', ')\n    WITHIN GROUP (ORDER BY name)          -- GROUP_CONCAT equivalent; NULL-safe\n    -- note: max output is limited by NVARCHAR(MAX) = 2GB\n\nCONCAT_WS(', ', first_name, last_name, email)  -- concat with separator, skips NULLs\n-- Old pattern: ISNULL(first,'') + ', ' + ISNULL(last,'') — fragile\n\nTRIM('  hello  ')             -- strips leading + trailing (was LTRIM + RTRIM separately)\nTRIM('.' FROM '...hello...')  -- trim specific characters\n\n-- ── SQL Server 2016+ ──────────────────────────────────────────────────────\nSTRING_SPLIT('alpha,beta,gamma', ',')  -- returns single-column table with [value]\n-- SQL Server 2022 adds ordinal column:\nSTRING_SPLIT('alpha,beta,gamma', ',', 1)  -- 3rd arg enables ordinal column [ordinal]\n\nCOMPRESS(N'large text')          -- GZIP → VARBINARY\nDECOMPRESS(compressed_col)       -- VARBINARY → VARBINARY (cast to VARCHAR after)\nCAST(DECOMPRESS(col) AS NVARCHAR(MAX))\n\n-- ── SQL Server 2022+ ──────────────────────────────────────────────────────\nGREATEST(a, b, c)               -- max of N values (was IIF or CASE)\nLEAST(a, b, c)                  -- min of N values\n\nDATETRUNC(month, GETDATE())     -- truncate to month start (was DATEADD trickery)\nDATE_BUCKET(WEEK, 2, order_date) -- floor to N-week bucket\n\nGENERATE_SERIES(1, 10)          -- returns rows 1..10 (was recursive CTE)\nGENERATE_SERIES(0.0, 1.0, 0.1)  -- decimal steps\n\n-- IS [NOT] DISTINCT FROM (SQL:1999, finally in 2022)\n-- NULL-safe equality: NULL IS NOT DISTINCT FROM NULL → TRUE\n-- Replaces: (a = b OR (a IS NULL AND b IS NULL))\nWHERE col1 IS NOT DISTINCT FROM col2;",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-14",
+      "kind": "diagram_like",
+      "line": 716,
+      "heading_context": "## QUERY HINTS — Use Sparingly",
+      "confidence": "candidate",
+      "text": "-- ── TABLE HINTS ───────────────────────────────────────────────────────────\nFROM orders WITH (NOLOCK)       -- dirty read (READ UNCOMMITTED); avoid for correctness\nFROM orders WITH (UPDLOCK)      -- shared → update lock; prevents update deadlocks\nFROM orders WITH (HOLDLOCK)     -- shared lock held to end of transaction (= SERIALIZABLE)\nFROM orders WITH (ROWLOCK)      -- prefer row granularity over page/table locks\nFROM orders WITH (PAGLOCK)      -- prefer page locks\nFROM orders WITH (TABLOCK)      -- table lock for bulk insert scenarios\nFROM orders WITH (INDEX(ix_customer_date))  -- force specific index\n\n-- ── QUERY HINTS (OPTION clause, end of statement) ─────────────────────────\nOPTION (RECOMPILE)                     -- generate new plan each execution; bypasses param sniffing\nOPTION (MAXDOP 1)                      -- force single-threaded (for OLTP in high-CPU contention)\nOPTION (MAXDOP 0)                      -- use all available CPUs\nOPTION (OPTIMIZE FOR (@id = 42))       -- plan optimized for this specific value\nOPTION (OPTIMIZE FOR (@id UNKNOWN))    -- plan using average density, not sniffed value\nOPTION (FORCE ORDER)                   -- join in FROM order; overrides optimizer\nOPTION (USE HINT ('ENABLE_PARALLEL_PLAN_PREFERENCE'))\nOPTION (USE HINT ('DISABLE_OPTIMIZED_NESTED_LOOP'))\nOPTION (HASH JOIN)                     -- force hash join for all joins in query\nOPTION (LOOP JOIN)\nOPTION (MERGE JOIN)\n\n-- ── JOIN HINTS (inline) ───────────────────────────────────────────────────\nFROM a INNER HASH  JOIN b ON a.id = b.id\nFROM a INNER LOOP  JOIN b ON a.id = b.id\nFROM a INNER MERGE JOIN b ON a.id = b.id\n\n-- NOLOCK WARNING: WITH(NOLOCK) = READ UNCOMMITTED\n-- Returns uncommitted data. Can return the same row twice or skip rows during page splits.\n-- Safe only for coarse approximations (e.g., COUNT(*) on a reporting table where ±1% is acceptable).\n-- NEVER use for financial, inventory, or correctness-sensitive queries.",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-15",
+      "kind": "diagram_like",
+      "line": 758,
+      "heading_context": "## QUERY STORE (SQL Server 2016+)",
+      "confidence": "candidate",
+      "text": "-- ── ENABLE ────────────────────────────────────────────────────────────────\nALTER DATABASE [YourDB] SET QUERY_STORE = ON (\n    OPERATION_MODE          = READ_WRITE,\n    CLEANUP_POLICY          = (STALE_QUERY_THRESHOLD_DAYS = 30),\n    DATA_FLUSH_INTERVAL_SECONDS = 900,\n    MAX_STORAGE_SIZE_MB     = 1024,\n    QUERY_CAPTURE_MODE      = AUTO    -- AUTO skips trivial queries; ALL captures everything\n);\n\n-- ── FIND TOP CPU CONSUMERS ────────────────────────────────────────────────\nSELECT TOP 20\n    qt.query_sql_text,\n    qrs.avg_cpu_time        / 1000.0   AS avg_cpu_ms,\n    qrs.avg_duration        / 1000.0   AS avg_duration_ms,\n    qrs.avg_logical_io_reads           AS avg_logical_reads,\n    qrs.count_executions,\n    q.query_id,\n    p.plan_id\nFROM sys.query_store_query_text  qt\nJOIN sys.query_store_query       q   ON qt.query_text_id = q.query_text_id\nJOIN sys.query_store_plan        p   ON q.query_id       = p.query_id\nJOIN sys.query_store_runtime_stats qrs ON p.plan_id      = qrs.plan_id\nORDER BY qrs.avg_cpu_time DESC;\n\n-- ── QUERIES WITH MULTIPLE PLANS (plan instability) ────────────────────────\nSELECT q.query_id, COUNT(DISTINCT p.plan_id) AS plan_count,\n       qt.query_sql_text\nFROM sys.query_store_query q\nJOIN sys.query_store_plan p ON q.query_id = p.query_id\nJOIN sys.query_store_query_text qt ON q.query_text_id = qt.query_text_id\nGROUP BY q.query_id, qt.query_sql_text\nHAVING COUNT(DISTINCT p.plan_id) > 1\nORDER BY plan_count DESC;\n\n-- ── FORCE A PLAN (regression fix without code change) ─────────────────────\nEXEC sys.sp_query_store_force_plan @query_id = 42, @plan_id = 7;\n-- Plan forced immediately; survives service restarts\n\n-- ── UNFORCE A PLAN ────────────────────────────────────────────────────────\nEXEC sys.sp_query_store_unforce_plan @query_id = 42, @plan_id = 7;\n\n-- ── IDENTIFY REGRESSED QUERIES: compare recent vs. historical runtime stats ─\n-- \"Which queries got slower in the last 2 hours vs. their 7-day average?\"\nSELECT TOP 20\n    qt.query_sql_text,\n    recent.avg_cpu_time    / 1000.0   AS recent_avg_cpu_ms,\n    baseline.avg_cpu_time  / 1000.0   AS baseline_avg_cpu_ms,\n    (recent.avg_cpu_time - baseline.avg_cpu_time) / 1000.0 AS regression_ms,\n    recent.plan_id   AS regressed_plan_id,\n    baseline.plan_id AS good_plan_id\nFROM (\n    -- recent: last 2 hours\n    SELECT qrs.plan_id, q.query_id, AVG(qrs.avg_cpu_time) AS avg_cpu_time\n    FROM sys.query_store_runtime_stats qrs\n    JOIN sys.query_store_runtime_stats_interval qrsi\n         ON qrs.runtime_stats_interval_id = qrsi.runtime_stats_interval_id\n    JOIN sys.query_store_plan qp ON qrs.plan_id = qp.plan_id\n    JOIN sys.query_store_query q ON qp.query_id = q.query_id\n    WHERE qrsi.start_time >= DATEADD(HOUR, -2, GETUTCDATE())\n    GROUP BY qrs.plan_id, q.query_id\n) AS recent\nJOIN (\n    -- baseline: 7-day average, excluding last 2 hours\n    SELECT qrs.plan_id, q.query_id, AVG(qrs.avg_cpu_time) AS avg_cpu_time\n    FROM sys.query_store_runtime_stats qrs\n    JOIN sys.query_store_runtime_stats_interval qrsi\n         ON qrs.runtime_stats_interval_id = qrsi.runtime_stats_interval_id\n    JOIN sys.query_store_plan qp ON qrs.plan_id = qp.plan_id\n    JOIN sys.query_store_query q ON qp.query_id = q.query_id\n    WHERE qrsi.start_time BETWEEN DATEADD(DAY, -7, GETUTCDATE())\n                               AND DATEADD(HOUR, -2, GETUTCDATE())\n    GROUP BY qrs.plan_id, q.query_id\n) AS baseline ON recent.query_id = baseline.query_id\nJOIN sys.query_store_query_text qt\n     ON recent.query_id = (SELECT query_id FROM sys.query_store_plan WHERE plan_id = recent.plan_id)\nWHERE recent.avg_cpu_time > baseline.avg_cpu_time * 2   -- 2x regression threshold\nORDER BY regression_ms DESC;\n\n-- ── WAIT STATISTICS PER QUERY (SQL Server 2017+) ───────────────────────────\n-- Query Store captures wait categories — not just CPU/duration\nSELECT TOP 10\n    qt.query_sql_text,\n    ws.wait_category_desc,\n    ws.avg_query_wait_time_ms,\n    ws.total_query_wait_time_ms\nFROM sys.query_store_query_text qt\nJOIN sys.query_store_query q      ON qt.query_text_id = q.query_text_id\nJOIN sys.query_store_plan  p      ON q.query_id       = p.query_id\nJOIN sys.query_store_wait_stats ws ON p.plan_id       = ws.plan_id\nWHERE ws.wait_category_desc NOT IN ('Unknown', 'CPU')\nORDER BY ws.avg_query_wait_time_ms DESC;",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-16",
+      "kind": "diagram_like",
+      "line": 887,
+      "heading_context": "### The Classic Problem",
+      "confidence": "candidate",
+      "text": "Traditional ARIES Recovery (pre-ADR)\n─────────────────────────────────────────────────────────────────────────────\n  Transaction starts\n  INSERT 1,000,000 rows  →  each row written to data pages + log (forward phase)\n  Application calls ROLLBACK\n\n  SQL Server must now:\n    1. Scan the log backward from the abort LSN to the BEGIN LSN   ← O(n log entries)\n    2. Apply undo records for each row in reverse order            ← O(n) page writes\n    3. Release locks only after all undo is complete\n\n  Result: 10-minute forward transaction = up to 10-minute rollback\n          Instance crash during rollback = recovery replays forward then undoes again\n          Long-running transactions hold the log tail — can't truncate the log\n          tempdb version store grows if RCSI/SI are on — affects all databases",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-17",
+      "kind": "diagram_like",
+      "line": 907,
+      "heading_context": "### ADR's Solution — Three Components",
+      "confidence": "candidate",
+      "text": "ADR Architecture (SQL Server 2019+)\n─────────────────────────────────────────────────────────────────────────────\n  ┌─────────────────────────────────────────────────────────────────────┐\n  │  PVS — Persistent Version Store                                     │\n  │  ─────────────────────────────────────────────────────────────────  │\n  │  Lives in the USER database (not tempdb)                            │\n  │  Stores previous row versions alongside the data                    │\n  │  Survives crash/restart — always available for undo                 │\n  │  Separate cleanup agent reclaims PVS space asynchronously           │\n  └─────────────────────────────────────────────────────────────────────┘\n  ┌─────────────────────────────────────────────────────────────────────┐\n  │  SLOG — Singly-Linked Log                                           │\n  │  ─────────────────────────────────────────────────────────────────  │\n  │  In-memory structure tracking short-lived operations (system txns)  │\n  │  Non-versioned operations (page allocations, lock state) land here  │\n  │  Provides fast undo path for operations that don't need PVS         │\n  └─────────────────────────────────────────────────────────────────────┘\n  ┌─────────────────────────────────────────────────────────────────────┐\n  │  Logical Revert                                                     │\n  │  ─────────────────────────────────────────────────────────────────  │\n  │  Instead of log scan backward, ADR marks the transaction aborted    │\n  │  using a \"logical revert\" entry — O(1), instant                     │\n  │  The PVS serves as the undo source; old versions are visible        │\n  │  immediately without replaying the log                              │\n  └─────────────────────────────────────────────────────────────────────┘",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-18",
+      "kind": "diagram_like",
+      "line": 986,
+      "heading_context": "## DYNAMIC MANAGEMENT VIEWS (DMVs)",
+      "confidence": "candidate",
+      "text": "-- ── WHAT'S RUNNING RIGHT NOW ──────────────────────────────────────────────\nSELECT\n    r.session_id,\n    r.status,\n    r.blocking_session_id,\n    r.wait_type,\n    r.wait_time / 1000.0    AS wait_sec,\n    r.cpu_time / 1000.0     AS cpu_sec,\n    r.logical_reads,\n    t.text                  AS sql_text,\n    qp.query_plan\nFROM sys.dm_exec_requests r\nCROSS APPLY sys.dm_exec_sql_text(r.sql_handle)   AS t\nCROSS APPLY sys.dm_exec_query_plan(r.plan_handle) AS qp\nWHERE r.session_id <> @@SPID;\n\n-- ── BLOCKING CHAIN ────────────────────────────────────────────────────────\nSELECT\n    blocking_session_id, session_id, wait_type, wait_time / 1000.0 AS wait_sec,\n    (SELECT text FROM sys.dm_exec_sql_text(sql_handle)) AS blocked_sql\nFROM sys.dm_exec_requests\nWHERE blocking_session_id > 0;\n\n-- ── INDEX USAGE STATS (since last restart) ────────────────────────────────\nSELECT\n    OBJECT_NAME(i.object_id)   AS table_name,\n    i.name                     AS index_name,\n    ius.user_seeks,\n    ius.user_scans,\n    ius.user_lookups,\n    ius.user_updates,\n    ius.last_user_seek\nFROM sys.dm_db_index_usage_stats ius\nJOIN sys.indexes i\n     ON i.object_id = ius.object_id\n     AND i.index_id = ius.index_id\nWHERE ius.database_id = DB_ID()\nORDER BY ius.user_seeks + ius.user_scans DESC;\n\n-- ── MISSING INDEX SUGGESTIONS ─────────────────────────────────────────────\nSELECT TOP 20\n    mid.statement                           AS table_name,\n    mid.equality_columns,\n    mid.inequality_columns,\n    mid.included_columns,\n    migs.avg_total_user_cost * migs.avg_user_impact * (migs.user_seeks + migs.user_scans)\n        AS improvement_measure,\n    migs.user_seeks,\n    migs.user_scans\nFROM sys.dm_db_missing_index_details     mid\nJOIN sys.dm_db_missing_index_groups      mig  ON mid.index_handle = mig.index_handle\nJOIN sys.dm_db_missing_index_group_stats migs ON mig.index_group_handle = migs.group_handle\nWHERE mid.database_id = DB_ID()\nORDER BY improvement_measure DESC;\n\n-- ── WAIT STATISTICS: what is SQL Server waiting on ────────────────────────\nSELECT\n    wait_type,\n    waiting_tasks_count,\n    wait_time_ms / 1000.0       AS wait_sec,\n    max_wait_time_ms / 1000.0   AS max_wait_sec,\n    (wait_time_ms - signal_wait_time_ms) / 1000.0 AS resource_wait_sec\nFROM sys.dm_os_wait_stats\nWHERE wait_type NOT IN (\n    'SLEEP_TASK','SLEEP_SYSTEMTASK','SQLTRACE_BUFFER_FLUSH','WAITFOR',\n    'LAZYWRITER_SLEEP','SLEEP_TEMPDBSTARTUP','SNI_HTTP_ACCEPT',\n    'DISPATCHER_QUEUE_SEMAPHORE','XE_DISPATCHER_WAIT','XE_TIMER_EVENT',\n    'HADR_WORK_QUEUE','ONDEMAND_TASK_QUEUE','REQUEST_FOR_DEADLOCK_SEARCH',\n    'RESOURCE_QUEUE','SERVER_IDLE_CHECK','SLEEP_DBSTARTUP'\n)\nORDER BY wait_time_ms DESC;\n-- High CXPACKET → parallelism waits (check MAXDOP)\n-- High LCK_M_* → locking/blocking\n-- High PAGEIOLATCH_* → disk I/O, buffer cache pressure\n-- High ASYNC_NETWORK_IO → client not consuming results fast enough",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-19",
+      "kind": "diagram_like",
+      "line": 1070,
+      "heading_context": "## ROW-LEVEL SECURITY (SQL Server 2016+)",
+      "confidence": "candidate",
+      "text": "-- ── FILTER PREDICATE (read filtering) ────────────────────────────────────\nCREATE SCHEMA Security;\nGO\n\n-- Inline TVF that returns 1 (allow) or 0 (deny)\nCREATE FUNCTION Security.fn_OrdersAccessPredicate(@user_id INT)\nRETURNS TABLE\nWITH SCHEMABINDING\nAS RETURN\n    SELECT 1 AS access_result\n    WHERE @user_id = CONVERT(INT, SESSION_CONTEXT(N'CurrentUserID'))\n       OR IS_MEMBER('db_owner') = 1;    -- admins bypass\nGO\n\n-- Attach as filter predicate on the table\nCREATE SECURITY POLICY Security.OrdersPolicy\n    ADD FILTER PREDICATE Security.fn_OrdersAccessPredicate(user_id)\n        ON dbo.Orders,\n    ADD BLOCK PREDICATE Security.fn_OrdersAccessPredicate(user_id)\n        ON dbo.Orders AFTER INSERT,    -- prevent inserting rows for other users\n    ADD BLOCK PREDICATE Security.fn_OrdersAccessPredicate(user_id)\n        ON dbo.Orders AFTER UPDATE\nWITH (STATE = ON);\n\n-- Application sets context at the start of each request\nEXEC sys.sp_set_session_context N'CurrentUserID', 42, @read_only = 1;\nSELECT * FROM dbo.Orders;   -- automatically filtered to user 42; user can't see other rows",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-20",
+      "kind": "diagram_like",
+      "line": 1118,
+      "heading_context": "### Azure SQL Hyperscale — Architecture",
+      "confidence": "candidate",
+      "text": "Azure SQL Hyperscale — Disaggregated Architecture\n─────────────────────────────────────────────────────────────────────────────\n  ┌─────────────────────────────────────────────────────────────────────┐\n  │  PRIMARY COMPUTE NODE                                               │\n  │  Runs SQL Server engine (query processor + buffer pool)             │\n  │  Generates log records → ships to Log Service immediately           │\n  │  Does NOT write data pages directly to storage                      │\n  └────────────────────┬────────────────────────────────────────────────┘\n                       │ log stream (continuous, low-latency)\n                       ▼\n  ┌─────────────────────────────────────────────────────────────────────┐\n  │  LOG SERVICE                                                        │\n  │  Durable, distributed log — the source of truth                     │\n  │  All compute nodes (primary + replicas) subscribe to this stream    │\n  │  Backup = ship log to Azure Blob Storage — near-instant             │\n  │  Restore = provision new compute + page servers, replay from log    │\n  └───────┬─────────────────────────────────────────────────────────────┘\n          │ log replayed\n          ▼\n  ┌─────────────────────────────────────────────────────────────────────┐\n  │  PAGE SERVERS (1–N, auto-scaled)                                    │\n  │  Each page server owns a subset of the database's page range        │\n  │  Applies log records to its pages (replay, not bulk write)          │\n  │  Primary and replicas fetch pages from page servers on demand       │\n  │  Pages are cached in the compute node's buffer pool after first     │\n  │  fetch — subsequent access is local buffer hit                      │\n  └─────────────────────────────────────────────────────────────────────┘\n          │ page requests (fetch-on-demand)\n          │\n  ┌───────▼──────────────────────────────────────────────────────────────┐\n  │  NAMED READ REPLICAS (0–4)                                           │\n  │  Each replica has its own compute node + buffer pool                 │\n  │  Subscribes to Log Service — lag is typically <1 second              │\n  │  Reads pages from page servers (same as primary)                     │\n  │  ApplicationIntent=ReadOnly connection string routes here            │\n  └──────────────────────────────────────────────────────────────────────┘",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-21",
+      "kind": "diagram_like",
+      "line": 1176,
+      "heading_context": "### Azure SQL-Only Features",
+      "confidence": "candidate",
+      "text": "-- ── LEDGER TABLES (SQL Server 2022 + Azure SQL) ───────────────────────────\n-- Append-only with cryptographic verification — tamper-evident audit trail\nCREATE TABLE dbo.AccountBalances (\n    AccountID  INT          NOT NULL,\n    Balance    DECIMAL(15,2) NOT NULL,\n    UpdatedBy  NVARCHAR(100)\n)\nWITH (LEDGER = ON);\n-- Each INSERT/UPDATE/DELETE gets a hash; chain of hashes is verifiable\n-- Useful for financial, compliance, and audit scenarios\n\n-- ── ELASTIC QUERY: query across databases ─────────────────────────────────\n-- Define external data source (another Azure SQL DB)\nCREATE EXTERNAL DATA SOURCE RemoteDB WITH (\n    TYPE = RDBMS,\n    LOCATION = 'myserver.database.windows.net',\n    DATABASE_NAME = 'OtherDB',\n    CREDENTIAL = cred_remote\n);\n\nCREATE EXTERNAL TABLE dbo.RemoteCustomers (\n    id   INT, name NVARCHAR(100)\n) WITH (DATA_SOURCE = RemoteDB);\n\nSELECT * FROM dbo.RemoteCustomers;  -- transparent cross-database query\n\n-- ── ACTIVE GEO-REPLICATION ────────────────────────────────────────────────\n-- Readable secondary in different region (not HADR — this is async replication)\n-- Failover groups add automatic failover with DNS alias endpoint",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-22",
+      "kind": "diagram_like",
+      "line": 1214,
+      "heading_context": "## AZURE SYNAPSE ANALYTICS — Distributed T-SQL",
+      "confidence": "candidate",
+      "text": "-- ── TABLE DISTRIBUTION (how rows are sharded across 60 nodes) ────────────\nCREATE TABLE dbo.FactSales (\n    SaleID     BIGINT        NOT NULL,\n    CustomerID INT           NOT NULL,\n    ProductID  INT           NOT NULL,\n    SaleDate   DATE          NOT NULL,\n    Amount     DECIMAL(15,2) NOT NULL\n)\nWITH (\n    DISTRIBUTION = HASH(CustomerID),    -- rows with same CustomerID on same node\n    -- DISTRIBUTION = ROUND_ROBIN,       -- even spread; no join optimization\n    -- DISTRIBUTION = REPLICATE,         -- full copy on all nodes; for small dims only\n    CLUSTERED COLUMNSTORE INDEX         -- default for Synapse analytics workloads\n);\n\n-- HASH distribution: pick the column used in most JOINs\n-- REPLICATE: only for small dimension tables (< ~2GB after compression)\n-- ROUND_ROBIN: when no JOIN column exists; staging tables\n\n-- ── CTAS: CREATE TABLE AS SELECT ─────────────────────────────────────────\n-- Parallelized — most efficient way to transform large data in Synapse\nCREATE TABLE dbo.CustomerSummary\nWITH (\n    DISTRIBUTION = HASH(CustomerID),\n    CLUSTERED COLUMNSTORE INDEX\n)\nAS\nSELECT\n    CustomerID,\n    COUNT(*)        AS order_count,\n    SUM(Amount)     AS lifetime_value,\n    MAX(SaleDate)   AS last_order_date\nFROM dbo.FactSales\nGROUP BY CustomerID;\n\n-- ── STATISTICS (CRITICAL — Synapse doesn't auto-create) ───────────────────\nCREATE STATISTICS stat_CustomerID ON dbo.FactSales (CustomerID);\nCREATE STATISTICS stat_SaleDate   ON dbo.FactSales (SaleDate);\n-- Without stats, query optimizer makes poor join/distribution decisions\n\n-- ── EXTERNAL TABLES (PolyBase — query files in ADLS directly) ─────────────\nCREATE EXTERNAL FILE FORMAT parquet_fmt\nWITH (FORMAT_TYPE = PARQUET);\n\nCREATE EXTERNAL DATA SOURCE adls_source\nWITH (\n    LOCATION = 'abfss://container@storageaccount.dfs.core.windows.net',\n    CREDENTIAL = adls_credential\n);\n\nCREATE EXTERNAL TABLE dbo.ExtRawSales (\n    SaleDate   DATE,\n    CustomerID INT,\n    Amount     DECIMAL(15,2)\n)\nWITH (\n    LOCATION     = '/data/raw/sales/',\n    DATA_SOURCE  = adls_source,\n    FILE_FORMAT  = parquet_fmt\n);\n\n-- Load into Synapse from external table\nCREATE TABLE dbo.FactSales WITH (DISTRIBUTION = HASH(CustomerID), CLUSTERED COLUMNSTORE INDEX)\nAS SELECT * FROM dbo.ExtRawSales;\n-- Synapse Serverless (on-demand): can query ExtRawSales directly without loading",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    }
+  ]
+}

@@ -1,0 +1,72 @@
+{
+  "schema_version": "1",
+  "source_markdown": "query-languages\\00-OVERVIEW.md",
+  "blocks": [
+    {
+      "id": "block-1",
+      "kind": "diagram_like",
+      "line": 32,
+      "heading_context": "## 1. The Full Landscape",
+      "confidence": "candidate",
+      "text": "╔══════════════════════════════════════════════════════════════════════════════════╗\n║                     QUERY LANGUAGE LANDSCAPE (2024)                            ║\n╠══════════════════════════════════════════════════════════════════════════════════╣\n║                                                                                  ║\n║  RELATIONAL (SQL FAMILY)                    ANALYTICAL / CLOUD DW               ║\n║  ┌─────────────────────────────────────┐   ┌──────────────────────────────────┐  ║\n║  │  ANSI SQL (standard)                │   │  BigQuery      — SQL dialect      │  ║\n║  │    ├─ PostgreSQL  (most ANSI-close) │   │  Snowflake     — SQL + JS UDFs   │  ║\n║  │    ├─ T-SQL       (SQL Server)      │   │  Databricks    — Spark SQL/Delta  │  ║\n║  │    ├─ MySQL/MariaDB                 │   │  Synapse Analytics — T-SQL+Spark  │  ║\n║  │    ├─ SQLite      (embedded)        │   │  Redshift      — PostgreSQL fork  │  ║\n║  │    └─ DuckDB      (in-process OLAP) │   │  Athena        — Trino/Presto SQL │  ║\n║  └─────────────────────────────────────┘   └──────────────────────────────────┘  ║\n║                                                                                  ║\n║  BIG DATA / DISTRIBUTED                    PIPE-BASED / FUNCTIONAL              ║\n║  ┌─────────────────────────────────────┐   ┌──────────────────────────────────┐  ║\n║  │  Spark SQL   — SQL over RDDs/DFs    │   │  KQL (Kusto)   — pipe chains     │  ║\n║  │  Hive HQL    — SQL over MapReduce   │   │    events | where ts > ago(1d)   │  ║\n║  │  Presto/Trino — federated SQL       │   │    | summarize count() by host   │  ║\n║  │  Flink SQL   — streaming SQL        │   │                                  │  ║\n║  │  Hudi/Iceberg — table format + SQL  │   │  PRQL     — compiles to SQL      │  ║\n║  └─────────────────────────────────────┘   │  jq       — JSON query + filter  │  ║\n║                                            └──────────────────────────────────┘  ║\n║  DOCUMENT                                  KEY-VALUE                            ║\n║  ┌─────────────────────────────────────┐   ┌──────────────────────────────────┐  ║\n║  │  MongoDB MQL  — find({...})         │   │  Redis commands — GET/SET/HGET   │  ║\n║  │  MongoDB Agg  — aggregation pipeline│   │  DynamoDB PartiQL — SQL-ish      │  ║\n║  │  Elasticsearch DSL — JSON queries   │   │  Memcached — GET key             │  ║\n║  │  Firestore    — collection queries  │   └──────────────────────────────────┘  ║\n║  └─────────────────────────────────────┘                                         ║\n║                                                                                  ║\n║  GRAPH                                     TIME-SERIES                          ║\n║  ┌─────────────────────────────────────┐   ┌──────────────────────────────────┐  ║\n║  │  Cypher   — Neo4j, memgraph         │   │  InfluxDB Flux — functional pipe │  ║\n║  │    MATCH (a)-[:KNOWS]->(b) RETURN a │   │  InfluxQL      — SQL-like        │  ║\n║  │  SPARQL   — RDF triple stores       │   │  TimescaleDB   — PostgreSQL ext  │  ║\n║  │  Gremlin  — Apache TinkerPop        │   │  OpenTSDB      — HBase-backed    │  ║\n║  │  GQL      — ISO standard (2024)     │   └──────────────────────────────────┘  ║\n║  │  SQL/PGQ  — SQL:2023 graph queries  │                                         ║\n║  └─────────────────────────────────────┘                                         ║\n║                                                                                  ║\n║  API QUERY                                 SEARCH                               ║\n║  ┌─────────────────────────────────────┐   ┌──────────────────────────────────┐  ║\n║  │  GraphQL  — schema-typed API query  │   │  Elasticsearch Query DSL         │  ║\n║  │  OData    — REST + query params     │   │  OpenSearch DSL                  │  ║\n║  │  SPARQL   — also RDF HTTP endpoints │   │  Solr Query Language             │  ║\n║  └─────────────────────────────────────┘   └──────────────────────────────────┘  ║\n║                                                                                  ║\n╚══════════════════════════════════════════════════════════════════════════════════╝",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-2",
+      "kind": "diagram_like",
+      "line": 139,
+      "heading_context": "## 3. Relational Algebra Bridge",
+      "confidence": "candidate",
+      "text": "TRUE  AND UNKNOWN = UNKNOWN\nFALSE AND UNKNOWN = FALSE\nTRUE  OR  UNKNOWN = TRUE\nFALSE OR  UNKNOWN = UNKNOWN\nNOT UNKNOWN       = UNKNOWN\n\nConsequence: WHERE col = NULL  → always UNKNOWN, never selects any rows\n             WHERE col IS NULL → correct\n             IN (list_with_null) can produce surprising UNKNOWN results",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-3",
+      "kind": "diagram_like",
+      "line": 195,
+      "heading_context": "## 5. Data Model Taxonomy",
+      "confidence": "candidate",
+      "text": "Row-store (PostgreSQL, SQL Server):\n  [id | name | dept | salary]  ← each row stored contiguously\n  [1  | Alice | Eng  | 120000]  good for: point reads, OLTP writes\n  [2  | Bob   | Mktg | 95000 ]  bad for:  \"SUM(salary) for 10M rows\"\n\nColumn-store (BigQuery, Snowflake, DuckDB):\n  id:     [1, 2, 3, ...]            ← each column stored contiguously\n  name:   [Alice, Bob, ...]         good for: aggregate queries (read 1 column, skip rest)\n  salary: [120000, 95000, ...]      bad for:  point reads (must reconstruct row)\n                                    also:     vectorized SIMD ops on column arrays",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-4",
+      "kind": "diagram_like",
+      "line": 256,
+      "heading_context": "### CAP Theorem",
+      "confidence": "candidate",
+      "text": "┌─────────────────────────────────────────────────────────────────────────────┐\n│                           CAP THEOREM                                       │\n│   During a network partition, a distributed system can guarantee at most 2: │\n├──────────────────┬──────────────────────┬───────────────────────────────────┤\n│  CP              │  AP                  │  CA                               │\n│  ─────────────── │  ────────────────    │  ────────────────                 │\n│  Consistent +    │  Available +         │  Consistent +                     │\n│  Partition-tol.  │  Partition-tol.      │  Available                        │\n│                  │                      │                                    │\n│  Sacrifices:     │  Sacrifices:         │  Sacrifices:                      │\n│  Availability    │  Consistency         │  Partition tolerance               │\n│                  │                      │  (only possible on single node)   │\n│  Systems:        │  Systems:            │  Systems:                         │\n│  HBase           │  Cassandra           │  Single-node SQL Server            │\n│  ZooKeeper       │  CouchDB             │  Single-node PostgreSQL            │\n│  etcd            │  DynamoDB (default)  │  SQLite                           │\n│  Spanner (~CP)   │  Riak                │                                   │\n└──────────────────┴──────────────────────┴───────────────────────────────────┘\n\nModern framing: PACELC — also considers latency vs consistency when no partition exists.\n  P → AP or CP (as above)\n  E (else, no partition) → choose latency (L) or consistency (C)\n  Spanner: PC/EC (always consistent, pays latency cost)\n  DynamoDB: PA/EL (available under partition, low latency otherwise)",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-5",
+      "kind": "diagram_like",
+      "line": 285,
+      "heading_context": "### SAGA Pattern (distributed transactions)",
+      "confidence": "candidate",
+      "text": "Problem: ACID spans one DB. Microservices have multiple DBs.\n\nSAGA: sequence of local transactions, each publishing events to trigger the next step\n      compensating transactions undo completed steps if a later step fails\n\nChoreography SAGA:         Orchestration SAGA:\n  Svc A → event → Svc B     Orchestrator → Svc A\n  Svc B → event → Svc C                  → Svc B\n  failure: Svc B fires                   → Svc C\n  compensating event                     controls the flow",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-6",
+      "kind": "diagram_like",
+      "line": 302,
+      "heading_context": "## 7. SQL vs NoSQL vs NewSQL — Decision Tree",
+      "confidence": "candidate",
+      "text": "Start\n  │\n  ▼\nIs data structure well-defined (schema stable, normalized)?\n  ├─ NO  → semi-structured / schemaless\n  │         Is it nested/hierarchical JSON-shaped?\n  │           ├─ YES → Document DB (MongoDB, Firestore)\n  │           └─ NO  → depends on access pattern (see below)\n  │\n  └─ YES → structured data\n             │\n             ▼\n           What is the primary query pattern?\n             │\n             ├─ Complex joins / ad-hoc queries / OLTP\n             │    ├─ Single node or moderate scale → PostgreSQL / SQL Server\n             │    └─ Planet-scale writes needed → NewSQL (CockroachDB, Spanner, YugabyteDB)\n             │\n             ├─ Aggregation over large datasets (analytics / reporting)\n             │    ├─ Cloud-native / managed → BigQuery / Snowflake / Synapse\n             │    ├─ On-prem or local OLAP  → DuckDB / ClickHouse\n             │    └─ Spark workloads        → Databricks / Spark SQL\n             │\n             ├─ Graph traversal (social, fraud, knowledge graphs)\n             │    └─ Graph DB (Neo4j, Neptune, memgraph)\n             │\n             ├─ Time-series / IoT metrics\n             │    ├─ Need PromQL for metrics alerting → Prometheus + Thanos\n             │    ├─ Need SQL + time funcs           → TimescaleDB\n             │    └─ Need dedicated TSDB             → InfluxDB\n             │\n             ├─ Full-text search / relevance ranking\n             │    └─ Elasticsearch / OpenSearch / Typesense\n             │\n             ├─ Cache / session / rate limiting (low latency, simple access)\n             │    └─ Redis\n             │\n             └─ Observability / logs / traces\n                  └─ KQL (Azure Monitor / ADX) / Loki LogQL / OpenSearch",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    }
+  ]
+}

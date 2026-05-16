@@ -1,3 +1,22 @@
+---
+maxim_schema: maxim.frontmatter.v1
+id: maxim:query-languages:tsql
+kind: guide
+module: query-languages
+section: query-languages
+title: T-SQL - SQL Server + Azure SQL
+status: source-custody
+source_custody: partial
+current_path: query-languages/03-TSQL.md
+canonical_path: query-languages/03-TSQL.md
+backsource_ids: [proof-backfill:query-languages:03-tsql, git-history:query-languages:03-tsql]
+concepts: [tsql]
+root_concepts: [tsql]
+index_roles: [guide, root-concept]
+remap_from: []
+remap_to: []
+updated: null
+---
 # T-SQL — SQL Server + Azure SQL
 
 T-SQL is your home base. This file isn't a tutorial — it's a bridge from the SQL Server 2000–2008 era to modern T-SQL (2012–2022+), plus the Azure SQL and Synapse additions. Covers what changed, the power features you may have missed in the leadership decade, and where T-SQL still wins.
@@ -21,60 +40,14 @@ T-SQL is your home base. This file isn't a tutorial — it's a bridge from the S
 ## LANDSCAPE
 
 ```
-┌─────────────────────────────────────────────────────────────────────────────┐
-│                        SQL Server Engine Architecture                       │
-├─────────────────────────────────────────────────────────────────────────────┤
-│  CLIENT PROTOCOLS                                                            │
-│  TDS (Tabular Data Stream) over TCP/IP · Named Pipes · Shared Memory        │
-│  ADO.NET / ODBC / JDBC / OLE DB / SSMS / sqlcmd                            │
-├─────────────────────────────────────────────────────────────────────────────┤
-│  PROTOCOL LAYER                                                             │
-│  SNI (Server Network Interface) — connection mgmt, TLS, auth negotiation    │
-├─────────────────────────────────────────────────────────────────────────────┤
-│  RELATIONAL ENGINE (Query Processor)                                        │
-│  ┌──────────────┐  ┌──────────────────┐  ┌──────────────────────────────┐ │
-│  │   Parser     │→│   Algebrizer      │→│   Query Optimizer             ││
-│  │  ─────────── │  │  ──────────────  │  │  ──────────────────────────  │ │
-│  │  Syntax check│  │  Name resolution │  │  Cost-based, ~220K transform ││
-│  │  Parse tree  │  │  Type derivation │  │  rules; produces memo+plan   ││
-│  │  T-SQL→AST   │  │  Bound tree       │  │  Trivial plan fast-path       │ │
-│  └──────────────┘  └──────────────────┘  └──────────────────────────────┘ │
-│  ┌─────────────────────────────────────────────────────────────────────┐   │
-│  │  Query Executor                                                     │   │
-│  │  Iterator model (pull / volcano) · Parallel execution (DOP)         │   │
-│  │  Adaptive Joins (2017+) · Batch Mode for rowstore (2019+)           │   │
-│  └─────────────────────────────────────────────────────────────────────┘   │
-├─────────────────────────────────────────────────────────────────────────────┤
-│  STORAGE ENGINE                                                             │
-│  ┌────────────────┐  ┌─────────────────┐  ┌───────────────────────────┐     │
-│  │  Buffer Manager│  │  Lock Manager    │  │  Transaction Log Manager  │   │
-│  │  ─────────────│  │  ───────────────│  │  ────────────────────────  │   │
-│  │  Buffer pool   │  │  Lock/latch      │  │  WAL protocol (write log   │   │
-│  │  8KB pages     │  │  escalation      │  │  before data pages)        │   │
-│  │  NUMA-aware    │  │  deadlock detect │  │  Log buffer → VLFs → disk  │   │
-│  │  Lazy writer   │  │  row/page/table  │  │  ADR: PVS + SLOG (2019+)  │   │
-│  │  Checkpoint    │  │  granularity     │  │  Log truncation on backup  │   │
-│  └────────────────┘  └─────────────────┘  └───────────────────────────┘   │
-│  ┌────────────────┐  ┌─────────────────┐  ┌───────────────────────────┐   │
-│  │  Access Methods│  │  Version Store  │  │  Plan Cache               │   │
-│  │  ─────────────│  │  ───────────────│  │  ────────────────────────  │   │
-│  │  B-tree index  │  │  tempdb (SI/     │  │  Parameterized plan reuse  │ │
-│  │  Heap (RID)    │  │  RCSI) or PVS   │  │  Query Store (2016+)      │   │
-│  │  Columnstore   │  │  (ADR, user DB) │  │  Plan forcing             │   │
-│  │  In-mem OLTP   │  │  Row versioning │  │  PSP optimization (2022+) │   │
-│  └────────────────┘  └─────────────────┘  └───────────────────────────┘   │
-├─────────────────────────────────────────────────────────────────────────────┤
-│  DATA FILES                                                                 │
-│  .mdf / .ndf (data + index pages, 8KB)                                      │
-│  .ldf (transaction log, sequential VLF segments)                            │
-│  In-Memory: memory-optimized filegroup + checkpoint files                   │
-├─────────────────────────────────────────────────────────────────────────────┤
-│  DEPLOYMENT TARGETS                                                          │
-│  SQL Server 2022 (on-prem/VM/Linux)                                        │
-│  Azure SQL Database (PaaS) · Azure SQL Managed Instance                    │
-│  Azure SQL Hyperscale (disaggregated log+storage, 100TB+)                  │
-│  Azure Synapse Analytics (MPP, 60 nodes, distributed T-SQL)                │
-└─────────────────────────────────────────────────────────────────────────────┘
+SQL Server Engine Architecture
+
+- Client protocols: TDS over TCP/IP, Named Pipes, Shared Memory; ADO.NET/ODBC/JDBC/OLE DB/SSMS/sqlcmd.
+- Protocol layer: SNI handles connection management, TLS, and authentication negotiation.
+- Relational engine: parser → algebrizer → query optimizer → query executor.
+- Storage engine: buffer manager, lock manager, transaction log manager, access methods, version store, and plan cache.
+- Data files: .mdf/.ndf data and index pages, .ldf transaction log segments, and memory-optimized checkpoint files.
+- Deployment targets: SQL Server 2022, Azure SQL Database, Azure SQL Managed Instance, Azure SQL Hyperscale, and Azure Synapse Analytics.
 
 T-SQL lives at the Relational Engine boundary — it enters as text and exits as a
 bound tree handed to the Query Optimizer. Everything below (lock escalation, WAL
@@ -1178,7 +1151,7 @@ Azure SQL Hyperscale — Disaggregated Architecture
   │  Subscribes to Log Service — lag is typically <1 second              │
   │  Reads pages from page servers (same as primary)                     │
   │  ApplicationIntent=ReadOnly connection string routes here            │
-  └─────────────────────────────────────────────────────────────────────┘
+  └──────────────────────────────────────────────────────────────────────┘
 ```
 
 **Why near-instant backup/restore?** A backup is essentially a log position marker plus a pointer to the page servers' durable state — not a copy of all data pages. Restore provisions new compute and page servers, which replay the log from the marked position. A 10TB database restores in minutes, not hours.

@@ -1,3 +1,22 @@
+---
+maxim_schema: maxim.frontmatter.v1
+id: maxim:query-languages:mysql
+kind: guide
+module: query-languages
+section: query-languages
+title: MySQL / MariaDB
+status: source-custody
+source_custody: partial
+current_path: query-languages/04-MYSQL.md
+canonical_path: query-languages/04-MYSQL.md
+backsource_ids: [proof-backfill:query-languages:04-mysql, git-history:query-languages:04-mysql]
+concepts: [mysql]
+root_concepts: [mysql]
+index_roles: [guide, root-concept]
+remap_from: []
+remap_to: []
+updated: null
+---
 # MySQL / MariaDB
 
 MySQL is the most widely deployed RDBMS on the planet by install count (LAMP stack legacy). MariaDB is its community fork post-Oracle acquisition. MySQL 8.0 (2018) finally added full window function support, CTEs, and enforced CHECK constraints — closing most of the gap with PostgreSQL/SQL Server.
@@ -33,7 +52,7 @@ MySQL is the most widely deployed RDBMS on the planet by install count (LAMP sta
 │  │  Buffer Pool (default 128MB;   │   │  Memory — RAM-only, no persistence  │
 │  │  set innodb_buffer_pool_size   │   │  CSV — flat file, no indexes        │
 │  │  to 70-80% of RAM)             │   │  Archive — append-only, compressed  │
-│  ├────────────────────────────────┤   │  NDB — MySQL Cluster (shared-nothing│
+│  ├────────────────────────────────┤   │  NDB — MySQL Cluster (shared-nothin │
 │  │  Change Buffer                 │   │        distributed; niche)          │
 │  │  Defers writes to secondary    │   │                                     │
 │  │  index pages not in buffer     │   │                                     │
@@ -155,7 +174,7 @@ InnoDB B-Tree Layout vs SQL Server Index Structures
   ┌─────────────────────────────────────────────────────────────────────┐
   │  Nonclustered Index on email                                        │
   │  Leaf pages: 'a@b.com' → RID=(1,73,4)  ← 8-byte physical pointer    │
-  │              'c@d.com' → RID=(1,73,5)  ← direct fetch, no 2nd seek│
+  │              'c@d.com' → RID=(1,73,5)  ← direct fetch               │
   └─────────────────────────────────────────────────────────────────────┘
   Query: SELECT name FROM users WHERE email = 'a@b.com'
   Step 1: NCI seek on 'a@b.com' → RID=(1,73,4)
@@ -529,7 +548,7 @@ Group Replication / InnoDB Cluster (SQL Server Always On AG equivalent):
 ┌──────────────┐   Paxos      ┌──────────────┐   ┌──────────────┐
 │  Member 1    │◄────────────►│  Member 2    │◄─►│  Member 3    │
 │  (primary or │  consensus   │  (secondary  │   │  (secondary  │
-│   multi-prim)│              │   or primary)│   │   or primary)│
+│   multi-prim │              │   or primary │   │   or primary │
 └──────────────┘              └──────────────┘   └──────────────┘
        │                             │
        └──── MySQL Router ───────────┘

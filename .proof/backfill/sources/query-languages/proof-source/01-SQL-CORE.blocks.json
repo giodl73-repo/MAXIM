@@ -1,0 +1,116 @@
+{
+  "schema_version": "1",
+  "source_markdown": "query-languages\\01-SQL-CORE.md",
+  "blocks": [
+    {
+      "id": "block-1",
+      "kind": "diagram_like",
+      "line": 27,
+      "heading_context": "# SQL Core — The 30-Year Refresh",
+      "confidence": "candidate",
+      "text": "┌─────────────────────────────────────────────────────────────────────────────────────┐\n│                           SQL LANGUAGE SURFACE                                      │\n├──────────────────┬──────────────────┬──────────────────┬────────────────────────────┤\n│  DDL             │  DML             │  DCL             │  TCL                        │\n│  ─────────────── │  ─────────────── │  ─────────────── │  ───────────────            │\n│  CREATE TABLE    │  SELECT          │  GRANT           │  BEGIN                      │\n│  ALTER TABLE     │  INSERT          │  REVOKE          │  COMMIT                     │\n│  DROP TABLE      │  UPDATE          │  ─────────────── │  ROLLBACK                   │\n│  CREATE INDEX    │  DELETE          │  Row-Level Sec.  │  SAVEPOINT                  │\n│  CREATE VIEW     │  MERGE           │  Column priv.    │  SET ISOLATION LEVEL        │\n│  CREATE SEQUENCE │  TRUNCATE        │                  │                             │\n│  ─────────────── │  ─────────────── │                  │                             │\n│  Schema          │  Query Exprs:    │                  │                             │\n│  Constraints     │  ─────────────── │                  │                             │\n│  Types           │  FROM / JOIN     │                  │                             │\n│  Partitioning    │  WHERE / HAVING  │                  │                             │\n│                  │  GROUP BY        │                  │                             │\n│                  │  Window OVER()   │                  │                             │\n│                  │  CTEs (WITH)     │                  │                             │\n│                  │  Set ops         │                  │                             │\n│                  │  Subqueries      │                  │                             │\n└──────────────────┴──────────────────┴──────────────────┴────────────────────────────┘\n\nQUERY EXECUTION PIPELINE (what happens after you press F5 / submit the query):\n\n  ┌────────────┐   ┌────────────┐   ┌────────────────────┐   ┌──────────────────────┐\n  │  PARSE     │   │  BIND      │   │  OPTIMIZE          │   │  EXECUTE             │\n  │ ────────── │   │ ────────── │   │ ────────────────── │   │ ──────────────────── │\n  │ Lex/parse  │──▶│ Resolve    │──▶│ Cost-based         │──▶│ Iterator model:      │\n  │ SQL text   │   │ names →    │   │ optimizer:         │   │ plan tree of nodes   │\n  │ → AST      │   │ OIDs /     │   │  - Stats from      │   │ each node: open/     │\n  │            │   │ column     │   │    pg_statistic    │   │ next/close           │\n  │ Syntax     │   │ metadata   │   │  - Cardinality est │   │                      │\n  │ errors     │   │ Type check │   │  - Join order      │   │ SeqScan, IndexScan,  │\n  │ caught     │   │ Security   │   │    (dynamic prog.) │   │ HashJoin, Gather...  │\n  │ here       │   │ check      │   │  - Access path     │   │                      │\n  └────────────┘   └────────────┘   └────────────────────┘   └──────────────────────┘\n        │                                     │\n        │  T-SQL equivalent stages:           │  T-SQL: \"Algebraizer\" (bind) →\n        │  Parser → Algebrizer →              │  Query Optimizer → Execution Engine\n        │  Query Optimizer → Storage Engine   │  Cached in plan cache (procedure cache)\n        │                                     │  PG: plan cached per session (prepared stmts)\n        └─────────────────────────────────────┘\n\n  EXPLAIN ANALYZE shows you the Execute stage: actual plan tree, actual vs estimated rows.\n  The Optimize stage is the black box you influence with indexes, statistics, and hints.",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-2",
+      "kind": "diagram_like",
+      "line": 80,
+      "heading_context": "## 1. SQL in 2024 vs SQL in 2000",
+      "confidence": "candidate",
+      "text": "SQL Server 2000 era (your baseline)          What was added since\n─────────────────────────────────────────    ──────────────────────────────────────────\nSELECT / FROM / WHERE / JOIN                 [same] still the same\nGROUP BY / HAVING                            [same] still the same\nSubqueries (correlated + uncorrelated)       [same] still the same\nBasic transactions (BEGIN/COMMIT/ROLLBACK)   [same] still the same\nStored procedures / triggers                 [same] still the same (more features added)\nTOP n (T-SQL)                                → FETCH FIRST n ROWS ONLY (ANSI SQL:2008)\n                                             → LIMIT n (PostgreSQL/MySQL shorthand)\n\n─── SQL:1999 additions ───────────────────────────────────────────────────────────────\nWITH cte AS (...)                            ← Common Table Expressions (huge)\nWITH RECURSIVE cte AS (...)                  ← Tree/graph traversal\nBOOLEAN type                                 ← true/false as first-class type\n\n─── SQL:2003 additions ───────────────────────────────────────────────────────────────\nfn() OVER (PARTITION BY ... ORDER BY ...)    ← Window functions (biggest feature gap)\nMERGE INTO target USING source ON ...        ← Upsert on steroids\nGENERATED ALWAYS AS IDENTITY                 ← Standard identity columns\n\n─── SQL:2008 additions ───────────────────────────────────────────────────────────────\nFETCH FIRST n ROWS ONLY                      ← ANSI pagination (replaces TOP/LIMIT)\nTRUNCATE TABLE                               ← Officially standardized\n\n─── SQL:2011 additions ───────────────────────────────────────────────────────────────\nFOR SYSTEM_TIME AS OF timestamp              ← System-versioned temporal tables\nPERIOD FOR SYSTEM_TIME (start, end)          ← Bi-temporal tracking built into schema\n\n─── SQL:2016 additions ───────────────────────────────────────────────────────────────\nJSON_VALUE / JSON_QUERY / JSON_TABLE         ← First-class JSON in relational SQL\nMATCH_RECOGNIZE                              ← Row pattern recognition (event sequences)\n\n─── Cross-version ergonomics ─────────────────────────────────────────────────────────\nFILTER (WHERE ...) on aggregates             ← Cleaner than CASE WHEN inside SUM()\nLATERAL joins                                ← Correlated subquery in FROM clause\nGROUPING SETS / CUBE / ROLLUP                ← Multi-level aggregation without UNION ALL\nINSERT ... ON CONFLICT ... DO UPDATE         ← PostgreSQL upsert (not ANSI but universal)",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-3",
+      "kind": "diagram_like",
+      "line": 127,
+      "heading_context": "## 2. SELECT — Execution Order vs Write Order",
+      "confidence": "candidate",
+      "text": "Write order (how you type it):      Execution order (how the engine runs it):\n\n  SELECT                              1. FROM          ← build the row source\n  FROM                                2. JOIN / ON     ← combine tables\n  WHERE                               3. WHERE         ← filter rows (before aggregation)\n  GROUP BY                            4. GROUP BY      ← partition into groups\n  HAVING                              5. HAVING        ← filter groups (after aggregation)\n  ORDER BY                            6. SELECT        ← evaluate expressions, aliases\n  LIMIT                               7. DISTINCT      ← deduplicate if present\n                                      8. ORDER BY      ← sort (can use SELECT aliases here)\n                                      9. LIMIT/OFFSET  ← truncate result set",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-4",
+      "kind": "diagram_like",
+      "line": 385,
+      "heading_context": "### OVER Clause Anatomy",
+      "confidence": "candidate",
+      "text": "  function_name() OVER (\n      PARTITION BY col1, col2    ← reset context at each partition boundary\n                                   (like GROUP BY but doesn't collapse rows)\n      ORDER BY col3 [ASC|DESC]   ← ordering within each partition\n      ROWS | RANGE BETWEEN       ← frame: which rows within the partition\n          start_bound            ←   UNBOUNDED PRECEDING\n          AND                    ←   n PRECEDING\n          end_bound              ←   CURRENT ROW\n  )                              ←   n FOLLOWING\n                                 ←   UNBOUNDED FOLLOWING",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-5",
+      "kind": "diagram_like",
+      "line": 400,
+      "heading_context": "### OVER Clause Anatomy",
+      "confidence": "candidate",
+      "text": "When ORDER BY is present but no frame clause specified:\n  Default: RANGE BETWEEN UNBOUNDED PRECEDING AND CURRENT ROW\n\n  RANGE (not ROWS) means: all rows with the same ORDER BY value as CURRENT ROW\n  are included in the frame — even rows \"after\" the current row physically.\n\n  Consequence: if multiple rows share the same order_date, SUM() OVER (ORDER BY order_date)\n  gives them ALL the same running total (the sum up to the last row with that date).\n  This is almost never what you want for a true running total.\n\n  ┌─────────────────┬────────────────────────────────────────────────────────────────┐\n  │ Frame clause    │ Behavior                                                       │\n  ├─────────────────┼────────────────────────────────────────────────────────────────┤\n  │ (none, no OVER  │ ROWS BETWEEN UNBOUNDED PRECEDING AND UNBOUNDED FOLLOWING        │\n  │  ORDER BY)      │ = entire partition — same value for all rows in partition       │\n  ├─────────────────┼────────────────────────────────────────────────────────────────┤\n  │ (none, with     │ RANGE BETWEEN UNBOUNDED PRECEDING AND CURRENT ROW              │\n  │  ORDER BY)      │ = all rows up to and including ties at CURRENT ROW             │\n  │                 │ DANGER: ties get same cumulative total, not incremental one    │\n  ├─────────────────┼────────────────────────────────────────────────────────────────┤\n  │ ROWS BETWEEN    │ Physical row count — always deterministic                       │\n  │ UNBOUNDED       │ Best for running totals, moving averages                        │\n  │ PRECEDING AND   │ Explicit — no surprises with ties                              │\n  │ CURRENT ROW     │                                                                 │\n  └─────────────────┴────────────────────────────────────────────────────────────────┘\n\n  Fix: always write the frame explicitly when ORDER BY is present:\n    SUM(amount) OVER (ORDER BY order_date ROWS BETWEEN UNBOUNDED PRECEDING AND CURRENT ROW)\n\n  RANGE has a performance cost too: the engine cannot simply increment a running value;\n  it must identify all peer rows (same ORDER BY value) before emitting any of them.\n  ROWS is streamable; RANGE on ties requires buffering.",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-6",
+      "kind": "diagram_like",
+      "line": 510,
+      "heading_context": "### ROWS vs RANGE Frame",
+      "confidence": "candidate",
+      "text": "ROWS BETWEEN:   physical rows — counts N rows before/after\nRANGE BETWEEN:  logical value range — includes all rows with same ORDER BY value\n\nExample: ORDER BY order_date\n  ROWS BETWEEN 1 PRECEDING AND CURRENT ROW\n    → always exactly 2 rows (prev + current)\n  RANGE BETWEEN INTERVAL '1' MONTH PRECEDING AND CURRENT ROW\n    → all rows within 1 month back (could be many rows on same date)",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-7",
+      "kind": "chart_like",
+      "line": 521,
+      "heading_context": "### ROWS vs RANGE Frame",
+      "confidence": "candidate",
+      "text": "### Top-1-Per-Group (the most common window function pattern)",
+      "notes": [
+        "detected from bar/chart glyph density with numeric labels"
+      ]
+    },
+    {
+      "id": "block-8",
+      "kind": "diagram_like",
+      "line": 851,
+      "heading_context": "## 13. JSON Support",
+      "confidence": "candidate",
+      "text": "-- -> returns JSON, ->> returns text\nSELECT metadata -> 'user' -> 'name'             AS name_json,   -- JSON type\n       metadata -> 'user' ->> 'name'            AS name_text,   -- TEXT\n       metadata #> '{address,city}'             AS city_json,   -- path array → JSON\n       metadata #>> '{address,city}'            AS city_text;   -- path array → TEXT\n\n-- JSONB operators (binary JSON — use JSONB not JSON in PostgreSQL)\nSELECT * FROM events WHERE metadata @> '{\"status\": \"active\"}';  -- containment\nSELECT * FROM events WHERE metadata ? 'user';                   -- key exists\nSELECT * FROM events WHERE metadata ?| ARRAY['user','admin'];   -- any key exists\nSELECT * FROM events WHERE metadata ?& ARRAY['user','admin'];   -- all keys exist\n\n-- Index on JSONB\nCREATE INDEX idx_events_metadata ON events USING GIN (metadata);\n-- Supports @>, ?, ?|, ?& operators",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-9",
+      "kind": "diagram_like",
+      "line": 961,
+      "heading_context": "## 15. Query Plan Basics",
+      "confidence": "candidate",
+      "text": "SQL Server approach:     index seek → key lookup per matching row (individual heap fetches)\nPostgreSQL approach:     Bitmap Index Scan → collect ALL matching row locations first\n                         Bitmap Heap Scan  → fetch heap pages in physical order (one pass)\n\nWhy it matters: random I/O (key lookup per row) vs sequential I/O (sorted heap page reads).\nFor 5,000 matching rows spread across 50,000 heap pages, the bitmap approach is far cheaper.\n\nPlan appearance:\n  ->  Bitmap Heap Scan on orders  (cost=142..8921 rows=4821 width=64)\n        Recheck Cond: (customer_id = 42)\n        ->  Bitmap Index Scan on idx_orders_customer  (cost=0.00..140 rows=4821 width=0)\n              Index Cond: (customer_id = 42)\n\n\"Recheck Cond\" appears because the bitmap is lossy at high row counts (page-level not row-level).\nIf you see high Recheck Cond filtering, the index selectivity is low — consider a partial index.\n\nSQL Server analogy: closest is \"Index Seek + RID Lookup\" but the bitmap batching is unique.\nT-SQL Query Store will show similar plan shapes differently — no direct 1:1 mapping.",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-10",
+      "kind": "diagram_like",
+      "line": 983,
+      "heading_context": "## 15. Query Plan Basics",
+      "confidence": "candidate",
+      "text": "Seq Scan on orders  (cost=0.00..4521.00 rows=200000 width=64)\n                          ─────┬─────  ─────┬────── ───┬──── ─┬──\n                    startup cost│  total cost│    est rows│  row width│\n                    (first row)   (all rows)  (planner)   (bytes)\n\nEXPLAIN ANALYZE adds:\n  actual time=0.052..189.4 rows=197342 loops=1\n                             ─────┬──────\n                         actual rows returned",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    }
+  ]
+}

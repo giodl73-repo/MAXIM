@@ -1,0 +1,72 @@
+{
+  "schema_version": "1",
+  "source_markdown": "query-languages\\08-SPARKSQL.md",
+  "blocks": [
+    {
+      "id": "block-1",
+      "kind": "diagram_like",
+      "line": 28,
+      "heading_context": "### ADF Data Flows ARE Spark",
+      "confidence": "candidate",
+      "text": "ADF Data Flow Canvas → Spark Execution Plan\n────────────────────────────────────────────────────────────────────────\nADF Transformation    │ Spark DataFrame API     │ Spark SQL equivalent\n──────────────────────┼─────────────────────────┼────────────────────────────\nSelect (column pick)  │ .select(\"col1\",\"col2\")  │ SELECT col1, col2 FROM ...\nFilter                │ .filter(col > 5)         │ WHERE col > 5\nAggregate             │ .groupBy().agg()         │ GROUP BY + aggregates\nJoin                  │ .join(other, key, type)  │ JOIN ... ON ...\nSort                  │ .orderBy(col.desc())     │ ORDER BY col DESC\nDerived Column        │ .withColumn(\"c\", expr)  │ SELECT *, expr AS c\nConditional Split     │ .filter() per branch     │ multiple WHERE clauses\nFlatten               │ .select(explode(...))    │ LATERAL VIEW EXPLODE\nLookup                │ .join(..., \"left\")        │ LEFT JOIN\nExists                │ .join(..., \"left_semi\")   │ WHERE EXISTS (subquery)\nWindow                │ .withColumn(win_fn)      │ OVER (PARTITION BY ...)\nPivot                 │ .groupBy().pivot().agg() │ PIVOT\nUnpivot               │ stack() expression       │ UNPIVOT / UNION ALL\nRank                  │ .withColumn(rank_fn)     │ ROW_NUMBER() OVER (...)",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-2",
+      "kind": "diagram_like",
+      "line": 57,
+      "heading_context": "### Azure Synapse Analytics — Where Spark Lives in Azure",
+      "confidence": "candidate",
+      "text": "Azure Synapse Analytics workspace\n├── Spark pools              ← the same Apache Spark runtime described in this guide\n│   └── Attach notebooks, Synapse pipelines, or trigger via REST\n├── Dedicated SQL pool       ← MPP data warehouse (T-SQL, column store, separate from Spark)\n├── Serverless SQL pool      ← query Delta/Parquet in ADLS with T-SQL via OPENROWSET\n└── Data Explorer pool       ← time-series and log analytics (KQL)",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-3",
+      "kind": "diagram_like",
+      "line": 74,
+      "heading_context": "## 1. ARCHITECTURE",
+      "confidence": "candidate",
+      "text": "┌──────────────────────────────────────────────────────────────────────────────┐\n│                        Apache Spark Architecture                             │\n│                                                                              │\n│  ┌──────────────────────────────────────────────────────────────────────┐    │\n│  │                   Spark SQL / DataFrame API                          │   │\n│  │   spark.sql(\"SELECT ...\")    df.filter(...).groupBy(...)             │   │\n│  │   Python (PySpark)  /  Scala  /  Java  /  R (SparkR)               │   │\n│  └──────────────────────────────┬───────────────────────────────────────┘   │\n│                                 │  identical execution plan                 │\n│  ┌──────────────────────────────▼───────────────────────────────────────┐   │\n│  │                   Catalyst Query Optimizer                           │   │\n│  │   Parse → Analyze → Optimize → Physical Plan → Codegen               │   │\n│  │   Rule-based + cost-based optimizations (column pruning, pushdown)   │   │\n│  └──────────────────────────────┬───────────────────────────────────────┘   │\n│                                 │                                           │\n│  ┌──────────────────────────────▼───────────────────────────────────────┐   │\n│  │             Distributed Execution (Driver + Executors)               │   │\n│  │   Stage 1 → shuffle → Stage 2 → shuffle → Stage 3                    │   │\n│  │   Each stage = DAG of tasks (1 task per partition)                   │   │\n│  └──────────────────────────────┬───────────────────────────────────────┘   │\n│                                 │                                           │\n│  ┌──────────────────────────────▼───────────────────────────────────────┐   │\n│  │      Storage Layer                                                   │   │\n│  │      Delta Lake / Parquet / ORC / JSON / CSV / Avro                  │   │\n│  │      HDFS / S3 / ADLS Gen2 / GCS                                     │   │\n│  └──────────────────────────────────────────────────────────────────────┘   │\n└──────────────────────────────────────────────────────────────────────────────┘\n\nMapReduce bridge:\n  MapReduce: disk write between EVERY step (Map → disk → Reduce → disk)\n  Spark:     in-memory between steps; disk spill only when memory exhausted\n  Both:      distributed partitioning, shuffle concept, fault tolerance via lineage\n  Speedup:   10–100x for iterative jobs (ML, graph traversal); ~3–5x for single-pass ETL",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-4",
+      "kind": "diagram_like",
+      "line": 114,
+      "heading_context": "### Catalyst Optimizer: Tree to DAG Pipeline",
+      "confidence": "candidate",
+      "text": "Catalyst pipeline (4 phases):\n\n  SQL string / DataFrame API\n         │\n         ▼\n  1. Parse → Unresolved Logical Plan (AST: no column types, no table validation)\n         │\n         ▼\n  2. Analyze → Resolved Logical Plan (column types resolved, tables validated against catalog)\n         │\n         ▼\n  3. Optimize → Optimized Logical Plan\n         │   Rule-based:  predicate pushdown, column pruning, constant folding,\n         │               subquery elimination, NULL propagation\n         │   Cost-based:  join reordering based on table statistics (if available)\n         ▼\n  4. Physical Planning → one or more Physical Plans (SparkPlan)\n         │   Strategies: BroadcastHashJoin vs SortMergeJoin vs ShuffleHashJoin\n         │   Selected via cost model\n         ▼\n  5. Code Generation (Tungsten / WholeStageCodegen)\n         │   Generates JVM bytecode per stage — not interpreted row-by-row\n         │   LLVM-style loop fusion: multiple operators collapse into one tight loop\n         ▼\n  Execution (RDD partitions → tasks → executors)",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-5",
+      "kind": "diagram_like",
+      "line": 494,
+      "heading_context": "## 10. DELTA LAKE — ACID ON TOP OF PARQUET",
+      "confidence": "candidate",
+      "text": "Delta table structure on disk:\n  /delta/orders/\n  ├── _delta_log/                       # transaction log\n  │   ├── 00000000000000000000.json     # commit 0: initial CREATE TABLE\n  │   ├── 00000000000000000001.json     # commit 1: first INSERT\n  │   ├── 00000000000000000002.json     # commit 2: MERGE upsert\n  │   └── 00000000000000000010.checkpoint.parquet  # log compaction every 10 commits\n  ├── part-00000-abc123.snappy.parquet  # data files\n  └── part-00001-def456.snappy.parquet\n\nEach log entry records: which files were added, which removed, schema, metadata.\nACID: readers see consistent snapshots; concurrent writers serialize via optimistic locking.",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-6",
+      "kind": "diagram_like",
+      "line": 513,
+      "heading_context": "### Delta ACID on Object Storage — How It Actually Works",
+      "confidence": "candidate",
+      "text": "Writer protocol:\n  1. Read current log version N   (e.g., 00000000000000000005.json)\n  2. Write new Parquet data files  (not yet visible — not in the log)\n  3. Attempt to write log entry N+1\n       If N+1 already exists (another writer committed first):\n         → Conflict! Retry with conflict resolution, or fail with ConcurrentModificationException\n       If N+1 does not exist:\n         → Commit succeeds. Readers now see version N+1.\n\nReader protocol:\n  1. Read the latest committed log version\n  2. Build the file list as of that version\n  3. Read those files — consistent snapshot guaranteed\n  4. New files written by concurrent writers are invisible (not yet in the log)\n\nTime travel falls out naturally:\n  Version 5 = exactly the files listed by log entries 0–5\n  No new storage: all old log entries stay until VACUUM removes unreferenced files",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    }
+  ]
+}

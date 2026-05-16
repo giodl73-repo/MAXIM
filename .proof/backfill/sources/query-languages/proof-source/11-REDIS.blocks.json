@@ -1,0 +1,127 @@
+{
+  "schema_version": "1",
+  "source_markdown": "query-languages\\11-REDIS.md",
+  "blocks": [
+    {
+      "id": "block-1",
+      "kind": "ascii_table_candidate",
+      "line": 22,
+      "heading_context": "# Redis — Commands, Data Structures, and Modules",
+      "confidence": "candidate",
+      "text": "Redis is not a query language in the SQL sense — it's a command-based interface to in-memory data structures. It's the standard ephemeral store: cache, session store, rate limiter, pub/sub bus, distributed lock, leaderboard. Redis Stack adds modules: RediSearch (full-text + vector search), RedisJSON, RedisTimeSeries, RedisBloom. The \"query language\" is the combination of commands + Lua scripting for atomicity.",
+      "notes": [
+        "detected from ASCII table borders or pipe-aligned rows"
+      ]
+    },
+    {
+      "id": "block-2",
+      "kind": "diagram_like",
+      "line": 30,
+      "heading_context": "## 1. Big Picture — Where Redis Sits",
+      "confidence": "candidate",
+      "text": "┌──────────────────────────────────────────────────────────────────────┐\n│                         Where Redis Sits                             │\n│                                                                      │\n│  App ──► Redis (in-memory) ──────────────────► responses in μs-ms    │\n│   │                                                                  │\n│   └──► PostgreSQL / SQL Server (on-disk) ────► responses in ms-s     │\n│                                                                      │\n│  Redis = primary store for ephemeral / hot data                      │\n│  RDBMS = primary store for durable / relational data                 │\n│                                                                      │\n│  Use cases:                                                          │\n│  ┌──────────────────────────────────────────────────────────────┐    │\n│  │  Cache (aside, write-through, write-behind)                  │   │\n│  │  Session storage  (user session → JSON blob by session ID)   │   │\n│  │  Rate limiting    (INCR + EXPIRE per user/IP)                │   │\n│  │  Distributed lock (SET NX + EX — Redlock algorithm)         │   │\n│  │  Leaderboard      (Sorted Set by score)                      │   │\n│  │  Pub/Sub          (fan-out messaging — fire-and-forget)      │   │\n│  │  Job queue        (List LPUSH/BRPOP — BullMQ, Sidekiq)      │   │\n│  │  Streams          (append-only log — Kafka-lite with ACK)    │   │\n│  │  Vector search    (RediSearch KNN — RAG embeddings store)    │   │\n│  └──────────────────────────────────────────────────────────────┘   │\n│                                                                      │\n│  Redis Stack modules:                                                │\n│  ┌────────────────┬──────────────────────────────────────────────┐  │\n│  │ RediSearch     │ Full-text + vector similarity search (KNN)   │  │\n│  │ RedisJSON      │ Native JSON storage + JSONPath queries       │  │\n│  │ RedisTimeSeries│ Time-series data with downsampling           │  │\n│  │ RedisBloom     │ Probabilistic structures (Bloom, Cuckoo,     │  │\n│  │                │ Count-Min Sketch, Top-K, HyperLogLog)        │  │\n│  └────────────────┴──────────────────────────────────────────────┘  │\n└──────────────────────────────────────────────────────────────────────┘",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-3",
+      "kind": "diagram_like",
+      "line": 65,
+      "heading_context": "## 1. Big Picture — Where Redis Sits",
+      "confidence": "candidate",
+      "text": "┌──────────────────────────────────────────────────────────────────────────┐\n│                     Redis Data Structure Taxonomy                        │\n│                                                                          │\n│  ┌──────────────┬───────────────────────────────────────────────────┐    │\n│  │  String      │ Bytes, integers, floats. GET/SET/INCR. O(1).      │   │\n│  │              │ Use: cache values, counters, session tokens        │   │\n│  ├──────────────┼───────────────────────────────────────────────────┤   │\n│  │  Hash        │ Field→value map (flat row). HSET/HGET/HINCRBY.    │   │\n│  │              │ O(1) per field. Use: objects, profiles, configs   │   │\n│  ├──────────────┼───────────────────────────────────────────────────┤   │\n│  │  List        │ Doubly linked list. LPUSH/RPUSH/BRPOP. O(1)       │   │\n│  │              │ push/pop. Use: queues, stacks, activity feeds      │   │\n│  ├──────────────┼───────────────────────────────────────────────────┤   │\n│  │  Set         │ Unordered unique members. SADD/SINTER/SUNION.     │   │\n│  │              │ O(1) add/member. Use: tags, unique visitors,      │   │\n│  │              │ follow graphs                                     │   │\n│  ├──────────────┼───────────────────────────────────────────────────┤   │\n│  │  Sorted Set  │ Members + float score, sorted. ZADD/ZRANGE.        │   │\n│  │  (ZSET)      │ O(log N). Use: leaderboards, priority queues       │   │\n│  ├──────────────┼───────────────────────────────────────────────────┤   │\n│  │  HyperLogLog │ Probabilistic cardinality estimator. PFADD.       │   │\n│  │              │ O(1), 12KB max. Use: unique visitor counts        │   │\n│  ├──────────────┼───────────────────────────────────────────────────┤   │\n│  │  Geospatial  │ Lat/lon members via ZSET + geohash encoding.       │   │\n│  │              │ GEOADD/GEOSEARCH. O(log N). Use: proximity         │   │\n│  ├──────────────┼───────────────────────────────────────────────────┤   │\n│  │  Stream      │ Append-only log with consumer groups + ACK.       │   │\n│  │              │ XADD/XREADGROUP. O(1) append. Use: event log,     │   │\n│  │              │ durable queue                                     │   │\n│  └──────────────┴───────────────────────────────────────────────────┘   │\n└──────────────────────────────────────────────────────────────────────────┘",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-4",
+      "kind": "diagram_like",
+      "line": 99,
+      "heading_context": "## 1. Big Picture — Where Redis Sits",
+      "confidence": "candidate",
+      "text": "┌──────────────────────────────────────────────────────────────────────────┐\n│             Redis Execution Model — Single-Threaded Event Loop           │\n│                                                                          │\n│  Client A ──┐                                                            │\n│  Client B ──┼──► epoll/kqueue ──► Event Loop ──► Command Executor        │\n│  Client C ──┘    (I/O mux,        (single         (one command at        │\n│                   all sockets)     thread)          a time, in RAM)      │\n│                                        │                                 │\n│                                        ▼                                 │\n│                              Responses queued back                       │\n│                              to client sockets                           │\n│                                                                          │\n│  Key consequence: every command is serialized — no locks, no mutexes,    │\n│  no deadlocks. Atomicity is structural, not lock-based.                  │\n│                                                                          │\n│  Redis 6.0+: network I/O is multithreaded (reading from / writing to     │\n│  sockets). Command execution is still single-threaded.                   │\n└──────────────────────────────────────────────────────────────────────────┘",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-5",
+      "kind": "ascii_table_candidate",
+      "line": 382,
+      "heading_context": "#   STORE dest           — write results to a ZSET key",
+      "confidence": "candidate",
+      "text": "**Precision and limits:** Accuracy is approximately ±0.6m at the equator. Coordinates must be within -180 to +180 longitude, -85.05 to +85.05 latitude (Mercator projection limits). No polygon support — radius and bounding box only.",
+      "notes": [
+        "detected from ASCII table borders or pipe-aligned rows"
+      ]
+    },
+    {
+      "id": "block-6",
+      "kind": "ascii_table_candidate",
+      "line": 386,
+      "heading_context": "#   STORE dest           — write results to a ZSET key",
+      "confidence": "candidate",
+      "text": "**SQL Server bridge:** SQL Server handles this with `geography` columns + spatial indexes and `STDistance()`. The Redis approach is simpler for point-in-radius queries (one command vs a parameterized query + index seek) but lacks polygon containment, spatial joins, and multi-geometry operations. If you need `STContains`, `STIntersects`, or JOIN with non-spatial tables, SQL Server spatial wins. If you need \"nearest N points to this coordinate\" at sub-millisecond latency, Redis Geospatial wins.",
+      "notes": [
+        "detected from ASCII table borders or pipe-aligned rows"
+      ]
+    },
+    {
+      "id": "block-7",
+      "kind": "chart_like",
+      "line": 667,
+      "heading_context": "# fsync policy — the key durability/performance tradeoff:",
+      "confidence": "candidate",
+      "text": "### RDB + AOF Combined (Hybrid Format, Redis 7.0+)",
+      "notes": [
+        "detected from bar/chart glyph density with numeric labels"
+      ]
+    },
+    {
+      "id": "block-8",
+      "kind": "diagram_like",
+      "line": 693,
+      "heading_context": "## 18. Single-Threaded Event Loop Model",
+      "confidence": "candidate",
+      "text": "┌─────────────────────────────────────────────────────────────────────┐\n│                   Redis Event Loop (Single Thread)                  │\n│                                                                     │\n│  10,000 client connections                                          │\n│       │                                                             │\n│       ▼                                                             │\n│  ┌─────────────┐    all sockets registered with OS                  │\n│  │ epoll/kqueue│◄── epoll_wait() returns readable sockets           │\n│  └──────┬──────┘                                                    │\n│         │  readable events dispatched one at a time                │\n│         ▼                                                           │\n│  ┌─────────────────────────────────────────────────┐               │\n│  │              Command Executor (1 thread)        │               │\n│  │                                                 │               │\n│  │  GET key  →  hash lookup  →  O(1)  →  done      │               │\n│  │  ZADD key →  skip list insert → O(log N) → done │               │\n│  │  EVAL ... →  Lua interpreter → atomic → done    │               │\n│  └─────────────────────────────────────────────────┘               │\n│         │                                                           │\n│         ▼                                                           │\n│  Responses written back to client socket buffers                   │\n│                                                                     │\n│  Redis 6.0+: network I/O (read from sockets, serialize responses)  │\n│  is handled by a configurable thread pool. Command execution       │\n│  is still single-threaded.                                         │\n└─────────────────────────────────────────────────────────────────────┘",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-9",
+      "kind": "diagram_like",
+      "line": 752,
+      "heading_context": "### Sentinel — High Availability for Single-Shard Deployments",
+      "confidence": "candidate",
+      "text": "┌─────────────────────────────────────────────────────────────────┐\n│                      Sentinel Topology                          │\n│                                                                 │\n│  ┌──────────┐   ┌──────────┐   ┌──────────┐                     │\n│  │Sentinel 1│   │Sentinel 2│   │Sentinel 3│  ← quorum = 2     │\n│  └────┬─────┘   └────┬─────┘   └────┬─────┘                   │\n│       │              │              │                           │\n│       └──────────────┼──────────────┘                          │\n│                      │ monitors + elects                        │\n│                      ▼                                          │\n│                      Master Redis <- clients connect via        │\n│                      Sentinel-aware client                      │\n│                      | async replication                        │\n│                      split to replicas                              │\n│                      v              v                           │\n│                   Replica 1       Replica 2                     │\n│                                                                 │\n│  On master failure: Sentinels reach quorum → elect new master   │\n│  → reconfigure replicas → notify clients via Sentinel API       │\n└─────────────────────────────────────────────────────────────────┘",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-10",
+      "kind": "diagram_like",
+      "line": 781,
+      "heading_context": "### Redis Cluster — Horizontal Sharding + HA",
+      "confidence": "candidate",
+      "text": "┌──────────────────────────────────────────────────────────────────────┐\n│                       Redis Cluster Topology                         │\n│                                                                      │\n│  16384 hash slots distributed across master nodes                    │\n│                                                                      │\n│  ┌─────────────────┐  ┌─────────────────┐  ┌─────────────────┐       │\n│  │  Master A        │  │  Master B        │  │  Master C        │    │\n│  │  slots 0–5460    │  │  slots 5461–10922│  │  slots 10923–   │    │\n│  │                  │  │                  │  │  16383           │    │\n│  │  ┌─────────────┐ │  │  ┌─────────────┐│  │  ┌─────────────┐│    │\n│  │  │  Replica A  │ │  │  │  Replica B  ││  │  │  Replica C  ││    │\n│  │  └─────────────┘ │  │  └─────────────┘│  │  └─────────────┘│    │\n│  └─────────────────┘  └─────────────────┘  └─────────────────┘     │\n│                                                                      │\n│  Cluster-aware client:                                               │\n│  GET user:1001  →  CRC16(\"user:1001\") mod 16384 = slot 4394         │\n│                 →  slot 4394 is on Master A  →  route to Master A   │\n│                                                                      │\n│  MOVED redirect: if client routes to wrong node, Redis returns       │\n│  MOVED 4394 <master-a-addr> — client updates its slot map and       │\n│  retries on the correct node.                                        │\n└──────────────────────────────────────────────────────────────────────┘",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-11",
+      "kind": "diagram_like",
+      "line": 936,
+      "heading_context": "## 21. Common Patterns Reference",
+      "confidence": "candidate",
+      "text": "Pattern                  Commands Used                     Notes\n─────────────────────────────────────────────────────────────────────────────\nCache-aside              GET → miss → compute → SET EX     App manages cache population\nWrite-through cache      SET (cache) + INSERT (DB)         Write to both synchronously\nRate limiter             INCR key; EXPIRE key window        One INCR per request; window = TTL\nSliding window rate      ZADD (score=ts) + ZREMRANGEBYSCORE Clean old entries; ZCARD = count\nSession store            SET session:<token> <json> EX      Serialize session as JSON\nDistributed lock         SET NX EX + Lua release            See section 16\nLeaderboard              ZADD + ZREVRANGE + ZREVRANK        Score = points, member = player ID\nJob queue (FIFO)         RPUSH + BRPOP                      Producer RPUSH, consumer BRPOP\nJob queue (priority)     ZADD (score=priority) + ZPOPMAX    Higher score = higher priority\nBounded recent list      LPUSH + LTRIM 0 N-1                Keep last N items\nUnique visitor count     PFADD + PFCOUNT                    HyperLogLog — ~0.81% error\nBloom filter             BF.ADD + BF.EXISTS                 Probabilistic membership (RedisBloom)\nPub/Sub fan-out          PUBLISH + SUBSCRIBE                Fire-and-forget broadcast\nDurable message queue    XADD + XREADGROUP + XACK           Streams — persistent with ACK\nVector store (RAG)       HSET embedding + FT.SEARCH KNN     RediSearch VECTOR field\nProximity search         GEOADD + GEOSEARCH                 Sorted Set geohash encoding",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    }
+  ]
+}

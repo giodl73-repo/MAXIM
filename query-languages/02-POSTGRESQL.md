@@ -1,3 +1,22 @@
+---
+maxim_schema: maxim.frontmatter.v1
+id: maxim:query-languages:postgresql
+kind: guide
+module: query-languages
+section: query-languages
+title: PostgreSQL
+status: source-custody
+source_custody: partial
+current_path: query-languages/02-POSTGRESQL.md
+canonical_path: query-languages/02-POSTGRESQL.md
+backsource_ids: [proof-backfill:query-languages:02-postgresql, git-history:query-languages:02-postgresql]
+concepts: [postgresql]
+root_concepts: [postgresql]
+index_roles: [guide, root-concept]
+remap_from: []
+remap_to: []
+updated: null
+---
 # PostgreSQL
 
 PostgreSQL is the de facto standard for open-source relational databases. It extends ANSI SQL more aggressively than any other RDBMS. If you're coming from SQL Server, the syntax is 90% the same — the gaps are mostly in proprietary T-SQL extensions vs PostgreSQL extensions.
@@ -44,9 +63,9 @@ PostgreSQL is the de facto standard for open-source relational databases. It ext
 │                          │  Hash (equality only)      │                   │
 ├─────────────────────────────────────────────────────────────────────────┤
 │  PROCEDURAL              │  SECURITY                  │  REPLICATION    │
-│  PL/pgSQL, PL/Python     │  Row-Level Security (RLS)  │  Streaming (WAL)  │
-│  PL/V8 (JavaScript)      │  Column-level privileges   │  Logical decoding │
-│  Custom aggregates       │  pg_crypto                 │  Logical replica  │
+│  PL/pgSQL, PL/Python     │  Row-Level Security (RLS)  │  Streaming WAL  │
+│  PL/V8 (JavaScript)      │  Column-level privileges   │  Logical decode │
+│  Custom aggregates       │  pg_crypto                 │  Logical replic │
 └─────────────────────────────────────────────────────────────────────────┘
 ```
 

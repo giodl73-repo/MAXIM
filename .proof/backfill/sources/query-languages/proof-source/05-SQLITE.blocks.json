@@ -1,0 +1,127 @@
+{
+  "schema_version": "1",
+  "source_markdown": "query-languages\\05-SQLITE.md",
+  "blocks": [
+    {
+      "id": "block-1",
+      "kind": "diagram_like",
+      "line": 30,
+      "heading_context": "## Ecosystem Position",
+      "confidence": "candidate",
+      "text": "Database Architectures\n──────────────────────────────────────────────────────────────────────────\nClient-Server (SQL Server, MySQL, PostgreSQL)\n  App ──[TCP/socket]──► Server process ──► OS files\n  Multiple apps, concurrent writers, network access control, user auth\n\nEmbedded / Serverless (SQLite)\n  App ──[in-process library call]──► OS file\n  Single application, one writer, zero configuration, zero network\n\nDuckDB (for comparison — also embedded, OLAP)\n  Similar to SQLite in deployment model but columnar, analytics-first\n  SQLite: OLTP row-store / DuckDB: OLAP columnar analytics\n\nSQLite's niche: everywhere a database belongs but a server would be overkill",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-2",
+      "kind": "diagram_like",
+      "line": 66,
+      "heading_context": "## 2. Architecture",
+      "confidence": "candidate",
+      "text": "┌─────────────────────────────────────────────────────────────┐\n│                    Your Application                         │\n│   Python   /   Node.js   /   C#   /   Swift   /   C         │\n└────────────────────────┬────────────────────────────────────┘\n                         │  in-process API call (no network)\n┌────────────────────────▼────────────────────────────────────┐\n│                    SQLite Library (~600KB)                  │\n│  ┌──────────────────────────────────────────────────────┐   │\n│  │  SQL Tokenizer                                       │   │\n│  │       ↓                                              │   │\n│  │  Parser (LALR)                                       │   │\n│  │       ↓                                              │   │\n│  │  Code Generator → VDBE bytecode                      │   │\n│  │       ↓                                              │   │\n│  │  Virtual Machine (VDBE) — executes bytecode          │   │\n│  │       ↓                                              │   │\n│  │  B-Tree layer                                        │   │\n│  │       ↓                                              │   │\n│  │  Pager (page cache, WAL, locking)                    │   │\n│  └──────────────────────────────────────────────────────┘   │\n└────────────────────────┬────────────────────────────────────┘\n                         │  OS file I/O (pread/pwrite)\n┌────────────────────────▼────────────────────────────────────┐\n│              database.db  (single file)                     │\n│    ┌──────────┬──────────┬──────────┬──────────────────┐    │\n│    │ header   │ page 1   │ page 2   │ ...  │  page N   │    │\n│    │ (100B)   │ B-tree   │ B-tree   │      │           │    │\n│    └──────────┴──────────┴──────────┴──────────────────┘    │\n│    Table data in B-tree leaf pages                          │\n│    Index data in separate B-tree                            │\n└─────────────────────────────────────────────────────────────┘\n\nWAL mode adds:\n  database.db-wal   (write-ahead log — pending writes)\n  database.db-shm   (shared memory index for WAL)",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-3",
+      "kind": "diagram_like",
+      "line": 108,
+      "heading_context": "## 3. When to Use SQLite",
+      "confidence": "candidate",
+      "text": "Is this a single application with a single concurrent writer?\n│\n├── Yes — Is the dataset > 1TB, or do many separate processes write simultaneously?\n│   │\n│   ├── No  → SQLite is probably the right choice [OK]\n│   │         Mobile app, desktop app, test harness, config storage,\n│   │         edge device, CLI tool, single-user web app, prototyping\n│   │\n│   └── Yes → Use PostgreSQL or MySQL\n│             Multi-tenant SaaS, microservices, shared data store\n│\n└── No (multiple unrelated processes writing concurrently)\n    └── Use a client-server DB\n        SQLite's WAL allows concurrent readers + one writer per file,\n        but concurrent writers from separate processes serialize and contend\n\nSweet spots:\n  Mobile apps      — iOS Core Data wraps SQLite; Android Room targets SQLite\n  Desktop apps     — VS Code, Slack, Firefox, Chrome all use SQLite internally\n  Test harnesses   — in-memory DB per test, zero teardown, fast\n  Config / state   — ~/.config/app/state.db instead of JSON or INI\n  Edge / IoT       — no server overhead, file is the deployment unit\n  Data analysis    — personal-scale datasets; step up to DuckDB for analytics > a few GB\n  Offline-first    — local source of truth, sync to server separately",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-4",
+      "kind": "diagram_like",
+      "line": 141,
+      "heading_context": "## 4. Type System — Type Affinity",
+      "confidence": "candidate",
+      "text": "Declared column type → Storage class affinity\n────────────────────────────────────────────────────────\nINT, INTEGER, TINYINT, BIGINT, etc. → INTEGER affinity\nREAL, FLOAT, DOUBLE                 → REAL affinity\nTEXT, VARCHAR, CHAR, CLOB           → TEXT affinity\nBLOB, (no type declared)            → BLOB affinity (no conversion)\nNUMERIC, DECIMAL, DATE, BOOLEAN     → NUMERIC affinity (int > real > text)\n\nSQLite storage classes (the 5 actual types):\n  NULL     — null value\n  INTEGER  — signed integer, 1/2/3/4/6/8 bytes (auto-sized)\n  REAL     — 8-byte IEEE 754 float\n  TEXT     — UTF-8 or UTF-16 string\n  BLOB     — raw bytes, stored as-is",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-5",
+      "kind": "diagram_like",
+      "line": 242,
+      "heading_context": "### Critical PRAGMAs — from sp_configure to PRAGMA",
+      "confidence": "candidate",
+      "text": "SQL Server config → SQLite PRAGMA mapping:\n\n  sp_configure 'max server memory'      → PRAGMA cache_size = -65536  (64MB, negative = KiB)\n  ALTER DATABASE SET RECOVERY SIMPLE    → PRAGMA journal_mode = DELETE  (or WAL, MEMORY, OFF)\n  ALTER DATABASE SET AUTO_SHRINK OFF    → (no equivalent — SQLite doesn't auto-shrink)\n  ALTER DATABASE SET PAGE_VERIFY        → PRAGMA integrity_check  (run manually)\n  DBCC CHECKDB                          → PRAGMA integrity_check\n  EXEC sp_configure 'user connections'  → (no equivalent — no connection model)\n  USE [database] (switch context)        → ATTACH DATABASE 'other.db' AS other\n  SELECT @@VERSION                       → SELECT sqlite_version()\n  ALTER AUTHORIZATION / user_version    → PRAGMA user_version = 42  (schema version counter)",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-6",
+      "kind": "diagram_like",
+      "line": 296,
+      "heading_context": "### SQL Server Recovery Models → SQLite Journal Modes",
+      "confidence": "candidate",
+      "text": "SQL Server recovery models → SQLite journal modes (rough mapping):\n\n  FULL            ── no analog: SQL Server FULL enables point-in-time restore\n                     and log shipping. SQLite has no log-based replication.\n\n  SIMPLE          ── DELETE journal (SQLite default)\n                     Before a write: copies the original page to a .journal file.\n                     On commit: deletes the .journal file.\n                     On rollback: restores from .journal.\n                     Writer acquires EXCLUSIVE lock — blocks ALL readers during write.\n\n  BULK_LOGGED     ── WAL (closest analog in spirit, not mechanism)\n                     Writer appends new page images to the -wal file.\n                     Readers continue reading from the main db file + visible WAL pages.\n                     Readers and writers do NOT block each other.\n                     Main file stays clean until checkpoint.\n\n  (no equivalent)  ── MEMORY journal: rollback journal in RAM only, never on disk.\n                     Fastest. Zero durability on OS crash. Test scenarios only.\n\n  (no equivalent)  ── OFF: no rollback journal at all. Maximum speed, zero safety.",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-7",
+      "kind": "diagram_like",
+      "line": 373,
+      "heading_context": "## 7. JSON Functions (Built-in Since 3.38)",
+      "confidence": "candidate",
+      "text": "-- JSON functions are built-in, no extension needed (SQLite 3.38+, 2022)\n\n-- ── Extraction ──────────────────────────────────────────────────────────────\nSELECT json_extract('{\"user\":{\"name\":\"Alice\",\"age\":30}}', '$.user.name');\n-- → 'Alice'\nSELECT json_extract('[10,20,30]', '$[1]');\n-- → 20\n\n-- Shorthand -> operator (SQLite 3.38+): same as json_extract\nSELECT data -> '$.user.name' FROM events;        -- returns JSON (quoted)\nSELECT data ->> '$.user.name' FROM events;       -- returns text (unquoted)\n\n-- ── Construction ────────────────────────────────────────────────────────────\nSELECT json_object('name', 'Alice', 'age', 30);\n-- → '{\"name\":\"Alice\",\"age\":30}'\nSELECT json_array(1, 'two', null, true);\n-- → '[1,\"two\",null,1]'  (true → 1 in SQLite)\n\n-- ── Modification ────────────────────────────────────────────────────────────\nSELECT json_set  ('{\"a\":1}', '$.b', 2);          -- → '{\"a\":1,\"b\":2}'\nSELECT json_insert('{\"a\":1}', '$.a', 99);         -- → '{\"a\":1}'  (won't overwrite)\nSELECT json_replace('{\"a\":1}', '$.b', 99);        -- → '{\"a\":1}'  (won't insert)\nSELECT json_remove('{\"a\":1,\"b\":2}', '$.b');       -- → '{\"a\":1}'\nSELECT json_patch('{\"a\":1,\"b\":2}', '{\"b\":null,\"c\":3}'); -- RFC 7396 merge patch\n\n-- ── Iteration ───────────────────────────────────────────────────────────────\nSELECT key, value FROM json_each('{\"a\":1,\"b\":2,\"c\":3}');\n-- rows: (a,1), (b,2), (c,3)\n\nSELECT value FROM json_each('[10,20,30]');\n-- rows: 10, 20, 30\n\n-- json_tree: recursive walk of nested JSON\nSELECT path, type, value FROM json_tree('{\"a\":{\"b\":1},\"c\":[2,3]}');\n\n-- ── Validation ──────────────────────────────────────────────────────────────\nSELECT json_valid('{\"a\":1}');     -- → 1\nSELECT json_valid('bad json');    -- → 0\n\n-- Use CHECK to enforce valid JSON on insert\nCREATE TABLE events (\n    id   INTEGER PRIMARY KEY,\n    data TEXT NOT NULL CHECK(json_valid(data))\n);",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-8",
+      "kind": "diagram_like",
+      "line": 424,
+      "heading_context": "## 8. Full-Text Search — FTS5",
+      "confidence": "candidate",
+      "text": "-- FTS5 virtual table (built-in, no extension)\nCREATE VIRTUAL TABLE articles_fts USING fts5(\n    title,\n    body,\n    content='articles',       -- external content table (avoids data duplication)\n    content_rowid='id'        -- rowid column in the content table\n);\n\n-- Populate from content table\nINSERT INTO articles_fts(articles_fts) VALUES('rebuild');\n\n-- Keep in sync via triggers\nCREATE TRIGGER articles_ai AFTER INSERT ON articles BEGIN\n    INSERT INTO articles_fts(rowid, title, body) VALUES (new.id, new.title, new.body);\nEND;\nCREATE TRIGGER articles_ad AFTER DELETE ON articles BEGIN\n    INSERT INTO articles_fts(articles_fts, rowid, title, body) VALUES('delete', old.id, old.title, old.body);\nEND;\nCREATE TRIGGER articles_au AFTER UPDATE ON articles BEGIN\n    INSERT INTO articles_fts(articles_fts, rowid, title, body) VALUES('delete', old.id, old.title, old.body);\n    INSERT INTO articles_fts(rowid, title, body) VALUES (new.id, new.title, new.body);\nEND;\n\n-- ── Search ──────────────────────────────────────────────────────────────────\n-- Basic match\nSELECT * FROM articles_fts WHERE articles_fts MATCH 'database performance';\n\n-- Phrase search\nSELECT * FROM articles_fts WHERE articles_fts MATCH '\"query optimization\"';\n\n-- Boolean operators (AND, OR, NOT)\nSELECT * FROM articles_fts WHERE articles_fts MATCH 'database AND (fast OR performance)';\n\n-- Column-specific\nSELECT * FROM articles_fts WHERE articles_fts MATCH 'title:postgresql body:index';\n\n-- Prefix search\nSELECT * FROM articles_fts WHERE articles_fts MATCH 'optim*';\n\n-- ── Snippets and ranking ─────────────────────────────────────────────────────\nSELECT\n    snippet(articles_fts, 1, '<b>', '</b>', '...', 10) AS excerpt,\n    bm25(articles_fts) AS rank\nFROM articles_fts\nWHERE articles_fts MATCH 'performance'\nORDER BY rank;   -- bm25() returns negative values — ORDER BY rank (asc) = most relevant first",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-9",
+      "kind": "diagram_like",
+      "line": 477,
+      "heading_context": "## 9. Virtual Tables",
+      "confidence": "candidate",
+      "text": "-- Virtual tables: SQL interface over arbitrary data sources\n\n-- ── R-Tree: geospatial proximity / bounding box queries ─────────────────────\nCREATE VIRTUAL TABLE locations USING rtree(\n    id,\n    min_lat, max_lat,\n    min_lon, max_lon\n);\nINSERT INTO locations VALUES (1, 40.70, 40.70, -74.01, -74.01);  -- point: min=max\nSELECT id FROM locations\nWHERE min_lat >= 40.0 AND max_lat <= 41.0\n  AND min_lon >= -74.5 AND max_lon <= -73.5;\n\n-- ── CSV: query CSV files as tables ──────────────────────────────────────────\nCREATE VIRTUAL TABLE raw USING csv(\n    filename='data.csv',\n    header=YES\n);\nSELECT * FROM raw WHERE col1 > 100;\n\n-- ── dbstat: page-level statistics ───────────────────────────────────────────\nSELECT name, path, pageno, pagetype, ncell, payload, unused\nFROM dbstat\nORDER BY name;\n\n-- ── sqlite_schema: schema introspection (replaces sqlite_master) ─────────────\nSELECT type, name, tbl_name, sql\nFROM sqlite_schema\nWHERE type IN ('table', 'index', 'view', 'trigger')\nORDER BY type, name;",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-10",
+      "kind": "diagram_like",
+      "line": 683,
+      "heading_context": "### EF Core: SQL Server Provider → SQLite Provider",
+      "confidence": "candidate",
+      "text": "public class TestDbFixture : IDisposable\n{\n    private readonly SqliteConnection _keepAlive;\n    public DbContextOptions<AppDbContext> Options { get; }\n\n    public TestDbFixture()\n    {\n        // Shared in-memory: one DB, multiple test DbContext instances\n        _keepAlive = new SqliteConnection(\"Data Source=TestDb;Mode=Memory;Cache=Shared\");\n        _keepAlive.Open();\n\n        Options = new DbContextOptionsBuilder<AppDbContext>()\n            .UseSqlite(\"Data Source=TestDb;Mode=Memory;Cache=Shared\")\n            .Options;\n\n        using var ctx = new AppDbContext(Options);\n        ctx.Database.EnsureCreated();\n    }\n\n    public void Dispose() => _keepAlive.Dispose();\n}",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-11",
+      "kind": "diagram_like",
+      "line": 790,
+      "heading_context": "## 15. Common Use Patterns",
+      "confidence": "candidate",
+      "text": "-- ── App configuration storage (replaces JSON/INI) ─────────────────────────\nCREATE TABLE config (\n    key   TEXT PRIMARY KEY,\n    value TEXT\n) WITHOUT ROWID;\n\nINSERT OR REPLACE INTO config VALUES ('theme', 'dark');\nINSERT OR REPLACE INTO config VALUES ('last_sync', '2024-01-15T10:30:00Z');\nSELECT value FROM config WHERE key = 'theme';\n\n-- ── Append-only event log ────────────────────────────────────────────────────\nCREATE TABLE events (\n    id         INTEGER PRIMARY KEY AUTOINCREMENT,\n    ts         TEXT    NOT NULL DEFAULT (strftime('%Y-%m-%dT%H:%M:%fZ', 'now')),\n    event_type TEXT    NOT NULL,\n    payload    TEXT    CHECK(payload IS NULL OR json_valid(payload))\n);\nCREATE INDEX idx_events_ts   ON events (ts);\nCREATE INDEX idx_events_type ON events (event_type, ts);\n\nINSERT INTO events (event_type, payload) VALUES ('user.login', '{\"user_id\":42,\"ip\":\"1.2.3.4\"}');\n\n-- ── Session store ────────────────────────────────────────────────────────────\nCREATE TABLE sessions (\n    id         TEXT    PRIMARY KEY,\n    user_id    INTEGER NOT NULL,\n    data       TEXT    CHECK(json_valid(data)),\n    created_at TEXT    NOT NULL DEFAULT (strftime('%Y-%m-%dT%H:%M:%fZ', 'now')),\n    expires_at TEXT    NOT NULL\n) WITHOUT ROWID;\n\nCREATE INDEX idx_sessions_user    ON sessions (user_id);\nCREATE INDEX idx_sessions_expires ON sessions (expires_at);\n\n-- Expiry cleanup (run periodically)\nDELETE FROM sessions WHERE expires_at < strftime('%Y-%m-%dT%H:%M:%fZ', 'now');\n\n-- ── Upsert pattern ────────────────────────────────────────────────────────────\nINSERT INTO user_prefs (user_id, key, value)\nVALUES (42, 'theme', 'dark')\nON CONFLICT (user_id, key) DO UPDATE SET value = excluded.value;\n-- 'excluded' references the proposed-insert row (ANSI syntax, same as PostgreSQL)",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    }
+  ]
+}

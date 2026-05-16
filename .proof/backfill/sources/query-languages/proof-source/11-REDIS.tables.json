@@ -1,0 +1,382 @@
+{
+  "schema_version": "1",
+  "source_markdown": "query-languages\\11-REDIS.md",
+  "tables": [
+    {
+      "id": "table-1",
+      "line": 124,
+      "heading_context": "## 2. Snapshot",
+      "headers": [
+        "Attribute",
+        "Value"
+      ],
+      "rows": [
+        [
+          "Created",
+          "Salvatore Sanfilippo (2009), now Redis Ltd"
+        ],
+        [
+          "License",
+          "RSALv2 (changed from BSD in 2024 — check your use case; Valkey fork maintains BSD)"
+        ],
+        [
+          "Current version",
+          "Redis 7.x"
+        ],
+        [
+          "Persistence",
+          "RDB snapshots + AOF (append-only file) + no persistence (cache-only mode)"
+        ],
+        [
+          "ACID",
+          "Single command: atomic. Lua scripts: atomic. MULTI/EXEC: command queue (not SQL ACID — no rollback)"
+        ],
+        [
+          "Clustering",
+          "Redis Cluster (hash slot sharding), Sentinel (HA), standalone"
+        ],
+        [
+          "Cloud",
+          "Azure Cache for Redis, AWS ElastiCache, Upstash (serverless), Redis Cloud"
+        ],
+        [
+          "T-SQL bridge",
+          "No JOIN, no schema, no SQL — closest analogy is a key-indexed in-memory hash table with typed values"
+        ]
+      ]
+    },
+    {
+      "id": "table-2",
+      "line": 677,
+      "heading_context": "## 17. Persistence Models — RDB, AOF, and Hybrid",
+      "headers": [
+        "Mode",
+        "Data Loss on Crash",
+        "Restart Speed",
+        "File Size",
+        "Use Case"
+      ],
+      "rows": [
+        [
+          "No persistence",
+          "All data lost",
+          "Instant (empty)",
+          "None",
+          "Pure cache, ephemeral data"
+        ],
+        [
+          "RDB only",
+          "Since last snapshot (minutes)",
+          "Fast (binary load)",
+          "Compact",
+          "Dev, acceptable-loss cache"
+        ],
+        [
+          "AOF `always`",
+          "Zero (single command)",
+          "Slow (log replay)",
+          "Large",
+          "Billing, compliance"
+        ],
+        [
+          "AOF `everysec`",
+          "Up to 1 second",
+          "Medium",
+          "Medium-large",
+          "Standard production"
+        ],
+        [
+          "RDB + AOF",
+          "Up to 1 second",
+          "Fast (RDB + short AOF tail)",
+          "Medium",
+          "Production recommendation"
+        ]
+      ]
+    },
+    {
+      "id": "table-3",
+      "line": 734,
+      "heading_context": "## 18. Single-Threaded Event Loop Model",
+      "headers": [
+        "Command",
+        "Why It Blocks",
+        "Alternative"
+      ],
+      "rows": [
+        [
+          "`KEYS *`",
+          "O(N) full scan over all keys",
+          "`SCAN` with cursor"
+        ],
+        [
+          "`SMEMBERS` on large sets",
+          "O(N) serialize entire set",
+          "`SSCAN`"
+        ],
+        [
+          "`LRANGE key 0 -1` on huge lists",
+          "O(N)",
+          "`LRANGE` with bounded range"
+        ],
+        [
+          "`SORT` on large collections",
+          "O(N+M*log(M))",
+          "Pre-sort with ZSET"
+        ],
+        [
+          "Long Lua scripts",
+          "Single-threaded, no preemption",
+          "Break into smaller scripts"
+        ]
+      ]
+    },
+    {
+      "id": "table-4",
+      "line": 828,
+      "heading_context": "## 19. Cluster Architecture — Redis Cluster and Sentinel",
+      "headers": [
+        "Response",
+        "Meaning",
+        "Client action"
+      ],
+      "rows": [
+        [
+          "`MOVED slot addr`",
+          "Slot permanently lives on this node",
+          "Update slot map, retry on new node"
+        ],
+        [
+          "`ASK slot addr`",
+          "Slot is mid-migration (resharding in progress)",
+          "Send `ASKING` to new node, retry once; do not update slot map"
+        ]
+      ]
+    },
+    {
+      "id": "table-5",
+      "line": 869,
+      "heading_context": "## 20. Azure Cache for Redis — Tiers and .NET Integration",
+      "headers": [
+        "Tier",
+        "SLA",
+        "Replication",
+        "Clustering",
+        "Persistence",
+        "Modules",
+        "Notes"
+      ],
+      "rows": [
+        [
+          "Basic",
+          "None",
+          "No",
+          "No",
+          "No",
+          "No",
+          "Dev/test only — no replica, no SLA"
+        ],
+        [
+          "Standard",
+          "99.9%",
+          "Yes (replica pair)",
+          "No",
+          "No",
+          "No",
+          "Sentinel-managed HA"
+        ],
+        [
+          "Premium",
+          "99.9%",
+          "Yes",
+          "Yes (up to 10 shards)",
+          "RDB + AOF",
+          "No",
+          "VNet injection, geo-replication (active-passive)"
+        ],
+        [
+          "Enterprise",
+          "99.9%",
+          "Yes",
+          "Yes",
+          "Yes",
+          "Redis Stack (RediSearch, RedisJSON, etc.)",
+          "Redis Enterprise OSS license"
+        ],
+        [
+          "Enterprise Flash",
+          "99.9%",
+          "Yes",
+          "Yes",
+          "Yes",
+          "Redis Stack",
+          "Hot+warm tiering: RAM + NVMe SSD"
+        ]
+      ]
+    },
+    {
+      "id": "table-6",
+      "line": 883,
+      "heading_context": "## 20. Azure Cache for Redis — Tiers and .NET Integration",
+      "headers": [
+        "Option",
+        "When to Use"
+      ],
+      "rows": [
+        [
+          "Azure Cache for Redis (managed)",
+          "Standard case — Microsoft manages patching, failover, monitoring"
+        ],
+        [
+          "Redis on Azure VMs",
+          "Need control over Redis version, config, or custom modules not in managed service"
+        ],
+        [
+          "Redis on AKS",
+          "Existing K8s investment, need Redis co-located with compute, fine with operator complexity"
+        ]
+      ]
+    },
+    {
+      "id": "table-7",
+      "line": 961,
+      "heading_context": "## 22. Decision Cheat Sheet",
+      "headers": [
+        "Use Redis For",
+        "Do Not Use Redis For"
+      ],
+      "rows": [
+        [
+          "Cache (sub-ms reads, TTL-managed expiry)",
+          "Primary durable store (memory is finite, data loss possible)"
+        ],
+        [
+          "Session storage (fast read, short TTL)",
+          "Complex relational queries (no JOIN, no schema, no query planner)"
+        ],
+        [
+          "Rate limiting (INCR + EXPIRE — atomic)",
+          "Large datasets that exceed available RAM"
+        ],
+        [
+          "Distributed locks (SET NX EX)",
+          "Multi-key ACID transactions with rollback semantics"
+        ],
+        [
+          "Leaderboards (Sorted Set by score)",
+          "Compliance/audit data requiring guaranteed durability without careful AOF config"
+        ],
+        [
+          "Job queues (List LPUSH/BRPOP)",
+          "Graph traversal or multi-table joins"
+        ],
+        [
+          "Pub/Sub fire-and-forget fan-out",
+          "Ad-hoc queries across arbitrary key patterns (no query planner — SCAN + filter is brute force)"
+        ],
+        [
+          "Durable event log (Streams + consumer groups)",
+          "Strong consistency across multiple keys without Lua scripting workaround"
+        ],
+        [
+          "Vector search / RAG embeddings (RediSearch KNN)",
+          "Rich relationships: hierarchical data, many-to-many, foreign key integrity"
+        ],
+        [
+          "Full-text search over cached objects (RediSearch)",
+          "Ordered relational reporting (aggregations, window functions, GROUP BY across dimensions)"
+        ],
+        [
+          "Proximity queries (Geospatial GEOSEARCH)",
+          ""
+        ],
+        [
+          "Unique cardinality at scale (HyperLogLog)",
+          ""
+        ]
+      ]
+    },
+    {
+      "id": "table-8",
+      "line": 1021,
+      "heading_context": "## 23. Common Confusion Points",
+      "headers": [
+        "Data Structure",
+        "Common Operations",
+        "Complexity"
+      ],
+      "rows": [
+        [
+          "String",
+          "GET, SET, INCR",
+          "O(1)"
+        ],
+        [
+          "Hash",
+          "HGET, HSET, HINCRBY",
+          "O(1) per field"
+        ],
+        [
+          "Hash",
+          "HGETALL, HKEYS, HVALS",
+          "O(N) — N fields in the hash"
+        ],
+        [
+          "List",
+          "LPUSH, RPUSH, LPOP, RPOP",
+          "O(1)"
+        ],
+        [
+          "List",
+          "LINDEX, LINSERT",
+          "O(N)"
+        ],
+        [
+          "Set",
+          "SADD, SREM, SISMEMBER",
+          "O(1)"
+        ],
+        [
+          "Set",
+          "SMEMBERS, SUNION, SINTER",
+          "O(N)"
+        ],
+        [
+          "Sorted Set",
+          "ZADD, ZREM, ZSCORE, ZRANK",
+          "O(log N)"
+        ],
+        [
+          "Sorted Set",
+          "ZRANGE, ZRANGEBYSCORE",
+          "O(log N + M) — M returned members"
+        ],
+        [
+          "HyperLogLog",
+          "PFADD, PFCOUNT",
+          "O(1)"
+        ],
+        [
+          "Geospatial",
+          "GEOADD, GEODIST",
+          "O(log N)"
+        ],
+        [
+          "Geospatial",
+          "GEOSEARCH",
+          "O(N+log N)"
+        ],
+        [
+          "Stream",
+          "XADD",
+          "O(1)"
+        ],
+        [
+          "Stream",
+          "XRANGE, XREAD",
+          "O(N) — N messages returned"
+        ]
+      ]
+    }
+  ]
+}

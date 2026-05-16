@@ -1,3 +1,22 @@
+---
+maxim_schema: maxim.frontmatter.v1
+id: maxim:query-languages:graphql
+kind: guide
+module: query-languages
+section: query-languages
+title: GraphQL - Schema, Query Language, and API Patterns
+status: source-custody
+source_custody: partial
+current_path: query-languages/12-GRAPHQL.md
+canonical_path: query-languages/12-GRAPHQL.md
+backsource_ids: [proof-backfill:query-languages:12-graphql, git-history:query-languages:12-graphql]
+concepts: [graphql]
+root_concepts: [graphql]
+index_roles: [guide, root-concept]
+remap_from: []
+remap_to: []
+updated: null
+---
 # GraphQL — Schema, Query Language, and API Patterns
 
 GraphQL is a typed API query language and runtime. This guide covers it at the level that matters for production use: SDL design decisions, the resolver execution model, the N+1 problem, federation for enterprise microservices, and operational gotchas — introspection security, schema evolution without versioning, and WebSocket infrastructure for subscriptions.

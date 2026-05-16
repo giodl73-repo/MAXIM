@@ -1,3 +1,22 @@
+---
+maxim_schema: maxim.frontmatter.v1
+id: maxim:query-languages:sql-core
+kind: guide
+module: query-languages
+section: query-languages
+title: SQL Core - The 30-Year Refresh
+status: source-custody
+source_custody: partial
+current_path: query-languages/01-SQL-CORE.md
+canonical_path: query-languages/01-SQL-CORE.md
+backsource_ids: [proof-backfill:query-languages:01-sql-core, git-history:query-languages:01-sql-core]
+concepts: [sql, core]
+root_concepts: [sql, core]
+index_roles: [guide, root-concept]
+remap_from: []
+remap_to: []
+updated: null
+---
 # SQL Core — The 30-Year Refresh
 
 > What you knew from ADO.NET/T-SQL circa 2000–2003 is still valid. The SELECT/JOIN/GROUP BY model is unchanged.
@@ -8,7 +27,7 @@
 ```
 ┌─────────────────────────────────────────────────────────────────────────────────────┐
 │                           SQL LANGUAGE SURFACE                                      │
-├──────────────────┬──────────────────┬──────────────────┬──────────────────────────── │
+├──────────────────┬──────────────────┬──────────────────┬────────────────────────────┤
 │  DDL             │  DML             │  DCL             │  TCL                        │
 │  ─────────────── │  ─────────────── │  ─────────────── │  ───────────────            │
 │  CREATE TABLE    │  SELECT          │  GRANT           │  BEGIN                      │
@@ -27,7 +46,7 @@
 │                  │  CTEs (WITH)     │                  │                             │
 │                  │  Set ops         │                  │                             │
 │                  │  Subqueries      │                  │                             │
-└──────────────────┴──────────────────┴──────────────────┴─────────────────────────────┘
+└──────────────────┴──────────────────┴──────────────────┴────────────────────────────┘
 
 QUERY EXECUTION PIPELINE (what happens after you press F5 / submit the query):
 
@@ -61,11 +80,11 @@ QUERY EXECUTION PIPELINE (what happens after you press F5 / submit the query):
 ```
 SQL Server 2000 era (your baseline)          What was added since
 ─────────────────────────────────────────    ──────────────────────────────────────────
-SELECT / FROM / WHERE / JOIN                 ✅ still the same
-GROUP BY / HAVING                            ✅ still the same
-Subqueries (correlated + uncorrelated)       ✅ still the same
-Basic transactions (BEGIN/COMMIT/ROLLBACK)   ✅ still the same
-Stored procedures / triggers                 ✅ still the same (more features added)
+SELECT / FROM / WHERE / JOIN                 [same] still the same
+GROUP BY / HAVING                            [same] still the same
+Subqueries (correlated + uncorrelated)       [same] still the same
+Basic transactions (BEGIN/COMMIT/ROLLBACK)   [same] still the same
+Stored procedures / triggers                 [same] still the same (more features added)
 TOP n (T-SQL)                                → FETCH FIRST n ROWS ONLY (ANSI SQL:2008)
                                              → LIMIT n (PostgreSQL/MySQL shorthand)
 
@@ -168,26 +187,12 @@ FETCH  FIRST n ROWS ONLY              -- ANSI SQL:2008 / Oracle / DB2
 ## 3. JOINs
 
 ```
-INNER JOIN                      LEFT OUTER JOIN
-  ┌──────┐   ┌──────┐             ┌──────┐   ┌──────┐
-  │  A   │░░░│   B  │             │  A   ███████   B│
-  │      │███│      │             │      ░░░│       │
-  └──────┘   └──────┘             └──────┘   └──────┘
-  Only matching rows              All of A + matched B (NULLs where no match)
-
-RIGHT OUTER JOIN                FULL OUTER JOIN
-  ┌──────┐   ┌──────┐             ┌──────┐   ┌──────┐
-  │  A   │░░░███████│             ███████████████████│
-  │      │   │      │             │  A   ░░░│   B   │
-  └──────┘   └──────┘             └──────┘   └──────┘
-  All of B + matched A            All of A + all of B (NULLs on both sides where no match)
-
-CROSS JOIN                      SELF JOIN
-  ┌──────┐ × ┌──────┐             ┌──────┐
-  │  A   │   │   B  │             │  A   │ JOIN │  A  │
-  │ n rows│  │ m rows│            employees e1 JOIN employees e2
-  └──────┘   └──────┘             ON e1.manager_id = e2.id
-  n × m rows — every combination  Used for: hierarchies, adjacency lists, comparisons
+INNER JOIN:       rows that match in both A and B
+LEFT OUTER JOIN:  all rows from A, plus matched B (NULLs where no match)
+RIGHT OUTER JOIN: all rows from B, plus matched A (NULLs where no match)
+FULL OUTER JOIN:  all rows from both sides (NULLs where no match)
+CROSS JOIN:       every A row paired with every B row (n × m rows)
+SELF JOIN:        a table joined to itself (hierarchies, adjacency lists, comparisons)
 ```
 
 ```sql

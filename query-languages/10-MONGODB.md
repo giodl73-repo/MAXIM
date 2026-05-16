@@ -1,3 +1,22 @@
+---
+maxim_schema: maxim.frontmatter.v1
+id: maxim:query-languages:mongodb
+kind: guide
+module: query-languages
+section: query-languages
+title: MongoDB Query Language (MQL) + Aggregation Pipeline
+status: source-custody
+source_custody: partial
+current_path: query-languages/10-MONGODB.md
+canonical_path: query-languages/10-MONGODB.md
+backsource_ids: [proof-backfill:query-languages:10-mongodb, git-history:query-languages:10-mongodb]
+concepts: [mongodb]
+root_concepts: [mongodb]
+index_roles: [guide, root-concept]
+remap_from: []
+remap_to: []
+updated: null
+---
 # MongoDB Query Language (MQL) + Aggregation Pipeline
 
 MongoDB is the dominant document database. The query language is not SQL — it's JSON-based MQL for CRUD and the aggregation pipeline for complex transformations. The mental model shift: instead of tables with rows, you have collections with documents (JSON objects). Documents can be nested and variable-schema. The aggregation pipeline is MongoDB's equivalent of SQL `SELECT` with `GROUP BY`, `JOIN`, and window functions — but expressed as a sequence of stages, each transforming the document stream.
@@ -761,11 +780,11 @@ Embedding vs Referencing decision:
 │   line_items: [                      │  • Many-to-many relationship         │
 │     { product: "Widget",             │  • Need to query the referenced doc  │
 │       qty: 2, price: 9.99 }          │    independently                     │
-│   ]                                  │  • Embedding would exceed 16 MB limit │
+│   ]                                  │  • Embedding would exceed 16MB lim.  │
 │ }                                    │    (BSON document size limit)        │
 │                                      │                                      │
 │ Use when:                            │                                      │
-│  • One-to-few (e.g. order→line items)│                                      │
+│  • One-to-few (e.g. order→line items │                                      │
 │  • Always read together              │                                      │
 │  • Sub-docs updated infrequently     │                                      │
 │  • Single-document atomic update     │                                      │

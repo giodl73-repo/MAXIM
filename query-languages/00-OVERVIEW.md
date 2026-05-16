@@ -1,3 +1,22 @@
+---
+maxim_schema: maxim.frontmatter.v1
+id: maxim:query-languages:overview
+kind: guide
+module: query-languages
+section: query-languages
+title: Query Languages - Taxonomy and Landscape
+status: source-custody
+source_custody: partial
+current_path: query-languages/00-OVERVIEW.md
+canonical_path: query-languages/00-OVERVIEW.md
+backsource_ids: [proof-backfill:query-languages:00-overview, git-history:query-languages:00-overview]
+concepts: [overview]
+root_concepts: [overview]
+index_roles: [guide, root-concept]
+remap_from: []
+remap_to: []
+updated: null
+---
 # Query Languages — Taxonomy & Landscape
 
 T-SQL is your home dialect. This file maps that world to the full query language ecosystem.
@@ -175,11 +194,9 @@ Everything from SQL:1999 onward is what this series is filling in.
 **Row-store vs column-store — the core OLTP/OLAP split:**
 ```
 Row-store (PostgreSQL, SQL Server):
-  ┌─────┬──────┬───────┬──────────┐
-  │ id  │ name │ dept  │ salary   │  ← each row stored contiguously
-  │ 1   │ Alice│ Eng   │ 120000   │    good for: point reads, OLTP writes
-  │ 2   │ Bob  │ Mktg  │ 95000    │    bad for:  "SUM(salary) for 10M rows"
-  └─────┴──────┴───────┴──────────┘
+  [id | name | dept | salary]  ← each row stored contiguously
+  [1  | Alice | Eng  | 120000]  good for: point reads, OLTP writes
+  [2  | Bob   | Mktg | 95000 ]  bad for:  "SUM(salary) for 10M rows"
 
 Column-store (BigQuery, Snowflake, DuckDB):
   id:     [1, 2, 3, ...]            ← each column stored contiguously

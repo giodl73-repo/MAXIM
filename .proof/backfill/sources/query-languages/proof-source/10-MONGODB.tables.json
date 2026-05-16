@@ -1,0 +1,445 @@
+{
+  "schema_version": "1",
+  "source_markdown": "query-languages\\10-MONGODB.md",
+  "tables": [
+    {
+      "id": "table-1",
+      "line": 66,
+      "heading_context": "## 1. Relational → Document Mapping",
+      "headers": [
+        "T-SQL JSON",
+        "MongoDB equivalent",
+        "Notes"
+      ],
+      "rows": [
+        [
+          "`JSON_VALUE(doc, '$.address.city')`",
+          "`{ \"address.city\": \"Seattle\" }` in filter, or `\"$address.city\"` in expression",
+          "Dot notation is native in MongoDB — no function call needed"
+        ],
+        [
+          "`JSON_QUERY(doc, '$.line_items')`",
+          "`\"$line_items\"`",
+          "Accessing a nested array or subdoc"
+        ],
+        [
+          "`OPENJSON(doc) WITH (city VARCHAR(100) '$.address.city')`",
+          "`{ $project: { city: \"$address.city\" } }`",
+          "Projecting specific fields from a document"
+        ],
+        [
+          "`FOR JSON PATH`",
+          "`{ $project: { ... } }` or `{ $replaceRoot }`",
+          "Constructing a JSON output shape"
+        ],
+        [
+          "`ISJSON(doc)`",
+          "No equivalent — every document is valid BSON by definition",
+          ""
+        ],
+        [
+          "`JSON_MODIFY(doc, '$.status', 'active')`",
+          "`{ $set: { status: \"active\" } }` in `updateOne`",
+          ""
+        ]
+      ]
+    },
+    {
+      "id": "table-2",
+      "line": 137,
+      "heading_context": "## 2. Dialect Snapshot",
+      "headers": [
+        "Attribute",
+        "Value"
+      ],
+      "rows": [
+        [
+          "Created by",
+          "10gen (now MongoDB Inc), 2009"
+        ],
+        [
+          "License",
+          "SSPL (not OSI-approved) / Atlas is commercial SaaS"
+        ],
+        [
+          "Current version",
+          "MongoDB 7.x (2024)"
+        ],
+        [
+          "Data model",
+          "BSON documents in collections — binary-encoded JSON with extra types"
+        ],
+        [
+          "ACID",
+          "Single-document always; multi-document transactions since 4.0 (replica sets/sharded)"
+        ],
+        [
+          "SQL equivalent",
+          "None — MQL for CRUD, aggregation pipeline for analytics"
+        ],
+        [
+          "Cloud options",
+          "MongoDB Atlas (multi-cloud), AWS DocumentDB (partial compat), Azure Cosmos DB (MongoDB API — partial compat)"
+        ],
+        [
+          "Unique strengths",
+          "Flexible schema, embedded documents, horizontal sharding, Atlas Search (Lucene), Atlas Vector Search"
+        ],
+        [
+          "Indexing",
+          "B-tree, compound, text, 2dsphere, TTL, partial, wildcard, hashed (for sharding)"
+        ]
+      ]
+    },
+    {
+      "id": "table-3",
+      "line": 637,
+      "heading_context": "## 9. EXPLAIN",
+      "headers": [
+        "Field",
+        "What it means",
+        "Good / Bad"
+      ],
+      "rows": [
+        [
+          "`executionStats.executionTimeMillis`",
+          "Total execution time in ms",
+          "Lower is better"
+        ],
+        [
+          "`executionStats.totalDocsExamined`",
+          "Documents scanned",
+          "Should ≈ `totalDocsReturned`"
+        ],
+        [
+          "`executionStats.totalDocsReturned`",
+          "Documents returned to caller",
+          "Baseline"
+        ],
+        [
+          "`executionStats.totalKeysExamined`",
+          "Index keys scanned",
+          "Should ≈ `totalDocsReturned`"
+        ],
+        [
+          "`winningPlan.stage`",
+          "Execution strategy",
+          "`IXSCAN` = good, `COLLSCAN` = full scan = bad"
+        ],
+        [
+          "`winningPlan.indexName`",
+          "Which index was chosen",
+          "Verify it's the expected index"
+        ]
+      ]
+    },
+    {
+      "id": "table-4",
+      "line": 650,
+      "heading_context": "## 9. EXPLAIN",
+      "headers": [
+        "SQL Server",
+        "MongoDB `explain(\"executionStats\")`"
+      ],
+      "rows": [
+        [
+          "Execution plan → graphical/XML plan",
+          "`winningPlan` tree (nested JSON stages)"
+        ],
+        [
+          "Clustered Index Scan / Table Scan",
+          "`COLLSCAN` — full collection scan, no index"
+        ],
+        [
+          "Index Seek",
+          "`IXSCAN` — good, using index efficiently"
+        ],
+        [
+          "Index Scan",
+          "`IXSCAN` with low key selectivity — high `totalKeysExamined` vs `totalDocsReturned`"
+        ],
+        [
+          "Key Lookup (RID lookup)",
+          "`FETCH` stage after `IXSCAN` — fetching full document after index lookup"
+        ],
+        [
+          "Estimated rows / actual rows",
+          "`totalDocsReturned` vs `totalDocsExamined`"
+        ],
+        [
+          "Logical reads",
+          "No direct equivalent — `totalKeysExamined` is the closest proxy"
+        ],
+        [
+          "Missing index hint",
+          "No built-in hint — read the ratio and build the index manually"
+        ],
+        [
+          "SET STATISTICS IO ON",
+          "No equivalent — use `explain(\"executionStats\")`"
+        ]
+      ]
+    },
+    {
+      "id": "table-5",
+      "line": 668,
+      "heading_context": "## 10. SQL → MQL Translation Table",
+      "headers": [
+        "SQL",
+        "MongoDB MQL / Aggregation"
+      ],
+      "rows": [
+        [
+          "`SELECT * FROM orders WHERE status = 'active'`",
+          "`db.orders.find({ status: \"active\" })`"
+        ],
+        [
+          "`SELECT id, total FROM orders`",
+          "`db.orders.find({}, { _id: 1, total: 1 })`"
+        ],
+        [
+          "`WHERE total > 100 AND status = 'active'`",
+          "`{ total: { $gt: 100 }, status: \"active\" }`"
+        ],
+        [
+          "`WHERE status IN ('a', 'b')`",
+          "`{ status: { $in: [\"a\", \"b\"] } }`"
+        ],
+        [
+          "`WHERE name LIKE '%alice%'`",
+          "`{ name: { $regex: /alice/i } }`"
+        ],
+        [
+          "`WHERE field IS NULL`",
+          "`{ field: null }` (matches null OR absent)"
+        ],
+        [
+          "`WHERE field IS NOT NULL`",
+          "`{ field: { $ne: null, $exists: true } }`"
+        ],
+        [
+          "`ORDER BY total DESC`",
+          "`.sort({ total: -1 })`"
+        ],
+        [
+          "`LIMIT 10 OFFSET 20`",
+          "`.limit(10).skip(20)`"
+        ],
+        [
+          "`COUNT(*)`",
+          "`db.orders.countDocuments({ status: \"active\" })`"
+        ],
+        [
+          "`SELECT dept, SUM(total) GROUP BY dept`",
+          "`[{ $group: { _id: \"$dept\", total: { $sum: \"$total\" }}}]`"
+        ],
+        [
+          "`HAVING SUM(total) > 1000`",
+          "`{ $match: { total: { $gt: 1000 } } }` after `$group`"
+        ],
+        [
+          "`LEFT JOIN customers ON orders.cust_id = customers.id`",
+          "`{ $lookup: { from: \"customers\", localField: \"cust_id\", foreignField: \"_id\", as: \"customer\" }}`"
+        ],
+        [
+          "`CROSS APPLY UNNEST(array_col)`",
+          "`{ $unwind: \"$array_field\" }`"
+        ],
+        [
+          "`CASE WHEN total > 500 THEN 'high' ELSE 'low' END`",
+          "`{ $cond: { if: { $gt: [\"$total\", 500] }, then: \"high\", else: \"low\" } }`"
+        ],
+        [
+          "`COALESCE(discount, 0)`",
+          "`{ $ifNull: [\"$discount\", 0] }`"
+        ],
+        [
+          "`SELECT col, 'val' AS new_col`",
+          "`$addFields` or `$project` with computed expression"
+        ],
+        [
+          "`INSERT OR REPLACE` (upsert)",
+          "`replaceOne({filter}, doc, { upsert: true })`"
+        ],
+        [
+          "`UPDATE ... SET field = field + 1`",
+          "`updateOne({filter}, { $inc: { field: 1 } })`"
+        ],
+        [
+          "`DELETE WHERE expires < NOW()`",
+          "`deleteMany({ expires_at: { $lt: new Date() } })`"
+        ]
+      ]
+    },
+    {
+      "id": "table-6",
+      "line": 695,
+      "heading_context": "## 10. SQL → MQL Translation Table",
+      "headers": [
+        "T-SQL JSON",
+        "MongoDB equivalent"
+      ],
+      "rows": [
+        [
+          "`JSON_VALUE(doc, '$.address.city')`",
+          "`\"address.city\"` in filter / `\"$address.city\"` in aggregation expression"
+        ],
+        [
+          "`JSON_QUERY(doc, '$.line_items')`",
+          "`\"$line_items\"` (array/subdoc field reference)"
+        ],
+        [
+          "`OPENJSON(doc) WITH (city NVARCHAR(100) '$.address.city')`",
+          "`{ $project: { city: \"$address.city\" } }`"
+        ],
+        [
+          "`FOR JSON PATH` (construct JSON output)",
+          "`{ $project: { nested: { field1: \"$f1\", field2: \"$f2\" } } }`"
+        ],
+        [
+          "`JSON_MODIFY(doc, '$.status', 'active')`",
+          "`{ $set: { status: \"active\" } }` in `updateOne`"
+        ],
+        [
+          "`OPENJSON(doc, '$.tags') WITH ([value] NVARCHAR(50) '$')`",
+          "`{ $unwind: \"$tags\" }` (flatten array to rows)"
+        ],
+        [
+          "Cross join + `OPENJSON` to explode array rows",
+          "`{ $unwind: \"$line_items\" }`"
+        ]
+      ]
+    },
+    {
+      "id": "table-7",
+      "line": 853,
+      "heading_context": "## 14. Azure Cosmos DB for MongoDB — Bridge for Azure Engineers",
+      "headers": [
+        "Dimension",
+        "Native MongoDB (Atlas)",
+        "Azure Cosmos DB for MongoDB"
+      ],
+      "rows": [
+        [
+          "**Billing unit**",
+          "vCore / memory / storage",
+          "Request Units (RUs) — measured per operation"
+        ],
+        [
+          "**Capacity model**",
+          "Server-based (provisioned vCores or serverless)",
+          "RU-based (provisioned or autoscale)"
+        ],
+        [
+          "**Partitioning**",
+          "Manual sharding (shard key choice is critical)",
+          "Automatic — partition key maps to physical partition, managed by Cosmos DB"
+        ],
+        [
+          "**Consistency**",
+          "readConcern / writeConcern (eventual, majority, linearizable)",
+          "5 consistency levels: Strong, Bounded Staleness, Session, Consistent Prefix, Eventual"
+        ],
+        [
+          "**Change tracking**",
+          "Change Streams (resumable, oplog-based)",
+          "Change Feed (resumable, Cosmos DB native — similar semantics, different guarantees)"
+        ],
+        [
+          "**Indexing**",
+          "Explicit index creation",
+          "All fields indexed by default (wildcard index) — turn off fields you don't need to reduce RU cost"
+        ],
+        [
+          "**Transaction scope**",
+          "Multi-document within replica set / shard",
+          "Single partition — cross-partition transactions have limitations"
+        ],
+        [
+          "**Global distribution**",
+          "Atlas Global Clusters (manual config)",
+          "Built-in multi-region with configurable consistency per read region"
+        ],
+        [
+          "**SLA**",
+          "Atlas SLA (99.995% for multi-region)",
+          "Cosmos DB SLA: <10 ms p99 read, <15 ms p99 write at 99th percentile (provisioned)"
+        ]
+      ]
+    },
+    {
+      "id": "table-8",
+      "line": 875,
+      "heading_context": "## 14. Azure Cosmos DB for MongoDB — Bridge for Azure Engineers",
+      "headers": [
+        "Scenario",
+        "Recommendation"
+      ],
+      "rows": [
+        [
+          "Existing MongoDB application, want Azure hosting",
+          "Cosmos DB for MongoDB — minimal driver changes, Azure-native SLAs"
+        ],
+        [
+          "New application, no existing MongoDB code",
+          "Cosmos DB Core SQL API (native) or MongoDB Atlas — avoid the compatibility layer"
+        ],
+        [
+          "Need guaranteed single-digit ms latency SLAs",
+          "Cosmos DB — the SLA is contractual; MongoDB Atlas's latency depends on cluster tier"
+        ],
+        [
+          "Need MongoDB 6.x+ features (latest operators, new index types)",
+          "MongoDB Atlas — Cosmos DB lags on compatibility"
+        ],
+        [
+          "Multi-region active-active with configurable consistency",
+          "Cosmos DB — built-in, no extra config"
+        ],
+        [
+          "Need Atlas Search (Lucene) or Atlas Vector Search",
+          "MongoDB Atlas — Cosmos DB has Azure Cognitive Search as a separate service"
+        ]
+      ]
+    },
+    {
+      "id": "table-9",
+      "line": 894,
+      "heading_context": "## 15. Decision Cheat Sheet",
+      "headers": [
+        "Use MongoDB when",
+        "Use a relational DB instead when"
+      ],
+      "rows": [
+        [
+          "Schema is variable or evolving rapidly",
+          "Schema is stable, highly normalized"
+        ],
+        [
+          "Data is naturally hierarchical (orders + line items)",
+          "Query patterns are JOIN-heavy reporting"
+        ],
+        [
+          "Need to embed sub-documents for read performance",
+          "Strong multi-table ACID transactions are frequent"
+        ],
+        [
+          "Horizontal sharding at extreme scale",
+          "Many-to-many relationships dominate the model"
+        ],
+        [
+          "Atlas Search + Vector Search in one platform",
+          "Strict referential integrity required"
+        ],
+        [
+          "Geospatial queries are core to the app",
+          "T-SQL ecosystem (SSRS, SSAS, stored procedures)"
+        ],
+        [
+          "Flexible content models (CMS, product catalog)",
+          "Already on Azure → Cosmos DB may be better fit"
+        ]
+      ]
+    }
+  ]
+}

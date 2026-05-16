@@ -1,0 +1,116 @@
+{
+  "schema_version": "1",
+  "source_markdown": "query-languages\\10-MONGODB.md",
+  "blocks": [
+    {
+      "id": "block-1",
+      "kind": "diagram_like",
+      "line": 28,
+      "heading_context": "## 1. Relational → Document Mapping",
+      "confidence": "candidate",
+      "text": "┌──────────────────────────────────────────────────────────────────────────────┐\n│               SQL (relational)         MongoDB (document)                    │\n│               ────────────────         ──────────────────                    │\n│               Database            →   Database                               │\n│               Table               →   Collection                             │\n│               Row                 →   Document  (BSON/JSON object)           │\n│               Column (fixed)      →   Field  (variable, nested, optional)    │\n│               NULL                →   Field absent  OR  field: null          │\n│               PRIMARY KEY         →   _id  (auto ObjectId if not supplied)   │\n│               FOREIGN KEY / JOIN  →   Embedded subdoc  OR  $lookup           │\n│               INDEX               →   Index  (same concept, similar types)   │\n│               VIEW                →   db.createView() or $lookup-based agg   │\n│               Stored procedure    →   Application layer (JS removed in 4.x)  │\n│                                                                              │\n│               SELECT … WHERE …    →   db.col.find({filter}, {projection})    │\n│               GROUP BY + aggs     →   aggregate([$match, $group, …])         │\n│               JOIN                →   $lookup  stage in aggregation pipeline │\n│               UNNEST / EXPLODE    →   $unwind  stage                         │\n│               CASE WHEN           →   $cond / $switch  expression operator   │\n│               HAVING              →   $match  after  $group                  │\n└──────────────────────────────────────────────────────────────────────────────┘\n\nBridge: think of a MongoDB document as an ADO.NET DataRow where columns can hold\nnested DataTables, arrays, or arbitrary objects — and the schema is not enforced\nat the database level. The application is the schema contract.",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-2",
+      "kind": "diagram_like",
+      "line": 79,
+      "heading_context": "### SQL Server Normalized Schema → Two MongoDB Design Strategies",
+      "confidence": "candidate",
+      "text": "SQL Server (normalized — 3NF):\n\n  orders                           customers\n  ┌────────┬─────────────┬──────┐  ┌────────────┬───────────┬────────────┐\n  │ id     │ customer_id │ ...  │  │ id         │ name      │ email      │\n  ├────────┼─────────────┼──────┤  ├────────────┼───────────┼────────────┤\n  │ 1001   │ 42          │ ...  │  │ 42         │ Alice     │ a@b.com    │\n  └────────┴─────────────┴──────┘  └────────────┴───────────┴────────────┘\n           │                                 ▲\n           └─── FK ──────────────────────────┘   (join at query time)\n\n  order_items\n  ┌──────────┬──────────┬────────┬───────┐\n  │ order_id │ product  │ qty    │ price │\n  ├──────────┼──────────┼────────┼───────┤\n  │ 1001     │ Widget   │ 2      │ 9.99  │\n  │ 1001     │ Gadget   │ 1      │ 14.99 │\n  └──────────┴──────────┴────────┴───────┘\n\nMongoDB Strategy A — embed everything (denormalized, read-optimized):\n\n  orders collection:\n  {\n    _id: 1001,\n    customer: { name: \"Alice\", email: \"a@b.com\" },   // customer embedded\n    line_items: [                                      // items embedded array\n      { product: \"Widget\", qty: 2, price: 9.99  },\n      { product: \"Gadget\", qty: 1, price: 14.99 }\n    ]\n  }\n\n  Pro: one document read = complete order. No joins.\n  Con: customer data duplicated across all orders. Updates require touching\n       every order document when customer email changes.\n\nMongoDB Strategy B — reference customers, embed line items:\n\n  customers collection:              orders collection:\n  { _id: 42, name: \"Alice\",   →      { _id: 1001,\n    email: \"a@b.com\" }                 customer_id: 42,           // reference\n                                       line_items: [              // still embedded\n                                         { product: \"Widget\", qty: 2, price: 9.99 },\n                                         { product: \"Gadget\", qty: 1, price: 14.99 }\n                                       ]\n                                     }\n\n  Pro: customer data in one place — update once. Line items always read with\n       the order (never queried independently) so embedding is correct there.\n  Con: order queries that need customer name require $lookup.",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-3",
+      "kind": "diagram_like",
+      "line": 208,
+      "heading_context": "## 4. Query Operators — Reference Card",
+      "confidence": "candidate",
+      "text": "// ── Comparison ────────────────────────────────────────────────────────────\n{ field: value }                       // exact equality (implicit $eq)\n{ field: { $eq:  value } }             // explicit equality\n{ field: { $ne:  value } }             // not equal         ≠\n{ field: { $gt:  100   } }             // greater than       >\n{ field: { $gte: 100   } }             // greater or equal   >=\n{ field: { $lt:  100   } }             // less than          <\n{ field: { $lte: 100   } }             // less or equal      <=\n{ field: { $in:  [1, 2, 3] } }         // IN (1, 2, 3)\n{ field: { $nin: [1, 2, 3] } }         // NOT IN (1, 2, 3)\n\n// ── Logical ───────────────────────────────────────────────────────────────\n{ a: 1, b: 2 }                         // implicit AND (both conditions must match)\n{ $and: [ {cond1}, {cond2} ] }         // explicit AND (required when same field appears twice)\n{ $or:  [ {cond1}, {cond2} ] }         // OR\n{ $nor: [ {cond1}, {cond2} ] }         // NOR — neither condition is true\n{ field: { $not: { $gt: 100 } } }      // NOT (inverts operator result)\n\n// ── Existence and type ────────────────────────────────────────────────────\n{ field: { $exists: true  } }          // field present in document (IS NOT NULL analog)\n{ field: { $exists: false } }          // field absent\n{ field: { $type: \"string\" } }         // BSON type check\n{ field: { $type: [\"string\", \"null\"] } }\n\n// ── String / regex ────────────────────────────────────────────────────────\n{ name: { $regex: /^alice/i } }        // starts with \"alice\", case-insensitive\n{ name: /alice/i }                     // shorthand — equivalent\n{ name: { $regex: \"alice\", $options: \"i\" } }  // string form for dynamic regex\n\n// ── Array operators ───────────────────────────────────────────────────────\n{ tags: \"mongodb\" }                    // array contains element \"mongodb\" (scalar match)\n{ tags: { $all: [\"mongodb\", \"db\"] } }  // array contains ALL listed elements\n{ scores: { $elemMatch: { $gt: 80, $lt: 100 } } }  // at least one element matches ALL conditions\n                                                    // { scores: { $gt: 80, $lt: 100 } } is different:\n                                                    // checks any element > 80 AND any element < 100\n{ tags: { $size: 3 } }                 // array has exactly 3 elements\n\n// ── Nested field access (dot notation) ───────────────────────────────────\n{ \"address.city\": \"Seattle\" }          // nested document field\n{ \"address.zip.code\": \"98101\" }        // multi-level nesting\n{ \"line_items.0.product_id\": 42 }      // first element of array",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-4",
+      "kind": "diagram_like",
+      "line": 260,
+      "heading_context": "## 5. Aggregation Pipeline — The SQL SELECT Equivalent",
+      "confidence": "candidate",
+      "text": "┌─────────────────┬────────────────────────────────────────────────┐\n│ Pipeline Stage  │ T-SQL Equivalent                               │\n├─────────────────┼────────────────────────────────────────────────┤\n│ $match          │ WHERE  (before $group)  /  HAVING (after $group)│\n│ $group          │ GROUP BY + aggregate functions                  │\n│ $project        │ SELECT (column list, computed columns, aliases) │\n│ $sort           │ ORDER BY                                        │\n│ $limit          │ TOP N  /  FETCH NEXT N ROWS ONLY               │\n│ $skip           │ OFFSET N ROWS                                   │\n│ $lookup         │ LEFT JOIN  (nested-loop, no optimizer reorder)  │\n│ $unwind         │ CROSS APPLY UNNEST / OPENJSON on array column   │\n│ $addFields      │ SELECT *, computed_col AS alias                 │\n│ $count          │ SELECT COUNT(*) AS n                            │\n│ $facet          │ Multiple CTEs / subqueries in one pass          │\n│ $out / $merge   │ SELECT INTO / MERGE (terminal, writes result)   │\n└─────────────────┴────────────────────────────────────────────────┘\n\nPipeline executes LEFT TO RIGHT. Order is explicit. The optimizer cannot\nreorder stages (unlike SQL where the optimizer reorders freely). PUT $match\nFIRST — it's the single most important performance rule in MongoDB.",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-5",
+      "kind": "diagram_like",
+      "line": 364,
+      "heading_context": "## 6. Aggregation Stages — Full Reference",
+      "confidence": "candidate",
+      "text": "// $lookup pipeline form — correlated join with filtering inside the join\n{ $lookup: {\n    from: \"products\",\n    let:  { productIds: \"$line_items.product_id\" },    // bind local variables\n    pipeline: [\n        { $match:   { $expr: { $in: [\"$_id\", \"$$productIds\"] }}},\n        { $project: { name: 1, price: 1 }}\n    ],\n    as: \"products\"\n}}\n\n// $facet — run multiple sub-pipelines on the same input simultaneously\n// Like running three GROUP BYs in parallel\n{ $facet: {\n    byStatus:     [{ $group: { _id: \"$status\",                 count:  { $sum: 1 }}}],\n    byMonth:      [{ $group: { _id: { $month: \"$order_date\" }, total:  { $sum: \"$total\" }}}],\n    topCustomers: [{ $sort:  { total: -1 }}, { $limit: 5 }]\n}}\n\n// $bucket — group into ranges (histogram, manual boundaries)\n{ $bucket: {\n    groupBy:    \"$total\",\n    boundaries: [0, 50, 100, 500, 1000],\n    default:    \"1000+\",\n    output:     { count: { $sum: 1 }, avg_total: { $avg: \"$total\" }}\n}}\n\n// $bucketAuto — auto-distribute into N equal-population buckets\n// Equivalent to NTILE(N) histogram — MongoDB chooses boundaries automatically\n{ $bucketAuto: {\n    groupBy:    \"$total\",\n    buckets:    5,                             // create 5 buckets\n    output:     { count: { $sum: 1 }, avg_total: { $avg: \"$total\" }},\n    granularity: \"POWERSOF2\"                   // optional: snap boundaries to powers of 2\n}}\n// $bucket requires you know the value range; $bucketAuto discovers it from data.\n\n// $unwind + $group — \"spreadsheet flatten\" pattern\n// Use case: orders have embedded line_items array; compute total quantity per product\n// T-SQL equivalent: CROSS APPLY OPENJSON(line_items) + GROUP BY product\ndb.orders.aggregate([\n    { $match:  { order_date: { $gte: new Date(\"2024-01-01\") } }},\n    { $unwind: \"$line_items\" },                // flatten: one doc per line item\n    { $group:  {\n        _id:        \"$line_items.product_id\",  // GROUP BY product\n        total_qty:  { $sum: \"$line_items.qty\" },\n        total_rev:  { $sum: { $multiply: [\"$line_items.qty\", \"$line_items.price\"] }},\n        order_count: { $addToSet: \"$_id\" }     // distinct orders per product\n    }},\n    { $addFields: { order_count: { $size: \"$order_count\" } }},  // set → count\n    { $sort:   { total_rev: -1 }},\n    { $limit:  20 }\n])\n// The $unwind \"inflates\" the document stream — 1 order with 5 line items → 5 documents.\n// $group then re-aggregates the inflated stream. This is the canonical pattern for\n// aggregating across embedded arrays.\n\n// $replaceRoot — promote nested document to top level\n// SELECT customer.* FROM orders (flatten the embedded customer subdoc)\n{ $replaceRoot: { newRoot: \"$customer\" }}\n\n// $count — count documents at this point in pipeline\n{ $count: \"total_orders\" }\n\n// $out — write pipeline result to a new collection (terminal stage)\n{ $out: \"customer_revenue_summary\" }\n\n// $merge — upsert pipeline result into a collection (terminal stage)\n{ $merge: {\n    into:         \"customer_revenue_summary\",\n    on:           \"_id\",\n    whenMatched:  \"merge\",          // merge fields on match\n    whenNotMatched: \"insert\"        // insert new doc if no match\n}}",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-6",
+      "kind": "diagram_like",
+      "line": 447,
+      "heading_context": "## 7. Expression Operators — Reference",
+      "confidence": "candidate",
+      "text": "// ── Arithmetic ────────────────────────────────────────────────────────────\n{ $add:      [expr1, expr2] }\n{ $subtract: [expr1, expr2] }\n{ $multiply: [expr1, expr2] }\n{ $divide:   [expr1, expr2] }\n{ $mod:      [expr1, expr2] }\n{ $abs:      expr }\n{ $round:    [expr, decimalPlaces] }\n{ $ceil:     expr }, { $floor: expr }\n\n// ── Conditional — like CASE WHEN ─────────────────────────────────────────\n{ $cond: { if: { $gt: [\"$total\", 500] }, then: \"high\", else: \"low\" } }\n{ $cond: [condition, trueVal, falseVal] }            // shorthand form\n\n{ $ifNull: [\"$discount\", 0] }                        // COALESCE($discount, 0)\n\n{ $switch: {\n    branches: [\n        { case: { $gte: [\"$total\", 1000] }, then: \"platinum\" },\n        { case: { $gte: [\"$total\",  500] }, then: \"gold\"     },\n        { case: { $gte: [\"$total\",  100] }, then: \"silver\"   }\n    ],\n    default: \"bronze\"\n}}\n\n// ── Comparison (expression form — for use inside $expr) ──────────────────\n{ $eq:  [expr1, expr2] }\n{ $ne:  [expr1, expr2] }\n{ $gt:  [expr1, expr2] }\n{ $gte: [expr1, expr2] }\n{ $lt:  [expr1, expr2] }\n{ $lte: [expr1, expr2] }\n\n// ── String ────────────────────────────────────────────────────────────────\n{ $concat:   [\"$firstName\", \" \", \"$lastName\"] }\n{ $toLower:  \"$name\" }\n{ $toUpper:  \"$name\" }\n{ $substr:   [\"$name\", 0, 5] }                       // 0-indexed, length 5\n{ $strLenCP: \"$name\" }                               // character count (code points)\n{ $trim:     { input: \"$name\" } }\n{ $regexFind:    { input: \"$email\", regex: /@(.+)$/, options: \"i\" } }\n{ $regexFindAll: { input: \"$body\",  regex: /\\d+/ } }\n\n// ── Date ──────────────────────────────────────────────────────────────────\n{ $year:       \"$order_date\" }\n{ $month:      \"$order_date\" }\n{ $dayOfMonth: \"$order_date\" }\n{ $dayOfWeek:  \"$order_date\" }                       // 1=Sun, 7=Sat\n{ $dateToString: { format: \"%Y-%m-%d\", date: \"$order_date\" } }\n{ $dateDiff:   { startDate: \"$start\", endDate: \"$end\", unit: \"day\" } }\n{ $dateAdd:    { startDate: \"$start\", unit: \"day\", amount: 30 } }\n\n// ── Array ─────────────────────────────────────────────────────────────────\n{ $size:         \"$tags\" }                           // array length\n{ $slice:        [\"$tags\", 3] }                      // first 3 elements\n{ $arrayElemAt:  [\"$items\", 0] }                     // element at index (0-based)\n{ $first:        \"$items\" }                          // first element\n{ $last:         \"$items\" }                          // last element\n{ $reverseArray: \"$items\" }\n{ $concatArrays: [\"$arr1\", \"$arr2\"] }\n{ $setUnion:     [\"$arr1\", \"$arr2\"] }                // distinct elements union\n{ $setIntersection: [\"$arr1\", \"$arr2\"] }\n{ $in:           [value, \"$arrayField\"] }            // array contains value\n\n{ $filter: {\n    input: \"$items\",\n    cond:  { $gt: [\"$$this.price\", 50] }             // $$this = current element\n}}\n\n{ $map: {\n    input: \"$items\",\n    as:    \"item\",\n    in:    { $multiply: [\"$$item.qty\", \"$$item.price\"] }\n}}\n\n{ $reduce: {\n    input:        \"$items\",\n    initialValue: 0,\n    in:           { $add: [\"$$value\", \"$$this.price\"] }  // $$value = accumulator\n}}",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-7",
+      "kind": "diagram_like",
+      "line": 594,
+      "heading_context": "### Compound Index Design — ESR Rule",
+      "confidence": "candidate",
+      "text": "ESR: Equality → Sort → Range\n\nFields used in Equality conditions first.\nFields used for Sort order next.\nFields used in Range conditions last.\n\nExample query:\n  db.orders.find({ status: \"active\", total: { $gte: 100 } }).sort({ order_date: -1 })\n\n  status → Equality (exact match)    → first\n  order_date → Sort                  → second\n  total → Range ($gte)               → third\n\nCorrect index: { status: 1, order_date: -1, total: 1 }\nIncorrect:     { status: 1, total: 1, order_date: -1 }\n               ^^^ Range before Sort — sort can't use index efficiently\n\nSQL Server rule: put most selective column first.\nMongoDB ESR rule: put equality columns first regardless of selectivity, then sort, then range.\nThe rules differ because MongoDB's query planner uses the sort stage differently.",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-8",
+      "kind": "diagram_like",
+      "line": 768,
+      "heading_context": "## 12. Schema Design Patterns",
+      "confidence": "candidate",
+      "text": "Embedding vs Referencing decision:\n\n┌──────────────────────────────────────┬──────────────────────────────────────┐\n│ EMBED (denormalize)                  │ REFERENCE (normalize)                │\n│ ────────────────────────────────     │ ────────────────────────────────     │\n│ {                                    │ orders: { customer_id: ObjectId(42) }│\n│   order_id: 1,                       │ customers: { _id: ObjectId(42), ... }│\n│   customer: {                        │                                      │\n│     name:  \"Alice\",                  │ Use when:                            │\n│     email: \"a@b.com\"                 │  • Referenced doc is large           │\n│   },                                 │  • Referenced doc changes frequently │\n│   line_items: [                      │  • Many-to-many relationship         │\n│     { product: \"Widget\",             │  • Need to query the referenced doc  │\n│       qty: 2, price: 9.99 }          │    independently                     │\n│   ]                                  │  • Embedding would exceed 16MB lim.  │\n│ }                                    │    (BSON document size limit)        │\n│                                      │                                      │\n│ Use when:                            │                                      │\n│  • One-to-few (e.g. order→line items │                                      │\n│  • Always read together              │                                      │\n│  • Sub-docs updated infrequently     │                                      │\n│  • Single-document atomic update     │                                      │\n│    is sufficient                     │                                      │\n└──────────────────────────────────────┴──────────────────────────────────────┘\n\nThe guiding principle: model data the way your application queries it, not the\nway normalization theory says it should be organized.\n\nBridge: in T-SQL/EF you normalize first and JOIN at query time.\nIn MongoDB you denormalize first and JOIN (embed) at insert time.\nThe write cost is higher; the read cost is lower.",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-9",
+      "kind": "diagram_like",
+      "line": 817,
+      "heading_context": "## 13. Transactions (MongoDB 4.0+)",
+      "confidence": "candidate",
+      "text": "const session = client.startSession();\ntry {\n    await session.withTransaction(async () => {\n        // Both operations succeed or both are rolled back\n        await db.accounts.updateOne(\n            { _id: fromAccountId },\n            { $inc: { balance: -amount } },\n            { session }                       // pass session to ALL operations in txn\n        );\n        await db.accounts.updateOne(\n            { _id: toAccountId },\n            { $inc: { balance: amount } },\n            { session }\n        );\n    });\n} finally {\n    await session.endSession();\n}",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-10",
+      "kind": "ascii_table_candidate",
+      "line": 928,
+      "heading_context": "## 16. Common Confusion Points",
+      "confidence": "candidate",
+      "text": "**ObjectId is not an integer.** The auto-generated `_id` is a 12-byte ObjectId: 4-byte Unix timestamp + 5-byte random + 3-byte counter. It sorts lexicographically by creation time, which makes it a useful de facto timestamp. You can use any unique value as `_id` (string, integer, compound object) — just provide it explicitly on insert.",
+      "notes": [
+        "detected from ASCII table borders or pipe-aligned rows"
+      ]
+    }
+  ]
+}

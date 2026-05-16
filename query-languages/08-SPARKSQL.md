@@ -1,3 +1,22 @@
+---
+maxim_schema: maxim.frontmatter.v1
+id: maxim:query-languages:sparksql
+kind: guide
+module: query-languages
+section: query-languages
+title: Spark SQL + Delta Lake
+status: source-custody
+source_custody: partial
+current_path: query-languages/08-SPARKSQL.md
+canonical_path: query-languages/08-SPARKSQL.md
+backsource_ids: [proof-backfill:query-languages:08-sparksql, git-history:query-languages:08-sparksql]
+concepts: [sparksql]
+root_concepts: [sparksql]
+index_roles: [guide, root-concept]
+remap_from: []
+remap_to: []
+updated: null
+---
 # Spark SQL + Delta Lake
 
 Apache Spark replaced MapReduce as the standard distributed compute engine for big data. Spark SQL is the SQL interface on top — same RDD/DataFrame computation model, different surface. You can write SQL or the DataFrame API and get identical execution plans. Delta Lake adds ACID transactions, time travel, and schema enforcement on top of Parquet files — making Spark suitable for data warehouse workloads, not just batch ETL.
@@ -64,20 +83,20 @@ If you've run a Synapse notebook against an ADLS-backed Delta table, you've alre
 │                                 │  identical execution plan                 │
 │  ┌──────────────────────────────▼───────────────────────────────────────┐   │
 │  │                   Catalyst Query Optimizer                           │   │
-│  │   Parse → Analyze → Optimize → Physical Plan → Codegen (JVM)       │     │
+│  │   Parse → Analyze → Optimize → Physical Plan → Codegen               │   │
 │  │   Rule-based + cost-based optimizations (column pruning, pushdown)   │   │
 │  └──────────────────────────────┬───────────────────────────────────────┘   │
 │                                 │                                           │
 │  ┌──────────────────────────────▼───────────────────────────────────────┐   │
 │  │             Distributed Execution (Driver + Executors)               │   │
-│  │   Stage 1 ──shuffle──► Stage 2 ──shuffle──► Stage 3                │     │
+│  │   Stage 1 → shuffle → Stage 2 → shuffle → Stage 3                    │   │
 │  │   Each stage = DAG of tasks (1 task per partition)                   │   │
 │  └──────────────────────────────┬───────────────────────────────────────┘   │
 │                                 │                                           │
 │  ┌──────────────────────────────▼───────────────────────────────────────┐   │
 │  │      Storage Layer                                                   │   │
 │  │      Delta Lake / Parquet / ORC / JSON / CSV / Avro                  │   │
-│  │      HDFS  /  S3  /  ADLS Gen2  /  GCS                             │     │
+│  │      HDFS / S3 / ADLS Gen2 / GCS                                     │   │
 │  └──────────────────────────────────────────────────────────────────────┘   │
 └──────────────────────────────────────────────────────────────────────────────┘
 

@@ -1,0 +1,397 @@
+{
+  "schema_version": "1",
+  "source_markdown": "query-languages\\00-OVERVIEW.md",
+  "tables": [
+    {
+      "id": "table-1",
+      "line": 90,
+      "heading_context": "## 2. Reading Order for SQL Server Developers",
+      "headers": [
+        "Goal",
+        "Start with",
+        "Then"
+      ],
+      "rows": [
+        [
+          "Modern SQL you're missing (CTEs, window functions, JSON)",
+          "`01-SQL-CORE.md`",
+          "`02-POSTGRESQL.md` for dialect gaps"
+        ],
+        [
+          "PostgreSQL in production (coming from SQL Server)",
+          "`02-POSTGRESQL.md`",
+          "`01-SQL-CORE.md` for ANSI foundations"
+        ],
+        [
+          "KQL / Azure Data Explorer depth",
+          "`03-KQL.md`",
+          "— (you likely know most of it already)"
+        ],
+        [
+          "Spark SQL / Databricks",
+          "`04-SPARK-SQL.md`",
+          "`01-SQL-CORE.md` for ANSI gaps"
+        ],
+        [
+          "BigQuery / Snowflake / cloud DW SQL",
+          "`05-CLOUD-DW.md`",
+          "`04-SPARK-SQL.md` for Databricks overlap"
+        ],
+        [
+          "MongoDB / document query paradigm",
+          "`06-DOCUMENT.md`",
+          "—"
+        ],
+        [
+          "Graph queries (Cypher, SQL/PGQ)",
+          "`07-GRAPH.md`",
+          "—"
+        ],
+        [
+          "Search / Elasticsearch DSL",
+          "`08-SEARCH.md`",
+          "—"
+        ],
+        [
+          "Time-series (InfluxDB, Prometheus)",
+          "`09-TIMESERIES.md`",
+          "—"
+        ]
+      ]
+    },
+    {
+      "id": "table-2",
+      "line": 110,
+      "heading_context": "## 3. Relational Algebra Bridge",
+      "headers": [
+        "RA Symbol",
+        "Operation",
+        "SQL Equivalent",
+        "Notes"
+      ],
+      "rows": [
+        [
+          "σ (sigma)",
+          "Selection",
+          "`WHERE` clause",
+          "Row filter — before aggregation"
+        ],
+        [
+          "π (pi)",
+          "Projection",
+          "`SELECT col1, col2`",
+          "Column filter — eliminates others"
+        ],
+        [
+          "⋈ (bowtie)",
+          "Natural join",
+          "`JOIN ... ON`",
+          "Natural join (on matching names) = rare in SQL; use explicit ON"
+        ],
+        [
+          "×",
+          "Cartesian product",
+          "`CROSS JOIN`",
+          "All n×m combinations"
+        ],
+        [
+          "∪",
+          "Union",
+          "`UNION`",
+          "SQL UNION removes duplicates (set semantics)"
+        ],
+        [
+          "∩",
+          "Intersection",
+          "`INTERSECT`",
+          "Rows in both result sets"
+        ],
+        [
+          "−",
+          "Set difference",
+          "`EXCEPT` (ANSI) / `MINUS` (Oracle)",
+          "Rows in first but not second"
+        ],
+        [
+          "ρ (rho)",
+          "Rename",
+          "`AS alias`",
+          "Column or table alias"
+        ],
+        [
+          "γ (gamma)",
+          "Aggregation",
+          "`GROUP BY` + aggregate functions",
+          "Extended RA — not in Codd's original"
+        ],
+        [
+          "δ",
+          "Duplicate elimination",
+          "`DISTINCT`",
+          "SQL is multiset by default; DISTINCT forces set"
+        ]
+      ]
+    },
+    {
+      "id": "table-3",
+      "line": 155,
+      "heading_context": "## 4. SQL Standards History",
+      "headers": [
+        "Standard",
+        "Year",
+        "Key Additions",
+        "T-SQL circa 2000 had it?"
+      ],
+      "rows": [
+        [
+          "SQL-86 (SQL-87)",
+          "1986",
+          "SELECT, basic JOINs, basic DDL, WHERE",
+          "Yes"
+        ],
+        [
+          "SQL-89",
+          "1989",
+          "Integrity constraints, minor fixes",
+          "Yes"
+        ],
+        [
+          "SQL-92",
+          "1992",
+          "FULL OUTER JOIN, CASE, CAST, string functions, schema DDL, dynamic SQL",
+          "Mostly yes"
+        ],
+        [
+          "SQL:1999 (SQL3)",
+          "1999",
+          "**Recursive CTEs (WITH RECURSIVE)**, triggers, UDTs, BOOLEAN type, OO extensions",
+          "Partial (WITH existed as proprietary in SQL Server 2005+; not in 2000)"
+        ],
+        [
+          "SQL:2003",
+          "2003",
+          "**Window functions (OVER)**, MERGE, SEQUENCE, XML type, identity columns, multiset types",
+          "No — major gap"
+        ],
+        [
+          "SQL:2008",
+          "2008",
+          "TRUNCATE, **FETCH FIRST n ROWS ONLY** (ANSI pagination), INSTEAD OF triggers",
+          "No (T-SQL used TOP n)"
+        ],
+        [
+          "SQL:2011",
+          "2011",
+          "**Temporal tables** (system-versioned + application-time), PERIOD FOR",
+          "No"
+        ],
+        [
+          "SQL:2016",
+          "2016",
+          "**JSON** (JSON_VALUE, JSON_QUERY, JSON_TABLE), row pattern recognition (MATCH_RECOGNIZE)",
+          "No"
+        ],
+        [
+          "SQL:2023",
+          "2023",
+          "**SQL/PGQ** (property graph queries in SQL), UNIQUE predicate, improved JSON, PIPE syntax (preview)",
+          "No"
+        ]
+      ]
+    },
+    {
+      "id": "table-4",
+      "line": 183,
+      "heading_context": "## 5. Data Model Taxonomy",
+      "headers": [
+        "Model",
+        "Structure",
+        "Query Paradigm",
+        "Strengths",
+        "Example Systems"
+      ],
+      "rows": [
+        [
+          "**Relational**",
+          "Tables, rows, columns — normalized",
+          "SQL (set-based, declarative)",
+          "Complex joins, ACID, ad-hoc queries",
+          "PostgreSQL, SQL Server, MySQL, Oracle, SQLite"
+        ],
+        [
+          "**Document**",
+          "JSON/BSON trees — schema-flexible",
+          "MQL / aggregation pipeline / SQL-ish",
+          "Flexible schema, nested data, app-natural shape",
+          "MongoDB, Firestore, CouchDB, DynamoDB (partial)"
+        ],
+        [
+          "**Key-Value**",
+          "Flat key → value (opaque or typed)",
+          "GET/SET/HGET/SCAN commands",
+          "Extreme speed, cache, sessions, counters",
+          "Redis, Memcached, DynamoDB, etcd"
+        ],
+        [
+          "**Column-family**",
+          "Rows → sparse column families",
+          "CQL (Cassandra Query Language)",
+          "Write-heavy, time-series, wide rows, horizontal scale",
+          "Cassandra, HBase, ScyllaDB"
+        ],
+        [
+          "**Graph**",
+          "Nodes + edges + properties",
+          "Cypher, SPARQL, Gremlin, GQL",
+          "Relationship traversal, social graphs, fraud detection",
+          "Neo4j, Neptune, TigerGraph, ArangoDB"
+        ],
+        [
+          "**Time-series**",
+          "Measurements + timestamps + tags",
+          "Flux, InfluxQL, TSQ",
+          "IoT, metrics, downsampling, retention policies",
+          "InfluxDB, TimescaleDB, Prometheus (query: PromQL), VictoriaMetrics"
+        ],
+        [
+          "**Search / Inverted Index**",
+          "Tokenized documents",
+          "Query DSL (JSON), Lucene syntax",
+          "Full-text search, fuzzy match, facets, relevance scoring",
+          "Elasticsearch, OpenSearch, Solr, Typesense"
+        ],
+        [
+          "**Analytical / OLAP**",
+          "Columnar storage + cloud-native",
+          "SQL dialects (BigQuery/Snowflake SQL)",
+          "Aggregation at PB scale, vectorized execution, partitioning",
+          "BigQuery, Snowflake, Databricks, Redshift, DuckDB"
+        ]
+      ]
+    },
+    {
+      "id": "table-5",
+      "line": 230,
+      "heading_context": "## 6. ACID vs BASE vs SAGA",
+      "headers": [
+        "Level",
+        "Dirty Read",
+        "Non-Repeatable Read",
+        "Phantom Read",
+        "Notes"
+      ],
+      "rows": [
+        [
+          "READ UNCOMMITTED",
+          "possible",
+          "possible",
+          "possible",
+          "Sees uncommitted data from other txns; almost never use"
+        ],
+        [
+          "READ COMMITTED",
+          "prevented",
+          "possible",
+          "possible",
+          "Default in PostgreSQL, SQL Server, Oracle"
+        ],
+        [
+          "REPEATABLE READ",
+          "prevented",
+          "prevented",
+          "possible",
+          "Default in MySQL InnoDB; re-read same rows = same values"
+        ],
+        [
+          "SERIALIZABLE",
+          "prevented",
+          "prevented",
+          "prevented",
+          "Transactions appear to run serially; highest cost"
+        ]
+      ]
+    },
+    {
+      "id": "table-6",
+      "line": 346,
+      "heading_context": "## 7. SQL vs NoSQL vs NewSQL — Decision Tree",
+      "headers": [
+        "I need to...",
+        "Use",
+        "Query language"
+      ],
+      "rows": [
+        [
+          "OLTP with complex joins, ACID",
+          "PostgreSQL / SQL Server",
+          "SQL (ANSI / T-SQL / PG dialect)"
+        ],
+        [
+          "Reporting at petabyte scale, cloud-native",
+          "BigQuery / Snowflake / Synapse",
+          "SQL dialect (BQ/Snowflake/T-SQL)"
+        ],
+        [
+          "Local OLAP / analytics without a cloud DW",
+          "DuckDB",
+          "SQL (very ANSI-close)"
+        ],
+        [
+          "Spark/Delta Lake workloads",
+          "Databricks",
+          "Spark SQL"
+        ],
+        [
+          "Schemaless nested JSON documents",
+          "MongoDB",
+          "MQL + aggregation pipeline"
+        ],
+        [
+          "Extreme low-latency cache / session state",
+          "Redis",
+          "Redis commands"
+        ],
+        [
+          "Eventually-consistent wide-column / write-heavy",
+          "Cassandra",
+          "CQL"
+        ],
+        [
+          "Relationship traversal (fraud, social, knowledge)",
+          "Neo4j / Neptune",
+          "Cypher / Gremlin"
+        ],
+        [
+          "Full-text relevance search, facets, fuzzy",
+          "Elasticsearch / OpenSearch",
+          "Query DSL (JSON)"
+        ],
+        [
+          "IoT / metrics / downsampling / retention",
+          "InfluxDB / TimescaleDB",
+          "Flux / InfluxQL / SQL"
+        ],
+        [
+          "Logs, traces, Azure Monitor alerts",
+          "ADX / Azure Monitor",
+          "KQL"
+        ],
+        [
+          "API-layer query over typed schema",
+          "GraphQL",
+          "GraphQL"
+        ],
+        [
+          "REST + filtering over HTTP",
+          "OData",
+          "OData query params"
+        ],
+        [
+          "Distributed SQL (global, multi-region)",
+          "CockroachDB / Spanner / YugabyteDB",
+          "PostgreSQL-compatible SQL"
+        ]
+      ]
+    }
+  ]
+}

@@ -1,0 +1,171 @@
+{
+  "schema_version": "1",
+  "source_markdown": "query-languages\\06-KQL.md",
+  "blocks": [
+    {
+      "id": "block-1",
+      "kind": "ascii_table_candidate",
+      "line": 28,
+      "heading_context": "## 1. BIG PICTURE — KQL in the Azure Ecosystem",
+      "confidence": "candidate",
+      "text": "KQL-powered Azure services:\n\n- Azure Monitor / Log Analytics: AzureActivity, AzureDiagnostics, Heartbeat, SecurityEvent, Perf, ContainerLog, KubeEvents.\n- Application Insights: requests, dependencies, exceptions, traces, customEvents, availResults, pageViews, browserTimings.\n- Microsoft Sentinel: SecurityEvent, SignInLogs, Defender alerts.\n- Azure Data Explorer (ADX): custom tables, IoT telemetry, clickstream, time series, Parquet import.\n\nAll use the same KQL syntax. Differences:\nPer-context behavioral differences — same KQL syntax, different capabilities:\n\n  Feature                      | Log Analytics | App Insights | Sentinel | ADX\n  -----------------------------|---------------|--------------|----------|-----\n  Query timeout                | 10 min        | 10 min       | 30 min   | configurable (default 10 min, up to 1h)\n  Cross-scope functions        | workspace()   | app()        | workspace() + app() | cluster() + database()\n  cluster() function           | No            | No           | No       | Yes (ADX-only)\n  External tables              | No            | No           | No       | Yes\n  Streaming ingestion          | No            | No           | No       | Yes (<10s latency)\n  Materialized views           | No            | No           | No       | Yes\n  Update policies              | No            | No           | No       | Yes\n  Partitioning policies        | No            | No           | No       | Yes\n  Stored functions             | Yes (portal)  | Yes (portal) | Yes      | Yes (.create function)\n  externaldata() operator      | No            | No           | Yes      | Yes\n  datatable() operator         | Yes           | Yes          | Yes (heavy use in detections) | Yes\n  Row-level security           | No            | No           | No       | Yes\n  Ingestion time (latency)     | ~1-5 min      | ~1-5 min     | ~5 min   | batch ~5 min, streaming <10s\n\n┌──────────────────────────────────────────────────────────────┐\n│  Query Entry Points                                          │\n│                                                              │\n│  Azure Portal → Log Analytics workspace → Logs blade         │\n│  Azure Portal → App Insights resource  → Logs / Metrics      │\n│  Azure Portal → Sentinel               → Hunting / Analytics │\n│  ADX Web UI   → cluster.region.kusto.windows.net             │\n│  Grafana       → Azure Monitor data source (KQL queries)     │\n│  VS Code       → Kusto extension                             │\n│  SDK/API       → kusto-ingest / Azure.Data.Kusto (C#/Python) │\n└──────────────────────────────────────────────────────────────┘",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-2",
+      "kind": "diagram_like",
+      "line": 613,
+      "heading_context": "### Advanced Operators — partition, bag_unpack, evaluate",
+      "confidence": "candidate",
+      "text": "// ── partition: run a sub-query independently per partition value ──────────────\n// Critical for per-tenant or per-host analysis: avoids cross-partition aggregation\n// Each partition runs as an independent query; results are unioned\n\nT\n| partition by TenantId\n(\n    top 5 by Duration desc\n)\n// Returns top 5 slowest operations per tenant, independently ranked\n// Without partition: | top 5 by Duration desc gives the global top 5\n\n// Partition with summarize — each partition summarized independently\nRequests\n| where timestamp > ago(1d)\n| partition hint.strategy=native by AppName\n(\n    summarize P99 = percentile(Duration, 99), Total = count()\n    | extend App = AppName\n)\n\n// hint.strategy options:\n//   native    — ADX-native partitioned sub-query (preferred for ADX; not in LA)\n//   legacy    — older shuffle-based strategy\n//   shuffle   — explicit shuffle join semantics\n\n\n// ── bag_unpack: promote dynamic bag keys to first-class columns ───────────────\n// customDimensions in App Insights is dynamic — key set varies per event type\n// bag_unpack pivots it out, one column per key\n\ncustomEvents\n| where timestamp > ago(1h)\n| evaluate bag_unpack(customDimensions)\n// Each key in customDimensions becomes a column in the result\n// Sparse keys get null in rows that don't have them\n\n// Combine with project-away to drop the original dynamic column after unpacking\ncustomEvents\n| evaluate bag_unpack(customDimensions, outputColumnPrefix=\"dim_\")\n| project-away customDimensions\n\n\n// ── evaluate: plugin framework — ADX-specific analytical plugins ──────────────\n// evaluate calls plugins that go beyond what pure KQL can express\n\n// basket: find frequent itemsets (association rule mining)\nT\n| evaluate basket()\n// Returns rows showing which column value combinations appear frequently together\n// Useful for finding correlated failure patterns\n\n// autocluster: find common patterns in a dataset — like automatic WHERE clause suggestions\nExceptions\n| where timestamp > ago(1d)\n| evaluate autocluster()\n// Returns: which attribute combinations explain clusters of exceptions\n\n// diffpatterns: find what's different between two subsets\nRequests\n| where timestamp > ago(1d)\n| evaluate diffpatterns(\n    where ResultCode >= 500,    // \"interesting\" set: failed requests\n    where ResultCode < 500      // \"baseline\" set: successful requests\n  )\n// Returns: which column value combinations appear disproportionately in failures\n\n// narrow: unpivot wide table to (row, col, value) triples — exploratory analysis\nT | evaluate narrow()\n\n// python / r plugins (ADX only, requires enabled sandbox)\nT\n| evaluate python(typeof(result: double),\n    'result = df[\"Value\"].rolling(7).mean()',\n    pack('Value', Value)\n  )",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-3",
+      "kind": "diagram_like",
+      "line": 696,
+      "heading_context": "### Persisted Functions — ADX Stored Functions and Log Analytics Saved Functions",
+      "confidence": "candidate",
+      "text": "// ── ADX stored functions ──────────────────────────────────────────────────────\n// Stored at cluster/database level — callable like a table or UDF\n\n// Create\n.create function\n    with (docstring = \"P99 latency per operation over a lookback window\",\n          folder = \"SLO\")\n    OperationP99(lookback: timespan = 1d) {\n    Requests\n    | where timestamp > ago(lookback)\n    | summarize P99 = percentile(Duration, 99) by Name\n    | order by P99 desc\n}\n\n// Alter (update body while keeping name)\n.alter function OperationP99(lookback: timespan = 1d) {\n    Requests\n    | where timestamp > ago(lookback)\n    | summarize P99 = percentile(Duration, 99), P50 = percentile(Duration, 50) by Name\n    | order by P99 desc\n}\n\n// Call — exactly like a table reference\nOperationP99()\nOperationP99(7d)\n\n// Show all functions in current database\n.show functions\n\n// Drop\n.drop function OperationP99\n\n\n// ── Log Analytics / Sentinel saved functions ──────────────────────────────────\n// Saved via: portal → Log Analytics workspace → Logs → Save as function\n// Callable in queries as a table reference (no parameter support in portal-saved functions)\n\n// In a query:\nworkspace(\"my-workspace\").MyFunctionName\n// or within the same workspace:\nMyFunctionName\n\n// Programmatic creation via REST API (Log Analytics supports parameterized functions via API):\n// PUT /workspaces/{workspaceId}/savedSearches/{id}\n// body: { \"category\": \"Functions\", \"displayName\": \"...\", \"query\": \"...\", \"functionAlias\": \"MyFunc\" }",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-4",
+      "kind": "diagram_like",
+      "line": 752,
+      "heading_context": "## 12. ADX MATERIALIZED VIEWS",
+      "confidence": "candidate",
+      "text": "// ── Create ────────────────────────────────────────────────────────────────────\n.create materialized-view with (backfill=true) RequestsByHour on table Requests\n{\n    Requests\n    | summarize RequestCount = count(), AvgDuration = avg(Duration)\n      by bin(timestamp, 1h), Name\n}\n// backfill=true: processes existing data in the source table (runs as background job)\n// Without backfill: view starts from the time of creation (delta only)\n\n// ── Syntax constraints ────────────────────────────────────────────────────────\n// - Source table must NOT be partitioned (ADX limitation)\n// - The view query must start directly from the source table — no joins or union\n// - Supported aggregations: count, sum, avg, min, max, dcount, make_set, make_list, arg_max, arg_min\n// - The view query must have a summarize as the final operator\n\n// ── Query behavior ────────────────────────────────────────────────────────────\n// Queries against the source table that match the MV pattern are served from the MV:\nRequests\n| summarize count() by bin(timestamp, 1h), Name\n// ADX optimizer: detects match with RequestsByHour MV, serves from precomputed result + delta\n\n// Explicit MV query using materialized_view() function:\nmaterialized_view(\"RequestsByHour\")\n| where timestamp > ago(7d)\n| order by RequestCount desc\n\n// Lookback pattern: combines precomputed MV data with recent delta not yet materialized\nlet MVCutoff = materialized_view(\"RequestsByHour\") | summarize max(timestamp);\nunion\n    materialized_view(\"RequestsByHour\"),\n    (\n        Requests\n        | where timestamp > toscalar(MVCutoff)   // only the delta since last materialization\n        | summarize RequestCount = count(), AvgDuration = avg(Duration)\n          by bin(timestamp, 1h), Name\n    )\n| summarize RequestCount = sum(RequestCount), AvgDuration = avg(AvgDuration)\n  by timestamp, Name\n\n// ── Management ────────────────────────────────────────────────────────────────\n.show materialized-views                          // list all MVs in database\n.show materialized-view RequestsByHour details    // freshness, lag, row count, materialized rows\n.alter materialized-view RequestsByHour autoUpdateSchema=true\n.disable materialized-view RequestsByHour\n.enable  materialized-view RequestsByHour\n.drop    materialized-view RequestsByHour",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-5",
+      "kind": "diagram_like",
+      "line": 816,
+      "heading_context": "## 13. ADX PARTITIONING POLICIES",
+      "confidence": "candidate",
+      "text": "// ── Hash partitioning: for high-cardinality string columns ────────────────────\n// Dramatically improves filter performance on the partition key:\n// TenantId, DeviceId, UserId, AccountId — columns you always filter by\n// ADX collocates rows with the same hash value into the same extents\n// Queries with equality or IN filters on the partition key skip most extents entirely\n\n.alter table Telemetry policy partitioning",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-6",
+      "kind": "diagram_like",
+      "line": 840,
+      "heading_context": "## 13. ADX PARTITIONING POLICIES",
+      "confidence": "candidate",
+      "text": "// MaxPartitionCount: number of hash buckets — higher = better distribution for large tenants\n// Rule of thumb: 128–512 for large tables, start at 128\n\n// ── Uniform range partitioning: for datetime sharding ────────────────────────\n// Ensures rows in a time range land in the same extents\n// Used with timestamp columns when you always query by time range\n.alter table Telemetry policy partitioning",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-7",
+      "kind": "diagram_like",
+      "line": 864,
+      "heading_context": "## 13. ADX PARTITIONING POLICIES",
+      "confidence": "candidate",
+      "text": "// RangeSize: partition granularity — \"1.00:00:00\" = 1 day per partition\n// Combine hash + uniform range for TenantId + time:\n// partition key = (TenantId hash) — time index already handled by extent datetime range\n\n// ── Operational implications ──────────────────────────────────────────────────\n// Partitioning is NOT applied at ingest time — background process reshuffles extents\n// Time to see effect: hours to days depending on data volume and cluster load\n// Monitor progress:\n.show table Telemetry extents\n| summarize count() by ShardId = tostring(ExtentId)\n// Or via the ADX Diagnostics blade in Azure Portal\n\n// Combined hash + range (two partition keys):\n// Supported: one hash key + one uniform range key per table\n// Most common: TenantId (hash) + timestamp (range)\n\n// Show current partitioning policy:\n.show table Telemetry policy partitioning\n\n// Delete policy:\n.delete table Telemetry policy partitioning",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-8",
+      "kind": "diagram_like",
+      "line": 894,
+      "heading_context": "## 14. CROSS-CLUSTER AND CROSS-DATABASE QUERIES",
+      "confidence": "candidate",
+      "text": "// ── Cross-database (same cluster) ────────────────────────────────────────────\n// Access a table in a different database on the same cluster\ndatabase(\"OtherDatabase\").TableName\ndatabase(\"OtherDatabase\").TableName | where timestamp > ago(1h)\n\n// Function call in another database\ndatabase(\"SharedUtils\").MyFunction(arg)\n\n// ── Cross-cluster ─────────────────────────────────────────────────────────────\n// cluster() is ADX-only — not available in Log Analytics\ncluster(\"clustername\").database(\"DatabaseName\").TableName\ncluster(\"clustername.region.kusto.windows.net\").database(\"DatabaseName\").TableName\n\n// Full example: query a prod cluster from a dev cluster\ncluster(\"mycluster-prod.eastus.kusto.windows.net\").database(\"Telemetry\").Requests\n| where timestamp > ago(1h)\n| summarize count() by Name\n\n// ── Federation — union across clusters ───────────────────────────────────────\nunion\n    cluster(\"mycluster-prod.eastus.kusto.windows.net\").database(\"Telemetry\").Requests,\n    cluster(\"mycluster-eu.westeurope.kusto.windows.net\").database(\"Telemetry\").Requests\n| where timestamp > ago(1h)\n| summarize count() by bin(timestamp, 5m), Name\n| render timechart\n\n// Wildcard union across databases on the same cluster:\nunion database(\"*\").Requests\n| where timestamp > ago(1h)\n\n// ── Cross-workspace in Log Analytics (not ADX cluster()) ─────────────────────\nunion\n    workspace(\"workspace-prod\").Requests,\n    workspace(\"workspace-staging\").Requests\n\n// app() for App Insights within the same LA workspace scope:\nunion\n    app(\"myapp-prod\").requests,\n    app(\"myapp-staging\").requests\n\n// ── Performance implications ──────────────────────────────────────────────────\n// Cross-cluster joins are expensive: data must travel across cluster boundaries\n// Rule: push ALL filters before the cross-cluster reference — reduce rows in transit\n\n// BAD: join first, then filter\ncluster(\"prod\").database(\"Telemetry\").Requests\n| join kind=inner (\n    cluster(\"other\").database(\"Dim\").Users\n  ) on UserId\n| where timestamp > ago(1h)     // filter arrives after cross-cluster join — too late\n\n// GOOD: filter at source before join\ncluster(\"prod\").database(\"Telemetry\").Requests\n| where timestamp > ago(1h)     // push filter to source side\n| join kind=inner (\n    cluster(\"other\").database(\"Dim\").Users\n    | where IsActive == true    // filter right side too\n  ) on UserId\n\n// For large cross-cluster joins: use hint.strategy=broadcast if right side is small\ncluster(\"prod\").database(\"Telemetry\").Requests\n| where timestamp > ago(1h)\n| join hint.strategy=broadcast kind=inner (\n    cluster(\"other\").database(\"Dim\").Users | where IsActive == true\n  ) on UserId\n// hint.strategy=broadcast: right side is replicated to all prod cluster nodes\n// avoids sending prod data across the wire — only the small dimension travels",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-9",
+      "kind": "diagram_like",
+      "line": 972,
+      "heading_context": "## 15. ADX UPDATE POLICIES",
+      "confidence": "candidate",
+      "text": "// ── Pattern: raw table → processed table via update policy ───────────────────\n\n// Step 1: Create the raw (landing) table\n.create table RawEvents (RawData: string, IngestTime: datetime)\n\n// Step 2: Create the target (processed) table\n.create table ParsedEvents\n(\n    Timestamp:   datetime,\n    EventType:   string,\n    TenantId:    string,\n    UserId:      string,\n    Properties:  dynamic\n)\n\n// Step 3: Define the transformation function\n.create function ParseRawEvents() {\n    RawEvents\n    | extend parsed = parse_json(RawData)\n    | project\n        Timestamp  = todatetime(parsed.timestamp),\n        EventType  = tostring(parsed.eventType),\n        TenantId   = tostring(parsed.tenantId),\n        UserId     = tostring(parsed.userId),\n        Properties = parsed.properties\n}\n\n// Step 4: Attach the update policy to the target table\n.alter table ParsedEvents policy update",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-10",
+      "kind": "diagram_like",
+      "line": 1014,
+      "heading_context": "## 15. ADX UPDATE POLICIES",
+      "confidence": "candidate",
+      "text": "// IsTransactional: true — both raw ingest and parsed write commit together\n// PropagateIngestionProperties: forward ingest tags/extent tags to target table\n\n// ── Fan-out pattern: one raw event → multiple target tables ──────────────────\n// Attach multiple update policies to different targets, each reading from RawEvents\n// Common: one policy per event type, routing to type-specific tables\n\n.alter table MetricEvents policy update",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-11",
+      "kind": "diagram_like",
+      "line": 1033,
+      "heading_context": "## 15. ADX UPDATE POLICIES",
+      "confidence": "candidate",
+      "text": "\n// ── Show / manage ─────────────────────────────────────────────────────────────\n.show table ParsedEvents policy update\n.alter table ParsedEvents policy update @'[]'   // remove all policies (disable)\n\n// ── Performance gotcha ────────────────────────────────────────────────────────\n// The update policy query runs SYNCHRONOUSLY in the ingestion path\n// If your transformation function is expensive (regex parse, complex extend, lookup join),\n// it will slow down every ingest batch — throughput drops proportionally\n// Rules:\n//   - Keep update policy queries simple: parse_json + project is fine\n//   - Avoid joins in update policies — they block ingestion\n//   - If you need a lookup, pre-materialize the dimension as a static table\n//   - Monitor: .show commands | where CommandType == \"TableUpdatePolicies\"\n//     and watch ingestion latency in the ADX diagnostics blade\n\n// ── Transaction semantics ─────────────────────────────────────────────────────\n// IsTransactional=true: if the update policy query fails, the source ingest also rolls back\n// This ensures raw and processed tables stay in sync — no orphaned raw records\n// IsTransactional=false: source ingest succeeds even if transformation fails\n//   — useful if you want raw data to always land and fix processing failures separately",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-12",
+      "kind": "diagram_like",
+      "line": 1094,
+      "heading_context": "## 17. COMMON APP INSIGHTS PATTERNS",
+      "confidence": "candidate",
+      "text": "// ── Request failure rate over time ─────────────────────────────────────────\nrequests\n| where timestamp > ago(24h)\n| summarize\n    Total    = count(),\n    Failed   = countif(success == false),\n    FailRate = round(100.0 * countif(success == false) / count(), 2)\n  by bin(timestamp, 5m)\n| render timechart\n\n// ── P50 / P95 / P99 latency ────────────────────────────────────────────────\nrequests\n| where timestamp > ago(1h)\n| summarize percentiles(duration, 50, 95, 99) by bin(timestamp, 5m)\n| render timechart\n\n// ── Top slowest operations ─────────────────────────────────────────────────\nrequests\n| where timestamp > ago(1h)\n| top 20 by duration desc\n| project timestamp, name, duration, resultCode, url\n\n// ── Exception count by type ────────────────────────────────────────────────\nexceptions\n| where timestamp > ago(24h)\n| summarize Count = count() by type, outerMessage\n| order by Count desc\n| take 20\n\n// ── Dependency failures (downstream service calls) ─────────────────────────\ndependencies\n| where timestamp > ago(1h)\n| where success == false\n| summarize Count = count() by name, type, target\n| order by Count desc\n\n// ── User journey — trace end-to-end operation ──────────────────────────────\nlet operation_id = \"abc123def456\";\nunion requests, dependencies, exceptions, traces\n| where operation_Id == operation_id\n| order by timestamp asc\n| project timestamp, itemType, name, duration, success, message\n\n// ── Availability by operation ──────────────────────────────────────────────\nrequests\n| where timestamp > ago(7d)\n| summarize\n    Total    = count(),\n    OK       = countif(resultCode < 400),\n    Avail    = round(100.0 * countif(resultCode < 400) / count(), 3)\n  by name\n| where Total > 100                      // ignore low-traffic endpoints\n| order by Avail asc                     // worst first\n\n// ── Custom event funnel ────────────────────────────────────────────────────\ncustomEvents\n| where timestamp > ago(7d)\n| where name in (\"signup_start\", \"signup_email\", \"signup_complete\")\n| extend UserId = tostring(customDimensions.userId)\n| summarize Steps = make_set(name) by UserId\n| extend\n    Started   = array_index_of(Steps, \"signup_start\")   >= 0,\n    Emailed   = array_index_of(Steps, \"signup_email\")   >= 0,\n    Completed = array_index_of(Steps, \"signup_complete\") >= 0\n| summarize\n    StartCount    = countif(Started),\n    EmailCount    = countif(Emailed),\n    CompleteCount = countif(Completed)",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-13",
+      "kind": "diagram_like",
+      "line": 1169,
+      "heading_context": "## 18. COMMON AZURE MONITOR LOG ANALYTICS PATTERNS",
+      "confidence": "candidate",
+      "text": "// ── VM CPU spike detection ─────────────────────────────────────────────────\nPerf\n| where ObjectName == \"Processor\" and CounterName == \"% Processor Time\"\n| where TimeGenerated > ago(1h)\n| summarize AvgCPU = avg(CounterValue), MaxCPU = max(CounterValue)\n    by bin(TimeGenerated, 5m), Computer\n| where MaxCPU > 90\n| render timechart\n\n// ── Failed login brute-force detection ────────────────────────────────────\nSecurityEvent\n| where EventID == 4625                  // Windows failed logon\n| where TimeGenerated > ago(24h)\n| summarize FailCount = count() by Account, IpAddress, Computer\n| where FailCount > 10\n| order by FailCount desc\n\n// ── Kubernetes pod crash loop detection ───────────────────────────────────\nKubeEvents\n| where TimeGenerated > ago(1h)\n| where Reason == \"BackOff\"\n| summarize RestartCount = count() by Name, Namespace, bin(TimeGenerated, 5m)\n| where RestartCount > 3\n\n// ── AKS container log errors ──────────────────────────────────────────────\nContainerLog\n| where TimeGenerated > ago(1h)\n| where LogEntry contains_cs \"ERROR\" or LogEntry contains_cs \"FATAL\"\n| project TimeGenerated, ContainerID, LogEntry\n| order by TimeGenerated desc\n\n// ── Azure resource health summary ─────────────────────────────────────────\nAzureActivity\n| where TimeGenerated > ago(24h)\n| where ActivityStatusValue == \"Failure\"\n| summarize FailCount = count() by ResourceGroup, OperationNameValue\n| order by FailCount desc\n\n// ── Cross-workspace query ──────────────────────────────────────────────────\nunion\n    workspace(\"prod-logs\").Perf,\n    workspace(\"staging-logs\").Perf\n| where TimeGenerated > ago(1h)\n| where CounterName == \"% Processor Time\"\n| summarize avg(CounterValue) by bin(TimeGenerated, 5m), Computer\n| render timechart",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-14",
+      "kind": "diagram_like",
+      "line": 1222,
+      "heading_context": "## 19. SENTINEL HUNTING PATTERNS",
+      "confidence": "candidate",
+      "text": "// ── Impossible travel detection ────────────────────────────────────────────\nSigninLogs\n| where TimeGenerated > ago(1d)\n| where ResultType == 0                  // successful signins\n| project TimeGenerated, UserPrincipalName, Location, IPAddress\n| order by UserPrincipalName asc, TimeGenerated asc\n| serialize                              // required before next/prev functions\n| extend PrevLocation = prev(Location, 1)\n| extend PrevTime     = prev(TimeGenerated, 1)\n| extend PrevUser     = prev(UserPrincipalName, 1)\n| where UserPrincipalName == PrevUser    // same user\n| where Location != PrevLocation        // different location\n| where (TimeGenerated - PrevTime) < 1h // within 1 hour\n\n// ── Rare process execution ─────────────────────────────────────────────────\nSecurityEvent\n| where EventID == 4688                  // process creation\n| where TimeGenerated > ago(7d)\n| summarize ExecutionCount = count() by Process, Computer\n| where ExecutionCount < 5               // rare executions\n| join kind=inner (\n    SecurityEvent\n    | where EventID == 4688\n    | where TimeGenerated > ago(1h)      // recent execution\n    | distinct Process, Computer\n  ) on Process, Computer\n\n// ── TI feed enrichment ─────────────────────────────────────────────────────\nlet malicious_ips = externaldata(IP: string) [@\"https://example.com/threat-feed.csv\"]\n    with (format=\"csv\", ignoreFirstRecord=true);\nSigninLogs\n| where TimeGenerated > ago(1h)\n| where IPAddress in (malicious_ips)\n| project TimeGenerated, UserPrincipalName, IPAddress, Location",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-15",
+      "kind": "ascii_table_candidate",
+      "line": 1366,
+      "heading_context": "## 22. COMMON CONFUSION POINTS",
+      "confidence": "candidate",
+      "text": "┌─────────────────────────────────────┬─────────────────────────────────────────┐\n│  Log Analytics (Azure Monitor)      │  Azure Data Explorer (ADX)              │\n├─────────────────────────────────────┼─────────────────────────────────────────┤\n│  Managed, serverless                │  Dedicated cluster — you size it        │\n│  No cluster management              │  SKU, node count, auto-scale            │\n│                                     │                                         │\n│  INGESTION                          │  INGESTION                              │\n│  DCR-based (Data Collection Rules)  │  Multiple paths:                        │\n│  Batch ~1–5 min latency             │    Batch ingestion: ~5 min latency      │\n│  No streaming ingestion             │    Streaming: <10 sec latency           │\n│                                     │    Event Hub, IoT Hub, ADF, SDK         │\n│  RETENTION                          │  RETENTION                              │\n│  Interactive: 30 days (default)     │  Hot cache: configurable (days)         │\n│  Total: up to 2 years               │  Cold cache: Azure Blob (low cost)      │\n│  Commitment tiers (pay-per-GB or    │  Table-level retention policies         │\n│  capacity reservation)              │  Per-table hot/cold boundary            │\n│                                     │                                         │\n│  QUERY SCOPE                        │  QUERY SCOPE                            │\n│  workspace() for cross-workspace    │  cluster() + database() federation      │\n│  app() for App Insights             │  Cross-cluster joins                    │\n│  No cluster() function              │  External tables (ADLS, blob, SQL)      │\n│                                     │                                         │\n│  ADVANCED FEATURES                  │  ADVANCED FEATURES                      │\n│  No materialized views              │  Materialized views                     │\n│  No update policies                 │  Update policies (ingest-time ETL)      │\n│  No partitioning policies           │  Partitioning policies (hash/range)     │\n│  No row-level security              │  Row-level security                     │\n│  No streaming ingestion             │  Streaming ingestion                    │\n│  No external tables                 │  External tables (query parquet/csv     │\n│                                     │    in ADLS without ingestion)           │\n│  ACCESS CONTROL                     │  ACCESS CONTROL                         │\n│  Workspace-level RBAC               │  Database and table-level RBAC          │\n│  Table-level read permissions (LA)  │  Column-level security                  │\n│                                     │  Row-level security policies            │\n│  COST MODEL                         │  COST MODEL                             │\n│  Pay-per-GB ingested + retention    │  Cluster compute (hourly) + storage     │\n│  Commitment tiers: 100–5000 GB/day  │  Cost dominates at low volume;          │\n│  Break-even vs ADX: ~100 GB/day     │  more cost-effective at high volume     │\n└─────────────────────────────────────┴─────────────────────────────────────────┘",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    }
+  ]
+}
