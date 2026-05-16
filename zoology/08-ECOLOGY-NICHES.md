@@ -1,3 +1,22 @@
+---
+maxim_schema: maxim.frontmatter.v1
+id: maxim:zoology:ecology-niches
+kind: guide
+module: zoology
+section: zoology
+title: Ecology, Niches, and Trophic Roles
+status: source-custody
+source_custody: partial
+current_path: zoology/08-ECOLOGY-NICHES.md
+canonical_path: zoology/08-ECOLOGY-NICHES.md
+backsource_ids: [proof-backfill:zoology:08-ecology-niches, git-history:zoology:08-ecology-niches]
+concepts: [ecology, niches]
+root_concepts: [ecology, niches]
+index_roles: [guide, root-concept]
+remap_from: []
+remap_to: []
+updated: null
+---
 # Ecology, Niches, and Trophic Roles
 
 ## The Big Picture

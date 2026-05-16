@@ -1,3 +1,22 @@
+---
+maxim_schema: maxim.frontmatter.v1
+id: maxim:zoology:behavioral-ecology
+kind: guide
+module: zoology
+section: zoology
+title: Behavioral Ecology and Sociobiology
+status: source-custody
+source_custody: partial
+current_path: zoology/05-BEHAVIORAL-ECOLOGY.md
+canonical_path: zoology/05-BEHAVIORAL-ECOLOGY.md
+backsource_ids: [proof-backfill:zoology:05-behavioral-ecology, git-history:zoology:05-behavioral-ecology]
+concepts: [behavioral, ecology]
+root_concepts: [behavioral, ecology]
+index_roles: [guide, root-concept]
+remap_from: []
+remap_to: []
+updated: null
+---
 # Behavioral Ecology and Sociobiology
 
 ## The Big Picture

@@ -1,3 +1,22 @@
+---
+maxim_schema: maxim.frontmatter.v1
+id: maxim:zoology:body-plans
+kind: guide
+module: zoology
+section: zoology
+title: Body Plans: Symmetry, Segmentation, Coelom
+status: source-custody
+source_custody: partial
+current_path: zoology/02-BODY-PLANS.md
+canonical_path: zoology/02-BODY-PLANS.md
+backsource_ids: [proof-backfill:zoology:02-body-plans, git-history:zoology:02-body-plans]
+concepts: [body, plans]
+root_concepts: [body, plans]
+index_roles: [guide, root-concept]
+remap_from: []
+remap_to: []
+updated: null
+---
 # Body Plans: Symmetry, Segmentation, Coelom
 
 ## The Big Picture

@@ -1,3 +1,22 @@
+---
+maxim_schema: maxim.frontmatter.v1
+id: maxim:planetary-science:exoplanets
+kind: guide
+module: planetary-science
+section: planetary-science
+title: Exoplanet Detection and Demographics
+status: source-custody
+source_custody: partial
+current_path: planetary-science/07-EXOPLANETS.md
+canonical_path: planetary-science/07-EXOPLANETS.md
+backsource_ids: [proof-backfill:planetary-science:07-exoplanets, git-history:planetary-science:07-exoplanets]
+concepts: [exoplanets]
+root_concepts: [exoplanets]
+index_roles: [guide, root-concept]
+remap_from: []
+remap_to: []
+updated: null
+---
 # Exoplanet Detection and Demographics
 
 ## The Big Picture

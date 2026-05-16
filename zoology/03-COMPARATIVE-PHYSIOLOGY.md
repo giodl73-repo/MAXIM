@@ -1,3 +1,22 @@
+---
+maxim_schema: maxim.frontmatter.v1
+id: maxim:zoology:comparative-physiology
+kind: guide
+module: zoology
+section: zoology
+title: Comparative Physiology
+status: source-custody
+source_custody: partial
+current_path: zoology/03-COMPARATIVE-PHYSIOLOGY.md
+canonical_path: zoology/03-COMPARATIVE-PHYSIOLOGY.md
+backsource_ids: [proof-backfill:zoology:03-comparative-physiology, git-history:zoology:03-comparative-physiology]
+concepts: [comparative, physiology]
+root_concepts: [comparative, physiology]
+index_roles: [guide, root-concept]
+remap_from: []
+remap_to: []
+updated: null
+---
 # Comparative Physiology
 
 ## The Big Picture
@@ -298,7 +317,7 @@ NITROGENOUS WASTE COMPARISON
   +------------+----------+------------------+--------------------+
   | Urea       | Mammals, | Moderate         | Less toxic;        |
   |            | amphibians| (excrete in     | soluble; carried   |
-  |            |          | urine)           | in blood; urea cycle|
+  |            |          | urine)           | blood; urea cycle  |
   +------------+----------+------------------+--------------------+
   | Uric acid  | Birds,   | Minimal (paste   | Insoluble; pasty   |
   |            | reptiles,| or dry pellet)   | white excreta;     |

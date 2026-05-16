@@ -1,3 +1,22 @@
+---
+maxim_schema: maxim.frontmatter.v1
+id: maxim:zoology:convergent-evolution
+kind: guide
+module: zoology
+section: zoology
+title: Convergent Evolution: Conway Morris vs Gould
+status: source-custody
+source_custody: partial
+current_path: zoology/06-CONVERGENT-EVOLUTION.md
+canonical_path: zoology/06-CONVERGENT-EVOLUTION.md
+backsource_ids: [proof-backfill:zoology:06-convergent-evolution, git-history:zoology:06-convergent-evolution]
+concepts: [convergent, evolution]
+root_concepts: [convergent, evolution]
+index_roles: [guide, root-concept]
+remap_from: []
+remap_to: []
+updated: null
+---
 # Convergent Evolution: Conway Morris vs Gould
 
 ## The Big Picture

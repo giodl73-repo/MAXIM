@@ -1,3 +1,22 @@
+---
+maxim_schema: maxim.frontmatter.v1
+id: maxim:planetary-science:solar-system-formation
+kind: guide
+module: planetary-science
+section: planetary-science
+title: Solar System Formation: Nice Model and Grand Tack
+status: source-custody
+source_custody: partial
+current_path: planetary-science/01-SOLAR-SYSTEM-FORMATION.md
+canonical_path: planetary-science/01-SOLAR-SYSTEM-FORMATION.md
+backsource_ids: [proof-backfill:planetary-science:01-solar-system-formation, git-history:planetary-science:01-solar-system-formation]
+concepts: [solar, system, formation]
+root_concepts: [solar, system]
+index_roles: [guide, root-concept]
+remap_from: []
+remap_to: []
+updated: null
+---
 # Solar System Formation: Nice Model and Grand Tack
 
 ## The Big Picture

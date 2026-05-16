@@ -1,3 +1,22 @@
+---
+maxim_schema: maxim.frontmatter.v1
+id: maxim:planetary-science:gas-giant-ice-giant
+kind: guide
+module: planetary-science
+section: planetary-science
+title: Giant Planets and Ice Giants
+status: source-custody
+source_custody: partial
+current_path: planetary-science/05-GAS-GIANT-ICE-GIANT.md
+canonical_path: planetary-science/05-GAS-GIANT-ICE-GIANT.md
+backsource_ids: [proof-backfill:planetary-science:05-gas-giant-ice-giant, git-history:planetary-science:05-gas-giant-ice-giant]
+concepts: [gas, giant, ice, giant]
+root_concepts: [gas, giant]
+index_roles: [guide, root-concept]
+remap_from: []
+remap_to: []
+updated: null
+---
 # Giant Planets and Ice Giants
 
 ## The Big Picture

@@ -1,3 +1,22 @@
+---
+maxim_schema: maxim.frontmatter.v1
+id: maxim:planetary-science:small-bodies
+kind: guide
+module: planetary-science
+section: planetary-science
+title: Small Bodies: Asteroids, Comets, and KBOs
+status: source-custody
+source_custody: partial
+current_path: planetary-science/06-SMALL-BODIES.md
+canonical_path: planetary-science/06-SMALL-BODIES.md
+backsource_ids: [proof-backfill:planetary-science:06-small-bodies, git-history:planetary-science:06-small-bodies]
+concepts: [small, bodies]
+root_concepts: [small, bodies]
+index_roles: [guide, root-concept]
+remap_from: []
+remap_to: []
+updated: null
+---
 # Small Bodies: Asteroids, Comets, and KBOs
 
 ## The Big Picture

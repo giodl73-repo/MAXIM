@@ -1,3 +1,22 @@
+---
+maxim_schema: maxim.frontmatter.v1
+id: maxim:zoology:conservation-zoology
+kind: guide
+module: zoology
+section: zoology
+title: Conservation Zoology and Defaunation
+status: source-custody
+source_custody: partial
+current_path: zoology/09-CONSERVATION-ZOOLOGY.md
+canonical_path: zoology/09-CONSERVATION-ZOOLOGY.md
+backsource_ids: [proof-backfill:zoology:09-conservation-zoology, git-history:zoology:09-conservation-zoology]
+concepts: [conservation, zoology]
+root_concepts: [conservation, zoology]
+index_roles: [guide, root-concept]
+remap_from: []
+remap_to: []
+updated: null
+---
 # Conservation Zoology and Defaunation
 
 ## The Big Picture

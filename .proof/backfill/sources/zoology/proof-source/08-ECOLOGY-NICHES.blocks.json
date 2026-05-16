@@ -1,0 +1,105 @@
+{
+  "schema_version": "1",
+  "source_markdown": "zoology\\08-ECOLOGY-NICHES.md",
+  "blocks": [
+    {
+      "id": "block-1",
+      "kind": "diagram_like",
+      "line": 53,
+      "heading_context": "### Hutchinson's Hypervolume",
+      "confidence": "candidate",
+      "text": "HUTCHINSON'S NICHE DEFINITION (1957)\n=======================================\n\nN-DIMENSIONAL HYPERVOLUME:\n  For each environmental variable (temperature, humidity, food size, pH...)\n  species has a tolerance range.\n  NICHE = n-dimensional hypervolume defined by all tolerance ranges simultaneously\n\n  Example: salt marsh sparrow niche\n    Dimension 1: temperature [5-30 C]\n    Dimension 2: salinity [0-15 ppt]\n    Dimension 3: vegetation height [20-80 cm]\n    Dimension 4: invertebrate prey size [3-20mm]\n    ...\n  N-dimensional volume = fundamental niche\n\nFUNDAMENTAL vs REALIZED NICHE:\n  Fundamental: all conditions where species CAN survive/reproduce\n  Realized: conditions where it ACTUALLY lives (constrained by competition)\n  Realized < Fundamental (competition pushes species out of parts of fundamental niche)\n  Remove competitor: realized expands toward fundamental\n    (competitive release: species fills more habitat when competitor removed)\n\nCOMPETITIVE EXCLUSION PRINCIPLE (Gause 1934):\n  Two species with IDENTICAL niches cannot coexist indefinitely\n  -> \"Complete competitors\" cannot coexist\n  One must outcompete the other OR niches must differ\n  (Mathematical basis: Lotka-Volterra competition model)",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-2",
+      "kind": "diagram_like",
+      "line": 86,
+      "heading_context": "### Niche Differentiation and Coexistence",
+      "confidence": "candidate",
+      "text": "NICHE DIFFERENTIATION MECHANISMS\n====================================\n\nFOR COEXISTENCE (modern coexistence theory, Chesson 2000):\n  Equalizing mechanisms: reduce fitness differences between species\n  Stabilizing mechanisms: promote return to equilibrium when disturbed\n  REQUIRED: intraspecific competition > interspecific competition\n    (each species limits itself more than it limits competitors)\n\nRESOURCE PARTITIONING:\n  Species use different subsets of available resources\n  MacArthur's warblers (1958): vertical foraging zone partitioning\n  Character displacement: competing species evolve to minimize overlap\n    Galapagos finch beak: size distribution bimodal in sympatry;\n    unimodal in allopatry -> competition drives divergence\n\nTEMPORAL PARTITIONING:\n  Activity time differences: diurnal vs nocturnal\n    Hawk by day; owl by night -> same prey; temporal partition\n  Seasonal differences: spring vs summer breeders\n\nCHARACTER DISPLACEMENT:\n  Sticklebacks in lakes with both Gasterosteus species:\n    Limnetic species: smaller mouth; feeds on plankton\n    Benthic species: larger mouth; feeds on benthic invertebrates\n    Single-species lakes: intermediate mouth morphology\n  -> Competition drives morphological divergence and ecological specialization",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-3",
+      "kind": "diagram_like",
+      "line": 120,
+      "heading_context": "## Food Webs: Structure and Function",
+      "confidence": "candidate",
+      "text": "FOOD WEB CONCEPTS\n==================\n\nTROPHIC LEVELS:\n  Level 1: Primary producers (plants, algae, cyanobacteria)\n  Level 2: Primary consumers (herbivores; eat producers)\n  Level 3: Secondary consumers (eat herbivores)\n  Level 4: Tertiary consumers (eat secondary consumers)\n  Apex predators: top of food chain; no predators\n\nTROPHIC EFFICIENCY:\n  ~10% energy transferred per trophic level (range: 5-20%)\n  -> 1000 kg plants -> 100 kg herbivores -> 10 kg secondary consumers\n  CONSEQUENCE: food chains rarely exceed 4-5 levels (insufficient energy)\n  Long food chains: marine (more efficient production + low respiration rate)\n  Short food chains: terrestrial (high plant respiration cost)\n\n  WHY 10% EFFICIENCY?\n  ~40% of ingested energy: not assimilated (feces)\n  ~50% of assimilated: respiration (cellular metabolism)\n  ~10%: growth + reproduction (available to next trophic level)\n\nFOOD WEB METRICS:\n  Connectance: proportion of possible links realized\n    Real food webs: ~5-15% connectance (not all possible predator-prey pairs exist)\n  Link density: average links per species\n  Trophic level: calculated (not integer; omnivory common)\n  Keystone species: disproportionate impact relative to biomass",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-4",
+      "kind": "diagram_like",
+      "line": 153,
+      "heading_context": "### Food Web Topology",
+      "confidence": "candidate",
+      "text": "FOOD WEB TYPES\n================\n\nSIMPLE FOOD CHAIN:\n  Grass -> rabbit -> fox -> (nothing eats fox)\n  Assumes: one species per trophic level; no omnivory; linear\n\nREAL FOOD WEBS:\n  Omnivory: species feed at multiple trophic levels (bears, pigs, humans)\n  Trophic loops: A eats B; B eats A (rare but documented in some plankton)\n  Ontogenetic diet shifts: juvenile fish = prey; adult fish = predator\n    (predator-prey relationship inverts over development)\n  Parasites + parasitoids: largely excluded from classic food web models\n    (including them roughly doubles apparent web complexity)\n\nCASCADE MODEL (Cohen & Newman 1985):\n  Species can eat any species with lower \"niche value\"\n  Generates realistic food web statistics\n  Better: allometric constraints (predators eat prey smaller than themselves)\n\nNETWORK ANALYSIS APPLIED TO FOOD WEBS:\n  Degree distribution: power law in some webs (scale-free)\n  Modularity: groups of strongly interacting species (compartments)\n  Keystone: nodes whose removal causes disproportionate restructuring",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-5",
+      "kind": "diagram_like",
+      "line": 184,
+      "heading_context": "## Predator-Prey Dynamics",
+      "confidence": "candidate",
+      "text": "LOTKA-VOLTERRA PREDATOR-PREY MODEL\n=====================================\n\nEQUATIONS:\n  dH/dt = rH - aHP     [Prey: grow (r) minus predation (a*P)]\n  dP/dt = b*aHP - qP   [Predator: grow from prey (b*a*H) minus die (q)]\n\n  H = prey density; P = predator density\n  r = prey intrinsic growth rate\n  a = predation rate (attack efficiency)\n  b = conversion efficiency (prey -> predator)\n  q = predator mortality rate\n\nPREDICTION: NEUTRAL CYCLES\n  Both populations oscillate indefinitely\n  Predator peak follows prey peak by 1/4 cycle\n  Neutrally stable (zero eigenvalues) -> marginal stability\n\nREAL EXAMPLE: Hare-Lynx cycle (Hudson's Bay Company fur records)\n  10-year cycle; lynx follows hare by ~1-2 years\n  NOT pure Lotka-Volterra: food plant also cycles\n    -> 3-trophic-level interaction (plant-hare-lynx)\n  + Hare shows cycle even on islands without lynx\n  -> BOTH predation AND food (bottom-up + top-down) drive cycle\n\nMODIFIED MODELS:\n  Prey logistic growth: ceiling on prey (K); damps cycles -> convergence to equilibrium\n  Functional response: predation rate saturates at high prey density\n    Type II (hyperbolic): c = aH/(1+ahH); saturation by handling time\n    Type III (sigmoid): c = aH^2/(1+ahH^2); prey switching; stabilizing\n  Refugia: fraction of prey inaccessible -> stabilizes (Nicholson-Bailey)",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-6",
+      "kind": "diagram_like",
+      "line": 222,
+      "heading_context": "## Trophic Cascades",
+      "confidence": "candidate",
+      "text": "TROPHIC CASCADES\n=================\n\nDEFINITION: Effect of predator abundance propagates DOWN the food chain\n  Top-down effect: predator reduces prey -> prey's prey increases\n  (alternating positive/negative effects at successive levels)\n\nTHREE-LEVEL CASCADE (Hairston, Smith, Slobodkin 1960 \"Green World Hypothesis\"):\n  WHY IS THE WORLD GREEN?\n    Predators keep herbivores in check\n    -> Herbivores don't eat all plants\n    -> World stays green\n  Evidence: remove predators -> herbivore outbreak -> plant overgrazing\n  Experimental: Isle Royale wolves + moose + birch (partial evidence)\n\nCLASSIC CASES:\n\nSEA OTTER (Enhydra lutris) -- kelp forest:\n  Sea otters eat sea urchins\n  Remove sea otters (fur trade + killer whale predation):\n    Urchin population explodes\n    Urchins overgraze kelp -> \"urchin barrens\"\n    All kelp-dependent species disappear\n  Restore sea otters:\n    Urchin population suppressed\n    Kelp forests recover\n    Marine biodiversity recovers\n  RESULT: sea otter = keystone predator; cascade extends 3 levels\n\nWOLVES IN YELLOWSTONE:\n  Wolf reintroduction (1995): 41 wolves from Canada\n  Effects:\n    Elk: reduced in density; behavior changed (avoid valleys + streams)\n    Willows + aspen: recovery in stream banks (no more elk browsing)\n    Beavers: returned to valleys (willow habitat)\n    Songbirds: returned (willow nesting habitat)\n    Fish: improved (stream bank shade + structure)\n    Bears: benefited from wolf kills (carrion + berry access)\n  \"Trophic cascade\" + \"landscape of fear\" (behaviorally-mediated cascade)\n  Debate: cascade magnitude may be exaggerated (Kauffman 2010)\n    -> effect real but not as dramatic as initial reports\n\nSHARKS AND MESOPREDATORS:\n  Shark decline (~90% in N. Atlantic, overfishing):\n    Cownose rays: primary prey of sharks -> population explosion\n    Rays eat bay scallops + clams\n    Scallop fishery collapse in North Carolina (2004 documented)\n  RESULT: removal of apex predator -> mesopredator release -> prey collapse",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-7",
+      "kind": "diagram_like",
+      "line": 277,
+      "heading_context": "## Keystone Species",
+      "confidence": "candidate",
+      "text": "KEYSTONE SPECIES CONCEPT (Paine 1969)\n=======================================\n\nDEFINITION: Species with ecological impact disproportionate to biomass\n  Remove the keystone: dramatic change in community structure\n  (vs \"dominant\" species: important because of large biomass)\n\nPAINE'S EXPERIMENT:\n  Rocky intertidal; ochre sea star (Pisaster ochraceus) removed from plots\n  Result: mussels (Mytilus) dominated entire area within 1 year\n          15 species -> 8 species; homogeneous community\n  Pisaster (small biomass): kept mussels in check\n              -> allowed diverse community with algae, barnacles, limpets, whelks\n\nKEYSTONE SPECIES TYPES:\n  Predator: Pisaster, sea otter, wolf (above)\n  Engineer: elephants (knock down trees -> create habitat); beavers (dam)\n  Mutualist: fig trees (figs + fig wasps; if figs gone, ~30% tropical species gone)\n  Disperser: large frugivores (hornbills, tapirs, elephants) for large-fruited trees\n\nKEYSTONE CONCEPT PROBLEMS:\n  Not every species is a keystone\n  Identifying keystones requires removal experiments (often unethical)\n  \"Keystone\" applied loosely in popular conservation discourse\n  Better metric: \"interaction strength\" (net per capita effect on community)",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-8",
+      "kind": "diagram_like",
+      "line": 309,
+      "heading_context": "## Niche Theory and Community Assembly",
+      "confidence": "candidate",
+      "text": "COMMUNITY ASSEMBLY RULES\n===========================\n\nASSEMBLY RULES (Diamond 1975):\n  Not all species combinations occur; some are \"forbidden\"\n  Competitive exclusion limits co-occurrence of ecologically similar species\n  Evidence from island bird surveys: assembly not random\n\nNEUTRAL THEORY (Hubbell 2001):\n  Radical null: species ecologically equivalent\n  Community = random walk of birth, death, immigration, speciation\n  Explains species-abundance distributions without niche differentiation\n  Challenge: real communities show niche differentiation (evidence above)\n  Modern view: neutral + niche mechanisms both operate; proportion varies\n\nMETACOMMUNITY THEORY:\n  Community = local + regional (dispersal among patches)\n  Species sorting: local community filtered by environment\n  Patch dynamics: disturbance + colonization\n  Mass effects: immigration maintains sink populations\n  Neutral: dispersal-limited random assembly\n\nSPECIES ABUNDANCE DISTRIBUTIONS:\n  Most communities: many rare species + few abundant species\n  Preston (1948): log-normal distribution fits well\n  Broken stick model (MacArthur 1957): resource partitioning explains\n  Neutral theory: reproduces log-normal without niches\n  -> Both niche and neutral can produce same pattern; not a discriminating test",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-9",
+      "kind": "diagram_like",
+      "line": 344,
+      "heading_context": "## Zoological Roles in Ecosystems",
+      "confidence": "candidate",
+      "text": "FUNCTIONAL ROLES OF ANIMALS IN ECOSYSTEMS\n===========================================\n\nPRIMARY CONSUMERS (herbivores):\n  Transfer plant production to higher trophic levels\n  ~10% efficiency; most plant production goes to decomposers, not herbivores\n  Regulate plant community: grazing prevents competitive dominance\n  Examples: ungulates, insects, zooplankton\n\nSECONDARY CONSUMERS (carnivores):\n  Population regulation of herbivores\n  Energy integration: connect spatially dispersed prey populations\n  Examples: insectivores (birds, bats); piscivores; small mammal predators\n\nAPEX PREDATORS:\n  Trophic cascade effects (above)\n  Landscape of fear: behavioral effects on prey (spatial + temporal)\n  Prey population regulation: often not via direct killing rate\n    -> indirect behavioral suppression is important\n\nDECOMPOSERS:\n  Break down organic matter into inorganic nutrients\n  Mainly: bacteria + fungi (not animals)\n  Animal decomposers (detritivores):\n    Earthworms: soil mixing + fragmentation\n    Dung beetles: dung processing + nitrogen release\n    Vultures: rapid carcass removal (prevent disease spread)\n    Blowfly larvae: carcass processing (see forensic entomology)\n\nNUTRIENT CYCLING ROLES:\n  Salmon (Pacific): transport marine N + P to freshwater + terrestrial\n    Salmon carcasses: 80% of streamside forest N from salmon (Alaska)\n    Grizzly bears: distribute salmon into forest (150m from stream)\n  Whales: \"whale pump\" -- deep feeding + surface defecation\n    -> bring nutrients from deep to photic zone\n  Migratory birds: transport nutrients between ecosystems",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    }
+  ]
+}

@@ -1,3 +1,22 @@
+---
+maxim_schema: maxim.frontmatter.v1
+id: maxim:planetary-science:terrestrial-planets
+kind: guide
+module: planetary-science
+section: planetary-science
+title: Terrestrial Planets: Comparative Planetology
+status: source-custody
+source_custody: partial
+current_path: planetary-science/02-TERRESTRIAL-PLANETS.md
+canonical_path: planetary-science/02-TERRESTRIAL-PLANETS.md
+backsource_ids: [proof-backfill:planetary-science:02-terrestrial-planets, git-history:planetary-science:02-terrestrial-planets]
+concepts: [terrestrial, planets]
+root_concepts: [terrestrial, planets]
+index_roles: [guide, root-concept]
+remap_from: []
+remap_to: []
+updated: null
+---
 # Terrestrial Planets: Comparative Planetology
 
 ## The Big Picture
