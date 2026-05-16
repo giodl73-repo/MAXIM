@@ -1,3 +1,22 @@
+---
+maxim_schema: maxim.frontmatter.v1
+id: maxim:environmental-engineering:overview
+kind: guide
+module: environmental-engineering
+section: environmental-engineering
+title: Environmental Engineering - Landscape Overview
+status: source-custody
+source_custody: partial
+current_path: environmental-engineering/00-OVERVIEW.md
+canonical_path: environmental-engineering/00-OVERVIEW.md
+backsource_ids: [proof-backfill:environmental-engineering:00-overview, git-history:environmental-engineering:00-overview]
+concepts: [overview]
+root_concepts: [overview]
+index_roles: [guide, root-concept]
+remap_from: []
+remap_to: []
+updated: null
+---
 # Environmental Engineering — Landscape Overview
 
 ## The Big Picture

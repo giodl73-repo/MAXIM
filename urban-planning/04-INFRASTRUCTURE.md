@@ -1,3 +1,22 @@
+---
+maxim_schema: maxim.frontmatter.v1
+id: maxim:urban-planning:infrastructure
+kind: guide
+module: urban-planning
+section: urban-planning
+title: Urban Infrastructure Planning and Finance
+status: source-custody
+source_custody: partial
+current_path: urban-planning/04-INFRASTRUCTURE.md
+canonical_path: urban-planning/04-INFRASTRUCTURE.md
+backsource_ids: [proof-backfill:urban-planning:04-infrastructure, git-history:urban-planning:04-infrastructure]
+concepts: [infrastructure]
+root_concepts: [infrastructure]
+index_roles: [guide, root-concept]
+remap_from: []
+remap_to: []
+updated: null
+---
 # Urban Infrastructure Planning and Finance
 
 ## The Big Picture

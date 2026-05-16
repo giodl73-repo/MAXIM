@@ -1,3 +1,22 @@
+---
+maxim_schema: maxim.frontmatter.v1
+id: maxim:environmental-engineering:solid-waste
+kind: guide
+module: environmental-engineering
+section: environmental-engineering
+title: Solid Waste Management
+status: source-custody
+source_custody: partial
+current_path: environmental-engineering/04-SOLID-WASTE.md
+canonical_path: environmental-engineering/04-SOLID-WASTE.md
+backsource_ids: [proof-backfill:environmental-engineering:04-solid-waste, git-history:environmental-engineering:04-solid-waste]
+concepts: [solid, waste]
+root_concepts: [solid, waste]
+index_roles: [guide, root-concept]
+remap_from: []
+remap_to: []
+updated: null
+---
 # Solid Waste Management
 
 ## The Big Picture

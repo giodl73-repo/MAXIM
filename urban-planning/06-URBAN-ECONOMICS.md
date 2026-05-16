@@ -1,3 +1,22 @@
+---
+maxim_schema: maxim.frontmatter.v1
+id: maxim:urban-planning:urban-economics
+kind: guide
+module: urban-planning
+section: urban-planning
+title: Urban Economics
+status: source-custody
+source_custody: partial
+current_path: urban-planning/06-URBAN-ECONOMICS.md
+canonical_path: urban-planning/06-URBAN-ECONOMICS.md
+backsource_ids: [proof-backfill:urban-planning:06-urban-economics, git-history:urban-planning:06-urban-economics]
+concepts: [urban, economics]
+root_concepts: [urban, economics]
+index_roles: [guide, root-concept]
+remap_from: []
+remap_to: []
+updated: null
+---
 # Urban Economics
 
 ## The Big Picture

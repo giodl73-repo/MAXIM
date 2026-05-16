@@ -1,3 +1,22 @@
+---
+maxim_schema: maxim.frontmatter.v1
+id: maxim:urban-planning:smart-cities
+kind: guide
+module: urban-planning
+section: urban-planning
+title: Smart Cities and Urban Technology
+status: source-custody
+source_custody: partial
+current_path: urban-planning/05-SMART-CITIES.md
+canonical_path: urban-planning/05-SMART-CITIES.md
+backsource_ids: [proof-backfill:urban-planning:05-smart-cities, git-history:urban-planning:05-smart-cities]
+concepts: [smart, cities]
+root_concepts: [smart, cities]
+index_roles: [guide, root-concept]
+remap_from: []
+remap_to: []
+updated: null
+---
 # Smart Cities and Urban Technology
 
 ## The Big Picture

@@ -1,3 +1,22 @@
+---
+maxim_schema: maxim.frontmatter.v1
+id: maxim:environmental-engineering:water-treatment
+kind: guide
+module: environmental-engineering
+section: environmental-engineering
+title: Drinking Water Treatment
+status: source-custody
+source_custody: partial
+current_path: environmental-engineering/01-WATER-TREATMENT.md
+canonical_path: environmental-engineering/01-WATER-TREATMENT.md
+backsource_ids: [proof-backfill:environmental-engineering:01-water-treatment, git-history:environmental-engineering:01-water-treatment]
+concepts: [water, treatment]
+root_concepts: [water, treatment]
+index_roles: [guide, root-concept]
+remap_from: []
+remap_to: []
+updated: null
+---
 # Drinking Water Treatment
 
 ## The Big Picture

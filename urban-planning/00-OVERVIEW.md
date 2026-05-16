@@ -1,3 +1,22 @@
+---
+maxim_schema: maxim.frontmatter.v1
+id: maxim:urban-planning:overview
+kind: guide
+module: urban-planning
+section: urban-planning
+title: Urban Planning - The Landscape
+status: source-custody
+source_custody: partial
+current_path: urban-planning/00-OVERVIEW.md
+canonical_path: urban-planning/00-OVERVIEW.md
+backsource_ids: [proof-backfill:urban-planning:00-overview, git-history:urban-planning:00-overview]
+concepts: [overview]
+root_concepts: [overview]
+index_roles: [guide, root-concept]
+remap_from: []
+remap_to: []
+updated: null
+---
 # Urban Planning — The Landscape
 
 ## The Big Picture

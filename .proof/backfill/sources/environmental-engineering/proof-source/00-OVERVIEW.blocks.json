@@ -1,0 +1,94 @@
+{
+  "schema_version": "1",
+  "source_markdown": "environmental-engineering\\00-OVERVIEW.md",
+  "blocks": [
+    {
+      "id": "block-1",
+      "kind": "ascii_table_candidate",
+      "line": 28,
+      "heading_context": "## The Big Picture",
+      "confidence": "candidate",
+      "text": "+------------------------------------------------------------------+\n|              ENVIRONMENTAL ENGINEERING DOMAINS                    |\n|                                                                  |\n|  WATER            WASTEWATER        AIR QUALITY                  |\n|  TREATMENT        TREATMENT         CONTROL                      |\n|  ---------        ----------        -----------                  |\n|  Source water     Primary/          Criteria                     |\n|  coag/floc/sed    secondary/        pollutants (NAAQS)           |\n|  filtration       tertiary          Dispersion modeling          |\n|  Disinfection     Activated sludge  Control tech                 |\n|  Membranes (RO)   Nutrient removal  (ESP/SCR/FGD/baghouse)      |\n|  PFAS/DBPs        Biogas/CHP        Indoor air quality           |\n|  01-WATER-        02-WASTEWATER     03-AIR-QUALITY               |\n|  TREATMENT.md     .md               .md                          |\n+------------------------------------------------------------------+\n|  SOLID/HAZARDOUS  SITE              SUSTAINABILITY                |\n|  WASTE MGMT       REMEDIATION                                    |\n|  ---------------  -----------       ----------------             |\n|  MSW composition  Phase I/II ESA    LCA (ISO 14040)              |\n|  Waste hierarchy  Fate/transport    GHG Protocol                 |\n|  Landfill design  NAPLs/plumes      Scope 1/2/3                  |\n|  Recycling econ   P&T/SVE/ISCO/     Circular economy             |\n|  RCRA Subtitle C  bioremediation    ESG / SBTi                   |\n|  04-SOLID-        05-REMEDIATION    06-SUSTAINABILITY            |\n|  WASTE.md         .md               .md                          |\n+------------------------------------------------------------------+\n  REGULATORY BACKBONE:\n    EPA statutes: SDWA / CWA / CAA / RCRA / CERCLA / TSCA\n    plus state programs.",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-2",
+      "kind": "ascii_table_candidate",
+      "line": 71,
+      "heading_context": "## The Regulatory Backbone",
+      "confidence": "candidate",
+      "text": "+--------+----------------------------+---------------------------+\n| Statute| Governs                    | Key Mechanism             |\n+--------+----------------------------+---------------------------+\n| SDWA   | Drinking water quality     | MCLs — maximum            |\n| 1974   | from source to tap         | contaminant levels        |\n|        |                            | (enforceable health std)  |\n+--------+----------------------------+---------------------------+\n| CWA    | Surface water quality,     | NPDES permits for point   |\n| 1972   | wetlands, dredge/fill      | source discharges;        |\n|        |                            | §404 for wetland fills;   |\n|        |                            | TMDLs for impaired waters |\n+--------+----------------------------+---------------------------+\n| CAA    | Ambient air quality,       | NAAQS (criteria           |\n| 1970   | stationary + mobile        | pollutants); NESHAP for   |\n|        | source emissions           | HAPs; Title V operating   |\n|        |                            | permits; PSD/NSR review   |\n+--------+----------------------------+---------------------------+\n| RCRA   | Solid and hazardous        | Cradle-to-grave manifest; |\n| 1976   | waste at active facilities | generator categories;     |\n|        |                            | TSD facility permits;     |\n|        |                            | land disposal restrictions|\n+--------+----------------------------+---------------------------+\n| CERCLA | Contaminated sites         | NPL listing; strict       |\n| 1980   | (historical releases)      | joint-and-several         |\n|        | \"Superfund\"                | retroactive liability;    |\n|        |                            | ROD cleanup decision      |\n+--------+----------------------------+---------------------------+\n| TSCA   | Chemical substances in     | Pre-manufacture notice    |\n| 1976   | commerce                   | (PMN); PFAS reporting;    |\n|        | (manufacture/import/use)   | risk evaluation and risk  |\n|        |                            | management rules          |\n+--------+----------------------------+---------------------------+",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-3",
+      "kind": "ascii_table_candidate",
+      "line": 162,
+      "heading_context": "## The Fundamental Tool: Mass Balance",
+      "confidence": "candidate",
+      "text": "  Accumulation = Inputs - Outputs + Generation - Consumption\n\n  d(M_sys)/dt = Q_in·C_in - Q_out·C_out + r·V\n\n  Steady state (d/dt = 0):\n  Q_in·C_in + r·V = Q_out·C_out\n\n  +-----------+----------------------------------------+\n  | Domain    | Mass Balance Application               |\n  +-----------+----------------------------------------+\n  | Water Tx  | Contaminant in raw water minus         |\n  |           | removal in each unit process equals    |\n  |           | contaminant in finished water          |\n  +-----------+----------------------------------------+\n  | WWTP      | BOD_in = BOD removed by microbes       |\n  |           |         + BOD in effluent              |\n  +-----------+----------------------------------------+\n  | Air       | SO₂ from stack = SO₂ captured in FGD  |\n  |           |                 + SO₂ to atmosphere    |\n  +-----------+----------------------------------------+\n  | Landfill  | Leachate volume = precip - ET          |\n  |           |                  ± Δ moisture storage  |\n  +-----------+----------------------------------------+\n  | LCA       | Scope 3 = Σ(activity data × EF)       |\n  |           | for all upstream/downstream categories |\n  +-----------+----------------------------------------+",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-4",
+      "kind": "diagram_like",
+      "line": 195,
+      "heading_context": "### Reactor Models",
+      "confidence": "candidate",
+      "text": "  CSTR (completely mixed — ideal):\n    C_out = C_in / (1 + k·τ)      k = first-order rate constant\n                                   τ = V/Q = hydraulic retention time\n\n  PFR (plug flow — ideal):\n    C_out = C_in · exp(-k·τ)\n\n  ENGINEERING BRIDGE — REACTOR MODELS AS SYSTEM ARCHETYPES:\n  ─────────────────────────────────────────────────────────────────\n  CSTR ≡ memoryless system (M/M/1 queue analog)\n    Output depends only on current state, not history.\n    Transfer function: H(s) = 1/(1 + τs)  — first-order lag.\n    Impulse response: exponential decay e^{-t/τ}.\n\n  PFR ≡ deterministic delay line (pure pipeline)\n    Every element spends exactly τ time in the system.\n    Transfer function: H(s) = e^{-τs}  — pure time delay.\n    Impulse response: delta function at t = τ.\n\n  N CSTRs in series → approaches PFR as N → ∞\n    (gamma distribution RTD converges to delta function)\n  ─────────────────────────────────────────────────────────────────\n\n  Real reactors: characterized by tracer tests (RTD — residence time\n  distribution). Most treatment reactors behave between CSTR and PFR.\n  Multiple CSTRs in series approximate PFR behavior.",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-5",
+      "kind": "diagram_like",
+      "line": 234,
+      "heading_context": "## Risk-Based Standards",
+      "confidence": "candidate",
+      "text": "  RISK = HAZARD × EXPOSURE\n\n  Hazard characterization:\n  ├── Carcinogen: cancer slope factor SF (risk per mg/kg-day)\n  └── Non-carcinogen: reference dose RfD (mg/kg-day, no adverse effect)\n\n  Exposure assessment:\n  ├── Pathway: ingestion / inhalation / dermal absorption\n  ├── Average daily dose ADD = C × IR × EF × ED / (BW × AT)\n  │     C  = concentration in medium (mg/L or mg/kg)\n  │     IR = intake rate (L/day or kg/day)\n  │     EF = exposure frequency (days/year)\n  │     ED = exposure duration (years)\n  │     BW = body weight (kg), AT = averaging time (days)\n  └──\n\n  Risk characterization:\n  ├── Cancer risk = ADD × SF          (target: 10⁻⁶ per individual)\n  └── Hazard quotient HQ = ADD / RfD  (target: HQ < 1.0)\n\n  MCL derivation: solve for C given target risk level\n  MCL = target risk / (SF × IR × EF × ED / (BW × AT))",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-6",
+      "kind": "ascii_table_candidate",
+      "line": 271,
+      "heading_context": "## Life Cycle Assessment — The Cross-Cutting Framework",
+      "confidence": "candidate",
+      "text": "  SYSTEM BOUNDARY\n\n  Pipeline: Raw material extraction + processing -> Manufacturing\n  + distribution -> Use-phase operation -> End-of-life disposal /\n  recycling. Each stage feeds into:\n\n    Life Cycle Inventory (LCI):\n      All inputs: energy, water, materials.\n      All outputs: air, water, soil emissions.\n    Life Cycle Impact Assessment (LCIA):\n                    +----------------------------------+\n                    | Climate change    (kg CO₂e)     |\n                    | Acidification     (kg SO₂e)     |\n                    | Eutrophication    (kg PO₄³⁻e)   |\n                    | Human toxicity    (kg 1,4-DCBe) |\n                    | Water scarcity    (m³ eq.)      |\n                    | Land use          (m²·yr)       |\n                    +----------------------------------+",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-7",
+      "kind": "diagram_like",
+      "line": 301,
+      "heading_context": "## Professional Credentials",
+      "confidence": "candidate",
+      "text": "  PE (Professional Engineer)\n  ├── Licensed by state boards (NCEES exams: FE → PE Environmental)\n  ├── Required to stamp/seal design drawings submitted to regulators\n  └── Continuing education required for license renewal\n\n  BCEE (Board Certified Environmental Engineer)\n  ├── AAEE — highest academic/practice recognition in the field\n  ├── Requires PE + practice hours + peer review board examination\n  └── Specialty areas: water, wastewater, air, solid/hazardous waste, remediation\n\n  REM (Registered Environmental Manager)\n  ├── NREP credential — broader environmental management role\n  └── Common in compliance, EHS, and corporate sustainability roles\n\n  CIH (Certified Industrial Hygienist)\n  └── Workplace air quality, occupational exposure — overlaps with IAQ\n      and indoor air quality engineering",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-8",
+      "kind": "ascii_table_candidate",
+      "line": 366,
+      "heading_context": "## Domain Interaction Map",
+      "confidence": "candidate",
+      "text": "  +-------------+      +-------------+      +-------------+\n  | WATER       |      | WASTEWATER  |      | AIR         |\n  | TREATMENT   |      | TREATMENT   |      | QUALITY     |\n  |             |      |             |      |             |\n  | Sludge  ----+----> | (or landfill|      | Generator   |\n  | (alum/iron  |      |  Subtitle D)|      | permits →   |\n  | floc)       |      |             |      | Gaussian    |\n  | Brine/      |      | Biogas  ----+----> | dispersion  |\n  | concentrate |      | (CH₄/CO₂)  |      | analysis    |\n  | from RO --> |      | to CHP or   |      |             |\n  | solid waste |      | flare →     |      | Dust from   |\n  |             |      | air emiss.  |      | landfill →  |\n  +-------------+      +-------------+      | air permit  |\n         |                   |              +-------------+\n         v                   v\n  +-------------+      +-------------+      +-------------+\n  | SOLID       |      | SITE        |      | SUSTAIN-    |\n  | WASTE       |      | REMEDIATION |      | ABILITY     |\n  |             |      |             |      |             |\n  | Leachate ---+----> | Pump-and-   |      | LCA counts  |\n  | collection  |      | treat efflu-|      | ALL domain  |\n  | → WWTP or   |      | ent → WWTP  |      | impacts     |\n  | evap pond   |      | or NPDES    |      | across full |\n  |             |      |             |      | life cycle  |\n  +-------------+      +-------------+      +-------------+",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    }
+  ]
+}
