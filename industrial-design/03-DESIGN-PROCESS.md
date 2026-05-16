@@ -1,3 +1,22 @@
+---
+maxim_schema: maxim.frontmatter.v1
+id: maxim:industrial-design:design-process
+kind: guide
+module: industrial-design
+section: industrial-design
+title: Design Process: Brief to Prototype
+status: source-custody
+source_custody: partial
+current_path: industrial-design/03-DESIGN-PROCESS.md
+canonical_path: industrial-design/03-DESIGN-PROCESS.md
+backsource_ids: [proof-backfill:industrial-design:03-design-process, git-history:industrial-design:03-design-process]
+concepts: [design, process]
+root_concepts: [design, process]
+index_roles: [guide, root-concept]
+remap_from: []
+remap_to: []
+updated: null
+---
 # Design Process: Brief to Prototype
 
 ## The Big Picture

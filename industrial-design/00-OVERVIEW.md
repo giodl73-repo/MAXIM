@@ -1,3 +1,22 @@
+---
+maxim_schema: maxim.frontmatter.v1
+id: maxim:industrial-design:overview
+kind: guide
+module: industrial-design
+section: industrial-design
+title: Industrial Design - Landscape and Taxonomy
+status: source-custody
+source_custody: partial
+current_path: industrial-design/00-OVERVIEW.md
+canonical_path: industrial-design/00-OVERVIEW.md
+backsource_ids: [proof-backfill:industrial-design:00-overview, git-history:industrial-design:00-overview]
+concepts: [overview]
+root_concepts: [overview]
+index_roles: [guide, root-concept]
+remap_from: []
+remap_to: []
+updated: null
+---
 # Industrial Design — Landscape and Taxonomy
 
 ## The Big Picture
@@ -91,13 +110,13 @@ DESIGN      DESIGN      DESIGN      ELECTRON- DEFENSE
 |  CRAFT ERA (pre-1850)                             |
 |  -- Individual craftsmen; no separation of        |
 |     designer and maker                            |
-|  -- Guild-based knowledge transmission           |
-|  -- Machine production = debasement              |
+|  -- Guild-based knowledge transmission            |
+|  -- Machine production = debasement               |
 +---------------------------------------------------+
              |
              v
 +---------------------------------------------------+
-|  ARTS AND CRAFTS MOVEMENT (1880-1920)            |
+|  ARTS AND CRAFTS MOVEMENT (1880-1920)             |
 |  William Morris, John Ruskin (UK)                 |
 |  -- Reaction against industrial mass production   |
 |  -- Handcraft as moral/aesthetic ideal            |
@@ -108,8 +127,8 @@ DESIGN      DESIGN      DESIGN      ELECTRON- DEFENSE
              |
              v
 +---------------------------------------------------+
-|  BAUHAUS (1919-1933, Germany)                    |
-|  Walter Gropius, Mies van der Rohe, Moholy-Nagy  |
+|  BAUHAUS (1919-1933, Germany)                     |
+|  Walter Gropius, Mies van der Rohe, Moholy-Nagy   |
 |  -- Design FOR industrial production (not against)|
 |  -- Unify fine art + craft + industrial technique |
 |  -- Grid, geometry, function determines form      |
@@ -119,7 +138,7 @@ DESIGN      DESIGN      DESIGN      ELECTRON- DEFENSE
              |
              v
 +---------------------------------------------------+
-|  STREAMLINING (1930s, USA)                       |
+|  STREAMLINING (1930s, USA)                        |
 |  Raymond Loewy, Norman Bel Geddes                 |
 |  -- Aerodynamic forms applied to all objects      |
 |  -- (even refrigerators: no aerodynamic benefit)  |
@@ -130,7 +149,7 @@ DESIGN      DESIGN      DESIGN      ELECTRON- DEFENSE
              |
              v
 +---------------------------------------------------+
-|  FUNCTIONALIST CANON (1950s-1970s, Germany)      |
+|  FUNCTIONALIST CANON (1950s-1970s, Germany)       |
 |  Braun, Dieter Rams, Ulm School of Design         |
 |  -- Systematic reduction; "less but better"       |
 |  -- Technology visible through form               |
@@ -139,7 +158,7 @@ DESIGN      DESIGN      DESIGN      ELECTRON- DEFENSE
              |
              v
 +---------------------------------------------------+
-|  POSTMODERN (1970s-1990s)                        |
+|  POSTMODERN (1970s-1990s)                         |
 |  Memphis Group (Sottsass), Italian design         |
 |  -- Rejected functionalism as authoritarian       |
 |  -- Color, wit, decoration, contradiction         |
@@ -148,7 +167,7 @@ DESIGN      DESIGN      DESIGN      ELECTRON- DEFENSE
              |
              v
 +---------------------------------------------------+
-|  DIGITAL + CONTEMPORARY (1990s-)                 |
+|  DIGITAL + CONTEMPORARY (1990s-)                  |
 |  Apple (Ive/Rams lineage), computational design   |
 |  -- Software shapes physical form                 |
 |  -- Platform products; ecosystem design           |

@@ -1,3 +1,22 @@
+---
+maxim_schema: maxim.frontmatter.v1
+id: maxim:marine-biology:open-ocean
+kind: guide
+module: marine-biology
+section: marine-biology
+title: Pelagic Zone and Open Ocean Ecology
+status: source-custody
+source_custody: partial
+current_path: marine-biology/04-OPEN-OCEAN.md
+canonical_path: marine-biology/04-OPEN-OCEAN.md
+backsource_ids: [proof-backfill:marine-biology:04-open-ocean, git-history:marine-biology:04-open-ocean]
+concepts: [open, ocean]
+root_concepts: [open, ocean]
+index_roles: [guide, root-concept]
+remap_from: []
+remap_to: []
+updated: null
+---
 # Pelagic Zone and Open Ocean Ecology
 
 ## The Big Picture

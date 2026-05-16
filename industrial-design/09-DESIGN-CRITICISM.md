@@ -1,3 +1,22 @@
+---
+maxim_schema: maxim.frontmatter.v1
+id: maxim:industrial-design:design-criticism
+kind: guide
+module: industrial-design
+section: industrial-design
+title: Design Criticism and Cultural Theory
+status: source-custody
+source_custody: partial
+current_path: industrial-design/09-DESIGN-CRITICISM.md
+canonical_path: industrial-design/09-DESIGN-CRITICISM.md
+backsource_ids: [proof-backfill:industrial-design:09-design-criticism, git-history:industrial-design:09-design-criticism]
+concepts: [design, criticism]
+root_concepts: [design, criticism]
+index_roles: [guide, root-concept]
+remap_from: []
+remap_to: []
+updated: null
+---
 # Design Criticism and Cultural Theory
 
 ## The Big Picture

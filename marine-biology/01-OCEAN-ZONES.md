@@ -1,3 +1,22 @@
+---
+maxim_schema: maxim.frontmatter.v1
+id: maxim:marine-biology:ocean-zones
+kind: guide
+module: marine-biology
+section: marine-biology
+title: Ocean Zones and Physical Environment
+status: source-custody
+source_custody: partial
+current_path: marine-biology/01-OCEAN-ZONES.md
+canonical_path: marine-biology/01-OCEAN-ZONES.md
+backsource_ids: [proof-backfill:marine-biology:01-ocean-zones, git-history:marine-biology:01-ocean-zones]
+concepts: [ocean, zones]
+root_concepts: [ocean, zones]
+index_roles: [guide, root-concept]
+remap_from: []
+remap_to: []
+updated: null
+---
 # Ocean Zones and Physical Environment
 
 ## The Big Picture

@@ -1,3 +1,22 @@
+---
+maxim_schema: maxim.frontmatter.v1
+id: maxim:marine-biology:chemosynthesis
+kind: guide
+module: marine-biology
+section: marine-biology
+title: Chemosynthesis and Alternative Energy Pathways
+status: source-custody
+source_custody: partial
+current_path: marine-biology/06-CHEMOSYNTHESIS.md
+canonical_path: marine-biology/06-CHEMOSYNTHESIS.md
+backsource_ids: [proof-backfill:marine-biology:06-chemosynthesis, git-history:marine-biology:06-chemosynthesis]
+concepts: [chemosynthesis]
+root_concepts: [chemosynthesis]
+index_roles: [guide, root-concept]
+remap_from: []
+remap_to: []
+updated: null
+---
 # Chemosynthesis and Alternative Energy Pathways
 
 ## The Big Picture

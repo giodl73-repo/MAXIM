@@ -1,3 +1,22 @@
+---
+maxim_schema: maxim.frontmatter.v1
+id: maxim:industrial-design:ergonomics
+kind: guide
+module: industrial-design
+section: industrial-design
+title: Ergonomics and Human Factors
+status: source-custody
+source_custody: partial
+current_path: industrial-design/05-ERGONOMICS.md
+canonical_path: industrial-design/05-ERGONOMICS.md
+backsource_ids: [proof-backfill:industrial-design:05-ergonomics, git-history:industrial-design:05-ergonomics]
+concepts: [ergonomics]
+root_concepts: [ergonomics]
+index_roles: [guide, root-concept]
+remap_from: []
+remap_to: []
+updated: null
+---
 # Ergonomics and Human Factors
 
 ## The Big Picture

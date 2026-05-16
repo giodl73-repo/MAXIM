@@ -1,3 +1,22 @@
+---
+maxim_schema: maxim.frontmatter.v1
+id: maxim:industrial-design:braun-rams
+kind: guide
+module: industrial-design
+section: industrial-design
+title: Braun and Dieter Rams: The Functionalist Canon
+status: source-custody
+source_custody: partial
+current_path: industrial-design/02-BRAUN-RAMS.md
+canonical_path: industrial-design/02-BRAUN-RAMS.md
+backsource_ids: [proof-backfill:industrial-design:02-braun-rams, git-history:industrial-design:02-braun-rams]
+concepts: [braun, rams]
+root_concepts: [braun, rams]
+index_roles: [guide, root-concept]
+remap_from: []
+remap_to: []
+updated: null
+---
 # Braun and Dieter Rams: The Functionalist Canon
 
 ## The Big Picture
