@@ -1,0 +1,58 @@
+{
+  "schema_version": "1",
+  "source_markdown": "energy-systems\\05-GRID-INTEGRATION.md",
+  "tables": [
+    {
+      "id": "table-1",
+      "line": 530,
+      "heading_context": "## Decision Cheat Sheet",
+      "headers": [
+        "If you need to diagnose...",
+        "Start With",
+        "Key Caveat"
+      ],
+      "rows": [
+        [
+          "A frequency-stability claim",
+          "Separate imbalance size, inertia, ROCOF, primary response, fast inverter response, AGC, and load shedding.",
+          "Frequency is a system outcome; no single device \"sets\" it for a large interconnection alone."
+        ],
+        [
+          "A low-inertia claim",
+          "Check online synchronous mass, inverter penetration, grid-forming controls, contingency size, and protection settings.",
+          "Inverters do not provide synchronous inertia by default, but controls can provide fast active-power support."
+        ],
+        [
+          "A duck-curve claim",
+          "Look at net load, ramp rate, minimum generation, curtailment, storage duration, flexible demand, and transmission export.",
+          "Four-hour batteries often help; they are not the universal fix for every renewable-integration problem."
+        ],
+        [
+          "An HVDC proposal",
+          "Diagnose distance, cable vs overhead, asynchronous tie, controllability, converter cost, losses, and outage consequences.",
+          "HVDC is valuable for specific transfer problems, not a default replacement for meshed AC grids."
+        ],
+        [
+          "A market-integration claim",
+          "Separate LMP, capacity/resource adequacy, ancillary services, congestion, negative prices, and local rules.",
+          "Market signals can reveal constraints, but they do not by themselves build transmission or flexibility."
+        ],
+        [
+          "An ELCC/resource-adequacy claim",
+          "Model penetration, coincidence with peak, weather correlation, storage pairing, forced outages, and neighboring imports.",
+          "Marginal ELCC declines as similar resources saturate the same hours."
+        ],
+        [
+          "A DER/VPP claim",
+          "Check aggregation telemetry, dispatch authority, customer opt-out, baseline method, distribution constraints, and FERC/state rules.",
+          "Wholesale participation still has to respect distribution-grid physics."
+        ],
+        [
+          "A 100% clean-grid claim",
+          "Compare firm clean generation, LDES, transmission, demand flexibility, overbuild, curtailment, and reliability standard.",
+          "There is no consensus single completion resource; portfolios close the last gap."
+        ]
+      ]
+    }
+  ]
+}

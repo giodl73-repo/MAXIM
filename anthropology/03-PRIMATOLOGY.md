@@ -1,3 +1,22 @@
+---
+maxim_schema: maxim.frontmatter.v1
+id: maxim:anthropology:primatology
+kind: guide
+module: anthropology
+section: anthropology
+title: Primatology
+status: source-custody
+source_custody: partial
+current_path: anthropology/03-PRIMATOLOGY.md
+canonical_path: anthropology/03-PRIMATOLOGY.md
+backsource_ids: [proof-backfill:anthropology:03-primatology, git-history:anthropology:03-primatology]
+concepts: [primatology]
+root_concepts: [primatology]
+index_roles: [guide, root-concept]
+remap_from: []
+remap_to: []
+updated: null
+---
 # Primatology
 
 ## The Big Picture

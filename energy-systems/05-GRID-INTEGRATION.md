@@ -1,3 +1,22 @@
+---
+maxim_schema: maxim.frontmatter.v1
+id: maxim:energy-systems:grid-integration
+kind: guide
+module: energy-systems
+section: energy-systems
+title: Grid Integration of Variable Renewables
+status: source-custody
+source_custody: partial
+current_path: energy-systems/05-GRID-INTEGRATION.md
+canonical_path: energy-systems/05-GRID-INTEGRATION.md
+backsource_ids: [proof-backfill:energy-systems:05-grid-integration, git-history:energy-systems:05-grid-integration]
+concepts: [grid, integration]
+root_concepts: [grid, integration]
+index_roles: [guide, root-concept]
+remap_from: []
+remap_to: []
+updated: null
+---
 # Grid Integration of Variable Renewables
 
 ## The Big Picture

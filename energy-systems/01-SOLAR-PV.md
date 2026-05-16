@@ -1,3 +1,22 @@
+---
+maxim_schema: maxim.frontmatter.v1
+id: maxim:energy-systems:solar-pv
+kind: guide
+module: energy-systems
+section: energy-systems
+title: Solar Photovoltaics
+status: source-custody
+source_custody: partial
+current_path: energy-systems/01-SOLAR-PV.md
+canonical_path: energy-systems/01-SOLAR-PV.md
+backsource_ids: [proof-backfill:energy-systems:01-solar-pv, git-history:energy-systems:01-solar-pv]
+concepts: [solar, pv]
+root_concepts: [solar, pv]
+index_roles: [guide, root-concept]
+remap_from: []
+remap_to: []
+updated: null
+---
 # Solar Photovoltaics
 
 ## The Big Picture

@@ -1,3 +1,22 @@
+---
+maxim_schema: maxim.frontmatter.v1
+id: maxim:energy-systems:energy-storage
+kind: guide
+module: energy-systems
+section: energy-systems
+title: Energy Storage
+status: source-custody
+source_custody: partial
+current_path: energy-systems/03-ENERGY-STORAGE.md
+canonical_path: energy-systems/03-ENERGY-STORAGE.md
+backsource_ids: [proof-backfill:energy-systems:03-energy-storage, git-history:energy-systems:03-energy-storage]
+concepts: [energy, storage]
+root_concepts: [energy, storage]
+index_roles: [guide, root-concept]
+remap_from: []
+remap_to: []
+updated: null
+---
 # Energy Storage
 
 ## The Big Picture

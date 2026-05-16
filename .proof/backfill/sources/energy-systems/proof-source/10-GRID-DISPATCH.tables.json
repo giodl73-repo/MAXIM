@@ -1,0 +1,131 @@
+{
+  "schema_version": "1",
+  "source_markdown": "energy-systems\\10-GRID-DISPATCH.md",
+  "tables": [
+    {
+      "id": "table-1",
+      "line": 657,
+      "heading_context": "## Bridges — Grid Dispatch to Computing Systems",
+      "headers": [
+        "Grid Dispatch Concept",
+        "Computing Systems Parallel"
+      ],
+      "rows": [
+        [
+          "Merit order (cheapest generator first)",
+          "Priority queue scheduler (lowest-cost job first)"
+        ],
+        [
+          "Unit commitment (binary on/off + continuous output)",
+          "Container orchestration (spin up/down + autoscale within)"
+        ],
+        [
+          "Startup cost ($50K-500K per gas turbine start)",
+          "Cold start penalty (container image pull + initialization)"
+        ],
+        [
+          "Minimum up/down time (can't cycle freely)",
+          "Minimum instance lifetime (avoid thrashing)"
+        ],
+        [
+          "SCUC (security-constrained unit commitment)",
+          "Constraint-aware scheduling (CPU/memory/network limits)"
+        ],
+        [
+          "N-1 contingency (survive any single failure)",
+          "N+1 redundancy (survive any single node failure)"
+        ],
+        [
+          "BESS dispatch (charge/discharge optimization)",
+          "Cache management (prefetch/evict strategy)"
+        ],
+        [
+          "Degradation-aware dispatch (limit cycling)",
+          "SSD wear leveling (limit write amplification)"
+        ],
+        [
+          "Curtailment (discard excess VRE output)",
+          "Backpressure / load shedding (discard when queue full)"
+        ],
+        [
+          "Demand response (shift flexible load)",
+          "Batch job scheduling (run when resources cheap/available)"
+        ],
+        [
+          "Scarcity pricing (high price when reserves thin)",
+          "Spot instance pricing (price rises with demand)"
+        ],
+        [
+          "Dark doldrums (extended VRE shortfall)",
+          "Extended outage / disaster recovery scenario"
+        ],
+        [
+          "LCOE cannibalization (more VRE → lower VRE revenue)",
+          "Commoditization (more supply → lower per-unit revenue)"
+        ]
+      ]
+    },
+    {
+      "id": "table-2",
+      "line": 677,
+      "heading_context": "## Decision Cheat Sheet",
+      "headers": [
+        "If you need to diagnose...",
+        "Start With",
+        "Key Caveat"
+      ],
+      "rows": [
+        [
+          "Merit-order claim",
+          "Marginal cost stack for the next interval",
+          "Greedy dispatch ignores startup, ramping, reserves, and transmission"
+        ],
+        [
+          "Unit-commitment claim",
+          "Binary on/off variables plus inter-temporal constraints",
+          "Commitment is solved before real-time dispatch and under uncertainty"
+        ],
+        [
+          "Clearing-price claim",
+          "Marginal dispatched resource at a location/time",
+          "Congestion and losses create nodal price differences"
+        ],
+        [
+          "VRE price suppression",
+          "Near-zero marginal cost and must-take incentives",
+          "Low prices are a signal; persistent low prices expose flexibility shortage"
+        ],
+        [
+          "BESS revenue claim",
+          "Arbitrage, ancillary services, capacity, and degradation",
+          "Revenue stacking is constrained by state of charge and market rules"
+        ],
+        [
+          "Seasonal-storage claim",
+          "Duration cost, self-discharge, and event frequency",
+          "Li-ion is power-flexible; molecules/reservoirs fit long duration better"
+        ],
+        [
+          "Missing-money claim",
+          "Energy-only revenue vs firm-capacity adequacy",
+          "Scarcity pricing, capacity markets, and reliability products solve it differently"
+        ],
+        [
+          "Data-center DR claim",
+          "Workload criticality, latency, and carbon/price signal",
+          "Batch jobs can move; interactive serving often cannot"
+        ],
+        [
+          "Curtailment claim",
+          "Marginal value of storage/transmission vs spilled MWh",
+          "Some curtailment is optimal; zero curtailment is overbuilt infrastructure"
+        ],
+        [
+          "Dark-doldrum claim",
+          "Weather correlation, interconnection, firm capacity, and long-duration storage",
+          "No single asset solves multi-day regional scarcity"
+        ]
+      ]
+    }
+  ]
+}

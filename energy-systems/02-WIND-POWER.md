@@ -1,3 +1,22 @@
+---
+maxim_schema: maxim.frontmatter.v1
+id: maxim:energy-systems:wind-power
+kind: guide
+module: energy-systems
+section: energy-systems
+title: Wind Power
+status: source-custody
+source_custody: partial
+current_path: energy-systems/02-WIND-POWER.md
+canonical_path: energy-systems/02-WIND-POWER.md
+backsource_ids: [proof-backfill:energy-systems:02-wind-power, git-history:energy-systems:02-wind-power]
+concepts: [wind, power]
+root_concepts: [wind, power]
+index_roles: [guide, root-concept]
+remap_from: []
+remap_to: []
+updated: null
+---
 # Wind Power
 
 ## The Big Picture

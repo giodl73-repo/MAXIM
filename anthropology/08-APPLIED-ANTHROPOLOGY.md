@@ -1,3 +1,22 @@
+---
+maxim_schema: maxim.frontmatter.v1
+id: maxim:anthropology:applied-anthropology
+kind: guide
+module: anthropology
+section: anthropology
+title: Applied Anthropology
+status: source-custody
+source_custody: partial
+current_path: anthropology/08-APPLIED-ANTHROPOLOGY.md
+canonical_path: anthropology/08-APPLIED-ANTHROPOLOGY.md
+backsource_ids: [proof-backfill:anthropology:08-applied-anthropology, git-history:anthropology:08-applied-anthropology]
+concepts: [applied, anthropology]
+root_concepts: [applied, anthropology]
+index_roles: [guide, root-concept]
+remap_from: []
+remap_to: []
+updated: null
+---
 # Applied Anthropology
 
 ## The Big Picture

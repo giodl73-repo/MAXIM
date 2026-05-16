@@ -1,3 +1,22 @@
+---
+maxim_schema: maxim.frontmatter.v1
+id: maxim:energy-systems:hydrogen
+kind: guide
+module: energy-systems
+section: energy-systems
+title: Hydrogen Economy
+status: source-custody
+source_custody: partial
+current_path: energy-systems/04-HYDROGEN.md
+canonical_path: energy-systems/04-HYDROGEN.md
+backsource_ids: [proof-backfill:energy-systems:04-hydrogen, git-history:energy-systems:04-hydrogen]
+concepts: [hydrogen]
+root_concepts: [hydrogen]
+index_roles: [guide, root-concept]
+remap_from: []
+remap_to: []
+updated: null
+---
 # Hydrogen Economy
 
 ## The Big Picture

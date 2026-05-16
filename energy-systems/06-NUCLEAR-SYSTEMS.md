@@ -1,3 +1,22 @@
+---
+maxim_schema: maxim.frontmatter.v1
+id: maxim:energy-systems:nuclear-systems
+kind: guide
+module: energy-systems
+section: energy-systems
+title: Nuclear Energy Systems
+status: source-custody
+source_custody: partial
+current_path: energy-systems/06-NUCLEAR-SYSTEMS.md
+canonical_path: energy-systems/06-NUCLEAR-SYSTEMS.md
+backsource_ids: [proof-backfill:energy-systems:06-nuclear-systems, git-history:energy-systems:06-nuclear-systems]
+concepts: [nuclear, systems]
+root_concepts: [nuclear, systems]
+index_roles: [guide, root-concept]
+remap_from: []
+remap_to: []
+updated: null
+---
 # Nuclear Energy Systems
 
 ## The Big Picture

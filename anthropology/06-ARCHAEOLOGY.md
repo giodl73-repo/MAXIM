@@ -1,3 +1,22 @@
+---
+maxim_schema: maxim.frontmatter.v1
+id: maxim:anthropology:archaeology
+kind: guide
+module: anthropology
+section: anthropology
+title: Archaeology
+status: source-custody
+source_custody: partial
+current_path: anthropology/06-ARCHAEOLOGY.md
+canonical_path: anthropology/06-ARCHAEOLOGY.md
+backsource_ids: [proof-backfill:anthropology:06-archaeology, git-history:anthropology:06-archaeology]
+concepts: [archaeology]
+root_concepts: [archaeology]
+index_roles: [guide, root-concept]
+remap_from: []
+remap_to: []
+updated: null
+---
 # Archaeology
 
 ## The Big Picture

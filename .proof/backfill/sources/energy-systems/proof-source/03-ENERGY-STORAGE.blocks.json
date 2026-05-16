@@ -1,0 +1,171 @@
+{
+  "schema_version": "1",
+  "source_markdown": "energy-systems\\03-ENERGY-STORAGE.md",
+  "blocks": [
+    {
+      "id": "block-1",
+      "kind": "diagram_like",
+      "line": 29,
+      "heading_context": "## The Big Picture",
+      "confidence": "candidate",
+      "text": "ENGINEERING BRIDGE: ENERGY STORAGE ≡ MEMORY/CACHE HIERARCHY\n══════════════════════════════════════════════════════════════════════\n\nENERGY TIER                     COMPUTING ANALOG\n──────────────────────────────────────────────────────────────────────\nFlywheels / supercapacitors     CPU L1/L2 cache\n  ms–seconds, expensive/W       → fast, small, expensive/byte\n  Power quality, freq response  → register/cache for hot-path data\n\nLi-ion BESS (4–12 hours)        RAM / SSD buffer\n  Daily cycling, moderate cost   → medium-speed, medium-cost\n  Duck curve peak shifting       → temporal locality (daily patterns)\n\nPumped hydro (days–weeks)       Distributed object storage\n  Geography-constrained, cheap   → large, slow, geo-distributed\n  100,000+ cycle lifetime        → durable, low-cost per unit\n\nHydrogen seasonal (weeks–months) Tape / cold archive\n  30% round-trip efficiency       → high latency, low cost per TB\n  Only justified for bulk/season  → only justified for bulk archival\n\nKEY INSIGHT: No single tier covers the full range. Optimal systems\nlayer multiple tiers — the same lesson as the memory hierarchy.\nA 4-hour BESS handles temporal locality (solar peaks daily);\nseasonal hydrogen handles global temporal gaps (winter dark doldrums).\n══════════════════════════════════════════════════════════════════════",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-2",
+      "kind": "diagram_like",
+      "line": 58,
+      "heading_context": "## The Big Picture",
+      "confidence": "candidate",
+      "text": "STORAGE APPLICATION LANDSCAPE (duration vs power)\n\n  Duration\n  │\n  Seasonal│  ╔═══════════════════════════════════╗\n  (weeks) │  ║  Pumped hydro (large, geography)  ║\n          │  ║  H₂ (electrolysis + fuel cell)    ║\n          │  ║  Iron-air battery (Form Energy)   ║\n  4-24 hr │  ╠═══════════════════════════════════╬═══════════════╗\n          │  ║  Li-ion BESS (4h standard)        ║               ║\n          │  ║  Vanadium flow battery            ║  Pumped hydro ║\n          │  ║  Compressed air (CAES)            ║  (4-8h daily) ║\n  1-4 hr  │  ╠═══════════════════════════════════╬═══════════════╣\n          │  ║  Li-ion (2h peak shaving)         ║               ║\n          │  ║  Thermal storage (ice/molten salt)║               ║\n  minutes │  ╠═══════════════════════════════════╣               ║\n          │  ║  Flywheel                         ║               ║\n          │  ║  Supercapacitor                   ║               ║\n  seconds │  ╠═══════════════════════════════════╣               ║\n          │  ║  Battery FFR (fast freq response) ║               ║\n          └──╨───────────────────────────────────╨───────────────╨──\n             kW          MW          GW                   Power\n\n  Frequency regulation:   MW × seconds\n  Peak shifting:          GW × 4 hours\n  Seasonal storage:       TW × weeks",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-3",
+      "kind": "diagram_like",
+      "line": 94,
+      "heading_context": "## Pumped Hydro — The Incumbent",
+      "confidence": "candidate",
+      "text": "  PUMPED HYDRO SCHEMATIC:\n\n  ┌─────────────────────────────────────────────────────────────┐\n  │                 UPPER RESERVOIR                             │\n  │                 ~100-500 m elevation                        │\n  └─────────────┬───────────────────────────────────────────────┘\n                │  Penstock (high-pressure pipe)\n                │\n  ┌─────────────▼───────────────────────────────────────────────┐\n  │  POWERHOUSE                                                 │\n  │  ┌────────────────────────────────────────────────────────┐ │\n  │  │  Pump-turbine (reversible Francis turbine)             │ │\n  │  │  Motor-generator (reversible)                          │ │\n  │  └────────────────────────────────────────────────────────┘ │\n  └─────────────┬───────────────────────────────────────────────┘\n                │\n  ┌─────────────▼───────────────────────────────────────────────┐\n  │                 LOWER RESERVOIR                             │\n  └─────────────────────────────────────────────────────────────┘\n\n  Operation:\n    Charging (pump mode):   Cheap electricity → pump water uphill → store PE\n    Discharging (turbine):  Water flows down → drives turbine → generates electricity\n\n  Round-trip efficiency: ~78-85%\n    Pump efficiency: ~85-92%\n    Turbine efficiency: ~92-95%\n    Combined: 0.88 × 0.93 = ~82%\n\n  Key metrics:\n    Energy stored: E = m × g × h × η\n      where m = mass of water (kg), g = 9.8 m/s², h = head (m), η = efficiency\n    Specific energy: ~0.001 MJ/L (water at 100m head) — very low volumetric density\n    Asset life: 50-100 years (the longest-lived energy infrastructure)\n    LCOS: $5-15/MWh (at scale, already-built) — very competitive for 8+ hour storage\n\n  Geography constraint: requires significant elevation difference AND water supply\n    Closed-loop: no river connection, circulates same water (less environmental impact)\n    Open-loop: uses river flow (regulated as water right)\n\n  Global installed: ~170 GW (~1,500 GWh at 9h average)\n  Pipeline: ~150 GW under development (mostly China, Australia, EU)",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-4",
+      "kind": "diagram_like",
+      "line": 153,
+      "heading_context": "### Cathode Chemistry Comparison",
+      "confidence": "candidate",
+      "text": "  Li-ion cell: cathode | separator (electrolyte) | anode (graphite usually)\n\n  CATHODE CHEMISTRIES:\n\n  ┌────────────┬──────────────────────────────────────────────────────────┐\n  │  NMC       │  LiNiMnCoO₂ (Nickel Manganese Cobalt)                    │\n  │            │  Energy density: HIGH (200-250 Wh/kg cell)               │\n  │            │  NMC 811 (80% Ni, 10% Mn, 10% Co): highest density       │\n  │            │  NMC 622, 532: lower Ni, more stable, less energy        │\n  │            │  Cycle life: 1,000-3,000 cycles                          │\n  │            │  Thermal runway: moderate risk (above ~150°C)            │\n  │            │  Use: EVs (most Tesla, BMW, Hyundai), some grid storage  │\n  ├────────────┼──────────────────────────────────────────────────────────┤\n  │  LFP        │  LiFePO₄ (Lithium Iron Phosphate)                       │\n  │            │  Energy density: LOWER (140-160 Wh/kg cell)              │\n  │            │  Thermal runaway: very hard to trigger (>250°C)          │\n  │            │  Cycle life: 3,000-10,000+ cycles                        │\n  │            │  Cost: cheaper (no Ni, no Co)                            │\n  │            │  Use: DOMINANT for utility-scale BESS; Tesla LFP EV packs│\n  │            │  China: ~85% of grid BESS is LFP                         │\n  ├────────────┼──────────────────────────────────────────────────────────┤\n  │  NCA       │  LiNiCoAlO₂ (Nickel Cobalt Aluminum)                     │\n  │            │  Energy density: HIGHEST (250-300 Wh/kg cell)            │\n  │            │  Tesla 4680 cells use NCA variant                        │\n  │            │  Thermal stability: lower (careful BMS required)         │\n  │            │  Use: cylindrical cells for premium EVs                  │\n  ├────────────┼──────────────────────────────────────────────────────────┤\n  │  LMFP       │  LiMnFePO₄ (Manganese-enhanced LFP)                    │\n  │            │  Energy density: ~30% higher than LFP (190-200 Wh/kg)   │\n  │            │  Safety: similar to LFP                                  │\n  │            │  Status: entering production 2024-2025 (CATL, BYD)       │\n  └────────────┴──────────────────────────────────────────────────────────┘\n\n  SUMMARY:\n  Grid storage → LFP (safety + cycle life > density; lower $/kWh)\n  Premium EVs  → NMC 811 or NCA (density matters for range)\n  Stationary (data centers) → LFP (safety, cycle life, cost)",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-5",
+      "kind": "diagram_like",
+      "line": 195,
+      "heading_context": "### Degradation Mechanisms",
+      "confidence": "candidate",
+      "text": "  CAPACITY FADE OVER LIFE:\n\n  SEI (Solid Electrolyte Interphase) Growth:\n  • Passivation layer forms on graphite anode\n  • Grows slowly, consuming lithium irreversibly\n  • Calendar aging (temperature-driven) + cycling\n  • Main cause of capacity fade over years\n\n  Lithium Plating:\n  • Occurs at high charge rates (high C-rate) or low temperatures\n  • Li metal deposits on anode instead of intercalating into graphite\n  • Creates dendrites → can cause short circuits → thermal runaway risk\n  • BMS limits: min charge temperature, max C-rate\n\n  Cathode Particle Cracking:\n  • Volume changes during cycling cause mechanical stress\n  • NMC 811: higher Ni = more volume change = more cracking\n  • LFP: very small volume change → excellent cycle life\n\n  Electrolyte Decomposition:\n  • At high voltages or temperatures: electrolyte oxidizes\n  • Produces gas (venting, swelling)\n\n  C-RATE:\n  1C rate = full charge/discharge in 1 hour\n  2C = 30 minutes; 0.5C = 2 hours\n  LFP utility BESS: typically operates at 0.25C (4-hour discharge)\n  Fast charging (EV): 2-5C at DC fast charger\n  High C-rate → more heat → accelerated degradation",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-6",
+      "kind": "ascii_table_candidate",
+      "line": 229,
+      "heading_context": "### Grid-Scale BESS Architecture",
+      "confidence": "candidate",
+      "text": "  UTILITY-SCALE BESS (e.g., 100 MW / 400 MWh, 4-hour system):\n\n  ┌────────────────────────────────────────────────────────────────┐\n  │  MODULE (10-30 kWh):    cells → module (pack of cells)         │\n  │  RACK (100-300 kWh):    modules → 19\" or custom rack           │\n  │  CONTAINER (2-4 MWh):   racks → shipping container unit        │\n  │  BLOCK (4-20 MW):       containers + inverters + transformer   │\n  │  SITE:                  multiple blocks → substation → grid    │\n  └────────────────────────────────────────────────────────────────┘\n\n  100 MW / 400 MWh example layout:\n  • ~200 containers (2 MWh each)\n  • ~50 inverters (2 MW each, string inverter topology)\n  • 3 medium-voltage transformers\n  • 1 high-voltage substation (interconnection to grid)\n  • SCADA + EMS (energy management system)\n  • Fire suppression: each container isolated (thermal runaway containment)\n\n  Thermal management in containers:\n    Air cooling (lower cost, lower density): adequate for 4-hour systems\n    Liquid cooling (higher density, better life): CATL EnerOne, BYD\n    Temperature uniformity critical: ΔT > 5°C within pack → accelerated aging\n\n  Thermal runaway propagation prevention:\n    Cell → module → rack → container: each boundary designed to contain\n    Spacing, fire barriers, venting paths are engineering challenges\n    NFPA 855: US fire code for Li-ion energy storage systems",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-7",
+      "kind": "diagram_like",
+      "line": 269,
+      "heading_context": "### Vanadium Redox Flow Battery",
+      "confidence": "candidate",
+      "text": "  VANADIUM FLOW BATTERY CONCEPT:\n\n  ┌──────────────────────────────────────────────────────────────┐\n  │                                                              │\n  │  V²⁺/V³⁺ tank     ← electrolyte pump →     V⁴⁺/V⁵⁺ tank      │\n  │  (negative side)                            (positive side)  │\n  │       │                                          │           │\n  │       └──────────────[STACK]────────────────────┘            │\n  │                     ion exchange membrane                    │\n  │                     current collectors                       │\n  │                                                              │\n  │  POWER:    size of stack (kW per m² of membrane)            │\n  │  ENERGY:   size of electrolyte tanks (kWh per liter)        │\n  │  → Power and energy independently scalable!                  │\n  │                                                              │\n  └──────────────────────────────────────────────────────────────┘\n\n  Electrolyte: V (vanadium) ions in sulfuric acid\n  Both sides use vanadium (unlike other flow batteries) → no cross-contamination\n  Electrolyte life: essentially unlimited (ions don't degrade, liquid refreshable)\n  System life: 25+ years (stack components replaceable independently)\n\n  Round-trip efficiency: 65-80%\n  Energy density: ~25-35 Wh/L (electrolyte) → large tanks\n  Cost: ~$250-400/kWh (2024) — higher than Li-ion for 4h, competitive for 8+h\n  Use: 6-12h grid storage, microgrids where lifetime and decoupled scaling matter\n  Vanadium supply risk: ~90% from China + Russia — geopolitical issue",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-8",
+      "kind": "diagram_like",
+      "line": 301,
+      "heading_context": "### Iron-Air Battery (Form Energy)",
+      "confidence": "candidate",
+      "text": "  IRON-AIR CHEMISTRY:\n  Discharge: Fe → Fe(OH)₂ (iron oxidizes, releases electrons)\n  Charge:    Fe(OH)₂ → Fe (electrodeposition, oxygen released)\n  Works like rusting/de-rusting of iron — uses air as one electrode\n\n  Key features:\n  • Ultra-low cost raw material (iron, water, air)\n  • Target cost: ~$20/kWh (vs $150-250/kWh for Li-ion)\n  • Duration: 100+ hours (days of storage) — genuinely seasonal-scale\n  • Round-trip efficiency: ~45-50% (lower than Li-ion but cost compensates)\n  • Cycle count: limited relative to Li-ion (design for daily cycling)\n  • Form Energy commercial plant: ~500 kW / 10 MWh in Georgia (2024)\n\n  The economic argument:\n  If iron-air at $20/kWh achieves commercial scale,\n  weekly-duration storage becomes economically viable,\n  potentially eliminating the \"dark doldrums\" problem\n  (extended periods of low wind AND low solar in winter in high latitudes).",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-9",
+      "kind": "diagram_like",
+      "line": 324,
+      "heading_context": "### Compressed Air Energy Storage (CAES)",
+      "confidence": "candidate",
+      "text": "  DIABATIC CAES (Huntorf, Germany — 1978; McIntosh, Alabama — 1991):\n\n  Off-peak electricity → compressor → compressed air stored in salt cavern\n  Peak demand → air heated with natural gas → expands through turbine → electricity\n\n  Efficiency: 40-55% (uses gas for reheating — not truly zero-carbon)\n  Geological requirement: salt cavern, aquifer, depleted gas field\n  Power: 100-600 MW\n  Duration: 4-8 hours (limited by cavern volume)\n\n  ADIABATIC CAES (next generation):\n  Store heat of compression separately (thermal energy storage)\n  Reuse heat during expansion → no gas needed\n  Round-trip efficiency: 65-75% (theoretical)\n  Hydrostor (Canada): Advanced CAES using water-compensated chambers (no geology requirement)\n  Status: Hydrostor projects under development in Australia and US (2025+)\n\n  CAES is limited by geology (specific requirements) and has few deployed examples.\n  Not a scalable global solution, but viable where geology cooperates.",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-10",
+      "kind": "diagram_like",
+      "line": 348,
+      "heading_context": "### Flywheels",
+      "confidence": "candidate",
+      "text": "  FLYWHEEL ENERGY STORAGE:\n\n  ┌────────────────────────────────────────────────────────────┐\n  │   Motor-generator (bidirectional)                          │\n  │         │                                                  │\n  │         ▼                                                  │\n  │   [SPINNING MASS in vacuum chamber]                        │\n  │   High-speed rotor: steel or carbon fiber composite        │\n  │   Speed: 10,000-50,000 RPM                                 │\n  │   Magnetic bearings (frictionless)                         │\n  │                                                            │\n  │   E = ½ I ω²  (rotational KE)                              │\n  │   I = moment of inertia, ω = angular velocity              │\n  └────────────────────────────────────────────────────────────┘\n\n  Properties:\n  • Round-trip efficiency: 85-95% (highest of any storage)\n  • Cycle life: >100,000 cycles (essentially unlimited)\n  • Self-discharge: ~5-20% per hour (high — can't hold energy for long)\n  • Energy density: very low\n  • Response time: milliseconds\n  • Duration: seconds to minutes (not hours)\n\n  Applications:\n  • Frequency regulation (primary response): ideal — fast response, high cycles\n  • UPS (uninterruptible power supply): bridge to diesel generator start\n  • Voltage support in microgrids\n  • NOT suitable for peak shifting or energy arbitrage (too short duration)\n\n  Beacon Power: flywheel frequency regulation plants (operating in NY, MA)\n  Amber Kinetics: longer-duration flywheel (4h, steel rotor) — niche",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-11",
+      "kind": "diagram_like",
+      "line": 388,
+      "heading_context": "### Molten Salt (CSP)",
+      "confidence": "candidate",
+      "text": "  CONCENTRATED SOLAR POWER (CSP) + MOLTEN SALT:\n\n  Sunlight → mirrors/heliostats focus on tower receiver\n  Receiver heats molten salt (60% NaNO₃ + 40% KNO₃) to 550-565°C\n  Hot salt tank stores thermal energy\n  When needed: hot salt flows through steam generator → turbine → electricity\n  Cool salt returns to cold tank (~290°C)\n\n  Thermal storage properties:\n    Energy density: ~80-100 kWh/tonne (specific heat × ΔT)\n    Cost: ~$20-30/kWh (thermal, not electrical — very cheap)\n    Efficiency (thermal → electrical via steam turbine): ~40%\n    Duration: 6-15 hours standard; some plants 18+ hours\n    Temperature: up to 565°C today, 700°C+ for next-gen (better turbine efficiency)\n\n  Leading projects:\n    Cerro Dominador (Chile): 110 MW, 17.5h storage\n    Crescent Dunes (USA, NV): 110 MW, 10h (bankrupt — first mover economics)\n    Ouarzazate NOOR III (Morocco): 150 MW, 7.5h\n    DEWA project (Dubai): 950 MW total, multiple towers\n\n  CSP niche: firm dispatchable solar (when sun shines → fill tanks;\n  discharge on demand evening/overnight). Better than PV+BESS in very sunny climates.\n  Competitive? Only in exceptional DNI locations (Atacama, MENA, Australia outback).",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-12",
+      "kind": "diagram_like",
+      "line": 419,
+      "heading_context": "### Ice Storage (Building-Scale)",
+      "confidence": "candidate",
+      "text": "  Night (cheap electricity):     Day (peak pricing/demand):\n  Chiller → freezes ice in tank  Ice melts to cool air-conditioning loop\n\n  Economics:\n  • Reduces peak demand charges (can be 30-50% of commercial utility bills)\n  • Shifts ~30% of building cooling electricity to off-peak\n  • Commercially proven: CALMAC ice tanks in thousands of US buildings\n  • Simple, low-maintenance, no exotic materials\n  • Microsoft data centers: some early adopters of thermal storage\n    (ice or chilled water tanks as thermal buffer)",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-13",
+      "kind": "diagram_like",
+      "line": 438,
+      "heading_context": "## Hydrogen as Long-Duration Storage",
+      "confidence": "candidate",
+      "text": "  HYDROGEN STORAGE ROUND-TRIP EFFICIENCY:\n\n  Electricity → electrolyzer → H₂ (efficiency ~65-75%)\n  H₂ → compression/liquefaction (efficiency ~85-90% for gas, ~70% for liquid)\n  H₂ → fuel cell or gas turbine (efficiency ~50-60%)\n\n  Total round-trip: 65% × 87% × 55% ≈ 31-35%\n\n  Compare:\n  Li-ion BESS:    ~85-92% round-trip\n  Pumped hydro:   ~78-85% round-trip\n  Hydrogen:       ~30-40% round-trip\n\n  Hydrogen's advantage is NOT round-trip efficiency.\n  Hydrogen's advantage is:\n  • Near-zero marginal cost per unit of stored energy (H₂ tanks are cheap)\n  • Duration: months (seasonal storage is possible)\n  • Transportability: pipe, ship, truck\n  • Multi-use: same H₂ used for grid storage OR industrial feedstock\n\n  This is why hydrogen matters for seasonal storage despite poor round-trip efficiency.\n  The cost of Li-ion seasonal storage at 90-day duration = unreasonably expensive.\n  The cost of hydrogen seasonal storage = dominated by electricity input cost.",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-14",
+      "kind": "ascii_table_candidate",
+      "line": 468,
+      "heading_context": "## LCOS — Levelized Cost of Storage",
+      "confidence": "candidate",
+      "text": "  LCOS (Levelized Cost of Storage):\n\n               NPV(Capex + Opex + Charging_electricity_cost)\n  LCOS ($/MWh) = ─────────────────────────────────────────────\n                      NPV(Energy discharged over lifetime)\n\n  KEY VARIABLES:\n  Capex:               $/kWh (installed system cost)\n  Fixed Opex:          $/kW-yr\n  Variable Opex:       $/MWh discharged\n  Electricity price:   $/MWh (for charging)\n  Round-trip efficiency: % (determines how much electricity you buy per MWh discharged)\n  Cycle life:          number of cycles before replacement\n  Capacity degradation: % per year\n\n  The charging electricity cost is often dominant for arbitrage applications.\n  For frequency regulation (high cycles, low energy throughput), capex/cycle is key.\n\n  LCOS COMPARISON (2024 approximate, 4-hour duration):\n\n  Technology              $/kWh capital    Cycles    LCOS ($/MWh)\n  ─────────────────────   ────────────     ──────    ────────────\n  Li-ion LFP (utility)    $150-250/kWh     4,000     $80-120\n  Vanadium flow           $300-400/kWh     10,000+   $90-140 (for 8h+)\n  Pumped hydro (new)      $200-350/kWh     ~100,000  $40-80 (for 8-12h)\n  Pumped hydro (existing) ~$20/kWh         ~100,000  $5-20\n  Iron-air (target)       ~$20/kWh         3,000     $30-60 (100h)\n  CAES (new)              $100-150/kWh     ~50,000   $50-90\n\n  Context: Wholesale electricity price in US: $20-60/MWh\n  Storage needs to clear LCOS ≈ price spread between cheap and peak hours",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-15",
+      "kind": "ascii_table_candidate",
+      "line": 508,
+      "heading_context": "## Grid Application Matrix",
+      "confidence": "candidate",
+      "text": "  APPLICATION    Duration  Cycles/yr  Power     Best Technology\n  ─────────────  ────────  ─────────  ────────  ────────────────────\n  Freq. reg      secs-min  1000+      MW        Flywheel, Li-ion (FFR)\n  (primary)\n  Synthetic      secs      N/A        GW-scale  Grid-forming inverters\n  inertia                             fast      (BESS or wind/solar)\n  Voltage        cont.     N/A        MVAR      STATCOM, battery reactive power\n  support\n  Peak shifting  2-6h      250-365    MW-GW     Li-ion LFP (4h)\n  (daily arb.)\n  Seasonal       days-wks  50-100     GW        Pumped hydro, H₂, iron-air (future)\n  storage\n  Backup power   hours     50-100     kW-MW     Li-ion, lead-acid (UPS)\n  (data centers)\n  Ramping        30-60 min 250-365    MW        Li-ion, pumped hydro\n  support\n  T&D deferral   varies    100-250    MW        Li-ion, flow battery\n  Island micro-  all above all above  kW-MW     Li-ion + diesel + sometimes H₂\n  grid",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    }
+  ]
+}

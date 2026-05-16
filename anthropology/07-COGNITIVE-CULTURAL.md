@@ -1,3 +1,22 @@
+---
+maxim_schema: maxim.frontmatter.v1
+id: maxim:anthropology:cognitive-cultural
+kind: guide
+module: anthropology
+section: anthropology
+title: Cognitive and Cultural Anthropology
+status: source-custody
+source_custody: partial
+current_path: anthropology/07-COGNITIVE-CULTURAL.md
+canonical_path: anthropology/07-COGNITIVE-CULTURAL.md
+backsource_ids: [proof-backfill:anthropology:07-cognitive-cultural, git-history:anthropology:07-cognitive-cultural]
+concepts: [cognitive, cultural]
+root_concepts: [cognitive, cultural]
+index_roles: [guide, root-concept]
+remap_from: []
+remap_to: []
+updated: null
+---
 # Cognitive and Cultural Anthropology
 
 ## The Big Picture
