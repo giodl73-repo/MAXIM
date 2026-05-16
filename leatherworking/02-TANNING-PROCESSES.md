@@ -1,3 +1,22 @@
+---
+maxim_schema: maxim.frontmatter.v1
+id: maxim:leatherworking:tanning-processes
+kind: guide
+module: leatherworking
+section: leatherworking
+title: Tanning Processes: Vegetable, Chrome, Brain, Alum - Chemistry
+status: source-custody
+source_custody: partial
+current_path: leatherworking/02-TANNING-PROCESSES.md
+canonical_path: leatherworking/02-TANNING-PROCESSES.md
+backsource_ids: [proof-backfill:leatherworking:02-tanning-processes, git-history:leatherworking:02-tanning-processes]
+concepts: [tanning, processes]
+root_concepts: [tanning, processes]
+index_roles: [guide, root-concept]
+remap_from: []
+remap_to: []
+updated: null
+---
 # Tanning Processes: Vegetable, Chrome, Brain, Alum — Chemistry
 
 ## The Big Picture

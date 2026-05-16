@@ -1,3 +1,22 @@
+---
+maxim_schema: maxim.frontmatter.v1
+id: maxim:leatherworking:tooling-carving
+kind: guide
+module: leatherworking
+section: leatherworking
+title: Tooling and Carving: Casing, Swivel Knife, Stamps, Sheridan Style
+status: source-custody
+source_custody: partial
+current_path: leatherworking/05-TOOLING-CARVING.md
+canonical_path: leatherworking/05-TOOLING-CARVING.md
+backsource_ids: [proof-backfill:leatherworking:05-tooling-carving, git-history:leatherworking:05-tooling-carving]
+concepts: [tooling, carving]
+root_concepts: [tooling, carving]
+index_roles: [guide, root-concept]
+remap_from: []
+remap_to: []
+updated: null
+---
 # Tooling and Carving: Casing, Swivel Knife, Stamps, Sheridan Style
 
 ## The Big Picture

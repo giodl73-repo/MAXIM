@@ -1,3 +1,22 @@
+---
+maxim_schema: maxim.frontmatter.v1
+id: maxim:leatherworking:dyeing-finishing
+kind: guide
+module: leatherworking
+section: leatherworking
+title: Dyeing and Finishing: Dyes, Antique Finishes, Edge Treatment
+status: source-custody
+source_custody: partial
+current_path: leatherworking/06-DYEING-FINISHING.md
+canonical_path: leatherworking/06-DYEING-FINISHING.md
+backsource_ids: [proof-backfill:leatherworking:06-dyeing-finishing, git-history:leatherworking:06-dyeing-finishing]
+concepts: [dyeing, finishing]
+root_concepts: [dyeing, finishing]
+index_roles: [guide, root-concept]
+remap_from: []
+remap_to: []
+updated: null
+---
 # Dyeing and Finishing: Dyes, Antique Finishes, Edge Treatment
 
 ## The Big Picture

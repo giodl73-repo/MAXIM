@@ -1,3 +1,22 @@
+---
+maxim_schema: maxim.frontmatter.v1
+id: maxim:leatherworking:leather-types
+kind: guide
+module: leatherworking
+section: leatherworking
+title: Leather Types: Full-Grain, Top-Grain, Split, Suede, Exotic
+status: source-custody
+source_custody: partial
+current_path: leatherworking/01-LEATHER-TYPES.md
+canonical_path: leatherworking/01-LEATHER-TYPES.md
+backsource_ids: [proof-backfill:leatherworking:01-leather-types, git-history:leatherworking:01-leather-types]
+concepts: [leather, types]
+root_concepts: [leather, types]
+index_roles: [guide, root-concept]
+remap_from: []
+remap_to: []
+updated: null
+---
 # Leather Types: Full-Grain, Top-Grain, Split, Suede, Exotic
 
 ## The Big Picture

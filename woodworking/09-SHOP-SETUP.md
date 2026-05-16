@@ -1,3 +1,22 @@
+---
+maxim_schema: maxim.frontmatter.v1
+id: maxim:woodworking:shop-setup
+kind: guide
+module: woodworking
+section: woodworking
+title: Shop Setup: Workbench, Tool Storage, Dust Collection, Electrical
+status: source-custody
+source_custody: partial
+current_path: woodworking/09-SHOP-SETUP.md
+canonical_path: woodworking/09-SHOP-SETUP.md
+backsource_ids: [proof-backfill:woodworking:09-shop-setup, git-history:woodworking:09-shop-setup]
+concepts: [shop, setup]
+root_concepts: [shop, setup]
+index_roles: [guide, root-concept]
+remap_from: []
+remap_to: []
+updated: null
+---
 # Shop Setup: Workbench, Tool Storage, Dust Collection, Electrical
 
 ## The Big Picture

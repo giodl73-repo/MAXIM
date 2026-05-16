@@ -1,3 +1,22 @@
+---
+maxim_schema: maxim.frontmatter.v1
+id: maxim:woodworking:turning-carving
+kind: guide
+module: woodworking
+section: woodworking
+title: Turning and Carving: Lathe Work, Bowl Turning, Relief Carving
+status: source-custody
+source_custody: partial
+current_path: woodworking/08-TURNING-CARVING.md
+canonical_path: woodworking/08-TURNING-CARVING.md
+backsource_ids: [proof-backfill:woodworking:08-turning-carving, git-history:woodworking:08-turning-carving]
+concepts: [turning, carving]
+root_concepts: [turning, carving]
+index_roles: [guide, root-concept]
+remap_from: []
+remap_to: []
+updated: null
+---
 # Turning and Carving: Lathe Work, Bowl Turning, Relief Carving
 
 ## The Big Picture

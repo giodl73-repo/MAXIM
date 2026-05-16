@@ -1,3 +1,22 @@
+---
+maxim_schema: maxim.frontmatter.v1
+id: maxim:woodworking:surface-preparation
+kind: guide
+module: woodworking
+section: woodworking
+title: Surface Preparation: Flattening, Planing, Scraping, Sanding
+status: source-custody
+source_custody: partial
+current_path: woodworking/05-SURFACE-PREPARATION.md
+canonical_path: woodworking/05-SURFACE-PREPARATION.md
+backsource_ids: [proof-backfill:woodworking:05-surface-preparation, git-history:woodworking:05-surface-preparation]
+concepts: [surface, preparation]
+root_concepts: [surface, preparation]
+index_roles: [guide, root-concept]
+remap_from: []
+remap_to: []
+updated: null
+---
 # Surface Preparation: Flattening, Planing, Scraping, Sanding
 
 ## The Big Picture

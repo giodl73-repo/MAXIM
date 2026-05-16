@@ -1,3 +1,22 @@
+---
+maxim_schema: maxim.frontmatter.v1
+id: maxim:leatherworking:hardware-assembly
+kind: guide
+module: leatherworking
+section: leatherworking
+title: Hardware and Assembly: Rivets, Snaps, Buckles, D-Rings, Gussets
+status: source-custody
+source_custody: partial
+current_path: leatherworking/08-HARDWARE-ASSEMBLY.md
+canonical_path: leatherworking/08-HARDWARE-ASSEMBLY.md
+backsource_ids: [proof-backfill:leatherworking:08-hardware-assembly, git-history:leatherworking:08-hardware-assembly]
+concepts: [hardware, assembly]
+root_concepts: [hardware, assembly]
+index_roles: [guide, root-concept]
+remap_from: []
+remap_to: []
+updated: null
+---
 # Hardware and Assembly: Rivets, Snaps, Buckles, D-Rings, Gussets
 
 ## The Big Picture

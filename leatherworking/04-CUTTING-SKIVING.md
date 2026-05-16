@@ -1,3 +1,22 @@
+---
+maxim_schema: maxim.frontmatter.v1
+id: maxim:leatherworking:cutting-skiving
+kind: guide
+module: leatherworking
+section: leatherworking
+title: Cutting and Skiving: Knives, Punches, Edge Thinning
+status: source-custody
+source_custody: partial
+current_path: leatherworking/04-CUTTING-SKIVING.md
+canonical_path: leatherworking/04-CUTTING-SKIVING.md
+backsource_ids: [proof-backfill:leatherworking:04-cutting-skiving, git-history:leatherworking:04-cutting-skiving]
+concepts: [cutting, skiving]
+root_concepts: [cutting, skiving]
+index_roles: [guide, root-concept]
+remap_from: []
+remap_to: []
+updated: null
+---
 # Cutting and Skiving: Knives, Punches, Edge Thinning
 
 ## The Big Picture
