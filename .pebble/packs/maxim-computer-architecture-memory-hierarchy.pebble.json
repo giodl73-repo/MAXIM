@@ -1,0 +1,2169 @@
+{
+  "schema": "pebble.v1",
+  "kind": "corpus-slice",
+  "title": "maxim-computer-architecture-memory-hierarchy",
+  "source": "../../computer-architecture",
+  "format": "markdown",
+  "metadata": {},
+  "sections": [
+    {
+      "id": "05-MEMORY-HIERARCHY.md#000",
+      "path": [
+        "05-MEMORY-HIERARCHY.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:computer-architecture:05-memory-hierarchy, git-history:computer-architecture:05-memory-hierarchy]",
+        "canonical_path": "computer-architecture/05-MEMORY-HIERARCHY.md",
+        "concepts": "[memory, hierarchy]",
+        "current_path": "computer-architecture/05-MEMORY-HIERARCHY.md",
+        "id": "maxim:computer-architecture:memory-hierarchy",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "computer-architecture",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[memory, hierarchy]",
+        "section": "computer-architecture",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Memory Hierarchy: Caches to DRAM",
+        "updated": "null"
+      },
+      "text": "# Memory Hierarchy: Caches to DRAM"
+    },
+    {
+      "id": "05-MEMORY-HIERARCHY.md#001",
+      "path": [
+        "05-MEMORY-HIERARCHY.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:computer-architecture:05-memory-hierarchy, git-history:computer-architecture:05-memory-hierarchy]",
+        "canonical_path": "computer-architecture/05-MEMORY-HIERARCHY.md",
+        "concepts": "[memory, hierarchy]",
+        "current_path": "computer-architecture/05-MEMORY-HIERARCHY.md",
+        "id": "maxim:computer-architecture:memory-hierarchy",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "computer-architecture",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[memory, hierarchy]",
+        "section": "computer-architecture",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Memory Hierarchy: Caches to DRAM",
+        "updated": "null"
+      },
+      "text": "## Why the Hierarchy Exists"
+    },
+    {
+      "id": "05-MEMORY-HIERARCHY.md#002",
+      "path": [
+        "05-MEMORY-HIERARCHY.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:computer-architecture:05-memory-hierarchy, git-history:computer-architecture:05-memory-hierarchy]",
+        "canonical_path": "computer-architecture/05-MEMORY-HIERARCHY.md",
+        "concepts": "[memory, hierarchy]",
+        "current_path": "computer-architecture/05-MEMORY-HIERARCHY.md",
+        "id": "maxim:computer-architecture:memory-hierarchy",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "computer-architecture",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[memory, hierarchy]",
+        "section": "computer-architecture",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Memory Hierarchy: Caches to DRAM",
+        "updated": "null"
+      },
+      "text": "The memory wall: DRAM access latency has improved ~1.3x per decade. CPU compute performance improved ~1000x per decade. The gap is enormous. Caches exist to paper over it by exploiting two principles:"
+    },
+    {
+      "id": "05-MEMORY-HIERARCHY.md#003",
+      "path": [
+        "05-MEMORY-HIERARCHY.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:computer-architecture:05-memory-hierarchy, git-history:computer-architecture:05-memory-hierarchy]",
+        "canonical_path": "computer-architecture/05-MEMORY-HIERARCHY.md",
+        "concepts": "[memory, hierarchy]",
+        "current_path": "computer-architecture/05-MEMORY-HIERARCHY.md",
+        "id": "maxim:computer-architecture:memory-hierarchy",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "computer-architecture",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[memory, hierarchy]",
+        "section": "computer-architecture",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Memory Hierarchy: Caches to DRAM",
+        "updated": "null"
+      },
+      "text": "- **Temporal locality**: if you accessed address X, you will likely access X again soon\n- **Spatial locality**: if you accessed address X, you will likely access X±Δ soon"
+    },
+    {
+      "id": "05-MEMORY-HIERARCHY.md#004",
+      "path": [
+        "05-MEMORY-HIERARCHY.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:computer-architecture:05-memory-hierarchy, git-history:computer-architecture:05-memory-hierarchy]",
+        "canonical_path": "computer-architecture/05-MEMORY-HIERARCHY.md",
+        "concepts": "[memory, hierarchy]",
+        "current_path": "computer-architecture/05-MEMORY-HIERARCHY.md",
+        "id": "maxim:computer-architecture:memory-hierarchy",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "computer-architecture",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[memory, hierarchy]",
+        "section": "computer-architecture",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Memory Hierarchy: Caches to DRAM",
+        "updated": "null"
+      },
+      "text": "These principles hold for most real programs (loops, arrays, structs). They are the foundation of the entire memory hierarchy."
+    },
+    {
+      "id": "05-MEMORY-HIERARCHY.md#005",
+      "path": [
+        "05-MEMORY-HIERARCHY.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:computer-architecture:05-memory-hierarchy, git-history:computer-architecture:05-memory-hierarchy]",
+        "canonical_path": "computer-architecture/05-MEMORY-HIERARCHY.md",
+        "concepts": "[memory, hierarchy]",
+        "current_path": "computer-architecture/05-MEMORY-HIERARCHY.md",
+        "id": "maxim:computer-architecture:memory-hierarchy",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "computer-architecture",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[memory, hierarchy]",
+        "section": "computer-architecture",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Memory Hierarchy: Caches to DRAM",
+        "updated": "null"
+      },
+      "text": "```\n+-----------------------------------------------------------------------+\n|                     MEMORY HIERARCHY                                  |\n|                                                                       |\n|   LEVEL    SIZE         LATENCY    BANDWIDTH    TECHNOLOGY            |\n|   -------  -----------  ---------  -----------  -----------           |\n|   Register  <1 KB       0 cycles   ∞            flip-flops            |\n|   L1 I$    32–64 KB     ~4 cycles  ~1 TB/s      6T SRAM               |\n|   L1 D$    32–64 KB     ~4 cycles  ~1 TB/s      6T SRAM               |\n|   L2       256KB–1MB    ~12 cycles ~500 GB/s    6T SRAM               |\n|   L3       8–64 MB      ~40 cycles ~200 GB/s    6T SRAM               |\n|   DRAM     8–256 GB     ~70ns      ~50–100 GB/s DRAM cells            |\n|            (100 cycles)                                               |\n|   NVMe     256GB–8TB    ~100μs     ~5–12 GB/s   NAND flash            |\n|            (~50K cycles)                                              |\n|   HDD      1–20 TB      ~5–10ms    ~100–200 MB/s magnetic             |\n|                                                                       |\n|  DRAM latency numbers: DDR5-6400, typical desktop system              |\n|  Apple M2: L2 per-cluster 12 MB; \"System cache\" 8–24 MB before DRAM   |\n+-----------------------------------------------------------------------+\n```"
+    },
+    {
+      "id": "05-MEMORY-HIERARCHY.md#006",
+      "path": [
+        "05-MEMORY-HIERARCHY.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:computer-architecture:05-memory-hierarchy, git-history:computer-architecture:05-memory-hierarchy]",
+        "canonical_path": "computer-architecture/05-MEMORY-HIERARCHY.md",
+        "concepts": "[memory, hierarchy]",
+        "current_path": "computer-architecture/05-MEMORY-HIERARCHY.md",
+        "id": "maxim:computer-architecture:memory-hierarchy",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "computer-architecture",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[memory, hierarchy]",
+        "section": "computer-architecture",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Memory Hierarchy: Caches to DRAM",
+        "updated": "null"
+      },
+      "text": "---"
+    },
+    {
+      "id": "05-MEMORY-HIERARCHY.md#007",
+      "path": [
+        "05-MEMORY-HIERARCHY.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:computer-architecture:05-memory-hierarchy, git-history:computer-architecture:05-memory-hierarchy]",
+        "canonical_path": "computer-architecture/05-MEMORY-HIERARCHY.md",
+        "concepts": "[memory, hierarchy]",
+        "current_path": "computer-architecture/05-MEMORY-HIERARCHY.md",
+        "id": "maxim:computer-architecture:memory-hierarchy",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "computer-architecture",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[memory, hierarchy]",
+        "section": "computer-architecture",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Memory Hierarchy: Caches to DRAM",
+        "updated": "null"
+      },
+      "text": "## SRAM: The Cache Cell"
+    },
+    {
+      "id": "05-MEMORY-HIERARCHY.md#008",
+      "path": [
+        "05-MEMORY-HIERARCHY.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:computer-architecture:05-memory-hierarchy, git-history:computer-architecture:05-memory-hierarchy]",
+        "canonical_path": "computer-architecture/05-MEMORY-HIERARCHY.md",
+        "concepts": "[memory, hierarchy]",
+        "current_path": "computer-architecture/05-MEMORY-HIERARCHY.md",
+        "id": "maxim:computer-architecture:memory-hierarchy",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "computer-architecture",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[memory, hierarchy]",
+        "section": "computer-architecture",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Memory Hierarchy: Caches to DRAM",
+        "updated": "null"
+      },
+      "text": "All caches use Static RAM (SRAM), which holds a bit stably as long as power is applied — no refresh needed."
+    },
+    {
+      "id": "05-MEMORY-HIERARCHY.md#009",
+      "path": [
+        "05-MEMORY-HIERARCHY.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:computer-architecture:05-memory-hierarchy, git-history:computer-architecture:05-memory-hierarchy]",
+        "canonical_path": "computer-architecture/05-MEMORY-HIERARCHY.md",
+        "concepts": "[memory, hierarchy]",
+        "current_path": "computer-architecture/05-MEMORY-HIERARCHY.md",
+        "id": "maxim:computer-architecture:memory-hierarchy",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "computer-architecture",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[memory, hierarchy]",
+        "section": "computer-architecture",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Memory Hierarchy: Caches to DRAM",
+        "updated": "null"
+      },
+      "text": "```\n  6-TRANSISTOR SRAM CELL:"
+    },
+    {
+      "id": "05-MEMORY-HIERARCHY.md#010",
+      "path": [
+        "05-MEMORY-HIERARCHY.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:computer-architecture:05-memory-hierarchy, git-history:computer-architecture:05-memory-hierarchy]",
+        "canonical_path": "computer-architecture/05-MEMORY-HIERARCHY.md",
+        "concepts": "[memory, hierarchy]",
+        "current_path": "computer-architecture/05-MEMORY-HIERARCHY.md",
+        "id": "maxim:computer-architecture:memory-hierarchy",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "computer-architecture",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[memory, hierarchy]",
+        "section": "computer-architecture",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Memory Hierarchy: Caches to DRAM",
+        "updated": "null"
+      },
+      "text": "VDD\n   |\n  T1   T2        (Pull-up transistors)\n   |     |\n  Q ──── Q̄       (Cross-coupled inverters — stable bistable state)\n   |     |\n  T3   T4        (Pull-down transistors)\n   |\n  GND"
+    },
+    {
+      "id": "05-MEMORY-HIERARCHY.md#011",
+      "path": [
+        "05-MEMORY-HIERARCHY.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:computer-architecture:05-memory-hierarchy, git-history:computer-architecture:05-memory-hierarchy]",
+        "canonical_path": "computer-architecture/05-MEMORY-HIERARCHY.md",
+        "concepts": "[memory, hierarchy]",
+        "current_path": "computer-architecture/05-MEMORY-HIERARCHY.md",
+        "id": "maxim:computer-architecture:memory-hierarchy",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "computer-architecture",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[memory, hierarchy]",
+        "section": "computer-architecture",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Memory Hierarchy: Caches to DRAM",
+        "updated": "null"
+      },
+      "text": "T5  T6 ─── BL, BL̄   (Access transistors — controlled by Word Line)"
+    },
+    {
+      "id": "05-MEMORY-HIERARCHY.md#012",
+      "path": [
+        "05-MEMORY-HIERARCHY.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:computer-architecture:05-memory-hierarchy, git-history:computer-architecture:05-memory-hierarchy]",
+        "canonical_path": "computer-architecture/05-MEMORY-HIERARCHY.md",
+        "concepts": "[memory, hierarchy]",
+        "current_path": "computer-architecture/05-MEMORY-HIERARCHY.md",
+        "id": "maxim:computer-architecture:memory-hierarchy",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "computer-architecture",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[memory, hierarchy]",
+        "section": "computer-architecture",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Memory Hierarchy: Caches to DRAM",
+        "updated": "null"
+      },
+      "text": "Word Line (WL): selects which row to read/write\n  Bit Line (BL) / Bit Line Bar (BL̄): carry data in/out"
+    },
+    {
+      "id": "05-MEMORY-HIERARCHY.md#013",
+      "path": [
+        "05-MEMORY-HIERARCHY.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:computer-architecture:05-memory-hierarchy, git-history:computer-architecture:05-memory-hierarchy]",
+        "canonical_path": "computer-architecture/05-MEMORY-HIERARCHY.md",
+        "concepts": "[memory, hierarchy]",
+        "current_path": "computer-architecture/05-MEMORY-HIERARCHY.md",
+        "id": "maxim:computer-architecture:memory-hierarchy",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "computer-architecture",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[memory, hierarchy]",
+        "section": "computer-architecture",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Memory Hierarchy: Caches to DRAM",
+        "updated": "null"
+      },
+      "text": "READ: WL high → T5/T6 connect cell to BL/BL̄ → sense amplifier\n  WRITE: Drive BL/BL̄ strongly → overpower the cell → flip state"
+    },
+    {
+      "id": "05-MEMORY-HIERARCHY.md#014",
+      "path": [
+        "05-MEMORY-HIERARCHY.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:computer-architecture:05-memory-hierarchy, git-history:computer-architecture:05-memory-hierarchy]",
+        "canonical_path": "computer-architecture/05-MEMORY-HIERARCHY.md",
+        "concepts": "[memory, hierarchy]",
+        "current_path": "computer-architecture/05-MEMORY-HIERARCHY.md",
+        "id": "maxim:computer-architecture:memory-hierarchy",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "computer-architecture",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[memory, hierarchy]",
+        "section": "computer-architecture",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Memory Hierarchy: Caches to DRAM",
+        "updated": "null"
+      },
+      "text": "AREA: ~120 nm² per bit in modern process (vs ~4 nm² for DRAM)\n  SRAM is 30× larger than DRAM per bit.\n  This is why L3 caches max out at ~64 MB on chip — 64 MB SRAM\n  = significant die area.\n```"
+    },
+    {
+      "id": "05-MEMORY-HIERARCHY.md#015",
+      "path": [
+        "05-MEMORY-HIERARCHY.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:computer-architecture:05-memory-hierarchy, git-history:computer-architecture:05-memory-hierarchy]",
+        "canonical_path": "computer-architecture/05-MEMORY-HIERARCHY.md",
+        "concepts": "[memory, hierarchy]",
+        "current_path": "computer-architecture/05-MEMORY-HIERARCHY.md",
+        "id": "maxim:computer-architecture:memory-hierarchy",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "computer-architecture",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[memory, hierarchy]",
+        "section": "computer-architecture",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Memory Hierarchy: Caches to DRAM",
+        "updated": "null"
+      },
+      "text": "---"
+    },
+    {
+      "id": "05-MEMORY-HIERARCHY.md#016",
+      "path": [
+        "05-MEMORY-HIERARCHY.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:computer-architecture:05-memory-hierarchy, git-history:computer-architecture:05-memory-hierarchy]",
+        "canonical_path": "computer-architecture/05-MEMORY-HIERARCHY.md",
+        "concepts": "[memory, hierarchy]",
+        "current_path": "computer-architecture/05-MEMORY-HIERARCHY.md",
+        "id": "maxim:computer-architecture:memory-hierarchy",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "computer-architecture",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[memory, hierarchy]",
+        "section": "computer-architecture",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Memory Hierarchy: Caches to DRAM",
+        "updated": "null"
+      },
+      "text": "## Cache Organization"
+    },
+    {
+      "id": "05-MEMORY-HIERARCHY.md#017",
+      "path": [
+        "05-MEMORY-HIERARCHY.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:computer-architecture:05-memory-hierarchy, git-history:computer-architecture:05-memory-hierarchy]",
+        "canonical_path": "computer-architecture/05-MEMORY-HIERARCHY.md",
+        "concepts": "[memory, hierarchy]",
+        "current_path": "computer-architecture/05-MEMORY-HIERARCHY.md",
+        "id": "maxim:computer-architecture:memory-hierarchy",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "computer-architecture",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[memory, hierarchy]",
+        "section": "computer-architecture",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Memory Hierarchy: Caches to DRAM",
+        "updated": "null"
+      },
+      "text": "### Cache Line"
+    },
+    {
+      "id": "05-MEMORY-HIERARCHY.md#018",
+      "path": [
+        "05-MEMORY-HIERARCHY.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:computer-architecture:05-memory-hierarchy, git-history:computer-architecture:05-memory-hierarchy]",
+        "canonical_path": "computer-architecture/05-MEMORY-HIERARCHY.md",
+        "concepts": "[memory, hierarchy]",
+        "current_path": "computer-architecture/05-MEMORY-HIERARCHY.md",
+        "id": "maxim:computer-architecture:memory-hierarchy",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "computer-architecture",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[memory, hierarchy]",
+        "section": "computer-architecture",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Memory Hierarchy: Caches to DRAM",
+        "updated": "null"
+      },
+      "text": "```\n  CACHE LINE (BLOCK): The fundamental unit of transfer.\n  ALL caches transfer data in blocks, not individual bytes."
+    },
+    {
+      "id": "05-MEMORY-HIERARCHY.md#019",
+      "path": [
+        "05-MEMORY-HIERARCHY.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:computer-architecture:05-memory-hierarchy, git-history:computer-architecture:05-memory-hierarchy]",
+        "canonical_path": "computer-architecture/05-MEMORY-HIERARCHY.md",
+        "concepts": "[memory, hierarchy]",
+        "current_path": "computer-architecture/05-MEMORY-HIERARCHY.md",
+        "id": "maxim:computer-architecture:memory-hierarchy",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "computer-architecture",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[memory, hierarchy]",
+        "section": "computer-architecture",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Memory Hierarchy: Caches to DRAM",
+        "updated": "null"
+      },
+      "text": "x86: 64-byte cache lines (standard)\n  ARM64: 64-byte cache lines (most implementations)"
+    },
+    {
+      "id": "05-MEMORY-HIERARCHY.md#020",
+      "path": [
+        "05-MEMORY-HIERARCHY.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:computer-architecture:05-memory-hierarchy, git-history:computer-architecture:05-memory-hierarchy]",
+        "canonical_path": "computer-architecture/05-MEMORY-HIERARCHY.md",
+        "concepts": "[memory, hierarchy]",
+        "current_path": "computer-architecture/05-MEMORY-HIERARCHY.md",
+        "id": "maxim:computer-architecture:memory-hierarchy",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "computer-architecture",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[memory, hierarchy]",
+        "section": "computer-architecture",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Memory Hierarchy: Caches to DRAM",
+        "updated": "null"
+      },
+      "text": "CONSEQUENCE:\n  If you read one int32 (4 bytes) from cold DRAM,\n  the cache fetches 64 bytes (the whole line) anyway.\n  Reading the next 15 ints in that line = free (cache hits).\n  Reading scattered data = one cache miss per element."
+    },
+    {
+      "id": "05-MEMORY-HIERARCHY.md#021",
+      "path": [
+        "05-MEMORY-HIERARCHY.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:computer-architecture:05-memory-hierarchy, git-history:computer-architecture:05-memory-hierarchy]",
+        "canonical_path": "computer-architecture/05-MEMORY-HIERARCHY.md",
+        "concepts": "[memory, hierarchy]",
+        "current_path": "computer-architecture/05-MEMORY-HIERARCHY.md",
+        "id": "maxim:computer-architecture:memory-hierarchy",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "computer-architecture",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[memory, hierarchy]",
+        "section": "computer-architecture",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Memory Hierarchy: Caches to DRAM",
+        "updated": "null"
+      },
+      "text": "This is why struct layout matters:\n  +---------------------+          +---------------------+\n  | AoS (Array of       |          | SoA (Structure of   |\n  | Structures):        |          | Arrays):            |\n  | {x, y, z, w} × N   |          | {x×N, y×N, z×N, w×N}|\n  |                     |          |                     |\n  | If you only use x:  |          | If you only use x:  |\n  | Load all 4 fields   |          | Load only x array   |\n  | → 75% bandwidth     |          | → 100% efficient    |\n  | wasted              |          |                     |\n  +---------------------+          +---------------------+\n```"
+    },
+    {
+      "id": "05-MEMORY-HIERARCHY.md#022",
+      "path": [
+        "05-MEMORY-HIERARCHY.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:computer-architecture:05-memory-hierarchy, git-history:computer-architecture:05-memory-hierarchy]",
+        "canonical_path": "computer-architecture/05-MEMORY-HIERARCHY.md",
+        "concepts": "[memory, hierarchy]",
+        "current_path": "computer-architecture/05-MEMORY-HIERARCHY.md",
+        "id": "maxim:computer-architecture:memory-hierarchy",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "computer-architecture",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[memory, hierarchy]",
+        "section": "computer-architecture",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Memory Hierarchy: Caches to DRAM",
+        "updated": "null"
+      },
+      "text": "### Set-Associative Cache"
+    },
+    {
+      "id": "05-MEMORY-HIERARCHY.md#023",
+      "path": [
+        "05-MEMORY-HIERARCHY.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:computer-architecture:05-memory-hierarchy, git-history:computer-architecture:05-memory-hierarchy]",
+        "canonical_path": "computer-architecture/05-MEMORY-HIERARCHY.md",
+        "concepts": "[memory, hierarchy]",
+        "current_path": "computer-architecture/05-MEMORY-HIERARCHY.md",
+        "id": "maxim:computer-architecture:memory-hierarchy",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "computer-architecture",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[memory, hierarchy]",
+        "section": "computer-architecture",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Memory Hierarchy: Caches to DRAM",
+        "updated": "null"
+      },
+      "text": "```\n  THREE CACHE ORGANIZATIONS:"
+    },
+    {
+      "id": "05-MEMORY-HIERARCHY.md#024",
+      "path": [
+        "05-MEMORY-HIERARCHY.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:computer-architecture:05-memory-hierarchy, git-history:computer-architecture:05-memory-hierarchy]",
+        "canonical_path": "computer-architecture/05-MEMORY-HIERARCHY.md",
+        "concepts": "[memory, hierarchy]",
+        "current_path": "computer-architecture/05-MEMORY-HIERARCHY.md",
+        "id": "maxim:computer-architecture:memory-hierarchy",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "computer-architecture",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[memory, hierarchy]",
+        "section": "computer-architecture",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Memory Hierarchy: Caches to DRAM",
+        "updated": "null"
+      },
+      "text": "DIRECT MAPPED (1-way associative):\n  Each address maps to exactly ONE cache line slot.\n  Address → cache index via (address >> 6) % num_lines"
+    },
+    {
+      "id": "05-MEMORY-HIERARCHY.md#025",
+      "path": [
+        "05-MEMORY-HIERARCHY.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:computer-architecture:05-memory-hierarchy, git-history:computer-architecture:05-memory-hierarchy]",
+        "canonical_path": "computer-architecture/05-MEMORY-HIERARCHY.md",
+        "concepts": "[memory, hierarchy]",
+        "current_path": "computer-architecture/05-MEMORY-HIERARCHY.md",
+        "id": "maxim:computer-architecture:memory-hierarchy",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "computer-architecture",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[memory, hierarchy]",
+        "section": "computer-architecture",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Memory Hierarchy: Caches to DRAM",
+        "updated": "null"
+      },
+      "text": "Slot 0 (maps to addr 0, 64, 128, ...):\n  +-----+---+---+---------------------+\n  | tag | v | d | data (64 bytes)     |\n  +-----+---+---+---------------------+"
+    },
+    {
+      "id": "05-MEMORY-HIERARCHY.md#026",
+      "path": [
+        "05-MEMORY-HIERARCHY.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:computer-architecture:05-memory-hierarchy, git-history:computer-architecture:05-memory-hierarchy]",
+        "canonical_path": "computer-architecture/05-MEMORY-HIERARCHY.md",
+        "concepts": "[memory, hierarchy]",
+        "current_path": "computer-architecture/05-MEMORY-HIERARCHY.md",
+        "id": "maxim:computer-architecture:memory-hierarchy",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "computer-architecture",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[memory, hierarchy]",
+        "section": "computer-architecture",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Memory Hierarchy: Caches to DRAM",
+        "updated": "null"
+      },
+      "text": "Slot 1:\n  +-----+---+---+---------------------+\n  | tag | v | d | data (64 bytes)     |\n  +-----+---+---+---------------------+\n  ..."
+    },
+    {
+      "id": "05-MEMORY-HIERARCHY.md#027",
+      "path": [
+        "05-MEMORY-HIERARCHY.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:computer-architecture:05-memory-hierarchy, git-history:computer-architecture:05-memory-hierarchy]",
+        "canonical_path": "computer-architecture/05-MEMORY-HIERARCHY.md",
+        "concepts": "[memory, hierarchy]",
+        "current_path": "computer-architecture/05-MEMORY-HIERARCHY.md",
+        "id": "maxim:computer-architecture:memory-hierarchy",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "computer-architecture",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[memory, hierarchy]",
+        "section": "computer-architecture",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Memory Hierarchy: Caches to DRAM",
+        "updated": "null"
+      },
+      "text": "Problem: Two \"hot\" addresses that map to the same slot thrash each other."
+    },
+    {
+      "id": "05-MEMORY-HIERARCHY.md#028",
+      "path": [
+        "05-MEMORY-HIERARCHY.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:computer-architecture:05-memory-hierarchy, git-history:computer-architecture:05-memory-hierarchy]",
+        "canonical_path": "computer-architecture/05-MEMORY-HIERARCHY.md",
+        "concepts": "[memory, hierarchy]",
+        "current_path": "computer-architecture/05-MEMORY-HIERARCHY.md",
+        "id": "maxim:computer-architecture:memory-hierarchy",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "computer-architecture",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[memory, hierarchy]",
+        "section": "computer-architecture",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Memory Hierarchy: Caches to DRAM",
+        "updated": "null"
+      },
+      "text": "FULLY ASSOCIATIVE:\n  Data can go in ANY slot. Full tag comparison.\n  Best hit rate. Hardware cost: N comparators for N lines.\n  Only feasible for small structures (TLBs, victim caches)."
+    },
+    {
+      "id": "05-MEMORY-HIERARCHY.md#029",
+      "path": [
+        "05-MEMORY-HIERARCHY.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:computer-architecture:05-memory-hierarchy, git-history:computer-architecture:05-memory-hierarchy]",
+        "canonical_path": "computer-architecture/05-MEMORY-HIERARCHY.md",
+        "concepts": "[memory, hierarchy]",
+        "current_path": "computer-architecture/05-MEMORY-HIERARCHY.md",
+        "id": "maxim:computer-architecture:memory-hierarchy",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "computer-architecture",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[memory, hierarchy]",
+        "section": "computer-architecture",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Memory Hierarchy: Caches to DRAM",
+        "updated": "null"
+      },
+      "text": "N-WAY SET ASSOCIATIVE (standard):\n  Cache is divided into sets, each set has N ways (slots).\n  Address → set via index bits.\n  Within the set, data can be in any of the N ways."
+    },
+    {
+      "id": "05-MEMORY-HIERARCHY.md#030",
+      "path": [
+        "05-MEMORY-HIERARCHY.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:computer-architecture:05-memory-hierarchy, git-history:computer-architecture:05-memory-hierarchy]",
+        "canonical_path": "computer-architecture/05-MEMORY-HIERARCHY.md",
+        "concepts": "[memory, hierarchy]",
+        "current_path": "computer-architecture/05-MEMORY-HIERARCHY.md",
+        "id": "maxim:computer-architecture:memory-hierarchy",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "computer-architecture",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[memory, hierarchy]",
+        "section": "computer-architecture",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Memory Hierarchy: Caches to DRAM",
+        "updated": "null"
+      },
+      "text": "Example: 32 KB L1, 8-way, 64-byte lines:\n  32768 / 64 / 8 = 64 sets\n  Address bits: [tag][index:6 bits][offset:6 bits]"
+    },
+    {
+      "id": "05-MEMORY-HIERARCHY.md#031",
+      "path": [
+        "05-MEMORY-HIERARCHY.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:computer-architecture:05-memory-hierarchy, git-history:computer-architecture:05-memory-hierarchy]",
+        "canonical_path": "computer-architecture/05-MEMORY-HIERARCHY.md",
+        "concepts": "[memory, hierarchy]",
+        "current_path": "computer-architecture/05-MEMORY-HIERARCHY.md",
+        "id": "maxim:computer-architecture:memory-hierarchy",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "computer-architecture",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[memory, hierarchy]",
+        "section": "computer-architecture",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Memory Hierarchy: Caches to DRAM",
+        "updated": "null"
+      },
+      "text": "+────────+──────────────────────────────────────────────────+\n  |  SET 0 |  Way 0  |  Way 1  | ... |  Way 7  |              |\n  |  SET 1 |  Way 0  |  Way 1  | ... |  Way 7  |              |\n  |  ...   |                                                  |\n  |  SET 63|  Way 0  |  Way 1  | ... |  Way 7  |              |\n  +────────+──────────────────────────────────────────────────+"
+    },
+    {
+      "id": "05-MEMORY-HIERARCHY.md#032",
+      "path": [
+        "05-MEMORY-HIERARCHY.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:computer-architecture:05-memory-hierarchy, git-history:computer-architecture:05-memory-hierarchy]",
+        "canonical_path": "computer-architecture/05-MEMORY-HIERARCHY.md",
+        "concepts": "[memory, hierarchy]",
+        "current_path": "computer-architecture/05-MEMORY-HIERARCHY.md",
+        "id": "maxim:computer-architecture:memory-hierarchy",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "computer-architecture",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[memory, hierarchy]",
+        "section": "computer-architecture",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Memory Hierarchy: Caches to DRAM",
+        "updated": "null"
+      },
+      "text": "On access:\n  1. Compute set index from address\n  2. Compare tag against all 8 ways in parallel\n  3. If match (hit): return data\n  4. If no match (miss): fetch from next level, evict one way"
+    },
+    {
+      "id": "05-MEMORY-HIERARCHY.md#033",
+      "path": [
+        "05-MEMORY-HIERARCHY.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:computer-architecture:05-memory-hierarchy, git-history:computer-architecture:05-memory-hierarchy]",
+        "canonical_path": "computer-architecture/05-MEMORY-HIERARCHY.md",
+        "concepts": "[memory, hierarchy]",
+        "current_path": "computer-architecture/05-MEMORY-HIERARCHY.md",
+        "id": "maxim:computer-architecture:memory-hierarchy",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "computer-architecture",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[memory, hierarchy]",
+        "section": "computer-architecture",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Memory Hierarchy: Caches to DRAM",
+        "updated": "null"
+      },
+      "text": "EVICTION POLICY:\n  LRU: replace least recently used way (optimal for temporal locality)\n  Pseudo-LRU: approximation of LRU (tree-based or PLRU bits)\n  Random: simpler; surprisingly good in practice\n  RRIP (Re-reference Interval Prediction): state-of-the-art\n```"
+    },
+    {
+      "id": "05-MEMORY-HIERARCHY.md#034",
+      "path": [
+        "05-MEMORY-HIERARCHY.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:computer-architecture:05-memory-hierarchy, git-history:computer-architecture:05-memory-hierarchy]",
+        "canonical_path": "computer-architecture/05-MEMORY-HIERARCHY.md",
+        "concepts": "[memory, hierarchy]",
+        "current_path": "computer-architecture/05-MEMORY-HIERARCHY.md",
+        "id": "maxim:computer-architecture:memory-hierarchy",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "computer-architecture",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[memory, hierarchy]",
+        "section": "computer-architecture",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Memory Hierarchy: Caches to DRAM",
+        "updated": "null"
+      },
+      "text": "---"
+    },
+    {
+      "id": "05-MEMORY-HIERARCHY.md#035",
+      "path": [
+        "05-MEMORY-HIERARCHY.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:computer-architecture:05-memory-hierarchy, git-history:computer-architecture:05-memory-hierarchy]",
+        "canonical_path": "computer-architecture/05-MEMORY-HIERARCHY.md",
+        "concepts": "[memory, hierarchy]",
+        "current_path": "computer-architecture/05-MEMORY-HIERARCHY.md",
+        "id": "maxim:computer-architecture:memory-hierarchy",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "computer-architecture",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[memory, hierarchy]",
+        "section": "computer-architecture",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Memory Hierarchy: Caches to DRAM",
+        "updated": "null"
+      },
+      "text": "## DRAM: The Main Memory Cell"
+    },
+    {
+      "id": "05-MEMORY-HIERARCHY.md#036",
+      "path": [
+        "05-MEMORY-HIERARCHY.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:computer-architecture:05-memory-hierarchy, git-history:computer-architecture:05-memory-hierarchy]",
+        "canonical_path": "computer-architecture/05-MEMORY-HIERARCHY.md",
+        "concepts": "[memory, hierarchy]",
+        "current_path": "computer-architecture/05-MEMORY-HIERARCHY.md",
+        "id": "maxim:computer-architecture:memory-hierarchy",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "computer-architecture",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[memory, hierarchy]",
+        "section": "computer-architecture",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Memory Hierarchy: Caches to DRAM",
+        "updated": "null"
+      },
+      "text": "Dynamic RAM uses a capacitor and single transistor per bit — much denser than SRAM but requires constant refresh."
+    },
+    {
+      "id": "05-MEMORY-HIERARCHY.md#037",
+      "path": [
+        "05-MEMORY-HIERARCHY.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:computer-architecture:05-memory-hierarchy, git-history:computer-architecture:05-memory-hierarchy]",
+        "canonical_path": "computer-architecture/05-MEMORY-HIERARCHY.md",
+        "concepts": "[memory, hierarchy]",
+        "current_path": "computer-architecture/05-MEMORY-HIERARCHY.md",
+        "id": "maxim:computer-architecture:memory-hierarchy",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "computer-architecture",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[memory, hierarchy]",
+        "section": "computer-architecture",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Memory Hierarchy: Caches to DRAM",
+        "updated": "null"
+      },
+      "text": "```\n  1-TRANSISTOR DRAM CELL:"
+    },
+    {
+      "id": "05-MEMORY-HIERARCHY.md#038",
+      "path": [
+        "05-MEMORY-HIERARCHY.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:computer-architecture:05-memory-hierarchy, git-history:computer-architecture:05-memory-hierarchy]",
+        "canonical_path": "computer-architecture/05-MEMORY-HIERARCHY.md",
+        "concepts": "[memory, hierarchy]",
+        "current_path": "computer-architecture/05-MEMORY-HIERARCHY.md",
+        "id": "maxim:computer-architecture:memory-hierarchy",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "computer-architecture",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[memory, hierarchy]",
+        "section": "computer-architecture",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Memory Hierarchy: Caches to DRAM",
+        "updated": "null"
+      },
+      "text": "Word Line (WL) ─┤ T (NMOS)├──── Bit Line (BL)\n                         |\n                         C (capacitor)\n                         |\n                        GND"
+    },
+    {
+      "id": "05-MEMORY-HIERARCHY.md#039",
+      "path": [
+        "05-MEMORY-HIERARCHY.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:computer-architecture:05-memory-hierarchy, git-history:computer-architecture:05-memory-hierarchy]",
+        "canonical_path": "computer-architecture/05-MEMORY-HIERARCHY.md",
+        "concepts": "[memory, hierarchy]",
+        "current_path": "computer-architecture/05-MEMORY-HIERARCHY.md",
+        "id": "maxim:computer-architecture:memory-hierarchy",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "computer-architecture",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[memory, hierarchy]",
+        "section": "computer-architecture",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Memory Hierarchy: Caches to DRAM",
+        "updated": "null"
+      },
+      "text": "READ: WL high → T connects capacitor to BL → sense amplifier.\n        READ IS DESTRUCTIVE — must rewrite after read.\n  WRITE: WL high + drive BL strongly → charge/discharge capacitor.\n  REFRESH: Capacitor leaks charge → must be read and rewritten\n           every 64–128 ms. Typical: refresh 8192 rows every 64 ms."
+    },
+    {
+      "id": "05-MEMORY-HIERARCHY.md#040",
+      "path": [
+        "05-MEMORY-HIERARCHY.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:computer-architecture:05-memory-hierarchy, git-history:computer-architecture:05-memory-hierarchy]",
+        "canonical_path": "computer-architecture/05-MEMORY-HIERARCHY.md",
+        "concepts": "[memory, hierarchy]",
+        "current_path": "computer-architecture/05-MEMORY-HIERARCHY.md",
+        "id": "maxim:computer-architecture:memory-hierarchy",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "computer-architecture",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[memory, hierarchy]",
+        "section": "computer-architecture",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Memory Hierarchy: Caches to DRAM",
+        "updated": "null"
+      },
+      "text": "DRAM ARRAYS:\n  Organized in banks, rows, columns.\n  Access must ACTIVATE a row (copy into row buffer) before read.\n  OPEN PAGE POLICY: row buffer stays open for subsequent accesses.\n  Row hit: ~CAS latency (~14 ns)\n  Row miss (different row): row activate + row read + CAS latency\n  Bank conflict: ~50–100 ns total\n```"
+    },
+    {
+      "id": "05-MEMORY-HIERARCHY.md#041",
+      "path": [
+        "05-MEMORY-HIERARCHY.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:computer-architecture:05-memory-hierarchy, git-history:computer-architecture:05-memory-hierarchy]",
+        "canonical_path": "computer-architecture/05-MEMORY-HIERARCHY.md",
+        "concepts": "[memory, hierarchy]",
+        "current_path": "computer-architecture/05-MEMORY-HIERARCHY.md",
+        "id": "maxim:computer-architecture:memory-hierarchy",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "computer-architecture",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[memory, hierarchy]",
+        "section": "computer-architecture",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Memory Hierarchy: Caches to DRAM",
+        "updated": "null"
+      },
+      "text": "### DRAM Timing"
+    },
+    {
+      "id": "05-MEMORY-HIERARCHY.md#042",
+      "path": [
+        "05-MEMORY-HIERARCHY.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:computer-architecture:05-memory-hierarchy, git-history:computer-architecture:05-memory-hierarchy]",
+        "canonical_path": "computer-architecture/05-MEMORY-HIERARCHY.md",
+        "concepts": "[memory, hierarchy]",
+        "current_path": "computer-architecture/05-MEMORY-HIERARCHY.md",
+        "id": "maxim:computer-architecture:memory-hierarchy",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "computer-architecture",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[memory, hierarchy]",
+        "section": "computer-architecture",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Memory Hierarchy: Caches to DRAM",
+        "updated": "null"
+      },
+      "text": "```\n  DDR5-6400 (2023 typical):\n  CAS Latency (CL):    32  = cycles to read after column activation\n  RAS to CAS (tRCD):   32  = cycles for row activate to column access\n  Row Precharge (tRP): 32  = cycles to close and precharge a row\n  Active to Active (tRAS): 76  = total row activation time"
+    },
+    {
+      "id": "05-MEMORY-HIERARCHY.md#043",
+      "path": [
+        "05-MEMORY-HIERARCHY.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:computer-architecture:05-memory-hierarchy, git-history:computer-architecture:05-memory-hierarchy]",
+        "canonical_path": "computer-architecture/05-MEMORY-HIERARCHY.md",
+        "concepts": "[memory, hierarchy]",
+        "current_path": "computer-architecture/05-MEMORY-HIERARCHY.md",
+        "id": "maxim:computer-architecture:memory-hierarchy",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "computer-architecture",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[memory, hierarchy]",
+        "section": "computer-architecture",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Memory Hierarchy: Caches to DRAM",
+        "updated": "null"
+      },
+      "text": "At 3200 MHz effective (DDR5-6400):\n  CL32 = 10 ns CAS latency\n  Total first-access: ~40-50 ns = ~100 CPU cycles at 3 GHz"
+    },
+    {
+      "id": "05-MEMORY-HIERARCHY.md#044",
+      "path": [
+        "05-MEMORY-HIERARCHY.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:computer-architecture:05-memory-hierarchy, git-history:computer-architecture:05-memory-hierarchy]",
+        "canonical_path": "computer-architecture/05-MEMORY-HIERARCHY.md",
+        "concepts": "[memory, hierarchy]",
+        "current_path": "computer-architecture/05-MEMORY-HIERARCHY.md",
+        "id": "maxim:computer-architecture:memory-hierarchy",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "computer-architecture",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[memory, hierarchy]",
+        "section": "computer-architecture",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Memory Hierarchy: Caches to DRAM",
+        "updated": "null"
+      },
+      "text": "DDR vs LPDDR:\n  DDR5 (desktop/server): higher bandwidth, higher power\n  LPDDR5x (mobile, Apple Silicon): lower power, integrated package\n  Apple M2: 100+ GB/s memory bandwidth (LPDDR5)\n  vs typical PC: 50 GB/s (DDR5-6400 dual channel)\n```"
+    },
+    {
+      "id": "05-MEMORY-HIERARCHY.md#045",
+      "path": [
+        "05-MEMORY-HIERARCHY.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:computer-architecture:05-memory-hierarchy, git-history:computer-architecture:05-memory-hierarchy]",
+        "canonical_path": "computer-architecture/05-MEMORY-HIERARCHY.md",
+        "concepts": "[memory, hierarchy]",
+        "current_path": "computer-architecture/05-MEMORY-HIERARCHY.md",
+        "id": "maxim:computer-architecture:memory-hierarchy",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "computer-architecture",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[memory, hierarchy]",
+        "section": "computer-architecture",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Memory Hierarchy: Caches to DRAM",
+        "updated": "null"
+      },
+      "text": "---"
+    },
+    {
+      "id": "05-MEMORY-HIERARCHY.md#046",
+      "path": [
+        "05-MEMORY-HIERARCHY.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:computer-architecture:05-memory-hierarchy, git-history:computer-architecture:05-memory-hierarchy]",
+        "canonical_path": "computer-architecture/05-MEMORY-HIERARCHY.md",
+        "concepts": "[memory, hierarchy]",
+        "current_path": "computer-architecture/05-MEMORY-HIERARCHY.md",
+        "id": "maxim:computer-architecture:memory-hierarchy",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "computer-architecture",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[memory, hierarchy]",
+        "section": "computer-architecture",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Memory Hierarchy: Caches to DRAM",
+        "updated": "null"
+      },
+      "text": "## Cache Performance Analysis"
+    },
+    {
+      "id": "05-MEMORY-HIERARCHY.md#047",
+      "path": [
+        "05-MEMORY-HIERARCHY.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:computer-architecture:05-memory-hierarchy, git-history:computer-architecture:05-memory-hierarchy]",
+        "canonical_path": "computer-architecture/05-MEMORY-HIERARCHY.md",
+        "concepts": "[memory, hierarchy]",
+        "current_path": "computer-architecture/05-MEMORY-HIERARCHY.md",
+        "id": "maxim:computer-architecture:memory-hierarchy",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "computer-architecture",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[memory, hierarchy]",
+        "section": "computer-architecture",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Memory Hierarchy: Caches to DRAM",
+        "updated": "null"
+      },
+      "text": "### Hit Rate and AMAT"
+    },
+    {
+      "id": "05-MEMORY-HIERARCHY.md#048",
+      "path": [
+        "05-MEMORY-HIERARCHY.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:computer-architecture:05-memory-hierarchy, git-history:computer-architecture:05-memory-hierarchy]",
+        "canonical_path": "computer-architecture/05-MEMORY-HIERARCHY.md",
+        "concepts": "[memory, hierarchy]",
+        "current_path": "computer-architecture/05-MEMORY-HIERARCHY.md",
+        "id": "maxim:computer-architecture:memory-hierarchy",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "computer-architecture",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[memory, hierarchy]",
+        "section": "computer-architecture",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Memory Hierarchy: Caches to DRAM",
+        "updated": "null"
+      },
+      "text": "```\n  AVERAGE MEMORY ACCESS TIME (AMAT):\n  AMAT = HitTime + MissRate × MissPenalty"
+    },
+    {
+      "id": "05-MEMORY-HIERARCHY.md#049",
+      "path": [
+        "05-MEMORY-HIERARCHY.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:computer-architecture:05-memory-hierarchy, git-history:computer-architecture:05-memory-hierarchy]",
+        "canonical_path": "computer-architecture/05-MEMORY-HIERARCHY.md",
+        "concepts": "[memory, hierarchy]",
+        "current_path": "computer-architecture/05-MEMORY-HIERARCHY.md",
+        "id": "maxim:computer-architecture:memory-hierarchy",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "computer-architecture",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[memory, hierarchy]",
+        "section": "computer-architecture",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Memory Hierarchy: Caches to DRAM",
+        "updated": "null"
+      },
+      "text": "Multi-level:\n  AMAT = HitL1 + MissRateL1 × (HitL2 + MissRateL2 × (HitL3 + MissRateL3 × DRAM))"
+    },
+    {
+      "id": "05-MEMORY-HIERARCHY.md#050",
+      "path": [
+        "05-MEMORY-HIERARCHY.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:computer-architecture:05-memory-hierarchy, git-history:computer-architecture:05-memory-hierarchy]",
+        "canonical_path": "computer-architecture/05-MEMORY-HIERARCHY.md",
+        "concepts": "[memory, hierarchy]",
+        "current_path": "computer-architecture/05-MEMORY-HIERARCHY.md",
+        "id": "maxim:computer-architecture:memory-hierarchy",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "computer-architecture",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[memory, hierarchy]",
+        "section": "computer-architecture",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Memory Hierarchy: Caches to DRAM",
+        "updated": "null"
+      },
+      "text": "EXAMPLE:\n  L1: 4 cycles, 95% hit rate\n  L2: 12 cycles, 80% hit rate (conditional on L1 miss)\n  L3: 40 cycles, 90% hit rate (conditional on L2 miss)\n  DRAM: 200 cycles"
+    },
+    {
+      "id": "05-MEMORY-HIERARCHY.md#051",
+      "path": [
+        "05-MEMORY-HIERARCHY.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:computer-architecture:05-memory-hierarchy, git-history:computer-architecture:05-memory-hierarchy]",
+        "canonical_path": "computer-architecture/05-MEMORY-HIERARCHY.md",
+        "concepts": "[memory, hierarchy]",
+        "current_path": "computer-architecture/05-MEMORY-HIERARCHY.md",
+        "id": "maxim:computer-architecture:memory-hierarchy",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "computer-architecture",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[memory, hierarchy]",
+        "section": "computer-architecture",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Memory Hierarchy: Caches to DRAM",
+        "updated": "null"
+      },
+      "text": "Global miss rate: 0.05 × 0.20 × 0.10 = 0.001 = 0.1%\n  AMAT ≈ 4 + 0.05×(12 + 0.20×(40 + 0.10×200))\n        ≈ 4 + 0.05×(12 + 0.20×60)\n        ≈ 4 + 0.05×24 = 4 + 1.2 = 5.2 cycles effective"
+    },
+    {
+      "id": "05-MEMORY-HIERARCHY.md#052",
+      "path": [
+        "05-MEMORY-HIERARCHY.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:computer-architecture:05-memory-hierarchy, git-history:computer-architecture:05-memory-hierarchy]",
+        "canonical_path": "computer-architecture/05-MEMORY-HIERARCHY.md",
+        "concepts": "[memory, hierarchy]",
+        "current_path": "computer-architecture/05-MEMORY-HIERARCHY.md",
+        "id": "maxim:computer-architecture:memory-hierarchy",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "computer-architecture",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[memory, hierarchy]",
+        "section": "computer-architecture",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Memory Hierarchy: Caches to DRAM",
+        "updated": "null"
+      },
+      "text": "A 0.1% DRAM miss rate only has ~1.2 cycle overhead because\n  L2 and L3 absorb most misses. The 1% case (bad cache behavior)\n  dramatically degrades performance.\n```"
+    },
+    {
+      "id": "05-MEMORY-HIERARCHY.md#053",
+      "path": [
+        "05-MEMORY-HIERARCHY.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:computer-architecture:05-memory-hierarchy, git-history:computer-architecture:05-memory-hierarchy]",
+        "canonical_path": "computer-architecture/05-MEMORY-HIERARCHY.md",
+        "concepts": "[memory, hierarchy]",
+        "current_path": "computer-architecture/05-MEMORY-HIERARCHY.md",
+        "id": "maxim:computer-architecture:memory-hierarchy",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "computer-architecture",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[memory, hierarchy]",
+        "section": "computer-architecture",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Memory Hierarchy: Caches to DRAM",
+        "updated": "null"
+      },
+      "text": "### Prefetching"
+    },
+    {
+      "id": "05-MEMORY-HIERARCHY.md#054",
+      "path": [
+        "05-MEMORY-HIERARCHY.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:computer-architecture:05-memory-hierarchy, git-history:computer-architecture:05-memory-hierarchy]",
+        "canonical_path": "computer-architecture/05-MEMORY-HIERARCHY.md",
+        "concepts": "[memory, hierarchy]",
+        "current_path": "computer-architecture/05-MEMORY-HIERARCHY.md",
+        "id": "maxim:computer-architecture:memory-hierarchy",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "computer-architecture",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[memory, hierarchy]",
+        "section": "computer-architecture",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Memory Hierarchy: Caches to DRAM",
+        "updated": "null"
+      },
+      "text": "```\n  HARDWARE PREFETCHER:\n  Detects access patterns and prefetches data before it's needed."
+    },
+    {
+      "id": "05-MEMORY-HIERARCHY.md#055",
+      "path": [
+        "05-MEMORY-HIERARCHY.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:computer-architecture:05-memory-hierarchy, git-history:computer-architecture:05-memory-hierarchy]",
+        "canonical_path": "computer-architecture/05-MEMORY-HIERARCHY.md",
+        "concepts": "[memory, hierarchy]",
+        "current_path": "computer-architecture/05-MEMORY-HIERARCHY.md",
+        "id": "maxim:computer-architecture:memory-hierarchy",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "computer-architecture",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[memory, hierarchy]",
+        "section": "computer-architecture",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Memory Hierarchy: Caches to DRAM",
+        "updated": "null"
+      },
+      "text": "SEQUENTIAL PREFETCHER: If you accessed line N, prefetch N+1, N+2...\n    Works for: array traversal, sequential scans\n    Blind to: struct offsets, strides ≠ 1"
+    },
+    {
+      "id": "05-MEMORY-HIERARCHY.md#056",
+      "path": [
+        "05-MEMORY-HIERARCHY.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:computer-architecture:05-memory-hierarchy, git-history:computer-architecture:05-memory-hierarchy]",
+        "canonical_path": "computer-architecture/05-MEMORY-HIERARCHY.md",
+        "concepts": "[memory, hierarchy]",
+        "current_path": "computer-architecture/05-MEMORY-HIERARCHY.md",
+        "id": "maxim:computer-architecture:memory-hierarchy",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "computer-architecture",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[memory, hierarchy]",
+        "section": "computer-architecture",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Memory Hierarchy: Caches to DRAM",
+        "updated": "null"
+      },
+      "text": "STRIDE PREFETCHER: Detect access stride, prefetch ahead.\n    e.g., accessing every 4th cache line → prefetch next in stride\n    Works for: for loops with fixed stride"
+    },
+    {
+      "id": "05-MEMORY-HIERARCHY.md#057",
+      "path": [
+        "05-MEMORY-HIERARCHY.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:computer-architecture:05-memory-hierarchy, git-history:computer-architecture:05-memory-hierarchy]",
+        "canonical_path": "computer-architecture/05-MEMORY-HIERARCHY.md",
+        "concepts": "[memory, hierarchy]",
+        "current_path": "computer-architecture/05-MEMORY-HIERARCHY.md",
+        "id": "maxim:computer-architecture:memory-hierarchy",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "computer-architecture",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[memory, hierarchy]",
+        "section": "computer-architecture",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Memory Hierarchy: Caches to DRAM",
+        "updated": "null"
+      },
+      "text": "NON-TEMPORAL STORES (x86):\n  MOVNT (Move Non-Temporal) instructions bypass the cache:\n  MOVNTDQ [mem], xmm0   \"write to memory without polluting cache\"\n  Use for: large sequential writes you won't re-read\n  (video frame writes, memset on large buffers)\n  Avoids evicting useful data from the cache."
+    },
+    {
+      "id": "05-MEMORY-HIERARCHY.md#058",
+      "path": [
+        "05-MEMORY-HIERARCHY.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:computer-architecture:05-memory-hierarchy, git-history:computer-architecture:05-memory-hierarchy]",
+        "canonical_path": "computer-architecture/05-MEMORY-HIERARCHY.md",
+        "concepts": "[memory, hierarchy]",
+        "current_path": "computer-architecture/05-MEMORY-HIERARCHY.md",
+        "id": "maxim:computer-architecture:memory-hierarchy",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "computer-architecture",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[memory, hierarchy]",
+        "section": "computer-architecture",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Memory Hierarchy: Caches to DRAM",
+        "updated": "null"
+      },
+      "text": "SOFTWARE PREFETCH:\n  PREFETCHT0 [addr]     \"prefetch into all cache levels\"\n  PREFETCHNTA [addr]    \"prefetch minimally (don't pollute)\"\n  ARM: PRFM PLDL1KEEP, [x0]\n  C intrinsic: __builtin_prefetch(addr, 0, 3)\n  Distance: should be 100–200 cycles ahead (latency hiding)\n```"
+    },
+    {
+      "id": "05-MEMORY-HIERARCHY.md#059",
+      "path": [
+        "05-MEMORY-HIERARCHY.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:computer-architecture:05-memory-hierarchy, git-history:computer-architecture:05-memory-hierarchy]",
+        "canonical_path": "computer-architecture/05-MEMORY-HIERARCHY.md",
+        "concepts": "[memory, hierarchy]",
+        "current_path": "computer-architecture/05-MEMORY-HIERARCHY.md",
+        "id": "maxim:computer-architecture:memory-hierarchy",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "computer-architecture",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[memory, hierarchy]",
+        "section": "computer-architecture",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Memory Hierarchy: Caches to DRAM",
+        "updated": "null"
+      },
+      "text": "---"
+    },
+    {
+      "id": "05-MEMORY-HIERARCHY.md#060",
+      "path": [
+        "05-MEMORY-HIERARCHY.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:computer-architecture:05-memory-hierarchy, git-history:computer-architecture:05-memory-hierarchy]",
+        "canonical_path": "computer-architecture/05-MEMORY-HIERARCHY.md",
+        "concepts": "[memory, hierarchy]",
+        "current_path": "computer-architecture/05-MEMORY-HIERARCHY.md",
+        "id": "maxim:computer-architecture:memory-hierarchy",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "computer-architecture",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[memory, hierarchy]",
+        "section": "computer-architecture",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Memory Hierarchy: Caches to DRAM",
+        "updated": "null"
+      },
+      "text": "## TLB: Translation Lookaside Buffer"
+    },
+    {
+      "id": "05-MEMORY-HIERARCHY.md#061",
+      "path": [
+        "05-MEMORY-HIERARCHY.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:computer-architecture:05-memory-hierarchy, git-history:computer-architecture:05-memory-hierarchy]",
+        "canonical_path": "computer-architecture/05-MEMORY-HIERARCHY.md",
+        "concepts": "[memory, hierarchy]",
+        "current_path": "computer-architecture/05-MEMORY-HIERARCHY.md",
+        "id": "maxim:computer-architecture:memory-hierarchy",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "computer-architecture",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[memory, hierarchy]",
+        "section": "computer-architecture",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Memory Hierarchy: Caches to DRAM",
+        "updated": "null"
+      },
+      "text": "```\n  VIRTUAL ADDRESS → PHYSICAL ADDRESS requires page table walks.\n  A 4-level page table walk = 4 memory accesses = 4 L3/DRAM hits.\n  The TLB caches these translations."
+    },
+    {
+      "id": "05-MEMORY-HIERARCHY.md#062",
+      "path": [
+        "05-MEMORY-HIERARCHY.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:computer-architecture:05-memory-hierarchy, git-history:computer-architecture:05-memory-hierarchy]",
+        "canonical_path": "computer-architecture/05-MEMORY-HIERARCHY.md",
+        "concepts": "[memory, hierarchy]",
+        "current_path": "computer-architecture/05-MEMORY-HIERARCHY.md",
+        "id": "maxim:computer-architecture:memory-hierarchy",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "computer-architecture",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[memory, hierarchy]",
+        "section": "computer-architecture",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Memory Hierarchy: Caches to DRAM",
+        "updated": "null"
+      },
+      "text": "TLB STRUCTURE:\n  iTLB: Instruction TLB (12 entries for 4K pages, 8 for 2M)\n  dTLB: Data TLB (L1: 64 entries, L2: 1536 entries — Intel Golden Cove)"
+    },
+    {
+      "id": "05-MEMORY-HIERARCHY.md#063",
+      "path": [
+        "05-MEMORY-HIERARCHY.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:computer-architecture:05-memory-hierarchy, git-history:computer-architecture:05-memory-hierarchy]",
+        "canonical_path": "computer-architecture/05-MEMORY-HIERARCHY.md",
+        "concepts": "[memory, hierarchy]",
+        "current_path": "computer-architecture/05-MEMORY-HIERARCHY.md",
+        "id": "maxim:computer-architecture:memory-hierarchy",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "computer-architecture",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[memory, hierarchy]",
+        "section": "computer-architecture",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Memory Hierarchy: Caches to DRAM",
+        "updated": "null"
+      },
+      "text": "TLB HIT: address translation = 0 additional cycles (parallel lookup)\n  TLB MISS: hardware page table walker traverses 4 levels\n    Each level: cache hit (4–40 cycles) or DRAM hit (100 cycles)\n    Total TLB miss cost: ~50–300 cycles"
+    },
+    {
+      "id": "05-MEMORY-HIERARCHY.md#064",
+      "path": [
+        "05-MEMORY-HIERARCHY.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:computer-architecture:05-memory-hierarchy, git-history:computer-architecture:05-memory-hierarchy]",
+        "canonical_path": "computer-architecture/05-MEMORY-HIERARCHY.md",
+        "concepts": "[memory, hierarchy]",
+        "current_path": "computer-architecture/05-MEMORY-HIERARCHY.md",
+        "id": "maxim:computer-architecture:memory-hierarchy",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "computer-architecture",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[memory, hierarchy]",
+        "section": "computer-architecture",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Memory Hierarchy: Caches to DRAM",
+        "updated": "null"
+      },
+      "text": "HUGE PAGES:\n  Standard page: 4 KB → TLB entry covers 4 KB\n  Huge page (Linux: transparent huge page): 2 MB → 512× coverage\n  Gigantic page: 1 GB → 262,144× coverage"
+    },
+    {
+      "id": "05-MEMORY-HIERARCHY.md#065",
+      "path": [
+        "05-MEMORY-HIERARCHY.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:computer-architecture:05-memory-hierarchy, git-history:computer-architecture:05-memory-hierarchy]",
+        "canonical_path": "computer-architecture/05-MEMORY-HIERARCHY.md",
+        "concepts": "[memory, hierarchy]",
+        "current_path": "computer-architecture/05-MEMORY-HIERARCHY.md",
+        "id": "maxim:computer-architecture:memory-hierarchy",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "computer-architecture",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[memory, hierarchy]",
+        "section": "computer-architecture",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Memory Hierarchy: Caches to DRAM",
+        "updated": "null"
+      },
+      "text": "Using huge pages for large working sets dramatically reduces TLB misses.\n  Linux: /proc/meminfo shows AnonHugePages.\n  madvise(addr, size, MADV_HUGEPAGE) hints huge pages.\n  C#: windows uses large page support via VirtualAlloc + MEM_LARGE_PAGES."
+    },
+    {
+      "id": "05-MEMORY-HIERARCHY.md#066",
+      "path": [
+        "05-MEMORY-HIERARCHY.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:computer-architecture:05-memory-hierarchy, git-history:computer-architecture:05-memory-hierarchy]",
+        "canonical_path": "computer-architecture/05-MEMORY-HIERARCHY.md",
+        "concepts": "[memory, hierarchy]",
+        "current_path": "computer-architecture/05-MEMORY-HIERARCHY.md",
+        "id": "maxim:computer-architecture:memory-hierarchy",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "computer-architecture",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[memory, hierarchy]",
+        "section": "computer-architecture",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Memory Hierarchy: Caches to DRAM",
+        "updated": "null"
+      },
+      "text": "CONTEXT SWITCH TLB FLUSH:\n  Process A and B have different virtual→physical mappings.\n  On context switch, TLB must be flushed (or process tags added).\n  PCID (Process-Context Identifiers, x86): tag each TLB entry with ASID.\n  Avoids full TLB flush on context switch.\n  INVLPG: invalidate a single TLB entry.\n  ASID (ARM): Address Space Identifier — same concept.\n```"
+    },
+    {
+      "id": "05-MEMORY-HIERARCHY.md#067",
+      "path": [
+        "05-MEMORY-HIERARCHY.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:computer-architecture:05-memory-hierarchy, git-history:computer-architecture:05-memory-hierarchy]",
+        "canonical_path": "computer-architecture/05-MEMORY-HIERARCHY.md",
+        "concepts": "[memory, hierarchy]",
+        "current_path": "computer-architecture/05-MEMORY-HIERARCHY.md",
+        "id": "maxim:computer-architecture:memory-hierarchy",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "computer-architecture",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[memory, hierarchy]",
+        "section": "computer-architecture",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Memory Hierarchy: Caches to DRAM",
+        "updated": "null"
+      },
+      "text": "---"
+    },
+    {
+      "id": "05-MEMORY-HIERARCHY.md#068",
+      "path": [
+        "05-MEMORY-HIERARCHY.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:computer-architecture:05-memory-hierarchy, git-history:computer-architecture:05-memory-hierarchy]",
+        "canonical_path": "computer-architecture/05-MEMORY-HIERARCHY.md",
+        "concepts": "[memory, hierarchy]",
+        "current_path": "computer-architecture/05-MEMORY-HIERARCHY.md",
+        "id": "maxim:computer-architecture:memory-hierarchy",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "computer-architecture",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[memory, hierarchy]",
+        "section": "computer-architecture",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Memory Hierarchy: Caches to DRAM",
+        "updated": "null"
+      },
+      "text": "## Non-Uniform Memory Access (NUMA)"
+    },
+    {
+      "id": "05-MEMORY-HIERARCHY.md#069",
+      "path": [
+        "05-MEMORY-HIERARCHY.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:computer-architecture:05-memory-hierarchy, git-history:computer-architecture:05-memory-hierarchy]",
+        "canonical_path": "computer-architecture/05-MEMORY-HIERARCHY.md",
+        "concepts": "[memory, hierarchy]",
+        "current_path": "computer-architecture/05-MEMORY-HIERARCHY.md",
+        "id": "maxim:computer-architecture:memory-hierarchy",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "computer-architecture",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[memory, hierarchy]",
+        "section": "computer-architecture",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Memory Hierarchy: Caches to DRAM",
+        "updated": "null"
+      },
+      "text": "```\n  MULTI-SOCKET SERVERS:\n  Modern servers have 2–8 CPU sockets.\n  Each socket has its own local DRAM.\n  A core on Socket 0 accesses Socket 1 DRAM via:\n  QPI/UPI (Intel) or Infinity Fabric (AMD) inter-socket interconnect."
+    },
+    {
+      "id": "05-MEMORY-HIERARCHY.md#070",
+      "path": [
+        "05-MEMORY-HIERARCHY.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:computer-architecture:05-memory-hierarchy, git-history:computer-architecture:05-memory-hierarchy]",
+        "canonical_path": "computer-architecture/05-MEMORY-HIERARCHY.md",
+        "concepts": "[memory, hierarchy]",
+        "current_path": "computer-architecture/05-MEMORY-HIERARCHY.md",
+        "id": "maxim:computer-architecture:memory-hierarchy",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "computer-architecture",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[memory, hierarchy]",
+        "section": "computer-architecture",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Memory Hierarchy: Caches to DRAM",
+        "updated": "null"
+      },
+      "text": "Socket 0 DRAM access: ~70 ns (local)\n  Socket 1 DRAM access: ~120–200 ns (remote, via UPI/IF)"
+    },
+    {
+      "id": "05-MEMORY-HIERARCHY.md#071",
+      "path": [
+        "05-MEMORY-HIERARCHY.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:computer-architecture:05-memory-hierarchy, git-history:computer-architecture:05-memory-hierarchy]",
+        "canonical_path": "computer-architecture/05-MEMORY-HIERARCHY.md",
+        "concepts": "[memory, hierarchy]",
+        "current_path": "computer-architecture/05-MEMORY-HIERARCHY.md",
+        "id": "maxim:computer-architecture:memory-hierarchy",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "computer-architecture",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[memory, hierarchy]",
+        "section": "computer-architecture",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Memory Hierarchy: Caches to DRAM",
+        "updated": "null"
+      },
+      "text": "NUMA EFFECTS:\n  Process migrated from core 0 to core 16 (different socket)\n  but its memory stays on socket 0.\n  Result: remote NUMA accesses = 2–3× latency penalty."
+    },
+    {
+      "id": "05-MEMORY-HIERARCHY.md#072",
+      "path": [
+        "05-MEMORY-HIERARCHY.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:computer-architecture:05-memory-hierarchy, git-history:computer-architecture:05-memory-hierarchy]",
+        "canonical_path": "computer-architecture/05-MEMORY-HIERARCHY.md",
+        "concepts": "[memory, hierarchy]",
+        "current_path": "computer-architecture/05-MEMORY-HIERARCHY.md",
+        "id": "maxim:computer-architecture:memory-hierarchy",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "computer-architecture",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[memory, hierarchy]",
+        "section": "computer-architecture",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Memory Hierarchy: Caches to DRAM",
+        "updated": "null"
+      },
+      "text": "NUMA-AWARE ALLOCATION:\n  Linux: numactl, mbind(), set_mempolicy()\n  C#/.NET: not directly exposed; use affinity + Runtime.GetCurrentProcessorId()\n  Azure VM: most VMs are single socket; NUMA matters for bare-metal D-series"
+    },
+    {
+      "id": "05-MEMORY-HIERARCHY.md#073",
+      "path": [
+        "05-MEMORY-HIERARCHY.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:computer-architecture:05-memory-hierarchy, git-history:computer-architecture:05-memory-hierarchy]",
+        "canonical_path": "computer-architecture/05-MEMORY-HIERARCHY.md",
+        "concepts": "[memory, hierarchy]",
+        "current_path": "computer-architecture/05-MEMORY-HIERARCHY.md",
+        "id": "maxim:computer-architecture:memory-hierarchy",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "computer-architecture",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[memory, hierarchy]",
+        "section": "computer-architecture",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Memory Hierarchy: Caches to DRAM",
+        "updated": "null"
+      },
+      "text": "AZURE CONTEXT: Azure HBv3 VMs (HPC) expose NUMA topology.\n  Application code using large in-memory data (ML training,\n  in-memory databases) benefits from NUMA awareness.\n```"
+    },
+    {
+      "id": "05-MEMORY-HIERARCHY.md#074",
+      "path": [
+        "05-MEMORY-HIERARCHY.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:computer-architecture:05-memory-hierarchy, git-history:computer-architecture:05-memory-hierarchy]",
+        "canonical_path": "computer-architecture/05-MEMORY-HIERARCHY.md",
+        "concepts": "[memory, hierarchy]",
+        "current_path": "computer-architecture/05-MEMORY-HIERARCHY.md",
+        "id": "maxim:computer-architecture:memory-hierarchy",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "computer-architecture",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[memory, hierarchy]",
+        "section": "computer-architecture",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Memory Hierarchy: Caches to DRAM",
+        "updated": "null"
+      },
+      "text": "---"
+    },
+    {
+      "id": "05-MEMORY-HIERARCHY.md#075",
+      "path": [
+        "05-MEMORY-HIERARCHY.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:computer-architecture:05-memory-hierarchy, git-history:computer-architecture:05-memory-hierarchy]",
+        "canonical_path": "computer-architecture/05-MEMORY-HIERARCHY.md",
+        "concepts": "[memory, hierarchy]",
+        "current_path": "computer-architecture/05-MEMORY-HIERARCHY.md",
+        "id": "maxim:computer-architecture:memory-hierarchy",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "computer-architecture",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[memory, hierarchy]",
+        "section": "computer-architecture",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Memory Hierarchy: Caches to DRAM",
+        "updated": "null"
+      },
+      "text": "## Decision Cheat Sheet"
+    },
+    {
+      "id": "05-MEMORY-HIERARCHY.md#076",
+      "path": [
+        "05-MEMORY-HIERARCHY.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:computer-architecture:05-memory-hierarchy, git-history:computer-architecture:05-memory-hierarchy]",
+        "canonical_path": "computer-architecture/05-MEMORY-HIERARCHY.md",
+        "concepts": "[memory, hierarchy]",
+        "current_path": "computer-architecture/05-MEMORY-HIERARCHY.md",
+        "id": "maxim:computer-architecture:memory-hierarchy",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "computer-architecture",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[memory, hierarchy]",
+        "section": "computer-architecture",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Memory Hierarchy: Caches to DRAM",
+        "updated": "null"
+      },
+      "text": "| Question | Answer |\n|----------|--------|\n| Why is the cache line 64 bytes? | Balances spatial locality benefit vs bandwidth wasted on partial use |\n| What is the cost of an L3 miss? | ~100 CPU cycles to DRAM; 4× more if NUMA remote socket |\n| What is a TLB miss? | Page table walk: 4 memory accesses → 50–300 cycles |\n| When should you use huge pages? | Large working sets (>1 GB) to reduce TLB pressure |\n| What is a non-temporal store for? | Large sequential writes that you won't re-read — avoid cache pollution |\n| What is cache associativity? | 8-way: each cache set has 8 slots; higher associativity = fewer conflict misses |\n| Why does AoS often lose to SoA? | AoS loads unused fields into cache lines; SoA packs accessed fields together |"
+    }
+  ],
+  "refs": [
+    "05-MEMORY-HIERARCHY.md"
+  ]
+}

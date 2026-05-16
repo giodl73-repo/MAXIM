@@ -1,3 +1,22 @@
+---
+maxim_schema: maxim.frontmatter.v1
+id: maxim:computer-architecture:pipelining
+kind: guide
+module: computer-architecture
+section: computer-architecture
+title: Pipelining: Stages, Hazards, and Forwarding
+status: source-custody
+source_custody: partial
+current_path: computer-architecture/04-PIPELINING.md
+canonical_path: computer-architecture/04-PIPELINING.md
+backsource_ids: [proof-backfill:computer-architecture:04-pipelining, git-history:computer-architecture:04-pipelining]
+concepts: [pipelining]
+root_concepts: [pipelining]
+index_roles: [guide, root-concept]
+remap_from: []
+remap_to: []
+updated: null
+---
 # Pipelining: Stages, Hazards, and Forwarding
 
 ## The Core Idea

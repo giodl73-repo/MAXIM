@@ -1,3 +1,22 @@
+---
+maxim_schema: maxim.frontmatter.v1
+id: maxim:semiotics:cultural-semiotics
+kind: guide
+module: semiotics
+section: semiotics
+title: Cultural Semiotics: Lotman and the Semiosphere
+status: source-custody
+source_custody: partial
+current_path: semiotics/08-CULTURAL-SEMIOTICS.md
+canonical_path: semiotics/08-CULTURAL-SEMIOTICS.md
+backsource_ids: [proof-backfill:semiotics:08-cultural-semiotics, git-history:semiotics:08-cultural-semiotics]
+concepts: [cultural, semiotics]
+root_concepts: [cultural, semiotics]
+index_roles: [guide, root-concept]
+remap_from: []
+remap_to: []
+updated: null
+---
 # Cultural Semiotics: Lotman and the Semiosphere
 
 ## Yuri Lotman and the Tartu-Moscow School
@@ -15,7 +34,7 @@ Yuri Lotman (1922–1993) was a Russian literary theorist and semiotician who de
 |  with meaning potential   and codes               within which all    |
 |                                                   semiosis occurs     |
 |  Can be: poem, film,      Culture = MEMORY:       Has a BOUNDARY      |
-|  ritual, law, painting,   collective, selective,  (inside vs outside)|
+|  ritual, law, painting,   collective, selective,  (inside vs outside) |
 |  a city, a dream          accumulating                                |
 |                           A PROGRAM for           Non-semiotic ≠      |
 |  Texts encode             generating new texts    meaningless;        |

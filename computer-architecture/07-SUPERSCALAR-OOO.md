@@ -1,3 +1,22 @@
+---
+maxim_schema: maxim.frontmatter.v1
+id: maxim:computer-architecture:superscalar-ooo
+kind: guide
+module: computer-architecture
+section: computer-architecture
+title: Superscalar and Out-of-Order Execution
+status: source-custody
+source_custody: partial
+current_path: computer-architecture/07-SUPERSCALAR-OOO.md
+canonical_path: computer-architecture/07-SUPERSCALAR-OOO.md
+backsource_ids: [proof-backfill:computer-architecture:07-superscalar-ooo, git-history:computer-architecture:07-superscalar-ooo]
+concepts: [superscalar, ooo]
+root_concepts: [superscalar, ooo]
+index_roles: [guide, root-concept]
+remap_from: []
+remap_to: []
+updated: null
+---
 # Superscalar and Out-of-Order Execution
 
 ## Beyond 1 IPC

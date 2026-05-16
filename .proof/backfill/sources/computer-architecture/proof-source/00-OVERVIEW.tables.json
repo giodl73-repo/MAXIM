@@ -1,0 +1,115 @@
+{
+  "schema_version": "1",
+  "source_markdown": "computer-architecture\\00-OVERVIEW.md",
+  "tables": [
+    {
+      "id": "table-1",
+      "line": 192,
+      "heading_context": "## Module Map",
+      "headers": [
+        "File",
+        "Topic",
+        "Key Concepts"
+      ],
+      "rows": [
+        [
+          "01-ISA-FUNDAMENTALS.md",
+          "ISA design space",
+          "RISC vs CISC, instruction formats, addressing modes"
+        ],
+        [
+          "02-X86-ARCHITECTURE.md",
+          "x86 and x86-64",
+          "Register file, modes, encoding, extensions (SSE/AVX)"
+        ],
+        [
+          "03-ARM-RISC-V.md",
+          "ARM64 and RISC-V",
+          "Load-store arch, AArch64 registers, RISC-V ISA extensions"
+        ],
+        [
+          "04-PIPELINING.md",
+          "Pipeline design",
+          "5-stage pipeline, hazards, forwarding, stalling, branch prediction"
+        ],
+        [
+          "05-MEMORY-HIERARCHY.md",
+          "Cache to DRAM",
+          "SRAM cells, DRAM timing, cache organization, TLB"
+        ],
+        [
+          "06-CACHE-COHERENCE.md",
+          "Coherence protocols",
+          "MESI/MOESI, snooping vs directory, memory consistency models"
+        ],
+        [
+          "07-SUPERSCALAR-OOO.md",
+          "Modern execution",
+          "Tomasulo algorithm, reservation stations, ROB, register renaming"
+        ],
+        [
+          "08-GPU-ARCHITECTURE.md",
+          "GPU / SIMT",
+          "SM/warp model, memory hierarchy, CUDA programming model"
+        ],
+        [
+          "09-FUTURE-ARCHITECTURE.md",
+          "Emerging designs",
+          "CXL, chiplets, neuromorphic, near-memory compute"
+        ]
+      ]
+    },
+    {
+      "id": "table-2",
+      "line": 208,
+      "heading_context": "## Decision Cheat Sheet",
+      "headers": [
+        "If you need to diagnose...",
+        "Start With",
+        "Key Caveat"
+      ],
+      "rows": [
+        [
+          "A slow loop",
+          "Check cache misses, branch mispredicts, vectorization, memory bandwidth, and dependency chains.",
+          "Big-O can be irrelevant when locality and branch behavior dominate."
+        ],
+        [
+          "Single-thread CPU speed",
+          "Compare decode width, OOO window, branch predictor, cache hierarchy, memory bandwidth, and package integration.",
+          "ISA branding alone does not explain modern performance."
+        ],
+        [
+          "Pipeline depth",
+          "Analyze clock target, branch penalty, forwarding, hazards, fill/drain cost, and workload branchiness.",
+          "Deeper pipelines raise frequency only if misprediction and hazard costs stay controlled."
+        ],
+        [
+          "SIMD opportunity",
+          "Look for data parallelism, alignment, vector width, memory stride, reductions, and compiler auto-vectorization.",
+          "SIMD speedup is limited by memory and dependency structure."
+        ],
+        [
+          "GPU throughput",
+          "Check occupancy, warp scheduling, memory coalescing, shared memory, divergence, and latency hiding.",
+          "GPUs win throughput workloads, not arbitrary scalar control-heavy code."
+        ],
+        [
+          "ISA vs microarchitecture",
+          "Separate programmer-visible contract from decoder, execution units, caches, predictors, and implementation choices.",
+          "Same ISA can have radically different performance and power."
+        ],
+        [
+          "ARM vs x86 claims",
+          "Compare process node, power target, decode cost, micro-op backend, cache, and SoC integration.",
+          "\"RISC vs CISC\" is too coarse for current CPUs."
+        ],
+        [
+          "False sharing",
+          "Inspect cache-line layout, write patterns, thread ownership, padding, and coherence traffic.",
+          "Different variables can still contend if they share a cache line."
+        ]
+      ]
+    }
+  ]
+}

@@ -1,3 +1,22 @@
+---
+maxim_schema: maxim.frontmatter.v1
+id: maxim:computer-architecture:memory-hierarchy
+kind: guide
+module: computer-architecture
+section: computer-architecture
+title: Memory Hierarchy: Caches to DRAM
+status: source-custody
+source_custody: partial
+current_path: computer-architecture/05-MEMORY-HIERARCHY.md
+canonical_path: computer-architecture/05-MEMORY-HIERARCHY.md
+backsource_ids: [proof-backfill:computer-architecture:05-memory-hierarchy, git-history:computer-architecture:05-memory-hierarchy]
+concepts: [memory, hierarchy]
+root_concepts: [memory, hierarchy]
+index_roles: [guide, root-concept]
+remap_from: []
+remap_to: []
+updated: null
+---
 # Memory Hierarchy: Caches to DRAM
 
 ## Why the Hierarchy Exists

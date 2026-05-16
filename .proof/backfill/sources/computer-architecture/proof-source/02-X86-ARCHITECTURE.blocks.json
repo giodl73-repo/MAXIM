@@ -1,0 +1,83 @@
+{
+  "schema_version": "1",
+  "source_markdown": "computer-architecture\\02-X86-ARCHITECTURE.md",
+  "blocks": [
+    {
+      "id": "block-1",
+      "kind": "ascii_table_candidate",
+      "line": 24,
+      "heading_context": "## Overview",
+      "confidence": "candidate",
+      "text": "x86-64 (also called AMD64 or Intel 64) is the dominant ISA for servers, desktops, and laptops as of 2024. It is the target for every major compiler (GCC, Clang, MSVC), every major language runtime (JVM, V8, CPython, CLR), and every major server operating system. Linux, macOS, and Windows all run natively on x86-64 on the same binary-compatible ISA. Understanding its register file, instruction encoding, and calling conventions is essential for understanding performance, interop, and what any JIT or AOT compiler actually emits — whether you are writing C++, Java, Go, Python, or .NET.",
+      "notes": [
+        "detected from ASCII table borders or pipe-aligned rows"
+      ]
+    },
+    {
+      "id": "block-2",
+      "kind": "ascii_table_candidate",
+      "line": 26,
+      "heading_context": "## Overview",
+      "confidence": "candidate",
+      "text": "+-----------------------------------------------------------------------+\n|                    x86-64 ARCHITECTURE MAP                            |\n|                                                                       |\n|  EXECUTION MODES:                                                     |\n|  Long Mode (64-bit)     Protected Mode (32-bit)     Real Mode (16-bit)|\n|  x86-64 programs        32-bit Windows apps         DOS / BIOS        |\n|  (what you care about)  (WoW64 compatibility layer) (legacy only)     |\n|                                                                       |\n|  REGISTER FILE (Long Mode):                                           |\n|  16 × 64-bit GP registers: RAX RBX RCX RDX RSI RDI RSP RBP R8–R15     |\n|  16 × 128-bit XMM (SSE): XMM0–XMM15                                   |\n|  16 × 256-bit YMM (AVX): YMM0–YMM15 (extend XMM)                      |\n|  32 × 512-bit ZMM (AVX-512): ZMM0–ZMM31                               |\n|  + RFLAGS (status flags) + RIP (instruction pointer)                  |\n|                                                                       |\n|  MEMORY MODEL:                                                        |\n|  Flat 64-bit virtual address space (up to 128 TB in practice)         |\n|  TSO (Total Store Order) — very strong consistency                    |\n|  Pages: 4 KB, 2 MB (huge), 1 GB (gigantic)                            |\n+-----------------------------------------------------------------------+",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-3",
+      "kind": "diagram_like",
+      "line": 55,
+      "heading_context": "### General-Purpose Registers",
+      "confidence": "candidate",
+      "text": "  64-bit name  32-bit view  16-bit  8-bit high  8-bit low\n  -----------  -----------  ------  ----------  ---------\n  RAX          EAX          AX      AH          AL\n  RBX          EBX          BX      BH          BL\n  RCX          ECX          CX      CH          CL\n  RDX          EDX          DX      DH          DL\n  RSI          ESI          SI                  SIL\n  RDI          EDI          DI                  DIL\n  RSP          ESP          SP                  SPL\n  RBP          EBP          BP                  BPL\n  R8           R8D          R8W                 R8B\n  R9           R9D          R9W                 R9B\n  R10          R10D         R10W                R10B\n  R11          R11D         R11W                R11B\n  R12          R12D         R12W                R12B\n  R13          R13D         R13W                R13B\n  R14          R14D         R14W                R14B\n  R15          R15D         R15W                R15B\n\n  KEY RULES:\n  - Writing a 32-bit register ZEROS the upper 32 bits of the 64-bit reg\n    (MOV EAX, 1  →  RAX = 0x0000000000000001)\n  - Writing an 8-bit or 16-bit register DOES NOT zero upper bits\n    (MOV AL, 1   →  RAX upper bits unchanged)\n  - This asymmetry is a common source of bugs in assembly",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-4",
+      "kind": "chart_like",
+      "line": 103,
+      "heading_context": "## Calling Conventions",
+      "confidence": "candidate",
+      "text": "### System V AMD64 ABI (Linux, macOS)",
+      "notes": [
+        "detected from bar/chart glyph density with numeric labels"
+      ]
+    },
+    {
+      "id": "block-5",
+      "kind": "chart_like",
+      "line": 128,
+      "heading_context": "### System V AMD64 ABI (Linux, macOS)",
+      "confidence": "candidate",
+      "text": "### Microsoft x64 ABI (Windows, .NET CLR)",
+      "notes": [
+        "detected from bar/chart glyph density with numeric labels"
+      ]
+    },
+    {
+      "id": "block-6",
+      "kind": "diagram_like",
+      "line": 217,
+      "heading_context": "### Integer Arithmetic",
+      "confidence": "candidate",
+      "text": "  ADD dst, src          dst += src\n  SUB dst, src          dst -= src\n  IMUL reg, r/m         reg *= r/m   (signed; result in reg)\n  IMUL reg, r/m, imm    reg = r/m * imm\n  IDIV r/m              RDX:RAX / r/m → quotient in RAX, remainder in RDX\n  INC dst               dst++   (does NOT affect CF; subtle difference from ADD 1)\n  DEC dst               dst--\n  NEG dst               dst = -dst\n  LEA dst, [mem_expr]   Load Effective Address — computes address, no memory access\n                        Often used as fast multiply: LEA rax, [rbx + rbx*2]  (= rbx*3)",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-7",
+      "kind": "diagram_like",
+      "line": 326,
+      "heading_context": "## Virtual Memory and Paging",
+      "confidence": "candidate",
+      "text": "  x86-64 VIRTUAL ADDRESS SPACE:\n  48-bit canonical addresses (current CPUs)\n    User space:   0x0000000000000000 – 0x00007FFFFFFFFFFF (128 TB)\n    Kernel space: 0xFFFF800000000000 – 0xFFFFFFFFFFFFFFFF (128 TB)\n    (Addresses must be canonical — bits 48–63 = sign extension of bit 47)\n  57-bit LA57 extension: 5-level paging → 128 PB user space\n\n  PAGE TABLE HIERARCHY (4-level):\n  CR3 → PML4 → PDPT → PD → PT → Physical Frame\n\n  CR3 holds physical address of PML4 (per-process).\n  Each level has 512 entries (9 bits from VA).\n\n  VA SPLIT (48-bit, 4-level):\n  [bit 63-48: sign ext][bit 47-39: PML4][bit 38-30: PDPT]\n  [bit 29-21: PD][bit 20-12: PT][bit 11-0: page offset]\n\n  TLB: Translation Lookaside Buffer\n  Cache of VA→PA translations. L1 TLB (iTLB, dTLB), L2 TLB.\n  TLB miss: hardware page table walker traverses 4 levels.\n  Context switch flushes TLB (unless PCID — process-context ID).\n  INVLPG: invalidate single TLB entry.",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    }
+  ]
+}

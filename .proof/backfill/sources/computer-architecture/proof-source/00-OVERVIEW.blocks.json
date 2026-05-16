@@ -1,0 +1,50 @@
+{
+  "schema_version": "1",
+  "source_markdown": "computer-architecture\\00-OVERVIEW.md",
+  "blocks": [
+    {
+      "id": "block-1",
+      "kind": "ascii_table_candidate",
+      "line": 26,
+      "heading_context": "## The Big Picture",
+      "confidence": "candidate",
+      "text": "+-----------------------------------------------------------------------+\n|                   COMPUTER ARCHITECTURE STACK                         |\n|                                                                       |\n|  APPLICATION CODE (C#, Rust, Java, C, C++)                           |\n|  \"What you write\"                                                     |\n|           |                                                           |\n|           v                                                           |\n|  COMPILER / JIT / AOT                                                 |\n|  (translates to machine code; must know the ISA)                     |\n|           |                                                           |\n|           v                                                           |\n|  +-----------------------+                                            |\n|  | ISA                   |  Instruction Set Architecture             |\n|  | (Instruction Set      |  The CONTRACT between software and HW:    |\n|  | Architecture)         |  \"what instructions exist, what they do,  |\n|  | x86-64 / ARM64 /      |   what registers exist, memory model\"     |\n|  | RISC-V                |  Portable: same binary runs on any        |\n|  +-----------------------+  x86-64 machine regardless of microarch   |\n|           |                                                           |\n|           v                                                           |\n|  +-----------------------+                                            |\n|  | MICROARCHITECTURE     |  The IMPLEMENTATION of that contract.     |\n|  | (what Intel/AMD/Apple |  Pipeline depth, cache sizes,             |\n|  | actually build)       |  out-of-order width, branch predictor —   |\n|  | Intel Golden Cove /   |  all invisible from ISA.                  |\n|  | AMD Zen 4 /           |  Governs performance.                     |\n|  | Apple Everest core    |                                            |\n|  +-----------------------+                                            |\n|           |                                                           |\n|           v                                                           |\n|  PHYSICAL / CIRCUIT LAYER                                             |\n|  (transistors, CMOS logic, lithography — below this guide)           |\n+-----------------------------------------------------------------------+",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-2",
+      "kind": "diagram_like",
+      "line": 68,
+      "heading_context": "## ISA Design Philosophies",
+      "confidence": "candidate",
+      "text": "  CISC                              RISC\n  (Complex Instruction Set)         (Reduced Instruction Set)\n  -------------------------         -------------------------\n  \"Do more per instruction\"         \"Do simple things fast, combine\"\n\n  Many instructions, varying        Few instructions, fixed-length,\n  length, complex operations        simple operations\n\n  x86 / x86-64 (Intel, AMD)        ARM64 / RISC-V / MIPS / SPARC\n\n  Variable instruction length:      Fixed instruction length:\n  1–15 bytes (x86-64)               4 bytes (ARM64, RISC-V)\n\n  Instructions like:                Instructions like:\n    IMUL [mem], reg                   LDUR (load from memory)\n    REP MOVS (block copy)             STUR (store to memory)\n    ENTER/LEAVE (stack frame)         ADD  (add registers)\n    CMPS/SCAS (string compare)        BL   (branch with link)\n    FMUL on memory operand            MADD (multiply-add)\n\n  Decode is expensive:              Decode is trivial:\n  Intel Haswell: 4 decoders,        1 instruction = 1 micro-op\n  variable-length decode            Pipeline stages stay uniform\n  Internal translation to micro-ops\n  (CISC surface, RISC interior)\n\n  Legacy advantage:                 Power advantage:\n  Decades of software compatibility Simpler decode = fewer transistors\n  Compiler can do more in one       = less power = better perf/watt\n  instruction                       → won mobile completely",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-3",
+      "kind": "ascii_table_candidate",
+      "line": 105,
+      "heading_context": "## Memory Hierarchy: The Numbers That Drive Everything",
+      "confidence": "candidate",
+      "text": "  STORAGE         LATENCY        BANDWIDTH    SIZE (typical)\n\n  +-------------+--------------+-------------+----------------+\n  | REGISTERS   |  ~0 cycles   |  ----       | ~1 KB total    |\n  +-------------+--------------+-------------+----------------+\n         |\n  +-------------+--------------+-------------+----------------+\n  | L1 CACHE    |  ~4 cycles   |  ~1 TB/s    | 32-64 KB/core  |\n  +-------------+--------------+-------------+----------------+\n         |\n  +-------------+--------------+-------------+----------------+\n  | L2 CACHE    |  ~12 cycles  |  ~500 GB/s  | 256KB-1MB/core |\n  +-------------+--------------+-------------+----------------+\n         |\n  +-------------+--------------+-------------+----------------+\n  | L3 CACHE    |  ~40 cycles  |  ~200 GB/s  | 8-64 MB shared |\n  +-------------+--------------+-------------+----------------+\n         |\n  +-------------+--------------+-------------+----------------+\n  | DRAM        |  ~100 cycles |  ~100 GB/s  | 8-256 GB       |\n  +-------------+--------------+-------------+----------------+\n         |\n  +-------------+--------------+-------------+----------------+\n  | NVMe SSD    |  ~50K cycles |  ~5 GB/s    | 256 GB-8 TB    |\n  +-------------+--------------+-------------+----------------+\n         |\n  +-------------+--------------+-------------+----------------+\n  | HDD/Network |  millions    |  ~1 GB/s    | unlimited      |\n  +-------------+--------------+-------------+----------------+\n\n  RULE: L1 hit = fast. L3 miss → DRAM = 25x slower. Page fault = catastrophic.\n  The memory wall: CPUs got faster than DRAM much faster.\n  Caches exist to paper over this gap.\n  Cache-friendly code is the single biggest performance lever in userspace.",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-4",
+      "kind": "ascii_table_candidate",
+      "line": 146,
+      "heading_context": "## Parallelism Taxonomy",
+      "confidence": "candidate",
+      "text": "  +-----------------------------------------------------------+\n  |           PARALLELISM IN MODERN PROCESSORS                |\n  |                                                           |\n  |  INSTRUCTION-LEVEL (ILP)      DATA-LEVEL (DLP)           |\n  |  -------------------------    ----------------------     |\n  |  Superscalar: issue 4+        SIMD/vector:               |\n  |  instructions per cycle       AVX-512 = 16 × float32     |\n  |  Out-of-order execution        in one instruction          |\n  |  Branch prediction            NEON (ARM): 4 × float32    |\n  |  Register renaming (RAT)      GPU: thousands of           |\n  |  Speculative execution        SIMT threads                |\n  |                                                           |\n  |  THREAD-LEVEL (TLP)           TASK / PROCESS             |\n  |  ----------------------       ------------------         |\n  |  SMT (hyperthreading):        Multi-socket NUMA           |\n  |  2 threads share 1 core's     Distributed compute        |\n  |  execution units              (outside this guide)        |\n  |  CMP: multiple cores                                      |\n  +-----------------------------------------------------------+",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    }
+  ]
+}

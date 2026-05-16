@@ -1,0 +1,83 @@
+{
+  "schema_version": "1",
+  "source_markdown": "computer-architecture\\03-ARM-RISC-V.md",
+  "blocks": [
+    {
+      "id": "block-1",
+      "kind": "ascii_table_candidate",
+      "line": 26,
+      "heading_context": "## Overview",
+      "confidence": "candidate",
+      "text": "+-----------------------------------------------------------------------+\n|                    ARM64 vs RISC-V COMPARISON                         |\n|                                                                       |\n|  ARM64 (AArch64)                  RISC-V (RV64GC)                     |\n|  ----------------                 ----------------                    |\n|  ARM Holdings, licensed           RISC-V International, open          |\n|  Fixed 32-bit instructions        Fixed 32-bit (C ext: 16-bit)        |\n|  31 GP registers + zero           31 GP registers + zero              |\n|  32 FP/SIMD registers (128-bit)   32 FP registers (64-bit)            |\n|  Conditional execution flags      No condition codes                  |\n|  Hardware divide (UDIV/SDIV)      M extension for multiply/divide     |\n|  Pointer auth (PAC)               Pointer masking (CFI via SW)        |\n|  SVE/SVE2: scalable vectors       V extension: scalable vectors       |\n|  A profile, R profile, M profile  RV32, RV64, RV128 + extensions      |\n|  IP royalties required            Free to implement                   |\n+-----------------------------------------------------------------------+",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-2",
+      "kind": "chart_like",
+      "line": 124,
+      "heading_context": "### Key Instruction Classes",
+      "confidence": "candidate",
+      "text": "### ARM64 Calling Convention (AAPCS64)",
+      "notes": [
+        "detected from bar/chart glyph density with numeric labels"
+      ]
+    },
+    {
+      "id": "block-3",
+      "kind": "chart_like",
+      "line": 150,
+      "heading_context": "### ARM64 Calling Convention (AAPCS64)",
+      "confidence": "candidate",
+      "text": "### ARM64 System Features",
+      "notes": [
+        "detected from bar/chart glyph density with numeric labels"
+      ]
+    },
+    {
+      "id": "block-4",
+      "kind": "ascii_table_candidate",
+      "line": 181,
+      "heading_context": "### ISA Modularity",
+      "confidence": "candidate",
+      "text": "  RISC-V is MODULAR — a base ISA plus optional extensions.\n\n  BASE ISA:\n  RV32I   32-bit integer instructions (47 instructions)\n  RV64I   64-bit integer instructions (adds 64-bit ops to RV32I)\n  RV128I  128-bit (future)\n\n  STANDARD EXTENSIONS:\n  M   Integer multiply and divide  (MULW, DIVW, REMW)\n  A   Atomic operations            (LR/SC, AMO* instructions)\n  F   Single-precision FP          (fadd.s, fmul.s, etc.)\n  D   Double-precision FP          (fadd.d, fmul.d, etc.)\n  C   Compressed (16-bit) instructions (code density)\n  G = IMAFD: the \"general\" profile (what Linux targets)\n\n  LATER EXTENSIONS:\n  V   Vector instructions          (scalable SIMD)\n  B   Bit manipulation             (RISC-V version of BMI)\n  H   Hypervisor support\n  Zicsr  Control/Status Registers\n  Zifencei  Instruction fetch fence (self-modifying code)\n\n  MARKETING: \"RV64GC\" = 64-bit + IMAFD + Compressed\n  = what embedded Linux typically uses.",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-5",
+      "kind": "ascii_table_candidate",
+      "line": 242,
+      "heading_context": "### RISC-V Instruction Formats",
+      "confidence": "candidate",
+      "text": "  RISC-V has 6 instruction formats, all 32-bit:\n\n  R-TYPE: [funct7:7][rs2:5][rs1:5][funct3:3][rd:5][opcode:7]\n  I-TYPE: [imm[11:0]:12][rs1:5][funct3:3][rd:5][opcode:7]\n  S-TYPE: [imm[11:5]:7][rs2:5][rs1:5][funct3:3][imm[4:0]:5][opcode:7]\n  B-TYPE: Branch variant of S (target offset encoding)\n  U-TYPE: [imm[31:12]:20][rd:5][opcode:7]\n  J-TYPE: [imm:20][rd:5][opcode:7]\n\n  Immediates are SIGN-EXTENDED from their field width.\n  Immediate fields are split across non-contiguous bit positions\n  (design choice: keep rd/rs1/rs2 at fixed positions for simpler decode)\n\n  KEY INSTRUCTIONS (RV64I):\n  LW  rd, imm(rs1)         Load word (32-bit, sign-extend)\n  LD  rd, imm(rs1)         Load doubleword (64-bit)\n  SD  rs2, imm(rs1)        Store doubleword\n  ADD rd, rs1, rs2         rd = rs1 + rs2\n  ADDI rd, rs1, imm        rd = rs1 + imm (12-bit sign-extended)\n  ADDIW rd, rs1, imm       rd = SignExt32(rs1+imm) (32-bit add + extend)\n  MUL rd, rs1, rs2         rd = low 64 bits of rs1*rs2  (M ext)\n  DIV rd, rs1, rs2         rd = rs1 / rs2 signed         (M ext)\n  AUIPC rd, imm            rd = PC + (imm << 12)  (PC-relative addressing)\n  JAL  rd, label           rd = PC+4, PC = PC + offset  (jump + link)\n  JALR rd, rs1, imm        rd = PC+4, PC = (rs1+imm) & ~1  (indirect jump)\n  LR.D rd, (rs1)           Load-reserved (atomic)\n  SC.D rd, rs2, (rs1)      Store-conditional (atomic)\n  AMOADD.D rd, rs2, (rs1)  Atomic memory add",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-6",
+      "kind": "ascii_table_candidate",
+      "line": 277,
+      "heading_context": "## Performance Comparison: ARM64 vs x86-64 vs RISC-V",
+      "confidence": "candidate",
+      "text": "+----------------------------------------------------------------------+\n| ATTRIBUTE          | x86-64          | ARM64           | RISC-V      |\n|--------------------|-----------------|-----------------|-------------|\n| Code density       | Best (var width)| Good (Thumb2/C) | Good (C ext)|\n| Decode complexity  | Very high       | Low             | Very low    |\n| Power/perf         | Good (recent)   | Excellent       | Excellent   |\n| Register count     | 16              | 31 + zero       | 31 + zero   |\n| Memory ordering    | Very strong     | Weak (barriers) | Weak (RVWMO)|\n| Atomics            | LOCK prefix     | LDXR/STXR       | LR/SC, AMO  |\n| Vector/SIMD        | AVX-512         | NEON/SVE        | V extension |\n| Royalties          | x86 IP required | Arm license fee | Free        |\n| Major impls        | Intel, AMD      | Apple, Cortex   | SiFive      |\n|                    |                 | Graviton        | T-Head      |\n| Dominant use       | Server/desktop  | Mobile, Mac, HPC| IoT, embed  |\n+----------------------------------------------------------------------+",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-7",
+      "kind": "ascii_table_candidate",
+      "line": 301,
+      "heading_context": "## Apple Silicon: ARM64 Done Right",
+      "confidence": "candidate",
+      "text": "  WHAT MAKES IT FAST:\n\n  DECODE WIDTH:\n  8-wide decode (M1/M2) — issues up to 8 instructions/cycle\n  Compare: Intel Golden Cove: 6-wide\n           AMD Zen 4: 4-wide\n\n  OUT-OF-ORDER WINDOW:\n  M1: ~630 ROB entries (reorder buffer)\n  Compare: Intel Skylake: 224 ROB entries\n  Larger window = more parallel execution visible to the OOO engine\n\n  MEMORY SUBSYSTEM:\n  Unified Memory Architecture: CPU and GPU share the same physical DRAM\n  High-bandwidth (LPDDR5): 200 GB/s (M2 Max: 400 GB/s)\n  L1 data cache: 192 KB per performance core (huge)\n  L2 per-cluster: 12–16 MB (what Intel calls L3)\n  System cache: 32 MB (like LLC but faster)\n\n  PACKAGE:\n  CPU + GPU + NPU + I/O on one die, chip-to-chip removed\n  = eliminates PCIe latency for GPU communication\n  = cache coherence between CPU and GPU memory\n\n  PERFORMANCE CORES + EFFICIENCY CORES:\n  M2: 4P + 4E (or more in Pro/Max/Ultra)\n  P cores: high frequency, large OOO — for latency-sensitive work\n  E cores: small, slow, power-efficient — for background tasks\n  Analogous to Intel's P-core/E-core split (Alder Lake+)",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    }
+  ]
+}

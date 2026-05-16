@@ -1,3 +1,22 @@
+---
+maxim_schema: maxim.frontmatter.v1
+id: maxim:semiotics:narrative-semiotics
+kind: guide
+module: semiotics
+section: semiotics
+title: Narrative Semiotics: Greimas and Propp
+status: source-custody
+source_custody: partial
+current_path: semiotics/06-NARRATIVE-SEMIOTICS.md
+canonical_path: semiotics/06-NARRATIVE-SEMIOTICS.md
+backsource_ids: [proof-backfill:semiotics:06-narrative-semiotics, git-history:semiotics:06-narrative-semiotics]
+concepts: [narrative, semiotics]
+root_concepts: [narrative, semiotics]
+index_roles: [guide, root-concept]
+remap_from: []
+remap_to: []
+updated: null
+---
 # Narrative Semiotics: Greimas and Propp
 
 ## The Project of Narrative Semiotics
@@ -17,7 +36,7 @@ This field draws on: Vladimir Propp's morphology of folk tales (1928), Algirdas 
 |  Constant ORDER of         Semiotic square           Narratives       |
 |  functions                 Modalities                (5 codes in S/Z) |
 |                                                                       |
-|  SURFACE: many stories     DEEP STRUCTURE:           NARRATIVE LEVELS:|
+|  SURFACE: many stories    DEEP STRUCTURE:           NARRATIVE LEVELS: |
 |  DEEP STRUCTURE: 31        6 actants + functions     Functions        |
 |  functions in sequence     at multiple levels        Actions          |
 |                                                                       |
@@ -130,7 +149,7 @@ Algirdas Julien Greimas (1917–1992) developed Propp's insights into a general 
   |   SENDER ────────────────────────────→ RECEIVER       |
   |   (motivates the                      (benefits from  |
   |    quest; gives                        the object     |
-  |    value to object)                    being obtained)|
+  |    value to object)                   being obtained) |
   |                       ↑                               |
   |                    OBJECT                             |
   |                 (what is sought)                      |

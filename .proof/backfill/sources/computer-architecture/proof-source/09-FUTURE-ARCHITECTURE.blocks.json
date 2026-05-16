@@ -1,0 +1,28 @@
+{
+  "schema_version": "1",
+  "source_markdown": "computer-architecture\\09-FUTURE-ARCHITECTURE.md",
+  "blocks": [
+    {
+      "id": "block-1",
+      "kind": "ascii_table_candidate",
+      "line": 26,
+      "heading_context": "## The Landscape",
+      "confidence": "candidate",
+      "text": "+-----------------------------------------------------------------------+\n|               FUTURE ARCHITECTURE LANDSCAPE                           |\n|                                                                       |\n|  NEAR TERM (2024–2027)          MEDIUM TERM (2028–2035)               |\n|  ----------------------         -------------------------             |\n|  Chiplet integration            3D stacked DRAM on CPU                |\n|  CXL memory expansion           CXL fabric at rack scale              |\n|  Domain-specific accelerators   Photonic interconnects                |\n|  NPUs on consumer silicon       In-memory compute (PIM)               |\n|  Die stacking (3D)              Near-memory processing                |\n|                                                                       |\n|  LONG TERM / SPECULATIVE        QUANTUM                               |\n|  -------------------------      -------                               |\n|  Neuromorphic (Loihi, SpiNNaker)NISQ devices: 100–10,000 qubits       |\n|  Analog compute                 (2024: IBM Condor 1,121 qubits)       |\n|  Optical computing              Fault-tolerant: millions of           |\n|  DNA storage/compute            physical qubits for logical qubit     |\n|                                 Target: chemistry, optimization,      |\n|                                 crypto-breaking (distant)             |\n+-----------------------------------------------------------------------+",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-2",
+      "kind": "ascii_table_candidate",
+      "line": 294,
+      "heading_context": "## Quantum Computing",
+      "confidence": "candidate",
+      "text": "  THE QUANTUM ADVANTAGE PREMISE:\n  Certain problems have exponential speedup on quantum hardware.\n  Not all problems — quantum is NOT universally faster.\n\n  QUANTUM GATE MODEL:\n  Qubits: superposition of |0⟩ and |1⟩.\n  |ψ⟩ = α|0⟩ + β|1⟩, where |α|² + |β|² = 1.\n  Quantum gates: unitary operations on qubits.\n  H (Hadamard): |0⟩ → (|0⟩ + |1⟩)/√2 (superposition)\n  CNOT: controlled-NOT (entanglement)\n  T, S: phase gates\n\n  CURRENT STATE (2024):\n  Physical qubit count:\n    IBM Heron (2023): 133 qubits\n    IBM Condor (2023): 1,121 qubits (but low quality)\n    Google Sycamore (2023): ~70 high-quality qubits\n    Atom Computing: 1,180 neutral atom qubits\n  Useful qubits: much fewer — error rates limit effectiveness.\n  NISQ era (Noisy Intermediate Scale Quantum): 50–1000 physical qubits.\n\n  ERROR CORRECTION:\n  Surface code: ~1000 physical qubits → 1 logical qubit.\n  A 1000-logical-qubit fault-tolerant quantum computer\n  needs ~1 million physical qubits.\n  Current: ~100 useful physical qubits = 0 logical qubits with\n  surface code error correction.\n  This is the fundamental bottleneck.\n\n  ALGORITHMS WITH QUANTUM ADVANTAGE:\n  Shor's algorithm: factor N in polynomial time.\n    Would break RSA/ECC if fault-tolerant QC existed.\n    ~20 million physical qubits needed for RSA-2048.\n    NOT imminent.\n  Grover's algorithm: search √N instead of N.\n    Quadratic speedup; breaks symmetric keys of half their\n    classical security (AES-128 → 64-bit security).\n  Quantum simulation: simulate quantum systems efficiently.\n    Drug discovery, materials science, chemistry.\n    THIS is the most likely near-term practical application.\n  Quantum optimization: QAOA, VQE for optimization.\n    Unclear practical advantage vs classical heuristics.\n\n  AZURE QUANTUM:\n  Microsoft: topological qubits (still pre-production as of 2024).\n  Partners: Quantinuum, IonQ, Rigetti (on Azure Quantum).\n  Q# language and QDK for quantum programming.\n  Most practical use: hybrid quantum-classical algorithms.\n\n  TIMELINE REALITY CHECK:\n  NISQ era \"quantum advantage\" on real problems: 2027–2030 (maybe).\n  Breaking RSA-2048: 2040+ (very optimistic), more likely 2050+ or never.\n  Quantum simulation (chemistry): useful applications 2028–2035.\n  Post-quantum cryptography migration: should start NOW regardless.\n  (NIST PQC standards finalized 2024: ML-KEM, ML-DSA, SLH-DSA)",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    }
+  ]
+}

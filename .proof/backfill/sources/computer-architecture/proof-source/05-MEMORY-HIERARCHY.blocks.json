@@ -1,0 +1,83 @@
+{
+  "schema_version": "1",
+  "source_markdown": "computer-architecture\\05-MEMORY-HIERARCHY.md",
+  "blocks": [
+    {
+      "id": "block-1",
+      "kind": "ascii_table_candidate",
+      "line": 31,
+      "heading_context": "## Why the Hierarchy Exists",
+      "confidence": "candidate",
+      "text": "+-----------------------------------------------------------------------+\n|                     MEMORY HIERARCHY                                  |\n|                                                                       |\n|   LEVEL    SIZE         LATENCY    BANDWIDTH    TECHNOLOGY            |\n|   -------  -----------  ---------  -----------  -----------           |\n|   Register  <1 KB       0 cycles   ∞            flip-flops            |\n|   L1 I$    32–64 KB     ~4 cycles  ~1 TB/s      6T SRAM               |\n|   L1 D$    32–64 KB     ~4 cycles  ~1 TB/s      6T SRAM               |\n|   L2       256KB–1MB    ~12 cycles ~500 GB/s    6T SRAM               |\n|   L3       8–64 MB      ~40 cycles ~200 GB/s    6T SRAM               |\n|   DRAM     8–256 GB     ~70ns      ~50–100 GB/s DRAM cells            |\n|            (100 cycles)                                               |\n|   NVMe     256GB–8TB    ~100μs     ~5–12 GB/s   NAND flash            |\n|            (~50K cycles)                                              |\n|   HDD      1–20 TB      ~5–10ms    ~100–200 MB/s magnetic             |\n|                                                                       |\n|  DRAM latency numbers: DDR5-6400, typical desktop system              |\n|  Apple M2: L2 per-cluster 12 MB; \"System cache\" 8–24 MB before DRAM   |\n+-----------------------------------------------------------------------+",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-2",
+      "kind": "ascii_table_candidate",
+      "line": 59,
+      "heading_context": "## SRAM: The Cache Cell",
+      "confidence": "candidate",
+      "text": "  6-TRANSISTOR SRAM CELL:\n\n  VDD\n   |\n  T1   T2        (Pull-up transistors)\n   |     |\n  Q ──── Q̄       (Cross-coupled inverters — stable bistable state)\n   |     |\n  T3   T4        (Pull-down transistors)\n   |\n  GND\n\n  T5  T6 ─── BL, BL̄   (Access transistors — controlled by Word Line)\n\n  Word Line (WL): selects which row to read/write\n  Bit Line (BL) / Bit Line Bar (BL̄): carry data in/out\n\n  READ: WL high → T5/T6 connect cell to BL/BL̄ → sense amplifier\n  WRITE: Drive BL/BL̄ strongly → overpower the cell → flip state\n\n  AREA: ~120 nm² per bit in modern process (vs ~4 nm² for DRAM)\n  SRAM is 30× larger than DRAM per bit.\n  This is why L3 caches max out at ~64 MB on chip — 64 MB SRAM\n  = significant die area.",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-3",
+      "kind": "ascii_table_candidate",
+      "line": 92,
+      "heading_context": "### Cache Line",
+      "confidence": "candidate",
+      "text": "  CACHE LINE (BLOCK): The fundamental unit of transfer.\n  ALL caches transfer data in blocks, not individual bytes.\n\n  x86: 64-byte cache lines (standard)\n  ARM64: 64-byte cache lines (most implementations)\n\n  CONSEQUENCE:\n  If you read one int32 (4 bytes) from cold DRAM,\n  the cache fetches 64 bytes (the whole line) anyway.\n  Reading the next 15 ints in that line = free (cache hits).\n  Reading scattered data = one cache miss per element.\n\n  This is why struct layout matters:\n  +---------------------+          +---------------------+\n  | AoS (Array of       |          | SoA (Structure of   |\n  | Structures):        |          | Arrays):            |\n  | {x, y, z, w} × N   |          | {x×N, y×N, z×N, w×N}|\n  |                     |          |                     |\n  | If you only use x:  |          | If you only use x:  |\n  | Load all 4 fields   |          | Load only x array   |\n  | → 75% bandwidth     |          | → 100% efficient    |\n  | wasted              |          |                     |\n  +---------------------+          +---------------------+",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-4",
+      "kind": "ascii_table_candidate",
+      "line": 120,
+      "heading_context": "### Set-Associative Cache",
+      "confidence": "candidate",
+      "text": "  THREE CACHE ORGANIZATIONS:\n\n  DIRECT MAPPED (1-way associative):\n  Each address maps to exactly ONE cache line slot.\n  Address → cache index via (address >> 6) % num_lines\n\n  Slot 0 (maps to addr 0, 64, 128, ...):\n  +-----+---+---+---------------------+\n  | tag | v | d | data (64 bytes)     |\n  +-----+---+---+---------------------+\n\n  Slot 1:\n  +-----+---+---+---------------------+\n  | tag | v | d | data (64 bytes)     |\n  +-----+---+---+---------------------+\n  ...\n\n  Problem: Two \"hot\" addresses that map to the same slot thrash each other.\n\n  FULLY ASSOCIATIVE:\n  Data can go in ANY slot. Full tag comparison.\n  Best hit rate. Hardware cost: N comparators for N lines.\n  Only feasible for small structures (TLBs, victim caches).\n\n  N-WAY SET ASSOCIATIVE (standard):\n  Cache is divided into sets, each set has N ways (slots).\n  Address → set via index bits.\n  Within the set, data can be in any of the N ways.\n\n  Example: 32 KB L1, 8-way, 64-byte lines:\n  32768 / 64 / 8 = 64 sets\n  Address bits: [tag][index:6 bits][offset:6 bits]\n\n  +────────+──────────────────────────────────────────────────+\n  |  SET 0 |  Way 0  |  Way 1  | ... |  Way 7  |              |\n  |  SET 1 |  Way 0  |  Way 1  | ... |  Way 7  |              |\n  |  ...   |                                                  |\n  |  SET 63|  Way 0  |  Way 1  | ... |  Way 7  |              |\n  +────────+──────────────────────────────────────────────────+\n\n  On access:\n  1. Compute set index from address\n  2. Compare tag against all 8 ways in parallel\n  3. If match (hit): return data\n  4. If no match (miss): fetch from next level, evict one way\n\n  EVICTION POLICY:\n  LRU: replace least recently used way (optimal for temporal locality)\n  Pseudo-LRU: approximation of LRU (tree-based or PLRU bits)\n  Random: simpler; surprisingly good in practice\n  RRIP (Re-reference Interval Prediction): state-of-the-art",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-5",
+      "kind": "diagram_like",
+      "line": 180,
+      "heading_context": "## DRAM: The Main Memory Cell",
+      "confidence": "candidate",
+      "text": "  1-TRANSISTOR DRAM CELL:\n\n  Word Line (WL) ─┤ T (NMOS)├──── Bit Line (BL)\n                         |\n                         C (capacitor)\n                         |\n                        GND\n\n  READ: WL high → T connects capacitor to BL → sense amplifier.\n        READ IS DESTRUCTIVE — must rewrite after read.\n  WRITE: WL high + drive BL strongly → charge/discharge capacitor.\n  REFRESH: Capacitor leaks charge → must be read and rewritten\n           every 64–128 ms. Typical: refresh 8192 rows every 64 ms.\n\n  DRAM ARRAYS:\n  Organized in banks, rows, columns.\n  Access must ACTIVATE a row (copy into row buffer) before read.\n  OPEN PAGE POLICY: row buffer stays open for subsequent accesses.\n  Row hit: ~CAS latency (~14 ns)\n  Row miss (different row): row activate + row read + CAS latency\n  Bank conflict: ~50–100 ns total",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-6",
+      "kind": "diagram_like",
+      "line": 255,
+      "heading_context": "### Prefetching",
+      "confidence": "candidate",
+      "text": "  HARDWARE PREFETCHER:\n  Detects access patterns and prefetches data before it's needed.\n\n  SEQUENTIAL PREFETCHER: If you accessed line N, prefetch N+1, N+2...\n    Works for: array traversal, sequential scans\n    Blind to: struct offsets, strides ≠ 1\n\n  STRIDE PREFETCHER: Detect access stride, prefetch ahead.\n    e.g., accessing every 4th cache line → prefetch next in stride\n    Works for: for loops with fixed stride\n\n  NON-TEMPORAL STORES (x86):\n  MOVNT (Move Non-Temporal) instructions bypass the cache:\n  MOVNTDQ [mem], xmm0   \"write to memory without polluting cache\"\n  Use for: large sequential writes you won't re-read\n  (video frame writes, memset on large buffers)\n  Avoids evicting useful data from the cache.\n\n  SOFTWARE PREFETCH:\n  PREFETCHT0 [addr]     \"prefetch into all cache levels\"\n  PREFETCHNTA [addr]    \"prefetch minimally (don't pollute)\"\n  ARM: PRFM PLDL1KEEP, [x0]\n  C intrinsic: __builtin_prefetch(addr, 0, 3)\n  Distance: should be 100–200 cycles ahead (latency hiding)",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-7",
+      "kind": "diagram_like",
+      "line": 286,
+      "heading_context": "## TLB: Translation Lookaside Buffer",
+      "confidence": "candidate",
+      "text": "  VIRTUAL ADDRESS → PHYSICAL ADDRESS requires page table walks.\n  A 4-level page table walk = 4 memory accesses = 4 L3/DRAM hits.\n  The TLB caches these translations.\n\n  TLB STRUCTURE:\n  iTLB: Instruction TLB (12 entries for 4K pages, 8 for 2M)\n  dTLB: Data TLB (L1: 64 entries, L2: 1536 entries — Intel Golden Cove)\n\n  TLB HIT: address translation = 0 additional cycles (parallel lookup)\n  TLB MISS: hardware page table walker traverses 4 levels\n    Each level: cache hit (4–40 cycles) or DRAM hit (100 cycles)\n    Total TLB miss cost: ~50–300 cycles\n\n  HUGE PAGES:\n  Standard page: 4 KB → TLB entry covers 4 KB\n  Huge page (Linux: transparent huge page): 2 MB → 512× coverage\n  Gigantic page: 1 GB → 262,144× coverage\n\n  Using huge pages for large working sets dramatically reduces TLB misses.\n  Linux: /proc/meminfo shows AnonHugePages.\n  madvise(addr, size, MADV_HUGEPAGE) hints huge pages.\n  C#: windows uses large page support via VirtualAlloc + MEM_LARGE_PAGES.\n\n  CONTEXT SWITCH TLB FLUSH:\n  Process A and B have different virtual→physical mappings.\n  On context switch, TLB must be flushed (or process tags added).\n  PCID (Process-Context Identifiers, x86): tag each TLB entry with ASID.\n  Avoids full TLB flush on context switch.\n  INVLPG: invalidate a single TLB entry.\n  ASID (ARM): Address Space Identifier — same concept.",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    }
+  ]
+}

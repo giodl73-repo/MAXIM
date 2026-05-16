@@ -1,3 +1,22 @@
+---
+maxim_schema: maxim.frontmatter.v1
+id: maxim:computer-architecture:gpu-architecture
+kind: guide
+module: computer-architecture
+section: computer-architecture
+title: GPU Architecture and SIMT Execution Model
+status: source-custody
+source_custody: partial
+current_path: computer-architecture/08-GPU-ARCHITECTURE.md
+canonical_path: computer-architecture/08-GPU-ARCHITECTURE.md
+backsource_ids: [proof-backfill:computer-architecture:08-gpu-architecture, git-history:computer-architecture:08-gpu-architecture]
+concepts: [gpu, architecture]
+root_concepts: [gpu, architecture]
+index_roles: [guide, root-concept]
+remap_from: []
+remap_to: []
+updated: null
+---
 # GPU Architecture and SIMT Execution Model
 
 ## The Core Difference

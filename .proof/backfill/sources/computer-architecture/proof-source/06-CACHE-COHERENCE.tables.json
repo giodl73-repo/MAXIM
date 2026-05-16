@@ -1,0 +1,45 @@
+{
+  "schema_version": "1",
+  "source_markdown": "computer-architecture\\06-CACHE-COHERENCE.md",
+  "tables": [
+    {
+      "id": "table-1",
+      "line": 375,
+      "heading_context": "## Decision Cheat Sheet",
+      "headers": [
+        "Question",
+        "Answer"
+      ],
+      "rows": [
+        [
+          "What does M-state mean in MESI?",
+          "Modified: only this cache has it, it's dirty (written), memory is stale"
+        ],
+        [
+          "What is false sharing?",
+          "Two cores writing different variables on the same cache line, causing spurious coherence traffic"
+        ],
+        [
+          "What is TSO?",
+          "Total Store Order — x86's memory model; stores go through a per-core buffer before becoming globally visible"
+        ],
+        [
+          "What fence eliminates TSO reordering?",
+          "MFENCE (full fence), SFENCE (stores), LFENCE (loads)"
+        ],
+        [
+          "What does ARM use instead of TSO?",
+          "Weak Memory Ordering — requires explicit DMB/LDAR/STLR for synchronization"
+        ],
+        [
+          "What is the cost of a cache-to-cache transfer?",
+          "~30–60 cycles (vs ~4 for L1 hit, ~100 for DRAM)"
+        ],
+        [
+          "How do you fix false sharing in C#?",
+          "Pad structures to 64 bytes, or use thread-local storage"
+        ]
+      ]
+    }
+  ]
+}

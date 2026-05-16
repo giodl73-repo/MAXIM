@@ -1,0 +1,45 @@
+{
+  "schema_version": "1",
+  "source_markdown": "computer-architecture\\02-X86-ARCHITECTURE.md",
+  "tables": [
+    {
+      "id": "table-1",
+      "line": 355,
+      "heading_context": "## Decision Cheat Sheet",
+      "headers": [
+        "Question",
+        "Answer"
+      ],
+      "rows": [
+        [
+          "What zero-extends automatically?",
+          "32-bit writes zero the upper 32 bits; 8/16-bit writes do not"
+        ],
+        [
+          "Windows vs Linux calling convention?",
+          "Windows: RCX/RDX/R8/R9 + 32-byte shadow; Linux: RDI/RSI/RDX/RCX/R8/R9"
+        ],
+        [
+          "What is LEA used for (beyond addresses)?",
+          "Fast multiply-add without memory access: `LEA rax,[rbx+rbx*4]` = rbx×5"
+        ],
+        [
+          "Why use CMOV instead of JE?",
+          "Conditional move avoids branch misprediction penalty"
+        ],
+        [
+          "What is the REX prefix for?",
+          "Enables 64-bit operand size (REX.W) and extends register fields to access R8–R15"
+        ],
+        [
+          "How wide are AVX-512 operations?",
+          "512 bits = 16 × float32 or 8 × float64 per instruction"
+        ],
+        [
+          "What is the red zone?",
+          "128 bytes below RSP that leaf functions can use as scratch (Linux ABI only)"
+        ]
+      ]
+    }
+  ]
+}

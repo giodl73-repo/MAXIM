@@ -1,0 +1,45 @@
+{
+  "schema_version": "1",
+  "source_markdown": "computer-architecture\\05-MEMORY-HIERARCHY.md",
+  "tables": [
+    {
+      "id": "table-1",
+      "line": 352,
+      "heading_context": "## Decision Cheat Sheet",
+      "headers": [
+        "Question",
+        "Answer"
+      ],
+      "rows": [
+        [
+          "Why is the cache line 64 bytes?",
+          "Balances spatial locality benefit vs bandwidth wasted on partial use"
+        ],
+        [
+          "What is the cost of an L3 miss?",
+          "~100 CPU cycles to DRAM; 4× more if NUMA remote socket"
+        ],
+        [
+          "What is a TLB miss?",
+          "Page table walk: 4 memory accesses → 50–300 cycles"
+        ],
+        [
+          "When should you use huge pages?",
+          "Large working sets (>1 GB) to reduce TLB pressure"
+        ],
+        [
+          "What is a non-temporal store for?",
+          "Large sequential writes that you won't re-read — avoid cache pollution"
+        ],
+        [
+          "What is cache associativity?",
+          "8-way: each cache set has 8 slots; higher associativity = fewer conflict misses"
+        ],
+        [
+          "Why does AoS often lose to SoA?",
+          "AoS loads unused fields into cache lines; SoA packs accessed fields together"
+        ]
+      ]
+    }
+  ]
+}

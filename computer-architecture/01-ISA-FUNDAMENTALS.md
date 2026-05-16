@@ -1,3 +1,22 @@
+---
+maxim_schema: maxim.frontmatter.v1
+id: maxim:computer-architecture:isa-fundamentals
+kind: guide
+module: computer-architecture
+section: computer-architecture
+title: ISA Fundamentals: RISC vs CISC
+status: source-custody
+source_custody: partial
+current_path: computer-architecture/01-ISA-FUNDAMENTALS.md
+canonical_path: computer-architecture/01-ISA-FUNDAMENTALS.md
+backsource_ids: [proof-backfill:computer-architecture:01-isa-fundamentals, git-history:computer-architecture:01-isa-fundamentals]
+concepts: [isa, fundamentals]
+root_concepts: [isa, fundamentals]
+index_roles: [guide, root-concept]
+remap_from: []
+remap_to: []
+updated: null
+---
 # ISA Fundamentals: RISC vs CISC
 
 ## What an ISA Is

@@ -1,0 +1,137 @@
+{
+  "schema_version": "1",
+  "source_markdown": "computer-architecture\\01-ISA-FUNDAMENTALS.md",
+  "tables": [
+    {
+      "id": "table-1",
+      "line": 292,
+      "heading_context": "## ISA Comparison Table",
+      "headers": [
+        "Attribute",
+        "x86-64",
+        "ARM64 (AArch64)",
+        "RISC-V (RV64GC)"
+      ],
+      "rows": [
+        [
+          "Origin",
+          "Intel 8086 (1978)",
+          "ARM Ltd (1985)",
+          "UC Berkeley (2010)"
+        ],
+        [
+          "Instruction width",
+          "1–15 bytes",
+          "4 bytes (Thumb2: 2/4)",
+          "4 bytes (C ext: 2)"
+        ],
+        [
+          "GP registers",
+          "16 (64-bit)",
+          "31 (64-bit) + zero",
+          "31 (64-bit) + zero"
+        ],
+        [
+          "Memory model",
+          "Strong (TSO)",
+          "Weak (with barriers)",
+          "Weak (RVWMO)"
+        ],
+        [
+          "FP registers",
+          "xmm0–15 (SSE) / zmm0–31 (AVX-512)",
+          "v0–v31 (128-bit)",
+          "f0–f31 (float)"
+        ],
+        [
+          "ISA owner",
+          "Intel + AMD (x86-64 ABI)",
+          "Arm Holdings (licensed)",
+          "RISC-V International (open)"
+        ],
+        [
+          "Primary use",
+          "Server, desktop, laptop",
+          "Mobile, embedded, Apple Silicon, servers",
+          "IoT, academic, growing"
+        ],
+        [
+          "Royalties",
+          "Implicitly via x86 IP",
+          "Yes (Arm licenses)",
+          "None — open standard"
+        ]
+      ]
+    },
+    {
+      "id": "table-2",
+      "line": 307,
+      "heading_context": "## Decision Cheat Sheet",
+      "headers": [
+        "Question",
+        "Answer"
+      ],
+      "rows": [
+        [
+          "Why does x86 need so many decoders?",
+          "Variable instruction width requires look-ahead; 1–15 bytes per instruction"
+        ],
+        [
+          "Why does ARM64 have 31 registers vs x86's 16?",
+          "Clean RISC design; more registers = fewer spills to stack"
+        ],
+        [
+          "What is a micro-op?",
+          "An internal RISC-like operation that x86 CISC instructions are decoded into"
+        ],
+        [
+          "Why is RISC-V royalty-free?",
+          "Open ISA standard — no company owns it"
+        ],
+        [
+          "What does \"load-store architecture\" mean?",
+          "Only LOAD and STORE instructions access memory; ALU ops are register-only"
+        ],
+        [
+          "What is the TSO memory model?",
+          "Total Store Order — Intel x86's strong consistency guarantee; stores globally visible in order"
+        ],
+        [
+          "Why do compilers prefer registers over memory?",
+          "Register access: 0 cycles; L1 cache: 4 cycles; DRAM: 100 cycles"
+        ]
+      ]
+    },
+    {
+      "id": "table-3",
+      "line": 390,
+      "heading_context": "## Cross-References",
+      "headers": [
+        "If you need...",
+        "Go to"
+      ],
+      "rows": [
+        [
+          "Concrete x86 legacy and decode details",
+          "[x86 Architecture](02-X86-ARCHITECTURE.md)"
+        ],
+        [
+          "Clean RISC designs and open ISA tradeoffs",
+          "[ARM & RISC-V](03-ARM-RISC-V.md)"
+        ],
+        [
+          "How ISA choices affect pipeline design",
+          "[Pipelining](04-PIPELINING.md)"
+        ],
+        [
+          "Cache and memory behavior below ISA loads/stores",
+          "[Memory Hierarchy](05-MEMORY-HIERARCHY.md)"
+        ],
+        [
+          "Coherence protocols behind atomic operations",
+          "[Cache Coherence](06-CACHE-COHERENCE.md)"
+        ]
+      ]
+    }
+  ]
+}

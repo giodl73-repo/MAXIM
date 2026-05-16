@@ -1,3 +1,22 @@
+---
+maxim_schema: maxim.frontmatter.v1
+id: maxim:semiotics:applications
+kind: guide
+module: semiotics
+section: semiotics
+title: Semiotic Applications: Advertising, Architecture, Code
+status: source-custody
+source_custody: partial
+current_path: semiotics/09-APPLICATIONS.md
+canonical_path: semiotics/09-APPLICATIONS.md
+backsource_ids: [proof-backfill:semiotics:09-applications, git-history:semiotics:09-applications]
+concepts: [applications]
+root_concepts: [applications]
+index_roles: [guide, root-concept]
+remap_from: []
+remap_to: []
+updated: null
+---
 # Semiotic Applications: Advertising, Architecture, Code
 
 ## Overview
@@ -11,7 +30,7 @@ Semiotics is not just a theoretical framework — it is an analytical tool appli
 |  ADVERTISING                ARCHITECTURE              CODE            |
 |  -----------                ------------              ----            |
 |  Sign manipulation          Space as text             Formal semiosis |
-|  for commercial ends        Urban semiotics           Syntax/semantics|
+|  for commercial ends       Urban semiotics           Syntax/semantics |
 |  Myth production            Architectural codes       /pragmatics     |
 |  Brand = sign system        Place identity            API as language |
 |                                                                       |

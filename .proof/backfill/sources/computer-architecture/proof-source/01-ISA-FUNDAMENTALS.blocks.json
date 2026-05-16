@@ -1,0 +1,105 @@
+{
+  "schema_version": "1",
+  "source_markdown": "computer-architecture\\01-ISA-FUNDAMENTALS.md",
+  "blocks": [
+    {
+      "id": "block-1",
+      "kind": "ascii_table_candidate",
+      "line": 36,
+      "heading_context": "## What an ISA Is",
+      "confidence": "candidate",
+      "text": "+-----------------------------------------------------------------------+\n|                          ISA DESIGN SPACE                             |\n|                                                                       |\n|  RISC                              CISC                               |\n|  (Reduced Instruction Set)         (Complex Instruction Set)          |\n|                                                                       |\n|  \"Simple instructions,             \"Complex instructions,             |\n|  execute in one cycle\"             do more per instruction\"           |\n|                                                                       |\n|  ARM64 / RISC-V / MIPS /           x86-64 / x86 / VAX /               |\n|  SPARC / PowerPC                   68000 / PDP-11                     |\n|                                                                       |\n|  Fixed instruction size            Variable instruction size          |\n|  Load/store architecture           Register-memory operations         |\n|  Many registers (≥32)              Fewer registers (8–16 general)     |\n|  Simple addressing modes           Rich addressing modes              |\n|  Compiler does the work            Hardware does the work             |\n|                                                                       |\n|  History: IBM 801 (Patterson       History: IBM 360, PDP-11,          |\n|  & Hennessy, Berkeley, Stanford,   VAX, Intel 8086 → x86 → x86-64     |\n|  ~1980)                            (backward compat chain)            |\n+-----------------------------------------------------------------------+",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-2",
+      "kind": "ascii_table_candidate",
+      "line": 65,
+      "heading_context": "## RISC vs CISC: The Key Differences",
+      "confidence": "candidate",
+      "text": "+--------------------------------------------------------------------+\n| ATTRIBUTE         | RISC                  | CISC                   |\n|-------------------|-----------------------|-----------------------|\n| Instruction size  | Fixed (4 bytes)       | Variable (1–15 bytes)  |\n| Instructions/ISA  | ~100–200              | 1000+ for x86-64       |\n| Memory access     | Only LOAD/STORE       | Any instruction can    |\n|                   | instructions          | access memory          |\n| Register count    | 32 GP registers       | 8 (x86) – 16 (x86-64)|\n|                   | (ARM64: x0–x30 + SP)  | (+ segment, flags)     |\n| Addressing modes  | Simple: [base+offset] | Complex: [base+        |\n|                   |                       | index*scale+offset]    |\n| Decode complexity | Trivial (fixed width  | Complex; variable      |\n|                   | → fixed decode time)  | length; multiple       |\n|                   |                       | decoders needed        |\n| Multi-cycle ops   | Few (FP/divide)       | Many CISC instructions |\n|                   |                       | expand to many cycles  |\n| Code density      | Lower (4 bytes/instr) | Higher (avg ~3 bytes   |\n|                   |                       | on x86)                |\n+--------------------------------------------------------------------+",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-3",
+      "kind": "chart_like",
+      "line": 91,
+      "heading_context": "## Instruction Format",
+      "confidence": "candidate",
+      "text": "### RISC-V Fixed Format (32-bit instructions)",
+      "notes": [
+        "detected from bar/chart glyph density with numeric labels"
+      ]
+    },
+    {
+      "id": "block-4",
+      "kind": "ascii_table_candidate",
+      "line": 93,
+      "heading_context": "### RISC-V Fixed Format (32-bit instructions)",
+      "confidence": "candidate",
+      "text": "  R-TYPE (register-register operations):\n  31      25 24   20 19   15 14  12 11    7 6      0\n  +--------+-------+-------+------+-------+--------+\n  | funct7 |  rs2  |  rs1  |funct3|  rd   | opcode |\n  +--------+-------+-------+------+-------+--------+\n    7 bits   5 bits  5 bits  3 bits  5 bits  7 bits\n\n  I-TYPE (immediate / loads):\n  31              20 19   15 14  12 11    7 6      0\n  +----------------+-------+------+-------+--------+\n  |   imm[11:0]    |  rs1  |funct3|  rd   | opcode |\n  +----------------+-------+------+-------+--------+\n       12 bits       5 bits  3 bits  5 bits  7 bits\n\n  Fixed 32-bit width: one fetch cycle, trivial decode.\n  Decode = split fixed-width fields. No length disambiguation.",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-5",
+      "kind": "chart_like",
+      "line": 112,
+      "heading_context": "### RISC-V Fixed Format (32-bit instructions)",
+      "confidence": "candidate",
+      "text": "### x86-64 Variable Format",
+      "notes": [
+        "detected from bar/chart glyph density with numeric labels"
+      ]
+    },
+    {
+      "id": "block-6",
+      "kind": "ascii_table_candidate",
+      "line": 114,
+      "heading_context": "### x86-64 Variable Format",
+      "confidence": "candidate",
+      "text": "  x86-64 instruction can be 1 to 15 bytes:\n\n  [Prefixes 0-4 bytes] [REX 0-1 byte] [Opcode 1-3 bytes]\n  [ModRM 0-1 byte] [SIB 0-1 byte] [Disp 0,1,2,4 bytes]\n  [Immediate 0,1,2,4,8 bytes]\n\n  Example: simple ADD\n  48 01 C3   = REX.W + ADD r/m64, r64\n\n  Example: complex memory operation\n  42 8B 84 D5 80 00 00 00\n  = MOV eax, [rbp + r10*8 + 0x80]\n    REX + opcode + ModRM + SIB + 32-bit displacement\n\n  The decoder must figure out length BEFORE decode.\n  This requires complex look-ahead logic in hardware.\n  Intel allocates significant transistor budget to decoding.\n  Average x86-64 instruction ~3 bytes in practice; worst case 15.",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-7",
+      "kind": "diagram_like",
+      "line": 139,
+      "heading_context": "## Addressing Modes",
+      "confidence": "candidate",
+      "text": "  REGISTER DIRECT:\n  ADD R1, R2, R3         \"R3 = R1 + R2\"         (RISC)\n  ADD eax, ebx           \"eax += ebx\"             (x86)\n\n  IMMEDIATE:\n  ADD R1, R2, #42        \"R1 = R2 + 42\"           (ARM)\n  ADD eax, 42            \"eax += 42\"               (x86)\n\n  REGISTER INDIRECT (load/store):\n  LDR X0, [X1]           \"X0 = Mem[X1]\"           (ARM64)\n  MOV eax, [rbx]         \"eax = Mem[rbx]\"          (x86)\n\n  BASE + DISPLACEMENT:\n  LDR X0, [X1, #8]       \"X0 = Mem[X1+8]\"         (ARM64)\n  MOV eax, [rbx+8]       \"eax = Mem[rbx+8]\"        (x86)\n\n  BASE + INDEX * SCALE + DISPLACEMENT (x86 only):\n  MOV eax, [rbx + rcx*4 + 16]\n  \"eax = Mem[rbx + rcx*4 + 16]\"\n  Useful for: array[base + index * sizeof(element)]\n  in one instruction\n\n  LOAD-STORE RESTRICTION (RISC):\n  All memory access through LDR/STR only.\n  Arithmetic ops only on registers.\n  ADD R1, R2, [R3]  ← ILLEGAL in ARM64 / RISC-V\n  Must be: LDR R4, [R3]   then  ADD R1, R2, R4",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-8",
+      "kind": "ascii_table_candidate",
+      "line": 254,
+      "heading_context": "## Modern Reality: CISC Frontend, RISC Backend",
+      "confidence": "candidate",
+      "text": "  MODERN x86 EXECUTION:\n\n  +-----------------------------------------------------+\n  | x86-64 CISC ISA                                     |\n  | \"What the programmer / compiler sees\"               |\n  +-----------------------------------------------------+\n           |\n           | DECODE (Front-end: complex, power-hungry)\n           v\n  +-----------------------------------------------------+\n  | MICRO-OPS (μops)                                    |\n  | Simple, RISC-like internal operations               |\n  | Intel calls these \"uops\" (micro-operations)         |\n  | ADD rax, rbx     → 1 uop                            |\n  | IMUL [mem], rcx  → 2 uops (load + multiply)         |\n  | REP MOVS         → microcode (many uops)            |\n  +-----------------------------------------------------+\n           |\n           | ISSUE (Out-of-order engine)\n           v\n  +-----------------------------------------------------+\n  | EXECUTION UNITS                                     |\n  | Integer, FP, Load, Store, Branch                    |\n  +-----------------------------------------------------+\n\n  The conversion to micro-ops is the DECODE step.\n  After that, the execution engine is essentially RISC.\n  \"RISC-ification\" at decode time.\n\n  Intel: 4-6 complex decoders per core, can decode 4 uops/cycle typically\n  AMD Zen 4: 4 decoders, up to 4 ops/cycle, op cache for hot loops",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-9",
+      "kind": "ascii_table_candidate",
+      "line": 380,
+      "heading_context": "## Common Confusion Points",
+      "confidence": "candidate",
+      "text": "**\"RISC = fewer instructions\" is misleading**: RISC-V with the G profile includes 100+ instructions (base integer + multiply + atomic + FP + compressed). \"Reduced\" referred to the original philosophy of one-cycle instructions and simple operations, not a literally small count.",
+      "notes": [
+        "detected from ASCII table borders or pipe-aligned rows"
+      ]
+    }
+  ]
+}

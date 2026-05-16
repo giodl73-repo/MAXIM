@@ -1,0 +1,72 @@
+{
+  "schema_version": "1",
+  "source_markdown": "computer-architecture\\06-CACHE-COHERENCE.md",
+  "blocks": [
+    {
+      "id": "block-1",
+      "kind": "ascii_table_candidate",
+      "line": 28,
+      "heading_context": "## The Problem",
+      "confidence": "candidate",
+      "text": "+-----------------------------------------------------------------------+\n|                    TWO DISTINCT PROBLEMS                              |\n|                                                                       |\n|  CACHE COHERENCE                    MEMORY CONSISTENCY                |\n|  --------------------------------   --------------------------------- |\n|  Single cache line problem          Ordering of multiple operations   |\n|  across multiple cores              across multiple addresses         |\n|                                                                       |\n|  \"If Core 0 writes X=1,             \"If Core 0 writes X=1, Y=1,       |\n|   when does Core 1 see X=1?\"        does Core 1 see X=1 when it       |\n|                                      sees Y=1?\"                       |\n|                                                                       |\n|  Solved by: MESI protocol,          Defined by: memory model          |\n|  snooping, directory               (TSO, PSO, WRC, SC, etc.)          |\n|                                                                       |\n|  Guarantee: reads see the MOST      Does NOT guarantee ordering       |\n|  recent write to that address       between different addresses       |\n+-----------------------------------------------------------------------+",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-2",
+      "kind": "ascii_table_candidate",
+      "line": 55,
+      "heading_context": "## The MESI Protocol",
+      "confidence": "candidate",
+      "text": "  MESI STATES:\n\n  M — MODIFIED:\n  This cache has the only copy, and it has been written.\n  Memory is STALE — only this cache has the current value.\n  Must write back to memory before sharing.\n  Line is \"dirty.\"\n\n  E — EXCLUSIVE:\n  This cache has the only copy, and it is CLEAN (matches memory).\n  Can be read or written without coordination.\n  (A write silently transitions to M.)\n\n  S — SHARED:\n  This cache line is shared — multiple caches may hold copies.\n  All copies match memory (all clean).\n  Reads are allowed without coordination.\n  Writes require transitioning: must INVALIDATE all other copies first.\n\n  I — INVALID:\n  This line is not present in this cache, or has been invalidated.\n  A read causes a cache miss. A write causes a miss + protocol.\n\n  +---------------------------------------------------------------------+\n  |                     MESI STATE TRANSITIONS                          |\n  |                                                                     |\n  |  I  ──(local read miss)──→  E   (no other sharers found)            |\n  |  I  ──(local read miss)──→  S   (other sharers exist)               |\n  |  I  ──(local write miss)─→  M   (invalidate others first)           |\n  |  E  ──(local write)──────→  M   (silent, no bus traffic)            |\n  |  E  ──(remote read)──────→  S   (share the line)                    |\n  |  S  ──(local write)──────→  M   (broadcast invalidation to others)  |\n  |  S  ──(remote invalidate)→  I   (another core wrote)                |\n  |  M  ──(remote read)──────→  S   (write back, then share)            |\n  |  M  ──(remote write)─────→  I   (write back, then invalidate self)  |\n  +---------------------------------------------------------------------+",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-3",
+      "kind": "ascii_table_candidate",
+      "line": 123,
+      "heading_context": "## Snooping vs Directory Protocols",
+      "confidence": "candidate",
+      "text": "  SNOOPING (for bus/ring topologies, smaller core counts):\n  All caches monitor (snoop) a shared bus for memory transactions.\n  When a cache sees a transaction, it checks its own state and responds.\n\n  +─────┐   +─────┐   +─────┐\n  |Core0|   |Core1|   |Core2|\n  | L1  |   | L1  |   | L1  |\n  +──┬──┘   +──┬──┘   +──┬──┘\n     │          │          │\n  ═══╪══════════╪══════════╪═══  ← Shared bus / ring\n     │\n  +──┴──┐\n  | L3  |\n  | LLC |\n  +──┬──┘\n     │\n   DRAM\n\n  All cores see all transactions. Simple but doesn't scale:\n  Bus bandwidth = O(N) cores × O(M) cache misses per second.\n  Works well for 8–32 cores.\n\n  DIRECTORY PROTOCOL (for multi-socket, large core counts):\n  A distributed directory tracks who has each cache line.\n  No need for broadcast — only send coherence messages to\n  cores that have a copy.\n\n  Directory entry per memory block:\n  [Present Bits: core 0...N] [Dirty Bit] [Owner Bits]\n\n  Core 0 wants to write address X:\n  1. Send request to directory for X\n  2. Directory looks up: cores 1, 3, 5 have S copies of X\n  3. Directory sends invalidation to cores 1, 3, 5\n  4. Cores acknowledge (send INV-ACK)\n  5. Directory sends write permission to Core 0\n  6. Core 0 transitions to M state\n\n  Scales to 100s-1000s of cores.\n  AMD EPYC: Infinity Fabric directory protocol across chiplets.\n  Intel Xeon: scalable mesh with distributed LLC and directory.",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-4",
+      "kind": "ascii_table_candidate",
+      "line": 171,
+      "heading_context": "## False Sharing: The Silent Performance Killer",
+      "confidence": "candidate",
+      "text": "  DEFINITION:\n  Two or more cores frequently write to DIFFERENT variables\n  that happen to reside on the SAME cache line.\n\n  Neither core is sharing the same variable, but the cache\n  coherence protocol treats the whole line as shared.\n\n  EXAMPLE:\n  struct Counter {\n    int64_t count_core0;    // offset 0\n    int64_t count_core1;    // offset 8\n  } counters;               // Both in SAME 64-byte cache line!\n\n  Core 0: counters.count_core0++  → writes line, invalidates Core 1's copy\n  Core 1: counters.count_core1++  → must re-acquire line, invalidates Core 0\n\n  RESULT: Massive coherence traffic. Each write by one core\n  requires the other to invalidate and re-fetch.\n  Performance: can be 10-100× slower than independent writes.\n\n  DETECTION:\n  Linux perf: `perf c2c record` + `perf c2c report`\n  Intel VTune: memory analysis, cache-to-cache transfer visualization\n\n  FIX 1: PADDING\n  struct Counter {\n    int64_t count_core0;\n    char padding[56];      // pad to 64 bytes\n    int64_t count_core1;\n  }; // Each field now in its own cache line\n\n  FIX 2: C#/.NET — use [StructLayout(LayoutKind.Sequential)]\n  with explicit padding or the internal PaddingHelpers approach.\n  .NET has a concept of \"false sharing avoidance\" in the GC.\n\n  FIX 3: PER-CORE OR PER-THREAD LOCAL ACCUMULATION\n  Each thread accumulates locally, then atomically adds to global\n  at the end. Thread-local storage avoids sharing entirely.\n\n  x86: alignas(64) or __declspec(align(64))\n  C#: [StructLayout(LayoutKind.Sequential, Pack=64)]\n  JAVA: @sun.misc.Contended annotation",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-5",
+      "kind": "chart_like",
+      "line": 243,
+      "heading_context": "### Sequential Consistency (SC)",
+      "confidence": "candidate",
+      "text": "### x86 TSO (Total Store Order)",
+      "notes": [
+        "detected from bar/chart glyph density with numeric labels"
+      ]
+    },
+    {
+      "id": "block-6",
+      "kind": "ascii_table_candidate",
+      "line": 324,
+      "heading_context": "## The Memory Model Stack",
+      "confidence": "candidate",
+      "text": "  +------------------------------------------------------------------------+\n  |  LANGUAGE LEVEL — acquire/release semantics                            |\n  |                                                                        |\n  |  C++: memory_order_acquire/release on std::atomic<T>                   |\n  |  Java: volatile fields, synchronized, VarHandle.getAcquire()           |\n  |  Go: sync.Mutex, sync/atomic.Load/Store (seq_cst by default)           |\n  |  Rust: Ordering::Acquire / Ordering::Release on atomics                |\n  |  C#: volatile keyword, Interlocked, Thread.MemoryBarrier()             |\n  +------------------------------------------------------------------------+\n              ↕ compiler translates to\n  +------------------------------------------------------------------------+\n  |  RUNTIME / COMPILER LAYER                                              |\n  |  C++ / Rust: direct ISA fence emission (no separate runtime layer)     |\n  |  JVM: JMM specifies happens-before; HotSpot JIT emits fences           |\n  |  .NET CLR: CLR memory model (stronger than C# spec minimum);           |\n  |            explicit fences at volatile read/write                      |\n  |  Go runtime: inserts barriers at goroutine sync points                 |\n  +------------------------------------------------------------------------+\n              ↕ emits\n  +------------------------------------------------------------------------+\n  |  ISA FENCE INSTRUCTIONS                                                |\n  |  x86-64: MFENCE (full), SFENCE (stores), LFENCE (loads),               |\n  |          LOCK prefix on RMW operations                                 |\n  |  ARM64:  LDAR (load-acquire), STLR (store-release),                    |\n  |          DMB ISH (full data memory barrier)                            |\n  |  RISC-V: FENCE r,rw / FENCE rw,w (per RVWMO)                           |\n  |                                                                        |\n  |  x86 NOTE: TSO is so strong that acquire/release often maps to         |\n  |  plain load/store — no fence emitted. ARM requires LDAR/STLR.          |\n  +------------------------------------------------------------------------+\n              ↕ hardware enforces\n  +------------------------------------------------------------------------+\n  |  CACHE COHERENCE PROTOCOL                                              |\n  |  MESI / MOESI — snooping (small core count) or directory (large)       |\n  |  Ensures: a read sees the most recent write to that address            |\n  +------------------------------------------------------------------------+\n              ↕ defines what is observable\n  +------------------------------------------------------------------------+\n  |  MEMORY CONSISTENCY MODEL                                              |\n  |  x86: TSO (Total Store Order) — near-sequential, only store-buffer     |\n  |  ARM: WMO (Weak Memory Ordering) — aggressive reorder, fences needed   |\n  |  RISC-V: RVWMO (weak + composable fence semantics)                     |\n  |  Java JMM: SC for DRF (data-race-free programs see SC behavior)        |\n  +------------------------------------------------------------------------+",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    }
+  ]
+}

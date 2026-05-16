@@ -1,3 +1,22 @@
+---
+maxim_schema: maxim.frontmatter.v1
+id: maxim:semiotics:visual-semiotics
+kind: guide
+module: semiotics
+section: semiotics
+title: Visual and Film Semiotics
+status: source-custody
+source_custody: partial
+current_path: semiotics/07-VISUAL-SEMIOTICS.md
+canonical_path: semiotics/07-VISUAL-SEMIOTICS.md
+backsource_ids: [proof-backfill:semiotics:07-visual-semiotics, git-history:semiotics:07-visual-semiotics]
+concepts: [visual, semiotics]
+root_concepts: [visual, semiotics]
+index_roles: [guide, root-concept]
+remap_from: []
+remap_to: []
+updated: null
+---
 # Visual and Film Semiotics
 
 ## The Problem of Visual Signs

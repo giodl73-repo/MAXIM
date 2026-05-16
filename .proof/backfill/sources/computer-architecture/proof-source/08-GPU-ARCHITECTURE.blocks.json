@@ -1,0 +1,61 @@
+{
+  "schema_version": "1",
+  "source_markdown": "computer-architecture\\08-GPU-ARCHITECTURE.md",
+  "blocks": [
+    {
+      "id": "block-1",
+      "kind": "ascii_table_candidate",
+      "line": 26,
+      "heading_context": "## The Core Difference",
+      "confidence": "candidate",
+      "text": "+-----------------------------------------------------------------------+\n|                    CPU vs GPU ARCHITECTURE                            |\n|                                                                       |\n|  CPU (Intel i9 / Apple M4)         GPU (NVIDIA H100 / AMD MI300X)     |\n|  -------------------------         --------------------------------   |\n|  8–32 cores (P+E)                  ~10,000 CUDA cores / shader procs  |\n|  Large L1/L2/L3 caches            Small per-SM cache                  |\n|  Deep OOO pipeline (600 ROB)       In-order execution                 |\n|  Branch prediction                 Simple warp scheduler              |\n|  Low latency (4 cycles for L1)     Hide latency via switching warps   |\n|  Few, complex threads              Thousands of simple threads        |\n|  Strong memory model (TSO)         Weak memory model                  |\n|                                                                       |\n|  BEST FOR:                         BEST FOR:                          |\n|  Irregular computation             Regular, data-parallel computation |\n|  Pointer chasing                   Arrays, matrices, tensors          |\n|  Branchy code                      SIMD-friendly loops                |\n|  OS tasks, databases               ML training, rendering, physics    |\n|  Single-threaded apps              Batch processing                   |\n+-----------------------------------------------------------------------+",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-2",
+      "kind": "ascii_table_candidate",
+      "line": 53,
+      "heading_context": "## GPU Hardware Hierarchy (NVIDIA Terminology)",
+      "confidence": "candidate",
+      "text": "  FULL GPU (e.g., H100 SXM5):\n  +──────────────────────────────────────────────────────────+\n  |  GPU Die                                                 |\n  |  144 SM (Streaming Multiprocessors) on H100              |\n  |  HBM3 memory (80 GB at 3.35 TB/s)                        |\n  |  L2 cache: 50 MB (shared)                                |\n  +──────────────────────────────────────────────────────────+\n\n  STREAMING MULTIPROCESSOR (SM):\n  +──────────────────────────────────────────────────────────+\n  |  SM (one of 144)                                         |\n  |  128 CUDA cores (FP32)                                   |\n  |  4 warp schedulers                                       |\n  |  4 dispatch units                                        |\n  |  Register file: 65,536 × 32-bit registers                |\n  |  L1 cache / Shared Memory: 256 KB (configurable split)   |\n  |  Tensor Core units                                       |\n  +──────────────────────────────────────────────────────────+\n\n  WARP: 32 threads executing the SAME instruction (SIMT)\n  BLOCK: Up to 1024 threads sharing the SM's shared memory\n  GRID: All blocks executing the same kernel\n\n  HIERARCHY:\n  Thread < Warp (32 threads) < Block < Grid\n\n  OCCUPANCY: fraction of max warps active on an SM.\n  High occupancy → more warps available to hide latency.\n  Limited by: register usage, shared memory, block size.",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-3",
+      "kind": "ascii_table_candidate",
+      "line": 160,
+      "heading_context": "## GPU Memory Hierarchy",
+      "confidence": "candidate",
+      "text": "  THREAD LOCAL:\n  Registers (65,536 per SM, 32-bit each)\n  Fast: 0 cycles. Limited: runs out → \"register spill\" to local memory.\n  Local memory (overflow from registers)\n  Slow: same as global memory. Avoid register pressure!\n\n  BLOCK SHARED:\n  +───────────────────────────────────────+\n  | SHARED MEMORY (~128KB per SM max)     |\n  | = user-controlled L1-like memory      |\n  | Accessible to ALL threads in a block  |\n  | L1 speed: ~5 cycles latency           |\n  | 128-bit wide: 4 × float32 in 1 cycle  |\n  +───────────────────────────────────────+\n  Explicit management: __shared__ in CUDA.\n  Bank conflicts: shared memory is organized in 32 4-byte banks.\n  If multiple threads in a warp access the same bank → serialized.\n  Optimal: each thread accesses a different bank (stride-1 access).\n\n  SM LOCAL:\n  L1 cache: split from shared memory pool (configurable).\n  Caches global memory accesses (read-only by default).\n\n  GLOBAL (DEVICE MEMORY):\n  +───────────────────────────────────────+\n  | HBM3 (H100): 80 GB, 3.35 TB/s         |\n  | GDDR7 (desktop): 16–24 GB, ~900 GB/s|\n  | Latency: ~600–800 cycles              |\n  +───────────────────────────────────────+\n  Key optimization: MEMORY COALESCING.\n  Threads in a warp should access CONTIGUOUS addresses.\n  If warp requests addresses in one 128-byte cache line →\n  1 memory transaction serves all 32 threads.\n  If warp requests 32 scattered addresses → 32 transactions.\n  32× bandwidth waste!\n\n  CONSTANT MEMORY: 64 KB, cached, broadcast to whole warp.\n  Ideal for: kernel parameters, lookup tables read by all threads.\n\n  TEXTURE MEMORY: Cached with 2D spatial locality optimization.\n  Ideal for: image processing, physics simulations with 2D access.",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-4",
+      "kind": "ascii_table_candidate",
+      "line": 281,
+      "heading_context": "## Programming Models",
+      "confidence": "candidate",
+      "text": "  CUDA (NVIDIA-specific):\n  __global__ void kernel(float* a, float* b, float* c, int N) {\n      int i = blockIdx.x * blockDim.x + threadIdx.x;\n      if (i < N) c[i] = a[i] + b[i];\n  }\n  // Launch: kernel<<<numBlocks, threadsPerBlock>>>(a, b, c, N);\n\n  THREAD INDEXING:\n  threadIdx.x: thread index within block (0 to blockDim.x-1)\n  blockIdx.x:  block index within grid  (0 to gridDim.x-1)\n  Global index: blockIdx.x * blockDim.x + threadIdx.x\n\n  OPENCL (cross-vendor):\n  Similar model; \"work items\" instead of threads.\n  Less vendor optimization; more portable.\n  Used for: AMD GPU compute, Intel GPU, FPGAs.\n\n  SYCL (modern C++, cross-vendor):\n  C++17/20 based; Intel's DPC++.\n  Used in: Intel oneAPI, some AMD support.\n\n  METAL (Apple Silicon):\n  Apple's GPU API. Unified memory with CPU on M-series.\n  Metal Shading Language (MSL): C++-like.\n  No PCIe transfer needed: CPU and GPU share the same RAM.\n  = Eliminates the biggest GPU bottleneck for many workloads.\n\n  HLSL/GLSL/WGSL (graphics shaders):\n  HLSL: DirectX (Windows, Xbox, Azure GPU nodes)\n  GLSL: OpenGL/Vulkan\n  WGSL: WebGPU (browser GPU compute)\n  These are primarily graphics-oriented but compute shaders\n  in these APIs power browser-side ML inference.",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-5",
+      "kind": "diagram_like",
+      "line": 321,
+      "heading_context": "## GPU Cluster Scaling",
+      "confidence": "candidate",
+      "text": "  INTRA-NODE SCALING (multiple GPUs, one server):\n\n  PCIe (baseline — all GPU servers):\n    GPU ↔ CPU: PCIe 4.0 ×16 = 64 GB/s, PCIe 5.0 ×16 = 128 GB/s\n    GPU ↔ GPU via PCIe switch: same bandwidth, shared\n    Bottleneck: any operation that must move data through the CPU\n                or PCIe bus (e.g., all-reduce in distributed training)\n\n  NVLink (NVIDIA high-end):\n    Direct GPU-to-GPU interconnect, bypasses PCIe for GPU↔GPU traffic\n    NVLink 4.0 (H100 SXM5): 900 GB/s per GPU pair (bidirectional)\n    vs PCIe 5.0: 7× higher bandwidth for GPU-to-GPU\n    NVSwitch: a dedicated chip allowing any-to-any full-bandwidth\n              GPU communication within a node (DGX H100: 8 GPUs, NVSwitch)\n    Apple Silicon alternative: Unified Memory — CPU+GPU share same\n              physical DRAM, PCIe bottleneck eliminated entirely\n\n  INTER-NODE SCALING (multiple servers, a cluster):\n\n  InfiniBand (dominant in HPC/AI clusters):\n    HDR InfiniBand: 200 Gbps per port\n    NDR InfiniBand: 400 Gbps per port (H100 cluster configs)\n    RDMA: GPU-to-GPU across nodes without CPU involvement\n    Fat-tree topology: non-blocking, every GPU pair gets full bandwidth\n\n  RoCE (RDMA over Converged Ethernet):\n    RDMA semantics over standard Ethernet infrastructure\n    400GbE / 800GbE (emerging): approaches InfiniBand bandwidth\n    Lower infrastructure cost; slightly higher latency\n    Cloud providers often use RoCE internally (AWS EFA, GCP GNIC)\n\n  VRAM CAPACITY PLANNING (universal — cloud or on-prem):\n\n  Rule of thumb: FP16 model weights ≈ 2 bytes × parameter count\n    7B parameter model  (FP16): ~14 GB — fits in single A100/H100\n    13B parameter model (FP16): ~26 GB — fits in single A100/H100\n    70B parameter model (FP16): ~140 GB — needs 2× H100 (80 GB each)\n    GPT-3 175B         (FP16): ~350 GB — needs 5× A100 80GB minimum\n\n  Quantization changes the math:\n    INT8 quantization: ~1 byte/parameter → 70B fits in single 80 GB GPU\n    INT4 quantization: ~0.5 bytes/param → 70B fits in 40 GB GPU\n    BF16 training: must keep FP32 optimizer state → 4-6× weight size\n\n  Tensor parallelism: split a single layer across N GPUs (needs NVLink)\n  Pipeline parallelism: split model by layers across nodes (tolerates\n    lower bandwidth; inter-node okay)\n\n  THE PCIe BOTTLENECK:\n  On a conventional server, data must travel:\n    DRAM → CPU → PCIe → GPU VRAM (upload)\n    GPU VRAM → PCIe → CPU → DRAM (download)\n  PCIe 5.0 ×16 = 128 GB/s. GPU HBM3 = 3.35 TB/s.\n  CPU-GPU transfer is 26× slower than GPU-internal bandwidth.\n  Minimize host↔GPU transfers in GPU-bound workloads.\n  CUDA pinned memory (page-locked) enables DMA and is faster\n  than pageable transfers.\n\n  CLOUD GPU INSTANCES (illustrative — all major clouds have similar):\n\n  AWS:   p4d.24xlarge — 8× A100 80 GB, 400 Gbps EFA (RoCE)\n         p5.48xlarge  — 8× H100 80 GB, 3200 Gbps EFA\n  GCP:   a3-highgpu-8g — 8× H100 80 GB, 200 Gbps GNIC\n  Azure: ND H100 v5   — 8× H100 80 GB, 400 Gbps InfiniBand\n         ND A100 v4   — 8× A100 80 GB, 400 Gbps InfiniBand\n         NCasT4_v3    — 4× T4 16 GB, inference-focused (cost-efficient)\n\n  GRACE HOPPER (H200) — eliminates PCIe bottleneck at package level:\n  ARM Neoverse CPU + H100 GPU on same package.\n  HBM3e: 141 GB at 4.8 TB/s.\n  CPU-GPU communication via NVLink-C2C (900 GB/s).\n  Available on: AWS p6e, GCP A4, Azure ND H200 v5 (roadmap).",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    }
+  ]
+}

@@ -1,3 +1,22 @@
+---
+maxim_schema: maxim.frontmatter.v1
+id: maxim:computer-architecture:future-architecture
+kind: guide
+module: computer-architecture
+section: computer-architecture
+title: Future Architectures: Neuromorphic, Quantum, Accelerators
+status: source-custody
+source_custody: partial
+current_path: computer-architecture/09-FUTURE-ARCHITECTURE.md
+canonical_path: computer-architecture/09-FUTURE-ARCHITECTURE.md
+backsource_ids: [proof-backfill:computer-architecture:09-future-architecture, git-history:computer-architecture:09-future-architecture]
+concepts: [future, architecture]
+root_concepts: [future, architecture]
+index_roles: [guide, root-concept]
+remap_from: []
+remap_to: []
+updated: null
+---
 # Future Architectures: Neuromorphic, Quantum, Accelerators
 
 ## The Landscape

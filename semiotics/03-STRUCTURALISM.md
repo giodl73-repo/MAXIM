@@ -1,3 +1,22 @@
+---
+maxim_schema: maxim.frontmatter.v1
+id: maxim:semiotics:structuralism
+kind: guide
+module: semiotics
+section: semiotics
+title: Structuralism and the Prague School
+status: source-custody
+source_custody: partial
+current_path: semiotics/03-STRUCTURALISM.md
+canonical_path: semiotics/03-STRUCTURALISM.md
+backsource_ids: [proof-backfill:semiotics:03-structuralism, git-history:semiotics:03-structuralism]
+concepts: [structuralism]
+root_concepts: [structuralism]
+index_roles: [guide, root-concept]
+remap_from: []
+remap_to: []
+updated: null
+---
 # Structuralism and the Prague School
 
 ## What Structuralism Is
@@ -16,16 +35,13 @@ The Prague School (Prague Linguistic Circle, 1926–1948) was the first major in
 |  Synchronic priority.           Jakobson: functions of                |
 |                                 language; poetic function.            |
 |         ↓                                ↓                            |
-|  +-----------------------+    +------------------------------+        |
-|  | FRENCH STRUCTURALISM  |    | PRAGUE CONTRIBUTIONS         |       |
-|  | Lévi-Strauss: myth,   |    | Phoneme = distinctive unit   |       |
-|  | kinship as binary     |    | Marked/unmarked opposition   |       |
-|  | oppositions           |    | Jakobson's 6 functions       |       |
-|  | Barthes: cultural     |    | Foregrounding in poetics     |       |
-|  | signs, fashion system |    | Functional sentence perspect.|       |
-|  | Lacan: unconscious    |    +------------------------------+       |
-|  | structured as language|                                           |
-|  +-----------------------+                                           |
+|  [FRENCH STRUCTURALISM]         [PRAGUE CONTRIBUTIONS]                |
+|  Lévi-Strauss: myth,            Phoneme = distinctive unit            |
+|  kinship as binary              Marked/unmarked opposition            |
+|  oppositions                    Jakobson's 6 functions                |
+|  Barthes: cultural signs        Foregrounding in poetics              |
+|  fashion system                 Functional sentence perspective       |
+|  Lacan: unconscious structured as language                            |
 +-----------------------------------------------------------------------+
 ```
 
@@ -167,27 +183,19 @@ Roman Jakobson (1896–1982) moved from Prague to the US and became the most inf
 ### The Six Functions Applied
 
 ```
-+---------------------------------------------------------------------+
-| FUNCTION      | ORIENTATION   | EXAMPLES                            |
-|---------------|---------------|-----------------------------------|
-| Referential   | Context/topic | News report, encyclopedia article   |
-|               |               | "Water boils at 100°C"              |
-|---------------|---------------|-----------------------------------|
-| Emotive       | Sender        | "Oh! That's disgusting!"            |
-|               |               | Interjections, diary                |
-|---------------|---------------|-----------------------------------|
-| Conative      | Addressee     | Commands, ads, rhetoric             |
-|               |               | "Buy now!" "Vote Smith!"            |
-|---------------|---------------|-----------------------------------|
-| Phatic        | Contact       | "Hello?" "Nice weather, isn't it?"|
-|               |               | Small talk, channel-checking        |
-|---------------|---------------|-----------------------------------|
-| Metalingual   | Code          | Definitions, grammar books          |
-|               |               | "What does 'irony' mean?"           |
-|---------------|---------------|-----------------------------------|
-| Poetic        | Message form  | Poetry, puns, alliteration          |
-|               |               | "I like Ike" (sound pattern)        |
-+---------------------------------------------------------------------+
+FUNCTION       ORIENTATION    EXAMPLES
+Referential    Context/topic  News report, encyclopedia article
+                              "Water boils at 100°C"
+Emotive        Sender         "Oh! That's disgusting!"
+                              Interjections, diary
+Conative       Addressee      Commands, ads, rhetoric
+                              "Buy now!" "Vote Smith!"
+Phatic         Contact        "Hello?" "Nice weather, isn't it?"
+                              Small talk, channel-checking
+Metalingual    Code           Definitions, grammar books
+                              "What does 'irony' mean?"
+Poetic         Message form   Poetry, puns, alliteration
+                              "I like Ike" (sound pattern)
 
   JAKOBSON ON THE POETIC FUNCTION:
   "The poetic function projects the principle of equivalence
