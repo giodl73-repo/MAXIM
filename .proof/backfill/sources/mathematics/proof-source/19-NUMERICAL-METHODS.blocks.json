@@ -1,0 +1,479 @@
+{
+  "schema_version": "1",
+  "source_markdown": "mathematics\\19-NUMERICAL-METHODS.md",
+  "blocks": [
+    {
+      "id": "block-1",
+      "kind": "diagram_like",
+      "line": 24,
+      "heading_context": "## The Big Picture",
+      "confidence": "candidate",
+      "text": "NUMERICAL METHODS\n═══════════════════════════════════════════════════════════════════════════\n\n  FLOATING POINT              ROOT FINDING                  LINEAR SYSTEMS\n  ─────────────               ────────────                  ─────────────\n  IEEE 754 representation     Bisection, IVT                Gaussian elimination\n  Machine epsilon ε_mach      Newton-Raphson (quadratic)    LU decomposition\n  Rounding, overflow/underflow Secant, Brent's method       Cholesky (SPD)\n  Catastrophic cancellation   Fixed-point iteration         Iterative (CG, GMRES)\n  Condition number κ(A)       Convergence orders            Sparse methods\n\n  INTERPOLATION &             DIFFERENTIATION               INTEGRATION (QUADRATURE)\n  APPROXIMATION               & DERIVATIVES                 ──────────────────────\n  ─────────────────           ─────────────                 Riemann → Trapezoidal\n  Polynomial interpolation    Finite differences            Simpson's rule\n  Newton's divided differences Forward/central/backward     Gaussian quadrature\n  Spline interpolation        Richardson extrapolation      Adaptive quadrature\n  Least squares, regression   Automatic differentiation     Monte Carlo integration\n\n  ODEs                        PDEs                          EIGENVALUE PROBLEMS\n  ────                        ────                          ────────────────────\n  Euler's method              Finite differences            Power iteration\n  Runge-Kutta (RK4)           Finite element method         QR algorithm\n  Stiffness, implicit methods Spectral methods              Arnoldi / Lanczos\n  Adaptive step control       Method of lines               Rayleigh quotient\n\n  ┌─────────────────────────────────────────────────────────────────────┐\n  │  Core theme: approximate continuous mathematics on discrete,        │\n  │  finite-precision machines — understand and control the error       │\n  └─────────────────────────────────────────────────────────────────────┘",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-2",
+      "kind": "chart_like",
+      "line": 68,
+      "heading_context": "## 1. Floating-Point Arithmetic",
+      "confidence": "candidate",
+      "text": "### 1.1 IEEE 754 Representation",
+      "notes": [
+        "detected from bar/chart glyph density with numeric labels"
+      ]
+    },
+    {
+      "id": "block-3",
+      "kind": "chart_like",
+      "line": 101,
+      "heading_context": "### 1.1 IEEE 754 Representation",
+      "confidence": "candidate",
+      "text": "### 1.2 Rounding Modes and Error Accumulation",
+      "notes": [
+        "detected from bar/chart glyph density with numeric labels"
+      ]
+    },
+    {
+      "id": "block-4",
+      "kind": "ascii_table_candidate",
+      "line": 103,
+      "heading_context": "### 1.2 Rounding Modes and Error Accumulation",
+      "confidence": "candidate",
+      "text": "IEEE 754 ROUNDING MODES:\n  Round to nearest (ties to even): default, minimizes bias\n  Round toward +∞ / −∞: used in interval arithmetic\n  Round toward zero: truncation\n\nFLOATING-POINT ARITHMETIC GUARANTEE:\n  For IEEE 754 operations +, −, ×, ÷, √:\n    fl(x ⊕ y) = (x ⊕ y)(1 + δ),  |δ| ≤ ε_mach\n  Each operation has at most 1 ULP error.\n\nERROR ACCUMULATION:\n  n additions of numbers of similar magnitude: error ~ √n · ε_mach · x  (random walk)\n  Worst case: n · ε_mach · x  (systematic)\n  Compensated summation (Kahan): error ~ O(ε_mach) regardless of n  ← crucial for ML loss\n\nCATASTROPHIC CANCELLATION:\n  a - b where a ≈ b: relative error amplified enormously.\n  Example: x² - 1 near x=1 → use (x-1)(x+1) instead.\n  cos(x) - 1 near x=0 → use -2sin²(x/2).\n  Quadratic formula: b² >> 4ac, -b + √(b²-4ac) ≈ 0 → use -2c/(b + √(b²-4ac)).",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-5",
+      "kind": "chart_like",
+      "line": 171,
+      "heading_context": "# torch: torch.expm1, torch.log1p, torch.logit, torch.special.log_ndtr",
+      "confidence": "candidate",
+      "text": "### 1.3 Condition Number",
+      "notes": [
+        "detected from bar/chart glyph density with numeric labels"
+      ]
+    },
+    {
+      "id": "block-6",
+      "kind": "diagram_like",
+      "line": 173,
+      "heading_context": "### 1.3 Condition Number",
+      "confidence": "candidate",
+      "text": "CONDITION NUMBER of a problem: ratio of relative change in output to relative change in input.\n  κ = |relative output change| / |relative input change|\n\n  Well-conditioned: κ ~ 1  (small input error → small output error)\n  Ill-conditioned: κ >> 1  (small input error → large output error)\n  Singular: κ = ∞\n\nCONDITION NUMBER OF A MATRIX:\n  κ(A) = ‖A‖ · ‖A⁻¹‖ = σ_max / σ_min   (using operator 2-norm + SVD)\n  For Ax = b: relative error in x ≤ κ(A) · (relative error in b + relative error in A)\n  κ(A) = 1: orthogonal matrix (ideal)\n  κ(A) large: nearly singular, solution unreliable\n\nNUMERICAL RANK: number of singular values above threshold (not actual rank).\n  Used in low-rank approximation, truncated SVD.\n\nRULE OF THUMB:\n  If κ(A) ~ 10ᵏ, expect to lose ~k decimal digits of accuracy in solution.\n  κ ~ 10¹² with float64 (15 digits) → ~3 reliable digits in solution.",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-7",
+      "kind": "chart_like",
+      "line": 199,
+      "heading_context": "## 2. Root Finding",
+      "confidence": "candidate",
+      "text": "### 2.1 Bisection Method",
+      "notes": [
+        "detected from bar/chart glyph density with numeric labels"
+      ]
+    },
+    {
+      "id": "block-8",
+      "kind": "chart_like",
+      "line": 221,
+      "heading_context": "### 2.1 Bisection Method",
+      "confidence": "candidate",
+      "text": "### 2.2 Newton-Raphson Method",
+      "notes": [
+        "detected from bar/chart glyph density with numeric labels"
+      ]
+    },
+    {
+      "id": "block-9",
+      "kind": "diagram_like",
+      "line": 223,
+      "heading_context": "### 2.2 Newton-Raphson Method",
+      "confidence": "candidate",
+      "text": "IDEA: linearize f at current point, solve linear equation.\n  x_{n+1} = xₙ − f(xₙ)/f'(xₙ)\n\nGEOMETRIC INTERPRETATION: xₙ₊₁ = x-intercept of tangent line at (xₙ, f(xₙ)).\n\nCONVERGENCE: Quadratic (order 2) near simple root x*.\n  |x_{n+1} − x*| ≤ C · |xₙ − x*|²\n  where C = |f''(x*)|/(2|f'(x*)|)\n  → doubles correct digits each iteration (~10 iterations for 64-bit precision from decent start).\n\nMULTIPLE ROOTS: Convergence degrades to linear at root of multiplicity m.\n  Fix: use x_{n+1} = xₙ − m·f(xₙ)/f'(xₙ)  or  Schröder's method.\n\nFAILURES: diverge if f'(xₙ) ≈ 0, cycle if bad starting point, slow for flat functions.\n\nNEWTON IN ℝⁿ (nonlinear systems):\n  F: ℝⁿ → ℝⁿ,   x_{k+1} = xₖ − J_F(xₖ)⁻¹ F(xₖ)\n  J_F = Jacobian (n×n matrix). Solve J·Δx = −F at each step (never invert J explicitly).\n  Same quadratic convergence. Cost per step: O(n³) LU factorization.\n\nQUASI-NEWTON (Broyden): update approximate Jacobian cheaply.\n  Avoids re-computing/factoring full Jacobian.",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-10",
+      "kind": "chart_like",
+      "line": 296,
+      "heading_context": "### Newton-Raphson, Optimization, and Inexact Newton",
+      "confidence": "candidate",
+      "text": "### 2.3 Other Root-Finding Methods",
+      "notes": [
+        "detected from bar/chart glyph density with numeric labels"
+      ]
+    },
+    {
+      "id": "block-11",
+      "kind": "diagram_like",
+      "line": 298,
+      "heading_context": "### 2.3 Other Root-Finding Methods",
+      "confidence": "candidate",
+      "text": "SECANT METHOD:\n  x_{n+1} = xₙ − f(xₙ)·(xₙ − xₙ₋₁)/(f(xₙ) − f(xₙ₋₁))\n  Finite difference approximation of Newton (no f' needed).\n  Convergence: superlinear, order φ = (1+√5)/2 ≈ 1.618 (golden ratio).\n\nBRENT'S METHOD (combination):\n  Combines bisection (safe) + secant/inverse quadratic interpolation (fast).\n  Guaranteed to converge, fast when possible.\n  Industry standard for scalar root-finding in practice.\n\nFIXED-POINT ITERATION:\n  Rewrite f(x)=0 as x = g(x).  Iterate xₙ₊₁ = g(xₙ).\n  Converges iff |g'(x*)| < 1  (contractive mapping, Banach fixed-point theorem).\n  Convergence order = 1 (linear) if g'(x*) ≠ 0.\n  Choice of g matters enormously: same equation, different g, different convergence.\n\nMÜLLER'S METHOD: fits parabola through 3 points. Finds complex roots. Order ~1.84.\n\nCONVERGENCE ORDERS SUMMARY:\n  Method             Order    Cost/step     Notes\n  ───────────────────────────────────────────────────────\n  Bisection          1        1 eval        Guaranteed\n  Fixed-point        1        1 eval        Need |g'|<1\n  Secant             1.618    1 eval        No derivative\n  Newton             2        1 eval + 1 deriv  Need good start\n  Newton (mult m)    1→2      with Schröder fix\n  Halley             3        2 evals + 2 derivs  Overkill usually",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-12",
+      "kind": "chart_like",
+      "line": 332,
+      "heading_context": "## 3. Solving Linear Systems",
+      "confidence": "candidate",
+      "text": "### 3.1 Direct Methods — Gaussian Elimination",
+      "notes": [
+        "detected from bar/chart glyph density with numeric labels"
+      ]
+    },
+    {
+      "id": "block-13",
+      "kind": "diagram_like",
+      "line": 334,
+      "heading_context": "### 3.1 Direct Methods — Gaussian Elimination",
+      "confidence": "candidate",
+      "text": "PROBLEM: Solve Ax = b,  A ∈ ℝⁿˣⁿ.\n\nGAUSSIAN ELIMINATION: O(n³/3) operations.\n  Forward elimination: reduce A to upper triangular U.\n  Back substitution: solve Ux = b' in O(n²).\n\nLU DECOMPOSITION: A = L·U  (lower · upper triangular)\n  Factorize once O(n³): solve Ly = b (forward sub O(n²)), Ux = y (back sub O(n²)).\n  Efficient for multiple right-hand sides.\n\nPARTIAL PIVOTING: permute rows to put largest element in pivot position.\n  PA = LU  (P = permutation matrix)\n  Improves numerical stability. Essential in practice.\n  Complete pivoting (rows + columns): more stable but 2× slower, rarely needed.\n\nCHOLESKY DECOMPOSITION: A = LLᵀ  (A symmetric positive definite)\n  A = LLᵀ: L is lower triangular with positive diagonal.\n  2× faster than LU: ~n³/6 ops. Automatically stable (no pivoting needed).\n  Applications: normal equations, SPD systems (FEM, GP regression).\n\nSPECIAL STRUCTURE EXPLOITATION:\n  Banded matrix (bandwidth b): O(nb²) — sparse ODE BVPs\n  Tridiagonal (b=1): O(n) — Thomas algorithm\n  Toeplitz: O(n log² n) — signal processing, convolutions\n  Sparse general: fill-in problem → reorder (AMD, Nested Dissection) before factoring",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-14",
+      "kind": "chart_like",
+      "line": 403,
+      "heading_context": "# For sparse systems: scipy.sparse.linalg",
+      "confidence": "candidate",
+      "text": "### 3.2 Conditioning and Stability",
+      "notes": [
+        "detected from bar/chart glyph density with numeric labels"
+      ]
+    },
+    {
+      "id": "block-15",
+      "kind": "chart_like",
+      "line": 419,
+      "heading_context": "### 3.2 Conditioning and Stability",
+      "confidence": "candidate",
+      "text": "### 3.3 Iterative Methods for Large Systems",
+      "notes": [
+        "detected from bar/chart glyph density with numeric labels"
+      ]
+    },
+    {
+      "id": "block-16",
+      "kind": "chart_like",
+      "line": 459,
+      "heading_context": "## 4. Interpolation and Approximation",
+      "confidence": "candidate",
+      "text": "### 4.1 Polynomial Interpolation",
+      "notes": [
+        "detected from bar/chart glyph density with numeric labels"
+      ]
+    },
+    {
+      "id": "block-17",
+      "kind": "chart_like",
+      "line": 482,
+      "heading_context": "### 4.1 Polynomial Interpolation",
+      "confidence": "candidate",
+      "text": "### 4.2 Runge's Phenomenon and Chebyshev Nodes",
+      "notes": [
+        "detected from bar/chart glyph density with numeric labels"
+      ]
+    },
+    {
+      "id": "block-18",
+      "kind": "chart_like",
+      "line": 503,
+      "heading_context": "### 4.2 Runge's Phenomenon and Chebyshev Nodes",
+      "confidence": "candidate",
+      "text": "### 4.3 Spline Interpolation",
+      "notes": [
+        "detected from bar/chart glyph density with numeric labels"
+      ]
+    },
+    {
+      "id": "block-19",
+      "kind": "chart_like",
+      "line": 526,
+      "heading_context": "### 4.3 Spline Interpolation",
+      "confidence": "candidate",
+      "text": "### 4.4 Least Squares Approximation",
+      "notes": [
+        "detected from bar/chart glyph density with numeric labels"
+      ]
+    },
+    {
+      "id": "block-20",
+      "kind": "diagram_like",
+      "line": 528,
+      "heading_context": "### 4.4 Least Squares Approximation",
+      "confidence": "candidate",
+      "text": "OVERDETERMINED SYSTEM: m equations, n unknowns (m >> n).\n  Ax ≈ b,  minimize ‖Ax − b‖₂²\n\nNORMAL EQUATIONS: AᵀAx = Aᵀb\n  Condition number κ(AᵀA) = κ(A)².  Can be catastrophically ill-conditioned.\n\nQR DECOMPOSITION (preferred): A = QR (Q orthogonal, R upper triangular)\n  QRx = b → Rx = Qᵀb → back-substitute. κ(R) = κ(A).\n  Algorithms: Householder reflections (stable), Gram-Schmidt (less stable).\n  O(mn²) for m×n matrix.\n\nTRUNCATED SVD: A = UΣVᵀ, keep top k singular values.\n  Best rank-k approximation (Eckart-Young theorem): ‖A − Aₖ‖₂ = σₖ₊₁.\n  Used in PCA, dimensionality reduction, denoising.\n\nRIDGE REGRESSION (Tikhonov regularization):\n  min ‖Ax−b‖² + λ‖x‖²  →  (AᵀA + λI)x = Aᵀb\n  Adds λI to diagonal → better conditioning, biased estimator.",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-21",
+      "kind": "chart_like",
+      "line": 553,
+      "heading_context": "## 5. Numerical Differentiation",
+      "confidence": "candidate",
+      "text": "### 5.1 Finite Difference Formulas",
+      "notes": [
+        "detected from bar/chart glyph density with numeric labels"
+      ]
+    },
+    {
+      "id": "block-22",
+      "kind": "diagram_like",
+      "line": 555,
+      "heading_context": "### 5.1 Finite Difference Formulas",
+      "confidence": "candidate",
+      "text": "FORWARD DIFFERENCE: f'(x) ≈ (f(x+h) − f(x))/h\n  Error: O(h)  (first-order)\n\nBACKWARD DIFFERENCE: f'(x) ≈ (f(x) − f(x−h))/h\n  Error: O(h)\n\nCENTRAL DIFFERENCE: f'(x) ≈ (f(x+h) − f(x−h))/(2h)\n  Error: O(h²)  ← preferred for smooth functions\n\nSECOND DERIVATIVE:\n  f''(x) ≈ (f(x+h) − 2f(x) + f(x−h))/h²   Error: O(h²)\n\nGENERAL STENCIL COEFFICIENTS: from Taylor expansion or polynomial interpolation.\n  Can derive O(h⁴), O(h⁶), ... formulas using more points.\n\nSTEP SIZE DILEMMA:\n  Truncation error: O(hᵖ) → want h small\n  Round-off error: O(ε_mach/h) → want h large\n  Optimal h: minimize total error.\n  For central difference: hₒₚₜ ~ (ε_mach)^(1/3) ~ 10⁻⁵ for float64.\n  Total error at hₒₚₜ ~ (ε_mach)^(2/3) ~ 10⁻¹⁰.",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-23",
+      "kind": "chart_like",
+      "line": 579,
+      "heading_context": "### 5.1 Finite Difference Formulas",
+      "confidence": "candidate",
+      "text": "### 5.2 Richardson Extrapolation",
+      "notes": [
+        "detected from bar/chart glyph density with numeric labels"
+      ]
+    },
+    {
+      "id": "block-24",
+      "kind": "chart_like",
+      "line": 592,
+      "heading_context": "### 5.2 Richardson Extrapolation",
+      "confidence": "candidate",
+      "text": "### 5.3 Automatic Differentiation (AD)",
+      "notes": [
+        "detected from bar/chart glyph density with numeric labels"
+      ]
+    },
+    {
+      "id": "block-25",
+      "kind": "diagram_like",
+      "line": 652,
+      "heading_context": "# Hessian-vector products (cheap — O(1) extra cost):",
+      "confidence": "candidate",
+      "text": "Naive reverse mode:  O(L) memory,  O(L) compute\nGradient checkpointing with k checkpoints:\n  Memory: O(√L) if checkpoints placed optimally\n  Compute: O(L) additional forward passes (2× total forward computation)\n  → For large models: 2× slower training but enables ~√L larger models\n\nIn PyTorch:\n  torch.utils.checkpoint.checkpoint(fn, *inputs)\n  Recomputes fn during backward instead of storing its output.\n  Standard for training GPT-class models where activation memory dominates.\n\nIn JAX: jax.checkpoint (also called jax.remat)\n  @jax.checkpoint\n  def layer(x): ...",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-26",
+      "kind": "chart_like",
+      "line": 684,
+      "heading_context": "## 6. Numerical Integration (Quadrature)",
+      "confidence": "candidate",
+      "text": "### 6.1 Basic Rules",
+      "notes": [
+        "detected from bar/chart glyph density with numeric labels"
+      ]
+    },
+    {
+      "id": "block-27",
+      "kind": "chart_like",
+      "line": 707,
+      "heading_context": "### 6.1 Basic Rules",
+      "confidence": "candidate",
+      "text": "### 6.2 Gaussian Quadrature",
+      "notes": [
+        "detected from bar/chart glyph density with numeric labels"
+      ]
+    },
+    {
+      "id": "block-28",
+      "kind": "chart_like",
+      "line": 727,
+      "heading_context": "### 6.2 Gaussian Quadrature",
+      "confidence": "candidate",
+      "text": "### 6.3 Adaptive Quadrature",
+      "notes": [
+        "detected from bar/chart glyph density with numeric labels"
+      ]
+    },
+    {
+      "id": "block-29",
+      "kind": "chart_like",
+      "line": 749,
+      "heading_context": "### 6.3 Adaptive Quadrature",
+      "confidence": "candidate",
+      "text": "### 6.4 Monte Carlo Integration",
+      "notes": [
+        "detected from bar/chart glyph density with numeric labels"
+      ]
+    },
+    {
+      "id": "block-30",
+      "kind": "chart_like",
+      "line": 778,
+      "heading_context": "## 7. Ordinary Differential Equations",
+      "confidence": "candidate",
+      "text": "### 7.1 Initial Value Problems",
+      "notes": [
+        "detected from bar/chart glyph density with numeric labels"
+      ]
+    },
+    {
+      "id": "block-31",
+      "kind": "diagram_like",
+      "line": 809,
+      "heading_context": "### Butcher Tableaux and Symplectic Integrators",
+      "confidence": "candidate",
+      "text": "  c | A       where:  A is s×s strictly lower triangular (explicit)\n  ──┼──              c = A·1 (consistency condition: cᵢ = Σⱼ aᵢⱼ)\n    | bᵀ              b is the weight vector (Σbᵢ = 1 for consistency)\n\nSTAGE VALUES: kᵢ = f(t + cᵢh,  y + h Σⱼ aᵢⱼkⱼ)\nOUTPUT:        y_{n+1} = yₙ + h Σᵢ bᵢkᵢ\n\nBUTCHER TABLEAU FOR RK4:\n  0   | 0    0    0    0\n  1/2 | 1/2  0    0    0\n  1/2 | 0    1/2  0    0\n  1   | 0    0    1    0\n  ────┼──────────────────\n      | 1/6  1/3  1/3  1/6",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-32",
+      "kind": "diagram_like",
+      "line": 849,
+      "heading_context": "### Butcher Tableaux and Symplectic Integrators",
+      "confidence": "candidate",
+      "text": "STÖRMER-VERLET (leapfrog):\n  p_{n+1/2} = pₙ − (h/2) ∇_q H(qₙ)\n  q_{n+1}   = qₙ + h M⁻¹ p_{n+1/2}\n  p_{n+1}   = p_{n+1/2} − (h/2) ∇_q H(q_{n+1})\n\n  Order 2 in accuracy but:\n  • Symplectic → energy error bounded for ALL time (no drift)\n  • Time-reversible → no secular energy growth\n  Standard for: molecular dynamics, n-body simulation, HMC in Bayesian inference",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-33",
+      "kind": "chart_like",
+      "line": 865,
+      "heading_context": "### Butcher Tableaux and Symplectic Integrators",
+      "confidence": "candidate",
+      "text": "### 7.2 Convergence and Consistency",
+      "notes": [
+        "detected from bar/chart glyph density with numeric labels"
+      ]
+    },
+    {
+      "id": "block-34",
+      "kind": "ascii_table_candidate",
+      "line": 867,
+      "heading_context": "### 7.2 Convergence and Consistency",
+      "confidence": "candidate",
+      "text": "TAYLOR SERIES ANALYSIS:\n  y(tₙ₊₁) = y(tₙ) + h·y'(tₙ) + (h²/2)y''(tₙ) + ⋯  (exact)\n  Local truncation error (LTE): τₙ = y(tₙ₊₁) − y(tₙ) − Φ(tₙ,yₙ,h)\n    Φ = method's increment function.\n  Order p: LTE = O(h^(p+1)).\n\nSTABILITY (Dahlquist test equation): y' = λy,  Re(λ) < 0.\n  Exact: y(t) = eλt → 0.\n  Euler: yₙ = (1+hλ)ⁿ → 0 iff |1+hλ| < 1 → stability region is disk of radius 1 centered at -1.\n  RK4 stability region: larger, but still finite in complex plane.\n\nDAHLQUIST THEOREM: Explicit methods have bounded stability regions.\n  Cannot be A-stable (stable for all Re(λ)<0).\n  Implicit methods can be A-stable (stable for entire left half-plane).\n\nCONVERGENCE = CONSISTENCY + STABILITY (Lax-Richtmyer for PDEs, Dahlquist for ODEs).",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-35",
+      "kind": "chart_like",
+      "line": 886,
+      "heading_context": "### 7.2 Convergence and Consistency",
+      "confidence": "candidate",
+      "text": "### 7.3 Stiff Equations",
+      "notes": [
+        "detected from bar/chart glyph density with numeric labels"
+      ]
+    },
+    {
+      "id": "block-36",
+      "kind": "chart_like",
+      "line": 913,
+      "heading_context": "### 7.3 Stiff Equations",
+      "confidence": "candidate",
+      "text": "### 7.4 Boundary Value Problems",
+      "notes": [
+        "detected from bar/chart glyph density with numeric labels"
+      ]
+    },
+    {
+      "id": "block-37",
+      "kind": "chart_like",
+      "line": 941,
+      "heading_context": "## 8. Eigenvalue Problems",
+      "confidence": "candidate",
+      "text": "### 8.1 Power Iteration and Variants",
+      "notes": [
+        "detected from bar/chart glyph density with numeric labels"
+      ]
+    },
+    {
+      "id": "block-38",
+      "kind": "chart_like",
+      "line": 960,
+      "heading_context": "### 8.1 Power Iteration and Variants",
+      "confidence": "candidate",
+      "text": "### 8.2 QR Algorithm",
+      "notes": [
+        "detected from bar/chart glyph density with numeric labels"
+      ]
+    },
+    {
+      "id": "block-39",
+      "kind": "chart_like",
+      "line": 1000,
+      "heading_context": "## 9. Partial Differential Equations — Numerical",
+      "confidence": "candidate",
+      "text": "### 9.1 Finite Difference Methods for PDEs",
+      "notes": [
+        "detected from bar/chart glyph density with numeric labels"
+      ]
+    },
+    {
+      "id": "block-40",
+      "kind": "chart_like",
+      "line": 1027,
+      "heading_context": "### 9.1 Finite Difference Methods for PDEs",
+      "confidence": "candidate",
+      "text": "### 9.2 Finite Element Method (FEM)",
+      "notes": [
+        "detected from bar/chart glyph density with numeric labels"
+      ]
+    },
+    {
+      "id": "block-41",
+      "kind": "diagram_like",
+      "line": 1029,
+      "heading_context": "### 9.2 Finite Element Method (FEM)",
+      "confidence": "candidate",
+      "text": "FEM WORKFLOW:\n  1. WEAK FORM: multiply PDE by test function v, integrate by parts.\n     −∇·(κ∇u) = f  →  ∫κ∇u·∇v dx = ∫fv dx  for all v.\n\n  2. DISCRETIZATION: u ≈ Σ uⱼφⱼ(x), v ∈ span{φᵢ}.\n     → Ku = f  where Kᵢⱼ = ∫κ∇φᵢ·∇φⱼ dx (stiffness matrix)\n                        fᵢ = ∫f·φᵢ dx (load vector)\n\n  3. K is SPARSE (each φᵢ overlaps few φⱼ).\n     Solve with sparse Cholesky (CHOLMOD) or multigrid.\n\nELEMENTS: linear triangles/quads (2D), tetrahedra/hexahedra (3D).\n  Higher order: quadratic, cubic elements (p-FEM).\n\nFEM ADVANTAGES VS FD:\n  • Handles complex geometries\n  • Variational formulation → energy minimization\n  • Natural treatment of Neumann BCs\n  • h-p adaptive refinement\n\nGALERKIN vs PETROV-GALERKIN vs STREAMLINE DIFFUSION: stabilization for convection.",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-42",
+      "kind": "chart_like",
+      "line": 1053,
+      "heading_context": "### 9.2 Finite Element Method (FEM)",
+      "confidence": "candidate",
+      "text": "### 9.3 Spectral Methods",
+      "notes": [
+        "detected from bar/chart glyph density with numeric labels"
+      ]
+    },
+    {
+      "id": "block-43",
+      "kind": "diagram_like",
+      "line": 1116,
+      "heading_context": "### Numerical Stability in Deep Learning: Conditioning and Normalization",
+      "confidence": "candidate",
+      "text": "∂L/∂W₁ = (∂L/∂hₗ) · (∂hₗ/∂hₗ₋₁) · ⋯ · (∂h₂/∂h₁) · (∂h₁/∂W₁)\n           ────────────────────────────────────────────\n           product of L Jacobians: ∂hᵢ₊₁/∂hᵢ\n\nIf spectral radius ρ(∂hᵢ₊₁/∂hᵢ) < 1 consistently: gradients → 0 exponentially (vanishing)\nIf spectral radius ρ > 1 consistently:               gradients → ∞ exponentially (exploding)",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    }
+  ]
+}

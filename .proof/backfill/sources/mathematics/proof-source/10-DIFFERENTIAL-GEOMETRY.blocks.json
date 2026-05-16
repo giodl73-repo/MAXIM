@@ -1,0 +1,380 @@
+{
+  "schema_version": "1",
+  "source_markdown": "mathematics\\10-DIFFERENTIAL-GEOMETRY.md",
+  "blocks": [
+    {
+      "id": "block-1",
+      "kind": "diagram_like",
+      "line": 22,
+      "heading_context": "# 10 — Differential Geometry: Curvature, Geodesics, and the Shape of Spacetime",
+      "confidence": "candidate",
+      "text": "THE LANDSCAPE\n═══════════════════════════════════════════════════════════════════════════════\n\n  CURVES                SURFACES              RIEMANNIAN GEOMETRY\n  ┌──────────────────┐  ┌──────────────────┐  ┌─────────────────────────────┐\n  │ arc length       │  │ first fund. form │  │ covariant derivative ∇      │\n  │ curvature κ      │→ │ second fund. form│→ │ parallel transport          │\n  │ torsion τ        │  │ Gauss curvature K│  │ geodesics                   │\n  │ Frenet-Serret    │  │ mean curvature H │  │ Riemann curvature tensor    │\n  └──────────────────┘  └──────────────────┘  └─────────────────────────────┘\n                                                            │\n                                                            ▼\n                                               GENERAL RELATIVITY\n                                               Gμν = (8πG/c⁴)Tμν\n                                               \"Curvature = energy\"\n\n  KEY INSIGHT: Theorema Egregium (Gauss, 1827)\n  Gaussian curvature K is INTRINSIC — measurable by an ant on the surface\n  without reference to any ambient space.\n  An ant can tell it's on a sphere (K>0), saddle (K<0), or flat plane (K=0).\n  GR is built on this: spacetime geometry is intrinsic, not embedded in higher D.\n═══════════════════════════════════════════════════════════════════════════════",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-2",
+      "kind": "chart_like",
+      "line": 51,
+      "heading_context": "## 1. Curves in ℝ³",
+      "confidence": "candidate",
+      "text": "### 1.1 Arc Length and Parameterization",
+      "notes": [
+        "detected from bar/chart glyph density with numeric labels"
+      ]
+    },
+    {
+      "id": "block-3",
+      "kind": "diagram_like",
+      "line": 53,
+      "heading_context": "### 1.1 Arc Length and Parameterization",
+      "confidence": "candidate",
+      "text": "  CURVE: γ: I → ℝ³,   γ(t) = (x(t), y(t), z(t))\n\n  Arc length from t=a to t=b:\n  s(t) = ∫ₐᵗ |γ'(τ)| dτ = ∫ₐᵗ √(ẋ²+ẏ²+ż²) dτ\n\n  ARC LENGTH PARAMETERIZATION: |γ'(s)| = 1 (unit speed)\n  Reparameterize by arc length s → tangent vector T = γ'(s) has unit length.\n\n  UNIT TANGENT:   T(s) = γ'(s)        |T| = 1\n  NORMAL vector:  N(s) = T'(s)/|T'(s)|  (points toward center of curvature)\n  BINORMAL:       B(s) = T(s) × N(s)    (completes right-handed frame)",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-4",
+      "kind": "chart_like",
+      "line": 67,
+      "heading_context": "### 1.1 Arc Length and Parameterization",
+      "confidence": "candidate",
+      "text": "### 1.2 Frenet-Serret Formulas",
+      "notes": [
+        "detected from bar/chart glyph density with numeric labels"
+      ]
+    },
+    {
+      "id": "block-5",
+      "kind": "diagram_like",
+      "line": 69,
+      "heading_context": "### 1.2 Frenet-Serret Formulas",
+      "confidence": "candidate",
+      "text": "  {T, N, B} form the FRENET-SERRET FRAME — an orthonormal frame moving along γ.\n\n  FRENET-SERRET EQUATIONS:\n  T' = κN               (T turns toward N at rate κ)\n  N' = -κT + τB         (N pulled back by κ, twisted toward B by τ)\n  B' = -τN              (B twists toward -N at rate τ)\n\n  CURVATURE:  κ = |T'(s)| = |γ''(s)|  [how fast tangent turns, 1/radius]\n  TORSION:    τ = -B'·N               [how fast curve twists out of plane]\n\n  EXAMPLES:\n  ┌──────────────────────────────────────────────────────────────────────┐\n  │  Straight line:  κ=0, τ=0    (no bending, no twisting)               │\n  │  Circle of radius r: κ=1/r, τ=0   (constant bending, flat)           │\n  │  Helix (r, pitch p): κ=r/(r²+p²), τ=p/(r²+p²)  (constant κ and τ)    │\n  │  Plane curve: τ=0 always (stays in its plane)                        │\n  └──────────────────────────────────────────────────────────────────────┘",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-6",
+      "kind": "chart_like",
+      "line": 93,
+      "heading_context": "## 2. Surfaces in ℝ³ — First Fundamental Form",
+      "confidence": "candidate",
+      "text": "### 2.1 Surface Parameterization and Metric",
+      "notes": [
+        "detected from bar/chart glyph density with numeric labels"
+      ]
+    },
+    {
+      "id": "block-7",
+      "kind": "diagram_like",
+      "line": 95,
+      "heading_context": "### 2.1 Surface Parameterization and Metric",
+      "confidence": "candidate",
+      "text": "  SURFACE: r: U ⊆ ℝ² → ℝ³,   r(u,v) = (x(u,v), y(u,v), z(u,v))\n\n  Tangent vectors: rᵤ = ∂r/∂u,   rᵥ = ∂r/∂v\n\n  FIRST FUNDAMENTAL FORM (metric tensor on surface):\n  gᵢⱼ = rᵢ · rⱼ   where r₁ = rᵤ, r₂ = rᵥ\n\n  In matrix form:\n    [ g₁₁  g₁₂ ]   [ rᵤ·rᵤ   rᵤ·rᵥ ]   [ E  F ]\n    [          ] = [               ] = [      ]\n    [ g₂₁  g₂₂ ]   [ rᵥ·rᵤ   rᵥ·rᵥ ]   [ F  G ]\n\n  E = |rᵤ|², F = rᵤ·rᵥ, G = |rᵥ|²   (classical notation).\n\n  ARC LENGTH of curve u(t), v(t) on surface:\n  ds² = E du² + 2F du dv + G dv²   (the line element)\n\n  AREA of surface patch:\n  dA = √(EG-F²) du dv = |rᵤ × rᵥ| du dv",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-8",
+      "kind": "chart_like",
+      "line": 117,
+      "heading_context": "### 2.1 Surface Parameterization and Metric",
+      "confidence": "candidate",
+      "text": "### 2.2 The First Fundamental Form is Intrinsic",
+      "notes": [
+        "detected from bar/chart glyph density with numeric labels"
+      ]
+    },
+    {
+      "id": "block-9",
+      "kind": "chart_like",
+      "line": 133,
+      "heading_context": "## 3. Second Fundamental Form and Extrinsic Curvature",
+      "confidence": "candidate",
+      "text": "### 3.1 Normal Curvature",
+      "notes": [
+        "detected from bar/chart glyph density with numeric labels"
+      ]
+    },
+    {
+      "id": "block-10",
+      "kind": "chart_like",
+      "line": 152,
+      "heading_context": "### 3.1 Normal Curvature",
+      "confidence": "candidate",
+      "text": "### 3.2 Shape Operator and Principal Curvatures",
+      "notes": [
+        "detected from bar/chart glyph density with numeric labels"
+      ]
+    },
+    {
+      "id": "block-11",
+      "kind": "diagram_like",
+      "line": 154,
+      "heading_context": "### 3.2 Shape Operator and Principal Curvatures",
+      "confidence": "candidate",
+      "text": "  SHAPE OPERATOR (Weingarten map) S: TₚM → TₚM\n  Sᵢⱼ = gⁱᵏ Lₖⱼ   (raise index with inverse metric)\n\n  PRINCIPAL CURVATURES κ₁, κ₂ = eigenvalues of S\n  PRINCIPAL DIRECTIONS = corresponding eigenvectors (orthogonal)\n\n  ┌──────────────────────────────────────────────────────────────────────┐\n  │  GAUSSIAN CURVATURE: K = κ₁κ₂ = det(S) = det(L)/det(g)               │\n  │  MEAN CURVATURE:     H = (κ₁+κ₂)/2 = ½ trace(S)                      │\n  └──────────────────────────────────────────────────────────────────────┘\n\n  SURFACE EXAMPLES:\n  ┌────────────────────────────────────────────────────────────────────┐\n  │  Sphere radius R:  κ₁=κ₂=1/R,   K=1/R²>0,  H=1/R                   │\n  │  Saddle (monkey): κ₁>0, κ₂<0,   K<0                                │\n  │  Cylinder radius R: κ₁=1/R, κ₂=0, K=0,   H=1/(2R)                  │\n  │  Flat plane:       κ₁=κ₂=0,   K=0,   H=0                           │\n  │  Minimal surface:  κ₁=-κ₂,   H=0     (soap films)                  │\n  └────────────────────────────────────────────────────────────────────┘",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-12",
+      "kind": "diagram_like",
+      "line": 180,
+      "heading_context": "## 4. Theorema Egregium",
+      "confidence": "candidate",
+      "text": "  GAUSS'S THEOREMA EGREGIUM (1827): \"Remarkable Theorem\"\n\n  K = κ₁κ₂  is an INTRINSIC invariant.\n  It depends only on gᵢⱼ, not on how the surface is embedded.\n\n  Explicit formula in terms of metric:\n  K = (R₁₂₁₂) / det(g)\n  where R₁₂₁₂ is a component of the Riemann curvature tensor\n  (which depends only on gᵢⱼ and its derivatives)\n\n  CONCRETE CONSEQUENCES:\n  ┌──────────────────────────────────────────────────────────────────────┐\n  │  You cannot flatten a sphere without distortion.                     │\n  │  (K=1/R²≠0 on sphere, K=0 on plane → not isometric)                  │\n  │  This is why maps of Earth always distort either area or angle.      │\n  │                                                                      │\n  │  You CAN flatten a cylinder (K=0 on both cylinder and plane).        │\n  │  Unrolling a cylinder = isometric map.                               │\n  │                                                                      │\n  │  An ant can measure K by doing geometry:                             │\n  │  Sum of angles of a geodesic triangle = π + K × (area)               │\n  │  On sphere: triangle angles sum > π ✓                                │\n  │  On saddle: triangle angles sum < π ✓                                │\n  └──────────────────────────────────────────────────────────────────────┘",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-13",
+      "kind": "chart_like",
+      "line": 211,
+      "heading_context": "## 5. Covariant Derivative and Christoffel Symbols",
+      "confidence": "candidate",
+      "text": "### 5.1 The Problem with Ordinary Derivatives",
+      "notes": [
+        "detected from bar/chart glyph density with numeric labels"
+      ]
+    },
+    {
+      "id": "block-14",
+      "kind": "chart_like",
+      "line": 226,
+      "heading_context": "### 5.1 The Problem with Ordinary Derivatives",
+      "confidence": "candidate",
+      "text": "### 5.2 Christoffel Symbols",
+      "notes": [
+        "detected from bar/chart glyph density with numeric labels"
+      ]
+    },
+    {
+      "id": "block-15",
+      "kind": "chart_like",
+      "line": 253,
+      "heading_context": "## 6. Parallel Transport",
+      "confidence": "candidate",
+      "text": "### 6.1 Definition",
+      "notes": [
+        "detected from bar/chart glyph density with numeric labels"
+      ]
+    },
+    {
+      "id": "block-16",
+      "kind": "chart_like",
+      "line": 269,
+      "heading_context": "### 6.1 Definition",
+      "confidence": "candidate",
+      "text": "### 6.2 Holonomy — Curvature Detected by Transport",
+      "notes": [
+        "detected from bar/chart glyph density with numeric labels"
+      ]
+    },
+    {
+      "id": "block-17",
+      "kind": "diagram_like",
+      "line": 271,
+      "heading_context": "### 6.2 Holonomy — Curvature Detected by Transport",
+      "confidence": "candidate",
+      "text": "  PARALLEL TRANSPORT AROUND A CLOSED LOOP:\n\n  If you parallel-transport a vector around a closed loop on a curved surface,\n  the vector returns ROTATED (in general). The rotation angle = holonomy.\n\n  ┌─────────────────────────────────────────────────────────────────────┐\n  │  EXAMPLE: Sphere S² of radius R                                     │\n  │                                                                     │\n  │  Start at North Pole with vector pointing toward 0° longitude.      │\n  │  Transport south along 0° longitude to equator.                     │\n  │  Transport east along equator by angle φ.                           │\n  │  Transport north back to North Pole along φ longitude.              │\n  │                                                                     │\n  │  Vector returns rotated by angle φ (the solid angle enclosed).      │\n  │  Rotation angle = K × (enclosed area) = (1/R²)(φR²) = φ             │\n  │                                                                     │\n  │     N                                                               │\n  │     │↑                                                              │\n  │     │ ↖ (rotated by φ on return)                                    │\n  │   φ─┤                                                               │\n  │   equator                                                           │\n  └─────────────────────────────────────────────────────────────────────┘\n\n  The holonomy measures the curvature enclosed by the loop.\n  This is directly related to Berry phase in QM (module 08-TOPOLOGY.md):\n  parallel transport of a quantum state around a loop in parameter space.",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-18",
+      "kind": "chart_like",
+      "line": 304,
+      "heading_context": "## 7. Geodesics",
+      "confidence": "candidate",
+      "text": "### 7.1 The Geodesic Equation",
+      "notes": [
+        "detected from bar/chart glyph density with numeric labels"
+      ]
+    },
+    {
+      "id": "block-19",
+      "kind": "chart_like",
+      "line": 326,
+      "heading_context": "### 7.1 The Geodesic Equation",
+      "confidence": "candidate",
+      "text": "### 7.2 Examples",
+      "notes": [
+        "detected from bar/chart glyph density with numeric labels"
+      ]
+    },
+    {
+      "id": "block-20",
+      "kind": "chart_like",
+      "line": 352,
+      "heading_context": "## 8. Riemann Curvature Tensor",
+      "confidence": "candidate",
+      "text": "### 8.1 Definition — Failure of Parallel Transport to Commute",
+      "notes": [
+        "detected from bar/chart glyph density with numeric labels"
+      ]
+    },
+    {
+      "id": "block-21",
+      "kind": "diagram_like",
+      "line": 354,
+      "heading_context": "### 8.1 Definition — Failure of Parallel Transport to Commute",
+      "confidence": "candidate",
+      "text": "  The RIEMANN CURVATURE TENSOR R measures how parallel transport fails to commute:\n\n  R(X,Y)Z = ∇_X∇_YZ - ∇_Y∇_XZ - ∇_{[X,Y]}Z\n\n  ┌──────────────────────────────────────────────────────────────────────┐\n  │  Geometric interpretation:                                           │\n  │                                                                      │\n  │  Transport Z first in Y-direction, then in X-direction:   ∇_X∇_YZ    │\n  │  Transport Z first in X-direction, then in Y-direction:   ∇_Y∇_XZ    │\n  │  The difference = R(X,Y)Z                                            │\n  │                                                                      │\n  │  On flat space: partial derivatives commute → R=0.                   │\n  │  On curved space: R≠0 measures the curvature.                        │\n  └──────────────────────────────────────────────────────────────────────┘\n\n  In components: Rⁱⱼₖˡ = ∂ₖΓⁱⱼˡ - ∂ˡΓⁱⱼₖ + Γⁱₘₖ Γᵐⱼˡ - Γⁱₘˡ Γᵐⱼₖ\n\n  Symmetries:\n  Rᵢⱼₖˡ = -Rⱼᵢₖˡ = -Rᵢⱼˡₖ = Rₖˡᵢⱼ\n  Bianchi identity: Rᵢ[ⱼₖˡ] = 0   (cyclic sum = 0)",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-22",
+      "kind": "chart_like",
+      "line": 377,
+      "heading_context": "### 8.1 Definition — Failure of Parallel Transport to Commute",
+      "confidence": "candidate",
+      "text": "### 8.2 Ricci Tensor and Scalar",
+      "notes": [
+        "detected from bar/chart glyph density with numeric labels"
+      ]
+    },
+    {
+      "id": "block-23",
+      "kind": "chart_like",
+      "line": 397,
+      "heading_context": "## 9. Einstein's Field Equations Decoded",
+      "confidence": "candidate",
+      "text": "### 9.1 The Equation",
+      "notes": [
+        "detected from bar/chart glyph density with numeric labels"
+      ]
+    },
+    {
+      "id": "block-24",
+      "kind": "diagram_like",
+      "line": 399,
+      "heading_context": "### 9.1 The Equation",
+      "confidence": "candidate",
+      "text": "  ┌──────────────────────────────────────────────────────────────────────┐\n  │                                                                      │\n  │   Gμν = (8πG/c⁴) Tμν                                                 │\n  │                                                                      │\n  │   Gμν = Rμν - ½ gμν R      (Einstein tensor = spacetime curvature)   │\n  │   Tμν = stress-energy tensor  (energy, momentum, pressure, stress)   │\n  │   G = Newton's gravitational constant                                │\n  │   c = speed of light                                                 │\n  │                                                                      │\n  │   \"Curvature of spacetime = energy content of spacetime\"             │\n  └──────────────────────────────────────────────────────────────────────┘\n\n  COUNTING EQUATIONS:\n  Gμν and Tμν are symmetric 4×4 tensors → 10 independent equations.\n  But contracted Bianchi: ∇μGμν=0 gives 4 constraints.\n  Net: 6 independent equations for the 6 independent metric components gμν\n  (after using 4 coordinate degrees of freedom / gauge freedom).",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-25",
+      "kind": "chart_like",
+      "line": 419,
+      "heading_context": "### 9.1 The Equation",
+      "confidence": "candidate",
+      "text": "### 9.2 Special Cases",
+      "notes": [
+        "detected from bar/chart glyph density with numeric labels"
+      ]
+    },
+    {
+      "id": "block-26",
+      "kind": "ascii_table_candidate",
+      "line": 421,
+      "heading_context": "### 9.2 Special Cases",
+      "confidence": "candidate",
+      "text": "  VACUUM (Tμν = 0):  Gμν = 0  →  Rμν = 0\n  (Ricci flat ≠ flat: Weyl tensor can be nonzero → gravitational waves)\n\n  SCHWARZSCHILD SOLUTION (vacuum, spherical symmetry):\n  ds² = -(1-2GM/rc²)c²dt² + (1-2GM/rc²)⁻¹dr² + r²dΩ²\n\n  Schwarzschild radius: rs = 2GM/c²  (event horizon of black hole)\n  For Earth: rs ≈ 9mm\n  For Sun:   rs ≈ 3km\n\n  WEAK FIELD LIMIT (gμν = ημν + hμν, |hμν|<<1):\n  Recovers Newtonian gravity + GEM equations (module physics/10-GRAVITY-EM)\n  ∇²Φ = 4πGρ   (Poisson's equation)\n\n  COSMOLOGICAL CONSTANT:  Gμν + Λgμν = (8πG/c⁴)Tμν\n  Λ = dark energy density × 8πG/c⁴\n  Causes accelerating expansion of the universe (discovered 1998)",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-27",
+      "kind": "ascii_table_candidate",
+      "line": 445,
+      "heading_context": "## 10. Gauss-Bonnet Theorem",
+      "confidence": "candidate",
+      "text": "  For a compact oriented surface M WITHOUT boundary:\n\n  ∫∫_M K dA = 2π χ(M)\n\n  K = Gaussian curvature (local differential geometry)\n  χ = Euler characteristic (global topology, from 08-TOPOLOGY.md)\n\n  CONSEQUENCES:\n  ┌──────────────────────────────────────────────────────────────────────┐\n  │  Sphere (χ=2):      ∫K dA = 4π                                       │\n  │  Deform sphere → ∫K dA stays 4π no matter how you squish it!         │\n  │                                                                      │\n  │  Torus (χ=0):       ∫K dA = 0                                        │\n  │  Positive curvature (outside) and negative (inside hole) cancel.     │\n  │                                                                      │\n  │  Genus-g surface (χ=2-2g): ∫K dA = 4π(1-g)                           │\n  └──────────────────────────────────────────────────────────────────────┘\n\n  WITH BOUNDARY ∂M:\n  ∫∫_M K dA + ∫_∂M κg ds = 2π χ(M)\n  κg = geodesic curvature of boundary curve\n\n  TRIANGULATION VERSION (for geodesic triangle on surface):\n  (α₁ + α₂ + α₃) - π = ∫∫_{triangle} K dA\n  Angle sum of geodesic triangle = π + K × area\n  (On sphere: angle sum > π; hyperbolic: angle sum < π)\n\n  GENERALIZATIONS:\n  Chern-Gauss-Bonnet (4D): ∫ Pf(R) = (2π)² χ(M)  (Pfaffian of curvature)\n  Atiyah-Singer index theorem: analytical index = topological index\n  (One of the deepest theorems in 20th century mathematics)",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-28",
+      "kind": "diagram_like",
+      "line": 481,
+      "heading_context": "## 11. Differential Geometry in Modern ML",
+      "confidence": "candidate",
+      "text": "  GEODESICS AND OPTIMAL TRANSPORT:\n  The Wasserstein distance W_p(μ,ν) between probability distributions\n  is a geodesic distance on the space of distributions.\n  The space of probability measures on a manifold carries a Riemannian\n  structure (Otto calculus) where geodesics = optimal transport plans.\n  W₂ is the Riemannian distance on (Prob(M), g_Fisher).\n\n  Practical consequence: diffusion model training = minimizing Wasserstein\n  distance between learned and data distributions via score matching.\n\n  NATURAL GRADIENT DESCENT (Amari 1998):\n  For a statistical model parameterized by θ ∈ Θ:\n  Fisher information matrix I(θ)_{ij} = E[∂_i log p_θ · ∂_j log p_θ]\n  defines a Riemannian metric on the STATISTICAL MANIFOLD.\n\n  Natural gradient:  θ_{t+1} = θ_t - α I(θ)⁻¹ ∇L(θ)\n  ├── Steepest descent in the intrinsic geometry of the parameter space\n  ├── Invariant under reparameterization of the model\n  ├── Geodesics of the Fisher metric = minimum-KL paths between distributions\n  └── K-FAC (Kronecker-Factored Approximate Curvature): practical approximation\n      to I(θ)⁻¹ for neural networks using Kronecker products.\n\n  RIEMANNIAN GRADIENT DESCENT ON MATRIX MANIFOLDS:\n  (Introduced in 09-MANIFOLDS.md §10; connection to curvature here)\n\n  Why curvature matters for optimization:\n  ├── Sectional curvature κ of Stiefel St(n,k): bounded, κ ∈ [-1, ¼]\n  ├── SPD manifold Sym⁺(n): non-positive sectional curvature (Hadamard space)\n  │   → unique geodesics, convex optimization has unique global minimum\n  └── Grassmannian Gr(n,k): positive curvature → geodesics can converge\n      faster than in flat space, BUT conjugate points exist (geodesics stop\n      being length-minimizing after certain distance)\n\n  Geodesic equation on Stiefel St(n,k):\n  d²X/dt² + X(ẊᵀẊ) = 0  (zero covariant acceleration in the induced metric)\n  Solved by matrix exponential: X(t) = X(0)·exp(t·A) for skew-symmetric A.\n\n  GEOMETRIC DEEP LEARNING (Bronstein-Bruna-LeCun-Szlam-Vandergheynst):\n  Blueprint: G-equivariant neural networks respect symmetry G acting on M.\n\n  Layers of the hierarchy:\n  ┌─────────────────────────────────────────────────────────────────────┐\n  │  Group G on domain M  →  Function space on M  →  Equivariant maps   │\n  │                                                                     │\n  │  G=translation on ℝ²:  CNN (convolutional layers)                   │\n  │  G=SO(2) on sphere:    Spherical CNNs                               │\n  │  G=SE(3) on ℝ³:        E(3)-equivariant (molecular property pred.)  │\n  │  G=Diff(M) on mesh:    Gauge-equivariant mesh CNNs                  │\n  │  G=permutations Sₙ:    Graph Neural Networks (on graphs)            │\n  └─────────────────────────────────────────────────────────────────────┘\n\n  The key operation: equivariant convolution uses the group structure to\n  define \"filters\" that respect geometry:\n  (f ★ ψ)(g) = ∫_G f(h) ψ(g⁻¹h) dh  (convolution on the group)\n\n  CURVATURE OF LOSS LANDSCAPES:\n  The Hessian H = ∇²L(θ) at a point θ acts as a Riemannian metric on\n  parameter space (locally). Key differential-geometric facts:\n  ├── Trace(H) = sum of eigenvalues = total curvature in all directions\n  ├── det(H) > 0, all eigenvalues > 0: local minimum (positive definite Hessian)\n  ├── Negative eigenvalues: saddle point (directions of descent)\n  └── Zero eigenvalues: flat directions (degenerate — related to symmetries,\n      overparameterization, or BN-induced scale invariances)\n\n  SECTIONAL CURVATURE of the loss surface along the 2D slice {θ₀ + su + tv}:\n  κ(u,v) involves 4th-order derivatives of L. Practically approximated by\n  Hessian-vector products (Pearlmutter's trick, O(n) not O(n²)).\n\n  DIFFUSION MODELS AS RIEMANNIAN FLOWS:\n  Score function: s(x,t) = ∇_x log p_t(x) = a vector field on data manifold.\n  Denoising SDE: dx = -½ β(t) x dt + √β(t) dW\n  Score-based reverse: dx = [-½ β(t) x - β(t) s(x,t)] dt + √β(t) dW̄\n  The score is the gradient of log-density = gradient vector field on Riemannian\n  data manifold. Score matching loss = enforcing this vector field is correct.",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-29",
+      "kind": "diagram_like",
+      "line": 560,
+      "heading_context": "## 12. Gauge Theory and Chern-Weil Theory",
+      "confidence": "candidate",
+      "text": "  THE PARALLEL BETWEEN GRAVITY AND GAUGE THEORY:\n\n  GRAVITY (GR)                    YANG-MILLS GAUGE THEORY\n  ─────────────────────────────────────────────────────────────────────\n  Spacetime manifold M             Principal G-bundle P → M\n  Metric gμν                       Bundle metric (via representation)\n  Levi-Civita connection Γⁱⱼₖ      Connection 1-form A (gauge potential)\n  Curvature Rⁱⱼₖˡ                  Field strength F = dA + A∧A\n  Bianchi identity ∇[μRνρ]σλ=0     Bianchi: DF = dF + [A,F] = 0\n  Einstein equations Gμν = 8πG Tμν Yang-Mills equations: D★F = J\n  Gauge freedom: coordinate change  Gauge freedom: A → g⁻¹Ag + g⁻¹dg\n\n  Both are \"curvature = source\" equations.\n  GR: curvature of tangent bundle (rank-2 tensor bundle) = matter stress.\n  YM: curvature of internal symmetry bundle = matter current.\n\n  EXPLICIT YANG-MILLS:\n  Connection 1-form: A = Aμ^a T^a dxμ  (g-valued 1-form, T^a = Lie algebra basis)\n  Field strength: Fμν = ∂μAν - ∂νAμ + [Aμ, Aν]\n  (The [Aμ,Aν] term is new vs EM and encodes the non-abelian self-interaction.)\n\n  For G = U(1) (electromagnetism): [Aμ,Aν] = 0 → Fμν = ∂μAν - ∂νAμ ✓\n  For G = SU(2) (weak force): [Aμ,Aν] ≠ 0 → W bosons interact with each other.\n  For G = SU(3) (strong force): gluon self-coupling → confinement.\n\n  CHERN-WEIL THEOREM:\n  Characteristic classes are cohomology classes computed from curvature\n  using invariant polynomials of the Lie algebra.\n\n  CHERN CLASSES (complex vector bundles):\n  c₁ = [tr(iF/2π)] ∈ H²(M;ℤ)          first Chern class\n  c₂ = [tr(iF/2π)² - (tr(iF/2π))²/2] ∈ H⁴(M;ℤ)  (second Chern class)\n  ∫_M c₁ = n ∈ ℤ   (integer! — the \"instanton number\" or monopole charge)\n\n  PONTRYAGIN CLASSES (real vector bundles):\n  p₁ = [-tr(F∧F)/8π²] ∈ H⁴(M;ℤ)\n\n  INSTANTONS (self-dual Yang-Mills solutions):\n  F = ★F  (self-dual: field strength = its own Hodge dual)\n  Solutions in Euclidean 4-space with ∫ tr(F∧F) = 8π²n (topological charge n).\n  Yang-Mills action ≥ 8π²|n| (from Cauchy-Schwarz: tr(F∧F) ≤ ‖F‖²dV).\n  Equality iff F = ±★F.\n  Instantons are absolute minima of the Yang-Mills action in each topological sector.\n\n  CHERN-SIMONS THEORY:\n  The 3D action S = ∫_M tr(A∧dA + 2/3 A∧A∧A) depends only on topology.\n  Quantization of CS theory produces invariants of 3-manifolds and knots\n  (Jones polynomial, Witten-Reshetikhin-Turaev invariants).\n  Relevant to: topological quantum computing (anyons), 3-manifold topology.\n\n  ATIYAH-SINGER INDEX THEOREM (briefest statement):\n  For a Dirac operator D on a compact Riemannian manifold:\n  dim ker D - dim coker D = ∫_M Â(M) ∧ ch(E)\n  LHS = analytical index (solution space)\n  RHS = topological index (Chern-Weil integrals of curvature)\n  Unifies Gauss-Bonnet, Hirzebruch-Riemann-Roch, and Chern-Gauss-Bonnet.\n  The Â genus and Chern character ch(E) are computed from Pontryagin/Chern classes.",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-30",
+      "kind": "ascii_table_candidate",
+      "line": 622,
+      "heading_context": "## 13. Spin Geometry and the Dirac Operator",
+      "confidence": "candidate",
+      "text": "  CLIFFORD ALGEBRA Cl(n):\n  Generated by {e₁,...,eₙ} with the relation: eᵢeⱼ + eⱼeᵢ = -2δᵢⱼ\n  (Anticommuting generators — the square of each basis element = -1.)\n  dim Cl(n) = 2ⁿ as a vector space.\n\n  For n=1: Cl(1) = {a + be₁ | a,b ∈ ℝ},  e₁² = -1 → Cl(1) ≅ ℂ\n  For n=2: Cl(2) = {a + be₁ + ce₂ + de₁e₂},  (e₁e₂)² = -1 → Cl(2) ≅ ℍ (quaternions!)\n  For n=3: Cl(3) ≅ M₂(ℂ) ⊕ M₂(ℂ)   (relates to Pauli matrices)\n\n  PAULI MATRICES generate Cl(3):\n  σ₁=[0 1;1 0], σ₂=[0 -i;i 0], σ₃=[1 0;0 -1]\n  σᵢσⱼ + σⱼσᵢ = 2δᵢⱼ   (Clifford relation with positive signature)\n\n  SPIN GROUPS:\n  Spin(n) = double cover of SO(n), realized inside Cl(n).\n  Spin(2) ≅ U(1) → SO(2) (2-to-1)\n  Spin(3) ≅ SU(2) → SO(3) (2-to-1 — the spinor cover from 08-TOPOLOGY.md)\n  Spin(4) ≅ SU(2) × SU(2) → SO(4)\n  Spin(6) ≅ SU(4) → SO(6)\n\n  Physical spinors (spin-½ particles) are vectors in a representation of Spin(3)=SU(2)\n  that does NOT factor through SO(3). They pick up a factor -1 under 360° rotation:\n  need 720° to return to identity. This is not a physical oddity — it's the\n  topology of SO(3): π₁(SO(3)) = ℤ/2ℤ, and spinors \"see\" the ℤ/2ℤ.\n\n  SPINOR BUNDLE:\n  For an oriented Riemannian n-manifold M (with spin structure):\n  the spinor bundle S → M is an associated bundle to the spin frame bundle.\n  Fibers = spinor representations of Spin(n).\n  For n=4 (spacetime): Dirac spinors ∈ ℂ⁴ at each point.\n  The spinor bundle has a connection (spin connection) derived from the\n  Levi-Civita connection + the Clifford algebra structure.\n\n  DIRAC OPERATOR:\n  D = Σμ γμ ∇μ   where γμ = Clifford generators, ∇μ = spin connection\n\n  ├── D is a first-order elliptic differential operator: sections of S → sections of S\n  ├── D is self-adjoint (on a compact manifold without boundary)\n  ├── D² = ∇*∇ + R/4   (Lichnerowicz formula: Laplacian + scalar curvature)\n  └── This is the Weitzenböck formula: D² relates analysis (Laplacian) to geometry (R)\n\n  LICHNEROWICZ THEOREM:\n  If R > 0 everywhere, then D has no zero eigenvalues (no harmonic spinors).\n  Proof: D²ψ = 0 ⟹ ∫(∇*∇ + R/4)ψ·ψ̄ = 0 ⟹ ∫|∇ψ|² + R/4|ψ|² = 0.\n  With R > 0: both terms non-negative and must both be zero → ψ = 0.\n  CONSEQUENCE: positively curved spin manifolds have trivial index → topological constraint.\n  This is an analytic proof of a TOPOLOGICAL fact about curvature-topology interaction.\n\n  ATIYAH-SINGER (revisited with spinors):\n  ind(D) = dim ker D - dim coker D   (analytical index = \"excess of zero modes\")\n  = ∫_M Â(M)   (Â = \"A-roof genus\" = topological invariant from Pontryagin classes)\n\n  For surfaces (n=2): ind = χ/2 = (1 - genus) ← Gauss-Bonnet!\n  For 4-manifolds: ind = (p₁ - sign)/8  (relates to 4-manifold topology)\n\n  PHYSICAL IMPLICATIONS:\n  ├── Zero modes of the Dirac operator count topological invariants\n  ├── In QCD: zero modes of the Dirac operator on gauge backgrounds ↔ instantons\n  │   (Atiyah-Singer: index = instanton number = ∫ tr(F∧F)/8π²)\n  ├── Anomalies in QFT: when the path integral measure fails to be invariant\n  │   under gauge transformations → traced back to the index of the Dirac operator\n  └── Topological insulators: zero modes of the Dirac operator at interfaces\n      (Jackiw-Rebbi solitons) = protected edge states (10-TOPOLOGY.md §7.1)",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-31",
+      "kind": "diagram_like",
+      "line": 690,
+      "heading_context": "## 14. Computational Differential Geometry",
+      "confidence": "candidate",
+      "text": "  NUMERICAL GEODESICS:\n  The geodesic equation (§7.1) is a system of 2n ODEs in (xᵏ, ẋᵏ):\n\n  d²xᵏ/dt² = -Γⁱⱼᵏ ẋⁱ ẋʲ\n\n  Solve with RK4 / Dormand-Prince (scipy.integrate.solve_ivp).\n  Given initial position x₀ and velocity v₀, integrate forward.\n  Geodesic boundary value problem (start + end fixed): shooting method.\n\n  GEODESIC SHOOTING (Riemannian exponential map):\n  Exp_p(v) = γ(1)  where γ solves geodesic IVP with γ(0)=p, γ'(0)=v.\n  Implemented by integrating the geodesic ODE.\n\n  Log_p(q) = v  (inverse: find initial velocity to reach q from p)\n  Requires solving a BVP (boundary value problem) — harder, needs iteration.\n\n  FOR MATRIX MANIFOLDS (closed-form geodesics available):\n  SO(n):  Exp_R(V) = R · exp(RᵀV)      (matrix exponential of skew-symmetric)\n  SPD:    Exp_A(V) = A^{1/2} exp(A^{-1/2}VA^{-1/2}) A^{1/2}\n  Stiefel: use matrix exponential of augmented skew-symmetric matrix\n\n  DISCRETE CURVATURE ON MESHES:\n  For a triangle mesh (V,F), discretize the curvature tensors:\n  Gaussian curvature at vertex v: K(v) = 2π - Σ θᵢ  (angle defect)\n  (Σθᵢ = sum of angles at v in incident triangles)\n  Gauss-Bonnet check: Σᵥ K(v) = 2π χ(M) ✓  (exact, not approximate!)\n\n  Mean curvature at vertex v: H(v) = ½ |Lv|  (magnitude of Laplacian of position)\n  where L = cotangent Laplacian (from 09-MANIFOLDS.md §12).\n\n  Principal curvatures: from the shape operator S = gⁱᵏ Lₖⱼ on the mesh,\n  approximated via principal curvature directions fitting or discrete shape operator.\n\n  HEAT METHOD FOR GEODESIC DISTANCE (Crane-Weischedel-Wardetzky 2013):\n  1. Solve heat equation: (I - t·L) u = δ_v  (one backward Euler step from source v)\n  2. Normalize gradient: X = -∇u/|∇u|  (unit gradient field pointing away from source)\n  3. Solve Poisson: L φ = ∇·X   (integrate to get distance function φ)\n  Result: approximate geodesic distances from v to all vertices.\n  Cost: two sparse linear system solves (O(n) after factorization precomputed).\n  Far faster than Dijkstra on fine meshes.\n\n  import igl\n  V, F = igl.read_triangle_mesh(\"mesh.obj\")\n  L = igl.cotmatrix(V, F)           # cotangent Laplacian\n  M_area = igl.massmatrix(V, F)     # vertex area matrix\n\n  # Gaussian curvature (angle defect)\n  K = igl.gaussian_curvature(V, F)  # K[i] = curvature at vertex i\n\n  # Geodesic distances from vertex 0\n  t = 0.01  # diffusion time (bandwidth parameter)\n  D = igl.heat_geodesics_precompute(V, F, t)\n  dist = igl.heat_geodesics_solve(D, np.array([0], dtype=np.int32))\n\n  FINITE ELEMENTS ON CURVED DOMAINS:\n  Laplace-Beltrami stiffness matrix = cotangent Laplacian L (see §09-MANIFOLDS §12).\n  Mass matrix M = diagonal (vertex areas) or lumped.\n  PDE ∂u/∂t = ∆_M u → implicit Euler: (M - Δt L) u_{n+1} = M u_n\n  Eigenvalue problem: L φ = λ M φ  (generalized eigenvalue → spectral geometry)\n\n  LIBRARIES:\n  libigl (C++/Python): geometry processing, discrete DG, FEM\n  PyGEL3D: half-edge meshes, Laplacians\n  Open3D: 3D data processing, mesh I/O\n  Geomstats (Python): Riemannian geometry + statistical learning on manifolds",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-32",
+      "kind": "chart_like",
+      "line": 758,
+      "heading_context": "# Geodesic distances from vertex 0",
+      "confidence": "candidate",
+      "text": "### 8.3 Weyl Tensor and Conformal Geometry",
+      "notes": [
+        "detected from bar/chart glyph density with numeric labels"
+      ]
+    },
+    {
+      "id": "block-33",
+      "kind": "diagram_like",
+      "line": 760,
+      "heading_context": "### 8.3 Weyl Tensor and Conformal Geometry",
+      "confidence": "candidate",
+      "text": "  RIEMANN DECOMPOSITION:\n  In n ≥ 4 dimensions, the Riemann tensor decomposes uniquely as:\n\n  Rᵢⱼₖˡ = Wᵢⱼₖˡ + (n-2)⁻¹ (gᵢ[ₖRˡ]ⱼ - gⱼ[ₖRˡ]ᵢ) - (n-1)(n-2)⁻¹ R gᵢ[ₖgˡ]ⱼ\n\n  WEYL TENSOR Wᵢⱼₖˡ:\n  ├── Trace-free: gⁱᵏ Wᵢⱼₖˡ = 0 (vanishes on any contraction)\n  ├── Same symmetries as Riemann: antisymmetric in [ij] and [kl], symmetric under swap\n  ├── In 4D: 10 independent components (= Riemann 20 − Ricci 10)\n  └── Carries all curvature information NOT captured by Ricci\n\n  PHYSICAL MEANING:\n  Ricci tensor Rμν: source-dependent curvature (set by Einstein equations)\n  Weyl tensor Wμνρσ: vacuum (\"free\") curvature — exists even when Tμν = 0\n  Ricci = 0 (vacuum) ≠ Riemann = 0: gravitational waves and tidal forces live in Weyl.\n\n  ┌────────────────────────────────────────────────────────────────────┐\n  │  TIDAL FORCES (geodesic deviation equation):                       │\n  │  D²ξμ/dτ² = -Rμνρσ Uν ξρ Uσ                                        │\n  │  ξμ = separation vector between nearby geodesics                   │\n  │  Uμ = 4-velocity along geodesic                                    │\n  │  In vacuum: this is ENTIRELY due to the Weyl tensor.               │\n  │  Tidal disruption of infalling objects near black holes = Weyl.    │\n  └────────────────────────────────────────────────────────────────────┘\n\n  GRAVITATIONAL WAVES: perturbation of flat spacetime gμν = ημν + hμν\n  In TT gauge (transverse-traceless): hμν encodes the Weyl tensor perturbation.\n  The two polarizations h₊ and h× are the two independent Weyl degrees of freedom.\n\n  CONFORMALLY FLAT: W = 0 everywhere.\n  A manifold is conformally flat iff it's locally related to flat space by a\n  conformal (angle-preserving, not length-preserving) rescaling: g̃ = Ω²g.\n  Examples: Sⁿ, any 2D manifold (ALL surfaces are conformally flat!),\n            Robertson-Walker cosmological spacetimes.\n\n  CONFORMAL GEOMETRY:\n  CONFORMAL MAP f: M → N preserves angles but not distances.\n  In ℝ² ≅ ℂ: conformal maps = holomorphic functions with f'(z) ≠ 0!\n  This is the bridge between complex analysis and differential geometry.\n\n  WEYL TRANSFORMATION (physics): g → Ω²(x) g (local rescaling)\n  WEYL INVARIANT: theories where action is unchanged under Weyl transformations.\n  Weyl anomaly: classical Weyl invariance broken by quantum corrections\n  (the trace of the stress-energy tensor Tμμ ≠ 0 after quantization).\n  Central charge in CFT = coefficient of Weyl anomaly.\n  This anomaly-cancellation condition constrains string theory to 26 (bosonic)\n  or 10 (superstring) spacetime dimensions.\n\n  CONFORMAL BOUNDARY (AdS/CFT):\n  Anti-de Sitter space AdSₙ₊₁ has a conformal boundary = Sⁿ ≅ ℝⁿ ∪ {∞}.\n  The Weyl tensor vanishes on AdS (maximally symmetric space).\n  Holography: bulk fields in AdS_{n+1} ↔ operators in CFT_n on the boundary.\n  The conformal group SO(n,2) acts as isometries of AdS and as conformal\n  symmetries of the boundary CFT — same group, two realizations.",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-34",
+      "kind": "ascii_table_candidate",
+      "line": 848,
+      "heading_context": "## Common Confusion Points",
+      "confidence": "candidate",
+      "text": "In the weak-field slow-motion limit: gtt ≈ -(1+2Φ/c²) where Φ is the Newtonian potential. The 00-component of Einstein's equation Rtt = 4πG(ρ+3p/c²) reduces to ∇²Φ = 4πGρ (Poisson's equation) when pressure p is small. The curvature of the time-time component of the metric IS the Newtonian gravitational potential. Gravity in Newtonian mechanics is a force; in GR it's the curvature of the time axis.",
+      "notes": [
+        "detected from ASCII table borders or pipe-aligned rows"
+      ]
+    }
+  ]
+}

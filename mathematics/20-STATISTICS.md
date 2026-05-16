@@ -1,3 +1,22 @@
+---
+maxim_schema: maxim.frontmatter.v1
+id: maxim:mathematics:statistics
+kind: guide
+module: mathematics
+section: mathematics
+title: Statistics - Complete Reference
+status: source-custody
+source_custody: partial
+current_path: mathematics/20-STATISTICS.md
+canonical_path: mathematics/20-STATISTICS.md
+backsource_ids: [proof-backfill:mathematics:20-statistics, git-history:mathematics:20-statistics]
+concepts: [statistics]
+root_concepts: [statistics]
+index_roles: [guide, root-concept]
+remap_from: []
+remap_to: []
+updated: null
+---
 # Statistics — Complete Reference
 
 ## The Big Picture

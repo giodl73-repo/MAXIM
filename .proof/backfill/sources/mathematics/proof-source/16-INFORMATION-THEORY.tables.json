@@ -1,0 +1,204 @@
+{
+  "schema_version": "1",
+  "source_markdown": "mathematics\\16-INFORMATION-THEORY.md",
+  "tables": [
+    {
+      "id": "table-1",
+      "line": 96,
+      "heading_context": "## Shannon Entropy",
+      "headers": [
+        "Distribution",
+        "Entropy"
+      ],
+      "rows": [
+        [
+          "Bernoulli(p): H = −p log p − (1−p) log(1−p)",
+          "Max 1 bit at p=½; 0 at p=0 or p=1"
+        ],
+        [
+          "Uniform on {1,...,n}",
+          "log₂ n bits"
+        ],
+        [
+          "Geometric(p)",
+          "[−p log p − (1−p) log(1−p)] / p"
+        ],
+        [
+          "Poisson(λ)",
+          "λ(1 − log λ) + e^{−λ} Σ λⁿ log(n!)/n! (no closed form)"
+        ]
+      ]
+    },
+    {
+      "id": "table-2",
+      "line": 286,
+      "heading_context": "## KL Divergence",
+      "headers": [
+        "Name",
+        "f(t)",
+        "Notes"
+      ],
+      "rows": [
+        [
+          "KL (forward)",
+          "t log t",
+          "MLE"
+        ],
+        [
+          "KL (reverse)",
+          "−log t",
+          "Variational inference"
+        ],
+        [
+          "Total variation",
+          "½\\|t−1\\|",
+          "Bounded in [0,1]"
+        ],
+        [
+          "χ²",
+          "(t−1)²",
+          "Hypothesis testing"
+        ],
+        [
+          "Hellinger²",
+          "(√t−1)²",
+          "Symmetric, bounded"
+        ],
+        [
+          "Jensen-Shannon",
+          "Symmetrized KL",
+          "GAN objective (original)"
+        ]
+      ]
+    },
+    {
+      "id": "table-3",
+      "line": 351,
+      "heading_context": "## Jensen's Inequality",
+      "headers": [
+        "Result",
+        "Convex function used"
+      ],
+      "rows": [
+        [
+          "H(X) ≥ 0",
+          "φ = −log (concave)"
+        ],
+        [
+          "H(X) ≤ log\\|𝒳\\|",
+          "Jensen on log"
+        ],
+        [
+          "D(P \\|\\| Q) ≥ 0",
+          "φ = −log (applied to Q/P)"
+        ],
+        [
+          "H(Y \\| X) ≤ H(Y)",
+          "Conditioning reduces entropy"
+        ],
+        [
+          "Data processing ineq",
+          "Repeated Jensen"
+        ]
+      ]
+    },
+    {
+      "id": "table-4",
+      "line": 521,
+      "heading_context": "## Differential Entropy",
+      "headers": [
+        "Constraint",
+        "Max-entropy distribution"
+      ],
+      "rows": [
+        [
+          "Support [a,b]",
+          "Uniform([a,b])"
+        ],
+        [
+          "Mean = μ, support ℝ₊",
+          "Exponential(1/(μ−a))"
+        ],
+        [
+          "Mean = μ, variance = σ²",
+          "Gaussian N(μ, σ²)"
+        ],
+        [
+          "Mean = 0, covariance = Σ",
+          "Multivariate Gaussian N(0, Σ)"
+        ]
+      ]
+    },
+    {
+      "id": "table-5",
+      "line": 784,
+      "heading_context": "## Decision Cheat Sheet",
+      "headers": [
+        "Need",
+        "Tool"
+      ],
+      "rows": [
+        [
+          "How much info in a signal?",
+          "Shannon entropy H(X)"
+        ],
+        [
+          "How much info shared by two variables?",
+          "Mutual information I(X;Y)"
+        ],
+        [
+          "How different are two distributions?",
+          "KL divergence D(P\\|\\|Q)"
+        ],
+        [
+          "Training a classifier (multiclass)",
+          "Cross-entropy loss = −log Q(y_true)"
+        ],
+        [
+          "VAE regularization",
+          "KL(q(z\\|x) \\|\\| p(z)) — closed form for Gaussians"
+        ],
+        [
+          "GAN divergence",
+          "JS divergence (original GAN), Wasserstein (WGAN)"
+        ],
+        [
+          "Compression limit",
+          "H(X) bits/symbol — absolute lower bound"
+        ],
+        [
+          "Transmission rate limit",
+          "C = max I(X;Y) — Shannon capacity"
+        ],
+        [
+          "Estimation variance lower bound",
+          "Cramér-Rao: Var(T̂) ≥ 1/I(θ)"
+        ],
+        [
+          "Optimizer invariant to reparameterization",
+          "Natural gradient = I(θ)⁻¹∇L"
+        ],
+        [
+          "Which model fits data without overfitting?",
+          "MDL / BIC: penalize by (d/2) log n"
+        ],
+        [
+          "Maximum entropy distribution for given mean/var",
+          "Gaussian N(μ, σ²)"
+        ],
+        [
+          "Nonparametric independence test",
+          "I(X;Y) = 0 iff X⊥Y; estimate via MINE for high-d"
+        ],
+        [
+          "Modern lossless compression",
+          "ANS (Zstandard), polar codes approach capacity"
+        ],
+        [
+          "Generalization bound for learning algorithm",
+          "I(S;W) mutual info bound (Russo-Zou)"
+        ]
+      ]
+    }
+  ]
+}

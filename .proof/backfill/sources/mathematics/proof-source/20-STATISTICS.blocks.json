@@ -1,0 +1,149 @@
+{
+  "schema_version": "1",
+  "source_markdown": "mathematics\\20-STATISTICS.md",
+  "blocks": [
+    {
+      "id": "block-1",
+      "kind": "diagram_like",
+      "line": 26,
+      "heading_context": "## The Big Picture",
+      "confidence": "candidate",
+      "text": "┌─────────────────────────────────────────────────────────────────────────────┐\n│  STATISTICAL INFERENCE LANDSCAPE                                            │\n│                                                                             │\n│  Frequentist                          Bayesian                              │\n│  ─────────────────────────────────    ──────────────────────────────────    │\n│  Parameters are fixed, unknown        Parameters are random variables       │\n│  Data is random (from sampling)       Prior + Likelihood → Posterior        │\n│  Inference via sampling distributions p(θ|X) ∝ p(X|θ) · p(θ)                │\n│  Confidence intervals: random, not θ  Credible intervals: about θ           │\n│  p-values: P(data|H₀), not P(H₀|data) Natural probability statements        │\n│                                                                             │\n│  Point Estimation      Interval Estimation     Hypothesis Testing           │\n│  ──────────────────    ─────────────────────   ─────────────────────        │\n│  MLE, MOM              CI (Wald, exact, boot)  NHST, p-values               │\n│  MAP (Bayesian)        Credible intervals      Bayes factors                │\n│  UMVUE (theory)        Prediction intervals    Multiple testing             │\n│                                                                             │\n│  Models                                                                     │\n│  ─────────────────────────────────────────────────────────────────────      │\n│  Linear regression (OLS) → Ridge/LASSO → GLMs (logistic/Poisson/Gamma)      │\n│  Nonparametric (Mann-Whitney, KS, rank tests) → bootstrap equivalents       │\n└─────────────────────────────────────────────────────────────────────────────┘",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-2",
+      "kind": "diagram_like",
+      "line": 73,
+      "heading_context": "### Method of Moments (MOM)",
+      "confidence": "candidate",
+      "text": "Example: Gamma(α, β) distribution. E[X] = α/β, Var(X) = α/β².\n  Sample moments: X̄, s²\n  Solve: α/β = X̄, α/β² = s²\n  → β̂ = X̄/s², α̂ = X̄²/s²\n\nSimple, consistent, but usually not efficient (MLE is better).",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-3",
+      "kind": "diagram_like",
+      "line": 147,
+      "heading_context": "### Exponential Family — The Unifying Structure",
+      "confidence": "candidate",
+      "text": "CUMULANT GENERATING FUNCTION:\n  E[T(X)] = ∇A(η)              [mean is gradient of log-partition]\n  Cov[T(X)] = ∇²A(η)           [covariance is Hessian of log-partition]\n  → A is convex (Hessian is PSD: it's a covariance matrix)\n  → ∇A is injective: natural and mean parameters are in bijection\n\nMLE IN EXPONENTIAL FAMILY:\n  Score equation: Σᵢ T(xᵢ)/n = ∇A(η̂)\n  \"Match empirical sufficient statistics to their expected values.\"\n  → MLE always exists and is unique (when model is identifiable)\n  → Equivalent to moment matching\n\nFISHER METRIC:\n  I(η) = ∇²A(η) = Cov[T(X)]   [Fisher information = Hessian of log-partition]\n  This is the Riemannian metric on the statistical manifold of exponential family\n  distributions — the foundation of information geometry.\n  Natural gradient: η_{t+1} = ηₜ + α·I(η)⁻¹·∇L(η) (geodesic steps on the manifold)",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-4",
+      "kind": "diagram_like",
+      "line": 180,
+      "heading_context": "### MAP Estimation (Bayesian Point Estimate)",
+      "confidence": "candidate",
+      "text": "θ̂_MAP = argmax_θ p(θ|X) = argmax_θ [ℓ(θ) + log p(θ)]\n\nMAP with Gaussian prior N(0, σ²_prior):\n  log p(θ) = -θ²/(2σ²_prior) + const\n  → MAP minimizes ℓ(θ) - ||θ||²/(2σ²_prior)  [negative log-likelihood + L2 penalty]\n  → Ridge regression is MAP with Gaussian prior.\n\nMAP with Laplace prior: L1 penalty → LASSO.\nMLE = MAP with flat (improper uniform) prior.",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-5",
+      "kind": "ascii_table_candidate",
+      "line": 242,
+      "heading_context": "### Prediction Intervals vs Confidence Intervals",
+      "confidence": "candidate",
+      "text": "CI for μ:      X̄ ± t_{n-1,α/2} · (s/√n)    [uncertainty about mean]\nPI for X_{n+1}: X̄ ± t_{n-1,α/2} · s·√(1+1/n) [uncertainty about new observation]\n\nPI is always wider than CI.\nPI accounts for both:\n  1. Uncertainty in μ (same as CI)\n  2. Natural variability of individual observations around μ",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-6",
+      "kind": "diagram_like",
+      "line": 339,
+      "heading_context": "### Power Analysis and Sample Size",
+      "confidence": "candidate",
+      "text": "For two-sample t-test detecting effect size δ = μ₁ - μ₂:\n  n = 2σ²(z_{α/2} + z_β)² / δ²  [approximate]\n\nEffect size: Cohen's d = δ/σ. Small=0.2, medium=0.5, large=0.8.\nStandard: α=0.05, power=0.80 → z_{α/2}=1.96, z_β=0.84\n  → n ≈ 2(1.96+0.84)²/d² = 16/d²  [rough rule: 16/d² per group]\n\nFor d=0.5 (medium): n ≈ 64 per group.\nFor d=0.2 (small): n ≈ 400 per group.",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-7",
+      "kind": "diagram_like",
+      "line": 442,
+      "heading_context": "### OLS (Ordinary Least Squares)",
+      "confidence": "candidate",
+      "text": "β̂ ~ N(β, σ²(X'X)⁻¹)   [exactly under normality assumption]\n  → β̂_j ~ N(β_j, σ²[(X'X)⁻¹]_{jj})\n\nt-statistic: t_j = β̂_j / (σ̂ · √[(X'X)⁻¹]_{jj}) ~ t_{n-p}\n             under H₀: β_j = 0\n\nF-statistic: tests all non-intercept coefficients simultaneously\n             F = [(RSS₀ - RSS₁)/q] / [RSS₁/(n-p)] ~ F_{q, n-p}\n             where RSS₀ = residual SS under null, q = restrictions.\n\nR² = 1 - RSS/TSS = fraction of variance explained.\nAdjusted R² = 1 - (RSS/(n-p)) / (TSS/(n-1)). Penalizes for extra parameters.",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-8",
+      "kind": "diagram_like",
+      "line": 509,
+      "heading_context": "### Regularization, Double Descent, and the Bias-Variance Tradeoff",
+      "confidence": "candidate",
+      "text": "df(λ) = tr(H(λ)) = Σᵢ σᵢ² / (σᵢ² + λ)\n\nwhere σᵢ are the singular values of X.\n  λ → 0:  df → p  (OLS, use all predictors)\n  λ → ∞:  df → 0  (null model, predict mean)\n\nThe bias-variance tradeoff is:\n  E[||Ŷ(λ) - Y||²] = Var (= df(λ)·σ²) + Bias² (increases with λ)\n  Optimal λ: minimize the sum — classical U-shaped test error curve.",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-9",
+      "kind": "diagram_like",
+      "line": 539,
+      "heading_context": "### Regularization, Double Descent, and the Bias-Variance Tradeoff",
+      "confidence": "candidate",
+      "text": "TEST ERROR VS MODEL COMPLEXITY (p/n ratio):\n\n                       Classical regime    |  Overparameterized regime\n                       (p < n)             |  (p > n)\n                                           |\n   Error              ╭──────────╮         │         ╲\n                      ╯          ╰──────── │ ──────────╲─────────\n              bias²↓,var↑                  │            minimum again\n                    p/n=1: interpolation threshold (||β̂_min-norm|| → ∞)\n\nAt p = n (interpolation threshold): test error spikes (model memorizes perfectly,\n  some directions have infinite variance).\nFor p >> n with minimum-norm interpolating solution (implicit regularization):\n  bias → 0, but variance can also decrease as overparameterization averages out noise.\n  → Second descent below classical minimum.",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-10",
+      "kind": "ascii_table_candidate",
+      "line": 774,
+      "heading_context": "### Conjugate Priors",
+      "confidence": "candidate",
+      "text": "Prior: Beta(α,β) — interpret as α-1 pseudosuccessess, β-1 pseudofailures.\nAfter k successes in n trials:\n  Posterior: Beta(α+k, β+n-k)\n  Posterior mean: (α+k)/(α+β+n)\n  As n→∞: posterior mean → k/n = MLE (prior washed out)\n  Effective sample size of prior: α+β.",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-11",
+      "kind": "diagram_like",
+      "line": 914,
+      "heading_context": "### Causal Inference with Regression",
+      "confidence": "candidate",
+      "text": "Potential outcomes framework (Rubin):\n  Y_i(1): outcome if treated.  Y_i(0): outcome if untreated.\n  ATE = E[Y_i(1) - Y_i(0)]   [average treatment effect]\n  Fundamental problem: observe only one potential outcome per unit.\n\nIdentifying ATE requires:\n  Ignorability/unconfoundedness: treatment T ⊥ (Y(0),Y(1)) | X\n  → Regression adjustment: E[Y|T=1,X] - E[Y|T=0,X] averaged over X.\n  Valid only when all confounders X measured and controlled.\n\nInstrumental variables (IV): instrument Z affects T but not Y directly.\n  Two-stage least squares (2SLS):\n    Stage 1: Regress T on Z, X → get Ŷ\n    Stage 2: Regress Y on Ŷ, X → LATE (local ATE for compliers)\n  Used for: Mendelian randomization (genetics as IV), natural experiments.\n\nRegression discontinuity (RD): treatment assigned by threshold on running variable.\n  At threshold: treated and untreated otherwise comparable.\n  Identifies ATE at the threshold (local effect).\n\nDifference-in-differences (DiD):\n  ATT = (Ȳ_{treated,post} - Ȳ_{treated,pre}) - (Ȳ_{control,post} - Ȳ_{control,pre})\n  Requires parallel trends assumption.",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-12",
+      "kind": "diagram_like",
+      "line": 980,
+      "heading_context": "### Causal Inference Meets ML: do-Calculus and Double ML",
+      "confidence": "candidate",
+      "text": "PARTIALING OUT (Robinson 1988 extended):\n  Y = θT + g(X) + ε    [θ = causal effect, g = nonparametric confounding]\n  T = m(X) + v           [T = treatment, m = propensity]\n\nDML PROCEDURE:\n  1. Estimate ŷ(X) = Ê[Y|X] using any ML method (cross-fitted)\n  2. Estimate m̂(X) = Ê[T|X] using any ML method (cross-fitted)\n  3. Regress residuals: (Y - ŷ(X)) ~ θ(T - m̂(X))\n\n  Key: cross-fitting (train on one half, predict on the other) removes regularization\n  bias. Allows using high-dimensional/complex ML models without needing them to\n  converge at √n rate — only need n^{1/4} rate for nuisance estimators.\n  → θ̂ achieves √n rate and has valid confidence intervals.\n  → econometrics + ML engineering: use any model (LASSO, random forest, neural net)\n    for nuisance parameters.\n\nImplemented in: EconML (Microsoft Research), DoubleML (Python/R).",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-13",
+      "kind": "diagram_like",
+      "line": 1010,
+      "heading_context": "## Decision Cheat Sheet",
+      "confidence": "candidate",
+      "text": "Task:                                     Method:\n────────────────────────────────────────  ──────────────────────────────────────────\nEstimate parameter, known distribution    MLE (asymptotically efficient)\nSmall sample, want Bayes point estimate   MAP (with prior)\nConfidence interval, large n              Wald CI: θ̂ ± z·SE\nConfidence interval, small n or skewed   Bootstrap CI (BC_a)\nCompare two means, normal data            Two-sample t-test (Welch)\nCompare two means, non-normal/small n     Mann-Whitney U\nCompare >2 groups, normal                 One-way ANOVA + Tukey HSD\nCompare >2 groups, non-normal             Kruskal-Wallis + Dunn's test\nTest independence of two categorical vars χ² test of independence\nContinuous outcome, predict from features OLS regression\nBinary outcome                            Logistic regression\nCount outcome                             Poisson (or NegBin if overdispersed)\nPositive continuous outcome               Gamma GLM\nTime-to-event with censoring              Cox proportional hazards + Kaplan-Meier\nMultiple testing (large scale, e.g. GWAS) Benjamini-Hochberg FDR control\nBayesian updating, closed form            Conjugate prior (Beta-Binomial, etc.)\nBayesian model comparison                 Bayes factor B₁₂ = p(X|M₁)/p(X|M₂)\nComplex hierarchical model               MCMC via Stan/PyMC (NUTS sampler)\nCausal effect, RCT                       t-test on randomized assignment\nCausal effect, observational             IV, DiD, RD — match the design\nCausal effect, ML nuisance parameters    Double ML (EconML/DoubleML)\nSelect hyperparameters over k configs     Treat as k tests; use held-out test set once",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    }
+  ]
+}

@@ -1,0 +1,160 @@
+{
+  "schema_version": "1",
+  "source_markdown": "mathematics\\11-PROBABILITY.md",
+  "blocks": [
+    {
+      "id": "block-1",
+      "kind": "diagram_like",
+      "line": 22,
+      "heading_context": "# 11 — Probability & Statistics",
+      "confidence": "candidate",
+      "text": "PROBABILITY LANDSCAPE\n═══════════════════════════════════════════════════════════════════════════════\n\n  Sample space Ω ──► events (subsets) ──► probability measure P: 2^Ω → [0,1]\n         │\n         │  Random variables X: Ω → ℝ\n         │         │\n         │         ├── Discrete  ── PMF p(x) = P(X=x)\n         │         └── Continuous ── PDF f(x), CDF F(x) = ∫_{-∞}^x f(t)dt\n         │\n         ├── Expectation, variance, moments\n         ├── Joint distributions, independence, conditioning\n         ├── Limit theorems: LLN, CLT\n         └── Stochastic processes: Markov chains, Poisson process\n\n  PHYSICS CONNECTION:\n    Statistical mechanics ──► Boltzmann distribution, partition functions\n    QM ──► Born rule |ψ|² = probability density\n    Algorithms ──► Master Theorem (recurrences), randomized complexity",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-2",
+      "kind": "diagram_like",
+      "line": 105,
+      "heading_context": "### Convergence Hierarchy",
+      "confidence": "candidate",
+      "text": "  ┌─────────────────────────────────────────────────────────────────────┐\n  │  CONVERGENCE MODES (strongest to weakest)                           │\n  │                                                                     │\n  │  Almost sure (a.s.):   P(lim Xₙ = X) = 1                            │\n  │    Xₙ(ω) → X(ω) for all ω outside a null set.                       │\n  │                                                                     │\n  │  In Lᵖ (mean pth power): E[|Xₙ - X|ᵖ] → 0                           │\n  │    Most useful: L² (mean square convergence, geometry of Hilbert)   │\n  │                                                                     │\n  │  In probability:  P(|Xₙ - X| > ε) → 0  for all ε > 0                │\n  │                                                                     │\n  │  In distribution: F_Xₙ(x) → F_X(x) at continuity points of F_X      │\n  │    Weakest: only the law (distribution) converges, not the values   │\n  └─────────────────────────────────────────────────────────────────────┘\n\n  Implications:\n    a.s. ⟹ in probability ⟹ in distribution\n    Lᵖ (p≥1) ⟹ in probability ⟹ in distribution\n    L² ⟹ L¹ (by Jensen/Cauchy-Schwarz)\n\n  None of the arrows reverse in general:\n\n  Counterexample (in prob ↛ a.s.): the \"typewriter sequence\"\n    Enumerate dyadic intervals on [0,1]: [0,1], [0,1/2], [1/2,1], [0,1/4], ...\n    Xₙ = 1_{Iₙ} where Iₙ is the nth interval.\n    P(|Xₙ| > ε) = |Iₙ| → 0  (converges in probability to 0).\n    But for any ω, Xₙ(ω) = 1 infinitely often (ω always lies in infinitely many intervals).\n    So Xₙ(ω) ↛ 0 for any ω — does not converge a.s.\n\n  Strong LLN: X̄ₙ → μ a.s.        (strongest convergence)\n  Weak LLN:   X̄ₙ → μ in prob     (weaker)\n  CLT:        √n(X̄ₙ-μ)/σ → N(0,1) in distribution  (weakest)",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-3",
+      "kind": "diagram_like",
+      "line": 142,
+      "heading_context": "### Conditional Probability",
+      "confidence": "candidate",
+      "text": "  P(A|B) = P(A∩B) / P(B)     (B is the new universe)\n\n  Chain rule:  P(A∩B∩C) = P(A|B∩C)·P(B|C)·P(C)\n\n  Total probability:  P(A) = Σₖ P(A|Bₖ)·P(Bₖ)    where {Bₖ} partition Ω\n\n  Bayes' theorem:\n    P(H|E) = P(E|H)·P(H) / P(E)\n           = P(E|H)·P(H) / [P(E|H)·P(H) + P(E|Hᶜ)·P(Hᶜ)]\n\n    prior P(H) × likelihood P(E|H) → posterior P(H|E)",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-4",
+      "kind": "diagram_like",
+      "line": 250,
+      "heading_context": "### Law of Large Numbers (LLN)",
+      "confidence": "candidate",
+      "text": "  Weak LLN (Chebyshev):\n    X₁, X₂,... iid with mean μ, finite variance σ²\n    X̄ₙ = (X₁+...+Xₙ)/n\n\n    For any ε > 0:  P(|X̄ₙ - μ| > ε) → 0  as n → ∞\n    Proof: Var(X̄ₙ) = σ²/n → 0, apply Chebyshev P(|Z-E[Z]|≥ε) ≤ Var(Z)/ε²\n\n  Strong LLN:  X̄ₙ → μ  almost surely (with probability 1)",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-5",
+      "kind": "diagram_like",
+      "line": 263,
+      "heading_context": "### Central Limit Theorem (CLT)",
+      "confidence": "candidate",
+      "text": "  X₁,...,Xₙ iid, mean μ, variance σ²\n\n  Zₙ = (X̄ₙ - μ)/(σ/√n) = √n(X̄ₙ - μ)/σ  →  N(0,1)  in distribution\n\n  Equivalently: Σᵢ Xᵢ ~ N(nμ, nσ²) approximately for large n\n\n  Physical intuition: Independent random contributions add.\n    Each step doesn't \"know\" the distribution — the sum always Gaussianizes.\n    This is why Gaussian appears everywhere: it's the attractor of sums.\n\n  Rate of convergence: Berry-Esseen: |P(Zₙ ≤ x) - Φ(x)| ≤ C·ρ/(σ³√n)\n    where ρ = E[|X-μ|³]  (third absolute moment)\n\n  When CLT fails:\n    - Infinite variance (Cauchy, power law tails α ≤ 2)\n    - Dependent random variables (need mixing conditions)\n    → Heavy-tailed sums → stable distributions (Lévy, Pareto)",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-6",
+      "kind": "diagram_like",
+      "line": 302,
+      "heading_context": "### Concentration Inequalities — The Hierarchy",
+      "confidence": "candidate",
+      "text": "  ┌─────────────────────────────────────────────────────────────────────────┐\n  │  CONCENTRATION HIERARCHY (increasing generality)                        │\n  │                                                                         │\n  │  Chernoff (sums of independent {0,1} r.v., sharpest for Bernoullis):    │\n  │    P(Σ Xᵢ ≥ (1+δ)μ) ≤ e^(-μδ²/3)   for δ ∈ (0,1]                        │\n  │    Derived from M_X(t) directly; exponentially tight.                   │\n  │                                                                         │\n  │  Hoeffding (bounded independent r.v., aᵢ ≤ Xᵢ ≤ bᵢ):                    │\n  │    P(Σ(Xᵢ - E[Xᵢ]) ≥ t) ≤ exp(-2t²/Σ(bᵢ-aᵢ)²)                           │\n  │    Replaces MGF bound with variance proxy from the range [aᵢ,bᵢ].       │\n  │    Key use: uniform convergence in PAC learning over finite hypotheses  │\n  │                                                                         │\n  │  Azuma-Hoeffding (martingale differences, |Xᵢ - Xᵢ₋₁| ≤ cᵢ):            │\n  │    P(|Xₙ - X₀| ≥ t) ≤ 2 exp(-t²/(2Σcᵢ²))                                │\n  │    Drops the independence requirement — only needs bounded increments.  │\n  │    Doob martingale converts function of independent r.v. to martingale. │\n  │                                                                         │\n  │  McDiarmid / Bounded Differences (function of independent inputs):      │\n  │    f(x₁,...,xₙ) stable: changing xᵢ → x'ᵢ changes f by at most cᵢ.      │\n  │    P(f - E[f] ≥ t) ≤ exp(-2t²/Σcᵢ²)                                     │\n  │    This is Azuma applied via Doob's martingale construction.            │\n  │    Use: VC-dimension bounds, Rademacher complexity, any f of iid data.  │\n  │                                                                         │\n  │  Talagrand (convex distance, product measures):                         │\n  │    Strongest — concentration for functions that are \"Lipschitz in       │\n  │    each coordinate and convex.\" Captures that a random set is close to  │\n  │    its median with probability 1-2e^{-t²/4}. Used for order statistics, │\n  │    random graphs, longest common subsequences.                          │\n  └─────────────────────────────────────────────────────────────────────────┘\n\n  Relationship to PAC learning:\n    n ≥ (1/2ε²) log(2|H|/δ) samples suffices for uniform convergence over\n    finite hypothesis class H  [Hoeffding + union bound].\n    For infinite H: swap |H| → VC dimension d → n = O(d/ε² · log 1/δ).",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-7",
+      "kind": "diagram_like",
+      "line": 363,
+      "heading_context": "### Three Cases",
+      "confidence": "candidate",
+      "text": "  ┌─────────────────────────────────────────────────────────────────────┐\n  │  Compare f(n) vs n^(c*)                                             │\n  │                                                                     │\n  │  Case 1: f(n) = O(n^(c*-ε))  for some ε > 0                         │\n  │    Subproblems dominate — leaves do most work                       │\n  │    T(n) = Θ(n^c*)                                                   │\n  │                                                                     │\n  │  Case 2: f(n) = Θ(n^(c*) · log^k(n))  for some k ≥ 0                │\n  │    Balanced — work spread across all levels                         │\n  │    T(n) = Θ(n^(c*) · log^(k+1)(n))                                  │\n  │    Common: f(n) = Θ(n^c*) → k=0 → T(n) = Θ(n^c* log n)              │\n  │                                                                     │\n  │  Case 3: f(n) = Ω(n^(c*+ε))  for some ε > 0,                        │\n  │    AND  a·f(n/b) ≤ c·f(n)  for c < 1  (regularity condition)        │\n  │    Top level dominates — root does most work                        │\n  │    T(n) = Θ(f(n))                                                   │\n  └─────────────────────────────────────────────────────────────────────┘",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-8",
+      "kind": "diagram_like",
+      "line": 423,
+      "heading_context": "### Classification",
+      "confidence": "candidate",
+      "text": "  Communicating classes: i ↔ j if i → j and j → i\n    Irreducible: one communicating class (all states communicate)\n\n  Recurrent: P(return to i | start at i) = 1\n  Transient: P(return to i | start at i) < 1\n\n  Period d(i) = gcd{n ≥ 1 : P(Xₙ=i|X₀=i) > 0}\n  Aperiodic: d(i) = 1 for all i",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-9",
+      "kind": "diagram_like",
+      "line": 448,
+      "heading_context": "### Convergence (Ergodic Theorem)",
+      "confidence": "candidate",
+      "text": "  Irreducible + Aperiodic ⟹ unique stationary π,  and\n    Pⁿ → Π  (matrix of identical rows = π)   as n → ∞\n\n  Rate: |Pᵢⱼⁿ - πⱼ| ≤ λ₂ⁿ   where λ₂ = second-largest eigenvalue magnitude\n  Mixing time: τ_mix ∝ 1/(1 - λ₂)\n\n  Time average = space average:\n    (1/T)Σₜ f(Xₜ) → Σᵢ πᵢ f(i)   a.s.   (ergodic theorem)",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-10",
+      "kind": "diagram_like",
+      "line": 470,
+      "heading_context": "### Poisson Process",
+      "confidence": "candidate",
+      "text": "  Events arrive at rate λ per unit time.\n  N(t) = count of events in [0,t] ~ Poisson(λt)\n  Interarrival times: T₁, T₂,... iid Exponential(λ)\n\n  Memoryless: P(T > s+t | T > s) = P(T > t)\n    The exponential distribution is the unique memoryless continuous distribution.\n    → Justifies Markov assumption in continuous-time models.\n\n  Superposition: Poisson(λ₁) + Poisson(λ₂) = Poisson(λ₁+λ₂)\n  Thinning: Keep each event with prob p → Poisson(pλ)",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-11",
+      "kind": "ascii_table_candidate",
+      "line": 485,
+      "heading_context": "### Martingales and Brownian Motion",
+      "confidence": "candidate",
+      "text": "  Martingale: a stochastic process {Mₜ} adapted to filtration {ℱₜ} with\n    E[Mₜ | ℱₛ] = Mₛ   for all s ≤ t\n  \"Fair game\": given all current information, future expected value = current value.\n\n  Examples:\n    - Simple random walk Sₙ = X₁ + ... + Xₙ (Xᵢ iid ±1)\n    - Sₙ² - n is a martingale (variance correction)\n    - e^(θSₙ - nψ(θ)) for any θ (exponential martingale — basis for Chernoff)\n    - Likelihood ratio p(X₁,...,Xₙ|H₁)/p(X₁,...,Xₙ|H₀) under H₀\n\n  Optional stopping theorem: if τ is a stopping time with E[τ] < ∞ (and bounded\n  increments), then E[M_τ] = E[M₀]. Application: expected duration of gambling\n  games, first passage times.\n\n  Martingale convergence theorem: if {Mₙ} is a martingale with sup E[|Mₙ|] < ∞,\n  then Mₙ → M_∞ a.s. and in L¹.\n\n  Brownian motion (Wiener process) W_t: continuous-time limit of random walk.\n    W₀ = 0\n    W_t - W_s ~ N(0, t-s)   for s < t   (independent increments)\n    Continuous paths a.s.\n    Quadratic variation: [W]_t = t  (paths are nowhere differentiable)\n\n  Brownian motion is the canonical continuous martingale.\n  Itô's lemma: for smooth f(t, x),\n    df(t, W_t) = ∂f/∂t dt + ∂f/∂x dW_t + ½ ∂²f/∂x² dt\n  The extra ½∂²f/∂x² dt term (Itô correction) arises from quadratic variation.\n  This drives stochastic calculus, Black-Scholes, and Feynman-Kac.",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-12",
+      "kind": "ascii_table_candidate",
+      "line": 520,
+      "heading_context": "## 7. Bayesian Inference",
+      "confidence": "candidate",
+      "text": "  Prior: p(θ)          — beliefs before data\n  Likelihood: p(D|θ)   — probability of data given parameters\n  Posterior: p(θ|D) ∝ p(D|θ)·p(θ)   — updated beliefs\n\n  Point estimates:\n    MAP: θ_MAP = argmax p(θ|D)      (maximum a posteriori)\n    MLE: θ_MLE = argmax p(D|θ)      (maximum likelihood — flat prior)\n\n  Conjugate priors (posterior is same family as prior):\n    Beta-Binomial: Beta(α,β) prior + n trials k successes → Beta(α+k, β+n-k)\n    Gaussian-Gaussian: N(μ₀,σ₀²) prior + N(θ,σ²) data → Gaussian posterior\n    Dirichlet-Multinomial: Dirichlet prior + categorical data → Dirichlet posterior\n\n  MCMC (Markov Chain Monte Carlo):\n    Sample from posterior when it's not analytically tractable.\n    Metropolis-Hastings: proposal q(θ'|θ), accept with ratio p(θ'|D)q(θ|θ')/[p(θ|D)q(θ'|θ)]\n    Detailed balance ⟹ stationary distribution = posterior.\n    Gibbs sampling: special case — sample each variable conditioned on all others.",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-13",
+      "kind": "diagram_like",
+      "line": 576,
+      "heading_context": "### Entropy and Information Theory",
+      "confidence": "candidate",
+      "text": "  Shannon entropy: H(X) = -Σ p(x) log₂ p(x)   bits\n\n  Uniform over n: H = log₂ n  (maximum entropy)\n  Single outcome: H = 0\n\n  KL divergence (not a metric — not symmetric):\n    D_KL(P||Q) = Σ p(x) log(p(x)/q(x)) ≥ 0\n    = 0 iff P = Q  (by Jensen's inequality)\n\n  Cross-entropy: H(P,Q) = -Σ p(x) log q(x) = H(P) + D_KL(P||Q)\n    → Loss function in ML classification\n\n  Mutual information: I(X;Y) = D_KL(P_{X,Y} || P_X P_Y)\n    = H(X) + H(Y) - H(X,Y)\n    = H(X) - H(X|Y)\n    → 0 iff X,Y independent",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-14",
+      "kind": "diagram_like",
+      "line": 597,
+      "heading_context": "### Information Theory — Deeper Results",
+      "confidence": "candidate",
+      "text": "  Data processing inequality:\n    If X → Y → Z is a Markov chain (Z conditionally independent of X given Y):\n      I(X;Z) ≤ I(X;Y)\n    Processing can only destroy information, never create it.\n    ML implication: any learned representation Z = g(Y) satisfies I(X;Z) ≤ I(X;Y).\n    Information bottleneck principle: find Z minimizing I(Y;Z) subject to\n    I(X;Z) ≥ required — compress representation while preserving label information.\n\n  Source coding theorem (Shannon): minimum expected bits to encode X losslessly\n  = H(X). Huffman coding achieves H(X) + ε. Entropy is the information floor.\n\n  Channel capacity (Shannon's noisy-channel theorem):\n    For channel with input X, output Y: capacity C = max_{p(x)} I(X;Y).\n    Reliable transmission possible iff rate R < C.\n    Additive white Gaussian noise channel: C = B log₂(1 + SNR)  (Shannon-Hartley).\n\n  Asymptotic equipartition property (AEP):\n    For iid X₁,...,Xₙ with distribution p:\n      -(1/n) log p(X₁,...,Xₙ) → H(X)  in probability.\n    Most probability mass concentrates on ~2^{nH(X)} \"typical\" sequences of equal\n    weight 2^{-nH(X)}. Basis of compression and coding theory.\n\n  Fisher information and Cramér-Rao bound:\n    Fisher information: I(θ) = E[(∂/∂θ log p(X;θ))²] = -E[∂²/∂θ² log p(X;θ)]\n    Cramér-Rao: Var(θ̂) ≥ 1/I(θ) for any unbiased estimator θ̂.\n    Achieves equality iff the estimator is the MLE (for exponential families).\n\n  Variational inference (ML):\n    True posterior p(z|x) often intractable. Fit approximate q_φ(z|x) by minimizing\n    D_KL(q_φ || p) = E_q[log q_φ(z|x)] - E_q[log p(x,z)] + const.\n    Equivalently: maximize ELBO = E_q[log p(x,z)] - E_q[log q_φ(z|x)].\n    ELBO = Evidence Lower BOund: log p(x) = ELBO + D_KL(q||p) ≥ ELBO.\n    VAEs optimize ELBO: reconstruction term + KL regularization.",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    }
+  ]
+}

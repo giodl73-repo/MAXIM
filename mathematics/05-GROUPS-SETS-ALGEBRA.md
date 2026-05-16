@@ -1,3 +1,22 @@
+---
+maxim_schema: maxim.frontmatter.v1
+id: maxim:mathematics:groups-sets-algebra
+kind: guide
+module: mathematics
+section: mathematics
+title: 05 - Groups, Sets, and Abstract Algebra
+status: source-custody
+source_custody: partial
+current_path: mathematics/05-GROUPS-SETS-ALGEBRA.md
+canonical_path: mathematics/05-GROUPS-SETS-ALGEBRA.md
+backsource_ids: [proof-backfill:mathematics:05-groups-sets-algebra, git-history:mathematics:05-groups-sets-algebra]
+concepts: [groups, sets, algebra]
+root_concepts: [groups, sets]
+index_roles: [guide, root-concept]
+remap_from: []
+remap_to: []
+updated: null
+---
 # 05 — Groups, Sets, and Abstract Algebra
 
 ```

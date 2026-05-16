@@ -1,0 +1,160 @@
+{
+  "schema_version": "1",
+  "source_markdown": "mathematics\\02-INTEGRAL-THEOREMS.md",
+  "blocks": [
+    {
+      "id": "block-1",
+      "kind": "ascii_table_candidate",
+      "line": 27,
+      "heading_context": "## The Big Picture",
+      "confidence": "candidate",
+      "text": "+------------------------------------------------------------------------+\n|              THE TWO FORMS OF MAXWELL'S EQUATIONS                      |\n|                                                                        |\n|   DIFFERENTIAL FORM              INTEGRAL FORM                         |\n|   (local — at a point)           (global — over regions)               |\n|   ─────────────────────          ──────────────────────                |\n|                                                                        |\n|   ∇·E  = ρ/ε₀        ←────────→  ∮∮ E·dA = Q_enc/ε₀                    |\n|   ∇·B  = 0           ←────────→  ∮∮ B·dA = 0                           |\n|   ∇×E  = -∂B/∂t      ←────────→  ∮ E·dl  = -dΦ_B/dt                    |\n|   ∇×B  = μ₀J+...     ←────────→  ∮ B·dl  = μ₀I_enc + ...               |\n|                                                                        |\n|        ↑                                  ↑                            |\n|   (module 01)              DIVERGENCE THEOREM + STOKES' THEOREM        |\n|                                  (this module)                         |\n+------------------------------------------------------------------------+",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-2",
+      "kind": "diagram_like",
+      "line": 67,
+      "heading_context": "## The Three Integration Domains",
+      "confidence": "candidate",
+      "text": "  1D: LINE INTEGRAL          2D: SURFACE INTEGRAL       3D: VOLUME INTEGRAL\n  ─────────────────          ────────────────────       ───────────────────\n  Integrate along            Integrate over a           Integrate over a\n  a curve C                  surface S                  volume V\n\n      C                           S                          V\n   ·─────·                   ___________                 ___________\n   a     b                  /           \\               /           \\\n                            \\___________/               \\___________/\n\n  ∫_C F·dl                  ∫∫_S F·dA                  ∫∫∫_V f dV",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-3",
+      "kind": "diagram_like",
+      "line": 90,
+      "heading_context": "## Line Integrals: ∫_C F·dl",
+      "confidence": "candidate",
+      "text": "  curve C:    a ──────────────────────── b\n                      →   →   →\n              dl  dl  dl  dl  dl         (tiny tangent vectors)",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-4",
+      "kind": "diagram_like",
+      "line": 130,
+      "heading_context": "## Surface Integrals: ∫∫_S F·dA",
+      "confidence": "candidate",
+      "text": "  surface S:\n\n         ↑ dA (normal vector, perpendicular to surface)\n         |\n    ─────┼─────\n   /     ·     \\      ← tiny area element, dA = n̂ dS\n  /             \\",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-5",
+      "kind": "diagram_like",
+      "line": 142,
+      "heading_context": "## Surface Integrals: ∫∫_S F·dA",
+      "confidence": "candidate",
+      "text": "  F parallel to surface  →  F·dA = 0  (skims along, doesn't pass through)\n  F perpendicular to surface →  F·dA = |F|dS  (maximum throughput)",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-6",
+      "kind": "diagram_like",
+      "line": 187,
+      "heading_context": "## The Fundamental Theorem Chain and the Generalized Stokes' Theorem",
+      "confidence": "candidate",
+      "text": "  FUNDAMENTAL THEOREM OF CALCULUS (1D):\n\n    ∫_a^b f'(x) dx  =  f(b) - f(a)\n    ─────────────────────────────────\n    integral of        values at the\n    derivative         boundary points\n    over interval\n\n\n  GRADIENT THEOREM (generalization to paths):\n\n    ∫_C (∇f)·dl  =  f(b) - f(a)\n    ────────────────────────────────\n    integral of        values at the\n    gradient           endpoints\n    over path          (boundary of path)\n\n\n  STOKES' THEOREM (generalization to surfaces):\n\n    ∫∫_S (∇×F)·dA  =  ∮_C F·dl\n    ──────────────────────────────────\n    integral of        integral over\n    curl               the boundary\n    over surface       curve of surface\n\n\n  DIVERGENCE THEOREM (generalization to volumes):\n\n    ∫∫∫_V (∇·F) dV  =  ∮∮_S F·dA\n    ──────────────────────────────────\n    integral of        integral over\n    divergence         the boundary\n    over volume        surface of volume",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-7",
+      "kind": "diagram_like",
+      "line": 226,
+      "heading_context": "## The Fundamental Theorem Chain and the Generalized Stokes' Theorem",
+      "confidence": "candidate",
+      "text": "  ∫_M dω  =  ∫_{∂M} ω\n\n  Cast of characters:\n    M        — oriented k-manifold with boundary (curve, surface, volume, ...)\n    ∂M       — the (k-1)-dimensional boundary of M\n    ω        — a differential (k-1)-form (the object being integrated)\n    dω       — the exterior derivative of ω (a k-form)\n    d        — the exterior derivative operator: d: Ω^k → Ω^(k+1), d²=0\n\n  The four classical theorems are special cases in R³:\n\n  k=1: M = curve C, ∂M = {endpoints a,b}, ω = f (0-form), dω = df = ∇f·dl\n       → ∫_C df = f(b)−f(a)         ← Gradient theorem (FTC)\n\n  k=2: M = surface S, ∂M = boundary curve C, ω = F·dl (1-form), dω = (∇×F)·dA\n       → ∫∫_S (∇×F)·dA = ∮_C F·dl  ← Stokes' theorem\n\n  k=3: M = volume V, ∂M = bounding surface S, ω = F·dA (2-form), dω = (∇·F)dV\n       → ∫∫∫_V (∇·F) dV = ∮∮_S F·dA ← Divergence theorem\n\n  The identity d²=0 is why ∇×(∇f)=0 and ∇·(∇×F)=0 hold automatically —\n  they are both instances of d(dω)=0 applied to a 0-form and 1-form.",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-8",
+      "kind": "ascii_table_candidate",
+      "line": 253,
+      "heading_context": "## The Fundamental Theorem Chain and the Generalized Stokes' Theorem",
+      "confidence": "candidate",
+      "text": "  0-form: scalar field f(x,y,z)\n  1-form: F₁dx + F₂dy + F₃dz  ↔  vector field F = (F₁,F₂,F₃)\n  2-form: F₁dy∧dz + F₂dz∧dx + F₃dx∧dy  ↔  vector field F (via Hodge ★)\n  3-form: f dx∧dy∧dz  ↔  scalar field f\n\n  d on 0-forms: d(f) = ∂f/∂x dx + ∂f/∂y dy + ∂f/∂z dz  ↔  gradient ∇f\n  d on 1-forms: d(F·dl) = (∇×F)·dA                        ↔  curl\n  d on 2-forms: d(F·dA) = (∇·F) dV                        ↔  divergence",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-9",
+      "kind": "diagram_like",
+      "line": 288,
+      "heading_context": "## Divergence Theorem",
+      "confidence": "candidate",
+      "text": "  INSIDE V:              AT BOUNDARY S:\n\n  · · ·                  ↑   ↑   ↑\n  · ⊕ ·   sources  ───>  →   ·   →    outward flux\n  · · ·                  ↓   ↓   ↓\n\n  ∫∫∫ ∇·F dV      =      ∮∮ F·dA\n  (count sources inside)  (measure outflow at surface)",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-10",
+      "kind": "diagram_like",
+      "line": 349,
+      "heading_context": "## Stokes' Theorem",
+      "confidence": "candidate",
+      "text": "  INTERIOR CANCELS:        BOUNDARY REMAINS:\n\n  ↻ | ↻ | ↻               →  →  →\n  ──+───+──                         ↓\n  ↻ | ↻ | ↻    ─────>     ↑        ↓\n  ──+───+──                         ↓\n  ↻ | ↻ | ↻               ←  ←  ←\n\n  shared edges cancel      net boundary circulation",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-11",
+      "kind": "ascii_table_candidate",
+      "line": 399,
+      "heading_context": "## Maxwell: Complete Translation Table",
+      "confidence": "candidate",
+      "text": "+──────────────────────────────────────────────────────────────────────+\n|         DIFFERENTIAL              INTEGRAL          VIA              |\n+──────────────────────────────────────────────────────────────────────+\n|                                                                      |\n|  ∇·E = ρ/ε₀          ∮∮ E·dA = Q_enc/ε₀         Divergence thm    |\n|                                                                      |\n|  \"E diverges from      \"Net E flux through         ∇· integrated    |\n|   charges\"             closed surface =             over volume      |\n|                         charge inside\"                               |\n+──────────────────────────────────────────────────────────────────────+\n|                                                                      |\n|  ∇·B = 0              ∮∮ B·dA = 0                Divergence thm      |\n|                                                                      |\n|  \"B has no             \"Net B flux through                           |\n|   monopoles\"           any closed surface = 0\"                       |\n+──────────────────────────────────────────────────────────────────────+\n|                                                                      |\n|  ∇×E = -∂B/∂t         ∮ E·dl = -dΦ_B/dt         Stokes' thm       |\n|                                                                      |\n|  \"Changing B           \"EMF around a loop =                         |\n|   curls E\"              rate of flux change\"                         |\n|                        ← generator equation →                       |\n+──────────────────────────────────────────────────────────────────────+\n|                                                                      |\n|  ∇×B = μ₀J            ∮ B·dl = μ₀I_enc           Stokes' thm         |\n|       +μ₀ε₀∂E/∂t            + μ₀ε₀dΦ_E/dt                            |\n|                                                                      |\n|  \"Current and          \"B circulation around                         |\n|   changing E curl B\"    loop = enclosed current                      |\n|                         + displacement current\"                      |\n+──────────────────────────────────────────────────────────────────────+",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-12",
+      "kind": "diagram_like",
+      "line": 533,
+      "heading_context": "## De Rham Cohomology — Topology from Analysis",
+      "confidence": "candidate",
+      "text": "  H^k_dR(M) = {closed k-forms} / {exact k-forms}\n             = ker(d: Ω^k → Ω^(k+1)) / im(d: Ω^(k-1) → Ω^k)\n\n  If H^k_dR(M) = 0: every closed k-form is exact\n  If H^k_dR(M) ≠ 0: there exist closed forms that are NOT exact\n                      → the domain has a topological obstruction",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-13",
+      "kind": "ascii_table_candidate",
+      "line": 547,
+      "heading_context": "## De Rham Cohomology — Topology from Analysis",
+      "confidence": "candidate",
+      "text": "  Simply connected domain (no holes): H¹_dR = 0 → every curl-free F = ∇f\n\n  Domain with a hole (e.g., R²\\{0}):  H¹_dR ≅ R\n    The 1-form ω = (−y dx + x dy)/(x²+y²) has dω = 0 everywhere\n    but ∮_C ω = 2π for any loop C encircling the origin\n    → ω is closed but NOT exact; the hole makes F ≠ ∇f globally.",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-14",
+      "kind": "diagram_like",
+      "line": 563,
+      "heading_context": "## De Rham Cohomology — Topology from Analysis",
+      "confidence": "candidate",
+      "text": "  H²_dR(M) ≠ 0: closed 2-forms (div-free vector fields) that aren't\n                  curls of 1-forms → detects enclosed 2D surfaces (voids)\n\n  Example: R³\\{0} has H²_dR ≅ R, generated by the solid angle form\n           ω = r̂·dA / r². This is ∇·(r̂/r²) = 4πδ³(0) — the Coulomb field\n           has non-trivial second cohomology because of the point singularity.",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    }
+  ]
+}

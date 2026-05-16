@@ -1,3 +1,22 @@
+---
+maxim_schema: maxim.frontmatter.v1
+id: maxim:mathematics:integral-theorems
+kind: guide
+module: mathematics
+section: mathematics
+title: Integral Theorems - The Bridge Between Maxwell's Two Forms
+status: source-custody
+source_custody: partial
+current_path: mathematics/02-INTEGRAL-THEOREMS.md
+canonical_path: mathematics/02-INTEGRAL-THEOREMS.md
+backsource_ids: [proof-backfill:mathematics:02-integral-theorems, git-history:mathematics:02-integral-theorems]
+concepts: [integral, theorems]
+root_concepts: [integral, theorems]
+index_roles: [guide, root-concept]
+remap_from: []
+remap_to: []
+updated: null
+---
 # Integral Theorems — The Bridge Between Maxwell's Two Forms
 
 ## The Big Picture

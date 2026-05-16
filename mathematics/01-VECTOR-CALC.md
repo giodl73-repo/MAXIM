@@ -1,3 +1,22 @@
+---
+maxim_schema: maxim.frontmatter.v1
+id: maxim:mathematics:vector-calc
+kind: guide
+module: mathematics
+section: mathematics
+title: Vector Calculus - The Language of Maxwell's Equations
+status: source-custody
+source_custody: partial
+current_path: mathematics/01-VECTOR-CALC.md
+canonical_path: mathematics/01-VECTOR-CALC.md
+backsource_ids: [proof-backfill:mathematics:01-vector-calc, git-history:mathematics:01-vector-calc]
+concepts: [vector, calc]
+root_concepts: [vector, calc]
+index_roles: [guide, root-concept]
+remap_from: []
+remap_to: []
+updated: null
+---
 # Vector Calculus — The Language of Maxwell's Equations
 
 ## The Big Picture

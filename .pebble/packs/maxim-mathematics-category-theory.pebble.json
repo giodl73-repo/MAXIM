@@ -1,0 +1,1329 @@
+{
+  "schema": "pebble.v1",
+  "kind": "corpus-slice",
+  "title": "maxim-mathematics-category-theory",
+  "source": "../../mathematics",
+  "format": "markdown",
+  "metadata": {},
+  "sections": [
+    {
+      "id": "22-CATEGORY-THEORY.md#000",
+      "path": [
+        "22-CATEGORY-THEORY.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:mathematics:22-category-theory, git-history:mathematics:22-category-theory]",
+        "canonical_path": "mathematics/22-CATEGORY-THEORY.md",
+        "concepts": "[category, theory]",
+        "current_path": "mathematics/22-CATEGORY-THEORY.md",
+        "id": "maxim:mathematics:category-theory",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "mathematics",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[category, theory]",
+        "section": "mathematics",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Category Theory - Complete Reference",
+        "updated": "null"
+      },
+      "text": "# Category Theory — Complete Reference"
+    },
+    {
+      "id": "22-CATEGORY-THEORY.md#001",
+      "path": [
+        "22-CATEGORY-THEORY.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:mathematics:22-category-theory, git-history:mathematics:22-category-theory]",
+        "canonical_path": "mathematics/22-CATEGORY-THEORY.md",
+        "concepts": "[category, theory]",
+        "current_path": "mathematics/22-CATEGORY-THEORY.md",
+        "id": "maxim:mathematics:category-theory",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "mathematics",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[category, theory]",
+        "section": "mathematics",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Category Theory - Complete Reference",
+        "updated": "null"
+      },
+      "text": "## The Big Picture"
+    },
+    {
+      "id": "22-CATEGORY-THEORY.md#002",
+      "path": [
+        "22-CATEGORY-THEORY.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:mathematics:22-category-theory, git-history:mathematics:22-category-theory]",
+        "canonical_path": "mathematics/22-CATEGORY-THEORY.md",
+        "concepts": "[category, theory]",
+        "current_path": "mathematics/22-CATEGORY-THEORY.md",
+        "id": "maxim:mathematics:category-theory",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "mathematics",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[category, theory]",
+        "section": "mathematics",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Category Theory - Complete Reference",
+        "updated": "null"
+      },
+      "text": "Category theory is the mathematics of mathematical structure — it studies objects and the structure-preserving maps between them, abstracted away from what the objects actually are. From your MIT TCS background, you already know it shows up in type theory (functors ↔ polymorphism, monads ↔ computational effects, adjunctions ↔ Curry-Howard). This guide makes those connections explicit and builds from scratch."
+    },
+    {
+      "id": "22-CATEGORY-THEORY.md#003",
+      "path": [
+        "22-CATEGORY-THEORY.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:mathematics:22-category-theory, git-history:mathematics:22-category-theory]",
+        "canonical_path": "mathematics/22-CATEGORY-THEORY.md",
+        "concepts": "[category, theory]",
+        "current_path": "mathematics/22-CATEGORY-THEORY.md",
+        "id": "maxim:mathematics:category-theory",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "mathematics",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[category, theory]",
+        "section": "mathematics",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Category Theory - Complete Reference",
+        "updated": "null"
+      },
+      "text": "```\n┌─────────────────────────────────────────────────────────────────────────────┐\n│  CATEGORY THEORY LANDSCAPE                                                  │\n│                                                                             │\n│  Foundations                          Universal Constructions               │\n│  ──────────────────────────────        ──────────────────────────────────   │\n│  Category: objects + morphisms        Products, coproducts                  │\n│  Functor: structure-preserving map    Limits, colimits                      │\n│  Natural transformation: functor map  Equalizers, pullbacks, pushouts       │\n│  Isomorphism, equivalence             Initial/terminal objects              │\n│                                                                             │\n│  Adjunctions                          Monads                                │\n│  ──────────────────────────────        ──────────────────────────────────   │\n│  F ⊣ G: universal property           T = GF, unit/counit, monad laws        │\n│  Unit and counit                      Kleisli category                      │\n│  Triangle identities                  Eilenberg-Moore algebras              │\n│  Freeness and forgetfulness           Every adjunction gives a monad        │\n│                                                                             │\n│  PL Theory Connections                Higher Categories                     │\n│  ──────────────────────────────        ──────────────────────────────────   │\n│  Curry-Howard: proofs = programs      2-categories (morphisms of morphisms) │\n│  Types = objects, terms = morphisms   ∞-categories (homotopy theory)        │\n│  Products = pair types                Topos theory (generalized sets)       │\n│  Coproducts = sum types               Homotopy type theory (HoTT)           │\n└─────────────────────────────────────────────────────────────────────────────┘\n```"
+    },
+    {
+      "id": "22-CATEGORY-THEORY.md#004",
+      "path": [
+        "22-CATEGORY-THEORY.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:mathematics:22-category-theory, git-history:mathematics:22-category-theory]",
+        "canonical_path": "mathematics/22-CATEGORY-THEORY.md",
+        "concepts": "[category, theory]",
+        "current_path": "mathematics/22-CATEGORY-THEORY.md",
+        "id": "maxim:mathematics:category-theory",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "mathematics",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[category, theory]",
+        "section": "mathematics",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Category Theory - Complete Reference",
+        "updated": "null"
+      },
+      "text": "---"
+    },
+    {
+      "id": "22-CATEGORY-THEORY.md#005",
+      "path": [
+        "22-CATEGORY-THEORY.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:mathematics:22-category-theory, git-history:mathematics:22-category-theory]",
+        "canonical_path": "mathematics/22-CATEGORY-THEORY.md",
+        "concepts": "[category, theory]",
+        "current_path": "mathematics/22-CATEGORY-THEORY.md",
+        "id": "maxim:mathematics:category-theory",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "mathematics",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[category, theory]",
+        "section": "mathematics",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Category Theory - Complete Reference",
+        "updated": "null"
+      },
+      "text": "## 1. Categories"
+    },
+    {
+      "id": "22-CATEGORY-THEORY.md#006",
+      "path": [
+        "22-CATEGORY-THEORY.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:mathematics:22-category-theory, git-history:mathematics:22-category-theory]",
+        "canonical_path": "mathematics/22-CATEGORY-THEORY.md",
+        "concepts": "[category, theory]",
+        "current_path": "mathematics/22-CATEGORY-THEORY.md",
+        "id": "maxim:mathematics:category-theory",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "mathematics",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[category, theory]",
+        "section": "mathematics",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Category Theory - Complete Reference",
+        "updated": "null"
+      },
+      "text": "### Definition"
+    },
+    {
+      "id": "22-CATEGORY-THEORY.md#007",
+      "path": [
+        "22-CATEGORY-THEORY.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:mathematics:22-category-theory, git-history:mathematics:22-category-theory]",
+        "canonical_path": "mathematics/22-CATEGORY-THEORY.md",
+        "concepts": "[category, theory]",
+        "current_path": "mathematics/22-CATEGORY-THEORY.md",
+        "id": "maxim:mathematics:category-theory",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "mathematics",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[category, theory]",
+        "section": "mathematics",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Category Theory - Complete Reference",
+        "updated": "null"
+      },
+      "text": "A **category** 𝒞 consists of:\n```\nObjects:  Ob(𝒞) — a collection of objects.\nMorphisms: For each pair A, B ∈ Ob(𝒞), a collection Hom(A,B) of morphisms A → B."
+    },
+    {
+      "id": "22-CATEGORY-THEORY.md#008",
+      "path": [
+        "22-CATEGORY-THEORY.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:mathematics:22-category-theory, git-history:mathematics:22-category-theory]",
+        "canonical_path": "mathematics/22-CATEGORY-THEORY.md",
+        "concepts": "[category, theory]",
+        "current_path": "mathematics/22-CATEGORY-THEORY.md",
+        "id": "maxim:mathematics:category-theory",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "mathematics",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[category, theory]",
+        "section": "mathematics",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Category Theory - Complete Reference",
+        "updated": "null"
+      },
+      "text": "Composition: For f: A→B, g: B→C, a morphism g∘f: A→C.\nIdentity: For each A, a morphism id_A: A→A."
+    },
+    {
+      "id": "22-CATEGORY-THEORY.md#009",
+      "path": [
+        "22-CATEGORY-THEORY.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:mathematics:22-category-theory, git-history:mathematics:22-category-theory]",
+        "canonical_path": "mathematics/22-CATEGORY-THEORY.md",
+        "concepts": "[category, theory]",
+        "current_path": "mathematics/22-CATEGORY-THEORY.md",
+        "id": "maxim:mathematics:category-theory",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "mathematics",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[category, theory]",
+        "section": "mathematics",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Category Theory - Complete Reference",
+        "updated": "null"
+      },
+      "text": "Laws:\n  Associativity: (h∘g)∘f = h∘(g∘f)\n  Unit:          id_B ∘ f = f = f ∘ id_A   for f: A→B\n```"
+    },
+    {
+      "id": "22-CATEGORY-THEORY.md#010",
+      "path": [
+        "22-CATEGORY-THEORY.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:mathematics:22-category-theory, git-history:mathematics:22-category-theory]",
+        "canonical_path": "mathematics/22-CATEGORY-THEORY.md",
+        "concepts": "[category, theory]",
+        "current_path": "mathematics/22-CATEGORY-THEORY.md",
+        "id": "maxim:mathematics:category-theory",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "mathematics",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[category, theory]",
+        "section": "mathematics",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Category Theory - Complete Reference",
+        "updated": "null"
+      },
+      "text": "### Key Examples"
+    },
+    {
+      "id": "22-CATEGORY-THEORY.md#011",
+      "path": [
+        "22-CATEGORY-THEORY.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:mathematics:22-category-theory, git-history:mathematics:22-category-theory]",
+        "canonical_path": "mathematics/22-CATEGORY-THEORY.md",
+        "concepts": "[category, theory]",
+        "current_path": "mathematics/22-CATEGORY-THEORY.md",
+        "id": "maxim:mathematics:category-theory",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "mathematics",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[category, theory]",
+        "section": "mathematics",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Category Theory - Complete Reference",
+        "updated": "null"
+      },
+      "text": "| Category | Objects | Morphisms | Notes |\n|----------|---------|-----------|-------|\n| **Set** | Sets | Functions | The paradigm example |\n| **Grp** | Groups | Group homomorphisms | |\n| **Top** | Topological spaces | Continuous maps | |\n| **Vect_k** | k-vector spaces | Linear maps | |\n| **Pos** | Posets | Monotone functions | |\n| **Cat** | Small categories | Functors | Categories form a category |\n| **Hask** | Haskell types | Haskell functions | (up to ⊥ and seq issues) |\n| **Mon** | Monoids | Monoid homomorphisms | |\n| **Ring** | Rings | Ring homomorphisms | |"
+    },
+    {
+      "id": "22-CATEGORY-THEORY.md#012",
+      "path": [
+        "22-CATEGORY-THEORY.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:mathematics:22-category-theory, git-history:mathematics:22-category-theory]",
+        "canonical_path": "mathematics/22-CATEGORY-THEORY.md",
+        "concepts": "[category, theory]",
+        "current_path": "mathematics/22-CATEGORY-THEORY.md",
+        "id": "maxim:mathematics:category-theory",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "mathematics",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[category, theory]",
+        "section": "mathematics",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Category Theory - Complete Reference",
+        "updated": "null"
+      },
+      "text": "**Discrete category**: Objects = set S, only identity morphisms. No structure."
+    },
+    {
+      "id": "22-CATEGORY-THEORY.md#013",
+      "path": [
+        "22-CATEGORY-THEORY.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:mathematics:22-category-theory, git-history:mathematics:22-category-theory]",
+        "canonical_path": "mathematics/22-CATEGORY-THEORY.md",
+        "concepts": "[category, theory]",
+        "current_path": "mathematics/22-CATEGORY-THEORY.md",
+        "id": "maxim:mathematics:category-theory",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "mathematics",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[category, theory]",
+        "section": "mathematics",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Category Theory - Complete Reference",
+        "updated": "null"
+      },
+      "text": "**Indiscrete category**: Every pair (A,B) has exactly one morphism."
+    },
+    {
+      "id": "22-CATEGORY-THEORY.md#014",
+      "path": [
+        "22-CATEGORY-THEORY.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:mathematics:22-category-theory, git-history:mathematics:22-category-theory]",
+        "canonical_path": "mathematics/22-CATEGORY-THEORY.md",
+        "concepts": "[category, theory]",
+        "current_path": "mathematics/22-CATEGORY-THEORY.md",
+        "id": "maxim:mathematics:category-theory",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "mathematics",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[category, theory]",
+        "section": "mathematics",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Category Theory - Complete Reference",
+        "updated": "null"
+      },
+      "text": "**Monoid as category**: One object *, morphisms = monoid elements, composition = monoid operation. Monoids are exactly one-object categories."
+    },
+    {
+      "id": "22-CATEGORY-THEORY.md#015",
+      "path": [
+        "22-CATEGORY-THEORY.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:mathematics:22-category-theory, git-history:mathematics:22-category-theory]",
+        "canonical_path": "mathematics/22-CATEGORY-THEORY.md",
+        "concepts": "[category, theory]",
+        "current_path": "mathematics/22-CATEGORY-THEORY.md",
+        "id": "maxim:mathematics:category-theory",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "mathematics",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[category, theory]",
+        "section": "mathematics",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Category Theory - Complete Reference",
+        "updated": "null"
+      },
+      "text": "**Poset as category**: Objects = elements, at most one morphism A→B (iff A ≤ B). Functors between posets = monotone functions. Adjunctions between posets = Galois connections."
+    },
+    {
+      "id": "22-CATEGORY-THEORY.md#016",
+      "path": [
+        "22-CATEGORY-THEORY.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:mathematics:22-category-theory, git-history:mathematics:22-category-theory]",
+        "canonical_path": "mathematics/22-CATEGORY-THEORY.md",
+        "concepts": "[category, theory]",
+        "current_path": "mathematics/22-CATEGORY-THEORY.md",
+        "id": "maxim:mathematics:category-theory",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "mathematics",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[category, theory]",
+        "section": "mathematics",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Category Theory - Complete Reference",
+        "updated": "null"
+      },
+      "text": "### Special Morphisms"
+    },
+    {
+      "id": "22-CATEGORY-THEORY.md#017",
+      "path": [
+        "22-CATEGORY-THEORY.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:mathematics:22-category-theory, git-history:mathematics:22-category-theory]",
+        "canonical_path": "mathematics/22-CATEGORY-THEORY.md",
+        "concepts": "[category, theory]",
+        "current_path": "mathematics/22-CATEGORY-THEORY.md",
+        "id": "maxim:mathematics:category-theory",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "mathematics",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[category, theory]",
+        "section": "mathematics",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Category Theory - Complete Reference",
+        "updated": "null"
+      },
+      "text": "```\nMonomorphism (monic): f: A→B where f∘g = f∘h → g = h.   [generalized injective]\nEpimorphism (epic):   f: A→B where g∘f = h∘f → g = h.    [generalized surjective]\nIsomorphism:          f: A→B s.t. ∃g: B→A with g∘f=id_A and f∘g=id_B.\nEndomorphism:         f: A→A.\nAutomorphism:         isomorphism from A to A."
+    },
+    {
+      "id": "22-CATEGORY-THEORY.md#018",
+      "path": [
+        "22-CATEGORY-THEORY.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:mathematics:22-category-theory, git-history:mathematics:22-category-theory]",
+        "canonical_path": "mathematics/22-CATEGORY-THEORY.md",
+        "concepts": "[category, theory]",
+        "current_path": "mathematics/22-CATEGORY-THEORY.md",
+        "id": "maxim:mathematics:category-theory",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "mathematics",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[category, theory]",
+        "section": "mathematics",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Category Theory - Complete Reference",
+        "updated": "null"
+      },
+      "text": "In Set: mono = injection, epi = surjection, iso = bijection.\nIn Top: mono = injection (even non-homeomorphisms can be monic).\n        epi ≠ surjection (ℚ→ℝ is epic in Hausdorff spaces but not surjective).\n```"
+    },
+    {
+      "id": "22-CATEGORY-THEORY.md#019",
+      "path": [
+        "22-CATEGORY-THEORY.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:mathematics:22-category-theory, git-history:mathematics:22-category-theory]",
+        "canonical_path": "mathematics/22-CATEGORY-THEORY.md",
+        "concepts": "[category, theory]",
+        "current_path": "mathematics/22-CATEGORY-THEORY.md",
+        "id": "maxim:mathematics:category-theory",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "mathematics",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[category, theory]",
+        "section": "mathematics",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Category Theory - Complete Reference",
+        "updated": "null"
+      },
+      "text": "---"
+    },
+    {
+      "id": "22-CATEGORY-THEORY.md#020",
+      "path": [
+        "22-CATEGORY-THEORY.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:mathematics:22-category-theory, git-history:mathematics:22-category-theory]",
+        "canonical_path": "mathematics/22-CATEGORY-THEORY.md",
+        "concepts": "[category, theory]",
+        "current_path": "mathematics/22-CATEGORY-THEORY.md",
+        "id": "maxim:mathematics:category-theory",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "mathematics",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[category, theory]",
+        "section": "mathematics",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Category Theory - Complete Reference",
+        "updated": "null"
+      },
+      "text": "## 2. Functors"
+    },
+    {
+      "id": "22-CATEGORY-THEORY.md#021",
+      "path": [
+        "22-CATEGORY-THEORY.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:mathematics:22-category-theory, git-history:mathematics:22-category-theory]",
+        "canonical_path": "mathematics/22-CATEGORY-THEORY.md",
+        "concepts": "[category, theory]",
+        "current_path": "mathematics/22-CATEGORY-THEORY.md",
+        "id": "maxim:mathematics:category-theory",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "mathematics",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[category, theory]",
+        "section": "mathematics",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Category Theory - Complete Reference",
+        "updated": "null"
+      },
+      "text": "### Algebraic Topology: The Canonical Motivation"
+    },
+    {
+      "id": "22-CATEGORY-THEORY.md#022",
+      "path": [
+        "22-CATEGORY-THEORY.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:mathematics:22-category-theory, git-history:mathematics:22-category-theory]",
+        "canonical_path": "mathematics/22-CATEGORY-THEORY.md",
+        "concepts": "[category, theory]",
+        "current_path": "mathematics/22-CATEGORY-THEORY.md",
+        "id": "maxim:mathematics:category-theory",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "mathematics",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[category, theory]",
+        "section": "mathematics",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Category Theory - Complete Reference",
+        "updated": "null"
+      },
+      "text": "Before the definition, the canonical example from algebraic topology shows why functors matter: they let you translate hard geometric questions into tractable algebraic ones."
+    },
+    {
+      "id": "22-CATEGORY-THEORY.md#023",
+      "path": [
+        "22-CATEGORY-THEORY.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:mathematics:22-category-theory, git-history:mathematics:22-category-theory]",
+        "canonical_path": "mathematics/22-CATEGORY-THEORY.md",
+        "concepts": "[category, theory]",
+        "current_path": "mathematics/22-CATEGORY-THEORY.md",
+        "id": "maxim:mathematics:category-theory",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "mathematics",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[category, theory]",
+        "section": "mathematics",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Category Theory - Complete Reference",
+        "updated": "null"
+      },
+      "text": "**Homology functor** H_n: **Top** → **Ab** (abelian groups):\n```\nH_n(X) = n-th homology group of topological space X.\nH_n(f): H_n(X) → H_n(Y) for continuous f: X → Y."
+    },
+    {
+      "id": "22-CATEGORY-THEORY.md#024",
+      "path": [
+        "22-CATEGORY-THEORY.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:mathematics:22-category-theory, git-history:mathematics:22-category-theory]",
+        "canonical_path": "mathematics/22-CATEGORY-THEORY.md",
+        "concepts": "[category, theory]",
+        "current_path": "mathematics/22-CATEGORY-THEORY.md",
+        "id": "maxim:mathematics:category-theory",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "mathematics",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[category, theory]",
+        "section": "mathematics",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Category Theory - Complete Reference",
+        "updated": "null"
+      },
+      "text": "Preserves composition: H_n(g∘f) = H_n(g) ∘ H_n(f).\nPreserves identity:    H_n(id_X) = id_{H_n(X)}."
+    },
+    {
+      "id": "22-CATEGORY-THEORY.md#025",
+      "path": [
+        "22-CATEGORY-THEORY.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:mathematics:22-category-theory, git-history:mathematics:22-category-theory]",
+        "canonical_path": "mathematics/22-CATEGORY-THEORY.md",
+        "concepts": "[category, theory]",
+        "current_path": "mathematics/22-CATEGORY-THEORY.md",
+        "id": "maxim:mathematics:category-theory",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "mathematics",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[category, theory]",
+        "section": "mathematics",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Category Theory - Complete Reference",
+        "updated": "null"
+      },
+      "text": "Why this is powerful:\n  \"Is there a continuous map f: Sⁿ → Sⁿ with no fixed point?\"\n  Answer: f gives H_n(f): ℤ → ℤ, which must be multiplication by deg(f).\n  Brouwer fixed-point theorem: deg(f) ≠ -1 → must have fixed point.\n  Hard topology question → easy linear algebra.\n```"
+    },
+    {
+      "id": "22-CATEGORY-THEORY.md#026",
+      "path": [
+        "22-CATEGORY-THEORY.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:mathematics:22-category-theory, git-history:mathematics:22-category-theory]",
+        "canonical_path": "mathematics/22-CATEGORY-THEORY.md",
+        "concepts": "[category, theory]",
+        "current_path": "mathematics/22-CATEGORY-THEORY.md",
+        "id": "maxim:mathematics:category-theory",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "mathematics",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[category, theory]",
+        "section": "mathematics",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Category Theory - Complete Reference",
+        "updated": "null"
+      },
+      "text": "**Fundamental group functor** π₁: **Top_*** → **Grp** (pointed spaces to groups):\n```\nπ₁(X, x₀) = group of loops at x₀ modulo homotopy.\nπ₁(f): π₁(X,x₀) → π₁(Y,f(x₀)) for basepoint-preserving f."
+    },
+    {
+      "id": "22-CATEGORY-THEORY.md#027",
+      "path": [
+        "22-CATEGORY-THEORY.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:mathematics:22-category-theory, git-history:mathematics:22-category-theory]",
+        "canonical_path": "mathematics/22-CATEGORY-THEORY.md",
+        "concepts": "[category, theory]",
+        "current_path": "mathematics/22-CATEGORY-THEORY.md",
+        "id": "maxim:mathematics:category-theory",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "mathematics",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[category, theory]",
+        "section": "mathematics",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Category Theory - Complete Reference",
+        "updated": "null"
+      },
+      "text": "Van Kampen theorem: π₁ converts pushouts of spaces into amalgamated products of groups.\n  Hard question: \"what is π₁ of a figure-8?\" → pushout of two circles → Z * Z (free product).\n```"
+    },
+    {
+      "id": "22-CATEGORY-THEORY.md#028",
+      "path": [
+        "22-CATEGORY-THEORY.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:mathematics:22-category-theory, git-history:mathematics:22-category-theory]",
+        "canonical_path": "mathematics/22-CATEGORY-THEORY.md",
+        "concepts": "[category, theory]",
+        "current_path": "mathematics/22-CATEGORY-THEORY.md",
+        "id": "maxim:mathematics:category-theory",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "mathematics",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[category, theory]",
+        "section": "mathematics",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Category Theory - Complete Reference",
+        "updated": "null"
+      },
+      "text": "The general pattern: a functor F: 𝒞 → 𝒟 is an \"algebraic invariant machine\" — it assigns algebraic objects to spaces/structures in a way that respects the morphisms between them. Anything you prove about F(X) using algebra is a theorem about X in topology."
+    },
+    {
+      "id": "22-CATEGORY-THEORY.md#029",
+      "path": [
+        "22-CATEGORY-THEORY.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:mathematics:22-category-theory, git-history:mathematics:22-category-theory]",
+        "canonical_path": "mathematics/22-CATEGORY-THEORY.md",
+        "concepts": "[category, theory]",
+        "current_path": "mathematics/22-CATEGORY-THEORY.md",
+        "id": "maxim:mathematics:category-theory",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "mathematics",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[category, theory]",
+        "section": "mathematics",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Category Theory - Complete Reference",
+        "updated": "null"
+      },
+      "text": "### Definition"
+    },
+    {
+      "id": "22-CATEGORY-THEORY.md#030",
+      "path": [
+        "22-CATEGORY-THEORY.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:mathematics:22-category-theory, git-history:mathematics:22-category-theory]",
+        "canonical_path": "mathematics/22-CATEGORY-THEORY.md",
+        "concepts": "[category, theory]",
+        "current_path": "mathematics/22-CATEGORY-THEORY.md",
+        "id": "maxim:mathematics:category-theory",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "mathematics",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[category, theory]",
+        "section": "mathematics",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Category Theory - Complete Reference",
+        "updated": "null"
+      },
+      "text": "A **functor** F: 𝒞 → 𝒟 between categories assigns:\n```\nObject map:   A ↦ F(A) for each A ∈ Ob(𝒞)\nMorphism map: (f: A→B) ↦ (F(f): F(A)→F(B)) for each morphism f"
+    },
+    {
+      "id": "22-CATEGORY-THEORY.md#031",
+      "path": [
+        "22-CATEGORY-THEORY.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:mathematics:22-category-theory, git-history:mathematics:22-category-theory]",
+        "canonical_path": "mathematics/22-CATEGORY-THEORY.md",
+        "concepts": "[category, theory]",
+        "current_path": "mathematics/22-CATEGORY-THEORY.md",
+        "id": "maxim:mathematics:category-theory",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "mathematics",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[category, theory]",
+        "section": "mathematics",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Category Theory - Complete Reference",
+        "updated": "null"
+      },
+      "text": "Laws:\n  Preserves identity:    F(id_A) = id_{F(A)}\n  Preserves composition: F(g∘f) = F(g) ∘ F(f)"
+    },
+    {
+      "id": "22-CATEGORY-THEORY.md#032",
+      "path": [
+        "22-CATEGORY-THEORY.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:mathematics:22-category-theory, git-history:mathematics:22-category-theory]",
+        "canonical_path": "mathematics/22-CATEGORY-THEORY.md",
+        "concepts": "[category, theory]",
+        "current_path": "mathematics/22-CATEGORY-THEORY.md",
+        "id": "maxim:mathematics:category-theory",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "mathematics",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[category, theory]",
+        "section": "mathematics",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Category Theory - Complete Reference",
+        "updated": "null"
+      },
+      "text": "This is a covariant functor.\n```"
+    },
+    {
+      "id": "22-CATEGORY-THEORY.md#033",
+      "path": [
+        "22-CATEGORY-THEORY.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:mathematics:22-category-theory, git-history:mathematics:22-category-theory]",
+        "canonical_path": "mathematics/22-CATEGORY-THEORY.md",
+        "concepts": "[category, theory]",
+        "current_path": "mathematics/22-CATEGORY-THEORY.md",
+        "id": "maxim:mathematics:category-theory",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "mathematics",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[category, theory]",
+        "section": "mathematics",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Category Theory - Complete Reference",
+        "updated": "null"
+      },
+      "text": "**Contravariant functor**: Reverses arrows. F(f: A→B) = F(f): F(B)→F(A). F(g∘f) = F(f)∘F(g)."
+    },
+    {
+      "id": "22-CATEGORY-THEORY.md#034",
+      "path": [
+        "22-CATEGORY-THEORY.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:mathematics:22-category-theory, git-history:mathematics:22-category-theory]",
+        "canonical_path": "mathematics/22-CATEGORY-THEORY.md",
+        "concepts": "[category, theory]",
+        "current_path": "mathematics/22-CATEGORY-THEORY.md",
+        "id": "maxim:mathematics:category-theory",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "mathematics",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[category, theory]",
+        "section": "mathematics",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Category Theory - Complete Reference",
+        "updated": "null"
+      },
+      "text": "Equivalently: a contravariant functor F: 𝒞 → 𝒟 is a covariant functor F: 𝒞^{op} → 𝒟 where 𝒞^{op} has all arrows reversed."
+    },
+    {
+      "id": "22-CATEGORY-THEORY.md#035",
+      "path": [
+        "22-CATEGORY-THEORY.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:mathematics:22-category-theory, git-history:mathematics:22-category-theory]",
+        "canonical_path": "mathematics/22-CATEGORY-THEORY.md",
+        "concepts": "[category, theory]",
+        "current_path": "mathematics/22-CATEGORY-THEORY.md",
+        "id": "maxim:mathematics:category-theory",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "mathematics",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[category, theory]",
+        "section": "mathematics",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Category Theory - Complete Reference",
+        "updated": "null"
+      },
+      "text": "### Functor Examples"
+    },
+    {
+      "id": "22-CATEGORY-THEORY.md#036",
+      "path": [
+        "22-CATEGORY-THEORY.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:mathematics:22-category-theory, git-history:mathematics:22-category-theory]",
+        "canonical_path": "mathematics/22-CATEGORY-THEORY.md",
+        "concepts": "[category, theory]",
+        "current_path": "mathematics/22-CATEGORY-THEORY.md",
+        "id": "maxim:mathematics:category-theory",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "mathematics",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[category, theory]",
+        "section": "mathematics",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Category Theory - Complete Reference",
+        "updated": "null"
+      },
+      "text": "**Forgetful functors**: \"Forget\" algebraic structure.\n```\nU: Grp → Set: sends group (G,·) to underlying set G, homomorphism to underlying function.\nU: Ring → Grp: forgets multiplicative structure.\nU: Vect_k → Set: forgets vector space structure.\n```"
+    },
+    {
+      "id": "22-CATEGORY-THEORY.md#037",
+      "path": [
+        "22-CATEGORY-THEORY.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:mathematics:22-category-theory, git-history:mathematics:22-category-theory]",
+        "canonical_path": "mathematics/22-CATEGORY-THEORY.md",
+        "concepts": "[category, theory]",
+        "current_path": "mathematics/22-CATEGORY-THEORY.md",
+        "id": "maxim:mathematics:category-theory",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "mathematics",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[category, theory]",
+        "section": "mathematics",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Category Theory - Complete Reference",
+        "updated": "null"
+      },
+      "text": "**Free functors**: \"Freely\" add structure.\n```\nF: Set → Grp: free group on generators.\nF: Set → Mon: free monoid = lists (strings).\nF: Set → Vect_k: free vector space = formal linear combinations.\n```"
+    },
+    {
+      "id": "22-CATEGORY-THEORY.md#038",
+      "path": [
+        "22-CATEGORY-THEORY.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:mathematics:22-category-theory, git-history:mathematics:22-category-theory]",
+        "canonical_path": "mathematics/22-CATEGORY-THEORY.md",
+        "concepts": "[category, theory]",
+        "current_path": "mathematics/22-CATEGORY-THEORY.md",
+        "id": "maxim:mathematics:category-theory",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "mathematics",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[category, theory]",
+        "section": "mathematics",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Category Theory - Complete Reference",
+        "updated": "null"
+      },
+      "text": "Free and forgetful functors are always adjoint: F ⊣ U (free left-adjoint to forgetful)."
+    },
+    {
+      "id": "22-CATEGORY-THEORY.md#039",
+      "path": [
+        "22-CATEGORY-THEORY.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:mathematics:22-category-theory, git-history:mathematics:22-category-theory]",
+        "canonical_path": "mathematics/22-CATEGORY-THEORY.md",
+        "concepts": "[category, theory]",
+        "current_path": "mathematics/22-CATEGORY-THEORY.md",
+        "id": "maxim:mathematics:category-theory",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "mathematics",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[category, theory]",
+        "section": "mathematics",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Category Theory - Complete Reference",
+        "updated": "null"
+      },
+      "text": "**Power set functor**:\n```\nP: Set → Set\n  P(A) = ℙ(A) (power set)\n  P(f: A→B) = (S ↦ f(S)) : ℙ(A) → ℙ(B)  [covariant: direct image]\n  P*(f) = (T ↦ f⁻¹(T)) : ℙ(B) → ℙ(A)    [contravariant: preimage]\n```"
+    },
+    {
+      "id": "22-CATEGORY-THEORY.md#040",
+      "path": [
+        "22-CATEGORY-THEORY.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:mathematics:22-category-theory, git-history:mathematics:22-category-theory]",
+        "canonical_path": "mathematics/22-CATEGORY-THEORY.md",
+        "concepts": "[category, theory]",
+        "current_path": "mathematics/22-CATEGORY-THEORY.md",
+        "id": "maxim:mathematics:category-theory",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "mathematics",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[category, theory]",
+        "section": "mathematics",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Category Theory - Complete Reference",
+        "updated": "null"
+      },
+      "text": "**Hom functors**: For fixed B, Hom(-,B): 𝒞^{op} → Set (contravariant).\nFor fixed A, Hom(A,-): 𝒞 → Set (covariant).\n```\nHom(A,-)  sends C → Hom(A,C),  (f: C→D) ↦ (g ↦ f∘g)   [post-compose]\nHom(-,B)  sends C → Hom(C,B),  (f: A→C) ↦ (g ↦ g∘f)   [pre-compose]\n```"
+    },
+    {
+      "id": "22-CATEGORY-THEORY.md#041",
+      "path": [
+        "22-CATEGORY-THEORY.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:mathematics:22-category-theory, git-history:mathematics:22-category-theory]",
+        "canonical_path": "mathematics/22-CATEGORY-THEORY.md",
+        "concepts": "[category, theory]",
+        "current_path": "mathematics/22-CATEGORY-THEORY.md",
+        "id": "maxim:mathematics:category-theory",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "mathematics",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[category, theory]",
+        "section": "mathematics",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Category Theory - Complete Reference",
+        "updated": "null"
+      },
+      "text": "### The Yoneda Lemma"
+    },
+    {
+      "id": "22-CATEGORY-THEORY.md#042",
+      "path": [
+        "22-CATEGORY-THEORY.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:mathematics:22-category-theory, git-history:mathematics:22-category-theory]",
+        "canonical_path": "mathematics/22-CATEGORY-THEORY.md",
+        "concepts": "[category, theory]",
+        "current_path": "mathematics/22-CATEGORY-THEORY.md",
+        "id": "maxim:mathematics:category-theory",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "mathematics",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[category, theory]",
+        "section": "mathematics",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Category Theory - Complete Reference",
+        "updated": "null"
+      },
+      "text": "One of the most important results in category theory:"
+    },
+    {
+      "id": "22-CATEGORY-THEORY.md#043",
+      "path": [
+        "22-CATEGORY-THEORY.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:mathematics:22-category-theory, git-history:mathematics:22-category-theory]",
+        "canonical_path": "mathematics/22-CATEGORY-THEORY.md",
+        "concepts": "[category, theory]",
+        "current_path": "mathematics/22-CATEGORY-THEORY.md",
+        "id": "maxim:mathematics:category-theory",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "mathematics",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[category, theory]",
+        "section": "mathematics",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Category Theory - Complete Reference",
+        "updated": "null"
+      },
+      "text": "```\nYoneda Lemma:\n  For any functor F: 𝒞 → Set and any object A ∈ 𝒞:\n  Nat(Hom(A,-), F) ≅ F(A)"
+    },
+    {
+      "id": "22-CATEGORY-THEORY.md#044",
+      "path": [
+        "22-CATEGORY-THEORY.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:mathematics:22-category-theory, git-history:mathematics:22-category-theory]",
+        "canonical_path": "mathematics/22-CATEGORY-THEORY.md",
+        "concepts": "[category, theory]",
+        "current_path": "mathematics/22-CATEGORY-THEORY.md",
+        "id": "maxim:mathematics:category-theory",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "mathematics",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[category, theory]",
+        "section": "mathematics",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Category Theory - Complete Reference",
+        "updated": "null"
+      },
+      "text": "Natural transformations from the representable functor Hom(A,-)\n  to any functor F are in bijection with elements of F(A).\n```"
+    },
+    {
+      "id": "22-CATEGORY-THEORY.md#045",
+      "path": [
+        "22-CATEGORY-THEORY.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:mathematics:22-category-theory, git-history:mathematics:22-category-theory]",
+        "canonical_path": "mathematics/22-CATEGORY-THEORY.md",
+        "concepts": "[category, theory]",
+        "current_path": "mathematics/22-CATEGORY-THEORY.md",
+        "id": "maxim:mathematics:category-theory",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "mathematics",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[category, theory]",
+        "section": "mathematics",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Category Theory - Complete Reference",
+        "updated": "null"
+      },
+      "text": "**Corollary** (Yoneda embedding): The functor y: 𝒞 → Fun(𝒞^{op}, Set) defined by A ↦ Hom(-,A) is **fully faithful**. Categories embed faithfully into functor categories."
+    },
+    {
+      "id": "22-CATEGORY-THEORY.md#046",
+      "path": [
+        "22-CATEGORY-THEORY.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:mathematics:22-category-theory, git-history:mathematics:22-category-theory]",
+        "canonical_path": "mathematics/22-CATEGORY-THEORY.md",
+        "concepts": "[category, theory]",
+        "current_path": "mathematics/22-CATEGORY-THEORY.md",
+        "id": "maxim:mathematics:category-theory",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "mathematics",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[category, theory]",
+        "section": "mathematics",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Category Theory - Complete Reference",
+        "updated": "null"
+      },
+      "text": "**Intuition**: An object A is completely determined by how all other objects map into it (its \"incoming maps\"). You can reconstruct A from its Hom-set behavior. \"An object is known by its relationships.\""
+    }
+  ],
+  "refs": [
+    "22-CATEGORY-THEORY.md"
+  ]
+}

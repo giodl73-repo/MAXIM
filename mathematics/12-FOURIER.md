@@ -1,3 +1,22 @@
+---
+maxim_schema: maxim.frontmatter.v1
+id: maxim:mathematics:fourier
+kind: guide
+module: mathematics
+section: mathematics
+title: 12 - Fourier Analysis
+status: source-custody
+source_custody: partial
+current_path: mathematics/12-FOURIER.md
+canonical_path: mathematics/12-FOURIER.md
+backsource_ids: [proof-backfill:mathematics:12-fourier, git-history:mathematics:12-fourier]
+concepts: [fourier]
+root_concepts: [fourier]
+index_roles: [guide, root-concept]
+remap_from: []
+remap_to: []
+updated: null
+---
 # 12 — Fourier Analysis
 
 ```

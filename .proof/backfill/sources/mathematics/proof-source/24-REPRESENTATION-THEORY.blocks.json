@@ -1,0 +1,171 @@
+{
+  "schema_version": "1",
+  "source_markdown": "mathematics\\24-REPRESENTATION-THEORY.md",
+  "blocks": [
+    {
+      "id": "block-1",
+      "kind": "diagram_like",
+      "line": 26,
+      "heading_context": "## The Big Picture",
+      "confidence": "candidate",
+      "text": "┌─────────────────────────────────────────────────────────────────────────────┐\n│  REPRESENTATION THEORY LANDSCAPE                                            │\n│                                                                             │\n│  Finite Groups                        Compact Lie Groups                    │\n│  ──────────────────────────────        ──────────────────────────────────   │\n│  Group algebra ℂ[G]                   Lie algebras (tangent at identity)    │\n│  Maschke's theorem (semisimplicity)   Exponential map exp: 𝔤 → G            │\n│  Characters χ(g) = tr ρ(g)            Root systems, Dynkin diagrams         │\n│  Character table                      Highest weight theorem                │\n│  Regular, induced representations     Weyl character formula                │\n│                                                                             │\n│  Key Groups in Physics               ML & Computation                       │\n│  ──────────────────────────────        ──────────────────────────────────   │\n│  U(1): electromagnetism              G-equivariant networks (G-CNNs)        │\n│  SU(2) ≅ Spin(3): fermions           SE(3)-equivariant molecular modeling   │\n│  SU(3): strong force                 Permutation-equivariant (set networks) │\n│  SU(2)×U(1): electroweak             Spectral graph theory / GNNs           │\n│  SU(3)×SU(2)×U(1): Standard Model   Non-abelian Fourier (Peter-Weyl)        │\n└─────────────────────────────────────────────────────────────────────────────┘",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-2",
+      "kind": "diagram_like",
+      "line": 188,
+      "heading_context": "### Construction",
+      "confidence": "candidate",
+      "text": "V = Ind_H^G(σ) = ℂ[G] ⊗_{ℂ[H]} W    (W = space of σ)\n  = {functions f: G → W : f(hg) = σ(h)f(g) for all h ∈ H}\n\ndim = [G:H] · dim σ\n\nG acts by right translation: (g·f)(x) = f(xg).",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-3",
+      "kind": "ascii_table_candidate",
+      "line": 257,
+      "heading_context": "### Exponential Map",
+      "confidence": "candidate",
+      "text": "exp: 𝔤 → G\n\nexp(X) = e^X = Σ_{n=0}^∞ Xⁿ/n!   (matrix exponential for matrix groups)\n\nProperties:\n  exp(0) = e\n  exp((s+t)X) = exp(sX)exp(tX)   [one-parameter subgroup]\n  d/dt exp(tX)|_{t=0} = X\n  If [X,Y]=0: exp(X+Y) = exp(X)exp(Y)\n\nBCH formula: exp(X)exp(Y) = exp(X + Y + ½[X,Y] + 1/12[X,[X,Y]] - 1/12[Y,[X,Y]] + ...)\n  (Baker-Campbell-Hausdorff — encodes non-commutativity of G)",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-4",
+      "kind": "chart_like",
+      "line": 274,
+      "heading_context": "### Exponential Map",
+      "confidence": "candidate",
+      "text": "### SU(2) — The Rotation Group Double Cover",
+      "notes": [
+        "detected from bar/chart glyph density with numeric labels"
+      ]
+    },
+    {
+      "id": "block-5",
+      "kind": "chart_like",
+      "line": 309,
+      "heading_context": "### Representation of a Lie Group",
+      "confidence": "candidate",
+      "text": "### Representations of SU(2)",
+      "notes": [
+        "detected from bar/chart glyph density with numeric labels"
+      ]
+    },
+    {
+      "id": "block-6",
+      "kind": "ascii_table_candidate",
+      "line": 312,
+      "heading_context": "### Representations of SU(2)",
+      "confidence": "candidate",
+      "text": "V_j: dimension 2j+1.\n\nAngular momentum operators (from Lie algebra action):\n  J_z eigenvalues: -j, -j+1, ..., j-1, j  (magnetic quantum numbers m)\n  J² = J₁²+J₂²+J₃² = j(j+1)I on V_j\n\nPhysics identification:\n  j=0:   spin-0 (scalar, meson π⁰)\n  j=1/2: spin-1/2 (electron, quark, proton) — V_{1/2} = ℂ² (spinor)\n  j=1:   spin-1 (photon, W/Z boson, vector particle)\n  j=3/2: spin-3/2 (Δ baryon)\n  j=2:   spin-2 (graviton, predicted)\n\nTensor product (Clebsch-Gordan):\n  V_j ⊗ V_k = V_{|j-k|} ⊕ V_{|j-k|+1} ⊕ ... ⊕ V_{j+k}\n\n  Example: j=1/2 ⊗ j=1/2 = j=0 ⊕ j=1\n           Two spin-1/2 particles → singlet (j=0) + triplet (j=1).\n           This is how hydrogen spin states decompose.",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-7",
+      "kind": "diagram_like",
+      "line": 338,
+      "heading_context": "### Highest Weight Theory",
+      "confidence": "candidate",
+      "text": "Cartan decomposition: 𝔤 = 𝔥 ⊕ (⊕_α 𝔤_α)\n  𝔥 = Cartan subalgebra (maximal abelian semisimple)\n  𝔤_α = root spaces, α ∈ Φ = root system\n\nFor 𝔰𝔩(2,ℂ):\n  𝔥 = span{H = (1 0; 0 -1)}\n  𝔤_+ = span{E = (0 1; 0 0)}   [raising operator]\n  𝔤_- = span{F = (0 0; 1 0)}   [lowering operator]\n  [H,E] = 2E,  [H,F] = -2F,  [E,F] = H\n\nIn any representation V:\n  H acts diagonally (V = ⊕_m V_m where V_m = {v: Hv=mv})\n  E raises: E: V_m → V_{m+2}\n  F lowers: F: V_m → V_{m-2}\n\nHighest weight vector v_max: E·v_max = 0.\n  Starting from v_max, apply F repeatedly to get basis.\n  Irrep of 𝔰𝔩(2) classified by highest weight λ = max eigenvalue of H.\n  dim V = λ+1. For integer λ: actual SL(2) representation. Half-integer: spin rep.",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-8",
+      "kind": "chart_like",
+      "line": 377,
+      "heading_context": "## 6. SU(3) and the Quark Model",
+      "confidence": "candidate",
+      "text": "### The Lie Algebra 𝔰𝔲(3)",
+      "notes": [
+        "detected from bar/chart glyph density with numeric labels"
+      ]
+    },
+    {
+      "id": "block-9",
+      "kind": "diagram_like",
+      "line": 445,
+      "heading_context": "### Weyl Character Formula",
+      "confidence": "candidate",
+      "text": "χ_λ(exp H) = Σ_{w ∈ W} ε(w) e^{⟨w(λ+ρ), H⟩}\n              ────────────────────────────────────\n              Σ_{w ∈ W} ε(w) e^{⟨wρ, H⟩}\n\nW = Weyl group, ε(w) = sign of w, ρ = half-sum of positive roots.\n\nFor SU(2): χ_j(θ) = sin((2j+1)θ)/sin(θ)  [the \"Chebyshev\" formula for characters]\n  This is why characters of SU(2) are the Chebyshev polynomials.\n\nWeyl dimension formula:\n  dim V_λ = ∏_{α∈Φ⁺} ⟨λ+ρ, α⟩/⟨ρ, α⟩",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-10",
+      "kind": "diagram_like",
+      "line": 541,
+      "heading_context": "### The Standard Model Gauge Group",
+      "confidence": "candidate",
+      "text": "G_SM = SU(3)_C × SU(2)_L × U(1)_Y\n\nSU(3)_C: color charge of QCD (gluons in 8-rep, quarks in 3-rep)\nSU(2)_L: weak isospin (W±, Z bosons; left-handed fermions in doublets)\nU(1)_Y:  hypercharge (B boson)\n\nAfter electroweak symmetry breaking (Higgs mechanism):\n  SU(2)_L × U(1)_Y → U(1)_EM  (photon = linear combo of W³ and B)\n\nFermion multiplets transform under specific representations:\n  Left-handed quarks: (3, 2, 1/6) [triplet under SU(3), doublet under SU(2)]\n  Right-handed up quark: (3, 1, 2/3)\n  Leptons (e,ν): (1, 2, -1/2) left-handed doublet, (1,1,-1) right-handed singlet\n\nAll particle content and interactions are encoded in representation theory of G_SM.",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-11",
+      "kind": "chart_like",
+      "line": 644,
+      "heading_context": "### G-CNNs (Group Convolutional Networks)",
+      "confidence": "candidate",
+      "text": "### SE(3)-Equivariant Networks for 3D Molecular Modeling",
+      "notes": [
+        "detected from bar/chart glyph density with numeric labels"
+      ]
+    },
+    {
+      "id": "block-12",
+      "kind": "diagram_like",
+      "line": 648,
+      "heading_context": "### SE(3)-Equivariant Networks for 3D Molecular Modeling",
+      "confidence": "candidate",
+      "text": "SO(3) irreps: spherical harmonics Y_l^m, indexed by l = 0, 1, 2, ...\n  l=0: scalars (invariant)\n  l=1: vectors (equivariant under rotations as 3-vectors)\n  l=2: rank-2 tensors (quadrupole moments)\n  general l: rank-l tensors / \"type-l features\"\n\nClebsch-Gordan product (tensor product decomposition):\n  V_l₁ ⊗ V_l₂ = ⊕_{l=|l₁-l₂|}^{l₁+l₂} V_l\n  This is the same Clebsch-Gordan formula as for SU(2) angular momentum addition.\n  Product of two SO(3) features combines irreps by angular momentum addition rules.\n\nArchitecture (Tensor Field Networks, SE(3)-Transformers, NequIP, MACE):\n  1. Embed atoms as type-0 features (scalars: element, charge, ...).\n  2. For each edge (atom pair): compute spherical harmonics Y_l(r_ij/|r_ij|) of direction.\n  3. Equivariant message passing:\n       h_i^{l} ← Σ_j  (learnable radial filter)(|r_ij|)  ⊗_{CG}  Y_l(r̂_ij) ⊗  h_j^{l'}\n     where ⊗_{CG} means tensor product with Clebsch-Gordan decomposition.\n  4. Output: type-0 features (energy = scalar), type-1 features (forces = vectors).\n\nKey property: exact SE(3)-equivariance by construction → no data augmentation needed.\n  A rotated molecule gives exactly the rotated output. This is not an approximation.",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-13",
+      "kind": "diagram_like",
+      "line": 696,
+      "heading_context": "### Signal Processing on Non-Euclidean Domains",
+      "confidence": "candidate",
+      "text": "Classical Fourier (G = ℝ): irreps are e^{ikx}, Fourier modes indexed by frequency k.\n  f(x) = ∫ f̂(k) e^{ikx} dk     [Fourier inversion]\n  Convolution theorem: f * g → f̂ · ĝ  [pointwise in frequency domain]\n\nPeter-Weyl (G compact): irreps ρ play the role of Fourier modes.\n  f ∈ L²(G): f(g) = Σ_ρ (dim ρ) tr(f̂(ρ) ρ(g)*)\n  Convolution on G: (f * h)(g) = ∫_G f(gh⁻¹) h(g) dg\n  Fourier domain: (f * h)^(ρ) = f̂(ρ) ĥ(ρ)  [matrix product in each irrep block]\n\nSpectral graph theory (discrete setting):\n  Graph G = (V, E), Laplacian L = D - A  (degree matrix minus adjacency).\n  L is symmetric positive semidefinite: L = UΛUᵀ  (eigendecomposition).\n  Eigenvectors of L: graph Fourier modes  (analogous to e^{ikx} on ℝ).\n  Graph Fourier transform: f̂ = Uᵀ f  (project onto eigenvector basis).\n  Graph convolution: f * k → U (Uᵀf ⊙ Uᵀk)  [pointwise in spectral domain].\n\nChebNet / spectral GNNs: parameterize filter as polynomial in L:\n  k_θ(L) = Σ_j θ_j T_j(L)  [Chebyshev polynomial of Laplacian]\n  Efficient: O(|E|) computation per layer without full eigendecomposition.\n  Connection: Chebyshev polynomials are the characters of SU(2) (Weyl formula above).",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-14",
+      "kind": "chart_like",
+      "line": 723,
+      "heading_context": "## 11. Harmonic Analysis on Groups",
+      "confidence": "candidate",
+      "text": "### Spherical Harmonics from SO(3) Reps",
+      "notes": [
+        "detected from bar/chart glyph density with numeric labels"
+      ]
+    },
+    {
+      "id": "block-15",
+      "kind": "diagram_like",
+      "line": 764,
+      "heading_context": "## Decision Cheat Sheet",
+      "confidence": "candidate",
+      "text": "Question:                                    Tool:\n────────────────────────────────────────     ──────────────────────────────────────────\nDecompose V into irreps                      Character inner product: mᵢ = ⟨χ_V, χᵢ⟩\nCheck if representation is irreducible       ⟨χ,χ⟩ = 1 iff irreducible\nFind all irreps of finite group G            Build character table (rows=irreps, cols=classes)\nRepresentations of SU(2)                     Half-integer j ∈ {0,½,1,...}, dim=2j+1\nAngular momentum addition (QM)              Clebsch-Gordan decomposition: V_j ⊗ V_k\nParticle content from gauge group           Find irreps of G_SM containing those quantum numbers\nSymmetry → conservation law                 Noether's theorem + Lie algebra generator\nSpherical harmonics                         L²(S²) = ⊕_l V_l (SO(3) representation)\nFourier transform                           Irreps of ℝ (Pontryagin duality)\nNon-abelian Fourier analysis on G           Peter-Weyl theorem\nClassify irreps of semisimple Lie group     Highest weight classification\nDimension of irrep                          Weyl dimension formula\nSpinors vs tensors                          (½,0)⊕(0,½) vs (½,½) Lorentz reps\nBuild a G-equivariant network layer        Parameterize weights as intertwiners (Schur's lemma)\nG-equivariant filter bank                   Decompose L²(G) into irreps (Peter-Weyl)\nSE(3)-equivariant 3D network               SO(3) irreps (spherical harmonics) + CG products\nPermutation-invariant network (sets)        Deep Sets: ρ∘Σ∘φ architecture\nSpectral convolution on graph              Graph Laplacian eigenvectors as Fourier modes\nEquivariant map between irrep spaces        Schur's lemma: must be 0 or scalar × identity\nGL(n) rep tensor product coefficients       Littlewood-Richardson rule (Schur polynomials)",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    }
+  ]
+}

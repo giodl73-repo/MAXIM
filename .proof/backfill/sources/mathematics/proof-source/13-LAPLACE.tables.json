@@ -1,0 +1,192 @@
+{
+  "schema_version": "1",
+  "source_markdown": "mathematics\\13-LAPLACE.md",
+  "tables": [
+    {
+      "id": "table-1",
+      "line": 147,
+      "heading_context": "## 2. Transform Table",
+      "headers": [
+        "f(t), t ≥ 0",
+        "F(s)",
+        "Notes"
+      ],
+      "rows": [
+        [
+          "δ(t)",
+          "1",
+          "Impulse"
+        ],
+        [
+          "u(t)",
+          "1/s",
+          "Step"
+        ],
+        [
+          "t",
+          "1/s²",
+          "Ramp"
+        ],
+        [
+          "tⁿ",
+          "n!/s^(n+1)",
+          "Polynomial"
+        ],
+        [
+          "e^(at)",
+          "1/(s-a)",
+          "Exponential"
+        ],
+        [
+          "sin(ωt)",
+          "ω/(s²+ω²)",
+          "Sine"
+        ],
+        [
+          "cos(ωt)",
+          "s/(s²+ω²)",
+          "Cosine"
+        ],
+        [
+          "e^(at)sin(ωt)",
+          "ω/((s-a)²+ω²)",
+          "Damped sine"
+        ],
+        [
+          "e^(at)cos(ωt)",
+          "(s-a)/((s-a)²+ω²)",
+          "Damped cosine"
+        ],
+        [
+          "t e^(at)",
+          "1/(s-a)²",
+          "Repeated pole"
+        ],
+        [
+          "tⁿ e^(at)",
+          "n!/(s-a)^(n+1)",
+          "Order-n pole"
+        ],
+        [
+          "u(t-a) (delayed step)",
+          "e^(-as)/s",
+          "Time delay"
+        ],
+        [
+          "f(t-a)u(t-a)",
+          "e^(-as)F(s)",
+          "Any delayed function"
+        ]
+      ]
+    },
+    {
+      "id": "table-2",
+      "line": 463,
+      "heading_context": "## 8. z-Transform — Discrete-Time Counterpart",
+      "headers": [
+        "x[n]",
+        "X(z)",
+        "ROC"
+      ],
+      "rows": [
+        [
+          "δ[n]",
+          "1",
+          "All z"
+        ],
+        [
+          "u[n]",
+          "1/(1-z⁻¹) = z/(z-1)",
+          "\\|z\\| > 1"
+        ],
+        [
+          "aⁿ u[n]",
+          "1/(1-az⁻¹) = z/(z-a)",
+          "\\|z\\| > \\|a\\|"
+        ],
+        [
+          "n·aⁿ u[n]",
+          "az⁻¹/(1-az⁻¹)²",
+          "\\|z\\| > \\|a\\|"
+        ],
+        [
+          "cos(ω₀n)u[n]",
+          "(1-cos(ω₀)z⁻¹)/(1-2cos(ω₀)z⁻¹+z⁻²)",
+          "\\|z\\| > 1"
+        ],
+        [
+          "sin(ω₀n)u[n]",
+          "sin(ω₀)z⁻¹/(1-2cos(ω₀)z⁻¹+z⁻²)",
+          "\\|z\\| > 1"
+        ]
+      ]
+    },
+    {
+      "id": "table-3",
+      "line": 547,
+      "heading_context": "## 11. Decision Cheat Sheet",
+      "headers": [
+        "Need to...",
+        "Use"
+      ],
+      "rows": [
+        [
+          "Solve ODE with ICs, get time response",
+          "Laplace, partial fractions, table"
+        ],
+        [
+          "Analyze steady-state sinusoidal response",
+          "H(jω) = H(s)\\|\\_{s=jω} (Bode)"
+        ],
+        [
+          "Design a filter for continuous circuit",
+          "H(s) poles/zeros, then realize as RLC/op-amp"
+        ],
+        [
+          "Check stability of continuous system",
+          "Routh-Hurwitz or: all poles in LHP?"
+        ],
+        [
+          "Check stability with loop gain known",
+          "Nyquist criterion: encirclements of -1"
+        ],
+        [
+          "Design digital filter",
+          "z-transform, poles inside unit circle"
+        ],
+        [
+          "Analyze sampling and aliasing",
+          "z = e^(sT), unit circle = Nyquist"
+        ],
+        [
+          "Understand frequency shaping",
+          "Bode plots — slopes reveal pole/zero structure"
+        ],
+        [
+          "Model signal flow through LTI system",
+          "Transfer function H(s) or H(z)"
+        ],
+        [
+          "Convert analog prototype to digital",
+          "Bilinear transform: s = 2(z-1)/[T(z+1)]"
+        ],
+        [
+          "Find DC gain",
+          "H(0) (s→0) or H(1) (z→1, z-domain DC)"
+        ],
+        [
+          "Find bandwidth",
+          "Frequency where \\|H(jω)\\| drops to -3 dB"
+        ],
+        [
+          "Tune feedback controller",
+          "PM and GM from Bode, then adjust C(s)"
+        ],
+        [
+          "Compute E[X^n] of a distribution",
+          "MGF: M_X^(n)(0) = E[X^n] = bilateral Laplace at -t"
+        ]
+      ]
+    }
+  ]
+}

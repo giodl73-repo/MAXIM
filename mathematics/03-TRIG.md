@@ -1,3 +1,22 @@
+---
+maxim_schema: maxim.frontmatter.v1
+id: maxim:mathematics:trig
+kind: guide
+module: mathematics
+section: mathematics
+title: 03 - Trigonometry: The Full Refresh
+status: source-custody
+source_custody: partial
+current_path: mathematics/03-TRIG.md
+canonical_path: mathematics/03-TRIG.md
+backsource_ids: [proof-backfill:mathematics:03-trig, git-history:mathematics:03-trig]
+concepts: [trig]
+root_concepts: [trig]
+index_roles: [guide, root-concept]
+remap_from: []
+remap_to: []
+updated: null
+---
 # 03 — Trigonometry: The Full Refresh
 
 ```

@@ -1,0 +1,367 @@
+{
+  "schema_version": "1",
+  "source_markdown": "mathematics\\11-PROBABILITY.md",
+  "tables": [
+    {
+      "id": "table-1",
+      "line": 81,
+      "heading_context": "## 1. Kolmogorov Axioms — The Foundation",
+      "headers": [
+        "Component",
+        "Definition",
+        "Example (fair die)"
+      ],
+      "rows": [
+        [
+          "**Ω**",
+          "Sample space — all outcomes",
+          "{1,2,3,4,5,6}"
+        ],
+        [
+          "**ℱ**",
+          "σ-algebra of events (subsets closed under complement and countable union)",
+          "All 2⁶ subsets"
+        ],
+        [
+          "**P**",
+          "Probability measure",
+          "P({k}) = 1/6"
+        ]
+      ]
+    },
+    {
+      "id": "table-2",
+      "line": 165,
+      "heading_context": "## 2. Random Variables and Distributions",
+      "headers": [
+        "Distribution",
+        "PMF p(k)",
+        "Mean",
+        "Variance",
+        "Use"
+      ],
+      "rows": [
+        [
+          "**Bernoulli(p)**",
+          "p^k(1-p)^(1-k), k∈{0,1}",
+          "p",
+          "p(1-p)",
+          "Single trial"
+        ],
+        [
+          "**Binomial(n,p)**",
+          "C(n,k)p^k(1-p)^(n-k)",
+          "np",
+          "np(1-p)",
+          "n independent trials"
+        ],
+        [
+          "**Geometric(p)**",
+          "(1-p)^(k-1)p, k≥1",
+          "1/p",
+          "(1-p)/p²",
+          "Waiting time to first success"
+        ],
+        [
+          "**Poisson(λ)**",
+          "e^(-λ)λ^k/k!",
+          "λ",
+          "λ",
+          "Rare events in interval"
+        ],
+        [
+          "**Negative Binomial(r,p)**",
+          "C(k-1,r-1)p^r(1-p)^(k-r)",
+          "r/p",
+          "r(1-p)/p²",
+          "r-th success"
+        ]
+      ]
+    },
+    {
+      "id": "table-3",
+      "line": 177,
+      "heading_context": "## 2. Random Variables and Distributions",
+      "headers": [
+        "Distribution",
+        "PDF f(x)",
+        "Mean",
+        "Variance",
+        "Use"
+      ],
+      "rows": [
+        [
+          "**Uniform(a,b)**",
+          "1/(b-a)",
+          "(a+b)/2",
+          "(b-a)²/12",
+          "No information"
+        ],
+        [
+          "**Exponential(λ)**",
+          "λe^(-λx), x≥0",
+          "1/λ",
+          "1/λ²",
+          "Waiting times, memoryless"
+        ],
+        [
+          "**Gaussian N(μ,σ²)**",
+          "(1/σ√2π)e^(-(x-μ)²/2σ²)",
+          "μ",
+          "σ²",
+          "CLT limit, everywhere"
+        ],
+        [
+          "**Gamma(α,β)**",
+          "x^(α-1)e^(-x/β)/(β^α Γ(α))",
+          "αβ",
+          "αβ²",
+          "Sum of α exponentials"
+        ],
+        [
+          "**Beta(α,β)**",
+          "x^(α-1)(1-x)^(β-1)/B(α,β)",
+          "α/(α+β)",
+          "αβ/[(α+β)²(α+β+1)]",
+          "Probabilities (x∈[0,1])"
+        ],
+        [
+          "**Cauchy**",
+          "1/[π(1+x²)]",
+          "undefined",
+          "undefined",
+          "Heavy tails, no CLT"
+        ],
+        [
+          "**Log-normal**",
+          "(1/xσ√2π)e^(-(ln x-μ)²/2σ²)",
+          "e^(μ+σ²/2)",
+          "—",
+          "Multiplicative processes"
+        ],
+        [
+          "**χ²(k)**",
+          "—",
+          "k",
+          "2k",
+          "Sum of k squared Gaussians"
+        ]
+      ]
+    },
+    {
+      "id": "table-4",
+      "line": 385,
+      "heading_context": "## 5. Master Theorem — Recurrences",
+      "headers": [
+        "Recurrence",
+        "a",
+        "b",
+        "f(n)",
+        "c*=log_b(a)",
+        "Case",
+        "T(n)"
+      ],
+      "rows": [
+        [
+          "Merge sort: T(n) = 2T(n/2) + n",
+          "2",
+          "2",
+          "n",
+          "1",
+          "2 (k=0)",
+          "**Θ(n log n)**"
+        ],
+        [
+          "Binary search: T(n) = T(n/2) + 1",
+          "1",
+          "2",
+          "1",
+          "0",
+          "2",
+          "**Θ(log n)**"
+        ],
+        [
+          "Strassen: T(n) = 7T(n/2) + n²",
+          "7",
+          "2",
+          "n²",
+          "log₂7≈2.807",
+          "1",
+          "**Θ(n^2.807)**"
+        ],
+        [
+          "Naive matrix mult: T(n) = 8T(n/2) + n²",
+          "8",
+          "2",
+          "n²",
+          "3",
+          "1",
+          "**Θ(n³)**"
+        ],
+        [
+          "T(n) = 4T(n/2) + n²",
+          "4",
+          "2",
+          "n²",
+          "2",
+          "2",
+          "**Θ(n² log n)**"
+        ],
+        [
+          "T(n) = 2T(n/2) + n²",
+          "2",
+          "2",
+          "n²",
+          "1",
+          "3",
+          "**Θ(n²)**"
+        ]
+      ]
+    },
+    {
+      "id": "table-5",
+      "line": 637,
+      "heading_context": "## 9. Common Distributions in Physics and CS",
+      "headers": [
+        "Context",
+        "Distribution",
+        "Why"
+      ],
+      "rows": [
+        [
+          "Radioactive decay counts",
+          "Poisson",
+          "Independent rare events"
+        ],
+        [
+          "Thermal fluctuations",
+          "Gaussian",
+          "Sum of many kicks (CLT)"
+        ],
+        [
+          "Particle velocities (kinetic theory)",
+          "Maxwell-Boltzmann",
+          "Max entropy + fixed ⟨E⟩"
+        ],
+        [
+          "Energy levels",
+          "Boltzmann",
+          "Max entropy + fixed ⟨E⟩"
+        ],
+        [
+          "Quantum spin measurement",
+          "Bernoulli",
+          "Two outcomes: ±ℏ/2"
+        ],
+        [
+          "Network degree",
+          "Power law",
+          "Scale-free networks"
+        ],
+        [
+          "Hash collision analysis",
+          "Birthday / Poisson",
+          "√n collision threshold"
+        ],
+        [
+          "Randomized quicksort",
+          "Geometric",
+          "Expected pivot position"
+        ],
+        [
+          "Financial returns",
+          "Log-normal (approx)",
+          "Multiplicative shocks"
+        ],
+        [
+          "Turbulence (intermittent)",
+          "Lévy / stable",
+          "Infinite variance"
+        ]
+      ]
+    },
+    {
+      "id": "table-6",
+      "line": 654,
+      "heading_context": "## 10. Decision Cheat Sheet",
+      "headers": [
+        "You need to...",
+        "Tool"
+      ],
+      "rows": [
+        [
+          "Model counts in interval",
+          "Poisson(λ)"
+        ],
+        [
+          "Model k successes in n trials",
+          "Binomial(n,p)"
+        ],
+        [
+          "Model waiting time (continuous)",
+          "Exponential(λ)"
+        ],
+        [
+          "Model sum of many effects",
+          "Gaussian (CLT)"
+        ],
+        [
+          "Model proportions / probabilities",
+          "Beta(α,β)"
+        ],
+        [
+          "Update beliefs given data",
+          "Bayes' theorem"
+        ],
+        [
+          "Bound tail probability, any distribution",
+          "Chebyshev"
+        ],
+        [
+          "Bound tail for bounded r.v., tight",
+          "Chernoff"
+        ],
+        [
+          "Bound function of independent r.v.",
+          "McDiarmid's inequality"
+        ],
+        [
+          "Bound martingale with bounded increments",
+          "Azuma's inequality"
+        ],
+        [
+          "Analyze divide-and-conquer T(n)",
+          "Master Theorem"
+        ],
+        [
+          "Find long-run behavior of system",
+          "Markov chain stationary π"
+        ],
+        [
+          "Sample from intractable posterior",
+          "MCMC (Metropolis/Gibbs)"
+        ],
+        [
+          "Model physical state probabilities",
+          "Boltzmann e^(-βE)/Z"
+        ],
+        [
+          "Quantify information / compression",
+          "Shannon entropy H(X)"
+        ],
+        [
+          "Measure distribution distance",
+          "KL divergence D_KL"
+        ],
+        [
+          "Bound estimation variance",
+          "Cramér-Rao: Var(θ̂) ≥ 1/I(θ)"
+        ],
+        [
+          "Fit approximate posterior in ML",
+          "Variational inference / ELBO"
+        ]
+      ]
+    }
+  ]
+}

@@ -1,0 +1,133 @@
+{
+  "schema_version": "1",
+  "source_markdown": "mathematics\\19-NUMERICAL-METHODS.md",
+  "tables": [
+    {
+      "id": "table-1",
+      "line": 1172,
+      "heading_context": "## 11. Decision Cheat Sheet",
+      "headers": [
+        "Problem",
+        "Method",
+        "Complexity",
+        "Notes"
+      ],
+      "rows": [
+        [
+          "Root of scalar f",
+          "Brent's",
+          "O(log 1/ε)",
+          "Safe + fast, no derivative needed"
+        ],
+        [
+          "Root, derivative known",
+          "Newton",
+          "O(log log 1/ε)",
+          "Quadratic convergence, near simple root"
+        ],
+        [
+          "Linear system, dense SPD",
+          "Cholesky",
+          "O(n³/6)",
+          "2× faster than LU"
+        ],
+        [
+          "Linear system, dense general",
+          "LU+pivoting",
+          "O(n³/3)",
+          "LAPACK dgesv"
+        ],
+        [
+          "Linear system, large sparse SPD",
+          "CG+AMG",
+          "O(n)",
+          "Multigrid preconditioned"
+        ],
+        [
+          "Linear system, large sparse general",
+          "GMRES+ILU",
+          "O(kn) per restart",
+          "k = iterations"
+        ],
+        [
+          "Interpolation, smooth function",
+          "Chebyshev nodes",
+          "O(n²)",
+          "Avoid Runge's phenomenon"
+        ],
+        [
+          "Interpolation, general",
+          "Cubic spline",
+          "O(n)",
+          "Smooth, stable"
+        ],
+        [
+          "Least squares",
+          "QR decomposition",
+          "O(mn²)",
+          "Stable, κ(R)=κ(A) not κ²(A)"
+        ],
+        [
+          "Integration, smooth 1D",
+          "Gauss-Legendre",
+          "O(n⁻²ⁿ)",
+          "Exponentially fast for smooth f"
+        ],
+        [
+          "Integration, periodic",
+          "Trapezoidal",
+          "O(e^{-c/h})",
+          "Spectrally accurate"
+        ],
+        [
+          "Integration, high-dimension",
+          "Monte Carlo",
+          "O(N^{-1/2})",
+          "Dimension-independent"
+        ],
+        [
+          "ODE, non-stiff",
+          "RK45 (DOPRI5)",
+          "O(hᵖ) adaptive",
+          "scipy solve_ivp default"
+        ],
+        [
+          "ODE, stiff",
+          "BDF/Radau",
+          "—",
+          "scipy solve_ivp method='BDF'"
+        ],
+        [
+          "ODE, Hamiltonian/long-time",
+          "Störmer-Verlet",
+          "O(h²), bounded energy",
+          "Symplectic, no energy drift"
+        ],
+        [
+          "All eigenvalues, dense",
+          "QR algorithm",
+          "O(n³)",
+          "LAPACK dsyev/dgeev"
+        ],
+        [
+          "Few eigenvalues, sparse",
+          "Lanczos/Arnoldi",
+          "O(kn)",
+          "k << n"
+        ],
+        [
+          "Derivatives of code",
+          "Reverse-mode AD",
+          "O(1) × cost(f)",
+          "Backpropagation"
+        ],
+        [
+          "Large model gradients, memory-limited",
+          "Gradient checkpointing",
+          "2× compute, √L memory",
+          "torch.utils.checkpoint"
+        ]
+      ]
+    }
+  ]
+}

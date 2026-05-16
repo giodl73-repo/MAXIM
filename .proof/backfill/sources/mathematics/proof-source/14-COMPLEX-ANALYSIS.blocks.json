@@ -1,0 +1,116 @@
+{
+  "schema_version": "1",
+  "source_markdown": "mathematics\\14-COMPLEX-ANALYSIS.md",
+  "blocks": [
+    {
+      "id": "block-1",
+      "kind": "diagram_like",
+      "line": 24,
+      "heading_context": "## The Big Picture",
+      "confidence": "candidate",
+      "text": "┌─────────────────────────────────────────────────────────────────────────────┐\n│                         COMPLEX ANALYSIS                                    │\n│         The study of functions f: ℂ → ℂ that are complex-differentiable     │\n├─────────────────────────────────────────────────────────────────────────────┤\n│                                                                             │\n│  Layer 1: Algebra                                                           │\n│  ℂ = algebraic closure of ℝ  →  z = x + iy, |z|, arg z, polar form        │\n│                                                                             │\n│  Layer 2: Geometry                                                          │\n│  Complex plane ℂ ≅ ℝ² + extra structure from multiplication                │\n│  Riemann sphere: ℂ ∪ {∞}  (one-point compactification)                    │\n│                                                                             │\n│  Layer 3: Analysis — the key concept                                        │\n│  Holomorphic = complex-differentiable ⟺ Cauchy-Riemann equations          │\n│  Holomorphic ⟹ analytic (equals its Taylor series)  ← NOT true in ℝ      │\n│                                                                             │\n│  Layer 4: Integration theory                                                │\n│  Cauchy's theorem → Cauchy integral formula → residue theorem              │\n│                                                                             │\n│  Layer 5: Applications                                                      │\n│  Real integrals • Fourier/Laplace inversion • Fluid dynamics               │\n│  Conformal maps • Quantum mechanics • Signal processing                    │\n│                                                                             │\n│  The miracle: differentiability in ℂ is enormously more                   │\n│  constraining than in ℝ. Once-differentiable ⟹ infinitely differentiable. │\n└─────────────────────────────────────────────────────────────────────────────┘",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-2",
+      "kind": "diagram_like",
+      "line": 104,
+      "heading_context": "### Complex Differentiability",
+      "confidence": "candidate",
+      "text": "f'(z₀) = lim      f(z₀ + h) - f(z₀)\n         h→0 (h∈ℂ)  ──────────────────\n                           h",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-3",
+      "kind": "diagram_like",
+      "line": 250,
+      "heading_context": "### Laurent Series and Singularities",
+      "confidence": "candidate",
+      "text": "┌─────────────────────────────────────────────────────────────────────────┐\n│  SINGULARITY TYPES                                                      │\n│                                                                         │\n│  Removable singularity                                                  │\n│  Principal part = 0. lim f(z) exists as z→z₀.                           │\n│  Example: sin(z)/z at z=0. Define f(0)=1 → holomorphic everywhere.      │\n│                                                                         │\n│  Pole of order m                                                        │\n│  cₙ = 0 for n < −m, c₋ₘ ≠ 0.  |f(z)| → ∞ as z → z₀.                     │\n│  Example: 1/z² has a pole of order 2 at 0.                              │\n│  g(z) = (z−z₀)^m f(z) is holomorphic at z₀.                             │\n│                                                                         │\n│  Essential singularity                                                  │\n│  Infinitely many negative terms.                                        │\n│  Example: e^(1/z) at z=0.                                               │\n│  Picard's Great Theorem: in any punctured neighborhood of an            │\n│  essential singularity, f takes every complex value (with at most       │\n│  one exception) infinitely often.                                       │\n└─────────────────────────────────────────────────────────────────────────┘",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-4",
+      "kind": "chart_like",
+      "line": 313,
+      "heading_context": "### Evaluating Real Integrals",
+      "confidence": "candidate",
+      "text": "#### Type 1: Rational functions of sin and cos",
+      "notes": [
+        "detected from bar/chart glyph density with numeric labels"
+      ]
+    },
+    {
+      "id": "block-5",
+      "kind": "chart_like",
+      "line": 326,
+      "heading_context": "#### Type 1: Rational functions of sin and cos",
+      "confidence": "candidate",
+      "text": "#### Type 2: Rational functions on the real line",
+      "notes": [
+        "detected from bar/chart glyph density with numeric labels"
+      ]
+    },
+    {
+      "id": "block-6",
+      "kind": "ascii_table_candidate",
+      "line": 336,
+      "heading_context": "#### Type 2: Rational functions on the real line",
+      "confidence": "candidate",
+      "text": "∫_{-∞}^{∞} dx/(x²+1) = 2πi · Res(1/(z²+1), i) = 2πi · 1/(2i) = π",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-7",
+      "kind": "chart_like",
+      "line": 340,
+      "heading_context": "#### Type 2: Rational functions on the real line",
+      "confidence": "candidate",
+      "text": "#### Type 3: Fourier-type integrals",
+      "notes": [
+        "detected from bar/chart glyph density with numeric labels"
+      ]
+    },
+    {
+      "id": "block-8",
+      "kind": "ascii_table_candidate",
+      "line": 543,
+      "heading_context": "### Zeta Function and the Primes",
+      "confidence": "candidate",
+      "text": "Euler product (Re s > 1):\n  ζ(s) = Π_{p prime} (1 − p^{-s})^{-1}\n\nThis is the fundamental bridge between ζ and the primes.\nProof: Σ n^{-s} = Π_p (1 + p^{-s} + p^{-2s} + ...) = Π_p (1-p^{-s})^{-1}\nby unique factorization.\n\nConsequence: ζ(s) ≠ 0 for Re s > 1 (product of nonzero factors).\nThe behavior of ζ near Re s = 1 governs the distribution of primes.\n\nPrime number theorem via complex analysis:\n  π(x) ~ x/log x  as x → ∞.\n  Proof strategy: Perron's formula converts sum Σ_{n≤x} f(n) to a contour\n  integral (1/2πi) ∫_{c-i∞}^{c+i∞} F(s) x^s/s ds.\n  For f(n) = Λ(n) (von Mangoldt): ψ(x) = (1/2πi) ∫ (-ζ'/ζ)(s) x^s/s ds.\n  Moving the contour left: contributions come from poles of -ζ'/ζ.\n  The pole at s=1 gives ψ(x) ~ x.\n  Non-trivial zeros ρ of ζ give error terms x^ρ/ρ.\n  Zero-free region Re s > 1 - c/log|Im s| bounds the error:\n    ψ(x) = x + O(x e^{-c√log x})  → PNT with error bound.\n  Riemann Hypothesis ⟹ ψ(x) = x + O(√x log² x)  (optimal).\n\nDirichlet L-functions: L(s, χ) = Σ_{n=1}^∞ χ(n) n^{-s}\n  χ: (ℤ/qℤ)* → ℂ* is a Dirichlet character (completely multiplicative).\n  Euler product: L(s, χ) = Π_p (1 - χ(p)p^{-s})^{-1}.\n  Same analytic methods prove Dirichlet's theorem:\n    If gcd(a,q) = 1, there are infinitely many primes p ≡ a (mod q).\n  Proof: show L(1, χ) ≠ 0 for non-principal χ, so the product doesn't vanish.",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-9",
+      "kind": "diagram_like",
+      "line": 581,
+      "heading_context": "## Riemann Surfaces",
+      "confidence": "candidate",
+      "text": "Definition: A Riemann surface is a 1-dimensional complex manifold:\n  a Hausdorff space with a holomorphic atlas (compatible complex charts).\n  Every open subset of ℂ is trivially a Riemann surface.\n  Non-trivial examples are constructed via analytic continuation or as\n  algebraic curves.\n\nConstruction: algebraic curves P(z, w) = 0.\n  Given a polynomial relation P(z, w) = 0, the set of solutions (z, w) ∈ ℂ²\n  (with smooth points) forms a Riemann surface. The function w = f(z)\n  defined implicitly by P is single-valued on this surface.\n\nExample: w² = z (square root)\n  2-sheeted surface: two solutions w = ±√z glued along the branch cut.\n  Branch points at z = 0 and z = ∞ (where the two sheets join).\n  Topologically: S² with two punctures glued in a specific way — a sphere.\n\nExample: w² = z(z-1)(z-2)  (genus-1 curve)\n  4 branch points (0, 1, 2, ∞). Glue two sheets along two cuts.\n  Topologically: a torus (genus 1 — one handle).\n\nGenus formula (Riemann-Hurwitz):\n  For a degree-d holomorphic map f: S → T between compact Riemann surfaces:\n    2g(S) - 2 = d(2g(T) - 2) + Σ (e_p - 1)\n  where the sum is over ramification points p and e_p is the ramification index.\n  For an algebraic curve defined by w^n = Π(z - aᵢ)^{mᵢ}: count branch points,\n  compute genus. Genus 0 = rational function (sphere). Genus 1 = elliptic curve.\n\nCompact Riemann surfaces = smooth projective algebraic curves over ℂ.\n  This is the entry point into algebraic geometry.\n  Classification: completely determined (up to isomorphism) by genus g and\n  moduli — for g ≥ 2, by 3g−3 complex parameters (Riemann's moduli count).",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-10",
+      "kind": "chart_like",
+      "line": 635,
+      "heading_context": "### Fluid Dynamics (Potential Flow)",
+      "confidence": "candidate",
+      "text": "### Electrostatics (2D)",
+      "notes": [
+        "detected from bar/chart glyph density with numeric labels"
+      ]
+    }
+  ]
+}

@@ -1,3 +1,22 @@
+---
+maxim_schema: maxim.frontmatter.v1
+id: maxim:mathematics:information-theory
+kind: guide
+module: mathematics
+section: mathematics
+title: Information Theory - Complete Reference
+status: source-custody
+source_custody: partial
+current_path: mathematics/16-INFORMATION-THEORY.md
+canonical_path: mathematics/16-INFORMATION-THEORY.md
+backsource_ids: [proof-backfill:mathematics:16-information-theory, git-history:mathematics:16-information-theory]
+concepts: [information, theory]
+root_concepts: [information, theory]
+index_roles: [guide, root-concept]
+remap_from: []
+remap_to: []
+updated: null
+---
 # Information Theory — Complete Reference
 
 ## The Big Picture

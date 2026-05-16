@@ -1,0 +1,446 @@
+{
+  "schema_version": "1",
+  "source_markdown": "mathematics\\05-GROUPS-SETS-ALGEBRA.md",
+  "blocks": [
+    {
+      "id": "block-1",
+      "kind": "diagram_like",
+      "line": 22,
+      "heading_context": "# 05 — Groups, Sets, and Abstract Algebra",
+      "confidence": "candidate",
+      "text": "THE LANDSCAPE\n═══════════════════════════════════════════════════════════════════════════════\n\n  SETS                GROUPS              RINGS / FIELDS       LIE GROUPS\n  ┌──────────┐        ┌──────────────┐    ┌──────────────┐     ┌──────────────┐\n  │ ∈, ⊆, ∪  │        │ closure      │    │ + and ×      │     │ group + mfld │\n  │ ∩, \\, ×  │   →    │ associative  │ →  │ distributive │  →  │ smooth sym.  │\n  │ power set│        │ identity     │    │ inverses     │     │ U(1),SU(2)   │\n  │ functions│        │ inverses     │    │ Fields: ÷    │     │ SU(3),SO(3)  │\n  └──────────┘        └──────────────┘    └──────────────┘     └──────────────┘\n\n  WHY THIS MATTERS FOR PHYSICS:\n  Every conservation law = a symmetry group (Noether's theorem)\n  EM gauge invariance      = U(1)          → photon (massless)\n  Weak force               = SU(2)         → W±, Z bosons\n  Strong force             = SU(3)         → 8 gluons\n  Spacetime rotations      = SO(3)/SO(3,1) → angular momentum quantization\n  Spin                     = SU(2) (double cover of SO(3))\n  Standard Model gauge group = U(1) × SU(2) × SU(3)\n═══════════════════════════════════════════════════════════════════════════════",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-2",
+      "kind": "chart_like",
+      "line": 49,
+      "heading_context": "## 1. Sets — The Foundation",
+      "confidence": "candidate",
+      "text": "### 1.1 ZFC Axioms — The Foundations",
+      "notes": [
+        "detected from bar/chart glyph density with numeric labels"
+      ]
+    },
+    {
+      "id": "block-3",
+      "kind": "diagram_like",
+      "line": 53,
+      "heading_context": "### 1.1 ZFC Axioms — The Foundations",
+      "confidence": "candidate",
+      "text": "  THE ZF AXIOMS (Zermelo-Fraenkel):\n\n  1. EXTENSIONALITY: Two sets are equal iff they have the same elements.\n     A = B  ⟺  ∀x (x ∈ A ⟺ x ∈ B)\n\n  2. PAIRING: For any a, b, the set {a, b} exists.\n\n  3. UNION: For any family F of sets, ∪F exists.\n\n  4. POWER SET: For any set A, the set 𝒫(A) = {X | X ⊆ A} exists.\n\n  5. INFINITY: There exists an infinite set (formalizes ℕ).\n     ∃S: ∅ ∈ S ∧ ∀x ∈ S, (x ∪ {x}) ∈ S\n\n  6. REPLACEMENT: If F is a class function, the image F[A] of any set A exists.\n\n  7. FOUNDATION (Regularity): Every non-empty set A has an element\n     disjoint from A. This prevents A ∈ A (no self-membership).\n\n  8. SEPARATION (Axiom schema): For any set A and formula φ,\n     {x ∈ A | φ(x)} exists. (Avoids Russell's paradox — set must be\n     carved from an existing set, not collected from all of V.)\n\n  AXIOM OF CHOICE (AC): For any family of non-empty sets, there exists\n  a choice function selecting one element from each.\n  ∀F (∅ ∉ F → ∃f: F→∪F such that ∀A ∈ F, f(A) ∈ A)",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-4",
+      "kind": "diagram_like",
+      "line": 84,
+      "heading_context": "### 1.1 ZFC Axioms — The Foundations",
+      "confidence": "candidate",
+      "text": "  ZORN'S LEMMA: If every chain in a partial order has an upper bound,\n  the partial order has a maximal element.\n  → Used constantly in algebra: every vector space has a basis (Hamel basis),\n    every ring has a maximal ideal, every field has an algebraic closure.\n\n  WELL-ORDERING THEOREM: Every set can be well-ordered.\n  → Every set has a total order under which every non-empty subset has a minimum.\n\n  TYCHONOFF'S THEOREM: Arbitrary products of compact spaces are compact.\n  → The defining theorem of algebraic topology, equivalent to AC.",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-5",
+      "kind": "chart_like",
+      "line": 101,
+      "heading_context": "### 1.1 ZFC Axioms — The Foundations",
+      "confidence": "candidate",
+      "text": "### 1.2 Basic Operations",
+      "notes": [
+        "detected from bar/chart glyph density with numeric labels"
+      ]
+    },
+    {
+      "id": "block-6",
+      "kind": "chart_like",
+      "line": 117,
+      "heading_context": "### 1.2 Basic Operations",
+      "confidence": "candidate",
+      "text": "### 1.3 Functions and Relations",
+      "notes": [
+        "detected from bar/chart glyph density with numeric labels"
+      ]
+    },
+    {
+      "id": "block-7",
+      "kind": "diagram_like",
+      "line": 119,
+      "heading_context": "### 1.3 Functions and Relations",
+      "confidence": "candidate",
+      "text": "  Function f: A → B\n  ├── Injective (one-to-one):  f(a₁)=f(a₂) ⟹ a₁=a₂   (no two map to same)\n  ├── Surjective (onto):       ∀b ∈ B, ∃a ∈ A: f(a)=b   (everything hit)\n  └── Bijective:               both injective and surjective → invertible\n\n  Equivalence relation ~ on A:\n  ├── Reflexive:   a ~ a\n  ├── Symmetric:   a ~ b ⟹ b ~ a\n  └── Transitive:  a ~ b, b ~ c ⟹ a ~ c\n\n  Equivalence classes partition A into disjoint subsets: A/~ (quotient set)\n  Example: integers mod n — equivalence class [3] mod 7 = {...,-4,3,10,17,...}",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-8",
+      "kind": "chart_like",
+      "line": 134,
+      "heading_context": "### 1.3 Functions and Relations",
+      "confidence": "candidate",
+      "text": "### 1.4 Cardinality and Set-Theoretic Arithmetic",
+      "notes": [
+        "detected from bar/chart glyph density with numeric labels"
+      ]
+    },
+    {
+      "id": "block-9",
+      "kind": "ascii_table_candidate",
+      "line": 136,
+      "heading_context": "### 1.4 Cardinality and Set-Theoretic Arithmetic",
+      "confidence": "candidate",
+      "text": "  Finite sets: |A| = number of elements\n  Countably infinite: |ℕ| = |ℤ| = |ℚ| = ℵ₀   (Cantor: diagonalization)\n  Uncountably infinite: |ℝ| = |[0,1]| > ℵ₀    (Cantor: diagonal argument)\n  |𝒫(A)| > |A| always   (Cantor's theorem)\n\n  CARDINAL ARITHMETIC:\n  ℵ₀ + ℵ₀ = ℵ₀           (union of two countable sets is countable)\n  ℵ₀ × ℵ₀ = ℵ₀           (ℤ×ℤ is countable — enumerate by diagonals)\n  2^ℵ₀ = |ℝ| = |𝒫(ℕ)|    (beth number ℶ₁)\n\n  ORDINALS vs CARDINALS:\n  Ordinals encode order type: ω = {0,1,2,...}, ω+1 = {0,1,2,...,ω}\n  Cardinals encode size: ℵ₀ = |ω|, ℵ₁ = |ω₁| (first uncountable ordinal)\n  Ordinal arithmetic: ω+1 ≠ 1+ω (non-commutative); 2·ω = ω ≠ ω·2\n\n  CONTINUUM HYPOTHESIS (CH): Is ℵ₁ = 2^ℵ₀?\n  Is there a cardinal strictly between ℵ₀ and |ℝ|?\n  Gödel (1938): CH is consistent with ZFC (if ZFC is consistent)\n  Cohen (1963): ¬CH is consistent with ZFC\n  CH is INDEPENDENT of ZFC — it can neither be proved nor disproved.\n\n  In physics: the Hilbert space of a quantum system can be\n  separable (countable basis — bound states, discrete spectrum)\n  or non-separable (continuous spectrum — position eigenstates)",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-10",
+      "kind": "chart_like",
+      "line": 167,
+      "heading_context": "## 2. Groups",
+      "confidence": "candidate",
+      "text": "### 2.1 The Definition",
+      "notes": [
+        "detected from bar/chart glyph density with numeric labels"
+      ]
+    },
+    {
+      "id": "block-11",
+      "kind": "diagram_like",
+      "line": 171,
+      "heading_context": "### 2.1 The Definition",
+      "confidence": "candidate",
+      "text": "  1. CLOSURE:       a, b ∈ G  ⟹  a·b ∈ G\n  2. ASSOCIATIVITY: (a·b)·c = a·(b·c)     (no commutativity required!)\n  3. IDENTITY:      ∃e ∈ G: e·a = a·e = a  for all a\n  4. INVERSES:      ∀a ∈ G, ∃a⁻¹: a·a⁻¹ = a⁻¹·a = e\n\n  If also: a·b = b·a for all a,b → ABELIAN (commutative) group",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-12",
+      "kind": "chart_like",
+      "line": 180,
+      "heading_context": "### 2.1 The Definition",
+      "confidence": "candidate",
+      "text": "### 2.2 Examples — From Trivial to Physical",
+      "notes": [
+        "detected from bar/chart glyph density with numeric labels"
+      ]
+    },
+    {
+      "id": "block-13",
+      "kind": "diagram_like",
+      "line": 182,
+      "heading_context": "### 2.2 Examples — From Trivial to Physical",
+      "confidence": "candidate",
+      "text": "  GROUP           SET              OPERATION    ABELIAN?  ORDER\n  ──────────────────────────────────────────────────────────────────\n  Trivial         {e}              ·             Yes       1\n  Integers        ℤ                +             Yes       ∞\n  Rationals\\{0}   ℚ*               ×             Yes       ∞\n  Cyclic ℤₙ       {0,1,...,n-1}    + mod n       Yes       n\n  Symmetry S₃     permutations     composition   No        6\n  of triangle      of {1,2,3}\n  GL(n,ℝ)         n×n invertible   matrix mult   No        ∞\n                  real matrices\n  O(n)            orthogonal       matrix mult   No(n≥2)   ∞\n                  matrices (AᵀA=I)\n  SO(n)           det=+1 orthog.   matrix mult   No(n≥2)   ∞\n  U(n)            unitary (A†A=I)  matrix mult   No(n≥2)   ∞\n  SU(n)           unitary, det=1   matrix mult   No(n≥2)   ∞\n  ──────────────────────────────────────────────────────────────────",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-14",
+      "kind": "chart_like",
+      "line": 201,
+      "heading_context": "### 2.2 Examples — From Trivial to Physical",
+      "confidence": "candidate",
+      "text": "### 2.3 Subgroups and Lagrange's Theorem",
+      "notes": [
+        "detected from bar/chart glyph density with numeric labels"
+      ]
+    },
+    {
+      "id": "block-15",
+      "kind": "diagram_like",
+      "line": 203,
+      "heading_context": "### 2.3 Subgroups and Lagrange's Theorem",
+      "confidence": "candidate",
+      "text": "  H ≤ G (H is a subgroup of G) if H is a group under G's operation.\n  Test: closed under operation, contains identity, closed under inverses.\n\n  Left coset of H in G:   gH = {g·h | h ∈ H}\n  Right coset:            Hg = {h·g | h ∈ H}\n\n  LAGRANGE'S THEOREM: If G finite, |H| divides |G|\n  → Group of order 7 has only trivial subgroups (7 is prime → cyclic)\n  → Crucial for understanding why certain quantum numbers are allowed\n\n  Normal subgroup N ◁ G:  gN = Ng for all g (left = right cosets)\n  Quotient group: G/N — the cosets form a group under coset multiplication",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-16",
+      "kind": "chart_like",
+      "line": 218,
+      "heading_context": "### 2.3 Subgroups and Lagrange's Theorem",
+      "confidence": "candidate",
+      "text": "### 2.4 Homomorphisms and Isomorphisms",
+      "notes": [
+        "detected from bar/chart glyph density with numeric labels"
+      ]
+    },
+    {
+      "id": "block-17",
+      "kind": "diagram_like",
+      "line": 220,
+      "heading_context": "### 2.4 Homomorphisms and Isomorphisms",
+      "confidence": "candidate",
+      "text": "  HOMOMORPHISM φ: G → H satisfies φ(a·b) = φ(a)·φ(b)\n  (structure-preserving map)\n\n  Kernel: ker(φ) = {g ∈ G | φ(g) = e_H}   ← always a normal subgroup\n  Image:  im(φ) = {φ(g) | g ∈ G}\n\n  FIRST ISOMORPHISM THEOREM: G/ker(φ) ≅ im(φ)\n  (quotient by the kernel ≅ the image)\n\n  ISOMORPHISM: bijective homomorphism → groups are \"the same structure\"\n\n  KEY EXAMPLES:\n  ┌──────────────────────────────────────────────────────────────────────┐\n  │  exp: (ℝ, +) → (ℝ⁺, ×)     φ(x) = eˣ                                 │\n  │       φ(a+b) = e^(a+b) = eᵃeᵇ = φ(a)φ(b)  ✓  (isomorphism)           │\n  │                                                                      │\n  │  det: (GL(n,ℝ), ×) → (ℝ*, ×)                                         │\n  │       det(AB) = det(A)det(B)  ✓   (homomorphism, not isomorphism)    │\n  │       kernel = SL(n,ℝ) = {matrices with det=1}                       │\n  └──────────────────────────────────────────────────────────────────────┘",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-18",
+      "kind": "chart_like",
+      "line": 247,
+      "heading_context": "## 3. Cyclic Groups and Classification",
+      "confidence": "candidate",
+      "text": "### 3.1 Cyclic Groups",
+      "notes": [
+        "detected from bar/chart glyph density with numeric labels"
+      ]
+    },
+    {
+      "id": "block-19",
+      "kind": "chart_like",
+      "line": 261,
+      "heading_context": "### 3.1 Cyclic Groups",
+      "confidence": "candidate",
+      "text": "### 3.2 Classification of Finite Abelian Groups",
+      "notes": [
+        "detected from bar/chart glyph density with numeric labels"
+      ]
+    },
+    {
+      "id": "block-20",
+      "kind": "chart_like",
+      "line": 278,
+      "heading_context": "## 4. Permutation Groups",
+      "confidence": "candidate",
+      "text": "### 4.1 Symmetric Group Sₙ",
+      "notes": [
+        "detected from bar/chart glyph density with numeric labels"
+      ]
+    },
+    {
+      "id": "block-21",
+      "kind": "diagram_like",
+      "line": 280,
+      "heading_context": "### 4.1 Symmetric Group Sₙ",
+      "confidence": "candidate",
+      "text": "  Sₙ = all permutations of {1, 2, ..., n}\n  |Sₙ| = n!\n\n  S₃ = {e, (12), (13), (23), (123), (132)}\n  (12) = swap 1 and 2;  (123) = 1→2→3→1 (3-cycle)\n\n  Cycle notation: (1 3 5)(2 4) means 1→3→5→1, 2→4→2\n\n  Every permutation = product of transpositions (2-cycles)\n  Even permutation: even number of transpositions → subgroup Aₙ (alternating)\n  |Aₙ| = n!/2\n\n  Cayley's theorem: Every finite group embeds in some Sₙ.",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-22",
+      "kind": "chart_like",
+      "line": 296,
+      "heading_context": "### 4.1 Symmetric Group Sₙ",
+      "confidence": "candidate",
+      "text": "### 4.2 Parity and Physics",
+      "notes": [
+        "detected from bar/chart glyph density with numeric labels"
+      ]
+    },
+    {
+      "id": "block-23",
+      "kind": "diagram_like",
+      "line": 298,
+      "heading_context": "### 4.2 Parity and Physics",
+      "confidence": "candidate",
+      "text": "  Parity operator P in QM: flips spatial coordinates x → -x\n  P² = identity → eigenvalues ±1\n  Even parity states: ψ(-x) = +ψ(x)   (cosines, s-orbitals)\n  Odd parity states:  ψ(-x) = -ψ(x)   (sines, p-orbitals)\n\n  Parity is a ℤ₂ symmetry (group of order 2: {+1, -1} under multiplication)\n  EM and gravity conserve parity. Weak force VIOLATES parity (Wu 1956).",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-24",
+      "kind": "chart_like",
+      "line": 312,
+      "heading_context": "## 5. Rings and Fields",
+      "confidence": "candidate",
+      "text": "### 5.1 Rings",
+      "notes": [
+        "detected from bar/chart glyph density with numeric labels"
+      ]
+    },
+    {
+      "id": "block-25",
+      "kind": "chart_like",
+      "line": 328,
+      "heading_context": "### 5.1 Rings",
+      "confidence": "candidate",
+      "text": "### 5.2 Fields",
+      "notes": [
+        "detected from bar/chart glyph density with numeric labels"
+      ]
+    },
+    {
+      "id": "block-26",
+      "kind": "chart_like",
+      "line": 346,
+      "heading_context": "### 5.2 Fields",
+      "confidence": "candidate",
+      "text": "### 5.3 Ideals and Quotient Rings",
+      "notes": [
+        "detected from bar/chart glyph density with numeric labels"
+      ]
+    },
+    {
+      "id": "block-27",
+      "kind": "diagram_like",
+      "line": 364,
+      "heading_context": "## 6. Artin's Algebra — The Key Theorems",
+      "confidence": "candidate",
+      "text": "  ARTIN'S ALGEBRA ARCHITECTURE\n  ┌──────────────────────────────────────────────────────────────────────┐\n  │  Ch 1-2:  Matrix groups (GL, SL, O, U) — concrete examples first     │\n  │  Ch 3-6:  Abstract groups — cosets, normal subgroups, products       │\n  │  Ch 7:    More group theory — Jordan-Hölder, solvable groups         │\n  │  Ch 8:    Rings — ideals, quotient rings, ring homomorphisms         │\n  │  Ch 9-10: Fields and Galois theory                                   │\n  │  Ch 11:   Linear groups over fields                                  │\n  │  Ch 12-13: Modules, structure theorem for abelian groups             │\n  └──────────────────────────────────────────────────────────────────────┘\n\n  GALOIS THEORY KEY IDEA:\n  Field extension K/F has a Galois group Gal(K/F) =\n  automorphisms of K fixing F.\n\n  The Galois correspondence:\n  Subgroups of Gal(K/F) ↔ Intermediate fields F ⊆ L ⊆ K\n  (order-reversing bijection)\n\n  WHY IT MATTERS: solvability of polynomial by radicals\n  ↔ Galois group is solvable (composition series with abelian factors)\n  Quintic is not generally solvable because S₅ contains A₅ which is simple.",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-28",
+      "kind": "chart_like",
+      "line": 393,
+      "heading_context": "## 7. Lie Groups — Continuous Symmetry in Physics",
+      "confidence": "candidate",
+      "text": "### 7.1 What a Lie Group Is",
+      "notes": [
+        "detected from bar/chart glyph density with numeric labels"
+      ]
+    },
+    {
+      "id": "block-29",
+      "kind": "diagram_like",
+      "line": 395,
+      "heading_context": "### 7.1 What a Lie Group Is",
+      "confidence": "candidate",
+      "text": "  A LIE GROUP is simultaneously:\n  ├── a group (abstract algebra)\n  └── a smooth manifold (differential geometry)\n\n  The group operations (multiplication and inversion) are smooth maps.\n\n  Intuition: a continuous family of symmetries parameterized smoothly.\n\n  SO(2) = rotations in 2D = circle = S¹ (1-parameter family)\n  SO(3) = rotations in 3D (3-parameter family — 3 Euler angles)\n  U(1)  = phase rotations e^(iθ) = circle (1-parameter)\n  SU(2) = 2×2 unitary matrices, det=1 (3-parameter — sphere S³)",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-30",
+      "kind": "chart_like",
+      "line": 410,
+      "heading_context": "### 7.1 What a Lie Group Is",
+      "confidence": "candidate",
+      "text": "### 7.2 Lie Algebras — The Linearization",
+      "notes": [
+        "detected from bar/chart glyph density with numeric labels"
+      ]
+    },
+    {
+      "id": "block-31",
+      "kind": "diagram_like",
+      "line": 412,
+      "heading_context": "### 7.2 Lie Algebras — The Linearization",
+      "confidence": "candidate",
+      "text": "  Near the identity, a Lie group looks like a vector space: the LIE ALGEBRA 𝔤\n\n  For a matrix Lie group G:\n  𝔤 = {X | e^(tX) ∈ G for all t ∈ ℝ}   (tangent space at identity)\n\n  LIE BRACKET: [X, Y] = XY − YX   (commutator of matrices)\n  ├── Antisymmetric: [X,Y] = −[Y,X]\n  └── Jacobi identity: [X,[Y,Z]] + [Y,[Z,X]] + [Z,[X,Y]] = 0\n\n  The Lie algebra encodes the local structure; the group is the global structure.\n  Knowing 𝔤 determines G near the identity (and globally for simply-connected groups).",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-32",
+      "kind": "chart_like",
+      "line": 426,
+      "heading_context": "### 7.2 Lie Algebras — The Linearization",
+      "confidence": "candidate",
+      "text": "### 7.3 The Physics Lie Groups — In Detail",
+      "notes": [
+        "detected from bar/chart glyph density with numeric labels"
+      ]
+    },
+    {
+      "id": "block-33",
+      "kind": "diagram_like",
+      "line": 428,
+      "heading_context": "### 7.3 The Physics Lie Groups — In Detail",
+      "confidence": "candidate",
+      "text": "  ┌────────────────────────────────────────────────────────────────────────┐\n  │  U(1) — Electromagnetism                                               │\n  │  ───────────────────────────────────────────────────────────────────   │\n  │  G = {e^(iθ) | θ ∈ ℝ} ≅ S¹                                             │\n  │  𝔤 = iℝ (purely imaginary numbers)  [trivial: all elements commute]    │\n  │  Generator: Y (hypercharge) — one generator, one gauge boson (photon)  │\n  │  Gauge field: Aμ (the EM 4-potential)                                  │\n  │  Invariance of physics under ψ → e^(iα)ψ → conservation of charge      │\n  └────────────────────────────────────────────────────────────────────────┘\n\n  ┌────────────────────────────────────────────────────────────────────────┐\n  │  SU(2) — Weak Force / Spin                                             │\n  │  ───────────────────────────────────────────────────────────────────   │\n  │  G = {2×2 unitary matrices, det=1}  ≅ S³ (3-sphere)                    │\n  │  𝔤 = 𝔰𝔲(2) = {traceless anti-Hermitian 2×2 matrices}                   │\n  │  Basis generators: Tₐ = σₐ/2  (a = 1,2,3)                              │\n  │  where σ₁,σ₂,σ₃ are the Pauli matrices                                 │\n  │                                                                        │\n  │  [T₁,T₂] = iT₃,  [T₂,T₃] = iT₁,  [T₃,T₁] = iT₂                         │\n  │                                                                        │\n  │  3 generators → 3 gauge bosons: W⁺, W⁻, W⁰ (→ Z⁰ after mixing)         │\n  │                                                                        │\n  │  AS SPIN: Jₓ, Jy, Jz satisfy same commutation relations                │\n  │  [Jₓ,Jy] = iℏJz etc. — angular momentum algebra is SU(2) algebra       │\n  │  Spin-½ particles are in the fundamental (2D) representation of SU(2)  │\n  └────────────────────────────────────────────────────────────────────────┘\n\n  ┌────────────────────────────────────────────────────────────────────────┐\n  │  SU(3) — Strong Force (QCD)                                            │\n  │  ───────────────────────────────────────────────────────────────────   │\n  │  G = {3×3 unitary matrices, det=1}                                     │\n  │  𝔤 = 𝔰𝔲(3) — 8-dimensional                                             │\n  │  Basis: Gell-Mann matrices λ₁,...,λ₈                                   │\n  │  8 generators → 8 gauge bosons: 8 gluons                               │\n  │  Quarks come in 3 \"colors\": (r, g, b) = fundamental representation     │\n  │  Gluons are in the adjoint (8D) representation                         │\n  └────────────────────────────────────────────────────────────────────────┘\n\n  ┌────────────────────────────────────────────────────────────────────────┐\n  │  SO(3) vs SU(2) — The Double Cover                                     │\n  │  ───────────────────────────────────────────────────────────────────   │\n  │  SO(3) = rotations in 3D space (det=1 orthogonal matrices)             │\n  │  SU(2) = 2×2 unitary, det=1                                            │\n  │                                                                        │\n  │  There is a 2-to-1 homomorphism: SU(2) → SO(3)                         │\n  │  Both +U and -U ∈ SU(2) map to the same rotation in SO(3)              │\n  │  SU(2) is the \"double cover\" of SO(3)                                  │\n  │                                                                        │\n  │  Physical consequence: a spin-½ particle requires a 720° rotation      │\n  │  to return to its original state (not 360°)                            │\n  │  This is DIRECTLY because SU(2) double covers SO(3).                   │\n  │  Half-integer spin is not a mystery — it's representation theory.      │\n  └────────────────────────────────────────────────────────────────────────┘",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-34",
+      "kind": "chart_like",
+      "line": 484,
+      "heading_context": "### 7.3 The Physics Lie Groups — In Detail",
+      "confidence": "candidate",
+      "text": "### 7.4 Representations and Character Theory",
+      "notes": [
+        "detected from bar/chart glyph density with numeric labels"
+      ]
+    },
+    {
+      "id": "block-35",
+      "kind": "diagram_like",
+      "line": 486,
+      "heading_context": "### 7.4 Representations and Character Theory",
+      "confidence": "candidate",
+      "text": "  A REPRESENTATION of group G is a homomorphism ρ: G → GL(V)\n  (G acts as invertible linear transformations on vector space V)\n\n  Dimension of representation = dim(V)\n\n  SU(2) representations:\n  ┌──────────────────────────────────────────────────────────────────┐\n  │  Spin s  │  Dim = 2s+1  │  Particle type                         │\n  ├──────────┼──────────────┼────────────────────────────────────────┤\n  │  s = 0   │  1D          │  Scalar (Higgs, pions)                 │\n  │  s = 1/2 │  2D (spinor) │  Electrons, quarks, neutrinos          │\n  │  s = 1   │  3D (vector) │  Photon, W±, Z (massive spin-1)        │\n  │  s = 3/2 │  4D          │  Delta baryon, gravitino (SUSY)        │\n  │  s = 2   │  5D          │  Graviton (theoretical)                │\n  └──────────┴──────────────┴────────────────────────────────────────┘\n\n  Irreducible representation (irrep): cannot be decomposed further\n  Schur's Lemma: any map between two irreps is either 0 or an isomorphism",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-36",
+      "kind": "ascii_table_candidate",
+      "line": 509,
+      "heading_context": "### 7.4 Representations and Character Theory",
+      "confidence": "candidate",
+      "text": "  CHARACTER of a representation ρ:\n  χ_ρ: G → ℂ,   χ_ρ(g) = Tr(ρ(g))\n\n  Key properties:\n  - Class function: χ_ρ(hgh⁻¹) = χ_ρ(g)  (constant on conjugacy classes)\n  - Determines the representation: two reps are isomorphic iff χ_ρ = χ_σ\n  - χ of direct sum: χ_{ρ⊕σ} = χ_ρ + χ_σ\n  - χ of tensor product: χ_{ρ⊗σ} = χ_ρ · χ_σ\n\n  ORTHOGONALITY OF CHARACTERS (for finite groups):\n  ⟨χ_ρ, χ_σ⟩ = (1/|G|) Σ_{g∈G} χ_ρ(g) χ_σ(g)* = δ_{ρσ}\n\n  For compact Lie groups (like SU(2), U(1)), the sum is replaced by a\n  Haar integral: ∫_G χ_ρ(g) χ_σ(g)* dg = δ_{ρσ}.\n\n  CHARACTER TABLE (for finite groups):\n  Rows = irreducible representations, Columns = conjugacy classes.\n  Entry = character value on that conjugacy class.\n\n  S₃ character table:\n\n      irrep │ e │(12) │(123)    ← conjugacy class\n      ──────┼───┼─────┼──────\n      triv  │ 1 │  1  │  1      dim 1: trivial representation\n      sgn   │ 1 │ -1  │  1      dim 1: sign representation (even/odd perm)\n      std   │ 2 │  0  │ -1      dim 2: standard representation\n\n  Sum of squares of dimensions = |G|: 1² + 1² + 2² = 6 = |S₃| ✓\n\n  BURNSIDE'S LEMMA (orbit counting via characters):\n  |X/G| = (1/|G|) Σ_{g∈G} |X^g|\n  (number of orbits = average number of fixed points)\n  Used to count distinct colorings, necklaces, etc. under symmetry.\n\n  PETER-WEYL THEOREM (for compact Lie groups G):\n  L²(G) = ⊕_ρ V_ρ ⊗ V_ρ*\n  (Hilbert space of G decomposes as direct sum over irreps, each appearing\n  with multiplicity equal to its dimension)\n\n  For U(1) = S¹: the irreps are e^(inθ), n ∈ ℤ → Peter-Weyl = Fourier series.\n  Representation theory = generalized Fourier analysis on groups.",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-37",
+      "kind": "diagram_like",
+      "line": 561,
+      "heading_context": "## 8. Cryptography — Where Finite Algebra Lives",
+      "confidence": "candidate",
+      "text": "  Setup: n = pq (product of large primes), public key (n, e), private key d\n  where ed ≡ 1 (mod φ(n)), φ(n) = (p-1)(q-1) = |ℤ/nℤ|*|\n\n  Encryption:  C ≡ Mᵉ (mod n)\n  Decryption:  M ≡ Cᵈ (mod n)\n\n  Correctness: Euler's theorem says M^(φ(n)) ≡ 1 (mod n) for gcd(M,n)=1\n  → M^(ed) = M^(1+kφ(n)) = M · (M^φ(n))^k ≡ M (mod n)\n\n  Security: computing φ(n) requires factoring n — hard for large n.\n  The ring ℤ/nℤ and its multiplicative group (ℤ/nℤ)* = {units mod n} are\n  the algebraic heart of RSA.",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-38",
+      "kind": "diagram_like",
+      "line": 592,
+      "heading_context": "## 8. Cryptography — Where Finite Algebra Lives",
+      "confidence": "candidate",
+      "text": "  Elliptic curve E over 𝔽_p: y² = x³ + ax + b (mod p)\n\n  Points on E form an abelian group under the chord-and-tangent law:\n  - Identity: the \"point at infinity\" O\n  - Inverse of (x,y): is (x,-y)\n  - Addition P+Q: draw line through P,Q, reflect third intersection\n\n  The discrete log problem in E(𝔽_p) is harder than in (ℤ/pℤ)*\n  → smaller key sizes for equivalent security (256-bit ECC ≈ 3072-bit RSA)\n\n  ECC is used in TLS 1.3, SSH, Bitcoin (secp256k1 curve), and Signal.\n  The algebraic structure is exactly the finite-field group theory of §5.2.",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-39",
+      "kind": "diagram_like",
+      "line": 609,
+      "heading_context": "## 8. Cryptography — Where Finite Algebra Lives",
+      "confidence": "candidate",
+      "text": "  AES SubBytes (S-box): evaluates a specific map over 𝔽_{2⁸} = GF(256).\n  𝔽_{2⁸} = 𝔽₂[x]/(x⁸ + x⁴ + x³ + x + 1)  ← quotient ring by irreducible poly\n\n  Elements: polynomials over 𝔽₂ of degree < 8 (256 of them)\n  Multiplication: polynomial multiplication mod the irreducible polynomial\n  The S-box computation is: take multiplicative inverse in 𝔽_{2⁸}, then\n  apply an 𝔽₂-affine transformation.\n\n  Lattice-based cryptography (post-quantum): hard problems on module lattices\n  over polynomial rings ℤ[x]/(xⁿ+1) — the ring-learning-with-errors (RLWE)\n  problem. These are quotient rings whose algebraic structure (NTT-friendly\n  factorization of xⁿ+1 over primes) enables efficient multiplication.",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-40",
+      "kind": "diagram_like",
+      "line": 630,
+      "heading_context": "## 9. Noether's Theorem",
+      "confidence": "candidate",
+      "text": "  NOETHER'S THEOREM (1915):\n  Every continuous symmetry of the action ↔ a conserved quantity\n\n  ┌────────────────────────────────────────────────────────────────────┐\n  │  Symmetry                      Conserved Quantity                  │\n  ├────────────────────────────────────────────────────────────────────┤\n  │  Time translation (t → t+ε)    Energy                             │\n  │  Spatial translation (x → x+a) Linear momentum                    │\n  │  Rotation (SO(3))              Angular momentum                    │\n  │  U(1) phase (ψ → e^(iα)ψ)     Electric charge                    │\n  │  SU(2) isospin                 Isospin (approximate, QCD)         │\n  │  Lorentz boost                 Center-of-mass motion              │\n  └────────────────────────────────────────────────────────────────────┘\n\n  The symmetry group of the laws of physics IS the structure of the laws.\n  Conservation laws are not additional postulates — they follow from symmetry.",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    }
+  ]
+}

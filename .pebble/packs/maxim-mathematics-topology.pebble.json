@@ -1,0 +1,3793 @@
+{
+  "schema": "pebble.v1",
+  "kind": "corpus-slice",
+  "title": "maxim-mathematics-topology",
+  "source": "../../mathematics",
+  "format": "markdown",
+  "metadata": {},
+  "sections": [
+    {
+      "id": "08-TOPOLOGY.md#000",
+      "path": [
+        "08-TOPOLOGY.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:mathematics:08-topology, git-history:mathematics:08-topology]",
+        "canonical_path": "mathematics/08-TOPOLOGY.md",
+        "concepts": "[topology]",
+        "current_path": "mathematics/08-TOPOLOGY.md",
+        "id": "maxim:mathematics:topology",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "mathematics",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[topology]",
+        "section": "mathematics",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "08 - Topology: Continuity, Shape, and Invariants",
+        "updated": "null"
+      },
+      "text": "# 08 — Topology: Continuity, Shape, and Invariants"
+    },
+    {
+      "id": "08-TOPOLOGY.md#001",
+      "path": [
+        "08-TOPOLOGY.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:mathematics:08-topology, git-history:mathematics:08-topology]",
+        "canonical_path": "mathematics/08-TOPOLOGY.md",
+        "concepts": "[topology]",
+        "current_path": "mathematics/08-TOPOLOGY.md",
+        "id": "maxim:mathematics:topology",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "mathematics",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[topology]",
+        "section": "mathematics",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "08 - Topology: Continuity, Shape, and Invariants",
+        "updated": "null"
+      },
+      "text": "```\nTHE LANDSCAPE\n═══════════════════════════════════════════════════════════════════════════════"
+    },
+    {
+      "id": "08-TOPOLOGY.md#002",
+      "path": [
+        "08-TOPOLOGY.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:mathematics:08-topology, git-history:mathematics:08-topology]",
+        "canonical_path": "mathematics/08-TOPOLOGY.md",
+        "concepts": "[topology]",
+        "current_path": "mathematics/08-TOPOLOGY.md",
+        "id": "maxim:mathematics:topology",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "mathematics",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[topology]",
+        "section": "mathematics",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "08 - Topology: Continuity, Shape, and Invariants",
+        "updated": "null"
+      },
+      "text": "POINT-SET TOPOLOGY          ALGEBRAIC TOPOLOGY         PHYSICS APPLICATIONS\n  ┌────────────────────┐      ┌──────────────────────┐   ┌──────────────────┐\n  │ Metric spaces      │      │ Homotopy             │   │ Topological ins. │\n  │ Topological spaces │  →   │ Fundamental group π₁ │ → │ Quantum Hall eff.│\n  │ Continuity         │      │ Homology groups      │   │ Fiber bundles    │\n  │ Compactness        │      │ Euler characteristic │   │ Gauge fields     │\n  │ Connectedness      │      │ Covering spaces      │   │ Monopoles, knots │\n  └────────────────────┘      └──────────────────────┘   └──────────────────┘"
+    },
+    {
+      "id": "08-TOPOLOGY.md#003",
+      "path": [
+        "08-TOPOLOGY.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:mathematics:08-topology, git-history:mathematics:08-topology]",
+        "canonical_path": "mathematics/08-TOPOLOGY.md",
+        "concepts": "[topology]",
+        "current_path": "mathematics/08-TOPOLOGY.md",
+        "id": "maxim:mathematics:topology",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "mathematics",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[topology]",
+        "section": "mathematics",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "08 - Topology: Continuity, Shape, and Invariants",
+        "updated": "null"
+      },
+      "text": "THE CENTRAL IDEA:\n  Topology studies properties preserved under continuous deformation.\n  Not distance, not angle, not area — just \"can you get from here to there\n  without cutting or gluing?\""
+    },
+    {
+      "id": "08-TOPOLOGY.md#004",
+      "path": [
+        "08-TOPOLOGY.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:mathematics:08-topology, git-history:mathematics:08-topology]",
+        "canonical_path": "mathematics/08-TOPOLOGY.md",
+        "concepts": "[topology]",
+        "current_path": "mathematics/08-TOPOLOGY.md",
+        "id": "maxim:mathematics:topology",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "mathematics",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[topology]",
+        "section": "mathematics",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "08 - Topology: Continuity, Shape, and Invariants",
+        "updated": "null"
+      },
+      "text": "A coffee cup and a donut are topologically identical (both have one hole).\n  A sphere and a torus are topologically distinct.\n  The number of holes is a topological invariant — it doesn't change under\n  continuous deformation.\n═══════════════════════════════════════════════════════════════════════════════\n```"
+    },
+    {
+      "id": "08-TOPOLOGY.md#005",
+      "path": [
+        "08-TOPOLOGY.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:mathematics:08-topology, git-history:mathematics:08-topology]",
+        "canonical_path": "mathematics/08-TOPOLOGY.md",
+        "concepts": "[topology]",
+        "current_path": "mathematics/08-TOPOLOGY.md",
+        "id": "maxim:mathematics:topology",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "mathematics",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[topology]",
+        "section": "mathematics",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "08 - Topology: Continuity, Shape, and Invariants",
+        "updated": "null"
+      },
+      "text": "---"
+    },
+    {
+      "id": "08-TOPOLOGY.md#006",
+      "path": [
+        "08-TOPOLOGY.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:mathematics:08-topology, git-history:mathematics:08-topology]",
+        "canonical_path": "mathematics/08-TOPOLOGY.md",
+        "concepts": "[topology]",
+        "current_path": "mathematics/08-TOPOLOGY.md",
+        "id": "maxim:mathematics:topology",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "mathematics",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[topology]",
+        "section": "mathematics",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "08 - Topology: Continuity, Shape, and Invariants",
+        "updated": "null"
+      },
+      "text": "## 1. Metric Spaces — Where Topology Starts"
+    },
+    {
+      "id": "08-TOPOLOGY.md#007",
+      "path": [
+        "08-TOPOLOGY.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:mathematics:08-topology, git-history:mathematics:08-topology]",
+        "canonical_path": "mathematics/08-TOPOLOGY.md",
+        "concepts": "[topology]",
+        "current_path": "mathematics/08-TOPOLOGY.md",
+        "id": "maxim:mathematics:topology",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "mathematics",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[topology]",
+        "section": "mathematics",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "08 - Topology: Continuity, Shape, and Invariants",
+        "updated": "null"
+      },
+      "text": "### 1.1 The Definition"
+    },
+    {
+      "id": "08-TOPOLOGY.md#008",
+      "path": [
+        "08-TOPOLOGY.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:mathematics:08-topology, git-history:mathematics:08-topology]",
+        "canonical_path": "mathematics/08-TOPOLOGY.md",
+        "concepts": "[topology]",
+        "current_path": "mathematics/08-TOPOLOGY.md",
+        "id": "maxim:mathematics:topology",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "mathematics",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[topology]",
+        "section": "mathematics",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "08 - Topology: Continuity, Shape, and Invariants",
+        "updated": "null"
+      },
+      "text": "A **metric space** (X, d) has a distance function d: X × X → ℝ satisfying:"
+    },
+    {
+      "id": "08-TOPOLOGY.md#009",
+      "path": [
+        "08-TOPOLOGY.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:mathematics:08-topology, git-history:mathematics:08-topology]",
+        "canonical_path": "mathematics/08-TOPOLOGY.md",
+        "concepts": "[topology]",
+        "current_path": "mathematics/08-TOPOLOGY.md",
+        "id": "maxim:mathematics:topology",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "mathematics",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[topology]",
+        "section": "mathematics",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "08 - Topology: Continuity, Shape, and Invariants",
+        "updated": "null"
+      },
+      "text": "```\n  1. Non-negative:      d(x,y) ≥ 0, and d(x,y) = 0 ↔ x = y\n  2. Symmetric:         d(x,y) = d(y,x)\n  3. Triangle ineq:     d(x,z) ≤ d(x,y) + d(y,z)"
+    },
+    {
+      "id": "08-TOPOLOGY.md#010",
+      "path": [
+        "08-TOPOLOGY.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:mathematics:08-topology, git-history:mathematics:08-topology]",
+        "canonical_path": "mathematics/08-TOPOLOGY.md",
+        "concepts": "[topology]",
+        "current_path": "mathematics/08-TOPOLOGY.md",
+        "id": "maxim:mathematics:topology",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "mathematics",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[topology]",
+        "section": "mathematics",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "08 - Topology: Continuity, Shape, and Invariants",
+        "updated": "null"
+      },
+      "text": "EXAMPLES:\n  ℝⁿ with Euclidean:    d(x,y) = √(Σ(xᵢ-yᵢ)²)\n  ℝⁿ with taxicab:      d(x,y) = Σ|xᵢ-yᵢ|         (L¹ norm)\n  ℝⁿ with max:          d(x,y) = max|xᵢ-yᵢ|        (L∞ norm)\n  C([a,b]) with sup:    d(f,g) = sup|f(x)-g(x)|    (function space)\n  Discrete metric:      d(x,y) = 0 if x=y, 1 if x≠y\n  Graph distance:       d(u,v) = length of shortest path\n```"
+    },
+    {
+      "id": "08-TOPOLOGY.md#011",
+      "path": [
+        "08-TOPOLOGY.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:mathematics:08-topology, git-history:mathematics:08-topology]",
+        "canonical_path": "mathematics/08-TOPOLOGY.md",
+        "concepts": "[topology]",
+        "current_path": "mathematics/08-TOPOLOGY.md",
+        "id": "maxim:mathematics:topology",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "mathematics",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[topology]",
+        "section": "mathematics",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "08 - Topology: Continuity, Shape, and Invariants",
+        "updated": "null"
+      },
+      "text": "### 1.2 Open and Closed Sets in a Metric Space"
+    },
+    {
+      "id": "08-TOPOLOGY.md#012",
+      "path": [
+        "08-TOPOLOGY.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:mathematics:08-topology, git-history:mathematics:08-topology]",
+        "canonical_path": "mathematics/08-TOPOLOGY.md",
+        "concepts": "[topology]",
+        "current_path": "mathematics/08-TOPOLOGY.md",
+        "id": "maxim:mathematics:topology",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "mathematics",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[topology]",
+        "section": "mathematics",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "08 - Topology: Continuity, Shape, and Invariants",
+        "updated": "null"
+      },
+      "text": "```\n  Open ball: B(x, r) = {y ∈ X | d(x,y) < r}   (strict inequality)"
+    },
+    {
+      "id": "08-TOPOLOGY.md#013",
+      "path": [
+        "08-TOPOLOGY.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:mathematics:08-topology, git-history:mathematics:08-topology]",
+        "canonical_path": "mathematics/08-TOPOLOGY.md",
+        "concepts": "[topology]",
+        "current_path": "mathematics/08-TOPOLOGY.md",
+        "id": "maxim:mathematics:topology",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "mathematics",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[topology]",
+        "section": "mathematics",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "08 - Topology: Continuity, Shape, and Invariants",
+        "updated": "null"
+      },
+      "text": "OPEN SET U: for every x ∈ U, ∃r > 0 with B(x,r) ⊆ U\n  (every point is an interior point — there's wiggle room)"
+    },
+    {
+      "id": "08-TOPOLOGY.md#014",
+      "path": [
+        "08-TOPOLOGY.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:mathematics:08-topology, git-history:mathematics:08-topology]",
+        "canonical_path": "mathematics/08-TOPOLOGY.md",
+        "concepts": "[topology]",
+        "current_path": "mathematics/08-TOPOLOGY.md",
+        "id": "maxim:mathematics:topology",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "mathematics",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[topology]",
+        "section": "mathematics",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "08 - Topology: Continuity, Shape, and Invariants",
+        "updated": "null"
+      },
+      "text": "CLOSED SET: complement is open\n  Equivalently: contains all its limit points\n  (a sequence in the set converging to a limit → limit is in the set)"
+    },
+    {
+      "id": "08-TOPOLOGY.md#015",
+      "path": [
+        "08-TOPOLOGY.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:mathematics:08-topology, git-history:mathematics:08-topology]",
+        "canonical_path": "mathematics/08-TOPOLOGY.md",
+        "concepts": "[topology]",
+        "current_path": "mathematics/08-TOPOLOGY.md",
+        "id": "maxim:mathematics:topology",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "mathematics",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[topology]",
+        "section": "mathematics",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "08 - Topology: Continuity, Shape, and Invariants",
+        "updated": "null"
+      },
+      "text": "EXAMPLES:\n  ℝ: (a,b) open,  [a,b] closed,  [a,b) neither,  ℝ itself is both\n  ℝ²: open disk {(x,y) | x²+y² < 1} is open\n      closed disk {(x,y) | x²+y² ≤ 1} is closed"
+    },
+    {
+      "id": "08-TOPOLOGY.md#016",
+      "path": [
+        "08-TOPOLOGY.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:mathematics:08-topology, git-history:mathematics:08-topology]",
+        "canonical_path": "mathematics/08-TOPOLOGY.md",
+        "concepts": "[topology]",
+        "current_path": "mathematics/08-TOPOLOGY.md",
+        "id": "maxim:mathematics:topology",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "mathematics",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[topology]",
+        "section": "mathematics",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "08 - Topology: Continuity, Shape, and Invariants",
+        "updated": "null"
+      },
+      "text": "WARNING: \"Open\" and \"closed\" are NOT opposites.\n  A set can be: open, closed, both (clopen), or neither.\n  ∅ and X are always both open AND closed.\n```"
+    },
+    {
+      "id": "08-TOPOLOGY.md#017",
+      "path": [
+        "08-TOPOLOGY.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:mathematics:08-topology, git-history:mathematics:08-topology]",
+        "canonical_path": "mathematics/08-TOPOLOGY.md",
+        "concepts": "[topology]",
+        "current_path": "mathematics/08-TOPOLOGY.md",
+        "id": "maxim:mathematics:topology",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "mathematics",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[topology]",
+        "section": "mathematics",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "08 - Topology: Continuity, Shape, and Invariants",
+        "updated": "null"
+      },
+      "text": "### 1.3 Continuity — The Topological Definition"
+    },
+    {
+      "id": "08-TOPOLOGY.md#018",
+      "path": [
+        "08-TOPOLOGY.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:mathematics:08-topology, git-history:mathematics:08-topology]",
+        "canonical_path": "mathematics/08-TOPOLOGY.md",
+        "concepts": "[topology]",
+        "current_path": "mathematics/08-TOPOLOGY.md",
+        "id": "maxim:mathematics:topology",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "mathematics",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[topology]",
+        "section": "mathematics",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "08 - Topology: Continuity, Shape, and Invariants",
+        "updated": "null"
+      },
+      "text": "```\n  EPSILON-DELTA (metric version):\n  f: X → Y is continuous at x₀ if:\n  ∀ε > 0, ∃δ > 0: d(x,x₀) < δ ⟹ d(f(x),f(x₀)) < ε"
+    },
+    {
+      "id": "08-TOPOLOGY.md#019",
+      "path": [
+        "08-TOPOLOGY.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:mathematics:08-topology, git-history:mathematics:08-topology]",
+        "canonical_path": "mathematics/08-TOPOLOGY.md",
+        "concepts": "[topology]",
+        "current_path": "mathematics/08-TOPOLOGY.md",
+        "id": "maxim:mathematics:topology",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "mathematics",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[topology]",
+        "section": "mathematics",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "08 - Topology: Continuity, Shape, and Invariants",
+        "updated": "null"
+      },
+      "text": "TOPOLOGICAL VERSION (the \"right\" definition):\n  f: X → Y is continuous if:\n  for every open set V ⊆ Y, the preimage f⁻¹(V) is open in X"
+    },
+    {
+      "id": "08-TOPOLOGY.md#020",
+      "path": [
+        "08-TOPOLOGY.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:mathematics:08-topology, git-history:mathematics:08-topology]",
+        "canonical_path": "mathematics/08-TOPOLOGY.md",
+        "concepts": "[topology]",
+        "current_path": "mathematics/08-TOPOLOGY.md",
+        "id": "maxim:mathematics:topology",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "mathematics",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[topology]",
+        "section": "mathematics",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "08 - Topology: Continuity, Shape, and Invariants",
+        "updated": "null"
+      },
+      "text": "Why is this better?\n  ├── Works without a metric (pure topology)\n  ├── Generalizes to any topological space\n  └── Composition of continuous maps is continuous: trivially f⁻¹(g⁻¹(V)) = (g∘f)⁻¹(V)"
+    },
+    {
+      "id": "08-TOPOLOGY.md#021",
+      "path": [
+        "08-TOPOLOGY.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:mathematics:08-topology, git-history:mathematics:08-topology]",
+        "canonical_path": "mathematics/08-TOPOLOGY.md",
+        "concepts": "[topology]",
+        "current_path": "mathematics/08-TOPOLOGY.md",
+        "id": "maxim:mathematics:topology",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "mathematics",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[topology]",
+        "section": "mathematics",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "08 - Topology: Continuity, Shape, and Invariants",
+        "updated": "null"
+      },
+      "text": "EQUIVALENT CHARACTERIZATIONS:\n  f continuous ↔ preimage of every open set is open\n                ↔ preimage of every closed set is closed\n                ↔ f(x_n → x) = f(x_n) → f(x)  [in metric spaces]\n```"
+    },
+    {
+      "id": "08-TOPOLOGY.md#022",
+      "path": [
+        "08-TOPOLOGY.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:mathematics:08-topology, git-history:mathematics:08-topology]",
+        "canonical_path": "mathematics/08-TOPOLOGY.md",
+        "concepts": "[topology]",
+        "current_path": "mathematics/08-TOPOLOGY.md",
+        "id": "maxim:mathematics:topology",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "mathematics",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[topology]",
+        "section": "mathematics",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "08 - Topology: Continuity, Shape, and Invariants",
+        "updated": "null"
+      },
+      "text": "---"
+    },
+    {
+      "id": "08-TOPOLOGY.md#023",
+      "path": [
+        "08-TOPOLOGY.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:mathematics:08-topology, git-history:mathematics:08-topology]",
+        "canonical_path": "mathematics/08-TOPOLOGY.md",
+        "concepts": "[topology]",
+        "current_path": "mathematics/08-TOPOLOGY.md",
+        "id": "maxim:mathematics:topology",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "mathematics",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[topology]",
+        "section": "mathematics",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "08 - Topology: Continuity, Shape, and Invariants",
+        "updated": "null"
+      },
+      "text": "## 2. Topological Spaces"
+    },
+    {
+      "id": "08-TOPOLOGY.md#024",
+      "path": [
+        "08-TOPOLOGY.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:mathematics:08-topology, git-history:mathematics:08-topology]",
+        "canonical_path": "mathematics/08-TOPOLOGY.md",
+        "concepts": "[topology]",
+        "current_path": "mathematics/08-TOPOLOGY.md",
+        "id": "maxim:mathematics:topology",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "mathematics",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[topology]",
+        "section": "mathematics",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "08 - Topology: Continuity, Shape, and Invariants",
+        "updated": "null"
+      },
+      "text": "### 2.1 The Abstract Definition"
+    },
+    {
+      "id": "08-TOPOLOGY.md#025",
+      "path": [
+        "08-TOPOLOGY.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:mathematics:08-topology, git-history:mathematics:08-topology]",
+        "canonical_path": "mathematics/08-TOPOLOGY.md",
+        "concepts": "[topology]",
+        "current_path": "mathematics/08-TOPOLOGY.md",
+        "id": "maxim:mathematics:topology",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "mathematics",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[topology]",
+        "section": "mathematics",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "08 - Topology: Continuity, Shape, and Invariants",
+        "updated": "null"
+      },
+      "text": "A **topology** on X is a collection τ of subsets of X (the \"open sets\") satisfying:"
+    },
+    {
+      "id": "08-TOPOLOGY.md#026",
+      "path": [
+        "08-TOPOLOGY.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:mathematics:08-topology, git-history:mathematics:08-topology]",
+        "canonical_path": "mathematics/08-TOPOLOGY.md",
+        "concepts": "[topology]",
+        "current_path": "mathematics/08-TOPOLOGY.md",
+        "id": "maxim:mathematics:topology",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "mathematics",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[topology]",
+        "section": "mathematics",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "08 - Topology: Continuity, Shape, and Invariants",
+        "updated": "null"
+      },
+      "text": "```\n  1. ∅ ∈ τ and X ∈ τ\n  2. Arbitrary unions of open sets are open:  ∪ᵢ Uᵢ ∈ τ\n  3. Finite intersections of open sets are open: U₁ ∩ U₂ ∈ τ"
+    },
+    {
+      "id": "08-TOPOLOGY.md#027",
+      "path": [
+        "08-TOPOLOGY.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:mathematics:08-topology, git-history:mathematics:08-topology]",
+        "canonical_path": "mathematics/08-TOPOLOGY.md",
+        "concepts": "[topology]",
+        "current_path": "mathematics/08-TOPOLOGY.md",
+        "id": "maxim:mathematics:topology",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "mathematics",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[topology]",
+        "section": "mathematics",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "08 - Topology: Continuity, Shape, and Invariants",
+        "updated": "null"
+      },
+      "text": "The pair (X, τ) is a TOPOLOGICAL SPACE."
+    },
+    {
+      "id": "08-TOPOLOGY.md#028",
+      "path": [
+        "08-TOPOLOGY.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:mathematics:08-topology, git-history:mathematics:08-topology]",
+        "canonical_path": "mathematics/08-TOPOLOGY.md",
+        "concepts": "[topology]",
+        "current_path": "mathematics/08-TOPOLOGY.md",
+        "id": "maxim:mathematics:topology",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "mathematics",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[topology]",
+        "section": "mathematics",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "08 - Topology: Continuity, Shape, and Invariants",
+        "updated": "null"
+      },
+      "text": "Note: infinite intersections need not be open.\n  ∩ₙ₌₁^∞ (-1/n, 1/n) = {0}  ← not open in ℝ"
+    },
+    {
+      "id": "08-TOPOLOGY.md#029",
+      "path": [
+        "08-TOPOLOGY.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:mathematics:08-topology, git-history:mathematics:08-topology]",
+        "canonical_path": "mathematics/08-TOPOLOGY.md",
+        "concepts": "[topology]",
+        "current_path": "mathematics/08-TOPOLOGY.md",
+        "id": "maxim:mathematics:topology",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "mathematics",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[topology]",
+        "section": "mathematics",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "08 - Topology: Continuity, Shape, and Invariants",
+        "updated": "null"
+      },
+      "text": "EXAMPLES OF TOPOLOGIES ON X:\n  Discrete topology:  τ = 𝒫(X) (every subset is open)\n  Indiscrete topology: τ = {∅, X} (coarsest possible)\n  Metric topology:    τ = all sets that are open in the metric sense\n  Subspace topology:  if A ⊆ X, τ_A = {U ∩ A | U ∈ τ}\n  Product topology:   X × Y, open sets = unions of U × V (U open in X, V in Y)\n```"
+    },
+    {
+      "id": "08-TOPOLOGY.md#030",
+      "path": [
+        "08-TOPOLOGY.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:mathematics:08-topology, git-history:mathematics:08-topology]",
+        "canonical_path": "mathematics/08-TOPOLOGY.md",
+        "concepts": "[topology]",
+        "current_path": "mathematics/08-TOPOLOGY.md",
+        "id": "maxim:mathematics:topology",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "mathematics",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[topology]",
+        "section": "mathematics",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "08 - Topology: Continuity, Shape, and Invariants",
+        "updated": "null"
+      },
+      "text": "### 2.2 Key Topological Properties"
+    },
+    {
+      "id": "08-TOPOLOGY.md#031",
+      "path": [
+        "08-TOPOLOGY.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:mathematics:08-topology, git-history:mathematics:08-topology]",
+        "canonical_path": "mathematics/08-TOPOLOGY.md",
+        "concepts": "[topology]",
+        "current_path": "mathematics/08-TOPOLOGY.md",
+        "id": "maxim:mathematics:topology",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "mathematics",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[topology]",
+        "section": "mathematics",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "08 - Topology: Continuity, Shape, and Invariants",
+        "updated": "null"
+      },
+      "text": "```\n  HAUSDORFF (T₂): distinct points have disjoint neighborhoods\n  ∀x ≠ y, ∃ open U∋x, V∋y with U ∩ V = ∅\n  All metric spaces are Hausdorff. Hausdorff = points can be \"separated.\"\n  Non-Hausdorff: Zariski topology in algebraic geometry."
+    },
+    {
+      "id": "08-TOPOLOGY.md#032",
+      "path": [
+        "08-TOPOLOGY.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:mathematics:08-topology, git-history:mathematics:08-topology]",
+        "canonical_path": "mathematics/08-TOPOLOGY.md",
+        "concepts": "[topology]",
+        "current_path": "mathematics/08-TOPOLOGY.md",
+        "id": "maxim:mathematics:topology",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "mathematics",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[topology]",
+        "section": "mathematics",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "08 - Topology: Continuity, Shape, and Invariants",
+        "updated": "null"
+      },
+      "text": "COMPACTNESS: every open cover has a finite subcover\n  Intuition: \"finite in spirit\" — can't escape to infinity"
+    },
+    {
+      "id": "08-TOPOLOGY.md#033",
+      "path": [
+        "08-TOPOLOGY.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:mathematics:08-topology, git-history:mathematics:08-topology]",
+        "canonical_path": "mathematics/08-TOPOLOGY.md",
+        "concepts": "[topology]",
+        "current_path": "mathematics/08-TOPOLOGY.md",
+        "id": "maxim:mathematics:topology",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "mathematics",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[topology]",
+        "section": "mathematics",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "08 - Topology: Continuity, Shape, and Invariants",
+        "updated": "null"
+      },
+      "text": "Heine-Borel theorem (ℝⁿ): compact ↔ closed and bounded\n  Unit interval [0,1] is compact. ℝ is not. Open interval (0,1) is not."
+    },
+    {
+      "id": "08-TOPOLOGY.md#034",
+      "path": [
+        "08-TOPOLOGY.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:mathematics:08-topology, git-history:mathematics:08-topology]",
+        "canonical_path": "mathematics/08-TOPOLOGY.md",
+        "concepts": "[topology]",
+        "current_path": "mathematics/08-TOPOLOGY.md",
+        "id": "maxim:mathematics:topology",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "mathematics",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[topology]",
+        "section": "mathematics",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "08 - Topology: Continuity, Shape, and Invariants",
+        "updated": "null"
+      },
+      "text": "KEY THEOREMS FOR COMPACT SPACES:\n  ├── Continuous image of compact = compact  (f(K) compact if K compact)\n  ├── Continuous f: K → ℝ attains max and min  (extreme value theorem)\n  └── Compact + Hausdorff → normal (points and closed sets separable)"
+    },
+    {
+      "id": "08-TOPOLOGY.md#035",
+      "path": [
+        "08-TOPOLOGY.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:mathematics:08-topology, git-history:mathematics:08-topology]",
+        "canonical_path": "mathematics/08-TOPOLOGY.md",
+        "concepts": "[topology]",
+        "current_path": "mathematics/08-TOPOLOGY.md",
+        "id": "maxim:mathematics:topology",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "mathematics",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[topology]",
+        "section": "mathematics",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "08 - Topology: Continuity, Shape, and Invariants",
+        "updated": "null"
+      },
+      "text": "CONNECTEDNESS: X cannot be written as union of two disjoint open sets\n  Path-connectedness: ∀x,y ∈ X, ∃ continuous γ: [0,1] → X with γ(0)=x, γ(1)=y\n  Path-connected ⟹ connected (converse fails: topologist's sine curve)\n```"
+    },
+    {
+      "id": "08-TOPOLOGY.md#036",
+      "path": [
+        "08-TOPOLOGY.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:mathematics:08-topology, git-history:mathematics:08-topology]",
+        "canonical_path": "mathematics/08-TOPOLOGY.md",
+        "concepts": "[topology]",
+        "current_path": "mathematics/08-TOPOLOGY.md",
+        "id": "maxim:mathematics:topology",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "mathematics",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[topology]",
+        "section": "mathematics",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "08 - Topology: Continuity, Shape, and Invariants",
+        "updated": "null"
+      },
+      "text": "---"
+    },
+    {
+      "id": "08-TOPOLOGY.md#037",
+      "path": [
+        "08-TOPOLOGY.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:mathematics:08-topology, git-history:mathematics:08-topology]",
+        "canonical_path": "mathematics/08-TOPOLOGY.md",
+        "concepts": "[topology]",
+        "current_path": "mathematics/08-TOPOLOGY.md",
+        "id": "maxim:mathematics:topology",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "mathematics",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[topology]",
+        "section": "mathematics",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "08 - Topology: Continuity, Shape, and Invariants",
+        "updated": "null"
+      },
+      "text": "## 3. Homeomorphisms — Topological Equivalence"
+    },
+    {
+      "id": "08-TOPOLOGY.md#038",
+      "path": [
+        "08-TOPOLOGY.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:mathematics:08-topology, git-history:mathematics:08-topology]",
+        "canonical_path": "mathematics/08-TOPOLOGY.md",
+        "concepts": "[topology]",
+        "current_path": "mathematics/08-TOPOLOGY.md",
+        "id": "maxim:mathematics:topology",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "mathematics",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[topology]",
+        "section": "mathematics",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "08 - Topology: Continuity, Shape, and Invariants",
+        "updated": "null"
+      },
+      "text": "### 3.1 Definition"
+    },
+    {
+      "id": "08-TOPOLOGY.md#039",
+      "path": [
+        "08-TOPOLOGY.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:mathematics:08-topology, git-history:mathematics:08-topology]",
+        "canonical_path": "mathematics/08-TOPOLOGY.md",
+        "concepts": "[topology]",
+        "current_path": "mathematics/08-TOPOLOGY.md",
+        "id": "maxim:mathematics:topology",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "mathematics",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[topology]",
+        "section": "mathematics",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "08 - Topology: Continuity, Shape, and Invariants",
+        "updated": "null"
+      },
+      "text": "```\n  A HOMEOMORPHISM is a bijection f: X → Y such that both f and f⁻¹ are continuous.\n  X ≅ Y (homeomorphic) means they have the same topological structure."
+    },
+    {
+      "id": "08-TOPOLOGY.md#040",
+      "path": [
+        "08-TOPOLOGY.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:mathematics:08-topology, git-history:mathematics:08-topology]",
+        "canonical_path": "mathematics/08-TOPOLOGY.md",
+        "concepts": "[topology]",
+        "current_path": "mathematics/08-TOPOLOGY.md",
+        "id": "maxim:mathematics:topology",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "mathematics",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[topology]",
+        "section": "mathematics",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "08 - Topology: Continuity, Shape, and Invariants",
+        "updated": "null"
+      },
+      "text": "\"Same shape\" in topology = homeomorphic."
+    },
+    {
+      "id": "08-TOPOLOGY.md#041",
+      "path": [
+        "08-TOPOLOGY.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:mathematics:08-topology, git-history:mathematics:08-topology]",
+        "canonical_path": "mathematics/08-TOPOLOGY.md",
+        "concepts": "[topology]",
+        "current_path": "mathematics/08-TOPOLOGY.md",
+        "id": "maxim:mathematics:topology",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "mathematics",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[topology]",
+        "section": "mathematics",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "08 - Topology: Continuity, Shape, and Invariants",
+        "updated": "null"
+      },
+      "text": "FAMOUS HOMEOMORPHISMS:\n  ├── Open interval (-1,1) ≅ ℝ       [via f(x) = tan(πx/2)]\n  ├── Any open interval ≅ ℝ\n  ├── Open disc ≅ ℝ²\n  ├── Circle S¹ ≅ square boundary\n  ├── Sphere S² ≅ surface of cube\n  └── Coffee cup ≅ torus (donut)     [the famous one]"
+    },
+    {
+      "id": "08-TOPOLOGY.md#042",
+      "path": [
+        "08-TOPOLOGY.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:mathematics:08-topology, git-history:mathematics:08-topology]",
+        "canonical_path": "mathematics/08-TOPOLOGY.md",
+        "concepts": "[topology]",
+        "current_path": "mathematics/08-TOPOLOGY.md",
+        "id": "maxim:mathematics:topology",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "mathematics",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[topology]",
+        "section": "mathematics",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "08 - Topology: Continuity, Shape, and Invariants",
+        "updated": "null"
+      },
+      "text": "NOT HOMEOMORPHIC:\n  ├── Circle ≇ line ℝ  (remove one point: circle stays connected, line splits)\n  ├── Sphere S² ≇ torus T²  (different number of holes)\n  └── ℝ ≇ ℝ²  (remove one point: ℝ splits, ℝ² stays connected)\n```"
+    },
+    {
+      "id": "08-TOPOLOGY.md#043",
+      "path": [
+        "08-TOPOLOGY.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:mathematics:08-topology, git-history:mathematics:08-topology]",
+        "canonical_path": "mathematics/08-TOPOLOGY.md",
+        "concepts": "[topology]",
+        "current_path": "mathematics/08-TOPOLOGY.md",
+        "id": "maxim:mathematics:topology",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "mathematics",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[topology]",
+        "section": "mathematics",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "08 - Topology: Continuity, Shape, and Invariants",
+        "updated": "null"
+      },
+      "text": "### 3.2 Topological Invariants"
+    },
+    {
+      "id": "08-TOPOLOGY.md#044",
+      "path": [
+        "08-TOPOLOGY.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:mathematics:08-topology, git-history:mathematics:08-topology]",
+        "canonical_path": "mathematics/08-TOPOLOGY.md",
+        "concepts": "[topology]",
+        "current_path": "mathematics/08-TOPOLOGY.md",
+        "id": "maxim:mathematics:topology",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "mathematics",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[topology]",
+        "section": "mathematics",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "08 - Topology: Continuity, Shape, and Invariants",
+        "updated": "null"
+      },
+      "text": "A **topological invariant** is a property preserved by homeomorphisms:"
+    },
+    {
+      "id": "08-TOPOLOGY.md#045",
+      "path": [
+        "08-TOPOLOGY.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:mathematics:08-topology, git-history:mathematics:08-topology]",
+        "canonical_path": "mathematics/08-TOPOLOGY.md",
+        "concepts": "[topology]",
+        "current_path": "mathematics/08-TOPOLOGY.md",
+        "id": "maxim:mathematics:topology",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "mathematics",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[topology]",
+        "section": "mathematics",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "08 - Topology: Continuity, Shape, and Invariants",
+        "updated": "null"
+      },
+      "text": "```\n  INVARIANT                  SPHERE S²    TORUS T²    Figure-8\n  ──────────────────────────────────────────────────────────────\n  Compactness                Yes          Yes         Yes\n  Connectedness              Yes          Yes         Yes\n  Simply connected?          Yes          No          No\n  Euler characteristic χ     2            0           -1 (debatable)\n  Fundamental group π₁       trivial {0}  ℤ×ℤ         free group F₂\n  ──────────────────────────────────────────────────────────────\n  If any invariant differs → spaces are NOT homeomorphic.\n  Invariants can prove non-homeomorphism; equal invariants don't prove homeomorphic.\n```"
+    },
+    {
+      "id": "08-TOPOLOGY.md#046",
+      "path": [
+        "08-TOPOLOGY.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:mathematics:08-topology, git-history:mathematics:08-topology]",
+        "canonical_path": "mathematics/08-TOPOLOGY.md",
+        "concepts": "[topology]",
+        "current_path": "mathematics/08-TOPOLOGY.md",
+        "id": "maxim:mathematics:topology",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "mathematics",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[topology]",
+        "section": "mathematics",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "08 - Topology: Continuity, Shape, and Invariants",
+        "updated": "null"
+      },
+      "text": "---"
+    },
+    {
+      "id": "08-TOPOLOGY.md#047",
+      "path": [
+        "08-TOPOLOGY.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:mathematics:08-topology, git-history:mathematics:08-topology]",
+        "canonical_path": "mathematics/08-TOPOLOGY.md",
+        "concepts": "[topology]",
+        "current_path": "mathematics/08-TOPOLOGY.md",
+        "id": "maxim:mathematics:topology",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "mathematics",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[topology]",
+        "section": "mathematics",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "08 - Topology: Continuity, Shape, and Invariants",
+        "updated": "null"
+      },
+      "text": "## 4. Homotopy and the Fundamental Group"
+    },
+    {
+      "id": "08-TOPOLOGY.md#048",
+      "path": [
+        "08-TOPOLOGY.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:mathematics:08-topology, git-history:mathematics:08-topology]",
+        "canonical_path": "mathematics/08-TOPOLOGY.md",
+        "concepts": "[topology]",
+        "current_path": "mathematics/08-TOPOLOGY.md",
+        "id": "maxim:mathematics:topology",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "mathematics",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[topology]",
+        "section": "mathematics",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "08 - Topology: Continuity, Shape, and Invariants",
+        "updated": "null"
+      },
+      "text": "### 4.1 Homotopy"
+    },
+    {
+      "id": "08-TOPOLOGY.md#049",
+      "path": [
+        "08-TOPOLOGY.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:mathematics:08-topology, git-history:mathematics:08-topology]",
+        "canonical_path": "mathematics/08-TOPOLOGY.md",
+        "concepts": "[topology]",
+        "current_path": "mathematics/08-TOPOLOGY.md",
+        "id": "maxim:mathematics:topology",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "mathematics",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[topology]",
+        "section": "mathematics",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "08 - Topology: Continuity, Shape, and Invariants",
+        "updated": "null"
+      },
+      "text": "```\n  Two continuous maps f, g: X → Y are HOMOTOPIC (f ≃ g) if there exists\n  a continuous deformation H: X × [0,1] → Y with H(x,0) = f(x), H(x,1) = g(x)"
+    },
+    {
+      "id": "08-TOPOLOGY.md#050",
+      "path": [
+        "08-TOPOLOGY.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:mathematics:08-topology, git-history:mathematics:08-topology]",
+        "canonical_path": "mathematics/08-TOPOLOGY.md",
+        "concepts": "[topology]",
+        "current_path": "mathematics/08-TOPOLOGY.md",
+        "id": "maxim:mathematics:topology",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "mathematics",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[topology]",
+        "section": "mathematics",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "08 - Topology: Continuity, Shape, and Invariants",
+        "updated": "null"
+      },
+      "text": "H is the HOMOTOPY — a continuous family of maps interpolating f to g."
+    },
+    {
+      "id": "08-TOPOLOGY.md#051",
+      "path": [
+        "08-TOPOLOGY.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:mathematics:08-topology, git-history:mathematics:08-topology]",
+        "canonical_path": "mathematics/08-TOPOLOGY.md",
+        "concepts": "[topology]",
+        "current_path": "mathematics/08-TOPOLOGY.md",
+        "id": "maxim:mathematics:topology",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "mathematics",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[topology]",
+        "section": "mathematics",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "08 - Topology: Continuity, Shape, and Invariants",
+        "updated": "null"
+      },
+      "text": "Intuition: f and g can be continuously deformed into each other."
+    },
+    {
+      "id": "08-TOPOLOGY.md#052",
+      "path": [
+        "08-TOPOLOGY.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:mathematics:08-topology, git-history:mathematics:08-topology]",
+        "canonical_path": "mathematics/08-TOPOLOGY.md",
+        "concepts": "[topology]",
+        "current_path": "mathematics/08-TOPOLOGY.md",
+        "id": "maxim:mathematics:topology",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "mathematics",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[topology]",
+        "section": "mathematics",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "08 - Topology: Continuity, Shape, and Invariants",
+        "updated": "null"
+      },
+      "text": "A space X is CONTRACTIBLE if the identity map id: X → X is homotopic to\n  a constant map (map everything to one point).\n  ℝⁿ is contractible. S¹ (circle) is not.\n```"
+    },
+    {
+      "id": "08-TOPOLOGY.md#053",
+      "path": [
+        "08-TOPOLOGY.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:mathematics:08-topology, git-history:mathematics:08-topology]",
+        "canonical_path": "mathematics/08-TOPOLOGY.md",
+        "concepts": "[topology]",
+        "current_path": "mathematics/08-TOPOLOGY.md",
+        "id": "maxim:mathematics:topology",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "mathematics",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[topology]",
+        "section": "mathematics",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "08 - Topology: Continuity, Shape, and Invariants",
+        "updated": "null"
+      },
+      "text": "### 4.2 Loops and the Fundamental Group"
+    },
+    {
+      "id": "08-TOPOLOGY.md#054",
+      "path": [
+        "08-TOPOLOGY.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:mathematics:08-topology, git-history:mathematics:08-topology]",
+        "canonical_path": "mathematics/08-TOPOLOGY.md",
+        "concepts": "[topology]",
+        "current_path": "mathematics/08-TOPOLOGY.md",
+        "id": "maxim:mathematics:topology",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "mathematics",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[topology]",
+        "section": "mathematics",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "08 - Topology: Continuity, Shape, and Invariants",
+        "updated": "null"
+      },
+      "text": "```\n  A LOOP at basepoint x₀ ∈ X is: γ: [0,1] → X with γ(0) = γ(1) = x₀"
+    },
+    {
+      "id": "08-TOPOLOGY.md#055",
+      "path": [
+        "08-TOPOLOGY.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:mathematics:08-topology, git-history:mathematics:08-topology]",
+        "canonical_path": "mathematics/08-TOPOLOGY.md",
+        "concepts": "[topology]",
+        "current_path": "mathematics/08-TOPOLOGY.md",
+        "id": "maxim:mathematics:topology",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "mathematics",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[topology]",
+        "section": "mathematics",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "08 - Topology: Continuity, Shape, and Invariants",
+        "updated": "null"
+      },
+      "text": "Two loops are HOMOTOPIC if one can be continuously deformed into the other\n  while keeping the basepoint fixed."
+    },
+    {
+      "id": "08-TOPOLOGY.md#056",
+      "path": [
+        "08-TOPOLOGY.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:mathematics:08-topology, git-history:mathematics:08-topology]",
+        "canonical_path": "mathematics/08-TOPOLOGY.md",
+        "concepts": "[topology]",
+        "current_path": "mathematics/08-TOPOLOGY.md",
+        "id": "maxim:mathematics:topology",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "mathematics",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[topology]",
+        "section": "mathematics",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "08 - Topology: Continuity, Shape, and Invariants",
+        "updated": "null"
+      },
+      "text": "FUNDAMENTAL GROUP π₁(X, x₀):\n  Elements = homotopy classes of loops at x₀\n  Group operation = concatenation of loops: [γ₁]·[γ₂] = [γ₁ then γ₂]\n  Identity = constant loop at x₀\n  Inverse of [γ] = [γ traversed backwards]"
+    },
+    {
+      "id": "08-TOPOLOGY.md#057",
+      "path": [
+        "08-TOPOLOGY.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:mathematics:08-topology, git-history:mathematics:08-topology]",
+        "canonical_path": "mathematics/08-TOPOLOGY.md",
+        "concepts": "[topology]",
+        "current_path": "mathematics/08-TOPOLOGY.md",
+        "id": "maxim:mathematics:topology",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "mathematics",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[topology]",
+        "section": "mathematics",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "08 - Topology: Continuity, Shape, and Invariants",
+        "updated": "null"
+      },
+      "text": "┌──────────────────────────────────────────────────────────────────┐\n  │  SPACE X          │  π₁(X)          │  MEANING                   │\n  ├──────────────────────────────────────────────────────────────────┤\n  │  ℝⁿ               │  {e} (trivial)  │  all loops contractible   │\n  │  S¹ (circle)      │  ℤ              │  loop winds n times       │\n  │  S² (sphere)      │  {e} (trivial)  │  all loops shrinkable     │\n  │  Torus T²         │  ℤ × ℤ          │  wind m times in each dir │\n  │  Figure-8         │  F₂ (free group)│  non-abelian!             │\n  │  ℝ³\\{0}           │  {e}            │  go around origin in 3D   │\n  │  ℝ³\\{line}        │  ℤ              │  wind around the line     │\n  │  RP²              │  ℤ/2ℤ           │  spin-½ connection!       │\n  └──────────────────────────────────────────────────────────────────┘"
+    },
+    {
+      "id": "08-TOPOLOGY.md#058",
+      "path": [
+        "08-TOPOLOGY.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:mathematics:08-topology, git-history:mathematics:08-topology]",
+        "canonical_path": "mathematics/08-TOPOLOGY.md",
+        "concepts": "[topology]",
+        "current_path": "mathematics/08-TOPOLOGY.md",
+        "id": "maxim:mathematics:topology",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "mathematics",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[topology]",
+        "section": "mathematics",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "08 - Topology: Continuity, Shape, and Invariants",
+        "updated": "null"
+      },
+      "text": "SIMPLY CONNECTED: π₁ = {e} (trivial) — every loop can be shrunk to a point.\n  ℝⁿ, S² are simply connected.\n  Circle S¹, torus T² are NOT simply connected.\n```"
+    },
+    {
+      "id": "08-TOPOLOGY.md#059",
+      "path": [
+        "08-TOPOLOGY.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:mathematics:08-topology, git-history:mathematics:08-topology]",
+        "canonical_path": "mathematics/08-TOPOLOGY.md",
+        "concepts": "[topology]",
+        "current_path": "mathematics/08-TOPOLOGY.md",
+        "id": "maxim:mathematics:topology",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "mathematics",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[topology]",
+        "section": "mathematics",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "08 - Topology: Continuity, Shape, and Invariants",
+        "updated": "null"
+      },
+      "text": "### 4.3 Van Kampen's Theorem"
+    },
+    {
+      "id": "08-TOPOLOGY.md#060",
+      "path": [
+        "08-TOPOLOGY.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:mathematics:08-topology, git-history:mathematics:08-topology]",
+        "canonical_path": "mathematics/08-TOPOLOGY.md",
+        "concepts": "[topology]",
+        "current_path": "mathematics/08-TOPOLOGY.md",
+        "id": "maxim:mathematics:topology",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "mathematics",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[topology]",
+        "section": "mathematics",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "08 - Topology: Continuity, Shape, and Invariants",
+        "updated": "null"
+      },
+      "text": "```\n  If X = U ∪ V with U, V open, path-connected, and U ∩ V path-connected:"
+    },
+    {
+      "id": "08-TOPOLOGY.md#061",
+      "path": [
+        "08-TOPOLOGY.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:mathematics:08-topology, git-history:mathematics:08-topology]",
+        "canonical_path": "mathematics/08-TOPOLOGY.md",
+        "concepts": "[topology]",
+        "current_path": "mathematics/08-TOPOLOGY.md",
+        "id": "maxim:mathematics:topology",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "mathematics",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[topology]",
+        "section": "mathematics",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "08 - Topology: Continuity, Shape, and Invariants",
+        "updated": "null"
+      },
+      "text": "π₁(X) = π₁(U) *_{π₁(U∩V)} π₁(V)    (amalgamated free product)"
+    },
+    {
+      "id": "08-TOPOLOGY.md#062",
+      "path": [
+        "08-TOPOLOGY.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:mathematics:08-topology, git-history:mathematics:08-topology]",
+        "canonical_path": "mathematics/08-TOPOLOGY.md",
+        "concepts": "[topology]",
+        "current_path": "mathematics/08-TOPOLOGY.md",
+        "id": "maxim:mathematics:topology",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "mathematics",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[topology]",
+        "section": "mathematics",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "08 - Topology: Continuity, Shape, and Invariants",
+        "updated": "null"
+      },
+      "text": "Simple case: if U ∩ V is simply connected:\n  π₁(X) = π₁(U) * π₁(V)    (free product)"
+    },
+    {
+      "id": "08-TOPOLOGY.md#063",
+      "path": [
+        "08-TOPOLOGY.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:mathematics:08-topology, git-history:mathematics:08-topology]",
+        "canonical_path": "mathematics/08-TOPOLOGY.md",
+        "concepts": "[topology]",
+        "current_path": "mathematics/08-TOPOLOGY.md",
+        "id": "maxim:mathematics:topology",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "mathematics",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[topology]",
+        "section": "mathematics",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "08 - Topology: Continuity, Shape, and Invariants",
+        "updated": "null"
+      },
+      "text": "EXAMPLE: Figure-8 = circle ∪ circle glued at one point\n  π₁(circle) = ℤ, intersection = {point} → π₁ = ℤ * ℤ = F₂ (free group on 2 generators)\n```"
+    },
+    {
+      "id": "08-TOPOLOGY.md#064",
+      "path": [
+        "08-TOPOLOGY.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:mathematics:08-topology, git-history:mathematics:08-topology]",
+        "canonical_path": "mathematics/08-TOPOLOGY.md",
+        "concepts": "[topology]",
+        "current_path": "mathematics/08-TOPOLOGY.md",
+        "id": "maxim:mathematics:topology",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "mathematics",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[topology]",
+        "section": "mathematics",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "08 - Topology: Continuity, Shape, and Invariants",
+        "updated": "null"
+      },
+      "text": "---"
+    },
+    {
+      "id": "08-TOPOLOGY.md#065",
+      "path": [
+        "08-TOPOLOGY.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:mathematics:08-topology, git-history:mathematics:08-topology]",
+        "canonical_path": "mathematics/08-TOPOLOGY.md",
+        "concepts": "[topology]",
+        "current_path": "mathematics/08-TOPOLOGY.md",
+        "id": "maxim:mathematics:topology",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "mathematics",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[topology]",
+        "section": "mathematics",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "08 - Topology: Continuity, Shape, and Invariants",
+        "updated": "null"
+      },
+      "text": "## 5. Covering Spaces"
+    },
+    {
+      "id": "08-TOPOLOGY.md#066",
+      "path": [
+        "08-TOPOLOGY.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:mathematics:08-topology, git-history:mathematics:08-topology]",
+        "canonical_path": "mathematics/08-TOPOLOGY.md",
+        "concepts": "[topology]",
+        "current_path": "mathematics/08-TOPOLOGY.md",
+        "id": "maxim:mathematics:topology",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "mathematics",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[topology]",
+        "section": "mathematics",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "08 - Topology: Continuity, Shape, and Invariants",
+        "updated": "null"
+      },
+      "text": "```\n  A COVERING SPACE of X is a space X̃ with a map p: X̃ → X such that\n  every point of X has a neighborhood U with p⁻¹(U) = disjoint union of\n  open sets in X̃, each mapping homeomorphically to U."
+    },
+    {
+      "id": "08-TOPOLOGY.md#067",
+      "path": [
+        "08-TOPOLOGY.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:mathematics:08-topology, git-history:mathematics:08-topology]",
+        "canonical_path": "mathematics/08-TOPOLOGY.md",
+        "concepts": "[topology]",
+        "current_path": "mathematics/08-TOPOLOGY.md",
+        "id": "maxim:mathematics:topology",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "mathematics",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[topology]",
+        "section": "mathematics",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "08 - Topology: Continuity, Shape, and Invariants",
+        "updated": "null"
+      },
+      "text": "EXAMPLES:\n  ┌─────────────────────────────────────────────────────────────────┐\n  │  p: ℝ → S¹,  p(t) = e^(2πit)                                    │\n  │  The real line \"wraps around\" the circle.                       │\n  │  Fiber p⁻¹(x₀) = ℤ (all integers, equally spaced)               │\n  │                                                                 │\n  │  p: S² → RP²  (antipodal map)                                   │\n  │  Sphere double-covers real projective plane.                    │\n  │  Fiber = 2 points.                                              │\n  │                                                                 │\n  │  p: SU(2) → SO(3)  (the spin covering!)                         │\n  │  SU(2) ≅ S³ double-covers SO(3) ≅ RP³                           │\n  │  This is why spin-½ exists — SU(2) is the universal cover       │\n  └─────────────────────────────────────────────────────────────────┘"
+    },
+    {
+      "id": "08-TOPOLOGY.md#068",
+      "path": [
+        "08-TOPOLOGY.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:mathematics:08-topology, git-history:mathematics:08-topology]",
+        "canonical_path": "mathematics/08-TOPOLOGY.md",
+        "concepts": "[topology]",
+        "current_path": "mathematics/08-TOPOLOGY.md",
+        "id": "maxim:mathematics:topology",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "mathematics",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[topology]",
+        "section": "mathematics",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "08 - Topology: Continuity, Shape, and Invariants",
+        "updated": "null"
+      },
+      "text": "MONODROMY: as you go around a loop in X, the fiber points permute.\n  Going around the circle once in S¹ lifts to going from n to n+1 in ℝ.\n  Going around a loop in SO(3) once lifts to either a loop or a path\n  (depending on whether the loop is trivial in π₁(SO(3)) = ℤ/2ℤ).\n```"
+    },
+    {
+      "id": "08-TOPOLOGY.md#069",
+      "path": [
+        "08-TOPOLOGY.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:mathematics:08-topology, git-history:mathematics:08-topology]",
+        "canonical_path": "mathematics/08-TOPOLOGY.md",
+        "concepts": "[topology]",
+        "current_path": "mathematics/08-TOPOLOGY.md",
+        "id": "maxim:mathematics:topology",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "mathematics",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[topology]",
+        "section": "mathematics",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "08 - Topology: Continuity, Shape, and Invariants",
+        "updated": "null"
+      },
+      "text": "---"
+    },
+    {
+      "id": "08-TOPOLOGY.md#070",
+      "path": [
+        "08-TOPOLOGY.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:mathematics:08-topology, git-history:mathematics:08-topology]",
+        "canonical_path": "mathematics/08-TOPOLOGY.md",
+        "concepts": "[topology]",
+        "current_path": "mathematics/08-TOPOLOGY.md",
+        "id": "maxim:mathematics:topology",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "mathematics",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[topology]",
+        "section": "mathematics",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "08 - Topology: Continuity, Shape, and Invariants",
+        "updated": "null"
+      },
+      "text": "## 6. Euler Characteristic and Surfaces"
+    },
+    {
+      "id": "08-TOPOLOGY.md#071",
+      "path": [
+        "08-TOPOLOGY.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:mathematics:08-topology, git-history:mathematics:08-topology]",
+        "canonical_path": "mathematics/08-TOPOLOGY.md",
+        "concepts": "[topology]",
+        "current_path": "mathematics/08-TOPOLOGY.md",
+        "id": "maxim:mathematics:topology",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "mathematics",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[topology]",
+        "section": "mathematics",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "08 - Topology: Continuity, Shape, and Invariants",
+        "updated": "null"
+      },
+      "text": "### 6.1 Euler Characteristic"
+    },
+    {
+      "id": "08-TOPOLOGY.md#072",
+      "path": [
+        "08-TOPOLOGY.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:mathematics:08-topology, git-history:mathematics:08-topology]",
+        "canonical_path": "mathematics/08-TOPOLOGY.md",
+        "concepts": "[topology]",
+        "current_path": "mathematics/08-TOPOLOGY.md",
+        "id": "maxim:mathematics:topology",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "mathematics",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[topology]",
+        "section": "mathematics",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "08 - Topology: Continuity, Shape, and Invariants",
+        "updated": "null"
+      },
+      "text": "```\n  For a polyhedron (V vertices, E edges, F faces):\n  χ = V - E + F"
+    },
+    {
+      "id": "08-TOPOLOGY.md#073",
+      "path": [
+        "08-TOPOLOGY.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:mathematics:08-topology, git-history:mathematics:08-topology]",
+        "canonical_path": "mathematics/08-TOPOLOGY.md",
+        "concepts": "[topology]",
+        "current_path": "mathematics/08-TOPOLOGY.md",
+        "id": "maxim:mathematics:topology",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "mathematics",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[topology]",
+        "section": "mathematics",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "08 - Topology: Continuity, Shape, and Invariants",
+        "updated": "null"
+      },
+      "text": "EXAMPLES:\n  Tetrahedron: 4 - 6 + 4 = 2\n  Cube:        8 - 12 + 6 = 2\n  Octahedron:  6 - 12 + 8 = 2\n  All convex polyhedra: χ = 2  (homeomorphic to sphere S²)"
+    },
+    {
+      "id": "08-TOPOLOGY.md#074",
+      "path": [
+        "08-TOPOLOGY.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:mathematics:08-topology, git-history:mathematics:08-topology]",
+        "canonical_path": "mathematics/08-TOPOLOGY.md",
+        "concepts": "[topology]",
+        "current_path": "mathematics/08-TOPOLOGY.md",
+        "id": "maxim:mathematics:topology",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "mathematics",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[topology]",
+        "section": "mathematics",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "08 - Topology: Continuity, Shape, and Invariants",
+        "updated": "null"
+      },
+      "text": "Torus (triangulated): χ = 0\n  Double torus (genus 2): χ = -2\n  Sphere S²: χ = 2"
+    },
+    {
+      "id": "08-TOPOLOGY.md#075",
+      "path": [
+        "08-TOPOLOGY.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:mathematics:08-topology, git-history:mathematics:08-topology]",
+        "canonical_path": "mathematics/08-TOPOLOGY.md",
+        "concepts": "[topology]",
+        "current_path": "mathematics/08-TOPOLOGY.md",
+        "id": "maxim:mathematics:topology",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "mathematics",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[topology]",
+        "section": "mathematics",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "08 - Topology: Continuity, Shape, and Invariants",
+        "updated": "null"
+      },
+      "text": "GENERAL FORMULA for orientable surface of genus g (g holes):\n  χ = 2 - 2g"
+    },
+    {
+      "id": "08-TOPOLOGY.md#076",
+      "path": [
+        "08-TOPOLOGY.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:mathematics:08-topology, git-history:mathematics:08-topology]",
+        "canonical_path": "mathematics/08-TOPOLOGY.md",
+        "concepts": "[topology]",
+        "current_path": "mathematics/08-TOPOLOGY.md",
+        "id": "maxim:mathematics:topology",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "mathematics",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[topology]",
+        "section": "mathematics",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "08 - Topology: Continuity, Shape, and Invariants",
+        "updated": "null"
+      },
+      "text": "g=0 (sphere):    χ = 2\n  g=1 (torus):     χ = 0\n  g=2 (pretzel):   χ = -2\n```"
+    },
+    {
+      "id": "08-TOPOLOGY.md#077",
+      "path": [
+        "08-TOPOLOGY.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:mathematics:08-topology, git-history:mathematics:08-topology]",
+        "canonical_path": "mathematics/08-TOPOLOGY.md",
+        "concepts": "[topology]",
+        "current_path": "mathematics/08-TOPOLOGY.md",
+        "id": "maxim:mathematics:topology",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "mathematics",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[topology]",
+        "section": "mathematics",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "08 - Topology: Continuity, Shape, and Invariants",
+        "updated": "null"
+      },
+      "text": "### 6.2 Classification of Compact Surfaces"
+    },
+    {
+      "id": "08-TOPOLOGY.md#078",
+      "path": [
+        "08-TOPOLOGY.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:mathematics:08-topology, git-history:mathematics:08-topology]",
+        "canonical_path": "mathematics/08-TOPOLOGY.md",
+        "concepts": "[topology]",
+        "current_path": "mathematics/08-TOPOLOGY.md",
+        "id": "maxim:mathematics:topology",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "mathematics",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[topology]",
+        "section": "mathematics",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "08 - Topology: Continuity, Shape, and Invariants",
+        "updated": "null"
+      },
+      "text": "```\n  Every compact connected surface is homeomorphic to exactly one of:\n  ├── Orientable: sphere, torus, double torus, ... (genus g = 0, 1, 2, ...)\n  └── Non-orientable: RP², Klein bottle, ... (crosscap number k = 1, 2, ...)"
+    },
+    {
+      "id": "08-TOPOLOGY.md#079",
+      "path": [
+        "08-TOPOLOGY.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:mathematics:08-topology, git-history:mathematics:08-topology]",
+        "canonical_path": "mathematics/08-TOPOLOGY.md",
+        "concepts": "[topology]",
+        "current_path": "mathematics/08-TOPOLOGY.md",
+        "id": "maxim:mathematics:topology",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "mathematics",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[topology]",
+        "section": "mathematics",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "08 - Topology: Continuity, Shape, and Invariants",
+        "updated": "null"
+      },
+      "text": "ORIENTABLE SURFACES:\n  ┌─────────────────────────────────────────────────────────────────┐\n  │                 ○    ○──○    ○──○──○                            │\n  │  Sphere  Torus     Genus 2    Genus 3 ...                       │\n  │  χ=2     χ=0       χ=-2       χ=-4                              │\n  └─────────────────────────────────────────────────────────────────┘"
+    },
+    {
+      "id": "08-TOPOLOGY.md#080",
+      "path": [
+        "08-TOPOLOGY.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:mathematics:08-topology, git-history:mathematics:08-topology]",
+        "canonical_path": "mathematics/08-TOPOLOGY.md",
+        "concepts": "[topology]",
+        "current_path": "mathematics/08-TOPOLOGY.md",
+        "id": "maxim:mathematics:topology",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "mathematics",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[topology]",
+        "section": "mathematics",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "08 - Topology: Continuity, Shape, and Invariants",
+        "updated": "null"
+      },
+      "text": "MÖBIUS BAND: non-orientable surface with boundary\n  (one-sided: an ant walking on it visits both \"sides\")\n  REAL PROJECTIVE PLANE RP²: compact, non-orientable, no boundary\n  KLEIN BOTTLE: like two Möbius bands glued — can't exist in ℝ³ without self-intersection\n```"
+    },
+    {
+      "id": "08-TOPOLOGY.md#081",
+      "path": [
+        "08-TOPOLOGY.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:mathematics:08-topology, git-history:mathematics:08-topology]",
+        "canonical_path": "mathematics/08-TOPOLOGY.md",
+        "concepts": "[topology]",
+        "current_path": "mathematics/08-TOPOLOGY.md",
+        "id": "maxim:mathematics:topology",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "mathematics",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[topology]",
+        "section": "mathematics",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "08 - Topology: Continuity, Shape, and Invariants",
+        "updated": "null"
+      },
+      "text": "### 6.3 Gauss-Bonnet Theorem (Preview of Differential Geometry)"
+    },
+    {
+      "id": "08-TOPOLOGY.md#082",
+      "path": [
+        "08-TOPOLOGY.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:mathematics:08-topology, git-history:mathematics:08-topology]",
+        "canonical_path": "mathematics/08-TOPOLOGY.md",
+        "concepts": "[topology]",
+        "current_path": "mathematics/08-TOPOLOGY.md",
+        "id": "maxim:mathematics:topology",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "mathematics",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[topology]",
+        "section": "mathematics",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "08 - Topology: Continuity, Shape, and Invariants",
+        "updated": "null"
+      },
+      "text": "```\n  For a compact surface M:\n  ∫∫_M K dA = 2π χ(M)"
+    },
+    {
+      "id": "08-TOPOLOGY.md#083",
+      "path": [
+        "08-TOPOLOGY.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:mathematics:08-topology, git-history:mathematics:08-topology]",
+        "canonical_path": "mathematics/08-TOPOLOGY.md",
+        "concepts": "[topology]",
+        "current_path": "mathematics/08-TOPOLOGY.md",
+        "id": "maxim:mathematics:topology",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "mathematics",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[topology]",
+        "section": "mathematics",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "08 - Topology: Continuity, Shape, and Invariants",
+        "updated": "null"
+      },
+      "text": "K = Gaussian curvature (intrinsic — measured without embedding)\n  χ = Euler characteristic (topological invariant)"
+    },
+    {
+      "id": "08-TOPOLOGY.md#084",
+      "path": [
+        "08-TOPOLOGY.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:mathematics:08-topology, git-history:mathematics:08-topology]",
+        "canonical_path": "mathematics/08-TOPOLOGY.md",
+        "concepts": "[topology]",
+        "current_path": "mathematics/08-TOPOLOGY.md",
+        "id": "maxim:mathematics:topology",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "mathematics",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[topology]",
+        "section": "mathematics",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "08 - Topology: Continuity, Shape, and Invariants",
+        "updated": "null"
+      },
+      "text": "STUNNING CONSEQUENCE:\n  Total curvature of a surface depends only on its topology, not its geometry!\n  Deform a sphere however you like: the total curvature always equals 4π.\n  Poke it, squish it, stretch it: ∫K dA = 4π always."
+    },
+    {
+      "id": "08-TOPOLOGY.md#085",
+      "path": [
+        "08-TOPOLOGY.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:mathematics:08-topology, git-history:mathematics:08-topology]",
+        "canonical_path": "mathematics/08-TOPOLOGY.md",
+        "concepts": "[topology]",
+        "current_path": "mathematics/08-TOPOLOGY.md",
+        "id": "maxim:mathematics:topology",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "mathematics",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[topology]",
+        "section": "mathematics",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "08 - Topology: Continuity, Shape, and Invariants",
+        "updated": "null"
+      },
+      "text": "For Einstein's GR: the analog is ∫R dV (total scalar curvature),\n  and the Gauss-Bonnet-Chern theorem generalizes this to 4D.\n```"
+    },
+    {
+      "id": "08-TOPOLOGY.md#086",
+      "path": [
+        "08-TOPOLOGY.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:mathematics:08-topology, git-history:mathematics:08-topology]",
+        "canonical_path": "mathematics/08-TOPOLOGY.md",
+        "concepts": "[topology]",
+        "current_path": "mathematics/08-TOPOLOGY.md",
+        "id": "maxim:mathematics:topology",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "mathematics",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[topology]",
+        "section": "mathematics",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "08 - Topology: Continuity, Shape, and Invariants",
+        "updated": "null"
+      },
+      "text": "---"
+    },
+    {
+      "id": "08-TOPOLOGY.md#087",
+      "path": [
+        "08-TOPOLOGY.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:mathematics:08-topology, git-history:mathematics:08-topology]",
+        "canonical_path": "mathematics/08-TOPOLOGY.md",
+        "concepts": "[topology]",
+        "current_path": "mathematics/08-TOPOLOGY.md",
+        "id": "maxim:mathematics:topology",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "mathematics",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[topology]",
+        "section": "mathematics",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "08 - Topology: Continuity, Shape, and Invariants",
+        "updated": "null"
+      },
+      "text": "## 7. Topology in Physics"
+    },
+    {
+      "id": "08-TOPOLOGY.md#088",
+      "path": [
+        "08-TOPOLOGY.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:mathematics:08-topology, git-history:mathematics:08-topology]",
+        "canonical_path": "mathematics/08-TOPOLOGY.md",
+        "concepts": "[topology]",
+        "current_path": "mathematics/08-TOPOLOGY.md",
+        "id": "maxim:mathematics:topology",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "mathematics",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[topology]",
+        "section": "mathematics",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "08 - Topology: Continuity, Shape, and Invariants",
+        "updated": "null"
+      },
+      "text": "### 7.1 Topological Insulators"
+    },
+    {
+      "id": "08-TOPOLOGY.md#089",
+      "path": [
+        "08-TOPOLOGY.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:mathematics:08-topology, git-history:mathematics:08-topology]",
+        "canonical_path": "mathematics/08-TOPOLOGY.md",
+        "concepts": "[topology]",
+        "current_path": "mathematics/08-TOPOLOGY.md",
+        "id": "maxim:mathematics:topology",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "mathematics",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[topology]",
+        "section": "mathematics",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "08 - Topology: Continuity, Shape, and Invariants",
+        "updated": "null"
+      },
+      "text": "```\n  Ordinary insulator: band gap everywhere in Brillouin zone\n  Topological insulator: band gap in bulk, BUT conducting surface states\n                         that cannot be removed without closing the gap"
+    },
+    {
+      "id": "08-TOPOLOGY.md#090",
+      "path": [
+        "08-TOPOLOGY.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:mathematics:08-topology, git-history:mathematics:08-topology]",
+        "canonical_path": "mathematics/08-TOPOLOGY.md",
+        "concepts": "[topology]",
+        "current_path": "mathematics/08-TOPOLOGY.md",
+        "id": "maxim:mathematics:topology",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "mathematics",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[topology]",
+        "section": "mathematics",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "08 - Topology: Continuity, Shape, and Invariants",
+        "updated": "null"
+      },
+      "text": "WHY TOPOLOGY: the band structure defines a map from the Brillouin zone\n  (a torus T²) to the space of Hamiltonians. The topological invariant\n  of this map (the Chern number Z) classifies the insulator."
+    },
+    {
+      "id": "08-TOPOLOGY.md#091",
+      "path": [
+        "08-TOPOLOGY.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:mathematics:08-topology, git-history:mathematics:08-topology]",
+        "canonical_path": "mathematics/08-TOPOLOGY.md",
+        "concepts": "[topology]",
+        "current_path": "mathematics/08-TOPOLOGY.md",
+        "id": "maxim:mathematics:topology",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "mathematics",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[topology]",
+        "section": "mathematics",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "08 - Topology: Continuity, Shape, and Invariants",
+        "updated": "null"
+      },
+      "text": "Chern number = (1/2π) ∫∫_BZ Berry curvature dkx dky\n  (Berry curvature = curvature of the \"Berry connection\" = U(1) gauge field!)"
+    },
+    {
+      "id": "08-TOPOLOGY.md#092",
+      "path": [
+        "08-TOPOLOGY.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:mathematics:08-topology, git-history:mathematics:08-topology]",
+        "canonical_path": "mathematics/08-TOPOLOGY.md",
+        "concepts": "[topology]",
+        "current_path": "mathematics/08-TOPOLOGY.md",
+        "id": "maxim:mathematics:topology",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "mathematics",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[topology]",
+        "section": "mathematics",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "08 - Topology: Continuity, Shape, and Invariants",
+        "updated": "null"
+      },
+      "text": "INTEGER quantum Hall effect: Hall conductance σ_xy = n e²/h  (n = Chern number)\n  Fractional QHE: even richer — topological order, anyons."
+    },
+    {
+      "id": "08-TOPOLOGY.md#093",
+      "path": [
+        "08-TOPOLOGY.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:mathematics:08-topology, git-history:mathematics:08-topology]",
+        "canonical_path": "mathematics/08-TOPOLOGY.md",
+        "concepts": "[topology]",
+        "current_path": "mathematics/08-TOPOLOGY.md",
+        "id": "maxim:mathematics:topology",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "mathematics",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[topology]",
+        "section": "mathematics",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "08 - Topology: Continuity, Shape, and Invariants",
+        "updated": "null"
+      },
+      "text": "This is not abstract: it's a TQFT (topological quantum field theory) application\n  driving the search for topological quantum computers.\n```"
+    },
+    {
+      "id": "08-TOPOLOGY.md#094",
+      "path": [
+        "08-TOPOLOGY.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:mathematics:08-topology, git-history:mathematics:08-topology]",
+        "canonical_path": "mathematics/08-TOPOLOGY.md",
+        "concepts": "[topology]",
+        "current_path": "mathematics/08-TOPOLOGY.md",
+        "id": "maxim:mathematics:topology",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "mathematics",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[topology]",
+        "section": "mathematics",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "08 - Topology: Continuity, Shape, and Invariants",
+        "updated": "null"
+      },
+      "text": "### 7.2 Fiber Bundles — The Right Language for Gauge Theory"
+    },
+    {
+      "id": "08-TOPOLOGY.md#095",
+      "path": [
+        "08-TOPOLOGY.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:mathematics:08-topology, git-history:mathematics:08-topology]",
+        "canonical_path": "mathematics/08-TOPOLOGY.md",
+        "concepts": "[topology]",
+        "current_path": "mathematics/08-TOPOLOGY.md",
+        "id": "maxim:mathematics:topology",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "mathematics",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[topology]",
+        "section": "mathematics",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "08 - Topology: Continuity, Shape, and Invariants",
+        "updated": "null"
+      },
+      "text": "```\n  A FIBER BUNDLE consists of:\n  ├── Base space B    (spacetime, Brillouin zone, ...)\n  ├── Fiber F         (internal space at each point)\n  ├── Total space E   (all fibers together)\n  └── Projection π: E → B  (each point in E projects to base)"
+    },
+    {
+      "id": "08-TOPOLOGY.md#096",
+      "path": [
+        "08-TOPOLOGY.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:mathematics:08-topology, git-history:mathematics:08-topology]",
+        "canonical_path": "mathematics/08-TOPOLOGY.md",
+        "concepts": "[topology]",
+        "current_path": "mathematics/08-TOPOLOGY.md",
+        "id": "maxim:mathematics:topology",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "mathematics",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[topology]",
+        "section": "mathematics",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "08 - Topology: Continuity, Shape, and Invariants",
+        "updated": "null"
+      },
+      "text": "Locally: E looks like B × F  (product)\n  Globally: E may be \"twisted\""
+    },
+    {
+      "id": "08-TOPOLOGY.md#097",
+      "path": [
+        "08-TOPOLOGY.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:mathematics:08-topology, git-history:mathematics:08-topology]",
+        "canonical_path": "mathematics/08-TOPOLOGY.md",
+        "concepts": "[topology]",
+        "current_path": "mathematics/08-TOPOLOGY.md",
+        "id": "maxim:mathematics:topology",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "mathematics",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[topology]",
+        "section": "mathematics",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "08 - Topology: Continuity, Shape, and Invariants",
+        "updated": "null"
+      },
+      "text": "EXAMPLES:\n  ┌──────────────────────────────────────────────────────────────────────┐\n  │  Möbius band:  base = S¹, fiber = interval [-1,1], twisted           │\n  │  Cylinder:     base = S¹, fiber = interval [-1,1], untwisted         │\n  │  Tangent bundle TM: base = M, fiber = tangent space Tₓ M at each x   │\n  │  EM gauge theory:  base = spacetime, fiber = U(1), connection = Aμ   │\n  │  Yang-Mills (weak): base = spacetime, fiber = SU(2)                  │\n  └──────────────────────────────────────────────────────────────────────┘"
+    },
+    {
+      "id": "08-TOPOLOGY.md#098",
+      "path": [
+        "08-TOPOLOGY.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:mathematics:08-topology, git-history:mathematics:08-topology]",
+        "canonical_path": "mathematics/08-TOPOLOGY.md",
+        "concepts": "[topology]",
+        "current_path": "mathematics/08-TOPOLOGY.md",
+        "id": "maxim:mathematics:topology",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "mathematics",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[topology]",
+        "section": "mathematics",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "08 - Topology: Continuity, Shape, and Invariants",
+        "updated": "null"
+      },
+      "text": "GAUGE FIELD = CONNECTION on a principal fiber bundle.\n  The EM 4-potential Aμ is not \"the field\" — it's the connection on a U(1) bundle.\n  The field strength Fμν = ∂μAν - ∂νAμ is the CURVATURE of that connection.\n  This is why gauge invariance isn't mysterious: it's the freedom to choose\n  local sections of the bundle (change of gauge = change of local trivialization).\n```"
+    },
+    {
+      "id": "08-TOPOLOGY.md#099",
+      "path": [
+        "08-TOPOLOGY.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:mathematics:08-topology, git-history:mathematics:08-topology]",
+        "canonical_path": "mathematics/08-TOPOLOGY.md",
+        "concepts": "[topology]",
+        "current_path": "mathematics/08-TOPOLOGY.md",
+        "id": "maxim:mathematics:topology",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "mathematics",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[topology]",
+        "section": "mathematics",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "08 - Topology: Continuity, Shape, and Invariants",
+        "updated": "null"
+      },
+      "text": "### 7.3 Magnetic Monopoles and Topology"
+    },
+    {
+      "id": "08-TOPOLOGY.md#100",
+      "path": [
+        "08-TOPOLOGY.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:mathematics:08-topology, git-history:mathematics:08-topology]",
+        "canonical_path": "mathematics/08-TOPOLOGY.md",
+        "concepts": "[topology]",
+        "current_path": "mathematics/08-TOPOLOGY.md",
+        "id": "maxim:mathematics:topology",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "mathematics",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[topology]",
+        "section": "mathematics",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "08 - Topology: Continuity, Shape, and Invariants",
+        "updated": "null"
+      },
+      "text": "```\n  WHY MONOPOLES ARE TOPOLOGICAL:\n  If a magnetic monopole existed at the origin, the B field would be:\n  B = g r̂/r²   (like a \"magnetic Coulomb\" field)"
+    },
+    {
+      "id": "08-TOPOLOGY.md#101",
+      "path": [
+        "08-TOPOLOGY.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:mathematics:08-topology, git-history:mathematics:08-topology]",
+        "canonical_path": "mathematics/08-TOPOLOGY.md",
+        "concepts": "[topology]",
+        "current_path": "mathematics/08-TOPOLOGY.md",
+        "id": "maxim:mathematics:topology",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "mathematics",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[topology]",
+        "section": "mathematics",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "08 - Topology: Continuity, Shape, and Invariants",
+        "updated": "null"
+      },
+      "text": "The vector potential A cannot be defined everywhere on S² surrounding the monopole.\n  (If A existed everywhere: B = ∇×A → ∇·B = 0, but ∇·B = 4πg δ³(r) ≠ 0)"
+    },
+    {
+      "id": "08-TOPOLOGY.md#102",
+      "path": [
+        "08-TOPOLOGY.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:mathematics:08-topology, git-history:mathematics:08-topology]",
+        "canonical_path": "mathematics/08-TOPOLOGY.md",
+        "concepts": "[topology]",
+        "current_path": "mathematics/08-TOPOLOGY.md",
+        "id": "maxim:mathematics:topology",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "mathematics",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[topology]",
+        "section": "mathematics",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "08 - Topology: Continuity, Shape, and Invariants",
+        "updated": "null"
+      },
+      "text": "Resolution (Dirac 1931): define A in two patches (N and S hemispheres).\n  On the overlap (equator), they differ by a gauge transformation.\n  For this to be single-valued: the gauge transformation must be a loop in U(1).\n  Loop in U(1): characterized by an integer n ∈ π₁(U(1)) = π₁(S¹) = ℤ."
+    },
+    {
+      "id": "08-TOPOLOGY.md#103",
+      "path": [
+        "08-TOPOLOGY.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:mathematics:08-topology, git-history:mathematics:08-topology]",
+        "canonical_path": "mathematics/08-TOPOLOGY.md",
+        "concepts": "[topology]",
+        "current_path": "mathematics/08-TOPOLOGY.md",
+        "id": "maxim:mathematics:topology",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "mathematics",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[topology]",
+        "section": "mathematics",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "08 - Topology: Continuity, Shape, and Invariants",
+        "updated": "null"
+      },
+      "text": "DIRAC QUANTIZATION CONDITION:\n  eg/ℏc = n/2   (n integer)\n  If monopoles exist, all electric charges must be integer multiples of e.\n  This would explain why charge is quantized!\n  The argument is purely topological.\n```"
+    },
+    {
+      "id": "08-TOPOLOGY.md#104",
+      "path": [
+        "08-TOPOLOGY.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:mathematics:08-topology, git-history:mathematics:08-topology]",
+        "canonical_path": "mathematics/08-TOPOLOGY.md",
+        "concepts": "[topology]",
+        "current_path": "mathematics/08-TOPOLOGY.md",
+        "id": "maxim:mathematics:topology",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "mathematics",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[topology]",
+        "section": "mathematics",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "08 - Topology: Continuity, Shape, and Invariants",
+        "updated": "null"
+      },
+      "text": "### 7.4 Topological Defects"
+    },
+    {
+      "id": "08-TOPOLOGY.md#105",
+      "path": [
+        "08-TOPOLOGY.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:mathematics:08-topology, git-history:mathematics:08-topology]",
+        "canonical_path": "mathematics/08-TOPOLOGY.md",
+        "concepts": "[topology]",
+        "current_path": "mathematics/08-TOPOLOGY.md",
+        "id": "maxim:mathematics:topology",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "mathematics",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[topology]",
+        "section": "mathematics",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "08 - Topology: Continuity, Shape, and Invariants",
+        "updated": "null"
+      },
+      "text": "```\n  Phase transitions can create topological defects when topology prevents\n  a field from being uniform everywhere."
+    },
+    {
+      "id": "08-TOPOLOGY.md#106",
+      "path": [
+        "08-TOPOLOGY.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:mathematics:08-topology, git-history:mathematics:08-topology]",
+        "canonical_path": "mathematics/08-TOPOLOGY.md",
+        "concepts": "[topology]",
+        "current_path": "mathematics/08-TOPOLOGY.md",
+        "id": "maxim:mathematics:topology",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "mathematics",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[topology]",
+        "section": "mathematics",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "08 - Topology: Continuity, Shape, and Invariants",
+        "updated": "null"
+      },
+      "text": "EXAMPLES:\n  ┌──────────────────────────────────────────────────────────────────────┐\n  │  Vortices (2D superfluid): π₁(U(1)) = ℤ → quantized vortex lines     │\n  │  Strings (3D, symmetry breaking): π₁(vacuum manifold) ≠ 0            │\n  │  Monopoles (3D): π₂(vacuum manifold) ≠ 0                             │\n  │  Textures: π₃(vacuum manifold) ≠ 0                                   │\n  │  Domain walls: π₀(vacuum manifold) ≠ 0  (discrete symmetry broken)   │\n  └──────────────────────────────────────────────────────────────────────┘"
+    },
+    {
+      "id": "08-TOPOLOGY.md#107",
+      "path": [
+        "08-TOPOLOGY.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:mathematics:08-topology, git-history:mathematics:08-topology]",
+        "canonical_path": "mathematics/08-TOPOLOGY.md",
+        "concepts": "[topology]",
+        "current_path": "mathematics/08-TOPOLOGY.md",
+        "id": "maxim:mathematics:topology",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "mathematics",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[topology]",
+        "section": "mathematics",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "08 - Topology: Continuity, Shape, and Invariants",
+        "updated": "null"
+      },
+      "text": "The homotopy groups πₙ classify which topological defects are stable:\n  π₀: point-like (domain walls, kinks)\n  π₁: line-like (vortices, cosmic strings)\n  π₂: surface-like (monopoles)\n  π₃: textures (Skyrmions in nuclear physics)\n```"
+    },
+    {
+      "id": "08-TOPOLOGY.md#108",
+      "path": [
+        "08-TOPOLOGY.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:mathematics:08-topology, git-history:mathematics:08-topology]",
+        "canonical_path": "mathematics/08-TOPOLOGY.md",
+        "concepts": "[topology]",
+        "current_path": "mathematics/08-TOPOLOGY.md",
+        "id": "maxim:mathematics:topology",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "mathematics",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[topology]",
+        "section": "mathematics",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "08 - Topology: Continuity, Shape, and Invariants",
+        "updated": "null"
+      },
+      "text": "---"
+    },
+    {
+      "id": "08-TOPOLOGY.md#109",
+      "path": [
+        "08-TOPOLOGY.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:mathematics:08-topology, git-history:mathematics:08-topology]",
+        "canonical_path": "mathematics/08-TOPOLOGY.md",
+        "concepts": "[topology]",
+        "current_path": "mathematics/08-TOPOLOGY.md",
+        "id": "maxim:mathematics:topology",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "mathematics",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[topology]",
+        "section": "mathematics",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "08 - Topology: Continuity, Shape, and Invariants",
+        "updated": "null"
+      },
+      "text": "## 8. Higher Homotopy Groups (Brief)"
+    },
+    {
+      "id": "08-TOPOLOGY.md#110",
+      "path": [
+        "08-TOPOLOGY.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:mathematics:08-topology, git-history:mathematics:08-topology]",
+        "canonical_path": "mathematics/08-TOPOLOGY.md",
+        "concepts": "[topology]",
+        "current_path": "mathematics/08-TOPOLOGY.md",
+        "id": "maxim:mathematics:topology",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "mathematics",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[topology]",
+        "section": "mathematics",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "08 - Topology: Continuity, Shape, and Invariants",
+        "updated": "null"
+      },
+      "text": "```\n  πₙ(X, x₀) = homotopy classes of maps Sⁿ → X (fixing basepoint)"
+    },
+    {
+      "id": "08-TOPOLOGY.md#111",
+      "path": [
+        "08-TOPOLOGY.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:mathematics:08-topology, git-history:mathematics:08-topology]",
+        "canonical_path": "mathematics/08-TOPOLOGY.md",
+        "concepts": "[topology]",
+        "current_path": "mathematics/08-TOPOLOGY.md",
+        "id": "maxim:mathematics:topology",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "mathematics",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[topology]",
+        "section": "mathematics",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "08 - Topology: Continuity, Shape, and Invariants",
+        "updated": "null"
+      },
+      "text": "π₁: maps from circle S¹ → X  (loops — the fundamental group)\n  π₂: maps from sphere S² → X  (2-spheres in X)\n  π₃: maps from S³ → X"
+    },
+    {
+      "id": "08-TOPOLOGY.md#112",
+      "path": [
+        "08-TOPOLOGY.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:mathematics:08-topology, git-history:mathematics:08-topology]",
+        "canonical_path": "mathematics/08-TOPOLOGY.md",
+        "concepts": "[topology]",
+        "current_path": "mathematics/08-TOPOLOGY.md",
+        "id": "maxim:mathematics:topology",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "mathematics",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[topology]",
+        "section": "mathematics",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "08 - Topology: Continuity, Shape, and Invariants",
+        "updated": "null"
+      },
+      "text": "π₁(S¹) = ℤ        (winding number)\n  π₂(S²) = ℤ        (degree of a map)\n  π₃(S²) = ℤ        (Hopf fibration — S³ → S² with fiber S¹, non-trivial!)\n  πₙ(Sⁿ) = ℤ for all n ≥ 1"
+    },
+    {
+      "id": "08-TOPOLOGY.md#113",
+      "path": [
+        "08-TOPOLOGY.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:mathematics:08-topology, git-history:mathematics:08-topology]",
+        "canonical_path": "mathematics/08-TOPOLOGY.md",
+        "concepts": "[topology]",
+        "current_path": "mathematics/08-TOPOLOGY.md",
+        "id": "maxim:mathematics:topology",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "mathematics",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[topology]",
+        "section": "mathematics",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "08 - Topology: Continuity, Shape, and Invariants",
+        "updated": "null"
+      },
+      "text": "The HOPF FIBRATION π: S³ → S²:\n  S³ = unit sphere in ℂ² (4D real space)\n  Each fiber = S¹ (a circle)\n  Linked fibers → non-trivial bundle\n  Appears in: QM state space (Bloch sphere), liquid crystal defects\n```"
+    },
+    {
+      "id": "08-TOPOLOGY.md#114",
+      "path": [
+        "08-TOPOLOGY.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:mathematics:08-topology, git-history:mathematics:08-topology]",
+        "canonical_path": "mathematics/08-TOPOLOGY.md",
+        "concepts": "[topology]",
+        "current_path": "mathematics/08-TOPOLOGY.md",
+        "id": "maxim:mathematics:topology",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "mathematics",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[topology]",
+        "section": "mathematics",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "08 - Topology: Continuity, Shape, and Invariants",
+        "updated": "null"
+      },
+      "text": "## 9. Homology Groups"
+    },
+    {
+      "id": "08-TOPOLOGY.md#115",
+      "path": [
+        "08-TOPOLOGY.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:mathematics:08-topology, git-history:mathematics:08-topology]",
+        "canonical_path": "mathematics/08-TOPOLOGY.md",
+        "concepts": "[topology]",
+        "current_path": "mathematics/08-TOPOLOGY.md",
+        "id": "maxim:mathematics:topology",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "mathematics",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[topology]",
+        "section": "mathematics",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "08 - Topology: Continuity, Shape, and Invariants",
+        "updated": "null"
+      },
+      "text": "Before TDA, the algebraic machinery needs to be in place."
+    },
+    {
+      "id": "08-TOPOLOGY.md#116",
+      "path": [
+        "08-TOPOLOGY.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:mathematics:08-topology, git-history:mathematics:08-topology]",
+        "canonical_path": "mathematics/08-TOPOLOGY.md",
+        "concepts": "[topology]",
+        "current_path": "mathematics/08-TOPOLOGY.md",
+        "id": "maxim:mathematics:topology",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "mathematics",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[topology]",
+        "section": "mathematics",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "08 - Topology: Continuity, Shape, and Invariants",
+        "updated": "null"
+      },
+      "text": "```\n  SIMPLICIAL COMPLEX: a combinatorial model for a topological space.\n  Built from simplices glued along faces.\n  0-simplex: point (vertex)\n  1-simplex: edge (between two vertices)\n  2-simplex: filled triangle (three vertices + three edges + interior)\n  k-simplex: convex hull of k+1 affinely independent points"
+    },
+    {
+      "id": "08-TOPOLOGY.md#117",
+      "path": [
+        "08-TOPOLOGY.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:mathematics:08-topology, git-history:mathematics:08-topology]",
+        "canonical_path": "mathematics/08-TOPOLOGY.md",
+        "concepts": "[topology]",
+        "current_path": "mathematics/08-TOPOLOGY.md",
+        "id": "maxim:mathematics:topology",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "mathematics",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[topology]",
+        "section": "mathematics",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "08 - Topology: Continuity, Shape, and Invariants",
+        "updated": "null"
+      },
+      "text": "CHAIN COMPLEX:\n  Cₙ = free abelian group on n-simplices  (formal ℤ-linear combinations)\n  Boundary operator ∂ₙ: Cₙ → Cₙ₋₁:\n  ∂[v₀,...,vₙ] = Σᵢ (-1)ⁱ [v₀,...,v̂ᵢ,...,vₙ]  (omit the i-th vertex)"
+    },
+    {
+      "id": "08-TOPOLOGY.md#118",
+      "path": [
+        "08-TOPOLOGY.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:mathematics:08-topology, git-history:mathematics:08-topology]",
+        "canonical_path": "mathematics/08-TOPOLOGY.md",
+        "concepts": "[topology]",
+        "current_path": "mathematics/08-TOPOLOGY.md",
+        "id": "maxim:mathematics:topology",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "mathematics",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[topology]",
+        "section": "mathematics",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "08 - Topology: Continuity, Shape, and Invariants",
+        "updated": "null"
+      },
+      "text": "┌─────────────────────────────────────────────────────────────────────┐\n  │  ... → C₂ →^∂₂ C₁ →^∂₁ C₀ → 0                                       │\n  │                                                                     │\n  │  KEY IDENTITY: ∂²= 0  (boundary of a boundary is empty)             │\n  │  Algebraic proof: the (-1)ⁱ signs cause exact cancellation.         │\n  │  This mirrors d²=0 from differential forms — same structure.        │\n  └─────────────────────────────────────────────────────────────────────┘"
+    },
+    {
+      "id": "08-TOPOLOGY.md#119",
+      "path": [
+        "08-TOPOLOGY.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:mathematics:08-topology, git-history:mathematics:08-topology]",
+        "canonical_path": "mathematics/08-TOPOLOGY.md",
+        "concepts": "[topology]",
+        "current_path": "mathematics/08-TOPOLOGY.md",
+        "id": "maxim:mathematics:topology",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "mathematics",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[topology]",
+        "section": "mathematics",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "08 - Topology: Continuity, Shape, and Invariants",
+        "updated": "null"
+      },
+      "text": "SINGULAR HOMOLOGY Hₙ(X; ℤ):\n  Hₙ = ker(∂ₙ) / im(∂ₙ₊₁)  =  (n-cycles) / (n-boundaries)\n  ├── n-cycle: chain with zero boundary (∂z = 0) — a \"closed\" loop or surface\n  ├── n-boundary: chain that is ∂ of something — \"fills in\"\n  └── Hₙ measures cycles that are NOT boundaries = \"genuine holes\""
+    },
+    {
+      "id": "08-TOPOLOGY.md#120",
+      "path": [
+        "08-TOPOLOGY.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:mathematics:08-topology, git-history:mathematics:08-topology]",
+        "canonical_path": "mathematics/08-TOPOLOGY.md",
+        "concepts": "[topology]",
+        "current_path": "mathematics/08-TOPOLOGY.md",
+        "id": "maxim:mathematics:topology",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "mathematics",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[topology]",
+        "section": "mathematics",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "08 - Topology: Continuity, Shape, and Invariants",
+        "updated": "null"
+      },
+      "text": "EXAMPLES:\n  ┌──────────────────────────────────────────────────────────────────────┐\n  │  Space X     │  H₀      │  H₁      │  H₂      │  Interpretation      │\n  ├──────────────────────────────────────────────────────────────────────┤\n  │  Point       │  ℤ       │  0       │  0       │  1 component       │\n  │  S¹ (circle) │  ℤ       │  ℤ       │  0       │  1 loop            │\n  │  S²          │  ℤ       │  0       │  ℤ       │  1 enclosed void   │\n  │  Torus T²    │  ℤ       │  ℤ²      │  ℤ       │  2 independent loops│\n  │  RP²         │  ℤ       │  ℤ/2ℤ   │  0       │  torsion!          │\n  │  Klein bottle│  ℤ       │  ℤ⊕ℤ/2  │  0       │  non-orientable    │\n  └──────────────────────────────────────────────────────────────────────┘"
+    },
+    {
+      "id": "08-TOPOLOGY.md#121",
+      "path": [
+        "08-TOPOLOGY.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:mathematics:08-topology, git-history:mathematics:08-topology]",
+        "canonical_path": "mathematics/08-TOPOLOGY.md",
+        "concepts": "[topology]",
+        "current_path": "mathematics/08-TOPOLOGY.md",
+        "id": "maxim:mathematics:topology",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "mathematics",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[topology]",
+        "section": "mathematics",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "08 - Topology: Continuity, Shape, and Invariants",
+        "updated": "null"
+      },
+      "text": "BETTI NUMBERS bₙ = rank(Hₙ) over ℤ (free part):\n  b₀ = number of connected components\n  b₁ = number of independent loops\n  b₂ = number of enclosed voids\n  EULER CHARACTERISTIC: χ = Σₙ (-1)ⁿ bₙ  (Betti numbers → χ)\n  For the torus: χ = b₀ - b₁ + b₂ = 1 - 2 + 1 = 0 ✓"
+    },
+    {
+      "id": "08-TOPOLOGY.md#122",
+      "path": [
+        "08-TOPOLOGY.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:mathematics:08-topology, git-history:mathematics:08-topology]",
+        "canonical_path": "mathematics/08-TOPOLOGY.md",
+        "concepts": "[topology]",
+        "current_path": "mathematics/08-TOPOLOGY.md",
+        "id": "maxim:mathematics:topology",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "mathematics",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[topology]",
+        "section": "mathematics",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "08 - Topology: Continuity, Shape, and Invariants",
+        "updated": "null"
+      },
+      "text": "MAYER-VIETORIS SEQUENCE (computing homology of glued spaces):\n  If X = U ∪ V:\n  ... → Hₙ(U∩V) → Hₙ(U) ⊕ Hₙ(V) → Hₙ(X) → Hₙ₋₁(U∩V) → ...\n  Long exact sequence. Works like Van Kampen for π₁ but for all Hₙ."
+    },
+    {
+      "id": "08-TOPOLOGY.md#123",
+      "path": [
+        "08-TOPOLOGY.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:mathematics:08-topology, git-history:mathematics:08-topology]",
+        "canonical_path": "mathematics/08-TOPOLOGY.md",
+        "concepts": "[topology]",
+        "current_path": "mathematics/08-TOPOLOGY.md",
+        "id": "maxim:mathematics:topology",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "mathematics",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[topology]",
+        "section": "mathematics",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "08 - Topology: Continuity, Shape, and Invariants",
+        "updated": "null"
+      },
+      "text": "EXAMPLE (Torus T² = S¹ × S¹):\n  Use Künneth formula: Hₙ(X×Y) = ⊕_{i+j=n} Hᵢ(X) ⊗ Hⱼ(Y)\n  H₀(T²) = ℤ, H₁(T²) = ℤ², H₂(T²) = ℤ ✓"
+    },
+    {
+      "id": "08-TOPOLOGY.md#124",
+      "path": [
+        "08-TOPOLOGY.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:mathematics:08-topology, git-history:mathematics:08-topology]",
+        "canonical_path": "mathematics/08-TOPOLOGY.md",
+        "concepts": "[topology]",
+        "current_path": "mathematics/08-TOPOLOGY.md",
+        "id": "maxim:mathematics:topology",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "mathematics",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[topology]",
+        "section": "mathematics",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "08 - Topology: Continuity, Shape, and Invariants",
+        "updated": "null"
+      },
+      "text": "COMPARISON WITH π₁:\n  Hₙ is ABELIAN (always); π₁ can be non-abelian.\n  In fact: H₁(X) = π₁(X)^{ab} (abelianization of fundamental group).\n  Homology is computable; homotopy groups are generally undecidable (πₙ(Sⁿ) hard).\n  This is why TDA uses homology, not homotopy.\n```"
+    },
+    {
+      "id": "08-TOPOLOGY.md#125",
+      "path": [
+        "08-TOPOLOGY.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:mathematics:08-topology, git-history:mathematics:08-topology]",
+        "canonical_path": "mathematics/08-TOPOLOGY.md",
+        "concepts": "[topology]",
+        "current_path": "mathematics/08-TOPOLOGY.md",
+        "id": "maxim:mathematics:topology",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "mathematics",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[topology]",
+        "section": "mathematics",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "08 - Topology: Continuity, Shape, and Invariants",
+        "updated": "null"
+      },
+      "text": "## 10. Topological Data Analysis"
+    },
+    {
+      "id": "08-TOPOLOGY.md#126",
+      "path": [
+        "08-TOPOLOGY.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:mathematics:08-topology, git-history:mathematics:08-topology]",
+        "canonical_path": "mathematics/08-TOPOLOGY.md",
+        "concepts": "[topology]",
+        "current_path": "mathematics/08-TOPOLOGY.md",
+        "id": "maxim:mathematics:topology",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "mathematics",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[topology]",
+        "section": "mathematics",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "08 - Topology: Continuity, Shape, and Invariants",
+        "updated": "null"
+      },
+      "text": "```\n  TDA CONNECTS: algebraic topology → point cloud data → computable invariants."
+    },
+    {
+      "id": "08-TOPOLOGY.md#127",
+      "path": [
+        "08-TOPOLOGY.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:mathematics:08-topology, git-history:mathematics:08-topology]",
+        "canonical_path": "mathematics/08-TOPOLOGY.md",
+        "concepts": "[topology]",
+        "current_path": "mathematics/08-TOPOLOGY.md",
+        "id": "maxim:mathematics:topology",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "mathematics",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[topology]",
+        "section": "mathematics",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "08 - Topology: Continuity, Shape, and Invariants",
+        "updated": "null"
+      },
+      "text": "THE FILTRATION IDEA:\n  Given a point cloud X ⊂ ℝᵈ, build a family of simplicial complexes:\n  for each scale r: Xᵣ = (complex built from X at scale r)"
+    },
+    {
+      "id": "08-TOPOLOGY.md#128",
+      "path": [
+        "08-TOPOLOGY.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:mathematics:08-topology, git-history:mathematics:08-topology]",
+        "canonical_path": "mathematics/08-TOPOLOGY.md",
+        "concepts": "[topology]",
+        "current_path": "mathematics/08-TOPOLOGY.md",
+        "id": "maxim:mathematics:topology",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "mathematics",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[topology]",
+        "section": "mathematics",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "08 - Topology: Continuity, Shape, and Invariants",
+        "updated": "null"
+      },
+      "text": "As r increases, more simplices are added → topological features appear/disappear."
+    },
+    {
+      "id": "08-TOPOLOGY.md#129",
+      "path": [
+        "08-TOPOLOGY.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:mathematics:08-topology, git-history:mathematics:08-topology]",
+        "canonical_path": "mathematics/08-TOPOLOGY.md",
+        "concepts": "[topology]",
+        "current_path": "mathematics/08-TOPOLOGY.md",
+        "id": "maxim:mathematics:topology",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "mathematics",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[topology]",
+        "section": "mathematics",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "08 - Topology: Continuity, Shape, and Invariants",
+        "updated": "null"
+      },
+      "text": "VIETORIS-RIPS COMPLEX at scale r:\n  Include the k-simplex [v₀,...,vₖ] if d(vᵢ,vⱼ) ≤ r for all pairs i,j.\n  (Complete graph on all points within distance r, then fill cliques.)"
+    },
+    {
+      "id": "08-TOPOLOGY.md#130",
+      "path": [
+        "08-TOPOLOGY.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:mathematics:08-topology, git-history:mathematics:08-topology]",
+        "canonical_path": "mathematics/08-TOPOLOGY.md",
+        "concepts": "[topology]",
+        "current_path": "mathematics/08-TOPOLOGY.md",
+        "id": "maxim:mathematics:topology",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "mathematics",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[topology]",
+        "section": "mathematics",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "08 - Topology: Continuity, Shape, and Invariants",
+        "updated": "null"
+      },
+      "text": "ČECH COMPLEX at scale r:\n  Include [v₀,...,vₖ] if the balls B(vᵢ, r/2) have a common intersection.\n  (More geometrically natural; Nerve Lemma: Čech ≃ ∪ₓ B(x,r) homotopically.)\n  Vietoris-Rips ⊆ Čech ⊆ Vietoris-Rips(2r): they're interleaved."
+    },
+    {
+      "id": "08-TOPOLOGY.md#131",
+      "path": [
+        "08-TOPOLOGY.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:mathematics:08-topology, git-history:mathematics:08-topology]",
+        "canonical_path": "mathematics/08-TOPOLOGY.md",
+        "concepts": "[topology]",
+        "current_path": "mathematics/08-TOPOLOGY.md",
+        "id": "maxim:mathematics:topology",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "mathematics",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[topology]",
+        "section": "mathematics",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "08 - Topology: Continuity, Shape, and Invariants",
+        "updated": "null"
+      },
+      "text": "PERSISTENT HOMOLOGY:\n  Track how homology classes appear and disappear as r increases."
+    },
+    {
+      "id": "08-TOPOLOGY.md#132",
+      "path": [
+        "08-TOPOLOGY.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:mathematics:08-topology, git-history:mathematics:08-topology]",
+        "canonical_path": "mathematics/08-TOPOLOGY.md",
+        "concepts": "[topology]",
+        "current_path": "mathematics/08-TOPOLOGY.md",
+        "id": "maxim:mathematics:topology",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "mathematics",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[topology]",
+        "section": "mathematics",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "08 - Topology: Continuity, Shape, and Invariants",
+        "updated": "null"
+      },
+      "text": "BIRTH-DEATH PAIRING:\n  Each connected component, loop, void is \"born\" at some scale r_birth\n  and \"dies\" (merges/fills) at some scale r_death."
+    },
+    {
+      "id": "08-TOPOLOGY.md#133",
+      "path": [
+        "08-TOPOLOGY.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:mathematics:08-topology, git-history:mathematics:08-topology]",
+        "canonical_path": "mathematics/08-TOPOLOGY.md",
+        "concepts": "[topology]",
+        "current_path": "mathematics/08-TOPOLOGY.md",
+        "id": "maxim:mathematics:topology",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "mathematics",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[topology]",
+        "section": "mathematics",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "08 - Topology: Continuity, Shape, and Invariants",
+        "updated": "null"
+      },
+      "text": "┌────────────────────────────────────────────────────────────────────┐\n  │  PERSISTENCE BARCODE: one horizontal bar per feature               │\n  │  r:   0  ──────────────────────────────────────────────► ∞         │\n  │  H₀:  ───── ──── ──── ──  ─    (components merging)                │\n  │  H₁:                ────────  ──── ─  (loops appearing/dying)      │\n  │  Long bars = topologically significant features                    │\n  │  Short bars = noise                                                │\n  │                                                                    │\n  │  PERSISTENCE DIAGRAM: scatter plot of (birth, death) pairs.        │\n  │  Points near the diagonal = noise; points far from diagonal =      │\n  │  genuine topological signal.                                       │\n  └────────────────────────────────────────────────────────────────────┘"
+    },
+    {
+      "id": "08-TOPOLOGY.md#134",
+      "path": [
+        "08-TOPOLOGY.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:mathematics:08-topology, git-history:mathematics:08-topology]",
+        "canonical_path": "mathematics/08-TOPOLOGY.md",
+        "concepts": "[topology]",
+        "current_path": "mathematics/08-TOPOLOGY.md",
+        "id": "maxim:mathematics:topology",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "mathematics",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[topology]",
+        "section": "mathematics",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "08 - Topology: Continuity, Shape, and Invariants",
+        "updated": "null"
+      },
+      "text": "STABILITY THEOREM (Cohen-Steiner-Edelsbrunner-Harer):\n  If point clouds X and Y have Hausdorff distance δ:\n  Wasserstein distance between their persistence diagrams ≤ δ.\n  TDA features are stable under small perturbations — they're not noise artifacts."
+    }
+  ],
+  "refs": [
+    "08-TOPOLOGY.md"
+  ]
+}

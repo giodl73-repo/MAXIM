@@ -1,3 +1,22 @@
+---
+maxim_schema: maxim.frontmatter.v1
+id: maxim:mathematics:representation-theory
+kind: guide
+module: mathematics
+section: mathematics
+title: Representation Theory - Complete Reference
+status: source-custody
+source_custody: partial
+current_path: mathematics/24-REPRESENTATION-THEORY.md
+canonical_path: mathematics/24-REPRESENTATION-THEORY.md
+backsource_ids: [proof-backfill:mathematics:24-representation-theory, git-history:mathematics:24-representation-theory]
+concepts: [representation, theory]
+root_concepts: [representation, theory]
+index_roles: [guide, root-concept]
+remap_from: []
+remap_to: []
+updated: null
+---
 # Representation Theory — Complete Reference
 
 ## The Big Picture

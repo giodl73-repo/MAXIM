@@ -1,3 +1,22 @@
+---
+maxim_schema: maxim.frontmatter.v1
+id: maxim:mathematics:manifolds
+kind: guide
+module: mathematics
+section: mathematics
+title: 09 - Manifolds, Differential Forms, and the General Stokes' Theorem
+status: source-custody
+source_custody: partial
+current_path: mathematics/09-MANIFOLDS.md
+canonical_path: mathematics/09-MANIFOLDS.md
+backsource_ids: [proof-backfill:mathematics:09-manifolds, git-history:mathematics:09-manifolds]
+concepts: [manifolds]
+root_concepts: [manifolds]
+index_roles: [guide, root-concept]
+remap_from: []
+remap_to: []
+updated: null
+---
 # 09 — Manifolds, Differential Forms, and the General Stokes' Theorem
 
 ```

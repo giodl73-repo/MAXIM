@@ -1,0 +1,298 @@
+{
+  "schema_version": "1",
+  "source_markdown": "mathematics\\15-OPTIMIZATION.md",
+  "tables": [
+    {
+      "id": "table-1",
+      "line": 147,
+      "heading_context": "## Unconstrained Optimization",
+      "headers": [
+        "Rule",
+        "Formula",
+        "Notes"
+      ],
+      "rows": [
+        [
+          "Fixed",
+          "α_k = α",
+          "Need α ≤ 1/L; simple"
+        ],
+        [
+          "Backtracking (Armijo)",
+          "Reduce α until f(x−α∇f) ≤ f(x) − c·α‖∇f‖²",
+          "No L required"
+        ],
+        [
+          "Wolfe conditions",
+          "Armijo + curvature",
+          "Standard for quasi-Newton"
+        ],
+        [
+          "Exact line search",
+          "α = argmin_α f(x_k − α∇f)",
+          "Optimal; expensive"
+        ],
+        [
+          "Polyak",
+          "α_k = (f(x_k) − f*)/‖∇f‖²",
+          "Optimal; requires knowing f*"
+        ]
+      ]
+    },
+    {
+      "id": "table-2",
+      "line": 262,
+      "heading_context": "## Convex Analysis",
+      "headers": [
+        "Function",
+        "Convex?",
+        "Notes"
+      ],
+      "rows": [
+        [
+          "Affine aᵀx + b",
+          "Both convex and concave",
+          ""
+        ],
+        [
+          "‖x‖ (any norm)",
+          "✅",
+          "Triangle inequality"
+        ],
+        [
+          "xᵀAx, A ⪰ 0",
+          "✅",
+          "Quadratic form"
+        ],
+        [
+          "eˣ",
+          "✅",
+          "f'' = eˣ > 0"
+        ],
+        [
+          "x log x",
+          "✅",
+          "f'' = 1/x > 0"
+        ],
+        [
+          "log(Σ eˣⁱ)",
+          "✅",
+          "log-sum-exp; gradient = softmax"
+        ],
+        [
+          "max(x₁,...,xₙ)",
+          "✅",
+          "Pointwise max of linears"
+        ],
+        [
+          "log(x)",
+          "Concave",
+          ""
+        ],
+        [
+          "log det(X), X ≻ 0",
+          "Concave",
+          "On PD matrices"
+        ]
+      ]
+    },
+    {
+      "id": "table-3",
+      "line": 527,
+      "heading_context": "## Gradient Methods for Machine Learning",
+      "headers": [
+        "Optimizer",
+        "Key idea",
+        "Best for"
+      ],
+      "rows": [
+        [
+          "SGD",
+          "Plain gradient",
+          "CNNs (when tuned)"
+        ],
+        [
+          "SGD + momentum",
+          "Exponential moving average of gradient",
+          "CNNs, best final loss"
+        ],
+        [
+          "AdaGrad",
+          "Per-dim scale by cumulative squared grad",
+          "Sparse features/NLP"
+        ],
+        [
+          "RMSProp",
+          "AdaGrad with exponential forgetting",
+          "RNNs"
+        ],
+        [
+          "Adam",
+          "Momentum + adaptive per-dim scale + bias correction",
+          "Transformers, default"
+        ],
+        [
+          "AdamW",
+          "Adam + decoupled weight decay",
+          "LLMs, fine-tuning"
+        ],
+        [
+          "L-BFGS",
+          "Full quasi-Newton (full-batch only)",
+          "Small models, scipy"
+        ]
+      ]
+    },
+    {
+      "id": "table-4",
+      "line": 539,
+      "heading_context": "## Gradient Methods for Machine Learning",
+      "headers": [
+        "Schedule",
+        "Use"
+      ],
+      "rows": [
+        [
+          "Constant",
+          "Fine-tuning"
+        ],
+        [
+          "Cosine annealing",
+          "LLM pre-training"
+        ],
+        [
+          "Linear warmup + cosine",
+          "Transformers (prevent early divergence)"
+        ],
+        [
+          "1-cycle",
+          "Fast convergence (fast.ai)"
+        ],
+        [
+          "Inverse sqrt",
+          "Theory-backed, NLP"
+        ]
+      ]
+    },
+    {
+      "id": "table-5",
+      "line": 663,
+      "heading_context": "## Applications Cheat Sheet",
+      "headers": [
+        "Problem",
+        "Formulation",
+        "Algorithm"
+      ],
+      "rows": [
+        [
+          "Least squares",
+          "min ‖Ax−b‖²",
+          "Normal equations / QR"
+        ],
+        [
+          "Ridge regression",
+          "min ‖Ax−b‖² + λ‖x‖²",
+          "Closed form"
+        ],
+        [
+          "LASSO",
+          "min ‖Ax−b‖² + λ‖x‖₁",
+          "ISTA/FISTA, ADMM"
+        ],
+        [
+          "SVM",
+          "min ½‖w‖² s.t. margin constraints",
+          "QP (SMO dual)"
+        ],
+        [
+          "Portfolio",
+          "min xᵀΣx s.t. μᵀx ≥ r, 1ᵀx=1",
+          "QP (Gurobi, CVXPY)"
+        ],
+        [
+          "NN training",
+          "min L(θ) non-convex",
+          "Adam/SGD + schedule"
+        ],
+        [
+          "LP allocation",
+          "min cᵀx s.t. Ax ≤ b",
+          "Simplex / interior point"
+        ],
+        [
+          "MAX-CUT",
+          "NP-hard integer",
+          "SDP relaxation (0.878 approx)"
+        ],
+        [
+          "LASSO path",
+          "All λ values",
+          "LARS algorithm"
+        ]
+      ]
+    },
+    {
+      "id": "table-6",
+      "line": 679,
+      "heading_context": "## Decision Cheat Sheet",
+      "headers": [
+        "Situation",
+        "Algorithm"
+      ],
+      "rows": [
+        [
+          "Convex, smooth, small n",
+          "L-BFGS (scipy, torch LBFGS)"
+        ],
+        [
+          "Convex, smooth, large n",
+          "Gradient descent with backtracking"
+        ],
+        [
+          "Convex, high κ, need speed",
+          "Nesterov accelerated gradient (optimal for convex)"
+        ],
+        [
+          "LP",
+          "Simplex or interior point (scipy.linprog, Gurobi)"
+        ],
+        [
+          "QP convex",
+          "OSQP, CVXOPT, Gurobi"
+        ],
+        [
+          "Non-smooth regularization",
+          "Proximal gradient (ISTA/FISTA, ADMM)"
+        ],
+        [
+          "General convex (SOCP/SDP)",
+          "CVXPY + MOSEK"
+        ],
+        [
+          "Neural network",
+          "Adam/AdamW + cosine LR + warmup"
+        ],
+        [
+          "CNN (best final loss)",
+          "SGD + momentum + tuned schedule"
+        ],
+        [
+          "Integer program",
+          "Gurobi, CPLEX (branch and bound)"
+        ],
+        [
+          "Black-box, no gradients",
+          "Bayesian optimization, CMA-ES"
+        ],
+        [
+          "Parameter space = distributions",
+          "Natural gradient / K-FAC"
+        ],
+        [
+          "Need to escape saddles (non-convex)",
+          "Perturbed GD or SGD (noise escapes naturally)"
+        ]
+      ]
+    }
+  ]
+}

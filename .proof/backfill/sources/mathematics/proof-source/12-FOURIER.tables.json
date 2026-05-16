@@ -1,0 +1,182 @@
+{
+  "schema_version": "1",
+  "source_markdown": "mathematics\\12-FOURIER.md",
+  "tables": [
+    {
+      "id": "table-1",
+      "line": 144,
+      "heading_context": "## 1. Fourier Series",
+      "headers": [
+        "f(t) on [-π,π]",
+        "Fourier series",
+        "Key insight"
+      ],
+      "rows": [
+        [
+          "Square wave (±1)",
+          "(4/π)Σ sin((2k-1)t)/(2k-1)",
+          "Odd harmonics only"
+        ],
+        [
+          "Triangle wave",
+          "(8/π²)Σ (-1)^((k-1)/2) sin((2k-1)t)/(2k-1)²",
+          "Faster decay (smoother)"
+        ],
+        [
+          "Sawtooth",
+          "(2/π)Σ (-1)^(n+1) sin(nt)/n",
+          "All harmonics"
+        ],
+        [
+          "Dirac comb Σ δ(t-2πk)",
+          "(1/2π)Σ e^(int)",
+          "All harmonics equal amplitude"
+        ]
+      ]
+    },
+    {
+      "id": "table-2",
+      "line": 234,
+      "heading_context": "## 2. Continuous Fourier Transform (CTFT)",
+      "headers": [
+        "f(t)",
+        "F(ω)",
+        "Notes"
+      ],
+      "rows": [
+        [
+          "δ(t)",
+          "1",
+          "Dirac delta → flat spectrum"
+        ],
+        [
+          "1",
+          "2πδ(ω)",
+          "DC → impulse at ω=0"
+        ],
+        [
+          "e^(-at)u(t), a>0",
+          "1/(a+iω)",
+          "Decaying exponential"
+        ],
+        [
+          "e^(-a\\|t\\|)",
+          "2a/(a²+ω²)",
+          "Two-sided exponential"
+        ],
+        [
+          "e^(-t²/2)",
+          "√(2π)e^(-ω²/2)",
+          "Gaussian → Gaussian"
+        ],
+        [
+          "rect(t)",
+          "sinc(ω/2) = sin(ω/2)/(ω/2)",
+          "Box → sinc"
+        ],
+        [
+          "sinc(t)",
+          "π·rect(ω/2)",
+          "Sinc → box"
+        ],
+        [
+          "cos(ω₀t)",
+          "π[δ(ω-ω₀) + δ(ω+ω₀)]",
+          "Cosine → two spikes"
+        ],
+        [
+          "sin(ω₀t)",
+          "iπ[δ(ω+ω₀) - δ(ω-ω₀)]",
+          "Sine → two spikes"
+        ],
+        [
+          "e^(iω₀t)",
+          "2πδ(ω-ω₀)",
+          "Complex exponential → spike"
+        ],
+        [
+          "Σ δ(t-nT)",
+          "(2π/T)Σ δ(ω-2πk/T)",
+          "Dirac comb → Dirac comb"
+        ]
+      ]
+    },
+    {
+      "id": "table-3",
+      "line": 591,
+      "heading_context": "## 11. Decision Cheat Sheet",
+      "headers": [
+        "Situation",
+        "Tool",
+        "Notes"
+      ],
+      "rows": [
+        [
+          "Periodic function, continuous time",
+          "Fourier series",
+          "Discrete spectrum"
+        ],
+        [
+          "Aperiodic function, continuous time",
+          "CTFT",
+          "Continuous spectrum"
+        ],
+        [
+          "Finite sequence",
+          "DFT / FFT",
+          "O(N log N), circular"
+        ],
+        [
+          "Need spectrum + time localization",
+          "STFT",
+          "Fixed Δt·Δω box"
+        ],
+        [
+          "Multi-resolution (coarse+fine)",
+          "Wavelet",
+          "Constant relative bandwidth"
+        ],
+        [
+          "2D image analysis / filtering",
+          "2D FFT",
+          "Separate FFT on rows then columns"
+        ],
+        [
+          "MRI reconstruction",
+          "Inverse 2D FFT of k-space",
+          "Projection-slice theorem"
+        ],
+        [
+          "Spectral leakage in DFT",
+          "Apply window (Hann, Blackman)",
+          "Trades resolution for sidelobe level"
+        ],
+        [
+          "Convolution large arrays",
+          "Multiply via FFT → IFFT",
+          "O(N log N) vs O(N²)"
+        ],
+        [
+          "Differentiation in PDE",
+          "Multiply by iω in FT domain",
+          "Diagonalizes ∂/∂x"
+        ],
+        [
+          "Accuracy of amplitude measurement",
+          "Flat-top window",
+          "Wide lobe but accurate amplitude"
+        ],
+        [
+          "FT of non-L² function (1, sin, comb)",
+          "Distributional FT in S'(ℝ)",
+          "Use Schwartz framework"
+        ],
+        [
+          "Understand why sampling ↔ periodization",
+          "Pontryagin duality ℤ ↔ 𝕋",
+          "G discrete ↔ Ĝ compact"
+        ]
+      ]
+    }
+  ]
+}

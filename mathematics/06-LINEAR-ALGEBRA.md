@@ -1,3 +1,22 @@
+---
+maxim_schema: maxim.frontmatter.v1
+id: maxim:mathematics:linear-algebra
+kind: guide
+module: mathematics
+section: mathematics
+title: 06 - Linear Algebra: Vectors, Matrices, Eigenstructure, and SVD
+status: source-custody
+source_custody: partial
+current_path: mathematics/06-LINEAR-ALGEBRA.md
+canonical_path: mathematics/06-LINEAR-ALGEBRA.md
+backsource_ids: [proof-backfill:mathematics:06-linear-algebra, git-history:mathematics:06-linear-algebra]
+concepts: [linear, algebra]
+root_concepts: [linear, algebra]
+index_roles: [guide, root-concept]
+remap_from: []
+remap_to: []
+updated: null
+---
 # 06 — Linear Algebra: Vectors, Matrices, Eigenstructure, and SVD
 
 ## The Big Picture

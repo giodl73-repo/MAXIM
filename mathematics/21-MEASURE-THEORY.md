@@ -1,3 +1,22 @@
+---
+maxim_schema: maxim.frontmatter.v1
+id: maxim:mathematics:measure-theory
+kind: guide
+module: mathematics
+section: mathematics
+title: Measure Theory - Complete Reference
+status: source-custody
+source_custody: partial
+current_path: mathematics/21-MEASURE-THEORY.md
+canonical_path: mathematics/21-MEASURE-THEORY.md
+backsource_ids: [proof-backfill:mathematics:21-measure-theory, git-history:mathematics:21-measure-theory]
+concepts: [measure, theory]
+root_concepts: [measure, theory]
+index_roles: [guide, root-concept]
+remap_from: []
+remap_to: []
+updated: null
+---
 # Measure Theory — Complete Reference
 
 ## The Big Picture

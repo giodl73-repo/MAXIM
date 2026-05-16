@@ -1,0 +1,237 @@
+{
+  "schema_version": "1",
+  "source_markdown": "mathematics\\22-CATEGORY-THEORY.md",
+  "blocks": [
+    {
+      "id": "block-1",
+      "kind": "diagram_like",
+      "line": 26,
+      "heading_context": "## The Big Picture",
+      "confidence": "candidate",
+      "text": "┌─────────────────────────────────────────────────────────────────────────────┐\n│  CATEGORY THEORY LANDSCAPE                                                  │\n│                                                                             │\n│  Foundations                          Universal Constructions               │\n│  ──────────────────────────────        ──────────────────────────────────   │\n│  Category: objects + morphisms        Products, coproducts                  │\n│  Functor: structure-preserving map    Limits, colimits                      │\n│  Natural transformation: functor map  Equalizers, pullbacks, pushouts       │\n│  Isomorphism, equivalence             Initial/terminal objects              │\n│                                                                             │\n│  Adjunctions                          Monads                                │\n│  ──────────────────────────────        ──────────────────────────────────   │\n│  F ⊣ G: universal property           T = GF, unit/counit, monad laws        │\n│  Unit and counit                      Kleisli category                      │\n│  Triangle identities                  Eilenberg-Moore algebras              │\n│  Freeness and forgetfulness           Every adjunction gives a monad        │\n│                                                                             │\n│  PL Theory Connections                Higher Categories                     │\n│  ──────────────────────────────        ──────────────────────────────────   │\n│  Curry-Howard: proofs = programs      2-categories (morphisms of morphisms) │\n│  Types = objects, terms = morphisms   ∞-categories (homotopy theory)        │\n│  Products = pair types                Topos theory (generalized sets)       │\n│  Coproducts = sum types               Homotopy type theory (HoTT)           │\n└─────────────────────────────────────────────────────────────────────────────┘",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-2",
+      "kind": "diagram_like",
+      "line": 60,
+      "heading_context": "### Definition",
+      "confidence": "candidate",
+      "text": "Objects:  Ob(𝒞) — a collection of objects.\nMorphisms: For each pair A, B ∈ Ob(𝒞), a collection Hom(A,B) of morphisms A → B.\n\nComposition: For f: A→B, g: B→C, a morphism g∘f: A→C.\nIdentity: For each A, a morphism id_A: A→A.\n\nLaws:\n  Associativity: (h∘g)∘f = h∘(g∘f)\n  Unit:          id_B ∘ f = f = f ∘ id_A   for f: A→B",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-3",
+      "kind": "diagram_like",
+      "line": 117,
+      "heading_context": "### Algebraic Topology: The Canonical Motivation",
+      "confidence": "candidate",
+      "text": "H_n(X) = n-th homology group of topological space X.\nH_n(f): H_n(X) → H_n(Y) for continuous f: X → Y.\n\nPreserves composition: H_n(g∘f) = H_n(g) ∘ H_n(f).\nPreserves identity:    H_n(id_X) = id_{H_n(X)}.\n\nWhy this is powerful:\n  \"Is there a continuous map f: Sⁿ → Sⁿ with no fixed point?\"\n  Answer: f gives H_n(f): ℤ → ℤ, which must be multiplication by deg(f).\n  Brouwer fixed-point theorem: deg(f) ≠ -1 → must have fixed point.\n  Hard topology question → easy linear algebra.",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-4",
+      "kind": "diagram_like",
+      "line": 179,
+      "heading_context": "### Functor Examples",
+      "confidence": "candidate",
+      "text": "P: Set → Set\n  P(A) = ℙ(A) (power set)\n  P(f: A→B) = (S ↦ f(S)) : ℙ(A) → ℙ(B)  [covariant: direct image]\n  P*(f) = (T ↦ f⁻¹(T)) : ℙ(B) → ℙ(A)    [contravariant: preimage]",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-5",
+      "kind": "diagram_like",
+      "line": 197,
+      "heading_context": "### The Yoneda Lemma",
+      "confidence": "candidate",
+      "text": "Yoneda Lemma:\n  For any functor F: 𝒞 → Set and any object A ∈ 𝒞:\n  Nat(Hom(A,-), F) ≅ F(A)\n\n  Natural transformations from the representable functor Hom(A,-)\n  to any functor F are in bijection with elements of F(A).",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-6",
+      "kind": "ascii_table_candidate",
+      "line": 222,
+      "heading_context": "### Definition",
+      "confidence": "candidate",
+      "text": "Naturality square commutes:\n  F(A) ──F(f)──→ F(B)\n   |                |\n  η_A              η_B\n   ↓                ↓\n  G(A) ──G(f)──→ G(B)\n\ni.e., η_B ∘ F(f) = G(f) ∘ η_A",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-7",
+      "kind": "diagram_like",
+      "line": 312,
+      "heading_context": "### Limits and Colimits",
+      "confidence": "candidate",
+      "text": "Cone over F: object L with morphisms λⱼ: L → F(j) making all triangles commute.\nLimit = universal cone (initial among all cones).\n\nExamples:\n  J = {• •} (discrete, two objects): limit = product A×B\n  J = {• → • ← •}: limit = pullback (fiber product)\n  J = {• ⇉ •} (parallel arrows): limit = equalizer\n  J = empty category: limit = terminal object\n\nLimits in Set: subset of product satisfying compatibility conditions.\n  lim F = { (aⱼ) ∈ ∏ⱼ F(j) : ∀(f: j→k), F(f)(aⱼ) = aₖ }",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-8",
+      "kind": "diagram_like",
+      "line": 327,
+      "heading_context": "### Limits and Colimits",
+      "confidence": "candidate",
+      "text": "Cocone under F: object C with morphisms μⱼ: F(j) → C.\nColimit = universal cocone (terminal among all cocones).\n\nExamples:\n  J = {• •}: colimit = coproduct A+B\n  J = {• → • ← •}: colimit = pushout\n  J = {• ⇉ •}: colimit = coequalizer\n  J = empty: colimit = initial object\n  J = ℕ (sequence): colimit = direct limit (filtered colimit)\n\nColimits in Set: quotient of coproduct by compatibility equivalence relation.",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-9",
+      "kind": "diagram_like",
+      "line": 351,
+      "heading_context": "### Adjunctions Are Everywhere: The Pattern First",
+      "confidence": "candidate",
+      "text": "Left adjoint F              Right adjoint G          Domain\n────────────────────────    ─────────────────────    ──────────────────────────\nFree group on set S         Forgetful (Grp→Set)      Algebra\nFree vector space on S      Forgetful (Vect→Set)     Linear algebra\nTensor product (- ⊗ A)      Internal hom (A → -)     Monoidal categories\nCoproduct (+) ⊣ Diagonal    Diagonal ⊣ Product (×)   Any category with these\nSuspension ΣX               Loop space ΩX            Homotopy theory\n∃x. P(x) (existential)      Substitution P[a/x]      Logic / type theory\nCurrying (A×B→C)            (A→B→C) — uncurrying     Any CCC\n∑_f (dependent sum)         f* (pullback)            Dependent types\nImage (direct image f_*)    Inverse image (f^{-1})   Set maps / topology",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-10",
+      "kind": "diagram_like",
+      "line": 407,
+      "heading_context": "### Adjunction Examples",
+      "confidence": "candidate",
+      "text": "(- × A) ⊣ (- → A)^{op}   in Set (or suitable CCC)\n  or  - ⊗ A ⊣ A → -        in a closed monoidal category\n\nHom(B × A, C) ≅ Hom(B, A → C)\n\nThis is the categorical formulation of currying!\nUnit: η_B: B → (A → B×A)  i.e., η_B(b)(a) = (b,a)\nCounit: ε_C: (A→C) × A → C  i.e., ε_C(f,a) = f(a)   [evaluation]\n\nCurry-Howard connection:\n  (A ∧ B) → C  ≅  A → (B → C)   [logical form]\n  This is the same adjunction in the Cartesian closed category of propositions.",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-11",
+      "kind": "ascii_table_candidate",
+      "line": 463,
+      "heading_context": "### Definition",
+      "confidence": "candidate",
+      "text": "T: 𝒞 → 𝒞   (endofunctor)\nη: Id ⇒ T   (unit / return)\nμ: T² ⇒ T   (multiplication / join / bind)\n\nMonad laws (associativity and unit):\n  μ ∘ Tμ = μ ∘ μT   [associativity]\n  μ ∘ Tη = id = μ ∘ ηT  [left and right unit]\n\nCommutative diagrams:\n  T³ ──Tμ──→ T²\n  |              |\n  μT            μ\n  ↓              ↓\n  T²  ──μ───→ T",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-12",
+      "kind": "diagram_like",
+      "line": 483,
+      "heading_context": "### Monads as Computations (Haskell / PL Theory)",
+      "confidence": "candidate",
+      "text": "class Functor f => Monad f where\n  return :: a -> f a              -- unit η\n  (>>=)  :: f a -> (a -> f b) -> f b  -- bind (derived from μ and fmap)\n\n-- Laws:\n-- Left unit:  return a >>= f  =  f a\n-- Right unit: m >>= return    =  m\n-- Assoc:      (m >>= f) >>= g = m >>= (\\x -> f x >>= g)\n\n-- Note: (>>=) = flip (μ ∘ T(-))\n-- join :: f (f a) -> f a    -- multiplication μ\n-- join = (>>= id)",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-13",
+      "kind": "diagram_like",
+      "line": 521,
+      "heading_context": "### Monad Transformers",
+      "confidence": "candidate",
+      "text": "newtype StateT s m a = StateT { runStateT :: s -> m (a, s) }\n\ninstance Monad m => Monad (StateT s m) where\n  return a = StateT $ \\s -> return (a, s)\n  m >>= k  = StateT $ \\s -> do\n               (a, s') <- runStateT m s\n               runStateT (k a) s'\n\n-- Stack: StateT s (ExceptT e IO) a = s -> IO (Either e (a, s))",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-14",
+      "kind": "diagram_like",
+      "line": 566,
+      "heading_context": "### Categorical Databases (Spivak)",
+      "confidence": "candidate",
+      "text": "Schema category 𝒮:\n  Objects   = tables (entity types)\n  Morphisms = foreign key relationships between tables\n\n  Example: Employee database\n    Objects:  {Employee, Department, Project}\n    Morphisms: worksIn: Employee → Department\n               manages: Employee → Department    (manager)\n               assignedTo: Employee → Project\n\nDatabase instance = functor I: 𝒮 → Set\n  I(Employee) = {Alice, Bob, Carol, ...}     [set of rows]\n  I(Department) = {Eng, Sales, ...}\n  I(worksIn): I(Employee) → I(Department)    [the FK mapping on actual data]\n\nA natural transformation η: I → J between two instances is exactly\n  a family of functions η_T: I(T) → J(T) for each table T that commutes\n  with all foreign key mappings — i.e., a \"morphism of databases.\"\n\nQueries as categorical constructions:\n  SELECT (projection)  = limit\n  JOIN                 = pullback (fiber product over shared FK)\n  UNION                = coproduct\n  WHERE (equijoin)     = equalizer\n  EXISTS / subquery    = image factorization",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-15",
+      "kind": "diagram_like",
+      "line": 616,
+      "heading_context": "### Curry-Howard-Lambek Correspondence",
+      "confidence": "candidate",
+      "text": "Logic           Types               Category Theory\n──────────────  ───────────────     ──────────────────────────\nProposition     Type                Object\nProof           Program / Term      Morphism (A → B)\nConjunction     Product type A×B    Categorical product\nDisjunction     Sum type A+B        Categorical coproduct\nImplication     Function type A→B   Internal hom / exponential\nTrue (⊤)        Unit type           Terminal object\nFalse (⊥)       Empty type          Initial object\nUniversal quant Polymorphic type    End / natural transformation\nExistential q   Dependent sum Σ     Coend\nCurry (A∧B→C)≡(A→B→C) Curry: (A×B)→C ≅ A→(B→C) × ⊣ →\nModus ponens    Function application Composition with eval",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-16",
+      "kind": "diagram_like",
+      "line": 642,
+      "heading_context": "### Functors as Polymorphism",
+      "confidence": "candidate",
+      "text": "class Functor f where\n  fmap :: (a -> b) -> f a -> f b",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-17",
+      "kind": "diagram_like",
+      "line": 659,
+      "heading_context": "### Profunctors and Optics (Haskell Lens)",
+      "confidence": "candidate",
+      "text": "class Profunctor p where\n  dimap :: (a' -> a) -> (b -> b') -> p a b -> p a' b'\n  -- contravariant in first, covariant in second",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-18",
+      "kind": "diagram_like",
+      "line": 669,
+      "heading_context": "### Profunctors and Optics (Haskell Lens)",
+      "confidence": "candidate",
+      "text": "Optic family  | Profunctor constraint | Meaning\n──────────────+──────────────────────+──────────────────────────────────────────\nLens s t a b  | Cartesian p          | Focus on a product component (Strong)\nPrism s t a b | Cocartesian p        | Focus on a sum branch (Choice)\nTraversal     | Applicative-like      | Focus on multiple elements\nIso           | Profunctor p          | Isomorphism between types\nGrate         | Closed p             | Distribute functor over focus",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-19",
+      "kind": "diagram_like",
+      "line": 682,
+      "heading_context": "### Profunctors and Optics (Haskell Lens)",
+      "confidence": "candidate",
+      "text": "Categorical structure:\n  Profunctors form a bicategory Prof:\n    Objects:    categories\n    1-cells:    profunctors P: 𝒞^{op} × 𝒟 → Set\n    2-cells:    natural transformations between profunctors\n    Composition: Kan extension (profunctor composition via coend)\n\n  Optics are elements of Tambara modules — profunctors with extra structure.\n  The optic composition law is profunctor composition in Prof.",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-20",
+      "kind": "diagram_like",
+      "line": 740,
+      "heading_context": "### Applicative Functors (between Functor and Monad)",
+      "confidence": "candidate",
+      "text": "class Functor f => Applicative f where\n  pure  :: a -> f a\n  (<*>) :: f (a -> b) -> f a -> f b",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-21",
+      "kind": "diagram_like",
+      "line": 756,
+      "heading_context": "## Decision Cheat Sheet",
+      "confidence": "candidate",
+      "text": "Question:                                    Tool:\n────────────────────────────────────────     ──────────────────────────────────────────\nAre two constructions \"the same\"?           Find a natural isomorphism between them\nIs a construction canonical/natural?        Check if it's a natural transformation\nWhat does a functor preserve?               Check if properties are stated categorically\nDoes F preserve products/coproducts?       Check if F is left/right adjoint\nIs there a \"best\" map into/out of X?        Universal property (limit/colimit)\nCurry (A×B→C) = (A→B→C)?                   × ⊣ → adjunction (Cartesian closed category)\nEffect in a pure type system?               Monad\nCombine effects?                            Monad transformer stack or free monad\nInductive type / fold?                      Initial F-algebra, catamorphism\nCoinductive type / unfold?                  Final F-coalgebra, anamorphism\nParametrically polymorphic function?       Natural transformation (free theorem)\nLinear resource types?                      Symmetric monoidal closed category (not CCC)\nTopological invariant from space?          Functor Top → Ab (homology) or Top_* → Grp (π₁)\nDatabase schema + instances?               Schema = category, instance = functor to Set\nQuery migration along schema map F?        Adjoint triple Σ_F ⊣ Δ_F ⊣ Π_F\nOptic (lens/prism) in Haskell?             Profunctor + Tambara module constraint\nContravariant + covariant together?        Profunctor P: 𝒞^{op} × 𝒟 → Set",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    }
+  ]
+}

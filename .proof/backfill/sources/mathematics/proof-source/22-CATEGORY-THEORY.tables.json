@@ -1,0 +1,211 @@
+{
+  "schema_version": "1",
+  "source_markdown": "mathematics\\22-CATEGORY-THEORY.md",
+  "tables": [
+    {
+      "id": "table-1",
+      "line": 74,
+      "heading_context": "## 1. Categories",
+      "headers": [
+        "Category",
+        "Objects",
+        "Morphisms",
+        "Notes"
+      ],
+      "rows": [
+        [
+          "**Set**",
+          "Sets",
+          "Functions",
+          "The paradigm example"
+        ],
+        [
+          "**Grp**",
+          "Groups",
+          "Group homomorphisms",
+          ""
+        ],
+        [
+          "**Top**",
+          "Topological spaces",
+          "Continuous maps",
+          ""
+        ],
+        [
+          "**Vect_k**",
+          "k-vector spaces",
+          "Linear maps",
+          ""
+        ],
+        [
+          "**Pos**",
+          "Posets",
+          "Monotone functions",
+          ""
+        ],
+        [
+          "**Cat**",
+          "Small categories",
+          "Functors",
+          "Categories form a category"
+        ],
+        [
+          "**Hask**",
+          "Haskell types",
+          "Haskell functions",
+          "(up to ⊥ and seq issues)"
+        ],
+        [
+          "**Mon**",
+          "Monoids",
+          "Monoid homomorphisms",
+          ""
+        ],
+        [
+          "**Ring**",
+          "Rings",
+          "Ring homomorphisms",
+          ""
+        ]
+      ]
+    },
+    {
+      "id": "table-2",
+      "line": 500,
+      "heading_context": "## 6. Monads",
+      "headers": [
+        "Monad",
+        "Effect encoded",
+        "return",
+        "bind"
+      ],
+      "rows": [
+        [
+          "Maybe",
+          "Partiality/failure",
+          "Just",
+          "chain, propagate Nothing"
+        ],
+        [
+          "List",
+          "Nondeterminism",
+          "[x]",
+          "cartesian product"
+        ],
+        [
+          "IO",
+          "Side effects",
+          "pure a",
+          "sequential composition"
+        ],
+        [
+          "State s",
+          "Mutable state",
+          "pure a",
+          "thread state through"
+        ],
+        [
+          "Reader r",
+          "Read-only environment",
+          "const a",
+          "pipe environment"
+        ],
+        [
+          "Writer w",
+          "Logging/output",
+          "(a, mempty)",
+          "accumulate w"
+        ],
+        [
+          "Cont r",
+          "Continuations",
+          "\\k -> k a",
+          "CPS transform"
+        ],
+        [
+          "Either e",
+          "Checked exceptions",
+          "Right",
+          "propagate Left"
+        ]
+      ]
+    },
+    {
+      "id": "table-3",
+      "line": 716,
+      "heading_context": "## 9. Category Theory in Practice",
+      "headers": [
+        "Domain",
+        "CT concept",
+        "Concrete instance"
+      ],
+      "rows": [
+        [
+          "Haskell",
+          "Functor, Monad, Applicative",
+          "Type classes, do-notation"
+        ],
+        [
+          "Rust",
+          "Monad (Result chaining with ?)",
+          "Error propagation without exceptions"
+        ],
+        [
+          "Database",
+          "Functors",
+          "Natural joins as limits; union/intersection as colimits"
+        ],
+        [
+          "SQL",
+          "Colimits",
+          "UNION as coproduct, JOIN as pullback"
+        ],
+        [
+          "Git",
+          "Colimit / pushout",
+          "Three-way merge = pushout in category of file trees"
+        ],
+        [
+          "Type inference",
+          "Adjunction",
+          "Hindley-Milner: generalize ⊣ instantiate"
+        ],
+        [
+          "Compiler IRs",
+          "Functor",
+          "Map over AST nodes"
+        ],
+        [
+          "Recursion schemes",
+          "Initial algebras",
+          "Catamorphism = fold, anamorphism = unfold"
+        ],
+        [
+          "Optics (Haskell lens)",
+          "Profunctor",
+          "Lens = profunctor in specific (Cartesian) profunctor"
+        ],
+        [
+          "Dependent types",
+          "Fibration",
+          "Type families as fibered categories"
+        ],
+        [
+          "Relational schemas",
+          "Functor category",
+          "Schema = category, instance = functor to Set"
+        ],
+        [
+          "Query migration",
+          "Adjoint triple",
+          "Σ_F ⊣ Δ_F ⊣ Π_F for schema morphism F"
+        ],
+        [
+          "Algebraic topology",
+          "Functors to Ab/Grp",
+          "H_n, π₁ convert topology into algebra"
+        ]
+      ]
+    }
+  ]
+}

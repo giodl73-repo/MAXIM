@@ -1,3 +1,22 @@
+---
+maxim_schema: maxim.frontmatter.v1
+id: maxim:mathematics:laplace
+kind: guide
+module: mathematics
+section: mathematics
+title: 13 - Laplace Transform and Control
+status: source-custody
+source_custody: partial
+current_path: mathematics/13-LAPLACE.md
+canonical_path: mathematics/13-LAPLACE.md
+backsource_ids: [proof-backfill:mathematics:13-laplace, git-history:mathematics:13-laplace]
+concepts: [laplace]
+root_concepts: [laplace]
+index_roles: [guide, root-concept]
+remap_from: []
+remap_to: []
+updated: null
+---
 # 13 — Laplace Transform & Control
 
 ```

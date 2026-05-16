@@ -1,0 +1,479 @@
+{
+  "schema_version": "1",
+  "source_markdown": "mathematics\\18-NUMBER-THEORY.md",
+  "blocks": [
+    {
+      "id": "block-1",
+      "kind": "diagram_like",
+      "line": 24,
+      "heading_context": "## The Big Picture",
+      "confidence": "candidate",
+      "text": "NUMBER THEORY\n═══════════════════════════════════════════════════════════════════════════\n\n  CLASSICAL                   ANALYTIC                     ALGEBRAIC\n  ─────────                   ────────                     ─────────\n  Divisibility, GCD, LCM      Zeta ζ(s) and L-functions    Algebraic integers\n  Primes, primality tests      Dirichlet's theorem          Rings of integers\n  Unique factorization         Prime counting π(x)          Ideals, factorization\n  Modular arithmetic           Riemann Hypothesis           Quadratic fields\n  Chinese Remainder Theorem    Distribution of primes       Class groups, units\n\n  ARITHMETIC FUNCTIONS         DIOPHANTINE EQUATIONS        MODERN / CRYPTO\n  ────────────────────         ─────────────────────        ──────────────────\n  φ(n), μ(n), τ(n), σ(n)     Pell's equation x²−Dy²=1    RSA, DH, ECDH\n  Multiplicativity, Dirichlet  Pythagorean triples          Discrete log problem\n  convolution                  Waring's problem             Elliptic curve theory\n  Möbius inversion             Fermat's Last Theorem        Lattices, LWE\n  Completely multiplicative    Sums of squares              Post-quantum crypto\n\n  ┌─────────────────────────────────────────────────────────────────────┐\n  │  Core theme: Structure of integers, prime distribution, and the     │\n  │  algebraic/analytic tools that underpin all of cryptography         │\n  └─────────────────────────────────────────────────────────────────────┘",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-2",
+      "kind": "chart_like",
+      "line": 59,
+      "heading_context": "## 1. Divisibility and the Integers",
+      "confidence": "candidate",
+      "text": "### 1.1 Divisibility",
+      "notes": [
+        "detected from bar/chart glyph density with numeric labels"
+      ]
+    },
+    {
+      "id": "block-3",
+      "kind": "diagram_like",
+      "line": 61,
+      "heading_context": "### 1.1 Divisibility",
+      "confidence": "candidate",
+      "text": "a | b  (\"a divides b\") : ∃k ∈ ℤ such that b = k·a\n\nPROPERTIES:\n  a|b and b|c  →  a|c          (transitivity)\n  a|b and a|c  →  a|(mb + nc)  (linear combinations)\n  a|b and b|a  →  a = ±b\n\nDIVISION ALGORITHM:\n  For any a,b with b > 0: unique q,r with  a = q·b + r,  0 ≤ r < b\n  q = quotient = ⌊a/b⌋,   r = remainder = a mod b",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-4",
+      "kind": "chart_like",
+      "line": 74,
+      "heading_context": "### 1.1 Divisibility",
+      "confidence": "candidate",
+      "text": "### 1.2 GCD, LCM, Bezout's Identity",
+      "notes": [
+        "detected from bar/chart glyph density with numeric labels"
+      ]
+    },
+    {
+      "id": "block-5",
+      "kind": "diagram_like",
+      "line": 76,
+      "heading_context": "### 1.2 GCD, LCM, Bezout's Identity",
+      "confidence": "candidate",
+      "text": "GCD(a,b): largest positive integer dividing both a and b.\nLCM(a,b): smallest positive integer divisible by both.\n\ngcd(a,b) · lcm(a,b) = a·b   (for positive integers)\n\nEUCLIDEAN ALGORITHM: O(log min(a,b)) steps\n  gcd(a,0) = a\n  gcd(a,b) = gcd(b, a mod b)\n\n  Example: gcd(252, 198):\n    252 = 1·198 + 54\n    198 = 3·54  + 36\n     54 = 1·36  + 18\n     36 = 2·18  +  0  →  gcd = 18\n\nEXTENDED EUCLIDEAN ALGORITHM:\n  Returns x,y such that  a·x + b·y = gcd(a,b)  (BEZOUT'S IDENTITY)\n\n  Bezout coefficients not unique: (x + kb/d, y − ka/d) are also solutions.\n\nCOPRIME (relatively prime): gcd(a,b) = 1.\n  If gcd(a,b) = 1 and a|bc, then a|c  (Euclid's lemma, key for UFD proofs).",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-6",
+      "kind": "chart_like",
+      "line": 101,
+      "heading_context": "### 1.2 GCD, LCM, Bezout's Identity",
+      "confidence": "candidate",
+      "text": "### 1.3 Unique Factorization (Fundamental Theorem of Arithmetic)",
+      "notes": [
+        "detected from bar/chart glyph density with numeric labels"
+      ]
+    },
+    {
+      "id": "block-7",
+      "kind": "chart_like",
+      "line": 123,
+      "heading_context": "## 2. Primes",
+      "confidence": "candidate",
+      "text": "### 2.1 Fundamental Facts",
+      "notes": [
+        "detected from bar/chart glyph density with numeric labels"
+      ]
+    },
+    {
+      "id": "block-8",
+      "kind": "diagram_like",
+      "line": 125,
+      "heading_context": "### 2.1 Fundamental Facts",
+      "confidence": "candidate",
+      "text": "EUCLID'S THEOREM: Infinitely many primes.\n  Proof: Suppose finitely many p₁,...,pₖ. Consider N = p₁⋯pₖ + 1.\n  N is divisible by some prime not in the list. Contradiction.\n\nSIEVE OF ERATOSTHENES: finds primes up to N in O(N log log N).\n\nPRIME COUNTING FUNCTION π(x): number of primes ≤ x.\n  π(10) = 4, π(100) = 25, π(10⁶) = 78498, π(10⁹) = 50847534\n\nPRIME NUMBER THEOREM (PNT, Hadamard/de la Vallée-Poussin 1896):\n  π(x) ~ x/ln(x)   as x → ∞\n  Equivalently: pₙ ~ n ln n   (n-th prime asymptotic)\n  Better: li(x) = ∫₂ˣ dt/ln(t)  approximates π(x) with error O(x·exp(−c√ln x))\n  Under RH: |π(x) − li(x)| < (1/8π)√x · ln x\n\nDIRICHLET'S THEOREM ON PRIMES IN ARITHMETIC PROGRESSIONS (1837):\n  If gcd(a,d) = 1, there are infinitely many primes of the form a + nd, n∈ℕ.\n  Density: primes equidistributed among φ(d) residue classes mod d.\n  Proof: L-functions, Dirichlet characters (first use of analytic methods).",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-9",
+      "kind": "chart_like",
+      "line": 147,
+      "heading_context": "### 2.1 Fundamental Facts",
+      "confidence": "candidate",
+      "text": "### 2.2 Primality Testing",
+      "notes": [
+        "detected from bar/chart glyph density with numeric labels"
+      ]
+    },
+    {
+      "id": "block-10",
+      "kind": "chart_like",
+      "line": 211,
+      "heading_context": "### Miller-Rabin, Randomized Complexity, and Derandomization",
+      "confidence": "candidate",
+      "text": "### 2.3 Integer Factorization",
+      "notes": [
+        "detected from bar/chart glyph density with numeric labels"
+      ]
+    },
+    {
+      "id": "block-11",
+      "kind": "chart_like",
+      "line": 239,
+      "heading_context": "## 3. Modular Arithmetic",
+      "confidence": "candidate",
+      "text": "### 3.1 Congruences",
+      "notes": [
+        "detected from bar/chart glyph density with numeric labels"
+      ]
+    },
+    {
+      "id": "block-12",
+      "kind": "diagram_like",
+      "line": 241,
+      "heading_context": "### 3.1 Congruences",
+      "confidence": "candidate",
+      "text": "a ≡ b (mod n)  iff  n | (a−b)  iff  a mod n = b mod n\n\nARITHMETIC RULES:\n  a ≡ b, c ≡ d  ⟹  a+c ≡ b+d,  a·c ≡ b·d  (mod n)\n  aᵏ ≡ bᵏ  (mod n)\n\nCANCELLATION: ac ≡ bc (mod n)  ⟹  a ≡ b (mod n/gcd(c,n))\n  If gcd(c,n) = 1: ac ≡ bc → a ≡ b  (true cancellation)\n\nMODULAR INVERSE: a⁻¹ mod n exists iff gcd(a,n) = 1.\n  Compute via extended Euclidean: a·x + n·y = 1  →  x = a⁻¹ mod n.",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-13",
+      "kind": "chart_like",
+      "line": 255,
+      "heading_context": "### 3.1 Congruences",
+      "confidence": "candidate",
+      "text": "### 3.2 ℤ/nℤ — The Ring of Integers mod n",
+      "notes": [
+        "detected from bar/chart glyph density with numeric labels"
+      ]
+    },
+    {
+      "id": "block-14",
+      "kind": "chart_like",
+      "line": 276,
+      "heading_context": "### 3.2 ℤ/nℤ — The Ring of Integers mod n",
+      "confidence": "candidate",
+      "text": "### 3.3 Euler's Theorem and Fermat's Little Theorem",
+      "notes": [
+        "detected from bar/chart glyph density with numeric labels"
+      ]
+    },
+    {
+      "id": "block-15",
+      "kind": "chart_like",
+      "line": 302,
+      "heading_context": "### 3.3 Euler's Theorem and Fermat's Little Theorem",
+      "confidence": "candidate",
+      "text": "### 3.4 Chinese Remainder Theorem (CRT)",
+      "notes": [
+        "detected from bar/chart glyph density with numeric labels"
+      ]
+    },
+    {
+      "id": "block-16",
+      "kind": "chart_like",
+      "line": 331,
+      "heading_context": "## 4. Arithmetic Functions",
+      "confidence": "candidate",
+      "text": "### 4.1 Classical Functions",
+      "notes": [
+        "detected from bar/chart glyph density with numeric labels"
+      ]
+    },
+    {
+      "id": "block-17",
+      "kind": "diagram_like",
+      "line": 333,
+      "heading_context": "### 4.1 Classical Functions",
+      "confidence": "candidate",
+      "text": "ARITHMETIC FUNCTION: f: ℤ⁺ → ℂ\n\nMULTIPLICATIVITY:\n  f is multiplicative:          f(mn) = f(m)f(n) when gcd(m,n) = 1\n  f is completely multiplicative: f(mn) = f(m)f(n) always\n\nTABLE OF CLASSICAL FUNCTIONS:\n\nFunction  | Symbol  | Definition              | Value at pᵉ     | Type\n──────────┼─────────┼─────────────────────────┼─────────────────┼──────────────\nTotient   | φ(n)    | |{k≤n : gcd(k,n)=1}|   | pᵉ−pᵉ⁻¹        | multiplicative\nDivisors  | d(n)=τ(n)| #{d : d|n}             | e+1             | multiplicative\nSum divs  | σ(n)    | Σ_{d|n} d               | (pᵉ⁺¹−1)/(p−1) | multiplicative\nMöbius    | μ(n)    | see below               | −1 if e=1, else 0| multiplicative\nLiouville | λ(n)    | (−1)^Ω(n)               | (−1)ᵉ           | completely mult\nIdentity  | ε(n)    | [n=1]                   | [e=0]            | completely mult\nUnit fn   | 1(n)    | 1                       | 1               | completely mult\nId fn     | id(n)   | n                       | pᵉ              | completely mult\n\nMÖBIUS FUNCTION:\n  μ(1) = 1\n  μ(n) = 0 if n has any prime factor squared (not squarefree)\n  μ(p₁p₂⋯pₖ) = (−1)ᵏ  (product of k distinct primes)",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-18",
+      "kind": "chart_like",
+      "line": 359,
+      "heading_context": "### 4.1 Classical Functions",
+      "confidence": "candidate",
+      "text": "### 4.2 Dirichlet Convolution and Möbius Inversion",
+      "notes": [
+        "detected from bar/chart glyph density with numeric labels"
+      ]
+    },
+    {
+      "id": "block-19",
+      "kind": "chart_like",
+      "line": 380,
+      "heading_context": "### 4.2 Dirichlet Convolution and Möbius Inversion",
+      "confidence": "candidate",
+      "text": "### 4.3 Dirichlet Series",
+      "notes": [
+        "detected from bar/chart glyph density with numeric labels"
+      ]
+    },
+    {
+      "id": "block-20",
+      "kind": "chart_like",
+      "line": 410,
+      "heading_context": "## 5. Quadratic Residues",
+      "confidence": "candidate",
+      "text": "### 5.1 Quadratic Residues",
+      "notes": [
+        "detected from bar/chart glyph density with numeric labels"
+      ]
+    },
+    {
+      "id": "block-21",
+      "kind": "chart_like",
+      "line": 437,
+      "heading_context": "### 5.1 Quadratic Residues",
+      "confidence": "candidate",
+      "text": "### 5.2 Quadratic Reciprocity",
+      "notes": [
+        "detected from bar/chart glyph density with numeric labels"
+      ]
+    },
+    {
+      "id": "block-22",
+      "kind": "chart_like",
+      "line": 458,
+      "heading_context": "### 5.2 Quadratic Reciprocity",
+      "confidence": "candidate",
+      "text": "### 5.3 Square Roots mod p",
+      "notes": [
+        "detected from bar/chart glyph density with numeric labels"
+      ]
+    },
+    {
+      "id": "block-23",
+      "kind": "chart_like",
+      "line": 518,
+      "heading_context": "## 6. Diophantine Equations",
+      "confidence": "candidate",
+      "text": "### 6.1 Linear Diophantine Equations",
+      "notes": [
+        "detected from bar/chart glyph density with numeric labels"
+      ]
+    },
+    {
+      "id": "block-24",
+      "kind": "chart_like",
+      "line": 529,
+      "heading_context": "### 6.1 Linear Diophantine Equations",
+      "confidence": "candidate",
+      "text": "### 6.2 Pythagorean Triples",
+      "notes": [
+        "detected from bar/chart glyph density with numeric labels"
+      ]
+    },
+    {
+      "id": "block-25",
+      "kind": "chart_like",
+      "line": 544,
+      "heading_context": "### 6.2 Pythagorean Triples",
+      "confidence": "candidate",
+      "text": "### 6.3 Sums of Squares",
+      "notes": [
+        "detected from bar/chart glyph density with numeric labels"
+      ]
+    },
+    {
+      "id": "block-26",
+      "kind": "chart_like",
+      "line": 569,
+      "heading_context": "### 6.3 Sums of Squares",
+      "confidence": "candidate",
+      "text": "### 6.4 Pell's Equation",
+      "notes": [
+        "detected from bar/chart glyph density with numeric labels"
+      ]
+    },
+    {
+      "id": "block-27",
+      "kind": "chart_like",
+      "line": 589,
+      "heading_context": "### 6.4 Pell's Equation",
+      "confidence": "candidate",
+      "text": "### 6.5 Fermat's Last Theorem",
+      "notes": [
+        "detected from bar/chart glyph density with numeric labels"
+      ]
+    },
+    {
+      "id": "block-28",
+      "kind": "chart_like",
+      "line": 614,
+      "heading_context": "## 7. p-adic Numbers",
+      "confidence": "candidate",
+      "text": "### 7.1 Construction",
+      "notes": [
+        "detected from bar/chart glyph density with numeric labels"
+      ]
+    },
+    {
+      "id": "block-29",
+      "kind": "chart_like",
+      "line": 635,
+      "heading_context": "### 7.1 Construction",
+      "confidence": "candidate",
+      "text": "### 7.2 p-adic Integers and Structure",
+      "notes": [
+        "detected from bar/chart glyph density with numeric labels"
+      ]
+    },
+    {
+      "id": "block-30",
+      "kind": "diagram_like",
+      "line": 637,
+      "heading_context": "### 7.2 p-adic Integers and Structure",
+      "confidence": "candidate",
+      "text": "ℤₚ = {x ∈ ℚₚ : |x|ₚ ≤ 1} = p-adic integers\n\nRepresentation: every x ∈ ℤₚ uniquely as\n  x = a₀ + a₁p + a₂p² + ⋯   (aᵢ ∈ {0,...,p−1})\n  \"Power series in p\" — infinite to the LEFT in p-adic, not right!\n\nHENSEL'S LEMMA:\n  If f(a₀) ≡ 0 (mod p) and f'(a₀) ≢ 0 (mod p), then f has a root in ℤₚ.\n  \"Lift a solution mod p to solution mod p∞.\"\n  E.g., x² ≡ a (mod p) with solution → unique √a in ℤₚ.\n\nTEICHMÜLLER REPRESENTATIVES: (p−1)-th roots of unity in ℤₚ.\n\nWHY p-ADICS MATTER:\n  • Hasse-Minkowski: quadratic forms over ℚ → iff over ℝ and all ℚₚ\n    (\"local-global principle\" = check everywhere locally)\n  • Modularity, l-adic Galois representations (key in Wiles's proof)\n  • p-adic L-functions, Iwasawa theory",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-31",
+      "kind": "chart_like",
+      "line": 662,
+      "heading_context": "## 8. Algebraic Number Theory Essentials",
+      "confidence": "candidate",
+      "text": "### 8.1 Number Fields",
+      "notes": [
+        "detected from bar/chart glyph density with numeric labels"
+      ]
+    },
+    {
+      "id": "block-32",
+      "kind": "diagram_like",
+      "line": 664,
+      "heading_context": "### 8.1 Number Fields",
+      "confidence": "candidate",
+      "text": "NUMBER FIELD K: finite extension of ℚ.\n  K = ℚ(α) where α is algebraic over ℚ with minimal polynomial f(x).\n  [K:ℚ] = degree = deg(f).\n\nRING OF INTEGERS 𝒪_K: algebraic integers in K.\n  ℤ ⊂ 𝒪_K ⊂ K,   𝒪_K ∩ ℚ = ℤ\n  𝒪_K is a free ℤ-module of rank [K:ℚ].\n\nQUADRATIC FIELDS ℚ(√d) (d squarefree):\n  𝒪_K = ℤ[√d]          if d ≡ 2,3 (mod 4)\n  𝒪_K = ℤ[(1+√d)/2]    if d ≡ 1   (mod 4)   ← \"half-integers\"\n  Discriminant Δ = 4d or d (resp.).\n\nPRIME SPLITTING: how rational prime p behaves in 𝒪_K.\n  p𝒪_K = 𝔭₁^e₁ ⋯ 𝔭_g^eg\n  In ℚ(√d): p splits if Kronecker symbol (d/p)=1, stays inert if −1, ramifies if 0.",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-33",
+      "kind": "chart_like",
+      "line": 683,
+      "heading_context": "### 8.1 Number Fields",
+      "confidence": "candidate",
+      "text": "### 8.2 Ideals and Unique Factorization",
+      "notes": [
+        "detected from bar/chart glyph density with numeric labels"
+      ]
+    },
+    {
+      "id": "block-34",
+      "kind": "chart_like",
+      "line": 707,
+      "heading_context": "### 8.2 Ideals and Unique Factorization",
+      "confidence": "candidate",
+      "text": "### 8.3 Cyclotomic Fields and Connections to Cryptography",
+      "notes": [
+        "detected from bar/chart glyph density with numeric labels"
+      ]
+    },
+    {
+      "id": "block-35",
+      "kind": "diagram_like",
+      "line": 723,
+      "heading_context": "### 8.3 Cyclotomic Fields and Connections to Cryptography",
+      "confidence": "candidate",
+      "text": "R = ℤ[x]/(xⁿ + 1)   where n = 2ᵏ (a power of 2)\n\nThis ring is isomorphic to the ring of integers of ℚ(ζ_{2n}):\n  xⁿ + 1 = Φ_{2n}(x)   (the 2n-th cyclotomic polynomial for n a power of 2)\n  ℤ[x]/(xⁿ + 1) ≅ ℤ[ζ_{2n}]\n\nWHY THIS RING:\n  • x^n + 1 factors into exactly φ(2n) = n irreducible factors mod each prime p\n    (uniform splitting → balanced security across all moduli)\n  • NTT (Number Theoretic Transform) applies when p ≡ 1 (mod 2n) → O(n log n) multiplication\n  • The ideal structure inherits from the Dedekind domain ℤ[ζ_{2n}]\n  • Worst-case to average-case reduction: hardness of SVP/CVP on ideal lattices\n    (Lyubashevsky-Peikert-Regev 2010)",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-36",
+      "kind": "chart_like",
+      "line": 758,
+      "heading_context": "## 9. Cryptography — The Payoff",
+      "confidence": "candidate",
+      "text": "### 9.1 RSA",
+      "notes": [
+        "detected from bar/chart glyph density with numeric labels"
+      ]
+    },
+    {
+      "id": "block-37",
+      "kind": "chart_like",
+      "line": 837,
+      "heading_context": "### RSA Attack Landscape",
+      "confidence": "candidate",
+      "text": "### 9.2 Discrete Logarithm Problem",
+      "notes": [
+        "detected from bar/chart glyph density with numeric labels"
+      ]
+    },
+    {
+      "id": "block-38",
+      "kind": "chart_like",
+      "line": 862,
+      "heading_context": "### 9.2 Discrete Logarithm Problem",
+      "confidence": "candidate",
+      "text": "### 9.3 Elliptic Curves",
+      "notes": [
+        "detected from bar/chart glyph density with numeric labels"
+      ]
+    },
+    {
+      "id": "block-39",
+      "kind": "diagram_like",
+      "line": 864,
+      "heading_context": "### 9.3 Elliptic Curves",
+      "confidence": "candidate",
+      "text": "ELLIPTIC CURVE over 𝔽ₚ:\n  y² = x³ + ax + b  (mod p),  4a³ + 27b² ≠ 0 (mod p)\n  Points: solutions (x,y) ∈ 𝔽ₚ × 𝔽ₚ, plus \"point at infinity\" 𝒪.\n\nGROUP LAW: E(𝔽ₚ) forms an abelian group under chord-and-tangent addition.\n  P + Q: draw line through P,Q, reflect x-axis intersection.\n  P + P (doubling): tangent line.\n  𝒪 = identity.\n\nGROUP ORDER |E(𝔽ₚ)| ~ p  (Hasse-Weil: |#E − (p+1)| ≤ 2√p)\n\nECDLP: given P and Q = kP, find k. Harder per bit than DLP in 𝔽ₚ×.\n  No sub-exponential algorithm known for EC over prime fields.\n  Best: generic Pollard-ρ in O(√q) where q = group order.\n\nNIST CURVES: P-256, P-384, P-521 (prime field, NIST-recommended)\nDJBCURVE25519: Bernstein's Curve25519 — x25519 = Diffie-Hellman on Curve25519 (modern standard)\n  Montgomery form: y² = x³ + 486662x² + x mod (2²⁵⁵−19)\n\nEC KEY SIZES:\n  256-bit key → 128-bit security  (vs RSA-3072 for same security)\n  384-bit key → 192-bit security\n  521-bit key → 260-bit security\n\nECDSA: signing (k-random nonce critical! PS3 reuse → key recovery)\nECDH: key exchange on elliptic curves (x25519 in TLS 1.3)",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-40",
+      "kind": "chart_like",
+      "line": 941,
+      "heading_context": "### Pairing-Based Cryptography and the MOV Attack",
+      "confidence": "candidate",
+      "text": "### 9.4 Post-Quantum Cryptography (Lattices)",
+      "notes": [
+        "detected from bar/chart glyph density with numeric labels"
+      ]
+    },
+    {
+      "id": "block-41",
+      "kind": "diagram_like",
+      "line": 943,
+      "heading_context": "### 9.4 Post-Quantum Cryptography (Lattices)",
+      "confidence": "candidate",
+      "text": "MOTIVATION: Shor's algorithm breaks RSA and ECDH in polynomial quantum time.\n  NIST PQC standardization (finalized 2024):\n    ML-KEM (Kyber): key encapsulation — default for key exchange\n    ML-DSA (Dilithium): digital signatures\n    SLH-DSA (SPHINCS+): hash-based signatures\n    (FALCON also selected for signatures)\n\nLATTICE BASICS:\n  Lattice Λ ⊂ ℝⁿ: Λ = {Σ aᵢbᵢ : aᵢ ∈ ℤ} for basis {b₁,...,bₙ}\n  Different bases → same lattice (basis reduction: LLL algorithm)\n\nHARD PROBLEMS:\n  SVP (Shortest Vector Problem): find shortest nonzero vector in Λ. NP-hard (worst-case).\n  CVP (Closest Vector Problem): find lattice point nearest a target. NP-hard.\n\nLWE (Learning With Errors, Regev 2005):\n  Given Ax + e = b mod q (x secret, e small noise), recover x.\n  Hard for quantum computers (worst-case lattice problems reduce to LWE).\n  ML-KEM/CRYSTALS-Kyber based on Module-LWE.\n\nRLWE (Ring LWE): LWE over polynomial ring ℤ[x]/(xⁿ+1).\n  Much more efficient (polynomial operations).\n  Kyber, Dilithium use Module variants.\n\nLLL BASIS REDUCTION: O(n⁵ log³ B) — solves \"approximate\" SVP.\n  Used in: breaking knapsack cryptosystems, finding short polynomial factorizations,\n  COPPERSMITH method for finding small roots of polynomials mod N (partial key recovery for RSA).",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-42",
+      "kind": "chart_like",
+      "line": 977,
+      "heading_context": "## 10. Analytic Number Theory Highlights",
+      "confidence": "candidate",
+      "text": "### 10.1 The Riemann Hypothesis",
+      "notes": [
+        "detected from bar/chart glyph density with numeric labels"
+      ]
+    },
+    {
+      "id": "block-43",
+      "kind": "chart_like",
+      "line": 1000,
+      "heading_context": "### 10.1 The Riemann Hypothesis",
+      "confidence": "candidate",
+      "text": "### 10.2 Primes in Short Intervals and Gaps",
+      "notes": [
+        "detected from bar/chart glyph density with numeric labels"
+      ]
+    }
+  ]
+}

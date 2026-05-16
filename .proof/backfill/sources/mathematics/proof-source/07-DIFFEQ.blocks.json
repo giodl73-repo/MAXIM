@@ -1,0 +1,413 @@
+{
+  "schema_version": "1",
+  "source_markdown": "mathematics\\07-DIFFEQ.md",
+  "blocks": [
+    {
+      "id": "block-1",
+      "kind": "diagram_like",
+      "line": 22,
+      "heading_context": "# 07 — Differential Equations: ODEs, PDEs, and the Equations of Physics",
+      "confidence": "candidate",
+      "text": "THE LANDSCAPE\n═══════════════════════════════════════════════════════════════════════════════\n\n  ORDINARY DEs (one variable)          PARTIAL DEs (multiple variables)\n  ┌──────────────────────────┐          ┌────────────────────────────────┐\n  │ 1st order                │          │ Elliptic:  ∇²u = f  (Laplace)  │\n  │  separable               │          │ Parabolic: ∂u/∂t = α∇²u (heat) │\n  │  linear (integrating μ)  │          │ Hyperbolic: ∂²u/∂t² = c²∇²u    │\n  │  exact                   │          │            (wave equation)     │\n  │ 2nd order                │          └────────────────────────────────┘\n  │  constant coefficients   │\n  │  undetermined coeff.     │          SOLUTION METHODS\n  │  variation of parameters │          ┌────────────────────────────────┐\n  │ Systems of ODEs          │          │ Separation of variables        │\n  │  phase plane / stability │          │ Fourier series / transform     │\n  └──────────────────────────┘          │ Green's functions              │\n                                        │ Numerical (FEM, FDM)          │\n  EVERY PHYSICS MODULE YOU'VE READ CONTAINS AT LEAST ONE DE:            │\n  Newton F=ma, Maxwell ∂E/∂t, Schrödinger iℏ∂ψ/∂t, diffusion ∂T/∂t   │\n  ─────────────────────────────────────────────────────────────────────┘\n═══════════════════════════════════════════════════════════════════════════════",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-2",
+      "kind": "chart_like",
+      "line": 52,
+      "heading_context": "## 1. First-Order ODEs",
+      "confidence": "candidate",
+      "text": "### 1.1 Separable Equations",
+      "notes": [
+        "detected from bar/chart glyph density with numeric labels"
+      ]
+    },
+    {
+      "id": "block-3",
+      "kind": "diagram_like",
+      "line": 54,
+      "heading_context": "### 1.1 Separable Equations",
+      "confidence": "candidate",
+      "text": "  FORM: dy/dx = f(x)·g(y)\n\n  TECHNIQUE: separate variables, integrate both sides\n\n  dy/g(y) = f(x) dx  →  ∫ dy/g(y) = ∫ f(x) dx\n\n  EXAMPLE: RC circuit charging  (electronics bridge)\n  C dV/dt = (V₀ - V)/R  →  dV/(V₀-V) = dt/RC\n  -ln|V₀-V| = t/RC + C₁\n  V(t) = V₀(1 - e^(-t/RC))     ← the exponential approach to equilibrium\n\n  EXAMPLE: Radioactive decay\n  dN/dt = -λN  →  dN/N = -λ dt  →  N(t) = N₀ e^(-λt)\n\n  EXAMPLE: Logistic growth\n  dP/dt = rP(1 - P/K)\n  Separable; solution: P(t) = K/(1 + ((K-P₀)/P₀)e^(-rt))",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-4",
+      "kind": "chart_like",
+      "line": 74,
+      "heading_context": "### 1.1 Separable Equations",
+      "confidence": "candidate",
+      "text": "### 1.2 Linear First-Order: The Integrating Factor",
+      "notes": [
+        "detected from bar/chart glyph density with numeric labels"
+      ]
+    },
+    {
+      "id": "block-5",
+      "kind": "diagram_like",
+      "line": 76,
+      "heading_context": "### 1.2 Linear First-Order: The Integrating Factor",
+      "confidence": "candidate",
+      "text": "  FORM: dy/dx + P(x)y = Q(x)   (linear — y appears only to first power)\n\n  TECHNIQUE: multiply both sides by integrating factor μ(x) = e^(∫P dx)\n\n  d/dx[μy] = μQ(x)\n  μy = ∫μQ dx  →  y = (1/μ)∫μQ dx\n\n  WHY IT WORKS:\n  d/dx[μy] = μy' + μ'y = μ(y' + (μ'/μ)y) = μ(y' + Py)\n  We need μ'/μ = P, so μ = e^(∫P dx). Then d/dx[μy] = μQ, integrate directly.\n\n  EXAMPLE: Newton's law of cooling\n  dT/dt + (h/mc)T = (h/mc)T_env\n  P = h/mc (constant), Q = (h/mc)T_env\n  μ = e^(ht/mc)\n  T(t) = T_env + (T₀ - T_env)e^(-ht/mc)    ← exponential approach",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-6",
+      "kind": "chart_like",
+      "line": 95,
+      "heading_context": "### 1.2 Linear First-Order: The Integrating Factor",
+      "confidence": "candidate",
+      "text": "### 1.3 Exact Equations",
+      "notes": [
+        "detected from bar/chart glyph density with numeric labels"
+      ]
+    },
+    {
+      "id": "block-7",
+      "kind": "chart_like",
+      "line": 109,
+      "heading_context": "### 1.3 Exact Equations",
+      "confidence": "candidate",
+      "text": "### 1.4 Existence and Uniqueness",
+      "notes": [
+        "detected from bar/chart glyph density with numeric labels"
+      ]
+    },
+    {
+      "id": "block-8",
+      "kind": "diagram_like",
+      "line": 111,
+      "heading_context": "### 1.4 Existence and Uniqueness",
+      "confidence": "candidate",
+      "text": "  PICARD'S THEOREM:\n  If f and ∂f/∂y are continuous near (x₀, y₀), then\n  y' = f(x,y),  y(x₀) = y₀\n  has a unique solution in some interval around x₀.\n\n  This fails when:\n  ├── f is discontinuous (e.g., y' = 1/x at x=0)\n  ├── ∂f/∂y blows up (e.g., y' = y^(1/3) at y=0 → multiple solutions)\n  └── Solution blows up in finite time (e.g., y' = y², y(0)=1 → y=1/(1-x))",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-9",
+      "kind": "chart_like",
+      "line": 137,
+      "heading_context": "## 2. Second-Order Linear ODEs",
+      "confidence": "candidate",
+      "text": "### 2.1 Constant Coefficients — Characteristic Equation",
+      "notes": [
+        "detected from bar/chart glyph density with numeric labels"
+      ]
+    },
+    {
+      "id": "block-10",
+      "kind": "diagram_like",
+      "line": 139,
+      "heading_context": "### 2.1 Constant Coefficients — Characteristic Equation",
+      "confidence": "candidate",
+      "text": "  ay'' + by' + cy = 0\n\n  Guess y = e^(rx):  ar² + br + c = 0   ← characteristic equation\n\n  Three cases (discriminant Δ = b² - 4ac):\n\n  CASE 1: Δ > 0   two real roots r₁ ≠ r₂\n  y = C₁e^(r₁x) + C₂e^(r₂x)\n  Physics: overdamped oscillator, no oscillation\n\n  CASE 2: Δ = 0   repeated root r = -b/2a\n  y = (C₁ + C₂x)e^(rx)\n  Physics: critically damped — fastest return to equilibrium without oscillation\n\n  CASE 3: Δ < 0   complex roots r = α ± iβ\n  y = e^(αx)(C₁cos βx + C₂sin βx)\n  Physics: underdamped — oscillation with exponential decay\n\n  ┌──────────────────────────────────────────────────────────────┐\n  │ PHYSICAL EXAMPLE: RLC circuit / mass-spring-dashpot          │\n  │ mẍ + bẋ + kx = 0                                             │\n  │ ω₀ = √(k/m) = natural frequency                              │\n  │ γ  = b/2m   = damping rate                                   │\n  │ r  = -γ ± √(γ² - ω₀²)                                        │\n  │                                                              │\n  │ Underdamped (γ < ω₀):  x(t) = Ae^(-γt)cos(ωt + φ)            │\n  │ where ω = √(ω₀² - γ²)  (damped frequency < natural freq)     │\n  │ Q factor = ω₀/2γ  (quality factor — cycles before decay)     │\n  └──────────────────────────────────────────────────────────────┘",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-11",
+      "kind": "chart_like",
+      "line": 171,
+      "heading_context": "### 2.1 Constant Coefficients — Characteristic Equation",
+      "confidence": "candidate",
+      "text": "### 2.2 Method of Undetermined Coefficients",
+      "notes": [
+        "detected from bar/chart glyph density with numeric labels"
+      ]
+    },
+    {
+      "id": "block-12",
+      "kind": "diagram_like",
+      "line": 173,
+      "heading_context": "### 2.2 Method of Undetermined Coefficients",
+      "confidence": "candidate",
+      "text": "  For ay'' + by' + cy = f(x) where f(x) is \"nice\":\n\n  GUESS TABLE:\n  ┌──────────────────────────────────────────────────────────────┐\n  │  f(x)                  │  Guess for yₚ                       │\n  ├──────────────────────────────────────────────────────────────┤\n  │  polynomial degree n   │  Aₙxⁿ + ... + A₁x + A₀           │\n  │  e^(ax)               │  Ae^(ax)                            │\n  │  sin(bx) or cos(bx)   │  A sin(bx) + B cos(bx)             │\n  │  e^(ax)sin(bx)        │  e^(ax)(A sin bx + B cos bx)        │\n  │  xⁿe^(ax)             │  (Aₙxⁿ + ...)e^(ax)               │\n  └──────────────────────────────────────────────────────────────┘\n\n  MODIFICATION RULE: if yₚ guess solves homogeneous equation,\n  multiply by x (or x² if double root).\n\n  PHYSICAL MEANING: Resonance!\n  mẍ + kx = F₀cos(ω₀t)   (forcing at natural frequency)\n  Guess A cos(ω₀t) fails → modification → yₚ = At sin(ω₀t)\n  Amplitude grows linearly with t → unbounded growth = RESONANCE\n  (Tacoma Narrows Bridge, 1940)",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-13",
+      "kind": "chart_like",
+      "line": 197,
+      "heading_context": "### 2.2 Method of Undetermined Coefficients",
+      "confidence": "candidate",
+      "text": "### 2.3 Variation of Parameters",
+      "notes": [
+        "detected from bar/chart glyph density with numeric labels"
+      ]
+    },
+    {
+      "id": "block-14",
+      "kind": "chart_like",
+      "line": 214,
+      "heading_context": "## 3. Systems of ODEs",
+      "confidence": "candidate",
+      "text": "### 3.1 Matrix Form",
+      "notes": [
+        "detected from bar/chart glyph density with numeric labels"
+      ]
+    },
+    {
+      "id": "block-15",
+      "kind": "diagram_like",
+      "line": 216,
+      "heading_context": "### 3.1 Matrix Form",
+      "confidence": "candidate",
+      "text": "  System: dx/dt = Ax  (x ∈ ℝⁿ, A constant matrix)\n\n  Solution: x(t) = e^(At) x(0)\n\n  MATRIX EXPONENTIAL:\n  e^(At) = I + At + (At)²/2! + (At)³/3! + ...\n\n  If A = PDP⁻¹ (diagonalizable):\n  e^(At) = Pe^(Dt)P⁻¹ = P·diag(e^(λ₁t),...,e^(λₙt))·P⁻¹\n\n  GENERAL SOLUTION:\n  x(t) = Σᵢ cᵢ e^(λᵢt) vᵢ   (linear combination of modes)\n\n  Each mode: e^(λᵢt) vᵢ\n  ├── λᵢ real negative: exponential decay\n  ├── λᵢ real positive: exponential growth\n  ├── λᵢ = α ± iβ: oscillation × exp(αt)\n  └── λᵢ = 0: constant (neutral stability)",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-16",
+      "kind": "chart_like",
+      "line": 237,
+      "heading_context": "### 3.1 Matrix Form",
+      "confidence": "candidate",
+      "text": "### 3.2 Phase Plane Analysis",
+      "notes": [
+        "detected from bar/chart glyph density with numeric labels"
+      ]
+    },
+    {
+      "id": "block-17",
+      "kind": "diagram_like",
+      "line": 241,
+      "heading_context": "### 3.2 Phase Plane Analysis",
+      "confidence": "candidate",
+      "text": "  EQUILIBRIUM POINTS: f(x*,y*) = 0 and g(x*,y*) = 0\n  Linearize near (x*, y*): let A = Jacobian [∂f/∂x ∂f/∂y; ∂g/∂x ∂g/∂y] at (x*,y*)\n  Local behavior determined by eigenvalues of A:\n\n  ┌─────────────────────────────────────────────────────────────────┐\n  │  Eigenvalues of A        │  Type of equilibrium                 │\n  ├─────────────────────────────────────────────────────────────────┤\n  │  λ₁ < λ₂ < 0            │  Stable node (overdamped)           │\n  │  0 < λ₁ < λ₂            │  Unstable node                      │\n  │  λ₁ < 0 < λ₂            │  Saddle point (unstable)            │\n  │  α ± iβ, α < 0          │  Stable spiral (underdamped)        │\n  │  α ± iβ, α > 0          │  Unstable spiral                    │\n  │  ± iβ (α = 0)           │  Center (nonlinear: need 2nd order) │\n  └─────────────────────────────────────────────────────────────────┘\n\n  EXAMPLES:\n  Predator-prey (Lotka-Volterra): periodic orbits around center\n  Pendulum:  stable center at (0,0), saddle at (π,0)\n  Van der Pol: limit cycle (nonlinear oscillator)",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-18",
+      "kind": "chart_like",
+      "line": 263,
+      "heading_context": "### 3.2 Phase Plane Analysis",
+      "confidence": "candidate",
+      "text": "### 3.3 Stability — Lyapunov",
+      "notes": [
+        "detected from bar/chart glyph density with numeric labels"
+      ]
+    },
+    {
+      "id": "block-19",
+      "kind": "diagram_like",
+      "line": 265,
+      "heading_context": "### 3.3 Stability — Lyapunov",
+      "confidence": "candidate",
+      "text": "  An equilibrium x* is:\n  STABLE: trajectories starting near x* stay near x*\n  ASYMPTOTICALLY STABLE: trajectories starting near x* → x* as t → ∞\n  UNSTABLE: trajectories leave neighborhood\n\n  For linear systems: asymptotically stable ↔ all eigenvalues have Re(λ) < 0\n\n  LYAPUNOV FUNCTION V(x): like an energy function\n  If V(x) > 0 for x ≠ x* and dV/dt < 0 along trajectories → asymptotically stable\n  (No need to solve the DE; just find a suitable V)\n\n  CONNECTION TO PHYSICS:\n  Physical energy E is usually a Lyapunov function (E decreasing = stability)\n  If friction > 0: dE/dt < 0 → equilibrium is asymptotically stable",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-20",
+      "kind": "chart_like",
+      "line": 286,
+      "heading_context": "## 4. Partial Differential Equations",
+      "confidence": "candidate",
+      "text": "### 4.1 The Three Canonical Types",
+      "notes": [
+        "detected from bar/chart glyph density with numeric labels"
+      ]
+    },
+    {
+      "id": "block-21",
+      "kind": "diagram_like",
+      "line": 288,
+      "heading_context": "### 4.1 The Three Canonical Types",
+      "confidence": "candidate",
+      "text": "  ┌────────────────────────────────────────────────────────────────────┐\n  │  ELLIPTIC: ∇²u = f                                                 │\n  │  Laplace equation: ∇²u = 0                                         │\n  │  Poisson equation: ∇²u = f                                         │\n  │  Steady-state: no time dependence                                  │\n  │  Boundary value problem: specify u on all boundaries               │\n  │  Physics: electrostatics, gravitational potential, steady heat     │\n  ├────────────────────────────────────────────────────────────────────┤\n  │  PARABOLIC: ∂u/∂t = α∇²u                                         │\n  │  Heat equation / diffusion equation                                │\n  │  Initial value problem: specify u at t=0                          │\n  │  Solution smooths out: initial sharp features diffuse away        │\n  │  Physics: heat conduction, diffusion, Schrödinger (with i!)       │\n  ├────────────────────────────────────────────────────────────────────┤\n  │  HYPERBOLIC: ∂²u/∂t² = c²∇²u                                       │\n  │  Wave equation                                                     │\n  │  Initial value problem: specify u AND ∂u/∂t at t=0                 │\n  │  Finite propagation speed c: wavefronts, characteristics           │\n  │  Physics: EM waves, acoustic waves, gravitational waves            │\n  └────────────────────────────────────────────────────────────────────┘\n\n  Mnemonic:\n  Elliptic  = Equilibrium  (no time)\n  Parabolic = Parachute    (smooths/damps)\n  Hyperbolic = Holler      (waves propagate)",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-22",
+      "kind": "chart_like",
+      "line": 316,
+      "heading_context": "### 4.1 The Three Canonical Types",
+      "confidence": "candidate",
+      "text": "### 4.2 Separation of Variables",
+      "notes": [
+        "detected from bar/chart glyph density with numeric labels"
+      ]
+    },
+    {
+      "id": "block-23",
+      "kind": "diagram_like",
+      "line": 318,
+      "heading_context": "### 4.2 Separation of Variables",
+      "confidence": "candidate",
+      "text": "  TECHNIQUE: assume u(x,t) = X(x)T(t), substitute, separate by variable.\n\n  HEAT EQUATION on [0,L] with u(0,t) = u(L,t) = 0:\n  ∂u/∂t = α ∂²u/∂x²\n\n  Assume u = X(x)T(t):\n  X(x)T'(t) = α X''(x)T(t)\n  T'/αT = X''/X = -λ    (both sides = constant, say -λ)\n\n  X equation: X'' + λX = 0,  X(0) = X(L) = 0\n  Solutions: Xₙ(x) = sin(nπx/L),  λₙ = (nπ/L)²   (eigenvalue problem!)\n\n  T equation: T' = -αλₙT\n  Solutions: Tₙ(t) = e^(-αλₙt) = e^(-α(nπ/L)²t)\n\n  GENERAL SOLUTION (superposition — valid by linearity):\n  u(x,t) = Σ bₙ sin(nπx/L) e^(-α(nπ/L)²t)\n             n=1\n\n  INITIAL CONDITION u(x,0) = f(x):\n  f(x) = Σ bₙ sin(nπx/L)   ← Fourier sine series\n  bₙ = (2/L) ∫₀ᴸ f(x)sin(nπx/L) dx",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-24",
+      "kind": "chart_like",
+      "line": 343,
+      "heading_context": "### 4.2 Separation of Variables",
+      "confidence": "candidate",
+      "text": "### 4.3 Wave Equation — D'Alembert Solution",
+      "notes": [
+        "detected from bar/chart glyph density with numeric labels"
+      ]
+    },
+    {
+      "id": "block-25",
+      "kind": "ascii_table_candidate",
+      "line": 345,
+      "heading_context": "### 4.3 Wave Equation — D'Alembert Solution",
+      "confidence": "candidate",
+      "text": "  1D WAVE EQUATION: ∂²u/∂t² = c²∂²u/∂x²\n\n  D'ALEMBERT'S SOLUTION:\n  u(x,t) = f(x - ct) + g(x + ct)\n\n  Any solution is a superposition of a rightward and leftward traveling wave.\n  f and g determined by initial conditions u(x,0) and ∂u/∂t(x,0).\n\n  Physical interpretation:\n  ├── f(x-ct): shape f, moving right at speed c\n  └── g(x+ct): shape g, moving left at speed c\n\n  STANDING WAVES (wave equation on [0,L], fixed ends):\n  uₙ(x,t) = sin(nπx/L)(Aₙcos(ωₙt) + Bₙsin(ωₙt))\n  ωₙ = nπc/L  (normal mode frequencies)\n  Superposition → full solution (Fourier series in space)",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-26",
+      "kind": "chart_like",
+      "line": 364,
+      "heading_context": "### 4.3 Wave Equation — D'Alembert Solution",
+      "confidence": "candidate",
+      "text": "### 4.4 Laplace Equation — Steady State",
+      "notes": [
+        "detected from bar/chart glyph density with numeric labels"
+      ]
+    },
+    {
+      "id": "block-27",
+      "kind": "ascii_table_candidate",
+      "line": 366,
+      "heading_context": "### 4.4 Laplace Equation — Steady State",
+      "confidence": "candidate",
+      "text": "  ∇²u = 0   (u_xx + u_yy = 0 in 2D)\n\n  KEY PROPERTY: solutions are HARMONIC — they satisfy the mean value property\n  u(x₀, y₀) = (1/2π) ∫₀²π u(x₀+r cosθ, y₀+r sinθ) dθ\n  (value at center = average over any surrounding circle)\n\n  CONSEQUENCE: No interior maxima or minima (maximum principle)\n  Extreme values of u occur on the boundary.\n  Physics: electric potential has no local extrema in free space (Earnshaw!)\n\n  SEPARATION IN CARTESIAN:\n  u(x,y) = (A cosh(kx) + B sinh(kx))(C cos(ky) + D sin(ky))\n  or       (Ae^(kx) + Be^(-kx))(C cos(ky) + D sin(ky))\n\n  SEPARATION IN POLAR:\n  u(r,θ) = Σ (Aₙrⁿ + Bₙr^(-n))(Cₙcos(nθ) + Dₙsin(nθ))",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-28",
+      "kind": "diagram_like",
+      "line": 389,
+      "heading_context": "## 5. Fourier Series Solutions — The Full Picture",
+      "confidence": "candidate",
+      "text": "  WHY FOURIER SERIES WORK FOR PDEs:\n\n  1. The eigenfunctions of d²/dx² on [0,L] with Dirichlet BCs are sin(nπx/L).\n     These form a COMPLETE ORTHONORMAL BASIS for L²([0,L]).\n\n  2. Any f ∈ L²([0,L]) = Σ bₙ sin(nπx/L)  (Fourier sine series)\n     Any g ∈ L²([0,L]) = a₀/2 + Σ(aₙcos + bₙsin)  (full Fourier series)\n\n  3. Linear PDE with these boundary conditions → each Fourier mode evolves\n     independently (decoupled ODEs in time for each mode's coefficient).\n\n  FOURIER COEFFICIENTS:\n  Full series on [-L, L]:\n  aₙ = (1/L) ∫₋ₗᴸ f(x) cos(nπx/L) dx\n  bₙ = (1/L) ∫₋ₗᴸ f(x) sin(nπx/L) dx\n\n  Parseval's theorem: Σ(aₙ² + bₙ²) = (1/L)∫|f|²dx\n  (energy in frequency domain = energy in space domain)\n\n  GIBBS PHENOMENON:\n  Near a jump discontinuity, Fourier partial sums overshoot by ~9%.\n  The overshoot doesn't disappear as N → ∞ — it narrows but stays 9%.\n  This is why sharp edges in signals (digital audio, images) cause ringing.",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-29",
+      "kind": "diagram_like",
+      "line": 421,
+      "heading_context": "## 6. Green's Functions",
+      "confidence": "candidate",
+      "text": "  IDEA: For Lu = f (L = linear differential operator):\n  Find G(x, x') such that LG(x, x') = δ(x - x')\n  Then: u(x) = ∫ G(x, x') f(x') dx'\n\n  G is the RESPONSE to a point source (delta function input).\n  Knowing G → can solve for any source f by superposition.\n\n  EXAMPLES:\n  ┌────────────────────────────────────────────────────────────────────┐\n  │  Operator L        │  Green's function G(r, r')                    │\n  ├────────────────────────────────────────────────────────────────────┤\n  │  -d²/dx² on ℝ     │  |x-x'|/2                                   │\n  │  -∇² on ℝ³        │  1/(4π|r-r'|)  ← Coulomb's law potential!  │\n  │  -∇² on ℝ²        │  -(1/2π)ln|r-r'|                            │\n  │  ∂/∂t - α∂²/∂x²  │  (1/√(4παt))e^(-(x-x')²/4αt) ← Gaussian!  │\n  └────────────────────────────────────────────────────────────────────┘\n\n  Coulomb's law IS the Green's function for Poisson's equation.\n  The Gaussian diffusion kernel IS the Green's function for the heat equation.",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-30",
+      "kind": "diagram_like",
+      "line": 449,
+      "heading_context": "## 7. The Physics DE Bestiary",
+      "confidence": "candidate",
+      "text": "  EQUATION                    FORM              TYPE        PHYSICS\n  ──────────────────────────────────────────────────────────────────────\n  Newton                      mẍ = F(x,ẋ,t)    2nd ODE     mechanics\n  Harmonic oscillator         ẍ + ω₀²x = 0     2nd ODE     circuits, QM\n  Damped oscillator           ẍ + 2γẋ + ω₀²x=0 2nd ODE     RLC, mech\n  Forced oscillator           ẍ+2γẋ+ω₀²x=F/m  2nd ODE     resonance\n  Radioactive decay           ṅ = -λn           1st ODE     decay\n  RC circuit                  V̇ + V/RC = V₀/RC  1st ODE     electronics\n  Heat equation               ∂T/∂t = κ∇²T     Parabolic   heat\n  Wave equation               ∂²u/∂t² = c²∇²u  Hyperbolic  waves, EM\n  Maxwell (wave form)         □²E = 0           Hyperbolic  light\n  Schrödinger (time dep.)     iℏ∂ψ/∂t = Hψ     Parabolic   QM (with i!)\n  Schrödinger (time ind.)     Hψ = Eψ           Eigenvalue  energy levels\n  Laplace / Poisson           ∇²V = 0 / -ρ/ε₀  Elliptic    electrostatics\n  Diffusion (MHD)             ∂B/∂t=η∇²B+∇×(v×B) Parabolic+  MHD induction\n  Navier-Stokes               ρ(∂v/∂t+v·∇v)=.. Nonlinear   fluid mechanics\n  ──────────────────────────────────────────────────────────────────────\n  Schrödinger is parabolic but with imaginary diffusion coefficient iℏ\n  → waves don't damp, they oscillate (probability is conserved)",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-31",
+      "kind": "diagram_like",
+      "line": 475,
+      "heading_context": "## 8. Boundary vs Initial Value Problems",
+      "confidence": "candidate",
+      "text": "  INITIAL VALUE PROBLEM (IVP):\n  ├── ODE or time-dependent PDE\n  ├── Data specified at one time t=0: u(x,0) = f(x)\n  ├── Solution marches forward in time\n  └── Unique solution (Picard) given smoothness\n\n  BOUNDARY VALUE PROBLEM (BVP):\n  ├── ODE or elliptic PDE\n  ├── Data specified on boundary of spatial domain\n  ├── May have: unique solution, no solution, or infinitely many\n  └── Eigenvalue problems are BVPs: Ly = λy, y(0)=y(L)=0\n\n  TYPES OF BOUNDARY CONDITIONS:\n  Dirichlet:  u = g on boundary          (fixed value)\n  Neumann:    ∂u/∂n = g on boundary      (fixed flux/gradient)\n  Robin:      αu + β∂u/∂n = g           (mixed — convection BCs)\n  Periodic:   u(0) = u(L), u'(0) = u'(L)\n\n  PHYSICS EXAMPLES:\n  Dirichlet: fixed voltage, fixed temperature\n  Neumann:   insulated wall (∂T/∂n=0), conductor (∂V/∂n ∝ surface charge)\n  Robin:     convective heat transfer to ambient (Newton's law of cooling)",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-32",
+      "kind": "diagram_like",
+      "line": 502,
+      "heading_context": "## 9. Numerical ODE Methods",
+      "confidence": "candidate",
+      "text": "  DISCRETIZE: replace y' = f(x,y) with a recurrence from step xₙ to xₙ₊h.\n\n  EULER'S METHOD (first-order, for intuition only):\n  yₙ₊₁ = yₙ + h·f(xₙ, yₙ)\n  Global error O(h) — too large for practical use.\n\n  RUNGE-KUTTA 4 (RK4) — the classical workhorse:\n  k₁ = f(xₙ,        yₙ)\n  k₂ = f(xₙ + h/2,  yₙ + h/2·k₁)\n  k₃ = f(xₙ + h/2,  yₙ + h/2·k₂)\n  k₄ = f(xₙ + h,    yₙ + h·k₃)\n  yₙ₊₁ = yₙ + h/6·(k₁ + 2k₂ + 2k₃ + k₄)\n\n  Global error O(h⁴). Four function evaluations per step.\n  The \"4\" is both order and number of stages — coincidence that won't last.\n\n  BUTCHER TABLEAU (general explicit Runge-Kutta framework):\n  c │ A        kᵢ = f(xₙ + cᵢh, yₙ + h Σⱼ aᵢⱼkⱼ)\n  ──┼────     yₙ₊₁ = yₙ + h Σᵢ bᵢkᵢ\n    │ bᵀ\n\n  RK4 tableau:  c=(0, ½, ½, 1),  b=(⅙, ⅓, ⅓, ⅙), A lower triangular.\n\n  STIFFNESS — why explicit methods fail:\n  ┌──────────────────────────────────────────────────────────────────────┐\n  │  Stiff system: solution has components with vastly different         │\n  │  timescales. Example: y' = -1000y + sin(t)  (fast decay, slow force) │\n  │                                                                      │\n  │  STABILITY REGION of a method: the set of h·λ ∈ ℂ where              │\n  │  applied to y' = λy, the method gives bounded solutions.             │\n  │                                                                      │\n  │  RK4 stability region: roughly |hλ| < 2.8 (along negative real axis) │\n  │  For λ = -1000: need h < 0.0028 — tiny steps for accurate solution   │\n  │  even though the interesting dynamics happen at timescale O(1)!      │\n  │                                                                      │\n  │  Jacobian eigenvalues of stiff systems lie far in the left half-plane│\n  │  → stability forces h << 1, but accuracy only needs h ~ O(1)         │\n  └──────────────────────────────────────────────────────────────────────┘\n\n  IMPLICIT METHODS — for stiff systems:\n  Backward Euler:    yₙ₊₁ = yₙ + h·f(xₙ₊₁, yₙ₊₁)  (solve for yₙ₊₁)\n  Stability region extends to entire left half-plane → A-stable.\n  No step-size restriction from fast components.\n  Cost: solve a nonlinear equation each step (Newton iterations).\n\n  TRAPEZOIDAL RULE (Crank-Nicolson):\n  yₙ₊₁ = yₙ + h/2·(f(xₙ,yₙ) + f(xₙ₊₁,yₙ₊₁))\n  Second-order, A-stable. Used heavily for parabolic PDEs (heat equation).\n\n  BDF (Backward Differentiation Formulas):\n  Use several past values; BDF2 through BDF6 balance stability and accuracy.\n  The solvers VODE/LSODE use BDF for stiff systems.\n\n  DORMAND-PRINCE (RK45) — adaptive step size:\n  Uses two embedded RK methods (order 4 and 5) to estimate local error.\n  If error > tolerance: reject step, halve h.\n  If error << tolerance: accept step, increase h.\n  scipy.integrate.solve_ivp default method = 'RK45' (Dormand-Prince).\n\n  PRACTICAL ENTRY POINT:\n  from scipy.integrate import solve_ivp\n\n  # Adaptive RK45 (non-stiff problems)\n  sol = solve_ivp(f, [t0, tf], y0, method='RK45', rtol=1e-6, atol=1e-9)\n\n  # BDF (stiff problems — chemical kinetics, neural ODEs, etc.)\n  sol = solve_ivp(f, [t0, tf], y0, method='BDF', jac=jacobian_f)\n\n  # LSODA (auto-switches between non-stiff Adams and stiff BDF)\n  sol = solve_ivp(f, [t0, tf], y0, method='LSODA')\n\n  WHEN TO USE WHAT:\n  ┌───────────────────────────────────────────────────────────────────┐\n  │  Non-stiff, smooth:     RK45 (Dormand-Prince) — default           │\n  │  Non-stiff, high acc:   DOP853 (8th order Dormand-Prince)         │\n  │  Stiff:                 BDF or Radau (scipy) — implicit           │\n  │  Unknown:               LSODA — auto-detects                      │\n  │  Structure-preserving:  Leapfrog/Verlet (see §10 Hamiltonian)     │\n  └───────────────────────────────────────────────────────────────────┘",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-33",
+      "kind": "ascii_table_candidate",
+      "line": 586,
+      "heading_context": "## 10. Hamiltonian Mechanics",
+      "confidence": "candidate",
+      "text": "  LAGRANGIAN MECHANICS (variational formulation):\n  L(q, q̇, t) = T - V   (kinetic − potential energy)\n  Action: S = ∫ L dt\n  Euler-Lagrange equations: d/dt(∂L/∂q̇ᵢ) - ∂L/∂qᵢ = 0\n  These are 2nd-order ODEs for the configuration q(t).\n\n  LEGENDRE TRANSFORM → HAMILTONIAN:\n  Conjugate momentum:  pᵢ = ∂L/∂q̇ᵢ\n  Hamiltonian: H(q, p, t) = Σᵢ pᵢq̇ᵢ - L(q, q̇, t)\n  (pᵢq̇ᵢ - L: replace q̇ by p using the momentum definition)\n\n  HAMILTON'S EQUATIONS (canonical form):\n  ┌───────────────────────────────────────────────────────┐\n  │   q̇ᵢ = +∂H/∂pᵢ                                        │\n  │   ṗᵢ = -∂H/∂qᵢ                                        │\n  └───────────────────────────────────────────────────────┘\n  These are 2n FIRST-ORDER ODEs for (q,p) ∈ phase space ℝ²ⁿ.\n  (vs. n second-order Euler-Lagrange equations — same content, different form)\n\n  H is conserved when ∂H/∂t = 0:\n  dH/dt = Σᵢ(∂H/∂qᵢ q̇ᵢ + ∂H/∂pᵢ ṗᵢ) = Σᵢ(∂H/∂qᵢ ∂H/∂pᵢ - ∂H/∂pᵢ ∂H/∂qᵢ) = 0 ✓\n\n  POISSON BRACKET:\n  {f, g} = Σᵢ (∂f/∂qᵢ ∂g/∂pᵢ - ∂f/∂pᵢ ∂g/∂qᵢ)\n  Hamilton's equations: q̇ = {q, H},  ṗ = {p, H}\n  Conservation law: {A, H} = 0 ↔ A is conserved\n  In QM: Poisson bracket → commutator: {·,·} → (1/iℏ)[·,·]\n\n  SYMPLECTIC STRUCTURE:\n  Phase space ℝ²ⁿ with coordinates (q₁,...,qₙ,p₁,...,pₙ) carries a\n  canonical 2-form:  ω = Σᵢ dqᵢ ∧ dpᵢ\n  ω is closed (dω=0) and non-degenerate → symplectic manifold.\n  Hamilton's flow preserves ω (Liouville's theorem):\n  LIOUVILLE'S THEOREM: phase space volume is preserved under Hamiltonian flow.\n  Φₜ*ω = ω  →  det(dΦₜ/d(q,p)) = 1  (Jacobian = 1)\n  Physics: phase space density of an ensemble of systems is incompressible.\n  Statistics/information theory: Hamiltonian systems preserve entropy.\n\n  CANONICAL TRANSFORMATIONS (q,p) → (Q,P) that preserve ω = Σ dQᵢ∧dPᵢ.\n  New coordinates are equally valid for Hamilton's equations with same H (in new coords).\n  Generator functions F(q,Q) or F(q,P) specify the transformation.\n  Action-angle variables: for integrable systems, canonical transform puts\n  dynamics in simple form: Q̇ᵢ = νᵢ (constant frequencies), Ṗᵢ = 0.\n\n  SYMPLECTIC INTEGRATORS (structure-preserving numerics):\n  Standard RK4 does NOT preserve the symplectic form → energy drifts over long times.\n  Symplectic methods exactly preserve a modified Hamiltonian → no energy drift.\n\n  LEAPFROG / STÖRMER-VERLET (2nd order):\n  p_{n+½} = pₙ - (h/2) ∂V/∂q(qₙ)\n  q_{n+1} = qₙ + h · p_{n+½}/m\n  p_{n+1} = p_{n+½} - (h/2) ∂V/∂q(q_{n+1})\n\n  ├── Symplectic (preserves phase space volume exactly)\n  ├── Time-reversible: reverse momentum → time runs backward\n  ├── Energy oscillates but does NOT drift even for long integrations\n  └── Used in: molecular dynamics (LAMMPS, GROMACS), N-body simulations,\n      HMC (Hamiltonian Monte Carlo) for Bayesian inference\n\n  WHY HMC IS RELEVANT TO ML:\n  Hamiltonian Monte Carlo uses leapfrog to propose MCMC steps.\n  The Hamiltonian H(q,p) = -log π(q) + ‖p‖²/2 (negative log-posterior + kinetic).\n  Leapfrog trajectories propose distant samples; Metropolis accepts/rejects.\n  Result: far lower autocorrelation than random-walk Metropolis.\n  Stan (Bayesian inference) uses NUTS (No U-Turn Sampler) = adaptive HMC.",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-34",
+      "kind": "ascii_table_candidate",
+      "line": 656,
+      "heading_context": "## 11. Chaos and Nonlinear Dynamics",
+      "confidence": "candidate",
+      "text": "  CHAOS: deterministic system with sensitive dependence on initial conditions.\n  Long-term prediction impossible even with perfect knowledge of equations.\n\n  LYAPUNOV EXPONENTS — quantifying sensitive dependence:\n  Two nearby trajectories x(t) and x(t) + δ(0) diverge as:\n  ‖δ(t)‖ ≈ ‖δ(0)‖ e^(λt)\n\n  λ = lim_{t→∞} (1/t) log(‖δ(t)‖/‖δ(0)‖) = maximal Lyapunov exponent\n\n  λ > 0: CHAOS — nearby trajectories diverge exponentially\n  λ < 0: stable fixed point or limit cycle\n  λ = 0: on a periodic orbit or at a bifurcation\n\n  Doubling time = log(2)/λ. For λ=1 and 1% initial error: 100× magnification\n  takes log(100)/1 ≈ 4.6 time units. This is the prediction horizon.\n\n  LORENZ SYSTEM — the canonical strange attractor:\n  ẋ = σ(y - x)\n  ẏ = x(ρ - z) - y       σ=10, ρ=28, β=8/3 (Lorenz's atmospheric values)\n  ż = xy - βz\n\n  ┌──────────────────────────────────────────────────────────────────────┐\n  │  Three coupled nonlinear ODEs. Deterministic. Dissipative (volume    │\n  │  contracts at rate -(σ+1+β)). Trajectories confined to a bounded     │\n  │  region. But within that region: CHAOS.                              │\n  │                                                                      │\n  │  STRANGE ATTRACTOR: bounded invariant set with fractal structure.    │\n  │  Trajectories on it diverge (λ > 0) yet stay on the attractor.       │\n  │  Fractal dimension ≈ 2.06 (slightly more than a 2D surface).         │\n  │                                                                      │\n  │  \"Butterfly effect\" (Lorenz 1963): sensitivity to initial            │\n  │  conditions makes deterministic weather prediction impossible        │\n  │  beyond ~2 weeks.                                                    │\n  └──────────────────────────────────────────────────────────────────────┘\n\n  LOGISTIC MAP — discrete analog (period-doubling route to chaos):\n  xₙ₊₁ = r·xₙ(1 - xₙ)   xₙ ∈ [0,1], r ∈ [0,4]\n\n  r < 1:     xₙ → 0   (extinction)\n  1 < r < 3: xₙ → fixed point x* = 1 - 1/r\n  r ≈ 3.45:  period-2 orbit (FIRST BIFURCATION)\n  r ≈ 3.54:  period-4 orbit\n  r ≈ 3.56:  period-8 ...\n  r ≈ 3.57:  chaos onset (Feigenbaum point)\n  r = 4:     full chaos (ergodic on [0,1])\n\n  FEIGENBAUM CONSTANT δ = 4.669...:\n  Ratio of successive bifurcation intervals converges to δ universally\n  (for any map with a quadratic maximum). Appears in physical experiments.\n\n  BIFURCATIONS — qualitative changes in phase portrait as parameter varies:\n  ┌──────────────────────────────────────────────────────────────────────┐\n  │  Saddle-node:     two equilibria merge and annihilate                │\n  │  Transcritical:   two equilibria swap stability                      │\n  │  Pitchfork:       one equilibrium splits into three (symmetry-break) │\n  │  Hopf:            stable equilibrium becomes unstable + limit cycle  │\n  │    Subcritical Hopf: discontinuous jump to large amplitude           │\n  │    Supercritical Hopf: smooth growth of oscillation amplitude        │\n  └──────────────────────────────────────────────────────────────────────┘\n\n  POINCARÉ-BENDIXSON THEOREM (2D only):\n  Bounded trajectory in ℝ² with no equilibria → must approach a limit cycle.\n  Chaos is impossible in 2D autonomous ODEs — need ≥ 3 dimensions.\n  (Lorenz is 3D; the logistic map is 1D but discrete.)\n\n  CONNECTION TO ML:\n  Loss landscape dynamics in deep learning have been analyzed through the\n  lens of dynamical systems: gradient flow dx/dt = -∇L(x) (gradient flow ODE).\n  Flat minima, saddle points, and basin geometry correspond directly to\n  dynamical systems concepts. Batch noise introduces stochastic perturbations —\n  the noisy gradient flow ẋ = -∇L + η(t) is a Langevin equation (see §10).",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-35",
+      "kind": "chart_like",
+      "line": 730,
+      "heading_context": "## 11. Chaos and Nonlinear Dynamics",
+      "confidence": "candidate",
+      "text": "### 4.5 PDEs on Manifolds — Bridge to 09-MANIFOLDS",
+      "notes": [
+        "detected from bar/chart glyph density with numeric labels"
+      ]
+    },
+    {
+      "id": "block-36",
+      "kind": "diagram_like",
+      "line": 732,
+      "heading_context": "### 4.5 PDEs on Manifolds — Bridge to 09-MANIFOLDS",
+      "confidence": "candidate",
+      "text": "  The PDEs above are formulated on flat ℝⁿ. Curved spaces require the\n  Laplace-Beltrami operator ∆_M, which generalizes ∇² to manifolds.\n\n  LAPLACE-BELTRAMI OPERATOR on a Riemannian manifold (M, g):\n  ∆_M f = (1/√|g|) ∂ᵢ(√|g| gⁱʲ ∂ⱼf)\n\n  On ℝⁿ with Euclidean metric: gⁱʲ = δⁱʲ → ∆_M = ∂₁²+...+∂ₙ² = ∇². ✓\n  On the 2-sphere S² (θ,φ): ∆_{S²} = (1/sinθ)∂_θ(sinθ ∂_θ) + (1/sin²θ)∂_φ²\n  Eigenfunctions: spherical harmonics Yₗᵐ(θ,φ), eigenvalues -l(l+1).\n\n  THE DIFFERENTIAL EQUATIONS ON MANIFOLDS:\n  Heat equation:       ∂u/∂t = α∆_M u\n  Wave equation:       ∂²u/∂t² = c²∆_M u\n  Schrödinger:         iℏ∂ψ/∂t = (-ℏ²/2m ∆_M + V)ψ\n  Eigenvalue problem:  ∆_M φ = -λφ  (Laplace-Beltrami spectrum)\n\n  CAN YOU HEAR THE SHAPE OF A DRUM? (Kac 1966):\n  The spectrum {λ₁, λ₂, ...} of ∆_M on a compact manifold M encodes\n  geometric information: dimension, volume, total scalar curvature (via\n  the heat kernel expansion). Non-isometric manifolds can have identical\n  spectra (Milnor 1964 counterexample in 16D; Gordon-Webb-Wolpert 1992 in 2D).\n  But the spectrum determines \"most\" of the geometry.\n\n  DIFFUSION MAPS IN ML (Coifman-Lafon 2006):\n  Given high-dimensional data X = {x₁,...,xₙ} ⊂ ℝᵈ lying near a manifold:\n  1. Build kernel matrix K_{ij} = exp(-‖xᵢ-xⱼ‖²/ε)  (Gaussian kernel)\n  2. Normalize to get row-stochastic matrix M (Markov chain on data)\n  3. Eigenvectors of M ↔ eigenfunctions of ∆_M on the underlying manifold\n  4. Embed data in eigenvector coordinates → nonlinear dimensionality reduction\n\n  ├── Euclidean distance in the embedding = diffusion distance on manifold\n  │   (accounts for intrinsic geometry, not ambient Euclidean distance)\n  ├── Robust to noise: diffusion averages over many paths\n  └── t-SNE and UMAP are related but use different kernels and objectives\n\n  SPECTRAL GEOMETRY AND GRAPH LAPLACIANS:\n  Replace continuous manifold with a graph G = (V, E, w):\n  Graph Laplacian: L = D - A  (D = degree matrix, A = adjacency matrix)\n  Normalized Laplacian: L_sym = D^(-1/2) L D^(-1/2)\n  This is the discrete Laplace-Beltrami operator on the graph.\n  Spectral clustering: eigenvectors of L capture cluster structure.\n  Graph neural networks: convolution = polynomial of L (spectral filtering).\n\n  → See 09-MANIFOLDS.md §2 for the full tangent space / Riemannian machinery.\n  → The Laplace-Beltrami eigenfunctions form the natural basis for PDEs on\n    any compact Riemannian manifold: separation of variables = eigenfunction expansion.",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-37",
+      "kind": "diagram_like",
+      "line": 783,
+      "heading_context": "## 12. Neural ODEs",
+      "confidence": "candidate",
+      "text": "  RESNET VIEWED AS AN ODE:\n  A ResNet block: h_{l+1} = h_l + f(h_l, θ_l)\n  As depth → ∞ with step size h → 0:\n  dh/dt = f(h(t), t, θ)\n  h(0) = input,  h(1) = output\n\n  A NEURAL ODE (Chen et al. 2018) defines its hidden state as the solution\n  of an ODE parameterized by a neural network f.\n\n  FORWARD PASS: solve the IVP numerically (e.g., Dormand-Prince RK45).\n  BACKWARD PASS (gradient computation): needs d(loss)/dθ.\n  Naive approach: backprop through every ODE solver step → O(memory).\n\n  ADJOINT SENSITIVITY METHOD:\n  Define adjoint state a(t) = d(loss)/dh(t)   (gradient with respect to state)\n  The adjoint satisfies its own ODE, run BACKWARDS:\n  da/dt = -a(t)ᵀ · ∂f/∂h(h(t), t, θ)\n\n  Then:  d(loss)/dθ = -∫₁⁰ a(t)ᵀ · ∂f/∂θ dt\n\n  This is EXACTLY variation of parameters (§2.3) for the adjoint equation.\n  The adjoint ODE and the parameter gradient integral are solved simultaneously\n  by running one backward ODE solve — O(1) memory regardless of integration steps.\n\n  ┌──────────────────────────────────────────────────────────────────────┐\n  │  BENEFITS:                                                           │\n  │  ├── Adaptive depth: ODE solver uses as many steps as accuracy needs │\n  │  ├── Constant memory: adjoint method avoids storing all activations  │\n  │  ├── Continuous-time models: natural for irregularly sampled data    │\n  │  └── Latent ODE: encode time series → initial condition → decode     │\n  │                                                                      │\n  │  DISADVANTAGES:                                                      │\n  │  ├── Training is slower (ODE solves are expensive at high accuracy)  │\n  │  ├── Stiff dynamics → stiff ODE solver required (implicit methods)   │\n  │  └── Hard to train deep: adjoint sensitivity can become unstable     │\n  └──────────────────────────────────────────────────────────────────────┘\n\n  RELATED: DIFFUSION MODELS AS SDEs\n  Denoising diffusion probabilistic models (DDPMs) are continuous-time:\n\n  FORWARD (noising) SDE:  dx = f(x,t)dt + g(t)dW   (Langevin-type)\n  Gradually adds Gaussian noise to destroy data distribution.\n\n  REVERSE (denoising) SDE (Anderson 1982):\n  dx = [f(x,t) - g(t)² ∇_x log p_t(x)] dt + g(t)dW̄\n  The score function ∇_x log p_t(x) is learned by the neural network.\n\n  DDIM (Song et al.) uses the probability flow ODE (deterministic version):\n  dx/dt = f(x,t) - ½ g(t)² ∇_x log p_t(x)\n  Faster sampling: 50 steps instead of 1000 because no stochastic noise.\n\n  This is a direct application of §3 (systems of ODEs) and §1.1 (separable\n  equations via the heat equation connection) to modern generative ML.\n\n  CONTINUOUS NORMALIZING FLOWS (CNFs):\n  Learn a diffeomorphism z₁ = T(z₀) by integrating dz/dt = f(z,t,θ).\n  Change of variables: log p(z₁) = log p(z₀) - ∫₀¹ tr(∂f/∂z) dt\n  (trace of Jacobian — the continuous version of the log-determinant Jacobian)\n  FreeForm Jacobian of Arbitrary Couplings (FFJORD) makes this tractable\n  via Hutchinson's trace estimator (randomized O(d) instead of O(d²)).",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    }
+  ]
+}

@@ -1,3 +1,22 @@
+---
+maxim_schema: maxim.frontmatter.v1
+id: maxim:mathematics:functional-analysis
+kind: guide
+module: mathematics
+section: mathematics
+title: Functional Analysis - Complete Reference
+status: source-custody
+source_custody: partial
+current_path: mathematics/23-FUNCTIONAL-ANALYSIS.md
+canonical_path: mathematics/23-FUNCTIONAL-ANALYSIS.md
+backsource_ids: [proof-backfill:mathematics:23-functional-analysis, git-history:mathematics:23-functional-analysis]
+concepts: [functional, analysis]
+root_concepts: [functional, analysis]
+index_roles: [guide, root-concept]
+remap_from: []
+remap_to: []
+updated: null
+---
 # Functional Analysis — Complete Reference
 
 ## The Big Picture

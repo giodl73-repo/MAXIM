@@ -1,0 +1,523 @@
+{
+  "schema_version": "1",
+  "source_markdown": "mathematics\\06-LINEAR-ALGEBRA.md",
+  "blocks": [
+    {
+      "id": "block-1",
+      "kind": "diagram_like",
+      "line": 24,
+      "heading_context": "## The Big Picture",
+      "confidence": "candidate",
+      "text": "THE LANDSCAPE\n═══════════════════════════════════════════════════════════════════════════════\n\n  VECTOR SPACES           MATRICES                EIGENSTRUCTURE\n  ┌──────────────────┐    ┌──────────────────┐    ┌──────────────────┐\n  │ abstract spaces  │    │ linear maps      │    │ Av = λv          │\n  │ span, basis      │ →  │ rank, null space │ →  │ diagonalization  │\n  │ dimension        │    │ row reduction    │    │ spectral theorem │\n  └────────┬─────────┘    └────────┬─────────┘    └────────┬─────────┘\n           │                       │                       │\n           ▼                       ▼                       ▼\n  INNER PRODUCTS          DECOMPOSITIONS          APPLICATIONS\n  ┌──────────────────┐    ┌──────────────────┐    ┌──────────────────┐\n  │ dot product      │    │ LU, QR, Cholesky │    │ QM: Hermitian    │\n  │ orthogonality    │    │ SVD — the king   │    │ PCA, least sq.   │\n  │ Gram-Schmidt     │    │ eigendecomp      │    │ DFT as matrix    │\n  └──────────────────┘    └──────────────────┘    └──────────────────┘\n\n  CENTRAL THESIS:\n  A matrix is a linear map between vector spaces.\n  Eigenvalues reveal the intrinsic geometry of that map.\n  SVD reveals the geometry of ANY linear map, even non-square.\n═══════════════════════════════════════════════════════════════════════════════",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-2",
+      "kind": "chart_like",
+      "line": 54,
+      "heading_context": "## 1. Vector Spaces",
+      "confidence": "candidate",
+      "text": "### 1.1 The Abstract Definition",
+      "notes": [
+        "detected from bar/chart glyph density with numeric labels"
+      ]
+    },
+    {
+      "id": "block-3",
+      "kind": "diagram_like",
+      "line": 58,
+      "heading_context": "### 1.1 The Abstract Definition",
+      "confidence": "candidate",
+      "text": "  (V, +) is an abelian group\n  Scalar multiplication: F × V → V\n  ├── α(u + v) = αu + αv    (distributive over vector addition)\n  ├── (α + β)v = αv + βv    (distributive over scalar addition)\n  ├── (αβ)v = α(βv)          (associative)\n  └── 1·v = v                (identity)\n\n  EXAMPLES:\n  ℝⁿ — standard n-dimensional real space\n  ℂⁿ — complex n-space (QM lives here)\n  Polynomials of degree ≤ n — infinite-dim function spaces\n  Continuous functions C([a,b]) — infinite-dimensional\n  Solutions to a linear ODE — finite-dimensional (!)\n  L²(ℝ) — square-integrable functions (QM Hilbert space)",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-4",
+      "kind": "chart_like",
+      "line": 75,
+      "heading_context": "### 1.1 The Abstract Definition",
+      "confidence": "candidate",
+      "text": "### 1.2 Span, Linear Independence, Basis, Dimension",
+      "notes": [
+        "detected from bar/chart glyph density with numeric labels"
+      ]
+    },
+    {
+      "id": "block-5",
+      "kind": "chart_like",
+      "line": 93,
+      "heading_context": "### 1.2 Span, Linear Independence, Basis, Dimension",
+      "confidence": "candidate",
+      "text": "### 1.3 Subspaces",
+      "notes": [
+        "detected from bar/chart glyph density with numeric labels"
+      ]
+    },
+    {
+      "id": "block-6",
+      "kind": "ascii_table_candidate",
+      "line": 95,
+      "heading_context": "### 1.3 Subspaces",
+      "confidence": "candidate",
+      "text": "  W ⊆ V is a subspace if:\n  ├── 0 ∈ W\n  ├── u, v ∈ W ⟹ u + v ∈ W\n  └── v ∈ W, α ∈ F ⟹ αv ∈ W\n\n  Sum: W₁ + W₂ = {w₁ + w₂ | wᵢ ∈ Wᵢ}\n  Direct sum: V = W₁ ⊕ W₂ means W₁ ∩ W₂ = {0} and W₁ + W₂ = V\n\n  Dimension formula: dim(W₁ + W₂) = dim(W₁) + dim(W₂) - dim(W₁ ∩ W₂)",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-7",
+      "kind": "chart_like",
+      "line": 111,
+      "heading_context": "## 2. Matrices as Linear Maps",
+      "confidence": "candidate",
+      "text": "### 2.1 The Fundamental View",
+      "notes": [
+        "detected from bar/chart glyph density with numeric labels"
+      ]
+    },
+    {
+      "id": "block-8",
+      "kind": "diagram_like",
+      "line": 113,
+      "heading_context": "### 2.1 The Fundamental View",
+      "confidence": "candidate",
+      "text": "  Matrix A ∈ M_{m×n}(F) defines a linear map T: Fⁿ → Fᵐ by T(x) = Ax\n\n  FOUR FUNDAMENTAL SUBSPACES of A ∈ M_{m×n}:\n  ┌────────────────────────────────────────────────────────────────────┐\n  │                                                                    │\n  │  Column space (range):   C(A) = {Ax | x ∈ Fⁿ}    ⊆ Fᵐ              │\n  │  Null space (kernel):    N(A) = {x | Ax = 0}       ⊆ Fⁿ            │\n  │  Row space:              C(Aᵀ)                     ⊆ Fⁿ            │\n  │  Left null space:        N(Aᵀ)                     ⊆ Fᵐ            │\n  │                                                                    │\n  │  RANK-NULLITY THEOREM:                                             │\n  │  rank(A) + nullity(A) = n                                          │\n  │  dim C(A) + dim N(A) = number of columns                           │\n  │                                                                    │\n  │  ORTHOGONALITY:                                                    │\n  │  C(A) ⊥ N(Aᵀ)    (column space ⊥ left null space, both in Fᵐ)      │\n  │  C(Aᵀ) ⊥ N(A)    (row space ⊥ null space, both in Fⁿ)              │\n  └────────────────────────────────────────────────────────────────────┘\n\n  RANK = dim C(A) = dim C(Aᵀ) = number of pivots after row reduction",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-9",
+      "kind": "chart_like",
+      "line": 136,
+      "heading_context": "### 2.1 The Fundamental View",
+      "confidence": "candidate",
+      "text": "### 2.2 Row Reduction — Gaussian Elimination",
+      "notes": [
+        "detected from bar/chart glyph density with numeric labels"
+      ]
+    },
+    {
+      "id": "block-10",
+      "kind": "diagram_like",
+      "line": 138,
+      "heading_context": "### 2.2 Row Reduction — Gaussian Elimination",
+      "confidence": "candidate",
+      "text": "  Three elementary row operations (each = multiplication by an elementary matrix):\n  1. Swap rows i and j\n  2. Scale row i by nonzero scalar\n  3. Add multiple of row i to row j\n\n  REDUCED ROW ECHELON FORM (RREF):\n  ┌                      ┐         Pivots (leading 1s): mark rank\n  │ 1  0  2  0  3  │ 5  │    ←    columns are pivot columns\n  │ 0  1 -1  0  2  │ 3  │    ←    free variables: non-pivot columns\n  │ 0  0  0  1  4  │ -1 │\n  │ 0  0  0  0  0  │ 0  │    ←    consistent (no 0=nonzero rows)\n  └                      ┘\n\n  From RREF you read off:\n  ├── rank (number of pivots = 3 here)\n  ├── null space basis (one free variable vector per free column)\n  ├── particular solution to Ax = b (if consistent)\n  └── whether system is consistent (0 row with nonzero RHS = inconsistent)",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-11",
+      "kind": "chart_like",
+      "line": 159,
+      "heading_context": "### 2.2 Row Reduction — Gaussian Elimination",
+      "confidence": "candidate",
+      "text": "### 2.3 Matrix Operations",
+      "notes": [
+        "detected from bar/chart glyph density with numeric labels"
+      ]
+    },
+    {
+      "id": "block-12",
+      "kind": "diagram_like",
+      "line": 161,
+      "heading_context": "### 2.3 Matrix Operations",
+      "confidence": "candidate",
+      "text": "  Addition:         (A + B)ᵢⱼ = Aᵢⱼ + Bᵢⱼ    (same dimensions)\n  Scalar mult:      (αA)ᵢⱼ = αAᵢⱼ\n  Multiplication:   (AB)ᵢⱼ = Σₖ AᵢₖBₖⱼ       (m×n)(n×p) → m×p\n  Transpose:        (Aᵀ)ᵢⱼ = Aⱼᵢ\n  Conjugate trans:  A† = (A*)ᵀ  (Hermitian conjugate — used in QM)\n\n  Properties:\n  (AB)ᵀ = BᵀAᵀ           (AB)† = B†A†\n  (AB)⁻¹ = B⁻¹A⁻¹         (reverse order for both!)\n  tr(AB) = tr(BA)          (trace is cyclic, even for non-square)\n  det(AB) = det(A)det(B)",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-13",
+      "kind": "chart_like",
+      "line": 175,
+      "heading_context": "### 2.3 Matrix Operations",
+      "confidence": "candidate",
+      "text": "### 2.4 Determinant",
+      "notes": [
+        "detected from bar/chart glyph density with numeric labels"
+      ]
+    },
+    {
+      "id": "block-14",
+      "kind": "diagram_like",
+      "line": 177,
+      "heading_context": "### 2.4 Determinant",
+      "confidence": "candidate",
+      "text": "  det: M_{n×n} → F\n\n  Geometric meaning: signed volume scaling factor of the linear map.\n  If det(A) = 0: map is singular, collapses dimension, not invertible.\n  If det(A) ≠ 0: invertible.\n\n  2×2: det([a b; c d]) = ad - bc\n  3×3: cofactor expansion along any row or column\n\n  Key properties:\n  det(Aᵀ) = det(A)\n  det(A⁻¹) = 1/det(A)\n  det(αA) = αⁿ det(A)   for n×n matrix\n  Row swap: flips sign\n  Row scale by c: multiplies det by c\n  det of triangular matrix: product of diagonal entries",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-15",
+      "kind": "chart_like",
+      "line": 196,
+      "heading_context": "### 2.4 Determinant",
+      "confidence": "candidate",
+      "text": "### 2.5 Inverse",
+      "notes": [
+        "detected from bar/chart glyph density with numeric labels"
+      ]
+    },
+    {
+      "id": "block-16",
+      "kind": "diagram_like",
+      "line": 198,
+      "heading_context": "### 2.5 Inverse",
+      "confidence": "candidate",
+      "text": "  A⁻¹ exists ↔ det(A) ≠ 0 ↔ rank(A) = n ↔ N(A) = {0}\n\n  2×2 inverse:\n  [a b]⁻¹    1   [ d -b]\n  [c d]   = ─── [-c  a]\n             ad-bc\n\n  Numerical: don't compute A⁻¹ to solve Ax = b.\n  Use LU decomposition: LUx = b → Ly = b (forward sub) → Ux = y (back sub)\n  Computing A⁻¹ explicitly is ~3× more work and numerically worse.",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-17",
+      "kind": "chart_like",
+      "line": 215,
+      "heading_context": "## 3. Inner Products and Orthogonality",
+      "confidence": "candidate",
+      "text": "### 3.1 Inner Product",
+      "notes": [
+        "detected from bar/chart glyph density with numeric labels"
+      ]
+    },
+    {
+      "id": "block-18",
+      "kind": "diagram_like",
+      "line": 217,
+      "heading_context": "### 3.1 Inner Product",
+      "confidence": "candidate",
+      "text": "  Inner product ⟨·,·⟩: V × V → F  satisfying:\n  ├── Linearity in first argument:  ⟨αu+βv, w⟩ = α⟨u,w⟩ + β⟨v,w⟩\n  ├── Conjugate symmetry:           ⟨u,v⟩ = ⟨v,u⟩*  (= ⟨v,u⟩ over ℝ)\n  └── Positive definite:            ⟨v,v⟩ ≥ 0, = 0 iff v = 0\n\n  Standard inner products:\n  ℝⁿ: ⟨x,y⟩ = xᵀy = Σᵢ xᵢyᵢ               (dot product)\n  ℂⁿ: ⟨x,y⟩ = x†y = Σᵢ xᵢ*yᵢ              (QM inner product)\n  L²: ⟨f,g⟩ = ∫ f*(x)g(x) dx               (function space — QM)\n\n  Norm:  ‖v‖ = √⟨v,v⟩\n  Cauchy-Schwarz: |⟨u,v⟩| ≤ ‖u‖·‖v‖\n  Angle: cos θ = ⟨u,v⟩/(‖u‖‖v‖)",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-19",
+      "kind": "chart_like",
+      "line": 233,
+      "heading_context": "### 3.1 Inner Product",
+      "confidence": "candidate",
+      "text": "### 3.2 Orthogonality",
+      "notes": [
+        "detected from bar/chart glyph density with numeric labels"
+      ]
+    },
+    {
+      "id": "block-20",
+      "kind": "diagram_like",
+      "line": 235,
+      "heading_context": "### 3.2 Orthogonality",
+      "confidence": "candidate",
+      "text": "  u ⊥ v  iff  ⟨u,v⟩ = 0\n\n  ORTHONORMAL BASIS: {e₁,...,eₙ} with ⟨eᵢ,eⱼ⟩ = δᵢⱼ  (Kronecker delta)\n\n  Orthonormal expansion: v = Σᵢ ⟨eᵢ,v⟩ eᵢ\n  (coordinates = projections onto basis vectors)\n\n  ORTHOGONAL PROJECTION onto subspace W:\n  Pᵥᵥ = projection of v onto W\n  v = Pᵥ + (v - Pᵥ)   where  Pᵥ ∈ W  and  (v - Pᵥ) ⊥ W\n\n  This is the geometry behind least squares:\n  Ax = b has no solution → find x minimizing ‖Ax - b‖²\n  → Ax* = projection of b onto C(A) → normal equations AᵀAx = Aᵀb",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-21",
+      "kind": "chart_like",
+      "line": 252,
+      "heading_context": "### 3.2 Orthogonality",
+      "confidence": "candidate",
+      "text": "### 3.3 Gram-Schmidt Orthogonalization",
+      "notes": [
+        "detected from bar/chart glyph density with numeric labels"
+      ]
+    },
+    {
+      "id": "block-22",
+      "kind": "chart_like",
+      "line": 277,
+      "heading_context": "## 4. Eigenvalues and Eigenvectors",
+      "confidence": "candidate",
+      "text": "### 4.1 The Definition",
+      "notes": [
+        "detected from bar/chart glyph density with numeric labels"
+      ]
+    },
+    {
+      "id": "block-23",
+      "kind": "ascii_table_candidate",
+      "line": 279,
+      "heading_context": "### 4.1 The Definition",
+      "confidence": "candidate",
+      "text": "  Av = λv   where v ≠ 0\n\n  λ = eigenvalue (scalar), v = eigenvector (direction preserved by A)\n\n  Rewrite: (A - λI)v = 0\n  Non-trivial solution exists ↔ det(A - λI) = 0\n\n  CHARACTERISTIC POLYNOMIAL:\n  p(λ) = det(A - λI)  = (-1)ⁿ(λⁿ - tr(A)λⁿ⁻¹ + ... + (-1)ⁿdet(A))\n\n  Roots of p(λ) = eigenvalues (counted with algebraic multiplicity)\n  Over ℂ: n×n matrix always has exactly n eigenvalues (fundamental theorem)\n  Over ℝ: may have complex conjugate pairs",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-24",
+      "kind": "chart_like",
+      "line": 295,
+      "heading_context": "### 4.1 The Definition",
+      "confidence": "candidate",
+      "text": "### 4.2 Computing Eigenvalues and Eigenvectors",
+      "notes": [
+        "detected from bar/chart glyph density with numeric labels"
+      ]
+    },
+    {
+      "id": "block-25",
+      "kind": "diagram_like",
+      "line": 297,
+      "heading_context": "### 4.2 Computing Eigenvalues and Eigenvectors",
+      "confidence": "candidate",
+      "text": "  STEP 1: Solve det(A - λI) = 0 → get eigenvalues λ₁, λ₂, ...\n\n  STEP 2: For each λᵢ, solve (A - λᵢI)v = 0 → get eigenvectors\n          Eigenspace E(λᵢ) = N(A - λᵢI)\n\n  EXAMPLE: A = [3 1; 0 2]\n  det(A - λI) = (3-λ)(2-λ) - 0 = (3-λ)(2-λ) = 0\n  λ₁ = 3, λ₂ = 2\n\n  For λ₁=3: (A-3I)v = [0 1; 0 -1]v = 0 → v₁ = (1,0)\n  For λ₂=2: (A-2I)v = [1 1; 0 0]v = 0 → v₂ = (-1,1)\n\n  GEOMETRIC vs ALGEBRAIC MULTIPLICITY:\n  Algebraic multiplicity: multiplicity as root of characteristic polynomial\n  Geometric multiplicity: dim(eigenspace) = dim N(A - λI)\n  Geometric ≤ Algebraic always\n  A is diagonalizable ↔ Geometric = Algebraic for all eigenvalues",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-26",
+      "kind": "chart_like",
+      "line": 317,
+      "heading_context": "### 4.2 Computing Eigenvalues and Eigenvectors",
+      "confidence": "candidate",
+      "text": "### 4.3 Diagonalization",
+      "notes": [
+        "detected from bar/chart glyph density with numeric labels"
+      ]
+    },
+    {
+      "id": "block-27",
+      "kind": "diagram_like",
+      "line": 319,
+      "heading_context": "### 4.3 Diagonalization",
+      "confidence": "candidate",
+      "text": "  If A has n linearly independent eigenvectors v₁,...,vₙ with eigenvalues λ₁,...,λₙ:\n\n  A = PDP⁻¹\n\n  where P = [v₁ | v₂ | ... | vₙ]  (eigenvectors as columns)\n        D = diag(λ₁, λ₂, ..., λₙ)  (eigenvalues on diagonal)\n\n  Powers: Aᵏ = PDᵏP⁻¹ = P·diag(λ₁ᵏ,...,λₙᵏ)·P⁻¹\n  Functions: f(A) = Pf(D)P⁻¹ = P·diag(f(λ₁),...,f(λₙ))·P⁻¹\n\n  Applications:\n  ├── Solving linear ODEs: x' = Ax → x(t) = e^(At) x(0) = Pe^(Dt)P⁻¹x(0)\n  ├── Markov chains: Aᵏ → dominant eigenvector (PageRank)\n  └── Principal Component Analysis: covariance matrix diagonalization",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-28",
+      "kind": "chart_like",
+      "line": 336,
+      "heading_context": "### 4.3 Diagonalization",
+      "confidence": "candidate",
+      "text": "### 4.4 Special Matrix Classes",
+      "notes": [
+        "detected from bar/chart glyph density with numeric labels"
+      ]
+    },
+    {
+      "id": "block-29",
+      "kind": "diagram_like",
+      "line": 338,
+      "heading_context": "### 4.4 Special Matrix Classes",
+      "confidence": "candidate",
+      "text": "  SYMMETRIC (real): A = Aᵀ\n  ├── All eigenvalues are real\n  ├── Eigenvectors for distinct eigenvalues are orthogonal\n  └── Always diagonalizable: A = QΛQᵀ  (Q orthogonal)\n\n  HERMITIAN (complex): A = A†  (A† = conjugate transpose)\n  ├── All eigenvalues are real    ← CRITICAL FOR QM\n  ├── Eigenvectors form orthonormal basis\n  └── A = UΛU†  (U unitary)\n  This is why QM observables are Hermitian: eigenvalues = measurement results = real\n\n  SKEW-SYMMETRIC: A = -Aᵀ → purely imaginary eigenvalues\n  UNITARY: U†U = I → eigenvalues on unit circle |λ| = 1\n  NORMAL: A†A = AA† → unitarily diagonalizable (includes Hermitian, unitary, skew-Hermitian)\n\n  POSITIVE DEFINITE: ⟨v, Av⟩ > 0 for all v ≠ 0\n  ↔ all eigenvalues > 0\n  ↔ A = BᵀB for some invertible B  (Cholesky: A = LLᵀ)\n  ├── Covariance matrices are positive semidefinite\n  └── Used in optimization (Hessian positive definite → local minimum)",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-30",
+      "kind": "diagram_like",
+      "line": 365,
+      "heading_context": "## 5. The Spectral Theorem",
+      "confidence": "candidate",
+      "text": "  SPECTRAL THEOREM (real symmetric):\n  Every real symmetric matrix A = QΛQᵀ where:\n  Q is orthogonal (Qᵀ = Q⁻¹), Λ = diag(λ₁,...,λₙ) real\n\n  Equivalently: A = Σᵢ λᵢ qᵢqᵢᵀ    (spectral decomposition)\n  Each qᵢqᵢᵀ is a rank-1 projection onto the i-th eigenvector.\n  A is a weighted sum of orthogonal projections.\n\n  SPECTRAL THEOREM (complex Hermitian / normal):\n  A = UΛU†  where U is unitary\n\n  PHYSICS: In QM, every observable A is Hermitian.\n  Measurement of A:\n  ├── Possible outcomes = eigenvalues λᵢ (must be real → Hermitian)\n  ├── Probability of λᵢ = |⟨ψᵢ, ψ⟩|²  (Born rule = projection squared)\n  └── After measurement: state collapses to eigenvector ψᵢ\n\n  The spectral theorem IS quantum mechanics, mathematically.",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-31",
+      "kind": "chart_like",
+      "line": 390,
+      "heading_context": "## 6. Singular Value Decomposition (SVD)",
+      "confidence": "candidate",
+      "text": "### 6.1 The Theorem",
+      "notes": [
+        "detected from bar/chart glyph density with numeric labels"
+      ]
+    },
+    {
+      "id": "block-32",
+      "kind": "chart_like",
+      "line": 407,
+      "heading_context": "### 6.1 The Theorem",
+      "confidence": "candidate",
+      "text": "### 6.2 Geometric Interpretation",
+      "notes": [
+        "detected from bar/chart glyph density with numeric labels"
+      ]
+    },
+    {
+      "id": "block-33",
+      "kind": "diagram_like",
+      "line": 409,
+      "heading_context": "### 6.2 Geometric Interpretation",
+      "confidence": "candidate",
+      "text": "  WHAT SVD SAYS ABOUT THE LINEAR MAP T: Rⁿ → Rᵐ\n\n  Every linear map is:\n  1. ROTATION/REFLECTION in Rⁿ        (multiplication by Vᵀ)\n  2. SCALING along coordinate axes    (multiplication by Σ)\n  3. ROTATION/REFLECTION in Rᵐ        (multiplication by U)\n\n  ┌─────┐  Vᵀ  ┌─────┐  Σ   ┌─────┐  U   ┌─────┐\n  │ Rⁿ  │ ──→  │ Rⁿ  │ ──→  │ Rᵐ  │ ──→  │ Rᵐ  │\n  └─────┘      └─────┘      └─────┘      └─────┘\n  original     rotated      scaled       final\n  space        to align     + embedded   rotated\n\n  σ₁ = largest singular value = operator norm ‖A‖₂ = max stretch factor\n  σᵣ = smallest nonzero singular value = \"how close to singular\"\n  Condition number κ(A) = σ₁/σᵣ — measures numerical sensitivity",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-34",
+      "kind": "chart_like",
+      "line": 428,
+      "heading_context": "### 6.2 Geometric Interpretation",
+      "confidence": "candidate",
+      "text": "### 6.3 Low-Rank Approximation — The Killer Application",
+      "notes": [
+        "detected from bar/chart glyph density with numeric labels"
+      ]
+    },
+    {
+      "id": "block-35",
+      "kind": "diagram_like",
+      "line": 430,
+      "heading_context": "### 6.3 Low-Rank Approximation — The Killer Application",
+      "confidence": "candidate",
+      "text": "  ECKART-YOUNG THEOREM:\n  Best rank-k approximation to A (in both Frobenius and operator norm):\n\n  Aₖ = Σᵢ₌₁ᵏ σᵢ uᵢ vᵢᵀ    (keep top k singular value/vector triples)\n\n  This is optimal — no rank-k matrix is closer to A.\n\n  APPLICATIONS:\n  ┌────────────────────────────────────────────────────────────────────┐\n  │  Image compression: A = image matrix, Aₖ = compressed version      │\n  │  k=10 terms: ~90% quality, 10× compression                         │\n  │                                                                    │\n  │  PCA (Principal Component Analysis):                               │\n  │  Center data, compute SVD of data matrix X                         │\n  │  Principal components = right singular vectors (rows of Vᵀ)        │\n  │  Variance captured = σᵢ²/Σσᵢ²                                      │\n  │                                                                    │\n  │  Latent Semantic Analysis (pre-deep learning NLP):                 │\n  │  Term-document matrix → SVD → semantic \"topics\"                    │\n  │                                                                    │\n  │  Recommender systems (Netflix Prize era): matrix factorization     │\n  │  Ratings matrix ≈ UΣVᵀ, fill in missing entries from low-rank      │\n  └────────────────────────────────────────────────────────────────────┘",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-36",
+      "kind": "chart_like",
+      "line": 456,
+      "heading_context": "### 6.3 Low-Rank Approximation — The Killer Application",
+      "confidence": "candidate",
+      "text": "### 6.4 Pseudoinverse",
+      "notes": [
+        "detected from bar/chart glyph density with numeric labels"
+      ]
+    },
+    {
+      "id": "block-37",
+      "kind": "diagram_like",
+      "line": 458,
+      "heading_context": "### 6.4 Pseudoinverse",
+      "confidence": "candidate",
+      "text": "  For non-square or singular A, the Moore-Penrose pseudoinverse A⁺:\n\n  A = UΣVᵀ  →  A⁺ = VΣ⁺Uᵀ\n  where Σ⁺ = diag(1/σ₁, ..., 1/σᵣ, 0, ..., 0)\n\n  Least-squares solution to Ax ≈ b: x* = A⁺b\n  x* is the minimum-norm solution when multiple solutions exist.\n  This is what `numpy.linalg.lstsq` computes.",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-38",
+      "kind": "diagram_like",
+      "line": 473,
+      "heading_context": "## 7. Key Decompositions",
+      "confidence": "candidate",
+      "text": "  DECOMPOSITION  FORM        WHEN TO USE\n  ──────────────────────────────────────────────────────────────────────\n  LU             A = LU      Solving Ax = b (Gaussian elimination)\n                             Works for any square invertible A\n                             (with partial pivoting: PA = LU)\n\n  Cholesky       A = LLᵀ     A symmetric positive definite\n                             2× faster than LU, numerically stable\n                             Covariance matrices, optimization\n\n  QR             A = QR      Least squares (overdetermined Ax ≈ b)\n                             Eigenvalue algorithms (QR iteration)\n                             Always exists, even for m×n matrices\n\n  Eigendecomp    A = PDP⁻¹  A diagonalizable square matrix\n                             Matrix functions, ODEs, Markov chains\n\n  Schur          A = QTQ*    Any square matrix (T upper triangular)\n                             Numerically stable eigenvalue computation\n\n  SVD            A = UΣVᵀ   Any matrix, any shape\n                             PCA, low-rank approx, pseudoinverse\n                             The universal tool\n\n  ──────────────────────────────────────────────────────────────────────\n  RULE: For solving Ax = b → LU. For least squares → QR. For everything else → SVD.",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-39",
+      "kind": "diagram_like",
+      "line": 506,
+      "heading_context": "## 8. Change of Basis",
+      "confidence": "candidate",
+      "text": "  Suppose V has two bases: B = {b₁,...,bₙ} and C = {c₁,...,cₙ}\n\n  Change-of-basis matrix P: [v]_B = P·[v]_C\n  (P's columns are the C-coordinates of the B-basis vectors)\n\n  Linear map A in basis B:  [T]_B = P⁻¹[T]_C P   (similarity transform)\n\n  SIMILARITY TRANSFORMS don't change:\n  ├── Eigenvalues\n  ├── Determinant\n  ├── Trace\n  └── Rank\n\n  DIAGONALIZATION is just change of basis to the eigenbasis:\n  In eigenbasis, A acts as pure scaling. Off-diagonal = coupling.\n  Decoupling: if A is diagonal, coordinates evolve independently.",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-40",
+      "kind": "diagram_like",
+      "line": 554,
+      "heading_context": "## 10. Linear Algebra in Quantum Mechanics",
+      "confidence": "candidate",
+      "text": "  MATH OBJECT              QM OBJECT\n  ───────────────────────────────────────────────────────────────────\n  Complex vector space      Hilbert space ℋ\n  Vector v ∈ ℋ              State |ψ⟩ (ket)\n  Dual vector vᵀ            Bra ⟨ψ|\n  Inner product ⟨v,u⟩       Amplitude ⟨φ|ψ⟩  (prob amplitude)\n  |⟨v,u⟩|²                  Transition probability\n  Orthonormal basis         Complete set of orthonormal states\n  Hermitian operator A      Observable (position, momentum, energy)\n  Eigenvalue λ              Measurement outcome\n  Eigenvector               Definite-value state\n  A = Σ λᵢ|ψᵢ⟩⟨ψᵢ|          Spectral decomposition of observable\n  Projection |ψᵢ⟩⟨ψᵢ|       Measurement operator\n  Unitary operator U        Time evolution e^(-iHt/ℏ), quantum gates\n  Tensor product ⊗          Multi-particle state space\n  Partial trace             Tracing out environment (open systems)\n  Density matrix ρ          Mixed state (statistical ensemble)\n  ───────────────────────────────────────────────────────────────────\n\n  COMMUTATOR [A,B] = AB - BA:\n  [x̂, p̂] = iℏ               canonical commutation relation\n  [Jᵢ, Jⱼ] = iℏ εᵢⱼₖ Jₖ    angular momentum algebra (= SU(2) algebra!)\n  [H, A] = 0 ↔ A conserved  (A commutes with Hamiltonian ↔ A is conserved)",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-41",
+      "kind": "diagram_like",
+      "line": 584,
+      "heading_context": "## 11. Numerical Linear Algebra",
+      "confidence": "candidate",
+      "text": "  THEORY → LAPACK/BLAS → NumPy/SciPy/PyTorch\n\n  BLAS (Basic Linear Algebra Subprograms):\n  Level 1: vector operations (dot products, norms, axpy: y ← αx + y)\n  Level 2: matrix-vector (gemv: y ← αAx + βy)\n  Level 3: matrix-matrix (gemm: C ← αAB + βC)  ← 90% of FLOPs in practice\n\n  LAPACK (Linear Algebra PACKage): built on BLAS\n  ├── Linear systems: gesv (LU+pivot), posv (Cholesky for SPD)\n  ├── Least squares:  gels (QR or SVD-based)\n  ├── Eigenvalues:    syev (symmetric), geev (general), heev (Hermitian)\n  └── SVD:           gesvd (full), gesdd (divide-and-conquer, faster)\n\n  numpy.linalg / scipy.linalg wrap LAPACK routines directly.\n  PyTorch and JAX expose the same LAPACK calls on CPU; cuBLAS on GPU.\n\n  BACKWARD STABILITY — why it matters:\n  ┌───────────────────────────────────────────────────────────────────┐\n  │  An algorithm is BACKWARD STABLE if the computed result is the    │\n  │  exact answer to a slightly perturbed problem.                    │\n  │                                                                   │\n  │  LU with partial pivoting: backward stable for most matrices,     │\n  │    but pathological cases exist (Wilkinson matrix)                │\n  │  QR (Householder): unconditionally backward stable for least sq.  │\n  │  Normal equations AᵀAx = Aᵀb: condition number SQUARED → avoid    │\n  │                                                                   │\n  │  RULE: solve least squares via QR (scipy.linalg.lstsq uses it),   │\n  │  not via (AᵀA)⁻¹Aᵀ. The condition number of AᵀA = κ(A)².          │\n  └───────────────────────────────────────────────────────────────────┘\n\n  ITERATIVE METHODS for large sparse systems:\n  Direct methods (LU, Cholesky) scale as O(n³) — infeasible for n=10⁶.\n  Iterative methods build in the Krylov subspace K_m(A,b) = span{b, Ab, A²b, ...}\n\n  CONJUGATE GRADIENT (CG):\n  ├── Requires A symmetric positive definite\n  ├── Converges in at most n steps (exact arithmetic)\n  ├── In practice: converges in √κ(A) iterations (effective)\n  └── scipy.sparse.linalg.cg  /  torch.linalg utilities\n\n  GMRES (Generalized Minimal Residual):\n  ├── Works for any nonsingular A (non-symmetric)\n  ├── Minimizes ‖Ax_m - b‖ over K_m(A,b) at each step\n  ├── Requires a preconditioner M ≈ A⁻¹ to converge fast in practice\n  └── scipy.sparse.linalg.gmres\n\n  EIGENVALUE ALGORITHMS:\n  Characteristic polynomial approach (det(A-λI)=0) is numerically\n  catastrophic for n>3: roots of polynomials are hypersensitive to\n  coefficient perturbations (Wilkinson 1959).\n  Instead:\n  ├── QR iteration: produces Schur form A = QTQ* (upper triangular T)\n  │   Eigenvalues appear on diagonal of T. This is what eig() uses.\n  ├── Symmetric matrices: Divide-and-conquer or bisection (fast, stable)\n  └── Large sparse: Lanczos (symmetric) / Arnoldi (general) — projects\n      onto Krylov subspace, extracts Ritz approximations to eigenvalues\n      scipy.sparse.linalg.eigs  /  torch.lobpcg\n\n  WHEN TO USE WHAT:\n  ┌──────────────────────────────────────────────────────────────────┐\n  │  Dense n×n, n < 10⁴:      LAPACK (direct)  — numpy.linalg        │\n  │  SPD system:               Cholesky (2× faster than LU)          │\n  │  Least squares:            QR via lstsq (never normal equations) │\n  │  Large sparse Ax=b:        CG (SPD) or GMRES (general)           │\n  │  Large sparse eigenvalues: Lanczos (sym) or Arnoldi (general)    │\n  │  Low-rank approx:          Randomized SVD (see §11.5 below)      │\n  └──────────────────────────────────────────────────────────────────┘",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-42",
+      "kind": "chart_like",
+      "line": 654,
+      "heading_context": "## 11. Numerical Linear Algebra",
+      "confidence": "candidate",
+      "text": "### 6.5 SVD in Transformers and LLMs",
+      "notes": [
+        "detected from bar/chart glyph density with numeric labels"
+      ]
+    },
+    {
+      "id": "block-43",
+      "kind": "diagram_like",
+      "line": 656,
+      "heading_context": "### 6.5 SVD in Transformers and LLMs",
+      "confidence": "candidate",
+      "text": "  ATTENTION IS SCALED DOT-PRODUCT + WEIGHTED SUM:\n\n  Attention(Q,K,V) = softmax(QKᵀ/√d) · V\n\n  Q = XW_Q,  K = XW_K,  V = XW_V   (linear projections of input X)\n\n  ├── QKᵀ is a matrix of dot-products (inner products) between queries\n  │   and keys — exactly the bilinear form structure from §3.1.\n  ├── Dividing by √d stabilizes the softmax (controls the scale of the\n  │   inner products — same condition number concern as before).\n  ├── The output is a weighted linear combination of value vectors.\n  │   Each attention head computes a rank-d projection of the sequence.\n  └── Multi-head attention = several parallel low-rank projections\n      concatenated → richer subspace coverage.\n\n  SVD ANALYSIS OF WEIGHT MATRICES:\n  ┌──────────────────────────────────────────────────────────────────┐\n  │  A weight matrix W ∈ M_{m×n} has SVD W = UΣVᵀ.                   │\n  │  The singular value spectrum σ₁ ≥ σ₂ ≥ ... reveals:              │\n  │  ├── Effective rank: how many singular values are non-negligible │\n  │  ├── Information compression: top-k singular vectors span the    │\n  │  │   \"important\" subspace for that layer                         │\n  │  └── Stability: κ(W) = σ₁/σₙ — high = numerically sensitive      │\n  └──────────────────────────────────────────────────────────────────┘\n\n  LOW-RANK ADAPTATION (LoRA) — fine-tuning large models:\n  Idea: freeze pretrained W₀, fine-tune only a low-rank update ΔW = AB\n  where A ∈ M_{m×r}, B ∈ M_{r×n}, r << min(m,n).\n\n  W_fine-tuned = W₀ + AB   (AB has rank ≤ r)\n\n  ├── Storage: m·n parameters → (m+n)·r  (e.g., r=4 out of n=4096)\n  ├── Theory: hypothesis that weight updates during fine-tuning have\n  │   low intrinsic rank (supported empirically by SVD analysis)\n  └── This is Eckart-Young (§6.3) applied to parameter-efficient ML:\n      the update ΔW is approximated by its best rank-r matrix.\n\n  EMBEDDING GEOMETRY AND SVD:\n  Word/token embeddings lie in ℝ^d (d=768, 1024, etc.)\n  Key geometric properties (measurable via SVD of the embedding matrix):\n  ├── Anisotropy: singular values drop sharply → directions are\n  │   not uniformly used (degenerate geometry)\n  ├── Semantic directions: linear analogies (king-man+woman≈queen)\n  │   correspond to 1D subspaces in the singular vector basis\n  └── Isotropy regularization (e.g., in BERT fine-tuning) = equalizing\n      singular values to improve representation uniformity",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-44",
+      "kind": "ascii_table_candidate",
+      "line": 710,
+      "heading_context": "## 12. Jordan Normal Form",
+      "confidence": "candidate",
+      "text": "  A DEFECTIVE MATRIX has an eigenvalue λ where dim N(A-λI) < algebraic mult.\n  Example: A = [0 1; 0 0] has λ=0 (mult 2) but eigenspace = span{(1,0)} (dim 1).\n\n  NILPOTENT MATRICES: N^k = 0 for some k, all eigenvalues 0.\n  The prototype: N = [0 1 0; 0 0 1; 0 0 0]  (\"shift matrix\")\n  N¹ ≠ 0, N² ≠ 0, N³ = 0.\n\n  JORDAN BLOCK of size k for eigenvalue λ:\n        ┌ λ 1 0 ··· 0 ┐\n        │ 0 λ 1 ··· 0 │\n  Jₖ(λ)=│ 0 0 λ ··· 0 │ = λI + N  (scalar + nilpotent)\n        │ ··  ·· ··   │\n        └ 0 0 0 ··· λ ┘\n\n  JORDAN DECOMPOSITION: A = PJP⁻¹\n  J = block diagonal: J = diag(Jₖ₁(λ₁), Jₖ₂(λ₂), ..., Jₖₘ(λₘ))\n  Always exists over ℂ (and ℝ if all eigenvalues real).\n\n  NUMBER OF JORDAN BLOCKS for eigenvalue λ = geometric multiplicity dim N(A-λI)\n  SIZE of largest block = index of λ (smallest k with N(A-λI)^k = N(A-λI)^(k+1))\n\n  EXAMPLE: A = [3 1 0; 0 3 1; 0 0 3]  (λ=3 with mult 3)\n  Eigenspace N(A-3I): one-dimensional → 3 algebraic, 1 geometric\n  Jordan form: one 3×3 block J₃(3) — the \"maximally defective\" case.\n\n  WHY IT MATTERS FOR ODEs (connection to §3.1 of 07-DIFFEQ):\n  ┌──────────────────────────────────────────────────────────────────┐\n  │  System ẋ = Ax:  x(t) = e^(At) x(0)                              │\n  │  If A = P·J·P⁻¹:  e^(At) = P·e^(Jt)·P⁻¹                          │\n  │                                                                  │\n  │  For a Jordan block Jₖ(λ) = λI + N:                              │\n  │  e^(Jₖ(λ)t) = e^(λt) · e^(Nt)                                    │\n  │             = e^(λt) · (I + Nt + N²t²/2! + ... + Nᵏ⁻¹tᵏ⁻¹/(k-1)!)│\n  │             (series terminates because Nᵏ=0)                     │\n  │                                                                  │\n  │  Result: solutions contain terms  tʲ e^(λt) for j=0,1,...,k-1    │\n  │  This is why repeated eigenvalues produce polynomial × exp.      │\n  │  solutions — the xe^(λx) term in ODE theory is Jordan structure! │\n  └──────────────────────────────────────────────────────────────────┘\n\n  Aᵏ BEHAVIOR FROM JORDAN STRUCTURE:\n  ├── All eigenvalues |λ| < 1: Aᵏ → 0 (stable)\n  ├── Any |λ| > 1: Aᵏ diverges (unstable)\n  ├── |λ| = 1, Jordan block size 1: Aᵏ bounded (oscillates)\n  └── |λ| = 1, Jordan block size > 1: Aᵏ grows as kʲ (polynomial growth)\n      This is the subtle case: eigenvalues on the unit circle but defective\n      → Markov chains, resonance, power iteration near convergence.\n\n  GENERALIZED EIGENVECTORS:\n  If (A-λI)v = 0: ordinary eigenvector\n  If (A-λI)²v = 0 but (A-λI)v ≠ 0: generalized eigenvector of rank 2\n  If (A-λI)^k v = 0 but (A-λI)^(k-1)v ≠ 0: rank k\n  These fill out the Jordan basis.\n  Chain: vₖ → vₖ₋₁ = (A-λI)vₖ → ... → v₁ = eigenvector.",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-45",
+      "kind": "diagram_like",
+      "line": 772,
+      "heading_context": "## 13. Spectral Theory in Infinite Dimensions",
+      "confidence": "candidate",
+      "text": "  HILBERT SPACE H: complete inner product space (ℝⁿ and ℂⁿ are the finite cases)\n  L²(ℝ): square-integrable functions, ⟨f,g⟩ = ∫f*g dx — the QM state space.\n\n  BOUNDED OPERATORS: T: H → H with ‖Tx‖ ≤ C‖x‖ for some C.\n  ‖T‖ = sup_{‖x‖=1} ‖Tx‖ (operator norm — finite iff T bounded).\n\n  UNBOUNDED OPERATORS (essential for QM):\n  Domain is a dense subspace, not all of H.\n  Example: d/dx on L²(ℝ) is unbounded: sin(nx) has ‖sin(nx)‖=1 but ‖(sin(nx))'‖=n.\n  Momentum p̂ = -iℏd/dx, Hamiltonian Ĥ = -ℏ²/2m d²/dx² are both unbounded.\n  This is why QM operators require careful domain specification (self-adjointness ≠ just symmetric).\n\n  THE SPECTRUM (replaces \"eigenvalues\"):\n  For T: H → H, the SPECTRUM σ(T) = {λ ∈ ℂ | (T - λI) is not invertible}\n\n  Three disjoint types:\n  ┌─────────────────────────────────────────────────────────────────────┐\n  │  POINT SPECTRUM σₚ(T): (T-λI) not injective → eigenvalues           │\n  │  Tx = λx for some x ≠ 0.  Same as finite-dim eigenvalues.           │\n  │  Example: H = -ℏ²/2m d²/dx² + V(x)                                  │\n  │  Bound states: discrete energy levels ∈ σₚ(H)                       │\n  │                                                                     │\n  │  CONTINUOUS SPECTRUM σ_c(T): (T-λI) injective but not surjective    │\n  │  and range is dense. No eigenvector exists, but \"approximate        │\n  │  eigenvectors\" exist: ‖Txₙ - λxₙ‖→0 with ‖xₙ‖=1.                    │\n  │  Example: free particle momentum p̂ on L²(ℝ)                         │\n  │  \"Eigenfunctions\" e^(ikx) are not in L² — they're distributions.    │\n  │  Scattering states, continuous spectrum = physical continuum.       │\n  │                                                                     │\n  │  RESIDUAL SPECTRUM σ_r(T): (T-λI) injective, range not dense.       │\n  │  Doesn't occur for self-adjoint operators — purely a curiosity      │\n  │  for asymmetric operators.                                          │\n  └─────────────────────────────────────────────────────────────────────┘\n\n  SPECTRAL THEOREM FOR SELF-ADJOINT OPERATORS (the rigorous QM foundation):\n  If T is self-adjoint (T = T†, with proper domain), then:\n\n  T = ∫ λ dE(λ)    (spectral integral — the continuous analog of Σ λᵢ Pᵢ)\n\n  where E(λ) is the SPECTRAL MEASURE (projection-valued measure).\n  ├── For pure point spectrum: E(λ) = Σ_{λᵢ≤λ} |ψᵢ⟩⟨ψᵢ| — reduces to §5\n  ├── For continuous spectrum: E(λ) is a projection onto {Hψ ≤ λ states}\n  └── QM: ⟨ψ|E(λ)|ψ⟩ = probability that measurement gives value ≤ λ\n\n  COMPACT OPERATORS (best-behaved infinite-dim case):\n  T compact ↔ T maps bounded sets to precompact sets.\n  Spectral theorem for compact self-adjoint operators:\n  ├── Spectrum = {0} ∪ {discrete eigenvalues accumulating only at 0}\n  ├── Eigenvectors form an orthonormal basis for (ker T)⊥\n  └── Hilbert-Schmidt operators (integral operators ∫k(x,y)f(y)dy with ∫∫|k|²<∞)\n      are compact: this is why Sturm-Liouville problems have discrete spectra.\n\n  PHYSICS SUMMARY:\n  Discrete energy levels (bound states)   ↔  point spectrum\n  Continuous energy levels (scattering)   ↔  continuous spectrum\n  Energy not measured exactly possible    ↔  spectral measure E(λ)",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-46",
+      "kind": "chart_like",
+      "line": 831,
+      "heading_context": "## 13. Spectral Theory in Infinite Dimensions",
+      "confidence": "candidate",
+      "text": "### 11.5 Randomized Linear Algebra",
+      "notes": [
+        "detected from bar/chart glyph density with numeric labels"
+      ]
+    },
+    {
+      "id": "block-47",
+      "kind": "ascii_table_candidate",
+      "line": 833,
+      "heading_context": "### 11.5 Randomized Linear Algebra",
+      "confidence": "candidate",
+      "text": "  PROBLEM: Exact SVD of an m×n matrix costs O(mn·min(m,n)) FLOPs.\n  For n = 10⁶ (large embeddings, genomics, recommender systems): infeasible.\n  Randomized algorithms compute a rank-k approximation in O(mn log k + k²(m+n)).\n\n  JOHNSON-LINDENSTRAUSS LEMMA (the theoretical foundation):\n  For any set of N points in ℝᵈ and ε ∈ (0,1):\n  ∃ linear map f: ℝᵈ → ℝᵏ  with  k = O(log N / ε²)  such that:\n  (1-ε)‖x-y‖² ≤ ‖f(x)-f(y)‖² ≤ (1+ε)‖x-y‖²\n\n  A RANDOM Gaussian matrix satisfies this with high probability.\n  Consequence: distances are preserved under random projection into far\n  lower dimensions. k ≈ 20·log N suffices — independent of d!\n  This is the mathematical justification for random projections in ML.\n\n  RANDOMIZED SVD (Halko-Martinsson-Tropp 2011):\n  Goal: compute rank-k approximation Aₖ = UₖΣₖVₖᵀ.\n\n  Algorithm:\n  1. Draw Gaussian random matrix Ω ∈ M_{n×(k+p)}  (p = oversampling, e.g. 10)\n  2. Form Y = AΩ  (a \"sketch\" of the column space)\n  3. Compute Q via QR: Y = QR  (Q ∈ M_{m×(k+p)}, orthonormal cols)\n  4. Project: B = QᵀA  (B ∈ M_{(k+p)×n}, much smaller)\n  5. SVD of B: B = ŨΣVᵀ  (cheap — small matrix)\n  6. Recover: U = QŨ\n\n  ├── Error: ‖A - Aₖ‖ ≈ σₖ₊₁ (near-optimal, equals Eckart-Young bound)\n  ├── Two passes through A are enough for most applications\n  ├── Parallelizes naturally (AΩ = matrix-matrix multiply → Level 3 BLAS)\n  └── This is what sklearn.decomposition.TruncatedSVD uses internally\n\n  SKETCHING — the general framework:\n  Replace large Ax = b with SAx = Sb where S ∈ M_{k×m} is a random matrix.\n  ├── Gaussian sketches: S_{ij} ~ N(0,1/k) — JL guarantees preserve geometry\n  ├── CountSketch: S has exactly one nonzero ±1 per column — O(nnz(A)) time\n  ├── SRHT (subsampled randomized Hadamard transform): O(n log n) — FFT-based\n  └── For overdetermined least squares: sketch reduces m×n to k×n (k ≈ 4n)\n      Approximate solution within (1+ε) of optimal with k = O(n/ε²).\n\n  IN PRACTICE:\n  sklearn.utils.extmath.randomized_svd  — Halko-Martinsson-Tropp\n  torch.svd_lowrank(A, q=k)            — randomized SVD\n  scipy.sparse.linalg.svds             — Lanczos/Arnoldi for sparse",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    }
+  ]
+}

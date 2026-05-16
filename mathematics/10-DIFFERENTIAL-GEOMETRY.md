@@ -1,3 +1,22 @@
+---
+maxim_schema: maxim.frontmatter.v1
+id: maxim:mathematics:differential-geometry
+kind: guide
+module: mathematics
+section: mathematics
+title: 10 - Differential Geometry: Curvature, Geodesics, and the Shape of Spacetime
+status: source-custody
+source_custody: partial
+current_path: mathematics/10-DIFFERENTIAL-GEOMETRY.md
+canonical_path: mathematics/10-DIFFERENTIAL-GEOMETRY.md
+backsource_ids: [proof-backfill:mathematics:10-differential-geometry, git-history:mathematics:10-differential-geometry]
+concepts: [differential, geometry]
+root_concepts: [differential, geometry]
+index_roles: [guide, root-concept]
+remap_from: []
+remap_to: []
+updated: null
+---
 # 10 — Differential Geometry: Curvature, Geodesics, and the Shape of Spacetime
 
 ```

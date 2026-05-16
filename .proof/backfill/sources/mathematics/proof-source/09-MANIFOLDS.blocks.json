@@ -1,0 +1,424 @@
+{
+  "schema_version": "1",
+  "source_markdown": "mathematics\\09-MANIFOLDS.md",
+  "blocks": [
+    {
+      "id": "block-1",
+      "kind": "ascii_table_candidate",
+      "line": 22,
+      "heading_context": "# 09 — Manifolds, Differential Forms, and the General Stokes' Theorem",
+      "confidence": "candidate",
+      "text": "THE LANDSCAPE\n═══════════════════════════════════════════════════════════════════════════════\n\n  MANIFOLDS                  DIFFERENTIAL FORMS           STOKES' THEOREM\n  ┌──────────────────────┐   ┌─────────────────────────┐  ┌──────────────────┐\n  │ locally ≅ ℝⁿ         │   │ k-forms: antisymmetric  │  │ ∫_M dω = ∫_∂M ω  │\n  │ charts + atlas       │ → │ wedge product ∧         │→ │                  │\n  │ smooth transitions   │   │ exterior derivative d   │  │ unifies ALL the  │\n  │ Sⁿ, tori, Lie groups │   │ d²= 0                   │  │ integral theorems│\n  └──────────────────────┘   └─────────────────────────┘  └──────────────────┘\n\n  THE CHAIN:  Ω⁰ →^d Ω¹ →^d Ω² →^d ··· →^d Ωⁿ →^d 0\n\n  k-FORMS IN ℝ³:\n  ┌──────────┬─────────────────────────────────────────────────────────────┐\n  │ 0-form   │ scalar field f(x,y,z)                                       │\n  │ 1-form   │ covector field: α = P dx + Q dy + R dz                      │\n  │ 2-form   │ \"flux form\": ω = A dy∧dz + B dz∧dx + C dx∧dy                │\n  │ 3-form   │ \"volume form\": f dx∧dy∧dz                                   │\n  └──────────┴─────────────────────────────────────────────────────────────┘\n\n  PAYOFF: Maxwell's equations compress to:  dF = 0   and   d★F = J\n          Four equations → two lines.\n═══════════════════════════════════════════════════════════════════════════════",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-2",
+      "kind": "chart_like",
+      "line": 53,
+      "heading_context": "## 1. Manifolds",
+      "confidence": "candidate",
+      "text": "### 1.1 The Definition",
+      "notes": [
+        "detected from bar/chart glyph density with numeric labels"
+      ]
+    },
+    {
+      "id": "block-3",
+      "kind": "diagram_like",
+      "line": 57,
+      "heading_context": "### 1.1 The Definition",
+      "confidence": "candidate",
+      "text": "  Formal definition:\n  For every point p ∈ M, there exists:\n  ├── An open set U ⊆ M containing p (a \"neighborhood\")\n  └── A homeomorphism φ: U → V ⊆ ℝⁿ (a \"coordinate chart\")\n\n  The pair (U, φ) is called a chart.\n  An atlas is a collection of charts covering all of M.\n\n  SMOOTH MANIFOLD: all transition maps φⱼ ∘ φᵢ⁻¹: ℝⁿ → ℝⁿ are C∞\n  (smooth compatibility between overlapping charts)\n\n  EXAMPLES:\n  ┌──────────────────────────────────────────────────────────────────────┐\n  │  ℝⁿ          dim n  trivial (one chart covers everything)            │\n  │  S¹ (circle) dim 1  need ≥2 charts (no single chart covers all)      │\n  │  S² (sphere) dim 2  north/south hemisphere charts                    │\n  │  Torus T²    dim 2  product of two circles                           │\n  │  SO(3)       dim 3  rotation matrices (Lie group)                    │\n  │  SU(2)       dim 3  unitary 2×2 matrices, det=1 (≅ S³)               │\n  │  Spacetime   dim 4  Lorentzian manifold (pseudo-Riemannian)          │\n  │  Calabi-Yau  dim 6  compact complex 3-manifolds (string theory)      │\n  └──────────────────────────────────────────────────────────────────────┘",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-4",
+      "kind": "chart_like",
+      "line": 82,
+      "heading_context": "### 1.1 The Definition",
+      "confidence": "candidate",
+      "text": "### 1.2 Why Manifolds? The Ant on a Surface",
+      "notes": [
+        "detected from bar/chart glyph density with numeric labels"
+      ]
+    },
+    {
+      "id": "block-5",
+      "kind": "chart_like",
+      "line": 100,
+      "heading_context": "## 2. Tangent Spaces",
+      "confidence": "candidate",
+      "text": "### 2.1 Tangent Vectors",
+      "notes": [
+        "detected from bar/chart glyph density with numeric labels"
+      ]
+    },
+    {
+      "id": "block-6",
+      "kind": "diagram_like",
+      "line": 102,
+      "heading_context": "### 2.1 Tangent Vectors",
+      "confidence": "candidate",
+      "text": "  At each point p ∈ M, there is a tangent space TₚM — the space of\n  \"directions you can move\" at p.\n\n  DEFINITION VIA CURVES:\n  A tangent vector at p = equivalence class of curves γ: (-ε,ε) → M\n  with γ(0) = p, where two curves are equivalent if they have the\n  same velocity in every coordinate chart.\n\n  In local coordinates (x¹,...,xⁿ): tangent vectors are\n  v = vⁱ ∂/∂xⁱ    (Einstein summation: sum over repeated indices)\n\n  Basis for TₚM: {∂/∂x¹, ∂/∂x², ..., ∂/∂xⁿ}    (partial derivatives!)\n\n  Why partial derivatives? A tangent vector acts on functions:\n  v[f] = vⁱ ∂f/∂xⁱ   (directional derivative)\n  This is the \"derivation\" definition: tangent vector = derivation on C∞(M)",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-7",
+      "kind": "chart_like",
+      "line": 121,
+      "heading_context": "### 2.1 Tangent Vectors",
+      "confidence": "candidate",
+      "text": "### 2.2 Tangent Bundle and Pushforward",
+      "notes": [
+        "detected from bar/chart glyph density with numeric labels"
+      ]
+    },
+    {
+      "id": "block-8",
+      "kind": "diagram_like",
+      "line": 123,
+      "heading_context": "### 2.2 Tangent Bundle and Pushforward",
+      "confidence": "candidate",
+      "text": "  TANGENT BUNDLE: TM = ∪_{p∈M} TₚM   (all tangent spaces together)\n  TM is itself a 2n-dimensional manifold.\n\n  PUSHFORWARD (differential) of a smooth map f: M → N:\n  f*: TₚM → T_{f(p)}N\n  If γ is a curve through p, f*(v) = (f∘γ)'(0) (velocity of image curve)\n\n  In coordinates: (f*)ᵢʲ = ∂fʲ/∂xⁱ   (the Jacobian matrix!)\n\n  The pushforward is the rigorous version of \"the Jacobian.\"",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-9",
+      "kind": "chart_like",
+      "line": 140,
+      "heading_context": "## 3. Cotangent Space and 1-Forms",
+      "confidence": "candidate",
+      "text": "### 3.1 Covectors",
+      "notes": [
+        "detected from bar/chart glyph density with numeric labels"
+      ]
+    },
+    {
+      "id": "block-10",
+      "kind": "diagram_like",
+      "line": 142,
+      "heading_context": "### 3.1 Covectors",
+      "confidence": "candidate",
+      "text": "  COTANGENT SPACE T*ₚM = dual of TₚM = {linear maps TₚM → ℝ}\n\n  Basis for T*ₚM: {dx¹, dx², ..., dxⁿ}  dual to {∂/∂x¹,...,∂/∂xⁿ}\n  meaning: dxⁱ(∂/∂xʲ) = δⁱⱼ   (Kronecker delta)\n\n  A covector at p: α = αᵢ dxⁱ  (acts on tangent vectors by α(v) = αᵢvⁱ)\n\n  DIFFERENTIAL OF A FUNCTION:\n  df = (∂f/∂xⁱ) dxⁱ\n  (df)(v) = v[f] = vⁱ ∂f/∂xⁱ   (df eats a tangent vector, spits out a number)\n\n  Connection to gradient:\n  In ℝⁿ with Euclidean metric, df corresponds to ∇f.\n  But df is more fundamental — it's defined without a metric.",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-11",
+      "kind": "chart_like",
+      "line": 159,
+      "heading_context": "### 3.1 Covectors",
+      "confidence": "candidate",
+      "text": "### 3.2 1-Forms and Pullback",
+      "notes": [
+        "detected from bar/chart glyph density with numeric labels"
+      ]
+    },
+    {
+      "id": "block-12",
+      "kind": "diagram_like",
+      "line": 161,
+      "heading_context": "### 3.2 1-Forms and Pullback",
+      "confidence": "candidate",
+      "text": "  A 1-FORM (or covector field) α assigns a covector αₚ ∈ T*ₚM to each p.\n  α = αᵢ(x) dxⁱ  (components are functions)\n\n  PULLBACK of f: M → N along a 1-form β on N:\n  f*β is a 1-form on M defined by (f*β)ₚ(v) = β_{f(p)}(f*v)\n\n  In coordinates: f*β = (βⱼ ∘ f)(∂fʲ/∂xⁱ) dxⁱ  (chain rule!)\n\n  Pullback is contravariant: goes the opposite direction from f.\n  Pushforward (f*): M → N (same direction)\n  Pullback (f*): forms on N → forms on M (opposite direction)",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-13",
+      "kind": "chart_like",
+      "line": 179,
+      "heading_context": "## 4. Differential Forms",
+      "confidence": "candidate",
+      "text": "### 4.1 k-Forms",
+      "notes": [
+        "detected from bar/chart glyph density with numeric labels"
+      ]
+    },
+    {
+      "id": "block-14",
+      "kind": "ascii_table_candidate",
+      "line": 181,
+      "heading_context": "### 4.1 k-Forms",
+      "confidence": "candidate",
+      "text": "  A k-FORM ω at p is a multilinear, totally antisymmetric map:\n  ωₚ: TₚM × TₚM × ... × TₚM (k copies) → ℝ\n\n  \"Antisymmetric\" means swapping any two arguments flips the sign:\n  ω(v₁,...,vᵢ,...,vⱼ,...,vₖ) = -ω(v₁,...,vⱼ,...,vᵢ,...,vₖ)\n\n  BASIS k-FORMS: dxⁱ¹ ∧ dxⁱ² ∧ ... ∧ dxⁱᵏ   (i₁ < i₂ < ... < iₖ)\n\n  Space of k-forms on ℝⁿ has dimension C(n,k) = n!/(k!(n-k)!)\n\n  ON ℝ³:\n  0-forms: f                                       (1 basis element)\n  1-forms: P dx + Q dy + R dz                      (3 basis elements)\n  2-forms: A dy∧dz + B dz∧dx + C dx∧dy            (3 basis elements)\n  3-forms: f dx∧dy∧dz                              (1 basis element)\n\n  Note the symmetry: C(3,0)=1, C(3,1)=3, C(3,2)=3, C(3,3)=1",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-15",
+      "kind": "chart_like",
+      "line": 201,
+      "heading_context": "### 4.1 k-Forms",
+      "confidence": "candidate",
+      "text": "### 4.2 Wedge Product",
+      "notes": [
+        "detected from bar/chart glyph density with numeric labels"
+      ]
+    },
+    {
+      "id": "block-16",
+      "kind": "diagram_like",
+      "line": 203,
+      "heading_context": "### 4.2 Wedge Product",
+      "confidence": "candidate",
+      "text": "  WEDGE PRODUCT ∧: Ωᵏ(M) × Ωˡ(M) → Ωᵏ⁺ˡ(M)\n\n  Properties:\n  ├── Bilinear\n  ├── GRADED ANTICOMMUTATIVE: α∧β = (-1)^(kl) β∧α\n  │   So for 1-forms: α∧β = -β∧α\n  │   And: α∧α = 0 for any odd-degree form\n  └── Associative: (α∧β)∧γ = α∧(β∧γ)\n\n  EXAMPLES:\n  dx∧dy = -dy∧dx        (anticommutative)\n  dx∧dx = 0             (any form wedged with itself)\n  (dx∧dy)∧dz = dx∧(dy∧dz) = dx∧dy∧dz   (associative)\n\n  2-FORM AS SIGNED AREA:\n  (dx∧dy)(u,v) = det[u₁ u₂; v₁ v₂] = u₁v₂ - u₂v₁\n  = signed area of parallelogram spanned by u and v in xy-plane",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-17",
+      "kind": "chart_like",
+      "line": 227,
+      "heading_context": "## 5. Exterior Derivative",
+      "confidence": "candidate",
+      "text": "### 5.1 The Definition",
+      "notes": [
+        "detected from bar/chart glyph density with numeric labels"
+      ]
+    },
+    {
+      "id": "block-18",
+      "kind": "diagram_like",
+      "line": 229,
+      "heading_context": "### 5.1 The Definition",
+      "confidence": "candidate",
+      "text": "  EXTERIOR DERIVATIVE d: Ωᵏ(M) → Ωᵏ⁺¹(M)\n\n  For a 0-form (function) f:\n  df = (∂f/∂xⁱ) dxⁱ   (the differential — same as before)\n\n  For a k-form ω = ωᵢ₁...ᵢₖ dxⁱ¹∧...∧dxⁱᵏ:\n  dω = (∂ωᵢ₁...ᵢₖ/∂xʲ) dxʲ∧dxⁱ¹∧...∧dxⁱᵏ\n  (differentiate each component, wedge with dxʲ, sum over j)\n\n  THE FUNDAMENTAL PROPERTIES:\n  1. d(α+β) = dα + dβ            (linearity)\n  2. d(α∧β) = dα∧β + (-1)^k α∧dβ (Leibniz/graded product rule)\n  3. d² = 0                       (d∘d = 0 — the key identity!)\n  4. d commutes with pullback: d(f*ω) = f*(dω)",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-19",
+      "kind": "chart_like",
+      "line": 246,
+      "heading_context": "### 5.1 The Definition",
+      "confidence": "candidate",
+      "text": "### 5.2 d in ℝ³ — Recovering Gradient, Curl, Divergence",
+      "notes": [
+        "detected from bar/chart glyph density with numeric labels"
+      ]
+    },
+    {
+      "id": "block-20",
+      "kind": "ascii_table_candidate",
+      "line": 248,
+      "heading_context": "### 5.2 d in ℝ³ — Recovering Gradient, Curl, Divergence",
+      "confidence": "candidate",
+      "text": "  0-FORM → 1-FORM: d applied to function f\n  df = (∂f/∂x)dx + (∂f/∂y)dy + (∂f/∂z)dz\n  ↔ gradient  ∇f = (∂f/∂x, ∂f/∂y, ∂f/∂z)\n\n  1-FORM → 2-FORM: d applied to α = P dx + Q dy + R dz\n  dα = (∂R/∂y - ∂Q/∂z)dy∧dz + (∂P/∂z - ∂R/∂x)dz∧dx + (∂Q/∂x - ∂P/∂y)dx∧dy\n  ↔ curl  ∇×(P,Q,R)\n\n  2-FORM → 3-FORM: d applied to ω = A dy∧dz + B dz∧dx + C dx∧dy\n  dω = (∂A/∂x + ∂B/∂y + ∂C/∂z) dx∧dy∧dz\n  ↔ divergence  ∇·(A,B,C)\n\n  THE CHAIN:\n  Ω⁰ →^(grad) Ω¹ →^(curl) Ω² →^(div) Ω³ →^d 0\n\n  d² = 0 ENCODES:\n  ├── curl(grad f) = 0       (d(df) = 0: gradient has no curl)\n  └── div(curl F) = 0        (d(dα) = 0: curl has no divergence)\n  These are identities from 01-VECTOR-CALC.md — they follow from d²=0!",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-21",
+      "kind": "chart_like",
+      "line": 274,
+      "heading_context": "## 6. Integration on Manifolds",
+      "confidence": "candidate",
+      "text": "### 6.1 Oriented Manifolds",
+      "notes": [
+        "detected from bar/chart glyph density with numeric labels"
+      ]
+    },
+    {
+      "id": "block-22",
+      "kind": "chart_like",
+      "line": 289,
+      "heading_context": "### 6.1 Oriented Manifolds",
+      "confidence": "candidate",
+      "text": "### 6.2 Integrating k-Forms",
+      "notes": [
+        "detected from bar/chart glyph density with numeric labels"
+      ]
+    },
+    {
+      "id": "block-23",
+      "kind": "diagram_like",
+      "line": 291,
+      "heading_context": "### 6.2 Integrating k-Forms",
+      "confidence": "candidate",
+      "text": "  A k-form integrates naturally over a k-dimensional submanifold.\n\n  1-FORM over a curve γ: [a,b] → M:\n  ∫_γ α = ∫ₐᵇ α_{γ(t)}(γ'(t)) dt\n  = line integral (work done by a vector field along γ)\n\n  2-FORM over a surface S parameterized by φ: D → M:\n  ∫_S ω = ∫_D ω_{φ(u,v)}(∂φ/∂u, ∂φ/∂v) du dv\n  = surface integral (flux through surface)\n\n  n-FORM over n-manifold:\n  ∫_M f dx¹∧...∧dxⁿ = ∫ f(x) dx¹...dxⁿ  (ordinary multiple integral)\n\n  KEY PROPERTY: the integral is coordinate-independent.\n  (Changing coordinates changes the form components AND the Jacobian in exactly\n  compensating ways — built into the wedge product structure.)",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-24",
+      "kind": "diagram_like",
+      "line": 314,
+      "heading_context": "## 7. The Generalized Stokes' Theorem",
+      "confidence": "candidate",
+      "text": "  ┌─────────────────────────────────────────────────────────────────────┐\n  │                                                                     │\n  │   ∫_M  dω  =  ∫_∂M  ω                                               │\n  │                                                                     │\n  │   M = compact oriented manifold with boundary ∂M                    │\n  │   ω = smooth (k-1)-form on M                                        │\n  └─────────────────────────────────────────────────────────────────────┘\n\n  This single equation IS all the integral theorems:\n\n  k=1, M = interval [a,b] in ℝ:\n  ∫_{[a,b]} df = ∫_∂[a,b] f = f(b) - f(a)\n  ↓\n  FUNDAMENTAL THEOREM OF CALCULUS\n\n  k=2, M = region D in ℝ²:\n  ∫_D d(P dx + Q dy) = ∫_∂D P dx + Q dy\n  ↓\n  GREEN'S THEOREM\n\n  k=2, M = surface S in ℝ³, ∂M = bounding curve C:\n  ∫_S d(P dx+Q dy+R dz) = ∫_C P dx+Q dy+R dz\n  (d of a 1-form = curl 2-form)\n  ↓\n  CLASSICAL STOKES' THEOREM  ∫_S (∇×F)·dA = ∮_C F·dr\n\n  k=3, M = volume V, ∂M = closed surface S:\n  ∫_V d(A dy∧dz + B dz∧dx + C dx∧dy) = ∫_S A dy∧dz + B dz∧dx + C dx∧dy\n  (d of a 2-form = divergence 3-form)\n  ↓\n  DIVERGENCE THEOREM  ∫_V (∇·F) dV = ∯_S F·dA",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-25",
+      "kind": "chart_like",
+      "line": 352,
+      "heading_context": "## 8. Maxwell's Equations in Differential Form Language",
+      "confidence": "candidate",
+      "text": "### 8.1 The Faraday 2-Form",
+      "notes": [
+        "detected from bar/chart glyph density with numeric labels"
+      ]
+    },
+    {
+      "id": "block-26",
+      "kind": "chart_like",
+      "line": 370,
+      "heading_context": "### 8.1 The Faraday 2-Form",
+      "confidence": "candidate",
+      "text": "### 8.2 Maxwell's Equations as Two Lines",
+      "notes": [
+        "detected from bar/chart glyph density with numeric labels"
+      ]
+    },
+    {
+      "id": "block-27",
+      "kind": "diagram_like",
+      "line": 372,
+      "heading_context": "### 8.2 Maxwell's Equations as Two Lines",
+      "confidence": "candidate",
+      "text": "  dF = 0        ←→  { ∇·B = 0            (Gauss's law for magnetism)\n                       ∇×E + ∂B/∂t = 0  (Faraday's law)\n\n  d★F = J       ←→  { ∇·E = ρ/ε₀         (Gauss's law for electricity)\n                       ∇×B - μ₀ε₀∂E/∂t = μ₀J (Ampere-Maxwell)\n\n  where:\n  ★ = Hodge star operator (maps k-forms to (n-k)-forms using the metric)\n  J = 4-current 3-form  J = J_μ εμνρσ dxν∧dxρ∧dxσ\n\n  WHY dF=0 IS AUTOMATIC:\n  If we write F = dA for some 1-form A (the 4-potential):\n  A = φ dt - A_x dx - A_y dy - A_z dz\n  Then dF = d(dA) = d²A = 0 automatically (d²=0!)\n\n  GAUGE INVARIANCE:\n  A → A + dχ for any function χ leaves F = dA unchanged:\n  F → d(A+dχ) = dA + d²χ = dA = F ✓\n  Gauge invariance = the freedom in choosing A is d(anything).\n  This is the U(1) fiber bundle connection freedom from 08-TOPOLOGY.md!",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-28",
+      "kind": "chart_like",
+      "line": 399,
+      "heading_context": "## 9. de Rham Cohomology",
+      "confidence": "candidate",
+      "text": "### 9.1 Closed and Exact Forms",
+      "notes": [
+        "detected from bar/chart glyph density with numeric labels"
+      ]
+    },
+    {
+      "id": "block-29",
+      "kind": "diagram_like",
+      "line": 401,
+      "heading_context": "### 9.1 Closed and Exact Forms",
+      "confidence": "candidate",
+      "text": "  CLOSED k-form:  dω = 0   (ω is in the kernel of d: Ωᵏ → Ωᵏ⁺¹)\n  EXACT k-form:   ω = dα for some (k-1)-form α  (ω is in the image of d)\n\n  Since d²=0: every exact form is closed.\n  Exact ⊆ Closed.\n  The question: is every closed form exact?\n\n  Locally YES (Poincaré Lemma):\n  On any contractible open set, every closed form is exact.\n  Explicitly: if dω=0 on a ball, then ω=dα for some α on that ball.\n\n  Globally NO (in general):\n  On a circle S¹: dθ is closed but NOT exact.\n  (If dθ = df, then ∮_{S¹} dθ = ∮ df = f(2π)-f(0) = 0,\n   but ∮_{S¹} dθ = 2π ≠ 0.)\n  The failure to be exact detects the hole in S¹.",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-30",
+      "kind": "chart_like",
+      "line": 420,
+      "heading_context": "### 9.1 Closed and Exact Forms",
+      "confidence": "candidate",
+      "text": "### 9.2 de Rham Cohomology Groups",
+      "notes": [
+        "detected from bar/chart glyph density with numeric labels"
+      ]
+    },
+    {
+      "id": "block-31",
+      "kind": "diagram_like",
+      "line": 422,
+      "heading_context": "### 9.2 de Rham Cohomology Groups",
+      "confidence": "candidate",
+      "text": "  H^k_dR(M) = (closed k-forms) / (exact k-forms)\n             = ker(d: Ωᵏ→Ωᵏ⁺¹) / im(d: Ωᵏ⁻¹→Ωᵏ)\n\n  Elements of H^k_dR(M) are cohomology classes [ω] = {ω + dα | α ∈ Ωᵏ⁻¹}\n\n  EXAMPLES:\n  ┌──────────────────────────────────────────────────────────────────────┐\n  │  Space         │  H⁰      H¹      H²      H³    │  Betti numbers     │\n  ├──────────────────────────────────────────────────────────────────────┤\n  │  ℝⁿ            │  ℝ       0       0       0     │  1,0,0,0         │\n  │  S¹ (circle)   │  ℝ       ℝ       0       0     │  1,1,0,0         │\n  │  S² (sphere)   │  ℝ       0       ℝ       0     │  1,0,1,0         │\n  │  Torus T²      │  ℝ       ℝ²      ℝ       0     │  1,2,1,0         │\n  │  S³            │  ℝ       0       0       ℝ     │  1,0,0,1         │\n  └──────────────────────────────────────────────────────────────────────┘\n\n  DE RHAM'S THEOREM: H^k_dR(M) ≅ H^k_sing(M; ℝ)\n  de Rham cohomology (defined by smooth forms) =\n  singular cohomology (defined by topological cycles)\n\n  PROFOUND: smooth differential calculus knows about topology.\n  The Chern classes from 08-TOPOLOGY.md live in H^even_dR(M).",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-32",
+      "kind": "diagram_like",
+      "line": 449,
+      "heading_context": "## 10. Manifold Hypothesis and ML",
+      "confidence": "candidate",
+      "text": "  THE MANIFOLD HYPOTHESIS:\n  High-dimensional data (images ∈ ℝ^(64×64×3) ≈ ℝ^12288, text ∈ ℝ^768, etc.)\n  concentrates near a low-dimensional manifold M ⊂ ℝᵈ.\n\n  Evidence:\n  ├── Intrinsic dimensionality of ImageNet: ~40 (not 12288)\n  ├── Smooth interpolation in latent space of VAEs/GANs — geodesics work\n  └── Random perturbations off the manifold degrade representations sharply\n\n  GEODESIC VS EUCLIDEAN DISTANCE:\n  Euclidean distance in ℝᵈ: ‖x - y‖₂  (straight line through ambient space)\n  Geodesic distance on M:    inf_γ ∫ ‖γ'(t)‖ dt  (shortest path along manifold)\n\n  These diverge when M is highly curved or has bottlenecks.\n  Example: two points on a ring — Euclidean distance cuts through interior,\n  geodesic distance goes around the ring.\n\n  Isomap (Tenenbaum 2000): build k-nearest-neighbor graph, approximate\n  geodesic distances with graph shortest paths, then apply MDS in geodesic\n  distance. Recovers manifold structure invisible to PCA.\n\n  RIEMANNIAN OPTIMIZATION ON MATRIX MANIFOLDS:\n  Many ML constraints define manifolds; optimization must stay on them.\n\n  ┌─────────────────────────────────────────────────────────────────────┐\n  │  STIEFEL MANIFOLD St(n,k):                                          │\n  │  St(n,k) = {X ∈ M_{n×k} | XᵀX = Iₖ}  (matrices with orth. cols)     │\n  │  Appears in: orthogonal weight matrices (orthogonal RNNs),          │\n  │  constrained PCA, CCA (canonical correlation analysis).             │\n  │                                                                     │\n  │  GRASSMANN MANIFOLD Gr(n,k):                                        │\n  │  Gr(n,k) = St(n,k) / O(k)  (k-dimensional subspaces of ℝⁿ)          │\n  │  Appears in: subspace tracking, dimensionality reduction,           │\n  │  multi-view learning (find common subspace between views).          │\n  │                                                                     │\n  │  SPD MANIFOLD Sym⁺(n):                                              │\n  │  {A ∈ M_{n×n} | A = Aᵀ, A ≻ 0}  (symmetric positive definite)       │\n  │  Appears in: covariance matrices, diffusion tensors (DTI in MRI),   │\n  │  metric learning, Gaussian processes.                               │\n  └─────────────────────────────────────────────────────────────────────┘\n\n  RIEMANNIAN GRADIENT DESCENT:\n  Euclidean gradient step:     x_{t+1} = x_t - α ∇f(x_t)\n  Riemannian gradient step:    x_{t+1} = Retract(x_t, -α grad_M f(x_t))\n\n  grad_M f(x) = Proj_{T_x M}(∇f(x))  (project Euclidean gradient onto tangent space)\n  Retract: map tangent vector back to manifold (e.g., QR retraction on Stiefel)\n\n  For Stiefel: use matrix exponential (exact) or QR retraction (approximate).\n  For SPD: exponential map has a closed form: Exp_A(V) = A^{1/2} exp(A^{-1/2}VA^{-1/2}) A^{1/2}\n\n  Libraries: Geoopt (PyTorch), McTorch, Manopt (MATLAB/Python).\n\n  DIFFUSION MAPS — Laplace-Beltrami from data (see §4.5 of 07-DIFFEQ):\n  The graph Laplacian eigenvectors converge to eigenfunctions of ∆_M as\n  sample size n → ∞ and bandwidth ε → 0 (jointly). This is the\n  mathematical justification for spectral clustering and diffusion maps.\n\n  FISHER INFORMATION METRIC (natural gradient):\n  For a statistical model p(x; θ) parameterized by θ ∈ ℝᵈ:\n  Fisher information: I(θ)_{ij} = E[∂_i log p · ∂_j log p]\n  This is a Riemannian metric on the manifold of probability distributions.\n  Natural gradient descent: θ_{t+1} = θ_t - α I(θ)⁻¹ ∇L(θ)\n  Preconditions by Fisher inverse → K-FAC and second-order optimization methods.\n  The manifold of distributions is the statistical manifold (information geometry).",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-33",
+      "kind": "chart_like",
+      "line": 517,
+      "heading_context": "## 10. Manifold Hypothesis and ML",
+      "confidence": "candidate",
+      "text": "### 1.3 Lorentzian Manifolds and Spacetime",
+      "notes": [
+        "detected from bar/chart glyph density with numeric labels"
+      ]
+    },
+    {
+      "id": "block-34",
+      "kind": "ascii_table_candidate",
+      "line": 519,
+      "heading_context": "### 1.3 Lorentzian Manifolds and Spacetime",
+      "confidence": "candidate",
+      "text": "  PSEUDO-RIEMANNIAN MANIFOLD: metric gᵢⱼ is non-degenerate but NOT positive definite.\n  (Some nonzero vectors v have g(v,v) = 0 or g(v,v) < 0.)\n\n  LORENTZIAN MANIFOLD: signature (1,3) or (−,+,+,+).\n  At each point p, the tangent space Tₚ M has inner product:\n  g(v,v) = -v₀² + v₁² + v₂² + v₃²   (with c=1 units)\n\n  MINKOWSKI SPACE (flat Lorentzian):\n  M = ℝ⁴ with metric ds² = -c²dt² + dx² + dy² + dz²\n\n  CAUSAL STRUCTURE — the key new feature vs Riemannian geometry:\n  For a vector v ∈ Tₚ M:\n  ┌────────────────────────────────────────────────────────────────────┐\n  │  g(v,v) < 0:  TIMELIKE  — within the light cone, causal influence  │\n  │  g(v,v) = 0:  NULL / LIGHTLIKE — on the light cone                 │\n  │  g(v,v) > 0:  SPACELIKE — outside light cone, spacelike separated  │\n  │                                                                    │\n  │         future                                                     │\n  │           │                                                        │\n  │    null   │   null                                                 │\n  │     ╲     │     ╱      light cone at p                             │\n  │  ────────────────── spacelike directions                           │\n  │     ╱     │     ╲                                                  │\n  │           │                                                        │\n  │         past                                                       │\n  └────────────────────────────────────────────────────────────────────┘\n\n  CURVES in spacetime:\n  Timelike curve: γ with g(γ',γ') < 0 everywhere — worldline of massive particle\n  Null curve: g(γ',γ') = 0 — worldline of a photon (light ray)\n  Proper time: τ = ∫ √(-g(γ',γ')) dt  (measured by clock on worldline)\n\n  GEODESICS in Lorentzian geometry:\n  Timelike geodesics MAXIMIZE proper time (twin paradox — the straight worldline\n  in spacetime = maximum aging; curved path = less proper time).\n  This is opposite to Riemannian: geodesics minimize length, but in Lorentzian\n  signature, the causal structure flips the variational problem.\n  Null geodesics: paths of light rays. Zero arc length.\n\n  SCHWARZSCHILD METRIC (exterior of spherical mass M):\n  ds² = -(1 - r_s/r)c²dt² + (1 - r_s/r)⁻¹dr² + r²(dθ² + sin²θ dφ²)\n  r_s = 2GM/c² = Schwarzschild radius\n  At r = r_s: metric coefficient g_tt → 0, g_rr → ∞ (coordinate singularity only)\n  Null geodesics at r = r_s: cannot escape → event horizon.\n\n  ISOMETRIES AND KILLING VECTORS:\n  A Killing vector field K satisfies: ∇_(μ K_ν) = 0 (Killing equation)\n  Each Killing vector → conserved quantity along geodesics (Noether's theorem).\n  Schwarzschild: ∂_t and ∂_φ are Killing → energy and angular momentum conserved.\n\n  → 10-DIFFERENTIAL-GEOMETRY.md develops the Riemann tensor Rᵢⱼₖˡ and\n    Einstein's equations Gμν = (8πG/c⁴) Tμν for the full GR story.",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-35",
+      "kind": "ascii_table_candidate",
+      "line": 576,
+      "heading_context": "## 11. Lie Groups and Lie Algebras",
+      "confidence": "candidate",
+      "text": "  A LIE GROUP G is both a smooth manifold and a group,\n  where multiplication G×G → G and inversion G → G are smooth maps.\n\n  KEY EXAMPLES:\n  ┌────────────────────────────────────────────────────────────────────┐\n  │  GL(n,ℝ): n×n invertible real matrices (open subset of M_{n×n})    │\n  │  SL(n,ℝ): det = 1 (n²-1 dimensional)                               │\n  │  O(n): AᵀA = I, det = ±1  (orthogonal group, dim = n(n-1)/2)       │\n  │  SO(n): det = +1 (special orthogonal = rotations)                  │\n  │  U(n): A†A = I  (unitary group, dim = n² real)                     │\n  │  SU(n): det = 1 (special unitary, dim = n²-1)                      │\n  │  SU(2) ≅ S³: 3-sphere, double-covers SO(3)                         │\n  │  SU(3): gauge group of QCD (strong force, dim=8)                   │\n  │  U(1) ≅ S¹: gauge group of EM                                      │\n  └────────────────────────────────────────────────────────────────────┘\n\n  THE LIE ALGEBRA g = TeG (tangent space at the identity):\n  Captures the infinitesimal structure of G.\n  g is a vector space with a bilinear antisymmetric bracket:\n  [·,·]: g × g → g   satisfying the Jacobi identity [[X,Y],Z]+[[Y,Z],X]+[[Z,X],Y]=0\n\n  For matrix Lie groups: g = {tangent vectors at I} = {d/dt γ(t)|_{t=0}}\n  Lie bracket = matrix commutator: [X,Y] = XY - YX\n\n  EXAMPLES:\n  gl(n,ℝ) = M_{n×n}(ℝ) with [X,Y] = XY - YX    (all n×n matrices)\n  so(n) = {skew-symmetric matrices: X + Xᵀ = 0}  dim = n(n-1)/2\n  su(n) = {skew-Hermitian + traceless: X + X† = 0, tr X = 0}\n  su(2): basis {iσ₁/2, iσ₂/2, iσ₃/2} where σᵢ are Pauli matrices\n         [Jᵢ, Jⱼ] = εᵢⱼₖ Jₖ  ← angular momentum algebra from QM!\n\n  THE EXPONENTIAL MAP exp: g → G:\n  exp(X) = eˣ = I + X + X²/2! + X³/3! + ...  (matrix exponential)\n  ├── exp maps g (Lie algebra) → G (Lie group)\n  ├── For connected G: exp(g) generates G (may not surject for non-compact G)\n  ├── One-parameter subgroup: t ↦ exp(tX) is a group homomorphism ℝ → G\n  └── Geodesic from identity through G (bi-invariant metric)\n\n  CONNECTION TO PHYSICS:\n  Rotation by angle θ about axis n̂:\n  R = exp(θ n̂ · J)  where Jᵢ are the so(3) generators (3×3 skew-sym matrices)\n  Quantum: U = exp(-iθ n̂ · σ/2) ∈ SU(2)  (spinor rotation)\n\n  Baker-Campbell-Hausdorff (BCH):\n  exp(X)exp(Y) = exp(X + Y + ½[X,Y] + 1/12[X,[X,Y]] - 1/12[Y,[X,Y]] + ...)\n  The group commutator to first order = the Lie bracket:\n  exp(X)exp(Y)exp(-X)exp(-Y) = exp([X,Y] + O(X²,Y²,...))\n\n  LIE GROUP ACTIONS AND EQUIVARIANCE (geometric deep learning):\n  A Lie group G acts on a manifold M via φ: G × M → M (smooth action).\n  Examples:\n  ├── SO(3) acts on ℝ³ (3D rotations on Euclidean space)\n  ├── SE(3) = SO(3) ⋉ ℝ³ acts on ℝ³ (rotations + translations)\n  └── Diffeos Diff(M) act on all geometric objects on M (general covariance)\n\n  EQUIVARIANT NETWORK: f(φ_g(x)) = ρ_g(f(x)) for all g ∈ G\n  (output transforms predictably under group action on input)\n  This is the mathematical heart of:\n  ├── CNNs: translation equivariance (G = translation group)\n  ├── E(3)-equivariant networks (SchNet, SE(3)-Transformers): molecule geometry\n  ├── Spherical CNNs: SO(3) equivariance for omnidirectional vision\n  └── Gauge equivariant networks: equivariance under local gauge transformations\n\n  REPRESENTATION THEORY:\n  A representation ρ: G → GL(V) is a group homomorphism to linear maps.\n  Irreducible representations (irreps) of SU(2) = spin-j representations for j=0,½,1,3/2,...\n  These are exactly the angular momentum quantum numbers of QM.\n  Character theory: χ(g) = tr(ρ(g)) — key tool for decomposing representations.",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-36",
+      "kind": "chart_like",
+      "line": 647,
+      "heading_context": "## 11. Lie Groups and Lie Algebras",
+      "confidence": "candidate",
+      "text": "### 12. Discrete Differential Geometry and Computation",
+      "notes": [
+        "detected from bar/chart glyph density with numeric labels"
+      ]
+    },
+    {
+      "id": "block-37",
+      "kind": "diagram_like",
+      "line": 649,
+      "heading_context": "### 12. Discrete Differential Geometry and Computation",
+      "confidence": "candidate",
+      "text": "  DISCRETE EXTERIOR CALCULUS (DEC):\n  Translates the smooth theory of §4–7 into computable matrix operations.\n\n  MESH REPRESENTATION:\n  A triangulated surface is a simplicial complex K = (V, E, F):\n  V = vertices (0-simplices), E = edges (1-simplices), F = triangles (2-simplices)\n\n  HALF-EDGE DATA STRUCTURE:\n  Each undirected edge e splits into two directed half-edges (he, he.twin).\n  Provides O(1) access to: neighboring vertex, face, next/prev half-edge.\n  Used in: libigl, CGAL, OpenMesh.\n\n  BOUNDARY OPERATORS AS SPARSE MATRICES:\n  ∂₁: C₁ → C₀  (edge → its two vertices, with orientation)\n  ∂₂: C₂ → C₁  (triangle → its three edges, with orientation)\n  ∂₃: 0 for surfaces (no 3-cells)\n\n  In matrix form (|V|×|E| and |E|×|F| sparse matrices):\n  ∂₁[v,e] = +1 if e ends at v, -1 if e starts at v, 0 otherwise\n  ∂₂[e,f] = ±1 if e is a boundary edge of f (sign = orientation)\n\n  ∂₁ · ∂₂ = 0  (boundary of boundary is zero — verified in matrix arithmetic!)\n\n  DISCRETE HODGE STAR:\n  Continuous: ★: Ωᵏ → Ωⁿ⁻ᵏ (requires metric)\n  Discrete: diagonal matrix Hₖ encoding primal/dual volume ratios\n  H₀[v,v] = 1/6 × Σ(areas of triangles around v)  (Voronoi area)\n  H₁[e,e] = (cotan(αₑ) + cotan(βₑ))/2            (cotangent weights!)\n  H₂[f,f] = 1/area(f)\n\n  DISCRETE LAPLACE-BELTRAMI (cotangent Laplacian):\n  L = ∂₁ᵀ H₁ ∂₁ = H₀⁻¹ ∂₁ᵀ H₁ ∂₁ (acting on vertex functions)\n  L[i,i] = Σⱼ (cot αᵢⱼ + cot βᵢⱼ)/2\n  L[i,j] = -(cot αᵢⱼ + cot βᵢⱼ)/2  (for adjacent vertices i,j)\n\n  This is the standard mesh Laplacian used in geometry processing.\n  It converges to ∆_M as meshes are refined (Wardetzky et al.).\n\n  APPLICATIONS:\n  ├── Mesh smoothing: ∂x/∂t = λ L x  (heat equation on mesh)\n  ├── Spectral mesh analysis: eigenvectors of L = \"shape DNA\"\n  ├── Harmonic maps: minimize ∫|∇f|² ↔ solve Lf = 0 on interior\n  ├── Geodesic distance: heat method (solve heat eq, extract gradient)\n  └── FEM on curved domains: stiffness matrix is discrete Laplace-Beltrami\n\n  PYTHON ECOSYSTEM:\n  libigl (Python bindings): igl.cotmatrix(V,F) = cotangent Laplacian L\n  PyMesh: mesh processing and Boolean operations\n  trimesh: lightweight mesh loading + vertex/face adjacency\n  potpourri3d: geodesics, heat method on meshes\n\n  import igl\n  V, F = igl.read_triangle_mesh(\"bunny.obj\")  # vertices (n×3), faces (m×3)\n  L = igl.cotmatrix(V, F)          # sparse cotangent Laplacian (n×n)\n  M = igl.massmatrix(V, F, igl.MASSMATRIX_TYPE_VORONOI)  # vertex areas\n  eigvals, eigvecs = scipy.sparse.linalg.eigsh(-L, M, k=50)  # Laplace-Beltrami spectrum",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-38",
+      "kind": "chart_like",
+      "line": 709,
+      "heading_context": "### 12. Discrete Differential Geometry and Computation",
+      "confidence": "candidate",
+      "text": "### 9.3 Computing de Rham Cohomology",
+      "notes": [
+        "detected from bar/chart glyph density with numeric labels"
+      ]
+    }
+  ]
+}

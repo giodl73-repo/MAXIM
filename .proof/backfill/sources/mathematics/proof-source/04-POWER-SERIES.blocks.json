@@ -1,0 +1,446 @@
+{
+  "schema_version": "1",
+  "source_markdown": "mathematics\\04-POWER-SERIES.md",
+  "blocks": [
+    {
+      "id": "block-1",
+      "kind": "diagram_like",
+      "line": 22,
+      "heading_context": "# 04 — Power Series: Taylor, Convergence, and the Functions Behind the Functions",
+      "confidence": "candidate",
+      "text": "THE LANDSCAPE\n═══════════════════════════════════════════════════════════════════════════════\n\n  WHAT A POWER SERIES IS:\n  f(x) = a₀ + a₁x + a₂x² + a₃x³ + ...  =  Σ aₙ xⁿ\n                                              n=0\n\n  ┌──────────────────────────────────────────────────────────────────────────┐\n  │  TAYLOR / MACLAURIN     GENERATING FUNCTIONS     ASYMPTOTIC SERIES       │\n  │  Approximation          Encode sequences         Divergent but useful    │\n  │  Local → global         Combinatorics, QM        Stirling, Laplace       │\n  │                                                                          │\n  │  CONVERGENCE             OPERATIONS               APPLICATIONS           │\n  │  Radius of conv.         Diff / integrate         Small-angle, binomial  │\n  │  Root / ratio tests      Compose / multiply       ODE solutions, physics │\n  │                                                                          │\n  │  COMPLEX ANALYTIC        FORMAL SERIES            Z-TRANSFORM / DSP      │\n  │  Functions on ℂ          No convergence req.      Discrete sequences     │\n  │  Identity theorem        Ring ℝ[[x]]              Transfer functions     │\n  └──────────────────────────────────────────────────────────────────────────┘\n\n  THE CORE INSIGHT:\n  A function is analytic iff it equals its Taylor series in some disk in ℂ.\n  The radius of convergence is the distance to the nearest singularity in ℂ —\n  even if you're only working on the real line.\n  Polynomials are the atoms. Every analytic function decomposes into them.\n═══════════════════════════════════════════════════════════════════════════════",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-2",
+      "kind": "chart_like",
+      "line": 56,
+      "heading_context": "## 1. The Taylor Series Formula",
+      "confidence": "candidate",
+      "text": "### 1.1 Derivation — Assume the Form, Solve for Coefficients",
+      "notes": [
+        "detected from bar/chart glyph density with numeric labels"
+      ]
+    },
+    {
+      "id": "block-3",
+      "kind": "diagram_like",
+      "line": 60,
+      "heading_context": "### 1.1 Derivation — Assume the Form, Solve for Coefficients",
+      "confidence": "candidate",
+      "text": "  f(x) = c₀ + c₁(x−a) + c₂(x−a)² + c₃(x−a)³ + ...\n\n  Evaluate at x = a:         f(a) = c₀\n  Differentiate, eval at a:  f'(a) = c₁\n  Differentiate twice:       f''(a) = 2c₂  →  c₂ = f''(a)/2!\n  Differentiate n times:     f⁽ⁿ⁾(a) = n! cₙ  →  cₙ = f⁽ⁿ⁾(a)/n!\n\n  ┌─────────────────────────────────────────────────────────────────────┐\n  │  TAYLOR SERIES about x = a:                                         │\n  │                                                                     │\n  │  f(x) = Σ f⁽ⁿ⁾(a)/n! · (x−a)ⁿ                                       │\n  │         n=0                                                         │\n  │                                                                     │\n  │  MACLAURIN SERIES: Taylor about a = 0                               │\n  │  f(x) = Σ f⁽ⁿ⁾(0)/n! · xⁿ                                           │\n  └─────────────────────────────────────────────────────────────────────┘",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-4",
+      "kind": "chart_like",
+      "line": 79,
+      "heading_context": "### 1.1 Derivation — Assume the Form, Solve for Coefficients",
+      "confidence": "candidate",
+      "text": "### 1.2 Remainder — How Good Is the Approximation?",
+      "notes": [
+        "detected from bar/chart glyph density with numeric labels"
+      ]
+    },
+    {
+      "id": "block-5",
+      "kind": "diagram_like",
+      "line": 83,
+      "heading_context": "### 1.2 Remainder — How Good Is the Approximation?",
+      "confidence": "candidate",
+      "text": "  Rₙ(x) = f⁽ⁿ⁺¹⁾(c) / (n+1)! · (x−a)ⁿ⁺¹     for some c between a and x\n\n  |Rₙ(x)| ≤ M / (n+1)! · |x−a|ⁿ⁺¹\n  where M = max|f⁽ⁿ⁺¹⁾| on the interval\n\n  For eˣ with x in [0,1]:  |Rₙ| ≤ e/(n+1)! → 0 rapidly\n  For sin x with x small:  |Rₙ| ≤ |x|ⁿ⁺¹/(n+1)! → 0 extremely fast\n\n  Rule of thumb: including terms up to order n means error is order xⁿ⁺¹.",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-6",
+      "kind": "diagram_like",
+      "line": 101,
+      "heading_context": "## 2. The Essential Maclaurin Series",
+      "confidence": "candidate",
+      "text": "  ┌─────────────────────────────────────────────────────────────────────────┐\n  │                                                                         │\n  │  eˣ   = 1 + x + x²/2! + x³/3! + x⁴/4! + ...    all x                    │\n  │                                                                         │\n  │  sin x = x − x³/3! + x⁵/5! − x⁷/7! + ...        all x                   │\n  │                                                                         │\n  │  cos x = 1 − x²/2! + x⁴/4! − x⁶/6! + ...        all x                   │\n  │                                                                         │\n  │  ln(1+x) = x − x²/2 + x³/3 − x⁴/4 + ...         |x| < 1                 │\n  │                                                                         │\n  │  1/(1−x) = 1 + x + x² + x³ + ...                 |x| < 1  (geometric)   │\n  │                                                                         │\n  │  (1+x)ᵅ = 1 + αx + α(α−1)x²/2! + α(α−1)(α−2)x³/3! + ...  |x| < 1        │\n  │           (binomial series — α need not be integer)                     │\n  │                                                                         │\n  │  arctan x = x − x³/3 + x⁵/5 − x⁷/7 + ...        |x| ≤ 1                 │\n  │                                                                         │\n  │  sinh x = x + x³/3! + x⁵/5! + ...                all x (no sign alts)   │\n  │  cosh x = 1 + x²/2! + x⁴/4! + ...                all x                  │\n  │                                                                         │\n  └─────────────────────────────────────────────────────────────────────────┘",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-7",
+      "kind": "chart_like",
+      "line": 141,
+      "heading_context": "## 3. Convergence",
+      "confidence": "candidate",
+      "text": "### 3.1 Radius of Convergence",
+      "notes": [
+        "detected from bar/chart glyph density with numeric labels"
+      ]
+    },
+    {
+      "id": "block-8",
+      "kind": "diagram_like",
+      "line": 145,
+      "heading_context": "### 3.1 Radius of Convergence",
+      "confidence": "candidate",
+      "text": "  ┌────────────────────────────────────────────────────────────────┐\n  │                                                                │\n  │  Diverges  │  Boundary  │  Converges  │  Boundary │ Diverges   │\n  │  ──────────┼────────────┼─────────────┼───────────┼──────────  │\n  │            a−R          a            a+R                       │\n  │                                                                │\n  │  R = 0:    only converges at x = a                            │\n  │  R = ∞:    converges for all x (eˣ, sin x, cos x)            │\n  │  0 < R < ∞: converges on open interval, boundary case-by-case │\n  └────────────────────────────────────────────────────────────────┘",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-9",
+      "kind": "chart_like",
+      "line": 158,
+      "heading_context": "### 3.1 Radius of Convergence",
+      "confidence": "candidate",
+      "text": "### 3.2 Computing R — Two Methods",
+      "notes": [
+        "detected from bar/chart glyph density with numeric labels"
+      ]
+    },
+    {
+      "id": "block-10",
+      "kind": "diagram_like",
+      "line": 162,
+      "heading_context": "### 3.2 Computing R — Two Methods",
+      "confidence": "candidate",
+      "text": "  R = lim |aₙ/aₙ₊₁|   as n → ∞\n\n  For eˣ: aₙ = 1/n!, aₙ₊₁ = 1/(n+1)!\n  R = lim (1/n!)/(1/(n+1)!) = lim (n+1) = ∞  ✓\n\n  For ln(1+x): aₙ = (-1)ⁿ⁺¹/n\n  R = lim (1/n)/(1/(n+1)) = lim (n+1)/n = 1  ✓",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-11",
+      "kind": "diagram_like",
+      "line": 174,
+      "heading_context": "### 3.2 Computing R — Two Methods",
+      "confidence": "candidate",
+      "text": "  R = 1 / limsup |aₙ|^(1/n)   as n → ∞   (Cauchy-Hadamard formula)",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-12",
+      "kind": "chart_like",
+      "line": 178,
+      "heading_context": "### 3.2 Computing R — Two Methods",
+      "confidence": "candidate",
+      "text": "### 3.3 Why the Radius Is What It Is — The Analytic Function Viewpoint",
+      "notes": [
+        "detected from bar/chart glyph density with numeric labels"
+      ]
+    },
+    {
+      "id": "block-13",
+      "kind": "diagram_like",
+      "line": 180,
+      "heading_context": "### 3.3 Why the Radius Is What It Is — The Analytic Function Viewpoint",
+      "confidence": "candidate",
+      "text": "  The radius of convergence = distance to the nearest singularity\n  in the COMPLEX plane, even if you're only working on the real line.\n\n  ln(1+x): singularity at x = -1 (complex distance = 1) → R = 1\n  1/(1+x²): singularities at x = ±i (distance = 1 from origin) → R = 1\n             Even though the real function looks smooth at x = 1!\n\n  This is why 1/(1+x²) has R = 1 even though it's perfectly smooth on ℝ.\n  The complex poles at ±i determine the real convergence radius.",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-14",
+      "kind": "chart_like",
+      "line": 232,
+      "heading_context": "## 4. Operations on Power Series",
+      "confidence": "candidate",
+      "text": "### 4.1 Differentiation and Integration — Term by Term",
+      "notes": [
+        "detected from bar/chart glyph density with numeric labels"
+      ]
+    },
+    {
+      "id": "block-15",
+      "kind": "chart_like",
+      "line": 254,
+      "heading_context": "### 4.1 Differentiation and Integration — Term by Term",
+      "confidence": "candidate",
+      "text": "### 4.2 Composition — Substitute One Series Into Another",
+      "notes": [
+        "detected from bar/chart glyph density with numeric labels"
+      ]
+    },
+    {
+      "id": "block-16",
+      "kind": "chart_like",
+      "line": 271,
+      "heading_context": "### 4.2 Composition — Substitute One Series Into Another",
+      "confidence": "candidate",
+      "text": "### 4.3 Multiplication — Cauchy Product",
+      "notes": [
+        "detected from bar/chart glyph density with numeric labels"
+      ]
+    },
+    {
+      "id": "block-17",
+      "kind": "ascii_table_candidate",
+      "line": 273,
+      "heading_context": "### 4.3 Multiplication — Cauchy Product",
+      "confidence": "candidate",
+      "text": "  (Σ aₙ xⁿ)(Σ bₙ xⁿ) = Σ cₙ xⁿ   where cₙ = Σ aₖ bₙ₋ₖ\n                                              k=0\n\n  Example: sin x · cos x  (should give ½ sin 2x)\n  = (x − x³/6 + x⁵/120 − ...)(1 − x²/2 + x⁴/24 − ...)\n  = x·1 + x·(-x²/2) + (-x³/6)·1 + ...\n  = x − x³/2 − x³/6 + ... = x − 2x³/3 + ...\n\n  Check: ½ sin 2x = ½(2x − (2x)³/6 + ...) = x − 4x³/6 + ... = x − 2x³/3 + ... ✓",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-18",
+      "kind": "chart_like",
+      "line": 291,
+      "heading_context": "## 5. Small-Angle and Physical Approximations",
+      "confidence": "candidate",
+      "text": "### 5.1 Small-Angle Approximations (θ in radians)",
+      "notes": [
+        "detected from bar/chart glyph density with numeric labels"
+      ]
+    },
+    {
+      "id": "block-19",
+      "kind": "diagram_like",
+      "line": 293,
+      "heading_context": "### 5.1 Small-Angle Approximations (θ in radians)",
+      "confidence": "candidate",
+      "text": "  sin θ ≈ θ               (first term only, error O(θ³))\n  cos θ ≈ 1 − θ²/2        (two terms, error O(θ⁴))\n  tan θ ≈ θ               (first term, error O(θ³))\n\n  Valid for |θ| << 1 radian (roughly |θ| < 0.3 for 1% error)\n\n  Applications:\n  ┌──────────────────────────────────────────────────────────────────────┐\n  │  Pendulum: exact equation  d²θ/dt² = -(g/L) sin θ                    │\n  │            linearized:     d²θ/dt² ≈ -(g/L) θ   → harmonic motion    │\n  │            Period T = 2π√(L/g)  (only valid for small swings)        │\n  │                                                                      │\n  │  Snell's law at near-normal incidence: n₁θ₁ ≈ n₂θ₂                   │\n  │  Diffraction: sin θ ≈ θ for θ << 1 → Rayleigh criterion              │\n  │  EM waves at near-grazing: cos θ ≈ 1 → large reflection              │\n  └──────────────────────────────────────────────────────────────────────┘",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-20",
+      "kind": "chart_like",
+      "line": 312,
+      "heading_context": "### 5.1 Small-Angle Approximations (θ in radians)",
+      "confidence": "candidate",
+      "text": "### 5.2 Binomial Approximation — Used Constantly",
+      "notes": [
+        "detected from bar/chart glyph density with numeric labels"
+      ]
+    },
+    {
+      "id": "block-21",
+      "kind": "ascii_table_candidate",
+      "line": 314,
+      "heading_context": "### 5.2 Binomial Approximation — Used Constantly",
+      "confidence": "candidate",
+      "text": "  (1 + x)ᵅ ≈ 1 + αx   for |x| << 1\n\n  Special cases:\n  1/√(1+x) = (1+x)^(-½) ≈ 1 − x/2\n  √(1+x)   = (1+x)^(½)  ≈ 1 + x/2\n  1/(1+x)  = (1+x)^(-1) ≈ 1 − x\n\n  Physics examples:\n  ┌──────────────────────────────────────────────────────────────────────┐\n  │  Relativistic kinetic energy for v << c:                             │\n  │  E = mc²/√(1−v²/c²) = mc²(1−v²/c²)^(-½)                              │\n  │    ≈ mc²(1 + v²/2c²) = mc² + ½mv²    ✓ recovers Newtonian KE         │\n  │                                                                      │\n  │  Gravitational redshift for weak field (GM/rc² << 1):                │\n  │  f_obs/f_emit = √(1−2GM/rc²) ≈ 1 − GM/rc²                            │\n  │                                                                      │\n  │  Doppler shift for v << c:                                           │\n  │  f_obs = f√((1+v/c)/(1−v/c)) ≈ f(1 + v/c)                            │\n  └──────────────────────────────────────────────────────────────────────┘",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-22",
+      "kind": "chart_like",
+      "line": 336,
+      "heading_context": "### 5.2 Binomial Approximation — Used Constantly",
+      "confidence": "candidate",
+      "text": "### 5.3 Exponential Approximations",
+      "notes": [
+        "detected from bar/chart glyph density with numeric labels"
+      ]
+    },
+    {
+      "id": "block-23",
+      "kind": "diagram_like",
+      "line": 338,
+      "heading_context": "### 5.3 Exponential Approximations",
+      "confidence": "candidate",
+      "text": "  eˣ ≈ 1 + x           for small x  (critical in statistics, QM)\n  e^(-x) ≈ 1 − x + x²/2\n\n  In physics:\n  Boltzmann factor: e^(-E/kT) for high-T (E << kT):\n    e^(-E/kT) ≈ 1 − E/kT   → equipartition theorem limit\n\n  Decay: e^(-λt) for short times t << 1/λ:\n    ≈ 1 − λt  → linear approximation to exponential decay",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-24",
+      "kind": "chart_like",
+      "line": 356,
+      "heading_context": "## 6. Asymptotic Series",
+      "confidence": "candidate",
+      "text": "### 6.1 Stirling's Approximation",
+      "notes": [
+        "detected from bar/chart glyph density with numeric labels"
+      ]
+    },
+    {
+      "id": "block-25",
+      "kind": "chart_like",
+      "line": 372,
+      "heading_context": "### 6.1 Stirling's Approximation",
+      "confidence": "candidate",
+      "text": "### 6.2 Laplace's Method — Dominant Contribution to an Integral",
+      "notes": [
+        "detected from bar/chart glyph density with numeric labels"
+      ]
+    },
+    {
+      "id": "block-26",
+      "kind": "diagram_like",
+      "line": 374,
+      "heading_context": "### 6.2 Laplace's Method — Dominant Contribution to an Integral",
+      "confidence": "candidate",
+      "text": "  For integrals of the form ∫ e^(nf(x)) dx  as n → ∞:\n  The integral is dominated by the maximum of f(x).\n\n  Near the maximum x₀: f(x) ≈ f(x₀) − ½|f''(x₀)|(x−x₀)²\n\n  ∫ e^(nf(x)) dx ≈ e^(nf(x₀)) √(2π/n|f''(x₀)|)    (Gaussian integral result)\n\n  This is the saddle-point method / stationary phase approximation.\n  Used in: statistical mechanics partition functions, quantum path integrals,\n           Airy function asymptotics, WKB approximation in QM.",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-27",
+      "kind": "chart_like",
+      "line": 419,
+      "heading_context": "## 7. Generating Functions",
+      "confidence": "candidate",
+      "text": "### 7.1 The Geometric Series — Simplest Generating Function",
+      "notes": [
+        "detected from bar/chart glyph density with numeric labels"
+      ]
+    },
+    {
+      "id": "block-28",
+      "kind": "diagram_like",
+      "line": 421,
+      "heading_context": "### 7.1 The Geometric Series — Simplest Generating Function",
+      "confidence": "candidate",
+      "text": "  G(x) = 1/(1−x) = Σ xⁿ        → generates {1, 1, 1, 1, ...}\n\n  G(x) = 1/(1−rx) = Σ rⁿ xⁿ    → generates {1, r, r², r³, ...}\n\n  G(x) = x/(1−x)² = Σ n xⁿ     → generates {0, 1, 2, 3, ...}",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-29",
+      "kind": "chart_like",
+      "line": 429,
+      "heading_context": "### 7.1 The Geometric Series — Simplest Generating Function",
+      "confidence": "candidate",
+      "text": "### 7.2 Fibonacci via Generating Functions",
+      "notes": [
+        "detected from bar/chart glyph density with numeric labels"
+      ]
+    },
+    {
+      "id": "block-30",
+      "kind": "diagram_like",
+      "line": 431,
+      "heading_context": "### 7.2 Fibonacci via Generating Functions",
+      "confidence": "candidate",
+      "text": "  F₀=0, F₁=1, Fₙ = Fₙ₋₁ + Fₙ₋₂\n\n  G(x) = Σ Fₙ xⁿ\n  Using the recurrence: G(x) = x/(1−x−x²)\n  Partial fractions → closed form: Fₙ = (φⁿ − ψⁿ)/√5\n  where φ = (1+√5)/2 (golden ratio), ψ = (1−√5)/2\n\n  The algebra of generating functions converts recurrences → algebra.",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-31",
+      "kind": "chart_like",
+      "line": 442,
+      "heading_context": "### 7.2 Fibonacci via Generating Functions",
+      "confidence": "candidate",
+      "text": "### 7.3 Exponential Generating Functions",
+      "notes": [
+        "detected from bar/chart glyph density with numeric labels"
+      ]
+    },
+    {
+      "id": "block-32",
+      "kind": "diagram_like",
+      "line": 444,
+      "heading_context": "### 7.3 Exponential Generating Functions",
+      "confidence": "candidate",
+      "text": "  EGF: G(x) = Σ aₙ xⁿ/n!        (divide by n! — natural for counting labeled structures)\n\n  eˣ is the EGF for aₙ = 1 (all ones)\n  e^(2x) is the EGF for aₙ = 2ⁿ\n\n  EGF composition theorem (species formula):\n  If B(x) is the EGF for \"labeled B-structures\" and A(x) = e^(B(x))\n  (equivalently, exp of the connected EGF), then A(x) counts labeled\n  assemblies of B-structures:\n    A(x) = Σ (sets of B-structures on n-element labeled set) xⁿ/n!\n\n  Example: connected graphs → all graphs via exp of the connected EGF.\n  Permutations = sets of cycles → EGF(permutations) = 1/(1−x) = e^(EGF of cycles)\n  = e^(−ln(1−x)) ✓\n\n  In physics: the partition function Z = Σ e^(-Eₙ/kT) is a generating function\n  for the moments of energy: ⟨Eⁿ⟩ = (-1)ⁿ ∂ⁿ ln Z / ∂βⁿ\n  where β = 1/kT. The linked cluster theorem says ln Z is the generating\n  function for connected Feynman diagrams — the exponential/logarithm\n  relationship between all structures and connected structures is the\n  combinatorial species formula above.",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-33",
+      "kind": "diagram_like",
+      "line": 470,
+      "heading_context": "### 7.3 Exponential Generating Functions",
+      "confidence": "candidate",
+      "text": "  F(z) = Σ f[n] z^(-n)    (one-sided, n ≥ 0)\n          n=0\n\n  This is literally the generating function Σ f[n] (1/z)ⁿ evaluated at 1/z.\n  Same algebraic operations:\n  - Convolution f*g ↔ multiplication F(z)G(z)\n  - Time shift f[n-k] ↔ z^(-k) F(z)\n  - Recurrence relations → algebraic equations in z (identical to GF method)\n  - Partial fractions of F(z) → closed-form inverse z-transform\n\n  The z-transform is the generating function of DSP. The Laplace transform\n  is the generating function for continuous-time signals (replace z by e^s).\n  All three — power series GFs, z-transform, Laplace transform — are the\n  same algebraic machinery in different notational clothes.\n\n  In SciPy: scipy.signal.zpk2tf, scipy.signal.freqz — rational transfer\n  functions are ratios of z-transform polynomials.",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-34",
+      "kind": "chart_like",
+      "line": 494,
+      "heading_context": "## 8. Power Series and Differential Equations",
+      "confidence": "candidate",
+      "text": "### 8.1 Series Solutions to ODEs",
+      "notes": [
+        "detected from bar/chart glyph density with numeric labels"
+      ]
+    },
+    {
+      "id": "block-35",
+      "kind": "ascii_table_candidate",
+      "line": 498,
+      "heading_context": "### 8.1 Series Solutions to ODEs",
+      "confidence": "candidate",
+      "text": "  Example: y'' + xy' + y = 0   (Hermite-like equation)\n\n  Assume y = Σ aₙ xⁿ\n  y' = Σ n aₙ xⁿ⁻¹,  y'' = Σ n(n−1) aₙ xⁿ⁻²\n\n  Substitute, collect by power of x, set each coefficient to zero:\n  → recurrence relation for aₙ\n  → two independent solutions (matching degree of ODE)\n\n  The method works whenever x=0 is an ordinary point of the ODE.\n  The radius of convergence of the solution equals the distance to the\n  nearest singularity of the coefficient functions.",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-36",
+      "kind": "diagram_like",
+      "line": 515,
+      "heading_context": "### 8.1 Series Solutions to ODEs",
+      "confidence": "candidate",
+      "text": "  Regular singular point x₀: coefficient functions p(x), q(x) in\n  y'' + p(x)y' + q(x)y = 0 have at worst poles of order 1, 2 there.\n\n  Frobenius method: try y = xʳ Σ aₙ xⁿ = Σ aₙ x^(n+r)\n  The indicial equation (from the lowest-power term) determines r.\n  Two solutions with exponents r₁, r₂ differing by a non-integer → two\n  independent Frobenius series. If r₁ − r₂ ∈ ℤ, one solution may involve\n  a log term: y₂ = y₁ ln x + xʳ² Σ bₙ xⁿ.\n\n  All the named special functions arise from regular singular points:\n  - Bessel equation: singular at x=0, Bessel functions Jₙ(x) are Frobenius series\n  - Legendre equation: singular at x=±1, Pₙ(x) are polynomial solutions\n  - Hypergeometric equation: singular at 0, 1, ∞ — most special functions\n    are hypergeometric ₂F₁(a,b;c;x) for appropriate parameters",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-37",
+      "kind": "chart_like",
+      "line": 532,
+      "heading_context": "### 8.1 Series Solutions to ODEs",
+      "confidence": "candidate",
+      "text": "### 8.2 The Classic Physics Special Functions",
+      "notes": [
+        "detected from bar/chart glyph density with numeric labels"
+      ]
+    },
+    {
+      "id": "block-38",
+      "kind": "diagram_like",
+      "line": 536,
+      "heading_context": "### 8.2 The Classic Physics Special Functions",
+      "confidence": "candidate",
+      "text": "  ODE                            Series Solution          Physics\n  ──────────────────────────────────────────────────────────────────\n  y'' − 2xy' + 2ny = 0          Hermite Hₙ(x)           QM harmonic oscillator\n  (1−x²)y'' − 2xy' + n(n+1)y=0 Legendre Pₙ(x)          Angular momentum in QM\n  x²y'' + xy' + (x²−n²)y = 0   Bessel Jₙ(x)            Cylindrical problems\n  y'' − (2n+1−x²)y = 0          Parabolic cylinder       QM problems\n  (1−x²)y'' − xy' + n²y = 0    Chebyshev Tₙ(x)          Numerical analysis\n\n  All of these are power series that terminate (become polynomials)\n  for certain parameter values n — that's the quantization condition!\n  Hermite polynomials terminate for integer n → discrete energy levels.\n\n  SciPy has all of these: scipy.special.hermite(n), scipy.special.legendre(n),\n  scipy.special.jv(n, x), scipy.special.chebyt(n).",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-39",
+      "kind": "diagram_like",
+      "line": 559,
+      "heading_context": "## 9. Key Limits Involving Series",
+      "confidence": "candidate",
+      "text": "  lim(x→0) sin(x)/x = 1        (from sin x ≈ x)\n  lim(x→0) (eˣ−1)/x = 1       (from eˣ ≈ 1+x)\n  lim(x→0) ln(1+x)/x = 1      (from ln(1+x) ≈ x)\n  lim(x→∞) (1+x/n)ⁿ = eˣ      (definition of e as a limit)\n  lim(n→∞) (1+1/n)ⁿ = e        (classic e definition)\n  lim(x→0) (1−cos x)/x² = 1/2  (from cos x ≈ 1 − x²/2)\n\n  These are all disguised Taylor series, first-order truncations.",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-40",
+      "kind": "ascii_table_candidate",
+      "line": 654,
+      "heading_context": "## Common Confusion Points",
+      "confidence": "candidate",
+      "text": "A linear recurrence like Fₙ = Fₙ₋₁ + Fₙ₋₂ becomes a functional equation on G(x): G(x) = xG(x) + x²G(x) + (initial conditions). Solve algebraically for G(x), then extract coefficients. You've turned an iterative recurrence into algebra. Same principle behind z-transforms (discrete Laplace) in DSP.",
+      "notes": [
+        "detected from ASCII table borders or pipe-aligned rows"
+      ]
+    }
+  ]
+}

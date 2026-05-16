@@ -1,0 +1,83 @@
+{
+  "schema_version": "1",
+  "source_markdown": "mathematics\\16-INFORMATION-THEORY.md",
+  "blocks": [
+    {
+      "id": "block-1",
+      "kind": "diagram_like",
+      "line": 24,
+      "heading_context": "## The Big Picture",
+      "confidence": "candidate",
+      "text": "┌─────────────────────────────────────────────────────────────────────────────┐\n│                         INFORMATION THEORY                                  │\n│          Shannon (1948): communication as a mathematical problem            │\n├─────────────────────────────────────────────────────────────────────────────┤\n│                                                                             │\n│  ENTROPY FAMILY                                                             │\n│  ┌──────────────────────────────────────────────────────────────────────┐  │\n│  │  H(X)          Shannon entropy of a source                           │  │\n│  │  H(X,Y)        Joint entropy                                         │  │\n│  │  H(X|Y)        Conditional entropy   (uncertainty remaining)         │  │\n│  │  I(X;Y)        Mutual information    (shared information)            │  │\n│  │  D(P||Q)       KL divergence         (information gain / surprise)   │  │\n│  │  H(P,Q)        Cross-entropy         = H(P) + D(P||Q)                │  │\n│  └──────────────────────────────────────────────────────────────────────┘  │\n│                                                                             │\n│  CODING THEOREMS                                                            │\n│  ┌───────────────────────────┐  ┌───────────────────────────┐             │\n│  │  SOURCE CODING            │  │  CHANNEL CODING           │             │\n│  │  Can compress to H(X)     │  │  Can transmit at C bits   │             │\n│  │  bits per symbol          │  │  per use reliably         │             │\n│  │  (no lossless below H)    │  │  (no reliable above C)    │             │\n│  └───────────────────────────┘  └───────────────────────────┘             │\n│                                                                             │\n│  ML CONNECTIONS                                                             │\n│  Cross-entropy loss  •  KL in VAEs  •  Mutual info in ICA                 │\n│  Information bottleneck  •  Fisher info + Cramér-Rao  •  MDL              │\n└─────────────────────────────────────────────────────────────────────────────┘",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-2",
+      "kind": "diagram_like",
+      "line": 139,
+      "heading_context": "### Information Diagram",
+      "confidence": "candidate",
+      "text": "       H(X)              H(Y)\n  ┌──────────────────────────────┐\n  │       │           │          │\n  │  H(X|Y) │  I(X;Y) │ H(Y|X)   │\n  │       │           │          │\n  └──────────────────────────────┘\n         H(X,Y) = H(X|Y) + I(X;Y) + H(Y|X)",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-3",
+      "kind": "diagram_like",
+      "line": 216,
+      "heading_context": "### MI as a Nonparametric Independence Criterion",
+      "confidence": "candidate",
+      "text": "I(X;Y) = D(P_{XY} || P_X ⊗ P_Y)\n        = sup_{T: Ω→ℝ} E_{P_{XY}}[T] − log E_{P_X⊗P_Y}[eᵀ]",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-4",
+      "kind": "diagram_like",
+      "line": 403,
+      "heading_context": "### Modern Compression: ANS and Capacity-Achieving Codes",
+      "confidence": "candidate",
+      "text": "Turbo codes (Berrou 1993):   iterative decoding, BER near Shannon limit\n  → 3G cellular, deep-space (NASA)\n\nLDPC codes (Gallager 1960, rediscovered 1990s):\n  Sparse parity-check matrices. Belief propagation decoding.\n  → 10Gb Ethernet, WiFi 802.11n, DVB-S2\n\nPolar codes (Arıkan 2009):\n  Provably capacity-achieving under successive cancellation decoding.\n  Mathematical construction via channel polarization: split N synthetic\n  channels into ~NC \"good\" ones and ~N(1-C) \"bad\" ones.\n  → 5G NR (control channel), Apple Data Compression Library",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-5",
+      "kind": "diagram_like",
+      "line": 448,
+      "heading_context": "### The Channel Model",
+      "confidence": "candidate",
+      "text": "Discrete memoryless channel:\n  Input X → [Channel W(y|x)] → Output Y\n  Each use: Y drawn from W(·|x) given input x\n  Channel is \"memoryless\": uses are independent given the inputs",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-6",
+      "kind": "diagram_like",
+      "line": 717,
+      "heading_context": "## Information Theory in ML — Reference Map",
+      "confidence": "candidate",
+      "text": "ML concept                   Information theory concept\n──────────────────────────────────────────────────────\nCross-entropy loss           H(P_data, P_model) = H(P_data) + D(P_data||P_model)\nKL regularizer in VAE        D(q(z|x) || p(z)) — match approx posterior to prior\nGAN training (original)      Minimize JS divergence between real and generated\nMutual information in RL     Maximize I(policy; environment state)\nInformation bottleneck       max I(T;Y) − β I(T;X)\nBIC / MDL                    Model complexity = (d/2) log n bits\nNatural gradient / K-FAC     Steepest descent on statistical manifold\nSufficient statistic         T(X) s.t. I(X;θ) = I(T(X);θ)\nAttention entropy (LLMs)     H(attention weights) — measure of focus\nMax-entropy RL               Maximize E[R] + α H(π) — entropy-regularized policy\nCalibration                  ECE = ‖P_true − P_predicted‖ — KL interpretation",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-7",
+      "kind": "ascii_table_candidate",
+      "line": 807,
+      "heading_context": "## Common Confusion Points",
+      "confidence": "candidate",
+      "text": "fails. Jensen-Shannon divergence (½D(P||M) + ½D(Q||M), M=(P+Q)/2) is symmetric",
+      "notes": [
+        "detected from ASCII table borders or pipe-aligned rows"
+      ]
+    }
+  ]
+}

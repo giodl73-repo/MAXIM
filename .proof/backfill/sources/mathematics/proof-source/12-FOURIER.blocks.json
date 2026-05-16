@@ -1,0 +1,171 @@
+{
+  "schema_version": "1",
+  "source_markdown": "mathematics\\12-FOURIER.md",
+  "blocks": [
+    {
+      "id": "block-1",
+      "kind": "diagram_like",
+      "line": 22,
+      "heading_context": "# 12 — Fourier Analysis",
+      "confidence": "candidate",
+      "text": "FOURIER LANDSCAPE\n═══════════════════════════════════════════════════════════════════════════════\n\n  Time domain f(t)  ←────────────────────────────────►  Frequency domain F(ω)\n                          Fourier Transform pair\n\n  ┌──────────────────────────────────────────────────────────────────────┐\n  │  FOURIER SERIES         periodic f(t)  →  discrete spectrum          │\n  │  FOURIER TRANSFORM      aperiodic f(t) →  continuous spectrum        │\n  │  DTFT                   discrete-time sequence → continuous ω        │\n  │  DFT / FFT              finite sequence → finite spectrum            │\n  │  STFT / Wavelet         time-varying spectra                         │\n  └──────────────────────────────────────────────────────────────────────┘\n\n  Central unity:\n    e^(iωt) = cos(ωt) + i·sin(ωt)    ← complex exponentials are eigenfunctions\n    of all LTI systems.  Every signal is a superposition of them.\n\n  Physics connections:\n    Maxwell: plane waves e^(i(k·x-ωt))       Heat eq: Fourier series solution\n    QM: momentum eigenstate e^(ipx/ℏ)         Heisenberg: Δx·Δp ≥ ℏ/2\n    Optics: diffraction = 2D Fourier transform\n\n  6.003 bridge:  H(jω) = CTFT of impulse response h(t)",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-2",
+      "kind": "diagram_like",
+      "line": 55,
+      "heading_context": "### Setup: Periodic Functions on [-L, L]",
+      "confidence": "candidate",
+      "text": "  f(t) with period 2L:  f(t + 2L) = f(t)\n\n  Decompose as sum of harmonics (orthogonal basis):\n\n    f(t) = a₀/2 + Σₙ₌₁^∞ [aₙ cos(nπt/L) + bₙ sin(nπt/L)]\n\n  Coefficients (inner products with basis functions):\n    a₀ = (1/L) ∫₋ₗᴸ f(t) dt                    ← DC component (mean)\n    aₙ = (1/L) ∫₋ₗᴸ f(t) cos(nπt/L) dt\n    bₙ = (1/L) ∫₋ₗᴸ f(t) sin(nπt/L) dt",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-3",
+      "kind": "chart_like",
+      "line": 79,
+      "heading_context": "### Complex Exponential Form",
+      "confidence": "candidate",
+      "text": "### Standard Period 2π (ω₀ = 1)",
+      "notes": [
+        "detected from bar/chart glyph density with numeric labels"
+      ]
+    },
+    {
+      "id": "block-4",
+      "kind": "diagram_like",
+      "line": 101,
+      "heading_context": "### Convergence",
+      "confidence": "candidate",
+      "text": "  Dₙ(θ) = Σ_{k=-n}^n e^(ikθ) = sin((n+½)θ) / sin(θ/2)\n\n  Partial sum:  Sₙf(θ) = (f * Dₙ)(θ)  (convolution with Dirichlet kernel)\n\n  All convergence questions reduce to the behavior of Dₙ.\n  ‖Dₙ‖₁ ~ (4/π²) log n → ∞  (grows without bound — source of subtleties).\n\n  L² convergence (clean result — follows from Hilbert space completeness):\n    ‖f - Sₙf‖₂ → 0  for all f ∈ L²([−π,π])\n    This is Parseval's theorem / completeness of {eⁱⁿᶿ} in L².\n    No regularity needed — any square-integrable f converges in L².\n\n  Pointwise convergence (subtle):\n    Dirichlet's theorem: if f satisfies the Dini condition at θ₀\n    (∫₀^ε |f(θ₀+t) - f(θ₀)|/t dt < ∞), then Sₙf(θ₀) → f(θ₀).\n    C¹ piecewise is more than enough.\n\n    At jump discontinuity: Sₙf(θ₀) → [f(θ₀⁺) + f(θ₀⁻)]/2\n\n    Riemann-Lebesgue lemma: cₙ → 0 for any f ∈ L¹.\n    Fourier coefficients of integrable functions always decay to zero.\n\n  Warning (du Bois-Reymond): a continuous function can have Fourier series\n  that diverges pointwise at some points. L² convergence is clean;\n  pointwise convergence requires extra conditions. This is the crucial\n  distinction between the L² result and the pointwise result.\n\n  Gibbs phenomenon: 9% overshoot near jump, persists as N → ∞\n    (Sₙf overshoots by (2/π)∫₀^π sinc(t) dt - 1 ≈ 0.0895... regardless of N)",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-5",
+      "kind": "diagram_like",
+      "line": 212,
+      "heading_context": "### Key Properties",
+      "confidence": "candidate",
+      "text": "  Linearity:       af + bg  ←→  aF + bG\n\n  Time shift:      f(t-t₀) ←→  e^(-iωt₀) F(ω)      (phase shift)\n  Freq shift:      e^(iω₀t) f(t) ←→ F(ω-ω₀)        (modulation)\n\n  Scaling:         f(at) ←→ (1/|a|) F(ω/a)          (uncertainty principle)\n\n  Convolution:     (f*g)(t) = ∫f(τ)g(t-τ)dτ ←→ F(ω)·G(ω)\n                   f(t)·g(t) ←→ (1/2π)(F*G)(ω)\n\n  Differentiation: f'(t)    ←→ iω F(ω)\n                   (-it)f(t) ←→ F'(ω)\n  Integration:     ∫f dτ    ←→ F(ω)/(iω) + πF(0)δ(ω)\n\n  Parseval:        ∫|f(t)|² dt = (1/2π)∫|F(ω)|² dω\n\n  Duality:         F{F(t)}(ω) = 2πf(-ω)",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-6",
+      "kind": "diagram_like",
+      "line": 280,
+      "heading_context": "## 4. Sampling Theorem (Nyquist-Shannon)",
+      "confidence": "candidate",
+      "text": "  f(t) is bandlimited: F(ω) = 0 for |ω| > ω_max = 2πB  (B in Hz)\n\n  Nyquist sampling theorem:\n    Sample at rate fₛ ≥ 2B (Nyquist rate).\n    f(t) is exactly reconstructable from samples {f(nT)}, T = 1/fₛ.\n\n  Reconstruction:\n    f(t) = Σₙ f(nT) · sinc(π(t-nT)/T)     (sinc interpolation)\n\n  Aliasing (what goes wrong at fₛ < 2B):\n    Frequency components above fₛ/2 fold back into [0, fₛ/2].\n    Alias of ω_sig appears at ω_alias = |ω_sig - k·ω_s|  for integer k.\n\n  ┌──────────────────────────────────────────────────────────────────┐\n  │  Proof sketch via Dirac comb:                                    │\n  │  Sampling = multiply by Σ δ(t-nT)                                │\n  │  Fourier of Dirac comb = (ωₛ)·Σ δ(ω - kωₛ)                       │\n  │  Sampled spectrum = (1/T) Σₖ F(ω - kωₛ)  (periodic replicas)     │\n  │  If B < fₛ/2: replicas don't overlap → recoverable by LPF        │\n  │  If B ≥ fₛ/2: replicas overlap = aliasing = information loss     │\n  └──────────────────────────────────────────────────────────────────┘",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-7",
+      "kind": "diagram_like",
+      "line": 344,
+      "heading_context": "### Spectral Leakage and Windowing",
+      "confidence": "candidate",
+      "text": "  Analyzing finite segment of infinite signal → implicit rectangular window.\n  Rect window has high sidelobes in spectrum (sinc sidelobes at -13 dB first).\n  Non-integer frequency → energy \"leaks\" into adjacent bins.\n\n  Windowing: multiply by w[n] before DFT to shape spectrum.\n\n  Window comparison:\n  ┌────────────────┬─────────────┬────────────────┬───────────────────────┐\n  │ Window         │ Main lobe   │ Peak sidelobe  │ Rolloff               │\n  ├────────────────┼─────────────┼────────────────┼───────────────────────┤\n  │ Rectangular    │ 4π/N wide   │ −13 dB         │ −20 dB/decade         │\n  │ Hann           │ 8π/N        │ −31 dB         │ −60 dB/decade         │\n  │ Hamming        │ 8π/N        │ −41 dB         │ −20 dB/decade         │\n  │ Blackman       │ 12π/N       │ −57 dB         │ −18 dB/decade         │\n  │ Flat-top       │ 20π/N       │ −93 dB         │ Poor                  │\n  └────────────────┴─────────────┴────────────────┴───────────────────────┘\n\n  Trade-off: Narrow main lobe (frequency resolution) vs low sidelobes (dynamic range)\n  Hann: good general purpose\n  Flat-top: accurate amplitude measurement\n  Blackman-Harris: highest sidelobe suppression",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-8",
+      "kind": "ascii_table_candidate",
+      "line": 374,
+      "heading_context": "### Cooley-Tukey Algorithm",
+      "confidence": "candidate",
+      "text": "  Insight: N-point DFT of x[n] splits into two N/2-point DFTs.\n\n  Split into even/odd:\n    X[k] = Σₙ₌₀^(N/2-1) x[2n] W_N^(2nk) + Σₙ₌₀^(N/2-1) x[2n+1] W_N^((2n+1)k)\n          = Σₙ x[2n] W_{N/2}^(nk) + W_N^k · Σₙ x[2n+1] W_{N/2}^(nk)\n          = E[k] + W_N^k · O[k]        (butterfly operation)\n\n  For k < N/2:    X[k] = E[k] + W_N^k · O[k]\n  For k ≥ N/2:    X[k] = E[k-N/2] - W_N^k · O[k-N/2]   (twiddle factor)\n\n  Recursion to N=1 (trivial DFT).\n  Complexity: T(N) = 2T(N/2) + N  →  O(N log N)    (Master Theorem Case 2)\n\n  Radix-2 requires N = 2^m.\n  Mixed-radix (3, 5, 7...): works for any N but more complex.\n  Prime-length: Rader/Bluestein algorithms.",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-9",
+      "kind": "diagram_like",
+      "line": 412,
+      "heading_context": "## 7. Short-Time Fourier Transform (STFT)",
+      "confidence": "candidate",
+      "text": "  Problem: FT is global — can't locate when a frequency occurs.\n\n  STFT:  X(τ, ω) = ∫ f(t) w(t-τ) e^(-iωt) dt\n\n  Slide window w(t) along t, compute FT at each position τ.\n\n  Spectrogram: |X(τ,ω)|²   — power at each (time, frequency) point.\n  Displayed as colormap: x=time, y=frequency, color=power.\n\n  Time-frequency resolution trade-off (uncertainty principle):\n    Wide window → good frequency resolution, poor time resolution\n    Narrow window → good time resolution, poor frequency resolution\n    Resolution box: Δt · Δω ≥ 1/2  (fixed area)\n\n  Fixed resolution everywhere — limitation of STFT.",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-10",
+      "kind": "diagram_like",
+      "line": 432,
+      "heading_context": "### Wavelet Transform",
+      "confidence": "candidate",
+      "text": "  Wavelets overcome the fixed-resolution limitation.\n\n  Continuous WT:  W(a,b) = (1/√|a|) ∫ f(t) ψ*((t-b)/a) dt\n    a = scale (~ 1/frequency),   b = translation (time position)\n\n  Dyadic WT: a = 2^j, b = k·2^j  (octave scales, integer shifts)\n\n  Key property: Multi-resolution analysis (MRA)\n    Coarse scales: see global structure (low freq)\n    Fine scales: see fine detail (high freq)\n    → Constant relative bandwidth: Δω/ω = const\n\n  Applications:\n    Signal denoising (threshold wavelet coefficients)\n    JPEG-2000 (wavelet-based image compression)\n    Seismic analysis, ECG, audio compression (MP3 uses wavelet-like MDCT)\n    Multirate filter banks (polyphase decomposition ↔ wavelet)",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-11",
+      "kind": "diagram_like",
+      "line": 458,
+      "heading_context": "### Definition",
+      "confidence": "candidate",
+      "text": "  F(u,v) = ∫∫ f(x,y) e^(-i2π(ux+vy)) dx dy\n\n  f(x,y) = ∫∫ F(u,v) e^(+i2π(ux+vy)) du dv\n\n  Separable: if f(x,y) = g(x)h(y), then F(u,v) = G(u)H(v)\n\n  2D DFT:\n    F[k,l] = ΣₘΣₙ f[m,n] W_M^(mk) W_N^(nl)\n    Separable → row-wise 1D FFT, then column-wise 1D FFT\n    Total: O(MN log(MN))",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-12",
+      "kind": "chart_like",
+      "line": 471,
+      "heading_context": "### Definition",
+      "confidence": "candidate",
+      "text": "### 2D Properties",
+      "notes": [
+        "detected from bar/chart glyph density with numeric labels"
+      ]
+    },
+    {
+      "id": "block-13",
+      "kind": "diagram_like",
+      "line": 473,
+      "heading_context": "### 2D Properties",
+      "confidence": "candidate",
+      "text": "  Rotation: f rotated by θ ←→ F rotated by θ\n  Projection-slice theorem:\n    1D FT of a projection of f at angle θ\n    = slice through F at angle θ\n    → Basis of CT reconstruction (filtered backprojection)\n\n  2D convolution: (f*g)(x,y) ←→ F(u,v)·G(u,v)\n    → Convolution theorem works in 2D\n    → Implement 2D convolution via 2D FFT for large kernels",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-14",
+      "kind": "diagram_like",
+      "line": 525,
+      "heading_context": "## 9. Fourier Analysis on Groups — Pontryagin Duality",
+      "confidence": "candidate",
+      "text": "  Pontryagin duality: Every LCA group G has a Pontryagin dual Ĝ (the group of\n  continuous homomorphisms G → 𝕋 = {|z|=1}), and Ĝ̂ ≅ G (dual of dual = original).\n\n  The Fourier transform ℱ: L¹(G) → C₀(Ĝ) is defined by\n    f̂(χ) = ∫_G f(g) χ̄(g) dg\n\n  The four standard transforms are all instantiations of this:\n\n  ┌──────────────────────────────────────────────────────────────────────┐\n  │  Group G        │  Dual Ĝ        │  Transform       │ Spectrum       │\n  ├──────────────────────────────────────────────────────────────────────┤\n  │  ℝ              │  ℝ             │  CTFT            │  Continuous   │\n  │  𝕋 = ℝ/ℤ (circle)│  ℤ           │  Fourier series  │  Discrete     │\n  │  ℤ              │  𝕋             │  DTFT            │  Periodic     │\n  │  ℤ/Nℤ           │  ℤ/Nℤ         │  DFT             │  Finite       │\n  └──────────────────────────────────────────────────────────────────────┘\n\n  The duality G ↔ Ĝ explains all the \"periodic ↔ discrete\" relationships:\n    - Sampling (discretize ℝ → ℤ) ↔ Periodization in frequency (ℝ → 𝕋)\n    - Truncation (ℝ → finite window) ↔ Convolution with sinc in frequency\n    - DFT has G = ℤ/Nℤ = Ĝ: the group is self-dual (both domain and frequency\n      are mod-N integers) — explains circular convolution.\n\n  Non-abelian generalization (representation theory):\n    For non-abelian groups G, characters χ are replaced by irreducible\n    unitary representations ρ: G → U(Vρ). The Fourier transform becomes\n    f̂(ρ) = ∫_G f(g) ρ(g) dg  (operator-valued).\n    Peter-Weyl theorem: L²(G) = ⊕_ρ (dim ρ) · Vρ  (for compact G).\n    Applications: molecular symmetry (quantum chemistry), spin representations\n    in QM, the FFT on finite groups (fast algorithms for group operations).",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-15",
+      "kind": "diagram_like",
+      "line": 562,
+      "heading_context": "## 10. Connections to Physics and Engineering",
+      "confidence": "candidate",
+      "text": "  Heat equation (07-DIFFEQ):\n    ∂u/∂t = α ∂²u/∂x²\n\n    FT in x: d/dt Û(k,t) = -αk² Û(k,t)\n    Û(k,t) = Û(k,0) e^(-αk²t)    → exponential decay per mode\n    High-k (fine structure) decays faster.\n    u(x,t) = ∫ Û(k,0) e^(-αk²t) e^(ikx) dk\n\n  Wave equation:\n    ∂²u/∂t² = c² ∂²u/∂x²\n    FT: d²/dt² Û(k,t) = -c²k² Û   →  Û = A e^(±ickt)\n    Dispersion relation: ω = ck\n\n  Schrödinger equation:\n    iℏ ∂ψ/∂t = -ℏ²/(2m) ∂²ψ/∂x² + V(x)ψ\n    FT: ψ̃(p) = FT of ψ(x)  (momentum space wavefunction)\n    ⟨x⟩ = ∫x|ψ|²dx,   ⟨p⟩ = ∫p|ψ̃|²dp   (Born rule)\n\n  Convolution theorem ↔ LTI systems (6.003):\n    y(t) = (h * x)(t)  →  Y(ω) = H(ω)·X(ω)\n    Transfer function H(ω) = FT of impulse response h(t)\n    Filter design = shaping H(ω)",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    }
+  ]
+}

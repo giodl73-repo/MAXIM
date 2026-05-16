@@ -1,3 +1,22 @@
+---
+maxim_schema: maxim.frontmatter.v1
+id: maxim:mathematics:complex-analysis
+kind: guide
+module: mathematics
+section: mathematics
+title: Complex Analysis - Complete Reference
+status: source-custody
+source_custody: partial
+current_path: mathematics/14-COMPLEX-ANALYSIS.md
+canonical_path: mathematics/14-COMPLEX-ANALYSIS.md
+backsource_ids: [proof-backfill:mathematics:14-complex-analysis, git-history:mathematics:14-complex-analysis]
+concepts: [complex, analysis]
+root_concepts: [complex, analysis]
+index_roles: [guide, root-concept]
+remap_from: []
+remap_to: []
+updated: null
+---
 # Complex Analysis — Complete Reference
 
 ## The Big Picture

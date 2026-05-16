@@ -1,0 +1,224 @@
+{
+  "schema_version": "1",
+  "source_markdown": "mathematics\\14-COMPLEX-ANALYSIS.md",
+  "tables": [
+    {
+      "id": "table-1",
+      "line": 146,
+      "heading_context": "## Holomorphic Functions: The Central Concept",
+      "headers": [
+        "Function",
+        "f(z)",
+        "Notes"
+      ],
+      "rows": [
+        [
+          "Polynomials",
+          "aₙzⁿ + ... + a₀",
+          "Entire (holomorphic everywhere)"
+        ],
+        [
+          "Rational",
+          "p(z)/q(z)",
+          "Holomorphic away from zeros of q"
+        ],
+        [
+          "eᶻ",
+          "eˣ(cos y + i sin y)",
+          "Entire, periodic with period 2πi"
+        ],
+        [
+          "sin z, cos z",
+          "(eⁱᶻ ∓ e⁻ⁱᶻ)/2i, (eⁱᶻ + e⁻ⁱᶻ)/2",
+          "Entire, unbounded in imaginary direction"
+        ],
+        [
+          "log z",
+          "ln\\|z\\| + i arg z",
+          "Multi-valued! Needs branch cut"
+        ],
+        [
+          "zᵃ",
+          "e^(a log z)",
+          "Multi-valued for a ∉ ℤ"
+        ],
+        [
+          "1/z",
+          "z̄/\\|z\\|²",
+          "Holomorphic on ℂ\\{0}; prototype for poles"
+        ]
+      ]
+    },
+    {
+      "id": "table-2",
+      "line": 426,
+      "heading_context": "## Conformal Mappings",
+      "headers": [
+        "Map",
+        "Formula",
+        "Use"
+      ],
+      "rows": [
+        [
+          "Translation",
+          "z + c",
+          "Shift domain"
+        ],
+        [
+          "Rotation/scaling",
+          "az",
+          "Rotate and scale"
+        ],
+        [
+          "Inversion",
+          "1/z",
+          "Swaps 0 and ∞, inside/outside of unit circle"
+        ],
+        [
+          "Joukowski",
+          "z + 1/z",
+          "Circle → ellipse/airfoil — fluid dynamics"
+        ],
+        [
+          "Cayley map",
+          "(z−i)/(z+i)",
+          "Upper half-plane → unit disk"
+        ]
+      ]
+    },
+    {
+      "id": "table-3",
+      "line": 701,
+      "heading_context": "## Key Theorems — Reference Card",
+      "headers": [
+        "Theorem",
+        "Statement"
+      ],
+      "rows": [
+        [
+          "**Cauchy-Riemann**",
+          "f holomorphic ⟺ ∂f/∂z̄ = 0 ⟺ Jacobian is a scaled rotation"
+        ],
+        [
+          "**Cauchy's theorem**",
+          "∮_γ f dz = 0 for f holomorphic inside γ"
+        ],
+        [
+          "**Cauchy integral formula**",
+          "f(z₀) = (1/2πi) ∮ f(z)/(z−z₀) dz"
+        ],
+        [
+          "**Taylor theorem**",
+          "Holomorphic ⟺ analytic (equals its Taylor series)"
+        ],
+        [
+          "**Laurent expansion**",
+          "Classifies singularities: removable / pole / essential"
+        ],
+        [
+          "**Residue theorem**",
+          "∮_γ f dz = 2πi Σ Res(f, zₖ)"
+        ],
+        [
+          "**Liouville**",
+          "Bounded entire ⟹ constant"
+        ],
+        [
+          "**FTA**",
+          "Every non-constant polynomial over ℂ has a root (from Liouville)"
+        ],
+        [
+          "**Riemann mapping**",
+          "Simply connected proper open U ≅ unit disk"
+        ],
+        [
+          "**Identity theorem**",
+          "Two holomorphic functions agreeing on a set with a limit point are identical"
+        ],
+        [
+          "**Picard's great theorem**",
+          "Near an essential singularity, f takes every value except one, infinitely often"
+        ],
+        [
+          "**Open mapping**",
+          "Non-constant holomorphic maps are open maps"
+        ],
+        [
+          "**Maximum modulus**",
+          "\\|f\\| cannot have an interior maximum"
+        ],
+        [
+          "**Riemann-Hurwitz**",
+          "2g(S)−2 = d(2g(T)−2) + Σ(e_p−1) for branched cover S → T"
+        ]
+      ]
+    },
+    {
+      "id": "table-4",
+      "line": 722,
+      "heading_context": "## Decision Cheat Sheet",
+      "headers": [
+        "Need",
+        "Technique"
+      ],
+      "rows": [
+        [
+          "Evaluate ∫₀^{2π} R(cos θ, sin θ) dθ",
+          "Substitute z = e^{iθ}, use residues inside unit circle"
+        ],
+        [
+          "Evaluate ∫_{-∞}^{∞} rational dx",
+          "Close semicircle, residues in upper half-plane"
+        ],
+        [
+          "Evaluate ∫_{-∞}^{∞} f(x)e^{iax} dx",
+          "Close upper semicircle (a > 0), Jordan's lemma"
+        ],
+        [
+          "Evaluate ∫₀^{∞} f(x)xᵃ dx",
+          "Keyhole contour around branch cut on positive real axis"
+        ],
+        [
+          "Invert Laplace transform F(s)",
+          "Bromwich contour, residues of F(s)e^{st}"
+        ],
+        [
+          "Solve 2D Laplace equation in a domain",
+          "Conformal map to disk, Poisson kernel"
+        ],
+        [
+          "Determine if f is holomorphic",
+          "Check CR equations: ∂u/∂x = ∂v/∂y, ∂u/∂y = −∂v/∂x"
+        ],
+        [
+          "Find type of singularity at z₀",
+          "Compute Laurent series; count negative-index terms"
+        ],
+        [
+          "Compute a specific residue",
+          "For simple pole: lim (z−z₀)f(z); for order m: derivative formula"
+        ],
+        [
+          "Extend f to a larger domain",
+          "Analytic continuation along paths; unique where it exists"
+        ],
+        [
+          "Count zeros of f inside a contour",
+          "Argument principle: (1/2πi)∮ f'/f dz = Z − P"
+        ],
+        [
+          "Connect primes to ζ(s)",
+          "Euler product + Perron's formula + zero-free region"
+        ],
+        [
+          "Characterize causal L² signals",
+          "Paley-Wiener: Fourier transform ∈ H²(upper half-plane)"
+        ],
+        [
+          "Factor a filter into all-pass + minimum-phase",
+          "Inner-outer factorization of H²"
+        ]
+      ]
+    }
+  ]
+}

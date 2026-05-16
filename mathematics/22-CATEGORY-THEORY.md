@@ -1,3 +1,22 @@
+---
+maxim_schema: maxim.frontmatter.v1
+id: maxim:mathematics:category-theory
+kind: guide
+module: mathematics
+section: mathematics
+title: Category Theory - Complete Reference
+status: source-custody
+source_custody: partial
+current_path: mathematics/22-CATEGORY-THEORY.md
+canonical_path: mathematics/22-CATEGORY-THEORY.md
+backsource_ids: [proof-backfill:mathematics:22-category-theory, git-history:mathematics:22-category-theory]
+concepts: [category, theory]
+root_concepts: [category, theory]
+index_roles: [guide, root-concept]
+remap_from: []
+remap_to: []
+updated: null
+---
 # Category Theory — Complete Reference
 
 ## The Big Picture

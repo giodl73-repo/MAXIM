@@ -1,0 +1,206 @@
+{
+  "schema_version": "1",
+  "source_markdown": "mathematics\\20-STATISTICS.md",
+  "tables": [
+    {
+      "id": "table-1",
+      "line": 326,
+      "heading_context": "## 3. Hypothesis Testing",
+      "headers": [
+        "Test",
+        "Hypotheses",
+        "Statistic",
+        "Assumptions"
+      ],
+      "rows": [
+        [
+          "One-sample t",
+          "H₀: μ = μ₀",
+          "t = (X̄-μ₀)/(s/√n), df=n-1",
+          "Normal or n large"
+        ],
+        [
+          "Two-sample t",
+          "H₀: μ₁ = μ₂",
+          "Welch t, df via Satterthwaite",
+          "Normal or n large"
+        ],
+        [
+          "Paired t",
+          "H₀: μ_D = 0",
+          "t on differences",
+          "Differences normal"
+        ],
+        [
+          "One-prop z",
+          "H₀: p = p₀",
+          "z = (p̂-p₀)/√(p₀(1-p₀)/n)",
+          "np₀ ≥ 5"
+        ],
+        [
+          "Two-prop z",
+          "H₀: p₁ = p₂",
+          "z with pooled estimate",
+          "Large n"
+        ],
+        [
+          "ANOVA (F-test)",
+          "H₀: all μ equal",
+          "F = MSB/MSW, df=(k-1,n-k)",
+          "Normal, equal variance"
+        ],
+        [
+          "χ² goodness-of-fit",
+          "H₀: distribution is F₀",
+          "Σ(O-E)²/E, df=k-1-params",
+          "Expected counts ≥ 5"
+        ],
+        [
+          "χ² independence",
+          "H₀: X⊥Y",
+          "Σ(O-E)²/E, df=(r-1)(c-1)",
+          "Expected counts ≥ 5"
+        ]
+      ]
+    },
+    {
+      "id": "table-2",
+      "line": 603,
+      "heading_context": "## 5. Generalized Linear Models (GLMs)",
+      "headers": [
+        "Distribution",
+        "Support",
+        "Link",
+        "Application"
+      ],
+      "rows": [
+        [
+          "Normal",
+          "ℝ",
+          "identity: μ = Xβ",
+          "Continuous outcome, OLS"
+        ],
+        [
+          "Binomial",
+          "{0,...,n}",
+          "logit: log(μ/(1-μ)) = Xβ",
+          "Binary outcome"
+        ],
+        [
+          "Poisson",
+          "{0,1,2,...}",
+          "log: log(μ) = Xβ",
+          "Count data"
+        ],
+        [
+          "Gamma",
+          "(0,∞)",
+          "inverse: 1/μ = Xβ",
+          "Positive continuous"
+        ],
+        [
+          "Inverse Gaussian",
+          "(0,∞)",
+          "1/μ² = Xβ",
+          "Positive, right-skewed"
+        ]
+      ]
+    },
+    {
+      "id": "table-3",
+      "line": 711,
+      "heading_context": "## 6. Nonparametric Tests",
+      "headers": [
+        "Parametric",
+        "Nonparametric equivalent",
+        "When"
+      ],
+      "rows": [
+        [
+          "One-sample t",
+          "Wilcoxon signed-rank",
+          "One sample, unknown distribution"
+        ],
+        [
+          "Two-sample t",
+          "Mann-Whitney U (Wilcoxon rank-sum)",
+          "Two groups, unknown distribution"
+        ],
+        [
+          "Paired t",
+          "Wilcoxon signed-rank on differences",
+          "Paired data, non-normal"
+        ],
+        [
+          "One-way ANOVA",
+          "Kruskal-Wallis H",
+          "K groups, non-normal"
+        ],
+        [
+          "Pearson correlation",
+          "Spearman ρ or Kendall τ",
+          "Monotone not linear relationship"
+        ],
+        [
+          "—",
+          "Kolmogorov-Smirnov test",
+          "Test two distributions equal"
+        ],
+        [
+          "—",
+          "Sign test",
+          "Median = m₀"
+        ]
+      ]
+    },
+    {
+      "id": "table-4",
+      "line": 764,
+      "heading_context": "## 7. Bayesian Inference",
+      "headers": [
+        "Likelihood",
+        "Conjugate Prior",
+        "Posterior",
+        "Notes"
+      ],
+      "rows": [
+        [
+          "Binomial(n,p)",
+          "Beta(α,β)",
+          "Beta(α+k, β+n-k)",
+          "k = successes"
+        ],
+        [
+          "Poisson(λ)",
+          "Gamma(α,β)",
+          "Gamma(α+Σxᵢ, β+n)",
+          ""
+        ],
+        [
+          "Normal(μ,σ²)",
+          "Normal(μ₀,σ₀²)",
+          "Normal (updated)",
+          "σ² known"
+        ],
+        [
+          "Normal(μ,σ²)",
+          "NIG(μ₀,κ,α,β)",
+          "NIG (updated)",
+          "μ,σ² both unknown"
+        ],
+        [
+          "Multinomial(p)",
+          "Dirichlet(α)",
+          "Dirichlet(α+counts)",
+          ""
+        ],
+        [
+          "Exponential(λ)",
+          "Gamma(α,β)",
+          "Gamma(α+n, β+Σxᵢ)",
+          ""
+        ]
+      ]
+    }
+  ]
+}

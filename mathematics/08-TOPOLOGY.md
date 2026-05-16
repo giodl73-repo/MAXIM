@@ -1,3 +1,22 @@
+---
+maxim_schema: maxim.frontmatter.v1
+id: maxim:mathematics:topology
+kind: guide
+module: mathematics
+section: mathematics
+title: 08 - Topology: Continuity, Shape, and Invariants
+status: source-custody
+source_custody: partial
+current_path: mathematics/08-TOPOLOGY.md
+canonical_path: mathematics/08-TOPOLOGY.md
+backsource_ids: [proof-backfill:mathematics:08-topology, git-history:mathematics:08-topology]
+concepts: [topology]
+root_concepts: [topology]
+index_roles: [guide, root-concept]
+remap_from: []
+remap_to: []
+updated: null
+---
 # 08 — Topology: Continuity, Shape, and Invariants
 
 ```

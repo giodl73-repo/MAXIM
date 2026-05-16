@@ -1,3 +1,22 @@
+---
+maxim_schema: maxim.frontmatter.v1
+id: maxim:mathematics:overview
+kind: guide
+module: mathematics
+section: mathematics
+title: 00-OVERVIEW - Mathematics: The Dependency Map
+status: source-custody
+source_custody: partial
+current_path: mathematics/00-OVERVIEW.md
+canonical_path: mathematics/00-OVERVIEW.md
+backsource_ids: [proof-backfill:mathematics:00-overview, git-history:mathematics:00-overview]
+concepts: [overview]
+root_concepts: [overview]
+index_roles: [guide, root-concept]
+remap_from: []
+remap_to: []
+updated: null
+---
 # 00-OVERVIEW — Mathematics: The Dependency Map
 
 > 24 modules, ~1,600 pages. Every branch of mathematics in this library connects

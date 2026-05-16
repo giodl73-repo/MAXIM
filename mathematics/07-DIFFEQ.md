@@ -1,3 +1,22 @@
+---
+maxim_schema: maxim.frontmatter.v1
+id: maxim:mathematics:diffeq
+kind: guide
+module: mathematics
+section: mathematics
+title: 07 - Differential Equations: ODEs, PDEs, and the Equations of Physics
+status: source-custody
+source_custody: partial
+current_path: mathematics/07-DIFFEQ.md
+canonical_path: mathematics/07-DIFFEQ.md
+backsource_ids: [proof-backfill:mathematics:07-diffeq, git-history:mathematics:07-diffeq]
+concepts: [diffeq]
+root_concepts: [diffeq]
+index_roles: [guide, root-concept]
+remap_from: []
+remap_to: []
+updated: null
+---
 # 07 — Differential Equations: ODEs, PDEs, and the Equations of Physics
 
 ```

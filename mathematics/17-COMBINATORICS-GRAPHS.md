@@ -1,3 +1,22 @@
+---
+maxim_schema: maxim.frontmatter.v1
+id: maxim:mathematics:combinatorics-graphs
+kind: guide
+module: mathematics
+section: mathematics
+title: Combinatorics and Graph Theory - Complete Reference
+status: source-custody
+source_custody: partial
+current_path: mathematics/17-COMBINATORICS-GRAPHS.md
+canonical_path: mathematics/17-COMBINATORICS-GRAPHS.md
+backsource_ids: [proof-backfill:mathematics:17-combinatorics-graphs, git-history:mathematics:17-combinatorics-graphs]
+concepts: [combinatorics, graphs]
+root_concepts: [combinatorics, graphs]
+index_roles: [guide, root-concept]
+remap_from: []
+remap_to: []
+updated: null
+---
 # Combinatorics and Graph Theory — Complete Reference
 
 ## The Big Picture

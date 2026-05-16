@@ -1,0 +1,193 @@
+{
+  "schema_version": "1",
+  "source_markdown": "mathematics\\01-VECTOR-CALC.md",
+  "blocks": [
+    {
+      "id": "block-1",
+      "kind": "ascii_table_candidate",
+      "line": 24,
+      "heading_context": "## The Big Picture",
+      "confidence": "candidate",
+      "text": "+------------------------------------------------------------------------+\n|                     VECTOR CALCULUS LANDSCAPE                          |\n|                                                                        |\n|   COORDINATE EXPRESSION (R³)          COORDINATE-FREE                  |\n|   ─────────────────────────────        (Exterior Calculus)             |\n|                                                                        |\n|   f: R³→R   ──── ∇  (gradient) ──>  F: R³→R³   ≡  d on 0-forms         |\n|   F: R³→R³  ──── ∇· (divergence) → f: R³→R     ≡  ★d★ on 2-forms       |\n|   F: R³→R³  ──── ∇× (curl) ──────> F: R³→R³   ≡  ★d on 1-forms         |\n|   f: R³→R   ──── ∇² (Laplacian) → f: R³→R     ≡  ★d★d on 0-forms       |\n|                                                                        |\n|   INPUT TYPE        OPERATOR          OUTPUT TYPE     PHYSICAL MEANING |\n|   scalar field      gradient          vector field    steepest ascent  |\n|   vector field      divergence        scalar field    source/sink rate |\n|   vector field      curl              vector field    local rotation   |\n|   scalar field      Laplacian         scalar field    vs. neighbors    |\n|                                                                        |\n|   COORDINATE-FREE LAYER: exterior calculus (differential forms)        |\n|   d²=0 is ONE identity that encodes ∇×(∇f)=0 and ∇·(∇×F)=0             |\n+------------------------------------------------------------------------+",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-2",
+      "kind": "ascii_table_candidate",
+      "line": 51,
+      "heading_context": "## The Big Picture",
+      "confidence": "candidate",
+      "text": "  ∇·E  = ρ/ε₀          Gauss's Law (electric charges create E fields)\n  ∇·B  = 0             No magnetic monopoles (B has no sources)\n  ∇×E  = -∂B/∂t        Faraday's Law (changing B creates E)\n  ∇×B  = μ₀J + μ₀ε₀∂E/∂t   Ampere-Maxwell (current + changing E creates B)",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-3",
+      "kind": "diagram_like",
+      "line": 69,
+      "heading_context": "## What Is a Field?",
+      "confidence": "candidate",
+      "text": "  f : R³ → R\n\n  Examples:\n    T(x,y,z) — temperature at every point in a room\n    V(x,y,z) — electric potential (voltage) at every point\n    p(x,y,z) — air pressure at every point in the atmosphere",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-4",
+      "kind": "diagram_like",
+      "line": 80,
+      "heading_context": "## What Is a Field?",
+      "confidence": "candidate",
+      "text": "  F : R³ → R³\n\n  Examples:\n    E(x,y,z) — electric field vector at every point\n    B(x,y,z) — magnetic field vector at every point\n    v(x,y,z) — fluid velocity at every point in a flow\n    g(x,y,z) — gravitational field at every point near Earth",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-5",
+      "kind": "diagram_like",
+      "line": 104,
+      "heading_context": "## Foundation: Partial Derivatives",
+      "confidence": "candidate",
+      "text": "  f(x, y) = x²y + 3y\n\n  ∂f/∂x = 2xy          (y is a constant multiplier)\n  ∂f/∂y = x² + 3       (x² is a constant, 3y → 3)",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-6",
+      "kind": "diagram_like",
+      "line": 137,
+      "heading_context": "## The Del Operator ∇",
+      "confidence": "candidate",
+      "text": "         ∂          ∂          ∂\n  ∇  =  ─── x̂  +  ─── ŷ  +  ─── ẑ\n        ∂x         ∂y         ∂z",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-7",
+      "kind": "diagram_like",
+      "line": 155,
+      "heading_context": "## Gradient: ∇f",
+      "confidence": "candidate",
+      "text": "           ∂f         ∂f         ∂f\n  ∇f  =   ─── x̂  +  ─── ŷ  +  ─── ẑ\n           ∂x         ∂y         ∂z",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-8",
+      "kind": "diagram_like",
+      "line": 166,
+      "heading_context": "## Gradient: ∇f",
+      "confidence": "candidate",
+      "text": "  TOPOGRAPHIC MAP (top view — contour lines of equal elevation f)\n\n        f=50 ─────────────────────\n        f=40 ─────────────────────\n        f=30 ─────────────────────       ∇f arrows point\n        f=20 ─────────────────────  →→→  perpendicular to\n        f=10 ─────────────────────       contour lines,\n        f=0  ─────────────────────       uphill",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-9",
+      "kind": "diagram_like",
+      "line": 200,
+      "heading_context": "## Divergence: ∇·F",
+      "confidence": "candidate",
+      "text": "  F = Fx x̂ + Fy ŷ + Fz ẑ\n\n         ∂Fx   ∂Fy   ∂Fz\n  ∇·F =  ─── + ─── + ───\n          ∂x    ∂y    ∂z",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-10",
+      "kind": "diagram_like",
+      "line": 213,
+      "heading_context": "## Divergence: ∇·F",
+      "confidence": "candidate",
+      "text": "  ∇·F > 0  at a point:   SOURCE — field arrows radiate outward\n  ∇·F < 0  at a point:   SINK   — field arrows converge inward\n  ∇·F = 0  at a point:   field passes through without accumulating\n\n\n  SOURCE (∇·F > 0)       SINK (∇·F < 0)       UNIFORM (∇·F = 0)\n      ↑↗ →                  → ↘ ↓                  → → →\n     ↑  ·  →               ↑  ·  ↓                 → · →\n      ↖↙ ←                  ← ↗ ↑                  → → →",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-11",
+      "kind": "ascii_table_candidate",
+      "line": 244,
+      "heading_context": "## Curl: ∇×F",
+      "confidence": "candidate",
+      "text": "  ∇×F = det | x̂      ŷ      ẑ   |\n             | ∂/∂x  ∂/∂y  ∂/∂z |\n             | Fx     Fy     Fz   |\n\n       = (∂Fz/∂y - ∂Fy/∂z) x̂\n       + (∂Fx/∂z - ∂Fz/∂x) ŷ\n       + (∂Fy/∂x - ∂Fx/∂y) ẑ",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-12",
+      "kind": "diagram_like",
+      "line": 264,
+      "heading_context": "## Curl: ∇×F",
+      "confidence": "candidate",
+      "text": "  CURL = 0                    CURL ≠ 0\n  (no local rotation)         (local rotation present)\n\n    → → →                       ↑ ← ←\n    → → →                       ↑  ·  ←   ∇×F points out of page\n    → → →                       ↑ → →",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-13",
+      "kind": "ascii_table_candidate",
+      "line": 325,
+      "heading_context": "## Laplacian: ∇²f",
+      "confidence": "candidate",
+      "text": "  ∂²f/∂x² = 2,   ∂²f/∂y² = 2,   ∂²f/∂z² = -4\n\n  ∇²f = 2 + 2 + (-4) = 0    ← harmonic function",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-14",
+      "kind": "ascii_table_candidate",
+      "line": 335,
+      "heading_context": "## The Operators Together",
+      "confidence": "candidate",
+      "text": "+-------------------------------------------------------------------+\n|                                                                   |\n|   SCALAR FIELD f                         VECTOR FIELD F           |\n|                                                                   |\n|        │ ∇ (gradient)          ∇· (divergence) │                  |\n|        ▼                                        ▼                 |\n|   VECTOR FIELD ∇f              SCALAR FIELD ∇·F                   |\n|        │                                                          |\n|        │ ∇· (divergence of gradient)                              |\n|        ▼                                                          |\n|   SCALAR FIELD ∇²f = ∇·(∇f)   ← Laplacian                         |\n|                                                                   |\n|   VECTOR FIELD F                                                  |\n|        │ ∇× (curl)                                                |\n|        ▼                                                          |\n|   VECTOR FIELD ∇×F                                                |\n|                                                                   |\n+-------------------------------------------------------------------+",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-15",
+      "kind": "diagram_like",
+      "line": 396,
+      "heading_context": "## Preview: Maxwell Decoded",
+      "confidence": "candidate",
+      "text": "  ∇·E = ρ/ε₀\n  ─────────────────────────────────────────────────────────────────\n  \"The divergence of the electric field at a point equals the charge\n   density there (divided by ε₀). Electric field lines start on\n   positive charges and end on negative charges.\"\n\n\n  ∇·B = 0\n  ─────────────────────────────────────────────────────────────────\n  \"The magnetic field has zero divergence everywhere. There are no\n   magnetic monopoles. Every B field line that enters a region must\n   exit it.\"\n\n\n  ∇×E = -∂B/∂t\n  ─────────────────────────────────────────────────────────────────\n  \"The curl of the electric field equals the negative rate of change\n   of the magnetic field. A changing B field induces a curling E field.\n   This is how generators work.\"\n\n\n  ∇×B = μ₀J + μ₀ε₀ ∂E/∂t\n  ─────────────────────────────────────────────────────────────────\n  \"The curl of the magnetic field is caused by electric current J\n   and by a changing electric field. The second term (Maxwell's\n   addition) is what allows electromagnetic waves to propagate\n   through empty space.\"",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-16",
+      "kind": "ascii_table_candidate",
+      "line": 466,
+      "heading_context": "## Curvilinear Coordinates",
+      "confidence": "candidate",
+      "text": "the metric is ds² = dr² + r²dθ² + r²sin²θ dφ² — the r-dependent scale factors",
+      "notes": [
+        "detected from ASCII table borders or pipe-aligned rows"
+      ]
+    },
+    {
+      "id": "block-17",
+      "kind": "ascii_table_candidate",
+      "line": 546,
+      "heading_context": "## Connections to Adjacent Mathematics",
+      "confidence": "candidate",
+      "text": "  (∂f/∂x)ᵢ ≈ (f(x+h) − f(x−h)) / 2h        (centered finite difference)\n  (∇·F)ᵢ   ≈ (Fₓ(x+h) − Fₓ(x−h))/2h + ...  (component sum)\n  (∇²f)ᵢ   ≈ (f(i+1) + f(i-1) − 2f(i)) / h²  (1D Laplacian stencil)",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    }
+  ]
+}

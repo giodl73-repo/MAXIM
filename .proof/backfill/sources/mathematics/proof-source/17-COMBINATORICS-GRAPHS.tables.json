@@ -1,0 +1,218 @@
+{
+  "schema_version": "1",
+  "source_markdown": "mathematics\\17-COMBINATORICS-GRAPHS.md",
+  "tables": [
+    {
+      "id": "table-1",
+      "line": 111,
+      "heading_context": "## 1. Counting Fundamentals",
+      "headers": [
+        "Problem",
+        "What Aᵢ represents",
+        "Answer uses"
+      ],
+      "rows": [
+        [
+          "Surjections from [n] to [k]",
+          "f misses output i",
+          "k! · Σ(-1)ʲ C(k,j)(k-j)ⁿ/k!"
+        ],
+        [
+          "Derangements D(n)",
+          "permutation fixes i",
+          "n!·Σ(-1)ᵏ/k! ≈ n!/e"
+        ],
+        [
+          "Euler's totient φ(n)",
+          "integers divisible by pᵢ",
+          "n·Π(1−1/pᵢ)"
+        ],
+        [
+          "Problème des ménages",
+          "couples sit adjacent",
+          "—"
+        ]
+      ]
+    },
+    {
+      "id": "table-2",
+      "line": 334,
+      "heading_context": "## 3. Graph Theory Fundamentals",
+      "headers": [
+        "Notation",
+        "Graph",
+        "Properties"
+      ],
+      "rows": [
+        [
+          "Kₙ",
+          "Complete graph",
+          "n(n-1)/2 edges, (n-1)-regular"
+        ],
+        [
+          "Kₘ,ₙ",
+          "Complete bipartite",
+          "Bipartite, mn edges"
+        ],
+        [
+          "Cₙ",
+          "Cycle",
+          "2-regular, n edges"
+        ],
+        [
+          "Pₙ",
+          "Path",
+          "n-1 edges"
+        ],
+        [
+          "Qₙ",
+          "n-cube",
+          "2ⁿ vertices, n-regular, bipartite"
+        ],
+        [
+          "Wₙ",
+          "Wheel",
+          "Cₙ + hub, planar if n ≤ 4"
+        ],
+        [
+          "Petersen",
+          "Famous 3-regular",
+          "Non-Hamiltonian, non-planar, 10 vertices"
+        ]
+      ]
+    },
+    {
+      "id": "table-3",
+      "line": 1192,
+      "heading_context": "## 19. Decision Cheat Sheet",
+      "headers": [
+        "Problem",
+        "Algorithm",
+        "Complexity",
+        "Notes"
+      ],
+      "rows": [
+        [
+          "Connected?",
+          "BFS/DFS",
+          "O(V+E)",
+          ""
+        ],
+        [
+          "Shortest path (unweighted)",
+          "BFS",
+          "O(V+E)",
+          ""
+        ],
+        [
+          "Shortest path (weighted, pos)",
+          "Dijkstra",
+          "O((V+E)logV)",
+          ""
+        ],
+        [
+          "Shortest path (neg weights)",
+          "Bellman-Ford",
+          "O(VE)",
+          "Detects neg cycles"
+        ],
+        [
+          "All-pairs shortest paths",
+          "Floyd-Warshall",
+          "O(V³)",
+          "Or Johnson for sparse"
+        ],
+        [
+          "MST",
+          "Kruskal or Prim",
+          "O(E log E)",
+          "Kruskal simpler, Prim better dense"
+        ],
+        [
+          "Max flow",
+          "Dinic",
+          "O(V²E)",
+          "Unit: O(E√V)"
+        ],
+        [
+          "Bipartite matching",
+          "Hopcroft-Karp",
+          "O(E√V)",
+          ""
+        ],
+        [
+          "Min vertex cover (bipartite)",
+          "König's + matching",
+          "O(E√V)",
+          "König: MVC = max match"
+        ],
+        [
+          "Topological sort",
+          "Kahn's BFS",
+          "O(V+E)",
+          "Detects cycle"
+        ],
+        [
+          "SCCs",
+          "Tarjan/Kosaraju",
+          "O(V+E)",
+          ""
+        ],
+        [
+          "Planarity",
+          "Hopcroft-Tarjan",
+          "O(V)",
+          ""
+        ],
+        [
+          "Eulerian circuit",
+          "Hierholzer",
+          "O(E)",
+          "Check degrees first"
+        ],
+        [
+          "Hamiltonian cycle",
+          "—",
+          "NP-hard",
+          "No known poly-time"
+        ],
+        [
+          "k-coloring (k≥3)",
+          "—",
+          "NP-hard",
+          "2-coloring = bipartite check"
+        ],
+        [
+          "Clique number",
+          "—",
+          "NP-hard",
+          "Exact"
+        ],
+        [
+          "Independent set",
+          "—",
+          "NP-hard",
+          "2-approx via matching"
+        ],
+        [
+          "Dynamic connectivity",
+          "Link-cut trees",
+          "O(log n) amortized",
+          "Advanced"
+        ],
+        [
+          "Asymptotics of [xⁿ]A(x)",
+          "Singularity analysis",
+          "—",
+          "Dominant singularity of A(x)"
+        ],
+        [
+          "Community detection",
+          "Spectral (Fiedler vector)",
+          "O(n log n)",
+          "SBM with SNR above threshold"
+        ]
+      ]
+    }
+  ]
+}

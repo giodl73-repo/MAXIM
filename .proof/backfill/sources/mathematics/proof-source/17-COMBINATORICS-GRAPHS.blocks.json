@@ -1,0 +1,556 @@
+{
+  "schema_version": "1",
+  "source_markdown": "mathematics\\17-COMBINATORICS-GRAPHS.md",
+  "blocks": [
+    {
+      "id": "block-1",
+      "kind": "diagram_like",
+      "line": 24,
+      "heading_context": "## The Big Picture",
+      "confidence": "candidate",
+      "text": "COMBINATORICS & GRAPH THEORY\n═══════════════════════════════════════════════════════════════════════════\n\n  COUNTING                    GRAPH THEORY                  EXTREMAL / RAMSEY\n  ─────────                   ────────────                  ─────────────────\n  Basic counting principles   Graphs, digraphs              Turán theorem\n  Permutations, combinations  Trees, spanning trees         Ramsey R(s,t)\n  Multinomials                Eulerian / Hamiltonian        Szemerédi regularity\n  Inclusion-exclusion         Planarity, graph coloring     Probabilistic method\n  Pigeonhole principle        Matching, Hall's theorem      Extremal graph theory\n\n  GENERATING FUNCTIONS        ALGEBRAIC COMBINATORICS       ALGORITHMS ON GRAPHS\n  ────────────────────        ───────────────────────       ────────────────────\n  OGFs (ordinary)             Chromatic polynomial          BFS / DFS\n  EGFs (exponential)          Möbius inversion (posets)     Shortest paths\n  Formal power series         Polya's enumeration theorem   MST (Kruskal/Prim)\n  Transfer matrix method      Burnside's lemma              Network flow (max-flow)\n  Analytic combinatorics      Symmetric functions           NP-hard classics\n\n  ┌─────────────────────────────────────────────────────────────────────┐\n  │  Core theme: counting discrete structures + understanding their     │\n  │  connectivity, coloring, and global properties                      │\n  └─────────────────────────────────────────────────────────────────────┘",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-2",
+      "kind": "chart_like",
+      "line": 61,
+      "heading_context": "## 1. Counting Fundamentals",
+      "confidence": "candidate",
+      "text": "### 1.1 The Basic Principles",
+      "notes": [
+        "detected from bar/chart glyph density with numeric labels"
+      ]
+    },
+    {
+      "id": "block-3",
+      "kind": "diagram_like",
+      "line": 63,
+      "heading_context": "### 1.1 The Basic Principles",
+      "confidence": "candidate",
+      "text": "RULE OF PRODUCT: |A × B| = |A| · |B|\n  \"Do A in m ways AND B in n ways → m·n total\"\n  Generalization: |A₁ × A₂ × ⋯ × Aₖ| = |A₁| · |A₂| · ⋯ · |Aₖ|\n\nRULE OF SUM: |A ∪ B| = |A| + |B|   when A ∩ B = ∅\n  \"Do A in m ways OR B in n ways → m+n total\"\n  Generalization: |A₁ ∪ A₂ ∪ ⋯| = Σ|Aᵢ|   (pairwise disjoint)\n\nBIJECTION PRINCIPLE: |A| = |B| iff there exists a bijection f: A → B\n  Proof technique: construct an explicit bijection rather than counting directly.\n  Classic example: binary strings of length n ↔ subsets of [n]",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-4",
+      "kind": "chart_like",
+      "line": 77,
+      "heading_context": "### 1.1 The Basic Principles",
+      "confidence": "candidate",
+      "text": "### 1.2 Permutations and Combinations",
+      "notes": [
+        "detected from bar/chart glyph density with numeric labels"
+      ]
+    },
+    {
+      "id": "block-5",
+      "kind": "chart_like",
+      "line": 99,
+      "heading_context": "### 1.2 Permutations and Combinations",
+      "confidence": "candidate",
+      "text": "### 1.3 Inclusion-Exclusion Principle (IEP)",
+      "notes": [
+        "detected from bar/chart glyph density with numeric labels"
+      ]
+    },
+    {
+      "id": "block-6",
+      "kind": "chart_like",
+      "line": 125,
+      "heading_context": "### 1.3 Inclusion-Exclusion Principle (IEP)",
+      "confidence": "candidate",
+      "text": "### 1.4 Pigeonhole Principle",
+      "notes": [
+        "detected from bar/chart glyph density with numeric labels"
+      ]
+    },
+    {
+      "id": "block-7",
+      "kind": "chart_like",
+      "line": 140,
+      "heading_context": "### 1.4 Pigeonhole Principle",
+      "confidence": "candidate",
+      "text": "### 1.5 Multinomial Coefficients",
+      "notes": [
+        "detected from bar/chart glyph density with numeric labels"
+      ]
+    },
+    {
+      "id": "block-8",
+      "kind": "chart_like",
+      "line": 158,
+      "heading_context": "## 2. Generating Functions",
+      "confidence": "candidate",
+      "text": "### 2.1 Ordinary Generating Functions (OGFs)",
+      "notes": [
+        "detected from bar/chart glyph density with numeric labels"
+      ]
+    },
+    {
+      "id": "block-9",
+      "kind": "chart_like",
+      "line": 190,
+      "heading_context": "### 2.1 Ordinary Generating Functions (OGFs)",
+      "confidence": "candidate",
+      "text": "### 2.2 Exponential Generating Functions (EGFs)",
+      "notes": [
+        "detected from bar/chart glyph density with numeric labels"
+      ]
+    },
+    {
+      "id": "block-10",
+      "kind": "chart_like",
+      "line": 210,
+      "heading_context": "### 2.2 Exponential Generating Functions (EGFs)",
+      "confidence": "candidate",
+      "text": "### 2.3 Transfer Matrix Method",
+      "notes": [
+        "detected from bar/chart glyph density with numeric labels"
+      ]
+    },
+    {
+      "id": "block-11",
+      "kind": "chart_like",
+      "line": 225,
+      "heading_context": "### 2.3 Transfer Matrix Method",
+      "confidence": "candidate",
+      "text": "### 2.4 Catalan Numbers",
+      "notes": [
+        "detected from bar/chart glyph density with numeric labels"
+      ]
+    },
+    {
+      "id": "block-12",
+      "kind": "chart_like",
+      "line": 244,
+      "heading_context": "### 2.4 Catalan Numbers",
+      "confidence": "candidate",
+      "text": "### 2.5 Analytic Combinatorics — Extracting Asymptotics from Singularities",
+      "notes": [
+        "detected from bar/chart glyph density with numeric labels"
+      ]
+    },
+    {
+      "id": "block-13",
+      "kind": "diagram_like",
+      "line": 278,
+      "heading_context": "### 2.5 Analytic Combinatorics — Extracting Asymptotics from Singularities",
+      "confidence": "candidate",
+      "text": "Catalan Cₙ: OGF = (1 − √(1−4x))/(2x), singularity at x = 1/4.\n  Near x = 1/4: C(x) ~ 1 − √(1−4x)/2 + ... (algebraic, exponent 1/2)\n  → Cₙ ~ 4ⁿ / (n^{3/2} √π)\n\nBallot numbers, Non-crossing partitions, Planar maps:\n  All have the n^{-3/2} correction → square-root singularity structure\n\nLabeled trees (nⁿ⁻²): EGF T(x) = xeᵀ⁽ˣ⁾ (Lambert W equation)\n  Singularity at x = 1/e: T(x) near 1/e involves √(1 − ex)\n  → nⁿ⁻² ~ √(2π) · n^{n−1/2} eˉⁿ  (Stirling refinement of Cayley)",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-14",
+      "kind": "chart_like",
+      "line": 305,
+      "heading_context": "## 3. Graph Theory Fundamentals",
+      "confidence": "candidate",
+      "text": "### 3.1 Definitions and Vocabulary",
+      "notes": [
+        "detected from bar/chart glyph density with numeric labels"
+      ]
+    },
+    {
+      "id": "block-15",
+      "kind": "diagram_like",
+      "line": 307,
+      "heading_context": "### 3.1 Definitions and Vocabulary",
+      "confidence": "candidate",
+      "text": "GRAPH G = (V, E)\n  V: vertices (nodes)\n  E ⊆ V×V: edges\n\nVariants:\n  Simple graph:    no self-loops, no multi-edges\n  Multigraph:      multiple edges allowed\n  Directed (digraph): edges (u,v) ≠ (v,u)\n  Weighted:        w: E → ℝ\n\nKEY PARAMETERS:\n  n = |V|  (order of G)\n  m = |E|  (size of G)\n  deg(v) = degree of vertex v\n  Handshaking lemma: Σᵥ deg(v) = 2m   (even number of odd-degree vertices)\n  δ(G) = min degree,  Δ(G) = max degree\n\nADJACENCY MATRIX A:   Aᵢⱼ = 1 if (i,j) ∈ E\nINCIDENCE MATRIX B:   Bᵢₑ = ±1 for endpoint of edge e\nLAPLACIAN L = D − A:  D = degree diagonal matrix\n  Properties: L is positive semi-definite, smallest eigenvalue = 0 (constant vector)\n  Second eigenvalue λ₂ = algebraic connectivity (Fiedler value)",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-16",
+      "kind": "chart_like",
+      "line": 332,
+      "heading_context": "### 3.1 Definitions and Vocabulary",
+      "confidence": "candidate",
+      "text": "### 3.2 Graph Families and Notation",
+      "notes": [
+        "detected from bar/chart glyph density with numeric labels"
+      ]
+    },
+    {
+      "id": "block-17",
+      "kind": "chart_like",
+      "line": 344,
+      "heading_context": "### 3.2 Graph Families and Notation",
+      "confidence": "candidate",
+      "text": "### 3.3 Connectivity",
+      "notes": [
+        "detected from bar/chart glyph density with numeric labels"
+      ]
+    },
+    {
+      "id": "block-18",
+      "kind": "chart_like",
+      "line": 366,
+      "heading_context": "### 3.3 Connectivity",
+      "confidence": "candidate",
+      "text": "### 3.4 Trees",
+      "notes": [
+        "detected from bar/chart glyph density with numeric labels"
+      ]
+    },
+    {
+      "id": "block-19",
+      "kind": "chart_like",
+      "line": 401,
+      "heading_context": "## 4. Spanning Trees and Minimum Spanning Trees",
+      "confidence": "candidate",
+      "text": "### 4.1 Spanning Tree Algorithms",
+      "notes": [
+        "detected from bar/chart glyph density with numeric labels"
+      ]
+    },
+    {
+      "id": "block-20",
+      "kind": "diagram_like",
+      "line": 403,
+      "heading_context": "### 4.1 Spanning Tree Algorithms",
+      "confidence": "candidate",
+      "text": "BFS SPANNING TREE:\n  Run BFS from source → BFS tree = tree of shortest (hop-count) paths\n  O(V+E) time\n\nDFS SPANNING TREE:\n  Back edges → cycles;  Tree edges form DFS tree\n  DFS numbers, finish times → topological sort, SCCs\n  O(V+E) time\n\nMST — MINIMUM SPANNING TREE:\n  Minimum weight spanning tree of weighted graph.\n\nKRUSKAL'S ALGORITHM:  O(E log E)\n  Sort edges by weight.\n  Greedily add edge if it doesn't create cycle (use Union-Find/DSU).\n\nPRIM'S ALGORITHM:  O(E log V) with binary heap, O(E + V log V) with Fibonacci heap\n  Start from any vertex. Maintain priority queue of min-weight edges crossing cut.\n  Add cheapest edge, expand frontier.\n\nCUT PROPERTY (correctness proof):\n  For any partition (S, V\\S), the minimum weight edge crossing the cut is in SOME MST.\n\nCYCLE PROPERTY:\n  The maximum weight edge in any cycle is NOT in any MST (if weights distinct).",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-21",
+      "kind": "chart_like",
+      "line": 431,
+      "heading_context": "### 4.1 Spanning Tree Algorithms",
+      "confidence": "candidate",
+      "text": "### 4.2 Matroid Theory View of MST",
+      "notes": [
+        "detected from bar/chart glyph density with numeric labels"
+      ]
+    },
+    {
+      "id": "block-22",
+      "kind": "diagram_like",
+      "line": 449,
+      "heading_context": "## 5. Graph Traversal Algorithms",
+      "confidence": "candidate",
+      "text": "BREADTH-FIRST SEARCH (BFS):\n  Uses queue (FIFO). Explores in layers.\n  Computes: shortest paths (unweighted), bipartiteness test, connected components.\n  O(V+E) time and space.\n\nDEPTH-FIRST SEARCH (DFS):\n  Uses stack (or recursion). Explores as deep as possible first.\n  Classifies edges: tree, back (→ cycle), forward, cross (in directed graphs only)\n  Computes: topological sort (reverse finish order in DAG), SCCs, bridges, cut vertices\n  O(V+E) time.\n\nDFS EDGE CLASSIFICATION (undirected):\n  Tree edge:  first time visiting neighbor\n  Back edge:  neighbor is ancestor (u,v) with dfs_num[v] < dfs_num[u]\n  No forward/cross edges in undirected DFS\n\nTOPOLOGICAL SORT (DAG only):\n  Kahn's: BFS starting from all zero in-degree nodes.\n  DFS: output nodes in reverse finish time order.\n  Application: build systems (make, Maven, npm), compiler scheduling, task ordering.",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-23",
+      "kind": "chart_like",
+      "line": 499,
+      "heading_context": "## 7. Network Flow",
+      "confidence": "candidate",
+      "text": "### 7.1 Max-Flow / Min-Cut",
+      "notes": [
+        "detected from bar/chart glyph density with numeric labels"
+      ]
+    },
+    {
+      "id": "block-24",
+      "kind": "diagram_like",
+      "line": 501,
+      "heading_context": "### 7.1 Max-Flow / Min-Cut",
+      "confidence": "candidate",
+      "text": "FLOW NETWORK: directed graph G=(V,E), source s, sink t, capacity c(e) ≥ 0.\n\nFLOW: f: E → ℝ satisfying:\n  Capacity: f(e) ≤ c(e)\n  Conservation: Σ f(in) = Σ f(out) for all v ≠ s,t\n\nMAX-FLOW MIN-CUT THEOREM (Ford-Fulkerson 1956):\n  max flow value = min s-t cut capacity\n\n  s-t CUT: partition (S,T) with s∈S, t∈T; capacity = Σ c(u,v) for u∈S, v∈T.\n\nFORD-FULKERSON METHOD:\n  While augmenting path exists in residual graph Gf:\n    Push flow along path, update residual capacities.\n  O(max_flow · E)  — can be infinite with irrational capacities!\n\nEDMONDS-KARP (BFS augmenting paths): O(VE²)\nDINIC'S ALGORITHM (blocking flows in level graph): O(V²E)\n  Unit capacities: O(E·√V)  ← bipartite matching time!\n\nRESIDUAL GRAPH Gf:\n  For edge (u,v) with f(u,v) < c(u,v): forward edge with residual c-f\n  For edge (u,v) with f(u,v) > 0: backward edge with residual f",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-25",
+      "kind": "chart_like",
+      "line": 527,
+      "heading_context": "### 7.1 Max-Flow / Min-Cut",
+      "confidence": "candidate",
+      "text": "### 7.2 Reductions to Max-Flow",
+      "notes": [
+        "detected from bar/chart glyph density with numeric labels"
+      ]
+    },
+    {
+      "id": "block-26",
+      "kind": "chart_like",
+      "line": 583,
+      "heading_context": "## 9. Graph Coloring",
+      "confidence": "candidate",
+      "text": "### 9.1 Vertex Coloring",
+      "notes": [
+        "detected from bar/chart glyph density with numeric labels"
+      ]
+    },
+    {
+      "id": "block-27",
+      "kind": "chart_like",
+      "line": 609,
+      "heading_context": "### 9.1 Vertex Coloring",
+      "confidence": "candidate",
+      "text": "### 9.2 Edge Coloring",
+      "notes": [
+        "detected from bar/chart glyph density with numeric labels"
+      ]
+    },
+    {
+      "id": "block-28",
+      "kind": "chart_like",
+      "line": 622,
+      "heading_context": "### 9.2 Edge Coloring",
+      "confidence": "candidate",
+      "text": "### 9.3 List Coloring and Choosability",
+      "notes": [
+        "detected from bar/chart glyph density with numeric labels"
+      ]
+    },
+    {
+      "id": "block-29",
+      "kind": "chart_like",
+      "line": 638,
+      "heading_context": "## 10. Planarity",
+      "confidence": "candidate",
+      "text": "### 10.1 Planar Graphs",
+      "notes": [
+        "detected from bar/chart glyph density with numeric labels"
+      ]
+    },
+    {
+      "id": "block-30",
+      "kind": "diagram_like",
+      "line": 640,
+      "heading_context": "### 10.1 Planar Graphs",
+      "confidence": "candidate",
+      "text": "PLANAR GRAPH: can be drawn in the plane with no edge crossings.\n\nEULER'S FORMULA: V − E + F = 2   (connected planar graph)\n  V = vertices, E = edges, F = faces (including unbounded outer face)\n\nCONSEQUENCES:\n  E ≤ 3V − 6             (planar simple graph, V≥3)\n  E ≤ 2V − 4             (triangle-free planar, V≥3)\n  δ(G) ≤ 5 for planar G  → inductive 6-coloring proof\n\nKURATOWSKI'S THEOREM:\n  G is planar ↔ G contains no subdivision of K₅ or K₃,₃\n  (subdivision = replace edge by path)\n\nWAGNER'S THEOREM:\n  G is planar ↔ G has no K₅ or K₃,₃ as a MINOR\n  (minor = edge contraction / deletion)\n\nPLANARITY TESTING: O(V) — Hopcroft-Tarjan algorithm (LR planarity).",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-31",
+      "kind": "chart_like",
+      "line": 662,
+      "heading_context": "### 10.1 Planar Graphs",
+      "confidence": "candidate",
+      "text": "### 10.2 Graph Minors and Robertson-Seymour",
+      "notes": [
+        "detected from bar/chart glyph density with numeric labels"
+      ]
+    },
+    {
+      "id": "block-32",
+      "kind": "chart_like",
+      "line": 679,
+      "heading_context": "## 11. Trees and Special Structures",
+      "confidence": "candidate",
+      "text": "### 11.1 Tree Decomposition and Treewidth",
+      "notes": [
+        "detected from bar/chart glyph density with numeric labels"
+      ]
+    },
+    {
+      "id": "block-33",
+      "kind": "chart_like",
+      "line": 698,
+      "heading_context": "### 11.1 Tree Decomposition and Treewidth",
+      "confidence": "candidate",
+      "text": "### 11.2 Bipartite Graphs",
+      "notes": [
+        "detected from bar/chart glyph density with numeric labels"
+      ]
+    },
+    {
+      "id": "block-34",
+      "kind": "chart_like",
+      "line": 721,
+      "heading_context": "## 12. Ramsey Theory",
+      "confidence": "candidate",
+      "text": "### 12.1 Ramsey Numbers",
+      "notes": [
+        "detected from bar/chart glyph density with numeric labels"
+      ]
+    },
+    {
+      "id": "block-35",
+      "kind": "diagram_like",
+      "line": 723,
+      "heading_context": "### 12.1 Ramsey Numbers",
+      "confidence": "candidate",
+      "text": "GRAPH RAMSEY NUMBER R(s,t):\n  Minimum n such that every 2-coloring of edges of Kₙ contains:\n    • red Kₛ, or\n    • blue Kₜ\n\nKNOWN VALUES:\n  R(3,3) = 6         famous: 6 people → 3 mutual friends or 3 mutual strangers\n  R(3,4) = 9\n  R(3,5) = 14\n  R(4,4) = 18\n  R(5,5) = ?         known: 43 ≤ R(5,5) ≤ 48  (open for 40 years)\n\nRAMSEY BOUND:\n  R(s,t) ≤ C(s+t-2, s-1)         (Pascal triangle bound)\n  R(k,k) ≤ 4ᵏ                     exponential upper bound\n  R(k,k) ≥ (k/e)·2^(k/2)         probabilistic lower bound (Erdős 1947)\n\n  The gap between upper/lower for R(k,k) is wide — major open problem.\n  Breakthrough 2023: Campos-Griffiths-Morris-Sahasrabudhe improved upper to (4-ε)ᵏ",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-36",
+      "kind": "chart_like",
+      "line": 745,
+      "heading_context": "### 12.1 Ramsey Numbers",
+      "confidence": "candidate",
+      "text": "### 12.2 Ramsey-Type Theorems",
+      "notes": [
+        "detected from bar/chart glyph density with numeric labels"
+      ]
+    },
+    {
+      "id": "block-37",
+      "kind": "chart_like",
+      "line": 770,
+      "heading_context": "## 13. Extremal Graph Theory",
+      "confidence": "candidate",
+      "text": "### 13.1 Turán's Theorem",
+      "notes": [
+        "detected from bar/chart glyph density with numeric labels"
+      ]
+    },
+    {
+      "id": "block-38",
+      "kind": "chart_like",
+      "line": 791,
+      "heading_context": "### 13.1 Turán's Theorem",
+      "confidence": "candidate",
+      "text": "### 13.2 The Probabilistic Method",
+      "notes": [
+        "detected from bar/chart glyph density with numeric labels"
+      ]
+    },
+    {
+      "id": "block-39",
+      "kind": "chart_like",
+      "line": 817,
+      "heading_context": "### 13.2 The Probabilistic Method",
+      "confidence": "candidate",
+      "text": "### 13.3 Szemerédi Regularity Lemma",
+      "notes": [
+        "detected from bar/chart glyph density with numeric labels"
+      ]
+    },
+    {
+      "id": "block-40",
+      "kind": "chart_like",
+      "line": 867,
+      "heading_context": "## 14. Algebraic Graph Theory",
+      "confidence": "candidate",
+      "text": "### 14.1 Spectral Graph Theory",
+      "notes": [
+        "detected from bar/chart glyph density with numeric labels"
+      ]
+    },
+    {
+      "id": "block-41",
+      "kind": "chart_like",
+      "line": 895,
+      "heading_context": "### 14.1 Spectral Graph Theory",
+      "confidence": "candidate",
+      "text": "### 14.2 Random Graphs and Sharp Thresholds",
+      "notes": [
+        "detected from bar/chart glyph density with numeric labels"
+      ]
+    },
+    {
+      "id": "block-42",
+      "kind": "chart_like",
+      "line": 937,
+      "heading_context": "### 14.2 Random Graphs and Sharp Thresholds",
+      "confidence": "candidate",
+      "text": "### 14.3 Graph Polynomials",
+      "notes": [
+        "detected from bar/chart glyph density with numeric labels"
+      ]
+    },
+    {
+      "id": "block-43",
+      "kind": "ascii_table_candidate",
+      "line": 962,
+      "heading_context": "## 15. Möbius Inversion on Posets",
+      "confidence": "candidate",
+      "text": "POSET (P, ≤): partially ordered set.\n\nZETA FUNCTION ζ(x,y) = 1 if x ≤ y, else 0 (on intervals).\nMÖBIUS FUNCTION μ(x,y): defined by Σ_{x≤z≤y} μ(x,z) = [x=y]\n\nMÖBIUS INVERSION:\n  f(y) = Σ_{x≤y} g(x)  ↔  g(y) = Σ_{x≤y} μ(x,y) f(x)\n\nEXAMPLES:\n  Boolean lattice 2^[n]: μ(A,B) = (-1)^(|B\\A|)  → classical inclusion-exclusion!\n  Integer divisibility: μ(1,n) = classical Möbius function from number theory\n    μ(n) = 0 if n has squared prime factor\n    μ(n) = (-1)^k if n = product of k distinct primes\n\nBURNSIDE'S LEMMA (orbit counting):\n  |X/G| = (1/|G|) Σ_{g∈G} |X^g|\n  Number of distinct colorings = average over symmetries of fixed-point count.\n  Polya enumeration theorem: more refined version using cycle index.",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-44",
+      "kind": "diagram_like",
+      "line": 987,
+      "heading_context": "## 16. Graph Algorithms Summary",
+      "confidence": "candidate",
+      "text": "ALGORITHM          COMPLEXITY     PROBLEM\n─────────────────────────────────────────────────────────\nBFS                O(V+E)         SSSP (unweighted), bipartite check, connectivity\nDFS                O(V+E)         Topological sort, SCCs, bridges, cut vertices\nDijkstra           O((V+E)logV)   SSSP (non-negative weights)\nBellman-Ford       O(VE)          SSSP with negative edges / negative cycle detect\nFloyd-Warshall     O(V³)          All-pairs shortest paths (dense)\nJohnson            O(VE+V²logV)   All-pairs shortest paths (sparse)\nKruskal            O(E log E)     MST with Union-Find\nPrim               O(E log V)     MST with priority queue\nFord-Fulkerson     O(E·F)         Max flow (integer capacities)\nEdmonds-Karp       O(VE²)         Max flow (BFS augmenting paths)\nDinic              O(V²E)         Max flow; O(E√V) for unit capacities\nHopcroft-Karp      O(E√V)         Bipartite max matching\nKosaraju/Tarjan    O(V+E)         Strongly connected components\nHopcroft-Tarjan    O(V)           Planarity testing\nTarjan low-link    O(V+E)         Bridges and articulation points",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-45",
+      "kind": "ascii_table_candidate",
+      "line": 1092,
+      "heading_context": "### Inapproximability and Parameterized Complexity",
+      "confidence": "candidate",
+      "text": "FPT (Fixed-Parameter Tractable): solvable in f(k) · poly(n)\n  k-VERTEX COVER: O(1.2738^k + k·n) — crown decomposition + bounded search tree\n  k-FEEDBACK VERTEX SET: FPT\n  k-DOMINATING SET: FPT on planar graphs (bidimensionality), W[2]-hard in general\n\nW[1]-hard: unlikely to be FPT (parameterized hardness)\n  k-CLIQUE: O(n^k) is essentially optimal (no FPT under ETH)\n  k-INDEPENDENT SET: W[1]-hard\n\nETH (Exponential Time Hypothesis): 3-SAT cannot be solved in 2^{o(n)}.\n  Implies: k-clique requires n^{Ω(k)} time.\n  Strong ETH (SETH): stronger, implies many conditional lower bounds.",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-46",
+      "kind": "chart_like",
+      "line": 1111,
+      "heading_context": "## 18. Connections to Computer Science and ML",
+      "confidence": "candidate",
+      "text": "### 18.1 Graphs in Systems",
+      "notes": [
+        "detected from bar/chart glyph density with numeric labels"
+      ]
+    },
+    {
+      "id": "block-47",
+      "kind": "diagram_like",
+      "line": 1113,
+      "heading_context": "### 18.1 Graphs in Systems",
+      "confidence": "candidate",
+      "text": "DAG APPLICATIONS:\n  Dependency resolution:      npm, pip — topological sort of packages\n  Build systems:              Bazel, Ninja — task DAG\n  Database query plans:       operator DAG\n  Compiler SSA form:          control flow graph (possibly cyclic)\n  Git commits:                DAG (merge = multiple parents)\n  Spark/Flink:                dataflow DAG\n\nRANDOM WALKS ON GRAPHS:\n  PageRank: stationary distribution of random walk on web graph.\n    π = M·π   (M = teleporting random walk matrix)\n    Power iteration convergence rate = 2nd eigenvalue of M.\n  Graph partitioning (Spectral clustering):\n    Fiedler vector (eigenvector of μ₁) gives low-conductance cut.\n\nNETWORK FLOW IN PRACTICE:\n  Bipartite matching → job scheduling, assignment problems\n  Min-cost flow → transportation, supply chain\n  Multi-commodity flow → network routing (LP relaxation)",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-48",
+      "kind": "chart_like",
+      "line": 1135,
+      "heading_context": "### 18.1 Graphs in Systems",
+      "confidence": "candidate",
+      "text": "### 18.2 Graph Neural Networks (GNNs)",
+      "notes": [
+        "detected from bar/chart glyph density with numeric labels"
+      ]
+    },
+    {
+      "id": "block-49",
+      "kind": "chart_like",
+      "line": 1162,
+      "heading_context": "### 18.2 Graph Neural Networks (GNNs)",
+      "confidence": "candidate",
+      "text": "### 18.3 Combinatorics in CS Theory",
+      "notes": [
+        "detected from bar/chart glyph density with numeric labels"
+      ]
+    },
+    {
+      "id": "block-50",
+      "kind": "diagram_like",
+      "line": 1164,
+      "heading_context": "### 18.3 Combinatorics in CS Theory",
+      "confidence": "candidate",
+      "text": "INFORMATION-THEORETIC LOWER BOUNDS:\n  Decision tree complexity: depth = O(log |leaf set|)\n  Comparison sort Ω(n log n): binary tree has ≤ 2ᵈ leaves at depth d\n    → depth ≥ log₂(n!) ≈ n log n\n\nEXPANDER CODES: Sipser-Spielman linear-time decodable error-correcting codes.\n  Based on expander graphs. Min-distance ∝ expansion ratio.\n\nDERANDOMIZATION:\n  Expanders → pseudorandom generators → BPP vs P.\n  Hitting sets, ε-nets.\n\nCOMMUNICATION COMPLEXITY:\n  2-party: Alice has x, Bob has y → compute f(x,y) with min bits exchanged.\n  Partition number, fooling sets, rank lower bounds.\n  Connection to circuit complexity.\n\nHASH FUNCTIONS AND UNIVERSAL HASHING:\n  Family H is k-universal: for distinct x₁,...,xₖ and any y₁,...,yₖ,\n    Pr_{h∈H}[h(xᵢ)=yᵢ ∀i] = 1/mᵏ\n  2-universal via affine maps h(x) = (ax+b) mod p mod m.",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    }
+  ]
+}

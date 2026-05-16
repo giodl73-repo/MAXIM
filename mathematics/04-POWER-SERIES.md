@@ -1,3 +1,22 @@
+---
+maxim_schema: maxim.frontmatter.v1
+id: maxim:mathematics:power-series
+kind: guide
+module: mathematics
+section: mathematics
+title: 04 - Power Series: Taylor, Convergence, and the Functions Behind the Functions
+status: source-custody
+source_custody: partial
+current_path: mathematics/04-POWER-SERIES.md
+canonical_path: mathematics/04-POWER-SERIES.md
+backsource_ids: [proof-backfill:mathematics:04-power-series, git-history:mathematics:04-power-series]
+concepts: [power, series]
+root_concepts: [power, series]
+index_roles: [guide, root-concept]
+remap_from: []
+remap_to: []
+updated: null
+---
 # 04 — Power Series: Taylor, Convergence, and the Functions Behind the Functions
 
 ```

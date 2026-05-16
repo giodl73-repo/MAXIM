@@ -1,3 +1,22 @@
+---
+maxim_schema: maxim.frontmatter.v1
+id: maxim:mathematics:probability
+kind: guide
+module: mathematics
+section: mathematics
+title: 11 - Probability and Statistics
+status: source-custody
+source_custody: partial
+current_path: mathematics/11-PROBABILITY.md
+canonical_path: mathematics/11-PROBABILITY.md
+backsource_ids: [proof-backfill:mathematics:11-probability, git-history:mathematics:11-probability]
+concepts: [probability]
+root_concepts: [probability]
+index_roles: [guide, root-concept]
+remap_from: []
+remap_to: []
+updated: null
+---
 # 11 — Probability & Statistics
 
 ```

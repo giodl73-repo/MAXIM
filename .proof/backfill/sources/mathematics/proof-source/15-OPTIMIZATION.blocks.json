@@ -1,0 +1,50 @@
+{
+  "schema_version": "1",
+  "source_markdown": "mathematics\\15-OPTIMIZATION.md",
+  "blocks": [
+    {
+      "id": "block-1",
+      "kind": "diagram_like",
+      "line": 24,
+      "heading_context": "## The Big Picture",
+      "confidence": "candidate",
+      "text": "┌─────────────────────────────────────────────────────────────────────────────┐\n│                         OPTIMIZATION LANDSCAPE                              │\n│              minimize f(x)  subject to constraints on x                     │\n├─────────────────────────────────────────────────────────────────────────────┤\n│                                                                             │\n│  By structure of f:                                                         │\n│  ┌───────────────┐  ┌───────────────┐  ┌───────────────┐                  │\n│  │   CONVEX      │  │  NON-CONVEX   │  │  COMBINATORIAL│                  │\n│  │               │  │               │  │               │                  │\n│  │ Local = global│  │ Many local min│  │ Discrete vars │                  │\n│  │ Poly-time     │  │ NP-hard often │  │ NP-hard often │                  │\n│  │ LP, QP, SOCP  │  │ Deep learning │  │ TSP, ILP      │                  │\n│  └───────────────┘  └───────────────┘  └───────────────┘                  │\n│                                                                             │\n│  By constraints:                                                            │\n│  ┌───────────────┐  ┌───────────────┐  ┌───────────────┐                  │\n│  │ UNCONSTRAINED │  │  EQUALITY     │  │  INEQUALITY   │                  │\n│  │               │  │               │  │               │                  │\n│  │ ∇f = 0        │  │ Lagrange mult │  │ KKT conditions│                  │\n│  │ Gradient desc │  │ h(x) = 0      │  │ g(x) ≤ 0      │                  │\n│  └───────────────┘  └───────────────┘  └───────────────┘                  │\n│                                                                             │\n│  Key algorithms by regime:                                                  │\n│  Convex+smooth → gradient descent, Newton, L-BFGS                         │\n│  Convex LP/QP  → simplex, interior point                                   │\n│  Non-convex    → SGD + variants (ML), simulated annealing, genetic algos  │\n│  Combinatorial → branch & bound, LP relaxation, heuristics                │\n└─────────────────────────────────────────────────────────────────────────────┘",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-2",
+      "kind": "ascii_table_candidate",
+      "line": 105,
+      "heading_context": "### Convergence Lower Bounds and Nesterov Optimality",
+      "confidence": "candidate",
+      "text": "  Nesterov lower bound (first-order oracle complexity):\n  For ANY first-order method (using only gradient evaluations), on the class\n  of L-smooth convex functions, after k steps:\n\n    f(x_k) - f* ≥ Ω(L‖x_0 - x*‖² / k²)\n\n  Gradient descent achieves O(L‖x_0-x*‖²/k) — suboptimal by a factor of k.\n  Nesterov accelerated gradient achieves O(L‖x_0-x*‖²/k²) — matches the lower bound.\n  Accelerated gradient descent (NAG) is an optimal first-order method for convex f.\n\n  For μ-strongly convex and L-smooth:\n    Lower bound: any first-order method needs Ω(√κ log 1/ε) iterations.\n    Gradient descent: O(κ log 1/ε) — suboptimal by √κ.\n    Nesterov accelerated: O(√κ log 1/ε) — optimal.\n\n  This makes acceleration not just a heuristic but a computational necessity\n  for high-condition-number problems (κ = 10⁶ is common in ML).\n\n  ┌───────────────────────────────────────────────────────────────────────┐\n  │  Method            │  Convex rate    │  Strongly convex rate          │\n  ├───────────────────────────────────────────────────────────────────────┤\n  │  Gradient descent  │  O(1/k)         │  O((1-1/κ)^k)                 │\n  │  Nesterov (opt.)   │  O(1/k²) ← opt │  O((1-1/√κ)^k) ← opt         │\n  │  Lower bound       │  Ω(1/k²)        │  Ω((1-1/√κ)^k)               │\n  └───────────────────────────────────────────────────────────────────────┘\n\n  Nesterov acceleration (momentum formulation):\n    y_{k+1} = x_k − (1/L) ∇f(x_k)           (gradient step)\n    x_{k+1} = y_{k+1} + (k-1)/(k+2) (y_{k+1} - y_k)   (momentum step)\n  The momentum coefficient (k-1)/(k+2) → 1 is not heuristic — it's derived\n  to make the \"estimate sequence\" method work.",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-3",
+      "kind": "diagram_like",
+      "line": 194,
+      "heading_context": "### Information Geometry and Natural Gradient",
+      "confidence": "candidate",
+      "text": "  Fisher information matrix:\n    F(θ)ᵢⱼ = E_{x~p(·;θ)}[∂_i log p(x;θ) · ∂_j log p(x;θ)]\n            = -E[∂_i ∂_j log p(x;θ)]\n\n  F(θ) defines a Riemannian metric on the manifold of distributions.\n  The geodesic distance is the Fisher-Rao distance, closely related to KL divergence:\n    D_KL(p(·;θ) || p(·;θ+dθ)) ≈ ½ dθᵀ F(θ) dθ  (to second order)\n\n  Natural gradient descent: steepest descent in KL-divergence (Fisher) metric.\n    θ ← θ − α F(θ)^{-1} ∇L(θ)\n\n  Key property: parameterization invariance.\n  Standard gradient depends on the parameterization (chain rule changes ∇L).\n  Natural gradient is invariant: if θ = g(φ), the update in φ-space gives\n  the same distribution update as in θ-space. This is the \"right\" notion\n  of steepest descent for statistical models.\n\n  Examples:\n    For diagonal Gaussian N(μ, σ²): F is diagonal with 1/σ² and 2/σ².\n    Natural gradient scales each direction by its Fisher curvature.\n    For softmax: natural gradient is exactly Newton's method on logistic loss.\n\n  Practical approximations (F(θ)^{-1} is n×n — too large for neural nets):\n    K-FAC (Kronecker-Factored Approximate Curvature):\n      Assumes layers independent, approximates F as Kronecker product.\n      F_layer ≈ A ⊗ G  where A = input covariance, G = gradient covariance.\n      Invert cheaply: (A⊗G)^{-1} = A^{-1} ⊗ G^{-1}.\n    EKFAC, KFRA: refinements with better approximation quality.\n\n  Connection to Adam: Adam's v_k tracks E[(∇f)²] per coordinate ≈ diagonal F.\n  Adam is an approximation to natural gradient with a diagonal Fisher estimate.\n  This is why Adam is effective: it approximates second-order information cheaply.",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-4",
+      "kind": "ascii_table_candidate",
+      "line": 559,
+      "heading_context": "## Convex Problem Hierarchy",
+      "confidence": "candidate",
+      "text": "LP  ⊂  QP  ⊂  SOCP  ⊂  SDP  ⊂  General convex\n\nLP:   Linear objective + linear constraints\nQP:   Quadratic objective + linear constraints\nSOCP: ‖Ax+b‖ ≤ cᵀx+d (second-order cone)\nSDP:  F(x) ⪰ 0 (semidefinite constraint) — covers eigenvalue bounds, LMIs",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    }
+  ]
+}

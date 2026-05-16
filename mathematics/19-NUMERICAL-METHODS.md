@@ -1,3 +1,22 @@
+---
+maxim_schema: maxim.frontmatter.v1
+id: maxim:mathematics:numerical-methods
+kind: guide
+module: mathematics
+section: mathematics
+title: Numerical Methods - Complete Reference
+status: source-custody
+source_custody: partial
+current_path: mathematics/19-NUMERICAL-METHODS.md
+canonical_path: mathematics/19-NUMERICAL-METHODS.md
+backsource_ids: [proof-backfill:mathematics:19-numerical-methods, git-history:mathematics:19-numerical-methods]
+concepts: [numerical, methods]
+root_concepts: [numerical, methods]
+index_roles: [guide, root-concept]
+remap_from: []
+remap_to: []
+updated: null
+---
 # Numerical Methods — Complete Reference
 
 ## The Big Picture

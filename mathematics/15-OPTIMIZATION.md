@@ -1,3 +1,22 @@
+---
+maxim_schema: maxim.frontmatter.v1
+id: maxim:mathematics:optimization
+kind: guide
+module: mathematics
+section: mathematics
+title: Optimization - Complete Reference
+status: source-custody
+source_custody: partial
+current_path: mathematics/15-OPTIMIZATION.md
+canonical_path: mathematics/15-OPTIMIZATION.md
+backsource_ids: [proof-backfill:mathematics:15-optimization, git-history:mathematics:15-optimization]
+concepts: [optimization]
+root_concepts: [optimization]
+index_roles: [guide, root-concept]
+remap_from: []
+remap_to: []
+updated: null
+---
 # Optimization — Complete Reference
 
 ## The Big Picture

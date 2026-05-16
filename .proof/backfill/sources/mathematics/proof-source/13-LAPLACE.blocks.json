@@ -1,0 +1,182 @@
+{
+  "schema_version": "1",
+  "source_markdown": "mathematics\\13-LAPLACE.md",
+  "blocks": [
+    {
+      "id": "block-1",
+      "kind": "diagram_like",
+      "line": 22,
+      "heading_context": "# 13 — Laplace Transform & Control",
+      "confidence": "candidate",
+      "text": "LAPLACE LANDSCAPE\n═══════════════════════════════════════════════════════════════════════════════\n\n  Time domain f(t)  ←────────────────────────────────►  s-domain F(s)\n   t ≥ 0, ICs included                                   s = σ + iω ∈ ℂ\n\n  ┌─────────────────────────────────────────────────────────────────────┐\n  │  Fourier Transform:  ω real, works when f(t) has finite energy      │\n  │  Laplace Transform:  s = σ+iω complex, works for growing signals    │\n  │                      Encodes initial conditions automatically       │\n  │                      Turns ODEs → algebraic equations in s          │\n  └─────────────────────────────────────────────────────────────────────┘\n\n  ┌───────────────────────────────────────────────────────────────────────┐\n  │                    s-plane geometry                                   │\n  │                                                                       │\n  │    iω ↑                                                               │\n  │       │  ×  ×  ×  │  poles here = oscillation                         │\n  │       │            │                                                  │\n  │  ─────┼────────────┼───────→ σ                                        │\n  │       │            │                                                  │\n  │  Left half-plane   │  Right half-plane                                │\n  │  σ < 0: STABLE     │  σ > 0: UNSTABLE                                │\n  │                                                                       │\n  │  Imaginary axis = Fourier (set σ=0 in F(s) → get H(jω))             │\n  └───────────────────────────────────────────────────────────────────────┘\n\n  Applications:\n    Circuit analysis → impedance Z(s), transfer functions\n    Control systems → stability, Bode plots, PID design\n    6.003 bridge: H(s) in s-domain ↔ H(jω) frequency response",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-2",
+      "kind": "ascii_table_candidate",
+      "line": 102,
+      "heading_context": "### Connection to Probability — Moment Generating Functions",
+      "confidence": "candidate",
+      "text": "  The bilateral Laplace transform of a probability density f_X(x) is\n  exactly the moment generating function:\n\n    M_X(t) = E[e^{tX}] = ∫_{-∞}^{∞} e^{tx} f_X(x) dx = ℒ{f_X}(-t)\n\n  MGF = bilateral Laplace at s = -t.\n\n  Consequences:\n    Derivatives of M_X at 0 give moments: M_X^(n)(0) = E[X^n]\n    For independent X,Y: M_{X+Y}(t) = M_X(t)·M_Y(t)\n      ← corresponds to convolution theorem for Laplace\n    Cumulant generating function: K_X(t) = log M_X(t)\n      K_X'(0) = E[X],  K_X''(0) = Var(X),  K_X'''(0) = third cumulant\n    Lévy-Khintchine formula: K_X(t) = iμt - σ²t²/2 + ∫(e^{itx}-1-itx/(1+x²))ν(dx)\n    characterizes all infinitely divisible distributions (Poisson, Gaussian, stable)\n    via the Lévy measure ν.\n\n  The characteristic function φ_X(t) = E[e^{itX}] = M_X(it) is the bilateral\n  Laplace evaluated on the imaginary axis — same as the Fourier transform of f_X.\n  It always exists (unlike MGF, which may not for heavy-tailed distributions).",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-3",
+      "kind": "diagram_like",
+      "line": 127,
+      "heading_context": "### Region of Convergence (ROC)",
+      "confidence": "candidate",
+      "text": "  The integral ∫₀^∞ f(t) e^(-st) dt converges only for certain s values.\n  ROC = {s ∈ ℂ : ℜ(s) > σ_min}   (right half-plane from some σ_min)\n\n  For f(t) = e^(at):\n    F(s) = 1/(s-a),  ROC: σ > a  (pole at s=a, excluded from ROC)\n\n  For f(t) = e^(-at) (a > 0):\n    F(s) = 1/(s+a),  ROC: σ > -a\n    On jω axis (σ=0 > -a): F(jω) = 1/(a+jω)  ← Fourier transform exists\n\n  If all poles in left half-plane:\n    ROC includes jω axis → Fourier transform = F(jω) = F(s)|_{s=jω}\n    Causally stable systems: H(jω) is just H(s) evaluated on imaginary axis.",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-4",
+      "kind": "diagram_like",
+      "line": 167,
+      "heading_context": "## 3. Properties",
+      "confidence": "candidate",
+      "text": "  Linearity:       af + bg  ←→  aF + bG\n\n  Time shift:      f(t-a)u(t-a) ←→ e^(-as)F(s)      (causal delay)\n  Freq shift:      e^(at)f(t)   ←→ F(s-a)            (modulation)\n\n  Differentiation:\n    f'(t)    ←→ sF(s) - f(0⁻)              ← initial condition appears!\n    f''(t)   ←→ s²F(s) - sf(0⁻) - f'(0⁻)\n    f^(n)(t) ←→ sⁿF(s) - sⁿ⁻¹f(0⁻) - ... - f^(n-1)(0⁻)\n\n  Integration:     ∫₀ᵗ f(τ)dτ ←→ F(s)/s\n\n  Convolution:     (f*g)(t) ←→ F(s)·G(s)             (same as Fourier)\n\n  Initial value:   lim_{t→0+} f(t) = lim_{s→∞} sF(s)\n  Final value:     lim_{t→∞} f(t)  = lim_{s→0} sF(s)  (only if limit exists)\n\n  Scaling:         f(at) ←→ (1/a)F(s/a)",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-5",
+      "kind": "ascii_table_candidate",
+      "line": 192,
+      "heading_context": "## 4. Solving ODEs with Initial Conditions",
+      "confidence": "candidate",
+      "text": "  Standard ODE:\n    y'' + 5y' + 6y = u(t),    y(0) = 1,  y'(0) = -1\n\n  Take Laplace transform:\n    [s²Y - sy(0) - y'(0)] + 5[sY - y(0)] + 6Y = 1/s\n\n    s²Y - s·1 - (-1) + 5(sY - 1) + 6Y = 1/s\n    (s² + 5s + 6)Y = 1/s + s + 1 - 1 + 5\n    (s² + 5s + 6)Y = 1/s + s + 4\n\n    Y(s) = 1/[s(s²+5s+6)] + (s+4)/(s²+5s+6)\n         = 1/[s(s+2)(s+3)] + (s+4)/[(s+2)(s+3)]\n\n  Partial fraction decomposition then table lookup → y(t).\n  Initial conditions encoded automatically in the s-domain equation.",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-6",
+      "kind": "ascii_table_candidate",
+      "line": 212,
+      "heading_context": "### Partial Fractions",
+      "confidence": "candidate",
+      "text": "  Y(s) = N(s)/D(s)   where deg(N) < deg(D)\n\n  Simple real poles s = pₖ:\n    Y(s) = Σₖ Aₖ/(s - pₖ)\n    Aₖ = (s - pₖ)Y(s)|_{s=pₖ}    (residue at pₖ)\n\n  Repeated pole s = p of order m:\n    Y(s) = A₁/(s-p) + A₂/(s-p)² + ... + Aₘ/(s-p)ᵐ\n    Aₖ = (1/(m-k)!) · d^(m-k)/ds^(m-k) [(s-p)ᵐ Y(s)]|_{s=p}\n\n  Complex conjugate pair s = α ± jβ:\n    Y(s) = (As + B)/((s-α)² + β²)\n    → e^(αt)[C·cos(βt) + D·sin(βt)]   in time domain",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-7",
+      "kind": "diagram_like",
+      "line": 232,
+      "heading_context": "## 5. Transfer Functions and LTI Systems",
+      "confidence": "candidate",
+      "text": "  LTI system: Y(s) = H(s)·X(s)    (zero initial conditions)\n\n  Transfer function:  H(s) = Y(s)/X(s) = output/input in s-domain\n\n  Physical meaning:\n    H(s) = ℒ{h(t)}   where h(t) = impulse response\n    y(t) = h(t)*x(t)  →  Y(s) = H(s)X(s)   (convolution theorem)\n\n  General form:\n    H(s) = K · Πᵢ(s - zᵢ) / Πⱼ(s - pⱼ)\n    zᵢ = zeros of H(s)    (frequency inputs that produce zero output)\n    pⱼ = poles of H(s)    (natural frequencies of the system)\n\n  Stability:\n    BIBO stable iff all poles in LHP: ℜ(pⱼ) < 0 for all j\n    Marginally stable: poles on jω axis (oscillates forever)\n    Unstable: any pole with ℜ(p) > 0\n\n  Frequency response (from transfer function):\n    H(jω) = H(s)|_{s=jω}    (only valid if ROC includes jω axis)\n    = magnitude |H(jω)| and phase ∠H(jω) = Bode plot data",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-8",
+      "kind": "ascii_table_candidate",
+      "line": 258,
+      "heading_context": "### RLC Circuit Example",
+      "confidence": "candidate",
+      "text": "  Series RLC:  Ldi/dt + Ri + (1/C)∫i dt = v_in(t)\n  Take Laplace (zero ICs):\n    (Ls + R + 1/(Cs))I(s) = V_in(s)\n    Z(s) = Ls + R + 1/(Cs)    ← impedance in s-domain\n\n  H(s) = I(s)/V_in(s) = 1/Z(s) = Cs/(LCs² + RCs + 1)\n\n  Poles at s = -R/(2L) ± √[(R/2L)² - 1/LC]\n    Underdamped (R small): complex poles near jω₀ → oscillation at ω₀ = 1/√LC\n    Critically damped: poles coincide at -R/2L\n    Overdamped: two real negative poles",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-9",
+      "kind": "diagram_like",
+      "line": 291,
+      "heading_context": "### Building Blocks",
+      "confidence": "candidate",
+      "text": "  ┌─────────────────────────────────────────────────────────────────────┐\n  │  1. Constant K:                                                     │\n  │     Mag: 20 log|K| dB (flat line)    Phase: 0° or ±180°             │\n  │                                                                     │\n  │  2. Pole at origin 1/s:                                             │\n  │     Mag: -20 dB/decade    Phase: -90° (constant)                    │\n  │                                                                     │\n  │  3. Simple real pole 1/(1 + s/ωₚ):                                  │\n  │     Low ω: 0 dB, 0°                                                 │\n  │     High ω: -20 dB/decade, -90°                                     │\n  │     At ω = ωₚ (corner freq): -3 dB, -45°                            │\n  │                                                                     │\n  │  4. Simple real zero (1 + s/ωz):                                    │\n  │     Same but +20 dB/decade, +90°                                    │\n  │                                                                     │\n  │  5. Complex conjugate pair 1/(s² + 2ζω₀s + ω₀²):                    │\n  │     Resonance peak at ω₀, height 1/2ζ                               │\n  │     -40 dB/decade above ω₀                                          │\n  │     Phase swings -180° through ω₀                                   │\n  └─────────────────────────────────────────────────────────────────────┘",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-10",
+      "kind": "diagram_like",
+      "line": 316,
+      "heading_context": "### Reading a Bode Plot",
+      "confidence": "candidate",
+      "text": "  Slope tells you system order in each frequency region.\n  -20 dB/decade per pole, +20 dB/decade per zero.\n  Phase slope: -90°/decade per pole in high-freq region.\n\n  Gain crossover ωgc: |H(jωgc)| = 1 (0 dB)\n  Phase margin PM = 180° + ∠H(jωgc)\n    PM > 0° → stable closed loop\n    PM > 45° → well-damped response\n\n  Phase crossover ωpc: ∠H(jωpc) = -180°\n  Gain margin GM = 1/|H(jωpc)|  in dB: GM = -20 log|H(jωpc)|\n    GM > 0 dB → stable\n\n  GM > 10 dB, PM > 45°: typical design targets for robust stability",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-11",
+      "kind": "diagram_like",
+      "line": 337,
+      "heading_context": "## 7. PID Control",
+      "confidence": "candidate",
+      "text": "  Plant G(s). Controller C(s). Unity negative feedback.\n\n  Open-loop: L(s) = C(s)·G(s)\n  Closed-loop: T(s) = L(s)/(1 + L(s))   (input→output)\n  Sensitivity: S(s) = 1/(1 + L(s))       (disturbance rejection)\n\n  PID controller:\n    u(t) = Kₚ·e(t) + Kᵢ∫e(t)dt + Kd·de/dt\n\n    C(s) = Kₚ + Kᵢ/s + Kd·s = (Kd·s² + Kₚ·s + Kᵢ)/s\n\n    P action:  proportional to error → reduces steady-state error\n    I action:  integrates error → eliminates steady-state error (type 1 system)\n    D action:  derivative → damps overshoot, improves transient\n\n  Tuning: Ziegler-Nichols (experimental), pole placement, IMC design.\n\n  Issues:\n    Derivative kick: D term amplifies noise (use filtered derivative Kd·s/(τs+1))\n    Integral windup: integrator saturates during large errors (add anti-windup)\n    D term in some controllers only on output, not error (avoids setpoint kick)",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-12",
+      "kind": "diagram_like",
+      "line": 366,
+      "heading_context": "### Nyquist Stability Criterion",
+      "confidence": "candidate",
+      "text": "  Setup: closed-loop system with open-loop L(s) = C(s)G(s).\n  Question: how many closed-loop poles are in the RHP?\n\n  Argument principle: if F(s) is meromorphic, as s traverses a closed contour\n  Γ clockwise, F(s) encircles the origin N = Z - P times clockwise,\n  where Z = zeros and P = poles of F inside Γ.\n\n  Nyquist contour Γ: indented semicircle enclosing the entire RHP (jω axis\n  from -j∞ to +j∞, semicircle at ∞, small indentations around jω-axis poles).\n\n  Apply argument principle to F(s) = 1 + L(s):\n    Closed-loop poles = zeros of 1 + L(s).\n    Poles of 1 + L(s) = poles of L(s) (open-loop poles).\n    Clockwise encirclements of -1 by L(jω) as ω goes from -∞ to +∞:\n      N = Z_RHP_closed - P_RHP_open\n    Stable closed loop: Z_RHP_closed = 0\n      → N = -P_RHP_open  (counterclockwise encirclements = # open-loop RHP poles)\n\n  ┌─────────────────────────────────────────────────────────────────────┐\n  │  Nyquist stability criterion:                                       │\n  │  Closed-loop is stable iff the Nyquist plot of L(jω)                │\n  │  encircles −1 exactly P times counterclockwise,                     │\n  │  where P = number of open-loop RHP poles.                           │\n  │                                                                     │\n  │  For open-loop stable L(s) (P=0): closed-loop stable iff            │\n  │  Nyquist plot does NOT encircle −1 at all.                          │\n  └─────────────────────────────────────────────────────────────────────┘\n\n  Connection to margins:\n    Phase margin = how much additional phase lag before −1 is encircled.\n    Gain margin = how much gain increase before −1 is encircled.\n    These are not just numerical targets — they're distances to instability\n    on the Nyquist plot.\n\n  Routh-Hurwitz: algebraic test (polynomial coefficients) for LHP roots.\n    All coefficients of char. poly. aₙsⁿ+...+a₀ must be positive (necessary).\n    Routh array: systematic test for sufficient conditions.\n    Useful when you have an explicit characteristic polynomial and no plot.",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-13",
+      "kind": "diagram_like",
+      "line": 416,
+      "heading_context": "### Definition and the Sampling Derivation",
+      "confidence": "candidate",
+      "text": "  Sampling: x_s(t) = x(t) · Σₙ δ(t - nT) = Σₙ x[n] δ(t - nT)\n\n  Laplace transform of x_s(t):\n    X_s(s) = ∫ x_s(t) e^{-st} dt = Σₙ x[n] e^{-snT}\n\n  Define z = e^{sT}:\n    X(z) = Σₙ x[n] z^{-n}   ← the z-transform\n\n  The substitution z = e^{sT} is exact, not an approximation.\n  Every z-domain property follows from this derivation:\n\n  s-plane → z-plane mapping via z = e^{sT}:\n  ┌─────────────────────┬──────────────────────────────────────────┐\n  │  s-plane region     │  z-plane image                           │\n  ├─────────────────────┼──────────────────────────────────────────┤\n  │  Left half-plane    │  Inside unit circle |z| < 1             │\n  │  σ < 0              │  |e^{σT}| = e^{σT} < 1 since σ < 0     │\n  │  Right half-plane   │  Outside unit circle |z| > 1            │\n  │  Imaginary axis     │  Unit circle |z| = 1                    │\n  │  σ = 0, s = jω      │  z = e^{jωT} — unit circle traversal    │\n  └─────────────────────┴──────────────────────────────────────────┘\n\n  Stability: poles inside unit circle ← not an analogy, it's the same\n  condition \"poles in LHP\" mapped through z = e^{sT}.\n\n  Analog prototype to digital filter conversion:\n    Impulse invariant: match h[n] = h(nT) at sample points.\n      Direct: zₖ = e^{pₖT} maps s-poles to z-poles exactly.\n      Problem: aliasing if H(s) is not bandlimited.\n\n    Bilinear transform (Tustin): s = (2/T)(z-1)/(z+1)\n      Exact mapping that takes the entire jω axis bijectively onto the unit circle.\n      No aliasing, but frequency warping: ω_analog = (2/T)tan(ω_digital·T/2)\n      Requires pre-warping the critical frequencies before designing the prototype.",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-14",
+      "kind": "diagram_like",
+      "line": 472,
+      "heading_context": "### z-Transform Properties and Table",
+      "confidence": "candidate",
+      "text": "  Delay: x[n-k] ←→ z^(-k)X(z)\n  Convolution: x[n]*h[n] ←→ X(z)H(z)\n  Difference equation: same role as s in Laplace for ODEs",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-15",
+      "kind": "diagram_like",
+      "line": 496,
+      "heading_context": "## 9. Laplace vs Fourier vs z",
+      "confidence": "candidate",
+      "text": "  ┌─────────────────┬──────────────────────────────────────────────────┐\n  │                 │ Tool                                             │\n  ├─────────────────┼───────────┬───────────┬──────────────────────────┤\n  │ Domain          │ Fourier   │ Laplace   │ z-transform              │\n  ├─────────────────┼───────────┼───────────┼──────────────────────────┤\n  │ Time            │ Continuous│ Continuous│ Discrete                 │\n  │ Domain variable │ ω ∈ ℝ     │ s ∈ ℂ     │ z ∈ ℂ                    │\n  │ Stability axis  │ ω axis    │ jω axis   │ Unit circle              │\n  │ Stable region   │ N/A       │ LHP       │ Inside unit circle       │\n  │ ICs handled?    │ No        │ Yes       │ Yes                      │\n  │ Convergence     │ Need L²   │ Any growth│ Any causal               │\n  │ Physical use    │ Spectra   │ Circuits, │ Digital filters, DSP     │\n  │                 │ PDEs      │ control   │                          │\n  └─────────────────┴───────────┴───────────┴──────────────────────────┘\n\n  Unified picture:\n    s = σ + jω   (continuous)\n    z = e^(sT)   (sampled version — exact, not approximate)\n    ω real: Fourier (s on imaginary axis = Laplace with σ=0)\n\n  DTFT: let z = e^(jω) in z-transform → frequency response of discrete system.\n  DFT: sample DTFT at N equally spaced frequencies → FFT computable.",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-16",
+      "kind": "diagram_like",
+      "line": 525,
+      "heading_context": "## 10. Impedance Method — Circuits in s-Domain",
+      "confidence": "candidate",
+      "text": "  Resistor:    Z_R(s) = R\n  Capacitor:   Z_C(s) = 1/(sC)     [→ 1/(jωC) for sinusoidal steady-state]\n  Inductor:    Z_L(s) = sL         [→ jωL]\n\n  Replace every element with impedance.\n  Solve using KVL, KCL, voltage divider — purely algebraic.\n  Result is H(s) = V_out(s)/V_in(s) directly.\n\n  Example — Low-Pass RC:\n    H(s) = [1/(sC)] / [R + 1/(sC)] = 1/(1 + sRC) = 1/(1 + s/ω_c)\n    ω_c = 1/(RC)  [rad/s]   corner frequency\n    f_c = 1/(2πRC) [Hz]\n    |H(jω)| = 1/√(1 + (ω/ω_c)²)\n    At ω = ω_c: |H| = 1/√2 = -3.01 dB (the \"3dB frequency\")\n    Phase: ∠H(jω) = -arctan(ω/ω_c)   → -45° at ω_c",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    }
+  ]
+}

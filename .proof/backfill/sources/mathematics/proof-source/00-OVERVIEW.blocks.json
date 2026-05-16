@@ -1,0 +1,270 @@
+{
+  "schema_version": "1",
+  "source_markdown": "mathematics\\00-OVERVIEW.md",
+  "blocks": [
+    {
+      "id": "block-1",
+      "kind": "diagram_like",
+      "line": 32,
+      "heading_context": "## The Mathematical Landscape",
+      "confidence": "candidate",
+      "text": "THE MATHEMATICAL LANDSCAPE — DEPENDENCY ARCHITECTURE\n═══════════════════════════════════════════════════════════════════════════════════\n\n  FOUNDATIONS:\n    ┌──────────────────────┐\n    │ 03 Trigonometry      │\n    │ 04 Power Series      │\n    │ 05 Groups/Sets/Alg.  │\n    │ 06 Linear Algebra    │\n    └──────────────────────┘\n    Feeds: Analysis, Geometry/Topology, Advanced Algebra.\n\n  ANALYSIS:\n    ┌──────────────────────┐\n    │ 01 Vector Calculus   │\n    │ 02 Integral Thms     │\n    │ 07 DiffEq            │\n    │ 14 Complex Analysis  │\n    │ 21 Measure Theory    │\n    │ 23 Functional Anal.  │\n    └──────────────────────┘\n    Feeds: Applied, Structure.\n\n  TRANSFORMS:\n    ┌──────────────┐\n    │ 12 Fourier   │\n    │ 13 Laplace   │\n    └──────────────┘\n\n  GEOMETRY / TOPOLOGY:\n    ┌──────────────────────┐\n    │ 08 Topology          │\n    │ 09 Manifolds         │\n    │ 10 Diff. Geometry    │\n    └──────────────────────┘\n\n  ALGEBRA (ADVANCED):\n    ┌──────────────────────┐\n    │ 18 Number Theory     │\n    │ 22 Category Theory   │\n    │ 24 Representation    │\n    └──────────────────────┘\n\n  APPLIED:\n    ┌──────────────────────┐\n    │ 11 Probability       │\n    │ 15 Optimization      │\n    │ 17 Combinatorics     │\n    │ 19 Numerical         │\n    │ 20 Statistics        │\n    └──────────────────────┘\n\n  STRUCTURE:\n    ┌──────────────────────┐\n    │ 16 Info Theory       │\n    └──────────────────────┘\n═══════════════════════════════════════════════════════════════════════════════════",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-2",
+      "kind": "diagram_like",
+      "line": 155,
+      "heading_context": "### Deepest Dependency Chains",
+      "confidence": "candidate",
+      "text": "Chain 1 — Representation Theory (8 deep):\n  Trig → LinAlg → Groups → Topology → Manifolds → DiffGeom → RepTheory\n  (03)    (06)     (05)     (08)       (09)        (10)       (24)\n\nChain 2 — Functional Analysis (7 deep):\n  Trig → LinAlg → VectorCalc → IntegralThms → DiffEq → PowerSeries → ComplexAnal → MeasureTheory → FunctionalAnal\n  (03)    (06)     (01)         (02)           (07)     (04)          (14)          (21)            (23)\n\nChain 3 — Information Theory via Probability (5 deep):\n  LinAlg → MeasureTheory → Probability → Statistics → InfoTheory\n  (06)     (21)            (11)          (20)          (16)",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-3",
+      "kind": "chart_like",
+      "line": 181,
+      "heading_context": "## Groupings",
+      "confidence": "candidate",
+      "text": "### Group 1: Foundations (the load-bearing layer)",
+      "notes": [
+        "detected from bar/chart glyph density with numeric labels"
+      ]
+    },
+    {
+      "id": "block-4",
+      "kind": "chart_like",
+      "line": 193,
+      "heading_context": "### Group 1: Foundations (the load-bearing layer)",
+      "confidence": "candidate",
+      "text": "### Group 2: Analysis (the continuous world)",
+      "notes": [
+        "detected from bar/chart glyph density with numeric labels"
+      ]
+    },
+    {
+      "id": "block-5",
+      "kind": "chart_like",
+      "line": 206,
+      "heading_context": "### Group 2: Analysis (the continuous world)",
+      "confidence": "candidate",
+      "text": "### Group 3: Geometry and Topology (shape and structure)",
+      "notes": [
+        "detected from bar/chart glyph density with numeric labels"
+      ]
+    },
+    {
+      "id": "block-6",
+      "kind": "chart_like",
+      "line": 216,
+      "heading_context": "### Group 3: Geometry and Topology (shape and structure)",
+      "confidence": "candidate",
+      "text": "### Group 4: Algebra (advanced structures)",
+      "notes": [
+        "detected from bar/chart glyph density with numeric labels"
+      ]
+    },
+    {
+      "id": "block-7",
+      "kind": "chart_like",
+      "line": 226,
+      "heading_context": "### Group 4: Algebra (advanced structures)",
+      "confidence": "candidate",
+      "text": "### Group 5: Applied Mathematics (tools that touch the world)",
+      "notes": [
+        "detected from bar/chart glyph density with numeric labels"
+      ]
+    },
+    {
+      "id": "block-8",
+      "kind": "diagram_like",
+      "line": 301,
+      "heading_context": "### Curry-Howard-Lambek: Proofs Are Programs Are Morphisms",
+      "confidence": "candidate",
+      "text": "LOGIC                    TYPE THEORY              CATEGORY THEORY\n─────────────────────    ─────────────────────    ─────────────────────\nProposition              Type                     Object\nProof                    Program / Term           Morphism\nConjunction A ^ B        Product type A x B       Categorical product\nDisjunction A v B        Sum type A + B           Coproduct\nImplication A -> B       Function type A -> B     Exponential object\nTrue                     Unit type                Terminal object\nFalse                    Empty type               Initial object\nUniversal quantifier     Polymorphic type         End",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-9",
+      "kind": "diagram_like",
+      "line": 340,
+      "heading_context": "### Computational Complexity as Mathematical Structure",
+      "confidence": "candidate",
+      "text": "COMPLEXITY CLASS    MATHEMATICAL ANALOG              MODULE CONNECTION\n──────────────────────────────────────────────────────────────────────\nP                   problems solvable in poly-time    19 (numerical methods)\nNP                  problems verifiable in poly-time  17 (combinatorics)\n#P                  counting problems                 11 (probability via counting)\nBPP                 randomized poly-time              11 (probabilistic methods)\nPSPACE              polynomial space                  (game-theoretic connections)\nIP = PSPACE         interactive proofs                18 (number theory — primality)",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-10",
+      "kind": "diagram_like",
+      "line": 361,
+      "heading_context": "### The Unreasonable Effectiveness",
+      "confidence": "candidate",
+      "text": "MATHEMATICS DEVELOPED FOR...        LATER ESSENTIAL IN...\n──────────────────────────────────────────────────────────────────────\nRiemannian geometry (pure math)     General relativity (1915)\nGroup theory (abstract algebra)     Particle physics (Standard Model)\nHilbert spaces (functional anal.)   Quantum mechanics\nRandom matrices (prob/stats)        Nuclear energy levels, wireless comms\nTopology (pure math)                Topological insulators, condensed matter\nCategory theory (pure math)         Programming language semantics, databases\nInformation theory (comm. eng.)     Statistical mechanics, ML, neuroscience\nFourier analysis (heat equation)    Signal processing, MRI, JPEG\nNumber theory (pure math)           Cryptography (RSA, elliptic curves)",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-11",
+      "kind": "diagram_like",
+      "line": 453,
+      "heading_context": "### Reading Order by Goal",
+      "confidence": "candidate",
+      "text": "03 Trig → 06 LinAlg → 01 VecCalc → 02 IntThms → 07 DiffEq → 14 Complex\n    → 12 Fourier → 13 Laplace → 23 Functional Analysis\nSide quest: 08 Topology → 09 Manifolds → 10 DiffGeom (for GR/gauge theory)",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-12",
+      "kind": "diagram_like",
+      "line": 460,
+      "heading_context": "### Reading Order by Goal",
+      "confidence": "candidate",
+      "text": "06 LinAlg → 11 Probability → 20 Statistics → 15 Optimization\n    → 16 Information Theory\nSide quest: 08 Topology Section 10 (TDA), 19 Numerical Methods",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-13",
+      "kind": "diagram_like",
+      "line": 467,
+      "heading_context": "### Reading Order by Goal",
+      "confidence": "candidate",
+      "text": "05 Groups/Sets → 06 LinAlg → 08 Topology → 09 Manifolds → 10 DiffGeom\n    → 14 Complex Analysis → 21 Measure Theory → 23 Functional Analysis\nSide quest: 18 Number Theory, 22 Category Theory, 24 Representation Theory",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-14",
+      "kind": "diagram_like",
+      "line": 474,
+      "heading_context": "### Reading Order by Goal",
+      "confidence": "candidate",
+      "text": "06 LinAlg → 05 Groups/Sets → 17 Combinatorics → 11 Probability\n    → 15 Optimization → 22 Category Theory\nSide quest: 18 Number Theory (for crypto), 16 Info Theory",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-15",
+      "kind": "chart_like",
+      "line": 488,
+      "heading_context": "## The Recurring Structures",
+      "confidence": "candidate",
+      "text": "### 1. Linearity",
+      "notes": [
+        "detected from bar/chart glyph density with numeric labels"
+      ]
+    },
+    {
+      "id": "block-16",
+      "kind": "diagram_like",
+      "line": 493,
+      "heading_context": "### 1. Linearity",
+      "confidence": "candidate",
+      "text": "MODULE                WHERE LINEARITY APPEARS\n──────────────────────────────────────────────────────────────────────\n06 Linear Algebra     The entire subject\n01 Vector Calculus    Gradient, divergence, curl are linear operators\n07 DiffEq            Linear ODEs/PDEs → superposition principle\n12 Fourier           Fourier transform is a linear map L^2 → L^2\n23 Functional Anal.  Bounded linear operators on Banach/Hilbert spaces\n15 Optimization      Linear programming: linear objective + linear constraints",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-17",
+      "kind": "chart_like",
+      "line": 507,
+      "heading_context": "### 1. Linearity",
+      "confidence": "candidate",
+      "text": "### 2. The Exact Sequence / d-squared-is-zero",
+      "notes": [
+        "detected from bar/chart glyph density with numeric labels"
+      ]
+    },
+    {
+      "id": "block-18",
+      "kind": "diagram_like",
+      "line": 511,
+      "heading_context": "### 2. The Exact Sequence / d-squared-is-zero",
+      "confidence": "candidate",
+      "text": "CONTEXT              INCARNATION\n──────────────────────────────────────────────────────────\n01 Vector Calculus   curl(grad f) = 0,  div(curl F) = 0\n02 Integral Thms     boundary of a boundary is empty\n08 Topology          chain complex: boundary operator partial^2 = 0\n09 Manifolds         exterior derivative: d^2 omega = 0\n22 Category Theory   chain complexes as functors, derived categories",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-19",
+      "kind": "chart_like",
+      "line": 525,
+      "heading_context": "### 2. The Exact Sequence / d-squared-is-zero",
+      "confidence": "candidate",
+      "text": "### 3. Duality",
+      "notes": [
+        "detected from bar/chart glyph density with numeric labels"
+      ]
+    },
+    {
+      "id": "block-20",
+      "kind": "diagram_like",
+      "line": 530,
+      "heading_context": "### 3. Duality",
+      "confidence": "candidate",
+      "text": "PRIMAL                      DUAL                           MODULE\n──────────────────────────────────────────────────────────────────────\nVector space V              Dual space V*                   06\nHomology H_n                Cohomology H^n                  08, 09\nOptimization primal         Lagrangian dual                 15\nGroup G                     Character group G^              24\nLocally compact abelian G   Pontryagin dual G^              12 (Fourier)\nCategory C                  Opposite category C^op          22\nMeasure mu                  Radon-Nikodym derivative        21\nDirect limit                Inverse limit                   22",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-21",
+      "kind": "chart_like",
+      "line": 543,
+      "heading_context": "### 3. Duality",
+      "confidence": "candidate",
+      "text": "### 4. The Universal Property Pattern",
+      "notes": [
+        "detected from bar/chart glyph density with numeric labels"
+      ]
+    },
+    {
+      "id": "block-22",
+      "kind": "diagram_like",
+      "line": 549,
+      "heading_context": "### 4. The Universal Property Pattern",
+      "confidence": "candidate",
+      "text": "OBJECT                  UNIVERSAL PROPERTY SAYS...                     MODULE\n──────────────────────────────────────────────────────────────────────────────\nTensor product V tensor W  Universal bilinear map                       06\nFree group on S           Universal group with generators S              05\nQuotient ring R/I         Universal ring killing I                       05\nCompletion of metric space Universal complete metric space containing X  08\nStone-Cech compactification Universal compact space containing X         08\nAdjoint pair F -| G       Universal relation: Hom(FA,B) ~ Hom(A,GB)     22",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-23",
+      "kind": "chart_like",
+      "line": 560,
+      "heading_context": "### 4. The Universal Property Pattern",
+      "confidence": "candidate",
+      "text": "### 5. Spectral Methods",
+      "notes": [
+        "detected from bar/chart glyph density with numeric labels"
+      ]
+    },
+    {
+      "id": "block-24",
+      "kind": "diagram_like",
+      "line": 566,
+      "heading_context": "### 5. Spectral Methods",
+      "confidence": "candidate",
+      "text": "CONTEXT                    \"FREQUENCIES\"                    MODULE\n──────────────────────────────────────────────────────────────────────\nFourier analysis           Sines/cosines (eigenfns of d/dx) 12\nLinear algebra             Eigenvalues/eigenvectors          06\nFunctional analysis        Spectrum of an operator           23\nRepresentation theory      Irreducible representations       24\nNumber theory              Characters mod n                  18\nQuantum mechanics          Energy eigenstates                physics/",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    }
+  ]
+}

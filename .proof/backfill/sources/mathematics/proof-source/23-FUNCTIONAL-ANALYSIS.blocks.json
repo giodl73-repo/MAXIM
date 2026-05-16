@@ -1,0 +1,105 @@
+{
+  "schema_version": "1",
+  "source_markdown": "mathematics\\23-FUNCTIONAL-ANALYSIS.md",
+  "blocks": [
+    {
+      "id": "block-1",
+      "kind": "diagram_like",
+      "line": 26,
+      "heading_context": "## The Big Picture",
+      "confidence": "candidate",
+      "text": "┌─────────────────────────────────────────────────────────────────────────────┐\n│  FUNCTIONAL ANALYSIS LANDSCAPE                                              │\n│                                                                             │\n│  Normed Spaces                        Dual Spaces & Weak Topology           │\n│  ──────────────────────────────        ──────────────────────────────────   │\n│  Normed, Banach, Hilbert spaces       Dual space X* = B(X, 𝕂)               │\n│  Completeness, Schauder bases         Hahn-Banach theorem                   │\n│  Examples: Lᵖ, C[a,b], ℓᵖ, H^k      Weak topology σ(X, X*)                  │\n│                                        Weak* topology σ(X*, X)              │\n│                                        Reflexive spaces                     │\n│                                                                             │\n│  Bounded Operators                    Spectral Theory                       │\n│  ──────────────────────────────        ──────────────────────────────────   │\n│  B(X,Y): bounded linear maps          Eigenvalues vs spectrum               │\n│  Operator norm, compactness           Compact operators                     │\n│  Open mapping, closed graph theorem   Spectral theorem (compact, SA)        │\n│  Adjoints (Banach/Hilbert)            Functional calculus                   │\n│                                                                             │\n│  Applications                                                               │\n│  ────────────────────────────────────────────────────────────────────────── │\n│  PDEs (Sobolev spaces, weak solutions)   QM (observables, C*-algebras)      │\n│  ML (RKHS, kernel methods, SVMs)         Signal processing (Fourier in L²)  │\n│  Numerical methods (Krylov, FEM)         Neural operators (attention as op) │\n└─────────────────────────────────────────────────────────────────────────────┘",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-2",
+      "kind": "ascii_table_candidate",
+      "line": 129,
+      "heading_context": "### Inner Product Spaces",
+      "confidence": "candidate",
+      "text": "(I1) ⟨x,x⟩ ≥ 0; ⟨x,x⟩ = 0 iff x = 0\n(I2) ⟨x,y⟩ = ⟨y,x⟩̄  (conjugate symmetric; symmetric over ℝ)\n(I3) ⟨αx+βy, z⟩ = α⟨x,z⟩ + β⟨y,z⟩  (linear in first argument)\n\nInduced norm: ||x|| = √⟨x,x⟩\n\nCauchy-Schwarz: |⟨x,y⟩| ≤ ||x|| ||y||\n  Equality iff x and y are linearly dependent.\n\nParallelogram law: ||x+y||² + ||x-y||² = 2||x||² + 2||y||²\n  A normed space is Hilbert iff the parallelogram law holds.",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-3",
+      "kind": "diagram_like",
+      "line": 290,
+      "heading_context": "### Weak Topologies",
+      "confidence": "candidate",
+      "text": "xₙ → x weakly: f(xₙ) → f(x) for all f ∈ X*.\nNotation: xₙ ⇀ x.\n\nIn infinite dimensions: weak convergence ≠ norm convergence.\n  Example: eₙ ⇀ 0 in L² (sin(nπx) → 0 weakly by Riemann-Lebesgue).\n  But ||eₙ||_2 = 1 ≠ 0.\n  (eₙ is ONB; weak convergence = Fourier coefficients → 0.)",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-4",
+      "kind": "diagram_like",
+      "line": 418,
+      "heading_context": "### The QM–Functional Analysis Dictionary",
+      "confidence": "candidate",
+      "text": "QM concept                      Functional analysis object\n────────────────────────────    ──────────────────────────────────────────────\nPure quantum state |ψ⟩         Unit vector ψ ∈ L²(ℝ³) (or H, any Hilbert space)\nObservable A (e.g., energy)    Self-adjoint operator A on H\nExpectation value ⟨A⟩_ψ       ⟨ψ, Aψ⟩ = ∫ ψ̄(x) (Aψ)(x) dx\nEigenvalue equation Aψ = λψ    Spectral eigenvalue; λ is a possible measurement outcome\nSpectral theorem for A          Decomposes H into eigenspaces (discrete) + continuous spectrum\nMeasurement outcome             λ ∈ σ(A) with probability ||E_A({λ})ψ||²\nTime evolution |ψ(t)⟩           U(t)|ψ(0)⟩ where U(t) = e^{-iHt/ℏ} is unitary\nSchrödinger equation            iℏ d/dt ψ = Hψ  [H = Hamiltonian operator]\nCommutator [A,B]                AB - BA on H; zero iff A, B simultaneously measurable\nUncertainty principle           σ_A · σ_B ≥ ½|⟨[A,B]⟩|  [Robertson inequality]\nPosition operator Q             (Qψ)(x) = xψ(x) [multiplication operator]\nMomentum operator P             (Pψ)(x) = -iℏ ∂ψ/∂x [differentiation operator]\n[Q, P] = iℏI                   Heisenberg canonical commutation relation",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-5",
+      "kind": "diagram_like",
+      "line": 442,
+      "heading_context": "### Stone's Theorem",
+      "confidence": "candidate",
+      "text": "Stone's Theorem:\n  Let A be self-adjoint (possibly unbounded) on H.\n  Then U(t) = e^{itA} defines a strongly continuous one-parameter unitary group:\n    U(t): H → H is unitary for each t ∈ ℝ\n    U(0) = I\n    U(s+t) = U(s)U(t)  [group property]\n    U(t)ψ → ψ in H as t → 0  [strong continuity]\n    d/dt U(t)ψ|_{t=0} = iAψ  for ψ ∈ Dom(A)\n\n  Converse: Every strongly continuous one-parameter unitary group U(t) arises\n  this way from a unique self-adjoint generator A = (1/i) d/dt U(t)|_{t=0}.",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-6",
+      "kind": "diagram_like",
+      "line": 472,
+      "heading_context": "### C*-Algebras (Algebraic Abstraction of QM)",
+      "confidence": "candidate",
+      "text": "C*-algebra: a Banach algebra A over ℂ with an involution * satisfying:\n  ||a*a|| = ||a||²   [C*-identity — the key axiom]\n\nExamples:\n  B(H): bounded operators on H. The paradigm C*-algebra.\n  C(X): continuous functions on compact X, with * = complex conjugate.\n    This is commutative. Every commutative C*-algebra ≅ C(X) for some compact X\n    (Gelfand representation theorem).\n  Calkin algebra B(H)/K(H): quotient of bounded by compact operators.\n    Relevant for Fredholm theory and index theory.\n\nStates and observables in the algebraic framework:\n  Observable: self-adjoint element a = a* ∈ A.\n  State:       positive linear functional ω: A → ℂ with ω(1) = 1.\n  Expectation: ω(a) = expected value of observable a in state ω.\n\nGNS construction (Gelfand-Naimark-Segal):\n  Every state ω on a C*-algebra A gives a Hilbert space H_ω and representation\n  π_ω: A → B(H_ω) with a cyclic vector Ω ∈ H_ω:\n    ω(a) = ⟨Ω, π_ω(a) Ω⟩.\n  This reconstructs the Hilbert space from the algebra and the state.\n  Different states give inequivalent representations — relevant for QFT\n  (vacuum state vs. thermal state give unitarily inequivalent Hilbert spaces).",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-7",
+      "kind": "ascii_table_candidate",
+      "line": 549,
+      "heading_context": "### Stone's Theorem for Unbounded Operators",
+      "confidence": "candidate",
+      "text": "(meaning ||Bψ|| ≤ a||Aψ|| + b||ψ|| for some a < 1), then A + B is self-adjoint on Dom(A).",
+      "notes": [
+        "detected from ASCII table borders or pipe-aligned rows"
+      ]
+    },
+    {
+      "id": "block-8",
+      "kind": "diagram_like",
+      "line": 735,
+      "heading_context": "### Reproducing Kernel Hilbert Spaces (RKHS)",
+      "confidence": "candidate",
+      "text": "Common kernels:\n  Linear:     K(x,y) = x'y\n  Polynomial: K(x,y) = (x'y + c)^d\n  RBF/Gaussian: K(x,y) = exp(-||x-y||²/(2σ²))  ← infinite-dimensional feature map\n  Matérn:     fractional smoothness parameter ν → control regularity of GP",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-9",
+      "kind": "diagram_like",
+      "line": 761,
+      "heading_context": "## Decision Cheat Sheet",
+      "confidence": "candidate",
+      "text": "Space type:                                 Structure:\n────────────────────────────────────────    ──────────────────────────────────────────\nMetric + complete                           Banach (if vector space)\nBanach + inner product                      Hilbert\nSeparable Hilbert (infinite-dim)            ≅ ℓ² (up to isometric isomorphism)\nNon-reflexive                               ℓ¹, ℓ∞, L¹, L∞, C[a,b]\n\nOperator type:                              What it gives you:\nBounded self-adjoint                        Spectral theorem via PVM\nCompact self-adjoint                        ONB of eigenvectors, discrete spectrum\nCompact + Fredholm                          Well-posedness, index theory\nUnbounded self-adjoint                      QM observable; use Stone's theorem for e^{itA}\nSymmetric but not self-adjoint              No spectral theorem; not a valid QM observable\n\nPDE question:                               Tool:\n\"Does solution exist/unique?\"               Lax-Milgram (coercive bilinear form on H¹)\n\"Can I extract converging subsequence?\"     Banach-Alaoglu (weak* compact unit ball)\n\"How smooth is the solution?\"              Sobolev embedding theorem\n\"PDE on curved manifold?\"                   Atiyah-Singer (topology of operator)\n\nQM question:                                Tool:\nObservable has real spectrum?               Self-adjoint (not just symmetric)\nUnitary time evolution?                     Stone's theorem: A self-adjoint → e^{itA} unitary\nAlgebraic QM without Hilbert space?         C*-algebra + GNS construction\nPosition/momentum uncertainty?             [Q,P] = iℏI → Robertson inequality\n\nNumerical question:                         Tool:\nIterative solver convergence rate?         Spectral distribution of A; condition number\nPreconditioner design?                      Cluster eigenvalues to improve polynomial approx\nTime-splitting error?                       BCH formula; error = t²||[A,B]||\n\nML question:                                Tool:\nKernel regression                           RKHS + Representer theorem\nInfinite-dimensional features implicitly    Mercer kernel trick\nFunction space smoothness priors            Sobolev space regularization\nGaussian process covariance                 Mercer decomposition of kernel\nAttention as operator                       Integral operator with softmax kernel\nNeural operator convergence                 Spectral approximation theory",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    }
+  ]
+}
