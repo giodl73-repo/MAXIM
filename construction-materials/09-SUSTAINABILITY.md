@@ -1,3 +1,22 @@
+---
+maxim_schema: maxim.frontmatter.v1
+id: maxim:construction-materials:sustainability
+kind: guide
+module: construction-materials
+section: construction-materials
+title: Construction Materials - Sustainability and Embodied Carbon
+status: source-custody
+source_custody: partial
+current_path: construction-materials/09-SUSTAINABILITY.md
+canonical_path: construction-materials/09-SUSTAINABILITY.md
+backsource_ids: [proof-backfill:construction-materials:09-sustainability, git-history:construction-materials:09-sustainability]
+concepts: [sustainability]
+root_concepts: [sustainability]
+index_roles: [guide, root-concept]
+remap_from: []
+remap_to: []
+updated: null
+---
 # Construction Materials — Sustainability and Embodied Carbon
 
 ## The Big Picture: Whole-Life Carbon of Buildings

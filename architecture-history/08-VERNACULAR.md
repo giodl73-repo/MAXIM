@@ -1,3 +1,22 @@
+---
+maxim_schema: maxim.frontmatter.v1
+id: maxim:architecture-history:vernacular
+kind: guide
+module: architecture-history
+section: architecture-history
+title: Vernacular Architecture
+status: source-custody
+source_custody: partial
+current_path: architecture-history/08-VERNACULAR.md
+canonical_path: architecture-history/08-VERNACULAR.md
+backsource_ids: [proof-backfill:architecture-history:08-vernacular, git-history:architecture-history:08-vernacular]
+concepts: [vernacular]
+root_concepts: [vernacular]
+index_roles: [guide, root-concept]
+remap_from: []
+remap_to: []
+updated: null
+---
 # Vernacular Architecture
 
 ## The Big Picture

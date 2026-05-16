@@ -1,3 +1,22 @@
+---
+maxim_schema: maxim.frontmatter.v1
+id: maxim:construction-materials:overview
+kind: guide
+module: construction-materials
+section: construction-materials
+title: Construction Materials - Overview
+status: source-custody
+source_custody: partial
+current_path: construction-materials/00-OVERVIEW.md
+canonical_path: construction-materials/00-OVERVIEW.md
+backsource_ids: [proof-backfill:construction-materials:00-overview, git-history:construction-materials:00-overview]
+concepts: [overview]
+root_concepts: [overview]
+index_roles: [guide, root-concept]
+remap_from: []
+remap_to: []
+updated: null
+---
 # Construction Materials — Overview
 
 ## The Big Picture: Material Families × Structural Roles × Time

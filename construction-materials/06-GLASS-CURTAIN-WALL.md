@@ -1,3 +1,22 @@
+---
+maxim_schema: maxim.frontmatter.v1
+id: maxim:construction-materials:glass-curtain-wall
+kind: guide
+module: construction-materials
+section: construction-materials
+title: Construction Materials - Glass and Curtain Wall Systems
+status: source-custody
+source_custody: partial
+current_path: construction-materials/06-GLASS-CURTAIN-WALL.md
+canonical_path: construction-materials/06-GLASS-CURTAIN-WALL.md
+backsource_ids: [proof-backfill:construction-materials:06-glass-curtain-wall, git-history:construction-materials:06-glass-curtain-wall]
+concepts: [glass, curtain, wall]
+root_concepts: [glass, curtain]
+index_roles: [guide, root-concept]
+remap_from: []
+remap_to: []
+updated: null
+---
 # Construction Materials — Glass and Curtain Wall Systems
 
 ## The Big Picture: Glass and Facade Systems

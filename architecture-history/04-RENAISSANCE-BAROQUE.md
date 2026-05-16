@@ -1,3 +1,22 @@
+---
+maxim_schema: maxim.frontmatter.v1
+id: maxim:architecture-history:renaissance-baroque
+kind: guide
+module: architecture-history
+section: architecture-history
+title: Renaissance and Baroque Architecture
+status: source-custody
+source_custody: partial
+current_path: architecture-history/04-RENAISSANCE-BAROQUE.md
+canonical_path: architecture-history/04-RENAISSANCE-BAROQUE.md
+backsource_ids: [proof-backfill:architecture-history:04-renaissance-baroque, git-history:architecture-history:04-renaissance-baroque]
+concepts: [renaissance, baroque]
+root_concepts: [renaissance, baroque]
+index_roles: [guide, root-concept]
+remap_from: []
+remap_to: []
+updated: null
+---
 # Renaissance and Baroque Architecture
 
 ## The Big Picture

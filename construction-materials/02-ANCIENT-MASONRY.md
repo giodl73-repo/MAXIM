@@ -1,3 +1,22 @@
+---
+maxim_schema: maxim.frontmatter.v1
+id: maxim:construction-materials:ancient-masonry
+kind: guide
+module: construction-materials
+section: construction-materials
+title: Construction Materials - Ancient Masonry
+status: source-custody
+source_custody: partial
+current_path: construction-materials/02-ANCIENT-MASONRY.md
+canonical_path: construction-materials/02-ANCIENT-MASONRY.md
+backsource_ids: [proof-backfill:construction-materials:02-ancient-masonry, git-history:construction-materials:02-ancient-masonry]
+concepts: [ancient, masonry]
+root_concepts: [ancient, masonry]
+index_roles: [guide, root-concept]
+remap_from: []
+remap_to: []
+updated: null
+---
 # Construction Materials — Ancient Masonry
 
 ## The Big Picture: Ancient Structural Logic

@@ -1,3 +1,22 @@
+---
+maxim_schema: maxim.frontmatter.v1
+id: maxim:architecture-history:overview
+kind: guide
+module: architecture-history
+section: architecture-history
+title: Architecture History - Overview: Frozen Technology
+status: source-custody
+source_custody: partial
+current_path: architecture-history/00-OVERVIEW.md
+canonical_path: architecture-history/00-OVERVIEW.md
+backsource_ids: [proof-backfill:architecture-history:00-overview, git-history:architecture-history:00-overview]
+concepts: [overview]
+root_concepts: [overview]
+index_roles: [guide, root-concept]
+remap_from: []
+remap_to: []
+updated: null
+---
 # Architecture History — Overview: Frozen Technology
 
 ## The Big Picture

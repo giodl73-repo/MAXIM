@@ -1,3 +1,22 @@
+---
+maxim_schema: maxim.frontmatter.v1
+id: maxim:architecture-history:ancient
+kind: guide
+module: architecture-history
+section: architecture-history
+title: Ancient Architecture - Egypt, Greece, Rome
+status: source-custody
+source_custody: partial
+current_path: architecture-history/01-ANCIENT.md
+canonical_path: architecture-history/01-ANCIENT.md
+backsource_ids: [proof-backfill:architecture-history:01-ancient, git-history:architecture-history:01-ancient]
+concepts: [ancient]
+root_concepts: [ancient]
+index_roles: [guide, root-concept]
+remap_from: []
+remap_to: []
+updated: null
+---
 # Ancient Architecture — Egypt, Greece, Rome
 
 ## The Big Picture

@@ -1,3 +1,22 @@
+---
+maxim_schema: maxim.frontmatter.v1
+id: maxim:architecture-history:byzantine-islamic
+kind: guide
+module: architecture-history
+section: architecture-history
+title: Byzantine and Islamic Architecture
+status: source-custody
+source_custody: partial
+current_path: architecture-history/02-BYZANTINE-ISLAMIC.md
+canonical_path: architecture-history/02-BYZANTINE-ISLAMIC.md
+backsource_ids: [proof-backfill:architecture-history:02-byzantine-islamic, git-history:architecture-history:02-byzantine-islamic]
+concepts: [byzantine, islamic]
+root_concepts: [byzantine, islamic]
+index_roles: [guide, root-concept]
+remap_from: []
+remap_to: []
+updated: null
+---
 # Byzantine and Islamic Architecture
 
 ## The Big Picture

@@ -1,3 +1,22 @@
+---
+maxim_schema: maxim.frontmatter.v1
+id: maxim:construction-materials:industrial-metals
+kind: guide
+module: construction-materials
+section: construction-materials
+title: Construction Materials - Industrial Metals
+status: source-custody
+source_custody: partial
+current_path: construction-materials/04-INDUSTRIAL-METALS.md
+canonical_path: construction-materials/04-INDUSTRIAL-METALS.md
+backsource_ids: [proof-backfill:construction-materials:04-industrial-metals, git-history:construction-materials:04-industrial-metals]
+concepts: [industrial, metals]
+root_concepts: [industrial, metals]
+index_roles: [guide, root-concept]
+remap_from: []
+remap_to: []
+updated: null
+---
 # Construction Materials — Industrial Metals
 
 ## The Big Picture: Iron and Steel Evolution

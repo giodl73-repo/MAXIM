@@ -1,3 +1,22 @@
+---
+maxim_schema: maxim.frontmatter.v1
+id: maxim:construction-materials:modern-composites
+kind: guide
+module: construction-materials
+section: construction-materials
+title: Construction Materials - Modern Composites and Advanced Materials
+status: source-custody
+source_custody: partial
+current_path: construction-materials/08-MODERN-COMPOSITES.md
+canonical_path: construction-materials/08-MODERN-COMPOSITES.md
+backsource_ids: [proof-backfill:construction-materials:08-modern-composites, git-history:construction-materials:08-modern-composites]
+concepts: [modern, composites]
+root_concepts: [modern, composites]
+index_roles: [guide, root-concept]
+remap_from: []
+remap_to: []
+updated: null
+---
 # Construction Materials — Modern Composites and Advanced Materials
 
 ## The Big Picture: Advanced Materials in Construction

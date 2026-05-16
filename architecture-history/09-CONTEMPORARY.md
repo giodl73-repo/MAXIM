@@ -1,3 +1,22 @@
+---
+maxim_schema: maxim.frontmatter.v1
+id: maxim:architecture-history:contemporary
+kind: guide
+module: architecture-history
+section: architecture-history
+title: Contemporary Architecture
+status: source-custody
+source_custody: partial
+current_path: architecture-history/09-CONTEMPORARY.md
+canonical_path: architecture-history/09-CONTEMPORARY.md
+backsource_ids: [proof-backfill:architecture-history:09-contemporary, git-history:architecture-history:09-contemporary]
+concepts: [contemporary]
+root_concepts: [contemporary]
+index_roles: [guide, root-concept]
+remap_from: []
+remap_to: []
+updated: null
+---
 # Contemporary Architecture
 
 ## The Big Picture

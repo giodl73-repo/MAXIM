@@ -1,3 +1,22 @@
+---
+maxim_schema: maxim.frontmatter.v1
+id: maxim:construction-materials:portland-cement
+kind: guide
+module: construction-materials
+section: construction-materials
+title: Construction Materials - Portland Cement and Concrete
+status: source-custody
+source_custody: partial
+current_path: construction-materials/05-PORTLAND-CEMENT.md
+canonical_path: construction-materials/05-PORTLAND-CEMENT.md
+backsource_ids: [proof-backfill:construction-materials:05-portland-cement, git-history:construction-materials:05-portland-cement]
+concepts: [portland, cement]
+root_concepts: [portland, cement]
+index_roles: [guide, root-concept]
+remap_from: []
+remap_to: []
+updated: null
+---
 # Construction Materials — Portland Cement and Concrete
 
 ## The Big Picture: The Portland Cement System
