@@ -1,3 +1,22 @@
+---
+maxim_schema: maxim.frontmatter.v1
+id: maxim:botany:leaves-photosynthesis
+kind: guide
+module: botany
+section: botany
+title: Leaves and Photosynthesis - C3, C4, CAM, and the Rubisco Problem
+status: source-custody
+source_custody: partial
+current_path: botany/04-LEAVES-PHOTOSYNTHESIS.md
+canonical_path: botany/04-LEAVES-PHOTOSYNTHESIS.md
+backsource_ids: [proof-backfill:botany:04-leaves-photosynthesis, git-history:botany:04-leaves-photosynthesis]
+concepts: [leaves, photosynthesis]
+root_concepts: [leaves, photosynthesis]
+index_roles: [guide, root-concept]
+remap_from: []
+remap_to: []
+updated: null
+---
 # Leaves and Photosynthesis — C3, C4, CAM, and the Rubisco Problem
 
 ## The Big Picture

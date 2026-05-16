@@ -1,3 +1,22 @@
+---
+maxim_schema: maxim.frontmatter.v1
+id: maxim:food-plants:sugar-crops
+kind: guide
+module: food-plants
+section: food-plants
+title: Sugar Crops - Sugarcane, Sugar Beet, and the Sweetness Economy
+status: source-custody
+source_custody: partial
+current_path: food-plants/07-SUGAR-CROPS.md
+canonical_path: food-plants/07-SUGAR-CROPS.md
+backsource_ids: [proof-backfill:food-plants:07-sugar-crops, git-history:food-plants:07-sugar-crops]
+concepts: [sugar, crops]
+root_concepts: [sugar, crops]
+index_roles: [guide, root-concept]
+remap_from: []
+remap_to: []
+updated: null
+---
 # Sugar Crops — Sugarcane, Sugar Beet, and the Sweetness Economy
 
 ## The Big Picture

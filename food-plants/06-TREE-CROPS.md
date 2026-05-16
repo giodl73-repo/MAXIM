@@ -1,3 +1,22 @@
+---
+maxim_schema: maxim.frontmatter.v1
+id: maxim:food-plants:tree-crops
+kind: guide
+module: food-plants
+section: food-plants
+title: Tree Crops - Olive, Grapevine, Date Palm, and Perennial Agriculture
+status: source-custody
+source_custody: partial
+current_path: food-plants/06-TREE-CROPS.md
+canonical_path: food-plants/06-TREE-CROPS.md
+backsource_ids: [proof-backfill:food-plants:06-tree-crops, git-history:food-plants:06-tree-crops]
+concepts: [tree, crops]
+root_concepts: [tree, crops]
+index_roles: [guide, root-concept]
+remap_from: []
+remap_to: []
+updated: null
+---
 # Tree Crops — Olive, Grapevine, Date Palm, and Perennial Agriculture
 
 ## The Big Picture

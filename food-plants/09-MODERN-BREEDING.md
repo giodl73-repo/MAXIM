@@ -1,3 +1,22 @@
+---
+maxim_schema: maxim.frontmatter.v1
+id: maxim:food-plants:modern-breeding
+kind: guide
+module: food-plants
+section: food-plants
+title: Modern Breeding - F1 Hybrids, Green Revolution, GMO, and CRISPR
+status: source-custody
+source_custody: partial
+current_path: food-plants/09-MODERN-BREEDING.md
+canonical_path: food-plants/09-MODERN-BREEDING.md
+backsource_ids: [proof-backfill:food-plants:09-modern-breeding, git-history:food-plants:09-modern-breeding]
+concepts: [modern, breeding]
+root_concepts: [modern, breeding]
+index_roles: [guide, root-concept]
+remap_from: []
+remap_to: []
+updated: null
+---
 # Modern Breeding — F1 Hybrids, Green Revolution, GMO, and CRISPR
 
 ## The Big Picture

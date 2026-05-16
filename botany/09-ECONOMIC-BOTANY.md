@@ -1,3 +1,22 @@
+---
+maxim_schema: maxim.frontmatter.v1
+id: maxim:botany:economic-botany
+kind: guide
+module: botany
+section: botany
+title: Economic Botany - Timber, Fiber, Medicinals, Rubber, and Dyes
+status: source-custody
+source_custody: partial
+current_path: botany/09-ECONOMIC-BOTANY.md
+canonical_path: botany/09-ECONOMIC-BOTANY.md
+backsource_ids: [proof-backfill:botany:09-economic-botany, git-history:botany:09-economic-botany]
+concepts: [economic, botany]
+root_concepts: [economic, botany]
+index_roles: [guide, root-concept]
+remap_from: []
+remap_to: []
+updated: null
+---
 # Economic Botany — Timber, Fiber, Medicinals, Rubber, and Dyes
 
 ## The Big Picture

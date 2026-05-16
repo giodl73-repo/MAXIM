@@ -1,3 +1,22 @@
+---
+maxim_schema: maxim.frontmatter.v1
+id: maxim:botany:trees-forests
+kind: guide
+module: botany
+section: botany
+title: Trees and Forests - Structure, Succession, and Old Growth
+status: source-custody
+source_custody: partial
+current_path: botany/06-TREES-FORESTS.md
+canonical_path: botany/06-TREES-FORESTS.md
+backsource_ids: [proof-backfill:botany:06-trees-forests, git-history:botany:06-trees-forests]
+concepts: [trees, forests]
+root_concepts: [trees, forests]
+index_roles: [guide, root-concept]
+remap_from: []
+remap_to: []
+updated: null
+---
 # Trees and Forests — Structure, Succession, and Old Growth
 
 ## The Big Picture

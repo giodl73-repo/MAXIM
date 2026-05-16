@@ -1,3 +1,22 @@
+---
+maxim_schema: maxim.frontmatter.v1
+id: maxim:botany:plant-cell-physiology
+kind: guide
+module: botany
+section: botany
+title: Plant Cell Physiology - Cell Wall, Chloroplast, and Water
+status: source-custody
+source_custody: partial
+current_path: botany/01-PLANT-CELL-PHYSIOLOGY.md
+canonical_path: botany/01-PLANT-CELL-PHYSIOLOGY.md
+backsource_ids: [proof-backfill:botany:01-plant-cell-physiology, git-history:botany:01-plant-cell-physiology]
+concepts: [plant, cell, physiology]
+root_concepts: [plant, cell]
+index_roles: [guide, root-concept]
+remap_from: []
+remap_to: []
+updated: null
+---
 # Plant Cell Physiology — Cell Wall, Chloroplast, and Water
 
 ## The Big Picture

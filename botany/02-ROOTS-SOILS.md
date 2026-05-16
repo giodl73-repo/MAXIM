@@ -1,3 +1,22 @@
+---
+maxim_schema: maxim.frontmatter.v1
+id: maxim:botany:roots-soils
+kind: guide
+module: botany
+section: botany
+title: Roots and Soils - Underground Architecture
+status: source-custody
+source_custody: partial
+current_path: botany/02-ROOTS-SOILS.md
+canonical_path: botany/02-ROOTS-SOILS.md
+backsource_ids: [proof-backfill:botany:02-roots-soils, git-history:botany:02-roots-soils]
+concepts: [roots, soils]
+root_concepts: [roots, soils]
+index_roles: [guide, root-concept]
+remap_from: []
+remap_to: []
+updated: null
+---
 # Roots and Soils — Underground Architecture
 
 ## The Big Picture

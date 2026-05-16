@@ -1,3 +1,22 @@
+---
+maxim_schema: maxim.frontmatter.v1
+id: maxim:botany:biomes
+kind: guide
+module: botany
+section: botany
+title: Biomes - Tropical, Temperate, Boreal, Mediterranean, Grassland, Desert
+status: source-custody
+source_custody: partial
+current_path: botany/07-BIOMES.md
+canonical_path: botany/07-BIOMES.md
+backsource_ids: [proof-backfill:botany:07-biomes, git-history:botany:07-biomes]
+concepts: [biomes]
+root_concepts: [biomes]
+index_roles: [guide, root-concept]
+remap_from: []
+remap_to: []
+updated: null
+---
 # Biomes — Tropical, Temperate, Boreal, Mediterranean, Grassland, Desert
 
 ## The Big Picture

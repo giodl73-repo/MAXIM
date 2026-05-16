@@ -1,3 +1,22 @@
+---
+maxim_schema: maxim.frontmatter.v1
+id: maxim:food-plants:vegetables
+kind: guide
+module: food-plants
+section: food-plants
+title: Vegetables - Brassica, Solanaceae, Allium, and the Domestication of Diversity
+status: source-custody
+source_custody: partial
+current_path: food-plants/05-VEGETABLES.md
+canonical_path: food-plants/05-VEGETABLES.md
+backsource_ids: [proof-backfill:food-plants:05-vegetables, git-history:food-plants:05-vegetables]
+concepts: [vegetables]
+root_concepts: [vegetables]
+index_roles: [guide, root-concept]
+remap_from: []
+remap_to: []
+updated: null
+---
 # Vegetables — Brassica, Solanaceae, Allium, and the Domestication of Diversity
 
 ## The Big Picture

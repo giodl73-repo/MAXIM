@@ -1,3 +1,22 @@
+---
+maxim_schema: maxim.frontmatter.v1
+id: maxim:food-plants:overview
+kind: guide
+module: food-plants
+section: food-plants
+title: Food Plants - Overview: Plant Domestication as Technology
+status: source-custody
+source_custody: partial
+current_path: food-plants/00-OVERVIEW.md
+canonical_path: food-plants/00-OVERVIEW.md
+backsource_ids: [proof-backfill:food-plants:00-overview, git-history:food-plants:00-overview]
+concepts: [overview]
+root_concepts: [overview]
+index_roles: [guide, root-concept]
+remap_from: []
+remap_to: []
+updated: null
+---
 # Food Plants — Overview: Plant Domestication as Technology
 
 ## The Big Picture
