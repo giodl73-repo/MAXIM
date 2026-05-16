@@ -1,3 +1,22 @@
+---
+maxim_schema: maxim.frontmatter.v1
+id: maxim:digital-media:search-algorithms
+kind: guide
+module: digital-media
+section: digital-media
+title: Search Algorithms: PageRank, Query Understanding, Featured Snippets
+status: source-custody
+source_custody: partial
+current_path: digital-media/05-SEARCH-ALGORITHMS.md
+canonical_path: digital-media/05-SEARCH-ALGORITHMS.md
+backsource_ids: [proof-backfill:digital-media:05-search-algorithms, git-history:digital-media:05-search-algorithms]
+concepts: [search, algorithms]
+root_concepts: [search, algorithms]
+index_roles: [guide, root-concept]
+remap_from: []
+remap_to: []
+updated: null
+---
 # Search Algorithms: PageRank, Query Understanding, Featured Snippets
 
 ## The Big Picture

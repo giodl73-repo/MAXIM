@@ -1,0 +1,61 @@
+{
+  "schema_version": "1",
+  "source_markdown": "epigraphy\\09-MODERN-METHODS.md",
+  "blocks": [
+    {
+      "id": "block-1",
+      "kind": "ascii_table_candidate",
+      "line": 24,
+      "heading_context": "## The Big Picture",
+      "confidence": "candidate",
+      "text": "MODERN EPIGRAPHIC METHODS STACK\n=================================\n\n+------------------------------------------------------------------+\n|  PROBLEM                METHOD               OUTPUT              |\n|  -------                ------               ------              |\n|  Worn/faded text        RTI imaging          Virtual re-lighting |\n|  3D surface detail      Photogrammetry       3D model + normals  |\n|  Very damaged text      Multispectral        Contrast recovery   |\n|  Large-scale recording  Photogrammetry       Measurable model    |\n|  Corpus management      Database + XML       Searchable archive  |\n|  Text transcription     AI assistance        Draft + flags       |\n|  Traditional copy       Epigraphic squeeze   Paper impression    |\n|  Dating                 3D + statistical     Letter form date    |\n+------------------------------------------------------------------+\n\nUNDERLYING PRINCIPLE: The inscription contains more information\nthan visible to the naked eye. Physical methods reveal it.",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-2",
+      "kind": "diagram_like",
+      "line": 51,
+      "heading_context": "## Reflectance Transformation Imaging (RTI)",
+      "confidence": "candidate",
+      "text": "RTI METHOD\n===========\n\nPROBLEM: Worn or faintly inscribed text\n  Characters that have been weathered, polished, or damaged\n  are invisible in flat ambient light\n  The eye and standard photography cannot reveal them\n\nPHYSICAL PRINCIPLE:\n  Shallow surface relief (carved letters) casts shadows\n  Shadow direction depends on light direction\n  Different light directions reveal different micro-topography\n  By combining many light positions, you can reconstruct\n  the full surface normal map\n\nPROCESS:\n  1. Set up camera on fixed tripod above the inscription\n  2. Take ~100 photographs, each with a light source\n     at a different position around the object\n     (fixed camera position; varied light position)\n  3. Each photograph: note light direction precisely\n     (or use a reflective sphere to calculate it)\n  4. RTI software (Hewlett Packard Labs / Cultural Heritage Imaging)\n     computes per-pixel surface normal from the light variation\n  5. RESULT: interactive viewer where you can move\n     the virtual light source to any direction\n\nRTI VIEWER MODES:\n  - Default diffuse: normal photograph appearance\n  - Specular enhancement: increase specular response\n    -> Reveals toolmarks, chisel direction\n  - Normal map visualization: surface orientation\n    -> Shows letter depth and carving technique\n  - Diffuse gain: amplify surface detail contrast\n\nOPTIMAL USE CASES:\n  Very worn stone: marble gravestones, soft limestone\n  Clay tablet cuneiform: reveals individual wedge impressions\n  Metal objects: fibulae, curse tablets\n  Wax impressions: seals\n  Papyrus and parchment (yes -- for writing pressure)",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-3",
+      "kind": "diagram_like",
+      "line": 128,
+      "heading_context": "## 3D Photogrammetry",
+      "confidence": "candidate",
+      "text": "3D PHOTOGRAMMETRY\n==================\n\nTECHNIQUE: Structure from Motion (SfM)\n  Takes 50-500 overlapping photographs\n  Photogrammetry software (Agisoft Metashape, Reality Capture)\n  identifies common points across images\n  Triangulates 3D positions from camera geometry\n  Generates: dense point cloud -> mesh -> textured model\n\nEPIGRAPHIC APPLICATIONS:\n  1. Dimensional measurement:\n     Letter height, stroke width, spacing -> dating by form\n     Previously: hand measurement (slow, less precise)\n     Now: measure from 3D model in software (fast, precise)\n\n  2. Permanent record:\n     3D model is a permanent, measurable archive\n     Can be re-examined long after excavation\n     Open access: models can be shared as files\n\n  3. Virtual restoration:\n     Broken fragments: align in 3D before physical handling\n     Damaged text: compare with parallel examples in 3D\n\n  4. Communication:\n     3D models for publication, exhibition, education\n     Anyone can examine in Sketchfab, MorphoSource\n\nCOMPARISON WITH TRADITIONAL CAST:\n  Traditional: plaster or rubber cast (contact with object)\n  Photogrammetry: non-contact (no risk to object)\n  Traditional advantage: high fidelity texture transfer\n  Photogrammetry advantage: dimensional accuracy, fast, cheap\n\nHARDWARE:\n  Minimum: any DSLR + free software (Meshroom)\n  Professional: calibrated camera array + Agisoft Metashape\n  Mobile: photogrammetry apps (adequate for documentation,\n          not for publication-quality metric analysis)",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-4",
+      "kind": "diagram_like",
+      "line": 214,
+      "heading_context": "## Multispectral Imaging",
+      "confidence": "candidate",
+      "text": "MULTISPECTRAL IMAGING\n======================\n\nPRINCIPLE:\n  Different materials reflect/absorb light differently\n  at different wavelengths\n  Ink, paint, and engraving that are invisible to the eye\n  may be visible in infrared (IR), ultraviolet (UV),\n  or specific narrow-band wavelengths\n\nAPPLICATIONS:\n  INFRARED (IR, ~700-1000nm):\n    Carbon-based ink absorbs IR even when faded\n    Readable under UV-opaque overlayers\n    Key use: palimpsest manuscripts (erased text)\n    Archimedes Palimpsest: IR revealed erased 10th c. text\n    -> recovered lost mathematical works of Archimedes\n\n  ULTRAVIOLET (UV, ~320-380nm):\n    Organic materials (parchment, papyrus) fluoresce\n    Ink does not fluoresce -> dark on bright background\n    Key use: faded ink on parchment/papyrus\n\n  RAKING LIGHT (oblique illumination):\n    Not multispectral but closely related\n    Emphasizes surface topography\n    Reveals impressed or engraved marks invisible in flat light\n\n  XRF (X-Ray Fluorescence):\n    Identifies elemental composition of pigments/inks\n    Non-destructive\n    Determines: which metal pigments (verdigris vs. azurite)\n    Can distinguish original ink from later additions\n    Key use: authenticating inscriptions; detecting forgeries\n\nSPECIFIC INSTRUMENT: Reflectance Spectroscopy\n  Measures reflectance across 200-2500nm wavelengths\n  Per-pixel data in processed images\n  Output: false-color images enhancing different features",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-5",
+      "kind": "diagram_like",
+      "line": 262,
+      "heading_context": "## Epigraphic Squeeze (Traditional Method)",
+      "confidence": "candidate",
+      "text": "EPIGRAPHIC SQUEEZE\n===================\n\nMethod:\n  Wet paper or papier-mache pressed into inscription\n  Pushed into incised letters with stiff brush\n  Allowed to dry in place\n  Removed: mirror impression of the inscription\n\nAdvantages:\n  Captures exact letter forms at full scale\n  Can be examined later in the lab\n  Squeezes from the 19th-20th c. are now primary sources\n    for inscriptions since damaged or destroyed\n  \"Squeeze libraries\" at major universities\n\nLimitations:\n  Damages fragile surfaces (friction, absorption)\n  Metric accuracy depends on paper uniformity\n  Color information lost\n  Not suitable for fragile objects\n\nModern replacement: RTI + photogrammetry is preferred\n  for primary recording; squeezes still made for\n  specific research purposes and working copies\n\nSQUEEZE COLLECTIONS:\n  Epigraphical Museum Athens\n  Ashmolean Museum Oxford\n  British School at Rome\n  Harvard Art Museums\n  -> Historical squeezes are irreplaceable archives",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    }
+  ]
+}

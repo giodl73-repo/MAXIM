@@ -1,0 +1,2340 @@
+{
+  "schema_version": "fletch.registry.v1",
+  "generated_by": "MAXIM source-corpus backfill",
+  "registry_id": "maxim-epigraphy-source-corpus",
+  "fletches": [
+    {
+      "id": "maxim.epigraphy.source-corpus.pebble",
+      "node_kind": "fletch",
+      "shafts": [
+        {
+          "kind": "file",
+          "url": ".pebble/packs/maxim-epigraphy-source-corpus.pebble.json"
+        }
+      ],
+      "edges": [
+        {
+          "to": "maxim-epigraphy-source-corpus",
+          "kind": "derived-from",
+          "label": "CROP view recipe",
+          "metadata": {
+            "view": ".crop/views/maxim-epigraphy-source-corpus.json",
+            "module": "epigraphy",
+            "custody": "partial"
+          }
+        }
+      ],
+      "format": {
+        "media_type": "application/json",
+        "encoding": "utf-8",
+        "compression": null,
+        "container": null,
+        "schema": "pebble.v1",
+        "record_shape": "corpus-slice",
+        "preferred_local": ".pebble/packs/maxim-epigraphy-source-corpus.pebble.json"
+      },
+      "tags": [
+        "source-corpus",
+        "crop",
+        "pebble",
+        "partial-custody"
+      ],
+      "metadata": {
+        "source_repo": "MAXIM",
+        "module": "epigraphy",
+        "distribution": "FLETCH fetch/cache surface for downstream repos",
+        "publication_state": "partial-source-custody"
+      }
+    },
+    {
+      "id": "maxim.epigraphy.overview.view",
+      "node_kind": "fletch",
+      "shafts": [
+        {
+          "kind": "file",
+          "url": ".crop/views/maxim-epigraphy-overview.json"
+        }
+      ],
+      "edges": [
+        {
+          "to": "maxim.epigraphy.source-corpus.pebble",
+          "kind": "derived-from",
+          "label": "Guide-level CROP view recipe",
+          "metadata": {
+            "module": "epigraphy",
+            "guide": "epigraphy/00-OVERVIEW.md",
+            "custody": "partial"
+          }
+        }
+      ],
+      "format": {
+        "media_type": "application/json",
+        "encoding": "utf-8",
+        "compression": null,
+        "container": null,
+        "schema": "crop.view.v1",
+        "record_shape": "view-recipe",
+        "preferred_local": ".crop/views/maxim-epigraphy-overview.json"
+      },
+      "tags": [
+        "source-corpus",
+        "crop",
+        "view",
+        "partial-custody",
+        "guide"
+      ],
+      "metadata": {
+        "source_repo": "MAXIM",
+        "module": "epigraphy",
+        "guide": "epigraphy/00-OVERVIEW.md",
+        "publication_state": "partial-source-custody"
+      }
+    },
+    {
+      "id": "maxim.epigraphy.overview.pebble",
+      "node_kind": "fletch",
+      "shafts": [
+        {
+          "kind": "file",
+          "url": ".pebble/packs/maxim-epigraphy-overview.pebble.json"
+        }
+      ],
+      "edges": [
+        {
+          "to": "maxim.epigraphy.overview.view",
+          "kind": "derived-from",
+          "label": "Guide-level CROP view recipe",
+          "metadata": {
+            "module": "epigraphy",
+            "custody": "partial"
+          }
+        },
+        {
+          "to": "maxim.epigraphy.source-corpus.pebble",
+          "kind": "derived-from",
+          "label": "Guide-level CROP view",
+          "metadata": {
+            "view": ".crop/views/maxim-epigraphy-overview.json",
+            "module": "epigraphy",
+            "custody": "partial"
+          }
+        }
+      ],
+      "format": {
+        "media_type": "application/json",
+        "encoding": "utf-8",
+        "compression": null,
+        "container": null,
+        "schema": "pebble.v1",
+        "record_shape": "corpus-slice",
+        "preferred_local": ".pebble/packs/maxim-epigraphy-overview.pebble.json"
+      },
+      "tags": [
+        "source-corpus",
+        "crop",
+        "pebble",
+        "partial-custody",
+        "guide"
+      ],
+      "metadata": {
+        "source_repo": "MAXIM",
+        "module": "epigraphy",
+        "guide": "epigraphy/00-OVERVIEW.md",
+        "publication_state": "partial-source-custody"
+      }
+    },
+    {
+      "id": "maxim.epigraphy.overview.proof-source",
+      "node_kind": "fletch",
+      "shafts": [
+        {
+          "kind": "file",
+          "url": ".proof/backfill/sources/epigraphy/proof-source/00-OVERVIEW.source.md"
+        }
+      ],
+      "edges": [
+        {
+          "to": "maxim.epigraphy.overview.view",
+          "kind": "derived-from",
+          "label": "Literal PROOF source for guide view",
+          "metadata": {
+            "module": "epigraphy",
+            "guide": "epigraphy/00-OVERVIEW.md",
+            "custody": "partial"
+          }
+        }
+      ],
+      "format": {
+        "media_type": "text/markdown",
+        "encoding": "utf-8",
+        "compression": null,
+        "container": null,
+        "schema": "proof.source.literal_markdown.v1",
+        "record_shape": "literal-source",
+        "preferred_local": ".proof/backfill/sources/epigraphy/proof-source/00-OVERVIEW.source.md"
+      },
+      "tags": [
+        "source-corpus",
+        "proof",
+        "source",
+        "partial-custody",
+        "guide"
+      ],
+      "metadata": {
+        "source_repo": "MAXIM",
+        "module": "epigraphy",
+        "guide": "epigraphy/00-OVERVIEW.md",
+        "publication_state": "partial-source-custody"
+      }
+    },
+    {
+      "id": "maxim.epigraphy.overview.tables",
+      "node_kind": "fletch",
+      "shafts": [
+        {
+          "kind": "file",
+          "url": ".proof/backfill/sources/epigraphy/proof-source/00-OVERVIEW.tables.json"
+        }
+      ],
+      "edges": [
+        {
+          "to": "maxim.epigraphy.overview.proof-source",
+          "kind": "derived-from",
+          "label": "PROOF markdown table sidecar",
+          "metadata": {
+            "module": "epigraphy",
+            "guide": "epigraphy/00-OVERVIEW.md",
+            "custody": "partial"
+          }
+        }
+      ],
+      "format": {
+        "media_type": "application/json",
+        "encoding": "utf-8",
+        "compression": null,
+        "container": null,
+        "schema": "proof.backfill.tables.v1",
+        "record_shape": "table-sidecar",
+        "preferred_local": ".proof/backfill/sources/epigraphy/proof-source/00-OVERVIEW.tables.json"
+      },
+      "tags": [
+        "source-corpus",
+        "proof",
+        "tables",
+        "partial-custody",
+        "guide"
+      ],
+      "metadata": {
+        "source_repo": "MAXIM",
+        "module": "epigraphy",
+        "guide": "epigraphy/00-OVERVIEW.md",
+        "publication_state": "partial-source-custody"
+      }
+    },
+    {
+      "id": "maxim.epigraphy.overview.blocks",
+      "node_kind": "fletch",
+      "shafts": [
+        {
+          "kind": "file",
+          "url": ".proof/backfill/sources/epigraphy/proof-source/00-OVERVIEW.blocks.json"
+        }
+      ],
+      "edges": [
+        {
+          "to": "maxim.epigraphy.overview.proof-source",
+          "kind": "derived-from",
+          "label": "PROOF structured block sidecar",
+          "metadata": {
+            "module": "epigraphy",
+            "guide": "epigraphy/00-OVERVIEW.md",
+            "custody": "partial"
+          }
+        }
+      ],
+      "format": {
+        "media_type": "application/json",
+        "encoding": "utf-8",
+        "compression": null,
+        "container": null,
+        "schema": "proof.backfill.blocks.v1",
+        "record_shape": "structured-block-sidecar",
+        "preferred_local": ".proof/backfill/sources/epigraphy/proof-source/00-OVERVIEW.blocks.json"
+      },
+      "tags": [
+        "source-corpus",
+        "proof",
+        "blocks",
+        "partial-custody",
+        "guide"
+      ],
+      "metadata": {
+        "source_repo": "MAXIM",
+        "module": "epigraphy",
+        "guide": "epigraphy/00-OVERVIEW.md",
+        "publication_state": "partial-source-custody"
+      }
+    },
+    {
+      "id": "maxim.epigraphy.ancient-near-east.view",
+      "node_kind": "fletch",
+      "shafts": [
+        {
+          "kind": "file",
+          "url": ".crop/views/maxim-epigraphy-ancient-near-east.json"
+        }
+      ],
+      "edges": [
+        {
+          "to": "maxim.epigraphy.source-corpus.pebble",
+          "kind": "derived-from",
+          "label": "Guide-level CROP view recipe",
+          "metadata": {
+            "module": "epigraphy",
+            "guide": "epigraphy/01-ANCIENT-NEAR-EAST.md",
+            "custody": "partial"
+          }
+        }
+      ],
+      "format": {
+        "media_type": "application/json",
+        "encoding": "utf-8",
+        "compression": null,
+        "container": null,
+        "schema": "crop.view.v1",
+        "record_shape": "view-recipe",
+        "preferred_local": ".crop/views/maxim-epigraphy-ancient-near-east.json"
+      },
+      "tags": [
+        "source-corpus",
+        "crop",
+        "view",
+        "partial-custody",
+        "guide"
+      ],
+      "metadata": {
+        "source_repo": "MAXIM",
+        "module": "epigraphy",
+        "guide": "epigraphy/01-ANCIENT-NEAR-EAST.md",
+        "publication_state": "partial-source-custody"
+      }
+    },
+    {
+      "id": "maxim.epigraphy.ancient-near-east.pebble",
+      "node_kind": "fletch",
+      "shafts": [
+        {
+          "kind": "file",
+          "url": ".pebble/packs/maxim-epigraphy-ancient-near-east.pebble.json"
+        }
+      ],
+      "edges": [
+        {
+          "to": "maxim.epigraphy.ancient-near-east.view",
+          "kind": "derived-from",
+          "label": "Guide-level CROP view recipe",
+          "metadata": {
+            "module": "epigraphy",
+            "custody": "partial"
+          }
+        },
+        {
+          "to": "maxim.epigraphy.source-corpus.pebble",
+          "kind": "derived-from",
+          "label": "Guide-level CROP view",
+          "metadata": {
+            "view": ".crop/views/maxim-epigraphy-ancient-near-east.json",
+            "module": "epigraphy",
+            "custody": "partial"
+          }
+        }
+      ],
+      "format": {
+        "media_type": "application/json",
+        "encoding": "utf-8",
+        "compression": null,
+        "container": null,
+        "schema": "pebble.v1",
+        "record_shape": "corpus-slice",
+        "preferred_local": ".pebble/packs/maxim-epigraphy-ancient-near-east.pebble.json"
+      },
+      "tags": [
+        "source-corpus",
+        "crop",
+        "pebble",
+        "partial-custody",
+        "guide"
+      ],
+      "metadata": {
+        "source_repo": "MAXIM",
+        "module": "epigraphy",
+        "guide": "epigraphy/01-ANCIENT-NEAR-EAST.md",
+        "publication_state": "partial-source-custody"
+      }
+    },
+    {
+      "id": "maxim.epigraphy.ancient-near-east.proof-source",
+      "node_kind": "fletch",
+      "shafts": [
+        {
+          "kind": "file",
+          "url": ".proof/backfill/sources/epigraphy/proof-source/01-ANCIENT-NEAR-EAST.source.md"
+        }
+      ],
+      "edges": [
+        {
+          "to": "maxim.epigraphy.ancient-near-east.view",
+          "kind": "derived-from",
+          "label": "Literal PROOF source for guide view",
+          "metadata": {
+            "module": "epigraphy",
+            "guide": "epigraphy/01-ANCIENT-NEAR-EAST.md",
+            "custody": "partial"
+          }
+        }
+      ],
+      "format": {
+        "media_type": "text/markdown",
+        "encoding": "utf-8",
+        "compression": null,
+        "container": null,
+        "schema": "proof.source.literal_markdown.v1",
+        "record_shape": "literal-source",
+        "preferred_local": ".proof/backfill/sources/epigraphy/proof-source/01-ANCIENT-NEAR-EAST.source.md"
+      },
+      "tags": [
+        "source-corpus",
+        "proof",
+        "source",
+        "partial-custody",
+        "guide"
+      ],
+      "metadata": {
+        "source_repo": "MAXIM",
+        "module": "epigraphy",
+        "guide": "epigraphy/01-ANCIENT-NEAR-EAST.md",
+        "publication_state": "partial-source-custody"
+      }
+    },
+    {
+      "id": "maxim.epigraphy.ancient-near-east.tables",
+      "node_kind": "fletch",
+      "shafts": [
+        {
+          "kind": "file",
+          "url": ".proof/backfill/sources/epigraphy/proof-source/01-ANCIENT-NEAR-EAST.tables.json"
+        }
+      ],
+      "edges": [
+        {
+          "to": "maxim.epigraphy.ancient-near-east.proof-source",
+          "kind": "derived-from",
+          "label": "PROOF markdown table sidecar",
+          "metadata": {
+            "module": "epigraphy",
+            "guide": "epigraphy/01-ANCIENT-NEAR-EAST.md",
+            "custody": "partial"
+          }
+        }
+      ],
+      "format": {
+        "media_type": "application/json",
+        "encoding": "utf-8",
+        "compression": null,
+        "container": null,
+        "schema": "proof.backfill.tables.v1",
+        "record_shape": "table-sidecar",
+        "preferred_local": ".proof/backfill/sources/epigraphy/proof-source/01-ANCIENT-NEAR-EAST.tables.json"
+      },
+      "tags": [
+        "source-corpus",
+        "proof",
+        "tables",
+        "partial-custody",
+        "guide"
+      ],
+      "metadata": {
+        "source_repo": "MAXIM",
+        "module": "epigraphy",
+        "guide": "epigraphy/01-ANCIENT-NEAR-EAST.md",
+        "publication_state": "partial-source-custody"
+      }
+    },
+    {
+      "id": "maxim.epigraphy.ancient-near-east.blocks",
+      "node_kind": "fletch",
+      "shafts": [
+        {
+          "kind": "file",
+          "url": ".proof/backfill/sources/epigraphy/proof-source/01-ANCIENT-NEAR-EAST.blocks.json"
+        }
+      ],
+      "edges": [
+        {
+          "to": "maxim.epigraphy.ancient-near-east.proof-source",
+          "kind": "derived-from",
+          "label": "PROOF structured block sidecar",
+          "metadata": {
+            "module": "epigraphy",
+            "guide": "epigraphy/01-ANCIENT-NEAR-EAST.md",
+            "custody": "partial"
+          }
+        }
+      ],
+      "format": {
+        "media_type": "application/json",
+        "encoding": "utf-8",
+        "compression": null,
+        "container": null,
+        "schema": "proof.backfill.blocks.v1",
+        "record_shape": "structured-block-sidecar",
+        "preferred_local": ".proof/backfill/sources/epigraphy/proof-source/01-ANCIENT-NEAR-EAST.blocks.json"
+      },
+      "tags": [
+        "source-corpus",
+        "proof",
+        "blocks",
+        "partial-custody",
+        "guide"
+      ],
+      "metadata": {
+        "source_repo": "MAXIM",
+        "module": "epigraphy",
+        "guide": "epigraphy/01-ANCIENT-NEAR-EAST.md",
+        "publication_state": "partial-source-custody"
+      }
+    },
+    {
+      "id": "maxim.epigraphy.greek-latin.view",
+      "node_kind": "fletch",
+      "shafts": [
+        {
+          "kind": "file",
+          "url": ".crop/views/maxim-epigraphy-greek-latin.json"
+        }
+      ],
+      "edges": [
+        {
+          "to": "maxim.epigraphy.source-corpus.pebble",
+          "kind": "derived-from",
+          "label": "Guide-level CROP view recipe",
+          "metadata": {
+            "module": "epigraphy",
+            "guide": "epigraphy/02-GREEK-LATIN.md",
+            "custody": "partial"
+          }
+        }
+      ],
+      "format": {
+        "media_type": "application/json",
+        "encoding": "utf-8",
+        "compression": null,
+        "container": null,
+        "schema": "crop.view.v1",
+        "record_shape": "view-recipe",
+        "preferred_local": ".crop/views/maxim-epigraphy-greek-latin.json"
+      },
+      "tags": [
+        "source-corpus",
+        "crop",
+        "view",
+        "partial-custody",
+        "guide"
+      ],
+      "metadata": {
+        "source_repo": "MAXIM",
+        "module": "epigraphy",
+        "guide": "epigraphy/02-GREEK-LATIN.md",
+        "publication_state": "partial-source-custody"
+      }
+    },
+    {
+      "id": "maxim.epigraphy.greek-latin.pebble",
+      "node_kind": "fletch",
+      "shafts": [
+        {
+          "kind": "file",
+          "url": ".pebble/packs/maxim-epigraphy-greek-latin.pebble.json"
+        }
+      ],
+      "edges": [
+        {
+          "to": "maxim.epigraphy.greek-latin.view",
+          "kind": "derived-from",
+          "label": "Guide-level CROP view recipe",
+          "metadata": {
+            "module": "epigraphy",
+            "custody": "partial"
+          }
+        },
+        {
+          "to": "maxim.epigraphy.source-corpus.pebble",
+          "kind": "derived-from",
+          "label": "Guide-level CROP view",
+          "metadata": {
+            "view": ".crop/views/maxim-epigraphy-greek-latin.json",
+            "module": "epigraphy",
+            "custody": "partial"
+          }
+        }
+      ],
+      "format": {
+        "media_type": "application/json",
+        "encoding": "utf-8",
+        "compression": null,
+        "container": null,
+        "schema": "pebble.v1",
+        "record_shape": "corpus-slice",
+        "preferred_local": ".pebble/packs/maxim-epigraphy-greek-latin.pebble.json"
+      },
+      "tags": [
+        "source-corpus",
+        "crop",
+        "pebble",
+        "partial-custody",
+        "guide"
+      ],
+      "metadata": {
+        "source_repo": "MAXIM",
+        "module": "epigraphy",
+        "guide": "epigraphy/02-GREEK-LATIN.md",
+        "publication_state": "partial-source-custody"
+      }
+    },
+    {
+      "id": "maxim.epigraphy.greek-latin.proof-source",
+      "node_kind": "fletch",
+      "shafts": [
+        {
+          "kind": "file",
+          "url": ".proof/backfill/sources/epigraphy/proof-source/02-GREEK-LATIN.source.md"
+        }
+      ],
+      "edges": [
+        {
+          "to": "maxim.epigraphy.greek-latin.view",
+          "kind": "derived-from",
+          "label": "Literal PROOF source for guide view",
+          "metadata": {
+            "module": "epigraphy",
+            "guide": "epigraphy/02-GREEK-LATIN.md",
+            "custody": "partial"
+          }
+        }
+      ],
+      "format": {
+        "media_type": "text/markdown",
+        "encoding": "utf-8",
+        "compression": null,
+        "container": null,
+        "schema": "proof.source.literal_markdown.v1",
+        "record_shape": "literal-source",
+        "preferred_local": ".proof/backfill/sources/epigraphy/proof-source/02-GREEK-LATIN.source.md"
+      },
+      "tags": [
+        "source-corpus",
+        "proof",
+        "source",
+        "partial-custody",
+        "guide"
+      ],
+      "metadata": {
+        "source_repo": "MAXIM",
+        "module": "epigraphy",
+        "guide": "epigraphy/02-GREEK-LATIN.md",
+        "publication_state": "partial-source-custody"
+      }
+    },
+    {
+      "id": "maxim.epigraphy.greek-latin.tables",
+      "node_kind": "fletch",
+      "shafts": [
+        {
+          "kind": "file",
+          "url": ".proof/backfill/sources/epigraphy/proof-source/02-GREEK-LATIN.tables.json"
+        }
+      ],
+      "edges": [
+        {
+          "to": "maxim.epigraphy.greek-latin.proof-source",
+          "kind": "derived-from",
+          "label": "PROOF markdown table sidecar",
+          "metadata": {
+            "module": "epigraphy",
+            "guide": "epigraphy/02-GREEK-LATIN.md",
+            "custody": "partial"
+          }
+        }
+      ],
+      "format": {
+        "media_type": "application/json",
+        "encoding": "utf-8",
+        "compression": null,
+        "container": null,
+        "schema": "proof.backfill.tables.v1",
+        "record_shape": "table-sidecar",
+        "preferred_local": ".proof/backfill/sources/epigraphy/proof-source/02-GREEK-LATIN.tables.json"
+      },
+      "tags": [
+        "source-corpus",
+        "proof",
+        "tables",
+        "partial-custody",
+        "guide"
+      ],
+      "metadata": {
+        "source_repo": "MAXIM",
+        "module": "epigraphy",
+        "guide": "epigraphy/02-GREEK-LATIN.md",
+        "publication_state": "partial-source-custody"
+      }
+    },
+    {
+      "id": "maxim.epigraphy.greek-latin.blocks",
+      "node_kind": "fletch",
+      "shafts": [
+        {
+          "kind": "file",
+          "url": ".proof/backfill/sources/epigraphy/proof-source/02-GREEK-LATIN.blocks.json"
+        }
+      ],
+      "edges": [
+        {
+          "to": "maxim.epigraphy.greek-latin.proof-source",
+          "kind": "derived-from",
+          "label": "PROOF structured block sidecar",
+          "metadata": {
+            "module": "epigraphy",
+            "guide": "epigraphy/02-GREEK-LATIN.md",
+            "custody": "partial"
+          }
+        }
+      ],
+      "format": {
+        "media_type": "application/json",
+        "encoding": "utf-8",
+        "compression": null,
+        "container": null,
+        "schema": "proof.backfill.blocks.v1",
+        "record_shape": "structured-block-sidecar",
+        "preferred_local": ".proof/backfill/sources/epigraphy/proof-source/02-GREEK-LATIN.blocks.json"
+      },
+      "tags": [
+        "source-corpus",
+        "proof",
+        "blocks",
+        "partial-custody",
+        "guide"
+      ],
+      "metadata": {
+        "source_repo": "MAXIM",
+        "module": "epigraphy",
+        "guide": "epigraphy/02-GREEK-LATIN.md",
+        "publication_state": "partial-source-custody"
+      }
+    },
+    {
+      "id": "maxim.epigraphy.egyptian.view",
+      "node_kind": "fletch",
+      "shafts": [
+        {
+          "kind": "file",
+          "url": ".crop/views/maxim-epigraphy-egyptian.json"
+        }
+      ],
+      "edges": [
+        {
+          "to": "maxim.epigraphy.source-corpus.pebble",
+          "kind": "derived-from",
+          "label": "Guide-level CROP view recipe",
+          "metadata": {
+            "module": "epigraphy",
+            "guide": "epigraphy/03-EGYPTIAN.md",
+            "custody": "partial"
+          }
+        }
+      ],
+      "format": {
+        "media_type": "application/json",
+        "encoding": "utf-8",
+        "compression": null,
+        "container": null,
+        "schema": "crop.view.v1",
+        "record_shape": "view-recipe",
+        "preferred_local": ".crop/views/maxim-epigraphy-egyptian.json"
+      },
+      "tags": [
+        "source-corpus",
+        "crop",
+        "view",
+        "partial-custody",
+        "guide"
+      ],
+      "metadata": {
+        "source_repo": "MAXIM",
+        "module": "epigraphy",
+        "guide": "epigraphy/03-EGYPTIAN.md",
+        "publication_state": "partial-source-custody"
+      }
+    },
+    {
+      "id": "maxim.epigraphy.egyptian.pebble",
+      "node_kind": "fletch",
+      "shafts": [
+        {
+          "kind": "file",
+          "url": ".pebble/packs/maxim-epigraphy-egyptian.pebble.json"
+        }
+      ],
+      "edges": [
+        {
+          "to": "maxim.epigraphy.egyptian.view",
+          "kind": "derived-from",
+          "label": "Guide-level CROP view recipe",
+          "metadata": {
+            "module": "epigraphy",
+            "custody": "partial"
+          }
+        },
+        {
+          "to": "maxim.epigraphy.source-corpus.pebble",
+          "kind": "derived-from",
+          "label": "Guide-level CROP view",
+          "metadata": {
+            "view": ".crop/views/maxim-epigraphy-egyptian.json",
+            "module": "epigraphy",
+            "custody": "partial"
+          }
+        }
+      ],
+      "format": {
+        "media_type": "application/json",
+        "encoding": "utf-8",
+        "compression": null,
+        "container": null,
+        "schema": "pebble.v1",
+        "record_shape": "corpus-slice",
+        "preferred_local": ".pebble/packs/maxim-epigraphy-egyptian.pebble.json"
+      },
+      "tags": [
+        "source-corpus",
+        "crop",
+        "pebble",
+        "partial-custody",
+        "guide"
+      ],
+      "metadata": {
+        "source_repo": "MAXIM",
+        "module": "epigraphy",
+        "guide": "epigraphy/03-EGYPTIAN.md",
+        "publication_state": "partial-source-custody"
+      }
+    },
+    {
+      "id": "maxim.epigraphy.egyptian.proof-source",
+      "node_kind": "fletch",
+      "shafts": [
+        {
+          "kind": "file",
+          "url": ".proof/backfill/sources/epigraphy/proof-source/03-EGYPTIAN.source.md"
+        }
+      ],
+      "edges": [
+        {
+          "to": "maxim.epigraphy.egyptian.view",
+          "kind": "derived-from",
+          "label": "Literal PROOF source for guide view",
+          "metadata": {
+            "module": "epigraphy",
+            "guide": "epigraphy/03-EGYPTIAN.md",
+            "custody": "partial"
+          }
+        }
+      ],
+      "format": {
+        "media_type": "text/markdown",
+        "encoding": "utf-8",
+        "compression": null,
+        "container": null,
+        "schema": "proof.source.literal_markdown.v1",
+        "record_shape": "literal-source",
+        "preferred_local": ".proof/backfill/sources/epigraphy/proof-source/03-EGYPTIAN.source.md"
+      },
+      "tags": [
+        "source-corpus",
+        "proof",
+        "source",
+        "partial-custody",
+        "guide"
+      ],
+      "metadata": {
+        "source_repo": "MAXIM",
+        "module": "epigraphy",
+        "guide": "epigraphy/03-EGYPTIAN.md",
+        "publication_state": "partial-source-custody"
+      }
+    },
+    {
+      "id": "maxim.epigraphy.egyptian.tables",
+      "node_kind": "fletch",
+      "shafts": [
+        {
+          "kind": "file",
+          "url": ".proof/backfill/sources/epigraphy/proof-source/03-EGYPTIAN.tables.json"
+        }
+      ],
+      "edges": [
+        {
+          "to": "maxim.epigraphy.egyptian.proof-source",
+          "kind": "derived-from",
+          "label": "PROOF markdown table sidecar",
+          "metadata": {
+            "module": "epigraphy",
+            "guide": "epigraphy/03-EGYPTIAN.md",
+            "custody": "partial"
+          }
+        }
+      ],
+      "format": {
+        "media_type": "application/json",
+        "encoding": "utf-8",
+        "compression": null,
+        "container": null,
+        "schema": "proof.backfill.tables.v1",
+        "record_shape": "table-sidecar",
+        "preferred_local": ".proof/backfill/sources/epigraphy/proof-source/03-EGYPTIAN.tables.json"
+      },
+      "tags": [
+        "source-corpus",
+        "proof",
+        "tables",
+        "partial-custody",
+        "guide"
+      ],
+      "metadata": {
+        "source_repo": "MAXIM",
+        "module": "epigraphy",
+        "guide": "epigraphy/03-EGYPTIAN.md",
+        "publication_state": "partial-source-custody"
+      }
+    },
+    {
+      "id": "maxim.epigraphy.egyptian.blocks",
+      "node_kind": "fletch",
+      "shafts": [
+        {
+          "kind": "file",
+          "url": ".proof/backfill/sources/epigraphy/proof-source/03-EGYPTIAN.blocks.json"
+        }
+      ],
+      "edges": [
+        {
+          "to": "maxim.epigraphy.egyptian.proof-source",
+          "kind": "derived-from",
+          "label": "PROOF structured block sidecar",
+          "metadata": {
+            "module": "epigraphy",
+            "guide": "epigraphy/03-EGYPTIAN.md",
+            "custody": "partial"
+          }
+        }
+      ],
+      "format": {
+        "media_type": "application/json",
+        "encoding": "utf-8",
+        "compression": null,
+        "container": null,
+        "schema": "proof.backfill.blocks.v1",
+        "record_shape": "structured-block-sidecar",
+        "preferred_local": ".proof/backfill/sources/epigraphy/proof-source/03-EGYPTIAN.blocks.json"
+      },
+      "tags": [
+        "source-corpus",
+        "proof",
+        "blocks",
+        "partial-custody",
+        "guide"
+      ],
+      "metadata": {
+        "source_repo": "MAXIM",
+        "module": "epigraphy",
+        "guide": "epigraphy/03-EGYPTIAN.md",
+        "publication_state": "partial-source-custody"
+      }
+    },
+    {
+      "id": "maxim.epigraphy.decipherment.view",
+      "node_kind": "fletch",
+      "shafts": [
+        {
+          "kind": "file",
+          "url": ".crop/views/maxim-epigraphy-decipherment.json"
+        }
+      ],
+      "edges": [
+        {
+          "to": "maxim.epigraphy.source-corpus.pebble",
+          "kind": "derived-from",
+          "label": "Guide-level CROP view recipe",
+          "metadata": {
+            "module": "epigraphy",
+            "guide": "epigraphy/04-DECIPHERMENT.md",
+            "custody": "partial"
+          }
+        }
+      ],
+      "format": {
+        "media_type": "application/json",
+        "encoding": "utf-8",
+        "compression": null,
+        "container": null,
+        "schema": "crop.view.v1",
+        "record_shape": "view-recipe",
+        "preferred_local": ".crop/views/maxim-epigraphy-decipherment.json"
+      },
+      "tags": [
+        "source-corpus",
+        "crop",
+        "view",
+        "partial-custody",
+        "guide"
+      ],
+      "metadata": {
+        "source_repo": "MAXIM",
+        "module": "epigraphy",
+        "guide": "epigraphy/04-DECIPHERMENT.md",
+        "publication_state": "partial-source-custody"
+      }
+    },
+    {
+      "id": "maxim.epigraphy.decipherment.pebble",
+      "node_kind": "fletch",
+      "shafts": [
+        {
+          "kind": "file",
+          "url": ".pebble/packs/maxim-epigraphy-decipherment.pebble.json"
+        }
+      ],
+      "edges": [
+        {
+          "to": "maxim.epigraphy.decipherment.view",
+          "kind": "derived-from",
+          "label": "Guide-level CROP view recipe",
+          "metadata": {
+            "module": "epigraphy",
+            "custody": "partial"
+          }
+        },
+        {
+          "to": "maxim.epigraphy.source-corpus.pebble",
+          "kind": "derived-from",
+          "label": "Guide-level CROP view",
+          "metadata": {
+            "view": ".crop/views/maxim-epigraphy-decipherment.json",
+            "module": "epigraphy",
+            "custody": "partial"
+          }
+        }
+      ],
+      "format": {
+        "media_type": "application/json",
+        "encoding": "utf-8",
+        "compression": null,
+        "container": null,
+        "schema": "pebble.v1",
+        "record_shape": "corpus-slice",
+        "preferred_local": ".pebble/packs/maxim-epigraphy-decipherment.pebble.json"
+      },
+      "tags": [
+        "source-corpus",
+        "crop",
+        "pebble",
+        "partial-custody",
+        "guide"
+      ],
+      "metadata": {
+        "source_repo": "MAXIM",
+        "module": "epigraphy",
+        "guide": "epigraphy/04-DECIPHERMENT.md",
+        "publication_state": "partial-source-custody"
+      }
+    },
+    {
+      "id": "maxim.epigraphy.decipherment.proof-source",
+      "node_kind": "fletch",
+      "shafts": [
+        {
+          "kind": "file",
+          "url": ".proof/backfill/sources/epigraphy/proof-source/04-DECIPHERMENT.source.md"
+        }
+      ],
+      "edges": [
+        {
+          "to": "maxim.epigraphy.decipherment.view",
+          "kind": "derived-from",
+          "label": "Literal PROOF source for guide view",
+          "metadata": {
+            "module": "epigraphy",
+            "guide": "epigraphy/04-DECIPHERMENT.md",
+            "custody": "partial"
+          }
+        }
+      ],
+      "format": {
+        "media_type": "text/markdown",
+        "encoding": "utf-8",
+        "compression": null,
+        "container": null,
+        "schema": "proof.source.literal_markdown.v1",
+        "record_shape": "literal-source",
+        "preferred_local": ".proof/backfill/sources/epigraphy/proof-source/04-DECIPHERMENT.source.md"
+      },
+      "tags": [
+        "source-corpus",
+        "proof",
+        "source",
+        "partial-custody",
+        "guide"
+      ],
+      "metadata": {
+        "source_repo": "MAXIM",
+        "module": "epigraphy",
+        "guide": "epigraphy/04-DECIPHERMENT.md",
+        "publication_state": "partial-source-custody"
+      }
+    },
+    {
+      "id": "maxim.epigraphy.decipherment.tables",
+      "node_kind": "fletch",
+      "shafts": [
+        {
+          "kind": "file",
+          "url": ".proof/backfill/sources/epigraphy/proof-source/04-DECIPHERMENT.tables.json"
+        }
+      ],
+      "edges": [
+        {
+          "to": "maxim.epigraphy.decipherment.proof-source",
+          "kind": "derived-from",
+          "label": "PROOF markdown table sidecar",
+          "metadata": {
+            "module": "epigraphy",
+            "guide": "epigraphy/04-DECIPHERMENT.md",
+            "custody": "partial"
+          }
+        }
+      ],
+      "format": {
+        "media_type": "application/json",
+        "encoding": "utf-8",
+        "compression": null,
+        "container": null,
+        "schema": "proof.backfill.tables.v1",
+        "record_shape": "table-sidecar",
+        "preferred_local": ".proof/backfill/sources/epigraphy/proof-source/04-DECIPHERMENT.tables.json"
+      },
+      "tags": [
+        "source-corpus",
+        "proof",
+        "tables",
+        "partial-custody",
+        "guide"
+      ],
+      "metadata": {
+        "source_repo": "MAXIM",
+        "module": "epigraphy",
+        "guide": "epigraphy/04-DECIPHERMENT.md",
+        "publication_state": "partial-source-custody"
+      }
+    },
+    {
+      "id": "maxim.epigraphy.decipherment.blocks",
+      "node_kind": "fletch",
+      "shafts": [
+        {
+          "kind": "file",
+          "url": ".proof/backfill/sources/epigraphy/proof-source/04-DECIPHERMENT.blocks.json"
+        }
+      ],
+      "edges": [
+        {
+          "to": "maxim.epigraphy.decipherment.proof-source",
+          "kind": "derived-from",
+          "label": "PROOF structured block sidecar",
+          "metadata": {
+            "module": "epigraphy",
+            "guide": "epigraphy/04-DECIPHERMENT.md",
+            "custody": "partial"
+          }
+        }
+      ],
+      "format": {
+        "media_type": "application/json",
+        "encoding": "utf-8",
+        "compression": null,
+        "container": null,
+        "schema": "proof.backfill.blocks.v1",
+        "record_shape": "structured-block-sidecar",
+        "preferred_local": ".proof/backfill/sources/epigraphy/proof-source/04-DECIPHERMENT.blocks.json"
+      },
+      "tags": [
+        "source-corpus",
+        "proof",
+        "blocks",
+        "partial-custody",
+        "guide"
+      ],
+      "metadata": {
+        "source_repo": "MAXIM",
+        "module": "epigraphy",
+        "guide": "epigraphy/04-DECIPHERMENT.md",
+        "publication_state": "partial-source-custody"
+      }
+    },
+    {
+      "id": "maxim.epigraphy.runic.view",
+      "node_kind": "fletch",
+      "shafts": [
+        {
+          "kind": "file",
+          "url": ".crop/views/maxim-epigraphy-runic.json"
+        }
+      ],
+      "edges": [
+        {
+          "to": "maxim.epigraphy.source-corpus.pebble",
+          "kind": "derived-from",
+          "label": "Guide-level CROP view recipe",
+          "metadata": {
+            "module": "epigraphy",
+            "guide": "epigraphy/05-RUNIC.md",
+            "custody": "partial"
+          }
+        }
+      ],
+      "format": {
+        "media_type": "application/json",
+        "encoding": "utf-8",
+        "compression": null,
+        "container": null,
+        "schema": "crop.view.v1",
+        "record_shape": "view-recipe",
+        "preferred_local": ".crop/views/maxim-epigraphy-runic.json"
+      },
+      "tags": [
+        "source-corpus",
+        "crop",
+        "view",
+        "partial-custody",
+        "guide"
+      ],
+      "metadata": {
+        "source_repo": "MAXIM",
+        "module": "epigraphy",
+        "guide": "epigraphy/05-RUNIC.md",
+        "publication_state": "partial-source-custody"
+      }
+    },
+    {
+      "id": "maxim.epigraphy.runic.pebble",
+      "node_kind": "fletch",
+      "shafts": [
+        {
+          "kind": "file",
+          "url": ".pebble/packs/maxim-epigraphy-runic.pebble.json"
+        }
+      ],
+      "edges": [
+        {
+          "to": "maxim.epigraphy.runic.view",
+          "kind": "derived-from",
+          "label": "Guide-level CROP view recipe",
+          "metadata": {
+            "module": "epigraphy",
+            "custody": "partial"
+          }
+        },
+        {
+          "to": "maxim.epigraphy.source-corpus.pebble",
+          "kind": "derived-from",
+          "label": "Guide-level CROP view",
+          "metadata": {
+            "view": ".crop/views/maxim-epigraphy-runic.json",
+            "module": "epigraphy",
+            "custody": "partial"
+          }
+        }
+      ],
+      "format": {
+        "media_type": "application/json",
+        "encoding": "utf-8",
+        "compression": null,
+        "container": null,
+        "schema": "pebble.v1",
+        "record_shape": "corpus-slice",
+        "preferred_local": ".pebble/packs/maxim-epigraphy-runic.pebble.json"
+      },
+      "tags": [
+        "source-corpus",
+        "crop",
+        "pebble",
+        "partial-custody",
+        "guide"
+      ],
+      "metadata": {
+        "source_repo": "MAXIM",
+        "module": "epigraphy",
+        "guide": "epigraphy/05-RUNIC.md",
+        "publication_state": "partial-source-custody"
+      }
+    },
+    {
+      "id": "maxim.epigraphy.runic.proof-source",
+      "node_kind": "fletch",
+      "shafts": [
+        {
+          "kind": "file",
+          "url": ".proof/backfill/sources/epigraphy/proof-source/05-RUNIC.source.md"
+        }
+      ],
+      "edges": [
+        {
+          "to": "maxim.epigraphy.runic.view",
+          "kind": "derived-from",
+          "label": "Literal PROOF source for guide view",
+          "metadata": {
+            "module": "epigraphy",
+            "guide": "epigraphy/05-RUNIC.md",
+            "custody": "partial"
+          }
+        }
+      ],
+      "format": {
+        "media_type": "text/markdown",
+        "encoding": "utf-8",
+        "compression": null,
+        "container": null,
+        "schema": "proof.source.literal_markdown.v1",
+        "record_shape": "literal-source",
+        "preferred_local": ".proof/backfill/sources/epigraphy/proof-source/05-RUNIC.source.md"
+      },
+      "tags": [
+        "source-corpus",
+        "proof",
+        "source",
+        "partial-custody",
+        "guide"
+      ],
+      "metadata": {
+        "source_repo": "MAXIM",
+        "module": "epigraphy",
+        "guide": "epigraphy/05-RUNIC.md",
+        "publication_state": "partial-source-custody"
+      }
+    },
+    {
+      "id": "maxim.epigraphy.runic.tables",
+      "node_kind": "fletch",
+      "shafts": [
+        {
+          "kind": "file",
+          "url": ".proof/backfill/sources/epigraphy/proof-source/05-RUNIC.tables.json"
+        }
+      ],
+      "edges": [
+        {
+          "to": "maxim.epigraphy.runic.proof-source",
+          "kind": "derived-from",
+          "label": "PROOF markdown table sidecar",
+          "metadata": {
+            "module": "epigraphy",
+            "guide": "epigraphy/05-RUNIC.md",
+            "custody": "partial"
+          }
+        }
+      ],
+      "format": {
+        "media_type": "application/json",
+        "encoding": "utf-8",
+        "compression": null,
+        "container": null,
+        "schema": "proof.backfill.tables.v1",
+        "record_shape": "table-sidecar",
+        "preferred_local": ".proof/backfill/sources/epigraphy/proof-source/05-RUNIC.tables.json"
+      },
+      "tags": [
+        "source-corpus",
+        "proof",
+        "tables",
+        "partial-custody",
+        "guide"
+      ],
+      "metadata": {
+        "source_repo": "MAXIM",
+        "module": "epigraphy",
+        "guide": "epigraphy/05-RUNIC.md",
+        "publication_state": "partial-source-custody"
+      }
+    },
+    {
+      "id": "maxim.epigraphy.runic.blocks",
+      "node_kind": "fletch",
+      "shafts": [
+        {
+          "kind": "file",
+          "url": ".proof/backfill/sources/epigraphy/proof-source/05-RUNIC.blocks.json"
+        }
+      ],
+      "edges": [
+        {
+          "to": "maxim.epigraphy.runic.proof-source",
+          "kind": "derived-from",
+          "label": "PROOF structured block sidecar",
+          "metadata": {
+            "module": "epigraphy",
+            "guide": "epigraphy/05-RUNIC.md",
+            "custody": "partial"
+          }
+        }
+      ],
+      "format": {
+        "media_type": "application/json",
+        "encoding": "utf-8",
+        "compression": null,
+        "container": null,
+        "schema": "proof.backfill.blocks.v1",
+        "record_shape": "structured-block-sidecar",
+        "preferred_local": ".proof/backfill/sources/epigraphy/proof-source/05-RUNIC.blocks.json"
+      },
+      "tags": [
+        "source-corpus",
+        "proof",
+        "blocks",
+        "partial-custody",
+        "guide"
+      ],
+      "metadata": {
+        "source_repo": "MAXIM",
+        "module": "epigraphy",
+        "guide": "epigraphy/05-RUNIC.md",
+        "publication_state": "partial-source-custody"
+      }
+    },
+    {
+      "id": "maxim.epigraphy.mesoamerican.view",
+      "node_kind": "fletch",
+      "shafts": [
+        {
+          "kind": "file",
+          "url": ".crop/views/maxim-epigraphy-mesoamerican.json"
+        }
+      ],
+      "edges": [
+        {
+          "to": "maxim.epigraphy.source-corpus.pebble",
+          "kind": "derived-from",
+          "label": "Guide-level CROP view recipe",
+          "metadata": {
+            "module": "epigraphy",
+            "guide": "epigraphy/06-MESOAMERICAN.md",
+            "custody": "partial"
+          }
+        }
+      ],
+      "format": {
+        "media_type": "application/json",
+        "encoding": "utf-8",
+        "compression": null,
+        "container": null,
+        "schema": "crop.view.v1",
+        "record_shape": "view-recipe",
+        "preferred_local": ".crop/views/maxim-epigraphy-mesoamerican.json"
+      },
+      "tags": [
+        "source-corpus",
+        "crop",
+        "view",
+        "partial-custody",
+        "guide"
+      ],
+      "metadata": {
+        "source_repo": "MAXIM",
+        "module": "epigraphy",
+        "guide": "epigraphy/06-MESOAMERICAN.md",
+        "publication_state": "partial-source-custody"
+      }
+    },
+    {
+      "id": "maxim.epigraphy.mesoamerican.pebble",
+      "node_kind": "fletch",
+      "shafts": [
+        {
+          "kind": "file",
+          "url": ".pebble/packs/maxim-epigraphy-mesoamerican.pebble.json"
+        }
+      ],
+      "edges": [
+        {
+          "to": "maxim.epigraphy.mesoamerican.view",
+          "kind": "derived-from",
+          "label": "Guide-level CROP view recipe",
+          "metadata": {
+            "module": "epigraphy",
+            "custody": "partial"
+          }
+        },
+        {
+          "to": "maxim.epigraphy.source-corpus.pebble",
+          "kind": "derived-from",
+          "label": "Guide-level CROP view",
+          "metadata": {
+            "view": ".crop/views/maxim-epigraphy-mesoamerican.json",
+            "module": "epigraphy",
+            "custody": "partial"
+          }
+        }
+      ],
+      "format": {
+        "media_type": "application/json",
+        "encoding": "utf-8",
+        "compression": null,
+        "container": null,
+        "schema": "pebble.v1",
+        "record_shape": "corpus-slice",
+        "preferred_local": ".pebble/packs/maxim-epigraphy-mesoamerican.pebble.json"
+      },
+      "tags": [
+        "source-corpus",
+        "crop",
+        "pebble",
+        "partial-custody",
+        "guide"
+      ],
+      "metadata": {
+        "source_repo": "MAXIM",
+        "module": "epigraphy",
+        "guide": "epigraphy/06-MESOAMERICAN.md",
+        "publication_state": "partial-source-custody"
+      }
+    },
+    {
+      "id": "maxim.epigraphy.mesoamerican.proof-source",
+      "node_kind": "fletch",
+      "shafts": [
+        {
+          "kind": "file",
+          "url": ".proof/backfill/sources/epigraphy/proof-source/06-MESOAMERICAN.source.md"
+        }
+      ],
+      "edges": [
+        {
+          "to": "maxim.epigraphy.mesoamerican.view",
+          "kind": "derived-from",
+          "label": "Literal PROOF source for guide view",
+          "metadata": {
+            "module": "epigraphy",
+            "guide": "epigraphy/06-MESOAMERICAN.md",
+            "custody": "partial"
+          }
+        }
+      ],
+      "format": {
+        "media_type": "text/markdown",
+        "encoding": "utf-8",
+        "compression": null,
+        "container": null,
+        "schema": "proof.source.literal_markdown.v1",
+        "record_shape": "literal-source",
+        "preferred_local": ".proof/backfill/sources/epigraphy/proof-source/06-MESOAMERICAN.source.md"
+      },
+      "tags": [
+        "source-corpus",
+        "proof",
+        "source",
+        "partial-custody",
+        "guide"
+      ],
+      "metadata": {
+        "source_repo": "MAXIM",
+        "module": "epigraphy",
+        "guide": "epigraphy/06-MESOAMERICAN.md",
+        "publication_state": "partial-source-custody"
+      }
+    },
+    {
+      "id": "maxim.epigraphy.mesoamerican.tables",
+      "node_kind": "fletch",
+      "shafts": [
+        {
+          "kind": "file",
+          "url": ".proof/backfill/sources/epigraphy/proof-source/06-MESOAMERICAN.tables.json"
+        }
+      ],
+      "edges": [
+        {
+          "to": "maxim.epigraphy.mesoamerican.proof-source",
+          "kind": "derived-from",
+          "label": "PROOF markdown table sidecar",
+          "metadata": {
+            "module": "epigraphy",
+            "guide": "epigraphy/06-MESOAMERICAN.md",
+            "custody": "partial"
+          }
+        }
+      ],
+      "format": {
+        "media_type": "application/json",
+        "encoding": "utf-8",
+        "compression": null,
+        "container": null,
+        "schema": "proof.backfill.tables.v1",
+        "record_shape": "table-sidecar",
+        "preferred_local": ".proof/backfill/sources/epigraphy/proof-source/06-MESOAMERICAN.tables.json"
+      },
+      "tags": [
+        "source-corpus",
+        "proof",
+        "tables",
+        "partial-custody",
+        "guide"
+      ],
+      "metadata": {
+        "source_repo": "MAXIM",
+        "module": "epigraphy",
+        "guide": "epigraphy/06-MESOAMERICAN.md",
+        "publication_state": "partial-source-custody"
+      }
+    },
+    {
+      "id": "maxim.epigraphy.mesoamerican.blocks",
+      "node_kind": "fletch",
+      "shafts": [
+        {
+          "kind": "file",
+          "url": ".proof/backfill/sources/epigraphy/proof-source/06-MESOAMERICAN.blocks.json"
+        }
+      ],
+      "edges": [
+        {
+          "to": "maxim.epigraphy.mesoamerican.proof-source",
+          "kind": "derived-from",
+          "label": "PROOF structured block sidecar",
+          "metadata": {
+            "module": "epigraphy",
+            "guide": "epigraphy/06-MESOAMERICAN.md",
+            "custody": "partial"
+          }
+        }
+      ],
+      "format": {
+        "media_type": "application/json",
+        "encoding": "utf-8",
+        "compression": null,
+        "container": null,
+        "schema": "proof.backfill.blocks.v1",
+        "record_shape": "structured-block-sidecar",
+        "preferred_local": ".proof/backfill/sources/epigraphy/proof-source/06-MESOAMERICAN.blocks.json"
+      },
+      "tags": [
+        "source-corpus",
+        "proof",
+        "blocks",
+        "partial-custody",
+        "guide"
+      ],
+      "metadata": {
+        "source_repo": "MAXIM",
+        "module": "epigraphy",
+        "guide": "epigraphy/06-MESOAMERICAN.md",
+        "publication_state": "partial-source-custody"
+      }
+    },
+    {
+      "id": "maxim.epigraphy.indus-undeciphered.view",
+      "node_kind": "fletch",
+      "shafts": [
+        {
+          "kind": "file",
+          "url": ".crop/views/maxim-epigraphy-indus-undeciphered.json"
+        }
+      ],
+      "edges": [
+        {
+          "to": "maxim.epigraphy.source-corpus.pebble",
+          "kind": "derived-from",
+          "label": "Guide-level CROP view recipe",
+          "metadata": {
+            "module": "epigraphy",
+            "guide": "epigraphy/07-INDUS-UNDECIPHERED.md",
+            "custody": "partial"
+          }
+        }
+      ],
+      "format": {
+        "media_type": "application/json",
+        "encoding": "utf-8",
+        "compression": null,
+        "container": null,
+        "schema": "crop.view.v1",
+        "record_shape": "view-recipe",
+        "preferred_local": ".crop/views/maxim-epigraphy-indus-undeciphered.json"
+      },
+      "tags": [
+        "source-corpus",
+        "crop",
+        "view",
+        "partial-custody",
+        "guide"
+      ],
+      "metadata": {
+        "source_repo": "MAXIM",
+        "module": "epigraphy",
+        "guide": "epigraphy/07-INDUS-UNDECIPHERED.md",
+        "publication_state": "partial-source-custody"
+      }
+    },
+    {
+      "id": "maxim.epigraphy.indus-undeciphered.pebble",
+      "node_kind": "fletch",
+      "shafts": [
+        {
+          "kind": "file",
+          "url": ".pebble/packs/maxim-epigraphy-indus-undeciphered.pebble.json"
+        }
+      ],
+      "edges": [
+        {
+          "to": "maxim.epigraphy.indus-undeciphered.view",
+          "kind": "derived-from",
+          "label": "Guide-level CROP view recipe",
+          "metadata": {
+            "module": "epigraphy",
+            "custody": "partial"
+          }
+        },
+        {
+          "to": "maxim.epigraphy.source-corpus.pebble",
+          "kind": "derived-from",
+          "label": "Guide-level CROP view",
+          "metadata": {
+            "view": ".crop/views/maxim-epigraphy-indus-undeciphered.json",
+            "module": "epigraphy",
+            "custody": "partial"
+          }
+        }
+      ],
+      "format": {
+        "media_type": "application/json",
+        "encoding": "utf-8",
+        "compression": null,
+        "container": null,
+        "schema": "pebble.v1",
+        "record_shape": "corpus-slice",
+        "preferred_local": ".pebble/packs/maxim-epigraphy-indus-undeciphered.pebble.json"
+      },
+      "tags": [
+        "source-corpus",
+        "crop",
+        "pebble",
+        "partial-custody",
+        "guide"
+      ],
+      "metadata": {
+        "source_repo": "MAXIM",
+        "module": "epigraphy",
+        "guide": "epigraphy/07-INDUS-UNDECIPHERED.md",
+        "publication_state": "partial-source-custody"
+      }
+    },
+    {
+      "id": "maxim.epigraphy.indus-undeciphered.proof-source",
+      "node_kind": "fletch",
+      "shafts": [
+        {
+          "kind": "file",
+          "url": ".proof/backfill/sources/epigraphy/proof-source/07-INDUS-UNDECIPHERED.source.md"
+        }
+      ],
+      "edges": [
+        {
+          "to": "maxim.epigraphy.indus-undeciphered.view",
+          "kind": "derived-from",
+          "label": "Literal PROOF source for guide view",
+          "metadata": {
+            "module": "epigraphy",
+            "guide": "epigraphy/07-INDUS-UNDECIPHERED.md",
+            "custody": "partial"
+          }
+        }
+      ],
+      "format": {
+        "media_type": "text/markdown",
+        "encoding": "utf-8",
+        "compression": null,
+        "container": null,
+        "schema": "proof.source.literal_markdown.v1",
+        "record_shape": "literal-source",
+        "preferred_local": ".proof/backfill/sources/epigraphy/proof-source/07-INDUS-UNDECIPHERED.source.md"
+      },
+      "tags": [
+        "source-corpus",
+        "proof",
+        "source",
+        "partial-custody",
+        "guide"
+      ],
+      "metadata": {
+        "source_repo": "MAXIM",
+        "module": "epigraphy",
+        "guide": "epigraphy/07-INDUS-UNDECIPHERED.md",
+        "publication_state": "partial-source-custody"
+      }
+    },
+    {
+      "id": "maxim.epigraphy.indus-undeciphered.tables",
+      "node_kind": "fletch",
+      "shafts": [
+        {
+          "kind": "file",
+          "url": ".proof/backfill/sources/epigraphy/proof-source/07-INDUS-UNDECIPHERED.tables.json"
+        }
+      ],
+      "edges": [
+        {
+          "to": "maxim.epigraphy.indus-undeciphered.proof-source",
+          "kind": "derived-from",
+          "label": "PROOF markdown table sidecar",
+          "metadata": {
+            "module": "epigraphy",
+            "guide": "epigraphy/07-INDUS-UNDECIPHERED.md",
+            "custody": "partial"
+          }
+        }
+      ],
+      "format": {
+        "media_type": "application/json",
+        "encoding": "utf-8",
+        "compression": null,
+        "container": null,
+        "schema": "proof.backfill.tables.v1",
+        "record_shape": "table-sidecar",
+        "preferred_local": ".proof/backfill/sources/epigraphy/proof-source/07-INDUS-UNDECIPHERED.tables.json"
+      },
+      "tags": [
+        "source-corpus",
+        "proof",
+        "tables",
+        "partial-custody",
+        "guide"
+      ],
+      "metadata": {
+        "source_repo": "MAXIM",
+        "module": "epigraphy",
+        "guide": "epigraphy/07-INDUS-UNDECIPHERED.md",
+        "publication_state": "partial-source-custody"
+      }
+    },
+    {
+      "id": "maxim.epigraphy.indus-undeciphered.blocks",
+      "node_kind": "fletch",
+      "shafts": [
+        {
+          "kind": "file",
+          "url": ".proof/backfill/sources/epigraphy/proof-source/07-INDUS-UNDECIPHERED.blocks.json"
+        }
+      ],
+      "edges": [
+        {
+          "to": "maxim.epigraphy.indus-undeciphered.proof-source",
+          "kind": "derived-from",
+          "label": "PROOF structured block sidecar",
+          "metadata": {
+            "module": "epigraphy",
+            "guide": "epigraphy/07-INDUS-UNDECIPHERED.md",
+            "custody": "partial"
+          }
+        }
+      ],
+      "format": {
+        "media_type": "application/json",
+        "encoding": "utf-8",
+        "compression": null,
+        "container": null,
+        "schema": "proof.backfill.blocks.v1",
+        "record_shape": "structured-block-sidecar",
+        "preferred_local": ".proof/backfill/sources/epigraphy/proof-source/07-INDUS-UNDECIPHERED.blocks.json"
+      },
+      "tags": [
+        "source-corpus",
+        "proof",
+        "blocks",
+        "partial-custody",
+        "guide"
+      ],
+      "metadata": {
+        "source_repo": "MAXIM",
+        "module": "epigraphy",
+        "guide": "epigraphy/07-INDUS-UNDECIPHERED.md",
+        "publication_state": "partial-source-custody"
+      }
+    },
+    {
+      "id": "maxim.epigraphy.medieval.view",
+      "node_kind": "fletch",
+      "shafts": [
+        {
+          "kind": "file",
+          "url": ".crop/views/maxim-epigraphy-medieval.json"
+        }
+      ],
+      "edges": [
+        {
+          "to": "maxim.epigraphy.source-corpus.pebble",
+          "kind": "derived-from",
+          "label": "Guide-level CROP view recipe",
+          "metadata": {
+            "module": "epigraphy",
+            "guide": "epigraphy/08-MEDIEVAL.md",
+            "custody": "partial"
+          }
+        }
+      ],
+      "format": {
+        "media_type": "application/json",
+        "encoding": "utf-8",
+        "compression": null,
+        "container": null,
+        "schema": "crop.view.v1",
+        "record_shape": "view-recipe",
+        "preferred_local": ".crop/views/maxim-epigraphy-medieval.json"
+      },
+      "tags": [
+        "source-corpus",
+        "crop",
+        "view",
+        "partial-custody",
+        "guide"
+      ],
+      "metadata": {
+        "source_repo": "MAXIM",
+        "module": "epigraphy",
+        "guide": "epigraphy/08-MEDIEVAL.md",
+        "publication_state": "partial-source-custody"
+      }
+    },
+    {
+      "id": "maxim.epigraphy.medieval.pebble",
+      "node_kind": "fletch",
+      "shafts": [
+        {
+          "kind": "file",
+          "url": ".pebble/packs/maxim-epigraphy-medieval.pebble.json"
+        }
+      ],
+      "edges": [
+        {
+          "to": "maxim.epigraphy.medieval.view",
+          "kind": "derived-from",
+          "label": "Guide-level CROP view recipe",
+          "metadata": {
+            "module": "epigraphy",
+            "custody": "partial"
+          }
+        },
+        {
+          "to": "maxim.epigraphy.source-corpus.pebble",
+          "kind": "derived-from",
+          "label": "Guide-level CROP view",
+          "metadata": {
+            "view": ".crop/views/maxim-epigraphy-medieval.json",
+            "module": "epigraphy",
+            "custody": "partial"
+          }
+        }
+      ],
+      "format": {
+        "media_type": "application/json",
+        "encoding": "utf-8",
+        "compression": null,
+        "container": null,
+        "schema": "pebble.v1",
+        "record_shape": "corpus-slice",
+        "preferred_local": ".pebble/packs/maxim-epigraphy-medieval.pebble.json"
+      },
+      "tags": [
+        "source-corpus",
+        "crop",
+        "pebble",
+        "partial-custody",
+        "guide"
+      ],
+      "metadata": {
+        "source_repo": "MAXIM",
+        "module": "epigraphy",
+        "guide": "epigraphy/08-MEDIEVAL.md",
+        "publication_state": "partial-source-custody"
+      }
+    },
+    {
+      "id": "maxim.epigraphy.medieval.proof-source",
+      "node_kind": "fletch",
+      "shafts": [
+        {
+          "kind": "file",
+          "url": ".proof/backfill/sources/epigraphy/proof-source/08-MEDIEVAL.source.md"
+        }
+      ],
+      "edges": [
+        {
+          "to": "maxim.epigraphy.medieval.view",
+          "kind": "derived-from",
+          "label": "Literal PROOF source for guide view",
+          "metadata": {
+            "module": "epigraphy",
+            "guide": "epigraphy/08-MEDIEVAL.md",
+            "custody": "partial"
+          }
+        }
+      ],
+      "format": {
+        "media_type": "text/markdown",
+        "encoding": "utf-8",
+        "compression": null,
+        "container": null,
+        "schema": "proof.source.literal_markdown.v1",
+        "record_shape": "literal-source",
+        "preferred_local": ".proof/backfill/sources/epigraphy/proof-source/08-MEDIEVAL.source.md"
+      },
+      "tags": [
+        "source-corpus",
+        "proof",
+        "source",
+        "partial-custody",
+        "guide"
+      ],
+      "metadata": {
+        "source_repo": "MAXIM",
+        "module": "epigraphy",
+        "guide": "epigraphy/08-MEDIEVAL.md",
+        "publication_state": "partial-source-custody"
+      }
+    },
+    {
+      "id": "maxim.epigraphy.medieval.tables",
+      "node_kind": "fletch",
+      "shafts": [
+        {
+          "kind": "file",
+          "url": ".proof/backfill/sources/epigraphy/proof-source/08-MEDIEVAL.tables.json"
+        }
+      ],
+      "edges": [
+        {
+          "to": "maxim.epigraphy.medieval.proof-source",
+          "kind": "derived-from",
+          "label": "PROOF markdown table sidecar",
+          "metadata": {
+            "module": "epigraphy",
+            "guide": "epigraphy/08-MEDIEVAL.md",
+            "custody": "partial"
+          }
+        }
+      ],
+      "format": {
+        "media_type": "application/json",
+        "encoding": "utf-8",
+        "compression": null,
+        "container": null,
+        "schema": "proof.backfill.tables.v1",
+        "record_shape": "table-sidecar",
+        "preferred_local": ".proof/backfill/sources/epigraphy/proof-source/08-MEDIEVAL.tables.json"
+      },
+      "tags": [
+        "source-corpus",
+        "proof",
+        "tables",
+        "partial-custody",
+        "guide"
+      ],
+      "metadata": {
+        "source_repo": "MAXIM",
+        "module": "epigraphy",
+        "guide": "epigraphy/08-MEDIEVAL.md",
+        "publication_state": "partial-source-custody"
+      }
+    },
+    {
+      "id": "maxim.epigraphy.medieval.blocks",
+      "node_kind": "fletch",
+      "shafts": [
+        {
+          "kind": "file",
+          "url": ".proof/backfill/sources/epigraphy/proof-source/08-MEDIEVAL.blocks.json"
+        }
+      ],
+      "edges": [
+        {
+          "to": "maxim.epigraphy.medieval.proof-source",
+          "kind": "derived-from",
+          "label": "PROOF structured block sidecar",
+          "metadata": {
+            "module": "epigraphy",
+            "guide": "epigraphy/08-MEDIEVAL.md",
+            "custody": "partial"
+          }
+        }
+      ],
+      "format": {
+        "media_type": "application/json",
+        "encoding": "utf-8",
+        "compression": null,
+        "container": null,
+        "schema": "proof.backfill.blocks.v1",
+        "record_shape": "structured-block-sidecar",
+        "preferred_local": ".proof/backfill/sources/epigraphy/proof-source/08-MEDIEVAL.blocks.json"
+      },
+      "tags": [
+        "source-corpus",
+        "proof",
+        "blocks",
+        "partial-custody",
+        "guide"
+      ],
+      "metadata": {
+        "source_repo": "MAXIM",
+        "module": "epigraphy",
+        "guide": "epigraphy/08-MEDIEVAL.md",
+        "publication_state": "partial-source-custody"
+      }
+    },
+    {
+      "id": "maxim.epigraphy.modern-methods.view",
+      "node_kind": "fletch",
+      "shafts": [
+        {
+          "kind": "file",
+          "url": ".crop/views/maxim-epigraphy-modern-methods.json"
+        }
+      ],
+      "edges": [
+        {
+          "to": "maxim.epigraphy.source-corpus.pebble",
+          "kind": "derived-from",
+          "label": "Guide-level CROP view recipe",
+          "metadata": {
+            "module": "epigraphy",
+            "guide": "epigraphy/09-MODERN-METHODS.md",
+            "custody": "partial"
+          }
+        }
+      ],
+      "format": {
+        "media_type": "application/json",
+        "encoding": "utf-8",
+        "compression": null,
+        "container": null,
+        "schema": "crop.view.v1",
+        "record_shape": "view-recipe",
+        "preferred_local": ".crop/views/maxim-epigraphy-modern-methods.json"
+      },
+      "tags": [
+        "source-corpus",
+        "crop",
+        "view",
+        "partial-custody",
+        "guide"
+      ],
+      "metadata": {
+        "source_repo": "MAXIM",
+        "module": "epigraphy",
+        "guide": "epigraphy/09-MODERN-METHODS.md",
+        "publication_state": "partial-source-custody"
+      }
+    },
+    {
+      "id": "maxim.epigraphy.modern-methods.pebble",
+      "node_kind": "fletch",
+      "shafts": [
+        {
+          "kind": "file",
+          "url": ".pebble/packs/maxim-epigraphy-modern-methods.pebble.json"
+        }
+      ],
+      "edges": [
+        {
+          "to": "maxim.epigraphy.modern-methods.view",
+          "kind": "derived-from",
+          "label": "Guide-level CROP view recipe",
+          "metadata": {
+            "module": "epigraphy",
+            "custody": "partial"
+          }
+        },
+        {
+          "to": "maxim.epigraphy.source-corpus.pebble",
+          "kind": "derived-from",
+          "label": "Guide-level CROP view",
+          "metadata": {
+            "view": ".crop/views/maxim-epigraphy-modern-methods.json",
+            "module": "epigraphy",
+            "custody": "partial"
+          }
+        }
+      ],
+      "format": {
+        "media_type": "application/json",
+        "encoding": "utf-8",
+        "compression": null,
+        "container": null,
+        "schema": "pebble.v1",
+        "record_shape": "corpus-slice",
+        "preferred_local": ".pebble/packs/maxim-epigraphy-modern-methods.pebble.json"
+      },
+      "tags": [
+        "source-corpus",
+        "crop",
+        "pebble",
+        "partial-custody",
+        "guide"
+      ],
+      "metadata": {
+        "source_repo": "MAXIM",
+        "module": "epigraphy",
+        "guide": "epigraphy/09-MODERN-METHODS.md",
+        "publication_state": "partial-source-custody"
+      }
+    },
+    {
+      "id": "maxim.epigraphy.modern-methods.proof-source",
+      "node_kind": "fletch",
+      "shafts": [
+        {
+          "kind": "file",
+          "url": ".proof/backfill/sources/epigraphy/proof-source/09-MODERN-METHODS.source.md"
+        }
+      ],
+      "edges": [
+        {
+          "to": "maxim.epigraphy.modern-methods.view",
+          "kind": "derived-from",
+          "label": "Literal PROOF source for guide view",
+          "metadata": {
+            "module": "epigraphy",
+            "guide": "epigraphy/09-MODERN-METHODS.md",
+            "custody": "partial"
+          }
+        }
+      ],
+      "format": {
+        "media_type": "text/markdown",
+        "encoding": "utf-8",
+        "compression": null,
+        "container": null,
+        "schema": "proof.source.literal_markdown.v1",
+        "record_shape": "literal-source",
+        "preferred_local": ".proof/backfill/sources/epigraphy/proof-source/09-MODERN-METHODS.source.md"
+      },
+      "tags": [
+        "source-corpus",
+        "proof",
+        "source",
+        "partial-custody",
+        "guide"
+      ],
+      "metadata": {
+        "source_repo": "MAXIM",
+        "module": "epigraphy",
+        "guide": "epigraphy/09-MODERN-METHODS.md",
+        "publication_state": "partial-source-custody"
+      }
+    },
+    {
+      "id": "maxim.epigraphy.modern-methods.tables",
+      "node_kind": "fletch",
+      "shafts": [
+        {
+          "kind": "file",
+          "url": ".proof/backfill/sources/epigraphy/proof-source/09-MODERN-METHODS.tables.json"
+        }
+      ],
+      "edges": [
+        {
+          "to": "maxim.epigraphy.modern-methods.proof-source",
+          "kind": "derived-from",
+          "label": "PROOF markdown table sidecar",
+          "metadata": {
+            "module": "epigraphy",
+            "guide": "epigraphy/09-MODERN-METHODS.md",
+            "custody": "partial"
+          }
+        }
+      ],
+      "format": {
+        "media_type": "application/json",
+        "encoding": "utf-8",
+        "compression": null,
+        "container": null,
+        "schema": "proof.backfill.tables.v1",
+        "record_shape": "table-sidecar",
+        "preferred_local": ".proof/backfill/sources/epigraphy/proof-source/09-MODERN-METHODS.tables.json"
+      },
+      "tags": [
+        "source-corpus",
+        "proof",
+        "tables",
+        "partial-custody",
+        "guide"
+      ],
+      "metadata": {
+        "source_repo": "MAXIM",
+        "module": "epigraphy",
+        "guide": "epigraphy/09-MODERN-METHODS.md",
+        "publication_state": "partial-source-custody"
+      }
+    },
+    {
+      "id": "maxim.epigraphy.modern-methods.blocks",
+      "node_kind": "fletch",
+      "shafts": [
+        {
+          "kind": "file",
+          "url": ".proof/backfill/sources/epigraphy/proof-source/09-MODERN-METHODS.blocks.json"
+        }
+      ],
+      "edges": [
+        {
+          "to": "maxim.epigraphy.modern-methods.proof-source",
+          "kind": "derived-from",
+          "label": "PROOF structured block sidecar",
+          "metadata": {
+            "module": "epigraphy",
+            "guide": "epigraphy/09-MODERN-METHODS.md",
+            "custody": "partial"
+          }
+        }
+      ],
+      "format": {
+        "media_type": "application/json",
+        "encoding": "utf-8",
+        "compression": null,
+        "container": null,
+        "schema": "proof.backfill.blocks.v1",
+        "record_shape": "structured-block-sidecar",
+        "preferred_local": ".proof/backfill/sources/epigraphy/proof-source/09-MODERN-METHODS.blocks.json"
+      },
+      "tags": [
+        "source-corpus",
+        "proof",
+        "blocks",
+        "partial-custody",
+        "guide"
+      ],
+      "metadata": {
+        "source_repo": "MAXIM",
+        "module": "epigraphy",
+        "guide": "epigraphy/09-MODERN-METHODS.md",
+        "publication_state": "partial-source-custody"
+      }
+    }
+  ]
+}

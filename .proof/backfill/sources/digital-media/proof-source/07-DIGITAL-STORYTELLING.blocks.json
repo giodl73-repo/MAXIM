@@ -1,0 +1,61 @@
+{
+  "schema_version": "1",
+  "source_markdown": "digital-media\\07-DIGITAL-STORYTELLING.md",
+  "blocks": [
+    {
+      "id": "block-1",
+      "kind": "ascii_table_candidate",
+      "line": 24,
+      "heading_context": "## The Big Picture",
+      "confidence": "candidate",
+      "text": "DIGITAL STORYTELLING FORMS\n============================\n\n+------------------------------------------------------------------+\n|  FORM              INTERACTION     EXAMPLE                       |\n|  ----              -----------     -------                       |\n|  Branching story   High (choices)  Twine, interactive fiction    |\n|  Scrollytelling    Low (scroll)    NYT Snow Fall, Pudding.cool   |\n|  Data narrative    Variable        Dear Data, narrative charts   |\n|  Podcast narrative None (audio)    Serial, Radiolab              |\n|  VR documentary    Presence        Nonny de la Peña works        |\n|  Longform web      Low (read)      Atavist, Epic Magazine        |\n|  Video essay       None (watch)    YouTube video essays          |\n|  Game narrative    High (all)      AAA storytelling games        |\n+------------------------------------------------------------------+\n\nKEY TENSION IN ALL FORMS:\n  CONTROL (author's narrative arc)\n  vs.\n  AGENCY (reader/viewer/player's choices)\n\nMore interactivity = more author control surrendered\nLess interactivity = more authorial control, less engagement\nThe art is calibrating where the control/agency axis sits\nfor each story's purpose",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-2",
+      "kind": "diagram_like",
+      "line": 90,
+      "heading_context": "### Scrollytelling Mechanics",
+      "confidence": "candidate",
+      "text": "SCROLLYTELLING ARCHITECTURE\n=============================\n\nBASIC SCROLLYTELLING PATTERN:\n  User scrolls -> position on page detected via JS\n  -> CSS transitions / JS animations triggered\n  -> Text, images, charts animate into view or transform\n  -> Creates \"story unfolding\" experience\n\nTYPES:\n  PARALLAX: background moves slower than foreground\n    Creates depth/immersion effect\n    Used for: scene-setting, location, atmosphere\n\n  STICKY SCROLL: element stays fixed while page scrolls\n    Interactive chart that updates as user scrolls through context\n    Example: chart shows 1900 data; user scrolls past 1950;\n             chart updates to 1950 while text discusses that era\n\n  ANIMATION TRIGGER: element animates when scrolled into view\n    Fade-in, slide-in, draw-on effects\n    Charts: bars animate up as user reaches the chart\n\n  VIDEO SCROLL CONTROL: video frame tied to scroll position\n    User \"controls\" the video by scrolling\n    Used for: process demonstrations, before/after\n\nTOOLS (2025):\n  Scrollama (JS library): open source, lightweight\n    Designed for sticky-scroll journalism\n  ScrollMagic: feature-rich; heavier\n  GSAP ScrollTrigger: powerful animation library\n  Shorthand: no-code journalist tool\n  Atavist: full publishing platform with scrollytelling",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-3",
+      "kind": "diagram_like",
+      "line": 133,
+      "heading_context": "### Narrative vs. Exploratory Visualization",
+      "confidence": "candidate",
+      "text": "VISUALIZATION SPECTRUM (Segel & Heer, 2010)\n=============================================\n\nAUTHOR-DRIVEN                      VIEWER-DRIVEN\n(narrative charts)                 (exploratory dashboards)\n\n  Specific message ->                Multiple questions ->\n  Linear path through data           Non-linear exploration\n  Author controls sequence           Viewer controls sequence\n  Minimal interactivity              High interactivity\n  Examples:                          Examples:\n    Newspaper chart                    Tableau dashboard\n    NYT visual story                   Power BI report\n    Dear Data postcards                D3.js exploratory vis\n\nHYBRID FORMS:\n  \"Martini glass\" structure (Segel & Heer):\n    Narrow stem = guided narrative section\n    Open glass = free exploration section\n  Example: start with author-driven story, then \"explore your own\"",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-4",
+      "kind": "diagram_like",
+      "line": 192,
+      "heading_context": "## Podcast Narrative Structure: Serial as Model",
+      "confidence": "candidate",
+      "text": "SERIAL (NPR/WBEZ, Sarah Koenig, 2014)\n=======================================\n\n\"Serial\" Season 1: investigation of the 1999 murder\n  of Hae Min Lee and conviction of Adnan Syed\n  12 episodes; first podcast to hit 5 million downloads\n  Defined \"narrative podcast\" as a cultural form\n\nNARRATIVE STRUCTURE:\n  COLD CASE STRUCTURE:\n    Open question sustained across episodes\n    Each episode: reveals new information that reframes\n    what was established in previous episode\n    The listener's certainty oscillates with each episode:\n      \"He's guilty\" -> \"maybe not\" -> \"definitely innocent\" -> \"unclear\"\n    Uncertainty is the engine; resolution would end the series\n\n  NARRATOR-AS-INVESTIGATOR:\n    Koenig is the narrator AND the protagonist (investigating)\n    Listener follows the investigation in real time\n    This is subjective journalism: narrator's uncertainty\n    is shared with the listener (vs. objective omniscient narrator)\n\n  EPISODIC vs. SERIAL:\n    Each episode ends without resolution\n    Listener must return for the next installment\n    This is the TV cliffhanger structure applied to journalism\n\nSUBSEQUENT INFLUENCE:\n  \"S-Town\" (2017): 7-part series; most downloaded podcast ever at launch\n  \"In the Dark\": investigative serial journalism\n  \"Dr. Death\": crime narrative + healthcare system critique\n  The narrative podcast is now a major content category",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-5",
+      "kind": "diagram_like",
+      "line": 232,
+      "heading_context": "## Interactive Narrative: Twine and Branching Story",
+      "confidence": "candidate",
+      "text": "BRANCHING STORY STRUCTURE\n===========================\n\nBASIC BRANCHING:\n  Linear story with decision points\n  Each decision -> different branch\n  Multiple endings possible\n\nPROBLEMS WITH FULL BRANCHING:\n  \"Combinatorial explosion\":\n    10 decisions with 2 options each = 2^10 = 1,024 possible paths\n    Writing and testing 1,024 paths is not feasible\n    Most branches dead-end (nothing happens differently)\n    The player feels the illusion of choice, not real choice\n\nSOLUTIONS:\n  FUNNEL STRUCTURE: branches merge back to main story\n    Choices have local effects; global story converges\n    Illusion of choice with author control\n\n  CONSEQUENCE WEIGHTING: choices affect character stats\n    Not immediate narrative branch but accumulating variables\n    Game examples: Baldur's Gate, Mass Effect moral system\n    Variables then gate later options (\"your reputation is high\")\n\n  TEMPORAL BRANCHES: choices have delayed consequences\n    \"This choice will have consequences later\" (Telltale model)\n    Player makes choice without knowing impact\n    Impact revealed much later -> creates anxiety and investment\n\nTWINE (tool):\n  Free, open-source interactive narrative tool\n  Text-based hyperlinks as choices\n  No coding required for basic stories\n  Published to HTML (browser-native)\n  Used for: IF (interactive fiction), experimental narrative,\n            educational scenarios, parser games\n  Annual IF competitions: IFComp (1995-present)",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    }
+  ]
+}

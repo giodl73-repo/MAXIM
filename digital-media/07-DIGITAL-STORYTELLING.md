@@ -1,3 +1,22 @@
+---
+maxim_schema: maxim.frontmatter.v1
+id: maxim:digital-media:digital-storytelling
+kind: guide
+module: digital-media
+section: digital-media
+title: Digital Storytelling: Interactive Narrative, Data Visualization, Scrollytelling
+status: source-custody
+source_custody: partial
+current_path: digital-media/07-DIGITAL-STORYTELLING.md
+canonical_path: digital-media/07-DIGITAL-STORYTELLING.md
+backsource_ids: [proof-backfill:digital-media:07-digital-storytelling, git-history:digital-media:07-digital-storytelling]
+concepts: [digital, storytelling]
+root_concepts: [digital, storytelling]
+index_roles: [guide, root-concept]
+remap_from: []
+remap_to: []
+updated: null
+---
 # Digital Storytelling: Interactive Narrative, Data Visualization, Scrollytelling
 
 ## The Big Picture

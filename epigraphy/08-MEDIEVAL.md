@@ -1,3 +1,22 @@
+---
+maxim_schema: maxim.frontmatter.v1
+id: maxim:epigraphy:medieval
+kind: guide
+module: epigraphy
+section: epigraphy
+title: Medieval Inscriptions: Church Latin, Vernacular, Tomb Stones, Coins
+status: source-custody
+source_custody: partial
+current_path: epigraphy/08-MEDIEVAL.md
+canonical_path: epigraphy/08-MEDIEVAL.md
+backsource_ids: [proof-backfill:epigraphy:08-medieval, git-history:epigraphy:08-medieval]
+concepts: [medieval]
+root_concepts: [medieval]
+index_roles: [guide, root-concept]
+remap_from: []
+remap_to: []
+updated: null
+---
 # Medieval Inscriptions: Church Latin, Vernacular, Tomb Stones, Coins
 
 ## The Big Picture

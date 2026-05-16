@@ -1,3 +1,22 @@
+---
+maxim_schema: maxim.frontmatter.v1
+id: maxim:digital-media:attention-economy
+kind: guide
+module: digital-media
+section: digital-media
+title: Attention Economy: Engagement Metrics, Dark Patterns, Persuasive Design
+status: source-custody
+source_custody: partial
+current_path: digital-media/06-ATTENTION-ECONOMY.md
+canonical_path: digital-media/06-ATTENTION-ECONOMY.md
+backsource_ids: [proof-backfill:digital-media:06-attention-economy, git-history:digital-media:06-attention-economy]
+concepts: [attention, economy]
+root_concepts: [attention, economy]
+index_roles: [guide, root-concept]
+remap_from: []
+remap_to: []
+updated: null
+---
 # Attention Economy: Engagement Metrics, Dark Patterns, Persuasive Design
 
 ## The Big Picture

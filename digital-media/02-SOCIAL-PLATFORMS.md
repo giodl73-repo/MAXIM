@@ -1,3 +1,22 @@
+---
+maxim_schema: maxim.frontmatter.v1
+id: maxim:digital-media:social-platforms
+kind: guide
+module: digital-media
+section: digital-media
+title: Social Media Platforms: Architecture, Algorithm, Feed Design, Network Effects
+status: source-custody
+source_custody: partial
+current_path: digital-media/02-SOCIAL-PLATFORMS.md
+canonical_path: digital-media/02-SOCIAL-PLATFORMS.md
+backsource_ids: [proof-backfill:digital-media:02-social-platforms, git-history:digital-media:02-social-platforms]
+concepts: [social, platforms]
+root_concepts: [social, platforms]
+index_roles: [guide, root-concept]
+remap_from: []
+remap_to: []
+updated: null
+---
 # Social Media Platforms: Architecture, Algorithm, Feed Design, Network Effects
 
 ## The Big Picture

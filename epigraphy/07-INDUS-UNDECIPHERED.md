@@ -1,3 +1,22 @@
+---
+maxim_schema: maxim.frontmatter.v1
+id: maxim:epigraphy:indus-undeciphered
+kind: guide
+module: epigraphy
+section: epigraphy
+title: Undeciphered Scripts: Indus Valley, Linear A, Proto-Elamite, Rongorongo
+status: source-custody
+source_custody: partial
+current_path: epigraphy/07-INDUS-UNDECIPHERED.md
+canonical_path: epigraphy/07-INDUS-UNDECIPHERED.md
+backsource_ids: [proof-backfill:epigraphy:07-indus-undeciphered, git-history:epigraphy:07-indus-undeciphered]
+concepts: [indus, undeciphered]
+root_concepts: [indus, undeciphered]
+index_roles: [guide, root-concept]
+remap_from: []
+remap_to: []
+updated: null
+---
 # Undeciphered Scripts: Indus Valley, Linear A, Proto-Elamite, Rongorongo
 
 ## The Big Picture

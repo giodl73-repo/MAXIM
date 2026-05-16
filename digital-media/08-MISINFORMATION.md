@@ -1,3 +1,22 @@
+---
+maxim_schema: maxim.frontmatter.v1
+id: maxim:digital-media:misinformation
+kind: guide
+module: digital-media
+section: digital-media
+title: Misinformation: Viral Spread, Prebunking, Fact-Checking, Platform Policy
+status: source-custody
+source_custody: partial
+current_path: digital-media/08-MISINFORMATION.md
+canonical_path: digital-media/08-MISINFORMATION.md
+backsource_ids: [proof-backfill:digital-media:08-misinformation, git-history:digital-media:08-misinformation]
+concepts: [misinformation]
+root_concepts: [misinformation]
+index_roles: [guide, root-concept]
+remap_from: []
+remap_to: []
+updated: null
+---
 # Misinformation: Viral Spread, Prebunking, Fact-Checking, Platform Policy
 
 ## The Big Picture

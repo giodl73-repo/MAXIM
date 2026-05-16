@@ -1,3 +1,22 @@
+---
+maxim_schema: maxim.frontmatter.v1
+id: maxim:digital-media:overview
+kind: guide
+module: digital-media
+section: digital-media
+title: Digital Media: Platforms, Content, and Attention - Landscape
+status: source-custody
+source_custody: partial
+current_path: digital-media/00-OVERVIEW.md
+canonical_path: digital-media/00-OVERVIEW.md
+backsource_ids: [proof-backfill:digital-media:00-overview, git-history:digital-media:00-overview]
+concepts: [overview]
+root_concepts: [overview]
+index_roles: [guide, root-concept]
+remap_from: []
+remap_to: []
+updated: null
+---
 # Digital Media: Platforms, Content, and Attention — Landscape
 
 ## The Big Picture
@@ -9,24 +28,22 @@ DIGITAL MEDIA LANDSCAPE
 +------------------------------------------------------------------+
 |                   THE DIGITAL PUBLIC SPHERE                      |
 |                                                                  |
-|  CONTENT CREATION     DISTRIBUTION         CONSUMPTION          |
-|  ----------------     ------------         -----------          |
-|  Web writing          Search (Google)       Browser             |
-|  Social media posts   Feed algorithm        Mobile apps         |
-|  UX copy              Email / push          Notifications       |
-|  Video scripts        CDN / hosting         Video players       |
-|  Podcast scripts      Social amplification  Podcatchers         |
+|  CONTENT CREATION     DISTRIBUTION         CONSUMPTION           |
+|  ----------------     ------------         -----------           |
+|  Web writing          Search (Google)       Browser              |
+|  Social media posts   Feed algorithm        Mobile apps          |
+|  UX copy              Email / push          Notifications        |
+|  Video scripts        CDN / hosting         Video players        |
+|  Podcast scripts      Social amplification  Podcatchers          |
 |                                                                  |
-|  +-------------------+  +------------------+  +--------------+  |
-|  | CONTENT STRATEGY  |  | PLATFORM SYSTEMS |  | ATTENTION    |  |
-|  | Governance        |  | Algorithms       |  | ECONOMY      |  |
-|  | Taxonomy          |  | Network effects  |  | Engagement   |  |
-|  | Voice/tone        |  | Lock-in          |  | Dark patterns|  |
-|  | Audit             |  | Moderation       |  | Metrics      |  |
-|  +-------------------+  +------------------+  +--------------+  |
+|  CONTENT STRATEGY     PLATFORM SYSTEMS      ATTENTION ECONOMY    |
+|  Governance           Algorithms            Engagement           |
+|  Taxonomy             Network effects       Dark patterns        |
+|  Voice/tone           Lock-in               Metrics              |
+|  Audit                Moderation                                 |
 |                                                                  |
-|  UNDERLYING ECONOMIC MODEL: ATTENTION ECONOMY                   |
-|  "If you're not paying for the product, you are the product"    |
+|  UNDERLYING ECONOMIC MODEL: ATTENTION ECONOMY                    |
+|  "If you're not paying for the product, you are the product"     |
 |  Advertisers pay for access to attention; users supply it        |
 +------------------------------------------------------------------+
 ```
@@ -240,11 +257,11 @@ ATTENTION ECONOMY FEEDBACK LOOP
         │              ┌──────────────────┐        │
         │              │ ENGAGEMENT SIGNAL│        │
         │              │                  │ ←──────┘
-        │              │ Like, share,     │  every action
-        │              │ comment, watch   │  (and non-action)
-        │              │ duration, save,  │  is a signal
-        │              │ click-through    │
-        │              └──────────────────┘
+        │              │ Like, share,     │        │
+        │              │ comment, watch   │        │
+        │              │ duration, save,  │        │
+        │              │ click-through    │        │
+        │              └──────────────────┘        │
         │                       │
         │                       │ feeds back to
         │                       v
@@ -262,12 +279,12 @@ ATTENTION ECONOMY FEEDBACK LOOP
 
   THE RATCHET EFFECT:
   ┌────────────────────────────────────────────────────────┐
-  │ Algorithm rewards engagement → creators optimize for  │
+  │ Algorithm rewards engagement → creators optimize for   │
   │ engagement → content becomes more engaging (emotional, │
   │ extreme, short) → audience habituates → algorithm must │
   │ find even more engaging content → escalation cycle.    │
   │                                                        │
-  │ This is why "just don't watch it" fails as policy —   │
+  │ This is why "just don't watch it" fails as policy —    │
   │ the system is designed to defeat that intention.       │
   └────────────────────────────────────────────────────────┘
 ```

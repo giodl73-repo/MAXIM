@@ -1,3 +1,22 @@
+---
+maxim_schema: maxim.frontmatter.v1
+id: maxim:digital-media:ux-writing
+kind: guide
+module: digital-media
+section: digital-media
+title: UX Writing: Microcopy, Error Messages, Onboarding, Conversational UI
+status: source-custody
+source_custody: partial
+current_path: digital-media/04-UX-WRITING.md
+canonical_path: digital-media/04-UX-WRITING.md
+backsource_ids: [proof-backfill:digital-media:04-ux-writing, git-history:digital-media:04-ux-writing]
+concepts: [ux, writing]
+root_concepts: [ux, writing]
+index_roles: [guide, root-concept]
+remap_from: []
+remap_to: []
+updated: null
+---
 # UX Writing: Microcopy, Error Messages, Onboarding, Conversational UI
 
 ## The Big Picture

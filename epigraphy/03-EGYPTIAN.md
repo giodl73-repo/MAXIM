@@ -1,3 +1,22 @@
+---
+maxim_schema: maxim.frontmatter.v1
+id: maxim:epigraphy:egyptian
+kind: guide
+module: epigraphy
+section: epigraphy
+title: Egyptian Hieroglyphics: Script Architecture and Champollion's Decipherment
+status: source-custody
+source_custody: partial
+current_path: epigraphy/03-EGYPTIAN.md
+canonical_path: epigraphy/03-EGYPTIAN.md
+backsource_ids: [proof-backfill:epigraphy:03-egyptian, git-history:epigraphy:03-egyptian]
+concepts: [egyptian]
+root_concepts: [egyptian]
+index_roles: [guide, root-concept]
+remap_from: []
+remap_to: []
+updated: null
+---
 # Egyptian Hieroglyphics: Script Architecture and Champollion's Decipherment
 
 ## The Big Picture
@@ -17,7 +36,7 @@ Same language at different stages; different scripts for different contexts
 |  HIEROGLYPHIC SIGN TYPES                                         |
 |                                                                  |
 |  LOGOGRAMS           PHONETIC SIGNS         DETERMINATIVES       |
-|  (word-signs)        (sound-signs)          (semantic classifiers)|
+|  (word-signs)        (sound-signs)         semantic classifiers  |
 |  One sign = one word  One sign = sound(s)   No sound value       |
 |                                             Categorize meaning   |
 |  ~100 in common use   Unilateral: ~26       ~150 in common use   |
@@ -323,20 +342,20 @@ ADMINISTRATIVE (hieratic/demotic):
 
 ## Decision Cheat Sheet
 
-| Script | Period | Medium | Register |
-|--------|--------|--------|---------|
+| Script | Period | Medium | Register                              |
+|--------|--------|--------|---------                              |
 | Hieroglyphic | 3100 BCE - 4 CE | Stone, wood, metal | Formal, monumental |
 | Hieratic | 2600 BCE - 4 CE | Papyrus, ostraka | Administrative, literary |
 | Demotic | 650 BCE - 5 CE | Papyrus, occasional stone | Administrative, legal |
 | Coptic | 1st c. CE - present | Papyrus, vellum | Christian religious |
 
-| Sign type | Pronunciation | Function |
-|-----------|--------------|---------|
-| Logogram | The word it depicts | Writes a whole word |
-| Unilateral | Single consonant | "Alphabetic" element |
-| Bilateral | Two consonants | Syllabic shorthand |
-| Trilateral | Three consonants | Root-sign |
-| Determinative | Silent | Semantic category marker |
+| Sign type | Pronunciation | Function                             |
+|-----------|--------------|---------                              |
+| Logogram | The word it depicts | Writes a whole word             |
+| Unilateral | Single consonant | "Alphabetic" element             |
+| Bilateral | Two consonants | Syllabic shorthand                  |
+| Trilateral | Three consonants | Root-sign                        |
+| Determinative | Silent | Semantic category marker                |
 
 ---
 

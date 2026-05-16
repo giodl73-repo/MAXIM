@@ -1,3 +1,22 @@
+---
+maxim_schema: maxim.frontmatter.v1
+id: maxim:digital-media:future-trends
+kind: guide
+module: digital-media
+section: digital-media
+title: Future Trends: Generative Media, Spatial Computing, Decentralized Social
+status: source-custody
+source_custody: partial
+current_path: digital-media/09-FUTURE-TRENDS.md
+canonical_path: digital-media/09-FUTURE-TRENDS.md
+backsource_ids: [proof-backfill:digital-media:09-future-trends, git-history:digital-media:09-future-trends]
+concepts: [future, trends]
+root_concepts: [future, trends]
+index_roles: [guide, root-concept]
+remap_from: []
+remap_to: []
+updated: null
+---
 # Future Trends: Generative Media, Spatial Computing, Decentralized Social
 
 ## The Big Picture
