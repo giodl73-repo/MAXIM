@@ -1,3 +1,22 @@
+---
+maxim_schema: maxim.frontmatter.v1
+id: maxim:geology:minerals
+kind: guide
+module: geology
+section: geology
+title: Minerals - Crystal Systems, Silicates, Identification
+status: source-custody
+source_custody: partial
+current_path: geology/01-MINERALS.md
+canonical_path: geology/01-MINERALS.md
+backsource_ids: [proof-backfill:geology:01-minerals, git-history:geology:01-minerals]
+concepts: [minerals]
+root_concepts: [minerals]
+index_roles: [guide, root-concept]
+remap_from: []
+remap_to: []
+updated: null
+---
 # Minerals — Crystal Systems, Silicates, Identification
 
 **Bridge — crystal structure as the implementation contract:** In materials science and data structures alike, the choice of internal structure determines the behavioral API. A mineral's crystal system is exactly this: the lattice geometry (unit cell axes and angles) determines every observable property — cleavage planes follow weak bond directions in the lattice, hardness reflects bond strength along the indentation axis, optical properties emerge from lattice anisotropy. Changing SiO₄ linkage topology (isolated tetrahedra vs chains vs sheets vs 3D network) is analogous to choosing an array vs linked list vs tree vs hash table: same atoms, radically different performance characteristics. Olivine (isolated tetrahedra, weak inter-unit bonds) weathers rapidly; quartz (fully cross-linked 3D network) is nearly inert. The structure-property relationship is first-principles, not empirical.

@@ -1,0 +1,72 @@
+{
+  "schema_version": "1",
+  "source_markdown": "meteorology\\02-ATMOSPHERIC-DYNAMICS.md",
+  "blocks": [
+    {
+      "id": "block-1",
+      "kind": "ascii_table_candidate",
+      "line": 26,
+      "heading_context": "## The Big Picture",
+      "confidence": "candidate",
+      "text": "+---------------------------------------------------------------+\n|              ATMOSPHERIC FORCE BALANCE HIERARCHY              |\n|                                                               |\n|  SCALE      DOMINANT BALANCE        RESULT                    |\n|  --------   -----------------------  -------------------------|\n|  Planetary  Pressure gradient +      Jet streams, trade winds |\n|             Coriolis                 flowing along isobars    |\n|                                                               |\n|  Synoptic   Geostrophic balance      Cyclones/anticyclones;   |\n|  (~1000km)  (PGF ≈ Coriolis)        winds parallel to isobars |\n|                                                               |\n|  Mesoscale  Non-geostrophic          Thunderstorm outflows,   |\n|  (~100km)   (ageostrophic)           sea breezes, fronts      |\n|                                                               |\n|  Small      Inertial/viscous         Turbulence, boundary     |\n|  scale                               layer                    |\n+---------------------------------------------------------------+",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-2",
+      "kind": "diagram_like",
+      "line": 92,
+      "heading_context": "## Geostrophic Balance — The Dominant Synoptic Balance",
+      "confidence": "candidate",
+      "text": "PRESSURE MAP VIEW (Northern Hemisphere):\n\n         HIGH (1030 mb)\n              |\n              | ←-- Pressure gradient force (toward LOW)\n              |\n   -------->  WIND (along isobars)\n   (air flows counterclockwise around LOW; LOW is on its left)\n              |\n              | ←-- Coriolis deflection (to right, = rightward = away from LOW)\n              |\n         LOW (1000 mb)\n\nGEOSTROPHIC WIND: V_g = -(1/fρ) × ∂P/∂n\n(n = direction perpendicular to isobars)\n\nNH:  LOW pressure on LEFT of wind direction\nSH:  LOW pressure on RIGHT of wind direction",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-3",
+      "kind": "diagram_like",
+      "line": 121,
+      "heading_context": "## Divergence, Convergence, and Vertical Motion",
+      "confidence": "candidate",
+      "text": "CONVERGENCE (air flowing together) → VERTICAL MOTION REQUIRED\nDIVERGENCE (air flowing apart)     → VERTICAL MOTION REQUIRED\n\nUPPER LEVEL DIVERGENCE:\n         ←← AIR SPREADING OUT →→   (upper troposphere)\n                     |\n                     ↓ (compensating vertical motion)\n         SURFACE LOW PRESSURE develops\n         (air sucked up = rising motion = clouds + rain)\n\nUPPER LEVEL CONVERGENCE:\n         →→ AIR PILING UP ←←      (upper troposphere)\n                     |\n                     ↓\n         SURFACE HIGH PRESSURE\n         (air pushed down = sinking = clear skies)\n\nKEY INSIGHT: Upper-level divergence drives surface lows\n             Upper-level convergence drives surface highs",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-4",
+      "kind": "ascii_table_candidate",
+      "line": 154,
+      "heading_context": "## Jet Streams",
+      "confidence": "candidate",
+      "text": "STRUCTURE OF JET STREAM (cross-section):\n                                               200 mb (~12 km)\n              |  Jet Core  |\n    West     <|            |>                 Wind speed:\n    East     <| max 100-   |>       East      100–200+ kt (>200 km/h)\n             <| 200+ kts   |>\n             <|            |>\n                                               500 mb (~5.5 km)\n\nLOCATION:\nPolar Jet Stream:   ~60°N, highly meandering, ~9–12 km altitude\nSubtropical Jet:    ~30°N, less meandering, ~13 km altitude\n(NH winter both jets present; NH summer subtropical jet weakens)",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-5",
+      "kind": "ascii_table_candidate",
+      "line": 186,
+      "heading_context": "## Rossby Waves — Planetary-Scale Dynamics",
+      "confidence": "candidate",
+      "text": "TOP VIEW (Northern Hemisphere):\n                    L     L     L\n               .  .   .  .  .   .  .\n            .    / \\      / \\    / \\   .\n           /    /   \\    /   \\  /   \\   \\\n     60°N-o----+-----+--+-----++-----+---o--\n          |     \\   /    \\   / \\   /    |\n           \\     \\ /      \\ /   \\ /    /\n            `     `        `     `    '\n     30°N\n\nROSSBY WAVE: sinusoidal north-south meanders\nWavelength: 3000–6000 km (typically 4–6 waves around hemisphere)\nSpeed: generally slow (retrogressive in strong flows)\n\nCONSERVATION OF POTENTIAL VORTICITY drives the wave:\nAs air moves poleward (f increases), relative vorticity must decrease → anticyclonic turn\nAs air moves equatorward (f decreases), relative vorticity must increase → cyclonic turn\n→ Propagation westward (retrogression) or stationary depending on mean flow",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-6",
+      "kind": "diagram_like",
+      "line": 226,
+      "heading_context": "## Atmospheric Boundary Layer (ABL)",
+      "confidence": "candidate",
+      "text": "DAYTIME:                    NIGHTTIME:\n┌─────────────────────┐     ┌─────────────────────┐\n│  Free troposphere   │     │  Free troposphere   │\n├─────────────────────┤     ├─────────────────────┤\n│  Entrainment zone   │     │  Residual layer     │\n│  (ABL top ~1-2 km)  │     │  (~remnant daytime) │\n├─────────────────────┤     ├─────────────────────┤\n│  Mixed layer        │     │  Nocturnal invers.  │\n│  (turbulent, well-  │     │  (stable; radiation │\n│   mixed by          │     │   cooling at        │\n│   convection)       │     │   surface)          │\n├─────────────────────┤     ├─────────────────────┤\n│  Surface layer      │     │  Surface layer      │\n│  (~10% of ABL)      │     │  (very stable)      │\n└─────────────────────┘     └─────────────────────┘\n  Ground heated by sun          Ground cooling by radiation",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    }
+  ]
+}

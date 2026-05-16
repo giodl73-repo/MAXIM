@@ -1,3 +1,22 @@
+---
+maxim_schema: maxim.frontmatter.v1
+id: maxim:geology:earthquakes-volcanoes
+kind: guide
+module: geology
+section: geology
+title: Earthquakes and Volcanoes - Seismic Waves, Mw Scale, Eruption Types
+status: source-custody
+source_custody: partial
+current_path: geology/06-EARTHQUAKES-VOLCANOES.md
+canonical_path: geology/06-EARTHQUAKES-VOLCANOES.md
+backsource_ids: [proof-backfill:geology:06-earthquakes-volcanoes, git-history:geology:06-earthquakes-volcanoes]
+concepts: [earthquakes, volcanoes]
+root_concepts: [earthquakes, volcanoes]
+index_roles: [guide, root-concept]
+remap_from: []
+remap_to: []
+updated: null
+---
 # Earthquakes and Volcanoes — Seismic Waves, Mw Scale, Eruption Types
 
 **Bridge — elastic rebound as accumulated technical debt with a brittle failure mode:** Elastic rebound theory (Reid, 1910) is the geological version of accumulated technical debt releasing catastrophically. Tectonic plates move continuously at 2–10 cm/yr; where they are locked at fault interfaces, elastic strain accumulates silently in the surrounding rock — measurable via GPS surface deformation but invisible to casual observation. This is identical to debt accumulation: the system appears stable while stress builds. When shear stress exceeds static friction (the "debt ceiling"), rupture propagates along the fault plane at ~3 km/s — a cascading failure that releases in seconds what took centuries to accumulate. The Cascadia Subduction Zone has been locked since 1700, accumulating strain for 325+ years toward a plausible M8.7–9.2 event, but recurrence intervals are probabilistic rather than clock deadlines. Unlike software debt, there is no controlled incremental paydown option for a locked megathrust — only partial ruptures, slow slip, or a full release. The magnitude scales with the fault area ruptured and average slip, making earthquake size the integral of accumulated deficit.

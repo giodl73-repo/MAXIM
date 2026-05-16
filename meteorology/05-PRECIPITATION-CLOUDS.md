@@ -1,3 +1,22 @@
+---
+maxim_schema: maxim.frontmatter.v1
+id: maxim:meteorology:precipitation-clouds
+kind: guide
+module: meteorology
+section: meteorology
+title: Precipitation and Clouds - Bergeron-Findeisen, Cloud Classification
+status: source-custody
+source_custody: partial
+current_path: meteorology/05-PRECIPITATION-CLOUDS.md
+canonical_path: meteorology/05-PRECIPITATION-CLOUDS.md
+backsource_ids: [proof-backfill:meteorology:05-precipitation-clouds, git-history:meteorology:05-precipitation-clouds]
+concepts: [precipitation, clouds]
+root_concepts: [precipitation, clouds]
+index_roles: [guide, root-concept]
+remap_from: []
+remap_to: []
+updated: null
+---
 # Precipitation and Clouds — Bergeron-Findeisen, Cloud Classification
 
 ## The Big Picture

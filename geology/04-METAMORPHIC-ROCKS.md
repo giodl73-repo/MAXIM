@@ -1,3 +1,22 @@
+---
+maxim_schema: maxim.frontmatter.v1
+id: maxim:geology:metamorphic-rocks
+kind: guide
+module: geology
+section: geology
+title: Metamorphic Rocks - P-T Paths, Facies, Foliation, Index Minerals
+status: source-custody
+source_custody: partial
+current_path: geology/04-METAMORPHIC-ROCKS.md
+canonical_path: geology/04-METAMORPHIC-ROCKS.md
+backsource_ids: [proof-backfill:geology:04-metamorphic-rocks, git-history:geology:04-metamorphic-rocks]
+concepts: [metamorphic, rocks]
+root_concepts: [metamorphic, rocks]
+index_roles: [guide, root-concept]
+remap_from: []
+remap_to: []
+updated: null
+---
 # Metamorphic Rocks — P-T Paths, Facies, Foliation, Index Minerals
 
 **Bridge — metamorphism as constrained optimization under changing boundary conditions:** A shale entering a subduction zone carries its original mineral assemblage (the starting data structure). As pressure and temperature increase along the P-T path, the system continuously seeks the lowest free-energy configuration given current constraints — recrystallizing into new mineral assemblages without full melting. Many metamorphic reactions are approximately isochemical, but fluids can add or remove components during metasomatism, so "same data, reorganized" is a useful default, not a law. The P-T path is the full constraint history of the transformation; retrograde overprinting (chlorite replacing garnet during exhumation) records constraint relaxation on the way out. Index minerals are runtime type assertions: finding kyanite in a rock is a proof that the system was once at >5 kbar (>15 km depth), regardless of what it looks like now. Eclogite (dense, garnet + omphacite) is the fully-optimized state for subduction-zone P-T conditions — bring it to the surface and it becomes metastable, a high-performance data structure running on the wrong hardware.

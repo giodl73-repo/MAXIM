@@ -1,3 +1,22 @@
+---
+maxim_schema: maxim.frontmatter.v1
+id: maxim:meteorology:atmospheric-dynamics
+kind: guide
+module: meteorology
+section: meteorology
+title: Atmospheric Dynamics - Forces, Coriolis, Geostrophic Balance, Jet Streams
+status: source-custody
+source_custody: partial
+current_path: meteorology/02-ATMOSPHERIC-DYNAMICS.md
+canonical_path: meteorology/02-ATMOSPHERIC-DYNAMICS.md
+backsource_ids: [proof-backfill:meteorology:02-atmospheric-dynamics, git-history:meteorology:02-atmospheric-dynamics]
+concepts: [atmospheric, dynamics]
+root_concepts: [atmospheric, dynamics]
+index_roles: [guide, root-concept]
+remap_from: []
+remap_to: []
+updated: null
+---
 # Atmospheric Dynamics — Forces, Coriolis, Geostrophic Balance, Jet Streams
 
 ## The Big Picture
@@ -9,12 +28,12 @@ Atmospheric motion is governed by the Navier-Stokes equations applied to a rotat
 |              ATMOSPHERIC FORCE BALANCE HIERARCHY              |
 |                                                               |
 |  SCALE      DOMINANT BALANCE        RESULT                    |
-|  --------   -----------------------  -------------------------  |
+|  --------   -----------------------  -------------------------|
 |  Planetary  Pressure gradient +      Jet streams, trade winds |
 |             Coriolis                 flowing along isobars    |
 |                                                               |
 |  Synoptic   Geostrophic balance      Cyclones/anticyclones;   |
-|  (~1000km)  (PGF ≈ Coriolis)         winds parallel to isobars|
+|  (~1000km)  (PGF ≈ Coriolis)        winds parallel to isobars |
 |                                                               |
 |  Mesoscale  Non-geostrophic          Thunderstorm outflows,   |
 |  (~100km)   (ageostrophic)           sea breezes, fronts      |
@@ -212,7 +231,7 @@ DAYTIME:                    NIGHTTIME:
 │  Entrainment zone   │     │  Residual layer     │
 │  (ABL top ~1-2 km)  │     │  (~remnant daytime) │
 ├─────────────────────┤     ├─────────────────────┤
-│  Mixed layer        │     │  Nocturnal inversion│
+│  Mixed layer        │     │  Nocturnal invers.  │
 │  (turbulent, well-  │     │  (stable; radiation │
 │   mixed by          │     │   cooling at        │
 │   convection)       │     │   surface)          │

@@ -1,3 +1,22 @@
+---
+maxim_schema: maxim.frontmatter.v1
+id: maxim:geology:sedimentary-rocks
+kind: guide
+module: geology
+section: geology
+title: Sedimentary Rocks - Stratigraphy, Steno, Depositional Environments
+status: source-custody
+source_custody: partial
+current_path: geology/03-SEDIMENTARY-ROCKS.md
+canonical_path: geology/03-SEDIMENTARY-ROCKS.md
+backsource_ids: [proof-backfill:geology:03-sedimentary-rocks, git-history:geology:03-sedimentary-rocks]
+concepts: [sedimentary, rocks]
+root_concepts: [sedimentary, rocks]
+index_roles: [guide, root-concept]
+remap_from: []
+remap_to: []
+updated: null
+---
 # Sedimentary Rocks — Stratigraphy, Steno, Depositional Environments
 
 **Bridge — sedimentary stratigraphy as a version control log:** Each stratum is a commit: it records environmental state at a moment in time (grain size = energy, fossils = biota, chemistry = ocean composition), and the layer order gives a deterministic sequence. Unconformities are missing commits — either the record was never written (non-deposition) or was deleted (erosion); they are the geological equivalent of a `git rebase` that dropped commits, leaving the index and the log inconsistent. Angular unconformities are especially legible: the underlying strata were tilted (a branch diverged), eroded (commits overwritten), then new horizontal strata deposited on top (main branch continued). Fossils are tagged releases: index fossils with short stratigraphic ranges are version tags with precise timestamps, enabling correlation of the same "release" across widely separated outcrops. Lateral facies changes are the same feature behaving differently in different environments — same commit timestamp, different local state.

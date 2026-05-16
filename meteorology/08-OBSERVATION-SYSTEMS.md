@@ -1,3 +1,22 @@
+---
+maxim_schema: maxim.frontmatter.v1
+id: maxim:meteorology:observation-systems
+kind: guide
+module: meteorology
+section: meteorology
+title: Observation Systems - Radiosonde, Doppler Radar, Satellites
+status: source-custody
+source_custody: partial
+current_path: meteorology/08-OBSERVATION-SYSTEMS.md
+canonical_path: meteorology/08-OBSERVATION-SYSTEMS.md
+backsource_ids: [proof-backfill:meteorology:08-observation-systems, git-history:meteorology:08-observation-systems]
+concepts: [observation, systems]
+root_concepts: [observation, systems]
+index_roles: [guide, root-concept]
+remap_from: []
+remap_to: []
+updated: null
+---
 # Observation Systems — Radiosonde, Doppler Radar, Satellites
 
 ## The Big Picture

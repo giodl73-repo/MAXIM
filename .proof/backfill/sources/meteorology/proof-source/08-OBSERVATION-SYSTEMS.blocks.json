@@ -1,0 +1,72 @@
+{
+  "schema_version": "1",
+  "source_markdown": "meteorology\\08-OBSERVATION-SYSTEMS.md",
+  "blocks": [
+    {
+      "id": "block-1",
+      "kind": "ascii_table_candidate",
+      "line": 26,
+      "heading_context": "## The Big Picture",
+      "confidence": "candidate",
+      "text": "+------------------------------------------------------------------+\n|              GLOBAL ATMOSPHERIC OBSERVING SYSTEM                 |\n|                                                                  |\n|  SPACE-BASED                                                     |\n|  Geostationary (GOES-East/West, Meteosat, Himawari)              |\n|  → Continuous imagery; lightning; AMVs                           |\n|  Polar orbiters (NOAA-20, MetOp, Suomi NPP)                      |\n|  → Soundings, sea ice, ocean color, ozone                        |\n|  GPS Radio Occultation (COSMIC-2)                                |\n|  → Temperature/humidity profiles globally                        |\n|                                                                  |\n|  AIR-BASED                                                       |\n|  Radiosondes (~800 sites, 2x/day)                                |\n|  Aircraft (AMDAR/ACARS; thousands of daily profiles)             |\n|  Dropsondes (hurricane reconnaissance)                           |\n|                                                                  |\n|  SURFACE-BASED                                                   |\n|  Weather radar (NEXRAD, C-band networks)                         |\n|  Surface stations (ASOS, SYNOP, AWS)                             |\n|  Ocean buoys (Argo floats, TRITON, TAO/TRITON array)             |\n|  Profilers (wind, RASS temperature)                              |\n+------------------------------------------------------------------+",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-2",
+      "kind": "diagram_like",
+      "line": 57,
+      "heading_context": "## Radiosonde — Upper-Air Observation Workhorse",
+      "confidence": "candidate",
+      "text": "PACKAGE COMPONENTS:\n  Temperature sensor: thermistor rod (~1°C accuracy)\n  Humidity sensor: hygristor or capacitance sensor\n  Pressure: baroswitch or GPS altitude\n  GPS tracking: wind from balloon drift (u, v at each level)\n  Radio transmitter: 400–406 MHz\n\nFLIGHT PROFILE:\n  Launch: ~30–40 g balloon\n  Ascent rate: ~5–6 m/s (balloon expands as P decreases)\n  Altitude: ~30–35 km (balloon bursts; ~2 hour flight)\n  Horizontal drift: up to 200 km from launch\n  Data: T, Td, P, wind at each second of ascent\n\nGLOBAL NETWORK:\n  ~800 upper-air stations worldwide\n  00 UTC and 12 UTC daily (0Z and 12Z, synoptic times)\n  Sparse over ocean; polar regions; developing world\n  → Major data gap filled by satellites",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-3",
+      "kind": "diagram_like",
+      "line": 109,
+      "heading_context": "## Doppler Weather Radar",
+      "confidence": "candidate",
+      "text": "RADAR PULSE → hydrometeors → echo return\nIf hydrometeors MOVING TOWARD radar: higher frequency return (blue shift)\nIf hydrometeors MOVING AWAY: lower frequency (red shift)\nIf perpendicular: no Doppler shift\n\nf_shift = 2V_r/λ\n\nV_r = radial velocity (component toward/away from radar)\n\nLIMITATION: Aliasing when V_r > Nyquist velocity\n  V_nyquist = λ × PRF / 4  (PRF = pulse repetition frequency)\n  At long range, PRF must be low → Nyquist velocity low → aliasing\n  STAGGERED PRF (SZ-2 algorithm) partially resolves this",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-4",
+      "kind": "diagram_like",
+      "line": 127,
+      "heading_context": "## Doppler Weather Radar",
+      "confidence": "candidate",
+      "text": "TRANSMIT: Horizontal AND vertical pulses alternating\n\nDIFFERENTIAL REFLECTIVITY (ZDR):\n  ZDR = ZH/ZV (ratio of horizontal to vertical reflectivity)\n  Large ZDR (+1 to +4 dB): oblate drops = large raindrops\n  ZDR ≈ 0: spherical particles = small rain, hail (tumbling), snow\n\nCORRELATION COEFFICIENT (CC or ρhv):\n  1.0 = all same type (rain, snow)\n  < 0.97: mixed types (rain+hail, debris, insects)\n  < 0.8: tornado debris!\n\nSPECIFIC DIFFERENTIAL PHASE (KDP):\n  Proportional to liquid water content\n  Immune to partial beam blockage and attenuation\n  Better QPE in heavy rain\n\nMELTING LAYER DETECTION:\n  \"Bright band\" = ring of high reflectivity where snow melts\n  → CC drops, ZDR enhanced → marks 0°C level altitude",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-5",
+      "kind": "diagram_like",
+      "line": 158,
+      "heading_context": "## Geostationary Satellites (GOES)",
+      "confidence": "candidate",
+      "text": "ORBIT: Geostationary (35,786 km altitude); appears fixed over equator\n  GOES-East: ~75°W (covers Americas, Atlantic)\n  GOES-West: ~137°W (covers western Americas, Pacific)\n  Advantage: Continuous monitoring of same area\n  Disadvantage: Lower resolution at high latitudes (oblique view)\n\nADVANCED BASELINE IMAGER (ABI):\n  16 channels (6 visible, 10 infrared)\n  Full-disk: 10-minute scan; CONUS: 5 min; Mesoscale: 1 min (severe weather)\n  Resolution: 0.5 km (visible), 1 km (near-IR), 2 km (IR)\n\nKEY CHANNEL USES:\n  Band 2 (0.64 μm):     Visible; cloud structure during daylight\n  Band 9 (6.9 μm):      Water vapor (mid-troposphere); jet streams\n  Band 13 (10.3 μm):    \"Clean IR window\"; cloud top temperature\n                        → cloud top height (cold = high top)\n  Band 16 (13.3 μm):    CO₂ absorption; cloud top pressure\n\nGEOSTATIONARY LIGHTNING MAPPER (GLM):\n  Maps total lightning (CG + IC) continuously at 2-km, 2ms resolution\n  → Rapid increases in IC lightning = updraft intensification\n  → Lightning jump = tornado/severe weather precursor",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-6",
+      "kind": "ascii_table_candidate",
+      "line": 213,
+      "heading_context": "## Surface Observation Networks",
+      "confidence": "candidate",
+      "text": "- Temperature, dewpoint, wind (direction + speed + gusts), visibility, ceiling",
+      "notes": [
+        "detected from ASCII table borders or pipe-aligned rows"
+      ]
+    }
+  ]
+}

@@ -1,3 +1,22 @@
+---
+maxim_schema: maxim.frontmatter.v1
+id: maxim:meteorology:numerical-weather-prediction
+kind: guide
+module: meteorology
+section: meteorology
+title: Numerical Weather Prediction - GFS vs ECMWF, Ensembles, Chaos
+status: source-custody
+source_custody: partial
+current_path: meteorology/07-NUMERICAL-WEATHER-PREDICTION.md
+canonical_path: meteorology/07-NUMERICAL-WEATHER-PREDICTION.md
+backsource_ids: [proof-backfill:meteorology:07-numerical-weather-prediction, git-history:meteorology:07-numerical-weather-prediction]
+concepts: [numerical, weather, prediction]
+root_concepts: [numerical, weather]
+index_roles: [guide, root-concept]
+remap_from: []
+remap_to: []
+updated: null
+---
 # Numerical Weather Prediction — GFS vs ECMWF, Ensembles, Chaos
 
 ## The Big Picture

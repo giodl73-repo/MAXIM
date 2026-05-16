@@ -1,3 +1,22 @@
+---
+maxim_schema: maxim.frontmatter.v1
+id: maxim:meteorology:cyclones-anticyclones
+kind: guide
+module: meteorology
+section: meteorology
+title: Cyclones and Anticyclones - Lifecycle, Vorticity, Blocking
+status: source-custody
+source_custody: partial
+current_path: meteorology/04-CYCLONES-ANTICYCLONES.md
+canonical_path: meteorology/04-CYCLONES-ANTICYCLONES.md
+backsource_ids: [proof-backfill:meteorology:04-cyclones-anticyclones, git-history:meteorology:04-cyclones-anticyclones]
+concepts: [cyclones, anticyclones]
+root_concepts: [cyclones, anticyclones]
+index_roles: [guide, root-concept]
+remap_from: []
+remap_to: []
+updated: null
+---
 # Cyclones and Anticyclones — Lifecycle, Vorticity, Blocking
 
 ## The Big Picture
