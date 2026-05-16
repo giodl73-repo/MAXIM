@@ -1,3 +1,22 @@
+---
+maxim_schema: maxim.frontmatter.v1
+id: maxim:music-theory:rhythm-meter
+kind: guide
+module: music-theory
+section: music-theory
+title: Rhythm and Meter
+status: source-custody
+source_custody: partial
+current_path: music-theory/03-RHYTHM-METER.md
+canonical_path: music-theory/03-RHYTHM-METER.md
+backsource_ids: [proof-backfill:music-theory:03-rhythm-meter, git-history:music-theory:03-rhythm-meter]
+concepts: [rhythm, meter]
+root_concepts: [rhythm, meter]
+index_roles: [guide, root-concept]
+remap_from: []
+remap_to: []
+updated: null
+---
 # Rhythm & Meter
 
 ## The Big Picture: Time Organization Hierarchy

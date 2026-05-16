@@ -1,3 +1,22 @@
+---
+maxim_schema: maxim.frontmatter.v1
+id: maxim:music-theory:harmony-chords
+kind: guide
+module: music-theory
+section: music-theory
+title: Harmony and Chords
+status: source-custody
+source_custody: partial
+current_path: music-theory/04-HARMONY-CHORDS.md
+canonical_path: music-theory/04-HARMONY-CHORDS.md
+backsource_ids: [proof-backfill:music-theory:04-harmony-chords, git-history:music-theory:04-harmony-chords]
+concepts: [harmony, chords]
+root_concepts: [harmony, chords]
+index_roles: [guide, root-concept]
+remap_from: []
+remap_to: []
+updated: null
+---
 # Harmony & Chords
 
 ## The Big Picture: From Intervals to Functional Harmony

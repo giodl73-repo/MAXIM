@@ -1,0 +1,185 @@
+{
+  "schema_version": "1",
+  "source_markdown": "linguistics\\02-MORPHOLOGY.md",
+  "tables": [
+    {
+      "id": "table-1",
+      "line": 111,
+      "heading_context": "## Part II: Affixation — All Types",
+      "headers": [
+        "Affix type",
+        "Position",
+        "English examples"
+      ],
+      "rows": [
+        [
+          "**Prefix**",
+          "Before root",
+          "un-happy, pre-view, mis-understand, dis-agree, re-write, anti-war"
+        ],
+        [
+          "**Suffix**",
+          "After root",
+          "happi-ness, teach-er, nation-al, walk-ed, cat-s, beauti-ful"
+        ]
+      ]
+    },
+    {
+      "id": "table-2",
+      "line": 118,
+      "heading_context": "## Part II: Affixation — All Types",
+      "headers": [
+        "Type",
+        "Position",
+        "Description",
+        "Example"
+      ],
+      "rows": [
+        [
+          "**Infix**",
+          "Inside root",
+          "Morpheme inserted into root",
+          "Filipino: *sulat* (write) → *s-um-ulat* (wrote) — *um* infixed"
+        ],
+        [
+          "**Circumfix**",
+          "Around root",
+          "Prefix + suffix as single morpheme",
+          "German: *ge-lern-t* (learned); Malay: *ke-besar-an* (bigness)"
+        ],
+        [
+          "**Interfix**",
+          "Between morphemes",
+          "Linking element, no meaning",
+          "German: *Arbeit-s-platz* (workplace) — *-s-* is interfix"
+        ],
+        [
+          "**Transfix**",
+          "Interspersed",
+          "Non-contiguous affixation",
+          "Arabic trilateral roots: K-T-B (write) + template → *katab* (he wrote), *kitāb* (book), *kātib* (writer) — vowel pattern is transfix"
+        ],
+        [
+          "**Simulfix**",
+          "Replacement",
+          "Affix replaces part of root",
+          "— (theoretical; some ablaut analyses)"
+        ]
+      ]
+    },
+    {
+      "id": "table-3",
+      "line": 169,
+      "heading_context": "## The Compiler Front-End Bridge",
+      "headers": [
+        "Morphological type",
+        "Parsing strategy",
+        "Analogy"
+      ],
+      "rows": [
+        [
+          "Isolating (Mandarin)",
+          "No morphology needed; tokenize on whitespace",
+          "Keywords only; no compound tokens"
+        ],
+        [
+          "Agglutinative (Turkish)",
+          "Stack-based FST; strip suffix stack left-to-right",
+          "Left-recursive grammar; each suffix = one rule application"
+        ],
+        [
+          "Fusional (Latin, Russian)",
+          "Paradigm table lookup; can't decompose further",
+          "Overloaded operators; one token encodes multiple semantic dimensions"
+        ],
+        [
+          "Polysynthetic (Mohawk)",
+          "Full clause parser required to analyze one \"word\"",
+          "Macro expansion; a single token expands to a full AST"
+        ]
+      ]
+    },
+    {
+      "id": "table-4",
+      "line": 276,
+      "heading_context": "## Part III: Morphological Typology",
+      "headers": [
+        "Metric",
+        "Definition",
+        "Isolating",
+        "Agglutinative",
+        "Fusional"
+      ],
+      "rows": [
+        [
+          "**Synthesis index**",
+          "Morphemes per word",
+          "~1.0–1.5",
+          "~2–3",
+          "~2–3"
+        ],
+        [
+          "**Fusion index**",
+          "Morpheme-meaning pairs per morpheme",
+          "~1",
+          "~1",
+          ">1"
+        ],
+        [
+          "**Agglutination index**",
+          "Unambiguous segment boundaries",
+          "N/A",
+          "High",
+          "Low"
+        ]
+      ]
+    },
+    {
+      "id": "table-5",
+      "line": 482,
+      "heading_context": "## Decision Cheat Sheet",
+      "headers": [
+        "Question",
+        "Analysis",
+        "Tool"
+      ],
+      "rows": [
+        [
+          "Is \"-er\" in \"teacher\" vs \"quicker\" the same morpheme?",
+          "No — derivational vs comparative. Different morphemes, phonologically identical.",
+          "Inflection vs. derivation"
+        ],
+        [
+          "How do I analyze Turkish word structure?",
+          "Stack morphemes in slots — agglutinative.",
+          "Morphological typology"
+        ],
+        [
+          "Why does \"mice\" not follow the {-s} rule?",
+          "Ablaut (umlaut) — old Germanic morphological process, now lexicalized.",
+          "Allomorphy / suppletion"
+        ],
+        [
+          "What's the head of \"bookseller\"?",
+          "\"-seller\" — rightmost element → English is right-headed.",
+          "Compound headedness"
+        ],
+        [
+          "Can \"obligate\" be derived from \"obligation\"?",
+          "Yes — backformation (probably). Or independent derivation from Latin.",
+          "Word formation"
+        ],
+        [
+          "Why no plural \"scissors\" → scissor?",
+          "Pluralia tantum — paradigm gap. Scissors is only plural.",
+          "Paradigm gaps"
+        ],
+        [
+          "Is circumfix a real thing or two separate affixes?",
+          "Genuinely disputed — some analyses decompose, some treat as unitary.",
+          "Theoretical choice"
+        ]
+      ]
+    }
+  ]
+}

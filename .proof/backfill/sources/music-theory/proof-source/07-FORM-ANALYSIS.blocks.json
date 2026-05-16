@@ -1,0 +1,127 @@
+{
+  "schema_version": "1",
+  "source_markdown": "music-theory\\07-FORM-ANALYSIS.md",
+  "blocks": [
+    {
+      "id": "block-1",
+      "kind": "diagram_like",
+      "line": 24,
+      "heading_context": "## Engineering Bridge: Musical Form as Formal Grammar",
+      "confidence": "candidate",
+      "text": "MUSICAL FORM                     FORMAL LANGUAGE / CS EQUIVALENT\n──────────────────────────────────────────────────────────────────────────\nSection labels (A, B, C)         Terminal symbols in a grammar\nForm template (ABA', ABACA)      Production rules of a context-free grammar\n  Binary: S → A B                  where each rule constrains tonal state\n  Ternary: S → A B A'\n  Rondo: S → A B A C A (D A)*\n  Sonata: S → Expo Dev Recap\n\nSonata form tonal plan            Finite state machine over tonal states\n  States: {Tonic, Dominant,         Exposition: Tonic → Dominant\n           Remote, RetransD}        Development: Dominant → Remote → RetransD\n  Retransition = dominant pedal     RetransD → Tonic (fires when P-theme arrives)\n  before recapitulation             Recapitulation: stay in Tonic state\n\nSchenkerian analysis              Parse tree / AST hierarchy\n  Background: I → V → I            Root of the tree (fundamental structure)\n  Middleground: prolongations       Interior nodes (transformations)\n  Foreground: surface events        Leaf nodes (concrete syntax)\n  Reduction = stripping ornament    AST ← concrete syntax tree",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-2",
+      "kind": "diagram_like",
+      "line": 51,
+      "heading_context": "## The Big Picture: Music as Architecture",
+      "confidence": "candidate",
+      "text": "FORM = the large-scale structure — how sections relate and how the piece unfolds\n\nDIMENSIONS OF FORM:\n  ┌─────────────────────────────────────────────────────────────────┐\n  │ THEMATIC: what melodic material appears and when                │\n  │           A section, B section, returning A', new C             │\n  │                                                                 │\n  │ TONAL:    what keys are established and when                    │\n  │           Home → related key → development → return home        │\n  │                                                                 │\n  │ PHRASE:   how melodic units group and balance                   │\n  │           Antecedent + consequent = period (8 bars)             │\n  │           4+4+8 = sentence structure (Schoenberg's terminology) │\n  └─────────────────────────────────────────────────────────────────┘\n\nSCALE HIERARCHY:\n  Motive (2–3 notes) → Figure → Phrase (4–8 bars) →\n  Period (2 phrases) → Section (multiple periods) → Movement → Work",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-3",
+      "kind": "diagram_like",
+      "line": 78,
+      "heading_context": "## Phrase Structure",
+      "confidence": "candidate",
+      "text": "PERIOD: two contrasting phrases — antecedent + consequent\n  Antecedent: opens phrase, ends with half cadence (HC) — question\n  Consequent: same opening, ends with authentic cadence (PAC) — answer\n  Classic 8-bar period: 4 bars antecedent + 4 bars consequent\n\n  PARALLEL PERIOD: consequent starts same as antecedent (most common)\n  CONTRASTING PERIOD: consequent starts differently\n\nSENTENCE: motivic presentation → continuation → cadence\n  Bars 1–2: BASIC IDEA (2 bars)\n  Bars 3–4: REPETITION of basic idea (same, varied, or transposed)\n  Bars 5–6: CONTINUATION — fragmentation, faster harmonic rhythm\n  Bars 7–8: CADENTIAL — I⁶₄ → V → I (or similar)\n\n  The sentence is inherently forward-driving (fragmentation creates momentum)\n  The period is more static (balanced question/answer)",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-4",
+      "kind": "ascii_table_candidate",
+      "line": 103,
+      "heading_context": "## Binary Form",
+      "confidence": "candidate",
+      "text": "||: A :||: B :||\n\nSIMPLE BINARY: A and B use same thematic material, B is development/continuation\n  A: tonic → dominant (or relative major in minor key)\n  B: starts in dominant/relative, returns to tonic\n  No exact return of opening — B dissolves back to tonic\n\n  Used in: Baroque dance forms (allemande, sarabande, gavotte, gigue, minuet)\n  Length: usually 8–16 bars each section\n\nROUNDED BINARY: B concludes with return of A material in tonic\n  A:  tonic → dominant\n  B:  dominant → (development) → RETURN of A in tonic (last few bars)\n  ||: A :||: B + A' :||\n  The A' return is usually shorter than the original A\n  This is a SEED of sonata form — the germ of the recapitulation idea\n\n  Used in: Bach minuets, most Classical minuet/trio movements\n  Transitional form between Baroque and Classical\n\nBALANCED BINARY: The END of A returns at end of B, but in tonic\n  Technically: end of A was in dominant, end of B uses same music but in tonic\n  \"Balanced\" = matching endings in different keys",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-5",
+      "kind": "diagram_like",
+      "line": 135,
+      "heading_context": "## Ternary Form",
+      "confidence": "candidate",
+      "text": "TERNARY: ||: A :|| ||: B :|| A'\n  A: complete, self-contained musical statement in tonic\n  B: contrasting middle section (different key, character, material)\n  A': return of A, usually in tonic, often abbreviated\n\n  The distinguishing feature vs rounded binary:\n    Ternary: A is COMPLETE and self-contained (perfect authentic cadence)\n    Rounded binary: A is not complete on its own\n\n  SIMPLE TERNARY: A and B are both complete, A' = exact repeat\n  COMPOUND TERNARY: A and/or B are themselves ternary or binary\n\n  Used in: Songs, da capo arias (\"dal segno al coda\"), all minuet-with-trio movements\n  Da capo aria: opera form where B section = new text, A' = \"da capo\" (from the head)\n\nMINUET AND TRIO:\n  Minuet (A): rounded binary form\n  Trio (B): contrasting rounded binary, often lighter texture, different key\n  Minuet (A'): repeated without internal repeats\n  → Compound ternary where each section is binary",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-6",
+      "kind": "diagram_like",
+      "line": 218,
+      "heading_context": "## 32-Bar AABA (Tin Pan Alley / Great American Songbook)",
+      "confidence": "candidate",
+      "text": "AABA FORM (32 bars):\n  A: 8 bars — main theme in tonic\n  A: 8 bars — same theme repeated (sometimes varied)\n  B: 8 bars — BRIDGE (contrasting section, different harmony/key)\n  A: 8 bars — return of main theme\n\n  Total: 32 bars = one full chorus\n\n  The \"bridge\" (B section = also called \"middle eight\" or \"release\"):\n    Usually modulates to a related key (IV, V, or III area)\n    Higher energy or different register\n    Creates contrast before final A resolution\n\nFAMOUS AABA SONGS:\n  \"I Got Rhythm\" (Gershwin) — the II-V progression of Rhythm changes\n  \"Autumn Leaves\" — AABA with a slight formal twist\n  \"The Way You Look Tonight\" — classic AABA\n  \"Over the Rainbow\" — AABA\n  \"All the Things You Are\" — AABCA (modified)\n\nRHYTHM CHANGES (based on \"I Got Rhythm\"):\n  A section (8 bars):\n    B♭  G7  Cm  F7 |  B♭  B♭7  E♭  E♭m  | B♭  F7  B♭  F7 | B♭ (cadence)\n  B section (bridge, 8 bars):\n    D7  D7  D7  D7  | G7  G7  G7  G7 | C7  C7  C7  C7 | F7  F7  F7  F7\n    (secondary dominants descending: III7 → VI7 → II7 → V7 — each 2 bars)\n  → The Rhythm changes bridge = chain of secondary dominants\n    Bebop musicians improvise over this at breakneck speed",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-7",
+      "kind": "diagram_like",
+      "line": 253,
+      "heading_context": "## Theme and Variations",
+      "confidence": "candidate",
+      "text": "THEME AND VARIATIONS (T + V1 + V2 + V3 ... + Vn):\n  Theme: stated clearly, often simple binary or rounded binary\n  Each variation: transforms the theme while preserving its harmonic/phrase skeleton\n\nVARIATION TYPES:\n  Melodic variation: ornament, embellish, or replace the melody\n  Rhythmic variation: change note values (triplets, dotted, faster subdivision)\n  Harmonic variation: add extensions, change mode (major→minor or reverse)\n  Textural variation: change register, add counterpoint, change density\n  Modal variation: minor → major (or reverse) = \"change of mode\"\n  Virtuosic variation: technically demanding display\n  Character variation: march, waltz, fugue, siciliana (dance variation)\n  Finale: usually a grand, fast-tempo conclusion (\"finale\" variation)\n\nFAMOUS EXAMPLES:\n  Bach: Goldberg Variations (30 variations on aria, every 3rd = canon at wider interval)\n  Beethoven: Diabelli Variations (33 variations, the pianistic summit)\n  Brahms: Variations on a Theme by Handel, Paganini\n  Mozart: Piano Sonata K. 331 (theme + 6 variations, ends with \"Rondo alla turca\")",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-8",
+      "kind": "ascii_table_candidate",
+      "line": 308,
+      "heading_context": "## Sonata Form",
+      "confidence": "candidate",
+      "text": "SONATA FORM — THREE-PART ARCH:\n  ┌──────────────────────────────────────────────────────────────────┐\n  │ EXPOSITION      │ DEVELOPMENT        │ RECAPITULATION            │\n  │ (Establish)     │ (Destabilize)      │ (Resolve)                 │\n  └──────────────────────────────────────────────────────────────────┘\n       ||:                                                         :||\n       (repeated)                                             (to coda)\n\nEXPOSITION:\n  PRIMARY THEME (P): First theme group, in TONIC key\n    Usually strong, assertive character\n    Establishes home tonality definitively\n\n  TRANSITION (TR): Modulates from tonic to new key\n    Rising energy, harmonic motion\n    Ends with \"medial caesura\" — a pause before 2nd theme\n\n  SECONDARY THEME (S): Second theme group, in SECONDARY key\n    Major key: secondary = DOMINANT (V)\n    Minor key: secondary = RELATIVE MAJOR (♭III)\n    Usually contrasting character (if P is forte, S may be piano)\n\n  CLOSING THEME/CODETTA (K): Confirms secondary key\n    Cadential figures, closure-signaling material\n    Sometimes generates most memorable tunes (e.g., Beethoven Op. 18 No. 1)\n\nDEVELOPMENT:\n  Works with material from exposition (P, TR, S, K, or new material)\n  Operations: fragmentation, sequence, modulation, imitation, inversion\n  Typically moves through many keys (remote from home)\n  Creates maximum instability, harmonic tension\n  Ends with RETRANSITION: sustained dominant pedal, building to recapitulation\n\nRECAPITULATION:\n  Returns to TONIC key — the resolution of the development's instability\n  P: returns in tonic (same as exposition)\n  TR: modified — no longer needs to modulate; stays in tonic\n  S: returns in TONIC (crucial difference from exposition — 2nd theme now in home key)\n  K: in tonic\n\nCODA:\n  Optional but common extension after recapitulation\n  Can be short (confirming tonic) or massive development in itself\n  Beethoven's codas are often as long as the development\n  Provides final structural affirmation of tonic",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-9",
+      "kind": "diagram_like",
+      "line": 358,
+      "heading_context": "### Sonata Form — Tonal Map",
+      "confidence": "candidate",
+      "text": "EXPOSITION:         DEVELOPMENT:        RECAPITULATION:\n  P: TONIC            remote keys           P: TONIC\n  S: DOMINANT         dominant pedal        S: TONIC ← KEY DIFFERENCE\n                    ↗                    ↙\n    ─────────────────── home ──────────────────\n    The arc:   LEAVE     →   WANDER    →   RETURN\n\nThe fundamental \"narrative arc\" of sonata form:\n  Tension (departure to dominant) → Crisis (development) → Resolution (return)",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-10",
+      "kind": "diagram_like",
+      "line": 376,
+      "heading_context": "### Concerto First Movement: Double Exposition",
+      "confidence": "candidate",
+      "text": "CLASSICAL CONCERTO FIRST MOVEMENT (modified sonata):\n  ORCHESTRAL EXPOSITION: orchestra alone\n    P in tonic, S in TONIC (not dominant — orchestra stays home)\n    Introduces all themes, but no modulation to dominant\n    This creates expectation: where will the soloist go?\n\n  SOLO EXPOSITION: soloist enters\n    P with soloist (orchestra accompanies)\n    S in DOMINANT (now the modulation happens — the soloist goes out)\n    This is the \"real\" exposition in functional terms\n\n  DEVELOPMENT: soloist + orchestra\n  RECAPITULATION: P and S both in tonic\n  CADENZA: soloist alone (improvised originally, written out later)\n    Typically on the I⁶₄ chord before final V → I\n    Free fantasy on the movement's themes\n    Ends with trill → orchestra resumes for final bars",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-11",
+      "kind": "diagram_like",
+      "line": 398,
+      "heading_context": "### Four-Movement Symphony Archetype",
+      "confidence": "candidate",
+      "text": "CLASSICAL/ROMANTIC SYMPHONY:\n  ┌────────────────────────────────────────────────────────────────┐\n  │ MVT I     Fast        Sonata form      Tonic key     Weighty   │\n  │ MVT II    Slow        Ternary/Sonata   Related key   Lyrical   │\n  │ MVT III   Moderate    Minuet + Trio    Tonic         Dance     │\n  │           (or Scherzo)                                         │\n  │ MVT IV    Fast        Rondo/Sonata     Tonic key     Brilliant │\n  └────────────────────────────────────────────────────────────────┘\n\nBeethoven innovations:\n  Mvt III: Minuet → Scherzo (faster, more vigorous — from Haydn 3/4 dance to Beethoven 3/4 sprint)\n  Mvt IV: sometimes cyclic (returns themes from earlier movements — Beethoven 5th, 9th)\n  Beethoven 9th: choral finale — breaks out of instrumental form entirely\n\nBrahms: longer development sections, more motivic unity across movements\nMahler: symphony as world — 60-90 minutes, multiple extra movements, expanded orchestra",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    }
+  ]
+}

@@ -1,3 +1,22 @@
+---
+maxim_schema: maxim.frontmatter.v1
+id: maxim:music-theory:tonal-harmony
+kind: guide
+module: music-theory
+section: music-theory
+title: Tonal Harmony - Advanced
+status: source-custody
+source_custody: partial
+current_path: music-theory/06-TONAL-HARMONY.md
+canonical_path: music-theory/06-TONAL-HARMONY.md
+backsource_ids: [proof-backfill:music-theory:06-tonal-harmony, git-history:music-theory:06-tonal-harmony]
+concepts: [tonal, harmony]
+root_concepts: [tonal, harmony]
+index_roles: [guide, root-concept]
+remap_from: []
+remap_to: []
+updated: null
+---
 # Tonal Harmony — Advanced
 
 ## The Big Picture: Common-Practice Harmony as a System
@@ -10,7 +29,7 @@ COMMON-PRACTICE PERIOD (≈ 1600–1900):
     │ 1. FUNCTIONAL TONALITY: T → PD → D → T drives structure │
     │ 2. DIATONIC CORE: most chords from the key's scale      │
     │ 3. CONTROLLED CHROMATICISM: non-diatonic notes prepared │
-    │ 4. VOICE LEADING RULES: smooth motion, resolved tensions │
+    │ 4. VOICE LEADING RULES: smooth motion, resolved tensions│
     │ 5. HIERARCHICAL FORM: keys organized around a tonic key │
     └─────────────────────────────────────────────────────────┘
 

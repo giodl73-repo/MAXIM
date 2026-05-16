@@ -1,3 +1,22 @@
+---
+maxim_schema: maxim.frontmatter.v1
+id: maxim:music-theory:20th-century-jazz
+kind: guide
+module: music-theory
+section: music-theory
+title: 20th Century Music and Jazz Theory
+status: source-custody
+source_custody: partial
+current_path: music-theory/09-20TH-CENTURY-JAZZ.md
+canonical_path: music-theory/09-20TH-CENTURY-JAZZ.md
+backsource_ids: [proof-backfill:music-theory:09-20th-century-jazz, git-history:music-theory:09-20th-century-jazz]
+concepts: [20th, century, jazz]
+root_concepts: [20th, century]
+index_roles: [guide, root-concept]
+remap_from: []
+remap_to: []
+updated: null
+---
 # 20th Century Music & Jazz Theory
 
 ## The Big Picture: Breaking and Rebuilding the Tonal System

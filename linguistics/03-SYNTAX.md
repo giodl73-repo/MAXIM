@@ -1,3 +1,22 @@
+---
+maxim_schema: maxim.frontmatter.v1
+id: maxim:linguistics:syntax
+kind: guide
+module: linguistics
+section: linguistics
+title: Syntax - Sentence Structure
+status: source-custody
+source_custody: partial
+current_path: linguistics/03-SYNTAX.md
+canonical_path: linguistics/03-SYNTAX.md
+backsource_ids: [proof-backfill:linguistics:03-syntax, git-history:linguistics:03-syntax]
+concepts: [syntax]
+root_concepts: [syntax]
+index_roles: [guide, root-concept]
+remap_from: []
+remap_to: []
+updated: null
+---
 # Syntax — Sentence Structure
 
 ## The Big Picture

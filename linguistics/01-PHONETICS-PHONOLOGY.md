@@ -1,3 +1,22 @@
+---
+maxim_schema: maxim.frontmatter.v1
+id: maxim:linguistics:phonetics-phonology
+kind: guide
+module: linguistics
+section: linguistics
+title: Phonetics and Phonology - Sound Systems
+status: source-custody
+source_custody: partial
+current_path: linguistics/01-PHONETICS-PHONOLOGY.md
+canonical_path: linguistics/01-PHONETICS-PHONOLOGY.md
+backsource_ids: [proof-backfill:linguistics:01-phonetics-phonology, git-history:linguistics:01-phonetics-phonology]
+concepts: [phonetics, phonology]
+root_concepts: [phonetics, phonology]
+index_roles: [guide, root-concept]
+remap_from: []
+remap_to: []
+updated: null
+---
 # Phonetics & Phonology — Sound Systems
 
 ## The Big Picture
@@ -177,14 +196,14 @@ This is the central theoretical distinction in phonology.
 
 ```
 PHONEME                              ALLOPHONE
-+---------------------------+       +---------------------------+
-| Abstract mental unit       |       | Physical realization     |
++----------------------------+       +----------------------------+
+| Abstract mental unit       |       | Physical realization       |
 | /p/ — the phoneme          |       | [pʰ] in "pin" (aspirated)  |
 | (underlying form)          |       | [p] in "spin" (unaspirated)|
-| Contrastive                |       | Predictable from context |
-| Minimal pairs reveal them  |       | NOT contrastive          |
-| Written /slashes/          |       | Written [brackets]       |
-+---------------------------+       +---------------------------+
+| Contrastive                |       | Predictable from context   |
+| Minimal pairs reveal them  |       | NOT contrastive            |
+| Written /slashes/          |       | Written [brackets]         |
++----------------------------+       +----------------------------+
 
 /p/ is realized as [pʰ] in syllable-initial position (before stressed vowel)
 /p/ is realized as [p] after /s/

@@ -1,3 +1,22 @@
+---
+maxim_schema: maxim.frontmatter.v1
+id: maxim:linguistics:morphology
+kind: guide
+module: linguistics
+section: linguistics
+title: Morphology - The Structure of Words
+status: source-custody
+source_custody: partial
+current_path: linguistics/02-MORPHOLOGY.md
+canonical_path: linguistics/02-MORPHOLOGY.md
+backsource_ids: [proof-backfill:linguistics:02-morphology, git-history:linguistics:02-morphology]
+concepts: [morphology]
+root_concepts: [morphology]
+index_roles: [guide, root-concept]
+remap_from: []
+remap_to: []
+updated: null
+---
 # Morphology — The Structure of Words
 
 ## The Big Picture
@@ -20,9 +39,9 @@ Morphology is the study of word structure — how morphemes combine to form word
 |  +---------+                                                   |
 |                                                                |
 |  INFLECTION vs. DERIVATION                                     |
-|  Inflection: grammatical   Derivation: creates new word       |
-|  words → same lexeme       "teach" → "teacher" (new lexeme)   |
-|  "walk/walks/walked"       "happy" → "unhappy" (new adjective)|
+|  Inflection: grammatical   Derivation: creates new word        |
+|  words → same lexeme       "teach" → "teacher" (new lexeme)    |
+|  "walk/walks/walked"       "happy" → "unhappy" (new adjective) |
 +----------------------------------------------------------------+
 ```
 
@@ -185,7 +204,7 @@ MANDARIN:
   I   give he  buy  PFV  one CL     book
   "I bought him a book"
 
-  No affixes. PFV marker (了) is a separate particle.
+  No affixes. PFV marker (le) is a separate particle.
   Zero inflection for person, number, tense — all context/particles.
 ```
 
@@ -270,13 +289,13 @@ This is a crucial distinction:
 
 ```
 INFLECTION                           DERIVATION
-+-------------------------------+   +-------------------------------+
-| Grammatically required        |   | Lexically creative            |
-| Stays same lexeme/lexical class|   | Typically creates new lexeme |
-| Not listed separately in dict |   | Listed as separate entry      |
-| Highly regular, few exceptions|   | Less regular, more idiosyncratic|
-| Outer position in word        |   | Inner position (closer to root)|
-+-------------------------------+   +-------------------------------+
++--------------------------------+   +---------------------------------+
+| Grammatically required         |   | Lexically creative              |
+| Stays same lexeme/lexical class|   | Typically creates new lexeme    |
+| Not listed separately in dict  |   | Listed as separate entry        |
+| Highly regular, few exceptions |   | Less regular, more idiosyncratic|
+| Outer position in word         |   | Inner position (closer to root) |
++--------------------------------+   +---------------------------------+
 
 INFLECTION examples:
   walk / walks / walked / walking — all the SAME word in different forms

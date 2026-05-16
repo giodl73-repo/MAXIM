@@ -1,3 +1,22 @@
+---
+maxim_schema: maxim.frontmatter.v1
+id: maxim:linguistics:language-acquisition
+kind: guide
+module: linguistics
+section: linguistics
+title: Language Acquisition - How Language Is Learned
+status: source-custody
+source_custody: partial
+current_path: linguistics/07-LANGUAGE-ACQUISITION.md
+canonical_path: linguistics/07-LANGUAGE-ACQUISITION.md
+backsource_ids: [proof-backfill:linguistics:07-language-acquisition, git-history:linguistics:07-language-acquisition]
+concepts: [language, acquisition]
+root_concepts: [language, acquisition]
+index_roles: [guide, root-concept]
+remap_from: []
+remap_to: []
+updated: null
+---
 # Language Acquisition — How Language Is Learned
 
 ## The Big Picture
@@ -346,15 +365,15 @@ Second language acquisition (SLA) is profoundly different from L1.
 
 ```
 L1                              L2
-+----------------------------+  +----------------------------+
-| No prior linguistic system |  | L1 fully in place          |
-| All learning is acquisition |  | L1 interferes             |
-| Critical period open        |  | Critical period closing/  |
-| Near-universal success       |  |   closed                 |
-|                             |  | Near-universal incompletion|
-| Error = developmental      |  | Error = transfer from L1   |
-| Motivation: survival       |  | Motivation: varies widely  |
-+----------------------------+  +----------------------------+
++------------------------------+  +----------------------------+
+| No prior linguistic system   |  | L1 fully in place          |
+| All learning is acquisition  |  | L1 interferes              |
+| Critical period open         |  | Critical period closing/   |
+| Near-universal success       |  |   closed                   |
+|                              |  | Near-universal incompletion|
+| Error = developmental        |  | Error = transfer from L1   |
+| Motivation: survival         |  | Motivation: varies widely  |
++------------------------------+  +----------------------------+
 ```
 
 ### Krashen's Monitor Model (1982)

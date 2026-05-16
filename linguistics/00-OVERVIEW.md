@@ -1,3 +1,22 @@
+---
+maxim_schema: maxim.frontmatter.v1
+id: maxim:linguistics:overview
+kind: guide
+module: linguistics
+section: linguistics
+title: Linguistics - Overview and Theoretical Foundations
+status: source-custody
+source_custody: partial
+current_path: linguistics/00-OVERVIEW.md
+canonical_path: linguistics/00-OVERVIEW.md
+backsource_ids: [proof-backfill:linguistics:00-overview, git-history:linguistics:00-overview]
+concepts: [overview]
+root_concepts: [overview]
+index_roles: [guide, root-concept]
+remap_from: []
+remap_to: []
+updated: null
+---
 # Linguistics — Overview & Theoretical Foundations
 
 ## The Big Picture: What Linguistics Studies
@@ -24,7 +43,7 @@ Linguistics is the scientific study of language — not prescriptive rules ("don
 |                        |                                         |
 |                        v  feeds                                  |
 |  SEMANTICS                                                       |
-|  (truth conditions, compositionality, λ-calculus)               |
+|  (truth conditions, compositionality, λ-calculus)                |
 |  Output: logical form — meaning representation                   |
 |                        |                                         |
 |                        v  feeds                                  |
@@ -35,7 +54,7 @@ Linguistics is the scientific study of language — not prescriptive rules ("don
 |  CROSS-CUTTING:                                                  |
 |  Historical Linguistics (change over time — diachronic layer)    |
 |  Sociolinguistics (variation by speaker/community)               |
-|  Language Acquisition (how the pipeline is built)               |
+|  Language Acquisition (how the pipeline is built)                |
 |  Computational Linguistics / NLP (formal + statistical models)   |
 +------------------------------------------------------------------+
 ```
@@ -68,16 +87,16 @@ Ferdinand de Saussure (1857–1913) established the framework that modern lingui
 ### The Sign
 
 ```
-+-------------------------------------------------+
++--------------------------------------------------+
 |                THE LINGUISTIC SIGN               |
-|                                                 |
-|   SIGNIFIER                  SIGNIFIED          |
-|   (sound image /kæt/)  <-->  (concept of CAT)  |
-|                                                 |
-|   The bond between them is ARBITRARY           |
-|   "cat" / "chat" / "Katze" — all for same beast|
-|   Only exceptions: onomatopoeia (weak)         |
-+-------------------------------------------------+
+|                                                  |
+|   SIGNIFIER                  SIGNIFIED           |
+|   (sound image /kæt/)  <-->  (concept of CAT)    |
+|                                                  |
+|   The bond between them is ARBITRARY             |
+|   "cat" / "chat" / "Katze" — all for same beast  |
+|   Only exceptions: onomatopoeia (weak)           |
++--------------------------------------------------+
 ```
 
 **Key Saussurean distinctions:**
@@ -104,7 +123,7 @@ The claim is not absolute. Onomatopoeia (buzz, crash) is iconic. Phonetic symbol
 ```
 COMPETENCE                          PERFORMANCE
 (I-language, internalized)          (E-language, external)
-+---------------------------+       +---------------------------+
++----------------------------+       +----------------------------+
 | The mental grammar:        |       | Actual utterances:         |
 | - phonological rules       |       | - contain errors           |
 | - morphological rules      |       | - trail off                |
@@ -113,7 +132,7 @@ COMPETENCE                          PERFORMANCE
 |                            |       | - show false starts        |
 | This is what linguistics   |       |                            |
 | should model               |       | This is what you hear      |
-+---------------------------+       +---------------------------+
++----------------------------+       +----------------------------+
 ```
 
 Linguistics aims to characterize the abstract **competence** system, not predict every messy performance token. This is the same move as: analyze quicksort as an algorithm, not profile every execution.
@@ -126,16 +145,16 @@ Chomsky's central hypothesis:
 POVERTY OF THE STIMULUS ARGUMENT
 +---------------------------------------------------------------+
 |  Children receive:                                            |
-|  - incomplete, error-filled input (performance)              |
-|  - no explicit negative evidence ("*goed is wrong")          |
-|  - finite data                                               |
-|                                                              |
+|  - incomplete, error-filled input (performance)               |
+|  - no explicit negative evidence ("*goed is wrong")           |
+|  - finite data                                                |
+|                                                               |
 |  Yet they converge on:                                        |
-|  - the same complex grammar at roughly the same age          |
-|  - grammaticality judgments for sentences never heard        |
-|  - cross-linguistic structural regularities                  |
-|                                                              |
-|  Conclusion: part of grammar must be innate — UG             |
+|  - the same complex grammar at roughly the same age           |
+|  - grammaticality judgments for sentences never heard         |
+|  - cross-linguistic structural regularities                   |
+|                                                               |
+|  Conclusion: part of grammar must be innate — UG              |
 +---------------------------------------------------------------+
 ```
 
@@ -159,7 +178,7 @@ The nativist UG account has a serious challenger: **usage-based linguistics** (T
 
 ```
 NATIVIST VIEW                       USAGE-BASED VIEW
-+---------------------------+       +---------------------------+
++----------------------------+       +----------------------------+
 | Rich innate UG             |       | Minimal innate substrate   |
 | Grammar is modular         |       | Grammar = statistical      |
 | Acquisition = parameter    |       |   patterns over usage      |
@@ -169,7 +188,7 @@ NATIVIST VIEW                       USAGE-BASED VIEW
 |   real                     |       | Poverty of stimulus is     |
 |                            |       |   overstated — input is    |
 |                            |       |   richer than claimed      |
-+---------------------------+       +---------------------------+
++----------------------------+       +----------------------------+
 ```
 
 Key evidence for usage-based:
@@ -191,13 +210,13 @@ Key evidence for nativist:
 ```
 STRONG DETERMINISM                    WEAK RELATIVITY
 (discredited)                         (empirically supported)
-+-------------------+                 +--------------------+
++--------------------+                 +---------------------+
 | Language determines|                 | Language influences |
 | thought. Without a |                 | cognition in soft,  |
 | word for "blue" you|                 | domain-specific,    |
 | cannot perceive    |                 | measurable ways     |
 | blue.              |                 |                     |
-+-------------------+                 +--------------------+
++--------------------+                 +---------------------+
          |                                     |
          X (falsified by color perception      v
            experiments in Pirahã, Zuni,   Supported examples:
@@ -223,32 +242,32 @@ You know this cold from 6.840/6.045. Here's how it maps onto linguistics:
 
 ```
 CHOMSKY HIERARCHY (TCS)              LINGUISTIC REALIZATION
-+-------------------------------+    +---------------------------+
++--------------------------------+    +----------------------------+
 |  Type 0                        |    | Unrestricted grammar       |
 |  Unrestricted grammars         |    | (beyond natural language)  |
 |  Turing machines               |    |                            |
-+-------------------------------+    +---------------------------+
++--------------------------------+    +----------------------------+
          ⊃
-+-------------------------------+    +---------------------------+
++--------------------------------+    +----------------------------+
 |  Type 1                        |    | Context-sensitive grammar  |
 |  Context-sensitive grammars    |    | Some cross-serial          |
 |  Linear-bounded automata       |    | dependencies in Swiss      |
 |                                |    | German subordinate clauses |
-+-------------------------------+    +---------------------------+
++--------------------------------+    +----------------------------+
          ⊃
-+-------------------------------+    +---------------------------+
++--------------------------------+    +----------------------------+
 |  Type 2                        |    | Context-free grammar       |
 |  Context-free grammars         |    | MOST syntactic structure:  |
 |  Pushdown automata             |    | phrase structure rules,    |
 |                                |    | X-bar theory, PCFG in NLP  |
-+-------------------------------+    +---------------------------+
++--------------------------------+    +----------------------------+
          ⊃
-+-------------------------------+    +---------------------------+
++--------------------------------+    +----------------------------+
 |  Type 3                        |    | Regular grammar            |
 |  Regular grammars              |    | Morphological patterns:    |
 |  Finite-state automata         |    | simple affixation,         |
 |                                |    | agreement paradigms        |
-+-------------------------------+    +---------------------------+
++--------------------------------+    +----------------------------+
 ```
 
 **Key results from formal linguistics:**
