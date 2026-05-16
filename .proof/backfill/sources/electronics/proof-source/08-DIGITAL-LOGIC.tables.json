@@ -1,0 +1,230 @@
+{
+  "schema_version": "1",
+  "source_markdown": "electronics\\08-DIGITAL-LOGIC.md",
+  "tables": [
+    {
+      "id": "table-1",
+      "line": 71,
+      "heading_context": "## 1. Boolean Algebra",
+      "headers": [
+        "Law",
+        "OR form",
+        "AND form"
+      ],
+      "rows": [
+        [
+          "Identity",
+          "A + 0 = A",
+          "A · 1 = A"
+        ],
+        [
+          "Null",
+          "A + 1 = 1",
+          "A · 0 = 0"
+        ],
+        [
+          "Idempotent",
+          "A + A = A",
+          "A · A = A"
+        ],
+        [
+          "Complement",
+          "A + Ā = 1",
+          "A · Ā = 0"
+        ],
+        [
+          "Double negation",
+          "—",
+          "Ā̄ = A"
+        ],
+        [
+          "Commutative",
+          "A+B = B+A",
+          "AB = BA"
+        ],
+        [
+          "Associative",
+          "A+(B+C) = (A+B)+C",
+          "A(BC) = (AB)C"
+        ],
+        [
+          "Distributive",
+          "A(B+C) = AB+AC",
+          "A+BC = (A+B)(A+C)"
+        ],
+        [
+          "Absorption",
+          "A + AB = A",
+          "A(A+B) = A"
+        ],
+        [
+          "**De Morgan**",
+          "**(A+B)̄ = Ā·B̄**",
+          "**(AB)̄ = Ā+B̄**"
+        ],
+        [
+          "Consensus",
+          "AB + ĀC + BC = AB + ĀC",
+          "(A+B)(Ā+C)(B+C) = (A+B)(Ā+C)"
+        ]
+      ]
+    },
+    {
+      "id": "table-2",
+      "line": 149,
+      "heading_context": "## 2. Logic Gate Implementations",
+      "headers": [
+        "Gate",
+        "Transistors",
+        "Notes"
+      ],
+      "rows": [
+        [
+          "CMOS inverter",
+          "2",
+          "Most efficient gate"
+        ],
+        [
+          "NAND-2",
+          "4",
+          "Preferred building block (speed + count)"
+        ],
+        [
+          "NOR-2",
+          "4",
+          "Also 4T, slower due to series pMOS"
+        ],
+        [
+          "AND-2",
+          "6",
+          "NAND + inverter"
+        ],
+        [
+          "OR-2",
+          "6",
+          "NOR + inverter"
+        ],
+        [
+          "XOR-2",
+          "8–12",
+          "Several implementations"
+        ]
+      ]
+    },
+    {
+      "id": "table-3",
+      "line": 557,
+      "heading_context": "## 8. FPGA Architecture",
+      "headers": [
+        "Property",
+        "FPGA",
+        "ASIC"
+      ],
+      "rows": [
+        [
+          "Speed",
+          "Lower (routing delay)",
+          "5–10× faster"
+        ],
+        [
+          "Power",
+          "Higher per function",
+          "Lower"
+        ],
+        [
+          "Density",
+          "Lower",
+          "Higher"
+        ],
+        [
+          "NRE cost",
+          "$0",
+          "$1M–$100M"
+        ],
+        [
+          "Unit cost",
+          "Higher",
+          "Lower (high volume)"
+        ],
+        [
+          "Time to market",
+          "Days–weeks",
+          "6–18 months"
+        ],
+        [
+          "Reconfigurability",
+          "Yes (bitstream)",
+          "No"
+        ],
+        [
+          "Prototyping",
+          "Standard method",
+          "Not used"
+        ]
+      ]
+    },
+    {
+      "id": "table-4",
+      "line": 687,
+      "heading_context": "## 11. Decision Cheat Sheet",
+      "headers": [
+        "Design need",
+        "Method"
+      ],
+      "rows": [
+        [
+          "Minimize combinational logic",
+          "K-map (≤4 vars), Quine-McCluskey (≥5 vars), EDA tool"
+        ],
+        [
+          "Implement any function with one logic block",
+          "MUX (2^(n-1)-to-1 for n-variable function)"
+        ],
+        [
+          "Fast adder (32-bit)",
+          "Carry lookahead or Kogge-Stone adder"
+        ],
+        [
+          "Store state / pipeline data",
+          "D flip-flop (positive edge triggered)"
+        ],
+        [
+          "Design a controller",
+          "FSM (Moore for glitch-free outputs)"
+        ],
+        [
+          "One-hot vs binary encoding",
+          "One-hot for FPGAs, binary for ASICs (fewer FFs)"
+        ],
+        [
+          "Maximize clock frequency",
+          "Pipeline, retiming, optimize critical path"
+        ],
+        [
+          "Prevent hold violations",
+          "Add buffer (delay cell) in short paths"
+        ],
+        [
+          "Cross clock domain (1-bit)",
+          "Two-FF synchronizer"
+        ],
+        [
+          "Cross clock domain (N-bit counter)",
+          "Gray code + synchronizer"
+        ],
+        [
+          "Cross clock domain (data bus)",
+          "Async FIFO with Gray-coded pointers"
+        ],
+        [
+          "FPGA vs ASIC",
+          "FPGA: prototype/low volume; ASIC: high volume/performance"
+        ],
+        [
+          "Generate pseudo-random sequence",
+          "LFSR (maximal length polynomial)"
+        ]
+      ]
+    }
+  ]
+}

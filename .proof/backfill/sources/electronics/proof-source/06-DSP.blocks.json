@@ -1,0 +1,94 @@
+{
+  "schema_version": "1",
+  "source_markdown": "electronics\\06-DSP.md",
+  "blocks": [
+    {
+      "id": "block-1",
+      "kind": "diagram_like",
+      "line": 22,
+      "heading_context": "# 06 — Digital Signal Processing",
+      "confidence": "candidate",
+      "text": "DSP LANDSCAPE\n═══════════════════════════════════════════════════════════════════════════════\n\n  Discrete-time, finite precision arithmetic signal processing.\n\n  FILTER TYPES          DESIGN METHODS          IMPLEMENTATION\n  ──────────────────    ──────────────────────  ────────────────────────\n  FIR: MA model         Window method           Direct form I/II\n    No poles, stable    Frequency sampling      Cascade of 2nd-order\n    Linear phase        Parks-McClellan         Lattice form\n  IIR: ARMA model       Bilinear transform      Parallel form\n    Poles + zeros       Pole placement          Fixed-point arithmetic\n    Smaller order                               Multirate systems\n    No linear phase\n\n  Advanced:\n    Multirate: decimation, interpolation, polyphase\n    Adaptive: LMS, RLS — filter coefficients that learn\n    Spectral analysis: STFT, Welch method, Goertzel\n\n  Connects to: 12-FOURIER (z-transform, DTFT), 13-LAPLACE (IIR design)\n  6.003 bridge: z-transform, difference equations. DSP extends with implementation.",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-2",
+      "kind": "diagram_like",
+      "line": 83,
+      "heading_context": "#### Window Method",
+      "confidence": "candidate",
+      "text": "  1. Specify ideal (brick-wall) frequency response H_d(e^(jω))\n  2. Compute ideal impulse response h_d[n] = IDTFT{H_d}\n     → h_d[n] = (ω_c/π)·sinc(ω_c·n/π)  for ideal LPF\n  3. Truncate and shift: h[n] = h_d[n-(N-1)/2]·w[n]\n     → shift by (N-1)/2 to make causal\n  4. Apply window w[n] to reduce Gibbs phenomenon\n\n  Common windows:\n    Rectangular: δBW = 4π/N, peak sidelobe -13 dB\n    Hann:        δBW = 8π/N, peak sidelobe -31 dB\n    Hamming:     δBW = 8π/N, peak sidelobe -41 dB\n    Blackman:    δBW = 12π/N, peak sidelobe -57 dB\n    Kaiser:      adjustable, trade main-lobe width vs sidelobe level\n      w[n] = I₀(β√(1-(2n/N-1)²)) / I₀(β)  (modified Bessel function)\n      β ≈ 0.1102(A-8.7) for stopband attenuation A dB\n\n  Filter order for Kaiser approximation:\n    N ≈ (A - 7.95) / (2.285·Δω)    where Δω = ωs - ωp\n\n  Trade-off: larger N → narrower transition band, longer delay.",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-3",
+      "kind": "ascii_table_candidate",
+      "line": 147,
+      "heading_context": "### IIR Design via Bilinear Transform",
+      "confidence": "candidate",
+      "text": "  Start with analog prototype H_a(s) (Butterworth, Chebyshev, etc.)\n  Apply bilinear transform:\n    s = (2/T)·(z-1)/(z+1)    or equivalently  z = (1+sT/2)/(1-sT/2)\n\n  Properties:\n    jω axis (stable region boundary) → unit circle\n    LHP → inside unit circle (stable → stable)\n    No aliasing (unlike impulse invariant method)\n\n  Frequency warping: digital ω_d vs analog ω_a:\n    ω_a = (2/T)·tan(ω_d·T/2)    (prewarping)\n    ω_d = (2/T)·arctan(ω_a·T/2)\n\n  Pre-warp the critical frequency before designing analog prototype:\n    ω_a = (2/T)·tan(ω_d·T/2)\n  Then design analog filter at ω_a, apply bilinear transform.\n  Result: digital filter with correct response at ω_d.",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-4",
+      "kind": "ascii_table_candidate",
+      "line": 169,
+      "heading_context": "### IIR Direct Form Structures",
+      "confidence": "candidate",
+      "text": "  Direct Form I: straightforward but needs 2(N-1) delay elements.\n    y[n] = b₀x[n] + b₁x[n-1] + ... - a₁y[n-1] - ...\n    Store: x[n-1],...,x[n-N] AND y[n-1],...,y[n-N]\n\n  Direct Form II (canonical): N delay elements (shared).\n    w[n] = x[n] - a₁w[n-1] - a₂w[n-2] - ...\n    y[n] = b₀w[n] + b₁w[n-1] + b₂w[n-2] + ...\n    Minimum memory but worse numerical behavior than Transposed Form II.\n\n  Transposed Form II: numerically superior.\n    Preferred for fixed-point implementations.\n    Same N delays, different signal flow → less quantization error accumulation.\n\n  Second-Order Sections (SOS) / Biquad:\n    Cascade of 2nd-order (biquad) sections:\n    H(z) = K · Π [(b₀ₖ + b₁ₖz⁻¹ + b₂ₖz⁻²)/(1 + a₁ₖz⁻¹ + a₂ₖz⁻²)]\n    Best numerical stability — poles and zeros paired near each other.\n    Standard representation in scipy.signal, MATLAB.",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-5",
+      "kind": "diagram_like",
+      "line": 268,
+      "heading_context": "### Polyphase Decomposition",
+      "confidence": "candidate",
+      "text": "  Key computational insight: filter then decimate = polyphase filters then decimate.\n  Saves computation by M.\n\n  Decompose H(z) = Σₖ z^(-k) Eₖ(z^M)   (M polyphase components)\n  Each Eₖ operates on M-th rate → compute N/M multiplications per output sample.\n\n  Efficient FIR decimator:\n    Direct approach: filter at high rate, then decimate. Wasteful.\n    Polyphase: M parallel filters at low rate. M× less computation.\n\n  Efficient interpolator:\n    Direct: upsample then filter at high rate. Wasteful.\n    Polyphase: M parallel filters at low rate, commutator at output. M× less computation.\n\n  Application: sample rate conversion (e.g., 44100 Hz CD → 48000 Hz audio)\n    Rational factor M/L: upsample by L, filter, decimate by M. Or polyphase.",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-6",
+      "kind": "diagram_like",
+      "line": 293,
+      "heading_context": "### Power Spectral Density",
+      "confidence": "candidate",
+      "text": "  PSD S_x(ω) = E[|X(jω)|²] / T   (expected power per unit frequency)\n\n  Periodogram: |X_N(e^(jω))|²/N   (direct FFT of finite data — biased, high variance)\n\n  Welch Method (practical standard):\n    1. Divide signal into overlapping segments (50% overlap typical)\n    2. Apply window (Hann) to each segment\n    3. FFT each segment → periodogram\n    4. Average periodograms\n    → Reduced variance (more segments = better average)\n    → Frequency resolution = fₛ/L where L = segment length\n    Trade-off: more averaging (shorter segments) → worse resolution.",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-7",
+      "kind": "diagram_like",
+      "line": 327,
+      "heading_context": "## Engineering Bridge: DSP and Information Theory",
+      "confidence": "candidate",
+      "text": "DSP CONCEPT                       INFORMATION THEORY EQUIVALENT\n──────────────────────────────────────────────────────────────────────────────\nQuantization step Δ = V_FS/2^N    Channel noise floor\n  noise power = Δ²/12             → sets minimum distinguishable signal level\n  (uniform quantization model)\n\nADC SNR ≈ 6.02N + 1.76 dB        Signal-to-noise ratio at channel input\n  N = number of bits               → each additional bit ≈ 6 dB SNR\n  ENOB = (SINAD - 1.76)/6.02      → effective bits after all noise sources\n\nShannon capacity                   Theoretical maximum data rate\n  C = B × log₂(1 + SNR)            B = bandwidth (Hz), SNR = linear power ratio\n  → physical sampling sets B (Nyquist: B ≤ f_s/2)\n  → quantization + amplifier noise set SNR\n  → DSP cannot recover information beyond C\n──────────────────────────────────────────────────────────────────────────────",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-8",
+      "kind": "ascii_table_candidate",
+      "line": 352,
+      "heading_context": "## 7. Adaptive Filters",
+      "confidence": "candidate",
+      "text": "  Filters with time-varying coefficients that adapt to optimize a criterion.\n\n  Setup:\n    x[n] = input\n    d[n] = desired signal\n    y[n] = w[n]ᵀ·x_vec[n]   (filter output)\n    e[n] = d[n] - y[n]       (error)\n    Update w[n] to minimize E[e²[n]] (mean square error)\n\n  LMS (Least Mean Squares):\n    w[n+1] = w[n] + 2μ·e[n]·x_vec[n]\n    μ = step size (controls convergence speed vs misadjustment)\n    0 < μ < 1/λ_max  for stability  (λ_max = max eigenvalue of R_xx)\n    Computational cost: O(N) per sample — simple\n    Convergence: slow if eigenvalue spread of R_xx is large\n\n  RLS (Recursive Least Squares):\n    Minimizes exact LS criterion (weighted sum of past errors).\n    w[n+1] = w[n] + K[n]·e[n]   (Kalman-like gain K[n])\n    O(N²) per sample — more expensive but faster convergence\n    Good for non-stationary signals.\n\n  Applications:\n    Echo cancellation (hands-free phone): model room impulse response\n    Noise cancellation: reference noise signal + adaptive subtract\n    Equalization (channel inversion in communications)\n    System identification: adaptive model → converges to system\n    Beamforming: adaptive weights on antenna array",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    }
+  ]
+}

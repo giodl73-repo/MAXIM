@@ -1,0 +1,160 @@
+{
+  "schema_version": "1",
+  "source_markdown": "physics\\06-MHD.md",
+  "blocks": [
+    {
+      "id": "block-1",
+      "kind": "ascii_table_candidate",
+      "line": 28,
+      "heading_context": "## The Big Picture",
+      "confidence": "candidate",
+      "text": "+------------------------------------------------------------------------+\n|                         MHD LANDSCAPE                                  |\n|                                                                        |\n|   MAXWELL'S EQUATIONS          NAVIER-STOKES EQUATION                  |\n|   (EM field evolution)          (fluid momentum)                       |\n|                                                                        |\n|   ∂B/∂t = ∇×(v×B) + η∇²B       ρ Dv/Dt = -∇p + η_v∇²v + J×B            |\n|   ─────────────────────         ────────────────────────────           |\n|   induction equation             fluid + magnetic body force           |\n|        ↑                ↗                             ↑                |\n|        └── v moves B ──┘         J×B forces fluid ───┘                 |\n|                                                                        |\n|   COUPLED: fluid velocity changes B; B creates forces on fluid.        |\n|   You cannot solve one without the other.                              |\n|                                                                        |\n|   KEY DIMENSIONLESS NUMBERS:                                           |\n|   Rm = μ₀σvL   (magnetic Reynolds — advection vs diffusion of B)       |\n|   Ha = BL√(σ/ν) (Hartmann — magnetic braking vs viscosity)             |\n|   β  = 2μ₀p/B²  (plasma beta — thermal vs magnetic pressure)           |\n+------------------------------------------------------------------------+",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-2",
+      "kind": "ascii_table_candidate",
+      "line": 59,
+      "heading_context": "## Fluid Mechanics Essentials",
+      "confidence": "candidate",
+      "text": "         Dv              ∂v\n  ρ  ───── = ρ ( ─── + v·∇v ) = -∇p + η_v ∇²v + f_body\n         Dt              ∂t\n\n  ρ = fluid density (kg/m³)\n  v = fluid velocity field (m/s)\n  p = pressure\n  η_v = dynamic viscosity (Pa·s)\n  f_body = external body force per unit volume",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-3",
+      "kind": "ascii_table_candidate",
+      "line": 125,
+      "heading_context": "## The MHD Equations",
+      "confidence": "candidate",
+      "text": "  ρ Dv/Dt = -∇p + η_v∇²v + J×B",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-4",
+      "kind": "diagram_like",
+      "line": 152,
+      "heading_context": "## The Induction Equation",
+      "confidence": "candidate",
+      "text": "  ┌─────────────────────────────────────────────────────────┐\n  │                                                         │\n  │   ∂B/∂t  =  ∇×(v×B)  +  η∇²B                            │\n  │              ─────────     ─────                        │\n  │              advection   diffusion                      │\n  │             (fluid carries B)  (B diffuses in fluid)    │\n  │                                                         │\n  │   η = 1/(μ₀σ)   magnetic diffusivity (m²/s)             │\n  │                                                         │\n  └─────────────────────────────────────────────────────────┘",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-5",
+      "kind": "diagram_like",
+      "line": 179,
+      "heading_context": "## Magnetic Reynolds Number",
+      "confidence": "candidate",
+      "text": "         |∇×(v×B)|     vB/L        vL\n  Rm  = ─────────── ~ ──────  = ──────  = μ₀σvL\n          |η∇²B|       ηB/L²        η",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-6",
+      "kind": "diagram_like",
+      "line": 199,
+      "heading_context": "## Magnetic Reynolds Number",
+      "confidence": "candidate",
+      "text": "  System                   σ (S/m)      v (m/s)    L (m)      Rm\n  ─────────────────────────────────────────────────────────────────\n  Mercury, lab MHD device  10⁶          0.1        0.1        ~0.01\n  Liquid sodium (reactor)  10⁷          1          1          ~10\n  Earth's liquid iron core 5×10⁵        10⁻³       3×10⁶      ~2000\n  Solar convection zone    10³ (plasma)  10²        10⁸        ~10⁸\n  Galactic disk (plasma)   —            10⁴        3×10²⁰     ~10²³",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-7",
+      "kind": "diagram_like",
+      "line": 226,
+      "heading_context": "## Frozen Flux Theorem (Ideal MHD, Rm >> 1)",
+      "confidence": "candidate",
+      "text": "  STRETCHING A FIELD LINE:\n\n  Before:   ─────────────    uniform B\n                 │fluid moves\n                 ↓\n  After:    ──────╱╱╱──────   B amplified where stretched\n                             (same flux, smaller area → stronger B)",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-8",
+      "kind": "diagram_like",
+      "line": 261,
+      "heading_context": "## Alfvén Waves",
+      "confidence": "candidate",
+      "text": "  ┌──────────────────────┐\n  │        B₀            │\n  │  v_A = ─────────     │\n  │        √(μ₀ρ)        │\n  └──────────────────────┘\n       ALFVÉN SPEED",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-9",
+      "kind": "diagram_like",
+      "line": 308,
+      "heading_context": "## MHD Force Balance — Magnetic Pressure and Tension",
+      "confidence": "candidate",
+      "text": "  J×B = (1/μ₀)(∇×B)×B\n\n  Using the vector identity:\n\n       B²          B²\n  = -∇────  +  ─── (B·∇)B\n      2μ₀        μ₀\n    ──────────   ─────────────\n    magnetic      magnetic\n    pressure      tension\n    gradient      (along field lines)",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-10",
+      "kind": "diagram_like",
+      "line": 330,
+      "heading_context": "## MHD Force Balance — Magnetic Pressure and Tension",
+      "confidence": "candidate",
+      "text": "         2μ₀p         thermal pressure\n  β  =  ──────  =  ────────────────────\n           B²         magnetic pressure\n\n  β << 1:  magnetically dominated — B controls everything (solar corona, tokamak edge)\n  β >> 1:  thermally dominated — B is a small perturbation (stellar interior)\n  β ~ 1:   comparable — neither dominates",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-11",
+      "kind": "diagram_like",
+      "line": 358,
+      "heading_context": "## Hartmann Flow",
+      "confidence": "candidate",
+      "text": "        B₀ L\n  Ha = ──────  √(σ/η_v)\n          1\n\n  L = half-channel width, σ = conductivity, η_v = dynamic viscosity",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-12",
+      "kind": "diagram_like",
+      "line": 401,
+      "heading_context": "### Electromagnetic Pump",
+      "confidence": "candidate",
+      "text": "      B (external, into page)\n      ⊗ ⊗ ⊗ ⊗ ⊗ ⊗\n\n  +────────────────────→ flow\n  I   liquid metal\n  -────────────────────\n      J: current across duct (top to bottom)\n      J×B: force along duct (left to right) → pumping\n\n  No shaft, no seal, no impeller. Zero contact with the fluid.",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-13",
+      "kind": "ascii_table_candidate",
+      "line": 454,
+      "heading_context": "## Plasma Confinement — Tokamak",
+      "confidence": "candidate",
+      "text": "  TOKAMAK CROSS SECTION:\n\n  Toroidal field coils (external): B wraps around the long way\n  Plasma current (Ip): driven by transformer action → poloidal B\n  Combined helical field: charged particles trace helical paths, staying confined\n\n         .---------.\n        /  plasma   \\\n       | current -> |\n        \\           /\n         '---------'",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-14",
+      "kind": "ascii_table_candidate",
+      "line": 484,
+      "heading_context": "## Plasma Confinement — Tokamak",
+      "confidence": "candidate",
+      "text": "**Computational MHD**: The MHD equations are notoriously hard to solve numerically. Key challenges: (1) maintaining div B = 0 — standard finite-difference schemes violate this constraint, requiring constrained transport (CT) or divergence cleaning (hyperbolic/parabolic schemes); (2) the CFL condition couples the timestep to the fastest wave (fast magnetosonic, which can be much faster than the fluid velocity), making explicit schemes expensive; (3) at low magnetic Reynolds number Rm, the resistive term eta * nabla^2 B is stiff, requiring implicit solvers. Common approaches: spectral methods (Fourier basis for periodic domains — standard in turbulence simulations), Godunov-type finite volume methods (HLLD Riemann solver for MHD — used in astrophysical codes like Athena++, PLUTO), and lattice Boltzmann methods (LBM with BGK collision operator, increasingly used for industrial MHD). The state of the art in 2025: global 3D dynamo simulations resolve ~10^9 grid cells, but even these are far from realistic parameters (Earth's Rm ~ 2000, Pm ~ 10^-6).",
+      "notes": [
+        "detected from ASCII table borders or pipe-aligned rows"
+      ]
+    }
+  ]
+}

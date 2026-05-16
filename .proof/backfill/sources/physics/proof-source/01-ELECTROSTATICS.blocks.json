@@ -1,0 +1,248 @@
+{
+  "schema_version": "1",
+  "source_markdown": "physics\\01-ELECTROSTATICS.md",
+  "blocks": [
+    {
+      "id": "block-1",
+      "kind": "ascii_table_candidate",
+      "line": 28,
+      "heading_context": "## The Big Picture",
+      "confidence": "candidate",
+      "text": "+------------------------------------------------------------------------+\n|                      ELECTROSTATICS LANDSCAPE                          |\n|                                                                        |\n|   SOURCE          CREATES            FIELD          DESCRIBED BY       |\n|   ──────          ───────            ─────          ────────────       |\n|                                                                        |\n|   charge q  ──>  force on           E(x,y,z)       ∇·E  = ρ/ε₀         |\n|   (scalar)        other charges     vector field    ∇×E  = 0           |\n|                                          │                             |\n|                                          │ E = -∇V                     |\n|                                          ▼                             |\n|                                     V(x,y,z)       ∇²V = -ρ/ε₀         |\n|                                     scalar field   (Poisson)           |\n|                                                    ∇²V = 0             |\n|                                                    (Laplace, no rho)   |\n+------------------------------------------------------------------------+",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-2",
+      "kind": "diagram_like",
+      "line": 90,
+      "heading_context": "## Coulomb's Law",
+      "confidence": "candidate",
+      "text": "         1    q₁q₂\n  F  =  ───  ─────  r̂\n        4πε₀   r²\n\n  r̂ = unit vector pointing from q₁ to q₂\n  ε₀ = 8.854 × 10⁻¹² C²/(N·m²)   (permittivity of free space)\n  1/4πε₀ = 8.988 × 10⁹ N·m²/C²   ≈ 9 × 10⁹",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-3",
+      "kind": "chart_like",
+      "line": 108,
+      "heading_context": "## Coulomb's Law",
+      "confidence": "candidate",
+      "text": "  r=1:  ████████   intensity 1\n  r=2:  ████       intensity 1/4\n  r=3:  ██         intensity 1/9\n             ↑\n         same number of lines, larger sphere",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-4",
+      "kind": "diagram_like",
+      "line": 127,
+      "heading_context": "## Electric Field",
+      "confidence": "candidate",
+      "text": "         F          1    q\n  E  =  ───  =    ─────  ─  r̂\n        q₀        4πε₀  r²\n\n  E is a vector field: direction + magnitude at every point in space",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-5",
+      "kind": "diagram_like",
+      "line": 140,
+      "heading_context": "## Electric Field",
+      "confidence": "candidate",
+      "text": "  POSITIVE CHARGE (+q)        NEGATIVE CHARGE (-q)\n\n    ↗  ↑  ↖                     ↘  ↓  ↙\n    →  +  ←   NO —              →  -  ←   YES\n    ↘  ↓  ↙                     ↗  ↑  ↖\n\n    field lines out               field lines in",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-6",
+      "kind": "diagram_like",
+      "line": 152,
+      "heading_context": "## Electric Field",
+      "confidence": "candidate",
+      "text": "         1    N    qᵢ\n  E  =  ───  Σ   ────  r̂ᵢ\n        4πε₀ i=1  rᵢ²",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-7",
+      "kind": "diagram_like",
+      "line": 160,
+      "heading_context": "## Electric Field",
+      "confidence": "candidate",
+      "text": "         1       ρ(r')\n  E(r) = ───  ∫ ──────  (r - r') dV'\n         4πε₀   |r-r'|³",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-8",
+      "kind": "chart_like",
+      "line": 194,
+      "heading_context": "## Gauss's Law — The Shortcut for Symmetric Problems",
+      "confidence": "candidate",
+      "text": "### Example 1: Point charge (spherical symmetry)",
+      "notes": [
+        "detected from bar/chart glyph density with numeric labels"
+      ]
+    },
+    {
+      "id": "block-9",
+      "kind": "diagram_like",
+      "line": 199,
+      "heading_context": "### Example 1: Point charge (spherical symmetry)",
+      "confidence": "candidate",
+      "text": "  ∮ E·dA = |E| × 4πr²  =  q/ε₀\n\n         q\n  |E| = ────    ← recovers Coulomb's law\n        4πε₀r²",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-10",
+      "kind": "chart_like",
+      "line": 207,
+      "heading_context": "### Example 1: Point charge (spherical symmetry)",
+      "confidence": "candidate",
+      "text": "### Example 2: Infinite line charge (cylindrical symmetry)",
+      "notes": [
+        "detected from bar/chart glyph density with numeric labels"
+      ]
+    },
+    {
+      "id": "block-11",
+      "kind": "diagram_like",
+      "line": 211,
+      "heading_context": "### Example 2: Infinite line charge (cylindrical symmetry)",
+      "confidence": "candidate",
+      "text": "  E is radial, perpendicular to curved surface. Zero flux through end caps.\n\n  ∮ E·dA = |E| × 2πrL  =  λL/ε₀\n\n          λ\n  |E| = ──────    ← falls as 1/r, not 1/r² (2D source, not 3D)\n        2πε₀r",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-12",
+      "kind": "chart_like",
+      "line": 221,
+      "heading_context": "### Example 2: Infinite line charge (cylindrical symmetry)",
+      "confidence": "candidate",
+      "text": "### Example 3: Infinite plane of charge (planar symmetry)",
+      "notes": [
+        "detected from bar/chart glyph density with numeric labels"
+      ]
+    },
+    {
+      "id": "block-13",
+      "kind": "diagram_like",
+      "line": 225,
+      "heading_context": "### Example 3: Infinite plane of charge (planar symmetry)",
+      "confidence": "candidate",
+      "text": "  E is perpendicular to plane, pointing away on both sides.\n  Flux only through the two end caps, each of area A.\n\n  ∮ E·dA = 2|E|A  =  σA/ε₀\n\n          σ\n  |E| = ────    ← constant! Independent of distance.\n        2ε₀",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-14",
+      "kind": "diagram_like",
+      "line": 249,
+      "heading_context": "## Electric Potential V",
+      "confidence": "candidate",
+      "text": "         1    q\n  V(r) = ───  ─       (potential of point charge)\n         4πε₀ r\n\n  Units: Volts = J/C   (energy per charge — this is the voltage from 6.002)",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-15",
+      "kind": "diagram_like",
+      "line": 277,
+      "heading_context": "## Electric Potential V",
+      "confidence": "candidate",
+      "text": "  V=30  ─────────────────\n  V=20  ─────────────────      →→→→→→→→→  E field lines\n  V=10  ─────────────────      (perpendicular to equipotentials)\n  V=0   ─────────────────",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-16",
+      "kind": "diagram_like",
+      "line": 286,
+      "heading_context": "## Electric Potential V",
+      "confidence": "candidate",
+      "text": "         1    N   qᵢ\n  V  =  ───  Σ  ────      (much easier than vector E superposition)\n        4πε₀ i=1  rᵢ",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-17",
+      "kind": "diagram_like",
+      "line": 338,
+      "heading_context": "## Engineering Bridge: The Laplacian in Computation",
+      "confidence": "candidate",
+      "text": "CONTINUOUS LAPLACIAN               DISCRETE / COMPUTATIONAL EQUIVALENT\n──────────────────────────────────────────────────────────────────────────────\n∇²V = 0 (Laplace)                  Graph Laplacian L = D - A\n  V at each point is the average     V at each node is the average of\n  of its neighbors (mean value       its neighbors — same mean value\n  property of harmonic functions)    property on the discrete graph\n\n∇²V = -ρ/ε₀ (Poisson)             Lv = b (discrete Poisson equation)\n  Source-driven potential              Charge sources at specific nodes\n  Solved by: FEM (mesh domain),       Solved by: sparse linear algebra\n  BEM (mesh boundary only),            (conjugate gradient, multigrid)\n  spectral methods (Fourier basis)\n\nEigenvalues of ∇²                  Eigenvalues of L (spectral graph theory)\n  Modes of vibration, resonance       Fiedler value = algebraic connectivity\n  Continuous spectrum for open         Graph partitioning, clustering\n  domains; discrete for bounded       Community detection in networks",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-18",
+      "kind": "diagram_like",
+      "line": 364,
+      "heading_context": "## Poisson's and Laplace's Equations",
+      "confidence": "candidate",
+      "text": "  ∇·E = ∇·(-∇V) = -∇²V = ρ/ε₀\n\n  ∇²V = -ρ/ε₀        ← POISSON'S EQUATION (charge present)\n  ∇²V = 0            ← LAPLACE'S EQUATION (no charge)",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-19",
+      "kind": "diagram_like",
+      "line": 380,
+      "heading_context": "## Poisson's and Laplace's Equations",
+      "confidence": "candidate",
+      "text": "  PARALLEL PLATE CAPACITOR:\n\n  +V₀ ═══════════════  ← conductor at V = +V₀\n                        ← solve ∇²V = 0 between plates\n  -V₀ ═══════════════  ← conductor at V = -V₀\n\n  Solution: V(x) = V₀(1 - 2x/d)  — linear between plates\n  Field:    E = -∇V = 2V₀/d  (uniform, pointing from + to - plate)",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-20",
+      "kind": "diagram_like",
+      "line": 400,
+      "heading_context": "## Energy in the Electric Field",
+      "confidence": "candidate",
+      "text": "        ε₀\n  u = ──── E²     (J/m³)\n         2",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-21",
+      "kind": "diagram_like",
+      "line": 408,
+      "heading_context": "## Energy in the Electric Field",
+      "confidence": "candidate",
+      "text": "        ε₀\n  U = ────  ∫∫∫ E² dV\n         2",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-22",
+      "kind": "diagram_like",
+      "line": 420,
+      "heading_context": "## Energy in the Electric Field",
+      "confidence": "candidate",
+      "text": "        1          Q²       1\n  U = ─── CV²  =  ────  =  ─── QV\n        2          2C        2\n\n  C = ε₀A/d   for parallel plate capacitor (area A, separation d)",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    }
+  ]
+}

@@ -1,0 +1,182 @@
+{
+  "schema_version": "1",
+  "source_markdown": "electronics\\08-DIGITAL-LOGIC.md",
+  "blocks": [
+    {
+      "id": "block-1",
+      "kind": "diagram_like",
+      "line": 24,
+      "heading_context": "# 08 — Digital Logic",
+      "confidence": "candidate",
+      "text": "DIGITAL LOGIC LANDSCAPE\n═══════════════════════════════════════════════════════════════════════════════\n\n  COMBINATIONAL LOGIC           SEQUENTIAL LOGIC            SYSTEM LEVEL\n  ─────────────────────────     ───────────────────────     ───────────────────\n  Boolean algebra               Flip-flops (D, JK, SR, T)  FSMs (Moore/Mealy)\n  Truth tables, K-maps          Registers, counters         ASM charts\n  Gates: AND/OR/NOT/XOR/NAND    Latches vs edge-triggered   Datapaths\n  Two-level minimization        Clocking, setup/hold        RTL description\n  Hazards (glitches)            Metastability               FPGA architecture\n  Multiplexers, decoders        Synchronous design          HDL synthesis\n\n  CMOS IMPLEMENTATION:\n    nMOS: ON when gate=1\n    pMOS: ON when gate=0\n    CMOS gate: pMOS pull-up network + nMOS pull-down network (complementary)\n    No static current draw at logic levels → low power\n\n  6.111 bridge: This IS 6.111. Precision refresher from first principles\n  through FSMs, timing analysis, and FPGA/HDL.",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-2",
+      "kind": "diagram_like",
+      "line": 98,
+      "heading_context": "### Gate Symbol Summary",
+      "confidence": "candidate",
+      "text": "  AND:  A──┐                OR:  A──┐                NOT:  A──▷○── Ā\n       B──┤ >─── AB              B──┤ ≥1─── A+B\n            └──                       └──\n\n  NAND: A──┐                NOR:  A──┐                XOR: A──┐\n       B──┤ >○─── (AB)̄           B──┤ ≥1○─── (A+B)̄          B──┤ =1─── A⊕B\n            └──                       └──                      └──\n\n  XNOR: A──┐\n        B──┤ =1○─── A⊙B = A⊕B⊕1\n             └──",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-3",
+      "kind": "diagram_like",
+      "line": 114,
+      "heading_context": "### CMOS Implementation",
+      "confidence": "candidate",
+      "text": "  CMOS inverter:\n       VDD\n        |\n       pMOS (A=0 → ON, A=1 → OFF)\n        |\n        +─── output = Ā\n        |\n       nMOS (A=0 → OFF, A=1 → ON)\n        |\n       GND\n\n  CMOS NAND (2-input):\n       VDD\n        |\n     pA─┤ pMOS A\n        |\n     pB─┤ pMOS B (two pMOS in parallel)\n        |\n        +─── Y = (AB)̄\n        |\n     nA─┤ nMOS A\n        |\n     nB─┤ nMOS B (two nMOS in series)\n        |\n       GND\n\n  Rule: pMOS in pull-up = DUAL of nMOS in pull-down.\n  nMOS: series = AND, parallel = OR.\n  pMOS: series = OR (De Morgan), parallel = AND (De Morgan).\n  Complex gate: implement F directly → saves transistors vs multi-gate approach.",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-4",
+      "kind": "diagram_like",
+      "line": 167,
+      "heading_context": "### Canonical Sum of Products (SOP) and Product of Sums (POS)",
+      "confidence": "candidate",
+      "text": "  Truth table → canonical forms:\n\n  Minterm: product term with all variables (complemented or not) = 1 at exactly one row.\n  m₃ = A̅BC (for ABC = 011)\n\n  Maxterm: sum term with all variables = 0 at exactly one row.\n  M₃ = (A+B̄+C̄) (for ABC = 011)\n\n  SOP (sum of minterms):  F = Σm(where F=1)\n  POS (product of maxterms): F = ΠM(where F=0)\n  F_SOP and F_POS are equivalent; which is simpler depends on function.",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-5",
+      "kind": "diagram_like",
+      "line": 183,
+      "heading_context": "### Karnaugh Maps (K-maps)",
+      "confidence": "candidate",
+      "text": "  Systematic minimization for 2–4 variables (5–6 manageable).\n  Visual grouping of adjacent minterms → simplify.\n\n  3-variable K-map (2×4):\n       BC\n  A  00  01  11  10\n  0 | 0 | 1 | 1 | 0 |\n  1 | 1 | 1 | 0 | 0 |\n\n  Rules:\n  1. Group 1s into rectangles of sizes 1, 2, 4, 8 (powers of 2)\n  2. Rectangles must wrap around edges (map is toroidal)\n  3. Each rectangle = one product term (essential prime implicant if unique)\n  4. Use fewest, largest rectangles covering all 1s\n  5. Find all prime implicants, then minimum cover\n\n  Example groups above:\n  Column 01-11 rows 0,1: BC (B and C both 1, regardless of A)\n  Row 1, columns 00-01: AB̄ (A=1, B=0, C varies)\n  Minimal: F = BC + AB̄C  → or after checking: F = BC + AB̄ (need to verify)",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-6",
+      "kind": "chart_like",
+      "line": 206,
+      "heading_context": "### Karnaugh Maps (K-maps)",
+      "confidence": "candidate",
+      "text": "### 4-Variable K-map",
+      "notes": [
+        "detected from bar/chart glyph density with numeric labels"
+      ]
+    },
+    {
+      "id": "block-7",
+      "kind": "diagram_like",
+      "line": 261,
+      "heading_context": "### Decoder",
+      "confidence": "candidate",
+      "text": "  n-to-2^n decoder: activates exactly one output line for each input code.\n  3-to-8 decoder: inputs A,B,C → 8 output lines O0..O7\n  Oₖ = 1 only when ABC = binary(k)\n\n  Use: memory address decode, microprocessor instruction decode.\n  Two-level AND-OR = decoder + OR gates → any combinational function.",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-8",
+      "kind": "diagram_like",
+      "line": 342,
+      "heading_context": "### D Flip-Flop Timing Parameters",
+      "confidence": "candidate",
+      "text": "  ┌──────────────────────────────────────────────────────────────────┐\n  │                    D-FF TIMING                                   │\n  │                                                                  │\n  │    D ───XXXXXXX╔════════════════╗XXXXXXXX───                     │\n  │                 ← t_setup →    ← t_hold →                        │\n  │   CLK ──────────────╔════╗─────────────────                      │\n  │                     ↑ rising edge                                 │\n  │                     capture point                                 │\n  │    Q ────────────────────────────╔══════════── (after t_cq)       │\n  │                                  Q captures D at edge             │\n  └──────────────────────────────────────────────────────────────────┘\n\n  t_setup: D must be stable before clock edge by this much\n  t_hold:  D must stay stable after clock edge by this much\n  t_cq:    clock-to-Q propagation delay (time until Q is valid)\n\n  Setup violation: D changes too close before clock → metastability\n  Hold violation: D changes too close after clock → potentially captures wrong value\n  Metastability: FF output can remain at indeterminate voltage for unbounded time\n                 MTBF = e^(τ·f_sync) / (f_data · f_clock) — synchronizer design",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-9",
+      "kind": "diagram_like",
+      "line": 367,
+      "heading_context": "### Registers and Shift Registers",
+      "confidence": "candidate",
+      "text": "  Register: n D-FFs sharing a clock. Holds n-bit value.\n  Load enable: CLK only loads when EN=1; otherwise holds.\n\n  Shift register (serial input, parallel output):\n    D₀ ─FF─ D₁ ─FF─ D₂ ─FF─ ... (all share clock)\n    Serial in: bit enters D₀ each cycle, shifts through.\n    After n cycles: full n-bit word loaded serially.\n    Uses: serial-to-parallel conversion, LFSR, delay lines.\n\n  Linear Feedback Shift Register (LFSR):\n    XOR taps at specific positions feed back to input.\n    Maximal length LFSR of n bits: cycles through 2ⁿ-1 states.\n    Uses: pseudo-random number generation, CRC, spread-spectrum.\n    Polynomial: x^n + ... + 1 (primitive polynomial mod 2).",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-10",
+      "kind": "ascii_table_candidate",
+      "line": 390,
+      "heading_context": "### Moore vs Mealy Machines",
+      "confidence": "candidate",
+      "text": "  Moore Machine:                    Mealy Machine:\n  Output = f(state only)            Output = f(state, input)\n\n  State register                    State register\n     |                                 |\n  next-state logic ← input         next-state logic ← input\n     |                                 |\n  output logic (no input)          output logic ← input\n\n  Moore: output changes only on clock → glitch-free, one cycle latency.\n  Mealy: output can change with input within a clock cycle → faster, can glitch.\n  Any Mealy machine ↔ Moore machine (Moore may need extra state).",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-11",
+      "kind": "diagram_like",
+      "line": 436,
+      "heading_context": "### Example: Traffic Light Controller",
+      "confidence": "candidate",
+      "text": "  States: GREEN (30 cycles), YELLOW (5 cycles), RED (30 cycles)\n  Simple timer-based:\n\n  State     | Timer | Next state | Outputs\n  ──────────┼───────┼────────────┼─────────────\n  GREEN     | > 0   | GREEN      | G=1, Y=0, R=0\n  GREEN     | = 0   | YELLOW     | G=1, Y=0, R=0\n  YELLOW    | > 0   | YELLOW     | G=0, Y=1, R=0\n  YELLOW    | = 0   | RED        | G=0, Y=1, R=0\n  RED       | > 0   | RED        | G=0, Y=0, R=1\n  RED       | = 0   | GREEN      | G=0, Y=0, R=1\n\n  Datapath: down-counter, TC (terminal count) drives FSM transitions.\n  Control: FSM outputs drive light signals + counter load/enable.\n  This separation (datapath + control FSM) is the standard RTL structure.",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-12",
+      "kind": "diagram_like",
+      "line": 460,
+      "heading_context": "### Setup and Hold Time Analysis",
+      "confidence": "candidate",
+      "text": "  For a pipeline register:\n    Source FF (reg_A) → combinational logic → Destination FF (reg_B)\n\n  Setup constraint (max frequency):\n    t_clk ≥ t_cq_A + t_logic + t_setup_B\n    f_max = 1 / (t_cq + t_logic_max + t_setup)\n\n  Hold constraint (min delay — must hold long enough):\n    t_cq_A + t_logic_min ≥ t_hold_B\n    If violated: FF captures wrong data regardless of clock speed.\n    Cannot fix by slowing clock. Fix: add buffer (delay element) in path.\n\n  Clock skew: arrival time difference between clock at two FFs.\n    Positive skew (dest clock arrives later):\n      Setup: t_clk + δ_skew ≥ t_cq + t_logic + t_setup  (helps setup)\n      Hold:  t_cq + t_logic ≥ t_hold - δ_skew             (hurts hold)\n    Negative skew: opposite.\n    Target: minimize skew across chip via clock distribution network (H-tree).",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-13",
+      "kind": "ascii_table_candidate",
+      "line": 483,
+      "heading_context": "### Critical Path",
+      "confidence": "candidate",
+      "text": "  Critical path: the combinational path with the largest delay.\n  Determines maximum clock frequency.\n\n  Methods to improve:\n    1. Retiming: move registers through logic to balance pipeline stages\n    2. Pipelining: add registers in the middle of long paths\n    3. Restructure logic: reorder operations (e.g., CLA instead of ripple carry)\n    4. Technology mapping: use faster cells for critical gates\n    5. Gate sizing: larger gates drive faster (at cost of power)\n\n  Static timing analysis (STA): enumerate all paths, compute slack.\n    Slack = t_clk - (t_cq + t_path + t_setup)\n    Positive slack: path meets timing.\n    Negative slack: timing violation — path is too slow.",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-14",
+      "kind": "diagram_like",
+      "line": 506,
+      "heading_context": "### Basic FPGA Resources",
+      "confidence": "candidate",
+      "text": "  ┌─────────────────────────────────────────────────────────────────────┐\n  │                   FPGA ARCHITECTURE                                 │\n  │                                                                     │\n  │  IOB ──── Routing ──── CLB ──── Routing ──── CLB ──── Routing ─ IOB │\n  │            matrix       │        matrix       │        matrix       │\n  │                         │                     │                     │\n  │                        DSP                   BRAM                   │\n  │                    (multiply-                (block                 │\n  │                    accumulate)                RAM,                  │\n  │                                             18/36Kb)                │\n  └─────────────────────────────────────────────────────────────────────┘\n\n  CLB (Configurable Logic Block):\n    LUT (Look-Up Table): n-input truth table stored in SRAM.\n      4-input LUT = 16-bit SRAM → implements any 4-variable function.\n      6-input LUT (modern Xilinx): 64-bit SRAM.\n    FF: D flip-flop for registered outputs.\n    MUX: select combinational or registered output.\n\n  Routing:\n    Programmable switches between CLBs and signal wires.\n    Configured at startup from bitstream.\n    Routing delay often dominates over logic delay in FPGAs.\n\n  BRAM (Block RAM): 18 or 36 Kbit dual-port RAM.\n  DSP slice: 18×18 or 27×18 multiplier + adder + accumulator.\n    Implements multiply-accumulate in one CLK. Used for filters, FFTs.",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-15",
+      "kind": "diagram_like",
+      "line": 538,
+      "heading_context": "### LUT-Based Logic",
+      "confidence": "candidate",
+      "text": "  4-input LUT as truth table:\n    Inputs: A,B,C,D (4 bits → 16 combinations)\n    SRAM: 16 bits, one per row of truth table\n    Operation: use ABCD as address into 16-bit memory → output\n\n  Any 4-variable Boolean function implementable in one LUT.\n  5-variable: two 4-LUTs + MUX (available in one CLB).\n  6-variable: one 6-LUT (modern FPGAs).\n\n  Advantages vs ASIC:\n    Reconfigurable: change bitstream = change logic\n    Short time-to-market, no NRE cost\n    Lower peak performance than ASIC (routing overhead)\n    Lower density, higher power per logic function",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-16",
+      "kind": "diagram_like",
+      "line": 574,
+      "heading_context": "## 9. HDL Synthesis Concepts",
+      "confidence": "candidate",
+      "text": "SOFTWARE COMPILATION                  HARDWARE SYNTHESIS\n──────────────────────────────────────────────────────────────────────────────\nC/C++/Rust source code                Verilog / SystemVerilog / VHDL\n  ↓ parsing, AST                        ↓ elaboration, design hierarchy\nIntermediate representation (IR)      Generic gate-level netlist\n  ↓ optimization passes                 ↓ boolean optimization, retiming\nTarget-specific code generation       Technology mapping (library cells / LUTs)\n  ↓ register allocation                  ↓ placement (cells → physical locations)\nLinker (resolves addresses)           Routing (connects wires, resolves geometry)\n  ↓ static analysis / verification       ↓ STA (static timing analysis)\nExecutable binary                     GDSII (ASIC) or bitstream (FPGA)\n──────────────────────────────────────────────────────────────────────────────",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    }
+  ]
+}

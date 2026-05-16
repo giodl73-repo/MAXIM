@@ -1,3 +1,22 @@
+---
+maxim_schema: maxim.frontmatter.v1
+id: maxim:physics:zero-point-energy
+kind: guide
+module: physics
+section: physics
+title: Zero-Point Energy - The Vacuum That Isn't Empty
+status: source-custody
+source_custody: partial
+current_path: physics/09-ZERO-POINT-ENERGY.md
+canonical_path: physics/09-ZERO-POINT-ENERGY.md
+backsource_ids: [proof-backfill:physics:09-zero-point-energy, git-history:physics:09-zero-point-energy]
+concepts: [zero, point, energy]
+root_concepts: [zero, point]
+index_roles: [guide, root-concept]
+remap_from: []
+remap_to: []
+updated: null
+---
 # Zero-Point Energy — The Vacuum That Isn't Empty
 
 ## The Big Picture

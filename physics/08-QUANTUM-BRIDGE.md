@@ -1,3 +1,22 @@
+---
+maxim_schema: maxim.frontmatter.v1
+id: maxim:physics:quantum-bridge
+kind: guide
+module: physics
+section: physics
+title: Quantum Bridge - From Classical EandM to Quantum Mechanics
+status: source-custody
+source_custody: partial
+current_path: physics/08-QUANTUM-BRIDGE.md
+canonical_path: physics/08-QUANTUM-BRIDGE.md
+backsource_ids: [proof-backfill:physics:08-quantum-bridge, git-history:physics:08-quantum-bridge]
+concepts: [quantum, bridge]
+root_concepts: [quantum, bridge]
+index_roles: [guide, root-concept]
+remap_from: []
+remap_to: []
+updated: null
+---
 # Quantum Bridge — From Classical E&M to Quantum Mechanics
 
 ## The Big Picture
@@ -546,7 +565,7 @@ This is the chain: Maxwell → QM → band theory → semiconductor devices → 
 | Photon momentum | p = h/λ = ℏk | Light has momentum |
 | de Broglie wavelength | λ = h/p | Particles have wave nature |
 | Uncertainty | ΔxΔp ≥ ℏ/2 | Bandwidth-time theorem for matter |
-| Wavefunction meaning | P = | ψ | ² dV | Probability density |
+| Wavefunction meaning | P = \|ψ\|² dV | Probability density |
 | Schrödinger | Ĥψ = Eψ | Eigenvalue problem for energy |
 | Hermitian operators | Â = Â† | Real eigenvalues (real measurement outcomes) |
 | Spin-1/2 generators | (ℏ/2)σᵢ | Fundamental rep of SU(2) (Artin!) |

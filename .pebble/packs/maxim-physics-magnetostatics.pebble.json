@@ -1,0 +1,2477 @@
+{
+  "schema": "pebble.v1",
+  "kind": "corpus-slice",
+  "title": "maxim-physics-magnetostatics",
+  "source": "../../physics",
+  "format": "markdown",
+  "metadata": {},
+  "sections": [
+    {
+      "id": "02-MAGNETOSTATICS.md#000",
+      "path": [
+        "02-MAGNETOSTATICS.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:physics:02-magnetostatics, git-history:physics:02-magnetostatics]",
+        "canonical_path": "physics/02-MAGNETOSTATICS.md",
+        "concepts": "[magnetostatics]",
+        "current_path": "physics/02-MAGNETOSTATICS.md",
+        "id": "maxim:physics:magnetostatics",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "physics",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[magnetostatics]",
+        "section": "physics",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Magnetostatics - Currents, Fields, and the Vector Potential",
+        "updated": "null"
+      },
+      "text": "# Magnetostatics — Currents, Fields, and the Vector Potential"
+    },
+    {
+      "id": "02-MAGNETOSTATICS.md#001",
+      "path": [
+        "02-MAGNETOSTATICS.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:physics:02-magnetostatics, git-history:physics:02-magnetostatics]",
+        "canonical_path": "physics/02-MAGNETOSTATICS.md",
+        "concepts": "[magnetostatics]",
+        "current_path": "physics/02-MAGNETOSTATICS.md",
+        "id": "maxim:physics:magnetostatics",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "physics",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[magnetostatics]",
+        "section": "physics",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Magnetostatics - Currents, Fields, and the Vector Potential",
+        "updated": "null"
+      },
+      "text": "## The Big Picture"
+    },
+    {
+      "id": "02-MAGNETOSTATICS.md#002",
+      "path": [
+        "02-MAGNETOSTATICS.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:physics:02-magnetostatics, git-history:physics:02-magnetostatics]",
+        "canonical_path": "physics/02-MAGNETOSTATICS.md",
+        "concepts": "[magnetostatics]",
+        "current_path": "physics/02-MAGNETOSTATICS.md",
+        "id": "maxim:physics:magnetostatics",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "physics",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[magnetostatics]",
+        "section": "physics",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Magnetostatics - Currents, Fields, and the Vector Potential",
+        "updated": "null"
+      },
+      "text": "Magnetostatics is E&M with currents steady in time — charges moving at\nconstant rate, no acceleration, no changing fields. The magnetic analog\nof electrostatics, but with a structural difference that runs deep:\n**there are no magnetic monopoles**."
+    },
+    {
+      "id": "02-MAGNETOSTATICS.md#003",
+      "path": [
+        "02-MAGNETOSTATICS.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:physics:02-magnetostatics, git-history:physics:02-magnetostatics]",
+        "canonical_path": "physics/02-MAGNETOSTATICS.md",
+        "concepts": "[magnetostatics]",
+        "current_path": "physics/02-MAGNETOSTATICS.md",
+        "id": "maxim:physics:magnetostatics",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "physics",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[magnetostatics]",
+        "section": "physics",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Magnetostatics - Currents, Fields, and the Vector Potential",
+        "updated": "null"
+      },
+      "text": "```\n+------------------------------------------------------------------------+\n|                     MAGNETOSTATICS LANDSCAPE                           |\n|                                                                        |\n|   SOURCE          CREATES            FIELD          DESCRIBED BY       |\n|   ──────          ───────            ─────          ────────────       |\n|                                                                        |\n|   current J  ──>  force on           B(x,y,z)       ∇·B  = 0           |\n|   (vector)        moving charges     vector field    ∇×B  = μ₀J        |\n|                                          │                             |\n|                                          │ B = ∇×A                     |\n|                                          ▼                             |\n|                                     A(x,y,z)       ∇²A = -μ₀J          |\n|                                     vector field   (Coulomb gauge)     |\n|                                                                        |\n|   FORCE ON CHARGE:   F = q(E + v×B)   ← Lorentz force (full)           |\n|   FORCE ON WIRE:     F = I L×B                                         |\n+------------------------------------------------------------------------+\n```"
+    },
+    {
+      "id": "02-MAGNETOSTATICS.md#004",
+      "path": [
+        "02-MAGNETOSTATICS.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:physics:02-magnetostatics, git-history:physics:02-magnetostatics]",
+        "canonical_path": "physics/02-MAGNETOSTATICS.md",
+        "concepts": "[magnetostatics]",
+        "current_path": "physics/02-MAGNETOSTATICS.md",
+        "id": "maxim:physics:magnetostatics",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "physics",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[magnetostatics]",
+        "section": "physics",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Magnetostatics - Currents, Fields, and the Vector Potential",
+        "updated": "null"
+      },
+      "text": "Compare directly with electrostatics:"
+    },
+    {
+      "id": "02-MAGNETOSTATICS.md#005",
+      "path": [
+        "02-MAGNETOSTATICS.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:physics:02-magnetostatics, git-history:physics:02-magnetostatics]",
+        "canonical_path": "physics/02-MAGNETOSTATICS.md",
+        "concepts": "[magnetostatics]",
+        "current_path": "physics/02-MAGNETOSTATICS.md",
+        "id": "maxim:physics:magnetostatics",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "physics",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[magnetostatics]",
+        "section": "physics",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Magnetostatics - Currents, Fields, and the Vector Potential",
+        "updated": "null"
+      },
+      "text": "```\n  ELECTROSTATICS              MAGNETOSTATICS\n  ──────────────              ──────────────\n  Source: charge ρ            Source: current J\n  Field: E                    Field: B\n  ∇·E = ρ/ε₀  (monopoles)    ∇·B = 0  (no monopoles)\n  ∇×E = 0     (static)        ∇×B = μ₀J\n  Potential: V (scalar)       Potential: A (vector)\n  E = -∇V                     B = ∇×A\n  ∇²V = -ρ/ε₀                 ∇²A = -μ₀J\n```"
+    },
+    {
+      "id": "02-MAGNETOSTATICS.md#006",
+      "path": [
+        "02-MAGNETOSTATICS.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:physics:02-magnetostatics, git-history:physics:02-magnetostatics]",
+        "canonical_path": "physics/02-MAGNETOSTATICS.md",
+        "concepts": "[magnetostatics]",
+        "current_path": "physics/02-MAGNETOSTATICS.md",
+        "id": "maxim:physics:magnetostatics",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "physics",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[magnetostatics]",
+        "section": "physics",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Magnetostatics - Currents, Fields, and the Vector Potential",
+        "updated": "null"
+      },
+      "text": "Same mathematical structure — Poisson's equation for the potential —\nbut E has sources (charges), B does not."
+    },
+    {
+      "id": "02-MAGNETOSTATICS.md#007",
+      "path": [
+        "02-MAGNETOSTATICS.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:physics:02-magnetostatics, git-history:physics:02-magnetostatics]",
+        "canonical_path": "physics/02-MAGNETOSTATICS.md",
+        "concepts": "[magnetostatics]",
+        "current_path": "physics/02-MAGNETOSTATICS.md",
+        "id": "maxim:physics:magnetostatics",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "physics",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[magnetostatics]",
+        "section": "physics",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Magnetostatics - Currents, Fields, and the Vector Potential",
+        "updated": "null"
+      },
+      "text": "---"
+    },
+    {
+      "id": "02-MAGNETOSTATICS.md#008",
+      "path": [
+        "02-MAGNETOSTATICS.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:physics:02-magnetostatics, git-history:physics:02-magnetostatics]",
+        "canonical_path": "physics/02-MAGNETOSTATICS.md",
+        "concepts": "[magnetostatics]",
+        "current_path": "physics/02-MAGNETOSTATICS.md",
+        "id": "maxim:physics:magnetostatics",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "physics",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[magnetostatics]",
+        "section": "physics",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Magnetostatics - Currents, Fields, and the Vector Potential",
+        "updated": "null"
+      },
+      "text": "## The Lorentz Force"
+    },
+    {
+      "id": "02-MAGNETOSTATICS.md#009",
+      "path": [
+        "02-MAGNETOSTATICS.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:physics:02-magnetostatics, git-history:physics:02-magnetostatics]",
+        "canonical_path": "physics/02-MAGNETOSTATICS.md",
+        "concepts": "[magnetostatics]",
+        "current_path": "physics/02-MAGNETOSTATICS.md",
+        "id": "maxim:physics:magnetostatics",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "physics",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[magnetostatics]",
+        "section": "physics",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Magnetostatics - Currents, Fields, and the Vector Potential",
+        "updated": "null"
+      },
+      "text": "The force on a charge q moving with velocity v in fields E and B:"
+    },
+    {
+      "id": "02-MAGNETOSTATICS.md#010",
+      "path": [
+        "02-MAGNETOSTATICS.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:physics:02-magnetostatics, git-history:physics:02-magnetostatics]",
+        "canonical_path": "physics/02-MAGNETOSTATICS.md",
+        "concepts": "[magnetostatics]",
+        "current_path": "physics/02-MAGNETOSTATICS.md",
+        "id": "maxim:physics:magnetostatics",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "physics",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[magnetostatics]",
+        "section": "physics",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Magnetostatics - Currents, Fields, and the Vector Potential",
+        "updated": "null"
+      },
+      "text": "```\n  F = q(E + v×B)     ← Lorentz force law"
+    },
+    {
+      "id": "02-MAGNETOSTATICS.md#011",
+      "path": [
+        "02-MAGNETOSTATICS.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:physics:02-magnetostatics, git-history:physics:02-magnetostatics]",
+        "canonical_path": "physics/02-MAGNETOSTATICS.md",
+        "concepts": "[magnetostatics]",
+        "current_path": "physics/02-MAGNETOSTATICS.md",
+        "id": "maxim:physics:magnetostatics",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "physics",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[magnetostatics]",
+        "section": "physics",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Magnetostatics - Currents, Fields, and the Vector Potential",
+        "updated": "null"
+      },
+      "text": "Electric part:  qE    — acts on charge regardless of motion\n  Magnetic part:  qv×B  — acts only on moving charges, perpendicular to v\n```"
+    },
+    {
+      "id": "02-MAGNETOSTATICS.md#012",
+      "path": [
+        "02-MAGNETOSTATICS.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:physics:02-magnetostatics, git-history:physics:02-magnetostatics]",
+        "canonical_path": "physics/02-MAGNETOSTATICS.md",
+        "concepts": "[magnetostatics]",
+        "current_path": "physics/02-MAGNETOSTATICS.md",
+        "id": "maxim:physics:magnetostatics",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "physics",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[magnetostatics]",
+        "section": "physics",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Magnetostatics - Currents, Fields, and the Vector Potential",
+        "updated": "null"
+      },
+      "text": "**The cross product v×B**: perpendicular to both v and B, determined by\nright-hand rule. Point fingers along v, curl toward B — thumb is v×B."
+    },
+    {
+      "id": "02-MAGNETOSTATICS.md#013",
+      "path": [
+        "02-MAGNETOSTATICS.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:physics:02-magnetostatics, git-history:physics:02-magnetostatics]",
+        "canonical_path": "physics/02-MAGNETOSTATICS.md",
+        "concepts": "[magnetostatics]",
+        "current_path": "physics/02-MAGNETOSTATICS.md",
+        "id": "maxim:physics:magnetostatics",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "physics",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[magnetostatics]",
+        "section": "physics",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Magnetostatics - Currents, Fields, and the Vector Potential",
+        "updated": "null"
+      },
+      "text": "```\n  v = v x̂  (moving right)\n  B = B ẑ  (pointing out of page)"
+    },
+    {
+      "id": "02-MAGNETOSTATICS.md#014",
+      "path": [
+        "02-MAGNETOSTATICS.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:physics:02-magnetostatics, git-history:physics:02-magnetostatics]",
+        "canonical_path": "physics/02-MAGNETOSTATICS.md",
+        "concepts": "[magnetostatics]",
+        "current_path": "physics/02-MAGNETOSTATICS.md",
+        "id": "maxim:physics:magnetostatics",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "physics",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[magnetostatics]",
+        "section": "physics",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Magnetostatics - Currents, Fields, and the Vector Potential",
+        "updated": "null"
+      },
+      "text": "v×B = vB (x̂ × ẑ) = -vB ŷ    ← force is downward\n```"
+    },
+    {
+      "id": "02-MAGNETOSTATICS.md#015",
+      "path": [
+        "02-MAGNETOSTATICS.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:physics:02-magnetostatics, git-history:physics:02-magnetostatics]",
+        "canonical_path": "physics/02-MAGNETOSTATICS.md",
+        "concepts": "[magnetostatics]",
+        "current_path": "physics/02-MAGNETOSTATICS.md",
+        "id": "maxim:physics:magnetostatics",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "physics",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[magnetostatics]",
+        "section": "physics",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Magnetostatics - Currents, Fields, and the Vector Potential",
+        "updated": "null"
+      },
+      "text": "**Key consequence**: the magnetic force is always perpendicular to velocity.\nTherefore **magnetic fields do no work** on charges. They change direction\nof motion, never speed. A magnetic field alone cannot accelerate a charge\nfrom rest — it needs to already be moving."
+    },
+    {
+      "id": "02-MAGNETOSTATICS.md#016",
+      "path": [
+        "02-MAGNETOSTATICS.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:physics:02-magnetostatics, git-history:physics:02-magnetostatics]",
+        "canonical_path": "physics/02-MAGNETOSTATICS.md",
+        "concepts": "[magnetostatics]",
+        "current_path": "physics/02-MAGNETOSTATICS.md",
+        "id": "maxim:physics:magnetostatics",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "physics",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[magnetostatics]",
+        "section": "physics",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Magnetostatics - Currents, Fields, and the Vector Potential",
+        "updated": "null"
+      },
+      "text": "This is why motors need both: the current in the wire provides moving charges,\nthe external B field deflects them, and the deflection (torque) does the work\nthrough the mechanical constraint of the wire geometry."
+    },
+    {
+      "id": "02-MAGNETOSTATICS.md#017",
+      "path": [
+        "02-MAGNETOSTATICS.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:physics:02-magnetostatics, git-history:physics:02-magnetostatics]",
+        "canonical_path": "physics/02-MAGNETOSTATICS.md",
+        "concepts": "[magnetostatics]",
+        "current_path": "physics/02-MAGNETOSTATICS.md",
+        "id": "maxim:physics:magnetostatics",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "physics",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[magnetostatics]",
+        "section": "physics",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Magnetostatics - Currents, Fields, and the Vector Potential",
+        "updated": "null"
+      },
+      "text": "---"
+    },
+    {
+      "id": "02-MAGNETOSTATICS.md#018",
+      "path": [
+        "02-MAGNETOSTATICS.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:physics:02-magnetostatics, git-history:physics:02-magnetostatics]",
+        "canonical_path": "physics/02-MAGNETOSTATICS.md",
+        "concepts": "[magnetostatics]",
+        "current_path": "physics/02-MAGNETOSTATICS.md",
+        "id": "maxim:physics:magnetostatics",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "physics",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[magnetostatics]",
+        "section": "physics",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Magnetostatics - Currents, Fields, and the Vector Potential",
+        "updated": "null"
+      },
+      "text": "## Current and Current Density"
+    },
+    {
+      "id": "02-MAGNETOSTATICS.md#019",
+      "path": [
+        "02-MAGNETOSTATICS.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:physics:02-magnetostatics, git-history:physics:02-magnetostatics]",
+        "canonical_path": "physics/02-MAGNETOSTATICS.md",
+        "concepts": "[magnetostatics]",
+        "current_path": "physics/02-MAGNETOSTATICS.md",
+        "id": "maxim:physics:magnetostatics",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "physics",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[magnetostatics]",
+        "section": "physics",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Magnetostatics - Currents, Fields, and the Vector Potential",
+        "updated": "null"
+      },
+      "text": "**Current** I: charge per unit time crossing a surface (amperes = C/s)."
+    },
+    {
+      "id": "02-MAGNETOSTATICS.md#020",
+      "path": [
+        "02-MAGNETOSTATICS.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:physics:02-magnetostatics, git-history:physics:02-magnetostatics]",
+        "canonical_path": "physics/02-MAGNETOSTATICS.md",
+        "concepts": "[magnetostatics]",
+        "current_path": "physics/02-MAGNETOSTATICS.md",
+        "id": "maxim:physics:magnetostatics",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "physics",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[magnetostatics]",
+        "section": "physics",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Magnetostatics - Currents, Fields, and the Vector Potential",
+        "updated": "null"
+      },
+      "text": "**Current density** J: current per unit area, a vector field (A/m²).\nDirection of J = direction of positive charge flow."
+    },
+    {
+      "id": "02-MAGNETOSTATICS.md#021",
+      "path": [
+        "02-MAGNETOSTATICS.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:physics:02-magnetostatics, git-history:physics:02-magnetostatics]",
+        "canonical_path": "physics/02-MAGNETOSTATICS.md",
+        "concepts": "[magnetostatics]",
+        "current_path": "physics/02-MAGNETOSTATICS.md",
+        "id": "maxim:physics:magnetostatics",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "physics",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[magnetostatics]",
+        "section": "physics",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Magnetostatics - Currents, Fields, and the Vector Potential",
+        "updated": "null"
+      },
+      "text": "```\n  Relation:  I = ∫∫_S J·dA"
+    },
+    {
+      "id": "02-MAGNETOSTATICS.md#022",
+      "path": [
+        "02-MAGNETOSTATICS.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:physics:02-magnetostatics, git-history:physics:02-magnetostatics]",
+        "canonical_path": "physics/02-MAGNETOSTATICS.md",
+        "concepts": "[magnetostatics]",
+        "current_path": "physics/02-MAGNETOSTATICS.md",
+        "id": "maxim:physics:magnetostatics",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "physics",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[magnetostatics]",
+        "section": "physics",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Magnetostatics - Currents, Fields, and the Vector Potential",
+        "updated": "null"
+      },
+      "text": "J is the microscopic field; I is the macroscopic integral over a surface.\n  Same relationship as ρ (volume) vs Q (total) for charge.\n```"
+    },
+    {
+      "id": "02-MAGNETOSTATICS.md#023",
+      "path": [
+        "02-MAGNETOSTATICS.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:physics:02-magnetostatics, git-history:physics:02-magnetostatics]",
+        "canonical_path": "physics/02-MAGNETOSTATICS.md",
+        "concepts": "[magnetostatics]",
+        "current_path": "physics/02-MAGNETOSTATICS.md",
+        "id": "maxim:physics:magnetostatics",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "physics",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[magnetostatics]",
+        "section": "physics",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Magnetostatics - Currents, Fields, and the Vector Potential",
+        "updated": "null"
+      },
+      "text": "**Ohm's law in field form**: J = σE, where σ is electrical conductivity.\nMetals have high σ (free electrons respond strongly to E).\nThis is the microscopic origin of V = IR from 6.002 — integrating J = σE\nover wire geometry gives the circuit-level relation."
+    },
+    {
+      "id": "02-MAGNETOSTATICS.md#024",
+      "path": [
+        "02-MAGNETOSTATICS.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:physics:02-magnetostatics, git-history:physics:02-magnetostatics]",
+        "canonical_path": "physics/02-MAGNETOSTATICS.md",
+        "concepts": "[magnetostatics]",
+        "current_path": "physics/02-MAGNETOSTATICS.md",
+        "id": "maxim:physics:magnetostatics",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "physics",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[magnetostatics]",
+        "section": "physics",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Magnetostatics - Currents, Fields, and the Vector Potential",
+        "updated": "null"
+      },
+      "text": "**Continuity equation** — charge conservation in field form:"
+    },
+    {
+      "id": "02-MAGNETOSTATICS.md#025",
+      "path": [
+        "02-MAGNETOSTATICS.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:physics:02-magnetostatics, git-history:physics:02-magnetostatics]",
+        "canonical_path": "physics/02-MAGNETOSTATICS.md",
+        "concepts": "[magnetostatics]",
+        "current_path": "physics/02-MAGNETOSTATICS.md",
+        "id": "maxim:physics:magnetostatics",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "physics",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[magnetostatics]",
+        "section": "physics",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Magnetostatics - Currents, Fields, and the Vector Potential",
+        "updated": "null"
+      },
+      "text": "```\n  ∂ρ/∂t + ∇·J = 0"
+    },
+    {
+      "id": "02-MAGNETOSTATICS.md#026",
+      "path": [
+        "02-MAGNETOSTATICS.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:physics:02-magnetostatics, git-history:physics:02-magnetostatics]",
+        "canonical_path": "physics/02-MAGNETOSTATICS.md",
+        "concepts": "[magnetostatics]",
+        "current_path": "physics/02-MAGNETOSTATICS.md",
+        "id": "maxim:physics:magnetostatics",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "physics",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[magnetostatics]",
+        "section": "physics",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Magnetostatics - Currents, Fields, and the Vector Potential",
+        "updated": "null"
+      },
+      "text": "Rate of change of charge density + divergence of current = 0\n  (charge flowing out of a volume = decrease in charge inside)\n```"
+    },
+    {
+      "id": "02-MAGNETOSTATICS.md#027",
+      "path": [
+        "02-MAGNETOSTATICS.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:physics:02-magnetostatics, git-history:physics:02-magnetostatics]",
+        "canonical_path": "physics/02-MAGNETOSTATICS.md",
+        "concepts": "[magnetostatics]",
+        "current_path": "physics/02-MAGNETOSTATICS.md",
+        "id": "maxim:physics:magnetostatics",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "physics",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[magnetostatics]",
+        "section": "physics",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Magnetostatics - Currents, Fields, and the Vector Potential",
+        "updated": "null"
+      },
+      "text": "In magnetostatics: ∂ρ/∂t = 0 (steady state) → ∇·J = 0.\nSteady currents have no sources or sinks — current that flows in must flow out."
+    },
+    {
+      "id": "02-MAGNETOSTATICS.md#028",
+      "path": [
+        "02-MAGNETOSTATICS.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:physics:02-magnetostatics, git-history:physics:02-magnetostatics]",
+        "canonical_path": "physics/02-MAGNETOSTATICS.md",
+        "concepts": "[magnetostatics]",
+        "current_path": "physics/02-MAGNETOSTATICS.md",
+        "id": "maxim:physics:magnetostatics",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "physics",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[magnetostatics]",
+        "section": "physics",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Magnetostatics - Currents, Fields, and the Vector Potential",
+        "updated": "null"
+      },
+      "text": "---"
+    },
+    {
+      "id": "02-MAGNETOSTATICS.md#029",
+      "path": [
+        "02-MAGNETOSTATICS.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:physics:02-magnetostatics, git-history:physics:02-magnetostatics]",
+        "canonical_path": "physics/02-MAGNETOSTATICS.md",
+        "concepts": "[magnetostatics]",
+        "current_path": "physics/02-MAGNETOSTATICS.md",
+        "id": "maxim:physics:magnetostatics",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "physics",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[magnetostatics]",
+        "section": "physics",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Magnetostatics - Currents, Fields, and the Vector Potential",
+        "updated": "null"
+      },
+      "text": "## Biot-Savart Law"
+    },
+    {
+      "id": "02-MAGNETOSTATICS.md#030",
+      "path": [
+        "02-MAGNETOSTATICS.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:physics:02-magnetostatics, git-history:physics:02-magnetostatics]",
+        "canonical_path": "physics/02-MAGNETOSTATICS.md",
+        "concepts": "[magnetostatics]",
+        "current_path": "physics/02-MAGNETOSTATICS.md",
+        "id": "maxim:physics:magnetostatics",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "physics",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[magnetostatics]",
+        "section": "physics",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Magnetostatics - Currents, Fields, and the Vector Potential",
+        "updated": "null"
+      },
+      "text": "The magnetic field produced by a steady current — the magnetic analog of Coulomb's law:"
+    },
+    {
+      "id": "02-MAGNETOSTATICS.md#031",
+      "path": [
+        "02-MAGNETOSTATICS.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:physics:02-magnetostatics, git-history:physics:02-magnetostatics]",
+        "canonical_path": "physics/02-MAGNETOSTATICS.md",
+        "concepts": "[magnetostatics]",
+        "current_path": "physics/02-MAGNETOSTATICS.md",
+        "id": "maxim:physics:magnetostatics",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "physics",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[magnetostatics]",
+        "section": "physics",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Magnetostatics - Currents, Fields, and the Vector Potential",
+        "updated": "null"
+      },
+      "text": "```\n         μ₀   I dl × r̂\n  dB  = ────  ──────────\n         4π      r²"
+    },
+    {
+      "id": "02-MAGNETOSTATICS.md#032",
+      "path": [
+        "02-MAGNETOSTATICS.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:physics:02-magnetostatics, git-history:physics:02-magnetostatics]",
+        "canonical_path": "physics/02-MAGNETOSTATICS.md",
+        "concepts": "[magnetostatics]",
+        "current_path": "physics/02-MAGNETOSTATICS.md",
+        "id": "maxim:physics:magnetostatics",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "physics",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[magnetostatics]",
+        "section": "physics",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Magnetostatics - Currents, Fields, and the Vector Potential",
+        "updated": "null"
+      },
+      "text": "μ₀ = 4π × 10⁻⁷ T·m/A    (permeability of free space)\n```"
+    },
+    {
+      "id": "02-MAGNETOSTATICS.md#033",
+      "path": [
+        "02-MAGNETOSTATICS.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:physics:02-magnetostatics, git-history:physics:02-magnetostatics]",
+        "canonical_path": "physics/02-MAGNETOSTATICS.md",
+        "concepts": "[magnetostatics]",
+        "current_path": "physics/02-MAGNETOSTATICS.md",
+        "id": "maxim:physics:magnetostatics",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "physics",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[magnetostatics]",
+        "section": "physics",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Magnetostatics - Currents, Fields, and the Vector Potential",
+        "updated": "null"
+      },
+      "text": "Where dl is a directed current element and r̂ points from the element to the\nfield point. Integrate along the entire current path:"
+    },
+    {
+      "id": "02-MAGNETOSTATICS.md#034",
+      "path": [
+        "02-MAGNETOSTATICS.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:physics:02-magnetostatics, git-history:physics:02-magnetostatics]",
+        "canonical_path": "physics/02-MAGNETOSTATICS.md",
+        "concepts": "[magnetostatics]",
+        "current_path": "physics/02-MAGNETOSTATICS.md",
+        "id": "maxim:physics:magnetostatics",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "physics",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[magnetostatics]",
+        "section": "physics",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Magnetostatics - Currents, Fields, and the Vector Potential",
+        "updated": "null"
+      },
+      "text": "```\n         μ₀       dl × r̂\n  B(r) = ────  I ∫ ──────\n          4π          r²\n```"
+    },
+    {
+      "id": "02-MAGNETOSTATICS.md#035",
+      "path": [
+        "02-MAGNETOSTATICS.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:physics:02-magnetostatics, git-history:physics:02-magnetostatics]",
+        "canonical_path": "physics/02-MAGNETOSTATICS.md",
+        "concepts": "[magnetostatics]",
+        "current_path": "physics/02-MAGNETOSTATICS.md",
+        "id": "maxim:physics:magnetostatics",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "physics",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[magnetostatics]",
+        "section": "physics",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Magnetostatics - Currents, Fields, and the Vector Potential",
+        "updated": "null"
+      },
+      "text": "**Direction**: dl×r̂ is perpendicular to both the current direction and\nthe line from current to field point. For a straight wire, this gives\nfield lines that circle the wire — right-hand rule: thumb along current,\nfingers curl in direction of B."
+    },
+    {
+      "id": "02-MAGNETOSTATICS.md#036",
+      "path": [
+        "02-MAGNETOSTATICS.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:physics:02-magnetostatics, git-history:physics:02-magnetostatics]",
+        "canonical_path": "physics/02-MAGNETOSTATICS.md",
+        "concepts": "[magnetostatics]",
+        "current_path": "physics/02-MAGNETOSTATICS.md",
+        "id": "maxim:physics:magnetostatics",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "physics",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[magnetostatics]",
+        "section": "physics",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Magnetostatics - Currents, Fields, and the Vector Potential",
+        "updated": "null"
+      },
+      "text": "```\n  STRAIGHT WIRE (cross section view):"
+    },
+    {
+      "id": "02-MAGNETOSTATICS.md#037",
+      "path": [
+        "02-MAGNETOSTATICS.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:physics:02-magnetostatics, git-history:physics:02-magnetostatics]",
+        "canonical_path": "physics/02-MAGNETOSTATICS.md",
+        "concepts": "[magnetostatics]",
+        "current_path": "physics/02-MAGNETOSTATICS.md",
+        "id": "maxim:physics:magnetostatics",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "physics",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[magnetostatics]",
+        "section": "physics",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Magnetostatics - Currents, Fields, and the Vector Potential",
+        "updated": "null"
+      },
+      "text": "Current I  →  into page ⊗"
+    },
+    {
+      "id": "02-MAGNETOSTATICS.md#038",
+      "path": [
+        "02-MAGNETOSTATICS.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:physics:02-magnetostatics, git-history:physics:02-magnetostatics]",
+        "canonical_path": "physics/02-MAGNETOSTATICS.md",
+        "concepts": "[magnetostatics]",
+        "current_path": "physics/02-MAGNETOSTATICS.md",
+        "id": "maxim:physics:magnetostatics",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "physics",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[magnetostatics]",
+        "section": "physics",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Magnetostatics - Currents, Fields, and the Vector Potential",
+        "updated": "null"
+      },
+      "text": "↙  ↓  ↘\n        ←  ⊗  →     B field circles counterclockwise\n        ↖  ↑  ↗     (viewed from behind: current coming toward you, B clockwise)\n```"
+    },
+    {
+      "id": "02-MAGNETOSTATICS.md#039",
+      "path": [
+        "02-MAGNETOSTATICS.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:physics:02-magnetostatics, git-history:physics:02-magnetostatics]",
+        "canonical_path": "physics/02-MAGNETOSTATICS.md",
+        "concepts": "[magnetostatics]",
+        "current_path": "physics/02-MAGNETOSTATICS.md",
+        "id": "maxim:physics:magnetostatics",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "physics",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[magnetostatics]",
+        "section": "physics",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Magnetostatics - Currents, Fields, and the Vector Potential",
+        "updated": "null"
+      },
+      "text": "### Biot-Savart: Infinite Straight Wire"
+    },
+    {
+      "id": "02-MAGNETOSTATICS.md#040",
+      "path": [
+        "02-MAGNETOSTATICS.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:physics:02-magnetostatics, git-history:physics:02-magnetostatics]",
+        "canonical_path": "physics/02-MAGNETOSTATICS.md",
+        "concepts": "[magnetostatics]",
+        "current_path": "physics/02-MAGNETOSTATICS.md",
+        "id": "maxim:physics:magnetostatics",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "physics",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[magnetostatics]",
+        "section": "physics",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Magnetostatics - Currents, Fields, and the Vector Potential",
+        "updated": "null"
+      },
+      "text": "Result (derived by integrating along the wire):"
+    },
+    {
+      "id": "02-MAGNETOSTATICS.md#041",
+      "path": [
+        "02-MAGNETOSTATICS.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:physics:02-magnetostatics, git-history:physics:02-magnetostatics]",
+        "canonical_path": "physics/02-MAGNETOSTATICS.md",
+        "concepts": "[magnetostatics]",
+        "current_path": "physics/02-MAGNETOSTATICS.md",
+        "id": "maxim:physics:magnetostatics",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "physics",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[magnetostatics]",
+        "section": "physics",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Magnetostatics - Currents, Fields, and the Vector Potential",
+        "updated": "null"
+      },
+      "text": "```\n          μ₀ I\n  |B| = ───────    (at distance r from wire)\n          2πr\n```"
+    },
+    {
+      "id": "02-MAGNETOSTATICS.md#042",
+      "path": [
+        "02-MAGNETOSTATICS.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:physics:02-magnetostatics, git-history:physics:02-magnetostatics]",
+        "canonical_path": "physics/02-MAGNETOSTATICS.md",
+        "concepts": "[magnetostatics]",
+        "current_path": "physics/02-MAGNETOSTATICS.md",
+        "id": "maxim:physics:magnetostatics",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "physics",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[magnetostatics]",
+        "section": "physics",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Magnetostatics - Currents, Fields, and the Vector Potential",
+        "updated": "null"
+      },
+      "text": "Falls as 1/r (not 1/r² like Coulomb) — wire is a 1D source in 3D space."
+    },
+    {
+      "id": "02-MAGNETOSTATICS.md#043",
+      "path": [
+        "02-MAGNETOSTATICS.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:physics:02-magnetostatics, git-history:physics:02-magnetostatics]",
+        "canonical_path": "physics/02-MAGNETOSTATICS.md",
+        "concepts": "[magnetostatics]",
+        "current_path": "physics/02-MAGNETOSTATICS.md",
+        "id": "maxim:physics:magnetostatics",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "physics",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[magnetostatics]",
+        "section": "physics",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Magnetostatics - Currents, Fields, and the Vector Potential",
+        "updated": "null"
+      },
+      "text": "Direction: circles the wire, right-hand rule."
+    },
+    {
+      "id": "02-MAGNETOSTATICS.md#044",
+      "path": [
+        "02-MAGNETOSTATICS.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:physics:02-magnetostatics, git-history:physics:02-magnetostatics]",
+        "canonical_path": "physics/02-MAGNETOSTATICS.md",
+        "concepts": "[magnetostatics]",
+        "current_path": "physics/02-MAGNETOSTATICS.md",
+        "id": "maxim:physics:magnetostatics",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "physics",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[magnetostatics]",
+        "section": "physics",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Magnetostatics - Currents, Fields, and the Vector Potential",
+        "updated": "null"
+      },
+      "text": "---"
+    },
+    {
+      "id": "02-MAGNETOSTATICS.md#045",
+      "path": [
+        "02-MAGNETOSTATICS.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:physics:02-magnetostatics, git-history:physics:02-magnetostatics]",
+        "canonical_path": "physics/02-MAGNETOSTATICS.md",
+        "concepts": "[magnetostatics]",
+        "current_path": "physics/02-MAGNETOSTATICS.md",
+        "id": "maxim:physics:magnetostatics",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "physics",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[magnetostatics]",
+        "section": "physics",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Magnetostatics - Currents, Fields, and the Vector Potential",
+        "updated": "null"
+      },
+      "text": "## Ampere's Law — The Magnetostatic Shortcut"
+    },
+    {
+      "id": "02-MAGNETOSTATICS.md#046",
+      "path": [
+        "02-MAGNETOSTATICS.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:physics:02-magnetostatics, git-history:physics:02-magnetostatics]",
+        "canonical_path": "physics/02-MAGNETOSTATICS.md",
+        "concepts": "[magnetostatics]",
+        "current_path": "physics/02-MAGNETOSTATICS.md",
+        "id": "maxim:physics:magnetostatics",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "physics",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[magnetostatics]",
+        "section": "physics",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Magnetostatics - Currents, Fields, and the Vector Potential",
+        "updated": "null"
+      },
+      "text": "Just as Gauss's law is the shortcut for symmetric charge distributions,\nAmpere's law is the shortcut for symmetric current distributions."
+    },
+    {
+      "id": "02-MAGNETOSTATICS.md#047",
+      "path": [
+        "02-MAGNETOSTATICS.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:physics:02-magnetostatics, git-history:physics:02-magnetostatics]",
+        "canonical_path": "physics/02-MAGNETOSTATICS.md",
+        "concepts": "[magnetostatics]",
+        "current_path": "physics/02-MAGNETOSTATICS.md",
+        "id": "maxim:physics:magnetostatics",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "physics",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[magnetostatics]",
+        "section": "physics",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Magnetostatics - Currents, Fields, and the Vector Potential",
+        "updated": "null"
+      },
+      "text": "**Integral form**:"
+    },
+    {
+      "id": "02-MAGNETOSTATICS.md#048",
+      "path": [
+        "02-MAGNETOSTATICS.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:physics:02-magnetostatics, git-history:physics:02-magnetostatics]",
+        "canonical_path": "physics/02-MAGNETOSTATICS.md",
+        "concepts": "[magnetostatics]",
+        "current_path": "physics/02-MAGNETOSTATICS.md",
+        "id": "maxim:physics:magnetostatics",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "physics",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[magnetostatics]",
+        "section": "physics",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Magnetostatics - Currents, Fields, and the Vector Potential",
+        "updated": "null"
+      },
+      "text": "```\n  ∮_C B·dl = μ₀ I_enc"
+    },
+    {
+      "id": "02-MAGNETOSTATICS.md#049",
+      "path": [
+        "02-MAGNETOSTATICS.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:physics:02-magnetostatics, git-history:physics:02-magnetostatics]",
+        "canonical_path": "physics/02-MAGNETOSTATICS.md",
+        "concepts": "[magnetostatics]",
+        "current_path": "physics/02-MAGNETOSTATICS.md",
+        "id": "maxim:physics:magnetostatics",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "physics",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[magnetostatics]",
+        "section": "physics",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Magnetostatics - Currents, Fields, and the Vector Potential",
+        "updated": "null"
+      },
+      "text": "Circulation of B around a closed loop\n  = μ₀ × total current threading through the loop\n```"
+    },
+    {
+      "id": "02-MAGNETOSTATICS.md#050",
+      "path": [
+        "02-MAGNETOSTATICS.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:physics:02-magnetostatics, git-history:physics:02-magnetostatics]",
+        "canonical_path": "physics/02-MAGNETOSTATICS.md",
+        "concepts": "[magnetostatics]",
+        "current_path": "physics/02-MAGNETOSTATICS.md",
+        "id": "maxim:physics:magnetostatics",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "physics",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[magnetostatics]",
+        "section": "physics",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Magnetostatics - Currents, Fields, and the Vector Potential",
+        "updated": "null"
+      },
+      "text": "**Differential form** (Stokes' theorem applied):"
+    },
+    {
+      "id": "02-MAGNETOSTATICS.md#051",
+      "path": [
+        "02-MAGNETOSTATICS.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:physics:02-magnetostatics, git-history:physics:02-magnetostatics]",
+        "canonical_path": "physics/02-MAGNETOSTATICS.md",
+        "concepts": "[magnetostatics]",
+        "current_path": "physics/02-MAGNETOSTATICS.md",
+        "id": "maxim:physics:magnetostatics",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "physics",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[magnetostatics]",
+        "section": "physics",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Magnetostatics - Currents, Fields, and the Vector Potential",
+        "updated": "null"
+      },
+      "text": "```\n  ∇×B = μ₀J\n```"
+    },
+    {
+      "id": "02-MAGNETOSTATICS.md#052",
+      "path": [
+        "02-MAGNETOSTATICS.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:physics:02-magnetostatics, git-history:physics:02-magnetostatics]",
+        "canonical_path": "physics/02-MAGNETOSTATICS.md",
+        "concepts": "[magnetostatics]",
+        "current_path": "physics/02-MAGNETOSTATICS.md",
+        "id": "maxim:physics:magnetostatics",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "physics",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[magnetostatics]",
+        "section": "physics",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Magnetostatics - Currents, Fields, and the Vector Potential",
+        "updated": "null"
+      },
+      "text": "**The Amperian loop strategy** (mirrors Gauss's surface strategy):\n1. Identify the symmetry\n2. Choose a loop where B is constant and parallel (or perpendicular) everywhere\n3. Pull |B| out: ∮ B·dl = |B| × (loop perimeter)\n4. Set equal to μ₀I_enc and solve"
+    },
+    {
+      "id": "02-MAGNETOSTATICS.md#053",
+      "path": [
+        "02-MAGNETOSTATICS.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:physics:02-magnetostatics, git-history:physics:02-magnetostatics]",
+        "canonical_path": "physics/02-MAGNETOSTATICS.md",
+        "concepts": "[magnetostatics]",
+        "current_path": "physics/02-MAGNETOSTATICS.md",
+        "id": "maxim:physics:magnetostatics",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "physics",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[magnetostatics]",
+        "section": "physics",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Magnetostatics - Currents, Fields, and the Vector Potential",
+        "updated": "null"
+      },
+      "text": "### Example 1: Infinite Straight Wire"
+    },
+    {
+      "id": "02-MAGNETOSTATICS.md#054",
+      "path": [
+        "02-MAGNETOSTATICS.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:physics:02-magnetostatics, git-history:physics:02-magnetostatics]",
+        "canonical_path": "physics/02-MAGNETOSTATICS.md",
+        "concepts": "[magnetostatics]",
+        "current_path": "physics/02-MAGNETOSTATICS.md",
+        "id": "maxim:physics:magnetostatics",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "physics",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[magnetostatics]",
+        "section": "physics",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Magnetostatics - Currents, Fields, and the Vector Potential",
+        "updated": "null"
+      },
+      "text": "Choose a circular loop of radius r centered on the wire.\nB is tangential, constant magnitude everywhere on the loop."
+    },
+    {
+      "id": "02-MAGNETOSTATICS.md#055",
+      "path": [
+        "02-MAGNETOSTATICS.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:physics:02-magnetostatics, git-history:physics:02-magnetostatics]",
+        "canonical_path": "physics/02-MAGNETOSTATICS.md",
+        "concepts": "[magnetostatics]",
+        "current_path": "physics/02-MAGNETOSTATICS.md",
+        "id": "maxim:physics:magnetostatics",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "physics",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[magnetostatics]",
+        "section": "physics",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Magnetostatics - Currents, Fields, and the Vector Potential",
+        "updated": "null"
+      },
+      "text": "```\n  ∮ B·dl = |B| × 2πr = μ₀I"
+    },
+    {
+      "id": "02-MAGNETOSTATICS.md#056",
+      "path": [
+        "02-MAGNETOSTATICS.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:physics:02-magnetostatics, git-history:physics:02-magnetostatics]",
+        "canonical_path": "physics/02-MAGNETOSTATICS.md",
+        "concepts": "[magnetostatics]",
+        "current_path": "physics/02-MAGNETOSTATICS.md",
+        "id": "maxim:physics:magnetostatics",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "physics",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[magnetostatics]",
+        "section": "physics",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Magnetostatics - Currents, Fields, and the Vector Potential",
+        "updated": "null"
+      },
+      "text": "μ₀I\n  |B| = ──────    ← same as Biot-Savart result, much faster\n          2πr\n```"
+    },
+    {
+      "id": "02-MAGNETOSTATICS.md#057",
+      "path": [
+        "02-MAGNETOSTATICS.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:physics:02-magnetostatics, git-history:physics:02-magnetostatics]",
+        "canonical_path": "physics/02-MAGNETOSTATICS.md",
+        "concepts": "[magnetostatics]",
+        "current_path": "physics/02-MAGNETOSTATICS.md",
+        "id": "maxim:physics:magnetostatics",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "physics",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[magnetostatics]",
+        "section": "physics",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Magnetostatics - Currents, Fields, and the Vector Potential",
+        "updated": "null"
+      },
+      "text": "### Example 2: Infinite Solenoid"
+    },
+    {
+      "id": "02-MAGNETOSTATICS.md#058",
+      "path": [
+        "02-MAGNETOSTATICS.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:physics:02-magnetostatics, git-history:physics:02-magnetostatics]",
+        "canonical_path": "physics/02-MAGNETOSTATICS.md",
+        "concepts": "[magnetostatics]",
+        "current_path": "physics/02-MAGNETOSTATICS.md",
+        "id": "maxim:physics:magnetostatics",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "physics",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[magnetostatics]",
+        "section": "physics",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Magnetostatics - Currents, Fields, and the Vector Potential",
+        "updated": "null"
+      },
+      "text": "N turns per unit length, current I. Use a rectangular Amperian loop\nwith one side inside the solenoid (length L), one side outside."
+    },
+    {
+      "id": "02-MAGNETOSTATICS.md#059",
+      "path": [
+        "02-MAGNETOSTATICS.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:physics:02-magnetostatics, git-history:physics:02-magnetostatics]",
+        "canonical_path": "physics/02-MAGNETOSTATICS.md",
+        "concepts": "[magnetostatics]",
+        "current_path": "physics/02-MAGNETOSTATICS.md",
+        "id": "maxim:physics:magnetostatics",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "physics",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[magnetostatics]",
+        "section": "physics",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Magnetostatics - Currents, Fields, and the Vector Potential",
+        "updated": "null"
+      },
+      "text": "```\n  Outside solenoid:  B = 0  (by symmetry and superposition)\n  Inside:   B is uniform, parallel to axis"
+    },
+    {
+      "id": "02-MAGNETOSTATICS.md#060",
+      "path": [
+        "02-MAGNETOSTATICS.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:physics:02-magnetostatics, git-history:physics:02-magnetostatics]",
+        "canonical_path": "physics/02-MAGNETOSTATICS.md",
+        "concepts": "[magnetostatics]",
+        "current_path": "physics/02-MAGNETOSTATICS.md",
+        "id": "maxim:physics:magnetostatics",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "physics",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[magnetostatics]",
+        "section": "physics",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Magnetostatics - Currents, Fields, and the Vector Potential",
+        "updated": "null"
+      },
+      "text": "∮ B·dl = B·L = μ₀ (nL) I     (nL turns thread through loop)"
+    },
+    {
+      "id": "02-MAGNETOSTATICS.md#061",
+      "path": [
+        "02-MAGNETOSTATICS.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:physics:02-magnetostatics, git-history:physics:02-magnetostatics]",
+        "canonical_path": "physics/02-MAGNETOSTATICS.md",
+        "concepts": "[magnetostatics]",
+        "current_path": "physics/02-MAGNETOSTATICS.md",
+        "id": "maxim:physics:magnetostatics",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "physics",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[magnetostatics]",
+        "section": "physics",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Magnetostatics - Currents, Fields, and the Vector Potential",
+        "updated": "null"
+      },
+      "text": "B = μ₀nI    inside solenoid\n  B = 0       outside\n```"
+    },
+    {
+      "id": "02-MAGNETOSTATICS.md#062",
+      "path": [
+        "02-MAGNETOSTATICS.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:physics:02-magnetostatics, git-history:physics:02-magnetostatics]",
+        "canonical_path": "physics/02-MAGNETOSTATICS.md",
+        "concepts": "[magnetostatics]",
+        "current_path": "physics/02-MAGNETOSTATICS.md",
+        "id": "maxim:physics:magnetostatics",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "physics",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[magnetostatics]",
+        "section": "physics",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Magnetostatics - Currents, Fields, and the Vector Potential",
+        "updated": "null"
+      },
+      "text": "A solenoid concentrates B field inside, shields outside. Transformer cores,\nMRI machines, particle accelerators all exploit this."
+    },
+    {
+      "id": "02-MAGNETOSTATICS.md#063",
+      "path": [
+        "02-MAGNETOSTATICS.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:physics:02-magnetostatics, git-history:physics:02-magnetostatics]",
+        "canonical_path": "physics/02-MAGNETOSTATICS.md",
+        "concepts": "[magnetostatics]",
+        "current_path": "physics/02-MAGNETOSTATICS.md",
+        "id": "maxim:physics:magnetostatics",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "physics",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[magnetostatics]",
+        "section": "physics",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Magnetostatics - Currents, Fields, and the Vector Potential",
+        "updated": "null"
+      },
+      "text": "### Example 3: Toroid"
+    },
+    {
+      "id": "02-MAGNETOSTATICS.md#064",
+      "path": [
+        "02-MAGNETOSTATICS.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:physics:02-magnetostatics, git-history:physics:02-magnetostatics]",
+        "canonical_path": "physics/02-MAGNETOSTATICS.md",
+        "concepts": "[magnetostatics]",
+        "current_path": "physics/02-MAGNETOSTATICS.md",
+        "id": "maxim:physics:magnetostatics",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "physics",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[magnetostatics]",
+        "section": "physics",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Magnetostatics - Currents, Fields, and the Vector Potential",
+        "updated": "null"
+      },
+      "text": "Donut-shaped solenoid, N total turns. Choose a circular Amperian loop\nof radius r inside the doroid:"
+    },
+    {
+      "id": "02-MAGNETOSTATICS.md#065",
+      "path": [
+        "02-MAGNETOSTATICS.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:physics:02-magnetostatics, git-history:physics:02-magnetostatics]",
+        "canonical_path": "physics/02-MAGNETOSTATICS.md",
+        "concepts": "[magnetostatics]",
+        "current_path": "physics/02-MAGNETOSTATICS.md",
+        "id": "maxim:physics:magnetostatics",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "physics",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[magnetostatics]",
+        "section": "physics",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Magnetostatics - Currents, Fields, and the Vector Potential",
+        "updated": "null"
+      },
+      "text": "```\n         μ₀NI\n  B  = ────────    (inside the toroid, varies with r)\n          2πr"
+    },
+    {
+      "id": "02-MAGNETOSTATICS.md#066",
+      "path": [
+        "02-MAGNETOSTATICS.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:physics:02-magnetostatics, git-history:physics:02-magnetostatics]",
+        "canonical_path": "physics/02-MAGNETOSTATICS.md",
+        "concepts": "[magnetostatics]",
+        "current_path": "physics/02-MAGNETOSTATICS.md",
+        "id": "maxim:physics:magnetostatics",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "physics",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[magnetostatics]",
+        "section": "physics",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Magnetostatics - Currents, Fields, and the Vector Potential",
+        "updated": "null"
+      },
+      "text": "B = 0  outside the toroid entirely\n```"
+    },
+    {
+      "id": "02-MAGNETOSTATICS.md#067",
+      "path": [
+        "02-MAGNETOSTATICS.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:physics:02-magnetostatics, git-history:physics:02-magnetostatics]",
+        "canonical_path": "physics/02-MAGNETOSTATICS.md",
+        "concepts": "[magnetostatics]",
+        "current_path": "physics/02-MAGNETOSTATICS.md",
+        "id": "maxim:physics:magnetostatics",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "physics",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[magnetostatics]",
+        "section": "physics",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Magnetostatics - Currents, Fields, and the Vector Potential",
+        "updated": "null"
+      },
+      "text": "All flux is confined inside the donut — used in transformer cores to\nprevent stray fields."
+    },
+    {
+      "id": "02-MAGNETOSTATICS.md#068",
+      "path": [
+        "02-MAGNETOSTATICS.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:physics:02-magnetostatics, git-history:physics:02-magnetostatics]",
+        "canonical_path": "physics/02-MAGNETOSTATICS.md",
+        "concepts": "[magnetostatics]",
+        "current_path": "physics/02-MAGNETOSTATICS.md",
+        "id": "maxim:physics:magnetostatics",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "physics",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[magnetostatics]",
+        "section": "physics",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Magnetostatics - Currents, Fields, and the Vector Potential",
+        "updated": "null"
+      },
+      "text": "---"
+    },
+    {
+      "id": "02-MAGNETOSTATICS.md#069",
+      "path": [
+        "02-MAGNETOSTATICS.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:physics:02-magnetostatics, git-history:physics:02-magnetostatics]",
+        "canonical_path": "physics/02-MAGNETOSTATICS.md",
+        "concepts": "[magnetostatics]",
+        "current_path": "physics/02-MAGNETOSTATICS.md",
+        "id": "maxim:physics:magnetostatics",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "physics",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[magnetostatics]",
+        "section": "physics",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Magnetostatics - Currents, Fields, and the Vector Potential",
+        "updated": "null"
+      },
+      "text": "## No Magnetic Monopoles: ∇·B = 0"
+    },
+    {
+      "id": "02-MAGNETOSTATICS.md#070",
+      "path": [
+        "02-MAGNETOSTATICS.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:physics:02-magnetostatics, git-history:physics:02-magnetostatics]",
+        "canonical_path": "physics/02-MAGNETOSTATICS.md",
+        "concepts": "[magnetostatics]",
+        "current_path": "physics/02-MAGNETOSTATICS.md",
+        "id": "maxim:physics:magnetostatics",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "physics",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[magnetostatics]",
+        "section": "physics",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Magnetostatics - Currents, Fields, and the Vector Potential",
+        "updated": "null"
+      },
+      "text": "In electrostatics: ∇·E = ρ/ε₀. Charges are sources and sinks of E field lines."
+    },
+    {
+      "id": "02-MAGNETOSTATICS.md#071",
+      "path": [
+        "02-MAGNETOSTATICS.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:physics:02-magnetostatics, git-history:physics:02-magnetostatics]",
+        "canonical_path": "physics/02-MAGNETOSTATICS.md",
+        "concepts": "[magnetostatics]",
+        "current_path": "physics/02-MAGNETOSTATICS.md",
+        "id": "maxim:physics:magnetostatics",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "physics",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[magnetostatics]",
+        "section": "physics",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Magnetostatics - Currents, Fields, and the Vector Potential",
+        "updated": "null"
+      },
+      "text": "In magnetostatics: **∇·B = 0 always**. Magnetic field lines have no sources or\nsinks. Every B field line that enters any closed surface must also exit."
+    },
+    {
+      "id": "02-MAGNETOSTATICS.md#072",
+      "path": [
+        "02-MAGNETOSTATICS.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:physics:02-magnetostatics, git-history:physics:02-magnetostatics]",
+        "canonical_path": "physics/02-MAGNETOSTATICS.md",
+        "concepts": "[magnetostatics]",
+        "current_path": "physics/02-MAGNETOSTATICS.md",
+        "id": "maxim:physics:magnetostatics",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "physics",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[magnetostatics]",
+        "section": "physics",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Magnetostatics - Currents, Fields, and the Vector Potential",
+        "updated": "null"
+      },
+      "text": "```\n  ∮∮_S B·dA = 0    for any closed surface S\n```"
+    },
+    {
+      "id": "02-MAGNETOSTATICS.md#073",
+      "path": [
+        "02-MAGNETOSTATICS.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:physics:02-magnetostatics, git-history:physics:02-magnetostatics]",
+        "canonical_path": "physics/02-MAGNETOSTATICS.md",
+        "concepts": "[magnetostatics]",
+        "current_path": "physics/02-MAGNETOSTATICS.md",
+        "id": "maxim:physics:magnetostatics",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "physics",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[magnetostatics]",
+        "section": "physics",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Magnetostatics - Currents, Fields, and the Vector Potential",
+        "updated": "null"
+      },
+      "text": "This means B field lines always close on themselves — they form closed loops.\nThey never start or stop anywhere. (Compare E lines: start on + charge, end on -.)"
+    },
+    {
+      "id": "02-MAGNETOSTATICS.md#074",
+      "path": [
+        "02-MAGNETOSTATICS.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:physics:02-magnetostatics, git-history:physics:02-magnetostatics]",
+        "canonical_path": "physics/02-MAGNETOSTATICS.md",
+        "concepts": "[magnetostatics]",
+        "current_path": "physics/02-MAGNETOSTATICS.md",
+        "id": "maxim:physics:magnetostatics",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "physics",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[magnetostatics]",
+        "section": "physics",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Magnetostatics - Currents, Fields, and the Vector Potential",
+        "updated": "null"
+      },
+      "text": "```\n  ELECTRIC FIELD LINES:      MAGNETIC FIELD LINES:\n  start and end on charges   always closed loops"
+    },
+    {
+      "id": "02-MAGNETOSTATICS.md#075",
+      "path": [
+        "02-MAGNETOSTATICS.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:physics:02-magnetostatics, git-history:physics:02-magnetostatics]",
+        "canonical_path": "physics/02-MAGNETOSTATICS.md",
+        "concepts": "[magnetostatics]",
+        "current_path": "physics/02-MAGNETOSTATICS.md",
+        "id": "maxim:physics:magnetostatics",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "physics",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[magnetostatics]",
+        "section": "physics",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Magnetostatics - Currents, Fields, and the Vector Potential",
+        "updated": "null"
+      },
+      "text": "+          -              N ↑ S\n     ·──────────·              │ │ │\n  →→→→→→→→→→→→→→→          ─────────\n                              ↑     ↑\n                             closed loops through\n                             magnet and around outside\n```"
+    },
+    {
+      "id": "02-MAGNETOSTATICS.md#076",
+      "path": [
+        "02-MAGNETOSTATICS.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:physics:02-magnetostatics, git-history:physics:02-magnetostatics]",
+        "canonical_path": "physics/02-MAGNETOSTATICS.md",
+        "concepts": "[magnetostatics]",
+        "current_path": "physics/02-MAGNETOSTATICS.md",
+        "id": "maxim:physics:magnetostatics",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "physics",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[magnetostatics]",
+        "section": "physics",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Magnetostatics - Currents, Fields, and the Vector Potential",
+        "updated": "null"
+      },
+      "text": "**Physical consequence**: You cannot isolate a magnetic north pole from a\nsouth pole. Cut a bar magnet in half — you get two smaller bar magnets,\neach with both poles. Magnetic monopoles have been searched for extensively\n(Dirac showed they would quantize electric charge if they existed) and never found."
+    },
+    {
+      "id": "02-MAGNETOSTATICS.md#077",
+      "path": [
+        "02-MAGNETOSTATICS.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:physics:02-magnetostatics, git-history:physics:02-magnetostatics]",
+        "canonical_path": "physics/02-MAGNETOSTATICS.md",
+        "concepts": "[magnetostatics]",
+        "current_path": "physics/02-MAGNETOSTATICS.md",
+        "id": "maxim:physics:magnetostatics",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "physics",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[magnetostatics]",
+        "section": "physics",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Magnetostatics - Currents, Fields, and the Vector Potential",
+        "updated": "null"
+      },
+      "text": "---"
+    },
+    {
+      "id": "02-MAGNETOSTATICS.md#078",
+      "path": [
+        "02-MAGNETOSTATICS.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:physics:02-magnetostatics, git-history:physics:02-magnetostatics]",
+        "canonical_path": "physics/02-MAGNETOSTATICS.md",
+        "concepts": "[magnetostatics]",
+        "current_path": "physics/02-MAGNETOSTATICS.md",
+        "id": "maxim:physics:magnetostatics",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "physics",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[magnetostatics]",
+        "section": "physics",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Magnetostatics - Currents, Fields, and the Vector Potential",
+        "updated": "null"
+      },
+      "text": "## The Vector Potential A"
+    },
+    {
+      "id": "02-MAGNETOSTATICS.md#079",
+      "path": [
+        "02-MAGNETOSTATICS.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:physics:02-magnetostatics, git-history:physics:02-magnetostatics]",
+        "canonical_path": "physics/02-MAGNETOSTATICS.md",
+        "concepts": "[magnetostatics]",
+        "current_path": "physics/02-MAGNETOSTATICS.md",
+        "id": "maxim:physics:magnetostatics",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "physics",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[magnetostatics]",
+        "section": "physics",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Magnetostatics - Currents, Fields, and the Vector Potential",
+        "updated": "null"
+      },
+      "text": "Since ∇·B = 0 everywhere, the identity ∇·(∇×A) = 0 (from module 01)\nguarantees we can write:"
+    },
+    {
+      "id": "02-MAGNETOSTATICS.md#080",
+      "path": [
+        "02-MAGNETOSTATICS.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:physics:02-magnetostatics, git-history:physics:02-magnetostatics]",
+        "canonical_path": "physics/02-MAGNETOSTATICS.md",
+        "concepts": "[magnetostatics]",
+        "current_path": "physics/02-MAGNETOSTATICS.md",
+        "id": "maxim:physics:magnetostatics",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "physics",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[magnetostatics]",
+        "section": "physics",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Magnetostatics - Currents, Fields, and the Vector Potential",
+        "updated": "null"
+      },
+      "text": "```\n  B = ∇×A        A is the magnetic vector potential (units: T·m = Wb/m)\n```"
+    },
+    {
+      "id": "02-MAGNETOSTATICS.md#081",
+      "path": [
+        "02-MAGNETOSTATICS.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:physics:02-magnetostatics, git-history:physics:02-magnetostatics]",
+        "canonical_path": "physics/02-MAGNETOSTATICS.md",
+        "concepts": "[magnetostatics]",
+        "current_path": "physics/02-MAGNETOSTATICS.md",
+        "id": "maxim:physics:magnetostatics",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "physics",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[magnetostatics]",
+        "section": "physics",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Magnetostatics - Currents, Fields, and the Vector Potential",
+        "updated": "null"
+      },
+      "text": "Analogous to V for electrostatics, but A is a vector field, not scalar."
+    },
+    {
+      "id": "02-MAGNETOSTATICS.md#082",
+      "path": [
+        "02-MAGNETOSTATICS.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:physics:02-magnetostatics, git-history:physics:02-magnetostatics]",
+        "canonical_path": "physics/02-MAGNETOSTATICS.md",
+        "concepts": "[magnetostatics]",
+        "current_path": "physics/02-MAGNETOSTATICS.md",
+        "id": "maxim:physics:magnetostatics",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "physics",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[magnetostatics]",
+        "section": "physics",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Magnetostatics - Currents, Fields, and the Vector Potential",
+        "updated": "null"
+      },
+      "text": "**Why A is useful**:\n- Simpler in many calculations (A obeys Poisson's equation)\n- Essential in quantum mechanics — the Aharonov-Bohm effect shows a particle\n  can be affected by A even where B = 0 (no classical analog)\n- The full relativistic formulation of E&M unifies V and A into a 4-vector (Aᵘ)"
+    },
+    {
+      "id": "02-MAGNETOSTATICS.md#083",
+      "path": [
+        "02-MAGNETOSTATICS.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:physics:02-magnetostatics, git-history:physics:02-magnetostatics]",
+        "canonical_path": "physics/02-MAGNETOSTATICS.md",
+        "concepts": "[magnetostatics]",
+        "current_path": "physics/02-MAGNETOSTATICS.md",
+        "id": "maxim:physics:magnetostatics",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "physics",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[magnetostatics]",
+        "section": "physics",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Magnetostatics - Currents, Fields, and the Vector Potential",
+        "updated": "null"
+      },
+      "text": "## Engineering Bridge: The Vector Potential as Gauge Connection"
+    },
+    {
+      "id": "02-MAGNETOSTATICS.md#084",
+      "path": [
+        "02-MAGNETOSTATICS.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:physics:02-magnetostatics, git-history:physics:02-magnetostatics]",
+        "canonical_path": "physics/02-MAGNETOSTATICS.md",
+        "concepts": "[magnetostatics]",
+        "current_path": "physics/02-MAGNETOSTATICS.md",
+        "id": "maxim:physics:magnetostatics",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "physics",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[magnetostatics]",
+        "section": "physics",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Magnetostatics - Currents, Fields, and the Vector Potential",
+        "updated": "null"
+      },
+      "text": "```\nMAGNETOSTATICS CONCEPT              DIFFERENTIAL GEOMETRY EQUIVALENT\n──────────────────────────────────────────────────────────────────────────────\nVector potential A                  Connection 1-form on a U(1) principal bundle\n  B = ∇×A                            Curvature F = dA (the field strength 2-form)\n  Gauge freedom A → A + ∇Λ           Gauge transformation: change of trivialization\n  B unchanged (∇×∇Λ = 0)             Curvature is gauge-invariant"
+    },
+    {
+      "id": "02-MAGNETOSTATICS.md#085",
+      "path": [
+        "02-MAGNETOSTATICS.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:physics:02-magnetostatics, git-history:physics:02-magnetostatics]",
+        "canonical_path": "physics/02-MAGNETOSTATICS.md",
+        "concepts": "[magnetostatics]",
+        "current_path": "physics/02-MAGNETOSTATICS.md",
+        "id": "maxim:physics:magnetostatics",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "physics",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[magnetostatics]",
+        "section": "physics",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Magnetostatics - Currents, Fields, and the Vector Potential",
+        "updated": "null"
+      },
+      "text": "Aharonov-Bohm phase                Holonomy of the connection\n  ∮A·dl = Φ (enclosed flux)          Phase = exp(i e/ℏ ∮A·dl)\n  Measurable even where B = 0        Observable = holonomy, not connection itself"
+    },
+    {
+      "id": "02-MAGNETOSTATICS.md#086",
+      "path": [
+        "02-MAGNETOSTATICS.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:physics:02-magnetostatics, git-history:physics:02-magnetostatics]",
+        "canonical_path": "physics/02-MAGNETOSTATICS.md",
+        "concepts": "[magnetostatics]",
+        "current_path": "physics/02-MAGNETOSTATICS.md",
+        "id": "maxim:physics:magnetostatics",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "physics",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[magnetostatics]",
+        "section": "physics",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Magnetostatics - Currents, Fields, and the Vector Potential",
+        "updated": "null"
+      },
+      "text": "Magnetic flux quantization          Chern number (first Chern class)\n  Φ₀ = h/2e in superconductors       Topological invariant of the bundle\n                                      Integer-valued → quantized\n```"
+    },
+    {
+      "id": "02-MAGNETOSTATICS.md#087",
+      "path": [
+        "02-MAGNETOSTATICS.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:physics:02-magnetostatics, git-history:physics:02-magnetostatics]",
+        "canonical_path": "physics/02-MAGNETOSTATICS.md",
+        "concepts": "[magnetostatics]",
+        "current_path": "physics/02-MAGNETOSTATICS.md",
+        "id": "maxim:physics:magnetostatics",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "physics",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[magnetostatics]",
+        "section": "physics",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Magnetostatics - Currents, Fields, and the Vector Potential",
+        "updated": "null"
+      },
+      "text": "This is the prototype for all gauge theories in modern physics. Replace U(1) with SU(2) → the weak force; with SU(3) → the strong force. The vector potential A is not a computational convenience — it is the fundamental dynamical variable (the connection), and B is the derived quantity (the curvature). The Aharonov-Bohm effect proves this: electrons detect A even where B = 0, because the phase they accumulate is the holonomy of the connection around a closed loop."
+    }
+  ],
+  "refs": [
+    "02-MAGNETOSTATICS.md"
+  ]
+}

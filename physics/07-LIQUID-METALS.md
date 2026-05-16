@@ -1,3 +1,22 @@
+---
+maxim_schema: maxim.frontmatter.v1
+id: maxim:physics:liquid-metals
+kind: guide
+module: physics
+section: physics
+title: Liquid Metals - Electromagnetic Properties and Behavior
+status: source-custody
+source_custody: partial
+current_path: physics/07-LIQUID-METALS.md
+canonical_path: physics/07-LIQUID-METALS.md
+backsource_ids: [proof-backfill:physics:07-liquid-metals, git-history:physics:07-liquid-metals]
+concepts: [liquid, metals]
+root_concepts: [liquid, metals]
+index_roles: [guide, root-concept]
+remap_from: []
+remap_to: []
+updated: null
+---
 # Liquid Metals — Electromagnetic Properties and Behavior
 
 ## The Big Picture

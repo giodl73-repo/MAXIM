@@ -1,3 +1,22 @@
+---
+maxim_schema: maxim.frontmatter.v1
+id: maxim:physics:gravity-em
+kind: guide
+module: physics
+section: physics
+title: 10 - Gravity and Electromagnetism: GEM, Levitation, and the Anti-Gravity Question
+status: source-custody
+source_custody: partial
+current_path: physics/10-GRAVITY-EM.md
+canonical_path: physics/10-GRAVITY-EM.md
+backsource_ids: [proof-backfill:physics:10-gravity-em, git-history:physics:10-gravity-em]
+concepts: [gravity, em]
+root_concepts: [gravity, em]
+index_roles: [guide, root-concept]
+remap_from: []
+remap_to: []
+updated: null
+---
 # 10 — Gravity and Electromagnetism: GEM, Levitation, and the Anti-Gravity Question
 
 ## The Big Picture
@@ -77,7 +96,7 @@ metric components — spacetime twisting due to mass currents)
 GEM equations (Mashhoon 2001, linearized GR):
 ┌─────────────────────────────────────────────────────────┐
 │  ∇·Eg = -4πGρ           ∇·Bg = 0                        │
-│  ∇×Eg = -∂Bg/∂t         ∇×Bg = (1/c²)(4πG·Jm + ∂Eg/∂t)│
+│  ∇×Eg = -∂Bg/∂t         ∇×Bg = (1/c²)(4πG·Jm + ∂Eg/∂t)  │
 └─────────────────────────────────────────────────────────┘
   Jm = mass current density ρv [kg/m²s]
 
@@ -189,7 +208,7 @@ MEISSNER LEVITATION MECHANISM
   │         S  [image]   N  ← mirror below surface      │
   │                                                     │
   │  Like poles repel → levitation                      │
-  │  Energy stored in expelled B field → restoring force│
+  │  Energy stored in expelled B field → restoring force │
   └─────────────────────────────────────────────────────┘
 ```
 
@@ -224,7 +243,7 @@ FLUX PINNING (Type II in mixed state)
 
   ┌─────────────────────────────────────────────────────┐
   │  Magnetic flux threads through the superconductor   │
-  │  in quantized flux tubes: Φ₀ = h/2e = 2.07×10⁻¹⁵ Wb│
+  │  in quantized flux tubes: Φ₀ = h/2e = 2.07×10⁻¹⁵ Wb │
   │                                                     │
   │  Defects in the material PIN the vortices in place  │
   │                                                     │
@@ -467,8 +486,8 @@ GENUINE PHYSICS AT THE EM-GRAVITY INTERFACE
      This is EM (radio) affected BY gravity, not controlled by EM
 
   5. FRAME-DRAGGING CONFIRMED
-     Gravity Probe B (2011): Lense-Thirring ✅
-     LAGEOS satellites: geodetic precession ✅
+     Gravity Probe B (2011): Lense-Thirring confirmed
+     LAGEOS satellites: geodetic precession confirmed
      Real, measured, utterly negligible for engineering
 
   6. ANALOGUE GRAVITY

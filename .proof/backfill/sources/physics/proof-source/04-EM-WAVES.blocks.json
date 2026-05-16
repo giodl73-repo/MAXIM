@@ -1,0 +1,149 @@
+{
+  "schema_version": "1",
+  "source_markdown": "physics\\04-EM-WAVES.md",
+  "blocks": [
+    {
+      "id": "block-1",
+      "kind": "ascii_table_candidate",
+      "line": 28,
+      "heading_context": "## The Big Picture",
+      "confidence": "candidate",
+      "text": "+------------------------------------------------------------------------+\n|                     EM WAVE LANDSCAPE                                  |\n|                                                                        |\n|  WAVE PARAMETERS          WAVE STRUCTURE          INTERACTIONS         |\n|  ───────────────          ──────────────          ────────────         |\n|  λ, f, k, ω, c            E ⊥ B ⊥ k              Reflection            |\n|  c = λf = ω/k             |E| = c|B|              Refraction           |\n|  in matter: v = c/n       Transverse              Absorption           |\n|                           Polarization            Diffraction          |\n|                                                   Skin depth           |\n|                                                                        |\n|  ENERGY                   SPECTRUM                                     |\n|  ──────                   ────────                                     |\n|  u = ε₀E² (avg)           Radio → Microwave → IR → Visible             |\n|  S = E×B/μ₀               → UV → X-ray → Gamma                         |\n|  I = cε₀E₀²/2             all same wave, different f                   |\n+------------------------------------------------------------------------+",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-2",
+      "kind": "diagram_like",
+      "line": 54,
+      "heading_context": "## Wave Parameters",
+      "confidence": "candidate",
+      "text": "  SPATIAL:                       TEMPORAL:\n  ────────                       ─────────\n  λ = wavelength (m)             T = period (s)\n      distance between peaks         time between peaks\n\n  k = 2π/λ  wave number (rad/m)  f = 1/T  frequency (Hz)\n      spatial frequency               temporal frequency\n\n                                 ω = 2πf  angular frequency (rad/s)\n\n  LINK:   c = λf = ω/k\n\n  In vacuum:    ω = ck   (linear dispersion — all frequencies same speed)\n  In matter:    ω = (c/n)k   where n = index of refraction",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-3",
+      "kind": "diagram_like",
+      "line": 126,
+      "heading_context": "## Plane Wave Solution — Full Structure",
+      "confidence": "candidate",
+      "text": "  k̂ (direction of travel)\n   │\n   │────────────→  E\n   │\n   └──────────→  B = k̂ × E / c\n\n  E, B, k̂ form a right-handed orthogonal triad.\n  Like x̂, ŷ, ẑ but for the wave.",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-4",
+      "kind": "diagram_like",
+      "line": 151,
+      "heading_context": "### Linear Polarization",
+      "confidence": "candidate",
+      "text": "  E(z,t) = E₀ cos(kz - ωt) x̂     ← always along x̂\n\n  Time snapshots:\n  t=0:    →  →  →  →  →\n  t=T/4:  ·  ·  ·  ·  ·    (zero crossing)\n  t=T/2:  ←  ←  ←  ←  ←",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-5",
+      "kind": "diagram_like",
+      "line": 188,
+      "heading_context": "### Elliptical Polarization",
+      "confidence": "candidate",
+      "text": "  POLARIZATION HIERARCHY:\n\n  Elliptical (general)\n     ├── Linear (equal phase, any amplitude ratio)\n     └── Circular (90° phase, equal amplitude)",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-6",
+      "kind": "diagram_like",
+      "line": 204,
+      "heading_context": "### Intensity",
+      "confidence": "candidate",
+      "text": "        cε₀ E₀²      E₀²\n  I  = ─────────  =  ──────    (W/m²)\n            2        2μ₀c",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-7",
+      "kind": "diagram_like",
+      "line": 214,
+      "heading_context": "### Intensity",
+      "confidence": "candidate",
+      "text": "         P\n  I  = ──────    at distance r\n        4πr²",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-8",
+      "kind": "diagram_like",
+      "line": 238,
+      "heading_context": "### Larmor Radiation",
+      "confidence": "candidate",
+      "text": "        q²a²\n  P  = ──────────    (Larmor formula)\n        6πε₀c³",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-9",
+      "kind": "diagram_like",
+      "line": 258,
+      "heading_context": "## The Electromagnetic Spectrum",
+      "confidence": "candidate",
+      "text": "+─────────────────────────────────────────────────────────────────────+\n│  REGION       FREQUENCY          WAVELENGTH    APPLICATIONS         │\n+─────────────────────────────────────────────────────────────────────+\n│  Radio        3 Hz – 300 MHz     1 mm – 100 km AM/FM, TV, cell      │\n│  Microwave    300 MHz – 300 GHz  1 mm – 1 m    WiFi, radar, μwave  │\n│  Infrared     300 GHz – 430 THz  700 nm – 1 mm heat, night vision  │\n│  Visible      430 – 750 THz      400 – 700 nm  human vision         │\n│               ├─ violet  750 THz    400 nm                          │\n│               ├─ blue    670 THz    450 nm                          │\n│               ├─ green   545 THz    550 nm                          │\n│               ├─ yellow  510 THz    590 nm                          │\n│               └─ red     430 THz    700 nm                          │\n│  UV           750 THz – 30 PHz   10 – 400 nm   sunburn, sterilize  │\n│  X-ray        30 PHz – 30 EHz    0.01 – 10 nm  medical imaging     │\n│  Gamma        > 30 EHz           < 0.01 nm     nuclear, PET scans  │\n+─────────────────────────────────────────────────────────────────────+\n\n  All travel at c in vacuum. All described by same Maxwell's equations.\n  Difference: frequency determines energy per photon (E = hf — quantum).",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-10",
+      "kind": "diagram_like",
+      "line": 309,
+      "heading_context": "## Reflection and Refraction",
+      "confidence": "candidate",
+      "text": "  Critical angle:  sin θ_c = n₂/n₁\n\n  θ₁ > θ_c  →  no transmitted wave, total reflection",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-11",
+      "kind": "diagram_like",
+      "line": 334,
+      "heading_context": "## EM Waves in Conductors — Skin Depth",
+      "confidence": "candidate",
+      "text": "  ∇²E = μσ ∂E/∂t + με ∂²E/∂t²\n         ────────   ─────────\n         dissipation  wave term",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-12",
+      "kind": "diagram_like",
+      "line": 345,
+      "heading_context": "## EM Waves in Conductors — Skin Depth",
+      "confidence": "candidate",
+      "text": "  E(z,t) = E₀ e^(-z/δ) cos(z/δ - ωt)\n\n  where:        2\n         δ = √──────    ← SKIN DEPTH\n               ωμσ\n\n  δ = depth at which amplitude falls to 1/e ≈ 37% of surface value",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-13",
+      "kind": "diagram_like",
+      "line": 389,
+      "heading_context": "## Standing Waves and Cavities",
+      "confidence": "candidate",
+      "text": "  E₁ = E₀ cos(kz - ωt)   (forward)\n  E₂ = E₀ cos(kz + ωt)   (backward)\n\n  E₁ + E₂ = 2E₀ cos(kz) cos(ωt)   ← standing wave\n             ──────────  ─────────\n             space part  time part\n             (doesn't move)",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    }
+  ]
+}

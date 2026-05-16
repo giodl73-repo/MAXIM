@@ -1,3 +1,22 @@
+---
+maxim_schema: maxim.frontmatter.v1
+id: maxim:electronics:amplifiers
+kind: guide
+module: electronics
+section: electronics
+title: 04 - Amplifiers: BJT, MOSFET, Differential Pair, Feedback
+status: source-custody
+source_custody: partial
+current_path: electronics/04-AMPLIFIERS.md
+canonical_path: electronics/04-AMPLIFIERS.md
+backsource_ids: [proof-backfill:electronics:04-amplifiers, git-history:electronics:04-amplifiers]
+concepts: [amplifiers]
+root_concepts: [amplifiers]
+index_roles: [guide, root-concept]
+remap_from: []
+remap_to: []
+updated: null
+---
 # 04 — Amplifiers: BJT, MOSFET, Differential Pair, Feedback
 
 ```

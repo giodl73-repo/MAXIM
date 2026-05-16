@@ -1,0 +1,237 @@
+{
+  "schema_version": "1",
+  "source_markdown": "electronics\\07-2D-DSP.md",
+  "blocks": [
+    {
+      "id": "block-1",
+      "kind": "diagram_like",
+      "line": 22,
+      "heading_context": "# 07 — 2-D Digital Signal Processing",
+      "confidence": "candidate",
+      "text": "2D DSP LANDSCAPE\n═══════════════════════════════════════════════════════════════════════════════\n\n  1D DSP:  x[n]  →  X(e^(jω))     — one frequency axis ω\n  2D DSP:  x[m,n] → X(e^(jω₁), e^(jω₂))  — two frequency axes ω₁, ω₂\n\n  ┌────────────────────────────────────────────────────────────────────┐\n  │  SPATIAL DOMAIN            FREQUENCY DOMAIN                        │\n  │  x[m,n] — image pixels     X(ω₁,ω₂) — 2D spectrum                  │\n  │                                                                    │\n  │  Convolution (2D)          Multiplication (pointwise)              │\n  │  y[m,n] = x[m,n] ** h[m,n]  Y = X · H                              │\n  │                                                                    │\n  │  Separable systems:        H(ω₁,ω₂) = H₁(ω₁) · H₂(ω₂)              │\n  │  → row-by-row 1D then column-by-column 1D                          │\n  └────────────────────────────────────────────────────────────────────┘\n\n  Applications:\n    Image filtering (blur, sharpen, edge detect)\n    MRI k-space reconstruction\n    CT reconstruction (filtered backprojection)\n    Seismic array processing\n    Optical diffraction (far-field = 2D FT of aperture)\n\n  6.003 bridge: everything from 1D carries over with (m,n) indices.\n  Standard MIT 6.003/6.341 material — the value-add here is MRI k-space\n  reconstruction, CT filtered backprojection, and compressed sensing.",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-2",
+      "kind": "chart_like",
+      "line": 71,
+      "heading_context": "### Notation and Indexing",
+      "confidence": "candidate",
+      "text": "### 2D LTI Systems",
+      "notes": [
+        "detected from bar/chart glyph density with numeric labels"
+      ]
+    },
+    {
+      "id": "block-3",
+      "kind": "chart_like",
+      "line": 117,
+      "heading_context": "### Separability and Computational Efficiency",
+      "confidence": "candidate",
+      "text": "### Circular Convolution in 2D",
+      "notes": [
+        "detected from bar/chart glyph density with numeric labels"
+      ]
+    },
+    {
+      "id": "block-4",
+      "kind": "ascii_table_candidate",
+      "line": 119,
+      "heading_context": "### Circular Convolution in 2D",
+      "confidence": "candidate",
+      "text": "  DFT computes circular (not linear) convolution:\n    Y[k,l] = X[k,l] · H[k,l]  →  y[m,n] = x[m,n] ⊛ h[m,n]  (circular)\n\n  For linear convolution via DFT:\n    Pad x and h with zeros so output size = (M+P-1) × (N+Q-1)\n    where x is M×N and h is P×Q.\n    Then zero-padded 2D DFT product → IDFT = linear convolution.",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-5",
+      "kind": "chart_like",
+      "line": 129,
+      "heading_context": "### Circular Convolution in 2D",
+      "confidence": "candidate",
+      "text": "### Parseval's Theorem (2D)",
+      "notes": [
+        "detected from bar/chart glyph density with numeric labels"
+      ]
+    },
+    {
+      "id": "block-6",
+      "kind": "ascii_table_candidate",
+      "line": 143,
+      "heading_context": "### Direct Computation",
+      "confidence": "candidate",
+      "text": "  y[m,n] = Σₖ Σₗ x[k,l] h[m-k, n-l]\n\n  For image x of size M×N and kernel h of size P×Q:\n    Output size (linear): (M+P-1) × (N+Q-1)\n    Operations: MN × PQ multiplications — O(MN·PQ)\n\n  Practical:\n    Small kernels (3×3, 5×5, 7×7): direct is fast (few operations per pixel)\n    Large kernels (blur σ=50 on 4K image): FFT method vastly faster\n    Crossover: roughly when P×Q > log(MN)",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-7",
+      "kind": "diagram_like",
+      "line": 179,
+      "heading_context": "### Separable Kernels",
+      "confidence": "candidate",
+      "text": "  If h[m,n] = h₁[m] · h₂[n], the kernel is separable.\n\n  2D convolution with separable kernel:\n    y = x ** h = (x convolved with h₁ along rows) convolved with h₂ along columns\n\n  Operations: MN(P+Q) instead of MN·PQ — major savings for large kernels.\n  Gaussian is separable: G₂D(m,n) = G₁D(m) · G₁D(n).\n  Sobel is not separable as one step, but can be decomposed.\n\n  Test for separability: h is separable iff rank(h as matrix) = 1\n    → SVD: σ₁ only nonzero → h = u₁ v₁ᵀ (outer product of two 1D filters)",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-8",
+      "kind": "diagram_like",
+      "line": 216,
+      "heading_context": "### Frequency Domain Visualization",
+      "confidence": "candidate",
+      "text": "  |X(ω₁, ω₂)|:  magnitude spectrum\n  ∠X(ω₁, ω₂):  phase spectrum\n\n  Typical image spectrum after fftshift (DC at center):\n  ┌─────────────────────────────────┐\n  │                                 │\n  │          High freq              │\n  │      (corners of spectrum)      │\n  │                                 │\n  │         ╔═══════╗               │\n  │         ║  DC   ║               │\n  │         ║ center║               │\n  │         ╚═══════╝               │\n  │                                 │\n  │    Low freq near center         │\n  └─────────────────────────────────┘\n  Cross pattern: horizontal/vertical lines in image\n  → horizontal/vertical high-amplitude frequencies\n\n  Phase encodes structure (edges, shapes).\n  Magnitude encodes energy distribution.\n  Phase-swap experiment: swap phases of two images → result looks like\n  the phase donor, even with the magnitude of the other.",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-9",
+      "kind": "chart_like",
+      "line": 242,
+      "heading_context": "### Frequency Domain Visualization",
+      "confidence": "candidate",
+      "text": "### Ideal Filters in 2D",
+      "notes": [
+        "detected from bar/chart glyph density with numeric labels"
+      ]
+    },
+    {
+      "id": "block-10",
+      "kind": "diagram_like",
+      "line": 244,
+      "heading_context": "### Ideal Filters in 2D",
+      "confidence": "candidate",
+      "text": "  Low-pass filter (circular):\n    H(ω₁,ω₂) = 1 if √(ω₁²+ω₂²) < ωc, else 0\n    → blurs image (removes fine detail)\n    Impulse response: 2D jinc (J₁(r)/r) — Bessel function variant\n\n  High-pass filter: H_HP = 1 - H_LP\n    → enhances edges, removes smooth background\n\n  Band-pass: H_LP_high - H_LP_low\n    → isolates specific spatial frequency range",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-11",
+      "kind": "ascii_table_candidate",
+      "line": 282,
+      "heading_context": "### Edge Detection",
+      "confidence": "candidate",
+      "text": "  Edges = image gradients. Two approaches:\n\n  1. Gradient filter then threshold:\n    Gx = Sobel_x * image   (horizontal gradient)\n    Gy = Sobel_y * image   (vertical gradient)\n    |G| = √(Gx² + Gy²)     (gradient magnitude)\n    θ = arctan(Gy/Gx)       (gradient direction)\n    Threshold |G| > T: edge pixels\n\n  2. Laplacian of Gaussian (LoG):\n    LoG(x,y) = -1/(πσ⁴)(1-(x²+y²)/2σ²) e^(-(x²+y²)/2σ²)\n    Convolution with LoG → zero-crossings are edges\n    Smoothed (Gaussian) first → \"Marr-Hildreth edge detector\"\n\n  3. Canny edge detector (standard):\n    a. Gaussian smooth\n    b. Gradient magnitude and direction\n    c. Non-maximum suppression (thin edges to 1 pixel)\n    d. Double threshold + hysteresis (connect weak edges to strong)\n    Best edge detector in practice; most implementations use it.",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-12",
+      "kind": "diagram_like",
+      "line": 307,
+      "heading_context": "### Frequency Domain Image Enhancement",
+      "confidence": "candidate",
+      "text": "  Homomorphic filtering (illumination/reflectance separation):\n    f(x,y) = i(x,y) · r(x,y)   (illumination × reflectance)\n    log f = log i + log r        (additive)\n    FT, apply HPF to reduce i (low freq), boost r (high freq), IFFT, exp\n\n  Wiener filter (deblurring with noise):\n    Observed: G(u,v) = H(u,v)·F(u,v) + N(u,v)\n    Wiener: F̂(u,v) = [H*(u,v) / (|H|² + Snn/Sff)] · G(u,v)\n    Balances deblurring (invert H) vs noise amplification.\n    When SNR → ∞: becomes H*(u,v)/|H(u,v)|² (inverse filter)\n    When SNR → 0: output → 0 (don't trust blurry data)",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-13",
+      "kind": "diagram_like",
+      "line": 325,
+      "heading_context": "## Engineering Bridge: 2D Convolution and Neural Networks",
+      "confidence": "candidate",
+      "text": "2D DSP OPERATION                  CNN EQUIVALENT\n──────────────────────────────────────────────────────────────────────────────\n2D convolution kernel h[m,n]      Learned filter (weight matrix) in conv layer\n  fixed, designed by engineer      learned via backpropagation from data\n\ny[m,n] = x[m,n] ** h[m,n]        Feature map = input ** kernel\n  cross-correlation (technically)   CNN \"convolution\" is actually cross-correlation\n  slide kernel, multiply-accumulate same multiply-accumulate, same separability\n\nMultiple kernels in parallel      Multiple output channels (filters per layer)\n  edge detect, blur, sharpen        each channel learns a different feature\n\nFFT-based fast convolution        cuDNN uses Winograd or FFT for large kernels\n  O(MN log MN) vs O(MN·PQ)         same complexity tradeoff applies\n──────────────────────────────────────────────────────────────────────────────",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-14",
+      "kind": "diagram_like",
+      "line": 365,
+      "heading_context": "### k-Space Trajectories",
+      "confidence": "candidate",
+      "text": "  Cartesian (standard EPI, spin echo):\n    Fill k-space row by row.\n    kx swept rapidly (frequency encode), ky stepped between echoes (phase encode).\n\n  Radial:\n    Collect spokes at angles 0,...,π.\n    Golden-angle increment: θₙ = n·111.25°\n    → uniform coverage as more spokes added.\n    Motion-robust (center of k-space oversampled).\n\n  Spiral:\n    kx(t) = α(t)cos(ω(t)), ky(t) = α(t)sin(ω(t))\n    Very fast acquisition.\n    Sensitive to off-resonance (chemical shift, B₀ inhomogeneity).\n\n  ┌─────────────────────────────────────────────────────┐\n  │  k-SPACE REGIONS AND IMAGE FEATURES                 │\n  │                                                     │\n  │  Center of k-space (low k): contrast, large features │\n  │  Periphery (high k): edges, fine detail             │\n  │                                                     │\n  │  Missing center → blurry, low contrast              │\n  │  Missing periphery → smooth, loss of detail         │\n  │                                                     │\n  │  Corrupted k-space line → striping artifact         │\n  │  (FT of a single point = sinusoid across image)     │\n  └─────────────────────────────────────────────────────┘",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-15",
+      "kind": "diagram_like",
+      "line": 418,
+      "heading_context": "### Projection-Slice Theorem",
+      "confidence": "candidate",
+      "text": "  For 2D object f(x,y):\n  Projection at angle θ: p_θ(t) = ∫ f(x,y) ds  (line integral at angle θ)\n\n  Projection-slice (Fourier slice) theorem:\n    FT{p_θ(t)} = F(u,v)|_{line through origin at angle θ}\n\n  = The 1D Fourier transform of a projection at angle θ equals\n    a slice through the 2D Fourier transform of f at that angle.\n\n  Strategy: collect projections at many angles → fill 2D Fourier space → 2D IFFT",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-16",
+      "kind": "chart_like",
+      "line": 462,
+      "heading_context": "## 8. DCT and Image Compression",
+      "confidence": "candidate",
+      "text": "### 2D DCT-II (Used in JPEG)",
+      "notes": [
+        "detected from bar/chart glyph density with numeric labels"
+      ]
+    },
+    {
+      "id": "block-17",
+      "kind": "diagram_like",
+      "line": 480,
+      "heading_context": "### JPEG Compression Flow",
+      "confidence": "candidate",
+      "text": "  Encode:\n  Image → 8×8 blocks → 2D DCT → Quantize (divide by Q table) →\n  Zigzag scan → Run-length + Huffman encode → Bitstream\n\n  Decode:\n  Bitstream → Huffman decode → Inverse zigzag → Dequantize →\n  2D IDCT → Reconstruct image\n\n  Quantization:\n    DCT coefficients divided by quality-dependent step size Q[k,l].\n    Human Visual System (HVS) weights: high-freq coefficients use larger Q.\n    Lossy step: integer rounding of X[k,l]/Q[k,l].\n\n  Blocking artifact:\n    At low quality (high Q), high-frequency coefficients zeroed.\n    8×8 block boundaries become visible.\n    Fix: JPEG2000 uses wavelet (no block boundaries).\n    Fix: In-loop deblocking filter in H.264/265.",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-18",
+      "kind": "chart_like",
+      "line": 501,
+      "heading_context": "### JPEG Compression Flow",
+      "confidence": "candidate",
+      "text": "### JPEG 2000 — Wavelet-Based",
+      "notes": [
+        "detected from bar/chart glyph density with numeric labels"
+      ]
+    },
+    {
+      "id": "block-19",
+      "kind": "chart_like",
+      "line": 523,
+      "heading_context": "### Gaussian Pyramid",
+      "confidence": "candidate",
+      "text": "  Level 0: original image I₀\n  Level k: I_{k+1} = downsample(Gaussian_blur(Iₖ))\n    - Blur with σ_k before downsampling (anti-aliasing)\n    - Each level ½ the resolution\n\n  ┌────────────────────────────────────┐\n  │  ████████████████   level 0 (full) │\n  │      ████████       level 1 (1/2)  │\n  │        ████         level 2 (1/4)  │\n  │         ██          level 3 (1/8)  │\n  └────────────────────────────────────┘\n\n  Used in: image blending, optical flow, feature detection at multiple scales.",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-20",
+      "kind": "chart_like",
+      "line": 550,
+      "heading_context": "### Laplacian Pyramid",
+      "confidence": "candidate",
+      "text": "### 2D Discrete Wavelet Transform",
+      "notes": [
+        "detected from bar/chart glyph density with numeric labels"
+      ]
+    },
+    {
+      "id": "block-21",
+      "kind": "diagram_like",
+      "line": 552,
+      "heading_context": "### 2D Discrete Wavelet Transform",
+      "confidence": "candidate",
+      "text": "  One level: apply 1D DWT to each row, then to each column.\n  Produces four subbands:\n    LL: low-low (coarse approximation) → recursively decompose\n    LH: low-high (horizontal edges, vertical oscillation)\n    HL: high-low (vertical edges, horizontal oscillation)\n    HH: high-high (diagonal features, noise)\n\n  ┌──────┬──────┐\n  │      │      │\n  │  LL  │  LH  │\n  │      │      │\n  ├──────┼──────┤\n  │      │      │\n  │  HL  │  HH  │\n  │      │      │\n  └──────┴──────┘\n\n  After one 2D DWT:\n    LL = coarse, blurry\n    LH = horizontal detail\n    HL = vertical detail\n    HH = diagonal detail\n\n  Apply recursively to LL subband → full multi-resolution decomposition.",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    }
+  ]
+}
