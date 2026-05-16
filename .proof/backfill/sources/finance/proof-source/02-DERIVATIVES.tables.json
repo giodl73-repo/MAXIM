@@ -1,0 +1,63 @@
+{
+  "schema_version": "1",
+  "source_markdown": "finance\\02-DERIVATIVES.md",
+  "tables": [
+    {
+      "id": "table-1",
+      "line": 499,
+      "heading_context": "## Decision Cheat Sheet",
+      "headers": [
+        "If you need to diagnose...",
+        "Start With",
+        "Tooling / Caveat"
+      ],
+      "rows": [
+        [
+          "European vanilla option price",
+          "Replication / risk-neutral expectation",
+          "Black-Scholes as quoting convention; vol is the live input"
+        ],
+        [
+          "Delta hedge ratio",
+          "First derivative of option value",
+          "Delta changes with spot; gamma tells you how fast"
+        ],
+        [
+          "Apparent option mispricing",
+          "Implied vol vs expected realized vol",
+          "Include skew, term structure, dividends, rates, and transaction costs"
+        ],
+        [
+          "American exercise value",
+          "Continuation value vs intrinsic value",
+          "Binomial/finite-difference/LSM; early exercise is an optimal-stopping problem"
+        ],
+        [
+          "Discrete dividends",
+          "Forward adjustment and exercise incentives",
+          "Dividends can make early call exercise rational"
+        ],
+        [
+          "Exotic payoff",
+          "Path dependence and dimensionality",
+          "Monte Carlo for paths/high dimension; PDE/tree for low dimension"
+        ],
+        [
+          "Portfolio sensitivities",
+          "Greeks aggregation",
+          "Delta/gamma/vega/theta/rho are local approximations, not stress tests"
+        ],
+        [
+          "Volatility skew",
+          "Market-implied surface",
+          "Heston/SABR/local vol fit prices; they do not make tails disappear"
+        ],
+        [
+          "Interest-rate swap",
+          "Fixed leg vs floating leg PV",
+          "Swap rate is the fixed coupon that makes value zero at inception"
+        ]
+      ]
+    }
+  ]
+}

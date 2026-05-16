@@ -1,0 +1,58 @@
+{
+  "schema_version": "1",
+  "source_markdown": "finance\\04-RISK-MODELS.md",
+  "tables": [
+    {
+      "id": "table-1",
+      "line": 563,
+      "heading_context": "## Decision Cheat Sheet",
+      "headers": [
+        "If you need to diagnose...",
+        "Start With",
+        "Failure Mode"
+      ],
+      "rows": [
+        [
+          "Meaning of VaR",
+          "Quantile of the loss distribution",
+          "Says nothing about severity beyond the threshold"
+        ],
+        [
+          "Why VaR failed",
+          "Tail blindness, non-subadditivity, pro-cyclicality",
+          "Smooth history can hide cliff risk"
+        ],
+        [
+          "Regulatory market risk",
+          "Expected Shortfall under FRTB",
+          "ES still depends on model, window, liquidity horizon, and stress calibration"
+        ],
+        [
+          "Internal limits",
+          "VaR plus stress/scenario limits",
+          "VaR remains useful as one dashboard number, not as a safety guarantee"
+        ],
+        [
+          "Fat tails",
+          "EVT / peaks-over-threshold",
+          "Threshold choice and sample scarcity dominate error"
+        ],
+        [
+          "Joint crashes",
+          "t-copula or other tail-dependent dependence model",
+          "Gaussian copula has zero tail dependence"
+        ],
+        [
+          "Liquidity risk",
+          "Market liquidity plus funding liquidity",
+          "Funding spirals convert mark-to-market losses into forced sales"
+        ],
+        [
+          "Stress testing",
+          "Historical and hypothetical scenarios plus reverse stress",
+          "The unseen scenario is usually the one that matters most"
+        ]
+      ]
+    }
+  ]
+}

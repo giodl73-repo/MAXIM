@@ -1,3 +1,22 @@
+---
+maxim_schema: maxim.frontmatter.v1
+id: maxim:control-theory:adaptive-control
+kind: guide
+module: control-theory
+section: control-theory
+title: Adaptive Control
+status: source-custody
+source_custody: partial
+current_path: control-theory/08-ADAPTIVE-CONTROL.md
+canonical_path: control-theory/08-ADAPTIVE-CONTROL.md
+backsource_ids: [proof-backfill:control-theory:08-adaptive-control, git-history:control-theory:08-adaptive-control]
+concepts: [adaptive, control]
+root_concepts: [adaptive, control]
+index_roles: [guide, root-concept]
+remap_from: []
+remap_to: []
+updated: null
+---
 # Adaptive Control
 
 ## The Big Picture

@@ -1,3 +1,22 @@
+---
+maxim_schema: maxim.frontmatter.v1
+id: maxim:finance:risk-models
+kind: guide
+module: finance
+section: finance
+title: Risk Models - VaR, CVaR, Stress Testing and Systemic Risk
+status: source-custody
+source_custody: partial
+current_path: finance/04-RISK-MODELS.md
+canonical_path: finance/04-RISK-MODELS.md
+backsource_ids: [proof-backfill:finance:04-risk-models, git-history:finance:04-risk-models]
+concepts: [risk, models]
+root_concepts: [risk, models]
+index_roles: [guide, root-concept]
+remap_from: []
+remap_to: []
+updated: null
+---
 # Risk Models — VaR, CVaR, Stress Testing & Systemic Risk
 
 ## The Big Picture

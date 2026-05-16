@@ -1,3 +1,22 @@
+---
+maxim_schema: maxim.frontmatter.v1
+id: maxim:control-theory:nonlinear-control
+kind: guide
+module: control-theory
+section: control-theory
+title: Nonlinear Control
+status: source-custody
+source_custody: partial
+current_path: control-theory/06-NONLINEAR-CONTROL.md
+canonical_path: control-theory/06-NONLINEAR-CONTROL.md
+backsource_ids: [proof-backfill:control-theory:06-nonlinear-control, git-history:control-theory:06-nonlinear-control]
+concepts: [nonlinear, control]
+root_concepts: [nonlinear, control]
+index_roles: [guide, root-concept]
+remap_from: []
+remap_to: []
+updated: null
+---
 # Nonlinear Control
 
 ## The Big Picture

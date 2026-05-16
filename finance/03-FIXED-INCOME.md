@@ -1,3 +1,22 @@
+---
+maxim_schema: maxim.frontmatter.v1
+id: maxim:finance:fixed-income
+kind: guide
+module: finance
+section: finance
+title: Fixed Income - Bonds, Yield Curves and Interest Rate Models
+status: source-custody
+source_custody: partial
+current_path: finance/03-FIXED-INCOME.md
+canonical_path: finance/03-FIXED-INCOME.md
+backsource_ids: [proof-backfill:finance:03-fixed-income, git-history:finance:03-fixed-income]
+concepts: [fixed, income]
+root_concepts: [fixed, income]
+index_roles: [guide, root-concept]
+remap_from: []
+remap_to: []
+updated: null
+---
 # Fixed Income — Bonds, Yield Curves & Interest Rate Models
 
 ## The Big Picture

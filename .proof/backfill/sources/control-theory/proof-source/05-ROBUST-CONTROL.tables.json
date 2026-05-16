@@ -1,0 +1,48 @@
+{
+  "schema_version": "1",
+  "source_markdown": "control-theory\\05-ROBUST-CONTROL.md",
+  "tables": [
+    {
+      "id": "table-1",
+      "line": 340,
+      "heading_context": "## Decision Cheat Sheet",
+      "headers": [
+        "If you need to diagnose...",
+        "Start With",
+        "Key Caveat"
+      ],
+      "rows": [
+        [
+          "Whether a SISO gain uncertainty is tolerable",
+          "Classical margins or `H∞` sensitivity minimization",
+          "Margins summarize only certain uncertainty shapes"
+        ],
+        [
+          "Whether multiple independent uncertainties matter",
+          "`μ`-synthesis with structured `Δ`",
+          "D-K iteration is nonconvex and can settle at a local design"
+        ],
+        [
+          "Whether unmodeled high-frequency dynamics threaten stability",
+          "Output multiplicative uncertainty with `W2 T` bound",
+          "Weight choice encodes engineering judgment; bad weights give false comfort"
+        ],
+        [
+          "Whether loop-shaping intuition should be preserved",
+          "McFarlane-Glover coprime loop shaping",
+          "The guarantee is for coprime uncertainty, not arbitrary plant error"
+        ],
+        [
+          "Whether robust stability alone is enough",
+          "Small-gain theorem",
+          "Small gain is sufficient and conservative unless uncertainty is unstructured"
+        ],
+        [
+          "Whether real parameter ranges dominate",
+          "Real-`μ` analysis or robust LMI methods",
+          "Real uncertainty is harder than complex uncertainty and often computationally conservative"
+        ]
+      ]
+    }
+  ]
+}

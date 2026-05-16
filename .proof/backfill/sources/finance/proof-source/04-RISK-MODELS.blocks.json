@@ -1,0 +1,116 @@
+{
+  "schema_version": "1",
+  "source_markdown": "finance\\04-RISK-MODELS.md",
+  "blocks": [
+    {
+      "id": "block-1",
+      "kind": "ascii_table_candidate",
+      "line": 24,
+      "heading_context": "## The Big Picture",
+      "confidence": "candidate",
+      "text": "+------------------------------------------------------------------+\n|                      FINANCIAL RISK LANDSCAPE                    |\n+------------------------------------------------------------------+\n|                                                                    |\n|  RISK TYPES                  MEASUREMENT               MANAGEMENT |\n|  ──────────                  ───────────               ────────── |\n|  Market risk                 Value at Risk (VaR)       Hedging    |\n|  Credit risk                 Expected Shortfall (CVaR) Limits     |\n|  Liquidity risk              Stress testing            Diversif.  |\n|  Operational risk            Scenario analysis         Collateral |\n|  Systemic risk               Greeks (options)          Capital    |\n|                              Copula models             req.       |\n|                                                                    |\n|  REGULATORY FRAMEWORKS                                             |\n|  ────────────────────────────────────────────────────────────    |\n|  Basel III/IV: banking capital requirements                       |\n|  FRTB: Fundamental Review of Trading Book (2025 implementation)   |\n|  Solvency II: insurance capital requirements (EU)                 |\n+------------------------------------------------------------------+",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-2",
+      "kind": "ascii_table_candidate",
+      "line": 142,
+      "heading_context": "## Limitations of VaR",
+      "confidence": "candidate",
+      "text": "WHAT VaR DOES NOT TELL YOU:\n  1. Nothing about the SEVERITY of losses beyond VaR\n     (tail of the distribution is ignored)\n  2. Not subadditive in general:\n     VaR(A+B) ≤ VaR(A) + VaR(B) is FALSE for non-Gaussian\n     → VaR can encourage concentration, penalize diversification!\n  3. Smooth P&L history → low VaR, but hidden tail risk\n\nSUBADDITIVITY FAILURE EXAMPLE:\n  Bond A: 0 with prob 98%, −100 with prob 2%\n  Bond B: same distribution, independent of A\n  VaR₉₉(A) = 0,  VaR₉₉(B) = 0\n  VaR₉₉(A+B) = 100  (portfolio of \"safe\" bonds has VaR > each individually!)\n\nThis led to regulatory shift from VaR to Expected Shortfall.",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-3",
+      "kind": "diagram_like",
+      "line": 200,
+      "heading_context": "## Extreme Value Theory",
+      "confidence": "candidate",
+      "text": "GENERALIZED EXTREME VALUE DISTRIBUTION (GEV):\n  Block maxima theorem (Fisher-Tippett-Gnedenko):\n  Maxima of i.i.d. variables converge (after scaling) to GEV:\n  F(x; μ,σ,ξ) = exp(−(1 + ξ(x-μ)/σ)^{-1/ξ})\n\n  ξ = shape parameter:\n    ξ > 0: Fréchet — heavy tail (power law): financial returns, insurance\n    ξ = 0: Gumbel — light exponential tail: normal, log-normal\n    ξ < 0: Weibull — bounded tail: unusual in finance\n\nGENERALIZED PARETO DISTRIBUTION (GPD):\n  Peaks over threshold (POT) method — preferred for VaR/ES:\n  P(X > u + y | X > u) → GPD as threshold u → ∞\n\n  Fit GPD to tail observations beyond threshold u:\n  F_tail(x) ≈ 1 − (Nu/N)(1 + ξ(x-u)/σ)^{-1/ξ}  for x > u\n\n  Then:\n  VaR_α = u + (σ/ξ)[(N/Nu (1-α))^{-ξ} − 1]\n  ES_α = VaR_α / (1-ξ) + (σ-ξu)/(1-ξ)\n\n  Tail index ξ ≈ 0.3 for equity returns (power law tail exponent α_tail ≈ 3)",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-4",
+      "kind": "ascii_table_candidate",
+      "line": 231,
+      "heading_context": "## Copula Models",
+      "confidence": "candidate",
+      "text": "SKLAR'S THEOREM:\n  Any joint distribution F(x₁,...,xₙ) = C(F₁(x₁),...,Fₙ(xₙ))\n  C = copula (joint distribution on uniform margins)\n  Marginals Fᵢ and copula C can be chosen independently.\n\nCOMMON COPULAS:\n\n  Gaussian copula: C = Φₙ(Φ⁻¹(u₁),...,Φ⁻¹(uₙ); ρ)\n    Correlation matrix ρ captures dependence.\n    Zero tail dependence — underestimates joint extremes!\n    Infamous: used for CDO pricing (Li 2000); blamed for 2008 crisis.\n\n  t-copula: uses multivariate t distribution with ν degrees of freedom\n    Tail dependence coefficient: λ = 2t_{ν+1}(-√((ν+1)(1-ρ)/(1+ρ)))\n    λ > 0 for any ν < ∞ — correctly captures joint tail risk.\n    Preferred for credit portfolios.\n\n  Clayton copula: C(u,v) = (u^{-θ} + v^{-θ} − 1)^{-1/θ}\n    Lower tail dependence: λ_L = 2^{-1/θ} > 0\n    Left-tail dependent — captures joint crashes.\n    No upper tail dependence.\n\n  Gumbel copula: upper tail dependent — captures joint booms.\n  Frank copula: symmetric, no tail dependence — intermediate.\n\nCOPULA MODEL BUILDING:\n  1. Estimate marginal distributions (empirical or parametric) for each asset\n  2. Map each observation to uniform via probability integral transform uᵢ = Fᵢ(xᵢ)\n  3. Fit copula to uniform margins {uᵢ} using MLE or rank-correlation matching\n  4. Simulate from joint model: simulate copula → inverse transform marginals",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-5",
+      "kind": "diagram_like",
+      "line": 268,
+      "heading_context": "## Stress Testing and Scenario Analysis",
+      "confidence": "candidate",
+      "text": "HISTORICAL SCENARIOS:\n  Apply historical stress periods to current portfolio:\n\n  Event                  S&P 500  IG Spread  Vol (VIX)\n  ────────────────────   ───────  ─────────  ─────────\n  Black Monday 1987      -22.6%   +50 bps    spike to 100\n  LTCM 1998              -20%     +200 bps   spike to 45\n  Dot-com bust 2000-02   -50%     +150 bps   30-40\n  9/11 2001              -14%     +50 bps    spike to 43\n  GFC 2008               -57%     +600 bps   spike to 80\n  COVID crash 2020       -34%     +300 bps   spike to 66\n\nHYPOTHETICAL SCENARIOS:\n  \"What if rates rise 200bp instantaneously?\"\n  \"What if credit spreads widen 300bp while equities fall 30%?\"\n  \"What if USD/EUR drops 20% overnight?\"\n\n  Key: correlation structure during stress ≠ normal times.\n  \"Correlation goes to 1 in a crisis\" — diversification fails when needed most.\n\nREVERSE STRESS TESTING:\n  Work backward: what scenario causes a specific loss (e.g., insolvency)?\n  Useful for identifying hidden vulnerabilities.\n  Required by regulators for systemically important institutions.\n\nBASEL STRESS TESTING (CCAR/DFAST in US):\n  Fed publishes hypothetical adverse scenario annually.\n  Banks must demonstrate sufficient capital to absorb losses.\n  \"Severely adverse scenario\" typically -50% equities, +5% unemployment, deep recession.",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-6",
+      "kind": "diagram_like",
+      "line": 306,
+      "heading_context": "## Systemic Risk",
+      "confidence": "candidate",
+      "text": "SOURCES:\n  Fire sales: forced selling by stressed institutions → prices fall → more stress\n  Contagion: counterparty failures cascade (AIG → multiple banks in 2008)\n  Bank runs: self-fulfilling panic (Bagehot: lend freely at penalty rate)\n  Pro-cyclicality: regulations that amplify cycles (mark-to-market + VaR limits)\n  Too-big-to-fail: implicit government guarantee → excessive risk-taking\n\nMEASUREMENT:\n\n  SRISK (Brownlees-Engle): Capital shortage in crisis scenario\n    SRISK = E[Capital Deficit | crisis]\n          = E[max(0, d·Debt − (1-d)·Equity·(1+crisis_return))]\n    Aggregated across all banks: systemic risk index\n\n  ΔCoVaR (Adrian-Brunnermeier): Marginal contribution to system VaR\n    CoVaR_{system|i} = VaR(system | institution i at its VaR)\n    ΔCoVaR = CoVaR_{system|stress_i} − CoVaR_{system|normal_i}\n\n  CoVaR estimated by quantile regression: easy + interpretable\n\n  MES (Marginal Expected Shortfall): Expected equity loss in market crash\n    MES_i = E[rᵢ | r_m < VaR_{m,α}]\n    Used in systemic risk rankings (V-Lab at NYU Stern)\n\nNETWORK MODELS:\n  Banks linked by interbank loans, derivatives exposures, common asset holdings.\n  Contagion modeled as cascading defaults on exposure network.\n  Eisenberg-Noe model: clearing vector in multilateral netting.\n  DebtRank: weighted network measure of financial distress propagation.",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-7",
+      "kind": "diagram_like",
+      "line": 342,
+      "heading_context": "## Portfolio-Level Risk Framework",
+      "confidence": "candidate",
+      "text": "RISK FACTOR DECOMPOSITION:\n\n  Portfolio P&L = Σᵢ wᵢ rᵢ,  rᵢ = exposure i return\n  Factor model: rᵢ = Σₖ βᵢₖ Fₖ + εᵢ\n\n  Risk decomposition:\n    Systematic risk: exposure to factors Fₖ\n    Idiosyncratic risk: εᵢ (firm-specific, diversifies away)\n\nRISK ATTRIBUTION:\n  Total portfolio variance: σ_p² = wᵀΣw\n  Contribution of asset i: CTVᵢ = wᵢ (Σw)ᵢ / σ_p²  → Σ CTVᵢ = 1\n  Marginal contribution: MCVᵢ = (Σw)ᵢ / σ_p\n\n  Risk-parity: equal risk contribution from each asset\n    wᵢ MCVᵢ = σ_p / n  for all i\n    Solve numerically; results in low-vol assets getting higher weights.\n\nGREEK AGGREGATION:\n  Delta-neutral book: Σ Δᵢ = 0  (total delta)\n  Gamma risk: Σ Γᵢ · σᵢ² (non-linear risk)\n  Vega risk: sensitivity to vol changes\n  Rho: interest rate sensitivity\n  All tracked at portfolio level, hedged to limits.",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-8",
+      "kind": "ascii_table_candidate",
+      "line": 373,
+      "heading_context": "## Regulatory Capital Frameworks",
+      "confidence": "candidate",
+      "text": "BASEL III KEY REQUIREMENTS (simplified):\n  CET1 ratio = CET1 capital / RWA ≥ 4.5%  (+ 2.5% buffer = 7% effective)\n  Tier 1 ratio = Tier 1 capital / RWA ≥ 6%\n  Total capital ratio = Total capital / RWA ≥ 8%\n  Leverage ratio = Tier 1 / total exposure ≥ 3%\n  Liquidity: LCR ≥ 100%, NSFR ≥ 100%\n\n  RWA = Risk-Weighted Assets (credit risk + market risk + operational risk)\n  CET1 = Common Equity Tier 1 (tangible equity, retained earnings)\n\nMARKET RISK CAPITAL (FRTB, 2025):\n  Internal Models Approach (IMA): ES₉₇.₅% × multiplier + stress capital add-on\n  Standardized Approach (SA): sensitivity-based method with prescribed risk weights\n\nSTRESS VaR (SVaR):\n  VaR using 12-month stressed period (e.g., 2008 crisis data)\n  Capital = max(VaR_t, multiplier × avg(60d VaR)) + max(SVaR_t, multiplier × avg(60d SVaR))\n  Multiplier k ≥ 3; increases if backtesting exceptions (regulatory scrutiny)",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-9",
+      "kind": "diagram_like",
+      "line": 454,
+      "heading_context": "## Liquidity Risk",
+      "confidence": "candidate",
+      "text": "TWO TYPES OF LIQUIDITY RISK:\n  Market liquidity: ability to sell an asset without moving its price significantly\n  Funding liquidity: ability to meet cash obligations as they come due\n\nMARKET LIQUIDITY MEASURES:\n\n  BID-ASK SPREAD:\n    s = ask − bid   (direct transaction cost)\n    Percentage spread: s/P (mid-price)\n    Roll (1984) implicit spread from autocovariance of returns:\n      ŝ = 2√(−Cov(Δp_t, Δp_{t-1}))   (no transaction data needed; inferred from prices)\n\n  AMIHUD ILLIQUIDITY (2002):\n    ILLIQ_i = (1/T) Σ_t |r_{i,t}| / VOL_{i,t}\n    Ratio of absolute return to dollar volume: price impact per dollar traded\n    Higher ILLIQ → less liquid (large moves per dollar of trading)\n    Widely used in empirical asset pricing; predicts future returns (liquidity premium)\n\n  MARKET IMPACT MODELS:\n    Temporary impact: h(v) = η × v (Almgren-Chriss) — reverses after trade\n    Permanent impact: g(v) = γ × v — persistent price change\n    Kyle (1985): lambda (price impact coefficient) = √(Σ_ε / Σ_u)\n    where Σ_ε = informed trading variance, Σ_u = noise trading variance\n\n  LIQUIDITY-ADJUSTED VaR (LVaR):\n    LVaR = VaR + Liquidity Cost Adjustment\n    Liquidity cost = ½ × s × |position|   (spread cost to liquidate)\n    Bangia et al. (1999): incorporate bid-ask spread into VaR\n\nFUNDING LIQUIDITY (BRUNNERMEIER-PEDERSEN 2009):\n  Key insight: market liquidity and funding liquidity are mutually reinforcing.\n\n  FUNDING SPIRAL:\n    Asset prices fall → mark-to-market losses\n    → higher haircuts (collateral value falls)\n    → forced sales to meet margin calls\n    → asset prices fall further → ...\n\n  LOSS SPIRAL:\n    Losses → reduced equity → reduced borrowing capacity\n    → forced deleveraging → more asset sales → more losses\n\n  MARGIN SPIRAL:\n    Higher volatility → higher VaR → higher margin requirements\n    → less capacity to hold positions → forced sales → more volatility\n\n  LIQUIDITY CREATION:\n    Banks create liquidity: borrow short (deposits), lend long (loans)\n    Maturity mismatch = run risk (Diamond-Dybvig 1983)\n    Illiquid long assets + liquid short liabilities = fragile by design\n\nREGULATORY RESPONSES:\n  LCR (Liquidity Coverage Ratio): HQLA ≥ 30-day stressed outflows\n    HQLA = High-Quality Liquid Assets (cash, sovereigns, agency bonds)\n    Calibrated to withstand a 30-day stressed scenario\n  NSFR (Net Stable Funding Ratio): Available Stable Funding ≥ Required Stable Funding\n    Addresses structural liquidity mismatch (longer-term view than LCR)\n\nLIQUIDITY RISK IN ASSET MANAGEMENT:\n  Open-end fund liquidity mismatch: daily redemption rights + illiquid holdings\n  Swing pricing: NAV adjusted by redemption costs → discourages runs\n  Redemption gates: emergency halt on withdrawals (used in 2020 bond fund stress)\n  FSOC monitoring: third-party fund liquidity risk taxonomy (US, post-2010)",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-10",
+      "kind": "diagram_like",
+      "line": 528,
+      "heading_context": "## FRTB Implementation Status (moving target)",
+      "confidence": "candidate",
+      "text": "FRTB HISTORY AND CURRENT STATUS:\n  Basel Committee first published FRTB: January 2016\n  Original implementation target: January 2019\n  Revised: January 2022 (after multiple delays)\n  Basel deadline (final): January 2025\n\n  IMPLEMENTATION PATTERN:\n  EU/UK/Japan/Canada/Australia: moving through local rulemaking and phased\n        implementation, with IMA subject to supervisory approval and many desks\n        initially using SA.\n  US:   Basel III endgame proposal faces material revision and delayed timing.\n\n  KEY CHANGES FROM BASEL 2.5 TO FRTB:\n  1. Replace VaR₉₉% with ES₉₇.₅% (Expected Shortfall with stressed calibration)\n  2. Internal Models Approach (IMA): requires P&L attribution test (PLAT)\n     and risk factor eligibility — stricter eligibility criteria than Basel 2.5\n  3. Standardized Approach (SA): sensitivity-based method; more granular than old SA\n     SA replaces old standardized and is floor for IMA banks (72.5% SA floor overall)\n  4. Boundary between banking book and trading book: stricter definition\n  5. Trading desk level: capital computed at desk level, not just firm level\n\n  PRACTICAL IMPACT:\n  IMA approval harder → many desks moved to SA (higher capital for complex products)\n  CVA capital revised (CVA framework also updated under FRTB)\n  Increased transparency requirements: more frequent reporting, more granular risk factors\n\n  Note: Firms with cross-border operations face jurisdictional inconsistency.\n  Check current BIS and local regulator guidance for latest status.",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    }
+  ]
+}

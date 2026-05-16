@@ -1,0 +1,48 @@
+{
+  "schema_version": "1",
+  "source_markdown": "control-theory\\07-MPC.md",
+  "tables": [
+    {
+      "id": "table-1",
+      "line": 341,
+      "heading_context": "## Decision Cheat Sheet",
+      "headers": [
+        "If you need to diagnose...",
+        "Start With",
+        "Key Caveat"
+      ],
+      "rows": [
+        [
+          "Whether a constrained linear plant fits standard MPC",
+          "Linear MPC with a condensed or sparse QP",
+          "Hard real-time feasibility depends on solver latency and warm starts"
+        ],
+        [
+          "Whether nonlinear dynamics can be optimized online",
+          "NMPC with multiple shooting and automatic differentiation",
+          "Convergence and model fidelity are part of the controller, not implementation details"
+        ],
+        [
+          "Whether nonlinear fast dynamics need one-step updates",
+          "RTI-NMPC with a single SQP iteration",
+          "RTI is suboptimal and needs contraction assumptions for stability"
+        ],
+        [
+          "Whether embedded runtime cannot solve QPs",
+          "Explicit MPC with offline piecewise-affine regions",
+          "Region count grows rapidly with state dimension and constraints"
+        ],
+        [
+          "Whether the objective is economic rather than tracking",
+          "Economic MPC with dissipativity arguments",
+          "Stability is no longer automatic from a quadratic tracking cost"
+        ],
+        [
+          "Whether stability needs a formal guarantee",
+          "Terminal cost, terminal set, and sufficient horizon `N`",
+          "Feasibility alone is not stability, and longer horizons cost computation"
+        ]
+      ]
+    }
+  ]
+}

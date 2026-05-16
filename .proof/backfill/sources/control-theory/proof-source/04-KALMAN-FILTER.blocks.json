@@ -1,0 +1,61 @@
+{
+  "schema_version": "1",
+  "source_markdown": "control-theory\\04-KALMAN-FILTER.md",
+  "blocks": [
+    {
+      "id": "block-1",
+      "kind": "ascii_table_candidate",
+      "line": 24,
+      "heading_context": "## The Big Picture",
+      "confidence": "candidate",
+      "text": "+------------------------------------------------------------------+\n|               STATE ESTIMATION LANDSCAPE                         |\n+------------------------------------------------------------------+\n|                                                                    |\n|  PROBLEM:  Estimate x(t) from noisy measurements y(t)            |\n|            when x(t) evolves according to a dynamic model         |\n|                                                                    |\n|  LINEAR + GAUSSIAN        NONLINEAR          NONLINEAR (precise)  |\n|  ──────────────────       ────────────────   ────────────────     |\n|  Kalman Filter (KF)       Extended KF (EKF)  Unscented KF (UKF)  |\n|  Optimal, closed-form     Linearize around   Sigma-point approx  |\n|                           current estimate   3rd order accurate   |\n|                                                                    |\n|  LARGE STATE / PARTICLES  BAYESIAN FRAMEWORK                      |\n|  ─────────────────────    ─────────────────                       |\n|  Particle Filter (PF)     All estimators are Bayesian filters     |\n|  Sequential Monte Carlo   KF = exact Bayes for linear Gaussian    |\n|  Handles multimodal       PF = exact Bayes (approx via samples)   |\n+------------------------------------------------------------------+",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-2",
+      "kind": "diagram_like",
+      "line": 78,
+      "heading_context": "## Kalman Filter Algorithm",
+      "confidence": "candidate",
+      "text": "INITIALIZATION:\n  ̂x[0|-1] = x₀  (prior mean)\n  P[0|-1] = P₀   (prior covariance)\n\n────────────────────────────────────────────────────────────────\nPREDICT (time update):\n  ̂x[k|k-1] = A_d ̂x[k-1|k-1] + B_d u[k-1]    (predicted state)\n  P[k|k-1]  = A_d P[k-1|k-1] A_dᵀ + Q_d       (predicted covariance)\n\n────────────────────────────────────────────────────────────────\nUPDATE (measurement update) — when measurement y[k] arrives:\n\n  Innovation:   ỹ[k] = y[k] − C ̂x[k|k-1]        (prediction error)\n  Innovation cov: S[k] = C P[k|k-1] Cᵀ + R        (innovation uncertainty)\n  Kalman gain:  K[k] = P[k|k-1] Cᵀ S[k]⁻¹         (optimal weighting)\n\n  ̂x[k|k] = ̂x[k|k-1] + K[k] ỹ[k]               (updated estimate)\n  P[k|k]  = (I − K[k]C) P[k|k-1]                (updated covariance)\n\n  Numerically stable form: P[k|k] = (I−KC)P(I−KC)ᵀ + KRKᵀ (Joseph form)\n\n────────────────────────────────────────────────────────────────",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-3",
+      "kind": "diagram_like",
+      "line": 107,
+      "heading_context": "### Interpretation",
+      "confidence": "candidate",
+      "text": "Kalman gain K mediates between model and measurement:\n\n  K → 0  (R large, noisy sensor):    trust the model prediction more\n          ̂x[k|k] ≈ ̂x[k|k-1]\n\n  K → C⁻¹ (R small, perfect sensor): trust measurement\n           ̂x[k|k] ≈ C⁻¹ y[k]\n\n  K = P Cᵀ (C P Cᵀ + R)⁻¹:\n    Numerator P Cᵀ: how uncertain is state × how it affects output\n    Denominator S: total output uncertainty (model + sensor)\n\nGEOMETRIC VIEW:\n  KF is weighted average of prior prediction and measurement.\n  Weights inversely proportional to uncertainties.\n  P[k|k] ≤ P[k|k-1] always (measurement always helps).\n  (In PSD ordering: more information = smaller covariance.)",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-4",
+      "kind": "diagram_like",
+      "line": 299,
+      "heading_context": "## SLAM (Simultaneous Localization and Mapping)",
+      "confidence": "candidate",
+      "text": "PROBLEM: Robot navigates unknown environment.\n  - Estimate robot pose x_r (position + orientation)\n  - Simultaneously build map of landmarks m = {mᵢ}\n  - Observations: range/bearing to landmarks, odometry\n\nSTATE: x = [x_r, m₁, m₂, ..., m_L]ᵀ  (grows as landmarks discovered)\n\nEKF-SLAM:\n  State covariance P captures correlations between robot pose AND map.\n  As map grows: O(L²) covariance → becomes O(L²) cost per step → not scalable.\n\nGRAPH SLAM (modern):\n  Optimize over all past poses + landmarks together.\n  Factor graph formulation: pose-graph optimization.\n  Solves sparse linear system (sparse Cholesky) → O(n) in practice.\n\n  g2o, iSAM2/GTSAM libraries: real-time factor graph optimization.\n\nLIDAR SLAM stack (ROS 2):\n  IMU → dead reckoning (high-freq)\n  LIDAR → scan matching (ICP, NDT, LOAM)\n  GNSS → global anchor (if available)\n  EKF/UKF → fuse all sensors (robot_localization package)",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-5",
+      "kind": "diagram_like",
+      "line": 329,
+      "heading_context": "## Sensor Fusion Architecture",
+      "confidence": "candidate",
+      "text": "LOOSELY COUPLED:\n  Each sensor runs its own filter → fuse output state estimates\n  Simple, handles dropout gracefully\n  Less accurate (discards cross-correlations)\n\nTIGHTLY COUPLED:\n  All sensor measurements fused in one filter\n  Better accuracy (exploits correlations)\n  More complex, harder to maintain\n\nGPS/IMU FUSION:\n  IMU: high-rate (100–1000 Hz), drifts over time (6-DOF: acc + gyro)\n  GPS: low-rate (1–10 Hz), absolute position, noisy\n  EKF: IMU = process model (predict), GPS = measurement (update)\n  INS: Inertial Navigation System = integrated IMU\n\nCOMPLEMENTARY FILTER:\n  Simple fusion: high-pass-filter IMU + low-pass-filter slower sensor\n  Gyro: good short-term → high-pass (rate integration)\n  Accelerometer: good long-term → low-pass (absolute tilt)\n  Madgwick filter: efficient attitude estimation, widely used in robotics/drones",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    }
+  ]
+}

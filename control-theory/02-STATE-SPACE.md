@@ -1,3 +1,22 @@
+---
+maxim_schema: maxim.frontmatter.v1
+id: maxim:control-theory:state-space
+kind: guide
+module: control-theory
+section: control-theory
+title: State-Space Representation - Modern Control Theory
+status: source-custody
+source_custody: partial
+current_path: control-theory/02-STATE-SPACE.md
+canonical_path: control-theory/02-STATE-SPACE.md
+backsource_ids: [proof-backfill:control-theory:02-state-space, git-history:control-theory:02-state-space]
+concepts: [state, space]
+root_concepts: [state, space]
+index_roles: [guide, root-concept]
+remap_from: []
+remap_to: []
+updated: null
+---
 # State-Space Representation — Modern Control Theory
 
 ## The Big Picture

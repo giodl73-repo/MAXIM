@@ -1,0 +1,94 @@
+{
+  "schema_version": "1",
+  "source_markdown": "finance\\00-OVERVIEW.md",
+  "blocks": [
+    {
+      "id": "block-1",
+      "kind": "ascii_table_candidate",
+      "line": 29,
+      "heading_context": "## The Big Picture",
+      "confidence": "candidate",
+      "text": "+------------------------------------------------------------------+\n|                 QUANTITATIVE FINANCE LANDSCAPE                   |\n+------------------------------------------------------------------+\n|                                                                   |\n|  ASSET PRICING      PORTFOLIO MGMT    RISK MGMT    DERIVATIVES   |\n|  ┌─────────────┐   ┌─────────────┐   ┌─────────┐  ┌─────────┐  |\n|  │ CAPM        │   │ Markowitz   │   │ VaR     │  │ B-S-M   │  |\n|  │ Fama-French │   │ Efficient   │   │ CVaR    │  │ Options │  |\n|  │ APT         │   │ frontier    │   │ Stress  │  │ Greeks  │  |\n|  │ SDF/pricing │   │ Black-Litt. │   │ testing │  │ Exotics │  |\n|  │ kernel      │   │ Factor mdls │   │ Copulas │  │ Hedging │  |\n|  └─────────────┘   └─────────────┘   └─────────┘  └─────────┘  |\n|                                                                   |\n|  FIXED INCOME       MARKET MICRO     COMPUTATIONAL  ML IN FIN   |\n|  ┌─────────────┐   ┌─────────────┐   ┌──────────┐  ┌────────┐  |\n|  │ Bond math   │   │ Order book  │   │ Monte    │  │Factor  │  |\n|  │ Duration    │   │ Bid-ask     │   │ Carlo    │  │models  │  |\n|  │ Yield curve │   │ Price disc. │   │ MCMC     │  │Alt data│  |\n|  │ Vasicek/CIR │   │ HFT         │   │ PDE      │  │NLP/LLM │  |\n|  │ Term struct │   │ Adverse sel │   │ solvers  │  │RL      │  |\n|  └─────────────┘   └─────────────┘   └──────────┘  └────────┘  |\n+------------------------------------------------------------------+",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-2",
+      "kind": "diagram_like",
+      "line": 58,
+      "heading_context": "## Asset Classes",
+      "confidence": "candidate",
+      "text": "ASSET CLASS         DESCRIPTION                      EXAMPLES\n──────────────────  ───────────────────────────────  ──────────────────────────\nEquities (stocks)   Ownership claim on firm cashflows AAPL, SPY, emerging markets\n\nFixed income        Debt instruments with coupon      T-bills, corporate bonds,\n                    and maturity                      MBS, CDS, CDOs\n\nDerivatives         Contracts deriving value from     Options, futures, swaps,\n                    underlying asset                  swaptions, exotics\n\nCommodities         Physical goods or futures         Oil (WTI/Brent), gold,\n                    contracts on them                 agricultural, energy\n\nFX (currencies)     Exchange rate between currencies  EUR/USD, yen carry trade\n\nAlternatives        Non-traditional investments       Private equity, hedge funds,\n                                                      real estate, infrastructure\n\nCrypto              Digital bearer assets             BTC (digital gold narrative),\n                                                      ETH (smart contract platform)",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-3",
+      "kind": "diagram_like",
+      "line": 87,
+      "heading_context": "## Market Microstructure",
+      "confidence": "candidate",
+      "text": "ORDER BOOK (Level 2 data)\n──────────────────────────────────────────────────────────────\n  ASK (sells)                BID (buys)\n  ┌──────────────┐          ┌──────────────┐\n  │ $100.05  10  │          │ $100.00  25  │\n  │ $100.04  30  │          │  $99.99  100 │\n  │ $100.03  15  │ ← Ask    │  $99.98  50  │\n  │ $100.02  50  │          │  $99.97  200 │\n  └──────────────┘          └──────────────┘\nSpread = $100.02 - $100.00 = $0.02 (2 cents)\n\nBest bid shown: $100.00 for 25 units.\nMarket order: executes immediately at best available price\nLimit order: sits in book until match found or cancelled\nMarket maker: provides liquidity both sides; profit = spread × volume\nMarket taker: demands liquidity; pays spread\n\nPrice discovery: the continuous mechanism converting information\n               into prices (Grossman-Stiglitz paradox: if prices\n               are perfectly informative, no one would pay to get\n               information to trade on)",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-4",
+      "kind": "diagram_like",
+      "line": 120,
+      "heading_context": "## Efficient Market Hypothesis (EMH)",
+      "confidence": "candidate",
+      "text": "FORM            CLAIM                           IMPLICATION\n─────────────── ──────────────────────────────  ──────────────────────────────────\nWeak form       Prices reflect all past prices  Technical analysis cannot work\n                (historical return data)         (excess return over buy-and-hold)\n\nSemi-strong     Prices reflect all public info  Fundamental analysis cannot work\n                (earnings, macro data, news)     (no alpha from public research)\n\nStrong form     Prices reflect ALL info,         Even insider information is priced\n                including private                in (empirically false — insider\n                                                 trading laws exist because it works)",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-5",
+      "kind": "diagram_like",
+      "line": 142,
+      "heading_context": "## The Mathematical Toolkit",
+      "confidence": "candidate",
+      "text": "MATH AREA           HOW IT APPEARS IN FINANCE\n────────────────    ──────────────────────────────────────────────────────────\nProbability         Asset return distributions, risk-neutral pricing measure\nStochastic calc.    Itô's lemma, SDEs, Black-Scholes PDE, diffusion models\nOptimization        Markowitz frontier, LQR in execution, convex portfolio opt.\nLinear algebra      Factor models, PCA on returns, covariance matrix estimation\nStatistics          Regression for factor loadings, hypothesis testing returns\nPDEs                Black-Scholes PDE, heat equation ← same PDE after transform\nMonte Carlo         Option pricing (path-dependent), VaR, stress scenarios\nTime series         ARIMA/GARCH for volatility modeling, cointegration for pairs\nGraph theory        Systemic risk network models, contagion\nInformation theory  Entropy in portfolio construction, Kelly criterion\nGame theory         Market microstructure (Cournot-Nash in oligopolies)",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-6",
+      "kind": "diagram_like",
+      "line": 162,
+      "heading_context": "## Quant vs. Fundamental vs. Systematic",
+      "confidence": "candidate",
+      "text": "STYLE           WHAT THEY DO                        MATH INTENSITY\n─────────────── ────────────────────────────────────────────────────────────\nFundamental     DCF models, qualitative business    Medium — statistics,\n                analysis, sector expertise           basic valuation math\n\nQuantitative    Factor models, stat-arb, alpha       High — regression,\n                research on historical data          ML, time series\n\nHigh-frequency  Microstructure, latency arbitrage,   Extreme — stochastic\n(HFT)           market making, order flow analysis   control, optimization\n\nSystematic      Rule-based execution of signals,     High — signal processing,\nmacro           macro factors (momentum, carry)      econometrics\n\nRisk / quant    VaR, stress testing, CVA/DVA         Very high — stochastic\n(banks)         pricing, regulatory capital           calculus, copulas",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-7",
+      "kind": "diagram_like",
+      "line": 189,
+      "heading_context": "## ML in Finance",
+      "confidence": "candidate",
+      "text": "SIGNAL GENERATION (alpha research):\n  Factor discovery:  LASSO/Ridge on return panel → sparse factor model\n  NLP/LLM:          Sentiment from earnings calls, news, SEC filings\n                    BERT fine-tuned on financial text → earnings surprise signal\n  Alternative data:  Satellite imagery (parking lots → retail foot traffic)\n                    Credit card transaction data → revenue estimates\n                    Web scraping, job postings → hiring/capex signals\n  Earnings forecasts: Gradient boosted trees on fundamentals → improve sell-side forecasts\n\nVOLATILITY AND RISK:\n  GARCH extensions:  Neural network GARCH (LSTM on vol surface)\n  Jump detection:    Changepoint models on intraday data\n  Regime detection:  HMM on macro factors → risk-on/risk-off regimes\n  Correlation modeling: Deep learning on high-dimensional covariance structure\n\nEXECUTION AND MICROSTRUCTURE:\n  Optimal execution: RL for TWAP/VWAP improvement (Almgren-Chriss as baseline)\n  Market impact:     GBM/RF on order book state → price impact prediction\n  HFT signal decay:  Predict how fast an alpha decays post-detection\n  Adverse selection: Classify informed vs. uninformed order flow\n\nLIMITATIONS AND PITFALLS:\n  Small T/large N:   Financial time series are short (decades) relative to features\n  Non-stationarity:  Regime changes invalidate historical training distributions\n  Overfitting:       \"Factor zoo\" problem — 500+ published factors, most spurious\n  Transaction costs: ML signals often too small to survive execution costs at scale\n  Short horizons:    ML dominates. Long horizons (3+ months): classic factors still win.",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-8",
+      "kind": "diagram_like",
+      "line": 267,
+      "heading_context": "## Optimization Toolchain Bridge",
+      "confidence": "candidate",
+      "text": "FROM OPTIMIZATION THEORY → FINANCE PRACTICE:\n\nQuadratic programming (QP):\n  Theory: min xᵀQx + cᵀx  s.t. Ax = b, lb ≤ x ≤ ub\n  Finance: min wᵀΣw − λwᵀμ  s.t. wᵀ1 = 1, wi ≥ 0\n  Tools: cvxpy (Python, convex), Gurobi/CPLEX (commercial), scipy.optimize.minimize\n\n  cvxpy example:\n    import cvxpy as cp\n    w = cp.Variable(n)\n    ret = mu @ w\n    risk = cp.quad_form(w, Sigma)\n    prob = cp.Problem(cp.Maximize(ret - lam * risk),\n                      [cp.sum(w) == 1, w >= 0])\n    prob.solve()\n\nSecond-order cone programming (SOCP):\n  Robust optimization: min wᵀμ - λ||Σ^{1/2}w|| with uncertainty sets\n  Tracking error: ||w - w_bench||_Σ ≤ TE   → SOCP constraint\n  cvxpy handles SOCP automatically; no reformulation needed\n\nInteger programming (MIP):\n  Cardinality constraints: invest in at most K assets\n  Round-lot constraints: integer numbers of shares\n  Tools: Gurobi, CPLEX; cvxpy + GLPK/Gurobi for mixed-integer\n\nStochastic programming:\n  Multi-period portfolio optimization with scenarios\n  ALM (asset-liability matching): match pension liabilities across scenarios\n  Tools: PyStochOpt, MOSEK; custom scenario tree models\n\nLinear programming (LP):\n  Transaction cost optimization (piece-wise linear costs)\n  Index replication (track index with fewer stocks)\n  cvxpy LP: fast, handles 10K+ assets easily\n\nKey libraries (Python ecosystem):\n  cvxpy        — unified convex optimization interface (recommended starting point)\n  scipy.optimize — unconstrained/constrained (BFGS, SLSQP); less scalable\n  Gurobi       — commercial; fastest for large MIP/QP; free academic license\n  MOSEK        — commercial; excellent for cones; used in finance heavily\n  PyPortfolioOpt — portfolio-specific wrappers around cvxpy/scipy\n  riskfolio-lib  — risk parity, HRP, Black-Litterman in Python",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    }
+  ]
+}

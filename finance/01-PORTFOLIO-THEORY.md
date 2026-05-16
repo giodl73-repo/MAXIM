@@ -1,3 +1,22 @@
+---
+maxim_schema: maxim.frontmatter.v1
+id: maxim:finance:portfolio-theory
+kind: guide
+module: finance
+section: finance
+title: Portfolio Theory - Markowitz, CAPM, Factor Models
+status: source-custody
+source_custody: partial
+current_path: finance/01-PORTFOLIO-THEORY.md
+canonical_path: finance/01-PORTFOLIO-THEORY.md
+backsource_ids: [proof-backfill:finance:01-portfolio-theory, git-history:finance:01-portfolio-theory]
+concepts: [portfolio, theory]
+root_concepts: [portfolio, theory]
+index_roles: [guide, root-concept]
+remap_from: []
+remap_to: []
+updated: null
+---
 # Portfolio Theory — Markowitz, CAPM, Factor Models
 
 ## The Big Picture

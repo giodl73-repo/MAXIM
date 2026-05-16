@@ -1,3 +1,22 @@
+---
+maxim_schema: maxim.frontmatter.v1
+id: maxim:control-theory:pid-classical
+kind: guide
+module: control-theory
+section: control-theory
+title: Classical Control - PID, Root Locus, Bode, Nyquist
+status: source-custody
+source_custody: partial
+current_path: control-theory/01-PID-CLASSICAL.md
+canonical_path: control-theory/01-PID-CLASSICAL.md
+backsource_ids: [proof-backfill:control-theory:01-pid-classical, git-history:control-theory:01-pid-classical]
+concepts: [pid, classical]
+root_concepts: [pid, classical]
+index_roles: [guide, root-concept]
+remap_from: []
+remap_to: []
+updated: null
+---
 # Classical Control — PID, Root Locus, Bode, Nyquist
 
 ## The Big Picture

@@ -1,3 +1,22 @@
+---
+maxim_schema: maxim.frontmatter.v1
+id: maxim:finance:derivatives
+kind: guide
+module: finance
+section: finance
+title: Derivatives - Options, Black-Scholes, Greeks, Risk-Neutral Pricing
+status: source-custody
+source_custody: partial
+current_path: finance/02-DERIVATIVES.md
+canonical_path: finance/02-DERIVATIVES.md
+backsource_ids: [proof-backfill:finance:02-derivatives, git-history:finance:02-derivatives]
+concepts: [derivatives]
+root_concepts: [derivatives]
+index_roles: [guide, root-concept]
+remap_from: []
+remap_to: []
+updated: null
+---
 # Derivatives — Options, Black-Scholes, Greeks, Risk-Neutral Pricing
 
 ## The Big Picture

@@ -1,3 +1,22 @@
+---
+maxim_schema: maxim.frontmatter.v1
+id: maxim:control-theory:overview
+kind: guide
+module: control-theory
+section: control-theory
+title: Control Theory - Field Map and Orientation
+status: source-custody
+source_custody: partial
+current_path: control-theory/00-OVERVIEW.md
+canonical_path: control-theory/00-OVERVIEW.md
+backsource_ids: [proof-backfill:control-theory:00-overview, git-history:control-theory:00-overview]
+concepts: [overview]
+root_concepts: [overview]
+index_roles: [guide, root-concept]
+remap_from: []
+remap_to: []
+updated: null
+---
 # Control Theory — Field Map & Orientation
 
 ## The Big Picture

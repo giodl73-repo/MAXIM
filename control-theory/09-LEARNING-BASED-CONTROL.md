@@ -1,3 +1,22 @@
+---
+maxim_schema: maxim.frontmatter.v1
+id: maxim:control-theory:learning-based-control
+kind: guide
+module: control-theory
+section: control-theory
+title: Learning-Based and Data-Driven Control
+status: source-custody
+source_custody: partial
+current_path: control-theory/09-LEARNING-BASED-CONTROL.md
+canonical_path: control-theory/09-LEARNING-BASED-CONTROL.md
+backsource_ids: [proof-backfill:control-theory:09-learning-based-control, git-history:control-theory:09-learning-based-control]
+concepts: [learning, based, control]
+root_concepts: [learning, based]
+index_roles: [guide, root-concept]
+remap_from: []
+remap_to: []
+updated: null
+---
 # Learning-Based and Data-Driven Control
 
 ## The Big Picture
