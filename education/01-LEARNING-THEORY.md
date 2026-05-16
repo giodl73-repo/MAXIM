@@ -1,3 +1,22 @@
+---
+maxim_schema: maxim.frontmatter.v1
+id: maxim:education:learning-theory
+kind: guide
+module: education
+section: education
+title: Learning Theory: Behaviorism to Constructivism
+status: source-custody
+source_custody: partial
+current_path: education/01-LEARNING-THEORY.md
+canonical_path: education/01-LEARNING-THEORY.md
+backsource_ids: [proof-backfill:education:01-learning-theory, git-history:education:01-learning-theory]
+concepts: [learning, theory]
+root_concepts: [learning, theory]
+index_roles: [guide, root-concept]
+remap_from: []
+remap_to: []
+updated: null
+---
 # Learning Theory: Behaviorism to Constructivism
 
 ## The Big Picture

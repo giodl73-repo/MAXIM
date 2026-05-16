@@ -1,3 +1,22 @@
+---
+maxim_schema: maxim.frontmatter.v1
+id: maxim:education:assessment
+kind: guide
+module: education
+section: education
+title: Assessment: Formative, Summative, and Authentic
+status: source-custody
+source_custody: partial
+current_path: education/05-ASSESSMENT.md
+canonical_path: education/05-ASSESSMENT.md
+backsource_ids: [proof-backfill:education:05-assessment, git-history:education:05-assessment]
+concepts: [assessment]
+root_concepts: [assessment]
+index_roles: [guide, root-concept]
+remap_from: []
+remap_to: []
+updated: null
+---
 # Assessment: Formative, Summative, and Authentic
 
 ## The Big Picture

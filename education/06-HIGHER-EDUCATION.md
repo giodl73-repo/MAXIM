@@ -1,3 +1,22 @@
+---
+maxim_schema: maxim.frontmatter.v1
+id: maxim:education:higher-education
+kind: guide
+module: education
+section: education
+title: Higher Education: Structure and Crises
+status: source-custody
+source_custody: partial
+current_path: education/06-HIGHER-EDUCATION.md
+canonical_path: education/06-HIGHER-EDUCATION.md
+backsource_ids: [proof-backfill:education:06-higher-education, git-history:education:06-higher-education]
+concepts: [higher, education]
+root_concepts: [higher, education]
+index_roles: [guide, root-concept]
+remap_from: []
+remap_to: []
+updated: null
+---
 # Higher Education: Structure and Crises
 
 ## The Big Picture

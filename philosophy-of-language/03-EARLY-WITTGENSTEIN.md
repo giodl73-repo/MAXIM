@@ -1,3 +1,22 @@
+---
+maxim_schema: maxim.frontmatter.v1
+id: maxim:philosophy-of-language:early-wittgenstein
+kind: guide
+module: philosophy-of-language
+section: philosophy-of-language
+title: Early Wittgenstein: Tractatus and Picture Theory
+status: source-custody
+source_custody: partial
+current_path: philosophy-of-language/03-EARLY-WITTGENSTEIN.md
+canonical_path: philosophy-of-language/03-EARLY-WITTGENSTEIN.md
+backsource_ids: [proof-backfill:philosophy-of-language:03-early-wittgenstein, git-history:philosophy-of-language:03-early-wittgenstein]
+concepts: [early, wittgenstein]
+root_concepts: [early, wittgenstein]
+index_roles: [guide, root-concept]
+remap_from: []
+remap_to: []
+updated: null
+---
 # Early Wittgenstein: Tractatus and Picture Theory
 
 ## The Book and Its Context

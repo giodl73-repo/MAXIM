@@ -1,3 +1,22 @@
+---
+maxim_schema: maxim.frontmatter.v1
+id: maxim:education:future-learning
+kind: guide
+module: education
+section: education
+title: The Future of Learning: AI Tutors and Personalization
+status: source-custody
+source_custody: partial
+current_path: education/09-FUTURE-LEARNING.md
+canonical_path: education/09-FUTURE-LEARNING.md
+backsource_ids: [proof-backfill:education:09-future-learning, git-history:education:09-future-learning]
+concepts: [future, learning]
+root_concepts: [future, learning]
+index_roles: [guide, root-concept]
+remap_from: []
+remap_to: []
+updated: null
+---
 # The Future of Learning: AI Tutors and Personalization
 
 ## The Big Picture

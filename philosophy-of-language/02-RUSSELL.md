@@ -1,3 +1,22 @@
+---
+maxim_schema: maxim.frontmatter.v1
+id: maxim:philosophy-of-language:russell
+kind: guide
+module: philosophy-of-language
+section: philosophy-of-language
+title: Russell: Descriptions and Logical Atomism
+status: source-custody
+source_custody: partial
+current_path: philosophy-of-language/02-RUSSELL.md
+canonical_path: philosophy-of-language/02-RUSSELL.md
+backsource_ids: [proof-backfill:philosophy-of-language:02-russell, git-history:philosophy-of-language:02-russell]
+concepts: [russell]
+root_concepts: [russell]
+index_roles: [guide, root-concept]
+remap_from: []
+remap_to: []
+updated: null
+---
 # Russell: Descriptions and Logical Atomism
 
 ## Russell's Place in the Landscape
@@ -210,16 +229,16 @@ Russell's later metaphysical program, outlined in lectures 1918, influenced by (
 +--------------------------------------------------------------------+
 | TOPIC                  | FREGE                 | RUSSELL           |
 |------------------------|-----------------------|-------------------|
-| Definite descriptions  | Have sense + reference| Incomplete symbols;|
+| Definite descriptions  | Have sense + reference| Incomplete symbols|
 | ("the F")             | like other expressions| no reference at all|
 |------------------------|-----------------------|-------------------|
 | Non-referring terms    | Sentence has sense    | Sentence is FALSE |
-| ("the king of France") | but no truth value    | (existential fails)|
+| ("the king of France") | but no truth value    | existential fails |
 |------------------------|-----------------------|-------------------|
 | Ordinary proper names  | Have sense            | Disguised         |
 | ("Aristotle")          | (mode of presentation)| descriptions      |
 |------------------------|-----------------------|-------------------|
-| Numbers                | Logical objects       | Logical constructs |
+| Numbers                | Logical objects       | Logic constructs  |
 |                        | (extensions of        | (contextual       |
 |                        | concepts)             | definitions)      |
 |------------------------|-----------------------|-------------------|

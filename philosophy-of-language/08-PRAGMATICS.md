@@ -1,3 +1,22 @@
+---
+maxim_schema: maxim.frontmatter.v1
+id: maxim:philosophy-of-language:pragmatics
+kind: guide
+module: philosophy-of-language
+section: philosophy-of-language
+title: Pragmatics: Grice and Implicature
+status: source-custody
+source_custody: partial
+current_path: philosophy-of-language/08-PRAGMATICS.md
+canonical_path: philosophy-of-language/08-PRAGMATICS.md
+backsource_ids: [proof-backfill:philosophy-of-language:08-pragmatics, git-history:philosophy-of-language:08-pragmatics]
+concepts: [pragmatics]
+root_concepts: [pragmatics]
+index_roles: [guide, root-concept]
+remap_from: []
+remap_to: []
+updated: null
+---
 # Pragmatics: Grice and Implicature
 
 ## The Pragmatics Problem
@@ -152,16 +171,16 @@ The key concept: what is IMPLIED but not SAID.
 
 +----------------------------------------------------------------+
 | TYPE               | CANCELABLE | TRUTH-CONDITIONAL | EXAMPLE  |
-|--------------------|------------|-------------------|---------|
+|--------------------|------------|-------------------|----------|
 | Conversational     | Yes        | No                | Scalar   |
 | (generalized)      |            |                   | (some)   |
-|--------------------|------------|-------------------|---------|
-| Conversational     | Yes        | No                | "There's|
+|--------------------|------------|-------------------|----------|
+| Conversational     | Yes        | No                | "There's |
 | (particularized)   |            |                   | a shop"  |
-|--------------------|------------|-------------------|---------|
+|--------------------|------------|-------------------|----------|
 | Conventional       | No         | No                | "but",   |
 |                    |            |                   | "even",  |
-|                    |            |                   | "managed|
+|                    |            |                   | "managed |
 +----------------------------------------------------------------+
 ```
 

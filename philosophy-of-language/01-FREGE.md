@@ -1,3 +1,22 @@
+---
+maxim_schema: maxim.frontmatter.v1
+id: maxim:philosophy-of-language:frege
+kind: guide
+module: philosophy-of-language
+section: philosophy-of-language
+title: Frege: Sense, Reference, and Concept Script
+status: source-custody
+source_custody: partial
+current_path: philosophy-of-language/01-FREGE.md
+canonical_path: philosophy-of-language/01-FREGE.md
+backsource_ids: [proof-backfill:philosophy-of-language:01-frege, git-history:philosophy-of-language:01-frege]
+concepts: [frege]
+root_concepts: [frege]
+index_roles: [guide, root-concept]
+remap_from: []
+remap_to: []
+updated: null
+---
 # Frege: Sense, Reference, and Concept Script
 
 ## Why Frege Matters

@@ -1,3 +1,22 @@
+---
+maxim_schema: maxim.frontmatter.v1
+id: maxim:education:piaget-vygotsky
+kind: guide
+module: education
+section: education
+title: Piaget, Vygotsky, and Developmental Learning
+status: source-custody
+source_custody: partial
+current_path: education/02-PIAGET-VYGOTSKY.md
+canonical_path: education/02-PIAGET-VYGOTSKY.md
+backsource_ids: [proof-backfill:education:02-piaget-vygotsky, git-history:education:02-piaget-vygotsky]
+concepts: [piaget, vygotsky]
+root_concepts: [piaget, vygotsky]
+index_roles: [guide, root-concept]
+remap_from: []
+remap_to: []
+updated: null
+---
 # Piaget, Vygotsky, and Developmental Learning
 
 ## The Big Picture

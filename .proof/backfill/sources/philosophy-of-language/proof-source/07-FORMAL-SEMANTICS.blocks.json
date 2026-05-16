@@ -1,0 +1,94 @@
+{
+  "schema_version": "1",
+  "source_markdown": "philosophy-of-language\\07-FORMAL-SEMANTICS.md",
+  "blocks": [
+    {
+      "id": "block-1",
+      "kind": "ascii_table_candidate",
+      "line": 28,
+      "heading_context": "## The Project",
+      "confidence": "candidate",
+      "text": "+-----------------------------------------------------------------------+\n|                    FORMAL SEMANTICS LANDSCAPE                         |\n|                                                                       |\n|  MONTAGUE (1970s)              DAVIDSON (1967–1980s)                  |\n|  Universal grammar             Truth-conditional semantics            |\n|  Intensional logic + λ-calc    Event semantics                        |\n|  PTQ — \"English is a fragment  Action sentences analyzed via          |\n|  of a formal language\"         events as first-class entities         |\n|  Denotational: phrases →       Davidson: T-sentences as the           |\n|  mathematical objects          core of meaning theory                 |\n|                                                                       |\n|  CONTINUATIONS/TYPE-SHIFTING   DYNAMIC SEMANTICS (1990s)              |\n|  Montague extended:            Discourse representation theory        |\n|  flexible types, continuations Pronouns across sentences              |\n|  in natural language semantics Dynamic predicate logic                |\n+-----------------------------------------------------------------------+",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-2",
+      "kind": "diagram_like",
+      "line": 53,
+      "heading_context": "## Compositionality",
+      "confidence": "candidate",
+      "text": "  FREGE'S PRINCIPLE:\n  The meaning of a complex expression is a FUNCTION of:\n  (1) the meanings of its constituent parts\n  (2) the syntactic rule combining them\n\n  FORMALIZATION AS HOMOMORPHISM:\n  Let [[ · ]] : Expressions → Meanings be the semantic function.\n\n  Compositionality: if α is the result of combining A and B\n  by syntactic rule r, then:\n  [[α]] = Fr([[A]], [[B]])\n  where Fr is the semantic operation corresponding to r.\n\n  EXAMPLE:\n  [[every man walks]]\n  = [[walks]]([[every man]])  ← apply VP denotation to NP meaning\n  = {w : w is a walking event} applied to the GQ \"every man\"\n  = True iff every man is in the extension of \"walks\"\n\n  WHAT THIS REQUIRES:\n  Every syntactic category must have a corresponding semantic type.\n  Every syntactic rule must have a corresponding semantic operation.\n  Syntax and semantics must be in structural correspondence.",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-3",
+      "kind": "diagram_like",
+      "line": 87,
+      "heading_context": "### Basic Types",
+      "confidence": "candidate",
+      "text": "  BASIC TYPES:\n  e:  type of entities (individuals in the domain)\n  t:  type of truth values {0, 1}\n  s:  type of possible worlds (for intensionality)\n\n  FUNCTION TYPES:\n  If σ and τ are types, then (σ → τ) is the type of\n  a function from σ to τ.\n\n  (Usually written ⟨σ, τ⟩ in Montague tradition, or σ → τ in λ-calc)",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-4",
+      "kind": "diagram_like",
+      "line": 102,
+      "heading_context": "### Types for English Categories",
+      "confidence": "candidate",
+      "text": "  SEMANTIC TYPE         ENGLISH CATEGORY        EXAMPLE\n\n  e                     Individual term         John, the man\n  t                     Proposition/sentence    \"John walks\"\n  e → t                 Predicate (1-place)     \"walks\" = λx.walks(x)\n  e → e → t             2-place relation        \"loves\" = λyλx.loves(x,y)\n  (e → t) → t           Generalized Quantifier  \"every man\"\n  ((e→t)→t)→ t          Sentence-level quantif. \"most men walk\"\n\n  VERB PHRASE:\n  \"walks\" : e → t\n  [[walks]] = λx . walks(x)\n  Applied to individual [[John]] = john:\n  [[walks]](john) = walks(john) : t  ✓\n\n  TRANSITIVE VERB:\n  \"loves\" : e → e → t\n  [[loves]] = λy λx . loves(x, y)\n  [[loves]](mary)(john) = loves(john, mary)  ← \"John loves Mary\"\n  (Note the order of abstraction: object first, then subject)",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-5",
+      "kind": "diagram_like",
+      "line": 131,
+      "heading_context": "## Generalized Quantifiers",
+      "confidence": "candidate",
+      "text": "  TRADITIONAL LOGIC (Frege/Russell):\n  \"Every man walks\" =  ∀x(man(x) → walks(x))\n\n  PROBLEM with compositionality:\n  \"John\" and \"every man\" occupy the same syntactic position (NP).\n  \"John\" denotes an INDIVIDUAL: type e.\n  \"every man\" cannot denote an individual.\n  They must have the same semantic type for compositionality to work.\n\n  MONTAGUE'S SOLUTION: GENERALIZED QUANTIFIERS (GQ)\n  Treat BOTH \"John\" and \"every man\" as type (e → t) → t\n  = a function from sets to truth values\n  = a SET OF SETS\n\n  [[John]] = λP . P(john)\n  \"John\" denotes the set of all properties John has.\n  {\"walks\", \"talks\", \"breathes\", ...}\n  Applied to a predicate P: is john in P?\n\n  [[every man]] = λP . ∀x(man(x) → P(x))\n  \"Every man\" denotes: {P : every man is P}\n  Applied to \"walks\": ∀x(man(x) → walks(x))\n\n  [[some man]] = λP . ∃x(man(x) ∧ P(x))\n  [[no man]]   = λP . ¬∃x(man(x) ∧ P(x))\n  [[most men]] = λP . |{x: man(x) ∧ P(x)}| > |{x: man(x) ∧ ¬P(x)}|\n\n  UNIFORM TYPE:\n  All noun phrases have type (e → t) → t.\n  The VP has type e → t.\n  Sentence = NP applied to VP:\n  [[S]] = [[NP]]([[VP]])  ← compositionality!",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-6",
+      "kind": "diagram_like",
+      "line": 172,
+      "heading_context": "## Intensions and Possible Worlds in Montague",
+      "confidence": "candidate",
+      "text": "  THE PROBLEM:\n  \"John seeks a unicorn\" — but there are no unicorns!\n  \"Seeks\" cannot take a unicorn as its direct object (no entity).\n  \"John seeks a president\" — but \"a president\" doesn't pick out\n  a specific individual.\n\n  Montague added:\n  s:  the type of possible worlds (indices)\n\n  INTENSION of expression of type τ:\n  A function from possible worlds (and times) to the extension.\n  If α has type τ, then ⌃α (the intension of α) has type s → τ.\n\n  [[unicorn]] at world w = the set of unicorns in w\n  (may be empty in the actual world, non-empty in others)\n\n  [[seeks]] : e → (s → e → t) → t\n  \"seeks\" takes an entity (the seeker) and an INTENSION of an NP\n  (a function from worlds to sets).\n  \"Seeks a unicorn\" = seeks something that is a unicorn in some\n  relevant worlds.\n\n  THIS IS INTENSIONAL LOGIC:\n  All expressions have both an extension (value at a world)\n  and an intension (function from worlds to values).\n  Frege's sense ≈ intension in Montague grammar.\n  The type-theoretic formulation makes it precise and computable.",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-7",
+      "kind": "diagram_like",
+      "line": 206,
+      "heading_context": "## Lambda Calculus as the Semantic Metalanguage",
+      "confidence": "candidate",
+      "text": "  Montague's semantic metalanguage IS typed lambda calculus.\n  Denotations are built via λ-abstraction and application.\n\n  LAMBDA ABSTRACTION:\n  λx . body        \"the function that takes x and returns body\"\n\n  LAMBDA APPLICATION:\n  (λx . body)(arg) → body[x := arg]    (β-reduction)\n\n  BUILDING UP MEANINGS COMPOSITIONALLY:\n\n  [[walks]]  = λx . walk(x)\n  [[John]]   = λP . P(j)\n  [[John walks]] = [[John]]([[walks]])\n                 = (λP . P(j))(λx . walk(x))\n                 = (λx . walk(x))(j)     ← β-reduction\n                 = walk(j)               ← β-reduction\n                 ∈ {T, F}\n\n  THE POINT: The SAME mechanical operation (β-reduction) handles all\n  compositional combination. No special-case rules needed.\n  Syntax provides structure; λ-abstraction provides the meaning.\n\n  CS PARALLEL:\n  Denotational semantics of programming languages\n  uses EXACTLY this:\n  [[E1 E2]] = [[E1]]([[E2]])   (application)\n  [[λx.E]]  = λv . [[E]][x:=v]  (abstraction)\n  The semantics is a homomorphism from syntax to a domain.\n  Scott domains are the mathematical structure underlying this.",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-8",
+      "kind": "diagram_like",
+      "line": 284,
+      "heading_context": "## Type-Theoretic Semantics and CS",
+      "confidence": "candidate",
+      "text": "  CURRY-HOWARD CORRESPONDENCE:\n  Types in logic       ↔    Types in programming\n  Propositions         ↔    Types\n  Proofs               ↔    Programs\n  Proof normalization  ↔    Program evaluation (β-reduction)\n\n  Montague's type theory for natural language semantics\n  IS the same type theory underlying typed λ-calculi (System F,\n  Hindley-Milner, dependent types).\n\n  FORMAL SEMANTICS → NLP:\n  Semantic parsing: map natural language sentences to\n  logical forms (λ-calculus expressions).\n  Tools: λ-DCS, SEMPRE, compositional semantic parsers.\n  Modern: fine-tuned language models generate λ-calculus or\n  SQL or first-order logic from natural language queries.\n\n  DENOTATIONAL SEMANTICS OF PROGRAMMING LANGUAGES:\n  Scott & Strachey (1970s): assign mathematical denotations\n  to program constructs compositionally.\n  [[skip]] = identity state transformer\n  [[x:=e]] = λσ . σ[x := [[e]]σ]\n  [[C1;C2]] = [[C2]] ∘ [[C1]]\n  This IS Montague semantics applied to programs instead of English.\n\n  KNOWLEDGE REPRESENTATION:\n  First-order logic, description logics, OWL —\n  all use the same apparatus (type theory, model theory)\n  to represent structured knowledge.\n  Semantic web: RDF/OWL = formal semantics applied to web data.\n\n  QUESTION ANSWERING SYSTEMS:\n  Lambda calculus denotations for questions:\n  \"What is the capital of France?\"\n  = λx . capital-of(x, France)\n  Applied to a knowledge base → Paris",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    }
+  ]
+}

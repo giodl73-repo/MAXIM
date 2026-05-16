@@ -1,3 +1,22 @@
+---
+maxim_schema: maxim.frontmatter.v1
+id: maxim:philosophy-of-language:late-wittgenstein
+kind: guide
+module: philosophy-of-language
+section: philosophy-of-language
+title: Late Wittgenstein: Language Games and Meaning as Use
+status: source-custody
+source_custody: partial
+current_path: philosophy-of-language/04-LATE-WITTGENSTEIN.md
+canonical_path: philosophy-of-language/04-LATE-WITTGENSTEIN.md
+backsource_ids: [proof-backfill:philosophy-of-language:04-late-wittgenstein, git-history:philosophy-of-language:04-late-wittgenstein]
+concepts: [late, wittgenstein]
+root_concepts: [late, wittgenstein]
+index_roles: [guide, root-concept]
+remap_from: []
+remap_to: []
+updated: null
+---
 # Late Wittgenstein: Language Games and Meaning as Use
 
 ## The Turn

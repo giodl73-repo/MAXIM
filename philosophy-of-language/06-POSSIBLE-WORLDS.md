@@ -1,3 +1,22 @@
+---
+maxim_schema: maxim.frontmatter.v1
+id: maxim:philosophy-of-language:possible-worlds
+kind: guide
+module: philosophy-of-language
+section: philosophy-of-language
+title: Possible Worlds Semantics: Kripke and Lewis
+status: source-custody
+source_custody: partial
+current_path: philosophy-of-language/06-POSSIBLE-WORLDS.md
+canonical_path: philosophy-of-language/06-POSSIBLE-WORLDS.md
+backsource_ids: [proof-backfill:philosophy-of-language:06-possible-worlds, git-history:philosophy-of-language:06-possible-worlds]
+concepts: [possible, worlds]
+root_concepts: [possible, worlds]
+index_roles: [guide, root-concept]
+remap_from: []
+remap_to: []
+updated: null
+---
 # Possible Worlds Semantics: Kripke and Lewis
 
 ## The Problem Being Solved

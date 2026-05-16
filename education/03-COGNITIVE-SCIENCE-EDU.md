@@ -1,3 +1,22 @@
+---
+maxim_schema: maxim.frontmatter.v1
+id: maxim:education:cognitive-science-edu
+kind: guide
+module: education
+section: education
+title: Cognitive Science Applied: Spacing and Retrieval
+status: source-custody
+source_custody: partial
+current_path: education/03-COGNITIVE-SCIENCE-EDU.md
+canonical_path: education/03-COGNITIVE-SCIENCE-EDU.md
+backsource_ids: [proof-backfill:education:03-cognitive-science-edu, git-history:education:03-cognitive-science-edu]
+concepts: [cognitive, science, edu]
+root_concepts: [cognitive, science]
+index_roles: [guide, root-concept]
+remap_from: []
+remap_to: []
+updated: null
+---
 # Cognitive Science Applied: Spacing and Retrieval
 
 ## The Big Picture
