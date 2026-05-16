@@ -21,4 +21,6 @@ custody before it can become a CROP/PEBBLE/FLETCH distribution surface.
 - Do not invent backsources; mark missing source custody as `needs-source`.
 - Do not bulk-add frontmatter across MAXIM; frontmatter lands one module at a time.
 - Do not publish PEBBLE packs before remaps and PROOF validation are clean.
+- Do not require PROOF rendered output to include frontmatter; frontmatter is
+  source metadata and should be emitted only with an explicit option.
 - Keep generated packs separate from source custody records.

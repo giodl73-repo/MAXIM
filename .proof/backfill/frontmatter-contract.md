@@ -1,8 +1,12 @@
 # MAXIM frontmatter contract
 
-Frontmatter is introduced during PROOF backfill, one module at a time. It exists
-to make MAXIM queryable as a source corpus without breaking the human-readable
-library layout.
+Frontmatter is source-corpus metadata introduced during PROOF backfill, one
+module at a time. It exists to make MAXIM queryable without breaking the
+human-readable library layout.
+
+PROOF output should not include frontmatter by default. If PROOF later adds an
+explicit option to preserve or emit frontmatter, use that only for metadata-rich
+views and generated source-corpus artifacts.
 
 ## Required fields
 
@@ -77,6 +81,15 @@ The frontmatter supports these first views:
 | Concept neighborhood pack | Files where `concepts` intersects a requested concept set. |
 | Index-only pack | Files where `kind` is `module-index`, `section-index`, or `concept-index`. |
 | Downstream fact pack | Verified guides plus source records, emitted as PEBBLE and fetched with FLETCH. |
+
+## PROOF output policy
+
+| Output mode | Frontmatter behavior |
+|---|---|
+| Default rendered docs | Strip or omit frontmatter. |
+| Validation reports | Read frontmatter, report issues, do not copy it into rendered docs. |
+| Metadata-rich source views | Include frontmatter only with an explicit option. |
+| PEBBLE/FLETCH artifacts | Convert selected frontmatter fields into artifact metadata. |
 
 ## Backfill rule
 
