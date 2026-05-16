@@ -1,0 +1,149 @@
+{
+  "schema_version": "1",
+  "source_markdown": "scripting\\03-POWERSHELL.md",
+  "blocks": [
+    {
+      "id": "block-1",
+      "kind": "diagram_like",
+      "line": 89,
+      "heading_context": "## The Core Insight — Object Pipeline",
+      "confidence": "candidate",
+      "text": "Unix shell pipeline:\n  cmd1  ──text──►  cmd2  ──text──►  cmd3\n                   parses            parses\n                   previous          previous\n                   text output       text output\n\n  Every stage re-parses. grep/awk/cut are text parsers gluing stages together.\n  Column positions are implicit contracts. Format changes break everything.\n\nPowerShell pipeline:\n  Cmdlet1  ──objects──►  Cmdlet2  ──objects──►  Cmdlet3\n           Process[]      filters by             projects\n                          .CPU property          .Name, .Id\n\n  No parsing. Objects carry named, typed properties. The schema is explicit.\n  Get-Member gives you the full property/method list at any point.\n\n  Get-Process | Where-Object CPU -gt 100 | Sort-Object CPU -Desc | Select-Object Name,CPU -First 10\n\n  vs Bash (must know ps aux column layout, fragile on different distros):\n  ps aux | awk 'NR>1 {print $3, $11}' | sort -rn | head -10\n\nConsequence: awk/cut/grep are rarely needed in PS.\nThe object model also enables: Export-Csv, ConvertTo-Json, Compare-Object,\nGroup-Object, Measure-Object — all operating on structured data, not text.",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-2",
+      "kind": "diagram_like",
+      "line": 121,
+      "heading_context": "## PS 5.1 vs PS 7 — Know Which You're On",
+      "confidence": "candidate",
+      "text": "Windows built-in:   powershell.exe  = Windows PowerShell 5.1\nCross-platform:     pwsh            = PowerShell 7.x (install separately)\n\nKey differences:\n  Feature                   PS 5.1          PS 7+\n  ─────────────────────────────────────────────────────\n  Ternary  $x ? a : b       no              yes\n  Null coalesce  ??          no              yes\n  Null assign   ??=          no              yes\n  -split, -join pipeline     limited         better\n  Default encoding           UTF-16 LE       UTF-8\n  Linux/Mac support          no              yes\n  ForEach-Object -Parallel   no              yes\n  $IsWindows, $IsLinux       no              yes\n  Pipeline chain operators   no              yes (&&, ||)\n\nIn CI/CD: explicitly invoke pwsh or powershell.exe depending on what's installed.\nIn new scripts: target PS 7. $PSVersionTable.PSVersion.Major tells you which.",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-3",
+      "kind": "diagram_like",
+      "line": 145,
+      "heading_context": "### .NET Runtime Backing — Why It Matters",
+      "confidence": "candidate",
+      "text": "PS 5.1  →  .NET Framework 4.x\n  - Windows-only CLR\n  - Assembly resolution from GAC + Framework dirs\n  - Some COM interop available directly\n  - Modules that P/Invoke Windows APIs or use Framework-only types work fine here\n  - Will never get new language features\n\nPS 7.x  →  .NET 8+ (formerly .NET Core)\n  - Cross-platform CLR\n  - Assembly resolution from NuGet paths / runtimeconfig.json\n  - Some Framework-only modules break (WMI, some AD cmdlets, old SSMS modules)\n  - Faster startup, better performance, ongoing investment\n\nModule compatibility consequence:\n  A module that ships a .NET Framework DLL (targets net4x) may fail to load in PS 7\n  because the .NET 8 runtime refuses to load Framework assemblies in all cases.\n  Check module compatibility: Import-Module Foo -Verbose  → watch for type load errors",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-4",
+      "kind": "chart_like",
+      "line": 165,
+      "heading_context": "### .NET Runtime Backing — Why It Matters",
+      "confidence": "candidate",
+      "text": "### Windows Compatibility Layer (PS 7)",
+      "notes": [
+        "detected from bar/chart glyph density with numeric labels"
+      ]
+    },
+    {
+      "id": "block-5",
+      "kind": "chart_like",
+      "line": 219,
+      "heading_context": "#     passed via $using:",
+      "confidence": "candidate",
+      "text": "### Pipeline Chain Operators — &&, || in PS 7",
+      "notes": [
+        "detected from bar/chart glyph density with numeric labels"
+      ]
+    },
+    {
+      "id": "block-6",
+      "kind": "ascii_table_candidate",
+      "line": 366,
+      "heading_context": "### Arithmetic",
+      "confidence": "candidate",
+      "text": "1 + 2 * 3          # 7\n10 / 3             # 3.3333... (PS returns double — unlike Batch which truncates)\n[int](10 / 3)      # 3 (explicit floor/truncation via cast)\n10 % 3             # 1 modulo\n2 ** 3             # 8 (PS 7+; use [Math]::Pow(2,3) on PS 5.1)\n\n[Math]::Round(3.567, 2)    # 3.57\n[Math]::Floor(3.9)         # 3\n[Math]::Ceiling(3.1)       # 4\n[Math]::Abs(-5)            # 5\n[Math]::Sqrt(16)           # 4\n\n$x++   $x--   $x += 5   $x -= 3   $x *= 2",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-7",
+      "kind": "ascii_table_candidate",
+      "line": 463,
+      "heading_context": "### Loops",
+      "confidence": "candidate",
+      "text": "# foreach statement — loads all items into memory first\nforeach ($item in $collection) { $item }\n\n# ForEach-Object cmdlet — streams one at a time (better for large/pipeline data)\n$collection | ForEach-Object { $_ * 2 }\n$collection | ForEach-Object -Begin { \"start\" } -Process { $_ } -End { \"done\" }\n\n# ForEach-Object -Parallel (PS 7+ only) — run blocks concurrently\n$collection | ForEach-Object -Parallel { \"Processing $_\" } -ThrottleLimit 5\n\n# for loop\nfor ($i = 0; $i -lt 10; $i++) { $i }\n\n# while / do-while / do-until\nwhile ($condition) { ... }\ndo { ... } while ($condition)\ndo { ... } until ($condition)     # runs until condition becomes TRUE\n\n# Range operator — generates integer sequence\n1..10 | ForEach-Object { $_ }\nforeach ($i in 1..10) { $i }\n$rev = 10..1                       # countdown range\n\n# Loop control\nforeach ($x in $a) {\n    if ($x -eq 0) { continue }    # next iteration\n    if ($x -gt 100) { break }     # exit loop\n}",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-8",
+      "kind": "diagram_like",
+      "line": 630,
+      "heading_context": "### Terminating vs Non-Terminating Errors",
+      "confidence": "candidate",
+      "text": "Two categories that control where execution goes:\n\nTerminating error:\n  - Throws immediately, can be caught by try/catch\n  - Sources: throw statement; Write-Error -ErrorAction Stop;\n             cmdlets called with -ErrorAction Stop;\n             $ErrorActionPreference = \"Stop\" in scope\n\nNon-terminating error:\n  - Writes to $Error, emits to error stream, execution CONTINUES\n  - Sources: most cmdlet errors by default (Get-Item on missing path, etc.)\n  - try/catch DOES NOT catch these — they flow past the catch block\n  - Fix: force terminating via -ErrorAction Stop or $ErrorActionPreference = \"Stop\"\n\n$ErrorActionPreference scope rules:\n  Set at script top  → affects all cmdlets in that script and functions it calls\n  Set inside function → affects only that function's scope (restored on exit)\n  -ErrorAction Stop  → overrides preference for that one call only\n\n# Practical: set Stop at the top of production scripts, override per-call where you\n# expect recoverable errors (e.g., Test-Path before Get-Item).\n$ErrorActionPreference = \"Stop\"\n$content = Get-Content \"maybe-missing.txt\" -ErrorAction SilentlyContinue  # this one OK",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-9",
+      "kind": "chart_like",
+      "line": 823,
+      "heading_context": "# Inspect what a module exposes:",
+      "confidence": "candidate",
+      "text": "### Module Manifest (.psd1)",
+      "notes": [
+        "detected from bar/chart glyph density with numeric labels"
+      ]
+    },
+    {
+      "id": "block-10",
+      "kind": "chart_like",
+      "line": 977,
+      "heading_context": "# Useful pattern for reshaping API responses before Export-Csv or ConvertTo-Json:",
+      "confidence": "candidate",
+      "text": "### PowerShell Classes (PS 5+)",
+      "notes": [
+        "detected from bar/chart glyph density with numeric labels"
+      ]
+    },
+    {
+      "id": "block-11",
+      "kind": "diagram_like",
+      "line": 1020,
+      "heading_context": "### Transport Options",
+      "confidence": "candidate",
+      "text": "WinRM  (Windows Remote Management)\n  - Windows-only, uses HTTP/HTTPS (ports 5985/5986)\n  - Kerberos auth on domain; NTLM for workgroup\n  - Required: WinRM service enabled on target (winrm quickconfig)\n  - PS 5.1 and 7 both support it\n  - Default in enterprise Windows environments\n\nSSH transport (PS 7+)\n  - Cross-platform: Linux → Windows, Windows → Linux, any → any\n  - Requires: OpenSSH server on target with PS subsystem configured\n  - Auth via SSH key or password\n  - /etc/ssh/sshd_config entry: Subsystem powershell /usr/bin/pwsh -sshs -NoLogo",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-12",
+      "kind": "diagram_like",
+      "line": 1103,
+      "heading_context": "## What Makes It Distinct",
+      "confidence": "candidate",
+      "text": "PowerShell is the only mainstream shell designed around object flow.\nEvery other shell (Bash, Fish, Zsh, cmd) passes text between processes.\nPS passes .NET objects — which means:\n\n  ┌──────────────────────────────────────────────────────────────────────────────┐\n  │  Unix/Bash                          PowerShell                               │\n  │  ─────────────────────────         ─────────────────────────────────────     │\n  │  Pipeline: text                    Pipeline: typed .NET objects              │\n  │  Schema: implicit (columns)        Schema: explicit (property names)         │\n  │  Discovery: man page / --help      Discovery: Get-Member                     │\n  │  Parsing: awk/cut/sed/grep         Parsing: none — properties already there  │\n  │  Type system: none (all strings)   Type system: full CLR (int/datetime/etc.) │\n  │  Error signals: exit code         Error signals: $? + $LASTEXITCODE + $Error │\n  └──────────────────────────────────────────────────────────────────────────────┘\n\nPS is also built on .NET, which means:\n  - Full access to any .NET class: [Math], [IO.File], [Regex], [System.Net.*]\n  - Same type coercion rules as C#\n  - Remoting that sends serialized objects over the wire (not text)\n  - Desired State Configuration for declarative system config\n\nThe cmdlet naming convention (Verb-Noun) is enforced by PSScriptAnalyzer.\nApproved verbs: Get-Verb | Select-Object Verb\nBreaking the convention works but causes lint warnings and breaks discoverability.",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-13",
+      "kind": "diagram_like",
+      "line": 1335,
+      "heading_context": "### AzureRM → Az Migration Note",
+      "confidence": "candidate",
+      "text": "AzureRM module is end-of-life (Feb 2024). Cmdlet names changed — not a 1:1 rename.\nCommon mappings:\n  Login-AzureRmAccount    →  Connect-AzAccount\n  Get-AzureRmVM           →  Get-AzVM\n  New-AzureRmResourceGroup→  New-AzResourceGroup\n  Set-AzureRmContext      →  Set-AzContext\n\nPattern: AzureRm* prefix → Az* prefix, but verify — some commands restructured entirely.\nRun: Get-Command -Module Az.* | Where-Object Name -like \"*VM*\"  to discover current names.",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    }
+  ]
+}

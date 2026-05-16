@@ -1,0 +1,446 @@
+{
+  "schema_version": "1",
+  "source_markdown": "scripting\\00-OVERVIEW.md",
+  "tables": [
+    {
+      "id": "table-1",
+      "line": 71,
+      "heading_context": "## 0. Object Pipeline → Text Stream: The Fundamental Shift",
+      "headers": [
+        "Concept",
+        "Object Shell (PS)",
+        "Text Stream Shell (Bash/Zsh)",
+        "Notes"
+      ],
+      "rows": [
+        [
+          "Pipeline unit",
+          ".NET object",
+          "newline-delimited string",
+          "Fundamental difference"
+        ],
+        [
+          "Property access",
+          "`$_.PropertyName`",
+          "`awk '{print $3}'` or `cut -f3 -d,`",
+          "Parse out of text"
+        ],
+        [
+          "Filtering",
+          "`Where-Object { $_.Size -gt 100 }`",
+          "`awk '$3 > 100'` or `grep`",
+          "Text needs positional logic"
+        ],
+        [
+          "Sorting",
+          "`Sort-Object -Property CPU -Descending`",
+          "`sort -k3 -rn`",
+          "Column position in text"
+        ],
+        [
+          "Formatting",
+          "`Select-Object Name, CPU \\| Format-Table`",
+          "`column -t` or `printf`",
+          "No intrinsic structure"
+        ],
+        [
+          "Error channel",
+          "Separate error stream (`$ErrorActionPreference`)",
+          "stderr (fd 2) / `$?`",
+          "Both use separate channels"
+        ],
+        [
+          "Exit status",
+          "`$LASTEXITCODE` (external) / `$?` (cmdlet, bool)",
+          "`$?` (integer, 0=success)",
+          "PS `$?` is bool, not int"
+        ],
+        [
+          "Null sink",
+          "`Out-Null` or `> $null`",
+          "`> /dev/null`",
+          "Discard pipeline output"
+        ],
+        [
+          "Startup profile",
+          "`$PROFILE`",
+          "`~/.bashrc` / `~/.bash_profile`",
+          "Interactive-only by default"
+        ],
+        [
+          "Script security gate",
+          "`ExecutionPolicy` (RemoteSigned, Bypass)",
+          "`chmod +x` + shebang",
+          "Unix: file permission model"
+        ],
+        [
+          "Structured data",
+          "Hashtables, PSCustomObject, .NET types",
+          "jq (JSON), awk (CSV), python",
+          "No native structured types"
+        ],
+        [
+          "Error on failure",
+          "`$ErrorActionPreference = \"Stop\"`",
+          "`set -euo pipefail`",
+          "Both \"strict mode\" patterns"
+        ],
+        [
+          "Print to stderr",
+          "`Write-Error \"msg\"`",
+          "`echo \"msg\" >&2`",
+          "Redirect to fd 2"
+        ],
+        [
+          "Print without pipeline",
+          "`Write-Host \"msg\"` (terminal-only)",
+          "`echo \"msg\" >&2` (idiom)",
+          "Neither goes into pipeline"
+        ],
+        [
+          "Capture output",
+          "`$x = Get-Thing`",
+          "`x=$(cmd)`",
+          "Subshell in bash captures stdout"
+        ],
+        [
+          "Time a command",
+          "`Measure-Command { Get-Process }`",
+          "`time cmd`",
+          ""
+        ],
+        [
+          "PATH variable",
+          "`$env:PATH`",
+          "`$PATH`",
+          "env: namespace in PS"
+        ],
+        [
+          "Temp variables",
+          "`$env:TMPDIR` / `$env:TEMP`",
+          "`$TMPDIR` / `/tmp`",
+          ""
+        ],
+        [
+          "Env vars",
+          "`$env:FOO = \"bar\"`",
+          "`export FOO=bar`",
+          "PS scopes to process"
+        ]
+      ]
+    },
+    {
+      "id": "table-2",
+      "line": 251,
+      "heading_context": "## 2. Three-Category Taxonomy",
+      "headers": [
+        "Language",
+        "Category",
+        "Portability",
+        "Typing Model",
+        "Primary Paradigm"
+      ],
+      "rows": [
+        [
+          "Batch/CMD",
+          "Script-first",
+          "Windows only",
+          "Untyped (string-everything)",
+          "Imperative, GOTO-based"
+        ],
+        [
+          "PowerShell",
+          "Interactive/Auto",
+          "Win native; cross (pwsh)",
+          "Dynamic, .NET type system",
+          "Object pipeline + imperative"
+        ],
+        [
+          "Bash",
+          "Interactive shell",
+          "POSIX superset; ubiquitous",
+          "Untyped (string + integer)",
+          "Imperative, pipeline"
+        ],
+        [
+          "sh (POSIX)",
+          "Script-first",
+          "Universal POSIX",
+          "Untyped (string only)",
+          "Imperative, pipeline"
+        ],
+        [
+          "Zsh",
+          "Interactive shell",
+          "POSIX + extensions",
+          "Untyped (string + float)",
+          "Imperative, pipeline"
+        ],
+        [
+          "Fish",
+          "Interactive shell",
+          "Non-POSIX; install-only",
+          "Untyped (string + list)",
+          "Imperative, pipeline"
+        ],
+        [
+          "AWK",
+          "Text DSL",
+          "POSIX; universal",
+          "Dual (string/number by context)",
+          "Pattern-action, record model"
+        ],
+        [
+          "sed",
+          "Text DSL",
+          "POSIX; universal",
+          "Untyped (line strings)",
+          "Pattern-address, stream"
+        ],
+        [
+          "Perl",
+          "Script-first",
+          "Universal (CPAN)",
+          "Dynamic, context-dependent",
+          "Multi-paradigm (OOP/FP/proc)"
+        ]
+      ]
+    },
+    {
+      "id": "table-3",
+      "line": 361,
+      "heading_context": "## 4. Platform Matrix",
+      "headers": [
+        "Language",
+        "Windows native",
+        "WSL",
+        "macOS native",
+        "Linux native",
+        "Docker/CI default"
+      ],
+      "rows": [
+        [
+          "Batch/CMD",
+          "Yes (built-in)",
+          "No",
+          "No",
+          "No",
+          "No (Windows containers only)"
+        ],
+        [
+          "PowerShell 5.1",
+          "Yes (built-in)",
+          "No",
+          "No",
+          "No",
+          "No"
+        ],
+        [
+          "PowerShell 7+",
+          "Install",
+          "Yes",
+          "Install (brew)",
+          "Install",
+          "Yes (mcr.microsoft.com/powershell)"
+        ],
+        [
+          "Bash",
+          "No (git-bash is shim)",
+          "Yes",
+          "Yes (<10.15 default)",
+          "Yes (most distros)",
+          "**Yes — ubiquitous**"
+        ],
+        [
+          "sh (POSIX)",
+          "No",
+          "Yes (/bin/sh)",
+          "Yes (/bin/sh → dash/bash)",
+          "Yes (dash or bash)",
+          "**Yes — universal**"
+        ],
+        [
+          "Zsh",
+          "No",
+          "Install",
+          "**Yes (10.15+ default)**",
+          "Install",
+          "Install required"
+        ],
+        [
+          "Fish",
+          "No",
+          "Install",
+          "Install (brew)",
+          "Install",
+          "Install required"
+        ],
+        [
+          "AWK",
+          "Git Bash only",
+          "Yes (gawk)",
+          "Yes (gawk/awk)",
+          "Yes (gawk)",
+          "**Yes — in base images**"
+        ],
+        [
+          "sed",
+          "Git Bash only",
+          "Yes",
+          "Yes (BSD sed ≠ GNU sed)",
+          "Yes (GNU sed)",
+          "**Yes — in base images**"
+        ],
+        [
+          "Perl",
+          "Strawberry Perl",
+          "Yes",
+          "Yes (system perl)",
+          "Yes (usually)",
+          "Most images"
+        ]
+      ]
+    },
+    {
+      "id": "table-4",
+      "line": 404,
+      "heading_context": "## 5. POSIX Compliance Spectrum",
+      "headers": [
+        "Scenario",
+        "Recommended",
+        "Why"
+      ],
+      "rows": [
+        [
+          "Dockerfile `RUN` scripts",
+          "`sh` or `bash`",
+          "Docker default shell is `/bin/sh` (usually dash)"
+        ],
+        [
+          "Alpine Linux scripts",
+          "`sh` (POSIX)",
+          "Alpine uses busybox ash — not bash"
+        ],
+        [
+          "GitHub Actions `run:`",
+          "`bash` (default)",
+          "Explicitly `shell: bash` to be safe"
+        ],
+        [
+          "Portable across Linux distros",
+          "`sh` (POSIX) only",
+          "Can't assume bash version or arrays"
+        ],
+        [
+          "`/etc/init.d/` scripts",
+          "`sh`",
+          "SysV init uses `/bin/sh`"
+        ],
+        [
+          "Interactive dev machine",
+          "Whatever you want",
+          "Portability irrelevant for personal config"
+        ]
+      ]
+    },
+    {
+      "id": "table-5",
+      "line": 438,
+      "heading_context": "## 5. POSIX Compliance Spectrum",
+      "headers": [
+        "Category",
+        "Example bug",
+        "shellcheck message"
+      ],
+      "rows": [
+        [
+          "Unquoted expansion",
+          "`for f in $list`",
+          "SC2068: quote $list to prevent word splitting"
+        ],
+        [
+          "POSIX violation",
+          "`[[ $a == $b ]]` with `#!/bin/sh`",
+          "SC2039: [[ ]] is bash, not sh"
+        ],
+        [
+          "Deprecated syntax",
+          "`\\`cmd\\`` (backtick)",
+          "SC2006: use $() instead"
+        ],
+        [
+          "Array misuse",
+          "`\"${arr[@]}\"` in sh context",
+          "SC2039: arrays not in POSIX sh"
+        ],
+        [
+          "Missing quotes",
+          "`if [ $a = $b ]`",
+          "SC2086: double-quote $a"
+        ],
+        [
+          "Bad shebang",
+          "`#!/bin/bash` on non-bash system",
+          "SC1008: shebang variation note"
+        ],
+        [
+          "Unused variables",
+          "`local x=5` (never read)",
+          "SC2034: x appears unused"
+        ],
+        [
+          "`set -e` edge cases",
+          "`if bad_cmd; then`",
+          "notes where -e won't trigger"
+        ]
+      ]
+    },
+    {
+      "id": "table-6",
+      "line": 681,
+      "heading_context": "## 7. Decision Tree",
+      "headers": [
+        "If you need...",
+        "Use"
+      ],
+      "rows": [
+        [
+          "Windows automation + .NET objects",
+          "PowerShell"
+        ],
+        [
+          "Docker / Alpine / CI portability",
+          "sh (POSIX)"
+        ],
+        [
+          "Linux CI scripts (ubuntu images)",
+          "Bash"
+        ],
+        [
+          "Best interactive shell, macOS",
+          "Zsh"
+        ],
+        [
+          "Best interactive shell, opinionated",
+          "Fish"
+        ],
+        [
+          "Extract columns from CSV/TSV/logs",
+          "AWK"
+        ],
+        [
+          "In-place file substitution",
+          "sed / perl -i"
+        ],
+        [
+          "Complex text parsing + CPAN ecosystem",
+          "Perl"
+        ],
+        [
+          "Legacy Windows systems / .bat files",
+          "Batch (CMD)"
+        ]
+      ]
+    }
+  ]
+}

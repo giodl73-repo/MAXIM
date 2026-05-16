@@ -1,0 +1,391 @@
+{
+  "schema_version": "1",
+  "source_markdown": "scripting\\07-AWK.md",
+  "tables": [
+    {
+      "id": "table-1",
+      "line": 60,
+      "heading_context": "## Language Snapshot",
+      "headers": [
+        "Attribute",
+        "Value"
+      ],
+      "rows": [
+        [
+          "Platform",
+          "All Unix/Linux/macOS; Windows via WSL/Git Bash"
+        ],
+        [
+          "Extension",
+          "`.awk`"
+        ],
+        [
+          "Shebang",
+          "`#!/usr/bin/awk -f`"
+        ],
+        [
+          "Paradigm",
+          "Pattern-action; data-driven; declarative"
+        ],
+        [
+          "Typing",
+          "Dual type (string/number — context-dependent)"
+        ],
+        [
+          "Execution",
+          "Compiled per-invocation (not interpreted line by line)"
+        ]
+      ]
+    },
+    {
+      "id": "table-2",
+      "line": 229,
+      "heading_context": "## Built-in Variables",
+      "headers": [
+        "Variable",
+        "Description",
+        "Default"
+      ],
+      "rows": [
+        [
+          "`$0`",
+          "Entire current record",
+          ""
+        ],
+        [
+          "`$1, $2, ..., $NF`",
+          "Individual fields",
+          ""
+        ],
+        [
+          "`NF`",
+          "Number of fields in current record",
+          ""
+        ],
+        [
+          "`NR`",
+          "Total records processed so far",
+          ""
+        ],
+        [
+          "`FNR`",
+          "Records in current file (resets per file)",
+          ""
+        ],
+        [
+          "`FS`",
+          "Input field separator",
+          "`\" \"` (whitespace)"
+        ],
+        [
+          "`RS`",
+          "Input record separator",
+          "`\"\\n\"`"
+        ],
+        [
+          "`OFS`",
+          "Output field separator",
+          "`\" \"`"
+        ],
+        [
+          "`ORS`",
+          "Output record separator",
+          "`\"\\n\"`"
+        ],
+        [
+          "`FILENAME`",
+          "Current input file name",
+          ""
+        ],
+        [
+          "`ARGC` / `ARGV`",
+          "Arg count / array",
+          ""
+        ],
+        [
+          "`SUBSEP`",
+          "Multi-dim array separator",
+          "`\\034`"
+        ],
+        [
+          "`OFMT`",
+          "Output format for numbers",
+          "`\"%.6g\"`"
+        ],
+        [
+          "`CONVFMT`",
+          "Conversion format",
+          "`\"%.6g\"`"
+        ]
+      ]
+    },
+    {
+      "id": "table-3",
+      "line": 386,
+      "heading_context": "## printf Formatting",
+      "headers": [
+        "Specifier",
+        "Type",
+        "Example",
+        "Output"
+      ],
+      "rows": [
+        [
+          "`%s`",
+          "String",
+          "`printf \"%s\", \"hi\"`",
+          "`hi`"
+        ],
+        [
+          "`%d`",
+          "Integer",
+          "`printf \"%d\", 42`",
+          "`42`"
+        ],
+        [
+          "`%f`",
+          "Float",
+          "`printf \"%.2f\", 3.1`",
+          "`3.10`"
+        ],
+        [
+          "`%e`",
+          "Scientific",
+          "`printf \"%e\", 1234`",
+          "`1.234000e+03`"
+        ],
+        [
+          "`%g`",
+          "Auto float",
+          "`printf \"%g\", 0.0001`",
+          "`0.0001`"
+        ],
+        [
+          "`%o`",
+          "Octal",
+          "`printf \"%o\", 8`",
+          "`10`"
+        ],
+        [
+          "`%x`",
+          "Hex lower",
+          "`printf \"%x\", 255`",
+          "`ff`"
+        ],
+        [
+          "`%X`",
+          "Hex upper",
+          "`printf \"%X\", 255`",
+          "`FF`"
+        ],
+        [
+          "`%c`",
+          "Character",
+          "`printf \"%c\", 65`",
+          "`A`"
+        ]
+      ]
+    },
+    {
+      "id": "table-4",
+      "line": 400,
+      "heading_context": "## printf Formatting",
+      "headers": [
+        "",
+        "`print`",
+        "`printf`"
+      ],
+      "rows": [
+        [
+          "Newline",
+          "Added automatically (ORS)",
+          "Not added — you write `\\n`"
+        ],
+        [
+          "Separator",
+          "OFS between args",
+          "None — you write it"
+        ],
+        [
+          "Formatting",
+          "None",
+          "Full format string"
+        ],
+        [
+          "Use for",
+          "Quick output",
+          "Aligned columns, precise formatting"
+        ]
+      ]
+    },
+    {
+      "id": "table-5",
+      "line": 711,
+      "heading_context": "## AWK Implementation Comparison",
+      "headers": [
+        "Implementation",
+        "When you encounter it",
+        "Notes"
+      ],
+      "rows": [
+        [
+          "`gawk`",
+          "Linux (installed explicitly or as default on many distros)",
+          "GNU AWK; most features; actively maintained; best for scripting"
+        ],
+        [
+          "`mawk`",
+          "Ubuntu/Debian default `/usr/bin/awk`",
+          "Fast; minimal; correct POSIX; no gawk extensions"
+        ],
+        [
+          "`nawk`",
+          "macOS `/usr/bin/awk`; Solaris; AIX",
+          "\"New AWK\" (Kernighan's version); POSIX-only"
+        ],
+        [
+          "`busybox awk`",
+          "Alpine containers; embedded systems",
+          "Minimal; intentionally small; POSIX subset"
+        ],
+        [
+          "`goawk`",
+          "Occasionally in Go toolchains",
+          "POSIX-compatible; some gawk extensions"
+        ]
+      ]
+    },
+    {
+      "id": "table-6",
+      "line": 753,
+      "heading_context": "## Ecosystem",
+      "headers": [
+        "Implementation",
+        "Notes"
+      ],
+      "rows": [
+        [
+          "`gawk`",
+          "GNU AWK — most feature-rich; standard on Linux"
+        ],
+        [
+          "`mawk`",
+          "Fast, minimal — often default on Ubuntu/Debian"
+        ],
+        [
+          "`nawk`",
+          "\"New AWK\" — standard on Solaris/AIX"
+        ],
+        [
+          "`one true awk`",
+          "Original Kernighan AWK; on macOS as `/usr/bin/awk`"
+        ],
+        [
+          "`goawk`",
+          "Go implementation with some extensions"
+        ]
+      ]
+    },
+    {
+      "id": "table-7",
+      "line": 771,
+      "heading_context": "## Gotchas & Traps",
+      "headers": [
+        "Trap",
+        "Issue",
+        "Fix"
+      ],
+      "rows": [
+        [
+          "`$0` vs `$1`",
+          "`$0` = whole line; `$1` = first field",
+          "Remember `$0` is the full record"
+        ],
+        [
+          "Default FS",
+          "`\" \"` means \"any whitespace, multiple collapsed\"",
+          "`-F \",\"` for CSV; `FS=\"\\t\"` for TSV"
+        ],
+        [
+          "String concat",
+          "`\"a\" + \"b\"` -> 0+0=0; use `\"a\" \"b\"`",
+          "Concatenation is juxtaposition"
+        ],
+        [
+          "1-indexed",
+          "`substr` and `split` are 1-indexed",
+          "`substr(s, 1, 3)` = first 3 chars"
+        ],
+        [
+          "Unordered for-in",
+          "`for (k in arr)` order is unpredictable",
+          "Pipe to `sort` for ordered output"
+        ],
+        [
+          "`print` vs `printf`",
+          "`print` adds OFS/ORS; `printf` adds nothing",
+          "Use `printf` for precise formatting"
+        ],
+        [
+          "`$2=\"\"` rebuilding",
+          "Deleting a field leaves extra OFS",
+          "`$1=$1; print` forces rebuild with OFS"
+        ],
+        [
+          "macOS old awk",
+          "`/usr/bin/awk` on macOS is Brian Kernighan's nawk (not gawk)",
+          "`brew install gawk` for gawk features"
+        ],
+        [
+          "Regex in `-F`",
+          "`-F '\\|'` is regex OR — matches any of the chars",
+          "Escape: `-F '\\|'` or `FS=\"[|]\"`"
+        ],
+        [
+          "Pipe stays open",
+          "`print \\| \"sort\"` accumulates all output, then flushes on close",
+          "`close(\"sort\")` to flush mid-program"
+        ]
+      ]
+    },
+    {
+      "id": "table-8",
+      "line": 812,
+      "heading_context": "## Decision Cheat Sheet",
+      "headers": [
+        "Use AWK when...",
+        "Use something else when..."
+      ],
+      "rows": [
+        [
+          "Extract/reformat columns",
+          "Complex logic -> Perl or Python"
+        ],
+        [
+          "Filter rows by condition",
+          "Real JSON/CSV -> jq / csvkit"
+        ],
+        [
+          "Sum/count/average a column",
+          "Multi-file joins > 2 files -> Python"
+        ],
+        [
+          "Quick frequency table",
+          "Need arrays of arrays -> Python"
+        ],
+        [
+          "One-liner faster than a script",
+          "Need libraries/HTTP/DB -> anything else"
+        ],
+        [
+          "On any Unix box (always available)",
+          "Maintaining readable code -> Python"
+        ],
+        [
+          "`-F` to parse delimited text",
+          "Binary data -> Python or C"
+        ]
+      ]
+    }
+  ]
+}

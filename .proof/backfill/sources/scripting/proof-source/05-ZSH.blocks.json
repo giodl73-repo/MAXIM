@@ -1,0 +1,248 @@
+{
+  "schema_version": "1",
+  "source_markdown": "scripting\\05-ZSH.md",
+  "blocks": [
+    {
+      "id": "block-1",
+      "kind": "diagram_like",
+      "line": 28,
+      "heading_context": "## Shell Landscape",
+      "confidence": "candidate",
+      "text": "Shell Family Tree and Zsh Architecture\n─────────────────────────────────────────────────────────────────────\n\n  POSIX sh (1988) ── the standard; least common denominator\n    │\n    ├─── dash     /bin/sh on Ubuntu/Debian; strict POSIX; no arrays\n    │\n    ├─── bash     POSIX superset; CI/CD default; team scripts\n    │    │\n    │    └──── zsh (1990)  bash-compatible superset + interactive UX\n    │               macOS default since 10.15 Catalina (2019)\n    │               1-indexed arrays; native float; glob qualifiers\n    │               NOT POSIX by default (SH_WORD_SPLIT off, etc.)\n    │\n    ├─── ksh (1983)  Korn shell; contributed many features bash/zsh absorbed\n    │\n    └─── fish    NOT POSIX; different syntax; great UX; no portability\n\nDeployment contexts:\n  macOS (10.15+)         → /bin/zsh   (default login + interactive shell)\n  Linux (most distros)   → zsh available via package manager; not default\n  WSL2 (Windows)         → zsh installable; common dev setup\n  CI runners / Docker    → bash (never rely on zsh being present)\n\nZsh Layered Architecture:\n  ┌──────────────────────────────────────────────────────────────┐\n  │  Plugin Layer        Oh-My-Zsh / Prezto / Zinit / Antidote   │\n  │  Prompt Layer        Starship / Powerlevel10k / pure         │\n  ├──────────────────────────────────────────────────────────────┤\n  │  Completion System   compinit / _arguments / zstyle           │\n  │  ZLE (Line Editor)   bindkey / keymaps / custom widgets       │\n  ├──────────────────────────────────────────────────────────────┤\n  │  Option System       setopt / unsetopt (~250 named options)  │\n  │  Module System       zmodload (compiled C modules)           │\n  ├──────────────────────────────────────────────────────────────┤\n  │  Zsh Binary          parameter flags, glob qualifiers, float  │\n  └──────────────────────────────────────────────────────────────┘\n\nInteractive vs scripting split:\n  Interactive  → Zsh (macOS default; richer UX; plugins; completion)\n  Shared scripts → Bash (CI, Docker, team automation — never assume zsh)\n  Personal scripts → Either; zsh fine if you only run them locally",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-2",
+      "kind": "diagram_like",
+      "line": 91,
+      "heading_context": "## When You Actually Script in Zsh",
+      "confidence": "candidate",
+      "text": "The honest framing:\n\n  ┌──────────────────────────────────────────────────────────┐\n  │  Interactive shell on dev machine  → Zsh (macOS default) │\n  │  Scripts that others run           → Bash (portable)     │\n  │  CI/CD, Docker, shared automation  → Bash                │\n  │  Scripts only you run locally      → Either; zsh if pref │\n  └──────────────────────────────────────────────────────────┘\n\nZsh is your interactive shell. Your shared scripts (CI, Docker,\nteam automation) should use Bash. Cross-contamination causes\nsubtle bugs — especially around array indexing and word splitting.\n\nKnow Zsh well so you can write your ~/.zshrc. Know Bash for\neverything that runs on a server.",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-3",
+      "kind": "chart_like",
+      "line": 113,
+      "heading_context": "## Syntax Reference Card",
+      "confidence": "candidate",
+      "text": "### 1. Variables",
+      "notes": [
+        "detected from bar/chart glyph density with numeric labels"
+      ]
+    },
+    {
+      "id": "block-4",
+      "kind": "chart_like",
+      "line": 144,
+      "heading_context": "# Split multiline string into array",
+      "confidence": "candidate",
+      "text": "### 2. THE CRITICAL ZSH DIFFERENCE: 1-Indexed Arrays",
+      "notes": [
+        "detected from bar/chart glyph density with numeric labels"
+      ]
+    },
+    {
+      "id": "block-5",
+      "kind": "chart_like",
+      "line": 190,
+      "heading_context": "# Associative arrays (zsh 4+ — which means always in practice)",
+      "confidence": "candidate",
+      "text": "### 3. String Quoting",
+      "notes": [
+        "detected from bar/chart glyph density with numeric labels"
+      ]
+    },
+    {
+      "id": "block-6",
+      "kind": "chart_like",
+      "line": 214,
+      "heading_context": "# Here-doc — same as Bash",
+      "confidence": "candidate",
+      "text": "### 4. Extended Globbing",
+      "notes": [
+        "detected from bar/chart glyph density with numeric labels"
+      ]
+    },
+    {
+      "id": "block-7",
+      "kind": "chart_like",
+      "line": 216,
+      "heading_context": "### 4. Extended Globbing",
+      "confidence": "candidate",
+      "text": "# Zsh globbing: no shopt needed — extended glob is built-in\nls *.txt          # standard glob\nls **/*.txt       # recursive glob (zsh native; bash needs shopt -s globstar)\n\n# Glob qualifiers: appended to glob in parentheses\nls **/*(.)        # (.) = regular files only\nls **/*(/)        # (/) = directories only\nls **/*(*)        # (*) = executables\nls **/*(@)        # (@) = symlinks\nls **/*(L0)       # (L0) = empty files (length exactly 0)\nls **/*(Lk+100)   # (Lk+100) = files larger than 100 KB\nls *(m-7)         # (m-7) = modified in last 7 days\nls *(om)          # (om) = sort by modification time (newest first)\nls *(Om)          # (Om) = sort oldest first\nls *(om[1,5])     # newest 5 files only\n\n# Glob qualifiers table\n# .   regular files      /   directories        *   executables\n# @   symlinks           L0  empty files        Ln  exactly n bytes\n# Lk+ > n KB            m-n  modified < n days  om  sort mod time\n# ^   negate qualifier   ,   OR between quals\n\n# Negation glob\nls ^*.txt         # everything except .txt files (with EXTENDED_GLOB setopt)\nls *~*.txt        # same: * except files matching *.txt\n\n# zmv — bulk rename (must autoload)\nautoload -U zmv\nzmv '(*).txt' '$1.md'       # rename all .txt to .md; $1 = captured group\nzmv -n '(*).txt' '$1.md'    # dry run: print what would happen\nzmv '(**/)(*).txt' '$1$2.md'  # recursive rename preserving path\n\n# Qualifier combinatorics\nls **/*(.)                  # regular files only\nls **/*(^.)                 # NOT regular files (^ negates qualifier)\nls **/*(/)                  # directories only\nls **/*(^/)                 # not directories\nls **/*(^./)                # neither regular files nor directories (devices, sockets, etc.)\nls **/*(.,/)                # regular files OR directories (, = OR between qualifiers)\nls **/*(*.^/)               # executables that are not directories\nls **/*(Lm+1^/)             # files larger than 1MB that are not directories\n\n# The e: qualifier — arbitrary code evaluation per file\n# $REPLY is set to each candidate filename before your code runs\n# If the code returns non-zero, the file is excluded\nls *(e:'[[ -s $REPLY ]]':)          # files that are non-empty (like Lk+1 but more explicit)\nls *(e:'[[ ! -L $REPLY ]]':)        # files that are not symlinks (no -@ qualifier needed)\nprint -l **/*(e:'(( $+commands[$REPLY:t] ))':)  # files whose basename is a known command\n# e: is the escape hatch when no built-in qualifier covers your predicate\n\n# Glob flags (set at start of pattern, affect matching behavior)\n# Must have setopt EXTENDED_GLOB active\nls (#i)*.TXT               # (#i) case-insensitive: matches .txt .TXT .Txt etc.\nls (#i)readme*             # case-insensitive prefix match\n[[ \"Hello\" == (#i)hello ]] # (#i) in conditional too\n\n# (#b) — enable backreference capture in glob patterns\n# Captured groups go into $match array\nif [[ \"2024-02-15\" == (#b)([0-9]##)-([0-9]##)-([0-9]##) ]]; then\n    echo \"year=$match[1] month=$match[2] day=$match[3]\"\nfi\n# (#b) is the glob equivalent of regex capture groups\n\n# (#m) — set $MATCH to the matched portion\nfor f in *; do\n    [[ $f == (#m)*[0-9]* ]] && echo \"contains number: $MATCH\"\ndone\n\n# (#s) and (#e) — anchor at start/end of string (like ^ and $ in regex)\n[[ \"hello\" == (#s)hel* ]]  # anchored at start\n[[ \"hello\" == *llo(#e) ]]  # anchored at end\n\n# ## in patterns — one-or-more (like + in regex; * is zero-or-more)\nls [0-9]##.log              # files like 1.log, 42.log but not .log\n\n# Glob flag summary:\n# (#i)  case-insensitive matching\n# (#b)  enable backreference capture → $match array\n# (#m)  set $MATCH to matched substring\n# (#s)  anchor at string start\n# (#e)  anchor at string end\n# (#l)  approximate matching (within edit distance)",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-8",
+      "kind": "chart_like",
+      "line": 301,
+      "heading_context": "# (#l)  approximate matching (within edit distance)",
+      "confidence": "candidate",
+      "text": "### 5. Arithmetic",
+      "notes": [
+        "detected from bar/chart glyph density with numeric labels"
+      ]
+    },
+    {
+      "id": "block-9",
+      "kind": "chart_like",
+      "line": 327,
+      "heading_context": "# Float format",
+      "confidence": "candidate",
+      "text": "### 6. Conditionals",
+      "notes": [
+        "detected from bar/chart glyph density with numeric labels"
+      ]
+    },
+    {
+      "id": "block-10",
+      "kind": "chart_like",
+      "line": 350,
+      "heading_context": "# Everything else: file tests, numeric tests — identical to Bash",
+      "confidence": "candidate",
+      "text": "### 7. Completion System",
+      "notes": [
+        "detected from bar/chart glyph density with numeric labels"
+      ]
+    },
+    {
+      "id": "block-11",
+      "kind": "chart_like",
+      "line": 354,
+      "heading_context": "### 7. Completion System",
+      "confidence": "candidate",
+      "text": "# Initialize the completion system (required in ~/.zshrc)\nautoload -Uz compinit\ncompinit                        # loads completions; generates ~/.zcompdump cache\n\n# ~/.zcompdump: compiled completion cache — speeds up startup\n# If completions seem stale or broken, regenerate:\ncompinit -d ~/.zcompdump        # explicit cache file path\nrm -f ~/.zcompdump && compinit  # full rebuild\n\n# Practical: only regenerate dump once per day (common .zshrc pattern)\nautoload -Uz compinit\nif [[ -n ~/.zcompdump(#qN.mh+24) ]]; then\n    compinit                    # regenerate if dump is > 24 hours old\nelse\n    compinit -C                 # -C: skip security check; use cached dump\nfi\n\n# zstyle: configure completion behavior via context patterns\n# Context pattern: :completion:<function>:<completer>:<command>:<argument>:<tag>\n# Most useful patterns use wildcards:\nzstyle ':completion:*' menu select           # arrow-key menu selection\nzstyle ':completion:*' list-colors \"${(s.:.)LS_COLORS}\"  # colorize completions\nzstyle ':completion:*' matcher-list 'm:{a-z}={A-Za-z}'   # case-insensitive\nzstyle ':completion:*:descriptions' format '%F{yellow}-- %d --%f'  # group headers\nzstyle ':completion:*' group-name ''         # group completions by type\nzstyle ':completion:*:*:kill:*' menu yes select  # menu for kill completions\nzstyle ':completion:*:*:kill:*:processes' list-colors '=(#b) #([0-9]#)*=0=01;31'\n\n# Writing a custom completion function\n# Convention: completion functions are named _commandname\n# File lives somewhere on $fpath\n\n# Simple example: complete subcommands for a tool called \"mytool\"\n_mytool() {\n    local -a subcommands\n    subcommands=(\n        'start:start the service'\n        'stop:stop the service'\n        'status:show service status'\n        'config:edit configuration'\n    )\n    _describe 'subcommand' subcommands   # _describe: simple list with descriptions\n}\ncompdef _mytool mytool                   # bind completion function to command\n\n# _arguments: the full-featured option parser (handles -- flags, positionals)\n_mytool_full() {\n    _arguments \\\n        '(-v --verbose)'{-v,--verbose}'[enable verbose output]' \\\n        '(-o --output)'{-o,--output}'[output file]:output file:_files' \\\n        '--format=[output format]:format:(json yaml text)' \\\n        '1:subcommand:(start stop status config)' \\\n        '*:remaining args:_files'\n}\ncompdef _mytool_full mytool\n\n# _arguments spec format:\n# 'spec[description]:message:action'\n#   spec:    option spec (e.g., '-v', '--verbose', '(-v --verbose)--verbose')\n#   message: label shown in completion menu\n#   action:  completion action (_files, _directories, (a b c), _command, etc.)\n\n# Useful completion actions:\n# _files            complete filenames\n# _directories      complete only directories\n# _commands         complete command names\n# (a b c)           complete from explicit list\n# ->state           set state for state machine (for complex completions)\n\n# Testing your completion:\n# After adding to .zshrc or fpath: source ~/.zshrc; compinit\n# Use _complete_debug to trace what's happening:\n# bindkey '^Xh' _complete_help    # hit Ctrl-X h during completion for debug",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-12",
+      "kind": "chart_like",
+      "line": 430,
+      "heading_context": "# bindkey '^Xh' _complete_help    # hit Ctrl-X h during completion for debug",
+      "confidence": "candidate",
+      "text": "### 8. ZLE — Zsh Line Editor",
+      "notes": [
+        "detected from bar/chart glyph density with numeric labels"
+      ]
+    },
+    {
+      "id": "block-13",
+      "kind": "ascii_table_candidate",
+      "line": 434,
+      "heading_context": "### 8. ZLE — Zsh Line Editor",
+      "confidence": "candidate",
+      "text": "# bindkey: bind keystrokes to widgets (actions)\n# -e: emacs keymap (default)  -v: vi keymap  -a: vi command (vicmd) keymap\n\nbindkey -e                     # use emacs keybindings (default; common on macOS)\nbindkey -v                     # use vi keybindings\n\n# Keymap model: keymaps are named sets of bindings\n# main       → current default keymap (starts as emacs or viins)\n# emacs      → emacs-style bindings\n# viins      → vi insert mode (active when typing normally in vi mode)\n# vicmd      → vi command mode (active after pressing Esc in vi mode)\n\n# View all current bindings:\nbindkey                        # list all bindings in current keymap\nbindkey -M viins               # list bindings in viins keymap specifically\n\n# Essential bindings (emacs map — most common)\n# Ctrl-A   → beginning-of-line\n# Ctrl-E   → end-of-line\n# Ctrl-W   → backward-kill-word (delete word left of cursor)\n# Alt-B    → backward-word (move cursor left one word)\n# Alt-F    → forward-word (move cursor right one word)\n# Ctrl-R   → history-incremental-search-backward (type to filter)\n# Ctrl-P   → up-line-or-history (previous command)\n# Ctrl-N   → down-line-or-history\n\n# Rebind keys:\nbindkey '^[[A' up-line-or-search    # Up arrow → search history prefix\nbindkey '^[[B' down-line-or-search  # Down arrow → search history prefix\nbindkey '^[^[[D' backward-word      # Alt-Left → move word left\nbindkey '^[^[[C' forward-word       # Alt-Right → move word right\n\n# Custom widgets: define a shell function, register it as a ZLE widget\nmy-widget() {\n    BUFFER=\"echo hello world\"   # BUFFER: current command line content\n    CURSOR=${#BUFFER}           # CURSOR: position (0-indexed; move to end)\n    zle redisplay               # redraw the prompt\n}\nzle -N my-widget                # register function as widget\nbindkey '^X^H' my-widget        # bind it to Ctrl-X Ctrl-H\n\n# Useful ZLE variables available inside widgets:\n# BUFFER    → entire current command line as a string\n# CURSOR    → cursor position (integer, 0 = before first char)\n# LBUFFER   → text left of cursor\n# RBUFFER   → text right of cursor\n# KEYS      → key sequence that triggered this widget\n# HISTNO    → current history entry number\n\n# Practical widget: insert current date\ninsert-date() { LBUFFER+=$(date +%F); }\nzle -N insert-date\nbindkey '^X^D' insert-date\n\n# fzf integration hooks into ZLE:\n# Ctrl-R   → fzf-history-widget (replaces incremental search with fuzzy picker)\n# Ctrl-T   → fzf-file-widget (insert file path)\n# Alt-C    → fzf-cd-widget (cd to selected directory)\n# These are set up by sourcing: source <(fzf --zsh)   (fzf 0.48+)\n# or: source /usr/share/fzf/key-bindings.zsh",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-14",
+      "kind": "chart_like",
+      "line": 497,
+      "heading_context": "# or: source /usr/share/fzf/key-bindings.zsh",
+      "confidence": "candidate",
+      "text": "### 9. case, Loops, Functions",
+      "notes": [
+        "detected from bar/chart glyph density with numeric labels"
+      ]
+    },
+    {
+      "id": "block-15",
+      "kind": "ascii_table_candidate",
+      "line": 499,
+      "heading_context": "### 9. case, Loops, Functions",
+      "confidence": "candidate",
+      "text": "# case — identical to Bash\ncase $var in\n    pattern) cmd ;;\n    *)       default ;;\nesac\n\n# For-in — mostly same; key difference: no word-splitting on bare arrays\nfor item in $array; do echo \"$item\"; done   # works in Zsh (not in Bash with spaces)\nfor item in \"${array[@]}\"; do ...           # bash-compat form; also works in Zsh\n\n# Zsh-specific loop forms\nrepeat 5 { echo \"five times\" }             # no for/do/done — zsh compact syntax\nfor f (*.txt) { process $f }              # C-shell-style; works in Zsh\nfor f in **/*.txt; do process \"$f\"; done   # recursive glob with standard for\n\n# While — identical to Bash\nwhile [[ $i -lt 10 ]]; do (( i++ )); done\n\n# Functions — identical to Bash syntax\nmy_func() {\n    local x=\"$1\"\n    echo \"$x\"\n    return 0\n}\nresult=$(my_func arg)\n\n# Autoload: define function body in a file on $fpath, load on first call\nautoload -Uz my_func          # -U: no alias expansion; -z: zsh style\n# File: somewhere in $fpath named \"my_func\" containing just the body",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-16",
+      "kind": "chart_like",
+      "line": 531,
+      "heading_context": "# File: somewhere in $fpath named \"my_func\" containing just the body",
+      "confidence": "candidate",
+      "text": "### 10. setopt — Zsh Options",
+      "notes": [
+        "detected from bar/chart glyph density with numeric labels"
+      ]
+    },
+    {
+      "id": "block-17",
+      "kind": "chart_like",
+      "line": 563,
+      "heading_context": "# or Zsh-native:",
+      "confidence": "candidate",
+      "text": "### 11. I/O and Redirection",
+      "notes": [
+        "detected from bar/chart glyph density with numeric labels"
+      ]
+    },
+    {
+      "id": "block-18",
+      "kind": "chart_like",
+      "line": 585,
+      "heading_context": "# Everything else: here-doc, here-string, process substitution — same as Bash",
+      "confidence": "candidate",
+      "text": "### 12. Startup Files",
+      "notes": [
+        "detected from bar/chart glyph density with numeric labels"
+      ]
+    },
+    {
+      "id": "block-19",
+      "kind": "diagram_like",
+      "line": 587,
+      "heading_context": "### 12. Startup Files",
+      "confidence": "candidate",
+      "text": "Zsh startup sequence — which file to put things in:\n\n  Login shell (ssh, terminal login, macOS Terminal.app):\n    /etc/zshenv    -> ~/.zshenv    -> ALWAYS sourced; env vars only\n    /etc/zprofile -> ~/.zprofile -> Login shells only; after zshenv\n    /etc/zshrc     -> ~/.zshrc     -> Interactive; aliases, funcs, PS1\n    /etc/zlogin    -> ~/.zlogin    -> Login shells only; after zshrc\n\n  Interactive non-login (new terminal tab, tmux pane):\n    /etc/zshenv → ~/.zshenv → /etc/zshrc → ~/.zshrc\n\n  Script execution (#!/usr/bin/env zsh):\n    /etc/zshenv → ~/.zshenv  ONLY (no .zshrc)\n\nGuidelines:\n  ~/.zshenv    → PATH, EDITOR, LANG, MANPATH; must be fast; no output\n  ~/.zprofile  → login-only env (JAVA_HOME, rbenv init, etc.)\n  ~/.zshrc     → everything interactive: prompt, aliases, completions,\n                  functions, plugin manager, history settings\n  ~/.zlogin    → rarely needed; runs after zshrc on login",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-20",
+      "kind": "diagram_like",
+      "line": 614,
+      "heading_context": "## What Makes Zsh Distinct",
+      "confidence": "candidate",
+      "text": "Key differentiators from Bash:\n\n  1. NO WORD-SPLITTING on array expansion\n     Bash: for x in ${a[@]}   — word-splits; breaks on spaces\n     Zsh:  for x in $a        — each element is one word; no quoting needed\n     → Makes array handling more predictable\n\n  2. 1-INDEXED ARRAYS\n     Bash: ${a[0]} is first element\n     Zsh:  $a[1]  is first element; $a[0] is empty\n     → The one thing most likely to burn you when porting\n\n  3. NATIVE FLOAT ARITHMETIC\n     Bash: $(( 1.5 + 2.5 )) → 0 or error\n     Zsh:  $(( 1.5 + 2.5 )) → 4.0\n     → No need for bc/awk for simple float math\n\n  4. EXTENDED GLOB BUILT-IN\n     Bash: shopt -s globstar; shopt -s extglob\n     Zsh:  ** and glob qualifiers available always\n     → ls **/*(om[1,10]) just works\n\n  5. PARAMETER FLAGS ${(flags)var}\n     Zsh:  ${(U)var}, ${(q)var}, ${(j:,:)arr}, ${(s: :)str}\n     Bash: external tools (tr, sed) or multi-step operations\n     → String manipulation without subshell spawning\n\n  6. PROGRAMMABLE COMPLETION\n     Bash: completion scripts via complete/compgen\n     Zsh:  _arguments, _files, zstyle — much richer\n     → Typed argument completion, partial completion, menu selection",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-21",
+      "kind": "diagram_like",
+      "line": 654,
+      "heading_context": "## Plugin Managers and .zshrc Structure",
+      "confidence": "candidate",
+      "text": "Plugin Manager Tradeoffs\n──────────────────────────────────────────────────────────────────\n                     Oh-My-Zsh    Prezto      Zinit       Antidote\n─────────────────────────────────────────────────────────────────\nStartup time         200-500ms    80-200ms    10-50ms     20-80ms\n(typical, varies)\n\nPhilosophy           batteries-   opinionated  explicit    explicit\n                     included     defaults     everything  lockfile\n\nLearning curve       low          low-medium   steep       medium\n\nLazy loading         no           no           yes         partial\n                                               (native)\n\nPlugin ecosystem     largest      medium       any git     any git\n                     (OH-MY-ZSH)  (modules)    source      source\n\nBest for             new users    clean setup  startup-    teams\n                                              critical     (lockfile)\n──────────────────────────────────────────────────────────────────",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-22",
+      "kind": "ascii_table_candidate",
+      "line": 846,
+      "heading_context": "### Portability: Zsh-isms That Silently Fail Under `#!/bin/bash`",
+      "confidence": "candidate",
+      "text": "# LANDMINE 1: Array indexing\n# In Zsh: a[1] is the first element\n# In Bash: a[1] is the SECOND element (0-indexed)\na=(one two three)\necho $a[1]             # Zsh: \"one\" | Bash: word-splits \"$a\" and appends \"[1]\" literally\necho ${a[1]}           # Zsh: \"one\" | Bash: \"two\" (second element)\necho ${a[0]}           # Zsh: \"\"    | Bash: \"one\" (first element)\n# → Scripts that access $a[1] and expect the first element are Zsh-only\n\n# LANDMINE 2: Glob qualifiers\nls **/*(.)             # Zsh: regular files only | Bash: literal string \"**/*(.)\": syntax error\nls *(om[1,5])          # Zsh: 5 newest files     | Bash: tries to run as subshell — errors\n# → Any glob with (qualifiers) is Zsh-only\n\n# LANDMINE 3: Parameter expansion flags\necho ${(U)name}        # Zsh: uppercase | Bash: syntax error\necho ${(f)\"$(cat f)\"}  # Zsh: split on newlines into array | Bash: syntax error\necho ${(j:,:)array}    # Zsh: join with comma | Bash: syntax error\n# → ${(flags)var} is entirely Zsh-only\n\n# LANDMINE 4: print builtin\nprint \"hello\"          # Zsh: reliable output | Bash: not a builtin; calls /usr/bin/print if exists\nprint -l one two three # Zsh: one per line    | Bash: error or wrong output\n# → Use printf or echo in cross-shell scripts\n\n# LANDMINE 5: Compact loop syntax\nrepeat 5 { echo hi }          # Zsh: valid | Bash: syntax error\nfor f (*.txt) { process $f }  # Zsh: valid | Bash: syntax error\n# → These are Zsh-specific; use standard for/do/done\n\n# LANDMINE 6: Bare array expansion without word splitting\na=(\"hello world\" \"foo bar\")\nfor x in $a; do echo \"$x\"; done   # Zsh: two iterations | Bash: four (word-splits)\n# → Bash requires \"${a[@]}\" to preserve elements with spaces\n\n# SAFE ZONE — these work identically in bash and zsh:\nset -euo pipefail          # both support this\n[[ \"$a\" == \"$b\" ]]         # identical in both\n[[ -f file && -r file ]]   # identical in both\ndiff <(sort f1) <(sort f2) # process substitution — both support it\ncat <<'EOF'                # here-doc — identical in both\nliteral text\nEOF\nwhile IFS= read -r line; do   # line reading — identical in both\n    echo \"$line\"\ndone < file\ndeclare -A h               # assoc arrays: bash 4+, zsh 4+ (both common)",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    }
+  ]
+}

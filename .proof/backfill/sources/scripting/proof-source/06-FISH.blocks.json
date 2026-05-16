@@ -1,0 +1,83 @@
+{
+  "schema_version": "1",
+  "source_markdown": "scripting\\06-FISH.md",
+  "blocks": [
+    {
+      "id": "block-1",
+      "kind": "diagram_like",
+      "line": 26,
+      "heading_context": "## The Shell Landscape",
+      "confidence": "candidate",
+      "text": "Shell Space: POSIX Compatibility vs Interactive UX Quality\n\n  High  │\n  Inter-│                              ╔══════════════╗\n  active│                              ║     Fish     ║  <- designed for humans\n  UX    │                              ║  autosugg.   ║     not for /bin/sh compat\n        │               ┌─────────────╫──────────────╫──┐\n        │               │    Zsh      ╚══════════════╝  │\n        │               │  (+ Oh My   Zsh is mid-POSIX, │\n        │               │    Zsh)     high UX w/plugins │\n        │               └─────────────────────────────-─┘\n        │    ┌──────────────────┐\n        │    │      Bash        │\n        │    │   ubiquitous;    │\n        │    │   POSIX-close;   │\n        │    │   UX: workable   │\n        │    └──────────────────┘\n  Low   │  ┌──────┐\n  Inter-│  │  sh  │  <- POSIX reference; minimal; CI/container default\n  active│  └──────┘\n  UX    │\n        └──────────────────────────────────────────────────────\n             Low POSIX compat            High POSIX compat\n\n  Practical read:\n    Fish  = best daily-driver terminal; worst script portability\n    Zsh   = good balance; POSIX-compatible enough; extensible\n    Bash  = universal automation; fine interactively; not exciting\n    sh    = /bin/sh in containers, CI, Makefiles; zero extras\n\n  Decision axis:\n    \"Will a human type in this shell daily?\" → Fish wins\n    \"Will a machine run this script?\"        → Bash/sh wins",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-2",
+      "kind": "diagram_like",
+      "line": 68,
+      "heading_context": "## When to Choose Fish",
+      "confidence": "candidate",
+      "text": "Decision tree for any developer:\n\n  ┌─────────────────────────────────────────┐\n  │ Is this your daily interactive terminal?│\n  └────────────────┬────────────────────────┘\n                   │\n           YES ────┤\n                   ▼\n          ┌──────────────────────────────────────────────┐\n          │ Fish gives you: autosuggestions from history │\n          │ syntax highlighting as you type              │\n          │ tab completion auto-generated from man pages │\n          │ web config UI (fish_config)                  │\n          │ consistent syntax (no POSIX legacy quirks)   │\n          └────────────────────┬─────────────────────────┘\n                               │\n                     Do you need Zsh?\n                               │\n           YES if: you already have heavy Zsh config,\n                   you need POSIX-compatible scripting\n                   inline with interactive use,\n                   or team standardizes on Zsh.\n                               │\n           NO if:  starting fresh; don't script in\n                   your interactive shell; want the\n                   best UX out of the box.\n\n  NO ─────┤\n          ▼\n    CI/CD scripts, Dockerfiles, Makefiles, cron jobs:\n    → Use bash or sh. Fish may not be installed.\n      Even if Fish is installed, don't shebang #!/usr/bin/fish\n      for scripts others will run.",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-3",
+      "kind": "diagram_like",
+      "line": 123,
+      "heading_context": "## The Fish Philosophy",
+      "confidence": "candidate",
+      "text": "Design choices in Fish:\n  ┌───────────────────────────────────────────────────────────────┐\n  │ 1. Discoverability: tab-complete everything, syntax highlight │\n  │    while typing, man page auto-generated from functions       │\n  │ 2. No legacy cruft: drop POSIX quirks that cause confusion    │\n  │    (no set -e, no word-splitting, no $'...' ANSI)             │\n  │ 3. Consistent syntax: one way to do each thing                │\n  │    (set for all vars; if/else/end everywhere)                 │\n  │                                                               │\n  │ Cost: scripts written for Fish don't run in Bash/sh           │\n  │       CI/CD can't run Fish scripts directly (no /bin/fish)    │\n  └───────────────────────────────────────────────────────────────┘",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-4",
+      "kind": "diagram_like",
+      "line": 231,
+      "heading_context": "## Universal Variables: Fish's Persistent Store",
+      "confidence": "candidate",
+      "text": "Variable scope comparison across shells:\n\n  Shell / scope    Survives current    Survives new      Survives\n                   command             terminal window   reboot\n  ──────────────────────────────────────────────────────────────\n  Bash env var     YES (exported)      NO                NO\n  Zsh env var      YES (exported)      NO                NO\n  Fish global (-g) YES (in session)    NO                NO\n  Fish export (-x) YES (exported)      NO                NO\n  Fish universal   YES                 YES               YES  ← unique\n  (-U)",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-5",
+      "kind": "diagram_like",
+      "line": 522,
+      "heading_context": "## Function Autoloading",
+      "confidence": "candidate",
+      "text": "~/.config/fish/functions/\n├── greet.fish          ← defines function greet\n├── mkcd.fish           ← defines function mkcd\n├── fish_prompt.fish    ← defines your prompt (special name)\n└── fish_greeting.fish  ← defines startup greeting (special name)\n\nWhen you type: mkcd /tmp/test\nFish sees:     \"mkcd\" is not a builtin or known function\nFish searches: ~/.config/fish/functions/mkcd.fish\nFish sources:  the file (defines the function)\nFish calls:    mkcd /tmp/test",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-6",
+      "kind": "diagram_like",
+      "line": 668,
+      "heading_context": "## Abbreviations vs Aliases vs Functions",
+      "confidence": "candidate",
+      "text": "Execution model comparison:\n\n  abbr (abbreviation):\n    You type:   gc\n    Fish sees:  gc<space> or gc<enter>\n    Fish does:  inline text expansion → \"git commit\" in the command line\n    History:    \"git commit\" (the expansion, not \"gc\")\n    Sharing:    If someone sees your history, they see the real command\n\n  alias:\n    You type:   gc\n    Fish does:  calls a function named gc, which calls \"git commit\"\n    History:    \"gc\" (the alias name — opaque)\n    Sharing:    Someone reading your history sees \"gc\" — no context\n\n  function:\n    You type:   mkcd /tmp/test\n    Fish does:  runs function body\n    History:    \"mkcd /tmp/test\"\n    Use for:    multi-line logic, argument handling, anything beyond simple aliasing",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-7",
+      "kind": "diagram_like",
+      "line": 728,
+      "heading_context": "## Plugin Managers: Fisher and Oh My Fish",
+      "confidence": "candidate",
+      "text": "Plugin ecosystem:\n\n  ┌────────────────────────────────────────────────────────┐\n  │                    Fisher (recommended)                │\n  │  - Pure Fish implementation (no dependencies)          │\n  │  - Install: curl -sL git.io/fisher | source && ...     │\n  │  - Usage: fisher install <github-user/repo>            │\n  │  - Stores plugins in: ~/.config/fish/functions/ etc.   │\n  │  - Lightweight; plugins are just Fish functions        │\n  └────────────────────────────────────────────────────────┘\n\n  ┌────────────────────────────────────────────────────────┐\n  │                 Oh My Fish (OMF) — older               │\n  │  - Heavier framework; more opinionated structure       │\n  │  - Install: curl ... | fish                            │\n  │  - Usage: omf install <plugin>                         │\n  │  - Larger plugin registry (but overlap with Fisher)    │\n  │  - Less actively maintained                            │\n  └────────────────────────────────────────────────────────┘\n\n  Recommendation: Fisher for new setups.",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    }
+  ]
+}

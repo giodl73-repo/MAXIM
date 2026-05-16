@@ -1,0 +1,72 @@
+{
+  "schema_version": "1",
+  "source_markdown": "scripting\\08-SED.md",
+  "blocks": [
+    {
+      "id": "block-1",
+      "kind": "diagram_like",
+      "line": 22,
+      "heading_context": "# Scripting: sed",
+      "confidence": "candidate",
+      "text": "TEXT-PROCESSING TOOL LANDSCAPE\n═══════════════════════════════════════════════════════════════════════════\n\n  FIND            TRANSFORM STREAM      STRUCTURED FIELDS     FULL LANGUAGE\n  ─────           ────────────────      ─────────────────     ─────────────\n  grep            sed                   awk                   perl / python\n  ─────           ────────────────      ─────────────────     ─────────────\n  pattern match   s/find/replace/       $1 $2 $3 fields       data structs\n  line filter     line delete/insert    arithmetic            modules/CPAN\n  no transform    address ranges        associative arrays    non-greedy\n  no state        hold space (1 buf)    multiple patterns     full OOP/FP\n                  BRE/ERE regex         BEGIN/END blocks\n\n  sed INPUT MODEL\n\n    file / stdin\n      -> line N\n      -> address filter / match?\n      -> command: s/// d p a i\n      -> pattern space <-> hold space (h/H/g/G/x)\n      -> stdout / -i (in-place)\n\n  sed command surface:\n    s///     substitute          d        delete line\n    p        print               q        quit\n    a\\       append after        i\\       insert before\n    c\\       replace line        y///     transliterate\n    n/N      next line           P/D      multiline ops\n    h/H/g/G  hold space          b/t/T    branch / conditional\n\n  Decision rule:\n    one-liner s/find/replace/    → sed\n    delete/insert lines           → sed\n    field columns, arithmetic     → awk\n    non-greedy, complex logic     → perl",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-2",
+      "kind": "diagram_like",
+      "line": 79,
+      "heading_context": "## Execution Model",
+      "confidence": "candidate",
+      "text": "sed execution model:\n  ┌──────────────────────────────────────────────────────────────┐\n  │  for each input line:                                        │\n  │    1. read line into pattern space                           │\n  │    2. for each sed command:                                  │\n  │       a. if address matches (or no address):                 │\n  │          execute command (may modify pattern space)          │\n  │    3. print pattern space to stdout (unless -n)              │\n  │    4. clear pattern space                                    │\n  │                                                              │\n  │  Two buffers:                                                │\n  │    pattern space — current line being processed              │\n  │    hold space    — persistent storage between lines          │\n  └──────────────────────────────────────────────────────────────┘\n\n  sed 'command' file\n  sed -e 'cmd1' -e 'cmd2' file      # multiple commands\n  sed -f script.sed file            # from script file\n  sed -n 'cmd' file                 # suppress auto-print (explicit p needed)\n  sed -i 's/a/b/g' file            # in-place edit (GNU sed)\n  sed -i.bak 's/a/b/g' file        # in-place with backup (GNU + BSD)\n  sed -i '' 's/a/b/g' file         # BSD/macOS in-place (requires '' !)",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-3",
+      "kind": "ascii_table_candidate",
+      "line": 431,
+      "heading_context": "## Regex Dialect Bridge: PCRE → sed BRE/ERE",
+      "confidence": "candidate",
+      "text": "FEATURE              PCRE / ERE              sed BRE (default)       sed ERE (-E)\n───────────────────  ──────────────────────  ──────────────────────  ──────────────────────\nDigit shorthand      \\d                      [0-9] or [[:digit:]]    [0-9] or [[:digit:]]\nWord char shorthand  \\w                      [[:alnum:]_] (portable) [[:alnum:]_]\nWhitespace           \\s                      [[:space:]]             [[:space:]]\nCapture group        (group)                 \\(group\\)               (group)\nNon-capture group    (?:...)                 — not available —       — not available —\nAlternation          foo|bar                 foo\\|bar (GNU only)     foo|bar\nOne-or-more          x+                      x\\+ (GNU) or xx*        x+\nZero-or-one          x?                      x\\?                     x?\nInterval             x{2,4}                  x\\{2,4\\}                x{2,4}\nNamed capture        (?P<name>...)           — not in sed —          — not in sed —\nNamed backreference  \\g{name} / $+{name}     — not in sed —          — not in sed —\nPositional backref   \\1 \\2                   \\1 \\2                   \\1 \\2\nNon-greedy           .*? .+?                 — not in sed —          — not in sed —\nLookahead            (?=...) (?!...)         — not in sed —          — not in sed —\nLookbehind           (?<=...) (?<!...)       — not in sed —          — not in sed —",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-4",
+      "kind": "ascii_table_candidate",
+      "line": 458,
+      "heading_context": "## Regex Dialect Bridge: PCRE → sed BRE/ERE",
+      "confidence": "candidate",
+      "text": "# Before you sed: switch to ERE\nsed -E 's/([0-9]+) (foo|bar)/[\\1] \\2/g'    # works\nsed    's/\\([0-9]\\+\\) \\(foo\\|bar\\)/[\\1] \\2/g'  # BRE equivalent — don't write this\n\n# Non-greedy workaround: match \"everything up to the first quote\"\nsed -E 's/\"[^\"]*\"/REDACTED/g'   # negated char class instead of \".*?\"\n\n# Named capture → just use perl\nperl -pe 's/(?<year>\\d{4})-(?<month>\\d{2})/$+{month}-$+{year}/'",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-5",
+      "kind": "diagram_like",
+      "line": 476,
+      "heading_context": "## Bridge: In-Place Substitution Across Tools",
+      "confidence": "candidate",
+      "text": "TOOL                  SYNTAX                                    NOTES\n────────────────────  ────────────────────────────────────────  ─────────────────────────────────────\nPowerShell -replace   (Get-Content f) -replace 'foo','bar'      Returns string; pipe to Set-Content\n                      | Set-Content f                           Uses .NET regex (PCRE-derived); named\n                                                                groups via $+{name} or ${name}\nbash parameter        var=\"${var//foo/bar}\"                      Glob syntax, NOT regex; replaces in\nexpansion             (file: no direct equivalent)              variable only — no file support\nsed (GNU/Linux)       sed -i 's/foo/bar/g' file                 BRE default; -E for ERE; -i needs ''\nsed (BSD/macOS)       sed -i '' 's/foo/bar/g' file              on macOS (empty string is required)\nPerl                  perl -i.bak -pe 's/foo/bar/g' file        Portable; full PCRE; .bak = backup\n                                                                file; safest cross-platform choice\nawk                   awk '{gsub(/foo/,\"bar\"); print}' f         No in-place; redirect to temp file\nPython                python3 -c \"import re,sys;                One-liner; subprocess overhead vs\n                        [...]\" (verbose)                        sed/perl for simple cases",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-6",
+      "kind": "diagram_like",
+      "line": 517,
+      "heading_context": "## sed vs awk: Mental Model and Decision Guide",
+      "confidence": "candidate",
+      "text": "sed: STREAM EDITOR                      awk: RECORD PROCESSOR\n─────────────────────────────────────   ─────────────────────────────────────\nUnit of work: entire line               Unit of work: fields within a line\nState: none (except 1 hold buffer)      State: variables, arrays, arithmetic\nPrimary op: address + command           Primary op: pattern { action }\nRegex: BRE/ERE                          Regex: ERE (always)\nData: opaque text                       Data: structured columns ($1 $2 $NF)\nOutput: modified version of input       Output: anything you compute\nLoops: only via branch + label          Loops: for, while, do-while\nFunctions: none                         Functions: user-defined, built-in math\n\nUse sed when:                           Use awk when:\n  s/find/replace/ in a file              you need $1, $2 field access\n  delete lines matching a pattern        you need arithmetic or counting\n  insert/append lines at a marker        you need BEGIN{} / END{} blocks\n  extract line ranges                    you need associative arrays\n  quick in-place file edits              you're aggregating across lines\n  transforming a stream in a pipeline    you need printf formatting",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    }
+  ]
+}

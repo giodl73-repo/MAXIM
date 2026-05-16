@@ -1,0 +1,204 @@
+{
+  "schema_version": "1",
+  "source_markdown": "scripting\\04-BASH.md",
+  "blocks": [
+    {
+      "id": "block-1",
+      "kind": "diagram_like",
+      "line": 28,
+      "heading_context": "## Shell Landscape",
+      "confidence": "candidate",
+      "text": "Shell Family Tree and Deployment Context\n─────────────────────────────────────────────────────────────────────\n\n  POSIX sh (1988)  ←── the standard; least common denominator\n    │\n    ├─── dash      lightweight, fast; /bin/sh on Ubuntu, Alpine, Debian\n    │              Docker RUN, CI scripts with #!/bin/sh, init systems\n    │\n    ├─── bash      POSIX superset; dominant scripting shell worldwide\n    │              GitHub Actions (ubuntu-latest default), GitLab CI,\n    │              most Linux distros (/bin/bash), macOS (pre-2019 default)\n    │              Bash 3.2 on macOS (GPL), 5.x on Linux\n    │\n    ├─── zsh       Bash superset + interactive UX; macOS default (2019+)\n    │              Better completion, glob qualifiers, float arithmetic\n    │              1-indexed arrays — portability trap if mixing with Bash\n    │\n    ├─── ksh (93)  Korn shell; some commercial Unix, older enterprises\n    │\n    └─── fish      Friendly Interactive Shell; NOT POSIX-compatible\n                   Syntax is different enough to not be a subset/superset\n\nPOSIX compliance spectrum:\n  strict POSIX ──────────────────────────────────── extensions\n  sh/dash         ksh         bash         zsh         fish\n\nDeployment contexts:\n  Container base image (Alpine/Debian slim) → /bin/sh (dash)\n  CI runners (ubuntu-latest, GitLab CI)     → /bin/bash\n  macOS interactive shell                   → /bin/zsh\n  macOS scripting                           → bash or zsh (both available)\n  Server automation / cron                  → bash (explicit shebang)\n  Windows (WSL2 / Git Bash / MSYS2)        → bash\n\nKey shebang consequences:\n  #!/bin/sh        → dash on Ubuntu/Alpine — Bash-only features will fail\n  #!/bin/bash      → bash at /bin/bash — hard path; may not exist\n  #!/usr/bin/env bash → bash found via PATH — portable and recommended\n  #!/usr/bin/env zsh  → zsh; never use for shared scripts",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-2",
+      "kind": "diagram_like",
+      "line": 88,
+      "heading_context": "## Architecture: The Fork/Exec Model",
+      "confidence": "candidate",
+      "text": "script.sh\n┌──────────────────────────────────────────────────────┐\n│  bash process (PID 1234)                             │\n│                                                      │\n│  command1                                            │\n│  └─► fork() → child PID 1235                         │\n│      exec(\"ls\", args)                                │\n│      parent waits (waitpid), reads exit code         │\n│                                                      │\n│  var=$(command2)                                     │\n│  └─► fork() + anonymous pipe → capture stdout        │\n│      runs in subshell; env changes do NOT propagate  │\n│                                                      │\n│  (subshell) { ... }                                  │\n│  └─► fork() → child gets COPY of env                 │\n│      variable changes in child lost at exit          │\n│                                                      │\n│  { group; cmds; }                                    │\n│  └─► same process — env changes DO propagate         │\n└──────────────────────────────────────────────────────┘\n\nEverything is a command. [[ ]] is a command. true/false are commands.\nExit code 0 = success (true). Non-zero = failure (false).",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-3",
+      "kind": "chart_like",
+      "line": 118,
+      "heading_context": "## Syntax Reference Card",
+      "confidence": "candidate",
+      "text": "### 1. Variables",
+      "notes": [
+        "detected from bar/chart glyph density with numeric labels"
+      ]
+    },
+    {
+      "id": "block-4",
+      "kind": "chart_like",
+      "line": 148,
+      "heading_context": "# Unset",
+      "confidence": "candidate",
+      "text": "### 2. String Quoting",
+      "notes": [
+        "detected from bar/chart glyph density with numeric labels"
+      ]
+    },
+    {
+      "id": "block-5",
+      "kind": "chart_like",
+      "line": 178,
+      "heading_context": "# for glob patterns: use arrays: files=(*.txt); ls \"${files[@]}\"",
+      "confidence": "candidate",
+      "text": "### 3. Arrays",
+      "notes": [
+        "detected from bar/chart glyph density with numeric labels"
+      ]
+    },
+    {
+      "id": "block-6",
+      "kind": "chart_like",
+      "line": 222,
+      "heading_context": "# CRITICAL: always quote array expansion",
+      "confidence": "candidate",
+      "text": "### 4. Arithmetic",
+      "notes": [
+        "detected from bar/chart glyph density with numeric labels"
+      ]
+    },
+    {
+      "id": "block-7",
+      "kind": "chart_like",
+      "line": 224,
+      "heading_context": "### 4. Arithmetic",
+      "confidence": "candidate",
+      "text": "# Integer arithmetic only — no native float\nresult=$(( 2 + 3 * 4 ))   # → 14\nresult=$(( 10 / 3 ))       # → 3 (integer division — truncates)\nresult=$(( 10 % 3 ))       # → 1 (modulo)\nresult=$(( 2 ** 10 ))      # → 1024 (exponent)\n\n(( x++ ))                  # increment (no $ needed inside (( )))\n(( x += 5 ))\n(( x > 5 )) && echo \"yes\"  # (( )) returns exit code 0=true, 1=false\n\n# declare -i enforces integer — assignment auto-evaluates arithmetic\ndeclare -i count=0\ncount+=1                   # equivalent to (( count += 1 ))\n\n# Float: pipe through bc or awk\necho \"scale=2; 10/3\" | bc              # → 3.33\nresult=$(awk 'BEGIN {print 1.5 * 2.5}')  # → 3.75\nresult=$(python3 -c \"print(1.5 * 2.5)\")  # → 3.75\n\n# printf for formatted numbers\nprintf \"%.2f\\n\" 3.14159    # → 3.14\n\n# Trap: (( x = 0 )) returns exit code 1 (the result is 0 = falsy)\n# With set -e this aborts the script!\n(( x = 0 )) || true        # safe workaround\nx=0                        # simpler: just use assignment\n\n# Base conversion literals\necho $(( 16#FF ))          # → 255  (hex literal: base#value)\necho $(( 8#77 ))           # → 63   (octal)\necho $(( 2#1010 ))         # → 10   (binary)\nprintf '%x\\n' 255          # → ff   (decimal to hex output)\nprintf '%o\\n' 255          # → 377  (decimal to octal output)\nprintf '%08b\\n' 10         # → 00001010  (decimal to binary — with printf trick via dc or Python for real use)\n\n# Bitwise operators\necho $(( 0xFF & 0x0F ))    # → 15  (AND)\necho $(( 0xF0 | 0x0F ))    # → 255 (OR)\necho $(( 0xFF ^ 0x0F ))    # → 240 (XOR)\necho $(( ~0 ))              # → -1  (bitwise NOT — two's complement)\necho $(( 1 << 4 ))          # → 16  (left shift)\necho $(( 256 >> 4 ))        # → 16  (right shift)\n\n# (( )) vs $(( )) — exit-code vs substitution semantic\n(( x > 5 ))                # exit code: 0 if true, 1 if false — used in conditions\nresult=$(( x + 1 ))        # substitution: captures the numeric result as a string\n# They look similar but serve different roles:\nif (( x > 5 )); then       # (( )) as condition — reads exit code\n    echo \"big\"\nfi\ny=$(( x * 2 ))             # $(( )) as expression — captures value\n# Never use $(( )) as a standalone condition — the exit code is discarded",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-8",
+      "kind": "chart_like",
+      "line": 279,
+      "heading_context": "# Never use $(( )) as a standalone condition — the exit code is discarded",
+      "confidence": "candidate",
+      "text": "### 5. Conditionals",
+      "notes": [
+        "detected from bar/chart glyph density with numeric labels"
+      ]
+    },
+    {
+      "id": "block-9",
+      "kind": "chart_like",
+      "line": 344,
+      "heading_context": "# [ ] && and || go OUTSIDE: [ cond1 ] && [ cond2 ]",
+      "confidence": "candidate",
+      "text": "### 6. case/esac",
+      "notes": [
+        "detected from bar/chart glyph density with numeric labels"
+      ]
+    },
+    {
+      "id": "block-10",
+      "kind": "chart_like",
+      "line": 378,
+      "heading_context": "# ;;& (bash 4+): test next pattern too (instead of short-circuiting)",
+      "confidence": "candidate",
+      "text": "### 7. Loops",
+      "notes": [
+        "detected from bar/chart glyph density with numeric labels"
+      ]
+    },
+    {
+      "id": "block-11",
+      "kind": "chart_like",
+      "line": 443,
+      "heading_context": "# Loop with index",
+      "confidence": "candidate",
+      "text": "### 8. Functions",
+      "notes": [
+        "detected from bar/chart glyph density with numeric labels"
+      ]
+    },
+    {
+      "id": "block-12",
+      "kind": "diagram_like",
+      "line": 445,
+      "heading_context": "### 8. Functions",
+      "confidence": "candidate",
+      "text": "# Define (two syntaxes — functionally identical in bash)\nmy_func() {\n    local first=\"$1\"           # local scope — CRITICAL; without local it's global\n    local second=\"$2\"\n    local -a arr=(\"${@:3}\")    # all args from $3 onward into local array\n    echo \"processed: $first $second\"  # \"return value\" via stdout capture\n    return 0                   # exit code only: 0=success, 1-255=error\n}\n\nfunction my_func {             # bash-specific syntax; identical behavior\n    ...\n}\n\n# Call and capture output\nresult=$(my_func arg1 arg2)\n\n# Call and check exit code\nif my_func arg1 arg2; then\n    echo \"succeeded\"\nfi\n\n# Return values — Bash has NO mechanism to return arbitrary data via return\n# Convention 1: capture stdout (cleanest)\nresult=$(compute_value)\n\n# Convention 2: nameref output parameter (bash 4.3+)\nget_value() {\n    local -n _ret=$1    # nameref: _ret is an alias for the variable named by $1\n    _ret=\"the computed value\"\n}\nget_value my_var\necho \"$my_var\"          # → the computed value\n\n# NAMEREF TRAP 1: name collision — the #1 expert gotcha\n# If the caller passes a variable named _ret, the local -n _ret=$1 creates\n# a circular reference. Bash prints: \"circular name reference\" and aborts.\nbad_get() {\n    local -n _ret=$1    # if caller does: bad_get _ret  → circular!\n    _ret=\"value\"\n}\nbad_get _ret            # FAILS: _ret references itself\n\n# Fix: use an unlikely prefix (double underscore, function prefix, etc.)\ngood_get() {\n    local -n __good_get_out=$1   # namespace the nameref var\n    __good_get_out=\"value\"\n}\ngood_get result         # safe even if caller has a var named _ret\n\n# NAMEREF TRAP 2: declare -n vs local -n\n# local -n  → nameref scoped to the function (correct for output params)\n# declare -n → without -g, scoped to function; with -g, creates global nameref\n# In practice: always use local -n for output parameters; declare -n for globals\n\n# Convention 3: set a global (avoid — hard to reason about)\n_result=\"\"\ncompute() { _result=\"computed value\"; }\ncompute\necho \"$_result\"\n\n# Cleanup with trap\ncleanup() {\n    local exit_code=$?\n    rm -f /tmp/myfile.tmp\n    echo \"cleaned up\" >&2\n    exit $exit_code\n}\ntrap cleanup EXIT        # runs on ANY exit (normal, error, or signal)\ntrap cleanup INT TERM    # also handles Ctrl-C and kill",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-13",
+      "kind": "chart_like",
+      "line": 517,
+      "heading_context": "# Cleanup with trap",
+      "confidence": "candidate",
+      "text": "### 8a. Trap Pseudo-Signals",
+      "notes": [
+        "detected from bar/chart glyph density with numeric labels"
+      ]
+    },
+    {
+      "id": "block-14",
+      "kind": "chart_like",
+      "line": 573,
+      "heading_context": "# Reset a trap to default behavior:",
+      "confidence": "candidate",
+      "text": "### 9. Coprocesses",
+      "notes": [
+        "detected from bar/chart glyph density with numeric labels"
+      ]
+    },
+    {
+      "id": "block-15",
+      "kind": "chart_like",
+      "line": 621,
+      "heading_context": "#   4. Use expect / pexpect    (for interactive programs designed for ttys)",
+      "confidence": "candidate",
+      "text": "### 10. I/O and Redirection",
+      "notes": [
+        "detected from bar/chart glyph density with numeric labels"
+      ]
+    },
+    {
+      "id": "block-16",
+      "kind": "chart_like",
+      "line": 687,
+      "heading_context": "# trailing ; and space before } are required syntax",
+      "confidence": "candidate",
+      "text": "### 11. Exit Codes and Error Handling",
+      "notes": [
+        "detected from bar/chart glyph density with numeric labels"
+      ]
+    },
+    {
+      "id": "block-17",
+      "kind": "chart_like",
+      "line": 745,
+      "heading_context": "# Subshell exit codes are visible",
+      "confidence": "candidate",
+      "text": "### 12. Script Arguments",
+      "notes": [
+        "detected from bar/chart glyph density with numeric labels"
+      ]
+    },
+    {
+      "id": "block-18",
+      "kind": "chart_like",
+      "line": 791,
+      "heading_context": "# getopts (POSIX, single-character flags only)",
+      "confidence": "candidate",
+      "text": "### 13. String Operations",
+      "notes": [
+        "detected from bar/chart glyph density with numeric labels"
+      ]
+    }
+  ]
+}

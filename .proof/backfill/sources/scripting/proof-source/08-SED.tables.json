@@ -1,0 +1,270 @@
+{
+  "schema_version": "1",
+  "source_markdown": "scripting\\08-SED.md",
+  "tables": [
+    {
+      "id": "table-1",
+      "line": 66,
+      "heading_context": "## Language Snapshot",
+      "headers": [
+        "Attribute",
+        "Value"
+      ],
+      "rows": [
+        [
+          "Platform",
+          "All Unix/Linux/macOS; Windows via WSL/Git Bash"
+        ],
+        [
+          "Extension",
+          "`.sed` (rare)"
+        ],
+        [
+          "Shebang",
+          "`#!/usr/bin/sed -f`"
+        ],
+        [
+          "Paradigm",
+          "Address-command stream processing"
+        ],
+        [
+          "Typing",
+          "Text only"
+        ],
+        [
+          "Execution",
+          "Compiled per-invocation; state machine model"
+        ]
+      ]
+    },
+    {
+      "id": "table-2",
+      "line": 375,
+      "heading_context": "## GNU sed vs BSD sed (macOS)",
+      "headers": [
+        "Feature",
+        "GNU sed (Linux)",
+        "BSD sed (macOS)"
+      ],
+      "rows": [
+        [
+          "`-i` in-place",
+          "`sed -i 's/a/b/' file`",
+          "`sed -i '' 's/a/b/' file` (empty string required)"
+        ],
+        [
+          "`-i` with backup",
+          "`sed -i.bak 's/a/b/' file`",
+          "Same syntax"
+        ],
+        [
+          "`-E` ERE flag",
+          "`sed -E`",
+          "`sed -E` (same)"
+        ],
+        [
+          "`\\w` `\\d` `\\s` shortcuts",
+          "Supported",
+          "NOT supported — use POSIX classes"
+        ],
+        [
+          "`\\+` in BRE",
+          "Supported",
+          "NOT supported"
+        ],
+        [
+          "`\\|` alternation in BRE",
+          "`\\(a\\|b\\)` works",
+          "NOT supported — use `-E`"
+        ],
+        [
+          "`{n,m}` intervals in BRE",
+          "Supported",
+          "NOT supported in BRE"
+        ],
+        [
+          "`0,/pat/` zero address",
+          "Supported",
+          "NOT supported"
+        ],
+        [
+          "`1~2` step address",
+          "Supported",
+          "NOT supported"
+        ]
+      ]
+    },
+    {
+      "id": "table-3",
+      "line": 540,
+      "heading_context": "## sed vs awk: Mental Model and Decision Guide",
+      "headers": [
+        "Task",
+        "Tool"
+      ],
+      "rows": [
+        [
+          "Replace `foo` with `bar` in a file",
+          "`sed -i 's/foo/bar/g'`"
+        ],
+        [
+          "Delete lines matching a pattern",
+          "`sed '/pattern/d'`"
+        ],
+        [
+          "Print lines 10–20",
+          "`sed -n '10,20p'`"
+        ],
+        [
+          "Insert a line after a match",
+          "`sed '/pattern/a\\new line'`"
+        ],
+        [
+          "Print the 3rd column of a CSV",
+          "`awk -F, '{print $3}'`"
+        ],
+        [
+          "Sum a column of numbers",
+          "`awk '{sum += $1} END{print sum}'`"
+        ],
+        [
+          "Count occurrences of a pattern",
+          "`awk '/pattern/{count++} END{print count}'`"
+        ],
+        [
+          "Print lines where field 2 > 100",
+          "`awk '$2 > 100'`"
+        ],
+        [
+          "Process CSV with quoted fields",
+          "Perl or Python (neither sed nor awk handles this cleanly)"
+        ],
+        [
+          "Non-greedy match / lookahead",
+          "Perl"
+        ]
+      ]
+    },
+    {
+      "id": "table-4",
+      "line": 570,
+      "heading_context": "## Gotchas & Traps",
+      "headers": [
+        "Trap",
+        "Issue",
+        "Fix"
+      ],
+      "rows": [
+        [
+          "`-i` without `''` on macOS",
+          "`sed -i 's/a/b/' file` fails on BSD — expects suffix arg",
+          "`sed -i '' 's/a/b/' file` on macOS"
+        ],
+        [
+          "BRE vs ERE",
+          "Default is BRE: `(`, `)`, `+`, `?` are literal characters",
+          "Use `-E` for ERE; or escape `\\(`, `\\+` in BRE"
+        ],
+        [
+          "`\\w` on macOS",
+          "Not in BSD sed",
+          "Use `[[:alnum:]_]` for portability"
+        ],
+        [
+          "No non-greedy",
+          "`s/a.*b/x/` matches longest `a...b`",
+          "sed has no `.*?` — use negated class: `[^b]*`"
+        ],
+        [
+          "`&` in replacement",
+          "`&` = entire match; to get literal `&` use `\\&`",
+          "`s/foo/\\&/` inserts literal `&`"
+        ],
+        [
+          "Newline in pattern",
+          "`/\\n/` won't match in single-line mode",
+          "Use `N` to pull next line into pattern space first"
+        ],
+        [
+          "`d` skips remaining commands",
+          "After `d`, no further commands run for that line",
+          "Structure scripts so `d` is the last action"
+        ],
+        [
+          "BSD step address",
+          "`1~2` (every other line) is GNU-only",
+          "Use awk or a counter loop for BSD"
+        ],
+        [
+          "`0,/pat/` GNU-only",
+          "Zero address for first-line match is GNU extension",
+          "On BSD, `1,/pat/` skips the match if it's on line 1"
+        ],
+        [
+          "Backup extension typo",
+          "`sed -i.bak` creates `file.txtbak` not `file.txt.bak`",
+          "`sed -i .bak` (with space) or `sed -i'.bak'`"
+        ]
+      ]
+    },
+    {
+      "id": "table-5",
+      "line": 587,
+      "heading_context": "## Decision Cheat Sheet",
+      "headers": [
+        "Task",
+        "Tool"
+      ],
+      "rows": [
+        [
+          "Simple `s///` in-place file edits",
+          "sed (or `perl -i` for portability)"
+        ],
+        [
+          "Delete lines matching a pattern",
+          "sed `/pattern/d`"
+        ],
+        [
+          "Print line ranges",
+          "sed `-n '10,20p'`"
+        ],
+        [
+          "Insert/append lines at a pattern",
+          "sed `a\\` / `i\\`"
+        ],
+        [
+          "Fastest stream edit on large files",
+          "sed beats awk/perl for pure s//"
+        ],
+        [
+          "Multi-column field processing",
+          "awk"
+        ],
+        [
+          "Arithmetic or aggregation",
+          "awk"
+        ],
+        [
+          "Non-greedy regex",
+          "Perl"
+        ],
+        [
+          "Complex logic / loops",
+          "Perl or awk"
+        ],
+        [
+          "Multiple transforms per line with conditions",
+          "Perl"
+        ],
+        [
+          "Cross-platform portability",
+          "`perl -i.bak -pe 's/a/b/g'`"
+        ],
+        [
+          "Unicode-aware text processing",
+          "Perl with `use utf8`"
+        ]
+      ]
+    }
+  ]
+}

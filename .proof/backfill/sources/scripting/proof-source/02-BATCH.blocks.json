@@ -1,0 +1,72 @@
+{
+  "schema_version": "1",
+  "source_markdown": "scripting\\02-BATCH.md",
+  "blocks": [
+    {
+      "id": "block-1",
+      "kind": "diagram_like",
+      "line": 24,
+      "heading_context": "# Scripting: Batch (CMD)",
+      "confidence": "candidate",
+      "text": "WINDOWS SCRIPTING ECOSYSTEM\n═══════════════════════════════════════════════════════════════════════════════\n\nEvolution (left = older, right = newer):\n\n  COMMAND.COM        cmd.exe          PowerShell 1–5.1      pwsh 7+\n  (MS-DOS, 1981)  (NT 3.1, 1993)    (Windows, 2006)     (cross-platform, 2019)\n       │                │                   │                    │\n       │           .bat / .cmd         .ps1 scripts         .ps1 scripts\n       │           scripting           verb-noun cmdlets     same + new APIs\n       │           (this guide)        .NET Framework CLR    .NET 5+ CLR\n       │                │                   │                    │\n       │           runs in            runs in               runs in\n       │           cmd.exe            powershell.exe        pwsh.exe\n       │           process            process               process\n       │\n       └── Parallel lineage (1996):\n               wscript.exe / cscript.exe  (Windows Scripting Host)\n               ├── VBScript (.vbs)        ← deprecated; removed Win11+\n               └── JScript (.js)          ← deprecated; removed Win11+\n\nWhere Batch fits TODAY:\n  ┌─────────────────────────────────────────────────────────────────┐\n  │  STATUS: Legacy maintenance, NOT greenfield                     │\n  │                                                                 │\n  │  Use when:                                                      │\n  │  - Existing .bat scripts that must not be changed               │\n  │  - Thin launcher: call cmd → bootstrap PowerShell/Python        │\n  │  - Environment guarantees cmd.exe only (rare CI agents)         │\n  │                                                                 │\n  │  Avoid for:                                                     │\n  │  - Any new Windows automation → use PowerShell                  │\n  │  - Cross-platform work → use bash/sh/Python                     │\n  └─────────────────────────────────────────────────────────────────┘\n\nThe execution environment:\n  ┌──────────────────────────────────────────────────────────────────┐\n  │                         cmd.exe process                          │\n  │                                                                  │\n  │   script.bat ──read──► tokenizer ──► line-by-line interpreter    │\n  │                                           │                      │\n  │                                     expansion order:             │\n  │                                     1. %var%   (parse time)      │\n  │                                     2. special chars             │\n  │                                     3. FOR/IF recognition        │\n  │                                     4. execution                 │\n  │                                     5. !var!   (runtime, opt-in) │\n  │                                                                  │\n  │   No AST. No bytecode. No JIT. Pure sequential text processing.  │\n  │   Unicode: limited (code page dependent; UTF-8 via chcp 65001)   │\n  │   16-bit heritage: ERRORLEVEL semantics, EXIT behavior, %%       │\n  └──────────────────────────────────────────────────────────────────┘\n\nSide-by-side execution model comparison:\n  cmd.exe / Batch         PowerShell              bash\n  ─────────────────────   ─────────────────────   ─────────────────────\n  text-only pipeline      object pipeline         text-only pipeline\n  no AST — line proc.     AST → CIL → JIT         interpreted, no bytecode\n  ERRORLEVEL (int)        $LASTEXITCODE + $?       $? (int)\n  %var% at parse time     $var at runtime          $var at runtime\n  no Unicode (mostly)     full Unicode             full Unicode\n  Windows only            cross-platform (7+)      Unix/macOS/WSL\n  built-in (no install)   built-in Win 5.1, opt 7  install on Windows",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-2",
+      "kind": "diagram_like",
+      "line": 107,
+      "heading_context": "## The Core Weirdness — cmd.exe Parsing Order",
+      "confidence": "candidate",
+      "text": "cmd.exe processes each line in this fixed order:\n\n  1. Variable expansion       %var%  resolved BEFORE anything else\n  2. Special char parsing     & | < > ( ) ^ resolved\n  3. FOR/IF block recognition\n  4. Command execution\n  5. Delayed expansion        !var!  resolved HERE (only with ENABLEDELAYEDEXPANSION)\n\nWhy this matters:\n  SETLOCAL ENABLEDELAYEDEXPANSION\n  SET count=0\n  FOR %%f IN (*.txt) DO (\n    SET /A count+=1\n    ECHO %count%   ← WRONG: always prints 0 — expanded at parse time, not loop time\n    ECHO !count!   ← RIGHT: expanded at execution time, inside the loop\n  )\n\nThis single expansion-order quirk explains ~70% of Batch mysteries.",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-3",
+      "kind": "diagram_like",
+      "line": 462,
+      "heading_context": "## What Makes It Distinct",
+      "confidence": "candidate",
+      "text": "Batch is not a designed language — it evolved from CP/M's SUBMIT.COM\nand COMMAND.COM's interactive mode. The \"design\" decisions are\narchaeological artifacts, not intentional choices.\n\nKey architectural facts:\n\n  cmd.exe is a single-pass line processor, not a tree-based interpreter.\n  There is no AST. Commands are tokenized and dispatched sequentially.\n  Control flow (GOTO, FOR, IF) is bolted onto a system designed for\n  interactive one-liners, which is why:\n\n  ┌────────────────────────────────────────────────────────┐\n  │  Feature         │  Why it works the way it does       │\n  ├────────────────────────────────────────────────────────┤\n  │  %var% expansion │  Done before line execution         │\n  │  !var! expansion │  Bolted on later — needs opt-in     │\n  │  GOTO :EOF       │  :EOF is a magic virtual label       │\n  │  EXIT /B         │  /B added later to fix EXIT bug      │\n  │  FOR %%i syntax  │  % used by both vars and for-vars;  │\n  │                  │  %% in script avoids collision       │\n  │  No arrays       │  SET is a flat key-value store       │\n  │  No floats       │  SET /A added after the fact         │\n  └────────────────────────────────────────────────────────┘\n\nThe key mental model: Batch is line-oriented macro expansion,\nnot a programming language runtime. Think of it closer to a\nsophisticated .cmd text substitution system.",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-4",
+      "kind": "diagram_like",
+      "line": 543,
+      "heading_context": "## Common Confusion Points",
+      "confidence": "candidate",
+      "text": "cmd.exe parsing order (per line):\n  Step 1: %var% expansion          ← happens to ENTIRE BLOCK before any execution\n  Step 2: special char parsing\n  Step 3: FOR/IF recognition\n  Step 4: command execution\n  Step 5: !var! expansion          ← only here; only if ENABLEDELAYEDEXPANSION\n\nFOR %%f IN (*.txt) DO (\n    SET /A count+=1\n    ECHO %count%     ← Step 1 substitutes this NOW, before loop runs → always 0\n    ECHO !count!     ← Step 5 substitutes this during execution      → correct\n)",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-5",
+      "kind": "diagram_like",
+      "line": 623,
+      "heading_context": "### When to Rewrite vs. Wrap",
+      "confidence": "candidate",
+      "text": "Decision tree for existing .bat scripts:\n\nScript complexity?\n  │\n  ├── < 20 lines, simple file ops  →  Wrap: .bat launcher that calls pwsh\n  │                                    (see \"Thin Launcher Pattern\" below)\n  │\n  ├── 20–100 lines, conditional logic  →  Rewrite in PowerShell\n  │                                       Direct translation is mechanical\n  │\n  └── > 100 lines, complex FOR /F parsing,\n      ERRORLEVEL chains, %~dp0 path logic  →  Rewrite in PowerShell\n                                               AND add a thin .bat launcher\n                                               for callers that use cmd.exe\n\nNew scripts:  ALWAYS write in PowerShell; never start a new .bat",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-6",
+      "kind": "diagram_like",
+      "line": 713,
+      "heading_context": "### Exit Code Model: ERRORLEVEL → $LASTEXITCODE + $?",
+      "confidence": "candidate",
+      "text": "Batch:\n  %ERRORLEVEL% = single integer after every command\n  IF ERRORLEVEL 1  ← true if ERRORLEVEL >= 1  (at-least semantics)\n  IF %ERRORLEVEL% EQU 1  ← true only if exactly 1\n\nPowerShell — TWO mechanisms, NOT interchangeable:\n\n  External process (git, docker, node):\n    git status\n    $LASTEXITCODE          ← exact integer exit code\n    if ($LASTEXITCODE -ne 0) { ... }   ← correct for external tools\n\n  PowerShell cmdlet (Get-Item, etc.):\n    Get-Item \"missing\"\n    $?                     ← bool: True if cmdlet succeeded\n    if (-not $?) { ... }   ← correct for cmdlets\n\n  COMMON BUG:\n    git status\n    if (-not $?) { \"git failed?\" }    # WRONG: $? = PS state, not git\n    if ($LASTEXITCODE -ne 0) { ... }  # RIGHT\n\n  Auto-throw for cmdlets (like per-line GOTO :err):\n    $ErrorActionPreference = \"Stop\"   # cmdlets now throw on failure\n    # External tools still need explicit $LASTEXITCODE checks",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    }
+  ]
+}

@@ -1,0 +1,1277 @@
+{
+  "schema_version": "1",
+  "source_markdown": "scripting\\01-CHEATSHEET.md",
+  "tables": [
+    {
+      "id": "table-1",
+      "line": 73,
+      "heading_context": "## Task → Tool Decision Table",
+      "headers": [
+        "I need to...",
+        "Reach for",
+        "Why"
+      ],
+      "rows": [
+        [
+          "Process CSV/TSV columns, sum/count/filter fields",
+          "`awk`",
+          "Record model, field splitting, arithmetic — designed for this"
+        ],
+        [
+          "Substitute text patterns in a stream",
+          "`sed`",
+          "Line-by-line substitution; `-i` for in-place"
+        ],
+        [
+          "In-place file edit with complex logic",
+          "`perl -i -pe`",
+          "More power than sed; regex with captures and code"
+        ],
+        [
+          "Parse/transform arbitrary text (complex)",
+          "`perl` or `python`",
+          "Full language; AWK runs out of headroom"
+        ],
+        [
+          "Write a portable script (any Linux/Docker/CI)",
+          "`sh` (POSIX)",
+          "Runs everywhere: dash, bash, busybox ash"
+        ],
+        [
+          "Write a Linux CI script (GitHub Actions, ubuntu)",
+          "`bash`",
+          "Default shell in ubuntu runners; `[[`, arrays available"
+        ],
+        [
+          "Script for Alpine or minimal Docker",
+          "`sh` (POSIX)",
+          "Alpine uses busybox ash — no bash"
+        ],
+        [
+          "Automate Windows / work with .NET objects",
+          "PowerShell",
+          "Object pipeline, .NET access, Azure CLI integration"
+        ],
+        [
+          "Interactive terminal experience on macOS",
+          "`zsh`",
+          "macOS default since 10.15; Oh My Zsh ecosystem"
+        ],
+        [
+          "Modern interactive shell (opinionated)",
+          "`fish`",
+          "Autosuggestions, syntax highlighting; non-POSIX"
+        ],
+        [
+          "Maintain a legacy Windows automation script",
+          "Batch",
+          "Only if you can't replace it; otherwise rewrite in PS"
+        ],
+        [
+          "One-liner: extract column from log",
+          "`awk '{print $3}'`",
+          "Field splitting by default"
+        ],
+        [
+          "One-liner: replace string in file",
+          "`sed -i 's/old/new/g'`",
+          "Canonical stream substitution"
+        ],
+        [
+          "One-liner: extract all regex matches",
+          "`grep -o` or `perl -ne`",
+          "grep for simple; perl for groups"
+        ],
+        [
+          "Script with error handling, cleanup traps",
+          "`bash`",
+          "`set -euo pipefail` + `trap`"
+        ]
+      ]
+    },
+    {
+      "id": "table-2",
+      "line": 99,
+      "heading_context": "## PowerShell ↔ Bash Bridge",
+      "headers": [
+        "Task",
+        "PowerShell",
+        "Bash / Unix"
+      ],
+      "rows": [
+        [
+          "**Setup / safety**",
+          "",
+          ""
+        ],
+        [
+          "Strict mode (exit on error)",
+          "`$ErrorActionPreference = \"Stop\"`",
+          "`set -euo pipefail`"
+        ],
+        [
+          "Unbound var = error",
+          "`Set-StrictMode -Version Latest`",
+          "`set -u` (part of `set -euo`)"
+        ],
+        [
+          "Strict mode in script header",
+          "`Set-StrictMode -Version Latest` + `$EAP=\"Stop\"`",
+          "`#!/usr/bin/env bash` + `set -euo pipefail`"
+        ],
+        [
+          "**Variables**",
+          "",
+          ""
+        ],
+        [
+          "Assign",
+          "`$name = \"value\"`",
+          "`name=value` (no spaces!)"
+        ],
+        [
+          "Expand",
+          "`$name`",
+          "`\"$name\"` (always quote)"
+        ],
+        [
+          "Env var assign",
+          "`$env:FOO = \"bar\"`",
+          "`export FOO=bar`"
+        ],
+        [
+          "Env var read",
+          "`$env:PATH`",
+          "`$PATH`"
+        ],
+        [
+          "Null/empty default",
+          "`$x ?? \"default\"`",
+          "`${x:-default}`"
+        ],
+        [
+          "**Output**",
+          "",
+          ""
+        ],
+        [
+          "Print to pipeline/stdout",
+          "`Write-Output \"text\"` or bareword",
+          "`echo \"text\"`"
+        ],
+        [
+          "Print to terminal only (no capture)",
+          "`Write-Host \"text\"`",
+          "`echo \"text\" >&2` (idiom: log to stderr)"
+        ],
+        [
+          "Print to error stream",
+          "`Write-Error \"msg\"`",
+          "`echo \"msg\" >&2`"
+        ],
+        [
+          "Discard output",
+          "`cmd \\| Out-Null` or `> $null`",
+          "`cmd > /dev/null` or `cmd &>/dev/null`"
+        ],
+        [
+          "**Exit codes**",
+          "",
+          ""
+        ],
+        [
+          "Exit with code",
+          "`exit 0` / `exit 1`",
+          "`exit 0` / `exit 1`"
+        ],
+        [
+          "Last external exit code",
+          "`$LASTEXITCODE`",
+          "`$?`"
+        ],
+        [
+          "Last cmdlet success",
+          "`$?` (bool: True/False)",
+          "`$?` (int: 0=success)"
+        ],
+        [
+          "Check external command failed",
+          "`if ($LASTEXITCODE -ne 0)`",
+          "`if [ $? -ne 0 ]` or `cmd \\|\\| handler`"
+        ],
+        [
+          "**Flow control**",
+          "",
+          ""
+        ],
+        [
+          "If/else",
+          "`if ($x -eq 5) { } else { }`",
+          "`if [[ $x -eq 5 ]]; then ...; else ...; fi`"
+        ],
+        [
+          "Comparison (equal)",
+          "`-eq`",
+          "`-eq` (numeric) / `==` (string in `[[ ]]`)"
+        ],
+        [
+          "Null/empty test",
+          "`if ($null -eq $x)` or `if (-not $x)`",
+          "`if [[ -z \"$x\" ]]`"
+        ],
+        [
+          "**Loops**",
+          "",
+          ""
+        ],
+        [
+          "For-each (array)",
+          "`foreach ($item in $arr)`",
+          "`for item in \"${arr[@]}\"; do ...; done`"
+        ],
+        [
+          "For-each (pipeline)",
+          "`$arr \\| ForEach-Object { $_ }`",
+          "`printf '%s\\n' \"${arr[@]}\" \\| while read -r item`"
+        ],
+        [
+          "C-style for",
+          "`for ($i=0; $i-lt10; $i++)`",
+          "`for (( i=0; i<10; i++ )); do ...; done`"
+        ],
+        [
+          "While",
+          "`while ($cond) { }`",
+          "`while [[ $cond ]]; do ...; done`"
+        ],
+        [
+          "**File tests**",
+          "",
+          ""
+        ],
+        [
+          "File exists",
+          "`Test-Path \"file\"`",
+          "`[[ -f file ]]`"
+        ],
+        [
+          "Directory exists",
+          "`Test-Path \"dir\" -PathType Container`",
+          "`[[ -d dir ]]`"
+        ],
+        [
+          "Anything exists",
+          "`Test-Path \"path\"`",
+          "`[[ -e path ]]`"
+        ],
+        [
+          "**Functions**",
+          "",
+          ""
+        ],
+        [
+          "Declare",
+          "`function Verb-Noun { param(...) ... }`",
+          "`func_name() { local x=\"$1\"; ...; }`"
+        ],
+        [
+          "Named params",
+          "`param([string]$Name, [int]$Port = 8080)`",
+          "`getopts` or manual `while/case` arg parsing"
+        ],
+        [
+          "Advanced function",
+          "`[CmdletBinding()] param(...)`",
+          "No direct equivalent; getopts for -flag style"
+        ],
+        [
+          "Return value",
+          "last expression / `return $val`",
+          "`echo \"value\"` → capture with `$(func)`"
+        ],
+        [
+          "**Strings**",
+          "",
+          ""
+        ],
+        [
+          "Concatenation",
+          "`\"hello\" + \" \" + \"world\"`",
+          "`\"hello world\"` (adjacent in double-quotes)"
+        ],
+        [
+          "Substring",
+          "`$str.Substring(0,5)` or `$str[0..4]`",
+          "`${str:0:5}`"
+        ],
+        [
+          "Replace",
+          "`$str -replace 'old','new'`",
+          "`${str//old/new}` (pattern) or `sed`"
+        ],
+        [
+          "Length",
+          "`$str.Length`",
+          "`${#str}`"
+        ],
+        [
+          "Split",
+          "`$str -split ','`",
+          "`IFS=',' read -ra arr <<< \"$str\"`"
+        ],
+        [
+          "**Timing / profiling**",
+          "",
+          ""
+        ],
+        [
+          "Time a command",
+          "`Measure-Command { Get-Process }`",
+          "`time cmd`"
+        ],
+        [
+          "**Cleanup on exit**",
+          "",
+          ""
+        ],
+        [
+          "Run on exit/error",
+          "`try { } finally { cleanup }`",
+          "`trap 'cleanup' EXIT`"
+        ],
+        [
+          "Run on Ctrl+C",
+          "`[Console]::CancelKeyPress` handler",
+          "`trap 'cleanup' INT`"
+        ]
+      ]
+    },
+    {
+      "id": "table-3",
+      "line": 188,
+      "heading_context": "## PowerShell ↔ Bash Bridge",
+      "headers": [
+        "Language",
+        "Extension",
+        "Shebang Line",
+        "Run Command",
+        "Notes"
+      ],
+      "rows": [
+        [
+          "Batch",
+          "`.bat` / `.cmd`",
+          "None — cmd.exe only",
+          "`script.bat` or `call script.bat`",
+          "`@echo off` at top to suppress command echo"
+        ],
+        [
+          "PowerShell",
+          "`.ps1`",
+          "Optional: `#!/usr/bin/env pwsh`",
+          "`pwsh script.ps1` or `.\\script.ps1`",
+          "ExecutionPolicy may block; `Set-ExecutionPolicy RemoteSigned`"
+        ],
+        [
+          "Bash",
+          "`.sh`",
+          "`#!/usr/bin/env bash` or `#!/bin/bash`",
+          "`bash script.sh` or `chmod +x && ./script.sh`",
+          "Prefer `env bash` for portability across `/usr/local/bin`"
+        ],
+        [
+          "sh (POSIX)",
+          "`.sh`",
+          "`#!/bin/sh`",
+          "`sh script.sh`",
+          "POSIX only; no Bash extensions; safest for Docker/Alpine"
+        ],
+        [
+          "Zsh",
+          "`.zsh`",
+          "`#!/usr/bin/env zsh`",
+          "`zsh script.zsh`",
+          "Rarely scripted standalone; usually interactive config"
+        ],
+        [
+          "Fish",
+          "`.fish`",
+          "`#!/usr/bin/env fish`",
+          "`fish script.fish`",
+          "Not POSIX compat; can't source Bash scripts"
+        ],
+        [
+          "AWK",
+          "`.awk`",
+          "`#!/usr/bin/awk -f`",
+          "`awk -f script.awk file` or `awk '{...}' file`",
+          "Usually inline one-liners passed directly to shell"
+        ],
+        [
+          "Perl",
+          "`.pl`",
+          "`#!/usr/bin/perl` or `#!/usr/bin/env perl`",
+          "`perl script.pl`",
+          "`perl -e 'code'` one-liners; `perl -w` for warnings"
+        ]
+      ]
+    },
+    {
+      "id": "table-4",
+      "line": 203,
+      "heading_context": "## PowerShell ↔ Bash Bridge",
+      "headers": [
+        "Language",
+        "Assign",
+        "Expand",
+        "Declare / Type Hint",
+        "Unset / Clear"
+      ],
+      "rows": [
+        [
+          "Batch",
+          "`SET myvar=hello` (no spaces!)",
+          "`%myvar%`",
+          "`SETLOCAL` (scope); `SET /A` for int",
+          "`SET myvar=` (set to empty)"
+        ],
+        [
+          "PowerShell",
+          "`$name = \"value\"`",
+          "`$name` / `\"...$name...\"`",
+          "`[string]$name = \"value\"`; `[int]` etc",
+          "`Remove-Variable name` or `$name = $null`"
+        ],
+        [
+          "Bash",
+          "`name=value` (NO spaces around `=`)",
+          "`$name` or `${name}`",
+          "`declare -r` readonly; `declare -i` integer; `declare -a` array",
+          "`unset name`"
+        ],
+        [
+          "sh (POSIX)",
+          "`name=value`",
+          "`$name` or `${name}`",
+          "`readonly name`",
+          "`unset name`"
+        ],
+        [
+          "Zsh",
+          "`name=value`",
+          "`$name`",
+          "`typeset -r` readonly; `typeset -i` int; `typeset -f` float",
+          "`unset name`"
+        ],
+        [
+          "Fish",
+          "`set name value` (no `=`!)",
+          "`$name`",
+          "`set -l` local; `set -x` export; `set -U` universal (persists)",
+          "`set -e name`"
+        ],
+        [
+          "AWK",
+          "`var = value` (inside program)",
+          "`var`",
+          "No declaration; vars spring into existence",
+          "`delete arr[key]` for arrays only"
+        ],
+        [
+          "Perl",
+          "`my $name = \"value\"`",
+          "`$name`",
+          "`my` lexical; `our` package-global; `local` dynamic scoping",
+          "`undef $name`; `delete $hash{key}`"
+        ]
+      ]
+    },
+    {
+      "id": "table-5",
+      "line": 220,
+      "heading_context": "## PowerShell ↔ Bash Bridge",
+      "headers": [
+        "Language",
+        "Single Quotes",
+        "Double Quotes",
+        "Other",
+        "Notes"
+      ],
+      "rows": [
+        [
+          "Batch",
+          "No single quotes (literal chars)",
+          "`\"string\"` — sometimes literal!",
+          "`^` escapes special chars; `%%` = literal `%` in scripts",
+          "Quoting in Batch is famously broken; `\"` may not work as expected with all commands"
+        ],
+        [
+          "PowerShell",
+          "`'literal — no $expansion'`",
+          "`\"expands $var and $($expr)\"`",
+          "Here-string: `@' '@` (literal) / `@\" \"@` (interpolating)",
+          "Single quote is truly literal; backtick `` ` `` is escape char"
+        ],
+        [
+          "Bash",
+          "`'no $expansion whatsoever'`",
+          "`\"$var expands, \\n escapes\"`",
+          "`$'tab\\there\\n'` (ANSI-C quoting); here-doc `<<EOF`",
+          "`$'...'` is Bash-only, not POSIX sh"
+        ],
+        [
+          "sh (POSIX)",
+          "`'literal'`",
+          "`\"$var expands\"`",
+          "Here-doc `<<EOF`; no `$'...'`",
+          "Truly portable; `$'...'` not available"
+        ],
+        [
+          "Zsh",
+          "`'literal'`",
+          "`\"$var expands\"`",
+          "Same as Bash + `$'...'`; prompt expansion `%n` etc",
+          "`\"${(U)var}\"` — parameter expansion flags are powerful"
+        ],
+        [
+          "Fish",
+          "`'literal'`",
+          "`\"$var expands\"`",
+          "No here-doc; no `$'...'`; `\\t` works in `\"...\"`",
+          "Simpler quoting model than Bash; no ANSI-C quoting"
+        ],
+        [
+          "AWK",
+          "n/a",
+          "`\"strings only\"`",
+          "`/regex/` for patterns; `\\n \\t` in strings",
+          "Single quotes used by the *shell* to pass the AWK program; AWK itself only has double quotes"
+        ],
+        [
+          "Perl",
+          "`'literal $no_expand \\n-literal'`",
+          "`\"$var interpolates \\n \\t\"`",
+          "`q(...)` = single-quote-like; `qq(...)` = double-quote-like; `qw(word list)` = `(\"a\",\"b\",\"c\")`",
+          "Extensive quoting operators; heredoc: `<<'END'` / `<<\"END\"`"
+        ]
+      ]
+    },
+    {
+      "id": "table-6",
+      "line": 235,
+      "heading_context": "## PowerShell ↔ Bash Bridge",
+      "headers": [
+        "Language",
+        "Create",
+        "Access",
+        "Length",
+        "Iterate",
+        "Notes"
+      ],
+      "rows": [
+        [
+          "Batch",
+          "`SET arr[0]=val` (naming trick)",
+          "`%arr[0]%`",
+          "No built-in",
+          "`FOR /L %%i IN (0,1,N) DO ...`",
+          "Not real arrays; just variable name convention"
+        ],
+        [
+          "PowerShell",
+          "`$a = @(1, 2, 3)` or `$a = 1,2,3`",
+          "`$a[0]`, `$a[-1]` (last)",
+          "`$a.Count`",
+          "`foreach ($x in $a)` or `$a \\| ForEach-Object`",
+          "Slices: `$a[1..3]`; `-contains`; `Where-Object`"
+        ],
+        [
+          "Bash",
+          "`a=(1 2 3)` or `a=( $(cmd) )`",
+          "`${a[0]}`, `${a[-1]}` (4.0+)",
+          "`${#a[@]}`",
+          "`for x in \"${a[@]}\"; do`",
+          "0-indexed; assoc arrays: `declare -A h; h[key]=val`"
+        ],
+        [
+          "sh (POSIX)",
+          "No arrays",
+          "Use positional params `$1 $2`",
+          "`$#`",
+          "`for x in $list; do` (IFS-split)",
+          "Biggest POSIX portability cost; workaround: `\"$@\"`"
+        ],
+        [
+          "Zsh",
+          "`a=(1 2 3)`",
+          "`$a[1]` (**1-indexed!**)",
+          "`$#a` or `${#a}`",
+          "`for x in $a; do` or `for x in \"${a[@]}\"`",
+          "**1-indexed** — biggest Bash↔Zsh trap; assoc: `typeset -A`"
+        ],
+        [
+          "Fish",
+          "`set a 1 2 3`",
+          "`$a[1]` (1-indexed)",
+          "`count $a`",
+          "`for x in $a; end`",
+          "1-indexed like Zsh; no associative arrays natively"
+        ],
+        [
+          "AWK",
+          "`a[key] = val` (assoc only)",
+          "`a[key]` or `a[i]`",
+          "n/a (no `.length`)",
+          "`for (k in a) { ... }`",
+          "Only associative arrays; no ordered integer arrays"
+        ],
+        [
+          "Perl",
+          "`@a = (1, 2, 3)`",
+          "`$a[0]`, `$a[-1]`",
+          "`scalar @a` or `$#a + 1`",
+          "`foreach my $x (@a) { ... }`",
+          "`push/pop/shift/unshift/splice`; hash: `%h = (k => v)`"
+        ]
+      ]
+    },
+    {
+      "id": "table-7",
+      "line": 250,
+      "heading_context": "## PowerShell ↔ Bash Bridge",
+      "headers": [
+        "Language",
+        "Integer Arithmetic",
+        "Float Arithmetic",
+        "Increment",
+        "Notes"
+      ],
+      "rows": [
+        [
+          "Batch",
+          "`SET /A result=1+2*3`",
+          "No native float",
+          "`SET /A x+=1`",
+          "`SET /A` only; use VBScript/Perl for float; no parens needed in `SET /A`"
+        ],
+        [
+          "PowerShell",
+          "`$x = 1 + 2 * 3`",
+          "`$x = 1.5 * 2.0`",
+          "`$x++` / `$x += 1`",
+          "Full .NET numeric types; `[Math]::Pow(2,10)` for functions"
+        ],
+        [
+          "Bash",
+          "`$(( 1 + 2 * 3 ))`",
+          "Use `bc -l <<< \"1.5*2\"`",
+          "`(( x++ ))`",
+          "`$(( ))` integer only; no native float; `expr` is old/slow"
+        ],
+        [
+          "sh (POSIX)",
+          "`$(( 1 + 2 ))`",
+          "Use `awk 'BEGIN{print 1.5*2}'`",
+          "`x=$(( x + 1 ))`",
+          "`$(( ))` is POSIX; `expr` works but slower"
+        ],
+        [
+          "Zsh",
+          "`$(( 1 + 2 ))` or `(( x=1+2 ))`",
+          "`$(( 1.5 + 2.5 ))`",
+          "`(( x++ ))`",
+          "**Zsh supports float in `(( ))`** — unlike Bash"
+        ],
+        [
+          "Fish",
+          "`math \"1 + 2 * 3\"`",
+          "`math \"1.5 + 2.5\"`",
+          "`set x (math $x + 1)`",
+          "`math` built-in; supports float natively; `math -s0` for integer"
+        ],
+        [
+          "AWK",
+          "`result = 1 + 2 * 3`",
+          "`result = 1.5 * 2`",
+          "`x++` (C-style)",
+          "Full C-style arithmetic; float native; `int()`, `sqrt()`, `log()`, `exp()`"
+        ],
+        [
+          "Perl",
+          "`$r = 1 + 2 * 3`",
+          "`$r = 1.5 * 2`",
+          "`$x++` / `$x += 1`",
+          "`**` exponent; `POSIX::floor()`, `POSIX::ceil()`; `use POSIX;`"
+        ]
+      ]
+    },
+    {
+      "id": "table-8",
+      "line": 390,
+      "heading_context": "## PowerShell ↔ Bash Bridge",
+      "headers": [
+        "Language",
+        "Syntax / Approach",
+        "Pattern Support",
+        "Notes"
+      ],
+      "rows": [
+        [
+          "Batch",
+          "No built-in — IF/ELSE chain or GOTO labels",
+          "No patterns",
+          "`IF \"%x%\"==\"a\" GOTO case_a`"
+        ],
+        [
+          "PowerShell",
+          "`switch ($x) { \"a\" { ... } \"b\" { ... } default { ... } }`",
+          "Wildcard: `switch -Wildcard`; Regex: `switch -Regex ($x) { \"^a.*\" { ... } }`",
+          "Can match multiple branches unless `break` used; `switch -File` to process lines"
+        ],
+        [
+          "Bash",
+          "`case $var in pattern) ... ;; esac`",
+          "Glob patterns: `a*`, `[aA]`, `a\\|b`",
+          "`;;` terminates each arm; `;&` falls through; `;;&` tests next pattern"
+        ],
+        [
+          "sh (POSIX)",
+          "Same `case...esac` syntax",
+          "Glob patterns",
+          "POSIX standard; `\\|` for alternation in patterns"
+        ],
+        [
+          "Zsh",
+          "Same as Bash + `(( ))` arithmetic case",
+          "Glob + regex with `(#b)` flag",
+          "`case` is same; `zsh` adds pattern flags for extended matching"
+        ],
+        [
+          "Fish",
+          "`switch $var; case \"a\"; ...; case \"b\" \"c\"; ...; case \"*\"; ...; end`",
+          "Glob patterns",
+          "No `;;`; use newline or `;` between cases; multiple patterns per `case`"
+        ],
+        [
+          "AWK",
+          "No switch — use if/else chain",
+          "n/a",
+          "Can use associative arrays as dispatch tables"
+        ],
+        [
+          "Perl",
+          "No built-in switch (`given/when` experimental/deprecated)",
+          "n/a",
+          "Use if/elsif chain, or hash dispatch: `$dispatch{$key}->()`"
+        ]
+      ]
+    },
+    {
+      "id": "table-9",
+      "line": 659,
+      "heading_context": "## PowerShell ↔ Bash Bridge",
+      "headers": [
+        "Language",
+        "Print stdout",
+        "Print stderr",
+        "Read input",
+        "Redirect stdout",
+        "Redirect stderr",
+        "Pipe",
+        "Discard output"
+      ],
+      "rows": [
+        [
+          "Batch",
+          "`ECHO text`",
+          "`ECHO text >&2`",
+          "`SET /P var=Prompt:`",
+          "`> file`",
+          "`2> file`",
+          "`\\|`",
+          "`> NUL`"
+        ],
+        [
+          "PowerShell",
+          "`Write-Output \"text\"` or bareword",
+          "`Write-Error \"msg\"` / `$host.ui.WriteErrorLine()`",
+          "`Read-Host \"Prompt\"`",
+          "`> file` or `Out-File`",
+          "`2> file`",
+          "`\\|`",
+          "`Out-Null` or `> $null`"
+        ],
+        [
+          "Bash",
+          "`echo \"text\"` / `printf \"%s\\n\" \"text\"`",
+          "`echo \"err\" >&2`",
+          "`read -r var` / `read -r -p \"Prompt: \" var`",
+          "`> file` / `>> file`",
+          "`2>file` / `2>&1` / `&>file`",
+          "`\\|`",
+          "`> /dev/null` / `&>/dev/null`"
+        ],
+        [
+          "sh (POSIX)",
+          "`echo \"text\"` / `printf`",
+          "`echo \"err\" >&2`",
+          "`read var`",
+          "`> file`",
+          "`2>file` / `2>&1`",
+          "`\\|`",
+          "`> /dev/null`"
+        ],
+        [
+          "Zsh",
+          "`print \"text\"` (preferred) / `echo`",
+          "`print \"err\" >&2`",
+          "`read var` / `vared var` (interactive)",
+          "`> file`",
+          "`2>file` / `&>file`",
+          "`\\|`",
+          "`> /dev/null`"
+        ],
+        [
+          "Fish",
+          "`echo \"text\"` / `printf`",
+          "`echo \"err\" >&2`",
+          "`read -l var` / `read -P \"Prompt: \" -l var`",
+          "`> file`",
+          "`2>file`",
+          "`\\|`",
+          "`> /dev/null`"
+        ],
+        [
+          "AWK",
+          "`print \"text\"` / `printf \"%s\\n\", \"text\"`",
+          "`print \"err\" > \"/dev/stderr\"`",
+          "Via piped input (`< file` in shell)",
+          "`print > \"file\"` / `print >> \"file\"`",
+          "`print \\| \"cmd\"`",
+          "`\\| cmd`",
+          "`> \"/dev/null\"`"
+        ],
+        [
+          "Perl",
+          "`print \"text\\n\"` / `say \"text\"` (5.10+)",
+          "`print STDERR \"err\\n\"`",
+          "`my $line = <STDIN>` / `chomp(my $l = <STDIN>)`",
+          "`open(my $fh, '>', 'file')`",
+          "Same pattern",
+          "`\\|` (shell) / `open(my $fh, '|-', 'cmd')`",
+          "`> /dev/null` (shell)"
+        ]
+      ]
+    },
+    {
+      "id": "table-10",
+      "line": 683,
+      "heading_context": "## PowerShell ↔ Bash Bridge",
+      "headers": [
+        "Language",
+        "Get exit code",
+        "Set exit code",
+        "Auto-exit on failure",
+        "Try/catch equivalent"
+      ],
+      "rows": [
+        [
+          "Batch",
+          "`%ERRORLEVEL%`",
+          "`EXIT /B 1`",
+          "No — must check `IF ERRORLEVEL` manually",
+          "No; `IF ERRORLEVEL 1 GOTO err`"
+        ],
+        [
+          "PowerShell",
+          "`$LASTEXITCODE` (external) / `$?` (cmdlet, bool)",
+          "`exit 1`",
+          "`$ErrorActionPreference = \"Stop\"`",
+          "`try { } catch { } finally { }`"
+        ],
+        [
+          "Bash",
+          "`$?`",
+          "`exit 1`",
+          "`set -euo pipefail`",
+          "No native; use `if cmd; then ...; fi` or `cmd \\|\\| handler`"
+        ],
+        [
+          "sh (POSIX)",
+          "`$?`",
+          "`exit 1`",
+          "`set -e`",
+          "Same pattern as Bash"
+        ],
+        [
+          "Zsh",
+          "`$?`",
+          "`exit 1`",
+          "`set -e` / `setopt ERR_EXIT`",
+          "Same as Bash"
+        ],
+        [
+          "Fish",
+          "`$status` (**NOT `$?`**)",
+          "`exit 1`",
+          "No `set -e` — Fish has different error model",
+          "`if not cmd; handle_error; end`"
+        ],
+        [
+          "AWK",
+          "`exit 0` / `exit 1`",
+          "`exit N`",
+          "No automation",
+          "No; use conditional logic in `END {}`"
+        ],
+        [
+          "Perl",
+          "`$?` (for `system()`), `$!` (errno)",
+          "`exit 1`",
+          "`use autodie;` (throws on system call failure)",
+          "`eval { die \"err\" }; if ($@) { handle }`"
+        ]
+      ]
+    },
+    {
+      "id": "table-11",
+      "line": 721,
+      "heading_context": "## PowerShell ↔ Bash Bridge",
+      "headers": [
+        "Language",
+        "First arg",
+        "All args (array)",
+        "Count",
+        "Loop all args",
+        "Shift / consume"
+      ],
+      "rows": [
+        [
+          "Batch",
+          "`%1`",
+          "`%*` (string, not array)",
+          "No built-in",
+          "`FOR %%A IN (%*) DO ...`",
+          "`SHIFT` — `%2` becomes `%1`"
+        ],
+        [
+          "PowerShell",
+          "`$args[0]` or named param",
+          "`$args` / `@args` for splatting",
+          "`$args.Count`",
+          "`foreach ($a in $args)`",
+          "Use `param()` block instead of `$args`"
+        ],
+        [
+          "Bash",
+          "`$1`",
+          "`\"$@\"` (quoted array) / `$*` (string)",
+          "`$#`",
+          "`for arg in \"$@\"; do`",
+          "`shift` / `shift N`"
+        ],
+        [
+          "sh (POSIX)",
+          "`$1`",
+          "`\"$@\"`",
+          "`$#`",
+          "`for arg in \"$@\"; do`",
+          "`shift` / `shift N`"
+        ],
+        [
+          "Zsh",
+          "`$1`",
+          "`\"$@\"` or `$argv`",
+          "`$#` or `$#argv`",
+          "`for arg in \"$@\"; do`",
+          "`shift` / `shift N`"
+        ],
+        [
+          "Fish",
+          "`$argv[1]`",
+          "`$argv`",
+          "`count $argv`",
+          "`for arg in $argv; end`",
+          "No `shift`; use `$argv[2..]` slice"
+        ],
+        [
+          "AWK",
+          "`ARGV[1]` (script arguments)",
+          "`ARGV` array",
+          "`ARGC - 1`",
+          "`for (i=1; i<ARGC; i++)`",
+          "n/a (ARGV is read-only)"
+        ],
+        [
+          "Perl",
+          "`$ARGV[0]`",
+          "`@ARGV`",
+          "`scalar @ARGV`",
+          "`foreach my $a (@ARGV)`",
+          "`shift @ARGV` (or `shift` — defaults to `@ARGV` in main)"
+        ]
+      ]
+    },
+    {
+      "id": "table-12",
+      "line": 827,
+      "heading_context": "## PowerShell ↔ Bash Bridge",
+      "headers": [
+        "Signal",
+        "Trap name",
+        "When triggered",
+        "Typical use"
+      ],
+      "rows": [
+        [
+          "(any exit)",
+          "`EXIT`",
+          "Script exits for any reason",
+          "Cleanup temp files, release locks"
+        ],
+        [
+          "SIGINT (2)",
+          "`INT`",
+          "Ctrl+C",
+          "Graceful interrupt handling"
+        ],
+        [
+          "SIGTERM (15)",
+          "`TERM`",
+          "`kill PID`",
+          "Graceful shutdown from orchestrator"
+        ],
+        [
+          "SIGHUP (1)",
+          "`HUP`",
+          "Terminal closed / hangup",
+          "Reload config or exit"
+        ],
+        [
+          "(non-zero exit)",
+          "`ERR`",
+          "Command fails (with `set -e`)",
+          "Log error context"
+        ]
+      ]
+    },
+    {
+      "id": "table-13",
+      "line": 954,
+      "heading_context": "## PowerShell ↔ Bash Bridge",
+      "headers": [
+        "Language",
+        "Mechanism",
+        "Runs on exit?",
+        "Runs on error?",
+        "Runs on Ctrl+C?",
+        "Notes"
+      ],
+      "rows": [
+        [
+          "Bash",
+          "`trap cmd EXIT`",
+          "Yes",
+          "Yes (with `set -e` + `ERR`)",
+          "Yes",
+          "Most flexible; `EXIT` is the safe default"
+        ],
+        [
+          "Bash",
+          "`trap cmd ERR`",
+          "No",
+          "Yes",
+          "No",
+          "Fires on failed commands with `set -e`"
+        ],
+        [
+          "PowerShell",
+          "`try/finally`",
+          "Yes (block scope)",
+          "Yes",
+          "Partial",
+          "`finally` guaranteed within the block"
+        ],
+        [
+          "PowerShell",
+          "`Register-EngineEvent`",
+          "Yes",
+          "Yes",
+          "Partial",
+          "Session-level; unreliable in scripts"
+        ],
+        [
+          "Fish",
+          "(none native)",
+          "No",
+          "No",
+          "No",
+          "Must restructure or wrap in bash"
+        ],
+        [
+          "AWK",
+          "`END { }` block",
+          "Yes",
+          "Yes (on `exit`)",
+          "No",
+          "Not signal-safe; SIGKILL skips it"
+        ],
+        [
+          "Perl",
+          "`END { }` block",
+          "Yes",
+          "Yes",
+          "No (add `$SIG{INT}`)",
+          "`END` runs on `die`; signals need `%SIG`"
+        ],
+        [
+          "Perl",
+          "`%SIG` handlers",
+          "N/A",
+          "N/A",
+          "Yes",
+          "`$SIG{INT}`, `$SIG{TERM}` etc."
+        ]
+      ]
+    },
+    {
+      "id": "table-14",
+      "line": 1834,
+      "heading_context": "## Quick Reference: Feature Gap Summary",
+      "headers": [
+        "Feature",
+        "Batch",
+        "PS",
+        "Bash",
+        "sh",
+        "Zsh",
+        "Fish",
+        "AWK",
+        "Perl"
+      ],
+      "rows": [
+        [
+          "Real arrays",
+          "No",
+          "Yes",
+          "Yes",
+          "No",
+          "Yes",
+          "Yes",
+          "Assoc",
+          "Both"
+        ],
+        [
+          "Assoc arrays",
+          "No",
+          "Yes",
+          "4.0+",
+          "No",
+          "Yes",
+          "No",
+          "Yes",
+          "Yes"
+        ],
+        [
+          "Float arithmetic",
+          "No",
+          "Yes",
+          "No",
+          "No",
+          "Yes",
+          "Yes",
+          "Yes",
+          "Yes"
+        ],
+        [
+          "Regex built-in",
+          "No",
+          "Yes",
+          "`=~`",
+          "No",
+          "`=~`",
+          "`str`",
+          "`~`",
+          "Yes"
+        ],
+        [
+          "try/catch",
+          "No",
+          "Yes",
+          "No",
+          "No",
+          "No",
+          "No",
+          "No",
+          "eval"
+        ],
+        [
+          "Typed variables",
+          "No",
+          ".NET",
+          "weak",
+          "No",
+          "weak",
+          "No",
+          "No",
+          "No"
+        ],
+        [
+          "Object model",
+          "No",
+          ".NET",
+          "No",
+          "No",
+          "No",
+          "No",
+          "No",
+          "Yes"
+        ],
+        [
+          "First-class functions",
+          "No",
+          "Yes",
+          "No",
+          "No",
+          "No",
+          "No",
+          "No",
+          "Yes"
+        ],
+        [
+          "Array index base",
+          "0(ish)",
+          "0",
+          "0",
+          "N/A",
+          "1",
+          "1",
+          "N/A",
+          "0"
+        ],
+        [
+          "POSIX compatible",
+          "No",
+          "No",
+          "Super",
+          "Yes",
+          "Super",
+          "No",
+          "Yes",
+          "N/A"
+        ],
+        [
+          "Interactive shell",
+          "Yes",
+          "Yes",
+          "Yes",
+          "No",
+          "Yes",
+          "Yes",
+          "No",
+          "No"
+        ]
+      ]
+    }
+  ]
+}
