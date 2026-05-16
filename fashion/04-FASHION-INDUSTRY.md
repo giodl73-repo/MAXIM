@@ -1,3 +1,22 @@
+---
+maxim_schema: maxim.frontmatter.v1
+id: maxim:fashion:fashion-industry
+kind: guide
+module: fashion
+section: fashion
+title: The Fashion Industry: Supply Chain and Economics
+status: source-custody
+source_custody: partial
+current_path: fashion/04-FASHION-INDUSTRY.md
+canonical_path: fashion/04-FASHION-INDUSTRY.md
+backsource_ids: [proof-backfill:fashion:04-fashion-industry, git-history:fashion:04-fashion-industry]
+concepts: [fashion, industry]
+root_concepts: [fashion, industry]
+index_roles: [guide, root-concept]
+remap_from: []
+remap_to: []
+updated: null
+---
 # The Fashion Industry: Supply Chain and Economics
 
 ## The Big Picture

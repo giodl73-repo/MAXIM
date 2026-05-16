@@ -1,3 +1,22 @@
+---
+maxim_schema: maxim.frontmatter.v1
+id: maxim:fashion:digital-fashion
+kind: guide
+module: fashion
+section: fashion
+title: Digital Fashion and Virtual Dress
+status: source-custody
+source_custody: partial
+current_path: fashion/09-DIGITAL-FASHION.md
+canonical_path: fashion/09-DIGITAL-FASHION.md
+backsource_ids: [proof-backfill:fashion:09-digital-fashion, git-history:fashion:09-digital-fashion]
+concepts: [digital, fashion]
+root_concepts: [digital, fashion]
+index_roles: [guide, root-concept]
+remap_from: []
+remap_to: []
+updated: null
+---
 # Digital Fashion and Virtual Dress
 
 ## The Big Picture

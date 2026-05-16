@@ -1,3 +1,22 @@
+---
+maxim_schema: maxim.frontmatter.v1
+id: maxim:comics-sequential-art:overview
+kind: guide
+module: comics-sequential-art
+section: comics-sequential-art
+title: Comics and Sequential Art - Landscape and Taxonomy
+status: source-custody
+source_custody: partial
+current_path: comics-sequential-art/00-OVERVIEW.md
+canonical_path: comics-sequential-art/00-OVERVIEW.md
+backsource_ids: [proof-backfill:comics-sequential-art:00-overview, git-history:comics-sequential-art:00-overview]
+concepts: [overview]
+root_concepts: [overview]
+index_roles: [guide, root-concept]
+remap_from: []
+remap_to: []
+updated: null
+---
 # Comics and Sequential Art — Landscape and Taxonomy
 
 ## The Big Picture
@@ -22,7 +41,7 @@
 |  Webcomics: digital-native; infinite canvas                      |
 |                                                                  |
 |  KEY THEORISTS                                                   |
-|  Will Eisner: "A Contract with God" (1978); coined "graphic novel"|
+|  Will Eisner: "A Contract with God" (1978); coined graphic novel |
 |  Scott McCloud: "Understanding Comics" (1993); closure theory    |
 |  R. Crumb: underground; authenticity                             |
 |  Art Spiegelman: Maus (1991); literary legitimacy                |

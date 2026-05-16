@@ -1,3 +1,22 @@
+---
+maxim_schema: maxim.frontmatter.v1
+id: maxim:fashion:rtw-pr-t
+kind: guide
+module: fashion
+section: fashion
+title: Ready-to-Wear and Pret-a-Porter
+status: source-custody
+source_custody: partial
+current_path: fashion/02-RTW-PRÊT.md
+canonical_path: fashion/02-RTW-PRÊT.md
+backsource_ids: [proof-backfill:fashion:02-rtw-pr-t, git-history:fashion:02-rtw-pr-t]
+concepts: [rtw, pr, t]
+root_concepts: [rtw, pr]
+index_roles: [guide, root-concept]
+remap_from: []
+remap_to: []
+updated: null
+---
 # Ready-to-Wear and Pret-a-Porter
 
 ## The Big Picture

@@ -1,3 +1,22 @@
+---
+maxim_schema: maxim.frontmatter.v1
+id: maxim:comics-sequential-art:maus-literary
+kind: guide
+module: comics-sequential-art
+section: comics-sequential-art
+title: Maus and Comics' Literary Turn
+status: source-custody
+source_custody: partial
+current_path: comics-sequential-art/06-MAUS-LITERARY.md
+canonical_path: comics-sequential-art/06-MAUS-LITERARY.md
+backsource_ids: [proof-backfill:comics-sequential-art:06-maus-literary, git-history:comics-sequential-art:06-maus-literary]
+concepts: [maus, literary]
+root_concepts: [maus, literary]
+index_roles: [guide, root-concept]
+remap_from: []
+remap_to: []
+updated: null
+---
 # Maus and Comics' Literary Turn
 
 ## The Big Picture

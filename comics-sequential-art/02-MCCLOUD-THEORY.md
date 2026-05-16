@@ -1,3 +1,22 @@
+---
+maxim_schema: maxim.frontmatter.v1
+id: maxim:comics-sequential-art:mccloud-theory
+kind: guide
+module: comics-sequential-art
+section: comics-sequential-art
+title: McCloud's "Understanding Comics": Closure and Transitions
+status: source-custody
+source_custody: partial
+current_path: comics-sequential-art/02-MCCLOUD-THEORY.md
+canonical_path: comics-sequential-art/02-MCCLOUD-THEORY.md
+backsource_ids: [proof-backfill:comics-sequential-art:02-mccloud-theory, git-history:comics-sequential-art:02-mccloud-theory]
+concepts: [mccloud, theory]
+root_concepts: [mccloud, theory]
+index_roles: [guide, root-concept]
+remap_from: []
+remap_to: []
+updated: null
+---
 # McCloud's "Understanding Comics": Closure and Transitions
 
 ## The Big Picture

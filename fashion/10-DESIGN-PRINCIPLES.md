@@ -1,3 +1,22 @@
+---
+maxim_schema: maxim.frontmatter.v1
+id: maxim:fashion:design-principles
+kind: guide
+module: fashion
+section: fashion
+title: Fashion Design Principles - Constraint Satisfaction in Cloth
+status: source-custody
+source_custody: partial
+current_path: fashion/10-DESIGN-PRINCIPLES.md
+canonical_path: fashion/10-DESIGN-PRINCIPLES.md
+backsource_ids: [proof-backfill:fashion:10-design-principles, git-history:fashion:10-design-principles]
+concepts: [design, principles]
+root_concepts: [design, principles]
+index_roles: [guide, root-concept]
+remap_from: []
+remap_to: []
+updated: null
+---
 # Fashion Design Principles — Constraint Satisfaction in Cloth
 
 ## The Big Picture
@@ -9,23 +28,22 @@ Every garment is a solution to a constraint-satisfaction problem. The body is th
 |                    THE DESIGN CONSTRAINT SPACE                         |
 |                                                                        |
 |  INPUTS              CONSTRAINTS            OUTPUTS                    |
-|  +-----------+       +--------------+       +----------------+         |
-|  | Body shape |----->| Fabric hand  |------>| Silhouette     |         |
-|  | Body scale |      | Construction |       | Proportion     |         |
-|  | Movement   |      | Budget       |       | Line & detail  |         |
-|  | Occasion   |      | Season       |       | Color & texture|         |
-|  | Identity   |      | Production   |       | Fit            |         |
-|  +-----------+       +--------------+       +----------------+         |
-   |                                                                     |
-   |  EVALUATION FUNCTION                                                |
-   |  Does the garment:                                                  |
-   |    1. Achieve the intended silhouette?                              |
-   |    2. Move correctly on the body?                                   |
-   |    3. Communicate the intended signal?                              |
-   |    4. Survive production at scale (if RTW)?                         |
-   |    5. Fit the price point?                                          |
-   |                                                                     |
-   |  Every design decision is a trade-off within this space.            |
+|  Body shape    ----> Fabric hand    -----> Silhouette                  |
+|  Body scale          Construction          Proportion                  |
+|  Movement            Budget                Line and detail             |
+|  Occasion            Season                Color and texture           |
+|  Identity            Production            Fit                         |
+|                                                                        |
+|                                                                        |
+|  EVALUATION FUNCTION                                                   |
+|  Does the garment:                                                     |
+|    1. Achieve the intended silhouette?                                 |
+|    2. Move correctly on the body?                                      |
+|    3. Communicate the intended signal?                                 |
+|    4. Survive production at scale (if RTW)?                            |
+|    5. Fit the price point?                                             |
+|                                                                        |
+|  Every design decision is a trade-off within this space.               |
 +------------------------------------------------------------------------+
 ```
 
@@ -160,7 +178,7 @@ RULE OF THIRDS: DIVIDING THE BODY
 
   ┌─────────┐                  ┌─────────┐                ┌─────────┐
   │ cropped │                  │         │                │  crop   │
-  │ jacket  │                  │  tunic  │                ├─────────┤
+  │ jacket  │                  │  tunic  │                │─────────│
   ├─────────┤                  │         │                │         │
   │         │                  ├─────────┤                │         │
   │  long   │                  │         │                │  maxi   │

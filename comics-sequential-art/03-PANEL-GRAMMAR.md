@@ -1,3 +1,22 @@
+---
+maxim_schema: maxim.frontmatter.v1
+id: maxim:comics-sequential-art:panel-grammar
+kind: guide
+module: comics-sequential-art
+section: comics-sequential-art
+title: Panel Grammar: Gutters, Time, and Space
+status: source-custody
+source_custody: partial
+current_path: comics-sequential-art/03-PANEL-GRAMMAR.md
+canonical_path: comics-sequential-art/03-PANEL-GRAMMAR.md
+backsource_ids: [proof-backfill:comics-sequential-art:03-panel-grammar, git-history:comics-sequential-art:03-panel-grammar]
+concepts: [panel, grammar]
+root_concepts: [panel, grammar]
+index_roles: [guide, root-concept]
+remap_from: []
+remap_to: []
+updated: null
+---
 # Panel Grammar: Gutters, Time, and Space
 
 ## The Big Picture

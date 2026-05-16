@@ -1,3 +1,22 @@
+---
+maxim_schema: maxim.frontmatter.v1
+id: maxim:fashion:rana-plaza
+kind: guide
+module: fashion
+section: fashion
+title: Rana Plaza and the Ethics of Fashion
+status: source-custody
+source_custody: partial
+current_path: fashion/06-RANA-PLAZA.md
+canonical_path: fashion/06-RANA-PLAZA.md
+backsource_ids: [proof-backfill:fashion:06-rana-plaza, git-history:fashion:06-rana-plaza]
+concepts: [rana, plaza]
+root_concepts: [rana, plaza]
+index_roles: [guide, root-concept]
+remap_from: []
+remap_to: []
+updated: null
+---
 # Rana Plaza and the Ethics of Fashion
 
 ## The Big Picture
