@@ -1,3 +1,22 @@
+---
+maxim_schema: maxim.frontmatter.v1
+id: maxim:ecology:conservation-biology
+kind: guide
+module: ecology
+section: ecology
+title: Conservation Biology - Biodiversity Metrics, Fragmentation, Rewilding
+status: source-custody
+source_custody: partial
+current_path: ecology/09-CONSERVATION-BIOLOGY.md
+canonical_path: ecology/09-CONSERVATION-BIOLOGY.md
+backsource_ids: [proof-backfill:ecology:09-conservation-biology, git-history:ecology:09-conservation-biology]
+concepts: [conservation, biology]
+root_concepts: [conservation, biology]
+index_roles: [guide, root-concept]
+remap_from: []
+remap_to: []
+updated: null
+---
 # Conservation Biology — Biodiversity Metrics, Fragmentation, Rewilding
 
 ## The Big Picture

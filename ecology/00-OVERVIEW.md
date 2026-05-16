@@ -1,3 +1,22 @@
+---
+maxim_schema: maxim.frontmatter.v1
+id: maxim:ecology:overview
+kind: guide
+module: ecology
+section: ecology
+title: Ecology - Overview
+status: source-custody
+source_custody: partial
+current_path: ecology/00-OVERVIEW.md
+canonical_path: ecology/00-OVERVIEW.md
+backsource_ids: [proof-backfill:ecology:00-overview, git-history:ecology:00-overview]
+concepts: [overview]
+root_concepts: [overview]
+index_roles: [guide, root-concept]
+remap_from: []
+remap_to: []
+updated: null
+---
 # Ecology — Overview
 
 ## The Big Picture
@@ -6,29 +25,29 @@ Ecology is the study of interactions between organisms and their environment. It
 
 ```
 +------------------------------------------------------------------+
-|                    ECOLOGY LEVELS OF ORGANIZATION                 |
-|                                                                   |
+|                    ECOLOGY LEVELS OF ORGANIZATION                |
+|                                                                  |
 |  ORGANISM     Individual physiology, behavior, life history      |
-|      |                                                            |
-|      v                                                            |
-|  POPULATION   Single species in a place; dynamics over time     |
+|      |                                                           |
+|      v                                                           |
+|  POPULATION   Single species in a place; dynamics over time      |
 |               (birth, death, immigration, emigration)            |
-|      |                                                            |
-|      v                                                            |
+|      |                                                           |
+|      v                                                           |
 |  COMMUNITY    Multiple species interacting                       |
 |               (predation, competition, mutualism)                |
-|      |                                                            |
-|      v                                                            |
+|      |                                                           |
+|      v                                                           |
 |  ECOSYSTEM    Community + abiotic environment                    |
 |               (energy flow + nutrient cycling)                   |
-|      |                                                            |
-|      v                                                            |
+|      |                                                           |
+|      v                                                           |
 |  LANDSCAPE    Mosaic of ecosystems                               |
-|      |                                                            |
-|      v                                                            |
+|      |                                                           |
+|      v                                                           |
 |  BIOME        Major vegetation/climate zone (global scale)       |
-|      |                                                            |
-|      v                                                            |
+|      |                                                           |
+|      v                                                           |
 |  BIOSPHERE    All life on Earth + Earth systems                  |
 +------------------------------------------------------------------+
 ```

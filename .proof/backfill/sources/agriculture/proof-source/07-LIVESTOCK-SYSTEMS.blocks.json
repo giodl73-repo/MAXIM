@@ -1,0 +1,116 @@
+{
+  "schema_version": "1",
+  "source_markdown": "agriculture\\07-LIVESTOCK-SYSTEMS.md",
+  "blocks": [
+    {
+      "id": "block-1",
+      "kind": "ascii_table_candidate",
+      "line": 26,
+      "heading_context": "## The Big Picture",
+      "confidence": "candidate",
+      "text": "+------------------------------------------------------------------+\n|              LIVESTOCK SYSTEMS OVERVIEW                          |\n|                                                                  |\n|  RUMINANTS           MONOGASTRICS         AQUACULTURE            |\n|  ------------------  ------------------   (see 08-AQUACULTURE)   |\n|  Cattle, sheep,      Pigs, poultry        ---------------------  |\n|  goats, buffalo      (simple stomach)                            |\n|                                                                  |\n|  Ferment cellulose   Cannot digest        INTENSIFICATION:       |\n|  (4-chamber stomach) cellulose; fed        Grassland → feedlot   |\n|                      grain directly        -> integration        |\n|                                                                  |\n|  HIGH GHG            LOWER GHG            GLOBAL PRODUCTION:     |\n|  (enteric CH4)       (no enteric CH4)     Cattle: 1B head        |\n|                                            Pigs:   1B head       |\n|                                            Chickens: 25B         |\n+------------------------------------------------------------------+",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-2",
+      "kind": "diagram_like",
+      "line": 49,
+      "heading_context": "## Engineering Bridge: Livestock as Processing Architecture",
+      "confidence": "candidate",
+      "text": "LIVESTOCK CONCEPT               SYSTEMS / ENGINEERING EQUIVALENT\n──────────────────────────────────────────────────────────────────────────────\nRUMINANT FOUR-COMPARTMENT       Multi-stage processing pipeline\nDIGESTION:                      with batch recirculation\n  RUMEN: primary fermentation   → Stage 1: input parsing + tokenization\n    pH 6–7; cellulolytic microbes  (break cellulose into simple sugars)\n    anaerobic; VFAs produced       (microbial compute cluster inside organ)\n  RETICULUM: filter + sort      → Stage 2: input validation / filter\n    hardware trap; ejects debris   (reject oversized / metal objects)\n  REGURGITATION (cud-chewing)   → Recirculate partial results\n    bolus returned to mouth        (reprocess undigested fiber; retry loop)\n    → further mechanical break-up → analogous to: retry queue for failed\n       of fiber → re-enter rumen    parse jobs with smaller chunk size\n  OMASUM: water extraction      → Stage 3: data compression (remove water\n    laminar folds; absorb water    before downstream processing)\n  ABOMASUM: acid digestion      → Stage 4: acid hydrolysis of microbial\n    pH 2–3; enzymatic breakdown    biomass (the microbes themselves are\n    of rumen microbes → AA          the substrate at this stage)\n  → The microbes are the product  → Side-channel output: use the compute\n    as much as the food: ruminant   cluster's metabolic waste as feedstock\n    digests the processor that      (pipeline eats the workers downstream)\n    processed its food\n\nMETHANOGENESIS                  Unavoidable overhead / mandatory side-channel\n  H₂ byproduct of fermentation  → H₂ is an intermediate result that must\n  must be removed or fermentation   be drained or the pipeline stalls\n  STOPS (H₂ back-pressure)      → Methanogenesis = mandatory background\n  Methanogenic archaea oxidize    worker consuming overflow; cannot be\n  H₂ → CH₄ (6–10% energy loss)   simply disabled without stalling system\n  → CH₄ is not optional waste:  → GHG emission = unavoidable protocol tax\n    it is H₂ disposal; removing    on rumen chemistry at this evolutionary\n    methanogens without H₂         design point\n    alternative → system halts\n\nFCR (FEED CONVERSION RATIO)    Energy conversion efficiency\n  FCR = kg feed / kg weight gain → Useful work output / total energy input\n  Lower FCR = more efficient    → Higher efficiency = less energy wasted\n                                   on heat, overhead, side-effects\n  BROILER: FCR ~1.7            → 59% efficiency (poultry as monogastric:\n    6 weeks to market; no CH₄     no fermentation overhead, fast cycle)\n  BEEF (feedlot): FCR ~6–8     → 13–17% efficiency\n    3 reasons for high FCR:       3 reasons:\n    1. Large body maintenance     1. Base load >> compute work\n       (60–70% feed just to         (fixed overhead dominates)\n       maintain homeostasis)\n    2. Cellulose fermentation     2. Slow input parser; lower energy\n       lower energy density         density per parse cycle\n    3. CH₄ loss (6–10% energy)   3. Mandatory protocol overhead (GHG)\n\nPROTEIN CONVERSION EFFICIENCY   Compression ratio for useful payload\n  = edible protein out /        → Useful bits out / bits in\n    protein in feed\n  BROILER: ~40%                 → 40% of input protein reaches output\n  BEEF: ~5–8%                   → 5–8% compression ratio (poor)\n  DAIRY: ~40% (milk protein)    → Milk: continuous stream; high efficiency\n  INSECTS: ~55%                 → Best ratio: low maintenance, ectotherm\n\nECTOTHERM ADVANTAGE             No thermoregulation overhead\n  Fish, insects: no body temp   → No fixed overhead for temperature\n    regulation overhead            management (no background daemon\n  FCR ~1.2 (salmon), ~2.0        burning CPU to maintain 37°C)\n    (insects) vs ~6–8 (beef)   → All metabolic energy → growth output\n  → Same reason JVM startup cost   → efficient if long-running; fish\n    matters less in long-running    are long-running processes\n    processes vs short scripts\n\nCAFO VERTICAL INTEGRATION       Platform / supply chain architecture\n  Breed → feed → grow-out →    → Full-stack ownership: own the OS,\n    slaughter → process → retail   runtime, compiler, and app store\n  Company owns animals + feed;  → Asset-light franchise:\n    farmer owns building           farmer = hardware provider; company\n  → Farmer bears capital risk;    = software + supply chain owner\n    company captures margin      → Platform captures rent on both sides",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-3",
+      "kind": "diagram_like",
+      "line": 127,
+      "heading_context": "## Ruminant Digestion — The Four-Compartment System",
+      "confidence": "candidate",
+      "text": "RUMINANT STOMACH ANATOMY:\n\n                    ESOPHAGUS\n                        ↓\n        ┌───────────────────────────────┐\n        │  RUMEN (~150 L in cattle)     │\n        │  Primary fermentation vat     │\n        │  pH 6.0–7.0; anaerobic        │\n        │  ~ 10¹⁰ bacteria/mL           │\n        │  Cellulolytic bacteria break  │\n        │  cellulose → VFAs             │\n        └────────────┬──────────────────┘\n                     │ (regurgitation = rumination/cud-chewing)\n        ┌────────────▼──────────────────┐\n        │  RETICULUM (honeycomb)        │\n        │  Filters; hardware trap       │\n        │  (magnetic hardware trap used)|\n        └────────────┬──────────────────┘\n                     ↓\n        ┌────────────────────────────────┐\n        │  OMASUM (book-like folds)      │\n        │  Water absorption; reduces     │\n        │  particle size                 │\n        └────────────┬───────────────────┘\n                     ↓\n        ┌────────────────────────────────┐\n        │  ABOMASUM (\"true stomach\")     │\n        │  Acid digestion (pH 2-3)       │\n        │  Like monogastric stomach      │\n        │  Microbes from rumen digested  │\n        │  here → microbial protein      │\n        └────────────────────────────────┘",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-4",
+      "kind": "diagram_like",
+      "line": 164,
+      "heading_context": "### Rumen Fermentation Chemistry",
+      "confidence": "candidate",
+      "text": "CELLULOSE BREAKDOWN:\n  Plant cell wall: cellulose + hemicellulose + lignin\n  Lignin: NOT digestible (ruminants or otherwise)\n  Cellulose → microbial cellulase → glucose → fermentation\n\nVOLATILE FATTY ACIDS (VFAs) — the ruminant's fuel:\n  Acetate (C2):    ~65% of VFAs → fat synthesis, energy\n  Propionate (C3): ~20% → gluconeogenesis (glucose source)\n  Butyrate (C4):   ~15% → energy, rumen wall health\n\n  VFAs absorbed across rumen wall → blood → liver → energy\n\nFERMENTATION BYPRODUCTS:\n  CO₂: exhaled (not a GHG concern at biological scale)\n  CH₄: METHANOGENESIS — the GHG problem\n\n    CO₂ + 4H₂ → CH₄ + 2H₂O  (methanogenic archaea: Methanobrevibacter)\n\n    H₂ generated during fermentation must be removed\n    Methanogenesis = H₂ sink that keeps fermentation proceeding\n    But: CH₄ represents 6-10% of gross energy intake LOST\n    → Feed efficiency loss AND GHG emission simultaneously\n\nPROTEIN SYNTHESIS:\n  Rumen microbes incorporate NH₃ and peptides → microbial biomass\n  Microbial cells flow to abomasum → digested → amino acids\n  → Ruminants can use NPN (non-protein nitrogen: urea, ammonia)\n    as N source for microbial protein synthesis\n  → Practical: urea added to cattle feed as cheap N supplement",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-5",
+      "kind": "diagram_like",
+      "line": 200,
+      "heading_context": "## Methane — The Ruminant GHG Problem",
+      "confidence": "candidate",
+      "text": "ENTERIC FERMENTATION EMISSIONS:\n  Per cow: 70–120 kg CH₄/yr (highly variable: diet, breed, productivity)\n  CH₄ GWP₁₀₀ = 28–34× CO₂ (IPCC AR6: fossil CH₄ = 82.5 GWP₂₀)\n\n  Global livestock CH₄: ~2.1 Gt CO₂-eq/yr\n  ~5% of total anthropogenic GHG\n  Enteric fermentation = largest single agriculture GHG source\n\nFACTORS AFFECTING EMISSIONS:\n  Higher quality diet (less fiber, more starch):\n    → Less fermentation time → less CH₄ per kg feed\n    → Feedlot cattle emit less per kg beef than grass-fed\n       (counterintuitive but metabolically correct)\n\n  Higher productivity:\n    → Fewer animals needed for same output\n    → Emissions per kg product (not per animal) lower\n    → Genetic selection for productivity = indirect GHG reduction\n\n  Rumen modifiers (experimental/emerging):\n    3-NOP (Bovaer, DSM): 3-nitrooxypropanol inhibits MCR enzyme\n      → 20-30% CH₄ reduction; EU/NZ/AU approved\n    Asparagopsis seaweed (bromoform): 50-80% reduction in trials\n      → Scaling challenged by supply and food safety\n    Methane vaccines: target methanogenic archaea → still research\n    High-fat diets: displace fermentable carbohydrates → less CH₄\n\nMANURE METHANE + N₂O:\n  CH₄ from manure storage: anaerobic decomposition\n    → Lagoon systems (liquid manure): high CH₄\n    → Dry manure management: much lower\n    → Biogas capture: convert CH₄ to energy (methane → CO₂; less GWP)\n\n  N₂O from manure: nitrification/denitrification of excreted N\n    → Accounts for additional ~3× the climate impact of manure CH₄",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-6",
+      "kind": "diagram_like",
+      "line": 242,
+      "heading_context": "## Feed Conversion Ratios — Resource Efficiency",
+      "confidence": "candidate",
+      "text": "FEED CONVERSION RATIO (FCR):\n  FCR = kg feed dry matter / kg live weight gain\n  (lower = more efficient)\n\nPROTEIN CONVERSION EFFICIENCY:\n  = edible protein out / protein in feed\n\nSPECIES COMPARISON:\n\n  SPECIES     FCR       Edible protein  Land use      Water use\n              (kg/kg)   efficiency      (m²/100g prot) (L/100g prot)\n  ──────────  ───────   ──────────────  ─────────────  ────────────\n  Broiler     ~1.7–2.0    ~40%            ~7 m²          ~344 L\n  Pork        ~2.5–3.0    ~18%            ~11 m²          ~570 L\n  Eggs        ~2.0–2.5    ~35%            ~5 m²           ~244 L\n  Farmed salmon ~1.2–1.5  ~45%           (aquatic)         low\n  Beef (feedlot) ~6–8    ~5–8%           ~164 m²         ~1400 L\n  Beef (grass-fed)  —    ~2–4%           ~400+ m²        higher\n  Dairy       ~1.0 (milk) ~40%           ~40 m²          ~600 L\n  Insects     ~2.0        ~55%            ~2 m²           ~20 L\n\n  Note: FCR for beef often quoted as 6-8 (feedlot, concentrate diet)\n  but full lifecycle including all feed (pasture, hay) raises to 10-25\n\nWHY RUMINANT FCR IS HIGH:\n  1. Maintenance: ~60-70% of feed goes to maintain body functions\n     (large body size = large maintenance cost)\n  2. Cellulose fermentation: lower energy density vs starch\n  3. CH₄ loss: 6-10% of energy lost as CH₄\n  4. Long production cycle: beef takes 18-30 months vs 42 days (broiler)\n\nTHE \"RUMINANT ADVANTAGE\":\n  But ruminants can digest grass/roughage — land useless for crops\n  ~2/3 of world's pasture land is unsuitable for cultivation\n  → Cattle on marginal land converting inedible cellulose to\n    high-value protein is genuinely efficient vs alternatives\n  → The inefficiency debate applies mainly to grain-fed feedlot cattle",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-7",
+      "kind": "diagram_like",
+      "line": 286,
+      "heading_context": "## Monogastric Systems — Pig and Poultry",
+      "confidence": "candidate",
+      "text": "PIG DIGESTION:\n  Simple stomach; cannot digest cellulose (no cellulase)\n  Hindgut fermenter: limited microbial fermentation in large intestine\n  Feed: primarily corn/soybean meal (starch + protein)\n  → Directly compete with humans for grain\n  → But pigs can also utilize food waste, slaughterhouse byproducts\n     (traditional role: valorize waste streams)\n\nPOULTRY DIGESTION:\n  Highly efficient simple monogastric\n  Gizzard: grinds grain (replaces teeth; requires grit)\n  Very fast growth: broiler from egg to slaughter in 6 weeks\n  No cellulose utilization; pure grain converter\n  BUT: extremely low land use per unit protein (see table above)\n\nBROILER CHICKEN EVOLUTION:\n  1950: 84 days to 1.8 kg live weight\n  2005: 42 days to 2.2 kg live weight\n  FCR: 1950: 4.0 → 2020: 1.7\n  → Achieved through: genetic selection, nutrition science,\n    housing management, health management\n  → Modern broilers: breast muscle so large birds can barely walk\n    (welfare issue; biology pushed to physiological limit)\n\nLAYER HEN PRODUCTION:\n  Wild junglefowl: ~12 eggs/yr\n  Modern commercial layer: ~300-320 eggs/yr\n  → 25× improvement through selection for continuous laying\n     (wild birds are seasonal, limited clutch)",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-8",
+      "kind": "diagram_like",
+      "line": 322,
+      "heading_context": "## CAFO — Concentrated Animal Feeding Operations",
+      "confidence": "candidate",
+      "text": "CAFO DEFINITION (US EPA):\n  >1000 animal units (AU) in confined conditions\n  (1 AU = 1 beef animal = 2.5 hogs = 100 broilers)\n\nCAFO ECONOMICS:\n  Vertical integration: company owns breeding → feed mill →\n    grow-out facility → slaughter → processing → retail\n  (Tyson, Cargill, JBS — global meat companies)\n\n  Contract farming: independent farmer owns buildings,\n    provides labor; company owns animals and feed\n    → Farmer bears capital cost + risk; company captures margin\n    → Controversial arrangement (farmer leverage limited)\n\n  Economies of scale:\n    Fixed costs (buildings, equipment) spread over more animals\n    Labor efficiency: 1 worker per 100,000 broilers (automated feeding)\n    Input purchasing power: bulk corn/soy at commodity prices\n\n  Environmental concentration:\n    Manure concentrated in small geographic area\n    Excess nutrient capacity → lagoons → runoff risk\n    Hog CAFO lagoon failure (Pfiesteria events, North Carolina)\n    → Local waterway eutrophication and fish kills\n\nANIMAL WELFARE ISSUES:\n  Battery cages (hens): 0.04 m² per bird → EU banned 2012\n  Gestation crates (sows): individual stalls; movement impossible\n    → Banned EU 2013; US laws by state\n  Broiler density: 30-38 kg/m² floor space\n  → \"5 freedoms\" welfare framework (UK Brambell Committee 1965):\n    Freedom from hunger/thirst, discomfort, pain/injury/disease,\n    normal behavior, fear/distress\n\nANTIBIOTIC USE:\n  Sub-therapeutic antibiotics: prevent disease at stocking density;\n    also promote growth (mechanism: reduced intestinal inflammation)\n  ~70-80% of antibiotics used in US by weight go to livestock\n  → Resistance selection: MRSA, MDR E. coli, Salmonella\n  → EU banned growth promoter antibiotics 2006\n  → US: FDA \"Guidance 213\" (2017): requires veterinary oversight;\n      growth promotion claims removed from labels",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-9",
+      "kind": "diagram_like",
+      "line": 371,
+      "heading_context": "## Pasture-Based vs Feedlot Systems",
+      "confidence": "candidate",
+      "text": "GRASS-FED / PASTURE-BASED:\n  Animals on permanent pasture; no grain concentrate\n\n  ADVANTAGES:\n    No grain required (doesn't compete with human food)\n    Potential soil C sequestration: well-managed pasture →\n      grassland ecosystem can sequester C in root biomass\n    Biodiversity potential (herb-rich permanent pasture)\n    Animal welfare: natural behavior possible\n\n  DISADVANTAGES:\n    Lower productivity (slower growth, more land/unit output)\n    Higher methane per kg product (longer production time)\n    Seasonal: limited by grass growth season\n    GHG: sequestration claims contested; net balance likely\n      close to zero or still positive warming at full lifecycle\n\nFEEDLOT (INTENSIVE GRAIN-FED):\n  Cattle finished on high-energy grain diet for 90-150 days\n  (US: \"backgrounded\" on pasture/hay to ~300kg, then feedlot)\n\n  ADVANTAGES:\n    Lower land use per kg beef (feed grain more productive)\n    Lower CH₄ per kg product (faster growth, high-quality diet)\n    Consistent year-round supply; uniform product\n\n  DISADVANTAGES:\n    Grain diverting from human food supply\n    Concentrated manure management challenge\n    Acidosis: high-starch diets → rumen pH drops → health issues\n    (ionophores like monensin used to control)\n\n\"GRASS-FED IS BETTER FOR ENVIRONMENT\" — CONTESTED:\n  Per kg beef: grass-fed uses more land, more water,\n  more total CH₄ (longer life, more days emitting)\n  Per farm: pasture may sequester C, support biodiversity\n  The \"land sparing vs land sharing\" debate applied to livestock",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-10",
+      "kind": "diagram_like",
+      "line": 415,
+      "heading_context": "## Global Livestock Trends",
+      "confidence": "candidate",
+      "text": "CONSUMPTION TRENDS:\n  Global meat consumption doubling ~every 30 years (population + income)\n  Biggest growth: China (pork), South/SE Asia (poultry)\n  Per capita: US ~120 kg/yr; EU ~80 kg/yr; China ~60 kg/yr;\n              India ~4 kg/yr; sub-Saharan Africa ~20 kg/yr\n\n  \"Livestock transition\": as countries develop, diet shifts\n  toward more animal products (income elasticity ~0.5-0.8)\n\n  Projected: global meat demand +70% by 2050 (OECD/FAO)\n  → On current trajectory: requires 70% more agricultural land\n     (mostly cleared from forest/savanna in Brazil, SE Asia)\n\nALTERNATIVES AND TRANSITIONS:\n  Cellular agriculture: meat grown from cells (see 09-FUTURE)\n  Plant-based meat: Impossible Burger, Beyond Meat\n    → replicate texture/flavor without animal\n    → ~90% less water, land, GHG per serving\n    → Still niche; price parity critical for mass adoption\n  Insect protein: mealworm, black soldier fly\n    → FCR ~2.0; high protein quality; low GHG\n    → Scaling: feed regulations, consumer acceptance\n  Reduced consumption: highest GHG impact reduction per capita\n    → \"Planetary Health Diet\" (EAT-Lancet, 2019):\n       <98g red meat/wk; rich country shift required",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    }
+  ]
+}

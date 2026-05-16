@@ -1,0 +1,127 @@
+{
+  "schema_version": "1",
+  "source_markdown": "agriculture\\09-FUTURE-AGRICULTURE.md",
+  "blocks": [
+    {
+      "id": "block-1",
+      "kind": "ascii_table_candidate",
+      "line": 26,
+      "heading_context": "## The Big Picture",
+      "confidence": "candidate",
+      "text": "+------------------------------------------------------------------+\n|              AGRICULTURAL TRANSFORMATION PATHWAYS                |\n|                                                                  |\n|  DEMAND SIDE                    SUPPLY SIDE                      |\n|  ──────────────────────         ───────────────────────────────  |\n|  Dietary shift (less beef)      Precision agriculture            |\n|  Food waste reduction           Crop biotechnology (CRISPR)      |\n|  Protein diversification        Vertical farming                 |\n|  (insects, alt-meat, seafood)   Regenerative practices           |\n|                                 Cellular agriculture             |\n|                                                                  |\n|  BOTH REQUIRED: Demand reduction alone can't keep up with        |\n|  population + income growth. Supply efficiency alone can't       |\n|  overcome the GHG ceiling. Combined: plausible.                  |\n+------------------------------------------------------------------+",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-2",
+      "kind": "ascii_table_candidate",
+      "line": 47,
+      "heading_context": "## Engineering Bridge: Future Agriculture as Software and Systems Architecture",
+      "confidence": "candidate",
+      "text": "AGRICULTURAL TECHNOLOGY         CS / ARCHITECTURE EQUIVALENT\n──────────────────────────────────────────────────────────────────────────────\nPRECISION AGRICULTURE STACK     IoT / edge-computing layered architecture\n  (same 4-layer model as         (direct isomorphism; not analogy)\n  04-MECHANIZATION-HISTORY)\n\n  LAYER 1: Positioning (RTK GPS) → Device location service\n    ±2-5 cm; base station + rover  (GNSS + RTK = high-precision GPS fix)\n    Autosteer: machine follows     → Actuator follows waypoint commands\n    prescription path exactly       from navigation service\n\n  LAYER 2: Sensing                → Telemetry + observability pipeline\n    Satellite NDVI/NDRE           → Batch remote sensing (daily/5-day)\n    UAV multispectral             → On-demand high-resolution scan\n    Soil moisture/EC sensors      → Edge device: continuous time-series\n    Yield monitor (combine)       → Real-time throughput metering\n    Canopy N sensor               → In-line quality gate (real-time)\n\n  LAYER 3: Analytics / Decision  → Stream processing + ML inference\n    Prescription map generation   → Model output → spatial JSON config\n    Zone management               → Segmentation: cluster by features\n    FMIS (Farm Management IS)     → Operations platform: integrates all\n    AI crop stress / disease        sensor streams + decision outputs\n    detection (CV on imagery)    → Computer vision inference at edge\n\n  LAYER 4: Variable Rate Apply   → Actuator command dispatch\n    Individual nozzle (on/off)    → Per-actuator command; 20 Hz update\n    Variable rate spreader        → Parameterized command: rate per zone\n    Planter section control       → Enable/disable per row section\n    → \"See and spray\": spray only → Rule engine: IF (weed detected at\n      detected weeds; 50–90%        GPS position) THEN activate nozzle\n      herbicide reduction where     → Edge inference + actuator: ~100ms\n      weed density is sparse         round trip vs cloud would miss\n\nCRISPR-Cas9                     Find-and-replace on a genome string\n  Genome = character sequence    → DNA = 3-billion-char string over\n    (3 billion base pairs)          {A, T, G, C} alphabet\n  sgRNA = search pattern        → Regex / substring query\n    (20 nt complementary to       (20-char pattern; unique in genome)\n    target sequence)\n  Cas9 = nuclease               → Editor cursor: navigate to match\n    guided by sgRNA to cut at      and mark cut point\n    the matched sequence\n  NHEJ repair (error-prone):    → Insert/delete at cut site:\n    insertion/deletion → frameshift  corrupt the reading frame → null\n    → gene knockout               → gene \"commented out\"\n  HDR repair (template-provided):→ Replace with supplied diff:\n    precise base substitution      (like: patch -p1 < edit.patch)\n    or foreign sequence insertion\n  REGULATORY CONSEQUENCE:       → NHEJ = no foreign bytes inserted:\n    NHEJ with no foreign DNA       native code modified, not foreign\n    = not regulated as GMO (US)    library imported → passes \"GMO\" filter\n    HDR with foreign gene          HDR with foreign insert = importing\n    = full GMO regulatory path       external library → full review\n\nSPEED BREEDING                  Parallel CI with 6 environments per year\n  LED: 22-hr photoperiod         → Aggressive clock: run more cycles\n  Controlled temperature          per calendar year\n  Result: 6 generations/yr       → 6× test-compile-fix iterations\n    vs 2 outdoors in temperate      vs 2 (winter/summer crops outdoors)\n  Compresses 10-yr program        → 10-year breeding roadmap → 2 years\n    to 1–3 years                    (same deliverable; faster clock)\n\nVERTICAL FARMING                Controlled-environment datacenter\n                                  for photosynthetic computation\n  Multi-layer racks              → Rack-mounted compute; stacked\n  LED lighting (200-400 μmol)    → Power supply per rack (energy-intensive)\n    20-40 kWh/kg lettuce           → Energy = 50–70% of operating cost\n  Climate: T, CO₂, humidity      → Environmental control: HVAC + CO₂\n  Hydroponic nutrient solution   → Structured input: precisely formulated\n  95-98% water recycled          → Near-zero external I/O for water\n  No pesticides                  → Air-gapped; external attack surface = 0\n  12-15 harvests/yr              → High throughput: short cycle time\n  CROP SUITABILITY:              → What workloads are economic to run?\n    Leafy greens: ✓               → Low-energy workloads: lettuce = CPU-light\n    Strawberries: marginal ✓     → Medium: tolerable energy/output ratio\n    Grains/roots: ✗              → Calorie crops: energy/calorie ratio\n      20-40 kWh per kg lettuce;    catastrophic for wheat (≈2 kWh per kg)\n      wheat needs ~2000 kcal/kg;   → You would never run batch processing\n      energy cost per calorie        in the most expensive datacenter\n      is ~100× field farming         when cheap capacity is available\n  Where profitable:              → \"Run here only when premium justifies cost\"\n    Urban Japan, Singapore,        → High-rent, high-value, water-scarce\n    Middle East; premium retail,     locations; premium workloads only\n    year-round supply chain\n\nCULTIVATED MEAT BIOREACTOR      Fermentation at industrial scale\n  Cell line: immortalized        → Persistent stateful service\n    myosatellite cells             (cells that won't stop dividing)\n  Proliferation bioreactor:      → Horizontal scaling of cell compute:\n    cells multiply in medium        spin up more \"worker\" cells in parallel\n    (glucose, O₂, FGF, EGF)\n  Differentiation:               → Configuration change triggers\n    scaffold + signaling signals    differentiation: same cell line,\n    → cells become muscle fiber     different runtime environment → output\n  FBS (fetal bovine serum):      → External dependency with ethical cost:\n    current growth medium           can't fully remove until serum-free\n    → industry working on           media is production-ready\n    serum-free alternatives\n  100,000 L bioreactor needed    → Scale-up from 1 kL (pharma) to\n    vs current 1,000 L             100 kL (food-scale): 100× scale\n    → The cost cliff: bioreactor    → Same cliff as: startup app working at\n    scale-up is the bottleneck       1000 users vs 100,000 users\n\nPRECISION FERMENTATION          Microbe-as-a-service: compile organisms\n  Engineer yeast/bacteria to       to produce target molecules\n  express target protein\n  Impossible Burger heme:        → Compile yeast with leghemoglobin\n    leghemoglobin from yeast        gene; ferment at scale; extract\n  Perfect Day dairy protein:     → Compile yeast with whey/casein gene\n  Result: protein-as-a-service  → Decouple the output (protein) from\n    without the animal              the traditional production substrate\n    → \"Serverless\" protein:         (the cow = legacy compute infrastructure\n      same output, different         being replaced by purpose-built service)\n      infrastructure",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-3",
+      "kind": "diagram_like",
+      "line": 169,
+      "heading_context": "## Precision Agriculture — The Data-Driven Farm",
+      "confidence": "candidate",
+      "text": "PA TECHNOLOGY STACK (2020s-level):\n\nPOSITIONING LAYER:\n  RTK GPS: ±2-5 cm field positioning\n  Autosteer: GPS-guided tractors; 0% overlap; nighttime operation\n  Machine coordination: multiple machines operating same field\n\nSENSING LAYER:\n  Satellite remote sensing:\n    Sentinel-2 (ESA, free, 10m resolution, 5-day revisit)\n    Planet Labs (3m resolution, daily)\n    NDVI, NDRE, EVI: vegetative stress indices\n    Thermal: water stress detection (high canopy temp = stomata closed)\n\n  UAV (drone) scouting:\n    High-resolution (1-5 cm) imagery\n    Disease/pest mapping; emergence counts; stand uniformity\n    Multispectral + RGB sensors\n\n  In-field sensors:\n    Soil EC mapping: electrical conductivity → texture proxy\n    Soil moisture sensors (FDR, TDR): real-time water status\n    Canopy sensors: ISARIA, GreenSeeker → real-time N application rate\n    Yield monitors: combine-mounted; map spatial yield variation\n\nANALYTICS AND DECISION LAYER:\n  Farm management information systems (FMIS):\n    John Deere Operations Center, Climate FieldView, Trimble Ag\n    Integrate: field boundaries, soil maps, yield maps, applications\n  Prescription map generation:\n    Variable rate N map: high-yield zones get more; low-yield less\n    Variable rate seeding: plant population adjusted for soil type\n    Zone management: EC + yield history → management zones\n\nAPPLICATION LAYER:\n  Variable rate seeder: planter sections turn on/off individually\n  Variable rate fertilizer spreader: rate changed every 3-5 seconds\n  Smart sprayer (individual nozzle): GPS-triggered on/off\n    → See-and-spray (John Deere ExactApply; Carbon Robotics)\n    → Only spray weeds; 50-90% herbicide reduction for sparse weeds\n  Autosteer: virtually eliminates application overlap",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-4",
+      "kind": "diagram_like",
+      "line": 257,
+      "heading_context": "### Conventional Breeding vs Biotechnology",
+      "confidence": "candidate",
+      "text": "BREEDING SPEED COMPARISON:\n\n  Method                    Cycle time    Traits accessible\n  ──────────────────────    ──────────    ──────────────────\n  Conventional crossing     5-10 yrs      Anything in crop gene pool\n  Marker-assisted selection 3-5 yrs       Quantitative + major genes\n  Speed breeding (LED)      1 yr (6 gen)  Any conventional trait, faster\n  CRISPR editing            1-3 yrs       Targeted modification, no insert\n  Transgenic (GMO)          5-10 yrs      Any gene from any organism\n  (regulatory adds to all)",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-5",
+      "kind": "chart_like",
+      "line": 270,
+      "heading_context": "### Conventional Breeding vs Biotechnology",
+      "confidence": "candidate",
+      "text": "### CRISPR-Cas9 in Crop Improvement",
+      "notes": [
+        "detected from bar/chart glyph density with numeric labels"
+      ]
+    },
+    {
+      "id": "block-6",
+      "kind": "diagram_like",
+      "line": 272,
+      "heading_context": "### CRISPR-Cas9 in Crop Improvement",
+      "confidence": "candidate",
+      "text": "MECHANISM:\n  Cas9 (nuclease) guided by sgRNA → cuts target DNA sequence\n  DNA repair mechanisms:\n    NHEJ (error-prone): insertion/deletion → gene knockout\n    HDR (template-provided): precise base change or insertion\n\nAGRICULTURAL APPLICATIONS:\n\nDISEASE RESISTANCE:\n  Powdery mildew resistance (wheat):\n    CRISPR knockout of TaMlo alleles → broad-spectrum resistance\n    (previously required introgression from wild relatives)\n  Late blight resistance (potato): editing susceptibility genes\n  Xanthomonas resistance (citrus, cassava)\n\nABIOTIC STRESS TOLERANCE:\n  Drought: editing ABA signaling components; stomatal density\n  Heat: editing flowering time genes for adapted photoperiod\n  Salt tolerance: vacuolar NHX transporters; SOS pathway\n\nNUTRITIONAL IMPROVEMENT:\n  High-oleic soybean (Calyxt, 2019): first commercial CRISPR crop in US\n    → Edited FAD2 → elevated oleic acid; healthier oil profile\n  Waxy corn: starch composition editing\n  Reduced acrylamide potato: lower asparagine accumulation\n\nYIELD COMPONENTS:\n  Corn row number (KNR2 editing)\n  Seed size/weight (rice GW2/GW5 orthologs)\n  Tiller number regulation\n  Nitrogen use efficiency: editing NRT1.1B (root N uptake)\n\nREGULATORY DIVERGENCE:\n  US: CRISPR that introduces no foreign DNA → not regulated as GMO\n      (USDA/FDA: treat like conventional breeding)\n  EU: 2023 European Parliament vote: CRISPR NGT1 (no foreign DNA)\n      → deregulated at EU level (still contested in some countries)\n  China: regulatory pathway being developed; active CRISPR R&D",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-7",
+      "kind": "diagram_like",
+      "line": 315,
+      "heading_context": "### Speed Breeding",
+      "confidence": "candidate",
+      "text": "SPEED BREEDING:\n  LED lighting: extended photoperiod (22 hrs light; specific spectra)\n  Controlled temperature: optimal for target species\n  Effect: 6 generations/year for wheat, barley, canola\n          (vs 2 generations outdoors in temperate climate)\n  → Compresses 10 years of conventional breeding to 1-3 years\n  → Applicable to any crop; low technology barrier\n  → University of Queensland + John Innes Centre (2018)\n  → Now adopted by major breeding programs globally",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-8",
+      "kind": "diagram_like",
+      "line": 331,
+      "heading_context": "## Vertical Farming — Controlled Environment Agriculture",
+      "confidence": "candidate",
+      "text": "VERTICAL FARMING SYSTEM:\n\n  STRUCTURE:\n    Multi-layer growing racks in climate-controlled building\n    Indoor: warehouses, repurposed buildings\n    Outdoor-adjacent: shipping containers (\"Plenty\", \"AppHarvest\")\n\n  PRODUCTION INPUTS:\n    LED lighting:\n      ~200-400 μmol/m²/s; 16-18 hr photoperiod\n      Red (660 nm) + blue (450 nm) + white\n      Energy: 20-40 kWh/kg lettuce (dominant energy cost)\n    Hydroponics: nutrient solution recirculated; no soil\n    Climate: temperature, CO₂ (600-1200 ppm), humidity controlled\n    Water: 95-98% recycled (closed loop; huge efficiency vs field)\n    No pesticides (controlled environment; no outdoor pest pressure)\n\n  PRODUCTION METRICS (leafy greens):\n    Yield: 20-30 kg/m²/yr (vs 4-8 kg/m²/yr outdoor)\n    Harvests: 12-15/yr (outdoor: 2-4)\n    Labor: highly automated but still 1 worker/10,000 plants typical\n\n  CROPS SUITED:\n    Excellent: leafy greens (lettuce, spinach, herbs, kale, basil)\n               Strawberries, tomatoes (some success)\n    Poor: grains, roots, legumes (calorie crops)\n          → Energy cost per calorie is prohibitive\n\n  ECONOMICS:\n    Lettuce: $3-8/kg production cost vs $1-2/kg field production\n    Energy = 50-70% of operating cost\n    Break-even: premium markets (urban Japan, Singapore, Middle East)\n    Where profitable: near urban centers; high land cost; water scarcity;\n                      reliable premium market (restaurants, premium retail)\n\n  LIMITATIONS:\n    Cannot replace calorie crops (rice, wheat, corn, potato): economics fail\n    Energy use: if grid is fossil-heavy → worse GHG than field farming\n    Labor: currently still labor-intensive despite automation efforts\n    Business failures: Plenty (California), AppHarvest (bankruptcy 2023)\n    → Profitability elusive even for well-funded startups",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-9",
+      "kind": "diagram_like",
+      "line": 379,
+      "heading_context": "## Cellular Agriculture — Growing Protein Without Animals",
+      "confidence": "candidate",
+      "text": "CULTIVATED MEAT:\n\n  PROCESS:\n    1. Biopsy: extract small sample of cells from living animal\n    2. Cell line development: myosatellite cells (muscle precursors)\n       → immortalized cell line (stem cells or induced pluripotent)\n    3. Proliferation bioreactor:\n       Cells multiply in growth medium (amino acids, glucose,\n       O₂, growth factors like FGF, EGF)\n    4. Differentiation:\n       Scaffold + signaling → cells differentiate into muscle fibers\n    5. Harvest: mature muscle tissue → processed into product\n\n  CURRENT STATUS (2024):\n    Singapore: GOOD Meat + Eat Just approved for sale (chicken)\n    USA: UPSIDE Foods + GOOD Meat FDA/USDA approved (2023)\n    Cost trajectory:\n      2013 (Mark Post, Maastricht): $300,000 per burger\n      2023 (lab scale): ~$10-20/burger equivalent\n      Required for mass market: ~$5-10/kg (vs $3-8/kg conventional)\n      → Not yet at cost parity; scaling challenges large\n\n  TECHNICAL CHALLENGES:\n    Serum-free media: traditional growth media uses fetal bovine serum (FBS)\n      → Ironic: need to kill cows to grow \"cruelty-free\" meat\n      → FBS replacement with plant-derived + recombinant growth factors\n      → Industry working on this but not fully solved\n    Scaffold: recreating 3D meat texture (thick steaks vs ground meat)\n      Edible scaffolds: mycelium, plant-derived, decellularized protein\n    Bioreactor scale: current pharmaceutical-scale → need food-scale\n    (100,000-liter bioreactors vs current 1,000-liter)\n    Energy: high; uncertain LCA until scaled\n\nFERMENTATION-DERIVED PROTEINS:\n  Precision fermentation: microbes engineered to produce specific proteins\n  Examples:\n    Perfect Day: dairy proteins (whey, casein) from yeast\n    Impossible Burger: heme protein (leghemoglobin) from yeast →\n      Fermented in yeast, not from soybeans in the burger\n    Clara Foods: egg white protein from yeast\n    Remilk: identical cow milk proteins; no cow required\n\n  Current status: some at market; costs declining; regulatory approval needed\n  LCA: generally favorable vs animal agriculture at scale; energy-dependent\n\nPLANT-BASED MEAT:\n  Impossible Foods: soy protein + heme → meat-like flavor/texture\n  Beyond Meat: pea protein + methylcellulose binder\n  Not new (tofu, tempeh, seitan for centuries)\n  Innovation: texture and flavor matching (extrusion + binding technology)\n  Market share: plateaued 2022-2024; mainstream adoption slower than projected\n  Cost: approaching parity with beef in some markets",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-10",
+      "kind": "diagram_like",
+      "line": 438,
+      "heading_context": "## Regenerative Agriculture — Rebuilding Soil Capital",
+      "confidence": "candidate",
+      "text": "CORE PRINCIPLES (no single definition; general framework):\n  1. Minimize soil disturbance (no-till or reduced tillage)\n  2. Maintain living root in soil year-round (cover crops, perennials)\n  3. Maximize diversity (crop rotation, polycultures, agroforestry)\n  4. Integrate livestock (grazing to stimulate plant regrowth)\n  5. Armor soil surface (mulch, residue cover)\n\nEVIDENCE BASE:\n  Soil carbon sequestration:\n    No-till + cover crops: 0.1-1.0 t C/ha/yr (highly variable)\n    Agroforestry: 0.5-3 t C/ha/yr\n    \"4 per 1000\" initiative (COP21): 0.4% annual increase in global soil C\n      → Could offset ~annual anthropogenic CO₂ emissions\n    REALITY CHECK: sequestration is real but smaller and more\n      uncertain than optimistic claims; saturation occurs; climate sensitive\n\n  Biodiversity:\n    Higher field-level diversity → more soil biology, more beneficial insects\n    Evidence: positive for arthropod diversity, soil health metrics\n    Yield effect: often neutral to slightly lower in first 3-5 years;\n      converges or exceeds conventional in long-term trials\n      (Rodale Institute LTE: 30 years; yields equivalent after transition)\n\nCHALLENGES:\n  Transition period: 3-5 years reduced yields while soil biology rebuilds\n  Knowledge intensity: requires more management skill than conventional\n  Economic: short-term profitability reduction during transition\n  Carbon market: voluntary carbon credits for soil C disputed\n    (permanence uncertain; additionality hard to verify; monitoring costly)\n\nHOLISTIC PLANNED GRAZING (Savory method):\n  High-density short-duration grazing followed by long rest\n  Mimics historical bison/wildebeast movement patterns\n  Claims: reverse desertification; massive carbon sequestration\n  Scientific consensus: modest positive effects in some contexts;\n    dramatic claims (restore Sahel) not supported by evidence\n    Allen Savory's claims exceed what controlled studies confirm",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-11",
+      "kind": "diagram_like",
+      "line": 482,
+      "heading_context": "## Synthetic Biology and Novel Crops",
+      "confidence": "candidate",
+      "text": "NITROGEN FIXATION IN CEREALS:\n  Legumes fix N via Rhizobium symbiosis (see crop systems)\n  If corn/wheat could fix own N: eliminate ~30-40% of N fertilizer need\n  Approaches:\n    a) Engineering Nif genes into plant plastids\n    b) Engineering cereals to exude sugars → attract free-living N fixers\n    c) Building synthetic rhizobium-like symbiosis\n\n  Ginkgo Bioworks + Bayer partnership: engineering N-fixing\n  microbes for corn rhizosphere\n  Current status: 10-20% N reduction demonstrated; full self-sufficiency far off\n\nPERENNIAL GRAINS (Kernza, perennial wheat):\n  Replacing annual grains with perennial varieties\n  Advantages: no annual planting; deep roots → soil C; lower erosion\n  The Land Institute (Wes Jackson): breeding Kernza (Thinopyrum intermedium)\n  Current yield: 300-600 kg/ha (vs wheat 3,000-8,000 kg/ha)\n  → Long road to competitive yield; proof of concept demonstrated\n\nBIOFORTIFICATION:\n  Breeding or genetic engineering for nutrient density\n  Golden Rice: beta-carotene (provitamin A) — 20+ years in development;\n    approved Philippines, Bangladesh; adoption slow\n  High-zinc rice/wheat (HarvestPlus): conventional breeding\n  High-iron pearl millet (India): commercial adoption\n  Iron/zinc biofortification: modest impact but achievable",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    }
+  ]
+}

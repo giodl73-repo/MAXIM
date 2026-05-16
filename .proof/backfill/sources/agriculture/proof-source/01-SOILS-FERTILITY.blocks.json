@@ -1,0 +1,94 @@
+{
+  "schema_version": "1",
+  "source_markdown": "agriculture\\01-SOILS-FERTILITY.md",
+  "blocks": [
+    {
+      "id": "block-1",
+      "kind": "ascii_table_candidate",
+      "line": 26,
+      "heading_context": "## The Big Picture",
+      "confidence": "candidate",
+      "text": "+---------------------------------------------------------------+\n|                    SOIL SYSTEM OVERVIEW                       |\n|                                                               |\n|  MINERAL FRACTION          ORGANIC FRACTION                   |\n|  (45-55% by volume)        (1-6% by volume)                   |\n|  Sand/silt/clay            Humus, root debris                 |\n|  (texture, structure)      (fertility, water retention)       |\n|                                                               |\n|  PORE SPACE                BIOLOGICAL FRACTION                |\n|  (25-50% by volume)        (~0.1% by volume but critical)     |\n|  Air + water               Bacteria, fungi, earthworms,       |\n|  (drainage, aeration,      nematodes, arthropods              |\n|   root penetration)        (nutrient cycling, structure)      |\n|                                                               |\n|  KEY OUTPUTS: Plant-available water, nutrients, physical      |\n|               support, temperature buffering                  |\n+---------------------------------------------------------------+",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-2",
+      "kind": "diagram_like",
+      "line": 49,
+      "heading_context": "## Engineering Bridges",
+      "confidence": "candidate",
+      "text": "SOIL CONCEPT                  SYSTEMS / ENGINEERING EQUIVALENT\n──────────────────────────────────────────────────────────────────────────────\nCEC (Cation Exchange Capacity) Buffered charge reservoir (capacitor)\n  Clay and humus have negative  → surface charge acts like a capacitor plate;\n  surface charge → hold cations   holds ions against leaching by electrostatic\n  CEC = total buffering capacity → capacitance (C = Q/V)\n  High CEC (heavy clay, SOM-rich)→ large capacitor; nutrients resist leaching\n  Low CEC (sandy)               → small capacitor; nutrients flush immediately\n  Nutrient leaching             → capacitor discharge; rate governed by flux\n  Fertilizer addition           → charging the capacitor\n\nSoil pH as state variable       System state governing subsystem behavior\n  pH controls: nutrient availability, microbial activity, mineral solubility\n  Optimal pH 6.0–7.0 (most crops) → operating point of the system\n  pH < 5.5: Al³⁺ and Mn²⁺ become soluble → toxic to roots (fail state)\n  pH > 7.5: P, Fe, Zn, Mn become insoluble → deficiency (different fail state)\n  Liming (CaCO₃): adjusts pH toward target → same as setpoint correction in PID\n  pH as state variable: once set, governs which processes are possible\n\nSoil nutrient cycling           Coupled ODE system with multiple compartments\n  N cycle: NH₄⁺ ↔ NO₃⁻ ↔ N₂    → nitrification rate, denitrification rate,\n    plant uptake, leaching         mineralization rate → k_ij in compartment model\n  P cycle: mineral P → solution P → plant uptake → organic P → mineral\n    → phosphorus is tightly cycled (no gas phase); behavior like closed loop\n\nSoil water retention curve      Nonlinear transfer function\n  θ(ψ): volumetric water content → pressure head (matric potential)\n  High ψ (moist): small ψ change → large θ change (high storage capacity)\n  Low ψ (dry): large ψ change → small θ change (less responsive)\n  \"Field capacity\" and \"wilting  → threshold operating points separating\n    point\"                          favorable, stressed, and failed regimes\n\nSoil organic matter (SOM)       Integrator with drift\n  dSOM/dt = C_input - k·SOM     → first-order model; steady state = C_in/k\n  Tillage increases k (oxidation)→ parameter shift; new (lower) equilibrium\n  Cover crops / no-till          → increase C_in; shift equilibrium upward\n  Multi-century timescale        → very slow integrator; actions today visible\n                                    in soil state decades later (long delay)",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-3",
+      "kind": "diagram_like",
+      "line": 132,
+      "heading_context": "## Cation Exchange Capacity (CEC)",
+      "confidence": "candidate",
+      "text": "MECHANISM:\n  Clay minerals and organic matter carry negative surface charges\n  These bind positively charged cations (Ca²⁺, Mg²⁺, K⁺, Na⁺, H⁺, Al³⁺)\n  Cations are held reversibly (can be exchanged by other cations + plant roots)\n\n  CLAY PLATELET (negative surface):\n  ─ ─ ─ ─ ─ ─ ─ ─ ─ ─ ─ ─ ─ ─ ─\n  Ca²⁺  Mg²⁺  K⁺   Ca²⁺  NH₄⁺  H⁺\n  (loosely held; exchangeable)\n\nCEC MEASURED IN: cmol(+)/kg or meq/100g\n  Sandy soils:    ~2-10 (low CEC; leach easily)\n  Clay soils:     ~20-60 (high CEC; hold nutrients well)\n  Organic matter: ~100-300 (very high CEC; why adding OM improves fertility)\n\nBASE SATURATION:\n  % of CEC occupied by base cations (Ca, Mg, K, Na) vs H + Al\n  High base saturation (>80%) = fertile soil\n  Low base saturation = acidic, often leached",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-4",
+      "kind": "diagram_like",
+      "line": 160,
+      "heading_context": "### Nitrogen (N)",
+      "confidence": "candidate",
+      "text": "FUNCTION: Protein synthesis (amino acids), chlorophyll, enzymes\nFORM TAKEN UP: NO₃⁻ (nitrate) and NH₄⁺ (ammonium)\nDEFICIENCY SYMPTOM: Yellowing (chlorosis), starting with old leaves\n                    (N is mobile; moves from old to new growth)\n\nSOIL N DYNAMICS:\n  Organic N (protein, humus) → Mineralization → NH₄⁺\n                                                    ↓ Nitrification\n                               NO₃⁻  ←──────────────\n                                 |\n                         Plant uptake\n                         OR\n                         Denitrification → N₂ (lost)\n                         OR\n                         Leaching (NO₃⁻ is mobile; washed below root zone)\n\nN MANAGEMENT:\n  Apply close to uptake time (split applications)\n  Nitrification inhibitors slow nitrification → keep N as NH₄⁺ longer\n  Cover crops capture residual N (prevents winter leaching)",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-5",
+      "kind": "diagram_like",
+      "line": 185,
+      "heading_context": "### Phosphorus (P)",
+      "confidence": "candidate",
+      "text": "FUNCTION: Energy transfer (ATP), DNA/RNA, root development, seed formation\nFORM TAKEN UP: H₂PO₄⁻ and HPO₄²⁻\nDEFICIENCY SYMPTOM: Purple tinge on leaves (especially corn seedlings)\n\nP CHEMISTRY:\n  P is very immobile in soil (unlike N)\n  Binds strongly to Fe and Al oxides at low pH\n  Binds to Ca at high pH\n  → P availability is pH-dependent (peak availability pH 6-7)\n\nMYCORRHIZAL NETWORKS: Critical for P uptake\n  Arbuscular mycorrhizal fungi (AMF) extend root reach dramatically\n  Plants provide C to fungi; fungi access P in pores too small for roots\n  40-80% of plant P can come via mycorrhizae\n\nP MINING vs CYCLING:\n  Soil P test: Olsen method (NaHCO₃ extraction) or Mehlich-3\n  Build-up P: years of excess application → \"legacy P\" that leaches\n  Legacy P drives eutrophication for decades after input stops",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-6",
+      "kind": "diagram_like",
+      "line": 209,
+      "heading_context": "### Potassium (K)",
+      "confidence": "candidate",
+      "text": "FUNCTION: Stomatal regulation, protein synthesis, disease resistance,\n          water balance, enzyme activation\nFORM TAKEN UP: K⁺\nDEFICIENCY: Scorched leaf edges (marginal chlorosis/necrosis)\n            Tip burn on leafy vegetables\n\nK IN SOIL:\n  Held by clay mineral interlayers (slowly available) + exchangeable K\n  K is generally well-supplied in non-leached soils\n  Sandy/tropical soils leach K → may need supplementation\n  Luxury consumption: crops take up more than needed (K saturation)",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-7",
+      "kind": "ascii_table_candidate",
+      "line": 245,
+      "heading_context": "## Soil pH — Master Variable",
+      "confidence": "candidate",
+      "text": "pH 4.0  4.5  5.0  5.5  6.0  6.5  7.0  7.5  8.0  8.5\n  |     |    |    |    |    |    |    |    |    |\n  ACIDIC           NEUTRAL           ALKALINE\n\nNUTRIENT AVAILABILITY BY pH:\n  N: best 6.0–8.0 (nitrification rate)\n  P: best 6.0–7.0 (neither Al-P nor Ca-P fixation)\n  K,S,Ca,Mg: best 6.0–8.5 (generally available)\n  Fe,Mn,Zn,Cu: available in acid; precipitate in alkaline\n  Mo,B: available in neutral-alkaline; unavailable in acid\n  Al, Mn: TOXIC in acid (pH <5.0–5.5)\n\nOPTIMAL pH FOR MOST CROPS: 6.0–7.0\n  (some exceptions: blueberries: 4.5–5.5; alfalfa: 6.5–7.5)\n\nADJUSTING pH:\n  Too acid: Apply lime (CaCO₃, Ca(OH)₂ = agricultural lime)\n  Too alkaline: Apply sulfur (S → H₂SO₄ by bacteria)\n               or acidifying fertilizers (ammonium sulfate)",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-8",
+      "kind": "diagram_like",
+      "line": 273,
+      "heading_context": "## Soil Organic Matter (SOM) — The Foundation of Fertility",
+      "confidence": "candidate",
+      "text": "SOM BENEFITS:\n  Nutrient cycling: Mineralization releases N, P, S, micronutrients\n  CEC: High CEC per unit mass (100-300 cmol+/kg vs clay 20-60)\n  Water retention: Each 1% OM increase → ~0.01 m³/m³ more water held\n  Structure: Aggregation by fungal hyphae + polysaccharides\n  Buffering: Resists pH change\n  Biology: Energy source for soil microbiome\n\nSOM CONSISTS OF:\n  Active fraction (~10%): Labile; fast turnover (days to months)\n                          Immediately available nutrients\n  Slow fraction (~40–60%): Moderate turnover (years to decades)\n  Passive fraction (~30–50%): Stabilized (charcoal, mineral-bound);\n                               slow turnover (centuries to millennia)\n                               = the \"carbon sink\" component\n\nBUILDING SOM:\n  Cover crops + crop residue retention\n  Composting\n  Reduced tillage / no-till (tillage breaks up aggregates → accelerates decomposition)\n  Perennial crops (continuous root turnover)\n\nLOSING SOM:\n  Tillage: 20–50% of SOM loss in first decades of cultivation\n  Erosion: removes topsoil with highest OM concentration\n  Continuous fallow + bare soil (no input; only decomposition)",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    }
+  ]
+}

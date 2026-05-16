@@ -1,3 +1,22 @@
+---
+maxim_schema: maxim.frontmatter.v1
+id: maxim:ecology:ecosystem-energetics
+kind: guide
+module: ecology
+section: ecology
+title: Ecosystem Energetics - Energy Flow, Trophic Efficiency, GPP/NPP
+status: source-custody
+source_custody: partial
+current_path: ecology/03-ECOSYSTEM-ENERGETICS.md
+canonical_path: ecology/03-ECOSYSTEM-ENERGETICS.md
+backsource_ids: [proof-backfill:ecology:03-ecosystem-energetics, git-history:ecology:03-ecosystem-energetics]
+concepts: [ecosystem, energetics]
+root_concepts: [ecosystem, energetics]
+index_roles: [guide, root-concept]
+remap_from: []
+remap_to: []
+updated: null
+---
 # Ecosystem Energetics — Energy Flow, Trophic Efficiency, GPP/NPP
 
 ## The Big Picture

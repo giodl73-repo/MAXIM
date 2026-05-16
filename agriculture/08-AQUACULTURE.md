@@ -1,3 +1,22 @@
+---
+maxim_schema: maxim.frontmatter.v1
+id: maxim:agriculture:aquaculture
+kind: guide
+module: agriculture
+section: agriculture
+title: Aquaculture - Farmed Seafood Production, Systems, Species, Sustainability
+status: source-custody
+source_custody: partial
+current_path: agriculture/08-AQUACULTURE.md
+canonical_path: agriculture/08-AQUACULTURE.md
+backsource_ids: [proof-backfill:agriculture:08-aquaculture, git-history:agriculture:08-aquaculture]
+concepts: [aquaculture]
+root_concepts: [aquaculture]
+index_roles: [guide, root-concept]
+remap_from: []
+remap_to: []
+updated: null
+---
 # Aquaculture — Farmed Seafood Production, Systems, Species, Sustainability
 
 ## The Big Picture

@@ -1,3 +1,22 @@
+---
+maxim_schema: maxim.frontmatter.v1
+id: maxim:agriculture:fertilizers-pesticides
+kind: guide
+module: agriculture
+section: agriculture
+title: Fertilizers and Pesticides - Haber-Bosch, Synthetic NPK, Pesticide Classes, IPM
+status: source-custody
+source_custody: partial
+current_path: agriculture/05-FERTILIZERS-PESTICIDES.md
+canonical_path: agriculture/05-FERTILIZERS-PESTICIDES.md
+backsource_ids: [proof-backfill:agriculture:05-fertilizers-pesticides, git-history:agriculture:05-fertilizers-pesticides]
+concepts: [fertilizers, pesticides]
+root_concepts: [fertilizers, pesticides]
+index_roles: [guide, root-concept]
+remap_from: []
+remap_to: []
+updated: null
+---
 # Fertilizers and Pesticides — Haber-Bosch, Synthetic NPK, Pesticide Classes, IPM
 
 ## The Big Picture

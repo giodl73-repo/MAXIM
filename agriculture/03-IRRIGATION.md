@@ -1,3 +1,22 @@
+---
+maxim_schema: maxim.frontmatter.v1
+id: maxim:agriculture:irrigation
+kind: guide
+module: agriculture
+section: agriculture
+title: Irrigation - Water Delivery, Efficiency, Salinization
+status: source-custody
+source_custody: partial
+current_path: agriculture/03-IRRIGATION.md
+canonical_path: agriculture/03-IRRIGATION.md
+backsource_ids: [proof-backfill:agriculture:03-irrigation, git-history:agriculture:03-irrigation]
+concepts: [irrigation]
+root_concepts: [irrigation]
+index_roles: [guide, root-concept]
+remap_from: []
+remap_to: []
+updated: null
+---
 # Irrigation — Water Delivery, Efficiency, Salinization
 
 ## The Big Picture

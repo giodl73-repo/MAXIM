@@ -1,3 +1,22 @@
+---
+maxim_schema: maxim.frontmatter.v1
+id: maxim:ecology:aquatic-ecosystems
+kind: guide
+module: ecology
+section: ecology
+title: Aquatic Ecosystems - Lakes, Streams, Estuaries, Coral Reefs
+status: source-custody
+source_custody: partial
+current_path: ecology/07-AQUATIC-ECOSYSTEMS.md
+canonical_path: ecology/07-AQUATIC-ECOSYSTEMS.md
+backsource_ids: [proof-backfill:ecology:07-aquatic-ecosystems, git-history:ecology:07-aquatic-ecosystems]
+concepts: [aquatic, ecosystems]
+root_concepts: [aquatic, ecosystems]
+index_roles: [guide, root-concept]
+remap_from: []
+remap_to: []
+updated: null
+---
 # Aquatic Ecosystems — Lakes, Streams, Estuaries, Coral Reefs
 
 ## The Big Picture

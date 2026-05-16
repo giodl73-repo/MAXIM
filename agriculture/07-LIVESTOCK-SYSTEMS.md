@@ -1,3 +1,22 @@
+---
+maxim_schema: maxim.frontmatter.v1
+id: maxim:agriculture:livestock-systems
+kind: guide
+module: agriculture
+section: agriculture
+title: Livestock Systems - Ruminant Digestion, FCR, CAFO Economics, Methane Emissions
+status: source-custody
+source_custody: partial
+current_path: agriculture/07-LIVESTOCK-SYSTEMS.md
+canonical_path: agriculture/07-LIVESTOCK-SYSTEMS.md
+backsource_ids: [proof-backfill:agriculture:07-livestock-systems, git-history:agriculture:07-livestock-systems]
+concepts: [livestock, systems]
+root_concepts: [livestock, systems]
+index_roles: [guide, root-concept]
+remap_from: []
+remap_to: []
+updated: null
+---
 # Livestock Systems — Ruminant Digestion, FCR, CAFO Economics, Methane Emissions
 
 ## The Big Picture
