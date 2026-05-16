@@ -1,3 +1,22 @@
+---
+maxim_schema: maxim.frontmatter.v1
+id: maxim:military-history:ancient-warfare
+kind: guide
+module: military-history
+section: military-history
+title: Ancient Warfare: Phalanx, Combined Arms, Legion, and Naval Power
+status: source-custody
+source_custody: partial
+current_path: military-history/01-ANCIENT-WARFARE.md
+canonical_path: military-history/01-ANCIENT-WARFARE.md
+backsource_ids: [proof-backfill:military-history:01-ancient-warfare, git-history:military-history:01-ancient-warfare]
+concepts: [ancient, warfare]
+root_concepts: [ancient, warfare]
+index_roles: [guide, root-concept]
+remap_from: []
+remap_to: []
+updated: null
+---
 # Ancient Warfare: Phalanx, Combined Arms, Legion, and Naval Power
 
 ## The Big Picture: Ancient Military Systems

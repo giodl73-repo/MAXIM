@@ -1,3 +1,22 @@
+---
+maxim_schema: maxim.frontmatter.v1
+id: maxim:history-of-science:biology-revolution
+kind: guide
+module: history-of-science
+section: history-of-science
+title: The Biological Revolution - Cells, Evolution, and the Molecular Basis of Life
+status: source-custody
+source_custody: partial
+current_path: history-of-science/07-BIOLOGY-REVOLUTION.md
+canonical_path: history-of-science/07-BIOLOGY-REVOLUTION.md
+backsource_ids: [proof-backfill:history-of-science:07-biology-revolution, git-history:history-of-science:07-biology-revolution]
+concepts: [biology, revolution]
+root_concepts: [biology, revolution]
+index_roles: [guide, root-concept]
+remap_from: []
+remap_to: []
+updated: null
+---
 # The Biological Revolution — Cells, Evolution, and the Molecular Basis of Life
 
 ## The Big Picture

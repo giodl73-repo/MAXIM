@@ -1,3 +1,22 @@
+---
+maxim_schema: maxim.frontmatter.v1
+id: maxim:military-history:medieval-warfare
+kind: guide
+module: military-history
+section: military-history
+title: Medieval Warfare: Castles, Knights, Longbows, and the Mongol System
+status: source-custody
+source_custody: partial
+current_path: military-history/02-MEDIEVAL-WARFARE.md
+canonical_path: military-history/02-MEDIEVAL-WARFARE.md
+backsource_ids: [proof-backfill:military-history:02-medieval-warfare, git-history:military-history:02-medieval-warfare]
+concepts: [medieval, warfare]
+root_concepts: [medieval, warfare]
+index_roles: [guide, root-concept]
+remap_from: []
+remap_to: []
+updated: null
+---
 # Medieval Warfare: Castles, Knights, Longbows, and the Mongol System
 
 ## The Big Picture: Medieval Military Balance of Power

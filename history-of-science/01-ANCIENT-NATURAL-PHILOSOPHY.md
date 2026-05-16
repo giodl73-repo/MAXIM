@@ -1,3 +1,22 @@
+---
+maxim_schema: maxim.frontmatter.v1
+id: maxim:history-of-science:ancient-natural-philosophy
+kind: guide
+module: history-of-science
+section: history-of-science
+title: Ancient Natural Philosophy - From Babylon to Alexandria
+status: source-custody
+source_custody: partial
+current_path: history-of-science/01-ANCIENT-NATURAL-PHILOSOPHY.md
+canonical_path: history-of-science/01-ANCIENT-NATURAL-PHILOSOPHY.md
+backsource_ids: [proof-backfill:history-of-science:01-ancient-natural-philosophy, git-history:history-of-science:01-ancient-natural-philosophy]
+concepts: [ancient, natural, philosophy]
+root_concepts: [ancient, natural]
+index_roles: [guide, root-concept]
+remap_from: []
+remap_to: []
+updated: null
+---
 # Ancient Natural Philosophy — From Babylon to Alexandria
 
 ## The Big Picture

@@ -1,3 +1,22 @@
+---
+maxim_schema: maxim.frontmatter.v1
+id: maxim:history-of-science:relativity-quantum-revolution
+kind: guide
+module: history-of-science
+section: history-of-science
+title: The Relativity and Quantum Revolution - 1905-1935
+status: source-custody
+source_custody: partial
+current_path: history-of-science/06-RELATIVITY-QUANTUM-REVOLUTION.md
+canonical_path: history-of-science/06-RELATIVITY-QUANTUM-REVOLUTION.md
+backsource_ids: [proof-backfill:history-of-science:06-relativity-quantum-revolution, git-history:history-of-science:06-relativity-quantum-revolution]
+concepts: [relativity, quantum, revolution]
+root_concepts: [relativity, quantum]
+index_roles: [guide, root-concept]
+remap_from: []
+remap_to: []
+updated: null
+---
 # The Relativity and Quantum Revolution — 1905-1935
 
 ## The Big Picture

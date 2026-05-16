@@ -1,3 +1,22 @@
+---
+maxim_schema: maxim.frontmatter.v1
+id: maxim:history-of-science:overview
+kind: guide
+module: history-of-science
+section: history-of-science
+title: History of Science - Overview: Science as Social Process
+status: source-custody
+source_custody: partial
+current_path: history-of-science/00-OVERVIEW.md
+canonical_path: history-of-science/00-OVERVIEW.md
+backsource_ids: [proof-backfill:history-of-science:00-overview, git-history:history-of-science:00-overview]
+concepts: [overview]
+root_concepts: [overview]
+index_roles: [guide, root-concept]
+remap_from: []
+remap_to: []
+updated: null
+---
 # History of Science — Overview: Science as Social Process
 
 ## The Big Picture
@@ -207,21 +226,17 @@ Lakatos distinguishes what Kuhn collapses. A **scientific research programme** h
 +--------------------------------------------------+
 |                                                  |
 |  HARD CORE                                       |
-|  +-----------------------------------------+    |
-|  | Central theoretical assumptions          |   |
-|  | Protected by convention — NOT abandoned  |   |
-|  | Example (Newtonian): F=ma, inverse       |   |
-|  | square gravity, absolute space/time      |   |
-|  +-----------------------------------------+    |
+|    Central theoretical assumptions               |
+|    Protected by convention — NOT abandoned       |
+|    Example (Newtonian): F=ma, inverse square     |
+|    gravity, absolute space/time                  |
 |                                                  |
 |  PROTECTIVE BELT                                 |
-|  +-----------------------------------------+    |
-|  | Auxiliary hypotheses                     |   |
-|  | Modified to absorb anomalies             |   |
-|  | Where actual science happens             |   |
-|  | Example: initial conditions, instrument  |   |
-|  | error theories, existence of new planets |   |
-|  +-----------------------------------------+    |
+|    Auxiliary hypotheses                          |
+|    Modified to absorb anomalies                  |
+|    Where actual science happens                  |
+|    Example: initial conditions, instrument error |
+|    theories, existence of new planets            |
 |                                                  |
 |  HEURISTICS                                      |
 |  Positive: what to do next (research agenda)    |

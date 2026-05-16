@@ -1,3 +1,22 @@
+---
+maxim_schema: maxim.frontmatter.v1
+id: maxim:military-history:modern-precision-warfare
+kind: guide
+module: military-history
+section: military-history
+title: Modern Precision Warfare: Gulf War RMA, Network-Centric Operations, COIN, Drones, A2/AD
+status: source-custody
+source_custody: partial
+current_path: military-history/09-MODERN-PRECISION-WARFARE.md
+canonical_path: military-history/09-MODERN-PRECISION-WARFARE.md
+backsource_ids: [proof-backfill:military-history:09-modern-precision-warfare, git-history:military-history:09-modern-precision-warfare]
+concepts: [modern, precision, warfare]
+root_concepts: [modern, precision]
+index_roles: [guide, root-concept]
+remap_from: []
+remap_to: []
+updated: null
+---
 # Modern Precision Warfare: Gulf War RMA, Network-Centric Operations, COIN, Drones, A2/AD
 
 ## The Big Picture: The Modern Precision Warfare Landscape

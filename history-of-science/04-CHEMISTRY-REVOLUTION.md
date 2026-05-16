@@ -1,3 +1,22 @@
+---
+maxim_schema: maxim.frontmatter.v1
+id: maxim:history-of-science:chemistry-revolution
+kind: guide
+module: history-of-science
+section: history-of-science
+title: The Chemical Revolution - Phlogiston, Oxygen, and the Quantitative Turn
+status: source-custody
+source_custody: partial
+current_path: history-of-science/04-CHEMISTRY-REVOLUTION.md
+canonical_path: history-of-science/04-CHEMISTRY-REVOLUTION.md
+backsource_ids: [proof-backfill:history-of-science:04-chemistry-revolution, git-history:history-of-science:04-chemistry-revolution]
+concepts: [chemistry, revolution]
+root_concepts: [chemistry, revolution]
+index_roles: [guide, root-concept]
+remap_from: []
+remap_to: []
+updated: null
+---
 # The Chemical Revolution — Phlogiston, Oxygen, and the Quantitative Turn
 
 ## The Big Picture

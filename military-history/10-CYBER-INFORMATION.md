@@ -1,3 +1,22 @@
+---
+maxim_schema: maxim.frontmatter.v1
+id: maxim:military-history:cyber-information
+kind: guide
+module: military-history
+section: military-history
+title: Cyber and Information Warfare: The Fifth Domain
+status: source-custody
+source_custody: partial
+current_path: military-history/10-CYBER-INFORMATION.md
+canonical_path: military-history/10-CYBER-INFORMATION.md
+backsource_ids: [proof-backfill:military-history:10-cyber-information, git-history:military-history:10-cyber-information]
+concepts: [cyber, information]
+root_concepts: [cyber, information]
+index_roles: [guide, root-concept]
+remap_from: []
+remap_to: []
+updated: null
+---
 # Cyber and Information Warfare: The Fifth Domain
 
 ## The Big Picture: Cyber and Information Warfare Architecture

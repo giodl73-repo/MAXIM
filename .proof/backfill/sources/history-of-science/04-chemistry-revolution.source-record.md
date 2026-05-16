@@ -1,0 +1,41 @@
+---
+maxim_schema: maxim.frontmatter.v1
+id: proof-backfill:history-of-science:04-chemistry-revolution
+kind: source-record
+module: history-of-science
+section: history-of-science
+title: The Chemical Revolution - Phlogiston, Oxygen, and the Quantitative Turn source record
+status: source-custody
+source_custody: partial
+current_path: .proof/backfill/sources/history-of-science/04-chemistry-revolution.source-record.md
+canonical_path: .proof/backfill/sources/history-of-science/04-chemistry-revolution.source-record.md
+backsource_ids: [git-history:history-of-science:04-chemistry-revolution]
+concepts: [chemistry, revolution]
+root_concepts: [chemistry, revolution]
+index_roles: [source-map]
+remap_from: []
+remap_to: []
+updated: null
+---
+
+# The Chemical Revolution - Phlogiston, Oxygen, and the Quantitative Turn source record
+
+| Field | Value |
+|---|---|
+| Current MAXIM file | `history-of-science/04-CHEMISTRY-REVOLUTION.md` |
+| PROOF source artifact | `.proof/backfill/sources/history-of-science/proof-source/04-CHEMISTRY-REVOLUTION.source.md` |
+| PROOF table sidecar | `.proof/backfill/sources/history-of-science/proof-source/04-CHEMISTRY-REVOLUTION.tables.json` |
+| PROOF block sidecar | `.proof/backfill/sources/history-of-science/proof-source/04-CHEMISTRY-REVOLUTION.blocks.json` |
+| Backfill report | `.proof/backfill/sources/history-of-science/backfill-report.json` |
+| PROOF classification | `literal_markdown` |
+| PROOF confidence | `high` |
+| Round trip | `passed` |
+| Structured extraction | `3` markdown tables, `10` visual/block candidates |
+| Git provenance | `ddd24c0f`, `02acf824`, `6b9c5b4a` |
+
+## Custody note
+
+This first-pass record proves the current file can be regenerated as a PROOF
+literal source artifact and round-tripped without loss. It is still marked
+`partial` because external/authentic backsources for factual claims have not yet
+been attached.

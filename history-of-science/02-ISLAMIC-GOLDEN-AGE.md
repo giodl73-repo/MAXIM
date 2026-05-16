@@ -1,3 +1,22 @@
+---
+maxim_schema: maxim.frontmatter.v1
+id: maxim:history-of-science:islamic-golden-age
+kind: guide
+module: history-of-science
+section: history-of-science
+title: The Islamic Golden Age - Translation, Transformation, and Innovation
+status: source-custody
+source_custody: partial
+current_path: history-of-science/02-ISLAMIC-GOLDEN-AGE.md
+canonical_path: history-of-science/02-ISLAMIC-GOLDEN-AGE.md
+backsource_ids: [proof-backfill:history-of-science:02-islamic-golden-age, git-history:history-of-science:02-islamic-golden-age]
+concepts: [islamic, golden, age]
+root_concepts: [islamic, golden]
+index_roles: [guide, root-concept]
+remap_from: []
+remap_to: []
+updated: null
+---
 # The Islamic Golden Age — Translation, Transformation, and Innovation
 
 ## The Big Picture

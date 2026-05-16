@@ -1,3 +1,22 @@
+---
+maxim_schema: maxim.frontmatter.v1
+id: maxim:history-of-science:scientific-revolution
+kind: guide
+module: history-of-science
+section: history-of-science
+title: The Scientific Revolution - What Actually Changed and Why
+status: source-custody
+source_custody: partial
+current_path: history-of-science/03-SCIENTIFIC-REVOLUTION.md
+canonical_path: history-of-science/03-SCIENTIFIC-REVOLUTION.md
+backsource_ids: [proof-backfill:history-of-science:03-scientific-revolution, git-history:history-of-science:03-scientific-revolution]
+concepts: [scientific, revolution]
+root_concepts: [scientific, revolution]
+index_roles: [guide, root-concept]
+remap_from: []
+remap_to: []
+updated: null
+---
 # The Scientific Revolution — What Actually Changed and Why
 
 ## The Big Picture

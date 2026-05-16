@@ -1,3 +1,22 @@
+---
+maxim_schema: maxim.frontmatter.v1
+id: maxim:history-of-science:big-science
+kind: guide
+module: history-of-science
+section: history-of-science
+title: Big Science - When Science Became an Industrial Enterprise
+status: source-custody
+source_custody: partial
+current_path: history-of-science/08-BIG-SCIENCE.md
+canonical_path: history-of-science/08-BIG-SCIENCE.md
+backsource_ids: [proof-backfill:history-of-science:08-big-science, git-history:history-of-science:08-big-science]
+concepts: [big, science]
+root_concepts: [big, science]
+index_roles: [guide, root-concept]
+remap_from: []
+remap_to: []
+updated: null
+---
 # Big Science — When Science Became an Industrial Enterprise
 
 ## The Big Picture

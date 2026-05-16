@@ -1,3 +1,22 @@
+---
+maxim_schema: maxim.frontmatter.v1
+id: maxim:military-history:industrial-warfare
+kind: guide
+module: military-history
+section: military-history
+title: Industrial Warfare: Rifles, Railways, Ironclads, and the Machine Gun Deadlock
+status: source-custody
+source_custody: partial
+current_path: military-history/05-INDUSTRIAL-WARFARE.md
+canonical_path: military-history/05-INDUSTRIAL-WARFARE.md
+backsource_ids: [proof-backfill:military-history:05-industrial-warfare, git-history:military-history:05-industrial-warfare]
+concepts: [industrial, warfare]
+root_concepts: [industrial, warfare]
+index_roles: [guide, root-concept]
+remap_from: []
+remap_to: []
+updated: null
+---
 # Industrial Warfare: Rifles, Railways, Ironclads, and the Machine Gun Deadlock
 
 ## The Big Picture: The Industrial Military Revolution

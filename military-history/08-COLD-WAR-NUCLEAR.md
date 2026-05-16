@@ -1,3 +1,22 @@
+---
+maxim_schema: maxim.frontmatter.v1
+id: maxim:military-history:cold-war-nuclear
+kind: guide
+module: military-history
+section: military-history
+title: Cold War and Nuclear Strategy: Deterrence, Limited War, and Doctrine
+status: source-custody
+source_custody: partial
+current_path: military-history/08-COLD-WAR-NUCLEAR.md
+canonical_path: military-history/08-COLD-WAR-NUCLEAR.md
+backsource_ids: [proof-backfill:military-history:08-cold-war-nuclear, git-history:military-history:08-cold-war-nuclear]
+concepts: [cold, war, nuclear]
+root_concepts: [cold, war]
+index_roles: [guide, root-concept]
+remap_from: []
+remap_to: []
+updated: null
+---
 # Cold War and Nuclear Strategy: Deterrence, Limited War, and Doctrine
 
 ## The Big Picture: Cold War Military Architecture

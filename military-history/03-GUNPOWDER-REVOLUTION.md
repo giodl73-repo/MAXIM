@@ -1,3 +1,22 @@
+---
+maxim_schema: maxim.frontmatter.v1
+id: maxim:military-history:gunpowder-revolution
+kind: guide
+module: military-history
+section: military-history
+title: The Gunpowder Revolution: Cannon, Fortification, and the Drill Revolution
+status: source-custody
+source_custody: partial
+current_path: military-history/03-GUNPOWDER-REVOLUTION.md
+canonical_path: military-history/03-GUNPOWDER-REVOLUTION.md
+backsource_ids: [proof-backfill:military-history:03-gunpowder-revolution, git-history:military-history:03-gunpowder-revolution]
+concepts: [gunpowder, revolution]
+root_concepts: [gunpowder, revolution]
+index_roles: [guide, root-concept]
+remap_from: []
+remap_to: []
+updated: null
+---
 # The Gunpowder Revolution: Cannon, Fortification, and the Drill Revolution
 
 ## The Big Picture: Gunpowder's Cascading Effects
@@ -155,7 +174,7 @@ Between approximately 1450-1530, Italian military engineers developed a complete
 |           /\                 /\                                  |
 |          /  \               /  \                                 |
 |         /    \             /    \                                |
-|        +      +---WALL----+      +                              |
+|        o      o---WALL----o      o                              |
 |                                                                 |
 |  KEY FEATURES:                                                  |
 |  1. LOW PROFILE: Wall height ~4-6m (not 15m) — smaller target   |
