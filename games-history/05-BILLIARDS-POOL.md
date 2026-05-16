@@ -1,3 +1,22 @@
+---
+maxim_schema: maxim.frontmatter.v1
+id: maxim:games-history:billiards-pool
+kind: guide
+module: games-history
+section: games-history
+title: Billiards, Pool, and Snooker - From Ground to Green Baize
+status: source-custody
+source_custody: partial
+current_path: games-history/05-BILLIARDS-POOL.md
+canonical_path: games-history/05-BILLIARDS-POOL.md
+backsource_ids: [proof-backfill:games-history:05-billiards-pool, git-history:games-history:05-billiards-pool]
+concepts: [billiards, pool]
+root_concepts: [billiards, pool]
+index_roles: [guide, root-concept]
+remap_from: []
+remap_to: []
+updated: null
+---
 # Billiards, Pool, and Snooker — From Ground to Green Baize
 
 ## The Big Picture

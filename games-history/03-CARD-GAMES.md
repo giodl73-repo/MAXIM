@@ -1,3 +1,22 @@
+---
+maxim_schema: maxim.frontmatter.v1
+id: maxim:games-history:card-games
+kind: guide
+module: games-history
+section: games-history
+title: Card Games - From Tang Dynasty Paper to Contract Bridge
+status: source-custody
+source_custody: partial
+current_path: games-history/03-CARD-GAMES.md
+canonical_path: games-history/03-CARD-GAMES.md
+backsource_ids: [proof-backfill:games-history:03-card-games, git-history:games-history:03-card-games]
+concepts: [card, games]
+root_concepts: [card, games]
+index_roles: [guide, root-concept]
+remap_from: []
+remap_to: []
+updated: null
+---
 # Card Games — From Tang Dynasty Paper to Contract Bridge
 
 ## The Big Picture

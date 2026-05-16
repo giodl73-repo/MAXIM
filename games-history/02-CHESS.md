@@ -1,3 +1,22 @@
+---
+maxim_schema: maxim.frontmatter.v1
+id: maxim:games-history:chess
+kind: guide
+module: games-history
+section: games-history
+title: Chess - From Chaturanga to AlphaZero
+status: source-custody
+source_custody: partial
+current_path: games-history/02-CHESS.md
+canonical_path: games-history/02-CHESS.md
+backsource_ids: [proof-backfill:games-history:02-chess, git-history:games-history:02-chess]
+concepts: [chess]
+root_concepts: [chess]
+index_roles: [guide, root-concept]
+remap_from: []
+remap_to: []
+updated: null
+---
 # Chess — From Chaturanga to AlphaZero
 
 ## The Big Picture

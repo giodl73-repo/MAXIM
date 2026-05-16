@@ -1,3 +1,22 @@
+---
+maxim_schema: maxim.frontmatter.v1
+id: maxim:fermentation-spirits:overview
+kind: guide
+module: fermentation-spirits
+section: fermentation-spirits
+title: Fermentation and Spirits - Overview
+status: source-custody
+source_custody: partial
+current_path: fermentation-spirits/00-OVERVIEW.md
+canonical_path: fermentation-spirits/00-OVERVIEW.md
+backsource_ids: [proof-backfill:fermentation-spirits:00-overview, git-history:fermentation-spirits:00-overview]
+concepts: [overview]
+root_concepts: [overview]
+index_roles: [guide, root-concept]
+remap_from: []
+remap_to: []
+updated: null
+---
 # Fermentation & Spirits — Overview
 
 ## The Big Picture

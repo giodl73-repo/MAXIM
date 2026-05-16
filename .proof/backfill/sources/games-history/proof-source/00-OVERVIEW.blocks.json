@@ -1,0 +1,105 @@
+{
+  "schema_version": "1",
+  "source_markdown": "games-history\\00-OVERVIEW.md",
+  "blocks": [
+    {
+      "id": "block-1",
+      "kind": "diagram_like",
+      "line": 24,
+      "heading_context": "## The Big Picture",
+      "confidence": "candidate",
+      "text": "GAMES AS HUMAN UNIVERSAL — 5,000 Years of Formalized Play\n===========================================================\n\nANCIENT                    CLASSICAL              MEDIEVAL/EARLY MODERN\n3100 BCE ───────────────── 600 CE ─────────────── 1400–1700 CE\n  │                          │                         │\nSenet (Egypt)            Chaturanga (India)        Chess modernized\nRoyal Game of Ur         Go spreads to Japan       Card games (suits)\nMancala family           Tafl variants (Norse)     Dice games codified\nMesoamerican ball game   Liubo (China)             Gambling houses\nKnucklebones/astragali   Roman Latrunculi          Billiards appears\n\nEARLY MODERN              INDUSTRIAL              20TH CENTURY          DIGITAL\n1700–1850                 1850–1950               1950–1985             1985–present\n   │                         │                       │                     │\nWhist → Bridge           Landlord's Game (1903)  Go professional       Video games\nHazard → Craps           Kriegsspiel → D&D       Chess engines         Internet play\nSnooker invented         Poker standardized      Contract Bridge       Esports\nBilliards professionalized  WSOP founded (1970)  Vegas expansion       Mobile F2P\n\nINFORMATION STRUCTURE     AGENCY STRUCTURE        RANDOMNESS STRUCTURE\n  Perfect Information  ←──────────────────────→  Imperfect Information\n  Chess, Go, Checkers                             Poker, Backgammon, Solitaire\n\n  Zero-Sum          ←──────────────────────────→  Cooperative / Non-Zero-Sum\n  Chess, Poker                                    Pandemic, bridge (partnership)\n\n  Deterministic     ←──────────────────────────→  Stochastic\n  Chess, Go                                       Backgammon, Poker, Craps",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-2",
+      "kind": "diagram_like",
+      "line": 64,
+      "heading_context": "### Information Structure",
+      "confidence": "candidate",
+      "text": "PERFECT INFORMATION                   IMPERFECT INFORMATION\n════════════════════                  ═════════════════════\n\nAll players see the complete          Private information exists.\ngame state at all times.              Some state is hidden.\n\n                                      Sub-cases:\n  Chess: both players see               INCOMPLETE INFORMATION:\n  all pieces on the board.              Players don't know each\n                                        other's type/payoffs.\n  Go: all stones visible.               (Harsanyi's Bayesian games)\n  Checkers: open board.\n                                        IMPERFECT RECALL:\n  Formalism: every               →      Player forgets own actions\n  information set is a                  (unusual, but theoretically\n  singleton. Game tree nodes            possible — some card games\n  have unique information sets.         with discard pile shuffled)\n\nCOMPLETE INFORMATION                  INCOMPLETE INFORMATION\n(payoffs known to all)                (types/payoffs uncertain)\n\n  Poker: you know the rules            Mechanism design territory.\n  and payoffs.                         Auctions: bidders don't\n  Poker is IMPERFECT but               know others' valuations.\n  COMPLETE information.",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-3",
+      "kind": "diagram_like",
+      "line": 125,
+      "heading_context": "### Skill vs Luck Spectrum",
+      "confidence": "candidate",
+      "text": "PURE SKILL                                              PURE CHANCE\n══════════                                              ═══════════\n     │                                                       │\n     │    Chess   Go    Checkers                             │\n     │      │      │       │                                 │\n     │      ▼      ▼       ▼                                 │\n     │   ┌─────────────────────┐                            │\n     │   │ SOLVED or NEAR-SOLVED│                            │\n     │   │ No randomness.       │                            │\n     │   │ Tree search dominates│                            │\n     │   └─────────────────────┘                            │\n     │                                                       │\n     │         Backgammon    Bridge    Scrabble              │\n     │              │           │         │                  │\n     │              ▼           ▼         ▼                  │\n     │         ┌──────────────────────────────┐             │\n     │         │ SKILL-DOMINANT WITH VARIANCE │             │\n     │         │ Luck flattens short-term      │             │\n     │         │ results but skill dominates   │             │\n     │         │ over large sample sizes.      │             │\n     │         └──────────────────────────────┘             │\n     │                                                       │\n     │                  Poker (all variants)                 │\n     │                        │                              │\n     │                        ▼                              │\n     │              ┌──────────────────┐                    │\n     │              │ SKILL + SIGNIFICANT│                   │\n     │              │ VARIANCE           │                   │\n     │              │ Requires large N   │                   │\n     │              │ to demonstrate edge│                   │\n     │              └──────────────────┘                    │\n     │                                                       │\n     │                                    Roulette  Slots   │\n     │                                        │        │    │\n     │                                        ▼        ▼    │\n     │                              ┌──────────────────────┐│\n     │                              │ HOUSE EDGE DOMINANT  ││\n     │                              │ No skill reduces EV  ││\n     │                              │ Negative EV guaranteed││\n     │                              └──────────────────────┘│\n     │                                                       │\n══════════════════════════════════════════════════════════════",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-4",
+      "kind": "diagram_like",
+      "line": 222,
+      "heading_context": "### Spatial Taxonomy of Game Types",
+      "confidence": "candidate",
+      "text": "┌─────────────────────────────────────────────────────────────────────┐\n│                        GAME SPACE                                    │\n│                                                                      │\n│  ABSTRACT STRATEGY          WAR GAMES           RACE GAMES          │\n│  ──────────────────          ─────────           ──────────          │\n│  Chess, Go, Checkers,        Chess (can be       Senet, Backgammon, │\n│  Othello, Hive               framed as),         Parcheesi, Sorry,  │\n│  No theme, pure logic.       Warhammer,          Snakes/Ladders.    │\n│  Perfect information.        Kriegsspiel,        Luck + movement.   │\n│                              ASL, Twilight Imp.                     │\n│                                                                      │\n│  CAPTURE GAMES              GAMBLING GAMES       DEXTERITY          │\n│  ─────────────              ──────────────       ──────────         │\n│  Mancala (territory),        Poker, Craps,       Lawn bowling,      │\n│  Fox & Geese,                Blackjack, Bingo,   Shuffleboard,      │\n│  Tafl (Norse),               Roulette, Slots.    Croquet,           │\n│  Reversi/Othello.            Betting structure.  Billiards/Snooker. │\n│                                                                      │\n│  COOPERATIVE               DEDUCTION/SOCIAL     DECK-BUILDING       │\n│  ────────────              ─────────────────    ─────────────       │\n│  Pandemic, Spirit           Clue/Cluedo,         Dominion, Marvel   │\n│  Island, Arkham Horror.     Werewolf, Mafia,     Champions,         │\n│  Players vs game.           Codenames.           Hearthstone.       │\n│  Pareto alignment.          Bayesian inference.                     │\n└─────────────────────────────────────────────────────────────────────┘",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-5",
+      "kind": "diagram_like",
+      "line": 277,
+      "heading_context": "### The Evolutionary Substrate",
+      "confidence": "candidate",
+      "text": "EVOLUTIONARY FUNCTIONS OF GAMES\n═════════════════════════════════\n\nSKILL PRACTICE (safe failure)         SOCIAL BONDING\n─────────────────────────────         ──────────────\n  Animals play-fight before          Shared games create\n  real combat. Human children         in-group cohesion.\n  develop motor/cognitive             Common reference points.\n  skills through play without         Alliance formation (bridge\n  mortal stakes.                       partners, gaming clans).\n\nRISK SIMULATION                       RESOURCE COMPETITION\n───────────────                        (under safe conditions)\n  Chess: practice military            Poker trains zero-sum\n  strategy without armies.             negotiation/bluffing.\n  Economic games: practice            Monopoly (originally):\n  resource management.                 demonstrate economic\n  Probability calibration.             dynamics to players.\n\nSTATUS COMPETITION                    CULTURAL TRANSMISSION\n──────────────────                    ─────────────────────\n  Games as socially acceptable        Rules encode cultural\n  dominance hierarchies.               values. Chess encodes\n  Board room to board game.            medieval hierarchy.\n  Chess as intelligence signal.        Go encodes East Asian\n  Poker as risk tolerance signal.      aesthetics of balance.",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-6",
+      "kind": "diagram_like",
+      "line": 324,
+      "heading_context": "## Section 4: The Full Historical Arc",
+      "confidence": "candidate",
+      "text": "GAMES HISTORY TIMELINE\n═══════════════════════\n\n3100 BCE ─── SENET (Egypt)\n              │ Oldest surviving game boards + pieces.\n              │ Race game with binary throw sticks.\n              │ Religious symbolism (journey through afterlife).\n              │\n2600 BCE ─── ROYAL GAME OF UR (Mesopotamia)\n              │ Cuneiform rulebook survives.\n              │ Binary tetrahedral dice.\n              │\n~2500 BCE ── GO/WEIQI (China — traditional date, debated)\n              │ Earliest written records: Han dynasty.\n              │ Territory control abstraction.\n              │ Highest combinatorial complexity of any game.\n              │\n~1300 BCE ── MESOAMERICAN BALL GAME\n              │ 1,500+ courts found archaeologically.\n              │ Rubber ball (earliest known vulcanized rubber use).\n              │\n500 BCE ──── MANCALA FAMILY\n              │ Sowing/capturing mechanic.\n              │ African/Asian/Caribbean spread.\n              │\n~600 CE ──── CHATURANGA (India)\n              │ 4-player dice chess → 2-player abstract strategy.\n              │ Piece types map to military: infantry, cavalry,\n              │ elephants, chariots.\n              │\n~750 CE ──── SHATRANJ (Persia/Arabia)\n              │ Islam spreads chess worldwide.\n              │ Counsellor (firz) and elephant (fil) pieces\n              │ have limited movement.\n              │\n~900 CE ──── PLAYING CARDS (China)\n              │ Tang dynasty paper cards.\n              │\n1300s ─────── MAMLUK DECK (Egypt/Syria)\n              │ 52 cards, 4 suits. Foundation of modern deck.\n              │\n1475 ────── CHESS REVOLUTION (Europe)\n              │ Queen and bishop gain modern movement.\n              │ Game tempo doubles.\n              │\n1500s ─────── CARD GAMES PROLIFERATE\n              │ Trick-taking (proto-Bridge), gambling games.\n              │\n1742 ────── EDMOND HOYLE codifies Whist.\n              │ First systematic game rulebook.\n              │\n~1800s ──── PROFESSIONAL CHESS emerges.\n              │ Morphy, Anderssen, Steinitz — Romantic era.\n              │\n1830s-60s ── POKER on Mississippi riverboats.\n              │\n1875 ────── SNOOKER invented (British India).\n              │\n1895 ────── SLOT MACHINE (Charles Fey).\n              │\n1903 ────── LANDLORD'S GAME → Monopoly.\n              │\n1925 ────── CONTRACT BRIDGE (Vanderbilt).\n              │\n1928 ────── Von Neumann minimax theorem.\n              │\n1944 ────── Theory of Games (von Neumann/Morgenstern).\n              │\n1950 ────── Nash equilibrium.\n              │\n1950s ─────── SHANNON / TURING — chess programs sketched.\n              │\n1962 ────── SPACEWAR! — first widely distributed video game.\n              │\n1970 ────── WSOP founded (poker professionalized).\n              │\n1972 ────── PONG (Atari arcade). Dedicated home Pong follows in 1975.\n              │\n1974 ────── D&D (Gygax/Arneson). RPG genre born.\n              │\n1978-83 ─── ARCADE GOLDEN AGE (Space Invaders, Pac-Man).\n              │\n1985 ────── NES revives the US console market after the crash.\n              │\n1992 ────── TD-GAMMON: first neural net to reach expert play.\n              │\n1995 ────── SETTLERS OF CATAN: Eurogame revolution.\n              │\n1997 ────── DEEP BLUE defeats Kasparov (chess).\n              │\n2003 ────── POKER BOOM (Moneymaker, online explosion).\n              │\n2003 ────── STEAM: digital distribution transforms PC gaming.\n              │\n2008 ────── MOBILE GAMES (App Store). F2P model.\n              │\n2016 ────── ALPHAGO defeats Lee Sedol (Go).\n              │\n2017 ────── ALPHAZERO: self-play system beats top engines under\n              contested match conditions after short training runs.\n              │\n2017/2019 ─ LIBRATUS/PLURIBUS: superhuman poker agents for heads-up\n              and 6-player no-limit Hold'em via abstraction/CFR methods.\n              │\n2017 ────── FORTNITE: battle royale + battle pass model.\n              │\n2019 ────── GLOOMHAVEN/$9M Kickstarter board game renaissance.\n              │\n2021 ────── DOTA 2 INTERNATIONAL: $40M prize pool.",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-7",
+      "kind": "diagram_like",
+      "line": 442,
+      "heading_context": "## Section 5: The Computational Structure of Games",
+      "confidence": "candidate",
+      "text": "GAME COMPLEXITY HIERARCHY\n══════════════════════════\n\nGAME                COMPLEXITY          STATUS\n──────              ──────────          ──────\nTic-tac-toe         O(1) (forced draw)  Solved trivially\nNim                 PTIME               Solved (Sprague-Grundy 1930s)\nCheckers            PTIME-checkable     Solved (Schaeffer 2007)\n  (weakly)          weakly\nOware (Mancala)     PSPACE-hard         Not solved\nChess               EXPTIME-complete    Not solved (proved EXP-hard\n  (generalized)     (generalized)       by Fraenkel/Lichtenstein)\nGo                  PSPACE-hard         Not solved (standard)\n  (standard 19×19)  (more precisely:    AlphaGo dominates but\n                    EXPTIME-complete    game not solved\n                    generalized)\nPoker (heads-up     PPAD-complete?      Near-solved by Libratus/\n NL Hold'em)        (Nash computation)  Pluribus via abstraction\nBackgammon          Stochastic          TD-Gammon, GNU BG near-optimal\n                    (chance nodes)      via RL",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-8",
+      "kind": "ascii_table_candidate",
+      "line": 465,
+      "heading_context": "## Section 5: The Computational Structure of Games",
+      "confidence": "candidate",
+      "text": "**Sprague-Grundy theory** (the cleanest result in combinatorial game theory): every impartial game (same moves available to both players) is equivalent to a Nim heap with a specific Grundy value g. For sums of independent games, the combined Grundy value is the XOR of individual values: G(G₁ + G₂ + ... + Gₙ) = g₁ ⊕ g₂ ⊕ ... ⊕ gₙ. A position is losing iff its Grundy value is 0. This reduces optimal play in any impartial game to Nim arithmetic — one of the rare cases where a complete polynomial-time solution exists for a nontrivial game class.",
+      "notes": [
+        "detected from ASCII table borders or pipe-aligned rows"
+      ]
+    },
+    {
+      "id": "block-9",
+      "kind": "diagram_like",
+      "line": 469,
+      "heading_context": "## Section 5: The Computational Structure of Games",
+      "confidence": "candidate",
+      "text": "GAME TREE SEARCH TAXONOMY\n══════════════════════════\n\nMINIMAX (perfect play baseline):\n  Maximize own score, assume opponent minimizes.\n  Exponential in depth.\n\nALPHA-BETA PRUNING:\n  Prune branches where opponent would never go.\n  Reduces effective branching factor: b^d → b^(d/2)\n  Doubles searchable depth at same compute budget.\n\nMCTS (Monte Carlo Tree Search):\n  Sample random playouts instead of full evaluation.\n  Key in Go before AlphaGo.\n  Used in AlphaGo as the search backbone.\n\nNEURAL EVAL + MCTS (AlphaZero style):\n  Policy network: predicts good moves (pruning).\n  Value network: evaluates positions (no random playouts).\n  Self-play generates training data.\n  Tabula rasa: no human games used in training.\n\nCOUNTERFACTUAL REGRET MINIMIZATION (CFR):\n  For imperfect information games (poker).\n  Iteratively reduces regret of not playing actions.\n  CFR+ converges to Nash equilibrium in 2-player zero-sum.\n  Libratus/Pluribus use this + abstraction.",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    }
+  ]
+}

@@ -1,3 +1,22 @@
+---
+maxim_schema: maxim.frontmatter.v1
+id: maxim:fermentation-spirits:distillation
+kind: guide
+module: fermentation-spirits
+section: fermentation-spirits
+title: Distillation - Physics, Equipment, and Cuts
+status: source-custody
+source_custody: partial
+current_path: fermentation-spirits/03-DISTILLATION.md
+canonical_path: fermentation-spirits/03-DISTILLATION.md
+backsource_ids: [proof-backfill:fermentation-spirits:03-distillation, git-history:fermentation-spirits:03-distillation]
+concepts: [distillation]
+root_concepts: [distillation]
+index_roles: [guide, root-concept]
+remap_from: []
+remap_to: []
+updated: null
+---
 # Distillation — Physics, Equipment, and Cuts
 
 ## The Big Picture

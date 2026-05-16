@@ -1,3 +1,22 @@
+---
+maxim_schema: maxim.frontmatter.v1
+id: maxim:games-history:dice-gambling
+kind: guide
+module: games-history
+section: games-history
+title: Dice and Gambling - From Astragali to Probability Theory
+status: source-custody
+source_custody: partial
+current_path: games-history/06-DICE-GAMBLING.md
+canonical_path: games-history/06-DICE-GAMBLING.md
+backsource_ids: [proof-backfill:games-history:06-dice-gambling, git-history:games-history:06-dice-gambling]
+concepts: [dice, gambling]
+root_concepts: [dice, gambling]
+index_roles: [guide, root-concept]
+remap_from: []
+remap_to: []
+updated: null
+---
 # Dice and Gambling — From Astragali to Probability Theory
 
 ## The Big Picture

@@ -1,3 +1,22 @@
+---
+maxim_schema: maxim.frontmatter.v1
+id: maxim:fermentation-spirits:sake-rice-spirits
+kind: guide
+module: fermentation-spirits
+section: fermentation-spirits
+title: Sake and Rice Spirits - Asia's Fermented Grain World
+status: source-custody
+source_custody: partial
+current_path: fermentation-spirits/08-SAKE-RICE-SPIRITS.md
+canonical_path: fermentation-spirits/08-SAKE-RICE-SPIRITS.md
+backsource_ids: [proof-backfill:fermentation-spirits:08-sake-rice-spirits, git-history:fermentation-spirits:08-sake-rice-spirits]
+concepts: [sake, rice, spirits]
+root_concepts: [sake, rice]
+index_roles: [guide, root-concept]
+remap_from: []
+remap_to: []
+updated: null
+---
 # Sake and Rice Spirits — Asia's Fermented Grain World
 
 ## The Big Picture
@@ -122,7 +141,7 @@ WHY POLISH?
   |    -> Fermentation byproducts |
   |    -> Harsh, rough character  |
   |                               |
-  |  INNER STARCH CORE (shinpaku):|
+  |  INNER STARCH CORE (shinpaku): |
   |    Pure starch, mild flavor   |
   |    -> Clean, delicate sake    |
   |    -> Easier koji penetration |

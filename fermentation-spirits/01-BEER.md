@@ -1,3 +1,22 @@
+---
+maxim_schema: maxim.frontmatter.v1
+id: maxim:fermentation-spirits:beer
+kind: guide
+module: fermentation-spirits
+section: fermentation-spirits
+title: Beer - From Grain to Glass
+status: source-custody
+source_custody: partial
+current_path: fermentation-spirits/01-BEER.md
+canonical_path: fermentation-spirits/01-BEER.md
+backsource_ids: [proof-backfill:fermentation-spirits:01-beer, git-history:fermentation-spirits:01-beer]
+concepts: [beer]
+root_concepts: [beer]
+index_roles: [guide, root-concept]
+remap_from: []
+remap_to: []
+updated: null
+---
 # Beer — From Grain to Glass
 
 ## The Big Picture
@@ -185,7 +204,7 @@ HOP (Humulus lupulus) CHEMISTRY OVERVIEW
 
 +------------------+------------------+------------------+
 |   ALPHA-ACIDS    |   BETA-ACIDS     |  ESSENTIAL OILS  |
-|   (bittering)    |   (antimicrobial)|  (aroma)         |
+|   (bittering)    |   (antimicrobial) |  (aroma)         |
 |                  |                  |                  |
 | Humulone         | Lupulone         | Myrcene          |
 | Cohumulone       | (not isomerized, | (pungent, earthy)|

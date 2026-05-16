@@ -1,3 +1,22 @@
+---
+maxim_schema: maxim.frontmatter.v1
+id: maxim:fermentation-spirits:brandy-cognac
+kind: guide
+module: fermentation-spirits
+section: fermentation-spirits
+title: Brandy and Cognac - Distilled Fruit Spirits
+status: source-custody
+source_custody: partial
+current_path: fermentation-spirits/05-BRANDY-COGNAC.md
+canonical_path: fermentation-spirits/05-BRANDY-COGNAC.md
+backsource_ids: [proof-backfill:fermentation-spirits:05-brandy-cognac, git-history:fermentation-spirits:05-brandy-cognac]
+concepts: [brandy, cognac]
+root_concepts: [brandy, cognac]
+index_roles: [guide, root-concept]
+remap_from: []
+remap_to: []
+updated: null
+---
 # Brandy and Cognac — Distilled Fruit Spirits
 
 ## The Big Picture
@@ -21,7 +40,7 @@
 |                                    Applejack (American apple)    |
 |                                                                  |
 |  POMACE BRANDIES (skins, seeds, stems after pressing)            |
-|  Grappa (Italy), Marc de Bourgogne (France), Bagaceira (Portugal)|
+|  Grappa (Italy), Marc de Bourgogne (France), Bagaceira (Portugal) |
 +------------------------------------------------------------------+
 ```
 
