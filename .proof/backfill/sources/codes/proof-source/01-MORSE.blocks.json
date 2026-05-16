@@ -1,0 +1,94 @@
+{
+  "schema_version": "1",
+  "source_markdown": "codes\\01-MORSE.md",
+  "blocks": [
+    {
+      "id": "block-1",
+      "kind": "diagram_like",
+      "line": 26,
+      "heading_context": "## The Big Picture",
+      "confidence": "candidate",
+      "text": "┌──────────────────────────────────────────────────────────────────┐\n│                    MORSE CODE SYSTEM MAP                         │\n│                                                                  │\n│  Message ──→ Encoding ──→ Transmission medium ──→ Decoding       │\n│                                                                  │\n│  \"SOS\"                                                           │\n│  S=···  O=───  S=···   (\"three dots, three dashes, three dots\")  │\n│                                                                  │\n│  Transmission modes:                                             │\n│  ┌─────────────┬──────────────────────────────────────────────┐  │\n│  │ CW (radio)  │ Continuous Wave keying — on/off carrier      │ │\n│  │ Sounder     │ Audible click/clack mechanical device         │ │\n│  │ Light       │ Flash lamp or mirror (heliograph/Aldis lamp)  │ │\n│  │ Buzzer      │ Audible tone keying                           │ │\n│  │ Tactile     │ Vibration on skin (deafblind applications)    │ │\n│  │ Visual      │ Written dots and dashes on paper/screen       │ │\n│  └─────────────┴──────────────────────────────────────────────┘ │\n└──────────────────────────────────────────────────────────────────┘",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-2",
+      "kind": "diagram_like",
+      "line": 53,
+      "heading_context": "## Timing Rules (the Signal Grammar)",
+      "confidence": "candidate",
+      "text": "┌────────────────────────────────────────────────────────────┐\n│                    TIMING RATIOS                           │\n│                                                            │\n│  Dot duration      = 1 unit  (reference unit)              │\n│  Dash duration     = 3 units                               │\n│  Intra-char gap    = 1 unit  (between dots/dashes in same  │\n│                               letter — silence same as dot)│\n│  Inter-char gap    = 3 units (between letters)             │\n│  Inter-word gap    = 7 units (between words)               │\n│                                                            │\n│  Example: \"hi\" = H I                                       │\n│  H = · · · ·    I = · ·                                    │\n│  ·_·_·_·  ___  ·_·                                         │\n│  1+1+1+1+1+1+1  3  1+1+1  (units)                          │\n│         ^inter-char gap^                                   │\n└────────────────────────────────────────────────────────────┘",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-3",
+      "kind": "diagram_like",
+      "line": 78,
+      "heading_context": "## Complete Alphabet — A to Z",
+      "confidence": "candidate",
+      "text": "┌─────────────────────────────────────────────────────────────┐\n│                  MORSE ALPHABET                             │\n├──────┬──────────┬──────┬──────────┬──────┬──────────────────┤\n│  A   │  ·  —   │  J   │  ·———    │  S   │  ·  ·  ·         │\n│  B   │  — ···  │  K   │  — · —   │  T   │  —               │\n│  C   │  — · — ·│  L   │  · — ··  │  U   │  ·  · —          │\n│  D   │  — ··   │  M   │  — —     │  V   │  ·  · · —        │\n│  E   │  ·      │  N   │  — ·     │  W   │  ·  — —          │\n│  F   │  · · — ·│  O   │  — — —   │  X   │  —  · · —        │\n│  G   │  — — ·  │  P   │  · — — · │  Y   │  —  · — —        │\n│  H   │  ····   │  Q   │  — — · — │  Z   │  — —  ··         │\n│  I   │  ··     │  R   │  · — ·   │      │                  │\n└──────┴──────────┴──────┴──────────┴──────┴──────────────────┘",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-4",
+      "kind": "diagram_like",
+      "line": 105,
+      "heading_context": "## Complete Numbers — 0 to 9",
+      "confidence": "candidate",
+      "text": "┌────────────────────────────────────────────────────────────┐\n│                    MORSE NUMERALS                          │\n│                                                            │\n│  1  ·————    (one dot, four dashes)                        │\n│  2  ··———    (two dots, three dashes)                      │\n│  3  ···——    (three dots, two dashes)                      │\n│  4  ····—    (four dots, one dash)                         │\n│  5  ·····    (five dots)                                   │\n│  6  —····    (one dash, four dots)                         │\n│  7  ——···    (two dashes, three dots)                      │\n│  8  ———··    (three dashes, two dots)                      │\n│  9  ————·    (four dashes, one dot)                        │\n│  0  —————    (five dashes)                                 │\n│                                                            │\n│  Pattern: 1-5 are \"loading up\" dots → dashes               │\n│           6-0 are \"unloading\" dashes → dots                │\n│           0 = all dashes (continues from 9's pattern)      │\n└────────────────────────────────────────────────────────────┘",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-5",
+      "kind": "diagram_like",
+      "line": 157,
+      "heading_context": "## Prosigns (Procedure Signals)",
+      "confidence": "candidate",
+      "text": "┌─────────────────────────────────────────────────────────────────┐\n│                    PROSIGNS                                     │\n├───────┬─────────┬───────────────────────────────────────────────┤\n│ AR    │ ·—·—·   │ End of message — \"over\" (go ahead, reply)     │\n│ AS    │ ·—···   │ Wait / Stand by                               │\n│ BT    │ —···—   │ Break (new paragraph or section separator)    │\n│ CL    │ —·—···—·│ Going off the air (closing station)           │\n│ CT/KA │ —·—·—   │ Attention — start copy (beginning of message) │\n│ HH    │ ········│ Error — disregard previous (8 dots)           │\n│ K     │ —·—     │ Invite any station to transmit (\"go\")         │\n│ KN    │ —·——·   │ Invite only named station to transmit         │\n│ SK/VA │ ···—·—  │ End of contact (signing off completely)       │\n│ SN/VE │ ···—·   │ Understood / \"Roger\"                          │\n│ SOS   │ ···———··│ Distress (sent as one unit, no gaps)          │\n└───────┴─────────┴───────────────────────────────────────────────┘",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-6",
+      "kind": "diagram_like",
+      "line": 213,
+      "heading_context": "## Anatomy of a CW Contact (QSO)",
+      "confidence": "candidate",
+      "text": "Station A                        Station B\n─────────                        ─────────\nCQ CQ CQ DE W1ABC K               (calling general)\n                       W1ABC DE K1XYZ K    (replying)\nK1XYZ DE W1ABC GD OM UR RST 599 BTname TOM\nBT QTH BOSTON MA BT HW? AR K1XYZ DE W1ABC KN\n                       W1ABC DE K1XYZ FB TOM RST 5 9 9\n                       BT QTH NEW YORK NY BT HW? AR W1ABC DE K1XYZ KN\n... (exchange)\nK1XYZ DE W1ABC TNX QSO 73 SK W1ABC\n                       73 SK K1XYZ",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-7",
+      "kind": "diagram_like",
+      "line": 235,
+      "heading_context": "## The Koch Method — Learning to Copy by Ear",
+      "confidence": "candidate",
+      "text": "┌──────────────────────────────────────────────────────────────┐\n│                    KOCH METHOD                               │\n│                                                              │\n│  Step 1: Choose final target speed (20–25 WPM typical)       │\n│  Step 2: Start with 2 letters only (K and M classically)     │\n│  Step 3: Practice until 90% copy accuracy at full speed      │\n│  Step 4: Add one new letter at a time                        │\n│  Step 5: Never slow down — only add letters                  │\n│                                                              │\n│  Key insight: SPEED UP to learn, not slow down.              │\n│  Slow Morse forces visual/counting recognition.              │\n│  Fast Morse forces pattern/sound recognition (the goal).     │\n│                                                              │\n│  Tools: LCWO.net, G4FON Koch trainer, Morse Runner           │\n└──────────────────────────────────────────────────────────────┘",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-8",
+      "kind": "diagram_like",
+      "line": 283,
+      "heading_context": "## International vs. American Morse",
+      "confidence": "candidate",
+      "text": "┌────────────────────────────────────────────────────────────┐\n│  American Morse (1844, Morse/Vail)                         │\n│  — Used on US land telegraph lines until mid-20th century  │\n│  — Has \"spaced dashes\" (long vs short vs space variants)   │\n│  — C, O, R, Y, Z differ from international                 │\n│  — L = ·—· (not ·—··)                                      │\n│                                                            │\n│  International Morse (Continental, ITU 1865)               │\n│  — Only two elements: dot and dash (simpler)               │\n│  — Used globally for radio, maritime, amateur              │\n│  — All modern Morse = International Morse                  │\n└────────────────────────────────────────────────────────────┘",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    }
+  ]
+}

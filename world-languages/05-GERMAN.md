@@ -1,3 +1,22 @@
+---
+maxim_schema: maxim.frontmatter.v1
+id: maxim:world-languages:german
+kind: guide
+module: world-languages
+section: world-languages
+title: German - Language Reference
+status: source-custody
+source_custody: partial
+current_path: world-languages/05-GERMAN.md
+canonical_path: world-languages/05-GERMAN.md
+backsource_ids: [proof-backfill:world-languages:05-german, git-history:world-languages:05-german]
+concepts: [german]
+root_concepts: [german]
+index_roles: [guide, root-concept]
+remap_from: []
+remap_to: []
+updated: null
+---
 # German — Language Reference
 
 ## Profile at a Glance

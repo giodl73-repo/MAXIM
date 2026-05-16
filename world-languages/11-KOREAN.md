@@ -1,3 +1,22 @@
+---
+maxim_schema: maxim.frontmatter.v1
+id: maxim:world-languages:korean
+kind: guide
+module: world-languages
+section: world-languages
+title: Korean - Language Reference (Deep Dive)
+status: source-custody
+source_custody: partial
+current_path: world-languages/11-KOREAN.md
+canonical_path: world-languages/11-KOREAN.md
+backsource_ids: [proof-backfill:world-languages:11-korean, git-history:world-languages:11-korean]
+concepts: [korean]
+root_concepts: [korean]
+index_roles: [guide, root-concept]
+remap_from: []
+remap_to: []
+updated: null
+---
 # Korean — Language Reference (Deep Dive)
 
 ## Profile at a Glance

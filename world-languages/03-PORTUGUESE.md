@@ -1,3 +1,22 @@
+---
+maxim_schema: maxim.frontmatter.v1
+id: maxim:world-languages:portuguese
+kind: guide
+module: world-languages
+section: world-languages
+title: Portuguese - Language Reference
+status: source-custody
+source_custody: partial
+current_path: world-languages/03-PORTUGUESE.md
+canonical_path: world-languages/03-PORTUGUESE.md
+backsource_ids: [proof-backfill:world-languages:03-portuguese, git-history:world-languages:03-portuguese]
+concepts: [portuguese]
+root_concepts: [portuguese]
+index_roles: [guide, root-concept]
+remap_from: []
+remap_to: []
+updated: null
+---
 # Portuguese — Language Reference
 
 ## Profile at a Glance

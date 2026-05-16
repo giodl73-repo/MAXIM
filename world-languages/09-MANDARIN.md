@@ -1,3 +1,22 @@
+---
+maxim_schema: maxim.frontmatter.v1
+id: maxim:world-languages:mandarin
+kind: guide
+module: world-languages
+section: world-languages
+title: Mandarin Chinese - Language Reference (Deep Dive)
+status: source-custody
+source_custody: partial
+current_path: world-languages/09-MANDARIN.md
+canonical_path: world-languages/09-MANDARIN.md
+backsource_ids: [proof-backfill:world-languages:09-mandarin, git-history:world-languages:09-mandarin]
+concepts: [mandarin]
+root_concepts: [mandarin]
+index_roles: [guide, root-concept]
+remap_from: []
+remap_to: []
+updated: null
+---
 # Mandarin Chinese — Language Reference (Deep Dive)
 
 ## Profile at a Glance

@@ -1,0 +1,256 @@
+{
+  "schema_version": "1",
+  "source_markdown": "codes\\00-OVERVIEW.md",
+  "tables": [
+    {
+      "id": "table-1",
+      "line": 100,
+      "heading_context": "## Relationship to Information Theory",
+      "headers": [
+        "Code",
+        "Shannon Angle"
+      ],
+      "rows": [
+        [
+          "Morse",
+          "Variable-length prefix code — short symbols for frequent letters (like Huffman)"
+        ],
+        [
+          "Braille",
+          "Fixed 6-bit cell — 64 possible symbols, subsets assigned to grades"
+        ],
+        [
+          "QR",
+          "Block error-correction code (Reed-Solomon) — redundancy against partial damage"
+        ],
+        [
+          "One-time pad",
+          "Perfect secrecy — mutual information between ciphertext and plaintext = 0"
+        ],
+        [
+          "Resistor bands",
+          "Fixed-length numerical code — 3 sig figs + exponent"
+        ],
+        [
+          "Musical notation",
+          "Lossless representation — pitch + duration + dynamics → score"
+        ],
+        [
+          "NATO phonetic",
+          "Noise-robust substitution — phoneme chosen for cross-accent clarity"
+        ]
+      ]
+    },
+    {
+      "id": "table-2",
+      "line": 148,
+      "heading_context": "## Encoding Dimensions Comparison",
+      "headers": [
+        "System",
+        "Alphabet Size",
+        "Fixed/Variable Length",
+        "Error Detection",
+        "Human Decodable",
+        "Machine Decodable"
+      ],
+      "rows": [
+        [
+          "Morse",
+          "54+ symbols",
+          "Variable (dit/dah)",
+          "None built-in",
+          "Yes (by ear)",
+          "Yes"
+        ],
+        [
+          "Braille Grade 1",
+          "64 cells",
+          "Fixed (6-bit)",
+          "None",
+          "Touch-trained",
+          "Yes"
+        ],
+        [
+          "Braille Grade 2",
+          "189 contractions",
+          "Fixed cells, variable meaning",
+          "None",
+          "Touch-trained",
+          "Yes"
+        ],
+        [
+          "Semaphore",
+          "26 letters + nums",
+          "Fixed (2 arms)",
+          "None",
+          "Yes (trained)",
+          "Camera"
+        ],
+        [
+          "Signal flags",
+          "26 + numerals",
+          "1–few flags",
+          "None",
+          "Yes",
+          "No"
+        ],
+        [
+          "NATO phonetic",
+          "26 letters",
+          "Variable (words)",
+          "High (phoneme)",
+          "Yes",
+          "NLP"
+        ],
+        [
+          "ASL fingerspelling",
+          "26 handshapes",
+          "Fixed (1 hand)",
+          "None",
+          "Trained",
+          "Vision AI"
+        ],
+        [
+          "QR Code",
+          "Full Unicode",
+          "Variable",
+          "Reed-Solomon",
+          "No",
+          "Yes"
+        ],
+        [
+          "EAN-13",
+          "Digits",
+          "Fixed (13 digits)",
+          "Check digit",
+          "With training",
+          "Yes"
+        ],
+        [
+          "Musical notation",
+          "Full domain",
+          "Mixed",
+          "None (pitch/rhythm)",
+          "Trained",
+          "Yes"
+        ]
+      ]
+    },
+    {
+      "id": "table-3",
+      "line": 181,
+      "heading_context": "## Index of All Files",
+      "headers": [
+        "File",
+        "System",
+        "What You'll Find"
+      ],
+      "rows": [
+        [
+          "`01-MORSE.md`",
+          "Morse code",
+          "Full A–Z + 0–9 + punctuation, dot/dash visual charts, Koch method, Q-codes, prosigns"
+        ],
+        [
+          "`02-BRAILLE.md`",
+          "Braille",
+          "6-dot cell, Grade 1/2, UEB contractions, Nemeth Code, computer Braille"
+        ],
+        [
+          "`03-SEMAPHORE.md`",
+          "Semaphore",
+          "Flag alphabet with ASCII arm diagrams, Chappe telegraph, railway semaphore"
+        ],
+        [
+          "`04-SIGNAL-FLAGS.md`",
+          "ICS/NATO signal flags",
+          "A–Z single-letter meanings, numeral pendants, urgent signals"
+        ],
+        [
+          "`05-NATO-PHONETIC.md`",
+          "NATO/ICAO phonetic",
+          "Alfa–Zulu + pronunciation, history (Able Baker), radio procedure words"
+        ],
+        [
+          "`06-FINGERSPELLING-SIGN.md`",
+          "ASL",
+          "26 handshapes, BSL comparison, ASL grammar intro"
+        ],
+        [
+          "`07-MUSICAL-NOTATION.md`",
+          "Western music notation",
+          "Staff, clefs, note values, keys, dynamics, tempo, chord symbols"
+        ],
+        [
+          "`08-HISTORICAL-CIPHERS.md`",
+          "Classical ciphers",
+          "Caesar, Vigenère, Playfair, ADFGVX, OTP, Enigma, frequency analysis"
+        ],
+        [
+          "`09-MODERN-CODES.md`",
+          "Machine-readable codes",
+          "EAN-13, QR, Data Matrix, NFC, resistor bands, wire colors, road signs"
+        ]
+      ]
+    },
+    {
+      "id": "table-4",
+      "line": 213,
+      "heading_context": "## Decision Cheat Sheet — Which Code for Which Need?",
+      "headers": [
+        "Situation",
+        "Best System"
+      ],
+      "rows": [
+        [
+          "Long-distance, minimal equipment",
+          "Morse (light/sound)"
+        ],
+        [
+          "Maritime ship-to-ship signaling",
+          "Signal flags (ICS)"
+        ],
+        [
+          "Voice radio, call sign clarity",
+          "NATO phonetic"
+        ],
+        [
+          "Blind reader, literary text",
+          "Braille Grade 2 (UEB)"
+        ],
+        [
+          "Blind reader, math/science",
+          "Nemeth Code"
+        ],
+        [
+          "Deaf/HoH communication, fingerspelling",
+          "ASL manual alphabet"
+        ],
+        [
+          "Musical performance instructions",
+          "Standard notation (treble/bass clef)"
+        ],
+        [
+          "Product tracking, retail",
+          "EAN-13 barcode"
+        ],
+        [
+          "URL, text, dense data on label",
+          "QR code"
+        ],
+        [
+          "Electronic component marking",
+          "Resistor color bands"
+        ],
+        [
+          "Secret message, pen and paper",
+          "Vigenère (educational); AES-256 (real)"
+        ],
+        [
+          "Secret message, absolute secrecy",
+          "One-time pad (if key distribution solved)"
+        ]
+      ]
+    }
+  ]
+}

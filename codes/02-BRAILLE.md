@@ -1,3 +1,22 @@
+---
+maxim_schema: maxim.frontmatter.v1
+id: maxim:codes:braille
+kind: guide
+module: codes
+section: codes
+title: Braille - Complete Reference
+status: source-custody
+source_custody: partial
+current_path: codes/02-BRAILLE.md
+canonical_path: codes/02-BRAILLE.md
+backsource_ids: [proof-backfill:codes:02-braille, git-history:codes:02-braille]
+concepts: [braille]
+root_concepts: [braille]
+index_roles: [guide, root-concept]
+remap_from: []
+remap_to: []
+updated: null
+---
 # Braille — Complete Reference
 
 ## The Big Picture
@@ -18,9 +37,9 @@ Braille is a **6-dot tactile writing system** that encodes text and specialized 
 │                                                                  │
 │  Nemeth Code            Computer Braille (8-dot)                │
 │  ┌──────────────┐       ┌──────────────────────┐               │
-│  │ Mathematics  │       │ Full ASCII (256 chars)│              │
+│  │ Mathematics  │       │ ASCII (256 chars)    │               │
 │  │ Science      │       │ Programming code     │               │
-│  │ Technical    │       │ Braille display output│              │
+│  │ Technical    │       │ Braille display out  │               │
 │  └──────────────┘       └──────────────────────┘               │
 │                                                                  │
 │  Music Braille          Braille versions exist for:             │

@@ -1,3 +1,22 @@
+---
+maxim_schema: maxim.frontmatter.v1
+id: maxim:codes:signal-flags
+kind: guide
+module: codes
+section: codes
+title: International Code of Signals - Maritime Signal Flags
+status: source-custody
+source_custody: partial
+current_path: codes/04-SIGNAL-FLAGS.md
+canonical_path: codes/04-SIGNAL-FLAGS.md
+backsource_ids: [proof-backfill:codes:04-signal-flags, git-history:codes:04-signal-flags]
+concepts: [signal, flags]
+root_concepts: [signal, flags]
+index_roles: [guide, root-concept]
+remap_from: []
+remap_to: []
+updated: null
+---
 # International Code of Signals — Maritime Signal Flags
 
 ## The Big Picture
@@ -163,7 +182,7 @@ When the same flag needs to appear twice in one hoist, substitute pennants fill 
 │                                                             │
 │  Usage:                                                     │
 │  FULL HOIST (at mast):  "I understand your signal /         │
-│                          message is received and understood" │
+│                          message received and understood"   │
 │  HALF HOIST (dipped):   "I am receiving / do not yet        │
 │                          understand — repeat if needed"     │
 │                                                             │

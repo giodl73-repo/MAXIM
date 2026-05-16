@@ -1,3 +1,22 @@
+---
+maxim_schema: maxim.frontmatter.v1
+id: maxim:world-languages:japanese
+kind: guide
+module: world-languages
+section: world-languages
+title: Japanese - Language Reference (Deep Dive)
+status: source-custody
+source_custody: partial
+current_path: world-languages/10-JAPANESE.md
+canonical_path: world-languages/10-JAPANESE.md
+backsource_ids: [proof-backfill:world-languages:10-japanese, git-history:world-languages:10-japanese]
+concepts: [japanese]
+root_concepts: [japanese]
+index_roles: [guide, root-concept]
+remap_from: []
+remap_to: []
+updated: null
+---
 # Japanese — Language Reference (Deep Dive)
 
 ## Profile at a Glance

@@ -1,3 +1,22 @@
+---
+maxim_schema: maxim.frontmatter.v1
+id: maxim:codes:modern-codes
+kind: guide
+module: codes
+section: codes
+title: Modern Machine-Readable Codes and Marking Systems
+status: source-custody
+source_custody: partial
+current_path: codes/09-MODERN-CODES.md
+canonical_path: codes/09-MODERN-CODES.md
+backsource_ids: [proof-backfill:codes:09-modern-codes, git-history:codes:09-modern-codes]
+concepts: [modern, codes]
+root_concepts: [modern, codes]
+index_roles: [guide, root-concept]
+remap_from: []
+remap_to: []
+updated: null
+---
 # Modern Machine-Readable Codes & Marking Systems
 
 ## The Big Picture
@@ -161,7 +180,7 @@ Version = size, from 1 (21×21 modules) to 40 (177×177 modules)
 
 ┌──────────────────────────────────────────────────────────────┐
 │         QR CODE CAPACITY vs. VERSION                         │
-├─────────┬──────────────┬────────────────────────────────────┤
+├─────────┬──────────────┬─────────────────────────────────────┤
 │ Version │  Size        │  Max numeric / alphanumeric / byte  │
 ├─────────┼──────────────┼────────────────────────────────────┤
 │    1    │  21×21       │  41 / 25 / 17                      │
@@ -547,7 +566,7 @@ Hazardous material coding is regulated internationally through three parallel sy
 ```
 ┌──────────────────────────────────────────────────────────────┐
 │          HAZMAT CODING SYSTEMS                               │
-├─────────────────────────────────────────────────────────────┤
+├──────────────────────────────────────────────────────────────┤
 │  DOT (US Department of Transportation):                     │
 │  — Orange diamond placard on vehicles                       │
 │  — UN number (4-digit, 1001–3520+) identifies substance     │

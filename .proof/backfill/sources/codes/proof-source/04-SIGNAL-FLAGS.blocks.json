@@ -1,0 +1,94 @@
+{
+  "schema_version": "1",
+  "source_markdown": "codes\\04-SIGNAL-FLAGS.md",
+  "blocks": [
+    {
+      "id": "block-1",
+      "kind": "diagram_like",
+      "line": 26,
+      "heading_context": "## The Big Picture",
+      "confidence": "candidate",
+      "text": "┌──────────────────────────────────────────────────────────────────┐\n│              SIGNAL FLAG SYSTEM MAP                              │\n│                                                                  │\n│  40 distinct flags:                                              │\n│  ┌──────────────┬───────────────────────────────────────────┐    │\n│  │ 26 Letter     │ One per letter A–Z, each with:            │   │\n│  │ Flags         │ (1) Single-letter meaning (procedural)    │   │\n│  │               │ (2) Part of multi-flag combination (ICS   │   │\n│  │               │     codebook, thousands of messages)      │   │\n│  ├──────────────┼───────────────────────────────────────────┤   │\n│  │ 10 Numeral   │ Pennants 0–9, hoisted with letter flags   │   │\n│  │ Pennants     │ for bearings, speeds, chart references    │   │\n│  ├──────────────┼───────────────────────────────────────────┤   │\n│  │ 3 Substitute  │ Allows same flag repeated in one hoist    │   │\n│  │ Pennants      │ (can't carry two identical flags)         │   │\n│  ├──────────────┼───────────────────────────────────────────┤   │\n│  │ Answering    │ \"I understand/am copying\" pennant         │   │\n│  │ Pennant      │ Dipped = \"I have not yet understood\"      │   │\n│  └──────────────┴───────────────────────────────────────────┘   │\n└──────────────────────────────────────────────────────────────────┘",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-2",
+      "kind": "diagram_like",
+      "line": 57,
+      "heading_context": "### Critical Safety Flags",
+      "confidence": "candidate",
+      "text": "┌──────────────────────────────────────────────────────────────┐\n│                CRITICAL SAFETY FLAGS                         │\n│                                                              │\n│  A — Alpha  \"I have a diver down; keep well clear at slow    │\n│              speed\" — MOST COMMONLY USED FLAG IN DIVING      │\n│              Blue/white swallowtail                          │\n│                                                              │\n│  B — Bravo  \"I am taking in, or discharging, or carrying     │\n│              dangerous goods (explosives/flammable)\"         │\n│              Solid red                                       │\n│                                                              │\n│  O — Oscar  \"Man overboard!\" (distress/emergency)            │\n│              Orange/yellow diagonal                          │\n│                                                              │\n│  W — Whiskey \"I require medical assistance\"                  │\n│               Red cross on white with blue square            │\n│                                                              │\n│  Q — Quebec \"My vessel is healthy and I request free         │\n│              pratique (permission to enter port)\"            │\n│              Solid yellow (quarantine)                       │\n│                                                              │\n│  V — Victor  \"I require assistance\"                          │\n│               Red/white/red horizontal stripes               │\n└──────────────────────────────────────────────────────────────┘",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-3",
+      "kind": "diagram_like",
+      "line": 153,
+      "heading_context": "## Substitute (Repeater) Pennants",
+      "confidence": "candidate",
+      "text": "┌─────────────────────────────────────────────────────────────┐\n│  SUBSTITUTE PENNANTS                                        │\n│                                                             │\n│  1st Substitute: repeats the top flag in the hoist          │\n│  2nd Substitute: repeats the second flag from top           │\n│  3rd Substitute: repeats the third flag from top            │\n│                                                             │\n│  Example: Hoist \"ALLY\" (4 flags)                            │\n│  A = Alpha (flag)                                           │\n│  L = Lima (flag)                                            │\n│  L = Lima — PROBLEM: can't hoist Lima twice                 │\n│           → Use 2nd Substitute (repeats 2nd flag = Lima)    │\n│  Y = Yankee (flag)                                          │\n│                                                             │\n│  Hoist reads top-to-bottom: Alpha / Lima / 2nd Sub / Yankee │\n└─────────────────────────────────────────────────────────────┘",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-4",
+      "kind": "diagram_like",
+      "line": 176,
+      "heading_context": "## Answering Pennant",
+      "confidence": "candidate",
+      "text": "┌─────────────────────────────────────────────────────────────┐\n│  ANSWERING PENNANT (Code and Answer Pennant)                │\n│                                                             │\n│  Shape: Long pennant (swallowtail narrow)                   │\n│  Colors: Red/white horizontal stripes                       │\n│                                                             │\n│  Usage:                                                     │\n│  FULL HOIST (at mast):  \"I understand your signal /         │\n│                          message received and understood\"   │\n│  HALF HOIST (dipped):   \"I am receiving / do not yet        │\n│                          understand — repeat if needed\"     │\n│                                                             │\n│  Also used to prefix a reply hoist in coded messages:       │\n│  Sending station hoists message flags                       │\n│  Receiving station hoists answering pennant at dip          │\n│  When understood: hauls answering pennant to full mast      │\n│  Sending station hauls down their message flags             │\n│  → Protocol complete                                        │\n└─────────────────────────────────────────────────────────────┘",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-5",
+      "kind": "diagram_like",
+      "line": 235,
+      "heading_context": "### Structure of ICS Codebook",
+      "confidence": "candidate",
+      "text": "ICS Publication (IMO, current edition):\n├── Single-letter signals (procedural, memorized)\n├── Two-letter signals (urgency/common situations)\n│   ├── A__ — Ship in distress (AM, AN, AC...)\n│   ├── B__ — Ship movements\n│   ├── C__ — Navigational/meteorological\n│   ├── D__ — Distress and salvage\n│   ├── E__ — Casualty\n│   ├── F__ — Casualties (medical)\n│   ├── G__ — Salvage/towing\n│   ├── H–Z — Pilotage, weather, routing...\n├── Three-letter medical signals (three flags)\n│   (M__ codes cover detailed medical situations)\n└── Supplementary (vessel IDs, port signals)",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-6",
+      "kind": "diagram_like",
+      "line": 258,
+      "heading_context": "## Ground-to-Air Emergency Signals",
+      "confidence": "candidate",
+      "text": "┌─────────────────────────────────────────────────────────────┐\n│  GROUND-TO-AIR EMERGENCY SIGNALS (ICAO/survival standard)   │\n│                                                             │\n│  Symbol  Meaning                                            │\n│  ──────  ─────────────────────────────────────────────────  │\n│    V     Require assistance                                 │\n│    X     Require medical assistance                         │\n│    →     Going this direction (arrow pointing route)        │\n│    N     No / Negative (response)                           │\n│    Y     Yes / Affirmative (response)                       │\n│    LL    All is well                                        │\n│    F     Need food and water                                │\n│    △     Safe to land here                                  │\n│    K     Tell us the direction to proceed                   │\n│                                                             │\n│  Minimum size: 3m long for air visibility at 1,000 ft       │\n│  Better: 6–10m for high-altitude aircraft                   │\n│  Contrast: dark on light ground, or light on dark           │\n│  Night: fires in the symbol pattern                         │\n│                                                             │\n│  ICAO standard (same symbols used by militaries worldwide)  │\n└─────────────────────────────────────────────────────────────┘",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-7",
+      "kind": "diagram_like",
+      "line": 289,
+      "heading_context": "### Hoisting Protocol",
+      "confidence": "candidate",
+      "text": "STANDARD FLAG COMMUNICATION SEQUENCE:\n\nSender                              Receiver\n──────                              ────────\nPrep message flags on halyard\nHoist flags to top of mast ──────→\n                              Haul answering pennant to half-mast\n                              (= \"I see the signal, decoding\")\n                              ↓\n                              Decode flag combination\n                              ↓\n                              Haul answering pennant full ──────→\nHaul down message flags\n(= acknowledge completion)",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-8",
+      "kind": "diagram_like",
+      "line": 312,
+      "heading_context": "### International vs. NATO Usage",
+      "confidence": "candidate",
+      "text": "┌────────────────────────────────────────────────────────┐\n│  ICS (civilian maritime): universal, IMO published     │\n│  NATO Signal Book (ACP 175): military, classified      │\n│                                                        │\n│  NATO uses additional flags and signals not in ICS.    │\n│  The 26 letter flags and their shapes/colors are       │\n│  identical between ICS and NATO — only the codebook    │\n│  content differs.                                      │\n└────────────────────────────────────────────────────────┘",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    }
+  ]
+}

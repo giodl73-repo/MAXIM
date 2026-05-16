@@ -1,3 +1,22 @@
+---
+maxim_schema: maxim.frontmatter.v1
+id: maxim:world-languages:other-asian
+kind: guide
+module: world-languages
+section: world-languages
+title: Other Asian Languages - Vietnamese, Thai, Indonesian, Southeast Asian Scripts
+status: source-custody
+source_custody: partial
+current_path: world-languages/12-OTHER-ASIAN.md
+canonical_path: world-languages/12-OTHER-ASIAN.md
+backsource_ids: [proof-backfill:world-languages:12-other-asian, git-history:world-languages:12-other-asian]
+concepts: [other, asian]
+root_concepts: [other, asian]
+index_roles: [guide, root-concept]
+remap_from: []
+remap_to: []
+updated: null
+---
 # Other Asian Languages — Vietnamese, Thai, Indonesian, Southeast Asian Scripts
 
 ## Overview

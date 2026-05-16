@@ -1,0 +1,193 @@
+{
+  "schema_version": "1",
+  "source_markdown": "world-languages\\13-TURKIC-SWAHILI-OTHER.md",
+  "blocks": [
+    {
+      "id": "block-1",
+      "kind": "ascii_table_candidate",
+      "line": 24,
+      "heading_context": "## Overview",
+      "confidence": "candidate",
+      "text": "DIVERSE LANGUAGE PROFILES\n===========================\nFive languages from five different families — each illustrating\na distinct structural principle:\n\n  +------------------+----------+-------+-------+--------+---------+\n  | Language         | Family   | Order | Tones | Gender | Type    |\n  +------------------+----------+-------+-------+--------+---------+\n  | Turkish          | Turkic   | SOV   | No    | None   | Agg     |\n  | Persian/Farsi    | Iranian  | SOV   | No    | None   | Fus-ish |\n  | Swahili          | Bantu    | SVO   | No    | Noun   | Agg     |\n  |                  |          |       |       | classes|         |\n  | Polish           | Slavic   | Free  | No    | M/F/N  | Fus     |\n  | Tamil            | Dravidian| SOV   | No    | M/F/N  | Agg     |\n  +------------------+----------+-------+-------+--------+---------+",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-2",
+      "kind": "ascii_table_candidate",
+      "line": 48,
+      "heading_context": "### Profile",
+      "confidence": "candidate",
+      "text": "+--------------------------------------------------------------------+\n| TURKISH (Türkçe)                                                   |\n+--------------------------------------------------------------------+\n| Family:      Turkic → Oghuz → Western Oghuz                       |\n| Native spkrs: ~79M                                                 |\n| Countries:   Turkey (official), Cyprus (co-official)               |\n|              Significant diaspora: Germany (~3M), Netherlands, etc.|\n| Word order:  SOV — strict verb-final                              |\n| Morphology:  Agglutinative — highly regular and productive         |\n| Tonal:       No                                                    |\n| Gender:      NONE (no grammatical gender)                          |\n| Script:      Latin (reformed 1928 under Atatürk from Arabic script)|\n| Cases:       6: Nominative, Accusative, Dative, Locative,          |\n|              Ablative, Genitive                                    |\n| FSI level:   Category III — ~1100 hours                            |\n+--------------------------------------------------------------------+",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-3",
+      "kind": "diagram_like",
+      "line": 69,
+      "heading_context": "### Vowel Harmony",
+      "confidence": "candidate",
+      "text": "VOWEL HARMONY — Turkish's defining feature\n===========================================\nSuffix vowels must AGREE with the last vowel of the root.\nEvery root belongs to a back-vowel or front-vowel class.\n\nBACK VOWELS: a, ı, o, u\nFRONT VOWELS: e, i, ö, ü\n\nRules:\n  After back vowel: suffixes use a, ı, o/u\n  After front vowel: suffixes use e, i, ö/ü\n\nEXAMPLE with 2-way harmony (a/e):\n  ev (house) + -de (locative at) = evde (at the house) [front → e]\n  okul (school) + -da (locative at) = okulda (at the school) [back → a]\n\nEXAMPLE with 4-way harmony (ı/i/u/ü):\n  Definite accusative: -ı / -i / -u / -ü\n  ev-i (the house-ACC) [front e → i]\n  okul-u (the school-ACC) [back u → u]\n  gün-ü (the day-ACC) [front ü → ü]\n  araba-yı (the car-ACC) [back a → ı, +y- buffer]\n\n  ALL suffix vowels harmonize — not just one.\n  Harmony makes suffixes phonologically predictable once learned.",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-4",
+      "kind": "ascii_table_candidate",
+      "line": 101,
+      "heading_context": "### Agglutination in Turkish — The Pipeline Model",
+      "confidence": "candidate",
+      "text": "BUILDER PATTERN ANALOGY:\n\n  word = stem\n    .add(plural)         // -ler/-lar (vowel harmony)\n    .add(possessive)     // -im/-ım/-um/-üm (1sg), -in/-ın/... (2sg)\n    .add(case)           // -de/-da (LOC), -e/-a (DAT), -den/-dan (ABL)\n    .toString()          // surface form\n\n  evlerimde = ev + ler + im + de\n              house + PL + 1sg.POSS + LOC = \"in my houses\"\n\nVERB PIPELINE:\n  word = verb_stem\n    .add(causative?)     // -tir/-dir (make X do)\n    .add(passive?)       // -il/-in (be done)\n    .add(reflexive?)     // -in (do to oneself)\n    .add(reciprocal?)    // -iş (do to each other)\n    .add(negative?)      // -me/-ma (not)\n    .add(ability?)       // -ebil/-abil (can)\n    .add(tense/mood)     // -iyor (present), -di (past), -ecek (future)...\n    .add(person/number)  // -im (1sg), -sin (2sg), etc.\n\n  sevdirilememek = sev + dir + il + eme + mek\n  = love + CAUS + PASS + NEG-ABILITY + INF\n  = \"to be unable to be made to love\"\n  (not common, but grammatically well-formed and parseable)",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-5",
+      "kind": "ascii_table_candidate",
+      "line": 130,
+      "heading_context": "### Agglutination in Turkish — The Pipeline Model",
+      "confidence": "candidate",
+      "text": "TURKISH AGGLUTINATION — stacking suffixes\n==========================================\nWord = stem + [aspect] + [negative] + [tense] + [person]\n\nev (house):\n  evler (houses) — ev + -ler (plural)\n  evlerde (in houses) — ev + -ler + -de (plural + locative)\n  evlerimde (in my houses) — ev + -ler + -im + -de (plural + 1sg poss + loc)\n  evlerimden (from my houses) — + -den (ablative \"from\")\n\nVERB NEGATION with -me/-ma:\n  git-me-di-m = go + NEG + PAST + 1sg = \"I didn't go\"\n  gid-ecek-miş-im = go + FUT + EVID + 1sg = \"apparently I will go\"\n\nFAMOUSLY LONG WORD:\n  Çekoslovakyalılaştıramadıklarımızdanmışsınızcasına\n  = \"as if you were one of those we couldn't make Czechoslovakian\"\n  This is grammatically legitimate (though comically constructed for demonstration).\n\nTURKISH CASES:\n+----------+--------+-----------+----------------------------------+\n| Case     | Suffix | Example   | Meaning                          |\n+----------+--------+-----------+----------------------------------+\n| NOM      | —      | ev        | house (subject)                  |\n| ACC      | -(y)ı  | evi       | house (direct object, definite)  |\n| DAT      | -(y)e  | eve       | to/toward house                  |\n| LOC      | -de    | evde      | at/in house                      |\n| ABL      | -den   | evden     | from house                       |\n| GEN      | -(n)in | evin      | of/house's                       |\n+----------+--------+-----------+----------------------------------+\n\n(vowels vary by harmony: -de/-da, -den/-dan, -(y)e/-(y)a, etc.)",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-6",
+      "kind": "ascii_table_candidate",
+      "line": 199,
+      "heading_context": "### Profile",
+      "confidence": "candidate",
+      "text": "+--------------------------------------------------------------------+\n| PERSIAN / FARSI (فارسی Fārsī)                                      |\n+--------------------------------------------------------------------+\n| Family:      Indo-European → Indo-Iranian → Iranian → Western     |\n| Native spkrs: ~57M (Iran) + ~8M (Afghanistan as Dari)             |\n|              + ~9M (Tajikistan as Tajik)                           |\n| Total spkrs:  ~110M                                                |\n| Countries:   Iran (official as Farsi), Afghanistan (as Dari),      |\n|              Tajikistan (as Tajik — Cyrillic script)               |\n| Word order:  SOV                                                   |\n| Morphology:  Fusional (lighter than Arabic, heavier than Turkish) |\n| Tonal:       No                                                    |\n| Gender:      NONE (exceptional for an IE language)                 |\n| Script:      Perso-Arabic (Arabic script adapted, right-to-left)   |\n|              4 additional letters for Persian sounds: پ چ ژ گ      |\n| FSI level:   Category III — ~1100 hours                            |\n+--------------------------------------------------------------------+",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-7",
+      "kind": "ascii_table_candidate",
+      "line": 221,
+      "heading_context": "### Persian Grammar Highlights",
+      "confidence": "candidate",
+      "text": "PERSIAN STRUCTURE\n==================\nVERB FINAL: subject-object-verb order\n  من کتاب می‌خوانم. (Man ketāb mi-khānam.) — I book read. = I read a book.\n\nEZĀFE — noun chaining with -e/-ye:\n  The \"connective particle\" links modifier to modified (order: head-modifier):\n  کتاب من (ketāb-e man) = book of me = my book\n  خانه بزرگ (khāne-ye bozorg) = house big = big house\n  کتاب قرمز من (ketāb-e qermez-e man) = book-of red-of me = my red book\n  Ezāfe chains modifiers rightward (opposite English left-modification).\n\nNO GRAMMATICAL GENDER:\n  Exceptional for an Indo-European language.\n  او (u) = he/she/it (one pronoun for all).\n  No agreement between adjective and noun.\n  \"خانه بزرگ\" = big house (m/f/n irrelevant — same form).\n\nVERB SYSTEM:\n  Present: stem + personal endings (می mi- + present stem + ending)\n  Past: simple past stem + endings\n  Tense markers: می (mi-) for imperfective aspect\n  Negative: نه (na-) prefix\n\nPERSIAN NUMBERS:\n  ۰ ۱ ۲ ۳ ۴ ۵ ۶ ۷ ۸ ۹ (East Arabic numerals used in Iran/Afghanistan)\n  یک (yek=1) دو (do=2) سه (se=3) چهار (chahār=4) پنج (panj=5)\n  شش (shesh=6) هفت (haft=7) هشت (hasht=8) نه (noh=9) ده (dah=10)",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-8",
+      "kind": "ascii_table_candidate",
+      "line": 278,
+      "heading_context": "### Profile",
+      "confidence": "candidate",
+      "text": "+--------------------------------------------------------------------+\n| SWAHILI (Kiswahili)                                                |\n+--------------------------------------------------------------------+\n| Family:      Niger-Congo → Atlantic-Congo → Bantu → Sabaki        |\n| Native spkrs: ~16M                                                 |\n| Total spkrs:  ~80-150M (lingua franca of East Africa)             |\n| Countries:   Official: Tanzania, Kenya, Uganda, DRC, Rwanda        |\n|              Widely used: Burundi, Comoros, Mozambique, Somalia    |\n|              African Union: one of its official languages          |\n| Word order:  SVO                                                   |\n| Morphology:  Agglutinative — extensive prefix system               |\n| Tonal:       No (exceptional for Bantu family — most are tonal)   |\n| Gender:      NO biological gender — NOUN CLASSES (~15 classes)     |\n| Script:      Latin (Arabic Ajami historically; rarely used now)    |\n| FSI level:   Category II — ~900 hours                              |\n+--------------------------------------------------------------------+",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-9",
+      "kind": "diagram_like",
+      "line": 301,
+      "heading_context": "### Noun Class System",
+      "confidence": "candidate",
+      "text": "GENERIC TYPE ANALOGY:\n\n  // Swahili noun class system:\n  class KitabuWord<Class7_8> {  // kitabu = book, class 7 (ki-/vi-)\n    prefix = \"ki-\";             // singular: ki-\n    pluralPrefix = \"vi-\";       // plural: vi-\n  }\n\n  // Agreement = type parameter propagation:\n  kitabu    ki-zuri    ki-ngu    ki-li-anguka\n  book.CL7  CL7-good   CL7-mine  CL7-PAST-fall\n  \"My good book fell.\"\n\n  // Change the noun → change ALL class markers in the sentence:\n  vitabu    vi-zuri    vi-ngu    vi-li-anguka\n  books.CL8 CL8-good   CL8-mine  CL8-PAST-fall\n  \"My good books fell.\"\n\n  // The type parameter (class) flows through every constituent.\n  // One change at the noun → cascade update through the entire predicate.\n\nPRACTICAL CONSEQUENCE:\n  Agreement errors (using wrong class prefix on verb/adjective) are\n  ALWAYS wrong, not just \"awkward\" — they are like type errors.\n  Native speakers correct them immediately and categorically.",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-10",
+      "kind": "ascii_table_candidate",
+      "line": 329,
+      "heading_context": "### Noun Class System",
+      "confidence": "candidate",
+      "text": "BANTU NOUN CLASS SYSTEM — the signature of Swahili grammar\n===========================================================\n~15 classes (paired singular/plural), each with a prefix.\nEvery noun belongs to a class. Adjectives, verbs, and subject/object\nagreement ALL must match the noun's class prefix.\n\nLike gender agreement in European languages, but with ~15 classes\nbased roughly on semantic categories (not arbitrary).\n\nKEY CLASSES:\n+-------+------+------+---------------------------+-----------------------+\n| Class | Sing | Plur | Typical nouns             | Agreement prefix      |\n+-------+------+------+---------------------------+-----------------------+\n| 1/2   | m-   | wa-  | People, animate agents:   | a- / wa-             |\n|       |      |      | mtu (person), mtoto (child)|                     |\n| 3/4   | m-   | mi-  | Trees, plants, body parts:| u- / i-              |\n|       |      |      | mti (tree), mji (town)    |                     |\n| 5/6   | Ø/ji-| ma-  | Fruits, large objects:    | li- / ya-            |\n|       |      |      | tunda (fruit), jicho (eye)|                     |\n| 7/8   | ki-  | vi-  | Objects, languages, tools:| ki- / vi-            |\n|       |      |      | kitabu (book), kisu (knife)|                    |\n| 9/10  | N-   | N-   | Animals, loanwords:       | i- / zi-             |\n|       |      |      | ndege (bird), gari (car)  |                     |\n| 11    | u-   | —    | Abstracts, elongated obj: | u-                   |\n|       |      |      | uso (face), ukuta (wall)  |                     |\n| 15    | ku-  | —    | Verbal nouns (infinitives):| ku-                 |\n|       |      |      | kusoma (reading)          |                     |\n+-------+------+------+---------------------------+-----------------------+\n\nAGREEMENT IN ACTION:\n  \"The good books are expensive.\"\n  Vitabu vizuri ni vya bei ghali.\n  vi-tabu  vi-zuri  ni  vi-a  bei  ghali\n  CL7.plur book  CL7.ADJ good  COP CL7.POSS price  expensive\n\n  Every underlined element agrees with class 7/8 (ki-/vi-) of \"kitabu\".\n\nVERB SUBJECT/OBJECT AGREEMENT:\n  Mtoto anasoma. — The child reads. (m- class → a- verb agreement)\n  Watoto wanasoma. — The children read. (wa- class → wa- verb agreement)\n  Kisu kinakata. — The knife cuts. (ki- class → ki- verb agreement)",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-11",
+      "kind": "ascii_table_candidate",
+      "line": 431,
+      "heading_context": "### Profile",
+      "confidence": "candidate",
+      "text": "+--------------------------------------------------------------------+\n| POLISH (Język polski)                                              |\n+--------------------------------------------------------------------+\n| Family:      Indo-European → Slavic → West Slavic → Lechitic      |\n| Native spkrs: ~45M                                                 |\n| Countries:   Poland (official); significant diaspora worldwide     |\n| Word order:  Free (SVO most neutral; pragmatically driven)        |\n| Morphology:  Fusional — highly inflected                          |\n| Tonal:       No                                                    |\n| Gender:      Three: M/F/N (+ animate/inanimate M subgender)       |\n| Script:      Latin + 9 additional characters: ą ć ę ł ń ó ś ź ż  |\n| Cases:       7: NOM/ACC/DAT/GEN/INS/LOC/VOC                       |\n| FSI level:   Category III-IV — ~1100 hours                        |\n+--------------------------------------------------------------------+",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-12",
+      "kind": "ascii_table_candidate",
+      "line": 484,
+      "heading_context": "### Polish Verb Conjugation",
+      "confidence": "candidate",
+      "text": "VERB CONJUGATION (present tense)\n=================================\nTHREE CONJUGATION CLASSES (like Spanish/Russian):\n\nCLASS 1 — -ować / -iwać / -ywać → -uję:\n  pracować (to work): pracuję / pracujesz / pracuje / pracujemy / pracujecie / pracują\n\nCLASS 2 — stems ending in palatalized consonant → -ę/-isz:\n  pisać (to write): piszę / piszesz / pisze / piszemy / piszecie / piszą\n\nCLASS 3 — e-class verbs → -ę/-esz:\n  mieć (to have): mam / masz / ma / mamy / macie / mają  [irregular]\n  wiedzieć (to know): wiem / wiesz / wie / wiemy / wiecie / wiedzą [irregular]\n\nPAST TENSE — agrees with subject in gender AND number:\n  pisać (to write) past:\n  +-----------+----------+----------+----------+\n  | Person    | MASC     | FEM      | NEUT/PL  |\n  +-----------+----------+----------+----------+\n  | 1sg       | pisałem  | pisałam  |          |\n  | 2sg       | pisałeś  | pisałaś  |          |\n  | 3sg       | pisał    | pisała   | pisało   |\n  | 1pl       | pisaliśmy| pisałyśmy|          |\n  | 2pl       | pisaliście|pisałyście|         |\n  | 3pl       | pisali   | pisały   |          |\n  +-----------+----------+----------+----------+\n  MASC PLURAL (pisali) vs FEM/NEUT PLURAL (pisały):\n  \"virile\" (masculine personal) plural vs non-virile plural.\n  A group of all-male or mixed-gender: pisali.\n  A group of all-female, or objects: pisały.\n\nASPECT: Same system as Russian — every verb has IMP/PERF pair:\n  pisać (IMP) → napisać (PERF): to write / to write and finish\n  czytać (IMP) → przeczytać (PERF): to read / to finish reading",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-13",
+      "kind": "ascii_table_candidate",
+      "line": 523,
+      "heading_context": "### Polish vs Russian — Slavic Comparison",
+      "confidence": "candidate",
+      "text": "+-----------------------------+-------------------+-------------------+\n| Feature                     | Russian           | Polish            |\n+-----------------------------+-------------------+-------------------+\n| Cases                       | 6 (NOM/ACC/GEN/   | 7 (adds VOCATIVE) |\n|                             | DAT/INS/PREP)     |                   |\n| Script                      | Cyrillic          | Latin             |\n| Nasal vowels                | None              | ą ę               |\n| Vowel reduction             | Heavy: unstressed | Minimal: all      |\n|                             | о→[ɐ], е→[ɪ]     | vowels clear      |\n| Aspect system               | IMP/PERF pairs    | IMP/PERF pairs    |\n|                             | (same)            | (same)            |\n| Word order                  | Free (SVO neutral)| Free (SVO neutral)|\n| Past tense gender           | Yes               | Yes (+virile plur)|\n| Verbal noun use             | Common            | Less common       |\n| Mutual intelligibility      | Low (script diff  | ~30-40% spoken;   |\n| with the other              | + phonology)      | more in writing   |\n+-----------------------------+-------------------+-------------------+\n\nCOGNATE COMPARISON:\n  Russian: вода (voda) / Polish: woda — water (same)\n  Russian: хорошо (khorosho) / Polish: dobrze — well/good (different word)\n  Russian: пожалуйста / Polish: proszę — please (different word)\n  Russian: здравствуйте / Polish: dzień dobry — hello (different)",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-14",
+      "kind": "ascii_table_candidate",
+      "line": 605,
+      "heading_context": "### Profile",
+      "confidence": "candidate",
+      "text": "+--------------------------------------------------------------------+\n| TAMIL (தமிழ் Tamiḻ)                                                 |\n+--------------------------------------------------------------------+\n| Family:      Dravidian → South Dravidian → Tamil-Kannada           |\n| Native spkrs: ~78M                                                 |\n| Countries:   India (Tamil Nadu official), Sri Lanka (official),    |\n|              Singapore (one of 4 official), Malaysia, diaspora     |\n| Word order:  SOV — strict                                          |\n| Morphology:  Agglutinative                                         |\n| Tonal:       No (unlike many Dravidian languages)                  |\n| Gender:      Three: Rational (M+F) / Irrational (things/animals)  |\n| Script:      Tamil script — unique, abugida                        |\n| FSI level:   Category III-IV — ~1100 hours                         |\n+--------------------------------------------------------------------+",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-15",
+      "kind": "ascii_table_candidate",
+      "line": 656,
+      "heading_context": "### Tamil Script",
+      "confidence": "candidate",
+      "text": "TAMIL SCRIPT — 247 CHARACTERS\n===============================\nType: Abugida (consonant with inherent vowel 'a'; diacritics modify vowel)\nDirection: Left to right\n\nBASE CHARACTERS:\n  12 independent vowels: அ ஆ இ ஈ உ ஊ எ ஏ ஐ ஒ ஓ ஔ\n  18 consonants, each with inherent /a/: க் ங் ச் ஞ் ட் ண் த் ந் ப் ம் ய் ர் ல் வ் ழ் ள் ற் ன்\n  Consonant without vowel: puḷḷi marker (dot above): க் = /k/ with no vowel\n  Consonant + vowel = combined form:\n    க + ா = கா (ka+ā = kā)   க + ி = கி (ka+i = ki)   க + ு = கு (ka+u = ku)\n  Full grid: 18 consonants × 12 vowels = 216 vowel-consonant combos + 18 pure consonants + 12 vowels + ஃ = 247\n\nUNIQUE FEATURES:\n  The \"ழ\" (ḻ) character represents a sound unique to Tamil and Malayalam —\n  a retroflex approximant not found in other major world scripts.\n  Tamil numerals have their own system: ௧ ௨ ௩ ௪ ௫ ௬ ௭ ௮ ௯ ௦ (1-9, 0)\n  Traditional fraction symbols also exist: ½=½, ¼=¼ — still used in temple\n  inscriptions and formal/religious contexts.",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-16",
+      "kind": "ascii_table_candidate",
+      "line": 680,
+      "heading_context": "### Tamil Verb Conjugation",
+      "confidence": "candidate",
+      "text": "TAMIL VERB SYSTEM\n==================\nTENSE: 3 synthetic tenses (past/present/future) + person/number/gender agreement.\n\nSTEM + TENSE MARKER + PERSON MARKER:\n\n  செல் (cel, to go) — a strong verb:\n  +-----------+----------+----------+----------+\n  | Person    | PAST     | PRESENT  | FUTURE   |\n  +-----------+----------+----------+----------+\n  | 1sg (M/F) | சென்றேன் | செல்கிறேன்| செல்வேன் |\n  | 2sg (M/F) | சென்றாய் | செல்கிறாய்| செல்வாய் |\n  | 3sg M     | சென்றான் | செல்கிறான்| செல்வான் |\n  | 3sg F     | சென்றாள் | செல்கிறாள்| செல்வாள் |\n  | 3sg N     | சென்றது | செல்கிறது | செல்வது  |\n  | 1pl incl  | சென்றோம் | செல்கிறோம்| செல்வோம் |\n  | 2pl       | சென்றீர்கள்| செல்கிறீர்கள்| செல்வீர்கள்|\n  | 3pl Rat   | சென்றார்கள்| செல்கிறார்கள்| செல்வார்கள்|\n  | 3pl Irrat | சென்றன  | செல்கின்றன| செல்வன  |\n  +-----------+----------+----------+----------+\n\nRATIONAL/IRRATIONAL agreement:\n  3rd person distinguishes RATIONAL (humans + deities) from IRRATIONAL (animals, things).\n  Verb forms and pronouns differ by this distinction.\n  This is the Tamil equivalent of animacy in Slavic languages — but more grammatically pervasive.\n\nNEGATION — a separate paradigm (not just a particle):\n  Negative verbs conjugate completely separately:\n  செல்கிறேன் (I go) → செல்லவில்லை (I do not go) — not just \"not + go\"",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-17",
+      "kind": "ascii_table_candidate",
+      "line": 714,
+      "heading_context": "### Tamil Key Features",
+      "confidence": "candidate",
+      "text": "TAMIL GRAMMAR HIGHLIGHTS\n=========================\nDIGLOSSIC LANGUAGE:\n  Written/formal Tamil (செந்தமிழ் centamiḻ) and spoken Tamil differ\n  significantly — verb forms, vocabulary, and grammar diverge.\n  Similar to Arabic MSA vs spoken dialect, but within one country.\n\nDRAVIDIAN SOV — not related to Indo-European at all:\n  Tamil word order: Subject + Object + Verb (like Japanese/Korean)\n  But no genetic connection to those languages.\n\nTHREE-WAY GENDER (Rational/Irrational):\n  Masculine: Tamil men + male deities (he)\n  Feminine:  Tamil women + female deities (she)\n  Neuter:    animals, things, children — \"it\" (irrational gender)\n  Most European languages have animate/inanimate; Tamil: rational/irrational.\n\nNOUN CASE SYSTEM (8 cases):\n  Nominative, Accusative, Dative, Sociative/Comitative,\n  Instrumental, Ablative, Genitive, Locative\n\nVERB PERSON AGREEMENT:\n  Verbs agree with subject in person/number/gender\n  3 persons × plural/singular × gender = complex agreement table\n\nTAMIL SCRIPT:\n  247 characters (12 vowels + 18 consonants + 216 vowel-consonant combos + ஃ)\n  Derived from Brahmi, highly distinctive curvilinear forms\n  Sample: தமிழ் = t+a + m+i + ḻ = Tamil (reading left-right)\n  Vowel diacritics attach to consonants in various positions.\n\nTamil survival phrases:\n  வணக்கம் (Vaṇakkam) — Hello/Greetings\n  நன்றி (Naṉḏṟi) — Thank you\n  ஆம் / இல்லை (Ām / Illai) — Yes / No\n  மன்னிக்கவும் (Maṉṉikkavum) — Sorry/Excuse me\n  இது எவ்வளவு? (Itu evvaḷavu?) — How much is this?\n  ___ எங்கே இருக்கிறது? — Where is ___?\n  உதவி! (Utavi!) — Help!",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    }
+  ]
+}

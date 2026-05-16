@@ -1,3 +1,22 @@
+---
+maxim_schema: maxim.frontmatter.v1
+id: maxim:codes:nato-phonetic
+kind: guide
+module: codes
+section: codes
+title: NATO/ICAO Phonetic Alphabet and Radio Procedure
+status: source-custody
+source_custody: partial
+current_path: codes/05-NATO-PHONETIC.md
+canonical_path: codes/05-NATO-PHONETIC.md
+backsource_ids: [proof-backfill:codes:05-nato-phonetic, git-history:codes:05-nato-phonetic]
+concepts: [nato, phonetic]
+root_concepts: [nato, phonetic]
+index_roles: [guide, root-concept]
+remap_from: []
+remap_to: []
+updated: null
+---
 # NATO/ICAO Phonetic Alphabet & Radio Procedure
 
 ## The Big Picture

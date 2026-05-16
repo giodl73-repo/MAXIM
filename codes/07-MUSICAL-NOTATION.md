@@ -1,3 +1,22 @@
+---
+maxim_schema: maxim.frontmatter.v1
+id: maxim:codes:musical-notation
+kind: guide
+module: codes
+section: codes
+title: Western Musical Notation - Complete Reference
+status: source-custody
+source_custody: partial
+current_path: codes/07-MUSICAL-NOTATION.md
+canonical_path: codes/07-MUSICAL-NOTATION.md
+backsource_ids: [proof-backfill:codes:07-musical-notation, git-history:codes:07-musical-notation]
+concepts: [musical, notation]
+root_concepts: [musical, notation]
+index_roles: [guide, root-concept]
+remap_from: []
+remap_to: []
+updated: null
+---
 # Western Musical Notation — Complete Reference
 
 ## The Big Picture

@@ -1,3 +1,22 @@
+---
+maxim_schema: maxim.frontmatter.v1
+id: maxim:world-languages:latin-constructed
+kind: guide
+module: world-languages
+section: world-languages
+title: Latin, Esperanto and Language Endangerment
+status: source-custody
+source_custody: partial
+current_path: world-languages/14-LATIN-CONSTRUCTED.md
+canonical_path: world-languages/14-LATIN-CONSTRUCTED.md
+backsource_ids: [proof-backfill:world-languages:14-latin-constructed, git-history:world-languages:14-latin-constructed]
+concepts: [latin, constructed]
+root_concepts: [latin, constructed]
+index_roles: [guide, root-concept]
+remap_from: []
+remap_to: []
+updated: null
+---
 # Latin, Esperanto & Language Endangerment
 
 ## Latin
