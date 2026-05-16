@@ -1,0 +1,50 @@
+{
+  "schema_version": "1",
+  "source_markdown": "aeronautics\\00-OVERVIEW.md",
+  "blocks": [
+    {
+      "id": "block-1",
+      "kind": "diagram_like",
+      "line": 28,
+      "heading_context": "## Big Picture: The Aeronautics Stack",
+      "confidence": "candidate",
+      "text": "┌──────────────────────────────────────────────────────────────────────────┐\n│                       AERONAUTICS FRAMEWORK                              │\n├──────────────────────────────────────────────────────────────────────────┤\n│                                                                          │\n│           MISSION REQUIREMENTS (range, payload, speed, altitude)        │\n│                              │                                           │\n│                              ▼                                           │\n│  ┌────────────────────────────────────────────────────────────────────┐ │\n│  │  AERODYNAMICS — lift, drag, flow fields, airfoil shapes, stall     │ │\n│  │  Tool: Navier-Stokes → boundary layer theory → potential flow      │ │\n│  ├────────────────────────────────────────────────────────────────────┤ │\n│  │  PROPULSION — thrust generation                                    │ │\n│  │  Piston/Otto, Turbojet/Brayton, Turbofan, Rocket/Tsiolkovsky       │ │\n│  ├────────────────────────────────────────────────────────────────────┤ │\n│  │  FLIGHT MECHANICS — equations of motion, stability, control        │ │\n│  │  6-DOF dynamics, Euler angles, static/dynamic stability, FCS       │ │\n│  ├────────────────────────────────────────────────────────────────────┤ │\n│  │  STRUCTURES — loads, stress, fatigue, damage tolerance             │ │\n│  │  V-n diagram, composites, fail-safe design, aeroelasticity         │ │\n│  ├────────────────────────────────────────────────────────────────────┤ │\n│  │  AVIONICS — navigation, FBW, FMS, datalinks, displays              │ │\n│  │  INS/GPS, ILS/GLS, TCAS, ARINC 429/664, IMA                        │ │\n│  └────────────────────────────────────────────────────────────────────┘ │\n│                              │                                           │\n│                              ▼                                           │\n│                   CERTIFICATION (FAR/CS, JAR/EASA)                      │\n└──────────────────────────────────────────────────────────────────────────┘",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-2",
+      "kind": "ascii_table_candidate",
+      "line": 62,
+      "heading_context": "## 1. The Four Forces of Flight",
+      "confidence": "candidate",
+      "text": "The rigorous foundation: lift arises from circulation around the wing (Kutta-Joukowski: L = rho*V*Gamma per unit span), not simply from \"pressure difference.\" Drag decomposes into parasite drag (profile + interference, proportional to V^2) and induced drag (drag due to lift: D_i = L^2/(q*pi*b^2*e), proportional to CL^2/AR). The drag polar CD = CD0 + CL^2/(pi*AR*e) encodes both.",
+      "notes": [
+        "detected from ASCII table borders or pipe-aligned rows"
+      ]
+    },
+    {
+      "id": "block-3",
+      "kind": "diagram_like",
+      "line": 143,
+      "heading_context": "### FAR/CS Structure",
+      "confidence": "candidate",
+      "text": "US FEDERAL AVIATION REGULATIONS (FAR) / EU Certification Specifications (CS):\n  FAR 21: certification procedures for products and articles\n  FAR 23: airworthiness standards — normal, utility, aerobatic, commuter (≤19 pax, ≤8,618 kg)\n    Reorganized in 2017: performance-based rather than prescriptive\n  FAR 25: airworthiness standards — transport category aircraft (airliners, large aircraft)\n  FAR 27/29: rotorcraft (small/large)\n  FAR 33: aircraft engines\n  FAR 35: propellers\n  FAR 121: airline operations (AOC holders)\n  FAR 135: commuter and on-demand operations\n\nEUROPEAN: EASA CS-25 (transport category) — largely harmonized with FAR 25\n  DO-178C: Software Considerations in Airborne Systems (DAL levels A-E)\n    DAL-A: catastrophic failure condition; must show no errors\n    Software verification through coverage analysis (MC/DC for safety-critical)\n  DO-254: hardware design assurance (equivalent for hardware)\n  ARP4754A: guidelines for development of civil aircraft systems\n\nTYPE CERTIFICATE (TC): the fundamental certification of an aircraft design\n  Supplemental TC (STC): modification of an existing TC\n  Production approval (PA): manufacturer can produce to TC specifications\n  Airworthiness Certificate: individual aircraft airworthy → allowed to fly\n\nDESIGN PHILOSOPHY:\n  Fail-safe: critical structural elements designed so that failure does not lead to\n    catastrophic failure (multiple load paths; crack stoppers)\n  Damage tolerance: structure must tolerate assumed damage and survive for inspection interval\n  Safe-life: component retirement before expected failure (fatigue life tracking)",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-4",
+      "kind": "diagram_like",
+      "line": 178,
+      "heading_context": "## 4. Aircraft Categories and Performance Metrics",
+      "confidence": "candidate",
+      "text": "AIRCRAFT TYPES:\n  General aviation (GA): FAR 23; piston/turboprop single/multi-engine\n  Regional turboprop: ATR-72, Dash-8; 50-80 seats\n  Regional jet: Embraer E-jets, Bombardier CRJ; 50-120 seats\n  Narrow-body airliner: A320neo, B737 MAX; 150-220 seats; Mach 0.78-0.82\n  Wide-body airliner: A350, B787, A330; 250-400 seats; long-range\n  Ultra-long-range: A350-900ULR; 19,000 km; Mach 0.85\n\nPERFORMANCE METRICS:\n  Specific fuel consumption (SFC): fuel flow / thrust (kg/N·s); lower is better\n  Specific impulse (Isp = thrust / weight flow): seconds; rockets use this\n  Lift-to-drag ratio (L/D): aerodynamic efficiency\n    GA aircraft: L/D ≈ 10-15\n    Airliners: L/D ≈ 17-20 at cruise\n    Gliders: L/D ≈ 40-70\n    Concorde (supersonic): L/D ≈ 7 (why it's so inefficient)\n  Range equation (Breguet): R = (V/c) × (L/D) × ln(W₁/W₂)\n    V = cruise speed, c = SFC, L/D = aerodynamic efficiency, W₁/W₂ = fuel ratio\n    → Maximize: speed, L/D, and fuel fraction; minimize SFC\n  Payload-Range trade: structural weight limits total takeoff weight;\n    carry more fuel = less payload and vice versa",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    }
+  ]
+}

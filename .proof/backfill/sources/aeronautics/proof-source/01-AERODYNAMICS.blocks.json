@@ -1,0 +1,105 @@
+{
+  "schema_version": "1",
+  "source_markdown": "aeronautics\\01-AERODYNAMICS.md",
+  "blocks": [
+    {
+      "id": "block-1",
+      "kind": "diagram_like",
+      "line": 30,
+      "heading_context": "### Aerodynamic Flow Regimes",
+      "confidence": "candidate",
+      "text": "┌──────────────────────────────────────────────────────────────────────────┐\n│                    AERODYNAMIC FLOW HIERARCHY                            │\n├──────────────────────────────────────────────────────────────────────────┤\n│                                                                          │\n│  GOVERNING EQUATIONS                                                     │\n│  Navier-Stokes: full viscous, compressible flow                         │\n│       │                                                                  │\n│       ├── High Re, inviscid: EULER EQUATIONS                            │\n│       │   → Potential flow, lifting line, panel methods                 │\n│       │                                                                  │\n│       └── Viscous region: BOUNDARY LAYER EQUATIONS (Prandtl)           │\n│           → Skin friction, separation, transition                        │\n│                                                                          │\n│  FLOW REGIMES by Mach:                                                  │\n│  M < 0.3: incompressible (ρ = const) — good for GA aircraft             │\n│  0.3 < M < 0.8: compressible subsonic — transonic corrections           │\n│  0.8 < M < 1.2: transonic — mixed regions, shock waves forming         │\n│  M > 1.2: supersonic — oblique shocks, expansion fans                  │\n│  M > 5: hypersonic — chemistry, ablation                               │\n│                                                                          │\n└──────────────────────────────────────────────────────────────────────────┘",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-2",
+      "kind": "diagram_like",
+      "line": 60,
+      "heading_context": "### Navier-Stokes",
+      "confidence": "candidate",
+      "text": "CONTINUITY (mass conservation):\n  ∂ρ/∂t + ∇·(ρ**u**) = 0\n  Incompressible (ρ = const): ∇·**u** = 0\n\nMOMENTUM (N-S):\n  ρ(∂**u**/∂t + **u**·∇**u**) = −∇p + μ∇²**u** + ρ**g**\n  Left: inertia; Right: pressure gradient + viscous + body force\n  Incompressible + steady: ρ(**u**·∇)**u** = −∇p + μ∇²**u**\n\nENERGY (for compressible):\n  ρDe/Dt = −p(∇·**u**) + Φ + ∇·(k∇T)\n  Φ = viscous dissipation; k = thermal conductivity\n\nREYNOLDS NUMBER: Re = ρVL/μ = VL/ν\n  Ratio of inertial to viscous forces\n  Low Re (< ~10³): viscous dominated; laminar; no separation\n  High Re (>10⁶): inertia dominated; thin boundary layer; potential flow core\n  Transition: Re_crit ≈ 5×10⁵ for flat plate; variable for airfoils (depends on pressure gradient)\n\nBERNOULLI EQUATION (incompressible, inviscid, steady, along streamline):\n  p + ½ρV² + ρgh = constant = p₀ (total pressure)\n  Dynamic pressure: q = ½ρV²\n  Stagnation (total) pressure: p₀ = p + q\n  Pitot tube: measures p₀; static port measures p; q = p₀ - p → V = √(2q/ρ)",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-3",
+      "kind": "diagram_like",
+      "line": 91,
+      "heading_context": "### Potential Flow",
+      "confidence": "candidate",
+      "text": "IRROTATIONAL FLOW: ∇×**u** = 0 → exists velocity potential φ: **u** = ∇φ\n  Incompressible: ∇²φ = 0 (Laplace equation — same as electrostatics)\n  Superposition: sum of solutions is a solution\n\nELEMENTARY FLOWS (building blocks):\n  Uniform flow: φ = U∞x (flow from left)\n  Source/sink: φ = (Q/2π)ln(r) (radial flow; Q = volume flow rate)\n  Doublet: source + sink at same point\n  Free vortex: φ = (Γ/2π)θ; ψ = −(Γ/2π)ln(r); circulation Γ\n\nCYLINDER IN UNIFORM FLOW (doublet + uniform flow):\n  ψ = U∞(r − R²/r)sin(θ)\n  CL = 0 (symmetric flow; no lift by d'Alembert's paradox)\n  D'Alembert's paradox: perfect inviscid flow → zero drag (no shear; symmetric pressure)\n  → Viscosity and separation are essential for drag\n\nCYLINDER + VORTEX (with circulation):\n  Adds vortex φ = (Γ/2π)θ to doublet + uniform flow\n  → Asymmetric stagnation points → lift!\n  Kutta-Joukowski Theorem: L = ρ∞V∞Γ per unit span\n    Lift = density × freestream velocity × circulation\n    This is the FUNDAMENTAL lift equation; applies to any 2D body in inviscid flow",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-4",
+      "kind": "diagram_like",
+      "line": 122,
+      "heading_context": "### Airfoil Geometry and Nomenclature",
+      "confidence": "candidate",
+      "text": "NACA 4-DIGIT (e.g., NACA 2412):\n  2: maximum camber = 2% of chord\n  4: maximum camber location = 40% of chord (from LE)\n  12: maximum thickness = 12% of chord\n\nNACA 5-DIGIT: more flexible camber line definition\nNACA 6-SERIES: designed for specific pressure distributions (transition delay, low drag bucket)\n  NACA 64-212: 6-series; min pressure at 40% chord; CL_design = 0.2; 12% thick\n\nSUPERCRITICAL AIRFOIL (Whitcomb, NASA):\n  Flat upper surface → lower peak suction → delayed Mcrit\n  Used on all modern transonic aircraft (Boeing 787, Airbus A350)\n\nAIRFOIL PERFORMANCE PARAMETERS:\n  CL (lift coefficient): non-dimensional lift = L/(qS)\n  Angle of attack (α): between chord line and freestream\n  CLα = dCL/dα = 2π per radian (thin airfoil theory for symmetric airfoil)\n  Stall: flow separation from upper surface at CLmax; α_stall ≈ 15°-20° typical\n  Zero-lift angle α₀: cambered airfoils lift even at α = 0° → α₀ < 0° (nose-down for positive camber)\n  Moment coefficient: Cm about aerodynamic center (typically c/4 from LE)\n    Aerodynamic center (AC): point where Cm is constant with α (≈ c/4 for subsonic)\n    Center of pressure (CP): moves with α; where net aerodynamic force acts\n    CP forward of CG → destabilizing; CP behind CG → stabilizing (horizontal tail provides this)",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-5",
+      "kind": "diagram_like",
+      "line": 176,
+      "heading_context": "### Prandtl's Boundary Layer",
+      "confidence": "candidate",
+      "text": "PHYSICAL PICTURE:\n  For high Re: thin viscous layer near surface; inviscid flow outside\n  Within BL: velocity goes from 0 at wall (no-slip) to U∞ at edge\n  Thickness: δ ≈ 5.0 x / √(Re_x) for laminar flat plate (Blasius)\n  Displacement thickness: δ* = ∫₀^∞ (1 - u/U) dy (effective \"thickening\" of body)\n  Momentum thickness: θ = ∫₀^∞ (u/U)(1 - u/U) dy\n\nBOUNDARY LAYER EQUATIONS (2D incompressible):\n  u ∂u/∂x + v ∂u/∂y = −(1/ρ)dp/dx + ν ∂²u/∂y²\n  Thin: ∂p/∂y ≈ 0 (pressure across BL ≈ constant; set by external flow)\n\nLAMINAR vs TURBULENT:\n  Laminar BL: Blasius profile; skin friction Cf = 0.664 / √(Re_x)\n  Turbulent BL: thicker; fuller profile; skin friction Cf ≈ 0.074 / Re_x^0.2 (Prandtl's 1/7 power law)\n    Higher skin friction BUT more resistant to separation (fuller profile; higher momentum near wall)\n  Transition: Re_crit ≈ 3×10⁵ to 3×10⁶ depending on free-stream turbulence, pressure gradient\n\nSEPARATION:\n  Adverse pressure gradient: dp/dx > 0 (pressure increasing, decelerating flow)\n  Momentum near wall insufficient → flow reverses → separation\n  Separated flow: dead air; massive drag increase; lift loss\n  Airfoil stall = boundary layer separation from upper surface (leading edge or trailing edge)\n  Turbulent BL resists separation better than laminar (more momentum near wall)\n\nTRANSITION CONTROL:\n  Natural laminar flow (NLF): smooth surface; favorable pressure gradient → delay transition\n    NACA 6-series designed for this; Boeing 787, A320neo nacelles\n  Suction: remove BL through perforations → maintain laminar BL further\n  Roughness trips (turbulators): intentionally trigger turbulent BL ahead of potential separation\n    → turbulent BL separates later; counterintuitive benefit\n    Golf ball dimples: same principle",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-6",
+      "kind": "diagram_like",
+      "line": 216,
+      "heading_context": "### Lifting Line Theory (Prandtl)",
+      "confidence": "candidate",
+      "text": "INDUCED DRAG: consequence of finite wing generating lift\n  Wing tip vortices: trailing vortex pair (clockwise from right tip; counterclockwise from left)\n  Induced downwash w: velocity field pointing downward behind wing from tip vortices\n  Local effective angle of attack reduced by downwash: αeff = α - εi\n  Induced angle: εi = w/V∞\n  Induced drag: Di = L × sin(εi) ≈ L × εi for small εi\n\nPRANDTL LIFTING LINE (elliptical distribution):\n  For elliptical spanwise lift distribution (optimal):\n    CL_i = 2CL / (πAR)\n    CDi = CL² / (πAR)    ← fundamental result\n    AR = b² / S (aspect ratio; b = span; S = wing area)\n\n  Key insight: Induced drag ∝ CL²/AR\n    High AR → low induced drag (gliders, airliners)\n    Low AR → high induced drag (fighters, supersonic)\n    Winglets: increase effective AR, reduce tip vortex strength\n\nSPAN EFFICIENCY: CDi = CL² / (πeAR)  where e ≤ 1 (Oswald efficiency factor)\n  Elliptical distribution: e = 1 (optimal)\n  Most aircraft: e ≈ 0.8-0.95\n  Winglets: e can exceed 1 for isolated wing (reduce induced drag below elliptical prediction)\n\nSWEEP EFFECTS:\n  Leading edge sweep: reduces effective velocity component perpendicular to LE\n    → delays Mcrit (∝ cos Λ); reduces transonic wave drag\n    → reduces effective lift slope (CLα ∝ cos Λ)\n  Swept-back wing: aerodynamic center shifts rearward → more stable; needs smaller tail\n  Forward swept: AC shifts forward; less tail needed; but unstable → needs FBW\n    (X-29 demonstrator: intentionally unstable + fly-by-wire)",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-7",
+      "kind": "diagram_like",
+      "line": 255,
+      "heading_context": "### Subsonic Compressibility",
+      "confidence": "candidate",
+      "text": "PRANDTL-GLAUERT CORRECTION (subsonic):\n  CL_compressible = CL_incompressible / √(1 - M²)\n  Lift increases with Mach number (for same α) due to compressibility\n  Valid for M < Mcrit (where first shock forms on wing upper surface)\n\nCRITICAL MACH NUMBER (Mcrit):\n  Mach at which local flow first reaches M = 1 somewhere on the wing (usually upper surface peak)\n  Typical transonic airliners: Mcrit ≈ 0.72-0.80\n  Beyond Mcrit: normal shock appears → wave drag + potential buffet\n\nAREA RULE (Whitcomb, 1952):\n  Transonic wave drag ∝ second derivative of cross-sectional area distribution\n  Smooth area distribution → minimum transonic drag\n  \"Waist\" fuselage (coke bottle shape) compensates for wing cross-section at fuselage junction",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-8",
+      "kind": "ascii_table_candidate",
+      "line": 274,
+      "heading_context": "### Supersonic Flow",
+      "confidence": "candidate",
+      "text": "NORMAL SHOCK RELATIONS (Rankine-Hugoniot):\n  Properties across normal shock (from state 1 upstream to state 2 downstream):\n\n  M₂² = (M₁² + 5) / (7M₁² - 1)  [for γ = 1.4]\n  p₂/p₁ = (7M₁² - 1) / 6\n  ρ₂/ρ₁ = 6M₁² / (M₁² + 5)\n  T₂/T₁ = (7M₁² - 1)(M₁² + 5) / (36M₁²)\n\n  M₂ < 1 always (flow behind normal shock is subsonic)\n  Entropy increases (irreversible); stagnation pressure decreases → drag (wave drag)\n\nOBLIQUE SHOCKS:\n  At angle β to freestream; deflection angle θ\n  θ-β-M relationship: connects deflection to shock angle for given M\n  Weaker than normal shock; less entropy production\n  Minimum detachment: at some θ_max, oblique shock becomes detached (normal shock)\n  Used: supersonic inlets (ramp system for multiple oblique shocks)\n         supersonic nozzle flows\n\nEXPANSION FAN (Prandtl-Meyer):\n  When supersonic flow turns outward (convex corner): accelerates → expands\n  Isentropic (reversible); flow expands through Mach waves\n  Opposite of shock: increase M, decrease p, T, ρ\n  ν(M) = Prandtl-Meyer function; relates turning angle to Mach number\n\nSUPERSONIC AIRFOILS:\n  Flat plate: thin airfoil; lower wave drag (sharp LE)\n  Diamond (double wedge): shock on LE + expansion + shock at TE\n  CL = 4α / √(M²-1) per thin supersonic airfoil theory\n  CD_wave = 4α² / √(M²-1) + 4(t/c)² / √(M²-1) [thickness + angle contributions]\n  Area-rule applies: smooth cross-sectional area distribution minimizes drag",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-9",
+      "kind": "diagram_like",
+      "line": 312,
+      "heading_context": "## 6. High-Lift Devices",
+      "confidence": "candidate",
+      "text": "WHY: Cruise airfoil optimized for Mcrit, L/D at Mach 0.78-0.85 is not optimal at landing\n  Takeoff/Landing: need high CL at low speed (low dynamic pressure)\n  Must increase CL_max substantially\n\nFLAPS: increase effective camber and area\n  Plain flap: deflects trailing edge → ↑ camber → ↑ CL, ↑ CD, nose-down moment\n  Split flap: bottom surface only; simple; more drag\n  Slotted flap: slot between wing and flap; energizes BL → delays separation\n    Single/double/triple slotted: progressively more complex; ΔCL_max = 0.9-1.3 per slot\n  Fowler flap: moves rearward while deflecting → ↑ effective chord + camber; highest lift gain\n    Modern airliners: double/triple Fowler flaps; ΔCL_max ≈ 1.5-2.0\n\nSLATS: extend and/or droop leading edge → ΔCL_max ≈ 0.5-1.0\n  Fixed slat: simple; drag penalty in cruise (non-retractable)\n  Variable-camber Krueger flap: under-wing; pops forward\n  LE slat (most common): retractable slot between slat and wing → BL re-energization\n\nTOTAL CL_max:\n  Clean wing: CL_max ≈ 1.2-1.5\n  Takeoff flaps: CL_max ≈ 2.0-2.5\n  Landing flaps + slats: CL_max ≈ 2.5-3.2\n  V_stall = √(2W / (ρ S CL_max)) → 1.23 V_stall = V₂ (takeoff safety speed)",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    }
+  ]
+}

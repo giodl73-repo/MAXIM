@@ -1,3 +1,22 @@
+---
+maxim_schema: maxim.frontmatter.v1
+id: maxim:aeronautics:propulsion
+kind: guide
+module: aeronautics
+section: aeronautics
+title: 02 - Propulsion
+status: source-custody
+source_custody: partial
+current_path: aeronautics/02-PROPULSION.md
+canonical_path: aeronautics/02-PROPULSION.md
+backsource_ids: [proof-backfill:aeronautics:02-propulsion, git-history:aeronautics:02-propulsion]
+concepts: [propulsion]
+root_concepts: [propulsion]
+index_roles: [guide, root-concept]
+remap_from: []
+remap_to: []
+updated: null
+---
 # 02 — Propulsion
 
 ## Piston Engines, Gas Turbines, Rockets, Thermodynamic Cycles

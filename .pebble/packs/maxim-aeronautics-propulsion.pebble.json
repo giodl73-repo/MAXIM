@@ -1,0 +1,601 @@
+{
+  "schema": "pebble.v1",
+  "kind": "corpus-slice",
+  "title": "maxim-aeronautics-propulsion",
+  "source": "../../aeronautics",
+  "format": "markdown",
+  "metadata": {},
+  "sections": [
+    {
+      "id": "02-PROPULSION.md#000",
+      "path": [
+        "02-PROPULSION.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:aeronautics:02-propulsion, git-history:aeronautics:02-propulsion]",
+        "canonical_path": "aeronautics/02-PROPULSION.md",
+        "concepts": "[propulsion]",
+        "current_path": "aeronautics/02-PROPULSION.md",
+        "id": "maxim:aeronautics:propulsion",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "aeronautics",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[propulsion]",
+        "section": "aeronautics",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "02 - Propulsion",
+        "updated": "null"
+      },
+      "text": "# 02 — Propulsion"
+    },
+    {
+      "id": "02-PROPULSION.md#001",
+      "path": [
+        "02-PROPULSION.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:aeronautics:02-propulsion, git-history:aeronautics:02-propulsion]",
+        "canonical_path": "aeronautics/02-PROPULSION.md",
+        "concepts": "[propulsion]",
+        "current_path": "aeronautics/02-PROPULSION.md",
+        "id": "maxim:aeronautics:propulsion",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "aeronautics",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[propulsion]",
+        "section": "aeronautics",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "02 - Propulsion",
+        "updated": "null"
+      },
+      "text": "## Piston Engines, Gas Turbines, Rockets, Thermodynamic Cycles"
+    },
+    {
+      "id": "02-PROPULSION.md#002",
+      "path": [
+        "02-PROPULSION.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:aeronautics:02-propulsion, git-history:aeronautics:02-propulsion]",
+        "canonical_path": "aeronautics/02-PROPULSION.md",
+        "concepts": "[propulsion]",
+        "current_path": "aeronautics/02-PROPULSION.md",
+        "id": "maxim:aeronautics:propulsion",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "aeronautics",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[propulsion]",
+        "section": "aeronautics",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "02 - Propulsion",
+        "updated": "null"
+      },
+      "text": "---"
+    },
+    {
+      "id": "02-PROPULSION.md#003",
+      "path": [
+        "02-PROPULSION.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:aeronautics:02-propulsion, git-history:aeronautics:02-propulsion]",
+        "canonical_path": "aeronautics/02-PROPULSION.md",
+        "concepts": "[propulsion]",
+        "current_path": "aeronautics/02-PROPULSION.md",
+        "id": "maxim:aeronautics:propulsion",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "aeronautics",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[propulsion]",
+        "section": "aeronautics",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "02 - Propulsion",
+        "updated": "null"
+      },
+      "text": "## Big Picture: Propulsion Landscape"
+    },
+    {
+      "id": "02-PROPULSION.md#004",
+      "path": [
+        "02-PROPULSION.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:aeronautics:02-propulsion, git-history:aeronautics:02-propulsion]",
+        "canonical_path": "aeronautics/02-PROPULSION.md",
+        "concepts": "[propulsion]",
+        "current_path": "aeronautics/02-PROPULSION.md",
+        "id": "maxim:aeronautics:propulsion",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "aeronautics",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[propulsion]",
+        "section": "aeronautics",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "02 - Propulsion",
+        "updated": "null"
+      },
+      "text": "```\n┌──────────────────────────────────────────────────────────────────────────┐\n│                      PROPULSION TAXONOMY                                 │\n├──────────────────────────┬───────────────────────────────────────────────┤\n│  AIR-BREATHING           │  ROCKET (self-contained oxidizer)            │\n├──────────────────────────┼───────────────────────────────────────────────┤\n│  Piston/reciprocating    │  Chemical (liquid/solid/hybrid)               │\n│  ├── 4-stroke Otto cycle │  ├── Liquid: LOX/LH2, LOX/RP-1, N2O4/UDMH     │\n│  └── 2-stroke            │  ├── Solid: HTPB + ammonium perchlorate       │\n│                          │  └── Hybrid: solid fuel + liquid oxidizer     │\n│  Gas turbine             │                                               │\n│  ├── Turbojet            │  Non-chemical                                 │\n│  ├── Turbofan            │  ├── Ion thruster (electric)                  │\n│  ├── Turboprop           │  └── Nuclear (theoretical)                    │\n│  ├── Turboshaft          │                                               │\n│  └── Ramjet / Scramjet   │                                               │\n└──────────────────────────┴───────────────────────────────────────────────┘"
+    },
+    {
+      "id": "02-PROPULSION.md#005",
+      "path": [
+        "02-PROPULSION.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:aeronautics:02-propulsion, git-history:aeronautics:02-propulsion]",
+        "canonical_path": "aeronautics/02-PROPULSION.md",
+        "concepts": "[propulsion]",
+        "current_path": "aeronautics/02-PROPULSION.md",
+        "id": "maxim:aeronautics:propulsion",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "aeronautics",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[propulsion]",
+        "section": "aeronautics",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "02 - Propulsion",
+        "updated": "null"
+      },
+      "text": "THRUST EQUATION (fundamental):\n  T = ṁ_e V_e + (p_e - p_∞)A_e − ṁ_in V_∞\n  Net: T = ṁ(V_e − V_∞) for non-pressure thrust, no inlet ram drag simplification\n  More precisely (air-breathing): T = ṁ_exit V_exit − ṁ_inlet V_inlet + (p_e−p∞)A_e\n```"
+    },
+    {
+      "id": "02-PROPULSION.md#006",
+      "path": [
+        "02-PROPULSION.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:aeronautics:02-propulsion, git-history:aeronautics:02-propulsion]",
+        "canonical_path": "aeronautics/02-PROPULSION.md",
+        "concepts": "[propulsion]",
+        "current_path": "aeronautics/02-PROPULSION.md",
+        "id": "maxim:aeronautics:propulsion",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "aeronautics",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[propulsion]",
+        "section": "aeronautics",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "02 - Propulsion",
+        "updated": "null"
+      },
+      "text": "---"
+    },
+    {
+      "id": "02-PROPULSION.md#007",
+      "path": [
+        "02-PROPULSION.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:aeronautics:02-propulsion, git-history:aeronautics:02-propulsion]",
+        "canonical_path": "aeronautics/02-PROPULSION.md",
+        "concepts": "[propulsion]",
+        "current_path": "aeronautics/02-PROPULSION.md",
+        "id": "maxim:aeronautics:propulsion",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "aeronautics",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[propulsion]",
+        "section": "aeronautics",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "02 - Propulsion",
+        "updated": "null"
+      },
+      "text": "## 1. Reciprocating (Piston) Engines"
+    },
+    {
+      "id": "02-PROPULSION.md#008",
+      "path": [
+        "02-PROPULSION.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:aeronautics:02-propulsion, git-history:aeronautics:02-propulsion]",
+        "canonical_path": "aeronautics/02-PROPULSION.md",
+        "concepts": "[propulsion]",
+        "current_path": "aeronautics/02-PROPULSION.md",
+        "id": "maxim:aeronautics:propulsion",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "aeronautics",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[propulsion]",
+        "section": "aeronautics",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "02 - Propulsion",
+        "updated": "null"
+      },
+      "text": "### Otto Cycle (Ideal 4-Stroke Gasoline)"
+    },
+    {
+      "id": "02-PROPULSION.md#009",
+      "path": [
+        "02-PROPULSION.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:aeronautics:02-propulsion, git-history:aeronautics:02-propulsion]",
+        "canonical_path": "aeronautics/02-PROPULSION.md",
+        "concepts": "[propulsion]",
+        "current_path": "aeronautics/02-PROPULSION.md",
+        "id": "maxim:aeronautics:propulsion",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "aeronautics",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[propulsion]",
+        "section": "aeronautics",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "02 - Propulsion",
+        "updated": "null"
+      },
+      "text": "```\nFOUR STROKES: Intake → Compression → Power (combustion) → Exhaust"
+    },
+    {
+      "id": "02-PROPULSION.md#010",
+      "path": [
+        "02-PROPULSION.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:aeronautics:02-propulsion, git-history:aeronautics:02-propulsion]",
+        "canonical_path": "aeronautics/02-PROPULSION.md",
+        "concepts": "[propulsion]",
+        "current_path": "aeronautics/02-PROPULSION.md",
+        "id": "maxim:aeronautics:propulsion",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "aeronautics",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[propulsion]",
+        "section": "aeronautics",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "02 - Propulsion",
+        "updated": "null"
+      },
+      "text": "IDEAL OTTO CYCLE (p-v diagram):\n  1→2: isentropic compression (piston up; adiabatic)\n  2→3: constant-volume heat addition (spark ignition; combustion)\n  3→4: isentropic expansion (power stroke)\n  4→1: constant-volume heat rejection (exhaust valve opens)"
+    },
+    {
+      "id": "02-PROPULSION.md#011",
+      "path": [
+        "02-PROPULSION.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:aeronautics:02-propulsion, git-history:aeronautics:02-propulsion]",
+        "canonical_path": "aeronautics/02-PROPULSION.md",
+        "concepts": "[propulsion]",
+        "current_path": "aeronautics/02-PROPULSION.md",
+        "id": "maxim:aeronautics:propulsion",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "aeronautics",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[propulsion]",
+        "section": "aeronautics",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "02 - Propulsion",
+        "updated": "null"
+      },
+      "text": "THERMAL EFFICIENCY:\n  η_th = 1 − 1/r^(γ-1)\n  r = compression ratio = V_BDC / V_TDC\n  γ = 1.4 for air (diatomic)\n  Higher compression → higher efficiency → knock (pre-ignition) limits r to ~8-12 for gasoline\n  Diesel cycle: constant-pressure combustion; higher r (14-22); higher efficiency; no knock"
+    },
+    {
+      "id": "02-PROPULSION.md#012",
+      "path": [
+        "02-PROPULSION.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:aeronautics:02-propulsion, git-history:aeronautics:02-propulsion]",
+        "canonical_path": "aeronautics/02-PROPULSION.md",
+        "concepts": "[propulsion]",
+        "current_path": "aeronautics/02-PROPULSION.md",
+        "id": "maxim:aeronautics:propulsion",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "aeronautics",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[propulsion]",
+        "section": "aeronautics",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "02 - Propulsion",
+        "updated": "null"
+      },
+      "text": "REAL ENGINE LOSSES:\n  Pumping losses (intake/exhaust strokes)\n  Heat transfer to cylinder walls\n  Incomplete combustion\n  Blow-by (leakage past rings)\n  Friction"
+    },
+    {
+      "id": "02-PROPULSION.md#013",
+      "path": [
+        "02-PROPULSION.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:aeronautics:02-propulsion, git-history:aeronautics:02-propulsion]",
+        "canonical_path": "aeronautics/02-PROPULSION.md",
+        "concepts": "[propulsion]",
+        "current_path": "aeronautics/02-PROPULSION.md",
+        "id": "maxim:aeronautics:propulsion",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "aeronautics",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[propulsion]",
+        "section": "aeronautics",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "02 - Propulsion",
+        "updated": "null"
+      },
+      "text": "AIRCRAFT PISTON ENGINES:\n  Horizontally opposed (flat): Lycoming, Continental; 4-6 cylinders; 100-300 hp\n  Air-cooled: weight advantage; no coolant system\n  Fuel: avgas 100LL (100 octane, low lead); moving toward unleaded UL94/UL100\n  Turbocharged/supercharged: maintain manifold pressure at altitude (normally aspirated engines\n    lose power with altitude: power ∝ ρ ∝ p)\n  Magneto ignition: redundant dual magneto system (not battery-dependent)\n  Constant-speed propeller: governor adjusts pitch to maintain rpm → optimal efficiency\n```"
+    },
+    {
+      "id": "02-PROPULSION.md#014",
+      "path": [
+        "02-PROPULSION.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:aeronautics:02-propulsion, git-history:aeronautics:02-propulsion]",
+        "canonical_path": "aeronautics/02-PROPULSION.md",
+        "concepts": "[propulsion]",
+        "current_path": "aeronautics/02-PROPULSION.md",
+        "id": "maxim:aeronautics:propulsion",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "aeronautics",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[propulsion]",
+        "section": "aeronautics",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "02 - Propulsion",
+        "updated": "null"
+      },
+      "text": "---"
+    },
+    {
+      "id": "02-PROPULSION.md#015",
+      "path": [
+        "02-PROPULSION.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:aeronautics:02-propulsion, git-history:aeronautics:02-propulsion]",
+        "canonical_path": "aeronautics/02-PROPULSION.md",
+        "concepts": "[propulsion]",
+        "current_path": "aeronautics/02-PROPULSION.md",
+        "id": "maxim:aeronautics:propulsion",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "aeronautics",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[propulsion]",
+        "section": "aeronautics",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "02 - Propulsion",
+        "updated": "null"
+      },
+      "text": "## 2. Gas Turbine Engines — Brayton Cycle"
+    },
+    {
+      "id": "02-PROPULSION.md#016",
+      "path": [
+        "02-PROPULSION.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:aeronautics:02-propulsion, git-history:aeronautics:02-propulsion]",
+        "canonical_path": "aeronautics/02-PROPULSION.md",
+        "concepts": "[propulsion]",
+        "current_path": "aeronautics/02-PROPULSION.md",
+        "id": "maxim:aeronautics:propulsion",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "aeronautics",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[propulsion]",
+        "section": "aeronautics",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "02 - Propulsion",
+        "updated": "null"
+      },
+      "text": "### Ideal Brayton Cycle"
+    },
+    {
+      "id": "02-PROPULSION.md#017",
+      "path": [
+        "02-PROPULSION.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:aeronautics:02-propulsion, git-history:aeronautics:02-propulsion]",
+        "canonical_path": "aeronautics/02-PROPULSION.md",
+        "concepts": "[propulsion]",
+        "current_path": "aeronautics/02-PROPULSION.md",
+        "id": "maxim:aeronautics:propulsion",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "aeronautics",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[propulsion]",
+        "section": "aeronautics",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "02 - Propulsion",
+        "updated": "null"
+      },
+      "text": "```\nFOUR COMPONENTS: Compressor → Combustor → Turbine → (nozzle or output shaft)"
+    },
+    {
+      "id": "02-PROPULSION.md#018",
+      "path": [
+        "02-PROPULSION.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:aeronautics:02-propulsion, git-history:aeronautics:02-propulsion]",
+        "canonical_path": "aeronautics/02-PROPULSION.md",
+        "concepts": "[propulsion]",
+        "current_path": "aeronautics/02-PROPULSION.md",
+        "id": "maxim:aeronautics:propulsion",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "aeronautics",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[propulsion]",
+        "section": "aeronautics",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "02 - Propulsion",
+        "updated": "null"
+      },
+      "text": "IDEAL BRAYTON CYCLE (p-s diagram):\n  1→2: isentropic compression (compressor; raises p, T, ρ)\n  2→3: constant-pressure heat addition (combustion)\n  3→4: isentropic expansion (turbine; some; rest in nozzle)\n  4→1: constant-pressure heat rejection (exhaust to atmosphere)"
+    },
+    {
+      "id": "02-PROPULSION.md#019",
+      "path": [
+        "02-PROPULSION.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:aeronautics:02-propulsion, git-history:aeronautics:02-propulsion]",
+        "canonical_path": "aeronautics/02-PROPULSION.md",
+        "concepts": "[propulsion]",
+        "current_path": "aeronautics/02-PROPULSION.md",
+        "id": "maxim:aeronautics:propulsion",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "aeronautics",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[propulsion]",
+        "section": "aeronautics",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "02 - Propulsion",
+        "updated": "null"
+      },
+      "text": "TEMPERATURE RATIOS:\n  T₂/T₁ = (p₂/p₁)^((γ-1)/γ) = OPR^((γ-1)/γ)  [compressor exit]\n  OPR = Overall Pressure Ratio = p₂/p₁\n  T₄/T₃ = (p₄/p₃)^((γ-1)/γ)  [turbine exit]\n  T₃ = Turbine Inlet Temperature (TIT); limited by material → ~1800-2000 K with cooling"
+    },
+    {
+      "id": "02-PROPULSION.md#020",
+      "path": [
+        "02-PROPULSION.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:aeronautics:02-propulsion, git-history:aeronautics:02-propulsion]",
+        "canonical_path": "aeronautics/02-PROPULSION.md",
+        "concepts": "[propulsion]",
+        "current_path": "aeronautics/02-PROPULSION.md",
+        "id": "maxim:aeronautics:propulsion",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "aeronautics",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[propulsion]",
+        "section": "aeronautics",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "02 - Propulsion",
+        "updated": "null"
+      },
+      "text": "Thermodynamic context: eta_Brayton = 1 - 1/OPR^((gamma-1)/gamma) = 1 - T1/T2, which approaches but never reaches the Carnot limit eta_Carnot = 1 - T1/T3 (where T3 = turbine inlet temperature). High OPR raises T2 (compressor exit), improving efficiency. Real gas turbines achieve ~40-45% thermal efficiency, roughly 60% of the Carnot limit for the same temperature extremes. Combined cycle plants (gas turbine + steam Rankine on exhaust heat) reach ~60% thermal efficiency — closest any thermal engine gets to Carnot at scale."
+    }
+  ],
+  "refs": [
+    "02-PROPULSION.md"
+  ]
+}

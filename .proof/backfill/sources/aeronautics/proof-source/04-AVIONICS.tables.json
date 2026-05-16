@@ -1,0 +1,73 @@
+{
+  "schema_version": "1",
+  "source_markdown": "aeronautics\\04-AVIONICS.md",
+  "tables": [
+    {
+      "id": "table-1",
+      "line": 583,
+      "heading_context": "## 12. Decision Cheat Sheet",
+      "headers": [
+        "Question",
+        "Answer"
+      ],
+      "rows": [
+        [
+          "IMA vs federated?",
+          "IMA: shared computing resource with ARINC 653 partitioning; reduces LRUs; harder cert"
+        ],
+        [
+          "ARINC 429 directionality?",
+          "Unidirectional; one TX → many RX; 12.5/100 kbps; separate wire pairs each direction"
+        ],
+        [
+          "AFDX advantage over plain Ethernet?",
+          "Switched + virtual links with guaranteed BW + latency; deterministic; dual redundant"
+        ],
+        [
+          "Loosely vs tightly coupled GPS/INS?",
+          "Loose: GPS position/velocity; Tight: raw pseudoranges; tight works with <4 SVs"
+        ],
+        [
+          "SBAS enables what approach type?",
+          "LPV or LPV-200 (≈CAT I ILS); 200 ft DH; 1/2 sm visibility"
+        ],
+        [
+          "GBAS vs ILS?",
+          "GBAS: one ground station covers all runways; programmable glidepath; GLS approaches"
+        ],
+        [
+          "TCAS II RA — what must pilot do?",
+          "Follow RA immediately; ATC instruction secondary during RA (ICAO standard)"
+        ],
+        [
+          "ADS-B Out mandate US?",
+          "Required Jan 2020 in Class A/B/C and above 10,000 ft MSL (1090ES)"
+        ],
+        [
+          "CAT IIIb ILS requirements?",
+          "DH 15 ft (or zero DH); 50 m vis; fail-operational autoland; redundant all systems"
+        ],
+        [
+          "Cost index 0 vs 100?",
+          "CI=0: minimum fuel (fly slow, use less fuel); CI=100: minimum time (fly fast)"
+        ],
+        [
+          "DAL-A coverage requirement?",
+          "MC/DC (Modified Condition/Decision Coverage)"
+        ],
+        [
+          "Schuler period?",
+          "84 minutes — free oscillation of a pendulum equal to Earth radius; dominates INS error"
+        ],
+        [
+          "What does RAIM protect against?",
+          "Satellite failure causing position error; alerts pilot before exceeding protection level"
+        ],
+        [
+          "PFD vs ND primary content?",
+          "PFD: attitude/speed/alt/VSI; ND: navigation map/weather/traffic"
+        ]
+      ]
+    }
+  ]
+}

@@ -1,3 +1,22 @@
+---
+maxim_schema: maxim.frontmatter.v1
+id: maxim:philosophy:logic
+kind: guide
+module: philosophy
+section: philosophy
+title: 01 - Logic
+status: source-custody
+source_custody: partial
+current_path: philosophy/01-LOGIC.md
+canonical_path: philosophy/01-LOGIC.md
+backsource_ids: [proof-backfill:philosophy:01-logic, git-history:philosophy:01-logic]
+concepts: [logic]
+root_concepts: [logic]
+index_roles: [guide, root-concept]
+remap_from: []
+remap_to: []
+updated: null
+---
 # 01 — Logic
 
 ## Classical, Modal, Intuitionistic Logic; Proof Theory; Gödel's Incompleteness

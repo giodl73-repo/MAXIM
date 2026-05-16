@@ -1,0 +1,3121 @@
+{
+  "schema": "pebble.v1",
+  "kind": "corpus-slice",
+  "title": "maxim-aeronautics-flight-mechanics",
+  "source": "../../aeronautics",
+  "format": "markdown",
+  "metadata": {},
+  "sections": [
+    {
+      "id": "03-FLIGHT-MECHANICS.md#000",
+      "path": [
+        "03-FLIGHT-MECHANICS.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:aeronautics:03-flight-mechanics, git-history:aeronautics:03-flight-mechanics]",
+        "canonical_path": "aeronautics/03-FLIGHT-MECHANICS.md",
+        "concepts": "[flight, mechanics]",
+        "current_path": "aeronautics/03-FLIGHT-MECHANICS.md",
+        "id": "maxim:aeronautics:flight-mechanics",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "aeronautics",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[flight, mechanics]",
+        "section": "aeronautics",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "03 - Flight Mechanics",
+        "updated": "null"
+      },
+      "text": "# 03 — Flight Mechanics"
+    },
+    {
+      "id": "03-FLIGHT-MECHANICS.md#001",
+      "path": [
+        "03-FLIGHT-MECHANICS.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:aeronautics:03-flight-mechanics, git-history:aeronautics:03-flight-mechanics]",
+        "canonical_path": "aeronautics/03-FLIGHT-MECHANICS.md",
+        "concepts": "[flight, mechanics]",
+        "current_path": "aeronautics/03-FLIGHT-MECHANICS.md",
+        "id": "maxim:aeronautics:flight-mechanics",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "aeronautics",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[flight, mechanics]",
+        "section": "aeronautics",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "03 - Flight Mechanics",
+        "updated": "null"
+      },
+      "text": "## Equations of Motion, Stability, Control, Performance"
+    },
+    {
+      "id": "03-FLIGHT-MECHANICS.md#002",
+      "path": [
+        "03-FLIGHT-MECHANICS.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:aeronautics:03-flight-mechanics, git-history:aeronautics:03-flight-mechanics]",
+        "canonical_path": "aeronautics/03-FLIGHT-MECHANICS.md",
+        "concepts": "[flight, mechanics]",
+        "current_path": "aeronautics/03-FLIGHT-MECHANICS.md",
+        "id": "maxim:aeronautics:flight-mechanics",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "aeronautics",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[flight, mechanics]",
+        "section": "aeronautics",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "03 - Flight Mechanics",
+        "updated": "null"
+      },
+      "text": "---"
+    },
+    {
+      "id": "03-FLIGHT-MECHANICS.md#003",
+      "path": [
+        "03-FLIGHT-MECHANICS.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:aeronautics:03-flight-mechanics, git-history:aeronautics:03-flight-mechanics]",
+        "canonical_path": "aeronautics/03-FLIGHT-MECHANICS.md",
+        "concepts": "[flight, mechanics]",
+        "current_path": "aeronautics/03-FLIGHT-MECHANICS.md",
+        "id": "maxim:aeronautics:flight-mechanics",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "aeronautics",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[flight, mechanics]",
+        "section": "aeronautics",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "03 - Flight Mechanics",
+        "updated": "null"
+      },
+      "text": "## Big Picture: Flight Mechanics Stack"
+    },
+    {
+      "id": "03-FLIGHT-MECHANICS.md#004",
+      "path": [
+        "03-FLIGHT-MECHANICS.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:aeronautics:03-flight-mechanics, git-history:aeronautics:03-flight-mechanics]",
+        "canonical_path": "aeronautics/03-FLIGHT-MECHANICS.md",
+        "concepts": "[flight, mechanics]",
+        "current_path": "aeronautics/03-FLIGHT-MECHANICS.md",
+        "id": "maxim:aeronautics:flight-mechanics",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "aeronautics",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[flight, mechanics]",
+        "section": "aeronautics",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "03 - Flight Mechanics",
+        "updated": "null"
+      },
+      "text": "```\n┌─────────────────────────────────────────────────────────────────────────────┐\n│                         FLIGHT MECHANICS FRAMEWORK                          │\n├─────────────────────────────────────────────────────────────────────────────┤\n│                                                                             │\n│  REFERENCE FRAMES & KINEMATICS                                              │\n│    Earth axes (NED/ECEF) → Body axes → Stability axes → Wind axes          │\n│    Euler angles (φ,θ,ψ) ↔ Quaternions (q₀,q₁,q₂,q₃)                      │\n│                              │                                              │\n│                              ▼                                              │\n│  6-DOF EQUATIONS OF MOTION (Newton-Euler)                                   │\n│    Translational: m(V̇ + Ω × V) = F    [3 equations: X, Y, Z]              │\n│    Rotational:    I·Ω̇ + Ω × (I·Ω) = M  [3 equations: L, M, N]            │\n│                              │                                              │\n│                              ▼                                              │\n│  TRIM (EQUILIBRIUM) CONDITIONS                                              │\n│    Level flight / Climb / Turn / Pull-out                                   │\n│    All derivatives = 0; find δe, δa, δr, throttle for given flight state   │\n│                              │                                              │\n│                              ▼                                              │\n│  STABILITY ANALYSIS                                                         │\n│    Linearize about trim → A matrix → eigenvalues → modes                   │\n│    Longitudinal: Phugoid (slow) + Short-period (fast)                       │\n│    Lateral-directional: Roll + Spiral + Dutch roll                          │\n│                              │                                              │\n│                              ▼                                              │\n│  CONTROL & HANDLING                                                         │\n│    Conventional: elevator/aileron/rudder authority                          │\n│    Fly-by-wire: envelope protection, carefree handling, quadruplex          │\n│    Cooper-Harper HQR scale; MIL-HDBK-1797 Level 1/2/3                      │\n│                              │                                              │\n│                              ▼                                              │\n│  PERFORMANCE                                                                │\n│    V-n diagram → loads → climb/descent → range/endurance → T/O & landing   │\n└─────────────────────────────────────────────────────────────────────────────┘\n```"
+    },
+    {
+      "id": "03-FLIGHT-MECHANICS.md#005",
+      "path": [
+        "03-FLIGHT-MECHANICS.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:aeronautics:03-flight-mechanics, git-history:aeronautics:03-flight-mechanics]",
+        "canonical_path": "aeronautics/03-FLIGHT-MECHANICS.md",
+        "concepts": "[flight, mechanics]",
+        "current_path": "aeronautics/03-FLIGHT-MECHANICS.md",
+        "id": "maxim:aeronautics:flight-mechanics",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "aeronautics",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[flight, mechanics]",
+        "section": "aeronautics",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "03 - Flight Mechanics",
+        "updated": "null"
+      },
+      "text": "---"
+    },
+    {
+      "id": "03-FLIGHT-MECHANICS.md#006",
+      "path": [
+        "03-FLIGHT-MECHANICS.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:aeronautics:03-flight-mechanics, git-history:aeronautics:03-flight-mechanics]",
+        "canonical_path": "aeronautics/03-FLIGHT-MECHANICS.md",
+        "concepts": "[flight, mechanics]",
+        "current_path": "aeronautics/03-FLIGHT-MECHANICS.md",
+        "id": "maxim:aeronautics:flight-mechanics",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "aeronautics",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[flight, mechanics]",
+        "section": "aeronautics",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "03 - Flight Mechanics",
+        "updated": "null"
+      },
+      "text": "## 1. Reference Frames and Coordinate Systems"
+    },
+    {
+      "id": "03-FLIGHT-MECHANICS.md#007",
+      "path": [
+        "03-FLIGHT-MECHANICS.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:aeronautics:03-flight-mechanics, git-history:aeronautics:03-flight-mechanics]",
+        "canonical_path": "aeronautics/03-FLIGHT-MECHANICS.md",
+        "concepts": "[flight, mechanics]",
+        "current_path": "aeronautics/03-FLIGHT-MECHANICS.md",
+        "id": "maxim:aeronautics:flight-mechanics",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "aeronautics",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[flight, mechanics]",
+        "section": "aeronautics",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "03 - Flight Mechanics",
+        "updated": "null"
+      },
+      "text": "```\nREFERENCE FRAMES:\n  Earth-centered inertial (ECI):     Origin at Earth center; fixed to stars\n  Earth-centered Earth-fixed (ECEF): Origin at Earth center; rotates with Earth\n  Local geodetic / NED:              North-East-Down at aircraft position;\n                                     quasi-inertial for most flight mechanics\n  Body axes (B):    Origin at CG; x_b forward, y_b right wing, z_b down\n  Stability axes (S): x_s along freestream projection onto symmetry plane\n                      (same as body for symmetric flight; used for linearization)\n  Wind axes (W):    x_w along freestream V∞; z_w in symmetry plane → \"wind axes\""
+    },
+    {
+      "id": "03-FLIGHT-MECHANICS.md#008",
+      "path": [
+        "03-FLIGHT-MECHANICS.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:aeronautics:03-flight-mechanics, git-history:aeronautics:03-flight-mechanics]",
+        "canonical_path": "aeronautics/03-FLIGHT-MECHANICS.md",
+        "concepts": "[flight, mechanics]",
+        "current_path": "aeronautics/03-FLIGHT-MECHANICS.md",
+        "id": "maxim:aeronautics:flight-mechanics",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "aeronautics",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[flight, mechanics]",
+        "section": "aeronautics",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "03 - Flight Mechanics",
+        "updated": "null"
+      },
+      "text": "ANGLE OF ATTACK (α) AND SIDESLIP (β):\n  α = arctan(w/u)       u,w = body-axis velocities (longitudinal plane)\n  β = arcsin(v/V)       v = body-axis lateral velocity\n  V = √(u² + v² + w²)  = total airspeed"
+    },
+    {
+      "id": "03-FLIGHT-MECHANICS.md#009",
+      "path": [
+        "03-FLIGHT-MECHANICS.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:aeronautics:03-flight-mechanics, git-history:aeronautics:03-flight-mechanics]",
+        "canonical_path": "aeronautics/03-FLIGHT-MECHANICS.md",
+        "concepts": "[flight, mechanics]",
+        "current_path": "aeronautics/03-FLIGHT-MECHANICS.md",
+        "id": "maxim:aeronautics:flight-mechanics",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "aeronautics",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[flight, mechanics]",
+        "section": "aeronautics",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "03 - Flight Mechanics",
+        "updated": "null"
+      },
+      "text": "EULER ANGLES — body-frame orientation relative to NED:\n  ψ = yaw   (heading)  — rotation about z_E (positive nose right)\n  θ = pitch (elevation) — rotation about y₁ (positive nose up)\n  φ = roll  (bank)     — rotation about x_B (positive right wing down)"
+    },
+    {
+      "id": "03-FLIGHT-MECHANICS.md#010",
+      "path": [
+        "03-FLIGHT-MECHANICS.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:aeronautics:03-flight-mechanics, git-history:aeronautics:03-flight-mechanics]",
+        "canonical_path": "aeronautics/03-FLIGHT-MECHANICS.md",
+        "concepts": "[flight, mechanics]",
+        "current_path": "aeronautics/03-FLIGHT-MECHANICS.md",
+        "id": "maxim:aeronautics:flight-mechanics",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "aeronautics",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[flight, mechanics]",
+        "section": "aeronautics",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "03 - Flight Mechanics",
+        "updated": "null"
+      },
+      "text": "Convention: ZYX (yaw → pitch → roll); applies to right-hand coordinate system"
+    },
+    {
+      "id": "03-FLIGHT-MECHANICS.md#011",
+      "path": [
+        "03-FLIGHT-MECHANICS.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:aeronautics:03-flight-mechanics, git-history:aeronautics:03-flight-mechanics]",
+        "canonical_path": "aeronautics/03-FLIGHT-MECHANICS.md",
+        "concepts": "[flight, mechanics]",
+        "current_path": "aeronautics/03-FLIGHT-MECHANICS.md",
+        "id": "maxim:aeronautics:flight-mechanics",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "aeronautics",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[flight, mechanics]",
+        "section": "aeronautics",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "03 - Flight Mechanics",
+        "updated": "null"
+      },
+      "text": "Rotation matrix (CNED→B = Rx(φ)·Ry(θ)·Rz(ψ)):\n  ┌                                                                         ┐\n  │  cos θ cos ψ          cos θ sin ψ         -sin θ                        │\n  │  sin φ sin θ cos ψ   sin φ sin θ sin ψ   sin φ cos θ                    │\n  │ -cos φ sin ψ        +cos φ cos ψ                                        │\n  │  cos φ sin θ cos ψ   cos φ sin θ sin ψ   cos φ cos θ                    │\n  │ +sin φ sin ψ        -sin φ cos ψ                                        │\n  └                                                                         ┘"
+    },
+    {
+      "id": "03-FLIGHT-MECHANICS.md#012",
+      "path": [
+        "03-FLIGHT-MECHANICS.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:aeronautics:03-flight-mechanics, git-history:aeronautics:03-flight-mechanics]",
+        "canonical_path": "aeronautics/03-FLIGHT-MECHANICS.md",
+        "concepts": "[flight, mechanics]",
+        "current_path": "aeronautics/03-FLIGHT-MECHANICS.md",
+        "id": "maxim:aeronautics:flight-mechanics",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "aeronautics",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[flight, mechanics]",
+        "section": "aeronautics",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "03 - Flight Mechanics",
+        "updated": "null"
+      },
+      "text": "GIMBAL LOCK:\n  At θ = ±90° (pitch straight up/down), φ and ψ become indistinguishable —\n  singularity in Euler angle kinematics. Not a real physical constraint, just\n  a coordinate pathology."
+    },
+    {
+      "id": "03-FLIGHT-MECHANICS.md#013",
+      "path": [
+        "03-FLIGHT-MECHANICS.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:aeronautics:03-flight-mechanics, git-history:aeronautics:03-flight-mechanics]",
+        "canonical_path": "aeronautics/03-FLIGHT-MECHANICS.md",
+        "concepts": "[flight, mechanics]",
+        "current_path": "aeronautics/03-FLIGHT-MECHANICS.md",
+        "id": "maxim:aeronautics:flight-mechanics",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "aeronautics",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[flight, mechanics]",
+        "section": "aeronautics",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "03 - Flight Mechanics",
+        "updated": "null"
+      },
+      "text": "QUATERNIONS (q = [q₀, q₁, q₂, q₃] = [scalar, vector]):\n  q₀² + q₁² + q₂² + q₃² = 1  (unit quaternion constraint)\n  Encodes same info as rotation matrix but no singularity\n  q̇ = ½ · Ξ(q) · ω    where ω = [p, q, r] (body angular rates)\n  [ q0_dot ]   [  0  -p  -q  -r ] [ q0 ]\n  [ q1_dot ] = [  p   0   r  -q ] [ q1 ]\n  [ q2_dot ]   [  q  -r   0   p ] [ q2 ]\n  [ q3_dot ]   [  r   q  -p   0 ] [ q3 ]\n  Advantage: no singularity; computationally efficient; avoids quadrant issues\n  Used in: flight simulation, inertial nav, IMUs, quaternion AHRS filters\n  Cost: less intuitive; 4 parameters instead of 3 (constrained)\n```"
+    },
+    {
+      "id": "03-FLIGHT-MECHANICS.md#014",
+      "path": [
+        "03-FLIGHT-MECHANICS.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:aeronautics:03-flight-mechanics, git-history:aeronautics:03-flight-mechanics]",
+        "canonical_path": "aeronautics/03-FLIGHT-MECHANICS.md",
+        "concepts": "[flight, mechanics]",
+        "current_path": "aeronautics/03-FLIGHT-MECHANICS.md",
+        "id": "maxim:aeronautics:flight-mechanics",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "aeronautics",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[flight, mechanics]",
+        "section": "aeronautics",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "03 - Flight Mechanics",
+        "updated": "null"
+      },
+      "text": "---"
+    },
+    {
+      "id": "03-FLIGHT-MECHANICS.md#015",
+      "path": [
+        "03-FLIGHT-MECHANICS.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:aeronautics:03-flight-mechanics, git-history:aeronautics:03-flight-mechanics]",
+        "canonical_path": "aeronautics/03-FLIGHT-MECHANICS.md",
+        "concepts": "[flight, mechanics]",
+        "current_path": "aeronautics/03-FLIGHT-MECHANICS.md",
+        "id": "maxim:aeronautics:flight-mechanics",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "aeronautics",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[flight, mechanics]",
+        "section": "aeronautics",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "03 - Flight Mechanics",
+        "updated": "null"
+      },
+      "text": "## 2. 6-DOF Equations of Motion"
+    },
+    {
+      "id": "03-FLIGHT-MECHANICS.md#016",
+      "path": [
+        "03-FLIGHT-MECHANICS.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:aeronautics:03-flight-mechanics, git-history:aeronautics:03-flight-mechanics]",
+        "canonical_path": "aeronautics/03-FLIGHT-MECHANICS.md",
+        "concepts": "[flight, mechanics]",
+        "current_path": "aeronautics/03-FLIGHT-MECHANICS.md",
+        "id": "maxim:aeronautics:flight-mechanics",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "aeronautics",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[flight, mechanics]",
+        "section": "aeronautics",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "03 - Flight Mechanics",
+        "updated": "null"
+      },
+      "text": "```\nNEWTON-EULER RIGID BODY DYNAMICS:\n  Forces F applied at CG → translational acceleration\n  Moments M about CG → rotational acceleration"
+    },
+    {
+      "id": "03-FLIGHT-MECHANICS.md#017",
+      "path": [
+        "03-FLIGHT-MECHANICS.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:aeronautics:03-flight-mechanics, git-history:aeronautics:03-flight-mechanics]",
+        "canonical_path": "aeronautics/03-FLIGHT-MECHANICS.md",
+        "concepts": "[flight, mechanics]",
+        "current_path": "aeronautics/03-FLIGHT-MECHANICS.md",
+        "id": "maxim:aeronautics:flight-mechanics",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "aeronautics",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[flight, mechanics]",
+        "section": "aeronautics",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "03 - Flight Mechanics",
+        "updated": "null"
+      },
+      "text": "TRANSLATIONAL (in body axes):\n  m(u̇ + qw - rv) = X  (x-axis: \"axial force\")\n  m(v̇ + ru - pw) = Y  (y-axis: \"side force\")\n  m(ẇ + pv - qu) = Z  (z-axis: \"normal force\")"
+    },
+    {
+      "id": "03-FLIGHT-MECHANICS.md#018",
+      "path": [
+        "03-FLIGHT-MECHANICS.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:aeronautics:03-flight-mechanics, git-history:aeronautics:03-flight-mechanics]",
+        "canonical_path": "aeronautics/03-FLIGHT-MECHANICS.md",
+        "concepts": "[flight, mechanics]",
+        "current_path": "aeronautics/03-FLIGHT-MECHANICS.md",
+        "id": "maxim:aeronautics:flight-mechanics",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "aeronautics",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[flight, mechanics]",
+        "section": "aeronautics",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "03 - Flight Mechanics",
+        "updated": "null"
+      },
+      "text": "Where: p = roll rate, q = pitch rate, r = yaw rate (body angular rates)\n  Cross terms (qw, rv, etc.) are Coriolis — body is rotating"
+    },
+    {
+      "id": "03-FLIGHT-MECHANICS.md#019",
+      "path": [
+        "03-FLIGHT-MECHANICS.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:aeronautics:03-flight-mechanics, git-history:aeronautics:03-flight-mechanics]",
+        "canonical_path": "aeronautics/03-FLIGHT-MECHANICS.md",
+        "concepts": "[flight, mechanics]",
+        "current_path": "aeronautics/03-FLIGHT-MECHANICS.md",
+        "id": "maxim:aeronautics:flight-mechanics",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "aeronautics",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[flight, mechanics]",
+        "section": "aeronautics",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "03 - Flight Mechanics",
+        "updated": "null"
+      },
+      "text": "ROTATIONAL (assuming constant inertia tensor Iᵢⱼ):\n  Iₓₓṗ - Iₓᵤ(ṙ + pq) - (Iyy - Izz)qr = L  (roll moment)\n  Iyyq̇ + (Iₓₓ - Izz)pr + Iₓᵤ(p² - r²)  = M  (pitch moment)\n  Izzṙ - Iₓᵤ(ṗ - qr) - (Iₓₓ - Iyy)pq  = N  (yaw moment)"
+    },
+    {
+      "id": "03-FLIGHT-MECHANICS.md#020",
+      "path": [
+        "03-FLIGHT-MECHANICS.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:aeronautics:03-flight-mechanics, git-history:aeronautics:03-flight-mechanics]",
+        "canonical_path": "aeronautics/03-FLIGHT-MECHANICS.md",
+        "concepts": "[flight, mechanics]",
+        "current_path": "aeronautics/03-FLIGHT-MECHANICS.md",
+        "id": "maxim:aeronautics:flight-mechanics",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "aeronautics",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[flight, mechanics]",
+        "section": "aeronautics",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "03 - Flight Mechanics",
+        "updated": "null"
+      },
+      "text": "Iₓᵤ = cross-inertia; for symmetric aircraft (xz-plane of symmetry): Iₓᵤ ≠ 0,\n  but Iₓy = Iyz = 0"
+    },
+    {
+      "id": "03-FLIGHT-MECHANICS.md#021",
+      "path": [
+        "03-FLIGHT-MECHANICS.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:aeronautics:03-flight-mechanics, git-history:aeronautics:03-flight-mechanics]",
+        "canonical_path": "aeronautics/03-FLIGHT-MECHANICS.md",
+        "concepts": "[flight, mechanics]",
+        "current_path": "aeronautics/03-FLIGHT-MECHANICS.md",
+        "id": "maxim:aeronautics:flight-mechanics",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "aeronautics",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[flight, mechanics]",
+        "section": "aeronautics",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "03 - Flight Mechanics",
+        "updated": "null"
+      },
+      "text": "INERTIA TENSOR for typical aircraft (symmetric about xz-plane):\n  ┌              ┐\n  │ Iₓₓ   0  -Iₓᵤ│\n  │  0   Iyy   0 │\n  │-Iₓᵤ   0   Izz│\n  └              ┘"
+    },
+    {
+      "id": "03-FLIGHT-MECHANICS.md#022",
+      "path": [
+        "03-FLIGHT-MECHANICS.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:aeronautics:03-flight-mechanics, git-history:aeronautics:03-flight-mechanics]",
+        "canonical_path": "aeronautics/03-FLIGHT-MECHANICS.md",
+        "concepts": "[flight, mechanics]",
+        "current_path": "aeronautics/03-FLIGHT-MECHANICS.md",
+        "id": "maxim:aeronautics:flight-mechanics",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "aeronautics",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[flight, mechanics]",
+        "section": "aeronautics",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "03 - Flight Mechanics",
+        "updated": "null"
+      },
+      "text": "FORCES AND MOMENTS (components):\n  Aerodynamic: functions of (α, β, p, q, r, δe, δa, δr, Mach, h)\n    Using dimensionless stability derivatives:\n    L = q∞ · S · CL    CL(α, δe, q, α̇)\n    D = q∞ · S · CD    CD(CL, Mach)\n    Y = q∞ · S · CY    CY(β, p, r, δr)\n    Pitching moment: M = q∞ · S · c̄ · Cm  (c̄ = mean aerodynamic chord)\n    Rolling moment:  L = q∞ · S · b · Cl   (b = wing span)\n    Yawing moment:   N = q∞ · S · b · Cn"
+    },
+    {
+      "id": "03-FLIGHT-MECHANICS.md#023",
+      "path": [
+        "03-FLIGHT-MECHANICS.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:aeronautics:03-flight-mechanics, git-history:aeronautics:03-flight-mechanics]",
+        "canonical_path": "aeronautics/03-FLIGHT-MECHANICS.md",
+        "concepts": "[flight, mechanics]",
+        "current_path": "aeronautics/03-FLIGHT-MECHANICS.md",
+        "id": "maxim:aeronautics:flight-mechanics",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "aeronautics",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[flight, mechanics]",
+        "section": "aeronautics",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "03 - Flight Mechanics",
+        "updated": "null"
+      },
+      "text": "Gravity (in body axes):\n    Xg = -mg sin θ\n    Yg =  mg cos θ sin φ\n    Zg =  mg cos θ cos φ"
+    },
+    {
+      "id": "03-FLIGHT-MECHANICS.md#024",
+      "path": [
+        "03-FLIGHT-MECHANICS.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:aeronautics:03-flight-mechanics, git-history:aeronautics:03-flight-mechanics]",
+        "canonical_path": "aeronautics/03-FLIGHT-MECHANICS.md",
+        "concepts": "[flight, mechanics]",
+        "current_path": "aeronautics/03-FLIGHT-MECHANICS.md",
+        "id": "maxim:aeronautics:flight-mechanics",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "aeronautics",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[flight, mechanics]",
+        "section": "aeronautics",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "03 - Flight Mechanics",
+        "updated": "null"
+      },
+      "text": "Thrust: usually along body x-axis with engine offset and cant angle corrections"
+    },
+    {
+      "id": "03-FLIGHT-MECHANICS.md#025",
+      "path": [
+        "03-FLIGHT-MECHANICS.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:aeronautics:03-flight-mechanics, git-history:aeronautics:03-flight-mechanics]",
+        "canonical_path": "aeronautics/03-FLIGHT-MECHANICS.md",
+        "concepts": "[flight, mechanics]",
+        "current_path": "aeronautics/03-FLIGHT-MECHANICS.md",
+        "id": "maxim:aeronautics:flight-mechanics",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "aeronautics",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[flight, mechanics]",
+        "section": "aeronautics",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "03 - Flight Mechanics",
+        "updated": "null"
+      },
+      "text": "KINEMATIC EQUATIONS (Euler angle rates from body angular rates):\n  φ̇ = p + (q sin φ + r cos φ) tan θ\n  θ̇ = q cos φ - r sin φ\n  ψ̇ = (q sin φ + r cos φ) / cos θ   ← singularity at θ = ±90°"
+    },
+    {
+      "id": "03-FLIGHT-MECHANICS.md#026",
+      "path": [
+        "03-FLIGHT-MECHANICS.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:aeronautics:03-flight-mechanics, git-history:aeronautics:03-flight-mechanics]",
+        "canonical_path": "aeronautics/03-FLIGHT-MECHANICS.md",
+        "concepts": "[flight, mechanics]",
+        "current_path": "aeronautics/03-FLIGHT-MECHANICS.md",
+        "id": "maxim:aeronautics:flight-mechanics",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "aeronautics",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[flight, mechanics]",
+        "section": "aeronautics",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "03 - Flight Mechanics",
+        "updated": "null"
+      },
+      "text": "POSITION UPDATE (in NED):\n  ẋN =  u cos θ cos ψ + v(sin φ sin θ cos ψ - cos φ sin ψ) + ...\n  ẋE =  (full transformation using CNED→B transpose) ...\n  ẋD = -u sin θ + v cos θ sin φ + w cos θ cos φ"
+    },
+    {
+      "id": "03-FLIGHT-MECHANICS.md#027",
+      "path": [
+        "03-FLIGHT-MECHANICS.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:aeronautics:03-flight-mechanics, git-history:aeronautics:03-flight-mechanics]",
+        "canonical_path": "aeronautics/03-FLIGHT-MECHANICS.md",
+        "concepts": "[flight, mechanics]",
+        "current_path": "aeronautics/03-FLIGHT-MECHANICS.md",
+        "id": "maxim:aeronautics:flight-mechanics",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "aeronautics",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[flight, mechanics]",
+        "section": "aeronautics",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "03 - Flight Mechanics",
+        "updated": "null"
+      },
+      "text": "FULL STATE VECTOR:\n  x = [u, v, w, p, q, r, φ, θ, ψ, xN, xE, h]    (12 states)\n  Control: u_c = [δe, δa, δr, δT]                  (elevator, aileron, rudder, throttle)\n```"
+    },
+    {
+      "id": "03-FLIGHT-MECHANICS.md#028",
+      "path": [
+        "03-FLIGHT-MECHANICS.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:aeronautics:03-flight-mechanics, git-history:aeronautics:03-flight-mechanics]",
+        "canonical_path": "aeronautics/03-FLIGHT-MECHANICS.md",
+        "concepts": "[flight, mechanics]",
+        "current_path": "aeronautics/03-FLIGHT-MECHANICS.md",
+        "id": "maxim:aeronautics:flight-mechanics",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "aeronautics",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[flight, mechanics]",
+        "section": "aeronautics",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "03 - Flight Mechanics",
+        "updated": "null"
+      },
+      "text": "---"
+    },
+    {
+      "id": "03-FLIGHT-MECHANICS.md#029",
+      "path": [
+        "03-FLIGHT-MECHANICS.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:aeronautics:03-flight-mechanics, git-history:aeronautics:03-flight-mechanics]",
+        "canonical_path": "aeronautics/03-FLIGHT-MECHANICS.md",
+        "concepts": "[flight, mechanics]",
+        "current_path": "aeronautics/03-FLIGHT-MECHANICS.md",
+        "id": "maxim:aeronautics:flight-mechanics",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "aeronautics",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[flight, mechanics]",
+        "section": "aeronautics",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "03 - Flight Mechanics",
+        "updated": "null"
+      },
+      "text": "## 3. Trim (Equilibrium)"
+    },
+    {
+      "id": "03-FLIGHT-MECHANICS.md#030",
+      "path": [
+        "03-FLIGHT-MECHANICS.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:aeronautics:03-flight-mechanics, git-history:aeronautics:03-flight-mechanics]",
+        "canonical_path": "aeronautics/03-FLIGHT-MECHANICS.md",
+        "concepts": "[flight, mechanics]",
+        "current_path": "aeronautics/03-FLIGHT-MECHANICS.md",
+        "id": "maxim:aeronautics:flight-mechanics",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "aeronautics",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[flight, mechanics]",
+        "section": "aeronautics",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "03 - Flight Mechanics",
+        "updated": "null"
+      },
+      "text": "```\nTRIM DEFINITION:\n  Steady flight: all state derivatives = 0 (or periodic for oscillatory trim)\n  Find control inputs u_c and/or flight state such that ẋ = f(x, u_c) = 0"
+    },
+    {
+      "id": "03-FLIGHT-MECHANICS.md#031",
+      "path": [
+        "03-FLIGHT-MECHANICS.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:aeronautics:03-flight-mechanics, git-history:aeronautics:03-flight-mechanics]",
+        "canonical_path": "aeronautics/03-FLIGHT-MECHANICS.md",
+        "concepts": "[flight, mechanics]",
+        "current_path": "aeronautics/03-FLIGHT-MECHANICS.md",
+        "id": "maxim:aeronautics:flight-mechanics",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "aeronautics",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[flight, mechanics]",
+        "section": "aeronautics",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "03 - Flight Mechanics",
+        "updated": "null"
+      },
+      "text": "STRAIGHT-AND-LEVEL TRIM (symmetric flight, β=0, φ=0):\n  u̇ = 0: T cos α = D + mg sin γ\n  ẇ = 0: T sin α + L = mg cos γ    (γ = flight path angle)\n  q̇ = 0: Cm(α, δe, q=0) = 0       ← find δe for pitch equilibrium\n  Level: γ = 0 → L = W, T = D"
+    },
+    {
+      "id": "03-FLIGHT-MECHANICS.md#032",
+      "path": [
+        "03-FLIGHT-MECHANICS.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:aeronautics:03-flight-mechanics, git-history:aeronautics:03-flight-mechanics]",
+        "canonical_path": "aeronautics/03-FLIGHT-MECHANICS.md",
+        "concepts": "[flight, mechanics]",
+        "current_path": "aeronautics/03-FLIGHT-MECHANICS.md",
+        "id": "maxim:aeronautics:flight-mechanics",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "aeronautics",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[flight, mechanics]",
+        "section": "aeronautics",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "03 - Flight Mechanics",
+        "updated": "null"
+      },
+      "text": "Trim speed: V_trim determined by W = q∞ · S · CL(α_trim)\n  Trim angle of attack: varies with CG position"
+    },
+    {
+      "id": "03-FLIGHT-MECHANICS.md#033",
+      "path": [
+        "03-FLIGHT-MECHANICS.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:aeronautics:03-flight-mechanics, git-history:aeronautics:03-flight-mechanics]",
+        "canonical_path": "aeronautics/03-FLIGHT-MECHANICS.md",
+        "concepts": "[flight, mechanics]",
+        "current_path": "aeronautics/03-FLIGHT-MECHANICS.md",
+        "id": "maxim:aeronautics:flight-mechanics",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "aeronautics",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[flight, mechanics]",
+        "section": "aeronautics",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "03 - Flight Mechanics",
+        "updated": "null"
+      },
+      "text": "CLIMBING TRIM:\n  γ > 0; T cos(α - γ) = D + W sin γ  (thrust inclined, provides some lift component)\n  For small angles: T ≈ D + W sin γ   → excess thrust → climb\n  Climb rate: RC = V∞ sin γ ≈ (T-D)V/W = P_excess / W"
+    },
+    {
+      "id": "03-FLIGHT-MECHANICS.md#034",
+      "path": [
+        "03-FLIGHT-MECHANICS.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:aeronautics:03-flight-mechanics, git-history:aeronautics:03-flight-mechanics]",
+        "canonical_path": "aeronautics/03-FLIGHT-MECHANICS.md",
+        "concepts": "[flight, mechanics]",
+        "current_path": "aeronautics/03-FLIGHT-MECHANICS.md",
+        "id": "maxim:aeronautics:flight-mechanics",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "aeronautics",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[flight, mechanics]",
+        "section": "aeronautics",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "03 - Flight Mechanics",
+        "updated": "null"
+      },
+      "text": "COORDINATED TURN (constant altitude, φ = bank angle):\n  L cos φ = W → L = W / cos φ       load factor n = 1/cos φ\n  Turn radius: R = V²/(g tan φ)\n  Turn rate: ψ̇ = g tan φ / V\n  Load factor: n = 1/cos φ → 30° bank: n=1.15; 60° bank: n=2.0; 80° bank: n=5.76"
+    },
+    {
+      "id": "03-FLIGHT-MECHANICS.md#035",
+      "path": [
+        "03-FLIGHT-MECHANICS.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:aeronautics:03-flight-mechanics, git-history:aeronautics:03-flight-mechanics]",
+        "canonical_path": "aeronautics/03-FLIGHT-MECHANICS.md",
+        "concepts": "[flight, mechanics]",
+        "current_path": "aeronautics/03-FLIGHT-MECHANICS.md",
+        "id": "maxim:aeronautics:flight-mechanics",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "aeronautics",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[flight, mechanics]",
+        "section": "aeronautics",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "03 - Flight Mechanics",
+        "updated": "null"
+      },
+      "text": "TRIM MAP (for flight control design):\n  Trim conditions computed over entire flight envelope: altitude × Mach grid\n  Forms basis for gain-scheduled control law\n  At each trim point: find [α, δe, T] such that steady flight is achieved\n```"
+    },
+    {
+      "id": "03-FLIGHT-MECHANICS.md#036",
+      "path": [
+        "03-FLIGHT-MECHANICS.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:aeronautics:03-flight-mechanics, git-history:aeronautics:03-flight-mechanics]",
+        "canonical_path": "aeronautics/03-FLIGHT-MECHANICS.md",
+        "concepts": "[flight, mechanics]",
+        "current_path": "aeronautics/03-FLIGHT-MECHANICS.md",
+        "id": "maxim:aeronautics:flight-mechanics",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "aeronautics",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[flight, mechanics]",
+        "section": "aeronautics",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "03 - Flight Mechanics",
+        "updated": "null"
+      },
+      "text": "---"
+    },
+    {
+      "id": "03-FLIGHT-MECHANICS.md#037",
+      "path": [
+        "03-FLIGHT-MECHANICS.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:aeronautics:03-flight-mechanics, git-history:aeronautics:03-flight-mechanics]",
+        "canonical_path": "aeronautics/03-FLIGHT-MECHANICS.md",
+        "concepts": "[flight, mechanics]",
+        "current_path": "aeronautics/03-FLIGHT-MECHANICS.md",
+        "id": "maxim:aeronautics:flight-mechanics",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "aeronautics",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[flight, mechanics]",
+        "section": "aeronautics",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "03 - Flight Mechanics",
+        "updated": "null"
+      },
+      "text": "## 4. Static Stability"
+    },
+    {
+      "id": "03-FLIGHT-MECHANICS.md#038",
+      "path": [
+        "03-FLIGHT-MECHANICS.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:aeronautics:03-flight-mechanics, git-history:aeronautics:03-flight-mechanics]",
+        "canonical_path": "aeronautics/03-FLIGHT-MECHANICS.md",
+        "concepts": "[flight, mechanics]",
+        "current_path": "aeronautics/03-FLIGHT-MECHANICS.md",
+        "id": "maxim:aeronautics:flight-mechanics",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "aeronautics",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[flight, mechanics]",
+        "section": "aeronautics",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "03 - Flight Mechanics",
+        "updated": "null"
+      },
+      "text": "```\nDEFINITION:\n  Statically stable: if disturbed, aerodynamic restoring moment acts to return to trim\n  Statically unstable: disturbance generates diverging moment (→ needs FBW active stabilization)"
+    },
+    {
+      "id": "03-FLIGHT-MECHANICS.md#039",
+      "path": [
+        "03-FLIGHT-MECHANICS.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:aeronautics:03-flight-mechanics, git-history:aeronautics:03-flight-mechanics]",
+        "canonical_path": "aeronautics/03-FLIGHT-MECHANICS.md",
+        "concepts": "[flight, mechanics]",
+        "current_path": "aeronautics/03-FLIGHT-MECHANICS.md",
+        "id": "maxim:aeronautics:flight-mechanics",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "aeronautics",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[flight, mechanics]",
+        "section": "aeronautics",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "03 - Flight Mechanics",
+        "updated": "null"
+      },
+      "text": "LONGITUDINAL STATIC STABILITY:\n  Criterion: ∂Cm/∂CL < 0   (pitch moment decreases as lift increases → restoring)"
+    },
+    {
+      "id": "03-FLIGHT-MECHANICS.md#040",
+      "path": [
+        "03-FLIGHT-MECHANICS.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:aeronautics:03-flight-mechanics, git-history:aeronautics:03-flight-mechanics]",
+        "canonical_path": "aeronautics/03-FLIGHT-MECHANICS.md",
+        "concepts": "[flight, mechanics]",
+        "current_path": "aeronautics/03-FLIGHT-MECHANICS.md",
+        "id": "maxim:aeronautics:flight-mechanics",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "aeronautics",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[flight, mechanics]",
+        "section": "aeronautics",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "03 - Flight Mechanics",
+        "updated": "null"
+      },
+      "text": "Cm(α) = Cm₀ + Cm_α · α + Cm_δe · δe   where:\n    Cm_α = (CL_α)_tail × η_t × (lt/c̄) × (St/S) × (1 - dε/dα) - (CL_α)_w × (xCG - xac)/c̄\n    η_t = q_t/q∞ = tail efficiency ratio\n    lt = tail moment arm; dε/dα = downwash gradient at tail"
+    },
+    {
+      "id": "03-FLIGHT-MECHANICS.md#041",
+      "path": [
+        "03-FLIGHT-MECHANICS.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:aeronautics:03-flight-mechanics, git-history:aeronautics:03-flight-mechanics]",
+        "canonical_path": "aeronautics/03-FLIGHT-MECHANICS.md",
+        "concepts": "[flight, mechanics]",
+        "current_path": "aeronautics/03-FLIGHT-MECHANICS.md",
+        "id": "maxim:aeronautics:flight-mechanics",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "aeronautics",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[flight, mechanics]",
+        "section": "aeronautics",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "03 - Flight Mechanics",
+        "updated": "null"
+      },
+      "text": "NEUTRAL POINT (NP): CG location at which Cm_α = 0 (marginal stability)\n    NP = xac + (CL_α)_tail × η_t × (lt/c̄) × (St/S) × (1 - dε/dα) / CL_α_total\n    (in fractions of c̄ from leading edge)"
+    },
+    {
+      "id": "03-FLIGHT-MECHANICS.md#042",
+      "path": [
+        "03-FLIGHT-MECHANICS.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:aeronautics:03-flight-mechanics, git-history:aeronautics:03-flight-mechanics]",
+        "canonical_path": "aeronautics/03-FLIGHT-MECHANICS.md",
+        "concepts": "[flight, mechanics]",
+        "current_path": "aeronautics/03-FLIGHT-MECHANICS.md",
+        "id": "maxim:aeronautics:flight-mechanics",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "aeronautics",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[flight, mechanics]",
+        "section": "aeronautics",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "03 - Flight Mechanics",
+        "updated": "null"
+      },
+      "text": "STATIC MARGIN (SM):\n    SM = (x_NP - x_CG) / c̄   (positive SM → stable)\n    Typical: airliners 5-15% c̄; fighters 0 to -5% (relaxed/unstable for agility)\n    Too much SM → sluggish; too little → handling problems (needs FBW)\n    Concorde had negative SM at supersonic — pure FBW aircraft"
+    },
+    {
+      "id": "03-FLIGHT-MECHANICS.md#043",
+      "path": [
+        "03-FLIGHT-MECHANICS.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:aeronautics:03-flight-mechanics, git-history:aeronautics:03-flight-mechanics]",
+        "canonical_path": "aeronautics/03-FLIGHT-MECHANICS.md",
+        "concepts": "[flight, mechanics]",
+        "current_path": "aeronautics/03-FLIGHT-MECHANICS.md",
+        "id": "maxim:aeronautics:flight-mechanics",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "aeronautics",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[flight, mechanics]",
+        "section": "aeronautics",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "03 - Flight Mechanics",
+        "updated": "null"
+      },
+      "text": "STICK FORCE GRADIENT:\n    dFs/dV > 0 required by FAR 25 (pull back → nose up → decelerate; intuitive)\n    Stick-free vs stick-fixed neutral point differ due to floating elevator"
+    },
+    {
+      "id": "03-FLIGHT-MECHANICS.md#044",
+      "path": [
+        "03-FLIGHT-MECHANICS.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:aeronautics:03-flight-mechanics, git-history:aeronautics:03-flight-mechanics]",
+        "canonical_path": "aeronautics/03-FLIGHT-MECHANICS.md",
+        "concepts": "[flight, mechanics]",
+        "current_path": "aeronautics/03-FLIGHT-MECHANICS.md",
+        "id": "maxim:aeronautics:flight-mechanics",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "aeronautics",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[flight, mechanics]",
+        "section": "aeronautics",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "03 - Flight Mechanics",
+        "updated": "null"
+      },
+      "text": "LATERAL STATIC STABILITY (dihedral effect):\n  Cl_β < 0: if sideslip to right (β > 0), rolling moment raises right wing → restoring\n  Physical: wing dihedral angle Γ → β creates differential angle of attack\n  Swept wings contribute Cl_β (sweepback stabilizes, forward sweep destabilizes)\n  Too much Cl_β → Dutch roll oscillation (see §5)"
+    },
+    {
+      "id": "03-FLIGHT-MECHANICS.md#045",
+      "path": [
+        "03-FLIGHT-MECHANICS.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:aeronautics:03-flight-mechanics, git-history:aeronautics:03-flight-mechanics]",
+        "canonical_path": "aeronautics/03-FLIGHT-MECHANICS.md",
+        "concepts": "[flight, mechanics]",
+        "current_path": "aeronautics/03-FLIGHT-MECHANICS.md",
+        "id": "maxim:aeronautics:flight-mechanics",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "aeronautics",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[flight, mechanics]",
+        "section": "aeronautics",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "03 - Flight Mechanics",
+        "updated": "null"
+      },
+      "text": "DIRECTIONAL STATIC STABILITY (weathercock):\n  Cn_β > 0: if sideslip to right (β > 0), yawing moment turns nose right → aligns with flow\n  Provided by vertical tail: Cn_β = (CL_α)_VT × (lVT/b) × (SVT/S) × η_VT\n  Dorsal fin, ventral strakes: extend effective VT at high α\n  T-tail: endplate effect increases VT efficiency (but T-tail stall risk)\n```"
+    },
+    {
+      "id": "03-FLIGHT-MECHANICS.md#046",
+      "path": [
+        "03-FLIGHT-MECHANICS.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:aeronautics:03-flight-mechanics, git-history:aeronautics:03-flight-mechanics]",
+        "canonical_path": "aeronautics/03-FLIGHT-MECHANICS.md",
+        "concepts": "[flight, mechanics]",
+        "current_path": "aeronautics/03-FLIGHT-MECHANICS.md",
+        "id": "maxim:aeronautics:flight-mechanics",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "aeronautics",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[flight, mechanics]",
+        "section": "aeronautics",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "03 - Flight Mechanics",
+        "updated": "null"
+      },
+      "text": "---"
+    },
+    {
+      "id": "03-FLIGHT-MECHANICS.md#047",
+      "path": [
+        "03-FLIGHT-MECHANICS.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:aeronautics:03-flight-mechanics, git-history:aeronautics:03-flight-mechanics]",
+        "canonical_path": "aeronautics/03-FLIGHT-MECHANICS.md",
+        "concepts": "[flight, mechanics]",
+        "current_path": "aeronautics/03-FLIGHT-MECHANICS.md",
+        "id": "maxim:aeronautics:flight-mechanics",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "aeronautics",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[flight, mechanics]",
+        "section": "aeronautics",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "03 - Flight Mechanics",
+        "updated": "null"
+      },
+      "text": "## 5. Dynamic Stability — Modes and Eigenvalues"
+    },
+    {
+      "id": "03-FLIGHT-MECHANICS.md#048",
+      "path": [
+        "03-FLIGHT-MECHANICS.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:aeronautics:03-flight-mechanics, git-history:aeronautics:03-flight-mechanics]",
+        "canonical_path": "aeronautics/03-FLIGHT-MECHANICS.md",
+        "concepts": "[flight, mechanics]",
+        "current_path": "aeronautics/03-FLIGHT-MECHANICS.md",
+        "id": "maxim:aeronautics:flight-mechanics",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "aeronautics",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[flight, mechanics]",
+        "section": "aeronautics",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "03 - Flight Mechanics",
+        "updated": "null"
+      },
+      "text": "```\n**LTI stability bridge:** This is exactly the state-space stability analysis from control theory. The matrix A is the Jacobian of f/dx evaluated at trim — the standard linearization of a nonlinear system. The stability modes (short period, phugoid, Dutch roll, spiral, roll) are the eigenvalues of A. Complex conjugate pairs = oscillatory modes (frequency = imaginary part, damping = negative real part). Real eigenvalues = monotone modes (stable if negative). The aircraft stability problem IS an LTI eigenvalue analysis where A depends parametrically on flight condition (Mach, altitude, CG location)."
+    },
+    {
+      "id": "03-FLIGHT-MECHANICS.md#049",
+      "path": [
+        "03-FLIGHT-MECHANICS.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:aeronautics:03-flight-mechanics, git-history:aeronautics:03-flight-mechanics]",
+        "canonical_path": "aeronautics/03-FLIGHT-MECHANICS.md",
+        "concepts": "[flight, mechanics]",
+        "current_path": "aeronautics/03-FLIGHT-MECHANICS.md",
+        "id": "maxim:aeronautics:flight-mechanics",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "aeronautics",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[flight, mechanics]",
+        "section": "aeronautics",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "03 - Flight Mechanics",
+        "updated": "null"
+      },
+      "text": "LINEARIZATION ABOUT TRIM:\n  Δẋ = A·Δx + B·Δu   (small perturbation from trim)\n  State: Δx = [Δu, Δw (or Δα), Δq, Δθ | Δv (or Δβ), Δp, Δr, Δφ]\n           Longitudinal:            Lateral-directional:\n           4 states                 4 states (decoupled for symmetric trim)"
+    },
+    {
+      "id": "03-FLIGHT-MECHANICS.md#050",
+      "path": [
+        "03-FLIGHT-MECHANICS.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:aeronautics:03-flight-mechanics, git-history:aeronautics:03-flight-mechanics]",
+        "canonical_path": "aeronautics/03-FLIGHT-MECHANICS.md",
+        "concepts": "[flight, mechanics]",
+        "current_path": "aeronautics/03-FLIGHT-MECHANICS.md",
+        "id": "maxim:aeronautics:flight-mechanics",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "aeronautics",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[flight, mechanics]",
+        "section": "aeronautics",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "03 - Flight Mechanics",
+        "updated": "null"
+      },
+      "text": "LONGITUDINAL MODES (2 pairs of complex eigenvalues):"
+    },
+    {
+      "id": "03-FLIGHT-MECHANICS.md#051",
+      "path": [
+        "03-FLIGHT-MECHANICS.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:aeronautics:03-flight-mechanics, git-history:aeronautics:03-flight-mechanics]",
+        "canonical_path": "aeronautics/03-FLIGHT-MECHANICS.md",
+        "concepts": "[flight, mechanics]",
+        "current_path": "aeronautics/03-FLIGHT-MECHANICS.md",
+        "id": "maxim:aeronautics:flight-mechanics",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "aeronautics",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[flight, mechanics]",
+        "section": "aeronautics",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "03 - Flight Mechanics",
+        "updated": "null"
+      },
+      "text": "SHORT-PERIOD MODE:\n    Fast oscillation in α (angle of attack) and q (pitch rate)\n    Period: ~1-4 seconds; heavily damped\n    Eigenvalue: λ = -ζ_sp ωn_sp ± iωn_sp√(1-ζ_sp²)\n    Approximation: ωn_sp² ≈ -q∞·S·c̄·Cm_α / (Iyy)    (pure pitch stiffness)\n    Damping: from pitch damping derivative Cm_q and Cm_α̇\n    Handling: FAR 25 / MIL spec requires ζ_sp > 0.3 (Level 1: > 0.35, < 1.3 for ωn)"
+    },
+    {
+      "id": "03-FLIGHT-MECHANICS.md#052",
+      "path": [
+        "03-FLIGHT-MECHANICS.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:aeronautics:03-flight-mechanics, git-history:aeronautics:03-flight-mechanics]",
+        "canonical_path": "aeronautics/03-FLIGHT-MECHANICS.md",
+        "concepts": "[flight, mechanics]",
+        "current_path": "aeronautics/03-FLIGHT-MECHANICS.md",
+        "id": "maxim:aeronautics:flight-mechanics",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "aeronautics",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[flight, mechanics]",
+        "section": "aeronautics",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "03 - Flight Mechanics",
+        "updated": "null"
+      },
+      "text": "PHUGOID MODE (Lanchester-Phugoid):\n    Slow exchange of kinetic ↔ potential energy; nearly constant α\n    Period: T ≈ π√2 · V / g ≈ 60-120 sec at cruise speeds\n    Lightly damped (ζ_ph ≈ 1/(√2 × L/D)); stable in most aircraft\n    Approximation: ωn_ph ≈ g√2 / V;  ζ_ph ≈ CD / (√2 · CL)\n    Pilot can easily control phugoid (slow enough to see and respond)\n    FAR 25 allows phugoid t₁/₂ > 55 sec (very mildly unstable allowed)"
+    },
+    {
+      "id": "03-FLIGHT-MECHANICS.md#053",
+      "path": [
+        "03-FLIGHT-MECHANICS.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:aeronautics:03-flight-mechanics, git-history:aeronautics:03-flight-mechanics]",
+        "canonical_path": "aeronautics/03-FLIGHT-MECHANICS.md",
+        "concepts": "[flight, mechanics]",
+        "current_path": "aeronautics/03-FLIGHT-MECHANICS.md",
+        "id": "maxim:aeronautics:flight-mechanics",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "aeronautics",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[flight, mechanics]",
+        "section": "aeronautics",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "03 - Flight Mechanics",
+        "updated": "null"
+      },
+      "text": "LATERAL-DIRECTIONAL MODES (2 real eigenvalues + 1 complex pair):"
+    },
+    {
+      "id": "03-FLIGHT-MECHANICS.md#054",
+      "path": [
+        "03-FLIGHT-MECHANICS.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:aeronautics:03-flight-mechanics, git-history:aeronautics:03-flight-mechanics]",
+        "canonical_path": "aeronautics/03-FLIGHT-MECHANICS.md",
+        "concepts": "[flight, mechanics]",
+        "current_path": "aeronautics/03-FLIGHT-MECHANICS.md",
+        "id": "maxim:aeronautics:flight-mechanics",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "aeronautics",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[flight, mechanics]",
+        "section": "aeronautics",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "03 - Flight Mechanics",
+        "updated": "null"
+      },
+      "text": "ROLL MODE:\n    Pure rolling motion; heavily damped; decays fast\n    τ_roll = -Iₓₓ / (q∞·S·b·Cl_p)   (roll time constant)\n    Cl_p < 0: roll damping (wing moving in direction of roll has increased α)\n    Typical: τ_roll ≈ 0.1-0.5 sec; Level 1 requires τ_roll < 1 sec (FAR 25/MIL)"
+    },
+    {
+      "id": "03-FLIGHT-MECHANICS.md#055",
+      "path": [
+        "03-FLIGHT-MECHANICS.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:aeronautics:03-flight-mechanics, git-history:aeronautics:03-flight-mechanics]",
+        "canonical_path": "aeronautics/03-FLIGHT-MECHANICS.md",
+        "concepts": "[flight, mechanics]",
+        "current_path": "aeronautics/03-FLIGHT-MECHANICS.md",
+        "id": "maxim:aeronautics:flight-mechanics",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "aeronautics",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[flight, mechanics]",
+        "section": "aeronautics",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "03 - Flight Mechanics",
+        "updated": "null"
+      },
+      "text": "SPIRAL MODE:\n    Very slow; real eigenvalue (no oscillation)\n    Interaction between directional stability and dihedral effect\n    Cn_β · Cl_p - Cl_β · Cn_r > 0: stable spiral (→ diverges slowly)\n    Most aircraft slightly spiral unstable (lazy autopilot wing-drop)\n    FAR 25: stable or t₂ > 20 sec if unstable (slowly divergent allowed)"
+    },
+    {
+      "id": "03-FLIGHT-MECHANICS.md#056",
+      "path": [
+        "03-FLIGHT-MECHANICS.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:aeronautics:03-flight-mechanics, git-history:aeronautics:03-flight-mechanics]",
+        "canonical_path": "aeronautics/03-FLIGHT-MECHANICS.md",
+        "concepts": "[flight, mechanics]",
+        "current_path": "aeronautics/03-FLIGHT-MECHANICS.md",
+        "id": "maxim:aeronautics:flight-mechanics",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "aeronautics",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[flight, mechanics]",
+        "section": "aeronautics",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "03 - Flight Mechanics",
+        "updated": "null"
+      },
+      "text": "DUTCH ROLL:\n    Coupled yaw+roll oscillation; wings rock while yawing\n    Period: ~5-15 sec; can be lightly damped\n    ωn_DR ≈ √(q∞·S·b·Cn_β / Izz)    (yaw stiffness approximation)\n    Damping from yaw damper: Cn_r < 0 (yaw rate opposes yaw)\n    Most swept-wing jets need YAW DAMPER to stabilize Dutch roll\n    FAR 25: ζ_DR ≥ 0.04 (minimum); pilot must be able to recover if yaw damper fails\n    B707 without yaw damper was nearly unflyable on some flights"
+    },
+    {
+      "id": "03-FLIGHT-MECHANICS.md#057",
+      "path": [
+        "03-FLIGHT-MECHANICS.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:aeronautics:03-flight-mechanics, git-history:aeronautics:03-flight-mechanics]",
+        "canonical_path": "aeronautics/03-FLIGHT-MECHANICS.md",
+        "concepts": "[flight, mechanics]",
+        "current_path": "aeronautics/03-FLIGHT-MECHANICS.md",
+        "id": "maxim:aeronautics:flight-mechanics",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "aeronautics",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[flight, mechanics]",
+        "section": "aeronautics",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "03 - Flight Mechanics",
+        "updated": "null"
+      },
+      "text": "SUMMARY TABLE:\n  Mode         | DOF      | Period    | Damping      | Control\n  -------------|----------|-----------|--------------|-------------\n  Short period | α, q     | 1-4 sec   | High (good)  | Elevator\n  Phugoid      | V, γ     | 60-120s   | Low (OK)     | Throttle/elev\n  Roll         | p        | <1 sec    | High         | Ailerons\n  Spiral       | φ, β     | >100 sec  | Very low     | Rudder/aileron\n  Dutch roll   | β, φ, r  | 5-15 sec  | Low (needs   | Yaw damper\n               |          |           | yaw damper)  |\n```"
+    },
+    {
+      "id": "03-FLIGHT-MECHANICS.md#058",
+      "path": [
+        "03-FLIGHT-MECHANICS.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:aeronautics:03-flight-mechanics, git-history:aeronautics:03-flight-mechanics]",
+        "canonical_path": "aeronautics/03-FLIGHT-MECHANICS.md",
+        "concepts": "[flight, mechanics]",
+        "current_path": "aeronautics/03-FLIGHT-MECHANICS.md",
+        "id": "maxim:aeronautics:flight-mechanics",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "aeronautics",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[flight, mechanics]",
+        "section": "aeronautics",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "03 - Flight Mechanics",
+        "updated": "null"
+      },
+      "text": "---"
+    },
+    {
+      "id": "03-FLIGHT-MECHANICS.md#059",
+      "path": [
+        "03-FLIGHT-MECHANICS.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:aeronautics:03-flight-mechanics, git-history:aeronautics:03-flight-mechanics]",
+        "canonical_path": "aeronautics/03-FLIGHT-MECHANICS.md",
+        "concepts": "[flight, mechanics]",
+        "current_path": "aeronautics/03-FLIGHT-MECHANICS.md",
+        "id": "maxim:aeronautics:flight-mechanics",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "aeronautics",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[flight, mechanics]",
+        "section": "aeronautics",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "03 - Flight Mechanics",
+        "updated": "null"
+      },
+      "text": "## 6. Control Surfaces and Effectiveness"
+    },
+    {
+      "id": "03-FLIGHT-MECHANICS.md#060",
+      "path": [
+        "03-FLIGHT-MECHANICS.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:aeronautics:03-flight-mechanics, git-history:aeronautics:03-flight-mechanics]",
+        "canonical_path": "aeronautics/03-FLIGHT-MECHANICS.md",
+        "concepts": "[flight, mechanics]",
+        "current_path": "aeronautics/03-FLIGHT-MECHANICS.md",
+        "id": "maxim:aeronautics:flight-mechanics",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "aeronautics",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[flight, mechanics]",
+        "section": "aeronautics",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "03 - Flight Mechanics",
+        "updated": "null"
+      },
+      "text": "```\nPRIMARY CONTROL SURFACES:"
+    },
+    {
+      "id": "03-FLIGHT-MECHANICS.md#061",
+      "path": [
+        "03-FLIGHT-MECHANICS.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:aeronautics:03-flight-mechanics, git-history:aeronautics:03-flight-mechanics]",
+        "canonical_path": "aeronautics/03-FLIGHT-MECHANICS.md",
+        "concepts": "[flight, mechanics]",
+        "current_path": "aeronautics/03-FLIGHT-MECHANICS.md",
+        "id": "maxim:aeronautics:flight-mechanics",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "aeronautics",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[flight, mechanics]",
+        "section": "aeronautics",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "03 - Flight Mechanics",
+        "updated": "null"
+      },
+      "text": "ELEVATOR (longitudinal):\n    Hinged trailing edge of horizontal tail\n    Generates ΔCm = Cm_δe · δe\n    Authority: Cm_δe typically -0.01 to -0.04 per degree\n    FAR 25: must achieve trim at VFE, minimum speed, maximum aft CG\n    Trimmable horizontal stabilizer (THS): large authority trim for fuel burn CG shift;\n      elevator handles short-term corrections"
+    },
+    {
+      "id": "03-FLIGHT-MECHANICS.md#062",
+      "path": [
+        "03-FLIGHT-MECHANICS.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:aeronautics:03-flight-mechanics, git-history:aeronautics:03-flight-mechanics]",
+        "canonical_path": "aeronautics/03-FLIGHT-MECHANICS.md",
+        "concepts": "[flight, mechanics]",
+        "current_path": "aeronautics/03-FLIGHT-MECHANICS.md",
+        "id": "maxim:aeronautics:flight-mechanics",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "aeronautics",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[flight, mechanics]",
+        "section": "aeronautics",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "03 - Flight Mechanics",
+        "updated": "null"
+      },
+      "text": "AILERON (lateral):\n    Differential trailing edge flaps on outer wing\n    Roll rate: p = Cl_δa · δa · (2V/b) ... steady state from Cl_p damping\n    Adverse yaw: aileron deflection creates drag → yawing opposite to roll\n      → mitigated by differential aileron, frise aileron, rudder coordination\n    High-speed ailerons (inboard): used above flap extension speed; reduce wing twist\n    Spoilers: supplement or replace outboard ailerons at high speed (less aeroelastic twist)"
+    },
+    {
+      "id": "03-FLIGHT-MECHANICS.md#063",
+      "path": [
+        "03-FLIGHT-MECHANICS.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:aeronautics:03-flight-mechanics, git-history:aeronautics:03-flight-mechanics]",
+        "canonical_path": "aeronautics/03-FLIGHT-MECHANICS.md",
+        "concepts": "[flight, mechanics]",
+        "current_path": "aeronautics/03-FLIGHT-MECHANICS.md",
+        "id": "maxim:aeronautics:flight-mechanics",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "aeronautics",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[flight, mechanics]",
+        "section": "aeronautics",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "03 - Flight Mechanics",
+        "updated": "null"
+      },
+      "text": "RUDDER (directional):\n    Vertical tail trailing edge; controls sideslip β\n    Cn_δr < 0: right rudder → nose left → coordinates turn\n    Critical case: engine failure at Vmca (minimum control speed, air)\n      must maintain straight flight with maximum asymmetric thrust + max rudder\n    Rudder limiting: at high speed, full rudder would overstress fuselage/VT"
+    },
+    {
+      "id": "03-FLIGHT-MECHANICS.md#064",
+      "path": [
+        "03-FLIGHT-MECHANICS.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:aeronautics:03-flight-mechanics, git-history:aeronautics:03-flight-mechanics]",
+        "canonical_path": "aeronautics/03-FLIGHT-MECHANICS.md",
+        "concepts": "[flight, mechanics]",
+        "current_path": "aeronautics/03-FLIGHT-MECHANICS.md",
+        "id": "maxim:aeronautics:flight-mechanics",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "aeronautics",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[flight, mechanics]",
+        "section": "aeronautics",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "03 - Flight Mechanics",
+        "updated": "null"
+      },
+      "text": "SECONDARY/AUGMENTATION:\n  FLAPS (high-lift, see aerodynamics module): ΔCL_max, ΔCm shift\n  FLAPERONS: combined flap + aileron on some aircraft\n  SPOILERS: roll control + ground spoilers (weight-on-wheels dump for braking)\n  CANARD: forward lifting surface; elevon acts as control + contributes lift\n  THRUST VECTORING: nozzle deflection (F-22, F-35B); post-stall maneuvering\n  ELEVON: elevator + aileron on tailless/flying wing designs"
+    },
+    {
+      "id": "03-FLIGHT-MECHANICS.md#065",
+      "path": [
+        "03-FLIGHT-MECHANICS.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:aeronautics:03-flight-mechanics, git-history:aeronautics:03-flight-mechanics]",
+        "canonical_path": "aeronautics/03-FLIGHT-MECHANICS.md",
+        "concepts": "[flight, mechanics]",
+        "current_path": "aeronautics/03-FLIGHT-MECHANICS.md",
+        "id": "maxim:aeronautics:flight-mechanics",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "aeronautics",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[flight, mechanics]",
+        "section": "aeronautics",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "03 - Flight Mechanics",
+        "updated": "null"
+      },
+      "text": "CONTROL SURFACE SIZING (FAR 25 critical cases):\n  Elevator: Vmca trim with aft CG; rotation at VR; flare authority at Vref\n  Aileron + spoiler: FAR 25.147 lateral control (1-engine-out)\n  Rudder: Vmca (engine failure); crosswind landing (±15 kt typical certification)\n```"
+    },
+    {
+      "id": "03-FLIGHT-MECHANICS.md#066",
+      "path": [
+        "03-FLIGHT-MECHANICS.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:aeronautics:03-flight-mechanics, git-history:aeronautics:03-flight-mechanics]",
+        "canonical_path": "aeronautics/03-FLIGHT-MECHANICS.md",
+        "concepts": "[flight, mechanics]",
+        "current_path": "aeronautics/03-FLIGHT-MECHANICS.md",
+        "id": "maxim:aeronautics:flight-mechanics",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "aeronautics",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[flight, mechanics]",
+        "section": "aeronautics",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "03 - Flight Mechanics",
+        "updated": "null"
+      },
+      "text": "---"
+    },
+    {
+      "id": "03-FLIGHT-MECHANICS.md#067",
+      "path": [
+        "03-FLIGHT-MECHANICS.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:aeronautics:03-flight-mechanics, git-history:aeronautics:03-flight-mechanics]",
+        "canonical_path": "aeronautics/03-FLIGHT-MECHANICS.md",
+        "concepts": "[flight, mechanics]",
+        "current_path": "aeronautics/03-FLIGHT-MECHANICS.md",
+        "id": "maxim:aeronautics:flight-mechanics",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "aeronautics",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[flight, mechanics]",
+        "section": "aeronautics",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "03 - Flight Mechanics",
+        "updated": "null"
+      },
+      "text": "## 7. Fly-by-Wire (FBW)"
+    },
+    {
+      "id": "03-FLIGHT-MECHANICS.md#068",
+      "path": [
+        "03-FLIGHT-MECHANICS.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:aeronautics:03-flight-mechanics, git-history:aeronautics:03-flight-mechanics]",
+        "canonical_path": "aeronautics/03-FLIGHT-MECHANICS.md",
+        "concepts": "[flight, mechanics]",
+        "current_path": "aeronautics/03-FLIGHT-MECHANICS.md",
+        "id": "maxim:aeronautics:flight-mechanics",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "aeronautics",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[flight, mechanics]",
+        "section": "aeronautics",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "03 - Flight Mechanics",
+        "updated": "null"
+      },
+      "text": "```\nCONVENTIONAL MECHANICAL vs FBW:"
+    },
+    {
+      "id": "03-FLIGHT-MECHANICS.md#069",
+      "path": [
+        "03-FLIGHT-MECHANICS.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:aeronautics:03-flight-mechanics, git-history:aeronautics:03-flight-mechanics]",
+        "canonical_path": "aeronautics/03-FLIGHT-MECHANICS.md",
+        "concepts": "[flight, mechanics]",
+        "current_path": "aeronautics/03-FLIGHT-MECHANICS.md",
+        "id": "maxim:aeronautics:flight-mechanics",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "aeronautics",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[flight, mechanics]",
+        "section": "aeronautics",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "03 - Flight Mechanics",
+        "updated": "null"
+      },
+      "text": "Mechanical: cables/push rods → control surface; pilot input directly moves surface\n    Mass: heavy cables; feel: direct (may be excessive force)\n    Limits: no envelope protection; pilot can overstress aircraft\n    Boeing 727, 737-Classic, DC-9: full mechanical (with hydraulic boost)"
+    },
+    {
+      "id": "03-FLIGHT-MECHANICS.md#070",
+      "path": [
+        "03-FLIGHT-MECHANICS.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:aeronautics:03-flight-mechanics, git-history:aeronautics:03-flight-mechanics]",
+        "canonical_path": "aeronautics/03-FLIGHT-MECHANICS.md",
+        "concepts": "[flight, mechanics]",
+        "current_path": "aeronautics/03-FLIGHT-MECHANICS.md",
+        "id": "maxim:aeronautics:flight-mechanics",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "aeronautics",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[flight, mechanics]",
+        "section": "aeronautics",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "03 - Flight Mechanics",
+        "updated": "null"
+      },
+      "text": "Fly-by-Wire: pilot input → computer → actuator command → surface\n    Pilot input is command to flight control law; not direct surface movement\n    Signal path: LVDT/RVDT sensor → FCC (flight control computer) → EHSA (electrohydraulic actuator)"
+    },
+    {
+      "id": "03-FLIGHT-MECHANICS.md#071",
+      "path": [
+        "03-FLIGHT-MECHANICS.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:aeronautics:03-flight-mechanics, git-history:aeronautics:03-flight-mechanics]",
+        "canonical_path": "aeronautics/03-FLIGHT-MECHANICS.md",
+        "concepts": "[flight, mechanics]",
+        "current_path": "aeronautics/03-FLIGHT-MECHANICS.md",
+        "id": "maxim:aeronautics:flight-mechanics",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "aeronautics",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[flight, mechanics]",
+        "section": "aeronautics",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "03 - Flight Mechanics",
+        "updated": "null"
+      },
+      "text": "FBW ARCHITECTURE:"
+    },
+    {
+      "id": "03-FLIGHT-MECHANICS.md#072",
+      "path": [
+        "03-FLIGHT-MECHANICS.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:aeronautics:03-flight-mechanics, git-history:aeronautics:03-flight-mechanics]",
+        "canonical_path": "aeronautics/03-FLIGHT-MECHANICS.md",
+        "concepts": "[flight, mechanics]",
+        "current_path": "aeronautics/03-FLIGHT-MECHANICS.md",
+        "id": "maxim:aeronautics:flight-mechanics",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "aeronautics",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[flight, mechanics]",
+        "section": "aeronautics",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "03 - Flight Mechanics",
+        "updated": "null"
+      },
+      "text": "Quadruplex (4-channel) typical: 4 independent computers; voter/monitor logic\n  ┌──────────────────────────────────────────────────────────┐\n  │  PILOT INPUT    INCEPTOR (sidestick or conventional yoke)│\n  │       │                    │                             │\n  │  ADIRS (air data / inertial ref): α, β, V, γ, Euler      │\n  │       │                    │                             │\n  │  ┌────┴────┐ ┌────┐ ┌────┐ ┌────┐  ← 4 FCCs              │\n  │  │  FCC1   │ │FCC2│ │FCC3│ │FCC4│     majority voting    │\n  │  └────┬────┘ └────┘ └────┘ └────┘                        │\n  │       │                                                   │\n  │  ACTUATORS (EHSA) → CONTROL SURFACES                      │\n  │       ←── hydraulic + electrical power sources (3 hyd)   │\n  └──────────────────────────────────────────────────────────┘"
+    },
+    {
+      "id": "03-FLIGHT-MECHANICS.md#073",
+      "path": [
+        "03-FLIGHT-MECHANICS.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:aeronautics:03-flight-mechanics, git-history:aeronautics:03-flight-mechanics]",
+        "canonical_path": "aeronautics/03-FLIGHT-MECHANICS.md",
+        "concepts": "[flight, mechanics]",
+        "current_path": "aeronautics/03-FLIGHT-MECHANICS.md",
+        "id": "maxim:aeronautics:flight-mechanics",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "aeronautics",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[flight, mechanics]",
+        "section": "aeronautics",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "03 - Flight Mechanics",
+        "updated": "null"
+      },
+      "text": "Airbus A320 philosophy: \"carefree\" — FBW prevents pilot from:\n    - Exceeding α_max (AOA protection)\n    - Exceeding bank angle limit (±67° normal law)\n    - Structural load factor limit (±2.5g / -1g)\n    - Overspeed (VMO/MMO protection)"
+    },
+    {
+      "id": "03-FLIGHT-MECHANICS.md#074",
+      "path": [
+        "03-FLIGHT-MECHANICS.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:aeronautics:03-flight-mechanics, git-history:aeronautics:03-flight-mechanics]",
+        "canonical_path": "aeronautics/03-FLIGHT-MECHANICS.md",
+        "concepts": "[flight, mechanics]",
+        "current_path": "aeronautics/03-FLIGHT-MECHANICS.md",
+        "id": "maxim:aeronautics:flight-mechanics",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "aeronautics",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[flight, mechanics]",
+        "section": "aeronautics",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "03 - Flight Mechanics",
+        "updated": "null"
+      },
+      "text": "Boeing 777/787 philosophy: FBW but pilot can override limits with sufficient force\n    (slightly different design philosophy — pilot has ultimate authority)"
+    },
+    {
+      "id": "03-FLIGHT-MECHANICS.md#075",
+      "path": [
+        "03-FLIGHT-MECHANICS.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:aeronautics:03-flight-mechanics, git-history:aeronautics:03-flight-mechanics]",
+        "canonical_path": "aeronautics/03-FLIGHT-MECHANICS.md",
+        "concepts": "[flight, mechanics]",
+        "current_path": "aeronautics/03-FLIGHT-MECHANICS.md",
+        "id": "maxim:aeronautics:flight-mechanics",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "aeronautics",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[flight, mechanics]",
+        "section": "aeronautics",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "03 - Flight Mechanics",
+        "updated": "null"
+      },
+      "text": "FLIGHT CONTROL LAWS (FCL):\n  Normal Law: full envelope protection; fly-by-wire with protections\n  Alternate Law: some protections lost (e.g., β-protection gone); manual augmentation\n  Direct Law: direct surface command (1:1); no protections; pilot flies like mechanical"
+    },
+    {
+      "id": "03-FLIGHT-MECHANICS.md#076",
+      "path": [
+        "03-FLIGHT-MECHANICS.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:aeronautics:03-flight-mechanics, git-history:aeronautics:03-flight-mechanics]",
+        "canonical_path": "aeronautics/03-FLIGHT-MECHANICS.md",
+        "concepts": "[flight, mechanics]",
+        "current_path": "aeronautics/03-FLIGHT-MECHANICS.md",
+        "id": "maxim:aeronautics:flight-mechanics",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "aeronautics",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[flight, mechanics]",
+        "section": "aeronautics",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "03 - Flight Mechanics",
+        "updated": "null"
+      },
+      "text": "Degradation path: Normal → Alternate → Direct (with computer/sensor failures)\n  Reconfiguration: sensors monitored; failed sensor removed from computation set"
+    },
+    {
+      "id": "03-FLIGHT-MECHANICS.md#077",
+      "path": [
+        "03-FLIGHT-MECHANICS.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:aeronautics:03-flight-mechanics, git-history:aeronautics:03-flight-mechanics]",
+        "canonical_path": "aeronautics/03-FLIGHT-MECHANICS.md",
+        "concepts": "[flight, mechanics]",
+        "current_path": "aeronautics/03-FLIGHT-MECHANICS.md",
+        "id": "maxim:aeronautics:flight-mechanics",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "aeronautics",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[flight, mechanics]",
+        "section": "aeronautics",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "03 - Flight Mechanics",
+        "updated": "null"
+      },
+      "text": "BENEFITS OF FBW:\n  1. Weight reduction: 1-3% MTOW; lighter control runs\n  2. Carefree handling: pilot can't inadvertently depart from controlled flight\n  3. Control law optimization: pitch/roll response tuned for flying qualities\n  4. Aeroelastic control: suppress flutter; active load alleviation (gust/maneuver)\n  5. Mission adaptation: CG optimization by fuel transfer (A330 trim tank)\n  6. Envelope protection: especially valuable for transport aircraft\n  7. Relaxed stability: more efficient aircraft; computer provides stability augmentation"
+    },
+    {
+      "id": "03-FLIGHT-MECHANICS.md#078",
+      "path": [
+        "03-FLIGHT-MECHANICS.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:aeronautics:03-flight-mechanics, git-history:aeronautics:03-flight-mechanics]",
+        "canonical_path": "aeronautics/03-FLIGHT-MECHANICS.md",
+        "concepts": "[flight, mechanics]",
+        "current_path": "aeronautics/03-FLIGHT-MECHANICS.md",
+        "id": "maxim:aeronautics:flight-mechanics",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "aeronautics",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[flight, mechanics]",
+        "section": "aeronautics",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "03 - Flight Mechanics",
+        "updated": "null"
+      },
+      "text": "HANDLING QUALITIES vs INHERENT STABILITY:\n  F-16: statically unstable in pitch (SM < 0); fast enough that pilot cannot correct;\n    only flyable with FBW; gains: 10-15% drag reduction vs stable version\n  B-2: inherently unstable in multiple axes; all FBW\n  F-22: negative SM; also thrust vectoring for post-stall\n```"
+    },
+    {
+      "id": "03-FLIGHT-MECHANICS.md#079",
+      "path": [
+        "03-FLIGHT-MECHANICS.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:aeronautics:03-flight-mechanics, git-history:aeronautics:03-flight-mechanics]",
+        "canonical_path": "aeronautics/03-FLIGHT-MECHANICS.md",
+        "concepts": "[flight, mechanics]",
+        "current_path": "aeronautics/03-FLIGHT-MECHANICS.md",
+        "id": "maxim:aeronautics:flight-mechanics",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "aeronautics",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[flight, mechanics]",
+        "section": "aeronautics",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "03 - Flight Mechanics",
+        "updated": "null"
+      },
+      "text": "---"
+    },
+    {
+      "id": "03-FLIGHT-MECHANICS.md#080",
+      "path": [
+        "03-FLIGHT-MECHANICS.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:aeronautics:03-flight-mechanics, git-history:aeronautics:03-flight-mechanics]",
+        "canonical_path": "aeronautics/03-FLIGHT-MECHANICS.md",
+        "concepts": "[flight, mechanics]",
+        "current_path": "aeronautics/03-FLIGHT-MECHANICS.md",
+        "id": "maxim:aeronautics:flight-mechanics",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "aeronautics",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[flight, mechanics]",
+        "section": "aeronautics",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "03 - Flight Mechanics",
+        "updated": "null"
+      },
+      "text": "## 8. Handling Qualities"
+    },
+    {
+      "id": "03-FLIGHT-MECHANICS.md#081",
+      "path": [
+        "03-FLIGHT-MECHANICS.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:aeronautics:03-flight-mechanics, git-history:aeronautics:03-flight-mechanics]",
+        "canonical_path": "aeronautics/03-FLIGHT-MECHANICS.md",
+        "concepts": "[flight, mechanics]",
+        "current_path": "aeronautics/03-FLIGHT-MECHANICS.md",
+        "id": "maxim:aeronautics:flight-mechanics",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "aeronautics",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[flight, mechanics]",
+        "section": "aeronautics",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "03 - Flight Mechanics",
+        "updated": "null"
+      },
+      "text": "```\nCOOPER-HARPER RATING SCALE (CHR):\n  Quantifies pilot workload required to complete defined task\n  ┌──────┬─────────────────────────────────────────────────────────┐\n  │ CHR  │ Description                                             │\n  ├──────┼─────────────────────────────────────────────────────────┤\n  │  1   │ Excellent; minimal compensation required                │\n  │  2   │ Good; compensation not factor                           │\n  │  3   │ Fair; minimal compensation required                     │\n  │  4   │ Minor deficiencies; moderate pilot compensation         │\n  │  5   │ Moderately objectionable; considerable compensation     │\n  │  6   │ Very objectionable; extensive compensation required     │\n  │  7   │ Major deficiencies; adequate performance not achievable │\n  │  8   │ Intense compensation; barely controllable               │\n  │  9   │ Intense compensation; control maintained with luck      │\n  │ 10   │ Loss of control                                         │\n  └──────┴─────────────────────────────────────────────────────────┘"
+    },
+    {
+      "id": "03-FLIGHT-MECHANICS.md#082",
+      "path": [
+        "03-FLIGHT-MECHANICS.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:aeronautics:03-flight-mechanics, git-history:aeronautics:03-flight-mechanics]",
+        "canonical_path": "aeronautics/03-FLIGHT-MECHANICS.md",
+        "concepts": "[flight, mechanics]",
+        "current_path": "aeronautics/03-FLIGHT-MECHANICS.md",
+        "id": "maxim:aeronautics:flight-mechanics",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "aeronautics",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[flight, mechanics]",
+        "section": "aeronautics",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "03 - Flight Mechanics",
+        "updated": "null"
+      },
+      "text": "HANDLING QUALITY LEVELS (MIL-HDBK-1797 / MIL-F-8785C):\n  Level 1 (CHR 1-3): clearly adequate for task; pilots prefer\n  Level 2 (CHR 4-6): adequate to accomplish mission; increased workload\n  Level 3 (CHR 7-9): controllable; mission compromised; safe recovery possible"
+    },
+    {
+      "id": "03-FLIGHT-MECHANICS.md#083",
+      "path": [
+        "03-FLIGHT-MECHANICS.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:aeronautics:03-flight-mechanics, git-history:aeronautics:03-flight-mechanics]",
+        "canonical_path": "aeronautics/03-FLIGHT-MECHANICS.md",
+        "concepts": "[flight, mechanics]",
+        "current_path": "aeronautics/03-FLIGHT-MECHANICS.md",
+        "id": "maxim:aeronautics:flight-mechanics",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "aeronautics",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[flight, mechanics]",
+        "section": "aeronautics",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "03 - Flight Mechanics",
+        "updated": "null"
+      },
+      "text": "FAR 25 HANDLING QUALITY REQUIREMENTS (selected):\n  Short-period damping: ζ_sp = 0.35-1.3 (Level 1 range varies with ωn·n/α)\n  Phugoid: must damp within defined time; t₁/₂ > 55 sec if unstable\n  Dutch roll: ζ_DR × ωn_DR ≥ 0.05 rad/s; ζ_DR ≥ 0.08 (transport)\n  Roll time constant: τ_roll < 1.0 sec (for Class III: large transport)\n  Roll response: 30° bank in 1 engine out requires specific time to achieve"
+    },
+    {
+      "id": "03-FLIGHT-MECHANICS.md#084",
+      "path": [
+        "03-FLIGHT-MECHANICS.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:aeronautics:03-flight-mechanics, git-history:aeronautics:03-flight-mechanics]",
+        "canonical_path": "aeronautics/03-FLIGHT-MECHANICS.md",
+        "concepts": "[flight, mechanics]",
+        "current_path": "aeronautics/03-FLIGHT-MECHANICS.md",
+        "id": "maxim:aeronautics:flight-mechanics",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "aeronautics",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[flight, mechanics]",
+        "section": "aeronautics",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "03 - Flight Mechanics",
+        "updated": "null"
+      },
+      "text": "PILOT-INDUCED OSCILLATION (PIO):\n  Closed-loop instability: pilot + aircraft form feedback loop that oscillates\n  Common with FBW: phase lag between stick input and aircraft response\n  Prevention: FBW control laws must have adequate bandwidth and phase margin\n  Time delay budget: actuator + sensor + computation + comm < 50-100 ms total\n  PIOS incidents: JAS 39 Gripen prototype crash (1989); YF-22 landing (1992)\n```"
+    },
+    {
+      "id": "03-FLIGHT-MECHANICS.md#085",
+      "path": [
+        "03-FLIGHT-MECHANICS.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:aeronautics:03-flight-mechanics, git-history:aeronautics:03-flight-mechanics]",
+        "canonical_path": "aeronautics/03-FLIGHT-MECHANICS.md",
+        "concepts": "[flight, mechanics]",
+        "current_path": "aeronautics/03-FLIGHT-MECHANICS.md",
+        "id": "maxim:aeronautics:flight-mechanics",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "aeronautics",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[flight, mechanics]",
+        "section": "aeronautics",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "03 - Flight Mechanics",
+        "updated": "null"
+      },
+      "text": "---"
+    },
+    {
+      "id": "03-FLIGHT-MECHANICS.md#086",
+      "path": [
+        "03-FLIGHT-MECHANICS.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:aeronautics:03-flight-mechanics, git-history:aeronautics:03-flight-mechanics]",
+        "canonical_path": "aeronautics/03-FLIGHT-MECHANICS.md",
+        "concepts": "[flight, mechanics]",
+        "current_path": "aeronautics/03-FLIGHT-MECHANICS.md",
+        "id": "maxim:aeronautics:flight-mechanics",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "aeronautics",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[flight, mechanics]",
+        "section": "aeronautics",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "03 - Flight Mechanics",
+        "updated": "null"
+      },
+      "text": "## 9. V-n Diagram (Flight Envelope)"
+    },
+    {
+      "id": "03-FLIGHT-MECHANICS.md#087",
+      "path": [
+        "03-FLIGHT-MECHANICS.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:aeronautics:03-flight-mechanics, git-history:aeronautics:03-flight-mechanics]",
+        "canonical_path": "aeronautics/03-FLIGHT-MECHANICS.md",
+        "concepts": "[flight, mechanics]",
+        "current_path": "aeronautics/03-FLIGHT-MECHANICS.md",
+        "id": "maxim:aeronautics:flight-mechanics",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "aeronautics",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[flight, mechanics]",
+        "section": "aeronautics",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "03 - Flight Mechanics",
+        "updated": "null"
+      },
+      "text": "```\nV-n DIAGRAM (Velocity vs Load Factor):"
+    },
+    {
+      "id": "03-FLIGHT-MECHANICS.md#088",
+      "path": [
+        "03-FLIGHT-MECHANICS.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:aeronautics:03-flight-mechanics, git-history:aeronautics:03-flight-mechanics]",
+        "canonical_path": "aeronautics/03-FLIGHT-MECHANICS.md",
+        "concepts": "[flight, mechanics]",
+        "current_path": "aeronautics/03-FLIGHT-MECHANICS.md",
+        "id": "maxim:aeronautics:flight-mechanics",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "aeronautics",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[flight, mechanics]",
+        "section": "aeronautics",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "03 - Flight Mechanics",
+        "updated": "null"
+      },
+      "text": "Load factor: n = L/W = aerodynamic lift / weight\n    Level flight: n = 1\n    Pull-up maneuver: n > 1\n    Push-over / inverted: n < 0"
+    },
+    {
+      "id": "03-FLIGHT-MECHANICS.md#089",
+      "path": [
+        "03-FLIGHT-MECHANICS.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:aeronautics:03-flight-mechanics, git-history:aeronautics:03-flight-mechanics]",
+        "canonical_path": "aeronautics/03-FLIGHT-MECHANICS.md",
+        "concepts": "[flight, mechanics]",
+        "current_path": "aeronautics/03-FLIGHT-MECHANICS.md",
+        "id": "maxim:aeronautics:flight-mechanics",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "aeronautics",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[flight, mechanics]",
+        "section": "aeronautics",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "03 - Flight Mechanics",
+        "updated": "null"
+      },
+      "text": "┌─────────────────────────────────────────────────────────────┐\n  │  n                                                          │\n  │   │      ┌────────────────────── structural limit (+)       │\n  │ n_limit+ │·················· positive limit load factor     │\n  │   │     /                                                   │\n  │   │    /  ← stall boundary                                  │\n  │   │   /   CL = CL_max; n = q·S·CL_max / W ∝ V²            │\n  │ 1 │  /                                                      │\n  │   │ /                                                       │\n  │   │/_____________________ V_A    V_C    V_D   → V          │\n  │   │\\                                                        │\n  │   │ \\  ← negative stall boundary (CL = -CL_max)            │\n  │ n_limit- └──────────────────── structural limit (-)         │\n  └─────────────────────────────────────────────────────────────┘"
+    },
+    {
+      "id": "03-FLIGHT-MECHANICS.md#090",
+      "path": [
+        "03-FLIGHT-MECHANICS.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:aeronautics:03-flight-mechanics, git-history:aeronautics:03-flight-mechanics]",
+        "canonical_path": "aeronautics/03-FLIGHT-MECHANICS.md",
+        "concepts": "[flight, mechanics]",
+        "current_path": "aeronautics/03-FLIGHT-MECHANICS.md",
+        "id": "maxim:aeronautics:flight-mechanics",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "aeronautics",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[flight, mechanics]",
+        "section": "aeronautics",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "03 - Flight Mechanics",
+        "updated": "null"
+      },
+      "text": "KEY SPEEDS:\n  VS = stall speed (1g; n=1): V_S = √(2W / (ρ·S·CL_max))\n  VA = design maneuvering speed: max speed for full control deflection\n     VA = VS × √(n_limit+)  → at VA, stall occurs before structural limit\n     FAR 25: no structural damage from single full control input at VA\n  VC = design cruise speed: normal ops; must be above required cruise + margin\n  VD = design dive speed: VD ≥ 1.25 × VC typically; flutter-free to VD × 1.15\n  VNE = never-exceed speed (demonstrated for piston/GA aircraft)"
+    },
+    {
+      "id": "03-FLIGHT-MECHANICS.md#091",
+      "path": [
+        "03-FLIGHT-MECHANICS.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:aeronautics:03-flight-mechanics, git-history:aeronautics:03-flight-mechanics]",
+        "canonical_path": "aeronautics/03-FLIGHT-MECHANICS.md",
+        "concepts": "[flight, mechanics]",
+        "current_path": "aeronautics/03-FLIGHT-MECHANICS.md",
+        "id": "maxim:aeronautics:flight-mechanics",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "aeronautics",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[flight, mechanics]",
+        "section": "aeronautics",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "03 - Flight Mechanics",
+        "updated": "null"
+      },
+      "text": "FAR 25 LIMIT LOAD FACTORS (transport category):\n  Positive limit:  n_lim+ = 2.5  (clean); can be higher for aerobatic\n  Negative limit:  n_lim- = -1.0 clean / -0.5 flaps\n  Ultimate load:   1.5 × limit load factor (yield/fracture safety margin)"
+    },
+    {
+      "id": "03-FLIGHT-MECHANICS.md#092",
+      "path": [
+        "03-FLIGHT-MECHANICS.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:aeronautics:03-flight-mechanics, git-history:aeronautics:03-flight-mechanics]",
+        "canonical_path": "aeronautics/03-FLIGHT-MECHANICS.md",
+        "concepts": "[flight, mechanics]",
+        "current_path": "aeronautics/03-FLIGHT-MECHANICS.md",
+        "id": "maxim:aeronautics:flight-mechanics",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "aeronautics",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[flight, mechanics]",
+        "section": "aeronautics",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "03 - Flight Mechanics",
+        "updated": "null"
+      },
+      "text": "Proof load test: 100% limit load → no permanent deformation\n  Ultimate load test: 150% limit load → no collapse for ≥ 3 seconds"
+    },
+    {
+      "id": "03-FLIGHT-MECHANICS.md#093",
+      "path": [
+        "03-FLIGHT-MECHANICS.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:aeronautics:03-flight-mechanics, git-history:aeronautics:03-flight-mechanics]",
+        "canonical_path": "aeronautics/03-FLIGHT-MECHANICS.md",
+        "concepts": "[flight, mechanics]",
+        "current_path": "aeronautics/03-FLIGHT-MECHANICS.md",
+        "id": "maxim:aeronautics:flight-mechanics",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "aeronautics",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[flight, mechanics]",
+        "section": "aeronautics",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "03 - Flight Mechanics",
+        "updated": "null"
+      },
+      "text": "GUST ENVELOPE (superimposed on V-n):\n  Ude = vertical gust velocity (FAR 25: 56 fps at VC; 25 fps at VD for transport)\n  Δn = ρ·V·a·Kg·Ude / (2·W/S)    (Kg = gust alleviation factor ≈ 0.88)\n  Gust loads often critical at light loading (low W/S → more gust-sensitive)\n```"
+    },
+    {
+      "id": "03-FLIGHT-MECHANICS.md#094",
+      "path": [
+        "03-FLIGHT-MECHANICS.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:aeronautics:03-flight-mechanics, git-history:aeronautics:03-flight-mechanics]",
+        "canonical_path": "aeronautics/03-FLIGHT-MECHANICS.md",
+        "concepts": "[flight, mechanics]",
+        "current_path": "aeronautics/03-FLIGHT-MECHANICS.md",
+        "id": "maxim:aeronautics:flight-mechanics",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "aeronautics",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[flight, mechanics]",
+        "section": "aeronautics",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "03 - Flight Mechanics",
+        "updated": "null"
+      },
+      "text": "---"
+    },
+    {
+      "id": "03-FLIGHT-MECHANICS.md#095",
+      "path": [
+        "03-FLIGHT-MECHANICS.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:aeronautics:03-flight-mechanics, git-history:aeronautics:03-flight-mechanics]",
+        "canonical_path": "aeronautics/03-FLIGHT-MECHANICS.md",
+        "concepts": "[flight, mechanics]",
+        "current_path": "aeronautics/03-FLIGHT-MECHANICS.md",
+        "id": "maxim:aeronautics:flight-mechanics",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "aeronautics",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[flight, mechanics]",
+        "section": "aeronautics",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "03 - Flight Mechanics",
+        "updated": "null"
+      },
+      "text": "## 10. Performance"
+    },
+    {
+      "id": "03-FLIGHT-MECHANICS.md#096",
+      "path": [
+        "03-FLIGHT-MECHANICS.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:aeronautics:03-flight-mechanics, git-history:aeronautics:03-flight-mechanics]",
+        "canonical_path": "aeronautics/03-FLIGHT-MECHANICS.md",
+        "concepts": "[flight, mechanics]",
+        "current_path": "aeronautics/03-FLIGHT-MECHANICS.md",
+        "id": "maxim:aeronautics:flight-mechanics",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "aeronautics",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[flight, mechanics]",
+        "section": "aeronautics",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "03 - Flight Mechanics",
+        "updated": "null"
+      },
+      "text": "```\nPOINT PERFORMANCE (instantaneous):"
+    },
+    {
+      "id": "03-FLIGHT-MECHANICS.md#097",
+      "path": [
+        "03-FLIGHT-MECHANICS.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:aeronautics:03-flight-mechanics, git-history:aeronautics:03-flight-mechanics]",
+        "canonical_path": "aeronautics/03-FLIGHT-MECHANICS.md",
+        "concepts": "[flight, mechanics]",
+        "current_path": "aeronautics/03-FLIGHT-MECHANICS.md",
+        "id": "maxim:aeronautics:flight-mechanics",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "aeronautics",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[flight, mechanics]",
+        "section": "aeronautics",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "03 - Flight Mechanics",
+        "updated": "null"
+      },
+      "text": "CLIMB RATE (rate of climb, RC):\n  RC = (T - D)·V / W = P_excess / W    [ft/min or m/s]\n  Maximum RC: at speed where (T-D)·V is maximum\n  For jets: approx at minimum drag speed (best L/D speed)\n  Service ceiling: RC = 100 fpm (30 m/min)\n  Absolute ceiling: RC = 0 (thrust = drag; no further excess thrust)"
+    },
+    {
+      "id": "03-FLIGHT-MECHANICS.md#098",
+      "path": [
+        "03-FLIGHT-MECHANICS.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:aeronautics:03-flight-mechanics, git-history:aeronautics:03-flight-mechanics]",
+        "canonical_path": "aeronautics/03-FLIGHT-MECHANICS.md",
+        "concepts": "[flight, mechanics]",
+        "current_path": "aeronautics/03-FLIGHT-MECHANICS.md",
+        "id": "maxim:aeronautics:flight-mechanics",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "aeronautics",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[flight, mechanics]",
+        "section": "aeronautics",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "03 - Flight Mechanics",
+        "updated": "null"
+      },
+      "text": "RANGE (Breguet range equation):\n  R = (η_P / g) × (L/D) × (V/c_p) × ln(W₁/W₂)   [piston: η_P = prop efficiency]\n  R = (V/g) × (L/D) × (1/c_j) × ln(W₁/W₂)        [jet: c_j = thrust SFC]"
+    },
+    {
+      "id": "03-FLIGHT-MECHANICS.md#099",
+      "path": [
+        "03-FLIGHT-MECHANICS.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:aeronautics:03-flight-mechanics, git-history:aeronautics:03-flight-mechanics]",
+        "canonical_path": "aeronautics/03-FLIGHT-MECHANICS.md",
+        "concepts": "[flight, mechanics]",
+        "current_path": "aeronautics/03-FLIGHT-MECHANICS.md",
+        "id": "maxim:aeronautics:flight-mechanics",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "aeronautics",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[flight, mechanics]",
+        "section": "aeronautics",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "03 - Flight Mechanics",
+        "updated": "null"
+      },
+      "text": "Maximize range:\n    Jet: fly at speed for maximum L/D × M = maximum \"range parameter\" (M·L/D)\n    Piston: fly at maximum L/D speed (lower speed than jet optimum)\n    Altitude effect: higher altitude → lower ρ → must fly faster to maintain L/D,\n      but SFC of turbofan improves slightly → best cruise at high altitude/Mach"
+    },
+    {
+      "id": "03-FLIGHT-MECHANICS.md#100",
+      "path": [
+        "03-FLIGHT-MECHANICS.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:aeronautics:03-flight-mechanics, git-history:aeronautics:03-flight-mechanics]",
+        "canonical_path": "aeronautics/03-FLIGHT-MECHANICS.md",
+        "concepts": "[flight, mechanics]",
+        "current_path": "aeronautics/03-FLIGHT-MECHANICS.md",
+        "id": "maxim:aeronautics:flight-mechanics",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "aeronautics",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[flight, mechanics]",
+        "section": "aeronautics",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "03 - Flight Mechanics",
+        "updated": "null"
+      },
+      "text": "ENDURANCE (time in air):\n  E = (η_P / g) × (CL^(3/2)/CD) × (1/c_p) × (1/√(2ρ/S)) × (√W₁ - √W₂)  [piston]\n  Jet: maximum endurance at minimum fuel flow = minimum drag speed (V_min drag)\n  Endurance maximized at lower speed than range (more time per fuel burned)"
+    },
+    {
+      "id": "03-FLIGHT-MECHANICS.md#101",
+      "path": [
+        "03-FLIGHT-MECHANICS.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:aeronautics:03-flight-mechanics, git-history:aeronautics:03-flight-mechanics]",
+        "canonical_path": "aeronautics/03-FLIGHT-MECHANICS.md",
+        "concepts": "[flight, mechanics]",
+        "current_path": "aeronautics/03-FLIGHT-MECHANICS.md",
+        "id": "maxim:aeronautics:flight-mechanics",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "aeronautics",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[flight, mechanics]",
+        "section": "aeronautics",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "03 - Flight Mechanics",
+        "updated": "null"
+      },
+      "text": "STEP CLIMB:\n  As fuel burns, aircraft weight decreases → optimal altitude increases\n  Step climb: airline climbs every ~2000 lb of fuel burn to higher FL\n  Managed by FMS in step-climb mode"
+    },
+    {
+      "id": "03-FLIGHT-MECHANICS.md#102",
+      "path": [
+        "03-FLIGHT-MECHANICS.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:aeronautics:03-flight-mechanics, git-history:aeronautics:03-flight-mechanics]",
+        "canonical_path": "aeronautics/03-FLIGHT-MECHANICS.md",
+        "concepts": "[flight, mechanics]",
+        "current_path": "aeronautics/03-FLIGHT-MECHANICS.md",
+        "id": "maxim:aeronautics:flight-mechanics",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "aeronautics",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[flight, mechanics]",
+        "section": "aeronautics",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "03 - Flight Mechanics",
+        "updated": "null"
+      },
+      "text": "TURNING FLIGHT PERFORMANCE:\n  Sustained turn rate (STR): maximum ψ̇ at constant altitude and speed (g limited)\n  Instantaneous turn rate (ITR): maximum ψ̇ ignoring energy (structural limit)\n  Corner speed: V* where both structural limit and aerodynamic limit intersect = maximum ITR\n  Fighter merit figure: Energy maneuverability (EM) theory (Boyd)\n    Ps = (T-D)·V / W = specific excess power → drives turn rate AND acceleration"
+    },
+    {
+      "id": "03-FLIGHT-MECHANICS.md#103",
+      "path": [
+        "03-FLIGHT-MECHANICS.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:aeronautics:03-flight-mechanics, git-history:aeronautics:03-flight-mechanics]",
+        "canonical_path": "aeronautics/03-FLIGHT-MECHANICS.md",
+        "concepts": "[flight, mechanics]",
+        "current_path": "aeronautics/03-FLIGHT-MECHANICS.md",
+        "id": "maxim:aeronautics:flight-mechanics",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "aeronautics",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[flight, mechanics]",
+        "section": "aeronautics",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "03 - Flight Mechanics",
+        "updated": "null"
+      },
+      "text": "TAKEOFF AND LANDING:"
+    },
+    {
+      "id": "03-FLIGHT-MECHANICS.md#104",
+      "path": [
+        "03-FLIGHT-MECHANICS.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:aeronautics:03-flight-mechanics, git-history:aeronautics:03-flight-mechanics]",
+        "canonical_path": "aeronautics/03-FLIGHT-MECHANICS.md",
+        "concepts": "[flight, mechanics]",
+        "current_path": "aeronautics/03-FLIGHT-MECHANICS.md",
+        "id": "maxim:aeronautics:flight-mechanics",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "aeronautics",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[flight, mechanics]",
+        "section": "aeronautics",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "03 - Flight Mechanics",
+        "updated": "null"
+      },
+      "text": "GROUND ROLL (takeoff):\n    a = g(T/W - μ - CD_gr/(CL_gr + 2W/ρV²S))  (friction + aerodynamic drag - lift)\n    STO = V_R² / (2 · a_avg)   (approximation)\n    V_R = rotation speed ≥ 1.05 V_MC; then climb to 50 ft = FAR 25 screen height"
+    },
+    {
+      "id": "03-FLIGHT-MECHANICS.md#105",
+      "path": [
+        "03-FLIGHT-MECHANICS.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:aeronautics:03-flight-mechanics, git-history:aeronautics:03-flight-mechanics]",
+        "canonical_path": "aeronautics/03-FLIGHT-MECHANICS.md",
+        "concepts": "[flight, mechanics]",
+        "current_path": "aeronautics/03-FLIGHT-MECHANICS.md",
+        "id": "maxim:aeronautics:flight-mechanics",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "aeronautics",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[flight, mechanics]",
+        "section": "aeronautics",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "03 - Flight Mechanics",
+        "updated": "null"
+      },
+      "text": "BALANCED FIELD LENGTH (BFL):\n    Decision speed V₁: if engine fails before V₁ → stop; after V₁ → continue\n    BFL: accelerate-stop distance = accelerate-go distance (over 35 ft obstacle)\n    Determines: maximum MTOW for given runway; or minimum runway for given weight\n    OEI climb requirement: FAR 25 requires positive OEI climb gradient post-liftoff"
+    },
+    {
+      "id": "03-FLIGHT-MECHANICS.md#106",
+      "path": [
+        "03-FLIGHT-MECHANICS.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:aeronautics:03-flight-mechanics, git-history:aeronautics:03-flight-mechanics]",
+        "canonical_path": "aeronautics/03-FLIGHT-MECHANICS.md",
+        "concepts": "[flight, mechanics]",
+        "current_path": "aeronautics/03-FLIGHT-MECHANICS.md",
+        "id": "maxim:aeronautics:flight-mechanics",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "aeronautics",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[flight, mechanics]",
+        "section": "aeronautics",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "03 - Flight Mechanics",
+        "updated": "null"
+      },
+      "text": "LANDING:\n    Vref = 1.3 × VS_landing (50 ft screen height reference speed)\n    Ground roll: reverse thrust + brakes; landing distance to full stop\n    FAR 25: landing field length = 1/0.6 × actual stopping distance (60% correction)\n    Wet runway: additional 15% penalty for hydroplaning correction"
+    },
+    {
+      "id": "03-FLIGHT-MECHANICS.md#107",
+      "path": [
+        "03-FLIGHT-MECHANICS.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:aeronautics:03-flight-mechanics, git-history:aeronautics:03-flight-mechanics]",
+        "canonical_path": "aeronautics/03-FLIGHT-MECHANICS.md",
+        "concepts": "[flight, mechanics]",
+        "current_path": "aeronautics/03-FLIGHT-MECHANICS.md",
+        "id": "maxim:aeronautics:flight-mechanics",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "aeronautics",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[flight, mechanics]",
+        "section": "aeronautics",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "03 - Flight Mechanics",
+        "updated": "null"
+      },
+      "text": "SPECIFIC ENERGY AND EM THEORY (John Boyd):\n  Total specific energy: E_s = h + V²/(2g)   [altitude + velocity height]\n  Specific excess power: Ps = dE_s/dt = (T-D)·V/W\n  P_s = 0: maximum sustained turn rate at that altitude and speed\n  Fighter EM diagram: Ps contours overlaid; want high Ps envelope vs adversary\n```"
+    },
+    {
+      "id": "03-FLIGHT-MECHANICS.md#108",
+      "path": [
+        "03-FLIGHT-MECHANICS.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:aeronautics:03-flight-mechanics, git-history:aeronautics:03-flight-mechanics]",
+        "canonical_path": "aeronautics/03-FLIGHT-MECHANICS.md",
+        "concepts": "[flight, mechanics]",
+        "current_path": "aeronautics/03-FLIGHT-MECHANICS.md",
+        "id": "maxim:aeronautics:flight-mechanics",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "aeronautics",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[flight, mechanics]",
+        "section": "aeronautics",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "03 - Flight Mechanics",
+        "updated": "null"
+      },
+      "text": "---"
+    },
+    {
+      "id": "03-FLIGHT-MECHANICS.md#109",
+      "path": [
+        "03-FLIGHT-MECHANICS.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:aeronautics:03-flight-mechanics, git-history:aeronautics:03-flight-mechanics]",
+        "canonical_path": "aeronautics/03-FLIGHT-MECHANICS.md",
+        "concepts": "[flight, mechanics]",
+        "current_path": "aeronautics/03-FLIGHT-MECHANICS.md",
+        "id": "maxim:aeronautics:flight-mechanics",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "aeronautics",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[flight, mechanics]",
+        "section": "aeronautics",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "03 - Flight Mechanics",
+        "updated": "null"
+      },
+      "text": "## 11. Decision Cheat Sheet"
+    },
+    {
+      "id": "03-FLIGHT-MECHANICS.md#110",
+      "path": [
+        "03-FLIGHT-MECHANICS.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:aeronautics:03-flight-mechanics, git-history:aeronautics:03-flight-mechanics]",
+        "canonical_path": "aeronautics/03-FLIGHT-MECHANICS.md",
+        "concepts": "[flight, mechanics]",
+        "current_path": "aeronautics/03-FLIGHT-MECHANICS.md",
+        "id": "maxim:aeronautics:flight-mechanics",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "aeronautics",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[flight, mechanics]",
+        "section": "aeronautics",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "03 - Flight Mechanics",
+        "updated": "null"
+      },
+      "text": "| Question | Answer |\n|----------|--------|\n| Longitudinal static stability criterion? | ∂Cm/∂CL < 0; equivalently: CG forward of neutral point |\n| Neutral point location? | CG position at which Cm_α = 0; beyond NP → unstable |\n| Static margin for modern airliner? | 5-15% c̄; fighters may use 0 to -5% (unstable, FBW) |\n| Fastest mode of motion? | Short-period (α/q oscillation; ~1-4 sec period) |\n| Slowest longitudinal mode? | Phugoid (V/γ exchange; ~60-120 sec; lightly damped) |\n| What causes Dutch roll? | Swept wing high Cl_β (lateral) + weak Cn_β (dir.); needs yaw damper |\n| Why FBW for fighters? | Allows negative SM → better maneuverability; computer provides stability |\n| Corner speed? | Speed at which STR and ITR both maximize (structural + aerodynamic limits meet) |\n| Maneuvering speed VA significance? | At VA, aircraft stalls before structural limit is reached with full control input |\n| BFL stands for? | Balanced field length: stop distance = continue-and-climb distance at V₁ |\n| Load factor in 60° banked turn? | n = 1/cos(60°) = 2.0 |\n| Service ceiling definition? | Altitude where maximum RC = 100 fpm |\n| Phugoid period approximation? | T ≈ π√2 × V/g ≈ 100 sec at cruise |\n| What does Cm_δe < 0 mean? | Positive elevator → nose-down pitching moment (sign convention: up elevator = negative δe in most conventions) |\n| Cooper-Harper 1-3 = ? | Level 1 handling qualities: clearly adequate |"
+    }
+  ],
+  "refs": [
+    "03-FLIGHT-MECHANICS.md"
+  ]
+}
