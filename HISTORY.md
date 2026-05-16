@@ -796,10 +796,10 @@ Then the rule was written down: future MAXIM edits happen in the numbered guide 
 | Metric | Count |
 |--------|-------|
 | Directories | 217 |
-| Files | 2,481 |
-| Lines written | 826,537 |
-| Commits | ~207 |
-| Days | 6 |
+| Files | 18,093 |
+| Lines written | 5,634,221 |
+| Commits | 697 |
+| Days | 7 |
 | Cards designed | 52 + The Fool |
 | Directories reviewed | 167 of 168 (virology blocked) |
 | @editor tags injected | ~1,945 |
