@@ -1,3 +1,22 @@
+---
+maxim_schema: maxim.frontmatter.v1
+id: maxim:political-reformers:contemporary
+kind: guide
+module: political-reformers
+section: political-reformers
+title: Contemporary Reformers: Walesa, Havel, Gorbachev, Suu Kyi, Zelensky
+status: source-custody
+source_custody: partial
+current_path: political-reformers/09-CONTEMPORARY.md
+canonical_path: political-reformers/09-CONTEMPORARY.md
+backsource_ids: [proof-backfill:political-reformers:09-contemporary, git-history:political-reformers:09-contemporary]
+concepts: [contemporary]
+root_concepts: [contemporary]
+index_roles: [guide, root-concept]
+remap_from: []
+remap_to: []
+updated: null
+---
 # Contemporary Reformers: Walesa, Havel, Gorbachev, Suu Kyi, Zelensky
 
 ## The Big Picture

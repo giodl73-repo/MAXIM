@@ -1,3 +1,22 @@
+---
+maxim_schema: maxim.frontmatter.v1
+id: maxim:political-reformers:civil-rights
+kind: guide
+module: political-reformers
+section: political-reformers
+title: Civil Rights: Douglass, Du Bois, MLK, Malcolm X, Rosa Parks, Mandela
+status: source-custody
+source_custody: partial
+current_path: political-reformers/06-CIVIL-RIGHTS.md
+canonical_path: political-reformers/06-CIVIL-RIGHTS.md
+backsource_ids: [proof-backfill:political-reformers:06-civil-rights, git-history:political-reformers:06-civil-rights]
+concepts: [civil, rights]
+root_concepts: [civil, rights]
+index_roles: [guide, root-concept]
+remap_from: []
+remap_to: []
+updated: null
+---
 # Civil Rights: Douglass, Du Bois, MLK, Malcolm X, Rosa Parks, Mandela
 
 ## The Big Picture

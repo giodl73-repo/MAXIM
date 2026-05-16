@@ -1,3 +1,22 @@
+---
+maxim_schema: maxim.frontmatter.v1
+id: maxim:writers-poets:russian-literature
+kind: guide
+module: writers-poets
+section: writers-poets
+title: Russian Literature - Pushkin, Gogol, Turgenev, Dostoevsky, Tolstoy, Chekhov
+status: source-custody
+source_custody: partial
+current_path: writers-poets/05-RUSSIAN-LITERATURE.md
+canonical_path: writers-poets/05-RUSSIAN-LITERATURE.md
+backsource_ids: [proof-backfill:writers-poets:05-russian-literature, git-history:writers-poets:05-russian-literature]
+concepts: [russian, literature]
+root_concepts: [russian, literature]
+index_roles: [guide, root-concept]
+remap_from: []
+remap_to: []
+updated: null
+---
 # Russian Literature — Pushkin, Gogol, Turgenev, Dostoevsky, Tolstoy, Chekhov
 
 ## The Russian Literary Context

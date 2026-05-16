@@ -1,3 +1,22 @@
+---
+maxim_schema: maxim.frontmatter.v1
+id: maxim:writers-poets:contemporary
+kind: guide
+module: writers-poets
+section: writers-poets
+title: Contemporary World Literature - Morrison, Achebe, Rushdie, Gordimer, Coetzee, Pamuk, Munro
+status: source-custody
+source_custody: partial
+current_path: writers-poets/09-CONTEMPORARY.md
+canonical_path: writers-poets/09-CONTEMPORARY.md
+backsource_ids: [proof-backfill:writers-poets:09-contemporary, git-history:writers-poets:09-contemporary]
+concepts: [contemporary]
+root_concepts: [contemporary]
+index_roles: [guide, root-concept]
+remap_from: []
+remap_to: []
+updated: null
+---
 # Contemporary World Literature — Morrison, Achebe, Rushdie, Gordimer, Coetzee, Pamuk, Munro
 
 ## The Post-Colonial and Global Turn

@@ -1,3 +1,22 @@
+---
+maxim_schema: maxim.frontmatter.v1
+id: maxim:writers-poets:medieval
+kind: guide
+module: writers-poets
+section: writers-poets
+title: Medieval Literature - Dante, Chaucer, Petrarch, Boccaccio
+status: source-custody
+source_custody: partial
+current_path: writers-poets/02-MEDIEVAL.md
+canonical_path: writers-poets/02-MEDIEVAL.md
+backsource_ids: [proof-backfill:writers-poets:02-medieval, git-history:writers-poets:02-medieval]
+concepts: [medieval]
+root_concepts: [medieval]
+index_roles: [guide, root-concept]
+remap_from: []
+remap_to: []
+updated: null
+---
 # Medieval Literature — Dante, Chaucer, Petrarch, Boccaccio
 
 ## The Medieval Literary Context

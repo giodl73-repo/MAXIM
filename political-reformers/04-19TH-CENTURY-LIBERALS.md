@@ -1,3 +1,22 @@
+---
+maxim_schema: maxim.frontmatter.v1
+id: maxim:political-reformers:19th-century-liberals
+kind: guide
+module: political-reformers
+section: political-reformers
+title: 19th-Century Liberals: Bolivar, Garibaldi, Lincoln, Bismarck, Gladstone
+status: source-custody
+source_custody: partial
+current_path: political-reformers/04-19TH-CENTURY-LIBERALS.md
+canonical_path: political-reformers/04-19TH-CENTURY-LIBERALS.md
+backsource_ids: [proof-backfill:political-reformers:04-19th-century-liberals, git-history:political-reformers:04-19th-century-liberals]
+concepts: [19th, century, liberals]
+root_concepts: [19th, century]
+index_roles: [guide, root-concept]
+remap_from: []
+remap_to: []
+updated: null
+---
 # 19th-Century Liberals: Bolivar, Garibaldi, Lincoln, Bismarck, Gladstone
 
 ## The Big Picture

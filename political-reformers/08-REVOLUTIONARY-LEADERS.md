@@ -1,3 +1,22 @@
+---
+maxim_schema: maxim.frontmatter.v1
+id: maxim:political-reformers:revolutionary-leaders
+kind: guide
+module: political-reformers
+section: political-reformers
+title: Revolutionary Leaders: Lenin, Mao, Castro, Guevara
+status: source-custody
+source_custody: partial
+current_path: political-reformers/08-REVOLUTIONARY-LEADERS.md
+canonical_path: political-reformers/08-REVOLUTIONARY-LEADERS.md
+backsource_ids: [proof-backfill:political-reformers:08-revolutionary-leaders, git-history:political-reformers:08-revolutionary-leaders]
+concepts: [revolutionary, leaders]
+root_concepts: [revolutionary, leaders]
+index_roles: [guide, root-concept]
+remap_from: []
+remap_to: []
+updated: null
+---
 # Revolutionary Leaders: Lenin, Mao, Castro, Guevara
 
 ## The Big Picture

@@ -1,3 +1,22 @@
+---
+maxim_schema: maxim.frontmatter.v1
+id: maxim:writers-poets:20th-century-world
+kind: guide
+module: writers-poets
+section: writers-poets
+title: 20th-Century World Literature - Borges, García Márquez, Camus, Beckett, Nabokov, Sartre
+status: source-custody
+source_custody: partial
+current_path: writers-poets/08-20TH-CENTURY-WORLD.md
+canonical_path: writers-poets/08-20TH-CENTURY-WORLD.md
+backsource_ids: [proof-backfill:writers-poets:08-20th-century-world, git-history:writers-poets:08-20th-century-world]
+concepts: [20th, century, world]
+root_concepts: [20th, century]
+index_roles: [guide, root-concept]
+remap_from: []
+remap_to: []
+updated: null
+---
 # 20th-Century World Literature — Borges, García Márquez, Camus, Beckett, Nabokov, Sartre
 
 ## The Global Novel

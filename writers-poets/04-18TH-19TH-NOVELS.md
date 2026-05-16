@@ -1,3 +1,22 @@
+---
+maxim_schema: maxim.frontmatter.v1
+id: maxim:writers-poets:18th-19th-novels
+kind: guide
+module: writers-poets
+section: writers-poets
+title: 18th and 19th Century Novel - Defoe, Swift, Austen, Dickens, Flaubert, Balzac, Hardy
+status: source-custody
+source_custody: partial
+current_path: writers-poets/04-18TH-19TH-NOVELS.md
+canonical_path: writers-poets/04-18TH-19TH-NOVELS.md
+backsource_ids: [proof-backfill:writers-poets:04-18th-19th-novels, git-history:writers-poets:04-18th-19th-novels]
+concepts: [18th, 19th, novels]
+root_concepts: [18th, 19th]
+index_roles: [guide, root-concept]
+remap_from: []
+remap_to: []
+updated: null
+---
 # 18th and 19th Century Novel — Defoe, Swift, Austen, Dickens, Flaubert, Balzac, Hardy
 
 ## The Novel Becomes Dominant

@@ -1,3 +1,22 @@
+---
+maxim_schema: maxim.frontmatter.v1
+id: maxim:writers-poets:ancient-classical
+kind: guide
+module: writers-poets
+section: writers-poets
+title: Ancient Classical Literature - Homer, Sappho, Virgil, Ovid, Horace
+status: source-custody
+source_custody: partial
+current_path: writers-poets/01-ANCIENT-CLASSICAL.md
+canonical_path: writers-poets/01-ANCIENT-CLASSICAL.md
+backsource_ids: [proof-backfill:writers-poets:01-ancient-classical, git-history:writers-poets:01-ancient-classical]
+concepts: [ancient, classical]
+root_concepts: [ancient, classical]
+index_roles: [guide, root-concept]
+remap_from: []
+remap_to: []
+updated: null
+---
 # Ancient Classical Literature — Homer, Sappho, Virgil, Ovid, Horace
 
 ## The Foundation of Western Literature

@@ -1,3 +1,22 @@
+---
+maxim_schema: maxim.frontmatter.v1
+id: maxim:writers-poets:poetry-traditions
+kind: guide
+module: writers-poets
+section: writers-poets
+title: Poetry Traditions - Blake, Keats, Whitman, Dickinson, Yeats, Eliot, Rilke
+status: source-custody
+source_custody: partial
+current_path: writers-poets/07-POETRY-TRADITIONS.md
+canonical_path: writers-poets/07-POETRY-TRADITIONS.md
+backsource_ids: [proof-backfill:writers-poets:07-poetry-traditions, git-history:writers-poets:07-poetry-traditions]
+concepts: [poetry, traditions]
+root_concepts: [poetry, traditions]
+index_roles: [guide, root-concept]
+remap_from: []
+remap_to: []
+updated: null
+---
 # Poetry Traditions — Blake, Keats, Whitman, Dickinson, Yeats, Eliot, Rilke
 
 ## What Poetry Does That Prose Cannot

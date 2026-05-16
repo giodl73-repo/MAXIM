@@ -1,3 +1,22 @@
+---
+maxim_schema: maxim.frontmatter.v1
+id: maxim:political-reformers:witness-frame
+kind: guide
+module: political-reformers
+section: political-reformers
+title: The Witness's Frame
+status: source-custody
+source_custody: partial
+current_path: political-reformers/00-WITNESS-FRAME.md
+canonical_path: political-reformers/00-WITNESS-FRAME.md
+backsource_ids: [proof-backfill:political-reformers:00-witness-frame, git-history:political-reformers:00-witness-frame]
+concepts: [witness, frame]
+root_concepts: [witness, frame]
+index_roles: [guide, root-concept]
+remap_from: []
+remap_to: []
+updated: null
+---
 # The Witness's Frame
 
 ## Volume A, Part IV — Political Reformers, Social Reformers, Visionaries
