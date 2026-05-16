@@ -1,3 +1,22 @@
+---
+maxim_schema: maxim.frontmatter.v1
+id: maxim:urban-planning:land-use
+kind: guide
+module: urban-planning
+section: urban-planning
+title: Land Use and Zoning
+status: source-custody
+source_custody: partial
+current_path: urban-planning/01-LAND-USE.md
+canonical_path: urban-planning/01-LAND-USE.md
+backsource_ids: [proof-backfill:urban-planning:01-land-use, git-history:urban-planning:01-land-use]
+concepts: [land, use]
+root_concepts: [land, use]
+index_roles: [guide, root-concept]
+remap_from: []
+remap_to: []
+updated: null
+---
 # Land Use and Zoning
 
 ## The Big Picture

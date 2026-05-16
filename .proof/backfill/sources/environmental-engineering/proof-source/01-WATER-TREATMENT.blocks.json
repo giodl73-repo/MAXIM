@@ -1,0 +1,138 @@
+{
+  "schema_version": "1",
+  "source_markdown": "environmental-engineering\\01-WATER-TREATMENT.md",
+  "blocks": [
+    {
+      "id": "block-1",
+      "kind": "diagram_like",
+      "line": 26,
+      "heading_context": "## The Big Picture",
+      "confidence": "candidate",
+      "text": "SURFACE WATER TREATMENT TRAIN (conventional)\n\n  Stages in order:\n    Source water intake -> screen\n    Coagulation (rapid mix): coag basin, alum or FeCl3, pH 6.5-7.5\n    Flocculation (slow mix): G = 20-80, Gtheta = 40k-100k\n    Sedimentation (clarifier): sedim basin, SOR 0.5-1.0 gpm/ft^2\n    Filtration: sand or anthracite, 2-5 gpm/ft^2\n    Disinfection: Cl2 (with CT residual), UV, or ozone\n  Then to the distribution system.\n\n  Coagulation through filtration removes turbidity, colloids,\n  algae; disinfection removes DBP precursors and pathogens.\n\nGROUNDWATER TREATMENT TRAIN (simpler — no turbidity burden)\n\n  Well → Aeration (if Fe/Mn/H₂S) → Filtration → Disinfection → Distribution\n  Possible additions: softening, nitrate removal, arsenic treatment",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-2",
+      "kind": "ascii_table_candidate",
+      "line": 58,
+      "heading_context": "## Source Water Characterization",
+      "confidence": "candidate",
+      "text": "  +------------------+--------------------+----------------------+\n  | Parameter        | Surface Water      | Groundwater          |\n  +------------------+--------------------+----------------------+\n  | Turbidity        | Variable, 1–1000   | Typically <1 NTU     |\n  |                  | NTU (storms spike) | (no treatment needed)|\n  +------------------+--------------------+----------------------+\n  | Color/NOM        | High (humic/fulvic | Generally lower      |\n  |                  | acids → DBP precur)|                      |\n  +------------------+--------------------+----------------------+\n  | Pathogens        | Giardia, Crypto,   | Generally absent     |\n  |                  | enteric viruses    | unless GWUDI         |\n  +------------------+--------------------+----------------------+\n  | Temperature      | Seasonal variation | Stable (≈mean        |\n  |                  | affects coag/filt  | annual air temp)     |\n  +------------------+--------------------+----------------------+\n  | Hardness         | Varies             | Often high (limestone|\n  |                  |                    | aquifers → CaCO₃ Sat)|\n  +------------------+--------------------+----------------------+\n  | Fe / Mn          | Low (aerobic)      | Often elevated       |\n  |                  |                    | (reducing conditions)|\n  +------------------+--------------------+----------------------+\n  | Arsenic          | Generally low      | Geogenic — can be    |\n  |                  |                    | high (>10 ppb) in    |\n  |                  |                    | certain geologies    |\n  +------------------+--------------------+----------------------+\n  | PFAS             | Present near       | Present near AFFF    |\n  |                  | industrial/AFFF    | sites, landfills     |\n  +------------------+--------------------+----------------------+",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-3",
+      "kind": "diagram_like",
+      "line": 100,
+      "heading_context": "## Coagulation",
+      "confidence": "candidate",
+      "text": "  MECHANISM OF COAGULATION\n\n  Colloid particles: negatively charged → repel each other → stable suspension\n\n  Two destabilization mechanisms:\n\n  1. CHARGE NEUTRALIZATION (dominant at lower doses)\n     Al³⁺ or Fe³⁺ adsorb on particle surface → compress double layer\n     → reduce repulsion → particles approach → van der Waals attraction\n     takes over → aggregate\n\n  2. SWEEP FLOC (dominant at higher doses — conventional treatment)\n     Al(OH)₃(s) precipitate forms as amorphous floc\n     → enmeshes and sweeps colloidal particles as it settles\n     → less sensitive to exact dose — more robust for variable water quality\n\n  Coagulants:\n  ┌──────────────────────┬────────────────────────────────────────────┐\n  │ Coagulant            │ Notes                                      │\n  ├──────────────────────┼────────────────────────────────────────────┤\n  │ Alum                 │ Al₂(SO₄)₃·14H₂O — most common,           │\n  │ (aluminum sulfate)   │ lowers pH (consume alkalinity)             │\n  ├──────────────────────┼────────────────────────────────────────────┤\n  │ Ferric sulfate       │ Fe₂(SO₄)₃ — effective at wider pH range    │\n  │                      │ than alum; produces denser sludge          │\n  ├──────────────────────┼────────────────────────────────────────────┤\n  │ Ferric chloride      │ FeCl₃ — similar to ferric sulfate         │\n  ├──────────────────────┼────────────────────────────────────────────┤\n  │ PACl (polyaluminum   │ Pre-polymerized — less pH depression,      │\n  │ chloride)            │ effective in cold water                    │\n  ├──────────────────────┼────────────────────────────────────────────┤\n  │ Cationic polymer     │ Used as primary coagulant or coagulant aid │\n  │                      │ — expensive but no sludge increase         │\n  └──────────────────────┴────────────────────────────────────────────┘\n\n  Optimal pH: 6.5–7.5 for alum; 5.5–7.5 for ferric.\n  Jar test: bench-scale optimization of dose, pH, and mixing —\n  determines the coagulant dose before full-scale implementation.",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-4",
+      "kind": "diagram_like",
+      "line": 171,
+      "heading_context": "## Sedimentation",
+      "confidence": "candidate",
+      "text": "  SETTLING THEORY (Stokes' Law)\n\n  v_s = g(ρ_p - ρ_w)d² / 18μ\n\n    v_s = settling velocity (m/s)\n    g   = gravitational acceleration\n    ρ_p = particle density, ρ_w = water density\n    d   = particle diameter\n    μ   = dynamic viscosity\n\n  KEY DESIGN INSIGHT: A particle is removed if v_s ≥ Q/A_s\n    (overflow rate = flow / surface area)\n  Doubling tank area — not depth — doubles removal.\n\n  OVERFLOW RATE (SOR / SLR):\n  Conventional horizontal flow:  0.5–1.0 gpm/ft² (1.2–2.5 m/h)\n  High-rate settlers:            2–4 gpm/ft² (5–10 m/h)\n\n  HIGH-RATE SETTLING OPTIONS:\n  ┌──────────────────┬─────────────────────────────────────────────┐\n  │ Type             │ Mechanism                                   │\n  ├──────────────────┼─────────────────────────────────────────────┤\n  │ Tube settlers    │ Inclined tubes (60°) increase effective     │\n  │                  │ settling area 5–10× per footprint          │\n  ├──────────────────┼─────────────────────────────────────────────┤\n  │ Plate settlers   │ Parallel inclined plates — same principle   │\n  │ (lamella)        │                                             │\n  ├──────────────────┼─────────────────────────────────────────────┤\n  │ DAF              │ Dissolved air flotation — low-density       │\n  │                  │ particles (algae, oil) rise rather than     │\n  │                  │ settle; air bubbles attach and float floc  │\n  └──────────────────┴─────────────────────────────────────────────┘",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-5",
+      "kind": "diagram_like",
+      "line": 213,
+      "heading_context": "## Filtration",
+      "confidence": "candidate",
+      "text": "  RAPID SAND FILTRATION (most common)\n\n  Media cross-section (dual media, top to bottom):\n    Anthracite coal: 18-24\" (coarse, light)\n      ES 0.8-1.4 mm, UC < 1.6; captures large floc first.\n    Sand: 8-12\" (fine, dense)\n      ES 0.45-0.55 mm, UC < 1.6; final polishing.\n    Gravel support layers.\n    Underdrain (perforated laterals or nozzles).\n\n  DESIGN PARAMETERS:\n  ├── Loading rate: 2–5 gpm/ft² (5–12 m/h)\n  ├── Run length: 24–72 hours before backwash\n  ├── Effluent turbidity target: <0.1 NTU (Crypto credit requires)\n  └── Backwash: reverse flow at 12–20 gpm/ft² for 5–15 min to\n      expand and clean media; surface wash assists\n\n  FILTRATION MODES:\n  ┌──────────────┬──────────┬─────────────────────────────────────┐\n  │ Mode         │ Loading  │ When Used                           │\n  ├──────────────┼──────────┼─────────────────────────────────────┤\n  │ Conventional │ 2–5      │ After coag/floc/sed — standard      │\n  │ filtration   │ gpm/ft²  │ surface water treatment             │\n  ├──────────────┼──────────┼─────────────────────────────────────┤\n  │ Direct       │ 2–5      │ High-quality source water — skip    │\n  │ filtration   │ gpm/ft²  │ sedimentation; low turbidity source │\n  ├──────────────┼──────────┼─────────────────────────────────────┤\n  │ Slow sand    │ 0.05–0.1 │ Small systems; biological skin      │\n  │              │ gpm/ft²  │ (schmutzdecke) does the work;      │\n  │              │          │ excellent Giardia/virus removal;    │\n  │              │          │ limited turbidity tolerance         │\n  └──────────────┴──────────┴─────────────────────────────────────┘",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-6",
+      "kind": "diagram_like",
+      "line": 255,
+      "heading_context": "## Disinfection",
+      "confidence": "candidate",
+      "text": "  CT CONCEPT\n\n  Chick's Law: N_t = N_0 · exp(-k·t)\n    N_t = pathogen concentration at time t\n    k   = inactivation rate constant (depends on disinfectant + organism)\n\n  Inactivation = exp(-k·C·t)  → depends on C×t = CT\n\n  SWTR and LT2ESWTR specify required CT for each pathogen:\n  Giardia 3-log: CT varies by temp and pH\n    e.g., Cl₂ at pH 7, 15°C: CT = 73 mg·min/L\n  Crypto 2-log (LT2): Cl₂ barely works; UV preferred\n    UV dose for 2-log Crypto: 5.8 mJ/cm²\n    UV dose for 4-log Crypto: 22 mJ/cm²\n  Viruses 4-log: free chlorine very effective (CT ~6 at pH 6, 10°C)\n\n  DISINFECTION OPTIONS:\n  ┌──────────────┬─────────────────┬──────────────────────────────┐\n  │ Disinfectant │ Pros            │ Cons                         │\n  ├──────────────┼─────────────────┼──────────────────────────────┤\n  │ Free         │ Effective, cheap│ THMs + HAA5s (DBPs);         │\n  │ chlorine     │ residual in     │ less effective vs. Crypto;   │\n  │ (Cl₂)        │ distribution    │ taste/odor at high doses     │\n  ├──────────────┼─────────────────┼──────────────────────────────┤\n  │ Chloramines  │ Lower DBP       │ Nitrification risk in dist.; │\n  │ (NH₂Cl)      │ formation;      │ less virucidal than free Cl₂;│\n  │              │ persistent resi-│ NDMA formation potential;    │\n  │              │ dual in distrib │ \"chloramine taste\"           │\n  ├──────────────┼─────────────────┼──────────────────────────────┤\n  │ UV           │ No DBPs;        │ No residual — must combine   │\n  │              │ excellent Crypto│ with Cl₂/chloramine;         │\n  │              │ inactivation    │ turbidity must be low (<1 NTU│\n  ├──────────────┼─────────────────┼──────────────────────────────┤\n  │ Ozone        │ Powerful        │ Bromate formation (bromide   │\n  │              │ oxidant; Crypto │ in source water + O₃);       │\n  │              │ effective;      │ no distribution residual;    │\n  │              │ destroys taste/ │ high capital cost            │\n  │              │ odor compounds  │                              │\n  └──────────────┴─────────────────┴──────────────────────────────┘",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-7",
+      "kind": "diagram_like",
+      "line": 301,
+      "heading_context": "### Disinfection Byproducts (DBPs)",
+      "confidence": "candidate",
+      "text": "  NOM (humic/fulvic acids)  +  Cl₂  →  THMs  +  HAA5s  +  other DBPs\n\n  TTHM (total trihalomethanes): MCL = 80 μg/L\n    Chloroform (CHCl₃), bromodichloromethane, dibromochloromethane, bromoform\n  HAA5 (five haloacetic acids):  MCL = 60 μg/L\n    Monochloroacetic, dichloroacetic, trichloroacetic, mono/dibromoacetic\n\n  Control strategies (DBP Rule compliance):\n  ├── Reduce NOM before disinfection: coagulation (enhanced coag at lower pH),\n  │   GAC adsorption, membranes\n  ├── Move disinfection point later in train (after NOM removal)\n  ├── Switch from Cl₂ to chloramine or UV (lower THM/HAA formation)\n  └── Optimize distribution residence time (water age → DBP accumulation)",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-8",
+      "kind": "diagram_like",
+      "line": 324,
+      "heading_context": "## Membrane Treatment",
+      "confidence": "candidate",
+      "text": "  MEMBRANE SPECTRUM\n\n  Pore size:   0.1 μm        0.01 μm      0.001 μm      0.0001 μm\n               ┌──────────┬──────────────┬─────────────┬──────────┐\n  Process:     │    MF    │      UF      │     NF      │    RO    │\n               └──────────┴──────────────┴─────────────┴──────────┘\n  Removes:     Turbidity   Turbidity+     NOM, divalent  Dissolved\n               Cysts       viruses        ions, hardness  salts, PFAS\n               Bacteria    Bacteria       (partial TDS)  TDS, nitrate\n\n  Mechanism:   Size        Size           Size + charge  Diffusion\n               exclusion   exclusion      exclusion      (dense membrane)\n\n  Pressure:    5–30 psi    5–60 psi       50–150 psi    150–1000 psi\n\n  Energy:      Low         Low            Moderate       High\n               (gravity    (low pump)     (1–3 kWh/m³)  (3–10 kWh/m³)\n               possible)\n\n  Key metrics:\n  ├── Recovery = Q_permeate / Q_feed  (typical RO: 75–85%)\n  ├── Rejection = 1 - (C_permeate / C_feed)  × 100%\n  └── Concentrate/brine: the rejected fraction must be managed\n      (disposal options: sewer, deep injection well, evaporation pond,\n       zero liquid discharge ZLD if geography requires)",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-9",
+      "kind": "diagram_like",
+      "line": 357,
+      "heading_context": "### Reverse Osmosis in Data Center Context",
+      "confidence": "candidate",
+      "text": "  ┌──────────────────────────────────────────────────────────────┐\n  │ WATER BALANCE: DATA CENTER EVAPORATIVE COOLING               │\n  │                                                              │\n  │ Municipal  →  Pretreatment  →  RO  →  Cooling tower          │\n  │ supply         (antiscalant,    ↓      makeup water          │\n  │                softening)    Brine →  sewer or reuse         │\n  │                              (15-25%)                        │\n  │                                                              │\n  │ Cycles of concentration (CoC): how many times minerals       │\n  │ concentrate before blowdown                                  │\n  │ CoC = TDS_blowdown / TDS_makeup                              │\n  │ Higher CoC → less blowdown → less water wasted               │\n  │ Limit: scaling (CaCO₃, SiO₂) and corrosion                   │\n  │                                                              │\n  │ Microsoft \"Water Positive\": consume less fresh water than    │\n  │ returned/recharged in same basin — requires detailed water   │\n  │ balance accounting per AWWA methodology                      │\n  └──────────────────────────────────────────────────────────────┘",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-10",
+      "kind": "diagram_like",
+      "line": 385,
+      "heading_context": "## PFAS Treatment",
+      "confidence": "candidate",
+      "text": "  PFAS BACKGROUND\n  ├── ~12,000 compounds; PFOA + PFOS most studied\n  ├── C-F bond: strongest in organic chemistry — does not degrade naturally\n  ├── Bioaccumulative; linked to thyroid, kidney cancer, immunotoxicity\n  └── Sources: AFFF (airport/military fire training), industrial discharge,\n               landfill leachate, biosolids land application\n\n  2024 PFAS MCL RULE (EPA, April 2024):\n  ├── PFOA:  4 ppt (ng/L)  MCL\n  ├── PFOS:  4 ppt          MCL\n  ├── PFNA, PFHxS: 10 ppt  individual MCLs\n  └── PFBS + GenX: hazard index ≤1 (combined)\n\n  TREATMENT TECHNOLOGIES:\n  ┌──────────────────┬────────────────────────────────────────────┐\n  │ Technology       │ Notes                                      │\n  ├──────────────────┼────────────────────────────────────────────┤\n  │ GAC (granular    │ Adsorbs PFAS on carbon surface;           │\n  │ activated        │ 90–99% removal for long-chain PFAS;       │\n  │ carbon)          │ less effective for short-chain (PFBS);    │\n  │                  │ exhausted carbon: reactivate or incinerate│\n  │                  │ EBCT (empty bed contact time): 10–20 min  │\n  ├──────────────────┼────────────────────────────────────────────┤\n  │ Ion exchange     │ Single-use (PFAS-selective resin) or       │\n  │ (IX resin)       │ regenerable (PFAS then concentrated);      │\n  │                  │ very high removal including short-chain;   │\n  │                  │ brine concentrate requires destruction     │\n  ├──────────────────┼────────────────────────────────────────────┤\n  │ High-pressure    │ NF/RO: >95% rejection of PFAS;           │\n  │ membranes        │ concentrate problem — does not destroy;   │\n  │                  │ used where low TDS is also needed         │\n  ├──────────────────┼────────────────────────────────────────────┤\n  │ PFAS destruction │ EMERGING: electrochemical oxidation,       │\n  │ (emerging)       │ supercritical water oxidation (SCWO),      │\n  │                  │ sonochemical, thermal desorption +         │\n  │                  │ high-temp incineration (>1100°C)           │\n  └──────────────────┴────────────────────────────────────────────┘",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-11",
+      "kind": "diagram_like",
+      "line": 432,
+      "heading_context": "## Distribution System",
+      "confidence": "candidate",
+      "text": "  DISTRIBUTION SYSTEM CHALLENGES\n\n  ┌─────────────────────┬───────────────────────────────────────┐\n  │ Challenge           │ Mechanism / Consequence               │\n  ├─────────────────────┼───────────────────────────────────────┤\n  │ Chlorine decay      │ Chick-Watson: Cl₂ reacts with NOM    │\n  │ (residual loss)     │ and biofilm in pipes; minimum         │\n  │                     │ residual required at all points:      │\n  │                     │ free Cl₂ ≥0.2 mg/L (SDWA)           │\n  ├─────────────────────┼───────────────────────────────────────┤\n  │ DBP formation       │ Continues in distribution as Cl₂      │\n  │ (water age)         │ reacts with residual NOM;             │\n  │                     │ LRAA monitoring required              │\n  ├─────────────────────┼───────────────────────────────────────┤\n  │ Nitrification       │ With chloramine: ammonia released     │\n  │                     │ supports nitrifier growth → chloramine│\n  │                     │ depleted → loss of residual           │\n  ├─────────────────────┼───────────────────────────────────────┤\n  │ Lead leaching       │ Lead service lines + lead solder;     │\n  │ (Lead & Copper Rule)│ Lead action level: 15 ppb at tap;     │\n  │                     │ corrosion control treatment (CCT)     │\n  │                     │ required; LSL replacement program     │\n  ├─────────────────────┼───────────────────────────────────────┤\n  │ Cross-connection    │ Backflow from irrigation, industrial  │\n  │                     │ processes into potable system;        │\n  │                     │ backflow prevention assemblies (RPZ,  │\n  │                     │ double-check valve) required          │\n  └─────────────────────┴───────────────────────────────────────┘",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-12",
+      "kind": "diagram_like",
+      "line": 467,
+      "heading_context": "## Regulatory Summary",
+      "confidence": "candidate",
+      "text": "  RULE                   KEY REQUIREMENT\n  ----                   ---------------\n  SDWA (1974/1996)       Authorizes MCLs and TT requirements; primacy to states\n  SWTR (1989)            4-log Giardia, 5-log virus log removal/inactivation;\n                         turbidity <0.3 NTU in 95% of samples\n  LT2ESWTR (2006)        Crypto-specific risk; additional log credit via UV or ozone\n  DBP Rule Stage 2       LRAA (locational running annual average) monitoring;\n  (2006)                 TTHM 80 μg/L, HAA5 60 μg/L\n  Lead & Copper Rule     90th percentile lead ≤15 ppb; CCT; LSL inventory + replacement\n  (1991/2021 Rev.)\n  PFAS MCL Rule          PFOA/PFOS MCL = 4 ppt; PFNA/PFHxS = 10 ppt (April 2024)\n  (2024)\n  GWUDI                  GW hydraulically connected to SW → full SWTR compliance",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    }
+  ]
+}

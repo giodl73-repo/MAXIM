@@ -1,3 +1,22 @@
+---
+maxim_schema: maxim.frontmatter.v1
+id: maxim:environmental-engineering:air-quality
+kind: guide
+module: environmental-engineering
+section: environmental-engineering
+title: Air Quality Engineering
+status: source-custody
+source_custody: partial
+current_path: environmental-engineering/03-AIR-QUALITY.md
+canonical_path: environmental-engineering/03-AIR-QUALITY.md
+backsource_ids: [proof-backfill:environmental-engineering:03-air-quality, git-history:environmental-engineering:03-air-quality]
+concepts: [air, quality]
+root_concepts: [air, quality]
+index_roles: [guide, root-concept]
+remap_from: []
+remap_to: []
+updated: null
+---
 # Air Quality Engineering
 
 ## The Big Picture

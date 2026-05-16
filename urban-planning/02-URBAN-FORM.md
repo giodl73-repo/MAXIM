@@ -1,3 +1,22 @@
+---
+maxim_schema: maxim.frontmatter.v1
+id: maxim:urban-planning:urban-form
+kind: guide
+module: urban-planning
+section: urban-planning
+title: Urban Form and Morphology
+status: source-custody
+source_custody: partial
+current_path: urban-planning/02-URBAN-FORM.md
+canonical_path: urban-planning/02-URBAN-FORM.md
+backsource_ids: [proof-backfill:urban-planning:02-urban-form, git-history:urban-planning:02-urban-form]
+concepts: [urban, form]
+root_concepts: [urban, form]
+index_roles: [guide, root-concept]
+remap_from: []
+remap_to: []
+updated: null
+---
 # Urban Form and Morphology
 
 ## The Big Picture

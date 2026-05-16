@@ -1,3 +1,22 @@
+---
+maxim_schema: maxim.frontmatter.v1
+id: maxim:environmental-engineering:sustainability
+kind: guide
+module: environmental-engineering
+section: environmental-engineering
+title: Sustainability Engineering
+status: source-custody
+source_custody: partial
+current_path: environmental-engineering/06-SUSTAINABILITY.md
+canonical_path: environmental-engineering/06-SUSTAINABILITY.md
+backsource_ids: [proof-backfill:environmental-engineering:06-sustainability, git-history:environmental-engineering:06-sustainability]
+concepts: [sustainability]
+root_concepts: [sustainability]
+index_roles: [guide, root-concept]
+remap_from: []
+remap_to: []
+updated: null
+---
 # Sustainability Engineering
 
 ## The Big Picture

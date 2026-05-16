@@ -1,3 +1,22 @@
+---
+maxim_schema: maxim.frontmatter.v1
+id: maxim:environmental-engineering:remediation
+kind: guide
+module: environmental-engineering
+section: environmental-engineering
+title: Site Remediation
+status: source-custody
+source_custody: partial
+current_path: environmental-engineering/05-REMEDIATION.md
+canonical_path: environmental-engineering/05-REMEDIATION.md
+backsource_ids: [proof-backfill:environmental-engineering:05-remediation, git-history:environmental-engineering:05-remediation]
+concepts: [remediation]
+root_concepts: [remediation]
+index_roles: [guide, root-concept]
+remap_from: []
+remap_to: []
+updated: null
+---
 # Site Remediation
 
 ## The Big Picture

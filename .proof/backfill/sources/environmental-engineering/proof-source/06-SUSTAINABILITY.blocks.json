@@ -1,0 +1,171 @@
+{
+  "schema_version": "1",
+  "source_markdown": "environmental-engineering\\06-SUSTAINABILITY.md",
+  "blocks": [
+    {
+      "id": "block-1",
+      "kind": "diagram_like",
+      "line": 29,
+      "heading_context": "## The Big Picture",
+      "confidence": "candidate",
+      "text": "  SUSTAINABILITY ENGINEERING FRAMEWORKS\n\n  ┌─────────────────────────────────────────────────────────────────┐\n  │  LIFE CYCLE ASSESSMENT (LCA)                                    │\n  │  ISO 14040 / 14044                                              │\n  │  Goal: quantify ALL environmental impacts across full           │\n  │  product/system life — climate, water, toxicity, land use       │\n  │  Scale: product/process/service                                 │\n  ├─────────────────────────────────────────────────────────────────┤\n  │  CARBON FOOTPRINT / GHG ACCOUNTING                             │\n  │  GHG Protocol Corporate Standard                               │\n  │  Goal: quantify greenhouse gas emissions (CO₂e)                │\n  │  Scale: organization, product, project, value chain            │\n  │  Subset of LCA focused on climate change impact only           │\n  ├─────────────────────────────────────────────────────────────────┤\n  │  CIRCULAR ECONOMY                                               │\n  │  Ellen MacArthur Foundation model                               │\n  │  Goal: eliminate waste and pollution by design; keep            │\n  │  materials in use; regenerate natural systems                   │\n  │  Scale: business model, product design, industrial symbiosis    │\n  └─────────────────────────────────────────────────────────────────┘\n            ↓                    ↓                    ↓\n  ┌─────────────────────────────────────────────────────────────────┐\n  │  REPORTING / DISCLOSURE FRAMEWORKS                              │\n  │  GHG Protocol → Scope 1/2/3 reporting                           │\n  │  TCFD / ISSB IFRS S2 → climate-related financial disclosure     │\n  │  SBTi → science-based emission reduction targets                │\n  │  CDP / GRI / SASB → voluntary disclosure aggregators            │\n  │  SEC Climate Rule → mandatory US public company disclosure      │\n  └─────────────────────────────────────────────────────────────────┘",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-2",
+      "kind": "diagram_like",
+      "line": 70,
+      "heading_context": "### Four Phases of LCA",
+      "confidence": "candidate",
+      "text": "  PHASE 1: GOAL AND SCOPE DEFINITION\n  ├── Functional unit (FU): the reference unit for all inputs/outputs\n  │   Example: \"provision of 1 m³ of drinking water at the customer tap\"\n  │   Example: \"1 year of operation of a 10 MW data center\"\n  │   Choice of FU determines what gets compared and how\n  ├── System boundary: what is included/excluded\n  │   Cradle-to-grave: raw materials → disposal\n  │   Cradle-to-gate: raw materials → factory gate (common for B2B)\n  │   Gate-to-gate: just the manufacturing stage\n  │   Cradle-to-cradle: circular, materials re-enter system\n  ├── Allocation rules: how to distribute impacts when a process\n  │   produces multiple outputs (e.g., refinery → gasoline + diesel + jet fuel)\n  │   Methods: mass-based, economic, system expansion (preferred)\n  └── Intended audience and decision context\n\n  PHASE 2: LIFE CYCLE INVENTORY (LCI)\n  ├── Data collection: all material inputs, energy inputs, water,\n  │   and all emissions to air/water/soil for each unit process\n  ├── Foreground data: the specific system being studied (measured/modeled)\n  ├── Background data: upstream supply chain → use LCI databases\n  │   Ecoinvent (ecoinvent.org): 18,000+ datasets; global coverage;\n  │   gold standard; licensed (~$3k–10k/yr or via SimaPro/GaBi)\n  │   US LCI database (NREL): free; US-specific but smaller\n  │   GaBi: LCI database + software (Thinkstep/Sphera)\n  └── Uncertainty: parameter uncertainty vs. model uncertainty vs.\n      scenario uncertainty\n\n  PHASE 3: LIFE CYCLE IMPACT ASSESSMENT (LCIA)\n  ├── Characterization: multiply LCI results by characterization factors\n  │   to convert emissions to impact scores (e.g., CH₄ × 29.8 = kg CO₂e)\n  ├── Normalization: divide by reference system (optional but context-giving)\n  └── Weighting: assign relative importance to impact categories (subjective)\n\n  PHASE 4: INTERPRETATION\n  ├── Identify hotspots: which processes/flows dominate which impact?\n  ├── Sensitivity analysis: how do results change with key assumptions?\n  ├── Uncertainty analysis: Monte Carlo or analytical propagation\n  └── Conclusions and recommendations",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-3",
+      "kind": "diagram_like",
+      "line": 113,
+      "heading_context": "### Impact Categories and Methods",
+      "confidence": "candidate",
+      "text": "  LCIA IMPACT CATEGORIES (major)\n\n  ┌────────────────────────┬─────────────────────┬────────────────────┐\n  │ Impact Category        │ Unit                │ Key Characterization│\n  ├────────────────────────┼─────────────────────┼────────────────────┤\n  │ Climate change (GWP)   │ kg CO₂ equivalent  │ IPCC AR6 GWP100    │\n  │ (global warming)       │                     │ CH₄ = 29.8, N₂O = │\n  │                        │                     │ 273, SF₆ = 23,500  │\n  ├────────────────────────┼─────────────────────┼────────────────────┤\n  │ Acidification          │ kg SO₂ equivalent  │ SO₂, NOₓ, HCl,      │\n  │                        │                     │ HF, NH₃ → acid dep │\n  ├────────────────────────┼─────────────────────┼────────────────────┤\n  │ Eutrophication         │ kg N eq. or         │ N and P emissions  │\n  │ (freshwater / marine)  │ kg P eq.            │ to water and air   │\n  ├────────────────────────┼─────────────────────┼────────────────────┤\n  │ Human toxicity         │ kg 1,4-DCB eq.      │ Cancer and non-    │\n  │ (cancer/non-cancer)    │                     │ cancer toxicity    │\n  ├────────────────────────┼─────────────────────┼────────────────────┤\n  │ Ozone depletion        │ kg CFC-11 eq.       │ Halogenated cpds.  │\n  ├────────────────────────┼─────────────────────┼────────────────────┤\n  │ Water scarcity         │ m³ water eq.        │ Availability-      │\n  │                        │ (AWARE method)      │ weighted; relevant │\n  │                        │                     │ for water positive │\n  ├────────────────────────┼─────────────────────┼────────────────────┤\n  │ Land use               │ m²·yr               │ Transformation and │\n  │                        │                     │ occupation         │\n  ├────────────────────────┼─────────────────────┼────────────────────┤\n  │ Resource depletion     │ kg Sb eq. (abiotic) │ Mineral and fossil │\n  └────────────────────────┴─────────────────────┴────────────────────┘\n\n  LCIA METHODS (implement the characterization factors):\n  ├── ReCiPe 2016: most complete European method; midpoint + endpoint\n  ├── CML-IA: older but widely cited; midpoint only\n  ├── TRACI 2.1: US EPA method; North America–specific characterization\n  └── EF (Environmental Footprint): EU regulatory preferred method\n\n  Attributional vs. Consequential LCA:\n  ├── Attributional: describes environmental burden allocated to\n  │   functional unit under average market conditions (status quo)\n  │   → use for product/process comparison, labeling, reporting\n  └── Consequential: models changes in environmental flows resulting\n      from a decision under marginal conditions\n      → use for policy analysis, investment decisions\n      Example: attributional electricity LCA uses average grid mix;\n      consequential uses marginal (what generator turns on at margin)",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-4",
+      "kind": "diagram_like",
+      "line": 170,
+      "heading_context": "### The Three Scopes",
+      "confidence": "candidate",
+      "text": "  GHG PROTOCOL SCOPE FRAMEWORK\n\n  SCOPE 1: Direct emissions — owned or controlled sources\n  ├── Stationary combustion: natural gas boilers, emergency generators\n  ├── Mobile combustion: company vehicle fleet\n  ├── Process emissions: on-site chemical reactions\n  └── Fugitive: refrigerant leaks (HFCs), SF₆ from switchgear\n\n  SCOPE 2: Indirect from purchased energy\n  ├── Purchased electricity (the dominant Scope 2 for most facilities)\n  ├── Purchased steam, heat, or cooling\n  └── TWO METHODS (important distinction):\n      Location-based: uses average emission factor for regional grid\n        Example: ISO-NE grid average → ~0.23 kg CO₂e/kWh (2023)\n      Market-based: uses contractual instruments\n        Renewable Energy Certificates (RECs): 0 kg CO₂e/kWh if matched\n        Power Purchase Agreements (PPAs): use generator emission factor\n        Residual mix factors: for unmatched purchases\n      Microsoft reports both but targets market-based Scope 2 = 0\n      (100% renewable matching via PPAs and RECs)\n\n  SCOPE 3: Value chain indirect emissions (15 categories)\n  Typically 70–95% of total corporate footprint",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-5",
+      "kind": "chart_like",
+      "line": 196,
+      "heading_context": "### The Three Scopes",
+      "confidence": "candidate",
+      "text": "### Scope 3 Categories",
+      "notes": [
+        "detected from bar/chart glyph density with numeric labels"
+      ]
+    },
+    {
+      "id": "block-6",
+      "kind": "diagram_like",
+      "line": 198,
+      "heading_context": "### Scope 3 Categories",
+      "confidence": "candidate",
+      "text": "  SCOPE 3 CATEGORIES (GHG Protocol Corporate Value Chain Standard)\n\n  UPSTREAM (supplier-side):\n  ┌────┬──────────────────────────────────────────────────────────┐\n  │ 1  │ Purchased goods and services                             │\n  │    │ Raw materials, components, outsourced services           │\n  │    │ Largest category for most manufacturers                  │\n  ├────┼──────────────────────────────────────────────────────────┤\n  │ 2  │ Capital goods                                           │\n  │    │ Servers, building construction, equipment               │\n  │    │ Embodied carbon in purchased capital                    │\n  ├────┼──────────────────────────────────────────────────────────┤\n  │ 3  │ Fuel- and energy-related activities                      │\n  │    │ Upstream emissions from extraction/processing of         │\n  │    │ purchased fuel and energy (not Scope 1 or 2)             │\n  ├────┼──────────────────────────────────────────────────────────┤\n  │ 4  │ Upstream transportation and distribution                │\n  ├────┼──────────────────────────────────────────────────────────┤\n  │ 5  │ Waste generated in operations                            │\n  │    │ Disposal/treatment of operational waste                  │\n  ├────┼──────────────────────────────────────────────────────────┤\n  │ 6  │ Business travel                                         │\n  ├────┼──────────────────────────────────────────────────────────┤\n  │ 7  │ Employee commuting                                       │\n  ├────┼──────────────────────────────────────────────────────────┤\n  │ 8  │ Upstream leased assets                                  │\n  └────┴──────────────────────────────────────────────────────────┘\n\n  DOWNSTREAM (customer-side):\n  ┌────┬──────────────────────────────────────────────────────────┐\n  │ 9  │ Downstream transportation and distribution               │\n  ├────┼──────────────────────────────────────────────────────────┤\n  │ 10 │ Processing of sold products                             │\n  ├────┼──────────────────────────────────────────────────────────┤\n  │ 11 │ Use of sold products                                     │\n  │    │ Electricity consumed by products during use phase        │\n  │    │ Typically the #1 or #2 category for electronics/software│\n  │    │ For Microsoft: Azure customers' workloads run on Azure   │\n  │    │ hardware → Category 11 dwarfs Microsoft's direct emiss.  │\n  ├────┼──────────────────────────────────────────────────────────┤\n  │ 12 │ End-of-life treatment of sold products                  │\n  │    │ E-waste, product disposal                               │\n  ├────┼──────────────────────────────────────────────────────────┤\n  │ 13 │ Downstream leased assets                                 │\n  ├────┼──────────────────────────────────────────────────────────┤\n  │ 14 │ Franchises                                              │\n  ├────┼──────────────────────────────────────────────────────────┤\n  │ 15 │ Investments                                              │\n  └────┴──────────────────────────────────────────────────────────┘",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-7",
+      "kind": "diagram_like",
+      "line": 252,
+      "heading_context": "### Science-Based Targets (SBTi)",
+      "confidence": "candidate",
+      "text": "  SCIENCE-BASED TARGETS INITIATIVE (SBTi)\n\n  Purpose: Align corporate emission reduction targets with climate\n  science (1.5°C or well-below 2°C Paris Agreement pathways)\n\n  Requirements for validation:\n  ├── Near-term target (5–10 years): 4.2% absolute Scope 1+2 reduction/yr\n  │   (1.5°C pathway) OR sector-specific rate\n  ├── Long-term target (to 2050): net-zero — achieve 90–95% reduction;\n  │   remaining 5–10% via carbon removals (not offsets)\n  ├── Scope 3 required if >40% of total footprint is Scope 3\n  └── Annual progress tracking and public disclosure\n\n  SBTi Net-Zero Standard (2021):\n  ├── Net-zero ≠ carbon neutral: net-zero requires DEEP decarbonization first\n  ├── Offset purchases do NOT count toward SBTi net-zero pathway\n  └── Only permanent carbon removals (DAC, BECCS, enhanced weathering)\n      count for the residual 5–10% after deep reductions\n\n  Microsoft SBTi alignment:\n  ├── Carbon negative by 2030 (remove more than emitted)\n  ├── Remove historical cumulative emissions by 2050\n  └── Investment in carbon removal portfolio (DAC, soil carbon, forests)",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-8",
+      "kind": "diagram_like",
+      "line": 284,
+      "heading_context": "## Circular Economy",
+      "confidence": "candidate",
+      "text": "  ELLEN MACARTHUR FOUNDATION CIRCULAR ECONOMY MODEL\n\n  TWO CYCLES:\n\n  TECHNICAL CYCLE (inorganic/synthetic materials):\n  Product use → maintenance → reuse → refurbishment\n             → remanufacturing → recycling\n  Goal: keep materials at highest utility level as long as possible\n\n  BIOLOGICAL CYCLE (organic/natural materials):\n  Consumption → food/beverage → compost/biogas\n  → cascades → regeneration of natural systems\n\n  R-STRATEGIES (most to least preferred):\n  ┌────────────────────────────────────────────────────────────────┐\n  │ R0: Refuse — eliminate product/material entirely               │\n  │ R1: Rethink — servicize; optimize product use intensity        │\n  │ R2: Reduce — less material/energy per unit function            │\n  │ R3: Reuse — same function, different user                      │\n  │ R4: Repair — extend product life by maintenance                │\n  │ R5: Refurbish — restore product performance                    │\n  │ R6: Remanufacture — rebuild to original specs                  │\n  │ R7: Repurpose — different function, different user             │\n  │ R8: Recycle — material recovery (loses product value)          │\n  │ R9: Recover — energy from waste (lowest CE value)              │\n  └────────────────────────────────────────────────────────────────┘\n\n  Microsoft Circular Centers:\n  ├── On-campus facilities that disassemble, test, refurbish servers\n  ├── Servers refurbished → resold (R5/R6) rather than e-waste\n  ├── Components (memory, SSDs, CPUs) sold into secondary market\n  └── Measures: reuse rate, zero-waste-to-landfill from datacenters",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-9",
+      "kind": "diagram_like",
+      "line": 321,
+      "heading_context": "### Industrial Ecology",
+      "confidence": "candidate",
+      "text": "  INDUSTRIAL ECOLOGY: the metabolism metaphor applied to industry\n\n  KALUNDBORG INDUSTRIAL SYMBIOSIS (Denmark — the archetype):\n  ┌────────────────────────────────────────────────────────────────┐\n  │ Asnæs Power Plant → steam → Novo Nordisk (pharma)              │\n  │                   → cooling water → fishery                    │\n  │                   → fly ash → cement manufacturer              │\n  │                   → gypsum → wallboard manufacturer            │\n  │                   → district heating → Kalundborg city         │\n  │ Statoil refinery  → fuel gas → power plant (vs. flaring)       │\n  │ Novo Nordisk      → sludge → agriculture (fertilizer)          │\n  └────────────────────────────────────────────────────────────────┘\n  Result: ~30% energy savings, significant waste diversion,\n  economic benefits to all participants — emergent, not designed.\n\n  MATERIAL FLOW ANALYSIS (MFA):\n  ├── Quantifies flows and stocks of materials through a system\n  │   (economy, region, industry sector)\n  ├── Input: extraction, imports / Output: exports, emissions, waste\n  ├── Tools: STAN software (TU Wien); ODYM (Industrial Ecology Lab)\n  └── Used for: identifying recycling opportunities, critical materials,\n      policy analysis (Extended Producer Responsibility design)\n\n  SUBSTANCE FLOW ANALYSIS (SFA):\n  └── Single substance tracked through entire socioeconomic system\n      Example: lead flows (mining → batteries → recycling → soil/water)",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-10",
+      "kind": "diagram_like",
+      "line": 354,
+      "heading_context": "## Environmental Management Systems",
+      "confidence": "candidate",
+      "text": "  ISO 14001 (Environmental Management System)\n\n  PLAN-DO-CHECK-ACT framework for systematic environmental improvement:\n\n  PLAN:\n  ├── Environmental policy (top management commitment)\n  ├── Aspects and impacts assessment (identify significant impacts)\n  ├── Legal compliance obligations\n  └── Objectives, targets, and programs\n\n  DO:\n  ├── Operational controls (procedures, training, emergency prep)\n  └── Document control\n\n  CHECK:\n  ├── Monitoring and measurement\n  ├── Legal compliance evaluation\n  ├── Internal audit\n  └── Nonconformity and corrective action\n\n  ACT:\n  ├── Management review\n  └── Continual improvement\n\n  Certification: accredited third-party auditor; 3-year cycle\n  (initial certification + two surveillance audits)\n  ISO 14001 vs. EMAS: EMAS (EU Eco-Management and Audit Scheme) is\n  more stringent (public environmental statement required, verified\n  data, regulatory compliance mandatory)",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-11",
+      "kind": "diagram_like",
+      "line": 393,
+      "heading_context": "## ESG Reporting Frameworks",
+      "confidence": "candidate",
+      "text": "  ESG REPORTING LANDSCAPE (2025)\n\n  ┌──────────────────────┬────────────────────────────────────────────┐\n  │ Framework            │ Audience / Status                          │\n  ├──────────────────────┼────────────────────────────────────────────┤\n  │ GHG Protocol         │ Foundation layer — used by all others;    │\n  │ (WRI/WBCSD)          │ not a reporting framework per se;         │\n  │                      │ defines Scope 1/2/3 methodology           │\n  ├──────────────────────┼────────────────────────────────────────────┤\n  │ CDP (Carbon          │ Investor/customer-facing; annual           │\n  │ Disclosure Project)  │ questionnaire; A–D scoring; voluntary      │\n  │                      │ but increasingly requested by supply chain │\n  ├──────────────────────┼────────────────────────────────────────────┤\n  │ GRI (Global          │ Broad stakeholder-facing; voluntary;      │\n  │ Reporting Initiative)│ comprehensive ESG topics beyond climate   │\n  ├──────────────────────┼────────────────────────────────────────────┤\n  │ SASB (Sustainability │ Investor-focused; industry-specific        │\n  │ Accounting Standards)│ metrics; now part of ISSB                  │\n  │ Board                │                                            │\n  ├──────────────────────┼────────────────────────────────────────────┤\n  │ TCFD (Task Force on  │ Investors; scenario analysis (physical +  │\n  │ Climate-related      │ transition risk); 4 pillars:              │\n  │ Financial Disclosures│ governance / strategy / risk mgmt /       │\n  │                      │ metrics & targets; voluntary but becoming │\n  │                      │ mandatory in many jurisdictions           │\n  ├──────────────────────┼────────────────────────────────────────────┤\n  │ ISSB IFRS S2         │ IOSCO-endorsed global baseline for         │\n  │ (2023)               │ climate disclosure; absorbs TCFD;          │\n  │                      │ mandatory in many countries by 2026        │\n  ├──────────────────────┼────────────────────────────────────────────┤\n  │ SEC Climate Rule     │ US public companies; mandatory (when      │\n  │ (2024, stayed)       │ effective); Scope 1+2 required; Scope 3   │\n  │                      │ if material or in SBTi target;            │\n  │                      │ currently stayed pending court review     │\n  ├──────────────────────┼────────────────────────────────────────────┤\n  │ EU CSRD              │ EU large companies; mandatory; ESRS        │\n  │ (Corporate Sustain.  │ (European Sustainability Reporting Stds);  │\n  │ Reporting Directive) │ double materiality; very broad; audited    │\n  └──────────────────────┴────────────────────────────────────────────┘",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-12",
+      "kind": "diagram_like",
+      "line": 437,
+      "heading_context": "### TCFD / ISSB Physical and Transition Risk",
+      "confidence": "candidate",
+      "text": "  CLIMATE RISK FRAMEWORK\n\n  PHYSICAL RISKS (climate change impacts on physical assets):\n  ├── Acute: extreme weather events (hurricane, flood, wildfire)\n  │   → data center flooding, power outages, supply chain disruption\n  └── Chronic: gradual shifts (sea level, temperature increase)\n      → cooling efficiency loss, water stress, permafrost thaw\n\n  TRANSITION RISKS (policy and market response to climate change):\n  ├── Policy/regulatory: carbon pricing, emission regulations\n  │   → cost of backup generator permits, carbon taxes on Scope 1\n  ├── Technology: energy efficiency improvements, stranded assets\n  ├── Market: customer preferences, commodity price changes\n  └── Reputational: ESG ratings, investor pressure\n\n  SCENARIO ANALYSIS (required under TCFD/ISSB):\n  ├── Physical risk: RCP 4.5 (intermediate) vs. RCP 8.5 (high emissions)\n  │   using IPCC regional projections\n  └── Transition risk: IEA Net Zero 2050 (orderly) vs. Delayed transition\n      (disorderly) vs. Current Policies (hot house world)\n\n  For Microsoft: cooling water availability under climate scenarios is a\n  material physical risk; carbon pricing scenarios affect generator\n  economics and data center siting cost models",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-13",
+      "kind": "diagram_like",
+      "line": 468,
+      "heading_context": "## Green Building and Infrastructure Rating Systems",
+      "confidence": "candidate",
+      "text": "  RATING SYSTEM COMPARISON\n\n  LEED (Leadership in Energy and Environmental Design):\n  ├── Buildings: LEED BD+C (new construction), LEED O+M (existing)\n  ├── Data centers: LEED certification covers envelope, HVAC, water,\n  │   materials, indoor environment, innovation\n  ├── Rating: Certified / Silver / Gold / Platinum (points-based)\n  └── PUE (Power Usage Effectiveness) improvement scores points\n\n  ENVISION (Infrastructure):\n  ├── For roads, bridges, water infrastructure, pipelines, energy systems\n  ├── 64 credits across 5 categories: Quality of Life, Leadership,\n  │   Resource Allocation, Natural World, Climate + Resilience\n  ├── Verification levels: Bronze / Silver / Gold / Platinum\n  └── Increasingly required for public infrastructure projects\n\n  PUE (Power Usage Effectiveness) — data center efficiency metric:\n  PUE = Total facility energy / IT equipment energy\n    Industry average: 1.5–1.6\n    Best-in-class hyperscale: 1.1–1.15\n    Microsoft target: <1.2 for new facilities\n    Carbon footprint implication: PUE = 1.5 means 50% of energy\n    goes to overhead (cooling, power conversion, lighting) — reducing\n    PUE directly reduces Scope 2 emissions per unit compute\n\n  WUE (Water Usage Effectiveness):\n  WUE = Site water usage (L) / IT equipment energy (kWh)\n    Industry average: 1.8 L/kWh\n    Microsoft target: 0 L/kWh in water-stressed regions by 2024\n    Strategy: adiabatic cooling (no evaporative water use)\n    vs. evaporative cooling (high WUE but lower energy)",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-14",
+      "kind": "diagram_like",
+      "line": 506,
+      "heading_context": "## Net-Zero vs. Carbon Neutral",
+      "confidence": "candidate",
+      "text": "  THE VOCABULARY MATTERS — these are not synonymous\n\n  CARBON NEUTRAL:\n  ├── Net zero CO₂e at organizational boundary\n  ├── Achieved by: any combination of emission reductions AND offsets\n  ├── Offset purchases can bridge the gap to \"zero\"\n  ├── Criticism: allows purchasing cheap offsets without deep reduction\n  └── Standard: PAS 2060 (BSI), ISO 14068 (2023)\n\n  NET-ZERO (SBTi Corporate Net-Zero Standard):\n  ├── Requires: 90–95% absolute emission reduction from base year (all scopes)\n  ├── Residual 5–10%: only permanent, high-quality carbon removals\n  │   (no avoided emissions, no REDD+ forest protection offsets)\n  ├── Timeframe: typically by 2050\n  └── Near-term targets also required (2030)\n\n  CARBON NEGATIVE (Microsoft's pledge):\n  ├── Remove MORE carbon than emitted annually (net negative)\n  ├── More aggressive than SBTi net-zero\n  └── Requires significant carbon removal portfolio investment\n\n  CARBON REMOVAL METHODS:\n  ┌────────────────────────┬────────────────────────────────────────┐\n  │ Method                 │ Permanence / Scale                     │\n  ├────────────────────────┼────────────────────────────────────────┤\n  │ Afforestation/         │ Low permanence (fire, disease risk);  │\n  │ reforestation          │ large scale; low cost                  │\n  ├────────────────────────┼────────────────────────────────────────┤\n  │ BECCS (bioenergy +     │ Moderate permanence (geological);      │\n  │ CCS)                   │ scaling challenges                     │\n  ├────────────────────────┼────────────────────────────────────────┤\n  │ Direct Air Capture     │ Very high permanence (geological);    │\n  │ + storage (DAC)        │ current cost $300–1000/MT CO₂;       │\n  │                        │ Microsoft is major buyer (Climeworks,  │\n  │                        │ CarbonCapture, Heirloom)              │\n  ├────────────────────────┼────────────────────────────────────────┤\n  │ Enhanced weathering    │ High permanence; scaling challenge;    │\n  │                        │ land use intensive                     │\n  ├────────────────────────┼────────────────────────────────────────┤\n  │ Biochar                │ Moderate permanence (100+ yrs);       │\n  │                        │ scalable; co-benefits for soil        │\n  └────────────────────────┴────────────────────────────────────────┘",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-15",
+      "kind": "diagram_like",
+      "line": 555,
+      "heading_context": "## Microsoft Sustainability Metrics Mapping",
+      "confidence": "candidate",
+      "text": "  MICROSOFT ENVIRONMENTAL SUSTAINABILITY REPORT — METRIC ORIGINS\n\n  ┌──────────────────────────────┬────────────────────────────────────┐\n  │ Reported Metric              │ Methodology / Standard             │\n  ├──────────────────────────────┼────────────────────────────────────┤\n  │ Scope 1 direct emissions     │ GHG Protocol — combustion EFs,    │\n  │                              │ EPA AP-42, IPCC GWP100            │\n  ├──────────────────────────────┼────────────────────────────────────┤\n  │ Scope 2 (market-based)       │ RECs + PPAs → supplier EFs;        │\n  │                              │ residual mix for remainder         │\n  ├──────────────────────────────┼────────────────────────────────────┤\n  │ Scope 3 value chain          │ GHG Protocol Corporate Value Chain │\n  │                              │ Standard; spend-based methods for  │\n  │                              │ Cat. 1; supplier-specific for      │\n  │                              │ hardware manufacturing (Cat. 1/2)  │\n  ├──────────────────────────────┼────────────────────────────────────┤\n  │ Water withdrawal /           │ AWWA metrics; WRI Aqueduct for     │\n  │ consumption by basin         │ water stress context               │\n  ├──────────────────────────────┼────────────────────────────────────┤\n  │ Waste diversion rate         │ Mass-based (kg diverted / total    │\n  │                              │ waste generated); \"zero waste\"     │\n  │                              │ = >90% diversion rate             │\n  ├──────────────────────────────┼────────────────────────────────────┤\n  │ Surface LCA results          │ ISO 14040/14044; ecoinvent DB;     │\n  │ (carbon footprint of         │ TRACI or ReCiPe characterization;  │\n  │ Surface hardware)            │ cradle-to-grave FU = 1 device/     │\n  │                              │ per year of use                    │\n  ├──────────────────────────────┼────────────────────────────────────┤\n  │ Carbon removal portfolio     │ SBTi removal accounting; verified │\n  │                              │ by Gold Standard, Verra/VCS,      │\n  │                              │ or direct contracts (DAC)         │\n  └──────────────────────────────┴────────────────────────────────────┘",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    }
+  ]
+}

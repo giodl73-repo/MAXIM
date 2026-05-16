@@ -1,3 +1,22 @@
+---
+maxim_schema: maxim.frontmatter.v1
+id: maxim:environmental-engineering:wastewater
+kind: guide
+module: environmental-engineering
+section: environmental-engineering
+title: Wastewater Treatment
+status: source-custody
+source_custody: partial
+current_path: environmental-engineering/02-WASTEWATER.md
+canonical_path: environmental-engineering/02-WASTEWATER.md
+backsource_ids: [proof-backfill:environmental-engineering:02-wastewater, git-history:environmental-engineering:02-wastewater]
+concepts: [wastewater]
+root_concepts: [wastewater]
+index_roles: [guide, root-concept]
+remap_from: []
+remap_to: []
+updated: null
+---
 # Wastewater Treatment
 
 ## The Big Picture

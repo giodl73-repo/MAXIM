@@ -1,0 +1,105 @@
+{
+  "schema_version": "1",
+  "source_markdown": "urban-planning\\04-INFRASTRUCTURE.md",
+  "blocks": [
+    {
+      "id": "block-1",
+      "kind": "ascii_table_candidate",
+      "line": 26,
+      "heading_context": "## The Big Picture",
+      "confidence": "candidate",
+      "text": "+------------------------------------------------------------------+\n|                    URBAN INFRASTRUCTURE SYSTEM                   |\n|                                                                  |\n|  TRANSPORTATION     WATER/WASTEWATER      UTILITY/ENERGY         |\n|  Streets/roads      Drinking water        Electric grid          |\n|  Bridges            Distribution          Natural gas            |\n|  Transit            Wastewater            Telecommunications     |\n|  Bike/ped           Treatment             Broadband              |\n|  Freight            Stormwater            District energy        |\n|                                                                  |\n|  PUBLIC SPACE/      SOLID WASTE           DIGITAL                |\n|  PARKS              Collection            Smart sensors          |\n|  Parks/plazas       Transfer stations     5G small cells         |\n|  Urban tree canopy  Landfills/composting  Fiber backbone         |\n|  Public buildings   Recycling             Traffic control        |\n+------------------------------------------------------------------+\n         |                    |\n         v                    v\n+--------------------+ +------------------------+\n| PLANNING PROCESS   | | FINANCE MECHANISMS     |\n| CIP development    | | GO bonds               |\n| Asset management   | | Revenue bonds          |\n| Life-cycle costing | | TIF                    |\n| Prioritization     | | Impact fees            |\n| Level of service   | | Developer exactions    |\n|                    | | Federal grants (IIJA)  |\n|                    | | PPP/concessions        |\n+--------------------+ +------------------------+",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-2",
+      "kind": "ascii_table_candidate",
+      "line": 63,
+      "heading_context": "## Capital Improvement Programming (CIP)",
+      "confidence": "candidate",
+      "text": "CIP DEVELOPMENT PROCESS:\n\n  STEP 1: NEEDS ASSESSMENT\n  +-----------------------+\n  | Asset inventory       |\n  | Condition assessment  |\n  | Level of service gaps |\n  | Growth projections    |\n  +-----------------------+\n  Which assets are failing? Which LOS standards are unmet?\n  What capacity is needed?\n          |\n          v\n  STEP 2: PROJECT DEVELOPMENT\n  +-----------------------+\n  | Scope definition      |\n  | Preliminary cost est. |\n  | Phasing options       |\n  | Alternatives analysis |\n  +-----------------------+\n  What does it cost? When can it be done?\n  What are the alternatives?\n          |\n          v\n  STEP 3: PRIORITIZATION\n  +-----------------------+\n  | Scoring criteria:     |\n  |  - Safety/risk        |\n  |  - LOS impact         |\n  |  - Strategic fit      |\n  |  - Equity/access      |\n  |  - Leverage (grants)  |\n  +-----------------------+\n  Weighted score matrix. Like a sprint backlog\n  prioritization — but with $50M consequences.\n          |\n          v\n  STEP 4: FUNDING ASSIGNMENT\n  +-----------------------+\n  | Match projects to     |\n  | funding sources.      |\n  | Identify gaps.        |\n  | Grant applications    |\n  +-----------------------+\n  Which fund pays? What can be bonded? Are grants available?\n          |\n          v\n  STEP 5: ADOPTION\n  Incorporated into annual budget.\n  Year 1 = budget appropriation.\n  Years 2-5 = programming (subject to revision).\n  Annual CIP update slides projects forward.\n\nPRIORITIZATION SCORING (example matrix):\n\n  CRITERION              WEIGHT   SCORE (0-10)  WEIGHTED\n  Safety/risk              30%        8           2.40\n  LOS improvement          25%        6           1.50\n  Strategic fit            20%        7           1.40\n  Equity/access impact     15%        9           1.35\n  Grant leverage           10%        5           0.50\n                                              ---------\n  TOTAL SCORE:                                   7.15\n\n  Projects ranked by total score.\n  Budget allocated from highest score down\n  until funding is exhausted.\n\n  This is a judgment call formalized with numbers.\n  The weights embed political choices.\n  (\"Equity impact\" at 15% is a political decision,\n   not a technical one.)",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-3",
+      "kind": "ascii_table_candidate",
+      "line": 144,
+      "heading_context": "## Asset Management: Infrastructure as a Software System",
+      "confidence": "candidate",
+      "text": "ASSET MANAGEMENT LIFECYCLE:\n\n  INVENTORY (what do we own?):\n    GIS asset registry (geometry + attribs)\n\n  CONDITION (what state?):\n    Field inspection (PCI/BCI), sensor data\n\n  DETERIORATION (how fast failing?):\n    Deterioration curves (empirical or model)\n                         |                     |\n                         v                     v\n                   +--------------------------------+\n                   | RISK-BASED PRIORITIZATION      |\n                   | P(failure) × Consequence       |\n                   | = Risk score                   |\n                   | High consequence failures      |\n                   | (water main under freeway)     |\n                   | prioritized over low conseqnce |\n                   | (water main in park)           |\n                   +--------------------------------+\n                              |\n                              v\n                   +--------------------------------+\n                   | WORK PROGRAM                   |\n                   | Optimize intervention timing:  |\n                   | Preventive: low cost, early    |\n                   | Rehabilitative: medium cost    |\n                   | Replacement: high cost, late   |\n                   +--------------------------------+\n\nKEY STANDARDS:\n  IIMM: International Infrastructure Management Manual\n  ISO 55000: Asset management systems standard\n  MicroPAVER: USACE pavement management software\n  Pontis/AASHTOWare: bridge management",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-4",
+      "kind": "diagram_like",
+      "line": 185,
+      "heading_context": "### Condition Assessment: Pavement as Example",
+      "confidence": "candidate",
+      "text": "PAVEMENT CONDITION INDEX (PCI):\n\n  SCALE: 0-100\n  100: Perfect (new pavement)\n   70: Good (minor surface distress)\n   55: Fair (moderate distress, roughness)\n   40: Poor (major distress, potholes)\n   25: Very Poor (severe damage)\n    0: Failed (impassable)\n\n  TYPES OF DISTRESS MEASURED:\n  - Alligator (fatigue) cracking\n  - Block cracking\n  - Edge cracking\n  - Longitudinal/transverse cracking\n  - Potholes\n  - Rutting\n  - Raveling\n  - Bleeding\n\n  FIELD MEASUREMENT:\n  Visual survey by trained inspector.\n  Walking the road and recording distress type,\n  severity, and extent.\n  FWD (Falling Weight Deflectometer):\n  measures structural capacity.\n  Ground Penetrating Radar: subsurface condition.\n  Modern: automated van-mounted systems\n  (LIDAR + cameras + AI) at highway speed.\n\n  DETERIORATION CURVE:\n  PCI\n  |  100 \\_\n  |       \\ (slow initial deterioration)\n  |        \\\n  |         \\____\n  |              \\____ (rapid deterioration past ~55)\n  |                   \\____\n  |                        \\____\n  +-----------------------------> Age\n\n  CRITICAL INSIGHT:\n  Cost of treatment at PCI 70: $1-3/sq yd (crack seal)\n  Cost of treatment at PCI 55: $3-8/sq yd (mill/overlay)\n  Cost of treatment at PCI 40: $10-20/sq yd (full depth)\n  Cost of treatment at PCI 25: $30-60/sq yd (reconstruction)\n\n  Preventive maintenance at PCI 70 costs 10x less\n  than reconstruction at PCI 25.\n  Deferred maintenance always costs more.\n  (This is technical debt in concrete.)",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-5",
+      "kind": "ascii_table_candidate",
+      "line": 363,
+      "heading_context": "### The Problem: Impervious Surface and Runoff",
+      "confidence": "candidate",
+      "text": "IMPERVIOUS SURFACE IMPACT:\n\n  Natural ground (pre-development):\n  +--------------------------------+\n  |  Precipitation: 100%           |\n  |                                |\n  |  Evapotranspiration: 40%       |\n  |  Shallow groundwater: 25%      |\n  |  Deep groundwater: 25%         |\n  |  Runoff: 10%                   |\n  +--------------------------------+\n\n  Urban area (75% impervious):\n  +--------------------------------+\n  |  Precipitation: 100%           |\n  |                                |\n  |  Evapotranspiration: 25%       |\n  |  Shallow groundwater: 10%      |\n  |  Deep groundwater: 5%          |\n  |  Runoff: 55%       ^^^^^^^^    |\n  +--------------------------------+\n  5x increase in runoff volume.\n  Faster concentration time.\n  Higher peak flows.\n  Channel erosion + downstream flooding.\n  Combined sewer overflow (CSO) events.\n\nCOMBINED SEWER OVERFLOW (CSO):\n  ~770 US cities have combined sewers\n  (storm + sanitary in same pipe).\n  In heavy rain, pipe overflows to\n  water body -- raw sewage + stormwater.\n  EPA consent decrees requiring CSO\n  reduction: multi-billion dollar compliance.\n  Example: DC Clean Rivers Project: $2.6B\n  tunnel system to capture CSO.",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-6",
+      "kind": "ascii_table_candidate",
+      "line": 404,
+      "heading_context": "### Green Infrastructure: The Alternative",
+      "confidence": "candidate",
+      "text": "GREEN INFRASTRUCTURE TOOLKIT:\n\n  BIORETENTION (Rain Garden):\n  +------------------+\n  |   \\  /  \\  /    |  Engineered soil mix\n  |    \\/    \\/     |  (high infiltration rate)\n  |================|  Overflow to storm sewer\n  |  gravel layer  |  at capacity\n  +------||--------+  Infiltrate to groundwater\n         ||\n  Underground to groundwater or storm sewer.\n  Sized for a design storm (1.25\" typical).\n  Cost: $5-15K per 100 sq ft of drainage area.\n\n  BIOSWALE:\n  Linear version of bioretention.\n  Follows street edge.\n  Slows and filters runoff.\n  Replaces traditional curb/gutter+pipe.\n\n  GREEN ROOF (see 02-URBAN-FORM.md for UHI).\n  50-80% retention of 1-2\" storm events.\n  Detention (delay) + some retention.\n\n  PERMEABLE PAVEMENT:\n  Pervious concrete, permeable asphalt,\n  or paving grids with gravel/grass fill.\n  Allows infiltration through surface.\n  Requires stone reservoir base.\n  Maintenance: vacuum sweeping to prevent clogging.\n  Cost premium: 25-50% over standard pavement.\n\n  URBAN TREE CANOPY:\n  Tree intercepts precipitation (leaf interception).\n  One large tree: 1,000-2,000 gallons/yr\n  interception and transpiration.\n  Root channels increase soil infiltration.\n  Most multi-benefit GI option.\n\nGREEN vs. GRAY ECONOMICS:\n\n  EPA Analysis (2013):\n  \"The Economics of Green Infrastructure\":\n  Green infrastructure typically 25-75% cheaper\n  than gray (pipe) for equivalent stormwater\n  management, when co-benefits are counted.\n\n  Co-benefits counted:\n  - Energy savings (cooling)\n  - Air quality\n  - Property value increase\n  - Recreational value\n  - Carbon sequestration\n\n  Caveat: Co-benefits are real but distributed.\n  Hard to monetize for project justification.\n  Green typically wins on strict stormwater\n  cost/capacity comparison in many contexts too.\n\nSPONGE CITY PHILOSOPHY (China):\n  National program (2015): 30 pilot cities.\n  Target: 70-80% of precipitation absorbed\n  or utilized locally rather than discharged.\n  Integrated GI at city scale:\n  - Retention ponds integrated into parks\n  - Bioswales along all streets\n  - Restored wetlands at urban periphery\n  - Green roofs on public buildings\n  Mixed results in implementation\n  (engineering quality variable, some\n  flood disasters still occurred). But\n  the integrated systems approach is correct.",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-7",
+      "kind": "ascii_table_candidate",
+      "line": 483,
+      "heading_context": "## Resilience Planning",
+      "confidence": "candidate",
+      "text": "CLIMATE RISKS TO URBAN INFRASTRUCTURE:\n\n  SEA LEVEL RISE + STORM SURGE:\n  +----------------------------------+\n  | Coastal cities: 1-4 ft rise by   |\n  | 2100 (RCP4.5), 3-10 ft (RCP8.5)  |\n  | Storm surge now compound with    |\n  | higher baseline.                 |\n  | NYC Sandy (2012): $65B damage.   |\n  | Miami Beach: $400M+ seawall,     |\n  | pump systems, road raising.      |\n  | Jakarta: sinking + sea level =   |\n  | capital relocation to Nusantara. |\n  +----------------------------------+\n\n  URBAN FLOODING:\n  More intense precipitation events.\n  Aging stormwater systems sized for\n  historical rainfall (not projected).\n  \"100-year flood\" is occurring every\n  10-20 years in many cities.\n  Green infrastructure + updated\n  detention pond sizing.\n\n  EXTREME HEAT:\n  Heat dome events. Heat mortality.\n  Cooling center networks.\n  UHI reduction.\n  Passive cooling design standards.\n  Peak power demand exceeds grid capacity.\n\n  WILDFIRE (WUI - Wildland Urban Interface):\n  Defensible space requirements.\n  Non-combustible materials.\n  Evacuation route capacity.\n  Power shut-off protocols (PSPS in CA).\n\nRESILIENCE FRAMEWORK (UNDRR):\n  Prevention/Mitigation: Reduce hazard or exposure\n  Preparedness: Capacity to respond\n  Response: Emergency management\n  Recovery: Reconstruction and restoration\n\nCRITICAL INFRASTRUCTURE INTERDEPENDENCIES:\n  Power failure --> pump failure --> water failure\n  Water failure --> fire suppression failure\n  Telecom failure --> traffic signal failure --> congestion\n  These cascading failures are the key threat.\n  Resilience requires redundancy at each node.\n\n  MICROSOFT DATA CENTER RESILIENCE:\n  N+1 or 2N power redundancy.\n  Multiple fiber providers, diverse paths.\n  On-site diesel/gas generation.\n  Water storage for cooling.\n  All of this is urban infrastructure\n  resilience thinking applied to a building.",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-8",
+      "kind": "ascii_table_candidate",
+      "line": 547,
+      "heading_context": "## Infrastructure Finance",
+      "confidence": "candidate",
+      "text": "FINANCING LANDSCAPE:\n\n  +--------------------------------------------------------+\n  |                 INFRASTRUCTURE FINANCE                 |\n  |                                                        |\n  |  PUBLIC/TAX-BACKED    REVENUE/USER-BACKED   PRIVATE    |\n  |  ---------------      ------------------    -------    |\n  |  General Obligation   Revenue Bonds         PPP        |\n  |  (GO) Bonds           Water/sewer user fees Concession |\n  |                       Toll roads            DBFOM      |\n  |  Federal grants       Transit fares                    |\n  |  (FHWA, FTA,          Airport fees          Developer  |\n  |  IIJA, CDBG)                                exactions  |\n  |                       Special Assessment    Impact fees|\n  |  Tax Increment        District              Mello-Roos |\n  |  Financing (TIF)                                       |\n  +--------------------------------------------------------+",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-9",
+      "kind": "diagram_like",
+      "line": 633,
+      "heading_context": "### Tax Increment Financing (TIF)",
+      "confidence": "candidate",
+      "text": "TIF MECHANISM:\n\n  BASE YEAR:\n  Tax rolls frozen at current assessed value.\n  Current taxes distributed normally\n  to school district, county, city, etc.\n\n         [SCHOOL DISTRICT TAXES]\n         [COUNTY TAXES         ]\n         [CITY TAXES           ]\n         [LIBRARY DISTRICT     ]\n\n  POST-TIF DEVELOPMENT:\n  Property value increases due to\n  TIF-funded investment.\n\n  Increment = New value - Base year value\n  Increment taxes --> TIF district fund\n  (school district, county, etc. continue\n  to receive only their base year share)\n\n  [BASE TAXES: same as before --> taxing bodies]\n  [INCREMENT TAXES: all --> TIF fund]\n\n  TIF FUND:\n  Issued TIF bonds against future increment.\n  Funds: streets, utilities, affordable housing,\n  park, parking structure.\n  Infrastructure makes development feasible.\n  Development creates increment.\n  Increment repays bonds.\n  Self-financing (in theory).\n\n  THE TIF CONTROVERSY:\n\n  PROPONENTS: \"But for\" test: development would\n  not occur without TIF. City creates value\n  from nothing. Schools get more students\n  without any cost increase. Catalytic.\n\n  CRITICS: \"But for\" test often not met --\n  development would have happened anyway.\n  TIF \"starves\" schools for 20-30 years.\n  School district gets no share of increment\n  while serving more students (from new\n  development) on the same base budget.\n  TIF has been used to subsidize profitable\n  development (eg. Chicago Tribune Tower\n  conversion) that needed no subsidy.\n  \"Corporate welfare\" critique.\n\n  REALITY: TIF is a tool. Works well for\n  genuinely blighted areas needing\n  public investment to become viable.\n  Overused: ~$5B/yr in TIF revenue in US,\n  much of it capturing value that would\n  have been created anyway.",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    }
+  ]
+}

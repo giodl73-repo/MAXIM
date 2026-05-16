@@ -1,0 +1,39 @@
+{
+  "schema_version": "1",
+  "source_markdown": "urban-planning\\05-SMART-CITIES.md",
+  "blocks": [
+    {
+      "id": "block-1",
+      "kind": "ascii_table_candidate",
+      "line": 26,
+      "heading_context": "## The Big Picture",
+      "confidence": "candidate",
+      "text": "+------------------------------------------------------------------+\n|                    SMART CITY TECHNOLOGY STACK                   |\n|                                                                  |\n|  DIGITAL TWIN / SIMULATION LAYER                                 |\n|  3D city model + building physics + agent simulation             |\n|  Urban OS + city dashboard                                       |\n+------------------------------------------------------------------+\n|  ANALYTICS / AI LAYER                                            |\n|  Traffic prediction | Energy optimization | Predictive maintenance|\n|  Demand forecasting | Anomaly detection | Service routing         |\n+------------------------------------------------------------------+\n|  PLATFORM / DATA LAYER                                           |\n|  Urban data platform | Open data portal | APIs                   |\n|  GTFS | 311 | Permits | Assessments | Weather                    |\n+------------------------------------------------------------------+\n|  CONNECTIVITY LAYER                                              |\n|  Fiber backbone | 5G small cells | LoRaWAN | NB-IoT | Wi-Fi mesh  |\n+------------------------------------------------------------------+\n|  SENSOR / DEVICE LAYER                                           |\n|  Traffic loops | Cameras | Environmental sensors | Smart meters  |\n|  Connected vehicles | Smartphones as probes | Gunshot detection  |\n+------------------------------------------------------------------+\n|  PHYSICAL LAYER (the actual city)                                |\n|  Roads | Buildings | Transit | Utilities | Parks | People         |\n+------------------------------------------------------------------+\n\nGOVERNANCE LAYER (cross-cuts everything):\nData ownership | Privacy | Equity | Procurement | Public accountability",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-2",
+      "kind": "diagram_like",
+      "line": 183,
+      "heading_context": "### Mobile Sensors: Phones and Vehicles as Probes",
+      "confidence": "candidate",
+      "text": "SMARTPHONES AS URBAN SENSORS:\n\n  GPS trace data:\n  - Google/Apple aggregate anonymized\n    location data --> traffic conditions\n  - Google Maps real-time traffic uses\n    this. \"Usually takes 25 min\" is\n    crowd-sourced GPS data.\n\n  MaaS app data:\n  - Ride-hail (Uber/Lyft): pickup/dropoff\n    patterns, route data\n  - Bike/scooter share: GPS tracks\n  - Transit apps: GTFS-RT ridership\n\n  311/CRM apps:\n  - SeeClickFix, NYC311, Boston Street Bump\n  - Citizens report potholes, graffiti,\n    code violations via app\n  - Crowdsourced issue detection\n\nCONNECTED VEHICLES (CV):\n  DSRC (Dedicated Short Range Communications)\n  and C-V2X (Cellular Vehicle to Everything).\n\n  V2I (Vehicle to Infrastructure):\n  Traffic signals broadcasting SPaT\n  (Signal Phase and Timing) data to\n  equipped vehicles. Enables \"green wave\"\n  speed advisory. Reduces stops.\n\n  V2V (Vehicle to Vehicle):\n  Forward collision warning, cooperative\n  adaptive cruise control. Safety applications.\n\n  Floating Car Data:\n  Commercial vehicles (trucks, taxis) with\n  GPS probes. Toll systems (E-ZPass) capture\n  travel time. Waze user data.",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-3",
+      "kind": "ascii_table_candidate",
+      "line": 288,
+      "heading_context": "## Digital Twins in Urban Management",
+      "confidence": "candidate",
+      "text": "DIGITAL TWIN SPECTRUM:\n\n  3D CITY MODEL (LoD 0-4):\n  LoD 0: Footprints on terrain\n  LoD 1: Building blocks (flat roofs)\n  LoD 2: Roof structures, vegetation\n  LoD 3: Facade detail, windows, doors\n  LoD 4: Interior structure\n\n  Standard: CityGML (OGC, ISO 19100 series)\n  File formats: CityGML XML, 3D Tiles, glTF, Cesium\n\n  3D MODEL USE CASES:\n  - Shadow analysis (daylight impact of proposed building)\n  - Viewshed analysis (sight lines from public spaces)\n  - Solar potential (rooftop PV capacity estimation)\n  - Noise propagation modeling\n  - Emergency response planning\n  - Visualization for public engagement\n\n  LIVE DIGITAL TWIN (integrated simulation):\n  +------------------------------------------+\n  |           DIGITAL TWIN                   |\n  |                                          |\n  |  Real-time data feeds:                   |\n  |  - Traffic sensors --> traffic model     |\n  |  - Weather station --> microclimate sim  |\n  |  - Building energy meters --> energy sim |\n  |  - Pedestrian counters --> crowd sim     |\n  |                                          |\n  |  Simulation outputs:                     |\n  |  - Predicted congestion (30 min ahead)   |\n  |  - Flood risk (event forecasting)        |\n  |  - Energy demand prediction              |\n  |  - Emergency routing optimization        |\n  +------------------------------------------+\n\nNOTABLE EXAMPLES:\n\n  HELSINKI 3D+ MODEL:\n  Entire city in 3D. Available for download.\n  Used for urban planning, construction,\n  energy analysis. Public API.\n  Built on open CityGML standard.\n  Municipal investment: ~2M EUR.\n  Return: thousands of applications built on top.\n\n  SINGAPORE VIRTUAL SINGAPORE:\n  1:1 digital twin of entire city-state.\n  Built by NTU + URA + SLA.\n  Detailed building interiors + terrain + utilities.\n  Use cases: solar panel siting, evacuation planning,\n  construction crane path optimization.\n  Government data asset, not public domain.\n  Cost: SGD 73M (~$54M USD).\n  Difference from Helsinki: closed vs. open.\n\n  AZURE DIGITAL TWINS + MICROSOFT CONTEXT:\n  Microsoft Azure Digital Twins (ADT):\n  Graph-based representation of real-world systems.\n  Spatial intelligence graphs.\n  Device connectivity via IoT Hub.\n  Time series data via Azure Data Explorer.\n\n  Microsoft Smart Buildings:\n  ADT deployed in Microsoft's own buildings.\n  Campus energy management.\n  Space utilization analytics.\n  Predictive maintenance for HVAC.\n\n  This is the Microsoft product closest to\n  smart city infrastructure. ADT architecture:\n  [Physical building] --> [IoT Hub] --> [ADT graph model]\n  --> [Azure Digital Twins Explorer] --> [Analytics/Power BI]",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    }
+  ]
+}

@@ -1,0 +1,160 @@
+{
+  "schema_version": "1",
+  "source_markdown": "environmental-engineering\\02-WASTEWATER.md",
+  "blocks": [
+    {
+      "id": "block-1",
+      "kind": "diagram_like",
+      "line": 27,
+      "heading_context": "## The Big Picture",
+      "confidence": "candidate",
+      "text": "  WASTEWATER TREATMENT TRAIN\n\n  Influent  → Primary  → Secondary  → (Tertiary) → Effluent → Receiving\n  (raw      → Screen/  → Biological → Sand filt/ →         → Water Body\n  sewage)   → Grit rm  → (activated → UV/Cl₂    →         → (NPDES limit)\n              → Primary → sludge,    → Membrane  →\n              → clarif. → nitrif/    → (for reuse)\n                        → denitrif.) →\n\n            ↓ sludge         ↓ wasted sludge (WAS)\n            Primary     ──── Gravity thickening\n            sludge       ↘   or DAF\n                          ↘\n                     Anaerobic digestion (AD)\n                           ↓              ↓\n                       Biogas           Digestate\n                     (to CHP or        (to land\n                       flare)           application\n                                        or dewatering)",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-2",
+      "kind": "diagram_like",
+      "line": 59,
+      "heading_context": "## Wastewater Characterization",
+      "confidence": "candidate",
+      "text": "  TYPICAL DOMESTIC WASTEWATER CONCENTRATIONS (mg/L unless noted)\n\n  ┌──────────────────┬────────────┬────────────────────────────────┐\n  │ Parameter        │ Typical    │ Notes                          │\n  ├──────────────────┼────────────┼────────────────────────────────┤\n  │ BOD₅             │ 200–250    │ 5-day biochemical oxygen       │\n  │                  │            │ demand — biodegradable organic │\n  │                  │            │ matter proxy                   │\n  ├──────────────────┼────────────┼────────────────────────────────┤\n  │ COD              │ 400–500    │ Chemical oxygen demand — all   │\n  │                  │            │ oxidizable carbon; COD:BOD     │\n  │                  │            │ ~2:1 for domestic sewage;      │\n  │                  │            │ >2.5 indicates less            │\n  │                  │            │ biodegradable waste            │\n  ├──────────────────┼────────────┼────────────────────────────────┤\n  │ TSS              │ 200–250    │ Total suspended solids         │\n  ├──────────────────┼────────────┼────────────────────────────────┤\n  │ TKN              │ 35–50      │ Total Kjeldahl nitrogen        │\n  │                  │            │ (organic N + NH₃) —            │\n  │                  │            │ eutrophication driver          │\n  ├──────────────────┼────────────┼────────────────────────────────┤\n  │ TP (Total P)     │ 4–10       │ Phosphorus — eutrophication    │\n  │                  │            │ driver (often the limiting     │\n  │                  │            │ nutrient in freshwater)        │\n  ├──────────────────┼────────────┼────────────────────────────────┤\n  │ Pathogens        │ 10⁶–10⁸   │ Fecal coliforms (CFU/100 mL);   │\n  │                  │ CFU/100 mL │ Giardia, Crypto, enteric virus │\n  └──────────────────┴────────────┴────────────────────────────────┘",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-3",
+      "kind": "diagram_like",
+      "line": 100,
+      "heading_context": "## Primary Treatment",
+      "confidence": "candidate",
+      "text": "  PRIMARY TREATMENT UNIT PROCESSES\n\n  ┌──────────────┬────────────────────────────────────────────────┐\n  │ Process      │ Function / Design                              │\n  ├──────────────┼────────────────────────────────────────────────┤\n  │ Bar screens  │ Coarse screening — removes rags, plastics,    │\n  │              │ grit protects downstream equipment            │\n  │              │ Mechanically raked; 3/4\" to 2\" openings       │\n  ├──────────────┼────────────────────────────────────────────────┤\n  │ Fine screens │ 1–6 mm openings — alternative to primary       │\n  │              │ clarifier at smaller plants                    │\n  ├──────────────┼────────────────────────────────────────────────┤\n  │ Grit chamber │ Removes sand/grit/gravel (ρ ≈ 2.65 g/cm³)    │\n  │              │ without removing organics (ρ ≈ 1.02 g/cm³)   │\n  │              │ Aerated grit chamber: differential settling   │\n  │              │ Vortex grit: centrifugal separation           │\n  ├──────────────┼────────────────────────────────────────────────┤\n  │ Primary      │ Gravity sedimentation:                         │\n  │ clarifier    │ SOR: 400–600 gpd/ft² (16–24 m/d)               │\n  │              │ HRT: 1.5–2.5 hours                             │\n  │              │ Removal: 50–65% TSS, 25–40% BOD₅               │\n  │              │ Produces primary sludge (2–6% solids)          │\n  └──────────────┴────────────────────────────────────────────────┘",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-4",
+      "kind": "diagram_like",
+      "line": 133,
+      "heading_context": "## Secondary Treatment: Activated Sludge",
+      "confidence": "candidate",
+      "text": "  ACTIVATED SLUDGE SYSTEM\n\n  Influent  →  Aeration Basin  →  Secondary  →  Effluent\n  (after       (microorganisms    Clarifier      (BOD, TSS\n   primary)     oxidize BOD)      |              reduced)\n                ↑                 ↓ RAS (return activated sludge)\n                |                 ↓ WAS (waste activated sludge)\n                └─── RAS ─────────┘\n                        recycle maintains MLSS\n\n  ENGINEERING BRIDGE — ACTIVATED SLUDGE AS FEEDBACK CONTROL:\n  ─────────────────────────────────────────────────────────────────\n  Controlled variable:  MLSS (mixed liquor suspended solids, mg/L)\n  Setpoint:             SRT (solids retention time, days)\n  Actuator:             WAS rate (waste activated sludge pump speed)\n  Feedback signal:      RAS return (recycle loop shown above)\n  Disturbance:          Influent flow and BOD load variations\n\n  The RAS loop IS a negative feedback control system.\n  Increase WAS → decrease MLSS → decrease SRT.\n  Decrease WAS → increase MLSS → increase SRT.\n  Modern plants use DO probes + ammonia sensors in closed-loop\n  PID control of aeration blowers and WAS pumps.\n  ─────────────────────────────────────────────────────────────────\n\n  KEY DESIGN VARIABLES:\n  ├── SRT (sludge retention time / solids retention time / MCRT)\n  │     = (mass VSS in system) / (mass VSS wasted per day)\n  │     Typical: 5–20 days (conventional); >20 days (nitrification)\n  │     SRT controls: effluent quality, oxygen demand, sludge production\n  │     Longer SRT → better effluent + more stable + less sludge,\n  │                  but larger aeration tank required\n  │\n  ├── HRT (hydraulic retention time)\n  │     = aeration tank volume / average influent flow\n  │     Typical: 4–8 hours for BOD removal\n  │\n  ├── MLSS (mixed liquor suspended solids) — operating biomass concentration\n  │     Typical: 2,000–4,000 mg/L (conventional)\n  │            : 8,000–12,000 mg/L (MBR)\n  │\n  ├── F/M ratio (food-to-microorganism)\n  │     = BOD loading (lb BOD/day) / MLVSS in system (lb VSS)\n  │     Typical: 0.05–0.4 d⁻¹\n  │     Low F/M → endogenous respiration → low effluent BOD\n  │     High F/M → log growth → poor settling (bulking risk)\n  │\n  └── SVI (sludge volume index) — settleability indicator\n        SVI = (settled sludge volume in 30 min, mL/L) / (MLSS, g/L)\n        Target: SVI <150 mL/g for good settling\n        Filamentous bulking: SVI >200 mL/g — worst operational problem",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-5",
+      "kind": "diagram_like",
+      "line": 191,
+      "heading_context": "### Monod Kinetics (Lawrence/McCarty Model)",
+      "confidence": "candidate",
+      "text": "  Substrate removal:    dS/dt = -(μ_max · S · X) / (Y(K_s + S))\n  Biomass growth:       dX/dt = Y · (-dS/dt) - k_d · X\n    μ_max = maximum specific growth rate (d⁻¹)\n    K_s   = half-saturation constant (mg/L BOD)\n    Y     = yield coefficient (g VSS / g BOD)\n    k_d   = endogenous decay rate (d⁻¹)\n\n  Effluent quality as function of SRT:\n  S_e = K_s(1 + k_d·SRT) / (SRT(μ_max - k_d) - 1)\n\n  Key insight: Effluent BOD is controlled by SRT, not HRT.\n  Longer SRT → lower S_e. This is why operators set a target SRT\n  and control by wasting a specific volume of sludge per day.",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-6",
+      "kind": "diagram_like",
+      "line": 214,
+      "heading_context": "## Aeration",
+      "confidence": "candidate",
+      "text": "  OXYGEN DEMAND CALCULATION\n\n  O₂ required ≈ 1.0 × BOD removed + 4.57 × TKN nitrified\n                - 2.86 × NO₃ denitrified - 1.42 × biomass wasted\n\n  AERATION SYSTEMS:\n  ┌────────────────┬──────────────────────────────────────────────┐\n  │ Type           │ SOTR / Notes                                 │\n  ├────────────────┼──────────────────────────────────────────────┤\n  │ Fine bubble    │ 6–8% O₂ transfer per meter submergence;     │\n  │ diffusers      │ high efficiency (~2 kg O₂/kWh);            │\n  │                │ most common for energy efficiency            │\n  ├────────────────┼──────────────────────────────────────────────┤\n  │ Coarse bubble  │ 3–5% transfer efficiency; less fouling;      │\n  │ diffusers      │ less efficient — used where fouling risk     │\n  │                │ is high (thickened sludge)                   │\n  ├────────────────┼──────────────────────────────────────────────┤\n  │ Surface        │ Mechanical splash aerators;                  │\n  │ aerators       │ 1.2–2.4 kg O₂/kWh; smaller plants,        │\n  │ (floating)     │ oxidation ditches                            │\n  └────────────────┴──────────────────────────────────────────────┘\n  SOTE (standard oxygen transfer efficiency) must be derated to\n  field conditions (AOTE) accounting for wastewater characteristics\n  and submergence depth.",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-7",
+      "kind": "diagram_like",
+      "line": 248,
+      "heading_context": "## Biological Nutrient Removal (BNR)",
+      "confidence": "candidate",
+      "text": "  NITROGEN CYCLE IN ACTIVATED SLUDGE\n\n  TKN (org N + NH₃)  →  Nitrification  →  Nitrate (NO₃⁻)\n                                           |\n                          Denitrification  ↓\n                          (anoxic zone)   N₂ gas (out of solution)\n\n  NITRIFICATION:\n  NH₄⁺ + 1.5 O₂  →  NO₂⁻ + H₂O + 2H⁺  (Nitrosomonas)\n  NO₂⁻ + 0.5 O₂  →  NO₃⁻               (Nitrobacter)\n  Net: consumes 4.57 g O₂ per g N nitrified\n  Requirements: aerobic (DO >1–2 mg/L), SRT >8–12 days, pH 7–8, temp >10°C\n  Nitrifiers are slow-growing (μ_max ≈ 0.5 d⁻¹ vs. 6 d⁻¹ for heterotrophs)\n  → SRT governs — if SRT is too short, nitrifiers wash out\n\n  DENITRIFICATION:\n  NO₃⁻ + organic carbon  →  N₂ + CO₂ + H₂O\n  (anoxic — no dissolved oxygen, but nitrate as electron acceptor)\n  Carbon source: raw wastewater (MLE), endogenous respiration, methanol\n  2.86 g O₂ equivalent \"recovered\" per g NO₃ denitrified\n  (reduces aeration demand — important for energy balance)\n\n  BNR CONFIGURATIONS:\n  ┌──────────────────┬─────────────────────────────────────────────┐\n  │ Config           │ Zones (Anaerobic / Anoxic / Aerobic)        │\n  ├──────────────────┼─────────────────────────────────────────────┤\n  │ MLE              │ Anoxic → Aerobic → clarifier               │\n  │ (Modified        │ Internal recycle from aerobic to anoxic    │\n  │ Ludzack-         │ Good TN removal; no P removal              │\n  │ Ettinger)        │                                             │\n  ├──────────────────┼─────────────────────────────────────────────┤\n  │ A²/O             │ Anaerobic → Anoxic → Aerobic                │\n  │                  │ TN + TP removal; most common BNR config     │\n  ├──────────────────┼─────────────────────────────────────────────┤\n  │ Bardenpho        │ 5-stage: Anaerobic/Anoxic/Aerobic/         │\n  │ (5-stage)        │ Anoxic/Aerobic — very low effluent TN      │\n  ├──────────────────┼─────────────────────────────────────────────┤\n  │ UCT              │ Modified A²/O — prevents nitrate in RAS     │\n  │ (Univ. of Cape   │ from disrupting anaerobic zone for EBPR     │\n  │ Town)            │                                             │\n  └──────────────────┴─────────────────────────────────────────────┘",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-8",
+      "kind": "diagram_like",
+      "line": 294,
+      "heading_context": "### Biological Phosphorus Removal (EBPR)",
+      "confidence": "candidate",
+      "text": "  EBPR — Enhanced Biological Phosphorus Removal\n\n  PAOs (polyphosphate-accumulating organisms) exploit alternating\n  anaerobic/aerobic conditions:\n\n  ANAEROBIC ZONE:\n  PAOs release stored polyphosphate → phosphate to solution\n  PAOs take up VFAs (from fermentation) → store as PHB\n\n  AEROBIC ZONE:\n  PAOs oxidize PHB → release energy → take up phosphate from solution\n  (more P removed from solution than released in anaerobic phase)\n  → \"luxury uptake\"\n  Net: P concentrated in biomass → removed via WAS\n\n  Requirements:\n  ├── VFAs (volatile fatty acids) in anaerobic zone — fermented organics\n  ├── Nitrate-free return to anaerobic zone (NO₃ competes with PAOs)\n  └── P:VSS in WAS ≈ 5–7% (vs. 1.5% for ordinary heterotrophs)\n\n  Chemical backup: if EBPR is insufficient or upset, add alum or FeCl₃\n  to precipitate phosphate as AlPO₄ or FePO₄ and remove in secondary\n  clarifier or sludge",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-9",
+      "kind": "diagram_like",
+      "line": 324,
+      "heading_context": "## Alternative Secondary Processes",
+      "confidence": "candidate",
+      "text": "  PROCESS COMPARISON\n\n  ┌──────────────────┬──────────┬───────────────────────────────────┐\n  │ Process          │ Capital  │ Notes                             │\n  ├──────────────────┼──────────┼───────────────────────────────────┤\n  │ Activated sludge │ Moderate │ Dominant technology; flexible     │\n  │ (conventional)   │          │ SRT control; secondary clarifier  │\n  │                  │          │ is the weak link (bulking)        │\n  ├──────────────────┼──────────┼───────────────────────────────────┤\n  │ Trickling filter │ Low      │ Fixed-film (biofilm on media);    │\n  │                  │          │ robust; less operator attention;  │\n  │                  │          │ lower efficiency than AS;         │\n  │                  │          │ odors; older technology           │\n  ├──────────────────┼──────────┼───────────────────────────────────┤\n  │ MBBR (moving bed │ Low-Mod  │ Plastic carriers provide biofilm  │\n  │ biofilm reactor) │          │ surface; no return sludge;       │\n  │                  │          │ flexible loading; upgrade-        │\n  │                  │          │ friendly for existing plants      │\n  ├──────────────────┼──────────┼───────────────────────────────────┤\n  │ MBR (membrane    │ High     │ Activated sludge + UF membrane    │\n  │ bioreactor)      │          │ replaces secondary clarifier;     │\n  │                  │          │ high MLSS (8–12 g/L);             │\n  │                  │          │ excellent effluent quality;       │\n  │                  │          │ reuse-ready; high energy + O&M    │\n  └──────────────────┴──────────┴───────────────────────────────────┘",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-10",
+      "kind": "diagram_like",
+      "line": 359,
+      "heading_context": "## Solids Handling",
+      "confidence": "candidate",
+      "text": "  SOLIDS HANDLING TRAIN\n\n  Primary sludge (2–5% solids)  ──┐\n                                   ├──> Thickening ──> Anaerobic ──> Dewatering\n  WAS (0.5–1.5% solids)        ──┘    (to 4–8%)      Digestion     (to 20–35%)\n                                                          ↓              ↓\n                                                       Biogas        Biosolids\n                                                       (CH₄/CO₂)    (land appl.\n                                                       to CHP/flare  or landfill)\n\n  THICKENING:\n  ├── Gravity thickening (primary sludge): SOR 50–100 gpd/ft²\n  └── DAF (dissolved air flotation) for WAS:\n      micro-bubbles attach to solids → float to surface → skim\n\n  ANAEROBIC DIGESTION (AD):\n  ├── Purpose: stabilize biosolids, destroy pathogens, produce biogas\n  ├── Process stages:\n  │   1. Hydrolysis: polymers (proteins, lipids, carbs) → monomers\n  │   2. Acidogenesis: monomers → VFAs + H₂ + CO₂\n  │   3. Acetogenesis: VFAs → acetate + H₂ + CO₂\n  │   4. Methanogenesis: acetate + H₂/CO₂ → CH₄ + CO₂\n  │      (rate-limiting step — methanogens are slow, pH sensitive)\n  ├── Operating conditions:\n  │   Mesophilic: 35°C, SRT 20–30 days\n  │   Thermophilic: 55°C, SRT 10–15 days, Class A pathogen reduction\n  ├── Biogas: ~50–65% CH₄, ~35–50% CO₂, traces H₂S\n  │   Yield: ~0.35–0.55 m³ CH₄ / kg VS destroyed\n  │   Energy content: ~22 MJ/m³ CH₄\n  └── VS (volatile solids) reduction: 45–65%\n\n  BIOGAS UTILIZATION:\n  ├── Flare (baseline — no energy recovery)\n  ├── CHP (combined heat and power — engine/generator): 30–35% electrical\n  │   efficiency; waste heat recovers digester heating demand\n  └── RNG (renewable natural gas): clean biogas → pipeline injection;\n      highest value but capital-intensive",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-11",
+      "kind": "chart_like",
+      "line": 399,
+      "heading_context": "## Solids Handling",
+      "confidence": "candidate",
+      "text": "### Biosolids and EPA 503",
+      "notes": [
+        "detected from bar/chart glyph density with numeric labels"
+      ]
+    },
+    {
+      "id": "block-12",
+      "kind": "diagram_like",
+      "line": 401,
+      "heading_context": "### Biosolids and EPA 503",
+      "confidence": "candidate",
+      "text": "  EPA 503 REGULATION (40 CFR Part 503)\n\n  Class B biosolids:\n  ├── Meet fecal coliform density <2×10⁶ MPN/g TS (or equivalent)\n  ├── Can be land applied with site restrictions (buffer zones,\n  │   grazing restrictions, harvest waiting periods)\n  └── Most commonly produced biosolids\n\n  Class A biosolids:\n  ├── Pathogen reduction to below detection for Salmonella, enteric viruses,\n  │   helminth ova — equivalent to compost\n  ├── Land application with fewer restrictions\n  └── Achieved via: thermophilic digestion, composting, pasteurization\n\n  Land application provides: organic matter, macronutrients (N, P, K),\n  micronutrients. Track: heavy metals (Pb, Cd, Hg, Mo, Se, Zn, Cu, Ni)\n  must be below 503 cumulative loading rates.\n  Emerging issue: PFAS in biosolids from industrial/AFFF sources —\n  EPA developing limits; some states already restricting.",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-13",
+      "kind": "diagram_like",
+      "line": 429,
+      "heading_context": "## Water Reuse",
+      "confidence": "candidate",
+      "text": "  WATER REUSE SPECTRUM\n\n  Level of Treatment Required:\n\n  Secondary  →  Non-potable  →  Indirect Potable  →  Direct Potable\n  (WWTP       reuse              Reuse (IPR)           Reuse (DPR)\n  effluent)   (irrigation,\n              industrial)\n\n  Non-potable: Title 22 (California, widely adopted) — secondary +\n               filtration + disinfection; UV 10 mJ/cm²; TC <2.2/100 mL\n\n  IPR: Advanced treatment (MF/UF + RO + UV/AOP or O₃/BAC), then\n       environmental buffer (groundwater injection or reservoir augmentation)\n       Required log removal/inactivation:\n       Giardia: 12 log; Crypto: 10 log; Virus: 12 log (CA DDW)\n       Examples: Orange County Water District (GWRS), Singapore NEWater\n\n  DPR: Same advanced treatment but directly injected into potable supply\n       without environmental buffer; emerging in Texas (Big Spring), CA\n       Requires robust monitoring (online TOC, conductivity, pathogens)\n       and public acceptance programs",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-14",
+      "kind": "diagram_like",
+      "line": 460,
+      "heading_context": "## NPDES Permits",
+      "confidence": "candidate",
+      "text": "  NPDES PERMIT STRUCTURE\n\n  ├── Technology-based limits:\n  │   BPT (best practicable technology) — secondary treatment = 30 mg/L BOD,\n  │   30 mg/L TSS (30-day average); equivalent to activated sludge performance\n  │   BCT, BAT for toxics and industrial categories\n  │\n  ├── Water quality-based limits (WQBEL):\n  │   If technology-based limits are not protective of receiving water,\n  │   water quality standards drive stricter limits (nutrient limits,\n  │   priority pollutants, toxics)\n  │\n  ├── Effluent monitoring: flow, BOD, TSS, pH, DO, nutrients, pathogens,\n  │   toxics as required by permit; CEMS optional but increasing\n  │\n  └── Permit cycle: 5-year permit renewal; public notice and comment",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    }
+  ]
+}

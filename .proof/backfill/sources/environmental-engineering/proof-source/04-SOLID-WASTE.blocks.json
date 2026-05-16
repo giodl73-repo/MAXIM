@@ -1,0 +1,138 @@
+{
+  "schema_version": "1",
+  "source_markdown": "environmental-engineering\\04-SOLID-WASTE.md",
+  "blocks": [
+    {
+      "id": "block-1",
+      "kind": "diagram_like",
+      "line": 28,
+      "heading_context": "## The Big Picture",
+      "confidence": "candidate",
+      "text": "  WASTE MANAGEMENT HIERARCHY\n  (preferred → least preferred)\n\n  ┌─────────────────────────────────────────────────────────────┐\n  │  1. SOURCE REDUCTION (Prevention)                           │\n  │     Design products to use less material / be more durable  │\n  │     Extended Producer Responsibility (EPR) — EU standard    │\n  ├─────────────────────────────────────────────────────────────┤\n  │  2. REUSE                                                   │\n  │     Product repair, resale, remanufacturing                 │\n  │     Microsoft Circular Centers — refurbish servers          │\n  ├─────────────────────────────────────────────────────────────┤\n  │  3. RECYCLING                                               │\n  │     Material recovery → reprocessed into new products       │\n  │     MRF (materials recovery facility)                       │\n  ├─────────────────────────────────────────────────────────────┤\n  │  4. COMPOSTING / ANAEROBIC DIGESTION                        │\n  │     Organic material → compost / biogas                     │\n  ├─────────────────────────────────────────────────────────────┤\n  │  5. ENERGY RECOVERY                                         │\n  │     Waste-to-energy combustion, landfill gas utilization    │\n  ├─────────────────────────────────────────────────────────────┤\n  │  6. TREATMENT                                               │\n  │     Reduce toxicity / volume before disposal                │\n  ├─────────────────────────────────────────────────────────────┤\n  │  7. DISPOSAL (Landfill)                                     │\n  │     Final sink — engineered containment                     │\n  └─────────────────────────────────────────────────────────────┘",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-2",
+      "kind": "diagram_like",
+      "line": 66,
+      "heading_context": "## MSW Characterization",
+      "confidence": "candidate",
+      "text": "  U.S. MSW COMPOSITION (EPA, 2018 — 292 million tons/yr, 4.9 lb/capita/day)\n\n  ┌──────────────────────┬─────────┬────────────────────────────────┐\n  │ Material             │ % by Wt │ Notes                          │\n  ├──────────────────────┼─────────┼────────────────────────────────┤\n  │ Food scraps          │  22%    │ Fastest-growing; best          │\n  │                      │         │ candidate for AD/composting    │\n  ├──────────────────────┼─────────┼────────────────────────────────┤\n  │ Paper / cardboard    │  23%    │ Highest recycled fraction      │\n  │                      │         │ OCC (old corrugated cardboard) │\n  │                      │         │ = high-value recyclable        │\n  ├──────────────────────┼─────────┼────────────────────────────────┤\n  │ Plastics             │  12%    │ Only ~8% recycled; highly      │\n  │                      │         │ variable recyclability by resin │\n  ├──────────────────────┼─────────┼────────────────────────────────┤\n  │ Yard trimmings       │  12%    │ Largely composted or mulched   │\n  ├──────────────────────┼─────────┼────────────────────────────────┤\n  │ Metals               │   9%    │ Aluminum: >90% recovery rate   │\n  │                      │         │ Steel: ~70% recovery           │\n  ├──────────────────────┼─────────┼────────────────────────────────┤\n  │ Rubber/leather/tex.  │   8%    │ Largely landfilled             │\n  ├──────────────────────┼─────────┼────────────────────────────────┤\n  │ Wood                 │   6%    │                                │\n  ├──────────────────────┼─────────┼────────────────────────────────┤\n  │ Glass                │   4%    │ Heavy, low value, breakage;    │\n  │                      │         │ challenging to recycle         │\n  ├──────────────────────┼─────────┼────────────────────────────────┤\n  │ Other                │   4%    │                                │\n  └──────────────────────┴─────────┴────────────────────────────────┘\n\n  Diversion rate (recycling + composting): ~32% in U.S. (well below EU 50–70%)\n  Landfill: ~50%; Energy recovery (WTE): ~12%; Combustion (no recovery): ~6%",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-3",
+      "kind": "chart_like",
+      "line": 107,
+      "heading_context": "## Materials Recovery Facility (MRF)",
+      "confidence": "candidate",
+      "text": "  MRF SORT LINE (clean MRF — pre-sorted recyclables)\n\n  Tipping floor\n      |\n      v\n  Pre-sort conveyor\n  (manual removal of obvious contaminants — plastic bags, tanglers)\n      |\n      v\n  Disc screen (OCC separator)\n  (large corrugated cardboard overs → OCC baling line)\n      |\n      v\n  Fiber screen (newspaper / mixed paper)\n  (paper overs to fiber baling line)\n      |\n      v\n  Glass breaker (optional — removes glass early)\n      |\n      v\n  Metering drum → conveyors to sorting deck\n      |\n      +──> Optical sorters (NIR near-infrared)\n      |    Identifies plastic resin types:\n      |    PET (#1) → HDPE (#2) → PP (#5) sorted separately\n      |    Air jets kick materials into chutes\n      |\n      +──> Eddy current separator\n      |    Induced currents in non-ferrous metals → repel aluminum cans\n      |    Ferrous metals removed earlier by overhead magnet\n      |\n      v\n  Residuals (everything that doesn't get captured) → landfill\n\n  OPTICAL SORTER DETAIL:\n  NIR identifies polymers by characteristic absorption spectra;\n  AI-enhanced systems (ZenRobotics, AMP Robotics) add computer vision\n  for brand/type identification; significantly improves purity\n  Clean MRF: requires <10% contamination in input\n  China National Sword (2018): China imposed <0.5% contamination threshold\n  → most US MRFs could not meet this → recycling markets collapsed\n  Currently recovering: OCC, cardboard, aluminum, steel, #1 PET, #2 HDPE\n  Still challenged: #3-#7 plastics, glass, mixed paper",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-4",
+      "kind": "diagram_like",
+      "line": 159,
+      "heading_context": "## Recycling Economics",
+      "confidence": "candidate",
+      "text": "  COMMODITY VALUE SPECTRUM (approximate, volatile)\n\n  ┌──────────────────┬──────────────┬──────────────────────────────┐\n  │ Material         │ Market Value │ Notes                        │\n  ├──────────────────┼──────────────┼──────────────────────────────┤\n  │ Aluminum         │ $1,500+/ton  │ Infinite recyclability;     │\n  │ (UBC cans)       │              │ 95% energy savings vs.       │\n  │                  │              │ primary; always profitable   │\n  ├──────────────────┼──────────────┼──────────────────────────────┤\n  │ OCC cardboard    │ $50–200/ton  │ Volume driver of recycling   │\n  │                  │              │ economics; volatile market   │\n  ├──────────────────┼──────────────┼──────────────────────────────┤\n  │ Steel            │ $100–300/ton │ 70% energy savings; reliable │\n  │                  │              │ market via scrap yards       │\n  ├──────────────────┼──────────────┼──────────────────────────────┤\n  │ HDPE natural     │ $200–600/ton │ High-value plastic           │\n  │ (milk jugs)      │              │                              │\n  ├──────────────────┼──────────────┼──────────────────────────────┤\n  │ PET clear        │ $100–400/ton │ Bottle-to-bottle recycling   │\n  │ (soda bottles)   │              │                              │\n  ├──────────────────┼──────────────┼──────────────────────────────┤\n  │ Mixed paper      │ -$0 to $50/t │ Often negative value;        │\n  │                  │              │ China National Sword wrecked │\n  │                  │              │ the market                   │\n  ├──────────────────┼──────────────┼──────────────────────────────┤\n  │ Glass            │ -$20 to $10/t│ Heavy; crushing lowers value;│\n  │                  │              │ often landfilled or used as  │\n  │                  │              │ daily cover at landfills     │\n  ├──────────────────┼──────────────┼──────────────────────────────┤\n  │ Plastics #3–#7   │ Negative     │ No viable market in most     │\n  │ (mixed/colored)  │              │ regions; goes to landfill    │\n  └──────────────────┴──────────────┴──────────────────────────────┘\n\n  MRF economics: revenue from commodity sales vs. processing cost\n  (~$50–120/ton processing). When commodity values drop, municipalities\n  pay \"processing fees\" rather than receiving revenue.",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-5",
+      "kind": "diagram_like",
+      "line": 205,
+      "heading_context": "## Composting",
+      "confidence": "candidate",
+      "text": "  COMPOSTING PROCESS REQUIREMENTS\n\n  Feedstocks: food scraps, yard trimmings, agricultural residuals,\n              cardboard (C source), manure (N source)\n\n  C:N ratio: 25–35:1 optimal for rapid decomposition\n    If too high (>40:1): slow decomposition, N deficient\n    If too low (<20:1): N volatilization (ammonia odor), anaerobic zones\n\n  Moisture: 40–60% (by weight) — squeezable but not dripping\n  Particle size: 0.5–2 inches — balance surface area vs. airflow resistance\n  Temperature: 55–65°C during active decomposition → pathogen kill\n    PFRP (Process to Further Reduce Pathogens): 55°C for 3 days minimum\n    for EPA 503 Class A or equivalent\n\n  COMPOSTING SYSTEMS:\n  ┌──────────────────┬───────────────────────────────────────────────┐\n  │ System           │ Notes                                         │\n  ├──────────────────┼───────────────────────────────────────────────┤\n  │ Windrow          │ Long rows turned by machine; low capital;    │\n  │                  │ large land area; odor risk                    │\n  ├──────────────────┼───────────────────────────────────────────────┤\n  │ Aerated static   │ Forced air through static pile; no turning;   │\n  │ pile (ASP)       │ faster (~21 days); enclosed with biofilter    │\n  │                  │ controls odors                                │\n  ├──────────────────┼───────────────────────────────────────────────┤\n  │ In-vessel        │ Rotating drum or tunnel; fully enclosed;     │\n  │ (drum/tunnel)    │ fastest (7–10 days); highest capital;        │\n  │                  │ urban siting viable; no odor issues          │\n  └──────────────────┴───────────────────────────────────────────────┘\n\n  AD vs. composting: AD produces biogas + digestate in 15–30 days;\n  composting requires 3–8 weeks but is simpler. AD is preferred where\n  energy recovery is the priority; composting where land is available\n  and product quality (mature compost) is priority.",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-6",
+      "kind": "diagram_like",
+      "line": 249,
+      "heading_context": "## Landfill Engineering (Subtitle D)",
+      "confidence": "candidate",
+      "text": "  LANDFILL CROSS-SECTION\n\n  Final cover system\n  ├── Vegetative layer (erosion protection)\n  ├── Drainage layer (lateral drainage of infiltration)\n  ├── Barrier layer (18\" compacted clay + 40-mil geomembrane) — 10⁻⁷ cm/s\n  └── Foundation/grading layer\n\n  WASTE MASS\n  (compacted daily in cells, 6:1 slope, daily cover = 6\" soil or ADC)\n\n  Primary liner system:\n  ├── 60-mil HDPE geomembrane (textured for friction on clay)\n  ├── 24\" compacted clay liner (k ≤ 10⁻⁷ cm/s) — composite liner\n  └── Leak detection layer (between primary and secondary liner)\n\n  Secondary liner:\n  ├── 60-mil HDPE geomembrane\n  └── 24\" compacted clay (or equivalent GCL — geosynthetic clay liner)\n\n  Leachate collection and removal system (LCRS):\n  ├── Gravel drainage blanket over liner\n  ├── Perforated collection pipes (4–6\" HDPE, 50–100 ft spacing)\n  ├── Sumps with pumps at low points\n  └── Collected leachate → on-site pretreatment or WWTP",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-7",
+      "kind": "diagram_like",
+      "line": 279,
+      "heading_context": "### Leachate Management",
+      "confidence": "candidate",
+      "text": "  LEACHATE COMPOSITION (typical)\n\n  BOD₅: 2,000–30,000 mg/L (young landfill, acetogenic phase)\n         10–500 mg/L     (mature landfill, methanogenic phase)\n  COD:   5,000–80,000 mg/L\n  NH₃-N: 500–2,000 mg/L (often the binding constraint for treatment)\n  Heavy metals: variable — Pb, Cd, Hg, As\n  PFAS: increasingly detected — leachate from consumer product disposal\n\n  LEACHATE TREATMENT OPTIONS:\n  ├── Discharge to POTW (common — simplest, but PFAS concern)\n  ├── On-site biological treatment (MBR + RO common for high-quality)\n  └── Leachate recirculation (bioreactor landfill — accelerates degradation)",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-8",
+      "kind": "diagram_like",
+      "line": 297,
+      "heading_context": "### Landfill Gas",
+      "confidence": "candidate",
+      "text": "  LFG GENERATION\n\n  Anaerobic decomposition of organic waste produces:\n  ~50% CH₄ / ~50% CO₂ (plus trace H₂S, NMOC)\n\n  LFG generation rate (modified EPA First Order Decay model):\n  Q_CH4 = k · L₀ · M · e^(-k·t)\n    k   = waste decay rate (yr⁻¹) — higher for wetter/warmer climates\n    L₀  = methane generation potential (~100 m³/Mg waste)\n    M   = mass of waste in year of disposal\n    t   = time since waste disposal\n\n  LFG COLLECTION SYSTEM:\n  ├── Vertical extraction wells: perforated pipes drilled into waste mass,\n  │   spaced 50–300 ft, connected to header pipes under vacuum\n  ├── Horizontal trenches: for active phases (top-slope installed)\n  └── Wellfield with blower/flare station; vacuum ≈1–5\" H₂O\n\n  LFG UTILIZATION:\n  ┌──────────────┬─────────────────────────────────────────────────┐\n  │ Use          │ Notes                                           │\n  ├──────────────┼─────────────────────────────────────────────────┤\n  │ Flare        │ Baseline; destroys CH₄ (21× GWP) → CO₂;      │\n  │              │ EPA NSPS requires flare or energy recovery      │\n  │              │ for ≥34 Mg/hr NMOC emission rate               │\n  ├──────────────┼─────────────────────────────────────────────────┤\n  │ Direct power │ Engine-generator sets at landfill;              │\n  │ generation   │ 30–35% electrical efficiency; can supply grid   │\n  ├──────────────┼─────────────────────────────────────────────────┤\n  │ RNG          │ Clean, upgrade to pipeline-quality CH₄;        │\n  │              │ highest revenue; qualifies for D3 RIN credits  │\n  │              │ (Renewable Fuel Standard)                       │\n  ├──────────────┼─────────────────────────────────────────────────┤\n  │ Direct use   │ Industrial boiler, kiln, greenhouse heating     │\n  └──────────────┴─────────────────────────────────────────────────┘\n\n  LMOP: EPA Landfill Methane Outreach Program — technical assistance\n  for LFG energy projects; database of all US LFGTE projects",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-9",
+      "kind": "diagram_like",
+      "line": 344,
+      "heading_context": "## Hazardous Waste Management (RCRA Subtitle C)",
+      "confidence": "candidate",
+      "text": "  WHAT MAKES A WASTE \"HAZARDOUS\" UNDER RCRA?\n\n  ┌──────────────────────────────────────────────────────────────────┐\n  │  LISTED WASTES (EPA has pre-determined these are hazardous):     │\n  │  F-list: non-specific source wastes (e.g., spent chlorinated     │\n  │           solvents — F001-F005)                                  │\n  │  K-list: specific industry source wastes (e.g., K001 wood        │\n  │           preserving, K051 API separator sludge)                 │\n  │  P-list: acutely hazardous commercial chemical products          │\n  │  U-list: toxic commercial chemical products                      │\n  ├──────────────────────────────────────────────────────────────────┤\n  │  CHARACTERISTIC WASTES (any waste exhibiting these properties): │\n  │  D001: Ignitability — flash point <60°C                         │\n  │  D002: Corrosivity — pH <2 or >12.5                             │\n  │  D003: Reactivity — unstable, water-reactive, cyanide/sulfide   │\n  │  D004–D043: Toxicity — TCLP test (Toxicity Characteristic       │\n  │             Leaching Procedure) for 40 listed contaminants       │\n  │             above regulatory threshold concentrations            │\n  └──────────────────────────────────────────────────────────────────┘",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-10",
+      "kind": "diagram_like",
+      "line": 368,
+      "heading_context": "### Generator Categories",
+      "confidence": "candidate",
+      "text": "  GENERATOR CLASSIFICATION (revised 2017)\n\n  ┌────────────┬────────────────┬───────────────────────────────────┐\n  │ Category   │ Generation     │ Key Requirements                  │\n  ├────────────┼────────────────┼───────────────────────────────────┤\n  │ LQG        │ ≥1,000 kg/mo   │ 90-day on-site storage limit;    │\n  │ (large     │ (≥2,205 lb/mo) │ full waste characterization;      │\n  │ quantity)  │                │ personnel training; contingency   │\n  │            │                │ plan; RCRA Subpart BB leak detec. │\n  ├────────────┼────────────────┼───────────────────────────────────┤\n  │ SQG        │ 100–1,000 kg/mo│ 270-day on-site storage limit;    │\n  │ (small     │                │ basic contingency plan; training  │\n  │ quantity)  │                │                                   │\n  ├────────────┼────────────────┼───────────────────────────────────┤\n  │ VSQG       │ <100 kg/mo     │ No time limit on storage;         │\n  │ (very      │                │ must send waste to permitted TSD  │\n  │ small qty) │                │ or reclaim; minimal paperwork     │\n  └────────────┴────────────────┴───────────────────────────────────┘",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-11",
+      "kind": "diagram_like",
+      "line": 416,
+      "heading_context": "### Land Disposal Restrictions (LDRs)",
+      "confidence": "candidate",
+      "text": "  LDRs require treatment to \"best demonstrated available technology\"\n  (BDAT) levels before land disposal.\n  Prohibition: certain hazardous wastes cannot be landfilled without\n  treatment. Examples:\n  ├── Dilution is not treatment (you cannot add water to reduce concentration)\n  ├── Spent solvents: incineration + metals treatment\n  └── Wastewater with metals: precipitation/filtration before disposal\n\n  COMMON TREATMENT TECHNOLOGIES (Subtitle C):\n  ├── High-temperature incineration: 850–1200°C; destroys organics;\n  │   >99.99% DRE for listed hazardous organic compounds\n  ├── Chemical neutralization: acid/base wastes\n  ├── Precipitation: metals as hydroxides or sulfides\n  ├── Stabilization/solidification: cement or pozzolan immobilizes metals\n  └── Bioremediation: for contaminated soils (see 05-REMEDIATION.md)",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-12",
+      "kind": "diagram_like",
+      "line": 440,
+      "heading_context": "## E-Waste",
+      "confidence": "candidate",
+      "text": "  E-WASTE SCALE (2022)\n\n  Global generation: 53 million metric tons/year → growing 2 Mt/yr\n  Formal recycling rate: ~17% globally\n  Informal sector risk: acid leaching, open burning → heavy metal exposure\n\n  VALUABLE MATERIALS IN E-WASTE:\n  ├── Gold (200–400 ppm in circuit boards vs. 5 ppm in gold ore)\n  ├── Silver, palladium, copper, aluminum\n  └── Rare earth elements in magnets (neodymium, dysprosium)\n\n  REGULATORY LANDSCAPE:\n  ├── EU WEEE Directive: producer take-back, collection targets\n  ├── US: no federal law; 25 states have e-waste laws (usually manufacturer\n  │   fee-funded take-back programs — manufacturer responsibility)\n  └── Basel Convention: restricts export of hazardous waste (including\n      e-waste) from OECD to non-OECD countries; US not a party\n\n  MICROSOFT DATA CENTER CONTEXT:\n  ├── Server decommission generates: motherboards, DIMMs, SSDs, HDDs,\n  │   power supplies, networking equipment, UPS batteries\n  ├── RCRA characterization: spent lithium batteries (D003 reactive\n  │   characteristic); some electronics may be P/U listed\n  ├── Microsoft Circular Centers: on-campus refurbishment and\n  │   reuse/resale of server components (direct reuse pathway)\n  └── Data destruction: NIST 800-88 media sanitization for decommissioned\n      storage (encryption + overwrite + physical destruction for TS data)",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    }
+  ]
+}
