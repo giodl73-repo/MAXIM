@@ -15,6 +15,20 @@ custody before it can become a CROP/PEBBLE/FLETCH distribution surface.
 8. Emit a PEBBLE pack and only then add a FLETCH registry/cacheline for
    downstream repos.
 
+## Standard artifact roots
+
+| Root | Commit? | Purpose |
+|---|---:|---|
+| `.proof/backfill/` | yes | Source-custody records, module ledgers, PROOF source artifacts, and remap manifests. |
+| `.crop/views/` | yes | Stable CROP view recipes that define module and guide pack scopes. |
+| `.pebble/packs/` | yes, after validation | Distributable PEBBLE packs meant for downstream reuse. |
+| `.fletch/registries/` | yes, after pack publication | FLETCH registry/cacheline manifests that point at committed packs. |
+| `.crop/work/` | no | Scratch output, experiments, or unvalidated generated artifacts. |
+
+The stable fetch path is `.fletch/registries/<id>.json` pointing at one or more
+`.pebble/packs/<id>.pebble.json` cachelines. Downstream repos should FLETCH the
+registry or pack path; they should not vendor MAXIM source directories directly.
+
 ## Rules
 
 - Do not run a whole-repo backfill first.

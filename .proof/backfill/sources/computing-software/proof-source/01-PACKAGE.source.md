@@ -1,23 +1,9 @@
 ---
-maxim_schema: maxim.frontmatter.v1
-id: maxim:computing-software:package-management
-kind: guide
-module: computing-software
-section: computing-software
-title: Package Management Systems
-status: source-custody
-source_custody: partial
-current_path: computing/01-PACKAGE.md
-canonical_path: computing/01-PACKAGE.md
-backsource_ids: [proof-backfill:computing-software:01-package, git-history:computing-software:01-package]
-concepts: [package management, dependency management, system packages, language packages, registries]
-root_concepts: [package management]
-index_roles: [guide, root-concept]
-remap_from: []
-remap_to: []
-updated: null
+tags: [backfill]
+ops: [backfill]
+content_tags: [markdown]
+proof_original: "01-PACKAGE.md"
 ---
-
 # Package Management Systems — A Layered Guide
 
 ## The Big Picture
