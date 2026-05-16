@@ -1,3 +1,22 @@
+---
+maxim_schema: maxim.frontmatter.v1
+id: maxim:coral-reefs:reef-diversity
+kind: guide
+module: coral-reefs
+section: coral-reefs
+title: Reef Diversity: Indo-Pacific vs. Caribbean, Hotspots, Gradients
+status: source-custody
+source_custody: partial
+current_path: coral-reefs/06-REEF-DIVERSITY.md
+canonical_path: coral-reefs/06-REEF-DIVERSITY.md
+backsource_ids: [proof-backfill:coral-reefs:06-reef-diversity, git-history:coral-reefs:06-reef-diversity]
+concepts: [reef, diversity]
+root_concepts: [reef, diversity]
+index_roles: [guide, root-concept]
+remap_from: []
+remap_to: []
+updated: null
+---
 # Reef Diversity: Indo-Pacific vs. Caribbean, Hotspots, Gradients
 
 ## The Big Picture

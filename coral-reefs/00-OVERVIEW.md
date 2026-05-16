@@ -1,3 +1,22 @@
+---
+maxim_schema: maxim.frontmatter.v1
+id: maxim:coral-reefs:overview
+kind: guide
+module: coral-reefs
+section: coral-reefs
+title: Coral Reefs: Biology, Ecology, and Crisis - Landscape
+status: source-custody
+source_custody: partial
+current_path: coral-reefs/00-OVERVIEW.md
+canonical_path: coral-reefs/00-OVERVIEW.md
+backsource_ids: [proof-backfill:coral-reefs:00-overview, git-history:coral-reefs:00-overview]
+concepts: [overview]
+root_concepts: [overview]
+index_roles: [guide, root-concept]
+remap_from: []
+remap_to: []
+updated: null
+---
 # Coral Reefs: Biology, Ecology, and Crisis — Landscape
 
 ## The Big Picture

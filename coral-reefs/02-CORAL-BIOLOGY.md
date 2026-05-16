@@ -1,3 +1,22 @@
+---
+maxim_schema: maxim.frontmatter.v1
+id: maxim:coral-reefs:coral-biology
+kind: guide
+module: coral-reefs
+section: coral-reefs
+title: Coral Biology: Polyp Anatomy, Skeleton, Spawning, Growth
+status: source-custody
+source_custody: partial
+current_path: coral-reefs/02-CORAL-BIOLOGY.md
+canonical_path: coral-reefs/02-CORAL-BIOLOGY.md
+backsource_ids: [proof-backfill:coral-reefs:02-coral-biology, git-history:coral-reefs:02-coral-biology]
+concepts: [coral, biology]
+root_concepts: [coral, biology]
+index_roles: [guide, root-concept]
+remap_from: []
+remap_to: []
+updated: null
+---
 # Coral Biology: Polyp Anatomy, Skeleton, Spawning, Growth
 
 ## The Big Picture

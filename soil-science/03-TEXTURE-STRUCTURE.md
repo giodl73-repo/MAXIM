@@ -1,3 +1,22 @@
+---
+maxim_schema: maxim.frontmatter.v1
+id: maxim:soil-science:texture-structure
+kind: guide
+module: soil-science
+section: soil-science
+title: Soil Texture and Structure: Sand/Silt/Clay Triangle, Aggregates
+status: source-custody
+source_custody: partial
+current_path: soil-science/03-TEXTURE-STRUCTURE.md
+canonical_path: soil-science/03-TEXTURE-STRUCTURE.md
+backsource_ids: [proof-backfill:soil-science:03-texture-structure, git-history:soil-science:03-texture-structure]
+concepts: [texture, structure]
+root_concepts: [texture, structure]
+index_roles: [guide, root-concept]
+remap_from: []
+remap_to: []
+updated: null
+---
 # Soil Texture and Structure: Sand/Silt/Clay Triangle, Aggregates
 
 ## The Big Picture

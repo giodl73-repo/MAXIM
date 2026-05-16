@@ -1,3 +1,22 @@
+---
+maxim_schema: maxim.frontmatter.v1
+id: maxim:coral-reefs:restoration
+kind: guide
+module: coral-reefs
+section: coral-reefs
+title: Reef Restoration: Coral Gardening, Assisted Evolution, Scale
+status: source-custody
+source_custody: partial
+current_path: coral-reefs/09-RESTORATION.md
+canonical_path: coral-reefs/09-RESTORATION.md
+backsource_ids: [proof-backfill:coral-reefs:09-restoration, git-history:coral-reefs:09-restoration]
+concepts: [restoration]
+root_concepts: [restoration]
+index_roles: [guide, root-concept]
+remap_from: []
+remap_to: []
+updated: null
+---
 # Reef Restoration: Coral Gardening, Assisted Evolution, Scale
 
 ## The Big Picture

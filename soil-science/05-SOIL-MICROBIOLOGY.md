@@ -1,3 +1,22 @@
+---
+maxim_schema: maxim.frontmatter.v1
+id: maxim:soil-science:soil-microbiology
+kind: guide
+module: soil-science
+section: soil-science
+title: Soil Microbiology: Bacteria, Fungi, Mycorrhizae, Soil Food Web
+status: source-custody
+source_custody: partial
+current_path: soil-science/05-SOIL-MICROBIOLOGY.md
+canonical_path: soil-science/05-SOIL-MICROBIOLOGY.md
+backsource_ids: [proof-backfill:soil-science:05-soil-microbiology, git-history:soil-science:05-soil-microbiology]
+concepts: [soil, microbiology]
+root_concepts: [soil, microbiology]
+index_roles: [guide, root-concept]
+remap_from: []
+remap_to: []
+updated: null
+---
 # Soil Microbiology: Bacteria, Fungi, Mycorrhizae, Soil Food Web
 
 ## The Big Picture

@@ -1,3 +1,22 @@
+---
+maxim_schema: maxim.frontmatter.v1
+id: maxim:coral-reefs:human-impacts
+kind: guide
+module: coral-reefs
+section: coral-reefs
+title: Human Impacts: Overfishing, Runoff, Physical Damage, Tourism
+status: source-custody
+source_custody: partial
+current_path: coral-reefs/08-HUMAN-IMPACTS.md
+canonical_path: coral-reefs/08-HUMAN-IMPACTS.md
+backsource_ids: [proof-backfill:coral-reefs:08-human-impacts, git-history:coral-reefs:08-human-impacts]
+concepts: [human, impacts]
+root_concepts: [human, impacts]
+index_roles: [guide, root-concept]
+remap_from: []
+remap_to: []
+updated: null
+---
 # Human Impacts: Overfishing, Runoff, Physical Damage, Tourism
 
 ## The Big Picture

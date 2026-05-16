@@ -1,3 +1,22 @@
+---
+maxim_schema: maxim.frontmatter.v1
+id: maxim:soil-science:soil-water
+kind: guide
+module: soil-science
+section: soil-science
+title: Soil Water: Field Capacity, Wilting Point, Hydraulic Conductivity
+status: source-custody
+source_custody: partial
+current_path: soil-science/07-SOIL-WATER.md
+canonical_path: soil-science/07-SOIL-WATER.md
+backsource_ids: [proof-backfill:soil-science:07-soil-water, git-history:soil-science:07-soil-water]
+concepts: [soil, water]
+root_concepts: [soil, water]
+index_roles: [guide, root-concept]
+remap_from: []
+remap_to: []
+updated: null
+---
 # Soil Water: Field Capacity, Wilting Point, Hydraulic Conductivity
 
 ## The Big Picture

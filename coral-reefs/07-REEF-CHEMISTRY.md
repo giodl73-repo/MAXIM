@@ -1,3 +1,22 @@
+---
+maxim_schema: maxim.frontmatter.v1
+id: maxim:coral-reefs:reef-chemistry
+kind: guide
+module: coral-reefs
+section: coral-reefs
+title: Reef Chemistry: Aragonite Saturation, Ocean Acidification, CO₂ Equilibria
+status: source-custody
+source_custody: partial
+current_path: coral-reefs/07-REEF-CHEMISTRY.md
+canonical_path: coral-reefs/07-REEF-CHEMISTRY.md
+backsource_ids: [proof-backfill:coral-reefs:07-reef-chemistry, git-history:coral-reefs:07-reef-chemistry]
+concepts: [reef, chemistry]
+root_concepts: [reef, chemistry]
+index_roles: [guide, root-concept]
+remap_from: []
+remap_to: []
+updated: null
+---
 # Reef Chemistry: Aragonite Saturation, Ocean Acidification, CO₂ Equilibria
 
 ## The Big Picture

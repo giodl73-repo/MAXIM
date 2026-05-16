@@ -1,3 +1,22 @@
+---
+maxim_schema: maxim.frontmatter.v1
+id: maxim:coral-reefs:bleaching
+kind: guide
+module: coral-reefs
+section: coral-reefs
+title: Bleaching: Thermal Stress, Global Events, Recovery and Mortality
+status: source-custody
+source_custody: partial
+current_path: coral-reefs/05-BLEACHING.md
+canonical_path: coral-reefs/05-BLEACHING.md
+backsource_ids: [proof-backfill:coral-reefs:05-bleaching, git-history:coral-reefs:05-bleaching]
+concepts: [bleaching]
+root_concepts: [bleaching]
+index_roles: [guide, root-concept]
+remap_from: []
+remap_to: []
+updated: null
+---
 # Bleaching: Thermal Stress, Global Events, Recovery and Mortality
 
 ## The Big Picture

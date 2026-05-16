@@ -1,3 +1,22 @@
+---
+maxim_schema: maxim.frontmatter.v1
+id: maxim:soil-science:soil-formation
+kind: guide
+module: soil-science
+section: soil-science
+title: Soil Formation: Parent Material, Weathering, CLORPT Factors
+status: source-custody
+source_custody: partial
+current_path: soil-science/01-SOIL-FORMATION.md
+canonical_path: soil-science/01-SOIL-FORMATION.md
+backsource_ids: [proof-backfill:soil-science:01-soil-formation, git-history:soil-science:01-soil-formation]
+concepts: [soil, formation]
+root_concepts: [soil, formation]
+index_roles: [guide, root-concept]
+remap_from: []
+remap_to: []
+updated: null
+---
 # Soil Formation: Parent Material, Weathering, CLORPT Factors
 
 ## The Big Picture
@@ -14,8 +33,8 @@ SOIL FORMATION FRAMEWORK
   | Precip.  |          | Biological act.  |          | DOC to   |
   | Organic  |          | Additions of OM  |          | groundw.)|
   | inputs   |          | Translocations   |          | Erosion  |
-  | Energy   |          | (illuviation/    |          | (particles|
-  | (sun,    |          |  eluviation)     |          | to stream)|
+  | Energy   |          | (illuviation/    |          | particles|
+  | (sun,    |          |  eluviation)     |          | to stream|
   | frost)   |          +------------------+          +----------+
   +----------+
 
