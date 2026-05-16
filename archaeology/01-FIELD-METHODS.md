@@ -1,3 +1,22 @@
+---
+maxim_schema: maxim.frontmatter.v1
+id: maxim:archaeology:field-methods
+kind: guide
+module: archaeology
+section: archaeology
+title: Archaeological Field Methods
+status: source-custody
+source_custody: partial
+current_path: archaeology/01-FIELD-METHODS.md
+canonical_path: archaeology/01-FIELD-METHODS.md
+backsource_ids: [proof-backfill:archaeology:01-field-methods, git-history:archaeology:01-field-methods]
+concepts: [field, methods]
+root_concepts: [field, methods]
+index_roles: [guide, root-concept]
+remap_from: []
+remap_to: []
+updated: null
+---
 # Archaeological Field Methods
 
 ## The Big Picture

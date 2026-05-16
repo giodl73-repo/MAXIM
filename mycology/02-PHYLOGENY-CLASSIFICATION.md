@@ -1,3 +1,22 @@
+---
+maxim_schema: maxim.frontmatter.v1
+id: maxim:mycology:phylogeny-classification
+kind: guide
+module: mycology
+section: mycology
+title: Fungal Phylogeny and Classification
+status: source-custody
+source_custody: partial
+current_path: mycology/02-PHYLOGENY-CLASSIFICATION.md
+canonical_path: mycology/02-PHYLOGENY-CLASSIFICATION.md
+backsource_ids: [proof-backfill:mycology:02-phylogeny-classification, git-history:mycology:02-phylogeny-classification]
+concepts: [phylogeny, classification]
+root_concepts: [phylogeny, classification]
+index_roles: [guide, root-concept]
+remap_from: []
+remap_to: []
+updated: null
+---
 # Fungal Phylogeny and Classification
 
 ## The Big Picture
@@ -11,14 +30,14 @@
 |  FUNGI (Kingdom Mycota)                                          |
 |       |                                                          |
 |  +-----------+----------+-----------+-----------+                |
-|  |           |          |           |           |               |
-|  Chitrido-   Microsporidia Mucoromycota Ascomycota Basidiomycota|
-|  mycota                                                         |
-|  (aquatic,   (obligate   (bread      (sac fungi, (mushrooms,   |
-|  flagella)   parasites)   molds)      yeasts)     rusts, smuts) |
+|  |           |          |           |           |                |
+|  Chitrido-   Microsporidia Mucoromycota Ascomycota Basidiomycota |
+|  mycota                                                          |
+|  (aquatic,   (obligate   (bread      (sac fungi, (mushrooms,     |
+|  flagella)   parasites)   molds)      yeasts)     rusts, smuts)  |
 |                                                                  |
-|  NOTE: Oomycetes and Myxomycetes are NOT fungi (despite         |
-|  being studied in mycology departments by tradition)            |
+|  NOTE: Oomycetes and Myxomycetes are NOT fungi (despite          |
+|  being studied in mycology departments by tradition)             |
 +------------------------------------------------------------------+
 ```
 

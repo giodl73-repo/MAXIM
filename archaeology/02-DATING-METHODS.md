@@ -1,3 +1,22 @@
+---
+maxim_schema: maxim.frontmatter.v1
+id: maxim:archaeology:dating-methods
+kind: guide
+module: archaeology
+section: archaeology
+title: Archaeological Dating Methods
+status: source-custody
+source_custody: partial
+current_path: archaeology/02-DATING-METHODS.md
+canonical_path: archaeology/02-DATING-METHODS.md
+backsource_ids: [proof-backfill:archaeology:02-dating-methods, git-history:archaeology:02-dating-methods]
+concepts: [dating, methods]
+root_concepts: [dating, methods]
+index_roles: [guide, root-concept]
+remap_from: []
+remap_to: []
+updated: null
+---
 # Archaeological Dating Methods
 
 ## The Big Picture

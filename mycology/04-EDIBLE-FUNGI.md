@@ -1,3 +1,22 @@
+---
+maxim_schema: maxim.frontmatter.v1
+id: maxim:mycology:edible-fungi
+kind: guide
+module: mycology
+section: mycology
+title: Edible Fungi
+status: source-custody
+source_custody: partial
+current_path: mycology/04-EDIBLE-FUNGI.md
+canonical_path: mycology/04-EDIBLE-FUNGI.md
+backsource_ids: [proof-backfill:mycology:04-edible-fungi, git-history:mycology:04-edible-fungi]
+concepts: [edible, fungi]
+root_concepts: [edible, fungi]
+index_roles: [guide, root-concept]
+remap_from: []
+remap_to: []
+updated: null
+---
 # Edible Fungi
 
 ## The Big Picture

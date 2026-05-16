@@ -1,3 +1,22 @@
+---
+maxim_schema: maxim.frontmatter.v1
+id: maxim:archaeology:ancient-civilizations
+kind: guide
+module: archaeology
+section: archaeology
+title: Ancient Civilizations: Comparative Urbanism
+status: source-custody
+source_custody: partial
+current_path: archaeology/05-ANCIENT-CIVILIZATIONS.md
+canonical_path: archaeology/05-ANCIENT-CIVILIZATIONS.md
+backsource_ids: [proof-backfill:archaeology:05-ancient-civilizations, git-history:archaeology:05-ancient-civilizations]
+concepts: [ancient, civilizations]
+root_concepts: [ancient, civilizations]
+index_roles: [guide, root-concept]
+remap_from: []
+remap_to: []
+updated: null
+---
 # Ancient Civilizations: Comparative Urbanism
 
 ## The Big Picture

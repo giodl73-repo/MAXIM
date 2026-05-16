@@ -1,3 +1,22 @@
+---
+maxim_schema: maxim.frontmatter.v1
+id: maxim:archaeology:medieval-archaeology
+kind: guide
+module: archaeology
+section: archaeology
+title: Medieval Archaeology
+status: source-custody
+source_custody: partial
+current_path: archaeology/07-MEDIEVAL-ARCHAEOLOGY.md
+canonical_path: archaeology/07-MEDIEVAL-ARCHAEOLOGY.md
+backsource_ids: [proof-backfill:archaeology:07-medieval-archaeology, git-history:archaeology:07-medieval-archaeology]
+concepts: [medieval, archaeology]
+root_concepts: [medieval, archaeology]
+index_roles: [guide, root-concept]
+remap_from: []
+remap_to: []
+updated: null
+---
 # Medieval Archaeology
 
 ## The Big Picture

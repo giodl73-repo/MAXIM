@@ -1,3 +1,22 @@
+---
+maxim_schema: maxim.frontmatter.v1
+id: maxim:mycology:overview
+kind: guide
+module: mycology
+section: mycology
+title: Mycology - Overview and Landscape
+status: source-custody
+source_custody: partial
+current_path: mycology/00-OVERVIEW.md
+canonical_path: mycology/00-OVERVIEW.md
+backsource_ids: [proof-backfill:mycology:00-overview, git-history:mycology:00-overview]
+concepts: [overview]
+root_concepts: [overview]
+index_roles: [guide, root-concept]
+remap_from: []
+remap_to: []
+updated: null
+---
 # Mycology — Overview and Landscape
 
 ## The Big Picture
@@ -6,35 +25,35 @@
 +------------------------------------------------------------------+
 |                    KINGDOM FUNGI: THE LANDSCAPE                  |
 |                                                                  |
-|  Estimated 5.1 million species (ITS-based estimates, 2017)     |
-|  ~150,000 described (~3% of total)                              |
-|  Oldest known fungi: ~1 billion years (marine, Proterozoic)    |
+|  Estimated 5.1 million species (ITS-based estimates, 2017)       |
+|  ~150,000 described (~3% of total)                               |
+|  Oldest known fungi: ~1 billion years (marine, Proterozoic)      |
 |                                                                  |
-|  THE FUNGAL PARADOX:                                            |
-|  Sessile, like plants → heterotrophic, like animals             |
-|  Cell-walled, like plants → no chlorophyll, no photosynthesis  |
-|  More closely related to animals than to plants (!!)            |
+|  THE FUNGAL PARADOX:                                             |
+|  Sessile, like plants → heterotrophic, like animals              |
+|  Cell-walled, like plants → no chlorophyll, no photosynthesis    |
+|  More closely related to animals than to plants (!!)             |
 |                                                                  |
-|               KINGDOM FUNGI — ROLE LANDSCAPE                   |
-|                          │                                      |
-|         ┌────────────────┼────────────────┐                    |
-|         ▼                ▼                ▼                    |
-|   SAPROTROPHS      MUTUALISTS        PARASITES                 |
-|   (decomposers)    │                 │                         |
-|   White/brown rot  ├─ Mycorrhizal    ├─ Plant pathogens        |
-|   Litter decay     │  (ecto, endo)   │  (rusts, smuts, blights)|
-|   Nutrient release ├─ Endophytes     └─ Animal pathogens       |
-|   Carbon cycling   └─ Lichens           (Candida, Aspergillus) |
-|         │                │                                     |
-|         └──────────── INDUSTRIAL ─────────────────            |
-|                   Fermentation (beer, bread, cheese)           |
-|                   Pharmaceuticals (penicillin, statins)        |
-|                   Enzymes, bioremediation, materials           |
+|               KINGDOM FUNGI — ROLE LANDSCAPE                     |
+|                          │                                       |
+|         ┌────────────────┼────────────────┐                      |
+|         ▼                ▼                ▼                      |
+|   SAPROTROPHS      MUTUALISTS        PARASITES                   |
+|   (decomposers)    │                 │                           |
+|   White/brown rot  ├─ Mycorrhizal    ├─ Plant pathogens          |
+|   Litter decay     │  (ecto, endo)   │  (rusts, smuts, blights)  |
+|   Nutrient release ├─ Endophytes     └─ Animal pathogens         |
+|   Carbon cycling   └─ Lichens           (Candida, Aspergillus)   |
+|         │                │                                       |
+|         └──────────── INDUSTRIAL ─────────────────               |
+|                   Fermentation (beer, bread, cheese)             |
+|                   Pharmaceuticals (penicillin, statins)          |
+|                   Enzymes, bioremediation, materials             |
 |                                                                  |
-|  WHERE FUNGI ARE:                                               |
-|  Everywhere — soil, air, water, inside plants, inside animals  |
+|  WHERE FUNGI ARE:                                                |
+|  Everywhere — soil, air, water, inside plants, inside animals    |
 |  1 teaspoon of forest soil: 100 million to 1 billion fungal cells|
-|  Your skin + gut: permanent fungal communities (mycobiome)      |
+|  Your skin + gut: permanent fungal communities (mycobiome)       |
 +------------------------------------------------------------------+
 ```
 
@@ -82,27 +101,27 @@ WHAT MAKES FUNGI DISTINCT:
 ```
 FUNGAL BODY PLAN (Thallus)
 +------------------------------------------------------------------+
-|  HYPHAE: the basic unit                                         |
-|  Tubular filaments, 2–10 µm diameter                           |
-|  Cell wall: chitin + glucans                                    |
-|  Growth: apical extension (tip elongates, not cell division)   |
+|  HYPHAE: the basic unit                                          |
+|  Tubular filaments, 2–10 µm diameter                             |
+|  Cell wall: chitin + glucans                                     |
+|  Growth: apical extension (tip elongates, not cell division)     |
 |                                                                  |
-|  MYCELIUM: network of branching hyphae                         |
-|  The "body" of the fungus                                      |
-|  Invisible for most of fungal life cycle                       |
-|  Can be enormous: Oregon Armillaria = 2,385 ha; ~8,000 tonnes  |
-|    = possibly largest organism on Earth                        |
+|  MYCELIUM: network of branching hyphae                           |
+|  The "body" of the fungus                                        |
+|  Invisible for most of fungal life cycle                         |
+|  Can be enormous: Oregon Armillaria = 2,385 ha; ~8,000 tonnes    |
+|    = possibly largest organism on Earth                          |
 |                                                                  |
-|  SEPTA: cross-walls dividing hyphae into compartments          |
-|  Ascomycetes: septate (septa with central pore = Woronin body) |
-|  Basidiomycetes: septate (dolipore septa = more complex)       |
-|  Zygomycetes: aseptate (coenocytic — multinucleate)           |
+|  SEPTA: cross-walls dividing hyphae into compartments            |
+|  Ascomycetes: septate (septa with central pore = Woronin body)   |
+|  Basidiomycetes: septate (dolipore septa = more complex)         |
+|  Zygomycetes: aseptate (coenocytic — multinucleate)              |
 |                                                                  |
-|  FRUITING BODY: reproductive structure                         |
-|  Mushroom: basidiomycete fruiting body                        |
-|  Cup fungus: ascomycete fruiting body                         |
-|  → Only a small fraction of mycelial biomass                  |
-|  → What you see is NOT the fungus; the mycelium IS the fungus  |
+|  FRUITING BODY: reproductive structure                           |
+|  Mushroom: basidiomycete fruiting body                           |
+|  Cup fungus: ascomycete fruiting body                            |
+|  → Only a small fraction of mycelial biomass                     |
+|  → What you see is NOT the fungus; the mycelium IS the fungus    |
 +------------------------------------------------------------------+
 ```
 
@@ -113,33 +132,33 @@ FUNGAL BODY PLAN (Thallus)
 ```
 FUNGI AS ECOSYSTEM ENGINEERS
 +------------------------------------------------------------------+
-|  DECOMPOSERS / SAPROTROPHS:                                     |
-|  Break down dead organic matter                                 |
-|  Only organisms that can degrade LIGNIN (white rot fungi)      |
-|  Without fungi: dead wood would accumulate forever             |
-|  Carbon cycle: fungi return C to atmosphere as CO₂             |
+|  DECOMPOSERS / SAPROTROPHS:                                      |
+|  Break down dead organic matter                                  |
+|  Only organisms that can degrade LIGNIN (white rot fungi)        |
+|  Without fungi: dead wood would accumulate forever               |
+|  Carbon cycle: fungi return C to atmosphere as CO₂               |
 |                                                                  |
-|  MYCORRHIZAL SYMBIONTS:                                        |
-|  ~80% of land plants form mycorrhizal partnerships             |
-|  Ectomycorrhizal: hyphal sheath outside root (forest trees)    |
-|  Arbuscular mycorrhizal (AM): hyphae penetrate root cells      |
-|  Fungus: gets photosynthate (sugar) from plant                 |
-|  Plant: gets phosphorus, water, minerals from fungal network   |
-|  → Not optional for most plants; obligate mutualism            |
+|  MYCORRHIZAL SYMBIONTS:                                          |
+|  ~80% of land plants form mycorrhizal partnerships               |
+|  Ectomycorrhizal: hyphal sheath outside root (forest trees)      |
+|  Arbuscular mycorrhizal (AM): hyphae penetrate root cells        |
+|  Fungus: gets photosynthate (sugar) from plant                   |
+|  Plant: gets phosphorus, water, minerals from fungal network     |
+|  → Not optional for most plants; obligate mutualism              |
 |                                                                  |
-|  PATHOGENS:                                                     |
+|  PATHOGENS:                                                      |
 |  Plant pathogens: wheat rust, potato blight (oomycete), corn smut|
-|  Animal pathogens: Aspergillus, Candida, Cryptococcus          |
-|  Amphibian pathogens: Batrachochytrium → global amphibian crisis|
+|  Animal pathogens: Aspergillus, Candida, Cryptococcus            |
+|  Amphibian pathogens: Batrachochytrium → global amphibian crisis |
 |                                                                  |
-|  ENDOPHYTES:                                                    |
-|  Live inside healthy plants without causing disease            |
-|  May confer drought tolerance, pest resistance                 |
-|  Nearly every plant contains endophytic fungi                  |
+|  ENDOPHYTES:                                                     |
+|  Live inside healthy plants without causing disease              |
+|  May confer drought tolerance, pest resistance                   |
+|  Nearly every plant contains endophytic fungi                    |
 |                                                                  |
-|  LICHENS:                                                       |
-|  Fungal partner + photosynthetic partner (alga or cyanobacteria)|
-|  ~20,000 species; pioneer colonizers of bare rock              |
+|  LICHENS:                                                        |
+|  Fungal partner + photosynthetic partner (alga or cyanobacteria) |
+|  ~20,000 species; pioneer colonizers of bare rock                |
 +------------------------------------------------------------------+
 ```
 
@@ -151,31 +170,31 @@ FUNGI AS ECOSYSTEM ENGINEERS
 FUNGI AND HUMAN CIVILIZATION
 +------------------------------------------------------------------+
 |  FOOD:                                                           |
-|  Edible mushrooms: Agaricus, Lentinula (shiitake), Pleurotus   |
-|  Truffle (Tuber): most expensive food by weight (~€2,000/kg)   |
-|  Fermentation: Saccharomyces (bread, beer, wine), Aspergillus   |
-|    (soy sauce, miso, sake, shochu), Penicillium (aged cheeses) |
+|  Edible mushrooms: Agaricus, Lentinula (shiitake), Pleurotus     |
+|  Truffle (Tuber): most expensive food by weight (~€2,000/kg)     |
+|  Fermentation: Saccharomyces (bread, beer, wine), Aspergillus    |
+|    (soy sauce, miso, sake, shochu), Penicillium (aged cheeses)   |
 |                                                                  |
 |  MEDICINE:                                                       |
-|  Penicillin (Penicillium notatum, 1928): antibiotics revolution |
-|  Cyclosporin (Tolypocladium): organ transplant immunosuppression|
-|  Statins (Monascus, Aspergillus): lovastatin (cholesterol)     |
-|  Psilocybin (Psilocybe): psychiatric treatment (clinical trials)|
-|  Cephalosporins, fusidic acid, griseofulvin: from fungi        |
+|  Penicillin (Penicillium notatum, 1928): antibiotics revolution  |
+|  Cyclosporin (Tolypocladium): organ transplant immunosuppression |
+|  Statins (Monascus, Aspergillus): lovastatin (cholesterol)       |
+|  Psilocybin (Psilocybe): psychiatric treatment (clinical trials) |
+|  Cephalosporins, fusidic acid, griseofulvin: from fungi          |
 |                                                                  |
 |  INDUSTRY:                                                       |
-|  Citric acid (Aspergillus niger): food additive               |
-|  Enzymes: amylases, lipases, cellulases, proteases             |
-|  Mycoprotein (Quorn): fungal protein food (Fusarium)           |
-|  Mycelium composites: packaging (Ecovative, Bolt Threads)      |
-|  Biofuel: cellulolytic fungi degrade lignocellulosic biomass   |
+|  Citric acid (Aspergillus niger): food additive                  |
+|  Enzymes: amylases, lipases, cellulases, proteases               |
+|  Mycoprotein (Quorn): fungal protein food (Fusarium)             |
+|  Mycelium composites: packaging (Ecovative, Bolt Threads)        |
+|  Biofuel: cellulolytic fungi degrade lignocellulosic biomass     |
 |                                                                  |
-|  PATHOGENS (cost):                                              |
-|  Wheat stem rust: >20% global crop loss potential              |
-|  Chestnut blight: destroyed American chestnut (near extinction) |
-|  Fungal diseases: kill more people than malaria + tuberculosis  |
-|    combined in immunocompromised patients                       |
-|  White-nose syndrome: devastated North American bat populations |
+|  PATHOGENS (cost):                                               |
+|  Wheat stem rust: >20% global crop loss potential                |
+|  Chestnut blight: destroyed American chestnut (near extinction)  |
+|  Fungal diseases: kill more people than malaria + tuberculosis   |
+|    combined in immunocompromised patients                        |
+|  White-nose syndrome: devastated North American bat populations  |
 +------------------------------------------------------------------+
 ```
 

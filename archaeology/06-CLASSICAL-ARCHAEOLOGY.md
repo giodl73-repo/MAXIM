@@ -1,3 +1,22 @@
+---
+maxim_schema: maxim.frontmatter.v1
+id: maxim:archaeology:classical-archaeology
+kind: guide
+module: archaeology
+section: archaeology
+title: Classical Archaeology
+status: source-custody
+source_custody: partial
+current_path: archaeology/06-CLASSICAL-ARCHAEOLOGY.md
+canonical_path: archaeology/06-CLASSICAL-ARCHAEOLOGY.md
+backsource_ids: [proof-backfill:archaeology:06-classical-archaeology, git-history:archaeology:06-classical-archaeology]
+concepts: [classical, archaeology]
+root_concepts: [classical, archaeology]
+index_roles: [guide, root-concept]
+remap_from: []
+remap_to: []
+updated: null
+---
 # Classical Archaeology
 
 ## The Big Picture

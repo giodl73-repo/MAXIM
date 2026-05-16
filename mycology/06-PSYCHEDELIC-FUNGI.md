@@ -1,3 +1,22 @@
+---
+maxim_schema: maxim.frontmatter.v1
+id: maxim:mycology:psychedelic-fungi
+kind: guide
+module: mycology
+section: mycology
+title: Psychedelic Fungi
+status: source-custody
+source_custody: partial
+current_path: mycology/06-PSYCHEDELIC-FUNGI.md
+canonical_path: mycology/06-PSYCHEDELIC-FUNGI.md
+backsource_ids: [proof-backfill:mycology:06-psychedelic-fungi, git-history:mycology:06-psychedelic-fungi]
+concepts: [psychedelic, fungi]
+root_concepts: [psychedelic, fungi]
+index_roles: [guide, root-concept]
+remap_from: []
+remap_to: []
+updated: null
+---
 # Psychedelic Fungi
 
 ## The Big Picture
@@ -16,7 +35,7 @@
 |  Decriminalized: Oregon, Colorado, and 20+ US cities             |
 |  Oregon Measure 109: licensed psilocybin service centers open    |
 |    2023+; therapist-supervised sessions legal in Oregon          |
-|  Legal therapeutic: Australia (2023, TGA approved for TRD/PTSD)|
+|  Legal therapeutic: Australia (2023, TGA approved for TRD/PTSD)  |
 |  Phase 3 clinical trials: COMPASS Phase 3 (COMP360) underway     |
 |    as of 2025; USONA MDD Phase 3 ongoing                         |
 |  No FDA approval as of early 2026; BLA not yet filed             |
