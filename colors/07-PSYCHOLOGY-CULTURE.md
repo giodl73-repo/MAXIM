@@ -1,3 +1,22 @@
+---
+maxim_schema: maxim.frontmatter.v1
+id: maxim:colors:psychology-culture
+kind: guide
+module: colors
+section: colors
+title: Color Psychology and Culture - Symbolism, Marketing, Synesthesia
+status: source-custody
+source_custody: partial
+current_path: colors/07-PSYCHOLOGY-CULTURE.md
+canonical_path: colors/07-PSYCHOLOGY-CULTURE.md
+backsource_ids: [proof-backfill:colors:07-psychology-culture, git-history:colors:07-psychology-culture]
+concepts: [psychology, culture]
+root_concepts: [psychology, culture]
+index_roles: [guide, root-concept]
+remap_from: []
+remap_to: []
+updated: null
+---
 # Color Psychology & Culture — Symbolism, Marketing, Synesthesia
 
 ## The Big Picture

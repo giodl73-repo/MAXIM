@@ -1,3 +1,22 @@
+---
+maxim_schema: maxim.frontmatter.v1
+id: maxim:statistics-applied:quasi-experimental
+kind: guide
+module: statistics-applied
+section: statistics-applied
+title: Quasi-Experimental Methods - DiD, RDD, Synthetic Control, IV
+status: source-custody
+source_custody: partial
+current_path: statistics-applied/03-QUASI-EXPERIMENTAL.md
+canonical_path: statistics-applied/03-QUASI-EXPERIMENTAL.md
+backsource_ids: [proof-backfill:statistics-applied:03-quasi-experimental, git-history:statistics-applied:03-quasi-experimental]
+concepts: [quasi, experimental]
+root_concepts: [quasi, experimental]
+index_roles: [guide, root-concept]
+remap_from: []
+remap_to: []
+updated: null
+---
 # Quasi-Experimental Methods — DiD, RDD, Synthetic Control, IV
 
 ## The Big Picture
@@ -8,7 +27,7 @@
 |                                                                  |
 |  METHOD         | CORE ASSUMPTION           | NATURAL CONTEXT    |
 |  DiD            | Parallel trends           | Policy rollout,    |
-|                 | (untreated → counterfactual)| staggered adoption|
+|                 | (untreated counterfactual)| staggered adoption |
 |                 |                           |                    |
 |  RDD            | Continuity at threshold   | Eligibility rules, |
 |                 | (no sorting/manipulation) | test score cutoffs |
@@ -16,7 +35,7 @@
 |  Synthetic Ctrl | Pre-treatment fit as      | Single treated     |
 |                 | counterfactual proxy      | unit, many periods |
 |                 |                           |                    |
-|  IV             | Exclusion restriction     | Natural experiments|
+|  IV             | Exclusion restriction     | Natural experiment |
 |                 | (Z→D, Z not → Y directly) | lottery, geography |
 |                 |                           |                    |
 |  ITS            | Stable trend before event | Single series,     |

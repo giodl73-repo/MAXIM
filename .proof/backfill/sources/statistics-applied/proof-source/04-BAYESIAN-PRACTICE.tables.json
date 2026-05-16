@@ -1,0 +1,123 @@
+{
+  "schema_version": "1",
+  "source_markdown": "statistics-applied\\04-BAYESIAN-PRACTICE.md",
+  "tables": [
+    {
+      "id": "table-1",
+      "line": 453,
+      "heading_context": "## Cross-References",
+      "headers": [
+        "To deepen...",
+        "See"
+      ],
+      "rows": [
+        [
+          "Randomized evidence and causal design",
+          "`statistics-applied/01-EXPERIMENTAL-DESIGN.md`"
+        ],
+        [
+          "Sequential online testing context",
+          "`statistics-applied/02-AB-TESTING.md`"
+        ],
+        [
+          "Uncertainty in health metrics",
+          "`public-health/10-HEALTH-METRICS.md`"
+        ]
+      ]
+    },
+    {
+      "id": "table-2",
+      "line": 463,
+      "heading_context": "## Decision Cheat Sheet",
+      "headers": [
+        "If you need to diagnose...",
+        "Start With",
+        "Key Caveat"
+      ],
+      "rows": [
+        [
+          "Prior strength",
+          "Weakly informative priors that constrain plausible scale without dominating",
+          "\"Weak\" is model-scale dependent; prior predictive checks are mandatory."
+        ],
+        [
+          "Chain convergence",
+          "`Rhat`, ESS, trace plots, and stuck-chain diagnostics",
+          "MCMC draws are autocorrelated; total iterations are not effective sample size."
+        ],
+        [
+          "Sampler choice",
+          "NUTS/HMC for gradient-guided posterior exploration",
+          "Auto-tuning trajectory length does not rescue bad posterior geometry."
+        ],
+        [
+          "Stan divergences",
+          "Funnels, hard constraints, and ill-conditioned geometry",
+          "Divergences are correctness warnings, not harmless numerical noise."
+        ],
+        [
+          "Partial pooling",
+          "Hierarchical shrinkage toward a grand mean",
+          "Amount of shrinkage depends on group sample size and prior structure."
+        ],
+        [
+          "Bayesian A/B probability",
+          "Posterior draws and `P(theta_B > theta_A)`",
+          "Repeated variant mining still needs hierarchy/shrinkage; Bayes does not erase multiplicity."
+        ],
+        [
+          "Model comparison",
+          "PSIS-LOO before WAIC for practical robustness",
+          "High Pareto `k` flags influential observations and unreliable approximation."
+        ]
+      ]
+    },
+    {
+      "id": "table-3",
+      "line": 477,
+      "heading_context": "## CS and Formal Methods Bridges",
+      "headers": [
+        "Bayesian practice concept",
+        "CS / formal methods analogue"
+      ],
+      "rows": [
+        [
+          "Prior → posterior updating (Bayes' theorem)",
+          "Belief state update in a Hidden Markov Model / Kalman filter: each observation refines the distribution over the hidden state; the posterior is the updated belief state; additional observations continue the update — Bayesian inference is online learning on the state space"
+        ],
+        [
+          "Conjugate prior (posterior has closed form)",
+          "Type-preserving transformation: a conjugate prior is one that makes the posterior the same distributional family as the prior — the algebraic closure property; Beta-Binomial, Normal-Normal, Gamma-Poisson are the \"closed under update\" families"
+        ],
+        [
+          "MCMC (Metropolis-Hastings, HMC)",
+          "Randomized search in state space: MCMC constructs a Markov chain whose stationary distribution is the posterior; each proposal is accepted/rejected based on the density ratio — identical in structure to simulated annealing and randomized optimization"
+        ],
+        [
+          "HMC / NUTS (Hamiltonian Monte Carlo)",
+          "Gradient-guided search: uses the gradient of log-posterior to propose samples along high-probability trajectories; analogous to gradient descent in optimization but over a probability landscape rather than a loss surface"
+        ],
+        [
+          "Divergences in Stan",
+          "Numerical instability diagnostic: divergences indicate the sampler encountered near-degenerate geometry (funnel, hard constraint boundary); they are a correctness warning, not just noise — equivalent to NaN propagation in floating-point computation signaling ill-conditioned operations"
+        ],
+        [
+          "Non-centered parameterization",
+          "Change of variables to improve conditioning: θ_j = μ + τ × z_j where z_j ~ N(0,1) removes the correlation between τ and θ_j that causes funnel geometry — identical to preconditioning a linear system to improve solver convergence"
+        ],
+        [
+          "Hierarchical / multilevel model (partial pooling)",
+          "Regularization via shared prior: group-level parameters are shrunk toward a grand mean; amount of shrinkage scales inversely with group sample size — identical to L2 regularization (ridge) in ML, where the prior precision matrix is the regularization strength"
+        ],
+        [
+          "PSIS-LOO cross-validation",
+          "Out-of-sample evaluation without refitting: importance-weighted leave-one-out CV using Pareto-smoothed importance sampling; k̂ > 0.7 flags influential observations — analogous to held-out set evaluation with a warning system for high-leverage test points"
+        ],
+        [
+          "Prior predictive check",
+          "Static analysis / type checking before runtime: simulate from the prior to verify the model produces plausible data ranges before fitting — catches modeling errors (scale misspecification, impossible predictions) without touching the data"
+        ]
+      ]
+    }
+  ]
+}

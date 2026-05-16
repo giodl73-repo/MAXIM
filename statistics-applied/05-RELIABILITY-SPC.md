@@ -1,3 +1,22 @@
+---
+maxim_schema: maxim.frontmatter.v1
+id: maxim:statistics-applied:reliability-spc
+kind: guide
+module: statistics-applied
+section: statistics-applied
+title: Reliability and Statistical Process Control
+status: source-custody
+source_custody: partial
+current_path: statistics-applied/05-RELIABILITY-SPC.md
+canonical_path: statistics-applied/05-RELIABILITY-SPC.md
+backsource_ids: [proof-backfill:statistics-applied:05-reliability-spc, git-history:statistics-applied:05-reliability-spc]
+concepts: [reliability, spc]
+root_concepts: [reliability, spc]
+index_roles: [guide, root-concept]
+remap_from: []
+remap_to: []
+updated: null
+---
 # Reliability & Statistical Process Control
 
 ## The Big Picture
@@ -18,7 +37,7 @@
 |  Incoming: accept or reject lots? → acceptance sampling          |
 |                                                                  |
 |  ORIGINS:                                                        |
-|  Reliability: WWII military requirements → reliability engineering|
+|  Reliability: WWII military needs -> reliability engineering     |
 |  SPC: Walter Shewhart (1924, Bell Labs) → Deming in Japan 1950   |
 |  Six Sigma: Motorola 1986; GE 1990s adoption                     |
 +------------------------------------------------------------------+
@@ -329,7 +348,7 @@ SIX SIGMA:
 
   DPMO = Defects Per Million Opportunities
   +-----+------+----------+
-  |Sigma|Cpk   |DPMO(1.5σ)|
+  |Sigma| Cpk  |DPMO(1.5σ)|
   +-----+------+----------+
   | 1σ  | 0.33 |  697,672 |
   | 2σ  | 0.67 |  308,537 |

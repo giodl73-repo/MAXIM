@@ -1,0 +1,83 @@
+{
+  "schema_version": "1",
+  "source_markdown": "colors\\00-OVERVIEW.md",
+  "blocks": [
+    {
+      "id": "block-1",
+      "kind": "ascii_table_candidate",
+      "line": 24,
+      "heading_context": "## The Layered Problem",
+      "confidence": "candidate",
+      "text": "+------------------------------------------------------------------+\n|                    WHAT COLOR ACTUALLY IS                        |\n|                                                                  |\n|  LAYER 1: PHYSICS                                                |\n|  Electromagnetic radiation, 380–700 nm                           |\n|  Spectral power distribution (SPD) of light source               |\n|  Spectral reflectance of surface                                 |\n|  → Objective, measurable, wavelength-specific                    |\n|                                                                  |\n|  LAYER 2: PHYSIOLOGY                                             |\n|  Three cone types (L/M/S) in retina                              |\n|  Opponent-channel encoding (red-green, blue-yellow, light-dark)  |\n|  → 3D compression of infinite spectral information               |\n|                                                                  |\n|  LAYER 3: PERCEPTION                                             |\n|  Brain constructs color experience                               |\n|  Context-dependent (simultaneous contrast, constancy)            |\n|  → Subjective, not measurable directly                           |\n|                                                                  |\n|  LAYER 4: NAMING                                                 |\n|  Languages carve color space differently                         |\n|  Berlin-Kay universal sequence across languages                  |\n|  → Cultural, historically contingent                             |\n|                                                                  |\n|  LAYER 5: REPRODUCTION                                           |\n|  Encoding for transmission (RGB, CMYK, ICC profiles)             |\n|  Device-dependent → device-independent → device-dependent again  |\n|  → Engineering approximation of perception                       |\n|                                                                  |\n|  KEY POINT: No layer maps cleanly onto the next.                 |\n|  \"Same color\" means different things at each layer.              |\n+------------------------------------------------------------------+",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-2",
+      "kind": "diagram_like",
+      "line": 63,
+      "heading_context": "## Color Is Not a Property of Objects",
+      "confidence": "candidate",
+      "text": "COMMON MISCONCEPTION:\n  \"A red apple is red.\"\n\nWHAT'S ACTUALLY HAPPENING:\n  1. Illuminant emits spectral power distribution\n  2. Apple surface absorbs most wavelengths, reflects 600–700 nm range\n  3. Reflected light hits L/M/S cones differently\n  4. Visual system processes LMS signals via opponent channels\n  5. Brain constructs the experience \"red\"\n\n  Change any of these and \"red\" changes:\n  • Different illuminant (sodium street lamp → apple looks orange-brown)\n  • Different observer (red-green color blindness → color different)\n  • Different context (red next to yellow looks different from red next to green)\n\nMETAMERISM:\n  Two surfaces with different spectral reflectance curves\n  that appear IDENTICAL under one light source\n  but DIFFERENT under another.\n  → Color is always a three-way interaction: source × surface × observer",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-3",
+      "kind": "diagram_like",
+      "line": 90,
+      "heading_context": "## Why Some Colors Have No Wavelength",
+      "confidence": "candidate",
+      "text": "SPECTRAL COLORS (exist as single wavelengths):\n  Red    ~700 nm\n  Orange ~620 nm\n  Yellow ~580 nm\n  Green  ~530 nm\n  Cyan   ~490 nm\n  Blue   ~470 nm\n  Violet ~420 nm\n\nNON-SPECTRAL COLORS (require mixing, exist only in perception):\n  Magenta/pink: stimulate L and S cones but NOT M\n    → No single wavelength does this\n    → No \"magenta\" in a rainbow\n    → Brain creates it as complement of green\n\n  Purple: blue-violet end of spectrum + red end\n    → Short and long wavelength together\n    → The \"line of purples\" on CIE diagram — never in spectrum\n\n  White: all wavelengths together\n  Black: absence of light (or very low relative luminance)\n  Brown: low-luminance orange (no \"brown\" photons exist)\n    → Brown only exists in context of surrounding brighter colors\n    → A brown object in total darkness would appear orange\n\nIMPLICATION:\n  The color wheel (rainbow → bent into circle + magenta filling the gap)\n  is a human perceptual construct, not physics.",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-4",
+      "kind": "ascii_table_candidate",
+      "line": 125,
+      "heading_context": "## The Visible Spectrum in Context",
+      "confidence": "candidate",
+      "text": "ELECTROMAGNETIC SPECTRUM:\n  Radio → Microwave → IR → [VISIBLE] → UV → X-ray → Gamma\n\n  Visible: ~380 nm (violet) to ~700 nm (red)\n  ONE OCTAVE: 700/380 ≈ 1.84 (less than an octave of EM frequency)\n  Humans are sensitive to ~0.00000035% of the EM spectrum\n\nOTHER SPECIES:\n  +-------------------+-----------------------------+\n  | Species           | Sensitivity                 |\n  +-------------------+-----------------------------+\n  | Honeybee          | UV to red (no far red)      |\n  | Pit viper         | Near-infrared (heat pits)   |\n  | Mantis shrimp     | 16 photoreceptor types      |\n  | Pigeon            | Tetrachromat + UV           |\n  | Dog               | Dichromat (blue-yellow)     |\n  | Deep-sea fish     | Shifted toward blue         |\n  +-------------------+-----------------------------+\n\n  \"Visible\" = visible to humans; the universe doesn't know about it.",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-5",
+      "kind": "diagram_like",
+      "line": 152,
+      "heading_context": "## Color Science Architecture",
+      "confidence": "candidate",
+      "text": "COLORIMETRY (measurement and specification):\n  Spectrophotometry → SPD → tristimulus XYZ\n  CIE 1931 Standard Observer model\n  → The physics-to-numbers step\n\nCOLOR SPACES (organizing the numbers):\n  CIE XYZ → CIE xy chromaticity → CIELAB → sRGB\n  Each transformation: different purpose\n  → The numbers-to-geometry step\n\nCOLOR APPEARANCE MODELS:\n  CIECAM02 and successors\n  Account for: adaptation, surround, luminance level\n  → The geometry-to-perception step\n\nIMAGE COLOR MANAGEMENT:\n  ICC profiles: describe what \"red\" means for THIS device\n  Color management system (CMS): converts between profiles\n  Rendering intents: how to handle out-of-gamut colors\n  → The cross-device consistency step\n\nLINEAR ALGEBRA OF COLOR:\n  Color spaces are 3D vector spaces. RGB triplets are 3-vectors.\n  All conversions (sRGB → XYZ, camera matrix → working space) = 3×3 matrix multiplication.\n  XYZ → CIELAB adds a perceptual nonlinearity (cube root) — the only non-matrix step.\n  Everything else in the pipeline is linear algebra.\n\nGAMUT MAPPING AS CONSTRAINED OPTIMIZATION:\n  Rendering intents are solutions to: \"project source color onto destination gamut\n  while minimizing perceived distance.\"\n  Perceptual intent: compress entire gamut proportionally (many-to-many mapping).\n  Relative colorimetric: clip at boundary (preserve in-gamut, sacrifice out-of-gamut).\n  Different objective functions; same optimization structure.\n\nWHAT THIS MEANS IN PRACTICE:\n  \"Blue\" on your monitor ≠ \"blue\" on a different monitor\n  unless both are calibrated to a shared standard (e.g., sRGB, D65 white)\n  ICC color management is the solution",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-6",
+      "kind": "ascii_table_candidate",
+      "line": 197,
+      "heading_context": "## Color Systems — Which to Use When",
+      "confidence": "candidate",
+      "text": "+------------------------+------------------------------------------+\n| SYSTEM                 | USE FOR                                  |\n+------------------------+------------------------------------------+\n| Munsell (1905)         | Paint mixing, soil science, color        |\n|                        | research; perceptually uniform spacing;  |\n|                        | 3D: Hue / Value / Chroma                 |\n+------------------------+------------------------------------------+\n| CIE XYZ / xyY (1931)  | Measurement, device characterization;     |\n|                        | foundation for everything else;          |\n|                        | NOT perceptually uniform                 |\n+------------------------+------------------------------------------+\n| CIELAB / L*a*b* (1976)| Color difference measurement (Delta E);   |\n|                        | industrial tolerancing; perceptually     |\n|                        | (approximately) uniform                  |\n+------------------------+------------------------------------------+\n| sRGB                   | Screens, web, consumer images;           |\n|                        | default assumption for most digital      |\n|                        | content; ~35% of CIE gamut               |\n+------------------------+------------------------------------------+\n| Display P3             | Modern Apple devices, HDR content;       |\n|                        | ~26% wider gamut than sRGB               |\n+------------------------+------------------------------------------+\n| Pantone PMS            | Cross-company color communication;       |\n|                        | brand colors; spot ink specification;    |\n|                        | proprietary (licensing required)         |\n+------------------------+------------------------------------------+\n| RAL                    | Industrial/construction in Europe;       |\n|                        | metal, powder coating, facades           |\n+------------------------+------------------------------------------+\n| NCS                    | Scandinavian architecture/design;        |\n|                        | based on opponent-color perception model |\n+------------------------+------------------------------------------+\n| CMYK                   | Commercial print (offset, digital);      |\n|                        | device-dependent (varies by substrate)   |\n+------------------------+------------------------------------------+",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-7",
+      "kind": "diagram_like",
+      "line": 239,
+      "heading_context": "## Module Map",
+      "confidence": "candidate",
+      "text": "colors/\n├── 00-OVERVIEW.md        ← you are here\n├── 01-COLOR-PHYSICS.md   EM radiation, absorption, structural color,\n│                         blackbody radiation, Rayleigh scattering\n├── 02-VISION-PERCEPTION.md  Cone types, opponent channels, metamerism,\n│                            simultaneous contrast, color constancy, blindness\n├── 03-COLOR-SYSTEMS.md   Munsell, CIE 1931, CIELAB (ΔE), sRGB,\n│                         Display P3, Pantone, RAL, NCS\n├── 04-COLOR-NAMING.md    Berlin-Kay universal sequence, wine-dark sea,\n│                         Sapir-Whorf, focal colors, Himba case\n├── 05-HISTORICAL-SHADES.md  Mauve (Perkin 1856), magenta, gamboge,\n│                            chartreuse, puce, vermilion, indigo\n├── 06-MIXING-THEORY.md   Additive vs subtractive, CMYK halftone,\n│                         RYB artist model, optical mixing, gamut\n├── 07-PSYCHOLOGY-CULTURE.md  Cross-cultural symbolism, marketing,\n│                             synesthesia, Luscher, ecological valence\n├── 08-COLOR-IN-NATURE.md Structural color (morpho/opal), melanin/\n│                         carotenoids, bioluminescence (GFP), camouflage\n└── 09-DIGITAL-COLOR.md   Bit depth, gamma, ICC profiles, HDR (PQ/HLG),\n                          CSS color spaces, PBR rendering",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    }
+  ]
+}

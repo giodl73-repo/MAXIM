@@ -1,3 +1,22 @@
+---
+maxim_schema: maxim.frontmatter.v1
+id: maxim:colors:vision-perception
+kind: guide
+module: colors
+section: colors
+title: Vision and Perception - Cones, Opponent Process, Metamerism
+status: source-custody
+source_custody: partial
+current_path: colors/02-VISION-PERCEPTION.md
+canonical_path: colors/02-VISION-PERCEPTION.md
+backsource_ids: [proof-backfill:colors:02-vision-perception, git-history:colors:02-vision-perception]
+concepts: [vision, perception]
+root_concepts: [vision, perception]
+index_roles: [guide, root-concept]
+remap_from: []
+remap_to: []
+updated: null
+---
 # Vision & Perception — Cones, Opponent Process, Metamerism
 
 ## The Big Picture
@@ -24,7 +43,7 @@
 |                                                                  |
 |  KEY: Color is computed, not measured. The brain is              |
 |  solving an inference problem: "given these cone signals,        |
-|  what are the likely surface reflectances under this illuminant?"
+|  what are the likely surface reflectances under this illuminant? |
 +------------------------------------------------------------------+
 ```
 

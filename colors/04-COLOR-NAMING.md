@@ -1,3 +1,22 @@
+---
+maxim_schema: maxim.frontmatter.v1
+id: maxim:colors:color-naming
+kind: guide
+module: colors
+section: colors
+title: Color Naming - Berlin-Kay, Wine-Dark Sea, Language and Perception
+status: source-custody
+source_custody: partial
+current_path: colors/04-COLOR-NAMING.md
+canonical_path: colors/04-COLOR-NAMING.md
+backsource_ids: [proof-backfill:colors:04-color-naming, git-history:colors:04-color-naming]
+concepts: [color, naming]
+root_concepts: [color, naming]
+index_roles: [guide, root-concept]
+remap_from: []
+remap_to: []
+updated: null
+---
 # Color Naming — Berlin-Kay, Wine-Dark Sea, Language and Perception
 
 ## The Big Picture
@@ -17,12 +36,12 @@
 |  STAGE VI:  brown                                                |
 |  STAGE VII: pink, orange, purple, gray (any order)               |
 |                                                                  |
-|  A language with 3 basic color terms always has: black/white/red|
+|  A language with 3 basic color terms always has: black/white/red |
 |  A language with 5 always has: black/white/red + yellow + green  |
 |  Blue comes before brown; brown before the remaining 4           |
 |                                                                  |
 |  PROFOUND IMPLICATION:                                           |
-|  Colors exist on a perceptual hierarchy across all human cultures|
+|  Colors form a perceptual hierarchy across human cultures        |
 |  The same ordering imposed on very different physical worlds     |
 +------------------------------------------------------------------+
 ```
@@ -276,7 +295,7 @@ WEB COLORS (HTML/CSS 140 named colors):
 ```
 CONVERGENT EVIDENCE:
   Ancient Sanskrit: many color terms, no blue
-  Classical Chinese: no basic blue term (until 青 qīng was differentiated from 绿 lǜ)
+  Classical Chinese: no basic blue term (until qing was differentiated from lu)
   Classical Hebrew: same situation
   Ancient Icelandic: no blue term
   → All unrelated language families; all acquired blue late

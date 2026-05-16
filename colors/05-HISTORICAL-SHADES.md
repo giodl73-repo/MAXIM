@@ -1,3 +1,22 @@
+---
+maxim_schema: maxim.frontmatter.v1
+id: maxim:colors:historical-shades
+kind: guide
+module: colors
+section: colors
+title: Historical Shades - The Biography of Named Colors
+status: source-custody
+source_custody: partial
+current_path: colors/05-HISTORICAL-SHADES.md
+canonical_path: colors/05-HISTORICAL-SHADES.md
+backsource_ids: [proof-backfill:colors:05-historical-shades, git-history:colors:05-historical-shades]
+concepts: [historical, shades]
+root_concepts: [historical, shades]
+index_roles: [guide, root-concept]
+remap_from: []
+remap_to: []
+updated: null
+---
 # Historical Shades — The Biography of Named Colors
 
 ## The Big Picture

@@ -1,0 +1,94 @@
+{
+  "schema_version": "1",
+  "source_markdown": "statistics-applied\\03-QUASI-EXPERIMENTAL.md",
+  "blocks": [
+    {
+      "id": "block-1",
+      "kind": "ascii_table_candidate",
+      "line": 24,
+      "heading_context": "## The Big Picture",
+      "confidence": "candidate",
+      "text": "+------------------------------------------------------------------+\n|        IDENTIFICATION STRATEGIES: ASSUMPTIONS AND CONTEXTS       |\n|                                                                  |\n|  METHOD         | CORE ASSUMPTION           | NATURAL CONTEXT    |\n|  DiD            | Parallel trends           | Policy rollout,    |\n|                 | (untreated counterfactual)| staggered adoption |\n|                 |                           |                    |\n|  RDD            | Continuity at threshold   | Eligibility rules, |\n|                 | (no sorting/manipulation) | test score cutoffs |\n|                 |                           |                    |\n|  Synthetic Ctrl | Pre-treatment fit as      | Single treated     |\n|                 | counterfactual proxy      | unit, many periods |\n|                 |                           |                    |\n|  IV             | Exclusion restriction     | Natural experiment |\n|                 | (Z→D, Z not → Y directly) | lottery, geography |\n|                 |                           |                    |\n|  ITS            | Stable trend before event | Single series,     |\n|                 | → counterfactual trend    | many time periods  |\n|                 |                           |                    |\n|  NONE OF THESE IDENTIFY WITHOUT THEIR ASSUMPTION.                |\n|  The assumption is untestable; assess its plausibility.          |\n+------------------------------------------------------------------+",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-2",
+      "kind": "diagram_like",
+      "line": 53,
+      "heading_context": "## Difference-in-Differences (DiD)",
+      "confidence": "candidate",
+      "text": "SETUP:\n  Treated group (T): receives treatment at time t₀\n  Control group (C): never treated (or treated later)\n  Pre-period: before t₀\n  Post-period: after t₀\n\nTWO-PERIOD DiD ESTIMATOR:\n  β_DiD = (Ȳ_T,post − Ȳ_T,pre) − (Ȳ_C,post − Ȳ_C,pre)\n\n  Equivalently (regression form):\n  Y_it = α + β₁×Treated_i + β₂×Post_t + β_DiD×(Treated_i × Post_t) + ε_it\n\n  Coefficient β_DiD = the DiD estimate\n\n  INTUITION:\n  Treatment effect = change in T − change in C\n  → Control group tells you what would have happened to T absent treatment\n  → Valid IF: control group's trend is the counterfactual for treatment group\n\nPARALLEL TRENDS ASSUMPTION (the identifying assumption):\n  \"In the absence of treatment, treated and control groups would have had\n  parallel (not necessarily equal) trends in the outcome.\"\n\n  FORMALLY: E[Y_T,post(0) − Y_T,pre(0)] = E[Y_C,post − Y_C,pre]\n    Y_T,post(0) = counterfactual outcome for treated if untreated (unobservable)\n    Satisfied in expectation when this condition holds\n\n  TESTING PRE-TRENDS:\n  If parallel trends holds, pre-treatment trends should be parallel\n  Plot outcome over time by group before treatment:\n  → Parallel → supportive evidence (not proof)\n  → Non-parallel pre-trends → assumption likely violated; DiD invalid\n\n  Event study specification:\n  Y_it = α + Σ_k β_k × (Treated_i × 1[t−t₀=k]) + γ_i + δ_t + ε_it\n  γ_i = unit fixed effects; δ_t = time fixed effects\n  β_k for k<0: should be ~0 (pre-treatment effects)\n  β_k for k≥0: treatment effects over time",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-3",
+      "kind": "diagram_like",
+      "line": 96,
+      "heading_context": "### Two-Way Fixed Effects (TWFE) and Staggered DiD",
+      "confidence": "candidate",
+      "text": "CLASSIC TWFE (Two-Way Fixed Effects):\n  Y_it = α_i + δ_t + β×(Treated_i × Post_it) + ε_it\n  α_i = unit FE (removes unit-level confounders)\n  δ_t = time FE (removes common time shocks)\n  β = average treatment effect under parallel trends\n\nSTAGGERED ADOPTION PROBLEM:\n  If different units adopt treatment at different times (common in policy):\n  Unit 1: treated from period 5\n  Unit 2: treated from period 8\n  Unit 3: never treated\n\n  Classic TWFE TWFE with staggered adoption = BIASED estimator\n  Why: TWFE uses already-treated units as \"controls\" for later-treated units\n  If effects are heterogeneous across time or units → negative weights possible\n  → β can be negative even if every unit's treatment effect is positive\n\n  CALLAWAY-SANT'ANNA (2021) ESTIMATOR:\n  Identify group-time average treatment effects: ATT(g,t) where g = cohort (when treated)\n  Aggregate only over valid (not-yet-treated) control groups\n  Aggregate ATT(g,t) to get overall or dynamic effects\n  R packages: did, csdid; Stata: csdid\n\n  ALTERNATIVES:\n  Sun-Abraham (2021): interaction-weighted estimator\n  Borusyak et al. (2021): imputation-based estimator\n  De Chaisemartin-D'Haultfoeuille (2020): first-difference approach\n\n  RULE: For staggered DiD, use Callaway-Sant'Anna or equivalent; NOT classic TWFE",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-4",
+      "kind": "diagram_like",
+      "line": 132,
+      "heading_context": "## Regression Discontinuity Design (RDD)",
+      "confidence": "candidate",
+      "text": "SETUP:\n  Assignment rule: if Running Variable X ≥ threshold c → treated (T=1)\n                   if X < c → control (T=0)\n  Estimand: local average treatment effect at the threshold\n  LATE_RDD = E[Y(1) - Y(0) | X = c]\n\nIDENTIFYING ASSUMPTION (continuity):\n  E[Y(0) | X] is continuous at X = c\n  \"Potential untreated outcomes are continuous at the threshold\"\n  → No jump in outcomes at c absent the treatment\n  → Implies: units just above and just below c are comparable (in expectation)\n\nESTIMATION — LOCAL LINEAR REGRESSION:\n  Separately on each side of cutoff c, within bandwidth h:\n  Fit: Y = α + β×(X−c) + ε  for X ∈ [c−h, c)\n  Fit: Y = α + τ + β'×(X−c) + ε  for X ∈ [c, c+h]\n  τ = jump at cutoff = RDD estimate\n\n  BANDWIDTH SELECTION:\n  MSE-optimal bandwidth (Calonico-Cattaneo-Titiunik 2014):\n  Trades bias (wider h → more extrapolation → more bias) vs variance (narrower → fewer obs)\n  R/Stata: rdrobust implements optimal bandwidth + robust inference\n\n  ROBUSTNESS CHECKS:\n  Different bandwidths: does estimate change systematically?\n  Polynomial order: linear preferred; higher polynomials overfit\n  Donut RDD: exclude observations exactly at cutoff (manipulation concern)\n\nSHARP vs FUZZY RDD:\n  Sharp: P(T=1 | X≥c) = 1, P(T=1 | X<c) = 0 (perfect compliance)\n  Fuzzy: P(T=1 | X≥c) jumps discontinuously at c but ≠ 1\n  → Fuzzy RDD: use cutoff as instrument for actual treatment\n  → Estimate = Sharp RDD estimate / First stage (jump in P(T=1))\n  → IV interpretation: LATE for compliers at the threshold\n\nMANIPULATION TEST (McCrary test):\n  If units can manipulate their X value to just above cutoff → bunching\n  → Density of X should be continuous at c\n  Test: estimate density discontinuity at c (kernel density each side)\n  If significant jump in density → manipulation suspected → validity threatened\n  R: rddensity package (Cattaneo et al.)",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-5",
+      "kind": "diagram_like",
+      "line": 180,
+      "heading_context": "## Synthetic Control (Abadie-Diamond-Hainmueller 2010)",
+      "confidence": "candidate",
+      "text": "SETUP:\n  J+1 units: 1 treated, J potential controls\n  T₀ periods before treatment; T₁ periods after\n  Goal: construct counterfactual for the treated unit\n\nMETHOD:\n  Find weights W = (w₂, w₃, ..., w_{J+1}) with wⱼ ≥ 0, Σwⱼ = 1\n  such that the weighted combination of control units:\n  • Matches treated unit's pre-treatment outcome trajectory\n  • Matches pre-treatment predictor values (X: GDP, demographics, etc.)\n\n  Optimization:\n  min_{W} ||X₁ − X₀W||_V (distance in predictor space)\n  subject to: matches pre-treatment outcomes (Y₁_pre ≈ Σwⱼ × Y_j,pre)\n\n  V: diagonal matrix with variable-specific weights (chosen to minimize pre-period MSPE)\n\nESTIMATE:\n  Post-treatment effect at time t:\n  α̂_t = Y₁_t − Σwⱼ × Y_j,t\n  (gap between actual treated unit and synthetic control)\n\nINFERENCE — PERMUTATION:\n  No asymptotic distribution theory → use placebo/permutation tests\n  Run synthetic control for EACH control unit (as if it were treated)\n  → Distribution of placebo effects across J control units\n  → If actual treated unit's effect is in extreme tail → significant\n\n  Significance: rank actual treated unit's effect vs J placebos\n  p-value = (rank in distribution of |effects|) / (J+1)\n  Often display \"spaghetti plot\" of all placebo paths vs actual\n\nADVANTAGES vs DiD:\n  No parallel trends assumption (pre-trends test is part of the method)\n  Pre-treatment fit is explicit and visible (not assumed)\n  Handles continuous divergence, not just level shift\n  Works well with a single treated unit (DiD needs many treated units for precision)\n\nLIMITATIONS:\n  Requires long pre-treatment period (many periods to achieve good fit)\n  Convex hull restriction: synthetic control must be within convex hull of donors\n  (can't extrapolate beyond observed control outcomes)\n  Only one treated unit (or a few) — not suitable for many treated units",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-6",
+      "kind": "diagram_like",
+      "line": 230,
+      "heading_context": "## Instrumental Variables (IV)",
+      "confidence": "candidate",
+      "text": "SETUP:\n  Want to estimate: Y = f(D, ε)  (effect of D on Y)\n  Problem: D is endogenous (E[D × ε] ≠ 0)\n  Instrument Z:\n  1. Relevance: Z affects D (first stage: F-stat > 10 rule of thumb)\n  2. Exclusion restriction: Z affects Y only THROUGH D (unverifiable but arguable)\n  3. Independence: Z is \"as good as randomly assigned\" (exogenous)\n\nCLASSIC NATURAL EXPERIMENT EXAMPLES:\n  Draft lottery → military service → earnings (Angrist, 1990)\n  Quarter of birth → schooling → wages (Angrist-Krueger, 1991)\n  Geographic proximity to college → college attendance → wages\n  Rainfall → agricultural productivity → political institutions\n  Distance to abortion provider → abortion rate → birth outcomes\n\nTWO-STAGE LEAST SQUARES (2SLS):\n  Stage 1: D̂ = π₀ + π₁Z + controls + ν (regress D on Z)\n           F-statistic on Z in stage 1 = measure of relevance\n  Stage 2: Y = β₀ + β_IV × D̂ + controls + ε\n\n  β_IV = (covariance of Z with Y) / (covariance of Z with D)\n       = Reduced form / First stage\n\n  WALD ESTIMATOR (simplest IV, binary Z, binary D):\n  β_IV = [E(Y|Z=1) − E(Y|Z=0)] / [E(D|Z=1) − E(D|Z=0)]\n  = Intent-to-treat effect / Compliance rate\n\nWHAT IV ESTIMATES (LATE):\n  With heterogeneous treatment effects, IV estimates:\n  LATE = Local Average Treatment Effect for COMPLIERS\n  Compliers: units who take treatment if Z=1 and don't if Z=0\n  Not: always-takers (take treatment regardless of Z)\n  Not: never-takers (refuse treatment regardless of Z)\n  → LATE may not equal ATE (effect for compliers ≠ average effect)\n  → Important when using IV for policy recommendations to non-compliers\n\nWEAK INSTRUMENTS:\n  First stage F-stat < 10: weak instrument warning\n  Consequence: 2SLS is biased toward OLS (endogenous!) in small samples\n  Bias formula: B = 1/(F-stat) (approximate)\n  SOLUTIONS:\n  • Find stronger instrument\n  • LIML (Limited Information Maximum Likelihood): less biased under weakness\n  • Anderson-Rubin test: valid under weak instruments\n  • Stock-Wright-Yogo weak instrument test: formal F-stat threshold\n\nEXCLUSION RESTRICTION VIOLATIONS:\n  Most IV debates are about whether the exclusion restriction holds\n  Examples:\n  • Quarter of birth: if Z→ school quality (not just quantity) → exclusion violated\n  • Geographic instrument: if distance proxies omitted community factors → violated\n  Cannot be tested statistically (is fundamentally assumption about counterfactual world)\n  Can be argued by ruling out alternative pathways",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-7",
+      "kind": "diagram_like",
+      "line": 290,
+      "heading_context": "## Event Studies",
+      "confidence": "candidate",
+      "text": "SETUP:\n  Panel data: many units, many periods\n  Event: some units experience event at different times (staggered)\n  Goal: estimate dynamic treatment effects (how does effect evolve over time)\n\nSPECIFICATION:\n  Y_it = α_i + δ_t + Σ_{k=K_min}^{K_max} β_k × D_{it}^k + ε_it\n  D_{it}^k = 1 if unit i is k periods from event at time t\n  β_k: estimated effect k periods before/after event\n  Typically normalize: β_{-1} = 0 (period before event = baseline)\n\n  PRE-PERIOD: k < 0 → β_k should be ≈ 0 (test of parallel trends)\n  POST-PERIOD: k ≥ 0 → β_k = estimated treatment effect at k periods after\n\nTYPICAL VISUAL:\n  Plot β_k with CI over relative time k\n  → Should show flat pre-trend → sharp change at k=0 → stabilize or grow/decay\n  → Pre-trend violation: systematic trend before event → confounding\n\nSTACKING EVENT STUDY:\n  Separate event study for each event cohort\n  → Stack datasets and include cohort × time FEs\n  → Avoids TWFE contamination from other event cohorts as controls\n  Cengiz et al. (2019): minimum wage application; Baker, Larcker, Wang (2022)",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-8",
+      "kind": "diagram_like",
+      "line": 321,
+      "heading_context": "## Interrupted Time Series (ITS)",
+      "confidence": "candidate",
+      "text": "SETUP:\n  Single unit, T time periods\n  Structural break at t₀\n  Goal: estimate effect of event at t₀ on level and/or trend\n\nMODEL:\n  Y_t = β₀ + β₁×t + β₂×D_t + β₃×(D_t × t) + ε_t\n  D_t = 1[t ≥ t₀]\n  β₀: intercept\n  β₁: pre-event trend\n  β₂: level change at event (immediate effect)\n  β₃: trend change after event (long-term effect)\n\nCOUNTERFACTUAL:\n  Projected pre-event trend extended as counterfactual\n  → How would outcome have evolved WITHOUT the intervention?\n\nASSUMPTIONS:\n  1. Pre-event trend is stable and correctly estimated\n  2. No other events occur at t₀ (single intervention assumption)\n  3. Errors are uncorrelated (or corrected: Newey-West, ARIMA-OLS)\n\nAUTOCORRELATION:\n  Time series data: usually autocorrelated\n  OLS SE underestimates uncertainty if errors are correlated\n  Fix: HAC (Heteroskedasticity and Autocorrelation Consistent) standard errors\n  → Newey-West: lags up to m = T^(1/3) typically\n  Or: model autocorrelation explicitly (ARIMA-OLS)",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    }
+  ]
+}

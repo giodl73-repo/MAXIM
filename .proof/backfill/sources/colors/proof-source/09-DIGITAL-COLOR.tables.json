@@ -1,0 +1,53 @@
+{
+  "schema_version": "1",
+  "source_markdown": "colors\\09-DIGITAL-COLOR.md",
+  "tables": [
+    {
+      "id": "table-1",
+      "line": 413,
+      "heading_context": "## Decision Cheat Sheet",
+      "headers": [
+        "If you need to diagnose...",
+        "Start With",
+        "Key Caveat"
+      ],
+      "rows": [
+        [
+          "A \"50% gray\" mismatch",
+          "Decode transfer function, compare linear luminance, encoded RGB value, and display assumptions.",
+          "Numeric midpoint in sRGB is not perceptual or physical midpoint."
+        ],
+        [
+          "Gradient banding",
+          "Check bit depth, working space, compression, quantization, display pipeline, and dithering.",
+          "Dithering hides quantization; it does not add real precision."
+        ],
+        [
+          "CSS color manipulation",
+          "Compare HSL, Lab, OKLab/OKLCh, gamut clipping, lightness uniformity, and browser support.",
+          "Perceptual uniformity helps algorithms more than manual taste decisions."
+        ],
+        [
+          "A 3D rendering gamma bug",
+          "Audit which textures are color data, which maps are linear data, lighting space, and output encoding.",
+          "Only color textures should be decoded from sRGB; normal/roughness/metallic maps are data."
+        ],
+        [
+          "HDR delivery",
+          "Compare HDR10, Dolby Vision, metadata, mastering display, tone mapping, and target devices.",
+          "Better metadata matters only when the playback chain honors it."
+        ],
+        [
+          "Print or cross-device conversion",
+          "Select ICC profile, rendering intent, gamut boundary, black point, and image vs logo needs.",
+          "Perceptual and relative colorimetric preserve different things."
+        ],
+        [
+          "Wide-gamut web color",
+          "Check Display P3 support, color management, fallback color, content gamut, and user device.",
+          "P3 content can look wrong or washed out without correct tagging and color management."
+        ]
+      ]
+    }
+  ]
+}

@@ -1,0 +1,94 @@
+{
+  "schema_version": "1",
+  "source_markdown": "colors\\06-MIXING-THEORY.md",
+  "blocks": [
+    {
+      "id": "block-1",
+      "kind": "ascii_table_candidate",
+      "line": 24,
+      "heading_context": "## The Big Picture",
+      "confidence": "candidate",
+      "text": "+------------------------------------------------------------------+\n|              TWO FUNDAMENTALLY DIFFERENT MIXING SYSTEMS          |\n|                                                                  |\n|  ADDITIVE MIXING (light sources)                                 |\n|  Start from: BLACK (no light)                                    |\n|  Add: colored lights → increase luminance                        |\n|  Primaries: RED + GREEN + BLUE → WHITE                           |\n|  Used in: monitors, theater lighting, digital imaging            |\n|  Physics: sum the SPDs                                           |\n|                                                                  |\n|  SUBTRACTIVE MIXING (pigments/inks)                              |\n|  Start from: WHITE (paper/canvas reflects all light)             |\n|  Add: pigment layers → each subtracts wavelengths                |\n|  Primaries: CYAN + MAGENTA + YELLOW → BLACK (ideal)              |\n|  Used in: printing, painting, dyes                               |\n|  Physics: multiply the reflectance curves                        |\n|                                                                  |\n|  OPTICAL (PARTITIVE) MIXING                                      |\n|  Small patches of different colors → eye mixes them at distance  |\n|  Approximates additive, but with reflected not emitted light     |\n|  Used in: Pointillism, woven textiles, halftone printing         |\n|                                                                  |\n|  KEY CONFUSION: \"mixing colors\" means different things           |\n|  in each system; rules don't transfer across systems             |\n+------------------------------------------------------------------+",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-2",
+      "kind": "diagram_like",
+      "line": 56,
+      "heading_context": "## Additive Mixing (Light)",
+      "confidence": "candidate",
+      "text": "PHYSICS:\n  Multiple light sources illuminate same spot\n  Total SPD = sum of individual SPDs\n  Cone response = sum of cone responses\n  → More light = more stimulation = lighter/brighter\n\nPRIMARY COLORS IN ADDITIVE:\n  RED: stimulates primarily L-cone\n  GREEN: stimulates primarily M-cone\n  BLUE: stimulates primarily S-cone\n  → Three primaries = approximate L, M, S cone stimulation independently\n\n  R + G = Yellow (L + M stimulated, S weak)\n  G + B = Cyan (M + S stimulated, L weak)\n  R + B = Magenta (L + S stimulated, M weak)\n  R + G + B = White (all cones stimulated)\n  No light = Black\n\nDISPLAY TECHNOLOGY:\n  CRT: red/green/blue phosphors excited by electron beam\n  LCD: backlight filtered by color filters (R/G/B subpixels) with LC shutter\n  OLED: organic emitters per subpixel (R/G/B individually driven)\n  → Each pixel: combination of 3 subpixels at different intensities\n  → Result: any color in sRGB (or Display P3) gamut\n\n\"RGB VALUE\" (e.g., rgb(255, 0, 0)):\n  255, 0, 0 = max red, no green, no blue = pure red\n  128, 128, 128 = equal mid-intensity → medium gray\n  255, 255, 0 = red + green → yellow\n  → These are ENCODED values (after gamma); linear values are different\n  → rgb(128, 128, 128) is NOT 50% luminance! It's ~18% luminance (gamma effect)\n  → css color(srgb-linear 0.5 0.5 0.5) would be 50% luminance gray",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-3",
+      "kind": "diagram_like",
+      "line": 95,
+      "heading_context": "## Subtractive Mixing (Pigments and Inks)",
+      "confidence": "candidate",
+      "text": "PHYSICS:\n  Light hits pigment layer → some wavelengths absorbed, rest reflected\n  Multiple pigment layers → each absorbs its wavelengths\n  Total reflectance = product of individual reflectances at each wavelength\n\n  Layer 1: reflects 80% at 500nm, 20% at 600nm\n  Layer 2: reflects 90% at 500nm, 90% at 600nm\n  Combined: 0.8 × 0.9 = 72% at 500nm, 0.2 × 0.9 = 18% at 600nm\n  → Combined: more blue-green, less red → cool result\n\nPRIMARY COLORS IN SUBTRACTIVE:\n  CYAN: absorbs RED, reflects blue + green\n  MAGENTA: absorbs GREEN, reflects red + blue\n  YELLOW: absorbs BLUE, reflects red + green\n\n  C + M = Blue (absorbs red + green, reflects blue)\n  C + Y = Green (absorbs red + blue, reflects green)\n  M + Y = Red (absorbs green + blue, reflects red)\n  C + M + Y = Black (absorbs all visible) — theoretical; in practice: dark muddy brown\n\nWHY CMY ARE THE SUBTRACTIVE PRIMARIES:\n  CMY are complements of RGB:\n  Cyan = complement of Red (absorbs what red stimulates)\n  Magenta = complement of Green (absorbs what green stimulates)\n  Yellow = complement of Blue (absorbs what blue stimulates)\n  → Mixing any two CMY = produces one RGB primary\n  → Mixing all three = absorbs all primaries = black (ideally)\n\nPAINTING REALITY:\n  No pigment is perfectly cyan or perfectly yellow\n  Real pigments have residual absorption at unintended wavelengths\n  → Mixing real yellow + real blue doesn't give clean green\n  → \"Dead\" or \"muddy\" results from multiple overlapping imperfect absorbers\n  → Oil painters learn specific pigment combinations for clean colors\n     (e.g., transparent mixing: phthalo blue + hansa yellow → vivid green)\n     (e.g., opaque mixing: titanium white + raw umber → not same as pale umber)",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-4",
+      "kind": "diagram_like",
+      "line": 138,
+      "heading_context": "## The RYB Artist Model",
+      "confidence": "candidate",
+      "text": "TRADITIONAL ART SCHOOL SYSTEM:\n  Taught in Western art education since ~17th century\n  \"Primary colors\": Red, Yellow, Blue\n  \"Secondary colors\": Orange (R+Y), Green (Y+B), Purple (R+B)\n  \"Tertiary\": red-orange, yellow-orange, etc.\n\nWHY IT'S TECHNICALLY WRONG:\n  RYB is not scientifically derived from physics or colorimetry\n  \"Blue + Yellow = Green\" works only approximately with real pigments\n  \"Red + Blue = Purple\" works only approximately\n  Neither rule works for light (additive mixing)\n  Neither rule holds for process printing inks (CMY, not RYB)\n\nWHY IT PERSISTS:\n  Works approximately for opaque oil/acrylic paint\n  Real-world pigment mixing: \"blue\" paint (ultramarine/cobalt) + \"yellow\" paint\n  → does produce green because pigments are broadband absorbers\n  → the approximation is good enough for practical painting\n  Itten's Bauhaus color wheel (based on RYB): pedagogically influential\n  → used in design schools, art curricula worldwide\n\nRYB vs CMY in practice:\n  Printing: CMY is correct (ink subtracts from white paper)\n  Light: RGB is correct (screen adds to black)\n  Painting: CMY is more accurate than RYB, but:\n    Artists don't use pure cyan/magenta/yellow\n    Pigments named \"red\" are often close to magenta\n    Pigments named \"blue\" are often close to cyan\n    The confusion is partly nomenclature\n  → Quinacridone red (≈ magenta) + phthalo blue (≈ cyan) + hansa yellow (≈ yellow)\n    IS essentially CMY painting — more color mixing theory-accurate than RYB",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-5",
+      "kind": "ascii_table_candidate",
+      "line": 176,
+      "heading_context": "## CMYK Printing",
+      "confidence": "candidate",
+      "text": "FOUR-COLOR PROCESS:\n  C: Cyan ink\n  M: Magenta ink\n  Y: Yellow ink\n  K: Key (Black) ink\n  Printed as overlapping halftone dots\n\nWHY ADD K (BLACK)?\n  CMY inks are NOT perfectly transparent and perfectly complementary\n  CMY \"black\" = muddy brown (residual color + paper show-through)\n  True black requires K ink\n  Cost savings: black ink cheaper than CMY; using K for text/shadows saves money\n  Total ink limit (TIL): putting C+M+Y+K all at 100% would over-saturate paper\n  → K replaces some CMY where dark neutrals are needed (GCR: Grey Component Replacement)\n\nHALFTONE DOTS:\n  Continuous-tone image → discrete dots at different sizes and angles\n  Larger dots (higher % area) → more ink → darker area at that color\n  Classic screen angles (prevent moiré):\n  • Black (K): 45° (most visible color → least visible angle: diagonal)\n  • Magenta (M): 75°\n  • Cyan (C): 105° (= 15° from black, other side)\n  • Yellow (Y): 90° (least visible color → can use less ideal angle)\n\nMOIRÉ PATTERN:\n  When two periodic patterns at similar angles overlap → beat frequency visible\n  Careful angle separation prevents moiré in conventional printing\n  Digital/FM screening (frequency modulation): random dot placement\n  → No regular pattern → no moiré → better for fine detail\n  → Used in high-quality inkjet and digital press\n\nCMYK GAMUT vs sRGB:\n  CMYK gamut is NOT simply inside sRGB gamut\n  • CMYK can reproduce some blues/violets that sRGB cannot\n  • sRGB can reproduce some saturated colors that CMYK cannot\n  • Overlap is large; exclusions are at extreme saturations\n  → \"Convert sRGB to CMYK\" = gamut mapping required at boundaries\n  → Rendering intent determines how out-of-gamut colors are compressed",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-6",
+      "kind": "diagram_like",
+      "line": 221,
+      "heading_context": "## Optical / Partitive Mixing",
+      "confidence": "candidate",
+      "text": "PHENOMENON:\n  Small patches of different colors → at a distance, cones integrate\n  → Result approximates additive mixing (not subtractive)\n  → Colors appear more vivid than physical mixture of same pigments\n\nWHY MORE VIVID:\n  Physical mixing (subtractive): reflectance curves multiplied → darker\n  Optical mixing (partitive): cones average signals\n    → Closer to additive averaging → maintains higher luminance\n  Result: juxtaposed red + blue dots → perceive violet that is\n    brighter and more vivid than mixing red + blue paint\n\nSEURAT AND SIGNAC — NEO-IMPRESSIONISM / POINTILLISM:\n  Georges Seurat applied Chevreul + Maxwell + Ogden Rood (\"Modern Chromatics,\" 1879)\n  Method: small dots of pure unmixed pigment\n  Theoretical effect: optical mixing at viewing distance\n  Practical result: vibrant, luminous surfaces\n  → \"Sunday Afternoon on La Grande Jatte\" (1884-1886): pure dots\n  CAVEAT: Modern analysis shows many of Seurat's dots are complementary colors\n    placed adjacently — enhancing simultaneous contrast rather than mixing\n\nTEXTILES:\n  Woven fabric: colored yarns interlace → at distance, blend\n  Harris tweed: two-color woven → appears third color from distance\n  → Textile colorists have used optical mixing for centuries\n  → \"Shot silk\" (warp one color, weft another) → iridescent effect\n\nHALFTONE PRINTING:\n  CMYK dots at printing resolution → when viewed normally, blend optically\n  70-150 lines per inch typical → dots ~0.17-0.36 mm\n  → Below resolution of normal viewing distance → optical mix\n  → Actually PARTITIVE mixing (reflected, not emitted) but approximates additive",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-7",
+      "kind": "ascii_table_candidate",
+      "line": 260,
+      "heading_context": "## Gamut and Color Gamut Mapping",
+      "confidence": "candidate",
+      "text": "GAMUT DEFINITION:\n  The set of all colors reproducible by a given system\n  Represented as a 3D volume in a color space (e.g., CIELAB)\n  or as a 2D triangle on CIE chromaticity diagram (projection)\n\nGAMUT SIZES (approximate % of CIE chromaticity, 2D projection):\n+------------------+--------+------------------------------------------+\n| SYSTEM           | %      | NOTES                                    |\n+------------------+--------+------------------------------------------+\n| sRGB             | ~35%   | Default internet/consumer screens        |\n| Display P3       | ~45%   | Modern Apple/HDR displays                |\n| Adobe RGB        | ~50%   | Wide-gamut print preparation             |\n| CMYK (typical)   | ~30%   | Varies by ink/paper; can be non-subset   |\n| Rec.2020         | ~76%   | UHD/HDR broadcast standard               |\n| ProPhoto RGB     | ~91%   | Archival raw; most content outside display|\n| Human vision     | 100%   | Reference (all CIE diagram)              |\n+------------------+--------+------------------------------------------+\n\nOUT-OF-GAMUT PROBLEM:\n  Real-world camera → ProPhoto RGB (wide) → display (sRGB/P3, narrower)\n  Some colors in photo are outside display gamut → must be mapped\n\nRENDERING INTENTS (ICC standard):\n  PERCEPTUAL:\n    Compress all colors; preserve relationships\n    Out-of-gamut colors brought in; in-gamut colors shift to maintain spacing\n    Good for: photographs, images with large gamut content\n    Risk: all colors shift, even in-gamut ones\n\n  RELATIVE COLORIMETRIC:\n    Only out-of-gamut colors clipped/mapped\n    In-gamut colors preserved exactly (with white point adjustment)\n    Good for: logo colors, specific spot color matching\n    Risk: out-of-gamut colors clip to gamut boundary (no grading)\n\n  SATURATION:\n    Maximize saturation, ignore colorimetric accuracy\n    Good for: business graphics, charts (vivid colors more important than accuracy)\n\n  ABSOLUTE COLORIMETRIC:\n    Exact reproduction, no white point compensation\n    Good for: proofing (simulating one device on another)\n\nGAMUT WARNING IN PHOTO EDITING:\n  Photoshop View > Gamut Warning: highlights out-of-gamut colors\n  Soft Proof: preview how colors will appear on target device/profile\n  → Editors fix out-of-gamut areas before sending to print",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-8",
+      "kind": "diagram_like",
+      "line": 314,
+      "heading_context": "## The Color of Shadows",
+      "confidence": "candidate",
+      "text": "OBSERVATIONAL PHYSICS:\n  In natural light (sunlight + blue sky):\n  • Lit areas: warmer light (direct sunlight, ~5500K)\n  • Shadowed areas: lit ONLY by sky (diffuse blue/violet, ~10000K)\n  → Shadows have a blue-violet color cast\n\nIMPRESSIONIST INSIGHT:\n  Pre-Impressionist academic painting: shadows = gray (add black to main color)\n  Impressionist observation (plein air): shadows are COLORED, not gray\n  → Monet, Renoir: lavender and blue-violet shadows in sunlit paintings\n  → Specifically: snow shadows are blue-violet (sky light only)\n  → Shadow on skin in sunlight: blue-green (blue sky) or warm (reflected surrounds)\n\nCOMPLEMENTARY SHADOW CONVENTION:\n  Light source color → shadow contains complement + blue sky component\n  Orange firelight → blue-green shadows\n  Green-lit stage → red-purple shadows\n  This is how theatrical lighting colorists think: warm key → cool fill\n  This is how Impressionists painted: light color → complementary in shadow\n\nPHYSICS EXPLANATION:\n  Light source → illuminates direct component of reflectance\n  Sky/ambient → illuminates shadow component\n  Perceived color = sum of reflected components weighted by illuminant\n  Shadow area = only sky component → sky's blue tint appears",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    }
+  ]
+}

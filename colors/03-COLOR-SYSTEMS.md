@@ -1,3 +1,22 @@
+---
+maxim_schema: maxim.frontmatter.v1
+id: maxim:colors:color-systems
+kind: guide
+module: colors
+section: colors
+title: Color Systems - Munsell, CIE, CIELAB, sRGB, Pantone
+status: source-custody
+source_custody: partial
+current_path: colors/03-COLOR-SYSTEMS.md
+canonical_path: colors/03-COLOR-SYSTEMS.md
+backsource_ids: [proof-backfill:colors:03-color-systems, git-history:colors:03-color-systems]
+concepts: [color, systems]
+root_concepts: [color, systems]
+index_roles: [guide, root-concept]
+remap_from: []
+remap_to: []
+updated: null
+---
 # Color Systems — Munsell, CIE, CIELAB, sRGB, Pantone
 
 ## The Big Picture

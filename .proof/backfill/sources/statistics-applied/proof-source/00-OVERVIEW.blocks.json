@@ -1,0 +1,83 @@
+{
+  "schema_version": "1",
+  "source_markdown": "statistics-applied\\00-OVERVIEW.md",
+  "blocks": [
+    {
+      "id": "block-1",
+      "kind": "ascii_table_candidate",
+      "line": 24,
+      "heading_context": "## The Landscape",
+      "confidence": "candidate",
+      "text": "+------------------------------------------------------------------+\n|              APPLIED STATISTICS: WHAT YOU'RE REALLY DOING        |\n|                                                                  |\n|  THE FUNDAMENTAL QUESTION HIERARCHY (Pearl's Ladder):            |\n|  Rung 1 — ASSOCIATION: P(Y | X)                                  |\n|    \"What do I see?\" — observational data, correlations           |\n|    Available from any dataset                                    |\n|                                                                  |\n|  Rung 2 — INTERVENTION: P(Y | do(X))                             |\n|    \"What happens if I act?\" — requires randomization or strong   |\n|    identifying assumption + structural model                     |\n|    RCTs directly reach this rung                                 |\n|                                                                  |\n|  Rung 3 — COUNTERFACTUAL: P(Y_x=1 | X=0)                         |\n|    \"What would have happened?\" — individual-level causal effects |\n|    Requires structural causal model (SCM), not just distribution |\n|                                                                  |\n|  OBSERVATIONAL DATA LIVES ON RUNG 1.                             |\n|  Most \"data science\" conclusions claim rung 2 from rung 1 data.  |\n|  Getting rung 2 from rung 1 requires an identification strategy. |\n+------------------------------------------------------------------+",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-2",
+      "kind": "ascii_table_candidate",
+      "line": 52,
+      "heading_context": "## Frequentist vs Bayesian Frameworks",
+      "confidence": "candidate",
+      "text": "FREQUENTIST (Neyman-Pearson + Fisher):\n\nPHILOSOPHICAL STANCE:\n  Parameters (θ) are FIXED but unknown constants\n  Data (X) is RANDOM — different samples would give different X\n  Probability = long-run frequency of events\n\nCONFIDENCE INTERVAL (misunderstood):\n  \"95% CI\" means:\n  If we repeated this procedure on 100 different samples from the same population,\n  ~95 of those CIs would contain the true parameter\n  It does NOT mean: \"95% probability the true value is in THIS interval\"\n  → The true value is fixed; it either is or isn't in the interval\n  → The procedure has 95% coverage; any single CI is not \"95% probable\"\n\nP-VALUE (misunderstood):\n  p = P(observed test statistic or more extreme | H₀ is true)\n  IT IS NOT:\n  • P(H₀ is true given data) — that would be Bayesian\n  • P(effect is real)\n  • Probability the result is \"due to chance\"\n  → p is the probability of data, not of hypotheses\n\nNEYMAN-PEARSON vs FISHER:\n  Fisher: p-value as measure of evidence against H₀ (continuous measure)\n  Neyman-Pearson: binary decision rule (accept/reject H₀) with fixed α, β\n  The modern practice muddles both: declare \"significance\" (Neyman-Pearson language)\n  using a p-value threshold (Fisher language) that was never intended as decision boundary\n  → ASA Statement on p-values (2016): \"Do not base conclusions solely on p<0.05\"\n  → \"Moving to a World Beyond p<0.05\" (2019 supplement): \"retire statistical significance\"\n\n+------------------+---------------------------------------------+\n| FREQUENTIST WINS | Regulatory/confirmatory settings (FDA, ICH) |\n|                  | Type I error control pre-specified          |\n|                  | Repeated-use procedures (quality control)   |\n+------------------+---------------------------------------------+\n\nBAYESIAN:\n\nPHILOSOPHICAL STANCE:\n  Parameters (θ) have probability distributions (degree-of-belief)\n  Prior p(θ): belief about θ before seeing data\n  Likelihood p(X|θ): probability of data given parameter\n  Posterior p(θ|X) ∝ p(X|θ) × p(θ): updated belief after data\n\n  BAYES' THEOREM:\n  p(θ|X) = [p(X|θ) × p(θ)] / p(X)\n  Posterior ∝ Likelihood × Prior\n\nCREDIBLE INTERVAL:\n  \"95% credible interval\" means:\n  Given the data and prior, there is 95% probability that θ is in this range\n  → This IS the statement people mistakenly attribute to frequentist CIs\n  → Genuine probability statement about the parameter (given prior + data)\n\n+------------------+---------------------------------------------+\n| BAYESIAN WINS    | Decision under uncertainty / utility        |\n|                  | Hierarchical models (partial pooling)       |\n|                  | Sequential updating (clinical adaptive)     |\n|                  | Small samples + domain knowledge            |\n|                  | Communicating uncertainty to stakeholders   |\n+------------------+---------------------------------------------+",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-3",
+      "kind": "diagram_like",
+      "line": 121,
+      "heading_context": "## Estimands (ICH E9(R1))",
+      "confidence": "candidate",
+      "text": "THE ESTIMAND FRAMEWORK:\n\nProblem: \"average treatment effect\" sounds unambiguous but isn't.\nWhat population? What happens to intercurrent events?\n(Intercurrent events: events after randomization that affect interpretation)\n\nESTIMAND = the treatment effect you actually want to estimate\nESTIMATOR = the statistical procedure used to estimate it\nESTIMATE = the specific number from that analysis\n\nFIVE STRATEGIES FOR INTERCURRENT EVENTS (ICH E9(R1)):\n\n  1. TREATMENT POLICY:\n     Ignore the intercurrent event; analyze all outcomes regardless\n     Example: patient switches to rescue medication → include their outcome anyway\n     \"What is the effect of being assigned treatment X, regardless of what else happens?\"\n\n  2. HYPOTHETICAL:\n     What if the intercurrent event had not occurred?\n     Example: what if no one had discontinued? (counterfactual)\n     Requires assumptions about counterfactual outcomes\n\n  3. COMPOSITE:\n     Intercurrent event IS part of the outcome\n     Example: discontinuation = treatment failure → count as bad outcome\n     Requires clinical judgment about what \"failure\" means\n\n  4. WHILE ON TREATMENT:\n     Outcome is only the period while on assigned treatment\n     Example: analyze only on-treatment days\n\n  5. PRINCIPAL STRATUM:\n     Restrict to subgroup of patients who would not have had the intercurrent event\n     Example: complier average causal effect (CACE)\n\nWHY ESTIMANDS MATTER:\n  Study A: \"treatment reduces pain\" (while-on-treatment estimand)\n  Study B: \"treatment reduces pain\" (treatment policy estimand)\n  Same trial, different answer, for legitimate reasons\n  → Meta-analysis combining them is problematic\n  → Pre-specify the estimand before collecting data",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-4",
+      "kind": "diagram_like",
+      "line": 169,
+      "heading_context": "## Identification vs Estimation",
+      "confidence": "candidate",
+      "text": "IDENTIFICATION:\n  Question: CAN the causal effect be recovered from observational data in principle?\n  (Before thinking about sample size or statistics)\n\n  Requires: assumptions about the data-generating process (the causal structure)\n  Tool: DAG (Directed Acyclic Graph) — draw the causal structure\n\n  Example:\n  Q: Does education cause higher wages?\n  DAG: Education ← Ability → Wages; Education → Wages\n  Problem: Ability is an unobserved confounder (Ability → both Education and Wages)\n  → OLS of Wage ~ Education is BIASED (education picks up ability effect)\n  → Need: instrument for education (affects education but not wages directly)\n  → Or: control for ability (but it's unobserved)\n\n  Identification strategies: RCT, IV, RDD, DiD, Synthetic Control\n  Each relies on a different set of assumptions\n  These assumptions are UNTESTABLE (by definition — if testable, you'd need another assumption)\n  But some are MORE PLAUSIBLE than others given context\n\nESTIMATION:\n  Given identified causal effect, how to estimate it efficiently?\n  OLS, IV, IPW, doubly-robust estimators, machine learning (DML)\n  Finite-sample concerns: variance, bias-variance tradeoff\n  Standard errors: heteroskedasticity-robust, cluster-robust, bootstrap\n\nTHE ORDER MATTERS:\n  1. Specify the estimand\n  2. Argue identification (causal structure + assumption)\n  3. Choose estimator\n  4. Report estimate with uncertainty\n  Skipping step 2 (going from data → estimate without causal argument)\n  produces correlations, not causal effects, regardless of statistical sophistication",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-5",
+      "kind": "diagram_like",
+      "line": 209,
+      "heading_context": "## Common Errors in Empirical Work",
+      "confidence": "candidate",
+      "text": "HARKing (Hypothesizing After Results are Known):\n  Run analysis → find what's significant → write paper claiming that was the hypothesis\n  Result: published findings with massively inflated false positive rates\n  Fix: pre-registration (write hypothesis + analysis plan BEFORE seeing data)\n  OSF (Open Science Framework), AEA Trial Registry, ClinicalTrials.gov\n\nP-HACKING / RESEARCHER DEGREES OF FREEDOM:\n  Optional stopping: check p-value repeatedly, stop when p<0.05\n  Multiple endpoints: test 10 outcomes, report only the significant one\n  Flexible covariates: add/remove controls until p<0.05\n  Subsetting: analyze all subgroups until one is significant\n  → Each flexibility doubles the false positive rate\n  → A study with 20 researcher degrees of freedom and p<0.05 threshold:\n    expected false positive rate can exceed 60%\n  Fix: pre-registration, multiple comparison correction, sequential testing methods\n\nUNDERPOWERED STUDIES:\n  Powered at 20-50% for realistic effect sizes (very common in psychology, medicine)\n  → Most published effects are exaggerated (winner's curse)\n  → Small samples produce noisy estimates; only large (exaggerated) effects clear the threshold\n  → Even \"replicated\" findings from underpowered studies are unreliable\n  Fix: a priori power analysis; target 80-90% power at realistic (not optimistic) MDE\n\nSIMPSON'S PARADOX:\n  Trend in each subgroup reverses when groups are combined\n  Example: drug appears better overall; but worse in both young and old patients\n  Reason: confounding by age (old patients get drug more AND have worse outcomes)\n  Fix: stratify by confounders before combining; causal analysis of the DAG\n\nOVERFITTING:\n  In-sample fit ↑ with complexity; out-of-sample performance ↓\n  p-value on individual coefficient: not a model selection criterion\n  Fix: cross-validation, held-out test sets, information criteria (AIC/BIC/LOO-CV)",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-6",
+      "kind": "diagram_like",
+      "line": 249,
+      "heading_context": "## Module Map",
+      "confidence": "candidate",
+      "text": "statistics-applied/\n├── 00-OVERVIEW.md           ← you are here\n├── 01-EXPERIMENTAL-DESIGN.md  RCT, power, factorial, blocking, adaptive\n├── 02-AB-TESTING.md            Online experiments, CUPED, SRM, bandits\n├── 03-QUASI-EXPERIMENTAL.md    DiD, RDD, IV, synthetic control, event study\n├── 04-BAYESIAN-PRACTICE.md     Stan/PyMC, MCMC, credible intervals, hierarchical\n└── 05-RELIABILITY-SPC.md       Weibull, bathtub curve, control charts, Cpk\n\nCOMPLEMENTS:\n  mathematics/20-STATISTICS — statistical theory (probability, inference, asymptotic)\n  data-science/13-CAUSAL-INFERENCE — causal ML (DML, causal forests, CATE estimation)\n  This directory — the practice: experimental design, A/B infrastructure, tools",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-7",
+      "kind": "ascii_table_candidate",
+      "line": 296,
+      "heading_context": "## Common Confusion Points",
+      "confidence": "candidate",
+      "text": "**Replication crisis implications:** Psychology (~50% replication), medicine, economics — all have substantial published literatures that don't replicate. The cause: underpowered studies + p-hacking + publication bias. Use these bodies of literature with appropriate skepticism; effect sizes are likely inflated.",
+      "notes": [
+        "detected from ASCII table borders or pipe-aligned rows"
+      ]
+    }
+  ]
+}
