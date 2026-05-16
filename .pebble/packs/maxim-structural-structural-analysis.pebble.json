@@ -1,0 +1,2085 @@
+{
+  "schema": "pebble.v1",
+  "kind": "corpus-slice",
+  "title": "maxim-structural-structural-analysis",
+  "source": "../../structural",
+  "format": "markdown",
+  "metadata": {},
+  "sections": [
+    {
+      "id": "03-STRUCTURAL-ANALYSIS.md#000",
+      "path": [
+        "03-STRUCTURAL-ANALYSIS.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:structural:03-structural-analysis, git-history:structural:03-structural-analysis]",
+        "canonical_path": "structural/03-STRUCTURAL-ANALYSIS.md",
+        "concepts": "[structural, analysis]",
+        "current_path": "structural/03-STRUCTURAL-ANALYSIS.md",
+        "id": "maxim:structural:structural-analysis",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "structural",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[structural, analysis]",
+        "section": "structural",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "03 - Structural Analysis",
+        "updated": "null"
+      },
+      "text": "# 03 — Structural Analysis"
+    },
+    {
+      "id": "03-STRUCTURAL-ANALYSIS.md#001",
+      "path": [
+        "03-STRUCTURAL-ANALYSIS.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:structural:03-structural-analysis, git-history:structural:03-structural-analysis]",
+        "canonical_path": "structural/03-STRUCTURAL-ANALYSIS.md",
+        "concepts": "[structural, analysis]",
+        "current_path": "structural/03-STRUCTURAL-ANALYSIS.md",
+        "id": "maxim:structural:structural-analysis",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "structural",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[structural, analysis]",
+        "section": "structural",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "03 - Structural Analysis",
+        "updated": "null"
+      },
+      "text": "## Matrix Stiffness Method, FEM, Dynamics"
+    },
+    {
+      "id": "03-STRUCTURAL-ANALYSIS.md#002",
+      "path": [
+        "03-STRUCTURAL-ANALYSIS.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:structural:03-structural-analysis, git-history:structural:03-structural-analysis]",
+        "canonical_path": "structural/03-STRUCTURAL-ANALYSIS.md",
+        "concepts": "[structural, analysis]",
+        "current_path": "structural/03-STRUCTURAL-ANALYSIS.md",
+        "id": "maxim:structural:structural-analysis",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "structural",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[structural, analysis]",
+        "section": "structural",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "03 - Structural Analysis",
+        "updated": "null"
+      },
+      "text": "```\nEVOLUTION OF STRUCTURAL ANALYSIS"
+    },
+    {
+      "id": "03-STRUCTURAL-ANALYSIS.md#003",
+      "path": [
+        "03-STRUCTURAL-ANALYSIS.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:structural:03-structural-analysis, git-history:structural:03-structural-analysis]",
+        "canonical_path": "structural/03-STRUCTURAL-ANALYSIS.md",
+        "concepts": "[structural, analysis]",
+        "current_path": "structural/03-STRUCTURAL-ANALYSIS.md",
+        "id": "maxim:structural:structural-analysis",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "structural",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[structural, analysis]",
+        "section": "structural",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "03 - Structural Analysis",
+        "updated": "null"
+      },
+      "text": "Hand methods (1800s–1950s):   Slope-deflection, moment distribution (Hardy Cross)\nMatrix methods (1960s–today): Direct stiffness → implemented in every FEA code\nComputational FEM (1960s–):   General purpose — any geometry, material, loading\nNonlinear + dynamics:         Geometric nonlinearity, material nonlinearity, time history\n```"
+    },
+    {
+      "id": "03-STRUCTURAL-ANALYSIS.md#004",
+      "path": [
+        "03-STRUCTURAL-ANALYSIS.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:structural:03-structural-analysis, git-history:structural:03-structural-analysis]",
+        "canonical_path": "structural/03-STRUCTURAL-ANALYSIS.md",
+        "concepts": "[structural, analysis]",
+        "current_path": "structural/03-STRUCTURAL-ANALYSIS.md",
+        "id": "maxim:structural:structural-analysis",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "structural",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[structural, analysis]",
+        "section": "structural",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "03 - Structural Analysis",
+        "updated": "null"
+      },
+      "text": "**The direct stiffness method is the mathematical foundation of every structural software package\n(SAP2000, ETABS, STAAD, ANSYS, ABAQUS, LS-DYNA).** Understanding it lets you interpret results\nand know when your model is wrong.\nThe global stiffness matrix K is symmetric positive semi-definite before boundary conditions are applied, and symmetric positive definite after (the BCs remove the rigid-body null space). K is sparse — nonzero entries exist only where nodes share an element, so the sparsity pattern is the adjacency structure of the mesh graph. Solvers exploit this: direct methods (sparse Cholesky via PARDISO or MUMPS) or iterative methods (preconditioned conjugate gradient). Node numbering affects bandwidth — Reverse Cuthill-McKee (RCM) reordering minimizes fill-in, exactly the same graph reordering problem as optimizing sparse matrix storage."
+    },
+    {
+      "id": "03-STRUCTURAL-ANALYSIS.md#005",
+      "path": [
+        "03-STRUCTURAL-ANALYSIS.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:structural:03-structural-analysis, git-history:structural:03-structural-analysis]",
+        "canonical_path": "structural/03-STRUCTURAL-ANALYSIS.md",
+        "concepts": "[structural, analysis]",
+        "current_path": "structural/03-STRUCTURAL-ANALYSIS.md",
+        "id": "maxim:structural:structural-analysis",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "structural",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[structural, analysis]",
+        "section": "structural",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "03 - Structural Analysis",
+        "updated": "null"
+      },
+      "text": "---"
+    },
+    {
+      "id": "03-STRUCTURAL-ANALYSIS.md#006",
+      "path": [
+        "03-STRUCTURAL-ANALYSIS.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:structural:03-structural-analysis, git-history:structural:03-structural-analysis]",
+        "canonical_path": "structural/03-STRUCTURAL-ANALYSIS.md",
+        "concepts": "[structural, analysis]",
+        "current_path": "structural/03-STRUCTURAL-ANALYSIS.md",
+        "id": "maxim:structural:structural-analysis",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "structural",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[structural, analysis]",
+        "section": "structural",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "03 - Structural Analysis",
+        "updated": "null"
+      },
+      "text": "## Degrees of Indeterminacy"
+    },
+    {
+      "id": "03-STRUCTURAL-ANALYSIS.md#007",
+      "path": [
+        "03-STRUCTURAL-ANALYSIS.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:structural:03-structural-analysis, git-history:structural:03-structural-analysis]",
+        "canonical_path": "structural/03-STRUCTURAL-ANALYSIS.md",
+        "concepts": "[structural, analysis]",
+        "current_path": "structural/03-STRUCTURAL-ANALYSIS.md",
+        "id": "maxim:structural:structural-analysis",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "structural",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[structural, analysis]",
+        "section": "structural",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "03 - Structural Analysis",
+        "updated": "null"
+      },
+      "text": "```\nDegree of Static Indeterminacy (DSI):\n  2D frame: DSI = 3m + r − 3j    (m = members, r = reactions, j = joints)\n  2D truss: DSI = m + r − 2j"
+    },
+    {
+      "id": "03-STRUCTURAL-ANALYSIS.md#008",
+      "path": [
+        "03-STRUCTURAL-ANALYSIS.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:structural:03-structural-analysis, git-history:structural:03-structural-analysis]",
+        "canonical_path": "structural/03-STRUCTURAL-ANALYSIS.md",
+        "concepts": "[structural, analysis]",
+        "current_path": "structural/03-STRUCTURAL-ANALYSIS.md",
+        "id": "maxim:structural:structural-analysis",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "structural",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[structural, analysis]",
+        "section": "structural",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "03 - Structural Analysis",
+        "updated": "null"
+      },
+      "text": "DSI = 0:  statically determinate\nDSI > 0:  statically indeterminate (DSI = number of redundants)\nDSI < 0:  mechanism (unstable)"
+    },
+    {
+      "id": "03-STRUCTURAL-ANALYSIS.md#009",
+      "path": [
+        "03-STRUCTURAL-ANALYSIS.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:structural:03-structural-analysis, git-history:structural:03-structural-analysis]",
+        "canonical_path": "structural/03-STRUCTURAL-ANALYSIS.md",
+        "concepts": "[structural, analysis]",
+        "current_path": "structural/03-STRUCTURAL-ANALYSIS.md",
+        "id": "maxim:structural:structural-analysis",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "structural",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[structural, analysis]",
+        "section": "structural",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "03 - Structural Analysis",
+        "updated": "null"
+      },
+      "text": "Degree of Kinematic Indeterminacy (DKI):\n  Number of unknown joint displacements (DOF not restrained by BC)\n  2D frame: up to 3 DOF per joint (Δx, Δy, θ)\n  DKI drives size of stiffness matrix"
+    },
+    {
+      "id": "03-STRUCTURAL-ANALYSIS.md#010",
+      "path": [
+        "03-STRUCTURAL-ANALYSIS.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:structural:03-structural-analysis, git-history:structural:03-structural-analysis]",
+        "canonical_path": "structural/03-STRUCTURAL-ANALYSIS.md",
+        "concepts": "[structural, analysis]",
+        "current_path": "structural/03-STRUCTURAL-ANALYSIS.md",
+        "id": "maxim:structural:structural-analysis",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "structural",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[structural, analysis]",
+        "section": "structural",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "03 - Structural Analysis",
+        "updated": "null"
+      },
+      "text": "Stiffness method: solves for DKI unknowns (displacements)\nForce method: solves for DSI unknowns (forces)\n```"
+    },
+    {
+      "id": "03-STRUCTURAL-ANALYSIS.md#011",
+      "path": [
+        "03-STRUCTURAL-ANALYSIS.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:structural:03-structural-analysis, git-history:structural:03-structural-analysis]",
+        "canonical_path": "structural/03-STRUCTURAL-ANALYSIS.md",
+        "concepts": "[structural, analysis]",
+        "current_path": "structural/03-STRUCTURAL-ANALYSIS.md",
+        "id": "maxim:structural:structural-analysis",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "structural",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[structural, analysis]",
+        "section": "structural",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "03 - Structural Analysis",
+        "updated": "null"
+      },
+      "text": "---"
+    },
+    {
+      "id": "03-STRUCTURAL-ANALYSIS.md#012",
+      "path": [
+        "03-STRUCTURAL-ANALYSIS.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:structural:03-structural-analysis, git-history:structural:03-structural-analysis]",
+        "canonical_path": "structural/03-STRUCTURAL-ANALYSIS.md",
+        "concepts": "[structural, analysis]",
+        "current_path": "structural/03-STRUCTURAL-ANALYSIS.md",
+        "id": "maxim:structural:structural-analysis",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "structural",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[structural, analysis]",
+        "section": "structural",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "03 - Structural Analysis",
+        "updated": "null"
+      },
+      "text": "## Matrix Stiffness Method (Direct Stiffness)"
+    },
+    {
+      "id": "03-STRUCTURAL-ANALYSIS.md#013",
+      "path": [
+        "03-STRUCTURAL-ANALYSIS.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:structural:03-structural-analysis, git-history:structural:03-structural-analysis]",
+        "canonical_path": "structural/03-STRUCTURAL-ANALYSIS.md",
+        "concepts": "[structural, analysis]",
+        "current_path": "structural/03-STRUCTURAL-ANALYSIS.md",
+        "id": "maxim:structural:structural-analysis",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "structural",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[structural, analysis]",
+        "section": "structural",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "03 - Structural Analysis",
+        "updated": "null"
+      },
+      "text": "**Concept:** Write element stiffness equations, assemble into global system, apply BCs, solve."
+    },
+    {
+      "id": "03-STRUCTURAL-ANALYSIS.md#014",
+      "path": [
+        "03-STRUCTURAL-ANALYSIS.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:structural:03-structural-analysis, git-history:structural:03-structural-analysis]",
+        "canonical_path": "structural/03-STRUCTURAL-ANALYSIS.md",
+        "concepts": "[structural, analysis]",
+        "current_path": "structural/03-STRUCTURAL-ANALYSIS.md",
+        "id": "maxim:structural:structural-analysis",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "structural",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[structural, analysis]",
+        "section": "structural",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "03 - Structural Analysis",
+        "updated": "null"
+      },
+      "text": "```\nGlobal system:\n  [K] {d} = {F}"
+    },
+    {
+      "id": "03-STRUCTURAL-ANALYSIS.md#015",
+      "path": [
+        "03-STRUCTURAL-ANALYSIS.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:structural:03-structural-analysis, git-history:structural:03-structural-analysis]",
+        "canonical_path": "structural/03-STRUCTURAL-ANALYSIS.md",
+        "concepts": "[structural, analysis]",
+        "current_path": "structural/03-STRUCTURAL-ANALYSIS.md",
+        "id": "maxim:structural:structural-analysis",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "structural",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[structural, analysis]",
+        "section": "structural",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "03 - Structural Analysis",
+        "updated": "null"
+      },
+      "text": "[K] = global stiffness matrix (assembled from element matrices)\n{d} = vector of unknown nodal displacements (DOFs)\n{F} = vector of applied loads (forces and moments)\n```"
+    },
+    {
+      "id": "03-STRUCTURAL-ANALYSIS.md#016",
+      "path": [
+        "03-STRUCTURAL-ANALYSIS.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:structural:03-structural-analysis, git-history:structural:03-structural-analysis]",
+        "canonical_path": "structural/03-STRUCTURAL-ANALYSIS.md",
+        "concepts": "[structural, analysis]",
+        "current_path": "structural/03-STRUCTURAL-ANALYSIS.md",
+        "id": "maxim:structural:structural-analysis",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "structural",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[structural, analysis]",
+        "section": "structural",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "03 - Structural Analysis",
+        "updated": "null"
+      },
+      "text": "### Truss Element Stiffness (2D)"
+    },
+    {
+      "id": "03-STRUCTURAL-ANALYSIS.md#017",
+      "path": [
+        "03-STRUCTURAL-ANALYSIS.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:structural:03-structural-analysis, git-history:structural:03-structural-analysis]",
+        "canonical_path": "structural/03-STRUCTURAL-ANALYSIS.md",
+        "concepts": "[structural, analysis]",
+        "current_path": "structural/03-STRUCTURAL-ANALYSIS.md",
+        "id": "maxim:structural:structural-analysis",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "structural",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[structural, analysis]",
+        "section": "structural",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "03 - Structural Analysis",
+        "updated": "null"
+      },
+      "text": "```\nLocal coordinates (along member axis):\n  k_local = (AE/L) × [1  −1]\n                      [−1  1]"
+    },
+    {
+      "id": "03-STRUCTURAL-ANALYSIS.md#018",
+      "path": [
+        "03-STRUCTURAL-ANALYSIS.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:structural:03-structural-analysis, git-history:structural:03-structural-analysis]",
+        "canonical_path": "structural/03-STRUCTURAL-ANALYSIS.md",
+        "concepts": "[structural, analysis]",
+        "current_path": "structural/03-STRUCTURAL-ANALYSIS.md",
+        "id": "maxim:structural:structural-analysis",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "structural",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[structural, analysis]",
+        "section": "structural",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "03 - Structural Analysis",
+        "updated": "null"
+      },
+      "text": "Transform to global (θ = angle from horizontal):\n  T = [cos θ  sin θ   0      0   ]\n      [0       0    cos θ  sin θ ]"
+    },
+    {
+      "id": "03-STRUCTURAL-ANALYSIS.md#019",
+      "path": [
+        "03-STRUCTURAL-ANALYSIS.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:structural:03-structural-analysis, git-history:structural:03-structural-analysis]",
+        "canonical_path": "structural/03-STRUCTURAL-ANALYSIS.md",
+        "concepts": "[structural, analysis]",
+        "current_path": "structural/03-STRUCTURAL-ANALYSIS.md",
+        "id": "maxim:structural:structural-analysis",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "structural",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[structural, analysis]",
+        "section": "structural",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "03 - Structural Analysis",
+        "updated": "null"
+      },
+      "text": "k_global = T^T k_local T   (4×4 matrix in global x,y)"
+    },
+    {
+      "id": "03-STRUCTURAL-ANALYSIS.md#020",
+      "path": [
+        "03-STRUCTURAL-ANALYSIS.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:structural:03-structural-analysis, git-history:structural:03-structural-analysis]",
+        "canonical_path": "structural/03-STRUCTURAL-ANALYSIS.md",
+        "concepts": "[structural, analysis]",
+        "current_path": "structural/03-STRUCTURAL-ANALYSIS.md",
+        "id": "maxim:structural:structural-analysis",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "structural",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[structural, analysis]",
+        "section": "structural",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "03 - Structural Analysis",
+        "updated": "null"
+      },
+      "text": "Assembly: add each element's contribution to global [K] at its DOF locations\n```"
+    },
+    {
+      "id": "03-STRUCTURAL-ANALYSIS.md#021",
+      "path": [
+        "03-STRUCTURAL-ANALYSIS.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:structural:03-structural-analysis, git-history:structural:03-structural-analysis]",
+        "canonical_path": "structural/03-STRUCTURAL-ANALYSIS.md",
+        "concepts": "[structural, analysis]",
+        "current_path": "structural/03-STRUCTURAL-ANALYSIS.md",
+        "id": "maxim:structural:structural-analysis",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "structural",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[structural, analysis]",
+        "section": "structural",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "03 - Structural Analysis",
+        "updated": "null"
+      },
+      "text": "### Beam Element Stiffness (Euler-Bernoulli)"
+    },
+    {
+      "id": "03-STRUCTURAL-ANALYSIS.md#022",
+      "path": [
+        "03-STRUCTURAL-ANALYSIS.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:structural:03-structural-analysis, git-history:structural:03-structural-analysis]",
+        "canonical_path": "structural/03-STRUCTURAL-ANALYSIS.md",
+        "concepts": "[structural, analysis]",
+        "current_path": "structural/03-STRUCTURAL-ANALYSIS.md",
+        "id": "maxim:structural:structural-analysis",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "structural",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[structural, analysis]",
+        "section": "structural",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "03 - Structural Analysis",
+        "updated": "null"
+      },
+      "text": "**4 DOFs per element:** v₁, θ₁ (left node), v₂, θ₂ (right node)"
+    },
+    {
+      "id": "03-STRUCTURAL-ANALYSIS.md#023",
+      "path": [
+        "03-STRUCTURAL-ANALYSIS.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:structural:03-structural-analysis, git-history:structural:03-structural-analysis]",
+        "canonical_path": "structural/03-STRUCTURAL-ANALYSIS.md",
+        "concepts": "[structural, analysis]",
+        "current_path": "structural/03-STRUCTURAL-ANALYSIS.md",
+        "id": "maxim:structural:structural-analysis",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "structural",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[structural, analysis]",
+        "section": "structural",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "03 - Structural Analysis",
+        "updated": "null"
+      },
+      "text": "```\nk_beam = (EI/L³) × [ 12    6L   -12    6L  ]\n                    [  6L   4L²  -6L    2L² ]\n                    [-12   -6L    12   -6L  ]\n                    [  6L   2L²  -6L    4L² ]"
+    },
+    {
+      "id": "03-STRUCTURAL-ANALYSIS.md#024",
+      "path": [
+        "03-STRUCTURAL-ANALYSIS.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:structural:03-structural-analysis, git-history:structural:03-structural-analysis]",
+        "canonical_path": "structural/03-STRUCTURAL-ANALYSIS.md",
+        "concepts": "[structural, analysis]",
+        "current_path": "structural/03-STRUCTURAL-ANALYSIS.md",
+        "id": "maxim:structural:structural-analysis",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "structural",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[structural, analysis]",
+        "section": "structural",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "03 - Structural Analysis",
+        "updated": "null"
+      },
+      "text": "Consistent load vector (UDL w):\n  {f} = (wL/12) × {6L/L, 1, 6L/L, -1}  ← {6, L, 6, -L} times wL/12\n  = {wL/2, wL²/12, wL/2, -wL²/12}\n```"
+    },
+    {
+      "id": "03-STRUCTURAL-ANALYSIS.md#025",
+      "path": [
+        "03-STRUCTURAL-ANALYSIS.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:structural:03-structural-analysis, git-history:structural:03-structural-analysis]",
+        "canonical_path": "structural/03-STRUCTURAL-ANALYSIS.md",
+        "concepts": "[structural, analysis]",
+        "current_path": "structural/03-STRUCTURAL-ANALYSIS.md",
+        "id": "maxim:structural:structural-analysis",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "structural",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[structural, analysis]",
+        "section": "structural",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "03 - Structural Analysis",
+        "updated": "null"
+      },
+      "text": "### Frame Element"
+    },
+    {
+      "id": "03-STRUCTURAL-ANALYSIS.md#026",
+      "path": [
+        "03-STRUCTURAL-ANALYSIS.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:structural:03-structural-analysis, git-history:structural:03-structural-analysis]",
+        "canonical_path": "structural/03-STRUCTURAL-ANALYSIS.md",
+        "concepts": "[structural, analysis]",
+        "current_path": "structural/03-STRUCTURAL-ANALYSIS.md",
+        "id": "maxim:structural:structural-analysis",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "structural",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[structural, analysis]",
+        "section": "structural",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "03 - Structural Analysis",
+        "updated": "null"
+      },
+      "text": "Combines truss (axial) + beam (bending): 6 DOF per element (u₁,v₁,θ₁,u₂,v₂,θ₂).\nLocal 6×6 stiffness assembled from axial and bending sub-matrices."
+    },
+    {
+      "id": "03-STRUCTURAL-ANALYSIS.md#027",
+      "path": [
+        "03-STRUCTURAL-ANALYSIS.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:structural:03-structural-analysis, git-history:structural:03-structural-analysis]",
+        "canonical_path": "structural/03-STRUCTURAL-ANALYSIS.md",
+        "concepts": "[structural, analysis]",
+        "current_path": "structural/03-STRUCTURAL-ANALYSIS.md",
+        "id": "maxim:structural:structural-analysis",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "structural",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[structural, analysis]",
+        "section": "structural",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "03 - Structural Analysis",
+        "updated": "null"
+      },
+      "text": "### Assembly Procedure"
+    },
+    {
+      "id": "03-STRUCTURAL-ANALYSIS.md#028",
+      "path": [
+        "03-STRUCTURAL-ANALYSIS.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:structural:03-structural-analysis, git-history:structural:03-structural-analysis]",
+        "canonical_path": "structural/03-STRUCTURAL-ANALYSIS.md",
+        "concepts": "[structural, analysis]",
+        "current_path": "structural/03-STRUCTURAL-ANALYSIS.md",
+        "id": "maxim:structural:structural-analysis",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "structural",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[structural, analysis]",
+        "section": "structural",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "03 - Structural Analysis",
+        "updated": "null"
+      },
+      "text": "```\n1. Number all free DOFs (unconstrained)\n2. For each element:\n   a. Compute k_element in local coordinates\n   b. Transform to global: k_global = T^T k T\n   c. Add contributions to global K at corresponding DOF rows/columns\n3. Apply boundary conditions (set DOF = 0 for supports)\n4. Partition: [K_ff]{d_f} = {F_f} (free DOFs)\n5. Solve: {d_f} = [K_ff]^{-1} {F_f}\n6. Recover reactions: {F_r} = [K_rf]{d_f}\n7. Recover element forces from element displacements\n```"
+    },
+    {
+      "id": "03-STRUCTURAL-ANALYSIS.md#029",
+      "path": [
+        "03-STRUCTURAL-ANALYSIS.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:structural:03-structural-analysis, git-history:structural:03-structural-analysis]",
+        "canonical_path": "structural/03-STRUCTURAL-ANALYSIS.md",
+        "concepts": "[structural, analysis]",
+        "current_path": "structural/03-STRUCTURAL-ANALYSIS.md",
+        "id": "maxim:structural:structural-analysis",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "structural",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[structural, analysis]",
+        "section": "structural",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "03 - Structural Analysis",
+        "updated": "null"
+      },
+      "text": "---"
+    },
+    {
+      "id": "03-STRUCTURAL-ANALYSIS.md#030",
+      "path": [
+        "03-STRUCTURAL-ANALYSIS.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:structural:03-structural-analysis, git-history:structural:03-structural-analysis]",
+        "canonical_path": "structural/03-STRUCTURAL-ANALYSIS.md",
+        "concepts": "[structural, analysis]",
+        "current_path": "structural/03-STRUCTURAL-ANALYSIS.md",
+        "id": "maxim:structural:structural-analysis",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "structural",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[structural, analysis]",
+        "section": "structural",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "03 - Structural Analysis",
+        "updated": "null"
+      },
+      "text": "## Finite Element Method (FEM)"
+    },
+    {
+      "id": "03-STRUCTURAL-ANALYSIS.md#031",
+      "path": [
+        "03-STRUCTURAL-ANALYSIS.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:structural:03-structural-analysis, git-history:structural:03-structural-analysis]",
+        "canonical_path": "structural/03-STRUCTURAL-ANALYSIS.md",
+        "concepts": "[structural, analysis]",
+        "current_path": "structural/03-STRUCTURAL-ANALYSIS.md",
+        "id": "maxim:structural:structural-analysis",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "structural",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[structural, analysis]",
+        "section": "structural",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "03 - Structural Analysis",
+        "updated": "null"
+      },
+      "text": "FEM generalizes the matrix stiffness method to arbitrary geometry and loading."
+    },
+    {
+      "id": "03-STRUCTURAL-ANALYSIS.md#032",
+      "path": [
+        "03-STRUCTURAL-ANALYSIS.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:structural:03-structural-analysis, git-history:structural:03-structural-analysis]",
+        "canonical_path": "structural/03-STRUCTURAL-ANALYSIS.md",
+        "concepts": "[structural, analysis]",
+        "current_path": "structural/03-STRUCTURAL-ANALYSIS.md",
+        "id": "maxim:structural:structural-analysis",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "structural",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[structural, analysis]",
+        "section": "structural",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "03 - Structural Analysis",
+        "updated": "null"
+      },
+      "text": "### Variational Foundation"
+    },
+    {
+      "id": "03-STRUCTURAL-ANALYSIS.md#033",
+      "path": [
+        "03-STRUCTURAL-ANALYSIS.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:structural:03-structural-analysis, git-history:structural:03-structural-analysis]",
+        "canonical_path": "structural/03-STRUCTURAL-ANALYSIS.md",
+        "concepts": "[structural, analysis]",
+        "current_path": "structural/03-STRUCTURAL-ANALYSIS.md",
+        "id": "maxim:structural:structural-analysis",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "structural",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[structural, analysis]",
+        "section": "structural",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "03 - Structural Analysis",
+        "updated": "null"
+      },
+      "text": "The displacement-based FEM derives from minimizing the total potential energy over the displacement field:"
+    },
+    {
+      "id": "03-STRUCTURAL-ANALYSIS.md#034",
+      "path": [
+        "03-STRUCTURAL-ANALYSIS.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:structural:03-structural-analysis, git-history:structural:03-structural-analysis]",
+        "canonical_path": "structural/03-STRUCTURAL-ANALYSIS.md",
+        "concepts": "[structural, analysis]",
+        "current_path": "structural/03-STRUCTURAL-ANALYSIS.md",
+        "id": "maxim:structural:structural-analysis",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "structural",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[structural, analysis]",
+        "section": "structural",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "03 - Structural Analysis",
+        "updated": "null"
+      },
+      "text": "```\nΠ(u) = ½ ∫ σ:ε dV − ∫ f·u dV − ∫ t·u dS\n                                     ↑ body forces  ↑ surface tractions"
+    },
+    {
+      "id": "03-STRUCTURAL-ANALYSIS.md#035",
+      "path": [
+        "03-STRUCTURAL-ANALYSIS.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:structural:03-structural-analysis, git-history:structural:03-structural-analysis]",
+        "canonical_path": "structural/03-STRUCTURAL-ANALYSIS.md",
+        "concepts": "[structural, analysis]",
+        "current_path": "structural/03-STRUCTURAL-ANALYSIS.md",
+        "id": "maxim:structural:structural-analysis",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "structural",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[structural, analysis]",
+        "section": "structural",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "03 - Structural Analysis",
+        "updated": "null"
+      },
+      "text": "Stationarity: δΠ = 0  →  Galerkin weak form of the equilibrium PDE\n                         (this IS the Euler-Lagrange equation for elasticity)"
+    },
+    {
+      "id": "03-STRUCTURAL-ANALYSIS.md#036",
+      "path": [
+        "03-STRUCTURAL-ANALYSIS.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:structural:03-structural-analysis, git-history:structural:03-structural-analysis]",
+        "canonical_path": "structural/03-STRUCTURAL-ANALYSIS.md",
+        "concepts": "[structural, analysis]",
+        "current_path": "structural/03-STRUCTURAL-ANALYSIS.md",
+        "id": "maxim:structural:structural-analysis",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "structural",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[structural, analysis]",
+        "section": "structural",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "03 - Structural Analysis",
+        "updated": "null"
+      },
+      "text": "Discretize u(x) ≈ Σ Nᵢ(x) uᵢ  (shape function interpolation)\n  → δΠ = 0 becomes  [K]{d} = {F}\n  → k_e = ∫ Bᵀ D B dV  is the discrete bilinear form from Galerkin\n  → f_e = ∫ Nᵀ b dV     is the load projection onto the trial space\n```"
+    },
+    {
+      "id": "03-STRUCTURAL-ANALYSIS.md#037",
+      "path": [
+        "03-STRUCTURAL-ANALYSIS.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:structural:03-structural-analysis, git-history:structural:03-structural-analysis]",
+        "canonical_path": "structural/03-STRUCTURAL-ANALYSIS.md",
+        "concepts": "[structural, analysis]",
+        "current_path": "structural/03-STRUCTURAL-ANALYSIS.md",
+        "id": "maxim:structural:structural-analysis",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "structural",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[structural, analysis]",
+        "section": "structural",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "03 - Structural Analysis",
+        "updated": "null"
+      },
+      "text": "This is exactly the Galerkin discretization of the continuous elliptic operator from numerical PDE theory. The element stiffness matrix is the discrete representation of the bilinear form a(u,v) = ∫ ε(u):D:ε(v) dV. The connection matters: ill-conditioned continuous operators (thin shells, nearly incompressible materials) produce ill-conditioned K matrices — the numerical pathology inherits directly from the PDE."
+    },
+    {
+      "id": "03-STRUCTURAL-ANALYSIS.md#038",
+      "path": [
+        "03-STRUCTURAL-ANALYSIS.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:structural:03-structural-analysis, git-history:structural:03-structural-analysis]",
+        "canonical_path": "structural/03-STRUCTURAL-ANALYSIS.md",
+        "concepts": "[structural, analysis]",
+        "current_path": "structural/03-STRUCTURAL-ANALYSIS.md",
+        "id": "maxim:structural:structural-analysis",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "structural",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[structural, analysis]",
+        "section": "structural",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "03 - Structural Analysis",
+        "updated": "null"
+      },
+      "text": "### Displacement-Based FEM"
+    },
+    {
+      "id": "03-STRUCTURAL-ANALYSIS.md#039",
+      "path": [
+        "03-STRUCTURAL-ANALYSIS.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:structural:03-structural-analysis, git-history:structural:03-structural-analysis]",
+        "canonical_path": "structural/03-STRUCTURAL-ANALYSIS.md",
+        "concepts": "[structural, analysis]",
+        "current_path": "structural/03-STRUCTURAL-ANALYSIS.md",
+        "id": "maxim:structural:structural-analysis",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "structural",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[structural, analysis]",
+        "section": "structural",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "03 - Structural Analysis",
+        "updated": "null"
+      },
+      "text": "```\n1. Discretize domain into elements (mesh)\n2. Choose displacement field within element using shape functions N_i(x,y):\n   u(x,y) = Σ N_i(x,y) u_i    (interpolated from nodal values)"
+    },
+    {
+      "id": "03-STRUCTURAL-ANALYSIS.md#040",
+      "path": [
+        "03-STRUCTURAL-ANALYSIS.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:structural:03-structural-analysis, git-history:structural:03-structural-analysis]",
+        "canonical_path": "structural/03-STRUCTURAL-ANALYSIS.md",
+        "concepts": "[structural, analysis]",
+        "current_path": "structural/03-STRUCTURAL-ANALYSIS.md",
+        "id": "maxim:structural:structural-analysis",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "structural",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[structural, analysis]",
+        "section": "structural",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "03 - Structural Analysis",
+        "updated": "null"
+      },
+      "text": "3. Strain-displacement: ε = B u_e  where B = [∂N/∂x, ∂N/∂y, ...]"
+    },
+    {
+      "id": "03-STRUCTURAL-ANALYSIS.md#041",
+      "path": [
+        "03-STRUCTURAL-ANALYSIS.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:structural:03-structural-analysis, git-history:structural:03-structural-analysis]",
+        "canonical_path": "structural/03-STRUCTURAL-ANALYSIS.md",
+        "concepts": "[structural, analysis]",
+        "current_path": "structural/03-STRUCTURAL-ANALYSIS.md",
+        "id": "maxim:structural:structural-analysis",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "structural",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[structural, analysis]",
+        "section": "structural",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "03 - Structural Analysis",
+        "updated": "null"
+      },
+      "text": "4. Stress-strain: σ = D ε = D B u_e   (D = elasticity matrix)"
+    },
+    {
+      "id": "03-STRUCTURAL-ANALYSIS.md#042",
+      "path": [
+        "03-STRUCTURAL-ANALYSIS.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:structural:03-structural-analysis, git-history:structural:03-structural-analysis]",
+        "canonical_path": "structural/03-STRUCTURAL-ANALYSIS.md",
+        "concepts": "[structural, analysis]",
+        "current_path": "structural/03-STRUCTURAL-ANALYSIS.md",
+        "id": "maxim:structural:structural-analysis",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "structural",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[structural, analysis]",
+        "section": "structural",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "03 - Structural Analysis",
+        "updated": "null"
+      },
+      "text": "5. Element stiffness: k_e = ∫ B^T D B dV   (volume integral over element)"
+    },
+    {
+      "id": "03-STRUCTURAL-ANALYSIS.md#043",
+      "path": [
+        "03-STRUCTURAL-ANALYSIS.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:structural:03-structural-analysis, git-history:structural:03-structural-analysis]",
+        "canonical_path": "structural/03-STRUCTURAL-ANALYSIS.md",
+        "concepts": "[structural, analysis]",
+        "current_path": "structural/03-STRUCTURAL-ANALYSIS.md",
+        "id": "maxim:structural:structural-analysis",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "structural",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[structural, analysis]",
+        "section": "structural",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "03 - Structural Analysis",
+        "updated": "null"
+      },
+      "text": "6. Consistent force: f_e = ∫ N^T b dV   (body force) + surface tractions"
+    },
+    {
+      "id": "03-STRUCTURAL-ANALYSIS.md#044",
+      "path": [
+        "03-STRUCTURAL-ANALYSIS.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:structural:03-structural-analysis, git-history:structural:03-structural-analysis]",
+        "canonical_path": "structural/03-STRUCTURAL-ANALYSIS.md",
+        "concepts": "[structural, analysis]",
+        "current_path": "structural/03-STRUCTURAL-ANALYSIS.md",
+        "id": "maxim:structural:structural-analysis",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "structural",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[structural, analysis]",
+        "section": "structural",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "03 - Structural Analysis",
+        "updated": "null"
+      },
+      "text": "7. Assemble K = Σ k_e,  F = Σ f_e\n8. Solve K d = F (applying BCs)\n9. Post-process: strains → stresses at Gauss points\n```"
+    },
+    {
+      "id": "03-STRUCTURAL-ANALYSIS.md#045",
+      "path": [
+        "03-STRUCTURAL-ANALYSIS.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:structural:03-structural-analysis, git-history:structural:03-structural-analysis]",
+        "canonical_path": "structural/03-STRUCTURAL-ANALYSIS.md",
+        "concepts": "[structural, analysis]",
+        "current_path": "structural/03-STRUCTURAL-ANALYSIS.md",
+        "id": "maxim:structural:structural-analysis",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "structural",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[structural, analysis]",
+        "section": "structural",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "03 - Structural Analysis",
+        "updated": "null"
+      },
+      "text": "### Common Element Types"
+    },
+    {
+      "id": "03-STRUCTURAL-ANALYSIS.md#046",
+      "path": [
+        "03-STRUCTURAL-ANALYSIS.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:structural:03-structural-analysis, git-history:structural:03-structural-analysis]",
+        "canonical_path": "structural/03-STRUCTURAL-ANALYSIS.md",
+        "concepts": "[structural, analysis]",
+        "current_path": "structural/03-STRUCTURAL-ANALYSIS.md",
+        "id": "maxim:structural:structural-analysis",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "structural",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[structural, analysis]",
+        "section": "structural",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "03 - Structural Analysis",
+        "updated": "null"
+      },
+      "text": "| Element | Geometry | DOF/node | Notes |\n|---------|----------|----------|-------|\n| CST (constant strain triangle) | 3-node triangle | 2 (u,v) | Simple, poor accuracy (constant strain) |\n| LST (linear strain triangle) | 6-node triangle | 2 | Better accuracy |\n| Q4 (bilinear quad) | 4-node quad | 2 | Standard 2D; shear locking in bending |\n| Q8/Q9 (serendipity) | 8-node quad | 2 | Good general purpose 2D |\n| T4 (linear tet) | 4-node tet | 3 (u,v,w) | Easy meshing, stiff, poor accuracy |\n| T10 (quadratic tet) | 10-node tet | 3 | Preferred for 3D solid |\n| H8 (linear hex) | 8-node brick | 3 | Preferred when mesh possible |\n| H20 (quadratic hex) | 20-node brick | 3 | High accuracy 3D |"
+    },
+    {
+      "id": "03-STRUCTURAL-ANALYSIS.md#047",
+      "path": [
+        "03-STRUCTURAL-ANALYSIS.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:structural:03-structural-analysis, git-history:structural:03-structural-analysis]",
+        "canonical_path": "structural/03-STRUCTURAL-ANALYSIS.md",
+        "concepts": "[structural, analysis]",
+        "current_path": "structural/03-STRUCTURAL-ANALYSIS.md",
+        "id": "maxim:structural:structural-analysis",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "structural",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[structural, analysis]",
+        "section": "structural",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "03 - Structural Analysis",
+        "updated": "null"
+      },
+      "text": "**Isoparametric formulation:** Same shape functions for geometry and displacement interpolation.\nNatural coordinates (−1 to +1) → Jacobian maps to real coordinates.\nGauss quadrature for integration."
+    },
+    {
+      "id": "03-STRUCTURAL-ANALYSIS.md#048",
+      "path": [
+        "03-STRUCTURAL-ANALYSIS.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:structural:03-structural-analysis, git-history:structural:03-structural-analysis]",
+        "canonical_path": "structural/03-STRUCTURAL-ANALYSIS.md",
+        "concepts": "[structural, analysis]",
+        "current_path": "structural/03-STRUCTURAL-ANALYSIS.md",
+        "id": "maxim:structural:structural-analysis",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "structural",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[structural, analysis]",
+        "section": "structural",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "03 - Structural Analysis",
+        "updated": "null"
+      },
+      "text": "### Convergence and Mesh Quality"
+    },
+    {
+      "id": "03-STRUCTURAL-ANALYSIS.md#049",
+      "path": [
+        "03-STRUCTURAL-ANALYSIS.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:structural:03-structural-analysis, git-history:structural:03-structural-analysis]",
+        "canonical_path": "structural/03-STRUCTURAL-ANALYSIS.md",
+        "concepts": "[structural, analysis]",
+        "current_path": "structural/03-STRUCTURAL-ANALYSIS.md",
+        "id": "maxim:structural:structural-analysis",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "structural",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[structural, analysis]",
+        "section": "structural",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "03 - Structural Analysis",
+        "updated": "null"
+      },
+      "text": "```\nh-refinement: increase number of elements → smaller elements\np-refinement: increase polynomial order (shape function degree)\nhp-refinement: both simultaneously → exponential convergence for smooth problems"
+    },
+    {
+      "id": "03-STRUCTURAL-ANALYSIS.md#050",
+      "path": [
+        "03-STRUCTURAL-ANALYSIS.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:structural:03-structural-analysis, git-history:structural:03-structural-analysis]",
+        "canonical_path": "structural/03-STRUCTURAL-ANALYSIS.md",
+        "concepts": "[structural, analysis]",
+        "current_path": "structural/03-STRUCTURAL-ANALYSIS.md",
+        "id": "maxim:structural:structural-analysis",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "structural",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[structural, analysis]",
+        "section": "structural",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "03 - Structural Analysis",
+        "updated": "null"
+      },
+      "text": "Convergence indicators:\n  - Mesh independence study: refine until results change < tolerance\n  - Strain energy plot vs mesh size (should converge from below)\n  - Stress jumps across element boundaries → need refinement in high-gradient zones"
+    },
+    {
+      "id": "03-STRUCTURAL-ANALYSIS.md#051",
+      "path": [
+        "03-STRUCTURAL-ANALYSIS.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:structural:03-structural-analysis, git-history:structural:03-structural-analysis]",
+        "canonical_path": "structural/03-STRUCTURAL-ANALYSIS.md",
+        "concepts": "[structural, analysis]",
+        "current_path": "structural/03-STRUCTURAL-ANALYSIS.md",
+        "id": "maxim:structural:structural-analysis",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "structural",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[structural, analysis]",
+        "section": "structural",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "03 - Structural Analysis",
+        "updated": "null"
+      },
+      "text": "Ill-conditioned elements:\n  - Skewed (large aspect ratio): condition number of K degrades\n  - Nearly degenerate (very small angles): interpolation error\n  - Jacobian determinant < 0: inverted element → always error\n```"
+    },
+    {
+      "id": "03-STRUCTURAL-ANALYSIS.md#052",
+      "path": [
+        "03-STRUCTURAL-ANALYSIS.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:structural:03-structural-analysis, git-history:structural:03-structural-analysis]",
+        "canonical_path": "structural/03-STRUCTURAL-ANALYSIS.md",
+        "concepts": "[structural, analysis]",
+        "current_path": "structural/03-STRUCTURAL-ANALYSIS.md",
+        "id": "maxim:structural:structural-analysis",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "structural",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[structural, analysis]",
+        "section": "structural",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "03 - Structural Analysis",
+        "updated": "null"
+      },
+      "text": "---"
+    },
+    {
+      "id": "03-STRUCTURAL-ANALYSIS.md#053",
+      "path": [
+        "03-STRUCTURAL-ANALYSIS.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:structural:03-structural-analysis, git-history:structural:03-structural-analysis]",
+        "canonical_path": "structural/03-STRUCTURAL-ANALYSIS.md",
+        "concepts": "[structural, analysis]",
+        "current_path": "structural/03-STRUCTURAL-ANALYSIS.md",
+        "id": "maxim:structural:structural-analysis",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "structural",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[structural, analysis]",
+        "section": "structural",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "03 - Structural Analysis",
+        "updated": "null"
+      },
+      "text": "## Classical Methods for Indeterminate Structures"
+    },
+    {
+      "id": "03-STRUCTURAL-ANALYSIS.md#054",
+      "path": [
+        "03-STRUCTURAL-ANALYSIS.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:structural:03-structural-analysis, git-history:structural:03-structural-analysis]",
+        "canonical_path": "structural/03-STRUCTURAL-ANALYSIS.md",
+        "concepts": "[structural, analysis]",
+        "current_path": "structural/03-STRUCTURAL-ANALYSIS.md",
+        "id": "maxim:structural:structural-analysis",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "structural",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[structural, analysis]",
+        "section": "structural",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "03 - Structural Analysis",
+        "updated": "null"
+      },
+      "text": "### Moment Distribution (Hardy Cross Method)"
+    },
+    {
+      "id": "03-STRUCTURAL-ANALYSIS.md#055",
+      "path": [
+        "03-STRUCTURAL-ANALYSIS.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:structural:03-structural-analysis, git-history:structural:03-structural-analysis]",
+        "canonical_path": "structural/03-STRUCTURAL-ANALYSIS.md",
+        "concepts": "[structural, analysis]",
+        "current_path": "structural/03-STRUCTURAL-ANALYSIS.md",
+        "id": "maxim:structural:structural-analysis",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "structural",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[structural, analysis]",
+        "section": "structural",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "03 - Structural Analysis",
+        "updated": "null"
+      },
+      "text": "Iterative, excellent for hand analysis of continuous beams and non-sway frames."
+    },
+    {
+      "id": "03-STRUCTURAL-ANALYSIS.md#056",
+      "path": [
+        "03-STRUCTURAL-ANALYSIS.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:structural:03-structural-analysis, git-history:structural:03-structural-analysis]",
+        "canonical_path": "structural/03-STRUCTURAL-ANALYSIS.md",
+        "concepts": "[structural, analysis]",
+        "current_path": "structural/03-STRUCTURAL-ANALYSIS.md",
+        "id": "maxim:structural:structural-analysis",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "structural",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[structural, analysis]",
+        "section": "structural",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "03 - Structural Analysis",
+        "updated": "null"
+      },
+      "text": "```\nConcepts:\n  Distribution Factor (DF): proportion of unbalanced moment distributed to each member\n    DF_ij = K_ij / ΣK_ij    K = stiffness = 4EI/L (far end fixed) or 3EI/L (far end pinned)"
+    },
+    {
+      "id": "03-STRUCTURAL-ANALYSIS.md#057",
+      "path": [
+        "03-STRUCTURAL-ANALYSIS.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:structural:03-structural-analysis, git-history:structural:03-structural-analysis]",
+        "canonical_path": "structural/03-STRUCTURAL-ANALYSIS.md",
+        "concepts": "[structural, analysis]",
+        "current_path": "structural/03-STRUCTURAL-ANALYSIS.md",
+        "id": "maxim:structural:structural-analysis",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "structural",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[structural, analysis]",
+        "section": "structural",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "03 - Structural Analysis",
+        "updated": "null"
+      },
+      "text": "Carry-over Factor (COF):\n    = 0.5 for far end fixed\n    = 0 for far end pinned or free"
+    },
+    {
+      "id": "03-STRUCTURAL-ANALYSIS.md#058",
+      "path": [
+        "03-STRUCTURAL-ANALYSIS.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:structural:03-structural-analysis, git-history:structural:03-structural-analysis]",
+        "canonical_path": "structural/03-STRUCTURAL-ANALYSIS.md",
+        "concepts": "[structural, analysis]",
+        "current_path": "structural/03-STRUCTURAL-ANALYSIS.md",
+        "id": "maxim:structural:structural-analysis",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "structural",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[structural, analysis]",
+        "section": "structural",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "03 - Structural Analysis",
+        "updated": "null"
+      },
+      "text": "Algorithm:\n  1. Lock all joints (compute fixed-end moments FEM from load tables)\n  2. At each joint, compute unbalanced moment = ΣM_applied\n  3. Distribute: ΔM_i = −DF_i × unbalanced\n  4. Carry over: CM = COF × ΔM to far end\n  5. Iterate until moments converge\n  6. Final moment = initial FEM + Σ(distributed + carried-over moments)\n```"
+    },
+    {
+      "id": "03-STRUCTURAL-ANALYSIS.md#059",
+      "path": [
+        "03-STRUCTURAL-ANALYSIS.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:structural:03-structural-analysis, git-history:structural:03-structural-analysis]",
+        "canonical_path": "structural/03-STRUCTURAL-ANALYSIS.md",
+        "concepts": "[structural, analysis]",
+        "current_path": "structural/03-STRUCTURAL-ANALYSIS.md",
+        "id": "maxim:structural:structural-analysis",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "structural",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[structural, analysis]",
+        "section": "structural",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "03 - Structural Analysis",
+        "updated": "null"
+      },
+      "text": "---"
+    },
+    {
+      "id": "03-STRUCTURAL-ANALYSIS.md#060",
+      "path": [
+        "03-STRUCTURAL-ANALYSIS.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:structural:03-structural-analysis, git-history:structural:03-structural-analysis]",
+        "canonical_path": "structural/03-STRUCTURAL-ANALYSIS.md",
+        "concepts": "[structural, analysis]",
+        "current_path": "structural/03-STRUCTURAL-ANALYSIS.md",
+        "id": "maxim:structural:structural-analysis",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "structural",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[structural, analysis]",
+        "section": "structural",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "03 - Structural Analysis",
+        "updated": "null"
+      },
+      "text": "## Structural Dynamics"
+    },
+    {
+      "id": "03-STRUCTURAL-ANALYSIS.md#061",
+      "path": [
+        "03-STRUCTURAL-ANALYSIS.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:structural:03-structural-analysis, git-history:structural:03-structural-analysis]",
+        "canonical_path": "structural/03-STRUCTURAL-ANALYSIS.md",
+        "concepts": "[structural, analysis]",
+        "current_path": "structural/03-STRUCTURAL-ANALYSIS.md",
+        "id": "maxim:structural:structural-analysis",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "structural",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[structural, analysis]",
+        "section": "structural",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "03 - Structural Analysis",
+        "updated": "null"
+      },
+      "text": "### Single DOF (SDOF) Equation of Motion"
+    },
+    {
+      "id": "03-STRUCTURAL-ANALYSIS.md#062",
+      "path": [
+        "03-STRUCTURAL-ANALYSIS.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:structural:03-structural-analysis, git-history:structural:03-structural-analysis]",
+        "canonical_path": "structural/03-STRUCTURAL-ANALYSIS.md",
+        "concepts": "[structural, analysis]",
+        "current_path": "structural/03-STRUCTURAL-ANALYSIS.md",
+        "id": "maxim:structural:structural-analysis",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "structural",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[structural, analysis]",
+        "section": "structural",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "03 - Structural Analysis",
+        "updated": "null"
+      },
+      "text": "```\nmẍ + cẋ + kx = F(t)"
+    },
+    {
+      "id": "03-STRUCTURAL-ANALYSIS.md#063",
+      "path": [
+        "03-STRUCTURAL-ANALYSIS.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:structural:03-structural-analysis, git-history:structural:03-structural-analysis]",
+        "canonical_path": "structural/03-STRUCTURAL-ANALYSIS.md",
+        "concepts": "[structural, analysis]",
+        "current_path": "structural/03-STRUCTURAL-ANALYSIS.md",
+        "id": "maxim:structural:structural-analysis",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "structural",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[structural, analysis]",
+        "section": "structural",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "03 - Structural Analysis",
+        "updated": "null"
+      },
+      "text": "m = mass, c = damping coefficient, k = stiffness"
+    },
+    {
+      "id": "03-STRUCTURAL-ANALYSIS.md#064",
+      "path": [
+        "03-STRUCTURAL-ANALYSIS.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:structural:03-structural-analysis, git-history:structural:03-structural-analysis]",
+        "canonical_path": "structural/03-STRUCTURAL-ANALYSIS.md",
+        "concepts": "[structural, analysis]",
+        "current_path": "structural/03-STRUCTURAL-ANALYSIS.md",
+        "id": "maxim:structural:structural-analysis",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "structural",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[structural, analysis]",
+        "section": "structural",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "03 - Structural Analysis",
+        "updated": "null"
+      },
+      "text": "Natural frequency: ω_n = √(k/m)   [rad/s]    f_n = ω_n/(2π)   [Hz]\nDamping ratio: ζ = c/(2mω_n) = c/(2√(km))"
+    },
+    {
+      "id": "03-STRUCTURAL-ANALYSIS.md#065",
+      "path": [
+        "03-STRUCTURAL-ANALYSIS.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:structural:03-structural-analysis, git-history:structural:03-structural-analysis]",
+        "canonical_path": "structural/03-STRUCTURAL-ANALYSIS.md",
+        "concepts": "[structural, analysis]",
+        "current_path": "structural/03-STRUCTURAL-ANALYSIS.md",
+        "id": "maxim:structural:structural-analysis",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "structural",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[structural, analysis]",
+        "section": "structural",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "03 - Structural Analysis",
+        "updated": "null"
+      },
+      "text": "Underdamped response (ζ < 1, typical for structures: ζ ≈ 1–5%):\n  x(t) = e^(−ζω_n t) [A cos(ω_d t) + B sin(ω_d t)] + x_particular\n  ω_d = ω_n √(1−ζ²)   (damped natural frequency)\n```"
+    },
+    {
+      "id": "03-STRUCTURAL-ANALYSIS.md#066",
+      "path": [
+        "03-STRUCTURAL-ANALYSIS.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:structural:03-structural-analysis, git-history:structural:03-structural-analysis]",
+        "canonical_path": "structural/03-STRUCTURAL-ANALYSIS.md",
+        "concepts": "[structural, analysis]",
+        "current_path": "structural/03-STRUCTURAL-ANALYSIS.md",
+        "id": "maxim:structural:structural-analysis",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "structural",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[structural, analysis]",
+        "section": "structural",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "03 - Structural Analysis",
+        "updated": "null"
+      },
+      "text": "### Frequency Response Function (FRF)"
+    },
+    {
+      "id": "03-STRUCTURAL-ANALYSIS.md#067",
+      "path": [
+        "03-STRUCTURAL-ANALYSIS.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:structural:03-structural-analysis, git-history:structural:03-structural-analysis]",
+        "canonical_path": "structural/03-STRUCTURAL-ANALYSIS.md",
+        "concepts": "[structural, analysis]",
+        "current_path": "structural/03-STRUCTURAL-ANALYSIS.md",
+        "id": "maxim:structural:structural-analysis",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "structural",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[structural, analysis]",
+        "section": "structural",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "03 - Structural Analysis",
+        "updated": "null"
+      },
+      "text": "```\nHarmonic loading: F(t) = F₀ sin(ωt)\nSteady-state response amplitude:\n  X = (F₀/k) / √[(1−r²)² + (2ζr)²]\n  r = ω/ω_n (frequency ratio)"
+    },
+    {
+      "id": "03-STRUCTURAL-ANALYSIS.md#068",
+      "path": [
+        "03-STRUCTURAL-ANALYSIS.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:structural:03-structural-analysis, git-history:structural:03-structural-analysis]",
+        "canonical_path": "structural/03-STRUCTURAL-ANALYSIS.md",
+        "concepts": "[structural, analysis]",
+        "current_path": "structural/03-STRUCTURAL-ANALYSIS.md",
+        "id": "maxim:structural:structural-analysis",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "structural",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[structural, analysis]",
+        "section": "structural",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "03 - Structural Analysis",
+        "updated": "null"
+      },
+      "text": "Dynamic Amplification Factor (DAF): X/(F₀/k) = 1/√[(1−r²)² + (2ζr)²]\n  r = 0:   DAF = 1 (static)\n  r = 1:   DAF = 1/(2ζ) → RESONANCE (limited only by damping!)\n  r >> 1:  DAF → 0 (isolation regime)\n```"
+    },
+    {
+      "id": "03-STRUCTURAL-ANALYSIS.md#069",
+      "path": [
+        "03-STRUCTURAL-ANALYSIS.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:structural:03-structural-analysis, git-history:structural:03-structural-analysis]",
+        "canonical_path": "structural/03-STRUCTURAL-ANALYSIS.md",
+        "concepts": "[structural, analysis]",
+        "current_path": "structural/03-STRUCTURAL-ANALYSIS.md",
+        "id": "maxim:structural:structural-analysis",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "structural",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[structural, analysis]",
+        "section": "structural",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "03 - Structural Analysis",
+        "updated": "null"
+      },
+      "text": "### Multi-DOF Modal Analysis"
+    },
+    {
+      "id": "03-STRUCTURAL-ANALYSIS.md#070",
+      "path": [
+        "03-STRUCTURAL-ANALYSIS.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:structural:03-structural-analysis, git-history:structural:03-structural-analysis]",
+        "canonical_path": "structural/03-STRUCTURAL-ANALYSIS.md",
+        "concepts": "[structural, analysis]",
+        "current_path": "structural/03-STRUCTURAL-ANALYSIS.md",
+        "id": "maxim:structural:structural-analysis",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "structural",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[structural, analysis]",
+        "section": "structural",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "03 - Structural Analysis",
+        "updated": "null"
+      },
+      "text": "```\n[M]{ẍ} + [C]{ẋ} + [K]{x} = {F(t)}"
+    },
+    {
+      "id": "03-STRUCTURAL-ANALYSIS.md#071",
+      "path": [
+        "03-STRUCTURAL-ANALYSIS.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:structural:03-structural-analysis, git-history:structural:03-structural-analysis]",
+        "canonical_path": "structural/03-STRUCTURAL-ANALYSIS.md",
+        "concepts": "[structural, analysis]",
+        "current_path": "structural/03-STRUCTURAL-ANALYSIS.md",
+        "id": "maxim:structural:structural-analysis",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "structural",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[structural, analysis]",
+        "section": "structural",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "03 - Structural Analysis",
+        "updated": "null"
+      },
+      "text": "Free vibration (undamped):\n  [K]φ = ω²[M]φ → eigenvalue problem\n  Solutions: ω₁ < ω₂ < ... < ω_n (natural frequencies)\n             φ₁, φ₂, ..., φ_n (mode shapes = eigenvectors)"
+    },
+    {
+      "id": "03-STRUCTURAL-ANALYSIS.md#072",
+      "path": [
+        "03-STRUCTURAL-ANALYSIS.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:structural:03-structural-analysis, git-history:structural:03-structural-analysis]",
+        "canonical_path": "structural/03-STRUCTURAL-ANALYSIS.md",
+        "concepts": "[structural, analysis]",
+        "current_path": "structural/03-STRUCTURAL-ANALYSIS.md",
+        "id": "maxim:structural:structural-analysis",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "structural",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[structural, analysis]",
+        "section": "structural",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "03 - Structural Analysis",
+        "updated": "null"
+      },
+      "text": "Mode shapes orthogonal: φᵢᵀ[M]φⱼ = 0  (i≠j) — mass orthogonality\n                         φᵢᵀ[K]φⱼ = 0  (i≠j) — stiffness orthogonality"
+    },
+    {
+      "id": "03-STRUCTURAL-ANALYSIS.md#073",
+      "path": [
+        "03-STRUCTURAL-ANALYSIS.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:structural:03-structural-analysis, git-history:structural:03-structural-analysis]",
+        "canonical_path": "structural/03-STRUCTURAL-ANALYSIS.md",
+        "concepts": "[structural, analysis]",
+        "current_path": "structural/03-STRUCTURAL-ANALYSIS.md",
+        "id": "maxim:structural:structural-analysis",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "structural",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[structural, analysis]",
+        "section": "structural",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "03 - Structural Analysis",
+        "updated": "null"
+      },
+      "text": "Modal superposition: x(t) = Σ qᵢ(t) φᵢ\n  → Decouples N coupled equations into N independent SDOF equations\n```\nThe generalized eigenvalue problem [K]phi = omega^2 [M]phi reduces to a standard eigenvalue problem by Cholesky factoring M = L L^T (M is always positive definite for physical systems), then solving (L^{-1} K L^{-T}) psi = omega^2 psi and recovering phi = L^{-T} psi. The mass-orthogonality condition phi_i^T M phi_j = 0 is orthogonality in the M-inner product — the same result as eigenvectors of a symmetric matrix being orthogonal, extended to the generalized case. In practice, structural codes use shift-invert Lanczos (ARPACK) to extract the lowest modes without forming the full dense eigenvalue problem."
+    }
+  ],
+  "refs": [
+    "03-STRUCTURAL-ANALYSIS.md"
+  ]
+}

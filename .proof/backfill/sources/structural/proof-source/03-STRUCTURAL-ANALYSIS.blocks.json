@@ -1,0 +1,83 @@
+{
+  "schema_version": "1",
+  "source_markdown": "structural\\03-STRUCTURAL-ANALYSIS.md",
+  "blocks": [
+    {
+      "id": "block-1",
+      "kind": "chart_like",
+      "line": 75,
+      "heading_context": "## Matrix Stiffness Method (Direct Stiffness)",
+      "confidence": "candidate",
+      "text": "### Truss Element Stiffness (2D)",
+      "notes": [
+        "detected from bar/chart glyph density with numeric labels"
+      ]
+    },
+    {
+      "id": "block-2",
+      "kind": "diagram_like",
+      "line": 95,
+      "heading_context": "### Beam Element Stiffness (Euler-Bernoulli)",
+      "confidence": "candidate",
+      "text": "k_beam = (EI/L³) × [ 12    6L   -12    6L  ]\n                    [  6L   4L²  -6L    2L² ]\n                    [-12   -6L    12   -6L  ]\n                    [  6L   2L²  -6L    4L² ]\n\nConsistent load vector (UDL w):\n  {f} = (wL/12) × {6L/L, 1, 6L/L, -1}  ← {6, L, 6, -L} times wL/12\n  = {wL/2, wL²/12, wL/2, -wL²/12}",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-3",
+      "kind": "diagram_like",
+      "line": 136,
+      "heading_context": "### Variational Foundation",
+      "confidence": "candidate",
+      "text": "Π(u) = ½ ∫ σ:ε dV − ∫ f·u dV − ∫ t·u dS\n                                     ↑ body forces  ↑ surface tractions\n\nStationarity: δΠ = 0  →  Galerkin weak form of the equilibrium PDE\n                         (this IS the Euler-Lagrange equation for elasticity)\n\nDiscretize u(x) ≈ Σ Nᵢ(x) uᵢ  (shape function interpolation)\n  → δΠ = 0 becomes  [K]{d} = {F}\n  → k_e = ∫ Bᵀ D B dV  is the discrete bilinear form from Galerkin\n  → f_e = ∫ Nᵀ b dV     is the load projection onto the trial space",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-4",
+      "kind": "diagram_like",
+      "line": 190,
+      "heading_context": "### Convergence and Mesh Quality",
+      "confidence": "candidate",
+      "text": "h-refinement: increase number of elements → smaller elements\np-refinement: increase polynomial order (shape function degree)\nhp-refinement: both simultaneously → exponential convergence for smooth problems\n\nConvergence indicators:\n  - Mesh independence study: refine until results change < tolerance\n  - Strain energy plot vs mesh size (should converge from below)\n  - Stress jumps across element boundaries → need refinement in high-gradient zones\n\nIll-conditioned elements:\n  - Skewed (large aspect ratio): condition number of K degrades\n  - Nearly degenerate (very small angles): interpolation error\n  - Jacobian determinant < 0: inverted element → always error",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-5",
+      "kind": "ascii_table_candidate",
+      "line": 214,
+      "heading_context": "### Moment Distribution (Hardy Cross Method)",
+      "confidence": "candidate",
+      "text": "Concepts:\n  Distribution Factor (DF): proportion of unbalanced moment distributed to each member\n    DF_ij = K_ij / ΣK_ij    K = stiffness = 4EI/L (far end fixed) or 3EI/L (far end pinned)\n\n  Carry-over Factor (COF):\n    = 0.5 for far end fixed\n    = 0 for far end pinned or free\n\nAlgorithm:\n  1. Lock all joints (compute fixed-end moments FEM from load tables)\n  2. At each joint, compute unbalanced moment = ΣM_applied\n  3. Distribute: ΔM_i = −DF_i × unbalanced\n  4. Carry over: CM = COF × ΔM to far end\n  5. Iterate until moments converge\n  6. Final moment = initial FEM + Σ(distributed + carried-over moments)",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-6",
+      "kind": "diagram_like",
+      "line": 253,
+      "heading_context": "### Frequency Response Function (FRF)",
+      "confidence": "candidate",
+      "text": "Harmonic loading: F(t) = F₀ sin(ωt)\nSteady-state response amplitude:\n  X = (F₀/k) / √[(1−r²)² + (2ζr)²]\n  r = ω/ω_n (frequency ratio)\n\nDynamic Amplification Factor (DAF): X/(F₀/k) = 1/√[(1−r²)² + (2ζr)²]\n  r = 0:   DAF = 1 (static)\n  r = 1:   DAF = 1/(2ζ) → RESONANCE (limited only by damping!)\n  r >> 1:  DAF → 0 (isolation regime)",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-7",
+      "kind": "diagram_like",
+      "line": 267,
+      "heading_context": "### Multi-DOF Modal Analysis",
+      "confidence": "candidate",
+      "text": "[M]{ẍ} + [C]{ẋ} + [K]{x} = {F(t)}\n\nFree vibration (undamped):\n  [K]φ = ω²[M]φ → eigenvalue problem\n  Solutions: ω₁ < ω₂ < ... < ω_n (natural frequencies)\n             φ₁, φ₂, ..., φ_n (mode shapes = eigenvectors)\n\nMode shapes orthogonal: φᵢᵀ[M]φⱼ = 0  (i≠j) — mass orthogonality\n                         φᵢᵀ[K]φⱼ = 0  (i≠j) — stiffness orthogonality\n\nModal superposition: x(t) = Σ qᵢ(t) φᵢ\n  → Decouples N coupled equations into N independent SDOF equations",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    }
+  ]
+}

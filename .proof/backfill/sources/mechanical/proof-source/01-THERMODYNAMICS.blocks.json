@@ -1,0 +1,127 @@
+{
+  "schema_version": "1",
+  "source_markdown": "mechanical\\01-THERMODYNAMICS.md",
+  "blocks": [
+    {
+      "id": "block-1",
+      "kind": "diagram_like",
+      "line": 26,
+      "heading_context": "## Laws, Cycles, Entropy, Exergy",
+      "confidence": "candidate",
+      "text": "ENERGY IN ──► [THERMODYNAMIC SYSTEM] ──► USEFUL WORK OUT\n                      │\n                      ▼\n               HEAT REJECTED (unavoidable)\n               Second law sets the floor.",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-2",
+      "kind": "diagram_like",
+      "line": 41,
+      "heading_context": "## Thermodynamic State Properties",
+      "confidence": "candidate",
+      "text": "EXTENSIVE (scale with mass)        INTENSIVE (independent of mass)\n────────────────────────────       ────────────────────────────────\nU — internal energy [J]            u = U/m  specific internal energy\nH = U + pV  enthalpy [J]           h = H/m  specific enthalpy\nS — entropy [J/K]                  s = S/m  specific entropy\nV — volume [m³]                    v = V/m  specific volume\nG = H − TS  Gibbs free energy      T — temperature [K]\nA = U − TS  Helmholtz free energy  p — pressure [Pa]",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-3",
+      "kind": "diagram_like",
+      "line": 155,
+      "heading_context": "### Carnot Cycle (theoretical maximum)",
+      "confidence": "candidate",
+      "text": "T\n│   2───────3\n│   │       │  ← Isothermal expansion (heat in at Th)\nTh  │       │\n│   │       │\nTc  1───────4  ← Isothermal compression (heat out at Tc)\n│   │       │\n    ────────── s\n    Adiabatic processes (vertical lines on T-s)",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-4",
+      "kind": "diagram_like",
+      "line": 170,
+      "heading_context": "### Rankine Cycle (Steam Power Plant)",
+      "confidence": "candidate",
+      "text": "       BOILER (heat in)\n     3──────────────4 (superheat)\n     │               │\n     │               │ ← Steam turbine (work out)\n     │               │\n     2               5 (wet steam or superheated)\n     │               │\n     1───────────────  ← Condenser (heat out at low T)\n   Pump\n   (work in)\n\nProcesses:\n  1→2: Pump (isentropic compression of liquid)\n  2→3: Subcooled liquid heating\n  3→4: Vaporization at constant pressure\n  4→5: Superheat\n  5→1: Turbine expansion (isentropic ideal)\n  1→: Condenser (constant pressure heat rejection)",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-5",
+      "kind": "diagram_like",
+      "line": 192,
+      "heading_context": "### Rankine Cycle (Steam Power Plant)",
+      "confidence": "candidate",
+      "text": "η = (h₄ − h₅) − (h₂ − h₁)    ← turbine work − pump work\n    ─────────────────────────\n           h₄ − h₂             ← heat input\n\nTypical: 35–45% for modern supercritical plants (620°C, 25 MPa)",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-6",
+      "kind": "diagram_like",
+      "line": 204,
+      "heading_context": "### Brayton Cycle (Gas Turbine / Jet Engine)",
+      "confidence": "candidate",
+      "text": "Processes (air-standard):\n  1→2: Isentropic compression (compressor)\n  2→3: Constant-pressure heat addition (combustor)\n  3→4: Isentropic expansion (turbine)\n  4→1: Constant-pressure heat rejection (exhaust/atmosphere)\n\nEfficiency:\n  η_Brayton = 1 − 1/r_p^((γ-1)/γ)\n  where r_p = p₂/p₁ = pressure ratio\n\n  At r_p = 20 (typical): η ≈ 0.575 (57.5%) theoretically\n  Real gas turbines: 35–45% (compressor/turbine isentropic efficiencies ~85–90%)",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-7",
+      "kind": "diagram_like",
+      "line": 227,
+      "heading_context": "### Otto Cycle (Spark Ignition / Gasoline Engine)",
+      "confidence": "candidate",
+      "text": "Processes (air-standard):\n  1→2: Isentropic compression (compression stroke)\n  2→3: Constant-volume heat addition (ignition)\n  3→4: Isentropic expansion (power stroke)\n  4→1: Constant-volume heat rejection (exhaust blow-down)\n\nη_Otto = 1 − 1/r_c^(γ-1)   where r_c = compression ratio\n\nAt r_c = 9 (typical gasoline): η = 1 − 1/9^0.4 = 58% (ideal)\nReal: ~25–35% (friction, incomplete combustion, heat loss)",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-8",
+      "kind": "diagram_like",
+      "line": 245,
+      "heading_context": "### Diesel Cycle (Compression Ignition)",
+      "confidence": "candidate",
+      "text": "Processes:\n  1→2: Isentropic compression (higher r_c than Otto, ~14–22)\n  2→3: Constant-pressure heat addition (fuel injection, slower)\n  3→4: Isentropic expansion\n  4→1: Constant-volume heat rejection\n\nCutoff ratio: r_c_cutoff = v₃/v₂  (proportional to fuel mass)\n\nη_Diesel = 1 − [1/r_c^(γ-1)] × [(r_cutoff^γ − 1)/(γ(r_cutoff − 1))]\n\nHigher compression ratio → higher efficiency than Otto at same r_c\nNo knock (autoignition is desired) → can run at r_c = 14–22\nReal diesel: 40–45% efficiency",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-9",
+      "kind": "diagram_like",
+      "line": 263,
+      "heading_context": "### Stirling Cycle (External Combustion)",
+      "confidence": "candidate",
+      "text": "Processes:\n  1→2: Isothermal expansion (heat in at Th)\n  2→3: Constant-volume cooling (regenerator)\n  3→4: Isothermal compression (heat out at Tc)\n  4→1: Constant-volume heating (regenerator)\n\nη_Stirling = η_Carnot = 1 − Tc/Th  (with ideal regenerator!)",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-10",
+      "kind": "ascii_table_candidate",
+      "line": 280,
+      "heading_context": "### Vapor Compression Cycle (Reverse Rankine)",
+      "confidence": "candidate",
+      "text": "     +-------CONDENSER-------+\n     |   (high p, heat out)  |\n     |                       |\n  Compressor             Expansion\n  (work in)               valve\n     |                       |\n     |    EVAPORATOR         |\n     +-----------------------+\n        (low p, heat in from space to be cooled)",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-11",
+      "kind": "diagram_like",
+      "line": 366,
+      "heading_context": "### Phase Diagrams (pure substance)",
+      "confidence": "candidate",
+      "text": "P (pressure)\n│     SOLID    │  LIQUID   │\n│              │           │\n│              CP (critical)│ ── SUPERCRITICAL FLUID\n│    ──────────┤           │\n│    │ TRIPLE  │           │\n│    │  POINT  └───────────┴──► T\n│    │\n│    └── VAPOR\n│\n└──────────────────────────────► T",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    }
+  ]
+}

@@ -1,0 +1,119 @@
+{
+  "schema_version": "1",
+  "source_markdown": "structural\\03-STRUCTURAL-ANALYSIS.md",
+  "tables": [
+    {
+      "id": "table-1",
+      "line": 173,
+      "heading_context": "## Finite Element Method (FEM)",
+      "headers": [
+        "Element",
+        "Geometry",
+        "DOF/node",
+        "Notes"
+      ],
+      "rows": [
+        [
+          "CST (constant strain triangle)",
+          "3-node triangle",
+          "2 (u,v)",
+          "Simple, poor accuracy (constant strain)"
+        ],
+        [
+          "LST (linear strain triangle)",
+          "6-node triangle",
+          "2",
+          "Better accuracy"
+        ],
+        [
+          "Q4 (bilinear quad)",
+          "4-node quad",
+          "2",
+          "Standard 2D; shear locking in bending"
+        ],
+        [
+          "Q8/Q9 (serendipity)",
+          "8-node quad",
+          "2",
+          "Good general purpose 2D"
+        ],
+        [
+          "T4 (linear tet)",
+          "4-node tet",
+          "3 (u,v,w)",
+          "Easy meshing, stiff, poor accuracy"
+        ],
+        [
+          "T10 (quadratic tet)",
+          "10-node tet",
+          "3",
+          "Preferred for 3D solid"
+        ],
+        [
+          "H8 (linear hex)",
+          "8-node brick",
+          "3",
+          "Preferred when mesh possible"
+        ],
+        [
+          "H20 (quadratic hex)",
+          "20-node brick",
+          "3",
+          "High accuracy 3D"
+        ]
+      ]
+    },
+    {
+      "id": "table-2",
+      "line": 332,
+      "heading_context": "## Decision Cheat Sheet",
+      "headers": [
+        "Problem type",
+        "Method",
+        "Advantage"
+      ],
+      "rows": [
+        [
+          "Simple indeterminate beam",
+          "Moment distribution",
+          "Fast hand calculation"
+        ],
+        [
+          "Any frame or truss",
+          "Direct stiffness / FEM",
+          "Systematic, coded"
+        ],
+        [
+          "3D arbitrary geometry",
+          "3D FEM (ANSYS, Abaqus)",
+          "No analytical solution exists"
+        ],
+        [
+          "Earthquake analysis",
+          "Response spectrum (code)",
+          "Standard practice per ASCE 7"
+        ],
+        [
+          "Time history",
+          "Newmark-β integration",
+          "Non-uniform damping, nonlinear"
+        ],
+        [
+          "Natural frequencies",
+          "Eigenvalue solve [K]φ = ω²[M]φ",
+          "LAPACK/ARPACK sparse solver"
+        ],
+        [
+          "Influence lines (design)",
+          "Müller-Breslau principle",
+          "Visual, fast for standard structures"
+        ],
+        [
+          "Mesh quality check",
+          "Jacobian, aspect ratio",
+          "Check before trusting results"
+        ]
+      ]
+    }
+  ]
+}

@@ -1,4 +1,10 @@
 ---
+tags: [backfill]
+ops: [backfill]
+content_tags: [markdown]
+proof_original: "03-STRUCTURAL-ANALYSIS.md"
+---
+---
 maxim_schema: maxim.frontmatter.v1
 id: maxim:structural:structural-analysis
 kind: guide

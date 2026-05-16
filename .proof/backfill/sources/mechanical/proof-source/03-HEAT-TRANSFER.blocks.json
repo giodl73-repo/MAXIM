@@ -1,0 +1,61 @@
+{
+  "schema_version": "1",
+  "source_markdown": "mechanical\\03-HEAT-TRANSFER.md",
+  "blocks": [
+    {
+      "id": "block-1",
+      "kind": "diagram_like",
+      "line": 24,
+      "heading_context": "## Conduction, Convection, Radiation, Heat Exchangers",
+      "confidence": "candidate",
+      "text": "THREE MODES OF HEAT TRANSFER\n\nCONDUCTION          CONVECTION           RADIATION\n─────────────       ─────────────        ─────────────\nq = −kA dT/dx       q = hA(Ts − T∞)     q = εσA(Ts⁴ − Tsurr⁴)\n                                          ↑ no medium needed\nThrough solid       Fluid motion          Electromagnetic waves\nor stationary       carries energy        even through vacuum\nfluid\n                    Forced: pump/fan      Black body: ideal emitter\nk = material        drives flow           Real: ε < 1\nconductivity\n                    Natural: buoyancy\n                    drives flow\n\nAll three often act simultaneously in real problems",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-2",
+      "kind": "diagram_like",
+      "line": 115,
+      "heading_context": "### Transient Conduction",
+      "confidence": "candidate",
+      "text": "Bi = h(V/A)/k    [Lc = V/A for general shape]\n\nIf Bi < 0.1:\n  (T − T∞)/(Ti − T∞) = exp(−t/τ)\n  τ = ρVc/(hA)   ← time constant\n\nIf Bi > 0.1: use Heisler charts or full PDE solution",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-3",
+      "kind": "chart_like",
+      "line": 219,
+      "heading_context": "## Boiling and Condensation",
+      "confidence": "candidate",
+      "text": "### Pool Boiling Curve (Nukiyama 1934)",
+      "notes": [
+        "detected from bar/chart glyph density with numeric labels"
+      ]
+    },
+    {
+      "id": "block-4",
+      "kind": "diagram_like",
+      "line": 221,
+      "heading_context": "### Pool Boiling Curve (Nukiyama 1934)",
+      "confidence": "candidate",
+      "text": "q\" (heat flux)\n     │\n     │              D (critical heat flux, CHF)\n     │           ╱\n     │          ╱ Nucleate boiling\n     │    C ───╱\n     │   ╱\n     │  ╱  Transition\n     │ ╱   (unstable)\n     │╱\n     B ──────────────────── Film boiling\n     │                      (Leidenfrost point)\n     │\n     A (onset of nucleation)\n     └────────────────────── T_s − T_sat (excess temperature)",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-5",
+      "kind": "diagram_like",
+      "line": 378,
+      "heading_context": "### Heat Exchanger Types",
+      "confidence": "candidate",
+      "text": "Type            Geometry              Typical use\n──────────────────────────────────────────────────────────────\nShell-and-tube  Tubes inside shell    Oil refining, power plants\nPlate frame     Corrugated plates     Food/pharma (easy cleaning)\nDouble-pipe     Pipe within pipe      Small duty, lab use\nFinned tube     Fins on outer surface HVAC, radiators, condensers\nCross-flow      Perpendicular flows   Automotive radiator, air coolers\nSpiral          Spiral passages       Viscous fluids, slurries\nHeat pipe       Wick + vapor          Electronics cooling, spacecraft",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    }
+  ]
+}

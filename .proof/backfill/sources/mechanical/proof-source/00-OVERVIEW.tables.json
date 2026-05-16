@@ -1,0 +1,168 @@
+{
+  "schema_version": "1",
+  "source_markdown": "mechanical\\00-OVERVIEW.md",
+  "tables": [
+    {
+      "id": "table-1",
+      "line": 66,
+      "heading_context": "## Module Map",
+      "headers": [
+        "Module",
+        "Core Topic",
+        "Key Equations",
+        "Real-World Anchor"
+      ],
+      "rows": [
+        [
+          "`01-THERMODYNAMICS`",
+          "Energy conversion, cycles",
+          "dU=δQ−δW, η=1−Tc/Th",
+          "Steam turbines, gas turbines, refrigerators"
+        ],
+        [
+          "`02-FLUID-MECHANICS`",
+          "Flow behavior",
+          "Navier-Stokes, Bernoulli",
+          "Pipe networks, aircraft, pumps"
+        ],
+        [
+          "`03-HEAT-TRANSFER`",
+          "Heat flow modes",
+          "Fourier, Newton cooling, S-B",
+          "Heat exchangers, fins, GPU cooling"
+        ],
+        [
+          "`04-MACHINE-DESIGN`",
+          "Stress, fatigue, elements",
+          "von Mises, Goodman, Hertz",
+          "Gears, shafts, bearings, bolts"
+        ],
+        [
+          "`05-MANUFACTURING`",
+          "Making parts",
+          "Tolerances, GD&T",
+          "CNC machining, casting, AM"
+        ]
+      ]
+    },
+    {
+      "id": "table-2",
+      "line": 99,
+      "heading_context": "## Dimensionless Numbers — The Universal Language",
+      "headers": [
+        "Number",
+        "Formula",
+        "Meaning",
+        "Domain"
+      ],
+      "rows": [
+        [
+          "Reynolds (Re)",
+          "ρvL/μ",
+          "Inertia/viscous",
+          "Fluid flow transition"
+        ],
+        [
+          "Mach (Ma)",
+          "v/a",
+          "Flow/sound speed",
+          "Compressible flow"
+        ],
+        [
+          "Nusselt (Nu)",
+          "hL/k",
+          "Conv/cond heat transfer",
+          "Forced convection"
+        ],
+        [
+          "Prandtl (Pr)",
+          "c_p μ/k",
+          "Momentum/thermal diffusivity",
+          "Heat transfer"
+        ],
+        [
+          "Grashof (Gr)",
+          "gβΔTL³/ν²",
+          "Buoyancy/viscous",
+          "Natural convection"
+        ],
+        [
+          "Fourier (Fo)",
+          "αt/L²",
+          "Thermal diffusion time",
+          "Transient conduction"
+        ],
+        [
+          "Strouhal (St)",
+          "fL/v",
+          "Oscillation frequency",
+          "Vortex shedding"
+        ],
+        [
+          "Weber (We)",
+          "ρv²L/σ",
+          "Inertia/surface tension",
+          "Droplets, sprays"
+        ],
+        [
+          "Damköhler (Da)",
+          "τ_flow/τ_rxn",
+          "Transport/reaction",
+          "Combustion, reactors"
+        ]
+      ]
+    },
+    {
+      "id": "table-3",
+      "line": 144,
+      "heading_context": "## Connections to Computing",
+      "headers": [
+        "ME Concept",
+        "CS/Math Analog",
+        "Why It Matters"
+      ],
+      "rows": [
+        [
+          "Finite Element Analysis (FEA)",
+          "Sparse linear system Kx = F (Cholesky, CG solvers)",
+          "Same numerical linear algebra from MIT"
+        ],
+        [
+          "Vibration mode analysis",
+          "Eigenvalue decomposition of stiffness/mass matrices",
+          "Natural frequencies = eigenvalues; mode shapes = eigenvectors"
+        ],
+        [
+          "CFD (Navier-Stokes)",
+          "PDE discretization on mesh → same numerics as 19-NUMERICAL-METHODS.md",
+          "N-S is the canonical nonlinear PDE"
+        ],
+        [
+          "Gear ratio",
+          "Type-safe transformation: torque in / speed out, power conserved",
+          "Functional contract with defined I/O"
+        ],
+        [
+          "PID control",
+          "Transfer function H(s) in Laplace domain → see control-theory/",
+          "Feedback loops identical to software control"
+        ],
+        [
+          "Tolerance stack-up",
+          "RSS error budgeting in distributed systems",
+          "Statistical composition of independent errors"
+        ],
+        [
+          "Fatigue life prediction",
+          "Reliability models, survival analysis, MTBF",
+          "Same probabilistic failure framework"
+        ],
+        [
+          "Turbulence closure models",
+          "Regularization of ill-posed systems (more unknowns than equations)",
+          "k-epsilon is a regularization strategy"
+        ]
+      ]
+    }
+  ]
+}

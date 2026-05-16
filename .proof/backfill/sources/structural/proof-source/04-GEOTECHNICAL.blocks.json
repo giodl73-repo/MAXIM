@@ -1,0 +1,83 @@
+{
+  "schema_version": "1",
+  "source_markdown": "structural\\04-GEOTECHNICAL.md",
+  "blocks": [
+    {
+      "id": "block-1",
+      "kind": "ascii_table_candidate",
+      "line": 24,
+      "heading_context": "## Soil Mechanics, Foundations, Slopes, Earth Pressure",
+      "confidence": "candidate",
+      "text": "THE GEOTECHNICAL PROBLEM\n\n SURFACE LOADS\n      ↓\n┌─────────────────────────────────────────────────────────┐\n│  SOIL/ROCK MASS                                         │\n│  • 3-phase medium: solid grains + water + air           │\n│  • Behavior driven by effective stress σ' = σ − u       │\n│  • Strength: τ_f = c + σ' tan φ  (Mohr-Coulomb)         │\n│                                                         │\n│  Key issues:                                            │\n│  Bearing capacity: can the foundation resist load?      │\n│  Settlement: how much does it compress? how fast?       │\n│  Slope stability: will the slope slide?                 │\n│  Earth pressure: how hard does soil push on wall?       │\n└─────────────────────────────────────────────────────────┘",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-2",
+      "kind": "diagram_like",
+      "line": 49,
+      "heading_context": "### The Three-Phase System",
+      "confidence": "candidate",
+      "text": "       ┌─────┐\n       │  A  │\n       │─────│\n       │  W  │\n       │─────│\n       │  S  │\n       └─────┘\n       A = Air     (volume V_a)\n       W = Water   (volume V_w, mass M_w)\n       S = Solids  (volume V_s, mass M_s)\n\nTotal volume: V = V_s + V_v   where V_v = V_a + V_w (void volume)\nTotal mass:   M = M_s + M_w   (air mass neglected)",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-3",
+      "kind": "chart_like",
+      "line": 181,
+      "heading_context": "## Consolidation and Settlement",
+      "confidence": "candidate",
+      "text": "### Terzaghi's 1D Consolidation Theory",
+      "notes": [
+        "detected from bar/chart glyph density with numeric labels"
+      ]
+    },
+    {
+      "id": "block-4",
+      "kind": "diagram_like",
+      "line": 185,
+      "heading_context": "### Terzaghi's 1D Consolidation Theory",
+      "confidence": "candidate",
+      "text": "∂u/∂t = c_v ∂²u/∂z²   (diffusion equation for excess pore pressure)\n\nc_v = k(1+e₀) / (a_v γ_w)   (coefficient of consolidation)\n    = k / (m_v γ_w)            m_v = coefficient of volume compressibility\n\nTime factor: T_v = c_v t / H_dr²\n  H_dr = drainage path length (= H/2 for drainage top and bottom)\n\nDegree of consolidation U:\n  T_v = 0.010 → U = 11%\n  T_v = 0.197 → U = 50%\n  T_v = 0.848 → U = 90%\n  T_v ≈ (π/4)U² for U < 60%   (approximate)",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-5",
+      "kind": "diagram_like",
+      "line": 264,
+      "heading_context": "## Shallow Foundation Bearing Capacity",
+      "confidence": "candidate",
+      "text": "q_ult = c N_c + q N_q + ½ γ B N_γ\n\nq = γ D_f  (overburden pressure at foundation level)\nB = footing width\nN_c, N_q, N_γ = bearing capacity factors (depend on φ')\n\nφ' = 0°:   N_c = 5.14, N_q = 1, N_γ = 0  → q_ult = 5.14 c_u + γ D_f\nφ' = 30°:  N_c ≈ 30, N_q ≈ 18, N_γ ≈ 15\nφ' = 35°:  N_c ≈ 46, N_q ≈ 33, N_γ ≈ 37\n\nShape factors (Meyerhof/Hansen):\n  Sc = 1 + 0.4(B/L)     for strip (B/L→0), square (B/L=1), circle (B/L=1)\n\nAllowable bearing capacity: q_allow = q_ult / FS   (FS = 3 typical for buildings)",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-6",
+      "kind": "diagram_like",
+      "line": 311,
+      "heading_context": "### Retaining Wall Design",
+      "confidence": "candidate",
+      "text": "Check sliding: ΣF_horizontal ≤ μ × N_vertical\n  ΣP_a (active) must be resisted by base friction + passive\n  FS_sliding ≥ 1.5\n\nCheck overturning about toe:\n  ΣM_resisting / ΣM_overturning ≥ 1.5–2.0\n\nCheck bearing capacity:\n  Eccentricity e = B/2 − ΣM/ΣV < B/6 (resultant in middle third → no tension)\n  q_max = ΣV/B × (1 + 6e/B) < q_allow",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-7",
+      "kind": "chart_like",
+      "line": 330,
+      "heading_context": "## Slope Stability",
+      "confidence": "candidate",
+      "text": "### Swedish Circle Method (ϕ = 0 analysis — undrained)",
+      "notes": [
+        "detected from bar/chart glyph density with numeric labels"
+      ]
+    }
+  ]
+}

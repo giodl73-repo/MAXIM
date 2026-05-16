@@ -1,0 +1,50 @@
+{
+  "schema_version": "1",
+  "source_markdown": "mechanical\\00-OVERVIEW.md",
+  "blocks": [
+    {
+      "id": "block-1",
+      "kind": "ascii_table_candidate",
+      "line": 31,
+      "heading_context": "## The Big Picture",
+      "confidence": "candidate",
+      "text": "+-------------------------------------------------------------------------+\n|                    MECHANICAL ENGINEERING STACK                         |\n+-------------------------------------------------------------------------+\n|  ENERGY SCIENCE                                                         |\n|  +--------------------+  +--------------------+                         |\n|  |   THERMODYNAMICS   |  |   HEAT TRANSFER    |                         |\n|  |  entropy, cycles,  |  |  conduction,       |                         |\n|  |  exergy, combustion|  |  convection,       |                         |\n|  +--------------------+  |  radiation, HX     |                         |\n|                          +--------------------+                         |\n+-------------------------------------------------------------------------+\n|  CONTINUUM MECHANICS                                                    |\n|  +--------------------+  +--------------------+                         |\n|  |  FLUID MECHANICS   |  |  SOLID MECHANICS   |                         |\n|  |  Navier-Stokes,    |  |  stress/strain,    |                         |\n|  |  pipe/external/    |  |  failure, fatigue, |                         |\n|  |  compressible,     |  |  FEA               |                         |\n|  |  turbomachinery    |  +--------------------+                         |\n|  +--------------------+                                                 |\n+-------------------------------------------------------------------------+\n|  DESIGN & MANUFACTURING                                                 |\n|  +--------------------+  +--------------------+                         |\n|  |  MACHINE DESIGN    |  |  MANUFACTURING     |                         |\n|  |  gears, bearings,  |  |  machining, casting|                         |\n|  |  shafts, springs,  |  |  forming, welding, |                         |\n|  |  fasteners         |  |  AM, tolerances    |                         |\n|  +--------------------+  +--------------------+                         |\n+-------------------------------------------------------------------------+",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-2",
+      "kind": "diagram_like",
+      "line": 78,
+      "heading_context": "## Governing Equations — The Short List",
+      "confidence": "candidate",
+      "text": "THERMODYNAMICS               FLUID MECHANICS               SOLID MECHANICS\n─────────────────            ─────────────────             ─────────────────\nFirst law:                   Continuity:                   Hooke's law:\n  dU = δQ − δW                ∂ρ/∂t + ∇·(ρv) = 0           σ = Eε\n\nSecond law:                  Navier-Stokes:                Equilibrium:\n  dS ≥ δQ/T                   ρ(∂v/∂t + v·∇v) =            ∇·σ + f = 0\n                               −∇p + μ∇²v + ρg\nIdeal gas:                                                 von Mises:\n  pV = nRT                   Bernoulli:                      σ_vm = √(σ₁²+σ₂²-σ₁σ₂)\n                               p + ½ρv² + ρgz = const\nCarnot limit:\n  η_max = 1 − Tc/Th          Reynolds number:\n                               Re = ρvL/μ",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-3",
+      "kind": "ascii_table_candidate",
+      "line": 115,
+      "heading_context": "## The Four Fundamental Laws of Thermodynamics",
+      "confidence": "candidate",
+      "text": "ZEROTH LAW: If A≡B and B≡C thermally, then A≡C → temperature as property\n\nFIRST LAW:  Energy is conserved\n            dU = δQ − δW       (closed system)\n            ṁΔh + ΔKE + ΔPE = Q̇ − Ẇ   (steady-flow open system)\n\nSECOND LAW: Entropy of isolated system ≥ 0\n            dS_universe ≥ 0   (equality only for reversible)\n\nTHIRD LAW:  S → 0 as T → 0 K  (perfect crystal)\n            → absolute entropy reference exists",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-4",
+      "kind": "diagram_like",
+      "line": 159,
+      "heading_context": "## Decision Guide — Which Module?",
+      "confidence": "candidate",
+      "text": "WHAT'S YOUR QUESTION?\n        │\n        ├─ Energy conversion, efficiency, what's the maximum work?\n        │   └─► 01-THERMODYNAMICS\n        │\n        ├─ How does fluid flow — pressures, velocities, pipe networks?\n        │   └─► 02-FLUID-MECHANICS\n        │\n        ├─ How much heat moves and how fast?\n        │   └─► 03-HEAT-TRANSFER\n        │\n        ├─ Will this part fail? How long will it last? What size shaft?\n        │   └─► 04-MACHINE-DESIGN\n        │\n        └─ How is it made? Tolerances, processes, quality?\n            └─► 05-MANUFACTURING",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    }
+  ]
+}

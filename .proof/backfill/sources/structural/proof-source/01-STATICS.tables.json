@@ -1,0 +1,117 @@
+{
+  "schema_version": "1",
+  "source_markdown": "structural\\01-STATICS.md",
+  "tables": [
+    {
+      "id": "table-1",
+      "line": 76,
+      "heading_context": "## Support Conditions and Reactions",
+      "headers": [
+        "Support",
+        "Reactions",
+        "DOF constrained"
+      ],
+      "rows": [
+        [
+          "Ball and socket",
+          "Fx, Fy, Fz",
+          "3 forces"
+        ],
+        [
+          "Journal bearing",
+          "Two of three forces",
+          "2 forces (allows rotation on axis)"
+        ],
+        [
+          "Fixed wall",
+          "Fx, Fy, Fz, Mx, My, Mz",
+          "All 6"
+        ],
+        [
+          "Smooth surface",
+          "Normal force only",
+          "1"
+        ]
+      ]
+    },
+    {
+      "id": "table-2",
+      "line": 116,
+      "heading_context": "## Distributed Forces",
+      "headers": [
+        "Shape",
+        "Area",
+        "x̄ from left"
+      ],
+      "rows": [
+        [
+          "Rectangle (b × h)",
+          "bh",
+          "b/2"
+        ],
+        [
+          "Right triangle (base b)",
+          "bh/2",
+          "2b/3 from vertex, b/3 from base"
+        ],
+        [
+          "Semicircle (r)",
+          "πr²/2",
+          "4r/(3π) from diameter"
+        ],
+        [
+          "Parabola (concave up)",
+          "2bh/3",
+          "3b/8 from curved side"
+        ]
+      ]
+    },
+    {
+      "id": "table-3",
+      "line": 314,
+      "heading_context": "## Decision Cheat Sheet",
+      "headers": [
+        "Problem",
+        "Method",
+        "When"
+      ],
+      "rows": [
+        [
+          "Find support reactions",
+          "Overall FBD equilibrium",
+          "Always first step"
+        ],
+        [
+          "Find all truss member forces",
+          "Method of joints",
+          "Systematic, all members"
+        ],
+        [
+          "Find specific truss member",
+          "Method of sections",
+          "Only 3 members cut"
+        ],
+        [
+          "Frame with multi-force members",
+          "Disassemble into FBDs",
+          "Expose pin forces"
+        ],
+        [
+          "Distributed load → resultant",
+          "Centroid of load area",
+          "Before applying eq."
+        ],
+        [
+          "Shear/moment diagram",
+          "Differential relations",
+          "Building block for MoM"
+        ],
+        [
+          "Self-locking check",
+          "Compare λ vs φ",
+          "Screw, wedge, wedge brake"
+        ]
+      ]
+    }
+  ]
+}

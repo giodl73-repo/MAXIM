@@ -1,0 +1,72 @@
+{
+  "schema_version": "1",
+  "source_markdown": "mechanical\\02-FLUID-MECHANICS.md",
+  "blocks": [
+    {
+      "id": "block-1",
+      "kind": "diagram_like",
+      "line": 24,
+      "heading_context": "## Flow Behavior, Navier-Stokes, Pipe & External Flow",
+      "confidence": "candidate",
+      "text": "FLUID MECHANICS HIERARCHY\n          │\n          ▼\n┌─────────────────────────────────────────────────────────────┐\n│                   FLUID STATICS                             │\n│    p = p₀ + ρgh   (hydrostatics, buoyancy)                  │\n├─────────────────────────────────────────────────────────────┤\n│                  FLUID KINEMATICS                            │\n│    streamlines, continuity, RTT, vorticity                  │\n├─────────────────────────────────────────────────────────────┤\n│                  FLUID DYNAMICS                             │\n│    Euler equations (inviscid)                               │\n│    Navier-Stokes (viscous)                                  │\n│    Bernoulli (simplified)                                   │\n├──────────────────────────┬──────────────────────────────────┤\n│   INTERNAL FLOW          │   EXTERNAL FLOW                  │\n│   pipe, duct, channel    │   airfoils, bluff bodies         │\n│   laminar/turbulent      │   boundary layers, drag/lift     │\n├──────────────────────────┴──────────────────────────────────┤\n│   COMPRESSIBLE FLOW   (Ma > 0.3)                            │\n│   isentropic nozzles, shocks, choked flow                   │\n├─────────────────────────────────────────────────────────────┤\n│   TURBOMACHINERY                                             │\n│   pumps, compressors, turbines, fans                        │\n└─────────────────────────────────────────────────────────────┘",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-2",
+      "kind": "diagram_like",
+      "line": 75,
+      "heading_context": "## Fluid Statics",
+      "confidence": "candidate",
+      "text": "Pressure increases with depth:\n  dp/dz = −ρg    →    p = p_atm + ρgz  (incompressible)\n\nHydrostatic force on a vertical flat surface:\n  F = ρg ȳ A    (acts at pressure center, below centroid)\n\nBuoyancy (Archimedes):\n  F_b = ρ_fluid g V_submerged\n  Floats if ρ_object < ρ_fluid (or displaced fluid weight > object weight)",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-3",
+      "kind": "diagram_like",
+      "line": 184,
+      "heading_context": "### Laminar vs Turbulent",
+      "confidence": "candidate",
+      "text": "Re = ρvD/μ (pipe, D = diameter)\n\nRe < 2300:   Laminar (Hagen-Poiseuille)\n2300–4000:   Transition (unstable)\nRe > 4000:   Turbulent\n\nFully developed laminar pipe flow:\n  u(r) = (R²−r²)/(4μ) × (−dp/dx)      ← parabolic profile\n  V_avg = R²/(8μ) × (−dp/dx)           ← Hagen-Poiseuille\n  Δp/L = 128μQ/(πD⁴)                   ← Q = flow rate\n  f_Darcy = 64/Re                       ← friction factor (Fanning f = 16/Re)",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-4",
+      "kind": "diagram_like",
+      "line": 232,
+      "heading_context": "### Flat Plate Boundary Layer",
+      "confidence": "candidate",
+      "text": "Leading    Laminar       Transition    Turbulent\nedge   →   BL            zone          BL\n       →   δ(x) ~ x^0.5             δ(x) ~ x^0.8\n       →   Re_x = ρv∞x/μ\n       →   Transition at Re_x ≈ 5×10⁵\n\nBlasius solution (laminar, exact):\n  δ/x = 5/√Re_x           (BL thickness)\n  C_f = 0.664/√Re_x       (local skin friction)\n  C_D = 1.328/√Re_L       (drag coefficient, flat plate)",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-5",
+      "kind": "diagram_like",
+      "line": 247,
+      "heading_context": "### Drag on Bluff Bodies",
+      "confidence": "candidate",
+      "text": "F_drag = C_D × ½ρv² × A_ref\n\nC_D values (approximate):\n  Sphere:              0.47\n  Cylinder (2D):       1.2\n  Streamlined body:    0.04\n  Flat plate (⊥):      1.17\n  Car (typical):       0.25–0.35\n  Truck:               0.6–0.8\n\nDrag crisis: C_D drops sharply at Re ≈ 5×10⁵ for sphere/cylinder\n  (laminar → turbulent BL → delayed separation → smaller wake)\n  Why golf balls have dimples: force turbulent BL → lower drag",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-6",
+      "kind": "diagram_like",
+      "line": 344,
+      "heading_context": "## CFD — The Discretized Navier-Stokes",
+      "confidence": "candidate",
+      "text": "Method          Approach                    Typical use\n──────────────────────────────────────────────────────────────\nFVM (Finite     Integral conservation on    OpenFOAM, Fluent,\nVolume)         cell faces                  Star-CCM+. Industry standard.\n\nFEM (Finite     Weak form, shape functions  COMSOL, LS-DYNA.\nElement)        on elements                 Good for FSI (fluid-structure).\n\nLBM (Lattice    Kinetic theory,             PowerFLOW. Fast for complex\nBoltzmann)      stream-collide on lattice   geometry and moving boundaries.\n\nDNS (Direct     Resolve all scales,         Research only. Needs Re^(9/4)\nNumerical Sim)  Re < 10,000 feasible        grid points.\n\nLES (Large Eddy Filter large scales,        Turbomachinery, combustion.\nSimulation)     model sub-grid              10–100× more expensive than RANS.\n\nRANS (Reynolds  Time-average + turbulence   Everyday CFD. k-ε, k-ω SST\nAveraged N-S)   model (k-ε, k-ω, etc.)     models. 90% of industry work.",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    }
+  ]
+}

@@ -1,0 +1,134 @@
+{
+  "schema_version": "1",
+  "source_markdown": "structural\\00-OVERVIEW.md",
+  "tables": [
+    {
+      "id": "table-1",
+      "line": 60,
+      "heading_context": "## Module Map",
+      "headers": [
+        "Module",
+        "Core Topic",
+        "Key Equations",
+        "Real Application"
+      ],
+      "rows": [
+        [
+          "`01-STATICS`",
+          "Equilibrium, trusses, frames",
+          "ΣF=0, ΣM=0",
+          "Finding reactions, member forces"
+        ],
+        [
+          "`02-MECHANICS-OF-MATERIALS`",
+          "Stress, bending, torsion",
+          "σ=My/I, τ=Tr/J",
+          "Sizing beams, shafts"
+        ],
+        [
+          "`03-STRUCTURAL-ANALYSIS`",
+          "Matrix methods, FEM, dynamics",
+          "[K]{d}={F}",
+          "Computer analysis"
+        ],
+        [
+          "`04-GEOTECHNICAL`",
+          "Soil, foundations, slopes",
+          "τ=c+σ'tanφ",
+          "Foundation design"
+        ]
+      ]
+    },
+    {
+      "id": "table-2",
+      "line": 99,
+      "heading_context": "## Structural Materials",
+      "headers": [
+        "Material",
+        "E [GPa]",
+        "S_y or f'c [MPa]",
+        "ρ [kg/m³]",
+        "Characteristics"
+      ],
+      "rows": [
+        [
+          "Structural steel (A992)",
+          "200",
+          "F_y = 345",
+          "7850",
+          "Ductile, tension + compression, weldable"
+        ],
+        [
+          "Reinforcing steel (Grade 60)",
+          "200",
+          "F_y = 414",
+          "7850",
+          "Rebar only (used in tension in RC)"
+        ],
+        [
+          "Normal weight concrete",
+          "25–35",
+          "f'c = 28 (compression only)",
+          "2400",
+          "Brittle, weak in tension"
+        ],
+        [
+          "Aluminum 6061-T6",
+          "69",
+          "S_y = 276",
+          "2700",
+          "Light, no endurance limit"
+        ],
+        [
+          "Timber (Douglas fir)",
+          "12",
+          "F_b = 14–20 (bending)",
+          "500",
+          "Orthotropic, moisture-sensitive"
+        ],
+        [
+          "Glass fiber composite (GFRP)",
+          "20–45",
+          "300–700 (tension)",
+          "1800",
+          "Light, corrosion-resistant, brittle"
+        ]
+      ]
+    },
+    {
+      "id": "table-3",
+      "line": 163,
+      "heading_context": "## Connection to Computing/Software",
+      "headers": [
+        "Structural Concept",
+        "Software Analog"
+      ],
+      "rows": [
+        [
+          "Direct stiffness method [K]{d}={F}",
+          "Sparse linear system solve (same math as FEA in every domain)"
+        ],
+        [
+          "Influence lines",
+          "Sensitivity analysis (∂output/∂input)"
+        ],
+        [
+          "Modal analysis (natural frequencies)",
+          "Eigenvalue decomposition of stiffness matrix"
+        ],
+        [
+          "Nonlinear geometric analysis",
+          "Newton-Raphson iteration (same algorithm)"
+        ],
+        [
+          "Monte Carlo structural reliability",
+          "Probabilistic risk analysis"
+        ],
+        [
+          "BIM (Building Information Modeling)",
+          "Structured data model + 3D geometry (like a CAD version of Azure Digital Twins)"
+        ]
+      ]
+    }
+  ]
+}

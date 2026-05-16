@@ -1,4 +1,10 @@
 ---
+tags: [backfill]
+ops: [backfill]
+content_tags: [markdown]
+proof_original: "03-HEAT-TRANSFER.md"
+---
+---
 maxim_schema: maxim.frontmatter.v1
 id: maxim:mechanical:heat-transfer
 kind: guide
