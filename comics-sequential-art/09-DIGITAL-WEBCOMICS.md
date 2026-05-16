@@ -1,3 +1,22 @@
+---
+maxim_schema: maxim.frontmatter.v1
+id: maxim:comics-sequential-art:digital-webcomics
+kind: guide
+module: comics-sequential-art
+section: comics-sequential-art
+title: Digital Comics and Webcomics
+status: source-custody
+source_custody: partial
+current_path: comics-sequential-art/09-DIGITAL-WEBCOMICS.md
+canonical_path: comics-sequential-art/09-DIGITAL-WEBCOMICS.md
+backsource_ids: [proof-backfill:comics-sequential-art:09-digital-webcomics, git-history:comics-sequential-art:09-digital-webcomics]
+concepts: [digital, webcomics]
+root_concepts: [digital, webcomics]
+index_roles: [guide, root-concept]
+remap_from: []
+remap_to: []
+updated: null
+---
 # Digital Comics and Webcomics
 
 ## The Big Picture
@@ -21,7 +40,7 @@
 |                                                                  |
 |  ECONOMICS SHIFT                                                 |
 |  Old: publisher -> distribution -> comic shop -> reader          |
-|  New: creator -> platform -> reader (or creator -> reader direct)|
+|  New: creator -> platform -> reader (or creator direct)          |
 +------------------------------------------------------------------+
 ```
 

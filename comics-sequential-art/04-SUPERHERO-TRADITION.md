@@ -1,3 +1,22 @@
+---
+maxim_schema: maxim.frontmatter.v1
+id: maxim:comics-sequential-art:superhero-tradition
+kind: guide
+module: comics-sequential-art
+section: comics-sequential-art
+title: The Superhero Tradition: Golden to Modern Age
+status: source-custody
+source_custody: partial
+current_path: comics-sequential-art/04-SUPERHERO-TRADITION.md
+canonical_path: comics-sequential-art/04-SUPERHERO-TRADITION.md
+backsource_ids: [proof-backfill:comics-sequential-art:04-superhero-tradition, git-history:comics-sequential-art:04-superhero-tradition]
+concepts: [superhero, tradition]
+root_concepts: [superhero, tradition]
+index_roles: [guide, root-concept]
+remap_from: []
+remap_to: []
+updated: null
+---
 # The Superhero Tradition: Golden to Modern Age
 
 ## The Big Picture

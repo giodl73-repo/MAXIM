@@ -1,10 +1,29 @@
+---
+maxim_schema: maxim.frontmatter.v1
+id: maxim:fashion:overview
+kind: guide
+module: fashion
+section: fashion
+title: Fashion - Landscape and Taxonomy
+status: source-custody
+source_custody: partial
+current_path: fashion/00-OVERVIEW.md
+canonical_path: fashion/00-OVERVIEW.md
+backsource_ids: [proof-backfill:fashion:00-overview, git-history:fashion:00-overview]
+concepts: [overview]
+root_concepts: [overview]
+index_roles: [guide, root-concept]
+remap_from: []
+remap_to: []
+updated: null
+---
 # Fashion — Landscape and Taxonomy
 
 ## The Big Picture
 
 ```
 +------------------------------------------------------------------+
-|                    THE FASHION SYSTEM                             |
+|                    THE FASHION SYSTEM                            |
 |                                                                  |
 |  TIERS BY PRICE AND EXCLUSIVITY                                  |
 |  --------------------------------                                |

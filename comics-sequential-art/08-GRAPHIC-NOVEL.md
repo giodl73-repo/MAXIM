@@ -1,3 +1,22 @@
+---
+maxim_schema: maxim.frontmatter.v1
+id: maxim:comics-sequential-art:graphic-novel
+kind: guide
+module: comics-sequential-art
+section: comics-sequential-art
+title: The Graphic Novel as Form
+status: source-custody
+source_custody: partial
+current_path: comics-sequential-art/08-GRAPHIC-NOVEL.md
+canonical_path: comics-sequential-art/08-GRAPHIC-NOVEL.md
+backsource_ids: [proof-backfill:comics-sequential-art:08-graphic-novel, git-history:comics-sequential-art:08-graphic-novel]
+concepts: [graphic, novel]
+root_concepts: [graphic, novel]
+index_roles: [guide, root-concept]
+remap_from: []
+remap_to: []
+updated: null
+---
 # The Graphic Novel as Form
 
 ## The Big Picture
@@ -12,7 +31,7 @@
 |  WHAT IT IS (contested):                                         |
 |  1. A comics work of book length (200+ pages)                    |
 |  2. A complete narrative (not ongoing serial)                    |
-|  3. Intended for bookstore (not direct comics market) distribution|
+|  3. Bookstore rather than direct-market distribution             |
 |  4. A marketing/prestige term: "comics for adults"               |
 |                                                                  |
 |  PROBLEM: The term is used for all of these + none of these      |

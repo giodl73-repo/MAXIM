@@ -1,3 +1,22 @@
+---
+maxim_schema: maxim.frontmatter.v1
+id: maxim:comics-sequential-art:history-form
+kind: guide
+module: comics-sequential-art
+section: comics-sequential-art
+title: History of Comics as a Form
+status: source-custody
+source_custody: partial
+current_path: comics-sequential-art/01-HISTORY-FORM.md
+canonical_path: comics-sequential-art/01-HISTORY-FORM.md
+backsource_ids: [proof-backfill:comics-sequential-art:01-history-form, git-history:comics-sequential-art:01-history-form]
+concepts: [history, form]
+root_concepts: [history, form]
+index_roles: [guide, root-concept]
+remap_from: []
+remap_to: []
+updated: null
+---
 # History of Comics as a Form
 
 ## The Big Picture

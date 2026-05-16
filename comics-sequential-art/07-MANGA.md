@@ -1,3 +1,22 @@
+---
+maxim_schema: maxim.frontmatter.v1
+id: maxim:comics-sequential-art:manga
+kind: guide
+module: comics-sequential-art
+section: comics-sequential-art
+title: Manga: Japanese Comics as Global Phenomenon
+status: source-custody
+source_custody: partial
+current_path: comics-sequential-art/07-MANGA.md
+canonical_path: comics-sequential-art/07-MANGA.md
+backsource_ids: [proof-backfill:comics-sequential-art:07-manga, git-history:comics-sequential-art:07-manga]
+concepts: [manga]
+root_concepts: [manga]
+index_roles: [guide, root-concept]
+remap_from: []
+remap_to: []
+updated: null
+---
 # Manga: Japanese Comics as Global Phenomenon
 
 ## The Big Picture
@@ -6,7 +25,7 @@
 +------------------------------------------------------------------+
 |                   MANGA OVERVIEW                                 |
 |                                                                  |
-|  DEFINITION: Japanese comics; manga (漫画) = "whimsical pictures"|
+|  DEFINITION: Japanese comics; manga = "whimsical pictures"       |
 |  READING: Right to left; top to bottom                           |
 |  FORMAT: Serialized in weekly/monthly magazines -> tankobon      |
 |          (collected volumes, A6 pocket-size paperback)           |
@@ -14,16 +33,16 @@
 |  MARKET SCALE (2023)                                             |
 |  Japan: ~700B yen (~$5B); largest entertainment sector           |
 |  Global: ~$25B+ (physical + digital)                             |
-|  US: #1 book market segment by volume (overtook superhero comics)|
+|  US: #1 book market segment by volume (overtook superheroes)     |
 |                                                                  |
 |  GENRE DEMOGRAPHICS (demography-based)                           |
-|  Shonen (boys 10-18): Dragon Ball, Naruto, One Piece, Demon Slayer|
+|  Shonen (boys): Dragon Ball, Naruto, One Piece, Demon Slayer     |
 |  Shojo (girls 10-18): Sailor Moon, Fruits Basket, Nana           |
 |  Seinen (adult men): Berserk, Vagabond, Vinland Saga             |
 |  Josei (adult women): Nana, Natsume's Book of Friends            |
 |                                                                  |
 |  ADAPTATIONS: Anime (most major manga -> animated; some films)   |
-+------------------+--------+-------------------------------------+
++------------------------------------------------------------------+
 ```
 
 ---
@@ -104,7 +123,7 @@ TANKOBON (COLLECTED VOLUMES)
 ### Shonen: Boys' Action
 
 ```
-SHONEN (少年 = "boy")
+SHONEN ("boy")
   Target: boys, broadly 10-18; actual readership: wider
   Published in: Weekly Shonen Jump (most famous shonen magazine)
 
@@ -131,7 +150,7 @@ SHONEN (少年 = "boy")
 ### Shojo: Girls' Romance and Emotion
 
 ```
-SHOJO (少女 = "girl")
+SHOJO ("girl")
   Target: girls broadly 10-18; actual readership: includes adults
   Published in: Ribon, Margaret, Nakayoshi
 
@@ -161,7 +180,7 @@ SHOJO (少女 = "girl")
 ### Seinen and Josei
 
 ```
-SEINEN (青年 = "young man")
+SEINEN ("young man")
   Older male readership; more graphic; more complex
   Published in: Young Jump, Morning, Afternoon, Big Comic Original
   Content: violence, sexuality, philosophical; not censored as shonen
@@ -176,7 +195,7 @@ SEINEN (青年 = "young man")
             Visually ahead of its time; influenced: Matrix aesthetic, cyberpunk overall
   Ghost in the Shell (Shirow, 1989-1990): cyborg bodies; identity; surveillance
 
-JOSEI (女性 = "woman")
+JOSEI ("woman")
   Adult women; realistic romance; emotional depth
   Less fantasy than shojo; more adult relationships
   Nana: crosses shojo/josei; widely read by adult women

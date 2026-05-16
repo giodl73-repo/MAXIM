@@ -1,3 +1,22 @@
+---
+maxim_schema: maxim.frontmatter.v1
+id: maxim:fashion:fashion-history
+kind: guide
+module: fashion
+section: fashion
+title: Fashion History: Key Movements and Designers
+status: source-custody
+source_custody: partial
+current_path: fashion/03-FASHION-HISTORY.md
+canonical_path: fashion/03-FASHION-HISTORY.md
+backsource_ids: [proof-backfill:fashion:03-fashion-history, git-history:fashion:03-fashion-history]
+concepts: [fashion, history]
+root_concepts: [fashion, history]
+index_roles: [guide, root-concept]
+remap_from: []
+remap_to: []
+updated: null
+---
 # Fashion History: Key Movements and Designers
 
 ## The Big Picture

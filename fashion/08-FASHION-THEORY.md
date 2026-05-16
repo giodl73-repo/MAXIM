@@ -1,3 +1,22 @@
+---
+maxim_schema: maxim.frontmatter.v1
+id: maxim:fashion:fashion-theory
+kind: guide
+module: fashion
+section: fashion
+title: Fashion Theory: Meaning, Identity, and Culture
+status: source-custody
+source_custody: partial
+current_path: fashion/08-FASHION-THEORY.md
+canonical_path: fashion/08-FASHION-THEORY.md
+backsource_ids: [proof-backfill:fashion:08-fashion-theory, git-history:fashion:08-fashion-theory]
+concepts: [fashion, theory]
+root_concepts: [fashion, theory]
+index_roles: [guide, root-concept]
+remap_from: []
+remap_to: []
+updated: null
+---
 # Fashion Theory: Meaning, Identity, and Culture
 
 ## The Big Picture

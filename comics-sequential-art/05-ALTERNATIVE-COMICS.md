@@ -1,3 +1,22 @@
+---
+maxim_schema: maxim.frontmatter.v1
+id: maxim:comics-sequential-art:alternative-comics
+kind: guide
+module: comics-sequential-art
+section: comics-sequential-art
+title: Alternative and Underground Comics
+status: source-custody
+source_custody: partial
+current_path: comics-sequential-art/05-ALTERNATIVE-COMICS.md
+canonical_path: comics-sequential-art/05-ALTERNATIVE-COMICS.md
+backsource_ids: [proof-backfill:comics-sequential-art:05-alternative-comics, git-history:comics-sequential-art:05-alternative-comics]
+concepts: [alternative, comics]
+root_concepts: [alternative, comics]
+index_roles: [guide, root-concept]
+remap_from: []
+remap_to: []
+updated: null
+---
 # Alternative and Underground Comics
 
 ## The Big Picture
@@ -15,7 +34,7 @@
 |  2010s+: Webcomics absorb and expand alternative tradition       |
 |                                                                  |
 |  KEY PUBLISHERS                                                  |
-|  Fantagraphics (1976): Los Bros Hernandez, Peter Bagge, Chris Ware|
+|  Fantagraphics (1976): Los Bros Hernandez, Bagge, Chris Ware     |
 |  Drawn & Quarterly (1990): Seth, Chester Brown, Adrian Tomine    |
 |  Pantheon: Satrapi, Spiegelman (mainstream literary press)       |
 |                                                                  |

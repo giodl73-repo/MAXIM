@@ -1,3 +1,22 @@
+---
+maxim_schema: maxim.frontmatter.v1
+id: maxim:fashion:couture-system
+kind: guide
+module: fashion
+section: fashion
+title: The Haute Couture System
+status: source-custody
+source_custody: partial
+current_path: fashion/01-COUTURE-SYSTEM.md
+canonical_path: fashion/01-COUTURE-SYSTEM.md
+backsource_ids: [proof-backfill:fashion:01-couture-system, git-history:fashion:01-couture-system]
+concepts: [couture, system]
+root_concepts: [couture, system]
+index_roles: [guide, root-concept]
+remap_from: []
+remap_to: []
+updated: null
+---
 # The Haute Couture System
 
 ## The Big Picture

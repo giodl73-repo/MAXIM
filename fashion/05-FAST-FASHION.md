@@ -1,3 +1,22 @@
+---
+maxim_schema: maxim.frontmatter.v1
+id: maxim:fashion:fast-fashion
+kind: guide
+module: fashion
+section: fashion
+title: Fast Fashion: Zara Model and Disruption
+status: source-custody
+source_custody: partial
+current_path: fashion/05-FAST-FASHION.md
+canonical_path: fashion/05-FAST-FASHION.md
+backsource_ids: [proof-backfill:fashion:05-fast-fashion, git-history:fashion:05-fast-fashion]
+concepts: [fast, fashion]
+root_concepts: [fast, fashion]
+index_roles: [guide, root-concept]
+remap_from: []
+remap_to: []
+updated: null
+---
 # Fast Fashion: Zara Model and Disruption
 
 ## The Big Picture
@@ -84,12 +103,12 @@ ZARA'S INFORMATION FLYWHEEL
              |
              | 2-3 week cycle
              v
-  +-------------------------------------------+
-  |  STORES (twice-weekly truck delivery)     |
-  |  New items arrive constantly              |
-  |  No full warehouse pre-season             |
+  +--------------------------------------------+
+  |  STORES (twice-weekly truck delivery)      |
+  |  New items arrive constantly               |
+  |  No full warehouse pre-season              |
   |  "If you like it, buy it now -- it's gone" |
-  +-------------------------------------------+
+  +--------------------------------------------+
 ```
 
 The scarcity signal ("buy now or it's gone") is engineered, not accidental.

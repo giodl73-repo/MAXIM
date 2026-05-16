@@ -1,3 +1,22 @@
+---
+maxim_schema: maxim.frontmatter.v1
+id: maxim:fashion:sustainability
+kind: guide
+module: fashion
+section: fashion
+title: Sustainable Fashion: Materials and Circular Models
+status: source-custody
+source_custody: partial
+current_path: fashion/07-SUSTAINABILITY.md
+canonical_path: fashion/07-SUSTAINABILITY.md
+backsource_ids: [proof-backfill:fashion:07-sustainability, git-history:fashion:07-sustainability]
+concepts: [sustainability]
+root_concepts: [sustainability]
+index_roles: [guide, root-concept]
+remap_from: []
+remap_to: []
+updated: null
+---
 # Sustainable Fashion: Materials and Circular Models
 
 ## The Big Picture
