@@ -1,3 +1,22 @@
+---
+maxim_schema: maxim.frontmatter.v1
+id: maxim:plumbing:specialty
+kind: guide
+module: plumbing
+section: plumbing
+title: Specialty Systems
+status: source-custody
+source_custody: partial
+current_path: plumbing/08-SPECIALTY.md
+canonical_path: plumbing/08-SPECIALTY.md
+backsource_ids: [proof-backfill:plumbing:08-specialty, git-history:plumbing:08-specialty]
+concepts: [specialty]
+root_concepts: [specialty]
+index_roles: [guide, root-concept]
+remap_from: []
+remap_to: []
+updated: null
+---
 # Specialty Systems
 
 ## Gas Lines, Hydronic Heating, Radiant Floor, Fire Suppression, Medical Gas

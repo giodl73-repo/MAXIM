@@ -1,0 +1,105 @@
+{
+  "schema_version": "1",
+  "source_markdown": "plumbing\\04-SUPPLY-SYSTEMS.md",
+  "blocks": [
+    {
+      "id": "block-1",
+      "kind": "diagram_like",
+      "line": 26,
+      "heading_context": "## The Big Picture",
+      "confidence": "candidate",
+      "text": "RESIDENTIAL SUPPLY SYSTEM OVERVIEW\n\n  Municipal main\n  (service pressure: 40–150 PSI)\n         ↓\n  Curb stop (utility shutoff)\n         ↓\n  Water meter\n         ↓\n  Main shutoff (house side of meter)\n         ↓\n  [Backflow preventer — if required by code]\n         ↓\n  PRV (pressure reducing valve — if service > 80 PSI)\n         ↓\n  [Expansion tank — required with backflow preventer]\n         ↓\n  Main cold supply (3/4\" typical residential)\n         ↓\n    ├──→ Cold to fixtures\n    │\n    └──→ Water heater inlet (cold)\n              ↓\n         Water heater\n         (120-140°F, storage or tankless)\n              ↓\n         Hot main\n              ↓\n         Hot to fixtures\n\n  [Optional: Recirculation pump/loop at end of hot main → back to heater]",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-2",
+      "kind": "diagram_like",
+      "line": 66,
+      "heading_context": "### Municipal Service Pressure",
+      "confidence": "candidate",
+      "text": "  TYPICAL STREET PRESSURE: 60–80 PSI (common residential)\n  RANGE: 40–150 PSI (varies by municipality and elevation)\n\n  RESIDENTIAL TARGETS:\n    Minimum: 40 PSI at fixtures (adequate shower flow)\n    Optimum: 55–70 PSI at point of use\n    Maximum: 80 PSI at any fixture — above this:\n      → Fixture seals, supply hoses, and washing machine valves\n        degrade faster\n      → Increased water hammer risk\n      → Risk of supply line failure (burst flex hose = major flood)\n      → Code requires PRV above 80 PSI in most jurisdictions\n\n  PIPE FRICTION LOSS:\n    Pressure drops with distance and flow rate\n    Rule of thumb: expect ~5-10 PSI drop from meter to shower\n    Undersized supply pipe + long run + high flow = low pressure\n    Sizing charts in IRC/IPC tables based on:\n      Total developed length (pipe run)\n      Total fixture units demanding simultaneously\n      Available pressure at source\n\n  UNDERLYING PHYSICS — DARCY-WEISBACH:\n    ΔP = f × (L/D) × (ρv²/2)\n    f = Moody friction factor (f(Re, ε/D)); ~constant for fully turbulent flow.\n    ΔP ∝ v² ∝ Q² — doubling flow rate quadruples pressure drop.\n    (Same nonlinear congestion relationship as network queueing: 2× traffic → 4× delay.)\n    IRC/IPC sizing tables = precomputed Darcy-Weisbach solutions.\n    The 8 ft/s velocity limit = erosion + noise bound, not arbitrary code number.\n\n  PUMP CURVE ANALYSIS:\n    System curve: ΔP vs Q (parabola, ΔP = k·Q²)\n    Pump curve: head vs Q (manufacturer data, curves downward)\n    Operating point: intersection of the two curves.\n    Municipal supply: the \"pump curve\" is the available static pressure minus\n    the system curve losses.",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-3",
+      "kind": "diagram_like",
+      "line": 107,
+      "heading_context": "### Pressure Reducing Valve (PRV)",
+      "confidence": "candidate",
+      "text": "  FUNCTION: Globe valve with spring-loaded diaphragm\n            Inlet pressure: any (typically 80–200 PSI)\n            Outlet pressure: adjustable (typically set 55–70 PSI)\n\n  ANATOMY:\n  ┌──────────────────────────────────────────────────────────┐\n  │  High pressure             Low pressure (set point)      │\n  │  inlet ──→                      ──→ outlet               │\n  │                                                          │\n  │    ┌────────────────────────────────────┐                │\n  │    │  Adjusting screw (spring tension)  │                │\n  │    │           ↓                        │                │\n  │    │     Spring (preset)                │                │\n  │    │           ↓                        │                │\n  │    │     Diaphragm (flexible)           │                │\n  │    │           │                        │                │\n  │    │     Valve seat + disc              │                │\n  │    └────────────────────────────────────┘                │\n  │                                                          │\n  │  How it works: outlet pressure pushes on diaphragm       │\n  │  → diaphragm compresses spring → closes valve disc       │\n  │  Self-regulating: outlet pressure = spring force/area    │\n  └──────────────────────────────────────────────────────────┘\n\n  STRAINER: most PRVs have a small screen strainer at inlet\n    Clean periodically (unscrew, pull screen, flush, reinstall)\n    Clogged strainer = low pressure downstream\n\n  FAILURE MODES:\n    Fails open: downstream pressure rises to street pressure\n    → fixtures, hoses, supply lines exposed to high pressure\n    Fails shut: no water (or very restricted flow)\n\n  DIAGNOSIS:\n    Gauge at hose bib: test actual downstream pressure\n    If pressure > set point: PRV failed open\n    If pressure varies widely with flow: PRV seat worn\n\n  ADJUSTMENT:\n    Loosen locknut; turn adjustment screw\n    Clockwise = increase pressure\n    Counter-clockwise = decrease pressure\n    Test at nearby hose bib with gauge; retighten locknut",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-4",
+      "kind": "diagram_like",
+      "line": 157,
+      "heading_context": "## Thermal Expansion and Expansion Tanks",
+      "confidence": "candidate",
+      "text": "  THE CLOSED SYSTEM PROBLEM:\n\n  Open system: water heater heats water → volume expands → excess\n               pushes back toward street main → no pressure buildup\n\n  Closed system (with backflow preventer or check valve):\n               water heater heats water → volume expands → nowhere to go\n               → pressure spike in domestic supply\n\n  WATER EXPANSION:\n    Cold water at 50°F → 140°F tank temperature\n    Volume expansion: ~3.7% (about 1.5 gallons in a 40-gallon tank)\n    If nowhere to go: pressure spike to 150+ PSI\n    → PRV relief valve opens (dripping PRV = symptom)\n    → Supply lines stressed\n    → Tank and heater fittings stressed\n\n  EXPANSION TANK:\n  ┌──────────────────────────────────────────────────┐\n  │  Bladder/diaphragm tank                          │\n  │                                                  │\n  │  Air side │ Diaphragm │ Water side               │\n  │  (pre-charged to         (connected to supply)   │\n  │   supply pressure)                               │\n  │                                                  │\n  │  As water expands: pushes diaphragm → compresses │\n  │  air → absorbs volume increase without pressure  │\n  │  spike                                           │\n  └──────────────────────────────────────────────────┘\n\n  SIZING:\n    IRC Table P2903.4: sized based on supply pressure + tank size\n    Typical residential: 2-gallon expansion tank for 40-50 gal heater\n\n  PRE-CHARGE PRESSURE:\n    Must match supply pressure (measured at cold supply)\n    If under-charged: tank fills with water, loses effectiveness\n    Check with tire pressure gauge at Schrader valve\n    Re-charge with bicycle pump or air compressor if low",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-5",
+      "kind": "diagram_like",
+      "line": 203,
+      "heading_context": "## Water Hammer",
+      "confidence": "candidate",
+      "text": "  PHYSICS:\n    Moving column of water has momentum (mass × velocity)\n    Fast-closing valve stops flow suddenly\n    → Kinetic energy converts to pressure wave\n    → Wave travels back through pipe at ~4,000 ft/sec (speed of sound in water)\n    → Banging sound (pipes impact hangers, fittings)\n    → Pressure spike: can be 10× operating pressure momentarily\n\n  COMMON SOURCES:\n    Solenoid valves (dishwasher fill, washing machine)\n    Fast-closing cartridge faucets (1/4-turn ceramic disc)\n    Ballcock float valves (old toilet tank filler)\n    Irrigation zone valves\n\n  DIAGNOSIS:\n    Hammer right at appliance: valve closing too fast\n    Hammer at distant location: pipe not supported; wave travels to\n                                loose section and bangs against structure\n\n  SOLUTIONS:\n    Water hammer arrestors (ASSE 1010 listed):\n      Mechanical device: piston + gas chamber absorbs pressure wave\n      Install at offending valve (within 6 pipe diameters)\n      Rated by fixture type (W = washing machine, D = dishwasher, etc.)\n      Unlike air chambers: won't waterlog over time\n\n    Air chambers (traditional):\n      Vertical capped pipe above branch — trapped air cushion\n      Problem: air gradually dissolves into water → chamber fills\n      → Must be re-charged periodically by shutting off water\n         and opening fixtures (drains air cushion)\n\n    Slower-closing valves:\n      Two-handle faucets vs single-lever (slower close)\n      Hammer-preventing washing machine valves (slow-close)\n\n    Pipe strapping:\n      Secure loose pipes to structure every 6-8 ft horizontal,\n      every 4-6 ft vertical\n      Copper: plastic isolating clips (prevent galvanic contact with hangers)",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-6",
+      "kind": "diagram_like",
+      "line": 252,
+      "heading_context": "### Storage Tank",
+      "confidence": "candidate",
+      "text": "  ANATOMY:\n    Glass-lined steel tank (borosilicate glass fused to steel)\n    Anode rod (magnesium or aluminum) — sacrificial corrosion protection\n    Temperature-pressure relief valve (T&P) — safety device\n    Dip tube (cold in from top, delivers to bottom)\n    Hot outlet (from top — hottest water)\n    Drain valve (bottom)\n\n  SELECTION METRICS:\n    First-hour rating (FHR): gallons delivered in first hour, starting full\n      Morning peak demand: two showers back-to-back = ~40-60 gallons\n      This is the primary sizing criterion (not tank size)\n    Recovery rate: gallons reheated per hour after depletion\n      Gas heater 40-gal: ~40 GPH recovery\n      Electric 40-gal: ~20 GPH recovery\n\n  GAS WATER HEATERS:\n    Atmospheric draft: natural draft through B-vent; simplest; no electricity\n    Power vent: fan pushes exhaust horizontally; uses PVC/CPVC flue\n                to exterior; requires electricity; flexible installation\n    Direct vent: sealed combustion; two coaxial pipes (air in/exhaust out)\n                 No combustion air from indoor space; good for tight houses\n    Condensing: 90-95% efficiency; PVC flue; expensive; small market share\n\n  ELECTRIC:\n    Dual element (upper + lower): upper element handles recovery\n                                   lower element handles maintenance heating\n    Relay prevents simultaneous operation (single circuit)\n    Heat pump water heater (HPWH): strips heat from surrounding air\n      COP: ~3.5 (1 kWh electric → 3.5 kWh heat)\n      vs resistance heater: COP = 1.0\n      HPWH saves ~70% vs resistance electric\n      Requirement: ~700 ft³ surrounding air space; works best above 50°F\n      ambient; cools and dehumidifies surrounding space (useful in warm climates)\n      IRA (Inflation Reduction Act 2022): $300 federal tax credit for HPWH",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-7",
+      "kind": "diagram_like",
+      "line": 292,
+      "heading_context": "### Temperature Settings: The Legionella Dilemma",
+      "confidence": "candidate",
+      "text": "  THE CONFLICT:\n    Scald prevention → 120°F maximum\n    Legionella prevention → 140°F minimum\n\n  LEGIONELLA PNEUMOPHILA:\n    Bacterium causing Legionnaires' disease (severe pneumonia)\n    Survives and multiplies: 77–108°F (25–42°C)\n    Killed rapidly: at 131°F (55°C); near instantly at 140°F\n    High-risk populations: elderly, immunocompromised, smokers\n\n  STRATEGIES:\n    EPA recommendation: 120°F (compromise; lowest scald risk)\n    OSHA guideline: 140°F at heater with ASSE 1017 mixing valve\n    ASSE 1017 thermostatic mixing valve:\n      Installed at water heater outlet\n      Mixes cold to deliver 120°F to system\n      Heater runs at 140°F (kills Legionella)\n      Delivery is 120°F (scald-safe)\n      Required for: healthcare, senior living; recommended for homes\n                    with young children or elderly\n\n  RISK COMPARISON:\n    Residential water heater: low Legionella risk (daily draw keeps water fresh)\n    Cooling towers: high risk (slow turnover, spray)\n    Large building plumbing: risk if dead legs or underused branches",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-8",
+      "kind": "diagram_like",
+      "line": 322,
+      "heading_context": "### Tankless Water Heaters",
+      "confidence": "candidate",
+      "text": "  OPERATION:\n    Flow switch activates burner/element when flow detected\n    Modulating burner (gas) or element (electric) adjusts output\n    No storage tank; no standby heat loss\n\n  KEY SPEC: GPM at temperature rise\n    Example: 5 GPM at 70°F rise (60°F incoming → 130°F delivery)\n    Two simultaneous showers: ~4-6 GPM demand\n\n  GAS TANKLESS (whole-house):\n    BTU requirement: 180,000-199,000 BTU/h (vs 40,000 for storage)\n    Gas line: 3/4\" or 1\" required (storage heater: 1/2\" typically)\n    MUST upsize gas line in most retrofit scenarios\n    Flue: direct vent (PVC) or power vent\n\n  ELECTRIC TANKLESS:\n    24-36 kW for whole-house in cold climate\n    At 240V: 100-150 amps dedicated circuit\n    Most residential panels: not enough capacity for whole-house electric tankless\n    Only practical for point-of-use (under-sink single fixture)\n    or warm climates with small temperature rise\n\n  \"COLD WATER SANDWICH\" ISSUE:\n    After a shower ends briefly, hot water in pipes → resident draws again\n    Initial draw: hot (water in pipe) → then cold (heater activating) →\n    then hot (heater up to temp)\n    Brief cold burst in middle = \"cold water sandwich\"\n    Solution: recirculation system; or accept as limitation of technology",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-9",
+      "kind": "diagram_like",
+      "line": 357,
+      "heading_context": "## Recirculation Systems",
+      "confidence": "candidate",
+      "text": "  PROBLEM: 15-30 seconds waiting for hot water = water wasted\n  SOLUTION: keep hot water moving continuously (or on demand)\n\n  DEDICATED RETURN LOOP:\n    Hot supply: heater → fixtures → return loop back to heater inlet\n    Small pump (Grundfos, Taco) circulates continuously\n    Hot water always near fixtures\n    DISADVANTAGE: heat loss from return pipe = significant energy penalty\n                  (insulate the entire hot + return run)\n\n  MODIFIED RETURN (COMFORT SYSTEM):\n    No dedicated return pipe\n    Pump + sensor installed at farthest fixture\n    Cold supply pipe used as return path\n    Thermistor: when hot supply temp drops below threshold → pump runs\n    Slightly warms cold water at fixtures (may be noticeable)\n\n  DEMAND-ACTIVATED:\n    Button at fixture (or motion sensor, app trigger)\n    User presses button; pump runs until hot water detected at fixture\n    Pump stops; hot water arrives in 15-30 seconds (vs 30-60+ seconds)\n    Lowest energy use; slight wait still\n    Best energy-efficiency profile",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    }
+  ]
+}

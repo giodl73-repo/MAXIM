@@ -1,3 +1,22 @@
+---
+maxim_schema: maxim.frontmatter.v1
+id: maxim:textiles:technical-fabrics
+kind: guide
+module: textiles
+section: textiles
+title: Technical Fabrics
+status: source-custody
+source_custody: partial
+current_path: textiles/12-TECHNICAL-FABRICS.md
+canonical_path: textiles/12-TECHNICAL-FABRICS.md
+backsource_ids: [proof-backfill:textiles:12-technical-fabrics, git-history:textiles:12-technical-fabrics]
+concepts: [technical, fabrics]
+root_concepts: [technical, fabrics]
+index_roles: [guide, root-concept]
+remap_from: []
+remap_to: []
+updated: null
+---
 # Technical Fabrics
 
 ## Gore-Tex, Kevlar, Nomex, Smart Textiles — Engineering in Fiber Form
@@ -277,7 +296,7 @@ TECHNICAL TEXTILES: FUNCTION OVER AESTHETICS
   │  SURGICAL SUTURES:                                        │
   │  Absorbable:                                              │
   │    PGA (polyglycolic acid) — Dexon: absorbs 3-4 months    │
-  │    PGLA (glycolide/lactide) — Vicryl: absorbs 2-3 months│
+  │    PGLA (glycolide/lactide) — Vicryl: absorbs 2-3 months  │
   │    Chromic gut: collagen + chromium; absorbs 2-3 weeks    │
   │  Non-absorbable:                                          │
   │    Nylon (monofilament or braided)                        │
@@ -289,7 +308,7 @@ TECHNICAL TEXTILES: FUNCTION OVER AESTHETICS
   │    Polypropylene knitted mesh — most common               │
   │    Lightweight vs heavyweight: tissue ingrowth tradeoffs  │
   │    Controversy: PP mesh complications; FDA warnings       │
-  │    Biologic meshes (porcine/bovine collagen): alternative│
+  │    Biologic meshes (porcine/bovine collagen): alternative │
   │                                                           │
   │  VASCULAR GRAFTS:                                         │
   │    ePTFE (Gore-Tex) or PET/Dacron (woven or knitted)      │
@@ -315,7 +334,7 @@ TECHNICAL TEXTILES: FUNCTION OVER AESTHETICS
   FUNCTIONS (one structure may serve several):
   ┌──────────────────────────────────────────────────────────┐
   │  SEPARATION: prevent mixing of soil layers               │
-  │    Road base over soft soil; railroad ballast over subgrade│
+  │    Road base over soft soil; rail ballast over subgrade  │
   │                                                          │
   │  FILTRATION: allow water through, retain soil            │
   │    Drain behind retaining wall; around drainage pipe     │

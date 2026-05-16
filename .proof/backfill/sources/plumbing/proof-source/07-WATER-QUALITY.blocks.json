@@ -1,0 +1,127 @@
+{
+  "schema_version": "1",
+  "source_markdown": "plumbing\\07-WATER-QUALITY.md",
+  "blocks": [
+    {
+      "id": "block-1",
+      "kind": "diagram_like",
+      "line": 26,
+      "heading_context": "## The Big Picture",
+      "confidence": "candidate",
+      "text": "RESIDENTIAL WATER QUALITY TREATMENT HIERARCHY:\n\n  Municipal or Well source\n          ↓\n  WHOLE-HOUSE (point of entry):\n    Sediment pre-filter (20 → 5 micron)\n    Water softener (hardness removal)\n    Iron filter (if well water)\n    Whole-house carbon filter (chloramine removal)\n          ↓\n  POINT-OF-USE (point of use):\n    Under-sink RO system (nitrates, heavy metals, fluoride)\n    UV disinfection (bacteria/virus — post-RO polishing)\n\n  DIAGNOSTIC FIRST:\n    Test water before treating\n    Municipal water: annual consumer confidence report (required)\n    Well water: test annually (coliform, nitrates, pH, hardness)\n    Target-specific treatment based on actual results\n    Shotgun \"whole-house filter\" approach without testing\n    = wasted money and potentially sub-optimal outcome\n\n  UNITS USED:\n    Grains per gallon (GPG): US hardness measurement\n    Parts per million (PPM) = mg/L: most contaminant reporting\n    1 GPG = 17.12 mg/L (as CaCO₃)\n    MCL: Maximum Contaminant Level (EPA regulatory limit)\n    Action Level: EPA trigger for corrosion control (lead, copper)",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-2",
+      "kind": "diagram_like",
+      "line": 61,
+      "heading_context": "## Water Hardness",
+      "confidence": "candidate",
+      "text": "  CAUSE: Dissolved calcium (Ca²⁺) and magnesium (Mg²⁺)\n  from limestone and dolomite aquifers; calcium sulfate\n  from gypsum deposits\n\n  HARDNESS SCALE:\n  ┌───────────────────────────────────────────────────────────┐\n  │  Classification    │ GPG        │ mg/L as CaCO₃           │\n  ├───────────────────────────────────────────────────────────┤\n  │  Soft              │ < 1        │ < 17                    │\n  │  Slightly hard     │ 1-3.5      │ 17-60                   │\n  │  Moderately hard   │ 3.5-7      │ 60-120                  │\n  │  Hard              │ 7-10.5     │ 120-180                 │\n  │  Very hard         │ > 10.5     │ > 180                   │\n  └───────────────────────────────────────────────────────────┘\n\n  GEOGRAPHY:\n    ~85% of US has \"hard\" or \"very hard\" water\n    Softest: Pacific Northwest, New England, parts of Southeast\n    Hardest: Southwest, Great Plains, Midwest (calcium-rich aquifers)\n\n  EFFECTS OF HARD WATER:\n    Scale (CaCO₃) deposits in water heater, pipes, fixtures\n    Soap scum (calcium + soap fatty acids → insoluble film)\n    Reduced soap/detergent effectiveness\n    White film on dishes, glassware (dishwasher)\n    Shortened water heater life (scale insulates elements)\n    Reduced flow in showerheads (calcite buildup in orifices)\n    Dry skin and hair (mineral film)",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-3",
+      "kind": "diagram_like",
+      "line": 96,
+      "heading_context": "## Scale Chemistry",
+      "confidence": "candidate",
+      "text": "  THE REACTION:\n    Ca(HCO₃)₂ → CaCO₃ ↓ + CO₂↑ + H₂O\n    (calcium bicarbonate → calcium carbonate + CO₂ + water)\n\n  TRIGGERS:\n    HEAT: Above ~60°C (140°F), reaction strongly favors CaCO₃\n    precipitation\n    Explains why water heaters fail first — highest temp in system\n    CO₂ also offgasses at high temp, shifting equilibrium toward\n    carbonate precipitation\n\n  ECONOMIC IMPACT:\n  ┌──────────────────────────────────────────────────────────┐\n  │  Scale insulates heat exchange surfaces:                 │\n  │  1/4\" scale on heating element → 39% efficiency loss     │\n  │  1/2\" scale → 70% efficiency loss (DOE estimates)        │\n  │                                                          │\n  │  Tankless water heater vulnerability:                    │\n  │  Very narrow heat exchanger passages → scale quickly     │\n  │  blocks flow → catastrophic failure without maintenance  │\n  │  Annual descaling required in hard water areas           │\n  │  (citric acid or white vinegar circulated through)       │\n  └──────────────────────────────────────────────────────────┘\n\n  SCALE IN PIPES:\n    Over decades: progressive reduction in interior diameter\n    Iron pipes most susceptible (tuberculation)\n    Copper: less prone but can scale significantly in very\n    hard water at high temps (water heater outlet fitting)",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-4",
+      "kind": "diagram_like",
+      "line": 132,
+      "heading_context": "## Water Softeners (Ion Exchange)",
+      "confidence": "candidate",
+      "text": "  PROCESS:\n  ┌──────────────────────────────────────────────────────────────┐\n  │  RESIN TANK: filled with sulfonated polystyrene resin beads  │\n  │  Beads pre-charged with Na⁺ ions                             │\n  │                                                              │\n  │  SOFTENING:                                                  │\n  │  Hard water (Ca²⁺, Mg²⁺) flows through resin                 │\n  │  Ca²⁺ and Mg²⁺ have higher affinity for resin than Na⁺       │\n  │  → Exchange: Ca²⁺ and Mg²⁺ bind to resin, Na⁺ releases       │\n  │  → Softened water exits with Na⁺ (no Ca²⁺ or Mg²⁺)           │\n  │                                                              │\n  │  REGENERATION (when resin exhausted):                        │\n  │  Concentrated NaCl brine from salt tank flushes resin        │\n  │  High Na⁺ concentration reverses equilibrium                 │\n  │  → Ca²⁺ and Mg²⁺ released from resin                         │\n  │  → Drain to waste                                            │\n  │  → Resin re-charged with Na⁺ → ready for next cycle          │\n  └──────────────────────────────────────────────────────────────┘\n\n  SODIUM ADDITION:\n    ~7.5 mg Na per gpg hardness removed per liter\n    Very hard water (20 GPG): ~150 mg sodium per liter\n    Standard drinking water reference: 200 mg/L from all sources\n    Softened water sodium concern for:\n      Persons on sodium-restricted diet (heart failure, hypertension)\n      → Use separate filtered tap for drinking/cooking\n      → Or switch to potassium chloride (KCl) instead of NaCl\n\n  POTASSIUM CHLORIDE (KCl) ALTERNATIVE:\n    Same regeneration chemistry as NaCl\n    KCl softened water: potassium instead of sodium\n    Higher cost: ~2× price vs NaCl\n    Better for low-sodium diet constraints\n    Beneficial fertilizer effect if softened water used on lawn\n    (but generally: bypass softener for irrigation)\n\n  BYPASS FOR IRRIGATION:\n    Sodium softened water: harmful to soil structure and plants\n    Sodium displaces calcium/magnesium in soil, causes clay\n    particles to disperse → reduced drainage\n    Install bypass on hose bibs and irrigation zones\n    (most softener installations include this)\n\n  SOFTENED WATER AND LEAD PIPES:\n    CRITICAL: soft water is more corrosive than hard water\n    Calcium/magnesium form protective carbonate coating inside pipes\n    Removing Ca²⁺/Mg²⁺ via softening → more aggressive water\n    → Faster corrosion of metal pipes including lead\n    Do NOT run softened water through lead service lines or\n    lead solder joints in old plumbing",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-5",
+      "kind": "diagram_like",
+      "line": 189,
+      "heading_context": "## Salt-Free Scale Inhibitors (TAC)",
+      "confidence": "candidate",
+      "text": "  TEMPLATE-ASSISTED CRYSTALLIZATION (TAC):\n    Media with nucleation sites\n    Ca²⁺ and Mg²⁺ form micro-crystals (aragonite form)\n    on media surface → rinse off into water as seed crystals\n    Crystals pass through system WITHOUT depositing on surfaces\n\n  WHAT IT IS AND ISN'T:\n    IS: scale inhibitor — prevents scale buildup\n    IS NOT: water softener — Ca²⁺/Mg²⁺ remain in water\n    Water hardness (by test) remains the SAME\n    Scaling tendency (Langelier Saturation Index) is reduced\n\n  ADVANTAGES vs ION EXCHANGE SOFTENER:\n    No salt addition (no sodium)\n    No waste water (regeneration cycle wastes 60-100 gal/cycle)\n    No electricity\n    Minimal maintenance\n\n  LIMITATIONS:\n    Does not benefit people who want softened water feel\n    Limited effectiveness evidence outside scale prevention\n    May not work as well in very high hardness situations\n    No EPA/NSF certification process specific to TAC claims\n\n  MAGNETIC/ELECTRONIC DEVICES:\n    Magnets or inductors around supply pipe claimed to alter\n    scale behavior\n    Multiple independent peer-reviewed studies: no reliable\n    evidence of effectiveness\n    FTC has taken action against misleading marketing\n    VERDICT: no credible scientific basis; not recommended",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-6",
+      "kind": "diagram_like",
+      "line": 229,
+      "heading_context": "### Sediment Filtration",
+      "confidence": "candidate",
+      "text": "  PURPOSE: Remove particulate matter (sediment, rust, silt)\n  REQUIRED BEFORE: RO systems, UV systems (turbidity blocks UV)\n\n  CARTRIDGE TYPES:\n    Wound string (polypropylene): 5-25 micron; economical\n    Pleated polyester: more surface area; higher flow rate\n    Depth vs surface filter:\n      Depth filter: particles trapped throughout matrix; more\n        capacity; can't backwash\n      Surface filter: trapped on pleated surface; longer life;\n        backwashable types available\n\n  SIZING:\n    20 micron pre-filter → 5 micron main → optional 1 micron\n    1 micron: removes Giardia (6-10 μm) and Cryptosporidium (4-6 μm)\n    BUT: microorganisms may pass through 1 micron if filter is\n    a loose depth medium (need absolute rating, not nominal)\n    NSF/ANSI 53 rated for cyst reduction: reliable specification\n\n  REPLACEMENT:\n    Replace when pressure drop across filter becomes significant\n    or on schedule (typically 3-6 months)\n    Saturated filter: can harbor bacterial growth",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-7",
+      "kind": "diagram_like",
+      "line": 257,
+      "heading_context": "### Activated Carbon Filtration",
+      "confidence": "candidate",
+      "text": "  MECHANISM: ADSORPTION (not absorption)\n    Carbon has enormous surface area: 300-1,500 m²/gram\n    (tea-cup of carbon has surface area of a football field)\n    Organic molecules adsorb (stick) to carbon surface via\n    van der Waals forces\n\n  WHAT CARBON REMOVES:\n    Chlorine (converts to chloride instantly)\n    Chloramines (requires catalytic carbon or longer contact time)\n    Taste and odor compounds (geosmin, 2-MIB from algae)\n    Volatile organic compounds (benzene, TCE, PCE)\n    Some pesticides and herbicides\n    Radon (from water; also offgasses from water)\n    Dissolved gases contributing to taste\n\n  WHAT CARBON DOES NOT REMOVE:\n    Nitrates (ionic, doesn't adsorb)\n    Heavy metals (need specialty media or RO)\n    Dissolved minerals (hardness, iron, manganese)\n    Microorganisms (bacteria, viruses) — NOT a disinfectant\n    Fluoride (ions, not organic)\n\n  TYPES:\n    GAC (Granular Activated Carbon): loose media; back-washable\n    Carbon block: compressed; finer filtration; slower flow;\n    more consistent contact time\n    Catalytic carbon: modified surface; more effective for\n    chloramines (which regular carbon removes slowly)\n\n  CERTIFICATION:\n    NSF/ANSI 42: taste, odor, chlorine reduction\n    NSF/ANSI 53: health effects (specific contaminants listed)\n    Only trust certified products; marketing claims vary widely\n\n  REPLACEMENT:\n    Carbon \"exhausts\" when all surface sites are occupied\n    No visual indicator → requires testing or scheduled change\n    Recommendation: every 6-12 months or per manufacturer specification\n    Exhausted carbon can desorb previously captured compounds",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-8",
+      "kind": "diagram_like",
+      "line": 301,
+      "heading_context": "### Reverse Osmosis (RO)",
+      "confidence": "candidate",
+      "text": "  PRINCIPLE:\n    Semi-permeable membrane (cellulose acetate or TFC polyamide)\n    Applied pressure exceeds osmotic pressure\n    → Water molecules pass through membrane\n    → Dissolved ions, large molecules rejected\n\n  ┌──────────────────────────────────────────────────────────────┐\n  │  Feed water → [pre-filter] → [RO membrane] → product water   │\n  │                                  ↓                           │\n  │                           Reject/brine (to drain)            │\n  └──────────────────────────────────────────────────────────────┘\n\n  WHAT RO REMOVES:\n    TDS (total dissolved solids): 95-99% reduction\n    Nitrates: 90%+ reduction\n    Lead, arsenic, fluoride: 90%+ reduction\n    Most pharmaceuticals and personal care products\n    PFAS (per/polyfluoroalkyl substances): 90%+ reduction\n    Most dissolved organic compounds\n    Microorganisms: 99%+ (but can pass if membrane damaged)\n\n  WHAT RO DOES NOT IMPROVE:\n    Some dissolved gasses (CO₂ passes through)\n    Cannot remove all dissolved chlorine/chloramines\n    (typically require pre-carbon)\n\n  SYSTEM PERFORMANCE:\n    Reject ratio: 3-5 gallons wasted per 1 gallon produced\n    (400 ml reject per 100 ml product, approximately)\n    Permeate water rate: slow; storage tank required\n    Volume: typically 2-4 gallon storage tank under sink\n\n  REMINERALIZATION:\n    RO water: slightly acidic (CO₂ passes through; no buffering)\n    Some people prefer remineralized water (add back Ca²⁺/Mg²⁺)\n    Or post-carbon filter restores some mineral\n    Debate: slight acidity of pure RO water is not a health\n    concern at typical volumes consumed\n\n  NSF/ANSI 58: certification standard for RO systems\n  Verify specific contaminant removal claims via certificate",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-9",
+      "kind": "diagram_like",
+      "line": 347,
+      "heading_context": "### UV Disinfection",
+      "confidence": "candidate",
+      "text": "  MECHANISM:\n    UV-C radiation at 254 nm damages DNA of microorganisms\n    → DNA cross-linking → cannot replicate → inactivation\n    NOT killing in traditional sense: organism cannot reproduce\n    No chemical addition; no residual; no taste/odor effect\n\n  WHAT UV TREATS:\n    Bacteria: E. coli, Legionella, Salmonella → effectively\n    Viruses: enteric viruses inactivated at typical doses\n    Protozoa: Giardia, Cryptosporidium → effectively\n    IMPORTANT: Crypto is chlorine-resistant; UV is effective\n\n  WHAT UV DOES NOT TREAT:\n    Chemical contaminants\n    Heavy metals\n    Dissolved organic compounds\n    Turbidity (cloudy water BLOCKS UV penetration → must pre-filter)\n\n  LOG INACTIVATION:\n    4-log (99.99%) inactivation of E. coli: typical at ~40 mJ/cm²\n    Cryptosporidium: 3-log at ~12 mJ/cm²\n    NSF/ANSI 55: Class A (40 mJ/cm² min, primary disinfection)\n                  Class B (16 mJ/cm² min, supplemental)\n\n  REQUIREMENTS:\n    Pre-filtration: turbidity <1 NTU; iron <0.3 mg/L\n    (coloration and turbidity absorb UV before reaching organisms)\n    Regular lamp replacement: UV output degrades over time\n    Typical lamp life: ~9,000 hours (1 year continuous)\n    Ballast replacement every 2-3 years",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-10",
+      "kind": "diagram_like",
+      "line": 384,
+      "heading_context": "## Lead in Plumbing",
+      "confidence": "candidate",
+      "text": "  SOURCES OF LEAD IN DRINKING WATER:\n    1. Lead service line (from water main to house)\n       Installed pre-1986 (Lead Ban Amendment); common in old cities\n    2. Lead solder in copper pipe joints\n       Used pre-1986; banned since (Safe Drinking Water Act)\n    3. Lead-bearing brass fixtures\n       Even \"lead-free\" brass legally allows 0.25% lead (2014 law)\n    4. Lead flashing, lead valves in old systems\n\n  FLINT MICHIGAN CRISIS (2014-2019):\n    City switched water source from Detroit (Lake Huron) to\n    Flint River to save money (April 2014)\n    Problem: Flint River water was more corrosive (lower pH,\n    higher chloride) than Detroit water\n    And: corrosion control (orthophosphate treatment) was NOT added\n    Previous Detroit water had built up lead phosphate protective\n    coating inside pipes → Flint River water dissolved this coating\n    → Lead from service lines + lead solder leached into drinking water\n    → Blood lead levels elevated in children → irreversible cognitive damage\n    Criminal charges filed; state and federal response delayed;\n    lead service line replacement took years and external pressure\n\n  CORROSION CONTROL (Lead and Copper Rule mechanism):\n    EPA Lead and Copper Rule (1991, revised 2021):\n    Action Level: 15 ppb lead at tap (90th percentile)\n    If exceeded → mandatory corrosion control treatment:\n      Orthophosphate: reacts with lead → insoluble lead phosphate\n      coating on inside of pipe surfaces → lead sealed in\n      pH adjustment: alkaline water less corrosive\n    Requires monitoring at highest-risk taps (old homes, lead\n    service lines) — the \"tap sampling protocol\"\n\n  LEAD AND COPPER RULE REVISIONS (2021):\n    10-year mandatory replacement of all lead service lines\n    (both utility-side and customer-side)\n    Previously: utilities responsible only for utility-side\n    Now: utilities must inventory and replace ALL LSLs\n\n  CONSUMER PROTECTION:\n    NSF/ANSI 61: certification for plumbing products in\n    contact with drinking water (limits lead leaching)\n    NSF/ANSI 53: point-of-use filters certified for lead removal\n    At-faucet pitcher/filter: must have NSF/ANSI 53 certification\n    for lead specifically (not just carbon filter label)\n    Flushing: run cold water 30-60 seconds before drinking\n    if pipes have been stagnant (especially in old homes)",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-11",
+      "kind": "diagram_like",
+      "line": 437,
+      "heading_context": "## Well Water Specifics",
+      "confidence": "candidate",
+      "text": "  TESTING RECOMMENDATIONS:\n    Annual (minimum): total coliform bacteria, nitrates\n    Initial and after flood/adjacent activity: bacteria + chemistry\n    Comprehensive: pH, hardness, iron, manganese, arsenic,\n    fluoride, heavy metals, volatile organics, radon\n\n  COMMON WELL WATER CONCERNS BY GEOGRAPHY:\n  ┌──────────────────────────────────────────────────────────┐\n  │  Arsenic: New England, Upper Midwest, mountain West,     │\n  │  Southwest (naturally occurring in some bedrock)         │\n  │  MCL: 10 ppb; exceeds in many wells without awareness    │\n  │  Treatment: RO, activated alumina, iron coagulation      │\n  │                                                          │\n  │  Radon: New England, Appalachians, Southwest (granite    │\n  │  rock releases radon into groundwater)                   │\n  │  Offgasses in home when water used → lung cancer risk    │\n  │  Treatment: aeration (outdoor) or activated carbon       │\n  │                                                          │\n  │  Iron/Manganese: Very common; causes orange staining     │\n  │  (iron), black staining (manganese)                      │\n  │  Sulfur smell (hydrogen sulfide): common in anaerobic    │\n  │  aquifers; not a health threat at low levels             │\n  │  Treatment: oxidation (chlorination or air) + filtration │\n  │                                                          │\n  │  Nitrates: agricultural areas, near septic systems       │\n  │  MCL: 10 mg/L (as N); dangerous for infants <6 months    │\n  │  (\"blue baby syndrome\" — methemoglobinemia)              │\n  │  Treatment: RO, ion exchange                             │\n  └──────────────────────────────────────────────────────────┘\n\n  SHOCK CHLORINATION:\n    If coliform bacteria found → shock the well\n    Add concentrated chlorine (unscented bleach, 1-2 gallons\n    into 200 ft well) → let sit 24 hours → flush completely\n    Retest before resuming use\n    Repeat if coliform persists → find contamination source",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    }
+  ]
+}

@@ -1,3 +1,22 @@
+---
+maxim_schema: maxim.frontmatter.v1
+id: maxim:plumbing:fittings-joints
+kind: guide
+module: plumbing
+section: plumbing
+title: Fittings and Joints
+status: source-custody
+source_custody: partial
+current_path: plumbing/03-FITTINGS-JOINTS.md
+canonical_path: plumbing/03-FITTINGS-JOINTS.md
+backsource_ids: [proof-backfill:plumbing:03-fittings-joints, git-history:plumbing:03-fittings-joints]
+concepts: [fittings, joints]
+root_concepts: [fittings, joints]
+index_roles: [guide, root-concept]
+remap_from: []
+remap_to: []
+updated: null
+---
 # Fittings & Joints
 
 ## Eight Ways to Connect Pipes
@@ -14,7 +33,7 @@ JOINT TYPE MAP:
 |  Sweat solder   (copper)        Compression    (copper/rigid)    |
 |  Press-fit      (copper/SS)     Flare          (soft copper)     |
 |  Expansion      (PEX-a)         Threaded NPT   (any compatible)  |
-|  Solvent weld   (PVC/CPVC/ABS)  Push-fit       (copper/PEX/CPVC)|
+|  Solvent weld   (PVC/CPVC/ABS)  Push-fit       (copper/PEX/CPVC) |
 |  Crimp/Clamp    (PEX)                                            |
 |  Grooved        (Victaulic)                                      |
 +------------------------------------------------------------------+
@@ -134,7 +153,7 @@ ANATOMY:
   │  Body nut  │ ferrule │  Body fitting         │
   │  ────────► │ (olive) │ ◄─ pipe →             │
   │            │         │                       │
-  │  Tighten nut → ferrule compresses into pipe OD│
+  │  Tighten nut → ferrule compresses into pipe  │
   │  → indentation creates seal                  │
   └──────────────────────────────────────────────┘
 

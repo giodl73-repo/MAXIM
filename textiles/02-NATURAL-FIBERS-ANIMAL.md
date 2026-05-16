@@ -1,3 +1,22 @@
+---
+maxim_schema: maxim.frontmatter.v1
+id: maxim:textiles:natural-fibers-animal
+kind: guide
+module: textiles
+section: textiles
+title: Natural Fibers - Animal (Protein)
+status: source-custody
+source_custody: partial
+current_path: textiles/02-NATURAL-FIBERS-ANIMAL.md
+canonical_path: textiles/02-NATURAL-FIBERS-ANIMAL.md
+backsource_ids: [proof-backfill:textiles:02-natural-fibers-animal, git-history:textiles:02-natural-fibers-animal]
+concepts: [natural, fibers, animal]
+root_concepts: [natural, fibers]
+index_roles: [guide, root-concept]
+remap_from: []
+remap_to: []
+updated: null
+---
 # Natural Fibers — Animal (Protein)
 
 ## The Big Picture: Protein Chemistry

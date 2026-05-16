@@ -1,3 +1,22 @@
+---
+maxim_schema: maxim.frontmatter.v1
+id: maxim:textiles:historical-trade
+kind: guide
+module: textiles
+section: textiles
+title: Textile Historical Trade
+status: source-custody
+source_custody: partial
+current_path: textiles/08-HISTORICAL-TRADE.md
+canonical_path: textiles/08-HISTORICAL-TRADE.md
+backsource_ids: [proof-backfill:textiles:08-historical-trade, git-history:textiles:08-historical-trade]
+concepts: [historical, trade]
+root_concepts: [historical, trade]
+index_roles: [guide, root-concept]
+remap_from: []
+remap_to: []
+updated: null
+---
 # Textile Historical Trade
 
 ## Silk Road, Cotton Slavery, Wool and Medieval Europe — Cloth as Economic Engine

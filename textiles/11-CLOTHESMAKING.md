@@ -1,3 +1,22 @@
+---
+maxim_schema: maxim.frontmatter.v1
+id: maxim:textiles:clothesmaking
+kind: guide
+module: textiles
+section: textiles
+title: Clothesmaking
+status: source-custody
+source_custody: partial
+current_path: textiles/11-CLOTHESMAKING.md
+canonical_path: textiles/11-CLOTHESMAKING.md
+backsource_ids: [proof-backfill:textiles:11-clothesmaking, git-history:textiles:11-clothesmaking]
+concepts: [clothesmaking]
+root_concepts: [clothesmaking]
+index_roles: [guide, root-concept]
+remap_from: []
+remap_to: []
+updated: null
+---
 # Clothesmaking
 
 ## The Trade Hierarchy — From Cutter to Seamstress to Tailor
@@ -306,7 +325,7 @@ PAD STITCHING (tailoring):
     + linen — pad-stitched to create jacket's permanent shape
     "Floating canvas" moves with body; "fused jacket" is stiff
     How to detect: pinch jacket fabric between thumb and forefinger
-      Two layers sliding independently = floating canvas ✅
+      Two layers sliding independently = floating canvas OK
       One stiff unit = fused interfacing
     Fused jacket can bubble when subjected to dry cleaning
     or humidity; good canvas jacket improves over years of wear

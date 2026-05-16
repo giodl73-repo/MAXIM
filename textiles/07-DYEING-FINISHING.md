@@ -1,3 +1,22 @@
+---
+maxim_schema: maxim.frontmatter.v1
+id: maxim:textiles:dyeing-finishing
+kind: guide
+module: textiles
+section: textiles
+title: Dyeing and Finishing
+status: source-custody
+source_custody: partial
+current_path: textiles/07-DYEING-FINISHING.md
+canonical_path: textiles/07-DYEING-FINISHING.md
+backsource_ids: [proof-backfill:textiles:07-dyeing-finishing, git-history:textiles:07-dyeing-finishing]
+concepts: [dyeing, finishing]
+root_concepts: [dyeing, finishing]
+index_roles: [guide, root-concept]
+remap_from: []
+remap_to: []
+updated: null
+---
 # Dyeing & Finishing
 
 ## From Raw Gray Goods to Colored, Performance Fabric

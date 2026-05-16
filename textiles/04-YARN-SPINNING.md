@@ -1,3 +1,22 @@
+---
+maxim_schema: maxim.frontmatter.v1
+id: maxim:textiles:yarn-spinning
+kind: guide
+module: textiles
+section: textiles
+title: Yarn and Spinning
+status: source-custody
+source_custody: partial
+current_path: textiles/04-YARN-SPINNING.md
+canonical_path: textiles/04-YARN-SPINNING.md
+backsource_ids: [proof-backfill:textiles:04-yarn-spinning, git-history:textiles:04-yarn-spinning]
+concepts: [yarn, spinning]
+root_concepts: [yarn, spinning]
+index_roles: [guide, root-concept]
+remap_from: []
+remap_to: []
+updated: null
+---
 # Yarn & Spinning
 
 ## Drop Spindle to Ring Frame — Twist, Count, and the Spinning Revolution

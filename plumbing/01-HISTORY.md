@@ -1,3 +1,22 @@
+---
+maxim_schema: maxim.frontmatter.v1
+id: maxim:plumbing:history
+kind: guide
+module: plumbing
+section: plumbing
+title: Plumbing History
+status: source-custody
+source_custody: partial
+current_path: plumbing/01-HISTORY.md
+canonical_path: plumbing/01-HISTORY.md
+backsource_ids: [proof-backfill:plumbing:01-history, git-history:plumbing:01-history]
+concepts: [history]
+root_concepts: [history]
+index_roles: [guide, root-concept]
+remap_from: []
+remap_to: []
+updated: null
+---
 # Plumbing History
 
 ## Lead Pipes to PEX: 4,000 Years of Water Management

@@ -1,3 +1,22 @@
+---
+maxim_schema: maxim.frontmatter.v1
+id: maxim:plumbing:drain-waste-vent
+kind: guide
+module: plumbing
+section: plumbing
+title: Drain, Waste and Vent (DWV)
+status: source-custody
+source_custody: partial
+current_path: plumbing/05-DRAIN-WASTE-VENT.md
+canonical_path: plumbing/05-DRAIN-WASTE-VENT.md
+backsource_ids: [proof-backfill:plumbing:05-drain-waste-vent, git-history:plumbing:05-drain-waste-vent]
+concepts: [drain, waste, vent]
+root_concepts: [drain, waste]
+index_roles: [guide, root-concept]
+remap_from: []
+remap_to: []
+updated: null
+---
 # Drain, Waste & Vent (DWV)
 
 ## Gravity, Traps, P-Traps, Vent Stacks, AAVs

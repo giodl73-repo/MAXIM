@@ -1,3 +1,22 @@
+---
+maxim_schema: maxim.frontmatter.v1
+id: maxim:textiles:synthetic-fibers
+kind: guide
+module: textiles
+section: textiles
+title: Synthetic Fibers
+status: source-custody
+source_custody: partial
+current_path: textiles/03-SYNTHETIC-FIBERS.md
+canonical_path: textiles/03-SYNTHETIC-FIBERS.md
+backsource_ids: [proof-backfill:textiles:03-synthetic-fibers, git-history:textiles:03-synthetic-fibers]
+concepts: [synthetic, fibers]
+root_concepts: [synthetic, fibers]
+index_roles: [guide, root-concept]
+remap_from: []
+remap_to: []
+updated: null
+---
 # Synthetic Fibers
 
 ## The Big Picture: Untethering Textiles from Agriculture

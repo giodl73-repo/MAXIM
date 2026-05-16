@@ -1,3 +1,22 @@
+---
+maxim_schema: maxim.frontmatter.v1
+id: maxim:textiles:pattern-making
+kind: guide
+module: textiles
+section: textiles
+title: Pattern Making
+status: source-custody
+source_custody: partial
+current_path: textiles/10-PATTERN-MAKING.md
+canonical_path: textiles/10-PATTERN-MAKING.md
+backsource_ids: [proof-backfill:textiles:10-pattern-making, git-history:textiles:10-pattern-making]
+concepts: [pattern, making]
+root_concepts: [pattern, making]
+index_roles: [guide, root-concept]
+remap_from: []
+remap_to: []
+updated: null
+---
 # Pattern Making
 
 ## Flat Pattern, Draping, Grading — From Body to Blueprint

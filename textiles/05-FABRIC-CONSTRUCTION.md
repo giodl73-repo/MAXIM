@@ -1,3 +1,22 @@
+---
+maxim_schema: maxim.frontmatter.v1
+id: maxim:textiles:fabric-construction
+kind: guide
+module: textiles
+section: textiles
+title: Fabric Construction
+status: source-custody
+source_custody: partial
+current_path: textiles/05-FABRIC-CONSTRUCTION.md
+canonical_path: textiles/05-FABRIC-CONSTRUCTION.md
+backsource_ids: [proof-backfill:textiles:05-fabric-construction, git-history:textiles:05-fabric-construction]
+concepts: [fabric, construction]
+root_concepts: [fabric, construction]
+index_roles: [guide, root-concept]
+remap_from: []
+remap_to: []
+updated: null
+---
 # Fabric Construction
 
 ## Weaving, Knitting, Felting, Nonwovens — How Yarn Becomes Cloth
