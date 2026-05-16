@@ -1,3 +1,22 @@
+---
+maxim_schema: maxim.frontmatter.v1
+id: maxim:freshwater-biology:freshwater-organisms
+kind: guide
+module: freshwater-biology
+section: freshwater-biology
+title: Freshwater Organisms: Fish, Amphibians, Macroinvertebrates, Algae, Macrophytes
+status: source-custody
+source_custody: partial
+current_path: freshwater-biology/04-FRESHWATER-ORGANISMS.md
+canonical_path: freshwater-biology/04-FRESHWATER-ORGANISMS.md
+backsource_ids: [proof-backfill:freshwater-biology:04-freshwater-organisms, git-history:freshwater-biology:04-freshwater-organisms]
+concepts: [freshwater, organisms]
+root_concepts: [freshwater, organisms]
+index_roles: [guide, root-concept]
+remap_from: []
+remap_to: []
+updated: null
+---
 # Freshwater Organisms: Fish, Amphibians, Macroinvertebrates, Algae, Macrophytes
 
 ## The Big Picture

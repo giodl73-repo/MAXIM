@@ -1,3 +1,22 @@
+---
+maxim_schema: maxim.frontmatter.v1
+id: maxim:dendrology:silviculture
+kind: guide
+module: dendrology
+section: dendrology
+title: Silviculture: Plantation, Selection Cutting, Clear-Cut, Coppice
+status: source-custody
+source_custody: partial
+current_path: dendrology/07-SILVICULTURE.md
+canonical_path: dendrology/07-SILVICULTURE.md
+backsource_ids: [proof-backfill:dendrology:07-silviculture, git-history:dendrology:07-silviculture]
+concepts: [silviculture]
+root_concepts: [silviculture]
+index_roles: [guide, root-concept]
+remap_from: []
+remap_to: []
+updated: null
+---
 # Silviculture: Plantation, Selection Cutting, Clear-Cut, Coppice
 
 ## The Big Picture

@@ -1,3 +1,22 @@
+---
+maxim_schema: maxim.frontmatter.v1
+id: maxim:dendrology:dendrochronology
+kind: guide
+module: dendrology
+section: dendrology
+title: Dendrochronology: Tree Rings, Climate Records, Cross-Dating
+status: source-custody
+source_custody: partial
+current_path: dendrology/03-DENDROCHRONOLOGY.md
+canonical_path: dendrology/03-DENDROCHRONOLOGY.md
+backsource_ids: [proof-backfill:dendrology:03-dendrochronology, git-history:dendrology:03-dendrochronology]
+concepts: [dendrochronology]
+root_concepts: [dendrochronology]
+index_roles: [guide, root-concept]
+remap_from: []
+remap_to: []
+updated: null
+---
 # Dendrochronology: Tree Rings, Climate Records, Cross-Dating
 
 ## The Big Picture

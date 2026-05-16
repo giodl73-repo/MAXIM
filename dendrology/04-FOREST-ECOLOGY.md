@@ -1,3 +1,22 @@
+---
+maxim_schema: maxim.frontmatter.v1
+id: maxim:dendrology:forest-ecology
+kind: guide
+module: dendrology
+section: dendrology
+title: Forest Ecology: Succession, Gap Dynamics, Nutrient Cycling
+status: source-custody
+source_custody: partial
+current_path: dendrology/04-FOREST-ECOLOGY.md
+canonical_path: dendrology/04-FOREST-ECOLOGY.md
+backsource_ids: [proof-backfill:dendrology:04-forest-ecology, git-history:dendrology:04-forest-ecology]
+concepts: [forest, ecology]
+root_concepts: [forest, ecology]
+index_roles: [guide, root-concept]
+remap_from: []
+remap_to: []
+updated: null
+---
 # Forest Ecology: Succession, Gap Dynamics, Nutrient Cycling
 
 ## The Big Picture

@@ -1,3 +1,22 @@
+---
+maxim_schema: maxim.frontmatter.v1
+id: maxim:freshwater-biology:nutrient-cycles
+kind: guide
+module: freshwater-biology
+section: freshwater-biology
+title: Nutrient Cycling: Nitrogen, Phosphorus, and Silicon in Freshwater
+status: source-custody
+source_custody: partial
+current_path: freshwater-biology/05-NUTRIENT-CYCLES.md
+canonical_path: freshwater-biology/05-NUTRIENT-CYCLES.md
+backsource_ids: [proof-backfill:freshwater-biology:05-nutrient-cycles, git-history:freshwater-biology:05-nutrient-cycles]
+concepts: [nutrient, cycles]
+root_concepts: [nutrient, cycles]
+index_roles: [guide, root-concept]
+remap_from: []
+remap_to: []
+updated: null
+---
 # Nutrient Cycling: Nitrogen, Phosphorus, and Silicon in Freshwater
 
 ## The Big Picture

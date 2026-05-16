@@ -1,3 +1,22 @@
+---
+maxim_schema: maxim.frontmatter.v1
+id: maxim:dendrology:conservation
+kind: guide
+module: dendrology
+section: dendrology
+title: Forest Conservation: Old-Growth, Deforestation, Reforestation
+status: source-custody
+source_custody: partial
+current_path: dendrology/09-CONSERVATION.md
+canonical_path: dendrology/09-CONSERVATION.md
+backsource_ids: [proof-backfill:dendrology:09-conservation, git-history:dendrology:09-conservation]
+concepts: [conservation]
+root_concepts: [conservation]
+index_roles: [guide, root-concept]
+remap_from: []
+remap_to: []
+updated: null
+---
 # Forest Conservation: Old-Growth, Deforestation, Reforestation
 
 ## The Big Picture

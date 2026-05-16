@@ -1,3 +1,22 @@
+---
+maxim_schema: maxim.frontmatter.v1
+id: maxim:dendrology:tree-anatomy
+kind: guide
+module: dendrology
+section: dendrology
+title: Tree Anatomy: Vascular Cambium, Sapwood, Heartwood, Bark
+status: source-custody
+source_custody: partial
+current_path: dendrology/01-TREE-ANATOMY.md
+canonical_path: dendrology/01-TREE-ANATOMY.md
+backsource_ids: [proof-backfill:dendrology:01-tree-anatomy, git-history:dendrology:01-tree-anatomy]
+concepts: [tree, anatomy]
+root_concepts: [tree, anatomy]
+index_roles: [guide, root-concept]
+remap_from: []
+remap_to: []
+updated: null
+---
 # Tree Anatomy: Vascular Cambium, Sapwood, Heartwood, Bark
 
 ## The Big Picture

@@ -1,3 +1,22 @@
+---
+maxim_schema: maxim.frontmatter.v1
+id: maxim:freshwater-biology:water-quality
+kind: guide
+module: freshwater-biology
+section: freshwater-biology
+title: Water Quality: Chemistry, Indicator Species, Monitoring Standards
+status: source-custody
+source_custody: partial
+current_path: freshwater-biology/09-WATER-QUALITY.md
+canonical_path: freshwater-biology/09-WATER-QUALITY.md
+backsource_ids: [proof-backfill:freshwater-biology:09-water-quality, git-history:freshwater-biology:09-water-quality]
+concepts: [water, quality]
+root_concepts: [water, quality]
+index_roles: [guide, root-concept]
+remap_from: []
+remap_to: []
+updated: null
+---
 # Water Quality: Chemistry, Indicator Species, Monitoring Standards
 
 ## The Big Picture

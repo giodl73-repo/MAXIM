@@ -1,3 +1,22 @@
+---
+maxim_schema: maxim.frontmatter.v1
+id: maxim:dendrology:temperate-trees
+kind: guide
+module: dendrology
+section: dendrology
+title: Temperate Tree Species: Oak, Maple, Beech, Ash, Birch, Conifer Families
+status: source-custody
+source_custody: partial
+current_path: dendrology/05-TEMPERATE-TREES.md
+canonical_path: dendrology/05-TEMPERATE-TREES.md
+backsource_ids: [proof-backfill:dendrology:05-temperate-trees, git-history:dendrology:05-temperate-trees]
+concepts: [temperate, trees]
+root_concepts: [temperate, trees]
+index_roles: [guide, root-concept]
+remap_from: []
+remap_to: []
+updated: null
+---
 # Temperate Tree Species: Oak, Maple, Beech, Ash, Birch, Conifer Families
 
 ## The Big Picture

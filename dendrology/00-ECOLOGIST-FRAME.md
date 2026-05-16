@@ -1,3 +1,22 @@
+---
+maxim_schema: maxim.frontmatter.v1
+id: maxim:dendrology:ecologist-frame
+kind: guide
+module: dendrology
+section: dendrology
+title: The Ecologist's Frame - Volume NW-IV
+status: source-custody
+source_custody: partial
+current_path: dendrology/00-ECOLOGIST-FRAME.md
+canonical_path: dendrology/00-ECOLOGIST-FRAME.md
+backsource_ids: [proof-backfill:dendrology:00-ecologist-frame, git-history:dendrology:00-ecologist-frame]
+concepts: [ecologist, frame]
+root_concepts: [ecologist, frame]
+index_roles: [guide, root-concept]
+remap_from: []
+remap_to: []
+updated: null
+---
 # The Ecologist's Frame — Volume NW-IV
 
 ## One System, Four Scales

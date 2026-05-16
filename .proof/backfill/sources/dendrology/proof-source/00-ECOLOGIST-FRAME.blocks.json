@@ -1,0 +1,50 @@
+{
+  "schema_version": "1",
+  "source_markdown": "dendrology\\00-ECOLOGIST-FRAME.md",
+  "blocks": [
+    {
+      "id": "block-1",
+      "kind": "diagram_like",
+      "line": 31,
+      "heading_context": "## One System, Four Scales",
+      "confidence": "candidate",
+      "text": "THE SAME SYSTEM AT FOUR SCALES\n==================================================================================\n\nSCALE 4: CANOPY (dendrology/)        30 m vertical    DECADES to CENTURIES\n  Sunlight hits leaves. Carbon fixed. Wood accretes.\n  Canopy gaps create successional mosaics.\n  Keystone: mast-producing oaks → mammal/bird populations\n\n          |  Leaf litter falls\n          |  Dissolved organics leach\n          v\n\nSCALE 3: STREAM NETWORK (freshwater-biology/)    WATERSHED    YEARS to DECADES\n  Water carries nutrients downhill. Allochthonous carbon\n  (leaf litter) fuels headwater food webs.\n  Keystone: predatory fish → invertebrate → algae cascades\n\n          |  Sediment, nutrients settle\n          |  Riparian roots stabilize banks\n          v\n\nSCALE 2: SOIL HORIZON (soil-science/)       0-2 m depth    CENTURIES to MILLENNIA\n  Decomposition converts biomass to humus. Fungi and bacteria\n  mineralize N, P, K. Mycorrhizae close the loop back to roots.\n  Keystone: mycorrhizal fungi → nutrient access → plant survival\n\n          |  Weathering products dissolve\n          |  Groundwater carries Ca²⁺, HCO₃⁻ to coast\n          v\n\nSCALE 1: REEF ARCHITECTURE (coral-reefs/)     0-50 m depth    MILLENNIA to EPOCHS\n  Dissolved Ca²⁺ + HCO₃⁻ arrive from continental weathering.\n  Corals precipitate CaCO₃. Symbiotic algae drive the energy budget.\n  Keystone: herbivorous fish → algae → coral light access\n\n==================================================================================\n  Energy source:     Solar radiation at every scale\n  Currency:          Carbon, nitrogen, phosphorus, water\n  Organizing force:  Trophic structure + nutrient cycling + disturbance regime",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-2",
+      "kind": "ascii_table_candidate",
+      "line": 82,
+      "heading_context": "## The Connective Tissue",
+      "confidence": "candidate",
+      "text": "MATERIAL FLOWS LINKING ALL FOUR SCALES\n==========================================\n\n    ATMOSPHERE\n    (CO₂, N₂, O₂, H₂O vapor)\n         |                ^\n         | photosynthesis | respiration, transpiration\n         v                |\n  +========================+\n  | FOREST CANOPY          |\n  | dendrology/            |\n  +========================+\n    Fixes 5-15 t C/ha/yr.\n    Intercepts 20-40% of rainfall.\n\n         |                ^\n         | litterfall     | nutrient uptake via\n         | 3-8 t/ha/yr    | mycorrhizal network\n         v                |\n\n  +========================+\n  | SOIL                   |\n  | soil-science/          |\n  +========================+\n    Stores 100-300 t C/ha (top 1m).\n    Mineralizes N: 50-150 kg/ha/yr.\n\n         |                ^\n         | leachate,      | riparian roots stabilize\n         | groundwater    | banks, shade stream\n         v                |\n\n  +========================+\n  | STREAM / RIVER         |\n  | freshwater-biology/    |\n  +========================+\n    Transports 2-20 t sediment/km²/yr.\n    Carries dissolved nutrients to coast.\n\n         |\n         | river discharge: dissolved Ca²⁺, HCO₃⁻, PO₄³⁻, SiO₂\n         v\n\n  +========================+\n  | CORAL REEF             |\n  | coral-reefs/           |\n  +========================+\n    Accretes 1-10 kg CaCO₃/m²/yr.\n    Builds 3D structure over millennia.\n\nThe forest feeds the soil.\nThe soil feeds the stream.\nThe stream feeds the reef.\nDeforest a hillside and the reef downstream gets smothered in sediment.",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-3",
+      "kind": "diagram_like",
+      "line": 147,
+      "heading_context": "## Trophic Cascades — The Same Story Four Times",
+      "confidence": "candidate",
+      "text": "THE CASCADE MECHANISM\n======================\n\n  Remove top predator\n       |\n       v\n  Herbivore/consumer population EXPLODES (release from predation)\n       |\n       v\n  Primary producer / basal resource COLLAPSES (overgrazing/overconsumption)\n       |\n       v\n  Habitat structure degrades → cascading loss of associated species",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-4",
+      "kind": "diagram_like",
+      "line": 238,
+      "heading_context": "## Bridge to Computing — Ecosystems as Distributed Systems",
+      "confidence": "candidate",
+      "text": "ECOSYSTEM CONCEPT              DISTRIBUTED SYSTEMS ANALOG\n===========================================================================\n\nKeystone species               Single point of failure (SPOF)\n  Remove wolves → cascade        Remove a core service → cascade\n  Remove mycorrhizae → forest    Remove auth service → nothing works\n  dies slowly\n\nTrophic cascade                Cascading failure\n  Bass removed → minnows         Load balancer fails → backend\n  explode → algae crashes →      overloads → database saturates →\n  lake goes anoxic                timeout cascade → full outage\n\nBiodiversity / redundancy      Service redundancy / replicas\n  Multiple predator species      Multiple replicas behind LB\n  = functional redundancy        = no single point of failure\n  Lose one, another fills role   Lose one, traffic shifts\n\nSuccession                     System bootstrapping\n  Pioneer species prepare        Init containers prepare env\n  environment for next stage     for application containers\n  Each stage depends on prior    Each boot stage depends on prior\n\nNutrient cycling               Resource pooling / GC\n  N, P, C recycled through      Memory, connections recycled\n  decomposition → uptake loop    through pool → use → return loop\n  Leak = eutrophication          Leak = resource exhaustion\n\nDisturbance regime             Chaos engineering\n  Fire maintains mosaic;         Chaos Monkey kills instances;\n  suppressing fire → fuel        suppressing failures → fragility\n  accumulation → catastrophe     accumulation → cascading outage\n\nCarrying capacity              Rate limiting / back-pressure\n  Population exceeds resource    Requests exceed capacity →\n  → crash (overshoot)            → queue overflow → crash\n\nResilience                     Fault tolerance\n  Speed of return to steady      Recovery time objective (RTO)\n  state after perturbation       after incident\n\nPhase shift (reef → algae)     Split-brain / data corruption\n  System locks into degraded     System locks into inconsistent\n  state; cannot self-recover     state; cannot self-heal\n  Requires external forcing      Requires manual intervention\n  to restore original state      to restore consistency\n===========================================================================",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    }
+  ]
+}

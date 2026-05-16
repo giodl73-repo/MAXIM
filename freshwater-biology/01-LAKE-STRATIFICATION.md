@@ -1,3 +1,22 @@
+---
+maxim_schema: maxim.frontmatter.v1
+id: maxim:freshwater-biology:lake-stratification
+kind: guide
+module: freshwater-biology
+section: freshwater-biology
+title: Lake Stratification: Epilimnion, Thermocline, Hypolimnion, Turnover
+status: source-custody
+source_custody: partial
+current_path: freshwater-biology/01-LAKE-STRATIFICATION.md
+canonical_path: freshwater-biology/01-LAKE-STRATIFICATION.md
+backsource_ids: [proof-backfill:freshwater-biology:01-lake-stratification, git-history:freshwater-biology:01-lake-stratification]
+concepts: [lake, stratification]
+root_concepts: [lake, stratification]
+index_roles: [guide, root-concept]
+remap_from: []
+remap_to: []
+updated: null
+---
 # Lake Stratification: Epilimnion, Thermocline, Hypolimnion, Turnover
 
 ## The Big Picture
