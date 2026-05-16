@@ -1,3 +1,22 @@
+---
+maxim_schema: maxim.frontmatter.v1
+id: maxim:printing-publishing:movable-type-east-asia
+kind: guide
+module: printing-publishing
+section: printing-publishing
+title: Movable Type in East Asia: Bi Sheng, Wang Zhen, Korean Bronze Type, Why It Didn't Transform Asia
+status: source-custody
+source_custody: partial
+current_path: printing-publishing/03-MOVABLE-TYPE-EAST-ASIA.md
+canonical_path: printing-publishing/03-MOVABLE-TYPE-EAST-ASIA.md
+backsource_ids: [proof-backfill:printing-publishing:03-movable-type-east-asia, git-history:printing-publishing:03-movable-type-east-asia]
+concepts: [movable, type, east, asia]
+root_concepts: [movable, type]
+index_roles: [guide, root-concept]
+remap_from: []
+remap_to: []
+updated: null
+---
 # Movable Type in East Asia: Bi Sheng, Wang Zhen, Korean Bronze Type, Why It Didn't Transform Asia
 
 ## The Big Picture

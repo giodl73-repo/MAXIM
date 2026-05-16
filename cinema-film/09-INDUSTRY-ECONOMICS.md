@@ -1,3 +1,22 @@
+---
+maxim_schema: maxim.frontmatter.v1
+id: maxim:cinema-film:industry-economics
+kind: guide
+module: cinema-film
+section: cinema-film
+title: Film Industry Economics: Box Office, Distribution Windows, PandA Budgets, Franchise Economics
+status: source-custody
+source_custody: partial
+current_path: cinema-film/09-INDUSTRY-ECONOMICS.md
+canonical_path: cinema-film/09-INDUSTRY-ECONOMICS.md
+backsource_ids: [proof-backfill:cinema-film:09-industry-economics, git-history:cinema-film:09-industry-economics]
+concepts: [industry, economics]
+root_concepts: [industry, economics]
+index_roles: [guide, root-concept]
+remap_from: []
+remap_to: []
+updated: null
+---
 # Film Industry Economics: Box Office, Distribution Windows, P&A Budgets, Franchise Economics
 
 ## The Big Picture

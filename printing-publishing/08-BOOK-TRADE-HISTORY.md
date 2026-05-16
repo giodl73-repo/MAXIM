@@ -1,3 +1,22 @@
+---
+maxim_schema: maxim.frontmatter.v1
+id: maxim:printing-publishing:book-trade-history
+kind: guide
+module: printing-publishing
+section: printing-publishing
+title: Book Trade History: Guilds, Copyright Origins (Statute of Anne 1710), Paperback Revolution
+status: source-custody
+source_custody: partial
+current_path: printing-publishing/08-BOOK-TRADE-HISTORY.md
+canonical_path: printing-publishing/08-BOOK-TRADE-HISTORY.md
+backsource_ids: [proof-backfill:printing-publishing:08-book-trade-history, git-history:printing-publishing:08-book-trade-history]
+concepts: [book, trade, history]
+root_concepts: [book, trade]
+index_roles: [guide, root-concept]
+remap_from: []
+remap_to: []
+updated: null
+---
 # Book Trade History: Guilds, Copyright Origins (Statute of Anne 1710), Paperback Revolution
 
 ## The Big Picture

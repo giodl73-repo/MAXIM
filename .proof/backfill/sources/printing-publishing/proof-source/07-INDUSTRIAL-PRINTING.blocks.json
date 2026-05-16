@@ -1,0 +1,61 @@
+{
+  "schema_version": "1",
+  "source_markdown": "printing-publishing\\07-INDUSTRIAL-PRINTING.md",
+  "blocks": [
+    {
+      "id": "block-1",
+      "kind": "ascii_table_candidate",
+      "line": 26,
+      "heading_context": "## The Big Picture",
+      "confidence": "candidate",
+      "text": "PRINTING TECHNOLOGY PROGRESSION: OUTPUT CAPACITY\n\nTechnology              Year    Sheets/hour   Key Constraint\n-----------------------+-------+-------------+---------------------------\nHand press             1455    ~250           Human muscle power\nKoenig steam press     1814    ~1,100         Steam cylinder\nApplegath 4-cylinder   1828    ~5,000         Multiple cylinder banks\nHoe Type-Revolving     1847    ~20,000        Rotary, type on cylinder\nWeb rotary (newsprint) 1865    ~18,000*       Continuous paper roll\nLinotype + web rotary  1890s   ~40,000*       Mechanical composition\nOffset lithography     1900s   ~10,000-50,000 Thin flexible plates\nModern offset (sheetfed) 2020s ~15,000-18,000 Digital prepress\nModern web offset      2020s   ~80,000+       Digital workflow\n\n* sheets/hour equivalent (web rotary runs continuously, counted in copies)\n\nORDERS OF MAGNITUDE:\n  Hand press (1455) to web rotary (1865): ~80x improvement\n  Linotype (1884) removed the COMPOSITION bottleneck\n  (Fast press was useless if type couldn't be set fast enough)",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-2",
+      "kind": "diagram_like",
+      "line": 95,
+      "heading_context": "## Rotary Press",
+      "confidence": "candidate",
+      "text": "ROTARY PRESS EVOLUTION\n\nCONCEPT: Instead of flat forme + cylinder, make the TYPE itself\n          into a cylinder. Both type and impression are round.\n          Continuous motion, no reciprocating bed.\n\nPROBLEM: How do you put type on a cylinder?\n  Solution 1: stereotype plates\n    Make a papier-mâché or plaster impression of flat type\n    Cast curved metal plate from that impression\n    Wrap plate around cylinder\n    Problem: loss of fine detail, additional step\n\n  Solution 2: type secured to cylinder directly\n    Richard Hoe's \"Type-Revolving Press\" (1847)\n    Type secured on large central cylinder (~2m diameter)\n    Multiple impression cylinders around it (~4-6)\n    Paper feeds between type cylinder and each impression cylinder\n    Each impression cylinder: one press operator\n    6 impression cylinders -> 6 operators -> 6x output\n\nHOE PRESS OUTPUT:\n  Hoe Type-Revolving (1847): ~18,000-20,000 impressions/hour\n  Philadelphia Public Ledger: first US user (1847)\n\nWEB ROTARY (1865-1870s):\n  KEY INNOVATION: Continuous roll of paper (\"web\") instead of sheets\n  Walter Press (1866, The Times, London): first web rotary\n  Paper feeds from roll (massive spool, tons of paper)\n  Printing continuous: no stop-and-feed per sheet\n  Cutting and folding integrated at output end\n\n  WEB PRESS PAPER PATH:\n  [Paper Roll] -> unwinding tension control\n              -> printing unit (type cylinder + impression cylinder)\n              -> second printing unit (back side)\n              -> folding cylinder: folds web into pages\n              -> cutting: cuts into newspaper sections\n              -> stacking/bundling at speed\n\n  Output: New York Tribune's press (1875): ~18,000 complete\n          4-page newspapers per hour",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-3",
+      "kind": "diagram_like",
+      "line": 146,
+      "heading_context": "## Linotype Machine (Mergenthaler, 1884)",
+      "confidence": "candidate",
+      "text": "LINOTYPE: THE COMPOSITION BOTTLENECK SOLUTION\n\nPROBLEM:\n  Fast steam presses could print 10,000+ sheets/hour\n  Hand compositor: 1,000-1,500 ems/hour\n  (An \"em\" = width of capital M; standard measure of composition speed)\n  Newspaper page: ~30,000-60,000 ems\n  One compositor: 20-60 hours per page\n  Need: dozens of compositors per large newspaper\n\n  Compositors were highly skilled, highly paid:\n  Must know location of every character in the type case\n  Must space words correctly (justified text)\n  Must reverse-read mirror-image type\n  Strong union: International Typographical Union\n\nOTTMAR MERGENTHALER'S SOLUTION (1884):\n  Keyboard-operated machine that:\n  1. Assembles matrices (brass molds) for each character\n  2. Casts a complete line of type as a single metal slug\n  3. Distributes matrices back for reuse automatically\n  4. Returns used slugs to melting pot for recycling\n\nLINOTYPE MECHANISM:\n\n  Operator keyboard: 90 keys\n  (Lowercase, uppercase, numbers, punctuation, spaces)\n\n  When key pressed:\n    Matrix drops from magazine into assembling elevator\n    Matrices line up -> form line\n\n  When line complete:\n    Operator presses justify key\n    Space bands expand to fill line width (justified text)\n    Assembled matrices raised to mold wheel\n    Molten lead alloy injected -> LINE CAST\n    Slug: one complete line of type in relief\n    ~height = type high, exact width of column\n\n  Matrices: returned via overhead distribution system\n    Each matrix has notch pattern at top\n    Distributor bar: sorts matrices back into correct magazine slots\n    One matrix can be reused immediately\n\n  Recycling:\n    Printed slugs melted back in pot\n    Lead alloy recycled immediately\n    No permanent type inventory needed\n\nOUTPUT:\n  Hand compositor: 1,000-1,500 ems/hour\n  Linotype operator: 5,000-6,000 ems/hour\n  Productivity gain: ~4-5x on composition\n  Skill level: lower (keyboard, not knowledge of type case positions)\n\nIMPACT ON UNION LABOR:\n  ITU (typographers union) fought Linotype vigorously\n  Eventually negotiated: Linotype operators must be union members\n  Set minimum crew sizes\n  Slower adoption in union-strong markets\n  Result: Linotype created new union job category instead of eliminating union\n\nNEWSPAPER ECONOMICS BEFORE LINOTYPE:\n  Large paper: 100+ compositors per shift\n  After Linotype: 20-30 operators per shift\n  Enabled: same-day composition of late news\n  Previously: deadline meant \"type set by 4pm for morning paper\"\n  With Linotype: \"type set by 1am for 2am press run\"",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-4",
+      "kind": "diagram_like",
+      "line": 256,
+      "heading_context": "## Offset Lithography",
+      "confidence": "candidate",
+      "text": "OFFSET LITHOGRAPHY: PHYSICS AND MECHANISM\n\nFUNDAMENTAL PRINCIPLE: Oil and water do not mix.\n\n  Image areas: accept oil-based ink, repel water\n  Non-image areas: accept water, repel oil-based ink\n  This is a CHEMICAL difference, not physical relief\n\nLITHOGRAPHY ORIGINS:\n  Alois Senefelder (Bavaria, 1796):\n  Discovered: grease drawing on flat limestone + acid\n  Grease drawing areas: accept ink\n  Acid-etched areas: retain water, reject ink\n  First flat (planographic) printing\n\nOFFSET PRINCIPLE (~1900-1904):\n  Problem with direct lithography: printing directly on rough/textured\n  surfaces is difficult; stone/plate wears fast\n\n  Solution: transfer ink to intermediate rubber blanket first\n\n  OFFSET PRESS (3-cylinder):\n\n  PLATE CYLINDER                BLANKET CYLINDER\n  (aluminum plate)    prints to  (rubber blanket)\n                                    |\n                                    | transfers to\n                                    v\n                               IMPRESSION CYLINDER\n                               (paper between blanket\n                                and impression)\n\n  WHY \"OFFSET\": image first goes (is offset) to blanket, THEN to paper\n\n  BLANKET ADVANTAGES:\n  - Rubber conforms to paper surface texture\n  - Much better quality on rough paper\n  - Plate never touches paper: plate lasts longer\n  - Can print on almost any surface\n\nOFFSET PLATE:\n  Aluminum plate, photosensitized coating\n  Light through film negative exposes plate\n  Developer washes away unexposed areas\n  Fixing: binds image areas to plate\n  No raised/recessed surface: completely flat\n  Image = chemical property, not physical relief\n\nFOUR-COLOR OFFSET (CMYK):\n  Separate plate for each color:\n  Cyan + Magenta + Yellow + Black (Key)\n  Halftone screening: each color broken into dots\n  Dot size varies to simulate continuous tone\n  All four dots printing at different angles:\n    -> avoids moiré pattern (halftone rosette)\n  Print in registration: dots align across colors\n\n  Process colors and their screen angles:\n  Cyan: 105 degrees\n  Magenta: 75 degrees\n  Yellow: 90 degrees\n  Black: 45 degrees (most visible, needs most accuracy)",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-5",
+      "kind": "diagram_like",
+      "line": 325,
+      "heading_context": "## Phototypesetting — Eliminating Hot Metal",
+      "confidence": "candidate",
+      "text": "PHOTOTYPESETTING EVOLUTION (1950s-1985)\n\nCONCEPT: Replace metal type with photographic image of characters\n\nPHASE 1 (1950s-1960s): Second-generation systems\n  Intertype Fotosetter (1949): modified Linotype\n  Uses glass matrix instead of metal matrix\n  Character illuminated through glass -> photographic paper\n  Still mechanically similar to Linotype\n  Output: photographic type on paper\n  Advantage: lighter, no hot metal, faster film output\n\nPHASE 2 (1960s-1970s): CRT-based\n  Characters as electronic waveforms\n  CRT displays characters on screen\n  Lens system projects CRT image onto photographic paper\n  Speed: 1,000+ characters/second\n  Resolution: very high\n  Fonts: stored as analog waveform data\n\nPHASE 3 (1970s-1985): Digital raster\n  Characters as bitmaps in computer memory\n  Raster laser or CRT exposing phototypesetter\n  Font: digital bitmap or outline\n  Output to: photographic paper or film\n  Computer controls: all spacing, hyphenation, pagination\n  Examples: Compugraphic, Linotronic, Berthold\n\nIMPACT:\n  Hot metal typesetting: eliminated in ~20 years (1960s-1980s)\n  Compositors: massive job loss\n  ITU union: rapid decline\n  Cost: plummeted\n  Quality: improved (no physical wear, exact reproduction)\n  Lead alloy: no longer needed (environmental benefit)\n\nWORKFLOW (late 1970s):\n  Writer -> typewriter/word processor\n         -> markup (typographic instructions)\n         -> keyboarder inputs to phototypesetter computer\n         -> galleys output on photographic paper\n         -> paste-up on boards (wax adhesive)\n         -> camera: photograph boards -> film\n         -> film -> offset plate\n         -> press\n\n  This workflow is what PageMaker (1985) eliminated for small publishers\n  Large commercial printers retained it until early 1990s",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    }
+  ]
+}

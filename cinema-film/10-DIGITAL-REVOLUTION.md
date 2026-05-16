@@ -1,3 +1,22 @@
+---
+maxim_schema: maxim.frontmatter.v1
+id: maxim:cinema-film:digital-revolution
+kind: guide
+module: cinema-film
+section: cinema-film
+title: The Digital Revolution in Film: CGI History, Digital Intermediate, 4K HDR, Streaming
+status: source-custody
+source_custody: partial
+current_path: cinema-film/10-DIGITAL-REVOLUTION.md
+canonical_path: cinema-film/10-DIGITAL-REVOLUTION.md
+backsource_ids: [proof-backfill:cinema-film:10-digital-revolution, git-history:cinema-film:10-digital-revolution]
+concepts: [digital, revolution]
+root_concepts: [digital, revolution]
+index_roles: [guide, root-concept]
+remap_from: []
+remap_to: []
+updated: null
+---
 # The Digital Revolution in Film: CGI History, Digital Intermediate, 4K HDR, Streaming
 
 ## The Big Picture

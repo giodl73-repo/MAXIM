@@ -1,3 +1,22 @@
+---
+maxim_schema: maxim.frontmatter.v1
+id: maxim:printing-publishing:digital-publishing
+kind: guide
+module: printing-publishing
+section: printing-publishing
+title: Digital Publishing: Desktop Publishing, PostScript, PDF, Ebooks, Print-on-Demand, Open Access
+status: source-custody
+source_custody: partial
+current_path: printing-publishing/09-DIGITAL-PUBLISHING.md
+canonical_path: printing-publishing/09-DIGITAL-PUBLISHING.md
+backsource_ids: [proof-backfill:printing-publishing:09-digital-publishing, git-history:printing-publishing:09-digital-publishing]
+concepts: [digital, publishing]
+root_concepts: [digital, publishing]
+index_roles: [guide, root-concept]
+remap_from: []
+remap_to: []
+updated: null
+---
 # Digital Publishing: Desktop Publishing, PostScript, PDF, Ebooks, Print-on-Demand, Open Access
 
 ## The Big Picture

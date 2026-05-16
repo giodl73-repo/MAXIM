@@ -1,3 +1,22 @@
+---
+maxim_schema: maxim.frontmatter.v1
+id: maxim:cinema-film:classical-hollywood
+kind: guide
+module: cinema-film
+section: cinema-film
+title: Classical Hollywood: Studio System, Production Code, Star System, Vertical Integration, Paramount 1948
+status: source-custody
+source_custody: partial
+current_path: cinema-film/05-CLASSICAL-HOLLYWOOD.md
+canonical_path: cinema-film/05-CLASSICAL-HOLLYWOOD.md
+backsource_ids: [proof-backfill:cinema-film:05-classical-hollywood, git-history:cinema-film:05-classical-hollywood]
+concepts: [classical, hollywood]
+root_concepts: [classical, hollywood]
+index_roles: [guide, root-concept]
+remap_from: []
+remap_to: []
+updated: null
+---
 # Classical Hollywood: Studio System, Production Code, Star System, Vertical Integration, Paramount 1948
 
 ## The Big Picture

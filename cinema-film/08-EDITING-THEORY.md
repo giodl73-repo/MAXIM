@@ -1,3 +1,22 @@
+---
+maxim_schema: maxim.frontmatter.v1
+id: maxim:cinema-film:editing-theory
+kind: guide
+module: cinema-film
+section: cinema-film
+title: Editing Theory: Kuleshov Effect, Invisible vs Expressive Editing, Pace and Rhythm, NLE Systems
+status: source-custody
+source_custody: partial
+current_path: cinema-film/08-EDITING-THEORY.md
+canonical_path: cinema-film/08-EDITING-THEORY.md
+backsource_ids: [proof-backfill:cinema-film:08-editing-theory, git-history:cinema-film:08-editing-theory]
+concepts: [editing, theory]
+root_concepts: [editing, theory]
+index_roles: [guide, root-concept]
+remap_from: []
+remap_to: []
+updated: null
+---
 # Editing Theory: Kuleshov Effect, Invisible vs Expressive Editing, Pace and Rhythm, NLE Systems
 
 ## The Big Picture

@@ -1,3 +1,22 @@
+---
+maxim_schema: maxim.frontmatter.v1
+id: maxim:printing-publishing:paper-technology
+kind: guide
+module: printing-publishing
+section: printing-publishing
+title: Paper Technology: Cai Lun, Papermaking Process, Westward Spread, Laid and Wove Paper
+status: source-custody
+source_custody: partial
+current_path: printing-publishing/02-PAPER-TECHNOLOGY.md
+canonical_path: printing-publishing/02-PAPER-TECHNOLOGY.md
+backsource_ids: [proof-backfill:printing-publishing:02-paper-technology, git-history:printing-publishing:02-paper-technology]
+concepts: [paper, technology]
+root_concepts: [paper, technology]
+index_roles: [guide, root-concept]
+remap_from: []
+remap_to: []
+updated: null
+---
 # Paper Technology: Cai Lun, Papermaking Process, Westward Spread, Laid and Wove Paper
 
 ## The Big Picture
