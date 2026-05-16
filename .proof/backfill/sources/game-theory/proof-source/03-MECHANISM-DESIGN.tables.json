@@ -1,0 +1,105 @@
+{
+  "schema_version": "1",
+  "source_markdown": "game-theory\\03-MECHANISM-DESIGN.md",
+  "tables": [
+    {
+      "id": "table-1",
+      "line": 464,
+      "heading_context": "## Decision Cheat Sheet",
+      "headers": [
+        "If the design objective is...",
+        "Start With",
+        "Binding Tradeoff"
+      ],
+      "rows": [
+        [
+          "Efficient allocation with dominant-strategy truthfulness",
+          "Groves / VCG",
+          "Budget balance and computational tractability may fail"
+        ],
+        [
+          "Single-item revenue maximization",
+          "Myerson optimal auction",
+          "Reserve prices sacrifice some efficient trades for seller revenue"
+        ],
+        [
+          "Simple single-item truthful auction",
+          "Vickrey second-price",
+          "Truthful and efficient, but not generally revenue-optimal"
+        ],
+        [
+          "Package bidding across many items",
+          "Combinatorial auction",
+          "Winner determination is NP-hard; exact VCG is often impractical"
+        ],
+        [
+          "Stable two-sided matching without transfers",
+          "Gale-Shapley deferred acceptance",
+          "Proposing side is favored; only that side gets strategy-proofness"
+        ],
+        [
+          "General social choice without money",
+          "Gibbard-Satterthwaite escape routes",
+          "Must restrict domain, randomize, add transfers, or accept dictatorship"
+        ],
+        [
+          "Bilateral trade with private values/costs",
+          "Myerson-Satterthwaite boundary",
+          "IC + IR + efficiency + budget balance cannot all hold"
+        ],
+        [
+          "Forecast or probability elicitation",
+          "Proper scoring rules",
+          "Payment rule must make truthful probabilities optimal in expectation"
+        ]
+      ]
+    },
+    {
+      "id": "table-2",
+      "line": 479,
+      "heading_context": "## CS and Systems Bridges",
+      "headers": [
+        "Mechanism design concept",
+        "Formal / systems analogue"
+      ],
+      "rows": [
+        [
+          "Incentive compatibility (IC)",
+          "Type safety / compiler enforcement: IC is a constraint that makes truth-telling a dominant strategy — the mechanism statically rules out profitable lying, analogous to a type system ruling out invalid operations"
+        ],
+        [
+          "Revelation principle",
+          "Abstraction layer: any indirect mechanism (sealed-bid auction, ascending auction, negotiation protocol) can be compiled down to an equivalent direct mechanism (ask types, run algorithm) — you don't lose generality by working at the direct level"
+        ],
+        [
+          "VCG mechanism",
+          "Externality internalization: each agent pays the negative externality they impose on others — aligns private incentives with social welfare; exact analogue of Pigouvian taxation in public economics"
+        ],
+        [
+          "Arrow's Impossibility Theorem",
+          "No protocol satisfies all three \"obvious\" desiderata simultaneously (Pareto + IIA + non-dictatorship); in distributed systems: CAP theorem has the same flavor — no system satisfies all three of Consistency, Availability, Partition tolerance"
+        ],
+        [
+          "Myerson optimal auction",
+          "Revenue-maximizing mechanism design = constrained optimization over allocation/payment rules subject to IC + IR; Myerson's ironing is a convexification step analogous to LP relaxation in integer programs"
+        ],
+        [
+          "Myerson-Satterthwaite theorem",
+          "Impossibility result: efficiency + budget balance + individual rationality are jointly infeasible for bilateral trade — no market mechanism satisfies all three; trade-off must be made"
+        ],
+        [
+          "Two-sided matching (Gale-Shapley)",
+          "Stable matchings as a fixed point of a deferred acceptance algorithm; runs in O(n²) and is used in NRMP (medical residency), FCC spectrum auctions, school assignment — a polynomial-time algorithm for a problem with no NE computation difficulty"
+        ],
+        [
+          "Combinatorial auction (VCG)",
+          "Winner determination is NP-hard — the computational complexity of mechanism design for package bidding; practical systems use MIP solvers or approximation algorithms with bounded PoA"
+        ],
+        [
+          "Scoring rules / forecast elicitation",
+          "Proper scoring rules (Brier, log loss) are incentive-compatible mechanisms for eliciting probabilistic forecasts — paying log(p(true outcome)) makes truth-telling dominant; bridges to information-theory/ (log loss = cross-entropy)"
+        ]
+      ]
+    }
+  ]
+}

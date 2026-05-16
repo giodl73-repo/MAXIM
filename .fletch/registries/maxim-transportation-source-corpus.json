@@ -1,0 +1,2111 @@
+{
+  "schema_version": "fletch.registry.v1",
+  "generated_by": "MAXIM source-corpus backfill",
+  "registry_id": "maxim-transportation-source-corpus",
+  "fletches": [
+    {
+      "id": "maxim.transportation.source-corpus.pebble",
+      "node_kind": "fletch",
+      "shafts": [
+        {
+          "kind": "file",
+          "url": ".pebble/packs/maxim-transportation-source-corpus.pebble.json"
+        }
+      ],
+      "edges": [
+        {
+          "to": "maxim-transportation-source-corpus",
+          "kind": "derived-from",
+          "label": "CROP view recipe",
+          "metadata": {
+            "view": ".crop/views/maxim-transportation-source-corpus.json",
+            "module": "transportation",
+            "custody": "partial"
+          }
+        }
+      ],
+      "format": {
+        "media_type": "application/json",
+        "encoding": "utf-8",
+        "compression": null,
+        "container": null,
+        "schema": "pebble.v1",
+        "record_shape": "corpus-slice",
+        "preferred_local": ".pebble/packs/maxim-transportation-source-corpus.pebble.json"
+      },
+      "tags": [
+        "source-corpus",
+        "crop",
+        "pebble",
+        "partial-custody"
+      ],
+      "metadata": {
+        "source_repo": "MAXIM",
+        "module": "transportation",
+        "distribution": "FLETCH fetch/cache surface for downstream repos",
+        "publication_state": "partial-source-custody"
+      }
+    },
+    {
+      "id": "maxim.transportation.overview.view",
+      "node_kind": "fletch",
+      "shafts": [
+        {
+          "kind": "file",
+          "url": ".crop/views/maxim-transportation-overview.json"
+        }
+      ],
+      "edges": [
+        {
+          "to": "maxim.transportation.source-corpus.pebble",
+          "kind": "derived-from",
+          "label": "Guide-level CROP view recipe",
+          "metadata": {
+            "module": "transportation",
+            "guide": "transportation/00-OVERVIEW.md",
+            "custody": "partial"
+          }
+        }
+      ],
+      "format": {
+        "media_type": "application/json",
+        "encoding": "utf-8",
+        "compression": null,
+        "container": null,
+        "schema": "crop.view.v1",
+        "record_shape": "view-recipe",
+        "preferred_local": ".crop/views/maxim-transportation-overview.json"
+      },
+      "tags": [
+        "source-corpus",
+        "crop",
+        "view",
+        "partial-custody",
+        "guide"
+      ],
+      "metadata": {
+        "source_repo": "MAXIM",
+        "module": "transportation",
+        "guide": "transportation/00-OVERVIEW.md",
+        "publication_state": "partial-source-custody"
+      }
+    },
+    {
+      "id": "maxim.transportation.overview.pebble",
+      "node_kind": "fletch",
+      "shafts": [
+        {
+          "kind": "file",
+          "url": ".pebble/packs/maxim-transportation-overview.pebble.json"
+        }
+      ],
+      "edges": [
+        {
+          "to": "maxim.transportation.overview.view",
+          "kind": "derived-from",
+          "label": "Guide-level CROP view recipe",
+          "metadata": {
+            "module": "transportation",
+            "custody": "partial"
+          }
+        },
+        {
+          "to": "maxim.transportation.source-corpus.pebble",
+          "kind": "derived-from",
+          "label": "Guide-level CROP view",
+          "metadata": {
+            "view": ".crop/views/maxim-transportation-overview.json",
+            "module": "transportation",
+            "custody": "partial"
+          }
+        }
+      ],
+      "format": {
+        "media_type": "application/json",
+        "encoding": "utf-8",
+        "compression": null,
+        "container": null,
+        "schema": "pebble.v1",
+        "record_shape": "corpus-slice",
+        "preferred_local": ".pebble/packs/maxim-transportation-overview.pebble.json"
+      },
+      "tags": [
+        "source-corpus",
+        "crop",
+        "pebble",
+        "partial-custody",
+        "guide"
+      ],
+      "metadata": {
+        "source_repo": "MAXIM",
+        "module": "transportation",
+        "guide": "transportation/00-OVERVIEW.md",
+        "publication_state": "partial-source-custody"
+      }
+    },
+    {
+      "id": "maxim.transportation.overview.proof-source",
+      "node_kind": "fletch",
+      "shafts": [
+        {
+          "kind": "file",
+          "url": ".proof/backfill/sources/transportation/proof-source/00-OVERVIEW.source.md"
+        }
+      ],
+      "edges": [
+        {
+          "to": "maxim.transportation.overview.view",
+          "kind": "derived-from",
+          "label": "Literal PROOF source for guide view",
+          "metadata": {
+            "module": "transportation",
+            "guide": "transportation/00-OVERVIEW.md",
+            "custody": "partial"
+          }
+        }
+      ],
+      "format": {
+        "media_type": "text/markdown",
+        "encoding": "utf-8",
+        "compression": null,
+        "container": null,
+        "schema": "proof.source.literal_markdown.v1",
+        "record_shape": "literal-source",
+        "preferred_local": ".proof/backfill/sources/transportation/proof-source/00-OVERVIEW.source.md"
+      },
+      "tags": [
+        "source-corpus",
+        "proof",
+        "source",
+        "partial-custody",
+        "guide"
+      ],
+      "metadata": {
+        "source_repo": "MAXIM",
+        "module": "transportation",
+        "guide": "transportation/00-OVERVIEW.md",
+        "publication_state": "partial-source-custody"
+      }
+    },
+    {
+      "id": "maxim.transportation.overview.tables",
+      "node_kind": "fletch",
+      "shafts": [
+        {
+          "kind": "file",
+          "url": ".proof/backfill/sources/transportation/proof-source/00-OVERVIEW.tables.json"
+        }
+      ],
+      "edges": [
+        {
+          "to": "maxim.transportation.overview.proof-source",
+          "kind": "derived-from",
+          "label": "PROOF markdown table sidecar",
+          "metadata": {
+            "module": "transportation",
+            "guide": "transportation/00-OVERVIEW.md",
+            "custody": "partial"
+          }
+        }
+      ],
+      "format": {
+        "media_type": "application/json",
+        "encoding": "utf-8",
+        "compression": null,
+        "container": null,
+        "schema": "proof.backfill.tables.v1",
+        "record_shape": "table-sidecar",
+        "preferred_local": ".proof/backfill/sources/transportation/proof-source/00-OVERVIEW.tables.json"
+      },
+      "tags": [
+        "source-corpus",
+        "proof",
+        "tables",
+        "partial-custody",
+        "guide"
+      ],
+      "metadata": {
+        "source_repo": "MAXIM",
+        "module": "transportation",
+        "guide": "transportation/00-OVERVIEW.md",
+        "publication_state": "partial-source-custody"
+      }
+    },
+    {
+      "id": "maxim.transportation.overview.blocks",
+      "node_kind": "fletch",
+      "shafts": [
+        {
+          "kind": "file",
+          "url": ".proof/backfill/sources/transportation/proof-source/00-OVERVIEW.blocks.json"
+        }
+      ],
+      "edges": [
+        {
+          "to": "maxim.transportation.overview.proof-source",
+          "kind": "derived-from",
+          "label": "PROOF structured block sidecar",
+          "metadata": {
+            "module": "transportation",
+            "guide": "transportation/00-OVERVIEW.md",
+            "custody": "partial"
+          }
+        }
+      ],
+      "format": {
+        "media_type": "application/json",
+        "encoding": "utf-8",
+        "compression": null,
+        "container": null,
+        "schema": "proof.backfill.blocks.v1",
+        "record_shape": "structured-block-sidecar",
+        "preferred_local": ".proof/backfill/sources/transportation/proof-source/00-OVERVIEW.blocks.json"
+      },
+      "tags": [
+        "source-corpus",
+        "proof",
+        "blocks",
+        "partial-custody",
+        "guide"
+      ],
+      "metadata": {
+        "source_repo": "MAXIM",
+        "module": "transportation",
+        "guide": "transportation/00-OVERVIEW.md",
+        "publication_state": "partial-source-custody"
+      }
+    },
+    {
+      "id": "maxim.transportation.rail.view",
+      "node_kind": "fletch",
+      "shafts": [
+        {
+          "kind": "file",
+          "url": ".crop/views/maxim-transportation-rail.json"
+        }
+      ],
+      "edges": [
+        {
+          "to": "maxim.transportation.source-corpus.pebble",
+          "kind": "derived-from",
+          "label": "Guide-level CROP view recipe",
+          "metadata": {
+            "module": "transportation",
+            "guide": "transportation/01-RAIL.md",
+            "custody": "partial"
+          }
+        }
+      ],
+      "format": {
+        "media_type": "application/json",
+        "encoding": "utf-8",
+        "compression": null,
+        "container": null,
+        "schema": "crop.view.v1",
+        "record_shape": "view-recipe",
+        "preferred_local": ".crop/views/maxim-transportation-rail.json"
+      },
+      "tags": [
+        "source-corpus",
+        "crop",
+        "view",
+        "partial-custody",
+        "guide"
+      ],
+      "metadata": {
+        "source_repo": "MAXIM",
+        "module": "transportation",
+        "guide": "transportation/01-RAIL.md",
+        "publication_state": "partial-source-custody"
+      }
+    },
+    {
+      "id": "maxim.transportation.rail.pebble",
+      "node_kind": "fletch",
+      "shafts": [
+        {
+          "kind": "file",
+          "url": ".pebble/packs/maxim-transportation-rail.pebble.json"
+        }
+      ],
+      "edges": [
+        {
+          "to": "maxim.transportation.rail.view",
+          "kind": "derived-from",
+          "label": "Guide-level CROP view recipe",
+          "metadata": {
+            "module": "transportation",
+            "custody": "partial"
+          }
+        },
+        {
+          "to": "maxim.transportation.source-corpus.pebble",
+          "kind": "derived-from",
+          "label": "Guide-level CROP view",
+          "metadata": {
+            "view": ".crop/views/maxim-transportation-rail.json",
+            "module": "transportation",
+            "custody": "partial"
+          }
+        }
+      ],
+      "format": {
+        "media_type": "application/json",
+        "encoding": "utf-8",
+        "compression": null,
+        "container": null,
+        "schema": "pebble.v1",
+        "record_shape": "corpus-slice",
+        "preferred_local": ".pebble/packs/maxim-transportation-rail.pebble.json"
+      },
+      "tags": [
+        "source-corpus",
+        "crop",
+        "pebble",
+        "partial-custody",
+        "guide"
+      ],
+      "metadata": {
+        "source_repo": "MAXIM",
+        "module": "transportation",
+        "guide": "transportation/01-RAIL.md",
+        "publication_state": "partial-source-custody"
+      }
+    },
+    {
+      "id": "maxim.transportation.rail.proof-source",
+      "node_kind": "fletch",
+      "shafts": [
+        {
+          "kind": "file",
+          "url": ".proof/backfill/sources/transportation/proof-source/01-RAIL.source.md"
+        }
+      ],
+      "edges": [
+        {
+          "to": "maxim.transportation.rail.view",
+          "kind": "derived-from",
+          "label": "Literal PROOF source for guide view",
+          "metadata": {
+            "module": "transportation",
+            "guide": "transportation/01-RAIL.md",
+            "custody": "partial"
+          }
+        }
+      ],
+      "format": {
+        "media_type": "text/markdown",
+        "encoding": "utf-8",
+        "compression": null,
+        "container": null,
+        "schema": "proof.source.literal_markdown.v1",
+        "record_shape": "literal-source",
+        "preferred_local": ".proof/backfill/sources/transportation/proof-source/01-RAIL.source.md"
+      },
+      "tags": [
+        "source-corpus",
+        "proof",
+        "source",
+        "partial-custody",
+        "guide"
+      ],
+      "metadata": {
+        "source_repo": "MAXIM",
+        "module": "transportation",
+        "guide": "transportation/01-RAIL.md",
+        "publication_state": "partial-source-custody"
+      }
+    },
+    {
+      "id": "maxim.transportation.rail.tables",
+      "node_kind": "fletch",
+      "shafts": [
+        {
+          "kind": "file",
+          "url": ".proof/backfill/sources/transportation/proof-source/01-RAIL.tables.json"
+        }
+      ],
+      "edges": [
+        {
+          "to": "maxim.transportation.rail.proof-source",
+          "kind": "derived-from",
+          "label": "PROOF markdown table sidecar",
+          "metadata": {
+            "module": "transportation",
+            "guide": "transportation/01-RAIL.md",
+            "custody": "partial"
+          }
+        }
+      ],
+      "format": {
+        "media_type": "application/json",
+        "encoding": "utf-8",
+        "compression": null,
+        "container": null,
+        "schema": "proof.backfill.tables.v1",
+        "record_shape": "table-sidecar",
+        "preferred_local": ".proof/backfill/sources/transportation/proof-source/01-RAIL.tables.json"
+      },
+      "tags": [
+        "source-corpus",
+        "proof",
+        "tables",
+        "partial-custody",
+        "guide"
+      ],
+      "metadata": {
+        "source_repo": "MAXIM",
+        "module": "transportation",
+        "guide": "transportation/01-RAIL.md",
+        "publication_state": "partial-source-custody"
+      }
+    },
+    {
+      "id": "maxim.transportation.rail.blocks",
+      "node_kind": "fletch",
+      "shafts": [
+        {
+          "kind": "file",
+          "url": ".proof/backfill/sources/transportation/proof-source/01-RAIL.blocks.json"
+        }
+      ],
+      "edges": [
+        {
+          "to": "maxim.transportation.rail.proof-source",
+          "kind": "derived-from",
+          "label": "PROOF structured block sidecar",
+          "metadata": {
+            "module": "transportation",
+            "guide": "transportation/01-RAIL.md",
+            "custody": "partial"
+          }
+        }
+      ],
+      "format": {
+        "media_type": "application/json",
+        "encoding": "utf-8",
+        "compression": null,
+        "container": null,
+        "schema": "proof.backfill.blocks.v1",
+        "record_shape": "structured-block-sidecar",
+        "preferred_local": ".proof/backfill/sources/transportation/proof-source/01-RAIL.blocks.json"
+      },
+      "tags": [
+        "source-corpus",
+        "proof",
+        "blocks",
+        "partial-custody",
+        "guide"
+      ],
+      "metadata": {
+        "source_repo": "MAXIM",
+        "module": "transportation",
+        "guide": "transportation/01-RAIL.md",
+        "publication_state": "partial-source-custody"
+      }
+    },
+    {
+      "id": "maxim.transportation.road-highway.view",
+      "node_kind": "fletch",
+      "shafts": [
+        {
+          "kind": "file",
+          "url": ".crop/views/maxim-transportation-road-highway.json"
+        }
+      ],
+      "edges": [
+        {
+          "to": "maxim.transportation.source-corpus.pebble",
+          "kind": "derived-from",
+          "label": "Guide-level CROP view recipe",
+          "metadata": {
+            "module": "transportation",
+            "guide": "transportation/02-ROAD-HIGHWAY.md",
+            "custody": "partial"
+          }
+        }
+      ],
+      "format": {
+        "media_type": "application/json",
+        "encoding": "utf-8",
+        "compression": null,
+        "container": null,
+        "schema": "crop.view.v1",
+        "record_shape": "view-recipe",
+        "preferred_local": ".crop/views/maxim-transportation-road-highway.json"
+      },
+      "tags": [
+        "source-corpus",
+        "crop",
+        "view",
+        "partial-custody",
+        "guide"
+      ],
+      "metadata": {
+        "source_repo": "MAXIM",
+        "module": "transportation",
+        "guide": "transportation/02-ROAD-HIGHWAY.md",
+        "publication_state": "partial-source-custody"
+      }
+    },
+    {
+      "id": "maxim.transportation.road-highway.pebble",
+      "node_kind": "fletch",
+      "shafts": [
+        {
+          "kind": "file",
+          "url": ".pebble/packs/maxim-transportation-road-highway.pebble.json"
+        }
+      ],
+      "edges": [
+        {
+          "to": "maxim.transportation.road-highway.view",
+          "kind": "derived-from",
+          "label": "Guide-level CROP view recipe",
+          "metadata": {
+            "module": "transportation",
+            "custody": "partial"
+          }
+        },
+        {
+          "to": "maxim.transportation.source-corpus.pebble",
+          "kind": "derived-from",
+          "label": "Guide-level CROP view",
+          "metadata": {
+            "view": ".crop/views/maxim-transportation-road-highway.json",
+            "module": "transportation",
+            "custody": "partial"
+          }
+        }
+      ],
+      "format": {
+        "media_type": "application/json",
+        "encoding": "utf-8",
+        "compression": null,
+        "container": null,
+        "schema": "pebble.v1",
+        "record_shape": "corpus-slice",
+        "preferred_local": ".pebble/packs/maxim-transportation-road-highway.pebble.json"
+      },
+      "tags": [
+        "source-corpus",
+        "crop",
+        "pebble",
+        "partial-custody",
+        "guide"
+      ],
+      "metadata": {
+        "source_repo": "MAXIM",
+        "module": "transportation",
+        "guide": "transportation/02-ROAD-HIGHWAY.md",
+        "publication_state": "partial-source-custody"
+      }
+    },
+    {
+      "id": "maxim.transportation.road-highway.proof-source",
+      "node_kind": "fletch",
+      "shafts": [
+        {
+          "kind": "file",
+          "url": ".proof/backfill/sources/transportation/proof-source/02-ROAD-HIGHWAY.source.md"
+        }
+      ],
+      "edges": [
+        {
+          "to": "maxim.transportation.road-highway.view",
+          "kind": "derived-from",
+          "label": "Literal PROOF source for guide view",
+          "metadata": {
+            "module": "transportation",
+            "guide": "transportation/02-ROAD-HIGHWAY.md",
+            "custody": "partial"
+          }
+        }
+      ],
+      "format": {
+        "media_type": "text/markdown",
+        "encoding": "utf-8",
+        "compression": null,
+        "container": null,
+        "schema": "proof.source.literal_markdown.v1",
+        "record_shape": "literal-source",
+        "preferred_local": ".proof/backfill/sources/transportation/proof-source/02-ROAD-HIGHWAY.source.md"
+      },
+      "tags": [
+        "source-corpus",
+        "proof",
+        "source",
+        "partial-custody",
+        "guide"
+      ],
+      "metadata": {
+        "source_repo": "MAXIM",
+        "module": "transportation",
+        "guide": "transportation/02-ROAD-HIGHWAY.md",
+        "publication_state": "partial-source-custody"
+      }
+    },
+    {
+      "id": "maxim.transportation.road-highway.tables",
+      "node_kind": "fletch",
+      "shafts": [
+        {
+          "kind": "file",
+          "url": ".proof/backfill/sources/transportation/proof-source/02-ROAD-HIGHWAY.tables.json"
+        }
+      ],
+      "edges": [
+        {
+          "to": "maxim.transportation.road-highway.proof-source",
+          "kind": "derived-from",
+          "label": "PROOF markdown table sidecar",
+          "metadata": {
+            "module": "transportation",
+            "guide": "transportation/02-ROAD-HIGHWAY.md",
+            "custody": "partial"
+          }
+        }
+      ],
+      "format": {
+        "media_type": "application/json",
+        "encoding": "utf-8",
+        "compression": null,
+        "container": null,
+        "schema": "proof.backfill.tables.v1",
+        "record_shape": "table-sidecar",
+        "preferred_local": ".proof/backfill/sources/transportation/proof-source/02-ROAD-HIGHWAY.tables.json"
+      },
+      "tags": [
+        "source-corpus",
+        "proof",
+        "tables",
+        "partial-custody",
+        "guide"
+      ],
+      "metadata": {
+        "source_repo": "MAXIM",
+        "module": "transportation",
+        "guide": "transportation/02-ROAD-HIGHWAY.md",
+        "publication_state": "partial-source-custody"
+      }
+    },
+    {
+      "id": "maxim.transportation.road-highway.blocks",
+      "node_kind": "fletch",
+      "shafts": [
+        {
+          "kind": "file",
+          "url": ".proof/backfill/sources/transportation/proof-source/02-ROAD-HIGHWAY.blocks.json"
+        }
+      ],
+      "edges": [
+        {
+          "to": "maxim.transportation.road-highway.proof-source",
+          "kind": "derived-from",
+          "label": "PROOF structured block sidecar",
+          "metadata": {
+            "module": "transportation",
+            "guide": "transportation/02-ROAD-HIGHWAY.md",
+            "custody": "partial"
+          }
+        }
+      ],
+      "format": {
+        "media_type": "application/json",
+        "encoding": "utf-8",
+        "compression": null,
+        "container": null,
+        "schema": "proof.backfill.blocks.v1",
+        "record_shape": "structured-block-sidecar",
+        "preferred_local": ".proof/backfill/sources/transportation/proof-source/02-ROAD-HIGHWAY.blocks.json"
+      },
+      "tags": [
+        "source-corpus",
+        "proof",
+        "blocks",
+        "partial-custody",
+        "guide"
+      ],
+      "metadata": {
+        "source_repo": "MAXIM",
+        "module": "transportation",
+        "guide": "transportation/02-ROAD-HIGHWAY.md",
+        "publication_state": "partial-source-custody"
+      }
+    },
+    {
+      "id": "maxim.transportation.maritime.view",
+      "node_kind": "fletch",
+      "shafts": [
+        {
+          "kind": "file",
+          "url": ".crop/views/maxim-transportation-maritime.json"
+        }
+      ],
+      "edges": [
+        {
+          "to": "maxim.transportation.source-corpus.pebble",
+          "kind": "derived-from",
+          "label": "Guide-level CROP view recipe",
+          "metadata": {
+            "module": "transportation",
+            "guide": "transportation/03-MARITIME.md",
+            "custody": "partial"
+          }
+        }
+      ],
+      "format": {
+        "media_type": "application/json",
+        "encoding": "utf-8",
+        "compression": null,
+        "container": null,
+        "schema": "crop.view.v1",
+        "record_shape": "view-recipe",
+        "preferred_local": ".crop/views/maxim-transportation-maritime.json"
+      },
+      "tags": [
+        "source-corpus",
+        "crop",
+        "view",
+        "partial-custody",
+        "guide"
+      ],
+      "metadata": {
+        "source_repo": "MAXIM",
+        "module": "transportation",
+        "guide": "transportation/03-MARITIME.md",
+        "publication_state": "partial-source-custody"
+      }
+    },
+    {
+      "id": "maxim.transportation.maritime.pebble",
+      "node_kind": "fletch",
+      "shafts": [
+        {
+          "kind": "file",
+          "url": ".pebble/packs/maxim-transportation-maritime.pebble.json"
+        }
+      ],
+      "edges": [
+        {
+          "to": "maxim.transportation.maritime.view",
+          "kind": "derived-from",
+          "label": "Guide-level CROP view recipe",
+          "metadata": {
+            "module": "transportation",
+            "custody": "partial"
+          }
+        },
+        {
+          "to": "maxim.transportation.source-corpus.pebble",
+          "kind": "derived-from",
+          "label": "Guide-level CROP view",
+          "metadata": {
+            "view": ".crop/views/maxim-transportation-maritime.json",
+            "module": "transportation",
+            "custody": "partial"
+          }
+        }
+      ],
+      "format": {
+        "media_type": "application/json",
+        "encoding": "utf-8",
+        "compression": null,
+        "container": null,
+        "schema": "pebble.v1",
+        "record_shape": "corpus-slice",
+        "preferred_local": ".pebble/packs/maxim-transportation-maritime.pebble.json"
+      },
+      "tags": [
+        "source-corpus",
+        "crop",
+        "pebble",
+        "partial-custody",
+        "guide"
+      ],
+      "metadata": {
+        "source_repo": "MAXIM",
+        "module": "transportation",
+        "guide": "transportation/03-MARITIME.md",
+        "publication_state": "partial-source-custody"
+      }
+    },
+    {
+      "id": "maxim.transportation.maritime.proof-source",
+      "node_kind": "fletch",
+      "shafts": [
+        {
+          "kind": "file",
+          "url": ".proof/backfill/sources/transportation/proof-source/03-MARITIME.source.md"
+        }
+      ],
+      "edges": [
+        {
+          "to": "maxim.transportation.maritime.view",
+          "kind": "derived-from",
+          "label": "Literal PROOF source for guide view",
+          "metadata": {
+            "module": "transportation",
+            "guide": "transportation/03-MARITIME.md",
+            "custody": "partial"
+          }
+        }
+      ],
+      "format": {
+        "media_type": "text/markdown",
+        "encoding": "utf-8",
+        "compression": null,
+        "container": null,
+        "schema": "proof.source.literal_markdown.v1",
+        "record_shape": "literal-source",
+        "preferred_local": ".proof/backfill/sources/transportation/proof-source/03-MARITIME.source.md"
+      },
+      "tags": [
+        "source-corpus",
+        "proof",
+        "source",
+        "partial-custody",
+        "guide"
+      ],
+      "metadata": {
+        "source_repo": "MAXIM",
+        "module": "transportation",
+        "guide": "transportation/03-MARITIME.md",
+        "publication_state": "partial-source-custody"
+      }
+    },
+    {
+      "id": "maxim.transportation.maritime.tables",
+      "node_kind": "fletch",
+      "shafts": [
+        {
+          "kind": "file",
+          "url": ".proof/backfill/sources/transportation/proof-source/03-MARITIME.tables.json"
+        }
+      ],
+      "edges": [
+        {
+          "to": "maxim.transportation.maritime.proof-source",
+          "kind": "derived-from",
+          "label": "PROOF markdown table sidecar",
+          "metadata": {
+            "module": "transportation",
+            "guide": "transportation/03-MARITIME.md",
+            "custody": "partial"
+          }
+        }
+      ],
+      "format": {
+        "media_type": "application/json",
+        "encoding": "utf-8",
+        "compression": null,
+        "container": null,
+        "schema": "proof.backfill.tables.v1",
+        "record_shape": "table-sidecar",
+        "preferred_local": ".proof/backfill/sources/transportation/proof-source/03-MARITIME.tables.json"
+      },
+      "tags": [
+        "source-corpus",
+        "proof",
+        "tables",
+        "partial-custody",
+        "guide"
+      ],
+      "metadata": {
+        "source_repo": "MAXIM",
+        "module": "transportation",
+        "guide": "transportation/03-MARITIME.md",
+        "publication_state": "partial-source-custody"
+      }
+    },
+    {
+      "id": "maxim.transportation.maritime.blocks",
+      "node_kind": "fletch",
+      "shafts": [
+        {
+          "kind": "file",
+          "url": ".proof/backfill/sources/transportation/proof-source/03-MARITIME.blocks.json"
+        }
+      ],
+      "edges": [
+        {
+          "to": "maxim.transportation.maritime.proof-source",
+          "kind": "derived-from",
+          "label": "PROOF structured block sidecar",
+          "metadata": {
+            "module": "transportation",
+            "guide": "transportation/03-MARITIME.md",
+            "custody": "partial"
+          }
+        }
+      ],
+      "format": {
+        "media_type": "application/json",
+        "encoding": "utf-8",
+        "compression": null,
+        "container": null,
+        "schema": "proof.backfill.blocks.v1",
+        "record_shape": "structured-block-sidecar",
+        "preferred_local": ".proof/backfill/sources/transportation/proof-source/03-MARITIME.blocks.json"
+      },
+      "tags": [
+        "source-corpus",
+        "proof",
+        "blocks",
+        "partial-custody",
+        "guide"
+      ],
+      "metadata": {
+        "source_repo": "MAXIM",
+        "module": "transportation",
+        "guide": "transportation/03-MARITIME.md",
+        "publication_state": "partial-source-custody"
+      }
+    },
+    {
+      "id": "maxim.transportation.aviation-infra.view",
+      "node_kind": "fletch",
+      "shafts": [
+        {
+          "kind": "file",
+          "url": ".crop/views/maxim-transportation-aviation-infra.json"
+        }
+      ],
+      "edges": [
+        {
+          "to": "maxim.transportation.source-corpus.pebble",
+          "kind": "derived-from",
+          "label": "Guide-level CROP view recipe",
+          "metadata": {
+            "module": "transportation",
+            "guide": "transportation/04-AVIATION-INFRA.md",
+            "custody": "partial"
+          }
+        }
+      ],
+      "format": {
+        "media_type": "application/json",
+        "encoding": "utf-8",
+        "compression": null,
+        "container": null,
+        "schema": "crop.view.v1",
+        "record_shape": "view-recipe",
+        "preferred_local": ".crop/views/maxim-transportation-aviation-infra.json"
+      },
+      "tags": [
+        "source-corpus",
+        "crop",
+        "view",
+        "partial-custody",
+        "guide"
+      ],
+      "metadata": {
+        "source_repo": "MAXIM",
+        "module": "transportation",
+        "guide": "transportation/04-AVIATION-INFRA.md",
+        "publication_state": "partial-source-custody"
+      }
+    },
+    {
+      "id": "maxim.transportation.aviation-infra.pebble",
+      "node_kind": "fletch",
+      "shafts": [
+        {
+          "kind": "file",
+          "url": ".pebble/packs/maxim-transportation-aviation-infra.pebble.json"
+        }
+      ],
+      "edges": [
+        {
+          "to": "maxim.transportation.aviation-infra.view",
+          "kind": "derived-from",
+          "label": "Guide-level CROP view recipe",
+          "metadata": {
+            "module": "transportation",
+            "custody": "partial"
+          }
+        },
+        {
+          "to": "maxim.transportation.source-corpus.pebble",
+          "kind": "derived-from",
+          "label": "Guide-level CROP view",
+          "metadata": {
+            "view": ".crop/views/maxim-transportation-aviation-infra.json",
+            "module": "transportation",
+            "custody": "partial"
+          }
+        }
+      ],
+      "format": {
+        "media_type": "application/json",
+        "encoding": "utf-8",
+        "compression": null,
+        "container": null,
+        "schema": "pebble.v1",
+        "record_shape": "corpus-slice",
+        "preferred_local": ".pebble/packs/maxim-transportation-aviation-infra.pebble.json"
+      },
+      "tags": [
+        "source-corpus",
+        "crop",
+        "pebble",
+        "partial-custody",
+        "guide"
+      ],
+      "metadata": {
+        "source_repo": "MAXIM",
+        "module": "transportation",
+        "guide": "transportation/04-AVIATION-INFRA.md",
+        "publication_state": "partial-source-custody"
+      }
+    },
+    {
+      "id": "maxim.transportation.aviation-infra.proof-source",
+      "node_kind": "fletch",
+      "shafts": [
+        {
+          "kind": "file",
+          "url": ".proof/backfill/sources/transportation/proof-source/04-AVIATION-INFRA.source.md"
+        }
+      ],
+      "edges": [
+        {
+          "to": "maxim.transportation.aviation-infra.view",
+          "kind": "derived-from",
+          "label": "Literal PROOF source for guide view",
+          "metadata": {
+            "module": "transportation",
+            "guide": "transportation/04-AVIATION-INFRA.md",
+            "custody": "partial"
+          }
+        }
+      ],
+      "format": {
+        "media_type": "text/markdown",
+        "encoding": "utf-8",
+        "compression": null,
+        "container": null,
+        "schema": "proof.source.literal_markdown.v1",
+        "record_shape": "literal-source",
+        "preferred_local": ".proof/backfill/sources/transportation/proof-source/04-AVIATION-INFRA.source.md"
+      },
+      "tags": [
+        "source-corpus",
+        "proof",
+        "source",
+        "partial-custody",
+        "guide"
+      ],
+      "metadata": {
+        "source_repo": "MAXIM",
+        "module": "transportation",
+        "guide": "transportation/04-AVIATION-INFRA.md",
+        "publication_state": "partial-source-custody"
+      }
+    },
+    {
+      "id": "maxim.transportation.aviation-infra.tables",
+      "node_kind": "fletch",
+      "shafts": [
+        {
+          "kind": "file",
+          "url": ".proof/backfill/sources/transportation/proof-source/04-AVIATION-INFRA.tables.json"
+        }
+      ],
+      "edges": [
+        {
+          "to": "maxim.transportation.aviation-infra.proof-source",
+          "kind": "derived-from",
+          "label": "PROOF markdown table sidecar",
+          "metadata": {
+            "module": "transportation",
+            "guide": "transportation/04-AVIATION-INFRA.md",
+            "custody": "partial"
+          }
+        }
+      ],
+      "format": {
+        "media_type": "application/json",
+        "encoding": "utf-8",
+        "compression": null,
+        "container": null,
+        "schema": "proof.backfill.tables.v1",
+        "record_shape": "table-sidecar",
+        "preferred_local": ".proof/backfill/sources/transportation/proof-source/04-AVIATION-INFRA.tables.json"
+      },
+      "tags": [
+        "source-corpus",
+        "proof",
+        "tables",
+        "partial-custody",
+        "guide"
+      ],
+      "metadata": {
+        "source_repo": "MAXIM",
+        "module": "transportation",
+        "guide": "transportation/04-AVIATION-INFRA.md",
+        "publication_state": "partial-source-custody"
+      }
+    },
+    {
+      "id": "maxim.transportation.aviation-infra.blocks",
+      "node_kind": "fletch",
+      "shafts": [
+        {
+          "kind": "file",
+          "url": ".proof/backfill/sources/transportation/proof-source/04-AVIATION-INFRA.blocks.json"
+        }
+      ],
+      "edges": [
+        {
+          "to": "maxim.transportation.aviation-infra.proof-source",
+          "kind": "derived-from",
+          "label": "PROOF structured block sidecar",
+          "metadata": {
+            "module": "transportation",
+            "guide": "transportation/04-AVIATION-INFRA.md",
+            "custody": "partial"
+          }
+        }
+      ],
+      "format": {
+        "media_type": "application/json",
+        "encoding": "utf-8",
+        "compression": null,
+        "container": null,
+        "schema": "proof.backfill.blocks.v1",
+        "record_shape": "structured-block-sidecar",
+        "preferred_local": ".proof/backfill/sources/transportation/proof-source/04-AVIATION-INFRA.blocks.json"
+      },
+      "tags": [
+        "source-corpus",
+        "proof",
+        "blocks",
+        "partial-custody",
+        "guide"
+      ],
+      "metadata": {
+        "source_repo": "MAXIM",
+        "module": "transportation",
+        "guide": "transportation/04-AVIATION-INFRA.md",
+        "publication_state": "partial-source-custody"
+      }
+    },
+    {
+      "id": "maxim.transportation.logistics.view",
+      "node_kind": "fletch",
+      "shafts": [
+        {
+          "kind": "file",
+          "url": ".crop/views/maxim-transportation-logistics.json"
+        }
+      ],
+      "edges": [
+        {
+          "to": "maxim.transportation.source-corpus.pebble",
+          "kind": "derived-from",
+          "label": "Guide-level CROP view recipe",
+          "metadata": {
+            "module": "transportation",
+            "guide": "transportation/05-LOGISTICS.md",
+            "custody": "partial"
+          }
+        }
+      ],
+      "format": {
+        "media_type": "application/json",
+        "encoding": "utf-8",
+        "compression": null,
+        "container": null,
+        "schema": "crop.view.v1",
+        "record_shape": "view-recipe",
+        "preferred_local": ".crop/views/maxim-transportation-logistics.json"
+      },
+      "tags": [
+        "source-corpus",
+        "crop",
+        "view",
+        "partial-custody",
+        "guide"
+      ],
+      "metadata": {
+        "source_repo": "MAXIM",
+        "module": "transportation",
+        "guide": "transportation/05-LOGISTICS.md",
+        "publication_state": "partial-source-custody"
+      }
+    },
+    {
+      "id": "maxim.transportation.logistics.pebble",
+      "node_kind": "fletch",
+      "shafts": [
+        {
+          "kind": "file",
+          "url": ".pebble/packs/maxim-transportation-logistics.pebble.json"
+        }
+      ],
+      "edges": [
+        {
+          "to": "maxim.transportation.logistics.view",
+          "kind": "derived-from",
+          "label": "Guide-level CROP view recipe",
+          "metadata": {
+            "module": "transportation",
+            "custody": "partial"
+          }
+        },
+        {
+          "to": "maxim.transportation.source-corpus.pebble",
+          "kind": "derived-from",
+          "label": "Guide-level CROP view",
+          "metadata": {
+            "view": ".crop/views/maxim-transportation-logistics.json",
+            "module": "transportation",
+            "custody": "partial"
+          }
+        }
+      ],
+      "format": {
+        "media_type": "application/json",
+        "encoding": "utf-8",
+        "compression": null,
+        "container": null,
+        "schema": "pebble.v1",
+        "record_shape": "corpus-slice",
+        "preferred_local": ".pebble/packs/maxim-transportation-logistics.pebble.json"
+      },
+      "tags": [
+        "source-corpus",
+        "crop",
+        "pebble",
+        "partial-custody",
+        "guide"
+      ],
+      "metadata": {
+        "source_repo": "MAXIM",
+        "module": "transportation",
+        "guide": "transportation/05-LOGISTICS.md",
+        "publication_state": "partial-source-custody"
+      }
+    },
+    {
+      "id": "maxim.transportation.logistics.proof-source",
+      "node_kind": "fletch",
+      "shafts": [
+        {
+          "kind": "file",
+          "url": ".proof/backfill/sources/transportation/proof-source/05-LOGISTICS.source.md"
+        }
+      ],
+      "edges": [
+        {
+          "to": "maxim.transportation.logistics.view",
+          "kind": "derived-from",
+          "label": "Literal PROOF source for guide view",
+          "metadata": {
+            "module": "transportation",
+            "guide": "transportation/05-LOGISTICS.md",
+            "custody": "partial"
+          }
+        }
+      ],
+      "format": {
+        "media_type": "text/markdown",
+        "encoding": "utf-8",
+        "compression": null,
+        "container": null,
+        "schema": "proof.source.literal_markdown.v1",
+        "record_shape": "literal-source",
+        "preferred_local": ".proof/backfill/sources/transportation/proof-source/05-LOGISTICS.source.md"
+      },
+      "tags": [
+        "source-corpus",
+        "proof",
+        "source",
+        "partial-custody",
+        "guide"
+      ],
+      "metadata": {
+        "source_repo": "MAXIM",
+        "module": "transportation",
+        "guide": "transportation/05-LOGISTICS.md",
+        "publication_state": "partial-source-custody"
+      }
+    },
+    {
+      "id": "maxim.transportation.logistics.tables",
+      "node_kind": "fletch",
+      "shafts": [
+        {
+          "kind": "file",
+          "url": ".proof/backfill/sources/transportation/proof-source/05-LOGISTICS.tables.json"
+        }
+      ],
+      "edges": [
+        {
+          "to": "maxim.transportation.logistics.proof-source",
+          "kind": "derived-from",
+          "label": "PROOF markdown table sidecar",
+          "metadata": {
+            "module": "transportation",
+            "guide": "transportation/05-LOGISTICS.md",
+            "custody": "partial"
+          }
+        }
+      ],
+      "format": {
+        "media_type": "application/json",
+        "encoding": "utf-8",
+        "compression": null,
+        "container": null,
+        "schema": "proof.backfill.tables.v1",
+        "record_shape": "table-sidecar",
+        "preferred_local": ".proof/backfill/sources/transportation/proof-source/05-LOGISTICS.tables.json"
+      },
+      "tags": [
+        "source-corpus",
+        "proof",
+        "tables",
+        "partial-custody",
+        "guide"
+      ],
+      "metadata": {
+        "source_repo": "MAXIM",
+        "module": "transportation",
+        "guide": "transportation/05-LOGISTICS.md",
+        "publication_state": "partial-source-custody"
+      }
+    },
+    {
+      "id": "maxim.transportation.logistics.blocks",
+      "node_kind": "fletch",
+      "shafts": [
+        {
+          "kind": "file",
+          "url": ".proof/backfill/sources/transportation/proof-source/05-LOGISTICS.blocks.json"
+        }
+      ],
+      "edges": [
+        {
+          "to": "maxim.transportation.logistics.proof-source",
+          "kind": "derived-from",
+          "label": "PROOF structured block sidecar",
+          "metadata": {
+            "module": "transportation",
+            "guide": "transportation/05-LOGISTICS.md",
+            "custody": "partial"
+          }
+        }
+      ],
+      "format": {
+        "media_type": "application/json",
+        "encoding": "utf-8",
+        "compression": null,
+        "container": null,
+        "schema": "proof.backfill.blocks.v1",
+        "record_shape": "structured-block-sidecar",
+        "preferred_local": ".proof/backfill/sources/transportation/proof-source/05-LOGISTICS.blocks.json"
+      },
+      "tags": [
+        "source-corpus",
+        "proof",
+        "blocks",
+        "partial-custody",
+        "guide"
+      ],
+      "metadata": {
+        "source_repo": "MAXIM",
+        "module": "transportation",
+        "guide": "transportation/05-LOGISTICS.md",
+        "publication_state": "partial-source-custody"
+      }
+    },
+    {
+      "id": "maxim.transportation.urban-transit.view",
+      "node_kind": "fletch",
+      "shafts": [
+        {
+          "kind": "file",
+          "url": ".crop/views/maxim-transportation-urban-transit.json"
+        }
+      ],
+      "edges": [
+        {
+          "to": "maxim.transportation.source-corpus.pebble",
+          "kind": "derived-from",
+          "label": "Guide-level CROP view recipe",
+          "metadata": {
+            "module": "transportation",
+            "guide": "transportation/06-URBAN-TRANSIT.md",
+            "custody": "partial"
+          }
+        }
+      ],
+      "format": {
+        "media_type": "application/json",
+        "encoding": "utf-8",
+        "compression": null,
+        "container": null,
+        "schema": "crop.view.v1",
+        "record_shape": "view-recipe",
+        "preferred_local": ".crop/views/maxim-transportation-urban-transit.json"
+      },
+      "tags": [
+        "source-corpus",
+        "crop",
+        "view",
+        "partial-custody",
+        "guide"
+      ],
+      "metadata": {
+        "source_repo": "MAXIM",
+        "module": "transportation",
+        "guide": "transportation/06-URBAN-TRANSIT.md",
+        "publication_state": "partial-source-custody"
+      }
+    },
+    {
+      "id": "maxim.transportation.urban-transit.pebble",
+      "node_kind": "fletch",
+      "shafts": [
+        {
+          "kind": "file",
+          "url": ".pebble/packs/maxim-transportation-urban-transit.pebble.json"
+        }
+      ],
+      "edges": [
+        {
+          "to": "maxim.transportation.urban-transit.view",
+          "kind": "derived-from",
+          "label": "Guide-level CROP view recipe",
+          "metadata": {
+            "module": "transportation",
+            "custody": "partial"
+          }
+        },
+        {
+          "to": "maxim.transportation.source-corpus.pebble",
+          "kind": "derived-from",
+          "label": "Guide-level CROP view",
+          "metadata": {
+            "view": ".crop/views/maxim-transportation-urban-transit.json",
+            "module": "transportation",
+            "custody": "partial"
+          }
+        }
+      ],
+      "format": {
+        "media_type": "application/json",
+        "encoding": "utf-8",
+        "compression": null,
+        "container": null,
+        "schema": "pebble.v1",
+        "record_shape": "corpus-slice",
+        "preferred_local": ".pebble/packs/maxim-transportation-urban-transit.pebble.json"
+      },
+      "tags": [
+        "source-corpus",
+        "crop",
+        "pebble",
+        "partial-custody",
+        "guide"
+      ],
+      "metadata": {
+        "source_repo": "MAXIM",
+        "module": "transportation",
+        "guide": "transportation/06-URBAN-TRANSIT.md",
+        "publication_state": "partial-source-custody"
+      }
+    },
+    {
+      "id": "maxim.transportation.urban-transit.proof-source",
+      "node_kind": "fletch",
+      "shafts": [
+        {
+          "kind": "file",
+          "url": ".proof/backfill/sources/transportation/proof-source/06-URBAN-TRANSIT.source.md"
+        }
+      ],
+      "edges": [
+        {
+          "to": "maxim.transportation.urban-transit.view",
+          "kind": "derived-from",
+          "label": "Literal PROOF source for guide view",
+          "metadata": {
+            "module": "transportation",
+            "guide": "transportation/06-URBAN-TRANSIT.md",
+            "custody": "partial"
+          }
+        }
+      ],
+      "format": {
+        "media_type": "text/markdown",
+        "encoding": "utf-8",
+        "compression": null,
+        "container": null,
+        "schema": "proof.source.literal_markdown.v1",
+        "record_shape": "literal-source",
+        "preferred_local": ".proof/backfill/sources/transportation/proof-source/06-URBAN-TRANSIT.source.md"
+      },
+      "tags": [
+        "source-corpus",
+        "proof",
+        "source",
+        "partial-custody",
+        "guide"
+      ],
+      "metadata": {
+        "source_repo": "MAXIM",
+        "module": "transportation",
+        "guide": "transportation/06-URBAN-TRANSIT.md",
+        "publication_state": "partial-source-custody"
+      }
+    },
+    {
+      "id": "maxim.transportation.urban-transit.tables",
+      "node_kind": "fletch",
+      "shafts": [
+        {
+          "kind": "file",
+          "url": ".proof/backfill/sources/transportation/proof-source/06-URBAN-TRANSIT.tables.json"
+        }
+      ],
+      "edges": [
+        {
+          "to": "maxim.transportation.urban-transit.proof-source",
+          "kind": "derived-from",
+          "label": "PROOF markdown table sidecar",
+          "metadata": {
+            "module": "transportation",
+            "guide": "transportation/06-URBAN-TRANSIT.md",
+            "custody": "partial"
+          }
+        }
+      ],
+      "format": {
+        "media_type": "application/json",
+        "encoding": "utf-8",
+        "compression": null,
+        "container": null,
+        "schema": "proof.backfill.tables.v1",
+        "record_shape": "table-sidecar",
+        "preferred_local": ".proof/backfill/sources/transportation/proof-source/06-URBAN-TRANSIT.tables.json"
+      },
+      "tags": [
+        "source-corpus",
+        "proof",
+        "tables",
+        "partial-custody",
+        "guide"
+      ],
+      "metadata": {
+        "source_repo": "MAXIM",
+        "module": "transportation",
+        "guide": "transportation/06-URBAN-TRANSIT.md",
+        "publication_state": "partial-source-custody"
+      }
+    },
+    {
+      "id": "maxim.transportation.urban-transit.blocks",
+      "node_kind": "fletch",
+      "shafts": [
+        {
+          "kind": "file",
+          "url": ".proof/backfill/sources/transportation/proof-source/06-URBAN-TRANSIT.blocks.json"
+        }
+      ],
+      "edges": [
+        {
+          "to": "maxim.transportation.urban-transit.proof-source",
+          "kind": "derived-from",
+          "label": "PROOF structured block sidecar",
+          "metadata": {
+            "module": "transportation",
+            "guide": "transportation/06-URBAN-TRANSIT.md",
+            "custody": "partial"
+          }
+        }
+      ],
+      "format": {
+        "media_type": "application/json",
+        "encoding": "utf-8",
+        "compression": null,
+        "container": null,
+        "schema": "proof.backfill.blocks.v1",
+        "record_shape": "structured-block-sidecar",
+        "preferred_local": ".proof/backfill/sources/transportation/proof-source/06-URBAN-TRANSIT.blocks.json"
+      },
+      "tags": [
+        "source-corpus",
+        "proof",
+        "blocks",
+        "partial-custody",
+        "guide"
+      ],
+      "metadata": {
+        "source_repo": "MAXIM",
+        "module": "transportation",
+        "guide": "transportation/06-URBAN-TRANSIT.md",
+        "publication_state": "partial-source-custody"
+      }
+    },
+    {
+      "id": "maxim.transportation.autonomous-vehicles.view",
+      "node_kind": "fletch",
+      "shafts": [
+        {
+          "kind": "file",
+          "url": ".crop/views/maxim-transportation-autonomous-vehicles.json"
+        }
+      ],
+      "edges": [
+        {
+          "to": "maxim.transportation.source-corpus.pebble",
+          "kind": "derived-from",
+          "label": "Guide-level CROP view recipe",
+          "metadata": {
+            "module": "transportation",
+            "guide": "transportation/07-AUTONOMOUS-VEHICLES.md",
+            "custody": "partial"
+          }
+        }
+      ],
+      "format": {
+        "media_type": "application/json",
+        "encoding": "utf-8",
+        "compression": null,
+        "container": null,
+        "schema": "crop.view.v1",
+        "record_shape": "view-recipe",
+        "preferred_local": ".crop/views/maxim-transportation-autonomous-vehicles.json"
+      },
+      "tags": [
+        "source-corpus",
+        "crop",
+        "view",
+        "partial-custody",
+        "guide"
+      ],
+      "metadata": {
+        "source_repo": "MAXIM",
+        "module": "transportation",
+        "guide": "transportation/07-AUTONOMOUS-VEHICLES.md",
+        "publication_state": "partial-source-custody"
+      }
+    },
+    {
+      "id": "maxim.transportation.autonomous-vehicles.pebble",
+      "node_kind": "fletch",
+      "shafts": [
+        {
+          "kind": "file",
+          "url": ".pebble/packs/maxim-transportation-autonomous-vehicles.pebble.json"
+        }
+      ],
+      "edges": [
+        {
+          "to": "maxim.transportation.autonomous-vehicles.view",
+          "kind": "derived-from",
+          "label": "Guide-level CROP view recipe",
+          "metadata": {
+            "module": "transportation",
+            "custody": "partial"
+          }
+        },
+        {
+          "to": "maxim.transportation.source-corpus.pebble",
+          "kind": "derived-from",
+          "label": "Guide-level CROP view",
+          "metadata": {
+            "view": ".crop/views/maxim-transportation-autonomous-vehicles.json",
+            "module": "transportation",
+            "custody": "partial"
+          }
+        }
+      ],
+      "format": {
+        "media_type": "application/json",
+        "encoding": "utf-8",
+        "compression": null,
+        "container": null,
+        "schema": "pebble.v1",
+        "record_shape": "corpus-slice",
+        "preferred_local": ".pebble/packs/maxim-transportation-autonomous-vehicles.pebble.json"
+      },
+      "tags": [
+        "source-corpus",
+        "crop",
+        "pebble",
+        "partial-custody",
+        "guide"
+      ],
+      "metadata": {
+        "source_repo": "MAXIM",
+        "module": "transportation",
+        "guide": "transportation/07-AUTONOMOUS-VEHICLES.md",
+        "publication_state": "partial-source-custody"
+      }
+    },
+    {
+      "id": "maxim.transportation.autonomous-vehicles.proof-source",
+      "node_kind": "fletch",
+      "shafts": [
+        {
+          "kind": "file",
+          "url": ".proof/backfill/sources/transportation/proof-source/07-AUTONOMOUS-VEHICLES.source.md"
+        }
+      ],
+      "edges": [
+        {
+          "to": "maxim.transportation.autonomous-vehicles.view",
+          "kind": "derived-from",
+          "label": "Literal PROOF source for guide view",
+          "metadata": {
+            "module": "transportation",
+            "guide": "transportation/07-AUTONOMOUS-VEHICLES.md",
+            "custody": "partial"
+          }
+        }
+      ],
+      "format": {
+        "media_type": "text/markdown",
+        "encoding": "utf-8",
+        "compression": null,
+        "container": null,
+        "schema": "proof.source.literal_markdown.v1",
+        "record_shape": "literal-source",
+        "preferred_local": ".proof/backfill/sources/transportation/proof-source/07-AUTONOMOUS-VEHICLES.source.md"
+      },
+      "tags": [
+        "source-corpus",
+        "proof",
+        "source",
+        "partial-custody",
+        "guide"
+      ],
+      "metadata": {
+        "source_repo": "MAXIM",
+        "module": "transportation",
+        "guide": "transportation/07-AUTONOMOUS-VEHICLES.md",
+        "publication_state": "partial-source-custody"
+      }
+    },
+    {
+      "id": "maxim.transportation.autonomous-vehicles.tables",
+      "node_kind": "fletch",
+      "shafts": [
+        {
+          "kind": "file",
+          "url": ".proof/backfill/sources/transportation/proof-source/07-AUTONOMOUS-VEHICLES.tables.json"
+        }
+      ],
+      "edges": [
+        {
+          "to": "maxim.transportation.autonomous-vehicles.proof-source",
+          "kind": "derived-from",
+          "label": "PROOF markdown table sidecar",
+          "metadata": {
+            "module": "transportation",
+            "guide": "transportation/07-AUTONOMOUS-VEHICLES.md",
+            "custody": "partial"
+          }
+        }
+      ],
+      "format": {
+        "media_type": "application/json",
+        "encoding": "utf-8",
+        "compression": null,
+        "container": null,
+        "schema": "proof.backfill.tables.v1",
+        "record_shape": "table-sidecar",
+        "preferred_local": ".proof/backfill/sources/transportation/proof-source/07-AUTONOMOUS-VEHICLES.tables.json"
+      },
+      "tags": [
+        "source-corpus",
+        "proof",
+        "tables",
+        "partial-custody",
+        "guide"
+      ],
+      "metadata": {
+        "source_repo": "MAXIM",
+        "module": "transportation",
+        "guide": "transportation/07-AUTONOMOUS-VEHICLES.md",
+        "publication_state": "partial-source-custody"
+      }
+    },
+    {
+      "id": "maxim.transportation.autonomous-vehicles.blocks",
+      "node_kind": "fletch",
+      "shafts": [
+        {
+          "kind": "file",
+          "url": ".proof/backfill/sources/transportation/proof-source/07-AUTONOMOUS-VEHICLES.blocks.json"
+        }
+      ],
+      "edges": [
+        {
+          "to": "maxim.transportation.autonomous-vehicles.proof-source",
+          "kind": "derived-from",
+          "label": "PROOF structured block sidecar",
+          "metadata": {
+            "module": "transportation",
+            "guide": "transportation/07-AUTONOMOUS-VEHICLES.md",
+            "custody": "partial"
+          }
+        }
+      ],
+      "format": {
+        "media_type": "application/json",
+        "encoding": "utf-8",
+        "compression": null,
+        "container": null,
+        "schema": "proof.backfill.blocks.v1",
+        "record_shape": "structured-block-sidecar",
+        "preferred_local": ".proof/backfill/sources/transportation/proof-source/07-AUTONOMOUS-VEHICLES.blocks.json"
+      },
+      "tags": [
+        "source-corpus",
+        "proof",
+        "blocks",
+        "partial-custody",
+        "guide"
+      ],
+      "metadata": {
+        "source_repo": "MAXIM",
+        "module": "transportation",
+        "guide": "transportation/07-AUTONOMOUS-VEHICLES.md",
+        "publication_state": "partial-source-custody"
+      }
+    },
+    {
+      "id": "maxim.transportation.transportation-econ.view",
+      "node_kind": "fletch",
+      "shafts": [
+        {
+          "kind": "file",
+          "url": ".crop/views/maxim-transportation-transportation-econ.json"
+        }
+      ],
+      "edges": [
+        {
+          "to": "maxim.transportation.source-corpus.pebble",
+          "kind": "derived-from",
+          "label": "Guide-level CROP view recipe",
+          "metadata": {
+            "module": "transportation",
+            "guide": "transportation/08-TRANSPORTATION-ECON.md",
+            "custody": "partial"
+          }
+        }
+      ],
+      "format": {
+        "media_type": "application/json",
+        "encoding": "utf-8",
+        "compression": null,
+        "container": null,
+        "schema": "crop.view.v1",
+        "record_shape": "view-recipe",
+        "preferred_local": ".crop/views/maxim-transportation-transportation-econ.json"
+      },
+      "tags": [
+        "source-corpus",
+        "crop",
+        "view",
+        "partial-custody",
+        "guide"
+      ],
+      "metadata": {
+        "source_repo": "MAXIM",
+        "module": "transportation",
+        "guide": "transportation/08-TRANSPORTATION-ECON.md",
+        "publication_state": "partial-source-custody"
+      }
+    },
+    {
+      "id": "maxim.transportation.transportation-econ.pebble",
+      "node_kind": "fletch",
+      "shafts": [
+        {
+          "kind": "file",
+          "url": ".pebble/packs/maxim-transportation-transportation-econ.pebble.json"
+        }
+      ],
+      "edges": [
+        {
+          "to": "maxim.transportation.transportation-econ.view",
+          "kind": "derived-from",
+          "label": "Guide-level CROP view recipe",
+          "metadata": {
+            "module": "transportation",
+            "custody": "partial"
+          }
+        },
+        {
+          "to": "maxim.transportation.source-corpus.pebble",
+          "kind": "derived-from",
+          "label": "Guide-level CROP view",
+          "metadata": {
+            "view": ".crop/views/maxim-transportation-transportation-econ.json",
+            "module": "transportation",
+            "custody": "partial"
+          }
+        }
+      ],
+      "format": {
+        "media_type": "application/json",
+        "encoding": "utf-8",
+        "compression": null,
+        "container": null,
+        "schema": "pebble.v1",
+        "record_shape": "corpus-slice",
+        "preferred_local": ".pebble/packs/maxim-transportation-transportation-econ.pebble.json"
+      },
+      "tags": [
+        "source-corpus",
+        "crop",
+        "pebble",
+        "partial-custody",
+        "guide"
+      ],
+      "metadata": {
+        "source_repo": "MAXIM",
+        "module": "transportation",
+        "guide": "transportation/08-TRANSPORTATION-ECON.md",
+        "publication_state": "partial-source-custody"
+      }
+    },
+    {
+      "id": "maxim.transportation.transportation-econ.proof-source",
+      "node_kind": "fletch",
+      "shafts": [
+        {
+          "kind": "file",
+          "url": ".proof/backfill/sources/transportation/proof-source/08-TRANSPORTATION-ECON.source.md"
+        }
+      ],
+      "edges": [
+        {
+          "to": "maxim.transportation.transportation-econ.view",
+          "kind": "derived-from",
+          "label": "Literal PROOF source for guide view",
+          "metadata": {
+            "module": "transportation",
+            "guide": "transportation/08-TRANSPORTATION-ECON.md",
+            "custody": "partial"
+          }
+        }
+      ],
+      "format": {
+        "media_type": "text/markdown",
+        "encoding": "utf-8",
+        "compression": null,
+        "container": null,
+        "schema": "proof.source.literal_markdown.v1",
+        "record_shape": "literal-source",
+        "preferred_local": ".proof/backfill/sources/transportation/proof-source/08-TRANSPORTATION-ECON.source.md"
+      },
+      "tags": [
+        "source-corpus",
+        "proof",
+        "source",
+        "partial-custody",
+        "guide"
+      ],
+      "metadata": {
+        "source_repo": "MAXIM",
+        "module": "transportation",
+        "guide": "transportation/08-TRANSPORTATION-ECON.md",
+        "publication_state": "partial-source-custody"
+      }
+    },
+    {
+      "id": "maxim.transportation.transportation-econ.tables",
+      "node_kind": "fletch",
+      "shafts": [
+        {
+          "kind": "file",
+          "url": ".proof/backfill/sources/transportation/proof-source/08-TRANSPORTATION-ECON.tables.json"
+        }
+      ],
+      "edges": [
+        {
+          "to": "maxim.transportation.transportation-econ.proof-source",
+          "kind": "derived-from",
+          "label": "PROOF markdown table sidecar",
+          "metadata": {
+            "module": "transportation",
+            "guide": "transportation/08-TRANSPORTATION-ECON.md",
+            "custody": "partial"
+          }
+        }
+      ],
+      "format": {
+        "media_type": "application/json",
+        "encoding": "utf-8",
+        "compression": null,
+        "container": null,
+        "schema": "proof.backfill.tables.v1",
+        "record_shape": "table-sidecar",
+        "preferred_local": ".proof/backfill/sources/transportation/proof-source/08-TRANSPORTATION-ECON.tables.json"
+      },
+      "tags": [
+        "source-corpus",
+        "proof",
+        "tables",
+        "partial-custody",
+        "guide"
+      ],
+      "metadata": {
+        "source_repo": "MAXIM",
+        "module": "transportation",
+        "guide": "transportation/08-TRANSPORTATION-ECON.md",
+        "publication_state": "partial-source-custody"
+      }
+    },
+    {
+      "id": "maxim.transportation.transportation-econ.blocks",
+      "node_kind": "fletch",
+      "shafts": [
+        {
+          "kind": "file",
+          "url": ".proof/backfill/sources/transportation/proof-source/08-TRANSPORTATION-ECON.blocks.json"
+        }
+      ],
+      "edges": [
+        {
+          "to": "maxim.transportation.transportation-econ.proof-source",
+          "kind": "derived-from",
+          "label": "PROOF structured block sidecar",
+          "metadata": {
+            "module": "transportation",
+            "guide": "transportation/08-TRANSPORTATION-ECON.md",
+            "custody": "partial"
+          }
+        }
+      ],
+      "format": {
+        "media_type": "application/json",
+        "encoding": "utf-8",
+        "compression": null,
+        "container": null,
+        "schema": "proof.backfill.blocks.v1",
+        "record_shape": "structured-block-sidecar",
+        "preferred_local": ".proof/backfill/sources/transportation/proof-source/08-TRANSPORTATION-ECON.blocks.json"
+      },
+      "tags": [
+        "source-corpus",
+        "proof",
+        "blocks",
+        "partial-custody",
+        "guide"
+      ],
+      "metadata": {
+        "source_repo": "MAXIM",
+        "module": "transportation",
+        "guide": "transportation/08-TRANSPORTATION-ECON.md",
+        "publication_state": "partial-source-custody"
+      }
+    }
+  ]
+}

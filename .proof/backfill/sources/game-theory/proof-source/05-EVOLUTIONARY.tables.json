@@ -1,0 +1,115 @@
+{
+  "schema_version": "1",
+  "source_markdown": "game-theory\\05-EVOLUTIONARY.md",
+  "tables": [
+    {
+      "id": "table-1",
+      "line": 648,
+      "heading_context": "## Decision Cheat Sheet",
+      "headers": [
+        "Question",
+        "Concept",
+        "Notes"
+      ],
+      "rows": [
+        [
+          "Does a population strategy resist invasion?",
+          "ESS",
+          "Check two conditions; ESS ⊆ Nash"
+        ],
+        [
+          "What population state is dynamically stable?",
+          "Replicator dynamics",
+          "ESS ↔ asymp. stable"
+        ],
+        [
+          "How costly is selfish behavior?",
+          "Price of Anarchy",
+          "Worst NE / optimal"
+        ],
+        [
+          "Best achievable by selfishness?",
+          "Price of Stability",
+          "Best NE / optimal"
+        ],
+        [
+          "Does best-response dynamics converge?",
+          "Potential game?",
+          "Finite improvement property"
+        ],
+        [
+          "Network routing equilibrium",
+          "Wardrop / selfish routing",
+          "PoA ≤ 4/3 for linear latency"
+        ],
+        [
+          "Efficient Nash computation?",
+          "PPAD-complete in general",
+          "LP for zero-sum; heuristics generally"
+        ],
+        [
+          "Learning without knowing opponents",
+          "No-regret algorithms",
+          "EXP3, Hedge; converge to CE"
+        ],
+        [
+          "Multi-agent RL setting",
+          "MARL + no-regret",
+          "CE convergence; Nash for zero-sum"
+        ],
+        [
+          "Poker/imperfect info game",
+          "CFR variants",
+          "Converges to ε-Nash in zero-sum EFG"
+        ]
+      ]
+    },
+    {
+      "id": "table-2",
+      "line": 665,
+      "heading_context": "## CS and Systems Bridges",
+      "headers": [
+        "Evolutionary / Algorithmic GT concept",
+        "Formal / systems analogue"
+      ],
+      "rows": [
+        [
+          "Replicator dynamics",
+          "Gradient flow on the simplex: ẋᵢ = xᵢ(fᵢ(x) − f̄(x)) is proportional to the gradient of average fitness; for potential games this is gradient ascent on the potential function"
+        ],
+        [
+          "ESS / asymptotically stable fixed point",
+          "Lyapunov stability in dynamical systems: the ESS condition (f(y,x*) < f(x*,x*) for y ≠ x*) is exactly the condition that x* is a strict local minimum of the Lyapunov function"
+        ],
+        [
+          "Congestion game / Wardrop equilibrium",
+          "Load balancing across servers: each request routed to minimize personal latency, ignoring the load it adds to others — distributed routing under selfish scheduling"
+        ],
+        [
+          "Braess's Paradox",
+          "Counterintuitive in distributed systems: adding a faster node or link can increase overall latency if it concentrates load — relevant to CDN routing, load balancer configurations"
+        ],
+        [
+          "Price of Anarchy (PoA)",
+          "Distributed system efficiency ratio: the worst-case overhead from removing central coordination; PoA ≤ 4/3 for linear latency = selfish routing degrades performance by at most 33% vs. optimal routing"
+        ],
+        [
+          "Potential game (Rosenthal 1973)",
+          "The game has an exact potential Φ: each unilateral improvement step increases Φ, so best-response dynamics terminates (finite improvement property) — same as finding a descent direction in convex optimization"
+        ],
+        [
+          "No-regret algorithms (Hedge, EXP3)",
+          "Online learning / online convex optimization: each round choose a distribution over actions, receive loss, update via multiplicative weights — MIT OCW: Lecture on Online Learning covers the full theory"
+        ],
+        [
+          "No-regret learning → correlated equilibrium",
+          "Convergence of decentralized learning: if all players run no-regret algorithms, the empirical joint distribution converges to the set of correlated equilibria — distributed coordination without communication"
+        ],
+        [
+          "Counterfactual Regret Minimization (CFR)",
+          "Deep RL / game solving: basis for AlphaHoldem, Libratus, Pluribus (superhuman poker); converges to Nash in two-player zero-sum EFGs by minimizing local regrets at each information set"
+        ]
+      ]
+    }
+  ]
+}

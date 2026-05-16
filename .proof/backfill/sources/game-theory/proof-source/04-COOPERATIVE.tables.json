@@ -1,0 +1,106 @@
+{
+  "schema_version": "1",
+  "source_markdown": "game-theory\\04-COOPERATIVE.md",
+  "tables": [
+    {
+      "id": "table-1",
+      "line": 470,
+      "heading_context": "## Decision Cheat Sheet",
+      "headers": [
+        "If the question is...",
+        "Use",
+        "What It Tests"
+      ],
+      "rows": [
+        [
+          "Can any coalition profitably defect from this allocation?",
+          "Core",
+          "Stability: every coalition receives at least its standalone worth"
+        ],
+        [
+          "Does a stable allocation exist at all?",
+          "Bondareva-Shapley",
+          "Balancedness / LP feasibility for the core constraints"
+        ],
+        [
+          "What is the canonical fairness allocation?",
+          "Shapley value",
+          "Average marginal contribution under efficiency, symmetry, null-player, and additivity axioms"
+        ],
+        [
+          "Need one point even when the core is empty or large?",
+          "Nucleolus",
+          "Lexicographically minimizes the worst coalition complaints"
+        ],
+        [
+          "Two players bargain over a feasible utility set",
+          "Nash bargaining",
+          "Axiomatic split from disagreement point and Pareto frontier"
+        ],
+        [
+          "Need a strategic foundation for bargaining",
+          "Rubinstein alternating offers",
+          "Patience, first-mover advantage, and convergence to Nash bargaining"
+        ],
+        [
+          "Need voting power rather than seat count",
+          "Shapley-Shubik or Banzhaf",
+          "Pivotal probability/orderings vs. critical-coalition swing counts"
+        ],
+        [
+          "Need feature attribution in ML",
+          "SHAP values",
+          "Feature coalitions using Shapley marginal-contribution logic"
+        ],
+        [
+          "Need shared-infrastructure cost allocation",
+          "Airport game / Shapley",
+          "Marginal-cost responsibility across nested capacity requirements"
+        ]
+      ]
+    },
+    {
+      "id": "table-2",
+      "line": 486,
+      "heading_context": "## CS and Systems Bridges",
+      "headers": [
+        "Cooperative GT concept",
+        "Formal / systems analogue"
+      ],
+      "rows": [
+        [
+          "Characteristic function v(S)",
+          "Submodular/supermodular set functions — well-studied in combinatorial optimization; supermodularity of v is exactly the convex game condition that guarantees the core is non-empty"
+        ],
+        [
+          "Core (coalition stability)",
+          "Dual feasibility in LP: the core is non-empty iff the LP relaxation of a covering problem is tight (Bondareva-Shapley = LP duality for balanced collections)"
+        ],
+        [
+          "Shapley value axioms (EFF + SYM + NULL + ADD)",
+          "Uniqueness via axioms mirrors type-class laws in functional programming — the axioms pin down a single implementation; any two implementations satisfying them are extensionally equal"
+        ],
+        [
+          "Shapley value computation",
+          "SHAP in ML explainability: φᵢ = average marginal contribution of feature i to model prediction across all feature subsets — direct application of Shapley to the feature coalition game"
+        ],
+        [
+          "Nucleolus (lex-min max excess)",
+          "Lexicographic minimax optimization; computed via sequence of LPs — each LP reduces the feasible set, exactly as cutting-plane methods narrow integer programs"
+        ],
+        [
+          "Nash bargaining solution",
+          "Geometric: maximizes product of utility gains from disagreement point — same structure as maximizing a log-sum objective in constrained optimization"
+        ],
+        [
+          "Rubinstein bargaining → δ → 1",
+          "Continuous-time limit of a discrete protocol: as δ → 1 the unique SPE converges to the Nash bargaining solution; same limiting argument as discounted reward → average reward in MDP theory"
+        ],
+        [
+          "Cost sharing (airport game)",
+          "Shared-infrastructure billing: how to allocate Azure Reserved Instance costs or CDN capacity costs across teams with different usage profiles — Shapley is the standard fair-division answer"
+        ]
+      ]
+    }
+  ]
+}

@@ -1,0 +1,83 @@
+{
+  "schema_version": "1",
+  "source_markdown": "game-theory\\03-MECHANISM-DESIGN.md",
+  "blocks": [
+    {
+      "id": "block-1",
+      "kind": "ascii_table_candidate",
+      "line": 28,
+      "heading_context": "## The Big Picture",
+      "confidence": "candidate",
+      "text": "+------------------------------------------------------------------+\n|                  MECHANISM DESIGN FRAMEWORK                      |\n|                                                                  |\n|  STANDARD GAME THEORY         MECHANISM DESIGN                   |\n|  --------------------         ----------------                   |\n|  Rules given → find           Desired outcome → design rules     |\n|  equilibrium                  whose equilibrium achieves it      |\n|                                                                  |\n|  WHAT WE'RE DESIGNING:                                           |\n|  ┌─────────────────────────────────────────────────────────┐     |\n|  │  A social choice function f: Θ → X                      │    |\n|  │  Θ = type profiles (private info)                       │    |\n|  │  X = outcome space (allocations, prices, decisions)     │    |\n|  │                                                         │    |\n|  │  A mechanism M = (M₁×...×Mₙ, g)                       │    |\n|  │  Mᵢ = message space for agent i                        │    |\n|  │  g: M₁×...×Mₙ → X = outcome function                  │    |\n|  │                                                         │    |\n|  │  M implements f if the equilibrium of the game         │    |\n|  │  induced by M achieves f(θ) for all θ.                 │    |\n|  └─────────────────────────────────────────────────────────┘    |\n|                                                                  |\n|  KEY RESULTS:                                                    |\n|  Revelation Principle → WLOG study direct mechanisms            |\n|  Gibbard-Satterthwaite → DSIC efficiency impossible (general)   |\n|  VCG → DSIC + efficiency (with transfers)                       |\n|  Myerson → revenue-maximizing auction                           |\n|  Gale-Shapley → stable matching without transfers               |\n+------------------------------------------------------------------+",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-2",
+      "kind": "diagram_like",
+      "line": 77,
+      "heading_context": "## The Revelation Principle",
+      "confidence": "candidate",
+      "text": "  REVELATION PRINCIPLE PICTURE\n\n  Original mechanism M:          Equivalent direct mechanism M':\n  ─────────────────────          ─────────────────────────────\n  Agent i has type θᵢ            Agent i has type θᵢ\n  Sends message mᵢ = σᵢ*(θᵢ)   Reports θᵢ truthfully\n          │                              │\n          ↓                              ↓\n  Mechanism g(m₁,...,mₙ)         Mechanism g(σ₁*(θ₁),...,σₙ*(θₙ))\n          │                              │\n          ↓                              ↓\n  Outcome x ∈ X                  Same outcome x ∈ X\n\n  Incentive to lie in M'? If agent i reports θ'ᵢ ≠ θᵢ:\n  M' plays σᵢ*(θ'ᵢ) on their behalf. But σᵢ*(θᵢ) was optimal\n  in M — so mimicking another type's strategy doesn't help.",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-3",
+      "kind": "ascii_table_candidate",
+      "line": 149,
+      "heading_context": "## Gibbard-Satterthwaite Theorem",
+      "confidence": "candidate",
+      "text": "  IMPLICATION DIAGRAM\n\n  Want: DSIC + Efficient + Non-dictatorial\n        over general preferences, ≥ 3 alternatives, no transfers\n                        |\n                        v\n  IMPOSSIBLE (Gibbard-Satterthwaite)\n\n  Escape routes:\n  ┌─────────────────────────────────────────────────────┐\n  │ 1. Add monetary transfers → Groves/VCG mechanisms   │\n  │ 2. Restrict domain (single-peaked preferences)      │\n  │    → Median voter rule is DSIC + efficient          │\n  │ 3. Weaken IC to Bayesian IC (BIC)                   │\n  │    → Myerson-Satterthwaite impossibility theorem    │\n  │      (bilateral trade has another impossibility)    │\n  │ 4. Allow randomization (Gibbard 1977: random dicts) │\n  └─────────────────────────────────────────────────────┘",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-4",
+      "kind": "diagram_like",
+      "line": 329,
+      "heading_context": "### Myerson Optimal Auction",
+      "confidence": "candidate",
+      "text": "  Optimal reserve price (symmetric, regular):\n  φ(r*) = 0  →  r* - (1-F(r*))/f(r*) = 0\n\n  For U[0,1]: 2r* - 1 = 0  →  r* = 1/2\n\n  With n=1 bidder: post price r* = 1/2. Sell iff bidder's value ≥ 1/2.\n  Expected revenue = ∫_{1/2}^1 v · dF + r* · (1-F(r*))\n                   = 1/4 + 1/4 = 1/2.  (vs 0 with no reserve)",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-5",
+      "kind": "chart_like",
+      "line": 374,
+      "heading_context": "### The Setup",
+      "confidence": "candidate",
+      "text": "### Deferred Acceptance Algorithm (Gale-Shapley 1962)",
+      "notes": [
+        "detected from bar/chart glyph density with numeric labels"
+      ]
+    },
+    {
+      "id": "block-6",
+      "kind": "diagram_like",
+      "line": 428,
+      "heading_context": "### Kidney Exchange (Roth)",
+      "confidence": "candidate",
+      "text": "  Problem: Incompatible donor-patient pairs who wish to exchange.\n  Patient A has donor incompatible with B's need; vice versa.\n  → Direct exchange (2-way cycle)\n  → Or: longer cycles and chains\n  → Chains starting from altruistic donors (no reciprocal need)\n\n  Mechanism: Top Trading Cycles (Shapley-Scarf)\n  Each patient points to their most preferred donor;\n  each donor points to their patient. Find cycles; execute.\n  Repeat on remaining agents.\n\n  TTC is: Pareto efficient, DSIC, individually rational.",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-7",
+      "kind": "ascii_table_candidate",
+      "line": 524,
+      "heading_context": "## Common Confusion Points",
+      "confidence": "candidate",
+      "text": "restrictive. The Myerson-Satterthwaite theorem shows that IC + IR + efficiency + budget",
+      "notes": [
+        "detected from ASCII table borders or pipe-aligned rows"
+      ]
+    }
+  ]
+}

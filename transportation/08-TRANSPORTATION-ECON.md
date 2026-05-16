@@ -1,3 +1,22 @@
+---
+maxim_schema: maxim.frontmatter.v1
+id: maxim:transportation:transportation-econ
+kind: guide
+module: transportation
+section: transportation
+title: Transportation Economics
+status: source-custody
+source_custody: partial
+current_path: transportation/08-TRANSPORTATION-ECON.md
+canonical_path: transportation/08-TRANSPORTATION-ECON.md
+backsource_ids: [proof-backfill:transportation:08-transportation-econ, git-history:transportation:08-transportation-econ]
+concepts: [transportation, econ]
+root_concepts: [transportation, econ]
+index_roles: [guide, root-concept]
+remap_from: []
+remap_to: []
+updated: null
+---
 # Transportation Economics
 
 ## The Big Picture

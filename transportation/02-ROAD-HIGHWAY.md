@@ -1,3 +1,22 @@
+---
+maxim_schema: maxim.frontmatter.v1
+id: maxim:transportation:road-highway
+kind: guide
+module: transportation
+section: transportation
+title: Road and Highway Engineering
+status: source-custody
+source_custody: partial
+current_path: transportation/02-ROAD-HIGHWAY.md
+canonical_path: transportation/02-ROAD-HIGHWAY.md
+backsource_ids: [proof-backfill:transportation:02-road-highway, git-history:transportation:02-road-highway]
+concepts: [road, highway]
+root_concepts: [road, highway]
+index_roles: [guide, root-concept]
+remap_from: []
+remap_to: []
+updated: null
+---
 # Road and Highway Engineering
 
 ## The Big Picture

@@ -1,0 +1,127 @@
+{
+  "schema_version": "1",
+  "source_markdown": "game-theory\\05-EVOLUTIONARY.md",
+  "blocks": [
+    {
+      "id": "block-1",
+      "kind": "ascii_table_candidate",
+      "line": 28,
+      "heading_context": "## The Big Picture",
+      "confidence": "candidate",
+      "text": "+------------------------------------------------------------------+\n|         EVOLUTIONARY AND ALGORITHMIC GAME THEORY                 |\n|                                                                  |\n|  EVOLUTIONARY GAME THEORY        ALGORITHMIC GAME THEORY         |\n|  -------------------------        -------------------------      |\n|  Maynard Smith / Price (1973)     Papadimitriou, Roughgarden,    |\n|  Rational agents → populations    Tardos (2000s)                 |\n|  Strategies evolve by selection   Efficiency of equilibria       |\n|                                                                  |\n|  Key concepts:                    Key concepts:                  |\n|  ESS — invasion resistance        Price of Anarchy (PoA)         |\n|  Replicator dynamics              Price of Stability (PoS)       |\n|  Hawk-Dove game                   Potential games                |\n|  Kin selection / cooperation      Congestion games               |\n|                                   PPAD-completeness of Nash      |\n|                                                                  |\n|  CONNECTION: No-regret learning   ←→  CE as stable state         |\n|  MARL, AlphaGo, Pluribus          ←→  Nash in large game spaces  |\n+------------------------------------------------------------------+",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-2",
+      "kind": "diagram_like",
+      "line": 98,
+      "heading_context": "### Replicator Dynamics",
+      "confidence": "candidate",
+      "text": "  REPLICATOR DYNAMICS ON THE SIMPLEX (3 strategies)\n\n       x₃ = 1\n        △\n       /|\\\n      / | \\\n     /  |  \\\n    /   |   \\\n   / ←  |  → \\\n  /_____|_____\\\n x₁=1         x₂=1\n\n  Each vertex = monomorphic population (all play one strategy)\n  Interior point = polymorphic population\n  Trajectories show how population composition evolves\n\n  Nash equilibria correspond to rest points.\n  ESS corresponds to asymptotically stable rest points.",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-3",
+      "kind": "ascii_table_candidate",
+      "line": 134,
+      "heading_context": "### Definition",
+      "confidence": "candidate",
+      "text": "    u(σ*, εσ + (1-ε)σ*) > u(σ, εσ + (1-ε)σ*)",
+      "notes": [
+        "detected from ASCII table borders or pipe-aligned rows"
+      ]
+    },
+    {
+      "id": "block-4",
+      "kind": "ascii_table_candidate",
+      "line": 144,
+      "heading_context": "### Definition",
+      "confidence": "candidate",
+      "text": "  ESS CONDITIONS DECOMPOSED:\n\n  Condition 1: σ* is a strict Nash equilibrium (strictly dominates all deviations)\n               → σ* can immediately repel any invader\n\n  Condition 2: σ* is a non-strict Nash but \"stable against mutants\"\n               → Invaders get same fitness initially, but σ* does better in\n                 mutant-vs-mutant encounters\n\n  ESS IMPLIES NASH: If σ* is ESS, then σ* is NE.\n  Proof: If σ* is not NE, ∃ σ with u(σ, σ*) > u(σ*, σ*).\n  For small enough ε, u(σ, εσ + (1-ε)σ*) > u(σ*, εσ + (1-ε)σ*)\n  (by continuity). So σ* fails the ESS definition. □\n\n  NE DOES NOT IMPLY ESS:\n  Condition: u(σ*, σ*) = u(σ, σ*) but u(σ*, σ) = u(σ, σ)\n  → Non-strict NE; mutant does equally well in all encounters\n  → Not ESS; mutant drifts to fixation (neutral drift)",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-5",
+      "kind": "diagram_like",
+      "line": 210,
+      "heading_context": "## Hawk-Dove Game",
+      "confidence": "candidate",
+      "text": "  Mixed ESS computation:\n  At mixed ESS x* = (p*, 1-p*), Hawk and Dove must have equal fitness.\n\n  Fitness of Hawk against population x* = (p*, 1-p*):\n    f_Hawk = p*(V-C)/2 + (1-p*)·V\n    (prob p* meet Hawk → expected (V-C)/2; prob (1-p*) meet Dove → win V)\n\n  Fitness of Dove against population x*:\n    f_Dove = p*·0 + (1-p*)·V/2\n    (prob p* meet Hawk → get 0; prob (1-p*) meet Dove → share V equally)\n\n  Equal fitness condition (indifference at interior ESS):\n    p*(V-C)/2 + (1-p*)V = (1-p*)V/2\n\n  Rearrange:\n    p*(V-C)/2 + (1-p*)V − (1-p*)V/2 = 0\n    p*(V-C)/2 + (1-p*)V/2 = 0\n    p*(V-C) + (1-p*)V = 0\n    pV − pC + V − pV = 0\n    V − pC = 0\n    p* = V/C  ✓\n\n  Population fraction V/C plays Hawk, (1-V/C) plays Dove.\n  Stability: if p > V/C, Hawks are too common → f_Hawk < f_Dove → p falls.\n  If p < V/C, f_Hawk > f_Dove → p rises. Frequency-dependent negative feedback.",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-6",
+      "kind": "diagram_like",
+      "line": 314,
+      "heading_context": "### Braess's Paradox",
+      "confidence": "candidate",
+      "text": "  BRAESS'S PARADOX (1968): Adding a road can make everyone worse off.\n\n  Original network (2000 drivers, A → D):\n  ┌────────────────────────────────┐\n  │                                │\n  │  A ──x/100──► B ──50──► D      │\n  │  A ──50────► C ──x/100──► D    │\n  │                                │\n  │  x = number of drivers on edge │\n  │  Cost = latency                │\n  └────────────────────────────────┘\n\n  Standard Braess setup (Braess 1968): 4000 drivers, source A, destination D.\n\n  BEFORE adding the new edge:\n  ┌─────────────────────────────────────────────────────┐\n  │  Two routes only:                                   │\n  │                                                     │\n  │  Route 1: A ──x/100──► B ──45──► D                  │\n  │  Route 2: A ──45────► C ──x/100──► D                │\n  │                                                     │\n  │  Edge A→B: latency = x/100 (x = flow in hundreds)   │\n  │  Edge B→D: latency = 45 (constant)                  │\n  │  Edge A→C: latency = 45 (constant)                  │\n  │  Edge C→D: latency = x/100                          │\n  └─────────────────────────────────────────────────────┘\n\n  NE (by symmetry, 2000 on each route):\n    Route 1: 2000/100 + 45 = 20 + 45 = 65 min\n    Route 2: 45 + 2000/100 = 45 + 20 = 65 min\n  Both routes equal. NE cost per driver: 65 min.\n  Social optimum is also 65 min (no coordination gain available here). PoA = 1.\n\n  AFTER adding a zero-latency edge B→C:\n  ┌─────────────────────────────────────────────────────┐\n  │  New route available: A→B→C→D                       │\n  │                                                     │\n  │  A ──x/100──► B ──0──► C ──x/100──► D               │\n  │               ╰──45──► D                            │\n  │  A ──45────► C                                      │\n  └─────────────────────────────────────────────────────┘\n\n  Claim: A→B→C→D is strictly dominant when routes 1 and 2 are in use.\n  If 2000 drivers use each old route, the new route costs:\n    A→B: 2000/100 = 20. B→C: 0. C→D: 2000/100 = 20. Total: 40 min < 65 min.\n  A defector gains by switching to A→B→C→D.\n\n  Unique NE: ALL 4000 drivers use A→B→C→D.\n    A→B flow = 4000: latency = 4000/100 = 40\n    B→C: 0\n    C→D flow = 4000: latency = 4000/100 = 40\n    Total: 80 min per driver.\n\n  Summary:\n    Before new edge: NE = 65 min.\n    After new edge:  NE = 80 min.  (+15 min — everyone is worse off)\n    Social optimum after adding edge: 65 min (split 2000 on routes 1 and 2,\n      ignore the free edge — but no player can unilaterally enforce this).\n\n  The paradox: the free B→C edge creates a dominant strategy that individually\n  rational players adopt, destroying the efficient split equilibrium.\n  Adding infrastructure strictly worsened the NE outcome. PoA = 80/65 ≈ 1.23.\n  This is why Roughgarden-Tardos show PoA ≤ 4/3 for linear latency: the maximum\n  achievable degradation from selfish routing is bounded.",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-7",
+      "kind": "diagram_like",
+      "line": 386,
+      "heading_context": "### Roughgarden-Tardos PoA Bounds",
+      "confidence": "candidate",
+      "text": "  NETWORK ROUTING GAME:\n  - Directed graph G = (V, E)\n  - Latency functions lₑ(x) on each edge (non-decreasing, x = flow)\n  - k user classes, each routes flow rₖ from sₖ to tₖ\n  - Nash equilibrium = Wardrop equilibrium (no user benefits from rerouting)\n\n  PoA BOUNDS (Roughgarden-Tardos 2002):\n\n  Linear latency functions lₑ(x) = aₑx + bₑ:\n    PoA ≤ 4/3  (tight: Braess-like examples achieve 4/3)\n\n  Polynomial latency lₑ(x) = aₑx^d + bₑ:\n    PoA ≤ Φ(d)  where Φ(d) → ∞ as d → ∞\n\n  General monotone latency (unbounded):\n    PoA can be arbitrarily large (e.g., step functions)\n\n  KEY TECHNIQUE: Bounding method.\n    Cost(NE) ≤ α · Cost(OPT) via the \"smoothness\" framework.\n    Show: Σₑ lₑ(fₑ) · fₑ ≤ α · Σₑ lₑ(fₑ*) · fₑ* + C\n    Where fₑ = NE flows, fₑ* = optimal flows.\n    Directly gives PoA ≤ α.",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-8",
+      "kind": "diagram_like",
+      "line": 483,
+      "heading_context": "## PPAD-Completeness of Nash",
+      "confidence": "candidate",
+      "text": "  COMPLEXITY LANDSCAPE FOR EQUILIBRIUM COMPUTATION:\n\n  ┌──────────────────────────────────────────────────────────┐\n  │  2-player zero-sum: LP-solvable in poly time             │\n  │  (minimax = LP primal-dual)                              │\n  └──────────────────────────────────────────────────────────┘\n                        │\n  ┌──────────────────────────────────────────────────────────┐\n  │  Potential games: best-response dynamics converges       │\n  │  (finite improvement property)                           │\n  │  But worst case: exponential number of steps             │\n  └──────────────────────────────────────────────────────────┘\n                        │\n  ┌──────────────────────────────────────────────────────────┐\n  │  General 2-player bimatrix: PPAD-complete                │\n  │  (Daskalakis/Goldberg/Papadimitriou 2006;                │\n  │   Chen/Deng/Teng 2009)                                   │\n  └──────────────────────────────────────────────────────────┘\n                        │\n  ┌──────────────────────────────────────────────────────────┐\n  │  Correlated equilibrium: LP-solvable in poly time        │\n  │  (linear constraints; exponentially many but             │\n  │   can solve via separation oracle / ellipsoid method)    │\n  └──────────────────────────────────────────────────────────┘\n\n  PPAD and FP (fixed-point) problems:\n  - Brouwer fixed point: PPAD-complete\n  - Sperner's lemma on subdivision: PPAD-complete\n  - Nash equilibrium: PPAD-complete (via both)\n  - Arrow-Debreu market equilibria: PPAD (some complete, some in P)",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-9",
+      "kind": "diagram_like",
+      "line": 545,
+      "heading_context": "### Convergence to Correlated Equilibria",
+      "confidence": "candidate",
+      "text": "  NO-REGRET → CE:\n\n  Each player minimizes swap regret.\n  Swap regret → 0 iff time-average play converges to a CE.\n\n  Why: Swap regret of player i being 0 means:\n  for all i, j: cannot improve by always swapping strategy i → j\n  ↕\n  No player benefits from a systematic deviation rule given the\n  joint distribution of play\n  ↕\n  CE conditions\n\n  Note: With only external regret (not swap regret), convergence\n  is to coarse correlated equilibria (a weaker concept).",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-10",
+      "kind": "diagram_like",
+      "line": 580,
+      "heading_context": "## Multi-Agent Reinforcement Learning (MARL)",
+      "confidence": "candidate",
+      "text": "  CLASSICAL RL:                    MARL:\n  Single agent in environment      Multiple agents, all learning\n  State s, action a, reward r      Others are part of the environment\n  Markov Decision Process          Markov Game (stochastic game)\n  Bellman equations → Q-learning   No fixed Q-function (others learn)\n\n  PROBLEM: Non-stationarity.\n  From agent i's perspective, other agents are part of the environment.\n  But other agents are learning = environment is non-stationary.\n  Standard convergence guarantees (Q-learning, policy gradient) break.\n\n  APPROACHES:\n  ┌─────────────────────────────────────────────────────┐\n  │ Independent Q-learning: ignore other agents         │\n  │ Ignores non-stationarity; works in practice         │\n  │                                                     │\n  │ Nash Q-learning: compute Nash at each step          │\n  │ Tractable only for small state/action spaces        │\n  │                                                     │\n  │ Mean-field games: N → ∞ agents; each interacts      │\n  │ with population mean; reduces to single-agent RL    │\n  │                                                     │\n  │ No-regret + MARL: use EXP3/Hedge in each round;     │\n  │ convergence to CE (not NE) — computationally valid  │\n  └─────────────────────────────────────────────────────┘",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-11",
+      "kind": "diagram_like",
+      "line": 610,
+      "heading_context": "### AlphaGo, AlphaStar, Libratus, Pluribus",
+      "confidence": "candidate",
+      "text": "  GAME-THEORETIC AI (modern):\n\n  AlphaGo / AlphaZero (DeepMind 2016-2017):\n  - Two-player zero-sum perfect information (Go)\n  - Self-play training converges toward Nash equilibrium\n  - MCTS with neural value/policy networks\n  - Self-play = fictitious play + deep RL\n  - Nash equilibrium exists; self-play approximates it\n\n  AlphaStar (DeepMind 2019):\n  - StarCraft II — imperfect information, multi-agent\n  - League training: population of agents (Nash support)\n  - Policy space game solved via Nash equilibrium of meta-game\n  - PSRO (Policy Space Response Oracles) algorithm\n\n  Libratus (CMU 2017) / Pluribus (CMU 2019):\n  - 2-player heads-up NL Texas Hold'em (Libratus)\n  - 6-player NL Texas Hold'em (Pluribus)\n  - Counterfactual regret minimization (CFR) — no-regret in game trees\n  - Abstracts betting actions and cards; solves abstracted game\n  - CFR+ converges to approximate Nash in zero-sum extensive form games\n  - Pluribus (6-player): Nash doesn't directly generalize; uses \"BluePrint\"\n    strategy trained by self-play + search at runtime\n\n  CFR ALGORITHM:\n  At each information set h, for each action a:\n    Counterfactual regret = how much better I'd have done\n    always playing a when I reached h?\n  Minimize counterfactual regret at each information set.\n  Regret matching: σ(a) ∝ max(R(a), 0) [positive regret only]\n  Convergence: T_rounds of CFR → ε-Nash with ε = O(1/√T)",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    }
+  ]
+}

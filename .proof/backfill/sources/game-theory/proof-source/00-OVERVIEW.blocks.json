@@ -1,0 +1,72 @@
+{
+  "schema_version": "1",
+  "source_markdown": "game-theory\\00-OVERVIEW.md",
+  "blocks": [
+    {
+      "id": "block-1",
+      "kind": "ascii_table_candidate",
+      "line": 26,
+      "heading_context": "## The Big Picture",
+      "confidence": "candidate",
+      "text": "+------------------------------------------------------------------+\n|                    GAME THEORY LANDSCAPE                         |\n|                                                                  |\n|  BY FORM              BY INFORMATION       BY COOPERATION        |\n|  --------             ----------------     ---------------       |\n|                                                                  |\n|  NORMAL FORM          COMPLETE INFO        NON-COOPERATIVE       |\n|  Simultaneous move    All payoffs known    Players act           |\n|  Strategy spaces      to all players       independently         |\n|  Nash equilibrium                          Nash / SPE / BNE      |\n|                                                                  |\n|  EXTENSIVE FORM       INCOMPLETE INFO      COOPERATIVE           |\n|  Sequential move      Private types        Binding agreements    |\n|  Game trees           (Harsanyi types)     Core, Shapley value   |\n|  Backward induction   Bayesian NE                                |\n|                                                                  |\n|  COOPERATIVE FORM     PERFECT INFO         EVOLUTIONARY          |\n|  Coalition functions  See all past moves   Selection dynamics    |\n|  Core, nucleolus      (chess, go)          ESS, replicator eq.   |\n|  Shapley value        IMPERFECT INFO                             |\n|                       Non-singleton        ALGORITHMIC           |\n|                       info sets            PPAD, PoA, PoS        |\n|                       (poker)                                    |\n|                                                                  |\n|  + MECHANISM DESIGN: design the game to achieve desired outcomes |\n+------------------------------------------------------------------+",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-2",
+      "kind": "ascii_table_candidate",
+      "line": 144,
+      "heading_context": "## Three Major Forms — Structural Comparison",
+      "confidence": "candidate",
+      "text": "+--------------------+--------------------+--------------------+\n|   NORMAL FORM      |  EXTENSIVE FORM    | COOPERATIVE FORM   |\n+--------------------+--------------------+--------------------+\n| Simultaneous moves | Sequential moves   | Binding agreements |\n|                    | (or simultaneous   | allowed            |\n|                    |  with info sets)   |                    |\n+--------------------+--------------------+--------------------+\n| Represented by:    | Represented by:    | Represented by:    |\n| Payoff matrix /    | Game tree:         | Characteristic     |\n| payoff functions   | nodes, actions,    | function:          |\n| uᵢ: S₁×...×Sₙ→ℝ     | info sets,         | v: 2^N → ℝ        |\n|                    | terminal payoffs   |                    |\n+--------------------+--------------------+--------------------+\n| Solution concepts: | Solution concepts: | Solution concepts: |\n| Nash equilibrium   | Backward induction | Core               |\n| Dominant strategy  | Subgame perfect NE | Shapley value      |\n| Correlated eq.     | Perfect Bayesian   | Nucleolus          |\n| IESDS/Rationaliz.  | Sequential eq.     | Nash bargaining    |\n+--------------------+--------------------+--------------------+\n| Key games:         | Key games:         | Key applications:  |\n| Prisoner's Dilemma | Chess, go (perfect)| Cost allocation    |\n| Battle of Sexes    | Poker (imperfect)  | Voting power       |\n| Stag Hunt          | Entry deterrence   | Coalition formation|\n| Matching Pennies   | Signaling games    | Profit sharing     |\n| Cournot oligopoly  | Centipede game     | Airport games      |\n+--------------------+--------------------+--------------------+",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-3",
+      "kind": "ascii_table_candidate",
+      "line": 191,
+      "heading_context": "## Core Solution Concepts — Containment Hierarchy",
+      "confidence": "candidate",
+      "text": "  SOLUTION CONCEPT LANDSCAPE (non-cooperative)\n  =============================================\n\n  Most permissive                              Most restrictive\n  <---------------------------------------------------------->\n\n  Rationalizability                                    Dominant\n  (survives IESDS)                                     Strategy\n       |                                               Equilibrium\n       v                                                    ^\n  Correlated                                               |\n  Equilibrium (CE)   <--  CE ⊇ Nash (NE)                 |\n       |                  NE ⊆ CE                         |\n       v                                                   |\n  Nash Equilibrium ----> NE ⊆ CE                          |\n       |                                                   |\n       +----------> Subgame Perfect (SPE) ⊆ NE            |\n       |            [refinement: credible]                 |\n       +----------> Perfect Bayesian (PBE) ⊆ NE           |\n       |            [refinement: beliefs]                  |\n       +----------> Sequential Equilibrium ⊆ PBE          |\n                    [refinement: consistent beliefs]       |\n                                                           |\n  ESS (Evolutionary Stable Strategy):                      |\n       ESS ⊆ NE (every ESS is Nash, not vice versa)       |",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-4",
+      "kind": "ascii_table_candidate",
+      "line": 228,
+      "heading_context": "## The MIT Math/TCS Connections",
+      "confidence": "candidate",
+      "text": "+------------------------------+------------------------------------+\n|  MIT MATH/TCS CONCEPT        |  WHERE IT APPEARS IN GAME THEORY   |\n+------------------------------+------------------------------------+\n| Brouwer Fixed Point Theorem  | Nash 1951 existence proof          |\n| f: D^n → D^n continuous      | BR: Δ(S) → Δ(S) has fixed point   |\n| has a fixed point            | where Δ(S) = probability simplex   |\n+------------------------------+------------------------------------+\n| Kakutani Fixed Point Theorem | Nash 1950 existence proof          |\n| Set-valued generalization    | BR correspondence: Δ(S) → 2^Δ(S)   |\n| of Brouwer (upper hemi-      | is upper hemicontinuous with       |\n| continuous, convex values)   | nonempty convex values             |\n+------------------------------+------------------------------------+\n| Linear Programming + Duality | Zero-sum minimax = primal-dual LP  |\n| Primal: max cᵀx, Ax ≤ b     | Correlated equilibrium: LP polytope|\n| Dual: min bᵀy, Aᵀy ≥ c     | Core non-emptiness: LP duality     |\n|                              | (Bondareva-Shapley theorem)        |\n+------------------------------+------------------------------------+\n| Probability Simplex Δ(S)     | Mixed strategy spaces              |\n| Prob distributions over      | Nash fixed point on product Δ(S)   |\n| finite sets                  | Support of NE = indifference sets  |\n+------------------------------+------------------------------------+\n| PPAD Complexity Class        | Nash computation hardness (2006-09)|\n| Polynomial Parity Arg on     | Not NP-hard (solution always exists)|\n| Directed graphs; PPAD ⊆      | PPAD-complete = hard in a          |\n| TFNP ⊆ FNP                  | different sense than NP            |\n+------------------------------+------------------------------------+\n| Arrow's Impossibility        | Gibbard-Satterthwaite theorem:     |\n| (no fair voting rule over    | any deterministic dominant-strategy|\n| ≥3 alternatives)             | IC mechanism is dictatorial        |\n+------------------------------+------------------------------------+\n| Graph theory / Trees         | Extensive form game trees          |\n| Rooted directed trees        | Information sets = node partitions |\n| with labeled edges           | SPE via leaf-to-root induction     |\n+------------------------------+------------------------------------+\n| Bipartite matching           | Gale-Shapley stable matching       |\n| Hall's theorem               | Stability = no blocking pairs      |\n| Augmenting paths             | Deferred acceptance = max matching |\n+------------------------------+------------------------------------+\n| Online learning / Regret     | No-regret dynamics → CE            |\n| EXP3, Hedge algorithms       | Time-average of no-regret play     |\n| Adversarial bandits          | converges to correlated equilibria |\n+------------------------------+------------------------------------+\n| Farkas' lemma                | Minimax theorem: separating        |\n| (alternatives theorem)       | hyperplane between convex sets     |\n+------------------------------+------------------------------------+",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-5",
+      "kind": "ascii_table_candidate",
+      "line": 280,
+      "heading_context": "## Applications by Domain",
+      "confidence": "candidate",
+      "text": "+-------------------------------+--------------------------------+\n|  ECONOMICS & MARKETS          |  COMPUTER SCIENCE              |\n|  ---------------------        |  ---------------               |\n|  Industrial organization      |  Algorithmic mechanism design  |\n|  (Cournot/Bertrand oligopoly) |  Internet routing (PoA, PoS)   |\n|  Auction design (FCC, ads,    |  PPAD-completeness of Nash     |\n|   ad markets, procurement)    |  Multi-agent RL / AI planning  |\n|  Contract theory / insurance  |  Cryptographic protocol design |\n|  Trade negotiations           |  Network formation games       |\n|                               |  Distributed system incentives |\n+-------------------------------+--------------------------------+\n|  POLITICAL SCIENCE            |  BIOLOGY                       |\n|  -----------------            |  -------                       |\n|  Voting power indices         |  Evolutionary stable strategies |\n|  Arms races (MAD deterrence)  |  Kin selection (Hamilton's rb>c |\n|  Legislative bargaining       |  Signaling (honest vs cheap)   |\n|  International negotiations   |  Animal conflict (Hawk-Dove)   |\n|  Constitutional design        |  Cooperation (reciprocal alt.) |\n+-------------------------------+--------------------------------+\n|  SOCIAL/MARKET DESIGN         |  ENGINEERING                   |\n|  -----------------            |  -----------                   |\n|  NRMP residency matching      |  Network congestion control    |\n|  School choice mechanisms     |  P2P systems incentive design  |\n|  Kidney exchange (Roth)       |  Cloud resource allocation     |\n|  Platform economics (2-sided) |  Spectrum allocation design    |\n|  Social norms (Folk theorem)  |  Load balancing (PoA bounds)   |\n+-------------------------------+--------------------------------+",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-6",
+      "kind": "diagram_like",
+      "line": 314,
+      "heading_context": "## Guide Map for This Series",
+      "confidence": "candidate",
+      "text": "  game-theory/\n  |\n  +-- 00-OVERVIEW.md          (this file)\n  |   Full landscape, history, distinctions, MIT bridges\n  |\n  +-- 01-NORMAL-FORM.md\n  |   Formal definition G=(N,{Sᵢ},{uᵢ}), mixed strategies (Δ(Sᵢ)),\n  |   dominance/IESDS, Nash existence (Kakutani), PPAD-completeness,\n  |   canonical games (PD, BoS, Stag Hunt, Matching Pennies),\n  |   zero-sum/minimax/LP duality, correlated equilibrium\n  |\n  +-- 02-EXTENSIVE-FORM.md\n  |   Game trees, backward induction, Zermelo's theorem, SPE,\n  |   Centipede paradox, repeated games, Folk theorem,\n  |   incomplete info (Harsanyi types), signaling, Beer-Quiche,\n  |   PBE, Cho-Kreps Intuitive Criterion, job market signaling\n  |\n  +-- 03-MECHANISM-DESIGN.md\n  |   \"Inverse game theory\": design rules, revelation principle,\n  |   IC/IR constraints, Gibbard-Satterthwaite, Groves/VCG,\n  |   Vickrey second-price, revenue equivalence theorem,\n  |   Myerson optimal auction, combinatorial auctions,\n  |   Gale-Shapley matching, NRMP, school choice\n  |\n  +-- 04-COOPERATIVE.md\n  |   Characteristic function, superadditivity, convexity,\n  |   core (LP duality / Bondareva-Shapley), Shapley value\n  |   (axioms + formula), nucleolus (sequence of LPs),\n  |   Nash bargaining (axioms + product), Rubinstein alternating\n  |   offers (SPE → unique solution)\n  |\n  +-- 05-EVOLUTIONARY.md\n      ESS conditions, replicator dynamics, Hawk-Dove, kin selection,\n      Price of Anarchy (Braess paradox, routing bounds),\n      potential games, PPAD-completeness, no-regret learning,\n      MARL, AlphaGo/Pluribus as game-theoretic agents",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    }
+  ]
+}

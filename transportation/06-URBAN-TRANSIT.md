@@ -1,3 +1,22 @@
+---
+maxim_schema: maxim.frontmatter.v1
+id: maxim:transportation:urban-transit
+kind: guide
+module: transportation
+section: transportation
+title: Urban Transit
+status: source-custody
+source_custody: partial
+current_path: transportation/06-URBAN-TRANSIT.md
+canonical_path: transportation/06-URBAN-TRANSIT.md
+backsource_ids: [proof-backfill:transportation:06-urban-transit, git-history:transportation:06-urban-transit]
+concepts: [urban, transit]
+root_concepts: [urban, transit]
+index_roles: [guide, root-concept]
+remap_from: []
+remap_to: []
+updated: null
+---
 # Urban Transit
 
 ## The Big Picture

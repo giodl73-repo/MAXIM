@@ -1,0 +1,61 @@
+{
+  "schema_version": "1",
+  "source_markdown": "game-theory\\04-COOPERATIVE.md",
+  "blocks": [
+    {
+      "id": "block-1",
+      "kind": "ascii_table_candidate",
+      "line": 29,
+      "heading_context": "## The Big Picture",
+      "confidence": "candidate",
+      "text": "+------------------------------------------------------------------+\n|                COOPERATIVE GAME THEORY STRUCTURE                 |\n|                                                                  |\n|  PRIMITIVES                     SOLUTION CONCEPTS                |\n|  ----------                     ----------------                 |\n|                                                                  |\n|  (N, v) where:                  STABILITY:                       |\n|  N = {1,...,n} players          Core — no coalition wants to     |\n|  v: 2^N → ℝ                     defect from the grand coalition  |\n|  v(S) = what coalition S                                         |\n|    can guarantee itself         FAIRNESS / UNIQUENESS:           |\n|  v(∅) = 0                       Shapley value — unique fair      |\n|                                  allocation (4 axioms)           |\n|  TU game: transferable utility  Nucleolus — minimizes worst-     |\n|  (money can flow freely)         case excess; unique; in core    |\n|                                  if core is non-empty            |\n|                                                                  |\n|  BARGAINING (2-player):         NASH BARGAINING:                 |\n|  Disagreement point d           Maximizes (u₁-d₁)(u₂-d₂)         |\n|  Feasible set U ⊆ ℝ²           (4 axioms → unique)               |\n|                                                                  |\n|  NON-COOPERATIVE FOUNDATION:    RUBINSTEIN ALTERNATING OFFERS:   |\n|  Rubinstein (1982) shows         Unique SPE; converges to Nash   |\n|  Nash bargaining solution        bargaining as δ → 1             |\n|  as limiting case of SPE                                         |\n+------------------------------------------------------------------+",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-2",
+      "kind": "diagram_like",
+      "line": 189,
+      "heading_context": "### Computation Example: Airport Game",
+      "confidence": "candidate",
+      "text": "  Three airlines: A (small plane, runway needs 1km),\n                  B (medium, needs 2km),\n                  C (large, needs 3km).\n\n  Cost of runway of length k: c(k) = k.\n  Coalition S's cost: c(max type in S)\n\n  v(S) = cost savings = c(N) - c(N\\S)  [reframe as savings game]\n\n  Or: cost allocation game where v(S) = 0 (no savings from standing alone)\n  and we want to allocate c(N) = 3 among A, B, C.\n\n  Marginal cost of adding C beyond {A,B}: 3 - 2 = 1\n  Marginal cost of adding B beyond {A}: 2 - 1 = 1\n  Marginal cost of adding A to ∅: 1 - 0 = 1\n\n  In any ordering, A always contributes 1, B contributes extra 1 only\n  if B arrives after A (or B is first and covers up to 2km), C covers\n  the last unit when C arrives.\n\n  By symmetry of marginal contributions across orderings:\n  φ_A = 1 (A always costs 1 in any ordering)\n  φ_B - φ_A = 1 allocated to \"medium category\" users = B only\n  φ_C - φ_B = 1 allocated to \"large category\" users = C only\n\n  The cost game: c({A}) = 1, c({B}) = 2, c({C}) = 3, c({A,B}) = 2,\n  c({A,C}) = 3, c({B,C}) = 3, c({N}) = c({A,B,C}) = 3.\n\n  Shapley value for COST games: φᵢ = average over all 3! = 6 orderings\n  of player i's marginal cost contribution when they arrive.\n\n  Marginal cost when player arrives = c(preceding players ∪ {i}) − c(preceding players)\n  For the airport game this equals max(0, cᵢ − max cost of preceding players).\n\n  All 6 orderings with marginal contributions:\n\n  Order   A   B   C       Note\n  ─────────────────────────────────────────────────────────────────\n  ABC     1   1   1       A: max=1. B: max rises to 2, marg=1. C: to 3, marg=1.\n  ACB     1   0   2       A: 1. C: to 3, marg=2. B: max already 3, marg=0.\n  BAC     0   2   1       B: 2. A: max already 2, marg=0. C: to 3, marg=1.\n  BCA     0   2   1       B: 2. C: to 3, marg=1. A: max already 3, marg=0.\n  CAB     0   0   3       C: 3 (covers all). A: marg=0. B: marg=0.\n  CBA     0   0   3       C: 3. B: marg=0. A: marg=0.\n  ─────────────────────────────────────────────────────────────────\n  Sum     2   5   11      (over 6 orderings)\n\n  Shapley values:\n  φ_A = 2/6  = 1/3  ≈ 0.333\n  φ_B = 5/6         ≈ 0.833\n  φ_C = 11/6        ≈ 1.833\n  Check: 1/3 + 5/6 + 11/6 = 2/6 + 5/6 + 11/6 = 18/6 = 3 = c(N)  ✓\n\n  Each airline pays strictly less than going alone (A < 1, B < 2, C < 3).\n  C, who needs the longest runway, bears the majority of the cost — but\n  receives a subsidy because A and B also benefit from the shared runway.",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-3",
+      "kind": "chart_like",
+      "line": 248,
+      "heading_context": "### Computation Example: Airport Game",
+      "confidence": "candidate",
+      "text": "### Alternative Axiomatization (Young 1985)",
+      "notes": [
+        "detected from bar/chart glyph density with numeric labels"
+      ]
+    },
+    {
+      "id": "block-4",
+      "kind": "ascii_table_candidate",
+      "line": 334,
+      "heading_context": "### Nash Axioms",
+      "confidence": "candidate",
+      "text": "  GEOMETRIC INTERPRETATION:\n\n  The NBS is the point on the Pareto frontier of U that maximizes\n  the \"Nash product\" — the area of the rectangle from d to u.\n\n  Disagreement  u₂\n  point         |       Pareto frontier\n  d             |      /\n                |    *  ← NBS (max rectangle area from d)\n                |  /  \\\n                |/    |\n  ──────────────d─────+───► u₁\n                      max (u₁-d₁)(u₂-d₂)",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-5",
+      "kind": "diagram_like",
+      "line": 419,
+      "heading_context": "### Connection to Nash Bargaining",
+      "confidence": "candidate",
+      "text": "  RUBINSTEIN → NASH BARGAINING:\n\n  v₁ = (1 - δ₂)/(1 - δ₁δ₂)\n     ≈ (r₂Δ)/((r₁ + r₂)Δ) as Δ → 0\n     = r₂/(r₁ + r₂)\n\n  So the patient player (small r) gets more of the surplus.\n  This corresponds to NBS with weights α₁ = 1/r₁, α₂ = 1/r₂\n  (generalized Nash product: (u₁-d₁)^α₁ (u₂-d₂)^α₂).\n\n  Rubinstein provides the non-cooperative foundation for Nash bargaining:\n  the axiomatic cooperative solution emerges as the unique SPE of a\n  natural strategic protocol.",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    }
+  ]
+}

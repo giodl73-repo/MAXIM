@@ -1,0 +1,125 @@
+{
+  "schema": "pebble.v1",
+  "kind": "corpus-slice",
+  "title": "maxim-game-theory-mechanism-design",
+  "source": "../../game-theory",
+  "format": "markdown",
+  "metadata": {},
+  "sections": [
+    {
+      "id": "03-MECHANISM-DESIGN.md#000",
+      "path": [
+        "03-MECHANISM-DESIGN.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:game-theory:03-mechanism-design, git-history:game-theory:03-mechanism-design]",
+        "canonical_path": "game-theory/03-MECHANISM-DESIGN.md",
+        "concepts": "[mechanism, design]",
+        "current_path": "game-theory/03-MECHANISM-DESIGN.md",
+        "id": "maxim:game-theory:mechanism-design",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "game-theory",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[mechanism, design]",
+        "section": "game-theory",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Mechanism Design - Engineering Games for Desired Outcomes",
+        "updated": "null"
+      },
+      "text": "# Mechanism Design — Engineering Games for Desired Outcomes"
+    },
+    {
+      "id": "03-MECHANISM-DESIGN.md#001",
+      "path": [
+        "03-MECHANISM-DESIGN.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:game-theory:03-mechanism-design, git-history:game-theory:03-mechanism-design]",
+        "canonical_path": "game-theory/03-MECHANISM-DESIGN.md",
+        "concepts": "[mechanism, design]",
+        "current_path": "game-theory/03-MECHANISM-DESIGN.md",
+        "id": "maxim:game-theory:mechanism-design",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "game-theory",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[mechanism, design]",
+        "section": "game-theory",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Mechanism Design - Engineering Games for Desired Outcomes",
+        "updated": "null"
+      },
+      "text": "## The Big Picture"
+    },
+    {
+      "id": "03-MECHANISM-DESIGN.md#002",
+      "path": [
+        "03-MECHANISM-DESIGN.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:game-theory:03-mechanism-design, git-history:game-theory:03-mechanism-design]",
+        "canonical_path": "game-theory/03-MECHANISM-DESIGN.md",
+        "concepts": "[mechanism, design]",
+        "current_path": "game-theory/03-MECHANISM-DESIGN.md",
+        "id": "maxim:game-theory:mechanism-design",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "game-theory",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[mechanism, design]",
+        "section": "game-theory",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Mechanism Design - Engineering Games for Desired Outcomes",
+        "updated": "null"
+      },
+      "text": "Standard game theory takes the rules as given and asks: what will rational agents do?\nMechanism design (the \"engineering\" branch of game theory) inverts this: given a desired\nsocial outcome, what rules should we impose so that rational agents produce that outcome?"
+    },
+    {
+      "id": "03-MECHANISM-DESIGN.md#003",
+      "path": [
+        "03-MECHANISM-DESIGN.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:game-theory:03-mechanism-design, git-history:game-theory:03-mechanism-design]",
+        "canonical_path": "game-theory/03-MECHANISM-DESIGN.md",
+        "concepts": "[mechanism, design]",
+        "current_path": "game-theory/03-MECHANISM-DESIGN.md",
+        "id": "maxim:game-theory:mechanism-design",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "game-theory",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[mechanism, design]",
+        "section": "game-theory",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Mechanism Design - Engineering Games for Desired Outcomes",
+        "updated": "null"
+      },
+      "text": "```\n+------------------------------------------------------------------+\n|                  MECHANISM DESIGN FRAMEWORK                      |\n|                                                                  |\n|  STANDARD GAME THEORY         MECHANISM DESIGN                   |\n|  --------------------         ----------------                   |\n|  Rules given → find           Desired outcome → design rules     |\n|  equilibrium                  whose equilibrium achieves it      |\n|                                                                  |\n|  WHAT WE'RE DESIGNING:                                           |\n|  ┌─────────────────────────────────────────────────────────┐     |\n|  │  A social choice function f: Θ → X                      │    |\n|  │  Θ = type profiles (private info)                       │    |\n|  │  X = outcome space (allocations, prices, decisions)     │    |\n|  │                                                         │    |\n|  │  A mechanism M = (M₁×...×Mₙ, g)                       │    |\n|  │  Mᵢ = message space for agent i                        │    |\n|  │  g: M₁×...×Mₙ → X = outcome function                  │    |\n|  │                                                         │    |\n|  │  M implements f if the equilibrium of the game         │    |\n|  │  induced by M achieves f(θ) for all θ.                 │    |\n|  └─────────────────────────────────────────────────────────┘    |\n|                                                                  |\n|  KEY RESULTS:                                                    |\n|  Revelation Principle → WLOG study direct mechanisms            |\n|  Gibbard-Satterthwaite → DSIC efficiency impossible (general)   |\n|  VCG → DSIC + efficiency (with transfers)                       |\n|  Myerson → revenue-maximizing auction                           |\n|  Gale-Shapley → stable matching without transfers               |\n+------------------------------------------------------------------+\n```"
+    }
+  ],
+  "refs": [
+    "03-MECHANISM-DESIGN.md"
+  ]
+}

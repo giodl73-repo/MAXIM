@@ -1,0 +1,1424 @@
+{
+  "schema_version": "fletch.registry.v1",
+  "generated_by": "MAXIM source-corpus backfill",
+  "registry_id": "maxim-game-theory-source-corpus",
+  "fletches": [
+    {
+      "id": "maxim.game-theory.source-corpus.pebble",
+      "node_kind": "fletch",
+      "shafts": [
+        {
+          "kind": "file",
+          "url": ".pebble/packs/maxim-game-theory-source-corpus.pebble.json"
+        }
+      ],
+      "edges": [
+        {
+          "to": "maxim-game-theory-source-corpus",
+          "kind": "derived-from",
+          "label": "CROP view recipe",
+          "metadata": {
+            "view": ".crop/views/maxim-game-theory-source-corpus.json",
+            "module": "game-theory",
+            "custody": "partial"
+          }
+        }
+      ],
+      "format": {
+        "media_type": "application/json",
+        "encoding": "utf-8",
+        "compression": null,
+        "container": null,
+        "schema": "pebble.v1",
+        "record_shape": "corpus-slice",
+        "preferred_local": ".pebble/packs/maxim-game-theory-source-corpus.pebble.json"
+      },
+      "tags": [
+        "source-corpus",
+        "crop",
+        "pebble",
+        "partial-custody"
+      ],
+      "metadata": {
+        "source_repo": "MAXIM",
+        "module": "game-theory",
+        "distribution": "FLETCH fetch/cache surface for downstream repos",
+        "publication_state": "partial-source-custody"
+      }
+    },
+    {
+      "id": "maxim.game-theory.overview.view",
+      "node_kind": "fletch",
+      "shafts": [
+        {
+          "kind": "file",
+          "url": ".crop/views/maxim-game-theory-overview.json"
+        }
+      ],
+      "edges": [
+        {
+          "to": "maxim.game-theory.source-corpus.pebble",
+          "kind": "derived-from",
+          "label": "Guide-level CROP view recipe",
+          "metadata": {
+            "module": "game-theory",
+            "guide": "game-theory/00-OVERVIEW.md",
+            "custody": "partial"
+          }
+        }
+      ],
+      "format": {
+        "media_type": "application/json",
+        "encoding": "utf-8",
+        "compression": null,
+        "container": null,
+        "schema": "crop.view.v1",
+        "record_shape": "view-recipe",
+        "preferred_local": ".crop/views/maxim-game-theory-overview.json"
+      },
+      "tags": [
+        "source-corpus",
+        "crop",
+        "view",
+        "partial-custody",
+        "guide"
+      ],
+      "metadata": {
+        "source_repo": "MAXIM",
+        "module": "game-theory",
+        "guide": "game-theory/00-OVERVIEW.md",
+        "publication_state": "partial-source-custody"
+      }
+    },
+    {
+      "id": "maxim.game-theory.overview.pebble",
+      "node_kind": "fletch",
+      "shafts": [
+        {
+          "kind": "file",
+          "url": ".pebble/packs/maxim-game-theory-overview.pebble.json"
+        }
+      ],
+      "edges": [
+        {
+          "to": "maxim.game-theory.overview.view",
+          "kind": "derived-from",
+          "label": "Guide-level CROP view recipe",
+          "metadata": {
+            "module": "game-theory",
+            "custody": "partial"
+          }
+        },
+        {
+          "to": "maxim.game-theory.source-corpus.pebble",
+          "kind": "derived-from",
+          "label": "Guide-level CROP view",
+          "metadata": {
+            "view": ".crop/views/maxim-game-theory-overview.json",
+            "module": "game-theory",
+            "custody": "partial"
+          }
+        }
+      ],
+      "format": {
+        "media_type": "application/json",
+        "encoding": "utf-8",
+        "compression": null,
+        "container": null,
+        "schema": "pebble.v1",
+        "record_shape": "corpus-slice",
+        "preferred_local": ".pebble/packs/maxim-game-theory-overview.pebble.json"
+      },
+      "tags": [
+        "source-corpus",
+        "crop",
+        "pebble",
+        "partial-custody",
+        "guide"
+      ],
+      "metadata": {
+        "source_repo": "MAXIM",
+        "module": "game-theory",
+        "guide": "game-theory/00-OVERVIEW.md",
+        "publication_state": "partial-source-custody"
+      }
+    },
+    {
+      "id": "maxim.game-theory.overview.proof-source",
+      "node_kind": "fletch",
+      "shafts": [
+        {
+          "kind": "file",
+          "url": ".proof/backfill/sources/game-theory/proof-source/00-OVERVIEW.source.md"
+        }
+      ],
+      "edges": [
+        {
+          "to": "maxim.game-theory.overview.view",
+          "kind": "derived-from",
+          "label": "Literal PROOF source for guide view",
+          "metadata": {
+            "module": "game-theory",
+            "guide": "game-theory/00-OVERVIEW.md",
+            "custody": "partial"
+          }
+        }
+      ],
+      "format": {
+        "media_type": "text/markdown",
+        "encoding": "utf-8",
+        "compression": null,
+        "container": null,
+        "schema": "proof.source.literal_markdown.v1",
+        "record_shape": "literal-source",
+        "preferred_local": ".proof/backfill/sources/game-theory/proof-source/00-OVERVIEW.source.md"
+      },
+      "tags": [
+        "source-corpus",
+        "proof",
+        "source",
+        "partial-custody",
+        "guide"
+      ],
+      "metadata": {
+        "source_repo": "MAXIM",
+        "module": "game-theory",
+        "guide": "game-theory/00-OVERVIEW.md",
+        "publication_state": "partial-source-custody"
+      }
+    },
+    {
+      "id": "maxim.game-theory.overview.tables",
+      "node_kind": "fletch",
+      "shafts": [
+        {
+          "kind": "file",
+          "url": ".proof/backfill/sources/game-theory/proof-source/00-OVERVIEW.tables.json"
+        }
+      ],
+      "edges": [
+        {
+          "to": "maxim.game-theory.overview.proof-source",
+          "kind": "derived-from",
+          "label": "PROOF markdown table sidecar",
+          "metadata": {
+            "module": "game-theory",
+            "guide": "game-theory/00-OVERVIEW.md",
+            "custody": "partial"
+          }
+        }
+      ],
+      "format": {
+        "media_type": "application/json",
+        "encoding": "utf-8",
+        "compression": null,
+        "container": null,
+        "schema": "proof.backfill.tables.v1",
+        "record_shape": "table-sidecar",
+        "preferred_local": ".proof/backfill/sources/game-theory/proof-source/00-OVERVIEW.tables.json"
+      },
+      "tags": [
+        "source-corpus",
+        "proof",
+        "tables",
+        "partial-custody",
+        "guide"
+      ],
+      "metadata": {
+        "source_repo": "MAXIM",
+        "module": "game-theory",
+        "guide": "game-theory/00-OVERVIEW.md",
+        "publication_state": "partial-source-custody"
+      }
+    },
+    {
+      "id": "maxim.game-theory.overview.blocks",
+      "node_kind": "fletch",
+      "shafts": [
+        {
+          "kind": "file",
+          "url": ".proof/backfill/sources/game-theory/proof-source/00-OVERVIEW.blocks.json"
+        }
+      ],
+      "edges": [
+        {
+          "to": "maxim.game-theory.overview.proof-source",
+          "kind": "derived-from",
+          "label": "PROOF structured block sidecar",
+          "metadata": {
+            "module": "game-theory",
+            "guide": "game-theory/00-OVERVIEW.md",
+            "custody": "partial"
+          }
+        }
+      ],
+      "format": {
+        "media_type": "application/json",
+        "encoding": "utf-8",
+        "compression": null,
+        "container": null,
+        "schema": "proof.backfill.blocks.v1",
+        "record_shape": "structured-block-sidecar",
+        "preferred_local": ".proof/backfill/sources/game-theory/proof-source/00-OVERVIEW.blocks.json"
+      },
+      "tags": [
+        "source-corpus",
+        "proof",
+        "blocks",
+        "partial-custody",
+        "guide"
+      ],
+      "metadata": {
+        "source_repo": "MAXIM",
+        "module": "game-theory",
+        "guide": "game-theory/00-OVERVIEW.md",
+        "publication_state": "partial-source-custody"
+      }
+    },
+    {
+      "id": "maxim.game-theory.normal-form.view",
+      "node_kind": "fletch",
+      "shafts": [
+        {
+          "kind": "file",
+          "url": ".crop/views/maxim-game-theory-normal-form.json"
+        }
+      ],
+      "edges": [
+        {
+          "to": "maxim.game-theory.source-corpus.pebble",
+          "kind": "derived-from",
+          "label": "Guide-level CROP view recipe",
+          "metadata": {
+            "module": "game-theory",
+            "guide": "game-theory/01-NORMAL-FORM.md",
+            "custody": "partial"
+          }
+        }
+      ],
+      "format": {
+        "media_type": "application/json",
+        "encoding": "utf-8",
+        "compression": null,
+        "container": null,
+        "schema": "crop.view.v1",
+        "record_shape": "view-recipe",
+        "preferred_local": ".crop/views/maxim-game-theory-normal-form.json"
+      },
+      "tags": [
+        "source-corpus",
+        "crop",
+        "view",
+        "partial-custody",
+        "guide"
+      ],
+      "metadata": {
+        "source_repo": "MAXIM",
+        "module": "game-theory",
+        "guide": "game-theory/01-NORMAL-FORM.md",
+        "publication_state": "partial-source-custody"
+      }
+    },
+    {
+      "id": "maxim.game-theory.normal-form.pebble",
+      "node_kind": "fletch",
+      "shafts": [
+        {
+          "kind": "file",
+          "url": ".pebble/packs/maxim-game-theory-normal-form.pebble.json"
+        }
+      ],
+      "edges": [
+        {
+          "to": "maxim.game-theory.normal-form.view",
+          "kind": "derived-from",
+          "label": "Guide-level CROP view recipe",
+          "metadata": {
+            "module": "game-theory",
+            "custody": "partial"
+          }
+        },
+        {
+          "to": "maxim.game-theory.source-corpus.pebble",
+          "kind": "derived-from",
+          "label": "Guide-level CROP view",
+          "metadata": {
+            "view": ".crop/views/maxim-game-theory-normal-form.json",
+            "module": "game-theory",
+            "custody": "partial"
+          }
+        }
+      ],
+      "format": {
+        "media_type": "application/json",
+        "encoding": "utf-8",
+        "compression": null,
+        "container": null,
+        "schema": "pebble.v1",
+        "record_shape": "corpus-slice",
+        "preferred_local": ".pebble/packs/maxim-game-theory-normal-form.pebble.json"
+      },
+      "tags": [
+        "source-corpus",
+        "crop",
+        "pebble",
+        "partial-custody",
+        "guide"
+      ],
+      "metadata": {
+        "source_repo": "MAXIM",
+        "module": "game-theory",
+        "guide": "game-theory/01-NORMAL-FORM.md",
+        "publication_state": "partial-source-custody"
+      }
+    },
+    {
+      "id": "maxim.game-theory.normal-form.proof-source",
+      "node_kind": "fletch",
+      "shafts": [
+        {
+          "kind": "file",
+          "url": ".proof/backfill/sources/game-theory/proof-source/01-NORMAL-FORM.source.md"
+        }
+      ],
+      "edges": [
+        {
+          "to": "maxim.game-theory.normal-form.view",
+          "kind": "derived-from",
+          "label": "Literal PROOF source for guide view",
+          "metadata": {
+            "module": "game-theory",
+            "guide": "game-theory/01-NORMAL-FORM.md",
+            "custody": "partial"
+          }
+        }
+      ],
+      "format": {
+        "media_type": "text/markdown",
+        "encoding": "utf-8",
+        "compression": null,
+        "container": null,
+        "schema": "proof.source.literal_markdown.v1",
+        "record_shape": "literal-source",
+        "preferred_local": ".proof/backfill/sources/game-theory/proof-source/01-NORMAL-FORM.source.md"
+      },
+      "tags": [
+        "source-corpus",
+        "proof",
+        "source",
+        "partial-custody",
+        "guide"
+      ],
+      "metadata": {
+        "source_repo": "MAXIM",
+        "module": "game-theory",
+        "guide": "game-theory/01-NORMAL-FORM.md",
+        "publication_state": "partial-source-custody"
+      }
+    },
+    {
+      "id": "maxim.game-theory.normal-form.tables",
+      "node_kind": "fletch",
+      "shafts": [
+        {
+          "kind": "file",
+          "url": ".proof/backfill/sources/game-theory/proof-source/01-NORMAL-FORM.tables.json"
+        }
+      ],
+      "edges": [
+        {
+          "to": "maxim.game-theory.normal-form.proof-source",
+          "kind": "derived-from",
+          "label": "PROOF markdown table sidecar",
+          "metadata": {
+            "module": "game-theory",
+            "guide": "game-theory/01-NORMAL-FORM.md",
+            "custody": "partial"
+          }
+        }
+      ],
+      "format": {
+        "media_type": "application/json",
+        "encoding": "utf-8",
+        "compression": null,
+        "container": null,
+        "schema": "proof.backfill.tables.v1",
+        "record_shape": "table-sidecar",
+        "preferred_local": ".proof/backfill/sources/game-theory/proof-source/01-NORMAL-FORM.tables.json"
+      },
+      "tags": [
+        "source-corpus",
+        "proof",
+        "tables",
+        "partial-custody",
+        "guide"
+      ],
+      "metadata": {
+        "source_repo": "MAXIM",
+        "module": "game-theory",
+        "guide": "game-theory/01-NORMAL-FORM.md",
+        "publication_state": "partial-source-custody"
+      }
+    },
+    {
+      "id": "maxim.game-theory.normal-form.blocks",
+      "node_kind": "fletch",
+      "shafts": [
+        {
+          "kind": "file",
+          "url": ".proof/backfill/sources/game-theory/proof-source/01-NORMAL-FORM.blocks.json"
+        }
+      ],
+      "edges": [
+        {
+          "to": "maxim.game-theory.normal-form.proof-source",
+          "kind": "derived-from",
+          "label": "PROOF structured block sidecar",
+          "metadata": {
+            "module": "game-theory",
+            "guide": "game-theory/01-NORMAL-FORM.md",
+            "custody": "partial"
+          }
+        }
+      ],
+      "format": {
+        "media_type": "application/json",
+        "encoding": "utf-8",
+        "compression": null,
+        "container": null,
+        "schema": "proof.backfill.blocks.v1",
+        "record_shape": "structured-block-sidecar",
+        "preferred_local": ".proof/backfill/sources/game-theory/proof-source/01-NORMAL-FORM.blocks.json"
+      },
+      "tags": [
+        "source-corpus",
+        "proof",
+        "blocks",
+        "partial-custody",
+        "guide"
+      ],
+      "metadata": {
+        "source_repo": "MAXIM",
+        "module": "game-theory",
+        "guide": "game-theory/01-NORMAL-FORM.md",
+        "publication_state": "partial-source-custody"
+      }
+    },
+    {
+      "id": "maxim.game-theory.extensive-form.view",
+      "node_kind": "fletch",
+      "shafts": [
+        {
+          "kind": "file",
+          "url": ".crop/views/maxim-game-theory-extensive-form.json"
+        }
+      ],
+      "edges": [
+        {
+          "to": "maxim.game-theory.source-corpus.pebble",
+          "kind": "derived-from",
+          "label": "Guide-level CROP view recipe",
+          "metadata": {
+            "module": "game-theory",
+            "guide": "game-theory/02-EXTENSIVE-FORM.md",
+            "custody": "partial"
+          }
+        }
+      ],
+      "format": {
+        "media_type": "application/json",
+        "encoding": "utf-8",
+        "compression": null,
+        "container": null,
+        "schema": "crop.view.v1",
+        "record_shape": "view-recipe",
+        "preferred_local": ".crop/views/maxim-game-theory-extensive-form.json"
+      },
+      "tags": [
+        "source-corpus",
+        "crop",
+        "view",
+        "partial-custody",
+        "guide"
+      ],
+      "metadata": {
+        "source_repo": "MAXIM",
+        "module": "game-theory",
+        "guide": "game-theory/02-EXTENSIVE-FORM.md",
+        "publication_state": "partial-source-custody"
+      }
+    },
+    {
+      "id": "maxim.game-theory.extensive-form.pebble",
+      "node_kind": "fletch",
+      "shafts": [
+        {
+          "kind": "file",
+          "url": ".pebble/packs/maxim-game-theory-extensive-form.pebble.json"
+        }
+      ],
+      "edges": [
+        {
+          "to": "maxim.game-theory.extensive-form.view",
+          "kind": "derived-from",
+          "label": "Guide-level CROP view recipe",
+          "metadata": {
+            "module": "game-theory",
+            "custody": "partial"
+          }
+        },
+        {
+          "to": "maxim.game-theory.source-corpus.pebble",
+          "kind": "derived-from",
+          "label": "Guide-level CROP view",
+          "metadata": {
+            "view": ".crop/views/maxim-game-theory-extensive-form.json",
+            "module": "game-theory",
+            "custody": "partial"
+          }
+        }
+      ],
+      "format": {
+        "media_type": "application/json",
+        "encoding": "utf-8",
+        "compression": null,
+        "container": null,
+        "schema": "pebble.v1",
+        "record_shape": "corpus-slice",
+        "preferred_local": ".pebble/packs/maxim-game-theory-extensive-form.pebble.json"
+      },
+      "tags": [
+        "source-corpus",
+        "crop",
+        "pebble",
+        "partial-custody",
+        "guide"
+      ],
+      "metadata": {
+        "source_repo": "MAXIM",
+        "module": "game-theory",
+        "guide": "game-theory/02-EXTENSIVE-FORM.md",
+        "publication_state": "partial-source-custody"
+      }
+    },
+    {
+      "id": "maxim.game-theory.extensive-form.proof-source",
+      "node_kind": "fletch",
+      "shafts": [
+        {
+          "kind": "file",
+          "url": ".proof/backfill/sources/game-theory/proof-source/02-EXTENSIVE-FORM.source.md"
+        }
+      ],
+      "edges": [
+        {
+          "to": "maxim.game-theory.extensive-form.view",
+          "kind": "derived-from",
+          "label": "Literal PROOF source for guide view",
+          "metadata": {
+            "module": "game-theory",
+            "guide": "game-theory/02-EXTENSIVE-FORM.md",
+            "custody": "partial"
+          }
+        }
+      ],
+      "format": {
+        "media_type": "text/markdown",
+        "encoding": "utf-8",
+        "compression": null,
+        "container": null,
+        "schema": "proof.source.literal_markdown.v1",
+        "record_shape": "literal-source",
+        "preferred_local": ".proof/backfill/sources/game-theory/proof-source/02-EXTENSIVE-FORM.source.md"
+      },
+      "tags": [
+        "source-corpus",
+        "proof",
+        "source",
+        "partial-custody",
+        "guide"
+      ],
+      "metadata": {
+        "source_repo": "MAXIM",
+        "module": "game-theory",
+        "guide": "game-theory/02-EXTENSIVE-FORM.md",
+        "publication_state": "partial-source-custody"
+      }
+    },
+    {
+      "id": "maxim.game-theory.extensive-form.tables",
+      "node_kind": "fletch",
+      "shafts": [
+        {
+          "kind": "file",
+          "url": ".proof/backfill/sources/game-theory/proof-source/02-EXTENSIVE-FORM.tables.json"
+        }
+      ],
+      "edges": [
+        {
+          "to": "maxim.game-theory.extensive-form.proof-source",
+          "kind": "derived-from",
+          "label": "PROOF markdown table sidecar",
+          "metadata": {
+            "module": "game-theory",
+            "guide": "game-theory/02-EXTENSIVE-FORM.md",
+            "custody": "partial"
+          }
+        }
+      ],
+      "format": {
+        "media_type": "application/json",
+        "encoding": "utf-8",
+        "compression": null,
+        "container": null,
+        "schema": "proof.backfill.tables.v1",
+        "record_shape": "table-sidecar",
+        "preferred_local": ".proof/backfill/sources/game-theory/proof-source/02-EXTENSIVE-FORM.tables.json"
+      },
+      "tags": [
+        "source-corpus",
+        "proof",
+        "tables",
+        "partial-custody",
+        "guide"
+      ],
+      "metadata": {
+        "source_repo": "MAXIM",
+        "module": "game-theory",
+        "guide": "game-theory/02-EXTENSIVE-FORM.md",
+        "publication_state": "partial-source-custody"
+      }
+    },
+    {
+      "id": "maxim.game-theory.extensive-form.blocks",
+      "node_kind": "fletch",
+      "shafts": [
+        {
+          "kind": "file",
+          "url": ".proof/backfill/sources/game-theory/proof-source/02-EXTENSIVE-FORM.blocks.json"
+        }
+      ],
+      "edges": [
+        {
+          "to": "maxim.game-theory.extensive-form.proof-source",
+          "kind": "derived-from",
+          "label": "PROOF structured block sidecar",
+          "metadata": {
+            "module": "game-theory",
+            "guide": "game-theory/02-EXTENSIVE-FORM.md",
+            "custody": "partial"
+          }
+        }
+      ],
+      "format": {
+        "media_type": "application/json",
+        "encoding": "utf-8",
+        "compression": null,
+        "container": null,
+        "schema": "proof.backfill.blocks.v1",
+        "record_shape": "structured-block-sidecar",
+        "preferred_local": ".proof/backfill/sources/game-theory/proof-source/02-EXTENSIVE-FORM.blocks.json"
+      },
+      "tags": [
+        "source-corpus",
+        "proof",
+        "blocks",
+        "partial-custody",
+        "guide"
+      ],
+      "metadata": {
+        "source_repo": "MAXIM",
+        "module": "game-theory",
+        "guide": "game-theory/02-EXTENSIVE-FORM.md",
+        "publication_state": "partial-source-custody"
+      }
+    },
+    {
+      "id": "maxim.game-theory.mechanism-design.view",
+      "node_kind": "fletch",
+      "shafts": [
+        {
+          "kind": "file",
+          "url": ".crop/views/maxim-game-theory-mechanism-design.json"
+        }
+      ],
+      "edges": [
+        {
+          "to": "maxim.game-theory.source-corpus.pebble",
+          "kind": "derived-from",
+          "label": "Guide-level CROP view recipe",
+          "metadata": {
+            "module": "game-theory",
+            "guide": "game-theory/03-MECHANISM-DESIGN.md",
+            "custody": "partial"
+          }
+        }
+      ],
+      "format": {
+        "media_type": "application/json",
+        "encoding": "utf-8",
+        "compression": null,
+        "container": null,
+        "schema": "crop.view.v1",
+        "record_shape": "view-recipe",
+        "preferred_local": ".crop/views/maxim-game-theory-mechanism-design.json"
+      },
+      "tags": [
+        "source-corpus",
+        "crop",
+        "view",
+        "partial-custody",
+        "guide"
+      ],
+      "metadata": {
+        "source_repo": "MAXIM",
+        "module": "game-theory",
+        "guide": "game-theory/03-MECHANISM-DESIGN.md",
+        "publication_state": "partial-source-custody"
+      }
+    },
+    {
+      "id": "maxim.game-theory.mechanism-design.pebble",
+      "node_kind": "fletch",
+      "shafts": [
+        {
+          "kind": "file",
+          "url": ".pebble/packs/maxim-game-theory-mechanism-design.pebble.json"
+        }
+      ],
+      "edges": [
+        {
+          "to": "maxim.game-theory.mechanism-design.view",
+          "kind": "derived-from",
+          "label": "Guide-level CROP view recipe",
+          "metadata": {
+            "module": "game-theory",
+            "custody": "partial"
+          }
+        },
+        {
+          "to": "maxim.game-theory.source-corpus.pebble",
+          "kind": "derived-from",
+          "label": "Guide-level CROP view",
+          "metadata": {
+            "view": ".crop/views/maxim-game-theory-mechanism-design.json",
+            "module": "game-theory",
+            "custody": "partial"
+          }
+        }
+      ],
+      "format": {
+        "media_type": "application/json",
+        "encoding": "utf-8",
+        "compression": null,
+        "container": null,
+        "schema": "pebble.v1",
+        "record_shape": "corpus-slice",
+        "preferred_local": ".pebble/packs/maxim-game-theory-mechanism-design.pebble.json"
+      },
+      "tags": [
+        "source-corpus",
+        "crop",
+        "pebble",
+        "partial-custody",
+        "guide"
+      ],
+      "metadata": {
+        "source_repo": "MAXIM",
+        "module": "game-theory",
+        "guide": "game-theory/03-MECHANISM-DESIGN.md",
+        "publication_state": "partial-source-custody"
+      }
+    },
+    {
+      "id": "maxim.game-theory.mechanism-design.proof-source",
+      "node_kind": "fletch",
+      "shafts": [
+        {
+          "kind": "file",
+          "url": ".proof/backfill/sources/game-theory/proof-source/03-MECHANISM-DESIGN.source.md"
+        }
+      ],
+      "edges": [
+        {
+          "to": "maxim.game-theory.mechanism-design.view",
+          "kind": "derived-from",
+          "label": "Literal PROOF source for guide view",
+          "metadata": {
+            "module": "game-theory",
+            "guide": "game-theory/03-MECHANISM-DESIGN.md",
+            "custody": "partial"
+          }
+        }
+      ],
+      "format": {
+        "media_type": "text/markdown",
+        "encoding": "utf-8",
+        "compression": null,
+        "container": null,
+        "schema": "proof.source.literal_markdown.v1",
+        "record_shape": "literal-source",
+        "preferred_local": ".proof/backfill/sources/game-theory/proof-source/03-MECHANISM-DESIGN.source.md"
+      },
+      "tags": [
+        "source-corpus",
+        "proof",
+        "source",
+        "partial-custody",
+        "guide"
+      ],
+      "metadata": {
+        "source_repo": "MAXIM",
+        "module": "game-theory",
+        "guide": "game-theory/03-MECHANISM-DESIGN.md",
+        "publication_state": "partial-source-custody"
+      }
+    },
+    {
+      "id": "maxim.game-theory.mechanism-design.tables",
+      "node_kind": "fletch",
+      "shafts": [
+        {
+          "kind": "file",
+          "url": ".proof/backfill/sources/game-theory/proof-source/03-MECHANISM-DESIGN.tables.json"
+        }
+      ],
+      "edges": [
+        {
+          "to": "maxim.game-theory.mechanism-design.proof-source",
+          "kind": "derived-from",
+          "label": "PROOF markdown table sidecar",
+          "metadata": {
+            "module": "game-theory",
+            "guide": "game-theory/03-MECHANISM-DESIGN.md",
+            "custody": "partial"
+          }
+        }
+      ],
+      "format": {
+        "media_type": "application/json",
+        "encoding": "utf-8",
+        "compression": null,
+        "container": null,
+        "schema": "proof.backfill.tables.v1",
+        "record_shape": "table-sidecar",
+        "preferred_local": ".proof/backfill/sources/game-theory/proof-source/03-MECHANISM-DESIGN.tables.json"
+      },
+      "tags": [
+        "source-corpus",
+        "proof",
+        "tables",
+        "partial-custody",
+        "guide"
+      ],
+      "metadata": {
+        "source_repo": "MAXIM",
+        "module": "game-theory",
+        "guide": "game-theory/03-MECHANISM-DESIGN.md",
+        "publication_state": "partial-source-custody"
+      }
+    },
+    {
+      "id": "maxim.game-theory.mechanism-design.blocks",
+      "node_kind": "fletch",
+      "shafts": [
+        {
+          "kind": "file",
+          "url": ".proof/backfill/sources/game-theory/proof-source/03-MECHANISM-DESIGN.blocks.json"
+        }
+      ],
+      "edges": [
+        {
+          "to": "maxim.game-theory.mechanism-design.proof-source",
+          "kind": "derived-from",
+          "label": "PROOF structured block sidecar",
+          "metadata": {
+            "module": "game-theory",
+            "guide": "game-theory/03-MECHANISM-DESIGN.md",
+            "custody": "partial"
+          }
+        }
+      ],
+      "format": {
+        "media_type": "application/json",
+        "encoding": "utf-8",
+        "compression": null,
+        "container": null,
+        "schema": "proof.backfill.blocks.v1",
+        "record_shape": "structured-block-sidecar",
+        "preferred_local": ".proof/backfill/sources/game-theory/proof-source/03-MECHANISM-DESIGN.blocks.json"
+      },
+      "tags": [
+        "source-corpus",
+        "proof",
+        "blocks",
+        "partial-custody",
+        "guide"
+      ],
+      "metadata": {
+        "source_repo": "MAXIM",
+        "module": "game-theory",
+        "guide": "game-theory/03-MECHANISM-DESIGN.md",
+        "publication_state": "partial-source-custody"
+      }
+    },
+    {
+      "id": "maxim.game-theory.cooperative.view",
+      "node_kind": "fletch",
+      "shafts": [
+        {
+          "kind": "file",
+          "url": ".crop/views/maxim-game-theory-cooperative.json"
+        }
+      ],
+      "edges": [
+        {
+          "to": "maxim.game-theory.source-corpus.pebble",
+          "kind": "derived-from",
+          "label": "Guide-level CROP view recipe",
+          "metadata": {
+            "module": "game-theory",
+            "guide": "game-theory/04-COOPERATIVE.md",
+            "custody": "partial"
+          }
+        }
+      ],
+      "format": {
+        "media_type": "application/json",
+        "encoding": "utf-8",
+        "compression": null,
+        "container": null,
+        "schema": "crop.view.v1",
+        "record_shape": "view-recipe",
+        "preferred_local": ".crop/views/maxim-game-theory-cooperative.json"
+      },
+      "tags": [
+        "source-corpus",
+        "crop",
+        "view",
+        "partial-custody",
+        "guide"
+      ],
+      "metadata": {
+        "source_repo": "MAXIM",
+        "module": "game-theory",
+        "guide": "game-theory/04-COOPERATIVE.md",
+        "publication_state": "partial-source-custody"
+      }
+    },
+    {
+      "id": "maxim.game-theory.cooperative.pebble",
+      "node_kind": "fletch",
+      "shafts": [
+        {
+          "kind": "file",
+          "url": ".pebble/packs/maxim-game-theory-cooperative.pebble.json"
+        }
+      ],
+      "edges": [
+        {
+          "to": "maxim.game-theory.cooperative.view",
+          "kind": "derived-from",
+          "label": "Guide-level CROP view recipe",
+          "metadata": {
+            "module": "game-theory",
+            "custody": "partial"
+          }
+        },
+        {
+          "to": "maxim.game-theory.source-corpus.pebble",
+          "kind": "derived-from",
+          "label": "Guide-level CROP view",
+          "metadata": {
+            "view": ".crop/views/maxim-game-theory-cooperative.json",
+            "module": "game-theory",
+            "custody": "partial"
+          }
+        }
+      ],
+      "format": {
+        "media_type": "application/json",
+        "encoding": "utf-8",
+        "compression": null,
+        "container": null,
+        "schema": "pebble.v1",
+        "record_shape": "corpus-slice",
+        "preferred_local": ".pebble/packs/maxim-game-theory-cooperative.pebble.json"
+      },
+      "tags": [
+        "source-corpus",
+        "crop",
+        "pebble",
+        "partial-custody",
+        "guide"
+      ],
+      "metadata": {
+        "source_repo": "MAXIM",
+        "module": "game-theory",
+        "guide": "game-theory/04-COOPERATIVE.md",
+        "publication_state": "partial-source-custody"
+      }
+    },
+    {
+      "id": "maxim.game-theory.cooperative.proof-source",
+      "node_kind": "fletch",
+      "shafts": [
+        {
+          "kind": "file",
+          "url": ".proof/backfill/sources/game-theory/proof-source/04-COOPERATIVE.source.md"
+        }
+      ],
+      "edges": [
+        {
+          "to": "maxim.game-theory.cooperative.view",
+          "kind": "derived-from",
+          "label": "Literal PROOF source for guide view",
+          "metadata": {
+            "module": "game-theory",
+            "guide": "game-theory/04-COOPERATIVE.md",
+            "custody": "partial"
+          }
+        }
+      ],
+      "format": {
+        "media_type": "text/markdown",
+        "encoding": "utf-8",
+        "compression": null,
+        "container": null,
+        "schema": "proof.source.literal_markdown.v1",
+        "record_shape": "literal-source",
+        "preferred_local": ".proof/backfill/sources/game-theory/proof-source/04-COOPERATIVE.source.md"
+      },
+      "tags": [
+        "source-corpus",
+        "proof",
+        "source",
+        "partial-custody",
+        "guide"
+      ],
+      "metadata": {
+        "source_repo": "MAXIM",
+        "module": "game-theory",
+        "guide": "game-theory/04-COOPERATIVE.md",
+        "publication_state": "partial-source-custody"
+      }
+    },
+    {
+      "id": "maxim.game-theory.cooperative.tables",
+      "node_kind": "fletch",
+      "shafts": [
+        {
+          "kind": "file",
+          "url": ".proof/backfill/sources/game-theory/proof-source/04-COOPERATIVE.tables.json"
+        }
+      ],
+      "edges": [
+        {
+          "to": "maxim.game-theory.cooperative.proof-source",
+          "kind": "derived-from",
+          "label": "PROOF markdown table sidecar",
+          "metadata": {
+            "module": "game-theory",
+            "guide": "game-theory/04-COOPERATIVE.md",
+            "custody": "partial"
+          }
+        }
+      ],
+      "format": {
+        "media_type": "application/json",
+        "encoding": "utf-8",
+        "compression": null,
+        "container": null,
+        "schema": "proof.backfill.tables.v1",
+        "record_shape": "table-sidecar",
+        "preferred_local": ".proof/backfill/sources/game-theory/proof-source/04-COOPERATIVE.tables.json"
+      },
+      "tags": [
+        "source-corpus",
+        "proof",
+        "tables",
+        "partial-custody",
+        "guide"
+      ],
+      "metadata": {
+        "source_repo": "MAXIM",
+        "module": "game-theory",
+        "guide": "game-theory/04-COOPERATIVE.md",
+        "publication_state": "partial-source-custody"
+      }
+    },
+    {
+      "id": "maxim.game-theory.cooperative.blocks",
+      "node_kind": "fletch",
+      "shafts": [
+        {
+          "kind": "file",
+          "url": ".proof/backfill/sources/game-theory/proof-source/04-COOPERATIVE.blocks.json"
+        }
+      ],
+      "edges": [
+        {
+          "to": "maxim.game-theory.cooperative.proof-source",
+          "kind": "derived-from",
+          "label": "PROOF structured block sidecar",
+          "metadata": {
+            "module": "game-theory",
+            "guide": "game-theory/04-COOPERATIVE.md",
+            "custody": "partial"
+          }
+        }
+      ],
+      "format": {
+        "media_type": "application/json",
+        "encoding": "utf-8",
+        "compression": null,
+        "container": null,
+        "schema": "proof.backfill.blocks.v1",
+        "record_shape": "structured-block-sidecar",
+        "preferred_local": ".proof/backfill/sources/game-theory/proof-source/04-COOPERATIVE.blocks.json"
+      },
+      "tags": [
+        "source-corpus",
+        "proof",
+        "blocks",
+        "partial-custody",
+        "guide"
+      ],
+      "metadata": {
+        "source_repo": "MAXIM",
+        "module": "game-theory",
+        "guide": "game-theory/04-COOPERATIVE.md",
+        "publication_state": "partial-source-custody"
+      }
+    },
+    {
+      "id": "maxim.game-theory.evolutionary.view",
+      "node_kind": "fletch",
+      "shafts": [
+        {
+          "kind": "file",
+          "url": ".crop/views/maxim-game-theory-evolutionary.json"
+        }
+      ],
+      "edges": [
+        {
+          "to": "maxim.game-theory.source-corpus.pebble",
+          "kind": "derived-from",
+          "label": "Guide-level CROP view recipe",
+          "metadata": {
+            "module": "game-theory",
+            "guide": "game-theory/05-EVOLUTIONARY.md",
+            "custody": "partial"
+          }
+        }
+      ],
+      "format": {
+        "media_type": "application/json",
+        "encoding": "utf-8",
+        "compression": null,
+        "container": null,
+        "schema": "crop.view.v1",
+        "record_shape": "view-recipe",
+        "preferred_local": ".crop/views/maxim-game-theory-evolutionary.json"
+      },
+      "tags": [
+        "source-corpus",
+        "crop",
+        "view",
+        "partial-custody",
+        "guide"
+      ],
+      "metadata": {
+        "source_repo": "MAXIM",
+        "module": "game-theory",
+        "guide": "game-theory/05-EVOLUTIONARY.md",
+        "publication_state": "partial-source-custody"
+      }
+    },
+    {
+      "id": "maxim.game-theory.evolutionary.pebble",
+      "node_kind": "fletch",
+      "shafts": [
+        {
+          "kind": "file",
+          "url": ".pebble/packs/maxim-game-theory-evolutionary.pebble.json"
+        }
+      ],
+      "edges": [
+        {
+          "to": "maxim.game-theory.evolutionary.view",
+          "kind": "derived-from",
+          "label": "Guide-level CROP view recipe",
+          "metadata": {
+            "module": "game-theory",
+            "custody": "partial"
+          }
+        },
+        {
+          "to": "maxim.game-theory.source-corpus.pebble",
+          "kind": "derived-from",
+          "label": "Guide-level CROP view",
+          "metadata": {
+            "view": ".crop/views/maxim-game-theory-evolutionary.json",
+            "module": "game-theory",
+            "custody": "partial"
+          }
+        }
+      ],
+      "format": {
+        "media_type": "application/json",
+        "encoding": "utf-8",
+        "compression": null,
+        "container": null,
+        "schema": "pebble.v1",
+        "record_shape": "corpus-slice",
+        "preferred_local": ".pebble/packs/maxim-game-theory-evolutionary.pebble.json"
+      },
+      "tags": [
+        "source-corpus",
+        "crop",
+        "pebble",
+        "partial-custody",
+        "guide"
+      ],
+      "metadata": {
+        "source_repo": "MAXIM",
+        "module": "game-theory",
+        "guide": "game-theory/05-EVOLUTIONARY.md",
+        "publication_state": "partial-source-custody"
+      }
+    },
+    {
+      "id": "maxim.game-theory.evolutionary.proof-source",
+      "node_kind": "fletch",
+      "shafts": [
+        {
+          "kind": "file",
+          "url": ".proof/backfill/sources/game-theory/proof-source/05-EVOLUTIONARY.source.md"
+        }
+      ],
+      "edges": [
+        {
+          "to": "maxim.game-theory.evolutionary.view",
+          "kind": "derived-from",
+          "label": "Literal PROOF source for guide view",
+          "metadata": {
+            "module": "game-theory",
+            "guide": "game-theory/05-EVOLUTIONARY.md",
+            "custody": "partial"
+          }
+        }
+      ],
+      "format": {
+        "media_type": "text/markdown",
+        "encoding": "utf-8",
+        "compression": null,
+        "container": null,
+        "schema": "proof.source.literal_markdown.v1",
+        "record_shape": "literal-source",
+        "preferred_local": ".proof/backfill/sources/game-theory/proof-source/05-EVOLUTIONARY.source.md"
+      },
+      "tags": [
+        "source-corpus",
+        "proof",
+        "source",
+        "partial-custody",
+        "guide"
+      ],
+      "metadata": {
+        "source_repo": "MAXIM",
+        "module": "game-theory",
+        "guide": "game-theory/05-EVOLUTIONARY.md",
+        "publication_state": "partial-source-custody"
+      }
+    },
+    {
+      "id": "maxim.game-theory.evolutionary.tables",
+      "node_kind": "fletch",
+      "shafts": [
+        {
+          "kind": "file",
+          "url": ".proof/backfill/sources/game-theory/proof-source/05-EVOLUTIONARY.tables.json"
+        }
+      ],
+      "edges": [
+        {
+          "to": "maxim.game-theory.evolutionary.proof-source",
+          "kind": "derived-from",
+          "label": "PROOF markdown table sidecar",
+          "metadata": {
+            "module": "game-theory",
+            "guide": "game-theory/05-EVOLUTIONARY.md",
+            "custody": "partial"
+          }
+        }
+      ],
+      "format": {
+        "media_type": "application/json",
+        "encoding": "utf-8",
+        "compression": null,
+        "container": null,
+        "schema": "proof.backfill.tables.v1",
+        "record_shape": "table-sidecar",
+        "preferred_local": ".proof/backfill/sources/game-theory/proof-source/05-EVOLUTIONARY.tables.json"
+      },
+      "tags": [
+        "source-corpus",
+        "proof",
+        "tables",
+        "partial-custody",
+        "guide"
+      ],
+      "metadata": {
+        "source_repo": "MAXIM",
+        "module": "game-theory",
+        "guide": "game-theory/05-EVOLUTIONARY.md",
+        "publication_state": "partial-source-custody"
+      }
+    },
+    {
+      "id": "maxim.game-theory.evolutionary.blocks",
+      "node_kind": "fletch",
+      "shafts": [
+        {
+          "kind": "file",
+          "url": ".proof/backfill/sources/game-theory/proof-source/05-EVOLUTIONARY.blocks.json"
+        }
+      ],
+      "edges": [
+        {
+          "to": "maxim.game-theory.evolutionary.proof-source",
+          "kind": "derived-from",
+          "label": "PROOF structured block sidecar",
+          "metadata": {
+            "module": "game-theory",
+            "guide": "game-theory/05-EVOLUTIONARY.md",
+            "custody": "partial"
+          }
+        }
+      ],
+      "format": {
+        "media_type": "application/json",
+        "encoding": "utf-8",
+        "compression": null,
+        "container": null,
+        "schema": "proof.backfill.blocks.v1",
+        "record_shape": "structured-block-sidecar",
+        "preferred_local": ".proof/backfill/sources/game-theory/proof-source/05-EVOLUTIONARY.blocks.json"
+      },
+      "tags": [
+        "source-corpus",
+        "proof",
+        "blocks",
+        "partial-custody",
+        "guide"
+      ],
+      "metadata": {
+        "source_repo": "MAXIM",
+        "module": "game-theory",
+        "guide": "game-theory/05-EVOLUTIONARY.md",
+        "publication_state": "partial-source-custody"
+      }
+    }
+  ]
+}

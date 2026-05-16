@@ -1,3 +1,22 @@
+---
+maxim_schema: maxim.frontmatter.v1
+id: maxim:game-theory:extensive-form
+kind: guide
+module: game-theory
+section: game-theory
+title: Extensive Form Games - Sequential Play, Credibility, and Incomplete Information
+status: source-custody
+source_custody: partial
+current_path: game-theory/02-EXTENSIVE-FORM.md
+canonical_path: game-theory/02-EXTENSIVE-FORM.md
+backsource_ids: [proof-backfill:game-theory:02-extensive-form, git-history:game-theory:02-extensive-form]
+concepts: [extensive, form]
+root_concepts: [extensive, form]
+index_roles: [guide, root-concept]
+remap_from: []
+remap_to: []
+updated: null
+---
 # Extensive Form Games — Sequential Play, Credibility, and Incomplete Information
 
 ## The Big Picture
@@ -12,7 +31,7 @@ simultaneous round) to arbitrary sequential interaction.
 |                                                                  |
 |  GAME TREE                    INFORMATION STRUCTURE              |
 |  ----------                   ---------------------              |
-|  Nodes (histories)            Perfect info: info sets = singletons|
+|  Nodes (histories)            Perfect info: singleton info sets  |
 |  Actions (edges)              Imperfect info: non-singleton sets |
 |  Information sets             Incomplete info: private types     |
 |  (partition of nodes)         (Harsanyi: convert to imperfect)   |
@@ -26,7 +45,7 @@ simultaneous round) to arbitrary sequential interaction.
 |                           -->  Subgame perfect equilibrium (SPE) |
 |                                                                  |
 |  Imperfect info (general) -->  Subgame perfect equilibrium       |
-|                           -->  Perfect Bayesian Equilibrium (PBE) |
+|                           -->  Perfect Bayesian Eq. (PBE)        |
 |                           -->  Sequential Equilibrium            |
 |                                                                  |
 |  Incomplete info          -->  Bayesian Nash Equilibrium (BNE)   |

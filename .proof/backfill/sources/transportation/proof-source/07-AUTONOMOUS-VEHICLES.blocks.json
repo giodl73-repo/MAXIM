@@ -1,0 +1,94 @@
+{
+  "schema_version": "1",
+  "source_markdown": "transportation\\07-AUTONOMOUS-VEHICLES.md",
+  "blocks": [
+    {
+      "id": "block-1",
+      "kind": "diagram_like",
+      "line": 26,
+      "heading_context": "## The Big Picture",
+      "confidence": "candidate",
+      "text": "                  AV SYSTEM ARCHITECTURE\n\n  PERCEPTION:\n    LiDAR (point cloud)\n    Camera (RGB, semantic)\n    Radar (Doppler, velocity)\n    Ultrasonic (parking, close range)\n        ↓\n  SENSOR FUSION (Kalman filter, deep fusion)\n        ↓\n  PREDICTION:\n    Object detection + tracking + prediction\n    \"That car will turn left in 2 seconds\"\n        ↓\n  PLANNING:\n    Route planning → Behavioral → Motion → Control (actuators)\n\n  LOCALIZATION (runs in parallel):\n    HD Map + LiDAR/camera matching + GPS/IMU\n    \"I am at this exact position on the map\"",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-2",
+      "kind": "ascii_table_candidate",
+      "line": 55,
+      "heading_context": "## SAE J3016 Autonomy Levels",
+      "confidence": "candidate",
+      "text": "  LEVEL | NAME                | Monitors | Who drives?  | ODD\n  ------+---------------------+-----------+--------------+--------\n  L0    | No Automation       | Human     | Human always | Any\n        | (warnings ok)       |           |              |\n  ------+---------------------+-----------+--------------+--------\n  L1    | Driver Assistance   | Human     | Human (+1    | Limited\n        | (AEB, ACC, or       |           | system)      |\n        | lane-keep, not both)|           |              |\n  ------+---------------------+-----------+--------------+--------\n  L2    | Partial Automation  | Human     | Human (must  | Limited\n        | (ACC + lane-keep    | MUST watch| supervise    |\n        | combined)           |           | continuously)|\n  ------+---------------------+-----------+--------------+--------\n  L3    | Conditional         | SYSTEM    | System (in   | Specific\n        | Automation          | (driver   | ODD); driver | (highway,\n        |                     | on-standby| on standby   | traffic jam)\n  ------+---------------------+-----------+--------------+--------\n  L4    | High Automation     | SYSTEM    | System       | Specific\n        |                     |           | (no driver   | (geofenced)\n        |                     |           | needed)      |\n  ------+---------------------+-----------+--------------+--------\n  L5    | Full Automation     | SYSTEM    | System       | ANY\n        |                     |           | everywhere   |\n\n  ODD = Operational Design Domain: the specific conditions (geography,\n  weather, speed, road type) in which the system is designed to operate.\n\n  KEY INSIGHT: L5 does not exist in any commercial deployment.\n  All deployed systems are L2 or L4 in limited ODD.\n  There is no L5 vehicle for sale or in commercial service.",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-3",
+      "kind": "chart_like",
+      "line": 88,
+      "heading_context": "## SAE J3016 Autonomy Levels",
+      "confidence": "candidate",
+      "text": "### The L3 Trap",
+      "notes": [
+        "detected from bar/chart glyph density with numeric labels"
+      ]
+    },
+    {
+      "id": "block-4",
+      "kind": "ascii_table_candidate",
+      "line": 124,
+      "heading_context": "### LiDAR (Light Detection and Ranging)",
+      "confidence": "candidate",
+      "text": "  LIDAR OPERATION:\n\n  Spinning/mechanical (Velodyne HDL-64E, Ouster OS1):\n  +----------+\n  | 64 laser |\n  | channels |\n  | 100m     |\n  | range    |\n  +----------+\n   → Rotates 360 degrees, 10-20 Hz\n   → 1.3M points/second\n   → Range: 0.1m to 120m (typical), accuracy ±2cm\n  Advantage: full 360-degree coverage\n  Disadvantage: large, expensive ($75K in 2017), moving parts fail\n\n  Solid-state (MEMS, OPA, Flash):\n  +----------+\n  | No       |\n  | moving   |\n  | parts    |\n  +----------+\n   → Fixed field of view (120°x25° typical)\n   → Lower cost ($500-5000)\n   → More reliable\n  Advantage: cost, reliability, compact\n  Disadvantage: limited FOV; need multiple units for 360°\n  Examples: Luminar Iris, Mobileye EyeQ, Cepton MEMS\n\n  POINT CLOUD OUTPUT:\n  Each point: (x, y, z, intensity, return_number)\n  64-channel spinning: ~128,000 points per rotation\n  Dense enough to: detect pedestrians at 50m, vehicles at 100m+,\n  lane lines, traffic cones, debris in road.\n\n  LIDAR LIMITATIONS:\n  - Fog/heavy rain: scatters laser -> range degraded\n  - Snow: accumulates on housing -> blind spots\n  - Dark objects (black car): lower return intensity\n  - Bright retro-reflective surfaces: saturation\n  - Cost: still $500-5000+ for automotive grade",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-5",
+      "kind": "ascii_table_candidate",
+      "line": 171,
+      "heading_context": "### Camera",
+      "confidence": "candidate",
+      "text": "  CAMERA TYPES IN AV:\n\n  Forward-facing (1-3 cameras):   Fisheye surround (4-8 cameras):\n  +------------------+            +------------------+\n  | 60° FOV          |            | 180-195° FOV     |\n  | 1280x960 @ 30fps |            | Wide, low-res    |\n  | Long range main  |            | Parking, close   |\n  | object detection |            | object detection |\n  +------------------+            +------------------+\n\n  MONOCULAR DEPTH AMBIGUITY:\n  A single camera cannot measure distance directly.\n  A 2m object at 10m and a 4m object at 20m look identical.\n  Solutions:\n  1. Stereo camera: geometric triangulation (precise but only ~50m)\n  2. Monocular depth estimation (CNN): learned from training data\n     Accurate if training distribution covers the scenario.\n  3. Camera + LiDAR fusion: LiDAR provides sparse but accurate depth.\n\n  TESLA FSD PHILOSOPHY:\n  Camera-only (no LiDAR). Uses:\n  - 8 cameras (forward, lateral, surround)\n  - Neural network depth estimation\n  - Occupancy networks (3D voxel occupancy, not object detection)\n  Argument: humans drive with just eyes; cameras are cheaper; LiDAR\n            false positive issues in some conditions.\n  Counter-argument: human visual cortex is far more capable than\n                    current cameras + networks; LiDAR provides range\n                    directly without requiring depth estimation.\n  Industry consensus (2024): most full L4 programs use LiDAR.",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-6",
+      "kind": "diagram_like",
+      "line": 241,
+      "heading_context": "## Sensor Fusion",
+      "confidence": "candidate",
+      "text": "  SENSOR FUSION LEVELS:\n\n  EARLY FUSION (raw data):\n    LiDAR  → raw points\n    Camera → raw pixels   → FUSE HERE\n    Radar  → raw signals\n\n  LATE FUSION (detections):\n    LiDAR  → objects\n    Camera → objects      → FUSE HERE\n    Radar  → objects\n\n  Early: richer representation, harder to train, larger compute\n  Late: modular, easier to test, loses cross-modal features\n\n  DEEP FUSION (intermediate):\n  Middle ground: fuse at feature level after some processing.\n  Most production systems use deep or late fusion in practice.\n\n  KALMAN FILTER (tracking):\n  Extended Kalman Filter (EKF) tracks object state over time.\n  State: (x, y, z, vx, vy, vz, heading)\n  Predict: extrapolate state forward using motion model\n  Update: incorporate new sensor measurement, weighted by confidence\n\n  OBJECT TRACKING OUTPUT:\n  For each tracked object:\n  - ID (persistent across frames)\n  - Bounding box (3D)\n  - Velocity vector\n  - Classification (car, truck, pedestrian, cyclist, unknown)\n  - Confidence score\n  - Prediction horizon (next 3-5 seconds)",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-7",
+      "kind": "ascii_table_candidate",
+      "line": 285,
+      "heading_context": "### Why HD Maps",
+      "confidence": "candidate",
+      "text": "  HD MAP LAYERS:\n\n  Layer 1: Lane geometry\n  +---------------------------+\n  | Lane centerlines          |\n  | Lane widths               |\n  | Lane connectivity graph   |\n  | Speed limits              |\n  | Lane markings type        |\n  +---------------------------+\n\n  Layer 2: Regulatory information\n  +---------------------------+\n  | Stop lines                |\n  | Traffic light positions   |\n  | Turn restrictions         |\n  | Crosswalk locations       |\n  | School zone boundaries    |\n  +---------------------------+\n\n  Layer 3: 3D features (for localization)\n  +---------------------------+\n  | Road surface intensity    |\n  | Static landmarks          |\n  | Building faces            |\n  | Overhead structures       |\n  | Feature descriptors       |\n  +---------------------------+\n\n  PROVIDERS: HERE HD Live Map, TomTom AMS, Baidu Apollo Maps,\n             Waymo private maps, Mobileye Road Experience\n\n  MAP UPDATE PIPELINE:\n  Mapping vehicles collect data.\n  Processing: extract features, detect changes.\n  Diff update: send only changed tiles to vehicles.\n  Frequency: safety-critical changes (road closure, new barrier) < 1 hour.\n  Normal updates: daily.\n  Challenge: every construction zone is a potential map error.",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-8",
+      "kind": "ascii_table_candidate",
+      "line": 360,
+      "heading_context": "## Prediction",
+      "confidence": "candidate",
+      "text": "  PREDICTION PROBLEM:\n\n  Inputs:\n  - Object state history (last 3-5 seconds)\n  - Road geometry (from HD map)\n  - Traffic signals state\n  - Context (other vehicles' states)\n\n  Output: probability distribution over future trajectories\n  for each dynamic object (next 5-10 seconds).\n\n  PREDICTION MODEL EVOLUTION:\n\n  Simple:         Constant velocity; constant acceleration.\n                  \"That car will keep going straight.\"\n                  Fails at intersections, merge scenarios.\n\n  Physics-based:  Bicycle model, kinematic constraints.\n                  Handles curves better.\n                  Still single-mode (only one future predicted).\n\n  Social forces:  LSTM sequence models, Transformer models.\n                  Learn interaction patterns from data.\n                  Examples: SoPhie (CVPR 2019), GRIP++, TNT, Wayformer.\n                  Multi-modal: predicts distribution of futures.\n\n  MULTI-MODAL PREDICTIONS:\n  +----------------------------------+\n  | Future: Turn left (prob: 0.55)   |\n  |         Go straight (prob: 0.30) |\n  |         Turn right (prob: 0.15)  |\n  +----------------------------------+\n  Planner must handle all modes with probability weighting.\n  This is intractable for many objects if done naively.\n  Solution: importance sampling; consider only high-probability futures.\n\n  PREDICTION FAILURE = THE HARD PROBLEM:\n  An agent doing something unexpected (jaywalker suddenly running,\n  car making illegal U-turn) will have low probability assigned\n  to the actual outcome. The planner must still react correctly.\n  No prediction model handles this perfectly.",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    }
+  ]
+}

@@ -1,3 +1,22 @@
+---
+maxim_schema: maxim.frontmatter.v1
+id: maxim:transportation:overview
+kind: guide
+module: transportation
+section: transportation
+title: Transportation Systems - Landscape Overview
+status: source-custody
+source_custody: partial
+current_path: transportation/00-OVERVIEW.md
+canonical_path: transportation/00-OVERVIEW.md
+backsource_ids: [proof-backfill:transportation:00-overview, git-history:transportation:00-overview]
+concepts: [overview]
+root_concepts: [overview]
+index_roles: [guide, root-concept]
+remap_from: []
+remap_to: []
+updated: null
+---
 # Transportation Systems — Landscape Overview
 
 ## The Big Picture

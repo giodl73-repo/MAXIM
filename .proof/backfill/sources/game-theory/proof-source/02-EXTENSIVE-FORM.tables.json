@@ -1,0 +1,106 @@
+{
+  "schema_version": "1",
+  "source_markdown": "game-theory\\02-EXTENSIVE-FORM.md",
+  "tables": [
+    {
+      "id": "table-1",
+      "line": 520,
+      "heading_context": "## Decision Cheat Sheet",
+      "headers": [
+        "Setting",
+        "Solution Concept",
+        "Key Tool"
+      ],
+      "rows": [
+        [
+          "Finite perfect info game",
+          "Backward induction / SPE",
+          "Work leaves → root"
+        ],
+        [
+          "Non-credible threats present",
+          "SPE (eliminates them)",
+          "Subgame decomposition"
+        ],
+        [
+          "Simultaneous within sequential",
+          "SPE + mixed NE in subgames",
+          "Check each subgame"
+        ],
+        [
+          "Incomplete info, static",
+          "Bayesian NE",
+          "Type-contingent strategies"
+        ],
+        [
+          "Incomplete info, dynamic",
+          "Perfect Bayesian Equilibrium",
+          "Bayesian updating on path"
+        ],
+        [
+          "Signaling: which equilibria?",
+          "PBE + refinements",
+          "Intuitive Criterion (D1)"
+        ],
+        [
+          "Sustaining cooperation long-run",
+          "Folk theorem",
+          "Check δ ≥ δ*(payoffs)"
+        ],
+        [
+          "Finitely repeated, unique stage NE",
+          "SPE = repeat stage NE",
+          "No scope for cooperation"
+        ],
+        [
+          "Observable deviations",
+          "Grim trigger / TfT in G∞(δ)",
+          "One-shot deviation principle"
+        ]
+      ]
+    },
+    {
+      "id": "table-2",
+      "line": 536,
+      "heading_context": "## CS and Systems Bridges",
+      "headers": [
+        "Extensive form concept",
+        "Formal / systems analogue"
+      ],
+      "rows": [
+        [
+          "Game tree (extensive form)",
+          "Computation tree — nodes are computation states, branches are transitions; backward induction is exactly the tree-recursion pattern (base case at leaves, combine upward)"
+        ],
+        [
+          "Information set",
+          "Indistinguishable states in partial-information search (POMDP belief states, imperfect-information game trees in alpha-beta pruning)"
+        ],
+        [
+          "Subgame",
+          "Well-defined recursive subproblem — SPE is optimal substructure (Bellman) applied to strategic games"
+        ],
+        [
+          "Backward induction / SPE",
+          "Dynamic programming: solve leaves first, propagate values up; non-credible threats are sub-optimal sub-solutions that disappear under DP"
+        ],
+        [
+          "Bayesian updating on path",
+          "Bayes' theorem applied at each information set — identical to exact inference in a directed graphical model along an observed path"
+        ],
+        [
+          "Grim trigger strategy",
+          "State machine with two states (cooperate / punish) and a one-way transition; the \"no recovery\" property is a design choice enforcing Nash credibility"
+        ],
+        [
+          "Folk theorem δ ≥ δ*",
+          "Discount factor threshold is a capacity-planning condition: sustained cooperation requires the future to be heavy enough to outweigh one-shot defection gain"
+        ],
+        [
+          "Sequential rationality (PBE)",
+          "Eliminates strategies with \"dead code\" — beliefs about unreached information sets must be consistent and on-path strategies must be best responses given those beliefs; analogous to liveness + safety invariants in concurrent systems"
+        ]
+      ]
+    }
+  ]
+}

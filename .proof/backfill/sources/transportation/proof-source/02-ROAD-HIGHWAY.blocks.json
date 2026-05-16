@@ -1,0 +1,105 @@
+{
+  "schema_version": "1",
+  "source_markdown": "transportation\\02-ROAD-HIGHWAY.md",
+  "blocks": [
+    {
+      "id": "block-1",
+      "kind": "ascii_table_candidate",
+      "line": 50,
+      "heading_context": "### Horizontal Alignment",
+      "confidence": "candidate",
+      "text": "  HORIZONTAL ALIGNMENT ELEMENTS:\n\n  Tangent ----+                 +---- Tangent\n              |                 |\n              | Transition      |\n              | Spiral          |\n              |  (clothoid)     |\n              +---[Circular]----+\n                  Curve R\n\n  Clothoid spiral: curvature increases linearly with distance.\n  Reduces lateral jerk (rate of change of centripetal acceleration).\n  Required for high-speed roads and railways.\n\n  CIRCULAR CURVE GEOMETRY:\n  R = radius of curvature (metres)\n  D = degree of curve (old US convention, 1 degree = 100ft chord)\n  PC = Point of Curvature (start)\n  PT = Point of Tangency (end)\n  PI = Point of Intersection (where tangents meet)\n\n  SPEED vs MIN RADIUS (AASHTO, max 10% superelevation):\n\n  Design Speed (km/h)  | 50  | 80  | 100 | 120 | 130\n  Min Radius (m)       | 75  | 229 | 395 | 663 | 819",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-2",
+      "kind": "ascii_table_candidate",
+      "line": 138,
+      "heading_context": "### Interchange Types",
+      "confidence": "candidate",
+      "text": "  INTERCHANGE COMPARISON:\n\n  TRUMPET:              DIAMOND:              CLOVERLEAF:\n  (T-intersection)      (most common)         (full interchange)\n       |                    |   |                  / \\\n  -----+----           -----+---+-----        ---[   ]---\n       |               ramps on each               |\n  Loop ramp            quadrant              4 loop ramps\n       |               Left turns via       All movements\n  Lowest cost          signal at cross      possible, no\n  One highway end      street               signals needed\n                       Low cost but         Large footprint\n                       signal delay         Weave problems\n\n  SPUI (Single-Point Urban Interchange):\n  All ramp traffic merges at a single signalized intersection.\n    [ X ]   ← all movements at one point\n  High capacity in small footprint. Popular in urban areas.\n  Unusual geometry confuses infrequent users.\n\n  DDI (Diverging Diamond Interchange):\n  Traffic crosses to opposite side of road between ramps.\n  Eliminates left-turn conflicts with freeway ramps.\n    [ /  \\ ]   ← cross-over between ramps\n    [ X  X ]\n  Becoming popular in US: 10-30% capacity improvement over diamond.\n  Initially confusing; studies show drivers adapt within a few trips.",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-3",
+      "kind": "ascii_table_candidate",
+      "line": 174,
+      "heading_context": "### Pavement Structure Basics",
+      "confidence": "candidate",
+      "text": "  FLEXIBLE (ASPHALT) PAVEMENT:\n  +------------------+\n  | Surface course   |\n  +------------------+\n  | Binder course    |\n  +------------------+\n  | Base course      |\n  +------------------+\n  | Subbase          |\n  +------------------+\n  | Subgrade         |\n  +------------------+\n  Layers: Surface 40-75mm, Binder 50-100mm, Base 100-200mm, Subbase 100-300mm.\n\n  RIGID (CONCRETE) PAVEMENT:\n  +------------------+\n  | Concrete slab    |\n  | (JPCP or CRCP)   |\n  +------------------+\n  | Subbase          |\n  +------------------+\n  | Subgrade         |\n  +------------------+\n  Layers: Concrete slab 200-300mm, Subbase 100-200mm.\n\n  Flexible: deflects under load,     Rigid: distributes load via\n  load spread by layers.             beam/slab action.\n  Fails by: fatigue cracking,        Fails by: joint faulting,\n  rutting, roughness.                punchout, cracking.\n  Cheaper to build, easier to        Lasts longer (30-40yr vs\n  maintain incrementally.            20-30yr for flexible).",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-4",
+      "kind": "ascii_table_candidate",
+      "line": 212,
+      "heading_context": "### AASHTO Flexible Pavement Design",
+      "confidence": "candidate",
+      "text": "  STRUCTURAL NUMBER CONCEPT:\n\n  SN = a1*D1 + a2*D2*m2 + a3*D3*m3\n\n  Where:\n    SN = structural number (reflects total structural capacity)\n    a1, a2, a3 = layer coefficients (material strength)\n    D1, D2, D3 = layer thicknesses (inches, old US convention)\n    m2, m3 = drainage coefficients\n\n  TYPICAL LAYER COEFFICIENTS:\n  Asphalt concrete (dense grade): a1 = 0.44\n  Crushed stone base: a2 = 0.14\n  Granular subbase: a3 = 0.11\n\n  DESIGN EQUATION:\n  log(W18) = ZR*S0 + 9.36*log(SN+1) - 0.20\n             + log(delta_PSI/(4.2-1.5)) / (0.40 + 1094/(SN+1)^5.19)\n             + 2.32*log(MR) - 8.07\n\n  Where:\n    W18 = 18-kip ESALs (equivalent single axle loads) over design life\n    ZR, S0 = reliability and standard deviation factors\n    delta_PSI = performance loss acceptable\n    MR = resilient modulus of subgrade (psi)\n\n  KEY INSIGHT: ESAL concept\n  Different axle loads produce different damage.\n  Damage ~ (load/reference_load)^4  (fourth-power law)\n  A 40-kip truck axle does 2^4 = 16x the damage of a 20-kip axle.\n  Pavement is designed for total ESAL load over design life.",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-5",
+      "kind": "diagram_like",
+      "line": 272,
+      "heading_context": "### The Fundamental Relationship",
+      "confidence": "candidate",
+      "text": "  q = k * v\n\n  q = flow (vehicles per hour)\n  k = density (vehicles per km)\n  v = space-mean speed (km/h)\n\n  This is analogous to:\n  Throughput = Utilization * Efficiency\n  (in queuing/systems terms)\n\n  THREE STATES OF TRAFFIC:\n\n  FREE FLOW                  CAPACITY             CONGESTED\n  (undersaturated)           (critical)           (oversaturated)\n\n  v = free flow speed        v = optimal speed    v = near zero\n  k = low density            k = critical density k = jam density\n  q = low-moderate           q = maximum          q = low (jam)\n\n  FUNDAMENTAL DIAGRAM:\n  Flow q\n  ^\n  qmax |     *\n       |    / \\\n       |   /   \\\n       |  /     \\\n       | /       \\___\n       +------------>\n       0   kc   kjam   Density k\n\n  Left branch: free flow (stable)\n  Right branch: congested (unstable, stop-and-go waves)\n  qmax: capacity, at critical density kc",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-6",
+      "kind": "diagram_like",
+      "line": 319,
+      "heading_context": "### Greenshields and Calibrated Models",
+      "confidence": "candidate",
+      "text": "  Flow q\n  ^\n  qmax |    /\\\n       |   /  \\\n       |  / w  \\  <- backward wave speed w\n       | /      \\\n       +------------>\n       0   kc  kjam   Density k\n\n  Free flow: slope = vf (free flow speed)\n  Congested: slope = -w (backward wave speed, ~15-25 km/h)\n\n  The triangular model captures the key asymmetry:\n  Congestion propagates backward at speed w.\n  This is a shock wave in the traffic stream.",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-7",
+      "kind": "ascii_table_candidate",
+      "line": 416,
+      "heading_context": "### Freeway Management System (FMS)",
+      "confidence": "candidate",
+      "text": "  FREEWAY MANAGEMENT COMPONENTS:\n\n  +------------------+     +------------------+\n  | DETECTION        |     | CONTROL          |\n  | Loop detectors   | --> | Variable Message |\n  | Radar sensors    |     | Signs (VMS)      |\n  | Bluetooth MAC    |     | Ramp Meters      |\n  | probe vehicles   |     | Variable Speed   |\n  |                  |     | Limits (VSL)     |\n  +------------------+     +------------------+\n           |                       |\n           v                       v\n  +------------------+     +------------------+\n  | TMC (Traffic     | <-> | ALGORITHMS       |\n  | Management       |     | Incident detect  |\n  | Center)          |     | Congestion alg   |\n  |                  |     | Ramp meter rate  |\n  +------------------+     +------------------+",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-8",
+      "kind": "ascii_table_candidate",
+      "line": 478,
+      "heading_context": "### Traffic Data and Probe Vehicles",
+      "confidence": "candidate",
+      "text": "  TRAFFIC DATA SOURCES:\n\n  Traditional:\n  +------------------+\n  | Loop detectors   |\n  | (point data)     |\n  +------------------+\n   Inductive loops in pavement. Count, speed, occupancy.\n   Expensive to maintain; spot data only.\n\n  Modern:\n  +------------------+     +------------------+\n  | Bluetooth / WiFi |     | Probe vehicle    |\n  | MAC address      |     | data             |\n  | matching         |     | Google/HERE/TomTm|\n  +------------------+     | From smartphones |\n                           | GPS tracks       |\n                           | Near-real-time   |\n  +------------------+     +------------------+\n  | Radar / lidar    |     | Video analytics  |\n  | roadside sensors |     | ALPR cameras     |\n  +------------------+     +------------------+\n\n  FUSED DATA -> TMC -> VMS + navigation apps + signal timing",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-9",
+      "kind": "diagram_like",
+      "line": 511,
+      "heading_context": "## Road Safety",
+      "confidence": "candidate",
+      "text": "  SPEED-INJURY SEVERITY RELATIONSHIP:\n\n  Pedestrian struck at:   Fatality risk\n  30 km/h (19 mph):       ~5-10%\n  50 km/h (31 mph):       ~30-40%\n  60 km/h (37 mph):       ~70-80%\n  80 km/h (50 mph):       ~90-95%\n\n  Physics: KE = 0.5mv^2\n  10% speed reduction -> ~20% KE reduction -> significant injury reduction\n\n  VEHICLE-TO-VEHICLE CRASH:\n  Delta-V (change in velocity) is the injury predictor.\n  Head-on crash at 60+60 km/h = 120 km/h effective closing speed.\n\n  SAFE SYSTEM APPROACH:\n  Traditional: blame the driver (95% of crashes involve human error)\n  Safe System: design roads so that human errors do not cause death\n\n  Four elements:\n  1. Safe speeds (speed limits match road function and forgiveness)\n  2. Safe roads (median barriers, forgiving roadsides, clear zones)\n  3. Safe vehicles (AEB, ESC, seatbelts, pedestrian AEB)\n  4. Safe road use (enforcement, education)\n\n  Vision Zero (Sweden, 1997): zero fatalities as aspirational target.\n  Not achieved, but Sweden has lowest road fatality rate in the world.\n  ~2 deaths/billion vehicle-km vs US ~7 deaths/billion vehicle-km.",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    }
+  ]
+}
