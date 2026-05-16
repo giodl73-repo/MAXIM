@@ -1,3 +1,22 @@
+---
+maxim_schema: maxim.frontmatter.v1
+id: maxim:hvac:refrigeration-cycle
+kind: guide
+module: hvac
+section: hvac
+title: The Refrigeration Cycle
+status: source-custody
+source_custody: partial
+current_path: hvac/02-REFRIGERATION-CYCLE.md
+canonical_path: hvac/02-REFRIGERATION-CYCLE.md
+backsource_ids: [proof-backfill:hvac:02-refrigeration-cycle, git-history:hvac:02-refrigeration-cycle]
+concepts: [refrigeration, cycle]
+root_concepts: [refrigeration, cycle]
+index_roles: [guide, root-concept]
+remap_from: []
+remap_to: []
+updated: null
+---
 # The Refrigeration Cycle
 
 ## The Big Picture

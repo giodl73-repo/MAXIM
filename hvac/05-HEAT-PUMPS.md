@@ -1,3 +1,22 @@
+---
+maxim_schema: maxim.frontmatter.v1
+id: maxim:hvac:heat-pumps
+kind: guide
+module: hvac
+section: hvac
+title: Heat Pumps
+status: source-custody
+source_custody: partial
+current_path: hvac/05-HEAT-PUMPS.md
+canonical_path: hvac/05-HEAT-PUMPS.md
+backsource_ids: [proof-backfill:hvac:05-heat-pumps, git-history:hvac:05-heat-pumps]
+concepts: [heat, pumps]
+root_concepts: [heat, pumps]
+index_roles: [guide, root-concept]
+remap_from: []
+remap_to: []
+updated: null
+---
 # Heat Pumps
 
 ## The Big Picture

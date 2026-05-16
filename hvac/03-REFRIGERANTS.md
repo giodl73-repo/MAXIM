@@ -1,3 +1,22 @@
+---
+maxim_schema: maxim.frontmatter.v1
+id: maxim:hvac:refrigerants
+kind: guide
+module: hvac
+section: hvac
+title: Refrigerants
+status: source-custody
+source_custody: partial
+current_path: hvac/03-REFRIGERANTS.md
+canonical_path: hvac/03-REFRIGERANTS.md
+backsource_ids: [proof-backfill:hvac:03-refrigerants, git-history:hvac:03-refrigerants]
+concepts: [refrigerants]
+root_concepts: [refrigerants]
+index_roles: [guide, root-concept]
+remap_from: []
+remap_to: []
+updated: null
+---
 # Refrigerants
 
 ## The Big Picture

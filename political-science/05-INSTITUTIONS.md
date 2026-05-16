@@ -1,3 +1,22 @@
+---
+maxim_schema: maxim.frontmatter.v1
+id: maxim:political-science:institutions
+kind: guide
+module: political-science
+section: political-science
+title: International Institutions
+status: source-custody
+source_custody: partial
+current_path: political-science/05-INSTITUTIONS.md
+canonical_path: political-science/05-INSTITUTIONS.md
+backsource_ids: [proof-backfill:political-science:05-institutions, git-history:political-science:05-institutions]
+concepts: [institutions]
+root_concepts: [institutions]
+index_roles: [guide, root-concept]
+remap_from: []
+remap_to: []
+updated: null
+---
 # International Institutions
 
 ## The Big Picture
@@ -25,20 +44,20 @@ agreement, which is why Turkey and Hungary can block decisions unilaterally.
 |  SECURITY DOMAIN       ECONOMIC DOMAIN        TRADE DOMAIN           |
 |  ────────────          ───────────────        ────────────           |
 |  ┌───────────┐         ┌──────────┐           ┌──────────┐           |
-|  │    UN     │         │   IMF    │           │   WTO    │          |
-|  │  Security │         │ monetary │           │  goods + │          |
-|  │  Council  │         │stability │           │ services │          |
-|  │ P5 veto   │         │ lending  │           │  TRIPS   │          |
-|  └───────────┘         └──────────┘           └──────────┘          |
-|  ┌───────────┐         ┌──────────┐                                 |
-|  │   NATO    │         │  World   │   SUPRANATIONAL (unique)        |
-|  │ collective│         │  Bank    │   ────────────────────          |
-|  │  defense  │         │develop-  │   ┌────────────────────┐        |
-|  │ Art. 5    │         │ment fin. │   │        EU          │        |
-|  └───────────┘         └──────────┘   │ direct effect law  │        |
-|                                       │ supremacy + ECJ    │        |
-|  UN SPECIALIZED AGENCIES (linked):    │ single market+euro │        |
-|  WHO, UNESCO, FAO, ILO, IAEA, UNICEF  └────────────────────┘        |
+|  │    UN     │         │   IMF    │           │   WTO    │           |
+|  │  Security │         │ monetary │           │  goods + │           |
+|  │  Council  │         │stability │           │ services │           |
+|  │ P5 veto   │         │ lending  │           │  TRIPS   │           |
+|  └───────────┘         └──────────┘           └──────────┘           |
+|  ┌───────────┐         ┌──────────┐                                  |
+|  │   NATO    │         │  World   │   SUPRANATIONAL (unique)         |
+|  │ collective│         │  Bank    │   ────────────────────           |
+|  │  defense  │         │develop-  │   ┌────────────────────┐         |
+|  │ Art. 5    │         │ment fin. │   │        EU          │         |
+|  └───────────┘         └──────────┘   │ direct effect law  │         |
+|                                       │ supremacy + ECJ    │         |
+|  UN SPECIALIZED AGENCIES (linked):    │ single market+euro │         |
+|  WHO, UNESCO, FAO, ILO, IAEA, UNICEF  └────────────────────┘         |
 +----------------------------------------------------------------------+
 ```
 
@@ -142,19 +161,19 @@ The most powerful body in international law — and the most dysfunctional:
   Extended coverage: goods + services (GATS) + intellectual property (TRIPS)
 
   KEY PRINCIPLES:
-  ┌────────────────────────────────────────────────────────────────┐
-  │ MFN (Most Favored Nation): treat all WTO members equally       │
-  │ → If you give one member a trade concession, give all          │
-  │ Exceptions: FTAs/customs unions (Article XXIV), developing     │
-  │ nations (Enabling Clause)                                      │
-  │                                                                │
-  │ NATIONAL TREATMENT: Treat domestic and imported goods equally  │
-  │ once imported good is inside the border                        │
-  │ → Can't tax imports higher than domestic equivalent            │
-  │                                                                │
+  ┌─────────────────────────────────────────────────────────────────┐
+  │ MFN (Most Favored Nation): treat all WTO members equally        │
+  │ → If you give one member a trade concession, give all           │
+  │ Exceptions: FTAs/customs unions (Article XXIV), developing      │
+  │ nations (Enabling Clause)                                       │
+  │                                                                 │
+  │ NATIONAL TREATMENT: Treat domestic and imported goods equally   │
+  │ once imported good is inside the border                         │
+  │ → Can't tax imports higher than domestic equivalent             │
+  │                                                                 │
   │ BOUND TARIFF SCHEDULES: Each country commits to maximum tariffs │
-  │ → Can lower below bound but not raise above                    │
-  └────────────────────────────────────────────────────────────────┘
+  │ → Can lower below bound but not raise above                     │
+  └─────────────────────────────────────────────────────────────────┘
 
   DISPUTE SETTLEMENT:
   DSB (Dispute Settlement Body) panels: first instance
@@ -316,22 +335,22 @@ The most powerful body in international law — and the most dysfunctional:
   └────────────────────────────────────────────────────────────────┘
 
   EU INSTITUTIONS:
-  ┌────────────────────────────────────────────────────────────────┐
-  │ European Commission: executive; proposes legislation; guardian │
-  │ of treaties; technocratic; 27 commissioners                    │
-  │                                                                │
-  │ Council of the EU: ministers of member states; co-legislates;  │
-  │ QMV (Qualified Majority Voting) for most matters; unanimity    │
-  │ for sensitive areas (tax, foreign policy, constitutional)      │
-  │                                                                │
-  │ European Parliament: directly elected since 1979;              │
-  │ co-decision with Council; increased powers over time           │
-  │                                                                │
+  ┌─────────────────────────────────────────────────────────────────┐
+  │ European Commission: executive; proposes legislation; guardian  │
+  │ of treaties; technocratic; 27 commissioners                     │
+  │                                                                 │
+  │ Council of the EU: ministers of member states; co-legislates;   │
+  │ QMV (Qualified Majority Voting) for most matters; unanimity     │
+  │ for sensitive areas (tax, foreign policy, constitutional)       │
+  │                                                                 │
+  │ European Parliament: directly elected since 1979;               │
+  │ co-decision with Council; increased powers over time            │
+  │                                                                 │
   │ European Council: heads of state/government; strategic direction│
-  │ Consensus required; no legislation                             │
-  │                                                                │
-  │ ECJ: interprets EU law; supremacy enforcer                     │
-  └────────────────────────────────────────────────────────────────┘
+  │ Consensus required; no legislation                              │
+  │                                                                 │
+  │ ECJ: interprets EU law; supremacy enforcer                      │
+  └─────────────────────────────────────────────────────────────────┘
 
   EUROZONE FLAWS — MUNDELL'S OCA:
   Optimum Currency Area (OCA) theory: currency union works if:

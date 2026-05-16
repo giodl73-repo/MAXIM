@@ -1,0 +1,83 @@
+{
+  "schema_version": "1",
+  "source_markdown": "hvac\\01-THERMODYNAMICS.md",
+  "blocks": [
+    {
+      "id": "block-1",
+      "kind": "ascii_table_candidate",
+      "line": 28,
+      "heading_context": "## The Big Picture",
+      "confidence": "candidate",
+      "text": "+----------------------------------------------------------------------+\n|               HEAT TRANSFER IN THE BUILDING ENVELOPE                 |\n|                                                                      |\n|  CONDUCTION             CONVECTION              RADIATION            |\n|  (through solids)       (via fluid movement)    (EM transmission)    |\n|                                                                      |\n|  Wall, roof, floor      Air leakage (infil.)    Sun through glass    |\n|  Window frame           Forced air at surface   Night sky radiation  |\n|  Thermal bridging       Natural convection      Radiant floor        |\n|                                                                      |\n|  Q = kA∆T/L            Q = h·A·∆T              Q = ε·σ·A·T⁴          |\n|  Fourier's law          Newton's law of          Stefan-Boltzmann    |\n|                         cooling                                      |\n+----------------------------------------------------------------------+\n         |                    |                    |\n         v                    v                    v\n    All three contribute to \"load\" — the total BTU/hr demand",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-2",
+      "kind": "ascii_table_candidate",
+      "line": 89,
+      "heading_context": "### Conduction",
+      "confidence": "candidate",
+      "text": "  Q = k · A · ΔT / L\n\n  k = thermal conductivity (BTU·in / hr·ft²·°F)\n  A = area (ft²)\n  ΔT = temperature difference (°F)\n  L = thickness (inches)\n\n  Material conductivities (approximate):\n  +--------------------------+------------------+\n  | Material                 | k (BTU/hr/ft/F)  |\n  +--------------------------+------------------+\n  | Copper                   | 2,900            |\n  | Steel                    | 314              |\n  | Concrete                 | 5–12             |\n  | Brick                    | 5–9              |\n  | Wood (fir)               | 0.8              |\n  | Fiberglass batt          | 0.26             |\n  | Spray foam (closed cell) | 0.14             |\n  | Air (still)              | 0.18             |\n  +--------------------------+------------------+",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-3",
+      "kind": "ascii_table_candidate",
+      "line": 149,
+      "heading_context": "### R-Values in Series (Wall Assembly)",
+      "confidence": "candidate",
+      "text": "  Typical 2×6 wood-framed wall assembly (cavity R-21 fiberglass):\n  +-----------+---------------------------+--------+\n  | Layer     | Material                  | R-value|\n  +-----------+---------------------------+--------+\n  | Exterior  | Vinyl siding              | 0.61   |\n  | Sheathing | OSB (7/16\")               | 0.62   |\n  | Cavity    | Fiberglass batt (R-21)    | 21.0   |\n  | Drywall   | 1/2\" gypsum               | 0.45   |\n  | Air films | Interior + exterior       | 0.85   |\n  +-----------+---------------------------+--------+\n  | TOTAL     |                           | 23.5   |\n  +-----------+---------------------------+--------+\n\n  But studs (wood, R~1.25/inch) short-circuit the cavity:\n  Effective whole-wall R ≈ 18 (thermal bridging through framing)\n  → Steel studs are far worse (high conductivity → R drops to ~7)",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-4",
+      "kind": "diagram_like",
+      "line": 209,
+      "heading_context": "## Section 4: Psychrometrics",
+      "confidence": "candidate",
+      "text": "                    PSYCHROMETRIC PROPERTIES\n                    ========================\n\n  DRY-BULB TEMPERATURE (Tdb)\n  └── What a regular thermometer reads\n  └── \"Temperature\" in everyday speech\n\n  WET-BULB TEMPERATURE (Twb)\n  └── Evaporative cooling effect\n  └── Lower than dry-bulb (except at 100% RH where Twb = Tdb)\n  └── Encodes both temperature AND moisture content\n\n  DEW POINT (Tdp)\n  └── Temperature at which moisture condenses\n  └── AC coil must be below dew point to dehumidify\n  └── When Tdp < Tdb: condensation occurs on coil surface\n\n  RELATIVE HUMIDITY (RH%)\n  └── Ratio of actual moisture to maximum possible at that temp\n  └── 100% RH = air can hold no more moisture (saturation)\n  └── Human comfort: 30–60% RH\n\n  HUMIDITY RATIO (W)\n  └── lbs of water vapor per lb of dry air\n  └── Doesn't change with temperature (unlike RH%)\n  └── What matters for latent load calculation\n\n  ENTHALPY (h)\n  └── Total heat content = sensible + latent (BTU/lb dry air)\n  └── h = 0.240 × Tdb + W × (1061 + 0.444 × Tdb)\n  └── Enthalpy difference × airflow = total cooling capacity",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-5",
+      "kind": "diagram_like",
+      "line": 245,
+      "heading_context": "### Sensible Heat Ratio (SHR)",
+      "confidence": "candidate",
+      "text": "  SHR = sensible cooling / total cooling\n\n  SHR = 0.80: typical northern US home\n  SHR = 0.70: hot/humid climate (more latent load)\n\n  WHY IT MATTERS:\n  AC coils are designed with a specific SHR.\n  Oversized equipment → short cycles → coil doesn't stay cold long enough\n  → moisture not removed → high RH despite thermostat set low\n  → \"cool and clammy\" feeling\n\n  Right-sizing for latent load = humidity control = comfort",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-6",
+      "kind": "diagram_like",
+      "line": 267,
+      "heading_context": "## Section 5: Manual J Load Calculation",
+      "confidence": "candidate",
+      "text": "  MANUAL J INPUTS:\n  ┌─────────────────────────────────────────────────────────┐\n  │ Building geometry: floor plan, orientation, ceiling heights\n  │ Insulation: R-values per assembly (wall, ceiling, floor)  │\n  │ Windows: U-factor, SHGC, area by orientation            │\n  │ Infiltration: ACH50 from blower door (or assumed)       │\n  │ Outdoor design conditions: ASHRAE 99%/1% by city        │\n  │ Indoor setpoints: 70°F heating, 75°F cooling            │\n  │ Internal gains: occupants, lighting, equipment          │\n  └─────────────────────────────────────────────────────────┘\n                           |\n                           v\n  SOFTWARE: Wrightsoft, Elite CHVAC, CoolCalc\n                           |\n                           v\n  MANUAL J OUTPUTS:\n  ┌─────────────────────────────────────────────────────────┐\n  │ Room-by-room sensible heating load (BTU/hr)             │\n  │ Room-by-room sensible cooling load (BTU/hr)             │\n  │ Room-by-room latent cooling load (BTU/hr)               │\n  │ Total building peak loads → equipment sizing target     │\n  │ Airflow per room (CFM) → input to Manual D duct sizing  │\n  └─────────────────────────────────────────────────────────┘",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-7",
+      "kind": "diagram_like",
+      "line": 335,
+      "heading_context": "## Section 6: Infiltration and the Tight Building Dilemma",
+      "confidence": "candidate",
+      "text": "  OLD LEAKY HOUSE (>10 ACH50):\n  - Sufficient natural infiltration for IAQ\n  - BUT: large infiltration load (conditioning all that leakage air)\n  - Energy waste is massive\n\n  MODERN TIGHT HOUSE (<3 ACH50):\n  - Dramatically reduced infiltration load\n  - BUT: insufficient natural air exchange for IAQ\n  - MUST add mechanical ventilation (ASHRAE 62.2)\n\n  BLOWER DOOR TEST:\n  - Depressurizes house to 50 Pa (0.2 inches water)\n  - Measures CFM50 (air leakage at 50 Pa)\n  - ACH50 = (CFM50 × 60) / building volume\n  - Energy Star: <7 ACH50; DOE Zero Energy Ready: <3 ACH50; Passive House: <0.6\n\n  INFILTRATION LOAD (sensible):\n  Q = 0.018 × CFM × ΔT\n  (0.018 = volumetric heat capacity of air BTU/ft³·°F)\n\n  At 3 ACH50, natural infiltration ≈ 0.05 ACH at normal conditions\n  → way below the 0.15–0.35 ACH needed for IAQ\n  → mechanical ventilation required",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    }
+  ]
+}

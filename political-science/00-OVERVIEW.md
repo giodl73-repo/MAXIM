@@ -1,3 +1,22 @@
+---
+maxim_schema: maxim.frontmatter.v1
+id: maxim:political-science:overview
+kind: guide
+module: political-science
+section: political-science
+title: Political Science - Overview
+status: source-custody
+source_custody: partial
+current_path: political-science/00-OVERVIEW.md
+canonical_path: political-science/00-OVERVIEW.md
+backsource_ids: [proof-backfill:political-science:00-overview, git-history:political-science:00-overview]
+concepts: [overview]
+root_concepts: [overview]
+index_roles: [guide, root-concept]
+remap_from: []
+remap_to: []
+updated: null
+---
 # Political Science — Overview
 
 ## The Big Picture
@@ -7,35 +26,35 @@ Its subfields differ more in scope than in method — all share an interest in h
 actors pursue interests under constraints, often in the presence of conflict.
 
 ```
-+----------------------------------------------------------------------+
++-----------------------------------------------------------------------+
 |                    POLITICAL SCIENCE FIELD MAP                        |
-|                                                                      |
-|  NORMATIVE FOUNDATIONS (Political Theory)                            |
-|  ─────────────────────────────────────────                          |
-|  Justice, legitimacy, democracy theory, liberal vs communitarian     |
-|  Provides the "should" underneath the empirical subfields            |
-|                         │                                            |
-|         ┌───────────────┼────────────────┐                          |
-|         ▼               ▼                ▼                          |
-|  INTERNATIONAL      COMPARATIVE      AMERICAN                       |
-|  RELATIONS (IR)     POLITICS         POLITICS                       |
-|  ──────────────     ──────────       ────────                       |
-|  Between states     Across states    One state                      |
-|  Anarchy, war,      Regime types     Congress, Presidency           |
-|  cooperation        Electoral sys    Courts, parties                |
-|  Nuclear deterrence Backsliding      Public opinion                 |
-|         │               │                                            |
-|         └───────┬────────┘                                          |
-|                 ▼                                                    |
-|  SHARED METHODOLOGY: game theory, rational choice, statistics,      |
-|  experiments, comparative case methods, formal models               |
-|                 │                                                    |
-|                 ▼                                                    |
-|  POLITICAL ECONOMY (crosscutting)                                   |
-|  ─────────────────────────────────                                  |
-|  Where politics meets markets — trade, sanctions, development,      |
-|  institutional distribution — applies IR + comparative frameworks   |
-+----------------------------------------------------------------------+
+|                                                                       |
+|  NORMATIVE FOUNDATIONS (Political Theory)                             |
+|  ─────────────────────────────────────────                            |
+|  Justice, legitimacy, democracy theory, liberal vs communitarian      |
+|  Provides the "should" underneath the empirical subfields             |
+|                         │                                             |
+|         ┌───────────────┼────────────────┐                            |
+|         ▼               ▼                ▼                            |
+|  INTERNATIONAL      COMPARATIVE      AMERICAN                         |
+|  RELATIONS (IR)     POLITICS         POLITICS                         |
+|  ──────────────     ──────────       ────────                         |
+|  Between states     Across states    One state                        |
+|  Anarchy, war,      Regime types     Congress, Presidency             |
+|  cooperation        Electoral sys    Courts, parties                  |
+|  Nuclear deterrence Backsliding      Public opinion                   |
+|         │               │                                             |
+|         └───────┬────────┘                                            |
+|                 ▼                                                     |
+|  SHARED METHODOLOGY: game theory, rational choice, statistics,        |
+|  experiments, comparative case methods, formal models                 |
+|                 │                                                     |
+|                 ▼                                                     |
+|  POLITICAL ECONOMY (crosscutting)                                     |
+|  ─────────────────────────────────                                    |
+|  Where politics meets markets — trade, sanctions, development,        |
+|  institutional distribution — applies IR + comparative frameworks     |
++-----------------------------------------------------------------------+
 ```
 
 ---

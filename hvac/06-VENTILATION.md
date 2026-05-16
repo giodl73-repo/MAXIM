@@ -1,3 +1,22 @@
+---
+maxim_schema: maxim.frontmatter.v1
+id: maxim:hvac:ventilation
+kind: guide
+module: hvac
+section: hvac
+title: Ventilation
+status: source-custody
+source_custody: partial
+current_path: hvac/06-VENTILATION.md
+canonical_path: hvac/06-VENTILATION.md
+backsource_ids: [proof-backfill:hvac:06-ventilation, git-history:hvac:06-ventilation]
+concepts: [ventilation]
+root_concepts: [ventilation]
+index_roles: [guide, root-concept]
+remap_from: []
+remap_to: []
+updated: null
+---
 # Ventilation
 
 ## The Big Picture

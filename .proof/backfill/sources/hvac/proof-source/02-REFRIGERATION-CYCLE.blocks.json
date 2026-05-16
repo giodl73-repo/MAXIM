@@ -1,0 +1,171 @@
+{
+  "schema_version": "1",
+  "source_markdown": "hvac\\02-REFRIGERATION-CYCLE.md",
+  "blocks": [
+    {
+      "id": "block-1",
+      "kind": "ascii_table_candidate",
+      "line": 29,
+      "heading_context": "## The Big Picture",
+      "confidence": "candidate",
+      "text": "+----------------------------------------------------------------------+\n|                  VAPOR COMPRESSION CYCLE                             |\n|                                                                      |\n|  INDOOR UNIT                          OUTDOOR UNIT                   |\n|  (EVAPORATOR in cooling mode)         (CONDENSER in cooling mode)    |\n|                                                                      |\n|  ┌─────────────┐                      ┌─────────────┐                |\n|  │ Low pressure│                      │High pressure│               |\n|  │ Low temp    │                      │ High temp   │               |\n|  │ Refrigerant │                      │ Refrigerant │               |\n|  │ boils at 40°F                      │ condenses   │               |\n|  │ Absorbs heat│                      │ at ~100°F   │               |\n|  │ from room air                      │ Rejects heat│               |\n|  │ Dehumidifies│                      │ to outdoor  │               |\n|  └──────┬──────┘                      └──────┬──────┘               |\n|         │                                    │                       |\n|         │ Low-pressure vapor                 │ High-pressure liquid  |\n|         │                                    │                       |\n|     ┌───┴────┐                          ┌────┴────┐                  |\n|     │COMPRESS│◄─────── WORK IN ─────────│EXPANSION│                  |\n|     │  -OR   │                          │  VALVE  │                  |\n|     └────────┘                          └─────────┘                  |\n|     Raises pressure                     Drops pressure               |\n|     and temperature                     (throttling)                 |\n+----------------------------------------------------------------------+\n\n  Heat flows: Room heat → refrigerant → outdoor air\n  Work input: Compressor electricity\n  COP: 3.0 → 3 BTU of heat moved per 1 BTU of work",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-2",
+      "kind": "chart_like",
+      "line": 65,
+      "heading_context": "## Section 1: The Four Steps",
+      "confidence": "candidate",
+      "text": "### Step 1: Evaporation (Indoor Coil — Cooling Mode)",
+      "notes": [
+        "detected from bar/chart glyph density with numeric labels"
+      ]
+    },
+    {
+      "id": "block-3",
+      "kind": "diagram_like",
+      "line": 67,
+      "heading_context": "### Step 1: Evaporation (Indoor Coil — Cooling Mode)",
+      "confidence": "candidate",
+      "text": "  Low-pressure liquid refrigerant enters evaporator coil\n                    |\n                    v\n  Pressure is low → boiling point is low (~40°F for R-410A)\n                    |\n                    v\n  Room air (70°F) blows across coil → air is warmer than boiling refrigerant\n                    |\n                    v\n  Refrigerant ABSORBS heat of vaporization from room air\n  (boiling absorbs ~100 BTU/lb for typical refrigerants)\n                    |\n                    v\n  Refrigerant exits as low-pressure vapor\n  Room air exits: cooler + drier (moisture condenses on cold coil → condensate drain)\n\n  KEY: The latent heat of vaporization is massive compared to sensible heat\n  → That's why refrigerants work: phase change carries enormous energy per lb",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-4",
+      "kind": "chart_like",
+      "line": 88,
+      "heading_context": "### Step 1: Evaporation (Indoor Coil — Cooling Mode)",
+      "confidence": "candidate",
+      "text": "### Step 2: Compression",
+      "notes": [
+        "detected from bar/chart glyph density with numeric labels"
+      ]
+    },
+    {
+      "id": "block-5",
+      "kind": "diagram_like",
+      "line": 90,
+      "heading_context": "### Step 2: Compression",
+      "confidence": "candidate",
+      "text": "  Compressor receives low-pressure vapor\n               |\n               | Work input (electricity)\n               v\n  Raises pressure AND temperature of refrigerant\n  (ideal: isentropic compression; real: slightly less efficient)\n               |\n               v\n  Exits as high-pressure, high-temperature vapor\n  (e.g., R-410A: ~400 PSIA, 130–150°F at compressor outlet)\n\n  COMPRESSOR TYPES:\n  ┌──────────────┬────────────────────────────────────────────────────┐\n  │ Type         │ Notes                                              │\n  ├──────────────┼────────────────────────────────────────────────────┤\n  │ Reciprocating│ Piston — older, simple, loud; small commercial     │\n  │ Scroll       │ Two interlocking spirals; dominant residential;    │\n  │              │ quieter, more efficient, fewer moving parts        │\n  │ Rotary       │ Mini-splits; quiet, compact                        │\n  │ Screw        │ Two helical rotors; medium commercial              │\n  │ Centrifugal  │ Large commercial chillers (>100 ton)              │\n  ├──────────────┼────────────────────────────────────────────────────┤\n  │ Variable-speed (inverter-driven): DC motor, continuously modulates │\n  │ 25–120% capacity; dominant in modern heat pumps and mini-splits   │\n  └──────────────┴────────────────────────────────────────────────────┘",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-6",
+      "kind": "chart_like",
+      "line": 118,
+      "heading_context": "### Step 2: Compression",
+      "confidence": "candidate",
+      "text": "### Step 3: Condensation (Outdoor Coil — Cooling Mode)",
+      "notes": [
+        "detected from bar/chart glyph density with numeric labels"
+      ]
+    },
+    {
+      "id": "block-7",
+      "kind": "diagram_like",
+      "line": 120,
+      "heading_context": "### Step 3: Condensation (Outdoor Coil — Cooling Mode)",
+      "confidence": "candidate",
+      "text": "  High-pressure, high-temperature vapor enters condenser coil\n               |\n               v\n  Outdoor air (~90°F) blows across coil\n  Refrigerant at high pressure has high condensing temp (~110°F)\n  → refrigerant is hotter than outdoor air → heat flows out\n               |\n               v\n  Refrigerant RELEASES heat to outdoor air (heat of condensation)\n  Fan rejects this heat to atmosphere\n               |\n               v\n  Exits as high-pressure liquid\n\n  Heat rejected = heat absorbed in evaporator + compressor work\n  Q_condenser = Q_evaporator + W_compressor\n  (Energy conservation — must account for the work input)",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-8",
+      "kind": "chart_like",
+      "line": 140,
+      "heading_context": "### Step 3: Condensation (Outdoor Coil — Cooling Mode)",
+      "confidence": "candidate",
+      "text": "### Step 4: Expansion",
+      "notes": [
+        "detected from bar/chart glyph density with numeric labels"
+      ]
+    },
+    {
+      "id": "block-9",
+      "kind": "diagram_like",
+      "line": 142,
+      "heading_context": "### Step 4: Expansion",
+      "confidence": "candidate",
+      "text": "  High-pressure liquid enters expansion device\n               |\n  Throttling through small orifice or valve\n               |\n               v\n  Pressure drops sharply (no heat exchange — throttling process)\n  Temperature drops (Joule-Thomson effect in real fluids)\n  Partial flash to vapor (wet mixture at low pressure)\n               |\n               v\n  Low-pressure, low-temperature liquid/vapor mixture\n  Ready to enter evaporator\n\n  EXPANSION DEVICES:\n  ┌──────────────────┬──────────────────────────────────────────────────┐\n  │ Fixed orifice /  │ Simple; one optimum operating point; used in     │\n  │ piston           │ older/cheaper equipment                          │\n  ├──────────────────┼──────────────────────────────────────────────────┤\n  │ TXV (Thermal     │ Modulates to maintain fixed superheat at evap     │\n  │ Expansion Valve) │ outlet; bulb senses evap outlet temp + pressure  │\n  │                  │ → adjusts opening; better over range of loads    │\n  ├──────────────────┼──────────────────────────────────────────────────┤\n  │ EEV (Electronic  │ Stepper motor; electronic control; optimal for   │\n  │ Expansion Valve) │ variable-speed systems; adjusts continuously     │\n  └──────────────────┴──────────────────────────────────────────────────┘",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-10",
+      "kind": "diagram_like",
+      "line": 176,
+      "heading_context": "## Section 2: The P-H (Pressure-Enthalpy) Diagram",
+      "confidence": "candidate",
+      "text": "  PRESSURE-ENTHALPY (MOLLIER) DIAGRAM\n  ====================================\n\n  P (pressure)\n  |          Saturation dome\n  |        /                 \\\n  |       /    Two-phase      \\\n  |      /     (liquid+vapor)  \\\n  |     /                       \\     ← Subcooled\n  |    /                         \\      liquid\n  |---/---------------------------\\------- region\n  |  3         1 & 2              4\n  |\n  +-------------------------------------------> h (enthalpy BTU/lb)\n\n  Point 1: Evaporator inlet — low pressure, wet mixture\n  Point 2: Evaporator outlet — low pressure, saturated vapor (or slightly superheated)\n  Point 3: Compressor outlet — high pressure, superheated vapor\n  Point 4: Condenser outlet — high pressure, subcooled liquid\n\n  Process 2→3: Compression (vertical on P-H diagram for ideal isentropic)\n  Process 3→4: Condensation (horizontal at high pressure)\n  Process 4→1: Throttling (vertical drop — constant enthalpy, isenthalpic)\n  Process 1→2: Evaporation (horizontal at low pressure)\n\n  REFRIGERATING EFFECT = h₂ - h₁ (enthalpy absorbed in evaporator)\n  COMPRESSOR WORK = h₃ - h₂ (enthalpy rise during compression)\n  COP = (h₂ - h₁) / (h₃ - h₂)",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-11",
+      "kind": "diagram_like",
+      "line": 217,
+      "heading_context": "### Superheat",
+      "confidence": "candidate",
+      "text": "  SUPERHEAT = Evaporator outlet temperature MINUS saturation temperature\n              at suction pressure\n\n  Example:\n  - Suction pressure (low-side gauge): 76 PSIG for R-410A\n  - Saturation temperature at 76 PSIG: 40°F (from PT chart)\n  - Actual vapor temperature at evaporator outlet: 55°F\n  - Superheat = 55 - 40 = 15°F  ← target 8–15°F\n\n  WHY IT MATTERS:\n  Too low (0–5°F): liquid refrigerant may reach compressor → liquid slugging\n                   → compressor damage (liquids don't compress)\n  Too high (>20°F): low capacity, high discharge temp, compressor overheats\n  Target 8–15°F: ensures dry vapor entering compressor with some margin\n\n  SUPERHEAT DIAGNOSTIC:\n  High superheat + low suction pressure = LOW refrigerant charge (leak)\n  High superheat + normal pressure      = restricted metering device\n  Low superheat                         = overcharged or low airflow across evaporator",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-12",
+      "kind": "diagram_like",
+      "line": 241,
+      "heading_context": "### Subcooling",
+      "confidence": "candidate",
+      "text": "  SUBCOOLING = Condensation temperature MINUS actual liquid temperature\n               at condenser outlet\n\n  Example:\n  - Discharge pressure: 410 PSIG for R-410A\n  - Saturation temperature at 410 PSIG: 110°F (from PT chart)\n  - Actual liquid temperature at condenser outlet: 95°F\n  - Subcooling = 110 - 95 = 15°F  ← target 10–15°F\n\n  WHY IT MATTERS:\n  Ensures only liquid (no vapor) enters expansion device.\n  Too little subcooling → flash gas before expansion valve → reduced capacity\n  Too much subcooling → overcharged system → high head pressure\n\n  SUBCOOLING DIAGNOSTIC:\n  Low subcooling + high superheat = UNDERCHARGED\n  High subcooling                 = OVERCHARGED",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-13",
+      "kind": "diagram_like",
+      "line": 267,
+      "heading_context": "## Section 4: Efficiency Metrics",
+      "confidence": "candidate",
+      "text": "  METRIC     DEFINITION                              UNITS    TYPICAL\n  ------     ----------                              -----    -------\n  COP        Heat moved / work input                 ratio    2.5–5.0\n             Thermodynamic. Used for heat pumps.\n             COP = 3.0 → 300% \"efficiency\"\n\n  EER        BTU/hr cooling / watts input            BTU/W·hr 10–15\n             At fixed ARI conditions (95°F outdoor,\n             80°F/67°F indoor). Instantaneous.\n\n  SEER       Seasonal integrated EER                 BTU/W·hr 14–26\n  (legacy)   Weighted over cooling season.\n             Replaced by SEER2 Jan 2023.\n\n  SEER2      SEER under new 2023 DOE test procedure  BTU/W·hr 13–26\n             Higher external static pressure test.\n             ~4–7% lower number vs same equipment.\n             DO NOT compare old SEER to SEER2 directly.\n\n  HSPF       Seasonal heating performance (heat pump) BTU/W·hr ~8–10\n  (legacy)   Heating BTU / watt-hours over season.\n\n  HSPF2      HSPF under 2023 test procedure.        BTU/W·hr ~7.5–14\n             Lower outdoor test temp; more realistic.\n\n  EER2       EER under 2023 test procedure.          BTU/W·hr similar",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-14",
+      "kind": "diagram_like",
+      "line": 298,
+      "heading_context": "### Efficiency vs. Temperature (Heat Pumps)",
+      "confidence": "candidate",
+      "text": "  COP of Air-Source Heat Pump vs Outdoor Temperature (Heating Mode):\n\n  Outdoor Temp:  -10°F   0°F   10°F  20°F  30°F  40°F  50°F\n  Standard ASHP:   ---   ---   1.5   1.8   2.1   2.5   3.0\n  Cold-Climate:    1.5   2.0   2.4   2.7   3.1   3.5   4.0\n\n  Gas furnace equivalent COP: 0.8 (80% AFUE) to 0.98 (98% AFUE)\n  → Heat pump is more efficient down to ~-10°F (cold-climate models)\n  → Even at 0°F, a cold-climate heat pump at COP 2.0 delivers\n    2× the heat per dollar as a 96% gas furnace (at equivalent energy prices)",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-15",
+      "kind": "diagram_like",
+      "line": 318,
+      "heading_context": "## Section 5: Variable-Speed / Inverter-Driven Systems",
+      "confidence": "candidate",
+      "text": "  SINGLE-STAGE:         TWO-STAGE:            VARIABLE-SPEED:\n  ┌───────────────┐     ┌───────────────┐     ┌───────────────┐\n  │ 100% or OFF   │     │ 65% or 100%   │     │ 25% to 120%   │\n  │               │     │ (or OFF)      │     │ continuously  │\n  │ Short cycles  │     │ Less cycling  │     │ Very long runs│\n  │ Poor dehumid  │     │ Better dehumid│     │ Best dehumid  │\n  │ Hot/cold swings     │ More stable   │     │ Stable temps  │\n  │ Cheap upfront │     │ Higher cost   │     │ Most expensive│\n  │ SEER2 ~14-15  │     │ SEER2 ~16-18  │     │ SEER2 ~20-30  │\n  └───────────────┘     └───────────────┘     └───────────────┘",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    }
+  ]
+}

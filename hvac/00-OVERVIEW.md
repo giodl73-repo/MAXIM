@@ -1,3 +1,22 @@
+---
+maxim_schema: maxim.frontmatter.v1
+id: maxim:hvac:overview
+kind: guide
+module: hvac
+section: hvac
+title: HVAC Systems - Overview
+status: source-custody
+source_custody: partial
+current_path: hvac/00-OVERVIEW.md
+canonical_path: hvac/00-OVERVIEW.md
+backsource_ids: [proof-backfill:hvac:00-overview, git-history:hvac:00-overview]
+concepts: [overview]
+root_concepts: [overview]
+index_roles: [guide, root-concept]
+remap_from: []
+remap_to: []
+updated: null
+---
 # HVAC Systems — Overview
 
 ## The Big Picture

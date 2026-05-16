@@ -1,3 +1,22 @@
+---
+maxim_schema: maxim.frontmatter.v1
+id: maxim:political-science:comparative-politics
+kind: guide
+module: political-science
+section: political-science
+title: Comparative Politics
+status: source-custody
+source_custody: partial
+current_path: political-science/04-COMPARATIVE-POLITICS.md
+canonical_path: political-science/04-COMPARATIVE-POLITICS.md
+backsource_ids: [proof-backfill:political-science:04-comparative-politics, git-history:political-science:04-comparative-politics]
+concepts: [comparative, politics]
+root_concepts: [comparative, politics]
+index_roles: [guide, root-concept]
+remap_from: []
+remap_to: []
+updated: null
+---
 # Comparative Politics
 
 ## The Big Picture
@@ -60,18 +79,18 @@ the entire party system and policy outcomes.
        Parties have incentive to merge to be viable
 
   EFFECTS:
-  ┌────────────────────────────────────────────────────────────────┐
+  ┌─────────────────────────────────────────────────────────────────┐
   │ + Manufactured majorities: minority of votes → majority of seats│
-  │   → Single-party government → decisive policy action           │
-  │ + Clear accountability: voters know who governs                │
-  │ + Geographic representation: each district has own MP          │
-  │                                                                │
-  │ - Unrepresentative: 40% of votes → 60% of seats                │
-  │ - Wasted votes: large parties win big margins; small parties   │
-  │   get nothing                                                  │
-  │ - Tactical voting: vote for lesser evil, not preference        │
-  │ - Two-party lock: third parties face structural disadvantage   │
-  └────────────────────────────────────────────────────────────────┘
+  │   → Single-party government → decisive policy action            │
+  │ + Clear accountability: voters know who governs                 │
+  │ + Geographic representation: each district has own MP           │
+  │                                                                 │
+  │ - Unrepresentative: 40% of votes → 60% of seats                 │
+  │ - Wasted votes: large parties win big margins; small parties    │
+  │   get nothing                                                   │
+  │ - Tactical voting: vote for lesser evil, not preference         │
+  │ - Two-party lock: third parties face structural disadvantage    │
+  └─────────────────────────────────────────────────────────────────┘
 
   EXAMPLES: US House, UK Commons, Canada, India
 ```
@@ -217,9 +236,9 @@ The phenomenon that has dominated comparative politics since ~2010:
   │               │ judiciary packing, constitutional changes          │
   │               │ Still has elections — competitive authoritarianism │
   ├───────────────┼────────────────────────────────────────────────────┤
-  │ Turkey        │ AKP/Erdogan: July 2016 coup attempt → purges →    │
+  │ Turkey        │ AKP/Erdogan: July 2016 coup attempt → purges →     │
   │               │ presidential referendum 2017 → quasi-presidential  │
-  │               │ system with weakened institutional checks         │
+  │               │ system with weakened institutional checks          │
   ├───────────────┼────────────────────────────────────────────────────┤
   │ Venezuela     │ Chavez → Maduro: economic crisis + institutional   │
   │               │ capture → authoritarian consolidation              │
@@ -307,9 +326,9 @@ Why do some authoritarian regimes last for decades?
   │                        │ Weakest institutionally; most brutal    │
   │                        │ Succession = most dangerous moment      │
   ├────────────────────────┼─────────────────────────────────────────┤
-  │ Party-based            │ Party apparatus rules; CCP, CPVN       │
+  │ Party-based            │ Party apparatus rules; CCP, CPVN        │
   │                        │ More institutionalized; succession rules│
-  │                        │ Most durable; adapt over time          │
+  │                        │ Most durable; adapt over time           │
   ├────────────────────────┼─────────────────────────────────────────┤
   │ Military               │ Junta; usually shorter-lived; domestic  │
   │                        │ legitimacy problems; exit harder        │

@@ -1,3 +1,22 @@
+---
+maxim_schema: maxim.frontmatter.v1
+id: maxim:hvac:heating-systems
+kind: guide
+module: hvac
+section: hvac
+title: Heating Systems
+status: source-custody
+source_custody: partial
+current_path: hvac/04-HEATING-SYSTEMS.md
+canonical_path: hvac/04-HEATING-SYSTEMS.md
+backsource_ids: [proof-backfill:hvac:04-heating-systems, git-history:hvac:04-heating-systems]
+concepts: [heating, systems]
+root_concepts: [heating, systems]
+index_roles: [guide, root-concept]
+remap_from: []
+remap_to: []
+updated: null
+---
 # Heating Systems
 
 ## The Big Picture

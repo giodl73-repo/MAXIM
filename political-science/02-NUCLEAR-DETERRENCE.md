@@ -1,3 +1,22 @@
+---
+maxim_schema: maxim.frontmatter.v1
+id: maxim:political-science:nuclear-deterrence
+kind: guide
+module: political-science
+section: political-science
+title: Nuclear Deterrence
+status: source-custody
+source_custody: partial
+current_path: political-science/02-NUCLEAR-DETERRENCE.md
+canonical_path: political-science/02-NUCLEAR-DETERRENCE.md
+backsource_ids: [proof-backfill:political-science:02-nuclear-deterrence, git-history:political-science:02-nuclear-deterrence]
+concepts: [nuclear, deterrence]
+root_concepts: [nuclear, deterrence]
+index_roles: [guide, root-concept]
+remap_from: []
+remap_to: []
+updated: null
+---
 # Nuclear Deterrence
 
 ## The Big Picture
@@ -208,20 +227,20 @@ Thomas Schelling's contribution — the most important nuclear theorist after Hi
   └────────────────────────────────────────────────────────────────┘
 
   STABILIZING FACTORS:
-  ┌────────────────────────────────────────────────────────────────┐
-  │ SSBNs (ballistic missile submarines):                          │
-  │ - Mobile → not targetable for first strike                     │
-  │ - Opaque → adversary can't know if/where                       │
-  │ - Secure second strike guaranteed                              │
-  │ → Most stabilizing leg of the nuclear triad                    │
-  │                                                                │
-  │ HARDENING + DISPERSAL:                                         │
-  │ - Hard silos resist close-in bursts                            │
+  ┌─────────────────────────────────────────────────────────────────┐
+  │ SSBNs (ballistic missile submarines):                           │
+  │ - Mobile → not targetable for first strike                      │
+  │ - Opaque → adversary can't know if/where                        │
+  │ - Secure second strike guaranteed                               │
+  │ → Most stabilizing leg of the nuclear triad                     │
+  │                                                                 │
+  │ HARDENING + DISPERSAL:                                          │
+  │ - Hard silos resist close-in bursts                             │
   │ - Many small silos → must use many warheads to cover (expensive)│
-  │                                                                │
-  │ MUTUAL VULNERABILITY (countervalue targeting):                 │
-  │ - No incentive to strike first if second strike still destroys │
-  └────────────────────────────────────────────────────────────────┘
+  │                                                                 │
+  │ MUTUAL VULNERABILITY (countervalue targeting):                  │
+  │ - No incentive to strike first if second strike still destroys  │
+  └─────────────────────────────────────────────────────────────────┘
 
   LAUNCH-ON-WARNING vs RIDE-OUT:
   LaW: launch after detecting inbound missiles (before impact)
@@ -242,38 +261,38 @@ Thomas Schelling's contribution — the most important nuclear theorist after Hi
   to maintain stability and reduce accident/miscalculation risk
 
   MAJOR AGREEMENTS:
-  ┌────────────────────┬────────────────────────────────────────────┐
-  │ Treaty             │ Key Provisions                             │
-  ├────────────────────┼────────────────────────────────────────────┤
-  │ ABM Treaty (1972)  │ Banned nationwide missile defense (two sites │
-  │                    │ each → zero sites by 1974 amend.); rationale:│
-  │                    │ preserve MAD stability; US withdrew 2002    │
-  ├────────────────────┼────────────────────────────────────────────┤
-  │ SALT I (1972)      │ Freeze on ICBMs + SLBMs; first strategic   │
-  │                    │ arms agreement; no reduction, just cap     │
-  ├────────────────────┼────────────────────────────────────────────┤
+  ┌────────────────────┬───────────────────────────────────────────────┐
+  │ Treaty             │ Key Provisions                                │
+  ├────────────────────┼───────────────────────────────────────────────┤
+  │ ABM Treaty (1972)  │ Banned nationwide missile defense (two sites  │
+  │                    │ each → zero sites by 1974 amend.); rationale: │
+  │                    │ preserve MAD stability; US withdrew 2002      │
+  ├────────────────────┼───────────────────────────────────────────────┤
+  │ SALT I (1972)      │ Freeze on ICBMs + SLBMs; first strategic      │
+  │                    │ arms agreement; no reduction, just cap        │
+  ├────────────────────┼───────────────────────────────────────────────┤
   │ SALT II (1979)     │ Equal ceilings ~2,250 launchers; not ratified │
-  │                    │ by US Senate (Afghanistan invasion)         │
-  ├────────────────────┼────────────────────────────────────────────┤
-  │ INF Treaty (1987)  │ Eliminated all ground-based intermediate   │
-  │                    │ missiles (500-5,500 km range); US/USSR only │
-  │                    │ (China not party); US withdrew 2019        │
-  ├────────────────────┼────────────────────────────────────────────┤
-  │ START I (1991)     │ Actual warhead reductions; 6,000 each;     │
-  │                    │ verification + on-site inspection           │
-  ├────────────────────┼────────────────────────────────────────────┤
-  │ New START (2010)   │ 1,550 deployed strategic warheads each;    │
-  │                    │ expired Feb 2026; Russia suspended 2023;   │
-  │                    │ no replacement agreed                      │
-  ├────────────────────┼────────────────────────────────────────────┤
-  │ NPT (1968)         │ Five nuclear states pledge disarmament;    │
-  │                    │ 191 non-nuclear states pledge no acquisition │
-  │                    │ IAEA safeguards; 191 parties; India/Pakistan │
-  │                    │ /Israel/DPRK outside                       │
-  ├────────────────────┼────────────────────────────────────────────┤
-  │ CTBT (1996)        │ Comprehensive test ban; not in force (US,  │
-  │                    │ China, India, Pakistan, Israel not ratified)│
-  └────────────────────┴────────────────────────────────────────────┘
+  │                    │ by US Senate (Afghanistan invasion)           │
+  ├────────────────────┼───────────────────────────────────────────────┤
+  │ INF Treaty (1987)  │ Eliminated all ground-based intermediate      │
+  │                    │ missiles (500-5,500 km range); US/USSR only   │
+  │                    │ (China not party); US withdrew 2019           │
+  ├────────────────────┼───────────────────────────────────────────────┤
+  │ START I (1991)     │ Actual warhead reductions; 6,000 each;        │
+  │                    │ verification + on-site inspection             │
+  ├────────────────────┼───────────────────────────────────────────────┤
+  │ New START (2010)   │ 1,550 deployed strategic warheads each;       │
+  │                    │ expired Feb 2026; Russia suspended 2023;      │
+  │                    │ no replacement agreed                         │
+  ├────────────────────┼───────────────────────────────────────────────┤
+  │ NPT (1968)         │ Five nuclear states pledge disarmament;       │
+  │                    │ 191 non-nuclear states pledge no acquisition  │
+  │                    │ IAEA safeguards; 191 parties; India/Pakistan  │
+  │                    │ /Israel/DPRK outside                          │
+  ├────────────────────┼───────────────────────────────────────────────┤
+  │ CTBT (1996)        │ Comprehensive test ban; not in force (US,     │
+  │                    │ China, India, Pakistan, Israel not ratified)  │
+  └────────────────────┴───────────────────────────────────────────────┘
 ```
 
 ---
@@ -297,18 +316,18 @@ Why do states pursue nuclear weapons, and why do they stop?
   └────────────────────────────────────────────────────────────────┘
 
   WHY STOP:
-  ┌────────────────────────────────────────────────────────────────┐
+  ┌─────────────────────────────────────────────────────────────────┐
   │ SECURITY GUARANTEE: US extended deterrence replaces own weapons │
-  │ (Japan, South Korea, Germany — under US umbrella)              │
-  │                                                                │
-  │ ECONOMIC COST: Sanctions, technology denial, investment flight │
-  │                                                                │
-  │ REGIME CHANGE: Gaddafi (Libya) gave up WMD 2003 → still        │
-  │ overthrown 2011; DPRK observed lesson                          │
-  │                                                                │
-  │ NEGATIVE SECURITY ASSURANCES: Guarantees not to attack         │
-  │ non-nuclear states                                             │
-  └────────────────────────────────────────────────────────────────┘
+  │ (Japan, South Korea, Germany — under US umbrella)               │
+  │                                                                 │
+  │ ECONOMIC COST: Sanctions, technology denial, investment flight  │
+  │                                                                 │
+  │ REGIME CHANGE: Gaddafi (Libya) gave up WMD 2003 → still         │
+  │ overthrown 2011; DPRK observed lesson                           │
+  │                                                                 │
+  │ NEGATIVE SECURITY ASSURANCES: Guarantees not to attack          │
+  │ non-nuclear states                                              │
+  └─────────────────────────────────────────────────────────────────┘
 
   CASE STUDIES:
   South Africa: developed 6 weapons; dismantled before black majority rule (feared
