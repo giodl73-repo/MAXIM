@@ -1,0 +1,116 @@
+{
+  "schema_version": "1",
+  "source_markdown": "typography\\08-LAYOUT-READABILITY.md",
+  "blocks": [
+    {
+      "id": "block-1",
+      "kind": "diagram_like",
+      "line": 26,
+      "heading_context": "## The Big Picture",
+      "confidence": "candidate",
+      "text": "READABILITY PARAMETERS — INTERACTION MAP\n────────────────────────────────────────────────────────────────────────────────\n\n  TYPE SIZE ──→ determines ──→ LINE HEIGHT (leading)\n      │                              │\n      │                              ▼\n      │                    affects: MEASURE (line length)\n      │                              │\n      ▼                              ▼\n  X-HEIGHT ──→ determines ──→ APPARENT SIZE\n      │\n      ▼\n  TRACKING ──→ global letter-spacing\n      │\n      ▼\n  KERNING ──→ pair-specific letter-spacing\n      │\n      ▼\n  WORD SPACING ──→ interacts with JUSTIFICATION\n                    │\n                    ▼\n               RIVERS (justified text pathology)\n\n  All of these interact. You cannot optimize one in isolation.\n\n────────────────────────────────────────────────────────────────────────────────",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-2",
+      "kind": "diagram_like",
+      "line": 59,
+      "heading_context": "## Legibility vs Readability: The Distinction",
+      "confidence": "candidate",
+      "text": "LEGIBILITY vs READABILITY\n──────────────────────────────────────────────────────────────────────\n\nLEGIBILITY:\n  Can you distinguish one letterform from another?\n  \"Is this an 'l' or an 'I' or a '1'?\"\n  \"Is this a 'rn' or an 'm'?\"\n\n  Legibility is letter-level and type-size-level.\n  Primarily a function of: x-height, counter size, letter spacing,\n  aperture (open vs closed letters), font quality.\n\nREADABILITY:\n  Can you read continuous text comfortably at length?\n  Does the text fatigue you? Do your eyes lose their place?\n\n  Readability is paragraph-level and page-level.\n  Primarily a function of: measure, leading, typeface weight,\n  word spacing, text size.\n\nTHEY ARE DIFFERENT:\n  A typeface can be highly legible but poorly readable:\n    Impact (the font): very legible individual letters; terrible for body text\n    (too condensed, too heavy for extended reading)\n\n  A typeface can be readable but have legibility problems:\n    Some calligraphic scripts: beautiful in paragraphs; specific letter\n    pairs confusable (e, o; l, i; m, rn)\n\nPASSWORD FIELD EXAMPLE:\n  A font that confuses 'l', '1', 'I', 'O', '0' is a security problem.\n  Use: input[type=\"password\"] { font-family: 'monospace'; }\n  Or specify a font with clear disambiguation: JetBrains Mono, Cascadia Code\n  This is a legibility problem causing a functional problem.\n\n──────────────────────────────────────────────────────────────────────",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-3",
+      "kind": "diagram_like",
+      "line": 104,
+      "heading_context": "## Measure: The Most Important Layout Parameter",
+      "confidence": "candidate",
+      "text": "OPTIMAL MEASURE\n──────────────────────────────────────────────────────────────────────────────\n\nBRINGHURST'S RULE (Robert Bringhurst, \"The Elements of Typographic Style\"):\n  Optimal measure: 45–75 characters per line (including spaces)\n  For single-column text: 66 characters is widely cited as ideal\n  For multi-column layouts: 40–50 characters per column\n  For footnotes/marginal text: 35–40 characters\n\nWHY THERE'S AN OPTIMAL:\n  Too short:\n  - Each line requires frequent direction changes (eye tracks right → left)\n  - Justification becomes impossible without bad spacing or bad hyphenation\n  - Rhythm is choppy; reading feels mechanical\n  - Under ~30 chars: reading becomes significantly slower\n\n  Too long:\n  - Eye must travel far to reach the next line start\n  - Risk of \"losing the line\": returning to wrong line\n  - Must use generous leading (more space between lines) to compensate\n  - Over ~90 chars: reading significantly slows; error increases\n\nPRACTICAL CSS:\n  The `ch` unit in CSS = width of the '0' character (approx. average width)\n  Good approximation for measure:\n\n  p {\n    max-width: 65ch;   /* ~65 character measure; Bringhurst */\n    /* or */\n    max-width: 38em;   /* em-based; depends on typeface */\n  }\n\n  65ch is more semantically correct (character-based measure)\n  38em is more traditional but typeface-dependent\n\nMEASURE AND LEADING INTERACTION:\n  Wider measure requires more leading (line spacing):\n    45 chars + 1.3× leading = appropriate\n    75 chars + 1.5× leading = appropriate\n    75 chars + 1.3× leading = too tight; hard to find next line\n\n  Narrower measure can use tighter leading:\n    40 chars + 1.25× leading = fine\n    Multi-column layouts are narrower → denser leading acceptable\n\n──────────────────────────────────────────────────────────────────────────────",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-4",
+      "kind": "diagram_like",
+      "line": 157,
+      "heading_context": "## Leading: Line Spacing",
+      "confidence": "candidate",
+      "text": "LEADING — LINE HEIGHT\n──────────────────────────────────────────────────────────────────────────────\n\nNAME ORIGIN:\n  Strips of lead inserted between lines of hand-set metal type\n  Thicker lead = more space between lines\n  Modern metric: the distance from one baseline to the next\n\nMEASUREMENT:\n  Traditional: expressed in points (\"9/11\" = 9pt type on 11pt leading)\n  CSS: line-height property (unitless ratio OR absolute value OR percentage)\n  Relationship: if type is 16px and line-height is 1.5, spacing = 24px\n                half the extra 8px appears above, half below each line\n\nOPTIMAL RANGE:\n  Body text: 120%–145% of type size (1.2–1.45 relative)\n  Typical defaults: 1.2 (browsers), 1.4–1.5 (good practice)\n\n  Factors that increase needed leading:\n  - Wider measure (needs more leading for eye to track lines)\n  - High x-height (letters feel crowded with standard leading)\n  - Light weight on colored background (needs more air)\n  - Sans-serif (slightly more leading helps differentiation)\n\n  Factors that allow tighter leading:\n  - Narrow measure (lines short; easy to find next)\n  - Display size (large type; visual separation clear)\n  - Low x-height (Old Style; more natural white space)\n  - All caps (no descenders conflict; can go tight)\n\nCSS BEST PRACTICE:\n  /* Body text */\n  body {\n    font-size: 16px;\n    line-height: 1.5;        /* 24px absolute; accessible default */\n  }\n\n  /* Display/heading */\n  h1 {\n    font-size: 48px;\n    line-height: 1.1;        /* tighter; display type */\n    letter-spacing: -0.02em; /* slight tightening for large display */\n  }\n\n  /* Caption/small text */\n  .caption {\n    font-size: 12px;\n    line-height: 1.6;        /* more generous at small size */\n  }\n\nLEADING AND VERTICAL RHYTHM:\n  Vertical rhythm: align text baselines to a common grid\n  If base leading = 24px, headings should be multiples: 24, 48, 72px\n  CSS rarely enforces this strictly; it is a design aspiration\n  Useful: baseline-grid overlays in design tools (Figma, Sketch)\n\n──────────────────────────────────────────────────────────────────────────────",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-5",
+      "kind": "ascii_table_candidate",
+      "line": 221,
+      "heading_context": "## Tracking and Kerning",
+      "confidence": "candidate",
+      "text": "TRACKING vs KERNING\n──────────────────────────────────────────────────────────────────────────────\n\nTRACKING (letter-spacing):\n  Global adjustment to space between ALL letters\n  Applied uniformly across a range of text\n  CSS: letter-spacing property\n\n  When to OPEN tracking (add space):\n  - ALL CAPS text: visually crowded without additional tracking\n    (capital letters have no ascenders/descenders to create rhythm)\n    recommendation: +0.05em to +0.1em for all-caps\n  - Small text in body (8pt and below): letters too close at small size\n  - Highly condensed typefaces\n  - Uppercase headlines in some editorial styles\n\n  When to TIGHTEN tracking (remove space):\n  - Large display type (> 40pt/px): default metrics feel too loose\n  - Condensed display text\n  - Strong brands often tighten tracking for distinctive feel\n    recommendation: -0.02em to -0.05em for large display\n\n  NEVER: tight tracking on body text (deliberate torture)\n  NEVER: positive tracking on italic or script (breaks design intention)\n\n  CSS example:\n    .all-caps-label {\n      text-transform: uppercase;\n      letter-spacing: 0.08em;  /* compensate for uppercase visual crowding */\n    }\n\n    .hero-headline {\n      font-size: 72px;\n      letter-spacing: -0.03em;  /* tighten large display text */\n    }\n\nKERNING:\n  Pair-specific adjustment to space between SPECIFIC letter pairs\n  Applied to specific combinations: AV, VA, WA, To, Te, Ly, P., etc.\n\n  Why kerning is needed:\n  ┌──────────────────────────────────────────────────────────────────┐\n  │  AVOCADO with no kerning:                                        │\n  │  A V O C A D O                                                   │\n  │  [uniform advance widths; A and V have too much space between]   │\n  │                                                                  │\n  │  AVOCADO with kerning:                                           │\n  │  AVOCADO                                                         │\n  │  [A and V overlap slightly in advance width; closes the gap]     │\n  └──────────────────────────────────────────────────────────────────┘\n\n  The problem: 'A' has a slanted right side; 'V' has a slanted left side\n  Together, the diagonal strokes create a large visual gap\n  Kerning: move V leftward by X units when preceded by A\n\n  KERNING TYPES:\n  Metric kerning: use kern table values from the font\n    (OpenType GPOS or kern table pairs)\n    Fast; consistent with font designer's intent\n    Font may have 10,000+ kern pairs; automated\n\n  Optical kerning: application-computed based on glyph shapes\n    Adobe applications: Optical kerning recalculates for text size\n    More accurate at display sizes; more CPU intensive\n    Default in InDesign for good reason\n\n  CSS: letter-spacing is NOT kerning\n    letter-spacing applies global tracking (not pair-specific)\n    CSS has no pair-specific kerning control\n    OpenType kerning: font-kerning: auto; (enabled by default in browsers)\n    font-feature-settings: 'kern' 1;  (explicit; default on)\n\n──────────────────────────────────────────────────────────────────────────────",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-6",
+      "kind": "diagram_like",
+      "line": 301,
+      "heading_context": "## Word Spacing and Justification",
+      "confidence": "candidate",
+      "text": "JUSTIFICATION: THE MINEFIELD\n──────────────────────────────────────────────────────────────────────────────\n\nALIGNMENT OPTIONS:\n  Left-aligned (ragged right):   ████████████████████\n  (flush left)                   ████████████████\n                                 ████████████████████████\n                                 ████████████\n  Word spacing: consistent; lines vary in length\n  Advantage: consistent letter/word spacing; no rivers\n  Default for most screen text: use this\n\n  Justified:                     ████████████████████\n  (flush left + right)           ████████████████████\n                                 ████████████████████\n                                 ████████\n  Word spacing: VARIES per line (to fill measure)\n  Advantage: clean column edges; more formal/book-like\n  Disadvantage: variable word spacing; RIVERS\n\nRIVERS:\n  In justified text with short measure or bad algorithm:\n  Spaces happen to stack vertically through multiple lines\n  Creating a vertical white \"river\" through the text block\n  Visually distracting; eye follows the river not the text\n\n  ████ ████ ████████████████████\n  ███████████████ ████████████\n  ████████████████████ ████████\n  █████████████████████████████\n\n  Rivers are more common with:\n  - Short measure (narrow column; limited flexibility)\n  - Long words (can't split without hyphenation)\n  - Coarse justification algorithm (web browsers: simple)\n  - No hyphenation\n\nHYPHENATION:\n  Reduces rivers dramatically in justified text\n  CSS: hyphens: auto;  (requires lang attribute on html)\n  Browser hyphenation: uses hyphenation dictionary per language\n  html[lang=\"en\"] { hyphens: auto; }\n\n  Recommendation for justified text:\n  text-align: justify;\n  hyphens: auto;\n  -webkit-hyphens: auto;\n\nOPTIMAL LINE-BREAKING ALGORITHMS:\n  Greedy (browser default): greedy per line; can create bad paragraphs\n  Knuth-Plass (TeX, InDesign): considers entire paragraph at once\n    minimizes total \"badness\" across all lines; eliminates most rivers\n  CSS: text-wrap: balance;  (Chrome 114+, limited)\n  CSS: text-wrap: pretty;  (Chrome 117+; Knuth-Plass-like for last few lines)\n\n──────────────────────────────────────────────────────────────────────────────",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-7",
+      "kind": "diagram_like",
+      "line": 364,
+      "heading_context": "## Type on Screen: DPI Evolution",
+      "confidence": "candidate",
+      "text": "SCREEN DPI EVOLUTION AND TYPOGRAPHY\n──────────────────────────────────────────────────────────────────────────────\n\nHISTORICAL SCREEN DPIS:\n  Mac 128K (1984):        72 dpi  (intentionally 72 = 72pt/inch; WYSIWYG)\n  Windows (1990s):        96 dpi  (larger pixels → larger UI for readability)\n  Common LCD (2000s):     72–96 dpi\n  MacBook Pro Retina (2012): 220 ppi (first mainstream HiDPI laptop)\n  iPhone 4 \"Retina\" (2010):  326 ppi\n  iPhone 14 Pro:          460 ppi\n  Modern 27\" 5K iMac:     218 ppi\n  Dell UltraSharp 27\" 4K: 163 ppi\n\nDPI RATIONALE FOR TYPOGRAPHY:\n  At 72–96 dpi: pixel is 0.26–0.35mm; visible to naked eye\n  Letterforms at 12px = 12 tiny squares; huge quality problem\n  → ClearType, hinting, careful font design to compensate\n\n  At 2× (144+ dpi): pixel is 0.18mm; edge artifacts nearly invisible\n  Letterforms at 12px × 2 = 24 actual pixels per letter\n  → Anti-aliasing and hinting help less; outline quality dominates\n\n  Practical implication:\n  • Low DPI: need well-hinted fonts; ClearType; careful size selection\n  • HiDPI: almost any well-designed font renders well; relaxed constraints\n  • Mixed DPI: your design must handle both; test on 1× screens\n\nPIXEL DENSITY AND RENDERING:\n  CSS px is a reference pixel:\n  At 1× (96 dpi): 1 CSS px = 1 physical pixel\n  At 2× (192 dpi): 1 CSS px = 2×2 = 4 physical pixels\n  window.devicePixelRatio: JavaScript access to DPR\n\n  Font at 16px CSS on 2× screen:\n  16px × 2 = 32 physical pixels per em\n  Plenty of resolution; renders beautifully with no special engineering\n\nRESPONSIVE TYPOGRAPHY:\n  Fluid type: scale font size with viewport width\n  CSS clamp():\n    font-size: clamp(16px, 1rem + 2vw, 28px);\n    /* Minimum 16px, grows with viewport, caps at 28px */\n\n  CSS container queries (modern):\n    @container (width > 600px) {\n      p { font-size: 18px; }\n    }\n\n──────────────────────────────────────────────────────────────────────────────",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-8",
+      "kind": "diagram_like",
+      "line": 420,
+      "heading_context": "## Type Size Guidelines",
+      "confidence": "candidate",
+      "text": "TYPE SIZE REFERENCE\n──────────────────────────────────────────────────────────────────────\n\nPRINT SIZE REFERENCE:\n  6pt     ← Absolute minimum (legal disclaimers, fine print)\n  7–8pt   ← Footnotes, captions (short text, infrequent reading)\n  9–10pt  ← Newspaper body text (optimized typefaces + paper)\n  10–11pt ← Standard book body text\n  12pt    ← Book text in poor lighting; many word processor defaults\n  14–18pt ← Large print / accessibility\n  18–24pt ← Display / subheadings\n  24pt+   ← Display / headlines\n\n  Note: 12pt = default MS Word. This is not a typographic ideal —\n  it is the historical default from typewriter conventions.\n  Quality books are set 10–11pt.\n\nSCREEN SIZE REFERENCE:\n  Body text:  14–18px (16px: browser/WCAG default baseline)\n  Small text: 12–14px (avoid below 12px for sustained reading)\n  Captions:   11–13px (brief; not sustained reading)\n  UI labels:  12–14px\n  Headings:   20–48px (depends on hierarchy level)\n  Hero text:  48–120px+\n\nWCAG ACCESSIBILITY:\n  WCAG 2.1 contrast requirements:\n  Normal text (< 18pt/24px): contrast ratio ≥ 4.5:1 (AA), 7:1 (AAA)\n  Large text (≥ 18pt/24px or 14pt bold): contrast ratio ≥ 3:1 (AA)\n  body contrast: black text (#000) on white (#FFF) = 21:1 (max)\n  A common failure: gray text #888 on white = 3.5:1 (fails AA for normal text)\n\n  Body font-size < 16px + pixel zooming not supported = accessibility failure\n  CSS: font-size using rem units respects user browser text size preferences\n\nSIZE AND WEIGHT INTERACTION:\n  Large size → can use lighter weight (detail visible)\n  Small size → need regular or slightly heavier weight (thin strokes disappear)\n  Never: thin weight (100–200) at body text sizes\n  Exception: some typefaces designed with high-quality thin at small size\n\n──────────────────────────────────────────────────────────────────────",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-9",
+      "kind": "diagram_like",
+      "line": 469,
+      "heading_context": "## Dyslexia-Friendly Typography",
+      "confidence": "candidate",
+      "text": "DYSLEXIA AND TYPOGRAPHY\n──────────────────────────────────────────────────────────────────────────────\n\nWHAT DYSLEXIA IS (briefly):\n  Neurological processing difference affecting phonological awareness\n  and mapping symbols to sounds; not a vision problem\n  Estimated: 5–17% of population; significant design consideration\n\nWHAT THE RESEARCH ACTUALLY SHOWS:\n  \"Dyslexia fonts\" (OpenDyslexic, etc.) have weak evidence\n  Most studies: no statistically significant readability improvement\n  from letterforms specifically designed for dyslexia\n\n  WHAT IS EVIDENCE-BASED:\n  1. LARGER SPACING:\n     Letter-spacing +0.1em and word-spacing 0.3em show measurable benefit\n     Extra leading (line-height 1.6–1.8) reduces confusion\n     Wider character spacing alone helps more than font changes\n\n  2. SANS-SERIF AT TEXT SIZES:\n     Modest preference for clean sans over serif in many dyslexia studies\n     (serifs can visually connect letters that should be distinct)\n     Not universal: individual variation is large\n\n  3. SHORT LINES:\n     Shorter measure (40–60 chars) reduces tracking difficulty\n\n  4. CLEAR LETTERFORM DISTINCTION:\n     Fonts where 'b' and 'd' are clearly distinct (mirroring confusion)\n     Fonts where 'p' and 'q' are clearly distinct\n     Fonts with clear I/l/1 and O/0 distinction\n     Atkinson Hyperlegible (Braille Institute, 2019): designed specifically\n     for low vision; clear distinctions; free to use; good research basis\n\n  5. HIGH CONTRAST:\n     Not extreme contrast (#000 on #FFF) — some users prefer slight offset\n     Off-white (#F8F8F8) + near-black (#1A1A1A) often preferred\n     But avoid patterned or textured backgrounds\n\nCSS FOR DYSLEXIA ACCESSIBILITY:\n  body {\n    font-size: 18px;\n    line-height: 1.8;\n    letter-spacing: 0.05em;\n    word-spacing: 0.2em;\n    max-width: 65ch;\n    font-family: 'Atkinson Hyperlegible', 'Verdana', sans-serif;\n  }\n\nWCAG 1.4.12 (Text Spacing):\n  No loss of content when user overrides:\n  letter-spacing ≥ 0.12em\n  word-spacing ≥ 0.16em\n  line-height ≥ 1.5\n  paragraph spacing ≥ 2em\n  Your CSS should not use hard pixel heights that clip text at these values.\n\n──────────────────────────────────────────────────────────────────────────────",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-10",
+      "kind": "diagram_like",
+      "line": 534,
+      "heading_context": "## Comprehensive Layout Reference",
+      "confidence": "candidate",
+      "text": "LAYOUT DECISION REFERENCE\n──────────────────────────────────────────────────────────────────────\n\nBODY TEXT BASELINE (web):\n  font-size: 16px;\n  line-height: 1.5;\n  max-width: 65ch;\n  font-family: [system stack or chosen webfont];\n  color: #1a1a1a;  /* slightly off-black; less harsh than pure black */\n\nHEADING SCALE (typographic scale, minor third ≈ 1.2×):\n  h6: 12px / 0.75rem\n  h5: 14px / 0.875rem\n  h4: 16px / 1rem\n  h3: 20px / 1.25rem\n  h2: 24px / 1.5rem\n  h1: 30px / 1.875rem\n  (or use Major Third 1.25×, Perfect Fourth 1.33×, etc.)\n\n  Recommendation: use CSS custom properties for scale:\n  --scale-ratio: 1.25;\n  --size-sm: calc(1rem / var(--scale-ratio));\n  --size-base: 1rem;\n  --size-lg: calc(1rem * var(--scale-ratio));\n  etc.\n\nALL-CAPS TREATMENT:\n  text-transform: uppercase;\n  letter-spacing: 0.08em;  /* Required; uppercase reads poorly without tracking */\n  font-size: 0.85em;       /* Visually balance: caps look larger than mixed case */\n\nNUMERIC TABLES:\n  font-variant-numeric: tabular-nums;  /* fixed-width; columns align */\n  font-family: [monospace fallback if tabular-nums not available];\n\nCODE WITHIN PROSE:\n  font-family: 'JetBrains Mono', 'Fira Code', Consolas, monospace;\n  font-size: 0.875em;    /* monospace looks larger at same px; scale down */\n  background: #f4f4f4;\n  padding: 0.15em 0.3em;\n  border-radius: 3px;\n\n──────────────────────────────────────────────────────────────────────",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    }
+  ]
+}

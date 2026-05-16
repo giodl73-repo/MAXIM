@@ -1,3 +1,22 @@
+---
+maxim_schema: maxim.frontmatter.v1
+id: maxim:watchmaking:overview
+kind: guide
+module: watchmaking
+section: watchmaking
+title: Watchmaking - 00 Overview
+status: source-custody
+source_custody: partial
+current_path: watchmaking/00-OVERVIEW.md
+canonical_path: watchmaking/00-OVERVIEW.md
+backsource_ids: [proof-backfill:watchmaking:00-overview, git-history:watchmaking:00-overview]
+concepts: [overview]
+root_concepts: [overview]
+index_roles: [guide, root-concept]
+remap_from: []
+remap_to: []
+updated: null
+---
 # Watchmaking — 00 Overview
 ## Timekeeping as Civilization Infrastructure: From Sundial to Atomic Clock
 

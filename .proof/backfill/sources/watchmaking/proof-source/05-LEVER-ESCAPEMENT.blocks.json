@@ -1,0 +1,105 @@
+{
+  "schema_version": "1",
+  "source_markdown": "watchmaking\\05-LEVER-ESCAPEMENT.md",
+  "blocks": [
+    {
+      "id": "block-1",
+      "kind": "diagram_like",
+      "line": 29,
+      "heading_context": "## The Big Picture",
+      "confidence": "candidate",
+      "text": "ESCAPEMENT COMPARISON: THE KEY TRADEOFFS\n\n                    | Verge    | Detent    | Lever     | Cylinder\n────────────────────┼──────────┼───────────┼───────────┼──────────\nAccuracy (rate)     | Poor     | Best      | Very good | Fair\nSelf-starting       | Yes      | No        | Yes       | Yes\nShock resistance    | Poor     | Very poor | Good      | Fair\nFriction/lubrication| High     | Low       | Low-med   | High\nBalance freedom     | None     | High      | High      | Low\nManufacturability   | Easy     | Difficult | Good      | Medium\nSuitable for        | Tower/   | Marine    | ALL       | Pocket\n                    | pocket   | chrono.   | watches   | watches\n                    | watches  | only      |           | (obsolete)\n\nThe lever escapement is the only one that scores acceptably in all five\ndimensions simultaneously. That's why it won.",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-2",
+      "kind": "diagram_like",
+      "line": 95,
+      "heading_context": "## Lever Escapement Geometry: Complete Description",
+      "confidence": "candidate",
+      "text": "LEVER ESCAPEMENT — COMPLETE GEOMETRY (Swiss lever)\n\n              BALANCE WHEEL\n              ┌─────────────────────────────────┐\n              │                                 │\n              │    ╭───────────────────╮        │\n              │   /  balance wheel rim  \\       │\n              │  │  ┌──────────────────┐│       │\n              │  │  │  balance wheel   ││       │\n              │  │  │    pivot (arbor) ││       │\n              │  │  └──────────────────┘│       │\n              │  │                      │       │\n              │   \\  impulse roller    /        │\n              │    │   (disk on arbor)│         │\n              │    │   ┌────────────┐ │         │\n              │    │   │ roller     │ │         │\n              │    │   │ jewel      │ │         │\n              │    │   │ (impulse   │ │         │\n              │    │   │  pin)      │ │         │\n              │    │   └────────────┘ │         │\n              │    │  safety crescent │         │\n              │    ╰──────────────────╯         │\n              └─────────────────────────────────┘\n\n              LEVER\n              ┌────────────────────────────────────┐\n              │                                    │\n              │  entry pallet   fork   exit pallet │\n              │  ┌──────────┐   │   ┌──────────┐   │\n              │  │ locking  │   │   │ locking  │  │\n              │  │ face     │   │   │ face     │  │\n              │  │ impulse  │   │   │ impulse  │  │\n              │  │ face     │   │   │ face     │  │\n              │  └──────────┘   │   └──────────┘  │\n              │              pivot                 │\n              │            (lever arbor)           │\n              │           guard pin                │\n              └────────────────────────────────────┘\n\n              ESCAPE WHEEL (club-tooth)\n              ┌────────────────────────────────────┐\n              │         ╭─────╮                    │\n              │        /  impulse face              │\n              │       │  (longer face; pushes       │\n              │       │   impulse face of pallet)   │\n              │        \\  locking face              │\n              │         ╰─────╮                     │\n              │    (tooth shape: asymmetric          │\n              │     like a wedge with one            │\n              │     long and one short face)         │\n              └────────────────────────────────────┘",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-3",
+      "kind": "diagram_like",
+      "line": 151,
+      "heading_context": "### One Complete Beat — Step by Step",
+      "confidence": "candidate",
+      "text": "BEAT SEQUENCE (balance swings left → right → left = one full oscillation)\n\nSTATE 1: Balance at rest (center position)\n  - Entry pallet locked against escape wheel tooth (locking face contact)\n  - Lever held against bankings (lever stop pins)\n  - Guard pin next to safety crescent\n  - No coupling between balance and lever\n\nSTATE 2: Balance swings LEFT (first half-swing)\n  - Roller jewel (impulse pin) enters fork notch of lever\n  - Moves lever: entry pallet moves away from escape wheel tooth\n  - As entry pallet unlocks: escape wheel tooth slides along entry pallet\n    locking face → then contacts entry pallet impulse face → pushes lever\n    → lever pushes roller jewel → IMPULSE given to balance wheel\n  - Escape wheel advances: next tooth falls onto EXIT pallet locking face\n  - Lever moves to opposite banking\n  - Roller jewel exits fork notch → balance and lever decouple\n  - Balance continues free swing through full arc\n\nSTATE 3: Balance at LEFT extreme (momentary reversal)\n  - Balance oscillates at its natural frequency (hairspring restoring force)\n  - Guard pin passes OUTSIDE safety crescent (no accidental unlock possible)\n  - No coupling\n\nSTATE 4: Balance swings RIGHT (return half-swing)\n  - Roller jewel re-enters fork notch\n  - Moves lever: exit pallet unlocks next tooth → exit pallet impulse face\n    receives push from escape wheel → another IMPULSE to balance\n  - Escape wheel advances again: entry pallet catches following tooth\n  - Lever returns to first banking\n  - Balance and lever decouple again\n\nTotal: escape wheel has advanced 2 teeth; balance has completed one full\noscillation (left and right). One \"tick-tock\" complete.",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-4",
+      "kind": "diagram_like",
+      "line": 198,
+      "heading_context": "## The Safety Mechanism: Guard Pin + Safety Crescent",
+      "confidence": "candidate",
+      "text": "SAFETY MECHANISM\n\nBalance wheel has TWO elements on the impulse roller:\n  1. Roller jewel (impulse pin) — enters fork notch during coupling\n  2. Safety crescent (a curved notch cut into the roller disk edge)\n\nLever has:\n  1. Fork notch — receives roller jewel\n  2. Guard pin — a small pin between the fork prongs\n\nNORMAL OPERATION:\n  When roller jewel is NOT in the fork notch:\n  The guard pin rests against the SOLID part of the roller disk\n  → lever cannot move (locked by guard pin contact)\n  → escape wheel cannot unlock accidentally\n\n  When roller jewel IS entering the fork notch:\n  The safety crescent aligns with the guard pin\n  → guard pin passes through the crescent cutout\n  → lever is free to move (coupling event)\n  → guard pin constraint removed ONLY during legitimate unlock\n\nSHOCK SCENARIO:\n  External shock nudges the lever away from banking\n  Guard pin immediately contacts solid roller disk\n  → lever cannot move further → no accidental unlock\n  → balance resumes natural oscillation\n  → next time roller jewel enters fork, it repositions the lever correctly",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-5",
+      "kind": "diagram_like",
+      "line": 237,
+      "heading_context": "## Swiss Lever vs English Lever: Geometry Comparison",
+      "confidence": "candidate",
+      "text": "SWISS LEVER (parallel layout):                 ENGLISH LEVER (in-line layout):\n\n   escape wheel    lever    balance            balance   lever   escape wheel\n   ──────────────►──────────►──────            ──────────►──────►──────────────\n\n   All three pivots on parallel axes           All three pivots on a single straight line\n   separated horizontally\n\n   Most common today — allows                  Allows longer lever arm, potentially\n   more compact layout                         slightly more efficient impulse;\n   Preferred by Swiss makers                   preferred by English makers historically\n   Less efficient impulse angle\n\n   Both are functionally equivalent.\n   The \"Swiss lever\" designation often just means\n   a lever escapement in a Swiss watch.",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-6",
+      "kind": "diagram_like",
+      "line": 260,
+      "heading_context": "## Club-Tooth vs Ratchet-Tooth Escape Wheel",
+      "confidence": "candidate",
+      "text": "RATCHET-TOOTH ESCAPE WHEEL (earlier):\n  ╱|\n ╱ |  tooth profile: nearly right-angled\n╱  |  locking face: radial (steep)\n───┘  impulse face: nearly tangential (shallow)\n\nDisadvantage: locking face has a slight draw angle\n              → causes \"draw\" — the escape wheel\n                pulls the lever toward the wheel\n              → reduces \"lock\" reliability\n              → needs more \"drop\" (wasted tooth motion)\n\nCLUB-TOOTH ESCAPE WHEEL (modern standard):\n   ╭────\n  ╱      ← impulse face (longer, on the tooth body)\n │        ← locking face (shorter, on the tooth tip)\n ╰───\n\nAdvantage: impulse is applied to the impulse face of the PALLET\n           as the escape wheel tooth body slides along it\n           → more efficient energy transfer (longer contact arc)\n           → deeper, more secure locking\n           → less drop required\n           → enables thinner profiles\n\nClub-tooth: standard since mid-19th century; used in all modern lever watches.",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-7",
+      "kind": "ascii_table_candidate",
+      "line": 327,
+      "heading_context": "## Silicon Revolution in Lever Escapements",
+      "confidence": "candidate",
+      "text": "Silicon watch components are manufactured using DRIE (Deep Reactive Ion Etching) — the same photolithographic process flow used to fabricate MEMS accelerometers and gyroscopes in smartphones. Tolerances: +/-1-2 um vs +/-20 um for traditional machining. The escape wheel in a Patek Philippe Advanced Research watch is a MEMS device installed in a mechanical watch. This explains why the firms making smartphone motion sensors (STMicroelectronics, Bosch) are the technology base for next-generation escapement components — and why the bridge to MEMS oscillators (07-QUARTZ) is not just conceptual but literal.",
+      "notes": [
+        "detected from ASCII table borders or pipe-aligned rows"
+      ]
+    },
+    {
+      "id": "block-8",
+      "kind": "diagram_like",
+      "line": 331,
+      "heading_context": "## Silicon Revolution in Lever Escapements",
+      "confidence": "candidate",
+      "text": "TRADITIONAL vs SILICON COMPONENTS\n\n                     | Steel/Nivarox      | Silicon\n─────────────────────┼────────────────────┼────────────────────────\nMagnetic sensitivity | Affected by fields | Non-magnetic\n                     | → rate perturbation| → immune\nLubrication          | Requires oil       | Self-lubricating\n                     | at pallet jewels   | (silicon has very low\n                     |                    |  surface friction)\nMass                 | Heavier            | ~3× lighter\n                     |                    | → less inertia load on train\nFabrication          | Machined           | DRIE (Deep Reactive Ion\n                     | + polished         | Etching) — photolithography\n                     |                    | process → micron tolerances\nTemperature coeff    | Nivarox: ±1 ppm/°C | Silicon: ±0.03 ppm/°C\n  of elasticity      |                    | (30× more stable)\nFracture             | Ductile → deforms  | Brittle → fractures\n                     | before breaking    | (shock sensitive)",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-9",
+      "kind": "diagram_like",
+      "line": 358,
+      "heading_context": "## Decision Cheat Sheet: When the Lever Escapement Wins",
+      "confidence": "candidate",
+      "text": "APPLICATION                        | ESCAPEMENT      | REASON\n───────────────────────────────────┼─────────────────┼──────────────────────────\nEveryday wristwatch                | Lever           | Shock-resistant, self-start\nDress watch, carried carefully     | Lever           | Still the standard\nPocket watch (carried, not jolted) | Lever or detent | Detent slightly more accurate\nMarine chronometer (gimbaled box)  | Detent          | More accurate; fragility OK\nHigh-precision wrist chrono        | Lever (silicon) | Best practical balance\nCompetition watch (COSC+ grade)    | Lever (fine adj) | Only lever achieves COSC\n\nDetent escapement: still used in the highest-precision marine chronometers\n                   and in some extremely high-end pocket watches by master makers\n                   Never used in production wristwatches.",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    }
+  ]
+}

@@ -1,3 +1,22 @@
+---
+maxim_schema: maxim.frontmatter.v1
+id: maxim:watchmaking:verge-escapement
+kind: guide
+module: watchmaking
+section: watchmaking
+title: Watchmaking - 02 The Verge Escapement
+status: source-custody
+source_custody: partial
+current_path: watchmaking/02-VERGE-ESCAPEMENT.md
+canonical_path: watchmaking/02-VERGE-ESCAPEMENT.md
+backsource_ids: [proof-backfill:watchmaking:02-verge-escapement, git-history:watchmaking:02-verge-escapement]
+concepts: [verge, escapement]
+root_concepts: [verge, escapement]
+index_roles: [guide, root-concept]
+remap_from: []
+remap_to: []
+updated: null
+---
 # Watchmaking — 02 The Verge Escapement
 ## The First Mechanical Clock (~1280s): Crown Wheel, Verge, and Foliot
 

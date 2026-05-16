@@ -1,0 +1,61 @@
+{
+  "schema_version": "1",
+  "source_markdown": "typography\\00-OVERVIEW.md",
+  "blocks": [
+    {
+      "id": "block-1",
+      "kind": "diagram_like",
+      "line": 28,
+      "heading_context": "## The Big Picture",
+      "confidence": "candidate",
+      "text": "TYPOGRAPHY TIMELINE — TECHNOLOGY ARC\n─────────────────────────────────────────────────────────────────────────────────\n\n3200 BCE    Cuneiform                 Clay + stylus. Wedge marks. Logistics.\n3000 BCE    Hieroglyphics             Stone + brush. Logographic + phonetic.\n1050 BCE    Phoenician alphabet       22 consonants. Trade-driven. No vowels.\n 800 BCE    Greek alphabet            Added vowels. Left-to-right fixed.\n 700 BCE    Latin alphabet            Etruscan bridge. Roman capitals.\n 400 CE     Uncial script             Rounded for vellum. Precursor to lowercase.\n 800 CE     Carolingian minuscule     Charlemagne's script reform. Our lowercase.\n1040 CE     Bi Sheng (China)          Ceramic moveable type. Didn't spread.\n1298 CE     Wang Zhen                 Wooden type. 60,000 blocks.\n1455 CE     Gutenberg 42-line Bible   Metal type + press. The information bomb.\n1501 CE     Aldus Manutius            Italic. Portable books. Venice.\n1700s       Caslon, Baskerville       Transitional type design refined.\n1780s       Bodoni, Didot             Modern/Didone. High contrast. Rationalism.\n1810s       Slab serif invented       Industrial fonts. Egyptian.\n1816        First sans serif          Caslon's \"Two-lines English Egyptian.\"\n1884        Linotype                  Hot metal. Keyboard → slug. Newspapers.\n1887        Monotype                  Individual characters. Books.\n1927        Futura                    Bauhaus geometric sans.\n1957        Helvetica + Univers       Neo-grotesque dominance. Swiss Style.\n1960s       Phototypesetting          Film, not metal. Offset printing.\n1970        ITC founded               Type licensing as software licensing.\n1975        Frutiger                  Humanist sans for airports.\n1982        PostScript                Bézier outlines. Device-independent.\n1984        Mac + LaserWriter         Desktop publishing begins.\n1991        TrueType                  Apple/Microsoft. Quadratic splines.\n1996        OpenType spec             Adobe/Microsoft. Unified format.\n2000        ClearType                 Subpixel rendering. LCD optimization.\n2010        WOFF                      Web font delivery standard.\n2013        WOFF2                     Brotli compression. 30% smaller.\n2016        Variable fonts            Design space, one file, n instances.\n2020+       Variable fonts universal  All major browsers support.\n\n─────────────────────────────────────────────────────────────────────────────────",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-2",
+      "kind": "diagram_like",
+      "line": 73,
+      "heading_context": "## The Three Fundamental Tensions",
+      "confidence": "candidate",
+      "text": "TENSION 1: REPRODUCTION FIDELITY vs SPEED\n──────────────────────────────────────────\nHand-carved letters           Fast scribes\n   vs manuscript                  vs\nGutenberg moveable type       Hand composition (~1000 chars/hr)\n   vs Linotype slug casting\nPostScript outline rendering  Bitmap fonts (fast, ugly)\n   vs pre-rendered bitmaps\n\n\nTENSION 2: BEAUTY vs ECONOMY\n─────────────────────────────\nIncised stone capitals         Beautiful, labor-intensive\n   vs uncial                Faster, slightly less refined\nCustom type designs            Expensive, differentiated\n   vs system fonts          Free, indistinguishable\nVariable font design axes      Infinite nuance\n   vs fixed weight/style    Simpler tooling\n\n\nTENSION 3: CRAFT vs STANDARDIZATION\n─────────────────────────────────────\nCalligraphic variation         Humanist typefaces\n   vs grid rationalism      Geometric sans (Futura, Helvetica)\nOptical size variants          Perfect at every size\n   vs single master         One file, scaled mechanically\nHand kerning pairs             Visually perfect\n   vs metric kerning        Computationally predictable",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-3",
+      "kind": "diagram_like",
+      "line": 108,
+      "heading_context": "## Type Classification Overview",
+      "confidence": "candidate",
+      "text": "TYPE CLASSIFICATION TREE\n────────────────────────────────────────────────────────────────────────────\n\n  ALL TYPEFACES split into three trunks:\n\n  SERIF:\n    Humanist (Venetian; Garamond)\n    Transitional (Baskerville; Times New Roman)\n    Didone (Bodoni; Didot)\n\n  SANS SERIF:\n    Grotesque (Akzidenz-Grotesk, Helvetica)\n    Humanist (Gill Sans, Frutiger, Calibri)\n    Geometric (Futura, Avant Garde)\n\n  OTHER:\n    Slab serif\n    Script / cursive\n    Display\n    Monospace\n\n────────────────────────────────────────────────────────────────────────────",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-4",
+      "kind": "diagram_like",
+      "line": 155,
+      "heading_context": "## Why Typography Matters for Software Engineers",
+      "confidence": "candidate",
+      "text": "SOFTWARE ENGINEERING TYPOGRAPHY TOUCHPOINTS\n────────────────────────────────────────────────────────────────────────────\n\n  FONT RENDERING PIPELINE\n  ┌─────────────────────────────────────────────────────────────────┐\n  │  Font file (.ttf/.otf/.woff2)                                   │\n  │       │                                                          │\n  │       ▼                                                          │\n  │  Outline parsing (Bézier/B-spline curves → glyph outlines)      │\n  │       │                                                          │\n  │       ▼                                                          │\n  │  Hinting (bytecode interpreter adjusts outlines to pixel grid)  │\n  │       │                                                          │\n  │       ▼                                                          │\n  │  Rasterization (scan conversion of outlines to pixels)          │\n  │       │                                                          │\n  │       ▼                                                          │\n  │  Anti-aliasing (grayscale or subpixel)                          │\n  │       │                                                          │\n  │       ▼                                                          │\n  │  Compositor (blends into framebuffer)                           │\n  └─────────────────────────────────────────────────────────────────┘\n\n  UNICODE / GLYPH MAPPING\n  Unicode code point (U+0041 = 'A')\n       │\n       ▼\n  cmap table lookup in font file\n       │\n       ▼\n  Glyph ID → outline data\n       │\n       ▼ (for complex scripts: Arabic, Devanagari, etc.)\n  Shaping engine (HarfBuzz, Uniscribe, CoreText)\n  — applies GSUB (glyph substitution) + GPOS (positioning) rules\n\n  WEB FONT PERFORMANCE\n  HTML/CSS requests font → HTTP fetch → WOFF2 decompression\n  → font-face loading stages: blocking / swap / fallback / optional\n  → cumulative layout shift (CLS) on swap\n  → solution: unicode-range subsetting + font-display strategy\n\n  VARIABLE FONTS AS CSS API\n  font-variation-settings: 'wght' 650, 'wdth' 80, 'opsz' 14;\n  — a font as a parameterized function of design axes\n  — one file replaces 4–8 static font files\n  — weight/width interpolated at sub-integer precision\n\n────────────────────────────────────────────────────────────────────────────",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-5",
+      "kind": "diagram_like",
+      "line": 211,
+      "heading_context": "## Module Map",
+      "confidence": "candidate",
+      "text": "typography/\n├── 00-OVERVIEW.md           ← You are here\n├── 01-WRITING-SYSTEMS.md    Cuneiform → Phoenician → Greek → Latin → Unicode\n├── 02-GUTENBERG-MOVEABLE-TYPE.md  The 1450 information revolution\n├── 03-TYPEFACE-ANATOMY.md   Vocabulary of letterforms — the engineering spec\n├── 04-TYPE-CLASSIFICATION.md  Vox-ATypI genealogy of styles\n├── 05-HOT-METAL.md          Linotype + Monotype (1884–1970s)\n├── 06-PHOTOTYPESETTING.md   Film era (1950s–1980s), ITC licensing model\n├── 07-DIGITAL-FONTS.md      PostScript, TrueType, OpenType, rendering pipeline\n├── 08-LAYOUT-READABILITY.md  Measure, leading, kerning, HiDPI\n├── 09-VARIABLE-FONTS.md     Design spaces, axes, CSS API, performance\n└── 10-TYPE-INDUSTRY.md      Foundries, licensing, Google Fonts, commissioning",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    }
+  ]
+}

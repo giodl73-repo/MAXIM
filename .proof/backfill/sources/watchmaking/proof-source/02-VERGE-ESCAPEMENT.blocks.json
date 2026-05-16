@@ -1,0 +1,138 @@
+{
+  "schema_version": "1",
+  "source_markdown": "watchmaking\\02-VERGE-ESCAPEMENT.md",
+  "blocks": [
+    {
+      "id": "block-1",
+      "kind": "diagram_like",
+      "line": 31,
+      "heading_context": "## The Big Picture",
+      "confidence": "candidate",
+      "text": "ESCAPEMENT PROBLEM\n\nContinuous input:                      Stepped output:\n                                       (countable, controlled)\n weight falls ──► gear train ──────►   tick\n (continuous     (wants to spin         tock\n  torque)         as fast as            tick\n                  friction allows)      tock\n                         │\n                         ▼\n                   ESCAPEMENT\n                   - Releases gear train one tooth at a time\n                   - Each release = one count\n                   - Rate controlled by oscillator\n                         │\n                         ▼\n                   OSCILLATOR\n                   - Sets the tempo\n                   - Verge-and-foliot: tempo depends on drive force (bad)\n                   - Pendulum: tempo depends on length and gravity (good)\n                   - Quartz: tempo depends on crystal physics (very good)\n                   - Cesium: tempo depends on quantum physics (near-perfect)",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-2",
+      "kind": "diagram_like",
+      "line": 62,
+      "heading_context": "## The Crown Wheel and Verge: Mechanism",
+      "confidence": "candidate",
+      "text": "VERGE-AND-FOLIOT ESCAPEMENT — SIDE VIEW\n\n                    foliot bar (horizontal)\n           ←────────────────────────────→\n           weight                    weight\n           (adjustable position)     (adjustable position)\n               │                         │\n               └──────────┬──────────────┘\n                          │\n                    verge (vertical shaft / spindle)\n                          │\n                    pallet A (upper)        ← fits between crown wheel teeth\n                          │                   on the back side\n                    pallet B (lower)        ← fits between crown wheel teeth\n                          │                   on the front side\n                          │\n               ┌─────────────────────┐\n               │   CROWN WHEEL       │\n               │   (escape wheel)    │\n               │   teeth project     │\n               │   perpendicular     │\n               │   to wheel plane    │\n               │   (like a crown)    │\n               └─────────────────────┘\n                          │\n                   going train\n                          │\n                   great wheel\n                          │\n                   mainspring or\n                   falling weight",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-3",
+      "kind": "diagram_like",
+      "line": 102,
+      "heading_context": "## The Crown Wheel and Verge: Mechanism",
+      "confidence": "candidate",
+      "text": "BEAT SEQUENCE\n\nStep 1: Crown wheel tooth pushes pallet A\n        → verge rotates clockwise\n        → foliot swings clockwise\n        → pallet B enters crown wheel teeth on opposite side\n\nStep 2: Crown wheel tooth catches pallet B\n        → wheel locks (brief pause)\n        → foliot inertia decelerates, reverses direction\n\nStep 3: Foliot reverses, swings counter-clockwise\n        → pallet B pushed by crown wheel tooth\n        → verge rotates counter-clockwise\n        → pallet A re-enters crown wheel teeth\n\nStep 4: Crown wheel tooth catches pallet A\n        → wheel locks again\n        → foliot inertia decelerates, reverses\n\n... repeat ...\n\nEach complete cycle: crown wheel advances by 2 teeth.\nCrown wheel tooth count = N → one full revolution = N/2 oscillations.",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-4",
+      "kind": "diagram_like",
+      "line": 142,
+      "heading_context": "## Why the Verge Was Inaccurate",
+      "confidence": "candidate",
+      "text": "VERGE ACCURACY — ERROR TREE\n\n±15 min/day typical error\n\n├── No natural frequency (≈ 50% of total error)\n│   - Rate set by operator adjusting foliot weights\n│   - No automatic correction of perturbations\n│\n├── Drive torque variation (≈ 30%)\n│   - Weight-driven: torque varies as rope geometry changes\n│   - Mainspring-driven (pocket watches): torque drops as spring unwinds\n│   - No constant-force mechanism (fusee not yet invented for early clocks)\n│\n├── Friction variability (≈ 15%)\n│   - Temperature changes viscosity of any lubricant\n│   - Wear changes pivot geometry over time\n│   - No jewel bearings (plain iron-on-iron)\n│\n└── Impulse inconsistency (≈ 5%)\n    - Crown wheel tooth geometry not optimized\n    - Contact angles vary through the beat cycle",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-5",
+      "kind": "diagram_like",
+      "line": 168,
+      "heading_context": "## Engineering Bridge: Foliot as Control System Failure",
+      "confidence": "candidate",
+      "text": "OSCILLATOR TYPE           EIGENVALUES           STABILITY\n──────────────────────────────────────────────────────────────────────────────\nFoliot (no restoring       λ = 0 (pole at        Marginally stable: no\n  force, inertia only)     origin)               natural frequency. Rate is\n                                                 entirely determined by\n                                                 driving force. Open-loop.\n\nPendulum (gravity          λ = ±j√(g/L)          Stable oscillation at\n  restoring force)         (purely imaginary)     natural frequency ω₀.\n                                                  Period independent of drive.\n\nBalance wheel (spring      λ = ±j√(k/I)          Same structure as pendulum\n  restoring force)         (purely imaginary)     but portable: spring\n                                                  replaces gravity.\n\nQuartz crystal (piezo      λ near ±jω with       High Q ≈ 10⁵ = extremely\n  resonance, high Q)       very small real part    narrow bandwidth. Frequency\n                                                  locked to crystal geometry.",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-6",
+      "kind": "diagram_like",
+      "line": 197,
+      "heading_context": "## The Foliot: Design Details",
+      "confidence": "candidate",
+      "text": "FOLIOT VARIANTS\n\nStandard foliot (horizontal bar):\n          ●─────────────────────●\n           weight              weight\n               |\n           verge\n\nBalance wheel (later development):\n          ╭────────────────────╮\n         /                      \\\n        /   ╭────────────────╮   \\\n       │  │     hub        │   │\n        \\   ╰────────────────╯   /\n         \\                      /\n          ╰────────────────────╯\n           |\n          verge\n\nThe balance wheel is a foliot bent into a circle — same physics,\nmore compact, enables pocket watches, still no natural frequency.",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-7",
+      "kind": "diagram_like",
+      "line": 243,
+      "heading_context": "## The Mainspring: Enabling Portability",
+      "confidence": "candidate",
+      "text": "MAINSPRING FORCE CURVE\n\nTorque\n  ↑\n  │▓▓▓▓\n  │    ▓▓▓\n  │       ▓▓▓▓\n  │           ▓▓▓▓▓▓\n  │                 ▓▓▓▓▓▓▓▓▓▓\n  └──────────────────────────────→ Winding state\n     fully wound              nearly run down\n\nA fully wound mainspring exerts 2–3× more torque than a nearly run-down one.\nThis torque variation directly causes rate variation in a verge watch.",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-8",
+      "kind": "diagram_like",
+      "line": 262,
+      "heading_context": "## The Mainspring: Enabling Portability",
+      "confidence": "candidate",
+      "text": "FUSEE MECHANISM\n\nMainspring barrel:\n┌──────────────┐\n│   mainspring │\n│   (provides  │\n│   decreasing │\n│   torque as  │\n│   it unwinds)│\n└──────────────┘\n       │\n     chain\n       │\n       v\nFusee (conical pulley):\n   /\\         (top: large radius, spring fully wound)\n  /  \\\n /    \\       (middle: medium radius, mid-winding)\n/______\\      (bottom: small radius, spring nearly run down)\n   |\n   v\ngreat wheel (constant torque)",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-9",
+      "kind": "chart_like",
+      "line": 297,
+      "heading_context": "## Notable Early Clocks",
+      "confidence": "candidate",
+      "text": "### Salisbury Cathedral (1386)",
+      "notes": [
+        "detected from bar/chart glyph density with numeric labels"
+      ]
+    },
+    {
+      "id": "block-10",
+      "kind": "chart_like",
+      "line": 304,
+      "heading_context": "### Salisbury Cathedral (1386)",
+      "confidence": "candidate",
+      "text": "### Wells Cathedral (1386–1392)",
+      "notes": [
+        "detected from bar/chart glyph density with numeric labels"
+      ]
+    },
+    {
+      "id": "block-11",
+      "kind": "chart_like",
+      "line": 310,
+      "heading_context": "### Wells Cathedral (1386–1392)",
+      "confidence": "candidate",
+      "text": "### Prague Astronomical Clock (Orloj, 1410)",
+      "notes": [
+        "detected from bar/chart glyph density with numeric labels"
+      ]
+    },
+    {
+      "id": "block-12",
+      "kind": "diagram_like",
+      "line": 333,
+      "heading_context": "## Decision Cheat Sheet: Verge Era Technology",
+      "confidence": "candidate",
+      "text": "PROBLEM                        | SOLUTION                      | LIMITATION\n───────────────────────────────┼───────────────────────────────┼─────────────────────\nNeed to ring bells hourly,     | Verge tower clock, weight     | ±15 min/day accuracy\n    stationary location        | driven, verge-and-foliot      | needs daily correction\n\nNeed portable clock            | Verge pocket watch,           | Even less accurate\n    (travel, personal use)     | mainspring driven             | than tower clock;\n                               |                               | no temperature comp\n\nNeed constant driving torque   | Add fusee mechanism           | Adds complexity, size\n    for portable clock         |                               | requires more winding\n\nNeed portable, more accurate   | Must wait for 1759 and        | Lever escapement\n    (±1 sec/day class)         | the lever escapement          | doesn't exist yet\n\nNeed extreme precision,        | Precision pendulum clock;     | Not portable; affected\n    stationary use             | anchor or deadbeat escapement | by vibration",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    }
+  ]
+}

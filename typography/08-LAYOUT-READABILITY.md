@@ -1,3 +1,22 @@
+---
+maxim_schema: maxim.frontmatter.v1
+id: maxim:typography:layout-readability
+kind: guide
+module: typography
+section: typography
+title: 08 - Layout and Readability
+status: source-custody
+source_custody: partial
+current_path: typography/08-LAYOUT-READABILITY.md
+canonical_path: typography/08-LAYOUT-READABILITY.md
+backsource_ids: [proof-backfill:typography:08-layout-readability, git-history:typography:08-layout-readability]
+concepts: [layout, readability]
+root_concepts: [layout, readability]
+index_roles: [guide, root-concept]
+remap_from: []
+remap_to: []
+updated: null
+---
 # 08 — Layout and Readability
 
 ## The Big Picture

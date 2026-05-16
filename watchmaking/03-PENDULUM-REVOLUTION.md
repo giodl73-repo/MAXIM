@@ -1,3 +1,22 @@
+---
+maxim_schema: maxim.frontmatter.v1
+id: maxim:watchmaking:pendulum-revolution
+kind: guide
+module: watchmaking
+section: watchmaking
+title: Watchmaking - 03 The Pendulum Revolution
+status: source-custody
+source_custody: partial
+current_path: watchmaking/03-PENDULUM-REVOLUTION.md
+canonical_path: watchmaking/03-PENDULUM-REVOLUTION.md
+backsource_ids: [proof-backfill:watchmaking:03-pendulum-revolution, git-history:watchmaking:03-pendulum-revolution]
+concepts: [pendulum, revolution]
+root_concepts: [pendulum, revolution]
+index_roles: [guide, root-concept]
+remap_from: []
+remap_to: []
+updated: null
+---
 # Watchmaking — 03 The Pendulum Revolution
 ## Isochronism, Huygens' Clock, Temperature Compensation, and the Anchor Escapement
 

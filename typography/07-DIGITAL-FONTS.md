@@ -1,3 +1,22 @@
+---
+maxim_schema: maxim.frontmatter.v1
+id: maxim:typography:digital-fonts
+kind: guide
+module: typography
+section: typography
+title: 07 - Digital Fonts: PostScript, TrueType, OpenType
+status: source-custody
+source_custody: partial
+current_path: typography/07-DIGITAL-FONTS.md
+canonical_path: typography/07-DIGITAL-FONTS.md
+backsource_ids: [proof-backfill:typography:07-digital-fonts, git-history:typography:07-digital-fonts]
+concepts: [digital, fonts]
+root_concepts: [digital, fonts]
+index_roles: [guide, root-concept]
+remap_from: []
+remap_to: []
+updated: null
+---
 # 07 — Digital Fonts: PostScript, TrueType, OpenType
 
 ## The Big Picture

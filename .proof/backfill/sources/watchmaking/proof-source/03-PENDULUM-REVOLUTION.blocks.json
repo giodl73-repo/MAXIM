@@ -1,0 +1,149 @@
+{
+  "schema_version": "1",
+  "source_markdown": "watchmaking\\03-PENDULUM-REVOLUTION.md",
+  "blocks": [
+    {
+      "id": "block-1",
+      "kind": "diagram_like",
+      "line": 29,
+      "heading_context": "## The Big Picture",
+      "confidence": "candidate",
+      "text": "PENDULUM CLOCK — ACCURACY PROGRESSION\n\n±15 min/day   Verge and foliot (pre-1656)\n              └── no natural frequency\n\n ±1 min/day   Early Huygens pendulum (1656)\n              └── natural frequency; pendulum beats out the seconds\n\n±15 sec/day   Improved Huygens pendulum (1660s)\n              └── better escapement geometry; cycloidal cheeks\n\n ±2 sec/day   Anchor escapement (1670s)\n              └── pendulum nearly free; less disturbance per beat\n\n ±1 sec/day   Deadbeat anchor (Graham, 1715)\n              └── no recoil; smoother impulse\n\n±0.1 sec/day  Temperature-compensated pendulum (Harrison, Graham, 1720s)\n              └── gridiron / mercury compensation\n\n±1 sec/year   Electrically-maintained pendulum (Riefler, 1889)\n              └── near-vacuum; precise electromechanical impulse\n\n±1 sec/year   Shortt free-pendulum (1921)\n              └── master + slave pendulum; master nearly undisturbed\n\n(~1955: atomic clocks supersede pendulum as primary standard)",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-2",
+      "kind": "ascii_table_candidate",
+      "line": 72,
+      "heading_context": "## Galileo's Isochronism (1582–1602)",
+      "confidence": "candidate",
+      "text": "The pendulum is a textbook 2nd-order LTI system: the equation of motion is theta-double-dot + (g/L) * theta = 0, with eigenvalues at +/- j*sqrt(g/L). Isochronism means the period is determined by the natural frequency omega_0 = sqrt(g/L), independent of initial conditions (for small amplitudes). This is identical to saying the oscillator is linear and time-invariant in the small-signal regime. At large amplitudes, the sin(theta) nonlinearity makes the period amplitude-dependent — which is exactly why Huygens needed cycloidal cheeks (to restore exact isochronism by modifying the effective restoring force geometry).",
+      "notes": [
+        "detected from ASCII table borders or pipe-aligned rows"
+      ]
+    },
+    {
+      "id": "block-3",
+      "kind": "diagram_like",
+      "line": 76,
+      "heading_context": "## Galileo's Isochronism (1582–1602)",
+      "confidence": "candidate",
+      "text": "T = 2π √(L/g)\n\nwhere:\n  T = period (seconds per complete swing and return)\n  L = length from pivot to center of mass of bob (meters)\n  g = local gravitational acceleration (≈ 9.81 m/s² at sea level, mid-latitudes)\n\nSeconds pendulum (T = 2 seconds, 1 beat = 1 second):\n  L = g/π² ≈ 9.81/9.87 ≈ 0.994 m (about 994 mm or 39.1 inches)\n  This is why grandfather clock cases are tall.\n\nEffect of g variation:\n  g at equator ≈ 9.780 m/s²; g at poles ≈ 9.832 m/s²\n  Δg/g ≈ 0.5% → ΔT/T ≈ 0.25% → ~3.6 minutes/day difference pole to equator\n  Jean Richer observed this (Cayenne, 1672): a seconds pendulum in Paris\n  ran fast in Cayenne — confirmed Earth's equatorial bulge",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-4",
+      "kind": "diagram_like",
+      "line": 125,
+      "heading_context": "## Christiaan Huygens (1656)",
+      "confidence": "candidate",
+      "text": "CYCLOIDAL CHEEKS\n\n                   pivot point\n                        │\n            ┌───────────┴───────────┐\n           /│                       │\\\n          / │    cycloidal cheek    │ \\\n         /  │    (curves matching   │  \\\n        /   │    cycloid profile)   │   \\\n           string wraps around        string wraps around\n           cheek as pendulum swings   cheek as pendulum swings\n\nThe cheek shortens the effective pendulum length as amplitude increases,\nexactly compensating for the amplitude dependence of the circular arc period.",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-5",
+      "kind": "diagram_like",
+      "line": 160,
+      "heading_context": "## The Anchor Escapement (~1670)",
+      "confidence": "candidate",
+      "text": "ANCHOR ESCAPEMENT — GEOMETRY\n\n          ┌─────────────────────────────────────────┐\n          │                 PENDULUM                │\n          │                    │                    │\n          │           pivot────┴────                │\n          │               pendulum rod              │\n          │                                         │\n          │           ┌──────────────┐              │\n          │           │    ANCHOR    │              │\n          │           │    (lever)   │              │\n          │     entry │◄────────────►│ exit         │\n          │     pallet│              │ pallet        │\n          │           └──────┬───────┘              │\n          │                  │ impulse face          │\n          │                  │                      │\n          │           ┌──────────────┐              │\n          │           │  ESCAPE      │              │\n          │           │  WHEEL       │              │\n          │           │  (ratchet    │              │\n          │           │   teeth)     │              │\n          │           └──────────────┘              │\n          └─────────────────────────────────────────┘\n\nPendulum swings left:  entry pallet catches escape wheel tooth\n                       (locks the wheel)\n                       pendulum momentum drives entry pallet further\n                       tooth \"recoils\" slightly (escape wheel backs up)\n                       pendulum reverses direction\n                       entry pallet releases tooth (\"escapes\")\n                       escape wheel advances one tooth\n                       exit pallet catches next tooth\n\nThe \"recoil\": on every beat, the escape wheel briefly reverses.\nThis is wasted energy and slightly disturbs the pendulum's period.",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-6",
+      "kind": "diagram_like",
+      "line": 216,
+      "heading_context": "## The Deadbeat Escapement (George Graham, 1715)",
+      "confidence": "candidate",
+      "text": "DEADBEAT ESCAPEMENT — TOOTH GEOMETRY\n\nAnchor escapement pallet face:\n  ──────────────────────────────────►\n  inclined face: tooth slides on it,\n  wheel continues to push backward\n  (\"recoil\") as pendulum decelerates\n\nDeadbeat escapement pallet face:\n  ──────────────────────────────────►\n  circular arc centered on the\n  pallet arbor (pivot point)\n  tooth rests on this face with\n  no net tangential force\n  → no recoil, no drive force\n  → \"dead\" (stationary) between beats\n",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-7",
+      "kind": "chart_like",
+      "line": 264,
+      "heading_context": "## Temperature Compensation",
+      "confidence": "candidate",
+      "text": "### Gridiron Pendulum (John Harrison, c. 1726)",
+      "notes": [
+        "detected from bar/chart glyph density with numeric labels"
+      ]
+    },
+    {
+      "id": "block-8",
+      "kind": "diagram_like",
+      "line": 268,
+      "heading_context": "### Gridiron Pendulum (John Harrison, c. 1726)",
+      "confidence": "candidate",
+      "text": "GRIDIRON PENDULUM\n\n         pivot\n           │\n           │ ← steel rod (lower thermal expansion: 11.7×10⁻⁶/°C)\n           │\n    ┌─────────────┐\n    │             │\n    │ brass rods  │\n    │ (expand     │\n    │  upward)    │\n    │             │\n    └─────────────┘\n           │\n           │ ← steel rod\n           │\n    ┌─────────────┐\n    │             │\n    │ brass rods  │\n    │             │\n    └─────────────┘\n           │ ← central steel rod\n           │\n           ○ bob\n\nNet effect: brass expanding upward raises the bob;\n           steel expanding downward lowers the bob;\n           with correct number and ratio of rods,\n           net displacement of bob = 0 for any temperature.\n\nHarrison's ratio: 5 brass rods, 4 steel rods (hence \"gridiron\" — 9 parallel rods)",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-9",
+      "kind": "chart_like",
+      "line": 308,
+      "heading_context": "### Gridiron Pendulum (John Harrison, c. 1726)",
+      "confidence": "candidate",
+      "text": "### Mercury Pendulum (George Graham, c. 1726)",
+      "notes": [
+        "detected from bar/chart glyph density with numeric labels"
+      ]
+    },
+    {
+      "id": "block-10",
+      "kind": "diagram_like",
+      "line": 312,
+      "heading_context": "### Mercury Pendulum (George Graham, c. 1726)",
+      "confidence": "candidate",
+      "text": "MERCURY PENDULUM\n\n         pivot\n           │\n           │ ← steel or brass rod\n           │\n      ┌─────────┐\n      │         │\n      │ mercury │\n      │ in      │\n      │ cylinder│\n      │         │\n      └─────────┘\n      Mercury contained in glass/metal cylinder.\n      Mercury expands upward as temperature rises\n      → raises center of mass of bob\n      → partially compensates for rod lengthening.\n           bob assembly\n\nMercury: α_volume = 182×10⁻⁶/°C (very high)\nAs temperature rises:\n  - Rod lengthens (lowers bob center of mass) → period lengthens\n  - Mercury expands upward (raises center of mass) → period shortens\n  - Net effect: approximately zero change in period\n\nAdjustment: cylinder diameter and mercury volume determine compensation level.\nGraham adjusted empirically to find the compensating volume.",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-11",
+      "kind": "chart_like",
+      "line": 357,
+      "heading_context": "## The Royal Pendulum Standard (Brief)",
+      "confidence": "candidate",
+      "text": "### The Shortt Free-Pendulum Clock (1921)",
+      "notes": [
+        "detected from bar/chart glyph density with numeric labels"
+      ]
+    },
+    {
+      "id": "block-12",
+      "kind": "diagram_like",
+      "line": 361,
+      "heading_context": "### The Shortt Free-Pendulum Clock (1921)",
+      "confidence": "candidate",
+      "text": "SHORTT FREE-PENDULUM ARCHITECTURE\n───────────────────────────────────\nMASTER PENDULUM (reference oscillator):\n  Sealed in near-vacuum (minimizes air resistance)\n  No gear train attached (minimizes mechanical coupling)\n  Receives impulse every 30 seconds from slave\n  Runs as freely as possible — the reference standard\n\nSLAVE PENDULUM (actuator/controller):\n  Drives the gear train and dial (does all mechanical work)\n  Receives synchronization signal from master\n  Adjusts its phase to track master via electromagnetic hit\n  Absorbs all the perturbation so master doesn't have to\n\nThe master is the high-Q oscillator; the slave is the\nlow-Q workhorse. Separating them improved accuracy by\n~10× over the best single-pendulum Riefler clocks.",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-13",
+      "kind": "ascii_table_candidate",
+      "line": 397,
+      "heading_context": "## Decision Cheat Sheet: Pendulum Era Technology",
+      "confidence": "candidate",
+      "text": "NEED                              | BEST PENDULUM SOLUTION    | ACCURACY\n──────────────────────────────────┼───────────────────────────┼────────────────────\nHousehold timekeeping             | Anchor escapement         | ±1 min/day\n(1680s–1800s)                     | longcase clock            |\n\nPrecision for navigation          | Not a pendulum — need     | Pendulum fails on\n(at sea)                          | marine chronometer        | a moving ship\n\nPrecision for astronomy           | Deadbeat anchor           | ±2 sec/day\n(observatory use)                 | (no temperature comp)     |\n\nHigh precision, temp-compensated  | Mercury pendulum +        | ±0.1 sec/day\n(observatory, longitude standard) | deadbeat anchor            |\n\nExtreme precision (~1900)         | Vacuum pendulum +         | ±0.01 sec/day\n                                  | electrical impulse        | (~1 sec/3 months)\n                                  | (Riefler, Shortt clocks)  |\n\nPrimary time standard             | Pendulum cannot achieve   | Superseded by quartz\n(1950s onward)                    | atomic clock accuracy     | and then atomic",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    }
+  ]
+}

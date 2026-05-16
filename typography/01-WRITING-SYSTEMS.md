@@ -1,3 +1,22 @@
+---
+maxim_schema: maxim.frontmatter.v1
+id: maxim:typography:writing-systems
+kind: guide
+module: typography
+section: typography
+title: 01 - Writing Systems: From Marks to Alphabet
+status: source-custody
+source_custody: partial
+current_path: typography/01-WRITING-SYSTEMS.md
+canonical_path: typography/01-WRITING-SYSTEMS.md
+backsource_ids: [proof-backfill:typography:01-writing-systems, git-history:typography:01-writing-systems]
+concepts: [writing, systems]
+root_concepts: [writing, systems]
+index_roles: [guide, root-concept]
+remap_from: []
+remap_to: []
+updated: null
+---
 # 01 — Writing Systems: From Marks to Alphabet
 
 ## The Big Picture

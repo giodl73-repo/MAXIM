@@ -1,3 +1,22 @@
+---
+maxim_schema: maxim.frontmatter.v1
+id: maxim:typography:hot-metal
+kind: guide
+module: typography
+section: typography
+title: 05 - Hot Metal: Mechanical Type Composition (1884–1970s)
+status: source-custody
+source_custody: partial
+current_path: typography/05-HOT-METAL.md
+canonical_path: typography/05-HOT-METAL.md
+backsource_ids: [proof-backfill:typography:05-hot-metal, git-history:typography:05-hot-metal]
+concepts: [hot, metal]
+root_concepts: [hot, metal]
+index_roles: [guide, root-concept]
+remap_from: []
+remap_to: []
+updated: null
+---
 # 05 — Hot Metal: Mechanical Type Composition (1884–1970s)
 
 ## The Big Picture

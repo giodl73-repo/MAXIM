@@ -1,3 +1,22 @@
+---
+maxim_schema: maxim.frontmatter.v1
+id: maxim:typography:type-industry
+kind: guide
+module: typography
+section: typography
+title: 10 - The Type Industry: Foundries, Licensing, and the Business of Type
+status: source-custody
+source_custody: partial
+current_path: typography/10-TYPE-INDUSTRY.md
+canonical_path: typography/10-TYPE-INDUSTRY.md
+backsource_ids: [proof-backfill:typography:10-type-industry, git-history:typography:10-type-industry]
+concepts: [type, industry]
+root_concepts: [type, industry]
+index_roles: [guide, root-concept]
+remap_from: []
+remap_to: []
+updated: null
+---
 # 10 — The Type Industry: Foundries, Licensing, and the Business of Type
 
 ## The Big Picture

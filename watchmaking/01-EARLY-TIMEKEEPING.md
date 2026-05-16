@@ -1,3 +1,22 @@
+---
+maxim_schema: maxim.frontmatter.v1
+id: maxim:watchmaking:early-timekeeping
+kind: guide
+module: watchmaking
+section: watchmaking
+title: Watchmaking - 01 Early Timekeeping
+status: source-custody
+source_custody: partial
+current_path: watchmaking/01-EARLY-TIMEKEEPING.md
+canonical_path: watchmaking/01-EARLY-TIMEKEEPING.md
+backsource_ids: [proof-backfill:watchmaking:01-early-timekeeping, git-history:watchmaking:01-early-timekeeping]
+concepts: [early, timekeeping]
+root_concepts: [early, timekeeping]
+index_roles: [guide, root-concept]
+remap_from: []
+remap_to: []
+updated: null
+---
 # Watchmaking — 01 Early Timekeeping
 ## Before the Escapement: Sundials, Water Clocks, and Astronomical Time
 

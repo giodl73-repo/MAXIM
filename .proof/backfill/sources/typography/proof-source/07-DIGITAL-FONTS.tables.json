@@ -1,0 +1,69 @@
+{
+  "schema_version": "1",
+  "source_markdown": "typography\\07-DIGITAL-FONTS.md",
+  "tables": [
+    {
+      "id": "table-1",
+      "line": 692,
+      "heading_context": "## Decision Cheat Sheet",
+      "headers": [
+        "Format",
+        "Curve Type",
+        "Max Glyphs",
+        "Key Use",
+        "Notes"
+      ],
+      "rows": [
+        [
+          "Type 1 (.pfb+.afm)",
+          "Cubic Bézier",
+          "256",
+          "Legacy PostScript",
+          "Obsolete; replaced by OpenType CFF"
+        ],
+        [
+          "TrueType (.ttf)",
+          "Quadratic B-spline",
+          "65,535",
+          "Windows system fonts",
+          "Strong hinting bytecode; Windows"
+        ],
+        [
+          "OpenType CFF (.otf)",
+          "Cubic Bézier",
+          "65,535",
+          "Professional typography",
+          "Smaller file; better for print"
+        ],
+        [
+          "OpenType TT (.ttf)",
+          "Quadratic B-spline",
+          "65,535",
+          "Cross-platform",
+          "Same as TrueType but OpenType tables"
+        ],
+        [
+          "WOFF (.woff)",
+          "Either",
+          "65,535",
+          "Web delivery (legacy)",
+          "zlib compressed OpenType"
+        ],
+        [
+          "WOFF2 (.woff2)",
+          "Either",
+          "65,535",
+          "Web delivery (current)",
+          "Brotli compressed; best choice"
+        ],
+        [
+          "Variable (.ttf/.otf)",
+          "Either",
+          "65,535",
+          "Design spaces",
+          "One file, multiple instances"
+        ]
+      ]
+    }
+  ]
+}

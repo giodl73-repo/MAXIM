@@ -1,3 +1,22 @@
+---
+maxim_schema: maxim.frontmatter.v1
+id: maxim:watchmaking:atomic-clocks
+kind: guide
+module: watchmaking
+section: watchmaking
+title: Watchmaking - 08 Atomic Clocks
+status: source-custody
+source_custody: partial
+current_path: watchmaking/08-ATOMIC-CLOCKS.md
+canonical_path: watchmaking/08-ATOMIC-CLOCKS.md
+backsource_ids: [proof-backfill:watchmaking:08-atomic-clocks, git-history:watchmaking:08-atomic-clocks]
+concepts: [atomic, clocks]
+root_concepts: [atomic, clocks]
+index_roles: [guide, root-concept]
+remap_from: []
+remap_to: []
+updated: null
+---
 # Watchmaking — 08 Atomic Clocks
 ## The Cesium-133 Hyperfine Transition, Timescales, GPS, and Optical Lattice Frontiers
 

@@ -1,3 +1,22 @@
+---
+maxim_schema: maxim.frontmatter.v1
+id: maxim:watchmaking:quartz-revolution
+kind: guide
+module: watchmaking
+section: watchmaking
+title: Watchmaking - 07 The Quartz Revolution
+status: source-custody
+source_custody: partial
+current_path: watchmaking/07-QUARTZ-REVOLUTION.md
+canonical_path: watchmaking/07-QUARTZ-REVOLUTION.md
+backsource_ids: [proof-backfill:watchmaking:07-quartz-revolution, git-history:watchmaking:07-quartz-revolution]
+concepts: [quartz, revolution]
+root_concepts: [quartz, revolution]
+index_roles: [guide, root-concept]
+remap_from: []
+remap_to: []
+updated: null
+---
 # Watchmaking — 07 The Quartz Revolution
 ## Piezoelectric Oscillation, 32,768 Hz, the Swiss Crisis, and the Swatch Response
 

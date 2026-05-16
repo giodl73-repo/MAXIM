@@ -1,3 +1,22 @@
+---
+maxim_schema: maxim.frontmatter.v1
+id: maxim:watchmaking:movement-anatomy
+kind: guide
+module: watchmaking
+section: watchmaking
+title: Watchmaking - 09 Movement Anatomy
+status: source-custody
+source_custody: partial
+current_path: watchmaking/09-MOVEMENT-ANATOMY.md
+canonical_path: watchmaking/09-MOVEMENT-ANATOMY.md
+backsource_ids: [proof-backfill:watchmaking:09-movement-anatomy, git-history:watchmaking:09-movement-anatomy]
+concepts: [movement, anatomy]
+root_concepts: [movement, anatomy]
+index_roles: [guide, root-concept]
+remap_from: []
+remap_to: []
+updated: null
+---
 # Watchmaking — 09 Movement Anatomy
 ## The Complete Technical Tour: Mainspring to Balance Wheel
 
