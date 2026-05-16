@@ -1,3 +1,22 @@
+---
+maxim_schema: maxim.frontmatter.v1
+id: maxim:dance:digital-dance
+kind: guide
+module: dance
+section: dance
+title: Digital Dance: Motion Capture and New Forms
+status: source-custody
+source_custody: partial
+current_path: dance/09-DIGITAL-DANCE.md
+canonical_path: dance/09-DIGITAL-DANCE.md
+backsource_ids: [proof-backfill:dance:09-digital-dance, git-history:dance:09-digital-dance]
+concepts: [digital, dance]
+root_concepts: [digital, dance]
+index_roles: [guide, root-concept]
+remap_from: []
+remap_to: []
+updated: null
+---
 # Digital Dance: Motion Capture and New Forms
 
 ## The Big Picture

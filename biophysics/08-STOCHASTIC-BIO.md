@@ -1,3 +1,22 @@
+---
+maxim_schema: maxim.frontmatter.v1
+id: maxim:biophysics:stochastic-bio
+kind: guide
+module: biophysics
+section: biophysics
+title: Stochastic Biology - Noise, Langevin Equation, and Fluctuation Theorems
+status: source-custody
+source_custody: partial
+current_path: biophysics/08-STOCHASTIC-BIO.md
+canonical_path: biophysics/08-STOCHASTIC-BIO.md
+backsource_ids: [proof-backfill:biophysics:08-stochastic-bio, git-history:biophysics:08-stochastic-bio]
+concepts: [stochastic, bio]
+root_concepts: [stochastic, bio]
+index_roles: [guide, root-concept]
+remap_from: []
+remap_to: []
+updated: null
+---
 # Stochastic Biology — Noise, Langevin Equation, and Fluctuation Theorems
 
 ## The Big Picture

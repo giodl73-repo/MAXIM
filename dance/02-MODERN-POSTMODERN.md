@@ -1,3 +1,22 @@
+---
+maxim_schema: maxim.frontmatter.v1
+id: maxim:dance:modern-postmodern
+kind: guide
+module: dance
+section: dance
+title: Modern and Postmodern Dance
+status: source-custody
+source_custody: partial
+current_path: dance/02-MODERN-POSTMODERN.md
+canonical_path: dance/02-MODERN-POSTMODERN.md
+backsource_ids: [proof-backfill:dance:02-modern-postmodern, git-history:dance:02-modern-postmodern]
+concepts: [modern, postmodern]
+root_concepts: [modern, postmodern]
+index_roles: [guide, root-concept]
+remap_from: []
+remap_to: []
+updated: null
+---
 # Modern and Postmodern Dance
 
 ## The Big Picture

@@ -1,3 +1,22 @@
+---
+maxim_schema: maxim.frontmatter.v1
+id: maxim:dance:music-dance
+kind: guide
+module: dance
+section: dance
+title: Music-Dance Relationships
+status: source-custody
+source_custody: partial
+current_path: dance/06-MUSIC-DANCE.md
+canonical_path: dance/06-MUSIC-DANCE.md
+backsource_ids: [proof-backfill:dance:06-music-dance, git-history:dance:06-music-dance]
+concepts: [music, dance]
+root_concepts: [music, dance]
+index_roles: [guide, root-concept]
+remap_from: []
+remap_to: []
+updated: null
+---
 # Music-Dance Relationships
 
 ## The Big Picture

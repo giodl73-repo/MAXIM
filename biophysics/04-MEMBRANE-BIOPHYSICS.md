@@ -1,3 +1,22 @@
+---
+maxim_schema: maxim.frontmatter.v1
+id: maxim:biophysics:membrane-biophysics
+kind: guide
+module: biophysics
+section: biophysics
+title: Membrane Biophysics - Lipid Bilayers, Membrane Potential, and Ion Channels
+status: source-custody
+source_custody: partial
+current_path: biophysics/04-MEMBRANE-BIOPHYSICS.md
+canonical_path: biophysics/04-MEMBRANE-BIOPHYSICS.md
+backsource_ids: [proof-backfill:biophysics:04-membrane-biophysics, git-history:biophysics:04-membrane-biophysics]
+concepts: [membrane, biophysics]
+root_concepts: [membrane, biophysics]
+index_roles: [guide, root-concept]
+remap_from: []
+remap_to: []
+updated: null
+---
 # Membrane Biophysics — Lipid Bilayers, Membrane Potential, and Ion Channels
 
 ## The Big Picture

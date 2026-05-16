@@ -1,3 +1,22 @@
+---
+maxim_schema: maxim.frontmatter.v1
+id: maxim:dance:world-forms
+kind: guide
+module: dance
+section: dance
+title: World Dance Forms and Traditions
+status: source-custody
+source_custody: partial
+current_path: dance/03-WORLD-FORMS.md
+canonical_path: dance/03-WORLD-FORMS.md
+backsource_ids: [proof-backfill:dance:03-world-forms, git-history:dance:03-world-forms]
+concepts: [world, forms]
+root_concepts: [world, forms]
+index_roles: [guide, root-concept]
+remap_from: []
+remap_to: []
+updated: null
+---
 # World Dance Forms and Traditions
 
 ## The Big Picture

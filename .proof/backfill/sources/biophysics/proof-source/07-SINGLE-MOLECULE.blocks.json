@@ -1,0 +1,193 @@
+{
+  "schema_version": "1",
+  "source_markdown": "biophysics\\07-SINGLE-MOLECULE.md",
+  "blocks": [
+    {
+      "id": "block-1",
+      "kind": "diagram_like",
+      "line": 24,
+      "heading_context": "## The Big Picture",
+      "confidence": "candidate",
+      "text": "┌──────────────────────────────────────────────────────────────────────────┐\n│              SINGLE-MOLECULE TECHNIQUE LANDSCAPE                         │\n│                                                                          │\n│  TECHNIQUE         WHAT IT MEASURES        FORCE RANGE   RESOLUTION      │\n│  ─────────────     ────────────────────────────────────────────────────  │\n│  Optical tweezers  Force, displacement      0.1-100 pN    0.1 nm, 0.1 pN │\n│  Magnetic tweezers Force, extension, torque 0.01-100 pN   nm, 0.01 pN    │\n│  AFM               Force, topography        10 pN-10 nN   0.1 nm, ~10 pN │\n│  smFRET            Distance, dynamics       N/A           1-10 nm dist.  │\n│  Patch clamp       Ion current              N/A           0.1 pA, 0.05 ms│\n│                                                                          │\n│  THE VALUE: ensemble methods give averages;                              │\n│  single-molecule methods reveal:                                         │\n│    • Distributions (not just means)                                      │\n│    • Rare intermediates hidden in ensemble average                       │\n│    • Individual conformational states                                    │\n│    • Real-time trajectories of individual molecules                      │\n│    • Stochastic switching between states                                 │\n│    • Heterogeneity that ensemble would average away                      │\n└──────────────────────────────────────────────────────────────────────────┘",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-2",
+      "kind": "diagram_like",
+      "line": 56,
+      "heading_context": "### Physical Basis",
+      "confidence": "candidate",
+      "text": "  TRAPPING MECHANISM (geometric optics, r >> λ):\n\n  Refraction at bead surface redirects photons → momentum transfer to bead\n  For bead displaced from focus:\n    Rays refracted unequally → net force toward focus (gradient force)\n    Net: restoring force F ∝ -x  (harmonic potential near focus)\n\n  Exact treatment (Mie/Rayleigh theory for r ≈ λ or r << λ):\n    Gradient force: F_grad ∝ ∇|E|² → toward intensity maximum\n    Scattering force: F_scat ∝ I → along beam axis (must balance)\n    Trapping: high-NA objective (NA > 1.2) → axial gradient > scattering\n\n  Typical parameters:\n    Laser: 1064 nm Nd:YAG or 800 nm Ti:Sapphire (biologically inert wavelengths)\n    Trap stiffness: k = 0.001-1 pN/nm (depends on bead size, laser power)\n    Bead diameter: 0.5-5 μm (polystyrene or silica)",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-3",
+      "kind": "diagram_like",
+      "line": 79,
+      "heading_context": "### Calibration",
+      "confidence": "candidate",
+      "text": "  METHOD 1: Equipartition theorem\n    ½k⟨x²⟩ = ½k_BT   →   k = k_BT / ⟨x²⟩\n    Measure variance of Brownian fluctuations → get spring constant\n    Advantage: no external calibration needed\n    Disadvantage: depends on accurate position measurement bandwidth\n\n  METHOD 2: Power spectrum (Lorentzian fit)\n    Trapped bead PSD: S(f) = k_BT/(π²γ) × 1/(f_c² + f²)\n    Corner frequency: f_c = k/(2πγ)  where γ = 6πηr (Stokes drag)\n    Fit Lorentzian → f_c → k\n    Advantage: rigorously correct, frequency-domain, noise-robust\n    This is the standard method\n\n  METHOD 3: Stokes drag force\n    Move the stage at velocity v → drag force F = γv\n    Displacement x = F/k → k from known drag\n    Advantage: checks calibration dynamically",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-4",
+      "kind": "diagram_like",
+      "line": 104,
+      "heading_context": "### Force-Extension Curves: DNA Mechanics",
+      "confidence": "candidate",
+      "text": "  FORCE-EXTENSION REGIMES:\n\n  F (pN)\n   100 ├────────────────────────────── contour length (inextensible)\n       │                              (overstretching > 65 pN)\n    10 ├──────────────    WLC regime: F ≈ (k_BT/Lp)×[1/(4(1-x/L)²) - 1/4 + x/L]\n       │         ─────                WLC = worm-like chain\n     1 ├─────────                     Lp = 50 nm (persistence length)\n       │         entropic             L = contour length\n   0.1 ├ ─────── (Gaussian)          x = end-to-end distance\n       └────────────────── extension (L fraction)\n       0                1\n\n  Key parameters:\n    Persistence length Lp = 50 nm (DNA)\n    Contour length L = 0.34 nm/bp × N (bp)\n    Torsional stiffness C ≈ 110 nm (twist persistence length)\n\n  Overstretching at 65 pN: B-DNA → S-DNA transition\n  (strand separation or strand switching, still debated)",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-5",
+      "kind": "diagram_like",
+      "line": 131,
+      "heading_context": "### Single-Molecule Motor Measurements",
+      "confidence": "candidate",
+      "text": "  Setup: kinesin attached to bead; bead in trap; MT below\n         (dumbbell assay: bead-kinesin-MT-kinesin-bead more symmetric)\n\n  Position-clamp (force clamp):\n    Feedback: stage moves to keep bead at fixed distance from trap center\n    → constant load F applied to motor\n    → measure velocity vs. F directly\n\n  Position-detection:\n    Back focal plane interferometry: position resolution 0.3 nm at 10 kHz\n    Laser back-scattered into quadrant photodiode or CMOS camera\n    8-nm steps clearly visible in position trace vs. time\n\n  From stepping data:\n    Step size distribution → mechanical coupling\n    Dwell time distribution → kinetics (rate constants)\n    Randomness r = Var(steps)/Mean(steps) → mechanism (r=1 for single rate-lim.)",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-6",
+      "kind": "diagram_like",
+      "line": 160,
+      "heading_context": "### Physical Basis",
+      "confidence": "candidate",
+      "text": "  CANTILEVER PHYSICS:\n\n  Spring constant k_cantilever:\n    k = Et³w / (4L³)   (E = Young's modulus, t=thickness, w=width, L=length)\n    Typical: k = 0.01-10 N/m  (tuned to application)\n\n  Deflection detection:\n    Laser reflects off back of cantilever → position-sensitive detector\n    Sensitivity: sub-Å deflection measurable\n    Force resolution: δF = sqrt(4kk_BT Δf) (thermal noise floor)\n    At k = 0.01 N/m, Δf = 100 Hz, T = 300 K:\n    δF = sqrt(4 × 0.01 × 4.1×10⁻²¹ × 100) ≈ 40 fN rms\n\n  AFM modes:\n    Contact mode: tip in contact, measure deflection at constant force\n    Tapping mode (intermittent): oscillate cantilever, measure amplitude\n    Force spectroscopy: extend/retract, record force vs. distance",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-7",
+      "kind": "diagram_like",
+      "line": 184,
+      "heading_context": "### AFM Force Spectroscopy: Protein Unfolding",
+      "confidence": "candidate",
+      "text": "  FORCE EXTENSION CURVE (titin, a muscle protein with tandem Ig domains):\n\n  Force\n    │           *               *               *\n    │          /|              /|              /|\n    │    WLC  / |        WLC  / |        WLC  / |  sawtooth pattern\n    │   ─── /  |        ─── /  |        ─── /  |\n    │       /   | unfold     /   | unfold     /   | unfold\n    │      /    │           /    │           /    │  peak ≈ 100-300 pN per domain\n    │─────/     v          /     v          /     v\n    └──────────────────────────────────────────── extension\n                ↑                ↑                ↑\n            domain 1          domain 2          domain 3\n            unfolds           unfolds           unfolds\n\n  Each peak: force needed to mechanically unfold one domain\n  Contour between peaks: WLC extension of newly unfolded polypeptide\n  Information: unfolding force, unfolding pathway, mechanical stability\n\n  Loading rate dependence (Bell model):\n    Peak force F* = (k_BT/x_u) × ln(r × x_u / (k_BT × k_off°))\n    r = loading rate [pN/s], x_u = transition state distance, k_off° = off rate\n    → vary loading rate → extract energy barrier landscape",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-8",
+      "kind": "diagram_like",
+      "line": 214,
+      "heading_context": "### AFM Imaging",
+      "confidence": "candidate",
+      "text": "  Lateral resolution: ~1-5 nm (limited by tip radius, ~5-20 nm)\n  Vertical resolution: <0.1 nm (Å-level)\n  Can image: DNA, protein complexes, membranes, virus capsids\n  In liquid: proteins remain native and functional\n\n  Advantage over EM: can image in buffer (no staining/vitrification)\n  Limitation: slower than EM (minutes per image); tip artifacts;\n              limited to surfaces\n\n  High-speed AFM (Ando group): 10-100 ms per frame\n  → Watch conformational changes in real time\n  → E.g.: myosin V walking on actin, GroEL-GroES cycling",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-9",
+      "kind": "diagram_like",
+      "line": 238,
+      "heading_context": "### Physical Basis: Förster Theory",
+      "confidence": "candidate",
+      "text": "  Transfer rate: k_T = (1/τ_D) × (R₀/r)⁶\n\n  τ_D = donor excited-state lifetime (in absence of acceptor)\n  r = donor-acceptor distance\n  R₀ = Förster radius (distance at 50% transfer efficiency)\n\n  Efficiency: E = 1 / (1 + (r/R₀)⁶)  ← the working equation\n\n  R₀ = 0.211 × [κ² n⁻⁴ Q_D J(λ)]^(1/6)   (in nm)\n    κ² = orientation factor (2/3 for random; 1-4 for fixed)\n    n = refractive index of medium (~1.33)\n    Q_D = donor quantum yield\n    J(λ) = spectral overlap integral\n\n  Typical R₀ values: 2-8 nm for common FRET pairs\n  Sensitive range: ~0.5-2 × R₀ = 1-16 nm for most pairs\n\n  FRET pairs (common):\n    Cy3/Cy5:  R₀ ≈ 5 nm\n    CFP/YFP:  R₀ ≈ 5.5 nm\n    Alexa488/Alexa594: R₀ ≈ 6 nm",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-10",
+      "kind": "diagram_like",
+      "line": 270,
+      "heading_context": "### Single-Molecule FRET (smFRET)",
+      "confidence": "candidate",
+      "text": "  TIRF (Total Internal Reflection Fluorescence):\n    Evanescent field illuminates only ~200 nm above surface\n    → selectively excites surface-immobilized molecules\n    → rejects background fluorescence from bulk\n    → enables single-molecule detection\n\n  smFRET measurement:\n    Donor: excited by laser\n    Acceptor: excited by FRET when close to donor\n    E = I_A / (I_A + I_D)   (intensity ratio)\n\n  Time trace of E reveals:\n    → Static FRET: one population → fixed distance\n    → Dynamic FRET: switching between E values → conformational dynamics\n    → Distribution of E values: multiple conformations\n    → Transition rates between states: kinetics",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-11",
+      "kind": "diagram_like",
+      "line": 291,
+      "heading_context": "### smFRET Applications",
+      "confidence": "candidate",
+      "text": "  ┌────────────────────────────────────────────────────────────────────┐\n  │  APPLICATION            │  WHAT FRET REVEALS                       │\n  │  ─────────────────────  │  ──────────────────────────────────────  │\n  │  Protein folding        │  Compact vs. extended ensemble           │\n  │                         │  Folding intermediates                   │\n  │  Enzyme conformational  │  Open/closed active site dynamics        │\n  │  dynamics               │  Substrate-induced conformational change │\n  │  RNA/DNA junction       │  Junction dynamics, strand invasion      │\n  │  dynamics               │  Holliday junction switching             │\n  │  Ribosome translation   │  tRNA movement, translocation steps      │\n  │  DNA repair             │  Sliding, searching along DNA            │\n  │  Molecular motors       │  Head coordination in kinesin            │\n  └────────────────────────────────────────────────────────────────────┘",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-12",
+      "kind": "diagram_like",
+      "line": 315,
+      "heading_context": "### Physical Basis",
+      "confidence": "candidate",
+      "text": "  Force on bead: F = (χ_V × V) × ∇(B²) / (2μ₀)\n\n  χ_V = volume magnetic susceptibility\n  V = bead volume\n  B = magnetic field magnitude\n\n  Adjusting magnet height → adjust force (0.01-100 pN range)\n  Rotating magnets → apply torque to bead → twist DNA/protein\n\n  Advantages vs. optical tweezers:\n    → Torque application (twist and stretch)\n    → Many molecules in parallel (field-of-view measurement)\n    → No photodamage (no laser on sample)\n    → Direct force control (no feedback needed for fixed force)\n    → Naturally applied to DNA topology studies\n\n  Disadvantages:\n    → Force less precisely calibrated than optical tweezers\n    → Slower position readout (camera-based, ~60 Hz)\n    → Cannot rapidly switch force",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-13",
+      "kind": "diagram_like",
+      "line": 342,
+      "heading_context": "### DNA Topology Experiments",
+      "confidence": "candidate",
+      "text": "  EXPERIMENT:\n    One DNA end tethered to surface; other end to magnetic bead\n    Rotate magnet → bead rotates → twist DNA\n    Measure extension vs. number of turns (linking number change ΔLk)\n\n  RESULTS:\n    Positive supercoiling: writhe accumulates → DNA shortens\n    Negative supercoiling: same, with denaturation bubbles\n    Plectonemes form above critical supercoiling density\n\n  APPLICATIONS:\n    Topoisomerase activity: watch relaxation of supercoiling\n    Helicase unwinding: watch extension changes\n    DNA-binding protein: observe changes in effective twist\n    Nucleosome assembly/disassembly: extension changes\n\n  Torque measurement:\n    From angular diffusion: τ = k_BT × ∂(ln P)/∂θ\n    Or: torque fluctuation analysis",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-14",
+      "kind": "diagram_like",
+      "line": 370,
+      "heading_context": "### What Each Technique Can and Cannot Do",
+      "confidence": "candidate",
+      "text": "┌──────────────────────────────────────────────────────────────────────────┐\n│  TECHNIQUE     │  FORCE    │  DIST.   │  TORQUE │  IMAGING │  THROUGHPUT│\n│  ─────────────  │  RANGE    │  RES.    │         │          │            │\n│  Optical        │  0.1-100pN│  0.1 nm  │  No*    │  No       │  1 at a   │\n│  tweezers       │           │          │         │          │  time      │\n│  Magnetic       │  0.01-100 │  nm      │  Yes    │  No       │  Many     │\n│  tweezers       │  pN       │          │         │          │  (parallel)│\n│  AFM            │  10pN-10  │  0.1 nm  │  No     │  Yes      │  1 at a   │\n│                 │  nN       │          │         │          │  time      │\n│  smFRET         │  None     │  1-10 nm │  No     │  Yes (2D) │  100s     │\n│                 │           │  (coarse)│         │  (position│  (parallel)│\n│                 │           │          │         │  only)   │            │\n│  Patch clamp    │  None     │  None    │  No     │  No       │  1-10     │\n│  (ion channels) │  (current)│  (current│         │          │  cells     │\n└──────────────────────────────────────────────────────────────────────────┘\n*Dual-beam optical tweezers can apply torque via birefringent particles",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-15",
+      "kind": "diagram_like",
+      "line": 391,
+      "heading_context": "### When to Use Which Technique",
+      "confidence": "candidate",
+      "text": "  ┌───────────────────────────────────────────────────────────────┐\n  │  QUESTION                           │  BEST TECHNIQUE         │\n  │  ─────────────────────────────────  │  ─────────────────────  │\n  │  Motor step size & stall force      │  Optical tweezers       │\n  │  Protein unfolding force/pathway    │  AFM force spectroscopy │\n  │  DNA supercoiling, topo enzymes     │  Magnetic tweezers      │\n  │  Conformational dynamics (nm scale) │  smFRET                 │\n  │  Distance between two labeled sites │  smFRET                 │\n  │  Surface topography, membrane struct│  AFM imaging            │\n  │  DNA mechanics, WLC parameters      │  Optical tweezers       │\n  │  Single ion channel conductance     │  Patch clamp            │\n  │  Parallel throughput, many molecules│  smFRET or Mag tweezers │\n  │  In-cell dynamics (FCS, SPT)        │  Fluorescence + camera  │\n  └───────────────────────────────────────────────────────────────┘",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-16",
+      "kind": "diagram_like",
+      "line": 414,
+      "heading_context": "### Drift and Noise",
+      "confidence": "candidate",
+      "text": "  NOISE SOURCES IN OPTICAL TWEEZERS:\n    Brownian motion of bead: dominant noise source\n    Thermal noise floor: σ_x = sqrt(k_BT/k_trap)\n      For k_trap = 0.1 pN/nm: σ = sqrt(4.1 pN·nm / 0.1 pN/nm) = 6.4 nm rms\n\n    Instrument drift: thermal expansion of optics/stage\n    → typically 1-10 nm/min → limit long-duration experiments\n    → controlled by temperature stabilization, differential measurement\n\n  FRET CHALLENGES:\n    Photobleaching: fluorophores bleach after ~10⁶-10⁷ photons\n    → limits observation time to ~1-100 s per molecule\n    Blinking: fluorophores stochastically dark for ms-s\n    → confounds dynamics measurement\n    Labeling efficiency: must achieve >90% double-labeling for smFRET\n    Immobilization artifacts: surface quenching, restricted diffusion",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-17",
+      "kind": "diagram_like",
+      "line": 458,
+      "heading_context": "## Signal Processing, Control, and Metrology Bridges",
+      "confidence": "candidate",
+      "text": "  SINGLE-MOLECULE TECHNIQUE     SIGNAL PROCESSING / CONTROL PARALLEL\n  ──────────────────────────────────────────────────────────────────────\n  Optical trap SNR and          SNR = signal / noise floor:\n  detection limits              thermal noise floor σ_x = sqrt(k_BT/k_trap)\n                                (equipartition). At k = 0.1 pN/nm:\n                                σ = 6.4 nm rms. To resolve 8 nm kinesin\n                                steps, need k_trap >> k_BT/(8 nm)² ≈ 0.06\n                                pN/nm. Detection bandwidth (10 kHz for\n                                motor experiments) sets Nyquist limit.\n\n  Force clamp (position clamp)  PID feedback control loop:\n                                The stage servo moves to hold bead at\n                                fixed displacement from trap center →\n                                constant applied force. The feedback\n                                bandwidth must be > step rate (100 Hz for\n                                kinesin) to faithfully follow motor steps.\n                                Overshoot → force artifacts; underdamped\n                                response → ringing on step detection.\n\n  Trap stiffness calibration    Metrology: two independent methods\n  (equipartition + power        (equipartition and Lorentzian fit) must\n  spectrum + Stokes drag)       agree within calibration error. The\n                                Lorentzian fit is the more robust method\n                                because it detects bandwidth artifacts\n                                directly from the corner frequency shape.\n                                This is exactly calibration traceability\n                                in metrology.\n\n  FRET efficiency E = 1/(1+(r/R₀)⁶)  Nonlinear distance sensor with\n                                strong sensitivity in the 0.5-2×R₀ range.\n                                The 1/r⁶ dependence is a very steep transfer\n                                function — useful for detecting small\n                                distance changes near R₀ but poor outside\n                                this range. Analogous to a log-scale sensor.\n\n  Magnetic tweezers torque      Torsional mechanics: rotating magnets apply\n  (DNA supercoiling)            a torque τ = dF/dθ to the bead. Extension\n                                vs. turns experiments measure the writhe\n                                compliance of DNA — directly analogous to\n                                measuring torsional spring constant of a\n                                physical shaft.\n\n  Photobleaching as clock       Single-step photobleaching is a stochastic\n                                process (exponential lifetime) used to count\n                                labeled molecules (1 step = 1 molecule,\n                                2 steps = 2, etc.) — discrete counting\n                                statistics.\n  ──────────────────────────────────────────────────────────────────────",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    }
+  ]
+}

@@ -1,0 +1,61 @@
+{
+  "schema_version": "1",
+  "source_markdown": "dance\\09-DIGITAL-DANCE.md",
+  "blocks": [
+    {
+      "id": "block-1",
+      "kind": "ascii_table_candidate",
+      "line": 26,
+      "heading_context": "## The Big Picture",
+      "confidence": "candidate",
+      "text": "+----------------------------------------------------------------------+\n|           DIGITAL + DANCE: THREE DOMAINS                             |\n|                                                                      |\n|  DOCUMENTATION/ANALYSIS    CREATION TOOLS         PERFORMANCE        |\n|                                                                      |\n|  Video documentation       DAW as partner         Interactive works  |\n|  Motion capture (MoCap)    Interactive software   VR dance           |\n|  LMA-to-data mapping       Generative systems     Telepresence dance |\n|  Gait analysis             Digital scores         Avatar performance |\n|  Annotation tools          AI choreography        Gaming + dance     |\n|                                                                      |\n|  PURPOSE: Understand        PURPOSE: Make new       PURPOSE: New     |\n|  what already exists        work with new tools     contexts for body  |\n+----------------------------------------------------------------------+",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-2",
+      "kind": "ascii_table_candidate",
+      "line": 155,
+      "heading_context": "## LMA-to-MoCap Mapping: Bridging Qualitative and Quantitative",
+      "confidence": "candidate",
+      "text": "LMA EFFORT TO MOCAP FEATURE MAPPING\n\nLMA QUALITY          MOCAP FEATURE                   CALCULATION\n--------------------+---------------------------------+------------------\nWeight (Strong/Light) Acceleration magnitude          |RMS(accel_CoM)|\n                    + Path curvature                 smoothness metric\n\nTime (Sudden/Sust.) Velocity change rate              d|velocity|/dt\n                    Mean phrase duration              peak-to-peak timing\n\nSpace (Direct/Indir.) Path straightness               DTW from straight line\n                    Spatial complexity               kinesphere volume trace\n\nFlow (Bound/Free)   Jerk magnitude                   |d(accel)/dt|\n                    Movement smoothness              high jerk = bound flow\n\nVALIDATED RESEARCH:\n  Laban/Bartenieff Institute + MIT Media Lab collaborations\n  Forsythe Company \"Synchronous Objects\" (2009):\n    Full LMA annotation of \"One Flat Thing, Reproduced\"\n    Mapped to mocap data; visualized as data art\n    Each dancer's pathway, cueing relationships, canon entries\n    visible as overlaid data layers on video\n\n  Effort qualities computed from mocap show:\n    ~65-75% agreement with expert LMA annotators for Weight, Time\n    ~50-60% for Space (spatial intent harder to compute)\n    Flow: ongoing research challenge",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-3",
+      "kind": "ascii_table_candidate",
+      "line": 188,
+      "heading_context": "### Applications of LMA-MoCap Integration",
+      "confidence": "candidate",
+      "text": "APPLICATION AREAS\n\nDANCE ANALYSIS:\n  Compare two performances of same work\n    -- How different are two Swan Lakes?\n    -- How does same dancer change over career?\n    -- Are reconstructions stylistically faithful to notation?\n\nCHOREOGRAPHIC TOOL:\n  Forsythe's research: feed mocap data back to dancers\n    -- \"Your gestures are generating these spatial patterns\"\n    -- Data reveals what artists cannot consciously observe in themselves\n    -- Iterative: observe -> adjust -> capture again\n\nDANCE THERAPY:\n  Track how patient movement changes over treatment course\n    -- Clinical gait analysis well-established\n    -- Extension to qualitative LMA markers: early research\n    -- Applications: autism (motor pattern assessment), stroke rehab\n\nANIMATION / GAMES:\n  Character movement \"feels\" wrong with pure kinematics\n  LMA Effort qualities used to parameterize animation\n    -- \"This NPC should feel threatening\": Strong + Direct + Sudden\n    -- \"This character is sad\": Light + Indirect + Sustained\n    -- Weight and Flow parameters directly control animation feel\n    -- Major game studios use LMA consultants for this reason\n\nHUMANOID ROBOTS:\n  \"Laban for robots\" -- research area\n    -- Human-robot interaction: robot movement should be legible\n    -- Effort qualities make robot movement readable\n    -- \"Slow and light = non-threatening approach\"\n    -- Research groups: MIT, CMU, Imperial College London",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-4",
+      "kind": "diagram_like",
+      "line": 231,
+      "heading_context": "## Digital Score Systems",
+      "confidence": "candidate",
+      "text": "DIGITAL SCORE LANDSCAPE\n\nOPENLABON (free, open-source):\n  Web-based Labanotation editor\n  Export to standard Laban formats\n  Limited but accessible for study\n\nLIFEFORMS / DANCE FORMS:\n  Commercial software by Tom Calvert (Simon Fraser)\n  Stick figure animation editor\n  Generate motion from notation; visualize\n  Used for choreographic planning before studio time\n\nMOTIONBANK PROJECT (Forsythe Company, 2009-2013):\n  Web-based scores for 5 works:\n    \"Synchronous Objects\" -- data visualization\n    \"Motion Bank Online Score\" -- multi-layer annotation\n  Scores include: video + notation + LMA annotations + oral history\n  Not just archival -- interactive analytical tools\n\nCHOREOGRAPHIC LANGUAGE AGENT (CLA):\n  Research project (Forsythe + MIT Media Lab)\n  Interprets natural language description of movement\n  \"Move your right arm upward while rotating your torso left\"\n  -> generates stick figure animation\n  Proof of concept for language-to-movement translation",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-5",
+      "kind": "ascii_table_candidate",
+      "line": 354,
+      "heading_context": "## AI and Generative Dance",
+      "confidence": "candidate",
+      "text": "GENERATIVE / AI CHOREOGRAPHY\n\nMOTION SYNTHESIS MODELS:\n  Transformer-based motion generation:\n    Train on MoCap dataset -> generate new motion sequences\n    Examples: MotionDiffuse, MDM (Motion Diffusion Model)\n    Input: text description or musical feature\n    Output: joint angle sequence -> animatable skeleton\n\n  Music-to-dance generation:\n    Given audio features (beat, spectral centroid, tempo),\n    generate plausible movement\n    Research: AIST++ dataset; various academic models 2021-2025\n\nCHALLENGES:\n  \"Uncanny valley\" of movement: computed motion looks subtly wrong\n  Effort quality: computational models produce smooth but \"empty\" movement\n  Cultural specificity: models trained on Western MoCap data\n  Creativity: generated movement is interpolation/recombination, not invention\n\nHUMAN-AI COLLABORATION MODEL:\n  Wayne McGregor's research with Imaginative Arts group:\n    -- Trained on McGregor's own movement vocabulary (mocap)\n    -- System generates movement suggestions\n    -- Choreographer selects and modifies\n    -- Human curates AI proposals; machine expands vocabulary\n\n  This is analogous to: GitHub Copilot for choreography\n    -- AI proposes; human decides\n    -- System trained on specific corpus\n    -- Acceleration of generation, not replacement of judgment\n\nDANCE AI LANDSCAPE (2025):\n  OpenPose: real-time multi-person pose estimation (visual)\n  MediaPipe: Google's lightweight real-time body tracking\n  MoCap + GenAI: commercial avatar companies use for games\n  Performance art: early explorations, no dominant paradigm",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    }
+  ]
+}

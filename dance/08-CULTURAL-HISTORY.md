@@ -1,3 +1,22 @@
+---
+maxim_schema: maxim.frontmatter.v1
+id: maxim:dance:cultural-history
+kind: guide
+module: dance
+section: dance
+title: Dance as Cultural and Political History
+status: source-custody
+source_custody: partial
+current_path: dance/08-CULTURAL-HISTORY.md
+canonical_path: dance/08-CULTURAL-HISTORY.md
+backsource_ids: [proof-backfill:dance:08-cultural-history, git-history:dance:08-cultural-history]
+concepts: [cultural, history]
+root_concepts: [cultural, history]
+index_roles: [guide, root-concept]
+remap_from: []
+remap_to: []
+updated: null
+---
 # Dance as Cultural and Political History
 
 ## The Big Picture

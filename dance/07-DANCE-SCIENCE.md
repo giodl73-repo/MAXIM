@@ -1,3 +1,22 @@
+---
+maxim_schema: maxim.frontmatter.v1
+id: maxim:dance:dance-science
+kind: guide
+module: dance
+section: dance
+title: Dance Science: Biomechanics and Training
+status: source-custody
+source_custody: partial
+current_path: dance/07-DANCE-SCIENCE.md
+canonical_path: dance/07-DANCE-SCIENCE.md
+backsource_ids: [proof-backfill:dance:07-dance-science, git-history:dance:07-dance-science]
+concepts: [dance, science]
+root_concepts: [dance, science]
+index_roles: [guide, root-concept]
+remap_from: []
+remap_to: []
+updated: null
+---
 # Dance Science: Biomechanics and Training
 
 ## The Big Picture

@@ -1,3 +1,22 @@
+---
+maxim_schema: maxim.frontmatter.v1
+id: maxim:biophysics:thermodynamics-bio
+kind: guide
+module: biophysics
+section: biophysics
+title: Biological Thermodynamics - Free Energy, ATP, and Non-Equilibrium Life
+status: source-custody
+source_custody: partial
+current_path: biophysics/01-THERMODYNAMICS-BIO.md
+canonical_path: biophysics/01-THERMODYNAMICS-BIO.md
+backsource_ids: [proof-backfill:biophysics:01-thermodynamics-bio, git-history:biophysics:01-thermodynamics-bio]
+concepts: [thermodynamics, bio]
+root_concepts: [thermodynamics, bio]
+index_roles: [guide, root-concept]
+remap_from: []
+remap_to: []
+updated: null
+---
 # Biological Thermodynamics — Free Energy, ATP, and Non-Equilibrium Life
 
 ## The Big Picture

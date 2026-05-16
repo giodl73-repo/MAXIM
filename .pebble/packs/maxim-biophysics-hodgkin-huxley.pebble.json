@@ -1,0 +1,3093 @@
+{
+  "schema": "pebble.v1",
+  "kind": "corpus-slice",
+  "title": "maxim-biophysics-hodgkin-huxley",
+  "source": "../../biophysics",
+  "format": "markdown",
+  "metadata": {},
+  "sections": [
+    {
+      "id": "05-HODGKIN-HUXLEY.md#000",
+      "path": [
+        "05-HODGKIN-HUXLEY.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:biophysics:05-hodgkin-huxley, git-history:biophysics:05-hodgkin-huxley]",
+        "canonical_path": "biophysics/05-HODGKIN-HUXLEY.md",
+        "concepts": "[hodgkin, huxley]",
+        "current_path": "biophysics/05-HODGKIN-HUXLEY.md",
+        "id": "maxim:biophysics:hodgkin-huxley",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "biophysics",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[hodgkin, huxley]",
+        "section": "biophysics",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Hodgkin-Huxley Model - Action Potential from Gated Conductances",
+        "updated": "null"
+      },
+      "text": "# Hodgkin-Huxley Model — Action Potential from Gated Conductances"
+    },
+    {
+      "id": "05-HODGKIN-HUXLEY.md#001",
+      "path": [
+        "05-HODGKIN-HUXLEY.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:biophysics:05-hodgkin-huxley, git-history:biophysics:05-hodgkin-huxley]",
+        "canonical_path": "biophysics/05-HODGKIN-HUXLEY.md",
+        "concepts": "[hodgkin, huxley]",
+        "current_path": "biophysics/05-HODGKIN-HUXLEY.md",
+        "id": "maxim:biophysics:hodgkin-huxley",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "biophysics",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[hodgkin, huxley]",
+        "section": "biophysics",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Hodgkin-Huxley Model - Action Potential from Gated Conductances",
+        "updated": "null"
+      },
+      "text": "## The Big Picture"
+    },
+    {
+      "id": "05-HODGKIN-HUXLEY.md#002",
+      "path": [
+        "05-HODGKIN-HUXLEY.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:biophysics:05-hodgkin-huxley, git-history:biophysics:05-hodgkin-huxley]",
+        "canonical_path": "biophysics/05-HODGKIN-HUXLEY.md",
+        "concepts": "[hodgkin, huxley]",
+        "current_path": "biophysics/05-HODGKIN-HUXLEY.md",
+        "id": "maxim:biophysics:hodgkin-huxley",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "biophysics",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[hodgkin, huxley]",
+        "section": "biophysics",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Hodgkin-Huxley Model - Action Potential from Gated Conductances",
+        "updated": "null"
+      },
+      "text": "```\n┌──────────────────────────────────────────────────────────────────────────┐\n│              HODGKIN-HUXLEY MODEL LANDSCAPE                              │\n│                                                                          │\n│  BIOLOGICAL REALITY               MODEL ABSTRACTION                      │\n│  ──────────────────               ─────────────────                      │\n│  Na⁺ channel: opens, then inact.  m³h: m=activation, h=inactivation      │\n│  K⁺ channel: opens slowly         n⁴: n=delayed rectifier gating         │\n│  Lipid bilayer                    Capacitor C_m                          │\n│  Ion pumps (Na/K-ATPase)          Not modeled (sets initial conditions)  │\n│                                                                          │\n│  THE MODEL EQUATION:                                                     │\n│  C_m dV/dt = -g_Na m³h (V-E_Na) - g_K n⁴ (V-E_K) - g_L(V-E_L) + I_ext    │\n│                                                                          │\n│  BRIDGE TO COMPUTING:                                                    │\n│  Biological neuron: H-H model (1952)                                     │\n│      ↓  abstraction                                                      │\n│  McCulloch-Pitts neuron (1943): threshold unit                           │\n│      ↓  generalization                                                   │\n│  Perceptron (Rosenblatt, 1958): weighted sum + threshold                 │\n│      ↓  nonlinearity                                                     │\n│  Modern artificial neuron: weighted sum + activation function            │\n│  What was kept: firing threshold, weight sum, activation                 │\n│  What was discarded: time, ion channels, refractory period, cable theory │\n└──────────────────────────────────────────────────────────────────────────┘\n```"
+    },
+    {
+      "id": "05-HODGKIN-HUXLEY.md#003",
+      "path": [
+        "05-HODGKIN-HUXLEY.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:biophysics:05-hodgkin-huxley, git-history:biophysics:05-hodgkin-huxley]",
+        "canonical_path": "biophysics/05-HODGKIN-HUXLEY.md",
+        "concepts": "[hodgkin, huxley]",
+        "current_path": "biophysics/05-HODGKIN-HUXLEY.md",
+        "id": "maxim:biophysics:hodgkin-huxley",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "biophysics",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[hodgkin, huxley]",
+        "section": "biophysics",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Hodgkin-Huxley Model - Action Potential from Gated Conductances",
+        "updated": "null"
+      },
+      "text": "---"
+    },
+    {
+      "id": "05-HODGKIN-HUXLEY.md#004",
+      "path": [
+        "05-HODGKIN-HUXLEY.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:biophysics:05-hodgkin-huxley, git-history:biophysics:05-hodgkin-huxley]",
+        "canonical_path": "biophysics/05-HODGKIN-HUXLEY.md",
+        "concepts": "[hodgkin, huxley]",
+        "current_path": "biophysics/05-HODGKIN-HUXLEY.md",
+        "id": "maxim:biophysics:hodgkin-huxley",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "biophysics",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[hodgkin, huxley]",
+        "section": "biophysics",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Hodgkin-Huxley Model - Action Potential from Gated Conductances",
+        "updated": "null"
+      },
+      "text": "## Section 1 — The Experimental Foundation (Squid Giant Axon)"
+    },
+    {
+      "id": "05-HODGKIN-HUXLEY.md#005",
+      "path": [
+        "05-HODGKIN-HUXLEY.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:biophysics:05-hodgkin-huxley, git-history:biophysics:05-hodgkin-huxley]",
+        "canonical_path": "biophysics/05-HODGKIN-HUXLEY.md",
+        "concepts": "[hodgkin, huxley]",
+        "current_path": "biophysics/05-HODGKIN-HUXLEY.md",
+        "id": "maxim:biophysics:hodgkin-huxley",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "biophysics",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[hodgkin, huxley]",
+        "section": "biophysics",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Hodgkin-Huxley Model - Action Potential from Gated Conductances",
+        "updated": "null"
+      },
+      "text": "Hodgkin and Huxley used the squid giant axon (1 mm diameter — enormous by\nbiological standards) for voltage clamp experiments. The giant axon allowed:"
+    },
+    {
+      "id": "05-HODGKIN-HUXLEY.md#006",
+      "path": [
+        "05-HODGKIN-HUXLEY.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:biophysics:05-hodgkin-huxley, git-history:biophysics:05-hodgkin-huxley]",
+        "canonical_path": "biophysics/05-HODGKIN-HUXLEY.md",
+        "concepts": "[hodgkin, huxley]",
+        "current_path": "biophysics/05-HODGKIN-HUXLEY.md",
+        "id": "maxim:biophysics:hodgkin-huxley",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "biophysics",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[hodgkin, huxley]",
+        "section": "biophysics",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Hodgkin-Huxley Model - Action Potential from Gated Conductances",
+        "updated": "null"
+      },
+      "text": "1. Easy electrode insertion without special microelectrode techniques\n2. Perfusion of the axon interior (replace cytoplasm with defined solutions)\n3. High-quality voltage clamp: control V_m precisely, measure resulting current"
+    },
+    {
+      "id": "05-HODGKIN-HUXLEY.md#007",
+      "path": [
+        "05-HODGKIN-HUXLEY.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:biophysics:05-hodgkin-huxley, git-history:biophysics:05-hodgkin-huxley]",
+        "canonical_path": "biophysics/05-HODGKIN-HUXLEY.md",
+        "concepts": "[hodgkin, huxley]",
+        "current_path": "biophysics/05-HODGKIN-HUXLEY.md",
+        "id": "maxim:biophysics:hodgkin-huxley",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "biophysics",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[hodgkin, huxley]",
+        "section": "biophysics",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Hodgkin-Huxley Model - Action Potential from Gated Conductances",
+        "updated": "null"
+      },
+      "text": "**Voltage clamp method:**"
+    },
+    {
+      "id": "05-HODGKIN-HUXLEY.md#008",
+      "path": [
+        "05-HODGKIN-HUXLEY.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:biophysics:05-hodgkin-huxley, git-history:biophysics:05-hodgkin-huxley]",
+        "canonical_path": "biophysics/05-HODGKIN-HUXLEY.md",
+        "concepts": "[hodgkin, huxley]",
+        "current_path": "biophysics/05-HODGKIN-HUXLEY.md",
+        "id": "maxim:biophysics:hodgkin-huxley",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "biophysics",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[hodgkin, huxley]",
+        "section": "biophysics",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Hodgkin-Huxley Model - Action Potential from Gated Conductances",
+        "updated": "null"
+      },
+      "text": "```\n  Feedback amplifier holds V_m at command voltage V_c\n  Measures the current I needed to hold V_m = V_c"
+    },
+    {
+      "id": "05-HODGKIN-HUXLEY.md#009",
+      "path": [
+        "05-HODGKIN-HUXLEY.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:biophysics:05-hodgkin-huxley, git-history:biophysics:05-hodgkin-huxley]",
+        "canonical_path": "biophysics/05-HODGKIN-HUXLEY.md",
+        "concepts": "[hodgkin, huxley]",
+        "current_path": "biophysics/05-HODGKIN-HUXLEY.md",
+        "id": "maxim:biophysics:hodgkin-huxley",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "biophysics",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[hodgkin, huxley]",
+        "section": "biophysics",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Hodgkin-Huxley Model - Action Potential from Gated Conductances",
+        "updated": "null"
+      },
+      "text": "At V_c = -70 mV (rest): I ≈ 0\n  Step to V_c = 0 mV:\n    Early current: inward (~Na⁺ influx), then turns off (inactivation)\n    Late current: outward (~K⁺ efflux), maintained\n    Capacitive transient at step onset (C_m × dV/dt)"
+    },
+    {
+      "id": "05-HODGKIN-HUXLEY.md#010",
+      "path": [
+        "05-HODGKIN-HUXLEY.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:biophysics:05-hodgkin-huxley, git-history:biophysics:05-hodgkin-huxley]",
+        "canonical_path": "biophysics/05-HODGKIN-HUXLEY.md",
+        "concepts": "[hodgkin, huxley]",
+        "current_path": "biophysics/05-HODGKIN-HUXLEY.md",
+        "id": "maxim:biophysics:hodgkin-huxley",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "biophysics",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[hodgkin, huxley]",
+        "section": "biophysics",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Hodgkin-Huxley Model - Action Potential from Gated Conductances",
+        "updated": "null"
+      },
+      "text": "Ion isolation:\n    Replace Na⁺ with choline (same charge, impermeable) → only K⁺ current\n    Subtract: (total current) - (K⁺ only) = Na⁺ current"
+    },
+    {
+      "id": "05-HODGKIN-HUXLEY.md#011",
+      "path": [
+        "05-HODGKIN-HUXLEY.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:biophysics:05-hodgkin-huxley, git-history:biophysics:05-hodgkin-huxley]",
+        "canonical_path": "biophysics/05-HODGKIN-HUXLEY.md",
+        "concepts": "[hodgkin, huxley]",
+        "current_path": "biophysics/05-HODGKIN-HUXLEY.md",
+        "id": "maxim:biophysics:hodgkin-huxley",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "biophysics",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[hodgkin, huxley]",
+        "section": "biophysics",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Hodgkin-Huxley Model - Action Potential from Gated Conductances",
+        "updated": "null"
+      },
+      "text": "This pharmacological dissection revealed separate Na⁺ and K⁺ conductances.\n```"
+    },
+    {
+      "id": "05-HODGKIN-HUXLEY.md#012",
+      "path": [
+        "05-HODGKIN-HUXLEY.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:biophysics:05-hodgkin-huxley, git-history:biophysics:05-hodgkin-huxley]",
+        "canonical_path": "biophysics/05-HODGKIN-HUXLEY.md",
+        "concepts": "[hodgkin, huxley]",
+        "current_path": "biophysics/05-HODGKIN-HUXLEY.md",
+        "id": "maxim:biophysics:hodgkin-huxley",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "biophysics",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[hodgkin, huxley]",
+        "section": "biophysics",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Hodgkin-Huxley Model - Action Potential from Gated Conductances",
+        "updated": "null"
+      },
+      "text": "**Gating current:** When S4 voltage sensors move in the electric field, they\ncarry a small charge displacement before any ions flow. This \"gating current\"\nis detectable with very low-noise electronics. It confirmed the charged sensor\nhypothesis and directly measured ~12 e per channel moved per gating event."
+    },
+    {
+      "id": "05-HODGKIN-HUXLEY.md#013",
+      "path": [
+        "05-HODGKIN-HUXLEY.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:biophysics:05-hodgkin-huxley, git-history:biophysics:05-hodgkin-huxley]",
+        "canonical_path": "biophysics/05-HODGKIN-HUXLEY.md",
+        "concepts": "[hodgkin, huxley]",
+        "current_path": "biophysics/05-HODGKIN-HUXLEY.md",
+        "id": "maxim:biophysics:hodgkin-huxley",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "biophysics",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[hodgkin, huxley]",
+        "section": "biophysics",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Hodgkin-Huxley Model - Action Potential from Gated Conductances",
+        "updated": "null"
+      },
+      "text": "---"
+    },
+    {
+      "id": "05-HODGKIN-HUXLEY.md#014",
+      "path": [
+        "05-HODGKIN-HUXLEY.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:biophysics:05-hodgkin-huxley, git-history:biophysics:05-hodgkin-huxley]",
+        "canonical_path": "biophysics/05-HODGKIN-HUXLEY.md",
+        "concepts": "[hodgkin, huxley]",
+        "current_path": "biophysics/05-HODGKIN-HUXLEY.md",
+        "id": "maxim:biophysics:hodgkin-huxley",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "biophysics",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[hodgkin, huxley]",
+        "section": "biophysics",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Hodgkin-Huxley Model - Action Potential from Gated Conductances",
+        "updated": "null"
+      },
+      "text": "## Section 2 — The Hodgkin-Huxley Equations"
+    },
+    {
+      "id": "05-HODGKIN-HUXLEY.md#015",
+      "path": [
+        "05-HODGKIN-HUXLEY.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:biophysics:05-hodgkin-huxley, git-history:biophysics:05-hodgkin-huxley]",
+        "canonical_path": "biophysics/05-HODGKIN-HUXLEY.md",
+        "concepts": "[hodgkin, huxley]",
+        "current_path": "biophysics/05-HODGKIN-HUXLEY.md",
+        "id": "maxim:biophysics:hodgkin-huxley",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "biophysics",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[hodgkin, huxley]",
+        "section": "biophysics",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Hodgkin-Huxley Model - Action Potential from Gated Conductances",
+        "updated": "null"
+      },
+      "text": "### The Master ODE"
+    },
+    {
+      "id": "05-HODGKIN-HUXLEY.md#016",
+      "path": [
+        "05-HODGKIN-HUXLEY.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:biophysics:05-hodgkin-huxley, git-history:biophysics:05-hodgkin-huxley]",
+        "canonical_path": "biophysics/05-HODGKIN-HUXLEY.md",
+        "concepts": "[hodgkin, huxley]",
+        "current_path": "biophysics/05-HODGKIN-HUXLEY.md",
+        "id": "maxim:biophysics:hodgkin-huxley",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "biophysics",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[hodgkin, huxley]",
+        "section": "biophysics",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Hodgkin-Huxley Model - Action Potential from Gated Conductances",
+        "updated": "null"
+      },
+      "text": "```\n  C_m dV/dt = I_ion + I_ext"
+    },
+    {
+      "id": "05-HODGKIN-HUXLEY.md#017",
+      "path": [
+        "05-HODGKIN-HUXLEY.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:biophysics:05-hodgkin-huxley, git-history:biophysics:05-hodgkin-huxley]",
+        "canonical_path": "biophysics/05-HODGKIN-HUXLEY.md",
+        "concepts": "[hodgkin, huxley]",
+        "current_path": "biophysics/05-HODGKIN-HUXLEY.md",
+        "id": "maxim:biophysics:hodgkin-huxley",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "biophysics",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[hodgkin, huxley]",
+        "section": "biophysics",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Hodgkin-Huxley Model - Action Potential from Gated Conductances",
+        "updated": "null"
+      },
+      "text": "I_ion = -[g_Na m³h (V - E_Na) + g_K n⁴ (V - E_K) + g_L (V - E_L)]"
+    },
+    {
+      "id": "05-HODGKIN-HUXLEY.md#018",
+      "path": [
+        "05-HODGKIN-HUXLEY.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:biophysics:05-hodgkin-huxley, git-history:biophysics:05-hodgkin-huxley]",
+        "canonical_path": "biophysics/05-HODGKIN-HUXLEY.md",
+        "concepts": "[hodgkin, huxley]",
+        "current_path": "biophysics/05-HODGKIN-HUXLEY.md",
+        "id": "maxim:biophysics:hodgkin-huxley",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "biophysics",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[hodgkin, huxley]",
+        "section": "biophysics",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Hodgkin-Huxley Model - Action Potential from Gated Conductances",
+        "updated": "null"
+      },
+      "text": "Parameters (squid axon, ~6°C):\n    C_m = 1 μF/cm²\n    g_Na = 120 mS/cm²   (maximal Na⁺ conductance)\n    g_K  = 36 mS/cm²    (maximal K⁺ conductance)\n    g_L  = 0.3 mS/cm²   (leak: Cl⁻ and others)\n    E_Na = +55 mV\n    E_K  = -77 mV\n    E_L  = -54.4 mV\n```"
+    },
+    {
+      "id": "05-HODGKIN-HUXLEY.md#019",
+      "path": [
+        "05-HODGKIN-HUXLEY.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:biophysics:05-hodgkin-huxley, git-history:biophysics:05-hodgkin-huxley]",
+        "canonical_path": "biophysics/05-HODGKIN-HUXLEY.md",
+        "concepts": "[hodgkin, huxley]",
+        "current_path": "biophysics/05-HODGKIN-HUXLEY.md",
+        "id": "maxim:biophysics:hodgkin-huxley",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "biophysics",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[hodgkin, huxley]",
+        "section": "biophysics",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Hodgkin-Huxley Model - Action Potential from Gated Conductances",
+        "updated": "null"
+      },
+      "text": "### Gating Variables"
+    },
+    {
+      "id": "05-HODGKIN-HUXLEY.md#020",
+      "path": [
+        "05-HODGKIN-HUXLEY.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:biophysics:05-hodgkin-huxley, git-history:biophysics:05-hodgkin-huxley]",
+        "canonical_path": "biophysics/05-HODGKIN-HUXLEY.md",
+        "concepts": "[hodgkin, huxley]",
+        "current_path": "biophysics/05-HODGKIN-HUXLEY.md",
+        "id": "maxim:biophysics:hodgkin-huxley",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "biophysics",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[hodgkin, huxley]",
+        "section": "biophysics",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Hodgkin-Huxley Model - Action Potential from Gated Conductances",
+        "updated": "null"
+      },
+      "text": "Each gating variable represents the probability that a single gate is in the\nopen conformation. They are first-order kinetic ODEs:"
+    },
+    {
+      "id": "05-HODGKIN-HUXLEY.md#021",
+      "path": [
+        "05-HODGKIN-HUXLEY.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:biophysics:05-hodgkin-huxley, git-history:biophysics:05-hodgkin-huxley]",
+        "canonical_path": "biophysics/05-HODGKIN-HUXLEY.md",
+        "concepts": "[hodgkin, huxley]",
+        "current_path": "biophysics/05-HODGKIN-HUXLEY.md",
+        "id": "maxim:biophysics:hodgkin-huxley",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "biophysics",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[hodgkin, huxley]",
+        "section": "biophysics",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Hodgkin-Huxley Model - Action Potential from Gated Conductances",
+        "updated": "null"
+      },
+      "text": "```\n  dm/dt = α_m(V)(1-m) - β_m(V)m"
+    },
+    {
+      "id": "05-HODGKIN-HUXLEY.md#022",
+      "path": [
+        "05-HODGKIN-HUXLEY.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:biophysics:05-hodgkin-huxley, git-history:biophysics:05-hodgkin-huxley]",
+        "canonical_path": "biophysics/05-HODGKIN-HUXLEY.md",
+        "concepts": "[hodgkin, huxley]",
+        "current_path": "biophysics/05-HODGKIN-HUXLEY.md",
+        "id": "maxim:biophysics:hodgkin-huxley",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "biophysics",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[hodgkin, huxley]",
+        "section": "biophysics",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Hodgkin-Huxley Model - Action Potential from Gated Conductances",
+        "updated": "null"
+      },
+      "text": "Steady-state:  m_∞(V) = α_m / (α_m + β_m)\n  Time constant: τ_m(V) = 1 / (α_m + β_m)"
+    },
+    {
+      "id": "05-HODGKIN-HUXLEY.md#023",
+      "path": [
+        "05-HODGKIN-HUXLEY.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:biophysics:05-hodgkin-huxley, git-history:biophysics:05-hodgkin-huxley]",
+        "canonical_path": "biophysics/05-HODGKIN-HUXLEY.md",
+        "concepts": "[hodgkin, huxley]",
+        "current_path": "biophysics/05-HODGKIN-HUXLEY.md",
+        "id": "maxim:biophysics:hodgkin-huxley",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "biophysics",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[hodgkin, huxley]",
+        "section": "biophysics",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Hodgkin-Huxley Model - Action Potential from Gated Conductances",
+        "updated": "null"
+      },
+      "text": "Similarly for h (Na⁺ inactivation gate) and n (K⁺ activation gate)."
+    },
+    {
+      "id": "05-HODGKIN-HUXLEY.md#024",
+      "path": [
+        "05-HODGKIN-HUXLEY.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:biophysics:05-hodgkin-huxley, git-history:biophysics:05-hodgkin-huxley]",
+        "canonical_path": "biophysics/05-HODGKIN-HUXLEY.md",
+        "concepts": "[hodgkin, huxley]",
+        "current_path": "biophysics/05-HODGKIN-HUXLEY.md",
+        "id": "maxim:biophysics:hodgkin-huxley",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "biophysics",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[hodgkin, huxley]",
+        "section": "biophysics",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Hodgkin-Huxley Model - Action Potential from Gated Conductances",
+        "updated": "null"
+      },
+      "text": "All rate constants α and β are voltage-dependent.\n  Hodgkin and Huxley fit them empirically from voltage clamp data.\n```"
+    },
+    {
+      "id": "05-HODGKIN-HUXLEY.md#025",
+      "path": [
+        "05-HODGKIN-HUXLEY.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:biophysics:05-hodgkin-huxley, git-history:biophysics:05-hodgkin-huxley]",
+        "canonical_path": "biophysics/05-HODGKIN-HUXLEY.md",
+        "concepts": "[hodgkin, huxley]",
+        "current_path": "biophysics/05-HODGKIN-HUXLEY.md",
+        "id": "maxim:biophysics:hodgkin-huxley",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "biophysics",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[hodgkin, huxley]",
+        "section": "biophysics",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Hodgkin-Huxley Model - Action Potential from Gated Conductances",
+        "updated": "null"
+      },
+      "text": "### Na⁺ Channel: m³h"
+    },
+    {
+      "id": "05-HODGKIN-HUXLEY.md#026",
+      "path": [
+        "05-HODGKIN-HUXLEY.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:biophysics:05-hodgkin-huxley, git-history:biophysics:05-hodgkin-huxley]",
+        "canonical_path": "biophysics/05-HODGKIN-HUXLEY.md",
+        "concepts": "[hodgkin, huxley]",
+        "current_path": "biophysics/05-HODGKIN-HUXLEY.md",
+        "id": "maxim:biophysics:hodgkin-huxley",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "biophysics",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[hodgkin, huxley]",
+        "section": "biophysics",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Hodgkin-Huxley Model - Action Potential from Gated Conductances",
+        "updated": "null"
+      },
+      "text": "The Na⁺ conductance uses three activation gates (m) and one inactivation gate (h):"
+    },
+    {
+      "id": "05-HODGKIN-HUXLEY.md#027",
+      "path": [
+        "05-HODGKIN-HUXLEY.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:biophysics:05-hodgkin-huxley, git-history:biophysics:05-hodgkin-huxley]",
+        "canonical_path": "biophysics/05-HODGKIN-HUXLEY.md",
+        "concepts": "[hodgkin, huxley]",
+        "current_path": "biophysics/05-HODGKIN-HUXLEY.md",
+        "id": "maxim:biophysics:hodgkin-huxley",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "biophysics",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[hodgkin, huxley]",
+        "section": "biophysics",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Hodgkin-Huxley Model - Action Potential from Gated Conductances",
+        "updated": "null"
+      },
+      "text": "```\n  g_Na_actual = g_Na × m³ × h"
+    },
+    {
+      "id": "05-HODGKIN-HUXLEY.md#028",
+      "path": [
+        "05-HODGKIN-HUXLEY.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:biophysics:05-hodgkin-huxley, git-history:biophysics:05-hodgkin-huxley]",
+        "canonical_path": "biophysics/05-HODGKIN-HUXLEY.md",
+        "concepts": "[hodgkin, huxley]",
+        "current_path": "biophysics/05-HODGKIN-HUXLEY.md",
+        "id": "maxim:biophysics:hodgkin-huxley",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "biophysics",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[hodgkin, huxley]",
+        "section": "biophysics",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Hodgkin-Huxley Model - Action Potential from Gated Conductances",
+        "updated": "null"
+      },
+      "text": "Physical interpretation:\n    m: activation gate — opens rapidly on depolarization\n    h: inactivation gate — closes slowly on sustained depolarization\n    (h is \"hindering\" gate — starts open, closes after activation)"
+    },
+    {
+      "id": "05-HODGKIN-HUXLEY.md#029",
+      "path": [
+        "05-HODGKIN-HUXLEY.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:biophysics:05-hodgkin-huxley, git-history:biophysics:05-hodgkin-huxley]",
+        "canonical_path": "biophysics/05-HODGKIN-HUXLEY.md",
+        "concepts": "[hodgkin, huxley]",
+        "current_path": "biophysics/05-HODGKIN-HUXLEY.md",
+        "id": "maxim:biophysics:hodgkin-huxley",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "biophysics",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[hodgkin, huxley]",
+        "section": "biophysics",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Hodgkin-Huxley Model - Action Potential from Gated Conductances",
+        "updated": "null"
+      },
+      "text": "Three m gates: empirical — fits the sigmoidal activation curve\n  (corresponds loosely to 3 independent voltage sensors needing activation)"
+    },
+    {
+      "id": "05-HODGKIN-HUXLEY.md#030",
+      "path": [
+        "05-HODGKIN-HUXLEY.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:biophysics:05-hodgkin-huxley, git-history:biophysics:05-hodgkin-huxley]",
+        "canonical_path": "biophysics/05-HODGKIN-HUXLEY.md",
+        "concepts": "[hodgkin, huxley]",
+        "current_path": "biophysics/05-HODGKIN-HUXLEY.md",
+        "id": "maxim:biophysics:hodgkin-huxley",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "biophysics",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[hodgkin, huxley]",
+        "section": "biophysics",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Hodgkin-Huxley Model - Action Potential from Gated Conductances",
+        "updated": "null"
+      },
+      "text": "Voltage dependence:\n    α_m(V) = 0.1 × (25-V) / [exp((25-V)/10) - 1]\n    β_m(V) = 4 × exp(-V/18)\n    α_h(V) = 0.07 × exp(-V/20)\n    β_h(V) = 1 / [exp((30-V)/10) + 1]"
+    },
+    {
+      "id": "05-HODGKIN-HUXLEY.md#031",
+      "path": [
+        "05-HODGKIN-HUXLEY.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:biophysics:05-hodgkin-huxley, git-history:biophysics:05-hodgkin-huxley]",
+        "canonical_path": "biophysics/05-HODGKIN-HUXLEY.md",
+        "concepts": "[hodgkin, huxley]",
+        "current_path": "biophysics/05-HODGKIN-HUXLEY.md",
+        "id": "maxim:biophysics:hodgkin-huxley",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "biophysics",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[hodgkin, huxley]",
+        "section": "biophysics",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Hodgkin-Huxley Model - Action Potential from Gated Conductances",
+        "updated": "null"
+      },
+      "text": "(V in mV, relative to rest; V = 0 means resting potential)\n```"
+    },
+    {
+      "id": "05-HODGKIN-HUXLEY.md#032",
+      "path": [
+        "05-HODGKIN-HUXLEY.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:biophysics:05-hodgkin-huxley, git-history:biophysics:05-hodgkin-huxley]",
+        "canonical_path": "biophysics/05-HODGKIN-HUXLEY.md",
+        "concepts": "[hodgkin, huxley]",
+        "current_path": "biophysics/05-HODGKIN-HUXLEY.md",
+        "id": "maxim:biophysics:hodgkin-huxley",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "biophysics",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[hodgkin, huxley]",
+        "section": "biophysics",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Hodgkin-Huxley Model - Action Potential from Gated Conductances",
+        "updated": "null"
+      },
+      "text": "### K⁺ Channel: n⁴"
+    },
+    {
+      "id": "05-HODGKIN-HUXLEY.md#033",
+      "path": [
+        "05-HODGKIN-HUXLEY.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:biophysics:05-hodgkin-huxley, git-history:biophysics:05-hodgkin-huxley]",
+        "canonical_path": "biophysics/05-HODGKIN-HUXLEY.md",
+        "concepts": "[hodgkin, huxley]",
+        "current_path": "biophysics/05-HODGKIN-HUXLEY.md",
+        "id": "maxim:biophysics:hodgkin-huxley",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "biophysics",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[hodgkin, huxley]",
+        "section": "biophysics",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Hodgkin-Huxley Model - Action Potential from Gated Conductances",
+        "updated": "null"
+      },
+      "text": "The K⁺ conductance uses four activation gates (n):"
+    },
+    {
+      "id": "05-HODGKIN-HUXLEY.md#034",
+      "path": [
+        "05-HODGKIN-HUXLEY.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:biophysics:05-hodgkin-huxley, git-history:biophysics:05-hodgkin-huxley]",
+        "canonical_path": "biophysics/05-HODGKIN-HUXLEY.md",
+        "concepts": "[hodgkin, huxley]",
+        "current_path": "biophysics/05-HODGKIN-HUXLEY.md",
+        "id": "maxim:biophysics:hodgkin-huxley",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "biophysics",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[hodgkin, huxley]",
+        "section": "biophysics",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Hodgkin-Huxley Model - Action Potential from Gated Conductances",
+        "updated": "null"
+      },
+      "text": "```\n  g_K_actual = g_K × n⁴"
+    },
+    {
+      "id": "05-HODGKIN-HUXLEY.md#035",
+      "path": [
+        "05-HODGKIN-HUXLEY.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:biophysics:05-hodgkin-huxley, git-history:biophysics:05-hodgkin-huxley]",
+        "canonical_path": "biophysics/05-HODGKIN-HUXLEY.md",
+        "concepts": "[hodgkin, huxley]",
+        "current_path": "biophysics/05-HODGKIN-HUXLEY.md",
+        "id": "maxim:biophysics:hodgkin-huxley",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "biophysics",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[hodgkin, huxley]",
+        "section": "biophysics",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Hodgkin-Huxley Model - Action Potential from Gated Conductances",
+        "updated": "null"
+      },
+      "text": "n: activation gate — opens more slowly than m; no inactivation"
+    },
+    {
+      "id": "05-HODGKIN-HUXLEY.md#036",
+      "path": [
+        "05-HODGKIN-HUXLEY.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:biophysics:05-hodgkin-huxley, git-history:biophysics:05-hodgkin-huxley]",
+        "canonical_path": "biophysics/05-HODGKIN-HUXLEY.md",
+        "concepts": "[hodgkin, huxley]",
+        "current_path": "biophysics/05-HODGKIN-HUXLEY.md",
+        "id": "maxim:biophysics:hodgkin-huxley",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "biophysics",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[hodgkin, huxley]",
+        "section": "biophysics",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Hodgkin-Huxley Model - Action Potential from Gated Conductances",
+        "updated": "null"
+      },
+      "text": "α_n(V) = 0.01 × (10-V) / [exp((10-V)/10) - 1]\n  β_n(V) = 0.125 × exp(-V/80)\n```"
+    },
+    {
+      "id": "05-HODGKIN-HUXLEY.md#037",
+      "path": [
+        "05-HODGKIN-HUXLEY.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:biophysics:05-hodgkin-huxley, git-history:biophysics:05-hodgkin-huxley]",
+        "canonical_path": "biophysics/05-HODGKIN-HUXLEY.md",
+        "concepts": "[hodgkin, huxley]",
+        "current_path": "biophysics/05-HODGKIN-HUXLEY.md",
+        "id": "maxim:biophysics:hodgkin-huxley",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "biophysics",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[hodgkin, huxley]",
+        "section": "biophysics",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Hodgkin-Huxley Model - Action Potential from Gated Conductances",
+        "updated": "null"
+      },
+      "text": "### Action Potential: Phase-by-Phase Analysis"
+    },
+    {
+      "id": "05-HODGKIN-HUXLEY.md#038",
+      "path": [
+        "05-HODGKIN-HUXLEY.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:biophysics:05-hodgkin-huxley, git-history:biophysics:05-hodgkin-huxley]",
+        "canonical_path": "biophysics/05-HODGKIN-HUXLEY.md",
+        "concepts": "[hodgkin, huxley]",
+        "current_path": "biophysics/05-HODGKIN-HUXLEY.md",
+        "id": "maxim:biophysics:hodgkin-huxley",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "biophysics",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[hodgkin, huxley]",
+        "section": "biophysics",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Hodgkin-Huxley Model - Action Potential from Gated Conductances",
+        "updated": "null"
+      },
+      "text": "```\n  PHASE        TIME     WHAT HAPPENS                    GATES\n  ─────────────────────────────────────────────────────────────────────\n  Resting      t < 0    V_m = -65 mV                    m ≈ 0, h ≈ 1, n ≈ 0.3"
+    },
+    {
+      "id": "05-HODGKIN-HUXLEY.md#039",
+      "path": [
+        "05-HODGKIN-HUXLEY.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:biophysics:05-hodgkin-huxley, git-history:biophysics:05-hodgkin-huxley]",
+        "canonical_path": "biophysics/05-HODGKIN-HUXLEY.md",
+        "concepts": "[hodgkin, huxley]",
+        "current_path": "biophysics/05-HODGKIN-HUXLEY.md",
+        "id": "maxim:biophysics:hodgkin-huxley",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "biophysics",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[hodgkin, huxley]",
+        "section": "biophysics",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Hodgkin-Huxley Model - Action Potential from Gated Conductances",
+        "updated": "null"
+      },
+      "text": "Stimulus     t = 0    I_ext depolarizes to threshold   gating begins\n               (~0 ms)  (threshold ≈ -55 mV; about       (if below threshold:\n                         10 mV above rest)                graded response decays)"
+    },
+    {
+      "id": "05-HODGKIN-HUXLEY.md#040",
+      "path": [
+        "05-HODGKIN-HUXLEY.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:biophysics:05-hodgkin-huxley, git-history:biophysics:05-hodgkin-huxley]",
+        "canonical_path": "biophysics/05-HODGKIN-HUXLEY.md",
+        "concepts": "[hodgkin, huxley]",
+        "current_path": "biophysics/05-HODGKIN-HUXLEY.md",
+        "id": "maxim:biophysics:hodgkin-huxley",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "biophysics",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[hodgkin, huxley]",
+        "section": "biophysics",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Hodgkin-Huxley Model - Action Potential from Gated Conductances",
+        "updated": "null"
+      },
+      "text": "Rising phase 0-1 ms   Na⁺ channels open (m increases) m → 1, h still 1\n                         Inward Na⁺ current > outward K⁺ g_Na large\n                         Positive feedback (V ↑ → m ↑ →   K⁺ channels still\n                         more depolarization)              mostly closed\n                         V → E_Na ≈ +55 mV               (n slow)"
+    },
+    {
+      "id": "05-HODGKIN-HUXLEY.md#041",
+      "path": [
+        "05-HODGKIN-HUXLEY.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:biophysics:05-hodgkin-huxley, git-history:biophysics:05-hodgkin-huxley]",
+        "canonical_path": "biophysics/05-HODGKIN-HUXLEY.md",
+        "concepts": "[hodgkin, huxley]",
+        "current_path": "biophysics/05-HODGKIN-HUXLEY.md",
+        "id": "maxim:biophysics:hodgkin-huxley",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "biophysics",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[hodgkin, huxley]",
+        "section": "biophysics",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Hodgkin-Huxley Model - Action Potential from Gated Conductances",
+        "updated": "null"
+      },
+      "text": "Peak         ~1 ms     V ≈ +40 mV                     m ≈ 1, h → 0 (closing)\n                          Na⁺ channels begin inactivating n increasing"
+    },
+    {
+      "id": "05-HODGKIN-HUXLEY.md#042",
+      "path": [
+        "05-HODGKIN-HUXLEY.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:biophysics:05-hodgkin-huxley, git-history:biophysics:05-hodgkin-huxley]",
+        "canonical_path": "biophysics/05-HODGKIN-HUXLEY.md",
+        "concepts": "[hodgkin, huxley]",
+        "current_path": "biophysics/05-HODGKIN-HUXLEY.md",
+        "id": "maxim:biophysics:hodgkin-huxley",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "biophysics",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[hodgkin, huxley]",
+        "section": "biophysics",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Hodgkin-Huxley Model - Action Potential from Gated Conductances",
+        "updated": "null"
+      },
+      "text": "Repolariz.   1-2 ms    Na⁺ inactivation complete       m high, h → 0\n                          K⁺ channels now open            g_Na → 0\n                          Outward K⁺ current drives V down n → 1"
+    },
+    {
+      "id": "05-HODGKIN-HUXLEY.md#043",
+      "path": [
+        "05-HODGKIN-HUXLEY.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:biophysics:05-hodgkin-huxley, git-history:biophysics:05-hodgkin-huxley]",
+        "canonical_path": "biophysics/05-HODGKIN-HUXLEY.md",
+        "concepts": "[hodgkin, huxley]",
+        "current_path": "biophysics/05-HODGKIN-HUXLEY.md",
+        "id": "maxim:biophysics:hodgkin-huxley",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "biophysics",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[hodgkin, huxley]",
+        "section": "biophysics",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Hodgkin-Huxley Model - Action Potential from Gated Conductances",
+        "updated": "null"
+      },
+      "text": "Undershoot   2-4 ms    V passes through E_K ≈ -77 mV  n still high (K⁺ open)\n  (hyperpol.)             K⁺ channels slow to close       h recovering"
+    },
+    {
+      "id": "05-HODGKIN-HUXLEY.md#044",
+      "path": [
+        "05-HODGKIN-HUXLEY.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:biophysics:05-hodgkin-huxley, git-history:biophysics:05-hodgkin-huxley]",
+        "canonical_path": "biophysics/05-HODGKIN-HUXLEY.md",
+        "concepts": "[hodgkin, huxley]",
+        "current_path": "biophysics/05-HODGKIN-HUXLEY.md",
+        "id": "maxim:biophysics:hodgkin-huxley",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "biophysics",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[hodgkin, huxley]",
+        "section": "biophysics",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Hodgkin-Huxley Model - Action Potential from Gated Conductances",
+        "updated": "null"
+      },
+      "text": "Refractory   4-10 ms   Absolute: Na⁺ h still = 0;     h near 0 (absolute)\n                          no new AP possible              h recovering (relative)\n                          Relative: V below rest; h low\n                          (need larger stimulus)\n  ─────────────────────────────────────────────────────────────────────\n```"
+    },
+    {
+      "id": "05-HODGKIN-HUXLEY.md#045",
+      "path": [
+        "05-HODGKIN-HUXLEY.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:biophysics:05-hodgkin-huxley, git-history:biophysics:05-hodgkin-huxley]",
+        "canonical_path": "biophysics/05-HODGKIN-HUXLEY.md",
+        "concepts": "[hodgkin, huxley]",
+        "current_path": "biophysics/05-HODGKIN-HUXLEY.md",
+        "id": "maxim:biophysics:hodgkin-huxley",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "biophysics",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[hodgkin, huxley]",
+        "section": "biophysics",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Hodgkin-Huxley Model - Action Potential from Gated Conductances",
+        "updated": "null"
+      },
+      "text": "### Threshold and All-or-None Behavior"
+    },
+    {
+      "id": "05-HODGKIN-HUXLEY.md#046",
+      "path": [
+        "05-HODGKIN-HUXLEY.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:biophysics:05-hodgkin-huxley, git-history:biophysics:05-hodgkin-huxley]",
+        "canonical_path": "biophysics/05-HODGKIN-HUXLEY.md",
+        "concepts": "[hodgkin, huxley]",
+        "current_path": "biophysics/05-HODGKIN-HUXLEY.md",
+        "id": "maxim:biophysics:hodgkin-huxley",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "biophysics",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[hodgkin, huxley]",
+        "section": "biophysics",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Hodgkin-Huxley Model - Action Potential from Gated Conductances",
+        "updated": "null"
+      },
+      "text": "The action potential is all-or-none: below threshold, the response decays;\nat or above threshold, a full action potential fires. This arises from the\npositive feedback loop between Na⁺ channel opening and depolarization:"
+    },
+    {
+      "id": "05-HODGKIN-HUXLEY.md#047",
+      "path": [
+        "05-HODGKIN-HUXLEY.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:biophysics:05-hodgkin-huxley, git-history:biophysics:05-hodgkin-huxley]",
+        "canonical_path": "biophysics/05-HODGKIN-HUXLEY.md",
+        "concepts": "[hodgkin, huxley]",
+        "current_path": "biophysics/05-HODGKIN-HUXLEY.md",
+        "id": "maxim:biophysics:hodgkin-huxley",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "biophysics",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[hodgkin, huxley]",
+        "section": "biophysics",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Hodgkin-Huxley Model - Action Potential from Gated Conductances",
+        "updated": "null"
+      },
+      "text": "```\n  Below threshold:\n    Small depolarization → small m increase → small Na⁺ current\n    Outward leak + K⁺ current > inward Na⁺ → V returns to rest"
+    },
+    {
+      "id": "05-HODGKIN-HUXLEY.md#048",
+      "path": [
+        "05-HODGKIN-HUXLEY.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:biophysics:05-hodgkin-huxley, git-history:biophysics:05-hodgkin-huxley]",
+        "canonical_path": "biophysics/05-HODGKIN-HUXLEY.md",
+        "concepts": "[hodgkin, huxley]",
+        "current_path": "biophysics/05-HODGKIN-HUXLEY.md",
+        "id": "maxim:biophysics:hodgkin-huxley",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "biophysics",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[hodgkin, huxley]",
+        "section": "biophysics",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Hodgkin-Huxley Model - Action Potential from Gated Conductances",
+        "updated": "null"
+      },
+      "text": "At threshold:\n    Na⁺ inward current exactly matches outward currents\n    Unstable equilibrium (saddle point in phase space)"
+    },
+    {
+      "id": "05-HODGKIN-HUXLEY.md#049",
+      "path": [
+        "05-HODGKIN-HUXLEY.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:biophysics:05-hodgkin-huxley, git-history:biophysics:05-hodgkin-huxley]",
+        "canonical_path": "biophysics/05-HODGKIN-HUXLEY.md",
+        "concepts": "[hodgkin, huxley]",
+        "current_path": "biophysics/05-HODGKIN-HUXLEY.md",
+        "id": "maxim:biophysics:hodgkin-huxley",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "biophysics",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[hodgkin, huxley]",
+        "section": "biophysics",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Hodgkin-Huxley Model - Action Potential from Gated Conductances",
+        "updated": "null"
+      },
+      "text": "Above threshold:\n    Positive feedback:  V↑ → m↑ → g_Na↑ → I_Na↑ → V↑ → ...\n    Na⁺ current \"wins\" → full AP"
+    },
+    {
+      "id": "05-HODGKIN-HUXLEY.md#050",
+      "path": [
+        "05-HODGKIN-HUXLEY.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:biophysics:05-hodgkin-huxley, git-history:biophysics:05-hodgkin-huxley]",
+        "canonical_path": "biophysics/05-HODGKIN-HUXLEY.md",
+        "concepts": "[hodgkin, huxley]",
+        "current_path": "biophysics/05-HODGKIN-HUXLEY.md",
+        "id": "maxim:biophysics:hodgkin-huxley",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "biophysics",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[hodgkin, huxley]",
+        "section": "biophysics",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Hodgkin-Huxley Model - Action Potential from Gated Conductances",
+        "updated": "null"
+      },
+      "text": "Mathematical: Hopf bifurcation (Type II) or saddle-node\n  bifurcation (Type I) depending on neuron type\n```"
+    },
+    {
+      "id": "05-HODGKIN-HUXLEY.md#051",
+      "path": [
+        "05-HODGKIN-HUXLEY.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:biophysics:05-hodgkin-huxley, git-history:biophysics:05-hodgkin-huxley]",
+        "canonical_path": "biophysics/05-HODGKIN-HUXLEY.md",
+        "concepts": "[hodgkin, huxley]",
+        "current_path": "biophysics/05-HODGKIN-HUXLEY.md",
+        "id": "maxim:biophysics:hodgkin-huxley",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "biophysics",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[hodgkin, huxley]",
+        "section": "biophysics",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Hodgkin-Huxley Model - Action Potential from Gated Conductances",
+        "updated": "null"
+      },
+      "text": "---"
+    },
+    {
+      "id": "05-HODGKIN-HUXLEY.md#052",
+      "path": [
+        "05-HODGKIN-HUXLEY.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:biophysics:05-hodgkin-huxley, git-history:biophysics:05-hodgkin-huxley]",
+        "canonical_path": "biophysics/05-HODGKIN-HUXLEY.md",
+        "concepts": "[hodgkin, huxley]",
+        "current_path": "biophysics/05-HODGKIN-HUXLEY.md",
+        "id": "maxim:biophysics:hodgkin-huxley",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "biophysics",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[hodgkin, huxley]",
+        "section": "biophysics",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Hodgkin-Huxley Model - Action Potential from Gated Conductances",
+        "updated": "null"
+      },
+      "text": "## Section 3 — Cable Theory: Signal Propagation"
+    },
+    {
+      "id": "05-HODGKIN-HUXLEY.md#053",
+      "path": [
+        "05-HODGKIN-HUXLEY.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:biophysics:05-hodgkin-huxley, git-history:biophysics:05-hodgkin-huxley]",
+        "canonical_path": "biophysics/05-HODGKIN-HUXLEY.md",
+        "concepts": "[hodgkin, huxley]",
+        "current_path": "biophysics/05-HODGKIN-HUXLEY.md",
+        "id": "maxim:biophysics:hodgkin-huxley",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "biophysics",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[hodgkin, huxley]",
+        "section": "biophysics",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Hodgkin-Huxley Model - Action Potential from Gated Conductances",
+        "updated": "null"
+      },
+      "text": "### The Cable Equation"
+    },
+    {
+      "id": "05-HODGKIN-HUXLEY.md#054",
+      "path": [
+        "05-HODGKIN-HUXLEY.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:biophysics:05-hodgkin-huxley, git-history:biophysics:05-hodgkin-huxley]",
+        "canonical_path": "biophysics/05-HODGKIN-HUXLEY.md",
+        "concepts": "[hodgkin, huxley]",
+        "current_path": "biophysics/05-HODGKIN-HUXLEY.md",
+        "id": "maxim:biophysics:hodgkin-huxley",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "biophysics",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[hodgkin, huxley]",
+        "section": "biophysics",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Hodgkin-Huxley Model - Action Potential from Gated Conductances",
+        "updated": "null"
+      },
+      "text": "An axon is not a point — it extends spatially. Signals propagate along the axon\nas they do along a lossy electrical cable (Kelvin's submarine cable equation, 1855):"
+    },
+    {
+      "id": "05-HODGKIN-HUXLEY.md#055",
+      "path": [
+        "05-HODGKIN-HUXLEY.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:biophysics:05-hodgkin-huxley, git-history:biophysics:05-hodgkin-huxley]",
+        "canonical_path": "biophysics/05-HODGKIN-HUXLEY.md",
+        "concepts": "[hodgkin, huxley]",
+        "current_path": "biophysics/05-HODGKIN-HUXLEY.md",
+        "id": "maxim:biophysics:hodgkin-huxley",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "biophysics",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[hodgkin, huxley]",
+        "section": "biophysics",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Hodgkin-Huxley Model - Action Potential from Gated Conductances",
+        "updated": "null"
+      },
+      "text": "```\n  λ² ∂²V/∂x² - τ_m ∂V/∂t = V - V_rest"
+    },
+    {
+      "id": "05-HODGKIN-HUXLEY.md#056",
+      "path": [
+        "05-HODGKIN-HUXLEY.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:biophysics:05-hodgkin-huxley, git-history:biophysics:05-hodgkin-huxley]",
+        "canonical_path": "biophysics/05-HODGKIN-HUXLEY.md",
+        "concepts": "[hodgkin, huxley]",
+        "current_path": "biophysics/05-HODGKIN-HUXLEY.md",
+        "id": "maxim:biophysics:hodgkin-huxley",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "biophysics",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[hodgkin, huxley]",
+        "section": "biophysics",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Hodgkin-Huxley Model - Action Potential from Gated Conductances",
+        "updated": "null"
+      },
+      "text": "λ = sqrt(r_m / r_a) = space constant [m]\n  τ_m = r_m × c_m = time constant [s]"
+    },
+    {
+      "id": "05-HODGKIN-HUXLEY.md#057",
+      "path": [
+        "05-HODGKIN-HUXLEY.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:biophysics:05-hodgkin-huxley, git-history:biophysics:05-hodgkin-huxley]",
+        "canonical_path": "biophysics/05-HODGKIN-HUXLEY.md",
+        "concepts": "[hodgkin, huxley]",
+        "current_path": "biophysics/05-HODGKIN-HUXLEY.md",
+        "id": "maxim:biophysics:hodgkin-huxley",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "biophysics",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[hodgkin, huxley]",
+        "section": "biophysics",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Hodgkin-Huxley Model - Action Potential from Gated Conductances",
+        "updated": "null"
+      },
+      "text": "r_m = membrane resistance per unit length [Ω·m]\n  r_a = axial (intracellular) resistance per unit length [Ω/m]\n  c_m = membrane capacitance per unit length [F/m]"
+    },
+    {
+      "id": "05-HODGKIN-HUXLEY.md#058",
+      "path": [
+        "05-HODGKIN-HUXLEY.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:biophysics:05-hodgkin-huxley, git-history:biophysics:05-hodgkin-huxley]",
+        "canonical_path": "biophysics/05-HODGKIN-HUXLEY.md",
+        "concepts": "[hodgkin, huxley]",
+        "current_path": "biophysics/05-HODGKIN-HUXLEY.md",
+        "id": "maxim:biophysics:hodgkin-huxley",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "biophysics",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[hodgkin, huxley]",
+        "section": "biophysics",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Hodgkin-Huxley Model - Action Potential from Gated Conductances",
+        "updated": "null"
+      },
+      "text": "Passive (subthreshold) signals decay exponentially:\n    V(x) = V₀ exp(-x/λ)   (steady-state spatial profile)"
+    },
+    {
+      "id": "05-HODGKIN-HUXLEY.md#059",
+      "path": [
+        "05-HODGKIN-HUXLEY.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:biophysics:05-hodgkin-huxley, git-history:biophysics:05-hodgkin-huxley]",
+        "canonical_path": "biophysics/05-HODGKIN-HUXLEY.md",
+        "concepts": "[hodgkin, huxley]",
+        "current_path": "biophysics/05-HODGKIN-HUXLEY.md",
+        "id": "maxim:biophysics:hodgkin-huxley",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "biophysics",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[hodgkin, huxley]",
+        "section": "biophysics",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Hodgkin-Huxley Model - Action Potential from Gated Conductances",
+        "updated": "null"
+      },
+      "text": "For unmyelinated mammalian axon:\n    λ ≈ 0.1-1 mm → signal decays severely over mm distances\n    → Active propagation (AP) is needed for long-distance signaling\n```"
+    },
+    {
+      "id": "05-HODGKIN-HUXLEY.md#060",
+      "path": [
+        "05-HODGKIN-HUXLEY.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:biophysics:05-hodgkin-huxley, git-history:biophysics:05-hodgkin-huxley]",
+        "canonical_path": "biophysics/05-HODGKIN-HUXLEY.md",
+        "concepts": "[hodgkin, huxley]",
+        "current_path": "biophysics/05-HODGKIN-HUXLEY.md",
+        "id": "maxim:biophysics:hodgkin-huxley",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "biophysics",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[hodgkin, huxley]",
+        "section": "biophysics",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Hodgkin-Huxley Model - Action Potential from Gated Conductances",
+        "updated": "null"
+      },
+      "text": "### Myelination and Saltatory Conduction"
+    },
+    {
+      "id": "05-HODGKIN-HUXLEY.md#061",
+      "path": [
+        "05-HODGKIN-HUXLEY.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:biophysics:05-hodgkin-huxley, git-history:biophysics:05-hodgkin-huxley]",
+        "canonical_path": "biophysics/05-HODGKIN-HUXLEY.md",
+        "concepts": "[hodgkin, huxley]",
+        "current_path": "biophysics/05-HODGKIN-HUXLEY.md",
+        "id": "maxim:biophysics:hodgkin-huxley",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "biophysics",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[hodgkin, huxley]",
+        "section": "biophysics",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Hodgkin-Huxley Model - Action Potential from Gated Conductances",
+        "updated": "null"
+      },
+      "text": "For long-range signaling (e.g., 1-meter motor neurons), passive decay is\nunacceptable. Myelination solves this:"
+    },
+    {
+      "id": "05-HODGKIN-HUXLEY.md#062",
+      "path": [
+        "05-HODGKIN-HUXLEY.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:biophysics:05-hodgkin-huxley, git-history:biophysics:05-hodgkin-huxley]",
+        "canonical_path": "biophysics/05-HODGKIN-HUXLEY.md",
+        "concepts": "[hodgkin, huxley]",
+        "current_path": "biophysics/05-HODGKIN-HUXLEY.md",
+        "id": "maxim:biophysics:hodgkin-huxley",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "biophysics",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[hodgkin, huxley]",
+        "section": "biophysics",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Hodgkin-Huxley Model - Action Potential from Gated Conductances",
+        "updated": "null"
+      },
+      "text": "```\n  UNMYELINATED AXON:                    MYELINATED AXON:\n  AP propagates continuously            AP jumps between Nodes of Ranvier\n  Speed: 0.5-2 m/s                      Speed: 50-100 m/s (saltatory)\n  High metabolic cost (continuous       Low metabolic cost (Na/K-ATPase\n  Na/K-ATPase activity along axon)      only at nodes)"
+    },
+    {
+      "id": "05-HODGKIN-HUXLEY.md#063",
+      "path": [
+        "05-HODGKIN-HUXLEY.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:biophysics:05-hodgkin-huxley, git-history:biophysics:05-hodgkin-huxley]",
+        "canonical_path": "biophysics/05-HODGKIN-HUXLEY.md",
+        "concepts": "[hodgkin, huxley]",
+        "current_path": "biophysics/05-HODGKIN-HUXLEY.md",
+        "id": "maxim:biophysics:hodgkin-huxley",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "biophysics",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[hodgkin, huxley]",
+        "section": "biophysics",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Hodgkin-Huxley Model - Action Potential from Gated Conductances",
+        "updated": "null"
+      },
+      "text": "Myelin effect on cable parameters:\n    r_m ↑ (myelin is electrically insulating) → λ ↑ dramatically\n    c_m ↓ (myelin adds series capacitance)     → τ_m ↓\n    Combined: λ >> internode distance → AP jumps without active regen."
+    },
+    {
+      "id": "05-HODGKIN-HUXLEY.md#064",
+      "path": [
+        "05-HODGKIN-HUXLEY.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:biophysics:05-hodgkin-huxley, git-history:biophysics:05-hodgkin-huxley]",
+        "canonical_path": "biophysics/05-HODGKIN-HUXLEY.md",
+        "concepts": "[hodgkin, huxley]",
+        "current_path": "biophysics/05-HODGKIN-HUXLEY.md",
+        "id": "maxim:biophysics:hodgkin-huxley",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "biophysics",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[hodgkin, huxley]",
+        "section": "biophysics",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Hodgkin-Huxley Model - Action Potential from Gated Conductances",
+        "updated": "null"
+      },
+      "text": "Multiple sclerosis: demyelination → slowed conduction, fatigue,\n  weakness (axon lengths now exceed λ → signals fail to propagate)\n```"
+    },
+    {
+      "id": "05-HODGKIN-HUXLEY.md#065",
+      "path": [
+        "05-HODGKIN-HUXLEY.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:biophysics:05-hodgkin-huxley, git-history:biophysics:05-hodgkin-huxley]",
+        "canonical_path": "biophysics/05-HODGKIN-HUXLEY.md",
+        "concepts": "[hodgkin, huxley]",
+        "current_path": "biophysics/05-HODGKIN-HUXLEY.md",
+        "id": "maxim:biophysics:hodgkin-huxley",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "biophysics",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[hodgkin, huxley]",
+        "section": "biophysics",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Hodgkin-Huxley Model - Action Potential from Gated Conductances",
+        "updated": "null"
+      },
+      "text": "### Conduction Velocity Scaling"
+    },
+    {
+      "id": "05-HODGKIN-HUXLEY.md#066",
+      "path": [
+        "05-HODGKIN-HUXLEY.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:biophysics:05-hodgkin-huxley, git-history:biophysics:05-hodgkin-huxley]",
+        "canonical_path": "biophysics/05-HODGKIN-HUXLEY.md",
+        "concepts": "[hodgkin, huxley]",
+        "current_path": "biophysics/05-HODGKIN-HUXLEY.md",
+        "id": "maxim:biophysics:hodgkin-huxley",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "biophysics",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[hodgkin, huxley]",
+        "section": "biophysics",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Hodgkin-Huxley Model - Action Potential from Gated Conductances",
+        "updated": "null"
+      },
+      "text": "```\n  Unmyelinated axon:   v ∝ sqrt(d)   (d = axon diameter)\n  Myelinated axon:     v ∝ d"
+    },
+    {
+      "id": "05-HODGKIN-HUXLEY.md#067",
+      "path": [
+        "05-HODGKIN-HUXLEY.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:biophysics:05-hodgkin-huxley, git-history:biophysics:05-hodgkin-huxley]",
+        "canonical_path": "biophysics/05-HODGKIN-HUXLEY.md",
+        "concepts": "[hodgkin, huxley]",
+        "current_path": "biophysics/05-HODGKIN-HUXLEY.md",
+        "id": "maxim:biophysics:hodgkin-huxley",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "biophysics",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[hodgkin, huxley]",
+        "section": "biophysics",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Hodgkin-Huxley Model - Action Potential from Gated Conductances",
+        "updated": "null"
+      },
+      "text": "For squid giant axon (d = 1 mm unmyelinated):  v ≈ 25 m/s\n  For mammalian myelinated fiber (d = 20 μm):    v ≈ 100 m/s\n  → Myelination gets ~100× faster conduction at 50× smaller diameter\n```"
+    },
+    {
+      "id": "05-HODGKIN-HUXLEY.md#068",
+      "path": [
+        "05-HODGKIN-HUXLEY.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:biophysics:05-hodgkin-huxley, git-history:biophysics:05-hodgkin-huxley]",
+        "canonical_path": "biophysics/05-HODGKIN-HUXLEY.md",
+        "concepts": "[hodgkin, huxley]",
+        "current_path": "biophysics/05-HODGKIN-HUXLEY.md",
+        "id": "maxim:biophysics:hodgkin-huxley",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "biophysics",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[hodgkin, huxley]",
+        "section": "biophysics",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Hodgkin-Huxley Model - Action Potential from Gated Conductances",
+        "updated": "null"
+      },
+      "text": "---"
+    },
+    {
+      "id": "05-HODGKIN-HUXLEY.md#069",
+      "path": [
+        "05-HODGKIN-HUXLEY.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:biophysics:05-hodgkin-huxley, git-history:biophysics:05-hodgkin-huxley]",
+        "canonical_path": "biophysics/05-HODGKIN-HUXLEY.md",
+        "concepts": "[hodgkin, huxley]",
+        "current_path": "biophysics/05-HODGKIN-HUXLEY.md",
+        "id": "maxim:biophysics:hodgkin-huxley",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "biophysics",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[hodgkin, huxley]",
+        "section": "biophysics",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Hodgkin-Huxley Model - Action Potential from Gated Conductances",
+        "updated": "null"
+      },
+      "text": "## Section 4 — Bridge to Artificial Neural Networks"
+    },
+    {
+      "id": "05-HODGKIN-HUXLEY.md#070",
+      "path": [
+        "05-HODGKIN-HUXLEY.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:biophysics:05-hodgkin-huxley, git-history:biophysics:05-hodgkin-huxley]",
+        "canonical_path": "biophysics/05-HODGKIN-HUXLEY.md",
+        "concepts": "[hodgkin, huxley]",
+        "current_path": "biophysics/05-HODGKIN-HUXLEY.md",
+        "id": "maxim:biophysics:hodgkin-huxley",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "biophysics",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[hodgkin, huxley]",
+        "section": "biophysics",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Hodgkin-Huxley Model - Action Potential from Gated Conductances",
+        "updated": "null"
+      },
+      "text": "### What Biology Provided"
+    },
+    {
+      "id": "05-HODGKIN-HUXLEY.md#071",
+      "path": [
+        "05-HODGKIN-HUXLEY.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:biophysics:05-hodgkin-huxley, git-history:biophysics:05-hodgkin-huxley]",
+        "canonical_path": "biophysics/05-HODGKIN-HUXLEY.md",
+        "concepts": "[hodgkin, huxley]",
+        "current_path": "biophysics/05-HODGKIN-HUXLEY.md",
+        "id": "maxim:biophysics:hodgkin-huxley",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "biophysics",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[hodgkin, huxley]",
+        "section": "biophysics",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Hodgkin-Huxley Model - Action Potential from Gated Conductances",
+        "updated": "null"
+      },
+      "text": "The historical path from Hodgkin-Huxley to modern deep learning:"
+    },
+    {
+      "id": "05-HODGKIN-HUXLEY.md#072",
+      "path": [
+        "05-HODGKIN-HUXLEY.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:biophysics:05-hodgkin-huxley, git-history:biophysics:05-hodgkin-huxley]",
+        "canonical_path": "biophysics/05-HODGKIN-HUXLEY.md",
+        "concepts": "[hodgkin, huxley]",
+        "current_path": "biophysics/05-HODGKIN-HUXLEY.md",
+        "id": "maxim:biophysics:hodgkin-huxley",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "biophysics",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[hodgkin, huxley]",
+        "section": "biophysics",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Hodgkin-Huxley Model - Action Potential from Gated Conductances",
+        "updated": "null"
+      },
+      "text": "```\n  1943: McCulloch-Pitts (MP) neuron\n    y = Θ(Σ wᵢxᵢ - θ)    (Θ = Heaviside step function)\n    Inspired by biology: all-or-none firing, threshold\n    Ignored: time dynamics, ion channels, refractory period, cable theory"
+    },
+    {
+      "id": "05-HODGKIN-HUXLEY.md#073",
+      "path": [
+        "05-HODGKIN-HUXLEY.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:biophysics:05-hodgkin-huxley, git-history:biophysics:05-hodgkin-huxley]",
+        "canonical_path": "biophysics/05-HODGKIN-HUXLEY.md",
+        "concepts": "[hodgkin, huxley]",
+        "current_path": "biophysics/05-HODGKIN-HUXLEY.md",
+        "id": "maxim:biophysics:hodgkin-huxley",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "biophysics",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[hodgkin, huxley]",
+        "section": "biophysics",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Hodgkin-Huxley Model - Action Potential from Gated Conductances",
+        "updated": "null"
+      },
+      "text": "1958: Rosenblatt's Perceptron\n    y = sign(Σ wᵢxᵢ + b)\n    Added: learning rule for weights\n    Ignored: same biological details, plus hidden layers"
+    },
+    {
+      "id": "05-HODGKIN-HUXLEY.md#074",
+      "path": [
+        "05-HODGKIN-HUXLEY.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:biophysics:05-hodgkin-huxley, git-history:biophysics:05-hodgkin-huxley]",
+        "canonical_path": "biophysics/05-HODGKIN-HUXLEY.md",
+        "concepts": "[hodgkin, huxley]",
+        "current_path": "biophysics/05-HODGKIN-HUXLEY.md",
+        "id": "maxim:biophysics:hodgkin-huxley",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "biophysics",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[hodgkin, huxley]",
+        "section": "biophysics",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Hodgkin-Huxley Model - Action Potential from Gated Conductances",
+        "updated": "null"
+      },
+      "text": "1986: Backpropagation (Rumelhart, Hinton, Williams)\n    Replaced step function with differentiable sigmoid\n    This is the crucial break from biology: need smooth activation for gradients"
+    },
+    {
+      "id": "05-HODGKIN-HUXLEY.md#075",
+      "path": [
+        "05-HODGKIN-HUXLEY.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:biophysics:05-hodgkin-huxley, git-history:biophysics:05-hodgkin-huxley]",
+        "canonical_path": "biophysics/05-HODGKIN-HUXLEY.md",
+        "concepts": "[hodgkin, huxley]",
+        "current_path": "biophysics/05-HODGKIN-HUXLEY.md",
+        "id": "maxim:biophysics:hodgkin-huxley",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "biophysics",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[hodgkin, huxley]",
+        "section": "biophysics",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Hodgkin-Huxley Model - Action Potential from Gated Conductances",
+        "updated": "null"
+      },
+      "text": "Modern deep learning (2012-present):\n    y = f(Wx + b)   f = ReLU, GELU, sigmoid, tanh\n    Stacked layers; trained by gradient descent"
+    },
+    {
+      "id": "05-HODGKIN-HUXLEY.md#076",
+      "path": [
+        "05-HODGKIN-HUXLEY.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:biophysics:05-hodgkin-huxley, git-history:biophysics:05-hodgkin-huxley]",
+        "canonical_path": "biophysics/05-HODGKIN-HUXLEY.md",
+        "concepts": "[hodgkin, huxley]",
+        "current_path": "biophysics/05-HODGKIN-HUXLEY.md",
+        "id": "maxim:biophysics:hodgkin-huxley",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "biophysics",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[hodgkin, huxley]",
+        "section": "biophysics",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Hodgkin-Huxley Model - Action Potential from Gated Conductances",
+        "updated": "null"
+      },
+      "text": "KEPT from biology:      DISCARDED from biology:\n  ─────────────────────   ──────────────────────────────────────\n  Nonlinear activation    Temporal dynamics (spikes, timing)\n  All-or-none threshold   Refractory periods\n  Weighted summation      Compartmental structure (dendrites)\n  Network organization    Cable equation (spatial signal decay)\n  Excitation/inhibition   Ion channel gating kinetics\n  Layer hierarchy         Specific neurotransmitter chemistry\n```"
+    },
+    {
+      "id": "05-HODGKIN-HUXLEY.md#077",
+      "path": [
+        "05-HODGKIN-HUXLEY.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:biophysics:05-hodgkin-huxley, git-history:biophysics:05-hodgkin-huxley]",
+        "canonical_path": "biophysics/05-HODGKIN-HUXLEY.md",
+        "concepts": "[hodgkin, huxley]",
+        "current_path": "biophysics/05-HODGKIN-HUXLEY.md",
+        "id": "maxim:biophysics:hodgkin-huxley",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "biophysics",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[hodgkin, huxley]",
+        "section": "biophysics",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Hodgkin-Huxley Model - Action Potential from Gated Conductances",
+        "updated": "null"
+      },
+      "text": "### Spiking Neural Networks (SNNs)"
+    },
+    {
+      "id": "05-HODGKIN-HUXLEY.md#078",
+      "path": [
+        "05-HODGKIN-HUXLEY.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:biophysics:05-hodgkin-huxley, git-history:biophysics:05-hodgkin-huxley]",
+        "canonical_path": "biophysics/05-HODGKIN-HUXLEY.md",
+        "concepts": "[hodgkin, huxley]",
+        "current_path": "biophysics/05-HODGKIN-HUXLEY.md",
+        "id": "maxim:biophysics:hodgkin-huxley",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "biophysics",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[hodgkin, huxley]",
+        "section": "biophysics",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Hodgkin-Huxley Model - Action Potential from Gated Conductances",
+        "updated": "null"
+      },
+      "text": "Spiking neural networks attempt to re-incorporate the temporal dynamics:"
+    },
+    {
+      "id": "05-HODGKIN-HUXLEY.md#079",
+      "path": [
+        "05-HODGKIN-HUXLEY.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:biophysics:05-hodgkin-huxley, git-history:biophysics:05-hodgkin-huxley]",
+        "canonical_path": "biophysics/05-HODGKIN-HUXLEY.md",
+        "concepts": "[hodgkin, huxley]",
+        "current_path": "biophysics/05-HODGKIN-HUXLEY.md",
+        "id": "maxim:biophysics:hodgkin-huxley",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "biophysics",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[hodgkin, huxley]",
+        "section": "biophysics",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Hodgkin-Huxley Model - Action Potential from Gated Conductances",
+        "updated": "null"
+      },
+      "text": "```\n  Leaky Integrate-and-Fire (LIF) neuron:"
+    },
+    {
+      "id": "05-HODGKIN-HUXLEY.md#080",
+      "path": [
+        "05-HODGKIN-HUXLEY.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:biophysics:05-hodgkin-huxley, git-history:biophysics:05-hodgkin-huxley]",
+        "canonical_path": "biophysics/05-HODGKIN-HUXLEY.md",
+        "concepts": "[hodgkin, huxley]",
+        "current_path": "biophysics/05-HODGKIN-HUXLEY.md",
+        "id": "maxim:biophysics:hodgkin-huxley",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "biophysics",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[hodgkin, huxley]",
+        "section": "biophysics",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Hodgkin-Huxley Model - Action Potential from Gated Conductances",
+        "updated": "null"
+      },
+      "text": "τ_m dV/dt = -(V - V_rest) + R × I(t)"
+    },
+    {
+      "id": "05-HODGKIN-HUXLEY.md#081",
+      "path": [
+        "05-HODGKIN-HUXLEY.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:biophysics:05-hodgkin-huxley, git-history:biophysics:05-hodgkin-huxley]",
+        "canonical_path": "biophysics/05-HODGKIN-HUXLEY.md",
+        "concepts": "[hodgkin, huxley]",
+        "current_path": "biophysics/05-HODGKIN-HUXLEY.md",
+        "id": "maxim:biophysics:hodgkin-huxley",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "biophysics",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[hodgkin, huxley]",
+        "section": "biophysics",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Hodgkin-Huxley Model - Action Potential from Gated Conductances",
+        "updated": "null"
+      },
+      "text": "When V reaches threshold V_th:\n    Emit spike → V reset to V_reset\n    Refractory period τ_ref enforced"
+    },
+    {
+      "id": "05-HODGKIN-HUXLEY.md#082",
+      "path": [
+        "05-HODGKIN-HUXLEY.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:biophysics:05-hodgkin-huxley, git-history:biophysics:05-hodgkin-huxley]",
+        "canonical_path": "biophysics/05-HODGKIN-HUXLEY.md",
+        "concepts": "[hodgkin, huxley]",
+        "current_path": "biophysics/05-HODGKIN-HUXLEY.md",
+        "id": "maxim:biophysics:hodgkin-huxley",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "biophysics",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[hodgkin, huxley]",
+        "section": "biophysics",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Hodgkin-Huxley Model - Action Potential from Gated Conductances",
+        "updated": "null"
+      },
+      "text": "Advantages: closer to biology, sparse coding, event-driven\n  Challenges: non-differentiable threshold → hard to train\n  Workaround: surrogate gradients (approximate step function with sigmoid\n  during backprop)"
+    },
+    {
+      "id": "05-HODGKIN-HUXLEY.md#083",
+      "path": [
+        "05-HODGKIN-HUXLEY.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:biophysics:05-hodgkin-huxley, git-history:biophysics:05-hodgkin-huxley]",
+        "canonical_path": "biophysics/05-HODGKIN-HUXLEY.md",
+        "concepts": "[hodgkin, huxley]",
+        "current_path": "biophysics/05-HODGKIN-HUXLEY.md",
+        "id": "maxim:biophysics:hodgkin-huxley",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "biophysics",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[hodgkin, huxley]",
+        "section": "biophysics",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Hodgkin-Huxley Model - Action Potential from Gated Conductances",
+        "updated": "null"
+      },
+      "text": "Current state: SNNs approach (but rarely exceed) ANN accuracy on\n  standard benchmarks; power-efficient on neuromorphic hardware\n  (Intel Loihi, IBM TrueNorth) but not yet competitive at scale\n```"
+    },
+    {
+      "id": "05-HODGKIN-HUXLEY.md#084",
+      "path": [
+        "05-HODGKIN-HUXLEY.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:biophysics:05-hodgkin-huxley, git-history:biophysics:05-hodgkin-huxley]",
+        "canonical_path": "biophysics/05-HODGKIN-HUXLEY.md",
+        "concepts": "[hodgkin, huxley]",
+        "current_path": "biophysics/05-HODGKIN-HUXLEY.md",
+        "id": "maxim:biophysics:hodgkin-huxley",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "biophysics",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[hodgkin, huxley]",
+        "section": "biophysics",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Hodgkin-Huxley Model - Action Potential from Gated Conductances",
+        "updated": "null"
+      },
+      "text": "### What the H-H Model Teaches AI Practitioners"
+    },
+    {
+      "id": "05-HODGKIN-HUXLEY.md#085",
+      "path": [
+        "05-HODGKIN-HUXLEY.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:biophysics:05-hodgkin-huxley, git-history:biophysics:05-hodgkin-huxley]",
+        "canonical_path": "biophysics/05-HODGKIN-HUXLEY.md",
+        "concepts": "[hodgkin, huxley]",
+        "current_path": "biophysics/05-HODGKIN-HUXLEY.md",
+        "id": "maxim:biophysics:hodgkin-huxley",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "biophysics",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[hodgkin, huxley]",
+        "section": "biophysics",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Hodgkin-Huxley Model - Action Potential from Gated Conductances",
+        "updated": "null"
+      },
+      "text": "1. **Nonlinearity is essential.** The all-or-none AP requires nonlinear positive\n   feedback (Na⁺ channel opening). Linear systems cannot produce thresholding.\n   Artificial activations serve the same purpose: without them, deep networks\n   collapse to linear transformations regardless of depth."
+    },
+    {
+      "id": "05-HODGKIN-HUXLEY.md#086",
+      "path": [
+        "05-HODGKIN-HUXLEY.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:biophysics:05-hodgkin-huxley, git-history:biophysics:05-hodgkin-huxley]",
+        "canonical_path": "biophysics/05-HODGKIN-HUXLEY.md",
+        "concepts": "[hodgkin, huxley]",
+        "current_path": "biophysics/05-HODGKIN-HUXLEY.md",
+        "id": "maxim:biophysics:hodgkin-huxley",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "biophysics",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[hodgkin, huxley]",
+        "section": "biophysics",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Hodgkin-Huxley Model - Action Potential from Gated Conductances",
+        "updated": "null"
+      },
+      "text": "2. **Time matters in biology, was dropped in ANN.** Biological neurons integrate\n   synaptic inputs over ~5-10 ms time windows. The temporal pattern of spikes\n   carries information (rate coding vs. temporal coding). ANNs are stateless\n   (per-input); only RNNs/LSTMs/Transformers reintroduce temporal structure."
+    },
+    {
+      "id": "05-HODGKIN-HUXLEY.md#087",
+      "path": [
+        "05-HODGKIN-HUXLEY.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:biophysics:05-hodgkin-huxley, git-history:biophysics:05-hodgkin-huxley]",
+        "canonical_path": "biophysics/05-HODGKIN-HUXLEY.md",
+        "concepts": "[hodgkin, huxley]",
+        "current_path": "biophysics/05-HODGKIN-HUXLEY.md",
+        "id": "maxim:biophysics:hodgkin-huxley",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "biophysics",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[hodgkin, huxley]",
+        "section": "biophysics",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Hodgkin-Huxley Model - Action Potential from Gated Conductances",
+        "updated": "null"
+      },
+      "text": "3. **Adaptation is biological but unusual in ANN.** The Na⁺ inactivation gate\n   (h) is adaptation: a sustained stimulus causes the neuron to stop firing.\n   This prevents saturation and encodes change rather than absolute value.\n   Only dropout and some normalization schemes loosely mimic this."
+    },
+    {
+      "id": "05-HODGKIN-HUXLEY.md#088",
+      "path": [
+        "05-HODGKIN-HUXLEY.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:biophysics:05-hodgkin-huxley, git-history:biophysics:05-hodgkin-huxley]",
+        "canonical_path": "biophysics/05-HODGKIN-HUXLEY.md",
+        "concepts": "[hodgkin, huxley]",
+        "current_path": "biophysics/05-HODGKIN-HUXLEY.md",
+        "id": "maxim:biophysics:hodgkin-huxley",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "biophysics",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[hodgkin, huxley]",
+        "section": "biophysics",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Hodgkin-Huxley Model - Action Potential from Gated Conductances",
+        "updated": "null"
+      },
+      "text": "4. **Compartmental integration is lost.** Dendritic computation (pattern matching\n   in single dendrites, NMDA spikes) is lost in the point-neuron approximation.\n   Multi-compartment models (NEURON, Brian2) recover this at high computational cost."
+    },
+    {
+      "id": "05-HODGKIN-HUXLEY.md#089",
+      "path": [
+        "05-HODGKIN-HUXLEY.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:biophysics:05-hodgkin-huxley, git-history:biophysics:05-hodgkin-huxley]",
+        "canonical_path": "biophysics/05-HODGKIN-HUXLEY.md",
+        "concepts": "[hodgkin, huxley]",
+        "current_path": "biophysics/05-HODGKIN-HUXLEY.md",
+        "id": "maxim:biophysics:hodgkin-huxley",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "biophysics",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[hodgkin, huxley]",
+        "section": "biophysics",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Hodgkin-Huxley Model - Action Potential from Gated Conductances",
+        "updated": "null"
+      },
+      "text": "---"
+    },
+    {
+      "id": "05-HODGKIN-HUXLEY.md#090",
+      "path": [
+        "05-HODGKIN-HUXLEY.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:biophysics:05-hodgkin-huxley, git-history:biophysics:05-hodgkin-huxley]",
+        "canonical_path": "biophysics/05-HODGKIN-HUXLEY.md",
+        "concepts": "[hodgkin, huxley]",
+        "current_path": "biophysics/05-HODGKIN-HUXLEY.md",
+        "id": "maxim:biophysics:hodgkin-huxley",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "biophysics",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[hodgkin, huxley]",
+        "section": "biophysics",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Hodgkin-Huxley Model - Action Potential from Gated Conductances",
+        "updated": "null"
+      },
+      "text": "## Section 5 — Beyond Hodgkin-Huxley"
+    },
+    {
+      "id": "05-HODGKIN-HUXLEY.md#091",
+      "path": [
+        "05-HODGKIN-HUXLEY.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:biophysics:05-hodgkin-huxley, git-history:biophysics:05-hodgkin-huxley]",
+        "canonical_path": "biophysics/05-HODGKIN-HUXLEY.md",
+        "concepts": "[hodgkin, huxley]",
+        "current_path": "biophysics/05-HODGKIN-HUXLEY.md",
+        "id": "maxim:biophysics:hodgkin-huxley",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "biophysics",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[hodgkin, huxley]",
+        "section": "biophysics",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Hodgkin-Huxley Model - Action Potential from Gated Conductances",
+        "updated": "null"
+      },
+      "text": "### Other Neuron Models and Their Tradeoffs"
+    },
+    {
+      "id": "05-HODGKIN-HUXLEY.md#092",
+      "path": [
+        "05-HODGKIN-HUXLEY.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:biophysics:05-hodgkin-huxley, git-history:biophysics:05-hodgkin-huxley]",
+        "canonical_path": "biophysics/05-HODGKIN-HUXLEY.md",
+        "concepts": "[hodgkin, huxley]",
+        "current_path": "biophysics/05-HODGKIN-HUXLEY.md",
+        "id": "maxim:biophysics:hodgkin-huxley",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "biophysics",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[hodgkin, huxley]",
+        "section": "biophysics",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Hodgkin-Huxley Model - Action Potential from Gated Conductances",
+        "updated": "null"
+      },
+      "text": "```\n  ┌────────────────────────────────────────────────────────────────────┐\n  │  MODEL            │  DETAIL │  TRACTABLE │  CAPTURES               │\n  │  ─────────────── │  ─────  │  ─────────  │  ────────────────────── │\n  │  H-H (4 var)      │  High   │  Moderate   │  AP shape, channel kinet.│\n  │  FitzHugh-Nagumo  │  Low    │  High       │  Threshold, refractory │\n  │  (2 var)          │         │             │  excitable dynamics    │\n  │  Izhikevich (2 var│  Low    │  High       │  20 firing patterns of │\n  │  + reset rules)   │         │             │  real neurons          │\n  │  Morris-Lecar     │  Med    │  High       │  Bursting, phase plane │\n  │  (2 var)          │         │             │  analysis tractable    │\n  │  Multi-compartment│  High   │  Low        │  Dendritic computation,  │\n  │  (100s of compart)│         │             │  realistic morphology  │\n  └────────────────────────────────────────────────────────────────────┘\n```"
+    },
+    {
+      "id": "05-HODGKIN-HUXLEY.md#093",
+      "path": [
+        "05-HODGKIN-HUXLEY.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:biophysics:05-hodgkin-huxley, git-history:biophysics:05-hodgkin-huxley]",
+        "canonical_path": "biophysics/05-HODGKIN-HUXLEY.md",
+        "concepts": "[hodgkin, huxley]",
+        "current_path": "biophysics/05-HODGKIN-HUXLEY.md",
+        "id": "maxim:biophysics:hodgkin-huxley",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "biophysics",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[hodgkin, huxley]",
+        "section": "biophysics",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Hodgkin-Huxley Model - Action Potential from Gated Conductances",
+        "updated": "null"
+      },
+      "text": "### Bifurcation Classification and Neuron Firing Classes"
+    },
+    {
+      "id": "05-HODGKIN-HUXLEY.md#094",
+      "path": [
+        "05-HODGKIN-HUXLEY.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:biophysics:05-hodgkin-huxley, git-history:biophysics:05-hodgkin-huxley]",
+        "canonical_path": "biophysics/05-HODGKIN-HUXLEY.md",
+        "concepts": "[hodgkin, huxley]",
+        "current_path": "biophysics/05-HODGKIN-HUXLEY.md",
+        "id": "maxim:biophysics:hodgkin-huxley",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "biophysics",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[hodgkin, huxley]",
+        "section": "biophysics",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Hodgkin-Huxley Model - Action Potential from Gated Conductances",
+        "updated": "null"
+      },
+      "text": "The onset of repetitive firing corresponds to a bifurcation in the dynamical system. Two canonical cases:"
+    },
+    {
+      "id": "05-HODGKIN-HUXLEY.md#095",
+      "path": [
+        "05-HODGKIN-HUXLEY.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:biophysics:05-hodgkin-huxley, git-history:biophysics:05-hodgkin-huxley]",
+        "canonical_path": "biophysics/05-HODGKIN-HUXLEY.md",
+        "concepts": "[hodgkin, huxley]",
+        "current_path": "biophysics/05-HODGKIN-HUXLEY.md",
+        "id": "maxim:biophysics:hodgkin-huxley",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "biophysics",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[hodgkin, huxley]",
+        "section": "biophysics",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Hodgkin-Huxley Model - Action Potential from Gated Conductances",
+        "updated": "null"
+      },
+      "text": "```\n  TYPE I EXCITABILITY (Class 1 neurons):\n    Bifurcation: SNIC (Saddle-Node on Invariant Circle)\n    Characteristic: firing rate can be arbitrarily low near threshold\n                    (continuous F-I curve starting from zero Hz)\n    Example: cortical pyramidal neurons, hippocampal CA1\n    Phase portrait: stable node + saddle annihilate on a limit cycle"
+    },
+    {
+      "id": "05-HODGKIN-HUXLEY.md#096",
+      "path": [
+        "05-HODGKIN-HUXLEY.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:biophysics:05-hodgkin-huxley, git-history:biophysics:05-hodgkin-huxley]",
+        "canonical_path": "biophysics/05-HODGKIN-HUXLEY.md",
+        "concepts": "[hodgkin, huxley]",
+        "current_path": "biophysics/05-HODGKIN-HUXLEY.md",
+        "id": "maxim:biophysics:hodgkin-huxley",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "biophysics",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[hodgkin, huxley]",
+        "section": "biophysics",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Hodgkin-Huxley Model - Action Potential from Gated Conductances",
+        "updated": "null"
+      },
+      "text": "TYPE II EXCITABILITY (Class 2 neurons):\n    Bifurcation: Hopf (subcritical or supercritical)\n    Characteristic: firing jumps from silence to a finite minimum frequency\n                    (discontinuous F-I curve with threshold frequency)\n    Example: squid axon (original H-H model), fast-spiking interneurons\n    Phase portrait: limit cycle appears via Hopf; bistability possible"
+    },
+    {
+      "id": "05-HODGKIN-HUXLEY.md#097",
+      "path": [
+        "05-HODGKIN-HUXLEY.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:biophysics:05-hodgkin-huxley, git-history:biophysics:05-hodgkin-huxley]",
+        "canonical_path": "biophysics/05-HODGKIN-HUXLEY.md",
+        "concepts": "[hodgkin, huxley]",
+        "current_path": "biophysics/05-HODGKIN-HUXLEY.md",
+        "id": "maxim:biophysics:hodgkin-huxley",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "biophysics",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[hodgkin, huxley]",
+        "section": "biophysics",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Hodgkin-Huxley Model - Action Potential from Gated Conductances",
+        "updated": "null"
+      },
+      "text": "H-H squid axon: subcritical Hopf → Type II\n    The threshold in Section 2 is a saddle point near the Hopf boundary.\n    Repetitive firing in H-H requires a sustained depolarizing current.\n    At physiological temperature (37°C), H-H parameters shift toward Type I.\n```"
+    },
+    {
+      "id": "05-HODGKIN-HUXLEY.md#098",
+      "path": [
+        "05-HODGKIN-HUXLEY.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:biophysics:05-hodgkin-huxley, git-history:biophysics:05-hodgkin-huxley]",
+        "canonical_path": "biophysics/05-HODGKIN-HUXLEY.md",
+        "concepts": "[hodgkin, huxley]",
+        "current_path": "biophysics/05-HODGKIN-HUXLEY.md",
+        "id": "maxim:biophysics:hodgkin-huxley",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "biophysics",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[hodgkin, huxley]",
+        "section": "biophysics",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Hodgkin-Huxley Model - Action Potential from Gated Conductances",
+        "updated": "null"
+      },
+      "text": "This classification matters for network dynamics: Type I neurons can encode graded analog signals via rate coding; Type II neurons prefer synchronization and resonance at their preferred frequency."
+    },
+    {
+      "id": "05-HODGKIN-HUXLEY.md#099",
+      "path": [
+        "05-HODGKIN-HUXLEY.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:biophysics:05-hodgkin-huxley, git-history:biophysics:05-hodgkin-huxley]",
+        "canonical_path": "biophysics/05-HODGKIN-HUXLEY.md",
+        "concepts": "[hodgkin, huxley]",
+        "current_path": "biophysics/05-HODGKIN-HUXLEY.md",
+        "id": "maxim:biophysics:hodgkin-huxley",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "biophysics",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[hodgkin, huxley]",
+        "section": "biophysics",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Hodgkin-Huxley Model - Action Potential from Gated Conductances",
+        "updated": "null"
+      },
+      "text": "### Phase Plane Analysis of Excitability"
+    },
+    {
+      "id": "05-HODGKIN-HUXLEY.md#100",
+      "path": [
+        "05-HODGKIN-HUXLEY.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:biophysics:05-hodgkin-huxley, git-history:biophysics:05-hodgkin-huxley]",
+        "canonical_path": "biophysics/05-HODGKIN-HUXLEY.md",
+        "concepts": "[hodgkin, huxley]",
+        "current_path": "biophysics/05-HODGKIN-HUXLEY.md",
+        "id": "maxim:biophysics:hodgkin-huxley",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "biophysics",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[hodgkin, huxley]",
+        "section": "biophysics",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Hodgkin-Huxley Model - Action Potential from Gated Conductances",
+        "updated": "null"
+      },
+      "text": "For FitzHugh-Nagumo (2D reduction), the dynamics are visible in phase space:"
+    },
+    {
+      "id": "05-HODGKIN-HUXLEY.md#101",
+      "path": [
+        "05-HODGKIN-HUXLEY.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:biophysics:05-hodgkin-huxley, git-history:biophysics:05-hodgkin-huxley]",
+        "canonical_path": "biophysics/05-HODGKIN-HUXLEY.md",
+        "concepts": "[hodgkin, huxley]",
+        "current_path": "biophysics/05-HODGKIN-HUXLEY.md",
+        "id": "maxim:biophysics:hodgkin-huxley",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "biophysics",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[hodgkin, huxley]",
+        "section": "biophysics",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Hodgkin-Huxley Model - Action Potential from Gated Conductances",
+        "updated": "null"
+      },
+      "text": "```\n  dv/dt = v - v³/3 - w + I\n  dw/dt = ε(v + a - bw)"
+    },
+    {
+      "id": "05-HODGKIN-HUXLEY.md#102",
+      "path": [
+        "05-HODGKIN-HUXLEY.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:biophysics:05-hodgkin-huxley, git-history:biophysics:05-hodgkin-huxley]",
+        "canonical_path": "biophysics/05-HODGKIN-HUXLEY.md",
+        "concepts": "[hodgkin, huxley]",
+        "current_path": "biophysics/05-HODGKIN-HUXLEY.md",
+        "id": "maxim:biophysics:hodgkin-huxley",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "biophysics",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[hodgkin, huxley]",
+        "section": "biophysics",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Hodgkin-Huxley Model - Action Potential from Gated Conductances",
+        "updated": "null"
+      },
+      "text": "v = fast variable (voltage-like)\n  w = slow variable (recovery-like, corresponds to h and n)\n  ε << 1: w is slow"
+    },
+    {
+      "id": "05-HODGKIN-HUXLEY.md#103",
+      "path": [
+        "05-HODGKIN-HUXLEY.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:biophysics:05-hodgkin-huxley, git-history:biophysics:05-hodgkin-huxley]",
+        "canonical_path": "biophysics/05-HODGKIN-HUXLEY.md",
+        "concepts": "[hodgkin, huxley]",
+        "current_path": "biophysics/05-HODGKIN-HUXLEY.md",
+        "id": "maxim:biophysics:hodgkin-huxley",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "biophysics",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[hodgkin, huxley]",
+        "section": "biophysics",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Hodgkin-Huxley Model - Action Potential from Gated Conductances",
+        "updated": "null"
+      },
+      "text": "Phase portrait:\n    V-nullcline: dv/dt = 0 → cubic curve\n    w-nullcline: dw/dt = 0 → straight line"
+    },
+    {
+      "id": "05-HODGKIN-HUXLEY.md#104",
+      "path": [
+        "05-HODGKIN-HUXLEY.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:biophysics:05-hodgkin-huxley, git-history:biophysics:05-hodgkin-huxley]",
+        "canonical_path": "biophysics/05-HODGKIN-HUXLEY.md",
+        "concepts": "[hodgkin, huxley]",
+        "current_path": "biophysics/05-HODGKIN-HUXLEY.md",
+        "id": "maxim:biophysics:hodgkin-huxley",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "biophysics",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[hodgkin, huxley]",
+        "section": "biophysics",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Hodgkin-Huxley Model - Action Potential from Gated Conductances",
+        "updated": "null"
+      },
+      "text": "Intersection = fixed point\n    Single intersection below threshold: stable rest\n    Hopf bifurcation at threshold → limit cycle oscillation\n    Limit cycle = sustained AP firing (repetitive)\n```"
+    },
+    {
+      "id": "05-HODGKIN-HUXLEY.md#105",
+      "path": [
+        "05-HODGKIN-HUXLEY.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:biophysics:05-hodgkin-huxley, git-history:biophysics:05-hodgkin-huxley]",
+        "canonical_path": "biophysics/05-HODGKIN-HUXLEY.md",
+        "concepts": "[hodgkin, huxley]",
+        "current_path": "biophysics/05-HODGKIN-HUXLEY.md",
+        "id": "maxim:biophysics:hodgkin-huxley",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "biophysics",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[hodgkin, huxley]",
+        "section": "biophysics",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Hodgkin-Huxley Model - Action Potential from Gated Conductances",
+        "updated": "null"
+      },
+      "text": "---"
+    },
+    {
+      "id": "05-HODGKIN-HUXLEY.md#106",
+      "path": [
+        "05-HODGKIN-HUXLEY.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:biophysics:05-hodgkin-huxley, git-history:biophysics:05-hodgkin-huxley]",
+        "canonical_path": "biophysics/05-HODGKIN-HUXLEY.md",
+        "concepts": "[hodgkin, huxley]",
+        "current_path": "biophysics/05-HODGKIN-HUXLEY.md",
+        "id": "maxim:biophysics:hodgkin-huxley",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "biophysics",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[hodgkin, huxley]",
+        "section": "biophysics",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Hodgkin-Huxley Model - Action Potential from Gated Conductances",
+        "updated": "null"
+      },
+      "text": "## Cross-References"
+    },
+    {
+      "id": "05-HODGKIN-HUXLEY.md#107",
+      "path": [
+        "05-HODGKIN-HUXLEY.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:biophysics:05-hodgkin-huxley, git-history:biophysics:05-hodgkin-huxley]",
+        "canonical_path": "biophysics/05-HODGKIN-HUXLEY.md",
+        "concepts": "[hodgkin, huxley]",
+        "current_path": "biophysics/05-HODGKIN-HUXLEY.md",
+        "id": "maxim:biophysics:hodgkin-huxley",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "biophysics",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[hodgkin, huxley]",
+        "section": "biophysics",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Hodgkin-Huxley Model - Action Potential from Gated Conductances",
+        "updated": "null"
+      },
+      "text": "- `neuroscience/01-NEURONS-SIGNALS.md` — action potentials and neural signaling.\n- `biophysics/04-MEMBRANE-BIOPHYSICS.md` — membrane and ion-channel substrate.\n- `control-theory/02-STATE-SPACE.md` — dynamical-system representation of conductance models."
+    },
+    {
+      "id": "05-HODGKIN-HUXLEY.md#108",
+      "path": [
+        "05-HODGKIN-HUXLEY.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:biophysics:05-hodgkin-huxley, git-history:biophysics:05-hodgkin-huxley]",
+        "canonical_path": "biophysics/05-HODGKIN-HUXLEY.md",
+        "concepts": "[hodgkin, huxley]",
+        "current_path": "biophysics/05-HODGKIN-HUXLEY.md",
+        "id": "maxim:biophysics:hodgkin-huxley",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "biophysics",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[hodgkin, huxley]",
+        "section": "biophysics",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Hodgkin-Huxley Model - Action Potential from Gated Conductances",
+        "updated": "null"
+      },
+      "text": "## Decision Cheat Sheet"
+    },
+    {
+      "id": "05-HODGKIN-HUXLEY.md#109",
+      "path": [
+        "05-HODGKIN-HUXLEY.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:biophysics:05-hodgkin-huxley, git-history:biophysics:05-hodgkin-huxley]",
+        "canonical_path": "biophysics/05-HODGKIN-HUXLEY.md",
+        "concepts": "[hodgkin, huxley]",
+        "current_path": "biophysics/05-HODGKIN-HUXLEY.md",
+        "id": "maxim:biophysics:hodgkin-huxley",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "biophysics",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[hodgkin, huxley]",
+        "section": "biophysics",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Hodgkin-Huxley Model - Action Potential from Gated Conductances",
+        "updated": "null"
+      },
+      "text": "| If you need to diagnose... | Start With | Key Caveat |\n|---|---|---|\n| Action-potential upstroke | Na channel activation positive feedback | Voltage clamp parameters are model fits, not literal gates. |\n| Upstroke termination | Delayed Na inactivation | Recovery controls refractory timing. |\n| Repolarization | Delayed K current through n-gated conductance | Channel diversity exceeds the squid-axon model. |\n| Afterhyperpolarization | K conductance remains high after Na shuts off | Undershoot depends on channel kinetics and E_K. |\n| Absolute refractory period | Na inactivation recovery | Relative refractory period adds elevated K conductance. |\n| Passive spread length | Cable length constant | Geometry and myelination change effective propagation. |\n| Myelinated speed | Saltatory conduction between nodes | Demyelination breaks timing and safety factor. |\n| ANN simplification | Point-neuron abstraction | Dropped dynamics are exactly what spikes use. |"
+    }
+  ],
+  "refs": [
+    "05-HODGKIN-HUXLEY.md"
+  ]
+}

@@ -1,0 +1,193 @@
+{
+  "schema_version": "1",
+  "source_markdown": "biophysics\\04-MEMBRANE-BIOPHYSICS.md",
+  "blocks": [
+    {
+      "id": "block-1",
+      "kind": "diagram_like",
+      "line": 24,
+      "heading_context": "## The Big Picture",
+      "confidence": "candidate",
+      "text": "┌──────────────────────────────────────────────────────────────────────────┐\n│               MEMBRANE BIOPHYSICS LANDSCAPE                              │\n│                                                                          │\n│  BILAYER STRUCTURE               ELECTRICAL PROPERTIES                   │\n│  ────────────────                ────────────────────                    │\n│  Singer-Nicolson fluid mosaic    Resting potential: -70 mV (neuron)      │\n│  2D fluid: lateral diffusion     Goldman-Hodgkin-Katz equation           │\n│  Lipid asymmetry                 Nernst equation per ion                 │\n│  Rafts / phase separation        Membrane as RC circuit                  │\n│                                                                          │\n│  ION CHANNELS                    VESICLE MECHANICS                       │\n│  ────────────                    ─────────────────                       │\n│  Gating: voltage / ligand / mech Bending rigidity κ ≈ 20 k_BT            │\n│  Single channel conductance      Helfrich free energy                    │\n│  Selectivity filter              Curvature-inducing proteins             │\n│  Patch clamp technique           BAR domains, dynamin                    │\n│                                                                          │\n│  SCALE:                                                                  │\n│  Bilayer thickness: ~4 nm total (hydrophobic core: ~3 nm)                │\n│  Single channel current: 1-100 pA (10⁶-10⁷ ions/s)                       │\n│  Membrane resistance: ~10⁸ Ω per μm² (neuron at rest)                    │\n└──────────────────────────────────────────────────────────────────────────┘",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-2",
+      "kind": "chart_like",
+      "line": 53,
+      "heading_context": "## Section 1 — Lipid Bilayer Structure: The Fluid Mosaic Model",
+      "confidence": "candidate",
+      "text": "### Singer-Nicolson Model (1972)",
+      "notes": [
+        "detected from bar/chart glyph density with numeric labels"
+      ]
+    },
+    {
+      "id": "block-3",
+      "kind": "diagram_like",
+      "line": 58,
+      "heading_context": "### Singer-Nicolson Model (1972)",
+      "confidence": "candidate",
+      "text": "  BILAYER CROSS-SECTION:\n\n  Extracellular                     ~2-3 nm\n  ────────────────────────────────────────────────────────── ← headgroups\n  ○○○○○○○○○○○○○○○○○○○○○○○○○○○○○○○○○○○○○○○○○○○○○○○○○○○○○\n  |||||||||||||||||||||||||||||||||||||||||||||||||||||||||| ← fatty acid tails\n  |||||||||||||||||||||||||||||||||||||||||||||||||||||||||| ~3 nm hydrophobic\n  ○○○○○○○○○○○○○○○○○○○○○○○○○○○○○○○○○○○○○○○○○○○○○○○○○○○○○\n  ────────────────────────────────────────────────────────── ← headgroups\n  Cytoplasmic                       ~2-3 nm\n\n  ○ = phospholipid headgroup (charged / polar)\n  | = fatty acid chain (hydrophobic)\n  Total bilayer: ~4-5 nm\n\n  Integral membrane protein: TM helices span the 3 nm hydrophobic core\n  Peripheral membrane protein: binds headgroup surface electrostatically",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-4",
+      "kind": "diagram_like",
+      "line": 80,
+      "heading_context": "### Lipid Species and Their Biophysical Roles",
+      "confidence": "candidate",
+      "text": "  ┌─────────────────────────────────────────────────────────────────────┐\n  │  LIPID CLASS    │  LOCATION        │  BIOPHYSICAL ROLE              │\n  │  ─────────────  │  ─────────────── │  ────────────────────────────── │\n  │  DPPC (PC)      │  Both leaflets   │  Most abundant, forms bilayer  │\n  │  PE             │  Inner leaflet   │  Cone shape → negative curvature│\n  │  PS             │  Inner leaflet   │  Negatively charged (apoptosis │\n  │                 │                  │  signal when outer leaflet)    │\n  │  PI(4,5)P₂      │  Inner leaflet   │  Signaling: PLC substrate,     │\n  │                 │                  │  channel gating modulator      │\n  │  Cholesterol    │  Both leaflets   │  Modulates fluidity, forms rafts│\n  │                 │                  │  40% of mammalian membrane lipid│\n  │  Sphingomyelin  │  Outer leaflet   │  High melting temperature,     │\n  │                 │                  │  raft component                │\n  │  Cardiolipin    │  Inner mitochond.│  Anchors ETC complexes,        │\n  │                 │  membrane        │  required for ATP synthase     │\n  └─────────────────────────────────────────────────────────────────────┘",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-5",
+      "kind": "diagram_like",
+      "line": 103,
+      "heading_context": "### Membrane Fluidity and Phase Transitions",
+      "confidence": "candidate",
+      "text": "  T < Tm (gel phase):\n    Ordered, all-trans fatty acid chains\n    Slow lateral diffusion: D ≈ 10⁻¹⁰ m²/s\n    High viscosity\n\n  T > Tm (liquid crystalline):\n    Disordered, gauche kinks in chains\n    Fast lateral diffusion: D ≈ 10⁻⁸-10⁻⁹ m²/s\n    Low viscosity\n\n  Factors affecting Tm:\n    Chain length ↑   →  Tm ↑ (more van der Waals contact)\n    Unsaturation ↑   →  Tm ↓ (kinks prevent packing)\n    Cholesterol: broadens transition, sets intermediate fluidity\n\n  At 37°C, mammalian membranes are in liquid crystalline phase.\n  Bacteria adjust chain composition to maintain fluidity at their T\n  (homeoviscous adaptation).",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-6",
+      "kind": "diagram_like",
+      "line": 151,
+      "heading_context": "### Equilibrium Potential: The Nernst Equation",
+      "confidence": "candidate",
+      "text": "  Eᵢ = (RT / zᵢF) × ln([ion]_out / [ion]_in)\n     = (25.7 mV / zᵢ) × ln([ion]_out / [ion]_in)   at 25°C\n     = (26.7 mV / zᵢ) × ln([ion]_out / [ion]_in)   at 37°C\n\n  Typical mammalian neuron:\n\n  Ion    [out]    [in]     z    E_Nernst\n  ─────  ───────  ───────  ──   ────────\n  Na⁺    145 mM   12 mM   +1   +67 mV\n  K⁺     4 mM     155 mM  +1   -98 mV\n  Cl⁻    110 mM   4 mM    -1   -90 mV\n  Ca²⁺   1.5 mM   100 nM  +2   +137 mV\n\n  Resting membrane potential: -70 mV\n  (between E_K and E_Na, closer to E_K because\n   membrane is ~100× more permeable to K⁺ at rest)",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-7",
+      "kind": "diagram_like",
+      "line": 175,
+      "heading_context": "### Goldman-Hodgkin-Katz (GHK) Equation",
+      "confidence": "candidate",
+      "text": "  V_m = (RT/F) × ln[(P_K[K⁺]_o + P_Na[Na⁺]_o + P_Cl[Cl⁻]_i) /\n                     (P_K[K⁺]_i + P_Na[Na⁺]_i + P_Cl[Cl⁻]_o)]\n\n  At rest (neuron):  P_K : P_Na : P_Cl ≈ 1 : 0.04 : 0.45\n\n  At action potential peak:  P_Na / P_K ≈ 20  (Na channels open)\n  → Vm shifts toward E_Na ≈ +67 mV\n\n  This is the GHK voltage equation. For current (flux), the GHK current equation:\n  Iᵢ = Pᵢ z²ᵢ F² Vm/RT × ([ion]_i - [ion]_o exp(-zᵢFVm/RT)) /\n                            (1 - exp(-zᵢFVm/RT))",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-8",
+      "kind": "diagram_like",
+      "line": 191,
+      "heading_context": "### Membrane as an Electrical Circuit",
+      "confidence": "candidate",
+      "text": "  Equivalent circuit model:\n\n  Extracellular\n      │\n  ────┤────────┬──────────────────────────────────────────\n      │        │\n     C_m      G_K(E_K)   G_Na(E_Na)   G_Cl(E_Cl)\n     (capacitor) (conductance and battery for each ion)\n      │        │\n  ────┤────────┴──────────────────────────────────────────\n      │\n  Intracellular\n\n  C_m = membrane capacitance ≈ 1 μF/cm²  (for lipid bilayer)\n  G_ion = conductance = reciprocal of resistance\n  E_ion = Nernst potential (EMF source)\n\n  Kirchhoff's law:  C_m × dV/dt = -Σ G_ion(V-E_ion) + I_ext\n\n  Time constant:  τ = R_m × C_m (sets how fast V changes)\n  Space constant: λ = sqrt(R_m / R_axial) (how far signal propagates)",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-9",
+      "kind": "diagram_like",
+      "line": 223,
+      "heading_context": "### Channel Basics",
+      "confidence": "candidate",
+      "text": "  ┌───────────────────────────────────────────────────────────────┐\n  │  ION CHANNEL PROPERTIES                                       │\n  │                                                               │\n  │  Single-channel conductance:  1-100 pS (picosiemens)          │\n  │  → At -70 mV: current = g × V ≈ 1 pS × 70 mV = 70 fA          │\n  │  → Ionic flux: ~10⁶-10⁷ ions/second per channel               │\n  │                                                               │\n  │  Selectivity filter: sub-Å selectivity between K⁺ and Na⁺     │\n  │  (K⁺ r = 1.33 Å; Na⁺ r = 0.95 Å; filter: ~3 Å pore)           │\n  │  → Selectivity paradox: K⁺ passes 10⁴× faster than Na⁺        │\n  │     despite K⁺ being larger                                   │\n  │  → Resolution: K⁺ fits perfectly into 8-oxygen cage; Na⁺      │\n  │     retains hydration shell (dehydration cost > electrostatic │\n  │     gain inside filter)                                       │\n  │                                                               │\n  │  Gating mechanisms:                                           │\n  │    Voltage-gated: S4 helix (charged) moves in field           │\n  │    Ligand-gated: ACh, GABA, glutamate binding opens pore      │\n  │    Mechanically-gated: membrane tension, touch                │\n  │    Inactivation: N-type (ball-and-chain), C-type (pore        │\n  │      collapse during sustained depolarization)                │\n  └───────────────────────────────────────────────────────────────┘",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-10",
+      "kind": "diagram_like",
+      "line": 252,
+      "heading_context": "### Voltage-Gated Channels: Structural Basis of Gating",
+      "confidence": "candidate",
+      "text": "  Topology per subunit:\n  S1-S4: voltage-sensing domain (VSD)\n  S5-S6: pore domain (forms the conduction pathway)\n\n  S4 helix: 4-7 basic residues (Arg/Lys) at every 3rd position\n    → gating charges; moves ~10-15 Å through the membrane field\n    → moves ~1-4e× per subunit; 4 subunits × 2-3e = 12e total\n    → experimentally measured: ~12-14e gating charge per channel\n\n  Selectivity filter: TVGYG motif (highly conserved in K⁺ channels)\n    → four K⁺ binding sites (S1-S4) in single-file conduction\n    → two K⁺ ions occupy alternating sites (concerted knock-on)",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-11",
+      "kind": "diagram_like",
+      "line": 272,
+      "heading_context": "### Patch Clamp Technique",
+      "confidence": "candidate",
+      "text": "  Fire-polished pipette (tip ~1 μm) pressed against cell membrane\n\n  ┌─────────────────────────────────────────────────────────────┐\n  │  PATCH CLAMP CONFIGURATIONS                                 │\n  │                                                             │\n  │  Cell-attached: pipette on intact cell                      │\n  │    → channels in native membrane environment                │\n  │    → cytoplasmic face inaccessible                          │\n  │                                                             │\n  │  Whole-cell: rupture patch → access to cell interior        │\n  │    → measure total membrane current                         │\n  │    → cell contents exchange with pipette solution           │\n  │                                                             │\n  │  Inside-out: pull after cell-attached                       │\n  │    → cytoplasmic face exposed to bath solution              │\n  │    → apply ligands to cytoplasmic side                      │\n  │                                                             │\n  │  Outside-out: pull after whole-cell                         │\n  │    → extracellular face exposed to bath                     │\n  │    → apply agonists to extracellular side                   │\n  └─────────────────────────────────────────────────────────────┘\n\n  Seal resistance: >1 GΩ (\"gigaseal\") required\n    → noise floor: ~0.1 pA  (allows 1-pS channels to be detected)\n\n  Voltage clamp: feedback amplifier holds Vm at command potential\n    → records current as channels open/close\n    → isolates ionic from capacitive current",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-12",
+      "kind": "ascii_table_candidate",
+      "line": 331,
+      "heading_context": "### Helfrich Free Energy",
+      "confidence": "candidate",
+      "text": "  F_Helfrich = ∫ [κ/2 × (c₁ + c₂ - c₀)² + κ_G × c₁c₂] dA + σ∫dA\n\n  c₁, c₂ = principal curvatures at each point\n  c₀ = spontaneous curvature (asymmetric bilayer)\n  κ = bending rigidity ~ 10-25 k_BT for typical bilayer\n  κ_G = Gaussian curvature modulus\n  σ = membrane tension\n\n  Key values:\n    DPPC bilayer:    κ ≈ 25 k_BT\n    Erythrocyte:     κ ≈ 18 k_BT\n    Asymmetric bilayer: c₀ ≠ 0 (favors spontaneous curvature)",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-13",
+      "kind": "diagram_like",
+      "line": 350,
+      "heading_context": "### Vesicle Formation and Membrane Curvature",
+      "confidence": "candidate",
+      "text": "  Sphere: c₁ = c₂ = 1/R → (c₁+c₂)² = 4/R²\n\n  F_bending = ∫ κ/2 × 4/R² dA = κ/2 × 4/R² × 4πR² = 8πκ\n\n  F_bending is INDEPENDENT of radius!\n  → Same energy to form a 20 nm or 200 nm vesicle\n\n  For κ = 20 k_BT:  F_bending = 8π × 20 k_BT ≈ 500 k_BT\n  → Thermally impossible; requires active machinery or lipid asymmetry",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-14",
+      "kind": "diagram_like",
+      "line": 364,
+      "heading_context": "### Vesicle Formation and Membrane Curvature",
+      "confidence": "candidate",
+      "text": "  ┌─────────────────────────────────────────────────────────────────┐\n  │  CURVATURE MECHANISM    │  PROTEIN/LIPID     │  PROCESS         │\n  │  ─────────────────────  │  ─────────────────  │  ──────────────── │\n  │  BAR domain scaffold    │  N-BAR, F-BAR, I-BAR│  Endocytosis,   │\n  │                         │  (banana-shaped)    │  tubulation     │\n  │  Amphipathic helix ins. │  ENTH, ANTH, ALPS   │  Sensing and    │\n  │                         │  N-BAR H0 helix     │  generating curv. │\n  │  Lipid asymmetry        │  Flippases (ATP)    │  PS inner leaflet│\n  │                         │  Scramblases        │  apoptosis signal│\n  │  Dynamin GTPase         │  Helical polymer    │  Vesicle scission│\n  │                         │  around neck        │  (endocytosis)   │\n  │  Clathrin coat          │  Triskelion lattice │  Clathrin-coated │\n  │                         │  geometry           │  pits            │\n  └─────────────────────────────────────────────────────────────────┘",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-15",
+      "kind": "diagram_like",
+      "line": 387,
+      "heading_context": "### Voltage-Gated Na⁺ Channel (Nav)",
+      "confidence": "candidate",
+      "text": "  Structure: single polypeptide, 4 homologous domains (I-IV)\n  Selectivity: Na⁺ >> K⁺ (selectivity filter: DEKA ring)\n  Activation: +30 mV → channels open in 0.1 ms\n  Inactivation: fast inactivation within 1-2 ms (IFM motif)\n  Recovery: -70 mV, 10-20 ms before next AP possible (refractory period)\n\n  Pharmacology:\n    TTX (tetrodotoxin): blocks pore from outside; 1 nM potency\n    Local anesthetics: block from inside; state-dependent\n    Batrachotoxin: prevents inactivation → sustained activation",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-16",
+      "kind": "diagram_like",
+      "line": 402,
+      "heading_context": "### Potassium Channels",
+      "confidence": "candidate",
+      "text": "  KcsA (bacterial): first channel crystal structure (MacKinnon, Nobel 2003)\n  → 2.0 Å resolution; revealed selectivity filter carbonyl caging of K⁺\n  → 4 K⁺ sites; ions in S1-S2-S3-S4 positions\n  → Concerted knock-on: ions jump 2 positions simultaneously\n\n  Kir (inward rectifier):\n  → Blocked by Mg²⁺ and polyamines from inside at positive potentials\n  → Allows K⁺ in but not out at depolarized potentials\n  → Sets resting potential in cardiomyocytes\n\n  hERG (KCNH2 / Kv11.1):\n  → Drug binding causes long-QT syndrome (arrhythmia)\n  → ~200 drugs affect hERG: must screen all new drugs",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-17",
+      "kind": "diagram_like",
+      "line": 424,
+      "heading_context": "## Electrical Engineering Bridges",
+      "confidence": "candidate",
+      "text": "  MEMBRANE BIOPHYSICS            ELECTRICAL ENGINEERING PARALLEL\n  ──────────────────────────────────────────────────────────────────────\n  Lipid bilayer                  Capacitor: C_m ≈ 1 μF/cm² (dielectric =\n                                 ~3 nm hydrocarbon core, ε ≈ 2). This is\n                                 the correct formula: C = ε₀ε·A/d.\n                                 Bilayer is a parallel-plate capacitor.\n\n  Ion channel                    Conductance: g = 1/R (siemens). A single\n                                 channel at 1-100 pS is a voltage-controlled\n                                 resistor that switches between open (g > 0)\n                                 and closed (g = 0) states.\n\n  Nernst potential (E_ion)       Battery EMF: the concentration gradient\n                                 across the membrane is a chemical potential\n                                 difference — equivalent to an EMF source in\n                                 series with the channel conductance.\n                                 E_K ≈ -98 mV is the K⁺ battery voltage.\n\n  Kirchhoff's current law        Hodgkin-Huxley master equation:\n  at the membrane node           C_m·dV/dt = -Σ gᵢ(V - Eᵢ) + I_ext\n                                 Sum of currents at a node = 0 (with the\n                                 capacitive current as the displacement term).\n\n  Cable equation (Kelvin, 1855)  Lossy transmission line (R-C ladder network):\n  λ²∂²V/∂x² - τ_m ∂V/∂t = V    λ = sqrt(r_m/r_a) is the characteristic\n                                 length of the cable; τ = r_m·c_m is the\n                                 time constant. Myelination increases r_m\n                                 (insulation) and decreases c_m → λ jumps\n                                 to >> internode spacing → saltatory prop.\n\n  Space clamp (whole-cell        Operational amplifier feedback control:\n  voltage clamp)                 the patch clamp amplifier holds V_m at\n                                 the command potential by injecting the\n                                 exact compensating current — a virtual\n                                 ground configuration.\n\n  Helfrich bending energy        Beam theory (thin plate mechanics):\n  F = ∫ κ/2·(c₁+c₂)²dA         κ is the bending stiffness, analogous to\n                                 EI in structural mechanics. The 8πκ result\n                                 (vesicle energy independent of radius) is\n                                 a classic result in thin-shell theory.\n  ──────────────────────────────────────────────────────────────────────",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    }
+  ]
+}

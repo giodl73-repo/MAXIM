@@ -1,0 +1,193 @@
+{
+  "schema_version": "1",
+  "source_markdown": "biophysics\\03-STRUCTURAL-METHODS.md",
+  "blocks": [
+    {
+      "id": "block-1",
+      "kind": "diagram_like",
+      "line": 24,
+      "heading_context": "## The Big Picture",
+      "confidence": "candidate",
+      "text": "┌──────────────────────────────────────────────────────────────────────────┐\n│              STRUCTURAL BIOLOGY METHOD LANDSCAPE                         │\n│                                                                          │\n│  METHOD         RESOLUTION  SIZE RANGE      KEY LIMITATION               │\n│  ─────────────  ──────────  ─────────────   ──────────────────────────── │\n│  X-ray crystal  0.5-3 Å     1 kDa - 10 MDa  Must crystallize             │\n│  NMR            1-3 Å       <50 kDa          Size limit, assignment effort │\n│  Cryo-EM        1.5-4 Å     100 kDa - GDa   Small proteins still hard    │\n│  Cryo-ET        2-5 nm      10-100s MDa      In situ tomography          │\n│  SAXS           ~1 nm       1 kDa - 1 GDa   Low resolution, envelope only │\n│  AFM            ~1 nm       Any size         Low resolution, surface only  │\n│                                                                          │\n│  DOMINANCE SHIFT:                                                        │\n│  1950s-2010s:  X-ray crystallography dominated (~90% of PDB)             │\n│  2013-present: Cryo-EM resolution revolution (Kühlbrandt, Frank, Henderson│\n│                Nobel 2017) displaced X-ray for large complexes           │\n│                                                                          │\n│  2025 PDB statistics (~230,000+ total entries):                          │\n│  X-ray:   ~175,000 entries (~76% of total)                               │\n│  NMR:     ~14,000 entries (~6%)                                          │\n│  Cryo-EM: ~37,000 entries (~16%, growing fastest — tripled since 2020)   │\n└──────────────────────────────────────────────────────────────────────────┘",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-2",
+      "kind": "diagram_like",
+      "line": 62,
+      "heading_context": "### The Physical Basis",
+      "confidence": "candidate",
+      "text": "  Diffraction condition:  2d·sin(θ) = nλ\n\n  d = spacing between parallel planes of atoms\n  θ = angle between incident beam and crystal plane\n  λ = X-ray wavelength\n  n = integer (order of diffraction)\n\n  Consequence: only specific angles (θ) give constructive interference.\n  Measuring all (θ, φ) positions of diffraction spots → spacing d for all planes\n  → 3D electron density map.\n\n  Resolution: d_min = λ / (2 sin(θ_max))\n    λ = 1.0 Å, θ_max = 60°: d_min = 0.58 Å  (atomic resolution)\n    λ = 1.0 Å, θ_max = 15°: d_min = 1.9 Å   (most PDB depositions)",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-3",
+      "kind": "diagram_like",
+      "line": 81,
+      "heading_context": "### The Crystallography Pipeline",
+      "confidence": "candidate",
+      "text": "  ┌──────────────────────────────────────────────────────────────────┐\n  │  STEP           DETAIL                      BOTTLENECK?          │\n  │  ─────────────  ───────────────────────────  ─────────────────── │\n  │  1. Expression  Produce mg quantities of     Often rate-limiting │\n  │     & purif.    pure, homogeneous protein     for difficult targets│\n  │  2. Crystalliz. Hanging drop vapor diff.     Highly empirical,   │\n  │     ation       HT screening, robot plates   many conditions to  │\n  │                                              try (T, pH, PEG)    │\n  │  3. Data        Synchrotron or rotating-     Needs good crystals │\n  │     collection  anode; rotate crystal;        (large, ordered)   │\n  │                 collect millions of spots                        │\n  │  4. Data        Indexing, integrating,        Mostly automated   │\n  │     processing  scaling; CCP4, XDS, HKL2000                      │\n  │  5. Phase       Solve the phase problem       THE hard step      │\n  │     determina.  (see below)                                      │\n  │  6. Model build Place atoms into density;     Semi-manual, expert │\n  │                 Coot for manual fitting                          │\n  │  7. Refinement  REFMAC, PHENIX; minimize      R-factor monitoring │\n  │                 R-factor                                         │\n  │  8. Validation  Ramachandran plot, R/Rfree,   Critical for PDB   │\n  │                 geometry checks               deposition         │\n  └──────────────────────────────────────────────────────────────────┘",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-4",
+      "kind": "ascii_table_candidate",
+      "line": 115,
+      "heading_context": "### The Phase Problem",
+      "confidence": "candidate",
+      "text": "  ρ(x,y,z) = (1/V) Σ_hkl  F(hkl) × exp[-2πi(hx + ky + lz)]\n\n  F(hkl) = |F(hkl)| × exp[iφ(hkl)]\n\n  Measured: |F(hkl)|²  →  |F(hkl)|  (amplitude only)\n  Lost:     φ(hkl)   ← PHASE PROBLEM",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-5",
+      "kind": "diagram_like",
+      "line": 126,
+      "heading_context": "### The Phase Problem",
+      "confidence": "candidate",
+      "text": "  Method              When to use               Principle\n  ──────────────────  ────────────────────────  ─────────────────────────\n  Molecular           Homolog structure exists   Use known structure phases\n  replacement (MR)    (>30% sequence identity)   as starting estimate\n\n  SIR/MIR             No homolog; can soak in    Heavy atom gives anomalous\n  (isomorphous        heavy atoms (Hg, Pt, Au)   signal; difference Fourier\n  replacement)                                   locates heavy atom positions\n\n  SAD/MAD             No homolog; use tunable    Anomalous scattering near\n  (anomalous)         synchrotron; Se-Met        absorption edge gives\n                      incorporation              phase information\n\n  Ab initio           Small proteins <1200 atoms Direct methods; uses\n  (direct methods)    at resolution <1.2 Å       triplet phase relationships",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-6",
+      "kind": "diagram_like",
+      "line": 151,
+      "heading_context": "### R-factor: The Quality Metric",
+      "confidence": "candidate",
+      "text": "  R = Σ_hkl |F_obs - F_calc| / Σ_hkl F_obs\n\n  R-factor interpretation:\n    R > 0.40 → very poor model or wrong solution\n    R ≈ 0.20-0.25 → typical final structure\n    R < 0.15 → excellent (usually high resolution)\n\n  Rfree: R calculated on ~5% of data withheld from refinement\n    Used to detect overfitting (R << Rfree → overfitted)\n    |R - Rfree| < 0.05 → healthy model; > 0.10 → suspicious\n\n  Resolution and R-factor:\n    2.0 Å structure: R ≈ 0.20 acceptable\n    1.0 Å structure: R ≈ 0.12 expected (more atoms resolved)",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-7",
+      "kind": "diagram_like",
+      "line": 189,
+      "heading_context": "### Physical Basis",
+      "confidence": "candidate",
+      "text": "  Larmor frequency: ω₀ = γB₀\n\n  Typical: 600 MHz spectrometer, ¹H Larmor freq = 600 MHz\n           900 MHz spectrometer: better dispersion and sensitivity\n\n  Chemical shift δ (ppm): measures electron shielding at each nucleus\n    Upfield (small δ): shielded, electron-rich environment\n    Downfield (large δ): deshielded, electron-poor environment\n\n  Each atom in a unique chemical environment → unique resonance frequency\n  → ¹H spectrum shows one peak per chemically distinct proton",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-8",
+      "kind": "diagram_like",
+      "line": 207,
+      "heading_context": "### Assignment Pipeline",
+      "confidence": "candidate",
+      "text": "  1. HSQC: one peak per N-H → \"fingerprint\" of protein state\n  2. 3D HNCA: connect each NH to its Cα and preceding Cα\n  3. 3D HNCACB: connect NH to Cα, Cβ, preceding Cα, Cβ\n  4. Walk along backbone: each residue type has characteristic Cα/Cβ shifts\n  5. Side chain assignment: HCCH-TOCSY, NOESY\n  → Sequential assignment: identify which peak = which residue",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-9",
+      "kind": "diagram_like",
+      "line": 244,
+      "heading_context": "### NMR-Specific Information Unavailable from X-ray",
+      "confidence": "candidate",
+      "text": "  NMR provides unique information:\n  ──────────────────────────────────────────────────────────────────────\n  Dynamics (ps-ns): R₁, R₂, NOE relaxation → order parameters (S²)\n  Dynamics (μs-ms): CPMG relaxation dispersion → exchange rates\n  Hydrogen exchange: backbone amide protection → folding core\n  Solution state:   native state in buffer, not crystal contacts\n  Titrations:       follow CSP (chemical shift perturbation) upon ligand binding\n  pKa values:       direct from pH-dependent shift titrations",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-10",
+      "kind": "diagram_like",
+      "line": 267,
+      "heading_context": "### Why Cryo-EM Changed Everything",
+      "confidence": "candidate",
+      "text": "  1. DIRECT ELECTRON DETECTORS (2012-2013):\n     Previous: scintillator-coupled CCD cameras\n     → electrons scatter photons → photon blur → MTF degrades\n\n     New: direct detection of electrons → no scintillator blur\n     → motion correction of individual movie frames possible\n     → large improvement in high-frequency contrast\n\n  2. IMPROVED IMAGE PROCESSING:\n     Relion, cryoSPARC: Bayesian maximum-likelihood particle alignment\n     → statistical treatment of noisy single-particle images\n     → iterative refinement converges to accurate 3D map",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-11",
+      "kind": "diagram_like",
+      "line": 287,
+      "heading_context": "### Sample Preparation",
+      "confidence": "candidate",
+      "text": "  1. Protein in solution (usually 0.1-5 mg/mL)\n  2. Apply 3 μL to glow-discharged carbon/gold grid\n  3. Blot excess with filter paper (blot time critical: ~2-4 s)\n  4. Plunge into liquid ethane at -170°C (vitrification)\n  → Water vitrifies (amorphous ice), not crystalline ice\n  → Proteins frozen in native-like hydrated state\n  → No crystal contacts, no fixation artifacts",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-12",
+      "kind": "diagram_like",
+      "line": 302,
+      "heading_context": "### The Imaging Challenge: Contrast Transfer Function (CTF)",
+      "confidence": "candidate",
+      "text": "  CTF(q) = -2 sin[π λ Δf q² - (π λ³ Cs q⁴)/2]\n\n  where:\n    q = spatial frequency\n    λ = electron wavelength (0.025 Å at 200 keV, 0.020 Å at 300 keV)\n    Δf = defocus (μm, typically 0.5-3 μm underfocus)\n    Cs = spherical aberration coefficient\n\n  CTF oscillates between +1 and -1 as function of spatial frequency:\n    → CTF = +1: good contrast (phase contrast contribution)\n    → CTF = 0: no contrast (Thon ring zeros)\n    → CTF = -1: inverted contrast\n\n  Must CTF-correct all images before combining into 3D map.\n  Thon rings (visible in power spectrum of raw images) are used to fit CTF.",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-13",
+      "kind": "diagram_like",
+      "line": 326,
+      "heading_context": "### Single-Particle Reconstruction",
+      "confidence": "candidate",
+      "text": "  START: ~10⁵ - 10⁶ particle images (boxed from micrographs)\n     ↓\n  2D classification: average similar views → clean 2D classes\n  (remove ice contamination, broken particles, aggregates)\n     ↓\n  3D initial model generation (ab initio or prior model)\n     ↓\n  3D classification: separate conformational heterogeneity\n     ↓\n  3D refinement: iterative: assign each particle an orientation\n  (5 Euler angles + 2 in-plane shifts), compute new 3D map,\n  re-align particles, repeat until convergence\n     ↓\n  Post-processing: B-factor sharpening, local resolution estimation\n  (RELION, cryoSPARC: Fourier Shell Correlation = 0.143 criterion)\n     ↓\n  Map → model: Coot (manual) + Phenix/REFMAC (real-space refinement)",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-14",
+      "kind": "diagram_like",
+      "line": 348,
+      "heading_context": "### Why Cryo-EM Displaced X-ray for Large Complexes",
+      "confidence": "candidate",
+      "text": "  CRYSTALLOGRAPHY                      CRYO-EM\n  ────────────────────────────────────────────────────────────────────\n  Must crystallize (HARD for large,    No crystals needed\n  flexible, heterogeneous complexes)\n\n  Crystal contacts constrain           Native-like solution state\n  conformation                         (multiple conformations isolable)\n\n  Unit cell averaging: one conformation 3D classes: multiple conformations\n  per asymmetric unit                  from same dataset\n\n  Radiation damage at 100K             Radiation damage minimized\n                                       by dose fractionation\n\n  Best for: small-medium rigid         Best for: large complexes,\n  proteins, large crystals            membrane proteins, flexible\n                                       assemblies, ribosomes, viruses",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-15",
+      "kind": "diagram_like",
+      "line": 386,
+      "heading_context": "## Section 4 — Comparing the Methods",
+      "confidence": "candidate",
+      "text": "┌────────────────────────────────────────────────────────────────────────────┐\n│  COMPARISON TABLE                                                          │\n│                                                                            │\n│  Feature          X-ray crystal   NMR            Cryo-EM                   │\n│  ─────────────────────────────────────────────────────────────────────────│\n│  Resolution       0.5-3 Å         1-3 Å          1.5-4 Å (large proteins)  │\n│  Size range       Any (with Xtal)  <50 kDa        >100 kDa preferred       │\n│  Sample state     Crystal          Solution        Vitrified solution      │\n│  Dynamics info    Limited (B-factors) Excellent    Limited (class averages) │\n│  Time required    Weeks-months    Months-years    Weeks-months             │\n│  Unique strength  Atomic detail,  Dynamics, IDPs, Large complexes,         │\n│                   high throughput  flexibility     heterogeneity           │\n│  Key limitation   Must crystallize <50 kDa limit  Small proteins hard      │\n│  Data type        Reciprocal space (direct) NMR   Real space (direct)      │\n│                   (diffraction)   frequency space  (electron density)      │\n└────────────────────────────────────────────────────────────────────────────┘",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-16",
+      "kind": "diagram_like",
+      "line": 407,
+      "heading_context": "### Which Method for What",
+      "confidence": "candidate",
+      "text": "  ┌─────────────────────────────────────────────────┐\n  │  STRUCTURAL METHOD DECISION TREE                │\n  │                                                 │\n  │  Protein size?                                  │\n  │    < 5 kDa: NMR or X-ray (if crystallizes)      │\n  │    5-50 kDa: X-ray OR NMR                       │\n  │    50-100 kDa: X-ray preferred; cryo-EM emerging│\n  │    > 100 kDa: Cryo-EM preferred                 │\n  │                                                 │\n  │  Flexibility / disorder?                        │\n  │    Ordered core: X-ray or cryo-EM               │\n  │    Flexible regions: NMR                        │\n  │    Fully disordered: NMR (ensemble) or MD sim   │\n  │                                                 │\n  │  Want dynamics?                                 │\n  │    ps-ns: NMR relaxation                        │\n  │    μs-ms: NMR CPMG or relaxation dispersion     │\n  │    ms-s: H/D exchange, NMR, SAXS                │\n  │    Multiple conformations: cryo-EM 3D classes   │\n  │                                                 │\n  │  In cellular context?                           │\n  │    Cryo-ET (tomography) + subtomogram averaging │\n  └─────────────────────────────────────────────────┘",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-17",
+      "kind": "diagram_like",
+      "line": 439,
+      "heading_context": "## Signal Processing and Inference Bridges",
+      "confidence": "candidate",
+      "text": "  STRUCTURAL BIOLOGY          SIGNAL PROCESSING / INFERENCE PARALLEL\n  ──────────────────────────────────────────────────────────────────────\n  Crystallographic            Phase retrieval: a classical inverse problem\n  phase problem               in coherent imaging. The Fourier magnitude is\n                              measured; the phase is unknown. Molecular\n                              replacement is \"use a known signal as a phase\n                              prior\" — Bayesian inference with a strong prior.\n                              SAD/MAD is measuring a secondary signal\n                              (anomalous scattering) to constrain the phase.\n\n  NMR chemical shifts         Spectroscopy: each nucleus is a resonator at\n  and coupling constants       a unique frequency. The HSQC is a 2D spectrum;\n                              the 3D experiments (HNCA, HNCACB) are 3D\n                              spectral slices. Assignment = decoding a spectrum\n                              with overlapping peaks. The 1/r⁶ NOE dependence\n                              is the distance-to-intensity transfer function.\n\n  NMR dynamics (R₁, R₂,       Relaxation spectroscopy: R₂ = linewidth,\n  S² order parameters)        R₁ = longitudinal recovery. CPMG measures\n                              ms-μs exchange rates — this is exactly a\n                              spectral analysis of conformational switching\n                              rates. S² is a local order parameter (analogous\n                              to variance of a stochastic process).\n\n  Cryo-EM particle            Bayesian inference + expectation-maximization:\n  alignment and averaging     each particle image is a noisy projection at an\n                              unknown orientation (5 Euler angles). RELION and\n                              cryoSPARC iteratively estimate orientations and\n                              3D density — EM algorithm for latent variable\n                              models. The \"gold-standard FSC\" is a resolution\n                              criterion analogous to the -3 dB bandwidth.\n\n  CTF correction              Transfer function equalization: CTF(q) is the\n                              system transfer function of the electron microscope.\n                              Correcting for it is deconvolution — same operation\n                              as inverse filter in signal processing. Thon rings\n                              are the zeros of the CTF, exactly the notches\n                              of a band-stop filter.\n\n  Cryo-ET subtomogram         Tomographic reconstruction: back-projection or\n  averaging                   iterative reconstruction (SIRT, WBP) — the same\n                              algorithms used in medical CT. Missing wedge =\n                              missing Fourier data from limited tilt range =\n                              anisotropic PSF.\n  ──────────────────────────────────────────────────────────────────────",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    }
+  ]
+}

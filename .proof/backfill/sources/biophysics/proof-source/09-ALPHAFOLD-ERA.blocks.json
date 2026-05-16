@@ -1,0 +1,193 @@
+{
+  "schema_version": "1",
+  "source_markdown": "biophysics\\09-ALPHAFOLD-ERA.md",
+  "blocks": [
+    {
+      "id": "block-1",
+      "kind": "diagram_like",
+      "line": 24,
+      "heading_context": "## The Big Picture",
+      "confidence": "candidate",
+      "text": "┌──────────────────────────────────────────────────────────────────────────┐\n│                   THE ALPHAFOLD ERA LANDSCAPE                            │\n│                                                                          │\n│  TIMELINE:                                                               │\n│  1951: Pauling: α-helix and β-sheet from H-bond geometry                 │\n│  1957: First protein structure (myoglobin, Kendrew) by X-ray             │\n│  1969: Levinthal's paradox — folding cannot be exhaustive search         │\n│  1994: CASP competition begins (biennial structure prediction contest)   │\n│  2018: AlphaFold1 (CASP13): first major improvement in 20 years          │\n│  2020: AlphaFold2 (CASP14): near-experimental accuracy; solved CASP      │\n│  2021: AlphaFold2 paper + code released; 200M+ structure database        │\n│  2022: ESMFold (Meta), RoseTTAFold; RFdiffusion (de novo design)         │\n│  2023-24: AlphaFold3 (DNA/RNA/small molecules); RF2/Boltz-1              │\n│                                                                          │\n│  WHAT ALPHAFOLD2 SOLVED:                                                 │\n│  Static 3D structure of most single-chain soluble proteins               │\n│  → Near-experimental quality (TM-score ≈ 0.9 on CASP14)                  │\n│                                                                          │\n│  WHAT REMAINS UNSOLVED:                                                  │\n│  Protein dynamics / conformational ensembles                             │\n│  Intrinsically disordered proteins (IDPs)                                │\n│  Protein-protein interaction prediction at atomic resolution             │\n│  Drug design (structure → binding → efficacy is long chain)              │\n│  Function prediction from structure                                      │\n└──────────────────────────────────────────────────────────────────────────┘",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-2",
+      "kind": "diagram_like",
+      "line": 83,
+      "heading_context": "### Architecture Overview",
+      "confidence": "candidate",
+      "text": "┌──────────────────────────────────────────────────────────────────────────┐\n│  ALPHAFOLD2 ARCHITECTURE                                                 │\n│                                                                          │\n│  ┌────────────────────────────────────────────────────────┐              │\n│  │  MSA representation: [N_seq × L × c_m]                │              │\n│  │  Pair representation: [L × L × c_z]                    │              │\n│  └────────────────┬───────────────────┘                   │              │\n│                   │                                        │              │\n│  ┌────────────────▼────────────────────────────────────┐  │              │\n│  │  EVOFORMER STACK (48 blocks)                        │  │              │\n│  │                                                     │  │              │\n│  │  MSA row attention: attention across MSA rows       │  │              │\n│  │  (shared queries per column — efficient)            │  │              │\n│  │  MSA column attention: attention within each col.   │  │              │\n│  │  MSA transition: feed-forward                       │  │              │\n│  │                                                     │  │              │\n│  │  Pair triangular multiplicative update:             │  │              │\n│  │    z[i,j] updated from z[i,k] and z[k,j]            │  │              │\n│  │    (triangle inequality: ij < ik + kj)              │  │              │\n│  │  Pair triangular attention (outgoing/incoming)      │  │              │\n│  │  Pair transition: feed-forward                      │  │              │\n│  │                                                     │  │              │\n│  │  MSA ↔ Pair communication via \"outer product mean\"  │  │              │\n│  └────────────────┬────────────────────────────────────┘  │              │\n│                   │                                        │              │\n│  ┌────────────────▼────────────────────────────────────┐  │              │\n│  │  STRUCTURE MODULE (8 blocks)                        │  │              │\n│  │                                                     │  │              │\n│  │  Invariant Point Attention (IPA):                   │  │              │\n│  │    Residues represented as rigid frames             │  │              │\n│  │    (R_i ∈ SO(3), t_i ∈ R³)                          │  │              │\n│  │    Attention is SE(3)-invariant                     │  │              │\n│  │    Updates frames based on pair representation      │  │              │\n│  │                                                     │  │              │\n│  │  Backbone update: update R_i, t_i per residue       │  │              │\n│  │  Sidechain prediction: 8-layer MLP for chi angles   │  │              │\n│  │  FAPE loss: frame-aligned point error               │  │              │\n│  └────────────────┬────────────────────────────────────┘  │              │\n│                   ↓                                        │              │\n│  3D STRUCTURE + pLDDT + PAE (predicted aligned error)      │              │\n└──────────────────────────────────────────────────────────────────────────┘",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-3",
+      "kind": "diagram_like",
+      "line": 132,
+      "heading_context": "### The Evoformer: Attending Over Evolutionary Covariation",
+      "confidence": "candidate",
+      "text": "  MSA REPRESENTATION:\n    m[s,i] = embedding for residue i in sequence s\n    Row attention: for each residue position i,\n      attention over sequences: which sequences are informative?\n    Column attention: for each sequence s,\n      attention over residue positions: sequential context\n\n  PAIR REPRESENTATION:\n    z[i,j] = embedding for pair (residue i, residue j)\n    Encodes: distance likelihood, contact probability, relative orientation\n    Updated by triangular operations (geometric consistency):\n\n    Triangular multiplicative update (\"outgoing\"):\n      z[i,j] ← f(z[i,k], z[k,j]) for all k\n    Intuition: if I know the geometry of (i,k) and (k,j),\n      update my belief about (i,j)\n    This is a geometric consistency constraint — triangle inequality in 3D space\n    is encoded softly through the pair representation.",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-4",
+      "kind": "ascii_table_candidate",
+      "line": 158,
+      "heading_context": "### Invariant Point Attention (IPA)",
+      "confidence": "candidate",
+      "text": "  RESIDUE FRAME REPRESENTATION:\n    Each residue i: frame T_i = (R_i, t_i)\n    R_i ∈ SO(3): orientation (3x3 rotation matrix)\n    t_i ∈ R³: position (Cα coordinates)\n\n  IPA ATTENTION:\n    Query/key/value: functions of single-residue features s_i\n    Geometric bias: weighted by |R_i q_iᵖ + t_i - (R_j q_jᵖ + t_j)|²\n    (distances between points in each residue's local frame)\n    SE(3)-invariant: attention is unchanged by global rotation/translation\n\n  Why invariant?:\n    Physics is SE(3)-invariant (same protein in different orientations = same protein)\n    IPA bakes this in, avoiding the need to learn this symmetry from data\n\n  FAPE LOSS (Frame Aligned Point Error):\n    L_FAPE = (1/N_frames)(1/N_atoms) Σᵢⱼ |Rᵢᵀ(xⱼ - tᵢ) - Rᵢᵀ(x̂ⱼ - tᵢ)|\n    Computes atom position errors in every residue's local reference frame\n    SE(3)-invariant loss function for backbone training",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-5",
+      "kind": "diagram_like",
+      "line": 210,
+      "heading_context": "### Scale and Coverage",
+      "confidence": "candidate",
+      "text": "  ~200 million protein structures\n  Covers:\n    - Human proteome: ~20,000 proteins\n    - UniProt: ~47 million proteins\n    - Major model organisms\n    - Predicted structures for proteins with no known homologs\n\n  Average pLDDT across all structures:\n    ~35% of residues: pLDDT < 50 (disordered)\n    ~35% of residues: pLDDT 50-70 (low confidence)\n    ~30% of residues: pLDDT > 70 (confident)\n\n  Before AF2: ~180,000 structures in PDB (50 years of experimental work)\n  After AF2: ~200,000,000 computed structures (released in 2 years)\n  → 1000× more structures, but experimental validation still required",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-6",
+      "kind": "diagram_like",
+      "line": 230,
+      "heading_context": "### What the Database Enables",
+      "confidence": "candidate",
+      "text": "  ┌────────────────────────────────────────────────────────────────────┐\n  │  APPLICATION                  │  HOW DATABASE HELPS                │\n  │  ───────────────────────────  │  ────────────────────────────────  │\n  │  Structure-based drug design  │  Virtual screening against targets │\n  │                               │  previously without structures     │\n  │  Evolutionary analysis        │  Compare structures across kingdoms│\n  │                               │  (functional divergence)           │\n  │  Structural genomics          │  Find uncharacterized protein folds│\n  │  Protein-protein docking      │  Starting structures for docking   │\n  │  Molecular replacement in X-ray│ Use AF2 models as MR search models│\n  │  Machine learning             │  Training data for downstream tasks│\n  │  Function annotation          │  Map sequence → structure → function│\n  │  Orphan drug targets          │  Structure for \"undruggable\" targets│\n  └────────────────────────────────────────────────────────────────────┘",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-7",
+      "kind": "diagram_like",
+      "line": 284,
+      "heading_context": "### Why Structure ≠ Function",
+      "confidence": "candidate",
+      "text": "  STRUCTURE → FUNCTION GAP:\n\n  Knowing the structure does not tell you:\n  ┌──────────────────────────────────────────────────────────────────┐\n  │  What you need to know        │  Why structure doesn't tell you  │\n  │  ───────────────────────────  │  ──────────────────────────────  │\n  │  What ligands bind            │  Pocket shape is necessary but   │\n  │                               │  not sufficient; also: charge,   │\n  │                               │  desolvation, induced fit        │\n  │  Enzymatic mechanism          │  Need: substrate, protonation    │\n  │                               │  states, electrostatics, dynamics│\n  │  Regulatory logic             │  PTMs, conformational switch,    │\n  │                               │  interaction partners            │\n  │  Cellular localization        │  Sequence signals not in struct  │\n  │  Pathogenicity of mutations   │  Need: thermodynamics, kinetics  │\n  │                               │  of folding change + function    │\n  │  Drug efficacy                │  ΔG_binding → ΔΔG_binding (FEP)  │\n  │                               │  → in vitro potency → ADMET      │\n  │                               │  → clinical efficacy: long chain │\n  └──────────────────────────────────────────────────────────────────┘",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-8",
+      "kind": "chart_like",
+      "line": 332,
+      "heading_context": "## Section 4 — RoseTTAFold and ESMFold",
+      "confidence": "candidate",
+      "text": "### RoseTTAFold (Baker group, 2021)",
+      "notes": [
+        "detected from bar/chart glyph density with numeric labels"
+      ]
+    },
+    {
+      "id": "block-9",
+      "kind": "chart_like",
+      "line": 354,
+      "heading_context": "### RoseTTAFold (Baker group, 2021)",
+      "confidence": "candidate",
+      "text": "### ESMFold (Meta, 2022)",
+      "notes": [
+        "detected from bar/chart glyph density with numeric labels"
+      ]
+    },
+    {
+      "id": "block-10",
+      "kind": "diagram_like",
+      "line": 358,
+      "heading_context": "### ESMFold (Meta, 2022)",
+      "confidence": "candidate",
+      "text": "  ARCHITECTURE:\n    Large language model (ESM-2, 650M or 3B parameters) pre-trained\n    on protein sequence database (language modeling on sequences)\n    → sequence embeddings capture co-evolutionary information implicitly\n    Structure prediction head: folding trunk (smaller than Evoformer)\n    using ESM-2 embeddings as input\n\n  KEY DIFFERENCE FROM AF2:\n    No explicit MSA: embeddings derived from model parameters, not alignment\n    → 60× faster inference (no MSA search bottleneck)\n    → Works even for de novo sequences (no homologs needed)\n    → Lower accuracy than AF2 for proteins with informative MSAs\n    → Comparable accuracy for proteins without homologs (orphans)\n\n  Published 690 million structures (more than AF2 for metagenomic proteins)",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-11",
+      "kind": "diagram_like",
+      "line": 385,
+      "heading_context": "### De Novo Protein Design",
+      "confidence": "candidate",
+      "text": "  RFdiffusion (2023):\n    Diffusion model on protein backbone coordinates\n    Generate novel backbone folds (not found in PDB) given design constraints\n    Then: ProteinMPNN (sequence design conditioned on backbone)\n    Then: AF2 for in silico verification\n    Applications: binders to targets, enzymes, new topologies\n\n  ProteinMPNN:\n    Message-passing neural network for inverse folding\n    Given backbone structure → predict sequences likely to fold to it\n    Outperforms Rosetta-based methods in computational metrics\n    Experimental validation rate: ~50-80% (fraction that fold as designed)\n\n  This closes the design loop:\n    Target function → Structure (RFdiffusion)\n    → Sequences (ProteinMPNN) → Verify (AF2) → Synthesize → Test",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-12",
+      "kind": "chart_like",
+      "line": 404,
+      "heading_context": "### De Novo Protein Design",
+      "confidence": "candidate",
+      "text": "### Drug Design: Why AF2 Is Not a Drug Discovery Machine",
+      "notes": [
+        "detected from bar/chart glyph density with numeric labels"
+      ]
+    },
+    {
+      "id": "block-13",
+      "kind": "diagram_like",
+      "line": 406,
+      "heading_context": "### Drug Design: Why AF2 Is Not a Drug Discovery Machine",
+      "confidence": "candidate",
+      "text": "  STRUCTURE-BASED DRUG DESIGN PIPELINE:\n\n  1. Protein structure                ← AF2 solves this (mostly)\n         ↓\n  2. Binding pocket identification     ← FPocket, SiteMap, computational\n         ↓\n  3. Virtual screening / docking       ← Glide, AutoDock, Vina\n         ↓\n  4. Predict binding affinity (ΔG)    ← FEP+, alchemical free energy\n         ↓\n  5. Synthesize & test in vitro        ← chemistry, assay development\n         ↓\n  6. Optimize potency/selectivity      ← SAR, medicinal chemistry\n         ↓\n  7. ADMET (absorption/distribution/   ← entirely separate models\n     metabolism/excretion/toxicity)    ← usually kills candidates\n         ↓\n  8. In vivo efficacy                  ← animal models\n         ↓\n  9. Clinical trials\n\n  AF2 is enormously useful at step 1.\n  Steps 2-9 require different tools, different data, different biology.\n  Success rate clinical → approval: ~10% even with good structure.\n  AF2 alone does not change clinical success rates directly.",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-14",
+      "kind": "chart_like",
+      "line": 434,
+      "heading_context": "### Drug Design: Why AF2 Is Not a Drug Discovery Machine",
+      "confidence": "candidate",
+      "text": "### AlphaFold3 (2024)",
+      "notes": [
+        "detected from bar/chart glyph density with numeric labels"
+      ]
+    },
+    {
+      "id": "block-15",
+      "kind": "diagram_like",
+      "line": 439,
+      "heading_context": "### AlphaFold3 (2024)",
+      "confidence": "candidate",
+      "text": "  ARCHITECTURE CHANGE:\n    Replaced structure module (IPA) with diffusion model\n    Input: any combination of protein / DNA / RNA / small molecule / ions\n    Joint coordinate prediction → handles covalent ligands, crosslinks\n\n  WHAT IMPROVED:\n    Protein-protein interface accuracy (CASP15 PPI track)\n    Protein-ligand docking (better than AutoDock Vina on many targets)\n    Protein-nucleic acid complex structures\n    Post-translational modifications (phospho, glycosyl, etc.)\n\n  WHAT REMAINED HARD:\n    Dynamics still absent\n    IDPs still not handled (low pLDDT ≠ meaningful ensemble)\n    Allosteric transitions: AF3 gives one state\n    Large flexible assemblies still limited",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-16",
+      "kind": "chart_like",
+      "line": 462,
+      "heading_context": "## Section 6 — Connecting to the MIT TCS Background",
+      "confidence": "candidate",
+      "text": "### What AlphaFold2 Is (and Isn't) Computationally",
+      "notes": [
+        "detected from bar/chart glyph density with numeric labels"
+      ]
+    },
+    {
+      "id": "block-17",
+      "kind": "diagram_like",
+      "line": 466,
+      "heading_context": "### What AlphaFold2 Is (and Isn't) Computationally",
+      "confidence": "candidate",
+      "text": "  BEFORE AF2:\n    Structure prediction = NP-hard in the worst case (lattice HP model)\n    Real proteins: no polynomial-time exact algorithm known\n    Heuristic methods (Rosetta): fragment assembly + energy minimization\n    Accuracy limited by energy function imprecision\n\n  AF2'S INSIGHT:\n    Does NOT solve the physics; instead, learns the mapping sequence → structure\n    from the ~180,000 known structures in PDB\n    The training data is a proxy for the physics\n    MSA + attention encodes evolutionary constraints ≈ physical constraints\n    Generalization beyond training: worked because the physics is universal\n\n  THEORETICAL LIMIT:\n    AF2 is an approximation learned from data.\n    For proteins with no evolutionary relatives (de novo sequences, novel folds):\n    AF2 performance degrades. ESMFold and RFdiffusion handle this regime better.\n    The underlying optimization landscape (energy landscape) is not explicitly used.",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    }
+  ]
+}

@@ -1,3 +1,22 @@
+---
+maxim_schema: maxim.frontmatter.v1
+id: maxim:dance:ballet
+kind: guide
+module: dance
+section: dance
+title: Ballet - Technique, Vocabulary, and History
+status: source-custody
+source_custody: partial
+current_path: dance/01-BALLET.md
+canonical_path: dance/01-BALLET.md
+backsource_ids: [proof-backfill:dance:01-ballet, git-history:dance:01-ballet]
+concepts: [ballet]
+root_concepts: [ballet]
+index_roles: [guide, root-concept]
+remap_from: []
+remap_to: []
+updated: null
+---
 # Ballet — Technique, Vocabulary, and History
 
 ## The Big Picture

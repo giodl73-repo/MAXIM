@@ -1,0 +1,193 @@
+{
+  "schema_version": "1",
+  "source_markdown": "biophysics\\08-STOCHASTIC-BIO.md",
+  "blocks": [
+    {
+      "id": "block-1",
+      "kind": "diagram_like",
+      "line": 24,
+      "heading_context": "## The Big Picture",
+      "confidence": "candidate",
+      "text": "┌──────────────────────────────────────────────────────────────────────────┐\n│             STOCHASTIC PROCESSES IN BIOLOGY LANDSCAPE                    │\n│                                                                          │\n│  WHY STOCHASTICITY MATTERS:                                              │\n│  Cell volume ~10⁻¹⁵ L → low copy numbers                                 │\n│  Typical transcription factor: ~10-1000 molecules per cell               │\n│  Transcription: 1-2 copies of each gene → discrete, bursty events        │\n│  Single-molecule reactions: Poisson statistics, not continuous flows     │\n│                                                                          │\n│  MATHEMATICAL FRAMEWORKS:                                                │\n│  ─────────────────────────────────────────────────────────────────────── │\n│  Langevin equation:  mẍ = F_det - γẋ + ξ(t)    (trajectory level)        │\n│  Fokker-Planck eq:   ∂P/∂t = -∂(FP)/∂x + D∂²P/∂x²  (density level)       │\n│  Master equation:    dPₙ/dt = Σ [W(n|m)Pₘ - W(m|n)Pₙ]  (discrete)        │\n│  Birth-death process: gene expression, protein synthesis/degradation     │\n│                                                                          │\n│  KEY RESULTS:                                                            │\n│  Fluctuation-dissipation theorem: noise ↔ dissipation are linked         │\n│  Jarzynski equality: ⟨exp(-βW)⟩ = exp(-βΔF)  (non-eq → eq)               │\n│  Crooks fluctuation theorem: P(W)/P(-W) = exp(β(W-ΔF))                   │\n│  Transcriptional bursting: protein count CV² = 1/⟨n⟩ + b/(1+kf/kb)       │\n└──────────────────────────────────────────────────────────────────────────┘",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-2",
+      "kind": "diagram_like",
+      "line": 55,
+      "heading_context": "### The Scale of Biological Fluctuations",
+      "confidence": "candidate",
+      "text": "  Volume of E. coli: ~10⁻¹⁵ L = 1 femtoliter\n  1 nM concentration = 1 molecule per femtoliter (Avogadro's number check:\n    1 nM × 10⁻¹⁵ L × 6×10²³ mol⁻¹ = 6×10⁻⁴ molecules → <1 molecule)\n  1 molecule in E. coli: ~1.6 nM effective concentration\n\n  Typical gene expression in E. coli:\n    mRNA:     1-50 molecules per cell\n    Protein: 100-50,000 molecules per cell\n\n  For Poisson-distributed counts with mean ⟨n⟩:\n    Variance: Var(n) = ⟨n⟩\n    CV = σ/⟨n⟩ = 1/sqrt(⟨n⟩)\n\n    ⟨n⟩ = 1:    CV = 100%  → huge fluctuations\n    ⟨n⟩ = 10:   CV = 32%\n    ⟨n⟩ = 100:  CV = 10%\n    ⟨n⟩ = 10⁶:  CV = 0.1%  → classical deterministic limit",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-3",
+      "kind": "diagram_like",
+      "line": 170,
+      "heading_context": "### The Probability Density Evolution",
+      "confidence": "candidate",
+      "text": "  ∂P/∂t = -∂[μ F(x) P]/∂x + D ∂²P/∂x²\n\n  μ = 1/γ (mobility)\n  F(x) = -∂U/∂x (force from potential U)\n  D = k_BT/γ (diffusion coefficient)\n\n  Can be written as continuity equation:\n  ∂P/∂t = -∂J/∂x\n\n  where J = μF(x)P - D∂P/∂x  (probability current)\n\n  At equilibrium: J = 0 → P_eq(x) ∝ exp(-U(x)/k_BT)  (Boltzmann distribution)\n  Non-equilibrium: J ≠ 0 → non-Boltzmann steady state",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-4",
+      "kind": "chart_like",
+      "line": 186,
+      "heading_context": "### The Probability Density Evolution",
+      "confidence": "candidate",
+      "text": "### Diffusion in 3D",
+      "notes": [
+        "detected from bar/chart glyph density with numeric labels"
+      ]
+    },
+    {
+      "id": "block-5",
+      "kind": "diagram_like",
+      "line": 190,
+      "heading_context": "### Diffusion in 3D",
+      "confidence": "candidate",
+      "text": "  ∂P/∂t = D ∇²P\n\n  Solution: P(r,t) = (4πDt)^(-3/2) × exp(-r²/(4Dt))\n\n  Mean squared displacement: ⟨r²⟩ = 6Dt  (3D)\n                              ⟨x²⟩ = 2Dt  (1D)\n\n  Diffusion coefficient (Stokes-Einstein):\n    D = k_BT / (6πηr)\n\n  E. coli cytoplasm (η ≈ 3 × water, r = 5 nm protein):\n    D ≈ 4.1×10⁻²¹ J / (6π × 3×10⁻³ Pa·s × 5×10⁻⁹ m)\n    D ≈ 15 μm²/s\n\n  Time to diffuse across E. coli (L ≈ 1 μm):\n    τ = L² / (6D) = 1/(6×15) s ≈ 10 ms\n    → Fast! Diffusion is not the rate-limiting step in most signaling",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-6",
+      "kind": "ascii_table_candidate",
+      "line": 219,
+      "heading_context": "### Discrete Stochastic Processes",
+      "confidence": "candidate",
+      "text": "  dP_n/dt = Σ_m [W(n|m) P_m - W(m|n) P_n]\n\n  W(n|m) = rate of transition from state m to state n\n\n  For birth-death process (gene expression):\n    Birth: protein produced at rate k_s (synthesis)\n    Death: protein degraded at rate k_d × n (first-order)\n\n  Master equation:\n    dP_n/dt = k_s P_{n-1} - k_s P_n + k_d(n+1)P_{n+1} - k_d n P_n\n\n  Steady-state solution: Poisson distribution\n    P_n = e^{-λ} λⁿ/n!   where λ = k_s/k_d = ⟨n⟩\n\n  Noise measure: Fano factor F = Var(n)/⟨n⟩ = 1  (Poisson)",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-7",
+      "kind": "diagram_like",
+      "line": 242,
+      "heading_context": "### Transcriptional Bursting",
+      "confidence": "candidate",
+      "text": "  TWO-STATE MODEL:\n\n  Gene-OFF ⇌ Gene-ON\n     kb  ↗   ↘ kf (burst initiation rate)\n            ↓\n         mRNA produced at rate ks per active gene\n            ↓\n         mRNA degraded at rate km\n\n  Steady-state protein distribution (Friedman et al. 2006):\n    P(n) = Gamma distribution (not Poisson)\n    Mean: ⟨n⟩ = ks·kf / (km·kb) (for slow switching)\n    Noise: CV² = 1/⟨n⟩ + b/(1 + kf/kb)\n\n    where b = ks/km × kf/(kf+kb) = burst size (proteins per burst)\n\n  When kb >> kf (mostly off → rare bursts):\n    CV² ≈ 1/⟨n⟩ + b   (first term: Poisson; second: excess noise from bursting)\n\n  Burstiness: b × kf/(kf+kb) → measured by single-cell RNA-seq variability",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-8",
+      "kind": "diagram_like",
+      "line": 301,
+      "heading_context": "### Statement and Physical Content",
+      "confidence": "candidate",
+      "text": "  Classical FDT (Nyquist-Johnson, 1928):\n\n  Electrical: noise voltage PSD = S_V(f) = 4k_BT R\n  (R = resistance, T = temperature, f in one-sided convention)\n\n  Generalized FDT:\n  S_x(ω) = -2k_BT / ω × Im[χ(ω)]\n\n  where:\n    S_x(ω) = power spectral density of equilibrium fluctuations\n    χ(ω) = susceptibility (linear response function: x̃(ω) = χ(ω) F̃(ω))\n    Im[χ(ω)] = imaginary part (dissipative component)\n\n  Physical content:\n    Dissipation (energy absorption from external force) and\n    Spontaneous fluctuations (thermal noise) are two faces of the same\n    underlying dynamics.\n    Large susceptibility (easy to perturb) → large fluctuations\n    Large damping → large fluctuations (for fixed temperature)",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-9",
+      "kind": "diagram_like",
+      "line": 325,
+      "heading_context": "### Biological Implications",
+      "confidence": "candidate",
+      "text": "  1. Fluctuations probe response functions:\n     Passive microrheology: track bead Brownian motion → extract viscosity\n     and elasticity of cytoplasm without applying force (non-invasive)\n\n  2. FDT is violated in active systems:\n     Cytoskeletal networks with motors → enhanced fluctuations beyond\n     thermal at low frequencies (active noise)\n     Measuring FDT violation quantifies the ATP-driven non-equilibrium activity\n     → \"active temperature\" >> thermal temperature\n\n  3. Patch clamp noise analysis:\n     Spontaneous channel openings (Johnson noise + shot noise) →\n     extract single-channel conductance without resolving individual events\n     (Nyquist-like noise analysis for ionic channels)",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-10",
+      "kind": "chart_like",
+      "line": 346,
+      "heading_context": "## Section 6 — Jarzynski Equality and Fluctuation Theorems",
+      "confidence": "candidate",
+      "text": "### Jarzynski Equality (1997)",
+      "notes": [
+        "detected from bar/chart glyph density with numeric labels"
+      ]
+    },
+    {
+      "id": "block-11",
+      "kind": "diagram_like",
+      "line": 371,
+      "heading_context": "### Comparison with Second Law",
+      "confidence": "candidate",
+      "text": "  Second law:        ⟨W⟩ ≥ ΔF     (work ≥ free energy change)\n  Equality holds:    quasi-static, reversible process\n\n  Jensen's inequality: for convex function f, ⟨f(x)⟩ ≥ f(⟨x⟩)\n  exp(-β⟨W⟩) ≤ ⟨exp(-βW)⟩ = exp(-βΔF)\n  → ⟨W⟩ ≥ ΔF  ← second law recovered from Jarzynski\n\n  Jarzynski contains the second law but provides more information:\n  From the full distribution P(W), recover ΔF exactly.",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-12",
+      "kind": "diagram_like",
+      "line": 388,
+      "heading_context": "### Practical Application: Single-Molecule Free Energies",
+      "confidence": "candidate",
+      "text": "  Protocol:\n    Pull RNA hairpin at speed v → measure work W (area under F-x curve)\n    Repeat N times (N = 100-10,000 realizations)\n    Compute: ΔF = -k_BT ln⟨exp(-W/k_BT)⟩\n\n  Challenge: exponential average dominated by rare low-W trajectories\n    → need many realizations for convergence (exponential convergence problem)\n\n  In practice: use Bennett Acceptance Ratio (BAR) or\n  Free Energy Perturbation (FEP) instead of naive Jarzynski for\n  computational efficiency\n\n  Applications:\n    • Protein/RNA unfolding free energies from optical tweezer pulling\n    • Drug binding ΔG from computational simulations\n    • Verification of equilibrium ΔG from fast switching experiments",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-13",
+      "kind": "chart_like",
+      "line": 407,
+      "heading_context": "### Practical Application: Single-Molecule Free Energies",
+      "confidence": "candidate",
+      "text": "### Crooks Fluctuation Theorem (1999)",
+      "notes": [
+        "detected from bar/chart glyph density with numeric labels"
+      ]
+    },
+    {
+      "id": "block-14",
+      "kind": "diagram_like",
+      "line": 411,
+      "heading_context": "### Crooks Fluctuation Theorem (1999)",
+      "confidence": "candidate",
+      "text": "  P_F(W) / P_R(-W) = exp(β(W - ΔF))\n\n  P_F(W) = work distribution for forward process (A→B)\n  P_R(-W) = reversed-work distribution for time-reversed process (B→A)\n\n  At W = ΔF: P_F(W=ΔF) = P_R(-W=-ΔF) → distributions cross at W = ΔF\n\n  This gives a direct graphical method to find ΔF:\n    The crossing point of P_F(W) and P_R(-W) = the free energy difference\n    No exponential averaging needed → more robust than Jarzynski",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-15",
+      "kind": "diagram_like",
+      "line": 430,
+      "heading_context": "### Phenotypic Variability and Bet-Hedging",
+      "confidence": "candidate",
+      "text": "  DETERMINISTIC WORLD:    Two cells with identical DNA → identical phenotype\n  STOCHASTIC REALITY:     Two cells with identical DNA → variable phenotype\n\n  Example: B. subtilis sporulation\n    ~10-20% of cells sporulate even in identical conditions\n    Due to stochastic fluctuations in Spo0A phosphorylation\n    Bet-hedging: some cells sporulate (survive starvation), some don't\n    (grow if conditions improve)\n\n  Example: HIV latency\n    HIV can enter latent state in T cells\n    Stochastic switching of Tat-mediated transactivation\n    Bimodal distribution: active replication vs. deep latency\n    Explains why eliminating HIV reservoirs is clinically difficult",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-16",
+      "kind": "diagram_like",
+      "line": 451,
+      "heading_context": "### Stochastic Switching and Bistability",
+      "confidence": "candidate",
+      "text": "  Genetic toggle switch (Gardner et al. 2000):\n    Gene A represses Gene B; Gene B represses Gene A\n    → two stable states: [A high, B low] or [A low, B high]\n\n  ┌──────────────────────────────────────────────────────────────────┐\n  │  Effective energy landscape (Waddington landscape):              │\n  │                                                                  │\n  │  G     ┌──┐         ┌──┐                                         │\n  │        │  │         │  │  ← energy barrier between states        │\n  │       ─┘  └─────────┘  └─   (set by synthesis/degradation rates) │\n  │       State A        State B                                      │\n  │                                                                   │\n  │  Switching rate ∝ exp(-ΔG_barrier / k_BT_effective)              │\n  │  k_T_effective = effective noise temperature                      │\n  │  Noise drives stochastic switching between states                 │\n  └──────────────────────────────────────────────────────────────────┘\n\n  Mean switching time ∝ exp(+ΔG/σ²) where σ² = noise variance\n  → Strong noise: fast switching (high noise temp)\n  → Weak noise: slow switching (low noise temp)",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-17",
+      "kind": "ascii_table_candidate",
+      "line": 480,
+      "heading_context": "## Probability, CS, and Information Theory Bridges",
+      "confidence": "candidate",
+      "text": "  STOCHASTIC BIOLOGY            CS / PROBABILITY PARALLEL\n  ──────────────────────────────────────────────────────────────────────\n  Master equation               CTMC (continuous-time Markov chain):\n  dP_n/dt = Σ [W(n|m)P_m - W(m|n)P_n]   the standard formulation of any\n                                CTMC. Gene expression birth-death process\n                                is a standard M/M/∞ queue: birth rate k_s\n                                (arrivals), degradation k_d·n (service\n                                rate proportional to queue length).\n                                Steady-state is Poisson — exactly as for\n                                a Poisson process in queuing theory.\n\n  Transcriptional bursting      Compound Poisson process (burst arrivals):\n  (Gamma-distributed noise,     genes fire at rate kf (burst rate) with\n  Fano > 1)                     geometric burst size b. The resulting\n                                protein distribution is Negative Binomial\n                                (or Gamma for continuous approximation).\n                                This is the shot noise model: Poisson\n                                number of bursts, random burst size.\n\n  Langevin equation             Stochastic differential equation (Ito SDE):\n  γẋ = F(x) + ξ(t)             ẋ = -dU/dx·(1/γ) + √(2D)·dW_t\n                                where W_t is a Wiener process. The Einstein\n                                relation D = k_BT/γ connects diffusivity to\n                                temperature — the same relation as in\n                                Brownian motion models in quantitative\n                                finance (though without the biology context).\n\n  Fokker-Planck equation        Probability flux continuity equation:\n  ∂P/∂t = -∂(μFP)/∂x + D∂²P/∂x²   formally identical to the convection-\n                                diffusion PDE. Steady-state P_eq ∝ exp(-U/k_BT)\n                                is the Boltzmann distribution — also the\n                                invariant measure of the Langevin SDE.\n\n  Fluctuation-dissipation       Johnson-Nyquist noise in electrical circuits:\n  theorem                       S_V(f) = 4k_BT·R. Thermal noise voltage across\n  ⟨ξ(t)ξ(t')⟩ = 2γk_BT·δ(t-t') a resistor equals 2γk_BT in the mechanical\n                                analog. Active systems violate FDT — they have\n                                an \"effective temperature\" > T_bath because\n                                ATP-driven motors inject non-thermal noise.\n\n  Jarzynski equality            Exponential moment identity from probability:\n  ⟨exp(-βW)⟩ = exp(-βΔF)      If W = -ΔF in all trajectories (reversible),\n                                equality holds exactly. Away from reversibility,\n                                rare low-W trajectories dominate the exponential\n                                average — same bias problem as importance\n                                sampling with the wrong proposal distribution.\n\n  Gene expression noise         Shannon entropy and mutual information:\n  (intrinsic vs extrinsic)      intrinsic noise is shot noise (fundamental\n                                irreducible noise of a counting process);\n                                extrinsic noise is parameter variation\n                                (variability in the channel). The Elowitz\n                                two-reporter decomposition is exactly a\n                                variance decomposition — analogous to\n                                decomposing total variability into within-\n                                cell and between-cell components.\n  ──────────────────────────────────────────────────────────────────────",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    }
+  ]
+}

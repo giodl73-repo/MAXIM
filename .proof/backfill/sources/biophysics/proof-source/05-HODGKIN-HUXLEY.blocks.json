@@ -1,0 +1,149 @@
+{
+  "schema_version": "1",
+  "source_markdown": "biophysics\\05-HODGKIN-HUXLEY.md",
+  "blocks": [
+    {
+      "id": "block-1",
+      "kind": "diagram_like",
+      "line": 24,
+      "heading_context": "## The Big Picture",
+      "confidence": "candidate",
+      "text": "┌──────────────────────────────────────────────────────────────────────────┐\n│              HODGKIN-HUXLEY MODEL LANDSCAPE                              │\n│                                                                          │\n│  BIOLOGICAL REALITY               MODEL ABSTRACTION                      │\n│  ──────────────────               ─────────────────                      │\n│  Na⁺ channel: opens, then inact.  m³h: m=activation, h=inactivation      │\n│  K⁺ channel: opens slowly         n⁴: n=delayed rectifier gating         │\n│  Lipid bilayer                    Capacitor C_m                          │\n│  Ion pumps (Na/K-ATPase)          Not modeled (sets initial conditions)  │\n│                                                                          │\n│  THE MODEL EQUATION:                                                     │\n│  C_m dV/dt = -g_Na m³h (V-E_Na) - g_K n⁴ (V-E_K) - g_L(V-E_L) + I_ext    │\n│                                                                          │\n│  BRIDGE TO COMPUTING:                                                    │\n│  Biological neuron: H-H model (1952)                                     │\n│      ↓  abstraction                                                      │\n│  McCulloch-Pitts neuron (1943): threshold unit                           │\n│      ↓  generalization                                                   │\n│  Perceptron (Rosenblatt, 1958): weighted sum + threshold                 │\n│      ↓  nonlinearity                                                     │\n│  Modern artificial neuron: weighted sum + activation function            │\n│  What was kept: firing threshold, weight sum, activation                 │\n│  What was discarded: time, ion channels, refractory period, cable theory │\n└──────────────────────────────────────────────────────────────────────────┘",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-2",
+      "kind": "diagram_like",
+      "line": 64,
+      "heading_context": "## Section 1 — The Experimental Foundation (Squid Giant Axon)",
+      "confidence": "candidate",
+      "text": "  Feedback amplifier holds V_m at command voltage V_c\n  Measures the current I needed to hold V_m = V_c\n\n  At V_c = -70 mV (rest): I ≈ 0\n  Step to V_c = 0 mV:\n    Early current: inward (~Na⁺ influx), then turns off (inactivation)\n    Late current: outward (~K⁺ efflux), maintained\n    Capacitive transient at step onset (C_m × dV/dt)\n\n  Ion isolation:\n    Replace Na⁺ with choline (same charge, impermeable) → only K⁺ current\n    Subtract: (total current) - (K⁺ only) = Na⁺ current\n\n  This pharmacological dissection revealed separate Na⁺ and K⁺ conductances.",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-3",
+      "kind": "ascii_table_candidate",
+      "line": 92,
+      "heading_context": "### The Master ODE",
+      "confidence": "candidate",
+      "text": "  C_m dV/dt = I_ion + I_ext\n\n  I_ion = -[g_Na m³h (V - E_Na) + g_K n⁴ (V - E_K) + g_L (V - E_L)]\n\n  Parameters (squid axon, ~6°C):\n    C_m = 1 μF/cm²\n    g_Na = 120 mS/cm²   (maximal Na⁺ conductance)\n    g_K  = 36 mS/cm²    (maximal K⁺ conductance)\n    g_L  = 0.3 mS/cm²   (leak: Cl⁻ and others)\n    E_Na = +55 mV\n    E_K  = -77 mV\n    E_L  = -54.4 mV",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-4",
+      "kind": "diagram_like",
+      "line": 163,
+      "heading_context": "### Action Potential: Phase-by-Phase Analysis",
+      "confidence": "candidate",
+      "text": "  PHASE        TIME     WHAT HAPPENS                    GATES\n  ─────────────────────────────────────────────────────────────────────\n  Resting      t < 0    V_m = -65 mV                    m ≈ 0, h ≈ 1, n ≈ 0.3\n\n  Stimulus     t = 0    I_ext depolarizes to threshold   gating begins\n               (~0 ms)  (threshold ≈ -55 mV; about       (if below threshold:\n                         10 mV above rest)                graded response decays)\n\n  Rising phase 0-1 ms   Na⁺ channels open (m increases) m → 1, h still 1\n                         Inward Na⁺ current > outward K⁺ g_Na large\n                         Positive feedback (V ↑ → m ↑ →   K⁺ channels still\n                         more depolarization)              mostly closed\n                         V → E_Na ≈ +55 mV               (n slow)\n\n  Peak         ~1 ms     V ≈ +40 mV                     m ≈ 1, h → 0 (closing)\n                          Na⁺ channels begin inactivating n increasing\n\n  Repolariz.   1-2 ms    Na⁺ inactivation complete       m high, h → 0\n                          K⁺ channels now open            g_Na → 0\n                          Outward K⁺ current drives V down n → 1\n\n  Undershoot   2-4 ms    V passes through E_K ≈ -77 mV  n still high (K⁺ open)\n  (hyperpol.)             K⁺ channels slow to close       h recovering\n\n  Refractory   4-10 ms   Absolute: Na⁺ h still = 0;     h near 0 (absolute)\n                          no new AP possible              h recovering (relative)\n                          Relative: V below rest; h low\n                          (need larger stimulus)\n  ─────────────────────────────────────────────────────────────────────",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-5",
+      "kind": "diagram_like",
+      "line": 201,
+      "heading_context": "### Threshold and All-or-None Behavior",
+      "confidence": "candidate",
+      "text": "  Below threshold:\n    Small depolarization → small m increase → small Na⁺ current\n    Outward leak + K⁺ current > inward Na⁺ → V returns to rest\n\n  At threshold:\n    Na⁺ inward current exactly matches outward currents\n    Unstable equilibrium (saddle point in phase space)\n\n  Above threshold:\n    Positive feedback:  V↑ → m↑ → g_Na↑ → I_Na↑ → V↑ → ...\n    Na⁺ current \"wins\" → full AP\n\n  Mathematical: Hopf bifurcation (Type II) or saddle-node\n  bifurcation (Type I) depending on neuron type",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-6",
+      "kind": "diagram_like",
+      "line": 227,
+      "heading_context": "### The Cable Equation",
+      "confidence": "candidate",
+      "text": "  λ² ∂²V/∂x² - τ_m ∂V/∂t = V - V_rest\n\n  λ = sqrt(r_m / r_a) = space constant [m]\n  τ_m = r_m × c_m = time constant [s]\n\n  r_m = membrane resistance per unit length [Ω·m]\n  r_a = axial (intracellular) resistance per unit length [Ω/m]\n  c_m = membrane capacitance per unit length [F/m]\n\n  Passive (subthreshold) signals decay exponentially:\n    V(x) = V₀ exp(-x/λ)   (steady-state spatial profile)\n\n  For unmyelinated mammalian axon:\n    λ ≈ 0.1-1 mm → signal decays severely over mm distances\n    → Active propagation (AP) is needed for long-distance signaling",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-7",
+      "kind": "diagram_like",
+      "line": 250,
+      "heading_context": "### Myelination and Saltatory Conduction",
+      "confidence": "candidate",
+      "text": "  UNMYELINATED AXON:                    MYELINATED AXON:\n  AP propagates continuously            AP jumps between Nodes of Ranvier\n  Speed: 0.5-2 m/s                      Speed: 50-100 m/s (saltatory)\n  High metabolic cost (continuous       Low metabolic cost (Na/K-ATPase\n  Na/K-ATPase activity along axon)      only at nodes)\n\n  Myelin effect on cable parameters:\n    r_m ↑ (myelin is electrically insulating) → λ ↑ dramatically\n    c_m ↓ (myelin adds series capacitance)     → τ_m ↓\n    Combined: λ >> internode distance → AP jumps without active regen.\n\n  Multiple sclerosis: demyelination → slowed conduction, fatigue,\n  weakness (axon lengths now exceed λ → signals fail to propagate)",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-8",
+      "kind": "diagram_like",
+      "line": 268,
+      "heading_context": "### Conduction Velocity Scaling",
+      "confidence": "candidate",
+      "text": "  Unmyelinated axon:   v ∝ sqrt(d)   (d = axon diameter)\n  Myelinated axon:     v ∝ d\n\n  For squid giant axon (d = 1 mm unmyelinated):  v ≈ 25 m/s\n  For mammalian myelinated fiber (d = 20 μm):    v ≈ 100 m/s\n  → Myelination gets ~100× faster conduction at 50× smaller diameter",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-9",
+      "kind": "diagram_like",
+      "line": 285,
+      "heading_context": "### What Biology Provided",
+      "confidence": "candidate",
+      "text": "  1943: McCulloch-Pitts (MP) neuron\n    y = Θ(Σ wᵢxᵢ - θ)    (Θ = Heaviside step function)\n    Inspired by biology: all-or-none firing, threshold\n    Ignored: time dynamics, ion channels, refractory period, cable theory\n\n  1958: Rosenblatt's Perceptron\n    y = sign(Σ wᵢxᵢ + b)\n    Added: learning rule for weights\n    Ignored: same biological details, plus hidden layers\n\n  1986: Backpropagation (Rumelhart, Hinton, Williams)\n    Replaced step function with differentiable sigmoid\n    This is the crucial break from biology: need smooth activation for gradients\n\n  Modern deep learning (2012-present):\n    y = f(Wx + b)   f = ReLU, GELU, sigmoid, tanh\n    Stacked layers; trained by gradient descent\n\n  KEPT from biology:      DISCARDED from biology:\n  ─────────────────────   ──────────────────────────────────────\n  Nonlinear activation    Temporal dynamics (spikes, timing)\n  All-or-none threshold   Refractory periods\n  Weighted summation      Compartmental structure (dendrites)\n  Network organization    Cable equation (spatial signal decay)\n  Excitation/inhibition   Ion channel gating kinetics\n  Layer hierarchy         Specific neurotransmitter chemistry",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-10",
+      "kind": "diagram_like",
+      "line": 318,
+      "heading_context": "### Spiking Neural Networks (SNNs)",
+      "confidence": "candidate",
+      "text": "  Leaky Integrate-and-Fire (LIF) neuron:\n\n  τ_m dV/dt = -(V - V_rest) + R × I(t)\n\n  When V reaches threshold V_th:\n    Emit spike → V reset to V_reset\n    Refractory period τ_ref enforced\n\n  Advantages: closer to biology, sparse coding, event-driven\n  Challenges: non-differentiable threshold → hard to train\n  Workaround: surrogate gradients (approximate step function with sigmoid\n  during backprop)\n\n  Current state: SNNs approach (but rarely exceed) ANN accuracy on\n  standard benchmarks; power-efficient on neuromorphic hardware\n  (Intel Loihi, IBM TrueNorth) but not yet competitive at scale",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-11",
+      "kind": "diagram_like",
+      "line": 364,
+      "heading_context": "### Other Neuron Models and Their Tradeoffs",
+      "confidence": "candidate",
+      "text": "  ┌────────────────────────────────────────────────────────────────────┐\n  │  MODEL            │  DETAIL │  TRACTABLE │  CAPTURES               │\n  │  ─────────────── │  ─────  │  ─────────  │  ────────────────────── │\n  │  H-H (4 var)      │  High   │  Moderate   │  AP shape, channel kinet.│\n  │  FitzHugh-Nagumo  │  Low    │  High       │  Threshold, refractory │\n  │  (2 var)          │         │             │  excitable dynamics    │\n  │  Izhikevich (2 var│  Low    │  High       │  20 firing patterns of │\n  │  + reset rules)   │         │             │  real neurons          │\n  │  Morris-Lecar     │  Med    │  High       │  Bursting, phase plane │\n  │  (2 var)          │         │             │  analysis tractable    │\n  │  Multi-compartment│  High   │  Low        │  Dendritic computation,  │\n  │  (100s of compart)│         │             │  realistic morphology  │\n  └────────────────────────────────────────────────────────────────────┘",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-12",
+      "kind": "diagram_like",
+      "line": 384,
+      "heading_context": "### Bifurcation Classification and Neuron Firing Classes",
+      "confidence": "candidate",
+      "text": "  TYPE I EXCITABILITY (Class 1 neurons):\n    Bifurcation: SNIC (Saddle-Node on Invariant Circle)\n    Characteristic: firing rate can be arbitrarily low near threshold\n                    (continuous F-I curve starting from zero Hz)\n    Example: cortical pyramidal neurons, hippocampal CA1\n    Phase portrait: stable node + saddle annihilate on a limit cycle\n\n  TYPE II EXCITABILITY (Class 2 neurons):\n    Bifurcation: Hopf (subcritical or supercritical)\n    Characteristic: firing jumps from silence to a finite minimum frequency\n                    (discontinuous F-I curve with threshold frequency)\n    Example: squid axon (original H-H model), fast-spiking interneurons\n    Phase portrait: limit cycle appears via Hopf; bistability possible\n\n  H-H squid axon: subcritical Hopf → Type II\n    The threshold in Section 2 is a saddle point near the Hopf boundary.\n    Repetitive firing in H-H requires a sustained depolarizing current.\n    At physiological temperature (37°C), H-H parameters shift toward Type I.",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-13",
+      "kind": "diagram_like",
+      "line": 411,
+      "heading_context": "### Phase Plane Analysis of Excitability",
+      "confidence": "candidate",
+      "text": "  dv/dt = v - v³/3 - w + I\n  dw/dt = ε(v + a - bw)\n\n  v = fast variable (voltage-like)\n  w = slow variable (recovery-like, corresponds to h and n)\n  ε << 1: w is slow\n\n  Phase portrait:\n    V-nullcline: dv/dt = 0 → cubic curve\n    w-nullcline: dw/dt = 0 → straight line\n\n    Intersection = fixed point\n    Single intersection below threshold: stable rest\n    Hopf bifurcation at threshold → limit cycle oscillation\n    Limit cycle = sustained AP firing (repetitive)",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    }
+  ]
+}

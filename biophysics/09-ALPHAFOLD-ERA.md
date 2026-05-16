@@ -1,3 +1,22 @@
+---
+maxim_schema: maxim.frontmatter.v1
+id: maxim:biophysics:alphafold-era
+kind: guide
+module: biophysics
+section: biophysics
+title: The AlphaFold Era - Architecture, Database, and What Remains Unsolved
+status: source-custody
+source_custody: partial
+current_path: biophysics/09-ALPHAFOLD-ERA.md
+canonical_path: biophysics/09-ALPHAFOLD-ERA.md
+backsource_ids: [proof-backfill:biophysics:09-alphafold-era, git-history:biophysics:09-alphafold-era]
+concepts: [alphafold, era]
+root_concepts: [alphafold, era]
+index_roles: [guide, root-concept]
+remap_from: []
+remap_to: []
+updated: null
+---
 # The AlphaFold Era — Architecture, Database, and What Remains Unsolved
 
 ## The Big Picture

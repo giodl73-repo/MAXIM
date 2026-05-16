@@ -1,3 +1,22 @@
+---
+maxim_schema: maxim.frontmatter.v1
+id: maxim:biophysics:structural-methods
+kind: guide
+module: biophysics
+section: biophysics
+title: Structural Biology Methods - X-ray Crystallography, NMR, and Cryo-EM
+status: source-custody
+source_custody: partial
+current_path: biophysics/03-STRUCTURAL-METHODS.md
+canonical_path: biophysics/03-STRUCTURAL-METHODS.md
+backsource_ids: [proof-backfill:biophysics:03-structural-methods, git-history:biophysics:03-structural-methods]
+concepts: [structural, methods]
+root_concepts: [structural, methods]
+index_roles: [guide, root-concept]
+remap_from: []
+remap_to: []
+updated: null
+---
 # Structural Biology Methods — X-ray Crystallography, NMR, and Cryo-EM
 
 ## The Big Picture
