@@ -1,3 +1,22 @@
+---
+maxim_schema: maxim.frontmatter.v1
+id: maxim:cinema-film:cinematography-optics
+kind: guide
+module: cinema-film
+section: cinema-film
+title: Cinematography and Optics: Lenses, Exposure Triangle, Film Stocks vs Digital Sensors, Dynamic Range
+status: source-custody
+source_custody: partial
+current_path: cinema-film/07-CINEMATOGRAPHY-OPTICS.md
+canonical_path: cinema-film/07-CINEMATOGRAPHY-OPTICS.md
+backsource_ids: [proof-backfill:cinema-film:07-cinematography-optics, git-history:cinema-film:07-cinematography-optics]
+concepts: [cinematography, optics]
+root_concepts: [cinematography, optics]
+index_roles: [guide, root-concept]
+remap_from: []
+remap_to: []
+updated: null
+---
 # Cinematography and Optics: Lenses, Exposure Triangle, Film Stocks vs Digital Sensors, Dynamic Range
 
 ## The Big Picture

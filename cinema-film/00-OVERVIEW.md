@@ -1,3 +1,22 @@
+---
+maxim_schema: maxim.frontmatter.v1
+id: maxim:cinema-film:overview
+kind: guide
+module: cinema-film
+section: cinema-film
+title: Cinema and Film - Overview
+status: source-custody
+source_custody: partial
+current_path: cinema-film/00-OVERVIEW.md
+canonical_path: cinema-film/00-OVERVIEW.md
+backsource_ids: [proof-backfill:cinema-film:00-overview, git-history:cinema-film:00-overview]
+concepts: [overview]
+root_concepts: [overview]
+index_roles: [guide, root-concept]
+remap_from: []
+remap_to: []
+updated: null
+---
 # Cinema and Film — Overview
 
 ## The Big Picture

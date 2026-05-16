@@ -1,3 +1,22 @@
+---
+maxim_schema: maxim.frontmatter.v1
+id: maxim:printing-publishing:newspapers-periodicals
+kind: guide
+module: printing-publishing
+section: printing-publishing
+title: Newspapers and Periodicals: First Newspapers, Coffeehouse Culture, Penny Press, Yellow Journalism, Wire Services
+status: source-custody
+source_custody: partial
+current_path: printing-publishing/06-NEWSPAPERS-PERIODICALS.md
+canonical_path: printing-publishing/06-NEWSPAPERS-PERIODICALS.md
+backsource_ids: [proof-backfill:printing-publishing:06-newspapers-periodicals, git-history:printing-publishing:06-newspapers-periodicals]
+concepts: [newspapers, periodicals]
+root_concepts: [newspapers, periodicals]
+index_roles: [guide, root-concept]
+remap_from: []
+remap_to: []
+updated: null
+---
 # Newspapers and Periodicals: First Newspapers, Coffeehouse Culture, Penny Press, Yellow Journalism, Wire Services
 
 ## The Big Picture

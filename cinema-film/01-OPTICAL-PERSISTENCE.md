@@ -1,3 +1,22 @@
+---
+maxim_schema: maxim.frontmatter.v1
+id: maxim:cinema-film:optical-persistence
+kind: guide
+module: cinema-film
+section: cinema-film
+title: Optical Persistence and Motion: Phi Phenomenon, Critical Flicker Fusion, Pre-Cinema Devices, Muybridge
+status: source-custody
+source_custody: partial
+current_path: cinema-film/01-OPTICAL-PERSISTENCE.md
+canonical_path: cinema-film/01-OPTICAL-PERSISTENCE.md
+backsource_ids: [proof-backfill:cinema-film:01-optical-persistence, git-history:cinema-film:01-optical-persistence]
+concepts: [optical, persistence]
+root_concepts: [optical, persistence]
+index_roles: [guide, root-concept]
+remap_from: []
+remap_to: []
+updated: null
+---
 # Optical Persistence and Motion: Phi Phenomenon, Critical Flicker Fusion, Pre-Cinema Devices, Muybridge
 
 ## The Big Picture

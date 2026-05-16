@@ -1,3 +1,22 @@
+---
+maxim_schema: maxim.frontmatter.v1
+id: maxim:cinema-film:world-cinema
+kind: guide
+module: cinema-film
+section: cinema-film
+title: World Cinema: Italian Neorealism, French New Wave, German Expressionism, Japanese Masters, New Hollywood
+status: source-custody
+source_custody: partial
+current_path: cinema-film/06-WORLD-CINEMA.md
+canonical_path: cinema-film/06-WORLD-CINEMA.md
+backsource_ids: [proof-backfill:cinema-film:06-world-cinema, git-history:cinema-film:06-world-cinema]
+concepts: [world, cinema]
+root_concepts: [world, cinema]
+index_roles: [guide, root-concept]
+remap_from: []
+remap_to: []
+updated: null
+---
 # World Cinema: Italian Neorealism, French New Wave, German Expressionism, Japanese Masters, New Hollywood
 
 ## The Big Picture

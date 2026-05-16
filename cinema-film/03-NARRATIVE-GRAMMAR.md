@@ -1,3 +1,22 @@
+---
+maxim_schema: maxim.frontmatter.v1
+id: maxim:cinema-film:narrative-grammar
+kind: guide
+module: cinema-film
+section: cinema-film
+title: Film Narrative Grammar: Shot Types, Continuity Editing, Parallel Editing, Eisenstein Montage
+status: source-custody
+source_custody: partial
+current_path: cinema-film/03-NARRATIVE-GRAMMAR.md
+canonical_path: cinema-film/03-NARRATIVE-GRAMMAR.md
+backsource_ids: [proof-backfill:cinema-film:03-narrative-grammar, git-history:cinema-film:03-narrative-grammar]
+concepts: [narrative, grammar]
+root_concepts: [narrative, grammar]
+index_roles: [guide, root-concept]
+remap_from: []
+remap_to: []
+updated: null
+---
 # Film Narrative Grammar: Shot Types, Continuity Editing, Parallel Editing, Eisenstein Montage
 
 ## The Big Picture

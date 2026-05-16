@@ -1,3 +1,22 @@
+---
+maxim_schema: maxim.frontmatter.v1
+id: maxim:cinema-film:sound-color
+kind: guide
+module: cinema-film
+section: cinema-film
+title: Sound and Color: Vitaphone, The Jazz Singer, Optical Soundtrack, Technicolor, Widescreen
+status: source-custody
+source_custody: partial
+current_path: cinema-film/04-SOUND-COLOR.md
+canonical_path: cinema-film/04-SOUND-COLOR.md
+backsource_ids: [proof-backfill:cinema-film:04-sound-color, git-history:cinema-film:04-sound-color]
+concepts: [sound, color]
+root_concepts: [sound, color]
+index_roles: [guide, root-concept]
+remap_from: []
+remap_to: []
+updated: null
+---
 # Sound and Color: Vitaphone, The Jazz Singer, Optical Soundtrack, Technicolor, Widescreen
 
 ## The Big Picture

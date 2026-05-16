@@ -1,3 +1,22 @@
+---
+maxim_schema: maxim.frontmatter.v1
+id: maxim:printing-publishing:industrial-printing
+kind: guide
+module: printing-publishing
+section: printing-publishing
+title: Industrial Printing: Steam Press, Rotary Press, Linotype, Offset Lithography, Phototypesetting
+status: source-custody
+source_custody: partial
+current_path: printing-publishing/07-INDUSTRIAL-PRINTING.md
+canonical_path: printing-publishing/07-INDUSTRIAL-PRINTING.md
+backsource_ids: [proof-backfill:printing-publishing:07-industrial-printing, git-history:printing-publishing:07-industrial-printing]
+concepts: [industrial, printing]
+root_concepts: [industrial, printing]
+index_roles: [guide, root-concept]
+remap_from: []
+remap_to: []
+updated: null
+---
 # Industrial Printing: Steam Press, Rotary Press, Linotype, Offset Lithography, Phototypesetting
 
 ## The Big Picture

@@ -1,3 +1,22 @@
+---
+maxim_schema: maxim.frontmatter.v1
+id: maxim:printing-publishing:ancient-writing-materials
+kind: guide
+module: printing-publishing
+section: printing-publishing
+title: Ancient Writing Materials: Clay, Papyrus, Parchment, Wax, Bamboo, Silk
+status: source-custody
+source_custody: partial
+current_path: printing-publishing/01-ANCIENT-WRITING-MATERIALS.md
+canonical_path: printing-publishing/01-ANCIENT-WRITING-MATERIALS.md
+backsource_ids: [proof-backfill:printing-publishing:01-ancient-writing-materials, git-history:printing-publishing:01-ancient-writing-materials]
+concepts: [ancient, writing, materials]
+root_concepts: [ancient, writing]
+index_roles: [guide, root-concept]
+remap_from: []
+remap_to: []
+updated: null
+---
 # Ancient Writing Materials: Clay, Papyrus, Parchment, Wax, Bamboo, Silk
 
 ## The Big Picture

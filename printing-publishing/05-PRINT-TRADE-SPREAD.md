@@ -1,3 +1,22 @@
+---
+maxim_schema: maxim.frontmatter.v1
+id: maxim:printing-publishing:print-trade-spread
+kind: guide
+module: printing-publishing
+section: printing-publishing
+title: Print Trade and Spread: Incunabula, Frankfurt Book Fair, Censorship, Reformation as Media Event
+status: source-custody
+source_custody: partial
+current_path: printing-publishing/05-PRINT-TRADE-SPREAD.md
+canonical_path: printing-publishing/05-PRINT-TRADE-SPREAD.md
+backsource_ids: [proof-backfill:printing-publishing:05-print-trade-spread, git-history:printing-publishing:05-print-trade-spread]
+concepts: [print, trade, spread]
+root_concepts: [print, trade]
+index_roles: [guide, root-concept]
+remap_from: []
+remap_to: []
+updated: null
+---
 # Print Trade and Spread: Incunabula, Frankfurt Book Fair, Censorship, Reformation as Media Event
 
 ## The Big Picture

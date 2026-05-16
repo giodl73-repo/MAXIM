@@ -1,3 +1,22 @@
+---
+maxim_schema: maxim.frontmatter.v1
+id: maxim:cinema-film:silent-era
+kind: guide
+module: cinema-film
+section: cinema-film
+title: Silent Era: Lumière Brothers, Edison/Kinetoscope, Nickelodeons, Méliès, D.W. Griffith
+status: source-custody
+source_custody: partial
+current_path: cinema-film/02-SILENT-ERA.md
+canonical_path: cinema-film/02-SILENT-ERA.md
+backsource_ids: [proof-backfill:cinema-film:02-silent-era, git-history:cinema-film:02-silent-era]
+concepts: [silent, era]
+root_concepts: [silent, era]
+index_roles: [guide, root-concept]
+remap_from: []
+remap_to: []
+updated: null
+---
 # Silent Era: Lumière Brothers, Edison/Kinetoscope, Nickelodeons, Méliès, D.W. Griffith
 
 ## The Big Picture

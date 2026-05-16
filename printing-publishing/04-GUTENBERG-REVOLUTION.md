@@ -1,3 +1,22 @@
+---
+maxim_schema: maxim.frontmatter.v1
+id: maxim:printing-publishing:gutenberg-revolution
+kind: guide
+module: printing-publishing
+section: printing-publishing
+title: The Gutenberg Revolution: Press Mechanics, Oil-Based Ink, Type Metal Alloy, the 42-Line Bible
+status: source-custody
+source_custody: partial
+current_path: printing-publishing/04-GUTENBERG-REVOLUTION.md
+canonical_path: printing-publishing/04-GUTENBERG-REVOLUTION.md
+backsource_ids: [proof-backfill:printing-publishing:04-gutenberg-revolution, git-history:printing-publishing:04-gutenberg-revolution]
+concepts: [gutenberg, revolution]
+root_concepts: [gutenberg, revolution]
+index_roles: [guide, root-concept]
+remap_from: []
+remap_to: []
+updated: null
+---
 # The Gutenberg Revolution: Press Mechanics, Oil-Based Ink, Type Metal Alloy, the 42-Line Bible
 
 ## The Big Picture

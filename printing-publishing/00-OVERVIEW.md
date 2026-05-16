@@ -1,3 +1,22 @@
+---
+maxim_schema: maxim.frontmatter.v1
+id: maxim:printing-publishing:overview
+kind: guide
+module: printing-publishing
+section: printing-publishing
+title: Printing and Publishing - Overview
+status: source-custody
+source_custody: partial
+current_path: printing-publishing/00-OVERVIEW.md
+canonical_path: printing-publishing/00-OVERVIEW.md
+backsource_ids: [proof-backfill:printing-publishing:00-overview, git-history:printing-publishing:00-overview]
+concepts: [overview]
+root_concepts: [overview]
+index_roles: [guide, root-concept]
+remap_from: []
+remap_to: []
+updated: null
+---
 # Printing & Publishing — Overview
 
 ## The Big Picture: Information Distribution Technology
