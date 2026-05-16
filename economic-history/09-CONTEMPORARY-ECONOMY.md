@@ -1,3 +1,22 @@
+---
+maxim_schema: maxim.frontmatter.v1
+id: maxim:economic-history:contemporary-economy
+kind: guide
+module: economic-history
+section: economic-history
+title: The Contemporary Economy - Economic History
+status: source-custody
+source_custody: partial
+current_path: economic-history/09-CONTEMPORARY-ECONOMY.md
+canonical_path: economic-history/09-CONTEMPORARY-ECONOMY.md
+backsource_ids: [proof-backfill:economic-history:09-contemporary-economy, git-history:economic-history:09-contemporary-economy]
+concepts: [contemporary, economy]
+root_concepts: [contemporary, economy]
+index_roles: [guide, root-concept]
+remap_from: []
+remap_to: []
+updated: null
+---
 # The Contemporary Economy — Economic History
 
 ## The Big Picture
@@ -23,12 +42,12 @@ WASHINGTON CONSENSUS (1989–2008)
    India liberaliz.    Asian crisis 1997   Selective integration
 
 HYPERGLOBALIZATION WAVE (1994–2016)
-  ┌─────────────────────────────────────────────────────────┐
-  │ NAFTA 1994 · WTO 1995 · China WTO accession 2001        │
-  │ Global supply chains: design in US, components in Asia, │
+  ┌──────────────────────────────────────────────────────────┐
+  │ NAFTA 1994 · WTO 1995 · China WTO accession 2001         │
+  │ Global supply chains: design in US, components in Asia,  │
   │ assembly in China, retail in West                        │
-  │ Trade as % of world GDP: 39% (1990) → 61% (2008)        │
-  └──────────────────────────┬──────────────────────────────┘
+  │ Trade as % of world GDP: 39% (1990) → 61% (2008)         │
+  └──────────────────────────┬───────────────────────────────┘
                              │ enables
           ┌──────────────────┼──────────────────┐
           ▼                  ▼                  ▼
@@ -47,14 +66,14 @@ HYPERGLOBALIZATION WAVE (1994–2016)
                              │
                              ▼
 POST-2008 POLICY DIVERGENCE
-  ┌────────────────┬──────────────────────────────────────┐
-  │ AUSTERITY CAMP │ STIMULUS CAMP                        │
-  │ Eurozone 2010–15│ US (Obama stimulus, QE)             │
-  │ UK 2010–2015   │ China ($586B package 2009)           │
-  │ Result: deeper │ Result: faster recovery              │
-  │ recession, debt│ but: balance sheet of central banks  │
-  │ ratio ROSE     │ expanded 4–6x (unprecedented)        │
-  └────────────────┴──────────────────────────────────────┘
+  ┌──────────────────┬──────────────────────────────────────┐
+  │ AUSTERITY CAMP   │ STIMULUS CAMP                        │
+  │ Eurozone 2010–15 │ US (Obama stimulus, QE)              │
+  │ UK 2010–2015     │ China ($586B package 2009)           │
+  │ Result: deeper   │ Result: faster recovery              │
+  │ recession, debt  │ but: balance sheet of central banks  │
+  │ ratio ROSE       │ expanded 4–6x (unprecedented)        │
+  └──────────────────┴──────────────────────────────────────┘
 
 DEGLOBALIZATION PRESSURE (2016–PRESENT)
   Populist politics (Brexit, Trump) · US-China decoupling ·

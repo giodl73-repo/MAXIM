@@ -1,3 +1,22 @@
+---
+maxim_schema: maxim.frontmatter.v1
+id: maxim:art-history:neoclassicism-romanticism
+kind: guide
+module: art-history
+section: art-history
+title: 05 - Neoclassicism and Romanticism
+status: source-custody
+source_custody: partial
+current_path: art-history/05-NEOCLASSICISM-ROMANTICISM.md
+canonical_path: art-history/05-NEOCLASSICISM-ROMANTICISM.md
+backsource_ids: [proof-backfill:art-history:05-neoclassicism-romanticism, git-history:art-history:05-neoclassicism-romanticism]
+concepts: [neoclassicism, romanticism]
+root_concepts: [neoclassicism, romanticism]
+index_roles: [guide, root-concept]
+remap_from: []
+remap_to: []
+updated: null
+---
 # 05 — Neoclassicism and Romanticism
 
 ## The Big Picture
@@ -64,16 +83,16 @@ BURKE'S CATEGORIES
 ====================
 
   BEAUTIFUL:                          SUBLIME:
-  ┌──────────────────────┐            ┌──────────────────────────┐
-  │ Smooth, small,       │            │ Vast, rugged, powerful   │
-  │ delicate, bright     │            │ Obscure, dark, infinite  │
-  │ colors               │            │ Danger at safe distance  │
-  │                      │            │                          │
-  │ Pleasure             │            │ Astonishment, terror,    │
-  │ Love                 │            │ awe -- the mind overwhelmed│
-  │ Social               │            │ Individual facing the    │
-  │                      │            │ incomprehensible         │
-  └──────────────────────┘            └──────────────────────────┘
+  ┌──────────────────────┐            ┌────────────────────────────┐
+  │ Smooth, small,       │            │ Vast, rugged, powerful     │
+  │ delicate, bright     │            │ Obscure, dark, infinite    │
+  │ colors               │            │ Danger at safe distance    │
+  │                      │            │                            │
+  │ Pleasure             │            │ Astonishment, terror,      │
+  │ Love                 │            │ awe -- mind overwhelmed    │
+  │ Social               │            │ Individual facing the      │
+  │                      │            │ incomprehensible           │
+  └──────────────────────┘            └────────────────────────────┘
 
   Kant's elaboration (Critique of Judgment, 1790):
   The sublime is our recognition that nature's vastness exceeds

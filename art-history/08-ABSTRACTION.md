@@ -1,3 +1,22 @@
+---
+maxim_schema: maxim.frontmatter.v1
+id: maxim:art-history:abstraction
+kind: guide
+module: art-history
+section: art-history
+title: 08 - Abstraction
+status: source-custody
+source_custody: partial
+current_path: art-history/08-ABSTRACTION.md
+canonical_path: art-history/08-ABSTRACTION.md
+backsource_ids: [proof-backfill:art-history:08-abstraction, git-history:art-history:08-abstraction]
+concepts: [abstraction]
+root_concepts: [abstraction]
+index_roles: [guide, root-concept]
+remap_from: []
+remap_to: []
+updated: null
+---
 # 08 — Abstraction
 
 ## The Big Picture

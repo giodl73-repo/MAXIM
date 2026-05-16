@@ -1,3 +1,22 @@
+---
+maxim_schema: maxim.frontmatter.v1
+id: maxim:art-history:postwar-contemporary
+kind: guide
+module: art-history
+section: art-history
+title: 09 - Postwar and Contemporary Art
+status: source-custody
+source_custody: partial
+current_path: art-history/09-POSTWAR-CONTEMPORARY.md
+canonical_path: art-history/09-POSTWAR-CONTEMPORARY.md
+backsource_ids: [proof-backfill:art-history:09-postwar-contemporary, git-history:art-history:09-postwar-contemporary]
+concepts: [postwar, contemporary]
+root_concepts: [postwar, contemporary]
+index_roles: [guide, root-concept]
+remap_from: []
+remap_to: []
+updated: null
+---
 # 09 — Postwar and Contemporary Art
 
 ## The Big Picture
@@ -184,7 +203,7 @@ MINIMALISM'S ARGUMENT
   │ "Three-dimensionality is real space. That gets rid    │
   │ of the problem of illusionism and of literal space,   │
   │ space in and around marks and colors -- which is      │
-  │ riddance of one of the salient and most objectionable│
+  │ riddance of one of the salient and most objectionable │
   │ relics of European art."                              │
   └───────────────────────────────────────────────────────┘
 

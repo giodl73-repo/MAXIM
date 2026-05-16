@@ -1,3 +1,22 @@
+---
+maxim_schema: maxim.frontmatter.v1
+id: maxim:economic-history:industrial-revolution
+kind: guide
+module: economic-history
+section: economic-history
+title: The Industrial Revolution - Economic History
+status: source-custody
+source_custody: partial
+current_path: economic-history/04-INDUSTRIAL-REVOLUTION.md
+canonical_path: economic-history/04-INDUSTRIAL-REVOLUTION.md
+backsource_ids: [proof-backfill:economic-history:04-industrial-revolution, git-history:economic-history:04-industrial-revolution]
+concepts: [industrial, revolution]
+root_concepts: [industrial, revolution]
+index_roles: [guide, root-concept]
+remap_from: []
+remap_to: []
+updated: null
+---
 # The Industrial Revolution — Economic History
 
 ## The Big Picture

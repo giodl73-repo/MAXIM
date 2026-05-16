@@ -1,3 +1,22 @@
+---
+maxim_schema: maxim.frontmatter.v1
+id: maxim:art-history:art-market
+kind: guide
+module: art-history
+section: art-history
+title: 11 - The Art Market
+status: source-custody
+source_custody: partial
+current_path: art-history/11-ART-MARKET.md
+canonical_path: art-history/11-ART-MARKET.md
+backsource_ids: [proof-backfill:art-history:11-art-market, git-history:art-history:11-art-market]
+concepts: [art, market]
+root_concepts: [art, market]
+index_roles: [guide, root-concept]
+remap_from: []
+remap_to: []
+updated: null
+---
 # 11 — The Art Market
 
 ## The Big Picture

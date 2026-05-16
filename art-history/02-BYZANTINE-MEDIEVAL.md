@@ -1,3 +1,22 @@
+---
+maxim_schema: maxim.frontmatter.v1
+id: maxim:art-history:byzantine-medieval
+kind: guide
+module: art-history
+section: art-history
+title: 02 - Byzantine and Medieval Art
+status: source-custody
+source_custody: partial
+current_path: art-history/02-BYZANTINE-MEDIEVAL.md
+canonical_path: art-history/02-BYZANTINE-MEDIEVAL.md
+backsource_ids: [proof-backfill:art-history:02-byzantine-medieval, git-history:art-history:02-byzantine-medieval]
+concepts: [byzantine, medieval]
+root_concepts: [byzantine, medieval]
+index_roles: [guide, root-concept]
+remap_from: []
+remap_to: []
+updated: null
+---
 # 02 — Byzantine and Medieval Art
 
 ## The Big Picture

@@ -1,3 +1,22 @@
+---
+maxim_schema: maxim.frontmatter.v1
+id: maxim:economic-history:bretton-woods
+kind: guide
+module: economic-history
+section: economic-history
+title: Bretton Woods - Economic History
+status: source-custody
+source_custody: partial
+current_path: economic-history/07-BRETTON-WOODS.md
+canonical_path: economic-history/07-BRETTON-WOODS.md
+backsource_ids: [proof-backfill:economic-history:07-bretton-woods, git-history:economic-history:07-bretton-woods]
+concepts: [bretton, woods]
+root_concepts: [bretton, woods]
+index_roles: [guide, root-concept]
+remap_from: []
+remap_to: []
+updated: null
+---
 # Bretton Woods — Economic History
 
 ## The Big Picture

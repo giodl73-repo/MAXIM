@@ -1,3 +1,22 @@
+---
+maxim_schema: maxim.frontmatter.v1
+id: maxim:art-history:non-western
+kind: guide
+module: art-history
+section: art-history
+title: 10 - Non-Western Art Traditions
+status: source-custody
+source_custody: partial
+current_path: art-history/10-NON-WESTERN.md
+canonical_path: art-history/10-NON-WESTERN.md
+backsource_ids: [proof-backfill:art-history:10-non-western, git-history:art-history:10-non-western]
+concepts: [non, western]
+root_concepts: [non, western]
+index_roles: [guide, root-concept]
+remap_from: []
+remap_to: []
+updated: null
+---
 # 10 — Non-Western Art Traditions
 
 ## The Big Picture
@@ -54,14 +73,14 @@ WENREN IDEAL vs PROFESSIONAL PAINTING
 ========================================
 
   PROFESSIONAL PAINTER:           LITERATI PAINTER:
-  ┌───────────────────────────┐   ┌───────────────────────────────┐
-  │ Hired for skill            │   │ Paints as personal cultivation │
-  │ Client sets the subject   │   │ Chooses subject for meaning   │
-  │ Technical virtuosity valued│   │ Technical ease APPEARS easy  │
-  │ Illusionistic rendering   │   │ Brushwork = moral character   │
-  │ Color, decoration           │   │ Ink, not color (primarily)  │
-  │ Work as product            │   │ Work as self-portrait of mind │
-  └───────────────────────────┘   └───────────────────────────────┘
+  ┌──────────────────────────────┐   ┌────────────────────────────────┐
+  │ Hired for skill              │   │ Paints as personal cultivation │
+  │ Client sets the subject      │   │ Chooses subject for meaning    │
+  │ Technical virtuosity valued  │   │ Technical ease APPEARS easy    │
+  │ Illusionistic rendering      │   │ Brushwork = moral character    │
+  │ Color, decoration            │   │ Ink, not color (primarily)     │
+  │ Work as product              │   │ Work as self-portrait of mind  │
+  └──────────────────────────────┘   └────────────────────────────────┘
 
   THE CLAIM: You can read a person's moral character from their brushwork.
   A controlled, virtuous brush = a controlled, virtuous person.

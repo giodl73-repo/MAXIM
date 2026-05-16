@@ -1,3 +1,22 @@
+---
+maxim_schema: maxim.frontmatter.v1
+id: maxim:art-history:baroque-rococo
+kind: guide
+module: art-history
+section: art-history
+title: 04 - Baroque and Rococo
+status: source-custody
+source_custody: partial
+current_path: art-history/04-BAROQUE-ROCOCO.md
+canonical_path: art-history/04-BAROQUE-ROCOCO.md
+backsource_ids: [proof-backfill:art-history:04-baroque-rococo, git-history:art-history:04-baroque-rococo]
+concepts: [baroque, rococo]
+root_concepts: [baroque, rococo]
+index_roles: [guide, root-concept]
+remap_from: []
+remap_to: []
+updated: null
+---
 # 04 — Baroque and Rococo
 
 ## The Big Picture
